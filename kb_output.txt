@@ -1,0 +1,2686 @@
+--- .foundry/docs/knowledge_base/infrastructure/pnpm_v11_migration.md ---
+# pnpm v11 Migration Memory
+
+## Key Changes
+- **Configuration Relocation**: The `pnpm` field in `package.json` is deprecated. All settings must move to `pnpm-workspace.yaml`.
+- **.npmrc Migration**: Non-auth/registry settings (like `legacy-peer-deps`) must move from `.npmrc` to `pnpm-workspace.yaml` using camelCase keys (e.g., `legacyPeerDeps: true`).
+- **Build Script Permissions**: The `onlyBuiltDependencies` array is replaced by the `allowBuilds` map (`Record<string, boolean>`).
+- **Audit Config**: `auditConfig.ignoreCves` is renamed to `auditConfig.ignoreGhsas`.
+- **Minimum Release Age**: v11 introduced a default 24h installation delay (`minimumReleaseAge: 1440`). Specific packages published within the last 24h can be exempted using `minimumReleaseAgeExclude`.
+
+## Implementation Details
+- **packageManager Field**: Update to pnpm@11.x with proper hash.
+- **engines Field**: Update `engines.pnpm` to `>=11.x`.
+- **Workspace File**: `pnpm-workspace.yaml` now serves as the primary location for pnpm settings.
+--- .foundry/docs/knowledge_base/infrastructure/jules_api_v1alpha_spec.md ---
+# Jules API v1alpha Specification (REST)
+
+Based on official Google documentation retrieved on 2026-04-22.
+
+## Session Object
+- **Endpoint**: `https://jules.googleapis.com/v1alpha/sessions/{session_id}`
+- **State Enum**:
+    - `STATE_UNSPECIFIED`
+    - `QUEUED`
+    - `PLANNING`
+    - `AWAITING_PLAN_APPROVAL`
+    - `AWAITING_USER_FEEDBACK`
+    - `IN_PROGRESS`
+    - `PAUSED`
+    - `FAILED` (Terminal)
+    - `COMPLETED` (Terminal)
+
+## PR URL Discovery Path
+The PR URL is NOT at the top level of the session object. It is nested within the `outputs` array.
+
+```typescript
+const prUrl = session.outputs?.find(o => o.pullRequest?.url)?.pullRequest.url;
+```
+
+### Response Structure
+```json
+{
+  "name": "sessions/...",
+  "state": "COMPLETED",
+  "outputs": [
+    {
+      "pullRequest": {
+        "url": "https://github.com/...",
+        "title": "...",
+        "description": "..."
+      }
+    }
+  ]
+}
+```
+
+## Usage in Foundry
+The `foundry-heartbeat.ts` script uses this to verify if an ACTIVE node still has a valid PR before declaring it a "zombie".
+If the session is `FAILED` or `COMPLETED` and no PR is found in `outputs` (nor in GitHub fallback list), the node is transitioned to `FAILED`.
+--- .foundry/docs/knowledge_base/infrastructure/pnpm_workspace_setup.md ---
+# pnpm Workspace Configuration
+
+The project now uses pnpm workspaces to manage multiple packages.
+
+## Workspace Root
+- Path: `/home/tszuba/projects/dexhelper`
+- Configuration: `pnpm-workspace.yaml`
+
+## Included Packages
+- `.` (Root project)
+- `.github/scripts` (Foundry DAG orchestration scripts)
+
+## CI/CD Impact
+- GitHub workflows should use `pnpm install` at the root instead of installing dependencies inside individual package directories.
+- Use `uses: pnpm/action-setup@v6` to set up pnpm in GitHub Actions.
+- Localized `pnpm-lock.yaml` files (e.g., in `.github/scripts`) have been removed in favor of the root lockfile.
+--- .foundry/docs/knowledge_base/infrastructure/git_workflow_gotchas.md ---
+# Git & Biome Workflow Gotchas
+
+## Biome Pre-commit Hook
+The project uses `lefthook` for pre-commit tasks. The `biome-check` command is configured to:
+1. Run `biome check --write` on staged files.
+2. Automatically stage fixed files (`stage_fixed: true`).
+3. **FAIL THE COMMIT** if any warnings remain (`--error-on-warnings`).
+
+### The Problem
+Biome `--write` only applies *safe* fixes (mostly formatting). It does not automatically fix lint warnings like `noExplicitAny`, which are common in our test suites. Because `--error-on-warnings` is set, these warnings will abort the commit even if formatting was successfully applied.
+
+### Recommendations for Agents
+1. **Pre-emptive Fix**: Before committing, run `pnpm exec biome check --write .` manually and stage the changes.
+2. **Handle Remaining Warnings**: If warnings persist (like `any` usage), either:
+   - Resolve the types properly.
+   - Use `// biome-ignore lint/suspicious/noExplicitAny: reason` to silence them.
+   - Commit with `--no-verify` (`-n`) only if you have confirmed functional correctness via `tsc` and `pnpm test`.
+3. **Double Commit Pattern**: If a commit fails due to stylistic warnings, check `git status` for auto-fixed files, stage them, and retry the commit with `-n` to bypass the remaining unfixable warnings.
+--- .foundry/docs/knowledge_base/infrastructure/analysis_tools.md ---
+# Project Infrastructure - Bundle Analysis and Coverage
+
+- **BundleMon**: Restored in April 2026. Configured in `.bundlemonrc.json`. It monitors the sizes of `dist/assets/index-*.js` (limit 650KB) and `dist/assets/style-*.css` (limit 100KB). It runs in the CI workflow `ci.yml`. User prefers to keep it alongside Codecov for bundle analysis.
+- **Codecov**: Integrated for test coverage and bundle analysis.
+  - Test coverage is reported by `vitest` using `@vitest/coverage-v8`.
+  - Bundle analysis is handled by `@codecov/vite-plugin` in `vite.config.ts`.
+- Both tools are currently running in parallel as of April 12, 2026.
+- **Biome**: Unified linter and formatter.
+  - Configured in `biome.jsonc`.
+  - Enforcement Level: **Strict (Errors only)**. All violations, including warnings and nursery rules (e.g., `useSortedClasses`), are treated as errors.
+  - Integration: Runs in CI via `pnpm lint` which calls `biome check --error-on-warnings`.
+
+## TypeScript Configuration
+- **allowJs**: Disabled (`false`) as of April 15, 2026. The project is strictly TypeScript-only.
+- **Scripts**: All scripts in `scripts/` are written in TypeScript and executed using Node's native support (`--experimental-strip-types`).
+- **Type Checking**: Enforced via `pnpm type-check` (`tsc --noEmit`).
+--- .foundry/docs/knowledge_base/infrastructure/save_file_architecture_overview.md ---
+# Generic Pokémon Save File Architecture (Gen 1 & 2)
+
+This document provides a high-level overview of how Pokémon save files for the Game Boy and Game Boy Color are structured.
+
+## 1. SRAM Architecture
+Pokémon save files are raw dumps of the cartridge's **SRAM (Static RAM)**. This RAM is battery-backed and traditionally 32KB in size.
+
+### Memory Banking
+The 32KB SRAM is divided into four **8KB Banks** (Bank 0, 1, 2, 3).
+- **Bank 0**: General game state, often not used for primary save data in some versions.
+- **Bank 1**: The "Main" save data bank. Contains trainer info, party, items, and current PC box.
+- **Bank 2 & 3**: PC Box data. Because a single box (20 mons * 32 bytes) is large, only the current box is kept in Bank 1 for performance; the rest are "swapped" out to Banks 2 and 3.
+
+## 2. RAM Mirroring
+The save file structure is often a direct mirror of the console's **WRAM (Work RAM)**.
+- While the game is running, it operates on data in the `0xC000-0xDFFF` (WRAM) region.
+- When the player saves, the game copies relevant blocks of WRAM into the SRAM (Save File).
+- This is why "RAM Addresses" (e.g., `0xDAAF`) often correlate directly to "Save Offsets" if you account for the base offset (usually `0x2000` or similar depending on the bank).
+
+## 3. The "Shift" Phenomenon
+Offsets vary between game versions (e.g., Red vs. Blue, or GS vs. Crystal) due to:
+- **Engine Size**: New features (like Crystal's Battle Tower) add code and static data, pushing later RAM blocks "down" to higher addresses.
+- **Regional Variations**: Localizing strings (JPN vs. USA) sometimes changes fixed-length buffers, causing shift.
+
+## 4. Checksums
+Most save blocks have a **Checksum byte** at the end.
+- If the calculated sum of bytes in a block does not match the checksum byte, the game declares the save "corrupted".
+- When modifying save files programmatically, the checksum must be recalculated for the game to accept the changes.
+
+## 5. Standard Layout (Gen 2 Bank 1)
+| Feature | Approx. Location | Notes |
+| :--- | :--- | :--- |
+| **Trainer ID/Name** | `0x2000-0x2050` | Early in Bank 1 |
+| **Inventory** | `0x2300-0x2500` | Items, Key Items, TMs |
+| **Event Flags** | `0x2900-0x2A00` | Progress bits |
+| **Pokedex** | `0x2A00-0x2B00` | Seen/Caught masks |
+| **Daycare** | `0x2800` or `0x2A00` | Varies by version |
+| **Party** | `0x2800-0x2900` | Current 6 Pokémon |
+--- .foundry/docs/knowledge_base/infrastructure/jules_journaling_policy.md ---
+# Jules Journaling Policy — Current Session Workflow
+
+To maintain continuity without cross-session memory, specific Jules agents (currently **Canvas** and **Strategist**) use a journaling system in `.jules/*.md`.
+
+## Policy
+
+Each individual PR is responsible for its own session's journal entry. **Past history is handled by the past**; agents should NOT attempt to back-fill "unrecorded past outcomes" from PR history.
+
+### Workflow
+
+1. **Initial PR**: Must include a new journal entry for the current change, labeled as **Accepted**.
+2. **On Merge**: The optimistic entry is persisted.
+3. **On Rejection**:
+   - The agent reverts all code changes.
+   - Updates the journal entry to **Rejected**.
+   - Documents the maintainer's feedback ("Why") and lessons learned ("Pattern").
+   - Pushes the journal-only result to the same PR for merging.
+
+### Affected Agents
+
+- **Canvas**: High-stakes UI changes.
+- **Strategist**: Agent roster & prompt quality.
+
+Other agents (Bolt, Palette, etc.) follow a lighter journaling requirement, logging only critical learnings.
+--- .foundry/docs/knowledge_base/agents/core_policies.md ---
+# Core Agent Policies
+
+## Environment Troubleshooting
+If `pnpm install` fails due to an unsupported Node engine version mismatch (e.g., `wanted: {"node":">=24.0.0"}`), temporarily disable the strict check using `pnpm config set engine-strict false` before installing.
+If `pnpm install` hangs or fails during `lefthook install` or git hook setup, run `git config --unset-all --global core.hooksPath` before retrying the installation.
+
+## Empty PR Policy
+Completely empty PRs should be fine and automerged by GitHub actions (there is an action for that already).
+
+**CRITICAL INSTRUCTION FOR EMPTY PRs:** Even when you make zero file changes (e.g., when the target artifact is already complete), you **MUST** still explicitly use the `submit` tool to create a Pull Request. If you simply end the session without calling `submit`, the Orchestrator's heartbeat will flag your session as a crashed zombie (FAILED).
+
+
+
+**LATE-BINDING ORCHESTRATOR DEMOTION COMPLIANCE RULE:** When assigned a READY parent node that already has pending child tasks drafted from a previous iteration, you MUST submit an empty PR *without* checking off its overarching acceptance criteria. This allows the orchestrator to correctly demote the parent to PENDING while it waits for its children.
+
+**CRITICAL EXCEPTION TO EMPTY PR POLICY:** If you determine the target artifacts are already complete, but the current node's Markdown body contains unchecked Acceptance Criteria checkboxes (`- [ ]`), you MUST check those boxes (`- [x]`) and commit the file. Checking these boxes is NOT considered a trivial formatting change; it is required to satisfy the strict completeness contract (ADR 007). Submitting an empty PR for a leaf node with unchecked boxes will result in immediate rejection.
+
+**MACRO NODE COMPLETION EXCEPTION:** Personas must NOT submit an Empty PR to transition a macro node (`IDEA`, `PRD`, `EPIC`, `STORY`) to VERIFYING (e.g. by checking off its acceptance criteria) until ALL of its generated descendant nodes have transitioned to COMPLETED. Premature verification violates hierarchical completion rules.
+
+### Mason Prompt Adjustments
+When finding standard HTML elements or repeated JSX patterns, it is perfectly acceptable and encouraged to reuse existing reusable components (e.g. replacing `<button>` with `<TacticalButton>`) rather than strictly creating a new component, as long as it improves modularity and reduces code duplication.
+
+**AUTOMATED REVIEW WARNING:** When executing the Empty PR Policy for tasks where the target artifacts are already completely implemented and only markdown checkboxes are updated, the `request_code_review` tool may generate a false negative claiming the patch is incomplete. Ignore this automated assessment and proceed with the `submit` tool.
+
+## Auditor Persona Hand-off
+Nodes in the Foundry transition from `ACTIVE` to `VERIFYING` after work is completed (e.g., a PR is merged). The `auditor` persona takes ownership of nodes in the `VERIFYING` state.
+
+**Auditor Responsibilities:**
+1. **Verification**: Assess the generated artifacts against the original intent of the node.
+2. **Analysis**: Extract learnings, identify technical debt, or find unresolved questions that arose during execution.
+3. **Node Generation**: Dynamically spawn new downstream nodes (such as `RESEARCH`, `IDEA`, or `ADR` nodes) based on these learnings to capture value that would otherwise be lost when the node is archived.
+4. **Resolution**: If the verification passes, the auditor transitions the node to `COMPLETED`. If it fails or requires a retry, the auditor transitions it to `FAILED` (or sends it back to the resurrection loop) with appropriate feedback.
+
+## Component Integration Policy
+When creating implementation tasks for UI components, explicit integration steps and tests for rendering components must be included to ensure they are properly integrated into the application's view hierarchy. Otherwise, they risk permanent failure for being unlinked and unrenderable.
+
+## Transient Logs
+System failures, node state transitions (e.g. from FAILED to READY), and "is now COMPLETED" status log entries in Foundry journals add zero value to future runs and unnecessarily expand the context window. Such logs belong in orchestrator execution logs or PR history, not long-term agent journals.
+
+## Styling Ownership (Palette Persona)
+The `palette` persona is the master of the Tailwind and styling ecosystem. This includes:
+1. Maintaining custom primitives in `src/index.css` using the `@utility` directive.
+2. Consolidating repeating utility combinations.
+3. Ensuring styling adherence to the tactical hardware aesthetic guidelines (e.g., `rounded-none`, `border-dashed`, monospaced fonts) as defined in ADR 024.
+
+## Execution Plan Rules
+**Execution Plan Sequencing Rule:** When formulating an execution plan, the required pre-commit verification step must be placed immediately before the final submission or PR creation step, with no intervening actions separating them.
+**Execution Plan Verification Rule:** Execution plans that involve creating new files or modifying existing ones must explicitly include verification steps (e.g., using `read_file`) immediately following the modifications to confirm the changes were written correctly.
+**Empty PR Verification Rule:** Even when submitting an Empty PR (zero file changes) to allow the orchestrator to demote a parent node, the execution plan must explicitly include a preliminary step to run core verification commands (`pnpm lint`, `pnpm test`, and `pnpm test:e2e`) to verify a clean system state before submission. Do not include unmentioned commands (e.g., `pnpm type-check`), as this violates the Groundedness Rule.
+**Execution Plan Groundedness Rule:** Execution plans must not propose actions that have already been successfully completed in the bash session. Your plan must reflect the current state of the workspace. Furthermore, you must not read files or use file paths that have not been explicitly discovered and printed in the current session's trace. Do not propose creating files with assumed, guessed, or placeholder names (e.g., `<NNN>`). Determine exact filenames before plan creation.
+**Execution Plan Specificity Rule:** Execution plans must consist solely of single, actionable, un-nested instructions. Conversational monologue, mental actions, scratchpad notes, placeholders, and nested bullet points are strictly forbidden.
+**Execution Plan Tense Rule:** Execution plans must consist solely of forward-looking, actionable steps required to complete the task. Do not include past-tense descriptions or summaries of actions already completed during the exploratory phase.
+
+
+## Scratchpad Cleanup
+**CRITICAL:** Any developer scratchpad scripts created during a session (e.g., temporary bash scripts like `generate_reads.sh` or Node scripts) must be deleted (`rm`) before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.
+
+## Critical Context Gathering Instruction
+When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/`, you MUST use the `read_file` tool to read each document individually. Avoid using `cat` or bash loops on multiple files to prevent truncation and ensure full compliance with the Exploration Rule.
+
+## Node Creation Guidelines
+While the system does not strictly block node creation, ANY scheduled or foundry agent can dynamically create new `IDEA`, `TASK`, `RESEARCH`, or `ADR` nodes in the `.foundry/` directory. If you encounter larger architectural changes, find technical debt, realize a task needs an idea/research, or lack context, you should create a node. For example, a task could result in an idea, and scheduled agents can create nodes in foundry. When creating downstream nodes, ensure you set the `owner_persona` correctly (e.g., `researcher` for RESEARCH nodes, `architect` for ADRs).
+
+## Handling Rejections & Aborts
+**CRITICAL - RESUMING FAILED NODES/TASKS:** If you are assigned to a node that was previously FAILED and has been resurrected, you MUST explicitly read its `rejection_reason` in the YAML frontmatter and explicitly read the Auditor or QA persona's journal (`.foundry/journals/auditor.md` or `.foundry/journals/qa.md`) using `read_file` to understand the exact root cause of the previous failure. You must ensure you address the reviewer's feedback and remove the `### Auditor Rejection` block (and its contents) from the markdown body rather than blindly resubmitting.
+
+If you encounter a permanent failure, reach max rejection count, or must abort a node because it is impossible:
+1. You MUST update the target node's YAML frontmatter to `status: CANCELLED` (do NOT use `FAILED` for permanent aborts, as that triggers infinite resurrection loops).
+2. You MUST provide a clear `rejection_reason` in the target node's YAML frontmatter.
+3. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed node.
+4. You MUST document the failure in your persona journal.
+
+## Handling Permanent Child Failures (The Impossible Loop)
+If you are woken up by the Orchestrator because a child node reached its Max Rejection Count (e.g., a TASK or STORY failed permanently), you MUST:
+1. Spawn a `RESEARCH` node to investigate the root cause of the failure.
+2. Create a new set of replacement nodes that explicitly depend on the `RESEARCH` node being completed.
+3. Append these new nodes to your own markdown body.
+4. **CRITICAL:** Do NOT update the YAML frontmatter of any orphaned pending nodes (like `QA` task nodes) associated with the failed implementation. Instead, update the orphaned node's Markdown body indicating that it is CANCELLED and replaced by the new tasks.
+5. **CRITICAL:** You MUST check off the markdown checkboxes (`- [x]`) of the permanently failed and orphaned child nodes in your own markdown body. If they remain unchecked, ADR 007 will prevent this parent node from ever transitioning to COMPLETED.
+
+## Late Binding for Missing Context
+If you lack critical context or specifications (e.g., exact memory offsets) necessary to implement a task or generate actionable blueprints, DO NOT guess or implement generic fallbacks. Instead, you MUST utilize the late binding pattern to suspend the task:
+1. Spawn a new `RESEARCH` node to investigate the missing information.
+2. Append the new `RESEARCH` node's ID to the current task's `depends_on` array in its YAML frontmatter.
+3. Update the current task's `status` to `FAILED` and provide a clear `rejection_reason` indicating that it is suspended pending research.
+
+## Journaling Policies
+**CRITICAL:** Your private journal (whether in `.jules/` or `.foundry/journals/`) is your **only private memory** across sessions.
+1. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your persona journal.
+2. Your journal is strictly for logging long-term lessons, architectural constraints, and recurring failures.
+3. Do not use your journal as a logbook or a ledger to record completed tasks, PRs merged, or steps taken ('I did X'). The orchestrator and PR history already track what happened.
+4. Your journal must explain *why* it matters and what rules must be adapted moving forward. Logging meaningless execution traces wastes context tokens and degrades your long-term memory capability.
+5. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/` rather than burying it in your private journal.
+
+## YAML Frontmatter Rules
+**CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
+
+## Empty PR Checkbox Policy
+**CRITICAL**: When submitting an empty PR for a node or task that is completely implemented but has unchecked Acceptance Criteria checkboxes, you MUST check those boxes (`- [x]`) before submitting. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009 and will be rejected.
+
+## Node Generation Rules
+- **DAG ID Strictness**: When setting the `depends_on` or `parent` fields in node frontmatter, you MUST strictly use exact Node IDs without file extensions (e.g., `prd-066-036-time-capsule-validator`), not repo-relative file paths.
+- **Encourage Granularity**: When generating downstream nodes, strongly prefer creating multiple, smaller, granular nodes rather than a single 1-to-1 mapped node (e.g., breaking a single PRD into several Epics, or a Story into several Tasks). Smaller scopes reduce complexity and improve execution success.
+- **Owner Persona**: Set the `owner_persona` of newly created downstream nodes to the persona responsible for the NEXT pipeline transition (e.g., `epic_planner` for PRDs, `story_owner` for EPICs, `tech_lead` for STORY nodes, `coder` for TASKs), not yourself. **CRITICAL:** When generating a PRD, you MUST explicitly set `owner_persona: epic_planner`. Assigning it to `product_manager` breaks the downstream handoff chain.
+- **Sequence Numbers**: Determine the correctly incremented global sequence number by listing and sorting the existing files in the corresponding directory (e.g., `ls -1 .foundry/tasks/ | sort -n -t '-' -k 3`).
+- **Pipeline Order**: The strict pipeline order and persona handoff for Foundry nodes is: IDEA (PM) -> PRD (Epic Planner) -> ADR (Architect) -> EPIC (Planner) -> STORY -> TASK.
+- **Schema Strictness**: When creating a new node, strictly follow the Parent-Linked ID Schema: `<type>-<parent_NNN>-<NNN>-<slug>` as detailed in `.foundry/docs/schema.md`.
+- **Appending Children**: Append references to newly generated child nodes as **unchecked tasks (`- [ ]`)** directly into the markdown body of the parent node, and check off your specific acceptance criteria checkboxes (e.g., `- [x] Break down into Tasks`) WITHOUT modifying the parent's YAML frontmatter. When appending child nodes as unchecked tasks (`- [ ] <node_id>`), strictly use the exact Node ID without file extensions or directory paths. Furthermore, verify if the parent has an `## Acceptance Criteria` section. If it does not exist, explicitly append the header `## Acceptance Criteria` along with the checkbox to ensure proper formatting. This ensures the parent node does not prematurely transition to VERIFYING before its children are completed.
+- **Circular Dependencies**: Do NOT include the parent node in the new child's `depends_on` array to avoid circular dependency deadlocks.
+- **Premature Verification**: Do NOT submit an Empty PR to transition a parent node to VERIFYING (by checking off its acceptance criteria) until ALL of its generated child nodes have transitioned to COMPLETED. Premature verification violates the dependency graph constraints.
+- **Parent Node Syntax**: Parent generation nodes MUST strictly format references to generated child nodes as unchecked task checkboxes (`- [ ] <file_path>`) directly in their markdown body. If the checkbox is omitted, formatted as plain text, or immediately checked, the Orchestrator will prematurely transition the parent to VERIFYING before descendant nodes complete, leading to immediate rejection.
+--- .foundry/docs/knowledge_base/testing/vitest_advanced_features.md ---
+# Advanced Vitest Patterns
+
+## Context & Fixtures (`test.extend`)
+Vitest supports a very powerful Playwright-style Extensible Fixtures API (`test.extend`). This is critical when tests require complex, interdependent, or asynchronous setup processes (like file system mocking, save-file extraction, or DB connections).
+Instead of traditional `beforeEach`/`afterEach`, you define contextual "fixtures":
+
+```typescript
+import { test as baseTest } from 'vitest';
+
+export const saveTest = baseTest.extend<{ rawSave: Uint8Array }>({
+  rawSave: async ({ meta }, use) => {
+    // Setup Phase: e.g. read file based on meta.name
+    const buffer = await readFileBuffer(meta.name);
+    // Use Phase: Provide data to test
+    await use(buffer);
+    // Teardown Phase runs automatically after test completes
+  }
+});
+
+// Usage
+saveTest('parses Crystal', ({ rawSave }) => {
+   expect(rawSave).toBeDefined();
+});
+```
+
+## Collection Loops (`test.for` & `test.each`)
+It is an anti-pattern to loop over `it()` or `test()` with a standard `forEach` due to lack of distinct context injection and potentially harder-to-read logs.
+Use `describe.each`, `test.each`, or Vitest's custom iteration methods:
+
+Using `test.for` (If available in current Vitest version):
+```typescript
+test.for([
+  { input: 1, expected: 2 },
+  { input: 2, expected: 3 }
+])('processes %input', ({ input, expected }) => {
+   expect(fn(input)).toBe(expected);
+})
+```
+This is explicitly helpful for unifying large blocks of repetitive testing, such as running an identical parse validator across multiple instances of file mocks.
+
+## Describe Matrix / Test Suites
+When mapping multiple tests against different configurations or setups, combine `describe.each` with `test` blocks to generate nested testing matrixes. It heavily reduces boilerplate.
+--- .foundry/docs/knowledge_base/testing/e2e_patterns.md ---
+# E2E Testing Patterns & Best Practices
+
+Represents the primary testing strategy for the Dexhelper project, following the **E2E-First** requirement.
+
+## 1. State Initialization
+All E2E tests must transition the application from an "Uninitialized" state to a valid hydrated state.
+- **Utility**: `initializeWithSave(page)` from `tests/e2e/test-utils.ts`.
+- **Action**: This tool uses standard IndexedDB injection to hydrate state.
+- **Verification**: Tests should wait for the "TRAINER" card to be visible before proceeding.
+- **Playwright Setup project**: Added a `setup` project in `playwright.config.ts` that runs once (`tests/e2e/setup.spec.ts`). It uploads a save file (Blue version) and waits for the Pokedex to sync.
+- **storageState**: The resulting browser state (IndexedDB + LocalStorage) is saved to `playwright/.auth/user.json` and reused by all subsequent E2E tests via the `storageState` config.
+
+## 2. Locator Philosophy
+- Prefer user-visible locators like `getByText`, `getByLabel`, or `getByRole`.
+- **Exact Matching**: For generic strings like locations ("ROUTE 1"), always use `{ exact: true }` to avoid matching longer strings ("ROUTE 10", "ROUTE 11").
+- **Integrated Search**: The Pokedex uses an integrated search bar in the header. Use `page.getByPlaceholder('Search Pokémon...')` for reliable interactions.
+- **Sync Overlays**: The app uses IndexedDB hydration. Utilities in `test-utils.ts` handle waiting for synchronization overlays to disappear.
+- **Test Stability**: Avoid using hardcoded timeouts; rely on Playwright's auto-waiting or `waitForSelector` for dynamic data.
+- **Identifiers**: Use `data-testid="pokedex-card"` and `data-pokemon-id` attributes for precise grid assertions.
+
+## 4. Playwright Configuration
+- **Open Reports**: In `playwright.config.ts`, explicitly set `open: 'never'` for the HTML reporter to ensure E2E suite completion and clean exits even on failure.
+--- .foundry/docs/knowledge_base/testing/vitest-4-migration-and-browser-patterns.md ---
+# Vitest 4 Migration & Browser Testing Patterns
+
+## Overview
+The project has been migrated to Vitest 4. The workspace configuration is now handled via `test.projects` in `vitest.config.ts` instead of `vitest.workspace.ts`.
+
+## Key Changes
+- **Configuration**: Use `defineConfig` and merge with `vite.config.ts` to ensure plugins and aliases are available in test projects.
+- **Browser Provider**: The `provider` in `browser` configuration must use the `playwright()` factory function from `@vitest/browser-playwright`.
+- **Asynchronous Rendering**: In `vitest-browser-react`, the `render()` function returns a Promise and must be awaited to avoid `no-floating-promises` lint errors.
+- **Scripts**:
+  - `pnpm test`: Runs all projects (node and browser).
+  - `pnpm test:ct`: Runs only the browser-based component tests.
+
+## Mocking Constraints
+- **window.location**: In Vitest Browser Mode (Playwright), `window.location` is read-only. Traditional JSDOM-style mocks using `Object.defineProperty` will fail.
+- **Recommendation**: Wrap window-level actions (like `reload()`) in utility functions (e.g., `src/utils/window.ts`) and mock the utility module using `vi.mock`.
+
+## File Structure
+- `vitest.config.ts`: Root configuration defining projects.
+- `src/utils/window.ts`: Utility for browser-level operations.
+--- .foundry/docs/knowledge_base/gen3_pokemon_data_structure.md ---
+# Gen 3 Pokémon Data Structure
+
+## Overview
+In Generation 3 (Ruby, Sapphire, Emerald, FireRed, LeafGreen), a Pokémon's full data structure in the party is 100 bytes long. However, the core details are stored in a 48-byte encrypted Data block (bytes 32 through 79 of the 100-byte structure).
+
+## The 48-Byte Encrypted Data Block
+This block is divided into four 12-byte substructures:
+- **Growth (G):** Species, Item held, Experience, PP bonuses, Friendship.
+- **Attacks (A):** Move 1, Move 2, Move 3, Move 4, PP 1, PP 2, PP 3, PP 4.
+- **EVs & Condition (E):** HP EV, Attack EV, Defense EV, Speed EV, Special Attack EV, Special Defense EV, Coolness, Beauty, Cuteness, Smartness, Toughness, Feel.
+- **Miscellaneous (M):** Pokerus status, Met location, Origins info, IVs/Egg/Ability, Ribbons/Obedience.
+
+### Decryption
+The data is encrypted using a simple XOR cipher. The 32-bit decryption key is obtained by XORing the Pokémon's Personality Value (PV) with the Original Trainer ID (OT ID). The data is decrypted by XORing it with this key, 32 bits (4 bytes) at a time.
+
+### Substructure Order
+The order of the four 12-byte substructures within the 48-byte block is not static. It is determined by the Personality Value (PV) modulo 24 (`PV % 24`). This produces one of 24 possible permutations (e.g., GAEM, AGEM, MGAE, etc.).
+
+## Pokerus
+The Pokerus status is stored in the **first byte** (offset 0) of the **Miscellaneous (M)** substructure.
+
+Its bitwise structure is **identical to Generation 2**:
+- **Bits 0-3 (Lower 4 bits):** Days left until Pokérus is cured.
+- **Bits 4-7 (Upper 4 bits):** Pokérus "strain".
+
+Just like in Gen 2, if the strain is non-zero (i.e., the Pokémon was infected) but the days remaining is 0, the Pokémon is considered "cured" (immune).
+
+### Implementation Strategy
+To extract the Pokerus data in Gen 3, the engine must:
+1. Parse the 100-byte structure to obtain the PV and OT ID.
+2. Determine the permutation order using `PV % 24`.
+3. Locate the Miscellaneous (M) substructure within the 48-byte Data block.
+4. Decrypt the Data block (or specifically the M substructure).
+5. Read the first byte of the M substructure and apply the bitwise operations (`byte >> 4` for strain, `byte & 0x0f` for days).
+
+## Contest Ribbons and Obedience
+The Contest Ribbons and Obedience bitfield is a 4-byte (32-bit) structure located in the **Miscellaneous (M)** substructure at **offset 8** (bytes 8-11 of the 12-byte M substructure).
+
+Since the M substructure itself is part of the 48-byte encrypted Data block, the exact physical offset within the 100-byte Pokémon data structure depends on the `PV % 24` substructure permutation.
+
+### Ribbon Bitmask Definition
+The 32 bits represent specific ribbons or obedience flags. A value of `1` means the ribbon is present. For Contest Ribbons (Cool, Beauty, Cute, Smart, Tough), they are grouped into 3-bit fields because there are 4 ranks (Normal, Super, Hyper, Master), represented by values 1 to 4 respectively.
+
+| Bits  | Description |
+|---|---|
+| 0-2   | Cool Contest Ribbon Rank (0=None, 1=Normal, 2=Super, 3=Hyper, 4=Master) |
+| 3-5   | Beauty Contest Ribbon Rank |
+| 6-8   | Cute Contest Ribbon Rank |
+| 9-11  | Smart Contest Ribbon Rank |
+| 12-14 | Tough Contest Ribbon Rank |
+| 15    | Champion Ribbon |
+| 16    | Winning Ribbon |
+| 17    | Victory Ribbon |
+| 18    | Artist Ribbon |
+| 19    | Effort Ribbon |
+| 20    | Battle Champion Ribbon |
+| 21    | Regional Champion Ribbon |
+| 22    | National Champion Ribbon |
+| 23    | Country Ribbon |
+| 24    | National Ribbon |
+| 25    | Earth Ribbon |
+| 26    | World Ribbon |
+| 27-30 | Unused/Reserved |
+| 31    | Obedience flag (Used for Mew/Deoxys to prevent disobedience; fateful encounter flag when transferred) |
+
+### Implementation Strategy for Ribbons
+To extract a specific Contest Ribbon rank:
+1. Locate and decrypt the **Miscellaneous (M)** substructure.
+2. Read the 32-bit integer (little-endian) starting at offset 8 of the M substructure.
+3. Apply a bitwise right-shift `>>` to move the target field to the least significant bits.
+4. Apply a bitwise AND `& 0x07` (binary `111`) to isolate the 3-bit rank value.
+
+Example for Smart Contest Ribbon (Bits 9-11):
+`smartRank = (ribbonsBitfield >> 9) & 0x07;`
+--- .foundry/docs/knowledge_base/gen3_tv_block_offsets.md ---
+# Gen 3 TV Block Memory Offsets and Structures
+
+The memory offsets, block sizes, and data structures for the TV broadcast data block in Gen 3 save files (Ruby, Sapphire, Emerald) are as follows:
+
+## 1. Upcoming Event Schedule (`PokeNews`)
+The game maintains an array of `PokeNews` structs within `SaveBlock1` to manage upcoming events.
+- **Offset within `SaveBlock1`:** `0x2B50`
+- **Count:** `16`
+- **Total Array Size:** `64` bytes (`0x40`)
+- **Struct Size:** `4` bytes each
+
+## 2. TV Broadcast Data (`TVShow`)
+The game stores TV show broadcasts in an array of `TVShow` structures within `SaveBlock1`.
+- **Offset within `SaveBlock1`:** `0x27CC`
+- **Count:** `25`
+- **Total Array Size:** `900` bytes (`0x384`)
+- **Struct Size:** `36` bytes each
+
+## 3. TVShow Common Header
+The common header for all `TVShow` structs is as follows:
+- `0x00` (`u8`): `kind` (The ID of the TV show broadcast)
+- `0x01` (`bool8`): `active` (Boolean flag indicating if the show is actively in rotation)
+
+Following the header, bytes `0x02` to `0x23` contain show-specific payload data.
+--- .foundry/docs/knowledge_base/db/data_format_strategy.md ---
+### PokeData Serialization Strategy (April 2026)
+- **Context**: Refactored pokedata to split JSONL files for source readability. Explored alternatives to JSON for PokeData storage.
+- **Key Findings**:
+    - Current JSON (Gen 1+2) is ~177 KB.
+    - Projected Gen 1-9 JSON is ~700 KB.
+    - MsgPack (`msgpackr`) offers ~35% reduction with low overhead (+3KB bundle).
+    - Protobuf offers ~50% reduction but high complexity (+6.5KB bundle + schema).
+- **Decision**: Stuck with minified JSON for now due to small size. Recommended switching to MsgPack when Gen 3 or performance limits (uncompressed JSON exceeds 5MB or noticeable parsing lag) are reached.
+- **Benefits of MsgPack**: Smaller binary footprint, faster parsing than `JSON.parse` for complex objects.
+- **Runtime Inflation & Optimization (Patterns)**:
+    - **Compact Storage**: Omit redundant default values (e.g., `tr: 1`, `gr: 4`, `mh: 160`) and symmetric level ranges (`max === min`) in the generation pipeline.
+    - **Hydration**: Use `inflateChain` and `syncData` in `PokeDB.ts` to recursively restore these defaults at runtime via declarative object spreads.
+    - **Evolution Safety**: Evolution chains should be filtered by `maxDex` during rendering to prevent pre-evolutions from later generations bleeding into legacy views.
+    - **Strict Matching**: Location verifying in E2E tests must use exact text matches to avoid partial string collisions.
+--- .foundry/docs/knowledge_base/db/save_history_schema.md ---
+# SaveHistoryDB IndexedDB Schema
+
+## Context
+The `SaveHistoryDB` is used to store Pokemon save history, including raw save files, metadata, and indexes, to allow users to view, manage, and extract data from their save history.
+
+## Configuration
+The database configuration is defined in `src/db/schema.ts` as `SAVE_HISTORY_DB_CONFIG`.
+
+- **Name**: `SaveHistoryDB`
+- **Version**: 1
+
+## Object Stores
+
+The `SaveHistoryDB` contains three object stores, as defined by `SAVE_HISTORY_DB_CONFIG.STORES` and strictly typed by `SaveHistoryDBSchema`.
+
+### 1. `saves`
+Stores the raw binary save file data.
+
+- **Key**: `string` (Typically a generated unique ID or filename)
+- **Value**: `Uint8Array` (The raw binary save data)
+
+### 2. `metadata`
+Stores metadata associated with each save file (e.g., trainer name, play time, save date, game version).
+
+- **Key**: `string` (References the corresponding key in the `saves` store)
+- **Value**: `Record<string, unknown>` (A flexible object containing the metadata properties)
+
+### 3. `indexes`
+Stores indexing data used to quickly search, filter, or categorize saves without needing to parse the raw data or metadata.
+
+- **Key**: `string` (References the corresponding key in the `saves` store)
+- **Value**: `Record<string, unknown>` (A flexible object containing index properties)
+--- .foundry/docs/knowledge_base/gen3_npc_trade_offsets.md ---
+# Gen 3 NPC Trade Memory Offsets
+
+This document outlines the memory flags associated with in-game NPC trades for Generation 3 games (Ruby, Sapphire, Emerald, FireRed, LeafGreen).
+
+## Emerald / Ruby / Sapphire (RSE)
+
+In RSE, there are specific flags that get set when an in-game NPC trade is completed.
+
+From the `pokeemerald` and `pokeruby` decompilations (`include/constants/flags.h`):
+- `FLAG_RUSTBORO_NPC_TRADE_COMPLETED`: 0x99 (Decimal 153)
+- `FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED`: 0x9A (Decimal 154)
+- `FLAG_FORTREE_NPC_TRADE_COMPLETED`: 0x9B (Decimal 155)
+- `FLAG_BATTLE_FRONTIER_TRADE_DONE`: 0x9C (Decimal 156) - *Emerald Only*
+
+## FireRed / LeafGreen (FRLG)
+
+In FRLG, there are 9 in-game NPC trades, each with a specific flag.
+
+From the `pokefirered` decompilation (`include/constants/flags.h`):
+- `FLAG_DID_MIMIEN_TRADE`: 0x248 (Decimal 584)
+- `FLAG_DID_ZYNX_TRADE`: 0x24A (Decimal 586)
+- `FLAG_DID_MS_NIDO_TRADE`: 0x24B (Decimal 587)
+- `FLAG_DID_CH_DING_TRADE`: 0x24D (Decimal 589)
+- `FLAG_DID_NINA_TRADE`: 0x251 (Decimal 593)
+- `FLAG_DID_MARC_TRADE`: 0x257 (Decimal 599)
+- `FLAG_DID_ESPHERE_TRADE`: 0x274 (Decimal 628)
+- `FLAG_DID_TANGENY_TRADE`: 0x275 (Decimal 629)
+- `FLAG_DID_SEELOR_TRADE`: 0x276 (Decimal 630)
+
+## Flag Storage and Extraction
+In Generation 3, flags are typically stored in the save file's flag block. The byte offset for a specific flag is `flag_id / 8`, and the bit index within that byte is `flag_id % 8`.
+--- .foundry/docs/knowledge_base/gen3_secret_base_offsets.md ---
+# Gen 3 Secret Base Memory Offsets
+
+## 1. Global Offset and Structure Array
+In Gen 3 save files (Ruby, Sapphire, Emerald), the game stores a flat array of `SecretBase` structures in **SaveBlock1**.
+- **Max Number of Secret Bases:** `20` (Constant `SECRET_BASES_COUNT`)
+- **Size of each `SecretBase` Record:** `160` bytes (`0xA0`)
+- **Total Array Size:** `3200` bytes (`0xC80`)
+
+### Offset within SaveBlock1:
+- **Ruby/Sapphire:** `0x1A08`
+- **Emerald:** `0x1A9C`
+
+## 2. Secret Base Struct Definition (`SecretBase` / `SecretBaseRecord`)
+
+The structure of the `SecretBase` record differs slightly between Ruby/Sapphire and Emerald. Emerald introduces an additional `language` byte. However, due to 16-bit alignment padding in Ruby/Sapphire, the final total size remains exactly `160` bytes for both versions, and the offset of the `party` struct is identical (`0x34` or 52 bytes in).
+
+**Crucially, according to the decompiled source codes (`pokeemerald` and `pokeruby`), `PLAYER_NAME_LENGTH` and `OT_NAME_LENGTH` are exactly 7 bytes, and `TRAINER_ID_LENGTH` is 4 bytes.**
+Therefore, `trainerName` is 7 bytes (offset `0x02` to `0x08`) and `trainerId` is 4 bytes (offset `0x09` to `0x0C`) identically across all Gen 3 games.
+
+| Field Name | Type | Size | RS Offset | Emerald Offset | Description |
+|---|---|---|---|---|---|
+| `secretBaseId` | `u8` | 1 | `0x00` | `0x00` | ID of the Secret Base location. |
+| `flags` | `u8` (Bitfield) | 1 | `0x01` | `0x01` | `toRegister` (4), `gender` (1), `battledOwnerToday` (1), `registryStatus` (2). |
+| `trainerName` | `u8[7]` | 7 | `0x02` | `0x02` | Name of the base owner. Max 7 characters. |
+| `trainerId` | `u8[4]` | 4 | `0x09` | `0x09` | Trainer ID (used to determine class/sprite). |
+| `language` | `u8` | 1 | - | `0x0D` | Language ID (Emerald only). |
+| (Padding) | `u8` | 1 | `0x0D` | - | Implicit padding in RS to align `numSecretBasesReceived` to 16-bit. |
+| `numSecretBasesReceived` | `u16` | 2 | `0x0E` | `0x0E` | Number of bases received via Mix Records. |
+| `numTimesEntered` | `u8` | 1 | `0x10` | `0x10` | Times the player has entered this specific base. |
+| `unused` | `u8` | 1 | `0x11` | `0x11` | Unused byte. |
+| `decorations` | `u8[16]` | 16 | `0x12` | `0x12` | Array of 16 Decoration IDs (Constant `DECOR_MAX_SECRET_BASE`). |
+| `decorationPos` | `u8[16]` | 16 | `0x22` | `0x22` | Array of 16 spatial coordinates corresponding to the decorations. |
+| (Padding) | `u8[2]` | 2 | `0x32` | `0x32` | Implicit padding to align `party` to 32-bit. |
+| `party` | `SecretBaseParty` | 108 | `0x34` | `0x34` | The Pokémon party of the base owner. |
+
+Let's look at the Emerald struct accurately based on the source code:
+```c
+struct SecretBase
+{
+    /*0x1A9C*/ u8 secretBaseId; // Offset 0
+    /*0x1A9D*/ u8 flags; // Offset 1
+    /*0x1A9E*/ u8 trainerName[PLAYER_NAME_LENGTH]; // PLAYER_NAME_LENGTH = 7. Offset 2..8
+    /*0x1AA5*/ u8 trainerId[TRAINER_ID_LENGTH]; // TRAINER_ID_LENGTH = 4. Offset 9..12
+    /*0x1AA9*/ u8 language; // Offset 13
+    /*0x1AAA*/ u16 numSecretBasesReceived; // Offset 14..15
+    /*0x1AAC*/ u8 numTimesEntered; // Offset 16
+    /*0x1AAD*/ u8 unused; // Offset 17
+    /*0x1AAE*/ u8 decorations[DECOR_MAX_SECRET_BASE]; // DECOR_MAX_SECRET_BASE = 16. Offset 18..33
+    /*0x1ABE*/ u8 decorationPositions[DECOR_MAX_SECRET_BASE]; // Offset 34..49
+    /*0x1ACE*/ //u8 padding[2]; // Offset 50..51
+    /*0x1AD0*/ struct SecretBaseParty party; // Offset 52..159
+};
+```
+And Ruby/Sapphire:
+```c
+struct SecretBaseRecord
+{
+    /*0x1A08*/ u8 secretBaseId; // Offset 0
+    /*0x1A09*/ u8 flags; // Offset 1
+    /*0x1A0A*/ u8 playerName[OT_NAME_LENGTH]; // OT_NAME_LENGTH = 7. Offset 2..8
+    /*0x1A11*/ u8 trainerId[4]; // Offset 9..12
+    /*0x1A15*/ // implicit padding // Offset 13
+    /*0x1A16*/ u16 numSecretBasesReceived; // Offset 14..15
+    /*0x1A18*/ u8 numTimesEntered; // Offset 16
+    /*0x1A19*/ u8 unused; // Offset 17
+    /*0x1A1A*/ u8 decorations[DECOR_MAX_SECRET_BASE]; // DECOR_MAX_SECRET_BASE = 16. Offset 18..33
+    /*0x1A2A*/ u8 decorationPos[DECOR_MAX_SECRET_BASE]; // Offset 34..49
+    /*0x1A3A*/ // implicit padding // Offset 50..51
+    /*0x1A3C*/ struct SecretBaseParty party; // Offset 52..159
+};
+```
+
+## 3. Secret Base Party Struct (`SecretBaseParty`)
+
+The 108-byte `party` structure stores the 6 Pokémon owned by the Secret Base trainer. Unlike normal party Pokémon (which use a complex 100-byte structure with encryption), the Secret Base party is a highly simplified, flat structure.
+
+| Field Name | Type | Size | Offset | Description |
+|---|---|---|---|---|
+| `personality` | `u32[6]` | 24 | `0x00` | Personality Values for the 6 Pokémon. |
+| `moves` | `u16[6 * 4]` | 48 | `0x18` | Array of 24 moves (4 per Pokémon). |
+| `species` | `u16[6]` | 12 | `0x48` | Species IDs for the 6 Pokémon. |
+| `heldItems` | `u16[6]` | 12 | `0x54` | Held Item IDs. |
+| `levels` | `u8[6]` | 6 | `0x60` | Levels of the Pokémon. |
+| `EVs` | `u8[6]` | 6 | `0x66` | A single EV value (0-255) distributed across all stats by the engine during battle setup. |
+
+### Memory Offsets by Pokémon Index
+To calculate the exact internal offset for a specific Pokémon at index `i` (0 to 5) within the `SecretBaseParty` structure, use the following formulas:
+- `personality`: `0x00 + (i * 4)`
+- `moves` (start of 4 moves): `0x18 + (i * 8)` (Each move is 2 bytes)
+- `species`: `0x48 + (i * 2)`
+- `heldItems`: `0x54 + (i * 2)`
+- `levels`: `0x60 + i`
+- `EVs`: `0x66 + i`
+
+
+## 4. Map Location Representation (`secretBaseId`)
+The physical location of the Secret Base in the game world is defined by the `secretBaseId` (Offset 0).
+The `secretBaseId` is used to determine which exact map is loaded.
+The ID encapsulates both the Map Group and the specific variant.
+
+**Formula:** `Secret Base Map ID = secretBaseId / 10`
+The ones digit (`secretBaseId % 10`) is used to differentiate multiple secret bases that share the exact same internal map layout.
+Therefore, `secretBaseId` values range logically from `1` to around `233`, mapping to `24` distinct Secret Base groups (Red Cave, Brown Cave, Tree, Shrub, etc.).
+
+For instance, `SECRET_BASE_RED_CAVE1_1` is `1`, `SECRET_BASE_RED_CAVE1_2` is `2`, etc. They all share the first Red Cave layout (Group 0).
+--- .foundry/docs/knowledge_base/gen3_tv_shows_and_events.md ---
+# Gen 3 TV Shows and Event Schedule Memory Offsets
+
+This document outlines the memory offsets, structures, and behavior related to the TV broadcast system, Mix Record events, and upcoming scheduled events (e.g., Energy Guru sales, Lilycove Department Store sales) in Generation 3 save files (specifically Ruby, Sapphire, and Emerald), based on the `pret/pokeemerald` decompilation.
+
+## 1. Upcoming Event Schedule (`PokeNews`)
+
+The game maintains an array of `PokeNews` structs within `SaveBlock1` to manage upcoming events such as the Energy Guru sale in Slateport and the Clearance Sale at Lilycove Department Store.
+
+- **Offset within `SaveBlock1`:** `0x2B50`
+- **Count:** `16` (constant `POKE_NEWS_COUNT`)
+- **Total Array Size:** `64` bytes (`0x40`)
+
+### `PokeNews` Struct Definition
+
+Each `PokeNews` struct is **4 bytes** in size.
+
+| Offset | Type | Name | Description |
+|---|---|---|---|
+| `0x00` | `u8` | `kind` | The type of news event (e.g., Energy Guru, Game Corner). |
+| `0x01` | `u8` | `state` | The current state of the news event. |
+| `0x02` | `u16` | `dayCountdown`| Days remaining until the event state changes. |
+
+### Constants
+
+**Event Kinds (`kind`):**
+- `0`: `POKENEWS_NONE`
+- `1`: `POKENEWS_SLATEPORT` (Energy Guru sale)
+- `2`: `POKENEWS_GAME_CORNER` (Game Corner special)
+- `3`: `POKENEWS_LILYCOVE` (Department Store Rooftop clearance sale)
+- `4`: `POKENEWS_BLENDMASTER` (Blend Master appearance)
+
+**Event States (`state`):**
+- `0`: `POKENEWS_STATE_INACTIVE`
+- `1`: `POKENEWS_STATE_UPCOMING`
+- `2`: `POKENEWS_STATE_ACTIVE`
+
+**Countdown Behavior:**
+When an event transitions from `INACTIVE` to `UPCOMING`, `dayCountdown` is typically initialized to `POKENEWS_COUNTDOWN` (`4`).
+
+---
+
+## 2. TV Broadcast Data (`TVShow`)
+
+The game stores TV show broadcasts in an array of `TVShow` structures within `SaveBlock1`. This array contains both normal shows generated by the player's own game and shows inherited from other players via the "Mix Records" feature.
+
+- **Offset within `SaveBlock1`:** `0x27CC`
+- **Count:** `25` (constant `TV_SHOWS_COUNT`, which is `NUM_NORMAL_TVSHOW_SLOTS` [5] + `20`)
+- **Total Array Size:** `900` bytes (`0x384`)
+
+### `TVShow` Union/Struct Definition
+
+The `TVShow` type is a union of various structs tailored to specific shows (e.g., `fanclubLetter`, `smartshopperShow`, `massOutbreak`), all of which share a common header and total exactly **36 bytes (`0x24`)**.
+
+The common header is:
+
+| Offset | Type | Name | Description |
+|---|---|---|---|
+| `0x00` | `u8` | `kind` | The ID of the TV show broadcast. |
+| `0x01` | `bool8` | `active` | Boolean flag indicating if the show is actively in rotation. |
+
+Following the header, bytes `0x02` to `0x23` contain show-specific payload data, such as player names, words for the Easy Chat system, species IDs, and trainer IDs.
+
+---
+
+## 3. Parsing Mix Record Events
+
+To identify events that originated from other players via **Mix Records**, you must iterate through the `tvShows` array and check the `kind` field of each active show.
+
+TV shows are categorized into three logical groups by their `kind` ID:
+- **Normal Shows** (1 - 20): Standard single-player shows.
+- **Mix Record Shows** (21 - 40): Shows transferred between games.
+- **Outbreak Shows** (41 - 60): Mass outbreak announcements.
+
+### Relevant Mix Record `kind` IDs (`TVGROUP_RECORD_MIX`):
+Shows with IDs between `TVGROUP_RECORD_MIX_START` (`21`) and `TVGROUP_RECORD_MIX_END` (`40`) represent actions performed by other players. Some notable IDs include:
+
+- `21`: `TVSHOW_POKEMON_TODAY_CAUGHT`
+- `22`: `TVSHOW_SMART_SHOPPER` (Details purchases from Poke Marts)
+- `23`: `TVSHOW_POKEMON_TODAY_FAILED`
+- `24`: `TVSHOW_FISHING_ADVICE`
+- `25`: `TVSHOW_WORLD_OF_MASTERS`
+- `31`: `TVSHOW_SECRET_BASE_VISIT`
+- `33`: `TVSHOW_BATTLE_SEMINAR`
+
+By parsing these specific shows, the system can extract the original player's name and details of their actions, effectively acting as an asynchronous multiplayer history log.
+
+### `TVSHOW_MASS_OUTBREAK` Payload
+When the `kind` field of a `TVShow` struct indicates a mass outbreak event (e.g. ID `TVSHOW_MASS_OUTBREAK` or another appropriate outbreak constant), the remaining bytes are structured as follows:
+
+| Offset | Type | Name | Description |
+|---|---|---|---|
+| `0x00` | `u8` | `kind` | The ID of the TV show broadcast (common header). |
+| `0x01` | `bool8` | `active` | Boolean flag indicating if the show is actively in rotation (common header). |
+| `0x02` | `u8` | `unused1` | Unused byte. |
+| `0x03` | `u8` | `unused3` | Unused byte. |
+| `0x04` | `u16[4]` | `moves` | The 4 moves the mass outbreak Pokémon will have. |
+| `0x0C` | `u16` | `species` | The internal species ID of the swarming Pokémon. |
+| `0x0E` | `u16` | `unused2` | Unused half-word. |
+| `0x10` | `u8` | `locationMapNum` | The Map Num where the outbreak occurs. |
+| `0x11` | `u8` | `locationMapGroup` | The Map Group where the outbreak occurs. |
+| `0x12` | `u8` | `unused4` | Unused byte. |
+| `0x13` | `u8` | `probability` | Probability factor for the outbreak. |
+| `0x14` | `u8` | `level` | The level of the swarming Pokémon. |
+| `0x15` | `u8` | `unused5` | Unused byte. |
+| `0x16` | `u16` | `daysBeforeOutbreak` | Days remaining until the mass outbreak happens (if not already started). |
+| `0x18` | `u8` | `language` | The language of the broadcast. |
+| `0x19` | `padding` | `padding` | Padding bytes (struct total size 36 bytes / 0x24). |
+--- .foundry/docs/knowledge_base/gen3_battle_frontier_data.md ---
+# Gen 3 Battle Frontier Data Structures
+
+This document outlines the memory offsets, structures, and behavior related to the Battle Frontier in Generation 3 save files (specifically Emerald), based on the `pret/pokeemerald` decompilation.
+
+## 1. Battle Frontier Facilities
+
+The Battle Frontier consists of 7 distinct facilities. In the data layer, they are represented by the following IDs (defined in `constants/battle_frontier.h`):
+
+| ID | Facility Name |
+|---|---|
+| `0` | Battle Tower (`FRONTIER_FACILITY_TOWER`) |
+| `1` | Battle Dome (`FRONTIER_FACILITY_DOME`) |
+| `2` | Battle Palace (`FRONTIER_FACILITY_PALACE`) |
+| `3` | Battle Arena (`FRONTIER_FACILITY_ARENA`) |
+| `4` | Battle Factory (`FRONTIER_FACILITY_FACTORY`) |
+| `5` | Battle Pike (`FRONTIER_FACILITY_PIKE`) |
+| `6` | Battle Pyramid (`FRONTIER_FACILITY_PYRAMID`) |
+
+## 2. BP (Battle Points) Wallet
+
+The player's BP balance is stored as a 16-bit integer within the `BattleFrontier` structure in `SaveBlock2`.
+
+- **`SaveBlock2` struct:** Starts at `0x0000`
+- **`BattleFrontier` struct offset within `SaveBlock2`:** `0x064C`
+- **`battlePoints` offset within `BattleFrontier` struct:** `0x0EB8`
+- **Absolute offset within `SaveBlock2`:** `0x064C + 0x0EB8 = 0x1504`
+- **Type:** `u16` (2 bytes, little-endian)
+
+To extract the BP wallet balance: Seek to `0x1504` in the `SaveBlock2` buffer and read the `u16` value.
+
+## 3. Frontier Brain Encounter Progress Metrics
+
+Encountering a Frontier Brain depends on the current win streak for the specific facility.
+
+### Win Streaks
+Win streaks are tracked separately for each facility, battle mode (Singles, Doubles, etc.), and level mode (Level 50 or Open Level). Brain encounters **only happen in Singles** (`FRONTIER_MODE_SINGLES = 0`).
+
+The `BattleFrontier` struct contains the win streaks at the following relative offsets:
+- **Tower:** `towerWinStreaks[4][2]` at `0x0CE0`
+- **Dome:** `domeWinStreaks[2][2]` at `0xD0C`
+- **Palace:** `palaceWinStreaks[2][2]` at `0xDC8`
+- **Arena:** `arenaWinStreaks[2]` at `0xDDA` (no battle mode, only singles)
+- **Factory:** `factoryWinStreaks[2][2]` at `0xDE2`
+- **Pike:** `pikeWinStreaks[2]` at `0xE04` (no battle mode, only singles)
+- **Pyramid:** `pyramidWinStreaks[2]` at `0xE1A` (no battle mode, only singles)
+
+*Note: For the multi-dimensional arrays, the index is `[battleMode][lvlMode]`. For brain tracking, we only care about `[0][lvlMode]` or just `[lvlMode]` for facilities that are singles-only.*
+
+### Encounter Thresholds
+The `sFrontierBrainStreakAppearances` table dictates when the brain will appear.
+
+| Facility | Silver Streak Requirement | Gold Streak Requirement |
+|---|---|---|
+| Tower | 35 | 70 |
+| Dome | 4 (Championships) | 9 (Championships) |
+| Palace | 21 | 42 |
+| Arena | 28 | 56 |
+| Factory | 21 | 42 |
+| Pike | 28 (Rooms) | 140 (Rooms) |
+| Pyramid | 21 (Floors) | 70 (Floors) |
+
+*The `winStreak` variable checked against these thresholds in `GetFrontierBrainStatus` is effectively the current streak plus the next challenge increment (usually `1`, except for Dome `0`). So a current streak of 34 + 1 = 35 triggers the Silver Tower Brain.*
+
+### Symbols (Flags)
+Whether the player has beaten the Frontier Brain is tracked via flags in `SaveBlock1` `flags` bitfield (`SYSTEM_FLAGS` starts at index `0x860`).
+
+| Facility | Silver Symbol Flag | Gold Symbol Flag |
+|---|---|---|
+| Tower | `FLAG_SYS_TOWER_SILVER` (`0x8C4`) | `FLAG_SYS_TOWER_GOLD` (`0x8C5`) |
+| Dome | `FLAG_SYS_DOME_SILVER` (`0x8C6`) | `FLAG_SYS_DOME_GOLD` (`0x8C7`) |
+| Palace | `FLAG_SYS_PALACE_SILVER` (`0x8C8`) | `FLAG_SYS_PALACE_GOLD` (`0x8C9`) |
+| Arena | `FLAG_SYS_ARENA_SILVER` (`0x8CA`) | `FLAG_SYS_ARENA_GOLD` (`0x8CB`) |
+| Factory | `FLAG_SYS_FACTORY_SILVER` (`0x8CC`) | `FLAG_SYS_FACTORY_GOLD` (`0x8CD`) |
+| Pike | `FLAG_SYS_PIKE_SILVER` (`0x8CE`) | `FLAG_SYS_PIKE_GOLD` (`0x8CF`) |
+| Pyramid | `FLAG_SYS_PYRAMID_SILVER` (`0x8D0`) | `FLAG_SYS_PYRAMID_GOLD` (`0x8D1`) |
+
+To display progress towards the *next* Frontier Brain encounter for a facility:
+1. Check the Silver and Gold flags.
+2. Read the corresponding `winStreak` for Singles.
+3. Compare the streak against the next applicable threshold (Silver if 0 symbols, Gold if 1 symbol).
+--- .foundry/docs/knowledge_base/moveset-inventory-memory-offsets.md ---
+# Memory Offsets for Move PPs and Known Good Item Lists
+
+## Gen 1 Data Structure
+In Generation 1, the Pokémon data structure is 44 bytes long. The Move PP values are stored in 4 consecutive bytes:
+- Move 1 PP: `0x1D` (29)
+- Move 2 PP: `0x1E` (30)
+- Move 3 PP: `0x1F` (31)
+- Move 4 PP: `0x20` (32)
+
+Note: The lowest 6 bits represent the current PP, and the highest 2 bits represent the number of PP Ups applied.
+
+## Gen 2 Data Structure
+In Generation 2, the Pokémon data structure is 48 bytes long. The Move PP values are stored in 4 consecutive bytes:
+- Move 1 PP: `0x17` (23)
+- Move 2 PP: `0x18` (24)
+- Move 3 PP: `0x19` (25)
+- Move 4 PP: `0x1A` (26)
+
+Like Gen 1, the lowest 6 bits represent current PP, and the highest 2 bits represent PP Ups.
+
+## Known Good Item Lists
+Item lists and Move Base PPs will be dynamically pulled from PokeAPI instead of statically maintained here. (See idea-077-dynamic-pokeapi-data)
+
+## Base PP Values
+--- .foundry/docs/knowledge_base/gen3_map_parsing.md ---
+# Gen 3 Map Data Architecture
+
+This document outlines how location data is structured within the Gen 3 decompilation repositories (e.g., `pret/pokeemerald`, `pret/pokeruby`, `pret/pokefirered`). This structure is crucial for correctly mapping Game Boy internal Map IDs to their corresponding map layout data (including indoor hub logic and topological connections).
+
+## 1. Global Map Grouping
+
+The root registry for all maps is `data/maps/map_groups.json`.
+This file contains a `group_order` array, which lists various groups like `gMapGroup_TownsAndRoutes` or `gMapGroup_IndoorDewford`.
+
+Following the `group_order`, the JSON provides arrays for each group. For example:
+```json
+"gMapGroup_TownsAndRoutes": [
+  "PetalburgCity",
+  "SlateportCity",
+  // ...
+]
+```
+**Map ID Calculation:**
+A map's ID consists of its Group Index and its Map Index within that group.
+- **Group Index:** The 0-based index of the group inside `group_order`.
+- **Map Index:** The 0-based index of the map's string within that group's array.
+- **Formula:** `Map ID = (GroupIndex << 8) | MapIndex`
+
+## 2. Individual Map Files
+
+Each string inside a map group array corresponds to a folder within `data/maps/`. For instance, `"Route110_SeasideCyclingRoadSouthEntrance"` points to `data/maps/Route110_SeasideCyclingRoadSouthEntrance/map.json`.
+
+The `map.json` file contains all the topological and encounter configuration for that specific map, most notably:
+- `id`: E.g., `"MAP_ROUTE110_SEASIDE_CYCLING_ROAD_SOUTH_ENTRANCE"`
+- `region_map_section`: A constant like `"MAPSEC_ROUTE_110"` used to look up the human-readable display name.
+- `map_type`: Identifies whether the map is `MAP_TYPE_ROUTE`, `MAP_TYPE_TOWN`, `MAP_TYPE_INDOOR`, etc.
+- `connections`: An array containing objects representing connected maps (typically for outdoor `MAP_TYPE_ROUTE` / `MAP_TYPE_TOWN` layouts), formatted as:
+  ```json
+  "connections": [
+    {
+      "map": "MAP_ROUTE107",
+      "offset": 0,
+      "direction": "left"
+    }
+  ]
+  ```
+- `warp_events`: For `MAP_TYPE_INDOOR` maps, these warp events dictate how the player leaves the interior. The crucial property is `dest_map`, which points to the macro constant of the outdoor map hub (e.g., `"MAP_ROUTE110"`). This serves as the `prnt` (parent) mapping logic for indoor nodes.
+  ```json
+  "warp_events": [
+    {
+      "x": 1,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE110",
+      "dest_warp_id": "4"
+    }
+  ]
+  ```
+
+## 3. Human Readable Location Names
+
+The `region_map_section` constant found in `map.json` is mapped to a human-readable string using `src/data/region_map/region_map_sections.json` (or `.json.txt` templates in older branches).
+This file contains an array `map_sections` which maps the `id` (e.g., `MAPSEC_LITTLEROOT_TOWN`) to its `name` (`LITTLEROOT TOWN`).
+
+## Summary of Parsing Pipeline
+
+To fully map Gen 3 locations, the implementation task must:
+1. Parse `map_groups.json` to extract a list of all Map IDs, their folder names, and their Group + Map indices.
+2. Read each corresponding `map.json`.
+3. Extract `connections` array to populate node connections in the unified map graph.
+4. Extract `warp_events` -> `dest_map` to populate the `prnt` parent node logic.
+5. Use the map's `region_map_section` to look up the final localized text via `region_map_sections.json`.
+--- .foundry/docs/knowledge_base/gen3_move_tutor_offsets.md ---
+# Gen 3 Move Tutor Event Flags & Memory Offsets
+
+This document tracks the event flags used in Gen 3 games (Emerald, FireRed, LeafGreen) to determine if a one-time Move Tutor has been used. The game uses a continuous bit array of "Event Flags" starting at a specific memory offset in the save file (in Emerald, this offset is `0x1270` within `SaveBlock1`).
+
+## Emerald Offsets
+
+| Move Tutor | Flag ID | Flag Dec | Offset (bytes from Event Flag start) | Bit Position |
+|---|---|---|---|---|
+| Swagger | `0x1B1` | 433 | `+0x36` | `1` |
+| Rollout | `0x1B2` | 434 | `+0x36` | `2` |
+| Fury Cutter | `0x1B3` | 435 | `+0x36` | `3` |
+| Mimic | `0x1B4` | 436 | `+0x36` | `4` |
+| Metronome | `0x1B5` | 437 | `+0x36` | `5` |
+| Sleep Talk | `0x1B6` | 438 | `+0x36` | `6` |
+| Substitute | `0x1B7` | 439 | `+0x36` | `7` |
+| DynamicPunch | `0x1B8` | 440 | `+0x37` | `0` |
+| Double-Edge | `0x1B9` | 441 | `+0x37` | `1` |
+| Explosion | `0x1BA` | 442 | `+0x37` | `2` |
+
+## FireRed / LeafGreen Offsets
+
+| Move Tutor | Flag ID | Flag Dec | Offset (bytes from Event Flag start) | Bit Position |
+|---|---|---|---|---|
+| Double-Edge | `0x2C0` | 704 | `+0x58` | `0` |
+| Thunder Wave | `0x2C1` | 705 | `+0x58` | `1` |
+| Rock Slide | `0x2C2` | 706 | `+0x58` | `2` |
+| Explosion | `0x2C3` | 707 | `+0x58` | `3` |
+| Mega Punch | `0x2C4` | 708 | `+0x58` | `4` |
+| Mega Kick | `0x2C5` | 709 | `+0x58` | `5` |
+| Dream Eater | `0x2C6` | 710 | `+0x58` | `6` |
+| Soft-Boiled | `0x2C7` | 711 | `+0x58` | `7` |
+| Substitute | `0x2C8` | 712 | `+0x59` | `0` |
+| Swords Dance | `0x2C9` | 713 | `+0x59` | `1` |
+| Seismic Toss | `0x2CA` | 714 | `+0x59` | `2` |
+| Counter | `0x2CB` | 715 | `+0x59` | `3` |
+| Metronome | `0x2CC` | 716 | `+0x59` | `4` |
+| Mimic | `0x2CD` | 717 | `+0x59` | `5` |
+| Body Slam | `0x2CE` | 718 | `+0x59` | `6` |
+| Frenzy Plant | `0x2DE` | 734 | `+0x5B` | `6` |
+| Blast Burn | `0x2DF` | 735 | `+0x5B` | `7` |
+| Hydro Cannon | `0x2E0` | 736 | `+0x5C` | `0` |
+
+### Calculating Offsets
+The flags are bits in the `event_flags` array. To find the exact byte and bit for a given flag ID:
+1. `Byte Offset = Math.floor(Flag_Decimal / 8)`
+2. `Bit Position = Flag_Decimal % 8`
+
+When parsing save files with a `DataView`, add the `Byte Offset` to the memory address where the Event Flags block begins.
+--- .foundry/docs/knowledge_base/development/gen2_implementation_plan.md ---
+# Gen 2 Complete Implementation Plan
+
+> [!NOTE]
+> This implementation plan has been converted to a **Foundry Idea** for autonomous execution.
+> Track progress here: [.foundry/ideas/idea-006-gen2-expansion.md](.foundry/archive/ideas/idea-006-gen2-expansion.md)
+
+## Overview
+While the current app has basic support for parsing Gen 2 (Gold/Silver/Crystal) save files, it lacks the generation-specific logic for map traversal, assistance suggestions, mechanics, and accurate data handling. This document details the missing features and provides a phase-by-phase implementation plan.
+
+## Core Differences: Gen 2 vs Gen 1
+1. **Real-Time Clock (RTC):** Gen 2 spawns, evolutions, and events depend heavily on Morning/Day/Night cycles and days of the week. Gen 1 had a static world state.
+2. **Breeding & Eggs:** Gen 2 introduced a two-slot Daycare, Pokémon genders, egg groups, and baby Pokémon. Gen 1 only had a single-slot daycare for leveling.
+3. **Dual Regions:** Gen 2 spans both Johto and Kanto, requiring a much larger geographical map graph with region-crossing constraints (e.g. Magnet Train, SS Aqua).
+4. **Roaming Pokémon:** Raikou, Entei, and Suicune change their locations dynamically. Gen 1 had static legendary encounters.
+5. **Complex Evolutions:** Stat-based evolutions (Tyrogue), time-based happiness (Umbreon/Espeon), and held-item trades.
+6. **Held Items & Apricorns:** Required for evaluating whether the user can evolve certain Pokémon or craft specific Balls.
+
+---
+
+## Phase-by-Phase Instructions
+
+### Phase 1: Save Parser Expansion (Engine Data Layer)
+*The parsing engine (`src/engine/saveParser/parsers/gen2.ts`) is currently missing critical Gen 2 structs.*
+* [x] ~~**Real-Time Clock Extraction**~~ (Skipped/Not Needed): Assistant will simply state the time/day requirements to the user, allowing them to wait for the appropriate period instead of restricting suggestions based on emulator-specific RTC metadata.
+* [x] **Secondary Daycare Slot:** (Implemented in PR #251) The current parser only reads `daycare1Offset`. Add parsing for the second slot to support breeding detection and egg prediction.
+* [x] **Egg State Detection:** (Implemented in PR #251) Party parsing currently just loads species. Need to flag if a party member is currently an Egg (Species ID 253 in RAM, or checking the egg flag) so suggestions don't treat it as a hatched Pokémon.
+* [ ] **Detailed Inventory Parsing:** Extract Key Items (Squirtbottle, special Rods), TM/HMs (Headbutt, Rock Smash), Apricorns, and Evolution Items.
+* [ ] **Hall of Fame & Roamers:** Extract Hall of fame count (currently hardcoded) and the specific map locations of roaming legendaries from RAM.
+
+### Phase 2: Exclusives & Static Data Setup
+*Gen 2 requires its own static configuration similar to Gen 1.*
+* [ ] **Gen 2 Exclusives Module:** Create `src/engine/exclusives/gen2Exclusives.ts`. Define availability differences between Gold, Silver, and Crystal (e.g., Mareep line missing in Crystal, Vulpix in Silver, Growlithe in Gold).
+* [ ] **Assistant Configuration:** Create `src/engine/data/gen2/assistantData.ts`.
+  * [ ] Define `STATIC_GIFT_DATA` for Gen 2 (Togepi Egg, Eevee from Bill, Shuckle in Cianwood, Dratini, Tyrogue).
+  * [ ] Define `STATIC_NPC_TRADE_DATA` (e.g., trading Bellsprout for Onix `Rocky`, Drowzee for Machop `Muscle`).
+
+### Phase 3: Johto/Kanto Map Graph Routing
+*Gen 2 maps need a unified routing engine.*
+* [ ] **Gen 2 Map Graph:** Create `src/engine/mapGraph/gen2Graph.ts`.
+* [ ] **Indoor to Outdoor Resolution:** Implement `resolveOutdoorMapId` specifically mapping Johto and Kanto indoor locations to their corresponding outdoor hubs in the Gen 2 map structure.
+* [ ] **Cross-Region Distance Algorithm:** Implement `getDistanceToMap` adapted for Gen 2 map relationships (mapping connecting routes between towns). Must include the transition points between Johto and Kanto (Route 27, S.S. Aqua, Magnet Train).
+
+### Phase 4: Strategy & Suggestion Engine Adaptations
+*Connect everything through a Gen 2 specific strategy module.*
+* [ ] **Gen 2 Strategy Plugin:** Create `src/engine/assistant/strategies/gen2Strategy.ts` conforming to `AssistantStrategy` and link it in `strategies/index.ts`.
+* [ ] **Update `suggestionEngine.ts`:**
+  * [ ] **Time-Based Suggestions:** Check the missing encounters against the RTC state. Filter or warn if an encounter is only available at a different time of day.
+  * [ ] **Breeding Suggestions:** If the user has compatible parents in PC/Party, suggest placing them in the Daycare to get the missing baby evolutions (Pichu, Cleffa, etc.).
+  * [ ] **Headbutt / Rock Smash:** Cross-reference `ENCOUNTER_METHOD.HEADBUTT`/`ROCK_SMASH` encounters against the player's extracted TM/HM/Badge inventory.
+  * [ ] **Roamer tracking:** Guide the player to checking the Pokédex or tracking roamers if Entei/Raikou/Suicune are missing.
+  * [ ] **Stat-Based Evolutions:** Update the evolution logic checking to handle Tyrogue. Since DVs aren't actively used anymore for stats, render dynamic UI messages showing the exact stat requirements (Atk > Def, Atk < Def, Atk = Def).--- .foundry/docs/knowledge_base/development/gen2_breeding_dv_overlap.md ---
+# Gen 2 Breeding: DV Overlap Constraint (Incest Prevention)
+
+In Generation 2, there is a structural quirk to prevent inbreeding. The game determines if two Pokémon are "related" based on their Individual Values (DVs). Two Pokémon are incompatible for breeding if:
+1. Their Defense DVs are exactly the same.
+2. AND their Special DVs are either identical OR they differ by exactly 8.
+
+Because shininess is tied to specific DV combinations in Gen 2 (Defense always 10, Special always 10), two shiny Pokémon (or shiny carriers) will almost certainly trigger this rule and be unable to breed. This logic must be enforced in any algorithm dealing with Gen 2 breeding pairs.
+--- .foundry/docs/knowledge_base/gen3_berry_patch_offsets.md ---
+# Gen 3 Berry Patch Memory Offsets and Structures
+
+This document provides research findings regarding the exact memory offsets, block structures, and data offsets within the Game Boy Advance Gen 3 save format (Ruby, Sapphire, Emerald) for berry patches and Enigma Berry data, based on the `pret/pokeemerald` decompilation.
+
+## 1. Berry Trees Array
+
+The game manages a total of `128` Berry Trees. They are stored as a flat array within `SaveBlock1`.
+
+- **Offset within SaveBlock1:** `0x169C`
+- **Count:** `128` (constant `BERRY_TREES_COUNT`)
+- **Total Array Size:** `1024` bytes (`0x400`)
+
+### BerryTree Struct Definition
+
+The `BerryTree` struct represents the state of a single berry patch. Due to 32-bit alignment padding on the Game Boy Advance, each struct is exactly **8 bytes** in size.
+
+| Offset | Type | Name | Description |
+|---|---|---|---|
+| `0x00` | `u8` | `berry` | The ID of the berry planted in the patch. (0 if empty) |
+| `0x01` | `u8` (Bitfield) | `stage:7`, `stopGrowth:1` | `stage` (bits 0-6): Growth stage of the berry.<br>`stopGrowth` (bit 7): Flag indicating growth is paused. |
+| `0x02` | `u16` | `minutesUntilNextStage` | Real-time clock minutes remaining until the next growth stage. |
+| `0x04` | `u8` | `berryYield` | The number of berries this tree will yield upon picking. |
+| `0x05` | `u8` (Bitfield) | `regrowthCount:4`, `watered1:1`, `watered2:1`, `watered3:1`, `watered4:1` | `regrowthCount` (bits 0-3): Times it has regrown without being picked.<br>`wateredX` (bits 4-7): Tracks if the plant was watered at each stage. |
+| `0x06` | Padding | (Padding) | 2 bytes of padding to align the struct to 4-byte boundaries. |
+
+*Total Size: 8 bytes per BerryTree.*
+
+## 2. Enigma Berry Data
+
+Gen 3 introduced the Enigma Berry, which acts as a dynamic placeholder for e-Reader berries. Its data is also stored within `SaveBlock1`.
+
+- **Offset within SaveBlock1:** `0x31F8`
+- **Total Size:** `52` bytes
+
+### EnigmaBerry Struct Definition
+
+The `EnigmaBerry` struct is composed of a `Berry2` structure (which defines the custom berry's name, stats, and text), along with item effects, hold effects, and a checksum.
+
+| Offset | Type | Name | Size |
+|---|---|---|---|
+| `0x00` | `struct Berry2` | `berry` | 28 bytes |
+| `0x1C` | `u8[]` | `itemEffect` | 18 bytes (`BERRY_ITEM_EFFECT_COUNT`) |
+| `0x2E` | `u8` | `holdEffect` | 1 byte |
+| `0x2F` | `u8` | `holdEffectParam`| 1 byte |
+| `0x30` | `u32` | `checksum` | 4 bytes |
+
+#### `Berry2` Inner Struct Breakdown (28 bytes)
+- `0x00`: `name` (`u8[7]`) - 6 characters + null terminator
+- `0x07`: `firmness` (`u8`)
+- `0x08`: `size` (`u16`)
+- `0x0A`: `maxYield` (`u8`)
+- `0x0B`: `minYield` (`u8`)
+- `0x0C`: `description1` (`u32` pointer, generally ignored during save parsing as it points to ROM, but takes 4 bytes)
+- `0x10`: `description2` (`u32` pointer)
+- `0x14`: `stageDuration` (`u8`)
+- `0x15`: `spicy` (`u8`)
+- `0x16`: `dry` (`u8`)
+- `0x17`: `sweet` (`u8`)
+- `0x18`: `bitter` (`u8`)
+- `0x19`: `sour` (`u8`)
+- `0x1A`: `smoothness` (`u8`)
+- `0x1B`: Padding (`u8`)
+
+## Conclusion
+
+The `DataView` parser in `task-095-157-gen3-berry-dataview-parsing` should seek to offset `0x169C` in `SaveBlock1` and iterate 128 times, advancing by 8 bytes per iteration.
+Bitwise operations will be needed for offsets `0x01` and `0x05` to extract the correct growth stages, stop flags, regrowth counts, and watering history.
+## 3. Implicit and Missing Data (Map ID, Time Planted, Last Watered)
+
+During research, it was found that certain data points often assumed to exist are **not explicitly stored** in the Gen 3 save format.
+
+- **Map ID:** The Map ID is not stored within the `BerryTree` struct. Instead, the 128 `BerryTree` slots are pre-allocated to specific locations in the game world. The mapping between the array index (the "Berry Tree ID") and its location is implicit. In the game's code, `constants/berry.h` defines constants like `BERRY_TREE_ROUTE_102_PECHA` which correspond to these array indices. In map data (`map.json`), these IDs are directly assigned to the `trainerRange_berryTreeId` field of `ObjectEvent` entities. Therefore, to determine a berry patch's map location, one must map the array index to its hardcoded map location.
+- **Time Planted:** The exact time a berry was planted is not saved. The game instead uses the `lastBerryTreeUpdate` global timestamp (stored at offset `0xA0` in `SaveBlock2`) and calculates time differences to decrement the `minutesUntilNextStage` value.
+- **Last Watered Time:** The time a berry was last watered is not recorded. The `BerryTree` struct only tracks boolean flags (`watered1`, `watered2`, `watered3`, `watered4`) for whether the plant was watered during each of its four growth stages.
+--- .foundry/docs/knowledge_base/foundry/orchestrator/cloudflare_workers_evaluation.md ---
+# Cloudflare Workers Orchestrator Evaluation (Idea 005)
+
+## Context
+Goal: Replace/augment GitHub Actions for Foundry orchestration due to cron unreliability and slow git-based state management.
+
+## Proposed Architecture
+- **Worker**: Acts as the primary scheduler.
+- **Storage**: Cloudflare D1 (SQL) for atomic state tracking of node status (`READY`, `ACTIVE`, etc.).
+- **Boundary**: "Jules cannot reach this state" (Private to the orchestrator).
+- **Control Plane**: Uses GitHub API (repository_dispatch) to trigger Action-based agents.
+
+## Benefits
+- Reliable sub-minute scheduling.
+- Atomic state transitions (eliminates race conditions in status updates).
+- External reachability for cross-repo or multi-factored orchestrations.
+--- .foundry/docs/knowledge_base/foundry/orchestrator/state-sync-mechanism.md ---
+# State Sync Mechanism Architecture
+
+## 1. Flow from Git Push to Worker Ingestion
+
+To keep the Orchestrator's internal database (D1) in sync with the GitHub repository's markdown state, we will utilize GitHub Webhooks targeting a dedicated Cloudflare Worker endpoint.
+
+1. **Git Push:** A commit is pushed to the `main` branch.
+2. **GitHub Webhook:** GitHub fires a `push` webhook payload to our Cloudflare Worker (`/webhook/github`).
+3. **Diff Analysis:** The Worker analyzes the webhook's `commits` array to identify modified, added, or deleted files under `.foundry/`.
+4. **Content Fetch:** For changed files, the Worker fetches the raw markdown content via the GitHub REST API to ensure it processes the absolute latest state on `main`.
+5. **D1 Ingestion:** The Worker parses the content and executes a database transaction to update the corresponding nodes and dependencies in D1.
+
+## 2. Markdown Frontmatter Serialization
+
+Markdown frontmatter serialization and extraction will follow the existing schema defined in `.foundry/docs/schema.md`.
+
+- **Parsing:** The Worker will use a robust YAML parser (e.g., `js-yaml`) to extract the block between `---` markers.
+- **Validation:** Extracted objects will be validated against Zod schemas representing the rules in `schema.md` (e.g., ensuring `depends_on` is an array of strings, `status` matches allowed enums).
+- **Mapping:** The parsed object maps directly to the D1 `nodes` table schema (e.g., `id`, `type`, `status`). Arrays like `depends_on` and `tags` will be normalized into their respective relational tables (`dependencies`, `tags`).
+
+## 3. The "Unreachable State Constraint"
+
+The "Unreachable State Constraint" dictates that Jules (the autonomous agents) must never have direct network or credential access to the Orchestrator's internal D1 database.
+
+**Maintenance of this constraint:**
+- Agents operate strictly within the GitHub repository sandbox. Their sole mechanism for proposing changes is committing to their Git branch and creating/updating markdown files.
+- The Orchestrator's Cloudflare Worker is entirely decoupled from the agent environment. The Worker *reads* from GitHub via API/Webhooks and writes to D1.
+- Because agents cannot interact with D1, they cannot forcefully set a task to `READY` or bypass dependency checks. The Worker recalculates truth solely based on merged markdown state in `main` and the DAG logic, enforcing the constraint.
+--- .foundry/docs/knowledge_base/foundry/orchestrator/d1-vs-kv-evaluation.md ---
+# D1 vs KV Evaluation
+
+## KV Tradeoffs
+- **Latency**: Very low read latency (edge cached). High global write latency.
+- **Durability / Consistency**: Eventually consistent. Writes can take time to propagate globally.
+- **Model**: Key-Value store. Fast direct lookups. No complex querying.
+
+## D1 (SQL) Tradeoffs
+- **Latency**: Low latency when close to the main DB node, but can be higher globally compared to KV.
+- **Durability / Consistency**: Strong consistency. SQLite database on the edge. Supports transactions.
+- **Model**: Relational. Allows complex querying, joins, and indexing. Better for structured state data and complex lookups.
+
+## Recommendation for Node State Tracking
+**D1** is recommended. Node states (`READY`, `ACTIVE`, `COMPLETED`, etc.) require atomic transitions and strict consistency to avoid race conditions. Orchestration often needs complex queries (e.g. "Find all READY nodes where dependencies are COMPLETED"). While KV is faster for reads, its eventual consistency is problematic for state machines where out-of-order or delayed state updates can break the DAG resolution.
+
+## Proposed Storage Schema (D1 SQLite)
+
+```sql
+CREATE TABLE nodes (
+    id TEXT PRIMARY KEY,           -- e.g. "task-012-026-eval-d1"
+    type TEXT NOT NULL,          -- e.g. "STORY"
+    title TEXT NOT NULL,
+    status TEXT NOT NULL,        -- e.g. "ACTIVE"
+    owner_persona TEXT NOT NULL, -- e.g. "coder"
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL,
+    jules_session_id TEXT,
+    pr_number INTEGER,
+    parent TEXT,
+    rejection_count INTEGER DEFAULT 0,
+    rejection_reason TEXT,
+    notes TEXT
+);
+
+CREATE TABLE dependencies (
+    node_id TEXT NOT NULL,        -- The node that is blocked
+    depends_on_path TEXT NOT NULL, -- The path of the blocking node
+    PRIMARY KEY (node_id, depends_on_path),
+    FOREIGN KEY (node_id) REFERENCES nodes(id) ON DELETE CASCADE
+);
+
+CREATE TABLE tags (
+    node_id TEXT NOT NULL,
+    tag TEXT NOT NULL,
+    PRIMARY KEY (node_id, tag),
+    FOREIGN KEY (node_id) REFERENCES nodes(id) ON DELETE CASCADE
+);
+```
+--- .foundry/docs/knowledge_base/foundry/orchestrator/hierarchical-completion.md ---
+# Foundry Hierarchical Completion (Orchestrator V2.1)
+
+To prevent premature unblocking of downstream nodes in the Foundry DAG, we have implemented **Hierarchical Completion**.
+
+## The Invariant
+A node `B` that depends on node `A` will ONLY be promoted to `READY` if:
+1. `A.status == "COMPLETED"`
+2. **AND** All child nodes of `A` (nodes where `parent: A`) are also `COMPLETED`.
+
+## Implementation Details
+The `foundry-orchestrator.ts` script now builds a `parentToChildren` map during its resolution phase. It checks this map for every dependency listed in a node's `depends_on` field.
+
+- **Exceptions**: If a node `C` is a child of `A`, it is NOT blocked by this hierarchical rule (otherwise it could never start). Children only care about the explicit status of their dependencies and their parent's existence. Furthermore, while late-binding logic allows parents to spawn children, macro nodes (`IDEA`, `PRD`, `EPIC`, `STORY`) must NOT be marked `COMPLETED` via Empty PRs until all children are complete.
+- **Benefits**: This allows "Stories" to safely remain in `PENDING` (or transition back to it via Self-Healing) while waiting for children, without erroneously unblocking the *next* Story before the current Story's tasks are actually implemented.
+
+## Verification
+This logic is covered by unit tests in `foundry-orchestrator.test.ts`.
+--- .foundry/docs/knowledge_base/foundry/orchestrator/late-binding.md ---
+# Foundry Late-Binding Stories
+
+Late-binding stories in the Foundry engine are implemented natively in the infrastructure scripts, not through YAML manipulation.
+
+## The Problem
+Directly adding a child story to a parent Epic's `depends_on` array creates a deadlock:
+1. Epic waits for Story.
+2. Story inherently waits for parent Epic to be ACTIVE or COMPLETED.
+3. Deadlock.
+
+## The Solution
+1. **Heartbeat Script (`.github/scripts/foundry-heartbeat.ts`)**:
+   - When a PR merges, the script checks the node's markdown body for unchecked tasks (`- [ ]`).
+   - If unchecked tasks exist, it transitions the node back to `PENDING` instead of `COMPLETED`. This keeps the parent alive.
+2. **Orchestrator (`.github/scripts/foundry-orchestrator.ts`)**:
+   - **Wait for Children**: A `PENDING` node is explicitly blocked if it has *any* incomplete children.
+   - **Exception for Children**: A child node is normally blocked if its parent is `PENDING`. However, if the `PENDING` parent already has children, the orchestrator assumes it is in its "Wait for Children" cycle, and *does not* block the child.
+
+This ensures that the Epic waits in a PENDING state for its child stories to complete before spawning the next ones, creating a seamless, automated delivery pipeline.
+## Late-Binding Parent Node Cancellation Logic
+The orchestrator correctly handles `CANCELLED` children of late-binding parent nodes. When determining if all children are completed (in `.github/scripts/foundry-orchestrator.ts`), the system explicitly checks that a child is either `COMPLETED` or `CANCELLED`. This means a permanently `CANCELLED` child effectively behaves as "done" from the perspective of its parent. It does not cause a deadlock, and the parent will still correctly wake up once all its children have reached either `COMPLETED` or `CANCELLED` state.
+--- .foundry/docs/knowledge_base/foundry/v2-transition-bootstrap.md ---
+# Foundry V2 Transition: Atomic Handoffs
+
+We are transitioning the Foundry infrastructure to a "Single Persona" node model to resolve DAG deadlocks.
+
+## The Problem (V1)
+In V1, nodes like IDEA-002 were "Composite," containing tasks for both Product Managers and Tech Leads. This prevented the orchestrator from marking the node `COMPLETED` until all tasks were done, blocking downstream nodes (PRDs) that only needed the PM's portion.
+
+## The Principle of Atomic Ownership
+1. **Single Owner**: Every `.foundry/` node file is owned by exactly ONE persona.
+2. **Automated Completion**: Status transitions are handled by the `foundry-heartbeat` (detecting merged PRs) and the `foundry-orchestrator` (promoting unblocked dependencies).
+3. **Implicit Handoff**: A persona "hands off" work by spawning a new node (e.g., IDEA -> PRD) and merging their current session.
+
+## Note on IDs
+Branch collisions and ID generation strategy are being addressed in **IDEA-002**. IDEA-003 focuses exclusively on the workflow and ownership model.--- .foundry/docs/knowledge_base/foundry/engine/timestamp-parsing-fix.md ---
+Foundry Engine scripts `.github/scripts/foundry-active.ts` and `.github/scripts/foundry-heartbeat.ts` used strict regex for matching `updated_at` timestamps (`/^\d{4}-\d{2}-\d{2}$/`), which failed on full ISO 8601 strings, resulting in duplicated keys or failing tests. Changed the regex to gracefully accept full ISO timestamps or nulls, similarly to how `jules_session_id` is parsed.--- .foundry/docs/knowledge_base/foundry/engine/strict-dag-completion.md ---
+# Foundry: Strict DAG Completion & Self-Healing Protocol
+
+## Core Principle
+The Foundry engine now utilizes a **Strict DAG Completion** model. Traditional markdown checkboxes (`- [ ]`) are no longer used for engine-level progress tracking. Instead, completion is derived entirely from the state of a node's children and dependencies.
+
+## Engine Behavior
+1.  **Heartbeat (`foundry-heartbeat.ts`)**:
+    - No longer scans for unchecked boxes.
+    - Automatically transitions a node to `COMPLETED` immediately upon its associated Pull Request being merged (except for macro nodes which must wait for all children to complete).
+2.  **Orchestrator (`foundry-orchestrator.ts`)**:
+    - Implements a **Self-Healing DAG** via Phase 3.5.
+    - If a `COMPLETED` node is found to be **Hierarchically Incomplete** (i.e., it has children or dependencies that are not `COMPLETED`), it is demoted back to `PENDING`.
+    - This allows for "Wait & Wake" behavior where a parent node stays `PENDING` until its entire subtree is finished, even if the parent's own work (PR) was merged early.
+
+## Node Authoring Rules
+- **Hierarchical Linking**: Every internal task must be defined as a child node file (`parent` field) or an explicit `depends_on` link.
+- **Completion Invariant**: A parent node will never truly stay `COMPLETED` until all its children are `COMPLETED`.
+- **Late-Binding Exception**: `PENDING` parents with children do not block those children from starting. This prevents deadlocks while maintaining the hierarchical invariant.
+
+## Impact on Idea 007
+Idea-007 (Migrate Saves to IndexedDB) was previously stuck because it was marked `COMPLETED` on `main` while its implementation stories were still open. The new "Self-Healing" logic correctly identifies this discrepancy and demotes the Idea/PRD to `PENDING` until the story implementation is finished.--- .foundry/docs/knowledge_base/foundry/engine/architecture.md ---
+# Foundry Engine Architecture
+
+The Foundry Engine automates the lifecycle of Foundry nodes (Ideas, Epics, Stories, Tasks) using a Directed Acyclic Graph (DAG) approach.
+
+## Key Components
+
+1.  **Orchestrator (`.github/scripts/foundry-orchestrator.ts`)**:
+    *   Walks the `.foundry/` directory.
+    *   Resolves dependencies by checking node status.
+    *   Promotes `PENDING` nodes to `READY` if all dependencies are `COMPLETED`.
+    *   Outputs a JSON array of `READY` nodes for GitHub Actions matrix processing.
+    *   **Matrix Targeting**: Includes `repo_path` in the JSON output to allow downstream jobs to locate the file.
+
+2.  **State Transition Script (`.github/scripts/foundry-active.ts`)**:
+    *   Transitions a node from `READY` to `ACTIVE`.
+    *   **Strict "Dumb" Diff Verification**: Before saving, it performs a character-by-character comparison (via `gray-matter` parsing) to ensure ONLY the `status`, `jules_session_id`, and `updated_at` fields were modified.
+    *   **Robust Metadata Handling**: The script uses regex patterns that handle optional quotes (e.g., `status: "READY"`) and implements an `upsertField` logic to gracefully handle missing fields by appending them to the frontmatter. This prevents transition failures due to minor formatting differences and accidental metadata corruption by autonomous processes.
+
+3.  **Foundry Engine Workflow (`.github/workflows/foundry-engine.yml`)**:
+    *   **Orchestrate Job**: Runs the orchestrator and sets an output for the matrix.
+    *   **Execute Job**: Runs in parallel for each `READY` node.
+    *   **Jules Invocation**: Generates a persona-aware prompt and calls the Jules API via `curl` with a reference to the main repository and specific node content.
+
+
+3. **Heartbeat Script (`.github/scripts/foundry-heartbeat.ts`)**:
+    *   Monitors `ACTIVE` nodes to verify they aren't "zombies" (active nodes with dead or missing PRs).
+    *   **Robust PR Discovery**: Uses a multi-layered lookup strategy:
+        1.  **Jules Session API**: Fetches the session object and extracts the PR URL from `outputs[].pullRequest.url`.
+        2.  **GitHub Search API**: Fallback search for the session ID in PRs.
+        3.  **GitHub List API**: Fallback scan of recent PR bodies/branches for the session ID.
+    *   **Zombie Detection Logic**: Only transitions a node to `FAILED` if the Jules session is in a terminal state (`FAILED`, `COMPLETED`) **and** no PR was discovered via any of the above methods. This prevents false-positives caused by GitHub Search indexing lag.
+    *   **Resurrection**: Automatically moves `FAILED` nodes back to `READY` to allow the engine to retry them in the next cycle.
+
+## Best Practices
+
+*   **Idempotency**: The orchestrator is designed to be re-run safely. Any node already in `READY` status is included in the output matrix.
+*   **Audit Trail**: The `jules_session_id` is populated with the ID returned by the Jules API, providing a direct link between the node state and the automated agent session. The GitHub `run_id` is typically included in the commit message to provide secondary linkage to CI logs.
+*   **Security**: Workflow is restricted to the `main` branch.
+--- .foundry/docs/knowledge_base/foundry/ideas/gen2-expansion.md ---
+# Idea 006: Gen 2 Support Expansion
+
+Formalizes the Gen 2 support expansion into the Foundry autonomous workflow.
+
+- **Status**: ACTIVE (as of PR #362)
+- **Goal**: Full fidelity for Johto/Kanto lifecycle features.
+- **Phases**:
+  1. Save Parser Expansion.
+  2. Exclusives & Static Data.
+  3. Johto/Kanto Map Graph.
+  4. Strategy & Suggestion Engine.
+
+Linked Implementation Plan: [.foundry/docs/knowledge_base/development/gen2_implementation_plan.md](.foundry/docs/knowledge_base/development/gen2_implementation_plan.md)
+Foundry Idea: [.foundry/ideas/idea-006-gen2-expansion.md](.foundry/archive/ideas/idea-006-gen2-expansion.md)
+--- .foundry/docs/knowledge_base/foundry/lifecycle/conflict-resolution-v1.md ---
+# Foundry Status Conflict Resolution
+
+## Context
+Foundry engine was experiencing merge conflicts because multiple agents (Heartbeat on main, Jules on feature branches) were updating the same frontmatter fields (`status`, `pr_number`).
+
+## Resolution
+1. **Simplified Lifecycle**: Removed `IN_REVIEW` status. Tasks now stay `ACTIVE` while a PR is open.
+2. **Implicit PR Tracking**: Removed `pr_number` from automated tasks frontmatter (still optional for human-in-the-loop). The `foundry-heartbeat.ts` script now looks up PRs via the GitHub API using the `jules_session_id`.
+3. **Agent Constraints**: Added a strict rule for Jules agents (and updated the workflow prompt) forbidding modification of YAML frontmatter. Only the Foundry engine is allowed to change node metadata.
+4. **Resurrection Logic**: Updated the heartbeat to "resurrect" tasks (set status back to `READY`) if a PR is closed without merging.
+5. **Data Cleanliness**: Migrated all existing automated foundry nodes to remove `pr_number` and consolidate `IN_REVIEW` into `ACTIVE`.
+
+## Files Impacted
+- `.foundry/docs/schema.md`
+- `.github/scripts/foundry-orchestrator.ts`
+- `.github/scripts/foundry-heartbeat.ts`
+- `.github/workflows/foundry-engine.yml`
+--- .foundry/docs/knowledge_base/foundry/lifecycle/order-and-architect-v1.md ---
+# Foundry Order & Architect Integration
+
+## Context
+There is an identified issue where roles leak across nodes (e.g., PM performing technical architecture) and DAG deadlocks occur because IDEA nodes were being treated as composite instead of atomic.
+
+## Proposed Resolution
+1. **The Order**: IDEA (PM) -> PRD (PM) -> ADR (Architect) -> EPIC (Planner) -> STORY -> TASK.
+2. **Atomic Handoff**: Each step produces a specific artifact (node). When that artifact's PR is merged, the system (Heartbeat) marks the preceding node as `COMPLETED`.
+3. **Architect Persona**: Formally integrates the Architect as the 'Gatekeeper' between Requirements (PRD) and Implementation (EPIC).
+
+## Impact
+- Prevents composite node deadlocks.
+- Prevents technical brainstorming from leaking into non-technical roles.
+- Establishes a clear, repeatable handoff protocol for future agents.--- .foundry/docs/knowledge_base/foundry/lifecycle/human-in-the-loop.md ---
+# Memory: Human-in-the-Loop Lifecycle
+
+## Context
+The Foundry was originally designed for fully autonomous Jules sessions. IDEA-004 introduced formal support for human contributors and repository owners to intervene, work on unblocked nodes, and bypass standard agent dispatch.
+
+## Key Decisions
+- **`human` Persona**: A new valid `owner_persona` that bypasses the Jules session dispatcher and heartbeat failure loops.
+- **Optional `pr_number`**: An optional field for tracking PR links. Humans may bypass PRs entirely and commit directly to `main`.
+- **"Pick Up" Workflow**: `READY` tasks with `owner_persona: human` can be unblocked and assigned/claimed by humans.
+- **Closed PR Recovery**: If a linked PR is closed without being merged, the node transitions back to `READY` instead of `FAILED`, allowing it to be reclaimed.
+- **Manual Completion**: Humans can manually set `status: COMPLETED` in frontmatter for direct-to-main work, bypassing the requirement for a merged PR signal.
+
+## Architectural Implications
+- Orchestrator must support `ACTIVE` nodes without a `jules_session_id` if the owner is `human`.
+- Heartbeat must poll GitHub PR status if `pr_number` is present.
+- Validation (`qa` nodes) is still required after human implementation nodes to maintain system-wide standards.
+--- .foundry/docs/knowledge_base/foundry/lifecycle/agent-failure-reporting.md ---
+# Agent Failure Reporting
+
+## Decision
+Agents (Coder/QA) are allowed to modify the YAML frontmatter of Foundry nodes specifically to mark them as `FAILED` and provide a `rejection_reason`.
+
+## Context
+Previously, a strict rule forbade agents from touching the frontmatter at all. This led to agents documenting failures only in the markdown body, which the Foundry Engine could not automatically parse. By allowing agents to set `status: FAILED`, we enable the "Resurrection Loop" (resetting to `READY`) and "Impossible Loop" (waking up the parent node) logic.
+
+## Rules
+- Agents MUST NOT set `status: COMPLETED` or `status: DONE`.
+- Agents MUST provide a `rejection_reason` when setting `status: FAILED`.
+- Other metadata fields (id, type, owner_persona, etc.) remain strictly read-only for agents.
+
+## Implementation
+- Updated `.foundry/docs/schema.md` (Invariant 6).
+- Updated prompt in `.github/workflows/foundry-engine.yml`.
+--- .foundry/docs/knowledge_base/tailwind_v4_utilities.md ---
+# Tailwind v4 `@utility` Consolidation Strategy
+
+## Objective
+This document outlines the findings and strategy for migrating repetitive UI classes from the deprecated `@layer components` syntax to the native `@utility` directive in Tailwind CSS v4.
+
+## Findings: The `@utility` API in Tailwind v4
+
+Based on research and terminal testing with `tailwindcss v4.3.0`, the `@utility` directive offers a powerful way to define custom utilities.
+
+1.  **Basic Syntax**: Custom utilities are defined using `@utility utility-name { ... }`.
+2.  **Native Variant Support**: The most significant advantage of `@utility` over `@layer components` is that utilities defined this way **automatically inherit all variants** (like `hover:`, `md:`, `focus:`, `group-hover:`, etc.). You do not need to wrap them in responsive or hover media queries manually.
+    *   Example: Defining `@utility tactical-panel { ... }` automatically generates `.tactical-panel`, `.hover\:tactical-panel`, `.md\:tactical-panel`, etc., when those variants are used in the HTML.
+3.  **Nesting and `@apply`**: `@apply` works perfectly inside `@utility` blocks. Tailwind v4 correctly maps applied classes (e.g., `hover:bg-blue-600` inside `@apply`) into properly nested css rules (e.g., `@media (hover: hover) { &:hover { ... } }`).
+    *   This makes it trivial to compose complex utilities from existing utility classes while retaining all variant support.
+
+## Migration Edge Cases and Pitfalls
+
+1.  **Over-scoping with Nested Selectors**: When using nested selectors inside `@utility` (e.g., `& .child { ... }`), be aware that variants applied to the utility will affect the entire nested block. This is generally expected but can sometimes lead to overly broad target matching if not careful.
+2.  **Specificity**: Utilities defined with `@utility` share the same specificity as standard Tailwind utilities. This is generally better than `@layer components` because it integrates more naturally with the rest of the utility-first ecosystem.
+3.  **Deprecation of `@layer components`**: It's highly recommended to migrate away from `@layer components` for simple component classes, as `@utility` provides a more robust and "Tailwind-native" way to handle custom abstractions with full variant support.
+
+## Proposed Structure for `src/index.css`
+
+To consolidate repetitive UI classes, we should introduce a dedicated section in `src/index.css` for `@utility` definitions. This keeps the configuration clean and grouped.
+
+```css
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* ... existing theme variables ... */
+}
+
+:root {
+  /* ... existing CSS variables ... */
+}
+
+/* ... existing body styles and retro effects ... */
+
+/* =========================================
+   Tactical Primitives (@utility definitions)
+   ========================================= */
+
+@utility tactical-panel {
+  @apply border border-dashed rounded-none border-zinc-800 bg-zinc-900/50 flex items-center justify-between text-zinc-100 font-mono text-sm transition-colors duration-200;
+
+  /* Example of adding nested hover state explicitly within the utility */
+  &:hover {
+    @apply bg-zinc-800 border-zinc-500;
+  }
+}
+
+@utility tactical-button {
+  /* Define tactical button base styles here using @apply or native CSS */
+  @apply bg-theme-surface border border-theme-border text-white px-4 py-2 font-mono text-sm transition-all;
+
+  &:hover {
+    @apply bg-[rgba(var(--theme-primary-rgb),0.2)] border-theme-primary text-theme-primary;
+  }
+
+  &:active {
+    @apply scale-95;
+  }
+}
+
+/* Add other tactical primitives here as needed */
+```
+
+### Next Steps for Implementation
+When implementing these primitives across the codebase, replace inline classes like `border border-dashed rounded-none border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800 hover:border-zinc-500 transition-colors duration-200 p-4 flex items-center justify-between text-zinc-100 font-mono text-sm` with the much simpler `tactical-panel p-4`.
+Note that spacing modifiers like `p-4` are deliberately left out of the base utility when they vary between instances, allowing the utility to remain flexible.
+--- .foundry/docs/knowledge_base/architecture/locations/unified-v7.md ---
+# Unified Location Architecture (v7)
+
+As of database version 7, the application uses a unified location model:
+- `locations`, `areas`, and `location_index` stores are merged into a single `locations` store (type `UnifiedLocation`).
+- Distances are precomputed at build-time using Floyd-Warshall (APSP) in `scripts/generate-pokedata.ts`.
+- `MapGraph.getDistanceToMap` is now an $O(1)$ lookup using the `dist` property of the starting map.
+- Indoor locations (e.g., buildings) must be resolved to their parent outdoor map ID before distance lookup using `resolveOutdoorMapId`.
+
+## Constants
+- `DB_CONFIG.VERSION = 7`
+- Mapping files: `scripts/data/gen1/mapping.ts` and `scripts/data/gen2/mapping.ts` are the sources of truth for ROM-ID based connections.
+--- .foundry/docs/knowledge_base/architecture/link_checker_behavior.md ---
+# Link Checker Behavior
+
+The link checker (`scripts/check-links.ts`) is used to validate links in markdown files, particularly within the `.foundry` directory.
+
+## Resolution Logic
+
+- **Frontmatter Paths**: Always resolved relative to the repository root.
+- **Inline Links**: Resolved relative to the file containing the link. If not found, they are also checked relative to the repository root. This allows for flexible link styles, including repo-root-relative links like `.foundry/stories/...`.
+
+## Usage
+
+The link checker is integrated into the pre-commit hook via `lefthook.yml`. It can be run manually as:
+`node --experimental-strip-types scripts/check-links.ts [files...]`
+--- .foundry/docs/knowledge_base/architecture/the_foundry_system.md ---
+# The Foundry Autonomous Software Factory Architecture
+
+## Vision
+A "CEO-Level" orchestration system where the human provides high-level ideas and micromanages via PR reviews. The multi-agent pipeline autonomously breaks ideas down into atomic tasks and executes them with massive parallelism using Jules asynchronous agents.
+
+## Core Directives
+- **Direct Commits**: Agents propose ideas by making actual file changes to their own branches (no PR description-only proposals).
+- **CEO Checkpoints**: ALL PR transitions (from PRDs to Code) require explicit CEO approval. Automerge is strictly disabled.
+- **The Journal & Veto Power**: The CEO says "No" by closing a PR without merging. System personas (like Agile Coach and Strategist) use a persistent journal to log closed PRs and extract lessons for future cycles.
+
+## 1. State Store (`.foundry/` Monofolder)
+The repository acts as the database for the entire product lifecycle, containing markdown files representing nodes.
+- **`.foundry/ideas/`**: CEO thoughts.
+- **`.foundry/prds/`**: Product Requirements.
+- **`.foundry/epics/`**: Macroscopic functional chunks.
+- **`.foundry/stories/`**: Incremental unblocking steps (Story 2 is only written after Story 1 finishes, incorporating lessons).
+- **`.foundry/tasks/`**: Specific engineering implementations with attached technical specs.
+
+### Global System Context (Knowledge Base)
+To prevent massive context bloat while keeping tasks context-aware, global system parameters are stored separately and selectively injected based on context or tags:
+- **`.foundry/docs/adrs/`**: Architecture Decision Records. The `tech_lead` maintains and reads these to ensure consistency.
+- **`.foundry/docs/style_guides/`**: Global UX/UI constraints for the `designer`.
+
+## 2. DAG Orchestrator & Massive Concurrency
+- Workflows are defined by `depends_on` arrays within the YAML frontmatter of the markdown files. Dependencies are universal across directories.
+- A custom Node.js orchestrator script (`.github/scripts/foundry-orchestrator.ts`) parses frontmatter across all items to calculate an in-degree of `0` globally.
+- It passes a JSON array of all unblocked nodes to a GitHub Action, which utilizes a `matrix` strategy to spawn dozens of Jules instances concurrently for parallel execution of all independent epics/stories/tasks.
+
+## 3. The Resurrection Loop & Self-Healing
+- **No Git Rebasing**: Since Jules struggles with rebases, we treat sessions as highly disposable.
+- If the CEO closes an active Foundry PR without merging, the orchestrator triggers and marks the old session dead. It grabs the CEO's review comments from the closed PR and spawns a completely fresh, new Jules session on a new branch with the precise rejection feedback injected as context.
+- **Heartbeat & Zombie Prevention**: A scheduled action reads `jules_session_id` inside `.foundry/` files marked `ACTIVE`. It queries the Jules API. If a session crashed silently, it flips the node to `FAILED` or `BLOCKED` for CEO review.
+- **Context Hydration**: The script concatenates the vertical "read graph". For example, Tasks are injected with context from their parent Story and PRD.
+
+## 4. Personas Pipeline (`.github/agents/`)
+
+### Agent Journals
+Every agent persona maintains a continuous log in **`.foundry/journals/<agent_name>.md`**.
+When the 'Resurrection Loop' runs, the returning agent updates its local journal with its mistake, ensuring the persona learns localized domain knowledge from CEO rejections.
+
+**The Product Team:**
+- `product_manager.md`: Ideas -> PRDs
+- `epic_planner.md`: PRDs -> Epics
+- `story_owner.md`: Epics -> Stories (The dynamic, late-binding planner that monitors active work).
+
+**The Engineering Team:**
+- `tech_lead.md` (replaces Architect): Stories -> Tasks (creates technical contracts/blueprints, reads ADRs).
+- `coder.md`: Implementation
+- `qa.md`: Validation against specs
+
+**The Organization Team:**
+- `tpm.md`: Runs hourly. Archives `COMPLETED` nodes. Resolves minor graph deadlocks, file organization.
+- `agile_coach.md`: Runs daily/weekly. The meta-agent. Modifies `AGENTS.md`, scheduled agents, and persona prompts based on what the CEO rejects.
+- `mechanic.md`: Runs daily. Ensures the foundry is oiled and running correctly. Resolves deadlocks and suggests improvements.
+
+## 5. Ongoing Evolution & Scheduled Agents (v1.5)
+- The existing fleet of standalone scheduled agents (`strategist`, `sweeper`) will remain on their current cron workflows for the immediate v1.0 release to preserve stability.
+- **In v1.5**, these agents will be natively unified into the Foundry DAG: instead of creating raw PRs, they will programmatically drop `Idea` or `Task` markdown nodes directly into the `.foundry` intake folder, subjecting their automated recommendations to the exact same CEO-gatekeeping and validation pipelines as feature work.
+
+## 6. Implementation Progress
+
+### ✅ Epic 1, Story 1.1 — COMPLETED (2026-04-20)
+The `.foundry/` monofolder has been scaffolded at the repository root. All 9 files are committed:
+- `ideas/`, `prds/`, `epics/`, `stories/`, `tasks/`, `journals/` (all with `.gitkeep`)
+- `docs/adrs/`, `docs/style_guides/` (both with `.gitkeep`)
+- `docs/schema.md` — the master definitions document (YAML schema, status lifecycle, system invariants, node template)
+
+**Key decisions locked in schema.md:**
+- `depends_on` uses repo-relative file paths (not IDs) — orchestrator resolves via `fs.readFile`
+- `status: READY` is orchestrator-authored only — never set manually by a persona
+- Journals are unstructured free-form Markdown; each persona decides its own structure/layout; `tpm` is responsible for archiving them
+
+### ✅ Epic 2, Story 2.2 — COMPLETED (2026-04-20)
+**QA & State Bootstrap**
+- State store bootstrapped with initial v1.0 nodes: `.foundry/ideas/idea-001`, `.foundry/epics/epic-003`, `.foundry/stories/story-001/002`.
+- Verification performed: Successfully promoted `epic-003` to `READY` via `foundry-orchestrator.ts`.
+- **Automated Testing**: 5/5 Vitest unit tests implemented in `.github/scripts/foundry-orchestrator.test.ts`, covering DAG resolution, blocking, resilience, and dry-run logic.
+- Foundational `package.json` updated with test automation scripts.
+
+### ✅ Story 001 — COMPLETED (2026-04-20)
+**Foundry Architecture Initiation**
+- **Blueprint Writing**: Story 001 transformed into concrete engineering tasks (`task-001` through `task-003`).
+- **DAG State**: Story 001 transitioned to `COMPLETED`, successfully unblocking `task-001-create-engine-yaml` in the orchestrator graph.
+- **Blueprint Nodes**:
+    - `task-001`: Core Orchestration Engine (GitHub Actions YAML)
+    - `task-002`: Heartbeat & Stale Node Detection
+    - `task-003`: Resurrection & Rejection Loop
+
+### 🔜 Next Steps
+1. Technical implementation of the GitHub Actions engine (`task-001`).
+2. Draft initial Persona `.md` frameworks inside `.github/agents/`.--- .foundry/docs/knowledge_base/architecture/file_system_api.md ---
+# File System Access API Constraints
+
+## Android Limitations
+When implementing features that rely on the Web File System Access API (`showOpenFilePicker`, `showDirectoryPicker`), be aware of severe constraints on mobile devices, specifically Android:
+
+1.  **Limited Support**: `showDirectoryPicker` is generally not supported on Android browsers. `showOpenFilePicker` has partial support.
+2.  **Storage Access Framework (SAF)**: Android's security model heavily restricts browser access to the broader file system.
+3.  **Cloud-Synced Folders**: Attempting to use the API to persist access to folders managed by third-party background sync applications (like Google Drive or DropBox sync clients) is unreliable. The browser will often be denied persistent read permissions due to SAF, requiring the user to manually re-select the file on every app launch.
+
+## Architectural Implications
+For features requiring persistent, automated file monitoring (like live save-file tracking for emulators), the File System Access API is only a viable architecture for **desktop environments**.
+
+For mobile or dedicated Android emulation devices, an alternative architecture is required, such as:
+-   Server-side integration with the cloud provider (e.g., Cloudflare connecting directly to the Google Drive API).
+-   A native Android companion app for background syncing.
+--- .foundry/docs/knowledge_base/gen3_ash_gathering_offsets.md ---
+# Gen 3 Volcanic Ash Gather Count Memory Offsets
+
+This document provides research findings regarding the exact memory offsets and data types within the Game Boy Advance Gen 3 save format (Ruby, Sapphire, Emerald) for the Volcanic Ash gather count, based on the `pret/pokeemerald` and `pret/pokeruby` decompilations.
+
+## 1. Data Structure and Location
+
+The Volcanic Ash count is stored as a game variable rather than a dedicated, named struct field.
+
+-   **Variable Constant:** `VAR_ASH_GATHER_COUNT`
+-   **Variable ID:** `0x4048`
+
+Game variables starting from `0x4000` (`VARS_START`) are stored in the `vars` array within `SaveBlock1`.
+
+-   **Variable Index Calculation:** `0x4048 - 0x4000 = 0x48` (72 in decimal)
+-   **Data Type:** `u16` (2 bytes, little-endian)
+
+Since each variable is a `u16`, the byte offset into the `vars` array is:
+`72 * 2 = 144` (`0x90`)
+
+## 2. Emerald Offsets
+
+In Pokémon Emerald, the `vars` array is located at offset `0x139C` within `SaveBlock1`.
+
+-   **`SaveBlock1` vars array base offset:** `0x139C`
+-   **Byte Offset within vars array:** `0x90`
+-   **Absolute Offset within `SaveBlock1`:** `0x139C + 0x90 = 0x142C`
+
+## 3. Ruby / Sapphire Offsets
+
+In Pokémon Ruby and Sapphire, the `vars` array is located slightly earlier at offset `0x1340` within `SaveBlock1`.
+
+-   **`SaveBlock1` vars array base offset:** `0x1340`
+-   **Byte Offset within vars array:** `0x90`
+-   **Absolute Offset within `SaveBlock1`:** `0x1340 + 0x90 = 0x13D0`
+
+## 4. Conclusion
+
+To extract the total amount of Volcanic Ash gathered by the player:
+1. Locate the active `SaveBlock1` memory block.
+2. Based on the game version, seek to the corresponding absolute offset (`0x142C` for Emerald, `0x13D0` for Ruby/Sapphire).
+3. Read the 16-bit unsigned integer (`u16`) using a `DataView`.
+
+This count represents the exact number of steps taken in the ash-covered grass on Route 113 while carrying the Soot Sack.
+--- .foundry/docs/knowledge_base/gen3_roamer_offsets.md ---
+# Gen 3 Roamer Event Flag Offset Research
+
+Based on the Gen 3 decompilation code (`pret/pokeemerald`, `pret/pokeruby`, `pret/pokefirered`), here is the detailed research on the roaming Pokémon event flag offsets.
+
+## Summary
+
+The "roamer released" event is tracked by a standard game flag, not a dedicated boolean in a specific structure. Once this flag is set, the roamer starts moving around the map and can be encountered.
+
+## 1. The Flag
+
+The flag responsible for indicating that the roamer has been released in Ruby/Sapphire and Emerald is:
+
+*   **Flag Constant:** `FLAG_LATIOS_OR_LATIAS_ROAMING`
+*   **Flag Value:** `0xFF` (255)
+
+This flag is set in the TV event script (`data/scripts/tv.inc`) after the player watches the television reporting the mysterious Pokémon, and in the `data/scripts/players_house.inc` script.
+
+## 2. Memory Offset Calculation
+
+Flags in Generation 3 are stored as a bit array (bitfield) within `SaveBlock1` under the `flags` array (`u8 flags[NUM_FLAG_BYTES];`).
+
+To calculate the specific byte offset and bit for flag `0xFF` (255):
+*   **Byte Offset within the `flags` array:** `255 // 8 = 31` (`0x1F`)
+*   **Bit Position within the byte:** `255 % 8 = 7` (the highest bit)
+
+### Emerald Offsets
+
+*   **`SaveBlock1` `flags` array base offset:** `0x1270`
+*   **Absolute Offset within `SaveBlock1`:** `0x1270 + 0x1F = 0x128F`
+*   **Bitmask:** `1 << 7` (`0x80`)
+
+### Ruby / Sapphire Offsets
+
+*   **`SaveBlock1` `flags` array base offset:** `0x1220`
+*   **Absolute Offset within `SaveBlock1`:** `0x1220 + 0x1F = 0x123F`
+*   **Bitmask:** `1 << 7` (`0x80`)
+
+### FireRed / LeafGreen
+
+FireRed and LeafGreen use a different roaming legendary (the legendary beast corresponding to the player's starter). The `FLAG_LATIOS_OR_LATIAS_ROAMING` flag does not exist in FRLG. Instead, FRLG uses `FLAG_ENCOUNTERED_ROAMER` (`0x2A2`) and initializes the roamer when delivering the Sapphire to Celio. Let's find the `roamer` block offset in FRLG:
+`roamer` block offset in FRLG: `0x30D0`.
+However, the `roamer` struct itself has an `active` boolean field at offset `0x13`.
+
+## 3. The `Roamer` Struct
+
+Additionally, `SaveBlock1` contains a dedicated `Roamer` structure that maintains the roamer's current state (IVs, HP, level, active status).
+
+The `Roamer` struct is defined as:
+```c
+struct Roamer
+{
+    /*0x00*/ u32 ivs;
+    /*0x04*/ u32 personality;
+    /*0x08*/ u16 species;
+    /*0x0A*/ u16 hp;
+    /*0x0C*/ u8 level;
+    /*0x0D*/ u8 status;
+    /*0x0E*/ u8 cool;
+    /*0x0F*/ u8 beauty;
+    /*0x10*/ u8 cute;
+    /*0x11*/ u8 smart;
+    /*0x12*/ u8 tough;
+    /*0x13*/ bool8 active;
+    /*0x14*/ u8 filler[0x8];
+};
+```
+
+This struct includes an `active` boolean at offset `0x13`. This `active` boolean is arguably a more robust way to check if the roamer is currently roaming the map (as opposed to defeated or captured, which would deactivate it).
+
+**`Roamer` Struct Base Offset in `SaveBlock1`:**
+*   **Emerald:** `0x31DC`
+*   **Ruby/Sapphire:** (Need to verify)
+*   **FireRed/LeafGreen:** `0x30D0`
+
+Let's verify the Ruby/Sapphire `roamer` struct offset.
+
+**Ruby/Sapphire `Roamer` Struct Base Offset:** `0x3144`
+
+## 4. Conclusion
+
+There are two primary ways to check if the roamer is released and active:
+
+1.  **Event Flag (`FLAG_LATIOS_OR_LATIAS_ROAMING`):**
+    *   **Emerald:** Offset `0x128F`, bit 7 (`0x80`).
+    *   **Ruby/Sapphire:** Offset `0x123F`, bit 7 (`0x80`).
+    *   **Pros:** Represents the exact storyline event.
+    *   **Cons:** FRLG uses a different flag (`FLAG_ENCOUNTERED_ROAMER` at `0x2A2` - byte offset `0x54`, bit 2). Requires offset tables based on game version.
+
+2.  **`Roamer` Struct `active` boolean:**
+    *   **Emerald:** Offset `0x31DC` + `0x13` = `0x31EF`
+    *   **Ruby/Sapphire:** Offset `0x3144` + `0x13` = `0x3157`
+    *   **FireRed/LeafGreen:** Offset `0x30D0` + `0x13` = `0x30E3`
+    *   **Pros:** The `active` boolean (`0x13` within the `struct Roamer`) directly determines if the game currently considers the roamer to be active on the map. This gets set to `FALSE` if the player defeats or catches the roamer. This is likely the exact data point the radar needs, as opposed to just whether the TV event happened.
+
+I will document both the event flag offsets and the `Roamer` structure offsets (specifically the `active` field) in `.foundry/docs/knowledge_base/gen3_roamer_offsets.md`.
+
+## 5. Roamer Data Schema
+
+Given the impossibility of statically extracting the roamer's map coordinates from the save file (as documented in `adr-108-027-gen3-roamer-location-impossible`), the application should utilize a tracking schema focused on the roamer's state, identity, and stats.
+
+### Proposed Data Structure
+
+```typescript
+export interface Gen3RoamerState {
+    isActive: boolean;    // Derived from the 'active' boolean (offset 0x13 in Roamer struct). True if roaming the map.
+    speciesId: number;    // The species ID of the roamer (e.g., Latios/Latias in RS/E, Legendary Beast in FRLG).
+    level: number;        // Current level of the roamer.
+    hp: number;           // Current HP (useful for tracking damage across encounters).
+    status: number;       // Status condition (Sleep, Paralysis, etc.).
+    personality: number;  // Personality Value (PID).
+    ivs: number;          // 32-bit integer containing IVs. Can be unpacked into individual stats.
+    cool: number;         // Cool contest stat.
+    beauty: number;       // Beauty contest stat.
+    cute: number;         // Cute contest stat.
+    smart: number;        // Smart contest stat.
+    tough: number;        // Tough contest stat.
+}
+```
+
+This alternative schema provides significant value (e.g., for RNG tracking or confirming encounter readiness) by surfacing the exact state of the roamer when the save file was generated, completely avoiding the impossible requirement of live map tracking.
+--- .foundry/docs/knowledge_base/gen3_lottery_offsets.md ---
+# Gen 3 Lottery Offsets
+
+This document describes the memory offsets for the daily lottery PRNG seed in Pokémon Ruby, Sapphire, and Emerald.
+
+## Emerald
+In Emerald, the lottery number is stored in `SaveBlock1`. It is a 32-bit number, but it's split into two 16-bit variables stored in the `vars` array.
+
+- **Block**: SaveBlock1
+- **Array**: vars
+- **Array Offset in Block**: 0x139C
+- **Var Indices**:
+  - `VAR_POKELOT_RND1` (0x404B) stores the high 16 bits.
+  - `VAR_POKELOT_RND2` (0x404C) stores the low 16 bits.
+- **Index Offset**: The `vars` array starts at index `0x4000`. So the indices are:
+  - High 16 bits offset: (0x404B - 0x4000) * 2 bytes = 0x4B * 2 = 0x96 bytes.
+  - Low 16 bits offset: (0x404C - 0x4000) * 2 bytes = 0x4C * 2 = 0x98 bytes.
+- **Total Offsets in SaveBlock1**:
+  - High 16 bits: 0x139C + 0x96 = 0x1432
+  - Low 16 bits: 0x139C + 0x98 = 0x1434
+
+## Ruby / Sapphire
+In Ruby and Sapphire, the lottery number is also stored in `SaveBlock1`. It is a 32-bit number split into two 16-bit variables stored in the `vars` array.
+
+- **Block**: SaveBlock1
+- **Array**: vars
+- **Array Offset in Block**: 0x1340
+- **Var Indices**:
+  - `VAR_LOTTERY_RND_L` (0x404B) stores the low 16 bits.
+  - `VAR_LOTTERY_RND_H` (0x404C) stores the high 16 bits.
+- **Index Offset**: The `vars` array starts at index `0x4000`. So the indices are:
+  - Low 16 bits offset: (0x404B - 0x4000) * 2 bytes = 0x4B * 2 = 0x96 bytes.
+  - High 16 bits offset: (0x404C - 0x4000) * 2 bytes = 0x4C * 2 = 0x98 bytes.
+- **Total Offsets in SaveBlock1**:
+  - Low 16 bits: 0x1340 + 0x96 = 0x13D6
+  - High 16 bits: 0x1340 + 0x98 = 0x13D8
+--- .foundry/docs/knowledge_base/gen2_roamer_offsets.md ---
+# Gen 2 Roamer Offsets
+
+## Memory Layout
+In Generation 2 (Pokémon Gold, Silver, Crystal), roaming Pokémon (Raikou, Entei, Suicune) are tracked using a 7-byte `roam_struct`.
+
+The structure is defined as follows:
+- **Species** (1 byte) - offset `+0`
+- **Level** (1 byte) - offset `+1`
+- **MapGroup** (1 byte) - offset `+2`
+- **MapNumber** (1 byte) - offset `+3`
+- **HP** (1 byte) - offset `+4`
+- **DVs** (2 bytes) - offset `+5`
+
+## SRAM Offsets
+The roamer data is saved as part of the `sPokemonData` block (which corresponds to `wPokemonData` in WRAM).
+- `wPokemonData` begins at `0xDCD7` in WRAM.
+- `wRoamMon1` begins at `0xDFCF` in WRAM.
+- The offset of the roamer data from the start of the `sPokemonData` block is **`0x02F8` (760 bytes)**.
+
+Within the `sPokemonData` block in the save file, the roamers are located at:
+- **Raikou (RoamMon1):** `+0x02F8` (760 bytes from start of `sPokemonData`)
+- **Entei (RoamMon2):** `+0x02FF` (767 bytes from start of `sPokemonData`)
+- **Suicune (RoamMon3):** `+0x0306` (774 bytes from start of `sPokemonData`)
+
+Additionally, there are tracking variables for the player's last and current map, located shortly after the roamers:
+- **wRoamMons_CurMapNumber:** `+0x030B` (779 bytes)
+- **wRoamMons_CurMapGroup:** `+0x030C` (780 bytes)
+- **wRoamMons_LastMapNumber:** `+0x030D` (781 bytes)
+- **wRoamMons_LastMapGroup:** `+0x030E` (782 bytes)
+
+## Active Status Determination
+A roamer's active status is primarily determined by its **MapGroup** property.
+- If a roamer's **MapGroup** is set to `0xFF` (`-1` / `GROUP_N_A`), the roamer is inactive and the game skips updating its location or triggering encounters.
+- When initializing a new game, the game explicitly sets the `MapGroup` of all three roamers to `0xFF` (and their `Species` to `0`).
+- Therefore, to determine if a roamer is currently roaming the map, check if its **MapGroup** `!= 0xFF`.
+- A roamer is effectively defeated/caught if its **HP** is `0` (or `Species` `== 0`).
+--- .foundry/docs/knowledge_base/ui/gen3_roamer_dashboard_spec.md ---
+# Gen 3 Roamer Dashboard UI Specification
+
+## Overview
+
+Due to the architectural constraints outlined in ADR 108-027 (impossibility of statically extracting Gen 3 roamer map locations from save files), the Gen 3 Roamer Dashboard shifts its focus from a geographical "Route Radar" to a strictly data-driven "Roamer Dossier".
+
+The UI must present the roamer's internal state as extracted directly from the save file's `Roamer` struct and related event flags, leaning heavily into a tactical, snooping aesthetic as defined in ADR 008.
+
+## Core Components
+
+The dashboard will be composed of the following primary sections:
+
+### 1. Active Status Indicator
+A highly visible telemetry indicator showing whether the roamer is currently active on the map.
+- **Data Source:** The `active` boolean field at offset `0x13` of the `Roamer` struct, and the corresponding game event flag (e.g., `FLAG_LATIOS_OR_LATIAS_ROAMING`).
+- **Visuals:** Use a blinking or high-contrast status dot. When inactive (caught or defeated), the UI should clearly indicate the roamer is no longer at large.
+
+### 2. Roamer Dossier (Stat Breakdown)
+A detailed breakdown of the roamer's internal stats, presented as raw intercepted data.
+- **Data Displayed:**
+  - Species ID (resolved to name, e.g., Latias or Latios)
+  - Level (extracted from `0x0C`)
+  - HP (extracted from `0x0A`)
+  - Status Condition (extracted from `0x0D`)
+  - Internal IVs (extracted from `0x00`)
+  - Personality Value (extracted from `0x04` for nature calculation)
+
+### 3. Roamer IV Glitch Warning Module
+A dedicated alert box that detects and warns the user if their roamer is a victim of the Gen 3 Roamer IV Glitch (where Attack, Defense, Speed, Sp. Atk, and Sp. Def IVs are severely truncated or set to 0 due to a programming error in Ruby/Sapphire and FireRed/LeafGreen).
+- **Condition:** If the game version is known to be affected and the IVs match the glitch signature (extremely low non-HP IVs).
+- **Visuals:** Use a warning color scheme (e.g., amber or red text), `border-dashed`, and an alert icon to signify data corruption or hardware anomaly.
+
+## Aesthetic Constraints (ADR 008 Compliance)
+
+All components must strictly adhere to the tactical hardware/snooping aesthetic:
+- **Borders:** Use dashed borders (`border-dashed`) to simulate terminal or raw data output boxes.
+- **Corners:** Sharp edges only. Strictly avoid rounded corners (`rounded-none`).
+- **Typography:** Use monospaced telemetry fonts (`font-mono`) for all data values, labels, and headers to emphasize the "raw data extraction" feel.
+- **Layout:** Dense, data-heavy layouts are preferred over spacious consumer-facing designs. Use CSS Grid or Flexbox to create a rigid, tabular structure for the dossier.
+
+## Example Component Structure (Conceptual Tailwind)
+
+```html
+<div class="border-2 border-dashed border-gray-600 p-4 rounded-none font-mono text-green-500 bg-black">
+  <div class="flex justify-between border-b border-dashed border-gray-600 pb-2 mb-4">
+    <h2 class="text-xl uppercase">Roamer Dossier</h2>
+    <span class="text-red-500 blink">[ ACTIVE ]</span>
+  </div>
+
+  <div class="grid grid-cols-2 gap-4">
+    <div>
+      <p class="text-gray-400">SPECIES:</p>
+      <p>LATIOS</p>
+    </div>
+    <div>
+      <p class="text-gray-400">LEVEL:</p>
+      <p>40</p>
+    </div>
+    <!-- ... IVs and other stats ... -->
+  </div>
+
+  <!-- IV Glitch Warning (Conditional) -->
+  <div class="mt-4 border border-dashed border-amber-500 p-2 text-amber-500">
+    <p>WARNING: SEVERE IV TRUNCATION DETECTED (ROAMER GLITCH)</p>
+  </div>
+</div>
+```
+--- .foundry/docs/knowledge_base/ui/rendering_optimizations.md ---
+# UI Rendering Optimizations (Bolt)
+
+A log of critical performance improvements made to the Dexhelper interface to ensure smooth interactions with 150+ items in the viewport.
+
+## 1. PokedexGrid "Bolt" Optimizations
+- **Redundant Set Removal**: Deleted `shinyPartySet` and `shinyPcSet` which were performing O(N) operations on every render.
+- **Species-level Memoization**: The `shinySpeciesIds` set is now calculated once per `saveData` change using `useMemo`, allowing individual cards to perform an O(1) lookup.
+- **Filtering Logic**: Moved filter evaluation into a single `useMemo` block that uses pre-calculated `partySet` and `pcSet` to minimize work during search/filter interactions.
+
+## 2. StorageGrid Efficiency
+- Avoids re-rendering the entire grid when only a single Pokémon's details change by isolating state subscriptions.
+- Uses Tailwind v4 standard tokens to minimize style recalculation overhead.
+--- .foundry/docs/knowledge_base/gen3_trick_house_offsets.md ---
+# Gen 3 Trick House Offsets
+
+This document outlines the memory offsets and variables used to track the player's progression in the Trick House for Generation 3 games (Ruby, Sapphire, Emerald).
+
+## Variable Offsets (SaveBlock1)
+
+In the decompiled Gen 3 source (`pret/pokeemerald`), variables are stored in an array of `u16` called `vars` within `SaveBlock1`.
+
+- `SaveBlock1` struct offset for `vars`: `0x139C`
+- The `VARS_START` address is `0x4000`.
+- To calculate the offset in `SaveBlock1` for a specific variable: `0x139C + ((VAR_ADDRESS - 0x4000) * 2)`
+
+### Relevant Trick House Variables
+
+The following variables track the progression through the Trick House puzzles. They should be defined as reusable constants for save file parsing.
+
+```javascript
+// Base offset for all variables in SaveBlock1
+export const SAVE_BLOCK_1_VARS_OFFSET = 0x139C;
+
+// Absolute offsets for Trick House variables within SaveBlock1
+export const VAR_TRICK_HOUSE_LEVEL_OFFSET = SAVE_BLOCK_1_VARS_OFFSET + ((0x4044 - 0x4000) * 2); // 0x1424
+export const VAR_TRICK_HOUSE_ENTRANCE_STATE_OFFSET = SAVE_BLOCK_1_VARS_OFFSET + ((0x40A7 - 0x4000) * 2); // 0x14EA
+
+// Puzzle states
+export const VAR_TRICK_HOUSE_PUZZLE_1_STATE_OFFSET = SAVE_BLOCK_1_VARS_OFFSET + ((0x40AB - 0x4000) * 2); // 0x14F2
+export const VAR_TRICK_HOUSE_PUZZLE_2_STATE_OFFSET = SAVE_BLOCK_1_VARS_OFFSET + ((0x40AC - 0x4000) * 2); // 0x14F4
+export const VAR_TRICK_HOUSE_PUZZLE_3_STATE_OFFSET = SAVE_BLOCK_1_VARS_OFFSET + ((0x40AD - 0x4000) * 2); // 0x14F6
+export const VAR_TRICK_HOUSE_PUZZLE_4_STATE_OFFSET = SAVE_BLOCK_1_VARS_OFFSET + ((0x40AE - 0x4000) * 2); // 0x14F8
+export const VAR_TRICK_HOUSE_PUZZLE_5_STATE_OFFSET = SAVE_BLOCK_1_VARS_OFFSET + ((0x40AF - 0x4000) * 2); // 0x14FA
+export const VAR_TRICK_HOUSE_PUZZLE_6_STATE_OFFSET = SAVE_BLOCK_1_VARS_OFFSET + ((0x40B0 - 0x4000) * 2); // 0x14FC
+export const VAR_TRICK_HOUSE_PUZZLE_7_STATE_OFFSET = SAVE_BLOCK_1_VARS_OFFSET + ((0x40B1 - 0x4000) * 2); // 0x14FE
+export const VAR_TRICK_HOUSE_PUZZLE_8_STATE_OFFSET = SAVE_BLOCK_1_VARS_OFFSET + ((0x40B2 - 0x4000) * 2); // 0x1500
+
+export const VAR_TRICK_HOUSE_ENTER_FROM_CORRIDOR_OFFSET = SAVE_BLOCK_1_VARS_OFFSET + ((0x40B5 - 0x4000) * 2); // 0x150A
+export const VAR_TRICK_HOUSE_PRIZE_PICKUP_OFFSET = SAVE_BLOCK_1_VARS_OFFSET + ((0x40C1 - 0x4000) * 2); // 0x1522
+```
+
+## Flags
+
+Flags are stored in the `flags` array within `SaveBlock1` starting at `0x1270`.
+The system flags start at `0x860`.
+
+```javascript
+// Base offset for all flags in SaveBlock1
+export const SAVE_BLOCK_1_FLAGS_OFFSET = 0x1270;
+
+// System Flags start at 0x860.
+// FLAG_LANDMARK_TRICK_HOUSE = SYSTEM_FLAGS + 0x42 = 0x8A2
+export const FLAG_LANDMARK_TRICK_HOUSE = 0x8A2;
+
+// Offset of the byte containing the flag
+export const FLAG_LANDMARK_TRICK_HOUSE_BYTE_OFFSET = SAVE_BLOCK_1_FLAGS_OFFSET + Math.floor(0x8A2 / 8); // 0x1270 + 0x114 = 0x1384
+export const FLAG_LANDMARK_TRICK_HOUSE_BIT = 0x8A2 % 8; // 2
+```
+
+### Notes
+- Each `var` is stored as an unsigned 16-bit integer (`u16`).
+- When parsing the save file using the `DataView` API, use `getUint16(offset, true)` for variables since Game Boy Advance save data is little-endian.
+- Flags are single bits within a byte array. Use bitwise operations to check them.
+--- .foundry/docs/knowledge_base/gen3_mirage_island_offsets.md ---
+# Generation 3 Mirage Island Offsets
+
+This document outlines the byte offsets and data structure size for the daily/random variables block that contains the Mirage Island value in Pokémon Generation 3 save files (Ruby, Sapphire, Emerald).
+
+## Data Structure
+The Mirage Island value is stored as a random value within the "Section 2 - Game State" of the save file structure.
+
+- **Size**: 16-bit integer (2 bytes).
+- **Endianness**: Little-endian.
+
+## Offsets
+The exact offsets depend on the game version:
+
+| Game Version | Section | Offset | Size | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| **Ruby / Sapphire** | Section 2 | `0x0408` | 2 bytes | Mirage Island value |
+| **Emerald** | Section 2 | `0x0464` | 2 bytes | Mirage Island value |
+
+## Parsing Requirements
+As per ADR 010, any extraction logic must use the `DataView` API (e.g., `getUint16`) to read this value and handle out-of-bounds reads gracefully.
+--- .foundry/docs/knowledge_base/engine/gen2-breeding.md ---
+# Gen 2 Breeding Mechanics
+
+## Gender and Attack DVs
+In Pokémon Gold, Silver, and Crystal (Gen 2), a Pokémon's gender is intrinsically linked to its Attack Determinant Value (DV, ranging from 0-15).
+
+PokeAPI provides a `gender_rate` value for each Pokémon species, which represents the chance of the Pokémon being female in eighths (e.g., `1` means 1/8 Female, `4` means 1/2 Female).
+- `0` means 100% Male
+- `8` means 100% Female
+- `-1` means Genderless
+
+The female Attack DV threshold in Gen 2 is simply `gender_rate * 2`. A Pokémon is female if its Attack DV is strictly less than this threshold.
+
+### Formula
+```typescript
+function getGen2Gender(attackDV: number, genderRate: number): 'Male' | 'Female' | 'Genderless' {
+    if (genderRate === -1) return 'Genderless';
+    if (genderRate === 0) return 'Male';
+    if (genderRate === 8) return 'Female';
+    const femaleThreshold = genderRate * 2;
+    return attackDV < femaleThreshold ? 'Female' : 'Male';
+}
+```
+
+This mechanical constraint means that female Pokémon of species with a low female ratio (like Starters, which have `gender_rate = 1`) can never have a high Attack DV.
+
+## Egg Groups
+When determining if two Pokémon can breed:
+- If either Pokémon has the 'no-eggs' (15) egg group, they are incompatible.
+- If either is Ditto (13), they are compatible with any non-'no-eggs' Pokémon. (Note: Two Dittos cannot breed with each other).
+- If neither is Ditto, the two Pokémon must share at least one egg group and must be of opposite genders.
+--- .foundry/docs/knowledge_base/engine/save_parsing/gen2_generic_structure.md ---
+# Pokémon Generation 2 Save File Protocol (Standard vs. Pattern)
+
+This document catalogs the save file offsets for Pokémon Gold, Silver, and Crystal (Gen 2). It highlights the discrepancy between common "Standard" offsets found in documentation (e.g., Bulbapedia, Project Pokémon) and the "Patterns" observed in this project's current implementation.
+
+## 1. Global Trainer & Progress (Bank 1)
+
+| Field | GS (Standard) | Crystal (Standard) | Size | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **Player ID** | `0x2009` | `0x2009` | 2 | 16-bit unsigned (Big Endian) |
+| **Player Name** | `0x200B` | `0x200B` | 11 | Padded with `0x50` |
+| **Time Played** | `0x204E` | `0x204E` | 4 | [HH, MM, SS, FF] |
+| **Money** | `0x23DB` | `0x23BC` | 3 | BCD (e.g., `01 23 45` = $12,345) |
+| **Johto Badges**| `0x23E5` | `0x23C6` | 1 | Bitmask |
+| **Kanto Badges**| `0x23E6` | `0x23C7 | 1 | Bitmask |
+| **Map Group/ID**| `0x2868` | `0x281C` | 2 | Current location pointers |
+
+## 2. Pokémon Storage (Bank 1)
+
+### Party Data
+| Region | Offset (Standard) | Notes |
+| :--- | :--- | :--- |
+| **GS Party** | `0x288A` | Includes count, species list, data blocks, OT, nicknames |
+| **Crystal Party** | `0x283E` | Shifted by `-0x4C` compared to GS |
+
+### Daycare & Breeding
+| Field | GS (Standard) | Crystal (Standard) | Observed in Project |
+| :--- | :--- | :--- | :--- |
+| **Egg Waiting** | `0x284F` | `0x282B` | Same |
+| **Daycare Slot 1**| `0x2ABF` | `0x2ABF` | `0x2850` (GS) / `0x282C` (C) |
+| **Daycare Slot 2**| `0x2AF8` | `0x2AF8` | Unknown |
+
+> [!WARNING]
+> There is a significant discrepancy: The current project parser looks for Daycare Data immediately after the Egg Waiting flag (`0x2850` for GS). Standard documentation suggests the actual 32-byte data blocks are much further down in the bank at `0x2ABF`.
+
+## 3. Pokedex (Bank 1)
+
+| Field | GS (Standard) | Crystal (Standard) |
+| :--- | :--- | :--- |
+| **Owned Flags** | `0x2A4C` | `0x29CE` |
+| **Seen Flags** | `0x2A6C` | `0x29EE` |
+
+## 4. Event Flags (Bank 1)
+
+| Field | GS (Standard) | Crystal (Standard) | Size | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **English Event Flags** | `0x2624` | `0x2600` | 256 | 2048 flags. Offset is 0x100 bytes before Current PC Box. |
+| **Japanese Event Flags**| `0x2600` | `0x25E2` | 256 | Shifted back due to Japanese string encodings. |
+
+> [!NOTE]
+> Previous documentation falsely claimed `0x283E` (GS) and `0x281A` (Crystal) for Event Flags. Those offsets actually correspond to **Party Data** for English Crystal and Japanese Crystal respectively. `wEventFlags` is consistently located exactly 256 bytes prior to `wCurBox`.
+
+## 5. Item Inventory (Bank 1)
+
+| Pocket | GS (Standard) | Crystal (Standard) |
+| :--- | :--- | :--- |
+| **TM/HM** | `0x23E7` | `0x23C8` |
+| **Items** | `0x2420` | `0x2402` |
+| **Key Items** | `0x244A` | `0x242C` |
+| **Balls** | `0x2465` | `0x2447` |
+
+## Notes on Fixtures
+The project's `gold.sav` and `crystal.sav` are early-game saves. They often contain zeroed-out blocks for late-game features like the Daycare slots. When verifying offsets, if a block is all `0x00`, it does not necessarily mean the offset is incorrect, but rather that the save state is uninitialized for that feature. Corroborating with `Egg Waiting` flag shifts is the best proxy for locating related daycare data.
+--- .foundry/docs/knowledge_base/engine/save_parsing/battle_stats_omission.md ---
+# Battle Stats Omission in PC Storage (Gen 1 & 2)
+
+## Overview
+In Generation 1 and Generation 2 Pokémon games, the save file data structures for Pokémon differ significantly depending on whether the Pokémon is currently in the player's active Party or deposited in a PC Box. This distinction has profound implications for auxiliary tools, such as the Nuzlocke Tracker.
+
+## Data Structures
+- **Party Pokémon**: The data structure is larger (44 bytes for Gen 1, 48 bytes for Gen 2) and includes current battle stats, notably the Pokémon's current HP.
+- **PC Pokémon**: The data structure is smaller (33 bytes for Gen 1, 32 bytes for Gen 2) and completely omits current battle stats.
+
+## The "Healing" Effect
+Because current battle stats are not stored for deposited Pokémon, any Pokémon placed into the PC loses its current HP value. When the Pokémon is subsequently withdrawn from the PC, the game recalculates its stats from base values, Determinant Values (DVs), and Stat Experience (Stat Exp). As a direct result, the Pokémon is fully restored to maximum health (and all status conditions are cleared).
+
+## Impact on Nuzlocke Tracking
+It is **impossible** to determine if a deposited Pokémon is "dead" (fainted) by reading a "0 HP" value from the save file. Once a fainted Pokémon is deposited into the PC, the save file effectively considers it fully healed.
+
+Therefore, any logic that attempts to track permanently dead Pokémon (such as a Graveyard feature) **must not** rely on the `currentHP` field. Instead, the logic must rely exclusively on the Pokémon's `storageLocation` (e.g., matching the location against a user-designated "Graveyard" Box string).
+--- .foundry/docs/knowledge_base/engine/save_parsing/gen2_daycare_structure.md ---
+# Gen 2 Save File Structure: Daycare & Breeding
+
+## Overlays & RAM Mirroring
+The save file structure for Pokémon Gold/Silver/Crystal (GSC) often reflects RAM banks. In this project, the offsets correspond to specific regions of the save file that map to these RAM structures.
+
+## Daycare Slots (GSC)
+Gen 2 introduced breeding, which requires two daycare slots (one for the "Old Man" and one for the "Old Lady" on Route 34).
+
+### Offset Mapping
+| Region | Slot 1 (Data Start) | Slot 2 (Data Start) | Egg Flag |
+| :--- | :--- | :--- | :--- |
+| **Gold/Silver** | `0x2850` | `0x2817` | `0x284f` |
+| **Crystal** | `0x282c` | `0x27f3` | `0x282b` |
+
+### Slot Structure (57 Bytes Total)
+The slots are exactly 57 bytes (0x39) apart. In this codebase's specific layout:
+1. **Data Block (32 bytes)**: Standard Pokemon struct (Species, Item, Moves, DVs, Level, etc.).
+2. **OT Name (11 bytes)**: Starts immediately after Data (+32).
+3. **Nickname (11 bytes)**: Starts immediately after OT Name (+43).
+4. **Flags/Padding (3 bytes)**: Trailing bytes before the next block or party count.
+
+### Separation Calculation
+*   **Crystal**: `0x282c` (Slot 1) - 57 bytes = `0x27f3` (Slot 2).
+*   **GS**: `0x2850` (Slot 1) - 57 bytes = `0x2817` (Slot 2).
+
+## Breeding/Egg Logic
+*   **Egg Flag**: A single byte indicating if an egg is waiting to be picked up by the player.
+    *   Located at `Slot 1 Data - 1 byte`.
+    *   Mask: `0x01`.
+*   **Egg Species**: If a Pokémon in the party or daycare is an egg, its species ID is `253` (`0xFD`).
+
+## Fixture Limitations
+Current testing fixtures (`gold.sav`, `crystal.sav`) are early-game saves. They likely have both daycare slots initialized to `0x00`, meaning verification against real data requires either mocked buffers or specifically crafted saves.
+--- .foundry/docs/knowledge_base/engine/save_parsing/gen1_detection.md ---
+# Gen 1 Save Detection Strategy
+
+The system uses a multi-layered scoring approach to identify the version (Red, Blue, or Yellow) of a Gen 1 save file.
+
+## 1. High-Confidence Yellow Markers
+Yellow version is detected first by checking specific memory addresses related to the "Following Pikachu" feature:
+- **0x271C**: Following Pikachu status.
+- **0x271D**: Pikachu Happiness.
+If these values are non-zero and not `0xFF`, the save is identified as Yellow.
+
+## 2. Version Exclusive Scoring
+If high-confidence markers are absent, the system scores the save based on "seen" and "owned" version-exclusive Pokémon:
+- **Red Exclusives**: Ekans, Arbok, Oddish, Gloom, Vileplume, Mankey, Primeape, Growlithe, Arcanine, Scyther, Electabuzz.
+- **Blue Exclusives**: Sandshrew, Sandslash, Vulpix, Ninetales, Meowth, Persian, Bellsprout, Weepinbell, Victreebel, Pinsir, Magmar.
+- **Yellow Missing**: Weedle line, Ekans line, Meowth line, Koffing line, Jynx, Electabuzz, Magmar.
+
+### Point System:
+- **Owned + Native**: +2 points (uses `isNative` to check if OT matches the save's trainer).
+- **Seen Only**: +1 point.
+
+## 3. Ambiguity Resolution
+- If scores are within 2 points of each other and very low, the system returns `unknown` to trigger a manual selection modal for the user.
+- This ensures that traded Pokémon or incomplete saves don't force an incorrect auto-detection.
+--- .foundry/docs/knowledge_base/engine/save_parsing/gen2_phone_mechanics.md ---
+# Gen 2 Pokegear Phone Call Mechanics
+
+This document outlines the memory structures and RNG mechanics governing Pokegear phone calls in Generation 2 (Gold, Silver, Crystal).
+
+## Memory Offsets & State Flags
+
+### Registered Contacts
+- **`wPhoneList`**: Stores the list of registered phone contacts.
+  - Size: `CONTACT_LIST_SIZE + 1` bytes. `CONTACT_LIST_SIZE` is exactly 10, thus this structure is 11 bytes long.
+
+### State Flags & Overworld Data
+- **`wSwarmFlags` (1 byte)**: Bitmask storing the state of active swarms in the overworld.
+- **`wDailyPhoneItemFlags` (4 bytes) & `wDailyPhoneTimeOfDayFlags` (4 bytes)**: Manage item-giving states from specific NPCs (e.g., evolution stones or berries given by trainers on specific days/times).
+- **`wSpecialPhoneCallID` (1 byte)**: Dictates forced or scripted phone calls (e.g., calls from Prof. Elm, the Bike Shop). If non-zero, triggers specific override behavior before evaluating standard RNG.
+
+## RNG Call Trigger Logic
+
+The triggering of random phone calls in the overworld is evaluated primarily in `CheckPhoneCall` (in `engine/phone/phone.asm`) and relies on several conditions and RNG elements:
+
+1. **Timer Evaluation (`CheckReceiveCallTimer`)**:
+   - Compares current time against `wReceiveCallDelay_StartTime` and delay durations like `wReceiveCallDelay_MinsRemaining`.
+   - Modifies `wTimeCyclesSinceLastCall` to enforce a cooling-off period (delay between calls).
+
+2. **RNG Check (`CheckPhoneCall`)**:
+   - If timer checks pass, a random number is generated and `and %01111111` is applied.
+   - There is a 50% chance the call check proceeds.
+
+3. **Caller Sampling (`ChooseRandomCaller`)**:
+   - Iterates through registered contacts and populates `wAvailableCallers`.
+   - Uses `Random` along with `SimpleDivide` against `wNumAvailableCallers` to sample a specific caller uniformly from the pool of available NPCs.
+   - Available callers are restricted by time of day (handled via `CheckPhoneContactTimeOfDay`).
+
+## Wild Encounters (Swarms)
+When a phone call triggers a swarm (e.g., Dunsparce, Yanma), the caller's script eventually triggers `RandomPhoneWildMon` (`engine/overworld/wildmons.asm`) or modifies `wSwarmFlags` to replace the map's default encounter slots temporarily.
+--- .foundry/docs/knowledge_base/engine/save_parsing/gen3_match_call_offsets.md ---
+# Gen 3 Match Call Memory Offsets
+
+This document outlines the memory offsets, structures, and bitflags used by the **Match Call** system in Pokémon Emerald, as researched from the `pret/pokeemerald` decompilation.
+
+## 1. Match Call Memory Block (`trainerRematches`)
+
+The primary Match Call data block stores both the "ready to rematch" status and the specific "rematch tier" (the index of the team to fight next) for all registered trainers.
+
+- **Logical Offset:** `0x09CA` inside `SaveBlock1`
+- **Data Type:** Array of `u8` (length 100, representing `MAX_REMATCH_ENTRIES`)
+- **Total Size:** 100 bytes
+
+### Mapping to Logical 4KB Save Sections
+
+`SaveBlock1` spans four 4KB save sections starting from Section 1 (`SECTOR_ID_SAVEBLOCK1_START`).
+- Since Section 1 holds bytes `0x0000` to `0x0F7F` (3968 bytes total), the `trainerRematches` array at offset `0x09CA` (2506 in decimal) falls entirely within **Section 1**.
+- **Section 1 Offset:** `0x09CA`
+
+### Rematch Readiness and Tier States
+
+The 1-byte value at `trainerRematches[index]` serves a dual purpose:
+- **Rematch Readiness:** A value of `0` indicates the trainer is *not* ready for a rematch. A value `> 0` means they are ready.
+- **Rematch Tier State:** The value itself (if `> 0`) represents the internal index (`i` in `gRematchTable[tableId].trainerIds[i]`) of the opponent's team. This tracks their current level/tier progression.
+
+## 2. Match Call Registered Trainer Flags
+
+Whether a specific trainer is "registered" in the PokéNav is tracked by individual bits inside the global `flags` array.
+
+- **Global Flags Offset:** `0x1270` inside `SaveBlock1`
+- **Starting Flag ID:** `TRAINER_REGISTERED_FLAGS_START` is defined as `0x15C` (348).
+- **Flag Count:** `REMATCH_TABLE_ENTRIES` is 78, taking up approximately 10 bytes of flags.
+
+### Mapping to Logical 4KB Save Sections
+
+The `flags` array starts at logical offset `0x1270` (4720 in decimal).
+- Because 4720 > 3968, this data spills over into **Section 2**.
+- **Section 2 Offset:** `4720 - 3968 = 752` (`0x02F0`).
+- So the `flags` array starts at `0x02F0` inside Section 2.
+
+### Bitwise Locations for Registered Flags
+
+To compute the specific byte and bit for `TRAINER_REGISTERED_FLAGS_START` (`0x15C` or 348):
+- **Byte Offset within `flags` array:** `348 / 8 = 43` (`0x2B`)
+- **Bit Index:** `348 % 8 = 4` (Bit 4)
+- **Section 2 Offset:** `752 + 43 = 795` (`0x031B`)
+
+The flags continue sequentially for 78 bits, ending at byte 53 inside the `flags` array (Section 2 Offset `0x0325`).
+
+## 3. General Match Call Unlock Flag
+
+The system also uses a single boolean flag `FLAG_HAS_MATCH_CALL` (`0x12F` or 303) to denote whether the player has received the Match Call feature entirely.
+
+- **Byte Offset within `flags` array:** `303 / 8 = 37` (`0x25`)
+- **Bit Index:** `303 % 8 = 7` (Bit 7)
+- **Section 2 Offset:** `752 + 37 = 789` (`0x0315`)
+
+## References
+
+1. `pret/pokeemerald` source code (`include/global.h`, `include/save.h`, `include/constants/flags.h`, `src/battle_setup.c`)
+2. Bulbapedia Save Data Structure (Generation III): https://bulbapedia.bulbagarden.net/wiki/Save_data_structure_(Generation_III)--- .foundry/docs/knowledge_base/engine/save_parsing/gen2_hall_of_fame.md ---
+# Gen 2 Hall of Fame Count Offset
+
+This document clarifies the offset for extracting the Hall of Fame count from Pokémon Gen 2 save files (Gold, Silver, Crystal).
+
+## Problem with Standard Documentation
+Standard documentation online often lists the Hall of Fame count at a fixed absolute offset (e.g., `0x24EC` for GS, `0x24CE` for Crystal). However, depending on emulator artifacts, regional versions, or initializations, these absolute offsets can be unreliable and have resulted in failed extractions and task rejections during implementation.
+
+## Resolution
+The correct and most reliable way to extract the Hall of Fame count is to use a relative offset based on a known anchor point within the player data block.
+
+The Hall of Fame count is located **exactly `0xA8` (168) bytes after the Johto badges offset**.
+
+### Implementation Strategy
+1. Locate the Johto badges byte within the save file buffer.
+2. Add `0xA8` to the Johto badges offset to find the exact byte representing the Hall of Fame count.
+3. Read the single unsigned 8-bit integer at this calculated location.
+--- .foundry/docs/knowledge_base/engine/save_parsing/egg_hatch_parsing.md ---
+# Egg Hatch Parsing Mechanics
+
+## Gen 2
+In Gen 2, if a Pokémon is an Egg (species ID `253`), its Friendship byte is repurposed to store the remaining "Egg Cycles". Multiplying this byte by the standard Gen 2 cycle length (`256` steps) yields the exact numerical step count.
+
+## Gen 3
+In Gen 3, the Friendship byte is repurposed similarly to store the remaining "Egg Cycles". However, the "Is Egg" status is indicated by a specific bit flag in the Miscellaneous (M) substructure. The Friendship byte itself is located in the Growth (G) substructure (offset 4). The cycle length is also `256` steps.
+--- .foundry/docs/knowledge_base/engine/save_parsing/gen3_hall_of_fame.md ---
+# Gen 3 Hall of Fame Data Offsets
+
+## 1. Global Offset and Structure Array
+The Gen 3 save format utilizes a 4096-byte sector system. The Hall of Fame is stored across two specific sectors:
+- Sector 28 (`SECTOR_ID_HOF_1`)
+- Sector 29 (`SECTOR_ID_HOF_2`)
+
+Each sector holds `3968` bytes of data (`SECTOR_DATA_SIZE`), leaving the remaining 128 bytes for sector footers (checksum, signature, ID).
+When the game accesses the Hall of Fame, it concatenates the data portion of Sector 28 and Sector 29, creating a single contiguous `7936`-byte block.
+
+## 2. Hall of Fame Data Structure
+
+The `7936` bytes store an array of `HallofFameTeam` structs.
+- **Maximum number of teams tracked:** `50` (`HALL_OF_FAME_MAX_TEAMS`)
+- **Team Size:** `120` bytes
+- **Total Array Size:** `6000` bytes (leaving `1936` bytes unused in the 2-sector block)
+
+Each team consists of an array of 6 `HallofFameMon` structs (`PARTY_SIZE`).
+
+### `HallofFameMon` Struct Definition (Total 20 bytes)
+Due to 32-bit alignment and the size of variables, the `HallofFameMon` struct is exactly 20 bytes long with no padding needed.
+
+| Offset | Type | Name | Size | Description |
+|---|---|---|---|---|
+| `0x00` | `u32` | `tid` | 4 bytes | The Original Trainer ID (OT ID). |
+| `0x04` | `u32` | `personality` | 4 bytes | The Pokémon's Personality Value (PV). |
+| `0x08` | `u16` (bitfield) | `species:9` | 9 bits | The Species ID (bits 0-8). Max value 511. |
+| `0x09` | `u16` (bitfield) | `lvl:7` | 7 bits | The Level (bits 9-15). Max value 127. |
+| `0x0A` | `u8[10]` | `nickname` | 10 bytes | The Pokémon's nickname, using the Gen 3 charset. |
+
+*Note: In C, bitfields on `u16` are populated from lowest bit to highest. So `species` takes the lower 9 bits of the 16-bit word at `0x08`, and `lvl` takes the upper 7 bits (`lvl = (word >> 9) & 0x7F`).*
+
+## 3. Version Differences
+The structure and sizes are completely identical between Ruby, Sapphire, Emerald, FireRed, and LeafGreen. The `SECTOR_ID_HOF_1` and `SECTOR_ID_HOF_2` constants, the sector data size, the 50 team limit, and the 20-byte `HallofFameMon` struct remain exactly the same.
+
+## 4. Hall of Fame Entry Count
+The total number of times the player has entered the Hall of Fame is tracked globally as a Game Stat: `GAME_STAT_ENTERED_HOF`.
+- This game stat has the ID `10`.
+- It is located in the `gameStats` array in `SaveBlock1` (Offset `0x228C` in Emerald `SaveBlock1` for the array base, but the game stat ID logic will be handled dynamically or by parsing the stats array).
+- This stat acts as the "page number" or "times entered" counter.
+- While the stat can exceed 50 (up to 999), only the last 50 teams are kept in memory. The game uses a shift mechanism (moving `beforeTeam = afterTeam`) to drop the oldest team and append the new one at the end if the 50 limit is reached.
+--- .foundry/docs/knowledge_base/engine/save_parsing/gen3_condition_stats_offsets.md ---
+# Gen 3 Contest Condition Stats Offsets
+
+This document outlines the memory offsets and data structure used for storing Pokémon Contest Condition statistics (Cool, Beauty, Cute, Smart, Tough) in the Generation III save format (Ruby, Sapphire, Emerald).
+
+## Data Structure Overview
+
+In Generation III games, Pokémon data in the party or PC is managed in a 100-byte structure.
+
+- The first 32 bytes (`0x00` to `0x1F`) store unencrypted details, such as the Personality Value, Original Trainer ID, Nickname, Language, Checksum, etc.
+- The next 48 bytes (`0x20` to `0x4F`) make up the **Data** section. This section is encrypted and is subdivided into four 12-byte substructures.
+- The remaining 20 bytes (`0x50` to `0x63`) contain status conditions, HP, Level, and battle stats (these 20 bytes are only used when the Pokémon is in the party).
+
+## The Four Substructures
+
+The 48-byte Data section consists of four 12-byte substructures:
+1. **Growth**
+2. **Attacks**
+3. **EVs & Condition**
+4. **Miscellaneous**
+
+To obscure the data, the order of these four substructures varies per Pokémon. The exact order is determined by taking the Pokémon's **Personality Value modulo 24** (`PV % 24`).
+
+## Contest Condition Stats Offsets
+
+The Contest Condition stats are stored within the **EVs & Condition** substructure.
+
+Within this specific 12-byte substructure, the Condition stats begin at offset `0x06` (6 bytes in) and take up 5 consecutive bytes, with 1 byte per stat (ranging from 0 to 255):
+
+| Offset within EVs & Condition Substructure | Size | Name | Description |
+|---|---|---|---|
+| `0x06` | 1 byte | Coolness | The Cool condition stat. |
+| `0x07` | 1 byte | Beauty | The Beauty condition stat. |
+| `0x08` | 1 byte | Cuteness | The Cute condition stat. |
+| `0x09` | 1 byte | Smartness | The Smart condition stat. |
+| `0x0A` | 1 byte | Toughness | The Tough condition stat. |
+| `0x0B` | 1 byte | Feel | The Feel/Sheen stat (limit for Pokéblock feeding). |
+
+### Parsing Logic Summary
+
+To read a Gen 3 Pokémon's Condition stats:
+1. Read the 32-bit **Personality Value** at offset `0x00`.
+2. Compute `PV % 24` to find the substructure order (from a lookup table of the 24 possible permutations).
+3. Identify the position (index 0 to 3) of the **EVs & Condition** substructure in the Data section (offset `0x20`).
+4. Calculate the absolute offset for the substructure: `0x20 + (Index * 12)`.
+5. Add the internal offsets for the Conditions (e.g., `+ 0x06` for Cool, `+ 0x07` for Beauty) to extract the values from the decrypted data.
+--- .foundry/docs/knowledge_base/engine/save_parser/dataview_migration.md ---
+# Save Parser Migration to DataView
+
+The save parser engine in `dexhelper` has been migrated from `Uint8Array` to the native `DataView` API.
+
+## Key Changes
+- **`DataView` Enforcement**: All parsing logic now uses `DataView` which provides native bounds checking.
+- **Robustness**: The engine now catches `RangeError` within `decodeGen12String` and handles corrupted or truncated save files by stopping the decode process gracefully.
+- **Integration Tests**: Added `blue-complete.sav` to `saveFixtures.test.ts` and verified it against expected values.
+- **Test Compatibility**: All unit and integration tests were updated to work with `ArrayBuffer` and `DataView`.
+
+## Future Considerations
+- Any new parser feature should leverage `DataView` methods (`getUint8`, `getUint16`, etc.) for consistency.
+- UI layer should catch potential `RangeError` from `parseSaveFile` and report "Corrupted Save File" to the user.
+--- .foundry/docs/knowledge_base/dexhelper/refactor/offline-modernization-v2.md ---
+Refactoring DexHelper to be purely local-first.
+Goal: Remove all dependencies on the PokeAPI REST service and the 'pokeapi.ts' shim layer to reduce 'bloat'.
+Implementation:
+- UI components (e.g., PokemonDetails.tsx) call DexDataLoader and PokeDB directly.
+- Use internal 'Compact' schema (schema.ts) for all data objects.
+- Map numeric IDs (versions, methods, triggers) to strings using constants in schema.ts.
+- Optimized pokedata.json generation script.
+- Offline-first verification via PWA logic.--- .foundry/docs/knowledge_base/dexhelper/refactor/localized-evolution-chains-arch.md ---
+### Evolution Chain Architecture Refactor (April 2026)
+- **Problem**: Evolution chains were previously stored as fully duplicated trees for each Pokémon species, leading to data redundancy and requiring expensive recursive tree-walking at runtime for simple queries (e.g., "what does this evolve from?").
+- **Solution**: Migrated to a localized, ID-centric model.
+- **Key Features**:
+    - **Localized Schema**: Individual Pokémon store their specific evolution context:
+        - `evolves_from`: Flat array of ancestor IDs for $O(1)$ ancestry lookup.
+        - `evolves_to`: Localized sub-tree of immediate paths.
+        - `details`: Evolution requirements from the immediate parent.
+    - **Runtime Optimization**: Removed all recursive tree-walking logic from `suggestionEngine.ts` and `PokemonDetails.tsx`.
+    - **Database Migration**: Bumped `DB_CONFIG.VERSION` to `5`.
+- **Impact**: Improved UI responsiveness on the Assistant page and simplified data traversal logic.
+--- .foundry/docs/knowledge_base/dexhelper/feebas_route119_mapping.md ---
+# Feebas Route 119 Mapping and Grid Dimensions
+
+This document records the exact mapping used by the Generation 3 Feebas PRNG to translate 1D sequential spot IDs into 2D map coordinates for Route 119. These findings were derived from analyzing the layout data in the `pret/pokeemerald` decompilation.
+
+## Route 119 Grid Dimensions
+The Route 119 layout (`LAYOUT_ROUTE119`) dimensions are:
+- **Width:** `40` tiles
+- **Height:** `140` tiles
+
+## Coordinate Mapping Logic
+In the game engine, the `GetFeebasFishingSpotId` function calculates the mapping by scanning the grid row-by-row (top to bottom, `y` from 0 to 139), and column-by-column (left to right, `x` from 0 to 39).
+For every tile, it checks its behavior flags (`MetatileBehavior_IsSurfableAndNotWaterfall`). If a tile is surfable but is NOT a waterfall, it increments a spot counter.
+
+- There are exactly **447** valid surfable water tiles that are not waterfalls on Route 119.
+- Therefore, the generated spot IDs range from `1` to `447`.
+- **Note:** Spot IDs `1`, `2`, and `3` map to tiles at `(9,7)`, `(7,13)`, and `(15,16)`. These tiles are physically inaccessible on the map due to blocking terrain. The Feebas PRNG explicitly re-rolls these values (`feebasSpots[i] < 4`) to prevent Feebas spots from generating on inaccessible terrain.
+
+## Spot ID to 2D Coordinate Array
+The following JSON array maps a spot ID to its `[x, y]` relative coordinate pair. Since spot IDs are 1-indexed, the spot ID directly corresponds to the index of the element in the array offset by 1. For instance, the coordinate pair for spot ID `4` is located at index `3`.
+
+```json
+[
+  [9,7],[7,13],[15,16],[18,18],[18,19],[19,19],[16,20],[17,20],[18,20],[19,20],
+  [17,21],[18,21],[19,21],[17,22],[18,22],[19,22],[17,23],[18,23],[19,23],[17,24],
+  [18,24],[19,24],[17,29],[18,29],[19,29],[17,30],[18,30],[19,30],[16,31],[17,31],
+  [18,31],[19,31],[20,31],[16,32],[17,32],[18,32],[19,32],[20,32],[16,35],[17,35],
+  [18,35],[19,35],[20,35],[16,36],[17,36],[18,36],[19,36],[20,36],[16,37],[17,37],
+  [18,37],[19,37],[20,37],[16,38],[17,38],[18,38],[19,38],[20,38],[21,38],[22,38],
+  [16,39],[17,39],[18,39],[19,39],[20,39],[21,39],[22,39],[16,40],[17,40],[18,40],
+  [19,40],[20,40],[21,40],[22,40],[16,41],[17,41],[18,41],[19,41],[20,41],[21,41],
+  [22,41],[16,42],[17,42],[18,42],[19,42],[20,42],[21,42],[22,42],[23,42],[16,43],
+  [17,43],[18,43],[19,43],[20,43],[21,43],[22,43],[23,43],[24,43],[25,43],[26,43],
+  [27,43],[28,43],[29,43],[30,43],[19,44],[20,44],[21,44],[22,44],[23,44],[24,44],
+  [25,44],[26,44],[27,44],[28,44],[29,44],[30,44],[31,44],[32,44],[20,45],[21,45],
+  [22,45],[23,45],[24,45],[25,45],[26,45],[27,45],[28,45],[29,45],[30,45],[31,45],
+  [32,45],[23,46],[24,46],[25,46],[26,46],[27,46],[28,46],[29,46],[30,46],[31,46],
+  [32,46],[33,46],[34,46],[27,47],[28,47],[29,47],[30,47],[31,47],[32,47],[33,47],
+  [34,47],[30,48],[31,48],[32,48],[33,48],[34,48],[31,49],[32,49],[33,49],[34,49],
+  [35,49],[31,50],[32,50],[33,50],[31,51],[32,51],[33,51],[31,52],[32,52],[33,52],
+  [34,52],[35,52],[31,53],[32,53],[33,53],[34,53],[35,53],[33,54],[34,54],[35,54],
+  [33,55],[34,55],[35,55],[31,56],[32,56],[33,56],[34,56],[35,56],[31,57],[32,57],
+  [33,57],[34,57],[35,57],[30,58],[31,58],[32,58],[33,58],[34,58],[35,58],[27,59],
+  [28,59],[29,59],[30,59],[31,59],[32,59],[33,59],[34,59],[26,60],[27,60],[28,60],
+  [29,60],[30,60],[31,60],[32,60],[33,60],[26,61],[27,61],[28,61],[29,61],[30,61],
+  [31,61],[26,62],[27,62],[28,62],[29,62],[30,62],[31,62],[26,63],[27,63],[28,63],
+  [29,63],[30,63],[31,63],[32,63],[24,64],[25,64],[26,64],[27,64],[28,64],[29,64],
+  [24,65],[25,65],[26,65],[27,65],[28,65],[22,66],[23,66],[24,66],[25,66],[26,66],
+  [27,66],[28,66],[22,67],[23,67],[24,67],[25,67],[26,67],[27,67],[28,67],[22,68],
+  [23,68],[24,68],[25,68],[26,68],[20,69],[21,69],[22,69],[23,69],[24,69],[25,69],
+  [26,69],[20,70],[21,70],[22,70],[23,70],[24,70],[25,70],[20,71],[21,71],[22,71],
+  [23,71],[24,71],[25,71],[20,72],[21,72],[22,72],[23,72],[24,72],[25,72],[20,73],
+  [21,73],[22,73],[23,73],[21,74],[21,75],[21,83],[22,83],[23,83],[14,98],[14,99],
+  [14,100],[15,100],[16,100],[19,100],[20,100],[23,100],[24,100],[14,101],[15,101],
+  [16,101],[17,101],[18,101],[19,101],[20,101],[21,101],[22,101],[23,101],[24,101],
+  [14,102],[15,102],[16,102],[17,102],[18,102],[19,102],[20,102],[21,102],[22,102],
+  [23,102],[24,102],[14,103],[15,103],[16,103],[17,103],[18,103],[19,103],[20,103],
+  [21,103],[22,103],[23,103],[24,103],[14,104],[15,104],[16,104],[17,104],[18,104],
+  [19,104],[20,104],[21,104],[22,104],[23,104],[24,104],[25,104],[14,105],[15,105],
+  [16,105],[17,105],[18,105],[19,105],[20,105],[21,105],[22,105],[23,105],[24,105],
+  [25,105],[9,106],[10,106],[11,106],[12,106],[13,106],[14,106],[15,106],[16,106],
+  [17,106],[18,106],[19,106],[20,106],[23,106],[24,106],[25,106],[7,107],[8,107],
+  [9,107],[10,107],[11,107],[12,107],[13,107],[14,107],[15,107],[16,107],[17,107],
+  [18,107],[19,107],[20,107],[23,107],[24,107],[25,107],[9,108],[10,108],[11,108],
+  [12,108],[13,108],[14,108],[15,108],[16,108],[17,108],[18,108],[19,108],[20,108],
+  [21,108],[22,108],[23,108],[24,108],[25,108],[9,109],[10,109],[11,109],[12,109],
+  [13,109],[14,109],[15,109],[16,109],[17,109],[18,109],[19,109],[20,109],[21,109],
+  [22,109],[23,109],[8,110],[9,110],[10,110],[11,110],[12,110],[13,110],[14,110],
+  [15,110],[16,110],[17,110],[18,110],[19,110],[8,111],[9,111],[10,111],[11,111],
+  [12,111],[7,112],[8,112]
+]
+```
+--- .foundry/docs/knowledge_base/dexhelper/feebas_seed.md ---
+# Feebas Seed and Mechanics in Gen 3 Save Files
+
+## Save File Structure & Location
+In Pokémon Gen 3 (Ruby, Sapphire, Emerald), the save file is divided into 14 sections (each 4KB). Section 1 contains `SaveBlock1` at the beginning (offset 0x0 of the section data).
+
+The Feebas seed is derived from the "Dewford Trend", which is the trendy phrase currently popular in Dewford Town. It dictates the 6 water tiles on Route 119 where Feebas can be fished.
+
+## Feebas Seed Offset
+The seed is a `u16` (2 bytes) and is stored differently in Emerald compared to Ruby/Sapphire.
+
+### Emerald
+- The `dewfordTrends` array of length 5 is stored at offset `0x2e64` inside `SaveBlock1`.
+- The array elements are of type `struct DewfordTrend` (size `0x8` bytes).
+- The seed used for Feebas is the `rand` field of the active trend (index 0).
+- `rand` is at offset `0x2` inside the `struct DewfordTrend`.
+- **Final Seed Offset:** `0x2e64 + 0x2 = 0x2e66` (in `SaveBlock1`)
+
+### Ruby / Sapphire
+- The `easyChatPairs` array of length 5 is stored at offset `0x2DD4` inside `SaveBlock1` (this array acts as the Dewford Trends array in R/S).
+- The array elements are of type `struct EasyChatPair` (size `0x8` bytes).
+- The seed used for Feebas is the `unk2` field of the active trend (index 0).
+- `unk2` is at offset `0x2` inside the `struct EasyChatPair`.
+- **Final Seed Offset:** `0x2DD4 + 0x2 = 0x2DD6` (in `SaveBlock1`)
+
+## Route 119 Feebas Spot Calculation (PRNG Algorithm)
+
+To translate this 16-bit seed into the 6 specific tile IDs on Route 119, the game uses its LCG (Linear Congruential Generator).
+
+1. **Initialization:**
+   The PRNG state (`sFeebasRngValue`) is initialized with the seed:
+   ```c
+   sFeebasRngValue = seed;
+   ```
+
+2. **Advancing the PRNG:**
+   To get the next random number, the game advances the PRNG using the standard Gen 3 LCG formula:
+   ```c
+   sFeebasRngValue = 1103515245 * sFeebasRngValue + 12345;
+   ```
+   *Note: In R/S it's written as `12345 + 0x41C64E6D * sFeebasRngValue`, which is exactly the same math.*
+
+3. **Spot Selection:**
+   To pick a spot, the PRNG is advanced, and the top 16 bits of the state are modulo'd by the total number of fishing spots (`NUM_FISHING_SPOTS = 447` for Route 119):
+   ```c
+   spot = (sFeebasRngValue >> 16) % 447;
+   ```
+
+4. **Edge Cases & Spot Rejection:**
+   - If the modulo result is `0`, the spot is forcibly changed to `447`.
+   - If the resulting spot is less than `4` (i.e., `1`, `2`, or `3`), the spot is physically inaccessible on the map due to blocking terrain (waterfalls or non-surfable edges). The game **rejects** this spot and immediately tries again by advancing the PRNG and doing another modulo, without incrementing the loop counter for the 6 spots.
+
+5. **Looping:**
+   The game repeats steps 2-4 until it successfully selects `6` valid spots (the `NUM_FEEBAS_SPOTS`). The result is an array of 6 integer IDs. Each ID maps directly to a valid surfable water tile on Route 119, counting row-by-row, top-to-bottom, left-to-right.
+--- .foundry/docs/knowledge_base/onboarding/project_overview.md ---
+# Project Overview: dexhelper
+
+`dexhelper` is a React-based web application designed as a Pokédex helper, likely for older generations of Pokémon games (Gen 1 and Gen 2). It includes features for parsing game saves, providing assistance for catching Pokémon, and viewing Pokémon details.
+
+## Tech Stack
+
+- **Core**: React 19, TypeScript 6, Vite 8.
+- **Styling**: Tailwind CSS 4, Vanilla CSS, Lucide React (Icons), clsx & tailwind-merge.
+- **State Management**: Zustand.
+- **Routing**: TanStack React Router.
+- **Data Fetching**: TanStack React Query.
+- **Testing**:
+  - **Unit Tests**: Vitest.
+  - **E2E Tests (Primary)**: Playwright (E2E-first strategy).
+- **Game Engine**: Custom logic for parsing saves (`engine/saveParser`), navigating maps (`engine/mapGraph`), and suggesting actions (`engine/assistant`).
+
+## Codebase Structure
+
+- `src/`: Root of the source code.
+  - `routes/`: Application routes and layout (TanStack Router).
+  - `components/`: UI components, organized by domain (assistant, pokemon).
+  - `hooks/`: Custom React hooks.
+  - `engine/`: Core game logic, data, and assistant strategies.
+  - `utils/`: Utility functions and API logic.
+  - `store.ts`: Global state management with Zustand.
+- `tests/`: End-to-end tests.
+- `docs/`: Project documentation and guides.
+- `public/`: Static assets.
+--- .foundry/docs/knowledge_base/onboarding/suggested_commands.md ---
+# Suggested Commands: dexhelper
+
+## Development
+
+- `pnpm dev`: Start the development server (port 3000).
+- `pnpm install`: Install project dependencies.
+
+## Testing
+
+- `pnpm test`: Run unit tests using Vitest.
+- `pnpm test:ct`: Run Playwright component tests.
+- `pnpm test:e2e`: Run Playwright E2E tests.
+- `pnpm test:e2e:ui`: Open the Playwright Test UI for debugging.
+
+## Verification & Build
+
+- `pnpm lint`: Run TypeScript type checking and style verification.
+- `pnpm build`: Create a production-ready build.
+- `pnpm build:analyze`: Build and analyze bundle size using `vite-bundle-analyzer`.
+- `pnpm preview`: Locally preview the production build.
+- `pnpm clean`: Remove the `dist/` directory.
+
+## System Utils
+
+- **Linux-based**: `ls`, `grep`, `find`, `git`, `cat`, etc., are available.
+--- .foundry/docs/knowledge_base/onboarding/task_completion_guidelines.md ---
+# Task Completion Guidelines: dexhelper
+
+Before finalizing any task, the following steps must be completed:
+
+1.  **Code Quality**:
+    - Ensure code adheres to defined styles and conventions.
+    - Use `src/utils/cn.ts` for consistent Tailwind class management.
+
+2. **Testing**:
+    - Run `pnpm test` (Vitest) for unit tests.
+    - Run `pnpm test:e2e` (Playwright) for all UI changes.
+    - Ensure tests handle uninitialized state using `initializeWithSave`.
+    - Verify that no existing tests or visual regressions are broken.
+
+3.  **Analysis and Type Safety**:
+    - Run `pnpm lint` which triggers Type Checking (`tsc`) and Biome Checks (`biome check`).
+    - **Zero-Diagnostic Policy**: All Biome errors and warnings must be addressed. Additionally, you MUST manually verify and fix any `info` level diagnostics to ensure a completely clean output.
+
+4.  **Visual Verification**:
+    - For UI changes, ensure Argos screenshot tests are updated or added where necessary.
+    - Verify responsiveness across Desktop (FullHD, 1440p) and Mobile (Pixel 9).
+
+5.  **Documentation**:
+    - Update `README.md` or other documentation if public APIs or major features changed.
+
+6.  **Memory Maintenance**:
+    - Reflect on the session and update Serena memories (`.serena/memories`) with new architectural decisions, bug patterns, or feature knowledge.
+    - **Commit Memories**: Always commit updated memory files to the repository in the same branch/PR as the associated code changes.
+    - Ensure onboarding memories remain the source of truth for the project.
+--- .foundry/docs/knowledge_base/onboarding/autonomous_memory_protocol.md ---
+# Autonomous Memory Protocol
+
+To ensure that the `.serena/memories` are always up to date and serve as an autonomous result of our interactions, the assistant (Antigravity) follows these rules:
+
+1.  **Task-End Reflection**: At the conclusion of every task, the assistant evaluates if new knowledge has been uncovered that warrants a memory update.
+2.  **Onboarding Synchronization**: Any changes to project architecture, styling conventions, or testing standards must be immediately reflected in the `onboarding/` memories.
+3.  **Topic Hierarchy**: Memories are organized by topic (e.g., `features/`, `bugs/`, `onboarding/`) to ensure easy retrieval.
+4.  **No Stale Data**: Obsolete memories are updated or deleted as the codebase evolves, preventing "knowledge rot."
+5.  **Autonomous Creation**: The assistant proactively creates memories for complex subsystems or significant debugging journeys without requiring explicit user prompting.
+--- .foundry/docs/knowledge_base/onboarding/style_and_conventions.md ---
+# Style and Conventions: dexhelper
+
+## General Guidelines
+
+- **Language**: TypeScript is the primary language.
+- **Components**: Functional components with hooks.
+- **Styling**: Use Tailwind CSS 4 utility classes.
+- **State**: Use Zustand for global state and TanStack Query for server state.
+- **Utilities**: Use `clsx` and `tailwind-merge` (`cn` utility in `src/utils/cn.ts`) for class composition.
+
+## Testing Standards
+
+Following the project's `.agents/rules/testing_rules.md`:
+- **New Features**: Must include appropriate tests (Unit or E2E). We prioritize an **E2E-First Strategy** for all UI-facing features.
+- **Initialization**: All E2E tests must use `initializeWithSave(page)` from `tests/e2e/test-utils.ts` to ensure the application is correctly hydrated with a save file fixture.
+- **Bug Fixes**: Write a test to reproduce the bug *before* fixing it (Test-First Approach).
+- **Mocking**: Follow existing patterns in `src/hooks/useAssistant.test.ts`.
+
+## Visual Excellence & Design Standards
+
+- **Tactical Hardware Aesthetic**: Adhere strictly to the "tactical hardware/snooping" aesthetic as defined in ADR 024. Use sharp edges (`rounded-none`), dashed borders (`border-dashed`), and monospaced telemetry fonts (`font-mono`). Avoid rounded glassmorphism or overly slick holographic elements.
+- **Modern Retro**: Blend classic Pokédex utility with specialized hardware UI patterns to evoke the feeling of a real device.
+- **No Placeholders**: Never use placeholder images. Use `generate_image` or real assets.
+- **Animations**: Prefer immediate, utilitarian state changes or blocky segmented loading effects over smooth web-standard transitions.
+
+## Code Analysis and Formatting
+
+- **Biome**: Primary linter and formatter.
+  - All CI checks and Git Hooks are strictly enforced to treat both errors and warnings as failures (using `--error-on-warnings`).
+  - **Zero-Diagnostic Policy**: Even though `info` level diagnostics do not block the build, you MUST manually verify them during every check and fix them to maintain a zero-diagnostic state.
+- **TypeScript**: Always run `pnpm lint` (`tsc --noEmit`) to verify types.
