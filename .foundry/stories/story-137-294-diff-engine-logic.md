@@ -30,4 +30,6 @@ The diff engine must iterate through the current and target box arrays. Pokémon
 The engine will return a set of differences detailing which specific entity is currently at what location (box, slot) and where its final target location (box, slot) should be.
 
 ## Acceptance Criteria
-- [ ] Break down story into tasks for diff engine implementation.
+- [ ] task-294-316-diff-engine-impl
+- [ ] task-294-317-diff-engine-qa
+- [x] Break down story into tasks for diff engine implementation.
