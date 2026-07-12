@@ -2,12 +2,12 @@
 id: task-270-264-create-consolidation-architect-impl
 type: TASK
 title: Update Orchestrator Test Mappings for Architect Persona
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-06'
-updated_at: '2026-07-11'
+updated_at: '2026-07-12'
 depends_on: []
-jules_session_id: '14333613106615633276'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
