@@ -34,3 +34,6 @@ We should introduce an "NPC Size Record Assistant" dashboard. By leveraging our 
 
 ## Value Proposition
 Targeting mathematically complex, hidden sub-mechanics provides incredible unique utility. By automating this opaque calculation across all stored Pokémon, we completely eliminate manual trial-and-error. This perfectly leverages DexHelper's programmatic parsing strengths, turning a frustrating, blind guessing game into an instant, actionable insight. This reinforces our position as an indispensable, premium companion app for hardcore completionists.
+
+## Acceptance Criteria
+- [ ] prd-110-112-npc-size-record-assistant
