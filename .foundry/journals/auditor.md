@@ -133,3 +133,7 @@ Successfully verified that the Automated Max Rejection Cancellation epic was cor
 - **Node**: `epic-052-096-automated-max-rejection-cancellation`
 - **Result**: Verification Passed.
 - **Notes**: The Epic was successfully broken down into stories `story-096-153-max-rejection-cancellation` and `story-096-154-parent-awakening-logic`. Both stories and their descendant task nodes were implemented, merged, and moved to COMPLETED status. The `foundry-orchestrator.ts` Phase 3.0 and Phase 3.6 correctly implemented the logic to handle max rejections and CANCELLED nodes, as verified by reading the scripts and running the test suite. All child nodes and their tasks are completely marked as `[x]`. I am submitting an empty PR to transition this node to COMPLETED.
+
+## 2026-07-12
+**Architectural Constraint (State Machine UI Consistency):**
+When changing node state transitions (e.g., from FAILED to CANCELLED for max rejections), we must explicitly audit downstream UI consumers (like the DAG Dashboard) that may be relying on the previous status to render information correctly.
