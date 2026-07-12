@@ -29,4 +29,6 @@ Break down the implementation of the Pokegear Predictor logic into tasks.
 - Create tasks to implement the RNG mechanics and probability calculations based on research.
 
 ## Acceptance Criteria
-- [ ] Create tasks for the predictor engine logic
+- [x] Create tasks for the predictor engine logic
+- [ ] task-283-314-predictor-engine-logic-impl
+- [ ] task-283-315-predictor-engine-logic-qa
