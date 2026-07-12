@@ -33,6 +33,6 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer, we need to parse the s
 
 ## Acceptance Criteria
 - [x] Story Owner: Break this Epic down into actionable Stories.
-- [ ] .foundry/archive/stories/story-070-108-parse-secret-base-locations.md
-- [ ] .foundry/archive/stories/story-070-109-extract-mixed-record-trainer-data.md
+- [x] .foundry/archive/stories/story-070-108-parse-secret-base-locations.md
+- [x] .foundry/archive/stories/story-070-109-extract-mixed-record-trainer-data.md
 - [ ] .foundry/stories/story-070-110-track-daily-rematch-status.md
