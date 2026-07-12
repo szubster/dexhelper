@@ -28,8 +28,8 @@ notes: ''
 - Verify the `battledOwnerToday` flag is parsed correctly.
 
 ## Acceptance Criteria
-- [ ] Verify unit tests correctly test the extraction of the `battledOwnerToday` flag.
-- [ ] Ensure that no magic numbers are used in the implementation, and that module-level constants are used for offsets and bitmasks.
+- [x] Verify unit tests correctly test the extraction of the `battledOwnerToday` flag.
+- [x] Ensure that no magic numbers are used in the implementation, and that module-level constants are used for offsets and bitmasks.
 
 ## Important Notes
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
