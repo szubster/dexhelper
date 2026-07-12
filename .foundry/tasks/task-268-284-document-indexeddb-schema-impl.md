@@ -26,8 +26,8 @@ notes: ''
 The IndexedDB schema for `SaveHistoryDB` has been implemented in `src/db/schema.ts`. We need to document this schema in the knowledge base.
 
 ## Acceptance Criteria
-- [ ] Create a new documentation file or update an existing one under `.foundry/docs/knowledge_base/db/` to describe the `SaveHistoryDB` schema. It should detail the database name, version, and the three object stores (`saves`, `metadata`, `indexes`) as defined in `SAVE_HISTORY_DB_CONFIG` and `SaveHistoryDBSchema`.
-- [ ] The coder is responsible for self-verifying these changes by ensuring the markdown is properly formatted.
+- [x] Create a new documentation file or update an existing one under `.foundry/docs/knowledge_base/db/` to describe the `SaveHistoryDB` schema. It should detail the database name, version, and the three object stores (`saves`, `metadata`, `indexes`) as defined in `SAVE_HISTORY_DB_CONFIG` and `SaveHistoryDBSchema`.
+- [x] The coder is responsible for self-verifying these changes by ensuring the markdown is properly formatted.
 
 ## Rules
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
