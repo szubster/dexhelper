@@ -2,7 +2,7 @@
 id: task-267-261-gen3-ash-dataview-extraction-impl
 type: TASK
 title: Implement Gen 3 Volcanic Ash Extraction
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-08'
 updated_at: '2026-07-12'
@@ -16,8 +16,8 @@ tags:
   - parsing
 research_references:
   - .foundry/archive/research/research-054-243-gen3-ash-gathering-offsets.md
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Implementation uses absolute memory offsets (0x13D0 / 0x142C) without adding the section1Offset, which will read the wrong memory location for Gen 3 dynamic save blocks.'
 notes: ''
 ---
 

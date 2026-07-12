@@ -41,3 +41,6 @@ The implementation task (`task-267-261-gen3-ash-dataview-extraction-impl`) requi
 ## Developer Instructions
 - **Failure conditions:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`. If you must abort or permanently fail a task, you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - **Completion conditions:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+
+### QA Validation Failure
+Task rejected. The implementation uses absolute memory offsets (`0x13D0` / `0x142C`) instead of calculating relative offsets from the resolved `section1Offset`. This violates the rules for extracting Gen 3 dynamic save blocks and will result in reading from the wrong memory location.
