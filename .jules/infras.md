@@ -104,3 +104,5 @@ Critical learnings:
 
 ## 2026-07-10 - Submitted Empty PR
 **Learning:** Evaluated adding `actionlint` to lint GitHub Actions workflows but discovered the CLI is not readily available as a binary via `pnpm` without additional setup that violates "do not introduce bloat" policies. Confirmed that the current infrastructure (Biome, Knip, Oxlint, Dependabot) is highly optimized and tests pass. Submitted an Empty PR as per system policies to advance the pipeline without forcing unnecessary changes.
+- Discovered that `type-coverage` is strictly required by project rules (98% baseline). Tried removing it but realized it violates policy. Instead, implemented `vite-plugin-checker` for real-time TypeScript errors during dev.
+- Learned to use `-w` or `--workspace-root` flag when adding dependencies via `pnpm` to the root package.

@@ -6,6 +6,7 @@ import { defineConfig } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { codecovVitePlugin } from "@codecov/vite-plugin";
 import { VitePWA } from 'vite-plugin-pwa';
+import checker from 'vite-plugin-checker';
 import { browserslistToTargets } from 'lightningcss';
 import browserslist from 'browserslist';
 
@@ -21,6 +22,7 @@ export default defineConfig(() => {
     plugins: [
       pokedataPlugin({ sourceDir }),
       foundryPlugin(),
+      checker({ typescript: true }),
       tanstackRouter(),
       react(),
       tailwindcss(),
