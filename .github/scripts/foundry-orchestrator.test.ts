@@ -77,6 +77,73 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(fileContent).toContain("rejection_reason: ''");
   });
 
+  test('Late-Binding Parent fails to COMPLETED if EPIC lacks E2E story', () => {
+    createValidTestNode(tmpDir, '.foundry/epics/epic-e2e.md', {
+      id: "epic-e2e",
+      type: "EPIC",
+      title: "Epic E2E",
+      status: "PENDING",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null
+    }, "## Acceptance Criteria\n- [x] Task\n");
+
+    createValidTestNode(tmpDir, '.foundry/stories/story-no-e2e.md', {
+      id: "story-no-e2e",
+      type: "STORY",
+      title: "Story No E2E",
+      status: "COMPLETED",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: "epic-e2e",
+      tags: ["frontend"],
+      jules_session_id: null
+    });
+
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    main();
+    const fileContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-e2e.md'), 'utf-8');
+    expect(fileContent).toContain('status: FAILED');
+    expect(fileContent).toContain('Missing E2E/integration story');
+  });
+
+  test('Late-Binding Parent promotes to COMPLETED if EPIC has E2E story', () => {
+    createValidTestNode(tmpDir, '.foundry/epics/epic-with-e2e.md', {
+      id: "epic-with-e2e",
+      type: "EPIC",
+      title: "Epic E2E",
+      status: "PENDING",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null
+    }, "## Acceptance Criteria\n- [x] Task\n");
+
+    createValidTestNode(tmpDir, '.foundry/stories/story-e2e.md', {
+      id: "story-e2e",
+      type: "STORY",
+      title: "Story E2E",
+      status: "COMPLETED",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: "epic-with-e2e",
+      tags: ["e2E", "frontend"],
+      jules_session_id: null
+    });
+
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    main();
+    const fileContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-with-e2e.md'), 'utf-8');
+    expect(fileContent).toContain('status: COMPLETED');
+  });
+
   test('Happy Path: promotes PENDING to READY when all dependencies are COMPLETED', () => {
     createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', {
       id: "idea-001",
@@ -408,6 +475,7 @@ vi.doMock('node:url', async (importOriginal) => {
       updated_at: "2026-04-20",
       depends_on: [],
       parent: ".foundry/epics/epic-001.md",
+      tags: ["integration"],
       jules_session_id: null,
     });
 
@@ -495,6 +563,7 @@ vi.doMock('node:url', async (importOriginal) => {
       updated_at: "2026-04-20",
       depends_on: [],
       parent: ".foundry/epics/epic-001.md",
+      tags: ["e2e"],
       jules_session_id: null,
     });
 
@@ -581,6 +650,7 @@ vi.doMock('node:url', async (importOriginal) => {
       updated_at: "2026-04-20",
       depends_on: [],
       parent: ".foundry/epics/epic-001.md",
+      tags: ["integration"],
       jules_session_id: null,
     });
 
@@ -2245,6 +2315,7 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
       updated_at: "2026-04-20",
       depends_on: [],
       parent: "story-001",
+      tags: ["e2e"],
       jules_session_id: null,
     });
 
