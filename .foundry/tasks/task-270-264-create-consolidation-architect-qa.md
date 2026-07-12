@@ -2,13 +2,13 @@
 id: task-270-264-create-consolidation-architect-qa
 type: TASK
 title: QA Update Orchestrator Test Mappings for Architect Persona
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-12'
 depends_on:
   - task-270-264-create-consolidation-architect-impl
-jules_session_id: null
+jules_session_id: '9671633308254151409'
 pr_number: null
 parent: null
 tags:
