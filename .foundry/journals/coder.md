@@ -84,11 +84,6 @@ Furthermore, the `functions/_middleware.ts` file and these dependencies must be 
 3. Submit the empty PR with unchecked acceptance criteria to gracefully suspend the task. The orchestrator will automatically pause the task until the prerequisite research is complete.
 4. It is *not* necessary to manually mark the current task as `FAILED` or provide a `rejection_reason` in the YAML frontmatter. Adding the new RESEARCH node to the `depends_on` array and submitting with unchecked acceptance criteria is sufficient for the orchestrator to keep the task suspended.
 
-## 2026-06-18: Rejecting Task due to Max Rejections & Missing Dependencies
-## 2026-06-18: Rejecting Gen 3 Roamer Location Task
-## 2026-06-19: Late Binding for Breeding Algorithm
-Following the Late Binding pattern, `task-084-192-breeding-pair-algorithm-impl` was suspended (marked `FAILED` with a `rejection_reason` and unchecked checkboxes). A new `RESEARCH` node `research-192-209-egg-groups-missing-data` was spawned and appended to the `depends_on` array because the `PokemonMetadata` schema is missing `egg_groups` data and Gen 2 gender calculation logic (based on DVs and gender ratios) is unknown, making the algorithm impossible to implement safely.
-
 ## 2026-06-21: Gen 3 Roamer Location Parsing Limitation
 When assigned a task to extract Gen 3 roamer map coordinates (`mapId` and `mapGroup`) from a save file, the task MUST be cancelled or failed. Per `adr-108-027-gen3-roamer-location-impossible`, the exact map coordinates are exclusively stored in dynamic `EWRAM_DATA` during gameplay and are never serialized into the `.sav` battery save file. Any attempt to parse this data statically is mathematically impossible and will result in failure.
 
@@ -106,5 +101,3 @@ Biome and Oxlint do not currently support custom JS linting rules. The built-in 
 ## 2026-07-08: Impossible Task - Wrapping run_in_bash_session
 Task task-267-262-bash-timeout-wrapper-impl was cancelled because `run_in_bash_session` is a built-in platform tool provided to agents, not a script or function defined within this repository's codebase. It is therefore impossible to implement a wrapper or linter for it from within the repo.
 
-## 2026-07-10: Self-Verification of Party Zero HP Detection
-In task `task-269-263-detect-party-zero-hp-impl`, I verified the existing implementation of `getDeadPokemon` in `src/engine/nuzlocke/tracker.ts`. The function correctly extracts party Pokémon that have fainted (HP is 0). I ran `pnpm test` and confirmed that the tests in `src/engine/nuzlocke/tracker.test.ts` cover this functionality and pass successfully. Per the Intelligent Verification Protocol, I have self-verified this simple, low-risk task and am submitting an empty PR with the checked acceptance criteria.
