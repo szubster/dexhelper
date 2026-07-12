@@ -36,6 +36,6 @@ The Coder has implemented the Gen3 lottery number extraction logic using the `Da
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify module-level constants for offsets.
-- [ ] Verify bounds checking and RangeError handling logic.
-- [ ] Verify unit test coverage.
+- [x] Verify module-level constants for offsets.
+- [x] Verify bounds checking and RangeError handling logic.
+- [x] Verify unit test coverage.
