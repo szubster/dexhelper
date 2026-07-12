@@ -2,13 +2,13 @@
 id: task-272-302-gen3-lottery-data-extraction-qa
 type: TASK
 title: QA Gen3 Lottery Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-10'
 updated_at: '2026-07-12'
 depends_on:
   - task-272-301-gen3-lottery-data-extraction-impl
-jules_session_id: null
+jules_session_id: '379215022417123185'
 pr_number: null
 parent: story-133-272-gen3-lottery-data-extraction
 tags:
