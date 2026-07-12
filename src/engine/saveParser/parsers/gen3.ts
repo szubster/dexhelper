@@ -1249,6 +1249,8 @@ export function parseGen3EmeraldMoveTutors(view: DataView, saveBlock1Offset: num
  * @returns An object containing boolean statuses for each RSE NPC trade.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
+export { parseGen3LotteryNumber } from '../gen3/lottery/parser';
+
 export function parseGen3RSENPCTrades(view: DataView, saveBlock1Offset: number): Record<string, boolean> {
   try {
     const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
