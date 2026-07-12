@@ -145,6 +145,6 @@ describe('PokemonCaughtDetails', () => {
 
     await expect.element(page.getByText('SYS.CONTEST_STATS')).toBeInTheDocument();
     await expect.element(page.getByText('Sheen')).toBeInTheDocument();
-    await expect.element(page.getByText('200 / 255')).toBeInTheDocument();
+    await expect.element(page.getByText('200')).toBeInTheDocument();
   });
 });

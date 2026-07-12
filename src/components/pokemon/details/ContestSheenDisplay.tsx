@@ -9,25 +9,49 @@ interface ContestSheenDisplayProps {
 
 export const ContestSheenDisplay: React.FC<ContestSheenDisplayProps> = ({ sheen, className }) => {
   const maxSheen = 255;
-  const percentage = Math.min(Math.max((sheen / maxSheen) * 100, 0), 100);
   const isMaxed = sheen >= maxSheen;
+  const segments = 15;
 
   return (
     <TacticalPanel
       variant={isMaxed ? 'emerald' : 'blue'}
-      className={cn('flex flex-col gap-2 p-4 font-mono', className)}
+      className={cn(
+        '!p-4 relative flex flex-col gap-1.5 border-zinc-800 border-l border-dashed pl-3 transition-colors hover:border-zinc-500',
+        className,
+      )}
     >
-      <div className="flex items-center justify-between font-semibold text-xs uppercase tracking-wider">
-        <span className="text-zinc-400">Sheen</span>
-        <span className={cn(isMaxed ? 'text-emerald-400' : 'text-zinc-300')}>
-          {sheen} / {maxSheen} {isMaxed && '(MAX)'}
+      <div className="tactical-text flex justify-between text-[9px] text-zinc-400">
+        <span className="font-black uppercase tracking-widest">[ SHEEN ]</span>
+        <span className={cn('font-mono', isMaxed ? 'text-emerald-400' : 'text-zinc-500')}>
+          {sheen} {isMaxed && '(MAX)'}
         </span>
       </div>
-      <div className="h-2 w-full rounded-none border border-zinc-700 border-dashed bg-zinc-800/50">
-        <div
-          className={cn('h-full rounded-none transition-all duration-500', isMaxed ? 'bg-emerald-500' : 'bg-blue-500')}
-          style={{ width: `${percentage}%` }}
-        />
+      {/* oxlint-disable jsx-a11y/prefer-tag-over-role */}
+      <div
+        className="flex h-2 w-full gap-px bg-black p-px"
+        role="progressbar"
+        aria-valuenow={sheen}
+        aria-valuemax={maxSheen}
+      >
+        {Array.from({ length: segments }).map((_, i) => {
+          const ratio = sheen / maxSheen;
+          const threshold = (i + 1) / segments;
+          const isActive = ratio >= threshold;
+
+          const colorClass = isMaxed
+            ? 'bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.8)]'
+            : 'bg-blue-500 shadow-[0_0_5px_rgba(59,130,246,0.8)]';
+
+          const emptyColorClass = isMaxed ? 'bg-emerald-950/30' : 'bg-blue-950/30';
+
+          return (
+            <div
+              // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and safe here
+              key={`sheen-segment-${i}`}
+              className={cn('h-full flex-1', isActive ? colorClass : emptyColorClass)}
+            />
+          );
+        })}
       </div>
     </TacticalPanel>
   );
