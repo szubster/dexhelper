@@ -613,8 +613,9 @@ export function parseGen3MixRecords(view: DataView, offset: number) {
  */
 export function parseGen3VolcanicAsh(view: DataView, saveBlock1Offset: number, version: GameVersion): number {
   try {
-    const offset = version === 'emerald' ? GEN3_EMERALD_ASH_OFFSET : GEN3_RS_ASH_OFFSET;
-    return view.getUint16(saveBlock1Offset + offset, true);
+    const ashAbsOffset = version === 'emerald' ? GEN3_EMERALD_ASH_OFFSET : GEN3_RS_ASH_OFFSET;
+    const varsOffset = ashAbsOffset - GEN3_ASH_VAR_RELATIVE_OFFSET;
+    return view.getUint16(saveBlock1Offset + varsOffset + GEN3_ASH_VAR_RELATIVE_OFFSET, true);
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');
