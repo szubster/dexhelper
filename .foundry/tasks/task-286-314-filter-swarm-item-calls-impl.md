@@ -2,10 +2,10 @@
 id: task-286-314-filter-swarm-item-calls-impl
 type: TASK
 title: Implement High-Value Pokegear Call Filtering
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-11'
-updated_at: '2026-07-11'
+updated_at: '2026-07-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
