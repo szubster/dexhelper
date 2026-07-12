@@ -2,7 +2,7 @@
 id: story-303-299-extend-phase-3-6-cancelled-nodes
 type: STORY
 title: Extend Phase 3.6 for CANCELLED nodes
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-12'
 updated_at: '2026-07-12'

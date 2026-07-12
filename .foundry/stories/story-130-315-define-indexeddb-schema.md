@@ -2,7 +2,7 @@
 id: story-130-315-define-indexeddb-schema
 type: STORY
 title: Define IndexedDB Schema
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-12'
 updated_at: '2026-07-12'

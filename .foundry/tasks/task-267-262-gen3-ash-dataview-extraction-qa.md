@@ -2,13 +2,13 @@
 id: task-267-262-gen3-ash-dataview-extraction-qa
 type: TASK
 title: QA Gen 3 Volcanic Ash Extraction
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-07-08'
 updated_at: '2026-07-12'
 depends_on:
   - task-267-261-gen3-ash-dataview-extraction-impl
-jules_session_id: '9437539741674065171'
+jules_session_id: null
 pr_number: null
 parent: story-113-267-gen3-ash-dataview-extraction
 tags:
@@ -18,7 +18,7 @@ tags:
 research_references:
   - .foundry/archive/research/research-054-243-gen3-ash-gathering-offsets.md
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 

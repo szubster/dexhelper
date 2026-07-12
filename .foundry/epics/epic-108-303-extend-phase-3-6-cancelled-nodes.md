@@ -2,12 +2,12 @@
 id: epic-108-303-extend-phase-3-6-cancelled-nodes
 type: EPIC
 title: Extend Phase 3.6 for CANCELLED nodes
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-11'
 updated_at: '2026-07-12'
 depends_on: []
-jules_session_id: '10616910474714528591'
+jules_session_id: null
 pr_number: null
 parent: prd-086-108-fix-orchestrator-phase-3-6
 tags:
