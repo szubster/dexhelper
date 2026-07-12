@@ -14,10 +14,9 @@ import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schem
 import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
 import { isValidStaticGameVersion, staticEncounters } from '../../../engine/data/shared/staticData';
 import { cn } from '../../../utils/cn';
-import { HoverScanner } from '../../HoverScanner';
-import { LcdGrid } from '../../LcdGrid';
 import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
+import { TacticalNode } from '../../TacticalNode';
 import { TacticalPanel } from '../../TacticalPanel';
 import { LocationRow } from './LocationRow';
 
@@ -121,18 +120,7 @@ export function PokemonLocations({
 
 function GeospatialNode({ encounter: e, areaName }: { encounter: CompactEncounter; areaName: string }) {
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-none border border-zinc-800 border-dashed bg-black/40 transition-all duration-300 hover:border-[var(--theme-primary)]/50 hover:bg-zinc-900/60">
-      <LcdGrid className="opacity-[0.03] transition-opacity group-hover:opacity-[0.08]" />
-      <HoverScanner />
-
-      {/* Heavy Tactical Data Pipe */}
-      <div className="absolute top-0 bottom-0 left-0 w-1.5 border-[var(--theme-primary)]/30 border-r-2 border-dashed bg-[var(--theme-primary)]/10 transition-colors group-hover:border-[var(--theme-primary)] group-hover:bg-[var(--theme-primary)]/20" />
-
-      {/* Active LED */}
-      <div className="absolute top-3 left-[-2px] flex h-2.5 w-2.5 items-center justify-center border border-[var(--theme-primary)] bg-black shadow-[0_0_8px_var(--theme-primary)]">
-        <div className="h-1 w-1 animate-[pulse_2s_ease-in-out_infinite] bg-[var(--theme-primary)]" />
-      </div>
-
+    <TacticalNode variant="primary">
       <div className="flex flex-col gap-4 p-4 pl-6">
         {/* Header */}
         <div className="flex items-start justify-between border-zinc-800/50 border-b border-dashed pb-3">
@@ -208,7 +196,7 @@ function GeospatialNode({ encounter: e, areaName }: { encounter: CompactEncounte
           </div>
         </div>
       </div>
-    </div>
+    </TacticalNode>
   );
 }
 
