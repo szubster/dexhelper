@@ -4,6 +4,9 @@ type: RESEARCH
 title: Gen 3 Volcanic Ash Relative Offsets
 status: PENDING
 owner_persona: researcher
+created_at: '2026-07-12'
+updated_at: '2026-07-12'
+jules_session_id: null
 depends_on: []
 parent: story-113-267-gen3-ash-dataview-extraction
 tags:
