@@ -54,4 +54,7 @@ Retro Pokémon players using DexHelper to manage their saves, specifically those
 - Requires accurate offset documentation for TM/HM pockets in Gen 1, Gen 2, and Gen 3 bags, as well as event flags for TM pickups.
 
 ## Acceptance Criteria
-- [ ] Break down into EPIC nodes for Data Parsing, Compatibility Logic, and UI.
+- [x] Break down into EPIC nodes for Data Parsing, Compatibility Logic, and UI.
+- [ ] epic-110-306-tm-hm-save-parsing
+- [ ] epic-110-307-tm-hm-compatibility-logic
+- [ ] epic-110-308-tm-hm-user-interface
