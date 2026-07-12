@@ -30,4 +30,6 @@ Develop the core parsing logic to extract the Roamer data block (IVs, Species, H
 ## Acceptance Criteria
 - [ ] Implement `parseGen3Roamer` function in `src/engine/saveParser/parsers/gen3.ts`.
 - [ ] Support Ruby/Sapphire and Emerald offsets as documented in research.
-- [ ] Tech Lead: Break down this Story into executable Tasks.
+- [x] Tech Lead: Break down this Story into executable Tasks.
+- [ ] task-291-314-gen3-roamer-core-extraction-impl
+- [ ] task-291-315-gen3-roamer-core-extraction-qa
