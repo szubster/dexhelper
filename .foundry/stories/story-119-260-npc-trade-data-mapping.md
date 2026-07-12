@@ -2,14 +2,14 @@
 id: story-119-260-npc-trade-data-mapping
 type: STORY
 title: NPC Trade Data Mapping
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-03'
 updated_at: '2026-07-12'
 depends_on:
   - story-119-258-gen2-npc-trade-parsing
   - story-119-259-gen3-npc-trade-parsing
-jules_session_id: '6675245560623280460'
+jules_session_id: null
 pr_number: null
 parent: epic-095-119-in-game-trade-data-extraction
 tags:

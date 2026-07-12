@@ -2,10 +2,10 @@
 id: story-119-267-gen3-move-tutor-emerald-parsing
 type: STORY
 title: Parse Gen 3 Emerald Move Tutor Flags
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: 2026-07-03T00:00:00.000Z
-updated_at: '2026-07-09'
+updated_at: '2026-07-12'
 depends_on: []
 jules_session_id: null
 pr_number: null

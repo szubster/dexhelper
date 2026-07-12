@@ -2,10 +2,10 @@
 id: epic-045-070-gen3-secret-base-parsing
 type: EPIC
 title: Gen 3 Secret Base Save File Parsing
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-06-11'
+updated_at: '2026-07-12'
 depends_on: []
 jules_session_id: null
 pr_number: null

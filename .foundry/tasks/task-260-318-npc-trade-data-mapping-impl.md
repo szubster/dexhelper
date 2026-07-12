@@ -2,10 +2,10 @@
 id: task-260-318-npc-trade-data-mapping-impl
 type: TASK
 title: NPC Trade Data Mapping Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-13'
-updated_at: '2026-07-13'
+updated_at: '2026-07-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
