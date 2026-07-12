@@ -2,7 +2,6 @@
 
 No critical learnings logged yet.
 
-
 ## 2026-06-22
 ## Process Change: Late-Binding Hierarchy
 A new process change regarding late-binding hierarchical dependencies has been documented.

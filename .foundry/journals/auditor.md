@@ -90,7 +90,6 @@ This prevents macro nodes (like `IDEA`, `PRD`, `EPIC`, `STORY`) from prematurely
 ## 2026-07-04: TPM Persona and Archive Directory
 The Archive is maintained independently by the TPM persona. The fact that a node is not in the archive directory does not mean it is not complete.
 
-
 ## 2026-07-06: Verification of Relative Offsets ADR Epic (ADR 028)
 
 **Lesson: Extending ADR 028 to Algorithmic Magic Numbers & Enforcing Constraints without Tooling**
@@ -100,12 +99,10 @@ Because automated linting is unfeasible, this architectural constraint (mandatin
 **Lesson: Static Dashboard Visualization with React Flow (ADR 008)**
 When verifying `epic-046-079-gen3-battle-frontier-dashboard-ui`, the implementation correctly utilized React Flow (ADR 008) for a purely static data presentation rather than interactive diagramming. By explicitly disabling all interactive features (`panOnDrag={false}`, `zoomOnScroll={false}`, `elementsSelectable={false}`, etc.) and leveraging the `fitView` option, React Flow effectively functioned as a responsive grid layout engine for the Frontier Brain progress visuals. Furthermore, the UI strictly adhered to the "tactical hardware/snooping" aesthetic (ADR 024) by utilizing established utility primitives (`border-dashed`, `rounded-none`, etc.). This confirms that standardized tooling and styling constraints enable scalable, consistent UI integration without requiring bespoke diagramming logic for each new feature.
 
-
 ## 2026-07-07: Verification of Gen 3 Battle Frontier Dashboard UI Epic
 
 **Lesson: Verifying Cross-Version Compatibility Constraints**
 When verifying `epic-046-079-gen3-battle-frontier-dashboard-ui`, it was noted that the underlying data parsing implementation explicitly restricted Battle Frontier data extraction to Emerald saves only (`_forcedVersion === 'emerald'`), as the Frontier is an Emerald-exclusive feature. However, Ruby and Sapphire feature the Battle Tower. As identified in `research-078-150-rs-battle-tower-data`, it remains unresolved if RS save files contain different structural representations for their Battle Tower win streaks or if they simply live at different offsets. During macro node verification, when an architectural gap like this is discovered, the Auditor must spawn a downstream `RESEARCH` node to investigate the cross-version compatibility gap. Since `research-078-150-rs-battle-tower-data` was previously spawned but the current Epic is complete, the Auditor must ensure the Epic's completion does not incorrectly imply RS compatibility for the Battle Tower dashboard component without resolving the pending research.
-
 
 ## 2026-07-09: Verification of Gen 2 Pokerus State Exfiltration Epic
 
