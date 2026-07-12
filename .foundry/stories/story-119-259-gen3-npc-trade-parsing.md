@@ -31,5 +31,5 @@ Identify and extract NPC trade flags for all core Gen 3 versions (RSE/FRLG) usin
 - [x] research-259-249-gen3-npc-trade-parsing
 - [x] task-259-274-gen3-npc-trade-extraction-impl
 - [x] task-259-275-gen3-npc-trade-extraction-qa
-- [ ] task-259-276-gen3-npc-trade-extraction-impl
-- [ ] task-259-277-gen3-npc-trade-extraction-qa
+- [x] task-259-276-gen3-npc-trade-extraction-impl
+- [x] task-259-277-gen3-npc-trade-extraction-qa
