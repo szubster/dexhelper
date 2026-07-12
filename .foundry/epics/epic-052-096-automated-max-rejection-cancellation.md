@@ -26,3 +26,6 @@ notes: ''
 - [x] Break down into Stories.
 - [x] story-096-153-max-rejection-cancellation
 - [x] story-096-154-parent-awakening-logic
+
+## Learnings & Follow-ups
+- [idea-114-update-permanent-failure-dashboard-ui](.foundry/ideas/idea-114-update-permanent-failure-dashboard-ui.md) - The automatic cancellation of nodes causes them to disappear from the Permanent Failure Dashboard UI. Created an IDEA to fix the filtering logic.
