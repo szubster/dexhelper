@@ -35,5 +35,5 @@ We need to extract the daily winning lottery number from Gen3 save files. This r
 - If you submit an empty PR for a completed task (e.g. if the parser was already implemented in another PR), you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Locate and define exact memory offsets as module-level constants.
-- [ ] Implement robust `DataView` parsing logic for the 16-bit lottery number.
+- [x] Locate and define exact memory offsets as module-level constants.
+- [x] Implement robust `DataView` parsing logic for the 16-bit lottery number.
