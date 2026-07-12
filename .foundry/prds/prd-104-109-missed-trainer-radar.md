@@ -2,12 +2,12 @@
 id: prd-104-109-missed-trainer-radar
 type: PRD
 title: Missed Trainer Radar PRD
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-11'
 updated_at: '2026-07-12'
 depends_on: []
-jules_session_id: '3112296154483612760'
+jules_session_id: null
 pr_number: null
 parent: idea-104-missed-trainer-radar
 tags:
