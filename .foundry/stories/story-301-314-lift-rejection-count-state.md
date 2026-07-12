@@ -1,11 +1,11 @@
 ---
 id: story-301-314-lift-rejection-count-state
 type: STORY
-title: "Lift MAX_REJECTION_THRESHOLD Constant to Context"
-status: PENDING
+title: Lift MAX_REJECTION_THRESHOLD Constant to Context
+status: READY
 owner_persona: tech_lead
-created_at: "2026-07-12"
-updated_at: "2026-07-12"
+created_at: '2026-07-12'
+updated_at: '2026-07-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - dashboard
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Lift MAX_REJECTION_THRESHOLD Constant to Context

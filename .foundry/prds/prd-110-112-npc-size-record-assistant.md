@@ -1,11 +1,11 @@
 ---
 id: prd-110-112-npc-size-record-assistant
 type: PRD
-title: "Gen 2 & Gen 3 NPC Size Record Assistant"
-status: PENDING
-owner_persona: "epic_planner"
-created_at: "2026-07-12"
-updated_at: "2026-07-12"
+title: Gen 2 & Gen 3 NPC Size Record Assistant
+status: READY
+owner_persona: epic_planner
+created_at: '2026-07-12'
+updated_at: '2026-07-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - generation-3
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 2 & Gen 3 NPC Size Record Assistant

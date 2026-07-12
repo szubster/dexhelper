@@ -2,7 +2,7 @@
 id: story-131-271-graveyard-box-ui
 type: STORY
 title: Graveyard Box UI
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-04'
 updated_at: '2026-07-12'
