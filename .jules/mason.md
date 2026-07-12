@@ -153,3 +153,11 @@
 - **Why**: Reduced duplication of the verbose tactical utility classes `tactical-text absolute bg-zinc-950 px-1 text-[9px] text-zinc-500` across multiple components (`TacticalInput`, `SearchAndFilters`, `AssistantPanel`, `SyncProgress`).
 - **Key Learnings**:
   - The extraction allows callers to pass specific positioning (like `-top-2.5 left-4`) or specific color overrides (like `text-[var(--theme-primary)]`) via the `className` prop while the internal component handles the shared tactical typography and background.
+
+## TacticalNode Extraction
+- **What**: Extracted repeated complex tactical UI wrapper elements (LCD grid background, hover scanner effect, absolute-positioned active LED side-pipe, and pulsing LED light) into a reusable `TacticalNode` component.
+- **Why**: Reduced duplicated JSX across multiple distinct components (`DiagnosticCard.tsx`, `PokemonLocations.tsx`, and `PokemonEvolutions.tsx`). This standardizes a critical and highly-verbose aesthetic element of the design system.
+- **Key Learnings**:
+  - `tailwind-merge` (`cn()`) is vital for components that act as large wrappers. It allowed the extracted `TacticalNode` to supply a default `bg-black/40` and default hover state, while allowing `DiagnosticCard` to cleanly override those styles with `bg-zinc-950/80` via standard class appending.
+  - Using a `variant` prop (`primary`, `red`, `purple`, `blue`, `pink`) was necessary because the CSS classes used across these borders and shadow effects rely heavily on arbitrary values (e.g., `shadow-[0_0_8px_rgba(239,68,68,0.5)]`). Attempting to control complex multi-color opacity hover states with pure standard Tailwind classes across such an intricate DOM structure is brittle; centralizing the exact strings in a switch statement ensures rendering stability.
+  - When visually verifying UI components via Playwright that are deeply nested or require specific complex state, temporarily create a dedicated test route/page (e.g., `src/routes/test.tsx`) to render the component directly, capture the screenshot, and carefully remove the temporary files (`git reset HEAD ... && rm ...`) before committing.

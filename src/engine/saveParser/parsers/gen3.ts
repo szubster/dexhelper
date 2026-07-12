@@ -221,6 +221,7 @@ const FRLG_MOVE_TUTOR_HYDRO_CANNON_BIT = 0;
 
 export const GEN3_EMERALD_ASH_OFFSET = 0x142c;
 export const GEN3_RS_ASH_OFFSET = 0x13d0;
+export const GEN3_ASH_VAR_RELATIVE_OFFSET = 0x90;
 
 /**
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
@@ -473,7 +474,7 @@ export function parseGen3EggSteps(
  * @returns An object containing the extracted roamer data, including unpacked IVs.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVersion: string) {
+export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVersion: GameVersion) {
   let offset = saveBlock1Offset;
   if (gameVersion === 'ruby' || gameVersion === 'sapphire') {
     offset += GEN3_ROAMER_OFFSET_RS;
@@ -733,7 +734,11 @@ export function parseGen3MirageIslandValue(view: DataView, offset: number): numb
  * @returns An array of active secret base locations.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3SecretBases(view: DataView, saveBlock1Offset: number, gameVersion: string): Gen3SecretBase[] {
+export function parseGen3SecretBases(
+  view: DataView,
+  saveBlock1Offset: number,
+  gameVersion: GameVersion,
+): Gen3SecretBase[] {
   let baseOffset = saveBlock1Offset;
   if (gameVersion === 'emerald') {
     baseOffset += SECRET_BASE_OFFSET_EMERALD;
@@ -745,7 +750,7 @@ export function parseGen3SecretBases(view: DataView, saveBlock1Offset: number, g
     const secretBases: Gen3SecretBase[] = [];
     for (let i = 0; i < SECRET_BASES_COUNT; i++) {
       const offset = baseOffset + i * SECRET_BASE_SIZE;
-      const record = parseSecretBaseRecord(view, offset, gameVersion as GameVersion);
+      const record = parseSecretBaseRecord(view, offset, gameVersion);
       if (record) {
         secretBases.push(record);
       }

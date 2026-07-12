@@ -270,3 +270,9 @@
 **Outcome:** Accepted
 **Why:** Transforms a simple collectible tracker into an active intelligence deciphering interface, perfectly aligning with the established specialized hardware/snooping motif.
 **Pattern:** Elevate simple collection grids (like Unown forms or items) into active "Encryption/Decryption Matrices" by wrapping them in `TacticalPanel`, utilizing data pipe visuals, and adding strict uppercase bracketed telemetry copy to reinforce the tactical intelligence readout aesthetic.
+
+## 2026-07-12 - [Accepted] - 🖼️ Canvas: Tactical Sheen Display Redesign
+**What:** Redesigned the `ContestSheenDisplay` component to replace the generic continuous progress bar with a segmented tactical display mimicking a low-resolution CRT. Also updated labels to use bracketed monospaced telemetry fonts (e.g., `[ SHEEN ]`).
+**Outcome:** Accepted
+**Why:** Continuous smooth progress bars break the "specialized hardware" illusion, whereas segmented terminal bars effectively mimic a rugged, low-resolution device.
+**Pattern:** Avoid continuous progress bars. Consistently use segmented bars built from distinct block elements for statistics to reinforce the hardware simulation.

@@ -2,12 +2,12 @@
 id: idea-109-gen2-room-decoration-tracker
 type: IDEA
 title: Gen 2 Room Decoration & Mom's Savings Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-09'
 updated_at: '2026-07-12'
 depends_on: []
-jules_session_id: '14587387364682570049'
+jules_session_id: null
 pr_number: null
 parent: null
 tags: []
@@ -35,3 +35,7 @@ We should introduce a "Room Decoration & Savings" dashboard for Gen 2 save files
 
 ## Value Proposition
 This aligns perfectly with DexHelper's vision as a premium companion app for retro games. It transforms an opaque, hard-to-track, and version-specific mechanic into an easily understandable and actionable dashboard. It provides immense value to completionists and hardcore players who want to fully complete their Gen 2 experience without tedious in-game guesswork.
+
+## Acceptance Criteria
+- [x] Break down into PRD
+- [ ] prd-109-112-gen2-room-decoration-tracker

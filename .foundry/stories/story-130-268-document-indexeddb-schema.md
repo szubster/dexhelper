@@ -2,13 +2,13 @@
 id: story-130-268-document-indexeddb-schema
 type: STORY
 title: Document IndexedDB Schema
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-08'
+updated_at: '2026-07-12'
 depends_on:
   - story-130-267-define-indexeddb-schema
-jules_session_id: null
+jules_session_id: '3276295506808644089'
 pr_number: null
 parent: epic-099-130-indexeddb-schema-design
 tags:
@@ -27,5 +27,5 @@ notes: ''
 Document the defined IndexedDB schema for storing save state history.
 
 ## Acceptance Criteria
-- [ ] Document the schema.
-- [ ] task-268-284-document-indexeddb-schema-impl
+- [x] Document the schema.
+- [x] task-268-284-document-indexeddb-schema-impl

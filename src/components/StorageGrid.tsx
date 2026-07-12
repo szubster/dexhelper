@@ -1,5 +1,5 @@
 import { useNavigate } from '@tanstack/react-router';
-import { Skull, Sparkles } from 'lucide-react';
+import { Skull } from 'lucide-react';
 import React from 'react';
 import type { PokemonInstance } from '../engine/saveParser/index';
 import { useStore } from '../store';
@@ -7,6 +7,7 @@ import { getGenerationConfig } from '../utils/generationConfig';
 import { getTimeCapsuleValidation } from '../utils/timeCapsule';
 import { CapacitySegmentedBar } from './CapacitySegmentedBar';
 import { PokemonSprite } from './pokemon/PokemonSprite';
+import { ShinyBadge } from './ShinyBadge';
 import { TacticalBadge } from './TacticalBadge';
 import { TacticalCard } from './TacticalCard';
 import { TacticalPanel } from './TacticalPanel';
@@ -71,11 +72,7 @@ const StorageCard = React.memo(
         )}
         <div className="absolute top-3 left-3 font-bold font-mono text-[10px] text-zinc-600">LV.{p.level}</div>
         <div className="absolute top-3 right-3 z-10 flex flex-col items-end gap-1.5">
-          {p.isShiny ? (
-            <Sparkles size={14} className="text-amber-400 drop-shadow-sm" />
-          ) : p.isShinyCarrier ? (
-            <Sparkles size={14} className="text-cyan-400 drop-shadow-sm" />
-          ) : null}
+          <ShinyBadge isShiny={p.isShiny || false} isShinyCarrier={p.isShinyCarrier || false} size="sm" />
           {p.otName && (
             <TacticalBadge variant="zinc" className="max-w-[60px] truncate px-1.5 py-0.5 font-mono">
               {p.otName}

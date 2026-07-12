@@ -2,12 +2,12 @@
 id: task-267-287-gen3-move-tutor-emerald-impl
 type: TASK
 title: Implement Emerald Move Tutor Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: 2026-07-09T00:00:00.000Z
-updated_at: '2026-07-09'
+updated_at: '2026-07-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3718798197450811238'
 pr_number: null
 parent: story-119-267-gen3-move-tutor-emerald-parsing
 tags:

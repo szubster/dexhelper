@@ -2,10 +2,10 @@
 id: story-045-253-shiny-carrier-ui-badge
 type: STORY
 title: Shiny Carrier UI Badge
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-02'
-updated_at: '2026-07-07'
+updated_at: '2026-07-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -34,7 +34,7 @@ Introduce a distinct UI badge/indicator for "Shiny Carrier" Pokémon in PC boxes
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into frontend Tasks.
-- [ ] task-253-260-shiny-carrier-ui-badge-impl
-- [ ] task-253-261-shiny-carrier-ui-badge-qa
+- [x] task-253-260-shiny-carrier-ui-badge-impl
+- [x] task-253-261-shiny-carrier-ui-badge-qa
 
 ## Next Steps

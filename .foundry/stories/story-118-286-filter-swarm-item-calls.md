@@ -2,12 +2,12 @@
 id: story-118-286-filter-swarm-item-calls
 type: STORY
 title: Filter Swarm & Item Calls
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-07'
-updated_at: '2026-07-11'
+updated_at: '2026-07-12'
 depends_on: []
-jules_session_id: '6440739727327696486'
+jules_session_id: null
 pr_number: null
 parent: epic-055-118-pokegear-alerts
 tags:
@@ -30,3 +30,5 @@ Filter the list of active callers to isolate NPCs that offer rare items or swarm
 
 ## Acceptance Criteria
 - [ ] Implement data logic for identifying high-value Pokegear calls
+- [ ] task-286-314-filter-swarm-item-calls-impl
+- [ ] task-286-315-filter-swarm-item-calls-qa

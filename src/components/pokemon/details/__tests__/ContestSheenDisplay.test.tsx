@@ -8,20 +8,20 @@ describe('ContestSheenDisplay', () => {
     await render(<ContestSheenDisplay sheen={0} />);
 
     await expect.element(page.getByText('Sheen')).toBeVisible();
-    await expect.element(page.getByText('0 / 255')).toBeVisible();
+    await expect.element(page.getByText('0')).toBeVisible();
   });
 
   it('renders correctly with max sheen', async () => {
     await render(<ContestSheenDisplay sheen={255} />);
 
     await expect.element(page.getByText('Sheen')).toBeVisible();
-    await expect.element(page.getByText('255 / 255 (MAX)')).toBeVisible();
+    await expect.element(page.getByText('255 (MAX)')).toBeVisible();
   });
 
   it('renders correctly with partial sheen', async () => {
     await render(<ContestSheenDisplay sheen={127} />);
 
     await expect.element(page.getByText('Sheen')).toBeVisible();
-    await expect.element(page.getByText('127 / 255')).toBeVisible();
+    await expect.element(page.getByText('127')).toBeVisible();
   });
 });

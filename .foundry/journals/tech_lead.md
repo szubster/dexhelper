@@ -50,10 +50,6 @@ Always use the exact, short ID slug for DAG references. Do not include directory
 - **Lesson:** When writing implementation blueprints for binary data extraction, it is insufficient to provide only the memory offset. The blueprint must explicitly define the bitwise logic (shifts and masks) to prevent hallucination by the coder persona.
 - **Action:** Created a new research node (`research-108-194-gen3-roamer-iv-bitfield`) to discover the exact parsing formula before retrying the implementation (`task-108-192-gen3-roamer-dataview-extraction-impl`).
 
-## 2026-06-18: Unexpected Artifact Existence
-- **Observation**: While processing `story-074-115-define-tactical-input-and-text.md`, it was discovered that its target artifacts (`task-115-165-implement-tactical-input-text.md` and `task-115-166-qa-tactical-input-text.md`) already unexpectedly existed in the `.foundry/tasks/` directory and were marked as `COMPLETED`.
-- **Action**: Followed the Empty PR Policy by checking off the acceptance criteria checkboxes in the story node's markdown body and proceeding with an Empty PR submission, logging this anomaly for the Agile Coach.
-
 ## 2026-06-19: Cancelling Gen 3 Roamer Location Task and Story
 - **Observation**: The implementation task (`task-108-161-gen3-roamer-location-impl`) failed permanently. Research (`research-108-187-gen3-roamer-location-offsets`) confirmed that the Gen 3 roamer's current map location (`sRoamerLocation`) and its location history (`sLocationHistory`) are kept in dynamic `EWRAM_DATA` and are **not** saved to the `.sav` file.
 - **Action**: Cancelled `story-072-108-gen3-roamer-location-extraction` by setting its status to `CANCELLED` with a rejection reason, leaving its checkboxes unchecked. Cancelled the orphaned QA task (`task-108-162-gen3-roamer-location-qa`) by appending an auditor rejection note to its markdown body without modifying its frontmatter.
@@ -115,8 +111,6 @@ When drafting QA tasks, explicitly use exact Node IDs without file extensions or
 ## Explicit Provider Responsibilities
 When a task involves creating a "Provider" (e.g., `DagProvider` for a React Context), it is not enough to just define the context and export the provider shell. The blueprint must explicitly instruct the `coder` to implement the actual data fetching and state management logic *within* that provider, and to explicitly wrap the relevant views so they can consume the context. Failure to explicitly state this requirement leads to incomplete implementations where the provider is functionally empty and the state is never actually lifted, violating architectural decisions like ADR 013 and ADR 017.
 ## 2026-07-02: Gen 3 PC Box Parsing Missing Context
-- **Observation**: When analyzing `story-108-246-gen3-box-parsing`, the exact memory offsets and structure for Gen 3 PC Box data (`SaveBlock1`, `SaveBlock2`, etc.) were missing from the knowledge base.
-- **Action**: Spawned a `RESEARCH` node (`research-246-244-gen3-box-parsing`) to uncover the required offsets. Suspended the story node by updating its status to FAILED in the YAML frontmatter, adding the research node to the depends_on array, and providing a rejection_reason. Appended the new research node as an unchecked task to the parent story's markdown body.
 - **Lesson**: Do not hallucinate or guess memory offsets when writing tasks. Always spawn a research node when context is missing to explicitly locate memory structures, adhering to the Execution Plan Groundedness Rule and preventing parser failures.
 
 When setting node references in YAML fields (`depends_on`, `parent`) or appending child node references to a parent's markdown checklist (`- [ ]`), strictly use the exact Node ID without file extensions or directory paths (e.g., use `task-123-slug`, NOT `.foundry/tasks/task-123-slug.md`). Violating this causes orchestrator DAG validation errors.
@@ -148,7 +142,6 @@ When decomposing a STORY into TASK nodes, strictly follow the Intelligent Verifi
 ## 2026-07-07: Premature Story Verification
 - **Observation**: Attempted to transition a Story to VERIFYING by checking off its child tasks, violating a core directive.
 - **Constraint Enforced**: CRITICAL: Do NOT submit an Empty PR to transition a Story to VERIFYING (by checking off its acceptance criteria) until ALL of its generated child TASK nodes have transitioned to COMPLETED. Premature verification violates the dependency graph constraints. If a parent node has incomplete children (e.g. pending or active), you must leave its own acceptance criteria checkboxes unchecked to keep it in PENDING status.
-## 2026-07-09
 
 ## 2026-07-09: Platform Tool Modification Constraints
 - **Observation**: Attempted to implement a timeout wrapper for `run_in_bash_session` but the task was rejected because platform tools cannot be modified from within the repo.
@@ -178,3 +171,6 @@ When decomposing a STORY into TASK nodes, strictly follow the Intelligent Verifi
 
 ## 2026-07-11: RangeError Handling
 When drafting save parser blueprints using DataView, explicitly mandate catching RangeError and throwing 'The save file is corrupted or incomplete.' to prevent QA rejections.
+
+## 2026-07-11: Filter Swarm & Item Calls
+Drafted technical blueprints (`task-286-314-filter-swarm-item-calls-impl` and `task-286-315-filter-swarm-item-calls-qa`) to implement filtering of active Gen 2 Pokegear callers based on `wSwarmFlags`, `wDailyPhoneItemFlags`, and `wDailyPhoneTimeOfDayFlags`. Due to the complexity and risk of parsing memory states directly, I applied the Intelligent Verification Protocol to require a dedicated QA verification pass. Explicit architectural constraints forbidding the use of inline magic numbers for memory offsets were mandated in both blueprints to comply with ADR 028.

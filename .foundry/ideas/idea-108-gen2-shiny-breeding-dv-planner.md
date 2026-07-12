@@ -2,12 +2,12 @@
 id: idea-108-gen2-shiny-breeding-dv-planner
 type: IDEA
 title: Gen 2 Shiny Breeding DV Compatibility Planner
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-08'
-updated_at: '2026-07-11'
+updated_at: '2026-07-12'
 depends_on: []
-jules_session_id: '16695403118005209724'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -29,4 +29,5 @@ In Generation 2, shininess is determined entirely by Deterministic Values (DVs).
 DexHelper already parses the exact DVs of all Pokémon in the player's PC boxes. We should build a "Shiny Breeding Planner" that allows players to select two Pokémon from their storage. The app will cross-reference their DVs to instantly verify if they are compatible to breed, and if so, calculate the exact shiny probability of their offspring based on the parents' DV inheritance. This perfectly aligns with DexHelper's vision as a premium companion app that surfaces hidden mechanics to solve hardcore player pain points.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this idea into a PRD detailing the user flow, UI integration, and the exact DV comparison formulas required for Gen 2 breeding compatibility.
+- [x] Product Manager: Convert this idea into a PRD detailing the user flow, UI integration, and the exact DV comparison formulas required for Gen 2 breeding compatibility.
+- [ ] prd-108-112-gen2-shiny-breeding-dv-planner

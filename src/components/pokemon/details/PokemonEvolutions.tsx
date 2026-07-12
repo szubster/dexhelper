@@ -3,10 +3,9 @@ import React from 'react';
 import { stadiumRewardsData } from '../../../engine/data/shared/staticData';
 import type { SaveData } from '../../../engine/saveParser/index';
 import { cn } from '../../../utils/cn';
-import { HoverScanner } from '../../HoverScanner';
 import { InlineLink } from '../../InlineLink';
-import { LcdGrid } from '../../LcdGrid';
 import { TacticalBadge } from '../../TacticalBadge';
+import { TacticalNode } from '../../TacticalNode';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 
 interface EvoReq {
@@ -61,22 +60,12 @@ function ProcurementStrategy({
   }, [pokemonId, saveData, gameVersion]);
 
   return (
-    <div className="group relative col-span-1 flex flex-col overflow-hidden rounded-none border border-red-500/30 border-dashed bg-black/40 transition-all duration-300 hover:border-red-500/50 hover:bg-zinc-900/60 sm:col-span-2">
-      <LcdGrid className="opacity-[0.03] transition-opacity group-hover:opacity-[0.08]" />
-      <HoverScanner />
-
+    <TacticalNode variant="red" className="col-span-1 sm:col-span-2">
       <TelemetryDecoration
         label="PROCUREMENT_RATING: CRITICAL"
         className="top-0 right-0 left-0 justify-center border-r-0 border-l-0"
         textClassName="text-red-500"
       />
-
-      <div className="absolute top-0 bottom-0 left-0 w-1.5 border-red-500/30 border-r-2 border-dashed bg-red-500/10 transition-colors group-hover:border-red-500 group-hover:bg-red-500/20" />
-
-      <div className="absolute top-3 left-[-2px] flex h-2.5 w-2.5 items-center justify-center border border-red-500 bg-black shadow-[0_0_8px_var(--theme-primary)]">
-        <div className="h-1 w-1 animate-[pulse_2s_ease-in-out_infinite] bg-red-500" />
-      </div>
-
       <div className="flex flex-col gap-4 p-4 pt-6 pl-6">
         <div className="flex items-start justify-between border-red-500/20 border-b border-dashed pb-3">
           <div className="flex flex-col gap-1">
@@ -134,7 +123,7 @@ function ProcurementStrategy({
           )}
         </div>
       </div>
-    </div>
+    </TacticalNode>
   );
 }
 
@@ -148,22 +137,12 @@ function EvolutionFrom({
   onNavigate: (id: number, name: string) => void;
 }) {
   return (
-    <div className="group relative col-span-1 flex flex-col overflow-hidden rounded-none border border-purple-500/30 border-dashed bg-black/40 transition-all duration-300 hover:border-purple-500/50 hover:bg-zinc-900/60">
-      <LcdGrid className="opacity-[0.03] transition-opacity group-hover:opacity-[0.08]" />
-      <HoverScanner />
-
+    <TacticalNode variant="purple" className="col-span-1">
       <TelemetryDecoration
         label="PRE-EVOLUTION MATRIX"
         className="top-0 right-0 left-0 justify-center border-r-0 border-l-0"
         textClassName="text-purple-400"
       />
-
-      <div className="absolute top-0 bottom-0 left-0 w-1.5 border-purple-500/30 border-r-2 border-dashed bg-purple-500/10 transition-colors group-hover:border-purple-500 group-hover:bg-purple-500/20" />
-
-      <div className="absolute top-3 left-[-2px] flex h-2.5 w-2.5 items-center justify-center border border-purple-500 bg-black shadow-[0_0_8px_var(--theme-primary)]">
-        <div className="h-1 w-1 animate-[pulse_2s_ease-in-out_infinite] bg-purple-500" />
-      </div>
-
       <div className="flex h-full flex-col gap-4 p-4 pt-6 pl-6">
         <div className="flex items-start justify-between border-purple-500/20 border-b border-dashed pb-3">
           <div className="flex flex-col gap-1">
@@ -206,7 +185,7 @@ function EvolutionFrom({
           </div>
         </div>
       </div>
-    </div>
+    </TacticalNode>
   );
 }
 
@@ -219,22 +198,12 @@ function EvolutionTo({
 }) {
   if (!evolvesTo || evolvesTo.length === 0) return null;
   return (
-    <div className="group relative col-span-1 flex flex-col overflow-hidden rounded-none border border-blue-500/30 border-dashed bg-black/40 transition-all duration-300 hover:border-blue-500/50 hover:bg-zinc-900/60">
-      <LcdGrid className="opacity-[0.03] transition-opacity group-hover:opacity-[0.08]" />
-      <HoverScanner />
-
+    <TacticalNode variant="blue" className="col-span-1">
       <TelemetryDecoration
         label="FORWARD EVOLUTION MATRIX"
         className="top-0 right-0 left-0 justify-center border-r-0 border-l-0"
         textClassName="text-blue-400"
       />
-
-      <div className="absolute top-0 bottom-0 left-0 w-1.5 border-blue-500/30 border-r-2 border-dashed bg-blue-500/10 transition-colors group-hover:border-blue-500 group-hover:bg-blue-500/20" />
-
-      <div className="absolute top-3 left-[-2px] flex h-2.5 w-2.5 items-center justify-center border border-blue-500 bg-black shadow-[0_0_8px_var(--theme-primary)]">
-        <div className="h-1 w-1 animate-[pulse_2s_ease-in-out_infinite] bg-blue-500" />
-      </div>
-
       <div className="flex h-full flex-col gap-4 p-4 pt-6 pl-6">
         <div className="flex items-start justify-between border-blue-500/20 border-b border-dashed pb-3">
           <div className="flex flex-col gap-1">
@@ -273,7 +242,7 @@ function EvolutionTo({
           </div>
         </div>
       </div>
-    </div>
+    </TacticalNode>
   );
 }
 
@@ -285,22 +254,12 @@ function BreedingProtocol({
   onNavigate: (id: number, name: string) => void;
 }) {
   return (
-    <div className="group relative col-span-1 flex flex-col overflow-hidden rounded-none border border-pink-500/30 border-dashed bg-black/40 transition-all duration-300 hover:border-pink-500/50 hover:bg-zinc-900/60 sm:col-span-2">
-      <LcdGrid className="opacity-[0.03] transition-opacity group-hover:opacity-[0.08]" />
-      <HoverScanner />
-
+    <TacticalNode variant="pink" className="col-span-1 sm:col-span-2">
       <TelemetryDecoration
         label="BREEDING MATRIX"
         className="top-0 right-0 left-0 justify-center border-r-0 border-l-0"
         textClassName="text-pink-400"
       />
-
-      <div className="absolute top-0 bottom-0 left-0 w-1.5 border-pink-500/30 border-r-2 border-dashed bg-pink-500/10 transition-colors group-hover:border-pink-500 group-hover:bg-pink-500/20" />
-
-      <div className="absolute top-3 left-[-2px] flex h-2.5 w-2.5 items-center justify-center border border-pink-500 bg-black shadow-[0_0_8px_var(--theme-primary)]">
-        <div className="h-1 w-1 animate-[pulse_2s_ease-in-out_infinite] bg-pink-500" />
-      </div>
-
       <div className="flex flex-col gap-4 p-4 pt-6 pl-6">
         <div className="flex items-start justify-between border-pink-500/20 border-b border-dashed pb-3">
           <div className="flex flex-col gap-1">
@@ -345,7 +304,7 @@ function BreedingProtocol({
           </div>
         </div>
       </div>
-    </div>
+    </TacticalNode>
   );
 }
 

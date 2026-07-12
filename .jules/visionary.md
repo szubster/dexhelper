@@ -206,3 +206,7 @@
 ## 2026-07-11
 **Idea:** Gen 1 & Gen 3 Safari Zone Tracking Dashboard
 **Learning:** Targeting specific, highly constrained sub-mechanics (like the Safari Zone) with hidden encounter tables provides an actionable way to extract value from dynamic save state. It perfectly fits the premium companion app model by eliminating wiki lookups and trial-and-error.
+
+## 2026-07-12
+**Idea:** Gen 3 Pokéblock Exact Stats Viewer
+**Learning:** Expanding the app to parse the hidden exact numerical values for Pokéblock flavors and 'feel' from the save file transforms a completely opaque in-game system into an actionable planning tool for competitive Contest players, aligning with the premium companion app philosophy by eliminating manual tracking.

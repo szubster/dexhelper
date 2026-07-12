@@ -58,3 +58,7 @@
 
 **Learning:** Purely operational execution traces (e.g., "I did X", "Permanently failed task-YYY") continually find their way into journals like `.foundry/journals/coder.md` and `.foundry/journals/qa.md` despite existing guidelines, which bloats context.
 **Action:** Used `sed` / a Python script to scrub out operational trace lines starting with "Permanently failed", "I rejected", "I verified", and "Updated generation logic" while being careful to leave canonical architectural constraints untouched. Confirmed that limiting the PR scope strictly to these specific log lines keeps the diff manageable and safe.
+
+## 2026-07-12 - Archivist Run Learnings
+
+**Action:** Systematically cleaned up more operational execution trace lines ("I did", "Permanently failed", "I verified", "Anomaly") from `.foundry/journals/coder.md`, `.foundry/journals/architect.md`, `.foundry/journals/agile_coach.md` and `.foundry/journals/tech_lead.md`.

@@ -47,14 +47,8 @@ When using the File System Access API in TypeScript projects, you must install `
 
 When modifying `transitionNodeToCompleted` in `foundry-heartbeat.ts` to clear `jules_session_id`, be extremely careful with testing. Unit tests will fail if they assert on the presence of `jules_session_id` in `.foundry` files but the type isn't correctly identified, causing it to fall through to `COMPLETED` when it should have been `VERIFYING`, or vice-versa. Additionally, always make sure the frontmatter types match precisely between tests and the new logic you've implemented to ensure thorough testing. Tests mock nodes, meaning any logic relying on data dynamically inferred (like `node.frontmatter.type`) will fail unless the mock explicitly defines that `type` property.
 
-
 ## 2026-06-11: Requirement for Concrete Memory Mapping Before Implementation
 When implementing save parser tasks (e.g., Gen 3 berry patches), concrete memory offsets and byte structures (e.g., `SaveBlock` layouts) MUST be provided in the task notes, the PRD, or a related RESEARCH node. If these exact offsets and structural definitions are missing, it is impossible to correctly implement the `DataView` parsing logic. In such cases, a `RESEARCH` node should be spawned to identify and document the offsets, and the implementation task should be failed/aborted until the research is complete. This prevents guessing and potential data corruption.
-
-
-
-
-
 
 ## Verifying Gen 3 Save File Sections
 When verifying save file documentation (e.g. Generation 3 save parsing), it is crucial to ensure that the stated offsets fall within the correct section headers as defined by authoritative sources like Bulbapedia. Failing to map byte offsets to the correct logical 4KB section boundaries can lead to incorrect data extraction in the orchestrator.
@@ -64,16 +58,9 @@ When implementing save parser logic, research handoffs occasionally identify bit
 
 - **Gen 3 Contest Ribbons**: Added `parseGen3Ribbons` utilizing `getUint32` to parse the 32-bit ribbon bitfields to correctly extract Cool, Beauty, Cute, Smart, and Tough contest ranks using bitwise isolation.
 
-
-
-
-
 ## 2026-06-17: Cloudflare Pages Integration
 When creating or modifying `functions/_middleware.ts` to implement `@cloudflare/pages-plugin-cloudflare-access`, ensure that both `@cloudflare/pages-plugin-cloudflare-access` and `@cloudflare/workers-types` are installed to the workspace root using the `-w` flag.
 Furthermore, the `functions/_middleware.ts` file and these dependencies must be properly ignored in `knip.json` to avoid unused exports warnings, as Knip does not natively understand Cloudflare Pages Functions directory structure without custom configuration.
-
-
-
 
 ## The Late Binding Pattern for Missing Dependencies & Context
 **Pattern/Lesson:** When implementing tasks that require specific data offsets (e.g., Gen 2 event flags, Gen 3 memory offsets) or specific context that is missing from the provided `.foundry/docs/knowledge_base/` files, you MUST NOT hallucinate or guess these values. Instead, enforce the Late Binding pattern.
@@ -83,11 +70,6 @@ Furthermore, the `functions/_middleware.ts` file and these dependencies must be 
 2. Append the exact ID of the newly created node to the current implementation task's `depends_on` array.
 3. Submit the empty PR with unchecked acceptance criteria to gracefully suspend the task. The orchestrator will automatically pause the task until the prerequisite research is complete.
 4. It is *not* necessary to manually mark the current task as `FAILED` or provide a `rejection_reason` in the YAML frontmatter. Adding the new RESEARCH node to the `depends_on` array and submitting with unchecked acceptance criteria is sufficient for the orchestrator to keep the task suspended.
-
-## 2026-06-18: Rejecting Task due to Max Rejections & Missing Dependencies
-## 2026-06-18: Rejecting Gen 3 Roamer Location Task
-## 2026-06-19: Late Binding for Breeding Algorithm
-Following the Late Binding pattern, `task-084-192-breeding-pair-algorithm-impl` was suspended (marked `FAILED` with a `rejection_reason` and unchecked checkboxes). A new `RESEARCH` node `research-192-209-egg-groups-missing-data` was spawned and appended to the `depends_on` array because the `PokemonMetadata` schema is missing `egg_groups` data and Gen 2 gender calculation logic (based on DVs and gender ratios) is unknown, making the algorithm impossible to implement safely.
 
 ## 2026-06-21: Gen 3 Roamer Location Parsing Limitation
 When assigned a task to extract Gen 3 roamer map coordinates (`mapId` and `mapGroup`) from a save file, the task MUST be cancelled or failed. Per `adr-108-027-gen3-roamer-location-impossible`, the exact map coordinates are exclusively stored in dynamic `EWRAM_DATA` during gameplay and are never serialized into the `.sav` battery save file. Any attempt to parse this data statically is mathematically impossible and will result in failure.

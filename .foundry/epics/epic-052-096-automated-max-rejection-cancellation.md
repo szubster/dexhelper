@@ -5,9 +5,9 @@ title: Automated Max Rejection Cancellation Implementation
 status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-16'
-updated_at: '2026-07-11'
+updated_at: '2026-07-12'
 depends_on: []
-jules_session_id: '6464998805366323324'
+jules_session_id: '10544699369286638918'
 pr_number: null
 parent: prd-079-052-automated-max-rejection-cancellation
 tags:
