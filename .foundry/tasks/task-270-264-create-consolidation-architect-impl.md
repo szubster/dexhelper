@@ -28,4 +28,4 @@ During the process of consolidating agent prompts and reducing redundancy across
 To ensure these changes do not break downstream testing, check the `foundry-orchestrator.test.ts` file.
 
 ## Acceptance Criteria
-- [ ] Inspect `.github/scripts/foundry-orchestrator.test.ts` to ensure that mapping validation logic correctly parses and aligns with the new structural flow of nodes and persona mappings, fixing them if anything is outdated (e.g. `owner_persona: architect` properly assigned).
+- [x] Inspect `.github/scripts/foundry-orchestrator.test.ts` to ensure that mapping validation logic correctly parses and aligns with the new structural flow of nodes and persona mappings, fixing them if anything is outdated (e.g. `owner_persona: architect` properly assigned).
