@@ -27,5 +27,5 @@ notes: ''
 Document the defined IndexedDB schema for storing save state history.
 
 ## Acceptance Criteria
-- [ ] Document the schema.
-- [ ] task-268-284-document-indexeddb-schema-impl
+- [x] Document the schema.
+- [x] task-268-284-document-indexeddb-schema-impl
