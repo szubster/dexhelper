@@ -35,3 +35,7 @@ We should introduce a "Room Decoration & Savings" dashboard for Gen 2 save files
 
 ## Value Proposition
 This aligns perfectly with DexHelper's vision as a premium companion app for retro games. It transforms an opaque, hard-to-track, and version-specific mechanic into an easily understandable and actionable dashboard. It provides immense value to completionists and hardcore players who want to fully complete their Gen 2 experience without tedious in-game guesswork.
+
+## Acceptance Criteria
+- [x] Break down into PRD
+- [ ] prd-109-112-gen2-room-decoration-tracker
