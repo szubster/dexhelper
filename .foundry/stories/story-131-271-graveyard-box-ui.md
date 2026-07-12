@@ -30,4 +30,5 @@ Implement a UI setting to allow users to designate a specific PC box as the Grav
 - Connect the UI setting to the backend state.
 
 ## Acceptance Criteria
-- [ ] Tasks are generated
+- [x] Tasks are generated
+- [ ] task-271-314-graveyard-box-ui-impl
