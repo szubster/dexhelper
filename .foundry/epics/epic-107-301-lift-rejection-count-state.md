@@ -33,4 +33,5 @@ Currently, the threshold for determining if a node has permanently failed (`reje
 3. Provide the value in the `DagProvider`.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-301-314-lift-rejection-count-state
