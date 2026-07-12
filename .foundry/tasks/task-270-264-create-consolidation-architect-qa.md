@@ -27,5 +27,5 @@ notes: Created dynamically by Agile Coach to update mappings post prompt refacto
 The coder has verified the `.github/scripts/foundry-orchestrator.test.ts` to ensure mapping validation logic aligns with node flows and persona mappings.
 
 ## Acceptance Criteria
-- [ ] Review the implementation of `task-270-264-create-consolidation-architect-impl`.
-- [ ] Confirm `npx vitest` passes inside `.github/scripts`.
+ - [x] Review the implementation of `task-270-264-create-consolidation-architect-impl`.
+ - [x] Confirm `npx vitest` passes inside `.github/scripts`.
