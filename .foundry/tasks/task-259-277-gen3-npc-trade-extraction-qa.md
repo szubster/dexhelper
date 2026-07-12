@@ -32,5 +32,5 @@ Verify the Gen 3 NPC Trade Extraction parser implementation.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify that no magic numbers are used in the parsing logic for Gen 3 NPC trades.
-- [ ] Validate parser correctness against unit tests or mock Gen 3 save data.
+- [x] Verify that no magic numbers are used in the parsing logic for Gen 3 NPC trades.
+- [x] Validate parser correctness against unit tests or mock Gen 3 save data.
