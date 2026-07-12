@@ -6,7 +6,6 @@
   ],
   "ignoreDependencies": [
     "wrangler",
-    "@cloudflare/pages-plugin-cloudflare-access",
     "@cloudflare/workers-types"
   ],
   "ignore": [
@@ -14,7 +13,6 @@
     ".github/scripts/extract-research.ts",
     ".github/scripts/verify-dag-refs.ts",
     "scripts/gen3-fetch-locations.ts",
-    "functions/_middleware.ts",
     "scripts/data/gen3/match_call/etl.ts"
   ],
   "rules": {
