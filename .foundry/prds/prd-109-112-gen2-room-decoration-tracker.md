@@ -2,7 +2,7 @@
 id: prd-109-112-gen2-room-decoration-tracker
 type: PRD
 title: Gen 2 Room Decoration & Mom's Savings Tracker
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-07-12'
 updated_at: '2026-07-12'

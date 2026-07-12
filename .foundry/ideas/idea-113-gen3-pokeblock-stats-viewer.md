@@ -2,7 +2,7 @@
 id: idea-113-gen3-pokeblock-stats-viewer
 type: IDEA
 title: Gen 3 Pokéblock Exact Stats Viewer
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-07-12'
 updated_at: '2026-07-12'

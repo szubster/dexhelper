@@ -2,12 +2,12 @@
 id: idea-108-gen2-shiny-breeding-dv-planner
 type: IDEA
 title: Gen 2 Shiny Breeding DV Compatibility Planner
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-08'
-updated_at: '2026-07-11'
+updated_at: '2026-07-12'
 depends_on: []
-jules_session_id: '16695403118005209724'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

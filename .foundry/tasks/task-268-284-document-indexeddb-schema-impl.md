@@ -2,12 +2,12 @@
 id: task-268-284-document-indexeddb-schema-impl
 type: TASK
 title: Document SaveHistoryDB IndexedDB Schema
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-08'
 updated_at: '2026-07-12'
 depends_on: []
-jules_session_id: '9402239597968558786'
+jules_session_id: null
 pr_number: null
 parent: story-130-268-document-indexeddb-schema
 tags:

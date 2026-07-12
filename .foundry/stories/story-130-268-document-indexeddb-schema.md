@@ -2,10 +2,10 @@
 id: story-130-268-document-indexeddb-schema
 type: STORY
 title: Document IndexedDB Schema
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-08'
+updated_at: '2026-07-12'
 depends_on:
   - story-130-267-define-indexeddb-schema
 jules_session_id: null

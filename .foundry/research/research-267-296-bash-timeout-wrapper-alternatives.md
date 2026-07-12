@@ -2,12 +2,12 @@
 id: research-267-296-bash-timeout-wrapper-alternatives
 type: RESEARCH
 title: Research alternatives for bash timeout wrapper
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-07-09'
 updated_at: '2026-07-12'
 depends_on: []
-jules_session_id: '3691415835070077041'
+jules_session_id: null
 pr_number: null
 parent: story-127-267-bash-timeout-wrapper
 tags:
