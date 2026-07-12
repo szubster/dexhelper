@@ -74,3 +74,8 @@ When documenting memory offsets or drafting parser requirements, it is a strict 
 For applications utilizing Cloudflare Zero Trust (Cloudflare Access), the built-in authentication flow URLs, relative to the protected domain, are `/cdn-cgi/access/login` (login), `/cdn-cgi/access/logout` (session termination), and `/cdn-cgi/access/get-identity` (user information). These paths provide native integration without requiring complex manual OAuth configuration and callbacks.
 
 - Learned: When researching specific Gen 2 Pokegear phone call mechanics in pret/pokecrystal, core timer and RNG logic are deeply coupled across `engine/overworld/time.asm` (`CheckReceiveCallTimer`) and `engine/phone/phone.asm` (`CheckPhoneCall`). Memory offsets such as `wPhoneList`, `wSwarmFlags`, and `wDailyPhoneItemFlags` control the states, found in `ram/wram.asm`. This knowledge was extracted into the knowledge base to avoid redundant decompilation analysis in future implementation tasks.
+
+## Bash Timeout Enforcement
+**Finding:** Modifying the `run_in_bash_session` platform tool from within the repository to enforce timeouts is impossible. The previous task (`task-267-262-bash-timeout-wrapper-impl`) failed permanently because of this.
+**Why it matters:** When addressing problems with sandbox execution environments (e.g., preventing infinite hangs on `tail -f`), we cannot build wrapper scripts and expect them to be seamlessly adopted.
+**Constraint:** The most reliable way to enforce tool behavior constraints is through **instructional policy enforcement**. The rules must be added to `.foundry/docs/knowledge_base/agents/core_policies.md` so that the agent context is explicitly updated to forbid blocking commands and recommend `cat`, `tail -n`, or backgrounding with `&`.
