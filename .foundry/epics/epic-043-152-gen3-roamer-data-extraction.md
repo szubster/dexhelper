@@ -2,13 +2,13 @@
 id: epic-043-152-gen3-roamer-data-extraction
 type: EPIC
 title: Gen 3 Roamer Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-10'
-updated_at: '2026-07-11'
+updated_at: '2026-07-12'
 depends_on:
   - research-043-263-roamer-tracking-remediation
-jules_session_id: null
+jules_session_id: '4843562197187643418'
 pr_number: null
 parent: prd-070-043-roamer-tracking-dashboard
 tags: []
