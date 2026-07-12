@@ -30,5 +30,5 @@ Extract the daily winning lottery number from Gen3 save files.
 
 ## Acceptance Criteria
 - [x] Implement parser
-- [ ] task-272-301-gen3-lottery-data-extraction-impl
-- [ ] task-272-302-gen3-lottery-data-extraction-qa
+- [x] task-272-301-gen3-lottery-data-extraction-impl
+- [x] task-272-302-gen3-lottery-data-extraction-qa
