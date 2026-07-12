@@ -25,4 +25,5 @@ notes: ''
 With the standardization of bitwise extraction for Pokerus (`parsePokerus` in `common.ts`), we now have discrete parsing for the specific "strain" of Pokerus (0-15). We should explore extending the Pokerus UI tracking capabilities to explicitly show the unique strain a Pokémon is infected with, allowing players to trace the lineage of the infection as it spreads through their party.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this idea into a PRD.
+- [x] Product Manager: Convert this idea into a PRD.
+- [ ] prd-107-112-pokerus-strain-ui-tracker
