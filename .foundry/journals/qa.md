@@ -35,3 +35,8 @@ To enforce the architecture correctly, all dynamic save block extraction functio
 ## Gen 3 Volcanic Ash Extraction Validation
 - **Pattern**: When validating Gen 3 dynamic save block extraction, ensure that offsets are not hardcoded absolute values (e.g. `0x13D0` or `0x142C`). They must be calculated relative to the dynamically resolved `section1Offset`.
 - **Outcome**: Rejected `task-267-261-gen3-ash-dataview-extraction-impl` due to hardcoded absolute offsets instead of using the `section1Offset + offset` calculation.
+
+## Gen 3 Volcanic Ash Extraction Permanent Failure
+- **Date**: 2026-07-12
+- **Node**: task-267-261-gen3-ash-dataview-extraction-impl
+- **Reason**: The developer reached max rejections by faking the relative offset calculation fix. They kept the absolute memory offsets and performed math manipulation, violating ADR 028.

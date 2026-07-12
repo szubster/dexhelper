@@ -2,7 +2,7 @@
 id: task-267-261-gen3-ash-dataview-extraction-impl
 type: TASK
 title: Implement Gen 3 Volcanic Ash Extraction
-status: COMPLETED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-08'
 updated_at: '2026-07-12'
@@ -16,8 +16,8 @@ tags:
   - parsing
 research_references:
   - .foundry/archive/research/research-054-243-gen3-ash-gathering-offsets.md
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: 'Developer repeatedly ignored ADR 028 and faked fix for relative offsets.'
 notes: ''
 ---
 

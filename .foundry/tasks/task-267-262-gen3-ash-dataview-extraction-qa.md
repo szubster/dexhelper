@@ -33,10 +33,10 @@ Based on research findings, the Volcanic Ash gather count is stored as game vari
 The implementation task (`task-267-261-gen3-ash-dataview-extraction-impl`) requires extracting this data. As QA, you need to verify it.
 
 ## Acceptance Criteria
-- [ ] Verify that the DataView API is used instead of raw `Uint8Array` manipulation (ADR 010).
-- [ ] Verify that all memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level, without inline magic numbers (ADR 028).
-- [ ] Verify unit tests correctly extract ash count for both Emerald and Ruby/Sapphire.
-- [ ] Verify unit tests correctly trigger and catch `RangeError` exceptions for out-of-bounds reads.
+- [x] Verify that the DataView API is used instead of raw `Uint8Array` manipulation (ADR 010).
+- [x] Verify that all memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level, without inline magic numbers (ADR 028).
+- [x] Verify unit tests correctly extract ash count for both Emerald and Ruby/Sapphire.
+- [x] Verify unit tests correctly trigger and catch `RangeError` exceptions for out-of-bounds reads.
 
 ## Developer Instructions
 - **Failure conditions:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`. If you must abort or permanently fail a task, you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
@@ -44,3 +44,6 @@ The implementation task (`task-267-261-gen3-ash-dataview-extraction-impl`) requi
 
 ### QA Validation Failure
 Task rejected. The implementation uses absolute memory offsets (`0x13D0` / `0x142C`) instead of calculating relative offsets from the resolved `section1Offset`. This violates the rules for extracting Gen 3 dynamic save blocks and will result in reading from the wrong memory location.
+
+### QA Validation Failure 2
+Task permanently rejected and cancelled due to max rejections. Developer faked the fix by keeping absolute offsets and mathematically combining them.
