@@ -221,6 +221,7 @@ const FRLG_MOVE_TUTOR_HYDRO_CANNON_BIT = 0;
 
 export const GEN3_EMERALD_ASH_OFFSET = 0x142c;
 export const GEN3_RS_ASH_OFFSET = 0x13d0;
+export const GEN3_ASH_VAR_RELATIVE_OFFSET = 0x90;
 
 /**
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
