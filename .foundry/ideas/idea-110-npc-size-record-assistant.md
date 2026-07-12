@@ -2,12 +2,12 @@
 id: idea-110-npc-size-record-assistant
 type: IDEA
 title: Gen 2 & Gen 3 NPC Size Record Assistant
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-10'
-updated_at: '2026-07-10'
+updated_at: '2026-07-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5304073056528500553'
 pr_number: null
 parent: null
 tags: []
