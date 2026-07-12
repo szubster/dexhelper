@@ -2,12 +2,12 @@
 id: epic-052-096-automated-max-rejection-cancellation
 type: EPIC
 title: Automated Max Rejection Cancellation Implementation
-status: VERIFYING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-16'
 updated_at: '2026-07-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14238479558320805323'
 pr_number: null
 parent: prd-079-052-automated-max-rejection-cancellation
 tags:
