@@ -1,7 +1,7 @@
 import type { GameVersion } from '../saveParser/parsers/common';
 
-export const FEEBAS_SEED_OFFSET_RS = 0x2dd6;
-export const FEEBAS_SEED_OFFSET_EMERALD = 0x2e66;
+export const FEEBAS_SEED_OFFSET_RS = 0x0dd6;
+export const FEEBAS_SEED_OFFSET_EMERALD = 0x0e66;
 
 export const LCG_MULTIPLIER = 1103515245;
 export const LCG_ADDEND = 12345;
@@ -18,14 +18,14 @@ export const FEEBAS_BOUNDARY = 4;
  * @returns The 16-bit Feebas seed.
  * @throws Error if the save file is corrupted or incomplete.
  */
-export function extractFeebasSeed(saveData: DataView, gameVersion: GameVersion): number {
+export function extractFeebasSeed(saveData: DataView, gameVersion: GameVersion, section2Offset: number): number {
   try {
     let offset = 0;
 
     if (gameVersion === 'ruby' || gameVersion === 'sapphire') {
-      offset = FEEBAS_SEED_OFFSET_RS;
+      offset = section2Offset + FEEBAS_SEED_OFFSET_RS;
     } else if (gameVersion === 'emerald') {
-      offset = FEEBAS_SEED_OFFSET_EMERALD;
+      offset = section2Offset + FEEBAS_SEED_OFFSET_EMERALD;
     } else {
       throw new Error(`Unsupported game version for Feebas seed extraction: ${gameVersion}`);
     }

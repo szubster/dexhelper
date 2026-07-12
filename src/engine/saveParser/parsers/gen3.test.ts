@@ -50,7 +50,7 @@ describe('gen3 parser scaffolding', () => {
     }
 
     // Mock a seed at the expected offset for Ruby/Sapphire
-    view.setUint16(FEEBAS_SEED_OFFSET_RS, 12345, true);
+    view.setUint16(0x2000 + FEEBAS_SEED_OFFSET_RS, 12345, true);
 
     try {
       const resultRS = parseGen3(view, 'ruby');
