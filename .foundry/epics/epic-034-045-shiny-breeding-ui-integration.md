@@ -35,8 +35,8 @@ Integrate the Shiny Gene detection data into the UI, clearly tagging Shiny Carri
 - `epic-034-044-shiny-gene-detection-engine`
 
 ## Acceptance Criteria
-- [ ] story-045-253-shiny-carrier-ui-badge
-- [ ] story-045-254-shiny-carrier-breeding-view
+- [x] story-045-253-shiny-carrier-ui-badge
+- [x] story-045-254-shiny-carrier-breeding-view
 
 ## Next Steps
 - [x] Story Owner: Break down into frontend UI Stories.
