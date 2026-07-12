@@ -109,6 +109,7 @@ export interface Gen3SecretBase {
   secretBaseId: number;
   trainerName: string;
   trainerId: number;
+  battledOwnerToday?: boolean;
   party: Gen3SecretBasePartyMember[];
 }
 
