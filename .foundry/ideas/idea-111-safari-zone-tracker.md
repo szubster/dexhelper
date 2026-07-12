@@ -37,3 +37,5 @@ Introduce a dedicated "Safari Zone Tracking Dashboard" in DexHelper. By parsing 
 
 ## Value Proposition
 Targeting specific, constrained sub-mechanics (like the Safari Zone) aligns perfectly with DexHelper's vision as a premium companion app. It eliminates the need for players to constantly tab out to external wikis to check encounter tables. By crossing static game data (spawn locations) with dynamic save data (owned Pokémon), we provide an instant, actionable to-do list that removes the friction from one of the most notoriously tedious mechanics in the retro games.
+## Acceptance Criteria
+- [ ] prd-111-113-safari-zone-tracker
