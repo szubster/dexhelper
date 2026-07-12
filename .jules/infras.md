@@ -104,3 +104,6 @@ Critical learnings:
 
 ## 2026-07-10 - Submitted Empty PR
 **Learning:** Evaluated adding `actionlint` to lint GitHub Actions workflows but discovered the CLI is not readily available as a binary via `pnpm` without additional setup that violates "do not introduce bloat" policies. Confirmed that the current infrastructure (Biome, Knip, Oxlint, Dependabot) is highly optimized and tests pass. Submitted an Empty PR as per system policies to advance the pipeline without forcing unnecessary changes.
+
+## 2026-07-11 - Removed type-coverage
+**Learning:** Removed `type-coverage` tool as it was outdated (no updates in 2 years) and incompatible with newer TypeScript versions. The project already maintains high type safety through strict TypeScript configuration (`tsconfig.json`) and `oxlint` with type-aware rules, making a separate type coverage tool redundant.

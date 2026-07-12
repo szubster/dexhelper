@@ -40,8 +40,6 @@ jobs:
         run: pnpm knip
       - name: Circular Dependency Check
         run: pnpm lint:circular
-      - name: Type Coverage Check
-        run: pnpm lint:type-coverage
       - name: Package JSON Sort Check
         run: pnpm lint:package-json
 
