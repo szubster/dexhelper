@@ -2,13 +2,13 @@
 id: task-110-300-gen3-secret-base-daily-rematch-qa
 type: TASK
 title: QA Gen 3 Secret Base Daily Rematch Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-09'
 updated_at: '2026-07-12'
 depends_on:
   - task-110-299-gen3-secret-base-daily-rematch-impl
-jules_session_id: '4724965742941363195'
+jules_session_id: null
 pr_number: null
 parent: story-070-110-track-daily-rematch-status
 tags:
