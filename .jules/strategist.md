@@ -363,3 +363,9 @@
 **Outcome:** Merged
 **Why:** The `qa.md` journal recorded a persistent failure pattern (`2026-06-30: Magic Numbers in Gen 3 Parser Retry`) where the `coder` repeatedly ignored the architectural constraint against using inline magic numbers for array bounds checking in save file parsers (like `parseGen3MixRecords`), despite explicit task instructions and previous rejections.
 **Pattern:** Codify specific, recurring architectural violations (like ignoring module-level constant requirements for DataView extraction limits) directly into the implementer's prompt (`coder.md`) to prevent brittle code and repetitive QA rejections.
+
+## 2026-07-27 - [Accepted] - Prompt improvement - Enforce Gen 3 relative memory offsets
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The `qa.md` journal recorded a failure pattern where the coder implemented Gen 3 save file extraction using absolute memory offsets (e.g., `0x2dd6`) instead of calculating them relative to the resolved section offset (e.g., `section1Offset`). In Gen 3, the A/B bank flash memory architecture requires relative offsets.
+**Pattern:** Codify architectural constraints (like relative memory offsets for Gen 3 A/B bank rotation) explicitly in the prompts of all involved personas (`coder`, `qa`, and `tech_lead`) to prevent recurring QA rejections and ensure correct implementation.
