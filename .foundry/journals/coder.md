@@ -108,3 +108,7 @@ Task task-267-262-bash-timeout-wrapper-impl was cancelled because `run_in_bash_s
 
 ## 2026-07-10: Self-Verification of Party Zero HP Detection
 In task `task-269-263-detect-party-zero-hp-impl`, I verified the existing implementation of `getDeadPokemon` in `src/engine/nuzlocke/tracker.ts`. The function correctly extracts party Pokémon that have fainted (HP is 0). I ran `pnpm test` and confirmed that the tests in `src/engine/nuzlocke/tracker.test.ts` cover this functionality and pass successfully. Per the Intelligent Verification Protocol, I have self-verified this simple, low-risk task and am submitting an empty PR with the checked acceptance criteria.
+
+## Session: task-267-287-gen3-move-tutor-emerald-impl
+
+The target artifact (Emerald Move Tutor extraction logic and tests in `src/engine/saveParser/parsers/gen3.ts` and `src/engine/saveParser/parsers/gen3.test.ts`) already existed prior to the session. Submitted an empty PR to transition the node to COMPLETED.
