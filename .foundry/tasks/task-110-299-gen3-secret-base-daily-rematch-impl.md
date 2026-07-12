@@ -2,12 +2,12 @@
 id: task-110-299-gen3-secret-base-daily-rematch-impl
 type: TASK
 title: Implement Gen 3 Secret Base Daily Rematch Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-09'
 updated_at: '2026-07-12'
 depends_on: []
-jules_session_id: '6433082707031953359'
+jules_session_id: null
 pr_number: null
 parent: story-070-110-track-daily-rematch-status
 tags:

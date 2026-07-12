@@ -2,7 +2,7 @@
 id: task-294-316-gen1-event-flag-parsing-impl
 type: TASK
 title: Gen 1 Event Flag Parsing Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-12'
 updated_at: '2026-07-12'

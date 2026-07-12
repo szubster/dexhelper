@@ -2,7 +2,7 @@
 id: task-294-316-gen2-static-encounter-flags-impl
 type: TASK
 title: Implement Gen 2 Static Encounter Flag Parsing
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-12'
 updated_at: '2026-07-12'
