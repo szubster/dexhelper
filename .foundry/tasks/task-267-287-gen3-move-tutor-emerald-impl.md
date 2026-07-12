@@ -49,7 +49,7 @@ We need to extract the Gen 3 Emerald Move Tutor usage flags. The game uses a con
 *   If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Create constants for the event flag start offset (`0x1270`), and specific byte offsets and bit positions for each Emerald move tutor flag.
-- [ ] Implement logic to extract these flags using the `DataView` API.
-- [ ] Explicitly catch `RangeError` for out-of-bounds reads during extraction.
-- [ ] Write comprehensive unit tests verifying the logic correctly reads the specific bits for each move tutor.
+ - [x] Create constants for the event flag start offset (`0x1270`), and specific byte offsets and bit positions for each Emerald move tutor flag.
+ - [x] Implement logic to extract these flags using the `DataView` API.
+ - [x] Explicitly catch `RangeError` for out-of-bounds reads during extraction.
+ - [x] Write comprehensive unit tests verifying the logic correctly reads the specific bits for each move tutor.
