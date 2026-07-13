@@ -2,7 +2,7 @@
 id: research-294-320-gen3-static-encounter-offsets
 type: RESEARCH
 title: Gen 3 Static Encounter Offsets
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-07-13'
 updated_at: '2026-07-13'

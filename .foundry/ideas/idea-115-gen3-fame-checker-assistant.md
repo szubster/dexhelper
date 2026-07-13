@@ -1,20 +1,24 @@
 ---
 id: idea-115-gen3-fame-checker-assistant
 type: IDEA
-title: "Gen 3 Fame Checker Progress & Assistant"
-status: PENDING
-owner_persona: "product_manager"
-created_at: "2026-07-13"
-updated_at: "2026-07-13"
+title: Gen 3 Fame Checker Progress & Assistant
+status: READY
+owner_persona: product_manager
+created_at: '2026-07-13'
+updated_at: '2026-07-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: null
-tags: ["gen3", "firered", "leafgreen", "fame-checker"]
+tags:
+  - gen3
+  - firered
+  - leafgreen
+  - fame-checker
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 3 Fame Checker Progress & Assistant

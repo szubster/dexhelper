@@ -15,7 +15,9 @@ tags:
   - backend
   - save-parsing
 rejection_count: 3
-rejection_reason: 'Max rejections reached: Coder failed to use section1Offset and correct relative offsets.'
+rejection_reason: >-
+  [ACKNOWLEDGED] Max rejections reached: Coder failed to use section1Offset and
+  correct relative offsets.
 notes: ''
 ---
 

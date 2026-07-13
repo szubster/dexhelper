@@ -2,13 +2,13 @@
 id: story-138-294-gen3-static-encounters-parsing
 type: STORY
 title: Gen 3 Static Encounters Parsing
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-11'
 updated_at: '2026-07-13'
 depends_on:
   - research-294-320-gen3-static-encounter-offsets
-jules_session_id: '15221877614741500045'
+jules_session_id: null
 pr_number: null
 parent: epic-106-138-gen3-static-encounters
 tags:
@@ -16,8 +16,8 @@ tags:
   - feature
   - parsing
 research_references: []
-rejection_count: 0
-rejection_reason: 'Missing context for memory offsets for static encounters.'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
