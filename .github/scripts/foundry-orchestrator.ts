@@ -28,7 +28,7 @@ import * as fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
-import { todayISO, buildReverseDependencyGraph, getOrphanedNodes } from './dag-utils.ts';
+import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, logToJournal } from './dag-utils.ts';
 
 // gray-matter is CJS; import via require() for clean ESM interop.
 const require = createRequire(import.meta.url);
@@ -1021,7 +1021,7 @@ function main(): void {
 
         if (!DRY_RUN) {
           try {
-            fs.appendFileSync(logPath, logEntry, 'utf-8');
+            logToJournal(logPath, logEntry);
             info(`Logged anomaly to ${logPath}`);
           } catch (e) {
             warn(`Failed to log anomaly to Agile Coach journal: ${String(e)}`);
