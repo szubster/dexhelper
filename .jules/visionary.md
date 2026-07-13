@@ -214,3 +214,7 @@
 ## 2026-07-13
 **Idea:** Gen 3 Fame Checker Progress & Assistant
 **Learning:** Expanding into FireRed/LeafGreen (Gen 3) by targeting unique, version-specific tracking mechanics (like the Fame Checker) adds significant value. The Fame Checker requires collecting 6 fragmented lore entries per key NPC by interacting with obscure world objects and NPCs. By automatically extracting this progress from the save file and providing actionable missing-entry locations, we transform an opaque collection quest into a guided premium experience.
+
+## Strategic Balance Learning
+**Idea:** 50/50 Idea Split between DexHelper and Foundry
+**Learning:** To ensure holistic project health, I must balance ideation between the main product (DexHelper) and the internal autonomous factory (Foundry). Maintaining a 50/50 split ensures the orchestrator remains as innovative and robust as the application it builds. I should periodically review my journal and .foundry/ideas/ to check the current distribution and pivot my focus if one area becomes over-represented.
