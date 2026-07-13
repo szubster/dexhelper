@@ -37,9 +37,9 @@ As per ADR 024, we are migrating to Tailwind v4 and need to define our tactical 
 4. Ensure no components were accidentally broken by these definitions. Perform a self-verification.
 
 ## Acceptance Criteria
-- [ ] `tactical-input` is defined in `src/index.css` with sharp edges and dark background.
-- [ ] `tactical-focus` is defined in `src/index.css`.
-- [ ] `tactical-text` is defined in `src/index.css` using `font-mono`.
+- [x] `tactical-input` is defined in `src/index.css` with sharp edges and dark background.
+- [x] `tactical-focus` is defined in `src/index.css`.
+- [x] `tactical-text` is defined in `src/index.css` using `font-mono`.
 
 ## Blueprint Notes for Coder
 - **Transient Failures**: If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
