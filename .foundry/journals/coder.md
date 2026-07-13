@@ -94,3 +94,6 @@ In task `task-269-263-detect-party-zero-hp-impl`, I verified the existing implem
 ## Session: task-267-287-gen3-move-tutor-emerald-impl
 
 The target artifact (Emerald Move Tutor extraction logic and tests in `src/engine/saveParser/parsers/gen3.ts` and `src/engine/saveParser/parsers/gen3.test.ts`) already existed prior to the session. Submitted an empty PR to transition the node to COMPLETED.
+
+## 2026-07-13: Self-Verification
+Self-verified task `task-276-304-orchestrator-verifying-block` by running tests (`npx vitest run` in `.github/scripts` and `pnpm test:e2e` in workspace root). Verified that removing `VERIFYING` allowances from `foundry-orchestrator.ts` successfully allows the system tests to pass.

@@ -36,5 +36,5 @@ The orchestrator's `isHierarchicallyIncomplete` properly returns `true` when a n
 6. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Removed `&& dep.frontmatter.status !== 'VERIFYING'` from the dependency check in `.github/scripts/foundry-orchestrator.ts`.
-- [ ] Removed `&& parentStatus !== 'VERIFYING'` from the parent status check in `.github/scripts/foundry-orchestrator.ts`.
+- [x] Removed `&& dep.frontmatter.status !== 'VERIFYING'` from the dependency check in `.github/scripts/foundry-orchestrator.ts`.
+- [x] Removed `&& parentStatus !== 'VERIFYING'` from the parent status check in `.github/scripts/foundry-orchestrator.ts`.
