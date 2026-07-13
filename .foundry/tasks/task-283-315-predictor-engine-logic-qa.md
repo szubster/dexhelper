@@ -37,7 +37,7 @@ Verify the implementation of the Pokegear Predictor engine logic against the Gen
 - **Empty PRs**: If you submit an empty PR for a completed task (e.g., passthrough), you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Review code for correct implementation of `CheckPhoneCall` probability checks (timer evaluation and 50% RNG trigger).
-- [ ] Review code for correct implementation of `ChooseRandomCaller` to sample available contacts based on time of day.
-- [ ] Ensure that no magic numbers are used and all required constants are defined at the module level.
-- [ ] Run all relevant unit tests and end-to-end tests to verify functional correctness.
+- [x] Review code for correct implementation of `CheckPhoneCall` probability checks (timer evaluation and 50% RNG trigger).
+- [x] Review code for correct implementation of `ChooseRandomCaller` to sample available contacts based on time of day.
+- [x] Ensure that no magic numbers are used and all required constants are defined at the module level.
+- [x] Run all relevant unit tests and end-to-end tests to verify functional correctness.
