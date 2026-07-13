@@ -29,8 +29,9 @@ The `logToJournal` function was missed in the initial extraction of DAG utilitie
 - Refactor the idempotent check logging in `.github/scripts/foundry-orchestrator.ts` (around line 958) to use the new `logToJournal` function.
 
 ## Acceptance Criteria
-- [ ] `logToJournal` is exported from `dag-utils.ts`.
-- [ ] `foundry-orchestrator.ts` uses `logToJournal` instead of inline `fs.appendFileSync`.
+- [x] `logToJournal` is exported from `dag-utils.ts`.
+- [x] `foundry-orchestrator.ts` uses `logToJournal` instead of inline `fs.appendFileSync`.
 
 ### Child Tasks
-- [ ] task-278-304-extract-log-to-journal
+- [ ] task-278-305-extract-log-to-journal
+- [x] task-278-304-extract-log-to-journal
