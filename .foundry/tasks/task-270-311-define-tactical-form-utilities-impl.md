@@ -2,12 +2,12 @@
 id: task-270-311-define-tactical-form-utilities-impl
 type: TASK
 title: Define Tactical Form and Text Utilities (Impl)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-11'
 updated_at: '2026-07-13'
 depends_on: []
-jules_session_id: '6445176788183506441'
+jules_session_id: null
 pr_number: null
 parent: story-123-270-define-tactical-form-utilities
 tags:

@@ -2,10 +2,10 @@
 id: story-123-270-define-tactical-form-utilities
 type: STORY
 title: Define Tactical Form and Text Utilities
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-11'
+updated_at: '2026-07-13'
 depends_on:
   - story-123-269-define-tactical-layout-utilities
 jules_session_id: null
