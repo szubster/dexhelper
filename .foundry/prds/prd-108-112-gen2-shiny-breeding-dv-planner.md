@@ -46,4 +46,6 @@ To provide a premium companion tool for hardcore Gen 2 shiny hunters that instan
 *   **Shiny Parent Genetics:** In Gen 2, shininess requires Defense DV = 10, Special DV = 10. The app must accurately apply the inheritance rules (opposite gender parent passes Defense and Special DVs) to determine the 1/64 shiny odds if a shiny parent is used.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into actionable EPICs for the engineering team.
+- [x] Epic Planner: Break this PRD down into actionable EPICs for the engineering team.
+- [ ] epic-112-309-gen2-shiny-breeding-logic
+- [ ] epic-112-310-gen2-shiny-breeding-ui
