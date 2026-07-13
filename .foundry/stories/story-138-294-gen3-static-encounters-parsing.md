@@ -2,11 +2,12 @@
 id: story-138-294-gen3-static-encounters-parsing
 type: STORY
 title: Gen 3 Static Encounters Parsing
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-07-11'
 updated_at: '2026-07-13'
-depends_on: []
+depends_on:
+  - research-294-320-gen3-static-encounter-offsets
 jules_session_id: '15221877614741500045'
 pr_number: null
 parent: epic-106-138-gen3-static-encounters
@@ -16,7 +17,7 @@ tags:
   - parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Missing context for memory offsets for static encounters.'
 notes: ''
 ---
 
@@ -25,6 +26,7 @@ notes: ''
 Implement the save block extraction logic for Gen 3 event flags related to static encounters.
 
 ## Acceptance Criteria
+- [ ] research-294-320-gen3-static-encounter-offsets
 - [ ] Define module-level constants for static encounter event flag offsets and bit locations.
 - [ ] Implement save file parsing logic to extract static encounter status.
 - [ ] Follow dynamic save block extraction guidelines (ADR 028).
