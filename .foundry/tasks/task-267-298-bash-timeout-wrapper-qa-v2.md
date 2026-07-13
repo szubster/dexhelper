@@ -2,13 +2,13 @@
 id: task-267-298-bash-timeout-wrapper-qa-v2
 type: TASK
 title: QA timeout wrapper for bash sessions (v2)
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-09'
 updated_at: '2026-07-13'
 depends_on:
   - task-267-297-bash-timeout-wrapper-impl-v2
-jules_session_id: null
+jules_session_id: '7665521453119244049'
 pr_number: null
 parent: story-127-267-bash-timeout-wrapper
 tags:
