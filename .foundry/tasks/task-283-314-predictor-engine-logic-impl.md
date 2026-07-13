@@ -35,7 +35,7 @@ Implement the Pokegear Predictor logic covering the RNG mechanics, probability c
 - **Empty PRs**: If you submit an empty PR for a completed task (e.g., passthrough), you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement the `CheckPhoneCall` probability checks (timer evaluation and 50% RNG trigger).
-- [ ] Implement `ChooseRandomCaller` to uniformly sample registered contacts available at the current time of day.
-- [ ] Define reusable constants for all associated bitmasks and magic numbers at the module level.
-- [ ] Ensure all code passes linting, tests, and formatting checks before submission.
+- [x] Implement the `CheckPhoneCall` probability checks (timer evaluation and 50% RNG trigger).
+- [x] Implement `ChooseRandomCaller` to uniformly sample registered contacts available at the current time of day.
+- [x] Define reusable constants for all associated bitmasks and magic numbers at the module level.
+- [x] Ensure all code passes linting, tests, and formatting checks before submission.
