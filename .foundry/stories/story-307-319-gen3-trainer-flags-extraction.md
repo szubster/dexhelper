@@ -1,28 +1,28 @@
 ---
-id: epic-109-307-missed-trainer-data-extraction-gen3
-type: EPIC
-title: Missed Trainer Radar - Data Extraction (Gen 3)
-status: ACTIVE
-owner_persona: story_owner
-created_at: '2026-07-12'
-updated_at: '2026-07-13'
+id: story-307-319-gen3-trainer-flags-extraction
+type: STORY
+title: "Gen 3 Trainer Defeat Flags Extraction"
+status: PENDING
+owner_persona: tech_lead
+created_at: "2026-07-13"
+updated_at: "2026-07-13"
 depends_on: []
-jules_session_id: '9592107025144390924'
+jules_session_id: null
 pr_number: null
-parent: prd-104-109-missed-trainer-radar
+parent: epic-109-307-missed-trainer-data-extraction-gen3
 tags:
   - data-extraction
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: ''
-notes: ''
+rejection_reason: ""
+notes: ""
 ---
 
-# Missed Trainer Radar - Data Extraction (Gen 3)
+# Gen 3 Trainer Defeat Flags Extraction
 
 ## Objective
-Implement the data extraction layer for the "Missed Trainer Radar" feature specifically targeting Generation 3 games. This will involve mapping and parsing trainer defeat flags from the save files.
+Extract standard and rematch trainer defeat flags from Gen 3 save files to be used by the Missed Trainer Radar.
 
 ## Requirements
 1.  **Gen 3 Extraction:** Map and parse trainer defeat flags (including Rematch flags) for Generation 3 games.
@@ -32,6 +32,4 @@ Implement the data extraction layer for the "Missed Trainer Radar" feature speci
 5.  **Relative Offsets & Constants (ADR 028):** All memory offsets, lengths, bit locations, and shifts must be explicitly defined as reusable constants at the module level. Inline magic numbers are strictly forbidden.
 
 ## Acceptance Criteria
-- [x] Break down into Stories
-
-- [ ] story-307-319-gen3-trainer-flags-extraction
+- [ ] Create Tech Lead Task Blueprints
