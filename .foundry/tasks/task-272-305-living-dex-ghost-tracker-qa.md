@@ -26,9 +26,9 @@ notes: ''
 The Coder has implemented a data engine utility to determine which Pokémon are missing from the regional/national Pokédex (the "ghosts"). This data will power the Living Dex Tracker UI.
 
 ## Acceptance Criteria
-- [ ] Verify the existence of the new module `src/engine/livingDex/ghostTracker.ts` and its test file `src/engine/livingDex/ghostTracker.test.ts`.
-- [ ] Verify that `getLivingDexGhosts(saveData: SaveData, regionalOnly: boolean = false): number[]` correctly calculates missing Living Dex ghosts by evaluating `saveData.pc` and `saveData.party` rather than just `saveData.owned` flags.
-- [ ] Verify that the generated tests pass (`pnpm test`) and cover both base logic and any `regionalOnly` fallback/implementation behavior.
+- [x] Verify the existence of the new module `src/engine/livingDex/ghostTracker.ts` and its test file `src/engine/livingDex/ghostTracker.test.ts`.
+- [x] Verify that `getLivingDexGhosts(saveData: SaveData, regionalOnly: boolean = false): number[]` correctly calculates missing Living Dex ghosts by evaluating `saveData.pc` and `saveData.party` rather than just `saveData.owned` flags.
+- [x] Verify that the generated tests pass (`pnpm test`) and cover both base logic and any `regionalOnly` fallback/implementation behavior.
 
 ## Constraints & Architecture
 - **Failures & Aborts**:
