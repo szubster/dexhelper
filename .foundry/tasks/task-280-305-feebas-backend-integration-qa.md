@@ -27,10 +27,10 @@ notes: ''
 Verify the `coder` correctly implemented the Feebas tile extraction logic in the `parseGen3` function.
 
 ## Acceptance Criteria
-- [ ] Review PR/code for `src/engine/saveParser/parsers/gen3.ts` and `src/engine/saveParser/parsers/common.ts` to ensure `gen3FeebasTiles` is correctly populated.
-- [ ] Verify that `parseGen3` handles RSE save files correctly and gracefully ignores FRLG save files (which do not have Feebas seeds) without crashing.
-- [ ] Verify tests in `src/engine/saveParser/parsers/gen3.test.ts` pass and cover the integration.
-- [ ] Ensure that memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level, preventing inline magic numbers, if applicable to the coder's changes.
+- [x] Review PR/code for `src/engine/saveParser/parsers/gen3.ts` and `src/engine/saveParser/parsers/common.ts` to ensure `gen3FeebasTiles` is correctly populated.
+- [x] Verify that `parseGen3` handles RSE save files correctly and gracefully ignores FRLG save files (which do not have Feebas seeds) without crashing.
+- [x] Verify tests in `src/engine/saveParser/parsers/gen3.test.ts` pass and cover the integration.
+- [x] Ensure that memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level, preventing inline magic numbers, if applicable to the coder's changes.
 
 ## Failure Rules & Instructions
 - If the coder's implementation is flawed, reject the task by setting the coder task's frontmatter to `status: FAILED` with a detailed `rejection_reason`.
