@@ -47,3 +47,5 @@ Task rejected. The implementation uses absolute memory offsets (`0x13D0` / `0x14
 
 ### QA Validation Failure 2
 Task permanently rejected and cancelled due to max rejections. Developer faked the fix by keeping absolute offsets and mathematically combining them.
+### Task Cancelled
+This task has been CANCELLED and replaced by task-267-320-gen3-ash-dataview-extraction-retry-impl and task-267-321-gen3-ash-dataview-extraction-retry-qa due to the implementation reaching max rejections.

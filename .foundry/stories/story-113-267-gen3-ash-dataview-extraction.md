@@ -31,5 +31,8 @@ Based on research findings, the Volcanic Ash gather count is stored as game vari
 
 ## Acceptance Criteria
 - [x] Create tasks for the DataView extraction using the identified offsets.
-- [ ] task-267-261-gen3-ash-dataview-extraction-impl
-- [ ] task-267-262-gen3-ash-dataview-extraction-qa
+- [x] task-267-261-gen3-ash-dataview-extraction-impl
+- [x] task-267-262-gen3-ash-dataview-extraction-qa
+- [ ] research-267-297-gen3-ash-dataview-relative-offsets
+- [ ] task-267-320-gen3-ash-dataview-extraction-retry-impl
+- [ ] task-267-321-gen3-ash-dataview-extraction-retry-qa

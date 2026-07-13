@@ -174,3 +174,6 @@ When drafting save parser blueprints using DataView, explicitly mandate catching
 
 ## 2026-07-11: Filter Swarm & Item Calls
 Drafted technical blueprints (`task-286-314-filter-swarm-item-calls-impl` and `task-286-315-filter-swarm-item-calls-qa`) to implement filtering of active Gen 2 Pokegear callers based on `wSwarmFlags`, `wDailyPhoneItemFlags`, and `wDailyPhoneTimeOfDayFlags`. Due to the complexity and risk of parsing memory states directly, I applied the Intelligent Verification Protocol to require a dedicated QA verification pass. Explicit architectural constraints forbidding the use of inline magic numbers for memory offsets were mandated in both blueprints to comply with ADR 028.
+
+## 2026-07-12: Gen 3 Dynamic Save Block Extraction Pattern
+When generating blueprints for Gen 3 dynamic save block extraction (like Volcanic Ash), ensure explicit instructions are provided to use the dynamically resolved `section1Offset` for relative offset calculations rather than hardcoding absolute values. Using absolute offsets breaks A/B bank flash memory parsing.
