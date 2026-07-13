@@ -22,9 +22,9 @@ rejection_reason: ''
 Implement unit tests in `.github/scripts/foundry-orchestrator.test.ts` to verify that the orchestrator correctly identifies and prevents deadlocks when resolving dependencies. The tests should validate logic ensuring no infinite dependency loops or blocked states fail silently or lock up the workflow.
 
 ## Acceptance Criteria
-- [ ] Unit tests are added to verify deadlock prevention mechanisms function correctly.
-- [ ] The orchestrator logic handles circular dependencies safely and correctly prevents deadlocks.
-- [ ] All tests in `.github/scripts/` pass successfully.
+- [x] Unit tests are added to verify deadlock prevention mechanisms function correctly.
+- [x] The orchestrator logic handles circular dependencies safely and correctly prevents deadlocks.
+- [x] All tests in `.github/scripts/` pass successfully.
 
 ## Intelligent Verification Protocol
 This is considered a low-risk/simple task because it specifically adds unit tests to an existing test suite.
