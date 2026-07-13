@@ -2,12 +2,12 @@
 id: prd-073-045-gen3-secret-base-viewer
 type: PRD
 title: Gen 3 Secret Base and Mixed Record Viewer
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-10'
 updated_at: '2026-07-13'
 depends_on: []
-jules_session_id: '8844884101076829789'
+jules_session_id: '14935638105133187345'
 pr_number: null
 parent: idea-073-gen3-secret-base-viewer
 tags:
