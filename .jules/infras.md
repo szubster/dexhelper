@@ -107,3 +107,6 @@ Critical learnings:
 
 ## 2026-07-11 - Removed type-coverage
 **Learning:** Removed `type-coverage` tool as it was outdated (no updates in 2 years) and incompatible with newer TypeScript versions. The project already maintains high type safety through strict TypeScript configuration (`tsconfig.json`) and `oxlint` with type-aware rules, making a separate type coverage tool redundant.
+
+## 2026-07-13 - Fixed Biome CI Version Drift
+**Learning:** The project's Biome version was bumped to `2.5.3` locally (`package.json`, `biome.jsonc`), but the CI workflow (`.github/workflows/biome.yml`) remained at `2.5.2`. This causes CI drift where the GitHub Actions checks use a different linter version than local development. When upgrading local linters, you must explicitly search for and update corresponding CI actions to prevent false positive/negative linting results in PRs.
