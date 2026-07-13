@@ -925,6 +925,23 @@ function main(): void {
               }
               // Prevent promotion to COMPLETED by bypassing the else branch
             } else {
+              if (node.frontmatter.type === 'EPIC') {
+                const hasE2E = children.some(child =>
+                  child.frontmatter.type === 'STORY' &&
+                  child.frontmatter.tags &&
+                  child.frontmatter.tags.some(t => t.toLowerCase() === 'e2e' || t.toLowerCase() === 'integration')
+                );
+                if (!hasE2E) {
+                  info(`Late-Binding Parent Complete: ${node.repoPath} has completed children, but lacks an E2E/integration STORY. Promoting to FAILED.`);
+                  promoteNodeToFailedWithReason(node, 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story');
+                  const idx = eligible.indexOf(node);
+                  if (idx !== -1) {
+                    eligible.splice(idx, 1);
+                  }
+                  continue; // Skip promoting to COMPLETED
+                }
+              }
+
               info(`Late-Binding Parent Complete: ${node.repoPath} has children and all are COMPLETED. Promoting directly to COMPLETED.`);
               promoteNodeStatus(node, 'PENDING', 'COMPLETED');
               // Remove from eligible if it was added
@@ -977,6 +994,24 @@ function main(): void {
         info(`Idempotent check: Artifacts for ${node.repoPath} already exist, but node still has unchecked tasks. Promoting to READY.`);
         finalEligible.push(node);
       } else {
+        if (node.frontmatter.type === 'EPIC') {
+          // Check for E2E story in its generated links
+          const bodyLinks = [...node.body.matchAll(/\]\((?:\.\/)?(\.foundry\/(?:ideas|prds|epics|stories|tasks)\/[^)]+\.md)\)/g)].map(m => m[1]);
+          const e2eChildExists = bodyLinks.some(l => {
+            const childNode = nodeMap.get(l);
+            return childNode &&
+                   childNode.frontmatter.type === 'STORY' &&
+                   childNode.frontmatter.tags &&
+                   childNode.frontmatter.tags.some(t => t.toLowerCase() === 'e2e' || t.toLowerCase() === 'integration');
+          });
+
+          if (!e2eChildExists) {
+            info(`Idempotent check failed for ${node.repoPath}: artifacts exist but lacks an E2E/integration STORY. Promoting to FAILED.`);
+            promoteNodeToFailedWithReason(node, 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story');
+            continue;
+          }
+        }
+
         info(`Idempotent check bypassed dispatch for ${node.repoPath} (artifacts already exist).`);
         promoteNodeStatus(node, 'PENDING', 'COMPLETED');
 
