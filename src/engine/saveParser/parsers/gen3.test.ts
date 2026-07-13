@@ -789,19 +789,31 @@ describe('parseGen3Roamer', () => {
     // Set statusCondition (e.g. 1 for Sleep)
     view.setUint8(offset + 13, 1);
 
+    // Set contest stats
+    view.setUint8(offset + 0x0e, 10); // cool
+    view.setUint8(offset + 0x0f, 20); // beauty
+    view.setUint8(offset + 0x10, 30); // cute
+    view.setUint8(offset + 0x11, 40); // smart
+    view.setUint8(offset + 0x12, 50); // tough
+
     // Set active
     view.setUint8(offset + 19, 1);
 
     const result = parseGen3Roamer(view, 0, 'ruby');
 
     expect(result).toEqual({
-      ivs: { hp: 31, atk: 10, def: 15, spd: 20, spAtk: 25, spDef: 30 },
-      personalityValue: 0x12345678,
+      isActive: true,
       speciesId: 380,
-      hp: 150,
       level: 40,
-      statusCondition: 1,
-      active: true,
+      hp: 150,
+      status: 1,
+      personality: 0x12345678,
+      ivs: 0x3d9a3d5f,
+      cool: 10,
+      beauty: 20,
+      cute: 30,
+      smart: 40,
+      tough: 50,
     });
   });
 
@@ -821,13 +833,18 @@ describe('parseGen3Roamer', () => {
     const result = parseGen3Roamer(view, 0, 'ruby');
 
     expect(result).toEqual({
-      ivs: { hp: 0, atk: 0, def: 0, spd: 0, spAtk: 0, spDef: 0 },
-      personalityValue: 0x12345678,
+      isActive: true,
       speciesId: 380,
-      hp: 150,
       level: 40,
-      statusCondition: 1,
-      active: true,
+      hp: 150,
+      status: 1,
+      personality: 0x12345678,
+      ivs: 0,
+      cool: 0,
+      beauty: 0,
+      cute: 0,
+      smart: 0,
+      tough: 0,
     });
   });
 
@@ -848,13 +865,18 @@ describe('parseGen3Roamer', () => {
     const result = parseGen3Roamer(view, 0, 'ruby');
 
     expect(result).toEqual({
-      ivs: { hp: 31, atk: 31, def: 31, spd: 31, spAtk: 31, spDef: 31 },
-      personalityValue: 0x12345678,
+      isActive: true,
       speciesId: 380,
-      hp: 150,
       level: 40,
-      statusCondition: 1,
-      active: true,
+      hp: 150,
+      status: 1,
+      personality: 0x12345678,
+      ivs: 1073741823,
+      cool: 0,
+      beauty: 0,
+      cute: 0,
+      smart: 0,
+      tough: 0,
     });
   });
 
@@ -882,13 +904,18 @@ describe('parseGen3Roamer', () => {
     const result = parseGen3Roamer(view, 0, 'emerald');
 
     expect(result).toEqual({
-      ivs: { hp: 0, atk: 0, def: 0, spd: 0, spAtk: 0, spDef: 0 },
-      personalityValue: 0x12345678,
+      isActive: true,
       speciesId: 381,
-      hp: 150,
       level: 40,
-      statusCondition: 0,
-      active: true,
+      hp: 150,
+      status: 0,
+      personality: 0x12345678,
+      ivs: 0,
+      cool: 0,
+      beauty: 0,
+      cute: 0,
+      smart: 0,
+      tough: 0,
     });
   });
 
@@ -908,13 +935,18 @@ describe('parseGen3Roamer', () => {
     const result = parseGen3Roamer(view, 0, 'firered');
 
     expect(result).toEqual({
-      ivs: { hp: 0, atk: 0, def: 0, spd: 0, spAtk: 0, spDef: 0 },
-      personalityValue: 0x12345678,
+      isActive: true,
       speciesId: 244,
-      hp: 150,
       level: 50,
-      statusCondition: 0,
-      active: true,
+      hp: 150,
+      status: 0,
+      personality: 0x12345678,
+      ivs: 0,
+      cool: 0,
+      beauty: 0,
+      cute: 0,
+      smart: 0,
+      tough: 0,
     });
   });
 
@@ -933,12 +965,12 @@ describe('parseGen3Roamer', () => {
     // False case
     view.setUint8(offset + 19, 0);
     let result = parseGen3Roamer(view, 0, 'ruby');
-    expect(result.active).toBe(false);
+    expect(result.isActive).toBe(false);
 
     // True case (anything != 0)
     view.setUint8(offset + 19, 2);
     result = parseGen3Roamer(view, 0, 'ruby');
-    expect(result.active).toBe(true);
+    expect(result.isActive).toBe(true);
   });
 });
 

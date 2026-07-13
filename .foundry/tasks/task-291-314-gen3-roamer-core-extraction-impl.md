@@ -77,7 +77,7 @@ Be sure to define constants for the new offsets (cool, beauty, cute, smart, toug
 4. **Magic Numbers:** When modifying save file parsing, explicitly require that all memory offsets, lengths, bit locations, and shifts MUST be defined as reusable constants at the module level. Inline magic numbers are strictly forbidden.
 
 ## Acceptance Criteria
-- [ ] Ensure `parseGen3Roamer` in `src/engine/saveParser/parsers/gen3.ts` fully implements the `Gen3RoamerState` structure.
-- [ ] Define reusable constants at the module level for all new memory offsets (cool, beauty, cute, smart, tough). No inline magic numbers.
-- [ ] Ensure the returned object keys exactly match `Gen3RoamerState` (`isActive`, `personality`, `status`, `ivs` as a number, plus the contest stats).
-- [ ] Update `src/engine/saveParser/parsers/gen3.test.ts` to reflect the new return shape of `parseGen3Roamer`.
+- [x] Ensure `parseGen3Roamer` in `src/engine/saveParser/parsers/gen3.ts` fully implements the `Gen3RoamerState` structure.
+- [x] Define reusable constants at the module level for all new memory offsets (cool, beauty, cute, smart, tough). No inline magic numbers.
+- [x] Ensure the returned object keys exactly match `Gen3RoamerState` (`isActive`, `personality`, `status`, `ivs` as a number, plus the contest stats).
+- [x] Update `src/engine/saveParser/parsers/gen3.test.ts` to reflect the new return shape of `parseGen3Roamer`.
