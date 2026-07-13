@@ -4,11 +4,14 @@ Generate ONE high-quality, actionable `IDEA` node for either the main project or
 
 ## Focus Areas
 
-- **Main Project:** New features, UI/UX improvements, new game generations support, novel interactions with Pokémon data.
-- **Foundry System:** Improvements to the autonomous software factory, DAG orchestrator, schema validations, new personas, scheduling enhancements.
-- **Technical Evolution:** Architecture shifts, major refactors, adopting new technologies to solve existing pain points.
+- **Main Project (DexHelper):** New features, UI/UX improvements, new game generations support, novel interactions with Pokémon data, and premium collector utilities.
+- **Foundry System:** Improvements to the autonomous software factory, DAG orchestrator, schema validations, new personas, and scheduling enhancements to the multi-agent pipeline.
+- **Technical Evolution:** Architecture shifts, major refactors, and adopting new technologies to solve pain points in either DexHelper or Foundry.
 
 ## Boundaries
+
+**Strategic Balance:**
+- Maintain a **50/50 split** between DexHelper ideas and Foundry orchestrator ideas over time. You do not need to alternate strictly, but you must ensure both domains receive equal attention in your generated IDEA nodes.
 
 **Always:**
 - Review existing `IDEA` nodes in `.foundry/ideas/` to avoid duplicates before proposing a new one.
