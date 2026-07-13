@@ -32,4 +32,6 @@ Implement the data extraction layer for the "Missed Trainer Radar" feature speci
 4.  **Relative Offsets & Constants (ADR 028):** All memory offsets, lengths, bit locations, and shifts must be explicitly defined as reusable constants at the module level. Inline magic numbers are strictly forbidden.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-306-319-gen1-trainer-data-extraction
+- [ ] story-306-320-gen2-trainer-data-extraction
