@@ -49,3 +49,5 @@ Implement the logic to extract the requisite achievements from the Gen 3 (Emeral
 
 ## Acceptance Criteria
 - [ ] Break down into Stories for data extraction implementation.
+- [ ] story-304-319-gen3-hof-pokedex-extraction
+- [ ] story-304-320-gen3-contest-frontier-extraction
