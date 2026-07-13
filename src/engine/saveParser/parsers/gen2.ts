@@ -87,12 +87,18 @@ function parseCaughtData(view: DataView, offset: number) {
  * - Unlike Gen 1, Daycare Pokémon store their Original Trainer (OT) name immediately adjacent to their data block (at `offset + 32`),
  *   whereas Party and Box instances store OT names in entirely separate string array blocks elsewhere in memory.
  *
+ * **Architecture Note:**
+ * This function serves as the central extractor for all Gen 2 Pokémon instances. It maps binary flags to structured data, including checking the DVs for shininess (which is deterministic in Gen 2) and parsing Pokerus status. The `isCrystal` flag is critical because Pokémon Crystal introduced location data (bytes 29 and 30) which Gold and Silver left unused.
+ *
  * @param view - The raw save file view.
  * @param offset - The memory offset for the start of the Pokémon's data block.
  * @param isCrystal - Whether the save file is from Pokémon Crystal. Crystal uniquely utilizes bytes 29 and 30 for caught time/level/location data.
  * @param storageLocation - A string indicating where the Pokémon is stored (e.g., 'Party', 'Box 1', 'Daycare').
  * @param slot - The 1-indexed slot the Pokémon occupies in its storage container.
  * @returns A fully constructed PokemonInstance object, or undefined if the species ID is invalid.
+ *
+ * @example
+ * const pokemon = parseGen2PokemonInstance(view, 0x288A, true, 'Party', 1);
  */
 function parseGen2PokemonInstance(
   view: DataView,
