@@ -2,13 +2,13 @@
 id: task-276-312-gen3-trick-house-parser-retry-impl
 type: TASK
 title: Implement Gen 3 Trick House Parser Core Logic (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-11'
-updated_at: '2026-07-11'
+updated_at: '2026-07-13'
 depends_on:
   - research-276-297-trick-house-parser-failure
-jules_session_id: null
+jules_session_id: '14999718857450564604'
 pr_number: null
 parent: story-111-276-trick-house-parser-impl
 tags:
