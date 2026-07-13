@@ -2,13 +2,13 @@
 id: epic-055-119-gen3-move-tutor-save-parsing
 type: EPIC
 title: Gen 3 Move Tutor Save File Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: 2026-06-30T00:00:00.000Z
 updated_at: '2026-07-12'
 depends_on:
   - research-055-247-gen3-move-tutor-offsets
-jules_session_id: '6881032131933812567'
+jules_session_id: null
 pr_number: null
 parent: prd-094-055-move-tutor-tracker
 tags:
@@ -43,4 +43,4 @@ Implement the logic to parse Gen 3 save files and extract the event flags indica
 - [ ] The parser correctly distinguishes between "Available" (flag unset) and "Used" (flag set) tutors.
 - [ ] Out-of-bounds reads or malformed saves are handled gracefully without application crashes.
 - [ ] story-119-267-gen3-move-tutor-emerald-parsing
-- [ ] story-119-268-gen3-move-tutor-frlg-parsing
+- [ ] story-119-318-gen3-move-tutor-frlg-parsing

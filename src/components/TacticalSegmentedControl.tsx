@@ -42,11 +42,12 @@ export function TacticalSegmentedControl<T extends string | number | readonly st
 
     // Find all non-disabled radio buttons
     const buttons = Array.from(
-      containerRef.current.querySelectorAll('button[role="radio"]:not([disabled])'),
-    ) as HTMLButtonElement[];
+      containerRef.current.querySelectorAll<HTMLButtonElement>('button[role="radio"]:not([disabled])'),
+    );
     if (buttons.length === 0) return;
 
-    const currentIndex = buttons.indexOf(document.activeElement as HTMLButtonElement);
+    const currentIndex =
+      document.activeElement instanceof HTMLButtonElement ? buttons.indexOf(document.activeElement) : -1;
 
     let nextIndex = currentIndex;
 

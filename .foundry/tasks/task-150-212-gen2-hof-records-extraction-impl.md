@@ -5,9 +5,9 @@ title: Implement Gen 2 Hall of Fame Records Extraction
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-21'
-updated_at: '2026-07-12'
+updated_at: '2026-07-13'
 depends_on: []
-jules_session_id: '13367938601550361098'
+jules_session_id: '7496694196076917407'
 pr_number: null
 parent: story-070-150-parse-gen2-hof-records
 tags:

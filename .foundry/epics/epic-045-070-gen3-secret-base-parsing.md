@@ -5,9 +5,9 @@ title: Gen 3 Secret Base Save File Parsing
 status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-07-12'
+updated_at: '2026-07-13'
 depends_on: []
-jules_session_id: '7885878937219133059'
+jules_session_id: '11596321345269324326'
 pr_number: null
 parent: prd-073-045-gen3-secret-base-viewer
 tags:
@@ -33,6 +33,6 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer, we need to parse the s
 
 ## Acceptance Criteria
 - [x] Story Owner: Break this Epic down into actionable Stories.
-- [ ] .foundry/archive/stories/story-070-108-parse-secret-base-locations.md
-- [ ] .foundry/archive/stories/story-070-109-extract-mixed-record-trainer-data.md
+- [x] .foundry/archive/stories/story-070-108-parse-secret-base-locations.md
+- [x] .foundry/archive/stories/story-070-109-extract-mixed-record-trainer-data.md
 - [ ] .foundry/stories/story-070-110-track-daily-rematch-status.md

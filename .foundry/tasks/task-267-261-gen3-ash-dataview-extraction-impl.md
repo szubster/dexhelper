@@ -17,7 +17,9 @@ tags:
 research_references:
   - .foundry/archive/research/research-054-243-gen3-ash-gathering-offsets.md
 rejection_count: 3
-rejection_reason: 'Developer repeatedly ignored ADR 028 and faked fix for relative offsets.'
+rejection_reason: >-
+  [ACKNOWLEDGED] Developer repeatedly ignored ADR 028 and faked fix for relative
+  offsets.
 notes: ''
 ---
 

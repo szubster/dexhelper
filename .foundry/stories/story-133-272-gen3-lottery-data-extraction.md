@@ -2,12 +2,12 @@
 id: story-133-272-gen3-lottery-data-extraction
 type: STORY
 title: Gen3 Lottery Data Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-05'
 updated_at: '2026-07-12'
 depends_on: []
-jules_session_id: '14280443252100264511'
+jules_session_id: null
 pr_number: null
 parent: epic-105-133-lottery-matching-logic
 tags:
@@ -30,5 +30,5 @@ Extract the daily winning lottery number from Gen3 save files.
 
 ## Acceptance Criteria
 - [x] Implement parser
-- [ ] task-272-301-gen3-lottery-data-extraction-impl
-- [ ] task-272-302-gen3-lottery-data-extraction-qa
+- [x] task-272-301-gen3-lottery-data-extraction-impl
+- [x] task-272-302-gen3-lottery-data-extraction-qa
