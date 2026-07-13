@@ -291,14 +291,14 @@ export function generateEvolutionSuggestions(
         // It only requires an empty party slot. The Poké Ball requirement was introduced in Gen 4.
         const requiresPokeball = saveData.generation >= 4;
         const pokeballId = getGameItemId(4, saveData.generation); // 4 is standard Pokéball
-        const hasPokeball = requiresPokeball ? (
-          saveData.inventory.some((i) => i.id === pokeballId && i.quantity > 0) ||
-          (saveData.pcItems?.some((i) => i.id === pokeballId && i.quantity > 0) ?? false)
-        ) : true;
+        const hasPokeball = requiresPokeball
+          ? saveData.inventory.some((i) => i.id === pokeballId && i.quantity > 0) ||
+            (saveData.pcItems?.some((i) => i.id === pokeballId && i.quantity > 0) ?? false)
+          : true;
         const hasPartySpace = (saveData.party?.length || 0) < 6;
 
-        const pokeballText = requiresPokeball ? " and a standard Poké Ball in your bag" : "";
-        const pokeballTextShort = requiresPokeball ? " and a Poké Ball" : "";
+        const pokeballText = requiresPokeball ? ' and a standard Poké Ball in your bag' : '';
+        const pokeballTextShort = requiresPokeball ? ' and a Poké Ball' : '';
 
         let description = `Level up your pre-evolution to Lv. 20 with an empty slot in your party${pokeballText} to get #${targetId}!`;
         let priority = 75;
