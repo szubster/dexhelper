@@ -38,12 +38,12 @@ Validate the logic implemented for extracting Gen 3 Trick House progression stat
 5. **Test Coverage:** Ensure the Coder included unit tests simulating Gen 3 SaveBlock1 buffers to validate correct extraction, AND explicitly verify the test suite includes a case simulating a short buffer to trigger the `RangeError`.
 
 ## Acceptance Criteria
-- [ ] Verified that a `try/catch` block is present and properly handles `RangeError` by throwing `"The save file is corrupted or incomplete."`
-- [ ] Validated that all offsets and variables are defined as module-level constants.
-- [ ] Confirmed no inline magic numbers exist in the parsing logic.
-- [ ] Verified correct Little-Endian usage for variables.
-- [ ] Verified correct bitwise extraction for the landmark flag.
-- [ ] Verified unit test coverage for the implemented logic, including the out-of-bounds scenario.
+- [x] Verified that a `try/catch` block is present and properly handles `RangeError` by throwing `"The save file is corrupted or incomplete."`
+- [x] Validated that all offsets and variables are defined as module-level constants.
+- [x] Confirmed no inline magic numbers exist in the parsing logic.
+- [x] Verified correct Little-Endian usage for variables.
+- [x] Verified correct bitwise extraction for the landmark flag.
+- [x] Verified unit test coverage for the implemented logic, including the out-of-bounds scenario.
 
 ## Review Contracts
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
