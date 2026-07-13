@@ -2345,4 +2345,43 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     const prdContent = fs.readFileSync(path.join(tmpDir, ".foundry/prds/prd-001.md"), "utf-8");
     expect(prdContent).toContain("status: PENDING");
   });
+
+  test('Deadlock Prevention: Handles circular dependencies safely and correctly prevents deadlocks', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-a.md', {
+      id: "task-a",
+      type: "TASK",
+      title: "Task A",
+      status: "PENDING",
+      owner_persona: "coder",
+      depends_on: [".foundry/tasks/task-b.md"],
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-b.md', {
+      id: "task-b",
+      type: "TASK",
+      title: "Task B",
+      status: "PENDING",
+      owner_persona: "coder",
+      depends_on: [".foundry/tasks/task-c.md"],
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-c.md', {
+      id: "task-c",
+      type: "TASK",
+      title: "Task C",
+      status: "PENDING",
+      owner_persona: "coder",
+      depends_on: [".foundry/tasks/task-a.md"],
+    });
+
+    main();
+
+    const aContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-a.md"), "utf-8");
+    const bContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-b.md"), "utf-8");
+    const cContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-c.md"), "utf-8");
+
+    expect(aContent).toContain("status: PENDING");
+    expect(bContent).toContain("status: PENDING");
+    expect(cContent).toContain("status: PENDING");
+  });
 });
