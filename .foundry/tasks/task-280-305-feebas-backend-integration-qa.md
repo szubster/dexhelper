@@ -2,13 +2,13 @@
 id: task-280-305-feebas-backend-integration-qa
 type: TASK
 title: QA - Feebas Backend Integration
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-13'
 depends_on:
   - task-280-304-feebas-backend-integration
-jules_session_id: null
+jules_session_id: '18374562103663669803'
 pr_number: null
 parent: story-058-280-feebas-backend-integration
 tags:
