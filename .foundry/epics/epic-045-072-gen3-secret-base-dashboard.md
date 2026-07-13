@@ -2,10 +2,10 @@
 id: epic-045-072-gen3-secret-base-dashboard
 type: EPIC
 title: Gen 3 Secret Base NPC Trainer Dashboard
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-07-13'
 depends_on:
   - epic-045-070-gen3-secret-base-parsing
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  epic-045-070-gen3-secret-base-parsing
 notes: ''
 ---
 
