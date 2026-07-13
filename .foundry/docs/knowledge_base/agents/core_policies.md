@@ -108,3 +108,8 @@ If you lack critical context or specifications (e.g., exact memory offsets) nece
 - **Circular Dependencies**: Do NOT include the parent node in the new child's `depends_on` array to avoid circular dependency deadlocks.
 - **Premature Verification**: Do NOT submit an Empty PR to transition a parent node to VERIFYING (by checking off its acceptance criteria) until ALL of its generated child nodes have transitioned to COMPLETED. Premature verification violates the dependency graph constraints.
 - **Parent Node Syntax**: Parent generation nodes MUST strictly format references to generated child nodes as unchecked task checkboxes (`- [ ] <file_path>`) directly in their markdown body. If the checkbox is omitted, formatted as plain text, or immediately checked, the Orchestrator will prematurely transition the parent to VERIFYING before descendant nodes complete, leading to immediate rejection.
+
+## Bash Session Timeout Policy
+* Never execute blocking commands (e.g., `tail -f`, long-running loops) in `run_in_bash_session` as they will cause the session to hang indefinitely.
+* Use non-blocking alternatives like `cat` or `tail -n`.
+* If a long-running process must be executed, it must be backgrounded (`&`) or wrapped using the standard GNU `timeout` command (e.g., `timeout 30s command`).
