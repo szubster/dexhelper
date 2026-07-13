@@ -2,12 +2,12 @@
 id: task-278-304-extract-log-to-journal
 type: TASK
 title: Extract logToJournal Utility
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-11'
 updated_at: '2026-07-13'
 depends_on: []
-jules_session_id: '17268054709640071262'
+jules_session_id: null
 parent: story-053-278-extract-log-to-journal
 tags:
   - refactor
