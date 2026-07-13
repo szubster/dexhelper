@@ -2,7 +2,7 @@
 id: epic-045-070-gen3-secret-base-parsing
 type: EPIC
 title: Gen 3 Secret Base Save File Parsing
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-07-13'
@@ -16,10 +16,8 @@ tags:
   - secret-base
   - save-parsing
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
