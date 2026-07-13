@@ -641,7 +641,7 @@ function main(): void {
           break;
         }
       } else {
-        if (dep.frontmatter.status !== 'ACTIVE' && dep.frontmatter.status !== 'COMPLETED' && dep.frontmatter.status !== 'VERIFYING') {
+        if (dep.frontmatter.status !== 'ACTIVE' && dep.frontmatter.status !== 'COMPLETED') {
           shouldSuspend = true;
           break;
         }
@@ -743,7 +743,7 @@ function main(): void {
       }
 
       const parentStatus = parentNode.frontmatter.status;
-      if (parentStatus !== 'ACTIVE' && parentStatus !== 'COMPLETED' && parentStatus !== 'VERIFYING') {
+      if (parentStatus !== 'ACTIVE' && parentStatus !== 'COMPLETED') {
         const parentChildren = parentToChildren.get(currParent) || [];
         if (parentStatus === 'PENDING' && parentChildren.length > 0) {
           // Exception for Late-Binding: If parent is PENDING and has children,
