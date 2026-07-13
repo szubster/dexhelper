@@ -47,11 +47,11 @@ The specific offsets needed to implement this are defined in:
 - `.foundry/docs/knowledge_base/gen3_trick_house_offsets.md`
 
 ## Acceptance Criteria
-- [ ] Module-level reusable constants are defined for all variables and flag offsets.
-- [ ] A parsing utility or class is implemented to extract Trick House data from `SaveBlock1`.
-- [ ] A `try/catch` block catches `RangeError` and throws `"The save file is corrupted or incomplete."`
-- [ ] No inline magic numbers are used in the memory parsing logic.
-- [ ] Proper extraction of Little-Endian 16-bit variables using `DataView.getUint16`.
+- [x] Module-level reusable constants are defined for all variables and flag offsets.
+- [x] A parsing utility or class is implemented to extract Trick House data from `SaveBlock1`.
+- [x] A `try/catch` block catches `RangeError` and throws `"The save file is corrupted or incomplete."`
+- [x] No inline magic numbers are used in the memory parsing logic.
+- [x] Proper extraction of Little-Endian 16-bit variables using `DataView.getUint16`.
 
 ## Review Contracts
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
