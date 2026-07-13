@@ -210,3 +210,7 @@
 ## 2026-07-12
 **Idea:** Gen 3 Pokéblock Exact Stats Viewer
 **Learning:** Expanding the app to parse the hidden exact numerical values for Pokéblock flavors and 'feel' from the save file transforms a completely opaque in-game system into an actionable planning tool for competitive Contest players, aligning with the premium companion app philosophy by eliminating manual tracking.
+
+## 2026-07-13
+**Idea:** Gen 3 Fame Checker Progress & Assistant
+**Learning:** Expanding into FireRed/LeafGreen (Gen 3) by targeting unique, version-specific tracking mechanics (like the Fame Checker) adds significant value. The Fame Checker requires collecting 6 fragmented lore entries per key NPC by interacting with obscure world objects and NPCs. By automatically extracting this progress from the save file and providing actionable missing-entry locations, we transform an opaque collection quest into a guided premium experience.
