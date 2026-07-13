@@ -2,13 +2,13 @@
 id: task-272-305-living-dex-ghost-tracker-qa
 type: TASK
 title: Living Dex Ghost Tracker QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-11'
 updated_at: '2026-07-13'
 depends_on:
   - .foundry/tasks/task-272-304-living-dex-ghost-tracker-impl.md
-jules_session_id: null
+jules_session_id: '12056810955029712066'
 pr_number: null
 parent: story-133-272-living-dex-ghost-tracker
 tags:
