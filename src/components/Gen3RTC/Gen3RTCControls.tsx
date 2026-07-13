@@ -1,6 +1,7 @@
 import type React from 'react';
 import { useState } from 'react';
 import { useGen3RTC } from '../../contexts/Gen3RTCContext';
+import { TacticalButton } from '../TacticalButton';
 
 export const Gen3RTCControls: React.FC = () => {
   const { state, setOverride } = useGen3RTC();
@@ -43,22 +44,24 @@ export const Gen3RTCControls: React.FC = () => {
             className="flex-1 rounded-none border border-white/20 border-dashed bg-zinc-900/50 p-2 font-mono text-sm text-white outline-none transition-all focus:border-[var(--theme-primary)]"
             data-testid="rtc-time-input"
           />
-          <button
+          <TacticalButton
             type="button"
             onClick={handleOverride}
             disabled={!inputTime}
-            className="rounded-none border border-[var(--theme-border)] border-dashed bg-[var(--theme-surface)] px-4 py-2 font-mono text-white text-xs uppercase tracking-widest transition-all hover:border-[var(--theme-primary)] hover:text-[var(--theme-primary)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+            variant="primary"
+            className="uppercase tracking-widest"
           >
             Apply
-          </button>
-          <button
+          </TacticalButton>
+          <TacticalButton
             type="button"
             onClick={handleReset}
             disabled={!state.isOverridden}
-            className="rounded-none border border-[var(--theme-border)] border-dashed bg-[var(--theme-surface)] px-4 py-2 font-mono text-xs text-zinc-400 uppercase tracking-widest transition-all hover:border-white hover:text-white active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+            variant="secondary"
+            className="uppercase tracking-widest"
           >
             Reset
-          </button>
+          </TacticalButton>
         </div>
       </div>
     </div>

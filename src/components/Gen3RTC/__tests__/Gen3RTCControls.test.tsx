@@ -19,8 +19,8 @@ describe('Gen3RTCControls', () => {
     await expect.element(page.getByText('RTC Controls')).toBeInTheDocument();
 
     const input = page.getByTestId('rtc-time-input');
-    const applyButton = page.getByText('Apply');
-    const resetButton = page.getByText('Reset');
+    const applyButton = page.getByRole('button', { name: 'Apply' });
+    const resetButton = page.getByRole('button', { name: 'Reset' });
 
     await expect.element(applyButton).toBeDisabled();
     await expect.element(resetButton).toBeDisabled();
