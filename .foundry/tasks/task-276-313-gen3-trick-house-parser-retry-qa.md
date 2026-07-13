@@ -2,13 +2,13 @@
 id: task-276-313-gen3-trick-house-parser-retry-qa
 type: TASK
 title: QA Gen 3 Trick House Parser Implementation (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-11'
 updated_at: '2026-07-13'
 depends_on:
   - task-276-312-gen3-trick-house-parser-retry-impl
-jules_session_id: '14264277681272686929'
+jules_session_id: null
 pr_number: null
 parent: story-111-276-trick-house-parser-impl
 tags:
