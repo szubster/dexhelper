@@ -35,4 +35,4 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer, we need to parse the s
 - [x] Story Owner: Break this Epic down into actionable Stories.
 - [x] story-070-108-parse-secret-base-locations
 - [x] story-070-109-extract-mixed-record-trainer-data
-- [ ] story-070-110-track-daily-rematch-status
+- [x] story-070-110-track-daily-rematch-status
