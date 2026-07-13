@@ -2,12 +2,12 @@
 id: epic-112-309-gen2-shiny-breeding-logic
 type: EPIC
 title: Gen 2 Shiny Breeding DV Compatibility & Odds Engine
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-12'
 updated_at: '2026-07-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12161289706689180355'
 pr_number: null
 parent: prd-108-112-gen2-shiny-breeding-dv-planner
 tags:
