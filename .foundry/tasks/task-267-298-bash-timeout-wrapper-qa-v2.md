@@ -34,4 +34,4 @@ Verify that the alternative timeout wrapper solution for bash sessions works cor
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify alternative timeout wrapper solution interrupts long commands.
+- [x] Verify alternative timeout wrapper solution interrupts long commands.
