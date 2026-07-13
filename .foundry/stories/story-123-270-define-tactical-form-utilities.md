@@ -30,8 +30,8 @@ Define the form and text-related `@utility` primitives in `src/index.css` to con
 3. Ensure these utilities adhere to ADR 024 constraints (sharp edges, monospaced fonts, etc.).
 
 ## Acceptance Criteria
-- [ ] `tactical-input` utility is defined.
-- [ ] `tactical-focus` utility is defined.
-- [ ] `tactical-text` utility is defined.
+- [x] `tactical-input` utility is defined.
+- [x] `tactical-focus` utility is defined.
+- [x] `tactical-text` utility is defined.
 
 - [ ] task-270-311-define-tactical-form-utilities-impl
