@@ -50,4 +50,8 @@ This Epic involves creating the core logic engine required to calculate Pokémon
     *   The engine must determine the specific DVs passed down and calculate the resulting 1/64 odds if a shiny parent (or a parent with the correct DVs) is used.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this EPIC down into actionable STORY nodes for the engineering team.
+- [x] Story Owner: Break this EPIC down into actionable STORY nodes for the engineering team.
+- [ ] story-309-001-gender-calculation-engine
+- [ ] story-309-002-dv-overlap-constraint
+- [ ] story-309-003-egg-group-validation
+- [ ] story-309-004-shiny-odds-computation
