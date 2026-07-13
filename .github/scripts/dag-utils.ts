@@ -1,4 +1,6 @@
 
+import * as fs from 'node:fs';
+
 export function todayISO(): string {
   const d = new Date();
   const yyyy = d.getFullYear();
@@ -38,4 +40,12 @@ export function getOrphanedNodes(startNodePath: string, dependents: Map<string, 
     }
   }
   return visited;
+}
+
+export function logToJournal(logPath: string, logEntry: string): void {
+  let entry = logEntry;
+  if (!entry.endsWith('\n')) {
+    entry += '\n';
+  }
+  fs.appendFileSync(logPath, entry, 'utf-8');
 }
