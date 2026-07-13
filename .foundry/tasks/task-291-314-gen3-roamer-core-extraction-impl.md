@@ -2,12 +2,12 @@
 id: task-291-314-gen3-roamer-core-extraction-impl
 type: TASK
 title: Gen 3 Roamer Core Extraction Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-11'
-updated_at: '2026-07-12'
+updated_at: '2026-07-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16749667053303794390'
 pr_number: null
 parent: story-149-291-gen3-roamer-core-extraction
 tags:
