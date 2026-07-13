@@ -2,7 +2,7 @@
 id: story-306-319-gen1-trainer-data-extraction
 type: STORY
 title: Gen 1 Trainer Data Extraction
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-13'
 updated_at: '2026-07-13'

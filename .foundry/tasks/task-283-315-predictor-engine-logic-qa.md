@@ -2,10 +2,10 @@
 id: task-283-315-predictor-engine-logic-qa
 type: TASK
 title: Verify Gen 2 Pokegear Predictor Engine Logic
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-11'
-updated_at: '2026-07-11'
+updated_at: '2026-07-13'
 depends_on:
   - .foundry/tasks/task-283-314-predictor-engine-logic-impl.md
 jules_session_id: null

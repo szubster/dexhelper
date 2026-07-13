@@ -2,13 +2,13 @@
 id: task-267-297-bash-timeout-wrapper-impl-v2
 type: TASK
 title: Implement timeout wrapper for bash sessions (v2)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-09'
 updated_at: '2026-07-13'
 depends_on:
   - research-267-296-bash-timeout-wrapper-alternatives
-jules_session_id: '9515806576569809046'
+jules_session_id: null
 pr_number: null
 parent: story-127-267-bash-timeout-wrapper
 tags:

@@ -2,12 +2,12 @@
 id: task-269-262-rng-tid-sid-component-impl
 type: TASK
 title: Implement RNG TID and SID Display Component
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-04'
-updated_at: '2026-07-12'
+updated_at: '2026-07-13'
 depends_on: []
-jules_session_id: '6601834753365830620'
+jules_session_id: null
 pr_number: null
 parent: story-130-269-rng-tid-sid-component
 tags:

@@ -2,7 +2,7 @@
 id: task-278-305-extract-log-to-journal
 type: TASK
 title: Extract logToJournal Utility
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-13'
 updated_at: '2026-07-13'

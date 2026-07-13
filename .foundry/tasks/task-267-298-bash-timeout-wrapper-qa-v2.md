@@ -2,10 +2,10 @@
 id: task-267-298-bash-timeout-wrapper-qa-v2
 type: TASK
 title: QA timeout wrapper for bash sessions (v2)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-09'
-updated_at: '2026-07-09'
+updated_at: '2026-07-13'
 depends_on:
   - task-267-297-bash-timeout-wrapper-impl-v2
 jules_session_id: null
