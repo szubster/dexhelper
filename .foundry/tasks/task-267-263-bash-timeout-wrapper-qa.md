@@ -35,4 +35,4 @@ Verify that the timeout wrapper for `run_in_bash_session` works correctly and in
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify timeout wrapper interrupts long commands.
+- [x] Verify timeout wrapper interrupts long commands.
