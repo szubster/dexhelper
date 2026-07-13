@@ -37,4 +37,5 @@ Introduce a "Pokéblock Exact Stats Viewer" for Gen 3.
 This aligns perfectly with DexHelper's vision as a premium companion app by turning hidden save state into actionable, precise data for hardcore players.
 
 ## Acceptance Criteria
-- [ ] Transition this Idea into a PRD.
+- [x] Transition this Idea into a PRD.
+- [ ] prd-113-114-gen3-pokeblock-stats-viewer
