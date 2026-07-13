@@ -286,6 +286,42 @@ export function generateEvolutionSuggestions(
             priority: 85,
           });
         }
+      } else if (tr === EVO_TRIGGER.SHED) {
+        // In Generation 3, Shedinja does NOT require a Poké Ball in the bag to appear.
+        // It only requires an empty party slot. The Poké Ball requirement was introduced in Gen 4.
+        const requiresPokeball = saveData.generation >= 4;
+        const pokeballId = getGameItemId(4, saveData.generation); // 4 is standard Pokéball
+        const hasPokeball = requiresPokeball
+          ? saveData.inventory.some((i) => i.id === pokeballId && i.quantity > 0) ||
+            (saveData.pcItems?.some((i) => i.id === pokeballId && i.quantity > 0) ?? false)
+          : true;
+        const hasPartySpace = (saveData.party?.length || 0) < 6;
+
+        const pokeballText = requiresPokeball ? ' and a standard Poké Ball in your bag' : '';
+        const pokeballTextShort = requiresPokeball ? ' and a Poké Ball' : '';
+
+        let description = `Level up your pre-evolution to Lv. 20 with an empty slot in your party${pokeballText} to get #${targetId}!`;
+        let priority = 75;
+
+        if (bestInstance.level >= 20) {
+          if (hasPartySpace && hasPokeball) {
+            description = `Your pre-evolution is ready! Level it up once with an empty party slot${pokeballTextShort} to get #${targetId}!`;
+            priority = 90;
+          } else if (!hasPartySpace) {
+            description = `Your pre-evolution is ready, but you need to deposit a Pokémon in the PC to have an empty party slot!`;
+          } else if (!hasPokeball) {
+            description = `Your pre-evolution is ready, but you need a standard Poké Ball in your bag!`;
+          }
+        }
+
+        suggestions.push({
+          id: `evo-shed-${targetId}`,
+          category: 'Evolve',
+          title: isIntermediate ? pathTitlePrefix : `Special Evolution: #${targetId}`,
+          description,
+          pokemonId: targetId,
+          priority,
+        });
       }
     }
   }
