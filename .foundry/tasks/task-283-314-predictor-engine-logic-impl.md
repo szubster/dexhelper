@@ -2,12 +2,12 @@
 id: task-283-314-predictor-engine-logic-impl
 type: TASK
 title: Implement Gen 2 Pokegear Predictor Engine Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-11'
-updated_at: '2026-07-12'
+updated_at: '2026-07-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4745597957508456938'
 pr_number: null
 parent: story-117-283-pokegear-predictor-engine
 tags:
