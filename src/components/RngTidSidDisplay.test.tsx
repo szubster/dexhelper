@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { page } from 'vitest/browser';
+import { page, userEvent } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import { RngTidSidDisplay } from './RngTidSidDisplay';
 
@@ -9,6 +9,7 @@ describe('RngTidSidDisplay', () => {
   });
 
   afterEach(() => {
+    vi.useRealTimers();
     vi.restoreAllMocks();
   });
 
@@ -25,5 +26,24 @@ describe('RngTidSidDisplay', () => {
     const container = page.getByText('RNG Trainer Identifiers').element();
     // This part ensures it renders with some aesthetic constraints
     expect(container).toBeDefined();
+  });
+
+  it('copies TID and SID to clipboard on click', async () => {
+    // Provide a mock navigator.clipboard
+    const writeTextMock = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, 'clipboard', {
+      value: { writeText: writeTextMock },
+      configurable: true,
+      writable: true,
+    });
+
+    await render(<RngTidSidDisplay tid={123} sid={4567} />);
+    const copyButton = page.getByRole('button', { name: /copy tid and sid to clipboard/i });
+
+    await userEvent.click(copyButton);
+    expect(writeTextMock).toHaveBeenCalledWith('TID: 123, SID: 4567');
+
+    // Fast-forward to trigger the timeout for reset
+    await vi.advanceTimersByTimeAsync(2000);
   });
 });
