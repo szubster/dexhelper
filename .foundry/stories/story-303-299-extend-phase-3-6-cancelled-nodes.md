@@ -32,4 +32,6 @@ Update `.github/scripts/foundry-orchestrator.ts` Phase 3.6 logic to correctly aw
 - Update tests in `.github/scripts/foundry-orchestrator.test.ts` to assert that parent nodes are awakened when child nodes are cancelled due to max rejections.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-299-322-extend-phase-3-6-impl
+- [ ] task-299-323-extend-phase-3-6-qa
