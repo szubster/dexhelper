@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { checkPhoneCall, chooseRandomCaller } from './predictor';
+import { checkPhoneCall, chooseRandomCaller, enrichContact, filterHighValueCalls } from './predictor';
 
 describe('Gen 2 Pokegear Predictor Engine Logic', () => {
   describe('checkPhoneCall', () => {
@@ -62,6 +62,37 @@ describe('Gen 2 Pokegear Predictor Engine Logic', () => {
 
       // 255 % 3 = 0 -> Mom
       expect(chooseRandomCaller(callers, 255)).toEqual(callers[0]);
+    });
+  });
+
+  describe('enrichContact and filterHighValueCalls', () => {
+    it('should correctly identify Dunsparce swarm for Hiker Anthony', () => {
+      const anthony = { id: 19, name: 'Hiker Anthony' };
+      const enriched = enrichContact(anthony, 1 << 2, 0); // SWARM_FLAG_DUNSPARCE_BIT is 2
+      expect(enriched.isSwarm).toBe(true);
+      expect(enriched.isHighValue).toBe(true);
+    });
+
+    it('should correctly identify rare item for Wade', () => {
+      const wade = { id: 16, name: 'Bug Catcher Wade' };
+      const enriched = enrichContact(wade, 0, 1 << 2); // ITEM_FLAG_WADE_BIT is 2
+      expect(enriched.hasRareItem).toBe(true);
+      expect(enriched.isHighValue).toBe(true);
+    });
+
+    it('should filter out non-high-value calls', () => {
+      const contacts = [
+        { id: 16, name: 'Bug Catcher Wade' },
+        { id: 1, name: 'Mom' },
+        { id: 23, name: 'Bug Catcher Arnie' },
+      ];
+
+      const swarmFlags = 1 << 3; // SWARM_FLAG_YANMA_BIT
+      const dailyItemFlags = 0; // No rare items
+
+      const highValue = filterHighValueCalls(contacts, swarmFlags, dailyItemFlags);
+      expect(highValue.length).toBe(1);
+      expect(highValue[0]?.id).toBe(23); // Only Arnie (Yanma swarm)
     });
   });
 });
