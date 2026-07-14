@@ -2,12 +2,12 @@
 id: story-127-267-bash-timeout-wrapper
 type: STORY
 title: Implement timeout wrapper
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-04'
 updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: '16777978708885387786'
+jules_session_id: null
 pr_number: null
 parent: epic-057-127-bash-timeout-wrapper
 tags:
