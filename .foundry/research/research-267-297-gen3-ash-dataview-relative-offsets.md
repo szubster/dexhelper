@@ -2,11 +2,11 @@
 id: research-267-297-gen3-ash-dataview-relative-offsets
 type: RESEARCH
 title: Gen 3 Volcanic Ash Relative Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-12'
-updated_at: '2026-07-13'
-jules_session_id: null
+updated_at: '2026-07-14'
+jules_session_id: '417720189953057218'
 depends_on: []
 parent: story-113-267-gen3-ash-dataview-extraction
 tags:
