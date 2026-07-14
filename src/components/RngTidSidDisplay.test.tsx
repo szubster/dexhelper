@@ -30,7 +30,7 @@ describe('RngTidSidDisplay', () => {
 
   it('copies TID and SID to clipboard on click', async () => {
     // Provide a mock navigator.clipboard
-    const writeTextMock = vi.fn().mockResolvedValue(undefined);
+    const writeTextMock = vi.fn<(text: string) => Promise<void>>().mockResolvedValue(undefined);
     Object.defineProperty(navigator, 'clipboard', {
       value: { writeText: writeTextMock },
       configurable: true,
