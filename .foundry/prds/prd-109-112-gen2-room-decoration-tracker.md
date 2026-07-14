@@ -33,4 +33,7 @@ Introduce a "Room Decoration & Savings" dashboard for Gen 2 save files (Gold, Si
 5. **Mystery Gift Tracker:** Visually highlight decorations that are exclusively obtainable via Mystery Gift.
 
 ## Acceptance Criteria
+- [ ] epic-112-311-gen2-decoration-savings-extraction
+- [ ] epic-112-312-gen2-mom-savings-tracker-ui
+- [ ] epic-112-313-gen2-room-decoration-viewer-ui
 - [ ] Break down into Epics
