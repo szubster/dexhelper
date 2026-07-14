@@ -46,5 +46,7 @@ The Safari Zone is a staple mechanic in Generation 1 (Kanto) and Generation 3 (H
 - **UI Components:** Create a new Safari Zone Dashboard route/component, integrating with existing tactical hardware aesthetics (`tactical-panel`, etc., from ADR 024).
 
 ## Acceptance Criteria
-- [ ] Create EPIC(s) for the backend data integration (determining Safari Zone encounter lists per version).
-- [ ] Create EPIC(s) for the frontend dashboard UI and state management.
+- [ ] epic-113-325-safari-zone-dashboard-ui
+- [ ] epic-113-324-safari-zone-data-integration
+- [x] Create EPIC(s) for the backend data integration (determining Safari Zone encounter lists per version).
+- [x] Create EPIC(s) for the frontend dashboard UI and state management.

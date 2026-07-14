@@ -1,0 +1,39 @@
+---
+id: epic-113-325-safari-zone-dashboard-ui
+type: EPIC
+title: Safari Zone Tracking Dashboard UI
+status: PENDING
+owner_persona: story_owner
+created_at: '2026-07-14'
+updated_at: '2026-07-14'
+depends_on:
+  - epic-113-324-safari-zone-data-integration
+jules_session_id: null
+pr_number: null
+parent: prd-111-113-safari-zone-tracker
+tags:
+  - frontend
+  - ui
+  - safari-zone
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Safari Zone Tracking Dashboard UI
+
+## Overview
+This Epic focuses on building the frontend components for the Safari Zone Tracking Dashboard, leveraging the tactical UI primitives defined in ADR 024. The dashboard will allow users to select target Pokémon, see which Safari Zone area they spawn in, and view a "bounty board" of missing encounters.
+
+## Technical Scope
+- Create a new Safari Zone route and container component.
+- Implement a visual representation (map or area cards) of the Safari Zone that highlights based on target selection.
+- Implement a dropdown/search for valid Safari encounters for the user's game version.
+- Implement the "bounty board" side panel showing uncaught rare encounters.
+- Apply tactical UI CSS utilities for styling.
+
+## Acceptance Criteria
+- [ ] Create STORY nodes for the main layout and route integration.
+- [ ] Create STORY nodes for the Area Highlighting and Target Selection components.
+- [ ] Create STORY nodes for the Bounty Board panel.
