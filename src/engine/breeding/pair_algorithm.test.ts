@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'vitest';
+import { EGG_GROUP } from '../../db/schema';
 import { calculateBreedingPairs, type PokemonWithMetadata } from './pair_algorithm';
 
 describe('calculateBreedingPairs', () => {
@@ -7,13 +8,13 @@ describe('calculateBreedingPairs', () => {
       id: '1',
       speciesId: 1,
       gender: 'Male',
-      eggGroups: ['Monster'],
+      eggGroups: [EGG_GROUP.MONSTER],
     };
     const p2: PokemonWithMetadata = {
       id: '2',
       speciesId: 2,
       gender: 'Female',
-      eggGroups: ['Monster'],
+      eggGroups: [EGG_GROUP.MONSTER],
     };
 
     const pairs = calculateBreedingPairs([p1, p2]);
@@ -26,7 +27,7 @@ describe('calculateBreedingPairs', () => {
       id: '1',
       speciesId: 1,
       gender: 'Male',
-      eggGroups: ['Monster'],
+      eggGroups: [EGG_GROUP.MONSTER],
       isShinyCarrier: true,
       dvs: { attack: 15, defense: 10, speed: 10, special: 2 },
     };
@@ -34,14 +35,14 @@ describe('calculateBreedingPairs', () => {
       id: '2',
       speciesId: 2,
       gender: 'Female',
-      eggGroups: ['Monster'],
+      eggGroups: [EGG_GROUP.MONSTER],
       dvs: { attack: 1, defense: 1, speed: 1, special: 1 },
     };
     const p3: PokemonWithMetadata = {
       id: '3',
       speciesId: 3,
       gender: 'Female',
-      eggGroups: ['Monster'],
+      eggGroups: [EGG_GROUP.MONSTER],
       isShinyCarrier: true,
       dvs: { attack: 15, defense: 10, speed: 10, special: 10 },
     };
@@ -64,7 +65,7 @@ describe('calculateBreedingPairs', () => {
       id: '1',
       speciesId: 1,
       gender: 'Male',
-      eggGroups: ['Monster'],
+      eggGroups: [EGG_GROUP.MONSTER],
       isShiny: true,
       dvs: { attack: 10, defense: 10, speed: 10, special: 10 },
     };
@@ -72,7 +73,7 @@ describe('calculateBreedingPairs', () => {
       id: '2',
       speciesId: 2,
       gender: 'Female',
-      eggGroups: ['Monster'],
+      eggGroups: [EGG_GROUP.MONSTER],
       isShiny: true,
       dvs: { attack: 10, defense: 10, speed: 10, special: 10 },
     };
@@ -86,7 +87,7 @@ describe('calculateBreedingPairs', () => {
       id: '1',
       speciesId: 1,
       gender: 'Male',
-      eggGroups: ['Monster'],
+      eggGroups: [EGG_GROUP.MONSTER],
       isShiny: true,
       dvs: { attack: 10, defense: 10, speed: 10, special: 10 },
     };
@@ -94,7 +95,7 @@ describe('calculateBreedingPairs', () => {
       id: '2',
       speciesId: 2,
       gender: 'Female',
-      eggGroups: ['Monster'],
+      eggGroups: [EGG_GROUP.MONSTER],
       isShinyCarrier: true,
       dvs: { attack: 15, defense: 10, speed: 15, special: 2 },
     };
@@ -108,7 +109,7 @@ describe('calculateBreedingPairs', () => {
       id: '1',
       speciesId: 1,
       gender: 'Male',
-      eggGroups: ['Monster'],
+      eggGroups: [EGG_GROUP.MONSTER],
       isShiny: true,
       dvs: { attack: 10, defense: 10, speed: 10, special: 10 },
     };
@@ -116,7 +117,7 @@ describe('calculateBreedingPairs', () => {
       id: '2',
       speciesId: 2,
       gender: 'Female',
-      eggGroups: ['Monster'],
+      eggGroups: [EGG_GROUP.MONSTER],
       dvs: { attack: 15, defense: 7, speed: 15, special: 10 },
     };
 
@@ -129,14 +130,14 @@ describe('calculateBreedingPairs', () => {
       id: '1',
       speciesId: 1,
       gender: 'Male',
-      eggGroups: ['Monster'],
+      eggGroups: [EGG_GROUP.MONSTER],
       dvs: { attack: 15, defense: 14, speed: 15, special: 5 },
     };
     const p2: PokemonWithMetadata = {
       id: '2',
       speciesId: 2,
       gender: 'Female',
-      eggGroups: ['Monster'],
+      eggGroups: [EGG_GROUP.MONSTER],
       dvs: { attack: 15, defense: 14, speed: 15, special: 10 },
     };
 
@@ -149,28 +150,28 @@ describe('calculateBreedingPairs', () => {
       id: '1',
       speciesId: 132,
       gender: 'Genderless',
-      eggGroups: ['Ditto'],
+      eggGroups: [EGG_GROUP.DITTO],
       dvs: { attack: 1, defense: 1, speed: 1, special: 1 },
     };
     const maleBulba: PokemonWithMetadata = {
       id: '2',
       speciesId: 1,
       gender: 'Male',
-      eggGroups: ['Monster'],
+      eggGroups: [EGG_GROUP.MONSTER],
       dvs: { attack: 2, defense: 2, speed: 2, special: 2 },
     };
     const genderlessMagnemite: PokemonWithMetadata = {
       id: '3',
       speciesId: 81,
       gender: 'Genderless',
-      eggGroups: ['Mineral'],
+      eggGroups: [EGG_GROUP.MINERAL],
       dvs: { attack: 3, defense: 3, speed: 3, special: 3 },
     };
     const noEggsMewtwo: PokemonWithMetadata = {
       id: '4',
       speciesId: 150,
       gender: 'Genderless',
-      eggGroups: ['No Eggs'],
+      eggGroups: [EGG_GROUP.NO_EGGS],
     };
 
     const pairs = calculateBreedingPairs([ditto, maleBulba, genderlessMagnemite, noEggsMewtwo]);
@@ -190,13 +191,13 @@ describe('calculateBreedingPairs', () => {
       id: '1',
       speciesId: 1,
       gender: 'Male',
-      eggGroups: ['Monster'],
+      eggGroups: [EGG_GROUP.MONSTER],
     };
     const p2: PokemonWithMetadata = {
       id: '2',
       speciesId: 2,
       gender: 'Male',
-      eggGroups: ['Monster'],
+      eggGroups: [EGG_GROUP.MONSTER],
     };
 
     const pairs = calculateBreedingPairs([p1, p2]);
@@ -208,13 +209,13 @@ describe('calculateBreedingPairs', () => {
       id: '1',
       speciesId: 175,
       gender: 'Male',
-      eggGroups: ['No Eggs'],
+      eggGroups: [EGG_GROUP.NO_EGGS],
     };
     const p2: PokemonWithMetadata = {
       id: '2',
       speciesId: 175,
       gender: 'Female',
-      eggGroups: ['No Eggs'],
+      eggGroups: [EGG_GROUP.NO_EGGS],
     };
 
     const pairs = calculateBreedingPairs([p1, p2]);

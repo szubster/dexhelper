@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { checkPhoneCall, chooseRandomCaller, enrichContact, filterHighValueCalls } from './predictor';
+import { type Contact, checkPhoneCall, chooseRandomCaller, enrichContact, filterHighValueCalls } from './predictor';
 
 describe('Gen 2 Pokegear Predictor Engine Logic', () => {
   describe('checkPhoneCall', () => {
@@ -67,21 +67,21 @@ describe('Gen 2 Pokegear Predictor Engine Logic', () => {
 
   describe('enrichContact and filterHighValueCalls', () => {
     it('should correctly identify Dunsparce swarm for Hiker Anthony', () => {
-      const anthony = { id: 19, name: 'Hiker Anthony' };
+      const anthony: Contact = { id: 19, name: 'Hiker Anthony' };
       const enriched = enrichContact(anthony, 1 << 2, 0); // SWARM_FLAG_DUNSPARCE_BIT is 2
       expect(enriched.isSwarm).toBe(true);
       expect(enriched.isHighValue).toBe(true);
     });
 
     it('should correctly identify rare item for Wade', () => {
-      const wade = { id: 16, name: 'Bug Catcher Wade' };
+      const wade: Contact = { id: 16, name: 'Bug Catcher Wade' };
       const enriched = enrichContact(wade, 0, 1 << 2); // ITEM_FLAG_WADE_BIT is 2
       expect(enriched.hasRareItem).toBe(true);
       expect(enriched.isHighValue).toBe(true);
     });
 
     it('should filter out non-high-value calls', () => {
-      const contacts = [
+      const contacts: Contact[] = [
         { id: 16, name: 'Bug Catcher Wade' },
         { id: 1, name: 'Mom' },
         { id: 23, name: 'Bug Catcher Arnie' },
@@ -94,12 +94,9 @@ describe('Gen 2 Pokegear Predictor Engine Logic', () => {
       expect(highValue.length).toBe(1);
       expect(highValue[0]?.id).toBe(23); // Only Arnie (Yanma swarm)
     });
-  });
-});
 
-describe('more enrichContact and filterHighValueCalls tests', () => {
     it('should correctly identify rare item for all rare item contacts', () => {
-      const contacts = [
+      const contacts: Contact[] = [
         { id: 6, name: 'Beverly' },
         { id: 13, name: 'Jose' },
         { id: 16, name: 'Wade' },
@@ -111,34 +108,39 @@ describe('more enrichContact and filterHighValueCalls tests', () => {
         { id: 31, name: 'Tiffany' },
         { id: 33, name: 'Wilton' },
       ];
-      const enrichedBeverly = enrichContact(contacts[0], 0, 1 << 0);
+      const enrichedBeverly = enrichContact(contacts[0] as Contact, 0, 1 << 0);
       expect(enrichedBeverly.hasRareItem).toBe(true);
 
-      const enrichedJose = enrichContact(contacts[1], 0, 1 << 1);
+      const enrichedJose = enrichContact(contacts[1] as Contact, 0, 1 << 1);
       expect(enrichedJose.hasRareItem).toBe(true);
 
-      const enrichedWade = enrichContact(contacts[2], 0, 1 << 2);
+      const enrichedWade = enrichContact(contacts[2] as Contact, 0, 1 << 2);
       expect(enrichedWade.hasRareItem).toBe(true);
 
-      const enrichedGina = enrichContact(contacts[3], 0, 1 << 3);
+      const enrichedGina = enrichContact(contacts[3] as Contact, 0, 1 << 3);
       expect(enrichedGina.hasRareItem).toBe(true);
 
-      const enrichedAlan = enrichContact(contacts[4], 0, 1 << 4);
+      const enrichedAlan = enrichContact(contacts[4] as Contact, 0, 1 << 4);
       expect(enrichedAlan.hasRareItem).toBe(true);
 
-      const enrichedLiz = enrichContact(contacts[5], 0, 1 << 5);
+      const enrichedLiz = enrichContact(contacts[5] as Contact, 0, 1 << 5);
       expect(enrichedLiz.hasRareItem).toBe(true);
 
-      const enrichedDerek = enrichContact(contacts[6], 0, 1 << 6);
+      const enrichedDerek = enrichContact(contacts[6] as Contact, 0, 1 << 6);
       expect(enrichedDerek.hasRareItem).toBe(true);
 
-      const enrichedTully = enrichContact(contacts[7], 0, 1 << 7);
+      const enrichedTully = enrichContact(contacts[7] as Contact, 0, 1 << 7);
       expect(enrichedTully.hasRareItem).toBe(true);
 
-      const enrichedTiffany = enrichContact(contacts[8], 0, 1 << 8);
+      const enrichedTiffany = enrichContact(contacts[8] as Contact, 0, 1 << 8);
       expect(enrichedTiffany.hasRareItem).toBe(true);
 
-      const enrichedWilton = enrichContact(contacts[9], 0, 1 << 9);
+      const enrichedWilton = enrichContact(contacts[9] as Contact, 0, 1 << 9);
       expect(enrichedWilton.hasRareItem).toBe(true);
+
+      const other: Contact = { id: 99, name: 'Other' };
+      const enrichedOther = enrichContact(other, 0, 0);
+      expect(enrichedOther.hasRareItem).toBe(false);
     });
+  });
 });

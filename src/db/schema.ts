@@ -82,6 +82,52 @@ export const EVO_TRIGGER_MAP: Record<string, number> = {
   shed: 4,
 };
 
+export const EGG_GROUP = {
+  MONSTER: 1,
+  WATER1: 2,
+  BUG: 3,
+  FLYING: 4,
+  GROUND: 5,
+  FAIRY: 6,
+  PLANT: 7,
+  HUMANSHAPE: 8,
+  WATER3: 9,
+  MINERAL: 10,
+  INDETERMINATE: 11,
+  WATER2: 12,
+  DITTO: 13,
+  DRAGON: 14,
+  NO_EGGS: 15,
+} as const;
+
+export const EGG_GROUP_MAP: Record<string, number> = {
+  monster: 1,
+  water1: 2,
+  bug: 3,
+  flying: 4,
+  ground: 5,
+  fairy: 6,
+  plant: 7,
+  humanshape: 8,
+  water3: 9,
+  mineral: 10,
+  indeterminate: 11,
+  water2: 12,
+  ditto: 13,
+  dragon: 14,
+  'no-eggs': 15,
+};
+
+export const REVERSE_EGG_GROUP_MAP: Record<number, string> = Object.fromEntries(
+  Object.entries(EGG_GROUP_MAP).map(([k, v]) => [v, k]),
+);
+
+export const MOVE_DAMAGE_CLASS = {
+  PHYSICAL: 1,
+  SPECIAL: 2,
+  STATUS: 3,
+} as const;
+
 export interface CompactEncounterDetail {
   c: number; // chance
   m: number; // method (ENCOUNTER_METHOD)
@@ -134,7 +180,7 @@ export interface PokemonMetadata {
   n: string; // name
   cr: number; // capture rate
   gr?: number | undefined; // gender rate
-  eg?: string[] | undefined; // egg groups
+  eg?: number[] | undefined; // egg groups (EGG_GROUP)
   baby: boolean; // is baby
   // Embedded evolution data
   eto: CompactChainLink[];
