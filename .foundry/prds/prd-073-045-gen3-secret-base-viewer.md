@@ -32,7 +32,10 @@ Leverage DexHelper's programmatic save parsing to expose hidden Secret Base and 
 - **Daily Rematch Tracker:** Track whether the player has already battled the Secret Base trainer today.
 
 ## Next Steps
-- [x] Epic Planner: Break this down into Epics (e.g., Save File Parsing, UI/Dashboard updates).
+- [ ] Epic Planner: Break this down into Epics (e.g., Save File Parsing, UI/Dashboard updates).
   - [ ] .foundry/epics/epic-045-070-gen3-secret-base-parsing.md
   - [ ] .foundry/epics/epic-045-071-gen3-secret-base-radar-integration.md
   - [ ] .foundry/epics/epic-045-072-gen3-secret-base-dashboard.md
+
+### Auditor Rejection
+Verification failed. The PRD is stuck in VERIFYING state, but its child EPICs (epic-045-070-gen3-secret-base-parsing, epic-045-071-gen3-secret-base-radar-integration, epic-045-072-gen3-secret-base-dashboard) have been permanently failed and CANCELLED. Therefore, this macro node's functional requirements have not been implemented and it cannot be verified as COMPLETED. The PRD must spawn a RESEARCH node to investigate the failure, create replacement nodes, and check off the failed children.
