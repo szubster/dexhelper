@@ -2,7 +2,7 @@
 id: task-320-323-gen2-tm-hm-parsing-qa
 type: TASK
 title: Gen 2 TM/HM Parse QA
-status: DRAFT
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-14'
 updated_at: '2026-07-14'

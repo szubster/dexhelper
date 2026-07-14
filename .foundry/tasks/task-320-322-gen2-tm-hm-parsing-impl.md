@@ -2,7 +2,7 @@
 id: task-320-322-gen2-tm-hm-parsing-impl
 type: TASK
 title: Gen 2 TM/HM Parse Implementation
-status: DRAFT
+status: PENDING
 owner_persona: coder
 created_at: '2026-07-14'
 updated_at: '2026-07-14'
