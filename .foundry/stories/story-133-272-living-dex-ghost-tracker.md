@@ -2,12 +2,12 @@
 id: story-133-272-living-dex-ghost-tracker
 type: STORY
 title: Living Dex Ghost Tracker
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-06'
 updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11925447435719118942'
 pr_number: null
 parent: epic-103-133-living-dex-data-engine
 tags:
