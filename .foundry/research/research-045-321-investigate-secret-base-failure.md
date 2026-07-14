@@ -2,7 +2,7 @@
 id: research-045-321-investigate-secret-base-failure
 type: RESEARCH
 title: Investigate Gen 3 Secret Base Parsing Permanent Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-07-14'
 updated_at: '2026-07-14'
@@ -16,8 +16,8 @@ tags:
   - secret-base
   - save-parsing
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
