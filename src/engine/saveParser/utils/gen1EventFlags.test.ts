@@ -19,11 +19,11 @@ describe('parseGen1StaticEncounters', () => {
 
     // Filter gifts that are out of bounds and check that they return false
     const outOfBoundsGifts = Object.entries(STATIC_GIFT_DATA).filter(
-      ([, gift]) => gift.eventFlag !== undefined && (gift.eventFlag >> 3) >= 10
+      ([, gift]) => gift.eventFlag !== undefined && gift.eventFlag >> 3 >= 10,
     );
 
     const outOfBoundsClaimed = outOfBoundsGifts.map(([idStr]) => claimed[parseInt(idStr, 10)]);
-    expect(outOfBoundsClaimed.every(val => val === false)).toBe(true);
+    expect(outOfBoundsClaimed.every((val) => val === false)).toBe(true);
   });
 
   it('should parse specific claimed encounters correctly', () => {
