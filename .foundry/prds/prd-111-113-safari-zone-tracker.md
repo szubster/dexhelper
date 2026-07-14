@@ -2,12 +2,12 @@
 id: prd-111-113-safari-zone-tracker
 type: PRD
 title: Gen 1 & Gen 3 Safari Zone Tracking Dashboard
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-07-12'
-updated_at: '2026-07-12'
+updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7281935047639469302'
 pr_number: null
 parent: idea-111-safari-zone-tracker
 tags:
