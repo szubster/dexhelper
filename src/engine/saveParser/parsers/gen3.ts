@@ -115,10 +115,14 @@ const TVGROUP_RECORD_MIX_START = 21;
 const TVGROUP_RECORD_MIX_END = 40;
 
 const TVSHOW_MASS_OUTBREAK = 41;
-const MASS_OUTBREAK_SPECIES_OFFSET = 0x0c;
-const MASS_OUTBREAK_LOCATION_MAP_NUM_OFFSET = 0x10;
-const MASS_OUTBREAK_LOCATION_MAP_GROUP_OFFSET = 0x11;
-const MASS_OUTBREAK_DAYS_BEFORE_OFFSET = 0x16;
+const OUTBREAK_MOVES_OFFSET = 0x04;
+const OUTBREAK_SPECIES_OFFSET = 0x0c;
+const OUTBREAK_MAP_NUM_OFFSET = 0x10;
+const OUTBREAK_MAP_GROUP_OFFSET = 0x11;
+const OUTBREAK_PROBABILITY_OFFSET = 0x13;
+const OUTBREAK_LEVEL_OFFSET = 0x14;
+const OUTBREAK_DAYS_BEFORE_OFFSET = 0x16;
+const OUTBREAK_LANGUAGE_OFFSET = 0x18;
 
 const POKE_NEWS_OFFSET = 0x2b50;
 const POKE_NEWS_COUNT = 16;
@@ -639,10 +643,19 @@ export function parseGen3ActiveSwarm(view: DataView, offset: number): Gen3Active
     for (const show of shows) {
       // Check if the show is a Mass Outbreak event and active
       if (show.active && show.kind === TVSHOW_MASS_OUTBREAK) {
-        const speciesId = view.getUint16(show.itemOffset + MASS_OUTBREAK_SPECIES_OFFSET, true);
-        const mapId = view.getUint8(show.itemOffset + MASS_OUTBREAK_LOCATION_MAP_NUM_OFFSET);
-        const mapGroup = view.getUint8(show.itemOffset + MASS_OUTBREAK_LOCATION_MAP_GROUP_OFFSET);
-        const daysRemaining = view.getUint16(show.itemOffset + MASS_OUTBREAK_DAYS_BEFORE_OFFSET, true);
+        const speciesId = view.getUint16(show.itemOffset + OUTBREAK_SPECIES_OFFSET, true);
+        const mapId = view.getUint8(show.itemOffset + OUTBREAK_MAP_NUM_OFFSET);
+        const mapGroup = view.getUint8(show.itemOffset + OUTBREAK_MAP_GROUP_OFFSET);
+        const daysRemaining = view.getUint16(show.itemOffset + OUTBREAK_DAYS_BEFORE_OFFSET, true);
+        const moves: [number, number, number, number] = [
+          view.getUint16(show.itemOffset + OUTBREAK_MOVES_OFFSET, true),
+          view.getUint16(show.itemOffset + OUTBREAK_MOVES_OFFSET + 2, true),
+          view.getUint16(show.itemOffset + OUTBREAK_MOVES_OFFSET + 4, true),
+          view.getUint16(show.itemOffset + OUTBREAK_MOVES_OFFSET + 6, true),
+        ];
+        const probability = view.getUint8(show.itemOffset + OUTBREAK_PROBABILITY_OFFSET);
+        const level = view.getUint8(show.itemOffset + OUTBREAK_LEVEL_OFFSET);
+        const language = view.getUint8(show.itemOffset + OUTBREAK_LANGUAGE_OFFSET);
 
         // We only extract the first active swarm we find
         return {
@@ -650,13 +663,17 @@ export function parseGen3ActiveSwarm(view: DataView, offset: number): Gen3Active
           mapId,
           mapGroup,
           daysRemaining,
+          moves,
+          probability,
+          level,
+          language,
         };
       }
     }
     return undefined;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error('The save file is corrupted or incomplete: Invalid TV block struct.');
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }

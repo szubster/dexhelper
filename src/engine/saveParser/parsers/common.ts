@@ -94,6 +94,10 @@ export interface Gen3ActiveSwarm {
   mapId: number;
   mapGroup: number;
   daysRemaining: number;
+  moves?: [number, number, number, number];
+  probability?: number;
+  level?: number;
+  language?: number;
 }
 
 export interface Gen3SecretBasePartyMember {
