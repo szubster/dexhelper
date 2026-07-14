@@ -32,7 +32,8 @@ describe('parseGen1StaticEncounters', () => {
       const flagId = mewtwoGift.eventFlag;
       const byteIndex = flagId >> 3;
       const bitIndex = flagId & 7;
-      eventFlags[byteIndex] |= 1 << bitIndex;
+      const current = eventFlags[byteIndex];
+      if (current !== undefined) eventFlags[byteIndex] = current | (1 << bitIndex);
     }
 
     // Let's fake setting the Snorlax flag (id: 143)
@@ -41,7 +42,8 @@ describe('parseGen1StaticEncounters', () => {
       const flagId = snorlaxGift.eventFlag;
       const byteIndex = flagId >> 3;
       const bitIndex = flagId & 7;
-      eventFlags[byteIndex] |= 1 << bitIndex;
+      const current = eventFlags[byteIndex];
+      if (current !== undefined) eventFlags[byteIndex] = current | (1 << bitIndex);
     }
 
     const claimed = parseGen1StaticEncounters(eventFlags);
