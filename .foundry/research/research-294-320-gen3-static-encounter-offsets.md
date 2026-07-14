@@ -2,12 +2,12 @@
 id: research-294-320-gen3-static-encounter-offsets
 type: RESEARCH
 title: Gen 3 Static Encounter Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-13'
-updated_at: '2026-07-13'
+updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18299571615588828694'
 pr_number: null
 parent: story-138-294-gen3-static-encounters-parsing
 tags:
