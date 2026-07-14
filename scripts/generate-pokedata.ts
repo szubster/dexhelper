@@ -40,7 +40,9 @@ import {
   type CompactEncounter,
   POKE_VERSION_MAP,
   ENCOUNTER_METHOD_MAP,
-  EVO_TRIGGER_MAP
+  EVO_TRIGGER_MAP,
+  EGG_GROUP_MAP,
+  MOVE_DAMAGE_CLASS
 } from '../src/db/schema.ts';
 import { GEN1_MAPS, INDOOR_TO_PARENT_MAP } from './data/gen1/mapping.ts';
 import { GEN2_MAP_TO_AID, decodeGen2Id } from './data/gen2/mapping.ts';
@@ -257,7 +259,7 @@ async function main() {
       n: sData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || sData.name,
       cr: sData.capture_rate,
       gr: sData.gender_rate,
-      eg: sData.egg_groups?.map((g: any) => g.name) || [],
+      eg: sData.egg_groups?.map((g: any) => EGG_GROUP_MAP[g.name] || 0) || [],
       baby: sData.is_baby,
       // Temporaries to be filled in second pass
       eto: [],
@@ -679,10 +681,9 @@ for (let i = 1; i <= MAX_MOVE_ID; i++) {
   if (mData.damage_class) {
     const dcId = parseInt(mData.damage_class.url.split('/').filter(Boolean).pop() || '0', 10);
     // PokeAPI: 1=status, 2=physical, 3=special
-    // Our DB: 1=physical, 2=special, 3=status
-    if (dcId === 2) dmgClass = 1;
-    else if (dcId === 3) dmgClass = 2;
-    else if (dcId === 1) dmgClass = 3;
+    if (dcId === 2) dmgClass = MOVE_DAMAGE_CLASS.PHYSICAL;
+    else if (dcId === 3) dmgClass = MOVE_DAMAGE_CLASS.SPECIAL;
+    else if (dcId === 1) dmgClass = MOVE_DAMAGE_CLASS.STATUS;
   }
 
   let effect: number | undefined;
