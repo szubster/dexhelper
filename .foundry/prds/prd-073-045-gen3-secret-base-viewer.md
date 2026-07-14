@@ -33,9 +33,13 @@ Leverage DexHelper's programmatic save parsing to expose hidden Secret Base and 
 
 ## Next Steps
 - [ ] Epic Planner: Break this down into Epics (e.g., Save File Parsing, UI/Dashboard updates).
-  - [ ] .foundry/epics/epic-045-070-gen3-secret-base-parsing.md
-  - [ ] .foundry/epics/epic-045-071-gen3-secret-base-radar-integration.md
-  - [ ] .foundry/epics/epic-045-072-gen3-secret-base-dashboard.md
+  - [x] .foundry/epics/epic-045-070-gen3-secret-base-parsing.md
+  - [x] .foundry/epics/epic-045-071-gen3-secret-base-radar-integration.md
+  - [x] .foundry/epics/epic-045-072-gen3-secret-base-dashboard.md
+  - [ ] .foundry/research/research-045-321-investigate-secret-base-failure.md
+  - [ ] .foundry/epics/epic-045-324-gen3-secret-base-parsing-v2.md
+  - [ ] .foundry/epics/epic-045-325-gen3-secret-base-radar-integration-v2.md
+  - [ ] .foundry/epics/epic-045-326-gen3-secret-base-dashboard-v2.md
 
 ### Auditor Rejection
-Verification failed. The PRD is stuck in VERIFYING state, but its child EPICs (epic-045-070-gen3-secret-base-parsing, epic-045-071-gen3-secret-base-radar-integration, epic-045-072-gen3-secret-base-dashboard) have been permanently failed and CANCELLED. Therefore, this macro node's functional requirements have not been implemented and it cannot be verified as COMPLETED. The PRD must spawn a RESEARCH node to investigate the failure, create replacement nodes, and check off the failed children.
+Verification failed. The PRD's new child dependencies are still active and must be completed before the PRD can be verified.
