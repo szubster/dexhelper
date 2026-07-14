@@ -2,12 +2,12 @@
 id: idea-115-gen3-fame-checker-assistant
 type: IDEA
 title: Gen 3 Fame Checker Progress & Assistant
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-13'
-updated_at: '2026-07-13'
+updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3827567801261068384'
 pr_number: null
 parent: null
 tags:
