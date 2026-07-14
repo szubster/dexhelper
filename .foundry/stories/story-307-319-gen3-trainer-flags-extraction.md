@@ -1,11 +1,11 @@
 ---
 id: story-307-319-gen3-trainer-flags-extraction
 type: STORY
-title: "Gen 3 Trainer Defeat Flags Extraction"
-status: PENDING
+title: Gen 3 Trainer Defeat Flags Extraction
+status: READY
 owner_persona: tech_lead
-created_at: "2026-07-13"
-updated_at: "2026-07-13"
+created_at: '2026-07-13'
+updated_at: '2026-07-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 3 Trainer Defeat Flags Extraction

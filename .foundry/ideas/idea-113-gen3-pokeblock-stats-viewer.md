@@ -2,12 +2,12 @@
 id: idea-113-gen3-pokeblock-stats-viewer
 type: IDEA
 title: Gen 3 Pokéblock Exact Stats Viewer
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-12'
-updated_at: '2026-07-13'
+updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: '10342753816827464540'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

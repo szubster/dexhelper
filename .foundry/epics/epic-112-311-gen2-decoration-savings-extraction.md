@@ -2,10 +2,10 @@
 id: epic-112-311-gen2-decoration-savings-extraction
 type: EPIC
 title: Gen 2 Decoration & Savings Save Data Extraction
-status: PENDING
+status: READY
 owner_persona: story_owner
-created_at: "2026-07-14"
-updated_at: "2026-07-14"
+created_at: '2026-07-14'
+updated_at: '2026-07-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Epic: Gen 2 Decoration & Savings Save Data Extraction
