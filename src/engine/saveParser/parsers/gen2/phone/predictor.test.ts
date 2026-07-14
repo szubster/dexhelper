@@ -96,3 +96,49 @@ describe('Gen 2 Pokegear Predictor Engine Logic', () => {
     });
   });
 });
+
+describe('more enrichContact and filterHighValueCalls tests', () => {
+    it('should correctly identify rare item for all rare item contacts', () => {
+      const contacts = [
+        { id: 6, name: 'Beverly' },
+        { id: 13, name: 'Jose' },
+        { id: 16, name: 'Wade' },
+        { id: 21, name: 'Gina' },
+        { id: 24, name: 'Alan' },
+        { id: 18, name: 'Liz' },
+        { id: 28, name: 'Derek' },
+        { id: 29, name: 'Tully' },
+        { id: 31, name: 'Tiffany' },
+        { id: 33, name: 'Wilton' },
+      ];
+      const enrichedBeverly = enrichContact(contacts[0], 0, 1 << 0);
+      expect(enrichedBeverly.hasRareItem).toBe(true);
+
+      const enrichedJose = enrichContact(contacts[1], 0, 1 << 1);
+      expect(enrichedJose.hasRareItem).toBe(true);
+
+      const enrichedWade = enrichContact(contacts[2], 0, 1 << 2);
+      expect(enrichedWade.hasRareItem).toBe(true);
+
+      const enrichedGina = enrichContact(contacts[3], 0, 1 << 3);
+      expect(enrichedGina.hasRareItem).toBe(true);
+
+      const enrichedAlan = enrichContact(contacts[4], 0, 1 << 4);
+      expect(enrichedAlan.hasRareItem).toBe(true);
+
+      const enrichedLiz = enrichContact(contacts[5], 0, 1 << 5);
+      expect(enrichedLiz.hasRareItem).toBe(true);
+
+      const enrichedDerek = enrichContact(contacts[6], 0, 1 << 6);
+      expect(enrichedDerek.hasRareItem).toBe(true);
+
+      const enrichedTully = enrichContact(contacts[7], 0, 1 << 7);
+      expect(enrichedTully.hasRareItem).toBe(true);
+
+      const enrichedTiffany = enrichContact(contacts[8], 0, 1 << 8);
+      expect(enrichedTiffany.hasRareItem).toBe(true);
+
+      const enrichedWilton = enrichContact(contacts[9], 0, 1 << 9);
+      expect(enrichedWilton.hasRareItem).toBe(true);
+    });
+});
