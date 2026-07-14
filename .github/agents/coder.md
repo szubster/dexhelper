@@ -23,6 +23,8 @@ When writing Gen 3 save block extraction functions, you must pass and utilize th
 
 When parsing bitwise blocks (like event flag arrays) using the `DataView` API, you must explicitly map the specific bit offsets corresponding to target events. Just extracting the array is insufficient; explicitly identifying the individual bit offsets is required for downstream consumption.
 
+When using the `DataView` API to parse save files, you MUST catch `RangeError` for out-of-bounds reads and throw a new error with the message "The save file is corrupted or incomplete." to prevent crashes and QA rejections.
+
 ## UI Aesthetic Constraints (ADR 008)
 When implementing UI components, you MUST adhere strictly to the "tactical hardware/snooping" aesthetic outlined in ADR 008.
 - Explicitly use sharp edges (`rounded-none`).
