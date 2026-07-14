@@ -1,3 +1,5 @@
+import { EGG_GROUP } from '../../db/schema';
+
 export interface PokemonDVs {
   attack: number;
   defense: number;
@@ -9,7 +11,7 @@ export interface PokemonWithMetadata {
   id: string; // Unique identifier for the specific pokemon instance
   speciesId: number;
   gender: 'Male' | 'Female' | 'Genderless';
-  eggGroups: string[];
+  eggGroups: number[];
   isShinyCarrier?: boolean;
   isShiny?: boolean;
   dvs?: PokemonDVs;
@@ -77,11 +79,11 @@ export function calculateBreedingPairs(pokemonList: PokemonWithMetadata[]): Bree
 function isValidPair(p1: PokemonWithMetadata, p2: PokemonWithMetadata): boolean {
   if (p1.speciesId === p2.speciesId && p1.id === p2.id) return false;
 
-  const hasNoEggs = p1.eggGroups.includes('No Eggs') || p2.eggGroups.includes('No Eggs');
+  const hasNoEggs = p1.eggGroups.includes(EGG_GROUP.NO_EGGS) || p2.eggGroups.includes(EGG_GROUP.NO_EGGS);
   if (hasNoEggs) return false;
 
-  const p1IsDitto = p1.eggGroups.includes('Ditto');
-  const p2IsDitto = p2.eggGroups.includes('Ditto');
+  const p1IsDitto = p1.eggGroups.includes(EGG_GROUP.DITTO);
+  const p2IsDitto = p2.eggGroups.includes(EGG_GROUP.DITTO);
 
   if (p1IsDitto && p2IsDitto) return false;
   if (p1IsDitto || p2IsDitto) {
