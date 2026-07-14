@@ -30,5 +30,5 @@ Break down the implementation of the Pokegear Predictor logic into tasks.
 
 ## Acceptance Criteria
 - [x] Create tasks for the predictor engine logic
-- [ ] task-283-314-predictor-engine-logic-impl
-- [ ] task-283-315-predictor-engine-logic-qa
+- [x] task-283-314-predictor-engine-logic-impl
+- [x] task-283-315-predictor-engine-logic-qa
