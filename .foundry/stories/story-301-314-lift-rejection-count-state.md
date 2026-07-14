@@ -30,4 +30,5 @@ Extract the `MAX_REJECTION_THRESHOLD` constant (value: 3) from local file scopes
 3. Provide the value in the `DagProvider`.
 
 ## Acceptance Criteria
-- [ ] Break down this STORY into TASK nodes
+- [x] Break down this STORY into TASK nodes
+- [ ] task-301-314-lift-rejection-count-state-impl
