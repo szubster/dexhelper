@@ -39,7 +39,7 @@ Specifically, create a mechanism (e.g. `src/engine/saveParser/utils/eventFlags.t
 - If you submit an empty PR for a completed task (e.g. if the implementation already exists), you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Create constants for event flag bits/offsets according to ADR 028.
-- [ ] Implement parsing logic using explicit bitwise operators according to ADR 026.
-- [ ] Map the raw `eventFlags` to the `STATIC_GIFT_DATA` Gen 1 definitions.
-- [ ] Write unit tests to verify the extraction logic, explicitly testing edge cases (e.g. absolute zero state, boundary states).
+- [x] Create constants for event flag bits/offsets according to ADR 028.
+- [x] Implement parsing logic using explicit bitwise operators according to ADR 026.
+- [x] Map the raw `eventFlags` to the `STATIC_GIFT_DATA` Gen 1 definitions.
+- [x] Write unit tests to verify the extraction logic, explicitly testing edge cases (e.g. absolute zero state, boundary states).

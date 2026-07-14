@@ -192,6 +192,8 @@ export interface SaveData {
   gen3NPCTrades?: Record<string, boolean>;
   /** Gen 3 specific: Calculated valid Feebas tile locations. */
   gen3FeebasTiles?: number[];
+  /** Gen 1 specific: Claimed static encounters. */
+  gen1StaticEncounters?: Record<number, boolean>;
   /** The specific game version detected or forced (e.g., 'red', 'crystal'). */
   gameVersion: GameVersion;
   /** Bitflag representation of the total number of gym badges obtained. */
