@@ -369,3 +369,9 @@
 **Outcome:** Accepted
 **Why:** The `qa.md` journal recorded a failure pattern where the coder implemented Gen 3 save file extraction using absolute memory offsets (e.g., `0x2dd6`) instead of calculating them relative to the resolved section offset (e.g., `section1Offset`). In Gen 3, the A/B bank flash memory architecture requires relative offsets.
 **Pattern:** Codify architectural constraints (like relative memory offsets for Gen 3 A/B bank rotation) explicitly in the prompts of all involved personas (`coder`, `qa`, and `tech_lead`) to prevent recurring QA rejections and ensure correct implementation.
+
+## 2026-07-28 - [Accepted] - Prompt improvement - Enforce RangeError handling in coder prompt
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `qa.md` journal recorded on 2026-07-11 that the `coder` had a task rejected because they failed to handle `RangeError` from the `DataView` API when checking for out-of-bounds reads. The `tech_lead.md` journal also notes explicitly mandating this in blueprints. Adding this instruction to the coder's prompt proactively prevents these QA rejections and aligns the coder with the expected standard.
+**Pattern:** Codify specific, recurring architectural requirements and error handling rules (like catching `RangeError` from `DataView` and throwing a specific error message) directly into the implementer's prompt (`coder.md`) to prevent brittle code and repetitive QA rejections.
