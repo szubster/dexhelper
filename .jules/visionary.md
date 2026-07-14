@@ -220,5 +220,5 @@
 **Learning:** To ensure holistic project health, I must balance ideation between the main product (DexHelper) and the internal autonomous factory (Foundry). Maintaining a 50/50 split ensures the orchestrator remains as innovative and robust as the application it builds. I should periodically review my journal and .foundry/ideas/ to check the current distribution and pivot my focus if one area becomes over-represented.
 
 ## 2026-07-14
-**Idea:** Gen 2 Unown Dex Tracker
-**Learning:** Expanding DexHelper to support niche, game-specific sub-collections (like the Gen 2 Unown Dex) provides high utility for hardcore completionists. Because Unown forms in Gen 2 are tied to specific DV combinations, tracking this via save parsing turns a cumbersome in-game UI lookup into an instant, actionable checklist. This continues the successful pattern of isolating and surfacing obscure, highly-specific end-game challenges to reinforce the app's premium value.
+**Idea:** Gen 2 Unown Dex Tracker (Rejected as duplicate)
+**Learning:** Always double-check existing components (like `src/components/pokemon/unown/UnownDexPanel.tsx`) before proposing a new idea to ensure it hasn't already been implemented. The Gen 2 Unown Dex was already a feature, so this idea was correctly rejected as obsolete. In the future, I must thoroughly `grep` the source code (`src/`) for mechanics before assuming they are missing.

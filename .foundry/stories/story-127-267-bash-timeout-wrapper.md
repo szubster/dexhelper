@@ -5,9 +5,9 @@ title: Implement timeout wrapper
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-13'
+updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: '14616843638093789234'
+jules_session_id: '8339075406298674663'
 pr_number: null
 parent: epic-057-127-bash-timeout-wrapper
 tags:
