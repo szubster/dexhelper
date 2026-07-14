@@ -2,12 +2,12 @@
 id: story-117-283-pokegear-predictor-engine
 type: STORY
 title: Implement Predictor Engine Logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-07'
 updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8044573998486435559'
 pr_number: null
 parent: epic-055-117-pokegear-predictor
 tags:
