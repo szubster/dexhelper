@@ -2,12 +2,12 @@
 id: story-304-320-gen3-contest-frontier-extraction
 type: STORY
 title: 'Story: Gen 3 Contest & Battle Frontier Extraction'
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-07-13'
+updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9213130707659516825'
 pr_number: null
 parent: epic-111-304-gen3-trainer-card-data-extraction
 tags:
