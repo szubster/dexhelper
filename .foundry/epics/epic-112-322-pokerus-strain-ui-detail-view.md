@@ -2,12 +2,12 @@
 id: epic-112-322-pokerus-strain-ui-detail-view
 type: EPIC
 title: Pokerus Strain UI Tracker - Detail View
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-13'
 updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6403594647363173717'
 pr_number: null
 parent: prd-107-112-pokerus-strain-ui-tracker
 tags:
