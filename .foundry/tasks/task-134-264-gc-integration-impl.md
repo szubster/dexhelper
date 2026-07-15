@@ -32,6 +32,6 @@ Integrate the GC process into the main orchestrator (foundry-heartbeat.ts) or as
 - When drafting blueprints for save file parsing, explicitly require that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Determine integration approach (synchronous vs scheduled script).
-- [ ] Implement the integration using the detection and remediation logic.
-- [ ] Write tests to verify the integration.
+- [x] Determine integration approach (synchronous vs scheduled script).
+- [x] Implement the integration using the detection and remediation logic.
+- [x] Write tests to verify the integration.
