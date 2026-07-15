@@ -41,9 +41,9 @@ Extract the `MAX_REJECTION_THRESHOLD` constant (value: 3) from local file scopes
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Define `MAX_REJECTION_THRESHOLD = 3` in `DagContext.tsx`.
-- [ ] Expose `maxRejectionThreshold` through `DagContextState` and `DagProvider`.
-- [ ] Refactor `DagDashboard.tsx` to use `maxRejectionThreshold` from context.
-- [ ] Refactor `DagNode.tsx` to use `maxRejectionThreshold` from context.
-- [ ] Ensure `DagNode.test.tsx` passes.
-- [ ] Self-verify the changes (low risk logic).
+- [x] Define `MAX_REJECTION_THRESHOLD = 3` in `DagContext.tsx`.
+- [x] Expose `maxRejectionThreshold` through `DagContextState` and `DagProvider`.
+- [x] Refactor `DagDashboard.tsx` to use `maxRejectionThreshold` from context.
+- [x] Refactor `DagNode.tsx` to use `maxRejectionThreshold` from context.
+- [x] Ensure `DagNode.test.tsx` passes.
+- [x] Self-verify the changes (low risk logic).
