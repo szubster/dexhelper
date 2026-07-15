@@ -33,5 +33,5 @@ The `logToJournal` function was missed in the initial extraction of DAG utilitie
 - [x] `foundry-orchestrator.ts` uses `logToJournal` instead of inline `fs.appendFileSync`.
 
 ### Child Tasks
-- [ ] task-278-305-extract-log-to-journal
+- [x] task-278-305-extract-log-to-journal
 - [x] task-278-304-extract-log-to-journal
