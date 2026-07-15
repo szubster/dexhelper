@@ -29,5 +29,11 @@ Integrate the Feebas seed extraction and tile calculation utilities (`extractFee
 - [ ] Update the `SaveData` interface in `src/engine/saveParser/parsers/common.ts` to include the Feebas tile coordinates.
 - [ ] Map the calculated coordinates to the updated `SaveData` schema during hydration.
 - [ ] Add unit/integration tests to verify Feebas data is correctly populated during save parsing.
-- [ ] task-280-304-feebas-backend-integration
-- [ ] task-280-305-feebas-backend-integration-qa
+- [x] task-280-304-feebas-backend-integration
+- [x] task-280-305-feebas-backend-integration-qa
+- [ ] research-280-324-feebas-offset-investigation
+- [ ] task-280-325-feebas-backend-integration-retry-impl
+- [ ] task-280-326-feebas-backend-integration-retry-qa
+
+### Auditor Rejection
+The previous child tasks failed permanently because the absolute offsets were used instead of calculating relative to section1Offset. The newly spawned child dependencies (research-280-324-feebas-offset-investigation, task-280-325-feebas-backend-integration-retry-impl, and task-280-326-feebas-backend-integration-retry-qa) are still active, so this parent verification is explicitly failed to stay open in the DAG.
