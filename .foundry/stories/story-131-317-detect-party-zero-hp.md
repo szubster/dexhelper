@@ -29,4 +29,5 @@ Implement logic to detect Pokémon currently at 0 HP in the party as dead.
 - Ensure the state updates correctly when a Pokémon dies in the party.
 
 ## Acceptance Criteria
-- [ ] Breakdown into Tasks
+- [x] Breakdown into Tasks
+- [ ] task-317-322-detect-party-zero-hp-impl
