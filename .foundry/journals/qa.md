@@ -43,3 +43,11 @@ To enforce the architecture correctly, all dynamic save block extraction functio
 
 ## 2026-07-13 - Feebas Extraction Permanent Failure (Task: task-280-305-feebas-backend-integration-qa)
 The coder failed to properly implement relative memory offsets using `section1Offset` for Feebas seed extraction after multiple rejections. They used `section2Offset` instead of `section1Offset`, violating the architecture requirements of the Gen 3 A/B bank flash memory system. As they have reached the maximum rejection count, I have permanently failed the `task-280-304-feebas-backend-integration` by setting its status to `CANCELLED`.
+
+
+## Rejection Log: task-121-309-gen3-tv-block-parser-retry6-impl
+**Status:** FAILED
+**Reason:**
+1. The implementation used inline magic numbers (`+ 2`, `+ 4`, `+ 6`) in `parseGen3ActiveSwarm`.
+2. The `RangeError` message in `parseGen3TVBlock` includes extra text (`"The save file is corrupted or incomplete: Invalid TV block struct."`) instead of the required exact message.
+I have explicitly rejected this implementation, incremented its `rejection_count`, left my own task's `Acceptance Criteria` unchecked, and will submit an Empty PR to let the system retry.
