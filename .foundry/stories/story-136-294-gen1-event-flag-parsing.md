@@ -25,5 +25,5 @@ Extract and parse the event flags for Gen 1 static encounters from the save file
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-294-316-gen1-event-flag-parsing-impl
-- [ ] task-294-317-gen1-event-flag-parsing-qa
+- [x] task-294-316-gen1-event-flag-parsing-impl
+- [x] task-294-317-gen1-event-flag-parsing-qa
