@@ -26,8 +26,9 @@ notes: ''
 Define the `SaveHistoryDB` IndexedDB schema within the application codebase. This involves creating the database configuration with the correct name, version, and defining the object stores needed for saving raw files, metadata, and indexes.
 
 ## Acceptance Criteria
-- [ ] Define the `SaveHistoryDB` configuration.
-- [ ] Implement the database configuration and schema initialization logic.
-- [ ] Define the `saves` object store for raw binary save files (`Uint8Array`).
-- [ ] Define the `metadata` object store for save file metadata.
-- [ ] Define the `indexes` object store for fast retrieval of save data without parsing raw saves.
+- [ ] task-315-322-implement-savehistorydb
+- [x] Define the `SaveHistoryDB` configuration.
+- [x] Implement the database configuration and schema initialization logic.
+- [x] Define the `saves` object store for raw binary save files (`Uint8Array`).
+- [x] Define the `metadata` object store for save file metadata.
+- [x] Define the `indexes` object store for fast retrieval of save data without parsing raw saves.
