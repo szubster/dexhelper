@@ -1,11 +1,11 @@
 ---
 id: story-136-295-gen1-checklist-ui
 type: STORY
-title: "Gen 1 Checklist UI"
-status: PENDING
-owner_persona: "tech_lead"
-created_at: "2026-07-10"
-updated_at: "2026-07-10"
+title: Gen 1 Checklist UI
+status: READY
+owner_persona: tech_lead
+created_at: '2026-07-10'
+updated_at: '2026-07-15'
 depends_on:
   - .foundry/stories/story-136-294-gen1-event-flag-parsing.md
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - feature
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 1 Checklist UI

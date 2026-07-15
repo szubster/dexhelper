@@ -2,12 +2,12 @@
 id: story-136-294-gen1-event-flag-parsing
 type: STORY
 title: Gen 1 Event Flag Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-10'
 updated_at: '2026-07-15'
 depends_on: []
-jules_session_id: '12688245053738180676'
+jules_session_id: null
 pr_number: null
 parent: epic-106-136-gen1-static-encounters
 tags:

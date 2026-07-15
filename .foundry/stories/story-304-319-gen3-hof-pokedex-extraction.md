@@ -2,12 +2,12 @@
 id: story-304-319-gen3-hof-pokedex-extraction
 type: STORY
 title: 'Story: Gen 3 Hall of Fame & Pokédex Data Extraction'
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-07-14'
+updated_at: '2026-07-15'
 depends_on: []
-jules_session_id: '8654587757197470283'
+jules_session_id: null
 pr_number: null
 parent: epic-111-304-gen3-trainer-card-data-extraction
 tags:
