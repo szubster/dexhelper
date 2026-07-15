@@ -2,10 +2,10 @@
 id: epic-112-325-npc-size-record-calculation-engine
 type: EPIC
 title: Gen 2 & Gen 3 NPC Size Record Assistant - Calculation Engine
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-07-14'
+updated_at: '2026-07-15'
 depends_on:
   - epic-112-324-npc-size-record-data-extraction
 jules_session_id: null

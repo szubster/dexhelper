@@ -2,10 +2,10 @@
 id: epic-112-326-npc-size-record-dashboard-ui
 type: EPIC
 title: Gen 2 & Gen 3 NPC Size Record Assistant - Dashboard UI
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-07-14'
+updated_at: '2026-07-15'
 depends_on:
   - epic-112-325-npc-size-record-calculation-engine
 jules_session_id: null

@@ -2,12 +2,12 @@
 id: task-294-316-gen1-event-flag-parsing-impl
 type: TASK
 title: Gen 1 Event Flag Parsing Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-12'
-updated_at: '2026-07-14'
+updated_at: '2026-07-15'
 depends_on: []
-jules_session_id: '1408697557211015181'
+jules_session_id: null
 pr_number: null
 parent: story-136-294-gen1-event-flag-parsing
 tags:

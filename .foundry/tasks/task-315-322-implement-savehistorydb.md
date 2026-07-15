@@ -2,10 +2,10 @@
 id: task-315-322-implement-savehistorydb
 type: TASK
 title: Implement SaveHistoryDB Initialization
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-14'
-updated_at: '2026-07-14'
+updated_at: '2026-07-15'
 depends_on: []
 jules_session_id: null
 pr_number: null

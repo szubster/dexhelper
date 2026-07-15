@@ -2,10 +2,10 @@
 id: task-294-317-gen1-event-flag-parsing-qa
 type: TASK
 title: Gen 1 Event Flag Parsing QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-12'
-updated_at: '2026-07-12'
+updated_at: '2026-07-15'
 depends_on:
   - task-294-316-gen1-event-flag-parsing-impl
 jules_session_id: null
