@@ -28,8 +28,8 @@ Implement base DataView parsing for the Gen 3 Roamer structure in SaveBlock1.
 Develop the core parsing logic to extract the Roamer data block (IVs, Species, HP, etc.) from SaveBlock1. This must handle the version-specific offsets for Ruby/Sapphire, Emerald, and FireRed/LeafGreen.
 
 ## Acceptance Criteria
-- [ ] Implement `parseGen3Roamer` function in `src/engine/saveParser/parsers/gen3.ts`.
-- [ ] Support Ruby/Sapphire and Emerald offsets as documented in research.
+- [x] Implement `parseGen3Roamer` function in `src/engine/saveParser/parsers/gen3.ts`.
+- [x] Support Ruby/Sapphire and Emerald offsets as documented in research.
 - [x] Tech Lead: Break down this Story into executable Tasks.
-- [ ] task-291-314-gen3-roamer-core-extraction-impl
-- [ ] task-291-315-gen3-roamer-core-extraction-qa
+- [x] task-291-314-gen3-roamer-core-extraction-impl
+- [x] task-291-315-gen3-roamer-core-extraction-qa
