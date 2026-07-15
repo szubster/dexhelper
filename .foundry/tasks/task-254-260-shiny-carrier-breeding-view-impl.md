@@ -41,8 +41,8 @@ Implement the UI view for the breeding suggestions and shiny carrier pairs.
 5. Create UI components with tactical aesthetics (`rounded-none`, `border-dashed`, monospaced fonts).
 
 ## Acceptance Criteria
-- [ ] Implement the Breeding Suggestions UI.
-- [ ] Display optimal breeding pairs prioritizing Shiny Carriers.
-- [ ] Indicate parents and box locations.
-- [ ] Component conforms to the tactical hardware aesthetic.
-- [ ] Include explicit integration steps and tests for rendering the component.
+- [x] Implement the Breeding Suggestions UI.
+- [x] Display optimal breeding pairs prioritizing Shiny Carriers.
+- [x] Indicate parents and box locations.
+- [x] Component conforms to the tactical hardware aesthetic.
+- [x] Include explicit integration steps and tests for rendering the component.

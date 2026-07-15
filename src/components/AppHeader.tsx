@@ -67,10 +67,10 @@ export function AppHeader({
               <NavigationTab to="/assistant" icon={<Sparkles size={14} />} label="SYS.ASST" />
               <VerticalDivider />
               <NavigationTab to="/dag" icon={<GitGraph size={14} />} label="SYS.DAG" />
-              {saveData.generation === 3 && (
+              {(saveData.generation === 3 || saveData.generation === 2) && (
                 <>
                   <VerticalDivider />
-                  <NavigationTab to="/dashboard" icon={<Swords size={14} />} label="SYS.BTFR" />
+                  <NavigationTab to="/dashboard" icon={<Swords size={14} />} label="SYS.DASH" />
                 </>
               )}
             </div>
