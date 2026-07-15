@@ -45,5 +45,5 @@ To ensure granular execution and minimize complexity, this PRD should be broken 
 - [x] Epic 1 (Engine Updates) node created.
 - [x] Epic 2 (UI Updates) node created.
 
-- [ ] .foundry/epics/epic-038-061-mirage-island-engine.md
-- [ ] .foundry/epics/epic-038-062-mirage-island-ui.md
+- [ ] epic-038-061-mirage-island-engine
+- [ ] epic-038-062-mirage-island-ui

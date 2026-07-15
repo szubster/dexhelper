@@ -49,6 +49,6 @@ Derived from `prd-070-042-gen3-contest-optimization-advisor`, this epic handles 
 - [ ] Implement and test visual warning states for maxed Sheen scenarios.
 
 ### Stories
-- [ ] .foundry/archive/stories/story-065-149-contest-recommendation-ui-components.md
-- [ ] .foundry/archive/stories/story-065-150-contest-warning-states-ui.md
-- [ ] .foundry/stories/story-065-151-contest-advisor-ui-integration.md
+- [ ] story-065-149-contest-recommendation-ui-components
+- [ ] story-065-150-contest-warning-states-ui
+- [ ] story-065-151-contest-advisor-ui-integration

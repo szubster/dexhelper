@@ -38,6 +38,6 @@ As defined in `idea-068-mirage-island-predictor`, we need to implement a predict
 
 ## Acceptance Criteria
 - [x] Epic Planner: Generate child epics that implement the save file parsing updates and the application state hydration.
-- [ ] .foundry/epics/epic-038-061-mirage-island-save-parsing.md
-- [ ] .foundry/archive/epics/epic-038-062-personality-value-extraction.md
-- [ ] .foundry/epics/epic-038-063-mirage-island-data-hydration.md
+- [ ] epic-038-061-mirage-island-save-parsing
+- [ ] epic-038-062-personality-value-extraction
+- [ ] epic-038-063-mirage-island-data-hydration

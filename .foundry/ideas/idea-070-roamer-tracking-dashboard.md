@@ -39,4 +39,4 @@ This feature eliminates one of the most frustrating and time-consuming mechanics
 
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD to evaluate if the roamer tracking logic currently exists in the codebase and define the required UI implementation details.
-- [ ] .foundry/prds/prd-070-043-roamer-tracking-dashboard.md
+- [ ] prd-070-043-roamer-tracking-dashboard

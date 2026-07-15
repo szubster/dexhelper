@@ -39,4 +39,4 @@ This feature transforms DexHelper from a passive storage viewer into an active b
 
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD.
-- [ ] .foundry/prds/prd-086-054-box-duplicate-analyzer.md
+- [ ] prd-086-054-box-duplicate-analyzer

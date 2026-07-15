@@ -36,4 +36,4 @@ This feature eliminates the need for complex, manual cross-referencing between w
 
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD to investigate the graph algorithms needed to calculate breeding chains across Egg Groups.
-- [ ] .foundry/prds/prd-091-055-smart-egg-move-path-finder.md
+- [ ] prd-091-055-smart-egg-move-path-finder

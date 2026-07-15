@@ -50,5 +50,5 @@ Leverage DexHelper's deep understanding of save file structures (checksums, magi
 - [x] Epic Planner: Break this PRD down into actionable Epics.
 
 ## 6. Generated Epics
-- [ ] .foundry/epics/epic-036-053-health-scanner-core-engine.md
-- [ ] .foundry/epics/epic-036-054-diagnostic-reporting-ui.md
+- [ ] epic-036-053-health-scanner-core-engine
+- [ ] epic-036-054-diagnostic-reporting-ui

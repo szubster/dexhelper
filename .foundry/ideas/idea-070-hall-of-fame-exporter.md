@@ -33,4 +33,4 @@ This transforms DexHelper from a personal utility into a social sharing tool. By
 
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD detailing the required save file offsets for Hall of Fame records and the UI requirements for the certificate generator.
-- [ ] .foundry/prds/prd-070-044-hall-of-fame-exporter.md
+- [ ] prd-070-044-hall-of-fame-exporter

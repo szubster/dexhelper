@@ -34,4 +34,4 @@ Implement a garbage collection (GC) mechanism directly within `.github/scripts/f
 This enhancement significantly improves the resilience and self-healing capabilities of the Foundry system, reducing the need for manual TPM intervention to resolve DAG deadlocks caused by transient CI failures.
 
 ## Generated PRDs
-- [ ] .foundry/prds/prd-079-050-foundry-zombie-node-cleanup.md
+- [ ] prd-079-050-foundry-zombie-node-cleanup

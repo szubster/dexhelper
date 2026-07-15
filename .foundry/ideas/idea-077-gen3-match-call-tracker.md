@@ -37,4 +37,4 @@ This perfectly aligns with DexHelper's vision as an intelligent companion app. I
 
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD to detail the UI requirements and required memory offsets for Emerald Match Call flags.
-- [ ] .foundry/prds/prd-077-048-gen3-match-call-tracker.md
+- [ ] prd-077-048-gen3-match-call-tracker

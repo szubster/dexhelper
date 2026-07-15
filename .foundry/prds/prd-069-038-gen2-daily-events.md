@@ -38,6 +38,6 @@ Leverage DexHelper's deep save file parsing to track event flags, combined with 
 - [x] Epic Planner: Break down the "Event Flag Parsing" into Epics.
 - [x] Epic Planner: Break down the "Dynamic Checklist UI" into Epics.
 - [x] Epic Planner: Break down the "Smart Filtering & Forecasting" into Epics.
-- [ ] .foundry/epics/epic-038-061-gen2-event-flag-parsing.md
-- [ ] .foundry/epics/epic-038-062-gen2-dynamic-checklist-ui.md
-- [ ] .foundry/epics/epic-038-063-gen2-smart-filtering-forecasting.md
+- [ ] epic-038-061-gen2-event-flag-parsing
+- [ ] epic-038-062-gen2-dynamic-checklist-ui
+- [ ] epic-038-063-gen2-smart-filtering-forecasting

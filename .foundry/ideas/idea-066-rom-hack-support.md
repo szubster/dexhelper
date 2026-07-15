@@ -2,7 +2,7 @@
 id: idea-066-rom-hack-support
 type: IDEA
 title: ROM Hack Support via Custom Adapters
-status: ACTIVE
+status: PENDING
 owner_persona: human
 created_at: '2026-05-27'
 updated_at: '2026-05-30'

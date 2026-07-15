@@ -36,5 +36,5 @@ Implement logic to extract actual Hall of Fame records from Generation 2 (Gold, 
 
 ## Acceptance Criteria
 - [x] Create tasks to implement parsing for Gen 2 Hall of Fame records data.
-- [ ] .foundry/tasks/task-150-212-gen2-hof-records-extraction-impl.md
-- [ ] .foundry/tasks/task-150-213-gen2-hof-records-extraction-qa.md
+- [ ] task-150-212-gen2-hof-records-extraction-impl
+- [ ] task-150-213-gen2-hof-records-extraction-qa

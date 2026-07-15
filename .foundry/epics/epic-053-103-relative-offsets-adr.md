@@ -33,8 +33,8 @@ Currently, save file extraction uses absolute hardcoded offsets for dynamic bloc
 - [x] Create ADR or implement linter rule.
 
 ## Child Stories
-- [x] .foundry/archive/stories/story-103-245-investigate-offset-linter.md
-- [x] .foundry/archive/stories/story-103-246-create-relative-offsets-adr.md
+- [x] story-103-245-investigate-offset-linter
+- [x] story-103-246-create-relative-offsets-adr
 
 ## Auditor Learnings & Follow-ups
 Based on the finding that tooling cannot automatically enforce offset rules, a follow-up node has been spawned to retroactively apply ADR 028 to legacy parsing code:

@@ -32,6 +32,6 @@ Recent implementation attempts permanently failed because the state was left tig
 ## Acceptance Criteria
 - [x] Break down into Epics
 
-- [ ] .foundry/epics/epic-045-070-implement-dag-context.md
-- [ ] .foundry/epics/epic-045-071-refactor-data-parsing-layer.md
-- [ ] .foundry/epics/epic-045-072-refactor-views.md
+- [ ] epic-045-070-implement-dag-context
+- [ ] epic-045-071-refactor-data-parsing-layer
+- [ ] epic-045-072-refactor-views

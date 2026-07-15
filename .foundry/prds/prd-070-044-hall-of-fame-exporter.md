@@ -33,10 +33,10 @@ Transform DexHelper into a social sharing utility by parsing Hall of Fame record
 
 ## Acceptance Criteria
 - [x] Break down into ADRs
-- [ ] .foundry/docs/adrs/adr-044-021-hof-data-parsing-architecture.md
-- [ ] .foundry/docs/adrs/adr-044-022-hof-certificate-generation.md
-- [ ] .foundry/docs/adrs/adr-044-023-hof-timeline-ui.md
+- [ ] adr-044-021-hof-data-parsing-architecture
+- [ ] adr-044-022-hof-certificate-generation
+- [ ] adr-044-023-hof-timeline-ui
 - [x] Break down into Epics
-- [ ] .foundry/epics/epic-044-070-hof-data-parsing.md
-- [ ] .foundry/epics/epic-044-071-hof-certificate-rendering.md
-- [ ] .foundry/epics/epic-044-072-hof-timeline-ui.md
+- [ ] epic-044-070-hof-data-parsing
+- [ ] epic-044-071-hof-certificate-rendering
+- [ ] epic-044-072-hof-timeline-ui

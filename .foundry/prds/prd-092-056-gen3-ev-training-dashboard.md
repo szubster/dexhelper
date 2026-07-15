@@ -50,6 +50,6 @@ In Pokémon Generation 3, EVs are completely invisible to the player, making com
 - [ ] The dashboard accurately visualizes the EV distribution and total remaining EVs.
 - [ ] Training recommendations provide actionable route/trainer data for EV farming.
 - [ ] UI components strictly follow the tactical aesthetic guidelines.
-- [ ] .foundry/epics/epic-092-116-gen3-ev-data-extraction.md
-- [ ] .foundry/epics/epic-092-117-gen3-ev-dashboard-ui.md
-- [ ] .foundry/epics/epic-092-118-gen3-ev-training-recommendations.md
+- [ ] epic-092-116-gen3-ev-data-extraction
+- [ ] epic-092-117-gen3-ev-dashboard-ui
+- [ ] epic-092-118-gen3-ev-training-recommendations

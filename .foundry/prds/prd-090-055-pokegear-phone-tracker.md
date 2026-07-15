@@ -33,7 +33,7 @@ In Generation 2 (Gold, Silver, Crystal), the Pokégear Phone is a central featur
 
 ## Acceptance Criteria
 - [x] Break down into Epics
-- [ ] .foundry/archive/research/research-055-244-pokegear-mechanics.md
-- [ ] .foundry/epics/epic-055-116-pokegear-active-callers.md
-- [ ] .foundry/epics/epic-055-117-pokegear-predictor.md
-- [ ] .foundry/epics/epic-055-118-pokegear-alerts.md
+- [ ] research-055-244-pokegear-mechanics
+- [ ] epic-055-116-pokegear-active-callers
+- [ ] epic-055-117-pokegear-predictor
+- [ ] epic-055-118-pokegear-alerts

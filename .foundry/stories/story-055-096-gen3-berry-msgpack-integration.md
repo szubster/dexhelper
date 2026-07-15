@@ -32,5 +32,5 @@ Serialize the extracted Gen 3 berry patch data using `msgpackr` and integrate wi
 - [ ] Integrate serialized data with PokeData storage generation pipeline.
 - [ ] Expose through runtime API.
 
-- [ ] .foundry/tasks/task-096-194-gen3-berry-msgpack-impl.md
-- [ ] .foundry/tasks/task-096-195-gen3-berry-msgpack-qa.md
+- [ ] task-096-194-gen3-berry-msgpack-impl
+- [ ] task-096-195-gen3-berry-msgpack-qa

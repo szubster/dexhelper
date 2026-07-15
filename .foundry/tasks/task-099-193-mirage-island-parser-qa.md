@@ -36,4 +36,4 @@ We need to verify that the Gen 3 save parser logic for extracting the Mirage Isl
 ## Acceptance Criteria
 - [ ] Verify unit tests confirm successful parsing using `DataView`.
 - [ ] Verify unit tests confirm graceful error handling for `RangeError`.
-- [ ] Update the parent story `.foundry/stories/story-061-099-implement-mirage-island-parser.md` by checking off this task's checkbox.
+- [ ] Update the parent story by checking off this task's checkbox.

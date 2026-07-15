@@ -37,5 +37,5 @@ Corrupted save files often manifest as impossible movesets or corrupted inventor
 - [x] Tech Lead: Break this Story down into actionable Tasks for the coder.
 
 ### Child Nodes
-- [ ] .foundry/tasks/task-094-157-moveset-inventory-validation-impl.md
-- [ ] .foundry/tasks/task-094-158-moveset-inventory-validation-qa.md
+- [ ] task-094-157-moveset-inventory-validation-impl
+- [ ] task-094-158-moveset-inventory-validation-qa

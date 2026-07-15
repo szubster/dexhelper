@@ -35,4 +35,4 @@ To prevent this friction and improve the resilience of the Foundry ecosystem, we
 ## Acceptance Criteria
 - [x] Investigate the feasibility of wrapping bash execution with a timeout mechanism.
 - [x] Implement the timeout logic if feasible, or implement static analysis to reject commands containing known blocking flags (like `-f` on `tail`).
-- [ ] .foundry/prds/prd-095-057-prevent-blocking-bash-commands.md
+- [ ] prd-095-057-prevent-blocking-bash-commands

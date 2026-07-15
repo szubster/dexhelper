@@ -36,4 +36,4 @@ This transforms a highly opaque, easily-forgotten social feature into an actiona
 
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD to define the data structures and save file offsets needed for parsing Secret Base and Mixed Record data in Gen 3.
-- [ ] .foundry/prds/prd-073-045-gen3-secret-base-viewer.md
+- [ ] prd-073-045-gen3-secret-base-viewer

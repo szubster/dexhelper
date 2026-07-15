@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-07-11'
 updated_at: '2026-07-13'
 depends_on:
-  - .foundry/tasks/task-272-304-living-dex-ghost-tracker-impl.md
+  - task-272-304-living-dex-ghost-tracker-impl
 jules_session_id: null
 pr_number: null
 parent: story-133-272-living-dex-ghost-tracker

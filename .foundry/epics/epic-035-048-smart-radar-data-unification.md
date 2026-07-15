@@ -33,5 +33,5 @@ Unify the data structures used by the suggestion engine and the map rendering co
 ## Acceptance Criteria
 - [x] Write stories to implement data unification according to the ADR.
 - [ ] Complete child stories/tasks for data unification.
-- [ ] .foundry/archive/stories/story-048-088-create-route-radar-controller.md
-- [ ] .foundry/stories/story-048-089-route-radar-density-aggregation.md
+- [ ] story-048-088-create-route-radar-controller
+- [ ] story-048-089-route-radar-density-aggregation

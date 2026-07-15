@@ -32,4 +32,4 @@ Features should include:
 
 This directly aligns with DexHelper's vision as a premium companion app that surfaces hidden game state to eliminate tedious manual tracking for hardcore players.
 
-- [ ] .foundry/prds/prd-092-056-gen3-ev-training-dashboard.md
+- [ ] prd-092-056-gen3-ev-training-dashboard

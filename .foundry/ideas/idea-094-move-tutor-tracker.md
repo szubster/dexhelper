@@ -31,4 +31,4 @@ Build a "Move Tutor Tracker" dashboard that:
 This turns opaque, hidden game state into actionable strategy for competitive players and Nuzlockers, saving time and removing the need for external resources.
 
 ## Generated PRDs
-- [ ] .foundry/prds/prd-094-055-move-tutor-tracker.md
+- [ ] prd-094-055-move-tutor-tracker

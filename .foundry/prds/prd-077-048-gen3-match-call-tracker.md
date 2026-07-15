@@ -50,6 +50,6 @@ This PRD outlines the requirements for implementing the "Rematch Dashboard" in D
 
 ## Next Steps
 - [x] Epic Planner: Break this PRD down into Epics (e.g., Save Parsing Engine Updates, Static Data Generation, Dashboard UI).
-- [ ] Epic: [Gen 3 Match Call Save Parsing](.foundry/epics/epic-048-083-gen3-match-call-save-parsing.md)
-- [ ] Epic: [Gen 3 Match Call Static Data Generation](.foundry/epics/epic-048-084-gen3-match-call-static-data.md)
-- [ ] Epic: [Gen 3 Rematch Dashboard UI](.foundry/epics/epic-048-085-gen3-match-call-dashboard-ui.md)
+- [ ] epic-048-083-gen3-match-call-save-parsing
+- [ ] epic-048-084-gen3-match-call-static-data
+- [ ] epic-048-085-gen3-match-call-dashboard-ui

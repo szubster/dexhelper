@@ -27,4 +27,4 @@ Audits reveal that EPICs are being verified before their functional requirements
 Create a mechanism to ensure that an EPIC cannot be marked COMPLETED until its functional requirements are verifiably integrated into the application, not just scaffolded in isolated components.
 
 ## Acceptance Criteria
-- [ ] .foundry/prds/prd-096-057-macro-node-boundary-enforcement.md
+- [ ] prd-096-057-macro-node-boundary-enforcement

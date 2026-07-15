@@ -25,4 +25,4 @@ notes: ''
 `schema.md` contains a contradiction in its System Invariants. Invariant 7 states: "COMPLETED nodes are read-only. Once a PR is merged, the node must not be edited." However, ADR 014 changed the lifecycle so that when a PR is merged, nodes transition to `VERIFYING`, not `COMPLETED`. The invariant needs to be updated to reflect the `VERIFYING` state accurately.
 
 ## Derived Nodes
-- [ ] .foundry/prds/prd-097-096-schema-verifying-state-fix.md
+- [ ] prd-097-096-schema-verifying-state-fix

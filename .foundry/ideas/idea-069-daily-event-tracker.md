@@ -37,4 +37,4 @@ This feature transforms DexHelper from a static data viewer into an active, inte
 
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD to define the specific event flags that need to be parsed and outline the UI checklist component.
-- [ ] [prd-069-038-gen2-daily-events.md](.foundry/prds/prd-069-038-gen2-daily-events.md)
+- [ ] prd-069-038-gen2-daily-events

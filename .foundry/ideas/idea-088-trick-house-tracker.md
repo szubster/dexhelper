@@ -35,4 +35,4 @@ This targets a highly localized, easily forgettable side-quest mechanic. By surf
 
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD to investigate the exact save file offsets and bitflags used to track the Trick House puzzle state in Ruby/Sapphire/Emerald.
-- [ ] .foundry/prds/prd-088-054-trick-house-tracker.md
+- [ ] prd-088-054-trick-house-tracker

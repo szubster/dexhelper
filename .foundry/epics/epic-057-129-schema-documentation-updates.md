@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-07-03'
 updated_at: '2026-07-03'
 depends_on:
-  - .foundry/epics/epic-057-128-epic-planner-process-update.md
+  - epic-057-128-epic-planner-process-update
 jules_session_id: null
 pr_number: null
 parent: prd-096-057-macro-node-boundary-enforcement
@@ -28,5 +28,5 @@ As part of enforcing macro node functional boundaries, we need to update templat
 Update `.foundry/docs/schema.md` or other relevant documentation/templates to explicitly require an Integration/E2E Story for all new Epics.
 
 ## Acceptance Criteria
-- [ ] Update `.foundry/docs/schema.md` with the new process requirements.
+- [ ] Update `schema.md` with the new process requirements.
 - [ ] Update any other necessary documentation and schemas.

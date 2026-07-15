@@ -35,4 +35,4 @@ This targets a highly localized, tedious item-gathering grind. By surfacing the 
 
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD to investigate the exact save file offsets for the Soot Sack step counter in Ruby/Sapphire/Emerald.
-- [ ] .foundry/prds/prd-089-054-gen3-ash-gathering-tracker.md
+- [ ] prd-089-054-gen3-ash-gathering-tracker

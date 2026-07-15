@@ -29,4 +29,4 @@ We need to strongly enforce the rule that a macro node (IDEA, PRD, EPIC, STORY) 
 
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD.
-- [ ] .foundry/prds/prd-072-045-strict-macro-node-completion.md
+- [ ] prd-072-045-strict-macro-node-completion

@@ -61,6 +61,6 @@ Build a "Duplicate Analyzer" view inside DexHelper's PC Box tracking system. Thi
 
 ## 5. Next Steps
 - [x] Break down this PRD into Epics for backend parsing extensions and frontend UI implementation.
-- [ ] .foundry/epics/epic-054-108-box-analyzer-save-parsing.md
-- [ ] .foundry/epics/epic-054-109-box-analyzer-matrix-ui.md
-- [ ] .foundry/epics/epic-054-110-box-analyzer-release-workflow.md
+- [ ] epic-054-108-box-analyzer-save-parsing
+- [ ] epic-054-109-box-analyzer-matrix-ui
+- [ ] epic-054-110-box-analyzer-release-workflow

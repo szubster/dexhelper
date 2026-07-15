@@ -32,4 +32,4 @@ Refactor the Foundry Orchestrator (`foundry-orchestrator.ts`) to automatically t
 
 ## Acceptance Criteria
 - [x] Break down into Epics.
-- [ ] .foundry/epics/epic-052-096-automated-max-rejection-cancellation.md
+- [ ] epic-052-096-automated-max-rejection-cancellation

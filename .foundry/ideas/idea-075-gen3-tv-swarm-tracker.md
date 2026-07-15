@@ -37,4 +37,4 @@ This feature targets highly obscure, time-gated mechanics in Gen 3 that are incr
 
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD to define the data structures for Gen 3 TV events and outline the UI dashboard.
-- [ ] .foundry/prds/prd-075-047-gen3-tv-swarm-tracker.md
+- [ ] prd-075-047-gen3-tv-swarm-tracker

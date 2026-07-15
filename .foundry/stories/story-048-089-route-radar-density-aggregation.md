@@ -37,10 +37,10 @@ Implement the data transformation pipeline inside the `RouteRadarController`. It
 - [ ] Write unit tests to validate the aggregation logic using mock `suggestionEngine` outputs.
 
 ## Generated Tasks
-- [ ] .foundry/archive/tasks/task-089-153-implement-radar-heatmap-logic.md
-- [ ] .foundry/archive/tasks/task-089-154-qa-radar-heatmap-logic.md
-- [ ] .foundry/archive/tasks/task-089-165-radar-heatmap-density-logic-impl.md
-- [ ] .foundry/archive/tasks/task-089-166-qa-radar-heatmap-density-logic.md
+- [ ] task-089-153-implement-radar-heatmap-logic
+- [ ] task-089-154-qa-radar-heatmap-logic
+- [ ] task-089-165-radar-heatmap-density-logic-impl
+- [ ] task-089-166-qa-radar-heatmap-density-logic
 - [ ] research-089-167-investigate-heatmap-failure
-- [ ] .foundry/tasks/task-089-177-radar-heatmap-ui-integration-impl.md
-- [ ] .foundry/tasks/task-089-178-qa-radar-heatmap-ui-integration.md
+- [ ] task-089-177-radar-heatmap-ui-integration-impl
+- [ ] task-089-178-qa-radar-heatmap-ui-integration

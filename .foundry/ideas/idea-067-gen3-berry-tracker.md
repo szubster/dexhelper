@@ -36,4 +36,4 @@ This automates a tedious real-world time-gated mechanic, acting as an active com
 
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD detailing the berry patch data structures and UI implementation.
-- [ ] .foundry/prds/prd-067-037-gen3-berry-tracker.md
+- [ ] prd-067-037-gen3-berry-tracker

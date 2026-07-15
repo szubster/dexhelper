@@ -36,6 +36,6 @@ This caters directly to the hardcore completionist community, transforming an op
 
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD to define the data structures needed for parsing Contest stats and Ribbons from Gen 3 save formats.
-- [ ] .foundry/prds/prd-070-040-gen3-contest-data-parsing.md
-- [ ] .foundry/prds/prd-070-041-gen3-contest-ui-viewer.md
-- [ ] .foundry/prds/prd-070-042-gen3-contest-optimization-advisor.md
+- [ ] prd-070-040-gen3-contest-data-parsing
+- [ ] prd-070-041-gen3-contest-ui-viewer
+- [ ] prd-070-042-gen3-contest-optimization-advisor
