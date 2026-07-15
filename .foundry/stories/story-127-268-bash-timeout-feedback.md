@@ -27,4 +27,5 @@ notes: ''
 Implement feedback mechanism for commands that were interrupted due to timeout.
 
 ## Acceptance Criteria
-- [ ] Implement feedback mechanism for interrupted commands.
+- [x] Implement feedback mechanism for interrupted commands.
+- [ ] task-268-322-bash-timeout-feedback-impl
