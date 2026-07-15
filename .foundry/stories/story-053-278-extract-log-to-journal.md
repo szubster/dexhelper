@@ -2,10 +2,10 @@
 id: story-053-278-extract-log-to-journal
 type: STORY
 title: Extract logToJournal Utility
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-07-13'
+updated_at: '2026-07-15'
 depends_on: []
 jules_session_id: null
 parent: epic-036-053-shared-dag-utilities

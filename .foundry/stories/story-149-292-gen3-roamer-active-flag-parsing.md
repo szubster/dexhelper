@@ -2,10 +2,10 @@
 id: story-149-292-gen3-roamer-active-flag-parsing
 type: STORY
 title: Gen 3 Roamer Active Flag Parsing
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-08'
-updated_at: '2026-07-08'
+updated_at: '2026-07-15'
 depends_on:
   - story-149-291-gen3-roamer-core-extraction
 jules_session_id: null
