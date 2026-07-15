@@ -34,7 +34,7 @@ This epic extracts pure functions from `.github/scripts/foundry-orchestrator.ts`
 - Update the DAG orchestration tests to use the new module.
 
 ## Next Steps
-- [ ] story-053-278-extract-log-to-journal
+- [x] story-053-278-extract-log-to-journal
 - [x] Story Owner: Write Story to create the `dag-utils.ts` module with pure functions and basic utilities.
   - Spawned: `.foundry/archive/stories/story-053-090-extract-dag-utilities.md`
 
@@ -45,9 +45,6 @@ This epic extracts pure functions from `.github/scripts/foundry-orchestrator.ts`
   - Spawned: `.foundry/archive/stories/story-053-107-update-dag-orchestration-tests.md`
 
 ## Acceptance Criteria
-- [ ] `dag-utils.ts` is created and contains the extracted pure functions and utilities.
+- [x] `dag-utils.ts` is created and contains the extracted pure functions and utilities.
 - [x] New unit tests are written for `dag-utils.ts`.
 - [x] Existing tests still pass.
-
-### Auditor Rejection
-The `logToJournal` function was not extracted into `dag-utils.ts` and is still missing. `dag-utils.ts` only contains `todayISO`, `buildReverseDependencyGraph`, and `getOrphanedNodes`.
