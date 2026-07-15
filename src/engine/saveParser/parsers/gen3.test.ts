@@ -1079,6 +1079,10 @@ describe('parseGen3ActiveSwarm', () => {
       mapId: 114,
       mapGroup: 0,
       daysRemaining: 2,
+      moves: [0, 0, 0, 0],
+      probability: 0,
+      level: 0,
+      language: 0,
     });
   });
 
