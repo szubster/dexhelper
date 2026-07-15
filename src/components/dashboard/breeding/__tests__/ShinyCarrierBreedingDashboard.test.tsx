@@ -9,12 +9,12 @@ import { useStore } from '../../../../store';
 import { ShinyCarrierBreedingDashboard } from '../ShinyCarrierBreedingDashboard';
 
 vi.mock('../../../../store', () => ({
-  useStore: vi.fn(),
+  useStore: vi.fn<(...args: unknown[]) => unknown>(),
 }));
 
 vi.mock('../../../../db/PokeDB', () => ({
   pokeDB: {
-    getAllPokemon: vi.fn(),
+    getAllPokemon: vi.fn<(...args: unknown[]) => Promise<unknown>>(),
   },
 }));
 
@@ -27,20 +27,20 @@ const wrapper = ({ children }: { children: React.ReactNode }) => (
 );
 
 test('returns null if generation is not 2', async () => {
-  vi.mocked(useStore).mockReturnValue({ generation: 3 } as unknown as SaveData);
-  vi.mocked(pokeDB.getAllPokemon).mockResolvedValue([]);
+  vi.mocked(useStore, true).mockReturnValue({ generation: 3 } as unknown as SaveData);
+  vi.mocked(pokeDB.getAllPokemon, true).mockResolvedValue([]);
   const { container } = await render(<ShinyCarrierBreedingDashboard />, { wrapper });
   expect(container.innerHTML).toBe('');
 });
 
 test('renders NO SHINY CARRIER BREEDING PAIRS AVAILABLE if no pairs match criteria', async () => {
-  vi.mocked(useStore).mockReturnValue({
+  vi.mocked(useStore, true).mockReturnValue({
     generation: 2,
     partyDetails: [],
     pcDetails: [],
   } as unknown as SaveData);
 
-  vi.mocked(pokeDB.getAllPokemon).mockResolvedValue([]);
+  vi.mocked(pokeDB.getAllPokemon, true).mockResolvedValue([]);
 
   await render(<ShinyCarrierBreedingDashboard />, { wrapper });
 
@@ -62,13 +62,13 @@ test('renders optimal breeding pairs if matches are found', async () => {
     dvs: { hp: 15, atk: 15, def: 15, spd: 15, spc: 15 },
   };
 
-  vi.mocked(useStore).mockReturnValue({
+  vi.mocked(useStore, true).mockReturnValue({
     generation: 2,
     partyDetails: [pA as PokemonInstance],
     pcDetails: [pB as PokemonInstance],
   } as unknown as SaveData);
 
-  vi.mocked(pokeDB.getAllPokemon).mockResolvedValue([
+  vi.mocked(pokeDB.getAllPokemon, true).mockResolvedValue([
     { id: 25, n: 'Pikachu', cr: 0, gr: 4, eg: [5, 6], baby: false, eto: [], efrm: [], det: [] },
     { id: 132, n: 'Ditto', cr: 0, gr: -1, eg: [13], baby: false, eto: [], efrm: [], det: [] },
   ]);
