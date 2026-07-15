@@ -2,13 +2,13 @@
 id: task-291-315-gen3-roamer-core-extraction-qa
 type: TASK
 title: Gen 3 Roamer Core Extraction QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-11'
 updated_at: '2026-07-15'
 depends_on:
   - task-291-314-gen3-roamer-core-extraction-impl
-jules_session_id: '8694432224905365922'
+jules_session_id: null
 pr_number: null
 parent: story-149-291-gen3-roamer-core-extraction
 tags:
