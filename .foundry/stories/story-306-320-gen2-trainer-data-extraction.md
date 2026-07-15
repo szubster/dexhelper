@@ -31,4 +31,8 @@ Extract and parse the trainer defeat flags for Generation 2 games from Bank 1.
 3. Use relative offsets and constants (ADR 028) strictly. No inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+
+
+- [ ] task-320-322-gen2-trainer-flags-impl
+- [ ] task-320-323-gen2-trainer-flags-qa
