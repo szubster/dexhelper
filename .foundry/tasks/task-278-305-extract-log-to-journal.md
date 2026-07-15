@@ -38,5 +38,5 @@ notes: ''
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `logToJournal` is exported from `dag-utils.ts`.
-- [ ] `foundry-orchestrator.ts` uses `logToJournal` instead of inline `fs.appendFileSync`.
+- [x] `logToJournal` is exported from `dag-utils.ts`.
+- [x] `foundry-orchestrator.ts` uses `logToJournal` instead of inline `fs.appendFileSync`.
