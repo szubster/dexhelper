@@ -34,6 +34,6 @@ Implement a parser using `DataView` to extract Trick House progression states fr
 - [x] Parse `FLAG_LANDMARK_TRICK_HOUSE`.
 - [x] task-276-304-gen3-trick-house-parser-impl
 - [x] task-276-305-gen3-trick-house-parser-qa
-- [ ] research-276-297-trick-house-parser-failure
-- [ ] task-276-312-gen3-trick-house-parser-retry-impl
-- [ ] task-276-313-gen3-trick-house-parser-retry-qa
+- [x] research-276-297-trick-house-parser-failure
+- [x] task-276-312-gen3-trick-house-parser-retry-impl
+- [x] task-276-313-gen3-trick-house-parser-retry-qa
