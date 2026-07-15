@@ -43,6 +43,6 @@ The output should be a structured object or list of diffs explaining what needs 
 - **Offset Constants Rule**: When writing any save file parsing logic (if applicable here, though this is primarily algorithmic), explicitly require that all memory offsets, lengths, bit locations, and shifts be defined as reusable constants at the module level. Inline magic numbers are forbidden.
 
 ## Acceptance Criteria
-- [ ] Implement the box diffing logic function (e.g., `calculateBoxDiff`).
-- [ ] Write unit tests verifying additions, removals, and complex relocations.
-- [ ] Ensure Pokémon are uniquely tracked by their `hash`.
+- [x] Implement the box diffing logic function (e.g., `calculateBoxDiff`).
+- [x] Write unit tests verifying additions, removals, and complex relocations.
+- [x] Ensure Pokémon are uniquely tracked by their `hash`.
