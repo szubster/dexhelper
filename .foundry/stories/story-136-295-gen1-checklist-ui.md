@@ -25,4 +25,6 @@ notes: ''
 Create the UI component for the Gen 1 static encounter checklist, mapping the parsed event flags to visual states.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] .foundry/tasks/task-295-318-gen1-checklist-ui-impl.md
+- [ ] .foundry/tasks/task-295-319-gen1-checklist-ui-qa.md

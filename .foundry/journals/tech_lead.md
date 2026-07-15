@@ -177,3 +177,8 @@ Drafted technical blueprints (`task-286-314-filter-swarm-item-calls-impl` and `t
 
 ## 2026-07-12: Gen 3 Dynamic Save Block Extraction Pattern
 When generating blueprints for Gen 3 dynamic save block extraction (like Volcanic Ash), ensure explicit instructions are provided to use the dynamically resolved `section1Offset` for relative offset calculations rather than hardcoding absolute values. Using absolute offsets breaks A/B bank flash memory parsing.
+
+## 2026-07-15
+- Drafted tasks for story-136-295-gen1-checklist-ui.
+- Created task-295-318-gen1-checklist-ui-impl (Coder) to implement the Gen 1 Checklist UI component, emphasizing the tactical hardware aesthetic constraints from ADR 008.
+- Created task-295-319-gen1-checklist-ui-qa (QA) to verify the UI implementation, as visual/state mapping requires careful verification of aesthetic rules.
