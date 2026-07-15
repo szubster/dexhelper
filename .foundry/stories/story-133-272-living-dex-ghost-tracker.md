@@ -26,8 +26,8 @@ This story focuses on implementing the data engine logic to determine which Pok�
 
 ## Acceptance Criteria
 - [x] Determine how to track missing Pokémon in the regional/national Pokédex.
-- [ ] task-272-304-living-dex-ghost-tracker-impl
-- [ ] task-272-305-living-dex-ghost-tracker-qa
+- [x] task-272-304-living-dex-ghost-tracker-impl
+- [x] task-272-305-living-dex-ghost-tracker-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
