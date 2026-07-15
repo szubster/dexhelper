@@ -30,4 +30,6 @@ Specifically target byte 19 of the roamer structure to determine if the roamer i
 
 ## Acceptance Criteria
 - [ ] Map byte 19 of the roamer struct to an `isActive` boolean in the return object.
-- [ ] Tech Lead: Break down this Story into executable Tasks.
+- [x] Tech Lead: Break down this Story into executable Tasks.
+- [ ] task-292-322-gen3-roamer-active-flag-parsing-impl
+- [ ] task-292-323-gen3-roamer-active-flag-parsing-qa
