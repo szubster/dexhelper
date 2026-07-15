@@ -81,4 +81,7 @@ Targeting mathematically complex, hidden sub-mechanics provides incredible uniqu
 - Performant scanning of all PC boxes without noticeable lag.
 
 ## Acceptance Criteria
-- [ ] Break down this PRD into EPIC nodes.
+- [x] Break down this PRD into EPIC nodes.
+- [ ] epic-112-324-npc-size-record-data-extraction
+- [ ] epic-112-325-npc-size-record-calculation-engine
+- [ ] epic-112-326-npc-size-record-dashboard-ui
