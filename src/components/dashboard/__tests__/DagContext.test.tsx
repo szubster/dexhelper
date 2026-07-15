@@ -1,3 +1,4 @@
+import { Component, type ReactNode } from 'react';
 import { expect, test, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
@@ -16,7 +17,6 @@ const TestComponent = () => {
 };
 
 test('DagProvider provides maxRejectionThreshold and handles data loading correctly', async () => {
-  // Return valid ParsedNode data matching buildDagGraph expectations
   globalThis.fetch = vi.fn<typeof fetch>().mockResolvedValue({
     ok: true,
     json: async () => [
@@ -60,5 +60,43 @@ test('DagProvider handles load error gracefully', async () => {
   );
 
   await expect.element(page.getByTestId('threshold')).toHaveTextContent('3');
+  consoleErrorSpy.mockRestore();
+});
+
+class TestBoundary extends Component<{ children: ReactNode }, { hasError: boolean; error: Error | null }> {
+  constructor(props: { children: ReactNode }) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error };
+  }
+  override componentDidCatch(_error: Error) {
+    // catch
+  }
+  override render() {
+    if (this.state.hasError) {
+      return <div data-testid="error">{this.state.error?.message}</div>;
+    }
+    return this.props.children;
+  }
+}
+
+const ThrowingComponent = () => {
+  useDagContext();
+  return <div>test</div>;
+};
+
+test('useDagContext throws outside of provider', async () => {
+  const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+  await render(
+    <TestBoundary>
+      <ThrowingComponent />
+    </TestBoundary>,
+  );
+
+  await expect.element(page.getByTestId('error')).toHaveTextContent('useDagContext must be used within a DagProvider');
+
   consoleErrorSpy.mockRestore();
 });
