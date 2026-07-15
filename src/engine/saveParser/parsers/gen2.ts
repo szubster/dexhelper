@@ -19,6 +19,21 @@ const POKEMON_OFFSET_OT_NAME = POKEMON_DATA_BLOCK_SIZE;
 const POKEMON_OFFSET_NICKNAME = POKEMON_DATA_BLOCK_SIZE + POKEMON_NAME_LENGTH;
 const POKEMON_OFFSET_CURRENT_HP = 34;
 const NPC_TRADE_FLAGS_OFFSET_CRYSTAL = 0x24eb;
+
+const CONTACT_LIST_SIZE = 10;
+
+const SWARM_FLAGS_OFFSET_GS = 0x27d2;
+const SPECIAL_PHONE_CALL_ID_OFFSET_GS = 0x27e3;
+const DAILY_PHONE_ITEM_FLAGS_OFFSET_GS = 0x2802;
+const DAILY_PHONE_TIME_OF_DAY_FLAGS_OFFSET_GS = 0x2806;
+const PHONE_LIST_OFFSET_GS = 0x282e;
+
+const SWARM_FLAGS_OFFSET_CRYSTAL = 0x27ae;
+const SPECIAL_PHONE_CALL_ID_OFFSET_CRYSTAL = 0x27bf;
+const DAILY_PHONE_ITEM_FLAGS_OFFSET_CRYSTAL = 0x27de;
+const DAILY_PHONE_TIME_OF_DAY_FLAGS_OFFSET_CRYSTAL = 0x27e2;
+const PHONE_LIST_OFFSET_CRYSTAL = 0x280a;
+
 const NPC_TRADE_FLAGS_OFFSET_GS = 0x250f;
 const GEN2_EGG_SPECIES_ID = 253;
 const GEN2_EGG_CYCLE_STEPS = 256;
@@ -629,6 +644,44 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
 
   const roamingLegendaries = parseRoamingLegendaries(view, isCrystal);
 
+  const pokegearSwarmFlagsOffset = isCrystal ? SWARM_FLAGS_OFFSET_CRYSTAL : SWARM_FLAGS_OFFSET_GS;
+  const pokegearSpecialPhoneCallIDOffset = isCrystal
+    ? SPECIAL_PHONE_CALL_ID_OFFSET_CRYSTAL
+    : SPECIAL_PHONE_CALL_ID_OFFSET_GS;
+  const pokegearDailyPhoneItemFlagsOffset = isCrystal
+    ? DAILY_PHONE_ITEM_FLAGS_OFFSET_CRYSTAL
+    : DAILY_PHONE_ITEM_FLAGS_OFFSET_GS;
+  const pokegearDailyPhoneTimeOfDayFlagsOffset = isCrystal
+    ? DAILY_PHONE_TIME_OF_DAY_FLAGS_OFFSET_CRYSTAL
+    : DAILY_PHONE_TIME_OF_DAY_FLAGS_OFFSET_GS;
+  const pokegearPhoneListOffset = isCrystal ? PHONE_LIST_OFFSET_CRYSTAL : PHONE_LIST_OFFSET_GS;
+
+  let pokegear: SaveData['pokegear'];
+  try {
+    const swarmFlags = view.getUint8(pokegearSwarmFlagsOffset);
+    const specialPhoneCallID = view.getUint8(pokegearSpecialPhoneCallIDOffset);
+    const dailyPhoneItemFlags = view.getUint32(pokegearDailyPhoneItemFlagsOffset, true);
+    const dailyPhoneTimeOfDayFlags = view.getUint32(pokegearDailyPhoneTimeOfDayFlagsOffset, true);
+
+    const registeredContacts: number[] = [];
+    for (let i = 0; i < CONTACT_LIST_SIZE + 1; i++) {
+      registeredContacts.push(view.getUint8(pokegearPhoneListOffset + i));
+    }
+
+    pokegear = {
+      swarmFlags,
+      specialPhoneCallID,
+      dailyPhoneItemFlags,
+      dailyPhoneTimeOfDayFlags,
+      registeredContacts,
+    };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+
   const eventFlagsOffset = isCrystal ? 0x2600 : 0x2624;
   const eventFlags = new Uint8Array(0x100);
   try {
@@ -677,5 +730,6 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     eventFlags,
     hiddenItemFlags,
     npcTradeFlags,
+    pokegear,
   };
 }

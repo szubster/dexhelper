@@ -281,6 +281,14 @@ export interface SaveData {
   gen3MoveTutors?: Gen3MoveTutors;
   /** Gen 3 specific: Volcanic Ash gather count */
   gen3VolcanicAsh?: number;
+  /** Gen 2 specific: Pokegear state including registered numbers and active states */
+  pokegear?: {
+    registeredContacts: number[];
+    swarmFlags: number;
+    dailyPhoneItemFlags: number;
+    dailyPhoneTimeOfDayFlags: number;
+    specialPhoneCallID: number;
+  };
 }
 
 // Removed byte helper as DataView provides getUint8 natively.
