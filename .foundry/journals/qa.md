@@ -27,19 +27,7 @@ The implementer (`coder`) failed `task-121-219-gen3-tv-block-parser-retry-impl` 
 - **Date**: 2026-07-11
 - **Node**: task-276-304-gen3-trick-house-parser-impl
 - **Reason**: The developer failed to handle `RangeError` from the `DataView` API when checking for out-of-bounds reads. This is a critical requirement for parsers working with save file data to prevent crashes when dealing with corrupted or incomplete saves.
-## 2026-07-11 - Feebas Extraction Failed (Task: task-280-305-feebas-backend-integration-qa)
-The coder implemented the Feebas extraction logic using absolute memory offsets (`0x2dd6`) instead of making them relative to `section1Offset`. In Generation 3, save files utilize an A/B bank rotation system where data can either reside in `0x0000` or `0xE000`. By hardcoding the absolute offset, the parser will fail to read the active save data if it currently resides in Bank B.
-
-To enforce the architecture correctly, all dynamic save block extraction functions must receive the resolved offset from the parser engine (e.g., `section1Offset` or `section2Offset`) and apply relative memory offsets to correctly extract the active save data block. I have failed `task-280-304-feebas-backend-integration` and incremented its rejection count.
-
-## Gen 3 Volcanic Ash Extraction Validation
-- **Pattern**: When validating Gen 3 dynamic save block extraction, ensure that offsets are not hardcoded absolute values (e.g. `0x13D0` or `0x142C`). They must be calculated relative to the dynamically resolved `section1Offset`.
-- **Outcome**: Rejected `task-267-261-gen3-ash-dataview-extraction-impl` due to hardcoded absolute offsets instead of using the `section1Offset + offset` calculation.
-
-## Gen 3 Volcanic Ash Extraction Permanent Failure
-- **Date**: 2026-07-12
-- **Node**: task-267-261-gen3-ash-dataview-extraction-impl
-- **Reason**: The developer reached max rejections by faking the relative offset calculation fix. They kept the absolute memory offsets and performed math manipulation, violating ADR 028.
-
-## 2026-07-13 - Feebas Extraction Permanent Failure (Task: task-280-305-feebas-backend-integration-qa)
-The coder failed to properly implement relative memory offsets using `section1Offset` for Feebas seed extraction after multiple rejections. They used `section2Offset` instead of `section1Offset`, violating the architecture requirements of the Gen 3 A/B bank flash memory system. As they have reached the maximum rejection count, I have permanently failed the `task-280-304-feebas-backend-integration` by setting its status to `CANCELLED`.
+## Canonical Pattern: Enforcing Gen 3 A/B Bank Relative Offsets (ADR 028)
+- **Constraint**: When validating Gen 3 dynamic save block extraction (e.g., Feebas seed, Volcanic Ash), ensure that offsets are never hardcoded as absolute values (e.g., `0x2dd6`, `0x13D0`).
+- **Why**: Generation 3 save files utilize an A/B bank rotation system where data can reside in `0x0000` or `0xE000`. Absolute offsets will fail to read the active save data if it resides in Bank B.
+- **Enforcement**: All dynamic save block extraction functions must receive the resolved offset from the parser engine (e.g., `section1Offset` or `section2Offset`) and apply relative memory calculations (`section1Offset + offset`). Recurring rejections and permanent failures have occurred because developers fake the fix or use the wrong section offset.
