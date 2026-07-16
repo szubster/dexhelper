@@ -6,8 +6,13 @@ import {
   STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN2,
   STATIC_NPC_TRADE_DATA as STATIC_NPC_TRADE_DATA_GEN2,
 } from '../../data/gen2/assistantData';
+import {
+  STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN3,
+  STATIC_NPC_TRADE_DATA as STATIC_NPC_TRADE_DATA_GEN3,
+} from '../../data/gen3/assistantData';
 import { getUnobtainableReason } from '../../exclusives/gen1Exclusives';
 import { getGen2UnobtainableReason } from '../../exclusives/gen2Exclusives';
+import { getGen3UnobtainableReason } from '../../exclusives/gen3Exclusives';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
 import type { Suggestion } from '../strategies/types';
 import type { AssistantApiData } from '../suggestionEngineTypes';
@@ -19,6 +24,11 @@ const STATIC_GIFT_ENTRIES_GEN1 = Object.entries(STATIC_GIFT_DATA_GEN1).map(([idS
 }));
 
 const STATIC_GIFT_ENTRIES_GEN2 = Object.entries(STATIC_GIFT_DATA_GEN2).map(([idStr, gift]) => ({
+  giftId: parseInt(idStr, 10),
+  gift,
+}));
+
+const STATIC_GIFT_ENTRIES_GEN3 = Object.entries(STATIC_GIFT_DATA_GEN3).map(([idStr, gift]) => ({
   giftId: parseInt(idStr, 10),
   gift,
 }));
@@ -50,8 +60,15 @@ export function generateGiftAndTradeSuggestions(
   suggestions: Suggestion[],
   missingIds: Set<number>,
 ) {
-  const staticNpcTradeData = saveData.generation === 2 ? STATIC_NPC_TRADE_DATA_GEN2 : STATIC_NPC_TRADE_DATA_GEN1;
-  const staticGiftEntries = saveData.generation === 2 ? STATIC_GIFT_ENTRIES_GEN2 : STATIC_GIFT_ENTRIES_GEN1;
+  let staticNpcTradeData = STATIC_NPC_TRADE_DATA_GEN1;
+  let staticGiftEntries = STATIC_GIFT_ENTRIES_GEN1;
+  if (saveData.generation === 2) {
+    staticNpcTradeData = STATIC_NPC_TRADE_DATA_GEN2;
+    staticGiftEntries = STATIC_GIFT_ENTRIES_GEN2;
+  } else if (saveData.generation === 3) {
+    staticNpcTradeData = STATIC_NPC_TRADE_DATA_GEN3;
+    staticGiftEntries = STATIC_GIFT_ENTRIES_GEN3;
+  }
 
   // B. Unobtainable / Exclusive logic
   // Checks if the target is completely locked out of the current version (e.g. Red exclusives on Blue).
@@ -62,7 +79,9 @@ export function generateGiftAndTradeSuggestions(
     const t = staticNpcTradeData[i];
     if (t && t.gen === saveData.generation && (!t.versions || t.versions.includes(displayVersion))) {
       let isClaimed = false;
-      if (t.tradeIndex !== undefined && saveData.npcTradeFlags !== undefined) {
+      if (saveData.generation === 3 && t.gen3TradeKey && saveData.gen3NPCTrades) {
+        isClaimed = saveData.gen3NPCTrades[t.gen3TradeKey] ?? false;
+      } else if (t.tradeIndex !== undefined && saveData.npcTradeFlags !== undefined) {
         isClaimed = saveData.npcTradeFlags[t.tradeIndex] ?? false;
       }
       if (!isClaimed) {
@@ -74,7 +93,9 @@ export function generateGiftAndTradeSuggestions(
   const pidsWithExclusives = new Set<number>();
   for (const pid of queryTargets) {
     let reason: string | null = null;
-    if (saveData.generation === 2) {
+    if (saveData.generation === 3) {
+      reason = getGen3UnobtainableReason(pid, displayVersion, ownedSet.size, ownedSet);
+    } else if (saveData.generation === 2) {
       reason = getGen2UnobtainableReason(pid, displayVersion, ownedSet.size, ownedSet);
     } else {
       reason = getUnobtainableReason(pid, displayVersion, ownedSet.size, ownedSet);
@@ -120,7 +141,10 @@ export function generateGiftAndTradeSuggestions(
     if (trade.versions && !trade.versions.includes(displayVersion)) continue;
     if (!missingIds.has(trade.receivedId)) continue;
 
-    if (trade.tradeIndex !== undefined && saveData.npcTradeFlags !== undefined) {
+    if (saveData.generation === 3 && trade.gen3TradeKey && saveData.gen3NPCTrades) {
+      const isClaimed = saveData.gen3NPCTrades[trade.gen3TradeKey];
+      if (isClaimed) continue;
+    } else if (trade.tradeIndex !== undefined && saveData.npcTradeFlags !== undefined) {
       const isClaimed = saveData.npcTradeFlags[trade.tradeIndex];
       if (isClaimed) continue;
     }
@@ -131,8 +155,8 @@ export function generateGiftAndTradeSuggestions(
       category: 'Trade',
       title: `Trade for #${trade.receivedId}`,
       description: hasOffered
-        ? `You have #${trade.offeredId}! Trade it at ${trade.location} for #${trade.receivedId}.`
-        : `Catch #${trade.offeredId} and trade it at ${trade.location} for #${trade.receivedId}.`,
+        ? `You have #${trade.offeredId}! Trade it at ${trade.location} for ${trade.nickname ? `${trade.nickname} the ` : ''}#${trade.receivedId}.`
+        : `Catch #${trade.offeredId} and trade it at ${trade.location} for ${trade.nickname ? `${trade.nickname} the ` : ''}#${trade.receivedId}.`,
       pokemonId: trade.receivedId,
       priority: hasOffered ? 85 : 65,
     });

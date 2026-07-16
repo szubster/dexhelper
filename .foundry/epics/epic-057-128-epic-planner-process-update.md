@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-07-03'
 updated_at: '2026-07-03'
 depends_on:
-  - .foundry/epics/epic-057-127-orchestrator-safeguard-investigation.md
+  - epic-057-127-orchestrator-safeguard-investigation
 jules_session_id: null
 pr_number: null
 parent: prd-096-057-macro-node-boundary-enforcement

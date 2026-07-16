@@ -2,7 +2,7 @@
 id: task-301-314-lift-rejection-count-state-impl
 type: TASK
 title: Implement Lift MAX_REJECTION_THRESHOLD Constant to Context
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-14'
 updated_at: '2026-07-15'
@@ -15,7 +15,9 @@ tags:
   - dashboard
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 3667896676804649688 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 
@@ -41,9 +43,9 @@ Extract the `MAX_REJECTION_THRESHOLD` constant (value: 3) from local file scopes
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Define `MAX_REJECTION_THRESHOLD = 3` in `DagContext.tsx`.
-- [ ] Expose `maxRejectionThreshold` through `DagContextState` and `DagProvider`.
-- [ ] Refactor `DagDashboard.tsx` to use `maxRejectionThreshold` from context.
-- [ ] Refactor `DagNode.tsx` to use `maxRejectionThreshold` from context.
-- [ ] Ensure `DagNode.test.tsx` passes.
-- [ ] Self-verify the changes (low risk logic).
+- [x] Define `MAX_REJECTION_THRESHOLD = 3` in `DagContext.tsx`.
+- [x] Expose `maxRejectionThreshold` through `DagContextState` and `DagProvider`.
+- [x] Refactor `DagDashboard.tsx` to use `maxRejectionThreshold` from context.
+- [x] Refactor `DagNode.tsx` to use `maxRejectionThreshold` from context.
+- [x] Ensure `DagNode.test.tsx` passes.
+- [x] Self-verify the changes (low risk logic).

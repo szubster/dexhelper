@@ -5,7 +5,7 @@ title: PC Box Diff Engine Logic
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-10'
-updated_at: '2026-07-12'
+updated_at: '2026-07-16'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,12 +2,12 @@
 id: epic-112-311-gen2-decoration-savings-extraction
 type: EPIC
 title: Gen 2 Decoration & Savings Save Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-07-15'
+updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '14994304484944201910'
+jules_session_id: null
 pr_number: null
 parent: prd-109-112-gen2-room-decoration-tracker
 tags:
@@ -31,4 +31,5 @@ This Epic covers the extraction of data related to unlocked room decorations and
 - Expose this data through the Gen 2 runtime API.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-311-322-gen2-room-decoration-parsing

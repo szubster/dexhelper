@@ -2,10 +2,10 @@
 id: task-260-319-npc-trade-data-mapping-qa
 type: TASK
 title: NPC Trade Data Mapping QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-13'
-updated_at: '2026-07-13'
+updated_at: '2026-07-16'
 depends_on:
   - task-260-318-npc-trade-data-mapping-impl
 jules_session_id: null

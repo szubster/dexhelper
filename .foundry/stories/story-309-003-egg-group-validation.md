@@ -7,7 +7,7 @@ owner_persona: "tech_lead"
 created_at: "2026-07-13"
 updated_at: "2026-07-13"
 depends_on:
-  - .foundry/stories/story-309-001-gender-calculation-engine.md
+  - story-309-001-gender-calculation-engine
 jules_session_id: null
 pr_number: null
 parent: epic-112-309-gen2-shiny-breeding-logic

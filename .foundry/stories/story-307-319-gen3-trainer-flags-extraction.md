@@ -2,12 +2,12 @@
 id: story-307-319-gen3-trainer-flags-extraction
 type: STORY
 title: Gen 3 Trainer Defeat Flags Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-07-15'
+updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '5968959432566922383'
+jules_session_id: null
 pr_number: null
 parent: epic-109-307-missed-trainer-data-extraction-gen3
 tags:
@@ -32,4 +32,7 @@ Extract standard and rematch trainer defeat flags from Gen 3 save files to be us
 5.  **Relative Offsets & Constants (ADR 028):** All memory offsets, lengths, bit locations, and shifts must be explicitly defined as reusable constants at the module level. Inline magic numbers are strictly forbidden.
 
 ## Acceptance Criteria
-- [ ] Create Tech Lead Task Blueprints
+- [x] Create Tech Lead Task Blueprints
+
+- [ ] task-319-322-gen3-trainer-flags-extraction-impl
+- [ ] task-319-323-gen3-trainer-flags-extraction-qa

@@ -2,13 +2,13 @@
 id: story-133-273-living-dex-pc-mapping
 type: STORY
 title: Living Dex PC Mapping
-status: PENDING
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-07-06'
+updated_at: '2026-07-15'
 depends_on:
   - story-133-272-living-dex-ghost-tracker
-jules_session_id: null
+jules_session_id: '1958304095104093980'
 pr_number: null
 parent: epic-103-133-living-dex-data-engine
 tags:
@@ -16,7 +16,9 @@ tags:
   - living-dex
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 1958304095104093980 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 
