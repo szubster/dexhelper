@@ -2,7 +2,7 @@
 id: task-121-309-gen3-tv-block-parser-retry6-impl
 type: TASK
 title: Implement Gen 3 TV Block DataView Parser (Retry 6)
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-11'
 updated_at: '2026-07-15'
@@ -16,8 +16,8 @@ tags:
   - gen3
   - data-parsing
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'The implementation used inline magic numbers (+ 2, + 4, + 6 in parseGen3ActiveSwarm) and the RangeError message in parseGen3TVBlock includes extra text instead of the required precise message "The save file is corrupted or incomplete.".'
 notes: ''
 ---
 

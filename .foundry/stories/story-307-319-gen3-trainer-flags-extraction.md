@@ -32,4 +32,7 @@ Extract standard and rematch trainer defeat flags from Gen 3 save files to be us
 5.  **Relative Offsets & Constants (ADR 028):** All memory offsets, lengths, bit locations, and shifts must be explicitly defined as reusable constants at the module level. Inline magic numbers are strictly forbidden.
 
 ## Acceptance Criteria
-- [ ] Create Tech Lead Task Blueprints
+- [x] Create Tech Lead Task Blueprints
+
+- [ ] task-319-322-gen3-trainer-flags-extraction-impl
+- [ ] task-319-323-gen3-trainer-flags-extraction-qa

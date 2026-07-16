@@ -33,7 +33,7 @@ Implement a standard mapping connecting raw bitflags to specific NPC trade encou
 - **CRITICAL:** For Gen 3 data, use relative memory offsets rather than absolute hardcoded ones if applicable, ensuring compatibility across different flash memory bank structures.
 
 ## Acceptance Criteria
-- [ ] Implement mapping for Gen 2 NPC trade flags to specific encounters.
-- [ ] Implement mapping for Gen 3 NPC trade flags (RSE/FRLG) to specific encounters.
-- [ ] Ensure the mapping correctly identifies the encounter species and nickname (e.g., MUSCLE the Machop).
-- [ ] Module-level reusable constants are explicitly defined for any required offsets or locations. No inline magic numbers are used.
+- [x] Implement mapping for Gen 2 NPC trade flags to specific encounters.
+- [x] Implement mapping for Gen 3 NPC trade flags (RSE/FRLG) to specific encounters.
+- [x] Ensure the mapping correctly identifies the encounter species and nickname (e.g., MUSCLE the Machop).
+- [x] Module-level reusable constants are explicitly defined for any required offsets or locations. No inline magic numbers are used.

@@ -2,12 +2,12 @@
 id: task-299-322-extend-phase-3-6-impl
 type: TASK
 title: Extend Phase 3.6 for CANCELLED nodes
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-14'
 updated_at: '2026-07-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2296249863922076582'
 pr_number: null
 parent: story-303-299-extend-phase-3-6-cancelled-nodes
 tags:

@@ -276,3 +276,9 @@
 **Outcome:** Accepted
 **Why:** Continuous smooth progress bars break the "specialized hardware" illusion, whereas segmented terminal bars effectively mimic a rugged, low-resolution device.
 **Pattern:** Avoid continuous progress bars. Consistently use segmented bars built from distinct block elements for statistics to reinforce the hardware simulation.
+
+## 2025-02-14 - [Accepted] - 🖼️ Canvas: Contest Ribbons Redesign
+**What:** Redesigned the `ContestRibbonsPanel` and `ContestRibbonBadge` components to use a heavy tactical layout (CRT effects, structural data-pipe borders, and bracketed telemetry labels like `[ ACQUIRED_RIBBONS ]`).
+**Outcome:** Merged
+**Why:** Enhances the specialized hardware illusion by converting generic ribbon lists into segmented diagnostic outputs.
+**Pattern:** Repeat: Wrapping arrays/lists of badges in a `LcdGrid` and using `HoverScanner` for interactive data points. Avoid: Relying on exact text matches in global tests without updating strict `getByText` locator queries, as tactical bracket formatting (`[ $Label_SYS ]`) breaks basic matchers.

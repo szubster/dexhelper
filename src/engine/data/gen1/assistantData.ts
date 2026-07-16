@@ -88,8 +88,10 @@ export interface NpcTradeEntry {
   location: string;
   versions?: string[];
   receivedOtName: string;
+  nickname?: string; // The nickname of the received Pokémon
   gen: number;
   tradeIndex?: number; // The index of the trade in wCompletedInGameTradeFlags
+  gen3TradeKey?: string; // The string key returned by the Gen 3 parser (e.g. "RUSTBORO")
 }
 
 export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
@@ -100,6 +102,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     offeredId: 33, // Nidorino
     location: 'Route 11 (east gate)',
     receivedOtName: 'TERRY',
+    nickname: 'TERRY',
     gen: 1,
     versions: ['red', 'blue'],
     tradeIndex: 0,
@@ -109,6 +112,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     offeredId: 63, // Abra
     location: 'Route 2 (south gate)',
     receivedOtName: 'MARCEL',
+    nickname: 'MARCEL',
     gen: 1,
     versions: ['red', 'blue'],
     tradeIndex: 1,
@@ -118,6 +122,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     offeredId: 77, // Ponyta
     location: 'Cinnabar Lab (1st room)',
     receivedOtName: 'SAILOR',
+    nickname: 'SAILOR',
     gen: 1,
     versions: ['red', 'blue'],
     tradeIndex: 3,
@@ -127,6 +132,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     offeredId: 21, // Spearow
     location: 'Vermilion City (trade house)',
     receivedOtName: 'DUX',
+    nickname: 'DUX',
     gen: 1,
     versions: ['red', 'blue'],
     tradeIndex: 4,
@@ -136,6 +142,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     offeredId: 80, // Slowbro
     location: 'Route 18 (gatehouse upstairs)',
     receivedOtName: 'MARC',
+    nickname: 'MARC',
     gen: 1,
     versions: ['red', 'blue'],
     tradeIndex: 5,
@@ -145,6 +152,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     offeredId: 61, // Poliwhirl
     location: 'Cerulean City (trade house)',
     receivedOtName: 'LOLA',
+    nickname: 'LOLA',
     gen: 1,
     versions: ['red', 'blue'],
     tradeIndex: 6,
@@ -154,6 +162,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     offeredId: 26, // Raichu
     location: 'Cinnabar Lab (3rd room)',
     receivedOtName: 'DORIS',
+    nickname: 'DORIS',
     gen: 1,
     versions: ['red', 'blue'],
     tradeIndex: 7,
@@ -163,6 +172,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     offeredId: 48, // Venonat
     location: 'Route 18 (trade house)',
     receivedOtName: 'CRINKLES',
+    nickname: 'CRINKLES',
     gen: 1,
     versions: ['red', 'blue'],
     tradeIndex: 8,
@@ -172,6 +182,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     offeredId: 32, // Nidoran M
     location: 'Route 5 (south gate)',
     receivedOtName: 'SPOT',
+    nickname: 'SPOT',
     gen: 1,
     versions: ['red', 'blue'],
     tradeIndex: 9,
@@ -183,6 +194,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     offeredId: 108, // Lickitung
     location: 'Route 11 (east gate)',
     receivedOtName: 'GURIO',
+    nickname: 'GURIO',
     gen: 1,
     versions: ['yellow'],
     tradeIndex: 0,
@@ -192,6 +204,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     offeredId: 35, // Clefairy
     location: 'Route 2 (south gate)',
     receivedOtName: 'MILES',
+    nickname: 'MILES',
     gen: 1,
     versions: ['yellow'],
     tradeIndex: 1,
@@ -201,6 +214,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     offeredId: 115, // Kangaskhan
     location: 'Cinnabar Lab (1st room)',
     receivedOtName: 'STICKY',
+    nickname: 'STICKY',
     gen: 1,
     versions: ['yellow'],
     tradeIndex: 3,
@@ -210,6 +224,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     offeredId: 114, // Tangela
     location: 'Route 18 (trade house)',
     receivedOtName: 'SPIKE',
+    nickname: 'SPIKE',
     gen: 1,
     versions: ['yellow'],
     tradeIndex: 5,
@@ -219,6 +234,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     offeredId: 55, // Golduck
     location: 'Cinnabar Lab (3rd room)',
     receivedOtName: 'BUFFY',
+    nickname: 'BUFFY',
     gen: 1,
     versions: ['yellow'],
     tradeIndex: 7,
@@ -228,6 +244,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     offeredId: 58, // Growlithe
     location: 'Cinnabar Lab (3rd room)',
     receivedOtName: 'CEZANNE',
+    nickname: 'CEZANNE',
     gen: 1,
     versions: ['yellow'],
     tradeIndex: 8,
@@ -237,6 +254,7 @@ export const STATIC_NPC_TRADE_DATA: NpcTradeEntry[] = [
     offeredId: 104, // Cubone
     location: 'Route 5 (south gate)',
     receivedOtName: 'RICKY',
+    nickname: 'RICKY',
     gen: 1,
     versions: ['yellow'],
     tradeIndex: 9,

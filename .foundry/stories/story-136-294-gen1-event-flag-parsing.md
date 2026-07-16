@@ -2,10 +2,10 @@
 id: story-136-294-gen1-event-flag-parsing
 type: STORY
 title: Gen 1 Event Flag Parsing
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-10'
-updated_at: '2026-07-12'
+updated_at: '2026-07-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -25,5 +25,5 @@ Extract and parse the event flags for Gen 1 static encounters from the save file
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-294-316-gen1-event-flag-parsing-impl
-- [ ] task-294-317-gen1-event-flag-parsing-qa
+- [x] task-294-316-gen1-event-flag-parsing-impl
+- [x] task-294-317-gen1-event-flag-parsing-qa

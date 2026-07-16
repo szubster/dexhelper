@@ -48,3 +48,7 @@ The coder failed to properly implement relative memory offsets using `section1Of
 - **Date**: 2026-07-15
 - **Node**: task-294-316-diff-engine-impl
 - **Reason**: The developer implemented `calculateBoxDiff` with a fallback hash generator instead of strictly relying on the `hash` property on `PokemonInstance` as required by the contract. Furthermore, the `hash` property does not even exist on the `PokemonInstance` interface in `src/engine/saveParser/parsers/common.ts`. This demonstrates a failure to update the underlying interface to match the technical requirements.
+## Canonical Pattern: Enforcing Gen 3 A/B Bank Relative Offsets (ADR 028)
+- **Constraint**: When validating Gen 3 dynamic save block extraction (e.g., Feebas seed, Volcanic Ash), ensure that offsets are never hardcoded as absolute values (e.g., `0x2dd6`, `0x13D0`).
+- **Why**: Generation 3 save files utilize an A/B bank rotation system where data can reside in `0x0000` or `0xE000`. Absolute offsets will fail to read the active save data if it resides in Bank B.
+- **Enforcement**: All dynamic save block extraction functions must receive the resolved offset from the parser engine (e.g., `section1Offset` or `section2Offset`) and apply relative memory calculations (`section1Offset + offset`). Recurring rejections and permanent failures have occurred because developers fake the fix or use the wrong section offset.

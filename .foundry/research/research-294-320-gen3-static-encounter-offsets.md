@@ -25,4 +25,4 @@ notes: ''
 Investigate and document the memory offsets and bit locations for Gen 3 static encounter event flags.
 
 ## Acceptance Criteria
-- [ ] Find offsets
+- [x] Find offsets
