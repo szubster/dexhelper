@@ -2,13 +2,13 @@
 id: story-090-134-garbage-collection-integration
 type: STORY
 title: Garbage Collection Integration and Execution
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-14'
 updated_at: '2026-07-16'
 depends_on:
   - story-090-133-remediation-state-transition-logic
-jules_session_id: '5607181423289848366'
+jules_session_id: null
 pr_number: null
 parent: epic-050-090-zombie-node-remediation-and-gc
 tags:

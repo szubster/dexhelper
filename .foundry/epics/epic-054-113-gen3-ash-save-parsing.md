@@ -2,7 +2,7 @@
 id: epic-054-113-gen3-ash-save-parsing
 type: EPIC
 title: Gen 3 Ash Gathering Save Parsing
-status: FAILED
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-30'
 updated_at: '2026-07-16'
@@ -17,10 +17,8 @@ tags:
   - parsing
 research_references:
   - .foundry/archive/research/research-054-243-gen3-ash-gathering-offsets.md
-rejection_count: 2
-rejection_reason: >-
-  Zombie node detected: Session 2058745883748615002 is TERMINATED without
-  resolving the node
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 
