@@ -2,13 +2,13 @@
 id: story-130-270-rng-tid-sid-integration
 type: STORY
 title: RNG TID and SID UI Integration
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-04'
 updated_at: '2026-07-16'
 depends_on:
   - story-130-269-rng-tid-sid-component
-jules_session_id: null
+jules_session_id: '15399854346624155568'
 pr_number: null
 parent: epic-100-130-rng-tid-sid-display
 tags:
