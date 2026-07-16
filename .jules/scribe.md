@@ -13,3 +13,7 @@ When updating JSDoc for complex exported domain functions in the save parser, fo
 - **2024-03-XX:** When replacing functions to add JSDoc comments using replace_with_git_merge_diff, make sure not to duplicate existing JSDoc blocks. Check the original file carefully before crafting the search block to ensure it replaces any existing comment blocks.
 - **2024-03-XX:** Added architectural documentation to `src/engine/saveParser/parsers/gen3.ts`, specifically explaining why `isGen3Save` is stubbed (to avoid double-scanning the heavy A/B flash blocks during initial file detection) and detailing the general execution flow and A/B bank error correction mechanisms in `parseGen3`.
 - **2024-03-XX:** Added architectural JSDoc to `getLivingDexGhosts` in `src/engine/livingDex/ghostTracker.ts`. The documentation explains *why* the function must perform a full O(N) sweep across the player's physical party and PC box arrays rather than relying on boolean Pokédex flags, bridging the gap between game data constraints and the conceptual requirements of a Living Dex.
+
+## Gen 3 Data Generation (scripts/gen3-fetch-locations.ts)
+- **Architectural Discovery**: Gen 3 save files identify player location using a composite Map ID (`(MapGroup << 8) | MapIndex`). Modern datasets (like PokeAPI) lack this binary mapping.
+- **Solution Documented**: The `gen3-fetch-locations.ts` script bridges this gap by fetching original Game Boy assembly files directly from the `pret/pokeemerald` decompilation repository to extract the exact binary IDs and build a topological graph.
