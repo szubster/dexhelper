@@ -5,6 +5,7 @@ import { cn } from '../utils/cn';
 interface SegmentedControlItem<T extends string | number | readonly string[]> {
   id: T;
   label: React.ReactNode;
+  ariaLabel?: string;
   activeClassName?: string;
   inactiveClassName?: string;
   className?: string;
@@ -101,6 +102,8 @@ export function TacticalSegmentedControl<T extends string | number | readonly st
               type="button"
               role="radio"
               aria-checked={isActive}
+              aria-label={item.ariaLabel || (typeof item.label === 'string' ? item.label : undefined)}
+              title={item.ariaLabel || (typeof item.label === 'string' ? item.label : undefined)}
               tabIndex={isActive ? 0 : -1}
               onClick={() => onValueChange(item.id)}
               disabled={item.disabled}
