@@ -26,4 +26,4 @@ notes: ''
 
 ## Acceptance Criteria
 - [x] Create Story for extracting Volcanic Ash count using DataView API based on research findings.
-- [ ] story-113-267-gen3-ash-dataview-extraction
+- [x] story-113-267-gen3-ash-dataview-extraction
