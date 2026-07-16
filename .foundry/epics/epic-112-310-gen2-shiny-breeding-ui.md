@@ -15,9 +15,7 @@ tags:
   - gen2
   - breeding
   - ui
-research_references:
-  - .foundry/docs/adrs/024-tailwind-v4-utility-consolidation.md
-  - .foundry/docs/knowledge_base/tailwind_v4_utilities.md
+research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
