@@ -80,6 +80,8 @@ For applications utilizing Cloudflare Zero Trust (Cloudflare Access), the built-
 **Why it matters:** When addressing problems with sandbox execution environments (e.g., preventing infinite hangs on `tail -f`), we cannot build wrapper scripts and expect them to be seamlessly adopted.
 **Constraint:** The most reliable way to enforce tool behavior constraints is through **instructional policy enforcement**. The rules must be added to `.foundry/docs/knowledge_base/agents/core_policies.md` so that the agent context is explicitly updated to forbid blocking commands and recommend `cat`, `tail -n`, or backgrounding with `&`.
 
+## 2026-07-15: Gen 3 Save File Relative Offsets
+When parsing Gen 3 save files, `SaveBlock1` is divided into four 4KB sections (Section IDs 0-3). Due to the A/B bank flash memory architecture, absolute offsets cannot be reliably used. When extracting data that resides in Section 2 (like the Feebas seed, which is at absolute offsets 0x2DD6 for RS and 0x2E66 for Emerald), the relative offsets must be calculated against the start of Section 2 data (0x1F00), resulting in relative offsets of 0x0ED6 (RS) and 0x0F66 (Emerald). Never assume Section 2 starts at 0x2000.
 ## Gen 3 Static Encounter Offsets
 
 When parsing Gen 3 event flags for static encounters (like legendaries or Snorlax), the flag IDs map to byte and bit offsets within the Event Flags block (which starts at `0x1270` in `SaveBlock1`). To calculate the exact offset, divide the flag ID by 8 for the byte offset, and use modulo 8 for the bit position (e.g. `Flag_ID / 8` and `Flag_ID % 8`). Note that Pokémon FireRed/LeafGreen often track `FOUGHT` instead of `DEFEATED`, and Ruby/Sapphire uses `HIDE` flags for static encounters like the Regis.
