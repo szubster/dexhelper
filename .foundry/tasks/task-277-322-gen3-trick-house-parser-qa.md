@@ -2,10 +2,10 @@
 id: task-277-322-gen3-trick-house-parser-qa
 type: TASK
 title: Gen 3 Trick House Parser QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-15'
-updated_at: '2026-07-15'
+updated_at: '2026-07-16'
 depends_on:
   - task-276-312-gen3-trick-house-parser-retry-impl
 jules_session_id: null

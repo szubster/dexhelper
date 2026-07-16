@@ -2,10 +2,10 @@
 id: idea-116-zod-schema-validation-orchestrator
 type: IDEA
 title: Implement Zod for Strict Node Schema Validation in Foundry Orchestrator
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-07-15'
-updated_at: '2026-07-15'
+updated_at: '2026-07-16'
 depends_on: []
 jules_session_id: null
 parent: null

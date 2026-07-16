@@ -2,12 +2,12 @@
 id: epic-036-053-shared-dag-utilities
 type: EPIC
 title: Shared DAG Utilities Module
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-05-31'
-updated_at: '2026-07-15'
+updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '5020545217316727041'
+jules_session_id: null
 parent: prd-067-036-extract-dag-utils
 tags:
   - refactor
@@ -15,7 +15,9 @@ tags:
   - orchestrator
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: Spawned from prd-067-036-extract-dag-utils.
 ---
 

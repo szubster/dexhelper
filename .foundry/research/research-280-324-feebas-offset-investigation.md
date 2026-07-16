@@ -2,12 +2,12 @@
 id: research-280-324-feebas-offset-investigation
 type: RESEARCH
 title: Investigate Gen 3 Relative Offsets for Feebas Seed
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-07-14'
-updated_at: '2026-07-15'
+updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '7475886777421348190'
+jules_session_id: null
 pr_number: null
 parent: story-058-280-feebas-backend-integration
 tags:

@@ -2,10 +2,10 @@
 id: prd-067-036-extract-dag-utils
 type: PRD
 title: Extract DAG Utilities to Shared Module
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-05-29'
-updated_at: '2026-06-02'
+updated_at: '2026-07-16'
 depends_on: []
 jules_session_id: null
 parent: idea-067-extract-dag-utils

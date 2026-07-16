@@ -2,13 +2,13 @@
 id: task-294-317-gen2-static-encounter-flags-qa
 type: TASK
 title: QA Gen 2 Static Encounter Flag Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-12'
 updated_at: '2026-07-16'
 depends_on:
   - task-294-316-gen2-static-encounter-flags-impl
-jules_session_id: '8283793746439078695'
+jules_session_id: null
 pr_number: null
 parent: story-137-294-gen2-event-flag-parsing
 tags:

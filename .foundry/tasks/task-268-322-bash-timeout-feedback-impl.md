@@ -2,10 +2,10 @@
 id: task-268-322-bash-timeout-feedback-impl
 type: TASK
 title: Implement feedback mechanism for interrupted commands
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-15'
-updated_at: '2026-07-15'
+updated_at: '2026-07-16'
 depends_on: []
 jules_session_id: null
 pr_number: null

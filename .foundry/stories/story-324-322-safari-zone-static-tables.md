@@ -2,10 +2,10 @@
 id: story-324-322-safari-zone-static-tables
 type: STORY
 title: Safari Zone Static Data Compilation (Gen 1 & 3)
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-15'
-updated_at: '2026-07-15'
+updated_at: '2026-07-16'
 depends_on: []
 jules_session_id: null
 pr_number: null

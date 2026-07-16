@@ -2,10 +2,10 @@
 id: task-269-263-rng-tid-sid-component-qa
 type: TASK
 title: QA RNG TID and SID Display Component
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-16'
 depends_on:
   - task-269-262-rng-tid-sid-component-impl
 jules_session_id: null

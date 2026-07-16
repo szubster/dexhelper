@@ -2,10 +2,10 @@
 id: story-137-294-gen2-event-flag-parsing
 type: STORY
 title: Gen 2 Event Flag Parsing
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-10'
-updated_at: '2026-07-12'
+updated_at: '2026-07-16'
 depends_on: []
 jules_session_id: null
 pr_number: null

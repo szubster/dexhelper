@@ -2,12 +2,12 @@
 id: epic-112-322-pokerus-strain-ui-detail-view
 type: EPIC
 title: Pokerus Strain UI Tracker - Detail View
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-07-13'
 updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '6403594647363173717'
+jules_session_id: null
 pr_number: null
 parent: prd-107-112-pokerus-strain-ui-tracker
 tags:
@@ -15,7 +15,9 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: ''
 ---
 

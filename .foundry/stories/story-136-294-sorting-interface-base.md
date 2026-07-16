@@ -2,10 +2,10 @@
 id: story-136-294-sorting-interface-base
 type: STORY
 title: PC Box Sorting Interface and Base Implementations
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-10'
-updated_at: '2026-07-12'
+updated_at: '2026-07-16'
 depends_on: []
 jules_session_id: null
 pr_number: null

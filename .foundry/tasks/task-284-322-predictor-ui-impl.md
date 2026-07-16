@@ -2,10 +2,10 @@
 id: task-284-322-predictor-ui-impl
 type: TASK
 title: Implement Active Callers Dashboard UI
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-14'
-updated_at: '2026-07-14'
+updated_at: '2026-07-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
