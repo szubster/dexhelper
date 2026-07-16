@@ -45,6 +45,6 @@ This forms the foundational interface for the PC Box diff engine. By defining a 
 - **Save File Parsing (Contextual):** When drafting blueprints for save file parsing, explicitly require that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers. (While this task is primarily logical, adhere to this rule if interacting with any underlying data extraction).
 
 ## Acceptance Criteria
-- [ ] `SortingStrategy` interface is defined and exported.
-- [ ] `MultiCriterionSorter` is implemented and allows chaining multiple `SortingStrategy` functions.
-- [ ] Tests verify that the `MultiCriterionSorter` correctly prioritizes primary strategies and falls back to secondary strategies on equality.
+- [x] `SortingStrategy` interface is defined and exported.
+- [x] `MultiCriterionSorter` is implemented and allows chaining multiple `SortingStrategy` functions.
+- [x] Tests verify that the `MultiCriterionSorter` correctly prioritizes primary strategies and falls back to secondary strategies on equality.
