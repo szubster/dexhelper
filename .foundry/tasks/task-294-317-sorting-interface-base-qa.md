@@ -44,5 +44,5 @@ This QA task ensures that the foundational interfaces for the PC Box diff engine
 - **Empty PRs:** If you submit an empty PR for a completed task (e.g., if the code is already verified and no fixes are needed), you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Code review passes for the `SortingStrategy` and `MultiCriterionSorter` implementations.
-- [ ] Unit tests for `MultiCriterionSorter` exist, cover fallback scenarios, and pass successfully.
+- [x] Code review passes for the `SortingStrategy` and `MultiCriterionSorter` implementations.
+- [x] Unit tests for `MultiCriterionSorter` exist, cover fallback scenarios, and pass successfully.
