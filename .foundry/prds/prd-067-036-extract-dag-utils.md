@@ -2,7 +2,7 @@
 id: prd-067-036-extract-dag-utils
 type: PRD
 title: Extract DAG Utilities to Shared Module
-status: ACTIVE
+status: FAILED
 owner_persona: epic_planner
 created_at: '2026-05-29'
 updated_at: '2026-07-16'
@@ -15,7 +15,9 @@ tags:
   - orchestrator
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 6696247730761334806 is TERMINATED without
+  resolving the node
 notes: Spawned from idea-067-extract-dag-utils to organize DAG orchestration logic.
 ---
 

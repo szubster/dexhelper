@@ -2,7 +2,7 @@
 id: epic-050-090-zombie-node-remediation-and-gc
 type: EPIC
 title: Zombie Node Remediation and GC Logic
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-14'
 updated_at: '2026-07-16'
@@ -17,7 +17,9 @@ tags:
   - maintenance
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 1856259674629517626 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 

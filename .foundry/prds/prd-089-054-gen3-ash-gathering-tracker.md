@@ -2,7 +2,7 @@
 id: prd-089-054-gen3-ash-gathering-tracker
 type: PRD
 title: PRD for Gen 3 Volcanic Ash Gathering Tracker
-status: ACTIVE
+status: FAILED
 owner_persona: epic_planner
 created_at: '2026-06-28'
 updated_at: '2026-07-16'
@@ -16,7 +16,9 @@ tags:
   - mechanics
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 12689885699010005758 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 
