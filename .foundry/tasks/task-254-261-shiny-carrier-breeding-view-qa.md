@@ -2,7 +2,7 @@
 id: task-254-261-shiny-carrier-breeding-view-qa
 type: TASK
 title: QA Shiny Carrier Breeding View
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-07-02'
 updated_at: '2026-07-16'
@@ -18,7 +18,9 @@ tags:
   - frontend
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 1815947034023443378 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 
