@@ -2,22 +2,20 @@
 id: epic-036-053-shared-dag-utilities
 type: EPIC
 title: Shared DAG Utilities Module
-status: FAILED
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-05-31'
-updated_at: '2026-07-16'
+updated_at: '2026-07-15'
 depends_on: []
-jules_session_id: '3249377529534493013'
+jules_session_id: '5020545217316727041'
 parent: prd-067-036-extract-dag-utils
 tags:
   - refactor
   - foundry
   - orchestrator
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  Zombie node detected: Session 3249377529534493013 is TERMINATED without
-  resolving the node
+rejection_count: 0
+rejection_reason: ''
 notes: Spawned from prd-067-036-extract-dag-utils.
 ---
 
@@ -36,7 +34,7 @@ This epic extracts pure functions from `.github/scripts/foundry-orchestrator.ts`
 - Update the DAG orchestration tests to use the new module.
 
 ## Next Steps
-- [x] story-053-278-extract-log-to-journal
+- [ ] story-053-278-extract-log-to-journal
 - [x] Story Owner: Write Story to create the `dag-utils.ts` module with pure functions and basic utilities.
   - Spawned: `.foundry/archive/stories/story-053-090-extract-dag-utilities.md`
 
@@ -47,6 +45,9 @@ This epic extracts pure functions from `.github/scripts/foundry-orchestrator.ts`
   - Spawned: `.foundry/archive/stories/story-053-107-update-dag-orchestration-tests.md`
 
 ## Acceptance Criteria
-- [x] `dag-utils.ts` is created and contains the extracted pure functions and utilities.
+- [ ] `dag-utils.ts` is created and contains the extracted pure functions and utilities.
 - [x] New unit tests are written for `dag-utils.ts`.
 - [x] Existing tests still pass.
+
+### Auditor Rejection
+The `logToJournal` function was not extracted into `dag-utils.ts` and is still missing. `dag-utils.ts` only contains `todayISO`, `buildReverseDependencyGraph`, and `getOrphanedNodes`.

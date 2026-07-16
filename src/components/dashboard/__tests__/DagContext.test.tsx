@@ -1,79 +1,19 @@
-import { Component, type ReactNode } from 'react';
+import React from 'react';
 import { expect, test, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import { DagProvider, useDagContext } from '../DagContext';
 
-const TestComponent = () => {
-  const { maxRejectionThreshold, setActiveView } = useDagContext();
-  return (
-    <div>
-      <div data-testid="threshold">{maxRejectionThreshold}</div>
-      <button type="button" data-testid="btn" onClick={() => setActiveView('board')}>
-        Set View
-      </button>
-    </div>
-  );
-};
-
-test('DagProvider provides maxRejectionThreshold and handles data loading correctly', async () => {
-  globalThis.fetch = vi.fn<typeof fetch>().mockResolvedValue({
-    ok: true,
-    json: async () => [
-      {
-        filePath: 'node-1.md',
-        data: {
-          id: 'node-1',
-          type: 'TASK',
-          status: 'COMPLETED',
-          owner_persona: 'human',
-          label: 'node',
-          title: 'Node 1',
-          rejection_count: 0,
-          depends_on: [],
-        },
-      },
-    ],
-  } as unknown as Response);
-
-  await render(
-    <DagProvider>
-      <TestComponent />
-    </DagProvider>,
-  );
-
-  await expect.element(page.getByTestId('threshold')).toHaveTextContent('3');
-  await page.getByTestId('btn').click();
-});
-
-test('DagProvider handles load error gracefully', async () => {
-  const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-
-  globalThis.fetch = vi.fn<typeof fetch>().mockResolvedValue({
-    ok: false,
-  } as unknown as Response);
-
-  await render(
-    <DagProvider>
-      <TestComponent />
-    </DagProvider>,
-  );
-
-  await expect.element(page.getByTestId('threshold')).toHaveTextContent('3');
-  consoleErrorSpy.mockRestore();
-});
-
-class TestBoundary extends Component<{ children: ReactNode }, { hasError: boolean; error: Error | null }> {
-  constructor(props: { children: ReactNode }) {
+class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean; error: Error | null }> {
+  constructor(props: { children: React.ReactNode }) {
     super(props);
     this.state = { hasError: false, error: null };
   }
+
   static getDerivedStateFromError(error: Error) {
     return { hasError: true, error };
   }
-  override componentDidCatch(_error: Error) {
-    // catch
-  }
+
   override render() {
     if (this.state.hasError) {
       return <div data-testid="error">{this.state.error?.message}</div>;
@@ -82,21 +22,99 @@ class TestBoundary extends Component<{ children: ReactNode }, { hasError: boolea
   }
 }
 
-const ThrowingComponent = () => {
+function ErrorConsumer() {
   useDagContext();
-  return <div>test</div>;
-};
+  return <div>Should not see this</div>;
+}
 
-test('useDagContext throws outside of provider', async () => {
-  const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-
-  await render(
-    <TestBoundary>
-      <ThrowingComponent />
-    </TestBoundary>,
+test('DagContext throws error outside provider', async () => {
+  void render(
+    <ErrorBoundary>
+      <ErrorConsumer />
+    </ErrorBoundary>,
   );
 
   await expect.element(page.getByTestId('error')).toHaveTextContent('useDagContext must be used within a DagProvider');
+});
 
-  consoleErrorSpy.mockRestore();
+function ValidConsumer() {
+  const context = useDagContext();
+  return (
+    <div>
+      <div data-testid="active-view">{context.activeView}</div>
+      <div data-testid="is-loading">{context.isLoading.toString()}</div>
+      <button type="button" data-testid="set-board" onClick={() => context.setActiveView('board')}>
+        Set Board
+      </button>
+      <button type="button" data-testid="set-loading" onClick={() => context.setIsLoading(false)}>
+        Set Loading
+      </button>
+      <button
+        type="button"
+        data-testid="set-nodes"
+        onClick={() =>
+          context.setNodes([
+            {
+              id: '1',
+              type: 'task',
+              position: { x: 0, y: 0 },
+              data: {
+                id: '1',
+                type: 'TASK',
+                status: 'READY',
+                owner_persona: 'coder',
+                depends_on: [],
+                rejection_count: 0,
+              },
+            },
+          ])
+        }
+      >
+        Set Nodes
+      </button>
+      <div data-testid="nodes-count">{context.nodes.length.toString()}</div>
+      <button
+        type="button"
+        data-testid="set-edges"
+        onClick={() => context.setEdges([{ id: 'e1', source: 'a', target: 'b' }])}
+      >
+        Set Edges
+      </button>
+      <div data-testid="edges-count">{context.edges.length.toString()}</div>
+    </div>
+  );
+}
+
+test('DagProvider provides default state and allows updates', async () => {
+  globalThis.fetch = vi.fn<typeof fetch>().mockResolvedValue({
+    ok: true,
+    json: async () => [],
+  } as unknown as Response);
+
+  void render(
+    <DagProvider>
+      <ValidConsumer />
+    </DagProvider>,
+  );
+
+  // Check initial state
+  await expect.element(page.getByTestId('active-view')).toHaveTextContent('graph');
+  // Since loadData in useEffect is async and will eventually set isLoading to false
+  // we can just check if it gets updated
+  await page.getByTestId('set-loading').click();
+  await expect.element(page.getByTestId('is-loading')).toHaveTextContent('false');
+  await expect.element(page.getByTestId('nodes-count')).toHaveTextContent('0');
+  await expect.element(page.getByTestId('edges-count')).toHaveTextContent('0');
+
+  // Perform updates
+  await page.getByTestId('set-board').click();
+  await page.getByTestId('set-loading').click();
+  await page.getByTestId('set-nodes').click();
+  await page.getByTestId('set-edges').click();
+
+  // Check updated state
+  await expect.element(page.getByTestId('active-view')).toHaveTextContent('board');
+  await expect.element(page.getByTestId('is-loading')).toHaveTextContent('false');
+  await expect.element(page.getByTestId('nodes-count')).toHaveTextContent('1');
+  await expect.element(page.getByTestId('edges-count')).toHaveTextContent('1');
 });

@@ -7,8 +7,8 @@ import { useDagContext } from '../dashboard/DagContext';
 import { DagFilterPanel } from './DagFilterPanel';
 import { DagNode, type DagNodeData } from './DagNode';
 
-export function getMiniMapNodeColor(node: FlowNode<DagNodeData>, maxRejectionThreshold = 3): string {
-  if (node.data?.status === 'FAILED' && (node.data?.rejection_count ?? 0) >= maxRejectionThreshold) {
+export function getMiniMapNodeColor(node: FlowNode<DagNodeData>): string {
+  if (node.data?.status === 'FAILED' && (node.data?.rejection_count ?? 0) >= 3) {
     return '#dc2626'; // red-600
   }
 
@@ -33,7 +33,7 @@ const nodeTypes = {
 };
 
 export function DagDashboard() {
-  const { nodes, edges, isLoading, maxRejectionThreshold } = useDagContext();
+  const { nodes, edges, isLoading } = useDagContext();
 
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
@@ -82,7 +82,7 @@ export function DagDashboard() {
         let shouldInclude = type && status && activeTypes.has(type) && activeStatuses.has(status);
 
         if (shouldInclude && showPermanentFailures) {
-          shouldInclude = n.data.status === 'FAILED' && n.data.rejection_count >= maxRejectionThreshold;
+          shouldInclude = n.data.status === 'FAILED' && n.data.rejection_count >= 3;
         }
 
         if (shouldInclude) {
@@ -100,7 +100,7 @@ export function DagDashboard() {
       }
     }
     return result;
-  }, [nodes, activeTypes, activeStatuses, activeNodeId, highlightSet, showPermanentFailures, maxRejectionThreshold]);
+  }, [nodes, activeTypes, activeStatuses, activeNodeId, highlightSet, showPermanentFailures]);
 
   const displayEdges = useMemo(() => {
     // ⚡ Bolt: Prevent array allocation in Set construction
@@ -193,7 +193,7 @@ export function DagDashboard() {
         <MiniMap
           className="!bg-zinc-900 !border !border-dashed !border-zinc-800 !rounded-none"
           maskColor="rgba(0, 0, 0, 0.7)"
-          nodeColor={(node) => getMiniMapNodeColor(node as FlowNode<DagNodeData>, maxRejectionThreshold)}
+          nodeColor={getMiniMapNodeColor}
         />
       </ReactFlow>
     </div>

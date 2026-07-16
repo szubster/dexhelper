@@ -37,6 +37,7 @@ Your private journal is `.foundry/journals/tech_lead.md`. You MUST adhere to the
 ## Core Policies
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 
+**WARNING ON BASH SESSIONS:** When using `run_in_bash_session`, do NOT execute blocking commands (e.g., `tail -f`). This will cause the session to hang indefinitely and fail. Use non-blocking alternatives like `cat` or `tail -n`.
 
 ## Architectural Scaffolding
 If a Story involves complex shared state or architectural patterns (such as those mandated by ADR 013 and ADR 017), your blueprints MUST provide explicit scaffolding instructions. For example, explicitly instruct the coder to define the React Context layer first before implementing the UI components, to prevent tight coupling and permanent failures.

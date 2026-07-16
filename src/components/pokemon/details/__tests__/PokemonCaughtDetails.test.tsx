@@ -114,7 +114,7 @@ describe('PokemonCaughtDetails', () => {
 
     await render(<PokemonCaughtDetails yourPokemon={[gen3PokemonWithRibbons]} />);
 
-    await expect.element(page.getByText('[ ACQUIRED_RIBBONS ]')).toBeInTheDocument();
+    await expect.element(page.getByText('Contest Ribbons')).toBeInTheDocument();
     await expect.element(page.getByText('Cool', { exact: true })).toBeInTheDocument();
     await expect.element(page.getByText('Master')).toBeInTheDocument();
   });

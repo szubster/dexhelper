@@ -2,12 +2,12 @@
 id: task-258-263-egg-move-precomputation-etl-impl
 type: TASK
 title: Implement Egg Move Precomputation in ETL
-status: FAILED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-03'
-updated_at: '2026-07-15'
+updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: '10755592772331623067'
+jules_session_id: '4556219189585287672'
 pr_number: null
 parent: story-113-258-egg-move-pathfinding-core
 tags:
@@ -16,9 +16,7 @@ tags:
   - algorithm
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Zombie node detected: Session 10755592772331623067 is TERMINATED without
-  resolving the node
+rejection_reason: ''
 notes: ''
 ---
 

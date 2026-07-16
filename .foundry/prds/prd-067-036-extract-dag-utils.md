@@ -5,9 +5,9 @@ title: Extract DAG Utilities to Shared Module
 status: PENDING
 owner_persona: epic_planner
 created_at: '2026-05-29'
-updated_at: '2026-07-16'
+updated_at: '2026-06-02'
 depends_on: []
-jules_session_id: '4296716186946512330'
+jules_session_id: null
 parent: idea-067-extract-dag-utils
 tags:
   - refactor

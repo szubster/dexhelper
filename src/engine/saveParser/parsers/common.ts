@@ -241,14 +241,6 @@ export interface SaveData {
   hiddenCoinFlags?: Uint8Array;
   /** Bitflags representing which in-game NPC trades have already been completed. */
   npcTradeFlags?: boolean[];
-  /** Gen 2 specific: Static encounter event flags. */
-  gen2StaticEncounters?: {
-    sudowoodo: boolean;
-    snorlax: boolean;
-    redGyarados: boolean;
-    hoOh: boolean;
-    lugia: boolean;
-  };
   /** Detailed structural data for Pokémon currently left in the Daycare (Gen 2). */
   daycare?: PokemonInstance[];
   /** Gen 2 specific: Indicates if an Egg is currently waiting to be picked up from the Daycare. */

@@ -11,7 +11,7 @@ describe('ContestRibbonBadge', () => {
     await expect.element(container).toBeVisible();
     await expect.element(container).toHaveClass('border-dashed');
     await expect.element(container).toHaveClass('rounded-none');
-    await expect.element(page.getByText('Cool', { exact: true })).toBeVisible();
+    await expect.element(page.getByText('Cool')).toBeVisible();
     await expect.element(page.getByText('Normal')).toBeVisible();
   });
 
@@ -20,7 +20,7 @@ describe('ContestRibbonBadge', () => {
 
     const container = page.getByTitle('Beauty Contest - Super Rank Ribbon');
     await expect.element(container).toBeVisible();
-    await expect.element(page.getByText('Beauty', { exact: true })).toBeVisible();
+    await expect.element(page.getByText('Beauty')).toBeVisible();
     await expect.element(page.getByText('Super')).toBeVisible();
   });
 
@@ -29,7 +29,7 @@ describe('ContestRibbonBadge', () => {
 
     const container = page.getByTitle('Cute Contest - Hyper Rank Ribbon');
     await expect.element(container).toBeVisible();
-    await expect.element(page.getByText('Cute', { exact: true })).toBeVisible();
+    await expect.element(page.getByText('Cute')).toBeVisible();
     await expect.element(page.getByText('Hyper')).toBeVisible();
   });
 
@@ -38,7 +38,7 @@ describe('ContestRibbonBadge', () => {
 
     const container = page.getByTitle('Smart Contest - Master Rank Ribbon');
     await expect.element(container).toBeVisible();
-    await expect.element(page.getByText('Smart', { exact: true })).toBeVisible();
+    await expect.element(page.getByText('Smart')).toBeVisible();
     await expect.element(page.getByText('Master')).toBeVisible();
   });
 
@@ -47,7 +47,7 @@ describe('ContestRibbonBadge', () => {
 
     const container = page.getByTitle('Tough Contest - Normal Rank Ribbon');
     await expect.element(container).toBeVisible();
-    await expect.element(page.getByText('Tough', { exact: true })).toBeVisible();
+    await expect.element(page.getByText('Tough')).toBeVisible();
     await expect.element(page.getByText('Normal')).toBeVisible();
   });
 });

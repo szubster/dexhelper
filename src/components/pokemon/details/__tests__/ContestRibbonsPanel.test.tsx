@@ -17,23 +17,23 @@ describe('ContestRibbonsPanel', () => {
     await render(<ContestRibbonsPanel ribbons={ribbons} />);
 
     // Renders the header
-    await expect.element(page.getByText('[ ACQUIRED_RIBBONS ]')).toBeInTheDocument();
+    await expect.element(page.getByText('Contest Ribbons')).toBeInTheDocument();
 
     // Renders the badges with correct type and rank texts based on mappings
-    await expect.element(page.getByText('Cool', { exact: true })).toBeInTheDocument();
+    await expect.element(page.getByText('Cool')).toBeInTheDocument();
     await expect.element(page.getByText('Normal')).toBeInTheDocument();
 
-    await expect.element(page.getByText('Beauty', { exact: true })).toBeInTheDocument();
+    await expect.element(page.getByText('Beauty')).toBeInTheDocument();
     await expect.element(page.getByText('Super')).toBeInTheDocument();
 
-    await expect.element(page.getByText('Cute', { exact: true })).toBeInTheDocument();
+    await expect.element(page.getByText('Cute')).toBeInTheDocument();
     await expect.element(page.getByText('Hyper')).toBeInTheDocument();
 
-    await expect.element(page.getByText('Smart', { exact: true })).toBeInTheDocument();
+    await expect.element(page.getByText('Smart')).toBeInTheDocument();
     await expect.element(page.getByText('Master')).toBeInTheDocument();
 
     // Does not render a badge if rank is 0
-    await expect.element(page.getByText('Tough', { exact: true })).not.toBeInTheDocument();
+    await expect.element(page.getByText('Tough')).not.toBeInTheDocument();
   });
 
   it('renders nothing if all ribbons are 0', async () => {

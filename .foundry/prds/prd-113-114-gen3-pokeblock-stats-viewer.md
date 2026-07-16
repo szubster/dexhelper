@@ -2,12 +2,12 @@
 id: prd-113-114-gen3-pokeblock-stats-viewer
 type: PRD
 title: Gen 3 Pokéblock Exact Stats Viewer
-status: PENDING
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-07-13'
-updated_at: '2026-07-16'
+updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5123433311405571485'
 pr_number: null
 parent: idea-113-gen3-pokeblock-stats-viewer
 tags:
@@ -46,7 +46,5 @@ In Generation 3 (Ruby, Sapphire, Emerald), Pokéblocks are created by blending B
 - **UI Components:** Create a new dashboard route and component for the Pokéblock Viewer, adhering to the tactical hardware aesthetic constraints (ADR 024, ADR 008).
 
 ## Acceptance Criteria
-- [x] Create EPIC(s) for the backend data integration (parsing the Pokéblock Case).
-- [x] Create EPIC(s) for the frontend dashboard UI and state management.
-- [ ] epic-114-327-gen3-pokeblock-case-parsing
-- [ ] epic-114-328-gen3-pokeblock-dashboard-ui
+- [ ] Create EPIC(s) for the backend data integration (parsing the Pokéblock Case).
+- [ ] Create EPIC(s) for the frontend dashboard UI and state management.

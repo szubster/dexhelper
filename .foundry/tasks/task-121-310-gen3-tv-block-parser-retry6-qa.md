@@ -2,13 +2,13 @@
 id: task-121-310-gen3-tv-block-parser-retry6-qa
 type: TASK
 title: QA - Implement Gen 3 TV Block DataView Parser (Retry 6)
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-11'
-updated_at: '2026-07-16'
+updated_at: '2026-07-15'
 depends_on:
   - task-121-309-gen3-tv-block-parser-retry6-impl
-jules_session_id: null
+jules_session_id: '10152999180507645969'
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser
 tags:
@@ -17,7 +17,7 @@ tags:
   - data-parsing
   - qa
 research_references: []
-rejection_count: 1
+rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
@@ -43,13 +43,6 @@ Specifically, check for the presence and usage of the following constants based 
 - `OUTBREAK_LEVEL_OFFSET = 0x14`
 - `OUTBREAK_DAYS_BEFORE_OFFSET = 0x16`
 - `OUTBREAK_LANGUAGE_OFFSET = 0x18`
-
-
-## QA Notes (Failed)
-The Coder's implementation failed.
-1. It used inline magic numbers (`+ 2`, `+ 4`, `+ 6`) in `parseGen3ActiveSwarm`.
-2. The `RangeError` thrown in `parseGen3TVBlock` and other places includes extra text instead of the exact message `"The save file is corrupted or incomplete."`.
-I am rejecting this implementation. The checkboxes below will remain unchecked.
 
 ## Acceptance Criteria
 - [ ] Verified that the TV block extraction logic strictly utilizes `DataView`.

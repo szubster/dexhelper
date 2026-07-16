@@ -8,8 +8,6 @@ import { buildDagGraph } from '../../utils/dag/builder';
 // If you abort or permanently fail a task, you MUST update the YAML frontmatter to status: FAILED or status: CANCELLED with a rejection_reason.
 // If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
-export const MAX_REJECTION_THRESHOLD = 3;
-
 export interface DagNodeData extends Record<string, unknown> {
   id: string;
   type: string;
@@ -30,7 +28,6 @@ export type ViewMode = 'graph' | 'board';
 
 export interface DagContextState {
   nodes: DagNode[];
-  maxRejectionThreshold: number;
   edges: DagEdge[];
   isLoading: boolean;
   activeView: ViewMode;
@@ -95,7 +92,6 @@ export function DagProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo(
     () => ({
-      maxRejectionThreshold: MAX_REJECTION_THRESHOLD,
       nodes,
       edges,
       isLoading,

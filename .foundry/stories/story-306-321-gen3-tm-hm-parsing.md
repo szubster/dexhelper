@@ -2,12 +2,12 @@
 id: story-306-321-gen3-tm-hm-parsing
 type: STORY
 title: Gen 3 TM/HM Parse
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-07-16'
+updated_at: '2026-07-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16732917338314800380'
 pr_number: null
 parent: epic-110-306-tm-hm-save-parsing
 tags:
@@ -32,6 +32,4 @@ Parse the Gen 3 save file Item Bag to extract the player's current TM and HM inv
 - Must follow ADR 028 for dynamic save block extraction.
 
 ## Acceptance Criteria
-- [x] Break down into TASK nodes for implementation.
-- [ ] task-321-322-gen3-tm-hm-parsing-impl
-- [ ] task-321-323-gen3-tm-hm-parsing-qa
+- [ ] Break down into TASK nodes for implementation.

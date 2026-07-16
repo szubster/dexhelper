@@ -7,9 +7,9 @@ owner_persona: "tech_lead"
 created_at: "2026-07-13"
 updated_at: "2026-07-13"
 depends_on:
-  - story-309-001-gender-calculation-engine
-  - story-309-002-dv-overlap-constraint
-  - story-309-003-egg-group-validation
+  - .foundry/stories/story-309-001-gender-calculation-engine.md
+  - .foundry/stories/story-309-002-dv-overlap-constraint.md
+  - .foundry/stories/story-309-003-egg-group-validation.md
 jules_session_id: null
 pr_number: null
 parent: epic-112-309-gen2-shiny-breeding-logic

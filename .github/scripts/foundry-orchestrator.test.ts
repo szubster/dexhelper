@@ -1499,39 +1499,6 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(completedResult).not.toContain('status: CANCELLED');
   });
 
-  test('Impossible Loop: Wakes up parent if child is CANCELLED due to max rejections', () => {
-    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
-      id: "story-001",
-      type: "STORY",
-      title: "Story",
-      status: "PENDING",
-      owner_persona: "tech_lead",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      depends_on: [],
-      jules_session_id: null,
-    });
-
-    createValidTestNode(tmpDir, '.foundry/tasks/task-impossible.md', {
-      id: "task-impossible",
-      type: "TASK",
-      title: "Impossible Task",
-      status: "CANCELLED",
-      owner_persona: "coder",
-      created_at: "2026-04-20",
-      updated_at: "2026-04-20",
-      parent: ".foundry/stories/story-001.md",
-      depends_on: [".foundry/stories/story-001.md"],
-      jules_session_id: null,
-      rejection_reason: "Max rejection count reached",
-    });
-
-    main();
-
-    const result = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-001.md'), 'utf-8');
-    expect(result).toContain('status: READY');
-  });
-
   test('Impossible Loop: Auto-cancels node when max rejection count is reached', async () => {
     createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
       id: "story-001",

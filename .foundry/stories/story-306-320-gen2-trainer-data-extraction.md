@@ -2,12 +2,12 @@
 id: story-306-320-gen2-trainer-data-extraction
 type: STORY
 title: Gen 2 Trainer Data Extraction
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-07-16'
+updated_at: '2026-07-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10582392032178616751'
 pr_number: null
 parent: epic-109-306-missed-trainer-data-extraction-gen1-gen2
 tags:
@@ -31,8 +31,4 @@ Extract and parse the trainer defeat flags for Generation 2 games from Bank 1.
 3. Use relative offsets and constants (ADR 028) strictly. No inline magic numbers.
 
 ## Acceptance Criteria
-- [x] Break down into Tasks
-
-
-- [ ] task-320-322-gen2-trainer-flags-impl
-- [ ] task-320-323-gen2-trainer-flags-qa
+- [ ] Break down into Tasks

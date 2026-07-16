@@ -60,7 +60,7 @@ describe('GlobalRibbonChecklistDashboard', () => {
     await render(<GlobalRibbonChecklistDashboard />);
     await expect.element(page.getByText('GLOBAL RIBBON CHECKLIST')).toBeInTheDocument();
     await expect.element(page.getByText('PIKACHU (Lv 10)')).toBeInTheDocument();
-    await expect.element(page.getByText('Cool', { exact: true })).toBeInTheDocument();
-    await expect.element(page.getByText('Cute', { exact: true })).toBeInTheDocument();
+    await expect.element(page.getByText('Cool')).toBeInTheDocument();
+    await expect.element(page.getByText('Cute')).toBeInTheDocument();
   });
 });

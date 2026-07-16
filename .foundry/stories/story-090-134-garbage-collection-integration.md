@@ -2,13 +2,13 @@
 id: story-090-134-garbage-collection-integration
 type: STORY
 title: Garbage Collection Integration and Execution
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-14'
-updated_at: '2026-07-16'
+updated_at: '2026-07-05'
 depends_on:
   - story-090-133-remediation-state-transition-logic
-jules_session_id: '7874514425420059775'
+jules_session_id: null
 pr_number: null
 parent: epic-050-090-zombie-node-remediation-and-gc
 tags:
@@ -17,9 +17,7 @@ tags:
   - maintenance
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Zombie node detected: Session 7874514425420059775 is TERMINATED without
-  resolving the node
+rejection_reason: ''
 notes: ''
 ---
 

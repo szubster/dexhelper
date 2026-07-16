@@ -2,12 +2,12 @@
 id: epic-112-324-npc-size-record-data-extraction
 type: EPIC
 title: Gen 2 & Gen 3 NPC Size Record Assistant - Data Extraction
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-07-16'
+updated_at: '2026-07-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6092087361094101431'
 pr_number: null
 parent: prd-110-112-npc-size-record-assistant
 tags:
@@ -32,4 +32,3 @@ Extract the necessary internal data structures from Gen 2 and Gen 3 save files t
 ## Acceptance Criteria
 - [ ] Implement data extraction for Gen 2 DVs.
 - [ ] Implement data extraction for Gen 3 PV and IVs.
-- [ ] story-324-322-gen2-dv-extraction

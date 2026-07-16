@@ -7,7 +7,7 @@ owner_persona: "story_owner"
 created_at: "2026-07-12"
 updated_at: "2026-07-12"
 depends_on:
-  - epic-110-306-tm-hm-save-parsing
+  - "epic-110-306-tm-hm-save-parsing"
 jules_session_id: null
 pr_number: null
 parent: "prd-105-110-tm-hm-inventory-planner"
