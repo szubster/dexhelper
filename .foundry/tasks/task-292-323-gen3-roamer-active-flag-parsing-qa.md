@@ -36,7 +36,7 @@ The Coder was tasked with parsing the `active` boolean at offset `0x13` of the r
 - Write/verify tests testing the extraction of the roamer's active status.
 
 ## Acceptance Criteria
-- [ ] Code passes all verification requirements.
-- [ ] QA: If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
-- [ ] QA: If you must abort or permanently fail a task (impossible or max rejections reached), update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
-- [ ] QA: If you submit an empty PR for a completed task, check off all Acceptance Criteria checkboxes before submitting.
+- [x] Code passes all verification requirements.
+- [x] QA: If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
+- [x] QA: If you must abort or permanently fail a task (impossible or max rejections reached), update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
+- [x] QA: If you submit an empty PR for a completed task, check off all Acceptance Criteria checkboxes before submitting.
