@@ -33,5 +33,5 @@ Verify the garbage collection integration logic.
 - When drafting blueprints for save file parsing, explicitly require that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Verify that the GC process correctly detects and remediates zombie nodes.
-- [ ] Verify that remediated nodes are correctly processed by the existing resurrection loop.
+- [x] Verify that the GC process correctly detects and remediates zombie nodes.
+- [x] Verify that remediated nodes are correctly processed by the existing resurrection loop.
