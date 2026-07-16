@@ -101,7 +101,7 @@ export function SettingsControls({
           onValueChange={(val) => setGlobalPokeball(val)}
           items={filteredPokeballs.map((pb) => ({
             id: pb.value,
-            ariaLabel: `${pb.label} ball`,
+            ariaLabel: `${pb.label}`,
             label: (
               <>
                 <div
