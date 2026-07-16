@@ -25,5 +25,5 @@ Extract the event flags for Gen 2 static encounters from the save file. This inv
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-294-316-gen2-static-encounter-flags-impl
-- [ ] task-294-317-gen2-static-encounter-flags-qa
+- [ ] task-294-329-gen2-static-encounter-flags-impl
+- [ ] task-294-330-gen2-static-encounter-flags-qa
