@@ -28,8 +28,11 @@ Design and implement a reusable UI component that clearly displays both the Trai
 - [x] Tech Lead: Generate actionable Tasks.
 - [ ] Component displays TID and SID.
 - [ ] Component includes a "Copy to Clipboard" feature that formats them appropriately for RNG tools.
-- [ ] task-269-262-rng-tid-sid-component-impl
-- [ ] task-269-263-rng-tid-sid-component-qa
+- [x] task-269-262-rng-tid-sid-component-impl
+- [x] task-269-263-rng-tid-sid-component-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
+- [ ] research-269-325-rng-tid-sid-failure-analysis
+- [ ] task-269-330-rng-tid-sid-component-impl
+- [ ] task-269-331-rng-tid-sid-component-qa
