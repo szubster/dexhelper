@@ -2,7 +2,7 @@
 id: story-130-269-rng-tid-sid-component
 type: STORY
 title: RNG TID and SID Display Component
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-07-04'
 updated_at: '2026-07-16'
@@ -16,7 +16,9 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 6428404085085240292 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 # RNG TID and SID Display Component

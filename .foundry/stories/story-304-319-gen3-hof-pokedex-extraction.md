@@ -2,7 +2,7 @@
 id: story-304-319-gen3-hof-pokedex-extraction
 type: STORY
 title: 'Story: Gen 3 Hall of Fame & Pokédex Data Extraction'
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-07-13'
 updated_at: '2026-07-15'
@@ -17,7 +17,9 @@ research_references:
   - .foundry/docs/knowledge_base/engine/save_parsing/gen3_hall_of_fame.md
   - .foundry/docs/knowledge_base/gen3_pokemon_data_structure.md
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 16676321156850284457 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 

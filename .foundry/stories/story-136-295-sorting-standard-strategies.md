@@ -2,7 +2,7 @@
 id: story-136-295-sorting-standard-strategies
 type: STORY
 title: Implement Standard PC Box Sorting Strategies
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-07-10'
 updated_at: '2026-07-16'
@@ -16,7 +16,9 @@ tags:
   - sorting
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 18111274414823292573 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 
