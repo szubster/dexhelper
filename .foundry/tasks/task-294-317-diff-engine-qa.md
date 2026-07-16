@@ -44,6 +44,12 @@ Your role as QA is to review the code for edge cases and ensure the tests adequa
 - **Empty PR Policy Reminder**: If you submit an empty PR because the logic already exists and is fully verified, you MUST check off all Acceptance Criteria checkboxes before submitting.
 - **Error Handling Reminder**: If you experience a transient failure requiring retry (or if the coder's implementation fails your checks), update the YAML frontmatter to `status: FAILED` with a detailed `rejection_reason` explaining what the coder missed. If you must permanently abort (impossible or max rejections reached), update to `status: CANCELLED` with a `rejection_reason`.
 
+
+### QA Validation Failure
+- **Date**: 2026-07-15
+- **Result**: FAILED
+- **Reason**: The implementation in `src/engine/saveParser/utils/boxDiff.ts` generates a fallback hash rather than strictly relying on the `hash` property. Additionally, the `hash` property is missing entirely from the `PokemonInstance` interface in `src/engine/saveParser/parsers/common.ts`. The task `task-294-316-diff-engine-impl` has been rejected.
+
 ## Acceptance Criteria
 - [ ] Verify the diff algorithm correctly computes additions, removals, and relocations using the `hash` field.
 - [ ] Verify unit test coverage is comprehensive for edge cases.
