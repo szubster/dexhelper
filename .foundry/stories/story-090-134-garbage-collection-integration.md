@@ -33,6 +33,6 @@ With the zombie node detection engine and state transition logic implemented, th
 - [x] Create task breakdown.
 
 ### Next Steps
-- [ ] task-134-264-gc-integration-impl
-- [ ] task-134-265-gc-integration-qa
+- [x] task-134-264-gc-integration-impl
+- [x] task-134-265-gc-integration-qa
 - [x] Break down into Tasks.
