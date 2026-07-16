@@ -16,7 +16,7 @@ tags:
   - breeding
   - ui
 research_references:
-  - .foundry/docs/adrs/024-tailwind-v4-utility-consolidation.md
+  - .foundry/archive/docs/adrs/024-tailwind-v4-utility-consolidation.md
   - .foundry/docs/knowledge_base/tailwind_v4_utilities.md
 rejection_count: 0
 rejection_reason: ''

@@ -19,8 +19,8 @@ tags:
   - testing
 research_references:
   - .foundry/docs/knowledge_base/gen3_trick_house_offsets.md
-  - .foundry/docs/adrs/010-gen3-data-parsing.md
-  - .foundry/docs/adrs/adr-061-026-bitwise-state-extraction.md
+  - .foundry/archive/docs/adrs/010-gen3-data-parsing.md
+  - .foundry/archive/docs/adrs/adr-061-026-bitwise-state-extraction.md
 rejection_count: 0
 rejection_reason: ''
 notes: ''

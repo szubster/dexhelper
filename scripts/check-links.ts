@@ -19,23 +19,19 @@ function resolveNodeIdToPath(nodeId: string): string {
   const folder = folderMap[type];
   if (!folder) return nodeId;
 
-  const rootPath = `.foundry/${nodeId}.md`;
-  if (fs.existsSync(rootPath)) {
-    return rootPath;
-  }
+  const possiblePaths = [
+    `.foundry/${nodeId}.md`,
+    `.foundry/${folder}/${nodeId}.md`,
+    `.foundry/archive/${folder}/${nodeId}.md`,
+    `.foundry/archive/${nodeId}.md`,
+    `.foundry/docs/adrs/${nodeId}.md`,
+    `.foundry/archive/docs/adrs/${nodeId}.md`
+  ];
 
-  const basePath = `.foundry/${folder}/${nodeId}.md`;
-  if (fs.existsSync(basePath)) {
-    return basePath;
-  }
-  const archivePath = `.foundry/archive/${folder}/${nodeId}.md`;
-  if (fs.existsSync(archivePath)) {
-    return archivePath;
-  }
-
-  const rootArchivePath = `.foundry/archive/${nodeId}.md`;
-  if (fs.existsSync(rootArchivePath)) {
-    return rootArchivePath;
+  for (const p of possiblePaths) {
+    if (fs.existsSync(p)) {
+      return p;
+    }
   }
 
   return nodeId;
@@ -114,7 +110,7 @@ function checkLinks() {
   let hasErrors = false;
 
   for (const file of files) {
-    if (!file.endsWith('.md')) {
+    if (!file.endsWith('.md') || file.includes('/archive/')) {
       continue;
     }
 
