@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-06'
 depends_on:
-  - .foundry/tasks/task-279-304-gen3-ignore-emulator-trailing-bytes-impl.md
+  - task-279-304-gen3-ignore-emulator-trailing-bytes-impl
 jules_session_id: null
 pr_number: null
 parent: story-081-279-gen3-ignore-emulator-trailing-bytes

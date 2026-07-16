@@ -7,7 +7,7 @@ owner_persona: epic_planner
 created_at: '2026-07-06'
 updated_at: '2026-07-06'
 depends_on:
-  - .foundry/tasks/task-103-304-propose-dynamic-policy-injection-adr.md
+  - task-103-304-propose-dynamic-policy-injection-adr
 jules_session_id: null
 pr_number: null
 parent: idea-103-foundry-node-content-consolidation
