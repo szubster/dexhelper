@@ -52,3 +52,11 @@ The coder failed to properly implement relative memory offsets using `section1Of
 - **Constraint**: When validating Gen 3 dynamic save block extraction (e.g., Feebas seed, Volcanic Ash), ensure that offsets are never hardcoded as absolute values (e.g., `0x2dd6`, `0x13D0`).
 - **Why**: Generation 3 save files utilize an A/B bank rotation system where data can reside in `0x0000` or `0xE000`. Absolute offsets will fail to read the active save data if it resides in Bank B.
 - **Enforcement**: All dynamic save block extraction functions must receive the resolved offset from the parser engine (e.g., `section1Offset` or `section2Offset`) and apply relative memory calculations (`section1Offset + offset`). Recurring rejections and permanent failures have occurred because developers fake the fix or use the wrong section offset.
+
+
+
+## 2026-07-16 - Gen 3 Roamer Active Flag Parsing QA Passed (Task: task-292-323-gen3-roamer-active-flag-parsing-qa)
+Verified that the `active` boolean is correctly parsed using the provided offset `0x13` via a module-level constant `ROAMER_ACTIVE_OFFSET = 0x13`.
+Verified that the memory offset calculations apply correctly and are tested.
+Verified that the resulting state object includes `isActive` mapping correctly.
+All requirements met.
