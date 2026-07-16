@@ -26,10 +26,10 @@ Design and implement a reusable UI component that clearly displays both the Trai
 
 ## Acceptance Criteria
 - [x] Tech Lead: Generate actionable Tasks.
-- [ ] Component displays TID and SID.
-- [ ] Component includes a "Copy to Clipboard" feature that formats them appropriately for RNG tools.
-- [ ] task-269-262-rng-tid-sid-component-impl
-- [ ] task-269-263-rng-tid-sid-component-qa
+- [x] Component includes a "Copy to Clipboard" feature that formats them appropriately for RNG tools.
+- [x] Component displays TID and SID.
+- [x] task-269-262-rng-tid-sid-component-impl
+- [x] task-269-263-rng-tid-sid-component-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
