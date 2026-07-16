@@ -2,10 +2,10 @@
 id: task-299-323-extend-phase-3-6-qa
 type: TASK
 title: QA Extend Phase 3.6 for CANCELLED nodes
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-14'
-updated_at: '2026-07-14'
+updated_at: '2026-07-16'
 depends_on:
   - task-299-322-extend-phase-3-6-impl
 jules_session_id: null

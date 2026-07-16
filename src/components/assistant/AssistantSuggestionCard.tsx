@@ -181,22 +181,27 @@ export function AssistantSuggestionCard({
   const catchMethods = React.useMemo(() => {
     if (s.category !== 'Catch' || !s.pokemonIds) return [];
 
-    const grouped = (s.pokemonIds || []).reduce<Record<string, { pid: number; enc: EncounterDetail }[]>>((acc, pid) => {
+    const pokemonIds = s.pokemonIds || [];
+    // ⚡ Bolt: Replace O(N) array allocation overhead within a hot execution path with explicit for loop
+    const grouped: Record<string, { pid: number; enc: EncounterDetail }[]> = {};
+    for (let j = 0; j < pokemonIds.length; j++) {
+      const pid = pokemonIds[j];
+      if (pid === undefined) continue;
+      const acc = grouped;
       const encs = s.category === 'Catch' && 'encounterInfo' in s ? s.encounterInfo?.[pid] : undefined;
-      if (!encs || encs.length === 0) return acc;
+      if (!encs || encs.length === 0) continue;
       // ⚡ Bolt: Replace O(N log N) sort with O(N) linear scan to avoid array allocation
       let mainEnc = encs[0];
-      if (!mainEnc) return acc;
+      if (!mainEnc) continue;
       for (let i = 1; i < encs.length; i++) {
         const currentEnc = encs[i];
         if (currentEnc && currentEnc.chance > mainEnc.chance) mainEnc = currentEnc;
       }
-      if (!mainEnc) return acc;
+      if (!mainEnc) continue;
       const method = mainEnc.method;
       if (!acc[method]) acc[method] = [];
-      acc[method]?.push({ pid, enc: mainEnc });
-      return acc;
-    }, {});
+      acc[method]?.push({ pid: pid, enc: mainEnc });
+    }
 
     return Object.entries(grouped);
   }, [s]);

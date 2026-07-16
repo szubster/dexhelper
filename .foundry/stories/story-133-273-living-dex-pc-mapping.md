@@ -2,7 +2,7 @@
 id: story-133-273-living-dex-pc-mapping
 type: STORY
 title: Living Dex PC Mapping
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-07-06'
 updated_at: '2026-07-15'
@@ -16,7 +16,9 @@ tags:
   - living-dex
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 1958304095104093980 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 
@@ -26,6 +28,9 @@ notes: ''
 This story involves creating the mapping layer to identify which Pokémon the player currently owns, and exactly which PC Box and Slot they reside in. This allows the Living Dex Tracker to display owned Pokémon in their current positions.
 
 ## Acceptance Criteria
+- [ ] task-273-327-living-dex-pc-mapping-impl
+- [ ] task-273-328-living-dex-pc-mapping-qa
+
 - [ ] Implement data mapping to identify existing Pokémon and their PC Box/Slot locations.
 
 ### SCHEMA

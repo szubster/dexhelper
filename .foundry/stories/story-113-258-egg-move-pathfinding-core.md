@@ -30,7 +30,7 @@ Implement the foundational Breadth-First Search (BFS) pathfinding algorithm to c
 - [ ] Implement core pathfinding algorithm to find shortest breeding chains.
 - [ ] Support searching through static database (learnsets, Egg Moves).
 - [x] Break this story down into actionable TASKS.
-- [ ] task-258-263-egg-move-precomputation-etl-impl
+- [x] task-258-263-egg-move-precomputation-etl-impl
 - [ ] task-258-264-egg-move-precomputation-etl-qa
 - [ ] task-258-265-suggestion-engine-egg-moves-impl
 - [ ] task-258-266-suggestion-engine-egg-moves-qa

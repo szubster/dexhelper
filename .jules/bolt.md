@@ -1,1 +1,2 @@
 - Extracted inline O(N) `reduce` data aggregations in React components into `React.useMemo` precomputations to prevent massive reallocation pauses on every render loop, especially when mapping large datasets like Pokemon suggestion lists.
+- Extracted an inline `reduce` data aggregation into an explicit `for` loop inside `AssistantSuggestionCard.tsx`'s `useMemo` block, eliminating array allocation overhead when grouping `pokemonIds` for encounters.

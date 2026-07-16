@@ -2,12 +2,12 @@
 id: story-070-276-orchestrator-verifying-block
 type: STORY
 title: Orchestrator VERIFYING Hierarchical Block Fix
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-07-14'
+updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '8439651135417523391'
+jules_session_id: null
 pr_number: null
 parent: epic-045-070-orchestrator-strict-completion
 tags:
@@ -28,6 +28,4 @@ The orchestrator's `isHierarchicallyIncomplete` properly returns `true` when a n
 Remove the incorrect `VERIFYING` allowances in dependency and parent status checks so that a `VERIFYING` child/dependency correctly blocks or suspends the parent.
 
 ## Acceptance Criteria
-- [ ] In `.github/scripts/foundry-orchestrator.ts`, find and remove the `&& dep.frontmatter.status !== 'VERIFYING'` allowance in the dependency check (around line 621).
-- [ ] Find and remove the `&& parentStatus !== 'VERIFYING'` allowance in the parent status check (around line 723).
-- [ ] task-276-304-orchestrator-verifying-block
+- [ ] .foundry/tasks/task-070-276-001-verifying-block.md

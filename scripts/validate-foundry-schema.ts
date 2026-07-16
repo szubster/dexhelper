@@ -147,11 +147,20 @@ function validateSchema() {
       }
     }
 
-    // 2.7 Validate paths
+    // 2.7 Validate paths (including archive check)
+    const checkPathExists = (p: string) => {
+      if (fs.existsSync(p)) return true;
+      if (p.startsWith('.foundry/') && !p.includes('/archive/')) {
+        const archivedPath = p.replace('.foundry/', '.foundry/archive/');
+        if (fs.existsSync(archivedPath)) return true;
+      }
+      return false;
+    };
+
     if (data['depends_on'] && Array.isArray(data['depends_on'])) {
       for (const dep of data['depends_on']) {
         if (typeof dep === 'string' && dep.includes('/')) {
-          if (!fs.existsSync(dep)) {
+          if (!checkPathExists(dep)) {
             console.error(`Error: Dependency path does not exist: '${dep}' in file ${file}`);
             hasError = true;
           }
@@ -162,7 +171,7 @@ function validateSchema() {
     if (data['research_references'] && Array.isArray(data['research_references'])) {
       for (const ref of data['research_references']) {
         if (typeof ref === 'string' && ref.includes('/')) {
-          if (!fs.existsSync(ref)) {
+          if (!checkPathExists(ref)) {
             console.error(`Error: Research reference path does not exist: '${ref}' in file ${file}`);
             hasError = true;
           }
@@ -172,7 +181,7 @@ function validateSchema() {
 
     if (data['parent']) {
       if (typeof data['parent'] === 'string' && data['parent'].includes('/')) {
-        if (!fs.existsSync(data['parent'])) {
+        if (!checkPathExists(data['parent'])) {
           console.error(`Error: Parent path does not exist: '${data['parent']}' in file ${file}`);
           hasError = true;
         }

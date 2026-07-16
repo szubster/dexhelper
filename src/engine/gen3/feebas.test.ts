@@ -12,12 +12,12 @@ describe('extractFeebasSeed', () => {
     // 0x2dd6 + 2 bytes = 11736 bytes
     const buffer = new ArrayBuffer(12000);
     const view = new DataView(buffer);
-    view.setUint16(0x2000 + FEEBAS_SEED_OFFSET_RS, 0x1234, true);
+    view.setUint16(0x1f00 + FEEBAS_SEED_OFFSET_RS, 0x1234, true);
 
-    const seedRuby = extractFeebasSeed(view, 'ruby', 0x2000);
+    const seedRuby = extractFeebasSeed(view, 'ruby', 0x1f00);
     expect(seedRuby).toBe(0x1234);
 
-    const seedSapphire = extractFeebasSeed(view, 'sapphire', 0x2000);
+    const seedSapphire = extractFeebasSeed(view, 'sapphire', 0x1f00);
     expect(seedSapphire).toBe(0x1234);
   });
 
@@ -25,9 +25,9 @@ describe('extractFeebasSeed', () => {
     // 0x2e66 + 2 bytes = 11880 bytes
     const buffer = new ArrayBuffer(12000);
     const view = new DataView(buffer);
-    view.setUint16(0x2000 + FEEBAS_SEED_OFFSET_EMERALD, 0x5678, true);
+    view.setUint16(0x1f00 + FEEBAS_SEED_OFFSET_EMERALD, 0x5678, true);
 
-    const seedEmerald = extractFeebasSeed(view, 'emerald', 0x2000);
+    const seedEmerald = extractFeebasSeed(view, 'emerald', 0x1f00);
     expect(seedEmerald).toBe(0x5678);
   });
 
@@ -35,9 +35,9 @@ describe('extractFeebasSeed', () => {
     const buffer = new ArrayBuffer(12000);
     const view = new DataView(buffer);
 
-    expect(() => extractFeebasSeed(view, 'firered', 0x2000)).toThrow('Unsupported game version');
-    expect(() => extractFeebasSeed(view, 'leafgreen', 0x2000)).toThrow('Unsupported game version');
-    expect(() => extractFeebasSeed(view, 'red', 0x2000)).toThrow('Unsupported game version');
+    expect(() => extractFeebasSeed(view, 'firered', 0x1f00)).toThrow('Unsupported game version');
+    expect(() => extractFeebasSeed(view, 'leafgreen', 0x1f00)).toThrow('Unsupported game version');
+    expect(() => extractFeebasSeed(view, 'red', 0x1f00)).toThrow('Unsupported game version');
   });
 
   it('catches RangeError and re-throws specific corrupted file error', () => {
@@ -45,7 +45,7 @@ describe('extractFeebasSeed', () => {
     const buffer = new ArrayBuffer(100);
     const view = new DataView(buffer);
 
-    expect(() => extractFeebasSeed(view, 'ruby', 0x2000)).toThrow('The save file is corrupted or incomplete.');
+    expect(() => extractFeebasSeed(view, 'ruby', 0x1f00)).toThrow('The save file is corrupted or incomplete.');
   });
 });
 

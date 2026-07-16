@@ -22,6 +22,20 @@ The seed is a `u16` (2 bytes) and is stored differently in Emerald compared to R
 - `unk2` is at offset `0x2` inside the `struct EasyChatPair`.
 - **Final Seed Offset:** `0x2DD4 + 0x2 = 0x2DD6` (in `SaveBlock1`)
 
+
+## Relative Memory Offsets (A/B Bank Flash Memory Architecture)
+The Gen 3 save file splits the `SaveBlock1` structure across four 4KB flash memory sections (Section IDs 0, 1, 2, and 3). Because the save blocks are stored dynamically in either Bank A or Bank B, absolute memory offsets cannot be used.
+
+The Feebas seed is located at:
+- **Ruby / Sapphire:** Absolute `SaveBlock1` offset `0x2DD6`
+- **Emerald:** Absolute `SaveBlock1` offset `0x2E66`
+
+Both of these absolute offsets fall within the boundaries of **Section ID 2** (which covers bytes `0x1F00` to `0x2E7F` of `SaveBlock1`).
+
+Therefore, when parsing the save file, the extraction functions must resolve the base offset of Section 2 (`section2Offset`) and apply the following relative offsets:
+- **Ruby / Sapphire Relative Offset:** `0x2DD6 - 0x1F00 = 0x0ED6`
+- **Emerald Relative Offset:** `0x2E66 - 0x1F00 = 0x0F66`
+
 ## Route 119 Feebas Spot Calculation (PRNG Algorithm)
 
 To translate this 16-bit seed into the 6 specific tile IDs on Route 119, the game uses its LCG (Linear Congruential Generator).

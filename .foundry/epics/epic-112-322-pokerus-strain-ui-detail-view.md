@@ -2,19 +2,19 @@
 id: epic-112-322-pokerus-strain-ui-detail-view
 type: EPIC
 title: Pokerus Strain UI Tracker - Detail View
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-13'
-updated_at: '2026-07-14'
+updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '6403594647363173717'
+jules_session_id: null
 pr_number: null
 parent: prd-107-112-pokerus-strain-ui-tracker
 tags:
   - pokerus
   - ui
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
@@ -36,4 +36,5 @@ Implement the UI presentation layer to display the specific Pokerus strain data 
 None.
 
 ## 5. Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into actionable Stories.
+- [x] Story Owner: Break down this Epic into actionable Stories.
+- [ ] story-322-323-pokerus-strain-detail-ui

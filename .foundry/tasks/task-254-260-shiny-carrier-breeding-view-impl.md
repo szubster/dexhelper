@@ -2,7 +2,7 @@
 id: task-254-260-shiny-carrier-breeding-view-impl
 type: TASK
 title: Implement Shiny Carrier Breeding View
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-02'
 updated_at: '2026-07-15'
@@ -17,7 +17,9 @@ tags:
   - frontend
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 8034344561641531488 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 
@@ -41,8 +43,8 @@ Implement the UI view for the breeding suggestions and shiny carrier pairs.
 5. Create UI components with tactical aesthetics (`rounded-none`, `border-dashed`, monospaced fonts).
 
 ## Acceptance Criteria
-- [ ] Implement the Breeding Suggestions UI.
-- [ ] Display optimal breeding pairs prioritizing Shiny Carriers.
-- [ ] Indicate parents and box locations.
-- [ ] Component conforms to the tactical hardware aesthetic.
-- [ ] Include explicit integration steps and tests for rendering the component.
+- [x] Implement the Breeding Suggestions UI.
+- [x] Display optimal breeding pairs prioritizing Shiny Carriers.
+- [x] Indicate parents and box locations.
+- [x] Component conforms to the tactical hardware aesthetic.
+- [x] Include explicit integration steps and tests for rendering the component.
