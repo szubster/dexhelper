@@ -1023,20 +1023,20 @@ describe('parseGen3SecretBases', () => {
 
 describe('parseGen3VolcanicAsh', () => {
   it('should parse Gen 3 Volcanic Ash gather count for Emerald', () => {
-    // Offset for Emerald is 0x142C. Let saveBlock1Offset = 0.
-    const buffer = new ArrayBuffer(0x142c + 2);
+    // varsOffset for Emerald is 0x139C. Let saveBlock1Offset = 0.
+    const buffer = new ArrayBuffer(0x139c + 0x90 + 2);
     const view = new DataView(buffer);
-    view.setUint16(0x142c, 1234, true);
+    view.setUint16(0 + 0x139c + 0x90, 1234, true);
 
     const ash = parseGen3VolcanicAsh(view, 0, 'emerald');
     expect(ash).toBe(1234);
   });
 
   it('should parse Gen 3 Volcanic Ash gather count for Ruby/Sapphire', () => {
-    // Offset for R/S is 0x13D0. Let saveBlock1Offset = 100.
-    const buffer = new ArrayBuffer(100 + 0x13d0 + 2);
+    // varsOffset for R/S is 0x1340. Let saveBlock1Offset = 100.
+    const buffer = new ArrayBuffer(100 + 0x1340 + 0x90 + 2);
     const view = new DataView(buffer);
-    view.setUint16(100 + 0x13d0, 5678, true);
+    view.setUint16(100 + 0x1340 + 0x90, 5678, true);
 
     const ash = parseGen3VolcanicAsh(view, 100, 'ruby');
     expect(ash).toBe(5678);
@@ -1079,6 +1079,10 @@ describe('parseGen3ActiveSwarm', () => {
       mapId: 114,
       mapGroup: 0,
       daysRemaining: 2,
+      moves: [0, 0, 0, 0],
+      probability: 0,
+      level: 0,
+      language: 0,
     });
   });
 

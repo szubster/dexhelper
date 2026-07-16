@@ -218,3 +218,7 @@
 ## Strategic Balance Learning
 **Idea:** 50/50 Idea Split between DexHelper and Foundry
 **Learning:** To ensure holistic project health, I must balance ideation between the main product (DexHelper) and the internal autonomous factory (Foundry). Maintaining a 50/50 split ensures the orchestrator remains as innovative and robust as the application it builds. I should periodically review my journal and .foundry/ideas/ to check the current distribution and pivot my focus if one area becomes over-represented.
+
+## 2026-07-15
+**Idea:** Implement Zod for Strict Node Schema Validation in Foundry Orchestrator
+**Learning:** As the Foundry Orchestrator evolves, manually verifying YAML frontmatter constraints (e.g., status enums, single owner_persona, proper array types for depends_on) in `.github/scripts/foundry-orchestrator.ts` has become brittle. Adopting a robust schema validation library like `zod` will eliminate silent failures, improve debugging when agents create malformed nodes, and ensure the DAG remains healthy. This aligns with the "Technical Evolution" focus area by adopting a new technology to solve a clear pain point in the Foundry system.

@@ -2,13 +2,13 @@
 id: task-291-315-gen3-roamer-core-extraction-qa
 type: TASK
 title: Gen 3 Roamer Core Extraction QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-11'
 updated_at: '2026-07-15'
 depends_on:
   - task-291-314-gen3-roamer-core-extraction-impl
-jules_session_id: '8694432224905365922'
+jules_session_id: null
 pr_number: null
 parent: story-149-291-gen3-roamer-core-extraction
 tags:
@@ -40,7 +40,7 @@ Check that the new offsets are defined as module-level constants and that no inl
 3. **Empty PRs:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify `parseGen3Roamer` correctly implements the `Gen3RoamerState` structure.
-- [ ] Verify all new memory offsets (cool, beauty, cute, smart, tough) are defined as reusable constants at the module level (no inline magic numbers).
-- [ ] Verify the returned object keys exactly match `Gen3RoamerState` (`isActive`, `personality`, `status`, `ivs` as a number, plus the contest stats).
-- [ ] Verify `src/engine/saveParser/parsers/gen3.test.ts` is updated and tests pass.
+- [x] Verify `parseGen3Roamer` correctly implements the `Gen3RoamerState` structure.
+- [x] Verify all new memory offsets (cool, beauty, cute, smart, tough) are defined as reusable constants at the module level (no inline magic numbers).
+- [x] Verify the returned object keys exactly match `Gen3RoamerState` (`isActive`, `personality`, `status`, `ivs` as a number, plus the contest stats).
+- [x] Verify `src/engine/saveParser/parsers/gen3.test.ts` is updated and tests pass.

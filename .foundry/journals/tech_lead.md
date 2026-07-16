@@ -178,3 +178,9 @@ Drafted technical blueprints (`task-286-314-filter-swarm-item-calls-impl` and `t
 ## 2026-07-12: Gen 3 Dynamic Save Block Extraction Pattern
 When generating blueprints for Gen 3 dynamic save block extraction (like Volcanic Ash), ensure explicit instructions are provided to use the dynamically resolved `section1Offset` for relative offset calculations rather than hardcoding absolute values. Using absolute offsets breaks A/B bank flash memory parsing.
 \n## 2026-07-15: Gen 3 TM/HM Parsing Breakdown\nCreated task-321-322-gen3-tm-hm-parsing-impl and task-321-323-gen3-tm-hm-parsing-qa from story-306-321-gen3-tm-hm-parsing. Included architectural constraints for full PokeData properties (ADR 015) and relative module-level constants (ADR 028) along with resolved section offset calculation instructions.
+
+## 2026-07-14
+- Drafted blueprints for Gen 3 Contest & Battle Frontier Extraction (`story-304-320-gen3-contest-frontier-extraction`).
+- Created implementation task `task-320-322-gen3-contest-frontier-impl`.
+- Created QA task `task-320-323-gen3-contest-frontier-qa` following the Intelligent Verification Protocol due to memory parsing complexity and A/B bank relative offset resolution requirements.
+- Explicitly instructed the Coder and QA personas on error handling, Empty PR requirements, and strict magic number / relative offset rules.

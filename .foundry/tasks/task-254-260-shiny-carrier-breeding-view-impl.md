@@ -5,9 +5,9 @@ title: Implement Shiny Carrier Breeding View
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-02'
-updated_at: '2026-07-14'
+updated_at: '2026-07-15'
 depends_on: []
-jules_session_id: '9713149161798990829'
+jules_session_id: '8034344561641531488'
 pr_number: null
 parent: story-045-254-shiny-carrier-breeding-view
 tags:

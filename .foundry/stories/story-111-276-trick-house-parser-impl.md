@@ -2,12 +2,12 @@
 id: story-111-276-trick-house-parser-impl
 type: STORY
 title: Implement Gen 3 Trick House Parser
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-06'
 updated_at: '2026-07-15'
 depends_on: []
-jules_session_id: '1635077553890094175'
+jules_session_id: null
 pr_number: null
 parent: epic-054-111-trick-house-save-parsing
 tags:
@@ -34,6 +34,6 @@ Implement a parser using `DataView` to extract Trick House progression states fr
 - [x] Parse `FLAG_LANDMARK_TRICK_HOUSE`.
 - [x] task-276-304-gen3-trick-house-parser-impl
 - [x] task-276-305-gen3-trick-house-parser-qa
-- [ ] research-276-297-trick-house-parser-failure
-- [ ] task-276-312-gen3-trick-house-parser-retry-impl
-- [ ] task-276-313-gen3-trick-house-parser-retry-qa
+- [x] research-276-297-trick-house-parser-failure
+- [x] task-276-312-gen3-trick-house-parser-retry-impl
+- [x] task-276-313-gen3-trick-house-parser-retry-qa

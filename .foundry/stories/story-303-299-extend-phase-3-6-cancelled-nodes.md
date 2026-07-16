@@ -2,12 +2,12 @@
 id: story-303-299-extend-phase-3-6-cancelled-nodes
 type: STORY
 title: Extend Phase 3.6 for CANCELLED nodes
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-12'
-updated_at: '2026-07-14'
+updated_at: '2026-07-15'
 depends_on: []
-jules_session_id: '16048735891968532425'
+jules_session_id: null
 pr_number: null
 parent: epic-108-303-extend-phase-3-6-cancelled-nodes
 tags:
@@ -32,4 +32,6 @@ Update `.github/scripts/foundry-orchestrator.ts` Phase 3.6 logic to correctly aw
 - Update tests in `.github/scripts/foundry-orchestrator.test.ts` to assert that parent nodes are awakened when child nodes are cancelled due to max rejections.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-299-322-extend-phase-3-6-impl
+- [ ] task-299-323-extend-phase-3-6-qa
