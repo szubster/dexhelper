@@ -2,10 +2,10 @@
 id: story-130-269-rng-tid-sid-component
 type: STORY
 title: RNG TID and SID Display Component
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-05'
+updated_at: '2026-07-16'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,10 +2,10 @@
 id: story-136-295-sorting-standard-strategies
 type: STORY
 title: Implement Standard PC Box Sorting Strategies
-status: PENDING
+status: READY
 owner_persona: tech_lead
-created_at: "2026-07-10"
-updated_at: "2026-07-10"
+created_at: '2026-07-10'
+updated_at: '2026-07-16'
 depends_on:
   - story-136-294-sorting-interface-base
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - sorting
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Story: Implement Standard PC Box Sorting Strategies

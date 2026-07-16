@@ -2,7 +2,7 @@
 id: story-137-294-diff-engine-logic
 type: STORY
 title: PC Box Diff Engine Logic
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-10'
 updated_at: '2026-07-16'

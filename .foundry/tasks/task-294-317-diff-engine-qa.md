@@ -2,7 +2,7 @@
 id: task-294-317-diff-engine-qa
 type: TASK
 title: QA PC Box Diff Engine Logic
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-12'
 updated_at: '2026-07-16'
@@ -16,8 +16,8 @@ tags:
   - diff
   - testing
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

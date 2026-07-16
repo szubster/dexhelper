@@ -2,7 +2,7 @@
 id: epic-036-053-shared-dag-utilities
 type: EPIC
 title: Shared DAG Utilities Module
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-31'
 updated_at: '2026-07-16'
@@ -14,10 +14,8 @@ tags:
   - foundry
   - orchestrator
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 1
+rejection_reason: ''
 notes: Spawned from prd-067-036-extract-dag-utils.
 ---
 
