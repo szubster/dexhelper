@@ -44,6 +44,13 @@ Specifically, check for the presence and usage of the following constants based 
 - `OUTBREAK_DAYS_BEFORE_OFFSET = 0x16`
 - `OUTBREAK_LANGUAGE_OFFSET = 0x18`
 
+
+## QA Notes (Failed)
+The Coder's implementation failed.
+1. It used inline magic numbers (`+ 2`, `+ 4`, `+ 6`) in `parseGen3ActiveSwarm`.
+2. The `RangeError` thrown in `parseGen3TVBlock` and other places includes extra text instead of the exact message `"The save file is corrupted or incomplete."`.
+I am rejecting this implementation. The checkboxes below will remain unchecked.
+
 ## Acceptance Criteria
 - [ ] Verified that the TV block extraction logic strictly utilizes `DataView`.
 - [ ] Verified that no inline magic numbers were used, and all offsets/lengths are reusable constants at the module level.
