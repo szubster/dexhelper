@@ -2,7 +2,7 @@
 id: task-294-317-gen1-event-flag-parsing-qa
 type: TASK
 title: Gen 1 Event Flag Parsing QA
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-12'
 updated_at: '2026-07-15'
@@ -42,7 +42,7 @@ Ensure the implementation in `task-294-316-gen1-event-flag-parsing-impl` satisfi
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify ADR 026 adherence (explicit bitwise shifting/masking).
-- [ ] Verify ADR 028 adherence (module-level constants, no inline magic numbers).
-- [ ] Verify mapping of `eventFlags` to `STATIC_GIFT_DATA`.
-- [ ] Verify unit tests cover absolute zero state and boundary states.
+- [x] Verify ADR 026 adherence (explicit bitwise shifting/masking).
+- [x] Verify ADR 028 adherence (module-level constants, no inline magic numbers).
+- [x] Verify mapping of `eventFlags` to `STATIC_GIFT_DATA`.
+- [x] Verify unit tests cover absolute zero state and boundary states.

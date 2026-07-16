@@ -33,4 +33,5 @@ This Epic covers the backend and data extraction logic necessary to power the Sa
 
 ## Acceptance Criteria
 - [ ] Create STORY nodes for Gen 1 and Gen 3 save state integration for Safari Zone encounters.
-- [ ] Create STORY nodes for compiling the static encounter tables for Safari Zones.
+- [x] Create STORY nodes for compiling the static encounter tables for Safari Zones.
+- [ ] story-324-322-safari-zone-static-tables

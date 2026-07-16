@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-07-11'
 updated_at: '2026-07-11'
 depends_on:
-  - .foundry/stories/story-138-294-gen3-static-encounters-parsing.md
+  - story-138-294-gen3-static-encounters-parsing
 jules_session_id: null
 pr_number: null
 parent: epic-106-138-gen3-static-encounters

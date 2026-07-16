@@ -1,4 +1,4 @@
-import { Award } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 import type { Gen3Ribbons } from '../../../engine/saveParser/parsers/common';
 import { objectEntries } from '../../../utils/object';
 import { type ContestConditionType, ContestRibbonBadge, type ContestRibbonRank } from './ContestRibbonBadge';
@@ -30,11 +30,13 @@ export function ContestRibbonsPanel({ ribbons }: ContestRibbonsPanelProps) {
   }
 
   return (
-    <div className="relative z-10 space-y-2 border-white/5 border-t pt-4">
-      <span className="flex items-center gap-1 font-black text-[8px] text-zinc-500 uppercase tracking-widest">
-        <Award size={8} /> Contest Ribbons
-      </span>
-      <div className="flex flex-wrap gap-2">
+    <div className="relative z-10 flex flex-col gap-3 pt-2">
+      <div className="flex items-center justify-between border-zinc-800 border-b border-dashed pb-2">
+        <span className="flex items-center gap-2 font-black text-[10px] text-zinc-500 uppercase tracking-widest">
+          <ShieldCheck size={12} className="text-zinc-400" /> [ ACQUIRED_RIBBONS ]
+        </span>
+      </div>
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
         {objectEntries(ribbons).map(([key, rank]) => {
           if (rank === 0 || !rankMap[rank]) return null;
 

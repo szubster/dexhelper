@@ -31,4 +31,6 @@ Extract and parse the trainer defeat flags for Generation 1 games.
 3. Use relative offsets and constants (ADR 028) strictly. No inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-319-322-gen1-trainer-data-extraction-impl
+- [ ] task-319-323-gen1-trainer-data-extraction-qa

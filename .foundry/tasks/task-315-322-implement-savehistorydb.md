@@ -2,12 +2,12 @@
 id: task-315-322-implement-savehistorydb
 type: TASK
 title: Implement SaveHistoryDB Initialization
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-14'
 updated_at: '2026-07-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '539190474458586177'
 pr_number: null
 parent: story-130-315-define-indexeddb-schema
 tags:
