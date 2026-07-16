@@ -184,3 +184,5 @@ When generating blueprints for Gen 3 dynamic save block extraction (like Volcani
 - Created implementation task `task-320-322-gen3-contest-frontier-impl`.
 - Created QA task `task-320-323-gen3-contest-frontier-qa` following the Intelligent Verification Protocol due to memory parsing complexity and A/B bank relative offset resolution requirements.
 - Explicitly instructed the Coder and QA personas on error handling, Empty PR requirements, and strict magic number / relative offset rules.
+
+- Drafted task-270-329-rng-tid-sid-integration-impl and task-270-330-rng-tid-sid-integration-qa for the TID/SID UI integration story.

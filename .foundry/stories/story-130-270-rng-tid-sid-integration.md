@@ -26,6 +26,8 @@ notes: ''
 Integrate the newly created TID/SID display component into the main Trainer dashboard or relevant save data summary views so users can readily access this information.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Generate actionable Tasks.
+- [ ] task-270-330-rng-tid-sid-integration-qa
+- [ ] task-270-329-rng-tid-sid-integration-impl
+- [x] Tech Lead: Generate actionable Tasks.
 - [ ] The TID/SID component is rendered in the appropriate dashboard view.
 - [ ] Ensure the component receives the correct data from the save state.
