@@ -34,4 +34,4 @@ Define the form and text-related `@utility` primitives in `src/index.css` to con
 - [x] `tactical-focus` utility is defined.
 - [x] `tactical-text` utility is defined.
 
-- [ ] task-270-311-define-tactical-form-utilities-impl
+- [x] task-270-311-define-tactical-form-utilities-impl
