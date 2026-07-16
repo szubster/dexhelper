@@ -2,12 +2,12 @@
 id: task-294-316-diff-engine-impl
 type: TASK
 title: Implement PC Box Diff Engine Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-12'
-updated_at: '2026-07-14'
+updated_at: '2026-07-15'
 depends_on: []
-jules_session_id: '11042498532340501427'
+jules_session_id: null
 pr_number: null
 parent: story-137-294-diff-engine-logic
 tags:
@@ -43,6 +43,6 @@ The output should be a structured object or list of diffs explaining what needs 
 - **Offset Constants Rule**: When writing any save file parsing logic (if applicable here, though this is primarily algorithmic), explicitly require that all memory offsets, lengths, bit locations, and shifts be defined as reusable constants at the module level. Inline magic numbers are forbidden.
 
 ## Acceptance Criteria
-- [ ] Implement the box diffing logic function (e.g., `calculateBoxDiff`).
-- [ ] Write unit tests verifying additions, removals, and complex relocations.
-- [ ] Ensure Pokémon are uniquely tracked by their `hash`.
+- [x] Implement the box diffing logic function (e.g., `calculateBoxDiff`).
+- [x] Write unit tests verifying additions, removals, and complex relocations.
+- [x] Ensure Pokémon are uniquely tracked by their `hash`.

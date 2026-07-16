@@ -2,12 +2,12 @@
 id: story-301-314-lift-rejection-count-state
 type: STORY
 title: Lift MAX_REJECTION_THRESHOLD Constant to Context
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-12'
-updated_at: '2026-07-14'
+updated_at: '2026-07-15'
 depends_on: []
-jules_session_id: '16056712340556344292'
+jules_session_id: null
 pr_number: null
 parent: epic-107-301-lift-rejection-count-state
 tags:
@@ -30,4 +30,5 @@ Extract the `MAX_REJECTION_THRESHOLD` constant (value: 3) from local file scopes
 3. Provide the value in the `DagProvider`.
 
 ## Acceptance Criteria
-- [ ] Break down this STORY into TASK nodes
+- [x] Break down this STORY into TASK nodes
+- [ ] task-301-314-lift-rejection-count-state-impl

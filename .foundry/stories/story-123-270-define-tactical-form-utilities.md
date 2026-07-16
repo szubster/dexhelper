@@ -2,10 +2,10 @@
 id: story-123-270-define-tactical-form-utilities
 type: STORY
 title: Define Tactical Form and Text Utilities
-status: READY
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-14'
+updated_at: '2026-07-16'
 depends_on:
   - story-123-269-define-tactical-layout-utilities
 jules_session_id: null
@@ -34,4 +34,4 @@ Define the form and text-related `@utility` primitives in `src/index.css` to con
 - [x] `tactical-focus` utility is defined.
 - [x] `tactical-text` utility is defined.
 
-- [ ] task-270-311-define-tactical-form-utilities-impl
+- [x] task-270-311-define-tactical-form-utilities-impl

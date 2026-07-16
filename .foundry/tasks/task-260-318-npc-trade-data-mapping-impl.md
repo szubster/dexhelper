@@ -2,12 +2,12 @@
 id: task-260-318-npc-trade-data-mapping-impl
 type: TASK
 title: NPC Trade Data Mapping Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-13'
-updated_at: '2026-07-12'
+updated_at: '2026-07-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8531616647201905682'
 pr_number: null
 parent: story-119-260-npc-trade-data-mapping
 tags:

@@ -2,10 +2,10 @@
 id: story-053-278-extract-log-to-journal
 type: STORY
 title: Extract logToJournal Utility
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-07-13'
+updated_at: '2026-07-15'
 depends_on: []
 jules_session_id: null
 parent: epic-036-053-shared-dag-utilities
@@ -33,5 +33,5 @@ The `logToJournal` function was missed in the initial extraction of DAG utilitie
 - [x] `foundry-orchestrator.ts` uses `logToJournal` instead of inline `fs.appendFileSync`.
 
 ### Child Tasks
-- [ ] task-278-305-extract-log-to-journal
+- [x] task-278-305-extract-log-to-journal
 - [x] task-278-304-extract-log-to-journal

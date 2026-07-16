@@ -2,12 +2,12 @@
 id: story-131-317-detect-party-zero-hp
 type: STORY
 title: Detect Party Zero HP
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-12'
-updated_at: '2026-07-14'
+updated_at: '2026-07-15'
 depends_on: []
-jules_session_id: '12155973623174701410'
+jules_session_id: null
 pr_number: null
 parent: epic-097-131-nuzlocke-death-tracking
 tags:
@@ -29,4 +29,5 @@ Implement logic to detect Pokémon currently at 0 HP in the party as dead.
 - Ensure the state updates correctly when a Pokémon dies in the party.
 
 ## Acceptance Criteria
-- [ ] Breakdown into Tasks
+- [x] Breakdown into Tasks
+- [ ] task-317-322-detect-party-zero-hp-impl

@@ -2,13 +2,13 @@
 id: task-121-309-gen3-tv-block-parser-retry6-impl
 type: TASK
 title: Implement Gen 3 TV Block DataView Parser (Retry 6)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-11'
-updated_at: '2026-07-14'
+updated_at: '2026-07-15'
 depends_on:
   - research-121-285-gen3-tv-block-parser-retry3-failure
-jules_session_id: '2149639236655614997'
+jules_session_id: null
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser
 tags:
@@ -48,10 +48,10 @@ Any out-of-bounds reads or structurally corrupt states within the TV block MUST 
 Any size or ID constants must NOT be hardcoded inline inside parsing functions.
 
 ## Acceptance Criteria
-- [ ] The TV block extraction logic is built entirely using `DataView`.
-- [ ] All memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level.
-- [ ] Explicit error handling is in place to catch `RangeError` exceptions natively thrown by `DataView` on malformed saves.
-- [ ] New parsing functions conform to the existing Gen 1 and Gen 2 backward-compatible parsing interfaces without breaking them.
+- [x] The TV block extraction logic is built entirely using `DataView`.
+- [x] All memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level.
+- [x] Explicit error handling is in place to catch `RangeError` exceptions natively thrown by `DataView` on malformed saves.
+- [x] New parsing functions conform to the existing Gen 1 and Gen 2 backward-compatible parsing interfaces without breaking them.
 
 ## Important Protocols (For Coder)
 - **Transient Failure:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
