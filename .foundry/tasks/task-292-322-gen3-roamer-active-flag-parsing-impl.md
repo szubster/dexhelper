@@ -2,13 +2,13 @@
 id: task-292-322-gen3-roamer-active-flag-parsing-impl
 type: TASK
 title: Gen 3 Roamer Active Flag Parsing Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2024-05-24'
 updated_at: '2026-07-16'
 depends_on:
   - story-149-291-gen3-roamer-core-extraction
-jules_session_id: null
+jules_session_id: '4369726185532742155'
 pr_number: null
 parent: story-149-292-gen3-roamer-active-flag-parsing
 tags:
