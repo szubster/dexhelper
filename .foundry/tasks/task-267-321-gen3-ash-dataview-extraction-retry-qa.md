@@ -32,11 +32,11 @@ Based on research findings, the Volcanic Ash gather count is stored as game vari
 The implementation task (`task-267-320-gen3-ash-dataview-extraction-retry-impl`) requires extracting this data. As QA, you need to verify it. The previous implementation was permanently rejected because the developer repeatedly faked the fix for the A/B bank flash memory relative offsets.
 
 ## Acceptance Criteria
-- [ ] Verify that the DataView API is used instead of raw `Uint8Array` manipulation (ADR 010).
-- [ ] Verify that all memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level, without inline magic numbers (ADR 028).
-- [ ] Verify that the implementation uses the resolved `section1Offset` to calculate the relative memory offset (e.g. `section1Offset + 0x90`) instead of absolute offsets.
-- [ ] Verify unit tests correctly extract ash count for both Emerald and Ruby/Sapphire.
-- [ ] Verify unit tests correctly trigger and catch `RangeError` exceptions for out-of-bounds reads.
+- [x] Verify that the DataView API is used instead of raw `Uint8Array` manipulation (ADR 010).
+- [x] Verify that all memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level, without inline magic numbers (ADR 028).
+- [x] Verify that the implementation uses the resolved `section1Offset` to calculate the relative memory offset (e.g. `section1Offset + 0x90`) instead of absolute offsets.
+- [x] Verify unit tests correctly extract ash count for both Emerald and Ruby/Sapphire.
+- [x] Verify unit tests correctly trigger and catch `RangeError` exceptions for out-of-bounds reads.
 
 ## Developer Instructions
 - **Failure conditions:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`. If you must abort or permanently fail a task, you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
