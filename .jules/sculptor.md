@@ -44,3 +44,8 @@ Extracted complex inline IIFE math calculations and tailwind styling logic for c
 - AI Readability Impact: Significantly reduces the file size and AST complexity of `AssistantSuggestionCard.tsx`, making the primary presentation logic and conditional rendering structures much easier for AI to parse.
 - **AI Readability Refactoring Pattern**: Replaced `Object.entries` with the custom `objectEntries` utility from `src/utils/object.ts` in `AssistantSuggestionCard.tsx`.
 - AI Readability Impact: Provides strict type safety for tuples generated from mapped objects instead of relying on generic string keys, removing a common source of type uncertainty and cognitive load for code reasoning.
+
+## Learnings
+- **Large File Refactoring**: `src/engine/saveParser/parsers/gen3.ts` was over 1300 lines long, making it difficult for an AI to parse context in a single shot. Extracting distinct domains (like Battle Frontier parsing) into subdirectories (e.g., `gen3/battleFrontier/parser.ts`) improves AI readability.
+- **Node Scripts over Bash**: When manipulating massive TS files, using multiline `sed` or `grep` is brittle because terminal traces truncate long outputs, violating the Groundedness Rule if the AI tries to write assumed content into a plan. Writing and executing small `node script.cjs` files (using `.cjs` because the project is ESM) to parse and rewrite the AST/strings is much safer and deterministic.
+- **Strict Linting**: The repository enforces very strict TypeScript/Biome linting. Any unused import left behind in the parent file or test file after extracting functions will immediately cause `pnpm lint` and `pnpm test` to fail with TS6133 errors.

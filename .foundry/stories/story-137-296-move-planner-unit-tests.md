@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-07-10'
 updated_at: '2026-07-10'
 depends_on:
-  - .foundry/stories/story-137-295-move-planner-algorithm.md
+  - story-137-295-move-planner-algorithm
 jules_session_id: null
 pr_number: null
 parent: epic-106-137-pc-box-diff-engine-move-planner

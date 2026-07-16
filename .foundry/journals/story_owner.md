@@ -21,3 +21,5 @@ When a macro node is assigned and its checklist contains duplicated sequence IDs
 
 ## Gen 3 Roamer Tracking Limitations
 When processing roamer tracking, Gen 3 map coordinates cannot be statically extracted as they are kept in dynamically allocated EWRAM during gameplay and are never serialized into the save file (as per `research-043-263-roamer-tracking-remediation` and ADR 108-027). Any epic attempting to extract Gen 3 roamer map coordinates must be cancelled with status `CANCELLED` and no acceptance criteria checked. This ensures we avoid the Impossible Loop.
+### Gen 2 Room Decoration & Bank Parsing
+- When breaking down Epics, it's critical to track the Acceptance Criteria and ensure child nodes are properly formatted in the markdown as `- [ ] <node_id>`. Do not modify YAML frontmatter.

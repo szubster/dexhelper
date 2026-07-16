@@ -1,7 +1,7 @@
 import type { GameVersion } from '../saveParser/parsers/common';
 
-export const FEEBAS_SEED_OFFSET_RS = 0x0dd6;
-export const FEEBAS_SEED_OFFSET_EMERALD = 0x0e66;
+export const FEEBAS_SEED_OFFSET_RS = 0x0ed6;
+export const FEEBAS_SEED_OFFSET_EMERALD = 0x0f66;
 
 export const LCG_MULTIPLIER = 1103515245;
 export const LCG_ADDEND = 12345;
