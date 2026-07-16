@@ -29,9 +29,9 @@ Design and implement the core `SortingStrategy` interface and base classes requi
 As part of the PC Box Sorting Algorithms epic, we need a standard interface for defining how a collection of Pokémon should be sorted. This will serve as the foundation for the diff engine that calculates optimal layout states.
 
 ## Acceptance Criteria
-- [ ] Define a standard `SortingStrategy` interface or pattern (e.g., `(a: PokeData, b: PokeData) => number`).
-- [ ] Implement a base `MultiCriterionSorter` that allows chaining multiple strategies (e.g., sort by Level, then by Dex Number).
-- [ ] Ensure the interface accepts standard `PokeData` application objects.
+- [x] Define a standard `SortingStrategy` interface or pattern (e.g., `(a: PokeData, b: PokeData) => number`).
+- [x] Implement a base `MultiCriterionSorter` that allows chaining multiple strategies (e.g., sort by Level, then by Dex Number).
+- [x] Ensure the interface accepts standard `PokeData` application objects.
 - [x] Break down story into tasks for technical blueprinting and implementation.
-- [ ] task-294-316-sorting-interface-base-impl
-- [ ] task-294-317-sorting-interface-base-qa
+- [x] task-294-316-sorting-interface-base-impl
+- [x] task-294-317-sorting-interface-base-qa
