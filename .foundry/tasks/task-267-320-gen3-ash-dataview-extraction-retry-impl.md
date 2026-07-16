@@ -2,11 +2,11 @@
 id: task-267-320-gen3-ash-dataview-extraction-retry-impl
 type: TASK
 title: Implement Gen 3 Volcanic Ash Extraction (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-12'
-updated_at: '2026-07-14'
-jules_session_id: '121588662292478033'
+updated_at: '2026-07-16'
+jules_session_id: null
 depends_on:
   - research-267-297-gen3-ash-dataview-relative-offsets
 parent: story-113-267-gen3-ash-dataview-extraction

@@ -2,10 +2,10 @@
 id: task-267-321-gen3-ash-dataview-extraction-retry-qa
 type: TASK
 title: QA Gen 3 Volcanic Ash Extraction (Retry)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-12'
-updated_at: '2026-07-12'
+updated_at: '2026-07-16'
 jules_session_id: null
 depends_on:
   - task-267-320-gen3-ash-dataview-extraction-retry-impl

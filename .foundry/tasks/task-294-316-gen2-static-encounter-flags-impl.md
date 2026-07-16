@@ -2,12 +2,12 @@
 id: task-294-316-gen2-static-encounter-flags-impl
 type: TASK
 title: Implement Gen 2 Static Encounter Flag Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-12'
-updated_at: '2026-07-14'
+updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '15547622517759826593'
+jules_session_id: null
 pr_number: null
 parent: story-137-294-gen2-event-flag-parsing
 tags:

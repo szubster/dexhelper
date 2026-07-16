@@ -2,12 +2,12 @@
 id: task-294-316-sorting-interface-base-impl
 type: TASK
 title: Implement PC Box Sorting Interface and Base Classes
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-12'
-updated_at: '2026-07-14'
+updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '11179067958224542396'
+jules_session_id: null
 pr_number: null
 parent: story-136-294-sorting-interface-base
 tags:
