@@ -2,7 +2,7 @@
 id: task-134-264-gc-integration-impl
 type: TASK
 title: Garbage Collection Integration Logic (Impl)
-status: COMPLETED
+status: PENDING
 owner_persona: coder
 created_at: '2026-07-06'
 updated_at: '2026-07-16'
@@ -29,9 +29,8 @@ Integrate the GC process into the main orchestrator (foundry-heartbeat.ts) or as
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 - If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
-- When drafting blueprints for save file parsing, explicitly require that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
 
 ## Acceptance Criteria
-- [x] Determine integration approach (synchronous vs scheduled script).
-- [x] Implement the integration using the detection and remediation logic.
-- [x] Write tests to verify the integration.
+- [ ] Determine integration approach (synchronous vs scheduled script).
+- [ ] Implement the integration using the detection and remediation logic.
+- [ ] Write tests to verify the integration.

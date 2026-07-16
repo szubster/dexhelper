@@ -2,7 +2,7 @@
 id: task-134-265-gc-integration-qa
 type: TASK
 title: Garbage Collection Integration Logic (QA)
-status: COMPLETED
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-16'
@@ -30,8 +30,7 @@ Verify the garbage collection integration logic.
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 - If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
-- When drafting blueprints for save file parsing, explicitly require that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
 
 ## Acceptance Criteria
-- [x] Verify that the GC process correctly detects and remediates zombie nodes.
-- [x] Verify that remediated nodes are correctly processed by the existing resurrection loop.
+- [ ] Verify that the GC process correctly detects and remediates zombie nodes.
+- [ ] Verify that remediated nodes are correctly processed by the existing resurrection loop.
