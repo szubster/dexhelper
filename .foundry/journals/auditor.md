@@ -129,10 +129,6 @@ When verifying `epic-104-133-gen3-lottery-offsets-research`, I learned that the 
 ## 2026-07-11: Automated Max Rejection Cancellation
 Successfully verified that the Automated Max Rejection Cancellation epic was correctly broken down into two child stories (`story-096-153-max-rejection-cancellation` and `story-096-154-parent-awakening-logic`) and that both stories were successfully completed.
 
-### epic-052-096-automated-max-rejection-cancellation
-- **Node**: `epic-052-096-automated-max-rejection-cancellation`
-- **Result**: Verification Passed.
-- **Notes**: The Epic was successfully broken down into stories `story-096-153-max-rejection-cancellation` and `story-096-154-parent-awakening-logic`. Both stories and their descendant task nodes were implemented, merged, and moved to COMPLETED status. The `foundry-orchestrator.ts` Phase 3.0 and Phase 3.6 correctly implemented the logic to handle max rejections and CANCELLED nodes, as verified by reading the scripts and running the test suite. All child nodes and their tasks are completely marked as `[x]`. I am submitting an empty PR to transition this node to COMPLETED.
 
 ## 2026-07-12
 **Architectural Constraint (State Machine UI Consistency):**

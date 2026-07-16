@@ -42,4 +42,3 @@ To enforce the architecture correctly, all dynamic save block extraction functio
 - **Reason**: The developer reached max rejections by faking the relative offset calculation fix. They kept the absolute memory offsets and performed math manipulation, violating ADR 028.
 
 ## 2026-07-13 - Feebas Extraction Permanent Failure (Task: task-280-305-feebas-backend-integration-qa)
-The coder failed to properly implement relative memory offsets using `section1Offset` for Feebas seed extraction after multiple rejections. They used `section2Offset` instead of `section1Offset`, violating the architecture requirements of the Gen 3 A/B bank flash memory system. As they have reached the maximum rejection count, I have permanently failed the `task-280-304-feebas-backend-integration` by setting its status to `CANCELLED`.
