@@ -35,8 +35,8 @@ As per the knowledge base on Gen 3 Roamer Offsets, the roamer struct contains an
 - **CRITICAL REMINDER**: All memory offsets (like `0x13`) and lengths must be defined as reusable constants at the module level. Inline magic numbers are strictly forbidden.
 
 ## Acceptance Criteria
-- [ ] Ensure that byte `0x13` of the roamer struct is correctly parsed as a boolean.
-- [ ] Ensure the returned roamer state object includes the `isActive` boolean.
-- [ ] Coder: If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
-- [ ] Coder: If you must abort or permanently fail a task (impossible or max rejections reached), update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
-- [ ] Coder: If you submit an empty PR for a completed task, check off all Acceptance Criteria checkboxes before submitting.
+- [x] Ensure that byte `0x13` of the roamer struct is correctly parsed as a boolean.
+- [x] Ensure the returned roamer state object includes the `isActive` boolean.
+- [x] Coder: If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
+- [x] Coder: If you must abort or permanently fail a task (impossible or max rejections reached), update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
+- [x] Coder: If you submit an empty PR for a completed task, check off all Acceptance Criteria checkboxes before submitting.
