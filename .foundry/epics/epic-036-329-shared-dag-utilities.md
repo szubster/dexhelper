@@ -1,10 +1,10 @@
 ---
-id: epic-036-053-shared-dag-utilities
+id: epic-036-329-shared-dag-utilities
 type: EPIC
 title: Shared DAG Utilities Module
-status: FAILED
+status: PENDING
 owner_persona: story_owner
-created_at: '2026-05-31'
+created_at: '2026-07-16'
 updated_at: '2026-07-16'
 depends_on: []
 jules_session_id: null
@@ -15,10 +15,8 @@ tags:
   - orchestrator
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
-notes: Spawned from prd-067-036-extract-dag-utils.
+rejection_reason: ''
+notes: Spawned from prd-067-036-extract-dag-utils. Replaces failed epic-036-053-shared-dag-utilities.
 ---
 
 # Extract Shared DAG Utilities
@@ -34,19 +32,16 @@ This epic extracts pure functions from `.github/scripts/foundry-orchestrator.ts`
   - `getOrphanedNodes(startNodePath, reverseGraph)`
 - Create unit tests for complex logic within `dag-utils.ts`.
 - Update the DAG orchestration tests to use the new module.
+- Provide End-to-End/Integration stories to fully satisfy previously failed acceptance criteria.
 
 ## Next Steps
-- [x] story-053-278-extract-log-to-journal
-- [x] Story Owner: Write Story to create the `dag-utils.ts` module with pure functions and basic utilities.
-  - Spawned: `.foundry/archive/stories/story-053-090-extract-dag-utilities.md`
-
-
-- [x] Story Owner: Write Story to create unit tests for `dag-utils.ts`.
-  - Spawned: `.foundry/archive/stories/story-053-106-dag-utils-unit-tests.md`
-- [x] Story Owner: Write Story to update DAG orchestration tests.
-  - Spawned: `.foundry/archive/stories/story-053-107-update-dag-orchestration-tests.md`
+- [ ] .foundry/stories/story-329-331-extract-dag-utilities.md
+- [ ] .foundry/stories/story-329-332-dag-utils-unit-tests.md
+- [ ] .foundry/stories/story-329-333-update-dag-orchestration-tests.md
+- [ ] .foundry/stories/story-329-334-e2e-integration-test.md
 
 ## Acceptance Criteria
-- [x] `dag-utils.ts` is created and contains the extracted pure functions and utilities.
-- [x] New unit tests are written for `dag-utils.ts`.
-- [x] Existing tests still pass.
+- [ ] `dag-utils.ts` is created and contains the extracted pure functions and utilities.
+- [ ] New unit tests are written for `dag-utils.ts`.
+- [ ] Existing tests still pass.
+- [ ] E2E integration test confirms behavior is unaffected across orchestrator functions.

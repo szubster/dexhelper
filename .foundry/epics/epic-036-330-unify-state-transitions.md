@@ -1,13 +1,13 @@
 ---
-id: epic-036-054-unify-state-transitions
+id: epic-036-330-unify-state-transitions
 type: EPIC
 title: Unify DAG Node State Transitions
 status: PENDING
 owner_persona: story_owner
-created_at: '2026-05-31'
-updated_at: '2026-05-31'
+created_at: '2026-07-16'
+updated_at: '2026-07-16'
 depends_on:
-  - epic-036-053-shared-dag-utilities
+  - epic-036-329-shared-dag-utilities
 jules_session_id: null
 parent: prd-067-036-extract-dag-utils
 tags:
@@ -17,7 +17,7 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: Spawned from prd-067-036-extract-dag-utils.
+notes: Spawned from prd-067-036-extract-dag-utils. Replaces epic-036-054-unify-state-transitions.
 ---
 
 # Unify DAG Node State Transitions
@@ -34,7 +34,7 @@ This epic extracts state transition functions into the new shared module `.githu
 - Ensure the state transitions apply ADR 006 and handle metadata consistently.
 
 ## Next Steps
-- [ ] Story Owner: Write Story to extract and use transition functions.
+- [ ] .foundry/stories/story-330-335-extract-transition-functions.md
 
 ## Acceptance Criteria
 - [ ] State transition functions are centralized in `dag-utils.ts`.
