@@ -36,4 +36,7 @@ Incorporate a visual indicator in the party/box (list or grid) views to quickly 
 None.
 
 ## 5. Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into actionable Stories.
+- [x] Story Owner: Break down this Epic into actionable Stories.
+- [ ] story-323-322-pokerus-strain-badge-component
+- [ ] story-323-323-integrate-pokerus-strain-party-view
+- [ ] story-323-324-integrate-pokerus-strain-box-view
