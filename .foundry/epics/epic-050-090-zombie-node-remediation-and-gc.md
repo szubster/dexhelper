@@ -37,14 +37,14 @@ This Epic handles the remediation logic (state transitions) and the integration 
 3. **Resurrection Hand-off**: Ensure that the remediated nodes (`FAILED` state) are correctly processed by the existing resurrection loop on the subsequent cycle without manual intervention.
 
 ## 4. Acceptance Criteria
-- [ ] Determine the integration approach (standalone script vs. direct orchestrator integration).
-- [ ] Implement state transition logic (modifying `status` to `FAILED` in the markdown files).
-- [ ] Implement the integration of detection and remediation logic.
-- [ ] Ensure unit test coverage for the remediation functionality.
+- [x] Determine the integration approach (standalone script vs. direct orchestrator integration).
+- [x] Implement state transition logic (modifying `status` to `FAILED` in the markdown files).
+- [x] Implement the integration of detection and remediation logic.
+- [x] Ensure unit test coverage for the remediation functionality.
 
 ## 5. Next Steps
 - [x] Break down into Stories.
 
 ### Generated Stories
-- [ ] story-090-133-remediation-state-transition-logic
-- [ ] story-090-134-garbage-collection-integration
+- [x] story-090-133-remediation-state-transition-logic
+- [x] story-090-134-garbage-collection-integration
