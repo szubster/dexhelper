@@ -261,6 +261,7 @@ async function main() {
       gr: sData.gender_rate,
       eg: sData.egg_groups?.map((g: any) => EGG_GROUP_MAP[g.name] || 0) || [],
       baby: sData.is_baby,
+      em: undefined, // Will be populated in second pass
       // Temporaries to be filled in second pass
       eto: [],
       efrm: [],
@@ -822,6 +823,8 @@ function compact(obj: any): any {
       if (key === 'effect' && (value === null || value === '')) continue;
       // Omit item sprite if null
       if (key === 'sprite' && value === null) continue;
+      // Omit empty egg moves map
+      if (key === 'em' && (value === null || typeof value !== 'object' || Object.keys(value).length === 0)) continue;
 
 
       result[key] = compact(value);
@@ -830,6 +833,169 @@ function compact(obj: any): any {
   }
   return obj;
 }
+
+
+console.log('\nPrecomputing Egg Move Paths...');
+
+// 1. Collect all learners
+const nativeLearners = new Map<number, Set<number>>();
+const eggLearners = new Map<number, Set<number>>();
+
+for (let i = 1; i <= POKEMON_COUNT; i++) {
+  const pDataPath = path.join(dataPath, `pokemon/${i}/index.json`);
+  const pData = readJson(pDataPath);
+  if (!pData) continue;
+
+  for (const m of pData.moves) {
+    const moveId = parseInt(m.move.url.split('/').filter(Boolean).pop() || '0', 10);
+    if (moveId > MAX_MOVE_ID) continue; // Only care about Gen 1-3 moves
+
+    let isNative = false;
+    let isEgg = false;
+
+    for (const vg of m.version_group_details) {
+      const vgId = parseInt(vg.version_group.url.split('/').filter(Boolean).pop() || '0', 10);
+      const vgGen = genMap[vgId] || 99;
+
+      // We only care if they can learn it in Gen 1, 2, or 3
+      if (vgGen <= 3) {
+        if (vg.move_learn_method.name === 'egg') {
+          isEgg = true;
+        } else {
+          isNative = true;
+        }
+      }
+    }
+
+    if (isNative) {
+      if (!nativeLearners.has(moveId)) nativeLearners.set(moveId, new Set());
+      nativeLearners.get(moveId)!.add(i);
+    }
+    if (isEgg) {
+      if (!eggLearners.has(moveId)) eggLearners.set(moveId, new Set());
+      eggLearners.get(moveId)!.add(i);
+    }
+  }
+}
+
+
+// 2. Build breeding graph
+const speciesMap = new Map<number, PokemonMetadata>();
+for (const p of pokemon) {
+  speciesMap.set(p.id, p);
+}
+
+// Helper to get effective egg groups (babies inherit from evolved forms)
+const getEffectiveEggGroups = (pid: number, visited = new Set<number>()): number[] => {
+  if (visited.has(pid)) return [];
+  visited.add(pid);
+
+  const p = speciesMap.get(pid);
+  if (!p) return [];
+
+  if (p.eg && !p.eg.includes(15)) return p.eg;
+
+  // Try to inherit from evolved forms
+  if (p.eto) {
+    for (const link of p.eto) {
+      const evolvedEg = getEffectiveEggGroups(link.id, visited);
+      if (evolvedEg.length > 0 && !evolvedEg.includes(15)) return evolvedEg;
+    }
+  }
+  return [];
+};
+
+
+// 3. BFS for each move
+const eggMovesIds = Array.from(eggLearners.keys());
+let movesProcessed = 0;
+
+for (const moveId of eggMovesIds) {
+  movesProcessed++;
+  if (movesProcessed % 10 === 0 || movesProcessed === eggMovesIds.length) {
+    process.stdout.write(`\rEgg Move Progress: ${Math.round((movesProcessed / eggMovesIds.length) * 100)}% (${movesProcessed}/${eggMovesIds.length})`);
+  }
+
+  const targets = eggLearners.get(moveId);
+  if (!targets) continue;
+
+  const sources = nativeLearners.get(moveId) || new Set<number>();
+  if (sources.size === 0) continue;
+
+  // We want to find the shortest path from any source to each target
+  // State is species ID.
+  const queue: number[] = Array.from(sources);
+  const distances = new Map<number, number>();
+  const predecessors = new Map<number, number>();
+
+  for (const s of sources) {
+    distances.set(s, 0);
+  }
+
+  let head = 0;
+  while (head < queue.length) {
+    const u = queue[head++];
+    if (u === undefined) continue;
+    const uData = speciesMap.get(u);
+    if (!uData) continue;
+
+    // Check if u can be male (gender_rate < 8 and !== -1)
+    const uGr = uData.gr !== undefined ? uData.gr : 4;
+    if (uGr === -1 || uGr === 8) continue; // Genderless or 100% Female cannot pass egg moves
+
+    // Find all species v that can be female, share an egg group with u, and can also learn the move!
+    for (const vData of pokemon) {
+      const v = vData.id;
+      if (u === v) continue;
+
+      // Ensure intermediate parents can actually learn the move (either natively or as an egg move)
+      if (!targets.has(v) && !(sources.has(v))) continue;
+
+      const vGr = vData.gr !== undefined ? vData.gr : 4;
+      if (vGr === -1 || vGr === 0) continue; // Genderless or 100% Male cannot be the female recipient
+
+      const uEg = getEffectiveEggGroups(u);
+      const vEg = getEffectiveEggGroups(v);
+
+      if (uEg.length > 0 && vEg.length > 0) {
+        let sharesGroup = false;
+        for (const g of uEg) {
+          if (vEg.includes(g)) {
+            sharesGroup = true;
+            break;
+          }
+        }
+
+        if (sharesGroup) {
+          if (!distances.has(v)) {
+            distances.set(v, distances.get(u)! + 1);
+            predecessors.set(v, u);
+            queue.push(v);
+          }
+        }
+      }
+    }
+  }
+
+  // Assign paths to targets
+  for (const target of targets) {
+    if (distances.has(target)) {
+      const path: number[] = [];
+      let curr: number | undefined = target;
+      while (curr !== undefined) {
+        path.unshift(curr);
+        curr = predecessors.get(curr);
+      }
+
+      const p = speciesMap.get(target);
+      if (p) {
+        if (!p.em) p.em = {};
+        p.em[moveId] = path;
+      }
+    }
+  }
+}
+console.log(); // newline after progress
 
 console.log('\nWriting split JSONL files...');
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
