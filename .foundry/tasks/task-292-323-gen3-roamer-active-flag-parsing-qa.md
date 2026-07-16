@@ -2,7 +2,7 @@
 id: task-292-323-gen3-roamer-active-flag-parsing-qa
 type: TASK
 title: Gen 3 Roamer Active Flag Parsing QA
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2024-05-24'
 updated_at: '2026-07-16'
@@ -16,7 +16,9 @@ tags:
   - roamer
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 2127676011283524959 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 

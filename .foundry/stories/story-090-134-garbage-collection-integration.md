@@ -2,7 +2,7 @@
 id: story-090-134-garbage-collection-integration
 type: STORY
 title: Garbage Collection Integration and Execution
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-06-14'
 updated_at: '2026-07-16'
@@ -17,7 +17,9 @@ tags:
   - maintenance
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 12156836061813276047 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 

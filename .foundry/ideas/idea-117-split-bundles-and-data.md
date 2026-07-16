@@ -2,7 +2,7 @@
 id: idea-117-split-bundles-and-data
 type: IDEA
 title: Split bundles and data by game generation
-status: ACTIVE
+status: FAILED
 owner_persona: product_manager
 created_at: '2025-07-16'
 updated_at: '2026-07-16'
@@ -17,7 +17,9 @@ tags:
 research_references:
   - research-117-325-bundle-splitting-analysis
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 9171823765110906856 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 
