@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-07-11'
 updated_at: '2026-07-13'
 depends_on:
-  - .foundry/tasks/task-283-314-predictor-engine-logic-impl.md
+  - task-283-314-predictor-engine-logic-impl
 jules_session_id: null
 pr_number: null
 parent: story-117-283-pokegear-predictor-engine

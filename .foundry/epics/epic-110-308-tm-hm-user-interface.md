@@ -7,7 +7,7 @@ owner_persona: "story_owner"
 created_at: "2026-07-12"
 updated_at: "2026-07-12"
 depends_on:
-  - "epic-110-307-tm-hm-compatibility-logic"
+  - epic-110-307-tm-hm-compatibility-logic
 jules_session_id: null
 pr_number: null
 parent: "prd-105-110-tm-hm-inventory-planner"
