@@ -1,32 +1,33 @@
 ---
-id: idea-117-split-bundles-and-data
-type: IDEA
-title: Split bundles and data by game generation
-status: ACTIVE
-owner_persona: product_manager
-created_at: '2025-07-16'
+id: prd-117-116-split-bundles-and-data
+type: PRD
+title: "PRD: Split bundles and data by game generation"
+status: PENDING
+owner_persona: "epic_planner"
+created_at: '2026-07-16'
 updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '9573859649478435300'
+jules_session_id: null
 pr_number: null
-parent: null
+parent: idea-117-split-bundles-and-data
 tags:
   - performance
   - architecture
   - bundles
 research_references:
   - research-117-325-bundle-splitting-analysis
-rejection_count: 1
+rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
 
-# Idea: Split bundles and data by game generation
+# PRD: Split bundles and data by game generation
 
 ## Context
+<!-- Copy or adapt context from IDEA -->
 As DexHelper supports more Pokémon generations, the amount of code (parsers, strategies) and data (encounters, locations) is increasing. Currently, everything is loaded upfront, which affects initial load performance and memory usage.
 
-## Proposal
+## Requirements
 Implement generation-based splitting for JavaScript engine logic, UI components, and static Pokedex data.
 - Use dynamic imports for generation-specific parsers and assistant strategies.
 - Utilize `React.lazy` for UI components that are only relevant to specific generations (e.g., Gen 3 RTC, Contests).
@@ -39,16 +40,13 @@ Implement generation-based splitting for JavaScript engine logic, UI components,
 - **Better Resource Management**: Only load the data, code, and UI the user actually needs.
 
 ## Acceptance Criteria
-- [x] Research conducted on bundle size distribution and potential gains (`research-117-325-bundle-splitting-analysis`).
-- [x] Architectural strategy documented in an ADR (`adr-117-029-bundle-splitting-strategy`).
-- [ ] Save parsers refactored to use dynamic imports in `src/engine/saveParser/index.ts`.
-- [ ] Assistant strategies refactored to use dynamic imports in `src/engine/assistant/strategies/index.ts`.
-- [ ] Generation-specific UI components (e.g., Gen 3 RTC) refactored to use `React.lazy`.
-- [ ] `pokedataPlugin` updated to emit multiple msgpack bundles.
-- [ ] `PokeDB.ts` updated to support multi-part data synchronization.
-- [ ] Performance verification: Measure and confirm reduction in initial JS and data payload.
-- [ ] Assigned a scheduled agent (e.g., **Bolt**) to monitor and maintain bundle sizes and lazy loading adherence.
+- [ ] Refactor save parsers to use dynamic imports in `src/engine/saveParser/index.ts`
+- [ ] Refactor assistant strategies to use dynamic imports in `src/engine/assistant/strategies/index.ts`
+- [ ] Refactor generation-specific UI components to use `React.lazy`
+- [ ] Update `pokedataPlugin` to emit multiple msgpack bundles
+- [ ] Update `PokeDB.ts` to support multi-part data synchronization
+- [ ] Verify reduction in initial JS and data payload
+- [ ] Assign a scheduled agent to monitor bundle sizes
 
-## Generated Nodes
-- [ ] prd-117-116-split-bundles-and-data
-- [x] Break down into PRD
+## Generated Epics
+<!-- Append generated children here as unchecked tasks -->
