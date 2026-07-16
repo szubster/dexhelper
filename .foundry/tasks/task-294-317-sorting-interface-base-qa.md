@@ -2,13 +2,13 @@
 id: task-294-317-sorting-interface-base-qa
 type: TASK
 title: QA PC Box Sorting Interface and Base Classes
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-12'
 updated_at: '2026-07-16'
 depends_on:
   - task-294-316-sorting-interface-base-impl
-jules_session_id: null
+jules_session_id: '4461072143048519365'
 pr_number: null
 parent: story-136-294-sorting-interface-base
 tags:
