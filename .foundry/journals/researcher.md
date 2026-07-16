@@ -79,3 +79,7 @@ For applications utilizing Cloudflare Zero Trust (Cloudflare Access), the built-
 **Finding:** Modifying the `run_in_bash_session` platform tool from within the repository to enforce timeouts is impossible. The previous task (`task-267-262-bash-timeout-wrapper-impl`) failed permanently because of this.
 **Why it matters:** When addressing problems with sandbox execution environments (e.g., preventing infinite hangs on `tail -f`), we cannot build wrapper scripts and expect them to be seamlessly adopted.
 **Constraint:** The most reliable way to enforce tool behavior constraints is through **instructional policy enforcement**. The rules must be added to `.foundry/docs/knowledge_base/agents/core_policies.md` so that the agent context is explicitly updated to forbid blocking commands and recommend `cat`, `tail -n`, or backgrounding with `&`.
+
+## Gen 3 Static Encounter Offsets
+
+When parsing Gen 3 event flags for static encounters (like legendaries or Snorlax), the flag IDs map to byte and bit offsets within the Event Flags block (which starts at `0x1270` in `SaveBlock1`). To calculate the exact offset, divide the flag ID by 8 for the byte offset, and use modulo 8 for the bit position (e.g. `Flag_ID / 8` and `Flag_ID % 8`). Note that Pokémon FireRed/LeafGreen often track `FOUGHT` instead of `DEFEATED`, and Ruby/Sapphire uses `HIDE` flags for static encounters like the Regis.
