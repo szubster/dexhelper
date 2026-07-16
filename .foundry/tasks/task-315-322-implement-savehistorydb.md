@@ -42,10 +42,10 @@ The application uses IndexedDB to store save file history. The configuration and
 5. Implement fallback mechanisms (like in `src/db/SaveDB.ts`) using a Map if IndexedDB is unavailable.
 
 ## Acceptance Criteria
-- [ ] The `SaveHistoryDB` database is correctly initialized using `openDB` from `idb`.
-- [ ] The `saves` object store is created during the upgrade process.
-- [ ] The `metadata` object store is created during the upgrade process.
-- [ ] The `indexes` object store is created during the upgrade process.
+- [x] The `SaveHistoryDB` database is correctly initialized using `openDB` from `idb`.
+- [x] The `saves` object store is created during the upgrade process.
+- [x] The `metadata` object store is created during the upgrade process.
+- [x] The `indexes` object store is created during the upgrade process.
 
 ## Instructions for Coder
 
