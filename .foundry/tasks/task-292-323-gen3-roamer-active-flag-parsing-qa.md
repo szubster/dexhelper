@@ -2,13 +2,13 @@
 id: task-292-323-gen3-roamer-active-flag-parsing-qa
 type: TASK
 title: Gen 3 Roamer Active Flag Parsing QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2024-05-24'
 updated_at: '2026-07-16'
 depends_on:
   - task-292-322-gen3-roamer-active-flag-parsing-impl
-jules_session_id: null
+jules_session_id: '17271220292218578155'
 pr_number: null
 parent: story-149-292-gen3-roamer-active-flag-parsing
 tags:
