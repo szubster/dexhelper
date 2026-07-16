@@ -31,10 +31,10 @@ Implement the Breadth-First Search (BFS) algorithm to precompute the shortest br
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement BFS pathfinding algorithm in `scripts/generate-pokedata.ts` for Egg Moves.
-- [ ] Calculate the shortest breeding chain for all valid (Target Species, Egg Move) combinations.
-- [ ] Save the precomputed paths in the exported static data (e.g. `pokemon.jsonl` or a new `egg_moves.jsonl`).
-- [ ] Ensure proper testing and verification are done.
+- [x] Implement BFS pathfinding algorithm in `scripts/generate-pokedata.ts` for Egg Moves.
+- [x] Calculate the shortest breeding chain for all valid (Target Species, Egg Move) combinations.
+- [x] Save the precomputed paths in the exported static data (e.g. `pokemon.jsonl` or a new `egg_moves.jsonl`).
+- [x] Ensure proper testing and verification are done.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
