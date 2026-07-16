@@ -6,11 +6,12 @@ import { render } from 'vitest-browser-react';
 import { saveDB } from '../../db/SaveDB';
 import { parseSaveFile } from '../../engine/saveParser/index';
 import { useStore } from '../../store';
-import { reloadPage } from '../../utils/window';
+import * as windowUtils from '../../utils/window';
 import { AppLayout } from '../AppLayout';
 
 vi.mock('../../utils/window', () => ({
   reloadPage: vi.fn<() => void>(),
+  redirectPage: vi.fn<(url: string) => void>(),
 }));
 
 vi.mock('../../engine/saveParser/index', () => ({
@@ -62,7 +63,7 @@ describe('AppLayout chunk error handling', () => {
     spy.mockRestore();
 
     await vi.waitFor(() => {
-      expect(reloadPage).toHaveBeenCalledTimes(1);
+      expect(windowUtils.reloadPage).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -84,7 +85,7 @@ describe('AppLayout chunk error handling', () => {
     spy.mockRestore();
 
     await new Promise((r) => setTimeout(r, 50));
-    expect(reloadPage).not.toHaveBeenCalled();
+    expect(windowUtils.reloadPage).not.toHaveBeenCalled();
   });
 });
 

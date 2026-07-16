@@ -32,5 +32,5 @@ When a user logs in on a new device, the application must pull their latest save
 - When drafting blueprints for save file parsing, explicitly require that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Implement logic to fetch save data from R2 upon successful login.
-- [ ] Ensure the downloaded data hydrates the local application state.
+- [x] Implement logic to fetch save data from R2 upon successful login.
+- [x] Ensure the downloaded data hydrates the local application state.
