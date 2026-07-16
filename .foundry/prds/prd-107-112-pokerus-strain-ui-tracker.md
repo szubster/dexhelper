@@ -2,12 +2,12 @@
 id: prd-107-112-pokerus-strain-ui-tracker
 type: PRD
 title: Pokerus Strain Specific UI Tracker
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-07-12'
 updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8576992070072064890'
 pr_number: null
 parent: idea-107-pokerus-strain-ui-tracker
 tags:
