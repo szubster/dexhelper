@@ -5,7 +5,7 @@ title: Pokerus Strain UI Tracker - Detail View
 status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-13'
-updated_at: '2026-07-14'
+updated_at: '2026-07-16'
 depends_on: []
 jules_session_id: '6403594647363173717'
 pr_number: null

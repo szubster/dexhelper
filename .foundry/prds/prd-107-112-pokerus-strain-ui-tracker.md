@@ -44,5 +44,5 @@ Currently, the UI only displays whether a Pokémon is "Infected" or "Cured". It 
 
 ## 4. Acceptance Criteria
 - [x] Epic Planner: Break this PRD down into one or more Epics.
-- [ ] epic-112-322-pokerus-strain-ui-detail-view
-- [ ] epic-112-323-pokerus-strain-ui-grid-view
+- [x] epic-112-322-pokerus-strain-ui-detail-view
+- [x] epic-112-323-pokerus-strain-ui-grid-view
