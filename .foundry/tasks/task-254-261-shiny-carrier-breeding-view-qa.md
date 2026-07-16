@@ -39,7 +39,7 @@ Verify the new UI component rendering and adherence to tactical hardware aesthet
 3. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verified the Breeding Suggestions UI correctly displays.
-- [ ] Verified optimal breeding pairs and Shiny Carriers are shown.
-- [ ] Verified parents and box locations are present.
-- [ ] Verified components conform to the tactical hardware aesthetic.
+- [x] Verified the Breeding Suggestions UI correctly displays.
+- [x] Verified optimal breeding pairs and Shiny Carriers are shown.
+- [x] Verified parents and box locations are present.
+- [x] Verified components conform to the tactical hardware aesthetic.
