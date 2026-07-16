@@ -28,8 +28,22 @@ const DAYCARE_SLOT_2_OFFSET_GS = 0x2817;
 const DAYCARE_EGG_FLAG_OFFSET_GS = 0x284f;
 const DAYCARE_SLOT_1_OFFSET_CRYSTAL = 0x282c;
 const DAYCARE_SLOT_2_OFFSET_CRYSTAL = 0x27f3;
+const EVENT_FLAGS_OFFSET_CRYSTAL = 0x2600;
+const EVENT_FLAGS_OFFSET_GS = 0x2624;
+
 const DAYCARE_EGG_FLAG_OFFSET_CRYSTAL = 0x282b;
 const DAYCARE_EGG_FLAG_MASK = 0x01;
+
+const EVENT_FLAG_SUDOWOODO_BYTE = Math.floor(51 / 8);
+const EVENT_FLAG_SUDOWOODO_BIT = 51 % 8;
+const EVENT_FLAG_HO_OH_BYTE = Math.floor(470 / 8);
+const EVENT_FLAG_HO_OH_BIT = 470 % 8;
+const EVENT_FLAG_LUGIA_BYTE = Math.floor(471 / 8);
+const EVENT_FLAG_LUGIA_BIT = 471 % 8;
+const EVENT_FLAG_SNORLAX_BYTE = Math.floor(1326 / 8);
+const EVENT_FLAG_SNORLAX_BIT = 1326 % 8;
+const EVENT_FLAG_RED_GYARADOS_BYTE = Math.floor(1327 / 8);
+const EVENT_FLAG_RED_GYARADOS_BIT = 1327 % 8;
 
 function isValidLandmark(id: string): id is keyof typeof gen2Landmarks {
   return id in gen2Landmarks;
@@ -629,7 +643,7 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
 
   const roamingLegendaries = parseRoamingLegendaries(view, isCrystal);
 
-  const eventFlagsOffset = isCrystal ? 0x2600 : 0x2624;
+  const eventFlagsOffset = isCrystal ? EVENT_FLAGS_OFFSET_CRYSTAL : EVENT_FLAGS_OFFSET_GS;
   const eventFlags = new Uint8Array(0x100);
   try {
     for (let i = 0; i < 0x100; i++) {
@@ -677,5 +691,12 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     eventFlags,
     hiddenItemFlags,
     npcTradeFlags,
+    gen2StaticEncounters: {
+      sudowoodo: (((eventFlags[EVENT_FLAG_SUDOWOODO_BYTE] ?? 0) >> EVENT_FLAG_SUDOWOODO_BIT) & 1) === 1,
+      snorlax: (((eventFlags[EVENT_FLAG_SNORLAX_BYTE] ?? 0) >> EVENT_FLAG_SNORLAX_BIT) & 1) === 1,
+      redGyarados: (((eventFlags[EVENT_FLAG_RED_GYARADOS_BYTE] ?? 0) >> EVENT_FLAG_RED_GYARADOS_BIT) & 1) === 1,
+      hoOh: (((eventFlags[EVENT_FLAG_HO_OH_BYTE] ?? 0) >> EVENT_FLAG_HO_OH_BIT) & 1) === 1,
+      lugia: (((eventFlags[EVENT_FLAG_LUGIA_BYTE] ?? 0) >> EVENT_FLAG_LUGIA_BIT) & 1) === 1,
+    },
   };
 }
