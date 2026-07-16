@@ -32,9 +32,9 @@ Update `.github/scripts/foundry-orchestrator.ts` Phase 3.6 logic to correctly aw
 - Update tests in `.github/scripts/foundry-orchestrator.test.ts` to assert that parent nodes are awakened when child nodes are cancelled due to max rejections.
 
 ## Acceptance Criteria
-- [ ] Phase 3.6 condition in `foundry-orchestrator.ts` checks for `CANCELLED` status and `Max rejection count reached` reason.
-- [ ] Parent nodes of such cancelled nodes are correctly awakened.
-- [ ] Tests in `foundry-orchestrator.test.ts` are updated to cover this new case.
+- [x] Phase 3.6 condition in `foundry-orchestrator.ts` checks for `CANCELLED` status and `Max rejection count reached` reason.
+- [x] Parent nodes of such cancelled nodes are correctly awakened.
+- [x] Tests in `foundry-orchestrator.test.ts` are updated to cover this new case.
 
 ### REMINDER FOR CODER
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
