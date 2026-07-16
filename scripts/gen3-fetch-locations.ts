@@ -1,3 +1,28 @@
+/**
+ * @module gen3-fetch-locations
+ *
+ * This script bridges the gap between modern PokeAPI data and the actual internal memory structures
+ * used by Generation 3 Game Boy Advance games (Ruby, Sapphire, Emerald, FireRed, LeafGreen).
+ *
+ * **Why this is necessary:**
+ * The save files track the player's location, caught data, and active swarms using a composite
+ * Map ID system (`(MapGroup << 8) | MapIndex`). PokeAPI only provides modern, generic string
+ * names for locations, which cannot be directly mapped to these binary values.
+ *
+ * **How it works:**
+ * 1. It fetches the original Game Boy assembly and JSON configuration files directly from the
+ *    `pret/pokeemerald` decompilation repository.
+ * 2. It parses `map_groups.json` and individual `map.json` files to extract the exact binary
+ *    `map_id` and `group_id` for every location.
+ * 3. It traces `warp_events` to determine the parent/child relationship for indoor vs outdoor maps
+ *    (critical for the `mapGraph` distance calculations).
+ * 4. It outputs static mapping dictionaries (`scripts/data/gen3/mapping.ts`) that are later consumed
+ *    by the main `generate-pokedata.ts` ETL pipeline to link PokeAPI encounters with ROM map IDs.
+ *
+ * **Regeneration Steps:**
+ * This script is typically run as a precursor to the main data pipeline if Gen 3 mappings need updating.
+ */
+
 import fs from 'node:fs';
 import https from 'node:https';
 
@@ -17,6 +42,17 @@ function download(url: string): Promise<string> {
 
 const REPO_BASE = 'https://raw.githubusercontent.com/pret/pokeemerald/master';
 
+/**
+ * Orchestrates the fetching and parsing of map data from the pokeemerald repository.
+ *
+ * 1. Fetches the `map_groups.json` to understand the group ordering (which dictates the upper 8 bits of the Map ID).
+ * 2. Iterates through every map folder to fetch its specific `map.json`.
+ * 3. Extracts connections (adjacent maps) and warp events (doorways) to build a topological graph.
+ * 4. Attempts to identify "indoor" maps by recording the first warp destination as its parent map.
+ * 5. Writes the compiled, typed mapping data into `scripts/data/gen3/mapping.ts`.
+ *
+ * @returns A Promise that resolves when the mapping file has been generated.
+ */
 async function run() {
   console.log('Fetching map groups from pret/pokeemerald...');
 
