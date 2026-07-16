@@ -2,7 +2,7 @@
 id: task-263-285-r2-pull-sync-logic-impl
 type: TASK
 title: Cloudflare R2 Pull Sync Logic Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-08'
 updated_at: '2026-07-16'
@@ -16,7 +16,9 @@ tags:
   - r2
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 2882931139650262567 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 
