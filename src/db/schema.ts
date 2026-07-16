@@ -186,6 +186,7 @@ export interface PokemonMetadata {
   eto: CompactChainLink[];
   efrm: number[]; // Parent, Grandparent, etc.
   det: CompactEvolutionDetail[]; // Evolutionary requirements to reach THIS pokemon from parent
+  em?: Record<number, number[]> | undefined; // Precomputed shortest breeding chains for egg moves: MoveID -> chain of Pokemon IDs
 }
 
 export interface ItemMetadata {

@@ -50,6 +50,7 @@ const DEFAULT_POKEMON_METADATA = {
   eto: [],
   efrm: [],
   det: [],
+  em: undefined,
 };
 
 const DEFAULT_EVO_DETAIL = {
