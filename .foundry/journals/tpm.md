@@ -10,3 +10,9 @@ In the orchestrator, a `PENDING` parent node will not block its children from st
 ## 2026-06-23
 **Architectural Constraint (Archive File Path Linkage):**
 When archiving completed nodes to `.foundry/archive/`, you must update all active files that reference them in inline markdown links to use the new archived path. However, the `depends_on` and `parent` arrays/fields in the YAML frontmatter MUST strictly remain as Node IDs to prevent DAG orchestrator deadlocks.
+
+## 2026-07-16
+**Maintenance Pass Log:**
+- Archived all nodes with COMPLETED or CANCELLED status to `.foundry/archive/`
+- Checked for and found zero DAG cycles
+- Cleaned transient logs from all journals.

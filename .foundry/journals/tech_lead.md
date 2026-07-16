@@ -99,7 +99,6 @@ When drafting QA tasks, explicitly use exact Node IDs without file extensions or
 ## 2026-06-28 - Premature State Transition Prevention
 **Context**: While breaking down a Story into tasks, I erroneously checked off the acceptance criteria for the parent Story node *before* the child tasks had been completed.
 **Consequence**: This triggers an immediate transition of the Story to `VERIFYING` state via the "Empty PR Policy", which breaks the DAG dependency graph because its children are still pending.
-**Lesson Learned**: Parent node acceptance criteria must *never* be checked off until all dynamically spawned child nodes (which are appended as unchecked `- [ ]` tasks) have been formally transitioned to `COMPLETED`.
 ## 2026-06-29: Execution Plan Groundedness Rule (Domain Knowledge)
 - **Observation**: When preparing an execution plan to investigate a permanent failure, the proposed `RESEARCH` and `TASK` nodes included specific mathematical formulas (e.g., exact DV relatedness checks) and edge cases (e.g., Ditto mechanics) that were assumed from general knowledge rather than confirmed from the provided context or trace.
 - **Action**: The plan was rejected until the hallucinated domain knowledge was removed from the generated files.
@@ -125,7 +124,6 @@ When drafting technical blueprints for Stories involving complex shared state or
 When creating downstream nodes, you must append references to the newly generated child nodes as unchecked tasks (`- [ ] <exact_node_id>`) directly into the parent node's markdown body under an `## Acceptance Criteria` section. Use the exact Node ID, strictly omitting any file extensions or directory paths.
 
 ## 2026-07-04: Empty PR Policy for Completed Children
-- **Observation**: When assigned to an `ACTIVE` story (e.g., `story-103-245-investigate-offset-linter`) where all of its dynamically generated child tasks (e.g., `task-245-249-investigate-offset-linter`) have already transitioned to `COMPLETED` in a prior execution loop, the Orchestrator expects the parent node to be explicitly verified.
 - **Action**: To transition the Story to `VERIFYING` without prematurely violating the DAG, the Tech Lead must explicitly check off the acceptance criteria and child node checkboxes in the Story's markdown body and submit an Empty PR. No new task nodes need to be generated if the existing completed tasks fully satisfy the Story's requirements.
 - **Lesson**: Do not hallucinate or spawn redundant fallback tasks when the existing child tasks are demonstrably `COMPLETED`. Instead, rely on the Empty PR policy to formalize the completion of the parent Story.
 When generating or modifying files via bash sessions prior to requesting a plan review, your proposed plan steps must not describe the creation process or contain narrative explanations of past actions (e.g., 'I have already done this'). Instead, the steps should be strictly phrased as verification tasks (e.g., '1. Use `read_file` or `cat` to verify the contents of...').
@@ -141,7 +139,6 @@ When decomposing a STORY into TASK nodes, strictly follow the Intelligent Verifi
 
 ## 2026-07-07: Premature Story Verification
 - **Observation**: Attempted to transition a Story to VERIFYING by checking off its child tasks, violating a core directive.
-- **Constraint Enforced**: CRITICAL: Do NOT submit an Empty PR to transition a Story to VERIFYING (by checking off its acceptance criteria) until ALL of its generated child TASK nodes have transitioned to COMPLETED. Premature verification violates the dependency graph constraints. If a parent node has incomplete children (e.g. pending or active), you must leave its own acceptance criteria checkboxes unchecked to keep it in PENDING status.
 
 ## 2026-07-09: Platform Tool Modification Constraints
 - **Observation**: Attempted to implement a timeout wrapper for `run_in_bash_session` but the task was rejected because platform tools cannot be modified from within the repo.

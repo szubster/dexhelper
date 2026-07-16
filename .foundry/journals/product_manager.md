@@ -57,5 +57,3 @@ Cancelled `idea-066-enforce-gray-matter-linter` directly as the return on invest
 During the resurrection loop for `idea-066-save-file-health-scanner` (Attempt 5), the IDEA node repeatedly failed verification because it was submitted via Empty PR while its generated downstream PRD and Epic nodes were still `PENDING`. This violates the Strict Macro Node Completion rules (IDEA-072).
 
 **Action & Constraint:**
-When assigned to a macro node (like an IDEA) that has spawned children, DO NOT transition it to VERIFYING (by submitting an Empty PR with all boxes checked) until ALL descendant nodes have transitioned to COMPLETED. If the downstream nodes are still PENDING, you MUST keep the macro node in a PENDING state. To do this, uncheck the Acceptance Criteria checkbox corresponding to the uncompleted downstream dependency and submit the PR. This breaks the premature verification loop and allows the system to wait for downstream implementation.
-
