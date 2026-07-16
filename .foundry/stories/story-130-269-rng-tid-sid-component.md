@@ -2,12 +2,12 @@
 id: story-130-269-rng-tid-sid-component
 type: STORY
 title: RNG TID and SID Display Component
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-04'
 updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '6428404085085240292'
+jules_session_id: null
 pr_number: null
 parent: epic-100-130-rng-tid-sid-display
 tags:
@@ -15,10 +15,8 @@ tags:
   - rng
   - ui
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  Zombie node detected: Session 6428404085085240292 is TERMINATED without
-  resolving the node
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 # RNG TID and SID Display Component

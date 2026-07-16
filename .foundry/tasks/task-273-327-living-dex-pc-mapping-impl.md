@@ -2,7 +2,7 @@
 id: task-273-327-living-dex-pc-mapping-impl
 type: TASK
 title: Living Dex PC Mapping Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-16'
 updated_at: '2026-07-16'

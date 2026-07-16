@@ -2,22 +2,20 @@
 id: epic-036-053-shared-dag-utilities
 type: EPIC
 title: Shared DAG Utilities Module
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-31'
 updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '3249377529534493013'
+jules_session_id: null
 parent: prd-067-036-extract-dag-utils
 tags:
   - refactor
   - foundry
   - orchestrator
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  Zombie node detected: Session 3249377529534493013 is TERMINATED without
-  resolving the node
+rejection_count: 2
+rejection_reason: ''
 notes: Spawned from prd-067-036-extract-dag-utils.
 ---
 

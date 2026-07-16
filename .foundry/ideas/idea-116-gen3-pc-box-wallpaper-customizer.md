@@ -2,21 +2,20 @@
 id: idea-116-gen3-pc-box-wallpaper-customizer
 type: IDEA
 title: Gen 3 PC Box Wallpaper Customizer
-status: FAILED
+status: READY
 owner_persona: product_manager
 created_at: '2026-07-16'
 updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '10416542054517101297'
+jules_session_id: null
 parent: null
 tags:
   - gen3
   - pc-box
   - customization
   - endgame
-rejection_reason: >-
-  Zombie node detected: Session 10416542054517101297 is TERMINATED without
-  resolving the node
+rejection_reason: ''
+rejection_count: 1
 ---
 
 # Gen 3 PC Box Wallpaper Customizer

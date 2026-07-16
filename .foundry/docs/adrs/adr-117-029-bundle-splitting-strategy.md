@@ -2,10 +2,10 @@
 id: adr-117-029-bundle-splitting-strategy
 type: ADR
 title: Bundle and Data Splitting Strategy
-status: PENDING
+status: COMPLETED
 owner_persona: architect
 created_at: '2025-07-16'
-updated_at: '2025-07-16'
+updated_at: '2026-07-16'
 depends_on: []
 jules_session_id: null
 pr_number: null

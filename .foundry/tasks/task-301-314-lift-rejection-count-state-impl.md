@@ -2,22 +2,20 @@
 id: task-301-314-lift-rejection-count-state-impl
 type: TASK
 title: Implement Lift MAX_REJECTION_THRESHOLD Constant to Context
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-07-14'
-updated_at: '2026-07-15'
+updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '3667896676804649688'
+jules_session_id: null
 pr_number: null
 parent: story-301-314-lift-rejection-count-state
 tags:
   - refactor
   - dashboard
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  Zombie node detected: Session 3667896676804649688 is TERMINATED without
-  resolving the node
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

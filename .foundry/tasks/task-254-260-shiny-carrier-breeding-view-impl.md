@@ -2,12 +2,12 @@
 id: task-254-260-shiny-carrier-breeding-view-impl
 type: TASK
 title: Implement Shiny Carrier Breeding View
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-07-02'
-updated_at: '2026-07-15'
+updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '8034344561641531488'
+jules_session_id: null
 pr_number: null
 parent: story-045-254-shiny-carrier-breeding-view
 tags:
@@ -16,10 +16,8 @@ tags:
   - gen2
   - frontend
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  Zombie node detected: Session 8034344561641531488 is TERMINATED without
-  resolving the node
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
