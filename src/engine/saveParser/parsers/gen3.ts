@@ -228,8 +228,8 @@ const FRLG_MOVE_TUTOR_BLAST_BURN_BIT = 7;
 
 const FRLG_MOVE_TUTOR_HYDRO_CANNON_BIT = 0;
 
-export const GEN3_EMERALD_ASH_OFFSET = 0x142c;
-export const GEN3_RS_ASH_OFFSET = 0x13d0;
+export const GEN3_EMERALD_VARS_OFFSET = 0x139c;
+export const GEN3_RS_VARS_OFFSET = 0x1340;
 export const GEN3_ASH_VAR_RELATIVE_OFFSET = 0x90;
 
 /**
@@ -625,8 +625,7 @@ export function parseGen3MixRecords(view: DataView, offset: number) {
  */
 export function parseGen3VolcanicAsh(view: DataView, saveBlock1Offset: number, version: GameVersion): number {
   try {
-    const ashAbsOffset = version === 'emerald' ? GEN3_EMERALD_ASH_OFFSET : GEN3_RS_ASH_OFFSET;
-    const varsOffset = ashAbsOffset - GEN3_ASH_VAR_RELATIVE_OFFSET;
+    const varsOffset = version === 'emerald' ? GEN3_EMERALD_VARS_OFFSET : GEN3_RS_VARS_OFFSET;
     return view.getUint16(saveBlock1Offset + varsOffset + GEN3_ASH_VAR_RELATIVE_OFFSET, true);
   } catch (error) {
     if (error instanceof RangeError) {
