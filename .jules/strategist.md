@@ -375,3 +375,9 @@
 **Outcome:** Merged
 **Why:** The `qa.md` journal recorded on 2026-07-11 that the `coder` had a task rejected because they failed to handle `RangeError` from the `DataView` API when checking for out-of-bounds reads. The `tech_lead.md` journal also notes explicitly mandating this in blueprints. Adding this instruction to the coder's prompt proactively prevents these QA rejections and aligns the coder with the expected standard.
 **Pattern:** Codify specific, recurring architectural requirements and error handling rules (like catching `RangeError` from `DataView` and throwing a specific error message) directly into the implementer's prompt (`coder.md`) to prevent brittle code and repetitive QA rejections.
+
+## 2026-07-29 - [Accepted] - Prompt Consolidation - Remove duplicate Bash Session Timeout warnings
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The warning about bash sessions (`do NOT execute blocking commands...`) was duplicated across several agent prompts (`coder.md`, `qa.md`, `tech_lead.md`, `auditor.md`), while it is already centralized in `.foundry/docs/knowledge_base/agents/core_policies.md` under `Bash Session Timeout Policy`.
+**Pattern:** Remove duplicated instructions in individual agent prompts if they are already covered by centralized policy files (e.g., `core_policies.md`). This reduces context bloat and ensures a single source of truth for core rules.
