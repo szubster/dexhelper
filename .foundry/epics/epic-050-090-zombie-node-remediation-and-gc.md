@@ -2,13 +2,13 @@
 id: epic-050-090-zombie-node-remediation-and-gc
 type: EPIC
 title: Zombie Node Remediation and GC Logic
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-14'
 updated_at: '2026-07-16'
 depends_on:
   - epic-050-089-zombie-node-detection-engine
-jules_session_id: null
+jules_session_id: '1856259674629517626'
 pr_number: null
 parent: prd-079-050-foundry-zombie-node-cleanup
 tags:
