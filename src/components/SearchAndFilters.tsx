@@ -92,6 +92,7 @@ export function SearchAndFilters() {
                     label={f === 'secured' ? 'SECURED' : f === 'missing' ? 'MISSING' : 'DEX ONLY'}
                   />
                 ),
+                ariaLabel: f === 'secured' ? 'Secured filter' : f === 'missing' ? 'Missing filter' : 'Dex Only filter',
                 testId: `filter-${f}`,
               }))}
             />

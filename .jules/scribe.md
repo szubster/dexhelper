@@ -1,4 +1,4 @@
-# Scribe Journal
+# Scribe Memory
 
 - **2024-03-XX:** Documented the `detectVersionAndOffsets` function in `src/engine/saveParser/parsers/gen1.ts`. Discovered that the Pokémon Yellow +1 offset shift heuristic works by explicitly checking the 152nd bit (byte 19, MSB) of the Pokédex "Owned" and "Seen" flags array. Because there are only 151 Pokémon, this bit must always be `0`. By checking this padding bit at `0x25a3` vs `0x25a4`, the parser can safely identify the correct memory alignment without explicit version flags.
 The Scribe persona's private memory is strictly `.jules/scribe.md` and must be used solely to log long-term lessons, architectural constraints, and recurring failures, never as an execution logbook. Universally applicable knowledge should instead be documented in `.foundry/docs/`.
@@ -17,3 +17,6 @@ When updating JSDoc for complex exported domain functions in the save parser, fo
 ## Gen 3 Data Generation (scripts/gen3-fetch-locations.ts)
 - **Architectural Discovery**: Gen 3 save files identify player location using a composite Map ID (`(MapGroup << 8) | MapIndex`). Modern datasets (like PokeAPI) lack this binary mapping.
 - **Solution Documented**: The `gen3-fetch-locations.ts` script bridges this gap by fetching original Game Boy assembly files directly from the `pret/pokeemerald` decompilation repository to extract the exact binary IDs and build a topological graph.
+- When writing documentation, strictly use JSDoc for TypeScript APIs and Markdown for architecture docs.
+- Explanations must be concise, scannable, and focus on *why* the code exists rather than *what* it does, avoiding redundant restatements of logic.
+- When submitting documentation-only PRs (like Scribe tasks), the PR title must follow the format `📜 Scribe: [what was documented]` and the PR must strictly modify documentation/comments without altering any application logic.

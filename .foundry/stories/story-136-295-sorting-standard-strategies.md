@@ -2,12 +2,12 @@
 id: story-136-295-sorting-standard-strategies
 type: STORY
 title: Implement Standard PC Box Sorting Strategies
-status: PENDING
+status: READY
 owner_persona: tech_lead
-created_at: "2026-07-10"
-updated_at: "2026-07-10"
+created_at: '2026-07-10'
+updated_at: '2026-07-16'
 depends_on:
-  - .foundry/stories/story-136-294-sorting-interface-base.md
+  - story-136-294-sorting-interface-base
 jules_session_id: null
 pr_number: null
 parent: epic-106-136-pc-box-sorting-algorithms
@@ -15,9 +15,9 @@ tags:
   - feature
   - sorting
 research_references: []
-rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_count: 1
+rejection_reason: ''
+notes: ''
 ---
 
 # Story: Implement Standard PC Box Sorting Strategies

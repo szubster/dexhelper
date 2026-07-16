@@ -59,3 +59,7 @@ During the resurrection loop for `idea-066-save-file-health-scanner` (Attempt 5)
 **Action & Constraint:**
 When assigned to a macro node (like an IDEA) that has spawned children, DO NOT transition it to VERIFYING (by submitting an Empty PR with all boxes checked) until ALL descendant nodes have transitioned to COMPLETED. If the downstream nodes are still PENDING, you MUST keep the macro node in a PENDING state. To do this, uncheck the Acceptance Criteria checkbox corresponding to the uncompleted downstream dependency and submit the PR. This breaks the premature verification loop and allows the system to wait for downstream implementation.
 
+
+## 2026-07-16 - Anomaly Found
+
+When generating the PRD for `idea-117-split-bundles-and-data`, I noticed that the research and ADR references (`research-117-325-bundle-splitting-analysis` and `adr-117-029-bundle-splitting-strategy`) already existed and were marked as completed in the IDEA node's acceptance criteria.

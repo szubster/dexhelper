@@ -1,8 +1,12 @@
 import { ReactFlow } from '@xyflow/react';
-import { expect, test } from 'vitest';
+import { expect, test, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import { DagNode } from '../DagNode';
+
+vi.mock('../../dashboard/DagContext', () => ({
+  useDagContext: vi.fn<() => { maxRejectionThreshold: number }>(() => ({ maxRejectionThreshold: 3 })),
+}));
 
 const nodeTypes = {
   custom: DagNode,

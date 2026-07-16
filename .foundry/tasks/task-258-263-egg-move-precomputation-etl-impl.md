@@ -2,12 +2,12 @@
 id: task-258-263-egg-move-precomputation-etl-impl
 type: TASK
 title: Implement Egg Move Precomputation in ETL
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-03'
-updated_at: '2026-07-15'
+updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '10755592772331623067'
+jules_session_id: null
 pr_number: null
 parent: story-113-258-egg-move-pathfinding-core
 tags:
@@ -15,7 +15,7 @@ tags:
   - mechanics
   - algorithm
 research_references: []
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---
@@ -31,10 +31,10 @@ Implement the Breadth-First Search (BFS) algorithm to precompute the shortest br
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement BFS pathfinding algorithm in `scripts/generate-pokedata.ts` for Egg Moves.
-- [ ] Calculate the shortest breeding chain for all valid (Target Species, Egg Move) combinations.
-- [ ] Save the precomputed paths in the exported static data (e.g. `pokemon.jsonl` or a new `egg_moves.jsonl`).
-- [ ] Ensure proper testing and verification are done.
+- [x] Implement BFS pathfinding algorithm in `scripts/generate-pokedata.ts` for Egg Moves.
+- [x] Calculate the shortest breeding chain for all valid (Target Species, Egg Move) combinations.
+- [x] Save the precomputed paths in the exported static data (e.g. `pokemon.jsonl` or a new `egg_moves.jsonl`).
+- [x] Ensure proper testing and verification are done.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

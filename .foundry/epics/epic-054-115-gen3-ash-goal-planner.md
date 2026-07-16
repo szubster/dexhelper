@@ -2,10 +2,10 @@
 id: epic-054-115-gen3-ash-goal-planner
 type: EPIC
 title: Gen 3 Ash Goal Planner
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-30'
-updated_at: '2026-06-30'
+updated_at: '2026-07-16'
 depends_on:
   - epic-054-114-gen3-ash-dashboard
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - feature
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  epic-054-113-gen3-ash-save-parsing
 notes: ''
 ---
 

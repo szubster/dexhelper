@@ -79,9 +79,9 @@ export function BottomNav() {
         <div className="h-full flex-1">
           <NavButton
             to="/dashboard"
-            ariaLabel="Battle Frontier"
-            label="BTFR"
-            activeLabel="BTFR"
+            ariaLabel="Dashboard"
+            label="DASH"
+            activeLabel="DASH"
             icon={Swords}
             isActive={isFrontier}
           />

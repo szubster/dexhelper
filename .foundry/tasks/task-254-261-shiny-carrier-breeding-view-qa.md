@@ -2,10 +2,10 @@
 id: task-254-261-shiny-carrier-breeding-view-qa
 type: TASK
 title: QA Shiny Carrier Breeding View
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-02'
-updated_at: '2026-07-02'
+updated_at: '2026-07-16'
 depends_on:
   - task-254-260-shiny-carrier-breeding-view-impl
 jules_session_id: null

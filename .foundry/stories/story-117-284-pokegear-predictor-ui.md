@@ -2,13 +2,13 @@
 id: story-117-284-pokegear-predictor-ui
 type: STORY
 title: Implement Predictor Engine UI
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-07'
-updated_at: '2026-07-14'
+updated_at: '2026-07-16'
 depends_on:
   - story-117-283-pokegear-predictor-engine
-jules_session_id: '8122102314469607711'
+jules_session_id: null
 pr_number: null
 parent: epic-055-117-pokegear-predictor
 tags:
@@ -30,4 +30,6 @@ Break down the implementation of the Pokegear Predictor UI into tasks.
 - Create tasks to implement the display of call probabilities on the Active Callers Dashboard.
 
 ## Acceptance Criteria
-- [ ] Create tasks for the predictor engine UI
+- [x] Create tasks for the predictor engine UI
+- [ ] task-284-322-predictor-ui-impl
+- [ ] task-284-323-predictor-ui-qa

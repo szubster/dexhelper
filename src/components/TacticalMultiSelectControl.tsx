@@ -4,6 +4,7 @@ import { cn } from '../utils/cn';
 export interface MultiSelectControlItem<T extends string | number | readonly string[]> {
   id: T;
   label: React.ReactNode;
+  ariaLabel?: string;
   activeClassName?: string;
   inactiveClassName?: string;
   className?: string;
@@ -63,7 +64,8 @@ export function TacticalMultiSelectControl<T extends string | number | readonly 
               onClick={() => onValueToggle(item.id)}
               disabled={item.disabled}
               data-testid={item.testId}
-              title={typeof item.label === 'string' ? `${item.label} filter` : undefined}
+              title={item.ariaLabel || (typeof item.label === 'string' ? `${item.label} filter` : undefined)}
+              aria-label={item.ariaLabel || (typeof item.label === 'string' ? `${item.label} filter` : undefined)}
               className={cn(
                 'tactical-text focus-visible:tactical-focus flex-1 rounded-none px-2 py-3 font-black text-[10px] transition-all disabled:cursor-not-allowed disabled:opacity-50',
                 !isLast && 'border-zinc-800 border-r border-dashed',

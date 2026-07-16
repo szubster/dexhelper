@@ -62,3 +62,10 @@
 ## 2026-07-12 - Archivist Run Learnings
 
 **Action:** Systematically cleaned up more operational execution trace lines ("I did", "Permanently failed", "I verified", "Anomaly") from `.foundry/journals/coder.md`, `.foundry/journals/architect.md`, `.foundry/journals/agile_coach.md` and `.foundry/journals/tech_lead.md`.
+
+## 2026-07-21 - Archivist Run Learnings
+**Learning:** The `.foundry/journals/qa.md` accumulated redundant learnings about absolute offsets vs relative offsets (ADR 028) across multiple tasks (e.g. Feebas and Volcanic Ash).
+**Action:** Consolidated these multiple entries into a single canonical entry in `qa.md` to reduce duplication and improve clarity for future agents reading the journal.
+
+**Learning:** Execution traces (e.g., 'I verified', 'Permanently failed', 'I implemented') continued to bloat journals like `coder.md` and `qa.md`.
+**Action:** Ran cleanup scripts to strip out these purely operational lines from the journals to keep them focused on critical learnings.

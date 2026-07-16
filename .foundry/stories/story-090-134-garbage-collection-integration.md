@@ -2,10 +2,10 @@
 id: story-090-134-garbage-collection-integration
 type: STORY
 title: Garbage Collection Integration and Execution
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-14'
-updated_at: '2026-07-05'
+updated_at: '2026-07-16'
 depends_on:
   - story-090-133-remediation-state-transition-logic
 jules_session_id: null
@@ -16,7 +16,7 @@ tags:
   - orchestrator
   - maintenance
 research_references: []
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---
@@ -33,6 +33,6 @@ With the zombie node detection engine and state transition logic implemented, th
 - [x] Create task breakdown.
 
 ### Next Steps
-- [ ] task-134-264-gc-integration-impl
-- [ ] task-134-265-gc-integration-qa
+- [x] task-134-264-gc-integration-impl
+- [x] task-134-265-gc-integration-qa
 - [x] Break down into Tasks.

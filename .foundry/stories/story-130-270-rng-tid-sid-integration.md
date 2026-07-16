@@ -2,10 +2,10 @@
 id: story-130-270-rng-tid-sid-integration
 type: STORY
 title: RNG TID and SID UI Integration
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-16'
 depends_on:
   - story-130-269-rng-tid-sid-component
 jules_session_id: null

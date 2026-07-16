@@ -2,10 +2,10 @@
 id: task-280-325-feebas-backend-integration-retry-impl
 type: TASK
 title: Retry Integrate Feebas Logic into Gen 3 Save Parser
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-14'
-updated_at: '2026-07-15'
+updated_at: '2026-07-16'
 depends_on:
   - research-280-324-feebas-offset-investigation
 jules_session_id: null
