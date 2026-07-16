@@ -5,9 +5,9 @@ title: 'Story: Gen 3 Hall of Fame & Pokédex Data Extraction'
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-07-15'
+updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: '16676321156850284457'
+jules_session_id: '8654587757197470283'
 pr_number: null
 parent: epic-111-304-gen3-trainer-card-data-extraction
 tags:

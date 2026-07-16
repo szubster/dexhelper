@@ -2,12 +2,12 @@
 id: story-133-272-living-dex-ghost-tracker
 type: STORY
 title: Living Dex Ghost Tracker
-status: COMPLETED
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-07-15'
+updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11925447435719118942'
 pr_number: null
 parent: epic-103-133-living-dex-data-engine
 tags:
@@ -26,8 +26,8 @@ This story focuses on implementing the data engine logic to determine which Pok�
 
 ## Acceptance Criteria
 - [x] Determine how to track missing Pokémon in the regional/national Pokédex.
-- [x] task-272-304-living-dex-ghost-tracker-impl
-- [x] task-272-305-living-dex-ghost-tracker-qa
+- [ ] task-272-304-living-dex-ghost-tracker-impl
+- [ ] task-272-305-living-dex-ghost-tracker-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

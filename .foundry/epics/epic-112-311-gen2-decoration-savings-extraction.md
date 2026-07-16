@@ -2,12 +2,12 @@
 id: epic-112-311-gen2-decoration-savings-extraction
 type: EPIC
 title: Gen 2 Decoration & Savings Save Data Extraction
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-07-15'
+updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: '14994304484944201910'
+jules_session_id: null
 pr_number: null
 parent: prd-109-112-gen2-room-decoration-tracker
 tags:

@@ -2,12 +2,12 @@
 id: prd-110-112-npc-size-record-assistant
 type: PRD
 title: Gen 2 & Gen 3 NPC Size Record Assistant
-status: PENDING
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-07-12'
-updated_at: '2026-07-15'
+updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16716659327104647276'
 pr_number: null
 parent: idea-110-npc-size-record-assistant
 tags:
@@ -81,7 +81,4 @@ Targeting mathematically complex, hidden sub-mechanics provides incredible uniqu
 - Performant scanning of all PC boxes without noticeable lag.
 
 ## Acceptance Criteria
-- [x] Break down this PRD into EPIC nodes.
-- [ ] epic-112-324-npc-size-record-data-extraction
-- [ ] epic-112-325-npc-size-record-calculation-engine
-- [ ] epic-112-326-npc-size-record-dashboard-ui
+- [ ] Break down this PRD into EPIC nodes.

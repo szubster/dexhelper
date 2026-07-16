@@ -28,7 +28,3 @@ In Pokémon FireRed and LeafGreen, the Fame Checker is a unique Key Item used to
 
 ## Solution
 Leverage the DexHelper save parsing engine to read the hidden event flags associated with the Fame Checker progress. By extracting exactly which entries the player has unlocked for each NPC, we can create an actionable dashboard. Instead of showing the player what they already know, the dashboard will explicitly tell them *what* they are missing and *exactly where* to go in their specific save file to find it. This perfectly aligns with our vision of a premium companion app: replacing tedious backtracking and wiki lookups with targeted, dynamically generated to-do lists based on their actual save state.
-
-## Acceptance Criteria
-- [x] Create PRD
-- [ ] prd-115-115-gen3-fame-checker-assistant

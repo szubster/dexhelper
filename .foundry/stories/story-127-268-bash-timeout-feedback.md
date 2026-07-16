@@ -2,13 +2,13 @@
 id: story-127-268-bash-timeout-feedback
 type: STORY
 title: Implement feedback mechanism for interrupted commands
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-15'
+updated_at: '2026-07-04'
 depends_on:
   - story-127-267-bash-timeout-wrapper
-jules_session_id: '18442134624650825073'
+jules_session_id: null
 pr_number: null
 parent: epic-057-127-bash-timeout-wrapper
 tags:

@@ -2,12 +2,12 @@
 id: story-307-319-gen3-trainer-flags-extraction
 type: STORY
 title: Gen 3 Trainer Defeat Flags Extraction
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-07-15'
+updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: '5968959432566922383'
+jules_session_id: null
 pr_number: null
 parent: epic-109-307-missed-trainer-data-extraction-gen3
 tags:

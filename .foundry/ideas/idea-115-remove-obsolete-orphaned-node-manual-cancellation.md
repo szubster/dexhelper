@@ -5,9 +5,9 @@ title: Remove Obsolete Orphaned Node Manual Cancellation Rule
 status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-12'
-updated_at: '2026-07-15'
+updated_at: '2026-07-13'
 depends_on: []
-jules_session_id: '543639033010388496'
+jules_session_id: '7017282970449137470'
 parent: null
 tags:
   - foundry

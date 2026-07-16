@@ -30,6 +30,4 @@ Break down the implementation of the Pokegear Predictor UI into tasks.
 - Create tasks to implement the display of call probabilities on the Active Callers Dashboard.
 
 ## Acceptance Criteria
-- [x] Create tasks for the predictor engine UI
-- [ ] task-284-322-predictor-ui-impl
-- [ ] task-284-323-predictor-ui-qa
+- [ ] Create tasks for the predictor engine UI

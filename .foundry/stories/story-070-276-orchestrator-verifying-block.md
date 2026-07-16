@@ -28,4 +28,6 @@ The orchestrator's `isHierarchicallyIncomplete` properly returns `true` when a n
 Remove the incorrect `VERIFYING` allowances in dependency and parent status checks so that a `VERIFYING` child/dependency correctly blocks or suspends the parent.
 
 ## Acceptance Criteria
-- [ ] .foundry/tasks/task-070-276-001-verifying-block.md
+- [ ] In `.github/scripts/foundry-orchestrator.ts`, find and remove the `&& dep.frontmatter.status !== 'VERIFYING'` allowance in the dependency check (around line 621).
+- [ ] Find and remove the `&& parentStatus !== 'VERIFYING'` allowance in the parent status check (around line 723).
+- [ ] task-276-304-orchestrator-verifying-block

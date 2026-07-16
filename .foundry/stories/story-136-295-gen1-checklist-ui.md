@@ -1,14 +1,14 @@
 ---
 id: story-136-295-gen1-checklist-ui
 type: STORY
-title: Gen 1 Checklist UI
-status: ACTIVE
-owner_persona: tech_lead
-created_at: '2026-07-10'
-updated_at: '2026-07-15'
+title: "Gen 1 Checklist UI"
+status: PENDING
+owner_persona: "tech_lead"
+created_at: "2026-07-10"
+updated_at: "2026-07-10"
 depends_on:
   - story-136-294-gen1-event-flag-parsing
-jules_session_id: '12608354578153831243'
+jules_session_id: null
 pr_number: null
 parent: epic-106-136-gen1-static-encounters
 tags:
@@ -16,8 +16,8 @@ tags:
   - feature
 research_references: []
 rejection_count: 0
-rejection_reason: ''
-notes: ''
+rejection_reason: ""
+notes: ""
 ---
 
 # Gen 1 Checklist UI

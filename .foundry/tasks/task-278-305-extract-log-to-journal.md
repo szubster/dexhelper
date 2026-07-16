@@ -2,10 +2,10 @@
 id: task-278-305-extract-log-to-journal
 type: TASK
 title: Extract logToJournal Utility
-status: COMPLETED
+status: READY
 owner_persona: coder
 created_at: '2026-07-13'
-updated_at: '2026-07-15'
+updated_at: '2026-07-13'
 depends_on: []
 jules_session_id: null
 parent: story-053-278-extract-log-to-journal
@@ -38,5 +38,5 @@ notes: ''
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [x] `logToJournal` is exported from `dag-utils.ts`.
-- [x] `foundry-orchestrator.ts` uses `logToJournal` instead of inline `fs.appendFileSync`.
+- [ ] `logToJournal` is exported from `dag-utils.ts`.
+- [ ] `foundry-orchestrator.ts` uses `logToJournal` instead of inline `fs.appendFileSync`.

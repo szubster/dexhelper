@@ -94,10 +94,6 @@ export interface Gen3ActiveSwarm {
   mapId: number;
   mapGroup: number;
   daysRemaining: number;
-  moves?: [number, number, number, number];
-  probability?: number;
-  level?: number;
-  language?: number;
 }
 
 export interface Gen3SecretBasePartyMember {
@@ -196,8 +192,6 @@ export interface SaveData {
   gen3NPCTrades?: Record<string, boolean>;
   /** Gen 3 specific: Calculated valid Feebas tile locations. */
   gen3FeebasTiles?: number[];
-  /** Gen 1 specific: Claimed static encounters. */
-  gen1StaticEncounters?: Record<number, boolean>;
   /** The specific game version detected or forced (e.g., 'red', 'crystal'). */
   gameVersion: GameVersion;
   /** Bitflag representation of the total number of gym badges obtained. */
@@ -241,14 +235,6 @@ export interface SaveData {
   hiddenCoinFlags?: Uint8Array;
   /** Bitflags representing which in-game NPC trades have already been completed. */
   npcTradeFlags?: boolean[];
-  /** Gen 2 specific: Static encounter event flags. */
-  gen2StaticEncounters?: {
-    sudowoodo: boolean;
-    snorlax: boolean;
-    redGyarados: boolean;
-    hoOh: boolean;
-    lugia: boolean;
-  };
   /** Detailed structural data for Pokémon currently left in the Daycare (Gen 2). */
   daycare?: PokemonInstance[];
   /** Gen 2 specific: Indicates if an Egg is currently waiting to be picked up from the Daycare. */

@@ -32,6 +32,4 @@ Parse the Gen 1 save file Item Bag to extract the player's current TM and HM inv
 - Must follow ADR 028 for dynamic save block extraction.
 
 ## Acceptance Criteria
-- [x] Break down into TASK nodes for implementation.
-- [ ] task-319-322-gen1-tm-hm-parsing-impl
-- [ ] task-319-323-gen1-tm-hm-parsing-qa
+- [ ] Break down into TASK nodes for implementation.

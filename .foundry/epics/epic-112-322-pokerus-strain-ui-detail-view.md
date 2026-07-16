@@ -36,5 +36,4 @@ Implement the UI presentation layer to display the specific Pokerus strain data 
 None.
 
 ## 5. Acceptance Criteria
-- [x] Story Owner: Break down this Epic into actionable Stories.
-- [ ] story-322-323-pokerus-strain-detail-ui
+- [ ] Story Owner: Break down this Epic into actionable Stories.

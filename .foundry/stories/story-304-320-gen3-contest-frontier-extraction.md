@@ -33,5 +33,3 @@ Extract Master Rank Contest condition ribbons and Battle Frontier Gold Symbols f
 ## Acceptance Criteria
 - [ ] Implement Contest extraction logic.
 - [ ] Implement Battle Frontier extraction logic.
-- [ ] task-320-322-gen3-contest-frontier-impl
-- [ ] task-320-323-gen3-contest-frontier-qa

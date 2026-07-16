@@ -2,11 +2,11 @@
 id: task-267-320-gen3-ash-dataview-extraction-retry-impl
 type: TASK
 title: Implement Gen 3 Volcanic Ash Extraction (Retry)
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-12'
-updated_at: '2026-07-16'
-jules_session_id: null
+updated_at: '2026-07-14'
+jules_session_id: '121588662292478033'
 depends_on:
   - research-267-297-gen3-ash-dataview-relative-offsets
 parent: story-113-267-gen3-ash-dataview-extraction
@@ -35,11 +35,11 @@ As per ADR 010, the DataView API MUST be used instead of raw `Uint8Array` manipu
 As per ADR 028, all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level. Inline magic numbers are explicitly forbidden.
 
 ## Acceptance Criteria
-- [x] Implement Volcanic Ash DataView extraction logic for Gen 3 saves.
-- [x] Calculate the relative memory offset using the dynamically resolved `section1Offset` (i.e., `section1Offset + 0x90` or equivalent relative mapping) instead of hardcoding `0x142C` or `0x13D0`.
-- [x] Define the necessary relative offsets as reusable module-level constants.
-- [x] Write unit tests verifying correct extraction for Ruby/Sapphire and Emerald using `section1Offset`.
-- [x] Write unit tests that trigger and catch `RangeError` exceptions for out-of-bounds reads.
+- [ ] Implement Volcanic Ash DataView extraction logic for Gen 3 saves.
+- [ ] Calculate the relative memory offset using the dynamically resolved `section1Offset` (i.e., `section1Offset + 0x90` or equivalent relative mapping) instead of hardcoding `0x142C` or `0x13D0`.
+- [ ] Define the necessary relative offsets as reusable module-level constants.
+- [ ] Write unit tests verifying correct extraction for Ruby/Sapphire and Emerald using `section1Offset`.
+- [ ] Write unit tests that trigger and catch `RangeError` exceptions for out-of-bounds reads.
 
 ## Developer Instructions
 - **Failure conditions:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`. If you must abort or permanently fail a task, you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.

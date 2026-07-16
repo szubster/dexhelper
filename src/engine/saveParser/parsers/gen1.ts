@@ -1,5 +1,4 @@
 import gen1MapLocations from '../../data/gen1/mapLocations.json';
-import { parseGen1StaticEncounters } from '../utils/gen1EventFlags';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs } from './common';
 
@@ -10,12 +9,6 @@ function isValidMapId(id: string): id is keyof typeof gen1MapLocations {
 const HOF_BASE_OFFSET = 0x0598;
 const HOF_RECORD_LENGTH = 0x60;
 const HOF_MAX_RECORDS = 50;
-const EVENT_FLAGS_OFFSET = 0x29e6;
-const EVENT_FLAGS_LENGTH = 0x118;
-const HIDDEN_ITEM_FLAGS_OFFSET = 0x299c;
-const HIDDEN_ITEM_FLAGS_LENGTH = 14;
-const HIDDEN_COIN_FLAGS_OFFSET = 0x29aa;
-const HIDDEN_COIN_FLAGS_LENGTH = 2;
 const HOF_POKEMON_COUNT = 6;
 const HOF_POKEMON_LENGTH = 0x10;
 
@@ -694,36 +687,12 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
   const hallOfFameCount = hallOfFameRaw === 0xff ? 0 : hallOfFameRaw;
   const hallOfFameRecords = parseGen1HallOfFameRecords(view, hallOfFameCount, trainerName);
 
-  const eventFlagsOffset = EVENT_FLAGS_OFFSET + offsetShift;
-  const eventFlags = new Uint8Array(EVENT_FLAGS_LENGTH);
-  try {
-    for (let i = 0; i < EVENT_FLAGS_LENGTH; i++) {
-      eventFlags[i] = view.getUint8(eventFlagsOffset + i);
-    }
-  } catch (e) {
-    if (e instanceof RangeError) throw new Error('The save file is corrupted or incomplete.');
-    throw e;
-  }
-  const hiddenItemFlagsOffset = HIDDEN_ITEM_FLAGS_OFFSET + offsetShift;
-  const hiddenItemFlags = new Uint8Array(HIDDEN_ITEM_FLAGS_LENGTH);
-  try {
-    for (let i = 0; i < HIDDEN_ITEM_FLAGS_LENGTH; i++) {
-      hiddenItemFlags[i] = view.getUint8(hiddenItemFlagsOffset + i);
-    }
-  } catch (e) {
-    if (e instanceof RangeError) throw new Error('The save file is corrupted or incomplete.');
-    throw e;
-  }
-  const hiddenCoinFlagsOffset = HIDDEN_COIN_FLAGS_OFFSET + offsetShift;
-  const hiddenCoinFlags = new Uint8Array(HIDDEN_COIN_FLAGS_LENGTH);
-  try {
-    for (let i = 0; i < HIDDEN_COIN_FLAGS_LENGTH; i++) {
-      hiddenCoinFlags[i] = view.getUint8(hiddenCoinFlagsOffset + i);
-    }
-  } catch (e) {
-    if (e instanceof RangeError) throw new Error('The save file is corrupted or incomplete.');
-    throw e;
-  }
+  const eventFlagsOffset = 0x29e6 + offsetShift;
+  const eventFlags = new Uint8Array(view.buffer, eventFlagsOffset, 0x118);
+  const hiddenItemFlagsOffset = 0x299c + offsetShift;
+  const hiddenItemFlags = new Uint8Array(view.buffer, hiddenItemFlagsOffset, 14);
+  const hiddenCoinFlagsOffset = 0x29aa + offsetShift;
+  const hiddenCoinFlags = new Uint8Array(view.buffer, hiddenCoinFlagsOffset, 2);
 
   return {
     generation: 1,
@@ -748,7 +717,6 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
     eventFlags,
     hiddenItemFlags,
     hiddenCoinFlags,
-    gen1StaticEncounters: parseGen1StaticEncounters(eventFlags),
     // Gen 1 trades: The 2 bytes are at eventFlagsOffset - 16 and - 15. We convert this into a boolean array.
     npcTradeFlags: Array.from({ length: 16 }, (_, i) => {
       const byte = view.getUint8(eventFlagsOffset - 16 + Math.floor(i / 8));

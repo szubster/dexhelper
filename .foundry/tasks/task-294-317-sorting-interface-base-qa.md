@@ -2,13 +2,13 @@
 id: task-294-317-sorting-interface-base-qa
 type: TASK
 title: QA PC Box Sorting Interface and Base Classes
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-12'
-updated_at: '2026-07-16'
+updated_at: '2026-07-12'
 depends_on:
   - task-294-316-sorting-interface-base-impl
-jules_session_id: '4461072143048519365'
+jules_session_id: null
 pr_number: null
 parent: story-136-294-sorting-interface-base
 tags:
@@ -44,5 +44,5 @@ This QA task ensures that the foundational interfaces for the PC Box diff engine
 - **Empty PRs:** If you submit an empty PR for a completed task (e.g., if the code is already verified and no fixes are needed), you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [x] Code review passes for the `SortingStrategy` and `MultiCriterionSorter` implementations.
-- [x] Unit tests for `MultiCriterionSorter` exist, cover fallback scenarios, and pass successfully.
+- [ ] Code review passes for the `SortingStrategy` and `MultiCriterionSorter` implementations.
+- [ ] Unit tests for `MultiCriterionSorter` exist, cover fallback scenarios, and pass successfully.

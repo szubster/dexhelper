@@ -2,12 +2,12 @@
 id: epic-112-323-pokerus-strain-ui-grid-view
 type: EPIC
 title: Pokerus Strain UI Tracker - List/Grid View
-status: FAILED
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-13'
-updated_at: '2026-07-16'
+updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15198159539528747523'
 pr_number: null
 parent: prd-107-112-pokerus-strain-ui-tracker
 tags:
@@ -15,9 +15,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_reason: ''
 notes: ''
 ---
 
@@ -38,7 +36,4 @@ Incorporate a visual indicator in the party/box (list or grid) views to quickly 
 None.
 
 ## 5. Acceptance Criteria
-- [x] Story Owner: Break down this Epic into actionable Stories.
-- [ ] story-323-322-pokerus-strain-badge-component
-- [ ] story-323-323-integrate-pokerus-strain-party-view
-- [ ] story-323-324-integrate-pokerus-strain-box-view
+- [ ] Story Owner: Break down this Epic into actionable Stories.

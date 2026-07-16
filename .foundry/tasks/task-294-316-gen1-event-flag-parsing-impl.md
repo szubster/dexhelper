@@ -2,12 +2,12 @@
 id: task-294-316-gen1-event-flag-parsing-impl
 type: TASK
 title: Gen 1 Event Flag Parsing Implementation
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-12'
-updated_at: '2026-07-15'
+updated_at: '2026-07-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1408697557211015181'
 pr_number: null
 parent: story-136-294-gen1-event-flag-parsing
 tags:
@@ -39,7 +39,7 @@ Specifically, create a mechanism (e.g. `src/engine/saveParser/utils/eventFlags.t
 - If you submit an empty PR for a completed task (e.g. if the implementation already exists), you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [x] Create constants for event flag bits/offsets according to ADR 028.
-- [x] Implement parsing logic using explicit bitwise operators according to ADR 026.
-- [x] Map the raw `eventFlags` to the `STATIC_GIFT_DATA` Gen 1 definitions.
-- [x] Write unit tests to verify the extraction logic, explicitly testing edge cases (e.g. absolute zero state, boundary states).
+- [ ] Create constants for event flag bits/offsets according to ADR 028.
+- [ ] Implement parsing logic using explicit bitwise operators according to ADR 026.
+- [ ] Map the raw `eventFlags` to the `STATIC_GIFT_DATA` Gen 1 definitions.
+- [ ] Write unit tests to verify the extraction logic, explicitly testing edge cases (e.g. absolute zero state, boundary states).

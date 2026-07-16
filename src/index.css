@@ -173,9 +173,3 @@ body {
 @utility tactical-text {
   @apply font-mono uppercase tracking-widest;
 }
-
-@layer base {
-  :focus-visible {
-    @apply tactical-focus;
-  }
-}
