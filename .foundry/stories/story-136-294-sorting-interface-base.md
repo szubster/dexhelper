@@ -2,12 +2,12 @@
 id: story-136-294-sorting-interface-base
 type: STORY
 title: PC Box Sorting Interface and Base Implementations
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-10'
 updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11542421297014585418'
 pr_number: null
 parent: epic-106-136-pc-box-sorting-algorithms
 tags:
