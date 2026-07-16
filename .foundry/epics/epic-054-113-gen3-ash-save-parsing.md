@@ -2,13 +2,13 @@
 id: epic-054-113-gen3-ash-save-parsing
 type: EPIC
 title: Gen 3 Ash Gathering Save Parsing
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-30'
 updated_at: '2026-07-16'
 depends_on:
   - research-054-243-gen3-ash-gathering-offsets
-jules_session_id: null
+jules_session_id: '2135145122238797030'
 pr_number: null
 parent: prd-089-054-gen3-ash-gathering-tracker
 tags:
