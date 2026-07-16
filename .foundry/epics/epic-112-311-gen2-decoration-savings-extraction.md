@@ -31,4 +31,5 @@ This Epic covers the extraction of data related to unlocked room decorations and
 - Expose this data through the Gen 2 runtime API.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-311-322-gen2-room-decoration-parsing
