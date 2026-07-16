@@ -2,13 +2,13 @@
 id: task-134-265-gc-integration-qa
 type: TASK
 title: Garbage Collection Integration Logic (QA)
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-16'
 depends_on:
   - task-134-264-gc-integration-impl
-jules_session_id: null
+jules_session_id: '5005455107876073134'
 pr_number: null
 parent: story-090-134-garbage-collection-integration
 tags:
