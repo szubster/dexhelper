@@ -35,3 +35,6 @@ Extract the `GAME_STAT_ENTERED_HOF` (ID 10) to determine Hall of Fame entry and 
 ## Acceptance Criteria
 - [ ] Implement Hall of Fame extraction logic.
 - [ ] Implement Pokédex extraction logic.
+
+- [ ] task-319-323-gen3-hof-pokedex-extraction-impl
+- [ ] task-319-324-gen3-hof-pokedex-extraction-qa
