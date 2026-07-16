@@ -2,7 +2,7 @@
 id: task-294-316-diff-engine-impl
 type: TASK
 title: Implement PC Box Diff Engine Logic
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-12'
 updated_at: '2026-07-15'
@@ -15,8 +15,8 @@ tags:
   - diff
   - implementation
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Implementation generates a fallback hash instead of strictly relying on the unique `hash` field on `PokemonInstance`. The `hash` field is missing from the `PokemonInstance` interface in `common.ts`.'
 notes: ''
 ---
 

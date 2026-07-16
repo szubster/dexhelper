@@ -2,12 +2,12 @@
 id: task-294-316-gen2-static-encounter-flags-impl
 type: TASK
 title: Implement Gen 2 Static Encounter Flag Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-12'
-updated_at: '2026-07-14'
+updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '15547622517759826593'
+jules_session_id: null
 pr_number: null
 parent: story-137-294-gen2-event-flag-parsing
 tags:
@@ -36,10 +36,10 @@ Extract the event flags for Gen 2 static encounters from the save file. This inv
    - *Note: Exact byte/bit offsets within the 256-byte array may require referencing pokecrystal `constants/event_flags.asm`. Do not guess these; if you lack the exact constants, use late-binding and spawn a RESEARCH node to map the specific byte offsets and bits within the event flag array.*
 
 ## Acceptance Criteria
-- [ ] Module-level constants are defined for the offset of the event flags block and the specific byte/bit offsets for each static encounter flag.
-- [ ] The `gen2` save parser reads the event flag block and extracts the required static encounter flags (Sudowoodo, Snorlax, Red Gyarados, Ho-Oh, Lugia) into a clean, typed object/structure.
-- [ ] Explicit bitwise logic (`&`, `>>`) is used per ADR 026.
-- [ ] Unit tests are written to verify that flags are correctly extracted (0/1 states).
+- [x] Module-level constants are defined for the offset of the event flags block and the specific byte/bit offsets for each static encounter flag.
+- [x] The `gen2` save parser reads the event flag block and extracts the required static encounter flags (Sudowoodo, Snorlax, Red Gyarados, Ho-Oh, Lugia) into a clean, typed object/structure.
+- [x] Explicit bitwise logic (`&`, `>>`) is used per ADR 026.
+- [x] Unit tests are written to verify that flags are correctly extracted (0/1 states).
 
 ## Error Handling
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.

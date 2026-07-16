@@ -46,5 +46,7 @@ In Generation 3 (Ruby, Sapphire, Emerald), Pokéblocks are created by blending B
 - **UI Components:** Create a new dashboard route and component for the Pokéblock Viewer, adhering to the tactical hardware aesthetic constraints (ADR 024, ADR 008).
 
 ## Acceptance Criteria
-- [ ] Create EPIC(s) for the backend data integration (parsing the Pokéblock Case).
-- [ ] Create EPIC(s) for the frontend dashboard UI and state management.
+- [x] Create EPIC(s) for the backend data integration (parsing the Pokéblock Case).
+- [x] Create EPIC(s) for the frontend dashboard UI and state management.
+- [ ] epic-114-327-gen3-pokeblock-case-parsing
+- [ ] epic-114-328-gen3-pokeblock-dashboard-ui

@@ -32,3 +32,4 @@ Extract the necessary internal data structures from Gen 2 and Gen 3 save files t
 ## Acceptance Criteria
 - [ ] Implement data extraction for Gen 2 DVs.
 - [ ] Implement data extraction for Gen 3 PV and IVs.
+- [ ] story-324-322-gen2-dv-extraction

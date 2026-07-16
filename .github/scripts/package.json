@@ -4,11 +4,12 @@
   "description": "Foundry DAG orchestration scripts — run with Node 24 native TypeScript support.",
   "type": "module",
   "scripts": {
+    "gc": "node --strip-types garbage-collector.ts",
     "orchestrate": "node --strip-types foundry-orchestrator.ts",
     "orchestrate:dry": "node --strip-types foundry-orchestrator.ts --dry-run",
     "orchestrate:strict": "node --strip-types foundry-orchestrator.ts --strict",
-    "verify:refs": "node --strip-types verify-dag-refs.ts",
-    "test": "vitest run"
+    "test": "vitest run",
+    "verify:refs": "node --strip-types verify-dag-refs.ts"
   },
   "dependencies": {
     "gray-matter": "^4.0.3"

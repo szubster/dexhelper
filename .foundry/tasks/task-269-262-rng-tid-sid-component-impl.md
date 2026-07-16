@@ -32,10 +32,10 @@ Design and implement a reusable UI component that clearly displays both the Trai
 - Ensure integration testing or visual check rendering.
 
 ## Acceptance Criteria
-- [ ] Component is implemented and displays TID and SID.
-- [ ] "Copy to Clipboard" functionality works correctly.
-- [ ] Styling strictly adheres to the tactical hardware aesthetic.
-- [ ] Component is integrated and renderable.
+- [x] Component is implemented and displays TID and SID.
+- [x] "Copy to Clipboard" functionality works correctly.
+- [x] Styling strictly adheres to the tactical hardware aesthetic.
+- [x] Component is integrated and renderable.
 
 ## Constraints & Reminders
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.

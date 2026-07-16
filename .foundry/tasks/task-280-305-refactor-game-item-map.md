@@ -5,10 +5,10 @@ title: Refactor Game Item Map Data
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-06'
-updated_at: '2026-07-14'
+updated_at: '2026-07-15'
 depends_on:
   - task-280-304-item-db-schema-and-sync
-jules_session_id: '5190066719692320171'
+jules_session_id: '11834422689378018859'
 pr_number: null
 parent: story-087-280-item-runtime-integration
 tags:
