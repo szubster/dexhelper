@@ -2,23 +2,21 @@
 id: story-136-295-sorting-standard-strategies
 type: STORY
 title: Implement Standard PC Box Sorting Strategies
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-10'
 updated_at: '2026-07-16'
 depends_on:
   - story-136-294-sorting-interface-base
-jules_session_id: '16197680770348453019'
+jules_session_id: null
 pr_number: null
 parent: epic-106-136-pc-box-sorting-algorithms
 tags:
   - feature
   - sorting
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  Zombie node detected: Session 16197680770348453019 is TERMINATED without
-  resolving the node
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

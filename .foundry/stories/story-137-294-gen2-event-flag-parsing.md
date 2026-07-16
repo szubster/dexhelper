@@ -2,22 +2,20 @@
 id: story-137-294-gen2-event-flag-parsing
 type: STORY
 title: Gen 2 Event Flag Parsing
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-10'
 updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '4075052892659555680'
+jules_session_id: null
 pr_number: null
 parent: epic-106-137-gen2-static-encounters
 tags:
   - gen2
   - backend
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  Zombie node detected: Session 4075052892659555680 is TERMINATED without
-  resolving the node
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

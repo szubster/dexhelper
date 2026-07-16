@@ -2,23 +2,21 @@
 id: story-136-295-gen1-checklist-ui
 type: STORY
 title: Gen 1 Checklist UI
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-10'
 updated_at: '2026-07-16'
 depends_on:
   - story-136-294-gen1-event-flag-parsing
-jules_session_id: '12971099668788333003'
+jules_session_id: null
 pr_number: null
 parent: epic-106-136-gen1-static-encounters
 tags:
   - gen1
   - feature
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  Zombie node detected: Session 12971099668788333003 is TERMINATED without
-  resolving the node
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

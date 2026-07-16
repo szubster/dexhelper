@@ -2,21 +2,19 @@
 id: task-274-301-gen3-lottery-ui-integration-impl
 type: TASK
 title: Gen3 Lottery UI Integration - Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-07-10'
 updated_at: '2026-07-16'
 depends_on: []
-jules_session_id: '13259669715118301662'
+jules_session_id: null
 pr_number: null
 parent: story-133-274-gen3-lottery-ui-integration
 tags:
   - feature
   - gen3
-rejection_count: 0
-rejection_reason: >-
-  Zombie node detected: Session 13259669715118301662 is TERMINATED without
-  resolving the node
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
