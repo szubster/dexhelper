@@ -6,9 +6,8 @@ import {
   STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN2,
   STATIC_NPC_TRADE_DATA as STATIC_NPC_TRADE_DATA_GEN2,
 } from '../../data/gen2/assistantData';
-import { getUnobtainableReason } from '../../exclusives/gen1Exclusives';
-import { getGen2UnobtainableReason } from '../../exclusives/gen2Exclusives';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
+import { getStrategy } from '../strategies/index';
 import type { Suggestion } from '../strategies/types';
 import type { AssistantApiData } from '../suggestionEngineTypes';
 import { checkFlag } from '../utils/flags';
@@ -50,8 +49,14 @@ export function generateGiftAndTradeSuggestions(
   suggestions: Suggestion[],
   missingIds: Set<number>,
 ) {
-  const staticNpcTradeData = saveData.generation === 2 ? STATIC_NPC_TRADE_DATA_GEN2 : STATIC_NPC_TRADE_DATA_GEN1;
-  const staticGiftEntries = saveData.generation === 2 ? STATIC_GIFT_ENTRIES_GEN2 : STATIC_GIFT_ENTRIES_GEN1;
+  const staticNpcTradeData =
+    saveData.generation === 1
+      ? STATIC_NPC_TRADE_DATA_GEN1
+      : saveData.generation === 2
+        ? STATIC_NPC_TRADE_DATA_GEN2
+        : [];
+  const staticGiftEntries =
+    saveData.generation === 1 ? STATIC_GIFT_ENTRIES_GEN1 : saveData.generation === 2 ? STATIC_GIFT_ENTRIES_GEN2 : [];
 
   // B. Unobtainable / Exclusive logic
   // Checks if the target is completely locked out of the current version (e.g. Red exclusives on Blue).
@@ -74,11 +79,8 @@ export function generateGiftAndTradeSuggestions(
   const pidsWithExclusives = new Set<number>();
   for (const pid of queryTargets) {
     let reason: string | null = null;
-    if (saveData.generation === 2) {
-      reason = getGen2UnobtainableReason(pid, displayVersion, ownedSet.size, ownedSet);
-    } else {
-      reason = getUnobtainableReason(pid, displayVersion, ownedSet.size, ownedSet);
-    }
+    const strategy = getStrategy(saveData.generation);
+    reason = strategy.getUnobtainableReason(pid, displayVersion, ownedSet.size, ownedSet);
     if (reason) {
       pidsWithExclusives.add(pid);
 
