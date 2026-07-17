@@ -110,3 +110,6 @@ Critical learnings:
 
 ## 2026-07-13 - Fixed Biome CI Version Drift
 **Learning:** The project's Biome version was bumped to `2.5.3` locally (`package.json`, `biome.jsonc`), but the CI workflow (`.github/workflows/biome.yml`) remained at `2.5.2`. This causes CI drift where the GitHub Actions checks use a different linter version than local development. When upgrading local linters, you must explicitly search for and update corresponding CI actions to prevent false positive/negative linting results in PRs.
+
+## 2026-07-17 - Empty PR Policy for Infrastructure
+**Learning:** Audited the development tooling, found to be highly optimized and matching CI parity. An empty PR will be submitted to respect the bloat policy.
