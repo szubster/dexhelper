@@ -1052,7 +1052,8 @@ function main(): void {
       node.frontmatter.owner_persona === 'human' ||
       node.frontmatter.owner_persona === 'tpm' ||
       node.frontmatter.owner_persona === 'agile_coach' ||
-      node.frontmatter.owner_persona === 'mechanic'
+      node.frontmatter.owner_persona === 'mechanic' ||
+      node.frontmatter.owner_persona === 'auditor'
     ) {
       validatedEligible.push(node);
       continue;
