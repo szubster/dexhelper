@@ -62,4 +62,4 @@ Successfully broke down the "Missed Trainer Radar" PRD (`prd-104-109-missed-trai
 ## Session 2026-07-17
 **Context:** Processing PRD `prd-089-054-gen3-ash-gathering-tracker`.
 **Observation:** The PRD required a breakdown into EPIC nodes for Gen 3 Volcanic Ash Save Parsing, UI Dashboard, and Goal Planner logic.
-**Action:** Generated the child Epic nodes `epic-054-113-gen3-ash-save-parsing`, `epic-054-114-gen3-ash-dashboard`, and `epic-054-115-gen3-ash-goal-planner`. Modified the PRD to check off the acceptance criteria for Epic generation and the child Epics. Checked off the `research-054-243-gen3-ash-gathering-offsets` as it was previously completed. All tasks complete, so proceeding to submit.
+**Action:** Generated the child Epic nodes `epic-054-329-gen3-ash-save-parsing`, `epic-054-330-gen3-ash-dashboard`, and `epic-054-331-gen3-ash-goal-planner`. Modified the PRD to check off the acceptance criteria for Epic generation and the child Epics. Checked off the `research-054-243-gen3-ash-gathering-offsets` as it was previously completed. All tasks complete, so proceeding to submit.

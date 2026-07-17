@@ -1,5 +1,5 @@
 ---
-id: epic-054-114-gen3-ash-dashboard
+id: epic-054-330-gen3-ash-dashboard
 type: EPIC
 title: Gen 3 Volcanic Ash Dashboard UI
 status: PENDING
@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-07-17'
 updated_at: '2026-07-17'
 depends_on:
-  - epic-054-113-gen3-ash-save-parsing
+  - epic-054-329-gen3-ash-save-parsing
 jules_session_id: null
 pr_number: null
 parent: prd-089-054-gen3-ash-gathering-tracker

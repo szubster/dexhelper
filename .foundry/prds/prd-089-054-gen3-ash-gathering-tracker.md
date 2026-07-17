@@ -66,6 +66,6 @@ By extracting the Volcanic Ash count from the Gen 3 save file, DexHelper can pro
 ## 5. Acceptance Criteria
 - [x] Epic Planner: Break down this PRD into corresponding EPICs (e.g., Save Parsing, UI Dashboard, Goal Planner Logic).
 - [x] .foundry/archive/research/research-054-243-gen3-ash-gathering-offsets.md
-- [x] .foundry/epics/epic-054-113-gen3-ash-save-parsing.md
-- [x] .foundry/epics/epic-054-114-gen3-ash-dashboard.md
-- [x] .foundry/epics/epic-054-115-gen3-ash-goal-planner.md
+- [x] .foundry/epics/epic-054-329-gen3-ash-save-parsing.md
+- [x] .foundry/epics/epic-054-330-gen3-ash-dashboard.md
+- [x] .foundry/epics/epic-054-331-gen3-ash-goal-planner.md
