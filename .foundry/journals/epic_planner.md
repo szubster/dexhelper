@@ -58,3 +58,8 @@ Successfully broke down the "Missed Trainer Radar" PRD (`prd-104-109-missed-trai
 **Important Reminders:**
 - Temporary processing files (like `batch_*` logs from bash commands) must be manually deleted before committing to avoid polluting the workspace.
 - The `depends_on` array in the YAML frontmatter MUST use the bare node ID (e.g., `epic-109-306-missed-trainer-data-extraction-gen1-gen2`), not the relative file path.
+
+## Session 2026-07-16
+**Context:** Processing PRD `prd-067-036-extract-dag-utils`.
+**Observation:** The PRD requires a breakdown into EPIC nodes for DAG reverse-dependency generation and standardized state transition updates in the orchestrator scripts. The PRD is currently in the ACTIVE state.
+**Action:** Generated the child Epic nodes `epic-036-053-shared-dag-utilities` and `epic-036-054-unify-state-transitions`. Checked off their existing checkboxes in the parent PRD's `## Next Steps` section. Since the child node generation is complete but the generated epics themselves are not yet completed, I will submit an empty PR. The orchestrator will then correctly demote this active node to PENDING to respect the Late-Binding Orchestrator Demotion Compliance Rule.
