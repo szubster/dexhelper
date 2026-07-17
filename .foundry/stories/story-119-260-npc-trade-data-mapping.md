@@ -28,5 +28,5 @@ Create a standard mapping connecting raw bitflags to specific NPC trade encounte
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into tasks for creating data maps across generations.
-- [ ] task-260-318-npc-trade-data-mapping-impl
-- [ ] task-260-319-npc-trade-data-mapping-qa
+- [x] task-260-318-npc-trade-data-mapping-impl
+- [x] task-260-319-npc-trade-data-mapping-qa
