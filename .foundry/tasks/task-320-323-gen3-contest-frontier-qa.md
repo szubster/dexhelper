@@ -35,7 +35,7 @@ Verify the implementation of extraction logic for Master Rank Contest condition 
 - Verify that for Gen 3 save file parsing, the Coder used the resolved section offset (e.g., `section1Offset` or `section2Offset`) to calculate relative memory offsets instead of hardcoded absolute offsets.
 
 ## Acceptance Criteria
-- [ ] Verify Contest extraction logic using `DataView`.
-- [ ] Verify Battle Frontier extraction logic using `DataView`.
-- [ ] Verify no magic numbers are used inline for memory operations.
-- [ ] Verify appropriate A/B bank relative offset resolution is used.
+- [x] Verify Contest extraction logic using `DataView`.
+- [x] Verify Battle Frontier extraction logic using `DataView`.
+- [x] Verify no magic numbers are used inline for memory operations.
+- [x] Verify appropriate A/B bank relative offset resolution is used.
