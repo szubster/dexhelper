@@ -35,5 +35,5 @@ Implement extraction logic for Master Rank Contest condition ribbons and Battle 
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement extraction logic for Master Rank Contest condition ribbons.
-- [ ] Implement extraction logic for Battle Frontier Gold Symbols.
+- [x] Implement extraction logic for Master Rank Contest condition ribbons.
+- [x] Implement extraction logic for Battle Frontier Gold Symbols.
