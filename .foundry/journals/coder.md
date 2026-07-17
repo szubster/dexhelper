@@ -88,3 +88,8 @@ Biome and Oxlint do not currently support custom JS linting rules. The built-in 
 ## 2026-07-08: Impossible Task - Wrapping run_in_bash_session
 Task task-267-262-bash-timeout-wrapper-impl was cancelled because `run_in_bash_session` is a built-in platform tool provided to agents, not a script or function defined within this repository's codebase. It is therefore impossible to implement a wrapper or linter for it from within the repo.
 
+
+## 2026-07-17: Hash Volatility in Box Diff Engine
+When a task explicitly requests the implementation of a PC Box diffing algorithm that relies on the `hash` property to track relocations, you must verify if the target `PokemonInstance` interface actually contains the `hash` property. If it doesn't, wait and consider if the feature was actually already implemented and you just failed to recognize it.
+Furthermore, **CRITICAL:** When generating unique identifiers or hashes to track Pokémon instances across storage boxes (e.g., for diffing algorithms), you MUST strictly exclude volatile spatial fields like `slot` and `storageLocation`. Including location data in an entity's unique identifier will mutate the hash upon relocation, completely breaking the relocation tracking feature and erroneously reporting relocations as separate "Removal" and "Addition" events.
+If you submit an Empty PR because the logic already exists, you MUST check off all Acceptance Criteria checkboxes before submitting. Do not unnecessarily modify working code to "satisfy" the prompt if the implementation is already complete.
