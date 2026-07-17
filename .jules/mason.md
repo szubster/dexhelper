@@ -162,3 +162,9 @@
   - Using a `variant` prop (`primary`, `red`, `purple`, `blue`, `pink`) was necessary because the CSS classes used across these borders and shadow effects rely heavily on arbitrary values (e.g., `shadow-[0_0_8px_rgba(239,68,68,0.5)]`). Attempting to control complex multi-color opacity hover states with pure standard Tailwind classes across such an intricate DOM structure is brittle; centralizing the exact strings in a switch statement ensures rendering stability.
   - When visually verifying UI components via Playwright that are deeply nested or require specific complex state, temporarily create a dedicated test route/page (e.g., `src/routes/test.tsx`) to render the component directly, capture the screenshot, and carefully remove the temporary files (`git reset HEAD ... && rm ...`) before committing.
 When reusing standard React components, use getByRole for finding interactive elements in tests
+## DataLabel Extraction
+- **What**: Extracted the repeating `<span>` pattern (`className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest"`) into a generic `<DataLabel>` component.
+- **Why**: Consolidated standard styling for basic data labels, which was widely duplicated across multiple components like `PokemonEvolutions`, `PokemonLocations`, `PokemonCaughtDetails`, and `ContestRibbonBadge`.
+- **Key Learnings**:
+  - Always implement `React.forwardRef` and extend standard interfaces like `React.HTMLAttributes<HTMLSpanElement>` to ensure that utility components drop into layouts effortlessly without breaking standard HTML behaviors.
+  - Utilize a custom node script utilizing `regex` for reliable and safe batch replacement of specific and lengthy multi-line inline JSX structures across the codebase before using tools like `biome` to clean up the formatting.

@@ -14,6 +14,7 @@ import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schem
 import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
 import { isValidStaticGameVersion, staticEncounters } from '../../../engine/data/shared/staticData';
 import { cn } from '../../../utils/cn';
+import { DataLabel } from '../../DataLabel';
 import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalNode } from '../../TacticalNode';
@@ -142,7 +143,7 @@ function GeospatialNode({ encounter: e, areaName }: { encounter: CompactEncounte
 
         {/* Vectors */}
         <div className="flex flex-col gap-2">
-          <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">[ DETECTION VECTORS ]</span>
+          <DataLabel>[ DETECTION VECTORS ]</DataLabel>
           <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
             {e.d.map((d: CompactEncounterDetail, di: number) => {
               const methodStr = REVERSE_METHOD_MAP[d.m]?.toLowerCase() || 'unknown';
