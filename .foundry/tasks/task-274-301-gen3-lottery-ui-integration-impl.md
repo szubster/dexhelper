@@ -13,7 +13,7 @@ parent: story-133-274-gen3-lottery-ui-integration
 tags:
   - feature
   - gen3
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
