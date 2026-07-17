@@ -34,7 +34,7 @@ Verify the standard mapping connecting raw bitflags to specific NPC trade encoun
 - **CRITICAL:** Ensure that all memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level. Inline magic numbers are strictly forbidden. If any are found, reject the implementation task.
 
 ## Acceptance Criteria
-- [ ] Verify that Gen 2 NPC trade flag mapping is correctly implemented.
-- [ ] Verify that Gen 3 NPC trade flag mapping (RSE/FRLG) is correctly implemented.
-- [ ] Verify that there are no inline magic numbers used for offsets or data lengths.
-- [ ] Verify that the `SaveData` correctly maps the extracted flags to the encounters.
+- [x] Verify that Gen 2 NPC trade flag mapping is correctly implemented.
+- [x] Verify that Gen 3 NPC trade flag mapping (RSE/FRLG) is correctly implemented.
+- [x] Verify that there are no inline magic numbers used for offsets or data lengths.
+- [x] Verify that the `SaveData` correctly maps the extracted flags to the encounters.
