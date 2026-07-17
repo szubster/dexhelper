@@ -184,3 +184,5 @@ When generating blueprints for Gen 3 dynamic save block extraction (like Volcani
 - Created implementation task `task-320-322-gen3-contest-frontier-impl`.
 - Created QA task `task-320-323-gen3-contest-frontier-qa` following the Intelligent Verification Protocol due to memory parsing complexity and A/B bank relative offset resolution requirements.
 - Explicitly instructed the Coder and QA personas on error handling, Empty PR requirements, and strict magic number / relative offset rules.
+
+2026-07-16: Created retry 7 for Gen 3 TV parser because retry 6 failed QA due to inline magic numbers and incorrect error message string.
