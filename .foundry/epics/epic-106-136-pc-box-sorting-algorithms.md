@@ -36,6 +36,9 @@ Implement reusable sorting strategies (e.g., National Dex order, Type, Level, et
 - [x] Break down epic into stories for the standard interface and base implementations.
 - [x] Break down epic into stories for standard strategies (Dex, Level, Type).
 - [x] Break down epic into stories for Gen 1, Gen 2, and Gen 3 specific considerations and tests.
-- [ ] story-136-294-sorting-interface-base
-- [ ] story-136-295-sorting-standard-strategies
-- [ ] story-136-296-sorting-cross-gen-considerations
+- [x] story-136-294-sorting-interface-base
+- [x] story-136-295-sorting-standard-strategies
+- [x] story-136-296-sorting-cross-gen-considerations
+- [ ] research-136-331-sorting-standard-strategies-failure
+- [ ] story-136-332-sorting-standard-strategies-v2
+- [ ] story-136-333-sorting-cross-gen-considerations-v2

@@ -1,0 +1,39 @@
+---
+id: story-136-333-sorting-cross-gen-considerations-v2
+type: STORY
+title: Cross-Generation Sorting Considerations and Compatibility (v2)
+status: READY
+owner_persona: tech_lead
+created_at: '2026-07-17'
+updated_at: '2026-07-17'
+depends_on:
+  - story-136-332-sorting-standard-strategies-v2
+jules_session_id: null
+pr_number: null
+parent: epic-106-136-pc-box-sorting-algorithms
+tags:
+  - feature
+  - gen1
+  - gen2
+  - gen3
+  - sorting
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Story: Cross-Generation Sorting Considerations and Compatibility (v2)
+
+## Objective
+Ensure that the standard sorting strategies function correctly across Gen 1, Gen 2, and Gen 3 save data. This involves writing adapter logic or edge-case handling for structural differences in `PokeData` payloads across generations, as well as comprehensive cross-generation testing.
+
+## Context
+This is a replacement for `story-136-296`, which was cancelled due to the permanent failure of its dependency (`story-136-295`). This story now depends on the replacement `story-136-332`.
+While `PokeData` provides a unified interface, certain properties (e.g., regional dex mappings, internal ID differences, absence of modern properties in Gen 1/2) require specific handling to prevent sorting failures or incorrect layouts.
+
+## Acceptance Criteria
+- [ ] Implement Generation-specific Regional Dex adapters for sorting (Gen 1 Kanto, Gen 2 Johto, Gen 3 Hoenn/Kanto).
+- [ ] Ensure `TypeSorter` correctly handles Gen 1 type differences (e.g., Magnemite missing Steel type) if data mapping does not already normalize this.
+- [ ] Implement robust handling for null/undefined properties that may be missing in older generations.
+- [ ] Break down story into tasks for technical blueprinting, implementation, and cross-generation test suites.
