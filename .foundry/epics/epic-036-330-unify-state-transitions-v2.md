@@ -2,10 +2,10 @@
 id: epic-036-330-unify-state-transitions-v2
 type: EPIC
 title: Unify DAG Node State Transitions V2
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-16'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on:
   - epic-036-329-shared-dag-utilities-v2
 jules_session_id: null
@@ -16,7 +16,7 @@ tags:
   - orchestrator
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: Replacement for permanently failed epic-036-054-unify-state-transitions.
 ---
 

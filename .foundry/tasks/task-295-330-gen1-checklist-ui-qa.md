@@ -2,10 +2,10 @@
 id: task-295-330-gen1-checklist-ui-qa
 type: TASK
 title: Gen 1 Checklist UI QA
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-07-16'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on:
   - task-295-329-gen1-checklist-ui-impl
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

@@ -2,10 +2,10 @@
 id: task-270-330-rng-tid-sid-integration-qa
 type: TASK
 title: QA RNG TID and SID UI Integration
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-07-17T00:07:41Z'
-updated_at: '2026-07-17T00:07:41Z'
+updated_at: '2026-07-17'
 depends_on:
   - task-270-329-rng-tid-sid-integration-impl
 jules_session_id: null
@@ -18,7 +18,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 # QA RNG TID and SID UI Integration

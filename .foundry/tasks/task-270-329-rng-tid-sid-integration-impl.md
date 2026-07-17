@@ -2,10 +2,10 @@
 id: task-270-329-rng-tid-sid-integration-impl
 type: TASK
 title: Implement RNG TID and SID UI Integration
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-17T00:07:41Z'
-updated_at: '2026-07-17T00:07:41Z'
+updated_at: '2026-07-17'
 depends_on:
   - story-130-269-rng-tid-sid-component
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 # Implement RNG TID and SID UI Integration
