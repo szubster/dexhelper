@@ -2,20 +2,20 @@
 id: story-137-294-gen2-event-flag-parsing
 type: STORY
 title: Gen 2 Event Flag Parsing
-status: READY
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-07-10'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4361298731157487469'
 pr_number: null
 parent: epic-106-137-gen2-static-encounters
 tags:
   - gen2
   - backend
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 
@@ -25,5 +25,5 @@ Extract the event flags for Gen 2 static encounters from the save file. This inv
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-294-316-gen2-static-encounter-flags-impl
-- [ ] task-294-317-gen2-static-encounter-flags-qa
+- [ ] task-294-329-gen2-static-encounter-flags-impl
+- [ ] task-294-330-gen2-static-encounter-flags-qa

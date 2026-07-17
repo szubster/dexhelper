@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { render } from 'vitest-browser-react';
 import * as windowUtils from '../../utils/window';
-import { AUTH_OFFLINE_INDICATOR, AuthProvider, useAuth } from '../AuthContext';
+import { AUTH_LOGGED_IN_INDICATOR, AuthProvider, useAuth } from '../AuthContext';
 
 // Mock redirectPage
 vi.mock('../../utils/window', () => ({
@@ -46,7 +46,7 @@ describe('AuthContext', () => {
   });
 
   it('initializes with true when local storage has indicator', async () => {
-    localStorage.setItem(AUTH_OFFLINE_INDICATOR, 'true');
+    localStorage.setItem(AUTH_LOGGED_IN_INDICATOR, 'true');
 
     const screen = await render(
       <AuthProvider>
@@ -67,12 +67,12 @@ describe('AuthContext', () => {
     await screen.getByTestId('login-btn').click();
 
     await expect.element(screen.getByTestId('status')).toHaveTextContent('LoggedIn');
-    expect(localStorage.getItem(AUTH_OFFLINE_INDICATOR)).toBe('true');
+    expect(localStorage.getItem(AUTH_LOGGED_IN_INDICATOR)).toBe('true');
     expect(windowUtils.redirectPage).toHaveBeenCalledWith('/cdn-cgi/access/login');
   });
 
   it('logout updates state, clears local storage and redirects to cloudflare logout', async () => {
-    localStorage.setItem(AUTH_OFFLINE_INDICATOR, 'true');
+    localStorage.setItem(AUTH_LOGGED_IN_INDICATOR, 'true');
 
     const screen = await render(
       <AuthProvider>
@@ -85,7 +85,7 @@ describe('AuthContext', () => {
     await screen.getByTestId('logout-btn').click();
 
     await expect.element(screen.getByTestId('status')).toHaveTextContent('LoggedOut');
-    expect(localStorage.getItem(AUTH_OFFLINE_INDICATOR)).toBeNull();
+    expect(localStorage.getItem(AUTH_LOGGED_IN_INDICATOR)).toBeNull();
     expect(windowUtils.redirectPage).toHaveBeenCalledWith('/cdn-cgi/access/logout');
   });
 });

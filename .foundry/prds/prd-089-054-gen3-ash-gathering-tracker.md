@@ -5,9 +5,9 @@ title: PRD for Gen 3 Volcanic Ash Gathering Tracker
 status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-28'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on: []
-jules_session_id: '1629858935051476995'
+jules_session_id: '12237241073833270210'
 pr_number: null
 parent: idea-089-gen3-ash-gathering-tracker
 tags:
@@ -15,7 +15,7 @@ tags:
   - gen3
   - mechanics
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---
