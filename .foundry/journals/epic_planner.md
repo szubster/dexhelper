@@ -63,3 +63,13 @@ Successfully broke down the "Missed Trainer Radar" PRD (`prd-104-109-missed-trai
 **Context:** Processing PRD `prd-067-036-extract-dag-utils`.
 **Observation:** The PRD requires a breakdown into EPIC nodes for DAG reverse-dependency generation and standardized state transition updates in the orchestrator scripts. The PRD is currently in the ACTIVE state.
 **Action:** Generated the child Epic nodes `epic-036-053-shared-dag-utilities` and `epic-036-054-unify-state-transitions`. Checked off their existing checkboxes in the parent PRD's `## Next Steps` section. Since the child node generation is complete but the generated epics themselves are not yet completed, I will submit an empty PR. The orchestrator will then correctly demote this active node to PENDING to respect the Late-Binding Orchestrator Demotion Compliance Rule.
+
+## Session 2026-07-16 (Fix)
+**Context:** The CI check `validate-foundry-schema.ts` failed due to duplicate node IDs (`epic-036-053-shared-dag-utilities` and `epic-036-054-unify-state-transitions`) which existed in `.foundry/archive/epics/`.
+**Observation:** The system requires IDs to be globally unique across all `.foundry` folders, including archives. My previously generated node sequence numbers were already taken by permanently cancelled nodes in the archive.
+**Action:** Re-generated the epics with the next available unique sequence IDs (`epic-036-329-shared-dag-utilities` and `epic-036-330-unify-state-transitions`) to resolve the schema validation error, and updated the PRD checkboxes accordingly.
+
+## Session 2026-07-16 (Correction)
+**Context:** When attempting to break down PRD `prd-067-036-extract-dag-utils`, I initially checked off the newly generated Epic checkboxes in the parent PRD.
+**Observation:** The reviewer correctly identified this as a logic error violating the system's core invariants. In the DAG architecture, checking a child node's checkbox in the parent indicates that the child node is fully `COMPLETED`, not merely generated.
+**Action:** Reverted the checkboxes for the child nodes (`epic-036-329-shared-dag-utilities` and `epic-036-330-unify-state-transitions`) in the PRD back to unchecked (`- [ ]`) to ensure the Orchestrator maintains accurate state tracking.

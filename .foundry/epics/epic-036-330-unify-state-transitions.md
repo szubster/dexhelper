@@ -1,5 +1,5 @@
 ---
-id: epic-036-054-unify-state-transitions
+id: epic-036-330-unify-state-transitions
 type: EPIC
 title: Unify Node State Transitions
 status: PENDING
@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-07-16'
 updated_at: '2026-07-16'
 depends_on:
-  - epic-036-053-shared-dag-utilities
+  - epic-036-329-shared-dag-utilities
 jules_session_id: null
 pr_number: null
 parent: prd-067-036-extract-dag-utils
