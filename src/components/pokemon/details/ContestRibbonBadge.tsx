@@ -2,6 +2,7 @@ import { Award, ShieldAlert } from 'lucide-react';
 import React from 'react';
 import { cn } from '../../../utils/cn';
 import { CornerCrosshairs } from '../../CornerCrosshairs';
+import { DataLabel } from '../../DataLabel';
 import { HoverScanner } from '../../HoverScanner';
 import { LcdGrid } from '../../LcdGrid';
 
@@ -62,7 +63,7 @@ export const ContestRibbonBadge = React.forwardRef<HTMLDivElement, ContestRibbon
 
         <div className="relative z-10 mb-4 flex items-start justify-between">
           <div className="flex flex-col">
-            <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">[ ${type}_SYS ]</span>
+            <DataLabel>[ ${type}_SYS ]</DataLabel>
             <span
               className={cn('mt-0.5 font-black font-display text-xl uppercase tracking-tight', typeTextColorMap[type])}
             >
