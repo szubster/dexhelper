@@ -1,14 +1,14 @@
 ---
-id: idea-116-zod-schema-validation-orchestrator
-type: IDEA
+id: prd-116-117-zod-schema-validation-orchestrator
+type: PRD
 title: Implement Zod for Strict Node Schema Validation in Foundry Orchestrator
-status: ACTIVE
-owner_persona: product_manager
-created_at: '2026-07-15'
+status: PENDING
+owner_persona: epic_planner
+created_at: '2026-07-17'
 updated_at: '2026-07-17'
 depends_on: []
-jules_session_id: '15046030463704998059'
-parent: null
+jules_session_id: null
+parent: idea-116-zod-schema-validation-orchestrator
 tags:
   - foundry
   - orchestrator
@@ -21,6 +21,12 @@ rejection_reason: ''
 ## Description
 As the Foundry Orchestrator evolves, manually verifying YAML frontmatter constraints (e.g., status enums, single owner_persona, proper array types for depends_on) in `.github/scripts/foundry-orchestrator.ts` has become brittle. Adopting a robust schema validation library like `zod` will eliminate silent failures, improve debugging when agents create malformed nodes, and ensure the DAG remains healthy.
 
+This PRD outlines the adoption of Zod for parsing and validating `.foundry/**/*.md` files within the Foundry Orchestrator.
+
+## Architectural Goals
+- Define a single source of truth for the node schema using Zod, mapped directly to the constraints established in `.foundry/docs/schema.md`.
+- Reject malformed nodes strictly and output clear, actionable error messages.
+- Improve maintainability of the `foundry-orchestrator.ts` by replacing manual validation logic with the Zod schema.
+
 ## Acceptance Criteria
-- [x] Product Manager: Convert this idea into a PRD to formalize the adoption of Zod in the Foundry orchestrator for YAML frontmatter validation.
-- [ ] prd-116-117-zod-schema-validation-orchestrator
+- [ ] Break down into Epics
