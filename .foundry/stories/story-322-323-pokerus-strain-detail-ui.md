@@ -30,4 +30,6 @@ Implement the UI component for displaying the specific Pokerus strain data in th
 - Ensure the presentation adheres to the "tactical hardware" aesthetic (sharp edges `rounded-none`, dashed borders `border-dashed`, monospaced telemetry fonts) as defined by ADR 008 and ADR 024.
 
 ## 3. Acceptance Criteria
-- [ ] Tech Lead: Break down this Story into actionable Tasks.
+- [x] Tech Lead: Break down this Story into actionable Tasks.
+- [ ] task-323-331-pokerus-strain-detail-ui-impl
+- [ ] task-323-332-pokerus-strain-detail-ui-qa

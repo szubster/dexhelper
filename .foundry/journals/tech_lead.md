@@ -186,3 +186,9 @@ When generating blueprints for Gen 3 dynamic save block extraction (like Volcani
 - Explicitly instructed the Coder and QA personas on error handling, Empty PR requirements, and strict magic number / relative offset rules.
 
 2026-07-16: Created retry 7 for Gen 3 TV parser because retry 6 failed QA due to inline magic numbers and incorrect error message string.
+
+## Pokerus Strain Detail UI Component
+
+- Encountered STORY node for rendering the `pokerus.strain` in the UI detail view.
+- Decided to create both an implementation task (`task-323-331`) and a QA verification task (`task-323-332`) to ensure that visual constraints (tactical hardware aesthetic as defined in ADR 008, 024) and conditional rendering logic (only showing when Infected or Cured) are strictly followed.
+- Set `depends_on` of the QA task to point to the implementation task to avoid DAG deadlocks.
