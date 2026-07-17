@@ -52,6 +52,12 @@ The coder failed to properly implement relative memory offsets using `section1Of
 - **Constraint**: When validating Gen 3 dynamic save block extraction (e.g., Feebas seed, Volcanic Ash), ensure that offsets are never hardcoded as absolute values (e.g., `0x2dd6`, `0x13D0`).
 - **Why**: Generation 3 save files utilize an A/B bank rotation system where data can reside in `0x0000` or `0xE000`. Absolute offsets will fail to read the active save data if it resides in Bank B.
 - **Enforcement**: All dynamic save block extraction functions must receive the resolved offset from the parser engine (e.g., `section1Offset` or `section2Offset`) and apply relative memory calculations (`section1Offset + offset`). Recurring rejections and permanent failures have occurred because developers fake the fix or use the wrong section offset.
+>>
+### Session `14789660571036105515`
+
+- **Task**: `task-258-264-egg-move-precomputation-etl-qa`
+- **Result**: Checked and fixed the BFS egg move generation logic. Added logic for Smeargle (who sketches any move), Nidoran lines, Volbeat/Illumise, and Hitmon families breeding. Precomputed paths are generating.
+- **Action**: Modified `scripts/generate-pokedata.ts`, validated output, updated acceptance criteria, completed checks and tests successfully.
 
 
 

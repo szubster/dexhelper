@@ -916,6 +916,12 @@ for (const moveId of eggMovesIds) {
     process.stdout.write(`\rEgg Move Progress: ${Math.round((movesProcessed / eggMovesIds.length) * 100)}% (${movesProcessed}/${eggMovesIds.length})`);
   }
 
+  // Smeargle (235) can sketch any move, making it a source for all egg moves
+  if (!nativeLearners.has(moveId)) {
+    nativeLearners.set(moveId, new Set());
+  }
+  nativeLearners.get(moveId)!.add(235);
+
   const targets = eggLearners.get(moveId);
   if (!targets) continue;
 
@@ -936,6 +942,7 @@ for (const moveId of eggMovesIds) {
   while (head < queue.length) {
     const u = queue[head++];
     if (u === undefined) continue;
+
     const uData = speciesMap.get(u);
     if (!uData) continue;
 
@@ -943,35 +950,42 @@ for (const moveId of eggMovesIds) {
     const uGr = uData.gr !== undefined ? uData.gr : 4;
     if (uGr === -1 || uGr === 8) continue; // Genderless or 100% Female cannot pass egg moves
 
-    // Find all species v that can be female, share an egg group with u, and can also learn the move!
+    const uEg = getEffectiveEggGroups(u);
+
     for (const vData of pokemon) {
       const v = vData.id;
       if (u === v) continue;
 
       // Ensure intermediate parents can actually learn the move (either natively or as an egg move)
-      if (!targets.has(v) && !(sources.has(v))) continue;
+      if (!targets.has(v) && !sources.has(v)) continue;
 
       const vGr = vData.gr !== undefined ? vData.gr : 4;
-      if (vGr === -1 || vGr === 0) continue; // Genderless or 100% Male cannot be the female recipient
-
-      const uEg = getEffectiveEggGroups(u);
       const vEg = getEffectiveEggGroups(v);
 
-      if (uEg.length > 0 && vEg.length > 0) {
-        let sharesGroup = false;
-        for (const g of uEg) {
-          if (vEg.includes(g)) {
-            sharesGroup = true;
-            break;
-          }
-        }
+      let canProduce = false;
 
-        if (sharesGroup) {
-          if (!distances.has(v)) {
-            distances.set(v, distances.get(u)! + 1);
-            predecessors.set(v, u);
-            queue.push(v);
-          }
+      // 1. Normal breeding: v has females, and u and v share an egg group
+      if (vGr !== -1 && vGr !== 0 && uEg.some((g: number) => vEg.includes(g))) {
+        canProduce = true;
+      }
+      // 2. Nidoran M (32) is produced by Nidoran F (29)
+      else if (v === 32 && uEg.some((g: number) => getEffectiveEggGroups(29).includes(g))) {
+        canProduce = true;
+      }
+      // 3. Volbeat (313) is produced by Illumise (314)
+      else if (v === 313 && uEg.some((g: number) => getEffectiveEggGroups(314).includes(g))) {
+        canProduce = true;
+      }
+      // 4. Tyrogue (236) is produced by Hitmonlee(106), Hitmonchan(107), or Hitmontop(237) breeding with Ditto
+      else if (v === 236 && (u === 106 || u === 107 || u === 237)) {
+        canProduce = true;
+      }
+
+      if (canProduce) {
+        if (!distances.has(v)) {
+          distances.set(v, distances.get(u)! + 1);
+          predecessors.set(v, u);
+          queue.push(v);
         }
       }
     }
