@@ -2,12 +2,12 @@
 id: task-320-322-gen3-contest-frontier-impl
 type: TASK
 title: Implement Gen 3 Contest & Battle Frontier Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-14'
 updated_at: '2026-07-17'
 depends_on: []
-jules_session_id: '2835355712363166740'
+jules_session_id: null
 pr_number: null
 parent: story-304-320-gen3-contest-frontier-extraction
 tags:
