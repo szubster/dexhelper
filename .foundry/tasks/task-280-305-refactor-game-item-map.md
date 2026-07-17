@@ -8,14 +8,14 @@ created_at: '2026-07-06'
 updated_at: '2026-07-17'
 depends_on:
   - task-280-304-item-db-schema-and-sync
-jules_session_id: '9786555232757702679'
+jules_session_id: '8746217349804757240'
 pr_number: null
 parent: story-087-280-item-runtime-integration
 tags:
   - db
   - refactor
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

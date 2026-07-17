@@ -53,3 +53,8 @@ You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.
 ## Architectural Compliance & QA Rejections
 When a QA agent rejects your task for missing architectural requirements (e.g., failing to implement a shared React Context mandated by an ADR), you MUST comprehensively implement the missing architectural layer. Do not simply fake a fix or ignore the architectural constraint. Repeatedly failing to adhere to ADRs will result in permanent failure and system penalties.
 
+
+### REMINDER FOR CODER
+- If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
+- If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
+- If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.

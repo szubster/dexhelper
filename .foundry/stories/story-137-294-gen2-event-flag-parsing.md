@@ -2,7 +2,7 @@
 id: story-137-294-gen2-event-flag-parsing
 type: STORY
 title: Gen 2 Event Flag Parsing
-status: ACTIVE
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-07-10'
 updated_at: '2026-07-17'
@@ -14,8 +14,8 @@ tags:
   - gen2
   - backend
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

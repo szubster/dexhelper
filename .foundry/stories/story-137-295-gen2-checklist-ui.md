@@ -2,10 +2,10 @@
 id: story-137-295-gen2-checklist-ui
 type: STORY
 title: Gen 2 Checklist UI
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-07-10'
-updated_at: '2026-07-10'
+updated_at: '2026-07-17'
 depends_on:
   - story-137-294-gen2-event-flag-parsing
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - frontend
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  story-137-294-gen2-event-flag-parsing
 notes: ''
 ---
 

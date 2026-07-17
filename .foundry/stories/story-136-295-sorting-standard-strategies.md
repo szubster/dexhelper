@@ -2,7 +2,7 @@
 id: story-136-295-sorting-standard-strategies
 type: STORY
 title: Implement Standard PC Box Sorting Strategies
-status: ACTIVE
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-07-10'
 updated_at: '2026-07-17'
@@ -15,8 +15,8 @@ tags:
   - feature
   - sorting
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 
@@ -33,4 +33,8 @@ Building upon the standard interface, we need specific, actionable sorters that 
 - [ ] Implement a `LevelSorter` (supports ascending/descending).
 - [ ] Implement a `TypeSorter` (sorts by primary type, then secondary type).
 - [ ] Implement an `AlphaSorter` (alphabetical by nickname/species name).
-- [ ] Break down story into tasks for technical blueprinting and implementation.
+- [x] Break down story into tasks for technical blueprinting and implementation.
+- [ ] task-295-329-standard-sorting-strategies-impl
+- [ ] task-295-330-standard-sorting-strategies-qa
+- [ ] task-295-327-sorting-strategies-impl
+- [ ] task-295-328-sorting-strategies-qa

@@ -5,11 +5,11 @@ title: Define Tailwind v4 Tactical Utilities V2
 status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on:
   - task-071-150-tailwind-v4-adr
   - research-071-217-investigate-session-id-failure
-jules_session_id: '9056148347221020194'
+jules_session_id: '7197218859208069916'
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
 tags:
@@ -40,5 +40,5 @@ Extract and consolidate common, repetitive Tailwind class patterns used througho
 ## Acceptance Criteria
 - [ ] Appropriate `@utility` primitives are defined in `src/index.css`.
 - [ ] Tailwind v4 formatting and structure is respected.
-- [ ] story-123-269-define-tactical-layout-utilities
-- [ ] story-123-270-define-tactical-form-utilities
+- [x] story-123-269-define-tactical-layout-utilities
+- [x] story-123-270-define-tactical-form-utilities

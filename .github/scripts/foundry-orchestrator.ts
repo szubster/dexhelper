@@ -882,7 +882,13 @@ function main(): void {
         // We MUST NOT push it to eligible here. Phase 4.1 will wake it up if all children are completed.
         info(`Late-Binding Parent: ${node.repoPath} is waiting for children to complete.`);
       } else {
-        eligible.push(node);
+        const hasCheckboxes = /^\s*-\s*\[\s*[xX\s]\s*\]/m.test(acceptanceCriteriaText);
+        if (hasCheckboxes && !hasUncheckedTasks) {
+          info(`Leaf node ${node.repoPath} has all acceptance criteria checked. Promoting directly to COMPLETED to prevent reawakening.`);
+          promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+        } else {
+          eligible.push(node);
+        }
       }
     }
   }
@@ -1052,7 +1058,8 @@ function main(): void {
       node.frontmatter.owner_persona === 'human' ||
       node.frontmatter.owner_persona === 'tpm' ||
       node.frontmatter.owner_persona === 'agile_coach' ||
-      node.frontmatter.owner_persona === 'mechanic'
+      node.frontmatter.owner_persona === 'mechanic' ||
+      node.frontmatter.owner_persona === 'auditor'
     ) {
       validatedEligible.push(node);
       continue;

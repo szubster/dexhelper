@@ -5,9 +5,9 @@ title: Implement High-Value Pokegear Call Filtering
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-11'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on: []
-jules_session_id: '5428712480751438672'
+jules_session_id: '599665526658666433'
 pr_number: null
 parent: story-118-286-filter-swarm-item-calls
 tags:

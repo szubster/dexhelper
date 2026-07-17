@@ -2,10 +2,10 @@
 id: story-119-260-npc-trade-data-mapping
 type: STORY
 title: NPC Trade Data Mapping
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-12'
+updated_at: '2026-07-17'
 depends_on:
   - story-119-258-gen2-npc-trade-parsing
   - story-119-259-gen3-npc-trade-parsing
@@ -28,5 +28,5 @@ Create a standard mapping connecting raw bitflags to specific NPC trade encounte
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into tasks for creating data maps across generations.
-- [ ] task-260-318-npc-trade-data-mapping-impl
-- [ ] task-260-319-npc-trade-data-mapping-qa
+- [x] task-260-318-npc-trade-data-mapping-impl
+- [x] task-260-319-npc-trade-data-mapping-qa

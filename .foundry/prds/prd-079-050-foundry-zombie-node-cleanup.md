@@ -7,7 +7,7 @@ owner_persona: epic_planner
 created_at: '2026-06-14'
 updated_at: '2026-07-17'
 depends_on: []
-jules_session_id: '9892889112504999413'
+jules_session_id: '3950568151983724188'
 pr_number: null
 parent: idea-079-foundry-zombie-node-cleanup
 tags:
@@ -15,7 +15,7 @@ tags:
   - orchestrator
   - maintenance
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

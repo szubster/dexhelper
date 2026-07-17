@@ -1,7 +1,16 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { saveDB } from './db/SaveDB';
 import { parseSaveFile } from './engine/saveParser/index';
 import { useStore } from './store';
+import { r2Client } from './utils/r2/client';
+
+vi.mock('./utils/r2/client', () => ({
+  r2Client: {
+    listSaves: vi.fn<() => Promise<string[]>>(),
+    getSave: vi.fn<(id: string) => Promise<Uint8Array | undefined>>(),
+  },
+}));
 
 vi.mock('./engine/saveParser/index', () => ({
   parseSaveFile: vi.fn<() => ReturnType<typeof parseSaveFile>>(),
@@ -147,7 +156,57 @@ describe('Zustand Store', () => {
       expect(useStore.getState().error).toBeNull();
     });
 
+    it('should pull from R2 if logged in', async () => {
+      vi.stubGlobal('localStorage', {
+        getItem: () => 'true',
+        setItem: vi.fn<() => void>(),
+        removeItem: vi.fn<() => void>(),
+      });
+      vi.mocked(r2Client.listSaves).mockResolvedValue(['cloud-save-id']);
+      const cloudData = new Uint8Array([9, 9, 9]);
+      vi.mocked(r2Client.getSave).mockResolvedValue(cloudData);
+      const putSaveSpy = vi.spyOn(saveDB, 'putSave').mockResolvedValue(undefined);
+
+      const mockSaveData = { trainerName: 'CLOUD', generation: 1, gameVersion: 'red' };
+      vi.mocked(parseSaveFile).mockReturnValue(mockSaveData as unknown as ReturnType<typeof parseSaveFile>);
+
+      await useStore.getState().loadSaveFromStorage();
+
+      expect(r2Client.listSaves).toHaveBeenCalled();
+      expect(r2Client.getSave).toHaveBeenCalledWith('cloud-save-id');
+      expect(putSaveSpy).toHaveBeenCalledWith('last_save_file', cloudData);
+      expect(useStore.getState().saveData).toEqual(mockSaveData);
+
+      vi.unstubAllGlobals();
+    });
+
+    it('should fallback to local DB if R2 fails', async () => {
+      vi.stubGlobal('localStorage', {
+        getItem: () => 'true',
+        setItem: vi.fn<() => void>(),
+        removeItem: vi.fn<() => void>(),
+      });
+      vi.mocked(r2Client.listSaves).mockRejectedValue(new Error('Network error'));
+
+      const localData = new Uint8Array([1, 2, 3]);
+      vi.spyOn(saveDB, 'getSave').mockResolvedValue(localData);
+      const mockSaveData = { trainerName: 'LOCAL', generation: 1, gameVersion: 'red' };
+      vi.mocked(parseSaveFile).mockReturnValue(mockSaveData as unknown as ReturnType<typeof parseSaveFile>);
+
+      await useStore.getState().loadSaveFromStorage();
+
+      expect(r2Client.listSaves).toHaveBeenCalled();
+      expect(saveDB.getSave).toHaveBeenCalledWith('last_save_file');
+      expect(useStore.getState().saveData).toEqual(mockSaveData);
+
+      vi.unstubAllGlobals();
+    });
     it('should load a valid save from IndexedDB successfully', async () => {
+      vi.stubGlobal('localStorage', {
+        getItem: () => null,
+        setItem: vi.fn<() => void>(),
+        removeItem: vi.fn<() => void>(),
+      });
       const mockSaveData = { trainerName: 'ASH', generation: 1, gameVersion: 'red' };
       vi.mocked(parseSaveFile).mockReturnValue(mockSaveData as unknown as ReturnType<typeof parseSaveFile>);
 
@@ -170,8 +229,18 @@ describe('Zustand Store', () => {
     });
 
     it('should ignore loadSaveFromStorage if getSave returns undefined', async () => {
+      vi.stubGlobal('localStorage', {
+        getItem: () => null,
+        setItem: vi.fn<() => void>(),
+        removeItem: vi.fn<() => void>(),
+      });
       vi.clearAllMocks();
       vi.spyOn(saveDB, 'getSave').mockResolvedValue(undefined);
+      vi.stubGlobal('localStorage', {
+        getItem: () => null,
+        setItem: vi.fn<() => void>(),
+        removeItem: vi.fn<() => void>(),
+      });
       await useStore.getState().loadSaveFromStorage();
       expect(parseSaveFile).not.toHaveBeenCalled();
     });

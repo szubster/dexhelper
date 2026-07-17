@@ -2,10 +2,10 @@
 id: task-301-314-lift-rejection-count-state-impl
 type: TASK
 title: Implement Lift MAX_REJECTION_THRESHOLD Constant to Context
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-14'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
