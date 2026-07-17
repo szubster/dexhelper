@@ -2,12 +2,12 @@
 id: task-317-322-detect-party-zero-hp-impl
 type: TASK
 title: Detect Party Zero HP Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-14'
 updated_at: '2026-07-17'
 depends_on: []
-jules_session_id: '16223307469110840082'
+jules_session_id: null
 pr_number: null
 parent: story-131-317-detect-party-zero-hp
 tags:
