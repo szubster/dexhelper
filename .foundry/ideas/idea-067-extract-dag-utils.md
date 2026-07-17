@@ -35,4 +35,6 @@ Operations to extract include:
 - [x] Product Manager: Evaluate this proposal and convert it to a PRD detailing the specific functions to be extracted and the testing strategy.
 
 ## References
-- [prd-067-036-extract-dag-utils.md](./.foundry/prds/prd-067-036-extract-dag-utils.md)
+- [x] [prd-067-036-extract-dag-utils.md](./.foundry/prds/prd-067-036-extract-dag-utils.md)
+- [ ] .foundry/research/research-067-329-investigate-dag-utils-failure.md
+- [ ] .foundry/prds/prd-067-330-extract-dag-utils-revised.md

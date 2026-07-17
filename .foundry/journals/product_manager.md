@@ -63,3 +63,10 @@ When assigned to a macro node (like an IDEA) that has spawned children, DO NOT t
 ## 2026-07-16 - Anomaly Found
 
 When generating the PRD for `idea-117-split-bundles-and-data`, I noticed that the research and ADR references (`research-117-325-bundle-splitting-analysis` and `adr-117-029-bundle-splitting-strategy`) already existed and were marked as completed in the IDEA node's acceptance criteria.
+
+## Anomaly: Target Foundry Artifact Already Exists (2026-07-17)
+**Observation:**
+During the task to transform `idea-067-extract-dag-utils` into a PRD, it was discovered that the target Foundry artifact (`prd-067-036-extract-dag-utils.md`) already unexpectedly existed in the system and had a CANCELLED status.
+
+**Impact:**
+The Orchestrator assigned a PRD transformation task for an IDEA whose child nodes have already been generated and processed (and permanently failed). The Agile Coach should review this anomaly to investigate why the IDEA was reawakened or scheduled when its generated artifact was already present, potentially indicating a bug in the Orchestrator's late-binding state transition logic or the Resurrection Loop.
