@@ -2,10 +2,10 @@
 id: task-294-330-gen2-static-encounter-flags-qa
 type: TASK
 title: QA - Gen 2 Static Encounter Event Flag Parsing
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-07-16'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on:
   - task-294-329-gen2-static-encounter-flags-impl
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - backend
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

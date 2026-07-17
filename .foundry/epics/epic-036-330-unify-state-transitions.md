@@ -2,10 +2,10 @@
 id: epic-036-330-unify-state-transitions
 type: EPIC
 title: Unify DAG Node State Transitions
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-16'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on:
   - epic-036-329-shared-dag-utilities
 jules_session_id: null
@@ -16,8 +16,10 @@ tags:
   - orchestrator
 research_references: []
 rejection_count: 0
-rejection_reason: ''
-notes: Spawned from prd-067-036-extract-dag-utils. Replaces epic-036-054-unify-state-transitions.
+rejection_reason: Cancelled due to cascading cancellation from parent
+notes: >-
+  Spawned from prd-067-036-extract-dag-utils. Replaces
+  epic-036-054-unify-state-transitions.
 ---
 
 # Unify DAG Node State Transitions

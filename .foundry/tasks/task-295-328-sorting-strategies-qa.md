@@ -2,10 +2,10 @@
 id: task-295-328-sorting-strategies-qa
 type: TASK
 title: QA - Standard PC Box Sorting Strategies
-status: PENDING
+status: CANCELLED
 owner_persona: qa
-created_at: "2026-07-16"
-updated_at: "2026-07-16"
+created_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on:
   - task-295-327-sorting-strategies-impl
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: Cancelled due to cascading cancellation from parent
+notes: ''
 ---
 
 # QA - Standard PC Box Sorting Strategies

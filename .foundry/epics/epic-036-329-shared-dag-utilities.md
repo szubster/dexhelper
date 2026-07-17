@@ -2,10 +2,10 @@
 id: epic-036-329-shared-dag-utilities
 type: EPIC
 title: Shared DAG Utilities Module
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-16'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on: []
 jules_session_id: null
 parent: prd-067-036-extract-dag-utils
@@ -15,8 +15,10 @@ tags:
   - orchestrator
 research_references: []
 rejection_count: 0
-rejection_reason: ''
-notes: Spawned from prd-067-036-extract-dag-utils. Replaces failed epic-036-053-shared-dag-utilities.
+rejection_reason: Cancelled due to cascading cancellation from parent
+notes: >-
+  Spawned from prd-067-036-extract-dag-utils. Replaces failed
+  epic-036-053-shared-dag-utilities.
 ---
 
 # Extract Shared DAG Utilities
