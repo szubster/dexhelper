@@ -48,8 +48,10 @@ Create `.github/scripts/dag-utils.ts`.
 
 ## Next Steps
 - [x] Epic Planner: Evaluate this PRD and convert it to Epics to extract the DAG utilities to a shared module.
-- [ ] .foundry/epics/epic-036-329-shared-dag-utilities.md
-- [ ] .foundry/epics/epic-036-330-unify-state-transitions.md
+- [x] .foundry/epics/epic-036-053-shared-dag-utilities.md
+- [x] .foundry/epics/epic-036-054-unify-state-transitions.md
+- [ ] epic-036-329-shared-dag-utilities-v2
+- [ ] epic-036-330-unify-state-transitions-v2
 
 ## Acceptance Criteria
 - [ ] `dag-utils.ts` created with shared functions.
