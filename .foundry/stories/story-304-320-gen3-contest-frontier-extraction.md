@@ -31,7 +31,7 @@ Extract Master Rank Contest condition ribbons and Battle Frontier Gold Symbols f
 - Extract magic numbers into module-level reusable constants (ADR 028).
 
 ## Acceptance Criteria
-- [ ] Implement Contest extraction logic.
-- [ ] Implement Battle Frontier extraction logic.
-- [ ] task-320-322-gen3-contest-frontier-impl
-- [ ] task-320-323-gen3-contest-frontier-qa
+- [x] Implement Contest extraction logic.
+- [x] Implement Battle Frontier extraction logic.
+- [x] task-320-322-gen3-contest-frontier-impl
+- [x] task-320-323-gen3-contest-frontier-qa
