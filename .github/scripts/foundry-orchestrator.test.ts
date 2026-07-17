@@ -1919,6 +1919,28 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(content).toContain('rejection_reason: Merged with unfulfilled acceptance criteria');
   });
 
+  test('Leaf task: bypasses dispatch and marks COMPLETED if all acceptance criteria checkboxes are checked', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-checked-leaf.md', {
+      id: "task-checked-leaf",
+      type: "TASK",
+      title: "Leaf Task with Checked Criteria",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    }, `## Acceptance Criteria
+- [x] Task 1 completed
+- [X] Task 2 completed
+`);
+
+    main();
+
+    const content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-checked-leaf.md'), 'utf-8');
+    expect(content).toContain('status: COMPLETED');
+  });
+
   test('Preflight: bypasses dispatch and marks COMPLETED if target artifacts exist and are valid', () => {
     createValidTestNode(tmpDir, '.foundry/epics/epic-preflight-1.md', {
       id: "epic-preflight-1",
