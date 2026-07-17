@@ -30,9 +30,9 @@ Extract the core data structure of the roaming legendary from Gen 3 save files, 
 Parse the `Roamer` struct from the save file (SaveBlock1) to extract the IVs, Personality Value, Species, HP, Level, Status, and Active boolean. This must support Emerald, Ruby/Sapphire, and FireRed/LeafGreen offsets.
 
 ## Acceptance Criteria
-- [ ] Implement robust `DataView` parsing for the Gen 3 `Roamer` struct across all Gen 3 game versions.
-- [ ] Extract and expose the `active` boolean to determine if the roamer is currently available in the game world.
-- [ ] Write unit tests verifying extraction against known good save fixtures for each game version.
-- [ ] story-149-291-gen3-roamer-core-extraction
-- [ ] story-149-292-gen3-roamer-active-flag-parsing
-- [ ] Story Owner: Break down this Epic into executable Stories.
+- [x] Implement robust `DataView` parsing for the Gen 3 `Roamer` struct across all Gen 3 game versions.
+- [x] Extract and expose the `active` boolean to determine if the roamer is currently available in the game world.
+- [x] Write unit tests verifying extraction against known good save fixtures for each game version.
+- [x] story-149-291-gen3-roamer-core-extraction
+- [x] story-149-292-gen3-roamer-active-flag-parsing
+- [x] Story Owner: Break down this Epic into executable Stories.
