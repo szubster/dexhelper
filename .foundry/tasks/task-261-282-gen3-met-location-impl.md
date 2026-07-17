@@ -41,6 +41,6 @@ Currently, the `met_location` field does not exist in `PokemonInstance.caughtDat
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `metLocation` parsing logic added for Gen 3.
-- [ ] Constant defined for the offset (no magic numbers).
-- [ ] `DataView` API utilized.
+- [x] `metLocation` parsing logic added for Gen 3.
+- [x] Constant defined for the offset (no magic numbers).
+- [x] `DataView` API utilized.

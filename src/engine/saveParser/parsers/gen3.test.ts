@@ -19,6 +19,7 @@ import {
   parseGen3EmeraldMoveTutors,
   parseGen3FRLGMoveTutors,
   parseGen3FRLGNPCTrades,
+  parseGen3MetLocation,
   parseGen3MirageIslandValue,
   parseGen3MixRecords,
   parseGen3PersonalityValue,
@@ -1292,5 +1293,30 @@ describe('parseGen3FRLGMoveTutors', () => {
     const buffer = new ArrayBuffer(10);
     const view = new DataView(buffer);
     expect(() => parseGen3FRLGMoveTutors(view, 0)).toThrow('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3MetLocation', () => {
+  it('should parse the met location byte correctly', () => {
+    const buffer = new ArrayBuffer(10);
+    const view = new DataView(buffer);
+    const miscSubstructureOffset = 4;
+
+    // MISC_MET_LOCATION_OFFSET is 1
+    // 4 + 1 = 5
+    view.setUint8(5, 42); // 42 is the met location
+
+    const result = parseGen3MetLocation(view, miscSubstructureOffset);
+    expect(result).toBe(42);
+  });
+
+  it('should explicitly catch RangeError and throw corrupted file error on out-of-bounds reads', () => {
+    const buffer = new ArrayBuffer(1);
+    const view = new DataView(buffer);
+    const miscSubstructureOffset = 2; // Offset 2 + 1 = 3, which is out of bounds for a 1-byte buffer
+
+    expect(() => parseGen3MetLocation(view, miscSubstructureOffset)).toThrowError(
+      'The save file is corrupted or incomplete.',
+    );
   });
 });
