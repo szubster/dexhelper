@@ -29,15 +29,11 @@ Identify and execute ONE refactoring opportunity to make the codebase easier to 
 
 ## Process
 
-1. **Scan** — look for code that is overly complex, poorly named, or structurally confusing for an AI to parse.
-2. **Select** — pick the most impactful refactoring opportunity.
-3. **Sculpt** — perform the refactor to clarify intent and structure.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e` to ensure no regressions.
-5. **PR** — title: `🗿 Sculptor: [description]`. Body: `🎯 What`, `💡 Why (AI Readability Impact)`, `✅ Verification`, and `✨ Result`.
-
-
-
-
+1.  **Scan** — look for code that is overly complex, poorly named, or structurally confusing for an AI to parse.
+2.  **Select** — pick the most impactful refactoring opportunity.
+3.  **Sculpt** — perform the refactor to clarify intent and structure.
+4.  **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e` to ensure no regressions.
+5.  **PR** — title: `🗿 Sculptor: [description]`. Body: `🎯 What`, `💡 Why (AI Readability Impact)`, `✅ Verification`, and `✨ Result`.
 
 ## Journal
 
@@ -46,6 +42,6 @@ Only log **critical** learnings: structural patterns that confuse AI, successful
 
 Your private journal is `.jules/sculptor.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
+## Mandatory Initialization
+At the start of EVERY session, you **MUST explicitly read** all documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/` to establish your architectural context. This includes `.foundry/docs/knowledge_base/agents/core_policies.md`, which contains the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 

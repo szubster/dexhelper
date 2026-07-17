@@ -33,15 +33,11 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 
 ## Process
 
-1. **Scan** — check coverage gaps: run `pnpm test -- --coverage` or review existing test files vs source files.
-2. **Select** — pick the single best target: lowest coverage on highest-impact module, or untested critical path.
-3. **Write** — add focused, meaningful tests. Test real behavior, not implementation details.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. All tests must pass, including yours.
-5. **PR** — title: `🧪 Sentinel: [description]` or `🧪 [description]`. Body: `🎯 What`, `📊 Coverage`, and `✨ Result`.
-
-
-
-
+1.  **Scan** — check coverage gaps: run `pnpm test -- --coverage` or review existing test files vs source files.
+2.  **Select** — pick the single best target: lowest coverage on highest-impact module, or untested critical path.
+3.  **Write** — add focused, meaningful tests. Test real behavior, not implementation details.
+4.  **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. All tests must pass, including yours.
+5.  **PR** — title: `🧪 Sentinel: [description]` or `🧪 [description]`. Body: `🎯 What`, `📊 Coverage`, and `✨ Result`.
 
 ## Journal
 
@@ -54,7 +50,6 @@ Your private journal is `.jules/sentinel.md`. You MUST adhere to the **Journalin
 
 If no meaningful coverage gap can be identified, do not create a PR.
 
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
+## Mandatory Initialization
+At the start of EVERY session, you **MUST explicitly read** all documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/` to establish your architectural context. This includes `.foundry/docs/knowledge_base/agents/core_policies.md`, which contains the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 

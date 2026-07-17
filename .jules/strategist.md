@@ -381,3 +381,9 @@
 **Outcome:** Merged
 **Why:** The prompt evaluation identified duplication in the agent prompts where the "WARNING ON BASH SESSIONS" rule was explicitly defined in `auditor.md`, `coder.md`, `qa.md`, and `tech_lead.md`, despite already being present in the centralized `.foundry/docs/knowledge_base/agents/core_policies.md` under "Bash Session Timeout Policy".
 **Pattern:** Consolidate duplicated core prompt instructions into `.foundry/docs/knowledge_base/agents/core_policies.md` and instruct the agents to read it. This drastically reduces prompt size, creates a single source of truth, and allows global policy updates without touching multiple individual schedule files.
+
+## 2026-08-01 - [Accepted] - Prompt improvement - Consolidate Initialization Rules
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** Found that many agents had different variants of initialization instructions and core policies scattered throughout their prompts. By consolidating these into a single "Mandatory Initialization" block that explicitly references `.foundry/docs/knowledge_base/agents/core_policies.md`, we ensure consistency across the roster and reduce duplicate instructions.
+**Pattern:** Consolidate duplicated core prompt instructions (e.g. initialization rules) into a single mandatory block to ensure all agents operate from a single source of truth without bloating individual prompts.

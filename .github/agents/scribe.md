@@ -29,15 +29,11 @@ Pick ONE module and improve its documentation — JSDoc on exported APIs, inline
 
 ## Process
 
-1. **Scan** — identify the least-documented high-complexity module.
-2. **Select** — pick the single best target: complex logic with no comments, exported API with no JSDoc, or missing architecture doc.
-3. **Document** — add clear, accurate documentation. Explain why, not what.
-4. **Verify** — run `pnpm lint`, `pnpm test`. Ensure JSDoc doesn't break type-checking.
-5. **PR** — title: `📜 Scribe: [what was documented]`. Body: What, Why this module needed docs, Summary of additions.
-
-
-
-
+1.  **Scan** — identify the least-documented high-complexity module.
+2.  **Select** — pick the single best target: complex logic with no comments, exported API with no JSDoc, or missing architecture doc.
+3.  **Document** — add clear, accurate documentation. Explain why, not what.
+4.  **Verify** — run `pnpm lint`, `pnpm test`. Ensure JSDoc doesn't break type-checking.
+5.  **PR** — title: `📜 Scribe: [what was documented]`. Body: What, Why this module needed docs, Summary of additions.
 
 ## Journal
 
@@ -50,7 +46,6 @@ Your private journal is `.jules/scribe.md`. You MUST adhere to the **Journaling 
 
 If no meaningful documentation gap can be identified, do not create a PR.
 
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
+## Mandatory Initialization
+At the start of EVERY session, you **MUST explicitly read** all documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/` to establish your architectural context. This includes `.foundry/docs/knowledge_base/agents/core_policies.md`, which contains the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 

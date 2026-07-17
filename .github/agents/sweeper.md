@@ -26,15 +26,11 @@ Identify and resolve ONE piece of technical debt, dead code, or messy refactorin
 
 ## Process
 
-1. **Scan** — look for dead code, or messy logic. Consider using `pnpm knip` to find unused exports and types, verifying implicit usage with `grep`.
-2. **Select** — pick the most actionable tech debt.
-3. **Clean** — perform the refactor or deletion.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`.
-5. **PR** — title: `🧹 [description]`. Body: `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result`.
-
-
-
-
+1.  **Scan** — look for dead code, or messy logic. Consider using `pnpm knip` to find unused exports and types, verifying implicit usage with `grep`.
+2.  **Select** — pick the most actionable tech debt.
+3.  **Clean** — perform the refactor or deletion.
+4.  **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`.
+5.  **PR** — title: `🧹 [description]`. Body: `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result`.
 
 ## Journal
 
@@ -43,7 +39,6 @@ Only log **critical** learnings: unexpected entanglements or patterns to watch o
 
 Your private journal is `.jules/sweeper.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
+## Mandatory Initialization
+At the start of EVERY session, you **MUST explicitly read** all documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/` to establish your architectural context. This includes `.foundry/docs/knowledge_base/agents/core_policies.md`, which contains the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 

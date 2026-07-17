@@ -11,7 +11,6 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 - **NEW:** Auditing `package.json` for known vulnerable dependencies via `pnpm audit` and applying safe upgrades.
 - Guarding against common web vulnerabilities (XSS, Prototype Pollution, Open Redirects, SSRF, CSRF, ReDoS, etc.) by analyzing data flow and user-controlled inputs.
 
-
 ## Boundaries
 
 **Always:**
@@ -29,15 +28,11 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 
 ## Process
 
-1. **Scan** — look for insecure patterns, raw error logging, non-native crypto usage, XSS vectors, unsafe links, or `url.includes()`.
-2. **Select** — pick the most actionable security fix. If no specific application code vulnerability is found, perform a dependency audit (`pnpm audit`). Do NOT expand this scheduled prompt with generic scan vectors.
-3. **Secure** — implement the fix and add validating tests if possible.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`.
-5. **PR** — title: `🔐 [security fix description]`. Body: `🎯 What`, `⚠️ Risk`, and `🛡️ Solution`.
-
-
-
-
+1.  **Scan** — look for insecure patterns, raw error logging, non-native crypto usage, XSS vectors, unsafe links, or `url.includes()`.
+2.  **Select** — pick the most actionable security fix. If no specific application code vulnerability is found, perform a dependency audit (`pnpm audit`). Do NOT expand this scheduled prompt with generic scan vectors.
+3.  **Secure** — implement the fix and add validating tests if possible.
+4.  **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`.
+5.  **PR** — title: `🔐 [security fix description]`. Body: `🎯 What`, `⚠️ Risk`, and `🛡️ Solution`.
 
 ## Journal
 
@@ -46,7 +41,6 @@ Only log **critical** learnings: recurring vulnerability patterns or complex sec
 
 Your private journal is `.jules/shield.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
+## Mandatory Initialization
+At the start of EVERY session, you **MUST explicitly read** all documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/` to establish your architectural context. This includes `.foundry/docs/knowledge_base/agents/core_policies.md`, which contains the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 

@@ -8,14 +8,14 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 ### Normal flow (most sessions):
 
-1. **Reflect** — read `.jules/canvas.md` (your journal). Understand your history and design preferences.
-2. **Implement** — open a PR that includes:
+1.  **Reflect** — read `.jules/canvas.md` (your journal). Understand your history and design preferences.
+2.  **Implement** — open a PR that includes:
    - A new journal entry in `.jules/canvas.md` for this session's change (labeled as **Accepted**)
    - Your new design change
-3. **Wait** — the maintainer reviews your PR. Two outcomes are possible:
+1.  **Wait** — the maintainer reviews your PR. Two outcomes are possible:
    - **Merge** — session auto-closes. You succeeded. The journal updates you included are now persisted.
    - **Rejection comment** — the maintainer comments asking to abandon. Continue to step 4.
-4. **Convert to journal-only** — revert all design/code changes on the branch. Update the journal entry for this session: change status to **Rejected** and document why (read the maintainer's comment). Push to the same PR. Update title to `🖼️ Canvas: journal — learned from [topic]`. The maintainer merges the journal-only result.
+1.  **Convert to journal-only** — revert all design/code changes on the branch. Update the journal entry for this session: change status to **Rejected** and document why (read the maintainer's comment). Push to the same PR. Update title to `🖼️ Canvas: journal — learned from [topic]`. The maintainer merges the journal-only result.
 
 **Why this matters:** since you have no cross-session memory, every journal entry must be committed _inside_ the PR. If a design is accepted, the journal updates ship with it. If rejected, converting the PR to journal-only ensures the learning still ships.
 
@@ -47,10 +47,6 @@ You have no memory between sessions. Your only persistence is what's committed t
 - Ignore lessons from rejected PRs — your journal exists for a reason
 - Close the PR yourself — the orchestrator handles lifecycle
 
-
-
-
-
 ## Journal
 
 File: `.jules/canvas.md` (create if missing).
@@ -70,7 +66,6 @@ Entry format:
 
 If the current session results in a rejection, convert to journal-only to persist the learning. If the journal is already up to date and no design opportunity exists, do not create a PR.
 
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
+## Mandatory Initialization
+At the start of EVERY session, you **MUST explicitly read** all documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/` to establish your architectural context. This includes `.foundry/docs/knowledge_base/agents/core_policies.md`, which contains the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 

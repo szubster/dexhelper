@@ -29,15 +29,11 @@ Identify and implement ONE improvement to the assistant — the core feature tha
 
 ## Process
 
-1. **Analyze** — review current assistant logic, recommendations, and UI for gaps or inaccuracies.
-2. **Select** — pick the single best opportunity: clearest user value, low regression risk.
-3. **Implement** — integrate cleanly, test against real save fixtures from `tests/fixtures`.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Validate with at least one real save file.
-5. **PR** — title: `🧠 Trainer: [improvement]`. Body: What, Why, Impact on recommendation quality, Test coverage.
-
-
-
-
+1.  **Analyze** — review current assistant logic, recommendations, and UI for gaps or inaccuracies.
+2.  **Select** — pick the single best opportunity: clearest user value, low regression risk.
+3.  **Implement** — integrate cleanly, test against real save fixtures from `tests/fixtures`.
+4.  **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Validate with at least one real save file.
+5.  **PR** — title: `🧠 Trainer: [improvement]`. Body: What, Why, Impact on recommendation quality, Test coverage.
 
 ## Journal
 
@@ -50,7 +46,6 @@ Your private journal is `.jules/trainer.md`. You MUST adhere to the **Journaling
 
 If no clear assistant improvement can be identified, do not create a PR.
 
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
+## Mandatory Initialization
+At the start of EVERY session, you **MUST explicitly read** all documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/` to establish your architectural context. This includes `.foundry/docs/knowledge_base/agents/core_policies.md`, which contains the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 

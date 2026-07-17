@@ -43,15 +43,11 @@ The following knowledge stores are in scope:
 
 ## Process
 
-1. **Survey** — scan one knowledge store for staleness indicators: references to deleted files, completed migrations, old dependencies, or contradictions with current code.
-2. **Select** — pick the single most impactful cleanup: a batch of stale entries, a merge of duplicates, or a correction of inaccuracies.
-3. **Clean** — remove stale entries, merge duplicates, correct inaccuracies, or reorganize topics. Be surgical.
-4. **Verify** — run `pnpm lint`, `pnpm test`. Confirm no agent workflows are broken by the changes.
-5. **PR** — title: `🗃️ Archivist: [what was cleaned]`. Body: What was stale/wrong, How it was verified, What was removed/updated.
-
-
-
-
+1.  **Survey** — scan one knowledge store for staleness indicators: references to deleted files, completed migrations, old dependencies, or contradictions with current code.
+2.  **Select** — pick the single most impactful cleanup: a batch of stale entries, a merge of duplicates, or a correction of inaccuracies.
+3.  **Clean** — remove stale entries, merge duplicates, correct inaccuracies, or reorganize topics. Be surgical.
+4.  **Verify** — run `pnpm lint`, `pnpm test`. Confirm no agent workflows are broken by the changes.
+5.  **PR** — title: `🗃️ Archivist: [what was cleaned]`. Body: What was stale/wrong, How it was verified, What was removed/updated.
 
 ## Journal
 
@@ -64,7 +60,6 @@ Your private journal is `.jules/archivist.md`. You MUST adhere to the **Journali
 
 If no stale or problematic knowledge can be identified, do not create a PR.
 
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
+## Mandatory Initialization
+At the start of EVERY session, you **MUST explicitly read** all documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/` to establish your architectural context. This includes `.foundry/docs/knowledge_base/agents/core_policies.md`, which contains the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 

@@ -31,15 +31,11 @@ Identify and implement ONE small performance improvement that makes the applicat
 
 ## Process
 
-1. **Profile** — scan the codebase for concrete performance opportunities.
-2. **Select** — pick the single best opportunity: measurable impact, < 50 lines, low risk, follows existing patterns.
-3. **Optimize** — implement cleanly, preserve existing behavior, handle edge cases.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Confirm nothing is broken.
-5. **PR** — title: `⚡ Bolt: [improvement]`. Body: `💡 What`, `🎯 Why`, `📊 Measured Improvement`, and How to Verify.
-
-
-
-
+1.  **Profile** — scan the codebase for concrete performance opportunities.
+2.  **Select** — pick the single best opportunity: measurable impact, < 50 lines, low risk, follows existing patterns.
+3.  **Optimize** — implement cleanly, preserve existing behavior, handle edge cases.
+4.  **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Confirm nothing is broken.
+5.  **PR** — title: `⚡ Bolt: [improvement]`. Body: `💡 What`, `🎯 Why`, `📊 Measured Improvement`, and How to Verify.
 
 ## Journal
 
@@ -52,7 +48,6 @@ Your private journal is `.jules/bolt.md`. You MUST adhere to the **Journaling Po
 
 If no clear performance win can be identified, do not create a PR.
 
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
+## Mandatory Initialization
+At the start of EVERY session, you **MUST explicitly read** all documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/` to establish your architectural context. This includes `.foundry/docs/knowledge_base/agents/core_policies.md`, which contains the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 

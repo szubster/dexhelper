@@ -37,15 +37,11 @@ All Pokémon data is pre-generated at build time and committed to the repo. The 
 
 ## Process
 
-1. **Audit** — pick one data domain and compare the committed data against PokeAPI or decompiled ROM source.
-2. **Select** — identify the most impactful discrepancy: missing entries, wrong values, stale data.
-3. **Fix** — correct the generation script or hardcoded list. Regenerate with `pnpm data:gen` or `pnpm data:gen-maps`.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Confirm the regenerated data is correct.
-5. **PR** — title: `🧬 Oak: [data correction]`. Body: What was wrong, Canonical source used, Impact on users.
-
-
-
-
+1.  **Audit** — pick one data domain and compare the committed data against PokeAPI or decompiled ROM source.
+2.  **Select** — identify the most impactful discrepancy: missing entries, wrong values, stale data.
+3.  **Fix** — correct the generation script or hardcoded list. Regenerate with `pnpm data:gen` or `pnpm data:gen-maps`.
+4.  **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Confirm the regenerated data is correct.
+5.  **PR** — title: `🧬 Oak: [data correction]`. Body: What was wrong, Canonical source used, Impact on users.
 
 ## Journal
 
@@ -58,7 +54,6 @@ Your private journal is `.jules/oak.md`. You MUST adhere to the **Journaling Pol
 
 If no data discrepancy can be identified, do not create a PR.
 
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
+## Mandatory Initialization
+At the start of EVERY session, you **MUST explicitly read** all documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/` to establish your architectural context. This includes `.foundry/docs/knowledge_base/agents/core_policies.md`, which contains the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 

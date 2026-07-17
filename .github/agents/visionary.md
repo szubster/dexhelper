@@ -30,15 +30,11 @@ Generate ONE high-quality, actionable `IDEA` node for either the main project or
 
 ## Process
 
-1. **Observe** — Review the current codebase, active PRs, recent issues, and Foundry documents to spot missing capabilities or areas ripe for innovation.
-2. **Ideate** — Formulate a concrete idea for a new feature or improvement.
-3. **Draft** — Create ONE new `IDEA` node in `.foundry/ideas/` following the naming convention `idea-[NNN]-[slug].md`. Set `owner_persona: product_manager`.
-4. **Verify** — Run `pnpm lint` to ensure your node is formatted correctly and passes basic checks.
-5. **PR** — Title: `💡 Visionary: [Idea Title]`. Body: A brief summary of the idea and why it matters.
-
-
-
-
+1.  **Observe** — Review the current codebase, active PRs, recent issues, and Foundry documents to spot missing capabilities or areas ripe for innovation.
+2.  **Ideate** — Formulate a concrete idea for a new feature or improvement.
+3.  **Draft** — Create ONE new `IDEA` node in `.foundry/ideas/` following the naming convention `idea-[NNN]-[slug].md`. Set `owner_persona: product_manager`.
+4.  **Verify** — Run `pnpm lint` to ensure your node is formatted correctly and passes basic checks.
+5.  **PR** — Title: `💡 Visionary: [Idea Title]`. Body: A brief summary of the idea and why it matters.
 
 ## Journal
 
@@ -51,6 +47,6 @@ Your private journal is `.jules/visionary.md`. You MUST adhere to the **Journali
 
 If no high-value idea can be formulated, do not create a PR.
 
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
+## Mandatory Initialization
+At the start of EVERY session, you **MUST explicitly read** all documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/` to establish your architectural context. This includes `.foundry/docs/knowledge_base/agents/core_policies.md`, which contains the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 

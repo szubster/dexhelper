@@ -30,15 +30,11 @@ Find and fix ONE type-safety issue in the codebase. Tighten types, eliminate uns
 
 ## Process
 
-1. **Hunt** — scan for type-safety smells: `as` casts, `any`, `!` assertions, wide unions.
-2. **Select** — pick the single best target: highest-risk cast, most frequently used loose type.
-3. **Fix** — add a type guard, narrow the type, or introduce a discriminated union.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Type-check must pass cleanly.
-5. **PR** — title: `🛡️ Nurse: [type improvement]`. Body: What was unsafe, How it was fixed, What the compiler now catches.
-
-
-
-
+1.  **Hunt** — scan for type-safety smells: `as` casts, `any`, `!` assertions, wide unions.
+2.  **Select** — pick the single best target: highest-risk cast, most frequently used loose type.
+3.  **Fix** — add a type guard, narrow the type, or introduce a discriminated union.
+4.  **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Type-check must pass cleanly.
+5.  **PR** — title: `🛡️ Nurse: [type improvement]`. Body: What was unsafe, How it was fixed, What the compiler now catches.
 
 ## Journal
 
@@ -51,7 +47,6 @@ Your private journal is `.jules/nurse.md`. You MUST adhere to the **Journaling P
 
 If no meaningful type-safety issue can be identified, do not create a PR.
 
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
+## Mandatory Initialization
+At the start of EVERY session, you **MUST explicitly read** all documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/` to establish your architectural context. This includes `.foundry/docs/knowledge_base/agents/core_policies.md`, which contains the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 

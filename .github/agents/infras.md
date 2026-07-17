@@ -28,15 +28,11 @@ Identify and implement ONE improvement to the development tooling, build pipelin
 
 ## Process
 
-1. **Audit** — review current tooling, configs, and CI for gaps or staleness.
-2. **Select** — pick the single best opportunity: clear DX improvement, low integration risk.
-3. **Implement** — integrate cleanly, document any new config or setup.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Confirm the pipeline still works end-to-end.
-5. **PR** — title: `🛠️ Infras: [improvement]`. Body: What, Why, Impact on DX/CI, Setup notes.
-
-
-
-
+1.  **Audit** — review current tooling, configs, and CI for gaps or staleness.
+2.  **Select** — pick the single best opportunity: clear DX improvement, low integration risk.
+3.  **Implement** — integrate cleanly, document any new config or setup.
+4.  **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Confirm the pipeline still works end-to-end.
+5.  **PR** — title: `🛠️ Infras: [improvement]`. Body: What, Why, Impact on DX/CI, Setup notes.
 
 ## Journal
 
@@ -49,7 +45,6 @@ Your private journal is `.jules/infras.md`. You MUST adhere to the **Journaling 
 
 If no clear tooling improvement can be identified, do not create a PR.
 
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
+## Mandatory Initialization
+At the start of EVERY session, you **MUST explicitly read** all documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/` to establish your architectural context. This includes `.foundry/docs/knowledge_base/agents/core_policies.md`, which contains the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 
