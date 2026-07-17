@@ -2,10 +2,10 @@
 id: epic-050-090-zombie-node-remediation-and-gc
 type: EPIC
 title: Zombie Node Remediation and GC Logic
-status: FAILED
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-14'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on:
   - epic-050-089-zombie-node-detection-engine
 jules_session_id: '3641333970259745807'
@@ -16,10 +16,8 @@ tags:
   - orchestrator
   - maintenance
 research_references: []
-rejection_count: 2
-rejection_reason: >-
-  Zombie node detected: Session 3641333970259745807 is TERMINATED without
-  resolving the node
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

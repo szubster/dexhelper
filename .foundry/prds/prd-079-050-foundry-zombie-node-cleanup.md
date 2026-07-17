@@ -2,10 +2,10 @@
 id: prd-079-050-foundry-zombie-node-cleanup
 type: PRD
 title: Foundry Zombie Node Garbage Collection
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-06-14'
-updated_at: '2026-06-14'
+updated_at: '2026-07-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
