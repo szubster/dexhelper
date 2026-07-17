@@ -70,6 +70,14 @@ const DEFAULT_LOCATION = {
 
 type ValidStoreName = (typeof DB_CONFIG.STORES)[keyof typeof DB_CONFIG.STORES];
 
+/**
+ * Retrieves the singleton instance of the IndexedDB database.
+ *
+ * **Architecture Note:**
+ * This uses a singleton promise (`dbPromise`) to prevent race conditions where multiple
+ * components attempt to open the database simultaneously on app load. By returning the same
+ * promise, all callers gracefully wait for the initial connection and schema upgrade to finish.
+ */
 export const getDB = () => {
   if (!dbPromise) {
     dbPromise = openDB<PokeDBSchema>(DB_CONFIG.NAME, DB_CONFIG.VERSION, {
@@ -107,9 +115,14 @@ export const getDB = () => {
  * Downloads the pre-built `pokedata.msgpack` bundle from the server and hydrates
  * the local IndexedDB stores.
  *
+ * **Architecture Note:**
+ * We use `msgpackr` (MessagePack) over JSON because the Pokemon dataset is massive
+ * (thousands of encounter arrays and evolution trees). MessagePack dramatically reduces
+ * the payload size and parsing time over the wire compared to raw JSON strings.
+ *
  * It prevents redundant network requests by comparing the application's current
  * build hash (`__POKEDATA_HASH__`) against the hash stored in IndexedDB.
- * If a sync is needed, it fetches the compact JSON, inflates nested data structures
+ * If a sync is needed, it fetches the compact data, inflates nested data structures
  * (like evolution chains and encounter details), and populates the stores.
  *
  * @returns A Promise that resolves when the synchronization is complete.
@@ -289,24 +302,43 @@ export const pokeDB = {
     return (await getDB()).get(DB_CONFIG.STORES.POKEMON, id);
   },
 
+  /**
+   * Fetches the encounter tables for a specific Pokemon by its Pokedex ID.
+   *
+   * @param pid - The Pokedex ID of the Pokemon.
+   * @returns The encounter data or undefined if not found.
+   */
   getEncounters: async (pid: number): Promise<LocationAreaEncounters | undefined> => {
     await pokeDB.ready();
     if (pid === undefined || pid === null || Number.isNaN(pid)) return undefined;
     return (await getDB()).get(DB_CONFIG.STORES.ENCOUNTERS, pid);
   },
+  /**
+   * Fetches all encounter tables in the database.
+   * This is heavily used by the suggestion engine during app startup to pre-load O(1) lookups.
+   */
   getAllEncounters: async (): Promise<LocationAreaEncounters[]> => {
     await pokeDB.ready();
     return (await getDB()).getAll(DB_CONFIG.STORES.ENCOUNTERS);
   },
+  /**
+   * Fetches all location mappings, including Floyd-Warshall distance tables.
+   */
   getLocations: async () => {
     await pokeDB.ready();
     return (await getDB()).getAll(DB_CONFIG.STORES.LOCATIONS);
   },
+  /**
+   * Retrieves a specific location node by its ID.
+   */
   getLocation: async (id: number) => {
     await pokeDB.ready();
     if (id === undefined || id === null || Number.isNaN(id)) return undefined;
     return (await getDB()).get(DB_CONFIG.STORES.LOCATIONS, id);
   },
+  /**
+   * Retrieves the area data corresponding to a specific map ID.
+   */
   getAreas: async (mid: number): Promise<UnifiedLocation[]> => {
     await pokeDB.ready();
     if (mid === undefined || mid === null || Number.isNaN(mid)) return [];
@@ -314,6 +346,9 @@ export const pokeDB = {
     const loc = await db.get(DB_CONFIG.STORES.LOCATIONS, mid);
     return loc ? [loc] : [];
   },
+  /**
+   * Retrieves the inverse index (pids) of Pokemon that can be encountered at a specific location.
+   */
   getInverseIndex: async (mid: number): Promise<number[] | undefined> => {
     await pokeDB.ready();
     if (mid === undefined || mid === null || Number.isNaN(mid)) return undefined;
