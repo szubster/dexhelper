@@ -40,5 +40,5 @@ Extract and consolidate common, repetitive Tailwind class patterns used througho
 ## Acceptance Criteria
 - [ ] Appropriate `@utility` primitives are defined in `src/index.css`.
 - [ ] Tailwind v4 formatting and structure is respected.
-- [ ] story-123-269-define-tactical-layout-utilities
-- [ ] story-123-270-define-tactical-form-utilities
+- [x] story-123-269-define-tactical-layout-utilities
+- [x] story-123-270-define-tactical-form-utilities
