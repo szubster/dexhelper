@@ -15,8 +15,8 @@ export function RngTidSidDisplay({ tid, sid, className = '' }: RngTidSidDisplayP
       await navigator.clipboard.writeText(`TID: ${tid}, SID: ${sid}`);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy to clipboard', err);
+    } catch {
+      console.error('Failed to copy to clipboard');
     }
   };
 
