@@ -186,3 +186,8 @@ When generating blueprints for Gen 3 dynamic save block extraction (like Volcani
 - Explicitly instructed the Coder and QA personas on error handling, Empty PR requirements, and strict magic number / relative offset rules.
 
 2026-07-16: Created retry 7 for Gen 3 TV parser because retry 6 failed QA due to inline magic numbers and incorrect error message string.
+
+### 2026-07-17: Gen 3 Static Encounters Blueprinting
+- Created technical blueprint `task-294-331-gen3-static-encounters-parsing-impl.md` to map Gen 3 static encounter event flags.
+- Created QA verification task `task-294-332-gen3-static-encounters-parsing-qa.md` to ensure the Coder does not use magic numbers and correctly calculates relative offsets based on the resolved section offset (as per A/B flash memory requirements).
+- Appended child task references to `story-138-294-gen3-static-encounters-parsing.md`.
