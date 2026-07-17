@@ -1,14 +1,14 @@
 ---
 id: epic-050-090-zombie-node-remediation-and-gc
 type: EPIC
-title: Zombie Node Remediation and GC Logic
-status: CANCELLED
+title: Zombie Node Remediation and GC
+status: PENDING
 owner_persona: story_owner
-created_at: '2026-06-14'
+created_at: '2026-06-15'
 updated_at: '2026-07-17'
 depends_on:
   - epic-050-089-zombie-node-detection-engine
-jules_session_id: '3641333970259745807'
+jules_session_id: null
 pr_number: null
 parent: prd-079-050-foundry-zombie-node-cleanup
 tags:
@@ -16,35 +16,27 @@ tags:
   - orchestrator
   - maintenance
 research_references: []
-rejection_count: 3
-rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
+rejection_count: 0
+rejection_reason: ''
 notes: ''
 ---
 
-# Epic: Zombie Node Remediation and GC Logic
+# Epic: Zombie Node Remediation and Garbage Collection
 
-## 1. Context and Problem Statement
-Following the detection of "zombie" nodes (nodes incorrectly stuck in the `ACTIVE` state), the system must auto-remediate them to prevent DAG deadlocks. This involves transitioning their state to `FAILED` so the existing Resurrection Loop can pick them up and retry.
+## 1. Description
+This Epic implements the remediation component of the Zombie Node Garbage Collection (GC) mechanism. Following the successful detection of zombie nodes (via `epic-050-089-zombie-node-detection-engine`), this logic will automatically transition the identified zombie nodes from the `ACTIVE` state to `FAILED`.
 
-## 2. Scope
-This Epic handles the remediation logic (state transitions) and the integration of the Garbage Collection (GC) workflow (either as a standalone TPM script or within the main orchestrator script). It depends on the detection engine to identify the target nodes.
+By marking these stranded nodes as `FAILED`, the existing Resurrection Loop will naturally pick them up on the next orchestrator cycle. This ensures the tasks are re-queued and prevents DAG deadlocks, achieving automated self-healing.
 
-## 3. High-Level Requirements
-1. **Remediation Logic**: Functionality to safely update the YAML frontmatter of identified zombie nodes, changing `status: ACTIVE` to `status: FAILED`.
-2. **Integration Decision & Implementation**:
-   - Determine whether this GC process runs synchronously within `.github/scripts/foundry-orchestrator.ts` or as an independent scheduled script.
-   - Implement the chosen integration pattern, ensuring it accurately utilizes the detection engine.
-3. **Resurrection Hand-off**: Ensure that the remediated nodes (`FAILED` state) are correctly processed by the existing resurrection loop on the subsequent cycle without manual intervention.
+## 2. Prerequisites
+- The Zombie Node Detection Engine (`epic-050-089-zombie-node-detection-engine`) must be implemented to supply the list of identified zombie nodes.
+- Familiarity with the `.github/scripts/foundry-orchestrator.ts` script.
 
-## 4. Acceptance Criteria
-- [x] Determine the integration approach (standalone script vs. direct orchestrator integration).
-- [x] Implement state transition logic (modifying `status` to `FAILED` in the markdown files).
-- [x] Implement the integration of detection and remediation logic.
-- [x] Ensure unit test coverage for the remediation functionality.
+## 3. High-Level Acceptance Criteria
+- [ ] Remediation logic is implemented to automatically transition the state of identified zombie nodes from `ACTIVE` to `FAILED`.
+- [ ] The `updated_at` field in the frontmatter of remediated nodes is correctly updated.
+- [ ] Unit tests are implemented to ensure remediation logic correctly transitions node state and handles file updates safely.
 
-## 5. Next Steps
-- [x] Break down into Stories.
+## 4. Next Steps (Stories)
+- [ ] Create Story for implementing remediation state transition and file saving.
 
-### Generated Stories
-- [x] story-090-133-remediation-state-transition-logic
-- [x] story-090-134-garbage-collection-integration

@@ -44,7 +44,7 @@ The mechanism will:
 * **Higher Throughput**: Unblocks downstream dependencies faster, improving overall execution speed.
 
 ## 4. Acceptance Criteria
-- [ ] Determine implementation approach: direct orchestrator integration vs. standalone TPM script.
+- [x] Determine implementation approach: direct orchestrator integration vs. standalone TPM script.
 - [ ] Implement detection logic to find `ACTIVE` nodes with invalid or stale `jules_session_id`s.
 - [ ] Implement remediation logic to transition identified nodes to `FAILED`.
 - [ ] Ensure integration with GitHub API (if necessary) to verify workflow run status.
@@ -52,5 +52,5 @@ The mechanism will:
 
 ## 5. Next Steps
 - [x] Break down into Epics.
-  - [ ] epic-050-089-zombie-node-detection-engine
-  - [ ] epic-050-090-zombie-node-remediation-and-gc
+  - [x] epic-050-089-zombie-node-detection-engine
+  - [x] epic-050-090-zombie-node-remediation-and-gc
