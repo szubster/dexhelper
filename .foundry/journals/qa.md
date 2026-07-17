@@ -58,3 +58,11 @@ The coder failed to properly implement relative memory offsets using `section1Of
 - **Task**: `task-258-264-egg-move-precomputation-etl-qa`
 - **Result**: Checked and fixed the BFS egg move generation logic. Added logic for Smeargle (who sketches any move), Nidoran lines, Volbeat/Illumise, and Hitmon families breeding. Precomputed paths are generating.
 - **Action**: Modified `scripts/generate-pokedata.ts`, validated output, updated acceptance criteria, completed checks and tests successfully.
+
+
+
+## 2026-07-16 - Gen 3 Roamer Active Flag Parsing QA Passed (Task: task-292-323-gen3-roamer-active-flag-parsing-qa)
+Verified that the `active` boolean is correctly parsed using the provided offset `0x13` via a module-level constant `ROAMER_ACTIVE_OFFSET = 0x13`.
+Verified that the memory offset calculations apply correctly and are tested.
+Verified that the resulting state object includes `isActive` mapping correctly.
+All requirements met.

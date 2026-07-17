@@ -2,13 +2,13 @@
 id: story-130-270-rng-tid-sid-integration
 type: STORY
 title: RNG TID and SID UI Integration
-status: READY
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on:
   - story-130-269-rng-tid-sid-component
-jules_session_id: null
+jules_session_id: '15154630619081376994'
 pr_number: null
 parent: epic-100-130-rng-tid-sid-display
 tags:
@@ -16,8 +16,8 @@ tags:
   - rng
   - ui
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 # RNG TID and SID UI Integration

@@ -797,7 +797,7 @@ describe('parseGen3Roamer', () => {
     view.setUint8(offset + 0x12, 50); // tough
 
     // Set active
-    view.setUint8(offset + 19, 1);
+    view.setUint8(offset + 0x13, 1);
 
     const result = parseGen3Roamer(view, 0, 'ruby');
 
@@ -828,7 +828,7 @@ describe('parseGen3Roamer', () => {
     view.setUint16(offset + 10, 150, true);
     view.setUint8(offset + 12, 40);
     view.setUint8(offset + 13, 1);
-    view.setUint8(offset + 19, 1);
+    view.setUint8(offset + 0x13, 1);
 
     const result = parseGen3Roamer(view, 0, 'ruby');
 
@@ -860,7 +860,7 @@ describe('parseGen3Roamer', () => {
     view.setUint16(offset + 10, 150, true);
     view.setUint8(offset + 12, 40);
     view.setUint8(offset + 13, 1);
-    view.setUint8(offset + 19, 1);
+    view.setUint8(offset + 0x13, 1);
 
     const result = parseGen3Roamer(view, 0, 'ruby');
 
@@ -899,7 +899,7 @@ describe('parseGen3Roamer', () => {
     view.setUint16(offset + 10, 150, true);
     view.setUint8(offset + 12, 40);
     view.setUint8(offset + 13, 0);
-    view.setUint8(offset + 19, 1);
+    view.setUint8(offset + 0x13, 1);
 
     const result = parseGen3Roamer(view, 0, 'emerald');
 
@@ -930,7 +930,7 @@ describe('parseGen3Roamer', () => {
     view.setUint16(offset + 10, 150, true);
     view.setUint8(offset + 12, 50);
     view.setUint8(offset + 13, 0);
-    view.setUint8(offset + 19, 1);
+    view.setUint8(offset + 0x13, 1);
 
     const result = parseGen3Roamer(view, 0, 'firered');
 
@@ -963,12 +963,12 @@ describe('parseGen3Roamer', () => {
     view.setUint8(offset + 13, 0);
 
     // False case
-    view.setUint8(offset + 19, 0);
+    view.setUint8(offset + 0x13, 0);
     let result = parseGen3Roamer(view, 0, 'ruby');
     expect(result.isActive).toBe(false);
 
     // True case (anything != 0)
-    view.setUint8(offset + 19, 2);
+    view.setUint8(offset + 0x13, 2);
     result = parseGen3Roamer(view, 0, 'ruby');
     expect(result.isActive).toBe(true);
   });
