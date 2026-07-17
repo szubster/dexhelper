@@ -32,4 +32,5 @@ Players want to unlock all custom PC box wallpapers in Gen 3 but the phrase gene
 Leverage the parsed Trainer ID from the uploaded `.sav` file to automatically generate and display the 16 custom unlock phrases, creating a personalized "Custom Wallpaper Checklist" dashboard.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this idea into a PRD to formalize the feature and assign it to an epic for tracking.
+- [x] Product Manager: Convert this idea into a PRD to formalize the feature and assign it to an epic for tracking.
+- [ ] prd-116-049-gen3-pc-box-wallpaper-customizer
