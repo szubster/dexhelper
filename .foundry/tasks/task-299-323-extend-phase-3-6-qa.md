@@ -32,9 +32,9 @@ Verify the implementation in `.github/scripts/foundry-orchestrator.ts` and the a
 - Run the test suite: `cd .github/scripts && pnpm install && npx vitest`.
 
 ## Acceptance Criteria
-- [ ] Code modifications accurately implement the requirements.
-- [ ] All unit tests pass, explicitly covering the new behaviour.
-- [ ] The change does not break existing test cases.
+- [x] Code modifications accurately implement the requirements.
+- [x] All unit tests pass, explicitly covering the new behaviour.
+- [x] The change does not break existing test cases.
 
 ### REMINDER FOR QA
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
