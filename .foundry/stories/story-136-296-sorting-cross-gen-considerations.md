@@ -2,10 +2,10 @@
 id: story-136-296-sorting-cross-gen-considerations
 type: STORY
 title: Cross-Generation Sorting Considerations and Compatibility
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
-created_at: "2026-07-10"
-updated_at: "2026-07-10"
+created_at: '2026-07-10'
+updated_at: '2026-07-17'
 depends_on:
   - story-136-295-sorting-standard-strategies
 jules_session_id: null
@@ -19,8 +19,10 @@ tags:
   - sorting
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  story-136-295-sorting-standard-strategies
+notes: ''
 ---
 
 # Story: Cross-Generation Sorting Considerations and Compatibility

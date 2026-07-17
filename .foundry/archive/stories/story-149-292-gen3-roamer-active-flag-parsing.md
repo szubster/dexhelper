@@ -2,7 +2,7 @@
 id: story-149-292-gen3-roamer-active-flag-parsing
 type: STORY
 title: Gen 3 Roamer Active Flag Parsing
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-08'
 updated_at: '2026-07-16'
@@ -29,7 +29,7 @@ Extract and expose the 'active' boolean from the roamer struct.
 Specifically target byte 19 of the roamer structure to determine if the roamer is currently active in the game world (not yet caught or defeated).
 
 ## Acceptance Criteria
-- [ ] Map byte 19 of the roamer struct to an `isActive` boolean in the return object.
+- [x] Map byte 19 of the roamer struct to an `isActive` boolean in the return object.
 - [x] Tech Lead: Break down this Story into executable Tasks.
-- [ ] task-292-322-gen3-roamer-active-flag-parsing-impl
-- [ ] task-292-323-gen3-roamer-active-flag-parsing-qa
+- [x] task-292-322-gen3-roamer-active-flag-parsing-impl
+- [x] task-292-323-gen3-roamer-active-flag-parsing-qa

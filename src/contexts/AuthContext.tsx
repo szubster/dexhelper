@@ -1,7 +1,7 @@
 import { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
 import { redirectPage } from '../utils/window';
 
-export const AUTH_OFFLINE_INDICATOR = 'isLoggedIn';
+export const AUTH_LOGGED_IN_INDICATOR = 'isLoggedIn';
 
 interface AuthContextType {
   isLoggedIn: boolean;
@@ -19,20 +19,20 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   useEffect(() => {
-    const storedState = localStorage.getItem(AUTH_OFFLINE_INDICATOR);
+    const storedState = localStorage.getItem(AUTH_LOGGED_IN_INDICATOR);
     if (storedState === 'true') {
       setIsLoggedIn(true);
     }
   }, []);
 
   const login = () => {
-    localStorage.setItem(AUTH_OFFLINE_INDICATOR, 'true');
+    localStorage.setItem(AUTH_LOGGED_IN_INDICATOR, 'true');
     setIsLoggedIn(true);
     redirectPage('/cdn-cgi/access/login');
   };
 
   const logout = () => {
-    localStorage.removeItem(AUTH_OFFLINE_INDICATOR);
+    localStorage.removeItem(AUTH_LOGGED_IN_INDICATOR);
     setIsLoggedIn(false);
     redirectPage('/cdn-cgi/access/logout');
   };

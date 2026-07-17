@@ -2,13 +2,13 @@
 id: epic-050-090-zombie-node-remediation-and-gc
 type: EPIC
 title: Zombie Node Remediation and GC Logic
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-14'
-updated_at: '2026-06-15'
+updated_at: '2026-07-17'
 depends_on:
   - epic-050-089-zombie-node-detection-engine
-jules_session_id: '11685995354736408843'
+jules_session_id: '3641333970259745807'
 pr_number: null
 parent: prd-079-050-foundry-zombie-node-cleanup
 tags:
@@ -16,8 +16,8 @@ tags:
   - orchestrator
   - maintenance
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 
@@ -37,14 +37,14 @@ This Epic handles the remediation logic (state transitions) and the integration 
 3. **Resurrection Hand-off**: Ensure that the remediated nodes (`FAILED` state) are correctly processed by the existing resurrection loop on the subsequent cycle without manual intervention.
 
 ## 4. Acceptance Criteria
-- [ ] Determine the integration approach (standalone script vs. direct orchestrator integration).
-- [ ] Implement state transition logic (modifying `status` to `FAILED` in the markdown files).
-- [ ] Implement the integration of detection and remediation logic.
-- [ ] Ensure unit test coverage for the remediation functionality.
+- [x] Determine the integration approach (standalone script vs. direct orchestrator integration).
+- [x] Implement state transition logic (modifying `status` to `FAILED` in the markdown files).
+- [x] Implement the integration of detection and remediation logic.
+- [x] Ensure unit test coverage for the remediation functionality.
 
 ## 5. Next Steps
 - [x] Break down into Stories.
 
 ### Generated Stories
-- [ ] story-090-133-remediation-state-transition-logic
-- [ ] story-090-134-garbage-collection-integration
+- [x] story-090-133-remediation-state-transition-logic
+- [x] story-090-134-garbage-collection-integration

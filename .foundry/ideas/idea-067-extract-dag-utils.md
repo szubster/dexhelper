@@ -2,12 +2,12 @@
 id: idea-067-extract-dag-utils
 type: IDEA
 title: Extract DAG Utilities to Shared Module
-status: PENDING
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-25'
-updated_at: '2026-05-31'
+updated_at: '2026-07-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9837866238546685315'
 parent: null
 tags:
   - refactor

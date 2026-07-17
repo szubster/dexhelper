@@ -2,20 +2,20 @@
 id: prd-067-036-extract-dag-utils
 type: PRD
 title: Extract DAG Utilities to Shared Module
-status: ACTIVE
+status: CANCELLED
 owner_persona: epic_planner
 created_at: '2026-05-29'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on: []
-jules_session_id: '14002401157211504464'
+jules_session_id: '3525481879973084593'
 parent: idea-067-extract-dag-utils
 tags:
   - refactor
   - foundry
   - orchestrator
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: Spawned from idea-067-extract-dag-utils to organize DAG orchestration logic.
 ---
 
