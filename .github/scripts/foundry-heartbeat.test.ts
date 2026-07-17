@@ -112,6 +112,89 @@ describe('Foundry Heartbeat', () => {
     expect(writeCall[1]).toContain('status: VERIFYING');
   });
 
+
+  it('should transition an EPIC to FAILED instead of VERIFYING if it lacks an E2E story', async () => {
+    const mockEpic = {
+      filePath: '/mock/repo/.foundry/epics/epic-1.md',
+      repoPath: '.foundry/epics/epic-1.md',
+      frontmatter: {
+        id: 'epic-1',
+        type: 'EPIC',
+        status: 'ACTIVE',
+        jules_session_id: 'session-1',
+        owner_persona: 'story_owner'
+      },
+      rawContent: '---\ntype: EPIC\nstatus: ACTIVE\njules_session_id: "session-1"\nowner_persona: "story_owner"\n---\nBody'
+    };
+
+    const mockChild = {
+      filePath: '/mock/repo/.foundry/stories/story-1.md',
+      repoPath: '.foundry/stories/story-1.md',
+      frontmatter: {
+        id: 'story-1',
+        type: 'STORY',
+        parent: 'epic-1',
+        tags: ['frontend']
+      }
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/epics/epic-1.md', '/mock/repo/.foundry/stories/story-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockImplementation((fp) => {
+      if (fp === '/mock/repo/.foundry/epics/epic-1.md') return mockEpic;
+      if (fp === '/mock/repo/.foundry/stories/story-1.md') return mockChild;
+      return null;
+    });
+
+    await transitionNodeToCompleted(mockEpic, '/mock/repo', 123);
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+    const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+    expect(writeCall[0]).toBe(mockEpic.filePath);
+    expect(writeCall[1]).toContain('status: FAILED');
+    expect(writeCall[1]).toContain('Missing E2E');
+  });
+
+  it('should transition an EPIC to VERIFYING if it has an E2E story', async () => {
+    const mockEpic = {
+      filePath: '/mock/repo/.foundry/epics/epic-1.md',
+      repoPath: '.foundry/epics/epic-1.md',
+      frontmatter: {
+        id: 'epic-1',
+        type: 'EPIC',
+        status: 'ACTIVE',
+        jules_session_id: 'session-1',
+        owner_persona: 'story_owner'
+      },
+      rawContent: '---\ntype: EPIC\nstatus: ACTIVE\njules_session_id: "session-1"\nowner_persona: "story_owner"\n---\nBody'
+    };
+
+    const mockChild = {
+      filePath: '/mock/repo/.foundry/stories/story-1.md',
+      repoPath: '.foundry/stories/story-1.md',
+      frontmatter: {
+        id: 'story-1',
+        type: 'STORY',
+        parent: 'epic-1',
+        tags: ['integration']
+      }
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/epics/epic-1.md', '/mock/repo/.foundry/stories/story-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockImplementation((fp) => {
+      if (fp === '/mock/repo/.foundry/epics/epic-1.md') return mockEpic;
+      if (fp === '/mock/repo/.foundry/stories/story-1.md') return mockChild;
+      return null;
+    });
+
+    await transitionNodeToCompleted(mockEpic, '/mock/repo', 123);
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+    const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+    expect(writeCall[0]).toBe(mockEpic.filePath);
+    expect(writeCall[1]).toContain('status: VERIFYING');
+    expect(writeCall[1]).toContain('owner_persona: auditor');
+  });
+
   it('should transition an active PRD node with owner_persona product_manager to VERIFYING and update owner_persona to auditor', async () => {
     const mockPrd = {
       filePath: '/mock/repo/.foundry/prds/prd-1.md',
