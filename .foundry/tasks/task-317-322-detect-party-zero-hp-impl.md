@@ -38,8 +38,8 @@ Implement logic to detect Pokémon currently at 0 HP in the party as dead.
 - **Empty PRs**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement logic to mark party Pokémon with 0 HP as dead.
-- [ ] Verify the state updates correctly upon party Pokémon death.
-- [ ] Ensure all memory offsets are defined as module-level constants.
-- [ ] Ensure Gen 3 save parsing uses resolved section offsets.
-- [ ] Self-verify the changes and document the outcome.
+- [x] Implement logic to mark party Pokémon with 0 HP as dead.
+- [x] Verify the state updates correctly upon party Pokémon death.
+- [x] Ensure all memory offsets are defined as module-level constants.
+- [x] Ensure Gen 3 save parsing uses resolved section offsets.
+- [x] Self-verify the changes and document the outcome.
