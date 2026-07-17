@@ -1,11 +1,11 @@
 ---
 id: epic-054-268-gen3-ash-save-parsing
 type: EPIC
-title: "Epic: Gen 3 Volcanic Ash Save Parsing"
-status: PENDING
+title: 'Epic: Gen 3 Volcanic Ash Save Parsing'
+status: READY
 owner_persona: story_owner
-created_at: "2026-07-17"
-updated_at: "2026-07-17"
+created_at: '2026-07-17'
+updated_at: '2026-07-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
 research_references:
   - .foundry/archive/research/research-054-243-gen3-ash-gathering-offsets.md
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Epic: Gen 3 Volcanic Ash Save Parsing
