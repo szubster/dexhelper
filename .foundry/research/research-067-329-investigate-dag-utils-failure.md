@@ -3,7 +3,7 @@ id: research-067-329-investigate-dag-utils-failure
 type: RESEARCH
 title: Investigate Extract DAG Utils Failure
 status: PENDING
-owner_persona: tech_lead
+owner_persona: researcher
 created_at: '2026-07-17'
 updated_at: '2026-07-17'
 depends_on: []
