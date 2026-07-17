@@ -1,0 +1,38 @@
+---
+id: task-295-330-gen1-checklist-ui-qa
+type: TASK
+title: Gen 1 Checklist UI QA
+status: PENDING
+owner_persona: qa
+created_at: '2026-07-16'
+updated_at: '2026-07-16'
+depends_on:
+  - task-295-329-gen1-checklist-ui-impl
+jules_session_id: null
+pr_number: null
+parent: story-136-295-gen1-checklist-ui
+tags:
+  - gen1
+  - feature
+  - ui
+  - qa
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Gen 1 Checklist UI QA
+
+Verify the implementation of the Gen 1 Checklist UI React component.
+
+## Policies
+- If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
+- If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
+- If you submit an empty PR for a completed task (e.g. the component already exists), you MUST check off all Acceptance Criteria checkboxes before submitting.
+
+## Acceptance Criteria
+- [ ] Verify the UI component renders correctly and displays the static encounters from `STATIC_GIFT_DATA`.
+- [ ] Verify the UI component adheres strictly to ADR 008 aesthetics (`rounded-none`, `border-dashed`, `font-mono`).
+- [ ] Verify the visual state accurately reflects the claimed/defeated status derived from the parsed event flags.
+- [ ] Verify the component has comprehensive unit tests that pass.
