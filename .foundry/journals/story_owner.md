@@ -23,3 +23,7 @@ When a macro node is assigned and its checklist contains duplicated sequence IDs
 When processing roamer tracking, Gen 3 map coordinates cannot be statically extracted as they are kept in dynamically allocated EWRAM during gameplay and are never serialized into the save file (as per `research-043-263-roamer-tracking-remediation` and ADR 108-027). Any epic attempting to extract Gen 3 roamer map coordinates must be cancelled with status `CANCELLED` and no acceptance criteria checked. This ensures we avoid the Impossible Loop.
 ### Gen 2 Room Decoration & Bank Parsing
 - When breaking down Epics, it's critical to track the Acceptance Criteria and ensure child nodes are properly formatted in the markdown as `- [ ] <node_id>`. Do not modify YAML frontmatter.
+
+## 2026-07-17: Empty PR for Pre-existing Cancelled Children
+- **Anomaly**: When breaking down `epic-106-137-gen2-static-encounters`, the required child stories (`story-137-294` and `story-137-295`) already existed in the file system and were marked as `CANCELLED` (one due to reaching max rejection count, the other due to permanent failure of dependency).
+- **Action Taken**: Checked off the checkboxes for the existing cancelled child stories in the epic's markdown body. I will submit an Empty PR to let the Orchestrator decide the next state (which will likely be checking for unresolved dependencies or transitioning the parent). I did NOT generate duplicate/new child stories because the parent epic's checklist was explicitly satisfied by checking off the existing nodes.
