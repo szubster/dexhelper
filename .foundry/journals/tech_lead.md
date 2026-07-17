@@ -186,3 +186,4 @@ When generating blueprints for Gen 3 dynamic save block extraction (like Volcani
 - Explicitly instructed the Coder and QA personas on error handling, Empty PR requirements, and strict magic number / relative offset rules.
 
 2026-07-16: Created retry 7 for Gen 3 TV parser because retry 6 failed QA due to inline magic numbers and incorrect error message string.
+- 2026-07-17: Drafted `task-322-331-gen2-decoration-savings-parsing-impl` and `task-322-332-gen2-decoration-savings-parsing-qa` from `story-311-322-gen2-room-decoration-parsing`. Included explicit architectural constraints requiring the Coder to use module-level constants for offsets and forbidding inline magic numbers (ADR 028).
