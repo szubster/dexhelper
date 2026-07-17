@@ -46,4 +46,24 @@ describe('RngTidSidDisplay', () => {
     // Fast-forward to trigger the timeout for reset
     await vi.advanceTimersByTimeAsync(2000);
   });
+
+  it('logs an error when clipboard copy fails', async () => {
+    const writeTextMock = vi.fn<() => Promise<void>>().mockRejectedValue(new Error('Clipboard error'));
+    Object.defineProperty(navigator, 'clipboard', {
+      value: { writeText: writeTextMock },
+      configurable: true,
+      writable: true,
+    });
+
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    await render(<RngTidSidDisplay tid={123} sid={4567} />);
+    const copyButton = page.getByRole('button', { name: /copy tid and sid to clipboard/i });
+
+    await userEvent.click(copyButton);
+    expect(writeTextMock).toHaveBeenCalledWith('TID: 123, SID: 4567');
+    expect(consoleSpy).toHaveBeenCalledWith('Failed to copy to clipboard');
+
+    consoleSpy.mockRestore();
+  });
 });
