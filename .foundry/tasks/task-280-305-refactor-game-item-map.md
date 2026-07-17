@@ -2,7 +2,7 @@
 id: task-280-305-refactor-game-item-map
 type: TASK
 title: Refactor Game Item Map Data
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-06'
 updated_at: '2026-07-17'
@@ -16,7 +16,9 @@ tags:
   - refactor
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 9786555232757702679 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 

@@ -2,7 +2,7 @@
 id: story-136-295-gen1-checklist-ui
 type: STORY
 title: Gen 1 Checklist UI
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-07-10'
 updated_at: '2026-07-16'
@@ -16,7 +16,9 @@ tags:
   - feature
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 17498938711706068394 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 

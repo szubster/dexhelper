@@ -2,7 +2,7 @@
 id: prd-079-050-foundry-zombie-node-cleanup
 type: PRD
 title: Foundry Zombie Node Garbage Collection
-status: ACTIVE
+status: FAILED
 owner_persona: epic_planner
 created_at: '2026-06-14'
 updated_at: '2026-07-17'
@@ -16,7 +16,9 @@ tags:
   - maintenance
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Zombie node detected: Session 9892889112504999413 is TERMINATED without
+  resolving the node
 notes: ''
 ---
 
