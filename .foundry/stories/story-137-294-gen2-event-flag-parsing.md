@@ -25,5 +25,6 @@ Extract the event flags for Gen 2 static encounters from the save file. This inv
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-294-316-gen2-static-encounter-flags-impl
-- [ ] task-294-317-gen2-static-encounter-flags-qa
+- [x] task-294-316-gen2-static-encounter-flags-impl
+- [x] task-294-317-gen2-static-encounter-flags-qa
+Triggering commit change
