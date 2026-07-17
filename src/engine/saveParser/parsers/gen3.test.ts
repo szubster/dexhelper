@@ -482,7 +482,7 @@ describe('parseGen3MixRecords', () => {
     const view = new DataView(buffer);
 
     expect(() => parseGen3MixRecords(view, 0)).toThrowError(
-      'The save file is corrupted or incomplete: Invalid TV block struct.',
+      'The save file is corrupted or incomplete.',
     );
   });
 });
@@ -1109,7 +1109,7 @@ describe('parseGen3ActiveSwarm', () => {
     const offset = 0;
 
     expect(() => parseGen3ActiveSwarm(view, offset)).toThrow(
-      'The save file is corrupted or incomplete: Invalid TV block struct.',
+      'The save file is corrupted or incomplete.',
     );
   });
 
