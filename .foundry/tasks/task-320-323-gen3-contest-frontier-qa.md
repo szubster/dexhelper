@@ -2,13 +2,13 @@
 id: task-320-323-gen3-contest-frontier-qa
 type: TASK
 title: QA Gen 3 Contest & Battle Frontier Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-14'
 updated_at: '2026-07-17'
 depends_on:
   - task-320-322-gen3-contest-frontier-impl
-jules_session_id: '16146267929111479059'
+jules_session_id: null
 pr_number: null
 parent: story-304-320-gen3-contest-frontier-extraction
 tags:

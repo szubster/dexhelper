@@ -2,10 +2,10 @@
 id: story-304-320-gen3-contest-frontier-extraction
 type: STORY
 title: 'Story: Gen 3 Contest & Battle Frontier Extraction'
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
