@@ -2,10 +2,10 @@
 id: story-136-295-gen1-checklist-ui
 type: STORY
 title: Gen 1 Checklist UI
-status: FAILED
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-07-10'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on:
   - story-136-294-gen1-event-flag-parsing
 jules_session_id: '17498938711706068394'
@@ -15,10 +15,8 @@ tags:
   - gen1
   - feature
 research_references: []
-rejection_count: 2
-rejection_reason: >-
-  Zombie node detected: Session 17498938711706068394 is TERMINATED without
-  resolving the node
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

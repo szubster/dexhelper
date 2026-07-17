@@ -2,7 +2,7 @@
 id: story-136-295-sorting-standard-strategies
 type: STORY
 title: Implement Standard PC Box Sorting Strategies
-status: FAILED
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-07-10'
 updated_at: '2026-07-17'
@@ -15,10 +15,8 @@ tags:
   - feature
   - sorting
 research_references: []
-rejection_count: 2
-rejection_reason: >-
-  Zombie node detected: Session 2079813014804897131 is TERMINATED without
-  resolving the node
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

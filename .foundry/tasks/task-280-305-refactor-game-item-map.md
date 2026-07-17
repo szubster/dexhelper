@@ -2,23 +2,21 @@
 id: task-280-305-refactor-game-item-map
 type: TASK
 title: Refactor Game Item Map Data
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-07-06'
 updated_at: '2026-07-17'
 depends_on:
   - task-280-304-item-db-schema-and-sync
-jules_session_id: '9786555232757702679'
+jules_session_id: null
 pr_number: null
 parent: story-087-280-item-runtime-integration
 tags:
   - db
   - refactor
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  Zombie node detected: Session 9786555232757702679 is TERMINATED without
-  resolving the node
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

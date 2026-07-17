@@ -2,7 +2,7 @@
 id: story-130-270-rng-tid-sid-integration
 type: STORY
 title: RNG TID and SID UI Integration
-status: FAILED
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-07-04'
 updated_at: '2026-07-17'
@@ -16,10 +16,8 @@ tags:
   - rng
   - ui
 research_references: []
-rejection_count: 2
-rejection_reason: >-
-  Zombie node detected: Session 15154630619081376994 is TERMINATED without
-  resolving the node
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 # RNG TID and SID UI Integration
