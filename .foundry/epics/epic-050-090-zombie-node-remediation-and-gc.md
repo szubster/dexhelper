@@ -48,3 +48,4 @@ This Epic handles the remediation logic (state transitions) and the integration 
 ### Generated Stories
 - [x] story-090-133-remediation-state-transition-logic
 - [x] story-090-134-garbage-collection-integration
+<!-- Verified all child tasks are complete -->
