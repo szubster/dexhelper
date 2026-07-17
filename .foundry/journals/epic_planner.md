@@ -58,3 +58,5 @@ Successfully broke down the "Missed Trainer Radar" PRD (`prd-104-109-missed-trai
 **Important Reminders:**
 - Temporary processing files (like `batch_*` logs from bash commands) must be manually deleted before committing to avoid polluting the workspace.
 - The `depends_on` array in the YAML frontmatter MUST use the bare node ID (e.g., `epic-109-306-missed-trainer-data-extraction-gen1-gen2`), not the relative file path.
+\n## Session 2026-07-17: Missed Dependency Linkage in Epic Generation
+**Lesson:** When breaking down a PRD into Epic nodes, ensure that inter-Epic dependencies are correctly mapped in the `depends_on` frontmatter property of the dependent Epics. For example, a UI dashboard Epic should depend on its underlying Data Parsing Epic being completed first.
