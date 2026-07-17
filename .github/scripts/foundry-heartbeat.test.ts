@@ -140,8 +140,8 @@ describe('Foundry Heartbeat', () => {
 
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/epics/epic-1.md', '/mock/repo/.foundry/stories/story-1.md']);
     vi.mocked(orchestrator.parseNodeFile).mockImplementation((fp) => {
-      if (fp === '/mock/repo/.foundry/epics/epic-1.md') return mockEpic;
-      if (fp === '/mock/repo/.foundry/stories/story-1.md') return mockChild;
+      if (fp === '/mock/repo/.foundry/epics/epic-1.md') return mockEpic as any;
+      if (fp === '/mock/repo/.foundry/stories/story-1.md') return mockChild as any;
       return null;
     });
 
@@ -181,8 +181,8 @@ describe('Foundry Heartbeat', () => {
 
     vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/epics/epic-1.md', '/mock/repo/.foundry/stories/story-1.md']);
     vi.mocked(orchestrator.parseNodeFile).mockImplementation((fp) => {
-      if (fp === '/mock/repo/.foundry/epics/epic-1.md') return mockEpic;
-      if (fp === '/mock/repo/.foundry/stories/story-1.md') return mockChild;
+      if (fp === '/mock/repo/.foundry/epics/epic-1.md') return mockEpic as any;
+      if (fp === '/mock/repo/.foundry/stories/story-1.md') return mockChild as any;
       return null;
     });
 
