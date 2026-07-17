@@ -225,3 +225,7 @@
 ## 2026-07-15
 **Idea:** Implement Zod for Strict Node Schema Validation in Foundry Orchestrator
 **Learning:** As the Foundry Orchestrator evolves, manually verifying YAML frontmatter constraints (e.g., status enums, single owner_persona, proper array types for depends_on) in `.github/scripts/foundry-orchestrator.ts` has become brittle. Adopting a robust schema validation library like `zod` will eliminate silent failures, improve debugging when agents create malformed nodes, and ensure the DAG remains healthy. This aligns with the "Technical Evolution" focus area by adopting a new technology to solve a clear pain point in the Foundry system.
+
+## 2026-07-17
+**Idea:** Implement Circular Dependency Detection in DAG Orchestrator
+**Learning:** As the Foundry Orchestrator resolves dependencies linearly, circular dependencies can cause silent failures (deadlocking nodes in PENDING). Proactively implementing cycle detection in the orchestrator aligns with the "Technical Evolution" focus area by significantly improving the robustness of the system and preventing infinite hanging states caused by agent mistakes.
