@@ -112,6 +112,63 @@ describe('Foundry Heartbeat', () => {
     expect(writeCall[1]).toContain('status: VERIFYING');
   });
 
+  it('should transition an active PRD node with owner_persona product_manager to VERIFYING and update owner_persona to auditor', async () => {
+    const mockPrd = {
+      filePath: '/mock/repo/.foundry/prds/prd-1.md',
+      repoPath: '.foundry/prds/prd-1.md',
+      frontmatter: {
+        id: 'prd-1',
+        type: 'PRD',
+        status: 'ACTIVE',
+        owner_persona: 'product_manager',
+        jules_session_id: 'session-1'
+      },
+      rawContent: '---\ntype: PRD\nstatus: ACTIVE\nowner_persona: "product_manager"\njules_session_id: "session-1"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/prds/prd-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockImplementation((fp) => {
+      if (fp === '/mock/repo/.foundry/prds/prd-1.md') return mockPrd as any;
+      return null;
+    });
+
+    await transitionNodeToCompleted(mockPrd, mockRepoRoot, 123);
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+    const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+    expect(writeCall[0]).toBe(mockPrd.filePath);
+    expect(writeCall[1]).toContain('status: VERIFYING');
+    expect(writeCall[1]).toContain('owner_persona: auditor');
+  });
+
+  it('should transition an active PRD node with owner_persona auditor to COMPLETED directly', async () => {
+    const mockPrd = {
+      filePath: '/mock/repo/.foundry/prds/prd-1.md',
+      repoPath: '.foundry/prds/prd-1.md',
+      frontmatter: {
+        id: 'prd-1',
+        type: 'PRD',
+        status: 'ACTIVE',
+        owner_persona: 'auditor',
+        jules_session_id: 'session-1'
+      },
+      rawContent: '---\ntype: PRD\nstatus: ACTIVE\nowner_persona: "auditor"\njules_session_id: "session-1"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/prds/prd-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockImplementation((fp) => {
+      if (fp === '/mock/repo/.foundry/prds/prd-1.md') return mockPrd as any;
+      return null;
+    });
+
+    await transitionNodeToCompleted(mockPrd, mockRepoRoot, 123);
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+    const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+    expect(writeCall[0]).toBe(mockPrd.filePath);
+    expect(writeCall[1]).toContain('status: COMPLETED');
+  });
+
   it('should transition a node to READY without penalty if its Jules session is in a terminal state without a PR', async () => {
     const mockNode = {
       filePath: '/mock/repo/.foundry/tasks/task-1.md',
