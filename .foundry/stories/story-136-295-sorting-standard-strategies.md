@@ -33,4 +33,6 @@ Building upon the standard interface, we need specific, actionable sorters that 
 - [ ] Implement a `LevelSorter` (supports ascending/descending).
 - [ ] Implement a `TypeSorter` (sorts by primary type, then secondary type).
 - [ ] Implement an `AlphaSorter` (alphabetical by nickname/species name).
-- [ ] Break down story into tasks for technical blueprinting and implementation.
+- [x] Break down story into tasks for technical blueprinting and implementation.
+- [ ] task-295-329-sorting-standard-strategies-impl
+- [ ] task-295-330-sorting-standard-strategies-qa
