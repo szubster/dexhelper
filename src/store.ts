@@ -1,8 +1,10 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { AUTH_LOGGED_IN_INDICATOR } from './contexts/AuthContext';
 import { saveDB } from './db/SaveDB';
 import type { GameVersion as GameVersionType, SaveData } from './engine/saveParser/index';
 import { parseSaveFile } from './engine/saveParser/index';
+import { r2Client } from './utils/r2/client';
 
 /**
  * @module store
@@ -184,7 +186,27 @@ export const useStore = create<AppStore>()(
 
       loadSaveFromStorage: async () => {
         try {
-          const buffer = await saveDB.getSave('last_save_file');
+          let buffer: Uint8Array | undefined;
+
+          if (localStorage.getItem(AUTH_LOGGED_IN_INDICATOR) === 'true') {
+            try {
+              const saves = await r2Client.listSaves();
+              if (saves.length > 0 && saves[0]) {
+                const cloudSave = await r2Client.getSave(saves[0]);
+                if (cloudSave) {
+                  await saveDB.putSave('last_save_file', cloudSave);
+                  buffer = cloudSave;
+                }
+              }
+            } catch {
+              console.error('System: failed to pull from cloud');
+            }
+          }
+
+          if (!buffer) {
+            buffer = await saveDB.getSave('last_save_file');
+          }
+
           if (buffer) {
             const { manualVersion } = get();
             const data = parseSaveFile(buffer.buffer, manualVersion || undefined);

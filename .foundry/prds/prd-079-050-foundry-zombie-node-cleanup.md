@@ -53,4 +53,7 @@ The mechanism will:
 ## 5. Next Steps
 - [x] Break down into Epics.
   - [ ] epic-050-089-zombie-node-detection-engine
-  - [ ] epic-050-090-zombie-node-remediation-and-gc
+  - [x] epic-050-090-zombie-node-remediation-and-gc
+  - [ ] research-050-329-investigate-zombie-gc-failure
+  - [ ] epic-050-330-zombie-node-remediation-logic
+  - [ ] epic-050-331-zombie-node-gc-integration

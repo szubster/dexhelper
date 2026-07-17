@@ -2,13 +2,13 @@
 id: epic-044-149-gen3-roamer-core-extraction-v4
 type: EPIC
 title: Gen 3 Roamer Core Extraction v4
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-08'
 updated_at: '2026-07-17'
 depends_on:
   - research-044-207-gen3-roamer-ui-alternatives
-jules_session_id: null
+jules_session_id: '6775344824820194592'
 pr_number: null
 parent: prd-071-044-gen3-roamer-tracker
 tags:
@@ -30,9 +30,9 @@ Extract the core data structure of the roaming legendary from Gen 3 save files, 
 Parse the `Roamer` struct from the save file (SaveBlock1) to extract the IVs, Personality Value, Species, HP, Level, Status, and Active boolean. This must support Emerald, Ruby/Sapphire, and FireRed/LeafGreen offsets.
 
 ## Acceptance Criteria
-- [ ] Implement robust `DataView` parsing for the Gen 3 `Roamer` struct across all Gen 3 game versions.
-- [ ] Extract and expose the `active` boolean to determine if the roamer is currently available in the game world.
-- [ ] Write unit tests verifying extraction against known good save fixtures for each game version.
-- [ ] story-149-291-gen3-roamer-core-extraction
-- [ ] story-149-292-gen3-roamer-active-flag-parsing
-- [ ] Story Owner: Break down this Epic into executable Stories.
+- [x] Implement robust `DataView` parsing for the Gen 3 `Roamer` struct across all Gen 3 game versions.
+- [x] Extract and expose the `active` boolean to determine if the roamer is currently available in the game world.
+- [x] Write unit tests verifying extraction against known good save fixtures for each game version.
+- [x] story-149-291-gen3-roamer-core-extraction
+- [x] story-149-292-gen3-roamer-active-flag-parsing
+- [x] Story Owner: Break down this Epic into executable Stories.

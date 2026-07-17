@@ -5,7 +5,7 @@ title: Gen 3 TM/HM Parse - Implementation
 status: READY
 owner_persona: coder
 created_at: '2026-07-15'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on: []
 jules_session_id: null
 pr_number: null

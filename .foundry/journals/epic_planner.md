@@ -58,3 +58,8 @@ Successfully broke down the "Missed Trainer Radar" PRD (`prd-104-109-missed-trai
 **Important Reminders:**
 - Temporary processing files (like `batch_*` logs from bash commands) must be manually deleted before committing to avoid polluting the workspace.
 - The `depends_on` array in the YAML frontmatter MUST use the bare node ID (e.g., `epic-109-306-missed-trainer-data-extraction-gen1-gen2`), not the relative file path.
+\n## Session 2026-07-17: Missed Dependency Linkage in Epic Generation
+**Lesson:** When breaking down a PRD into Epic nodes, ensure that inter-Epic dependencies are correctly mapped in the `depends_on` frontmatter property of the dependent Epics. For example, a UI dashboard Epic should depend on its underlying Data Parsing Epic being completed first.
+
+## 2026-07-16: Replacement of FAILED and CANCELLED Epics
+When spawning new epics to replace previously FAILED or CANCELLED epics, it is important to include explicit research into the rejection reason provided in the failed node's frontmatter. In this case, `epic-036-053-shared-dag-utilities.md` was FAILED due to `[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing E2E/integration story`. The replacement epic, `epic-036-329-shared-dag-utilities.md`, was created with a specific scope item and acceptance criteria added for the missing E2E integration story. Old nodes were removed and references in the parent PRD were replaced with the new ones.

@@ -10,3 +10,7 @@ When a requirement fails permanently at the `TASK` level without a parent node a
 ## 2026-07-06: Consolidated Prompt Directives
 Recognized significant redundancy across all agent personas regarding common directives such as node creation guidelines, contextual exploration rules, and abort/rejection handling loops. These duplicated instructions were leading to context bloat and potential inconsistencies.
 I have extracted these common directives and appended them directly to `.foundry/docs/knowledge_base/agents/core_policies.md`. The core policies prompt pointer in each persona was modified to instruct the agents to explicitly look for these new rules. I then removed the duplicated blocks from all `.github/agents/*.md` files. This optimization significantly reduces prompt size while enforcing uniform operational standards system-wide.
+
+## 2026-07-17: Consolidated Task Reminders
+Identified redundancy where the Tech Lead was instructed to copy-paste failure handling and Empty PR checkbox reminders into every single TASK node's markdown body. This causes unnecessary bloat.
+I have removed this directive from `tech_lead.md` and created an IDEA node (`idea-118-centralize-prompt-reminders`) to track this process improvement. The core policies (`core_policies.md`) already cover these rules comprehensively.

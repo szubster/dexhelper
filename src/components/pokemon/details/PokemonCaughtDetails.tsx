@@ -4,6 +4,7 @@ import type { PokemonInstance } from '../../../engine/saveParser/index';
 import { useStore } from '../../../store';
 import { getTimeCapsuleValidation } from '../../../utils/timeCapsule';
 import { ContestConditionStats } from '../../ContestConditionStats';
+import { DataLabel } from '../../DataLabel';
 import { HoverScanner } from '../../HoverScanner';
 import { LcdGrid } from '../../LcdGrid';
 import { SectionHeader } from '../../SectionHeader';
@@ -78,19 +79,19 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
             <div className="relative z-10 flex flex-1 flex-col justify-center gap-0 border-white/10 border-l-2 border-dashed bg-zinc-950/40 p-4">
               {p.otName && (
                 <div className="relative flex items-center gap-3 border-zinc-700 border-l-2 border-dashed pb-3 pl-3 before:absolute before:top-2 before:-left-[2px] before:h-1 before:w-1 before:bg-zinc-500">
-                  <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">[ OT_ID ]</span>
+                  <DataLabel>[ OT_ID ]</DataLabel>
                   <span className="truncate font-mono text-[11px] text-zinc-300">{p.otName}</span>
                 </div>
               )}
               {p.item !== undefined && p.item > 0 && (
                 <div className="relative flex items-center gap-3 border-zinc-700 border-l-2 border-dashed py-3 pl-3 before:absolute before:top-4 before:-left-[2px] before:h-1 before:w-1 before:bg-zinc-500">
-                  <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">[ HELD_ITEM ]</span>
+                  <DataLabel>[ HELD_ITEM ]</DataLabel>
                   <span className="truncate font-mono text-[11px] text-zinc-300">{gen2Items[p.item]}</span>
                 </div>
               )}
               {p.friendship !== undefined && (
                 <div className="relative flex items-center gap-3 border-zinc-700 border-l-2 border-dashed pt-3 pl-3 before:absolute before:top-4 before:-left-[2px] before:h-1 before:w-1 before:bg-zinc-500">
-                  <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">[ SYNC_RATE ]</span>
+                  <DataLabel>[ SYNC_RATE ]</DataLabel>
                   <span className="font-mono text-[11px] text-rose-400">{p.friendship} PT</span>
                 </div>
               )}

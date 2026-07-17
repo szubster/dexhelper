@@ -2,10 +2,10 @@
 id: task-260-319-npc-trade-data-mapping-qa
 type: TASK
 title: NPC Trade Data Mapping QA
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-13'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on:
   - task-260-318-npc-trade-data-mapping-impl
 jules_session_id: null
@@ -34,7 +34,7 @@ Verify the standard mapping connecting raw bitflags to specific NPC trade encoun
 - **CRITICAL:** Ensure that all memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level. Inline magic numbers are strictly forbidden. If any are found, reject the implementation task.
 
 ## Acceptance Criteria
-- [ ] Verify that Gen 2 NPC trade flag mapping is correctly implemented.
-- [ ] Verify that Gen 3 NPC trade flag mapping (RSE/FRLG) is correctly implemented.
-- [ ] Verify that there are no inline magic numbers used for offsets or data lengths.
-- [ ] Verify that the `SaveData` correctly maps the extracted flags to the encounters.
+- [x] Verify that Gen 2 NPC trade flag mapping is correctly implemented.
+- [x] Verify that Gen 3 NPC trade flag mapping (RSE/FRLG) is correctly implemented.
+- [x] Verify that there are no inline magic numbers used for offsets or data lengths.
+- [x] Verify that the `SaveData` correctly maps the extracted flags to the encounters.

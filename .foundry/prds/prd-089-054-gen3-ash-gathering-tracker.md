@@ -2,7 +2,7 @@
 id: prd-089-054-gen3-ash-gathering-tracker
 type: PRD
 title: PRD for Gen 3 Volcanic Ash Gathering Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-28'
 updated_at: '2026-07-17'
@@ -66,6 +66,9 @@ By extracting the Volcanic Ash count from the Gen 3 save file, DexHelper can pro
 ## 5. Acceptance Criteria
 - [x] Epic Planner: Break down this PRD into corresponding EPICs (e.g., Save Parsing, UI Dashboard, Goal Planner Logic).
 - [ ] .foundry/archive/research/research-054-243-gen3-ash-gathering-offsets.md
-- [ ] .foundry/epics/epic-054-113-gen3-ash-save-parsing.md
-- [ ] .foundry/epics/epic-054-114-gen3-ash-dashboard.md
-- [ ] .foundry/epics/epic-054-115-gen3-ash-goal-planner.md
+- [x] .foundry/archive/epics/epic-054-113-gen3-ash-save-parsing.md
+- [x] .foundry/archive/epics/epic-054-114-gen3-ash-dashboard.md
+- [x] .foundry/archive/epics/epic-054-115-gen3-ash-goal-planner.md
+- [ ] .foundry/epics/epic-054-268-gen3-ash-save-parsing.md
+- [ ] .foundry/epics/epic-054-269-gen3-ash-dashboard.md
+- [ ] .foundry/epics/epic-054-270-gen3-ash-goal-planner.md

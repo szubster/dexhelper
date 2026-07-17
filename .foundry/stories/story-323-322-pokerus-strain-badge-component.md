@@ -2,12 +2,12 @@
 id: story-323-322-pokerus-strain-badge-component
 type: STORY
 title: Pokerus Strain Badge UI Component
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-14'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13368304363640602748'
 pr_number: null
 parent: epic-112-323-pokerus-strain-ui-grid-view
 tags:

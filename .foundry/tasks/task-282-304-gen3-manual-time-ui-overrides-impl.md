@@ -5,9 +5,9 @@ title: Implement Gen 3 Manual Time UI Overrides Logic and UI
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-06'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on: []
-jules_session_id: '15483559705583333375'
+jules_session_id: '15612509412813711081'
 pr_number: null
 parent: story-081-282-gen3-manual-time-ui-overrides
 tags:

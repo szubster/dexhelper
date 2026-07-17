@@ -7,7 +7,7 @@ interface FilterBadgeProps {
 
 export function FilterBadge({ isActive, label }: FilterBadgeProps) {
   return (
-    <>
+    <span className="tactical-badge h-10 px-4">
       <div
         className={cn(
           'absolute top-1 right-1 h-1.5 w-1.5 rounded-none',
@@ -15,6 +15,6 @@ export function FilterBadge({ isActive, label }: FilterBadgeProps) {
         )}
       />
       <span>[ {label} ]</span>
-    </>
+    </span>
   );
 }
