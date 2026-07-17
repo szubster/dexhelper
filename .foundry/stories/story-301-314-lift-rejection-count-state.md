@@ -31,4 +31,4 @@ Extract the `MAX_REJECTION_THRESHOLD` constant (value: 3) from local file scopes
 
 ## Acceptance Criteria
 - [x] Break down this STORY into TASK nodes
-- [ ] task-301-314-lift-rejection-count-state-impl
+- [x] task-301-314-lift-rejection-count-state-impl
