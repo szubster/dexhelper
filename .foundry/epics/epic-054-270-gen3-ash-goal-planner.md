@@ -1,5 +1,5 @@
 ---
-id: epic-054-115-gen3-ash-goal-planner
+id: epic-054-270-gen3-ash-goal-planner
 type: EPIC
 title: "Epic: Gen 3 Volcanic Ash Goal Planner"
 status: PENDING
@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: "2026-07-17"
 updated_at: "2026-07-17"
 depends_on: [
-  ".foundry/epics/epic-054-114-gen3-ash-dashboard.md"
+  "epic-054-269-gen3-ash-dashboard"
 ]
 jules_session_id: null
 pr_number: null
