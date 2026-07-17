@@ -2,12 +2,12 @@
 id: epic-100-130-rng-tid-sid-display
 type: EPIC
 title: RNG TID and SID Display UI
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-02'
 updated_at: '2026-07-17'
 depends_on: []
-jules_session_id: '1340754892600835884'
+jules_session_id: null
 pr_number: null
 parent: prd-082-100-rng-calculator-integration
 tags:
@@ -15,7 +15,7 @@ tags:
   - rng
   - ui
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
