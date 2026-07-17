@@ -481,9 +481,7 @@ describe('parseGen3MixRecords', () => {
     const buffer = new ArrayBuffer(800); // Not enough space for 25 items (900 bytes)
     const view = new DataView(buffer);
 
-    expect(() => parseGen3MixRecords(view, 0)).toThrowError(
-      'The save file is corrupted or incomplete.',
-    );
+    expect(() => parseGen3MixRecords(view, 0)).toThrowError('The save file is corrupted or incomplete.');
   });
 });
 
@@ -1108,9 +1106,7 @@ describe('parseGen3ActiveSwarm', () => {
     const view = new DataView(buffer);
     const offset = 0;
 
-    expect(() => parseGen3ActiveSwarm(view, offset)).toThrow(
-      'The save file is corrupted or incomplete.',
-    );
+    expect(() => parseGen3ActiveSwarm(view, offset)).toThrow('The save file is corrupted or incomplete.');
   });
 
   it('parseGen3TotalBattlePoints should correctly extract the total BP balance', () => {
