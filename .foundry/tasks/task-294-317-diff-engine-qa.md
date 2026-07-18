@@ -2,10 +2,10 @@
 id: task-294-317-diff-engine-qa
 type: TASK
 title: QA PC Box Diff Engine Logic
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-12'
-updated_at: '2026-07-16'
+updated_at: '2026-07-18'
 depends_on:
   - task-294-316-diff-engine-impl
 jules_session_id: null

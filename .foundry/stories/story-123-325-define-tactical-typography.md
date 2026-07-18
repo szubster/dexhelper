@@ -2,10 +2,10 @@
 id: story-123-325-define-tactical-typography
 type: STORY
 title: Define Tactical Typography Utilities
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-17'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on:
   - story-123-270-define-tactical-form-utilities
 jules_session_id: null

@@ -2,12 +2,12 @@
 id: research-045-321-investigate-secret-base-failure
 type: RESEARCH
 title: Investigate Gen 3 Secret Base Parsing Permanent Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-07-14'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: '3161144391888883375'
+jules_session_id: null
 pr_number: null
 parent: prd-073-045-gen3-secret-base-viewer
 tags:

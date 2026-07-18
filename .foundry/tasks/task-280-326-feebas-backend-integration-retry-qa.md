@@ -2,10 +2,10 @@
 id: task-280-326-feebas-backend-integration-retry-qa
 type: TASK
 title: QA - Retry Feebas Backend Integration
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-14'
-updated_at: '2026-07-15'
+updated_at: '2026-07-18'
 depends_on:
   - task-280-325-feebas-backend-integration-retry-impl
 jules_session_id: null
