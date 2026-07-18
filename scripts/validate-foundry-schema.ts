@@ -61,7 +61,8 @@ function validateSchema() {
   const validStatuses = ['PENDING', 'READY', 'ACTIVE', 'VERIFYING', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED'];
   const validPersonas = [
     'product_manager', 'epic_planner', 'story_owner', 'architect',
-    'tech_lead', 'coder', 'qa', 'human', 'tpm', 'agile_coach', 'researcher'
+    'tech_lead', 'coder', 'qa', 'human', 'tpm', 'agile_coach', 'researcher',
+    'auditor'
   ];
 
   const validMappings: Record<string, string[]> = {
@@ -125,7 +126,7 @@ function validateSchema() {
     }
 
     // 2.5 Validate persona mapping
-    if (type && owner_persona && owner_persona !== 'human' && owner_persona !== 'tpm' && owner_persona !== 'agile_coach') {
+    if (type && owner_persona && owner_persona !== 'human' && owner_persona !== 'tpm' && owner_persona !== 'agile_coach' && !(owner_persona === 'auditor' && status === 'VERIFYING')) {
       const allowedPersonas = validMappings[type as string] || [];
       if (!allowedPersonas.includes(owner_persona)) {
         console.error(`Error: Invalid mapping: ${type} node '${file}' cannot be owned by '${owner_persona}'`);
