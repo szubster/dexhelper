@@ -120,6 +120,7 @@ const POKE_NEWS_STATE_OFFSET = 1;
 const POKE_NEWS_COUNTDOWN_OFFSET = 2;
 
 const MISC_IV_EGG_ABILITY_OFFSET = 4;
+const MISC_MET_LOCATION_OFFSET = 1;
 const IS_EGG_BIT_SHIFT = 30;
 const GROWTH_FRIENDSHIP_OFFSET = 4;
 const EGG_CYCLE_STEPS = 256;
@@ -1210,3 +1211,27 @@ export {
   parseGen3BattlePoints,
   parseGen3TotalBattlePoints,
 } from '../gen3/battleFrontier/parser';
+
+/**
+ * Parses the met location byte for a Gen 3 Pokémon.
+ *
+ * @remarks
+ * In Gen 3, the `metLocation` is stored in the 48-byte Encrypted Data block,
+ * specifically in the Miscellaneous (M) substructure.
+ * The `metLocation` is a 1-byte value located at offset 1 within the M substructure.
+ *
+ * @param view - The raw save file DataView.
+ * @param miscSubstructureOffset - The resolved memory offset to the Miscellaneous (M) substructure.
+ * @returns The raw byte value representing the met location.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3MetLocation(view: DataView, miscSubstructureOffset: number): number {
+  try {
+    return view.getUint8(miscSubstructureOffset + MISC_MET_LOCATION_OFFSET);
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
