@@ -26,3 +26,8 @@ When processing roamer tracking, Gen 3 map coordinates cannot be statically extr
 
 ## 2026-07-16
 * The child tasks for `epic-044-149-gen3-roamer-core-extraction-v4` were already completed and archived in `.foundry/archive/stories/` (specifically `story-149-291-gen3-roamer-core-extraction.md` and `story-149-292-gen3-roamer-active-flag-parsing.md`). I verified their existence and checked off the acceptance criteria checkboxes in the parent EPIC to allow it to gracefully transition to `VERIFYING` via an empty PR.
+
+
+## 2026-07-18 - Gen 3 Volcanic Ash Save Parsing
+- Broken down Epic `epic-054-268-gen3-ash-save-parsing` into `story-268-331-gen3-ash-dataview-extraction-relative`.
+- Discovered that previous task failed due to hardcoded absolute offsets (`0x142C` / `0x13D0`), which do not account for Gen 3 A/B bank rotation system. The new story enforces the use of relative offsets and the `section1Offset` variable dynamically.
