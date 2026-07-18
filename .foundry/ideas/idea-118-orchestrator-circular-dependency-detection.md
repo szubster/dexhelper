@@ -2,12 +2,12 @@
 id: idea-118-orchestrator-circular-dependency-detection
 type: IDEA
 title: Implement Circular Dependency Detection in DAG Orchestrator
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-17'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13175852067435691550'
 pr_number: null
 parent: null
 tags:

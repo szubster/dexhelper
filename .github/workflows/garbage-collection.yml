@@ -1,8 +1,6 @@
 name: Foundry Zombie Garbage Collection
 
 on:
-  schedule:
-    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -19,7 +17,7 @@ jobs:
           fetch-depth: 0
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
 
       - name: Setup Node
         uses: actions/setup-node@v7

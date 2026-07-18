@@ -2,12 +2,12 @@
 id: research-045-321-investigate-secret-base-failure
 type: RESEARCH
 title: Investigate Gen 3 Secret Base Parsing Permanent Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-14'
 updated_at: '2026-07-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3161144391888883375'
 pr_number: null
 parent: prd-073-045-gen3-secret-base-viewer
 tags:
@@ -32,4 +32,4 @@ The epic `epic-045-070-gen3-secret-base-parsing` reached its Max Rejection Count
 - Propose a revised approach or updated offsets to ensure the replacement tasks succeed.
 
 ## Acceptance Criteria
-- [ ] Researcher: Produce a research document detailing the root cause of the failure and providing correct offsets/logic.
+- [x] Researcher: Produce a research document detailing the root cause of the failure and providing correct offsets/logic.

@@ -169,6 +169,228 @@ describe('Foundry Heartbeat', () => {
     expect(writeCall[1]).toContain('status: COMPLETED');
   });
 
+  it('should transition an active IDEA node with owner_persona product_manager to VERIFYING and update owner_persona to auditor', async () => {
+    const mockIdea = {
+      filePath: '/mock/repo/.foundry/ideas/idea-1.md',
+      repoPath: '.foundry/ideas/idea-1.md',
+      frontmatter: {
+        id: 'idea-1',
+        type: 'IDEA',
+        status: 'ACTIVE',
+        owner_persona: 'product_manager',
+        jules_session_id: 'session-1'
+      },
+      rawContent: '---\ntype: IDEA\nstatus: ACTIVE\nowner_persona: "product_manager"\njules_session_id: "session-1"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/ideas/idea-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockImplementation((fp) => {
+      if (fp === '/mock/repo/.foundry/ideas/idea-1.md') return mockIdea as any;
+      return null;
+    });
+
+    await transitionNodeToCompleted(mockIdea, mockRepoRoot, 123);
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+    const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+    expect(writeCall[0]).toBe(mockIdea.filePath);
+    expect(writeCall[1]).toContain('status: VERIFYING');
+    expect(writeCall[1]).toContain('owner_persona: auditor');
+  });
+
+  it('should transition an active IDEA node with owner_persona auditor to COMPLETED directly', async () => {
+    const mockIdea = {
+      filePath: '/mock/repo/.foundry/ideas/idea-1.md',
+      repoPath: '.foundry/ideas/idea-1.md',
+      frontmatter: {
+        id: 'idea-1',
+        type: 'IDEA',
+        status: 'ACTIVE',
+        owner_persona: 'auditor',
+        jules_session_id: 'session-1'
+      },
+      rawContent: '---\ntype: IDEA\nstatus: ACTIVE\nowner_persona: "auditor"\njules_session_id: "session-1"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/ideas/idea-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockImplementation((fp) => {
+      if (fp === '/mock/repo/.foundry/ideas/idea-1.md') return mockIdea as any;
+      return null;
+    });
+
+    await transitionNodeToCompleted(mockIdea, mockRepoRoot, 123);
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+    const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+    expect(writeCall[0]).toBe(mockIdea.filePath);
+    expect(writeCall[1]).toContain('status: COMPLETED');
+  });
+
+  it('should transition an active EPIC node with owner_persona auditor to COMPLETED directly', async () => {
+    const mockEpic = {
+      filePath: '/mock/repo/.foundry/epics/epic-1.md',
+      repoPath: '.foundry/epics/epic-1.md',
+      frontmatter: {
+        id: 'epic-1',
+        type: 'EPIC',
+        status: 'ACTIVE',
+        owner_persona: 'auditor',
+        jules_session_id: 'session-1'
+      },
+      rawContent: '---\ntype: EPIC\nstatus: ACTIVE\nowner_persona: "auditor"\njules_session_id: "session-1"\n---\nBody'
+    };
+
+    const mockChild = {
+      filePath: '/mock/repo/.foundry/stories/story-1.md',
+      repoPath: '.foundry/stories/story-1.md',
+      frontmatter: {
+        id: 'story-1',
+        type: 'STORY',
+        parent: 'epic-1',
+        tags: ['integration']
+      }
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/epics/epic-1.md', '/mock/repo/.foundry/stories/story-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockImplementation((fp) => {
+      if (fp === '/mock/repo/.foundry/epics/epic-1.md') return mockEpic as any;
+      if (fp === '/mock/repo/.foundry/stories/story-1.md') return mockChild as any;
+      return null;
+    });
+
+    await transitionNodeToCompleted(mockEpic, mockRepoRoot, 123);
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+    const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+    expect(writeCall[0]).toBe(mockEpic.filePath);
+    expect(writeCall[1]).toContain('status: COMPLETED');
+  });
+
+  it('should increment rejection_count from 0 to 1 and status becomes READY during rejection resurrection of ACTIVE node', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-1.md',
+      repoPath: '.foundry/tasks/task-1.md',
+      frontmatter: {
+        id: 'task-1',
+        type: 'TASK',
+        status: 'ACTIVE',
+        jules_session_id: 'session-123',
+        rejection_count: 0
+      },
+      rawContent: '---\ntype: TASK\nstatus: ACTIVE\njules_session_id: "session-123"\nrejection_count: 0\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    // Mock API response with unmerged closed PR
+    globalFetch.mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ state: 'COMPLETED', outputs: [{ pullRequest: { url: 'https://github.com/szubster/dexhelper/pull/123' } }] })
+    } as unknown as Response);
+
+    // Also mock details call
+    // @ts-expect-error
+    globalFetch.mockImplementation((url: string | URL | Request) => {
+      const urlStr = typeof url === "string" ? url : (url as URL).toString();
+      if (urlStr.includes('/pulls/123')) {
+        return Promise.resolve({
+          ok: true,
+          status: 200,
+          json: async () => ({ state: 'closed', merged: false, number: 123 })
+        });
+      }
+      return Promise.resolve({
+        ok: true,
+        status: 200,
+        json: async () => ({ state: 'COMPLETED', outputs: [{ pullRequest: { url: 'https://github.com/szubster/dexhelper/pull/123' } }] })
+      });
+    });
+
+    await main();
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+    const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+    expect(writeCall[0]).toBe(mockNode.filePath);
+    expect(writeCall[1]).toContain('status: READY');
+    expect(writeCall[1]).toContain('rejection_count: 1');
+  });
+
+  it('should resurrect a VERIFYING node by keeping status as VERIFYING and setting jules_session_id to null with incremented rejection_count', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/epics/epic-1.md',
+      repoPath: '.foundry/epics/epic-1.md',
+      frontmatter: {
+        id: 'epic-1',
+        type: 'EPIC',
+        status: 'VERIFYING',
+        jules_session_id: 'session-123',
+        rejection_count: 0
+      },
+      rawContent: '---\ntype: EPIC\nstatus: VERIFYING\njules_session_id: "session-123"\nrejection_count: 0\n---\nBody'
+    };
+
+    // First gather it under ACTIVE/VERIFYING (note that main gathers both in reality, but test mocks discovery)
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/epics/epic-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    // Mock API response with unmerged closed PR
+    // @ts-expect-error
+    globalFetch.mockImplementation((url: string | URL | Request) => {
+      const urlStr = typeof url === "string" ? url : (url as URL).toString();
+      if (urlStr.includes('/pulls/123')) {
+        return Promise.resolve({
+          ok: true,
+          status: 200,
+          json: async () => ({ state: 'closed', merged: false, number: 123 })
+        });
+      }
+      return Promise.resolve({
+        ok: true,
+        status: 200,
+        json: async () => ({ state: 'COMPLETED', outputs: [{ pullRequest: { url: 'https://github.com/szubster/dexhelper/pull/123' } }] })
+      });
+    });
+
+    // Wait! In main heartbeat script, it checks activeNodes, which is gathered via status === 'ACTIVE'.
+    // In our test, if we mock activeNodes to include VERIFYING or run transitionNodeToReady directly:
+    const { transitionNodeToReady } = await import('./foundry-heartbeat.js');
+    await transitionNodeToReady(mockNode, mockRepoRoot, 'PR closed');
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+    const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+    expect(writeCall[0]).toBe(mockNode.filePath);
+    expect(writeCall[1]).toContain('status: VERIFYING');
+    expect(writeCall[1]).toContain('rejection_count: 1');
+    expect(writeCall[1]).toContain('jules_session_id: null');
+  });
+
+  it('should not transition or modify the ACTIVE node if a Jules API fetch error occurs (throws exception)', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-1.md',
+      repoPath: '.foundry/tasks/task-1.md',
+      frontmatter: {
+        id: 'task-1',
+        type: 'TASK',
+        status: 'ACTIVE',
+        jules_session_id: 'session-error'
+      },
+      rawContent: '---\ntype: TASK\nstatus: ACTIVE\njules_session_id: "session-error"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    // Mock fetch to throw error
+    globalFetch.mockRejectedValue(new Error('Network error'));
+
+    await main();
+
+    // Node remains unmodified
+    expect(fs.writeFileSync).not.toHaveBeenCalled();
+  });
+
   it('should transition a node to READY without penalty if its Jules session is in a terminal state without a PR', async () => {
     const mockNode = {
       filePath: '/mock/repo/.foundry/tasks/task-1.md',
@@ -1138,6 +1360,57 @@ status: ACTIVE
       expect(deleteCalls.length).toBe(0);
 
       process.argv = originalArgv;
+    });
+
+    it('should gracefully exit and not delete any branches if GITHUB API to list open PRs fails (returns 500)', async () => {
+      vi.stubGlobal('DRY_RUN', false);
+      globalFetch.mockImplementation(async (url) => {
+        const urlStr = typeof url === "string" ? url : (url as URL).toString();
+        if (urlStr.includes('/pulls?state=open')) {
+          return { ok: false, status: 500, statusText: 'Internal Server Error' } as any;
+        }
+        return { ok: true, json: async () => [] } as any;
+      });
+
+      const mockFailedNode = {
+        frontmatter: { status: 'FAILED', jules_session_id: 'delete' }
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['fail.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockFailedNode as any);
+
+      const mockRepoRootValue = process.cwd();
+      await cleanupRemoteBranches(mockRepoRootValue, 'szubster/dexhelper', 'mock-token');
+
+      const deleteCalls = globalFetch.mock.calls.filter(call => call[1]?.method === 'DELETE');
+      expect(deleteCalls.length).toBe(0);
+    });
+
+    it('should gracefully exit and not delete any branches if GITHUB API to list remote branches fails (returns 500)', async () => {
+      vi.stubGlobal('DRY_RUN', false);
+      globalFetch.mockImplementation(async (url) => {
+        const urlStr = typeof url === "string" ? url : (url as URL).toString();
+        if (urlStr.includes('/pulls?state=open')) {
+          return { ok: true, json: async () => [] } as any;
+        }
+        if (urlStr.includes('/git/matching-refs/heads/')) {
+          return { ok: false, status: 500, statusText: 'Internal Server Error' } as any;
+        }
+        return { ok: true } as any;
+      });
+
+      const mockFailedNode = {
+        frontmatter: { status: 'FAILED', jules_session_id: 'delete' }
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['fail.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockFailedNode as any);
+
+      const mockRepoRootValue = process.cwd();
+      await cleanupRemoteBranches(mockRepoRootValue, 'szubster/dexhelper', 'mock-token');
+
+      const deleteCalls = globalFetch.mock.calls.filter(call => call[1]?.method === 'DELETE');
+      expect(deleteCalls.length).toBe(0);
     });
   });
 

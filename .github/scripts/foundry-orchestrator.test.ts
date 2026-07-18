@@ -2472,6 +2472,52 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(prdContent).toContain("status: PENDING");
   });
 
+  test("Impossible Loop: does not wake up parent if child was cancelled due to permanent failure of dependency", () => {
+    // Parent: STORY - PENDING
+    createValidTestNode(tmpDir, ".foundry/stories/story-001.md", {
+      id: "story-001",
+      type: "STORY",
+      title: "Pending Story",
+      status: "PENDING",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    // Task 1: Child of Story 1, CANCELLED due to permanent failure of dependency (rejection_reason matches the check)
+    createValidTestNode(tmpDir, ".foundry/tasks/task-001.md", {
+      id: "task-001",
+      type: "TASK",
+      title: "Cancelled Task",
+      status: "CANCELLED",
+      owner_persona: "coder",
+      parent: "story-001",
+      depends_on: [],
+      jules_session_id: null,
+      rejection_reason: "Cancelled due to permanent failure of dependency: task-impossible"
+    });
+
+    // Task 2: Another child of Story 1, PENDING (incomplete) to prevent Story 1 from completing in Phase 4.1
+    createValidTestNode(tmpDir, ".foundry/tasks/task-002.md", {
+      id: "task-002",
+      type: "TASK",
+      title: "Pending Task 2",
+      status: "PENDING",
+      owner_persona: "coder",
+      parent: "story-001",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    main();
+
+    // Story 1 should NOT be awakened to READY/ACTIVE because Task 1 was cancelled due to a permanent dependency failure elsewhere
+    const storyContent = fs.readFileSync(path.join(tmpDir, ".foundry/stories/story-001.md"), "utf-8");
+    expect(storyContent).toContain("status: PENDING");
+  });
+
   test('Deadlock Prevention: Handles circular dependencies safely and correctly prevents deadlocks', () => {
     createValidTestNode(tmpDir, '.foundry/tasks/task-a.md', {
       id: "task-a",

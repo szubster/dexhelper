@@ -42,3 +42,5 @@ Extract and consolidate common, repetitive Tailwind class patterns used througho
 - [ ] Tailwind v4 formatting and structure is respected.
 - [x] story-123-269-define-tactical-layout-utilities
 - [x] story-123-270-define-tactical-form-utilities
+
+- [ ] story-123-325-define-tactical-typography
