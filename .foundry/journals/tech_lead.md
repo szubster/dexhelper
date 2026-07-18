@@ -189,3 +189,5 @@ When generating blueprints for Gen 3 dynamic save block extraction (like Volcani
 
 ## 2026-07-17: Empty PR for completed child task
 Assigned to story-130-315-define-indexeddb-schema where its generated child (task-315-322-implement-savehistorydb) has already been completed and archived. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.
+
+- Broke down story-327-331-research-gen3-pokeblock-offsets into task-331-334-research-gen3-pokeblock-offsets for the researcher persona.
