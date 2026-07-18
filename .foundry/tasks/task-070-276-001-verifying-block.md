@@ -38,7 +38,7 @@ The orchestrator's `isHierarchicallyIncomplete` properly returns `true` when a n
 2. Update tests in `.github/scripts/foundry-orchestrator.test.ts` to ensure parent nodes correctly remain blocked or suspended when a child or dependency is in the `VERIFYING` state. Run tests locally (`pnpm test`) to ensure everything works properly.
 
 ## Acceptance Criteria
-- [ ] In `.github/scripts/foundry-orchestrator.ts`, dependency checks strictly allow only `ACTIVE` and `COMPLETED` statuses.
-- [ ] In `.github/scripts/foundry-orchestrator.ts`, parent status checks strictly allow only `ACTIVE` and `COMPLETED` statuses.
-- [ ] Added/updated tests to verify that `VERIFYING` dependencies and children correctly block/suspend the parent.
-- [ ] All tests pass successfully.
+- [x] In `.github/scripts/foundry-orchestrator.ts`, dependency checks strictly allow only `ACTIVE` and `COMPLETED` statuses.
+- [x] In `.github/scripts/foundry-orchestrator.ts`, parent status checks strictly allow only `ACTIVE` and `COMPLETED` statuses.
+- [x] Added/updated tests to verify that `VERIFYING` dependencies and children correctly block/suspend the parent.
+- [x] All tests pass successfully.

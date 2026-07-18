@@ -2556,4 +2556,36 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(bContent).toContain("status: PENDING");
     expect(cContent).toContain("status: PENDING");
   });
+
+  test('VERIFYING state: suspends parent if child is VERIFYING', () => {
+    createValidTestNode(tmpDir, '.foundry/epics/epic-parent.md', {
+      id: "epic-parent",
+      type: "EPIC",
+      title: "Epic Parent",
+      status: "ACTIVE",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: "123",
+    });
+
+    createValidTestNode(tmpDir, '.foundry/stories/story-child.md', {
+      id: "story-child",
+      type: "STORY",
+      title: "Story Child",
+      status: "VERIFYING",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: "123",
+      parent: "epic-parent",
+    });
+
+    main();
+
+    const parentResult = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-parent.md'), 'utf-8');
+    expect(parentResult).toContain('status: PENDING');
+  });
 });
