@@ -26,4 +26,5 @@ notes: ''
 The Agile Coach identified friction caused by the obsolete "Orphaned QA Task Cancellation Rule" in `core_policies.md`. The orchestrator's Phase 3.6 cascade cancellation logic now automatically cancels PENDING nodes that depend on permanently failed nodes, making the manual markdown body updates redundant and conflict-prone. This rule has been removed from `core_policies.md` to streamline the agent workflow and align with the Orchestrator's automated capabilities.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into Epics.
+- [x] Epic Planner: Break down this PRD into Epics.
+- [ ] epic-115-331-remove-orphaned-qa-task-rule-from-docs
