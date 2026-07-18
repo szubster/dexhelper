@@ -2,12 +2,12 @@
 id: story-324-322-gen2-dv-extraction
 type: STORY
 title: Gen 2 DV Data Extraction for Size Calculation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-15'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '92515912969629574'
 pr_number: null
 parent: epic-112-324-npc-size-record-data-extraction
 tags:

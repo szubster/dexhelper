@@ -67,6 +67,13 @@ Verified that the memory offset calculations apply correctly and are tested.
 Verified that the resulting state object includes `isActive` mapping correctly.
 All requirements met.
 
+## 2026-07-17: Egg Move Precomputation ETL QA
+- **Task**: task-258-264-egg-move-precomputation-etl-qa
+- **Outcome**: Passed Validation
+- **Notes**:
+  - Verified that the BFS algorithm for Egg Move precomputation in `scripts/generate-pokedata.ts` generates valid chains.
+  - Added test cases in `src/db/__tests__/PokeDB.test.ts` to explicitly ensure `em` structures (like `'13': [274, 1]`) are parsed and mapped correctly onto the Pokemon entries when inflating IndexedDB offline data.
+  - Test run successful. Marked as complete.
 ## 2026-07-16: QA Shiny Carrier Breeding View Reawakened (task-254-261-shiny-carrier-breeding-view-qa)
 - **Node**: task-254-261-shiny-carrier-breeding-view-qa
 - **Outcome**: Handled reawakened task by appending newline and submitting empty PR as the acceptance criteria checkboxes were already checked in the task markdown body. Reawakened tasks must be submitted safely to exit the DAG gracefully.
