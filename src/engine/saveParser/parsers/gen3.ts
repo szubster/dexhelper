@@ -501,7 +501,7 @@ export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVe
  * @param view - The raw save file DataView.
  * @param offset - The offset within the buffer to read the TV Shows array from.
  * @returns An array of parsed Gen3TVShow metadata.
- * @throws Error - "The save file is corrupted or incomplete: Invalid TV block struct." on out-of-bounds reads.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
 export function parseGen3TVBlock(view: DataView, offset: number): Gen3TVShow[] {
   try {
@@ -516,7 +516,7 @@ export function parseGen3TVBlock(view: DataView, offset: number): Gen3TVShow[] {
     return shows;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error('The save file is corrupted or incomplete: Invalid TV block struct.');
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -571,7 +571,7 @@ export function parseGen3MixRecords(view: DataView, offset: number) {
  * @param view - The raw save file DataView.
  * @param offset - The offset within the buffer to read the TV Shows array from.
  * @returns An object containing the extracted Gen3ActiveSwarm data or undefined if none found.
- * @throws Error - "The save file is corrupted or incomplete: Invalid TV block struct." on out-of-bounds reads.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
 /**
  * Extracts the Volcanic Ash gather count from a Gen 3 save file.
