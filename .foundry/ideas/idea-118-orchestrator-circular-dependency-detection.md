@@ -35,4 +35,4 @@ Implement a cycle detection mechanism (e.g., using a topological sort or DFS tra
 This significantly improves the robustness of the Foundry system. Instead of nodes silently hanging indefinitely, the orchestrator will proactively detect the deadlock, fail fast, and provide clear feedback to the agents or maintainers, saving time on manual debugging and ensuring the DAG remains healthy.
 
 ## Acceptance Criteria
-- [ ] prd-118-051-circular-dependency-detection
+- [x] prd-118-051-circular-dependency-detection

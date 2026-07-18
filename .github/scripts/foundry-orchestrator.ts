@@ -712,6 +712,53 @@ function main(): void {
     }
   }
 
+  // ── Phase 3.9: CIRCULAR DEPENDENCY DETECTION ───────────────────────────────
+  info('Phase 3.9: Checking for circular dependencies among PENDING nodes...');
+
+  const visitedForCycle = new Set<string>();
+  const recStack = new Set<string>();
+  const recPath: string[] = [];
+
+  function detectCycle(nodePath: string): boolean {
+    visitedForCycle.add(nodePath);
+    recStack.add(nodePath);
+    recPath.push(nodePath);
+
+    const node = nodeMap.get(nodePath);
+    if (node) {
+      const deps = node.frontmatter.depends_on.map(d => resolveNodePath(d)).filter((d): d is string => d !== null);
+      for (const depPath of deps) {
+        if (!visitedForCycle.has(depPath)) {
+          if (detectCycle(depPath)) return true;
+        } else if (recStack.has(depPath)) {
+          // Cycle found!
+          const cycleStartIdx = recPath.indexOf(depPath);
+          const cycleNodes = recPath.slice(cycleStartIdx);
+
+          info(`Circular dependency detected involving: ${cycleNodes.join(' -> ')}`);
+
+          for (const cycleNodePath of cycleNodes) {
+            const cycleNode = nodeMap.get(cycleNodePath);
+            if (cycleNode && cycleNode.frontmatter.status === 'PENDING') {
+              promoteNodeToFailedWithReason(cycleNode, 'Circular dependency detected');
+            }
+          }
+          return true;
+        }
+      }
+    }
+
+    recStack.delete(nodePath);
+    recPath.pop();
+    return false;
+  }
+
+  for (const node of nodes) {
+    if (node.frontmatter.status === 'PENDING' && !visitedForCycle.has(node.repoPath)) {
+      detectCycle(node.repoPath);
+    }
+  }
+
   // ── Phase 4: RESOLVE ───────────────────────────────────────────────────────
   info('Phase 4: Resolving DAG — finding eligible PENDING nodes...');
   const eligible: ParsedNode[] = [];
