@@ -53,8 +53,7 @@ export async function main() {
       const liveliness = await checkSessionLiveliness(sessionId, julesKey);
 
       if (liveliness === 'TERMINATED') {
-        console.info(`[GC] Remediating node ${relativePath}: Session ${sessionId} is TERMINATED`);
-        remediateZombieNode(repoRoot, relativePath, `Zombie node detected: Session ${sessionId} is TERMINATED without resolving the node`);
+        console.info(`[GC] Skipping node ${relativePath}: Session ${sessionId} is TERMINATED (heartbeat will resolve)`);
       }
     } catch (err) {
       console.error(`[GC] Error processing node ${relativePath}:`, err);
