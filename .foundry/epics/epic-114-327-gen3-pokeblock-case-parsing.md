@@ -33,4 +33,6 @@ This Epic covers the backend save parsing necessary to extract exact Pokéblock 
 - Parse the exact numerical values for all five flavors (Cool, Beauty, Cute, Smart, Tough) and the feel (smoothness) bytes.
 
 ## Acceptance Criteria
-- [ ] Create STORY(s) for researching offsets and implementing the Pokéblock extraction logic.
+- [x] Create STORY(s) for researching offsets and implementing the Pokéblock extraction logic.
+- [ ] story-327-331-research-gen3-pokeblock-offsets
+- [ ] story-327-332-implement-gen3-pokeblock-parsing
