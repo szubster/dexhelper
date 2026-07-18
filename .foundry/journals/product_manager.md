@@ -63,3 +63,4 @@ When assigned to a macro node (like an IDEA) that has spawned children, DO NOT t
 ## 2026-07-16 - Anomaly Found
 
 When generating the PRD for `idea-117-split-bundles-and-data`, I noticed that the research and ADR references (`research-117-325-bundle-splitting-analysis` and `adr-117-029-bundle-splitting-strategy`) already existed and were marked as completed in the IDEA node's acceptance criteria.
+- Transformed IDEA-118 to PRD-118-117 by centralizing Coder and QA Task Prompt Reminders
