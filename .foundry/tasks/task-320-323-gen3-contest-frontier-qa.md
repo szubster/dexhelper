@@ -2,13 +2,13 @@
 id: task-320-323-gen3-contest-frontier-qa
 type: TASK
 title: QA Gen 3 Contest & Battle Frontier Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-14'
 updated_at: '2026-07-17'
 depends_on:
   - task-320-322-gen3-contest-frontier-impl
-jules_session_id: '16146267929111479059'
+jules_session_id: null
 pr_number: null
 parent: story-304-320-gen3-contest-frontier-extraction
 tags:
@@ -35,7 +35,7 @@ Verify the implementation of extraction logic for Master Rank Contest condition 
 - Verify that for Gen 3 save file parsing, the Coder used the resolved section offset (e.g., `section1Offset` or `section2Offset`) to calculate relative memory offsets instead of hardcoded absolute offsets.
 
 ## Acceptance Criteria
-- [ ] Verify Contest extraction logic using `DataView`.
-- [ ] Verify Battle Frontier extraction logic using `DataView`.
-- [ ] Verify no magic numbers are used inline for memory operations.
-- [ ] Verify appropriate A/B bank relative offset resolution is used.
+- [x] Verify Contest extraction logic using `DataView`.
+- [x] Verify Battle Frontier extraction logic using `DataView`.
+- [x] Verify no magic numbers are used inline for memory operations.
+- [x] Verify appropriate A/B bank relative offset resolution is used.

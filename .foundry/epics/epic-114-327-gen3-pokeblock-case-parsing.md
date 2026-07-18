@@ -2,12 +2,12 @@
 id: epic-114-327-gen3-pokeblock-case-parsing
 type: EPIC
 title: Gen 3 Pokéblock Case Save Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: '10148822127847522818'
+jules_session_id: null
 pr_number: null
 parent: prd-113-114-gen3-pokeblock-stats-viewer
 tags:
@@ -33,4 +33,6 @@ This Epic covers the backend save parsing necessary to extract exact Pokéblock 
 - Parse the exact numerical values for all five flavors (Cool, Beauty, Cute, Smart, Tough) and the feel (smoothness) bytes.
 
 ## Acceptance Criteria
-- [ ] Create STORY(s) for researching offsets and implementing the Pokéblock extraction logic.
+- [x] Create STORY(s) for researching offsets and implementing the Pokéblock extraction logic.
+- [ ] story-327-331-research-gen3-pokeblock-offsets
+- [ ] story-327-332-implement-gen3-pokeblock-parsing

@@ -33,5 +33,5 @@ Update `.github/scripts/foundry-orchestrator.ts` Phase 3.6 logic to correctly aw
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-299-322-extend-phase-3-6-impl
-- [ ] task-299-323-extend-phase-3-6-qa
+- [x] task-299-322-extend-phase-3-6-impl
+- [x] task-299-323-extend-phase-3-6-qa

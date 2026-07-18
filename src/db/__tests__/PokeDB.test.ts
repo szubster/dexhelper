@@ -304,6 +304,43 @@ describe('PokeDB', () => {
     });
   });
 
+  it('inflates egg move chains correctly', async () => {
+    const mockData = {
+      items: [],
+      hash: 'em-hash',
+      poke: [
+        {
+          id: 1,
+          n: 'Bulbasaur',
+          cr: 45,
+          gr: 1,
+          baby: false,
+          efrm: [],
+          det: [],
+          eto: [],
+          em: {
+            '13': [274, 1],
+            '80': [43, 1],
+          },
+        },
+      ],
+      enc: [],
+      loc: [],
+    };
+
+    vi.mocked(fetch).mockResolvedValue({
+      ok: true,
+      arrayBuffer: async () => pack(mockData),
+    } as unknown as Response);
+
+    await pokeDB.sync();
+
+    const p1 = await pokeDB.getPokemon(1);
+    expect(p1?.em).toBeDefined();
+    expect(p1?.em?.['13']).toEqual([274, 1]);
+    expect(p1?.em?.['80']).toEqual([43, 1]);
+  });
+
   describe('Queries', () => {
     it('returns correct status when synced', async () => {
       vi.mocked(fetch).mockResolvedValue({
