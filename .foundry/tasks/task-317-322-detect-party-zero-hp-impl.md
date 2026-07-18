@@ -2,10 +2,10 @@
 id: task-317-322-detect-party-zero-hp-impl
 type: TASK
 title: Detect Party Zero HP Implementation
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-14'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -38,8 +38,8 @@ Implement logic to detect Pokémon currently at 0 HP in the party as dead.
 - **Empty PRs**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement logic to mark party Pokémon with 0 HP as dead.
-- [ ] Verify the state updates correctly upon party Pokémon death.
-- [ ] Ensure all memory offsets are defined as module-level constants.
-- [ ] Ensure Gen 3 save parsing uses resolved section offsets.
-- [ ] Self-verify the changes and document the outcome.
+- [x] Implement logic to mark party Pokémon with 0 HP as dead.
+- [x] Verify the state updates correctly upon party Pokémon death.
+- [x] Ensure all memory offsets are defined as module-level constants.
+- [x] Ensure Gen 3 save parsing uses resolved section offsets.
+- [x] Self-verify the changes and document the outcome.
