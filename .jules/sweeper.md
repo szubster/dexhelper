@@ -7,3 +7,4 @@
 - If `pnpm install` hangs or fails during git hook setup (e.g., `lefthook install`), run `git config --unset-all --global core.hooksPath` before retrying the installation.
 
 * **CRITICAL - WIP PR Rejections:** When tasked with sweeping dead code or unused files via tools like Knip, you MUST double-check if the identified files belong to a feature that is currently Work In Progress (WIP). Do not blindly delete files just because Knip flags them. If you delete WIP files and get rejected, you must apologize, acknowledge the mistake, and submit an empty PR instead of modifying the codebase.
+\n- **2026-06-25**: When removing unused code or files detected by `knip`, check if any associated configuration ignores in `knip.json` need to be updated. If dependencies are removed, verify they were not implicitly required.
