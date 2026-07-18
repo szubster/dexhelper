@@ -187,6 +187,9 @@ When generating blueprints for Gen 3 dynamic save block extraction (like Volcani
 
 2026-07-16: Created retry 7 for Gen 3 TV parser because retry 6 failed QA due to inline magic numbers and incorrect error message string.
 
+## [Anomaly] Unexpected Target Artifact Existed
+
+During the session for `story-301-314-lift-rejection-count-state`, the target Foundry artifact (`task-301-314-lift-rejection-count-state-impl.md`) unexpectedly existed prior to the session and was already marked as COMPLETED. As per the empty PR policy and anomaly guidelines, I checked off the child task in the story node as a passthrough validation step to transition the parent node without creating duplicate tasks.
 ## [2026-07-17] NPC Trade State Integration
 Created implementation and QA verification tasks for story-119-261-npc-trade-state-integration. Ensured the QA task explicitly tests the requirements like RangeError handling and constant-defined memory offsets, as state integration changes logic in the core parse pipeline, meaning verification is essential according to the Intelligent Verification Protocol.
 ## 2026-07-17: Empty PR for completed child task
