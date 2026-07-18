@@ -186,6 +186,7 @@ When generating blueprints for Gen 3 dynamic save block extraction (like Volcani
 - Explicitly instructed the Coder and QA personas on error handling, Empty PR requirements, and strict magic number / relative offset rules.
 
 2026-07-16: Created retry 7 for Gen 3 TV parser because retry 6 failed QA due to inline magic numbers and incorrect error message string.
+- Anomaly: Pre-existing completed node task-317-322-detect-party-zero-hp-impl found prior to session.
 
 ## 2026-07-17: False Negative on Empty PR Submission
 - **Incident**: While completing `story-303-299-extend-phase-3-6-cancelled-nodes` where the child tasks (`task-299-322-extend-phase-3-6-impl` and `task-299-323-extend-phase-3-6-qa`) were already generated and completed (one even archived), the automated code review incorrectly flagged the patch as incomplete for not creating the files.
