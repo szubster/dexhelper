@@ -189,3 +189,6 @@ When generating blueprints for Gen 3 dynamic save block extraction (like Volcani
 
 ## 2026-07-17: Empty PR for completed child task
 Assigned to story-130-315-define-indexeddb-schema where its generated child (task-315-322-implement-savehistorydb) has already been completed and archived. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.
+### Journaling Policies
+- When drafting task blueprints, if multiple tasks are created and one depends on another, explicitly set the `depends_on` field of the dependent task to point to the prerequisite task's ID to prevent DAG deadlocks.
+- When drafting tasks as the Tech Lead, follow the Intelligent Verification Protocol: intelligently decide if a separate QA task is needed based on risk. For simple/low-risk tasks, designate the coder to self-verify instead of spawning QA.
