@@ -2,10 +2,10 @@
 id: task-261-331-npc-trade-state-integration-impl
 type: TASK
 title: NPC Trade State Integration Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-17'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
