@@ -32,4 +32,4 @@ The epic `epic-045-070-gen3-secret-base-parsing` reached its Max Rejection Count
 - Propose a revised approach or updated offsets to ensure the replacement tasks succeed.
 
 ## Acceptance Criteria
-- [ ] Researcher: Produce a research document detailing the root cause of the failure and providing correct offsets/logic.
+- [x] Researcher: Produce a research document detailing the root cause of the failure and providing correct offsets/logic.
