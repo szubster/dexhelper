@@ -898,7 +898,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     let gen3FeebasTiles: number[] | undefined;
     if (_forcedVersion === 'ruby' || _forcedVersion === 'sapphire' || _forcedVersion === 'emerald') {
       try {
-        const seed = extractFeebasSeed(view, _forcedVersion, section2Offset);
+        const seed = extractFeebasSeed(view, _forcedVersion, section1Offset);
         gen3FeebasTiles = calculateFeebasTiles(seed);
       } catch {
         // Ignored

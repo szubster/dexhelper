@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { FEEBAS_SEED_OFFSET_RS } from '../../gen3/feebas';
+import { FEEBAS_SEED_RELATIVE_OFFSET_RS } from '../../gen3/feebas';
 import {
   EMERALD_MOVE_TUTOR_BYTE_1_OFFSET,
   EMERALD_MOVE_TUTOR_BYTE_2_OFFSET,
@@ -51,7 +51,7 @@ describe('gen3 parser scaffolding', () => {
     }
 
     // Mock a seed at the expected offset for Ruby/Sapphire
-    view.setUint16(0x2000 + FEEBAS_SEED_OFFSET_RS, 12345, true);
+    view.setUint16(0x1000 + FEEBAS_SEED_RELATIVE_OFFSET_RS, 12345, true);
 
     try {
       const resultRS = parseGen3(view, 'ruby');
