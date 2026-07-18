@@ -33,3 +33,8 @@ Leverage DexHelper's save parsing to read hidden event flags for Fame Checker pr
 - Parse event flags related to the Fame Checker in FireRed/LeafGreen.
 - Create UI dashboard to display unlocked and missing Fame Checker entries for each NPC.
 - Provide actionable location/action hints for missing entries.
+
+## Acceptance Criteria
+- [ ] epic-115-331-gen3-fame-checker-research
+- [ ] epic-115-332-gen3-fame-checker-save-parsing
+- [ ] epic-115-333-gen3-fame-checker-dashboard-ui
