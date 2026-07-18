@@ -2,13 +2,13 @@
 id: task-258-264-egg-move-precomputation-etl-qa
 type: TASK
 title: QA - Implement Egg Move Precomputation in ETL
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-03'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on:
   - task-258-263-egg-move-precomputation-etl-impl
-jules_session_id: '16929007888797053688'
+jules_session_id: null
 pr_number: null
 parent: story-113-258-egg-move-pathfinding-core
 tags:

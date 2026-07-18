@@ -5,16 +5,16 @@ title: Gen 2 Static Encounters
 status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-06'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: '11924469531372794934'
+jules_session_id: '80578693855257164'
 pr_number: null
 parent: prd-100-106-static-encounter-tracker
 tags:
   - gen2
   - feature
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

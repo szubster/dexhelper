@@ -191,3 +191,10 @@ When generating blueprints for Gen 3 dynamic save block extraction (like Volcani
 - **Incident**: While completing `story-303-299-extend-phase-3-6-cancelled-nodes` where the child tasks (`task-299-322-extend-phase-3-6-impl` and `task-299-323-extend-phase-3-6-qa`) were already generated and completed (one even archived), the automated code review incorrectly flagged the patch as incomplete for not creating the files.
 - **Action**: Ignored the reviewer hallucination as per the Empty PR policy guidelines and proceeded with the Empty PR to transition the parent node.
 - **Lesson**: The code reviewer may fail to recognize artifacts that already exist on disk (especially if archived) when checking off Markdown boxes in parent nodes.
+## [Anomaly] Unexpected Target Artifact Existed
+
+During the session for `story-301-314-lift-rejection-count-state`, the target Foundry artifact (`task-301-314-lift-rejection-count-state-impl.md`) unexpectedly existed prior to the session and was already marked as COMPLETED. As per the empty PR policy and anomaly guidelines, I checked off the child task in the story node as a passthrough validation step to transition the parent node without creating duplicate tasks.
+## [2026-07-17] NPC Trade State Integration
+Created implementation and QA verification tasks for story-119-261-npc-trade-state-integration. Ensured the QA task explicitly tests the requirements like RangeError handling and constant-defined memory offsets, as state integration changes logic in the core parse pipeline, meaning verification is essential according to the Intelligent Verification Protocol.
+## 2026-07-17: Empty PR for completed child task
+Assigned to story-130-315-define-indexeddb-schema where its generated child (task-315-322-implement-savehistorydb) has already been completed and archived. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.

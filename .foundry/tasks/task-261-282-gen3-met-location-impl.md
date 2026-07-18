@@ -2,12 +2,12 @@
 id: task-261-282-gen3-met-location-impl
 type: TASK
 title: Implement Gen 3 Met Location Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-08'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: '5818259651028983133'
+jules_session_id: null
 pr_number: null
 parent: story-097-261-extract-pokemon-met-locations
 tags:
@@ -41,6 +41,6 @@ Currently, the `met_location` field does not exist in `PokemonInstance.caughtDat
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `metLocation` parsing logic added for Gen 3.
-- [ ] Constant defined for the offset (no magic numbers).
-- [ ] `DataView` API utilized.
+- [x] `metLocation` parsing logic added for Gen 3.
+- [x] Constant defined for the offset (no magic numbers).
+- [x] `DataView` API utilized.

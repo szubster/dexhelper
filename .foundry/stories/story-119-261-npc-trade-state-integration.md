@@ -2,13 +2,13 @@
 id: story-119-261-npc-trade-state-integration
 type: STORY
 title: NPC Trade State Integration
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on:
   - story-119-260-npc-trade-data-mapping
-jules_session_id: '3295643408714835945'
+jules_session_id: null
 pr_number: null
 parent: epic-095-119-in-game-trade-data-extraction
 tags:
@@ -26,4 +26,6 @@ notes: ''
 Integrate the extracted flags into the unified `SaveData` object, ensuring consistency and proper `RangeError` handling.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into tasks for `SaveData` update and test coverage.
+- [x] Tech Lead: Break down into tasks for `SaveData` update and test coverage.
+- [ ] task-261-331-npc-trade-state-integration-impl
+- [ ] task-261-332-npc-trade-state-integration-qa
