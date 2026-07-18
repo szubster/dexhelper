@@ -120,6 +120,7 @@ const POKE_NEWS_STATE_OFFSET = 1;
 const POKE_NEWS_COUNTDOWN_OFFSET = 2;
 
 const MISC_IV_EGG_ABILITY_OFFSET = 4;
+const MISC_MET_LOCATION_OFFSET = 1;
 const IS_EGG_BIT_SHIFT = 30;
 const GROWTH_FRIENDSHIP_OFFSET = 4;
 const EGG_CYCLE_STEPS = 256;
@@ -501,7 +502,7 @@ export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVe
  * @param view - The raw save file DataView.
  * @param offset - The offset within the buffer to read the TV Shows array from.
  * @returns An array of parsed Gen3TVShow metadata.
- * @throws Error - "The save file is corrupted or incomplete: Invalid TV block struct." on out-of-bounds reads.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
 export function parseGen3TVBlock(view: DataView, offset: number): Gen3TVShow[] {
   try {
@@ -516,7 +517,7 @@ export function parseGen3TVBlock(view: DataView, offset: number): Gen3TVShow[] {
     return shows;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error('The save file is corrupted or incomplete: Invalid TV block struct.');
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -571,7 +572,7 @@ export function parseGen3MixRecords(view: DataView, offset: number) {
  * @param view - The raw save file DataView.
  * @param offset - The offset within the buffer to read the TV Shows array from.
  * @returns An object containing the extracted Gen3ActiveSwarm data or undefined if none found.
- * @throws Error - "The save file is corrupted or incomplete: Invalid TV block struct." on out-of-bounds reads.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
 /**
  * Extracts the Volcanic Ash gather count from a Gen 3 save file.
@@ -897,7 +898,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     let gen3FeebasTiles: number[] | undefined;
     if (_forcedVersion === 'ruby' || _forcedVersion === 'sapphire' || _forcedVersion === 'emerald') {
       try {
-        const seed = extractFeebasSeed(view, _forcedVersion, section2Offset);
+        const seed = extractFeebasSeed(view, _forcedVersion, section1Offset);
         gen3FeebasTiles = calculateFeebasTiles(seed);
       } catch {
         // Ignored
@@ -1210,3 +1211,27 @@ export {
   parseGen3BattlePoints,
   parseGen3TotalBattlePoints,
 } from '../gen3/battleFrontier/parser';
+
+/**
+ * Parses the met location byte for a Gen 3 Pokémon.
+ *
+ * @remarks
+ * In Gen 3, the `metLocation` is stored in the 48-byte Encrypted Data block,
+ * specifically in the Miscellaneous (M) substructure.
+ * The `metLocation` is a 1-byte value located at offset 1 within the M substructure.
+ *
+ * @param view - The raw save file DataView.
+ * @param miscSubstructureOffset - The resolved memory offset to the Miscellaneous (M) substructure.
+ * @returns The raw byte value representing the met location.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3MetLocation(view: DataView, miscSubstructureOffset: number): number {
+  try {
+    return view.getUint8(miscSubstructureOffset + MISC_MET_LOCATION_OFFSET);
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}

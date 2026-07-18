@@ -26,4 +26,6 @@ notes: ''
 Integrate the extracted flags into the unified `SaveData` object, ensuring consistency and proper `RangeError` handling.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into tasks for `SaveData` update and test coverage.
+- [x] Tech Lead: Break down into tasks for `SaveData` update and test coverage.
+- [ ] task-261-331-npc-trade-state-integration-impl
+- [ ] task-261-332-npc-trade-state-integration-qa

@@ -2,10 +2,10 @@
 id: task-320-322-gen3-contest-frontier-impl
 type: TASK
 title: Implement Gen 3 Contest & Battle Frontier Extraction
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-14'
-updated_at: '2026-07-16'
+updated_at: '2026-07-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -35,5 +35,5 @@ Implement extraction logic for Master Rank Contest condition ribbons and Battle 
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement extraction logic for Master Rank Contest condition ribbons.
-- [ ] Implement extraction logic for Battle Frontier Gold Symbols.
+- [x] Implement extraction logic for Master Rank Contest condition ribbons.
+- [x] Implement extraction logic for Battle Frontier Gold Symbols.

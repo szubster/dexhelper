@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
 import {
   calculateFeebasTiles,
   extractFeebasSeed,
-  FEEBAS_SEED_OFFSET_EMERALD,
-  FEEBAS_SEED_OFFSET_RS,
+  FEEBAS_SEED_RELATIVE_OFFSET_EMERALD,
+  FEEBAS_SEED_RELATIVE_OFFSET_RS,
   mapSpotIdsToCoordinates,
 } from './feebas';
 
@@ -12,7 +12,7 @@ describe('extractFeebasSeed', () => {
     // 0x2dd6 + 2 bytes = 11736 bytes
     const buffer = new ArrayBuffer(12000);
     const view = new DataView(buffer);
-    view.setUint16(0x1f00 + FEEBAS_SEED_OFFSET_RS, 0x1234, true);
+    view.setUint16(0x1f00 + FEEBAS_SEED_RELATIVE_OFFSET_RS, 0x1234, true);
 
     const seedRuby = extractFeebasSeed(view, 'ruby', 0x1f00);
     expect(seedRuby).toBe(0x1234);
@@ -25,7 +25,7 @@ describe('extractFeebasSeed', () => {
     // 0x2e66 + 2 bytes = 11880 bytes
     const buffer = new ArrayBuffer(12000);
     const view = new DataView(buffer);
-    view.setUint16(0x1f00 + FEEBAS_SEED_OFFSET_EMERALD, 0x5678, true);
+    view.setUint16(0x1f00 + FEEBAS_SEED_RELATIVE_OFFSET_EMERALD, 0x5678, true);
 
     const seedEmerald = extractFeebasSeed(view, 'emerald', 0x1f00);
     expect(seedEmerald).toBe(0x5678);

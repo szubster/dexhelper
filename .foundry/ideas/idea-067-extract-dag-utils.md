@@ -5,16 +5,16 @@ title: Extract DAG Utilities to Shared Module
 status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-25'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: '9837866238546685315'
+jules_session_id: '12306192269169324192'
 parent: null
 tags:
   - refactor
   - foundry
   - orchestrator
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: Generated autonomously to reduce duplication in orchestration scripts
 ---
