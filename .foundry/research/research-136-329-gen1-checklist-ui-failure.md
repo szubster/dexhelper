@@ -2,10 +2,10 @@
 id: research-136-329-gen1-checklist-ui-failure
 type: RESEARCH
 title: Investigate Gen 1 Checklist UI Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-07-17'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
 jules_session_id: null
 pr_number: null

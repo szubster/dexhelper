@@ -2,10 +2,10 @@
 id: research-050-329-investigate-zombie-gc-failure
 type: RESEARCH
 title: Investigate Zombie GC Remediation Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-07-17'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
 jules_session_id: null
 pr_number: null

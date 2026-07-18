@@ -2,10 +2,10 @@
 id: epic-106-136-gen1-static-encounters
 type: EPIC
 title: Gen 1 Static Encounters
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-06'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
