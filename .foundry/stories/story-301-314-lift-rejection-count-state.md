@@ -2,10 +2,10 @@
 id: story-301-314-lift-rejection-count-state
 type: STORY
 title: Lift MAX_REJECTION_THRESHOLD Constant to Context
-status: READY
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-12'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,4 +31,4 @@ Extract the `MAX_REJECTION_THRESHOLD` constant (value: 3) from local file scopes
 
 ## Acceptance Criteria
 - [x] Break down this STORY into TASK nodes
-- [ ] task-301-314-lift-rejection-count-state-impl
+- [x] task-301-314-lift-rejection-count-state-impl
