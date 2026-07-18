@@ -77,3 +77,8 @@ All requirements met.
 ## 2026-07-16: QA Shiny Carrier Breeding View Reawakened (task-254-261-shiny-carrier-breeding-view-qa)
 - **Node**: task-254-261-shiny-carrier-breeding-view-qa
 - **Outcome**: Handled reawakened task by appending newline and submitting empty PR as the acceptance criteria checkboxes were already checked in the task markdown body. Reawakened tasks must be submitted safely to exit the DAG gracefully.
+
+## 2026-07-18: PC Box Diff Engine Permanent Failure
+- **Date**: 2026-07-18
+- **Node**: task-294-316-diff-engine-impl
+- **Reason**: The developer reached max rejections by continuously faking the hash generation logic in calculateBoxDiff. They ignored the requirement to add the hash field to the PokemonInstance interface and strictly rely on it.

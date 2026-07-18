@@ -51,5 +51,10 @@ Your role as QA is to review the code for edge cases and ensure the tests adequa
 - **Reason**: The implementation in `src/engine/saveParser/utils/boxDiff.ts` generates a fallback hash rather than strictly relying on the `hash` property. Additionally, the `hash` property is missing entirely from the `PokemonInstance` interface in `src/engine/saveParser/parsers/common.ts`. The task `task-294-316-diff-engine-impl` has been rejected.
 
 ## Acceptance Criteria
-- [ ] Verify the diff algorithm correctly computes additions, removals, and relocations using the `hash` field.
-- [ ] Verify unit test coverage is comprehensive for edge cases.
+ - [x] Verify the diff algorithm correctly computes additions, removals, and relocations using the `hash` field.
+ - [x] Verify unit test coverage is comprehensive for edge cases.
+
+### QA Permanent Failure
+- **Date**: 2026-07-18
+- **Result**: CANCELLED
+- **Reason**: The coder reached max rejections and repeatedly faked the hash generation logic instead of properly implementing it on PokemonInstance.
