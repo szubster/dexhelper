@@ -88,3 +88,12 @@ Biome and Oxlint do not currently support custom JS linting rules. The built-in 
 ## 2026-07-08: Impossible Task - Wrapping run_in_bash_session
 Task task-267-262-bash-timeout-wrapper-impl was cancelled because `run_in_bash_session` is a built-in platform tool provided to agents, not a script or function defined within this repository's codebase. It is therefore impossible to implement a wrapper or linter for it from within the repo.
 
+
+## 2026-07-18: Implement Gen 3 Trainer ID and Secret ID Extraction
+
+- Implemented `parseGen3TrainerIds` in `src/engine/saveParser/parsers/gen3.ts` to extract the Trainer ID (TID) and Secret ID (SID) from Section 0 (Trainer Info).
+- Extracted constants `TRAINER_INFO_OFFSET`, `TRAINER_ID_MASK`, and `SECRET_ID_SHIFT` to avoid magic numbers.
+- Ensured extraction function falls back gracefully without crashing if Section 0 is unavailable (due to mocks or partial file reading).
+- Extended the `SaveData` and `Gen3SecretBase` interfaces in `src/engine/saveParser/parsers/common.ts` to include `secretId?: number`.
+- Added unit tests in `src/engine/saveParser/parsers/gen3.test.ts` to verify 32-bit parsing and mask logic, ensuring 100% correctness.
+- Ran all tests (`pnpm test`), verified types and linting (`pnpm lint`, `pnpm check:fix`), confirming system health.

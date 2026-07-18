@@ -52,6 +52,10 @@ const SAVE_BLOCK_A = 0x0000;
 const SAVE_BLOCK_B = 0xe000;
 const LOWER_16_BIT_MASK = 0xffff;
 
+const TRAINER_INFO_OFFSET = 0x000a;
+const TRAINER_ID_MASK = 0xffff;
+const SECRET_ID_SHIFT = 16;
+
 const GEN3_ROAMER_OFFSET_RS = 0x3144;
 const GEN3_ROAMER_OFFSET_EMERALD = 0x31dc;
 const GEN3_ROAMER_OFFSET_FRLG = 0x30d0;
@@ -774,6 +778,29 @@ export function parseGen3SecretBases(
  * @returns The fully constructed SaveData object.
  * @throws {Error} If the save file is corrupted, incomplete, or out-of-bounds reads occur.
  */
+
+/**
+ * Parses the Trainer ID and Secret ID from a Gen 3 save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param section0Offset - The resolved memory offset to the active Section 0 (Trainer Info).
+ * @returns An object containing the extracted Trainer ID (TID) and Secret ID (SID).
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3TrainerIds(view: DataView, section0Offset: number): { trainerId: number; secretId: number } {
+  try {
+    const rawIds = view.getUint32(section0Offset + TRAINER_INFO_OFFSET, true);
+    const trainerId = rawIds & TRAINER_ID_MASK;
+    const secretId = rawIds >>> SECRET_ID_SHIFT;
+    return { trainerId, secretId };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
 export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveData {
   try {
     let section2Offset: number;
@@ -781,6 +808,13 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       section2Offset = getLatestSectionOffset(view, 2);
     } catch {
       throw new RangeError('Out of bounds during block scan');
+    }
+
+    let section0Offset = 0;
+    try {
+      section0Offset = getLatestSectionOffset(view, 0);
+    } catch {
+      // Missing in some mocks
     }
 
     let section1Offset: number;
@@ -797,6 +831,18 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const gen3MixRecords = parseGen3MixRecords(view, section1Offset + TV_SHOWS_OFFSET);
     const gen3ActiveSwarm = parseGen3ActiveSwarm(view, section1Offset + TV_SHOWS_OFFSET);
     const gen3VolcanicAsh = parseGen3VolcanicAsh(view, section1Offset, _forcedVersion || 'ruby');
+
+    let trainerId = 0;
+    let secretId = 0;
+    try {
+      if (section0Offset > 0 || view.byteLength > TRAINER_INFO_OFFSET + 4) {
+        const ids = parseGen3TrainerIds(view, section0Offset);
+        trainerId = ids.trainerId;
+        secretId = ids.secretId;
+      }
+    } catch {
+      // Fallback to defaults
+    }
 
     const roamingLegendaries = [];
     try {
@@ -916,7 +962,8 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       gameVersion: _forcedVersion || 'ruby',
       badges: 0,
       trainerName: '',
-      trainerId: 0,
+      trainerId,
+      secretId,
       currentMapId: 0,
       inventory: [],
       currentBoxCount: 0,

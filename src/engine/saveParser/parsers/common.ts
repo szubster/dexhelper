@@ -113,6 +113,8 @@ export interface Gen3SecretBase {
   secretBaseId: number;
   trainerName: string;
   trainerId: number;
+  /** The player's Secret ID (SID), used for shiny calculations and other mechanics in Gen 3. */
+  secretId?: number;
   battledOwnerToday?: boolean;
   party: Gen3SecretBasePartyMember[];
 }
@@ -206,6 +208,8 @@ export interface SaveData {
   trainerName: string;
   /** The player's unique Trainer ID (TID), used for static gift verification and shiny calculations in later gens. */
   trainerId: number;
+  /** The player's Secret ID (SID), used for shiny calculations and other mechanics in Gen 3. */
+  secretId?: number;
   /** The raw internal Map ID where the player last saved the game. */
   currentMapId: number;
   /** The human-readable name of the current map, resolved via mapping constants. */

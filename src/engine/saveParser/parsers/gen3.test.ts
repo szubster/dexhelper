@@ -28,6 +28,7 @@ import {
   parseGen3RSENPCTrades,
   parseGen3SecretBases,
   parseGen3TotalBattlePoints,
+  parseGen3TrainerIds,
   parseGen3VolcanicAsh,
 } from './gen3';
 
@@ -1292,5 +1293,28 @@ describe('parseGen3FRLGMoveTutors', () => {
     const buffer = new ArrayBuffer(10);
     const view = new DataView(buffer);
     expect(() => parseGen3FRLGMoveTutors(view, 0)).toThrow('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3TrainerIds', () => {
+  it('correctly parses Trainer ID and Secret ID from raw 32-bit value', () => {
+    // 0x000A offset -> 10. We can just create a small buffer of size 14
+    // TID = 12345 (0x3039)
+    // SID = 54321 (0xD431)
+    // Combined = 0xD4313039 (Little endian: 39 30 31 D4)
+    const buffer = new ArrayBuffer(14);
+    const view = new DataView(buffer);
+    view.setUint32(10, 0xd4313039, true);
+
+    const { trainerId, secretId } = parseGen3TrainerIds(view, 0);
+
+    expect(trainerId).toBe(12345);
+    expect(secretId).toBe(54321);
+  });
+
+  it('throws error on out-of-bounds read', () => {
+    const buffer = new ArrayBuffer(10);
+    const view = new DataView(buffer);
+    expect(() => parseGen3TrainerIds(view, 0)).toThrow('The save file is corrupted or incomplete.');
   });
 });
