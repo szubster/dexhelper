@@ -28,3 +28,9 @@ When processing roamer tracking, Gen 3 map coordinates cannot be statically extr
 * The child tasks for `epic-044-149-gen3-roamer-core-extraction-v4` were already completed and archived in `.foundry/archive/stories/` (specifically `story-149-291-gen3-roamer-core-extraction.md` and `story-149-292-gen3-roamer-active-flag-parsing.md`). I verified their existence and checked off the acceptance criteria checkboxes in the parent EPIC to allow it to gracefully transition to `VERIFYING` via an empty PR.
 ## 2026-07-17
 * Generated `story-327-331-research-gen3-pokeblock-offsets` and `story-327-332-implement-gen3-pokeblock-parsing` from `epic-114-327-gen3-pokeblock-case-parsing`.
+
+## 2026-07-19
+* Verified epic-044-149-gen3-roamer-core-extraction-v4. All child stories are already completed and archived. Proceeding with empty PR.
+
+## 2026-07-19
+* Generated missing story `story-149-333-gen3-roamer-unit-tests` from `epic-044-149-gen3-roamer-core-extraction-v4` to implement required unit tests against save fixtures. Updated epic to leave criteria unchecked so it correctly demotes to PENDING.
