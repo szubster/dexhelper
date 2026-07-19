@@ -2,12 +2,12 @@
 id: epic-107-301-lift-rejection-count-state
 type: EPIC
 title: Lift Constant and Update Context
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-07-10'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '9130954303623434915'
+jules_session_id: null
 pr_number: null
 parent: prd-085-107-lift-rejection-count-state
 tags:
@@ -15,7 +15,9 @@ tags:
   - dashboard
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: ''
 ---
 
@@ -34,4 +36,4 @@ Currently, the threshold for determining if a node has permanently failed (`reje
 
 ## Acceptance Criteria
 - [x] Break down into Stories
-- [ ] story-301-314-lift-rejection-count-state
+- [x] story-301-314-lift-rejection-count-state

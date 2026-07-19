@@ -72,3 +72,8 @@ During the session to transform `idea-067-extract-dag-utils` into a PRD, it was 
 
 ## 2026-07-17
 - Transformed IDEA 116 into PRD 117 to formalize Zod schema validation in the Foundry Orchestrator.
+
+## 2026-07-19
+- Processed IDEA `idea-119-gen2-unown-dex-tracker` and generated `prd-119-118-gen2-unown-dex-tracker` directly linking Unown catches with event flags for Ruins of Alph puzzles to clarify missing Unown forms. Appended PRD node to idea node as Acceptance Criteria. Assigned PRD to epic_planner.
+### Observation: Invalid Node Sequence Numbers
+I noticed that `idea-118-orchestrator-circular-dependency-detection.md` contained an invalid child node ID (`prd-118-051...`) in its acceptance criteria, which was completely out of sequence for the current state of the repository. When generating new nodes, it's crucial to properly discover the max sequence number across the repository instead of hallucinating or assuming a sequence number, to preserve the sequential integrity of the node identifiers.

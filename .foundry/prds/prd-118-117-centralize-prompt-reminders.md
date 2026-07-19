@@ -2,7 +2,7 @@
 id: prd-118-117-centralize-prompt-reminders
 type: PRD
 title: Centralize Coder and QA Task Prompt Reminders
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-18'
 updated_at: '2026-07-19'
@@ -39,3 +39,8 @@ Currently, the Tech Lead persona has explicit instructions to append a "REMINDER
 - The Tech Lead prompt (`tech_lead.md`) no longer dictates appending these reminders to TASK nodes.
 - `coder.md` and `qa.md` (or `core_policies.md`) have clear, centralized instructions on task failure management and PR submission rules.
 - Existing tasks are cleaned up (if the migration script is run), or new tasks generated after this change do not contain the reminder blocks.
+
+## Acceptance Criteria
+- [x] Break down into Epics
+- [ ] epic-117-334-centralize-prompt-rules
+- [ ] epic-117-335-migrate-task-reminders
