@@ -5,7 +5,8 @@ import { useTimeOverride } from '../../contexts/TimeOverrideContext';
 import { TacticalButton } from '../TacticalButton';
 import { TacticalSelect } from '../TacticalSelect';
 
-const DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const DISPLAY_DAYS_OF_WEEK = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const JS_DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 export const Gen3RTCControls: React.FC = () => {
   const { state: rtcState } = useGen3RTC();
@@ -31,7 +32,7 @@ export const Gen3RTCControls: React.FC = () => {
   };
 
   const displayTime = state.overrideTime || rtcState.time;
-  const displayDay = state.overrideDay || DAYS_OF_WEEK[displayTime.getDay()];
+  const displayDay = state.overrideDay || JS_DAYS_OF_WEEK[displayTime.getDay()];
 
   return (
     <div className="flex flex-col gap-4 rounded-none border border-[var(--theme-border)] border-dashed bg-[var(--theme-surface)] p-4 font-mono text-zinc-100">
@@ -82,7 +83,7 @@ export const Gen3RTCControls: React.FC = () => {
             data-testid="rtc-day-input"
           >
             <option value="">Select Day</option>
-            {DAYS_OF_WEEK.map((day) => (
+            {DISPLAY_DAYS_OF_WEEK.map((day) => (
               <option key={day} value={day}>
                 {day}
               </option>
