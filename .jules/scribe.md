@@ -20,4 +20,7 @@ When updating JSDoc for complex exported domain functions in the save parser, fo
 - When writing documentation, strictly use JSDoc for TypeScript APIs and Markdown for architecture docs.
 - Explanations must be concise, scannable, and focus on *why* the code exists rather than *what* it does, avoiding redundant restatements of logic.
 - When submitting documentation-only PRs (like Scribe tasks), the PR title must follow the format `📜 Scribe: [what was documented]` and the PR must strictly modify documentation/comments without altering any application logic.
+
+### Suggestion Engine O(1) Optimizations
+The suggestion engine generators (`evolutionGenerator.ts`, `breedGenerator.ts`, `tradeGenerator.ts`) heavily utilize an **In-Place Mutation** architectural pattern. Instead of using `.filter().map()` chains which allocate intermediate arrays and cause garbage collection spikes during the hot path, they accept a shared `suggestions: Suggestion[]` array and push to it directly. JSDoc has been added to explicitly document this constraint to prevent future developers from "refactoring" it into non-performant pure functions.
 The application's core logic modules (saveParser, mapGraph, suggestionEngine), exported hooks, Zustand store, and ETL scripts already feature comprehensive JSDoc annotations, markdown architecture summaries, and inline comments explaining complex heuristics. No meaningful documentation gap was identified during this session.

@@ -37,5 +37,5 @@ The extraction logic needs to be implemented in `src/engine/saveParser/parsers/g
 - When parsing save files, all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level; inline magic numbers are forbidden.
 
 ## Acceptance Criteria
-- [ ] Implement extraction logic for Trainer ID and Secret ID from Gen 3 save files.
-- [ ] Verify functionality via appropriate tests.
+- [x] Implement extraction logic for Trainer ID and Secret ID from Gen 3 save files.
+- [x] Verify functionality via appropriate tests.

@@ -7,6 +7,7 @@ import type { AssistantApiData } from '../suggestionEngineTypes';
  * Evaluates Gen 2 Daycare breeding logic.
  * Checks if the player can breed a missing base Pokémon from an owned evolution.
  *
+ * **Architecture Note: In-Place Mutation**
  * It mutates the provided `suggestions` array.
  * This mutation-in-place pattern is a critical architectural optimization (O(1) memory)
  * that prevents the O(N) garbage collection overhead of allocating and merging massive
@@ -15,7 +16,7 @@ import type { AssistantApiData } from '../suggestionEngineTypes';
  * @param queryTargets - The top priority missing Pokémon IDs to evaluate.
  * @param saveData - The player's parsed save file, used to check Daycare status.
  * @param apiData - Pre-fetched metadata containing evolution chains.
- * @param instancesBySpecies - A Map of the player's physical Pokémon.
+ * @param instancesBySpecies - A Map of the player's physical Pokémon, used to verify ownership of evolutions in O(1) time.
  * @param suggestions - The shared array where new breeding suggestions are pushed in-place.
  */
 export function generateBreedingSuggestions(
