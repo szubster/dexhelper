@@ -2,12 +2,12 @@
 id: research-137-330-investigate-gen2-event-flag-failure
 type: RESEARCH
 title: Investigate Gen 2 Event Flag Parsing Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-18'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16975282876399516358'
 pr_number: null
 parent: epic-106-137-gen2-static-encounters
 tags:
