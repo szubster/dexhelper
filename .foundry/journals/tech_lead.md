@@ -210,3 +210,4 @@ Transformed story-130-316-document-indexeddb-schema into a technical blueprint. 
 - **Node**: `story-138-294-gen3-static-encounters-parsing`
 - **Actions**: Broke down the Gen 3 Static Encounters story into `task-294-331-gen3-static-encounter-flags-impl` and `task-294-332-gen3-static-encounter-flags-qa` as per the Intelligent Verification Protocol.
 - **Constraints Enforced**: Explicitly instructed the Coder and QA personas in the task blueprints to strictly enforce ADR 028 (no magic numbers, module-level constants) and relative offset calculations using `section1Offset` for Gen 3 save block extraction, specifically referencing the `DataView` RangeError handling rules based on previous recurring failure patterns.
+Appended tech lead journal for breaking down Gen 3 Volcanic Ash extraction story into task nodes, ensuring relative offsets and module-level constants are strictly enforced.
