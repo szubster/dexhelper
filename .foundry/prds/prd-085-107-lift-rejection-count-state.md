@@ -2,10 +2,10 @@
 id: prd-085-107-lift-rejection-count-state
 type: PRD
 title: Lift rejection_count state to DagContext
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-07-05'
-updated_at: '2026-07-10'
+updated_at: '2026-07-19'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,13 +2,13 @@
 id: task-282-305-gen3-manual-time-ui-overrides-qa
 type: TASK
 title: QA Gen 3 Manual Time UI Overrides
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-19'
 depends_on:
   - task-282-304-gen3-manual-time-ui-overrides-impl
-jules_session_id: '5703201408067165058'
+jules_session_id: null
 pr_number: null
 parent: story-081-282-gen3-manual-time-ui-overrides
 tags:

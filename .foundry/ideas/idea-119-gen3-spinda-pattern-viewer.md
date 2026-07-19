@@ -2,10 +2,10 @@
 id: idea-119-gen3-spinda-pattern-viewer
 type: IDEA
 title: Gen 3 Spinda Pattern Viewer
-status: PENDING
-owner_persona: "product_manager"
-created_at: "2026-07-19"
-updated_at: "2026-07-19"
+status: READY
+owner_persona: product_manager
+created_at: '2026-07-19'
+updated_at: '2026-07-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - collection
   - premium-feature
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 3 Spinda Pattern Viewer

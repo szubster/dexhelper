@@ -2,7 +2,7 @@
 id: epic-117-335-migrate-task-reminders
 type: EPIC
 title: Migrate and Clean Existing Task Reminders
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-19'
 updated_at: '2026-07-19'

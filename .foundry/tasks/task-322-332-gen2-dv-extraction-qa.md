@@ -2,10 +2,10 @@
 id: task-322-332-gen2-dv-extraction-qa
 type: TASK
 title: QA Gen 2 DV Data Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-17'
-updated_at: '2026-07-17'
+updated_at: '2026-07-19'
 depends_on:
   - task-322-331-gen2-dv-extraction-impl
 jules_session_id: null

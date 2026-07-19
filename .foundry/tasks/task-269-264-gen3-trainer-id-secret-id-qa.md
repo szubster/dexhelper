@@ -2,10 +2,10 @@
 id: task-269-264-gen3-trainer-id-secret-id-qa
 type: TASK
 title: QA Gen 3 Trainer ID and Secret ID Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-05'
-updated_at: '2026-07-05'
+updated_at: '2026-07-19'
 depends_on:
   - task-269-263-gen3-trainer-id-secret-id-impl
 jules_session_id: null
