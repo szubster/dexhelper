@@ -30,10 +30,10 @@ Verify the implementation of the Active Callers Dashboard UI.
 The Coder has implemented the Active Callers Dashboard to display Pokegear call probabilities. Ensure it adheres to the tactical aesthetic (ADR 008) and functions correctly without TypeScript or Lint errors.
 
 ## Acceptance Criteria
-- [ ] Verify `ActiveCallersDashboard` uses `rounded-none`, `border-dashed`, and `font-mono`.
-- [ ] Verify the UI component correctly surfaces call probability data.
-- [ ] Verify component unit tests exist and pass (`pnpm test`).
-- [ ] Verify no linting errors are introduced (`pnpm lint`).
+- [x] Verify `ActiveCallersDashboard` uses `rounded-none`, `border-dashed`, and `font-mono`.
+- [x] Verify the UI component correctly surfaces call probability data.
+- [x] Verify component unit tests exist and pass (`pnpm test`).
+- [x] Verify no linting errors are introduced (`pnpm lint`).
 
 ## QA Constraints & Reminders
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.

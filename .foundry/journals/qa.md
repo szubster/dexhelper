@@ -88,3 +88,11 @@ Validated PR for feebas extraction integration. The code correctly uses `section
 - **Task**: task-121-310-gen3-tv-block-parser-retry6-qa
 - **Outcome**: Target task cancelled due to max rejection limit.
 - **Notes**: The QA task target (task-121-309-gen3-tv-block-parser-retry6-impl) was permanently failed. Therefore, as per instructions, I've checked off the acceptance criteria for my own task (task-121-310-gen3-tv-block-parser-retry6-qa) to allow the Empty PR flow to exit gracefully.
+
+## 2026-07-19: QA Active Callers Dashboard UI Passed
+- **Task**: task-284-323-predictor-ui-qa
+- **Outcome**: Passed Validation
+- **Notes**:
+  - Verified that `ActiveCallersDashboard` correctly surfaces call probability data and uses the mandated tactical aesthetic (`rounded-none`, `border-dashed`, `font-mono`).
+  - Verified that component unit tests exist and pass.
+  - Verified no linting errors were introduced.
