@@ -31,3 +31,4 @@ Define any remaining typography-related `@utility` primitives in `src/index.css`
 
 ## Acceptance Criteria
 - [ ] Typography utilities are fully verified to match the scope of epic-071-123.
+- [ ] task-325-331-implement-tactical-typography

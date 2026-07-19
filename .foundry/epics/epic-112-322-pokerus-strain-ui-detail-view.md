@@ -2,10 +2,10 @@
 id: epic-112-322-pokerus-strain-ui-detail-view
 type: EPIC
 title: Pokerus Strain UI Tracker - Detail View
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-13'
-updated_at: '2026-07-16'
+updated_at: '2026-07-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - pokerus
   - ui
 research_references: []
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 
