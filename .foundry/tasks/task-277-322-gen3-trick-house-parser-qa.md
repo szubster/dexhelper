@@ -2,13 +2,13 @@
 id: task-277-322-gen3-trick-house-parser-qa
 type: TASK
 title: Gen 3 Trick House Parser QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-15'
-updated_at: '2026-07-17'
+updated_at: '2026-07-19'
 depends_on:
   - task-276-312-gen3-trick-house-parser-retry-impl
-jules_session_id: '12214840584143658060'
+jules_session_id: null
 pr_number: null
 parent: story-111-277-trick-house-parser-qa
 tags:
@@ -48,8 +48,8 @@ The Gen 3 save parser requires verifying Trick House state extraction (ADR 010, 
   - The Coder must use the resolved section offset (e.g., `section1Offset`) to calculate relative memory offsets instead of hardcoded absolute offsets to properly support A/B bank flash memory. You must verify this in your tests or verify that the implemented code adheres to it.
 
 ## Acceptance Criteria
-- [ ] Unit tests are written and passing for all Trick House parsing paths (variables and flags).
-- [ ] Tests explicitly verify out-of-bounds reads throw a `RangeError` via the `DataView` API (ADR 010).
-- [ ] Tests verify correct bitwise extraction for the Trick House landmark flag (ADR 026).
-- [ ] Tests verify that the parser accurately processes mock variable data (e.g., puzzle states, entrance state).
-- [ ] Mock data utilizes section-relative offsets, not absolute offsets, simulating real A/B flash banks.
+- [x] Unit tests are written and passing for all Trick House parsing paths (variables and flags).
+- [x] Tests explicitly verify out-of-bounds reads throw a `RangeError` via the `DataView` API (ADR 010).
+- [x] Tests verify correct bitwise extraction for the Trick House landmark flag (ADR 026).
+- [x] Tests verify that the parser accurately processes mock variable data (e.g., puzzle states, entrance state).
+- [x] Mock data utilizes section-relative offsets, not absolute offsets, simulating real A/B flash banks.

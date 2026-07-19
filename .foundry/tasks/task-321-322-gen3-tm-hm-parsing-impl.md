@@ -5,9 +5,9 @@ title: Gen 3 TM/HM Parse - Implementation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-15'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '13328614510682124811'
+jules_session_id: '15428081617967869908'
 pr_number: null
 parent: story-306-321-gen3-tm-hm-parsing
 tags:
