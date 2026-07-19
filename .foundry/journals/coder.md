@@ -99,3 +99,4 @@ Implemented static data structures for Safari Zone encounter tables in Gen 1 (Re
 Extracted JSON from PokeAPI and transformed it into statically typed TypeScript arrays conforming to the `SafariArea` interface.
 Integrated into `src/engine/data/gen1` and `src/engine/data/gen3` with a shared type definition.
 Tested successfully with passing lints.
+Added `src/engine/data/__tests__/index.test.ts` and `src/engine/data/gen3/__tests__/safariZone.test.ts` to increase coverage up to satisfying threshold. Fixed biome check issues.
