@@ -33,3 +33,6 @@ Currently, the Tech Lead persona has explicit instructions to append a "REMINDER
 - Reduced token usage and "prompt rot" across the system.
 - Cleaner, more focused TASK node markdown files that only contain the actual technical blueprint.
 - Easier to update failure handling policies in the future by modifying a single central document rather than fighting legacy instructions embedded in tasks.
+
+## Acceptance Criteria
+- [ ] prd-118-117-centralize-prompt-reminders

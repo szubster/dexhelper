@@ -36,10 +36,5 @@ Verify the implementation in `.github/scripts/foundry-orchestrator.ts` and the a
 - [x] All unit tests pass, explicitly covering the new behaviour.
 - [x] The change does not break existing test cases.
 
-### REMINDER FOR QA
-- If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
-- If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
-- If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
-
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
