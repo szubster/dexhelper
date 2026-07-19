@@ -2,12 +2,12 @@
 id: story-311-322-gen2-room-decoration-parsing
 type: STORY
 title: Gen 2 Room Decoration & Bank Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-15'
-updated_at: '2026-07-17'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '11199792967696436579'
+jules_session_id: null
 pr_number: null
 parent: epic-112-311-gen2-decoration-savings-extraction
 tags:
@@ -31,4 +31,6 @@ Implement the parser extraction for Gen 2 room decorations (bed, carpet, plant, 
 - Expose the extracted data seamlessly through the DexHelper Gen 2 core API.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-322-331-gen2-decoration-savings-parsing-impl
+- [ ] task-322-332-gen2-decoration-savings-parsing-qa

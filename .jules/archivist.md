@@ -19,7 +19,6 @@
 **Learning:** `.serena/memories` is mapped (symlinked or otherwise configured) to `.foundry/docs/knowledge_base/`. Automated code reviewers might flag edits to `.serena/memories` as out of scope if they are unaware of this underlying mapping.
 **Action:** Update the archivist schedule/prompt to explicitly note this mapping, so reviewers do not block valid cleanup tasks.
 
-
 ## 2026-04-26 - Archivist Run Learnings
 
 **Learning:** When refactoring drops a dependency (like `pokenode-ts`), references to it often persist in onboarding documents, creating an inaccurate view of the tech stack.
@@ -69,3 +68,8 @@
 
 **Learning:** Execution traces (e.g., 'I verified', 'Permanently failed', 'I implemented') continued to bloat journals like `coder.md` and `qa.md`.
 **Action:** Ran cleanup scripts to strip out these purely operational lines from the journals to keep them focused on critical learnings.
+
+## 2026-07-28 - Archivist Run Learnings
+
+**Learning:** Consolidated multiple security audit vectors and error logging patterns in `.jules/shield.md` into canonical blocks to reduce redundancy and improve the prompt's effectiveness.
+**Action:** Re-wrote `.jules/shield.md` to combine duplicated 'Adding New Security Audit Vectors' and 'Sanitize Error Logging' sections.

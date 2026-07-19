@@ -2,12 +2,12 @@
 id: story-323-322-pokerus-strain-badge-component
 type: STORY
 title: Pokerus Strain Badge UI Component
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-14'
 updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4286866592697799351'
 pr_number: null
 parent: epic-112-323-pokerus-strain-ui-grid-view
 tags:
@@ -30,4 +30,5 @@ Develop a reusable UI component that visually displays the Pokerus strain (e.g.,
 - Ensure the badge clearly distinguishes between different strains visually (colors or labels).
 
 ## 3. Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-322-331-pokerus-strain-badge-impl
