@@ -36,7 +36,7 @@ Implement static data structures for Safari Zone encounter tables in Gen 1 (Red/
 - Self-verify your implementation and document the verification in your task journal, as this is a simple/low-risk data task.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 1 Safari Zone static data structures.
-- [ ] Implement Gen 3 Safari Zone static data structures.
-- [ ] Define robust static data types/interfaces.
-- [ ] Integrate into the backend data layer.
+- [x] Implement Gen 1 Safari Zone static data structures.
+- [x] Implement Gen 3 Safari Zone static data structures.
+- [x] Define robust static data types/interfaces.
+- [x] Integrate into the backend data layer.
