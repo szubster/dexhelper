@@ -2,13 +2,13 @@
 id: task-280-326-feebas-backend-integration-retry-qa
 type: TASK
 title: QA - Retry Feebas Backend Integration
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-14'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on:
   - task-280-325-feebas-backend-integration-retry-impl
-jules_session_id: '12438734159990500178'
+jules_session_id: null
 pr_number: null
 parent: story-058-280-feebas-backend-integration
 tags:
@@ -27,11 +27,11 @@ notes: ''
 Verify the `coder` correctly implemented the Feebas tile extraction logic using relative offsets from `section1Offset` in the parsing engine.
 
 ## Acceptance Criteria
-- [ ] Review PR/code for modifications to ensure `gen3FeebasTiles` is correctly populated in the `SaveData` interface.
-- [ ] Verify that the extraction function correctly calculates the memory offset relative to `section1Offset` rather than using absolute hardcoded offsets.
-- [ ] Verify that the parsing logic handles RSE save files correctly and gracefully ignores versions without a Feebas seed.
-- [ ] Verify corresponding tests pass and cover the integration.
-- [ ] Ensure that memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level, preventing inline magic numbers.
+- [x] Review PR/code for modifications to ensure `gen3FeebasTiles` is correctly populated in the `SaveData` interface.
+- [x] Verify that the extraction function correctly calculates the memory offset relative to `section1Offset` rather than using absolute hardcoded offsets.
+- [x] Verify that the parsing logic handles RSE save files correctly and gracefully ignores versions without a Feebas seed.
+- [x] Verify corresponding tests pass and cover the integration.
+- [x] Ensure that memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level, preventing inline magic numbers.
 
 ## Failure Rules & Instructions
 - If the coder's implementation is flawed (e.g. using absolute offsets instead of relative to `section1Offset`), reject the task by setting the coder task's frontmatter to `status: FAILED` with a detailed `rejection_reason`.

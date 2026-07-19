@@ -712,6 +712,69 @@ function main(): void {
     }
   }
 
+  // ── Phase 3.9: CIRCULAR DEPENDENCY DETECTION ───────────────────────────────
+  info('Phase 3.9: Detecting circular dependencies among PENDING nodes...');
+
+  const pendingNodesForCycleDetection = nodes.filter(n => n.frontmatter.status === 'PENDING');
+  const dependencyGraph = new Map<string, string[]>();
+
+  for (const n of pendingNodesForCycleDetection) {
+    const deps = (n.frontmatter.depends_on || []).map(resolveNodePath).filter(Boolean) as string[];
+    // Also include implicit parent dependencies
+    const parentPath = resolveNodePath(n.frontmatter.parent);
+    if (parentPath) {
+      deps.push(parentPath);
+    }
+    dependencyGraph.set(n.repoPath, deps);
+  }
+
+  const visitedForCycle = new Set<string>();
+  const recursionStack = new Set<string>();
+  const nodesInCycle = new Set<string>();
+
+  function dfsCycle(nodePath: string): boolean {
+    visitedForCycle.add(nodePath);
+    recursionStack.add(nodePath);
+
+    const deps = dependencyGraph.get(nodePath) || [];
+    let hasCycle = false;
+    for (const dep of deps) {
+      if (!dependencyGraph.has(dep)) continue; // Only care about PENDING dependencies
+
+      if (!visitedForCycle.has(dep)) {
+        if (dfsCycle(dep)) {
+          nodesInCycle.add(dep);
+          hasCycle = true;
+        }
+      } else if (recursionStack.has(dep)) {
+        nodesInCycle.add(dep);
+        hasCycle = true;
+      }
+    }
+
+    recursionStack.delete(nodePath);
+    if (hasCycle) {
+       nodesInCycle.add(nodePath);
+    }
+    return hasCycle;
+  }
+
+  for (const n of pendingNodesForCycleDetection) {
+    if (!visitedForCycle.has(n.repoPath)) {
+      dfsCycle(n.repoPath);
+    }
+  }
+
+  if (nodesInCycle.size > 0) {
+    warn(`Detected circular dependency involving ${nodesInCycle.size} nodes.`);
+    for (const nodePath of nodesInCycle) {
+      const cycleNode = nodes.find(n => n.repoPath === nodePath);
+      if (cycleNode) {
+        promoteNodeToFailedWithReason(cycleNode, 'Circular dependency detected');
+      }
+    }
+  }
+
   // ── Phase 4: RESOLVE ───────────────────────────────────────────────────────
   info('Phase 4: Resolving DAG — finding eligible PENDING nodes...');
   const eligible: ParsedNode[] = [];

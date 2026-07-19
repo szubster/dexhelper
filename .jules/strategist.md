@@ -381,3 +381,9 @@
 **Outcome:** Merged
 **Why:** The prompt evaluation identified duplication in the agent prompts where the "WARNING ON BASH SESSIONS" rule was explicitly defined in `auditor.md`, `coder.md`, `qa.md`, and `tech_lead.md`, despite already being present in the centralized `.foundry/docs/knowledge_base/agents/core_policies.md` under "Bash Session Timeout Policy".
 **Pattern:** Consolidate duplicated core prompt instructions into `.foundry/docs/knowledge_base/agents/core_policies.md` and instruct the agents to read it. This drastically reduces prompt size, creates a single source of truth, and allows global policy updates without touching multiple individual schedule files.
+
+## 2026-07-30 - [Accepted] - Prompt improvement - Consolidate Node Failure Rules
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The prompt evaluation identified duplication in the agent prompts where the "REMINDER FOR CODER" and "REMINDER FOR QA" rules regarding node failures, cancellations, and empty PRs were explicitly defined in `coder.md` and `qa.md`, despite already being centralized in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+**Pattern:** Agents must rely on the centralized policies in `.foundry/docs/knowledge_base/agents/core_policies.md` for handling node failures, cancellations, and empty PRs, rather than duplicating 'REMINDER' blocks across persona prompts or task files.
