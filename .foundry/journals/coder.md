@@ -100,3 +100,4 @@ Extracted JSON from PokeAPI and transformed it into statically typed TypeScript 
 Integrated into `src/engine/data/gen1` and `src/engine/data/gen3` with a shared type definition.
 Tested successfully with passing lints.
 Added `src/engine/data/__tests__/index.test.ts` and `src/engine/data/gen3/__tests__/safariZone.test.ts` to increase coverage up to satisfying threshold. Fixed biome check issues.
+Responded to PR comments explaining the architectural choice to use static TS arrays for Safari Zone data rather than MSGPACK serialization via IndexedDB due to its small footprint and need for immediate availability.
