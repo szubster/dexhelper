@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-07-14'
 updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: '8434039141497851664'
+jules_session_id: '13648405015608914545'
 pr_number: null
 parent: story-307-319-gen3-trainer-flags-extraction
 tags:
