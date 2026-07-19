@@ -2,12 +2,12 @@
 id: task-323-331-pokerus-strain-ui-impl
 type: TASK
 title: Implement Pokerus Strain Detail UI
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2024-07-18'
 updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6252329123485939642'
 pr_number: null
 parent: story-322-323-pokerus-strain-detail-ui
 tags:
