@@ -31,4 +31,6 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer, we need to extract the
 - Map the internal location IDs to the unified Gen 3 map graph.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into actionable Tasks.
+- [x] Tech Lead: Break this Story down into actionable Tasks.
+- [ ] task-333-334-gen3-secret-base-locations-impl
+- [ ] task-333-335-gen3-secret-base-locations-qa
