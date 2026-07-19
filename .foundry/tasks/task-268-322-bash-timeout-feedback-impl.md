@@ -2,10 +2,10 @@
 id: task-268-322-bash-timeout-feedback-impl
 type: TASK
 title: Implement feedback mechanism for interrupted commands
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-15'
-updated_at: '2026-07-16'
+updated_at: '2026-07-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,4 +36,4 @@ Implement a feedback mechanism for bash commands that were interrupted due to ti
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Update `core_policies.md` with the exit code 124 feedback mechanism.
+- [x] Update `core_policies.md` with the exit code 124 feedback mechanism.

@@ -2,10 +2,10 @@
 id: story-324-322-gen2-dv-extraction
 type: STORY
 title: Gen 2 DV Data Extraction for Size Calculation
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-15'
-updated_at: '2026-07-16'
+updated_at: '2026-07-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -29,4 +29,6 @@ Design the technical breakdown to extract DVs (Attack, Defense, Speed, Special) 
 - Extract the 4 DVs from the raw binary data.
 
 ## Acceptance Criteria
-- [ ] Create tasks for the implementation of Gen 2 DV data extraction.
+- [x] Create tasks for the implementation of Gen 2 DV data extraction.
+- [ ] task-322-331-gen2-dv-extraction-impl
+- [ ] task-322-332-gen2-dv-extraction-qa

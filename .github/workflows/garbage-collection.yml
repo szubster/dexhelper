@@ -1,8 +1,6 @@
 name: Foundry Zombie Garbage Collection
 
 on:
-  schedule:
-    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 permissions:
