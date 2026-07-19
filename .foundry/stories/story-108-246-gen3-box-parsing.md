@@ -2,12 +2,11 @@
 id: story-108-246-gen3-box-parsing
 type: STORY
 title: Gen 3 Box Parsing and Grouping
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-29'
 updated_at: '2026-07-19'
-depends_on:
-  - research-246-244-gen3-box-parsing
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: epic-054-108-box-analyzer-save-parsing
@@ -17,8 +16,8 @@ tags:
   - save-parsing
   - gen3
 research_references: []
-rejection_count: 1
-rejection_reason: Circular dependency detected
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

@@ -29,4 +29,6 @@ This PRD outlines the adoption of Zod for parsing and validating `.foundry/**/*.
 - Improve maintainability of the `foundry-orchestrator.ts` by replacing manual validation logic with the Zod schema.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+- [ ] epic-117-334-define-zod-schema
+- [ ] epic-117-335-integrate-zod-orchestrator

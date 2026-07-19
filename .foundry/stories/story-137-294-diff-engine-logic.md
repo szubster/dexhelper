@@ -2,12 +2,12 @@
 id: story-137-294-diff-engine-logic
 type: STORY
 title: PC Box Diff Engine Logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-10'
 updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12453491824999763464'
 pr_number: null
 parent: epic-106-137-pc-box-diff-engine-move-planner
 tags:
@@ -30,6 +30,9 @@ The diff engine must iterate through the current and target box arrays. Pokémon
 The engine will return a set of differences detailing which specific entity is currently at what location (box, slot) and where its final target location (box, slot) should be.
 
 ## Acceptance Criteria
-- [ ] task-294-316-diff-engine-impl
-- [ ] task-294-317-diff-engine-qa
+- [x] task-294-316-diff-engine-impl
+- [x] task-294-317-diff-engine-qa
 - [x] Break down story into tasks for diff engine implementation.
+- [ ] research-294-335-diff-engine-hash-failure
+- [ ] task-294-336-diff-engine-hash-fix-impl
+- [ ] task-294-337-diff-engine-hash-fix-qa

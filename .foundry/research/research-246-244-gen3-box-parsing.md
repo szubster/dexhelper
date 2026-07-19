@@ -2,7 +2,7 @@
 id: research-246-244-gen3-box-parsing
 type: RESEARCH
 title: Research PC Box Memory Offsets for Generation 3
-status: FAILED
+status: PENDING
 owner_persona: researcher
 created_at: '2026-07-02'
 updated_at: '2026-07-19'
@@ -15,8 +15,8 @@ tags:
   - save-parsing
   - gen3
 research_references: []
-rejection_count: 0
-rejection_reason: Circular dependency detected
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
