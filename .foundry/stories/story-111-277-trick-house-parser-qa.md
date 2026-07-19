@@ -32,5 +32,5 @@ Write and execute unit tests for the Trick House `DataView` parser to ensure acc
 - Ensure correct bitwise operations and bounds handling in accordance with ADR 010 and ADR 026.
 
 ## Acceptance Criteria
-- [ ] Unit tests written and passing for all Trick House parsing paths.
-- [ ] task-277-322-gen3-trick-house-parser-qa
+- [x] Unit tests written and passing for all Trick House parsing paths.
+- [x] task-277-322-gen3-trick-house-parser-qa
