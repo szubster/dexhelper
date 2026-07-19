@@ -2,12 +2,12 @@
 id: story-322-323-pokerus-strain-detail-ui
 type: STORY
 title: Pokerus Strain Detail UI Component
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-14'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '10945336055137033088'
+jules_session_id: null
 pr_number: null
 parent: epic-112-322-pokerus-strain-ui-detail-view
 tags:
