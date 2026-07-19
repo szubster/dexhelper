@@ -27,7 +27,7 @@ notes: ''
 Based on ADR 025 and the findings from `research-081-144-gen3-rtc-strategy`, this story covers the implementation of Manual UI Overrides for Gen 3. We will provide UI controls to allow users to manually set or override the time state (e.g., simulating day/night or specific days for time-gated events).
 
 ## Acceptance Criteria
-- [ ] Implement Manual UI Overrides to allow users to force a specific time state.
-- [ ] Adhere strictly to ADR 008 tactical hardware/snooping aesthetic: use sharp edges (rounded-none), avoid rounded corners, and use dashed borders (border-dashed) with monospaced telemetry fonts (font-mono).
-- [ ] task-282-304-gen3-manual-time-ui-overrides-impl
-- [ ] task-282-305-gen3-manual-time-ui-overrides-qa
+- [x] Implement Manual UI Overrides to allow users to force a specific time state.
+- [x] Adhere strictly to ADR 008 tactical hardware/snooping aesthetic: use sharp edges (rounded-none), avoid rounded corners, and use dashed borders (border-dashed) with monospaced telemetry fonts (font-mono).
+- [x] task-282-304-gen3-manual-time-ui-overrides-impl
+- [x] task-282-305-gen3-manual-time-ui-overrides-qa
