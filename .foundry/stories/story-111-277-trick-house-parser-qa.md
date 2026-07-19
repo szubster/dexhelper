@@ -2,13 +2,13 @@
 id: story-111-277-trick-house-parser-qa
 type: STORY
 title: QA Gen 3 Trick House Parser
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-06'
 updated_at: '2026-07-19'
 depends_on:
   - story-111-276-trick-house-parser-impl
-jules_session_id: '16576132273939179525'
+jules_session_id: null
 pr_number: null
 parent: epic-054-111-trick-house-save-parsing
 tags:
@@ -32,5 +32,5 @@ Write and execute unit tests for the Trick House `DataView` parser to ensure acc
 - Ensure correct bitwise operations and bounds handling in accordance with ADR 010 and ADR 026.
 
 ## Acceptance Criteria
-- [ ] Unit tests written and passing for all Trick House parsing paths.
-- [ ] task-277-322-gen3-trick-house-parser-qa
+- [x] Unit tests written and passing for all Trick House parsing paths.
+- [x] task-277-322-gen3-trick-house-parser-qa

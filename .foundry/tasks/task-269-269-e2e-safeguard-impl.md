@@ -2,7 +2,7 @@
 id: task-269-269-e2e-safeguard-impl
 type: TASK
 title: Implement E2E Safeguards on Epics
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-14'
 updated_at: '2026-07-18'
@@ -43,15 +43,15 @@ Implement logic in `.github/scripts/foundry-orchestrator.ts` and `.github/script
    - In `foundry-heartbeat.test.ts`, add test cases demonstrating that `transitionNodeToCompleted` transitions an `EPIC` to `FAILED` instead of `VERIFYING` if it lacks an E2E/integration child story, and succeeds when it has one.
 
 ## Workflow Reminders
-- If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
+- If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement E2E enforcement logic in `foundry-orchestrator.ts` (Phase 4.1 / 4.5).
-- [ ] Implement E2E enforcement logic in `foundry-heartbeat.ts` (`transitionNodeToCompleted`).
-- [ ] Add unit tests in `foundry-orchestrator.test.ts` covering the new rules for EPICs.
-- [ ] Add unit tests in `foundry-heartbeat.test.ts` covering the new rules for EPICs.
+- [x] Implement E2E enforcement logic in `foundry-orchestrator.ts` (Phase 4.1 / 4.5).
+- [x] Implement E2E enforcement logic in `foundry-heartbeat.ts` (`transitionNodeToCompleted`).
+- [x] Add unit tests in `foundry-orchestrator.test.ts` covering the new rules for EPICs.
+- [x] Add unit tests in `foundry-heartbeat.test.ts` covering the new rules for EPICs.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

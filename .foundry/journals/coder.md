@@ -99,3 +99,14 @@ Task `task-261-282-gen3-met-location-impl` was to extract `metLocation` and atta
 ## 2026-07-19
 - **Task `task-322-331-gen2-decoration-savings-parsing-impl` Failed:** Suspended task due to missing memory offsets for Gen 2 room decorations and Mom's bank account savings.
 - **Action Taken:** Adhered to ADR 028 by refusing to guess offsets. Spawned a new RESEARCH node (`research-331-335-gen2-decoration-savings-offsets`) to investigate and document the exact offsets before parsing implementation can continue.
+## 2026-07-18: Implement E2E Safeguards on Epics
+
+- Fixed a bug where tests in `.github/scripts/foundry-heartbeat.test.ts` were failing by removing an accidentally duplicated block of code in `foundry-heartbeat.ts`.
+- All acceptance criteria are successfully implemented.
+\n## 2026-07-18: Cloudflare R2 Pull Sync Logic Completed Early\nThe pull sync logic for Cloudflare R2 was already implemented in `loadSaveFromStorage` (called during initial app mount) and the login mechanism was correctly integrated in `AuthContext`. When presented with a task (e.g., `task-263-285-r2-pull-sync-logic-impl`) where the target logic already fully exists and is tested, rely on the Empty PR policy. Remember to check off all Acceptance Criteria checkboxes in the markdown body before submitting the empty PR.
+Completed task: task-284-322-predictor-ui-impl. Implemented ActiveCallersDashboard per ADR 008 with tests.
+
+## 2026-07-18 - Gen 3 Manual Time UI Overrides Impl
+- **Action**: Created `TimeOverrideContext` and integrated it into `Gen3RTCControls`.
+- **Reasoning**: ADR 025 mandated an RTC-Independent Fallback Strategy for Gen 3 due to emulator-dependent unreliability. Implemented manual time overrides and system time fallbacks as requested.
+- **Rules Followed**: Created the React Context (`TimeOverrideContext`) first. Used the `useTimeOverride` in UI components (`Gen3RTCControls`). Updated `src/main.tsx` with `TimeOverrideProvider`. Ensured `Gen3RTCControls` conforms to ADR 008 (sharp edges, dashed borders, monospaced font).
