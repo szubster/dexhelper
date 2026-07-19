@@ -31,9 +31,9 @@ Extract the Trick House puzzle state from Gen 3 save files using the `DataView` 
 - Return a usable state object for UI components.
 
 ## Acceptance Criteria
-- [ ] Determine the exact memory offset for Trick House data.
-- [ ] Implement a parser using `DataView`.
-- [ ] Write tests ensuring accurate data extraction across progression states.
+- [x] Determine the exact memory offset for Trick House data.
+- [x] Implement a parser using `DataView`.
+- [x] Write tests ensuring accurate data extraction across progression states.
 - [x] story-111-249-investigate-trick-house-offsets
-- [ ] story-111-276-trick-house-parser-impl
-- [ ] story-111-277-trick-house-parser-qa
+- [x] story-111-276-trick-house-parser-impl
+- [x] story-111-277-trick-house-parser-qa
