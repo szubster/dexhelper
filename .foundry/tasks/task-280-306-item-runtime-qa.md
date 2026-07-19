@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
 depends_on:
-  - task-280-305-refactor-game-item-map
+  - .foundry/tasks/task-280-305-refactor-game-item-map.md
 jules_session_id: null
 pr_number: null
 parent: story-087-280-item-runtime-integration

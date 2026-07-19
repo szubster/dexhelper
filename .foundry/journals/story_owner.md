@@ -26,7 +26,26 @@ When processing roamer tracking, Gen 3 map coordinates cannot be statically extr
 
 ## 2026-07-16
 * The child tasks for `epic-044-149-gen3-roamer-core-extraction-v4` were already completed and archived in `.foundry/archive/stories/` (specifically `story-149-291-gen3-roamer-core-extraction.md` and `story-149-292-gen3-roamer-active-flag-parsing.md`). I verified their existence and checked off the acceptance criteria checkboxes in the parent EPIC to allow it to gracefully transition to `VERIFYING` via an empty PR.
+
+## 2026-07-18
+- Handled Impossible Loop for epic-100-130-rng-tid-sid-display and story-130-270-rng-tid-sid-integration by creating research-130-332 and story-130-333.
+
+## 2026-07-18 - Gen 3 Volcanic Ash Save Parsing
+- Broken down Epic `epic-054-268-gen3-ash-save-parsing` into `story-268-331-gen3-ash-dataview-extraction-relative`.
+- Discovered that previous task failed due to hardcoded absolute offsets (`0x142C` / `0x13D0`), which do not account for Gen 3 A/B bank rotation system. The new story enforces the use of relative offsets and the `section1Offset` variable dynamically.
 ## 2026-07-17
 * Generated `story-327-331-research-gen3-pokeblock-offsets` and `story-327-332-implement-gen3-pokeblock-parsing` from `epic-114-327-gen3-pokeblock-case-parsing`.
 ## 2026-07-18
 * Dynamically generated missing child stories (story-324-333, story-324-334, story-324-335) for epic-045-324-gen3-secret-base-parsing-v2 because the previous ones were archived/cancelled.
+
+## 2026-07-19
+* Verified epic-044-149-gen3-roamer-core-extraction-v4. All child stories are already completed and archived. Proceeding with empty PR.
+
+## 2026-07-19
+* Generated missing story `story-149-333-gen3-roamer-unit-tests` from `epic-044-149-gen3-roamer-core-extraction-v4` to implement required unit tests against save fixtures. Updated epic to leave criteria unchecked so it correctly demotes to PENDING.
+* Resolved 'Max rejection count reached' failure for story-136-295-sorting-standard-strategies by spawning research-136-330-investigate-sorting-strategies-failure and replacement stories (story-136-333 and story-136-334). Checked off permanently failed child nodes in epic-106-136-pc-box-sorting-algorithms.
+
+## [2026-07-18] Handled Impossible Loop for epic-106-137-gen2-static-encounters
+- Spawned research-137-330 to investigate failure of story-137-294.
+- Created replacement nodes story-137-333 and story-137-334.
+- Checked off permanently failed child nodes in epic markdown.
