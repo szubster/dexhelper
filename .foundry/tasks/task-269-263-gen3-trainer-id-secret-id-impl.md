@@ -5,9 +5,9 @@ title: Implement Gen 3 Trainer ID and Secret ID Extraction
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-05'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '9885189758254653476'
+jules_session_id: '3038436212564349970'
 pr_number: null
 parent: story-130-269-extract-gen3-trainer-id-secret-id
 tags:
@@ -15,7 +15,7 @@ tags:
   - gen3
   - trainer
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

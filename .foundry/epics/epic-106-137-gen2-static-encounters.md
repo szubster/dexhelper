@@ -2,12 +2,12 @@
 id: epic-106-137-gen2-static-encounters
 type: EPIC
 title: Gen 2 Static Encounters
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-06'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '80578693855257164'
+jules_session_id: null
 pr_number: null
 parent: prd-100-106-static-encounter-tracker
 tags:
@@ -26,8 +26,12 @@ Break down the Gen 2 static encounter checklist into stories.
 ## Acceptance Criteria
 - [x] Create story for Gen 2 event flag parsing
 - [x] Create story for Gen 2 checklist UI
-- [ ] story-137-294-gen2-event-flag-parsing
-- [ ] story-137-295-gen2-checklist-ui
+- [x] story-137-294-gen2-event-flag-parsing
+- [x] story-137-295-gen2-checklist-ui
+
+- [ ] research-137-330-investigate-gen2-event-flag-failure
+- [ ] story-137-333-gen2-event-flag-parsing-retry
+- [ ] story-137-334-gen2-checklist-ui-retry
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
