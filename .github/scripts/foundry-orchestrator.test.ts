@@ -2552,9 +2552,12 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     const bContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-b.md"), "utf-8");
     const cContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-c.md"), "utf-8");
 
-    expect(aContent).toContain("status: PENDING");
-    expect(bContent).toContain("status: PENDING");
-    expect(cContent).toContain("status: PENDING");
+    expect(aContent).toContain("status: FAILED");
+    expect(aContent).toContain("rejection_reason: Circular dependency detected");
+    expect(bContent).toContain("status: FAILED");
+    expect(bContent).toContain("rejection_reason: Circular dependency detected");
+    expect(cContent).toContain("status: FAILED");
+    expect(cContent).toContain("rejection_reason: Circular dependency detected");
   });
 
   test('Late-Binding Completion: EPIC fails if it lacks E2E story', () => {
