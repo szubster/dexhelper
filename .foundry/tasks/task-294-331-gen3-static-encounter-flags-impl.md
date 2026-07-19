@@ -2,12 +2,12 @@
 id: task-294-331-gen3-static-encounter-flags-impl
 type: TASK
 title: Implement Gen 3 Static Encounter Flags Parsing
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-18'
 updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '16083801981974315552'
+jules_session_id: null
 pr_number: null
 parent: story-138-294-gen3-static-encounters-parsing
 tags:
@@ -31,9 +31,12 @@ Furthermore, the `RangeError` from the DataView API must be gracefully handled t
 Implement parsing for Emerald, FireRed/LeafGreen, and Ruby/Sapphire based on `.foundry/docs/knowledge_base/gen3_static_encounters/gen3_static_encounter_offsets.md`.
 
 ## Acceptance Criteria
-- [ ] Create `.ts` module (e.g. `src/engine/gen3/staticEncounters.ts` or similar based on existing structure).
-- [ ] Define module-level constants for all event flags and bit positions.
-- [ ] Implement `extractGen3StaticEncounterFlags` mapping DataView to flags boolean state.
-- [ ] Follow ADR 028: No magic numbers. Use relative offsets `section1Offset + EVENT_FLAGS_START + BYTE_OFFSET`.
-- [ ] Handle `RangeError` and re-throw with the correct string.
-- [ ] Write tests ensuring offsets are parsed correctly and RangeError is handled.
+- [x] Create `.ts` module (e.g. `src/engine/gen3/staticEncounters.ts` or similar based on existing structure).
+- [x] Define module-level constants for all event flags and bit positions.
+- [x] Implement `extractGen3StaticEncounterFlags` mapping DataView to flags boolean state.
+- [x] Follow ADR 028: No magic numbers. Use relative offsets `section1Offset + EVENT_FLAGS_START + BYTE_OFFSET`.
+- [x] Handle `RangeError` and re-throw with the correct string.
+- [x] Write tests ensuring offsets are parsed correctly and RangeError is handled.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
