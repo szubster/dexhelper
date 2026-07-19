@@ -113,3 +113,4 @@ If you lack critical context or specifications (e.g., exact memory offsets) nece
 * Never execute blocking commands (e.g., `tail -f`, long-running loops) in `run_in_bash_session` as they will cause the session to hang indefinitely.
 * Use non-blocking alternatives like `cat` or `tail -n`.
 * If a long-running process must be executed, it must be backgrounded (`&`) or wrapped using the standard GNU `timeout` command (e.g., `timeout 30s command`).
+* **Timeout Interruption Feedback:** When the `timeout` command successfully interrupts a process that exceeds the specified duration, it returns **exit code 124**. Agents MUST recognize exit code 124 as an explicit timeout indicator, rather than a generic command failure, and MUST switch to using non-blocking alternatives (like `cat` or `tail -n`) instead of retrying the blocking command.
