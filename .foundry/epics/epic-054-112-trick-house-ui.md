@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-06-30'
 updated_at: '2026-06-30'
 depends_on:
-  - epic-054-111-trick-house-save-parsing
+  - epic-054-338-trick-house-save-parsing-v2
 jules_session_id: null
 pr_number: null
 parent: prd-088-054-trick-house-tracker
