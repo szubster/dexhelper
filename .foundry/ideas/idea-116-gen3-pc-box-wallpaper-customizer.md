@@ -2,12 +2,12 @@
 id: idea-116-gen3-pc-box-wallpaper-customizer
 type: IDEA
 title: Gen 3 PC Box Wallpaper Customizer
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-16'
-updated_at: '2026-07-17'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '3496458588510753835'
+jules_session_id: null
 parent: null
 tags:
   - gen3
@@ -32,4 +32,5 @@ Players want to unlock all custom PC box wallpapers in Gen 3 but the phrase gene
 Leverage the parsed Trainer ID from the uploaded `.sav` file to automatically generate and display the 16 custom unlock phrases, creating a personalized "Custom Wallpaper Checklist" dashboard.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this idea into a PRD to formalize the feature and assign it to an epic for tracking.
+- [x] Product Manager: Convert this idea into a PRD to formalize the feature and assign it to an epic for tracking.
+- [ ] prd-116-049-gen3-pc-box-wallpaper-customizer
