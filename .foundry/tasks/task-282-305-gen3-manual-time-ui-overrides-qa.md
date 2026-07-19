@@ -40,6 +40,6 @@ This QA task is responsible for verifying the implementation of the Gen 3 Manual
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] `TimeOverrideContext` manages and correctly provides manual time state.
-- [ ] Manual UI Overrides successfully override the time state.
-- [ ] UI strictly adheres to ADR 008 aesthetic.
+- [x] `TimeOverrideContext` manages and correctly provides manual time state.
+- [x] Manual UI Overrides successfully override the time state.
+- [x] UI strictly adheres to ADR 008 aesthetic.
