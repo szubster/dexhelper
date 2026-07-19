@@ -14,3 +14,6 @@ I have extracted these common directives and appended them directly to `.foundry
 ## 2026-07-17: Consolidated Task Reminders
 Identified redundancy where the Tech Lead was instructed to copy-paste failure handling and Empty PR checkbox reminders into every single TASK node's markdown body. This causes unnecessary bloat.
 I have removed this directive from `tech_lead.md` and created an IDEA node (`idea-118-centralize-prompt-reminders`) to track this process improvement. The core policies (`core_policies.md`) already cover these rules comprehensively.
+
+## 2026-07-19: Centralize Task Prompt Reminders
+Removed redundant `### REMINDER FOR CODER` and `### REMINDER FOR QA` blocks from `coder.md` and `qa.md` persona files. Cleaned up existing tasks to remove duplicate reminder sections. This centralizes instructions around Empty PRs and failure statuses in `core_policies.md` as outlined in `idea-118-centralize-prompt-reminders.md` to prevent prompt rot.
