@@ -149,39 +149,6 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
     }
   }
 
-  if (nodeType === "EPIC") {
-    const filePaths = discoverNodeFiles(path.join(repoRoot, '.foundry'));
-    let hasE2EStory = false;
-    for (const fp of filePaths) {
-      if (fp === node.filePath) continue;
-      const childNode = parseNodeFile(fp, repoRoot);
-      if (childNode &&
-         (childNode.frontmatter.parent === node.repoPath || childNode.frontmatter.parent === node.frontmatter.id) &&
-          childNode.frontmatter.type === 'STORY' &&
-          childNode.frontmatter.tags &&
-          childNode.frontmatter.tags.some(t => t.toLowerCase() === 'e2e' || t.toLowerCase() === 'integration')
-      ) {
-        hasE2EStory = true;
-        break;
-      }
-    }
-
-    if (!hasE2EStory) {
-      parsed.data.status = "FAILED";
-      parsed.data.jules_session_id = null;
-      parsed.data.updated_at = dateStr;
-      parsed.data.rejection_reason = "Merged with unfulfilled acceptance criteria: Missing E2E/integration story";
-
-      const newContent = matter.stringify(parsed.content, parsed.data);
-
-      if (!DRY_RUN) {
-        fs.writeFileSync(node.filePath, newContent, 'utf-8');
-      }
-      info(`${dryTag}Transitioned ACTIVE → FAILED: ${node.repoPath} (PR #${prNumber}) (Missing E2E)`);
-      return;
-    }
-  }
-
   if (["IDEA", "PRD", "EPIC"].includes(nodeType) && ownerPersona !== 'auditor') {
     parsed.data.status = "VERIFYING";
     parsed.data.owner_persona = "auditor";

@@ -72,3 +72,6 @@ During the session to transform `idea-067-extract-dag-utils` into a PRD, it was 
 
 ## 2026-07-17
 - Transformed IDEA 116 into PRD 117 to formalize Zod schema validation in the Foundry Orchestrator.
+
+### Observation: Invalid Node Sequence Numbers
+I noticed that `idea-118-orchestrator-circular-dependency-detection.md` contained an invalid child node ID (`prd-118-051...`) in its acceptance criteria, which was completely out of sequence for the current state of the repository. When generating new nodes, it's crucial to properly discover the max sequence number across the repository instead of hallucinating or assuming a sequence number, to preserve the sequential integrity of the node identifiers.

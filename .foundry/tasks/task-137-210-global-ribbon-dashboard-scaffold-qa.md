@@ -31,11 +31,6 @@ The coder has implemented the `GlobalRibbonChecklistDashboard` component for vie
 1. Verify the `GlobalRibbonChecklistDashboard` component functions as designed.
 2. Ensure data from the Living Dex / PC Box is correctly aggregated and displayed.
 
-## Reminder for QA Persona
-- **Transient Failures:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
-- **Permanent Failures:** If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
-- **Empty PR Policy:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
-
 ## Acceptance Criteria
 - [ ] Verify `GlobalRibbonChecklistDashboard` accurately displays data from the PC/Living Dex.
 - [ ] Verify basic ribbon display components render correctly for the aggregated data.

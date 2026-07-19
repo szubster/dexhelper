@@ -33,6 +33,6 @@ Implement the logic to extract DVs (Attack, Defense, Speed, Special) for each Po
 6. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 2 DV data extraction.
-- [ ] Ensure all memory offsets and constants are defined at the module level (no magic numbers).
-- [ ] Ensure `RangeError` is caught during DataView operations and a specific error `'The save file is corrupted or incomplete.'` is thrown.
+- [x] Implement Gen 2 DV data extraction.
+- [x] Ensure all memory offsets and constants are defined at the module level (no magic numbers).
+- [x] Ensure `RangeError` is caught during DataView operations and a specific error `'The save file is corrupted or incomplete.'` is thrown.
