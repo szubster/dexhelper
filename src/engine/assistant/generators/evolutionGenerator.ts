@@ -27,6 +27,7 @@ export function findInstanceHoldingItem(
  * time of day, and friendship levels.
  * Priority boosts significantly if the evolution criteria are actively met (e.g. required level reached).
  *
+ * **Architecture Note: In-Place Mutation**
  * It mutates the provided `suggestions` array.
  * This mutation-in-place pattern is a critical architectural optimization (O(1) memory)
  * that prevents the O(N) garbage collection overhead of allocating and merging massive
@@ -35,10 +36,10 @@ export function findInstanceHoldingItem(
  * @param queryTargets - The top priority missing Pokémon IDs to evaluate.
  * @param saveData - The parsed save data for checking items, friendship, and daylight (tod).
  * @param apiData - Pre-fetched metadata containing evolution criteria (level, item, time of day).
- * @param instancesBySpecies - A Map of the player's physical Pokémon, used to find valid pre-evolutions.
+ * @param instancesBySpecies - A Map of the player's physical Pokémon, used to find valid pre-evolutions in O(1) time.
  * @param suggestions - The shared array where new evolution suggestions are pushed in-place.
  * @param displayVersion - The current game version, used to handle special cases (like Yellow Pikachu refusing to evolve).
- * @param missingIds - A Set of Pokémon IDs the player needs to obtain.
+ * @param missingIds - A Set of Pokémon IDs the player needs to obtain, used to prevent redundant intermediate evolution suggestions.
  */
 export function generateEvolutionSuggestions(
   queryTargets: number[],
