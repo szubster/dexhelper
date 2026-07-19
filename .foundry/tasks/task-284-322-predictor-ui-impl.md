@@ -2,12 +2,12 @@
 id: task-284-322-predictor-ui-impl
 type: TASK
 title: Implement Active Callers Dashboard UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-14'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '11697200592071407945'
+jules_session_id: null
 pr_number: null
 parent: story-117-284-pokegear-predictor-ui
 tags:

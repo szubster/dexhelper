@@ -2,10 +2,10 @@
 id: task-284-323-predictor-ui-qa
 type: TASK
 title: QA - Active Callers Dashboard UI
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-14'
-updated_at: '2026-07-14'
+updated_at: '2026-07-19'
 depends_on:
   - task-284-322-predictor-ui-impl
 jules_session_id: null
