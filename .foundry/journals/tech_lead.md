@@ -204,6 +204,7 @@ Created implementation and QA verification tasks for story-119-261-npc-trade-sta
 ## 2026-07-17: Empty PR for completed child task
 Assigned to story-130-315-define-indexeddb-schema where its generated child (task-315-322-implement-savehistorydb) has already been completed and archived. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.
 
+- Broke down story-327-331-research-gen3-pokeblock-offsets into task-331-334-research-gen3-pokeblock-offsets for the researcher persona.
 ## 2026-07-18
 Drafted task-325-331-implement-tactical-typography to address remaining tactical typography primitives based on story-123-325-define-tactical-typography, mapping implementation to the palette persona as per schema. Designated for coder self-verification per Intelligent Verification Protocol.
 ### Journaling Policies
