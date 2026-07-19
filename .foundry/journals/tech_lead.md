@@ -204,6 +204,8 @@ Created implementation and QA verification tasks for story-119-261-npc-trade-sta
 ## 2026-07-17: Empty PR for completed child task
 Assigned to story-130-315-define-indexeddb-schema where its generated child (task-315-322-implement-savehistorydb) has already been completed and archived. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.
 
+## [Anomaly] Pre-existing completed task
+Assigned to story-127-268-bash-timeout-feedback where its generated child (task-268-322-bash-timeout-feedback-impl) has already been completed. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.
 ## 2026-07-18: Creating Missing E2E Safeguard Tasks
 - **Observation**: Assigned to `story-127-269-epic-e2e-safeguard` where previous implementation and QA tasks `task-269-269-e2e-safeguard-impl` and `task-269-270-e2e-safeguard-qa` had failed and were in a weird state (either max rejections or merged with unfulfilled acceptance criteria), leaving the parent story node active. I mistakenly tried to resolve this by checking off the pending children in the parent node without recreating replacement nodes, leading to a rejection in code review.
 - **Action**: Created replacement blueprints `task-269-334-e2e-safeguard-impl` and `task-269-335-e2e-safeguard-qa` while explicitly checking off the orphaned failed children in the parent's markdown, as required by the Impossible Loop Policy.
