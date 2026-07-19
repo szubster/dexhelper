@@ -72,3 +72,9 @@ Successfully broke down `prd-115-115-gen3-fame-checker-assistant` into three dis
 2. `epic-115-332-gen3-fame-checker-save-parsing`: The implementation phase for integrating those discovered offsets.
 3. `epic-115-333-gen3-fame-checker-dashboard-ui`: Building out the final dashboard for players.
 I ensured the correct DAG order by using `depends_on` between them and appended them to the PRD's Acceptance Criteria.
+
+## 2026-07-19: Centralize Prompt Rules Epic Generation
+Broke down PRD `prd-118-117-centralize-prompt-reminders` into two separate Epics:
+1. `epic-117-334-centralize-prompt-rules` to handle the prompt updates and documentation.
+2. `epic-117-335-migrate-task-reminders` to handle the cleanup script for existing nodes.
+Updated the PRD by appending the Epics to the Acceptance Criteria. Corrected a minor flaw where `epic-117-335` depended on a file path instead of a Node ID, adhering to the DAG dependency constraint that `depends_on` within macro nodes must use Node IDs.
