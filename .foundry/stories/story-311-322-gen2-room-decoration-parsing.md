@@ -31,4 +31,6 @@ Implement the parser extraction for Gen 2 room decorations (bed, carpet, plant, 
 - Expose the extracted data seamlessly through the DexHelper Gen 2 core API.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-322-331-gen2-decoration-savings-parsing-impl
+- [ ] task-322-332-gen2-decoration-savings-parsing-qa

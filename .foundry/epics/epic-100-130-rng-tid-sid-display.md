@@ -28,5 +28,10 @@ Provide UI elements to clearly display both the Trainer ID (TID) and Secret ID (
 - [ ] Ensure TID and SID are displayed together in the UI.
 - [ ] Implement a copy-to-clipboard button for the TID/SID combination.
 - [x] Story Owner: Convert this Epic into actionable Stories.
-- [ ] story-130-269-rng-tid-sid-component
-- [ ] story-130-270-rng-tid-sid-integration
+- [x] story-130-269-rng-tid-sid-component
+- [x] story-130-270-rng-tid-sid-integration
+- [ ] research-130-332-rng-tid-sid-integration-failure
+- [ ] story-130-333-rng-tid-sid-integration-retry
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
