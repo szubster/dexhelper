@@ -229,3 +229,7 @@
 ## 2026-07-17
 **Idea:** Implement Circular Dependency Detection in DAG Orchestrator
 **Learning:** As the Foundry Orchestrator resolves dependencies linearly, circular dependencies can cause silent failures (deadlocking nodes in PENDING). Proactively implementing cycle detection in the orchestrator aligns with the "Technical Evolution" focus area by significantly improving the robustness of the system and preventing infinite hanging states caused by agent mistakes.
+
+## 2026-07-19
+**Idea:** Gen 3 Spinda Pattern Viewer
+**Learning:** Targeting deeply obscure, math-driven visual mechanics (like Spinda's PID-based spots) leverages our save parsing to offer a visual wow-factor that is completely unavailable in the base game. It strongly emphasizes the "premium companion app" ethos by turning hidden binary data into a unique gallery experience for collectors.
