@@ -31,3 +31,5 @@ When processing roamer tracking, Gen 3 map coordinates cannot be statically extr
 ## 2026-07-18 - Gen 3 Volcanic Ash Save Parsing
 - Broken down Epic `epic-054-268-gen3-ash-save-parsing` into `story-268-331-gen3-ash-dataview-extraction-relative`.
 - Discovered that previous task failed due to hardcoded absolute offsets (`0x142C` / `0x13D0`), which do not account for Gen 3 A/B bank rotation system. The new story enforces the use of relative offsets and the `section1Offset` variable dynamically.
+## 2026-07-17
+* Generated `story-327-331-research-gen3-pokeblock-offsets` and `story-327-332-implement-gen3-pokeblock-parsing` from `epic-114-327-gen3-pokeblock-case-parsing`.
