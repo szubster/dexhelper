@@ -17,3 +17,6 @@ I have removed this directive from `tech_lead.md` and created an IDEA node (`ide
 
 ## 2026-07-19: Centralize Task Prompt Reminders
 Removed redundant `### REMINDER FOR CODER` and `### REMINDER FOR QA` blocks from `coder.md` and `qa.md` persona files. Cleaned up existing tasks to remove duplicate reminder sections. This centralizes instructions around Empty PRs and failure statuses in `core_policies.md` as outlined in `idea-118-centralize-prompt-reminders.md` to prevent prompt rot.
+## 2026-07-18: Centralized Reminders and Cycle Detection
+- Removed redundant `### REMINDER FOR QA` and `### REMINDER FOR CODER` blocks from the `qa` and `coder` persona prompts, as well as an existing task (`task-299-323-extend-phase-3-6-qa`), satisfying `idea-118-centralize-prompt-reminders`. These rules should rely on core_policies.md instead to reduce duplication and token usage.
+- Implemented circular dependency detection in the Foundry Orchestrator (`foundry-orchestrator.ts`) during Phase 3.9 using a DFS-based cycle detection algorithm. `PENDING` nodes involved in a cycle will now be safely transitioned to `FAILED` with `rejection_reason = "Circular dependency detected"`, satisfying `idea-118-orchestrator-circular-dependency-detection` and preventing DAG deadlocks.

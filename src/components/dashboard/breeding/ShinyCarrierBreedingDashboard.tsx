@@ -119,8 +119,8 @@ export const ShinyCarrierBreedingDashboard: React.FC = () => {
         ) : (
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
             {breedingPairs.map((pair) => {
-              const pA = pair.parentA as PokemonWithMetadata & { _source: string; _speciesName: string };
-              const pB = pair.parentB as PokemonWithMetadata & { _source: string; _speciesName: string };
+              const pA = pair.parentA;
+              const pB = pair.parentB;
 
               return (
                 <div
