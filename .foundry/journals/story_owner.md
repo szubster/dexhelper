@@ -35,6 +35,8 @@ When processing roamer tracking, Gen 3 map coordinates cannot be statically extr
 - Discovered that previous task failed due to hardcoded absolute offsets (`0x142C` / `0x13D0`), which do not account for Gen 3 A/B bank rotation system. The new story enforces the use of relative offsets and the `section1Offset` variable dynamically.
 ## 2026-07-17
 * Generated `story-327-331-research-gen3-pokeblock-offsets` and `story-327-332-implement-gen3-pokeblock-parsing` from `epic-114-327-gen3-pokeblock-case-parsing`.
+## 2026-07-18
+* Dynamically generated missing child stories (story-324-333, story-324-334, story-324-335) for epic-045-324-gen3-secret-base-parsing-v2 because the previous ones were archived/cancelled.
 
 ## 2026-07-19
 * Verified epic-044-149-gen3-roamer-core-extraction-v4. All child stories are already completed and archived. Proceeding with empty PR.
