@@ -203,3 +203,8 @@ During the session for `story-301-314-lift-rejection-count-state`, the target Fo
 Created implementation and QA verification tasks for story-119-261-npc-trade-state-integration. Ensured the QA task explicitly tests the requirements like RangeError handling and constant-defined memory offsets, as state integration changes logic in the core parse pipeline, meaning verification is essential according to the Intelligent Verification Protocol.
 ## 2026-07-17: Empty PR for completed child task
 Assigned to story-130-315-define-indexeddb-schema where its generated child (task-315-322-implement-savehistorydb) has already been completed and archived. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.
+
+## 2026-07-18: Gen 3 Static Encounters Blueprinting
+- **Node**: `story-138-294-gen3-static-encounters-parsing`
+- **Actions**: Broke down the Gen 3 Static Encounters story into `task-294-331-gen3-static-encounter-flags-impl` and `task-294-332-gen3-static-encounter-flags-qa` as per the Intelligent Verification Protocol.
+- **Constraints Enforced**: Explicitly instructed the Coder and QA personas in the task blueprints to strictly enforce ADR 028 (no magic numbers, module-level constants) and relative offset calculations using `section1Offset` for Gen 3 save block extraction, specifically referencing the `DataView` RangeError handling rules based on previous recurring failure patterns.
