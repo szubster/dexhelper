@@ -2,13 +2,13 @@
 id: task-294-317-diff-engine-qa
 type: TASK
 title: QA PC Box Diff Engine Logic
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-12'
 updated_at: '2026-07-18'
 depends_on:
-  - task-294-316-diff-engine-impl
-jules_session_id: '7695515529911977712'
+  - .foundry/tasks/task-294-316-diff-engine-impl.md
+jules_session_id: null
 pr_number: null
 parent: story-137-294-diff-engine-logic
 tags:
@@ -16,7 +16,7 @@ tags:
   - diff
   - testing
 research_references: []
-rejection_count: 1
+rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---

@@ -6,8 +6,7 @@ status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-06'
 updated_at: '2026-07-18'
-depends_on:
-  - task-280-304-item-db-schema-and-sync
+depends_on: []
 jules_session_id: '4876611211589918040'
 pr_number: null
 parent: story-087-280-item-runtime-integration
