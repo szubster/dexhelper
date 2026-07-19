@@ -44,6 +44,6 @@ This task requires you to implement the React Context layer and UI controls to a
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement `TimeOverrideContext` to manage manual time state.
-- [ ] Build Manual UI Overrides to allow users to force a specific time state.
-- [ ] Adhere strictly to ADR 008 tactical hardware/snooping aesthetic (sharp edges, dashed borders, monospaced fonts).
+- [x] Implement `TimeOverrideContext` to manage manual time state.
+- [x] Build Manual UI Overrides to allow users to force a specific time state.
+- [x] Adhere strictly to ADR 008 tactical hardware/snooping aesthetic (sharp edges, dashed borders, monospaced fonts).

@@ -282,3 +282,9 @@
 **Outcome:** Merged
 **Why:** Enhances the specialized hardware illusion by converting generic ribbon lists into segmented diagnostic outputs.
 **Pattern:** Repeat: Wrapping arrays/lists of badges in a `LcdGrid` and using `HoverScanner` for interactive data points. Avoid: Relying on exact text matches in global tests without updating strict `getByText` locator queries, as tactical bracket formatting (`[ $Label_SYS ]`) breaks basic matchers.
+
+## 2026-08-15 - [Accepted] - 🖼️ Canvas: Tactical Version Arbitration Matrix
+**What:** Redesigned the `VersionModal` component into a "Tactical Version Arbitration Matrix". Replaced the simple modal layout with a full dual-pane hardware dashboard (`[ DIAGNOSTIC_READOUT ]` and `[ ARBITRATION_MATRIX ]`) utilizing `TacticalPanel`. Transformed the basic warning icon into an animated `ServerCrash` crosshair. Evolved the version selection buttons from basic grid squares to detailed active hardware nodes featuring data pipes (`SYS.VER`), active scanning radar sweeps, and strict uppercase monospace typography.
+**Outcome:** Accepted
+**Why:** Brings the version resolution interface fully in line with the tactical specialization motif. Standard modals and flat button grids break the "specialized hardware" immersion during a critical application action. Evolving it into a multi-pane hardware matrix with explicit diagnostics and data stream visualizations reinforces the fantasy of using raw hardware interfaces.
+**Pattern:** For critical decision inputs or error state resolutions, avoid standard web modals. Transform them into active "Arbitration Matrices" featuring multi-pane layouts, explicit diagnostic visualizers (like crosshairs or rotating radar elements), and faux hardware selection nodes to maintain the specialized device aesthetic.
