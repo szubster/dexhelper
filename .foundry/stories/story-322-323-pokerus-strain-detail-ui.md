@@ -5,16 +5,16 @@ title: Pokerus Strain Detail UI Component
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-14'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: '3254397523943306345'
+jules_session_id: '10945336055137033088'
 pr_number: null
 parent: epic-112-322-pokerus-strain-ui-detail-view
 tags:
   - pokerus
   - ui
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

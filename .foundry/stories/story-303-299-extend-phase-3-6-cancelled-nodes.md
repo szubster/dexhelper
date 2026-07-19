@@ -2,12 +2,12 @@
 id: story-303-299-extend-phase-3-6-cancelled-nodes
 type: STORY
 title: Extend Phase 3.6 for CANCELLED nodes
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-12'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: '9812575169698157666'
+jules_session_id: null
 pr_number: null
 parent: epic-108-303-extend-phase-3-6-cancelled-nodes
 tags:
@@ -33,5 +33,5 @@ Update `.github/scripts/foundry-orchestrator.ts` Phase 3.6 logic to correctly aw
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-299-322-extend-phase-3-6-impl
-- [ ] task-299-323-extend-phase-3-6-qa
+- [x] task-299-322-extend-phase-3-6-impl
+- [x] task-299-323-extend-phase-3-6-qa

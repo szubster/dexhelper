@@ -5,16 +5,16 @@ title: Pokerus Strain Badge UI Component
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-14'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: '13368304363640602748'
+jules_session_id: '4286866592697799351'
 pr_number: null
 parent: epic-112-323-pokerus-strain-ui-grid-view
 tags:
   - pokerus
   - ui
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

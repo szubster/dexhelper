@@ -35,4 +35,5 @@ Extract the Volcanic Ash count (step counter) from Gen 3 save files (Ruby, Sapph
 - Expand the \`PokeData\` save parsing output to include the \`volcanicAsh\` count property for Gen 3 states.
 
 ## Acceptance Criteria
-- [ ] Break down this Epic into corresponding STORY nodes.
+- [x] Break down this Epic into corresponding STORY nodes.
+- [ ] story-268-331-gen3-ash-dataview-extraction-relative
