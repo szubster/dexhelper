@@ -203,6 +203,9 @@ During the session for `story-301-314-lift-rejection-count-state`, the target Fo
 Created implementation and QA verification tasks for story-119-261-npc-trade-state-integration. Ensured the QA task explicitly tests the requirements like RangeError handling and constant-defined memory offsets, as state integration changes logic in the core parse pipeline, meaning verification is essential according to the Intelligent Verification Protocol.
 ## 2026-07-17: Empty PR for completed child task
 Assigned to story-130-315-define-indexeddb-schema where its generated child (task-315-322-implement-savehistorydb) has already been completed and archived. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.
+
+## 2026-07-18: PokerusBadge Implementation Task
+Created `task-322-331-pokerus-strain-badge-impl` from `story-323-322-pokerus-strain-badge-component`. Per the Intelligent Verification Protocol, designated the coder to self-verify this low-risk UI component. Explicitly mandated adherence to the tactical hardware aesthetic from ADR 008 and ADR 024.
 ## 2026-07-18: Document IndexedDB Schema Breakdown
 Transformed story-130-316-document-indexeddb-schema into a technical blueprint. Designated the Coder to self-verify as it is a low-risk documentation task.
 

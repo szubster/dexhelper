@@ -30,4 +30,5 @@ Develop a reusable UI component that visually displays the Pokerus strain (e.g.,
 - Ensure the badge clearly distinguishes between different strains visually (colors or labels).
 
 ## 3. Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-322-331-pokerus-strain-badge-impl
