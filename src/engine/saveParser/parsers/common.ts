@@ -53,6 +53,7 @@ export interface PokemonInstance {
         level: number;
         location: number;
         locationName?: string | undefined;
+        metLocation?: number;
       }
     | undefined;
   otName?: string | undefined;

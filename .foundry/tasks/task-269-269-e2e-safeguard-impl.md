@@ -5,15 +5,15 @@ title: Implement E2E Safeguards on Epics
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-14'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: '2762553712301432084'
+jules_session_id: '12897181148262611850'
 pr_number: null
 parent: story-127-269-epic-e2e-safeguard
 tags:
   - process
   - orchestrator
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
