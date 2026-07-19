@@ -1,5 +1,5 @@
 export interface SafariEncounter {
-  pokemon: string;
+  pokemon: number;
   chance: number;
   minLevel: number;
   maxLevel: number;
