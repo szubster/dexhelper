@@ -21,7 +21,7 @@ describe('VersionModal', () => {
   it('should not render anything when isVersionModalOpen is false', async () => {
     await render(<VersionModal />);
 
-    await expect.element(page.getByText('SYS.VERSION_CONFLICT')).not.toBeInTheDocument();
+    await expect.element(page.getByText('SYS.CONFLICT')).not.toBeInTheDocument();
   });
 
   it('should render fallback versions when saveData is null', async () => {
@@ -29,7 +29,7 @@ describe('VersionModal', () => {
     await render(<VersionModal />);
 
     // Modal title should exist
-    const elements = page.getByText('SYS.VERSION_CONFLICT');
+    const elements = page.getByText('SYS.CONFLICT');
     await expect.element(elements.first()).toBeInTheDocument();
 
     // Should have Gen 1 and Gen 2 labels
@@ -50,7 +50,7 @@ describe('VersionModal', () => {
 
     await render(<VersionModal />);
 
-    const elements = page.getByText('SYS.VERSION_CONFLICT');
+    const elements = page.getByText('SYS.CONFLICT');
     await expect.element(elements.first()).toBeInTheDocument();
 
     // Should only have Gen 1 labels
