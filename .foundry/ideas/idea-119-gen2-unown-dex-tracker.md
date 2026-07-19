@@ -20,7 +20,7 @@ rejection_reason: ""
 ## Context
 In Generation 2 (Gold, Silver, Crystal), catching all 26 Unown forms is a significant endgame side quest tied to the Ruins of Alph puzzles. The in-game Unown Dex tracks which forms have been caught, but unlocking more Unown forms requires completing specific sliding puzzles in the Ruins of Alph chambers.
 
-Currently, DexHelper provides excellent utility for the standard Pokédex, but it lacks support for this unique, fragmented sub-quest. Hardcore completionists would benefit greatly from a unified view that connects their caught Unown forms with the hidden puzzle completion flags.
+Currently, DexHelper provides an UnownDexPanel that highlights caught forms, but it lacks the contextual link to the requisite Ruins of Alph sliding puzzle event flags. Hardcore completionists would benefit greatly from a unified view that connects their caught Unown forms with the hidden puzzle completion flags.
 
 ## Proposal
 Create a dedicated `Gen 2 Unown Dex Progress Tracker` dashboard. This feature will:
