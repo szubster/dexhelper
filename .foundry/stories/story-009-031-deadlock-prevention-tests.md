@@ -15,6 +15,7 @@ tags:
   - lifecycle
   - atomic-handoffs
 rejection_reason: Circular dependency detected
+rejection_count: 1
 ---
 
 # Story: Deadlock Prevention Mechanism Unit Tests

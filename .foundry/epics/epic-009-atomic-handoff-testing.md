@@ -18,6 +18,7 @@ tags:
   - lifecycle
   - atomic-handoffs
 rejection_reason: Circular dependency detected
+rejection_count: 1
 ---
 
 # Epic: Atomic Handoff Testing Expansion
