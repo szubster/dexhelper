@@ -113,3 +113,4 @@ Critical learnings:
 
 ## 2026-07-17 - Empty PR Policy for Infrastructure
 **Learning:** Audited the development tooling, found to be highly optimized and matching CI parity. An empty PR will be submitted to respect the bloat policy.
+## 2026-07-17 - Empty PR Policy for Infrastructure\n**Learning:** Audited the development tooling, found to be highly optimized and matching CI parity. An empty PR will be submitted to respect the bloat policy. Also, ran bundle analysis requiring `pnpm build`.

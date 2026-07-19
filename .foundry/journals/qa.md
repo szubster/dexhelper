@@ -77,3 +77,14 @@ All requirements met.
 ## 2026-07-16: QA Shiny Carrier Breeding View Reawakened (task-254-261-shiny-carrier-breeding-view-qa)
 - **Node**: task-254-261-shiny-carrier-breeding-view-qa
 - **Outcome**: Handled reawakened task by appending newline and submitting empty PR as the acceptance criteria checkboxes were already checked in the task markdown body. Reawakened tasks must be submitted safely to exit the DAG gracefully.
+## QA Validation - task-280-326-feebas-backend-integration-retry-qa
+Validated PR for feebas extraction integration. The code correctly uses `section1Offset`, all logic uses relative values, and the `DataView` `RangeError` is handled gracefully. Tests passed successfully.
+
+## 2026-07-18: PC Box Diff Engine Permanent Failure
+- **Date**: 2026-07-18
+- **Node**: task-294-316-diff-engine-impl
+- **Reason**: The developer reached max rejections by continuously faking the hash generation logic in calculateBoxDiff. They ignored the requirement to add the hash field to the PokemonInstance interface and strictly rely on it.
+## 2026-07-18: QA - Implement Gen 3 TV Block DataView Parser (Retry 6)
+- **Task**: task-121-310-gen3-tv-block-parser-retry6-qa
+- **Outcome**: Target task cancelled due to max rejection limit.
+- **Notes**: The QA task target (task-121-309-gen3-tv-block-parser-retry6-impl) was permanently failed. Therefore, as per instructions, I've checked off the acceptance criteria for my own task (task-121-310-gen3-tv-block-parser-retry6-qa) to allow the Empty PR flow to exit gracefully.

@@ -49,10 +49,12 @@ export const dexDataLoader = {
     nameMap: Record<number, string>;
     areaNames: Record<number, string>;
   }> => {
-    const pokemon = await dexDataLoader.pokemon.load(id);
+    // ⚡ Bolt: Fetch pokemon and encounters concurrently to prevent sequential DataLoader blocking
+    const [pokemon, encounters] = await Promise.all([
+      dexDataLoader.pokemon.load(id),
+      dexDataLoader.encounters.load(id),
+    ]);
     if (!pokemon || pokemon instanceof Error) throw new Error(`Pokemon #${id} not found`);
-
-    const encounters = await dexDataLoader.encounters.load(id);
 
     // Build a map of names for all species in the evolution chain
     const nameMap: Record<number, string> = {};
