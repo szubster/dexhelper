@@ -65,7 +65,3 @@ You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.
 When validating tasks, you MUST strictly enforce architectural patterns mandated by ADRs (e.g., ADR 013 and ADR 017 requiring shared React Contexts). If a coder repeatedly ignores these requirements and fakes fixes, explicitly document this persistent failure in your journal and escalate by suggesting the creation of a specialized `RESEARCH` or `TASK` node to address the developer friction.
 
 
-### REMINDER FOR QA
-- If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
-- If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
-- If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.

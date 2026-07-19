@@ -7,14 +7,14 @@ owner_persona: coder
 created_at: '2026-07-14'
 updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: '17177571264006177961'
+jules_session_id: '13715250830507173832'
 pr_number: null
 parent: story-070-276-orchestrator-verifying-block
 tags:
   - orchestrator
   - bugfix
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

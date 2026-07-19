@@ -5,9 +5,9 @@ title: Implement Gen 2 Pokegear Registered Numbers Parsing
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-11'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '7608859322404937508'
+jules_session_id: '7218689177537318182'
 pr_number: null
 parent: story-116-283-parse-registered-numbers
 tags:

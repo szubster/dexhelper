@@ -7,14 +7,14 @@ owner_persona: coder
 created_at: '2026-07-14'
 updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12897181148262611850'
 pr_number: null
 parent: story-127-269-epic-e2e-safeguard
 tags:
   - process
   - orchestrator
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

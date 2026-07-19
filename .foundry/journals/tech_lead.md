@@ -186,7 +186,16 @@ When generating blueprints for Gen 3 dynamic save block extraction (like Volcani
 - Explicitly instructed the Coder and QA personas on error handling, Empty PR requirements, and strict magic number / relative offset rules.
 
 2026-07-16: Created retry 7 for Gen 3 TV parser because retry 6 failed QA due to inline magic numbers and incorrect error message string.
+- Passthrough validation executed for story-304-320-gen3-contest-frontier-extraction: Target child tasks were already COMPLETED.
+- 2026-07-17: Drafted `task-322-331-gen2-decoration-savings-parsing-impl` and `task-322-332-gen2-decoration-savings-parsing-qa` from `story-311-322-gen2-room-decoration-parsing`. Included explicit architectural constraints requiring the Coder to use module-level constants for offsets and forbidding inline magic numbers (ADR 028).
+## 2026-07-17: Safari Zone Static Tables Breakdown\n- **story-324-322-safari-zone-static-tables**: Broke down the Safari Zone static data story into a single implementation task `task-322-331-safari-zone-static-tables-impl` for the Coder persona.\n- Because this task involved straightforward static data compilation without complex logic or risk, I applied the Intelligent Verification Protocol to require the Coder to self-verify rather than spawning a separate QA task.\n- Ensured the task included standard error handling constraints (updating YAML frontmatter to FAILED/CANCELLED with a rejection reason upon failure).\n
+Created tasks 331 and 332 for Gen 2 DV extraction. Applied strict requirements from Gen 2 memory guidelines, specifically ensuring all constants are defined at the module level and explicit RangeError bounds checking is enforced.
+- Anomaly: Pre-existing completed node task-317-322-detect-party-zero-hp-impl found prior to session.
 
+## 2026-07-17: False Negative on Empty PR Submission
+- **Incident**: While completing `story-303-299-extend-phase-3-6-cancelled-nodes` where the child tasks (`task-299-322-extend-phase-3-6-impl` and `task-299-323-extend-phase-3-6-qa`) were already generated and completed (one even archived), the automated code review incorrectly flagged the patch as incomplete for not creating the files.
+- **Action**: Ignored the reviewer hallucination as per the Empty PR policy guidelines and proceeded with the Empty PR to transition the parent node.
+- **Lesson**: The code reviewer may fail to recognize artifacts that already exist on disk (especially if archived) when checking off Markdown boxes in parent nodes.
 ## [Anomaly] Unexpected Target Artifact Existed
 
 During the session for `story-301-314-lift-rejection-count-state`, the target Foundry artifact (`task-301-314-lift-rejection-count-state-impl.md`) unexpectedly existed prior to the session and was already marked as COMPLETED. As per the empty PR policy and anomaly guidelines, I checked off the child task in the story node as a passthrough validation step to transition the parent node without creating duplicate tasks.
@@ -199,3 +208,18 @@ Assigned to story-130-315-define-indexeddb-schema where its generated child (tas
 - **Observation**: Assigned to `story-127-269-epic-e2e-safeguard` where previous implementation and QA tasks `task-269-269-e2e-safeguard-impl` and `task-269-270-e2e-safeguard-qa` had failed and were in a weird state (either max rejections or merged with unfulfilled acceptance criteria), leaving the parent story node active. I mistakenly tried to resolve this by checking off the pending children in the parent node without recreating replacement nodes, leading to a rejection in code review.
 - **Action**: Created replacement blueprints `task-269-334-e2e-safeguard-impl` and `task-269-335-e2e-safeguard-qa` while explicitly checking off the orphaned failed children in the parent's markdown, as required by the Impossible Loop Policy.
 - **Lesson**: When handling permanently failed child nodes, you MUST explicitly check off their markdown checkboxes (`- [x]`) in the parent node's markdown body, in addition to spawning replacement child nodes as unchecked checkboxes.
+## 2026-07-18
+Drafted task-325-331-implement-tactical-typography to address remaining tactical typography primitives based on story-123-325-define-tactical-typography, mapping implementation to the palette persona as per schema. Designated for coder self-verification per Intelligent Verification Protocol.
+### Journaling Policies
+- When drafting task blueprints, if multiple tasks are created and one depends on another, explicitly set the `depends_on` field of the dependent task to point to the prerequisite task's ID to prevent DAG deadlocks.
+- When drafting tasks as the Tech Lead, follow the Intelligent Verification Protocol: intelligently decide if a separate QA task is needed based on risk. For simple/low-risk tasks, designate the coder to self-verify instead of spawning QA.
+
+## 2026-07-18: PokerusBadge Implementation Task
+Created `task-322-331-pokerus-strain-badge-impl` from `story-323-322-pokerus-strain-badge-component`. Per the Intelligent Verification Protocol, designated the coder to self-verify this low-risk UI component. Explicitly mandated adherence to the tactical hardware aesthetic from ADR 008 and ADR 024.
+## 2026-07-18: Document IndexedDB Schema Breakdown
+Transformed story-130-316-document-indexeddb-schema into a technical blueprint. Designated the Coder to self-verify as it is a low-risk documentation task.
+
+## 2026-07-18: Gen 3 Static Encounters Blueprinting
+- **Node**: `story-138-294-gen3-static-encounters-parsing`
+- **Actions**: Broke down the Gen 3 Static Encounters story into `task-294-331-gen3-static-encounter-flags-impl` and `task-294-332-gen3-static-encounter-flags-qa` as per the Intelligent Verification Protocol.
+- **Constraints Enforced**: Explicitly instructed the Coder and QA personas in the task blueprints to strictly enforce ADR 028 (no magic numbers, module-level constants) and relative offset calculations using `section1Offset` for Gen 3 save block extraction, specifically referencing the `DataView` RangeError handling rules based on previous recurring failure patterns.
