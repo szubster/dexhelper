@@ -2,12 +2,12 @@
 id: prd-118-117-centralize-prompt-reminders
 type: PRD
 title: Centralize Coder and QA Task Prompt Reminders
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-07-18'
 updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '120116510880636003'
 pr_number: null
 parent: idea-118-centralize-prompt-reminders
 tags:
