@@ -79,3 +79,5 @@ I ensured the correct DAG order by using `depends_on` between them and appended 
   - `epic-116-336-gen3-wallpaper-app-state-tracking.md`: For tracking the checklist app state per save file, since the unlock flag is not extracted from the save block itself.
   - `epic-116-337-gen3-wallpaper-dashboard-ui.md`: For the checklist interface interacting with the generator and state store.
 - Re-enforced that assumptions about save file flags should not dictate extracting tasks without concrete evidence, opting instead for pure app-state tracking for the checklist.
+## [2026-07-18] PRD to Epic Breakdown for Zod Schema Validation
+Broke down PRD prd-116-117-zod-schema-validation-orchestrator into two Epics: epic-117-334-define-zod-schema (to define the schema) and epic-117-335-integrate-zod-orchestrator (to integrate it into the orchestrator).
