@@ -100,3 +100,9 @@ Task `task-261-282-gen3-met-location-impl` was to extract `metLocation` and atta
 - **Action**: Created `TimeOverrideContext` and integrated it into `Gen3RTCControls`.
 - **Reasoning**: ADR 025 mandated an RTC-Independent Fallback Strategy for Gen 3 due to emulator-dependent unreliability. Implemented manual time overrides and system time fallbacks as requested.
 - **Rules Followed**: Created the React Context (`TimeOverrideContext`) first. Used the `useTimeOverride` in UI components (`Gen3RTCControls`). Updated `src/main.tsx` with `TimeOverrideProvider`. Ensured `Gen3RTCControls` conforms to ADR 008 (sharp edges, dashed borders, monospaced font).
+
+## 2026-07-19
+- Documented `SaveHistoryDB` IndexedDB schema in `.foundry/docs/schema.md`.
+- Appended `saves`, `metadata`, and `indexes` structure mapping.
+- Ran tests to verify project health and cleared missing Playwright browser issue via `pnpm exec playwright install`.
+- Checked off acceptance criteria in `task-316-331-document-indexeddb-schema-impl.md`.
