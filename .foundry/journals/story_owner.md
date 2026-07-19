@@ -35,3 +35,8 @@ When processing roamer tracking, Gen 3 map coordinates cannot be statically extr
 - Discovered that previous task failed due to hardcoded absolute offsets (`0x142C` / `0x13D0`), which do not account for Gen 3 A/B bank rotation system. The new story enforces the use of relative offsets and the `section1Offset` variable dynamically.
 ## 2026-07-17
 * Generated `story-327-331-research-gen3-pokeblock-offsets` and `story-327-332-implement-gen3-pokeblock-parsing` from `epic-114-327-gen3-pokeblock-case-parsing`.
+
+## [2026-07-18] Handled Impossible Loop for epic-106-137-gen2-static-encounters
+- Spawned research-137-330 to investigate failure of story-137-294.
+- Created replacement nodes story-137-333 and story-137-334.
+- Checked off permanently failed child nodes in epic markdown.
