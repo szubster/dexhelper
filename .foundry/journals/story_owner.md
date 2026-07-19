@@ -58,3 +58,4 @@ Broke down epic-115-331-remove-orphaned-qa-task-rule-from-docs into story-331-33
 - Spawned research-137-330 to investigate failure of story-137-294.
 - Created replacement nodes story-137-333 and story-137-334.
 - Checked off permanently failed child nodes in epic markdown.
+Checked off acceptance criteria checkboxes for completed epic epic-057-127-bash-timeout-wrapper because all its child stories (story-127-267-bash-timeout-wrapper and story-127-268-bash-timeout-feedback) have been completed, permitting the submission of an empty PR to advance the epic's status to VERIFYING.
