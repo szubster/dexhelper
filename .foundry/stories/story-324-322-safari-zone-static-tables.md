@@ -34,4 +34,5 @@ This story covers compiling the static encounter tables for the Safari Zone in G
 - Integrate the static data into the backend's data layer.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-322-331-safari-zone-static-tables-impl
