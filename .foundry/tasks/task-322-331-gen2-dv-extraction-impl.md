@@ -2,10 +2,10 @@
 id: task-322-331-gen2-dv-extraction-impl
 type: TASK
 title: Gen 2 DV Data Extraction Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-17'
-updated_at: '2026-07-17'
+updated_at: '2026-07-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
