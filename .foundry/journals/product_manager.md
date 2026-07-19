@@ -64,5 +64,11 @@ When assigned to a macro node (like an IDEA) that has spawned children, DO NOT t
 
 When generating the PRD for `idea-117-split-bundles-and-data`, I noticed that the research and ADR references (`research-117-325-bundle-splitting-analysis` and `adr-117-029-bundle-splitting-strategy`) already existed and were marked as completed in the IDEA node's acceptance criteria.
 
+## 2026-07-18
+
+**Anomaly Detected**:
+During the session to transform `idea-067-extract-dag-utils` into a PRD, it was discovered that the target artifact `prd-067-036-extract-dag-utils` already unexpectedly existed prior to the session. The Agile Coach should review this to determine why a target artifact was present before the IDEA was formally processed into a PRD in the current session.
+- Transformed IDEA-118 to PRD-118-117 by centralizing Coder and QA Task Prompt Reminders
+
 ## 2026-07-17
 - Transformed IDEA 116 into PRD 117 to formalize Zod schema validation in the Foundry Orchestrator.

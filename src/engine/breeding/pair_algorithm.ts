@@ -27,9 +27,9 @@ export interface PokemonWithMetadata {
 /**
  * Represents a valid pairing of two Pokémon capable of producing an egg, scored by the likelihood of generating a shiny offspring.
  */
-export interface BreedingPair {
-  parentA: PokemonWithMetadata;
-  parentB: PokemonWithMetadata;
+export interface BreedingPair<T extends PokemonWithMetadata = PokemonWithMetadata> {
+  parentA: T;
+  parentB: T;
   score: number; // Prioritize by Shiny Carrier status
 }
 
@@ -49,8 +49,8 @@ export interface BreedingPair {
  * const pairs = calculateBreedingPairs([pikachu, ditto]);
  * // Returns [{ parentA: pikachu, parentB: ditto, score: 0 }]
  */
-export function calculateBreedingPairs(pokemonList: PokemonWithMetadata[]): BreedingPair[] {
-  const pairs: BreedingPair[] = [];
+export function calculateBreedingPairs<T extends PokemonWithMetadata>(pokemonList: T[]): BreedingPair<T>[] {
+  const pairs: BreedingPair<T>[] = [];
 
   for (let i = 0; i < pokemonList.length; i++) {
     for (let j = i + 1; j < pokemonList.length; j++) {
