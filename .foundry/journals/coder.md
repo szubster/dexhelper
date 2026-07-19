@@ -100,3 +100,9 @@ Task `task-261-282-gen3-met-location-impl` was to extract `metLocation` and atta
 - **Action**: Created `TimeOverrideContext` and integrated it into `Gen3RTCControls`.
 - **Reasoning**: ADR 025 mandated an RTC-Independent Fallback Strategy for Gen 3 due to emulator-dependent unreliability. Implemented manual time overrides and system time fallbacks as requested.
 - **Rules Followed**: Created the React Context (`TimeOverrideContext`) first. Used the `useTimeOverride` in UI components (`Gen3RTCControls`). Updated `src/main.tsx` with `TimeOverrideProvider`. Ensured `Gen3RTCControls` conforms to ADR 008 (sharp edges, dashed borders, monospaced font).
+
+## 2026-07-19
+- Implemented `extractGen3StaticEncounterFlags` in `src/engine/gen3/staticEncounters.ts` per ADR 028 to extract Gen 3 static encounter flags for Emerald, FRLG, and Ruby/Sapphire.
+- Ensured reusable module-level constants were defined for all memory offsets and bits instead of magic numbers.
+- Added rigorous DataView bounds checking to gracefully handle and remap `RangeError` to `"The save file is corrupted or incomplete."` per the system prompt.
+- Added rigorous Unit Tests in `src/engine/gen3/staticEncounters.test.ts` to ensure safety and precision.
