@@ -216,3 +216,7 @@ Transformed story-130-316-document-indexeddb-schema into a technical blueprint. 
 - **Node**: `story-138-294-gen3-static-encounters-parsing`
 - **Actions**: Broke down the Gen 3 Static Encounters story into `task-294-331-gen3-static-encounter-flags-impl` and `task-294-332-gen3-static-encounter-flags-qa` as per the Intelligent Verification Protocol.
 - **Constraints Enforced**: Explicitly instructed the Coder and QA personas in the task blueprints to strictly enforce ADR 028 (no magic numbers, module-level constants) and relative offset calculations using `section1Offset` for Gen 3 save block extraction, specifically referencing the `DataView` RangeError handling rules based on previous recurring failure patterns.
+
+- Date: 2026-07-19
+  Action: Drafted task blueprint (task-333-333-gen3-roamer-extraction-tests-impl) for Gen 3 roamer core extraction unit tests.
+  Reasoning: The parsing logic is already implemented, but we need comprehensive test coverage across Ruby/Sapphire, Emerald, and FireRed/LeafGreen. We instructed the coder to use dynamically constructed ArrayBuffers to test the logic due to the lack of .sav fixtures.
