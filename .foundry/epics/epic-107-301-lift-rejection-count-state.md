@@ -34,4 +34,4 @@ Currently, the threshold for determining if a node has permanently failed (`reje
 
 ## Acceptance Criteria
 - [x] Break down into Stories
-- [ ] story-301-314-lift-rejection-count-state
+- [x] story-301-314-lift-rejection-count-state
