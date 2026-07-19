@@ -30,3 +30,6 @@ Create a dedicated `Gen 2 Unown Dex Progress Tracker` dashboard. This feature wi
 4. Provide actionable warnings if the player is missing Unown forms because they have not completed the requisite puzzle. For example, if they are missing forms unlocked by the Ho-Oh puzzle, the dashboard should explicitly state: "You must complete the Ho-Oh puzzle in the Ruins of Alph to encounter more Unown forms."
 
 This aligns perfectly with DexHelper's vision as a premium companion app by surfacing hidden save state data and transforming a tedious, trial-and-error collection quest into a clear, actionable checklist.
+
+## Acceptance Criteria
+- [ ] prd-119-118-gen2-unown-dex-tracker

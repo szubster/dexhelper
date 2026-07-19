@@ -41,3 +41,6 @@ Implement the parser extraction for Gen 2 room decorations (bed, carpet, plant, 
 - [ ] Expose data via the DexHelper Gen 2 core API.
 - [ ] Use module-level constants for all memory offsets and avoid inline magic numbers.
 - [ ] Write unit tests verifying the parsing logic.
+
+## Research Dependency
+- [ ] .foundry/research/research-331-335-gen2-decoration-savings-offsets.md
