@@ -2,10 +2,10 @@
 id: prd-117-116-split-bundles-and-data
 type: PRD
 title: Split bundles and data by game generation
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-07-16'
-updated_at: '2026-07-16'
+updated_at: '2026-07-19'
 depends_on: []
 jules_session_id: null
 pr_number: null

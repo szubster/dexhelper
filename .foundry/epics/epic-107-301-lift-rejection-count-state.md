@@ -2,7 +2,7 @@
 id: epic-107-301-lift-rejection-count-state
 type: EPIC
 title: Lift Constant and Update Context
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-10'
 updated_at: '2026-07-19'
@@ -14,10 +14,8 @@ tags:
   - refactor
   - dashboard
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
