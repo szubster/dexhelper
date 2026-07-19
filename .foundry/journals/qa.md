@@ -86,3 +86,6 @@ All requirements met.
 - **Task**: task-121-310-gen3-tv-block-parser-retry6-qa
 - **Outcome**: Target task cancelled due to max rejection limit.
 - **Notes**: The QA task target (task-121-309-gen3-tv-block-parser-retry6-impl) was permanently failed. Therefore, as per instructions, I've checked off the acceptance criteria for my own task (task-121-310-gen3-tv-block-parser-retry6-qa) to allow the Empty PR flow to exit gracefully.
+
+## 2026-07-19
+- Rejected task-261-282-gen3-met-location-impl because it uses MISC_MET_LOCATION_OFFSET instead of the required MET_LOCATION_OFFSET_IN_M constant.
