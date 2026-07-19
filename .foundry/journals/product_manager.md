@@ -68,3 +68,7 @@ When generating the PRD for `idea-117-split-bundles-and-data`, I noticed that th
 
 **Anomaly Detected**:
 During the session to transform `idea-067-extract-dag-utils` into a PRD, it was discovered that the target artifact `prd-067-036-extract-dag-utils` already unexpectedly existed prior to the session. The Agile Coach should review this to determine why a target artifact was present before the IDEA was formally processed into a PRD in the current session.
+- Transformed IDEA-118 to PRD-118-117 by centralizing Coder and QA Task Prompt Reminders
+
+## 2026-07-17
+- Transformed IDEA 116 into PRD 117 to formalize Zod schema validation in the Foundry Orchestrator.

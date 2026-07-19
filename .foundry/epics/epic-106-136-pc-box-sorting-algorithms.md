@@ -2,12 +2,12 @@
 id: epic-106-136-pc-box-sorting-algorithms
 type: EPIC
 title: PC Box Sorting Algorithms
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-06'
 updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6892450874288304583'
 pr_number: null
 parent: prd-101-106-pc-box-organization-assistant
 tags:
@@ -36,6 +36,10 @@ Implement reusable sorting strategies (e.g., National Dex order, Type, Level, et
 - [x] Break down epic into stories for the standard interface and base implementations.
 - [x] Break down epic into stories for standard strategies (Dex, Level, Type).
 - [x] Break down epic into stories for Gen 1, Gen 2, and Gen 3 specific considerations and tests.
-- [ ] story-136-294-sorting-interface-base
-- [ ] story-136-295-sorting-standard-strategies
-- [ ] story-136-296-sorting-cross-gen-considerations
+- [x] story-136-294-sorting-interface-base
+- [x] story-136-295-sorting-standard-strategies
+- [x] story-136-296-sorting-cross-gen-considerations
+
+- [ ] research-136-330-investigate-sorting-strategies-failure
+- [ ] story-136-333-sorting-standard-strategies-retry
+- [ ] story-136-334-sorting-cross-gen-considerations-retry

@@ -20,10 +20,10 @@ import {
 describe('parseTrickHouse', () => {
   it('correctly parses Trick House data', () => {
     // 0x1500 + 2 is the maximum offset used (for puzzle 8) -> 0x1502
-    // Let's allocate 0x2000 to be safe.
-    const buffer = new ArrayBuffer(0x2000);
+    // Let's allocate 0x3000 to be safe with section offsets.
+    const buffer = new ArrayBuffer(0x3000);
     const view = new DataView(buffer);
-    const saveBlock1Offset = 0x0;
+    const saveBlock1Offset = 0x1000;
 
     view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_LEVEL_OFFSET, 3, true);
     view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_ENTRANCE_STATE_OFFSET, 1, true);
@@ -62,10 +62,28 @@ describe('parseTrickHouse', () => {
     });
   });
 
+  it('correctly parses Trick House data with false landmark flag', () => {
+    const buffer = new ArrayBuffer(0x3000);
+    const view = new DataView(buffer);
+    const saveBlock1Offset = 0x1000;
+
+    view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_LEVEL_OFFSET, 1, true);
+    view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_ENTRANCE_STATE_OFFSET, 0, true);
+    view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_ENTER_FROM_CORRIDOR_OFFSET, 0, true);
+    view.setUint16(saveBlock1Offset + VAR_TRICK_HOUSE_PRIZE_PICKUP_OFFSET, 0, true);
+
+    // Explicitly zero out the byte (which it already is, but for completeness)
+    view.setUint8(saveBlock1Offset + FLAG_LANDMARK_TRICK_HOUSE_BYTE_OFFSET, 0);
+
+    const result = parseTrickHouse(view, saveBlock1Offset);
+
+    expect(result.landmarkFlag).toBe(false);
+  });
+
   it('throws an error on corrupted save file', () => {
     const buffer = new ArrayBuffer(0x10);
     const view = new DataView(buffer);
-    const saveBlock1Offset = 0x0;
+    const saveBlock1Offset = 0x1000;
 
     expect(() => parseTrickHouse(view, saveBlock1Offset)).toThrow('The save file is corrupted or incomplete.');
   });

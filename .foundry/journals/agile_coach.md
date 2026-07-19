@@ -14,3 +14,7 @@ I have extracted these common directives and appended them directly to `.foundry
 ## 2026-07-17: Consolidated Task Reminders
 Identified redundancy where the Tech Lead was instructed to copy-paste failure handling and Empty PR checkbox reminders into every single TASK node's markdown body. This causes unnecessary bloat.
 I have removed this directive from `tech_lead.md` and created an IDEA node (`idea-118-centralize-prompt-reminders`) to track this process improvement. The core policies (`core_policies.md`) already cover these rules comprehensively.
+
+## 2026-07-18: Centralized Reminders and Cycle Detection
+- Removed redundant `### REMINDER FOR QA` and `### REMINDER FOR CODER` blocks from the `qa` and `coder` persona prompts, as well as an existing task (`task-299-323-extend-phase-3-6-qa`), satisfying `idea-118-centralize-prompt-reminders`. These rules should rely on core_policies.md instead to reduce duplication and token usage.
+- Implemented circular dependency detection in the Foundry Orchestrator (`foundry-orchestrator.ts`) during Phase 3.9 using a DFS-based cycle detection algorithm. `PENDING` nodes involved in a cycle will now be safely transitioned to `FAILED` with `rejection_reason = "Circular dependency detected"`, satisfying `idea-118-orchestrator-circular-dependency-detection` and preventing DAG deadlocks.

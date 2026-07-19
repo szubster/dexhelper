@@ -2,7 +2,7 @@
 id: task-121-309-gen3-tv-block-parser-retry6-impl
 type: TASK
 title: Implement Gen 3 TV Block DataView Parser (Retry 6)
-status: COMPLETED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-11'
 updated_at: '2026-07-18'
@@ -16,8 +16,8 @@ tags:
   - gen3
   - data-parsing
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: 'Used inline magic numbers (+ 2, + 4, + 6) in parseGen3ActiveSwarm. And RangeError includes extra text.'
 notes: ''
 ---
 

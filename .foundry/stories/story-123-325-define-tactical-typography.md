@@ -2,13 +2,13 @@
 id: story-123-325-define-tactical-typography
 type: STORY
 title: Define Tactical Typography Utilities
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-17'
 updated_at: '2026-07-18'
 depends_on:
   - story-123-270-define-tactical-form-utilities
-jules_session_id: null
+jules_session_id: '4085685567442223127'
 pr_number: null
 parent: epic-071-123-define-tailwind-v4-utilities-v2
 tags:
