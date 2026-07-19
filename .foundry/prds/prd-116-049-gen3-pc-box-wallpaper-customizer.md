@@ -2,10 +2,10 @@
 id: prd-116-049-gen3-pc-box-wallpaper-customizer
 type: PRD
 title: Gen 3 PC Box Wallpaper Customizer
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-07-17'
-updated_at: '2026-07-17'
+updated_at: '2026-07-19'
 depends_on: []
 jules_session_id: null
 parent: idea-116-gen3-pc-box-wallpaper-customizer

@@ -2,10 +2,10 @@
 id: task-322-331-safari-zone-static-tables-impl
 type: TASK
 title: Safari Zone Static Data Compilation (Gen 1 & 3) Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-17'
-updated_at: '2026-07-17'
+updated_at: '2026-07-19'
 depends_on: []
 jules_session_id: null
 pr_number: null

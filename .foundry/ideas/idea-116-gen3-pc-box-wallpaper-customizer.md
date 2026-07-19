@@ -2,12 +2,12 @@
 id: idea-116-gen3-pc-box-wallpaper-customizer
 type: IDEA
 title: Gen 3 PC Box Wallpaper Customizer
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-16'
-updated_at: '2026-07-17'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '3496458588510753835'
+jules_session_id: null
 parent: null
 tags:
   - gen3

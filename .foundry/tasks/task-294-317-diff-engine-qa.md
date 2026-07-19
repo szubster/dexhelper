@@ -2,10 +2,10 @@
 id: task-294-317-diff-engine-qa
 type: TASK
 title: QA PC Box Diff Engine Logic
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-07-12'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on:
   - .foundry/tasks/task-294-316-diff-engine-impl.md
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-294-316-diff-engine-impl
 notes: ''
 ---
 

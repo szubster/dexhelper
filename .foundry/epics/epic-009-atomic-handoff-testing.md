@@ -2,10 +2,10 @@
 id: epic-009-atomic-handoff-testing
 type: EPIC
 title: 'Epic: Atomic Handoff Testing Expansion'
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-04-22'
-updated_at: '2026-04-27'
+updated_at: '2026-07-19'
 depends_on:
   - epic-008-atomic-handoff-orchestrator
   - story-009-032-lifecycle-integration-tests
@@ -17,7 +17,7 @@ tags:
   - v2-architecture
   - lifecycle
   - atomic-handoffs
-rejection_reason: ''
+rejection_reason: Circular dependency detected
 ---
 
 # Epic: Atomic Handoff Testing Expansion

@@ -2,10 +2,10 @@
 id: research-130-332-rng-tid-sid-integration-failure
 type: RESEARCH
 title: Investigate RNG TID/SID Integration Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-07-18'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on: []
 jules_session_id: null
 pr_number: null

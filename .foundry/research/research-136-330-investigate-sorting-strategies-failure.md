@@ -2,10 +2,10 @@
 id: research-136-330-investigate-sorting-strategies-failure
 type: RESEARCH
 title: Investigate Sorting Standard Strategies Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-07-18'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
