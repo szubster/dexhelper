@@ -432,16 +432,35 @@ export function decodeGen12String(view: DataView, offset: number, maxLength: num
  * // Parse DVs from Gen 2 memory block
  * const stats = parseDVs(view.getUint16(offset + 21, false));
  */
+const DV_BYTE_SHIFT = 8;
+const DV_BYTE_MASK = 0xff;
+const DV_NIBBLE_SHIFT = 4;
+const DV_NIBBLE_MASK = 0x0f;
+const DV_HP_LSB_MASK = 1;
+const DV_HP_ATK_SHIFT = 3;
+const DV_HP_DEF_SHIFT = 2;
+const DV_HP_SPD_SHIFT = 1;
+
 export function parseDVs(dvValue: number) {
-  const b0 = (dvValue >> 8) & 0xff;
-  const b1 = dvValue & 0xff;
-  const atk = b0 >> 4;
-  const def = b0 & 0x0f;
-  const spd = b1 >> 4;
-  const spc = b1 & 0x0f;
-  const hp = ((atk & 1) << 3) | ((def & 1) << 2) | ((spd & 1) << 1) | (spc & 1);
+  const b0 = (dvValue >> DV_BYTE_SHIFT) & DV_BYTE_MASK;
+  const b1 = dvValue & DV_BYTE_MASK;
+  const atk = b0 >> DV_NIBBLE_SHIFT;
+  const def = b0 & DV_NIBBLE_MASK;
+  const spd = b1 >> DV_NIBBLE_SHIFT;
+  const spc = b1 & DV_NIBBLE_MASK;
+  const hp =
+    ((atk & DV_HP_LSB_MASK) << DV_HP_ATK_SHIFT) |
+    ((def & DV_HP_LSB_MASK) << DV_HP_DEF_SHIFT) |
+    ((spd & DV_HP_LSB_MASK) << DV_HP_SPD_SHIFT) |
+    (spc & DV_HP_LSB_MASK);
   return { hp, atk, def, spd, spc };
 }
+
+const SHINY_REQUIRED_DEF = 10;
+const SHINY_REQUIRED_SPD = 10;
+const SHINY_REQUIRED_SPC = 10;
+const SHINY_REQUIRED_SPC_CARRIER_ALT = 2;
+const SHINY_VALID_ATK_DVS = [2, 3, 6, 7, 10, 11, 14, 15];
 
 /**
  * Evaluates whether a Pokémon is "Shiny" based solely on its Determinant Values (DVs).
@@ -459,7 +478,12 @@ export function parseDVs(dvValue: number) {
  * const isShiny = checkShiny({ atk: 10, def: 10, spd: 10, spc: 10 }); // true
  */
 export function checkShiny(dvs: { atk: number; def: number; spd: number; spc: number }) {
-  return dvs.def === 10 && dvs.spd === 10 && dvs.spc === 10 && [2, 3, 6, 7, 10, 11, 14, 15].includes(dvs.atk);
+  return (
+    dvs.def === SHINY_REQUIRED_DEF &&
+    dvs.spd === SHINY_REQUIRED_SPD &&
+    dvs.spc === SHINY_REQUIRED_SPC &&
+    SHINY_VALID_ATK_DVS.includes(dvs.atk)
+  );
 }
 
 /**
@@ -476,7 +500,9 @@ export function checkShiny(dvs: { atk: number; def: number; spd: number; spc: nu
  * const isShinyCarrier = checkShinyGene({ atk: 5, def: 10, spd: 5, spc: 2 }); // true
  */
 export function checkShinyGene(dvs: { atk: number; def: number; spd: number; spc: number }) {
-  return dvs.def === 10 && (dvs.spc === 2 || dvs.spc === 10);
+  return (
+    dvs.def === SHINY_REQUIRED_DEF && (dvs.spc === SHINY_REQUIRED_SPC_CARRIER_ALT || dvs.spc === SHINY_REQUIRED_SPC)
+  );
 }
 
 const POKERUS_STRAIN_SHIFT = 4;
