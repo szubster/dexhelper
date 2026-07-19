@@ -28,4 +28,5 @@ The obsolete "Orphaned QA Task Cancellation Rule" needs to be completely removed
 This epic covers scanning the documentation (specifically `core_policies.md` and related agent docs) and removing any instruction regarding the manual cancellation of orphaned tasks.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into Stories.
+- [x] Story Owner: Break down this Epic into Stories.
+- [ ] story-331-333-remove-orphaned-qa-rule
