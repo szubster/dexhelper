@@ -100,3 +100,4 @@ Task `task-261-282-gen3-met-location-impl` was to extract `metLocation` and atta
 - **Action**: Created `TimeOverrideContext` and integrated it into `Gen3RTCControls`.
 - **Reasoning**: ADR 025 mandated an RTC-Independent Fallback Strategy for Gen 3 due to emulator-dependent unreliability. Implemented manual time overrides and system time fallbacks as requested.
 - **Rules Followed**: Created the React Context (`TimeOverrideContext`) first. Used the `useTimeOverride` in UI components (`Gen3RTCControls`). Updated `src/main.tsx` with `TimeOverrideProvider`. Ensured `Gen3RTCControls` conforms to ADR 008 (sharp edges, dashed borders, monospaced font).
+Verified PokerusBadge component correctly applies tactical-badge class and renders strain data properly.
