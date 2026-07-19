@@ -2,12 +2,12 @@
 id: idea-119-gen2-unown-dex-tracker
 type: IDEA
 title: Gen 2 Unown Dex Progress Tracker
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-18'
 updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '789543439893485299'
 tags:
   - feature
   - gen2
