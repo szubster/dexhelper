@@ -2,12 +2,12 @@
 id: idea-118-centralize-prompt-reminders
 type: IDEA
 title: Centralize Coder and QA Task Prompt Reminders
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-17'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12010554275977225691'
 pr_number: null
 tags:
   - foundry
@@ -15,8 +15,8 @@ tags:
   - prompts
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Centralize Coder and QA Task Prompt Reminders
@@ -33,3 +33,6 @@ Currently, the Tech Lead persona has explicit instructions to append a "REMINDER
 - Reduced token usage and "prompt rot" across the system.
 - Cleaner, more focused TASK node markdown files that only contain the actual technical blueprint.
 - Easier to update failure handling policies in the future by modifying a single central document rather than fighting legacy instructions embedded in tasks.
+
+## Acceptance Criteria
+- [ ] prd-118-117-centralize-prompt-reminders

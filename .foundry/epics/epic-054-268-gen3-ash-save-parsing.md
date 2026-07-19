@@ -2,12 +2,12 @@
 id: epic-054-268-gen3-ash-save-parsing
 type: EPIC
 title: 'Epic: Gen 3 Volcanic Ash Save Parsing'
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-17'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3039535344608757046'
 pr_number: null
 parent: prd-089-054-gen3-ash-gathering-tracker
 tags:
@@ -35,4 +35,5 @@ Extract the Volcanic Ash count (step counter) from Gen 3 save files (Ruby, Sapph
 - Expand the \`PokeData\` save parsing output to include the \`volcanicAsh\` count property for Gen 3 states.
 
 ## Acceptance Criteria
-- [ ] Break down this Epic into corresponding STORY nodes.
+- [x] Break down this Epic into corresponding STORY nodes.
+- [ ] story-268-331-gen3-ash-dataview-extraction-relative
