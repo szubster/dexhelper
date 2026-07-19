@@ -34,5 +34,5 @@ Verify the parser and interface correctly extract the Trainer ID (TID) and Secre
 - When parsing save files, all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level; inline magic numbers are forbidden.
 
 ## Acceptance Criteria
-- [ ] Verify the TID and SID extraction logic in `src/engine/saveParser/parsers/gen3.ts` works as intended.
-- [ ] Verify tests adequately cover the extraction scenarios.
+- [x] Verify the TID and SID extraction logic in `src/engine/saveParser/parsers/gen3.ts` works as intended.
+- [x] Verify tests adequately cover the extraction scenarios.
