@@ -96,3 +96,8 @@ If you submit an Empty PR because the logic already exists, you MUST check off a
 ## 2026-07-17: Gen 3 metLocation scaffolding
 Task `task-261-282-gen3-met-location-impl` was to extract `metLocation` and attach it to the parsed `PokemonInstance`. However, the Gen 3 save parser is not fully implemented yet (`partyDetails` and `pcDetails` are currently scaffolded as hardcoded empty arrays in `parseGen3`), meaning there is no `PokemonInstance` parser loop from which to invoke `parseGen3MetLocation`. I have implemented and tested the underlying DataView parsing utility, updated the `PokemonInstance.caughtData` interface, and added unit tests covering the logic and corrupted-save exceptions. Since the orchestrator/gen3 parser refactor is out of scope for this localized extraction task, I will mark the acceptance criteria as completed based on the components successfully built. I am submitting this code with tests.
 Completed task: task-284-322-predictor-ui-impl. Implemented ActiveCallersDashboard per ADR 008 with tests.
+
+## 2026-07-18 - Gen 3 Manual Time UI Overrides Impl
+- **Action**: Created `TimeOverrideContext` and integrated it into `Gen3RTCControls`.
+- **Reasoning**: ADR 025 mandated an RTC-Independent Fallback Strategy for Gen 3 due to emulator-dependent unreliability. Implemented manual time overrides and system time fallbacks as requested.
+- **Rules Followed**: Created the React Context (`TimeOverrideContext`) first. Used the `useTimeOverride` in UI components (`Gen3RTCControls`). Updated `src/main.tsx` with `TimeOverrideProvider`. Ensured `Gen3RTCControls` conforms to ADR 008 (sharp edges, dashed borders, monospaced font).

@@ -63,6 +63,8 @@ Successfully broke down the "Missed Trainer Radar" PRD (`prd-104-109-missed-trai
 
 ## 2026-07-16: Replacement of FAILED and CANCELLED Epics
 When spawning new epics to replace previously FAILED or CANCELLED epics, it is important to include explicit research into the rejection reason provided in the failed node's frontmatter. In this case, `epic-036-053-shared-dag-utilities.md` was FAILED due to `[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing E2E/integration story`. The replacement epic, `epic-036-329-shared-dag-utilities.md`, was created with a specific scope item and acceptance criteria added for the missing E2E integration story. Old nodes were removed and references in the parent PRD were replaced with the new ones.
+## 2026-07-16: PRD Breakdown
+* **Action**: Created epic-115-331-remove-orphaned-qa-task-rule-from-docs to remove manual orphaned task cancellation rules from documentation, and updated parent PRD prd-115-115-remove-obsolete-orphaned-node-manual-cancellation.
 
 ## 2026-07-17: Fame Checker PRD Breakdown
 Successfully broke down `prd-115-115-gen3-fame-checker-assistant` into three distinct epics to handle the full lifecycle from research to UI:
