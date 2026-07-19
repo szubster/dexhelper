@@ -5,7 +5,7 @@ title: Research PC Box Memory Offsets for Generation 3
 status: PENDING
 owner_persona: researcher
 created_at: '2026-07-02'
-updated_at: '2026-07-03'
+updated_at: '2026-07-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - save-parsing
   - gen3
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

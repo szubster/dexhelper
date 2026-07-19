@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-07-06'
 updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: '6089379332488119773'
+jules_session_id: '13733996507152966439'
 pr_number: null
 parent: story-081-279-gen3-ignore-emulator-trailing-bytes
 tags:

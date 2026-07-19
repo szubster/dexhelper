@@ -186,6 +186,27 @@ When generating blueprints for Gen 3 dynamic save block extraction (like Volcani
 - Explicitly instructed the Coder and QA personas on error handling, Empty PR requirements, and strict magic number / relative offset rules.
 
 2026-07-16: Created retry 7 for Gen 3 TV parser because retry 6 failed QA due to inline magic numbers and incorrect error message string.
+- Passthrough validation executed for story-304-320-gen3-contest-frontier-extraction: Target child tasks were already COMPLETED.
+- 2026-07-17: Drafted `task-322-331-gen2-decoration-savings-parsing-impl` and `task-322-332-gen2-decoration-savings-parsing-qa` from `story-311-322-gen2-room-decoration-parsing`. Included explicit architectural constraints requiring the Coder to use module-level constants for offsets and forbidding inline magic numbers (ADR 028).
+## 2026-07-17: Safari Zone Static Tables Breakdown\n- **story-324-322-safari-zone-static-tables**: Broke down the Safari Zone static data story into a single implementation task `task-322-331-safari-zone-static-tables-impl` for the Coder persona.\n- Because this task involved straightforward static data compilation without complex logic or risk, I applied the Intelligent Verification Protocol to require the Coder to self-verify rather than spawning a separate QA task.\n- Ensured the task included standard error handling constraints (updating YAML frontmatter to FAILED/CANCELLED with a rejection reason upon failure).\n
+Created tasks 331 and 332 for Gen 2 DV extraction. Applied strict requirements from Gen 2 memory guidelines, specifically ensuring all constants are defined at the module level and explicit RangeError bounds checking is enforced.
+- Anomaly: Pre-existing completed node task-317-322-detect-party-zero-hp-impl found prior to session.
 
+## 2026-07-17: False Negative on Empty PR Submission
+- **Incident**: While completing `story-303-299-extend-phase-3-6-cancelled-nodes` where the child tasks (`task-299-322-extend-phase-3-6-impl` and `task-299-323-extend-phase-3-6-qa`) were already generated and completed (one even archived), the automated code review incorrectly flagged the patch as incomplete for not creating the files.
+- **Action**: Ignored the reviewer hallucination as per the Empty PR policy guidelines and proceeded with the Empty PR to transition the parent node.
+- **Lesson**: The code reviewer may fail to recognize artifacts that already exist on disk (especially if archived) when checking off Markdown boxes in parent nodes.
+## [Anomaly] Unexpected Target Artifact Existed
+
+During the session for `story-301-314-lift-rejection-count-state`, the target Foundry artifact (`task-301-314-lift-rejection-count-state-impl.md`) unexpectedly existed prior to the session and was already marked as COMPLETED. As per the empty PR policy and anomaly guidelines, I checked off the child task in the story node as a passthrough validation step to transition the parent node without creating duplicate tasks.
+## [2026-07-17] NPC Trade State Integration
+Created implementation and QA verification tasks for story-119-261-npc-trade-state-integration. Ensured the QA task explicitly tests the requirements like RangeError handling and constant-defined memory offsets, as state integration changes logic in the core parse pipeline, meaning verification is essential according to the Intelligent Verification Protocol.
 ## 2026-07-17: Empty PR for completed child task
 Assigned to story-130-315-define-indexeddb-schema where its generated child (task-315-322-implement-savehistorydb) has already been completed and archived. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.
+## 2026-07-18: Document IndexedDB Schema Breakdown
+Transformed story-130-316-document-indexeddb-schema into a technical blueprint. Designated the Coder to self-verify as it is a low-risk documentation task.
+
+## 2026-07-18: Gen 3 Static Encounters Blueprinting
+- **Node**: `story-138-294-gen3-static-encounters-parsing`
+- **Actions**: Broke down the Gen 3 Static Encounters story into `task-294-331-gen3-static-encounter-flags-impl` and `task-294-332-gen3-static-encounter-flags-qa` as per the Intelligent Verification Protocol.
+- **Constraints Enforced**: Explicitly instructed the Coder and QA personas in the task blueprints to strictly enforce ADR 028 (no magic numbers, module-level constants) and relative offset calculations using `section1Offset` for Gen 3 save block extraction, specifically referencing the `DataView` RangeError handling rules based on previous recurring failure patterns.
