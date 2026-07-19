@@ -73,5 +73,11 @@ Successfully broke down `prd-115-115-gen3-fame-checker-assistant` into three dis
 3. `epic-115-333-gen3-fame-checker-dashboard-ui`: Building out the final dashboard for players.
 I ensured the correct DAG order by using `depends_on` between them and appended them to the PRD's Acceptance Criteria.
 
+## 2026-07-19: Gen 3 PC Box Wallpaper Customizer
+- Transformed `prd-116-049-gen3-pc-box-wallpaper-customizer` into 3 actionable Epics:
+  - `epic-116-335-gen3-wallpaper-phrase-generation-engine.md`: For the phrase generation math logic based on `trainerId`.
+  - `epic-116-336-gen3-wallpaper-app-state-tracking.md`: For tracking the checklist app state per save file, since the unlock flag is not extracted from the save block itself.
+  - `epic-116-337-gen3-wallpaper-dashboard-ui.md`: For the checklist interface interacting with the generator and state store.
+- Re-enforced that assumptions about save file flags should not dictate extracting tasks without concrete evidence, opting instead for pure app-state tracking for the checklist.
 ## [2026-07-18] PRD to Epic Breakdown for Zod Schema Validation
 Broke down PRD prd-116-117-zod-schema-validation-orchestrator into two Epics: epic-117-334-define-zod-schema (to define the schema) and epic-117-335-integrate-zod-orchestrator (to integrate it into the orchestrator).
