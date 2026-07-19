@@ -42,6 +42,8 @@ import type {
 
 const SIGNATURE = 0x08012025;
 const SECTION_SIZE = 4096;
+const GEN3_TRAINER_ID_OFFSET = 0x000a;
+const SECRET_ID_SHIFT = 16;
 const NUM_SECTIONS = 14;
 const SECRET_BASES_COUNT = 20;
 const SECRET_BASE_SIZE = 160;
@@ -775,6 +777,20 @@ export function parseGen3SecretBases(
  * @returns The fully constructed SaveData object.
  * @throws {Error} If the save file is corrupted, incomplete, or out-of-bounds reads occur.
  */
+export function parseGen3TrainerId(view: DataView, section0Offset: number): { trainerId: number; secretId: number } {
+  try {
+    const val = view.getUint32(section0Offset + GEN3_TRAINER_ID_OFFSET, true);
+    const trainerId = val & LOWER_16_BIT_MASK;
+    const secretId = val >>> SECRET_ID_SHIFT;
+    return { trainerId, secretId };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
 export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveData {
   try {
     let section2Offset: number;
@@ -787,6 +803,13 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     let section1Offset: number;
     try {
       section1Offset = getLatestSectionOffset(view, 1);
+    } catch {
+      throw new RangeError('Out of bounds during block scan');
+    }
+
+    let section0Offset: number;
+    try {
+      section0Offset = getLatestSectionOffset(view, 0);
     } catch {
       throw new RangeError('Out of bounds during block scan');
     }
@@ -905,6 +928,8 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       }
     }
 
+    const { trainerId, secretId } = parseGen3TrainerId(view, section0Offset);
+
     // Dummy scaffold values for now until fully implemented
     const result: SaveData = {
       generation: 3,
@@ -917,7 +942,8 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       gameVersion: _forcedVersion || 'ruby',
       badges: 0,
       trainerName: '',
-      trainerId: 0,
+      trainerId,
+      secretId,
       currentMapId: 0,
       inventory: [],
       currentBoxCount: 0,

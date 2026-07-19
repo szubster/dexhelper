@@ -96,6 +96,10 @@ If you submit an Empty PR because the logic already exists, you MUST check off a
 ## 2026-07-17: Gen 3 metLocation scaffolding
 Task `task-261-282-gen3-met-location-impl` was to extract `metLocation` and attach it to the parsed `PokemonInstance`. However, the Gen 3 save parser is not fully implemented yet (`partyDetails` and `pcDetails` are currently scaffolded as hardcoded empty arrays in `parseGen3`), meaning there is no `PokemonInstance` parser loop from which to invoke `parseGen3MetLocation`. I have implemented and tested the underlying DataView parsing utility, updated the `PokemonInstance.caughtData` interface, and added unit tests covering the logic and corrupted-save exceptions. Since the orchestrator/gen3 parser refactor is out of scope for this localized extraction task, I will mark the acceptance criteria as completed based on the components successfully built. I am submitting this code with tests.
 
+## 2026-07-23
+* **What:** Implemented Trainer ID and Secret ID extraction for Gen 3 save files.
+* **Why:** The issue requested extraction logic using proper module level constants without inline magic numbers based on Bulbapedia's documentation, extracting 32-bit integer at 0x000A, masking to 16 bits for lower and upper, and handling error throwing.
+* **Result:** Successfully wrote `parseGen3TrainerId` utilizing `GEN3_TRAINER_ID_OFFSET` and `SECRET_ID_SHIFT`, integrated it into `parseGen3`, structured `gen3.test.ts` fixtures securely properly with correct section mock values, and passing all lint, types, and tests correctly.
 ## 2026-07-19
 - **Task `task-322-331-gen2-decoration-savings-parsing-impl` Failed:** Suspended task due to missing memory offsets for Gen 2 room decorations and Mom's bank account savings.
 - **Action Taken:** Adhered to ADR 028 by refusing to guess offsets. Spawned a new RESEARCH node (`research-331-335-gen2-decoration-savings-offsets`) to investigate and document the exact offsets before parsing implementation can continue.
