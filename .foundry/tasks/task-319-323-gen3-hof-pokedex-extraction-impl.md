@@ -1,13 +1,13 @@
 ---
 id: task-319-323-gen3-hof-pokedex-extraction-impl
 type: TASK
-title: 'Implement Gen 3 Hall of Fame & Pokédex Data Extraction'
-status: READY
+title: Implement Gen 3 Hall of Fame & Pokédex Data Extraction
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-15'
-updated_at: '2026-07-15'
+updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8550396287978844071'
 pr_number: null
 parent: story-304-319-gen3-hof-pokedex-extraction
 tags:

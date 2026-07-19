@@ -2,12 +2,12 @@
 id: prd-079-050-foundry-zombie-node-cleanup
 type: PRD
 title: Foundry Zombie Node Garbage Collection
-status: ACTIVE
-owner_persona: epic_planner
+status: PENDING
+owner_persona: auditor
 created_at: '2026-06-14'
-updated_at: '2026-07-17'
+updated_at: '2026-07-18'
 depends_on: []
-jules_session_id: '3950568151983724188'
+jules_session_id: null
 pr_number: null
 parent: idea-079-foundry-zombie-node-cleanup
 tags:
@@ -53,4 +53,7 @@ The mechanism will:
 ## 5. Next Steps
 - [x] Break down into Epics.
   - [ ] epic-050-089-zombie-node-detection-engine
-  - [ ] epic-050-090-zombie-node-remediation-and-gc
+  - [x] epic-050-090-zombie-node-remediation-and-gc
+  - [ ] research-050-329-investigate-zombie-gc-failure
+  - [ ] epic-050-330-zombie-node-remediation-logic
+  - [ ] epic-050-331-zombie-node-gc-integration
