@@ -133,3 +133,4 @@ Verified PokerusBadge component correctly applies tactical-badge class and rende
 - Ensured reusable module-level constants were defined for all memory offsets and bits instead of magic numbers.
 - Added rigorous DataView bounds checking to gracefully handle and remap `RangeError` to `"The save file is corrupted or incomplete."` per the system prompt.
 - Added rigorous Unit Tests in `src/engine/gen3/staticEncounters.test.ts` to ensure safety and precision.
+- Learned that Gen 3 secretBaseId / 10 is the map identifier for secret bases, which can be extracted by returning mapId along with secretBaseId.

@@ -34,8 +34,8 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer, we need to extract the
 - Map the internal location IDs to the unified Gen 3 map graph.
 
 ## Acceptance Criteria
-- [ ] Parser correctly extracts the internal location IDs and active state of the secret bases.
-- [ ] `RangeError` is caught and rethrown with the exact message.
-- [ ] No inline magic numbers; all memory offsets and sizes are module-level constants.
-- [ ] Parsing correctly uses the relative `section1Offset` rather than absolute offsets.
-- [ ] Location IDs are mapped to the correct Gen 3 map graph locations.
+- [x] Parser correctly extracts the internal location IDs and active state of the secret bases.
+- [x] `RangeError` is caught and rethrown with the exact message.
+- [x] No inline magic numbers; all memory offsets and sizes are module-level constants.
+- [x] Parsing correctly uses the relative `section1Offset` rather than absolute offsets.
+- [x] Location IDs are mapped to the correct Gen 3 map graph locations.
