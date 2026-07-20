@@ -7,6 +7,7 @@ import { ContestConditionStats } from '../../ContestConditionStats';
 import { DataLabel } from '../../DataLabel';
 import { HoverScanner } from '../../HoverScanner';
 import { LcdGrid } from '../../LcdGrid';
+import { PokerusBadge } from '../../PokerusBadge';
 import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
@@ -98,7 +99,7 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
               {p.pokerus !== undefined && (
                 <div className="relative flex items-center gap-3 border-zinc-700 border-l-2 border-dashed pt-3 pl-3 before:absolute before:top-4 before:-left-[2px] before:h-1 before:w-1 before:bg-zinc-500">
                   <DataLabel>[ POKERUS_STRAIN ]</DataLabel>
-                  <span className="font-mono text-[11px] text-zinc-300">{p.pokerus.strain}</span>
+                  <PokerusBadge strain={p.pokerus.strain} />
                 </div>
               )}
             </div>

@@ -166,6 +166,6 @@ describe('PokemonCaughtDetails', () => {
     await render(<PokemonCaughtDetails yourPokemon={[pokemonWithPokerus]} />);
 
     await expect.element(page.getByText('[ POKERUS_STRAIN ]')).toBeInTheDocument();
-    await expect.element(page.getByText('3', { exact: true })).toBeInTheDocument();
+    await expect.element(page.getByText('[PKRS STRN: 3]', { exact: true })).toBeInTheDocument();
   });
 });
