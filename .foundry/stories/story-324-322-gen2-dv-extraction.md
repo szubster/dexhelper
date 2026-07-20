@@ -30,5 +30,5 @@ Design the technical breakdown to extract DVs (Attack, Defense, Speed, Special) 
 
 ## Acceptance Criteria
 - [x] Create tasks for the implementation of Gen 2 DV data extraction.
-- [ ] task-322-331-gen2-dv-extraction-impl
-- [ ] task-322-332-gen2-dv-extraction-qa
+- [x] task-322-331-gen2-dv-extraction-impl
+- [x] task-322-332-gen2-dv-extraction-qa

@@ -2,10 +2,10 @@
 id: task-322-331-gen2-dv-extraction-impl
 type: TASK
 title: Gen 2 DV Data Extraction Implementation
-status: COMPLETED
+status: PENDING
 owner_persona: coder
-created_at: '2026-07-17'
-updated_at: '2026-07-19'
+created_at: '2026-07-20'
+updated_at: '2026-07-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -33,6 +33,6 @@ Implement the logic to extract DVs (Attack, Defense, Speed, Special) for each Po
 6. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [x] Implement Gen 2 DV data extraction.
-- [x] Ensure all memory offsets and constants are defined at the module level (no magic numbers).
-- [x] Ensure `RangeError` is caught during DataView operations and a specific error `'The save file is corrupted or incomplete.'` is thrown.
+- [ ] Implement Gen 2 DV data extraction.
+- [ ] Ensure all memory offsets and constants are defined at the module level (no magic numbers).
+- [ ] Ensure `RangeError` is caught during DataView operations and a specific error `'The save file is corrupted or incomplete.'` is thrown.
