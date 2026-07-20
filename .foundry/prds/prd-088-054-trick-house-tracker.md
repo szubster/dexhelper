@@ -35,5 +35,8 @@ Extract the Trick House puzzle state using DexHelper's save file parsing capabil
 
 ## 4. Acceptance Criteria
 - [x] Epic Planner: Break down this PRD into Epics for the Tracker Tracker, focusing on the data parsing logic and the frontend presentation logic.
-- [ ] .foundry/epics/epic-054-111-trick-house-save-parsing.md
-- [ ] .foundry/epics/epic-054-112-trick-house-ui.md
+- [x] .foundry/epics/epic-054-111-trick-house-save-parsing.md
+- [x] .foundry/epics/epic-054-112-trick-house-ui.md
+- [ ] research-054-336-investigate-trick-house-parsing-failure
+- [ ] epic-054-338-trick-house-save-parsing-v2
+- [ ] epic-054-339-trick-house-ui-v2

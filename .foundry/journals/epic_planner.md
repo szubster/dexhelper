@@ -86,3 +86,8 @@ Updated the PRD by appending the Epics to the Acceptance Criteria. Corrected a m
 - Re-enforced that assumptions about save file flags should not dictate extracting tasks without concrete evidence, opting instead for pure app-state tracking for the checklist.
 ## [2026-07-18] PRD to Epic Breakdown for Zod Schema Validation
 Broke down PRD prd-116-117-zod-schema-validation-orchestrator into two Epics: epic-117-334-define-zod-schema (to define the schema) and epic-117-335-integrate-zod-orchestrator (to integrate it into the orchestrator).
+
+## Session 2026-07-20
+**Context:** Processing PRD prd-088-054-trick-house-tracker.
+**Observation:** Child epic-054-111-trick-house-save-parsing failed permanently due to missing E2E/integration story.
+**Action:** Spawned research-054-336-investigate-trick-house-parsing-failure and replacement epics epic-054-338-trick-house-save-parsing-v2 and epic-054-339-trick-house-ui-v2. Checked off failed child nodes in the parent PRD to allow graceful failure resolution.
