@@ -37,8 +37,8 @@ Implement extraction of the Volcanic Ash count from Gen 3 save files using dynam
 - **Testing:** Include unit tests to verify extraction for Emerald and Ruby/Sapphire formats.
 
 ## Acceptance Criteria
-- [ ] Define reusable constants for vars offsets and the ash variable offset at the module level in `src/engine/saveParser/parsers/gen3.ts`.
-- [ ] Implement `parseGen3VolcanicAsh(view: DataView, saveBlock1Offset: number, version: GameVersion): number` logic in `src/engine/saveParser/parsers/gen3.ts`.
-- [ ] Extract the Volcanic Ash value correctly in `parseGen3` using the dynamic `section1Offset`.
-- [ ] Write unit tests to cover both Emerald and Ruby/Sapphire Volcanic Ash extraction in `src/engine/saveParser/parsers/gen3.test.ts`.
-- [ ] Add the `coder` persona self-verification results to the private journal `.foundry/journals/coder.md` (no QA task is needed).
+- [x] Define reusable constants for vars offsets and the ash variable offset at the module level in `src/engine/saveParser/parsers/gen3.ts`.
+- [x] Implement `parseGen3VolcanicAsh(view: DataView, saveBlock1Offset: number, version: GameVersion): number` logic in `src/engine/saveParser/parsers/gen3.ts`.
+- [x] Extract the Volcanic Ash value correctly in `parseGen3` using the dynamic `section1Offset`.
+- [x] Write unit tests to cover both Emerald and Ruby/Sapphire Volcanic Ash extraction in `src/engine/saveParser/parsers/gen3.test.ts`.
+- [x] Add the `coder` persona self-verification results to the private journal `.foundry/journals/coder.md` (no QA task is needed).
