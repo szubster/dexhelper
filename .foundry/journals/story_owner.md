@@ -58,3 +58,4 @@ Broke down epic-115-331-remove-orphaned-qa-task-rule-from-docs into story-331-33
 - Spawned research-137-330 to investigate failure of story-137-294.
 - Created replacement nodes story-137-333 and story-137-334.
 - Checked off permanently failed child nodes in epic markdown.
+\n## Session Anomaly: Pre-existing Story Node\nDuring the implementation of `epic-108-303-extend-phase-3-6-cancelled-nodes`, it was discovered that the target story node (`story-303-299-extend-phase-3-6-cancelled-nodes.md`) already existed in the `.foundry/stories/` directory and was marked as `COMPLETED`. Following the Passthrough Validation Rule, the story was marked as checked in the Epic's acceptance criteria, and an Empty PR will be submitted.
