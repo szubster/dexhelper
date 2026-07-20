@@ -2,12 +2,12 @@
 id: story-322-323-pokerus-strain-detail-ui
 type: STORY
 title: Pokerus Strain Detail UI Component
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-14'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '10945336055137033088'
+jules_session_id: null
 pr_number: null
 parent: epic-112-322-pokerus-strain-ui-detail-view
 tags:
@@ -30,4 +30,5 @@ Implement the UI component for displaying the specific Pokerus strain data in th
 - Ensure the presentation adheres to the "tactical hardware" aesthetic (sharp edges `rounded-none`, dashed borders `border-dashed`, monospaced telemetry fonts) as defined by ADR 008 and ADR 024.
 
 ## 3. Acceptance Criteria
-- [ ] Tech Lead: Break down this Story into actionable Tasks.
+- [x] Tech Lead: Break down this Story into actionable Tasks.
+- [ ] task-323-331-pokerus-strain-ui-impl

@@ -29,6 +29,7 @@ import {
   parseGen3RSENPCTrades,
   parseGen3SecretBases,
   parseGen3TotalBattlePoints,
+  parseGen3TrainerId,
   parseGen3VolcanicAsh,
 } from './gen3';
 
@@ -84,6 +85,12 @@ describe('gen3 parser scaffolding', () => {
     view.setUint32(blockBSection1Offset + 4088, 0x08012025, true); // Signature
     view.setUint32(blockBSection1Offset + 4092, 25, true); // Save Index 25
 
+    // Block B (offset 0xE000) Setup - Section 0 with a higher save index
+    const blockBSection0Offset = 0xe000;
+    view.setUint16(blockBSection0Offset + 4084, 0, true); // Section ID 0
+    view.setUint32(blockBSection0Offset + 4088, 0x08012025, true); // Signature
+    view.setUint32(blockBSection0Offset + 4092, 25, true); // Save Index 25
+
     // Write mock flags data at Block B, Section 2, offset 0x02F0 + 62
     const flagsOffset = blockBSection2Offset + 0x02f0;
 
@@ -104,9 +111,45 @@ describe('gen3 parser scaffolding', () => {
     expect(saveData.hiddenItemFlags?.[1]).toBe(0);
   });
 
+  it('should extract trainerId and secretId in parseGen3', () => {
+    const buffer = new ArrayBuffer(131072);
+    const view = new DataView(buffer);
+
+    // Section 0 setup
+    const section0Offset = 0xe000;
+    view.setUint16(section0Offset + 4084, 0, true);
+    view.setUint32(section0Offset + 4088, 0x08012025, true);
+    view.setUint32(section0Offset + 4092, 25, true);
+
+    // Write mock trainer data at Section 0, offset 0x000A
+    view.setUint32(section0Offset + 0x000a, 0x12345678, true);
+
+    // Section 1 setup
+    const section1Offset = 0xe000 + 1 * 4096;
+    view.setUint16(section1Offset + 4084, 1, true);
+    view.setUint32(section1Offset + 4088, 0x08012025, true);
+    view.setUint32(section1Offset + 4092, 25, true);
+
+    // Section 2 setup
+    const section2Offset = 0xe000 + 2 * 4096;
+    view.setUint16(section2Offset + 4084, 2, true);
+    view.setUint32(section2Offset + 4088, 0x08012025, true);
+    view.setUint32(section2Offset + 4092, 25, true);
+
+    const saveData = parseGen3(view);
+    expect(saveData.trainerId).toBe(0x5678);
+    expect(saveData.secretId).toBe(0x1234);
+  });
+
   it('parseGen3 should correctly extract berry patches data from section 1', () => {
     const buffer = new ArrayBuffer(131072);
     const view = new DataView(buffer);
+
+    // Section 0 setup
+    const section0Offset = 0xe000;
+    view.setUint16(section0Offset + 4084, 0, true);
+    view.setUint32(section0Offset + 4088, 0x08012025, true);
+    view.setUint32(section0Offset + 4092, 25, true);
 
     // Section 1 setup
     const section1Offset = 0xe000 + 1 * 4096;
@@ -335,6 +378,12 @@ describe('parseGen3 mirageIslandValue', () => {
     const buffer = new ArrayBuffer(131072);
     const view = new DataView(buffer);
 
+    // Section 0 setup
+    const section0Offset = 0xe000;
+    view.setUint16(section0Offset + 4084, 0, true);
+    view.setUint32(section0Offset + 4088, 0x08012025, true);
+    view.setUint32(section0Offset + 4092, 25, true);
+
     // Section 1 setup
     const section1Offset = 0xe000 + 1 * 4096;
     view.setUint16(section1Offset + 4084, 1, true);
@@ -357,6 +406,12 @@ describe('parseGen3 mirageIslandValue', () => {
   it('should correctly extract mirageIslandValue for emerald', () => {
     const buffer = new ArrayBuffer(131072);
     const view = new DataView(buffer);
+
+    // Section 0 setup
+    const section0Offset = 0xe000;
+    view.setUint16(section0Offset + 4084, 0, true);
+    view.setUint32(section0Offset + 4088, 0x08012025, true);
+    view.setUint32(section0Offset + 4092, 25, true);
 
     // Section 1 setup
     const section1Offset = 0xe000 + 1 * 4096;
@@ -531,6 +586,27 @@ describe('parseGen3EggSteps', () => {
     expect(() => parseGen3EggSteps(view, miscSubstructureOffset, growthSubstructureOffset)).toThrowError(
       'The save file is corrupted or incomplete.',
     );
+  });
+});
+
+describe('parseGen3TrainerId', () => {
+  it('should extract the trainer id and secret id correctly', () => {
+    const buffer = new ArrayBuffer(14);
+    const view = new DataView(buffer);
+
+    // Set up a 32-bit value at offset 0x000A
+    view.setUint32(0x000a, 0x12345678, true);
+
+    const result = parseGen3TrainerId(view, 0);
+
+    expect(result).toEqual({ trainerId: 0x5678, secretId: 0x1234 });
+  });
+
+  it('should catch RangeError and throw corrupted save error on out-of-bounds reads', () => {
+    const buffer = new ArrayBuffer(12);
+    const view = new DataView(buffer);
+
+    expect(() => parseGen3TrainerId(view, 0)).toThrowError('The save file is corrupted or incomplete.');
   });
 });
 

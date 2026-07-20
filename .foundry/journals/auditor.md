@@ -132,3 +132,11 @@ Successfully verified that the Automated Max Rejection Cancellation epic was cor
 ## 2026-07-12
 **Architectural Constraint (State Machine UI Consistency):**
 When changing node state transitions (e.g., from FAILED to CANCELLED for max rejections), we must explicitly audit downstream UI consumers (like the DAG Dashboard) that may be relying on the previous status to render information correctly.
+
+## 2026-07-19: Enforcing the Impossible Loop Policy on Macro Nodes
+
+**Pattern / Constraint:**
+When verifying `idea-067-extract-dag-utils`, it was discovered that one of its spawned descendant macro nodes (`prd-067-036-extract-dag-utils`) was permanently CANCELLED due to a max rejection count, yet the IDEA node itself had its acceptance criteria erroneously checked.
+
+**Why this matters:**
+The Auditor MUST reject any macro node whose descendant nodes have been permanently cancelled. This enforces the Impossible Loop Policy, ensuring the node owner takes responsibility for handling the permanent failure (e.g., by spawning a `RESEARCH` node and defining a new path forward) instead of allowing an incomplete feature to bypass verification.
