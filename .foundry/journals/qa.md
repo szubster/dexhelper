@@ -77,6 +77,8 @@ All requirements met.
 ## 2026-07-16: QA Shiny Carrier Breeding View Reawakened (task-254-261-shiny-carrier-breeding-view-qa)
 - **Node**: task-254-261-shiny-carrier-breeding-view-qa
 - **Outcome**: Handled reawakened task by appending newline and submitting empty PR as the acceptance criteria checkboxes were already checked in the task markdown body. Reawakened tasks must be submitted safely to exit the DAG gracefully.
+## QA Validation - task-280-326-feebas-backend-integration-retry-qa
+Validated PR for feebas extraction integration. The code correctly uses `section1Offset`, all logic uses relative values, and the `DataView` `RangeError` is handled gracefully. Tests passed successfully.
 
 ## 2026-07-18: PC Box Diff Engine Permanent Failure
 - **Date**: 2026-07-18
@@ -86,3 +88,9 @@ All requirements met.
 - **Task**: task-121-310-gen3-tv-block-parser-retry6-qa
 - **Outcome**: Target task cancelled due to max rejection limit.
 - **Notes**: The QA task target (task-121-309-gen3-tv-block-parser-retry6-impl) was permanently failed. Therefore, as per instructions, I've checked off the acceptance criteria for my own task (task-121-310-gen3-tv-block-parser-retry6-qa) to allow the Empty PR flow to exit gracefully.
+- Verified TimeOverrideContext manages and correctly provides manual time state. Verified Manual UI Overrides successfully override the time state. Verified UI strictly adheres to ADR 008 aesthetic.
+
+## 2026-07-19: QA Validation - task-269-264-gen3-trainer-id-secret-id-qa
+- **Node**: task-269-264-gen3-trainer-id-secret-id-qa
+- **Outcome**: Passed Validation
+- **Notes**: Validated PR for Gen 3 Trainer ID and Secret ID extraction. The code correctly uses module-level constants `GEN3_TRAINER_ID_OFFSET`, `SECRET_ID_SHIFT`, and `LOWER_16_BIT_MASK`, and does not use absolute memory offsets or magic numbers. The `DataView` `RangeError` is handled gracefully and tests successfully cover extraction and error scenarios.

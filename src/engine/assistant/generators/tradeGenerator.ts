@@ -36,6 +36,7 @@ const STATIC_GIFT_ENTRIES_GEN3 = Object.entries(STATIC_GIFT_DATA_GEN3).map(([idS
 /**
  * Evaluates version exclusives, in-game NPC trades, and static gift encounters.
  *
+ * **Architecture Note: In-Place Mutation**
  * It mutates the provided `suggestions` array.
  * This mutation-in-place pattern is a critical architectural optimization (O(1) memory)
  * that prevents the O(N) garbage collection overhead of allocating and merging massive
@@ -44,11 +45,11 @@ const STATIC_GIFT_ENTRIES_GEN3 = Object.entries(STATIC_GIFT_DATA_GEN3).map(([idS
  * @param queryTargets - The top priority missing Pokémon IDs to evaluate.
  * @param saveData - The player's parsed save file, containing badges and event flags.
  * @param displayVersion - The current game version string.
- * @param ownedSet - A Set of Pokémon IDs the player already owns.
+ * @param ownedSet - A Set of Pokémon IDs the player already owns, used to verify requirements in O(1) time.
  * @param apiData - Pre-fetched metadata for Pokémon definitions.
- * @param instancesBySpecies - A Map of the player's physical Pokémon, used to check for required trade offerings or pre-evolutions.
+ * @param instancesBySpecies - A Map of the player's physical Pokémon, used to check for required trade offerings or pre-evolutions in O(1) time.
  * @param suggestions - The shared array where new suggestions are pushed in-place.
- * @param missingIds - A Set of Pokémon IDs the player needs to obtain.
+ * @param missingIds - A Set of Pokémon IDs the player needs to obtain, used to prune unneeded NPC trades or gifts.
  */
 export function generateGiftAndTradeSuggestions(
   queryTargets: number[],

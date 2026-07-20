@@ -2,13 +2,13 @@
 id: epic-045-324-gen3-secret-base-parsing-v2
 type: EPIC
 title: Gen 3 Secret Base Save File Parsing (v2)
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on:
   - research-045-321-investigate-secret-base-failure
-jules_session_id: '15589420917008134858'
+jules_session_id: null
 pr_number: null
 parent: prd-073-045-gen3-secret-base-viewer
 tags:
@@ -33,4 +33,7 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer, we need to parse the s
 - Track daily rematch status for these NPC trainers.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into actionable Stories.
+- [x] Story Owner: Break this Epic down into actionable Stories.
+- [ ] story-324-333-parse-secret-base-locations
+- [ ] story-324-334-extract-mixed-record-trainer-data
+- [ ] story-324-335-track-daily-rematch-status

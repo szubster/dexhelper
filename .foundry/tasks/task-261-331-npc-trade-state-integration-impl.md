@@ -5,9 +5,9 @@ title: NPC Trade State Integration Implementation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-17'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '15455067987437528202'
+jules_session_id: '1742158501808076'
 pr_number: null
 parent: story-119-261-npc-trade-state-integration
 tags:

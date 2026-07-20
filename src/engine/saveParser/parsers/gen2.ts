@@ -45,6 +45,27 @@ const EVENT_FLAG_SNORLAX_BIT = 1326 % 8;
 const EVENT_FLAG_RED_GYARADOS_BYTE = Math.floor(1327 / 8);
 const EVENT_FLAG_RED_GYARADOS_BIT = 1327 % 8;
 
+const CAUGHT_TIME_MASK = 0xc0;
+const CAUGHT_TIME_SHIFT = 6;
+const CAUGHT_LEVEL_MASK = 0x3f;
+const CAUGHT_TIME_MORNING = 1;
+const CAUGHT_TIME_DAY = 2;
+const CAUGHT_TIME_NIGHT = 3;
+const CAUGHT_LOC_EVENT = 0x7e;
+const CAUGHT_LOC_TRADED = 0x7f;
+
+const MAX_VALID_SPECIES_ID = 251;
+const POKEMON_MOVE_COUNT = 4;
+const UNOWN_SPECIES_ID = 201;
+const UNOWN_DV_SHIFT = 1;
+const UNOWN_DV_MASK = 0b11;
+const UNOWN_FORM_ATK_SHIFT = 6;
+const UNOWN_FORM_DEF_SHIFT = 4;
+const UNOWN_FORM_SPD_SHIFT = 2;
+const UNOWN_FORM_MOD = 28;
+const UNOWN_FORM_VALID_MAX = 26;
+const UNOWN_FORM_ASCII_A = 65;
+
 function isValidLandmark(id: string): id is keyof typeof gen2Landmarks {
   return id in gen2Landmarks;
 }
@@ -72,18 +93,18 @@ function parseCaughtData(view: DataView, offset: number) {
 
   if (caughtByte1 === 0 && caughtByte2 === 0) return undefined;
 
-  const timeBits = (caughtByte1 & 0xc0) >> 6;
-  const caughtLevel = caughtByte1 & 0x3f;
+  const timeBits = (caughtByte1 & CAUGHT_TIME_MASK) >> CAUGHT_TIME_SHIFT;
+  const caughtLevel = caughtByte1 & CAUGHT_LEVEL_MASK;
   const location = caughtByte2;
 
   let time: 'Morning' | 'Day' | 'Night' | 'Unknown' = 'Unknown';
-  if (timeBits === 1) time = 'Morning';
-  else if (timeBits === 2) time = 'Day';
-  else if (timeBits === 3) time = 'Night';
+  if (timeBits === CAUGHT_TIME_MORNING) time = 'Morning';
+  else if (timeBits === CAUGHT_TIME_DAY) time = 'Day';
+  else if (timeBits === CAUGHT_TIME_NIGHT) time = 'Night';
 
   let locationName: string | undefined;
-  if (location === 0x7e) locationName = 'Event/Gift';
-  else if (location === 0x7f) locationName = 'Special Event/Traded';
+  if (location === CAUGHT_LOC_EVENT) locationName = 'Event/Gift';
+  else if (location === CAUGHT_LOC_TRADED) locationName = 'Special Event/Traded';
   else {
     const locStr = location.toString();
     locationName = isValidLandmark(locStr) ? gen2Landmarks[locStr] : undefined;
@@ -121,46 +142,70 @@ function parseGen2PokemonInstance(
   storageLocation: string,
   slot?: number,
 ): PokemonInstance | undefined {
-  const speciesId = view.getUint8(offset + POKEMON_OFFSET_SPECIES_ID);
-  if (!speciesId || (speciesId > 251 && speciesId !== 253)) return undefined;
+  let speciesId: number;
+  let item: number;
+  let moves: number[];
+  let rawDVs: number;
+  let friendship: number;
+  let rawPokerus: number;
+  let level: number;
+  let currentHp: number | undefined;
+  let otName: string | undefined;
+  let nickname: string | undefined;
 
-  const item = view.getUint8(offset + POKEMON_OFFSET_ITEM);
-  const moves: number[] = [];
-  for (let i = 0; i < 4; i++) {
-    const m = view.getUint8(offset + POKEMON_OFFSET_MOVES + i);
-    if (m > 0) moves.push(m);
+  try {
+    speciesId = view.getUint8(offset + POKEMON_OFFSET_SPECIES_ID);
+    if (!speciesId || (speciesId > MAX_VALID_SPECIES_ID && speciesId !== GEN2_EGG_SPECIES_ID)) return undefined;
+
+    item = view.getUint8(offset + POKEMON_OFFSET_ITEM);
+    moves = [];
+    for (let i = 0; i < POKEMON_MOVE_COUNT; i++) {
+      const m = view.getUint8(offset + POKEMON_OFFSET_MOVES + i);
+      if (m > 0) moves.push(m);
+    }
+    rawDVs = view.getUint16(offset + POKEMON_OFFSET_DVS, false);
+    friendship = view.getUint8(offset + POKEMON_OFFSET_FRIENDSHIP);
+    rawPokerus = view.getUint8(offset + POKEMON_OFFSET_POKERUS);
+    level = view.getUint8(offset + POKEMON_OFFSET_LEVEL);
+
+    currentHp = storageLocation === 'Party' ? view.getUint16(offset + POKEMON_OFFSET_CURRENT_HP, false) : undefined;
+    // OT names in daycare are immediately after the data block
+    otName =
+      storageLocation === 'Daycare'
+        ? decodeGen12String(view, offset + POKEMON_OFFSET_OT_NAME, POKEMON_NAME_LENGTH)
+        : undefined;
+    nickname =
+      storageLocation === 'Daycare'
+        ? decodeGen12String(view, offset + POKEMON_OFFSET_NICKNAME, POKEMON_NAME_LENGTH)
+        : undefined;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
   }
-  const dvs = parseDVs(view.getUint16(offset + POKEMON_OFFSET_DVS, false));
+
+  const dvs = parseDVs(rawDVs);
   const isShiny = checkShiny(dvs);
   const isShinyCarrier = checkShinyGene(dvs);
-  const friendship = view.getUint8(offset + POKEMON_OFFSET_FRIENDSHIP);
-  const rawPokerus = view.getUint8(offset + POKEMON_OFFSET_POKERUS);
   const pokerus = parsePokerus(rawPokerus);
-  const level = view.getUint8(offset + POKEMON_OFFSET_LEVEL);
 
   const eggSteps = speciesId === GEN2_EGG_SPECIES_ID ? friendship * GEN2_EGG_CYCLE_STEPS : undefined;
-  const currentHp = storageLocation === 'Party' ? view.getUint16(offset + POKEMON_OFFSET_CURRENT_HP, false) : undefined;
   const caughtData = isCrystal ? parseCaughtData(view, offset) : undefined;
 
-  // OT names in daycare are immediately after the data block
-  const otName =
-    storageLocation === 'Daycare'
-      ? decodeGen12String(view, offset + POKEMON_OFFSET_OT_NAME, POKEMON_NAME_LENGTH)
-      : undefined;
-  const nickname =
-    storageLocation === 'Daycare'
-      ? decodeGen12String(view, offset + POKEMON_OFFSET_NICKNAME, POKEMON_NAME_LENGTH)
-      : undefined;
-
   let unownForm: string | undefined;
-  if (speciesId === 201) {
-    const atkBits = (dvs.atk >> 1) & 0b11;
-    const defBits = (dvs.def >> 1) & 0b11;
-    const spdBits = (dvs.spd >> 1) & 0b11;
-    const spcBits = (dvs.spc >> 1) & 0b11;
-    const value = (atkBits << 6) | (defBits << 4) | (spdBits << 2) | spcBits;
-    const modValue = value % 28;
-    unownForm = modValue < 26 ? String.fromCharCode(65 + modValue) : 'A';
+  if (speciesId === UNOWN_SPECIES_ID) {
+    const atkBits = (dvs.atk >> UNOWN_DV_SHIFT) & UNOWN_DV_MASK;
+    const defBits = (dvs.def >> UNOWN_DV_SHIFT) & UNOWN_DV_MASK;
+    const spdBits = (dvs.spd >> UNOWN_DV_SHIFT) & UNOWN_DV_MASK;
+    const spcBits = (dvs.spc >> UNOWN_DV_SHIFT) & UNOWN_DV_MASK;
+    const value =
+      (atkBits << UNOWN_FORM_ATK_SHIFT) |
+      (defBits << UNOWN_FORM_DEF_SHIFT) |
+      (spdBits << UNOWN_FORM_SPD_SHIFT) |
+      spcBits;
+    const modValue = value % UNOWN_FORM_MOD;
+    unownForm = modValue < UNOWN_FORM_VALID_MAX ? String.fromCharCode(UNOWN_FORM_ASCII_A + modValue) : 'A';
   }
 
   return {
@@ -651,7 +696,7 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     }
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error('Corrupted Save File');
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
