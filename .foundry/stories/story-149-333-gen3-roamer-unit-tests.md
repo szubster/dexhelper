@@ -28,4 +28,5 @@ Write unit tests verifying extraction against known good save fixtures for each 
 Develop unit tests to verify that the core parsing logic for the Gen 3 Roamer structure in SaveBlock1 correctly extracts the data using known good save fixtures for Ruby/Sapphire, Emerald, and FireRed/LeafGreen.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down this Story into executable Tasks.
+- [x] Tech Lead: Break down this Story into executable Tasks.
+- [ ] task-333-333-gen3-roamer-extraction-tests-impl
