@@ -2,12 +2,12 @@
 id: epic-115-331-remove-orphaned-qa-task-rule-from-docs
 type: EPIC
 title: Remove Orphaned QA Task Rule From Docs
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-16'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '18383675543993261458'
+jules_session_id: null
 pr_number: null
 parent: prd-115-115-remove-obsolete-orphaned-node-manual-cancellation
 tags:
@@ -28,4 +28,5 @@ The obsolete "Orphaned QA Task Cancellation Rule" needs to be completely removed
 This epic covers scanning the documentation (specifically `core_policies.md` and related agent docs) and removing any instruction regarding the manual cancellation of orphaned tasks.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into Stories.
+- [x] Story Owner: Break down this Epic into Stories.
+- [ ] story-331-333-remove-orphaned-qa-rule

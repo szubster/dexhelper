@@ -85,3 +85,7 @@ When parsing Gen 3 save files, `SaveBlock1` is divided into four 4KB sections (S
 ## Gen 3 Static Encounter Offsets
 
 When parsing Gen 3 event flags for static encounters (like legendaries or Snorlax), the flag IDs map to byte and bit offsets within the Event Flags block (which starts at `0x1270` in `SaveBlock1`). To calculate the exact offset, divide the flag ID by 8 for the byte offset, and use modulo 8 for the bit position (e.g. `Flag_ID / 8` and `Flag_ID % 8`). Note that Pokémon FireRed/LeafGreen often track `FOUGHT` instead of `DEFEATED`, and Ruby/Sapphire uses `HIDE` flags for static encounters like the Regis.
+
+## 2026-07-19: Gen 2 Event Flag Assembly Constants
+**Failure Pattern:** Developers tasked with finding byte/bit offsets from `pokecrystal`'s `constants/event_flags.asm` are naively using the line number of the flag to determine its value (e.g., `EVENT_FOUGHT_SUDOWOODO` is on line 51, so they use 51). This breaks because the assembly file dynamically increments the constant counter using directives like `const_skip` and `const_next`.
+**Architectural Rule:** Never use line numbers to guess memory offsets or bit indices from an assembly file. You must explicitly evaluate the directives (`const_def`, `const_skip`, `const_next`) to compute the true parsed integer value of the constant. This has been documented in `.foundry/docs/knowledge_base/engine/save_parsing/gen2_event_flags.md`.

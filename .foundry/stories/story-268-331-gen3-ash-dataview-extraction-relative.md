@@ -32,4 +32,5 @@ Implement extraction of the Volcanic Ash count from Gen 3 save files using dynam
 - The extraction logic must consult the offsets in `.foundry/docs/knowledge_base/gen3_ash_gathering_offsets.md` to determine the correct offset relative to the dynamically resolved `section1Offset` for each game version (Ruby/Sapphire vs Emerald).
 
 ## Acceptance Criteria
-- [ ] Break down this Story into TASK nodes outlining constants definition and actual extraction logic.
+- [x] Break down this Story into TASK nodes outlining constants definition and actual extraction logic.
+- [ ] task-331-333-gen3-ash-extraction-impl

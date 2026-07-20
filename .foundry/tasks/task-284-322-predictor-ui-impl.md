@@ -2,12 +2,12 @@
 id: task-284-322-predictor-ui-impl
 type: TASK
 title: Implement Active Callers Dashboard UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-14'
-updated_at: '2026-07-18'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '11697200592071407945'
+jules_session_id: null
 pr_number: null
 parent: story-117-284-pokegear-predictor-ui
 tags:
@@ -30,10 +30,10 @@ As per ADR 008, the UI must strictly adhere to the 'tactical hardware/snooping' 
 The UI should use the `checkPhoneCall` and `chooseRandomCaller` logic (or visual indicators of probability derived from them) to display which contacts are most likely to call the player. Create an `ActiveCallersDashboard` component.
 
 ## Acceptance Criteria
-- [ ] Create `ActiveCallersDashboard.tsx` under `src/components/dashboard/pokegear/` (or similar appropriate path).
-- [ ] Display a list or grid of active callers with their respective call probabilities or status.
-- [ ] Apply the tactical UI aesthetic (e.g., `rounded-none`, `border-dashed`, `font-mono`).
-- [ ] Ensure all necessary Vitest test cases are written for the UI component.
+- [x] Create `ActiveCallersDashboard.tsx` under `src/components/dashboard/pokegear/` (or similar appropriate path).
+- [x] Display a list or grid of active callers with their respective call probabilities or status.
+- [x] Apply the tactical UI aesthetic (e.g., `rounded-none`, `border-dashed`, `font-mono`).
+- [x] Ensure all necessary Vitest test cases are written for the UI component.
 
 ## Coder Constraints & Reminders
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.

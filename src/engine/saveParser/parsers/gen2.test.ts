@@ -335,7 +335,7 @@ describe('gen2 parsers', () => {
       expect(data.hiddenItemFlags).toBe(data.eventFlags);
     });
 
-    it('should throw "Corrupted Save File" if reading event flags out of bounds', () => {
+    it('should throw "The save file is corrupted or incomplete." if reading event flags out of bounds', () => {
       const buffer = new ArrayBuffer(32768);
       const view = new DataView(buffer);
       view.setUint8(0x2865, 1);
@@ -348,7 +348,7 @@ describe('gen2 parsers', () => {
         return originalGetUint8(offset);
       };
 
-      expect(() => parseGen2(view, true)).toThrow('Corrupted Save File');
+      expect(() => parseGen2(view, true)).toThrow('The save file is corrupted or incomplete.');
     });
   });
 

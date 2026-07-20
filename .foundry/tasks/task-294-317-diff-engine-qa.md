@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-07-12'
 updated_at: '2026-07-19'
 depends_on:
-  - .foundry/tasks/task-294-316-diff-engine-impl.md
+  - task-294-316-diff-engine-impl
 jules_session_id: null
 pr_number: null
 parent: story-137-294-diff-engine-logic

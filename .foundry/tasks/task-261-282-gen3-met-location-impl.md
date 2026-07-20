@@ -2,7 +2,7 @@
 id: task-261-282-gen3-met-location-impl
 type: TASK
 title: Implement Gen 3 Met Location Extraction
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-08'
 updated_at: '2026-07-18'
@@ -14,8 +14,8 @@ tags:
   - feature
   - nuzlocke
   - gen3
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Implementation uses MISC_MET_LOCATION_OFFSET instead of required MET_LOCATION_OFFSET_IN_M'
 notes: ''
 ---
 
