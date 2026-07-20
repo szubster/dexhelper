@@ -2,12 +2,12 @@
 id: story-058-280-feebas-backend-integration
 type: STORY
 title: Integrate Feebas Utility into Save Parser
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-07-19'
+updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: '3693744413392315030'
+jules_session_id: null
 pr_number: null
 parent: epic-036-058-feebas-backend-parsing
 tags:
