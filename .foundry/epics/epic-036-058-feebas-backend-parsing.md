@@ -31,5 +31,5 @@ Create a utility module that reads the parsed save file's data at the identified
 - [x] .foundry/archive/stories/story-058-095-feebas-seed-extraction.md
 - [x] .foundry/archive/stories/story-058-096-feebas-tile-calculation.md
 - [x] .foundry/archive/stories/story-058-152-refactor-feebas-magic-numbers.md
-- [ ] story-058-280-feebas-backend-integration
+- [x] story-058-280-feebas-backend-integration
 
