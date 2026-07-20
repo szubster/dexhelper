@@ -2,12 +2,12 @@
 id: task-269-334-e2e-safeguard-impl
 type: TASK
 title: Implement E2E Safeguards on Epics
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-18'
 updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3477028800638620080'
 pr_number: null
 parent: story-127-269-epic-e2e-safeguard
 tags:
