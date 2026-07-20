@@ -2,10 +2,10 @@
 id: task-333-333-gen3-roamer-extraction-tests-impl
 type: TASK
 title: Implement Gen 3 Roamer Core Extraction Unit Tests
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-07-19"
-updated_at: "2026-07-19"
+created_at: '2026-07-19'
+updated_at: '2026-07-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - tests
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Implement Gen 3 Roamer Core Extraction Unit Tests

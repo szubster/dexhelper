@@ -2,12 +2,12 @@
 id: story-149-333-gen3-roamer-unit-tests
 type: STORY
 title: Gen 3 Roamer Core Extraction Unit Tests
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-19'
-updated_at: '2026-07-19'
+updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: '4952054437637411382'
+jules_session_id: null
 pr_number: null
 parent: epic-044-149-gen3-roamer-core-extraction-v4
 tags:
