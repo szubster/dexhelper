@@ -2,12 +2,12 @@
 id: prd-088-054-trick-house-tracker
 type: PRD
 title: Gen 3 Trick House Progression Tracker
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-06-28'
-updated_at: '2026-06-30'
+updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4686978693030382388'
 pr_number: null
 parent: idea-088-trick-house-tracker
 tags:

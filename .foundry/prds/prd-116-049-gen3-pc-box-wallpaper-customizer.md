@@ -2,12 +2,12 @@
 id: prd-116-049-gen3-pc-box-wallpaper-customizer
 type: PRD
 title: Gen 3 PC Box Wallpaper Customizer
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-17'
 updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '3204973043694960747'
+jules_session_id: null
 parent: idea-116-gen3-pc-box-wallpaper-customizer
 tags:
   - gen3
@@ -38,4 +38,7 @@ Leverage the parsed Trainer ID from the uploaded `.sav` file to automatically ge
 - Actually unlocking the wallpapers directly within the `.sav` file (the user must still talk to the NPC in-game; this feature strictly provides the codes).
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into actionable EPIC nodes outlining the architectural, data extraction, and UI components required to build the Customizer dashboard.
+- [x] Epic Planner: Break this PRD down into actionable EPIC nodes outlining the architectural, data extraction, and UI components required to build the Customizer dashboard.
+- [ ] epic-116-335-gen3-wallpaper-phrase-generation-engine
+- [ ] epic-116-336-gen3-wallpaper-app-state-tracking
+- [ ] epic-116-337-gen3-wallpaper-dashboard-ui

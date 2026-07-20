@@ -2,12 +2,12 @@
 id: task-322-331-pokerus-strain-badge-impl
 type: TASK
 title: Pokerus Strain Badge Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-18'
 updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2408144262713173145'
 pr_number: null
 parent: story-323-322-pokerus-strain-badge-component
 tags:

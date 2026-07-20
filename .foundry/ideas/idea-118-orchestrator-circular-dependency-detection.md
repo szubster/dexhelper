@@ -2,12 +2,12 @@
 id: idea-118-orchestrator-circular-dependency-detection
 type: IDEA
 title: Implement Circular Dependency Detection in DAG Orchestrator
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-17'
 updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '17812065996243758029'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -35,4 +35,5 @@ Implement a cycle detection mechanism (e.g., using a topological sort or DFS tra
 This significantly improves the robustness of the Foundry system. Instead of nodes silently hanging indefinitely, the orchestrator will proactively detect the deadlock, fail fast, and provide clear feedback to the agents or maintainers, saving time on manual debugging and ensuring the DAG remains healthy.
 
 ## Acceptance Criteria
-- [ ] prd-118-051-circular-dependency-detection
+- [x] prd-118-051-circular-dependency-detection
+- [ ] prd-118-334-circular-dependency-detection
