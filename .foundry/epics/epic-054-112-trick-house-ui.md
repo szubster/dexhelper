@@ -2,9 +2,9 @@
 id: epic-054-112-trick-house-ui
 type: EPIC
 title: Gen 3 Trick House UI Tracker
-status: CANCELLED
+status: PENDING
 owner_persona: story_owner
-created_at: '2026-06-30'
+created_at: '2026-07-20'
 updated_at: '2026-07-20'
 depends_on:
   - epic-054-111-trick-house-save-parsing
@@ -17,9 +17,7 @@ tags:
   - mechanics
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  epic-054-111-trick-house-save-parsing
+rejection_reason: ''
 notes: ''
 ---
 
