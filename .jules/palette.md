@@ -11,3 +11,6 @@ When dynamically creating new downstream nodes (IDEA, TASK, RESEARCH, or ADR) in
 
 - **Aria-Label Fallbacks for UI Primitives**: When building or refactoring composite UI primitives such as `TacticalMultiSelectControl` or `TacticalSegmentedControl` where labels can be React nodes (like icons), always ensure there is an explicit `ariaLabel` property on the items. Use this to automatically apply an accessible fallback for both `aria-label` and `title` attributes on the rendered buttons, ensuring tooltip and screen reader support isn't lost.
 Learned about using .cjs for node scripts in ES module projects and the @utility directive in tailwind v4.
+- Maintained tactical aesthetics for tooltips by introducing a custom `@utility tactical-tooltip` in `src/index.css`.
+- Modified `TacticalIconButton` to replace native `title` tooltips with a custom CSS tooltip approach (`group-hover:opacity-100`) to address accessibility/UX without native browser styling, while preserving `aria-label` for screen readers.
+- Removed `title` from being spread onto `<button>` props by extracting it and omitting it from `restProps`.

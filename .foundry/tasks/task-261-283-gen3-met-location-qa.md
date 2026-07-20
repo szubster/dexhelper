@@ -40,3 +40,6 @@ Verify that the `metLocation` parsing logic for Gen 3 Pokémon is correctly impl
 ## Acceptance Criteria
 - [ ] Code correctly parses `metLocation` using constants and `DataView`.
 - [ ] Tests verify the parsing logic.
+
+### QA Rejection
+- Implementation uses MISC_MET_LOCATION_OFFSET instead of required MET_LOCATION_OFFSET_IN_M.

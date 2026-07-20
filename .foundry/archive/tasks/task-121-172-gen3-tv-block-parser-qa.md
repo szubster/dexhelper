@@ -6,8 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-13'
 updated_at: '2026-06-28'
-depends_on:
-  - task-121-171-gen3-tv-block-parser-impl
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser

@@ -2,12 +2,12 @@
 id: idea-067-extract-dag-utils
 type: IDEA
 title: Extract DAG Utilities to Shared Module
-status: ACTIVE
+status: COMPLETED
 owner_persona: auditor
 created_at: '2026-05-25'
 updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '7863210176275723016'
+jules_session_id: null
 parent: null
 tags:
   - refactor
@@ -32,7 +32,12 @@ Operations to extract include:
 - Standardizing the `transitionNodeToFailed`, `transitionNodeToCompleted`, and `transitionNodeToReady` functions to ensure they uniformly apply ADR 006 (`gray-matter`) and appropriately append metadata like `rejection_reason`.
 
 ## Next Steps
-- [x] Product Manager: Evaluate this proposal and convert it to a PRD detailing the specific functions to be extracted and the testing strategy.
+- [ ] Product Manager: Evaluate this proposal and convert it to a PRD detailing the specific functions to be extracted and the testing strategy.
 
 ## References
 - [prd-067-036-extract-dag-utils.md](./.foundry/prds/prd-067-036-extract-dag-utils.md)
+
+### Auditor Rejection
+The child PRD (`prd-067-036-extract-dag-utils`) was permanently CANCELLED because one of its child epics (`epic-036-053-shared-dag-utilities`) reached the max rejection count and permanently failed. Therefore, the functional requirements of this IDEA node were not fully implemented.
+
+The Product Manager must apply the Impossible Loop Policy to handle the permanent failure of the child node.
