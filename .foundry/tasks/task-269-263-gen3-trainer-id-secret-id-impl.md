@@ -2,12 +2,12 @@
 id: task-269-263-gen3-trainer-id-secret-id-impl
 type: TASK
 title: Implement Gen 3 Trainer ID and Secret ID Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-05'
 updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: '3038436212564349970'
+jules_session_id: null
 pr_number: null
 parent: story-130-269-extract-gen3-trainer-id-secret-id
 tags:
@@ -37,5 +37,5 @@ The extraction logic needs to be implemented in `src/engine/saveParser/parsers/g
 - When parsing save files, all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level; inline magic numbers are forbidden.
 
 ## Acceptance Criteria
-- [ ] Implement extraction logic for Trainer ID and Secret ID from Gen 3 save files.
-- [ ] Verify functionality via appropriate tests.
+- [x] Implement extraction logic for Trainer ID and Secret ID from Gen 3 save files.
+- [x] Verify functionality via appropriate tests.

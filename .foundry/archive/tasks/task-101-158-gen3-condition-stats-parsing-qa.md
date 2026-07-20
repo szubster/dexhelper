@@ -6,8 +6,7 @@ status: CANCELLED
 owner_persona: qa
 created_at: '2026-06-10'
 updated_at: '2026-06-14'
-depends_on:
-  - task-101-157-gen3-condition-stats-parsing
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-064-101-gen3-condition-stats-parsing

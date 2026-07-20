@@ -203,6 +203,16 @@ During the session for `story-301-314-lift-rejection-count-state`, the target Fo
 Created implementation and QA verification tasks for story-119-261-npc-trade-state-integration. Ensured the QA task explicitly tests the requirements like RangeError handling and constant-defined memory offsets, as state integration changes logic in the core parse pipeline, meaning verification is essential according to the Intelligent Verification Protocol.
 ## 2026-07-17: Empty PR for completed child task
 Assigned to story-130-315-define-indexeddb-schema where its generated child (task-315-322-implement-savehistorydb) has already been completed and archived. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.
+
+## [Anomaly] Pre-existing completed task
+Assigned to story-127-268-bash-timeout-feedback where its generated child (task-268-322-bash-timeout-feedback-impl) has already been completed. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.
+## 2026-07-18: Creating Missing E2E Safeguard Tasks
+- **Observation**: Assigned to `story-127-269-epic-e2e-safeguard` where previous implementation and QA tasks `task-269-269-e2e-safeguard-impl` and `task-269-270-e2e-safeguard-qa` had failed and were in a weird state (either max rejections or merged with unfulfilled acceptance criteria), leaving the parent story node active. I mistakenly tried to resolve this by checking off the pending children in the parent node without recreating replacement nodes, leading to a rejection in code review.
+- **Action**: Created replacement blueprints `task-269-334-e2e-safeguard-impl` and `task-269-335-e2e-safeguard-qa` while explicitly checking off the orphaned failed children in the parent's markdown, as required by the Impossible Loop Policy.
+- **Lesson**: When handling permanently failed child nodes, you MUST explicitly check off their markdown checkboxes (`- [x]`) in the parent node's markdown body, in addition to spawning replacement child nodes as unchecked checkboxes.
+- Broke down story-327-331-research-gen3-pokeblock-offsets into task-331-334-research-gen3-pokeblock-offsets for the researcher persona.
+## 2026-07-18
+Drafted task-325-331-implement-tactical-typography to address remaining tactical typography primitives based on story-123-325-define-tactical-typography, mapping implementation to the palette persona as per schema. Designated for coder self-verification per Intelligent Verification Protocol.
 ### Journaling Policies
 - When drafting task blueprints, if multiple tasks are created and one depends on another, explicitly set the `depends_on` field of the dependent task to point to the prerequisite task's ID to prevent DAG deadlocks.
 - When drafting tasks as the Tech Lead, follow the Intelligent Verification Protocol: intelligently decide if a separate QA task is needed based on risk. For simple/low-risk tasks, designate the coder to self-verify instead of spawning QA.
@@ -220,3 +230,8 @@ Transformed story-130-316-document-indexeddb-schema into a technical blueprint. 
 - Date: 2026-07-19
   Action: Drafted task blueprint (task-333-333-gen3-roamer-extraction-tests-impl) for Gen 3 roamer core extraction unit tests.
   Reasoning: The parsing logic is already implemented, but we need comprehensive test coverage across Ruby/Sapphire, Emerald, and FireRed/LeafGreen. We instructed the coder to use dynamically constructed ArrayBuffers to test the logic due to the lack of .sav fixtures.
+- 2026-07-19: Created tasks for story-324-333-parse-secret-base-locations, enforcing DataView RangeError handling (ADR 010), module-level constants (ADR 028), and relative section offsets.
+Appended tech lead journal for breaking down Gen 3 Volcanic Ash extraction story into task nodes, ensuring relative offsets and module-level constants are strictly enforced.
+## 2026-07-20: Diff Engine Hash Impossible Loop Resolution
+- **Node**: `story-137-294-diff-engine-logic`
+- **Actions**: Investigated the permanent failure of `task-294-316-diff-engine-impl`. Discovered that the `hash` property was missing from the `PokemonInstance` interface, leading to the Coder attempting to use a fallback generator and failing the QA contract. Drafted `research-294-335-diff-engine-hash-failure` to document the issue, `task-294-336-diff-engine-hash-fix-impl` to implement the interface addition and strict property usage, and `task-294-337-diff-engine-hash-fix-qa` for verification. Appended the replacement nodes to the parent story and checked off the failed tasks.

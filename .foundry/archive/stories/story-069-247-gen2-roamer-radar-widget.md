@@ -7,8 +7,7 @@ rejection_reason: 'Parent epic cancelled'
 owner_persona: tech_lead
 created_at: '2026-06-30'
 updated_at: '2026-07-05'
-depends_on:
-  - research-247-248-gen2-roamer-offsets
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: epic-043-069-roamer-radar-ui
