@@ -2,12 +2,12 @@
 id: idea-120-conflictless-agent-journals
 type: IDEA
 title: Research and Implement Conflict-less Agent Journals
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-20'
 updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4651946480427426597'
 pr_number: null
 parent: null
 tags:
