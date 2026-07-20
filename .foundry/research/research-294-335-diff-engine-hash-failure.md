@@ -2,7 +2,7 @@
 id: research-294-335-diff-engine-hash-failure
 type: RESEARCH
 title: Investigate Diff Engine Hash Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-07-20'
 updated_at: '2026-07-20'

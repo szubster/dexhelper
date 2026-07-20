@@ -2,10 +2,10 @@
 id: task-331-334-research-gen3-pokeblock-offsets
 type: TASK
 title: Research Gen 3 Pokéblock Case Offsets
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-18'
-updated_at: '2026-07-18'
+updated_at: '2026-07-20'
 depends_on: []
 jules_session_id: null
 pr_number: null

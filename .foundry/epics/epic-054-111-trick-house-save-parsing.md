@@ -2,12 +2,12 @@
 id: epic-054-111-trick-house-save-parsing
 type: EPIC
 title: Gen 3 Trick House Save Parsing
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-30'
 updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: '15273012523786056504'
+jules_session_id: null
 pr_number: null
 parent: prd-088-054-trick-house-tracker
 tags:
@@ -16,7 +16,9 @@ tags:
   - mechanics
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: ''
 ---
 
