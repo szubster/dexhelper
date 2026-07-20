@@ -38,8 +38,8 @@ Verify that the `metLocation` parsing logic for Gen 3 Pokémon is correctly impl
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Code correctly parses `metLocation` using constants and `DataView`.
-- [ ] Tests verify the parsing logic.
+- [x] Code correctly parses `metLocation` using constants and `DataView`.
+- [x] Tests verify the parsing logic.
 
 ### QA Rejection
 - Implementation uses MISC_MET_LOCATION_OFFSET instead of required MET_LOCATION_OFFSET_IN_M.
