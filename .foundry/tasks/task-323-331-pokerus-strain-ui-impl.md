@@ -31,6 +31,6 @@ Update the `PokemonCaughtDetails` component to display the Pokerus strain when a
 - The Coder will self-verify this change (Intelligent Verification Protocol) because this is a low-risk, cosmetic UI change. Ensure the tests pass and UI renders correctly via standard testing procedures. Note the verification in the journal.
 
 ## 3. Acceptance Criteria
-- [ ] Render the Pokerus strain number dynamically.
-- [ ] Add unit tests covering the new strain display.
-- [ ] Adhere to the Tactical Hardware Aesthetic.
+- [x] Render the Pokerus strain number dynamically.
+- [x] Add unit tests covering the new strain display.
+- [x] Adhere to the Tactical Hardware Aesthetic.
