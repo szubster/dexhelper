@@ -6,8 +6,7 @@ status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-17'
 updated_at: '2026-07-03'
-depends_on:
-  - research-199-222-cloudflare-access-paths
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-038-076-offline-auth-state

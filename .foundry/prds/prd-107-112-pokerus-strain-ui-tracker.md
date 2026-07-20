@@ -5,9 +5,9 @@ title: Pokerus Strain Specific UI Tracker
 status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-12'
-updated_at: '2026-07-16'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '804269472408404809'
 pr_number: null
 parent: idea-107-pokerus-strain-ui-tracker
 tags:

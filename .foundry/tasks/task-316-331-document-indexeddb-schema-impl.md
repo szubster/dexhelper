@@ -2,12 +2,12 @@
 id: task-316-331-document-indexeddb-schema-impl
 type: TASK
 title: Document IndexedDB Schema Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-18'
 updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4966156801725557592'
 pr_number: null
 parent: story-130-316-document-indexeddb-schema
 tags:
@@ -32,7 +32,7 @@ The target file is `.foundry/docs/schema.md`.
 Note: If the required documentation already exists in `.foundry/docs/schema.md` and satisfies all requirements, you MUST follow the Empty PR Policy and submit an empty PR.
 
 ## Acceptance Criteria
-- [ ] Ensure `.foundry/docs/schema.md` accurately details the `SaveHistoryDB` configuration (database name, version).
-- [ ] Ensure the structure and key-value types for the `saves` object store are detailed.
-- [ ] Ensure the structure and key-value types for the `metadata` object store are detailed.
-- [ ] Ensure the structure and key-value types for the `indexes` object store are detailed.
+- [x] Ensure `.foundry/docs/schema.md` accurately details the `SaveHistoryDB` configuration (database name, version).
+- [x] Ensure the structure and key-value types for the `saves` object store are detailed.
+- [x] Ensure the structure and key-value types for the `metadata` object store are detailed.
+- [x] Ensure the structure and key-value types for the `indexes` object store are detailed.
