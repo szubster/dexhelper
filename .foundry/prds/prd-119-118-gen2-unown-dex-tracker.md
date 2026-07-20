@@ -8,6 +8,7 @@ created_at: '2026-07-19'
 updated_at: '2026-07-19'
 depends_on: []
 jules_session_id: null
+rejection_reason: null
 parent: idea-119-gen2-unown-dex-tracker
 tags:
   - feature

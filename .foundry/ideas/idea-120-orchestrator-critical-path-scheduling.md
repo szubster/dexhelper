@@ -4,7 +4,11 @@ type: IDEA
 title: Implement Critical Path Node Prioritization in the DAG Orchestrator
 status: PENDING
 owner_persona: product_manager
+created_at: '2026-07-21'
+updated_at: '2026-07-21'
 depends_on: []
+jules_session_id: null
+rejection_reason: null
 ---
 
 # Idea: Implement Critical Path Node Prioritization in the DAG Orchestrator
