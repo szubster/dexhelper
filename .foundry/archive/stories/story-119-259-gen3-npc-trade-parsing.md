@@ -6,7 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-03'
 updated_at: '2026-07-12'
-depends_on:
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: epic-095-119-in-game-trade-data-extraction

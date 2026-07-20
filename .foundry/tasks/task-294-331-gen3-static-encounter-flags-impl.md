@@ -9,7 +9,7 @@ updated_at: '2026-07-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: story-138-294-gen3-static-encounters-parsing
+parent: epic-106-138-gen3-static-encounters
 tags:
   - gen3
   - feature

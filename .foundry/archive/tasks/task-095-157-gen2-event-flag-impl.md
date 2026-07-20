@@ -2,7 +2,7 @@
 id: task-095-157-gen2-event-flag-impl
 type: TASK
 title: Gen 2 Event Flag Extraction - Implementation
-depends_on:
+depends_on: []
 status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-10'

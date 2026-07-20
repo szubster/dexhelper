@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-04-23'
 updated_at: '2026-05-01'
 parent: null
-depends_on:
+depends_on: []
 jules_session_id: null
 rejection_reason: ''
 ---

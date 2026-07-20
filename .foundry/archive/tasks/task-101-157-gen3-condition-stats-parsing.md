@@ -6,7 +6,7 @@ status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-15'
-depends_on:
+depends_on: []
 jules_session_id: '16111919894717915824'
 pr_number: null
 parent: story-064-101-gen3-condition-stats-parsing

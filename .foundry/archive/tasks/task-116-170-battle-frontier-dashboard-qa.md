@@ -6,8 +6,7 @@ status: CANCELLED
 owner_persona: qa
 created_at: '2026-06-13'
 updated_at: '2026-06-28'
-depends_on:
-  - task-116-169-battle-frontier-dashboard-impl
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-079-116-battle-frontier-dashboard-ui

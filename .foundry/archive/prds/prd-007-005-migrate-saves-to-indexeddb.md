@@ -6,7 +6,7 @@ status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-04-24'
 updated_at: '2026-05-02'
-depends_on:
+depends_on: []
 jules_session_id: null
 parent: idea-007-migrate-saves-to-indexeddb
 tags: []
