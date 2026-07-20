@@ -7,7 +7,6 @@ owner_persona: tech_lead
 created_at: '2026-07-12'
 updated_at: '2026-07-12'
 depends_on:
-  - epic-055-119-gen3-move-tutor-save-parsing
 jules_session_id: null
 pr_number: null
 parent: epic-055-119-gen3-move-tutor-save-parsing

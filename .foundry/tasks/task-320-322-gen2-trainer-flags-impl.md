@@ -2,7 +2,7 @@
 id: task-320-322-gen2-trainer-flags-impl
 type: TASK
 title: Gen 2 Trainer Data Extraction Implementation
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-07-15'
 updated_at: '2026-07-20'

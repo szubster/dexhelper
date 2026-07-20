@@ -2,7 +2,7 @@
 id: prd-118-334-circular-dependency-detection
 type: PRD
 title: Circular Dependency Detection in DAG Orchestrator
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-20'
 updated_at: '2026-07-19'

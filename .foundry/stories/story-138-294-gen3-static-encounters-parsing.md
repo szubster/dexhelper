@@ -7,7 +7,6 @@ owner_persona: tech_lead
 created_at: '2026-07-11'
 updated_at: '2026-07-19'
 depends_on:
-  - research-294-320-gen3-static-encounter-offsets
 jules_session_id: null
 pr_number: null
 parent: epic-106-138-gen3-static-encounters

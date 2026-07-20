@@ -7,7 +7,6 @@ owner_persona: coder
 created_at: "2026-07-11"
 updated_at: "2026-07-11"
 depends_on:
-  - story-081-281-gen3-system-time-fallback
 jules_session_id: null
 pr_number: null
 parent: story-081-281-gen3-system-time-fallback

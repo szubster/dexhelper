@@ -7,7 +7,6 @@ owner_persona: epic_planner
 created_at: '2026-05-02'
 updated_at: '2026-05-03'
 depends_on:
-  - prd-012-011-gray-matter-parsing
 jules_session_id: null
 parent: prd-012-011-gray-matter-parsing
 tags:

@@ -7,8 +7,6 @@ owner_persona: tech_lead
 created_at: '2026-04-27'
 updated_at: '2026-04-29'
 depends_on:
-  - task-032-049-qa-lifecycle-tests
-  - task-032-048-implement-lifecycle-tests
 jules_session_id: null
 parent: epic-009-atomic-handoff-testing
 tags:
