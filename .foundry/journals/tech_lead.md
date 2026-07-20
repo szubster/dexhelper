@@ -229,3 +229,6 @@ Transformed story-130-316-document-indexeddb-schema into a technical blueprint. 
 ## 2026-07-20: Diff Engine Hash Impossible Loop Resolution
 - **Node**: `story-137-294-diff-engine-logic`
 - **Actions**: Investigated the permanent failure of `task-294-316-diff-engine-impl`. Discovered that the `hash` property was missing from the `PokemonInstance` interface, leading to the Coder attempting to use a fallback generator and failing the QA contract. Drafted `research-294-335-diff-engine-hash-failure` to document the issue, `task-294-336-diff-engine-hash-fix-impl` to implement the interface addition and strict property usage, and `task-294-337-diff-engine-hash-fix-qa` for verification. Appended the replacement nodes to the parent story and checked off the failed tasks.
+
+## 2026-07-20: Passthrough Tasks for Pre-Existing Implementation
+Assigned to story-119-318-gen3-move-tutor-frlg-parsing. Found that the FRLG Move Tutor parsing was already correctly implemented. Created passthrough tasks task-318-338 and task-318-339 instructed for Empty PRs.

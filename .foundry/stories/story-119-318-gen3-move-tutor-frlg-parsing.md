@@ -34,4 +34,7 @@ As described in `research-055-247-gen3-move-tutor-offsets` (detailed in `gen3_mo
 - Extract the 18 specific Move Tutors available in FRLG.
 
 ## Acceptance Criteria
-- [ ] Create tasks for implementing DataView-based extraction of FRLG Move Tutor bits.
+- [x] Create tasks for implementing DataView-based extraction of FRLG Move Tutor bits.
+
+- [ ] task-318-338-gen3-move-tutor-frlg-parsing-impl
+- [ ] task-318-339-gen3-move-tutor-frlg-parsing-qa
