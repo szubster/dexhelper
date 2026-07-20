@@ -5,9 +5,9 @@ title: Implement Gen 3 Hall of Fame & Pokédex Data Extraction
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-15'
-updated_at: '2026-07-18'
+updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: '8550396287978844071'
+jules_session_id: '1200390357308159867'
 pr_number: null
 parent: story-304-319-gen3-hof-pokedex-extraction
 tags:

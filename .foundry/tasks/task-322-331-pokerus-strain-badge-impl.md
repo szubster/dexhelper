@@ -31,5 +31,5 @@ Develop a reusable `PokerusBadge` React component that visually displays the Pok
 - Ensure the Coder verifies the component visual implementation within their journal as this is a low-risk UI component, per the Intelligent Verification Protocol.
 
 ## 3. Acceptance Criteria
-- [ ] Coder: Implement `PokerusBadge` component.
-- [ ] Coder: Self-verify the visual implementation and document the outcome in `.foundry/journals/coder.md`.
+- [x] Coder: Implement `PokerusBadge` component.
+- [x] Coder: Self-verify the visual implementation and document the outcome in `.foundry/journals/coder.md`.

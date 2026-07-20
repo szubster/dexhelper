@@ -2,10 +2,10 @@
 id: story-324-333-parse-secret-base-locations
 type: STORY
 title: Parse Gen 3 Secret Base Locations (v2)
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-18'
-updated_at: '2026-07-19'
+updated_at: '2026-07-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,4 +31,6 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer, we need to extract the
 - Map the internal location IDs to the unified Gen 3 map graph.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into actionable Tasks.
+- [x] Tech Lead: Break this Story down into actionable Tasks.
+- [ ] task-333-334-gen3-secret-base-locations-impl
+- [ ] task-333-335-gen3-secret-base-locations-qa

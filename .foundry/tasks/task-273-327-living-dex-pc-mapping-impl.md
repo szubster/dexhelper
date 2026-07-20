@@ -5,9 +5,9 @@ title: Living Dex PC Mapping Implementation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-16'
-updated_at: '2026-07-18'
+updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: '17141809270512044932'
+jules_session_id: '11492817796862148030'
 pr_number: null
 parent: story-133-273-living-dex-pc-mapping
 tags:
