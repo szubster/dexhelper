@@ -1,7 +1,7 @@
-# Vitest 4 Migration & Browser Testing Patterns
+# Vitest Browser Testing Patterns
 
 ## Overview
-The project has been migrated to Vitest 4. The workspace configuration is now handled via `test.projects` in `vitest.config.ts` instead of `vitest.workspace.ts`.
+The workspace configuration is handled via `test.projects` in `vitest.config.ts` instead of `vitest.workspace.ts`.
 
 ## Key Changes
 - **Configuration**: Use `defineConfig` and merge with `vite.config.ts` to ensure plugins and aliases are available in test projects.
