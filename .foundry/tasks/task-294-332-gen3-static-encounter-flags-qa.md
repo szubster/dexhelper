@@ -27,6 +27,6 @@ notes: ''
 Verify the implementation of `extractGen3StaticEncounterFlags`.
 
 ## Acceptance Criteria
-- [ ] Verify that all offsets and bit masks are module-level constants. No inline magic numbers.
-- [ ] Verify that DataView API `RangeError` is handled properly and throws "The save file is corrupted or incomplete."
-- [ ] Verify that relative offset calculations (`section1Offset + EVENT_FLAGS_START + offset`) are correctly applied.
+- [x] Verify that all offsets and bit masks are module-level constants. No inline magic numbers.
+- [x] Verify that DataView API `RangeError` is handled properly and throws "The save file is corrupted or incomplete."
+- [x] Verify that relative offset calculations (`section1Offset + EVENT_FLAGS_START + offset`) are correctly applied.
