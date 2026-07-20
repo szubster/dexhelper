@@ -133,3 +133,8 @@ Verified PokerusBadge component correctly applies tactical-badge class and rende
 - Ensured reusable module-level constants were defined for all memory offsets and bits instead of magic numbers.
 - Added rigorous DataView bounds checking to gracefully handle and remap `RangeError` to `"The save file is corrupted or incomplete."` per the system prompt.
 - Added rigorous Unit Tests in `src/engine/gen3/staticEncounters.test.ts` to ensure safety and precision.
+
+## 2026-07-20 - task-333-333-gen3-roamer-extraction-tests-impl
+- **Action**: Implemented unit tests for `parseGen3Roamer` logic.
+- **Learnings**: By examining `src/engine/saveParser/parsers/gen3.ts`, `ROAMER_*` offsets were found at module level. Added test cases dynamically constructing `ArrayBuffer` instances mapped against `GEN3_ROAMER_OFFSET_RS`, `GEN3_ROAMER_OFFSET_EMERALD`, and `GEN3_ROAMER_OFFSET_FRLG`. Used non-zero `saveBlock1Offset` explicitly verifying calculations work with A/B bank relative shifts.
+- **Tooling**: Leveraged Playwright via `pnpm exec playwright install` to fix browser dependencies failing Vitest during `pnpm test`. Resolved Biome formatting via `pnpm check:fix`.
