@@ -2,7 +2,7 @@
 id: story-137-333-gen2-event-flag-parsing-retry
 type: STORY
 title: Gen 2 Event Flag Parsing (Retry)
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-18'
 updated_at: '2026-07-19'

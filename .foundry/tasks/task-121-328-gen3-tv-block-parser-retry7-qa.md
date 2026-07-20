@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-07-16'
 updated_at: '2026-07-16'
 depends_on:
-  - .foundry/tasks/task-121-327-gen3-tv-block-parser-retry7-impl.md
+  - task-121-327-gen3-tv-block-parser-retry7-impl
 jules_session_id: null
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser

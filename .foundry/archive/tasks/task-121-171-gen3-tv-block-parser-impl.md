@@ -6,8 +6,7 @@ status: CANCELLED
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-07-10'
-depends_on:
-  - research-121-171-gen3-tv-block-offsets
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser

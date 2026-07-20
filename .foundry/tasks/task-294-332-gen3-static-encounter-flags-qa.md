@@ -10,7 +10,7 @@ depends_on:
   - task-294-331-gen3-static-encounter-flags-impl
 jules_session_id: null
 pr_number: null
-parent: story-138-294-gen3-static-encounters-parsing
+parent: epic-106-138-gen3-static-encounters
 tags:
   - gen3
   - feature

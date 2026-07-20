@@ -2,7 +2,7 @@
 id: story-331-333-remove-orphaned-qa-rule
 type: STORY
 title: Remove Orphaned QA Rule from Documentation
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-18'
 updated_at: '2026-07-18'
