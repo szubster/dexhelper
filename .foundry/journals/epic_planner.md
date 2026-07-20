@@ -86,3 +86,12 @@ Updated the PRD by appending the Epics to the Acceptance Criteria. Corrected a m
 - Re-enforced that assumptions about save file flags should not dictate extracting tasks without concrete evidence, opting instead for pure app-state tracking for the checklist.
 ## [2026-07-18] PRD to Epic Breakdown for Zod Schema Validation
 Broke down PRD prd-116-117-zod-schema-validation-orchestrator into two Epics: epic-117-334-define-zod-schema (to define the schema) and epic-117-335-integrate-zod-orchestrator (to integrate it into the orchestrator).
+
+## 2026-07-20 - PRD-119-118 Breakdown
+**Action**: Broke down `prd-119-118-gen2-unown-dex-tracker` into two granular epics.
+- `epic-118-338-gen2-unown-dex-data-extraction`: Handles extracting caught Unown forms and Ruins of Alph puzzle event flags from Gen 2 save data.
+- `epic-118-339-gen2-unown-dex-dashboard-ui`: Handles the visual presentation of the 26 Unown forms and actionable warnings for missing puzzle requirements. Depends on the data extraction epic.
+
+**Learnings/Decisions**:
+- Kept data logic separate from presentation to allow for independent implementation and testing.
+- Followed standard schema guidelines for mapping dependencies and setting sequence IDs.
