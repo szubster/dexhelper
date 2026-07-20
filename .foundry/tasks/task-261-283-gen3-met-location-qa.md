@@ -2,13 +2,13 @@
 id: task-261-283-gen3-met-location-qa
 type: TASK
 title: QA Gen 3 Met Location Extraction
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-07-08'
-updated_at: '2026-07-19'
+updated_at: '2026-07-20'
 depends_on:
   - task-261-282-gen3-met-location-impl
-jules_session_id: '17308318744163387537'
+jules_session_id: null
 pr_number: null
 parent: story-097-261-extract-pokemon-met-locations
 tags:
@@ -16,7 +16,7 @@ tags:
   - nuzlocke
   - gen3
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 

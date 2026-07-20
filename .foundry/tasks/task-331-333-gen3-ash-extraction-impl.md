@@ -2,10 +2,10 @@
 id: task-331-333-gen3-ash-extraction-impl
 type: TASK
 title: 'Task: Implement Gen 3 Volcanic Ash Relative Offset Extraction'
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-19'
-updated_at: '2026-07-19'
+updated_at: '2026-07-20'
 depends_on: []
 jules_session_id: null
 pr_number: null

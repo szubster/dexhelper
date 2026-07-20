@@ -2,12 +2,12 @@
 id: story-268-331-gen3-ash-dataview-extraction-relative
 type: STORY
 title: 'Story: Gen 3 Volcanic Ash Relative Offset Extraction'
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-18'
-updated_at: '2026-07-19'
+updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: '17310880852476849802'
+jules_session_id: null
 pr_number: null
 parent: epic-054-268-gen3-ash-save-parsing
 tags:
