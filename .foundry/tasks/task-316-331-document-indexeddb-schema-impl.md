@@ -32,7 +32,7 @@ The target file is `.foundry/docs/schema.md`.
 Note: If the required documentation already exists in `.foundry/docs/schema.md` and satisfies all requirements, you MUST follow the Empty PR Policy and submit an empty PR.
 
 ## Acceptance Criteria
-- [ ] Ensure `.foundry/docs/schema.md` accurately details the `SaveHistoryDB` configuration (database name, version).
-- [ ] Ensure the structure and key-value types for the `saves` object store are detailed.
-- [ ] Ensure the structure and key-value types for the `metadata` object store are detailed.
-- [ ] Ensure the structure and key-value types for the `indexes` object store are detailed.
+- [x] Ensure `.foundry/docs/schema.md` accurately details the `SaveHistoryDB` configuration (database name, version).
+- [x] Ensure the structure and key-value types for the `saves` object store are detailed.
+- [x] Ensure the structure and key-value types for the `metadata` object store are detailed.
+- [x] Ensure the structure and key-value types for the `indexes` object store are detailed.

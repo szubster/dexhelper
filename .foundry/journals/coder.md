@@ -123,6 +123,10 @@ Completed task: task-284-322-predictor-ui-impl. Implemented ActiveCallersDashboa
 - **Rules Followed**: Created the React Context (`TimeOverrideContext`) first. Used the `useTimeOverride` in UI components (`Gen3RTCControls`). Updated `src/main.tsx` with `TimeOverrideProvider`. Ensured `Gen3RTCControls` conforms to ADR 008 (sharp edges, dashed borders, monospaced font).
 
 ## 2026-07-19
+- Documented `SaveHistoryDB` IndexedDB schema in `.foundry/docs/schema.md`.
+- Appended `saves`, `metadata`, and `indexes` structure mapping.
+- Ran tests to verify project health and cleared missing Playwright browser issue via `pnpm exec playwright install`.
+- Checked off acceptance criteria in `task-316-331-document-indexeddb-schema-impl.md`.
 - Implemented `extractGen3StaticEncounterFlags` in `src/engine/gen3/staticEncounters.ts` per ADR 028 to extract Gen 3 static encounter flags for Emerald, FRLG, and Ruby/Sapphire.
 - Ensured reusable module-level constants were defined for all memory offsets and bits instead of magic numbers.
 - Added rigorous DataView bounds checking to gracefully handle and remap `RangeError` to `"The save file is corrupted or incomplete."` per the system prompt.
