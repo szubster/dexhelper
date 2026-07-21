@@ -32,4 +32,4 @@ To resolve frequent git merge conflicts on `.foundry/journals/*.md` files, we wi
 4. Downstream nodes must correctly reference these fragmented journal files if necessary, or rely on aggregation mechanisms.
 
 ## Acceptance Criteria
-- [ ] epic-120-338-implement-conflictless-journals
+- [x] epic-120-338-implement-conflictless-journals
