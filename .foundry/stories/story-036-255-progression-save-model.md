@@ -30,4 +30,6 @@ To support progression tracking and multiple save files per playthrough, we need
 - Ensure the schema supports syncing with the Cloudflare backend.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into Tasks to define the specific database tables and indexes needed for managing multiple save files.
+- [x] Tech Lead: Break this Story down into Tasks to define the specific database tables and indexes needed for managing multiple save files.
+- [ ] task-255-338-db-schema-saves-impl
+- [ ] task-255-339-db-schema-saves-qa
