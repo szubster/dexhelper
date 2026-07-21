@@ -7,7 +7,6 @@ owner_persona: coder
 created_at: '2026-07-16'
 updated_at: '2026-07-17'
 depends_on:
-  - story-136-294-sorting-interface-base
 jules_session_id: null
 pr_number: null
 parent: story-136-295-sorting-standard-strategies
@@ -19,7 +18,6 @@ rejection_count: 0
 rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
-
 # Implement Standard PC Box Sorting Strategies
 
 ## Objective

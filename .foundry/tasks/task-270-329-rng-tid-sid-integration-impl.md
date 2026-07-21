@@ -7,7 +7,6 @@ owner_persona: coder
 created_at: '2026-07-17T00:07:41Z'
 updated_at: '2026-07-17'
 depends_on:
-  - story-130-269-rng-tid-sid-component
 jules_session_id: null
 pr_number: null
 parent: story-130-270-rng-tid-sid-integration

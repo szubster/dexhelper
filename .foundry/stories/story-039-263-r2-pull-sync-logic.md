@@ -7,7 +7,6 @@ owner_persona: tech_lead
 created_at: '2026-07-04'
 updated_at: '2026-07-08'
 depends_on:
-  - story-039-262-r2-client-infrastructure
 jules_session_id: null
 pr_number: null
 parent: epic-030-039-cloudflare-r2-save-sync
@@ -20,7 +19,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Story: Cloudflare R2 Pull Sync Logic
 
 ## Context

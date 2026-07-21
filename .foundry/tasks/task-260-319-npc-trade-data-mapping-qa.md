@@ -7,7 +7,6 @@ owner_persona: qa
 created_at: '2026-07-13'
 updated_at: '2026-07-17'
 depends_on:
-  - task-260-318-npc-trade-data-mapping-impl
 jules_session_id: null
 pr_number: null
 parent: story-119-260-npc-trade-data-mapping
@@ -20,7 +19,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Task: NPC Trade Data Mapping QA
 
 ## Objective

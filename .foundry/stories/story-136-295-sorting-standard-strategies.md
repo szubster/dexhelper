@@ -7,7 +7,6 @@ owner_persona: tech_lead
 created_at: '2026-07-10'
 updated_at: '2026-07-17'
 depends_on:
-  - story-136-294-sorting-interface-base
 jules_session_id: '2079813014804897131'
 pr_number: null
 parent: epic-106-136-pc-box-sorting-algorithms
@@ -19,7 +18,6 @@ rejection_count: 3
 rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
-
 # Story: Implement Standard PC Box Sorting Strategies
 
 ## Objective

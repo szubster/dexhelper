@@ -7,7 +7,6 @@ owner_persona: tech_lead
 created_at: '2026-07-17'
 updated_at: '2026-07-19'
 depends_on:
-  - story-123-270-define-tactical-form-utilities
 jules_session_id: null
 pr_number: null
 parent: epic-071-123-define-tailwind-v4-utilities-v2
@@ -19,7 +18,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Story: Define Tactical Typography Utilities
 
 ## Objective

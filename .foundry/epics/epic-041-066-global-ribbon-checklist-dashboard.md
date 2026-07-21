@@ -7,7 +7,6 @@ owner_persona: story_owner
 created_at: '2026-06-09'
 updated_at: '2026-06-15'
 depends_on:
-  - epic-041-064-contest-ui-shared-components
 jules_session_id: null
 pr_number: null
 parent: prd-070-041-gen3-contest-ui-viewer
@@ -21,7 +20,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Epic: Global Ribbon Checklist Dashboard
 
 ## 1. Context

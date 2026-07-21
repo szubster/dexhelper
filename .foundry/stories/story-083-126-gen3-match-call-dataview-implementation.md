@@ -7,7 +7,6 @@ owner_persona: tech_lead
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
 depends_on:
-  - story-083-125-gen3-match-call-memory-offset-discovery
 jules_session_id: null
 pr_number: null
 parent: epic-048-083-gen3-match-call-save-parsing
@@ -21,7 +20,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Implement DataView Parser for Match Call
 
 ## Overview

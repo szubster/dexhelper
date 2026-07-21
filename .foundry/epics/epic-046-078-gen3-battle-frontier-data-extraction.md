@@ -7,7 +7,6 @@ owner_persona: story_owner
 created_at: '2026-06-11'
 updated_at: '2026-07-03'
 depends_on:
-  - research-046-140-gen3-battle-frontier
 jules_session_id: null
 pr_number: null
 parent: prd-074-046-gen3-battle-frontier-tracker
@@ -21,7 +20,6 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
-
 # Epic: Gen 3 Battle Frontier Data Extraction
 
 ## Description

@@ -7,7 +7,6 @@ owner_persona: qa
 created_at: "2026-07-01"
 updated_at: "2026-07-01"
 depends_on:
-  - task-156-254-hidden-items-checklist-impl
 jules_session_id: null
 pr_number: null
 parent: story-060-156-hidden-items-checklist-component
@@ -16,7 +15,6 @@ rejection_count: 0
 rejection_reason: ""
 notes: ""
 ---
-
 # QA Hidden Items Checklist UI Component
 
 ## Context

@@ -7,7 +7,6 @@ owner_persona: tech_lead
 created_at: '2026-07-03'
 updated_at: '2026-07-17'
 depends_on:
-  - story-119-258-gen2-npc-trade-parsing
 jules_session_id: null
 pr_number: null
 parent: epic-095-119-in-game-trade-data-extraction
@@ -19,7 +18,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Story: NPC Trade Data Mapping
 
 ## Objective

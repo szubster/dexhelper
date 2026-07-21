@@ -7,7 +7,6 @@ owner_persona: tech_lead
 created_at: '2026-07-02'
 updated_at: '2026-07-02'
 depends_on:
-  - story-116-249-gen3-ev-interface-definition
 jules_session_id: null
 pr_number: null
 parent: epic-092-116-gen3-ev-data-extraction
@@ -18,7 +17,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Story - Gen 3 EV Parsing Logic
 
 ## 1. Objective

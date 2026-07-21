@@ -7,7 +7,6 @@ owner_persona: story_owner
 created_at: '2026-07-10'
 updated_at: '2026-07-12'
 depends_on:
-  - research-043-263-roamer-tracking-remediation
 jules_session_id: null
 pr_number: null
 parent: prd-070-043-roamer-tracking-dashboard
@@ -17,7 +16,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Gen 3 Roamer Data Extraction
 
 ## Objective

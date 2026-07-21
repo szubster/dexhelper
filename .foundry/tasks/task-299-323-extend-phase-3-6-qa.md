@@ -7,7 +7,6 @@ owner_persona: qa
 created_at: '2026-07-14'
 updated_at: '2026-07-17'
 depends_on:
-  - task-299-322-extend-phase-3-6-impl
 jules_session_id: null
 pr_number: null
 parent: story-303-299-extend-phase-3-6-cancelled-nodes
@@ -20,7 +19,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # QA Extend Phase 3.6 for CANCELLED nodes
 
 ## Objective
