@@ -288,3 +288,9 @@
 **Outcome:** Accepted
 **Why:** Brings the version resolution interface fully in line with the tactical specialization motif. Standard modals and flat button grids break the "specialized hardware" immersion during a critical application action. Evolving it into a multi-pane hardware matrix with explicit diagnostics and data stream visualizations reinforces the fantasy of using raw hardware interfaces.
 **Pattern:** For critical decision inputs or error state resolutions, avoid standard web modals. Transform them into active "Arbitration Matrices" featuring multi-pane layouts, explicit diagnostic visualizers (like crosshairs or rotating radar elements), and faux hardware selection nodes to maintain the specialized device aesthetic.
+
+## 2026-08-20 - [Accepted] - 🖼️ Canvas: Tactical Signal Intercept Matrix for ActiveCallersDashboard
+**What:** Redesigned the `ActiveCallersDashboard` component into a "Tactical Signal Intercept Matrix". Wrapped the component in a `TacticalPanel` (amber for cooling down, cyan for active). Converted the generic contact list into active "Intercept Nodes" featuring heavy data pipes (left borders), `LcdGrid`, `HoverScanner`, pulsing LEDs, and bracketed telemetry labels (`[ SIGNAL_SOURCE ]`, `[ NO_SIGNAL ]`).
+**Outcome:** Accepted
+**Why:** Brings the PokeGear caller interface fully in line with the tactical specialization motif. Standard shaded cards looked too much like a regular web UI, which breaks the "specialized hardware" immersion. Elevating the UI to treat phone contacts as intercepted signal nodes reinforces the tactical intelligence readout aesthetic.
+**Pattern:** Elevate simple lists of incoming data (like phone contacts or signals) into structured "Intercept Nodes" with dedicated "Active LEDs", heavy side borders (data pipes), and bracketed telemetry labels. Use dynamic `TacticalPanel` variants to instantly communicate system status (e.g., cyan for active, amber for cooldown).

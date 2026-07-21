@@ -13,12 +13,12 @@ test('renders correctly with contacts and shows 50% probability when active', as
   const timerState: TimerState = { delayMinsRemaining: 0, timeCyclesSinceLastCall: 5 };
   await render(<ActiveCallersDashboard contacts={mockContacts} timerState={timerState} />);
 
-  await expect.element(page.getByText('Active Callers')).toBeInTheDocument();
-  await expect.element(page.getByText('Status: ACTIVE')).toBeInTheDocument();
+  await expect.element(page.getByText(/Active Callers/i)).toBeInTheDocument();
+  await expect.element(page.getByText(/\[ ACTIVE \]/i)).toBeInTheDocument();
   await expect.element(page.getByText('Mom')).toBeInTheDocument();
   await expect.element(page.getByText('Prof. Elm')).toBeInTheDocument();
 
-  const probabilityElements = page.getByText('PROBABILITY: 50%').elements();
+  const probabilityElements = page.getByText(/50%/i).elements();
   expect(probabilityElements.length).toBe(2);
 });
 
@@ -26,8 +26,8 @@ test('shows 0% probability when cooling down', async () => {
   const timerState: TimerState = { delayMinsRemaining: 10, timeCyclesSinceLastCall: 0 };
   await render(<ActiveCallersDashboard contacts={mockContacts} timerState={timerState} />);
 
-  await expect.element(page.getByText('Status: COOLING DOWN')).toBeInTheDocument();
-  const probabilityElements = page.getByText('PROBABILITY: 0%').elements();
+  await expect.element(page.getByText(/\[ COOLING DOWN \]/i)).toBeInTheDocument();
+  const probabilityElements = page.getByText(/0%/i).elements();
   expect(probabilityElements.length).toBe(2);
 });
 
@@ -35,7 +35,7 @@ test('renders empty state correctly', async () => {
   const timerState: TimerState = { delayMinsRemaining: 0, timeCyclesSinceLastCall: 5 };
   await render(<ActiveCallersDashboard contacts={[]} timerState={timerState} />);
 
-  await expect.element(page.getByText('NO SIGNAL')).toBeInTheDocument();
+  await expect.element(page.getByText(/\[ NO_SIGNAL \]/i)).toBeInTheDocument();
 });
 
 test('applies ADR 008 aesthetic classes', async () => {
