@@ -2,12 +2,12 @@
 id: task-156-255-hidden-items-checklist-qa
 type: TASK
 title: QA Hidden Items Checklist UI Component
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-01'
 updated_at: '2026-07-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18253347150129743928'
 pr_number: null
 parent: story-060-156-hidden-items-checklist-component
 tags:
