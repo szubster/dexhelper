@@ -6,7 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-13'
 updated_at: '2026-07-05'
-depends_on:
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: prd-077-049-dynamic-pokedata-parsing
@@ -19,7 +19,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # EPIC: Dynamic Generation of Moves PP PokeData
 
 ## Background

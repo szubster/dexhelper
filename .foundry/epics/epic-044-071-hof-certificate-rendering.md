@@ -20,7 +20,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Hall of Fame Certificate Generation
 
 ## Overview

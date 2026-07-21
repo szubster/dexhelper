@@ -6,7 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
-depends_on:
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: prd-070-043-roamer-tracking-dashboard
@@ -16,7 +16,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Gen 2 Roamer Data Extraction
 
 ## Objective

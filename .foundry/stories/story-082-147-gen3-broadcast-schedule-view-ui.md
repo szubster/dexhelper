@@ -21,7 +21,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Story: Implement Gen 3 Broadcast Schedule View UI
 
 ## Description

@@ -6,7 +6,7 @@ status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-11'
 updated_at: '2026-07-19'
-depends_on:
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser
@@ -21,7 +21,6 @@ rejection_reason: >-
   parseGen3ActiveSwarm. And RangeError includes extra text.
 notes: ''
 ---
-
 # Task: Implement Gen 3 TV Block DataView Parser (Retry 6)
 
 ## Description

@@ -9,7 +9,7 @@ updated_at: '2026-07-20'
 depends_on: []
 jules_session_id: '4664329275279420992'
 pr_number: null
-parent: null
+parent: story-042-080-refactor-generation-exports
 tags:
   - data-pipeline
 research_references: []

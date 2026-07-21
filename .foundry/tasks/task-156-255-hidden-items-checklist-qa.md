@@ -6,16 +6,15 @@ status: PENDING
 owner_persona: qa
 created_at: "2026-07-01"
 updated_at: "2026-07-01"
-depends_on:
+depends_on: []
 jules_session_id: null
 pr_number: null
-parent: null
+parent: story-060-156-hidden-items-checklist-component
 tags: ["qa", "feature", "ui", "checklist"]
 rejection_count: 0
 rejection_reason: ""
 notes: ""
 ---
-
 # QA Hidden Items Checklist UI Component
 
 ## Context

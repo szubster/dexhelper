@@ -9,7 +9,7 @@ updated_at: '2026-07-20'
 depends_on: []
 jules_session_id: '11783235900129647659'
 pr_number: null
-parent: null
+parent: story-133-274-gen3-lottery-ui-integration
 tags:
   - feature
   - gen3

@@ -10,7 +10,7 @@ depends_on:
   - epic-031-036-progression-tracking
 jules_session_id: null
 pr_number: null
-parent: null
+parent: prd-055-031-future-progression-trading
 tags:
   - backend
   - trading

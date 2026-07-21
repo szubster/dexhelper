@@ -21,7 +21,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Story: Implement Gen 3 Mix Record Sync Insights UI
 
 ## Description

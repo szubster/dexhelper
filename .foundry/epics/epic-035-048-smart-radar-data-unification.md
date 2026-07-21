@@ -6,7 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-05-23'
 updated_at: '2026-06-02'
-depends_on:
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: prd-064-035-smart-route-radar
@@ -20,7 +20,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Epic: Smart Radar Data Unification
 
 ## Context

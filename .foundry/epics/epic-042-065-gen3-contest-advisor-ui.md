@@ -6,7 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-09'
 updated_at: '2026-06-19'
-depends_on:
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: prd-070-042-gen3-contest-optimization-advisor
@@ -21,7 +21,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Epic: Gen 3 Contest Advisor UI
 
 ## 1. Context

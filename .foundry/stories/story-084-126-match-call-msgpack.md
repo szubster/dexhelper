@@ -6,7 +6,7 @@ status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-13'
 updated_at: '2026-06-13'
-depends_on:
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: epic-048-084-gen3-match-call-static-data
@@ -19,7 +19,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Story: Gen 3 Match Call MsgPack Integration
 
 ## Overview

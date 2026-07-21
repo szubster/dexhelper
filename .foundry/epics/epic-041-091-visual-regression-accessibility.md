@@ -22,7 +22,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Epic: Visual Regression and Accessibility Checks
 
 ## 1. Context

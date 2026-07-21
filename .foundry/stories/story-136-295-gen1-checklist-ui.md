@@ -6,7 +6,7 @@ status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-07-10'
 updated_at: '2026-07-17'
-depends_on:
+depends_on: []
 jules_session_id: '17498938711706068394'
 pr_number: null
 parent: epic-106-136-gen1-static-encounters
@@ -18,7 +18,6 @@ rejection_count: 3
 rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
-
 # Gen 1 Checklist UI
 
 Create the UI component for the Gen 1 static encounter checklist, mapping the parsed event flags to visual states.

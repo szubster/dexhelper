@@ -6,7 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-04'
 updated_at: '2026-06-28'
-depends_on:
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: prd-068-037-hidden-items-finder
@@ -19,7 +19,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Epic: Missing Hidden Items Finder UI
 
 ## 1. Context & Background

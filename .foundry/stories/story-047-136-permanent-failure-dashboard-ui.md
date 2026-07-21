@@ -6,7 +6,7 @@ status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-15'
 updated_at: '2026-07-03'
-depends_on:
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: epic-034-047-permanent-failure-dashboard-ui
@@ -19,7 +19,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Implement Permanent Failure Dashboard UI
 
 ## Objective
