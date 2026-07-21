@@ -126,6 +126,7 @@ export function DagProvider({ children }: { children: ReactNode }) {
             ...node.data,
             label: node.id,
             id: node.id,
+            rejection_count: node.data.rejection_count ?? 0,
             depends_on:
               typeof node.data.depends_on === 'object' && Array.isArray(node.data.depends_on)
                 ? node.data.depends_on

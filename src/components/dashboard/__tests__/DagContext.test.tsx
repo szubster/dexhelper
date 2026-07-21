@@ -5,10 +5,12 @@ import { render } from 'vitest-browser-react';
 import { DagProvider, useDagContext } from '../DagContext';
 
 const TestComponent = () => {
-  const { maxRejectionThreshold, setActiveView } = useDagContext();
+  const { maxRejectionThreshold, setActiveView, nodes } = useDagContext();
   return (
     <div>
       <div data-testid="threshold">{maxRejectionThreshold}</div>
+      <div data-testid="node-count">{nodes.length}</div>
+      {nodes.length > 0 && <div data-testid="node-rejection">{nodes[0]?.data.rejection_count}</div>}
       <button type="button" data-testid="btn" onClick={() => setActiveView('board')}>
         Set View
       </button>
@@ -29,7 +31,7 @@ test('DagProvider provides maxRejectionThreshold and handles data loading correc
           owner_persona: 'human',
           label: 'node',
           title: 'Node 1',
-          rejection_count: 0,
+          rejection_count: 3,
           depends_on: [],
         },
       },
@@ -43,6 +45,7 @@ test('DagProvider provides maxRejectionThreshold and handles data loading correc
   );
 
   await expect.element(page.getByTestId('threshold')).toHaveTextContent('3');
+  await expect.element(page.getByTestId('node-rejection')).toHaveTextContent('3');
   await page.getByTestId('btn').click();
 });
 
