@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { initializeWithSave } from '../test-utils';
 
 test.describe('Global Ribbon Dashboard', () => {
@@ -8,7 +8,7 @@ test.describe('Global Ribbon Dashboard', () => {
     await expect(page.getByRole('link', { name: /SYS\.DASH/i })).toBeHidden();
   });
 
-  test.skip('should show Global Ribbon Checklist for Gen 3 saves', async ({ page }) => {
+  test.skip('should show Global Ribbon Checklist for Gen 3 saves', async () => {
     // TODO: Implement once a Gen 3 fixture is available.
     // await initializeWithSave(page, 'tests/fixtures/emerald.sav');
     // await page.getByRole('link', { name: /SYS\.DASH/i }).click();
