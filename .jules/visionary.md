@@ -236,3 +236,7 @@
 ## 2026-07-18
 **Idea:** Gen 2 Unown Dex Progress Tracker
 **Learning:** Expanding on collection capabilities, extracting and tracking Unown forms along with the Ruins of Alph puzzle flags transforms a tedious, multi-step sub-quest into an actionable dashboard. This caters to hardcore completionists and leverages the save file's deep state to offer premium utility, perfectly aligning with DexHelper's vision.
+
+## 2026-07-21
+**Idea:** Gen 3 E-Reader and Mystery Event Tracker
+**Learning:** Targeting niche historical hardware features (like the Gen 3 e-Reader and localized event distributions) offers deep value to hardcore retro-collectors who preserve or inject events. By exposing obscure, hidden event flags and key item checks, we cater directly to the premium completionist market, reinforcing DexHelper as a definitive audit tool for comprehensive save files.
