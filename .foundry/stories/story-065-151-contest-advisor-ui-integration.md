@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-19'
 updated_at: '2026-06-19'
-depends_on:
-  - story-065-149-contest-recommendation-ui-components
-  - story-065-150-contest-warning-states-ui
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: epic-042-065-gen3-contest-advisor-ui
@@ -23,7 +21,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Story: Contest Advisor UI Integration
 
 ## Description

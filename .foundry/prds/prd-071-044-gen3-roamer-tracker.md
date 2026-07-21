@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-09'
 updated_at: '2026-07-10'
-depends_on:
-  - research-071-138-gen3-roamer-offsets
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: idea-071-gen3-roamer-tracker
@@ -20,7 +19,6 @@ rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---
-
 # PRD: Gen 3 Roaming Legendary Tracker and IV Glitch Inspector
 
 ## Purpose

@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: coder
 created_at: '2026-06-13'
 updated_at: '2026-07-03'
-depends_on:
-  - research-089-167-investigate-heatmap-failure
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-048-089-route-radar-density-aggregation
@@ -21,7 +20,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Task: Implement Route Radar UI Integration
 
 ## Context

@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-30'
 updated_at: '2026-07-07'
-depends_on:
-  - research-055-244-pokegear-mechanics
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: prd-090-055-pokegear-phone-tracker
@@ -20,7 +19,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Epic: Pokegear Active Callers Dashboard
 
 ## Objective

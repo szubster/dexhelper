@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: qa
 created_at: '2026-06-19'
 updated_at: '2026-06-19'
-depends_on:
-  - task-137-209-global-ribbon-dashboard-scaffold-impl
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-066-137-global-ribbon-dashboard-scaffold
@@ -21,7 +20,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # TASK: QA Global Ribbon Checklist Dashboard Scaffold
 
 ## Background

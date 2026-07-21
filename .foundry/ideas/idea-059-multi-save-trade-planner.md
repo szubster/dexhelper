@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: product_manager
 created_at: '2026-05-20'
 updated_at: '2026-05-20'
-depends_on:
-  - idea-055-cloudflare-sync-and-future-features
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: null
@@ -20,7 +19,6 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
-
 # Idea: Multi-Save Trade Planner
 
 ## Context
