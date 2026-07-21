@@ -118,10 +118,6 @@ export const EGG_GROUP_MAP: Record<string, number> = {
   'no-eggs': 15,
 };
 
-export const REVERSE_EGG_GROUP_MAP: Record<number, string> = Object.fromEntries(
-  Object.entries(EGG_GROUP_MAP).map(([k, v]) => [v, k]),
-);
-
 export const MOVE_DAMAGE_CLASS = {
   PHYSICAL: 1,
   SPECIAL: 2,

@@ -1,9 +1,7 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "ignoreExportsUsedInFile": true,
-  "ignoreBinaries": [
-    "gh"
-  ],
+  "ignoreBinaries": [],
   "ignoreDependencies": [
     "wrangler",
     "@cloudflare/pages-plugin-cloudflare-access",
@@ -15,11 +13,11 @@
     ".github/scripts/verify-dag-refs.ts",
     "scripts/gen3-fetch-locations.ts",
     "functions/_middleware.ts",
-    "scripts/data/gen3/match_call/etl.ts"
+    "functions/api/saves/**/*.ts"
   ],
   "rules": {
     "files": "warn",
-    "exports": "off",
+    "exports": "error",
     "types": "warn",
     "dependencies": "error",
     "devDependencies": "error",

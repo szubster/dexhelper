@@ -7,3 +7,8 @@
 - If `pnpm install` hangs or fails during git hook setup (e.g., `lefthook install`), run `git config --unset-all --global core.hooksPath` before retrying the installation.
 
 * **CRITICAL - WIP PR Rejections:** When tasked with sweeping dead code or unused files via tools like Knip, you MUST double-check if the identified files belong to a feature that is currently Work In Progress (WIP). Do not blindly delete files just because Knip flags them. If you delete WIP files and get rejected, you must apologize, acknowledge the mistake, and submit an empty PR instead of modifying the codebase.
+
+### Date: $(date)
+**Learnings:**
+- **Dynamic Imports and `knip`:** `knip` can report dynamically imported API routes (like Cloudflare Pages functions under `functions/api/saves/**/*.ts`) as unused files/exports. It is critical to add these to the `knip.json` `ignore` array to prevent false positives when enforcing `"exports": "error"`, rather than deleting them.
+- **Scratchpads in PRs:** Temporary developer scratchpad scripts (`.sh`, `.ts`) used during a session must be explicitly deleted before committing or requesting code review. Committing them pollutes the repository and will result in a blocked PR.
