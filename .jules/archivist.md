@@ -73,3 +73,8 @@
 
 **Learning:** Consolidated multiple security audit vectors and error logging patterns in `.jules/shield.md` into canonical blocks to reduce redundancy and improve the prompt's effectiveness.
 **Action:** Re-wrote `.jules/shield.md` to combine duplicated 'Adding New Security Audit Vectors' and 'Sanitize Error Logging' sections.
+
+## 2026-08-01 - Archivist Run Learnings
+
+**Learning:** Operational execution traces like "Checked off acceptance criteria", "Test run successful", "Validated PR", "Task completed" and specific task validation logs (e.g., `QA Validation - task-XXX`) continue to sneak into `.foundry/journals/coder.md`, `.foundry/journals/qa.md`, `.foundry/journals/auditor.md`, and `.foundry/journals/tech_lead.md` despite prior purges.
+**Action:** Ran a cleanup script utilizing regex to strip out lines and blocks associated with operational logging while preserving canonical knowledge. Added new trace prefixes to the scrub list to prevent further context bloat.
