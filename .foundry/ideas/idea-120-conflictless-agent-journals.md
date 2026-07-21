@@ -2,12 +2,12 @@
 id: idea-120-conflictless-agent-journals
 type: IDEA
 title: Research and Implement Conflict-less Agent Journals
-status: ACTIVE
-owner_persona: product_manager
+status: PENDING
+owner_persona: auditor
 created_at: '2026-07-20'
-updated_at: '2026-07-20'
+updated_at: '2026-07-21'
 depends_on: []
-jules_session_id: '4651946480427426597'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -39,4 +39,4 @@ Potential pathways:
 This will drastically improve developer experience (DX) and pipeline efficiency by preventing manual merge blockages, keeping journals clean and high-signal, and avoiding zombie sessions caused by unresolved git conflicts.
 
 ## Acceptance Criteria
-- [ ] prd-120-conflictless-agent-journals
+- [x] prd-120-335-conflictless-agent-journals
