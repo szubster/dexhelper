@@ -27,3 +27,4 @@ Update the runtime interfaces and components that load the generated PokeData to
 ## Acceptance Criteria
 - [ ] The application compiles without type errors in `src/db/schema.ts`.
 - [ ] Components load Pokémon data without issues utilizing the expanded keys.
+- [ ] story-043-336-update-runtime-interfaces-keys
