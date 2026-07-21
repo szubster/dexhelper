@@ -32,10 +32,10 @@ The Coder has implemented the Hidden Items Checklist UI component. We need to ve
 - If applicable, write or verify tests for this component.
 
 ## Acceptance Criteria
-- [ ] Visual styling correctly matches ADR 008.
-- [ ] Grouping and filtering function correctly.
-- [ ] Connection to save file state for dynamic checking is verified.
-- [ ] Required unit/component tests exist and pass.
+- [x] Visual styling correctly matches ADR 008.
+- [x] Grouping and filtering function correctly.
+- [x] Connection to save file state for dynamic checking is verified.
+- [x] Required unit/component tests exist and pass.
 
 ## Persona Reminders
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
