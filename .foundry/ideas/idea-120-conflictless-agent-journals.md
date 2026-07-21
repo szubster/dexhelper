@@ -39,4 +39,4 @@ Potential pathways:
 This will drastically improve developer experience (DX) and pipeline efficiency by preventing manual merge blockages, keeping journals clean and high-signal, and avoiding zombie sessions caused by unresolved git conflicts.
 
 ## Acceptance Criteria
-- [ ] prd-120-conflictless-agent-journals
+- [x] prd-120-335-conflictless-agent-journals
