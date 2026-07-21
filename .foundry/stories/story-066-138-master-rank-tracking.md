@@ -20,6 +20,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Story: Master Rank Tracking in Ribbon Dashboard
 
 ## 1. Context

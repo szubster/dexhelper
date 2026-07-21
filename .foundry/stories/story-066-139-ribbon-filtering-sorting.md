@@ -20,6 +20,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Story: Ribbon Dashboard Filtering and Sorting
 
 ## 1. Context

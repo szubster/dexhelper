@@ -9,7 +9,7 @@ updated_at: '2026-07-03'
 depends_on:
 jules_session_id: null
 pr_number: null
-parent: prd-055-031-future-progression-trading
+parent: null
 tags:
   - backend
   - progression
@@ -17,6 +17,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Epic: Progression Tracking & Multiple Saves
 
 ## Context

@@ -18,6 +18,7 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
+
 # Story: Living Dex PC Mapping
 
 ## Context

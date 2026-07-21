@@ -19,6 +19,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Gen 3 Roamer IV Glitch Detection Logic
 
 ## Objective

@@ -19,6 +19,7 @@ rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---
+
 # PRD: Gen 3 Roaming Legendary Tracker and IV Glitch Inspector
 
 ## Purpose

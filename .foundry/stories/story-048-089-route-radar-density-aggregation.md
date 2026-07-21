@@ -20,6 +20,7 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
+
 # Story: Implement Density Aggregation Logic
 
 ## Context

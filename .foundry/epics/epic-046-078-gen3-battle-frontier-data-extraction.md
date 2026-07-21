@@ -20,6 +20,7 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
+
 # Epic: Gen 3 Battle Frontier Data Extraction
 
 ## Description

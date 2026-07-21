@@ -18,6 +18,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Story: E2E Tests for Hidden Items UI
 
 ## 1. Context & Background

@@ -18,6 +18,7 @@ rejection_count: 3
 rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
+
 # Story: Implement Standard PC Box Sorting Strategies
 
 ## Objective

@@ -18,6 +18,7 @@ rejection_count: 0
 rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
+
 # Implement Standard PC Box Sorting Strategies
 
 ## Objective

@@ -21,6 +21,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Blueprint: QA Gen 3 Mix Record Inherited Events Extraction
 
 ## Objective

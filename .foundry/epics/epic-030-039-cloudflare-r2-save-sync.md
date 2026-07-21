@@ -9,7 +9,7 @@ updated_at: '2026-07-03'
 depends_on:
 jules_session_id: null
 pr_number: null
-parent: prd-055-030-cloudflare-auth-sync
+parent: null
 tags:
   - backend
   - sync
@@ -23,6 +23,7 @@ notes: >-
   Derived from PRD 055-030 and Research 030-004. Uses Cloudflare R2 for strong
   consistency and file blob storage.
 ---
+
 # Epic: Cloudflare R2 Offline-First Save Syncing
 
 ## Context

@@ -18,6 +18,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # STORY: Move Data Runtime Integration
 
 ## Background

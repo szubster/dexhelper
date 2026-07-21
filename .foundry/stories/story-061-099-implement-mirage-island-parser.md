@@ -19,6 +19,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Implement Mirage Island Save Parser
 
 ## Context

@@ -19,6 +19,7 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
+
 # Idea: Multi-Save Trade Planner
 
 ## Context

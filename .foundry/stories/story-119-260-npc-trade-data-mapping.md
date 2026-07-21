@@ -18,6 +18,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Story: NPC Trade Data Mapping
 
 ## Objective

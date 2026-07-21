@@ -9,7 +9,7 @@ updated_at: '2026-07-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: story-116-249-gen3-ev-interface-definition
+parent: null
 tags:
   - gen3
   - save-engine

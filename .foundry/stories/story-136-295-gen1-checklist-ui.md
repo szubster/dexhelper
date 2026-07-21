@@ -18,6 +18,7 @@ rejection_count: 3
 rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
+
 # Gen 1 Checklist UI
 
 Create the UI component for the Gen 1 static encounter checklist, mapping the parsed event flags to visual states.

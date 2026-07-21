@@ -9,7 +9,7 @@ updated_at: '2026-05-31'
 depends_on: []
 jules_session_id: '18124105386347002229'
 pr_number: null
-parent: idea-063-permanent-failure-dashboard
+parent: null
 tags:
   - foundry
   - ui

@@ -10,7 +10,7 @@ depends_on:
   - task-274-301-gen3-lottery-ui-integration-impl
 jules_session_id: null
 pr_number: null
-parent: story-133-274-gen3-lottery-ui-integration
+parent: null
 tags:
   - feature
   - gen3

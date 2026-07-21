@@ -9,12 +9,13 @@ updated_at: "2026-07-01"
 depends_on:
 jules_session_id: null
 pr_number: null
-parent: story-060-156-hidden-items-checklist-component
+parent: null
 tags: ["qa", "feature", "ui", "checklist"]
 rejection_count: 0
 rejection_reason: ""
 notes: ""
 ---
+
 # QA Hidden Items Checklist UI Component
 
 ## Context

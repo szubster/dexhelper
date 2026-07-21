@@ -21,6 +21,7 @@ rejection_reason: >-
   parseGen3ActiveSwarm. And RangeError includes extra text.
 notes: ''
 ---
+
 # Task: Implement Gen 3 TV Block DataView Parser (Retry 6)
 
 ## Description

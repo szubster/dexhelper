@@ -20,6 +20,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Epic: Global Ribbon Checklist Dashboard
 
 ## 1. Context

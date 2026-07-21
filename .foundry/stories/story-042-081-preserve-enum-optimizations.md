@@ -8,7 +8,7 @@ created_at: '2026-05-21'
 updated_at: '2026-06-05'
 depends_on: []
 jules_session_id: '12814961437781022023'
-parent: epic-032-042-generation-pipeline-keys
+parent: null
 rejection_reason: ''
 notes: ''
 rejection_count: 1

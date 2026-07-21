@@ -19,6 +19,7 @@ rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---
+
 # Task: QA - Implement Egg Move Precomputation in ETL
 
 ## Overview

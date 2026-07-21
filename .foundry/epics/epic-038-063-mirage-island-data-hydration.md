@@ -20,6 +20,7 @@ rejection_count: 0
 rejection_reason: ""
 notes: ""
 ---
+
 # Hydrate Mirage Island State
 
 ## Context

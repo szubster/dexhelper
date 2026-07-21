@@ -9,7 +9,7 @@ updated_at: '2026-07-20'
 depends_on: []
 jules_session_id: '13239981964527431012'
 pr_number: null
-parent: story-065-142-gen3-contest-data-mapping
+parent: null
 tags:
   - feature
   - gen3

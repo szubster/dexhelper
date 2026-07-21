@@ -21,6 +21,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Story: Contest Advisor UI Integration
 
 ## Description

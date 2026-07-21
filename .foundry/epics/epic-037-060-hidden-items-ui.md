@@ -19,6 +19,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Epic: Missing Hidden Items Finder UI
 
 ## 1. Context & Background

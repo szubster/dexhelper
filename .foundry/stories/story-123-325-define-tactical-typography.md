@@ -18,6 +18,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Story: Define Tactical Typography Utilities
 
 ## Objective

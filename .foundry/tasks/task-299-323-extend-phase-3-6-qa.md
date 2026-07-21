@@ -19,6 +19,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # QA Extend Phase 3.6 for CANCELLED nodes
 
 ## Objective

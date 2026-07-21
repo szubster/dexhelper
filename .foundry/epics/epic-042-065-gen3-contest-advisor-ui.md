@@ -21,6 +21,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Epic: Gen 3 Contest Advisor UI
 
 ## 1. Context

@@ -9,7 +9,7 @@ updated_at: '2026-07-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: story-046-085-extract-broadcast-rejection-count
+parent: null
 tags:
   - foundry
   - ui

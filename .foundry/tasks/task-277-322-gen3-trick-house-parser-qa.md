@@ -24,6 +24,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Task: Gen 3 Trick House Parser QA
 
 ## Objective

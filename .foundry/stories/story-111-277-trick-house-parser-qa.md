@@ -20,6 +20,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Story: QA Gen 3 Trick House Parser
 
 ## Objective

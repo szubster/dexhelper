@@ -10,7 +10,7 @@ depends_on:
   - task-142-249-gen3-contest-data-mapping-impl
 jules_session_id: null
 pr_number: null
-parent: story-065-142-gen3-contest-data-mapping
+parent: null
 tags: [qa, gen3, contests, mapping]
 research_references: []
 rejection_count: 0

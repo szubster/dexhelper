@@ -9,7 +9,7 @@ updated_at: '2026-06-19'
 depends_on:
 jules_session_id: null
 pr_number: null
-parent: story-066-137-global-ribbon-dashboard-scaffold
+parent: null
 tags:
   - feature
   - gen3
@@ -20,6 +20,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # TASK: QA Global Ribbon Checklist Dashboard Scaffold
 
 ## Background

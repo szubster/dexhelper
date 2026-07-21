@@ -21,6 +21,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Story: Implement Gen 3 Active Swarm Radar UI
 
 ## Description

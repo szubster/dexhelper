@@ -19,6 +19,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Parse Gen 1 and Gen 2 Hall of Fame Data
 
 ## Overview

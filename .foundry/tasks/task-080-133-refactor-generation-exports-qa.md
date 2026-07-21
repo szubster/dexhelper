@@ -10,7 +10,7 @@ depends_on:
   - task-080-132-refactor-generation-exports-impl
 jules_session_id: null
 pr_number: null
-parent: story-042-080-refactor-generation-exports
+parent: null
 tags: ["data-pipeline", "qa"]
 research_references: []
 rejection_count: 0

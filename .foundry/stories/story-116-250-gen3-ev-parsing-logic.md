@@ -17,6 +17,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Story - Gen 3 EV Parsing Logic
 
 ## 1. Objective

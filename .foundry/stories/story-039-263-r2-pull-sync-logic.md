@@ -19,6 +19,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
+
 # Story: Cloudflare R2 Pull Sync Logic
 
 ## Context
