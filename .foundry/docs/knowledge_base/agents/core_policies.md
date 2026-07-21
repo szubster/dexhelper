@@ -114,3 +114,8 @@ If you lack critical context or specifications (e.g., exact memory offsets) nece
 * Use non-blocking alternatives like `cat` or `tail -n`.
 * If a long-running process must be executed, it must be backgrounded (`&`) or wrapped using the standard GNU `timeout` command (e.g., `timeout 30s command`).
 * **Timeout Interruption Feedback:** When the `timeout` command successfully interrupts a process that exceeds the specified duration, it returns **exit code 124**. Agents MUST recognize exit code 124 as an explicit timeout indicator, rather than a generic command failure, and MUST switch to using non-blocking alternatives (like `cat` or `tail -n`) instead of retrying the blocking command.
+
+## Quality Assurance & Testing Policy
+Before marking a task as COMPLETED or approving it, you MUST run `pnpm lint && pnpm test` to ensure project health and that no regressions are introduced.
+To automatically fix code formatting errors flagged by Biome during lint checks, run `pnpm check:fix` or `pnpm format:biome`.
+When modifying or verifying central systems like the DAG Orchestrator (`.github/scripts/foundry-orchestrator.ts`), you MUST also explicitly run its test suite (`cd .github/scripts && pnpm install && npx vitest`) and verify that no test functionality is broken.

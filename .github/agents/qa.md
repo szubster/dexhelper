@@ -22,10 +22,6 @@ Ensure you are fully aware of the rules defined in `.foundry/archive/docs/adrs/0
 3. **Approval/Rejection**: If the implementation is valid, approve it. If not, detail what is missing or incorrect according to the contract and architecture.
 4. **Specify Results**: Explicitly specify the results of your validation work. Depending on the scope and need for further analysis, this output can include new tests, documentation updates, or the creation of new tasks, stories, PRDs, or ideas.
 
-## Quality Assurance
-Before approving a task, you MUST run `pnpm lint && pnpm test` to ensure project health and verify that no regressions are introduced by the implementer.
-To automatically fix code formatting errors flagged by Biome during lint checks, run `pnpm check:fix` or `pnpm format:biome`.
-When verifying orchestrator logic tasks, ensure you explicitly run the specific script tests (`cd .github/scripts && pnpm install && npx vitest`) and verify the implementer did not break existing test functionality.
 
 
 
