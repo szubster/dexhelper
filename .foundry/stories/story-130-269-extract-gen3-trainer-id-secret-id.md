@@ -2,12 +2,12 @@
 id: story-130-269-extract-gen3-trainer-id-secret-id
 type: STORY
 title: Extract Gen 3 Trainer ID and Secret ID
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-05'
+updated_at: '2026-07-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12894662531357640384'
 pr_number: null
 parent: epic-099-130-gen3-trainer-data-extraction
 tags:

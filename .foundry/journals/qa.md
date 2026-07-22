@@ -88,4 +88,25 @@ Validated PR for feebas extraction integration. The code correctly uses `section
 - **Task**: task-121-310-gen3-tv-block-parser-retry6-qa
 - **Outcome**: Target task cancelled due to max rejection limit.
 - **Notes**: The QA task target (task-121-309-gen3-tv-block-parser-retry6-impl) was permanently failed. Therefore, as per instructions, I've checked off the acceptance criteria for my own task (task-121-310-gen3-tv-block-parser-retry6-qa) to allow the Empty PR flow to exit gracefully.
+
+## 2026-07-19: QA Active Callers Dashboard UI Passed
+- **Task**: task-284-323-predictor-ui-qa
+- **Outcome**: Passed Validation
+- **Notes**:
+  - Verified that `ActiveCallersDashboard` correctly surfaces call probability data and uses the mandated tactical aesthetic (`rounded-none`, `border-dashed`, `font-mono`).
+  - Verified that component unit tests exist and pass.
+  - Verified no linting errors were introduced.
+## 2026-07-19
+- Rejected task-261-282-gen3-met-location-impl because it uses MISC_MET_LOCATION_OFFSET instead of the required MET_LOCATION_OFFSET_IN_M constant.
 - Verified TimeOverrideContext manages and correctly provides manual time state. Verified Manual UI Overrides successfully override the time state. Verified UI strictly adheres to ADR 008 aesthetic.
+
+## 2026-07-19: QA Validation - task-269-264-gen3-trainer-id-secret-id-qa
+- **Node**: task-269-264-gen3-trainer-id-secret-id-qa
+- **Outcome**: Passed Validation
+- **Notes**: Validated PR for Gen 3 Trainer ID and Secret ID extraction. The code correctly uses module-level constants `GEN3_TRAINER_ID_OFFSET`, `SECRET_ID_SHIFT`, and `LOWER_16_BIT_MASK`, and does not use absolute memory offsets or magic numbers. The `DataView` `RangeError` is handled gracefully and tests successfully cover extraction and error scenarios.
+## 2026-07-20 00:08:08 - QA Validation of task-322-332-gen2-dv-extraction-qa
+- Explored codebase to verify that Gen 2 DV data extraction correctly extracts Attack, Defense, Speed, and Special DVs.
+- Verified that `parseDVs` uses module-level constants for data extraction.
+- Verified that out-of-bounds `RangeError` reads are caught and rethrown with 'The save file is corrupted or incomplete.'
+- Verified tests pass (`pnpm lint && pnpm test`).
+- Marked task as COMPLETED by checking off acceptance criteria.

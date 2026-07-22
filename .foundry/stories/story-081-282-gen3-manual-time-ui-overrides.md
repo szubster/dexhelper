@@ -2,13 +2,12 @@
 id: story-081-282-gen3-manual-time-ui-overrides
 type: STORY
 title: Implement Gen 3 Manual Time UI Overrides
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-06'
 updated_at: '2026-07-19'
-depends_on:
-  - research-081-144-gen3-rtc-strategy
-jules_session_id: null
+depends_on: []
+jules_session_id: '13034506786614719227'
 pr_number: null
 parent: epic-047-081-gen3-tv-swarm-data-extraction
 tags:
@@ -20,7 +19,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Story: Implement Gen 3 Manual Time UI Overrides
 
 ## Description
