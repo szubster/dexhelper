@@ -2,14 +2,12 @@
 id: story-065-151-contest-advisor-ui-integration
 type: STORY
 title: Contest Advisor UI Integration
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-19'
-updated_at: '2026-06-19'
-depends_on:
-  - story-065-149-contest-recommendation-ui-components
-  - story-065-150-contest-warning-states-ui
-jules_session_id: null
+updated_at: '2026-07-21'
+depends_on: []
+jules_session_id: '4305462415677248209'
 pr_number: null
 parent: epic-042-065-gen3-contest-advisor-ui
 tags:
@@ -23,7 +21,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Story: Contest Advisor UI Integration
 
 ## Description

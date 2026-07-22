@@ -68,7 +68,7 @@ describe('SearchAndFilters', () => {
       </QueryClientProvider>,
     );
 
-    const input = page.getByPlaceholder('[ ENTER QUERY_ ]');
+    const input = page.getByPlaceholder('[ ENTER COORDINATES OR ID ]');
     await input.fill('pikachu');
     await expect.element(input).toHaveValue('pikachu');
     expect(useStore.getState().searchTerm).toBe('pikachu');
@@ -83,7 +83,7 @@ describe('SearchAndFilters', () => {
       </QueryClientProvider>,
     );
 
-    const input = page.getByPlaceholder('[ ENTER QUERY_ ]');
+    const input = page.getByPlaceholder('[ ENTER COORDINATES OR ID ]');
     await input.click();
     await input.fill('test');
 

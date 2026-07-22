@@ -2,20 +2,20 @@
 id: task-261-283-gen3-met-location-qa
 type: TASK
 title: QA Gen 3 Met Location Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-08'
-updated_at: '2026-07-19'
+updated_at: '2026-07-20'
 depends_on:
   - task-261-282-gen3-met-location-impl
-jules_session_id: '17308318744163387537'
+jules_session_id: null
 pr_number: null
 parent: story-097-261-extract-pokemon-met-locations
 tags:
   - verification
   - nuzlocke
   - gen3
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
@@ -40,3 +40,6 @@ Verify that the `metLocation` parsing logic for Gen 3 Pokémon is correctly impl
 ## Acceptance Criteria
 - [ ] Code correctly parses `metLocation` using constants and `DataView`.
 - [ ] Tests verify the parsing logic.
+
+### QA Rejection
+- Implementation uses MISC_MET_LOCATION_OFFSET instead of required MET_LOCATION_OFFSET_IN_M.

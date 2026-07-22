@@ -73,3 +73,8 @@
 
 **Learning:** Consolidated multiple security audit vectors and error logging patterns in `.jules/shield.md` into canonical blocks to reduce redundancy and improve the prompt's effectiveness.
 **Action:** Re-wrote `.jules/shield.md` to combine duplicated 'Adding New Security Audit Vectors' and 'Sanitize Error Logging' sections.
+
+## 2026-08-01 - Archivist Run Learnings
+
+**Learning:** Migration memories (e.g. `pnpm_v11_migration.md`, `vitest-4-migration-and-browser-patterns.md`, `dataview_migration.md`) eventually become stale once the migration is complete and fully integrated into the codebase.
+**Action:** Re-framed enduring migration documents as standard API/pattern docs, and deleted purely historical migration docs to keep the knowledge base focused on the current state of the project.
