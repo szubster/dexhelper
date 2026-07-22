@@ -60,3 +60,7 @@ Broke down epic-115-331-remove-orphaned-qa-task-rule-from-docs into story-331-33
 - Checked off permanently failed child nodes in epic markdown.
 ## 2026-07-22
 * Created stories story-338-336, story-338-337, and story-338-338 for epic-120-338 to implement session-unique journal files.
+## 2026-07-22
+* Task: epic-043-152-gen3-roamer-data-extraction
+* Action: Aborted task and submitted an Empty PR.
+* Learning: Gen 3 roamer map coordinates are stored in EWRAM and are not serialized, making static extraction impossible as per ADR 108-027.
