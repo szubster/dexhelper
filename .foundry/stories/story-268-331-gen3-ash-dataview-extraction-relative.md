@@ -2,12 +2,12 @@
 id: story-268-331-gen3-ash-dataview-extraction-relative
 type: STORY
 title: 'Story: Gen 3 Volcanic Ash Relative Offset Extraction'
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-18'
-updated_at: '2026-07-19'
+updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: '17310880852476849802'
+jules_session_id: null
 pr_number: null
 parent: epic-054-268-gen3-ash-save-parsing
 tags:
@@ -32,4 +32,5 @@ Implement extraction of the Volcanic Ash count from Gen 3 save files using dynam
 - The extraction logic must consult the offsets in `.foundry/docs/knowledge_base/gen3_ash_gathering_offsets.md` to determine the correct offset relative to the dynamically resolved `section1Offset` for each game version (Ruby/Sapphire vs Emerald).
 
 ## Acceptance Criteria
-- [ ] Break down this Story into TASK nodes outlining constants definition and actual extraction logic.
+- [x] Break down this Story into TASK nodes outlining constants definition and actual extraction logic.
+- [ ] task-331-333-gen3-ash-extraction-impl

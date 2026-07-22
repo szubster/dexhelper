@@ -28,5 +28,5 @@ notes: ''
 Verify the implementation of fetching save data from Cloudflare R2 upon successful login and ensuring the downloaded data hydrates the local application state. This relies on the infrastructure built in `task-262-261-r2-client-impl`.
 
 ## Acceptance Criteria
-- [ ] Verify that upon successful login, logic correctly fetches the user's save data from R2.
-- [ ] Verify that the downloaded data correctly hydrates the local application state.
+- [x] Verify that upon successful login, logic correctly fetches the user's save data from R2.
+- [x] Verify that the downloaded data correctly hydrates the local application state.

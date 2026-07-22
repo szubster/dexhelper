@@ -8,7 +8,6 @@ created_at: '2026-04-27'
 updated_at: '2026-04-29'
 depends_on:
   - epic-005-013-idb-infrastructure
-  - task-031-051-implement-dual-write-persistence
 jules_session_id: null
 parent: epic-005-014-state-store-migration
 tags:

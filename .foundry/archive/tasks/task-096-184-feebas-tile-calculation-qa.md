@@ -6,8 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-14'
 updated_at: '2026-06-17'
-depends_on:
-  - task-096-183-feebas-tile-calculation-impl
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-058-096-feebas-tile-calculation

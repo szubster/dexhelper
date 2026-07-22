@@ -2,13 +2,12 @@
 id: story-060-157-hidden-items-e2e-tests
 type: STORY
 title: E2E Tests for Hidden Items UI
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-28'
-updated_at: '2026-06-28'
-depends_on:
-  - story-060-156-hidden-items-checklist-component
-jules_session_id: null
+updated_at: '2026-07-21'
+depends_on: []
+jules_session_id: '9434132320820354098'
 pr_number: null
 parent: epic-037-060-hidden-items-ui
 tags:
@@ -19,7 +18,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Story: E2E Tests for Hidden Items UI
 
 ## 1. Context & Background

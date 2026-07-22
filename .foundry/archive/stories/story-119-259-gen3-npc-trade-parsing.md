@@ -6,8 +6,7 @@ status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-03'
 updated_at: '2026-07-12'
-depends_on:
-  - research-259-249-gen3-npc-trade-parsing
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: epic-095-119-in-game-trade-data-extraction

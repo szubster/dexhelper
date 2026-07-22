@@ -6,8 +6,7 @@ status: CANCELLED
 owner_persona: qa
 created_at: '2026-06-08'
 updated_at: '2026-06-16'
-depends_on:
-  - task-084-150-breeding-pair-algorithm-impl
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-044-084-breeding-pair-algorithm
