@@ -37,3 +37,5 @@ Overrode the `@tanstack/history` version to `1.161.6` in `package.json`. While t
 **Constraint:** Do not use `pnpm.overrides` to force upgrade `js-yaml` to v4 (e.g., `>=4.2.0`), as dependencies like `gray-matter` rely on the deprecated `yaml.safeLoad` function removed in v4, causing runtime crashes.
 ## Empty PR Policy Execution
 **Pattern:** When the Shield persona concludes that no actionable security updates are needed in the application code, and no vulnerable dependencies exist (No known vulnerabilities found), it should submit an empty PR directly via the `submit` tool, instead of fabricating arbitrary string modifications.
+## Dependency Overrides in pnpm 11+
+**Pattern:** When patching vulnerable transitive dependencies (like `fast-uri` and `sharp`), place the `overrides` block inside `pnpm-workspace.yaml` instead of the `pnpm.overrides` field in `package.json`, as `pnpm.overrides` in `package.json` is ignored by pnpm v11+.
