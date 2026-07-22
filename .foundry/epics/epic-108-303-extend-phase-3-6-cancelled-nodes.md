@@ -5,9 +5,9 @@ title: Extend Phase 3.6 for CANCELLED nodes
 status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-11'
-updated_at: '2026-07-19'
+updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: '5649962444677451227'
+jules_session_id: '15797490900109479606'
 pr_number: null
 parent: prd-086-108-fix-orchestrator-phase-3-6
 tags:

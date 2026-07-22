@@ -9,7 +9,6 @@ updated_at: '2026-07-08'
 depends_on:
   - epic-044-150-gen3-roamer-iv-glitch-v4
   - epic-044-149-gen3-roamer-core-extraction-v4
-  - research-044-207-gen3-roamer-ui-alternatives
 jules_session_id: null
 pr_number: null
 parent: prd-071-044-gen3-roamer-tracker
@@ -22,7 +21,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Gen 3 Roamer Dashboard UI v6
 
 ## Objective
