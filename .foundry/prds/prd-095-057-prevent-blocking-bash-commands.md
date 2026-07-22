@@ -41,5 +41,5 @@ Agent sessions executing long-running or blocking bash commands (like `tail -f`)
 
 ## Acceptance Criteria
 - [x] Break down this PRD into Epics mapping out the implementation strategy (e.g., exploring wrapper feasibility, updating bash tool infrastructure).
-- [ ] epic-057-127-bash-timeout-wrapper
+- [ ] epic-057-339-bash-timeout-wrapper
 - [ ] epic-057-128-bash-static-analysis-linter

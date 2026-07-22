@@ -92,3 +92,8 @@ Broke down PRD prd-116-117-zod-schema-validation-orchestrator into two Epics: ep
 
 ## 2026-07-21
 - Transformed PRD for conflictless journals into an Epic. Ensures we transition from monolithic markdown files to conflict-less storage per session.
+
+## Session 2026-07-22
+**Context:** Processing PRD `prd-095-057-prevent-blocking-bash-commands`.
+**Observation:** The PRD contains an Epic `epic-057-127-bash-timeout-wrapper` which was FAILED with reason `[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing E2E/integration story`.
+**Action:** Replaced the FAILED epic with a new one (`epic-057-339-bash-timeout-wrapper`), ensuring the new Epic explicitly includes an Acceptance Criterion for the missing E2E integration story. Deleted the old epic node and updated the PRD and dependent Epics to reference the new Epic ID. Submitted PR to allow the orchestrator to correctly demote the parent node to PENDING.

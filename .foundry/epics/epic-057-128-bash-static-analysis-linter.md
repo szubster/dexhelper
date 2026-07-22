@@ -5,9 +5,9 @@ title: Static Analysis Linter for Bash Sessions
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-02'
-updated_at: '2026-07-02'
+updated_at: '2026-07-22'
 depends_on:
-  - epic-057-127-bash-timeout-wrapper
+  - epic-057-339-bash-timeout-wrapper
 jules_session_id: null
 pr_number: null
 parent: prd-095-057-prevent-blocking-bash-commands
