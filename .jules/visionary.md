@@ -236,3 +236,7 @@
 ## 2026-07-18
 **Idea:** Gen 2 Unown Dex Progress Tracker
 **Learning:** Expanding on collection capabilities, extracting and tracking Unown forms along with the Ruins of Alph puzzle flags transforms a tedious, multi-step sub-quest into an actionable dashboard. This caters to hardcore completionists and leverages the save file's deep state to offer premium utility, perfectly aligning with DexHelper's vision.
+
+## 2026-07-22
+**Idea:** Gen 2 Kurt's Apricorn Ball Tracker
+**Learning:** In Generation 2, giving Kurt Apricorns is a multi-day crafting process without any UI to track what was given or when it will be ready. By surfacing hidden save state event flags (which Apricorn was given) and crossing it with the system clock/daily event resets, we provide actionable clarity to an otherwise completely blind waiting mechanic, aligning with our premium companion app strategy.
