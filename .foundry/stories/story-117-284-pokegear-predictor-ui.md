@@ -29,5 +29,5 @@ Break down the implementation of the Pokegear Predictor UI into tasks.
 
 ## Acceptance Criteria
 - [x] Create tasks for the predictor engine UI
-- [ ] task-284-322-predictor-ui-impl
-- [ ] task-284-323-predictor-ui-qa
+- [x] task-284-322-predictor-ui-impl
+- [x] task-284-323-predictor-ui-qa
