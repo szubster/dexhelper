@@ -2,19 +2,19 @@
 id: task-261-282-gen3-met-location-impl
 type: TASK
 title: Implement Gen 3 Met Location Extraction
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-08'
-updated_at: '2026-07-18'
+updated_at: '2026-07-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2501234992148624454'
 pr_number: null
 parent: story-097-261-extract-pokemon-met-locations
 tags:
   - feature
   - nuzlocke
   - gen3
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---

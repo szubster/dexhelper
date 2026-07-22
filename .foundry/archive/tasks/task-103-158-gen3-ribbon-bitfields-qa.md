@@ -6,8 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-10'
 updated_at: '2026-06-16'
-depends_on:
-  - task-103-157-gen3-ribbon-bitfields-impl
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-064-103-gen3-ribbon-bitfields-extraction

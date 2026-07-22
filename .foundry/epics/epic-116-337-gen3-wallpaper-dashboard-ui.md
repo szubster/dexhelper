@@ -7,8 +7,8 @@ owner_persona: story_owner
 created_at: '2026-07-19'
 updated_at: '2026-07-19'
 depends_on:
-  - .foundry/epics/epic-116-335-gen3-wallpaper-phrase-generation-engine.md
-  - .foundry/epics/epic-116-336-gen3-wallpaper-app-state-tracking.md
+  - epic-116-335-gen3-wallpaper-phrase-generation-engine
+  - epic-116-336-gen3-wallpaper-app-state-tracking
 jules_session_id: null
 parent: prd-116-049-gen3-pc-box-wallpaper-customizer
 tags:

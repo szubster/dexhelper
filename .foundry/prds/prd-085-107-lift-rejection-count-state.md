@@ -31,7 +31,7 @@ When reviewing the DAG Dashboard code, it was observed that the permanent failur
 4. Ensure all related test files are updated to reflect this shared constant.
 
 ## Acceptance Criteria
-- [x] Break down into Epics
+- [ ] Break down into Epics
 
 ## Generated Epics
 - [ ] epic-107-301-lift-rejection-count-state
