@@ -5,9 +5,9 @@ title: Lift rejection_count state to DagContext
 status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-05'
-updated_at: '2026-07-19'
+updated_at: '2026-07-22'
 depends_on: []
-jules_session_id: '5802998493362018671'
+jules_session_id: '1797941619447229784'
 pr_number: null
 parent: idea-085-lift-rejection-count-state
 tags:
@@ -31,7 +31,7 @@ When reviewing the DAG Dashboard code, it was observed that the permanent failur
 4. Ensure all related test files are updated to reflect this shared constant.
 
 ## Acceptance Criteria
-- [x] Break down into Epics
+- [ ] Break down into Epics
 
 ## Generated Epics
 - [ ] epic-107-301-lift-rejection-count-state
