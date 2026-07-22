@@ -32,3 +32,5 @@ Currently, agent personas write to monolithic journal files (e.g., `.foundry/jou
 
 ## Acceptance Criteria
 - [ ] Tech Lead: Break this Story down into actionable Tasks.
+- [ ] task-338-338-session-unique-journals-impl
+- [ ] task-338-339-session-unique-journals-qa
