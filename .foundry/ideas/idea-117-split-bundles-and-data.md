@@ -39,7 +39,7 @@ Implement generation-based splitting for JavaScript engine logic, UI components,
 - **Better Resource Management**: Only load the data, code, and UI the user actually needs.
 
 ## Acceptance Criteria
-- [ ] prd-117-116-split-bundles-and-data
+- [x] prd-117-116-split-bundles-and-data
 - [x] Research conducted on bundle size distribution and potential gains (`research-117-325-bundle-splitting-analysis`).
 - [x] Architectural strategy documented in an ADR (`adr-117-029-bundle-splitting-strategy`).
 - [ ] Save parsers refactored to use dynamic imports in `src/engine/saveParser/index.ts`.
