@@ -61,14 +61,32 @@ When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/d
 ## Node Creation Guidelines
 While the system does not strictly block node creation, ANY scheduled or foundry agent can dynamically create new `IDEA`, `TASK`, `RESEARCH`, or `ADR` nodes in the `.foundry/` directory. If you encounter larger architectural changes, find technical debt, realize a task needs an idea/research, or lack context, you should create a node. For example, a task could result in an idea, and scheduled agents can create nodes in foundry. When creating downstream nodes, ensure you set the `owner_persona` correctly (e.g., `researcher` for RESEARCH nodes, `architect` for ADRs).
 
+## Quality Assurance
+When writing tests, remember that Vitest requires explicit generic typing on `vi.fn()` mocks (e.g. `vi.fn<(type: string) => void>()`) when testing callback props for components, to satisfy `vitest(require-mock-type-parameters)`.
+Before marking a task as COMPLETED, you MUST run `pnpm lint && pnpm test` to ensure project health and that no regressions are introduced.
+To automatically fix code formatting errors flagged by Biome during lint checks, run `pnpm check:fix` or `pnpm format:biome`.
+When modifying central systems like the DAG Orchestrator (`.github/scripts/foundry-orchestrator.ts`), you MUST also explicitly run its test suite (`cd .github/scripts && pnpm install && npx vitest`) and fix any existing tests that your new logic breaks.
+
 ## Handling Rejections & Aborts
 **CRITICAL - RESUMING FAILED NODES/TASKS:** If you are assigned to a node that was previously FAILED and has been resurrected, you MUST explicitly read its `rejection_reason` in the YAML frontmatter and explicitly read the Auditor or QA persona's journal (`.foundry/journals/auditor.md` or `.foundry/journals/qa.md`) using `read_file` to understand the exact root cause of the previous failure. You must ensure you address the reviewer's feedback and remove the `### Auditor Rejection` block (and its contents) from the markdown body rather than blindly resubmitting.
 
-If you encounter a permanent failure, reach max rejection count, or must abort a node because it is impossible:
-1. You MUST update the target node's YAML frontmatter to `status: CANCELLED` (do NOT use `FAILED` for permanent aborts, as that triggers infinite resurrection loops).
-2. You MUST provide a clear `rejection_reason` in the target node's YAML frontmatter.
-3. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed node.
-4. You MUST document the failure in your persona journal.
+If you reject an implementation or validation fails (transient error):
+1. You MUST update the target task's YAML frontmatter to `status: FAILED`.
+2. You MUST provide a clear `rejection_reason` in the target task's YAML frontmatter.
+3. You MUST increment the target task's `rejection_count` in its YAML frontmatter (if it doesn't exist, initialize it to 1).
+4. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed task.
+5. You MUST NOT modify your own QA task's YAML frontmatter (e.g., your task must remain ACTIVE). Only update your own markdown body to note the failure.
+6. You MUST document the rejection in your persona journal.
+
+**CRITICAL - PERMANENT FAILURES:** If you are rejecting an implementation because it has reached its max rejection count or is fundamentally impossible, you MUST update the target task's YAML frontmatter to `status: CANCELLED` instead of `FAILED`. This formally drops it from the DAG and triggers the parent's Impossible Loop. Leaving it as `FAILED` will cause endless resurrection loops.
+
+### Handling Cancelled/Replaced Tasks
+If your target task has been permanently failed, replaced, or explicitly cancelled via a note in the Markdown body:
+1. You MUST check off your own Acceptance Criteria checkboxes in your task's Markdown body.
+2. You MUST use the `submit` tool to create an Empty PR. Even if no real work is needed, those checkboxes must be checked for the node to safely transition to COMPLETED and gracefully exit the DAG.
+
+### Dealing with Cancelled/Replaced Tasks Reawakening
+If a cancelled or replaced task node is reawakened (e.g., because its previous implementation dependency finished, triggering the Empty PR flow), you MUST still check off the acceptance criteria to allow the node to gracefully exit the DAG, satisfying ADR 007's completeness requirements. Even if no real work is needed, those checkboxes must be checked for the node to safely transition to COMPLETED.
 
 ## Handling Permanent Child Failures (The Impossible Loop)
 If you are woken up by the Orchestrator because a child node reached its Max Rejection Count (e.g., a TASK or STORY failed permanently), you MUST:
