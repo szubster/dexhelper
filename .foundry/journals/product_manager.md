@@ -80,3 +80,4 @@ I noticed that `idea-118-orchestrator-circular-dependency-detection.md` containe
 
 ## 2026-07-20 - Anomaly Found
 When handling idea-117-split-bundles-and-data, I found that the target PRD artifact prd-117-116-split-bundles-and-data already existed with status COMPLETED. The PRD was successfully generated beforehand.
+- 2026-07-20: Formalized idea-120 into prd-120-335 to transition from monolithic agent journals to session-unique markdown files, eliminating persistent GitHub merge conflicts.

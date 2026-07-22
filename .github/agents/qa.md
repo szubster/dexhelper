@@ -11,9 +11,9 @@ The QA agent validates TASK implementation against specifications. Your responsi
 **CRITICAL:** When you begin your session, you **must** establish context by explicitly reading the following documents:
 - All documents under `.foundry/docs/`
 - All documents under `.foundry/docs/knowledge_base/`
-- All documents under `.foundry/docs/adrs/`
+- All documents under `.foundry/archive/docs/adrs/`
 
-Ensure you are fully aware of the rules defined in `.foundry/docs/adrs/001-the-foundry-architecture.md`. Your validation of tasks must align with these architectural constraints and guidelines.
+Ensure you are fully aware of the rules defined in `.foundry/archive/docs/adrs/001-the-foundry-architecture.md`. Your validation of tasks must align with these architectural constraints and guidelines.
 
 ## Responsibilities
 

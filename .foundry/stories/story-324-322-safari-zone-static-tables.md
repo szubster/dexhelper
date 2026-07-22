@@ -35,4 +35,4 @@ This story covers compiling the static encounter tables for the Safari Zone in G
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-322-331-safari-zone-static-tables-impl
+- [x] task-322-331-safari-zone-static-tables-impl

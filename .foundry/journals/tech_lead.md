@@ -226,6 +226,30 @@ Transformed story-130-316-document-indexeddb-schema into a technical blueprint. 
 - **Node**: `story-138-294-gen3-static-encounters-parsing`
 - **Actions**: Broke down the Gen 3 Static Encounters story into `task-294-331-gen3-static-encounter-flags-impl` and `task-294-332-gen3-static-encounter-flags-qa` as per the Intelligent Verification Protocol.
 - **Constraints Enforced**: Explicitly instructed the Coder and QA personas in the task blueprints to strictly enforce ADR 028 (no magic numbers, module-level constants) and relative offset calculations using `section1Offset` for Gen 3 save block extraction, specifically referencing the `DataView` RangeError handling rules based on previous recurring failure patterns.
+- **Empty PR Checkbox Policy Compliance:** When completing a previously rejected story, ensure all descendant tasks (including newly spawned retry tasks) and all acceptance criteria are explicitly checked off, and any obsolete Rejection notices (e.g. \`### Auditor Rejection\`) are completely removed from the markdown body.
+- **Scratchpad Cleanup Enforcement:** Always explicitly delete any temporary scratchpad files (e.g., \`test.md\`) created during the session before committing, as leaving them pollutes the root directory and triggers rejection during code review.
+
+- Date: 2026-07-19
+  Action: Drafted task blueprint (task-333-333-gen3-roamer-extraction-tests-impl) for Gen 3 roamer core extraction unit tests.
+  Reasoning: The parsing logic is already implemented, but we need comprehensive test coverage across Ruby/Sapphire, Emerald, and FireRed/LeafGreen. We instructed the coder to use dynamically constructed ArrayBuffers to test the logic due to the lack of .sav fixtures.
+- 2026-07-19: Created tasks for story-324-333-parse-secret-base-locations, enforcing DataView RangeError handling (ADR 010), module-level constants (ADR 028), and relative section offsets.
+Appended tech lead journal for breaking down Gen 3 Volcanic Ash extraction story into task nodes, ensuring relative offsets and module-level constants are strictly enforced.
 ## 2026-07-20: Diff Engine Hash Impossible Loop Resolution
 - **Node**: `story-137-294-diff-engine-logic`
 - **Actions**: Investigated the permanent failure of `task-294-316-diff-engine-impl`. Discovered that the `hash` property was missing from the `PokemonInstance` interface, leading to the Coder attempting to use a fallback generator and failing the QA contract. Drafted `research-294-335-diff-engine-hash-failure` to document the issue, `task-294-336-diff-engine-hash-fix-impl` to implement the interface addition and strict property usage, and `task-294-337-diff-engine-hash-fix-qa` for verification. Appended the replacement nodes to the parent story and checked off the failed tasks.
+
+## 2026-07-20: Empty PR for completed child task
+Assigned to story-324-322-safari-zone-static-tables where its generated child (task-322-331-safari-zone-static-tables-impl) has already been completed. Checked off the child checkbox in the story markdown body and submitted a PR to transition the Story.
+## 2026-07-20: Passthrough validation for Gen 3 Trainer ID and Secret ID
+- Assigned to story-130-269-extract-gen3-trainer-id-secret-id where its generated children (task-269-263-gen3-trainer-id-secret-id-impl and task-269-264-gen3-trainer-id-secret-id-qa) have already been completed. Checked off the child checkboxes in the story markdown body and submitted an empty PR to transition the Story.
+- [2026-07-19] Checked off acceptance criteria for story-081-282-gen3-manual-time-ui-overrides because child tasks are COMPLETED, properly advancing the parent's status.
+
+## 2026-07-22: Break down session unique journals story
+- **Node**: story-338-336-implement-session-unique-journals
+- **Actions**: Broke down the story into an implementation task to update agent prompts and orchestrator for session-unique journals, and a QA verification task to ensure the instructions and parsing logic are correct.
+## 2026-07-22: Automerge Journal Updates
+- **Node**: story-338-336-implement-session-unique-journals
+- **Actions**: Added additional tasks to update the automerge GitHub action to allow PRs containing only journal file changes to be automatically merged.
+## 2026-07-22: Combined Automerge Updates
+- **Node**: story-338-336-implement-session-unique-journals
+- **Actions**: Updated automerge tasks to specify that PRs containing a combination of both journal entries and checkbox updates should be auto-merged.
