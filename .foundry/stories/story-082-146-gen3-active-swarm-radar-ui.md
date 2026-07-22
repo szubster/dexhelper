@@ -8,7 +8,6 @@ created_at: '2026-06-19'
 updated_at: '2026-06-19'
 depends_on:
   - story-082-145-gen3-tv-swarm-dashboard-scaffold
-  - story-081-123-gen3-active-swarm-parsing
 jules_session_id: null
 pr_number: null
 parent: epic-047-082-gen3-tv-swarm-dashboard-ui
@@ -22,7 +21,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Story: Implement Gen 3 Active Swarm Radar UI
 
 ## Description
