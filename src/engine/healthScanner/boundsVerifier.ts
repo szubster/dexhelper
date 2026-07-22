@@ -49,17 +49,47 @@ export function verifyBounds(saveData: SaveData): HealthScanResult {
     // 2. Verify DVs
     if (pokemon.dvs) {
       const { hp, atk, def, spd, spc } = pokemon.dvs;
-      const stats = { hp, atk, def, spd, spc };
 
-      for (const [statName, value] of Object.entries(stats)) {
-        if (value < 0 || value > 15) {
-          anomalies.push({
-            code: 'InvalidStat',
-            severity: 'Critical',
-            location,
-            description: `DV for ${statName.toUpperCase()} is out of bounds (0-15): ${value}.`,
-          });
-        }
+      // ⚡ Bolt: Use direct property access instead of Object.entries to eliminate object allocation and O(N) loop overhead
+      if (hp < 0 || hp > 15) {
+        anomalies.push({
+          code: 'InvalidStat',
+          severity: 'Critical',
+          location,
+          description: `DV for HP is out of bounds (0-15): ${hp}.`,
+        });
+      }
+      if (atk < 0 || atk > 15) {
+        anomalies.push({
+          code: 'InvalidStat',
+          severity: 'Critical',
+          location,
+          description: `DV for ATK is out of bounds (0-15): ${atk}.`,
+        });
+      }
+      if (def < 0 || def > 15) {
+        anomalies.push({
+          code: 'InvalidStat',
+          severity: 'Critical',
+          location,
+          description: `DV for DEF is out of bounds (0-15): ${def}.`,
+        });
+      }
+      if (spd < 0 || spd > 15) {
+        anomalies.push({
+          code: 'InvalidStat',
+          severity: 'Critical',
+          location,
+          description: `DV for SPD is out of bounds (0-15): ${spd}.`,
+        });
+      }
+      if (spc < 0 || spc > 15) {
+        anomalies.push({
+          code: 'InvalidStat',
+          severity: 'Critical',
+          location,
+          description: `DV for SPC is out of bounds (0-15): ${spc}.`,
+        });
       }
     }
   };
