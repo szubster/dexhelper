@@ -2,13 +2,12 @@
 id: story-123-325-define-tactical-typography
 type: STORY
 title: Define Tactical Typography Utilities
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-17'
-updated_at: '2026-07-18'
-depends_on:
-  - story-123-270-define-tactical-form-utilities
-jules_session_id: '4085685567442223127'
+updated_at: '2026-07-19'
+depends_on: []
+jules_session_id: null
 pr_number: null
 parent: epic-071-123-define-tailwind-v4-utilities-v2
 tags:
@@ -19,7 +18,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Story: Define Tactical Typography Utilities
 
 ## Objective
@@ -31,3 +29,4 @@ Define any remaining typography-related `@utility` primitives in `src/index.css`
 
 ## Acceptance Criteria
 - [ ] Typography utilities are fully verified to match the scope of epic-071-123.
+- [ ] task-325-331-implement-tactical-typography

@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-06'
 updated_at: '2026-07-06'
-depends_on:
-  - story-086-130-move-jsonl-compaction
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: epic-049-086-dynamic-move-pp-parsing
@@ -19,7 +18,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # STORY: Move Data Runtime Integration
 
 ## Background

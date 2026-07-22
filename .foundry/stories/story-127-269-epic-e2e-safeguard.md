@@ -29,8 +29,10 @@ Implement logic in `.github/scripts/foundry-orchestrator.ts` (or `foundry-heartb
 ## Acceptance Criteria
 - [ ] Implement E2E enforcement logic in orchestrator scripts.
 - [ ] Add unit tests for this new verification rule.
-- [ ] task-269-269-e2e-safeguard-impl
-- [ ] task-269-270-e2e-safeguard-qa
+- [x] task-269-269-e2e-safeguard-impl
+- [ ] task-269-334-e2e-safeguard-impl
+- [x] task-269-270-e2e-safeguard-qa
+- [ ] task-269-335-e2e-safeguard-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

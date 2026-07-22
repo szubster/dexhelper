@@ -2,10 +2,10 @@
 id: task-322-332-gen2-dv-extraction-qa
 type: TASK
 title: QA Gen 2 DV Data Extraction
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-17'
-updated_at: '2026-07-17'
+updated_at: '2026-07-20'
 depends_on:
   - task-322-331-gen2-dv-extraction-impl
 jules_session_id: null
@@ -34,6 +34,6 @@ Verify the implementation of Gen 2 DV data extraction to ensure correctness and 
 5. If you must abort or permanently fail a task, you MUST update the YAML frontmatter to `status: CANCELLED` with a clear `rejection_reason`.
 
 ## Acceptance Criteria
-- [ ] Verify Gen 2 DV data extraction correctly extracts Attack, Defense, Speed, and Special DVs.
-- [ ] Verify no magic numbers are used inline for memory offsets, lengths, bit locations, and shifts (must be module-level constants).
-- [ ] Verify out-of-bounds DataView API reads throw `'The save file is corrupted or incomplete.'`.
+- [x] Verify Gen 2 DV data extraction correctly extracts Attack, Defense, Speed, and Special DVs.
+- [x] Verify no magic numbers are used inline for memory offsets, lengths, bit locations, and shifts (must be module-level constants).
+- [x] Verify out-of-bounds DataView API reads throw `'The save file is corrupted or incomplete.'`.

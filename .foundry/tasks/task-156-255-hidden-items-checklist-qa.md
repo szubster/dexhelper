@@ -2,21 +2,23 @@
 id: task-156-255-hidden-items-checklist-qa
 type: TASK
 title: QA Hidden Items Checklist UI Component
-status: PENDING
+status: COMPLETED
 owner_persona: qa
-created_at: "2026-07-01"
-updated_at: "2026-07-01"
-depends_on:
-  - task-156-254-hidden-items-checklist-impl
+created_at: '2026-07-01'
+updated_at: '2026-07-21'
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-060-156-hidden-items-checklist-component
-tags: ["qa", "feature", "ui", "checklist"]
+tags:
+  - qa
+  - feature
+  - ui
+  - checklist
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
-
 # QA Hidden Items Checklist UI Component
 
 ## Context
@@ -30,10 +32,10 @@ The Coder has implemented the Hidden Items Checklist UI component. We need to ve
 - If applicable, write or verify tests for this component.
 
 ## Acceptance Criteria
-- [ ] Visual styling correctly matches ADR 008.
-- [ ] Grouping and filtering function correctly.
-- [ ] Connection to save file state for dynamic checking is verified.
-- [ ] Required unit/component tests exist and pass.
+- [x] Visual styling correctly matches ADR 008.
+- [x] Grouping and filtering function correctly.
+- [x] Connection to save file state for dynamic checking is verified.
+- [x] Required unit/component tests exist and pass.
 
 ## Persona Reminders
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.

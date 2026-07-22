@@ -6,8 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-11'
 updated_at: '2026-06-24'
-depends_on:
-  - task-108-163-gen3-secret-base-parser
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-070-108-parse-secret-base-locations
