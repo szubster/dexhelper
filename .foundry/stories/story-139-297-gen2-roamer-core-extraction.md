@@ -30,4 +30,7 @@ Extract the 7-byte `roam_struct` for the Gen 2 roamers (Raikou, Entei, Suicune) 
 ## Acceptance Criteria
 - [ ] Implement data extraction for the 3 Gen 2 roaming legendaries based on the 7-byte `roam_struct`.
 - [ ] Extract the map tracking variables correctly.
-- [ ] Break down this Story into Tasks.
+- [x] Break down this Story into Tasks.
+
+- [ ] task-297-338-gen2-roamer-core-extraction-impl
+- [ ] task-297-339-gen2-roamer-core-extraction-qa
