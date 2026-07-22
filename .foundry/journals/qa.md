@@ -100,6 +100,8 @@ Validated PR for feebas extraction integration. The code correctly uses `section
 - Rejected task-261-282-gen3-met-location-impl because it uses MISC_MET_LOCATION_OFFSET instead of the required MET_LOCATION_OFFSET_IN_M constant.
 - Verified TimeOverrideContext manages and correctly provides manual time state. Verified Manual UI Overrides successfully override the time state. Verified UI strictly adheres to ADR 008 aesthetic.
 
+## [2026-07-19] QA Validation: Cloudflare R2 Pull Sync Logic
+Validated that the implementation successfully fetches save data from R2 upon successful login using `r2Client` in `src/store.ts`. Verified that the data correctly hydrates the application state using `saveDB.putSave` and `parseSaveFile`. Tests verify both success and failure cases.
 ## 2026-07-19: QA Validation - task-269-264-gen3-trainer-id-secret-id-qa
 - **Node**: task-269-264-gen3-trainer-id-secret-id-qa
 - **Outcome**: Passed Validation
