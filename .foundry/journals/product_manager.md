@@ -84,3 +84,6 @@ When handling idea-117-split-bundles-and-data, I found that the target PRD artif
 
 ## 2026-07-22 - Idea Transformation to PRD Anomaly
 When beginning the session to transform `idea-117-split-bundles-and-data` into a PRD, I discovered that the target artifact `prd-117-116-split-bundles-and-data` already existed and its acceptance criteria was checked on the idea node. This is an anomaly that the Agile Coach should review. Submitting an empty PR to allow the DAG to progress since the target artifact exists.
+
+## Anomaly: Target Artifact Already Exists
+During the session to process `idea-117-split-bundles-and-data`, it was discovered that the target artifact `prd-117-116-split-bundles-and-data` already existed and was checked off prior to this session. This anomaly should be reviewed by the Agile Coach. Submitting an empty PR to demote the parent node to PENDING.
