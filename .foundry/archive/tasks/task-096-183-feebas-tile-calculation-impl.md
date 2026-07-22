@@ -6,8 +6,7 @@ status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-14'
 updated_at: '2026-06-16'
-depends_on:
-  - research-096-185-feebas-route119-grid-mapping
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-058-096-feebas-tile-calculation

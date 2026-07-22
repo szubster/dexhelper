@@ -6,11 +6,7 @@ status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-04-24'
 updated_at: '2026-05-02'
-depends_on:
-  - epic-005-013-idb-infrastructure
-  - epic-005-014-state-store-migration
-  - epic-005-015-legacy-data-migration
-  - epic-005-016-e2e-testing-updates
+depends_on: []
 jules_session_id: null
 parent: idea-007-migrate-saves-to-indexeddb
 tags: []
