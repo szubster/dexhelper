@@ -6,8 +6,7 @@ status: CANCELLED
 owner_persona: qa
 created_at: '2026-06-11'
 updated_at: '2026-06-16'
-depends_on:
-  - task-108-161-gen3-roamer-dataview-extraction-impl
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-070-108-gen3-roamer-dataview-extraction

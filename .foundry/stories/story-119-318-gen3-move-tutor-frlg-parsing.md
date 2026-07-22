@@ -2,13 +2,12 @@
 id: story-119-318-gen3-move-tutor-frlg-parsing
 type: STORY
 title: Parse Gen 3 FireRed/LeafGreen Move Tutor Flags
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-12'
-updated_at: '2026-07-12'
-depends_on:
-  - epic-055-119-gen3-move-tutor-save-parsing
-jules_session_id: null
+updated_at: '2026-07-20'
+depends_on: []
+jules_session_id: '10241534692141613310'
 pr_number: null
 parent: epic-055-119-gen3-move-tutor-save-parsing
 tags:

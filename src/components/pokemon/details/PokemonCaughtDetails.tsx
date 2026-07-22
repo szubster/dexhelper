@@ -95,6 +95,12 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
                   <span className="font-mono text-[11px] text-rose-400">{p.friendship} PT</span>
                 </div>
               )}
+              {p.pokerus !== undefined && (
+                <div className="relative flex items-center gap-3 border-zinc-700 border-l-2 border-dashed pt-3 pl-3 before:absolute before:top-4 before:-left-[2px] before:h-1 before:w-1 before:bg-zinc-500">
+                  <DataLabel>[ POKERUS_STRAIN ]</DataLabel>
+                  <span className="font-mono text-[11px] text-zinc-300">{p.pokerus.strain}</span>
+                </div>
+              )}
             </div>
 
             {generation === 2 && (

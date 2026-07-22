@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-09'
 updated_at: '2026-07-10'
-depends_on:
-  - task-071-150-tailwind-v4-adr
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: idea-071-tailwind-v4-utilities-migration
@@ -20,7 +19,6 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
-
 # PRD: Tailwind v4 @utility Consolidation
 
 ## Executive Summary

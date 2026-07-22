@@ -46,7 +46,7 @@ The `palette` persona is the master of the Tailwind and styling ecosystem. This 
 ## Execution Plan Rules
 **Execution Plan Sequencing Rule:** When formulating an execution plan, the required pre-commit verification step must be placed immediately before the final submission or PR creation step, with no intervening actions separating them.
 **Execution Plan Verification Rule:** Execution plans that involve creating new files or modifying existing ones must explicitly include verification steps (e.g., using `read_file`) immediately following the modifications to confirm the changes were written correctly.
-**Empty PR Verification Rule:** Even when submitting an Empty PR (zero file changes) to allow the orchestrator to demote a parent node, the execution plan must explicitly include a preliminary step to run core verification commands (`pnpm lint`, `pnpm test`, and `pnpm test:e2e`) to verify a clean system state before submission. Do not include unmentioned commands (e.g., `pnpm type-check`), as this violates the Groundedness Rule.
+**Empty PR Verification Rule:** Even when submitting an Empty PR (zero file changes) to allow the orchestrator to demote a parent node, the execution plan must explicitly include a preliminary step to run core verification commands (`pnpm lint`, `pnpm test`, and `xvfb-run pnpm test:e2e`) to verify a clean system state before submission. Do not include unmentioned commands (e.g., `pnpm type-check`), as this violates the Groundedness Rule.
 **Execution Plan Groundedness Rule:** Execution plans must not propose actions that have already been successfully completed in the bash session. Your plan must reflect the current state of the workspace. Furthermore, you must not read files or use file paths that have not been explicitly discovered and printed in the current session's trace. Do not propose creating files with assumed, guessed, or placeholder names (e.g., `<NNN>`). Determine exact filenames before plan creation.
 **Execution Plan Specificity Rule:** Execution plans must consist solely of single, actionable, un-nested instructions. Conversational monologue, mental actions, scratchpad notes, placeholders, and nested bullet points are strictly forbidden.
 **Execution Plan Tense Rule:** Execution plans must consist solely of forward-looking, actionable steps required to complete the task. Do not include past-tense descriptions or summaries of actions already completed during the exploratory phase.
@@ -56,7 +56,7 @@ The `palette` persona is the master of the Tailwind and styling ecosystem. This 
 **CRITICAL:** Any developer scratchpad scripts created during a session (e.g., temporary bash scripts like `generate_reads.sh` or Node scripts) must be deleted (`rm`) before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.
 
 ## Critical Context Gathering Instruction
-When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/docs/adrs/`, you MUST use the `read_file` tool to read each document individually. Avoid using `cat` or bash loops on multiple files to prevent truncation and ensure full compliance with the Exploration Rule.
+When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/archive/docs/adrs/`, you MUST use the `read_file` tool to read each document individually. Avoid using `cat` or bash loops on multiple files to prevent truncation and ensure full compliance with the Exploration Rule.
 
 ## Node Creation Guidelines
 While the system does not strictly block node creation, ANY scheduled or foundry agent can dynamically create new `IDEA`, `TASK`, `RESEARCH`, or `ADR` nodes in the `.foundry/` directory. If you encounter larger architectural changes, find technical debt, realize a task needs an idea/research, or lack context, you should create a node. For example, a task could result in an idea, and scheduled agents can create nodes in foundry. When creating downstream nodes, ensure you set the `owner_persona` correctly (e.g., `researcher` for RESEARCH nodes, `architect` for ADRs).
@@ -75,7 +75,7 @@ If you are woken up by the Orchestrator because a child node reached its Max Rej
 1. Spawn a `RESEARCH` node to investigate the root cause of the failure.
 2. Create a new set of replacement nodes that explicitly depend on the `RESEARCH` node being completed.
 3. Append these new nodes to your own markdown body.
-4. **CRITICAL:** You MUST check off the markdown checkboxes (`- [x]`) of the permanently failed child nodes in your own markdown body. (Note: The Orchestrator will automatically cascade cancellations to any orphaned dependent child nodes). If they remain unchecked, ADR 007 will prevent this parent node from ever transitioning to COMPLETED.
+4. **CRITICAL:** You MUST check off the markdown checkboxes (`- [x]`) of the permanently failed child nodes in your own markdown body. If they remain unchecked, ADR 007 will prevent this parent node from ever transitioning to COMPLETED.
 
 ## Late Binding for Missing Context
 If you lack critical context or specifications (e.g., exact memory offsets) necessary to implement a task or generate actionable blueprints, DO NOT guess or implement generic fallbacks. Instead, you MUST utilize the late binding pattern to suspend the task:
