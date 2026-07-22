@@ -92,3 +92,8 @@ Broke down PRD prd-116-117-zod-schema-validation-orchestrator into two Epics: ep
 
 ## 2026-07-21
 - Transformed PRD for conflictless journals into an Epic. Ensures we transition from monolithic markdown files to conflict-less storage per session.
+
+## Session 2026-07-22: Handling Acknowledged Missing E2E Criterion
+**Context:** Processing PRD `prd-085-107-lift-rejection-count-state`.
+**Observation:** `epic-107-301-lift-rejection-count-state` was explicitly failed due to an acknowledged missing criterion ("Missing E2E/integration story"). Also `epic-107-302-update-dashboard-rejection-count` was missing the mandatory E2E story requirement.
+**Action:** Created a replacement node `epic-107-339-lift-rejection-count-state` that includes the missing E2E integration story criteria. The old failed node was left intact in the file system to avoid dangling references and broken links. Updated the parent PRD's checkboxes by checking off the failed node and adding the new replacement node. Updated dependent node (`epic-107-302-update-dashboard-rejection-count`) to depend on the new ID and added the E2E verification requirement to it.

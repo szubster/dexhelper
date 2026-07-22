@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-07-10'
 updated_at: '2026-07-10'
 depends_on:
-  - epic-107-301-lift-rejection-count-state
+  - epic-107-339-lift-rejection-count-state
 jules_session_id: null
 pr_number: null
 parent: prd-085-107-lift-rejection-count-state
@@ -32,6 +32,8 @@ With the threshold for permanent failures extracted to the React Context (in Epi
 1. Update `DagDashboard.tsx` to use the exposed threshold when filtering nodes for the "Permanent Failures" view.
 2. Update `DagNode.tsx` to use the exposed threshold when applying permanent failure styles.
 3. Update `DagNode.test.tsx` and any other related test files to use the shared constant.
+4. Ensure a final STORY dedicated to Integration and E2E Verification is created.
 
 ## Acceptance Criteria
 - [ ] Break down into Stories
+- [ ] Create E2E/integration story

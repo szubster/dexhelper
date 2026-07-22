@@ -34,5 +34,6 @@ When reviewing the DAG Dashboard code, it was observed that the permanent failur
 - [ ] Break down into Epics
 
 ## Generated Epics
-- [ ] epic-107-301-lift-rejection-count-state
+- [x] epic-107-301-lift-rejection-count-state
+- [ ] epic-107-339-lift-rejection-count-state
 - [ ] epic-107-302-update-dashboard-rejection-count
