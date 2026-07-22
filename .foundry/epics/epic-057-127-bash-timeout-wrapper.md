@@ -2,12 +2,12 @@
 id: epic-057-127-bash-timeout-wrapper
 type: EPIC
 title: Timeout Wrapper for Bash Sessions
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-02'
 updated_at: '2026-07-22'
 depends_on: []
-jules_session_id: '9636418234449273975'
+jules_session_id: null
 pr_number: null
 parent: prd-095-057-prevent-blocking-bash-commands
 tags:

@@ -2,7 +2,7 @@
 id: task-338-341-journal-automerge-qa
 type: TASK
 title: Verify Journal Automerge Implementation
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-22'
 updated_at: '2026-07-22'

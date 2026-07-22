@@ -2,12 +2,12 @@
 id: story-338-336-implement-session-unique-journals
 type: STORY
 title: Implement Session-Unique Journal Files
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-22'
 updated_at: '2026-07-22'
 depends_on: []
-jules_session_id: '13244085198189428881'
+jules_session_id: null
 pr_number: null
 parent: epic-120-338-implement-conflictless-journals
 tags:
