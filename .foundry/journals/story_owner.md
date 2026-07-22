@@ -58,3 +58,7 @@ Broke down epic-115-331-remove-orphaned-qa-task-rule-from-docs into story-331-33
 - Spawned research-137-330 to investigate failure of story-137-294.
 - Created replacement nodes story-137-333 and story-137-334.
 - Checked off permanently failed child nodes in epic markdown.
+## 2026-07-21
+* Task: epic-043-152-gen3-roamer-data-extraction
+* Action: Aborted node due to impossible extraction of Gen 3 roamer coordinates.
+* Learning: Gen 3 roamer map coordinates are stored in EWRAM and not serialized to the save file. This epic cannot be completed and is cancelled (ADR 108-027).
