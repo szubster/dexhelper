@@ -238,6 +238,8 @@ Appended tech lead journal for breaking down Gen 3 Volcanic Ash extraction story
 - **Node**: `story-137-294-diff-engine-logic`
 - **Actions**: Investigated the permanent failure of `task-294-316-diff-engine-impl`. Discovered that the `hash` property was missing from the `PokemonInstance` interface, leading to the Coder attempting to use a fallback generator and failing the QA contract. Drafted `research-294-335-diff-engine-hash-failure` to document the issue, `task-294-336-diff-engine-hash-fix-impl` to implement the interface addition and strict property usage, and `task-294-337-diff-engine-hash-fix-qa` for verification. Appended the replacement nodes to the parent story and checked off the failed tasks.
 
+## 2026-07-20: Empty PR for completed child task
+Assigned to story-324-322-safari-zone-static-tables where its generated child (task-322-331-safari-zone-static-tables-impl) has already been completed. Checked off the child checkbox in the story markdown body and submitted a PR to transition the Story.
 ## 2026-07-20: Passthrough validation for Gen 3 Trainer ID and Secret ID
 - Assigned to story-130-269-extract-gen3-trainer-id-secret-id where its generated children (task-269-263-gen3-trainer-id-secret-id-impl and task-269-264-gen3-trainer-id-secret-id-qa) have already been completed. Checked off the child checkboxes in the story markdown body and submitted an empty PR to transition the Story.
 - [2026-07-19] Checked off acceptance criteria for story-081-282-gen3-manual-time-ui-overrides because child tasks are COMPLETED, properly advancing the parent's status.
