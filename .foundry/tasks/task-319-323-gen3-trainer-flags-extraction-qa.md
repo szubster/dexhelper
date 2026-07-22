@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-07-14'
 updated_at: '2026-07-14'
 depends_on:
-  - .foundry/tasks/task-319-322-gen3-trainer-flags-extraction-impl.md
+  - task-319-322-gen3-trainer-flags-extraction-impl
 jules_session_id: null
 pr_number: null
 parent: story-307-319-gen3-trainer-flags-extraction

@@ -73,6 +73,8 @@ Successfully broke down `prd-115-115-gen3-fame-checker-assistant` into three dis
 3. `epic-115-333-gen3-fame-checker-dashboard-ui`: Building out the final dashboard for players.
 I ensured the correct DAG order by using `depends_on` between them and appended them to the PRD's Acceptance Criteria.
 
+## Pokerus Strain UI PRD Updates
+Encountered permanently cancelled epic-112-322. Spawning research node research-112-334 and replacement epic-112-335. Demoted parent PRD-107-112 to PENDING by appending new nodes as unchecked criteria and unchecking the pending epic-112-323.
 ## 2026-07-19: Centralize Prompt Rules Epic Generation
 Broke down PRD `prd-118-117-centralize-prompt-reminders` into two separate Epics:
 1. `epic-117-334-centralize-prompt-rules` to handle the prompt updates and documentation.
@@ -90,3 +92,7 @@ Broke down PRD prd-116-117-zod-schema-validation-orchestrator into two Epics: ep
 ## 2026-07-19: Trick House Save Parsing Epic Replacement
 **Context:** The `epic-054-111-trick-house-save-parsing` node failed because it merged with unfulfilled acceptance criteria, specifically missing an E2E/integration story.
 **Action:** Cancelled the failed Epic and generated a replacement, `epic-054-338-trick-house-save-parsing`, which explicitly includes the missing E2E integration story requirement in its scope and acceptance criteria. Updated the parent PRD to check off the failed Epic and appended the new replacement Epic as an unchecked task using its Node ID. Updated the dependency in `epic-054-112-trick-house-ui` to point to the new replacement Epic.
+\nDemoted PRD 107 to PENDING by unchecking the 'Break down into Epics' acceptance criteria because its child epics are still pending or failed, adhering to the Late-Binding Orchestrator Demotion Rule.
+
+## 2026-07-21
+- Transformed PRD for conflictless journals into an Epic. Ensures we transition from monolithic markdown files to conflict-less storage per session.

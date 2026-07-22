@@ -2,12 +2,12 @@
 id: story-324-322-safari-zone-static-tables
 type: STORY
 title: Safari Zone Static Data Compilation (Gen 1 & 3)
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-15'
-updated_at: '2026-07-19'
+updated_at: '2026-07-22'
 depends_on: []
-jules_session_id: '13066196928846311663'
+jules_session_id: null
 pr_number: null
 parent: epic-113-324-safari-zone-data-integration
 tags:
@@ -35,4 +35,4 @@ This story covers compiling the static encounter tables for the Safari Zone in G
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-322-331-safari-zone-static-tables-impl
+- [x] task-322-331-safari-zone-static-tables-impl

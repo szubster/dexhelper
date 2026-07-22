@@ -5,9 +5,9 @@ title: Gen 3 Trick House Progression Tracker
 status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-28'
-updated_at: '2026-07-19'
+updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: '5605561173032774432'
+jules_session_id: '2169437010596573026'
 pr_number: null
 parent: idea-088-trick-house-tracker
 tags:
