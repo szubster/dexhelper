@@ -245,3 +245,6 @@ Appended tech lead journal for breaking down Gen 3 Volcanic Ash extraction story
 ## 2026-07-22: Automerge Journal Updates
 - **Node**: story-338-336-implement-session-unique-journals
 - **Actions**: Added additional tasks to update the automerge GitHub action to allow PRs containing only journal file changes to be automatically merged.
+## 2026-07-22: Combined Automerge Updates
+- **Node**: story-338-336-implement-session-unique-journals
+- **Actions**: Updated automerge tasks to specify that PRs containing a combination of both journal entries and checkbox updates should be auto-merged.

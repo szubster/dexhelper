@@ -29,4 +29,5 @@ Verify that the GitHub Actions configuration has been successfully updated to au
 
 ## Acceptance Criteria
 - [ ] Verify that the automerge workflow correctly triggers and merges PRs when the only changes are to files in `.foundry/journals/`.
+- [ ] Verify that the automerge workflow correctly triggers and merges PRs containing a combination of both journal file changes and checkbox updates.
 - [ ] Verify that the automerge workflow does NOT merge PRs with code changes or other substantial markdown edits outside of the journals directory.
