@@ -2,13 +2,13 @@
 id: task-258-265-suggestion-engine-egg-moves-impl
 type: TASK
 title: Update Suggestion Engine for Egg Move Pathfinding
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-03'
-updated_at: '2026-07-21'
+updated_at: '2026-07-22'
 depends_on:
   - task-258-264-egg-move-precomputation-etl-qa
-jules_session_id: '11816595099752131683'
+jules_session_id: null
 pr_number: null
 parent: story-113-258-egg-move-pathfinding-core
 tags:
