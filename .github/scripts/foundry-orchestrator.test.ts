@@ -1571,6 +1571,8 @@ vi.doMock('node:url', async (importOriginal) => {
 
     const task2Content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-002.md'), 'utf-8');
     expect(task2Content).toContain('status: CANCELLED');
+    const storyContent = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-001.md'), 'utf-8');
+    expect(storyContent).toContain('status: READY');
     expect(task2Content).toContain('rejection_reason: \'Cancelled due to permanent failure of dependency: task-001\'');
   });
 
