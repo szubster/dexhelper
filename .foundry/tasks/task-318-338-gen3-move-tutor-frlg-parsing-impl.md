@@ -2,10 +2,10 @@
 id: task-318-338-gen3-move-tutor-frlg-parsing-impl
 type: TASK
 title: Implement Gen 3 FRLG Move Tutor Parsing
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-20'
-updated_at: '2026-07-20'
+updated_at: '2026-07-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
