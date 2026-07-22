@@ -11,12 +11,13 @@ interface TacticalButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
 export const TacticalButton = React.forwardRef<HTMLButtonElement, TacticalButtonProps>(
   ({ className, variant = 'default', size = 'default', hasCrosshairs = false, children, ...props }, ref) => {
     const title = props.title || props['aria-label'];
+    const { title: _title, ...restProps } = props;
     return (
       <button
         ref={ref}
-        title={title}
+        aria-label={title}
         className={cn(
-          'group tactical-text focus-visible:tactical-focus relative inline-flex shrink-0 items-center justify-center gap-3 overflow-hidden rounded-none border border-dashed font-black transition-all disabled:cursor-not-allowed disabled:opacity-50',
+          `group tactical-text focus-visible:tactical-focus relative inline-flex shrink-0 items-center justify-center gap-3 ${size === 'icon' ? '' : 'overflow-hidden'} rounded-none border border-dashed font-black transition-all disabled:cursor-not-allowed disabled:opacity-50`,
           {
             // Variants
             'border-white/20 bg-zinc-900/50 text-zinc-500 hover:border-white/40 hover:bg-zinc-800/80 hover:text-white focus-visible:ring-[var(--theme-primary)]':
@@ -40,7 +41,7 @@ export const TacticalButton = React.forwardRef<HTMLButtonElement, TacticalButton
           },
           className,
         )}
-        {...props}
+        {...restProps}
       >
         {hasCrosshairs === 'corners' ? (
           <CornerCrosshairs
@@ -70,6 +71,12 @@ export const TacticalButton = React.forwardRef<HTMLButtonElement, TacticalButton
         <span className="relative z-10 flex items-center gap-2">{children}</span>
 
         {variant === 'primary' && <div className="absolute top-0 left-0 h-full w-1 bg-[var(--theme-primary)]" />}
+
+        {size === 'icon' && title && (
+          <span className="tactical-tooltip pointer-events-none absolute top-full left-1/2 z-50 mt-2 -translate-x-1/2 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+            {title}
+          </span>
+        )}
       </button>
     );
   },

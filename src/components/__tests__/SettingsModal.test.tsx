@@ -47,7 +47,7 @@ describe('SettingsModal', () => {
 
     expect(useStore.getState().isSettingsOpen).toBe(true);
 
-    const closeButton = page.getByTitle('Close settings');
+    const closeButton = page.getByRole('button', { name: 'Close settings', exact: true }).first();
     await closeButton.click();
 
     expect(useStore.getState().isSettingsOpen).toBe(false);
