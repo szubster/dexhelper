@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-07-16'
 updated_at: '2026-07-16'
 depends_on:
-  - .foundry/tasks/task-121-310-gen3-tv-block-parser-retry6-qa.md
+  - task-121-310-gen3-tv-block-parser-retry6-qa
 jules_session_id: null
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser

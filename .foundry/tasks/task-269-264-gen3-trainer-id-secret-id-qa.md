@@ -2,13 +2,13 @@
 id: task-269-264-gen3-trainer-id-secret-id-qa
 type: TASK
 title: QA Gen 3 Trainer ID and Secret ID Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-05'
 updated_at: '2026-07-19'
 depends_on:
   - task-269-263-gen3-trainer-id-secret-id-impl
-jules_session_id: '5091145551226194918'
+jules_session_id: null
 pr_number: null
 parent: story-130-269-extract-gen3-trainer-id-secret-id
 tags:
@@ -34,5 +34,5 @@ Verify the parser and interface correctly extract the Trainer ID (TID) and Secre
 - When parsing save files, all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level; inline magic numbers are forbidden.
 
 ## Acceptance Criteria
-- [ ] Verify the TID and SID extraction logic in `src/engine/saveParser/parsers/gen3.ts` works as intended.
-- [ ] Verify tests adequately cover the extraction scenarios.
+- [x] Verify the TID and SID extraction logic in `src/engine/saveParser/parsers/gen3.ts` works as intended.
+- [x] Verify tests adequately cover the extraction scenarios.

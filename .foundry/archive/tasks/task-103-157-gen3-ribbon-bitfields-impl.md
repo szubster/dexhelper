@@ -6,8 +6,7 @@ status: COMPLETED
 owner_persona: coder
 created_at: '2026-06-10'
 updated_at: '2026-06-15'
-depends_on:
-  - research-103-157-gen3-ribbon-offsets
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-064-103-gen3-ribbon-bitfields-extraction
