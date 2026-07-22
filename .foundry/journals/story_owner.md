@@ -58,6 +58,7 @@ Broke down epic-115-331-remove-orphaned-qa-task-rule-from-docs into story-331-33
 - Spawned research-137-330 to investigate failure of story-137-294.
 - Created replacement nodes story-137-333 and story-137-334.
 - Checked off permanently failed child nodes in epic markdown.
+- Generated story-334-336-zod-schema-definition and story-334-337-zod-schema-integration from epic-117-334-define-zod-schema
 
 ## 2026-07-21
 *   Task: epic-107-301-lift-rejection-count-state

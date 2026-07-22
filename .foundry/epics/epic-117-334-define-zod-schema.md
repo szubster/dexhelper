@@ -22,4 +22,6 @@ rejection_reason: ''
 This epic focuses on creating a strict Zod schema for parsing and validating `.foundry/**/*.md` files. This schema must act as the single source of truth and map directly to the constraints established in `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-334-336-zod-schema-definition
+- [ ] story-334-337-zod-schema-integration
