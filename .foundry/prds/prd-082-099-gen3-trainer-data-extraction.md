@@ -31,4 +31,6 @@ Extract the Trainer ID (TID) and Secret ID (SID) from a Gen 3 save file and disp
 
 ## Acceptance Criteria
 - [x] Epic Planner: Convert this PRD into Epics.
-- [ ] epic-099-130-gen3-trainer-data-extraction
+- [x] epic-099-130-gen3-trainer-data-extraction
+- [ ] research-099-339-gen3-trainer-data-e2e
+- [ ] epic-099-340-gen3-trainer-data-extraction

@@ -92,3 +92,6 @@ Broke down PRD prd-116-117-zod-schema-validation-orchestrator into two Epics: ep
 
 ## 2026-07-21
 - Transformed PRD for conflictless journals into an Epic. Ensures we transition from monolithic markdown files to conflict-less storage per session.
+
+## 2026-07-22: Handling permanently failed child epic-099-130-gen3-trainer-data-extraction
+Spawned research-099-339-gen3-trainer-data-e2e to investigate the missing E2E integration story context. Created replacement epic-099-340-gen3-trainer-data-extraction dependent on the research node. Updated PRD and dependent story accordingly.

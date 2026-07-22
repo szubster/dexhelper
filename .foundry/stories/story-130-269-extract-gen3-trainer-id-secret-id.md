@@ -9,7 +9,7 @@ updated_at: '2026-07-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: epic-099-130-gen3-trainer-data-extraction
+parent: epic-099-340-gen3-trainer-data-extraction
 tags:
   - feature
   - gen3
