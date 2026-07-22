@@ -73,6 +73,8 @@ Successfully broke down `prd-115-115-gen3-fame-checker-assistant` into three dis
 3. `epic-115-333-gen3-fame-checker-dashboard-ui`: Building out the final dashboard for players.
 I ensured the correct DAG order by using `depends_on` between them and appended them to the PRD's Acceptance Criteria.
 
+## Pokerus Strain UI PRD Updates
+Encountered permanently cancelled epic-112-322. Spawning research node research-112-334 and replacement epic-112-335. Demoted parent PRD-107-112 to PENDING by appending new nodes as unchecked criteria and unchecking the pending epic-112-323.
 ## 2026-07-19: Centralize Prompt Rules Epic Generation
 Broke down PRD `prd-118-117-centralize-prompt-reminders` into two separate Epics:
 1. `epic-117-334-centralize-prompt-rules` to handle the prompt updates and documentation.
