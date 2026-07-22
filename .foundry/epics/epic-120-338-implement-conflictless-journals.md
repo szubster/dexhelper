@@ -2,12 +2,12 @@
 id: epic-120-338-implement-conflictless-journals
 type: EPIC
 title: Implement Conflict-less Agent Journals
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-21'
 updated_at: '2026-07-22'
 depends_on: []
-jules_session_id: '12022632914776563562'
+jules_session_id: null
 parent: prd-120-335-conflictless-agent-journals
 tags:
   - foundry

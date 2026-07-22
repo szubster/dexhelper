@@ -2,13 +2,13 @@
 id: task-284-323-predictor-ui-qa
 type: TASK
 title: QA - Active Callers Dashboard UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-14'
-updated_at: '2026-07-19'
+updated_at: '2026-07-22'
 depends_on:
   - task-284-322-predictor-ui-impl
-jules_session_id: '13001490665769355586'
+jules_session_id: null
 pr_number: null
 parent: story-117-284-pokegear-predictor-ui
 tags:
