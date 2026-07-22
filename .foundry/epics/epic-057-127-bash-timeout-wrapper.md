@@ -26,7 +26,7 @@ notes: ''
 Implement a timeout wrapper for `run_in_bash_session` to interrupt commands that run over a specific threshold (e.g., 30 seconds).
 
 ## Acceptance Criteria
-- [ ] Implement timeout wrapper.
-- [ ] Implement feedback mechanism for interrupted commands.
-- [ ] story-127-267-bash-timeout-wrapper
-- [ ] story-127-268-bash-timeout-feedback
+- [x] Implement timeout wrapper.
+- [x] Implement feedback mechanism for interrupted commands.
+- [x] story-127-267-bash-timeout-wrapper
+- [x] story-127-268-bash-timeout-feedback
