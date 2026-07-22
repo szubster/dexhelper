@@ -5,7 +5,7 @@ title: Gen 2 Trainer Data Extraction Implementation
 status: READY
 owner_persona: coder
 created_at: '2026-07-15'
-updated_at: '2026-07-20'
+updated_at: '2026-07-22'
 depends_on: []
 jules_session_id: null
 pr_number: null

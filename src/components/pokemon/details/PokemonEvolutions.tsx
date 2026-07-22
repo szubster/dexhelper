@@ -6,6 +6,7 @@ import { cn } from '../../../utils/cn';
 import { DataLabel } from '../../DataLabel';
 import { InlineLink } from '../../InlineLink';
 import { TacticalBadge } from '../../TacticalBadge';
+import { TacticalBlockHeader } from '../../TacticalBlockHeader';
 import { TacticalNode } from '../../TacticalNode';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 
@@ -68,19 +69,13 @@ function ProcurementStrategy({
         textClassName="text-red-500"
       />
       <div className="flex flex-col gap-4 p-4 pt-6 pl-6">
-        <div className="flex items-start justify-between border-red-500/20 border-b border-dashed pb-3">
-          <div className="flex flex-col gap-1">
-            <span className="flex items-center gap-1.5 font-mono text-[9px] text-red-500 uppercase tracking-widest">
-              <Target size={10} /> [ OBJECTIVE_LINK ]
-            </span>
-            <span className="font-black font-display text-white text-xl uppercase tracking-tight drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] transition-colors group-hover:text-red-400">
-              PROCUREMENT STRATEGY
-            </span>
-          </div>
-          <div className="flex h-8 w-8 items-center justify-center rounded-none border border-red-500/20 bg-red-500/5 shadow-[inset_0_0_10px_rgba(239,68,68,0.1)]">
-            <AlertTriangle size={14} className="text-red-500/60 transition-colors group-hover:text-red-500" />
-          </div>
-        </div>
+        <TacticalBlockHeader
+          variant="red"
+          icon={<Target size={10} />}
+          trackingLabel="[ OBJECTIVE_LINK ]"
+          title="PROCUREMENT STRATEGY"
+          trailingIcon={<AlertTriangle size={14} />}
+        />
 
         <div className="relative z-10 flex flex-col gap-2">
           <DataLabel>[ STATUS REPORT ]</DataLabel>
@@ -143,16 +138,12 @@ function EvolutionFrom({
         textClassName="text-purple-400"
       />
       <div className="flex h-full flex-col gap-4 p-4 pt-6 pl-6">
-        <div className="flex items-start justify-between border-purple-500/20 border-b border-dashed pb-3">
-          <div className="flex flex-col gap-1">
-            <span className="flex items-center gap-1.5 font-mono text-[9px] text-purple-400 uppercase tracking-widest">
-              <ArrowUpCircle size={10} /> [ LINEAGE_LINK ]
-            </span>
-            <span className="font-black font-display text-white text-xl uppercase tracking-tight drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] transition-colors group-hover:text-purple-400">
-              ORIGIN SPECIES
-            </span>
-          </div>
-        </div>
+        <TacticalBlockHeader
+          variant="purple"
+          icon={<ArrowUpCircle size={10} />}
+          trackingLabel="[ LINEAGE_LINK ]"
+          title="ORIGIN SPECIES"
+        />
 
         <div className="relative z-10 flex flex-1 flex-col gap-2">
           <DataLabel>[ PRE_EVOLUTION_LINK ]</DataLabel>
@@ -204,16 +195,12 @@ function EvolutionTo({
         textClassName="text-blue-400"
       />
       <div className="flex h-full flex-col gap-4 p-4 pt-6 pl-6">
-        <div className="flex items-start justify-between border-blue-500/20 border-b border-dashed pb-3">
-          <div className="flex flex-col gap-1">
-            <span className="flex items-center gap-1.5 font-mono text-[9px] text-blue-400 uppercase tracking-widest">
-              <ChevronRight size={10} /> [ TRAJECTORY_LINK ]
-            </span>
-            <span className="font-black font-display text-white text-xl uppercase tracking-tight drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] transition-colors group-hover:text-blue-400">
-              NEXT PHASE
-            </span>
-          </div>
-        </div>
+        <TacticalBlockHeader
+          variant="blue"
+          icon={<ChevronRight size={10} />}
+          trackingLabel="[ TRAJECTORY_LINK ]"
+          title="NEXT PHASE"
+        />
 
         <div className="relative z-10 flex flex-1 flex-col gap-2">
           <DataLabel>[ EVOLUTION_TRAJECTORY ]</DataLabel>
@@ -260,19 +247,13 @@ function BreedingProtocol({
         textClassName="text-pink-400"
       />
       <div className="flex flex-col gap-4 p-4 pt-6 pl-6">
-        <div className="flex items-start justify-between border-pink-500/20 border-b border-dashed pb-3">
-          <div className="flex flex-col gap-1">
-            <span className="flex items-center gap-1.5 font-mono text-[9px] text-pink-400 uppercase tracking-widest">
-              <RadioReceiver size={10} /> [ REPRODUCTION_LINK ]
-            </span>
-            <span className="font-black font-display text-white text-xl uppercase tracking-tight drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] transition-colors group-hover:text-pink-400">
-              BREEDING PROTOCOL
-            </span>
-          </div>
-          <div className="flex h-8 w-8 items-center justify-center rounded-none border border-pink-500/20 bg-pink-500/5 shadow-[inset_0_0_10px_rgba(236,72,153,0.1)]">
-            <Heart size={14} className="text-pink-500/60 transition-colors group-hover:text-pink-500" />
-          </div>
-        </div>
+        <TacticalBlockHeader
+          variant="pink"
+          icon={<RadioReceiver size={10} />}
+          trackingLabel="[ REPRODUCTION_LINK ]"
+          title="BREEDING PROTOCOL"
+          trailingIcon={<Heart size={14} />}
+        />
 
         <div className="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="flex flex-col gap-2">

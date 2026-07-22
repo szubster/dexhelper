@@ -2,10 +2,10 @@
 id: epic-107-302-update-dashboard-rejection-count
 type: EPIC
 title: Update UI Views with Lifted Constant
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-10'
-updated_at: '2026-07-10'
+updated_at: '2026-07-22'
 depends_on:
   - epic-107-301-lift-rejection-count-state
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - dashboard
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  epic-107-301-lift-rejection-count-state
 notes: ''
 ---
 

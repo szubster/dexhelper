@@ -114,3 +114,6 @@ Critical learnings:
 ## 2026-07-17 - Empty PR Policy for Infrastructure
 **Learning:** Audited the development tooling, found to be highly optimized and matching CI parity. An empty PR will be submitted to respect the bloat policy.
 ## 2026-07-17 - Empty PR Policy for Infrastructure\n**Learning:** Audited the development tooling, found to be highly optimized and matching CI parity. An empty PR will be submitted to respect the bloat policy. Also, ran bundle analysis requiring `pnpm build`.
+
+## 2026-07-20 - Fixed Biome CI Version Drift
+**Learning:** The Biome version was bumped to 2.5.4 in `package.json` and `biome.jsonc`, but the CI workflow (`.github/workflows/biome.yml`) remained at `2.5.3`. It's important to update the GitHub Actions check to ensure the CI environment matches the local environment, avoiding false positive/negative linting results in PRs.

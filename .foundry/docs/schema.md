@@ -312,3 +312,24 @@ Enum-to-number optimizations (e.g., mapping encounter methods or string triggers
 As defined in ADR 028, to ensure maintainability and readability within the save parsing engine, the following rules apply when extracting dynamic save blocks:
 *   **Module-Level Constants:** All memory offsets, lengths, bit locations, and shifts must be explicitly defined as reusable constants at the module level.
 *   **No Magic Numbers:** The use of inline magic numbers for memory operations during dynamic save block extraction is strictly forbidden. This constraint must be enforced during code reviews.
+
+---
+
+## 14. SaveHistoryDB IndexedDB Schema
+
+The `SaveHistoryDB` database is used to track and store user save states and diffing history.
+
+*   **Database Name:** `SaveHistoryDB`
+*   **Version:** 1
+
+### Object Stores
+
+*   `saves`:
+    *   **Key Type:** `string`
+    *   **Value Type:** `Uint8Array`
+*   `metadata`:
+    *   **Key Type:** `string`
+    *   **Value Type:** `Record<string, unknown>`
+*   `indexes`:
+    *   **Key Type:** `string`
+    *   **Value Type:** `Record<string, unknown>`
