@@ -600,9 +600,9 @@ function main(): void {
   }
 
   // ── Phase 3.5: SUSPEND (Wait & Wake) ───────────────────────────────────────
-  info('Phase 3.5: Checking ACTIVE/VERIFYING/READY nodes for suspension...');
+  info('Phase 3.5: Checking ACTIVE/READY nodes for suspension...');
   for (const node of nodes) {
-    if (node.frontmatter.status !== 'ACTIVE' && node.frontmatter.status !== 'VERIFYING' && node.frontmatter.status !== 'READY') continue;
+    if (node.frontmatter.status !== 'ACTIVE' && node.frontmatter.status !== 'READY') continue;
 
     let shouldSuspend = false;
 
@@ -648,7 +648,7 @@ function main(): void {
       }
     }
 
-    if (shouldSuspend && (node.frontmatter.status === 'ACTIVE' || node.frontmatter.status === 'VERIFYING' || node.frontmatter.status === 'READY')) {
+    if (shouldSuspend && (node.frontmatter.status === 'ACTIVE' || node.frontmatter.status === 'READY')) {
       info(`Suspending ${node.frontmatter.status} node: ${node.repoPath}`);
       promoteNodeStatus(node, node.frontmatter.status, 'PENDING');
     }

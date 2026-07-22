@@ -133,3 +133,7 @@ Verified PokerusBadge component correctly applies tactical-badge class and rende
 - Ensured reusable module-level constants were defined for all memory offsets and bits instead of magic numbers.
 - Added rigorous DataView bounds checking to gracefully handle and remap `RangeError` to `"The save file is corrupted or incomplete."` per the system prompt.
 - Added rigorous Unit Tests in `src/engine/gen3/staticEncounters.test.ts` to ensure safety and precision.
+
+## 2026-07-22: Orchestrator VERIFYING Hierarchical Block Fix Implementation
+- **Node**: task-070-276-001-verifying-block
+- **Actions**: Removed `VERIFYING` allowance in dependency and parent status checks in `.github/scripts/foundry-orchestrator.ts`. Verified that `VERIFYING` correctly blocks or suspends the parent in unit tests.
