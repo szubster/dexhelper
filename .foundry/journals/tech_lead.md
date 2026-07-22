@@ -242,3 +242,6 @@ Appended tech lead journal for breaking down Gen 3 Volcanic Ash extraction story
 ## 2026-07-22: Break down session unique journals story
 - **Node**: story-338-336-implement-session-unique-journals
 - **Actions**: Broke down the story into an implementation task to update agent prompts and orchestrator for session-unique journals, and a QA verification task to ensure the instructions and parsing logic are correct.
+## 2026-07-22: Automerge Journal Updates
+- **Node**: story-338-336-implement-session-unique-journals
+- **Actions**: Added additional tasks to update the automerge GitHub action to allow PRs containing only journal file changes to be automatically merged.

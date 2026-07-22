@@ -34,3 +34,5 @@ Currently, agent personas write to monolithic journal files (e.g., `.foundry/jou
 - [ ] Tech Lead: Break this Story down into actionable Tasks.
 - [ ] task-338-338-session-unique-journals-impl
 - [ ] task-338-339-session-unique-journals-qa
+- [ ] task-338-340-journal-automerge-impl
+- [ ] task-338-341-journal-automerge-qa
