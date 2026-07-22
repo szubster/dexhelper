@@ -147,4 +147,25 @@ describe('PokemonCaughtDetails', () => {
     await expect.element(page.getByText('Sheen')).toBeInTheDocument();
     await expect.element(page.getByText('200')).toBeInTheDocument();
   });
+
+  it('renders Pokerus strain when present', async () => {
+    (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
+      (selector: unknown) =>
+        (selector as (state: unknown) => unknown)({
+          saveData: {
+            generation: 3,
+          },
+        }),
+    );
+
+    const pokemonWithPokerus = {
+      ...mockPokemon,
+      pokerus: { strain: 3, daysRemaining: 2 },
+    };
+
+    await render(<PokemonCaughtDetails yourPokemon={[pokemonWithPokerus]} />);
+
+    await expect.element(page.getByText('[ POKERUS_STRAIN ]')).toBeInTheDocument();
+    await expect.element(page.getByText('3', { exact: true })).toBeInTheDocument();
+  });
 });

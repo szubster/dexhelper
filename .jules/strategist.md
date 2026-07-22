@@ -387,3 +387,15 @@
 **Outcome:** Merged
 **Why:** The prompt evaluation identified duplication in the agent prompts where the "REMINDER FOR CODER" and "REMINDER FOR QA" rules regarding node failures, cancellations, and empty PRs were explicitly defined in `coder.md` and `qa.md`, despite already being centralized in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 **Pattern:** Agents must rely on the centralized policies in `.foundry/docs/knowledge_base/agents/core_policies.md` for handling node failures, cancellations, and empty PRs, rather than duplicating 'REMINDER' blocks across persona prompts or task files.
+
+## 2026-07-31 - [Accepted] - Prompt improvement - Fix ADR folder paths
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** Agents were repeatedly instructed to read `.foundry/docs/adrs/` in their initialization rules, but the ADRs were actually moved to `.foundry/archive/docs/adrs/` in a past update. This led to agents failing to read crucial architectural constraints, or failing during context gathering because the directory was practically empty (`.gitkeep`).
+**Pattern:** Ensure system prompts point to the correct, actual paths for documentation and context files to prevent agents from operating with outdated or missing constraints.
+
+## 2026-08-01 - [Accepted] - Prompt improvement - Enforce xvfb-run for Playwright E2E tests
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The memory requires that when running browser-based tests (such as Playwright E2E or Vitest browser) in the headless agent environment, agents must strictly prefix the test command with `xvfb-run` (e.g., `xvfb-run pnpm test:e2e`) to prevent browser launch failures and protocol connection errors. Several agent prompts (bolt, infras, mason, nurse, oak, palette, sculptor, sentinel, shield, sweeper, trainer) and the core policies were just using `pnpm test:e2e` instead of `xvfb-run pnpm test:e2e`.
+**Pattern:** Codify specific, recurring test framework constraints (like xvfb-run prefix for headless browser tests) directly into the agent prompts and core policies to prevent recurring test failures during the QA phase.

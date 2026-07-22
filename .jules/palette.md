@@ -14,3 +14,4 @@ Learned about using .cjs for node scripts in ES module projects and the @utility
 - Maintained tactical aesthetics for tooltips by introducing a custom `@utility tactical-tooltip` in `src/index.css`.
 - Modified `TacticalIconButton` to replace native `title` tooltips with a custom CSS tooltip approach (`group-hover:opacity-100`) to address accessibility/UX without native browser styling, while preserving `aria-label` for screen readers.
 - Removed `title` from being spread onto `<button>` props by extracting it and omitting it from `restProps`.
+- Added custom custom tactical-tooltip to TacticalButton to replace standard browser tooltips and align styling with the rest of the app's tactical aesthetic.

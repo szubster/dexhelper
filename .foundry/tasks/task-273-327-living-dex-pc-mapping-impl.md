@@ -5,7 +5,7 @@ title: Living Dex PC Mapping Implementation
 status: READY
 owner_persona: coder
 created_at: '2026-07-16'
-updated_at: '2026-07-20'
+updated_at: '2026-07-22'
 depends_on: []
 jules_session_id: null
 pr_number: null

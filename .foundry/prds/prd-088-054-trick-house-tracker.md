@@ -2,12 +2,12 @@
 id: prd-088-054-trick-house-tracker
 type: PRD
 title: Gen 3 Trick House Progression Tracker
-status: PENDING
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-06-28'
 updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: '5605561173032774432'
+jules_session_id: '2169437010596573026'
 pr_number: null
 parent: idea-088-trick-house-tracker
 tags:
@@ -35,5 +35,6 @@ Extract the Trick House puzzle state using DexHelper's save file parsing capabil
 
 ## 4. Acceptance Criteria
 - [x] Epic Planner: Break down this PRD into Epics for the Tracker Tracker, focusing on the data parsing logic and the frontend presentation logic.
-- [ ] .foundry/epics/epic-054-111-trick-house-save-parsing.md
-- [ ] .foundry/epics/epic-054-112-trick-house-ui.md
+- [x] epic-054-111-trick-house-save-parsing
+- [ ] epic-054-338-trick-house-save-parsing
+- [ ] epic-054-112-trick-house-ui
