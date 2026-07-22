@@ -1,8 +1,8 @@
-# Save Parser Migration to DataView
+# Save Parser DataView API
 
-The save parser engine in `dexhelper` has been migrated from `Uint8Array` to the native `DataView` API.
+The save parser engine in `dexhelper` uses the native `DataView` API.
 
-## Key Changes
+## API Details
 - **`DataView` Enforcement**: All parsing logic now uses `DataView` which provides native bounds checking.
 - **Robustness**: The engine now catches `RangeError` within `decodeGen12String` and handles corrupted or truncated save files by stopping the decode process gracefully.
 - **Integration Tests**: Added `blue-complete.sav` to `saveFixtures.test.ts` and verified it against expected values.
