@@ -1,7 +1,5 @@
-export const EMERALD_LOTTERY_HIGH_OFFSET = 0x1432;
 export const EMERALD_LOTTERY_LOW_OFFSET = 0x1434;
 export const RS_LOTTERY_LOW_OFFSET = 0x13d6;
-export const RS_LOTTERY_HIGH_OFFSET = 0x13d8;
 
 /**
  * Parses the daily lottery number from a Gen 3 save file.

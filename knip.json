@@ -15,6 +15,8 @@
     ".github/scripts/verify-dag-refs.ts",
     "scripts/gen3-fetch-locations.ts",
     "functions/_middleware.ts",
+    "functions/api/saves/index.ts",
+    "functions/api/saves/[id].ts",
     "scripts/data/gen3/match_call/etl.ts"
   ],
   "rules": {
