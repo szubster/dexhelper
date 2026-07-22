@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: qa
 created_at: '2026-06-16'
 updated_at: '2026-07-03'
-depends_on:
-  - task-099-192-mirage-island-parser-impl
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-061-099-implement-mirage-island-parser
@@ -20,7 +19,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # QA - Mirage Island Parser Logic
 
 ## Context

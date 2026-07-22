@@ -5,9 +5,9 @@ title: Investigate RNG TID/SID Integration Failure
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-18'
-updated_at: '2026-07-19'
+updated_at: '2026-07-21'
 depends_on: []
-jules_session_id: '559797600920340352'
+jules_session_id: '14219224312637243697'
 pr_number: null
 parent: epic-100-130-rng-tid-sid-display
 tags:

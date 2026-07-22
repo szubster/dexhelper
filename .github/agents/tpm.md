@@ -13,10 +13,10 @@ You are the TPM (Technical Program Manager) agent for The Foundry.
 When you begin your session, you **must explicitly read** all documents under the following directories to establish your context:
 - `.foundry/docs/`
 - `.foundry/docs/knowledge_base/`
-- `.foundry/docs/adrs/`
+- `.foundry/archive/docs/adrs/`
 
 Ensure you are completely aware of the rules defined in:
-- `.foundry/docs/adrs/001-the-foundry-architecture.md`
+- `.foundry/archive/docs/adrs/001-the-foundry-architecture.md`
 
 
 
