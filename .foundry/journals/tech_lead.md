@@ -241,3 +241,13 @@ Appended tech lead journal for breaking down Gen 3 Volcanic Ash extraction story
 ## 2026-07-20: Passthrough validation for Gen 3 Trainer ID and Secret ID
 - Assigned to story-130-269-extract-gen3-trainer-id-secret-id where its generated children (task-269-263-gen3-trainer-id-secret-id-impl and task-269-264-gen3-trainer-id-secret-id-qa) have already been completed. Checked off the child checkboxes in the story markdown body and submitted an empty PR to transition the Story.
 - [2026-07-19] Checked off acceptance criteria for story-081-282-gen3-manual-time-ui-overrides because child tasks are COMPLETED, properly advancing the parent's status.
+
+## 2026-07-22: Break down session unique journals story
+- **Node**: story-338-336-implement-session-unique-journals
+- **Actions**: Broke down the story into an implementation task to update agent prompts and orchestrator for session-unique journals, and a QA verification task to ensure the instructions and parsing logic are correct.
+## 2026-07-22: Automerge Journal Updates
+- **Node**: story-338-336-implement-session-unique-journals
+- **Actions**: Added additional tasks to update the automerge GitHub action to allow PRs containing only journal file changes to be automatically merged.
+## 2026-07-22: Combined Automerge Updates
+- **Node**: story-338-336-implement-session-unique-journals
+- **Actions**: Updated automerge tasks to specify that PRs containing a combination of both journal entries and checkbox updates should be auto-merged.
