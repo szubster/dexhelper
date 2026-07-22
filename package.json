@@ -71,6 +71,7 @@
     "browserslist": "^4.28.6",
     "bundlemon": "^3.1.0",
     "fake-indexeddb": "^6.2.5",
+    "gray-matter": "^4.0.3",
     "knip": "^6.27.0",
     "lefthook": "^2.1.10",
     "lightningcss": "^1.32.0",
