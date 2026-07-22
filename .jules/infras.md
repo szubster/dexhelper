@@ -82,11 +82,9 @@ Critical learnings:
 ## 2026-06-09 - Fix Biome schema version
 **Learning:** Config drift between `package.json` (`2.4.16`), `biome.yml` (`2.4.15`), and `biome.jsonc` schemas can cause `sort-package-json` or `pnpm lint:package-json` to fail in CI pipelines, as well as lead to config mismatch between local devs and CI runners. Always ensure Biome schema and runner versions are updated in sync when upgrading.
 
-
 ## 2026-06-13 - Sync CI Linting with package.json
 **Learning:** Found that `pnpm lint` in `package.json` runs `oxlint --type-aware --type-check --import-plugin --promise-plugin` and `pnpm lint:type-coverage`, but the GitHub Actions CI workflow (`.github/workflows/ci.yml`) was missing these specific flags and the type coverage check entirely. Updated the CI configuration to ensure the linting checks run in CI exactly match the local script, preventing untested code regressions from being missed by CI.
 \n## 2026-06-19 - Empty PR Policy and Playwright for tests\n**Learning:** Running unit tests (`pnpm test`) locally requires installing Playwright browsers (`pnpm exec playwright install chromium --with-deps`) beforehand, as the Vitest configuration relies on the `@vitest/browser-playwright` plugin. Additionally, if the existing development infrastructure (e.g., Biome, Oxlint, Knip, Lefthook) is highly optimized and no further tooling improvement can be cleanly implemented without introducing bloat, the Infras persona must submit an empty PR rather than forcing a change.
-
 
 ## 2026-06-25 - Empty PR Policy and Environment Troubleshooting
 **Learning:**
@@ -113,4 +111,3 @@ Critical learnings:
 
 ## 2026-07-17 - Empty PR Policy for Infrastructure
 **Learning:** Audited the development tooling, found to be highly optimized and matching CI parity. An empty PR will be submitted to respect the bloat policy.
-## 2026-07-17 - Empty PR Policy for Infrastructure\n**Learning:** Audited the development tooling, found to be highly optimized and matching CI parity. An empty PR will be submitted to respect the bloat policy. Also, ran bundle analysis requiring `pnpm build`.

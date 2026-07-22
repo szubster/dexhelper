@@ -333,7 +333,6 @@
 **Why:** The memory requires that context gathering is done using the `read_file` tool rather than bash scripts/`cat` to avoid truncation, and any temporary scratchpad scripts created must be deleted to prevent repository pollution. While this was added to several agent prompts on 2026-07-13, a review revealed that many agents (archivist, bolt, canvas, infras, mason, nurse, oak, palette, scribe, sculptor, sentinel, shield, sweeper, trainer, visionary) were still missing the `CRITICAL CONTEXT GATHERING INSTRUCTION`, and almost all were missing the `Scratchpad Cleanup` instruction (including the `auditor`).
 **Pattern:** Apply systemic rules universally across all agent personas. When an architectural constraint or tool rule applies to exploration or repository hygiene, it must be explicitly included in every single agent prompt to ensure full system-wide compliance and prevent arbitrary failures.
 
-
 ## 2026-07-22 - [Accepted] - Prompt improvement - Add Late-Binding Orchestrator Demotion Compliance Rule to core policies
 **Type:** Prompt improvement
 **Outcome:** Merged
@@ -344,7 +343,6 @@
 **Outcome:** Merged
 **Why:** The prompt evaluation identified massive duplication in the agent prompts where a huge block regarding the "Journaling rules" (logging long-term lessons vs execution logs) and "YAML frontmatter modification rules" was repeated verbatim across 26 different agents. This bloated the prompts and made updating the rules error-prone.
 **Pattern:** Consolidate duplicated core prompt instructions (e.g. journaling rules, YAML modification policies) into `.foundry/docs/knowledge_base/agents/core_policies.md` and instruct the agents to read it. This drastically reduces prompt size, creates a single source of truth, and allows global policy updates without touching 26 individual schedule files.
-
 
 ## 2026-07-24 - [Accepted] - Prompt improvement - Enforce explicit generic typing on vi.fn() mocks
 **Type:** Prompt improvement

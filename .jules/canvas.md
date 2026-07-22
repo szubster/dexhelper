@@ -252,7 +252,6 @@
 **Why:** Brings the Battle Frontier dashboard fully in line with the established specialized hardware motif. Standard shaded boxes looked like a regular web UI; treating the facilities as active simulation nodes with scanning grids and physical crosshairs fits the tactical intelligence readouts seen elsewhere.
 **Pattern:** Consistently elevate generic dashboard lists into active 'Simulation Matrices' or 'Telemetry Nodes' by wrapping them in `TacticalPanel`, applying `LcdGrid`/`HoverScanner` for CRT effects, and utilizing `DataPoint` components for core stats to reinforce the specialized hardware fantasy.
 
-
 ## 2026-07-07 - [Accepted] - 🖼️ Canvas: Tactical Geospatial Telemetry Redesign
 **What:** Redesigned the `PokemonLocations` component into a "Geospatial Telemetry" dashboard. Transformed the basic static encounter lists into active `GeospatialNode` blocks, featuring `<LcdGrid>`, `<HoverScanner>`, heavy tactical data pipes, and pulsing LEDs. Replaced standard layout rows with specialized `LocationRow` components that mimic database query returns (`[ EVOLUTION ]`, `[ STATIONARY ]`), and added `SAT-LINK` badges and scanning radar icons to reinforce the localized specialized hardware aesthetic.
 **Outcome:** Accepted

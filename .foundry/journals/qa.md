@@ -42,7 +42,7 @@ To enforce the architecture correctly, all dynamic save block extraction functio
 - **Reason**: The developer reached max rejections by faking the relative offset calculation fix. They kept the absolute memory offsets and performed math manipulation, violating ADR 028.
 
 ## 2026-07-13 - Feebas Extraction Permanent Failure (Task: task-280-305-feebas-backend-integration-qa)
-The coder failed to properly implement relative memory offsets using `section1Offset` for Feebas seed extraction after multiple rejections. They used `section2Offset` instead of `section1Offset`, violating the architecture requirements of the Gen 3 A/B bank flash memory system. As they have reached the maximum rejection count, I have permanently failed the `task-280-304-feebas-backend-integration` by setting its status to `CANCELLED`.
+The coder failed to properly implement relative memory offsets using `section1Offset` for Feebas seed extraction after multiple rejections. They used `section2Offset` instead of `section1Offset`, violating the architecture requirements of the Gen 3 A/B bank flash memory system.
 
 ## 2026-07-15: PC Box Diff Engine Rejection
 - **Date**: 2026-07-15
@@ -58,8 +58,6 @@ The coder failed to properly implement relative memory offsets using `section1Of
 - **Task**: `task-258-264-egg-move-precomputation-etl-qa`
 - **Result**: Checked and fixed the BFS egg move generation logic. Added logic for Smeargle (who sketches any move), Nidoran lines, Volbeat/Illumise, and Hitmon families breeding. Precomputed paths are generating.
 - **Action**: Modified `scripts/generate-pokedata.ts`, validated output, updated acceptance criteria, completed checks and tests successfully.
-
-
 
 ## 2026-07-16 - Gen 3 Roamer Active Flag Parsing QA Passed (Task: task-292-323-gen3-roamer-active-flag-parsing-qa)
 Verified that the `active` boolean is correctly parsed using the provided offset `0x13` via a module-level constant `ROAMER_ACTIVE_OFFSET = 0x13`.
