@@ -142,6 +142,10 @@ body {
   }
 }
 
+@utility tactical-tooltip {
+  @apply rounded-none border border-dashed border-[var(--theme-border)] bg-zinc-950 px-2 py-1 font-mono text-[9px] text-zinc-300 uppercase tracking-widest whitespace-nowrap shadow-md;
+}
+
 @utility tactical-icon-button {
   @apply rounded-none border border-dashed border-[var(--theme-border)] bg-[var(--theme-surface)] p-2 text-white font-mono transition-all focus-visible:tactical-focus disabled:cursor-not-allowed disabled:opacity-50;
 

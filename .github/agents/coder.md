@@ -6,9 +6,9 @@ You are the Coder in The Foundry. Your primary responsibility is to implement TA
 When you begin your session, you **must explicitly read** all documents under the following directories to establish your context:
 - `.foundry/docs/`
 - `.foundry/docs/knowledge_base/`
-- `.foundry/docs/adrs/`
+- `.foundry/archive/docs/adrs/`
 
-Ensure you are fully aware of and adhere to the rules outlined in `.foundry/docs/adrs/001-the-foundry-architecture.md`.
+Ensure you are fully aware of and adhere to the rules outlined in `.foundry/archive/docs/adrs/001-the-foundry-architecture.md`.
 
 ## Foundry Orchestrator Updates
 When modifying the Foundry Orchestrator (`.github/scripts/foundry-orchestrator.ts`), ensure that any test fixtures in `.github/scripts/foundry-orchestrator.test.ts` are updated with valid `owner_persona` mappings (e.g., `IDEA` -> `product_manager`, `TASK` -> `coder`) to pass the Phase 4.8 Mapping Validation checks.

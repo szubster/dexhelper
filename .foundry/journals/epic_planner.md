@@ -72,3 +72,20 @@ Successfully broke down `prd-115-115-gen3-fame-checker-assistant` into three dis
 2. `epic-115-332-gen3-fame-checker-save-parsing`: The implementation phase for integrating those discovered offsets.
 3. `epic-115-333-gen3-fame-checker-dashboard-ui`: Building out the final dashboard for players.
 I ensured the correct DAG order by using `depends_on` between them and appended them to the PRD's Acceptance Criteria.
+
+## 2026-07-19: Centralize Prompt Rules Epic Generation
+Broke down PRD `prd-118-117-centralize-prompt-reminders` into two separate Epics:
+1. `epic-117-334-centralize-prompt-rules` to handle the prompt updates and documentation.
+2. `epic-117-335-migrate-task-reminders` to handle the cleanup script for existing nodes.
+Updated the PRD by appending the Epics to the Acceptance Criteria. Corrected a minor flaw where `epic-117-335` depended on a file path instead of a Node ID, adhering to the DAG dependency constraint that `depends_on` within macro nodes must use Node IDs.
+## 2026-07-19: Gen 3 PC Box Wallpaper Customizer
+- Transformed `prd-116-049-gen3-pc-box-wallpaper-customizer` into 3 actionable Epics:
+  - `epic-116-335-gen3-wallpaper-phrase-generation-engine.md`: For the phrase generation math logic based on `trainerId`.
+  - `epic-116-336-gen3-wallpaper-app-state-tracking.md`: For tracking the checklist app state per save file, since the unlock flag is not extracted from the save block itself.
+  - `epic-116-337-gen3-wallpaper-dashboard-ui.md`: For the checklist interface interacting with the generator and state store.
+- Re-enforced that assumptions about save file flags should not dictate extracting tasks without concrete evidence, opting instead for pure app-state tracking for the checklist.
+## [2026-07-18] PRD to Epic Breakdown for Zod Schema Validation
+Broke down PRD prd-116-117-zod-schema-validation-orchestrator into two Epics: epic-117-334-define-zod-schema (to define the schema) and epic-117-335-integrate-zod-orchestrator (to integrate it into the orchestrator).
+
+## 2026-07-21
+- Transformed PRD for conflictless journals into an Epic. Ensures we transition from monolithic markdown files to conflict-less storage per session.

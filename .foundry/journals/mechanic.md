@@ -20,3 +20,16 @@
 - Reset the status of `epic-009-atomic-handoff-testing`, `story-009-031-deadlock-prevention-tests`, `research-246-244-gen3-box-parsing`, and `story-108-246-gen3-box-parsing` to `PENDING` and cleared their `rejection_reason` in frontmatter.
 - Removed child research dependency from `story-108-246-gen3-box-parsing`'s `depends_on` array.
 - Checked off the completed and archived `story-108-245-gen2-box-parsing` checkbox in `epic-054-108-box-analyzer-save-parsing` markdown body without modifying any frontmatter.
+Mechanic Update - 2026-07-22
+
+- Identified several nodes with invalid `depends_on` containing file extensions or paths rather than raw Node IDs.
+- Fixed `depends_on` formatting in multiple tasks and epics to adhere strictly to the ID requirement.
+- Fixed `status` fields that were manually set to `READY` in multiple nodes (ideas, prds, stories, tasks, research), resetting them to `PENDING`. (Orchestrator computes `READY` automatically).
+- Removed circular dependencies where parent nodes were improperly listed in a child`s `depends_on` array or children in parents, across active and archived nodes.
+- Validated all `.foundry/` node schemas using a custom python script.
+
+# Mechanic Update - 2026-07-21
+
+- Fixed 38 missing or archived dependency paths in `depends_on` arrays across the DAG. These dead dependencies cause deadlocks during Orchestrator runs.
+- Detected and repaired a task (`task-261-331-npc-trade-state-integration-impl.md`) that had a manually set `READY` status, reverting it back to `PENDING`.
+- Verified that no parent-child dependency cycles remain.

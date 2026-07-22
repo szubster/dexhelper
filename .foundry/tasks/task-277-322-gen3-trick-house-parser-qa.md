@@ -6,8 +6,7 @@ status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-15'
 updated_at: '2026-07-19'
-depends_on:
-  - task-276-312-gen3-trick-house-parser-retry-impl
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-111-277-trick-house-parser-qa
@@ -25,7 +24,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Task: Gen 3 Trick House Parser QA
 
 ## Objective

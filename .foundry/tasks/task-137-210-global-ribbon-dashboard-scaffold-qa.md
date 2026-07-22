@@ -2,13 +2,12 @@
 id: task-137-210-global-ribbon-dashboard-scaffold-qa
 type: TASK
 title: QA Global Ribbon Checklist Dashboard Scaffold
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-19'
-updated_at: '2026-06-19'
-depends_on:
-  - task-137-209-global-ribbon-dashboard-scaffold-impl
-jules_session_id: null
+updated_at: '2026-07-21'
+depends_on: []
+jules_session_id: '10226037099837483663'
 pr_number: null
 parent: story-066-137-global-ribbon-dashboard-scaffold
 tags:
@@ -21,7 +20,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # TASK: QA Global Ribbon Checklist Dashboard Scaffold
 
 ## Background
@@ -30,11 +28,6 @@ The coder has implemented the `GlobalRibbonChecklistDashboard` component for vie
 ## Goals
 1. Verify the `GlobalRibbonChecklistDashboard` component functions as designed.
 2. Ensure data from the Living Dex / PC Box is correctly aggregated and displayed.
-
-## Reminder for QA Persona
-- **Transient Failures:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
-- **Permanent Failures:** If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
-- **Empty PR Policy:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
 - [ ] Verify `GlobalRibbonChecklistDashboard` accurately displays data from the PC/Living Dex.
