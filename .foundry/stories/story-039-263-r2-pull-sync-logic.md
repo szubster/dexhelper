@@ -2,10 +2,10 @@
 id: story-039-263-r2-pull-sync-logic
 type: STORY
 title: Cloudflare R2 Pull Sync Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-08'
+updated_at: '2026-07-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
