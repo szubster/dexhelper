@@ -2,12 +2,12 @@
 id: epic-107-301-lift-rejection-count-state
 type: EPIC
 title: Lift Constant and Update Context
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-10'
 updated_at: '2026-07-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9529976186991075352'
 pr_number: null
 parent: prd-085-107-lift-rejection-count-state
 tags:
