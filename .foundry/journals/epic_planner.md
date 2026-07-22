@@ -92,3 +92,6 @@ Broke down PRD prd-116-117-zod-schema-validation-orchestrator into two Epics: ep
 
 ## 2026-07-21
 - Transformed PRD for conflictless journals into an Epic. Ensures we transition from monolithic markdown files to conflict-less storage per session.
+
+## 2026-07-22: Handling Rejection of epic-107-301
+Encountered permanently failed epic-107-301 due to missing E2E integration story. Spawning research node research-107-336 and replacement epics epic-107-339 and epic-107-340. Demoted parent prd-085-107-lift-rejection-count-state to PENDING by appending new nodes as unchecked criteria and checking off the pending epics 301 and 302.
