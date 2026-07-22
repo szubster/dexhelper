@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-05-21'
 updated_at: '2026-07-03'
-depends_on:
-  - epic-030-038-cloudflare-google-sso
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: prd-055-030-cloudflare-auth-sync
@@ -24,7 +23,6 @@ notes: >-
   Derived from PRD 055-030 and Research 030-004. Uses Cloudflare R2 for strong
   consistency and file blob storage.
 ---
-
 # Epic: Cloudflare R2 Offline-First Save Syncing
 
 ## Context

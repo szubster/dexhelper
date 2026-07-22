@@ -5,9 +5,9 @@ title: Extract Pokémon Met Locations
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-08'
+updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14649701129480848192'
 pr_number: null
 parent: epic-097-130-nuzlocke-route-tracking
 tags:
