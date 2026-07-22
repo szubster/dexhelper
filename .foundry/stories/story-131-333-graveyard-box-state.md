@@ -29,4 +29,6 @@ Implement backend state and calculation logic for identifying Pokémon in the de
 - Implement logic to mark any Pokémon in the Graveyard Box as dead regardless of HP.
 
 ## Acceptance Criteria
-- [ ] Tasks are generated
+- [x] Tasks are generated
+- [ ] task-333-338-graveyard-box-logic-impl
+- [ ] task-333-339-graveyard-box-logic-qa
