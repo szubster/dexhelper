@@ -1044,4 +1044,136 @@ describe('generateSuggestions', () => {
     expect(sugg2?.priority).toBe(45);
     expect(sugg2?.warning).toBe('Requires Rock Smash');
   });
+
+  it('should generate breeding suggestions for Egg Moves when owning an ancestor in the chain', () => {
+    const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
+    ownedSet.delete(1); // Missing Bulbasaur
+
+    const mockSaveData = {
+      generation: 2,
+      gameVersion: 'gold',
+      trainerName: 'ASH',
+      owned: ownedSet,
+      party: [],
+      pc: [274], // Owns Nuzleaf
+      inventory: [],
+      partyDetails: [],
+      pcDetails: [
+        {
+          speciesId: 274,
+          level: 20,
+          isShiny: false,
+          moves: [], // No moves initially
+          storageLocation: 'Box 1',
+          otName: 'ASH',
+        },
+      ],
+    } as unknown as SaveData;
+
+    const mockApiData = {
+      pokemonMetadata: {
+        1: {
+          id: 1,
+          n: 'Bulbasaur',
+          cr: 45,
+          baby: false,
+          eto: [],
+          efrm: [],
+          det: [],
+          em: {
+            13: [274, 1], // Move 13 (Razor Leaf), chain: Nuzleaf -> Bulbasaur
+          },
+        },
+        274: {
+          id: 274,
+          n: 'Nuzleaf',
+          cr: 45,
+          baby: false,
+          eto: [],
+          efrm: [],
+          det: [],
+        },
+      } as Record<number, PokemonMetadata>,
+      localAid: null,
+      localEncounters: null,
+      missingEncounters: {},
+      ancestralEncounters: {},
+      areaNames: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const strategy = getStrategy(2);
+    const result = generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
+
+    const emSuggestion = result.suggestions.find((s) => s.id === 'egg-move-1-13-274');
+    expect(emSuggestion).toBeDefined();
+    expect(emSuggestion?.description).toBe('Breed your #274 to get a #1 with the Egg Move!');
+    expect(emSuggestion?.priority).toBe(82);
+  });
+
+  it('should generate higher priority breeding suggestions for Egg Moves when owning an ancestor that actually knows the move', () => {
+    const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
+    ownedSet.delete(1); // Missing Bulbasaur
+
+    const mockSaveData = {
+      generation: 2,
+      gameVersion: 'gold',
+      trainerName: 'ASH',
+      owned: ownedSet,
+      party: [],
+      pc: [274], // Owns Nuzleaf
+      inventory: [],
+      partyDetails: [],
+      pcDetails: [
+        {
+          speciesId: 274,
+          level: 20,
+          isShiny: false,
+          moves: [13], // Knows Razor Leaf
+          storageLocation: 'Box 1',
+          otName: 'ASH',
+        },
+      ],
+    } as unknown as SaveData;
+
+    const mockApiData = {
+      pokemonMetadata: {
+        1: {
+          id: 1,
+          n: 'Bulbasaur',
+          cr: 45,
+          baby: false,
+          eto: [],
+          efrm: [],
+          det: [],
+          em: {
+            13: [274, 1], // Move 13 (Razor Leaf), chain: Nuzleaf -> Bulbasaur
+          },
+        },
+        274: {
+          id: 274,
+          n: 'Nuzleaf',
+          cr: 45,
+          baby: false,
+          eto: [],
+          efrm: [],
+          det: [],
+        },
+      } as Record<number, PokemonMetadata>,
+      localAid: null,
+      localEncounters: null,
+      missingEncounters: {},
+      ancestralEncounters: {},
+      areaNames: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const strategy = getStrategy(2);
+    const result = generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
+
+    const emSuggestion = result.suggestions.find((s) => s.id === 'egg-move-1-13-274');
+    expect(emSuggestion).toBeDefined();
+    expect(emSuggestion?.description).toBe('Breed your #274 (which knows the Egg Move) to get a #1!');
+    expect(emSuggestion?.priority).toBe(88);
+  });
 });

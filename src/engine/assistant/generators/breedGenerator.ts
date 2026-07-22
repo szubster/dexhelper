@@ -97,6 +97,45 @@ export function generateBreedingSuggestions(
           priority,
         });
       }
+
+      if (p.em) {
+        const moveIds = Object.keys(p.em);
+        for (let j = 0; j < moveIds.length; j++) {
+          const moveIdStr = moveIds[j];
+          if (!moveIdStr) continue;
+          const moveId = parseInt(moveIdStr, 10);
+          const chain = p.em[moveId];
+          if (!chain || chain.length === 0) continue;
+
+          for (let k = chain.length - 2; k >= 0; k--) {
+            const stepSpeciesId = chain[k];
+            if (stepSpeciesId !== undefined && instancesBySpecies.has(stepSpeciesId)) {
+              const nextStepSpeciesId = chain[k + 1];
+              if (nextStepSpeciesId === undefined) continue;
+
+              const instances = instancesBySpecies.get(stepSpeciesId) || [];
+              const hasMove = instances.some((inst) => inst.moves?.includes(moveId));
+
+              let description = `Breed your #${stepSpeciesId} to get a #${nextStepSpeciesId} with the Egg Move!`;
+              const title = `Breed: #${nextStepSpeciesId}`;
+              if (hasMove) {
+                description = `Breed your #${stepSpeciesId} (which knows the Egg Move) to get a #${nextStepSpeciesId}!`;
+              }
+
+              suggestions.push({
+                id: `egg-move-${targetId}-${moveId}-${stepSpeciesId}`,
+                category: 'Breed',
+                title,
+                description,
+                pokemonId: nextStepSpeciesId,
+                priority: hasMove ? 88 : 82,
+              });
+
+              break;
+            }
+          }
+        }
+      }
     }
   }
 }
