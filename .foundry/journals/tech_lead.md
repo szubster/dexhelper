@@ -261,3 +261,4 @@ Assigned to story-324-322-safari-zone-static-tables where its generated child (t
 ## 2026-07-22: Combined Automerge Updates
 - **Node**: story-338-336-implement-session-unique-journals
 - **Actions**: Updated automerge tasks to specify that PRs containing a combination of both journal entries and checkbox updates should be auto-merged.
+- Drafted task-336-342-zod-schema-definition-impl and task-336-343-zod-schema-definition-qa for story 336.
