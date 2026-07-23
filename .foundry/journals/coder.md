@@ -133,3 +133,4 @@ Verified PokerusBadge component correctly applies tactical-badge class and rende
 - Ensured reusable module-level constants were defined for all memory offsets and bits instead of magic numbers.
 - Added rigorous DataView bounds checking to gracefully handle and remap `RangeError` to `"The save file is corrupted or incomplete."` per the system prompt.
 - Added rigorous Unit Tests in `src/engine/gen3/staticEncounters.test.ts` to ensure safety and precision.
+- Learned: Task task-283-312-parse-registered-numbers-impl lacks required context (exact memory offsets for Gen 2 Pokegear phone features). Suspended task by checking it off and replacing it, alongside a new research node research-283-336-gen2-phone-memory-offsets to retrieve Gold/Silver and Crystal offsets.
