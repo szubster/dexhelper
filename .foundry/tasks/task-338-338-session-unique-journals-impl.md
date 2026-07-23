@@ -34,5 +34,5 @@ Update the system configuration and core agent prompts to enforce the use of ses
 - Specifically, update `.github/scripts/foundry-orchestrator.ts` if it references `.foundry/journals/agile_coach.md` directly.
 
 ## Acceptance Criteria
-- [ ] Agent prompt files in `.github/agents/` are updated to specify session-unique journal paths.
-- [ ] The orchestrator (`.github/scripts/foundry-orchestrator.ts`) is updated to support the new format, if applicable.
+- [x] Agent prompt files in `.github/agents/` are updated to specify session-unique journal paths.
+- [x] The orchestrator (`.github/scripts/foundry-orchestrator.ts`) is updated to support the new format, if applicable.
