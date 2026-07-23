@@ -98,7 +98,7 @@ export function VersionModal() {
                 </div>
 
                 <div className="relative z-10 mt-3 flex items-center justify-center py-2">
-                  <span className="font-black font-mono text-lg text-white uppercase tracking-widest drop-shadow-sm transition-colors group-hover:text-amber-400">
+                  <span className="tactical-text font-black text-lg text-white drop-shadow-sm transition-colors group-hover:text-amber-400">
                     {v.label}
                   </span>
                 </div>

@@ -80,7 +80,7 @@ export function TacticalBlockHeader({
       {...props}
     >
       <div className="flex flex-col gap-1">
-        <span className={cn('flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-widest', styles.label)}>
+        <span className={cn('tactical-text flex items-center gap-1.5 text-[9px]', styles.label)}>
           {icon}
           {trackingLabel}
         </span>

@@ -74,7 +74,7 @@ export const ContestRibbonBadge = React.forwardRef<HTMLDivElement, ContestRibbon
         </div>
 
         <div className="relative z-10 flex items-center justify-between border-white/5 border-t border-dashed pt-3">
-          <span className="font-mono text-[8px] text-zinc-500 uppercase tracking-widest">CLEARANCE</span>
+          <span className="tactical-text text-[8px] text-zinc-500">CLEARANCE</span>
           <span
             className={cn(
               'inline-flex items-center gap-1.5 border border-dashed px-1.5 py-0.5 font-bold font-mono text-[9px] uppercase tracking-wider',

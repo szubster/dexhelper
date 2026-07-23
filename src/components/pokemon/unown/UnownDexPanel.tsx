@@ -28,7 +28,7 @@ export function UnownDexPanel({ yourPokemon }: UnownDexPanelProps) {
     <TacticalPanel variant="cyan" className="relative mt-8 flex flex-col gap-6 p-4 pt-8 sm:p-6">
       <TelemetryDecoration label="SYS.UNKNOWN_ENCRYPTION_MATRIX" className="-top-[17px] left-[-1px]" />
       <div className="flex flex-col justify-between border-cyan-500/30 border-b border-dashed pb-4 sm:flex-row sm:items-center">
-        <h3 className="font-bold font-mono text-sm text-white uppercase tracking-widest">[ UNOWN DATABASE ]</h3>
+        <h3 className="tactical-text font-bold text-sm text-white">[ UNOWN DATABASE ]</h3>
         <div className="mt-2 font-mono text-xs text-zinc-500 sm:mt-0">
           <span className="font-bold text-cyan-400">{ownedForms.size}</span> / 26 FORMS ACQUIRED
         </div>

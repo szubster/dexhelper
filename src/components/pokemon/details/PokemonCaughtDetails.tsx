@@ -44,9 +44,7 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
 
             <div className="relative z-10 mt-6 flex items-start justify-between border-white/5 border-b border-dashed bg-black/40 p-4">
               <div className="flex flex-col">
-                <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
-                  [ SECURITY CLEARANCE ]
-                </span>
+                <span className="tactical-text text-[10px] text-zinc-500">[ SECURITY CLEARANCE ]</span>
                 <div className="font-black font-display text-4xl text-white tracking-tighter">LV.{p.level}</div>
                 <div className="mt-1 flex items-center gap-2">
                   <TacticalBadge

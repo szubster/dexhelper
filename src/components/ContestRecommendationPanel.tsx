@@ -40,7 +40,7 @@ export const ContestRecommendationPanel = React.forwardRef<HTMLDivElement, Conte
             <LcdGrid />
             <HoverScanner />
             <div className="relative z-10 flex items-center gap-2 border-amber-500/30 border-b border-dashed pb-2">
-              <span className="font-bold font-mono text-amber-500 text-sm uppercase tracking-widest drop-shadow-[0_0_4px_rgba(245,158,11,0.5)]">
+              <span className="tactical-text font-bold text-amber-500 text-sm drop-shadow-[0_0_4px_rgba(245,158,11,0.5)]">
                 [ WARNING: OPTIMIZATION_DEAD_END ]
               </span>
             </div>
@@ -55,7 +55,7 @@ export const ContestRecommendationPanel = React.forwardRef<HTMLDivElement, Conte
           <div className="relative flex h-16 items-center justify-center overflow-hidden rounded-none border border-zinc-800 border-dashed bg-black/40">
             <LcdGrid />
             <HoverScanner />
-            <span className="relative z-10 font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
+            <span className="tactical-text relative z-10 text-[10px] text-zinc-500">
               [ NO_ACTIONABLE_INTELLIGENCE ]
             </span>
           </div>
@@ -79,7 +79,7 @@ export const ContestRecommendationPanel = React.forwardRef<HTMLDivElement, Conte
                       <span className="font-black font-mono text-[9px] text-zinc-500">
                         {idx === 0 ? '[ PRIME_DIR ]' : '[ ALT_DIR ]'}
                       </span>
-                      <span className="font-bold font-mono text-[var(--theme-primary)] text-sm uppercase tracking-widest drop-shadow-[0_0_4px_rgba(var(--theme-primary-rgb),0.5)]">
+                      <span className="tactical-text font-bold text-[var(--theme-primary)] text-sm drop-shadow-[0_0_4px_rgba(var(--theme-primary-rgb),0.5)]">
                         {rec.category}
                       </span>
                     </div>

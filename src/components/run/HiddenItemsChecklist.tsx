@@ -75,9 +75,7 @@ export function HiddenItemsChecklist({ groupedItems }: HiddenItemsChecklistProps
 
             <div className="mb-2 flex items-center gap-2 border-zinc-800 border-b border-dashed pb-2">
               <MapPin className="h-4 w-4 text-zinc-500" />
-              <span className="font-bold font-mono text-xs text-zinc-400 uppercase tracking-widest">
-                {group.locationName}
-              </span>
+              <span className="tactical-text font-bold text-xs text-zinc-400">{group.locationName}</span>
             </div>
 
             <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
