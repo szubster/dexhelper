@@ -1085,7 +1085,11 @@ function main(): void {
         promoteNodeStatus(node, 'PENDING', 'COMPLETED');
 
         const dateStr = todayISO();
-        const logPath = require('node:path').join(repoRoot, '.foundry/journals/agile_coach.md');
+        const logDir = require('node:path').join(repoRoot, '.foundry/journals/agile_coach');
+        if (!DRY_RUN && !require('node:fs').existsSync(logDir)) {
+          require('node:fs').mkdirSync(logDir, { recursive: true });
+        }
+        const logPath = require('node:path').join(logDir, `${Date.now()}.md`);
         const logEntry = `\n## ${dateStr}: Pre-existing Artifacts Anomaly\n\n### Observation\nThe orchestrator detected that target artifacts for \`${node.repoPath}\` already existed and were completely formed before dispatch.\n\n### Action Taken\nBypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.\n`;
 
         if (!DRY_RUN) {

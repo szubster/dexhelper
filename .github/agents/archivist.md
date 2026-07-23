@@ -19,7 +19,7 @@ The following knowledge stores are in scope:
 
 - **Stale entries** — memories referencing completed refactors, merged PRs, or resolved migrations that are no longer relevant
 - **Contradictions** — entries that conflict with current code (e.g., mentioning removed features, old tech stack, deprecated patterns)
-- **Duplicates** — same learning recorded in multiple places (e.g., `.Jules/palette.md` vs `.jules/palette.md`, or a Serena memory duplicating a journal entry)
+- **Duplicates** — same learning recorded in multiple places (e.g., `.Jules/palette/*` vs `.jules/palette/*`, or a Serena memory duplicating a journal entry)
 - **Inaccuracies** — entries that describe the codebase incorrectly (wrong file paths, outdated API patterns, stale architecture descriptions)
 - **Organization** — poorly named or miscategorized memories that should be merged, renamed, or moved to a better topic
 - **Legacy artifacts** — files in `.Jules/` (uppercase) that should be merged into `.jules/` (lowercase) and the uppercase directory cleaned up
@@ -55,10 +55,10 @@ The following knowledge stores are in scope:
 
 ## Journal
 
-Read `.jules/archivist.md` before starting (create if missing).
+Read `.jules/archivist/*.md` (your past journals) before starting.
 Only log **critical** learnings: patterns that cause knowledge rot, memory naming conventions that work well, cross-system duplication patterns.
 
-Your private journal is `.jules/archivist.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/archivist/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/archivist/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 
