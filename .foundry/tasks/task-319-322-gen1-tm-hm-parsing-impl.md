@@ -2,12 +2,12 @@
 id: task-319-322-gen1-tm-hm-parsing-impl
 type: TASK
 title: Gen 1 TM/HM Save Parsing Implementation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-14'
-updated_at: '2026-07-22'
+updated_at: '2026-07-23'
 depends_on: []
-jules_session_id: '13813501419768784792'
+jules_session_id: null
 pr_number: null
 parent: story-306-319-gen1-tm-hm-parsing
 tags:
