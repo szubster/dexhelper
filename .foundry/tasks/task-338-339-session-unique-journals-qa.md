@@ -28,5 +28,5 @@ notes: ''
 Verify that the system configuration and agent prompts have been successfully updated to enforce the use of session-unique journal files.
 
 ## Acceptance Criteria
-- [ ] Verify that agent prompt files in `.github/agents/` instruct the use of session-unique journal paths.
-- [ ] Verify that the orchestrator (`.github/scripts/foundry-orchestrator.ts`) supports the new directory-based or timestamp format for journals, if modified.
+- [x] Verify that agent prompt files in `.github/agents/` instruct the use of session-unique journal paths.
+- [x] Verify that the orchestrator (`.github/scripts/foundry-orchestrator.ts`) supports the new directory-based or timestamp format for journals, if modified.
