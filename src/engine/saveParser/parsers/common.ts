@@ -221,6 +221,10 @@ export interface SaveData {
   kantoBadges?: number;
   /** The player's active bag inventory. */
   inventory: { id: number; quantity: number }[];
+  /** Gen 1 specific: Event flags for one-time TMs. */
+  gen1TMEventFlags?: Record<number, boolean>;
+  /** TM and HM inventory mapped to moves. */
+  tms?: { id: number; moveId: number; isAcquired: boolean; quantity: number }[];
   /** Items stored in the player's PC. */
   pcItems?: { id: number; quantity: number }[];
   /** The total number of Pokémon currently stored in the active PC box. */
