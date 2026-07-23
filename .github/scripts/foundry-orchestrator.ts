@@ -449,7 +449,7 @@ function main(): void {
       .map(id => idToPathMap.get(id))
       .filter((path): path is string => !!path);
 
-    const matches = [...new Set([...linkMatches, ...idMatches])];
+    const matches = [...new Set([...linkMatches, ...idMatches])].map(m => resolveNodePath(m)).filter((m): m is string => !!m);
 
     for (const match of matches) {
       // node.repoPath is the parent, match is the child
@@ -477,7 +477,18 @@ function main(): void {
   function resolveNodePath(ref: string | null | undefined): string | null {
     if (!ref) return null;
     if (idToPathMap.has(ref)) return idToPathMap.get(ref)!;
-    if (ref.startsWith('.foundry/')) return ref;
+    if (ref.startsWith('.foundry/')) {
+      if (nodeMap.has(ref) || fs.existsSync(path.join(repoRoot, ref))) {
+        return ref;
+      }
+      if (!ref.startsWith('.foundry/archive/')) {
+        const archivedRef = ref.replace(/^\.foundry\//, '.foundry/archive/');
+        if (nodeMap.has(archivedRef) || fs.existsSync(path.join(repoRoot, archivedRef))) {
+          return archivedRef;
+        }
+      }
+      return ref;
+    }
 
     // Log a warning if we can't resolve a non-empty reference.
     warn(`Unresolvable node reference: '${ref}'`);
@@ -895,7 +906,8 @@ function main(): void {
 
       const parentPath = resolveNodePath(node.frontmatter.parent);
       const resolvedDeps = node.frontmatter.depends_on.map(d => resolveNodePath(d));
-      const targetArtifacts = matches.filter(m =>
+      const targetArtifacts = matches.map(resolveNodePath).filter((m): m is string =>
+        !!m &&
         m !== node.repoPath &&
         m !== parentPath &&
         !resolvedDeps.includes(m)
@@ -1042,10 +1054,11 @@ function main(): void {
       const links = [...body.matchAll(linkRegex)].map(m => m[1]);
 
       if (links.length > 0) {
-        const allExist = links.every(l => nodeMap.has(l));
-        const hasChild = links.some(l => {
+        const resolvedLinks = links.map(resolveNodePath).filter((l): l is string => !!l);
+        const allExist = resolvedLinks.every(l => nodeMap.has(l));
+        const hasChild = resolvedLinks.some(l => {
           const childNode = nodeMap.get(l);
-          return !!childNode && childNode.frontmatter.parent === node.repoPath;
+          return !!childNode && (childNode.frontmatter.parent === node.repoPath || childNode.frontmatter.parent === node.frontmatter.id);
         });
 
         if (allExist && hasChild) {
