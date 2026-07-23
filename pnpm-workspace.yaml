@@ -19,3 +19,6 @@ allowBuilds:
 auditConfig:
   ignoreGhsas:
     - GHSA-rmmr-r34h-pfm5
+
+overrides:
+  sharp: ">=0.35.0"
