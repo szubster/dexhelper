@@ -2,12 +2,12 @@
 id: task-261-282-gen3-met-location-impl
 type: TASK
 title: Implement Gen 3 Met Location Extraction
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-08'
-updated_at: '2026-07-22'
+updated_at: '2026-07-23'
 depends_on: []
-jules_session_id: '13594701745422675178'
+jules_session_id: null
 pr_number: null
 parent: story-097-261-extract-pokemon-met-locations
 tags:
