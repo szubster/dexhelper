@@ -96,3 +96,8 @@ Broke down PRD prd-116-117-zod-schema-validation-orchestrator into two Epics: ep
 
 ## 2026-07-21
 - Transformed PRD for conflictless journals into an Epic. Ensures we transition from monolithic markdown files to conflict-less storage per session.
+
+## Session 2026-07-23: Replacement of Epic missing E2E story
+**Context:** Processing PRD `prd-086-108-fix-orchestrator-phase-3-6`.
+**Observation:** The child Epic `epic-108-303-extend-phase-3-6-cancelled-nodes` was failed with the acknowledged missing criteria of an E2E/integration story.
+**Action:** Created a replacement Epic `epic-108-339-extend-phase-3-6-cancelled-nodes` that explicitly includes the missing E2E integration story requirement in its scope and acceptance criteria. Updated the parent PRD to check off the failed Epic and appended the new replacement Epic as an unchecked task using its Node ID. Submitted a PR to allow the orchestrator to correctly demote the node to PENDING.
