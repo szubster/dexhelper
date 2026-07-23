@@ -34,4 +34,4 @@ The logic for parsing Gen 3 FireRed/LeafGreen Move Tutors using the DataView API
 - Because this task is already implemented, submit an Empty PR.
 
 ## Acceptance Criteria
-- [ ] Verify FRLG Move Tutor parsing implementation and submit an Empty PR.
+- [x] Verify FRLG Move Tutor parsing implementation and submit an Empty PR.
