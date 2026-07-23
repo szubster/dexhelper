@@ -2,13 +2,13 @@
 id: task-333-339-graveyard-box-logic-qa
 type: TASK
 title: Graveyard Box State and Logic Verification
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-19'
 updated_at: '2026-07-23'
 depends_on:
   - task-333-338-graveyard-box-logic-impl
-jules_session_id: '7144788477474186405'
+jules_session_id: null
 pr_number: null
 parent: story-131-333-graveyard-box-state
 tags:

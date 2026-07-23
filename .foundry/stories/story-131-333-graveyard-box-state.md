@@ -2,10 +2,10 @@
 id: story-131-333-graveyard-box-state
 type: STORY
 title: Graveyard Box State and Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-18'
-updated_at: '2026-07-22'
+updated_at: '2026-07-23'
 depends_on: []
 jules_session_id: null
 pr_number: null

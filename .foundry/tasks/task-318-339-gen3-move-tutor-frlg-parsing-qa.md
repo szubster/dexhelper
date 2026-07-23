@@ -2,10 +2,10 @@
 id: task-318-339-gen3-move-tutor-frlg-parsing-qa
 type: TASK
 title: QA Gen 3 FRLG Move Tutor Parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-20'
-updated_at: '2026-07-20'
+updated_at: '2026-07-23'
 depends_on:
   - task-318-338-gen3-move-tutor-frlg-parsing-impl
 jules_session_id: null
