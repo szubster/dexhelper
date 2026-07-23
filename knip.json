@@ -1,9 +1,6 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "ignoreExportsUsedInFile": true,
-  "ignoreBinaries": [
-    "gh"
-  ],
   "ignoreDependencies": [
     "wrangler",
     "@cloudflare/pages-plugin-cloudflare-access",
@@ -16,12 +13,11 @@
     "scripts/gen3-fetch-locations.ts",
     "functions/_middleware.ts",
     "functions/api/saves/index.ts",
-    "functions/api/saves/[id].ts",
-    "scripts/data/gen3/match_call/etl.ts"
+    "functions/api/saves/[id].ts"
   ],
   "rules": {
     "files": "warn",
-    "exports": "off",
+    "exports": "warn",
     "types": "warn",
     "dependencies": "error",
     "devDependencies": "error",
