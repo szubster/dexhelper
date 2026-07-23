@@ -240,3 +240,7 @@
 ## 2026-07-21
 **Idea:** Implement Critical Path Node Prioritization in the DAG Orchestrator
 **Learning:** Focusing on scheduling enhancements for the multi-agent pipeline provides significant performance optimizations for the Foundry system. By applying topological weighting (counting downstream dependencies) to prioritize READY nodes, we ensure agents unblock critical paths faster, reducing pipeline bottlenecks. This perfectly balances the 50/50 split between product features and orchestrator health.
+
+## 2026-07-23
+**Idea:** Gen 2 Time Capsule Compatibility Validator
+**Learning:** Targeting opaque cross-generation mechanics (like the Time Capsule restrictions) provides massive utility. By dynamically evaluating a player's PC box against static backward-compatibility rules (movesets and species), we transform a frustrating trial-and-error process into an actionable checklist (e.g., "Delete these specific moves to trade"). This reinforces DexHelper as a premium tool that bridges complex game knowledge with real-time save data.
