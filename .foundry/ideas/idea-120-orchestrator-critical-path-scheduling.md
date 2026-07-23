@@ -2,12 +2,12 @@
 id: idea-120-orchestrator-critical-path-scheduling
 type: IDEA
 title: Implement Critical Path Node Prioritization in the DAG Orchestrator
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-21'
-updated_at: '2026-07-22'
+updated_at: '2026-07-23'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11703633848462682690'
 rejection_reason: ''
 ---
 
