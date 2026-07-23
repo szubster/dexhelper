@@ -1,5 +1,5 @@
 import gen1MapLocations from '../../data/gen1/mapLocations.json';
-import { parseGen1StaticEncounters, parseGen1TMFlags, GEN1_TM_HM_TO_MOVE_ID } from '../utils/gen1EventFlags';
+import { GEN1_TM_HM_TO_MOVE_ID, parseGen1StaticEncounters, parseGen1TMFlags } from '../utils/gen1EventFlags';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs } from './common';
 
@@ -754,8 +754,8 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
     gen1TMEventFlags: parseGen1TMFlags(eventFlags),
     tms: Object.entries(GEN1_TM_HM_TO_MOVE_ID).map(([idStr, moveId]) => {
       const id = parseInt(idStr, 10);
-      const inventoryQty = inventory.find(i => i.id === id)?.quantity || 0;
-      const pcQty = pcItems.find(i => i.id === id)?.quantity || 0;
+      const inventoryQty = inventory.find((i) => i.id === id)?.quantity || 0;
+      const pcQty = pcItems.find((i) => i.id === id)?.quantity || 0;
       const quantity = inventoryQty + pcQty;
       const isAcquired = quantity > 0 || !!parseGen1TMFlags(eventFlags)[id];
       return { id, moveId, isAcquired, quantity };

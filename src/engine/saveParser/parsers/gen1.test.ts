@@ -18,10 +18,10 @@ describe('gen1 parsers', () => {
       view.setUint8(0x25cb, 3);
       const parsed = parseGen1(view);
       expect(parsed.gen1TMEventFlags?.[242]).toBe(true);
-      const tm42 = parsed.tms?.find(t => t.id === 242);
+      const tm42 = parsed.tms?.find((t) => t.id === 242);
       expect(tm42?.isAcquired).toBe(true);
       expect(tm42?.quantity).toBe(0);
-      const tm01 = parsed.tms?.find(t => t.id === 201);
+      const tm01 = parsed.tms?.find((t) => t.id === 201);
       expect(tm01?.isAcquired).toBe(true);
       expect(tm01?.quantity).toBe(3);
     });
