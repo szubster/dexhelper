@@ -34,7 +34,14 @@ function analyzeDiff(diffText) {
       line.startsWith('@@') ||
       line.startsWith(' ') ||
       line === '' ||
-      line.startsWith('\\ No newline at end of file')
+      line.startsWith('\\ No newline at end of file') ||
+      line.startsWith('new file mode ') ||
+      line.startsWith('deleted file mode ') ||
+      line.startsWith('old mode ') ||
+      line.startsWith('new mode ') ||
+      line.startsWith('similarity index ') ||
+      line.startsWith('rename from ') ||
+      line.startsWith('rename to ')
     ) {
       i++;
       continue;
