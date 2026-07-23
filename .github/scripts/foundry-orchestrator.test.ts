@@ -2694,4 +2694,40 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     // It should be promoted to READY exactly once (it wakes up because child is complete but it has unchecked tasks)
     expect(parentContent).toContain('status: READY');
   });
+
+  test('Regression: Idempotent generation check bypasses dispatch of archived parent with archived children', () => {
+    createValidTestNode(tmpDir, '.foundry/archive/epics/epic-parent.md', {
+      id: "epic-parent",
+      type: "EPIC",
+      title: "Epic Parent",
+      status: "PENDING",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    }, `# Epic Parent
+## Acceptance Criteria
+- [x] Child Story: [.foundry/stories/story-child.md](.foundry/stories/story-child.md)`);
+
+    createValidTestNode(tmpDir, '.foundry/archive/stories/story-child.md', {
+      id: "story-child",
+      type: "STORY",
+      title: "Story Child",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: ".foundry/epics/epic-parent.md",
+      tags: ["e2e"],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const parentContent = fs.readFileSync(path.join(tmpDir, '.foundry/archive/epics/epic-parent.md'), 'utf-8');
+    // It should be promoted to COMPLETED directly, bypassing READY/ACTIVE dispatch!
+    expect(parentContent).toContain('status: COMPLETED');
+  });
 });

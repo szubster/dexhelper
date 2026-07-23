@@ -414,15 +414,40 @@ function main(): void {
 
   const childToParents = new Map<string, Set<string>>();
 
+  /**
+   * Helper to resolve a node reference (either ID or path) to a repo-relative path.
+   */
+  function resolveNodePath(ref: string | null | undefined): string | null {
+    if (!ref) return null;
+    if (idToPathMap.has(ref)) return idToPathMap.get(ref)!;
+    if (ref.startsWith('.foundry/')) {
+      if (nodeMap.has(ref) || fs.existsSync(path.join(repoRoot, ref))) {
+        return ref;
+      }
+      if (!ref.startsWith('.foundry/archive/')) {
+        const archivedRef = ref.replace(/^\.foundry\//, '.foundry/archive/');
+        if (nodeMap.has(archivedRef) || fs.existsSync(path.join(repoRoot, archivedRef))) {
+          return archivedRef;
+        }
+      }
+      return ref;
+    }
+
+    // Log a warning if we can't resolve a non-empty reference.
+    warn(`Unresolvable node reference: '${ref}'`);
+    return null;
+  }
+
   // 1. First pass: strictly populate nodeMap and idToPathMap (Already done above)
 
   // 2. Second pass: evaluate explicit parents and markdown links
   for (const node of nodes) {
     let parentPath = node.frontmatter.parent;
     if (parentPath) {
-      // Resolve parent path if it's an ID
-      if (idToPathMap.has(parentPath)) {
-        parentPath = idToPathMap.get(parentPath)!;
+      // Resolve parent path fully (handles IDs and archived/non-archived paths)
+      const resolvedParent = resolveNodePath(parentPath);
+      if (resolvedParent) {
+        parentPath = resolvedParent;
       }
 
       if (!parentToChildren.has(parentPath)) {
@@ -469,30 +494,6 @@ function main(): void {
         }
       }
     }
-  }
-
-  /**
-   * Helper to resolve a node reference (either ID or path) to a repo-relative path.
-   */
-  function resolveNodePath(ref: string | null | undefined): string | null {
-    if (!ref) return null;
-    if (idToPathMap.has(ref)) return idToPathMap.get(ref)!;
-    if (ref.startsWith('.foundry/')) {
-      if (nodeMap.has(ref) || fs.existsSync(path.join(repoRoot, ref))) {
-        return ref;
-      }
-      if (!ref.startsWith('.foundry/archive/')) {
-        const archivedRef = ref.replace(/^\.foundry\//, '.foundry/archive/');
-        if (nodeMap.has(archivedRef) || fs.existsSync(path.join(repoRoot, archivedRef))) {
-          return archivedRef;
-        }
-      }
-      return ref;
-    }
-
-    // Log a warning if we can't resolve a non-empty reference.
-    warn(`Unresolvable node reference: '${ref}'`);
-    return null;
   }
 
   // ── Phase 3.0: MAX REJECTION THRESHOLD CHECK ───────────────────────────────
@@ -1058,7 +1059,10 @@ function main(): void {
         const allExist = resolvedLinks.every(l => nodeMap.has(l));
         const hasChild = resolvedLinks.some(l => {
           const childNode = nodeMap.get(l);
-          return !!childNode && (childNode.frontmatter.parent === node.repoPath || childNode.frontmatter.parent === node.frontmatter.id);
+          if (!childNode) return false;
+          const resolvedParentOfChild = resolveNodePath(childNode.frontmatter.parent);
+          const resolvedNodePathValue = resolveNodePath(node.repoPath);
+          return resolvedParentOfChild === resolvedNodePathValue || childNode.frontmatter.parent === node.frontmatter.id;
         });
 
         if (allExist && hasChild) {
