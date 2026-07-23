@@ -4,18 +4,33 @@ const diff = fs.readFileSync(0, 'utf-8');
 
 function analyzeDiff(diffText) {
   const lines = diffText.split('\n');
-  let hasCheckboxChanges = false;
+  let hasValidChanges = false;
+  let currentFileIsJournal = false;
 
   let i = 0;
   while (i < lines.length) {
     const line = lines[i];
 
+    if (line.startsWith('diff --git ')) {
+      i++;
+      continue;
+    }
+
+    if (line.startsWith('+++ ')) {
+      const filename = line.slice(4).replace(/^b\//, '');
+      if (filename.startsWith('.foundry/journals/')) {
+        currentFileIsJournal = true;
+      } else {
+        currentFileIsJournal = false;
+      }
+      i++;
+      continue;
+    }
+
     // Skip headers and unchanged lines
     if (
-      line.startsWith('diff --git') ||
       line.startsWith('index') ||
       line.startsWith('---') ||
-      line.startsWith('+++') ||
       line.startsWith('@@') ||
       line.startsWith(' ') ||
       line === '' ||
@@ -27,6 +42,12 @@ function analyzeDiff(diffText) {
 
     // Process hunks of additions/removals
     if (line.startsWith('-') || line.startsWith('+')) {
+      if (currentFileIsJournal) {
+        hasValidChanges = true;
+        i++;
+        continue;
+      }
+
       const removed = [];
       const added = [];
 
@@ -53,7 +74,7 @@ function analyzeDiff(diffText) {
         const isCheckboxChange = (rReplaced === aReplaced) && /^\s*-\s*\[\s\]/.test(r);
 
         if (!isCheckboxChange) return false;
-        hasCheckboxChanges = true;
+        hasValidChanges = true;
       }
     } else {
       // Any other unexpected line prefix means it's not a clean diff we want to auto-merge
@@ -61,7 +82,7 @@ function analyzeDiff(diffText) {
     }
   }
 
-  return hasCheckboxChanges;
+  return hasValidChanges;
 }
 
 if (analyzeDiff(diff)) {
