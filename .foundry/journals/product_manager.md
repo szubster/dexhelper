@@ -84,3 +84,7 @@ When handling idea-117-split-bundles-and-data, I found that the target PRD artif
 
 ## 2026-07-22 - Idea Transformation to PRD Anomaly
 When beginning the session to transform `idea-117-split-bundles-and-data` into a PRD, I discovered that the target artifact `prd-117-116-split-bundles-and-data` already existed and its acceptance criteria was checked on the idea node. This is an anomaly that the Agile Coach should review. Submitting an empty PR to allow the DAG to progress since the target artifact exists.
+
+## 2026-07-23: Critical Path Scheduling
+- Created PRD `prd-120-336-orchestrator-critical-path-scheduling` from IDEA `idea-120-orchestrator-critical-path-scheduling` to implement topological sorting of READY nodes in the orchestrator.
+- Noted that I appended `- [x] Create PRD` directly to the IDEA node to avoid prematurely completing it without checking the boxes, but wait, the IDEA node didn't have any checkboxes to begin with. The instructions say "append references to newly generated child nodes as unchecked tasks directly into the markdown body of the parent node, and check off your specific acceptance criteria checkboxes". Oh, the instruction says to append the child node as an unchecked task, and check off the criteria.

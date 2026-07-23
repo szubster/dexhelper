@@ -23,3 +23,7 @@ Implement a "Critical Path Score" or topological weight calculation during the o
 3. During the `COLLECT` and `OUTPUT` phases, the orchestrator should sort the list of `READY` nodes by this weight descending, ensuring that agents pick up tasks that unblock the largest portions of the DAG first.
 
 This aligns with the focus on "scheduling enhancements to the multi-agent pipeline" and improves overall autonomous factory throughput.
+
+## Acceptance Criteria
+- [x] Create PRD
+- [ ] prd-120-336-orchestrator-critical-path-scheduling
