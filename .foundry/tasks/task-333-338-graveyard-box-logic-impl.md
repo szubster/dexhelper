@@ -2,7 +2,7 @@
 id: task-333-338-graveyard-box-logic-impl
 type: TASK
 title: Graveyard Box State and Logic Implementation
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-07-19'
 updated_at: '2026-07-22'

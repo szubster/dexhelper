@@ -43,10 +43,10 @@ As DexHelper supports more Pokémon generations, the amount of code (parsers, st
 *   Architectural strategy documented in an ADR (`adr-117-029-bundle-splitting-strategy`).
 
 ## 5. Acceptance Criteria
-- [ ] Save parsers refactored to use dynamic imports.
-- [ ] Assistant strategies refactored to use dynamic imports.
-- [ ] Generation-specific UI components refactored to use `React.lazy`.
-- [ ] `pokedataPlugin` updated to emit multiple msgpack bundles.
-- [ ] `PokeDB.ts` updated to support multi-part data synchronization.
-- [ ] Performance verification complete.
-- [ ] Assigned a scheduled agent to monitor bundle sizes.
+- [x] Save parsers refactored to use dynamic imports.
+- [x] Assistant strategies refactored to use dynamic imports.
+- [x] Generation-specific UI components refactored to use `React.lazy`.
+- [x] `pokedataPlugin` updated to emit multiple msgpack bundles.
+- [x] `PokeDB.ts` updated to support multi-part data synchronization.
+- [x] Performance verification complete.
+- [x] Assigned a scheduled agent to monitor bundle sizes.

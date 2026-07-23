@@ -31,4 +31,4 @@ Develop a reusable UI component that visually displays the Pokerus strain (e.g.,
 
 ## 3. Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-322-331-pokerus-strain-badge-impl
+- [x] task-322-331-pokerus-strain-badge-impl

@@ -2,7 +2,7 @@
 id: epic-043-152-gen3-roamer-data-extraction
 type: EPIC
 title: Gen 3 Roamer Data Extraction
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-10'
 updated_at: '2026-07-23'

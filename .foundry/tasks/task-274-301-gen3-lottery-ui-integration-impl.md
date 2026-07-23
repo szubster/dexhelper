@@ -2,7 +2,7 @@
 id: task-274-301-gen3-lottery-ui-integration-impl
 type: TASK
 title: Gen3 Lottery UI Integration - Implementation
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-07-10'
 updated_at: '2026-07-23'

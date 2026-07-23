@@ -33,3 +33,7 @@ Mechanic Update - 2026-07-22
 - Fixed 38 missing or archived dependency paths in `depends_on` arrays across the DAG. These dead dependencies cause deadlocks during Orchestrator runs.
 - Detected and repaired a task (`task-261-331-npc-trade-state-integration-impl.md`) that had a manually set `READY` status, reverting it back to `PENDING`.
 - Verified that no parent-child dependency cycles remain.
+
+# Mechanic Update - 2026-07-23
+- Discovered and repaired 14 nodes (across epics, stories, tasks, ideas) that were manually assigned the `READY` status, reverting them to `PENDING`. (Orchestrator computes `READY` automatically).
+- Discovered and repaired 5 nodes (across ideas, prds, stories, research) that were correctly marked `COMPLETED` but had unchecked acceptance criteria boxes. Unchecked boxes in completed nodes violate core policy ADR 007 and ADR 009.

@@ -23,5 +23,5 @@ notes: ''
 Investigate why `epic-112-322-pokerus-strain-ui-detail-view` was permanently cancelled after reaching max rejection count, and outline a path forward for its replacement.
 
 ## 2. Acceptance Criteria
-- [ ] Root cause identified and documented.
-- [ ] Proposed fix architecture defined for the replacement Epic.
+- [x] Root cause identified and documented.
+- [x] Proposed fix architecture defined for the replacement Epic.

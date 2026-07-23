@@ -2,7 +2,7 @@
 id: epic-112-335-pokerus-strain-ui-detail-view-v2
 type: EPIC
 title: Pokerus Strain UI Tracker - Detail View V2
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-20'
 updated_at: '2026-07-22'

@@ -31,4 +31,4 @@ Implement the UI component for displaying the specific Pokerus strain data in th
 
 ## 3. Acceptance Criteria
 - [x] Tech Lead: Break down this Story into actionable Tasks.
-- [ ] task-323-331-pokerus-strain-ui-impl
+- [x] task-323-331-pokerus-strain-ui-impl

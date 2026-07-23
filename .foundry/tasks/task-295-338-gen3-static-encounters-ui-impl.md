@@ -2,7 +2,7 @@
 id: task-295-338-gen3-static-encounters-ui-impl
 type: TASK
 title: Gen 3 Static Encounters UI Implementation
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-07-20'
 updated_at: '2026-07-22'

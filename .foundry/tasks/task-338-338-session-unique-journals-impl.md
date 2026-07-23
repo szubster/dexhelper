@@ -2,7 +2,7 @@
 id: task-338-338-session-unique-journals-impl
 type: TASK
 title: Implement Session-Unique Journal Files
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-07-22'
 updated_at: '2026-07-22'

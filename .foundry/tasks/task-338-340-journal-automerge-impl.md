@@ -2,7 +2,7 @@
 id: task-338-340-journal-automerge-impl
 type: TASK
 title: Enable Automerge for Journal Entries
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-07-22'
 updated_at: '2026-07-22'

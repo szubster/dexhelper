@@ -2,7 +2,7 @@
 id: task-273-307-gen3-lottery-matching-iteration-impl
 type: TASK
 title: Gen3 Lottery Matching Iteration Implementation
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-07-11'
 updated_at: '2026-07-23'
