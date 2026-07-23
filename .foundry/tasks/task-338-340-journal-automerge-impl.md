@@ -2,7 +2,7 @@
 id: task-338-340-journal-automerge-impl
 type: TASK
 title: Enable Automerge for Journal Entries
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-07-22'
 updated_at: '2026-07-23'
@@ -16,8 +16,8 @@ tags:
   - workflow
   - automerge
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
