@@ -2,12 +2,12 @@
 id: task-336-342-journal-automerge-retry-impl
 type: TASK
 title: Enable Automerge for Journal Entries
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-23'
 updated_at: '2026-07-23'
 depends_on: []
-jules_session_id: null
+jules_session_id: '195980590440140642'
 pr_number: null
 parent: story-338-336-implement-session-unique-journals
 tags:
@@ -17,8 +17,8 @@ tags:
   - automerge
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # TASK: Enable Automerge for Journal Entries
