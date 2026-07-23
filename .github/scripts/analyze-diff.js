@@ -12,16 +12,18 @@ function analyzeDiff(diffText) {
     const line = lines[i];
 
     if (line.startsWith('diff --git ')) {
-      i++;
-      continue;
-    }
-
-    if (line.startsWith('+++ ')) {
-      const filename = line.slice(4).replace(/^b\//, '');
-      if (filename.startsWith('.foundry/journals/')) {
-        currentFileIsJournal = true;
+      const match = line.match(/^diff --git a\/(.+?) b\/(.+?)$/);
+      if (match) {
+        const fileA = match[1];
+        const fileB = match[2];
+        if (fileA.startsWith('.foundry/journals/') || fileB.startsWith('.foundry/journals/')) {
+          currentFileIsJournal = true;
+          hasValidChanges = true;
+        } else {
+          currentFileIsJournal = false;
+        }
       } else {
-        currentFileIsJournal = false;
+         currentFileIsJournal = false;
       }
       i++;
       continue;
@@ -31,6 +33,7 @@ function analyzeDiff(diffText) {
     if (
       line.startsWith('index') ||
       line.startsWith('---') ||
+      line.startsWith('+++') ||
       line.startsWith('@@') ||
       line.startsWith(' ') ||
       line === '' ||
