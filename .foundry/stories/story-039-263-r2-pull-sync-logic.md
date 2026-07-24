@@ -30,5 +30,5 @@ When a user logs in on a new device, the application must pull their latest save
 
 ## Acceptance Criteria
 - [x] Break down into Tasks.
-- [ ] task-263-285-r2-pull-sync-logic-impl
-- [ ] task-263-286-r2-pull-sync-logic-qa
+- [x] task-263-285-r2-pull-sync-logic-impl
+- [x] task-263-286-r2-pull-sync-logic-qa

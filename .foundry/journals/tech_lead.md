@@ -251,6 +251,9 @@ Assigned to story-324-322-safari-zone-static-tables where its generated child (t
 ## 2026-07-20: Passthrough validation for Gen 3 Trainer ID and Secret ID
 - Assigned to story-130-269-extract-gen3-trainer-id-secret-id where its generated children (task-269-263-gen3-trainer-id-secret-id-impl and task-269-264-gen3-trainer-id-secret-id-qa) have already been completed. Checked off the child checkboxes in the story markdown body and submitted an empty PR to transition the Story.
 - [2026-07-19] Checked off acceptance criteria for story-081-282-gen3-manual-time-ui-overrides because child tasks are COMPLETED, properly advancing the parent's status.
+## 2026-07-22: Passthrough validation for completed child tasks
+- **Node**: story-039-263-r2-pull-sync-logic
+- **Actions**: The generated child tasks (task-263-285-r2-pull-sync-logic-impl and task-263-286-r2-pull-sync-logic-qa) were already completed. Checked off their checkboxes in the story markdown body and submitted an empty PR to transition the Story to VERIFYING.
 
 ## 2026-07-22: Break down session unique journals story
 - **Node**: story-338-336-implement-session-unique-journals
