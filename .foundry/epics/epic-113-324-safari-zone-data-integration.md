@@ -32,6 +32,8 @@ This Epic covers the backend and data extraction logic necessary to power the Sa
 - Create utility functions to determine "missing" or "uncaught" Safari Zone encounters based on the current save state.
 
 ## Acceptance Criteria
-- [ ] Create STORY nodes for Gen 1 and Gen 3 save state integration for Safari Zone encounters.
+- [x] Create STORY nodes for Gen 1 and Gen 3 save state integration for Safari Zone encounters.
 - [x] Create STORY nodes for compiling the static encounter tables for Safari Zones.
 - [ ] story-324-322-safari-zone-static-tables
+- [ ] story-324-339-gen1-safari-zone-save-state
+- [ ] story-324-340-gen3-safari-zone-save-state
