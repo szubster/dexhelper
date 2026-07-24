@@ -32,9 +32,9 @@ Currently, agent personas write to monolithic journal files (e.g., `.foundry/jou
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break this Story down into actionable Tasks.
-- [ ] task-338-338-session-unique-journals-impl
-- [ ] task-338-339-session-unique-journals-qa
+- [x] task-338-338-session-unique-journals-impl
+- [x] task-338-339-session-unique-journals-qa
 - [x] task-338-340-journal-automerge-impl
 - [x] task-338-341-journal-automerge-qa
-- [ ] task-336-342-journal-automerge-retry-impl
-- [ ] task-336-343-journal-automerge-retry-qa
+- [x] task-336-342-journal-automerge-retry-impl
+- [x] task-336-343-journal-automerge-retry-qa
