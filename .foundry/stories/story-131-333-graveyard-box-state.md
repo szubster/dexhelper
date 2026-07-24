@@ -31,6 +31,6 @@ Implement backend state and calculation logic for identifying Pokémon in the de
 ## Acceptance Criteria
 - [x] Tasks are generated
 - [x] task-333-338-graveyard-box-logic-impl
-- [ ] task-333-344-graveyard-box-logic-impl
+- [x] task-333-344-graveyard-box-logic-impl
 - [x] task-333-339-graveyard-box-logic-qa
-- [ ] task-333-345-graveyard-box-logic-qa
+- [x] task-333-345-graveyard-box-logic-qa

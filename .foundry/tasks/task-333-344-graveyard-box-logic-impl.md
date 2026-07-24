@@ -2,7 +2,7 @@
 id: task-333-344-graveyard-box-logic-impl
 type: TASK
 title: Graveyard Box State and Logic Implementation
-status: COMPLETED
+status: READY
 owner_persona: coder
 created_at: '2026-07-23'
 updated_at: '2026-07-24'
@@ -25,9 +25,9 @@ notes: ''
 Implement backend state and calculation logic for identifying Pokémon in the designated Graveyard Box as permanently dead.
 
 ## Contract / Acceptance Criteria
-- [x] Add a backend configuration/state for specifying a "Graveyard Box" (e.g. integer `boxNumber`).
-- [x] Implement logic so that any Pokémon located in the designated Graveyard Box is evaluated as "dead" (or flagged accordingly), regardless of its HP value.
-- [x] All new state management patterns should align with current application architecture.
+- [ ] Add a backend configuration/state for specifying a "Graveyard Box" (e.g. integer `boxNumber`).
+- [ ] Implement logic so that any Pokémon located in the designated Graveyard Box is evaluated as "dead" (or flagged accordingly), regardless of its HP value.
+- [ ] All new state management patterns should align with current application architecture.
 
 ## Instructions & Reminders for Coder
 - **Note:** This functionality appears to already exist in `src/engine/nuzlocke/tracker.ts` and `src/store.ts`. Ensure everything works as expected and submit an Empty PR checking off all Acceptance Criteria if no code changes are needed.
