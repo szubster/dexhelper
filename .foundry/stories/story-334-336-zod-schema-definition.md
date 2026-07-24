@@ -17,4 +17,6 @@ rejection_reason: ''
 Define the core Zod schema based on schema.md
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-336-342-zod-schema-definition-impl
+- [ ] task-336-343-zod-schema-definition-qa
