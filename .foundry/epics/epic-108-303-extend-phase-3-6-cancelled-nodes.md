@@ -2,10 +2,10 @@
 id: epic-108-303-extend-phase-3-6-cancelled-nodes
 type: EPIC
 title: Extend Phase 3.6 for CANCELLED nodes
-status: FAILED
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-11'
-updated_at: '2026-07-22'
+updated_at: '2026-07-24'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,10 +15,8 @@ tags:
   - orchestrator
   - resilience
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 
