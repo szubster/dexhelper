@@ -2,10 +2,10 @@
 id: research-107-342-investigate-lift-rejection-count-failure
 type: RESEARCH
 title: Investigate failure to lift rejection count state
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-07-22'
-updated_at: '2026-07-22'
+updated_at: '2026-07-24'
 depends_on: []
 jules_session_id: null
 pr_number: null

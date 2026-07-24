@@ -2,12 +2,12 @@
 id: epic-099-130-gen3-trainer-data-extraction
 type: EPIC
 title: Gen 3 Trainer Data Extraction
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-07-22'
+updated_at: '2026-07-24'
 depends_on: []
-jules_session_id: '14671410208360167324'
+jules_session_id: null
 pr_number: null
 parent: prd-082-099-gen3-trainer-data-extraction
 tags:
@@ -16,7 +16,9 @@ tags:
   - trainer
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: ''
 ---
 

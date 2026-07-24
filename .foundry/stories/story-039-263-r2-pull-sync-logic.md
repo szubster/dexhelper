@@ -2,12 +2,12 @@
 id: story-039-263-r2-pull-sync-logic
 type: STORY
 title: Cloudflare R2 Pull Sync Logic
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-22'
+updated_at: '2026-07-24'
 depends_on: []
-jules_session_id: '10594904356964538069'
+jules_session_id: null
 pr_number: null
 parent: epic-030-039-cloudflare-r2-save-sync
 tags:

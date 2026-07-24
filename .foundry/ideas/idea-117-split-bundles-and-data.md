@@ -2,12 +2,12 @@
 id: idea-117-split-bundles-and-data
 type: IDEA
 title: Split bundles and data by game generation
-status: ACTIVE
+status: READY
 owner_persona: product_manager
 created_at: '2025-07-16'
-updated_at: '2026-07-22'
+updated_at: '2026-07-24'
 depends_on: []
-jules_session_id: '11890673326339968779'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

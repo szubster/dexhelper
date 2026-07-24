@@ -2,10 +2,10 @@
 id: story-324-339-gen1-safari-zone-save-state
 type: STORY
 title: Gen 1 Safari Zone Save State Integration
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-22'
-updated_at: '2026-07-22'
+updated_at: '2026-07-24'
 depends_on:
   - story-324-322-safari-zone-static-tables
 jules_session_id: null

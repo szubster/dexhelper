@@ -2,12 +2,12 @@
 id: task-273-327-living-dex-pc-mapping-impl
 type: TASK
 title: Living Dex PC Mapping Implementation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-16'
-updated_at: '2026-07-23'
+updated_at: '2026-07-24'
 depends_on: []
-jules_session_id: '15150171072827100484'
+jules_session_id: null
 pr_number: null
 parent: story-133-273-living-dex-pc-mapping
 tags:

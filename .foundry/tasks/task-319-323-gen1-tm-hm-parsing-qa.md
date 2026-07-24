@@ -2,7 +2,7 @@
 id: task-319-323-gen1-tm-hm-parsing-qa
 type: TASK
 title: Gen 1 TM/HM Save Parsing QA
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-07-14'
 updated_at: '2026-07-24'
@@ -16,8 +16,8 @@ tags:
   - gen1
   - save-parsing
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

@@ -5,7 +5,7 @@ title: Gen 3 Roamer Map Translation
 status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-10'
-updated_at: '2026-07-10'
+updated_at: '2026-07-24'
 depends_on:
   - epic-043-152-gen3-roamer-data-extraction
 jules_session_id: null
@@ -14,7 +14,11 @@ parent: prd-070-043-roamer-tracking-dashboard
 tags: []
 research_references: []
 rejection_count: 1
-rejection_reason: 'Permanently CANCELLED as Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file, making static extraction impossible as per research-043-263-roamer-tracking-remediation and ADR 108-027.'
+rejection_reason: >-
+  [ACKNOWLEDGED] Permanently CANCELLED as Gen 3 roamer map coordinates are
+  stored in EWRAM and are not serialized to the save file, making static
+  extraction impossible as per research-043-263-roamer-tracking-remediation and
+  ADR 108-027.
 notes: ''
 ---
 

@@ -2,12 +2,12 @@
 id: research-050-329-investigate-zombie-gc-failure
 type: RESEARCH
 title: Investigate Zombie GC Remediation Failure
-status: ACTIVE
+status: READY
 owner_persona: researcher
 created_at: '2026-07-17'
-updated_at: '2026-07-23'
+updated_at: '2026-07-24'
 depends_on: []
-jules_session_id: '7196379855558849337'
+jules_session_id: null
 pr_number: null
 parent: prd-079-050-foundry-zombie-node-cleanup
 tags:

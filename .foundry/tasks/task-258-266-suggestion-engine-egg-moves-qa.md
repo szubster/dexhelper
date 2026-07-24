@@ -2,10 +2,10 @@
 id: task-258-266-suggestion-engine-egg-moves-qa
 type: TASK
 title: QA - Update Suggestion Engine for Egg Move Pathfinding
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-03'
-updated_at: '2026-07-03'
+updated_at: '2026-07-24'
 depends_on:
   - task-258-265-suggestion-engine-egg-moves-impl
 jules_session_id: null

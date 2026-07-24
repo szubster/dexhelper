@@ -2,7 +2,7 @@
 id: prd-086-108-fix-orchestrator-phase-3-6
 type: PRD
 title: Fix orchestrator phase 3.6 for CANCELLED nodes
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-06'
 updated_at: '2026-07-24'

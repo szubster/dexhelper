@@ -2,18 +2,18 @@
 id: idea-121-gen2-time-capsule-validator
 type: IDEA
 title: Gen 2 Time Capsule Compatibility Validator
-status: CANCELLED
-owner_persona: product_manager
+status: BLOCKED
+owner_persona: tpm
 created_at: '2026-07-23'
-updated_at: '2026-07-23'
+updated_at: '2026-07-24'
 depends_on: []
 jules_session_id: null
 parent: null
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: "Time Capsule is already supported, idea is obsolete."
-notes: ""
+rejection_reason: '[ACKNOWLEDGED] Time Capsule is already supported, idea is obsolete.'
+notes: ''
 ---
 
 # Idea: Gen 2 Time Capsule Compatibility Validator

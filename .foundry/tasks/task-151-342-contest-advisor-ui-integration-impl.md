@@ -2,10 +2,10 @@
 id: task-151-342-contest-advisor-ui-integration-impl
 type: TASK
 title: Implement Contest Advisor UI Integration
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-22'
-updated_at: '2026-07-22'
+updated_at: '2026-07-24'
 depends_on: []
 jules_session_id: null
 pr_number: null
