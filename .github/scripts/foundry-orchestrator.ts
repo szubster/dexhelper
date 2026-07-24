@@ -1177,6 +1177,49 @@ function main(): void {
 
   // ── Phase 6: COLLECT ───────────────────────────────────────────────────────
   info('Phase 6: Collecting all READY nodes for matrix output...');
+
+  // Calculate critical path weights for all nodes to prioritize tasks that unblock the most downstream work
+  const dependents = buildReverseDependencyGraph(nodes, resolveNodePath as (ref: string) => string | null);
+
+  // We need to also include parent relationships as a dependency, because a child completing unblocks its parent
+  for (const node of nodes) {
+    const parentPath = resolveNodePath(node.frontmatter.parent);
+    if (parentPath) {
+      if (!dependents.has(node.repoPath)) {
+        dependents.set(node.repoPath, []);
+      }
+      dependents.get(node.repoPath)!.push(parentPath);
+    }
+  }
+
+  const criticalPathWeights = new Map<string, number>();
+
+  function getWeight(nodePath: string): number {
+    if (criticalPathWeights.has(nodePath)) {
+        return criticalPathWeights.get(nodePath)!;
+    }
+
+    const deps = dependents.get(nodePath) || [];
+    const allReachable = new Set<string>();
+    const queue = [...deps];
+
+    while(queue.length > 0) {
+        const curr = queue.shift()!;
+        if (!allReachable.has(curr)) {
+            allReachable.add(curr);
+            const currDeps = dependents.get(curr) || [];
+            queue.push(...currDeps);
+        }
+    }
+
+    criticalPathWeights.set(nodePath, allReachable.size);
+    return allReachable.size;
+  }
+
+  for (const n of nodes) {
+      getWeight(n.repoPath);
+  }
+
   // Include both freshly-promoted nodes AND any that were already READY before
   // this run (idempotent: re-running the orchestrator is always safe).
   const readyNodes = nodes
@@ -1185,17 +1228,25 @@ function main(): void {
       ...n.frontmatter,
       repo_path: n.repoPath,
       owner_persona: n.frontmatter.status === 'VERIFYING' ? 'auditor' : n.frontmatter.owner_persona,
+      critical_weight: getWeight(n.repoPath),
     }))
     .sort((a, b) => {
+      // 1. Sort by Critical Path Weight descending (highest weight first)
+      const weightA = a.critical_weight;
+      const weightB = b.critical_weight;
+      if (weightA !== weightB) {
+        return weightB - weightA;
+      }
+
+      // 2. Fallback: Sort by created_at ascending (oldest first)
       const dateA = new Date(a.created_at).getTime();
       const dateB = new Date(b.created_at).getTime();
 
-      // Sort by created_at ascending (oldest first)
       if (!Number.isNaN(dateA) && !Number.isNaN(dateB) && dateA !== dateB) {
         return dateA - dateB;
       }
 
-      // Fallback: sort by numeric id ascending
+      // 3. Fallback: sort by numeric id ascending
       return a.id.localeCompare(b.id, undefined, { numeric: true, sensitivity: 'base' });
     });
 
