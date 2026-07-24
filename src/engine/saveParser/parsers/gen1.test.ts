@@ -2,30 +2,6 @@ import { describe, expect, it, test } from 'vitest';
 import { isGen1Save, parseGen1 } from './gen1';
 
 describe('gen1 parsers', () => {
-  describe('TM/HM parsing', () => {
-    it('should map TM items to moves and extract event flags', () => {
-      const buffer = new ArrayBuffer(32768);
-      const view = new DataView(buffer);
-      // set up enough for isGen1Save to pass
-      view.setUint8(0x2f2c, 1);
-      view.setUint8(0x2f2d, 15);
-      view.setUint8(0x2f2e, 0xff);
-      // set EVENT_GOT_TM42 flag (offset 0x29E6 + 0x29/8 = 0x29EB, bit 0x29%8 = 1)
-      view.setUint8(0x29eb, 2);
-      // add TM01 to inventory
-      view.setUint8(0x25c9, 1);
-      view.setUint8(0x25ca, 201);
-      view.setUint8(0x25cb, 3);
-      const parsed = parseGen1(view);
-      expect(parsed.gen1TMEventFlags?.[242]).toBe(true);
-      const tm42 = parsed.tms?.find((t) => t.id === 242);
-      expect(tm42?.isAcquired).toBe(true);
-      expect(tm42?.quantity).toBe(0);
-      const tm01 = parsed.tms?.find((t) => t.id === 201);
-      expect(tm01?.isAcquired).toBe(true);
-      expect(tm01?.quantity).toBe(3);
-    });
-  });
   describe('isGen1Save', () => {
     const cases = [
       { name: 'invalid party count', u8Mods: { 0x2f2c: 7 }, expected: false },

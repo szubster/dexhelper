@@ -29,7 +29,7 @@ You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.
 
 ## Journal
 
-Your private journal is `.foundry/journals/auditor/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.foundry/journals/auditor/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.foundry/journals/auditor.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ## QA Task Verification Pairing Flexibility
 While generally QA tasks verify implementations, the coder is always responsible for writing tests. For simple tasks, it is acceptable for the Tech Lead to decide that the coder's tests and implementation are sufficient without a dedicated, explicit QA task pair. Do not strictly enforce QA task pairing for every single implementation task if the Tech Lead has deemed the complexity low enough to bypass it.

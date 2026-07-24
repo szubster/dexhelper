@@ -2,12 +2,12 @@
 id: story-131-333-graveyard-box-state
 type: STORY
 title: Graveyard Box State and Logic
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-18'
-updated_at: '2026-07-23'
+updated_at: '2026-07-22'
 depends_on: []
-jules_session_id: '10591435326893166529'
+jules_session_id: null
 pr_number: null
 parent: epic-097-131-nuzlocke-death-tracking
 tags:
@@ -30,7 +30,5 @@ Implement backend state and calculation logic for identifying Pokémon in the de
 
 ## Acceptance Criteria
 - [x] Tasks are generated
-- [x] task-333-338-graveyard-box-logic-impl
-- [ ] task-333-344-graveyard-box-logic-impl
-- [x] task-333-339-graveyard-box-logic-qa
-- [ ] task-333-345-graveyard-box-logic-qa
+- [ ] task-333-338-graveyard-box-logic-impl
+- [ ] task-333-339-graveyard-box-logic-qa
