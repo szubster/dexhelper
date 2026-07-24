@@ -26,4 +26,4 @@ notes: ''
 Investigate the specific memory offsets for Gen 2 Pokegear phone list and state flags (`wPhoneList`, `wSwarmFlags`, `wDailyPhoneItemFlags`, `wDailyPhoneTimeOfDayFlags`, and `wSpecialPhoneCallID`) for both Gold/Silver and Crystal versions.
 
 ## Acceptance Criteria
-- [ ] Document the exact memory offsets for Gold/Silver and Crystal.
+- [x] Document the exact memory offsets for Gold/Silver and Crystal.
