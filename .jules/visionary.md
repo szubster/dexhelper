@@ -244,3 +244,7 @@
 ## 2026-07-23
 **Idea:** Gen 2 Time Capsule Compatibility Validator
 **Learning:** Targeting opaque cross-generation mechanics (like the Time Capsule restrictions) provides massive utility. By dynamically evaluating a player's PC box against static backward-compatibility rules (movesets and species), we transform a frustrating trial-and-error process into an actionable checklist (e.g., "Delete these specific moves to trade"). This reinforces DexHelper as a premium tool that bridges complex game knowledge with real-time save data.
+
+## 2026-07-23 (Update)
+**Idea:** Gen 2 Time Capsule Compatibility Validator
+**Learning:** This idea was rejected because the Time Capsule is already supported in the codebase. I must ensure I thoroughly explore existing features and utilities in the `src/utils` or `src/engine` directories (e.g., `src/utils/timeCapsule.ts`) before proposing ideas to avoid duplicates.
