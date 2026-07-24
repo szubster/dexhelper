@@ -49,6 +49,10 @@ export async function transitionNodeToFailed(node: any, repoRoot: string, reject
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
   const parsed = matter(node.rawContent);
+  if (parsed.data.status === 'CANCELLED' || parsed.data.status === 'COMPLETED') {
+    info(`${dryTag}Preserving terminal status '${parsed.data.status}' for node: ${node.repoPath}`);
+    return;
+  }
   parsed.data.status = 'FAILED';
   parsed.data.jules_session_id = null;
   parsed.data.updated_at = dateStr;
@@ -71,6 +75,10 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
   const parsed = matter(node.rawContent);
+  if (parsed.data.status === 'CANCELLED' || parsed.data.status === 'COMPLETED') {
+    info(`${dryTag}Preserving terminal status '${parsed.data.status}' for node: ${node.repoPath}`);
+    return;
+  }
 
   // Late-Binding Support: If unchecked tasks exist, check if node is a parent.
   const acceptanceCriteriaMatch = parsed.content.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
@@ -200,6 +208,10 @@ export async function transitionNodeToReady(node: any, repoRoot: string, reason:
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
   const parsed = matter(node.rawContent);
+  if (parsed.data.status === 'CANCELLED' || parsed.data.status === 'COMPLETED') {
+    info(`${dryTag}Preserving terminal status '${parsed.data.status}' for node: ${node.repoPath}`);
+    return;
+  }
   const newRejectionCount = (parsed.data.rejection_count || 0) + 1;
   parsed.data.rejection_count = newRejectionCount;
   parsed.data.updated_at = dateStr;
@@ -245,6 +257,10 @@ export async function transitionNodeToReadyWithoutPenalty(node: any, repoRoot: s
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
   const parsed = matter(node.rawContent);
+  if (parsed.data.status === 'CANCELLED' || parsed.data.status === 'COMPLETED') {
+    info(`${dryTag}Preserving terminal status '${parsed.data.status}' for node: ${node.repoPath}`);
+    return;
+  }
 
   const currentStatus = parsed.data.status || node.frontmatter.status;
   if (currentStatus === "VERIFYING") {
