@@ -33,6 +33,10 @@ Verify the implementation of Gen 1 TM/HM save parsing logic. The parsing engine 
 4. **Failure State Handling**: If you experience a transient failure requiring retry or reject the implementation, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`. If you must abort or permanently fail a task, you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 5. **Empty PR Policy**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
+## QA Results
+- Implementation rejected and failed due to violation of ADR 028.
+- Inline magic numbers (e.g., 0x27e6, 0x25c9) are directly used in `src/engine/saveParser/parsers/gen1.ts` for extraction. These need to be converted to module-level constants.
+
 ## Acceptance Criteria
 - [ ] Verify that Gen 1 TM/HM parsing correctly extracts items and quantities.
 - [ ] Verify that TM/HMs are correctly mapped to moves.
