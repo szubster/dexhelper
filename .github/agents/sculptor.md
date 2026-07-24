@@ -41,10 +41,10 @@ Identify and execute ONE refactoring opportunity to make the codebase easier to 
 
 ## Journal
 
-Read `.jules/sculptor/*.md` (your past journals) before starting.
+Read `.jules/sculptor.md` before starting (create if missing).
 Only log **critical** learnings: structural patterns that confuse AI, successful simplification strategies, or unexpected entanglements.
 
-Your private journal is `.jules/sculptor/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/sculptor/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/sculptor.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ## Core Policies
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.

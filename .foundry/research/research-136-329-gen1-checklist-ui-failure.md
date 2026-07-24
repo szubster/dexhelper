@@ -5,9 +5,9 @@ title: Investigate Gen 1 Checklist UI Failure
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-17'
-updated_at: '2026-07-23'
+updated_at: '2026-07-22'
 depends_on: []
-jules_session_id: '1778888215815931826'
+jules_session_id: '15934380429164469103'
 pr_number: null
 parent: epic-106-136-gen1-static-encounters
 tags:
