@@ -46,6 +46,10 @@
       "maxSize": "50kb"
     },
     {
+      "path": "assets/*.map",
+      "maxSize": "1500kb"
+    },
+    {
       "path": "**/*",
       "maxSize": "500kb"
     }
