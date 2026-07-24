@@ -25,6 +25,15 @@ function info(msg: string): void {
 
 const TERMINAL_STATES = ['FAILED', 'COMPLETED'];
 
+/** Normalizes a file path reference to remove any /archive/ segment for comparison */
+function resolvePath(ref: string | null | undefined): string | null {
+  if (!ref) return null;
+  if (ref.startsWith('.foundry/')) {
+    return ref.replace('/archive/', '/');
+  }
+  return ref;
+}
+
 /** Extracts and strictly validates jules_session_id from a node */
 function getSessionId(node: any): string | null {
   const rawId = node.frontmatter.jules_session_id;
@@ -40,6 +49,10 @@ export async function transitionNodeToFailed(node: any, repoRoot: string, reject
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
   const parsed = matter(node.rawContent);
+  if (parsed.data.status === 'CANCELLED' || parsed.data.status === 'COMPLETED') {
+    info(`${dryTag}Preserving terminal status '${parsed.data.status}' for node: ${node.repoPath}`);
+    return;
+  }
   parsed.data.status = 'FAILED';
   parsed.data.jules_session_id = null;
   parsed.data.updated_at = dateStr;
@@ -62,6 +75,10 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
   const parsed = matter(node.rawContent);
+  if (parsed.data.status === 'CANCELLED' || parsed.data.status === 'COMPLETED') {
+    info(`${dryTag}Preserving terminal status '${parsed.data.status}' for node: ${node.repoPath}`);
+    return;
+  }
 
   // Late-Binding Support: If unchecked tasks exist, check if node is a parent.
   const acceptanceCriteriaMatch = parsed.content.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
@@ -76,9 +93,13 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
     for (const fp of filePaths) {
       if (fp === node.filePath) continue;
       const childNode = parseNodeFile(fp, repoRoot);
-      if (childNode && (childNode.frontmatter.parent === node.repoPath || childNode.frontmatter.parent === node.frontmatter.id)) {
-        hasChildren = true;
-        break;
+      if (childNode) {
+        const normalizedParent = resolvePath(childNode.frontmatter.parent);
+        const normalizedRepoPath = resolvePath(node.repoPath);
+        if (normalizedParent === normalizedRepoPath || childNode.frontmatter.parent === node.frontmatter.id) {
+          hasChildren = true;
+          break;
+        }
       }
     }
 
@@ -122,14 +143,18 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
     for (const fp of filePaths) {
       if (fp === node.filePath) continue;
       const childNode = parseNodeFile(fp, repoRoot);
-      if (childNode &&
-         (childNode.frontmatter.parent === node.repoPath || childNode.frontmatter.parent === node.frontmatter.id) &&
+      if (childNode) {
+        const normalizedParent = resolvePath(childNode.frontmatter.parent);
+        const normalizedRepoPath = resolvePath(node.repoPath);
+        if (
+          (normalizedParent === normalizedRepoPath || childNode.frontmatter.parent === node.frontmatter.id) &&
           childNode.frontmatter.type === 'STORY' &&
           childNode.frontmatter.tags &&
           childNode.frontmatter.tags.some(t => t.toLowerCase() === 'e2e' || t.toLowerCase() === 'integration')
-      ) {
-        hasE2EStory = true;
-        break;
+        ) {
+          hasE2EStory = true;
+          break;
+        }
       }
     }
 
@@ -183,6 +208,10 @@ export async function transitionNodeToReady(node: any, repoRoot: string, reason:
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
   const parsed = matter(node.rawContent);
+  if (parsed.data.status === 'CANCELLED' || parsed.data.status === 'COMPLETED') {
+    info(`${dryTag}Preserving terminal status '${parsed.data.status}' for node: ${node.repoPath}`);
+    return;
+  }
   const newRejectionCount = (parsed.data.rejection_count || 0) + 1;
   parsed.data.rejection_count = newRejectionCount;
   parsed.data.updated_at = dateStr;
@@ -228,6 +257,10 @@ export async function transitionNodeToReadyWithoutPenalty(node: any, repoRoot: s
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
   const parsed = matter(node.rawContent);
+  if (parsed.data.status === 'CANCELLED' || parsed.data.status === 'COMPLETED') {
+    info(`${dryTag}Preserving terminal status '${parsed.data.status}' for node: ${node.repoPath}`);
+    return;
+  }
 
   const currentStatus = parsed.data.status || node.frontmatter.status;
   if (currentStatus === "VERIFYING") {

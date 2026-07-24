@@ -2,12 +2,12 @@
 id: epic-054-338-trick-house-save-parsing
 type: EPIC
 title: Gen 3 Trick House Save Parsing
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-19'
-updated_at: '2026-07-22'
+updated_at: '2026-07-23'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9489846643524813440'
 pr_number: null
 parent: prd-088-054-trick-house-tracker
 tags:
@@ -38,4 +38,4 @@ Extract the Trick House puzzle state from Gen 3 save files using the `DataView` 
 - [x] story-111-249-investigate-trick-house-offsets
 - [x] story-111-276-trick-house-parser-impl
 - [x] story-111-277-trick-house-parser-qa
-- [ ] Create an E2E/integration testing story.
+- [ ] story-338-339-trick-house-e2e-integration

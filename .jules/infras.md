@@ -117,3 +117,6 @@ Critical learnings:
 
 ## 2026-07-20 - Fixed Biome CI Version Drift
 **Learning:** The Biome version was bumped to 2.5.4 in `package.json` and `biome.jsonc`, but the CI workflow (`.github/workflows/biome.yml`) remained at `2.5.3`. It's important to update the GitHub Actions check to ensure the CI environment matches the local environment, avoiding false positive/negative linting results in PRs.
+
+## 2026-07-25 - Empty PR Policy for Infrastructure
+**Learning:** Audited the development tooling (Biome, Oxlint, Knip, Bundlemon, Codecov, Lefthook, Dependabot), and found it to be highly optimized and matching CI parity. An empty PR will be submitted to respect the bloat policy, as existing tests and linters are functioning properly and there are no obvious gaps. Verified by running tests including end-to-end tests locally (which require setting up playwright browsers and using xvfb).
