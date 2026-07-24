@@ -2,13 +2,13 @@
 id: task-318-339-gen3-move-tutor-frlg-parsing-qa
 type: TASK
 title: QA Gen 3 FRLG Move Tutor Parsing
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-20'
-updated_at: '2026-07-20'
+updated_at: '2026-07-23'
 depends_on:
   - task-318-338-gen3-move-tutor-frlg-parsing-impl
-jules_session_id: null
+jules_session_id: '10331543110792725650'
 pr_number: null
 parent: story-119-318-gen3-move-tutor-frlg-parsing
 tags:
@@ -34,4 +34,4 @@ The FRLG Move Tutor parser implementation needs to be verified. The implementati
 - Since the implementation is already complete and verified, submit an Empty PR to pass QA.
 
 ## Acceptance Criteria
-- [ ] Verify implementation and tests, then submit an Empty PR.
+- [x] Verify implementation and tests, then submit an Empty PR.
