@@ -36,5 +36,5 @@ As described in `research-055-247-gen3-move-tutor-offsets` (detailed in `gen3_mo
 ## Acceptance Criteria
 - [x] Create tasks for implementing DataView-based extraction of FRLG Move Tutor bits.
 
-- [ ] task-318-338-gen3-move-tutor-frlg-parsing-impl
-- [ ] task-318-339-gen3-move-tutor-frlg-parsing-qa
+- [x] task-318-338-gen3-move-tutor-frlg-parsing-impl
+- [ ] task-318-341-gen3-move-tutor-frlg-parsing-qa
