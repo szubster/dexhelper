@@ -261,6 +261,10 @@ Assigned to story-324-322-safari-zone-static-tables where its generated child (t
 ## 2026-07-22: Combined Automerge Updates
 - **Node**: story-338-336-implement-session-unique-journals
 - **Actions**: Updated automerge tasks to specify that PRs containing a combination of both journal entries and checkbox updates should be auto-merged.
+
+## 2026-07-22: Contest Advisor UI
+- Created two task blueprints (`task-151-342-contest-advisor-ui-integration-impl` and `task-151-343-contest-advisor-ui-integration-qa`) to integrate the Contest Recommendation UI and Warning states into `PokemonDetails.tsx`.
+- Assigned the QA task with a strict `depends_on` the implementation task to enforce sequencing.
 - Drafted task-336-342-zod-schema-definition-impl and task-336-343-zod-schema-definition-qa for story 336.
 ## 2026-07-23: Graveyard Box State Logic Re-generation
 - **Node**: story-131-333-graveyard-box-state

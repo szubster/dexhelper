@@ -29,3 +29,6 @@ Integrate the newly developed Contest Recommendation and Warning UI components i
 ## Acceptance Criteria
 - [ ] Integrate Contest Recommendation UI into the individual Pokémon detail view.
 - [ ] Integrate Contest Warning States UI into the individual Pokémon detail view.
+
+- [ ] task-151-342-contest-advisor-ui-integration-impl
+- [ ] task-151-343-contest-advisor-ui-integration-qa
