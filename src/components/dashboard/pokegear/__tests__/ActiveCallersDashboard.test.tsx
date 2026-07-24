@@ -13,12 +13,12 @@ test('renders correctly with contacts and shows 50% probability when active', as
   const timerState: TimerState = { delayMinsRemaining: 0, timeCyclesSinceLastCall: 5 };
   await render(<ActiveCallersDashboard contacts={mockContacts} timerState={timerState} />);
 
-  await expect.element(page.getByText('ACTIVE CALLERS MATRIX')).toBeInTheDocument();
-  await expect.element(page.getByText('ACTIVE', { exact: true })).toBeInTheDocument();
-  await expect.element(page.getByText(/Mom/i)).toBeInTheDocument();
-  await expect.element(page.getByText(/Prof\. Elm/i)).toBeInTheDocument();
+  await expect.element(page.getByText('Active Callers')).toBeInTheDocument();
+  await expect.element(page.getByText('Status: ACTIVE')).toBeInTheDocument();
+  await expect.element(page.getByText('Mom')).toBeInTheDocument();
+  await expect.element(page.getByText('Prof. Elm')).toBeInTheDocument();
 
-  const probabilityElements = page.getByText('PROB: 50%').elements();
+  const probabilityElements = page.getByText('PROBABILITY: 50%').elements();
   expect(probabilityElements.length).toBe(2);
 });
 
@@ -26,8 +26,8 @@ test('shows 0% probability when cooling down', async () => {
   const timerState: TimerState = { delayMinsRemaining: 10, timeCyclesSinceLastCall: 0 };
   await render(<ActiveCallersDashboard contacts={mockContacts} timerState={timerState} />);
 
-  await expect.element(page.getByText('COOLING_DOWN')).toBeInTheDocument();
-  const probabilityElements = page.getByText('PROB: 0%').elements();
+  await expect.element(page.getByText('Status: COOLING DOWN')).toBeInTheDocument();
+  const probabilityElements = page.getByText('PROBABILITY: 0%').elements();
   expect(probabilityElements.length).toBe(2);
 });
 
@@ -35,13 +35,14 @@ test('renders empty state correctly', async () => {
   const timerState: TimerState = { delayMinsRemaining: 0, timeCyclesSinceLastCall: 5 };
   await render(<ActiveCallersDashboard contacts={[]} timerState={timerState} />);
 
-  await expect.element(page.getByText('[ SEARCHING_FOR_SIGNALS... ]')).toBeInTheDocument();
+  await expect.element(page.getByText('NO SIGNAL')).toBeInTheDocument();
 });
 
 test('applies ADR 008 aesthetic classes', async () => {
   const timerState: TimerState = { delayMinsRemaining: 0, timeCyclesSinceLastCall: 5 };
   const { container } = await render(<ActiveCallersDashboard contacts={mockContacts} timerState={timerState} />);
-  expect(container.innerHTML).toContain('tactical-text');
-  expect(container.innerHTML).toContain('border-dashed');
-  expect(container.innerHTML).toContain('font-mono');
+  const mainDiv = container.firstChild as HTMLElement;
+  expect(mainDiv.className).toContain('rounded-none');
+  expect(mainDiv.className).toContain('border-dashed');
+  expect(mainDiv.className).toContain('font-mono');
 });
