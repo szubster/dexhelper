@@ -25,6 +25,15 @@ function info(msg: string): void {
 
 const TERMINAL_STATES = ['FAILED', 'COMPLETED'];
 
+/** Normalizes a file path reference to remove any /archive/ segment for comparison */
+function resolvePath(ref: string | null | undefined): string | null {
+  if (!ref) return null;
+  if (ref.startsWith('.foundry/')) {
+    return ref.replace('/archive/', '/');
+  }
+  return ref;
+}
+
 /** Extracts and strictly validates jules_session_id from a node */
 function getSessionId(node: any): string | null {
   const rawId = node.frontmatter.jules_session_id;
@@ -76,9 +85,13 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
     for (const fp of filePaths) {
       if (fp === node.filePath) continue;
       const childNode = parseNodeFile(fp, repoRoot);
-      if (childNode && (childNode.frontmatter.parent === node.repoPath || childNode.frontmatter.parent === node.frontmatter.id)) {
-        hasChildren = true;
-        break;
+      if (childNode) {
+        const normalizedParent = resolvePath(childNode.frontmatter.parent);
+        const normalizedRepoPath = resolvePath(node.repoPath);
+        if (normalizedParent === normalizedRepoPath || childNode.frontmatter.parent === node.frontmatter.id) {
+          hasChildren = true;
+          break;
+        }
       }
     }
 
@@ -122,14 +135,18 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
     for (const fp of filePaths) {
       if (fp === node.filePath) continue;
       const childNode = parseNodeFile(fp, repoRoot);
-      if (childNode &&
-         (childNode.frontmatter.parent === node.repoPath || childNode.frontmatter.parent === node.frontmatter.id) &&
+      if (childNode) {
+        const normalizedParent = resolvePath(childNode.frontmatter.parent);
+        const normalizedRepoPath = resolvePath(node.repoPath);
+        if (
+          (normalizedParent === normalizedRepoPath || childNode.frontmatter.parent === node.frontmatter.id) &&
           childNode.frontmatter.type === 'STORY' &&
           childNode.frontmatter.tags &&
           childNode.frontmatter.tags.some(t => t.toLowerCase() === 'e2e' || t.toLowerCase() === 'integration')
-      ) {
-        hasE2EStory = true;
-        break;
+        ) {
+          hasE2EStory = true;
+          break;
+        }
       }
     }
 
@@ -349,14 +366,16 @@ export async function main() {
   const repoRoot = path.resolve(__dirname, '..', '..');
   const filePaths = discoverNodeFiles(path.join(repoRoot, '.foundry'));
   const activeNodes = [];
+  const failedNodes = [];
 
   for (const fp of filePaths) {
     const node = parseNodeFile(fp, repoRoot);
     if (!node) continue;
     if (node.frontmatter.status === 'ACTIVE' ) activeNodes.push(node);
+    if (node.frontmatter.status === 'FAILED') failedNodes.push(node);
   }
 
-  info(`Monitoring ${activeNodes.length} ACTIVE/VERIFYING nodes.`);
+  info(`Monitoring ${activeNodes.length} ACTIVE/VERIFYING and ${failedNodes.length} FAILED nodes.`);
 
   // --- Pass 1: Check ACTIVE Nodes ---
   for (const node of activeNodes) {
@@ -441,7 +460,18 @@ export async function main() {
     }
   }
 
-  // --- Pass 2: Remote Branch Cleanup ---
+  // --- Pass 2: Check FAILED Nodes ---
+  for (const node of failedNodes) {
+    const parsed = matter(node.rawContent);
+    const rejectionCount = parsed.data.rejection_count || 0;
+    if (rejectionCount >= 3) {
+      info(`Skipping retry for ${node.repoPath} because rejection_count (${rejectionCount}) >= 3.`);
+    } else {
+      await transitionNodeToReady(node, repoRoot, `Retry from FAILED status.`);
+    }
+  }
+
+  // --- Pass 3: Remote Branch Cleanup ---
   await cleanupRemoteBranches(repoRoot, repoFullName, githubToken);
 }
 
