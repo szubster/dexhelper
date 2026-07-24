@@ -59,6 +59,10 @@ Broke down epic-115-331-remove-orphaned-qa-task-rule-from-docs into story-331-33
 - Created replacement nodes story-137-333 and story-137-334.
 - Checked off permanently failed child nodes in epic markdown.
 
+## [2026-07-20] Passthrough Validation
+* Verified epic-108-303-extend-phase-3-6-cancelled-nodes. All child stories (story-303-299) are already completed. Proceeding with empty PR.
+- Generated story-334-336-zod-schema-definition and story-334-337-zod-schema-integration from epic-117-334-define-zod-schema
+
 ## 2026-07-21
 *   Task: epic-107-301-lift-rejection-count-state
 *   Action: Submitted an Empty PR to transition the epic since all child stories were already completed.
@@ -67,3 +71,17 @@ Checked off acceptance criteria checkboxes for completed epic epic-057-127-bash-
 ## 2026-07-22
 * Created stories story-338-336, story-338-337, and story-338-338 for epic-120-338 to implement session-unique journal files.
 * Generated story-324-339-gen1-safari-zone-save-state and story-324-340-gen3-safari-zone-save-state from epic-113-324-safari-zone-data-integration.
+
+## 2026-07-23
+* Cancelled `epic-043-152-gen3-roamer-data-extraction` because Gen 3 roamer map coordinates are stored in EWRAM and cannot be extracted from the save file (as per ADR 108-027). Left acceptance criteria unchecked and submitted an empty PR.
+## 2026-07-23
+* Created `story-338-339-trick-house-e2e-integration` from `epic-054-338-trick-house-save-parsing` to fulfill the E2E/integration testing acceptance criteria.
+
+## 2026-07-23
+* Task: epic-043-152-gen3-roamer-data-extraction
+* Action: Submitted an empty PR to demote the epic.
+* Learning: Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file (as per ADR 108-027). Statically extracting them is impossible. I left the YAML frontmatter and acceptance criteria completely untouched and submitted an empty PR so the orchestrator demotes the node to PENDING.
+## 2026-07-23
+* Task: epic-108-303-extend-phase-3-6-cancelled-nodes
+* Action: Verified epic-108-303-extend-phase-3-6-cancelled-nodes. All child stories (story-303-299) are already completed. Proceeding with empty PR.
+* Cancelled epic-043-152-gen3-roamer-data-extraction via the impossible task protocol. Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file (ADR 108-027), making static extraction impossible. Left YAML frontmatter completely untouched and submitted an empty PR without checking acceptance criteria.

@@ -28,4 +28,4 @@ The obsolete "Orphaned QA Task Cancellation Rule" needs to be completely removed
 This story tracks identifying and removing those obsolete instructions from `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks
+- [x] Tech Lead: Break down into Tasks
