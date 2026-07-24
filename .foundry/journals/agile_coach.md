@@ -22,3 +22,6 @@ Removed redundant `### REMINDER FOR CODER` and `### REMINDER FOR QA` blocks from
 - Implemented circular dependency detection in the Foundry Orchestrator (`foundry-orchestrator.ts`) during Phase 3.9 using a DFS-based cycle detection algorithm. `PENDING` nodes involved in a cycle will now be safely transitioned to `FAILED` with `rejection_reason = "Circular dependency detected"`, satisfying `idea-118-orchestrator-circular-dependency-detection` and preventing DAG deadlocks.
 ## 2026-07-23: Removal of Orphaned QA Task Cancellation Rule
 The Agile Coach identified friction caused by the obsolete Orphaned QA Task Cancellation Rule in core_policies.md. The orchestrator's Phase 3.6 cascade cancellation logic now automatically cancels PENDING nodes that depend on permanently failed nodes, making the manual markdown body updates redundant and conflict-prone. This rule has been removed from core_policies.md to streamline the agent workflow.
+
+## 2026-07-24: Created IDEA to remove redundant failure handling from coder and qa prompts
+I noticed that while the Tech Lead was no longer appending failure handling instructions to Tasks, the Coder and QA prompts still contained these rules despite them existing in `core_policies.md`. I created `idea-118-centralize-prompt-reminders-complete.md` to address this redundancy.
