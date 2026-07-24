@@ -133,3 +133,15 @@ Verified PokerusBadge component correctly applies tactical-badge class and rende
 - Ensured reusable module-level constants were defined for all memory offsets and bits instead of magic numbers.
 - Added rigorous DataView bounds checking to gracefully handle and remap `RangeError` to `"The save file is corrupted or incomplete."` per the system prompt.
 - Added rigorous Unit Tests in `src/engine/gen3/staticEncounters.test.ts` to ensure safety and precision.
+## 2026-07-22: Egg Move Pathfinding in Suggestion Engine
+- **Task:** Update Suggestion Engine for Egg Move Pathfinding (`task-258-265-suggestion-engine-egg-moves-impl.md`)
+- **Action:** Modified `src/engine/assistant/generators/breedGenerator.ts` to process precomputed Egg Move paths (`p.em`).
+- **Learning/Anomaly:** To provide O(1) performance in the hot path of the suggestion engine, the algorithm now queries `instancesBySpecies` from back to front along the precomputed breeding chain. This correctly identifies the most advanced ancestor the player owns. Additionally, I added logic to grant a priority boost if the owned instance actually already knows the required move. Encountered some formatting check failures with Biome, resolved via `pnpm biome check --write --unsafe .`.
+- Learned: Task task-283-312-parse-registered-numbers-impl lacks required context (exact memory offsets for Gen 2 Pokegear phone features). Suspended task by checking it off and replacing it, alongside a new research node research-283-336-gen2-phone-memory-offsets to retrieve Gold/Silver and Crystal offsets.
+- **2026-07-24**: Suspended `task-286-314-filter-swarm-item-calls-impl` due to missing critical context. The required memory offsets for `wSwarmFlags`, `wDailyPhoneItemFlags`, and `wDailyPhoneTimeOfDayFlags` in Gen 2 GS and Crystal are undocumented. Per the Late Binding protocol, spawned `research-286-336-gen2-phone-memory-offsets` to investigate this information. I am submitting an empty PR to allow the orchestrator to demote the task or fail it based on the impossible task protocol.
+
+## 2026-07-23 - Gen 1 TM/HM Save Parsing Implementation
+* Mapped Gen 1 TM and HM item IDs directly to their corresponding move IDs.
+* Mapped Gen 1 NPC gift event flags for one-time TMs (like TM42 Dream Eater) into a `GEN1_TM_EVENT_FLAGS` constant.
+* Extracted the event flag bit shifts to explicit reusable constants (`BITS_PER_BYTE_SHIFT`, `BIT_INDEX_MASK`).
+* Integrated a new `tms` property directly into the `SaveData` payload across both inventory parsing and event flag derivation for Gen 1 save parsing.

@@ -5,9 +5,9 @@ title: Gen 3 Trainer Data Extraction
 status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-01'
-updated_at: '2026-07-03'
+updated_at: '2026-07-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '365735201569879069'
 pr_number: null
 parent: idea-082-gen3-secret-id-shiny-rng
 tags:

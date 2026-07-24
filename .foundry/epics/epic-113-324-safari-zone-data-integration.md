@@ -2,12 +2,12 @@
 id: epic-113-324-safari-zone-data-integration
 type: EPIC
 title: Gen 1 & Gen 3 Safari Zone Data Extraction
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-07-16'
+updated_at: '2026-07-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15627804586491080120'
 pr_number: null
 parent: prd-111-113-safari-zone-tracker
 tags:
@@ -32,6 +32,8 @@ This Epic covers the backend and data extraction logic necessary to power the Sa
 - Create utility functions to determine "missing" or "uncaught" Safari Zone encounters based on the current save state.
 
 ## Acceptance Criteria
-- [ ] Create STORY nodes for Gen 1 and Gen 3 save state integration for Safari Zone encounters.
+- [x] Create STORY nodes for Gen 1 and Gen 3 save state integration for Safari Zone encounters.
 - [x] Create STORY nodes for compiling the static encounter tables for Safari Zones.
 - [ ] story-324-322-safari-zone-static-tables
+- [ ] story-324-339-gen1-safari-zone-save-state
+- [ ] story-324-340-gen3-safari-zone-save-state

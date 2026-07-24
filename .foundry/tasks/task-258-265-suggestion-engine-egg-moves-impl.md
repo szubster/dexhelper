@@ -5,10 +5,10 @@ title: Update Suggestion Engine for Egg Move Pathfinding
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-03'
-updated_at: '2026-07-21'
+updated_at: '2026-07-22'
 depends_on:
   - task-258-264-egg-move-precomputation-etl-qa
-jules_session_id: '11816595099752131683'
+jules_session_id: '1399483535104570581'
 pr_number: null
 parent: story-113-258-egg-move-pathfinding-core
 tags:
@@ -32,10 +32,10 @@ Update `src/engine/assistant/suggestionEngine.ts` to utilize the newly precomput
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Update `suggestionEngine.ts` to query the precomputed Egg Move paths.
-- [ ] Suggest the next breeding step if the player owns a Pokémon in the chain.
-- [ ] Ensure the UI surfaces these suggestions correctly to the user.
-- [ ] Ensure proper testing and verification are done.
+- [x] Update `suggestionEngine.ts` to query the precomputed Egg Move paths.
+- [x] Suggest the next breeding step if the player owns a Pokémon in the chain.
+- [x] Ensure the UI surfaces these suggestions correctly to the user.
+- [x] Ensure proper testing and verification are done.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

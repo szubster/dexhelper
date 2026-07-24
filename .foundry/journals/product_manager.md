@@ -77,4 +77,13 @@ During the session to transform `idea-067-extract-dag-utils` into a PRD, it was 
 - Processed IDEA `idea-119-gen2-unown-dex-tracker` and generated `prd-119-118-gen2-unown-dex-tracker` directly linking Unown catches with event flags for Ruins of Alph puzzles to clarify missing Unown forms. Appended PRD node to idea node as Acceptance Criteria. Assigned PRD to epic_planner.
 ### Observation: Invalid Node Sequence Numbers
 I noticed that `idea-118-orchestrator-circular-dependency-detection.md` contained an invalid child node ID (`prd-118-051...`) in its acceptance criteria, which was completely out of sequence for the current state of the repository. When generating new nodes, it's crucial to properly discover the max sequence number across the repository instead of hallucinating or assuming a sequence number, to preserve the sequential integrity of the node identifiers.
+
+## 2026-07-20 - Anomaly Found
+When handling idea-117-split-bundles-and-data, I found that the target PRD artifact prd-117-116-split-bundles-and-data already existed with status COMPLETED. The PRD was successfully generated beforehand.
 - 2026-07-20: Formalized idea-120 into prd-120-335 to transition from monolithic agent journals to session-unique markdown files, eliminating persistent GitHub merge conflicts.
+
+## 2026-07-22 - Idea Transformation to PRD Anomaly
+When beginning the session to transform `idea-117-split-bundles-and-data` into a PRD, I discovered that the target artifact `prd-117-116-split-bundles-and-data` already existed and its acceptance criteria was checked on the idea node. This is an anomaly that the Agile Coach should review. Submitting an empty PR to allow the DAG to progress since the target artifact exists.
+
+## Anomaly: Target Artifact Already Exists
+During the session to process `idea-117-split-bundles-and-data`, it was discovered that the target artifact `prd-117-116-split-bundles-and-data` already existed and was checked off prior to this session. This anomaly should be reviewed by the Agile Coach. Submitting an empty PR to demote the parent node to PENDING.

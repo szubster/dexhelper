@@ -5,9 +5,9 @@ title: Investigate Zombie GC Remediation Failure
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-17'
-updated_at: '2026-07-21'
+updated_at: '2026-07-23'
 depends_on: []
-jules_session_id: '5251103878912732723'
+jules_session_id: '7196379855558849337'
 pr_number: null
 parent: prd-079-050-foundry-zombie-node-cleanup
 tags:
