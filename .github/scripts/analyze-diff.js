@@ -4,22 +4,43 @@ const diff = fs.readFileSync(0, 'utf-8');
 
 function analyzeDiff(diffText) {
   const lines = diffText.split('\n');
-  let hasCheckboxChanges = false;
+  let hasValidChanges = false;
+  let currentFileIsJournal = false;
 
   let i = 0;
   while (i < lines.length) {
     const line = lines[i];
 
+    if (line.startsWith('diff --git ')) {
+      const match = line.match(/^diff --git a\/(.+) b\/(.+)$/);
+      if (match) {
+        const filename = match[2];
+        if (filename.startsWith('.foundry/journals/') || filename.startsWith('.jules/')) {
+          currentFileIsJournal = true;
+        } else {
+          currentFileIsJournal = false;
+        }
+      }
+      i++;
+      continue;
+    }
+
     // Skip headers and unchanged lines
     if (
-      line.startsWith('diff --git') ||
       line.startsWith('index') ||
       line.startsWith('---') ||
-      line.startsWith('+++') ||
+      line.startsWith('+++ ') ||
       line.startsWith('@@') ||
       line.startsWith(' ') ||
       line === '' ||
-      line.startsWith('\\ No newline at end of file')
+      line.startsWith('\\ No newline at end of file') ||
+      line.startsWith('new file mode ') ||
+      line.startsWith('deleted file mode ') ||
+      line.startsWith('old mode ') ||
+      line.startsWith('new mode ') ||
+      line.startsWith('similarity index ') ||
+      line.startsWith('rename from ') ||
+      line.startsWith('rename to ')
     ) {
       i++;
       continue;
@@ -27,6 +48,12 @@ function analyzeDiff(diffText) {
 
     // Process hunks of additions/removals
     if (line.startsWith('-') || line.startsWith('+')) {
+      if (currentFileIsJournal) {
+        hasValidChanges = true;
+        i++;
+        continue;
+      }
+
       const removed = [];
       const added = [];
 
@@ -53,7 +80,7 @@ function analyzeDiff(diffText) {
         const isCheckboxChange = (rReplaced === aReplaced) && /^\s*-\s*\[\s\]/.test(r);
 
         if (!isCheckboxChange) return false;
-        hasCheckboxChanges = true;
+        hasValidChanges = true;
       }
     } else {
       // Any other unexpected line prefix means it's not a clean diff we want to auto-merge
@@ -61,7 +88,7 @@ function analyzeDiff(diffText) {
     }
   }
 
-  return hasCheckboxChanges;
+  return hasValidChanges;
 }
 
 if (analyzeDiff(diff)) {
