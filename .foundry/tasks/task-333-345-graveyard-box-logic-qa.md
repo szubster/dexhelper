@@ -2,10 +2,10 @@
 id: task-333-345-graveyard-box-logic-qa
 type: TASK
 title: Graveyard Box State and Logic Verification
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-23'
-updated_at: '2026-07-23'
+updated_at: '2026-07-24'
 depends_on:
   - task-333-344-graveyard-box-logic-impl
 jules_session_id: null

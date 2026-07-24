@@ -2,10 +2,10 @@
 id: story-119-318-gen3-move-tutor-frlg-parsing
 type: STORY
 title: Parse Gen 3 FireRed/LeafGreen Move Tutor Flags
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-12'
-updated_at: '2026-07-22'
+updated_at: '2026-07-24'
 depends_on: []
 jules_session_id: null
 pr_number: null

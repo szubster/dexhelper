@@ -2,12 +2,12 @@
 id: task-283-312-parse-registered-numbers-impl
 type: TASK
 title: Implement Gen 2 Pokegear Registered Numbers Parsing
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-11'
-updated_at: '2026-07-23'
+updated_at: '2026-07-24'
 depends_on: []
-jules_session_id: '14805202860260027612'
+jules_session_id: null
 pr_number: null
 parent: story-116-283-parse-registered-numbers
 tags:
@@ -17,7 +17,7 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/engine/save_parsing/gen2_phone_mechanics.md
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 

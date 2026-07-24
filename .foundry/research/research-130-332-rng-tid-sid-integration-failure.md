@@ -2,12 +2,12 @@
 id: research-130-332-rng-tid-sid-integration-failure
 type: RESEARCH
 title: Investigate RNG TID/SID Integration Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-07-18'
-updated_at: '2026-07-23'
+updated_at: '2026-07-24'
 depends_on: []
-jules_session_id: '1984437133572901209'
+jules_session_id: null
 pr_number: null
 parent: epic-100-130-rng-tid-sid-display
 tags:
