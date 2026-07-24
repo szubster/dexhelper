@@ -17,5 +17,5 @@ rejection_reason: ''
 Define the core Zod schema based on `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Define Zod schema matching all constraints in `schema.md`
-- [ ] Ensure schema is exported for use in orchestrator
+- [x] Define Zod schema matching all constraints in `schema.md`
+- [x] Ensure schema is exported for use in orchestrator

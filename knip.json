@@ -4,10 +4,12 @@
   "ignoreDependencies": [
     "wrangler",
     "@cloudflare/pages-plugin-cloudflare-access",
-    "@cloudflare/workers-types"
+    "@cloudflare/workers-types",
+    "zod"
   ],
   "ignore": [
     "src/test-setup.ts",
+    ".github/scripts/schema.ts",
     ".github/scripts/extract-research.ts",
     ".github/scripts/verify-dag-refs.ts",
     "scripts/gen3-fetch-locations.ts",
