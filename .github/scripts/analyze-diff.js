@@ -18,7 +18,7 @@ function analyzeDiff(diffText) {
 
     if (line.startsWith('+++ ')) {
       const filename = line.slice(4).replace(/^b\//, '');
-      if (filename.startsWith('.foundry/journals/')) {
+      if (filename.startsWith('.foundry/journals/') || filename.startsWith('.jules/')) {
         currentFileIsJournal = true;
       } else {
         currentFileIsJournal = false;
