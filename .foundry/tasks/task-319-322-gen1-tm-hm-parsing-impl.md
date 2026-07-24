@@ -33,8 +33,8 @@ Implement the data extraction for the Gen 1 save file Item Bag to extract the pl
 4. **Empty PR Policy**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement parsing logic for Gen 1 TM/HM items in the Item Bag.
-- [ ] Map TM/HM items to their corresponding moves.
-- [ ] Implement event flag extraction for one-time TMs.
-- [ ] Extract memory offsets into reusable module-level constants.
-- [ ] Write unit tests verifying TM/HM extraction and event flag mapping.
+- [x] Implement parsing logic for Gen 1 TM/HM items in the Item Bag.
+- [x] Map TM/HM items to their corresponding moves.
+- [x] Implement event flag extraction for one-time TMs.
+- [x] Extract memory offsets into reusable module-level constants.
+- [x] Write unit tests verifying TM/HM extraction and event flag mapping.

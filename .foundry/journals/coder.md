@@ -133,3 +133,9 @@ Verified PokerusBadge component correctly applies tactical-badge class and rende
 - Ensured reusable module-level constants were defined for all memory offsets and bits instead of magic numbers.
 - Added rigorous DataView bounds checking to gracefully handle and remap `RangeError` to `"The save file is corrupted or incomplete."` per the system prompt.
 - Added rigorous Unit Tests in `src/engine/gen3/staticEncounters.test.ts` to ensure safety and precision.
+
+## 2026-07-23 - Gen 1 TM/HM Save Parsing Implementation
+* Mapped Gen 1 TM and HM item IDs directly to their corresponding move IDs.
+* Mapped Gen 1 NPC gift event flags for one-time TMs (like TM42 Dream Eater) into a `GEN1_TM_EVENT_FLAGS` constant.
+* Extracted the event flag bit shifts to explicit reusable constants (`BITS_PER_BYTE_SHIFT`, `BIT_INDEX_MASK`).
+* Integrated a new `tms` property directly into the `SaveData` payload across both inventory parsing and event flag derivation for Gen 1 save parsing.
