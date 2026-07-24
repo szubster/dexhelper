@@ -2,12 +2,12 @@
 id: task-319-322-gen1-tm-hm-parsing-impl
 type: TASK
 title: Gen 1 TM/HM Save Parsing Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-14'
-updated_at: '2026-07-22'
+updated_at: '2026-07-24'
 depends_on: []
-jules_session_id: '13813501419768784792'
+jules_session_id: null
 pr_number: null
 parent: story-306-319-gen1-tm-hm-parsing
 tags:
@@ -16,8 +16,8 @@ tags:
   - save-parsing
 research_references:
   - .foundry/docs/knowledge_base/moveset-inventory-memory-offsets.md
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Implementation violated ADR 028 by using inline magic numbers for offsets (e.g., 0x27e6, 0x25c9) in parseGen1 instead of module-level constants.'
 notes: ''
 ---
 
@@ -33,8 +33,8 @@ Implement the data extraction for the Gen 1 save file Item Bag to extract the pl
 4. **Empty PR Policy**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement parsing logic for Gen 1 TM/HM items in the Item Bag.
-- [ ] Map TM/HM items to their corresponding moves.
-- [ ] Implement event flag extraction for one-time TMs.
-- [ ] Extract memory offsets into reusable module-level constants.
-- [ ] Write unit tests verifying TM/HM extraction and event flag mapping.
+- [x] Implement parsing logic for Gen 1 TM/HM items in the Item Bag.
+- [x] Map TM/HM items to their corresponding moves.
+- [x] Implement event flag extraction for one-time TMs.
+- [x] Extract memory offsets into reusable module-level constants.
+- [x] Write unit tests verifying TM/HM extraction and event flag mapping.

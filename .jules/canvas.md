@@ -294,3 +294,9 @@
 **Outcome:** Accepted
 **Why:** The previous search bar and filter section looked like a standard web form, which broke the "specialized hardware" immersion during regular interaction. Transforming it into an active intelligence dashboard with radar crosshairs and membrane switch filters reinforces the fantasy of using a physical tactical device.
 **Pattern:** Always elevate search and filter controls from standard inputs to active "Acquisition Matrices" by incorporating hardware analogies (e.g. radar scans, membrane toggles, status LEDs) and structural paneling (`[ TARGET_ACQUISITION ]`) to maintain the specialized device simulation.
+
+## 2026-08-20 - [Accepted] - 🖼️ Canvas: Tactical Telemetry DataLabel Redesign
+**What:** Redesigned the `DataLabel` component into a "Tactical Telemetry Data Node". Replaced the simple span with a `w-fit` rigid segmented block (`group relative flex items-center border-l-[2px] border-dashed`) featuring an active status LED indicator (an absolutely positioned node that glows on hover) and strict uppercase monospace typography.
+**Outcome:** Accepted
+**Why:** Brings the granular data display labels in line with the established specialized hardware motif. The previous `DataLabel` was a simple styled text span, which broke the terminal simulation. Treating individual labels as active telemetry endpoints reinforces the physical device fantasy.
+**Pattern:** Apply tactical aesthetics (dashed borders acting as connecting lines, absolute positioning LEDs, tight monospace typography) even to the smallest, most granular data labeling elements to maintain absolute visual coherence deep within complex data views.

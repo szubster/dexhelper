@@ -25,6 +25,15 @@ function info(msg: string): void {
 
 const TERMINAL_STATES = ['FAILED', 'COMPLETED'];
 
+/** Normalizes a file path reference to remove any /archive/ segment for comparison */
+function resolvePath(ref: string | null | undefined): string | null {
+  if (!ref) return null;
+  if (ref.startsWith('.foundry/')) {
+    return ref.replace('/archive/', '/');
+  }
+  return ref;
+}
+
 /** Extracts and strictly validates jules_session_id from a node */
 function getSessionId(node: any): string | null {
   const rawId = node.frontmatter.jules_session_id;
@@ -76,9 +85,13 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
     for (const fp of filePaths) {
       if (fp === node.filePath) continue;
       const childNode = parseNodeFile(fp, repoRoot);
-      if (childNode && (childNode.frontmatter.parent === node.repoPath || childNode.frontmatter.parent === node.frontmatter.id)) {
-        hasChildren = true;
-        break;
+      if (childNode) {
+        const normalizedParent = resolvePath(childNode.frontmatter.parent);
+        const normalizedRepoPath = resolvePath(node.repoPath);
+        if (normalizedParent === normalizedRepoPath || childNode.frontmatter.parent === node.frontmatter.id) {
+          hasChildren = true;
+          break;
+        }
       }
     }
 
@@ -122,14 +135,18 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
     for (const fp of filePaths) {
       if (fp === node.filePath) continue;
       const childNode = parseNodeFile(fp, repoRoot);
-      if (childNode &&
-         (childNode.frontmatter.parent === node.repoPath || childNode.frontmatter.parent === node.frontmatter.id) &&
+      if (childNode) {
+        const normalizedParent = resolvePath(childNode.frontmatter.parent);
+        const normalizedRepoPath = resolvePath(node.repoPath);
+        if (
+          (normalizedParent === normalizedRepoPath || childNode.frontmatter.parent === node.frontmatter.id) &&
           childNode.frontmatter.type === 'STORY' &&
           childNode.frontmatter.tags &&
           childNode.frontmatter.tags.some(t => t.toLowerCase() === 'e2e' || t.toLowerCase() === 'integration')
-      ) {
-        hasE2EStory = true;
-        break;
+        ) {
+          hasE2EStory = true;
+          break;
+        }
       }
     }
 
