@@ -1333,6 +1333,39 @@ status: ACTIVE
       expect(fs.writeFileSync).not.toHaveBeenCalled();
     });
   });
+
+  describe('FAILED Node Retry Prevention (Regression Test)', () => {
+    it('should NOT automatically transition FAILED nodes to READY in main heartbeat execution', async () => {
+      const mockNode = {
+        filePath: '/mock/repo/.foundry/tasks/task-failed.md',
+        repoPath: '.foundry/tasks/task-failed.md',
+        frontmatter: {
+          id: 'task-failed',
+          type: 'TASK',
+          status: 'FAILED',
+          rejection_count: 1,
+          rejection_reason: 'Some permanent error',
+          jules_session_id: 'session-123'
+        },
+        rawContent: '---\nid: task-failed\ntype: TASK\nstatus: FAILED\nrejection_count: 1\nrejection_reason: "Some permanent error"\njules_session_id: "session-123"\n---\nBody'
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-failed.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+      // Mock remote check dependencies to do nothing/empty
+      globalFetch.mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => []
+      } as unknown as Response);
+
+      await main();
+
+      // Verify that fs.writeFileSync was NEVER called to transition this node to READY
+      expect(fs.writeFileSync).not.toHaveBeenCalled();
+    });
+  });
 });
 
   describe('cleanupRemoteBranches', () => {

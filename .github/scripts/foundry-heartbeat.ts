@@ -349,16 +349,14 @@ export async function main() {
   const repoRoot = path.resolve(__dirname, '..', '..');
   const filePaths = discoverNodeFiles(path.join(repoRoot, '.foundry'));
   const activeNodes = [];
-  const failedNodes = [];
 
   for (const fp of filePaths) {
     const node = parseNodeFile(fp, repoRoot);
     if (!node) continue;
     if (node.frontmatter.status === 'ACTIVE' ) activeNodes.push(node);
-    if (node.frontmatter.status === 'FAILED') failedNodes.push(node);
   }
 
-  info(`Monitoring ${activeNodes.length} ACTIVE/VERIFYING and ${failedNodes.length} FAILED nodes.`);
+  info(`Monitoring ${activeNodes.length} ACTIVE/VERIFYING nodes.`);
 
   // --- Pass 1: Check ACTIVE Nodes ---
   for (const node of activeNodes) {
@@ -443,18 +441,7 @@ export async function main() {
     }
   }
 
-  // --- Pass 2: Check FAILED Nodes ---
-  for (const node of failedNodes) {
-    const parsed = matter(node.rawContent);
-    const rejectionCount = parsed.data.rejection_count || 0;
-    if (rejectionCount >= 3) {
-      info(`Skipping retry for ${node.repoPath} because rejection_count (${rejectionCount}) >= 3.`);
-    } else {
-      await transitionNodeToReady(node, repoRoot, `Retry from FAILED status.`);
-    }
-  }
-
-  // --- Pass 3: Remote Branch Cleanup ---
+  // --- Pass 2: Remote Branch Cleanup ---
   await cleanupRemoteBranches(repoRoot, repoFullName, githubToken);
 }
 
