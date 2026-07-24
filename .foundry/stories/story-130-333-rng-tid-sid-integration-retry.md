@@ -30,12 +30,10 @@ Integrate the newly created TID/SID display component into the main Trainer dash
 This is a retry of the cancelled `story-130-270-rng-tid-sid-integration`. The implementation must strictly follow the recommendations provided by `research-130-332-rng-tid-sid-integration-failure`.
 
 ## Acceptance Criteria
-- [x] Incorporate the findings from `research-130-332` into the blueprints.
-- [x] Ensure the component receives the correct data from the save state.
-- [x] Render the TID/SID component in the appropriate dashboard view.
-- [x] Tech Lead: Generate actionable Tasks.
-- [ ] task-333-346-rng-tid-sid-integration-impl
-- [ ] task-333-347-rng-tid-sid-integration-qa
+- [ ] Incorporate the findings from `research-130-332` into the blueprints.
+- [ ] Ensure the component receives the correct data from the save state.
+- [ ] Render the TID/SID component in the appropriate dashboard view.
+- [ ] Tech Lead: Generate actionable Tasks.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
