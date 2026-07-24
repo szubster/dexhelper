@@ -34,4 +34,4 @@ The FRLG Move Tutor parser implementation needs to be verified. The implementati
 - Since the implementation is already complete and verified, submit an Empty PR to pass QA.
 
 ## Acceptance Criteria
-- [ ] Verify implementation and tests, then submit an Empty PR.
+- [x] Verify implementation and tests, then submit an Empty PR.
