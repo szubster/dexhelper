@@ -2,12 +2,12 @@
 id: task-333-344-graveyard-box-logic-impl
 type: TASK
 title: Graveyard Box State and Logic Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-23'
 updated_at: '2026-07-24'
 depends_on: []
-jules_session_id: '1835102008074381226'
+jules_session_id: null
 pr_number: null
 parent: story-131-333-graveyard-box-state
 tags:
