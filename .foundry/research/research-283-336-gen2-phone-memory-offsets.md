@@ -26,21 +26,4 @@ notes: ''
 Investigate the specific memory offsets for Gen 2 Pokegear phone list and state flags (`wPhoneList`, `wSwarmFlags`, `wDailyPhoneItemFlags`, `wDailyPhoneTimeOfDayFlags`, and `wSpecialPhoneCallID`) for both Gold/Silver and Crystal versions.
 
 ## Acceptance Criteria
-- [x] Document the exact memory offsets for Gold/Silver and Crystal.
-
-### Findings
-- `wPhoneList`
-  - Gold/Silver: `0xD9C6`
-  - Crystal: `0xDC7C`
-- `wSwarmFlags` (Note: mapped to bit 2 in `wDailyFlags1` in Gold/Silver)
-  - Gold/Silver: `0xD968`
-  - Crystal: `0xDC20`
-- `wDailyPhoneItemFlags`
-  - Gold/Silver: Not explicitly defined/present in pokegold
-  - Crystal: `0xDC50`
-- `wDailyPhoneTimeOfDayFlags`
-  - Gold/Silver: Not explicitly defined/present in pokegold
-  - Crystal: `0xDC54`
-- `wSpecialPhoneCallID`
-  - Gold/Silver: `0xD97B`
-  - Crystal: `0xDC31`
+- [ ] Document the exact memory offsets for Gold/Silver and Crystal.

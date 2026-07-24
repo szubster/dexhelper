@@ -2,13 +2,13 @@
 id: task-333-345-graveyard-box-logic-qa
 type: TASK
 title: Graveyard Box State and Logic Verification
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-23'
 updated_at: '2026-07-24'
 depends_on:
   - task-333-344-graveyard-box-logic-impl
-jules_session_id: null
+jules_session_id: '12783330098851291332'
 pr_number: null
 parent: story-131-333-graveyard-box-state
 tags:
@@ -26,9 +26,9 @@ notes: ''
 Verify the backend state and calculation logic for identifying Pokémon in the designated Graveyard Box as permanently dead.
 
 ## Contract / Acceptance Criteria
-- [ ] Verify that there is a backend configuration/state for specifying a "Graveyard Box".
-- [ ] Verify the logic correctly marks any Pokémon in the Graveyard Box as dead, regardless of HP.
-- [ ] Ensure all relevant tests pass.
+- [x] Verify that there is a backend configuration/state for specifying a "Graveyard Box".
+- [x] Verify the logic correctly marks any Pokémon in the Graveyard Box as dead, regardless of HP.
+- [x] Ensure all relevant tests pass.
 
 ## Instructions & Reminders for QA
 - **Note:** This functionality appears to already exist in `src/engine/nuzlocke/tracker.ts` and `src/store.ts`. Ensure everything works as expected and submit an Empty PR checking off all Acceptance Criteria if no code changes are needed.
