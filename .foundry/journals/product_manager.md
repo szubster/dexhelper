@@ -81,3 +81,9 @@ I noticed that `idea-118-orchestrator-circular-dependency-detection.md` containe
 ## 2026-07-20 - Anomaly Found
 When handling idea-117-split-bundles-and-data, I found that the target PRD artifact prd-117-116-split-bundles-and-data already existed with status COMPLETED. The PRD was successfully generated beforehand.
 - 2026-07-20: Formalized idea-120 into prd-120-335 to transition from monolithic agent journals to session-unique markdown files, eliminating persistent GitHub merge conflicts.
+
+## 2026-07-22 - Idea Transformation to PRD Anomaly
+When beginning the session to transform `idea-117-split-bundles-and-data` into a PRD, I discovered that the target artifact `prd-117-116-split-bundles-and-data` already existed and its acceptance criteria was checked on the idea node. This is an anomaly that the Agile Coach should review. Submitting an empty PR to allow the DAG to progress since the target artifact exists.
+
+## Anomaly: Target Artifact Already Exists
+During the session to process `idea-117-split-bundles-and-data`, it was discovered that the target artifact `prd-117-116-split-bundles-and-data` already existed and was checked off prior to this session. This anomaly should be reviewed by the Agile Coach. Submitting an empty PR to demote the parent node to PENDING.
