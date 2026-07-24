@@ -34,4 +34,5 @@ Collectors and retro gamers who manage their own Gen 3 save files often inject o
 Create a Mystery Gift Viewer dashboard that parses the Mystery Gift blocks from a Gen 3 save file. It will display the active Wonder Cards, received event tickets, and whether the corresponding special island events are accessible, providing a premium collection utility.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this idea into a PRD to formalize the parsing approach and assign it to an epic for tracking.
+- [x] Product Manager: Convert this idea into a PRD to formalize the parsing approach and assign it to an epic for tracking.
+- [ ] prd-121-336-gen3-mystery-gift-viewer
