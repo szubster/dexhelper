@@ -2,7 +2,7 @@
 id: task-319-322-gen1-tm-hm-parsing-impl
 type: TASK
 title: Gen 1 TM/HM Save Parsing Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-07-14'
 updated_at: '2026-07-24'
@@ -16,8 +16,8 @@ tags:
   - save-parsing
 research_references:
   - .foundry/docs/knowledge_base/moveset-inventory-memory-offsets.md
-rejection_count: 1
-rejection_reason: 'Implementation violated ADR 028 by using inline magic numbers for offsets (e.g., 0x27e6, 0x25c9) in parseGen1 instead of module-level constants.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

@@ -13,7 +13,11 @@ parent: prd-070-043-roamer-tracking-dashboard
 tags: []
 research_references: []
 rejection_count: 1
-rejection_reason: 'Permanently CANCELLED as Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file, making static extraction impossible as per research-043-263-roamer-tracking-remediation and ADR 108-027.'
+rejection_reason: >-
+  [ACKNOWLEDGED] Permanently CANCELLED as Gen 3 roamer map coordinates are
+  stored in EWRAM and are not serialized to the save file, making static
+  extraction impossible as per research-043-263-roamer-tracking-remediation and
+  ADR 108-027.
 notes: ''
 ---
 # Gen 3 Roamer Data Extraction

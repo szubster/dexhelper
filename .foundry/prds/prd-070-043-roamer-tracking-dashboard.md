@@ -2,7 +2,7 @@
 id: prd-070-043-roamer-tracking-dashboard
 type: PRD
 title: Roamer Tracking Dashboard PRD
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-06-09'
 updated_at: '2026-07-24'
