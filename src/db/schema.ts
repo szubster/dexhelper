@@ -195,14 +195,6 @@ export interface ItemMetadata {
   sprite?: string | undefined;
 }
 
-export interface HiddenItemData {
-  flagOffset: number;
-  flagBit: number;
-  locationId: number;
-  itemId: number;
-  isAcquired?: boolean;
-}
-
 export interface PokeDataExport {
   poke: PokemonMetadata[];
   enc: LocationAreaEncounters[];
