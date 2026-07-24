@@ -12,10 +12,8 @@ pr_number: null
 parent: prd-070-043-roamer-tracking-dashboard
 tags: []
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 1
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
 # Gen 3 Roamer Data Extraction
