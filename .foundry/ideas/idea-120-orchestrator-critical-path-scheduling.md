@@ -2,7 +2,7 @@
 id: idea-120-orchestrator-critical-path-scheduling
 type: IDEA
 title: Implement Critical Path Node Prioritization in the DAG Orchestrator
-status: ACTIVE
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-07-21'
 updated_at: '2026-07-23'
@@ -23,3 +23,6 @@ Implement a "Critical Path Score" or topological weight calculation during the o
 3. During the `COLLECT` and `OUTPUT` phases, the orchestrator should sort the list of `READY` nodes by this weight descending, ensuring that agents pick up tasks that unblock the largest portions of the DAG first.
 
 This aligns with the focus on "scheduling enhancements to the multi-agent pipeline" and improves overall autonomous factory throughput.
+
+## Acceptance Criteria
+- [x] Complete orchestrator critical path scheduling
