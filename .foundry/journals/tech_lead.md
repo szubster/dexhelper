@@ -265,3 +265,7 @@ Assigned to story-324-322-safari-zone-static-tables where its generated child (t
 ## 2026-07-22: Contest Advisor UI
 - Created two task blueprints (`task-151-342-contest-advisor-ui-integration-impl` and `task-151-343-contest-advisor-ui-integration-qa`) to integrate the Contest Recommendation UI and Warning states into `PokemonDetails.tsx`.
 - Assigned the QA task with a strict `depends_on` the implementation task to enforce sequencing.
+- Drafted task-336-342-zod-schema-definition-impl and task-336-343-zod-schema-definition-qa for story 336.
+## 2026-07-23: Graveyard Box State Logic Re-generation
+- **Node**: story-131-333-graveyard-box-state
+- **Actions**: Marked `task-333-338-graveyard-box-logic-impl` and `task-333-339-graveyard-box-logic-qa` as complete in the parent node since they were already completed in the tasks directory but the parent was erroneously assigned. Spawned replacement nodes `task-333-344` and `task-333-345` with READY status to pass the resurrected parent state.
