@@ -13,7 +13,7 @@
     "data:gen-maps": "node --experimental-strip-types scripts/generateMapLocations.ts",
     "dev": "vite --port=3000 --host=0.0.0.0",
     "format:biome": "biome format .",
-    "postinstall": "lefthook install",
+    "postinstall": "lefthook install || true",
     "knip": "knip",
     "lint": "pnpm type-check && pnpm check:biome && pnpm exec oxlint --type-aware --type-check --import-plugin --promise-plugin . && pnpm knip && pnpm lint:circular && pnpm lint:package-json",
     "lint:biome": "biome lint --error-on-warnings .",
