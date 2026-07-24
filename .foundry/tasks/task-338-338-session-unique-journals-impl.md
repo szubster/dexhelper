@@ -2,10 +2,10 @@
 id: task-338-338-session-unique-journals-impl
 type: TASK
 title: Implement Session-Unique Journal Files
-status: COMPLETED
+status: READY
 owner_persona: coder
 created_at: '2026-07-22'
-updated_at: '2026-07-23'
+updated_at: '2026-07-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -34,5 +34,5 @@ Update the system configuration and core agent prompts to enforce the use of ses
 - Specifically, update `.github/scripts/foundry-orchestrator.ts` if it references `.foundry/journals/agile_coach.md` directly.
 
 ## Acceptance Criteria
-- [x] Agent prompt files in `.github/agents/` are updated to specify session-unique journal paths.
-- [x] The orchestrator (`.github/scripts/foundry-orchestrator.ts`) is updated to support the new format, if applicable.
+- [ ] Agent prompt files in `.github/agents/` are updated to specify session-unique journal paths.
+- [ ] The orchestrator (`.github/scripts/foundry-orchestrator.ts`) is updated to support the new format, if applicable.

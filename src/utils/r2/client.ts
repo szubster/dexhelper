@@ -11,10 +11,12 @@ export const r2Client = {
     const buffer = await res.arrayBuffer();
     return new Uint8Array(buffer);
   },
-  async putSave(id: string, data: Uint8Array<ArrayBuffer>): Promise<void> {
+  async putSave(id: string, data: Uint8Array): Promise<void> {
     const res = await fetch(`/api/saves/${id}`, {
       method: 'PUT',
-      body: data,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: Blob buffer mismatch
+      body: data as any,
       headers: { 'Content-Type': 'application/octet-stream' },
     });
     if (!res.ok) throw new Error('Failed to put save');

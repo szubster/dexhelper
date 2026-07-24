@@ -70,5 +70,3 @@ Broke down epic-115-331-remove-orphaned-qa-task-rule-from-docs into story-331-33
 Checked off acceptance criteria checkboxes for completed epic epic-057-127-bash-timeout-wrapper because all its child stories (story-127-267-bash-timeout-wrapper and story-127-268-bash-timeout-feedback) have been completed, permitting the submission of an empty PR to advance the epic's status to VERIFYING.
 ## 2026-07-22
 * Created stories story-338-336, story-338-337, and story-338-338 for epic-120-338 to implement session-unique journal files.
-## 2026-07-23
-* Cancelled epic-043-152-gen3-roamer-data-extraction via the impossible task protocol. Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file (ADR 108-027), making static extraction impossible. Left YAML frontmatter completely untouched and submitted an empty PR without checking acceptance criteria.

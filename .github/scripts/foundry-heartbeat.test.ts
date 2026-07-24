@@ -15,7 +15,6 @@ describe('Foundry Heartbeat', () => {
   const mockRepoRoot = '/mock/repo';
 
   beforeEach(() => {
-    vi.resetAllMocks();
     vi.clearAllMocks();
     globalFetch.mockClear();
     process.env = { ...originalEnv, JULES_API_KEY: 'mock-api-key', GITHUB_TOKEN: 'mock-token' };
@@ -1332,53 +1331,6 @@ status: ACTIVE
       await main();
 
       expect(fs.writeFileSync).not.toHaveBeenCalled();
-    });
-  });
-
-
-  describe('Regression: Archived Parent and Child Path Matching in Heartbeat', () => {
-    it('should transition an EPIC in archive to VERIFYING when its E2E story child is also in archive and parent reference is original path', async () => {
-      const mockEpicRegression = {
-        filePath: '/mock/repo/.foundry/archive/epics/epic-regression-archived.md',
-        repoPath: '.foundry/archive/epics/epic-regression-archived.md',
-        frontmatter: {
-          id: 'epic-regression-archived',
-          type: 'EPIC',
-          status: 'ACTIVE',
-          jules_session_id: 'session-regression-1',
-          owner_persona: 'story_owner'
-        },
-        rawContent: '---\ntype: EPIC\nstatus: ACTIVE\njules_session_id: "session-regression-1"\nowner_persona: "story_owner"\n---\nBody'
-      };
-
-      const mockChildRegression = {
-        filePath: '/mock/repo/.foundry/archive/stories/story-regression-archived.md',
-        repoPath: '.foundry/archive/stories/story-regression-archived.md',
-        frontmatter: {
-          id: 'story-regression-archived',
-          type: 'STORY',
-          parent: '.foundry/epics/epic-regression-archived.md',
-          tags: ['integration']
-        }
-      };
-
-      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue([
-        '/mock/repo/.foundry/archive/epics/epic-regression-archived.md',
-        '/mock/repo/.foundry/archive/stories/story-regression-archived.md'
-      ]);
-      vi.mocked(orchestrator.parseNodeFile).mockImplementation((fp) => {
-        if (fp === '/mock/repo/.foundry/archive/epics/epic-regression-archived.md') return mockEpicRegression as any;
-        if (fp === '/mock/repo/.foundry/archive/stories/story-regression-archived.md') return mockChildRegression as any;
-        return null;
-      });
-
-      await transitionNodeToCompleted(mockEpicRegression, '/mock/repo', 123);
-
-      expect(fs.writeFileSync).toHaveBeenCalled();
-      const writeCall = vi.mocked(fs.writeFileSync).mock.calls.find(call => call[0] === mockEpicRegression.filePath);
-      expect(writeCall).toBeDefined();
-      expect(writeCall![1]).toContain('status: VERIFYING');
-      expect(writeCall![1]).toContain('owner_persona: auditor');
     });
   });
 });

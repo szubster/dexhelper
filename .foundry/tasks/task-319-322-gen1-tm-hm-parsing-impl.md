@@ -5,9 +5,9 @@ title: Gen 1 TM/HM Save Parsing Implementation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-14'
-updated_at: '2026-07-23'
+updated_at: '2026-07-22'
 depends_on: []
-jules_session_id: '11548072071200028671'
+jules_session_id: '13813501419768784792'
 pr_number: null
 parent: story-306-319-gen1-tm-hm-parsing
 tags:
@@ -33,8 +33,8 @@ Implement the data extraction for the Gen 1 save file Item Bag to extract the pl
 4. **Empty PR Policy**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [x] Implement parsing logic for Gen 1 TM/HM items in the Item Bag.
-- [x] Map TM/HM items to their corresponding moves.
-- [x] Implement event flag extraction for one-time TMs.
-- [x] Extract memory offsets into reusable module-level constants.
-- [x] Write unit tests verifying TM/HM extraction and event flag mapping.
+- [ ] Implement parsing logic for Gen 1 TM/HM items in the Item Bag.
+- [ ] Map TM/HM items to their corresponding moves.
+- [ ] Implement event flag extraction for one-time TMs.
+- [ ] Extract memory offsets into reusable module-level constants.
+- [ ] Write unit tests verifying TM/HM extraction and event flag mapping.

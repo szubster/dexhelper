@@ -2,10 +2,10 @@
 id: task-338-340-journal-automerge-impl
 type: TASK
 title: Enable Automerge for Journal Entries
-status: COMPLETED
+status: READY
 owner_persona: coder
 created_at: '2026-07-22'
-updated_at: '2026-07-23'
+updated_at: '2026-07-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - workflow
   - automerge
 research_references: []
-rejection_count: 2
+rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
@@ -35,5 +35,5 @@ Update the continuous integration/GitHub Actions configuration to automatically 
 - Ensure these new conditions do not inadvertently automerge PRs that contain changes outside of the journals directory.
 
 ## Acceptance Criteria
-- [x] `.github/workflows/auto-close-empty-pr.yml` (or an associated script) is updated to automerge PRs modifying only `.foundry/journals/*`.
-- [x] The workflow successfully auto-merges PRs containing a combination of both journal modifications and checkbox updates.
+- [ ] `.github/workflows/auto-close-empty-pr.yml` (or an associated script) is updated to automerge PRs modifying only `.foundry/journals/*`.
+- [ ] The workflow successfully auto-merges PRs containing a combination of both journal modifications and checkbox updates.
