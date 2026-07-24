@@ -88,7 +88,13 @@ Updated the PRD by appending the Epics to the Acceptance Criteria. Corrected a m
 - Re-enforced that assumptions about save file flags should not dictate extracting tasks without concrete evidence, opting instead for pure app-state tracking for the checklist.
 ## [2026-07-18] PRD to Epic Breakdown for Zod Schema Validation
 Broke down PRD prd-116-117-zod-schema-validation-orchestrator into two Epics: epic-117-334-define-zod-schema (to define the schema) and epic-117-335-integrate-zod-orchestrator (to integrate it into the orchestrator).
+
+## 2026-07-19: Trick House Save Parsing Epic Replacement
+**Context:** The `epic-054-111-trick-house-save-parsing` node failed because it merged with unfulfilled acceptance criteria, specifically missing an E2E/integration story.
+**Action:** Cancelled the failed Epic and generated a replacement, `epic-054-338-trick-house-save-parsing`, which explicitly includes the missing E2E integration story requirement in its scope and acceptance criteria. Updated the parent PRD to check off the failed Epic and appended the new replacement Epic as an unchecked task using its Node ID. Updated the dependency in `epic-054-112-trick-house-ui` to point to the new replacement Epic.
 \nDemoted PRD 107 to PENDING by unchecking the 'Break down into Epics' acceptance criteria because its child epics are still pending or failed, adhering to the Late-Binding Orchestrator Demotion Rule.
 
 ## 2026-07-21
 - Transformed PRD for conflictless journals into an Epic. Ensures we transition from monolithic markdown files to conflict-less storage per session.
+
+- Handling Permanent Failures: When a downstream epic permanently fails, I must not just blindly resubmit. I must spawn a research node, create replacement epics dependent on that research, and check off the permanently failed nodes in the parent PRD.

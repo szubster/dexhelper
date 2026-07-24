@@ -399,3 +399,9 @@
 **Outcome:** Merged
 **Why:** The memory requires that when running browser-based tests (such as Playwright E2E or Vitest browser) in the headless agent environment, agents must strictly prefix the test command with `xvfb-run` (e.g., `xvfb-run pnpm test:e2e`) to prevent browser launch failures and protocol connection errors. Several agent prompts (bolt, infras, mason, nurse, oak, palette, sculptor, sentinel, shield, sweeper, trainer) and the core policies were just using `pnpm test:e2e` instead of `xvfb-run pnpm test:e2e`.
 **Pattern:** Codify specific, recurring test framework constraints (like xvfb-run prefix for headless browser tests) directly into the agent prompts and core policies to prevent recurring test failures during the QA phase.
+
+## 2026-08-02 - [Accepted] - Prompt improvement - Enforce RangeError verification in Tech Lead blueprints
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `tech_lead.md` journal recorded that when drafting save parser blueprints using `DataView`, they explicitly mandate catching `RangeError` and throwing 'The save file is corrupted or incomplete.' to prevent QA rejections. However, this explicit blueprinting constraint was missing from the Tech Lead agent's prompt, which could lead to missed requirements and QA rejections for the Coder.
+**Pattern:** Codify specific, recurring architectural validation requirements (like checking for `RangeError` handling in save file parsers) directly into the Tech Lead agent's prompt to ensure strict and consistent architectural enforcement when generating tasks.
