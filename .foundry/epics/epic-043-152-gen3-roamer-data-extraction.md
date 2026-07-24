@@ -2,18 +2,20 @@
 id: epic-043-152-gen3-roamer-data-extraction
 type: EPIC
 title: Gen 3 Roamer Data Extraction
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-07-10'
 updated_at: '2026-07-24'
 depends_on: []
-jules_session_id: '13779139715883828322'
+jules_session_id: null
 pr_number: null
 parent: prd-070-043-roamer-tracking-dashboard
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: ''
 ---
 # Gen 3 Roamer Data Extraction
