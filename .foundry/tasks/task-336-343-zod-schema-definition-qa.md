@@ -18,4 +18,4 @@ rejection_reason: ''
 Verify the core Zod schema definition based on `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Verify Zod schema matches all constraints in `schema.md`
+- [x] Verify Zod schema matches all constraints in `schema.md`
