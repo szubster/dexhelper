@@ -2,12 +2,12 @@
 id: idea-121-gen3-mystery-gift-viewer
 type: IDEA
 title: Gen 3 Mystery Gift Viewer
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2024-07-24'
 updated_at: '2026-07-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4787396288865281111'
 pr_number: null
 parent: null
 tags:
