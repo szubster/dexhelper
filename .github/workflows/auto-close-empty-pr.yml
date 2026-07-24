@@ -24,9 +24,9 @@ jobs:
             echo "Empty PR detected."
             MERGE=true
           else
-            echo "Non-empty PR. Analyzing diff for checkbox-only changes..."
+            echo "Non-empty PR. Analyzing diff for checkbox-only or journal changes..."
             if gh pr diff $PR_NUMBER --repo ${{ github.repository }} | node .github/scripts/analyze-diff.js; then
-              echo "Checkbox-only changes detected."
+              echo "Checkbox-only or journal changes detected."
               MERGE=true
             else
               echo "Not an auto-mergable PR."
@@ -34,6 +34,6 @@ jobs:
           fi
 
           if [ "$MERGE" = "true" ]; then
-            gh pr comment $PR_NUMBER --body "Automatically merged PR (empty or checkbox-only) to progress DAG." --repo ${{ github.repository }}
+            gh pr comment $PR_NUMBER --body "Automatically merged PR (empty, checkbox-only, or journal updates) to progress DAG." --repo ${{ github.repository }}
             gh pr merge $PR_NUMBER --squash --admin --repo ${{ github.repository }}
           fi

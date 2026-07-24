@@ -2627,4 +2627,107 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
     expect(epicContent).toContain('status: COMPLETED');
   });
+
+  test('Archived Dependency: resolves dependency pointing to archived task path', () => {
+    createValidTestNode(tmpDir, '.foundry/archive/tasks/task-completed.md', {
+      id: "task-completed",
+      type: "TASK",
+      title: "Completed Task",
+      status: "COMPLETED",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-dependent.md', {
+      id: "task-dependent",
+      type: "TASK",
+      title: "Dependent Task",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/tasks/task-completed.md"],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const dependentContent = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-dependent.md'), 'utf-8');
+    expect(dependentContent).toContain('status: READY');
+  });
+
+  test('Archived Child Path Link: resolves child linked via raw original path when child is archived', () => {
+    createValidTestNode(tmpDir, '.foundry/epics/epic-parent.md', {
+      id: "epic-parent",
+      type: "EPIC",
+      title: "Epic Parent",
+      status: "PENDING",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    }, `# Epic Parent
+## Acceptance Criteria
+- [ ] Child Story: [.foundry/stories/story-child.md](.foundry/stories/story-child.md)`);
+
+    createValidTestNode(tmpDir, '.foundry/archive/stories/story-child.md', {
+      id: "story-child",
+      type: "STORY",
+      title: "Story Child",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: "epic-parent",
+      tags: ["e2e"],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const parentContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-parent.md'), 'utf-8');
+    // It should be promoted to READY exactly once (it wakes up because child is complete but it has unchecked tasks)
+    expect(parentContent).toContain('status: READY');
+  });
+
+  test('Regression: Idempotent generation check bypasses dispatch of archived parent with archived children', () => {
+    createValidTestNode(tmpDir, '.foundry/archive/epics/epic-parent.md', {
+      id: "epic-parent",
+      type: "EPIC",
+      title: "Epic Parent",
+      status: "PENDING",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    }, `# Epic Parent
+## Acceptance Criteria
+- [x] Child Story: [.foundry/stories/story-child.md](.foundry/stories/story-child.md)`);
+
+    createValidTestNode(tmpDir, '.foundry/archive/stories/story-child.md', {
+      id: "story-child",
+      type: "STORY",
+      title: "Story Child",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: ".foundry/epics/epic-parent.md",
+      tags: ["e2e"],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const parentContent = fs.readFileSync(path.join(tmpDir, '.foundry/archive/epics/epic-parent.md'), 'utf-8');
+    // It should be promoted to COMPLETED directly, bypassing READY/ACTIVE dispatch!
+    expect(parentContent).toContain('status: COMPLETED');
+  });
 });
