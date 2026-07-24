@@ -96,3 +96,5 @@ Broke down PRD prd-116-117-zod-schema-validation-orchestrator into two Epics: ep
 
 ## 2026-07-21
 - Transformed PRD for conflictless journals into an Epic. Ensures we transition from monolithic markdown files to conflict-less storage per session.
+
+- Handling Permanent Failures: When a downstream epic permanently fails, I must not just blindly resubmit. I must spawn a research node, create replacement epics dependent on that research, and check off the permanently failed nodes in the parent PRD.
