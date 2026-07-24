@@ -12,11 +12,16 @@ function analyzeDiff(diffText) {
     const line = lines[i];
 
     if (line.startsWith('diff --git ')) {
-      const match = line.match(/^diff --git a\/(.+) b\/(.+)$/);
+      // The original script has a bug where extended git headers like 'new file mode' might be considered a bad prefix if not skipped.
+      const match = line.match(/^diff --git a\/(.+?) b\/(.+?)$/);
+
       if (match) {
+        // If file is deleted, b/ is the filename. If created, b/ is the filename.
         const filename = match[2];
         if (filename.startsWith('.foundry/journals/') || filename.startsWith('.jules/')) {
           currentFileIsJournal = true;
+          // Note: Just because we saw a journal file in diff header, doesn't mean it has changes yet, but if it has changes we'll process them below. However, for empty file creations, git diff might have NO +/- lines.
+          hasValidChanges = true;
         } else {
           currentFileIsJournal = false;
         }
@@ -25,7 +30,7 @@ function analyzeDiff(diffText) {
       continue;
     }
 
-    // Skip headers and unchanged lines
+    // Skip headers and unchanged lines - THESE ARE SAFE TO SKIP EVERYWHERE
     if (
       line.startsWith('index') ||
       line.startsWith('---') ||
@@ -34,14 +39,24 @@ function analyzeDiff(diffText) {
       line.startsWith(' ') ||
       line === '' ||
       line.startsWith('\\ No newline at end of file') ||
-      line.startsWith('new file mode ') ||
-      line.startsWith('deleted file mode ') ||
       line.startsWith('old mode ') ||
       line.startsWith('new mode ') ||
       line.startsWith('similarity index ') ||
       line.startsWith('rename from ') ||
       line.startsWith('rename to ')
     ) {
+      i++;
+      continue;
+    }
+
+    // Check for file creations/deletions. Non-journal files shouldn't be created/deleted if we're only auto-merging checkboxes.
+    if (
+      line.startsWith('new file mode ') ||
+      line.startsWith('deleted file mode ')
+    ) {
+      if (!currentFileIsJournal) {
+          return false;
+      }
       i++;
       continue;
     }
