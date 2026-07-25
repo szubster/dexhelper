@@ -5,9 +5,9 @@ title: Implement Gen 3 Trainer Defeat Flags Extraction
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-14'
-updated_at: '2026-07-21'
+updated_at: '2026-07-24'
 depends_on: []
-jules_session_id: '10563777807627786052'
+jules_session_id: '10469068114203436055'
 pr_number: null
 parent: story-307-319-gen3-trainer-flags-extraction
 tags:
