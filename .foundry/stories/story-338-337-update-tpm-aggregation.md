@@ -32,4 +32,5 @@ With agents writing to session-unique journal files, the TPM persona must be upd
 - Define a process for the TPM to aggregate these files into a master log or archive them to prevent directory bloat.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into actionable Tasks.
+- [x] Tech Lead: Break this Story down into actionable Tasks.
+- [ ] task-337-346-update-tpm-persona-instructions
