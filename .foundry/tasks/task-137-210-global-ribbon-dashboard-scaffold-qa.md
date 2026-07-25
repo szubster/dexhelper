@@ -30,7 +30,7 @@ The coder has implemented the `GlobalRibbonChecklistDashboard` component for vie
 2. Ensure data from the Living Dex / PC Box is correctly aggregated and displayed.
 
 ## Acceptance Criteria
-- [ ] Verify `GlobalRibbonChecklistDashboard` accurately displays data from the PC/Living Dex.
-- [ ] Verify basic ribbon display components render correctly for the aggregated data.
-- [ ] Verify performance constraints (handling large datasets like hundreds of Pokémon).
-- [ ] Run and verify E2E tests for the new dashboard component.
+- [x] Verify `GlobalRibbonChecklistDashboard` accurately displays data from the PC/Living Dex.
+- [x] Verify basic ribbon display components render correctly for the aggregated data.
+- [x] Verify performance constraints (handling large datasets like hundreds of Pokémon).
+- [x] Run and verify E2E tests for the new dashboard component.
