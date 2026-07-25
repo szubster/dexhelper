@@ -114,3 +114,11 @@ If you lack critical context or specifications (e.g., exact memory offsets) nece
 * Use non-blocking alternatives like `cat` or `tail -n`.
 * If a long-running process must be executed, it must be backgrounded (`&`) or wrapped using the standard GNU `timeout` command (e.g., `timeout 30s command`).
 * **Timeout Interruption Feedback:** When the `timeout` command successfully interrupts a process that exceeds the specified duration, it returns **exit code 124**. Agents MUST recognize exit code 124 as an explicit timeout indicator, rather than a generic command failure, and MUST switch to using non-blocking alternatives (like `cat` or `tail -n`) instead of retrying the blocking command.
+
+## Save File Parsing & Magic Numbers
+When working with save file parsing or data definitions across any persona (Tech Lead drafting tasks, Coder implementing, QA validating):
+- **Reusable Constants**: You MUST explicitly define and use reusable constants for memory offsets, lengths, bit locations, and shifts at the module level. Strictly avoid using inline magic numbers (e.g., `0x2dd6`, `>> 4`) directly in parsing functions.
+- **Bounds Checking**: When using the `DataView` API for array bounds checking or extraction limits, you MUST NOT use inline magic numbers; these bounds must also be defined as reusable constants at the module level.
+- **Gen 3 Relative Offsets**: When writing Gen 3 save block extraction functions, you must pass and utilize the resolved section offset (e.g., `section1Offset` or `section2Offset`) to calculate relative memory offsets, rather than using absolute hardcoded offsets, to properly support the Gen 3 A/B bank flash memory architecture.
+- **Bitwise Blocks**: When parsing bitwise blocks (like event flag arrays) using the `DataView` API, you must explicitly map the specific bit offsets corresponding to target events. Just extracting the array is insufficient; explicitly identifying the individual bit offsets is required for downstream consumption.
+- **Error Handling**: When using the `DataView` API to parse save files, you MUST catch `RangeError` for out-of-bounds reads and throw a new error with the message "The save file is corrupted or incomplete." to prevent crashes and QA rejections. QA MUST explicitly reject tasks that fail to handle these rules.
