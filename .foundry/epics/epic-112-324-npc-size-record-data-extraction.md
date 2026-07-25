@@ -2,12 +2,12 @@
 id: epic-112-324-npc-size-record-data-extraction
 type: EPIC
 title: Gen 2 & Gen 3 NPC Size Record Assistant - Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-14'
 updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5789674109407981456'
 pr_number: null
 parent: prd-110-112-npc-size-record-assistant
 tags:
