@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: qa
 created_at: '2026-07-02'
 updated_at: '2026-07-02'
-depends_on:
-  - task-159-249-gen3-egg-hatch-parsing-impl
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-106-159-gen3-egg-hatch-parsing
@@ -20,7 +19,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # QA Gen 3 Egg Hatch Data Extraction
 
 ## Description

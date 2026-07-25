@@ -3,7 +3,6 @@ import { decodeGen12String, type GameVersion, type Gen3SecretBasePartyMember } f
 export const SECRET_BASE_SIZE = 160;
 export const FLAGS_OFFSET = 0x01;
 export const BATTLED_OWNER_TODAY_MASK = 1 << 5;
-export const SECRET_BASES_COUNT = 20;
 
 export const TRAINER_NAME_OFFSET = 0x02;
 export const TRAINER_NAME_LENGTH_RS = 7;
@@ -11,10 +10,8 @@ export const TRAINER_NAME_LENGTH_EMERALD = 8;
 
 export const TRAINER_ID_OFFSET_RS = 0x09;
 export const TRAINER_ID_OFFSET_EMERALD = 0x0a;
-export const TRAINER_ID_LENGTH = 4;
 
 export const PARTY_OFFSET = 0x34;
-export const PARTY_SIZE = 108;
 export const PARTY_COUNT = 6;
 
 export const POKEMON_PERSONALITY_OFFSET = 0x00;
