@@ -49,3 +49,4 @@ Implement generation-based splitting for JavaScript engine logic, UI components,
 - [ ] `PokeDB.ts` updated to support multi-part data synchronization.
 - [ ] Performance verification: Measure and confirm reduction in initial JS and data payload.
 - [ ] Assigned a scheduled agent (e.g., **Bolt**) to monitor and maintain bundle sizes and lazy loading adherence.
+- [ ] prd-117-337-split-bundles-and-data
