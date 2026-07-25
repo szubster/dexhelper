@@ -80,6 +80,8 @@ When converting an IDEA to a PRD, it is crucial to ensure that the PRD fully for
 When handling idea-117-split-bundles-and-data, I found that the target PRD artifact prd-117-116-split-bundles-and-data already existed with status COMPLETED. The PRD was successfully generated beforehand.
 - 2026-07-20: Formalized idea-120 into prd-120-335 to transition from monolithic agent journals to session-unique markdown files, eliminating persistent GitHub merge conflicts.
 
+## Multi-Save Trade Planner PRD Generation (2026-07-21)
+Converted idea-059 into PRD. Encountered a unique case where the feature operates across multiple concurrent active data states, heavily affecting architectural assumptions around single-source-of-truth stores. Future PMs should be mindful when writing PRDs that span multiple saves simultaneously.
 ## 2026-07-22 - Idea Transformation to PRD Anomaly
 When beginning the session to transform `idea-117-split-bundles-and-data` into a PRD, I discovered that the target artifact `prd-117-116-split-bundles-and-data` already existed and its acceptance criteria was checked on the idea node. This is an anomaly that the Agile Coach should review. Submitting an empty PR to allow the DAG to progress since the target artifact exists.
 
