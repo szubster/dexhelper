@@ -131,7 +131,7 @@ const POKE_NEWS_STATE_OFFSET = 1;
 const POKE_NEWS_COUNTDOWN_OFFSET = 2;
 
 const MISC_IV_EGG_ABILITY_OFFSET = 4;
-const MISC_MET_LOCATION_OFFSET = 1;
+export const MET_LOCATION_OFFSET_IN_M = 1;
 const IS_EGG_BIT_SHIFT = 30;
 const GROWTH_FRIENDSHIP_OFFSET = 4;
 const EGG_CYCLE_STEPS = 256;
@@ -1262,7 +1262,7 @@ export {
  */
 export function parseGen3MetLocation(view: DataView, miscSubstructureOffset: number): number {
   try {
-    return view.getUint8(miscSubstructureOffset + MISC_MET_LOCATION_OFFSET);
+    return view.getUint8(miscSubstructureOffset + MET_LOCATION_OFFSET_IN_M);
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');
