@@ -5,7 +5,7 @@
  *
  * ## Architecture Overview
  * Generation 3 uses a complex A/B bank flash memory architecture to prevent data corruption.
- * The game alternates writing between two 56KB blocks (`0x0000` and `0xE000`). Each block is
+ * The game alternates writing between two 56KB blocks (`0x0000` and `0xe000`). Each block is
  * further divided into 14 4KB sections. The engine must scan both banks, verify the `0x08012025`
  * signature, and compare `saveIndex` values to locate the most recent, non-corrupted data block.
  *
@@ -136,7 +136,61 @@ const IS_EGG_BIT_SHIFT = 30;
 const GROWTH_FRIENDSHIP_OFFSET = 4;
 const EGG_CYCLE_STEPS = 256;
 
-export const GEN3_EVENT_FLAGS_OFFSET = 0x1270;
+export const TM_POCKET_OFFSET_RS = 0x0640;
+export const TM_POCKET_OFFSET_EMERALD = 0x0690;
+export const TM_POCKET_OFFSET_FRLG = 0x0464;
+export const TM_POCKET_SIZE_RS = 256;
+export const TM_POCKET_SIZE_EMERALD = 256;
+export const TM_POCKET_SIZE_FRLG = 232;
+
+export const ITEM_INDEX_OFFSET = 0;
+export const ITEM_QUANTITY_OFFSET = 2;
+export const ITEM_ENTRY_SIZE = 4;
+
+export const SECURITY_KEY_OFFSET_EMERALD = 0x00ac;
+export const SECURITY_KEY_OFFSET_FRLG = 0x0af8;
+
+export const GEN3_EVENT_FLAGS_OFFSET = 0x02f0;
+// Extracted from pokeemerald/pokefirered constants
+export const FLAG_RECEIVED_TM_BRICK_BREAK = 0x79;
+export const FLAG_RECEIVED_TM_ROCK_TOMB = 0xa5;
+export const FLAG_RECEIVED_TM_BULK_UP = 0xa6;
+export const FLAG_RECEIVED_TM_SHOCK_WAVE = 0xa7;
+export const FLAG_RECEIVED_TM_OVERHEAT = 0xa8;
+export const FLAG_RECEIVED_TM_FACADE = 0xa9;
+export const FLAG_RECEIVED_TM_AERIAL_ACE = 0xaa;
+export const FLAG_RECEIVED_TM_CALM_MIND = 0xab;
+export const FLAG_RECEIVED_TM_WATER_PULSE = 0xac;
+export const FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON = 0xd1;
+export const FLAG_RECEIVED_TM_RETURN = 0xe5;
+export const FLAG_RECEIVED_TM_SLUDGE_BOMB = 0xe6;
+export const FLAG_RECEIVED_TM_ROAR = 0xe7;
+export const FLAG_RECEIVED_TM_GIGA_DRAIN = 0xe8;
+export const FLAG_RECEIVED_TM_REST = 0xea;
+export const FLAG_RECEIVED_TM_ATTRACT = 0xeb;
+export const FLAG_RECEIVED_TM_SNATCH = 0x104;
+export const FLAG_RECEIVED_TM_DIG = 0x105;
+export const FLAG_RECEIVED_TM_BULLET_SEED = 0x106;
+export const FLAG_RECEIVED_TM_HIDDEN_POWER = 0x108;
+export const FLAG_RECEIVED_TM_TORMENT = 0x109;
+export const FLAG_RECEIVED_TM_THIEF = 0x10d;
+
+export const FLAG_GOT_TM34_FROM_SURGE = 0x231;
+export const FLAG_GOT_TM42_AT_MEMORIAL_PILLAR = 0x236;
+export const FLAG_GOT_TM28_FROM_ROCKET = 0x23f;
+export const FLAG_GOT_TM29_FROM_MR_PSYCHIC = 0x245;
+export const FLAG_GOT_TM38_FROM_BLAINE = 0x24e;
+export const FLAG_GOT_TM39_FROM_BROCK = 0x254;
+export const FLAG_GOT_TM06_FROM_KOGA = 0x259;
+export const FLAG_GOT_TM27 = 0x25b;
+export const FLAG_GOT_TM19_FROM_ERIKA = 0x293;
+export const FLAG_GOT_TM33_FROM_THIRSTY_GIRL = 0x294;
+export const FLAG_GOT_TM20_FROM_THIRSTY_GIRL = 0x295;
+export const FLAG_GOT_TM16_FROM_THIRSTY_GIRL = 0x296;
+export const FLAG_GOT_TM03_FROM_MISTY = 0x297;
+export const FLAG_GOT_TM26_FROM_GIOVANNI = 0x298;
+export const FLAG_GOT_TM04_FROM_SABRINA = 0x29a;
+
 export const EMERALD_MOVE_TUTOR_BYTE_1_OFFSET = 0x36;
 export const EMERALD_MOVE_TUTOR_BYTE_2_OFFSET = 0x37;
 
@@ -207,7 +261,7 @@ export const GEN3_ASH_VAR_RELATIVE_OFFSET = 0x90;
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
  *
  * **A/B Bank Architecture:**
- * Gen 3 games use flash memory divided into two 56KB blocks: Bank A (`0x0000`) and Bank B (`0xE000`).
+ * Gen 3 games use flash memory divided into two 56KB blocks: Bank A (`0x0000`) and Bank B (`0xe000`).
  * When saving, the game writes to whichever bank was NOT used previously, acting as a fail-safe
  * against data corruption if the device powers off mid-save.
  * Each bank is further divided into 14 4KB sections.
@@ -218,7 +272,7 @@ export const GEN3_ASH_VAR_RELATIVE_OFFSET = 0x90;
  *
  * **Why this is needed:**
  * Generation 3 uses an A/B bank flash memory architecture to prevent data corruption during saves.
- * It alternates writing between two 56KB blocks (`0x0000` and `0xE000`). If power is lost mid-save,
+ * It alternates writing between two 56KB blocks (`0x0000` and `0xe000`). If power is lost mid-save,
  * the older bank remains intact. The engine must scan both banks, verify the `0x08012025` signature,
  * and compare the `saveIndex` values (the highest index represents the most recent successful save).
  *
@@ -286,7 +340,7 @@ function getLatestSectionOffset(view: DataView, targetSectionId: number): number
  * Extracts the status and growth data of all 128 Berry Patches in Hoenn.
  *
  * **Binary Data Structure:**
- * Each berry patch is represented by an 8-byte structure starting at offset `0x071C` within SaveBlock1.
+ * Each berry patch is represented by an 8-byte structure starting at offset `0x071c` within SaveBlock1.
  * - `Byte 0`: Berry ID (which berry is planted).
  * - `Byte 1`: Growth stage (bits 0-6) and a flag indicating if growth has stopped (bit 7).
  * - `Bytes 2-3`: A 16-bit little-endian integer tracking minutes until the next growth stage.
@@ -350,7 +404,7 @@ function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
  * @remarks
  * **Why is this currently stubbed?**
  * Unlike Gen 1 and Gen 2 which use simple SRAM, Gen 3 games use a flash memory chip
- * with an A/B bank rotation system (`0x0000` and `0xE000`) to prevent corruption during saves.
+ * with an A/B bank rotation system (`0x0000` and `0xe000`) to prevent corruption during saves.
  * A proper validation requires scanning all 14 sectors in both banks to locate the `0x08012025`
  * signature and verifying the checksums of the most recent `saveIndex`. Because the actual
  * `parseGen3` function performs this exhaustive scan anyway, this check is currently bypassed
@@ -420,8 +474,8 @@ export function parseGen3EggSteps(
  * on the game engine version due to differing lengths of preceding data structures
  * (like PC items, mail, or battle tower stats):
  * - Ruby/Sapphire: `SaveBlock1 + 0x3144`
- * - Emerald: `SaveBlock1 + 0x31DC`
- * - FireRed/LeafGreen: `SaveBlock1 + 0x30D0`
+ * - Emerald: `SaveBlock1 + 0x31dc`
+ * - FireRed/LeafGreen: `SaveBlock1 + 0x30d0`
  *
  * **Binary Data Structure:**
  * - `Bytes 0-3`: A 32-bit little-endian integer containing the packed Individual Values (IVs).
@@ -442,7 +496,7 @@ export function parseGen3EggSteps(
  * Game Freak continually modified the SaveBlock1 layout throughout Generation 3 to accommodate
  * new mechanics. For example, FireRed/LeafGreen removed Secret Bases and Contests, while Emerald
  * added Battle Frontier data, causing the Roamer block to shift to different static offsets
- * across releases (`0x3144` in RS, `0x31DC` in Emerald, `0x30D0` in FRLG).
+ * across releases (`0x3144` in RS, `0x31dc` in Emerald, `0x30d0` in FRLG).
  *
  * **Data Packing:**
  * To conserve memory, all 6 Individual Values (IVs) are bit-packed into a single 32-bit integer,
@@ -655,7 +709,7 @@ export function parseGen3ActiveSwarm(view: DataView, offset: number): Gen3Active
  * @remarks
  * Contest attributes (Cool, Beauty, Cute, Smart, Tough) and Sheen (Feel) are stored as individual
  * bytes within the 12-byte "EVs & Condition (E)" substructure of the 48-byte encrypted Data block.
- * They are extracted sequentially from offset `0x06` to `0x0B` relative to the substructure's base.
+ * They are extracted sequentially from offset `0x06` to `0x0b` relative to the substructure's base.
  *
  * @param view - The raw save file DataView.
  * @param offset - The offset within the buffer to the base of the E substructure.
@@ -767,7 +821,7 @@ export function parseGen3SecretBases(
  *
  * 1. **Section Resolution (The A/B Flash System):**
  *    Gen 3 games use flash memory, which is vulnerable to corruption if power is lost mid-write.
- *    To solve this, the game alternates saving between Bank A (`0x0000`) and Bank B (`0xE000`).
+ *    To solve this, the game alternates saving between Bank A (`0x0000`) and Bank B (`0xe000`).
  *    This function *must* scan both banks to find `SaveBlock1` (player data) and `SaveBlock2` (system data),
  *    comparing their internal `saveIndex` values to determine which bank contains the most recent,
  *    uncorrupted save state.
@@ -877,12 +931,12 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
 
     if (_forcedVersion === 'emerald') {
       try {
-        gen3MoveTutors = parseGen3EmeraldMoveTutors(view, section1Offset);
+        gen3MoveTutors = parseGen3EmeraldMoveTutors(view, section2Offset);
       } catch {
         // Ignored
       }
       try {
-        gen3NPCTrades = parseGen3RSENPCTrades(view, section1Offset);
+        gen3NPCTrades = parseGen3RSENPCTrades(view, section2Offset);
       } catch {
         // Ignored
       }
@@ -894,12 +948,12 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       }
     } else if (_forcedVersion === 'firered' || _forcedVersion === 'leafgreen') {
       try {
-        gen3MoveTutors = parseGen3FRLGMoveTutors(view, section1Offset);
+        gen3MoveTutors = parseGen3FRLGMoveTutors(view, section2Offset);
       } catch {
         // Ignored
       }
       try {
-        gen3NPCTrades = parseGen3FRLGNPCTrades(view, section1Offset);
+        gen3NPCTrades = parseGen3FRLGNPCTrades(view, section2Offset);
       } catch {
         // Ignored
       }
@@ -938,6 +992,10 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     }
 
     const { trainerId, secretId } = parseGen3TrainerId(view, section0Offset);
+    const securityKey = parseGen3SecurityKey(view, section0Offset, _forcedVersion || 'ruby');
+    const gen3TMHMs = parseGen3TMHMs(view, section1Offset, _forcedVersion || 'ruby', securityKey);
+
+    const gen3TMEventFlags = parseGen3TMEventFlags(view, section2Offset, _forcedVersion || 'ruby');
 
     // Dummy scaffold values for now until fully implemented
     const result: SaveData = {
@@ -957,6 +1015,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       inventory: [],
       currentBoxCount: 0,
       hallOfFameCount: 0,
+
       gen3BerryPatches,
       gen3SecretBases,
       hiddenItemFlags,
@@ -966,6 +1025,8 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       ...(gen3ActiveSwarm !== undefined ? { gen3ActiveSwarm } : {}),
       roamingLegendaries,
       gen3VolcanicAsh,
+      gen3TMHMs,
+      gen3TMEventFlags,
       gen3TrickHouse: parseTrickHouse(view, section1Offset),
     };
     if (gen3FeebasTiles !== undefined) {
@@ -1100,9 +1161,9 @@ export function parseGen3PokeNews(view: DataView, offset: number) {
  * @returns An object containing boolean flags for each move tutor.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3EmeraldMoveTutors(view: DataView, saveBlock1Offset: number) {
+export function parseGen3EmeraldMoveTutors(view: DataView, saveBlock2Offset: number) {
   try {
-    const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
+    const baseOffset = saveBlock2Offset + GEN3_EVENT_FLAGS_OFFSET;
     const byte1 = view.getUint8(baseOffset + EMERALD_MOVE_TUTOR_BYTE_1_OFFSET);
     const byte2 = view.getUint8(baseOffset + EMERALD_MOVE_TUTOR_BYTE_2_OFFSET);
 
@@ -1144,9 +1205,236 @@ export function parseGen3EmeraldMoveTutors(view: DataView, saveBlock1Offset: num
  */
 export { parseGen3LotteryNumber } from '../gen3/lottery/parser';
 
-export function parseGen3RSENPCTrades(view: DataView, saveBlock1Offset: number): Record<string, boolean> {
+export const GEN3_TM_HM_MOVE_MAP: Record<number, number> = {
+  289: 264,
+  290: 337,
+  291: 352,
+  292: 347,
+  293: 46,
+  294: 92,
+  295: 258,
+  296: 339,
+  297: 331,
+  298: 237,
+  299: 241,
+  300: 269,
+  301: 58,
+  302: 59,
+  303: 63,
+  304: 113,
+  305: 182,
+  306: 240,
+  307: 202,
+  308: 219,
+  309: 218,
+  310: 76,
+  311: 231,
+  312: 85,
+  313: 87,
+  314: 89,
+  315: 216,
+  316: 91,
+  317: 94,
+  318: 247,
+  319: 280,
+  320: 104,
+  321: 115,
+  322: 351,
+  323: 53,
+  324: 188,
+  325: 201,
+  326: 126,
+  327: 317,
+  328: 332,
+  329: 259,
+  330: 263,
+  331: 290,
+  332: 156,
+  333: 213,
+  334: 168,
+  335: 211,
+  336: 285,
+  337: 289,
+  338: 315,
+  339: 15,
+  340: 19,
+  341: 57,
+  342: 70,
+  343: 148,
+  344: 249,
+  345: 127,
+  346: 291,
+};
+
+/**
+ * Extracts the Security Key used for encryption (money, items) in Gen 3 FRLG/Emerald saves.
+ *
+ * @param view - The raw save file DataView.
+ * @param section0Offset - The resolved offset to Section 0.
+ * @param gameVersion - The detected game version.
+ * @returns The 32-bit security key.
+ */
+export function parseGen3SecurityKey(view: DataView, section0Offset: number, gameVersion: GameVersion): number {
   try {
-    const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
+    if (gameVersion === 'emerald') {
+      return view.getUint32(section0Offset + SECURITY_KEY_OFFSET_EMERALD, true);
+    } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
+      return view.getUint32(section0Offset + SECURITY_KEY_OFFSET_FRLG, true);
+    }
+    return 0; // Ruby/Sapphire do not use the security key
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+/**
+ * Parses the TM/HM pocket from the Gen 3 save file.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @param gameVersion - The detected game version.
+ * @param securityKey - The 32-bit security key extracted from Section 0.
+ * @returns An array of TM/HM items mapped to their corresponding moves.
+ */
+export function parseGen3TMHMs(
+  view: DataView,
+  saveBlock1Offset: number,
+  gameVersion: GameVersion,
+  securityKey: number,
+) {
+  let offset = saveBlock1Offset;
+  let size = 0;
+
+  if (gameVersion === 'emerald') {
+    offset += TM_POCKET_OFFSET_EMERALD;
+    size = TM_POCKET_SIZE_EMERALD;
+  } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
+    offset += TM_POCKET_OFFSET_FRLG;
+    size = TM_POCKET_SIZE_FRLG;
+  } else {
+    offset += TM_POCKET_OFFSET_RS;
+    size = TM_POCKET_SIZE_RS;
+  }
+
+  try {
+    const inventory: { itemId: number; quantity: number; moveId: number }[] = [];
+    const numItems = size / ITEM_ENTRY_SIZE;
+
+    // In Gen 3, item quantity is masked with the lower 16 bits of the security key
+    const mask = securityKey & LOWER_16_BIT_MASK;
+
+    for (let i = 0; i < numItems; i++) {
+      const itemOffset = offset + i * ITEM_ENTRY_SIZE;
+      const itemId = view.getUint16(itemOffset + ITEM_INDEX_OFFSET, true);
+      const maskedQuantity = view.getUint16(itemOffset + ITEM_QUANTITY_OFFSET, true);
+
+      // 0 indicates an empty slot
+      if (itemId === 0) continue;
+
+      const quantity = maskedQuantity ^ mask;
+
+      if (quantity > 0) {
+        const moveId = GEN3_TM_HM_MOVE_MAP[itemId];
+        if (moveId) {
+          inventory.push({ itemId, quantity, moveId });
+        }
+      }
+    }
+
+    return inventory;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+/**
+ * Helper to read a specific bit flag from the event flags block.
+ */
+function readEventFlag(view: DataView, baseOffset: number, flag: number): boolean {
+  const byteOffset = baseOffset + (flag >> FLAG_BYTE_SHIFT);
+  const bitIndex = flag & FLAG_BIT_MASK;
+  return !!((view.getUint8(byteOffset) >> bitIndex) & 1);
+}
+
+/**
+ * Extracts event flags indicating if specific TMs have been collected.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @param gameVersion - The detected game version.
+ * @returns An object containing boolean statuses for collected TMs.
+ */
+export function parseGen3TMEventFlags(
+  view: DataView,
+  saveBlock2Offset: number,
+  gameVersion: GameVersion,
+): Record<string, boolean> {
+  try {
+    const baseOffset = saveBlock2Offset + GEN3_EVENT_FLAGS_OFFSET;
+
+    // TMs are unique per version, so we check version context
+    if (gameVersion === 'emerald' || gameVersion === 'ruby' || gameVersion === 'sapphire') {
+      return {
+        TM31_BRICK_BREAK: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_BRICK_BREAK),
+        TM39_ROCK_TOMB: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_ROCK_TOMB),
+        TM08_BULK_UP: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_BULK_UP),
+        TM34_SHOCK_WAVE: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_SHOCK_WAVE),
+        TM50_OVERHEAT: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_OVERHEAT),
+        TM42_FACADE: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_FACADE),
+        TM40_AERIAL_ACE: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_AERIAL_ACE),
+        TM04_CALM_MIND: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_CALM_MIND),
+        TM03_WATER_PULSE: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_WATER_PULSE),
+        TM24_THUNDERBOLT: readEventFlag(view, baseOffset, FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON),
+        TM27_RETURN: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_RETURN),
+        TM36_SLUDGE_BOMB: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_SLUDGE_BOMB),
+        TM05_ROAR: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_ROAR),
+        TM19_GIGA_DRAIN: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_GIGA_DRAIN),
+        TM44_REST: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_REST),
+        TM45_ATTRACT: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_ATTRACT),
+        TM49_SNATCH: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_SNATCH),
+        TM28_DIG: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_DIG),
+        TM09_BULLET_SEED: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_BULLET_SEED),
+        TM10_HIDDEN_POWER: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_HIDDEN_POWER),
+        TM41_TORMENT: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_TORMENT),
+        TM46_THIEF: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_THIEF),
+      };
+    } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
+      return {
+        TM34_SHOCK_WAVE: readEventFlag(view, baseOffset, FLAG_GOT_TM34_FROM_SURGE),
+        TM42_FACADE: readEventFlag(view, baseOffset, FLAG_GOT_TM42_AT_MEMORIAL_PILLAR),
+        TM28_DIG: readEventFlag(view, baseOffset, FLAG_GOT_TM28_FROM_ROCKET),
+        TM29_PSYCHIC: readEventFlag(view, baseOffset, FLAG_GOT_TM29_FROM_MR_PSYCHIC),
+        TM38_FIRE_BLAST: readEventFlag(view, baseOffset, FLAG_GOT_TM38_FROM_BLAINE),
+        TM39_ROCK_TOMB: readEventFlag(view, baseOffset, FLAG_GOT_TM39_FROM_BROCK),
+        TM06_TOXIC: readEventFlag(view, baseOffset, FLAG_GOT_TM06_FROM_KOGA),
+        TM27_RETURN: readEventFlag(view, baseOffset, FLAG_GOT_TM27),
+        TM19_GIGA_DRAIN: readEventFlag(view, baseOffset, FLAG_GOT_TM19_FROM_ERIKA),
+        TM33_REFLECT: readEventFlag(view, baseOffset, FLAG_GOT_TM33_FROM_THIRSTY_GIRL),
+        TM20_SAFEGUARD: readEventFlag(view, baseOffset, FLAG_GOT_TM20_FROM_THIRSTY_GIRL),
+        TM16_LIGHT_SCREEN: readEventFlag(view, baseOffset, FLAG_GOT_TM16_FROM_THIRSTY_GIRL),
+        TM03_WATER_PULSE: readEventFlag(view, baseOffset, FLAG_GOT_TM03_FROM_MISTY),
+        TM26_EARTHQUAKE: readEventFlag(view, baseOffset, FLAG_GOT_TM26_FROM_GIOVANNI),
+        TM04_CALM_MIND: readEventFlag(view, baseOffset, FLAG_GOT_TM04_FROM_SABRINA),
+      };
+    }
+    return {};
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+export function parseGen3RSENPCTrades(view: DataView, saveBlock2Offset: number): Record<string, boolean> {
+  try {
+    const baseOffset = saveBlock2Offset + GEN3_EVENT_FLAGS_OFFSET;
 
     const readFlag = (flag: number) => {
       const byteOffset = baseOffset + (flag >> FLAG_BYTE_SHIFT);
@@ -1176,9 +1464,9 @@ export function parseGen3RSENPCTrades(view: DataView, saveBlock1Offset: number):
  * @returns An object containing boolean statuses for each FRLG NPC trade.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3FRLGNPCTrades(view: DataView, saveBlock1Offset: number): Record<string, boolean> {
+export function parseGen3FRLGNPCTrades(view: DataView, saveBlock2Offset: number): Record<string, boolean> {
   try {
-    const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
+    const baseOffset = saveBlock2Offset + GEN3_EVENT_FLAGS_OFFSET;
 
     const readFlag = (flag: number) => {
       const byteOffset = baseOffset + (flag >> FLAG_BYTE_SHIFT);
@@ -1205,9 +1493,9 @@ export function parseGen3FRLGNPCTrades(view: DataView, saveBlock1Offset: number)
   }
 }
 
-export function parseGen3FRLGMoveTutors(view: DataView, saveBlock1Offset: number) {
+export function parseGen3FRLGMoveTutors(view: DataView, saveBlock2Offset: number) {
   try {
-    const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
+    const baseOffset = saveBlock2Offset + GEN3_EVENT_FLAGS_OFFSET;
     const byte1 = view.getUint8(baseOffset + FRLG_MOVE_TUTOR_BYTE_1_OFFSET);
     const byte2 = view.getUint8(baseOffset + FRLG_MOVE_TUTOR_BYTE_2_OFFSET);
     const byte3 = view.getUint8(baseOffset + FRLG_MOVE_TUTOR_BYTE_3_OFFSET);
