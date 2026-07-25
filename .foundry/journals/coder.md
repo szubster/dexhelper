@@ -112,6 +112,8 @@ Reduced the memory footprint of `Gen1SafariZone`, `HoennSafariZone`, and `KantoS
 
 - Fixed a bug where tests in `.github/scripts/foundry-heartbeat.test.ts` were failing by removing an accidentally duplicated block of code in `foundry-heartbeat.ts`.
 - All acceptance criteria are successfully implemented.
+## 2026-07-18: Cloudflare R2 Pull Sync Logic Completed EarlyThe pull sync logic for Cloudflare R2 was already implemented in `loadSaveFromStorage` (called during initial app mount) and the login mechanism was correctly integrated in `AuthContext`. When presented with a task (e.g., `task-263-285-r2-pull-sync-logic-impl`) where the target logic already fully exists and is tested, rely on the Empty PR policy. Remember to check off all Acceptance Criteria checkboxes in the markdown body before submitting the empty PR.
+Completed task: task-284-322-predictor-ui-impl. Implemented ActiveCallersDashboard per ADR 008 with tests.
 \n## 2026-07-18: Cloudflare R2 Pull Sync Logic Completed Early\nThe pull sync logic for Cloudflare R2 was already implemented in `loadSaveFromStorage` (called during initial app mount) and the login mechanism was correctly integrated in `AuthContext`. When presented with a task (e.g., `task-263-285-r2-pull-sync-logic-impl`) where the target logic already fully exists and is tested, rely on the Empty PR policy. Remember to check off all Acceptance Criteria checkboxes in the markdown body before submitting the empty PR.
 
 ## 2026-07-18 - Gen 3 Manual Time UI Overrides Impl
@@ -129,6 +131,7 @@ Reduced the memory footprint of `Gen1SafariZone`, `HoennSafariZone`, and `KantoS
 - Ensured reusable module-level constants were defined for all memory offsets and bits instead of magic numbers.
 - Added rigorous DataView bounds checking to gracefully handle and remap `RangeError` to `"The save file is corrupted or incomplete."` per the system prompt.
 - Added rigorous Unit Tests in `src/engine/gen3/staticEncounters.test.ts` to ensure safety and precision.
+Verified existing implementation of Gen 3 Volcanic Ash extraction; tests are passing.
 
 ## 2026-07-20 - task-333-333-gen3-roamer-extraction-tests-impl
 - **Action**: Implemented unit tests for `parseGen3Roamer` logic.
