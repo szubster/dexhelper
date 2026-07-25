@@ -237,6 +237,8 @@ export interface SaveData {
   inventory: { id: number; quantity: number }[];
   /** Gen 1 specific: Event flags for one-time TMs. */
   gen1TMEventFlags?: Record<number, boolean>;
+  /** Gen 2 specific: Event flags for one-time TMs. */
+  gen2TMEventFlags?: Record<number, boolean>;
   /** TM and HM inventory mapped to moves. */
   tms?: { id: number; moveId: number; isAcquired: boolean; quantity: number }[];
   /** Items stored in the player's PC. */

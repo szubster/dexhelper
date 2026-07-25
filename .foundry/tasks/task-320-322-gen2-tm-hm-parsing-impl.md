@@ -37,8 +37,8 @@ Implement TM/HM parsing for Gen 2 save files within src/engine/saveParser/parser
   - If submitting an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Define module-level constants for TM/HM pocket offsets and event flag offsets.
-- [ ] Extract TM/HM inventory quantities.
-- [ ] Map TM/HMs to their corresponding items/moves.
-- [ ] Extract one-time TM collection event flags.
-- [ ] Ensure all tests pass.
+- [x] Define module-level constants for TM/HM pocket offsets and event flag offsets.
+- [x] Extract TM/HM inventory quantities.
+- [x] Map TM/HMs to their corresponding items/moves.
+- [x] Extract one-time TM collection event flags.
+- [x] Ensure all tests pass.

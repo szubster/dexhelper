@@ -1,6 +1,7 @@
 import gen2Landmarks from '../../data/gen2/landmarks.json';
 import gen2MapLocations from '../../data/gen2/mapLocations.json';
 import { GEN2_VERSION_EXCLUSIVES } from '../../exclusives/gen2Exclusives';
+import { GEN2_TM_HM_TO_MOVE_ID, parseGen2TMFlags } from '../utils/gen2EventFlags';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs, parsePokerus } from './common';
 
@@ -33,6 +34,9 @@ const EVENT_FLAGS_OFFSET_GS = 0x2624;
 
 const DAYCARE_EGG_FLAG_OFFSET_CRYSTAL = 0x282b;
 const DAYCARE_EGG_FLAG_MASK = 0x01;
+
+const TM_POCKET_OFFSET_CRYSTAL = 0x23c8;
+const TM_POCKET_OFFSET_GS = 0x23e7;
 
 const EVENT_FLAG_SUDOWOODO_BYTE = Math.floor(51 / 8);
 const EVENT_FLAG_SUDOWOODO_BIT = 51 % 8;
@@ -506,7 +510,7 @@ function parseDaycare(view: DataView, isCrystal: boolean) {
 function parseInventory(view: DataView, isCrystal: boolean) {
   const inventory: { id: number; quantity: number }[] = [];
 
-  const tmPocket = isCrystal ? 0x23c8 : 0x23e7;
+  const tmPocket = isCrystal ? TM_POCKET_OFFSET_CRYSTAL : TM_POCKET_OFFSET_GS;
   const itemsPocket = isCrystal ? 0x2402 : 0x2420;
   const keyItemsPocket = isCrystal ? 0x242c : 0x244a;
   const ballsPocket = isCrystal ? 0x2447 : 0x2465;
@@ -709,6 +713,17 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     npcTradeFlags.push((npcTradeByte & (1 << i)) !== 0);
   }
 
+  const gen2TMEventFlags = parseGen2TMFlags(eventFlags);
+
+  const tms = Object.entries(GEN2_TM_HM_TO_MOVE_ID).map(([idStr, moveId]) => {
+    const id = parseInt(idStr, 10);
+    const inventoryQty = inventory.find((i) => i.id === id)?.quantity || 0;
+    const pcQty = pcItems.find((i) => i.id === id)?.quantity || 0;
+    const quantity = inventoryQty + pcQty;
+    const isAcquired = quantity > 0 || !!gen2TMEventFlags[id];
+    return { id, moveId, isAcquired, quantity };
+  });
+
   return {
     generation: 2,
     owned,
@@ -736,6 +751,8 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     eventFlags,
     hiddenItemFlags,
     npcTradeFlags,
+    gen2TMEventFlags,
+    tms,
     gen2StaticEncounters: {
       sudowoodo: (((eventFlags[EVENT_FLAG_SUDOWOODO_BYTE] ?? 0) >> EVENT_FLAG_SUDOWOODO_BIT) & 1) === 1,
       snorlax: (((eventFlags[EVENT_FLAG_SNORLAX_BYTE] ?? 0) >> EVENT_FLAG_SNORLAX_BIT) & 1) === 1,
