@@ -168,3 +168,9 @@ When reusing standard React components, use getByRole for finding interactive el
 - **Key Learnings**:
   - Always implement `React.forwardRef` and extend standard interfaces like `React.HTMLAttributes<HTMLSpanElement>` to ensure that utility components drop into layouts effortlessly without breaking standard HTML behaviors.
   - Utilize a custom node script utilizing `regex` for reliable and safe batch replacement of specific and lengthy multi-line inline JSX structures across the codebase before using tools like `biome` to clean up the formatting.
+
+## TacticalBlockHeader Extraction
+- **What**: Extracted a repeated JSX pattern in `PokemonEvolutions.tsx` and `PokemonLocations.tsx` consisting of a side-by-side tracking label and bold title with an optional trailing icon box.
+- **Why**: Reduced duplication of verbose tactical utility classes and standardized the header presentation across variants (primary, red, purple, blue, pink, amber).
+- **Key Learnings**:
+  - We can use `React.cloneElement` on the `trailingIcon` to inject specific color and hover classes without needing the caller to specify them.
