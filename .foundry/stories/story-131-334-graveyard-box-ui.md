@@ -31,4 +31,6 @@ Implement a UI setting to allow users to designate a specific PC box as the Grav
 - Strictly adhere to the tactical hardware/snooping design constraint for all UI components.
 
 ## Acceptance Criteria
-- [ ] Tasks are generated
+- [x] Tasks are generated
+- [ ] task-334-346-graveyard-box-ui-impl
+- [ ] task-334-347-graveyard-box-ui-qa
