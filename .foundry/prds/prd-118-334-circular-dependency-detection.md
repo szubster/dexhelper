@@ -34,4 +34,4 @@ The orchestrator must be able to detect cycles in the dependency graph during it
 5. In `--dry-run` or `--strict` modes, the orchestrator should also output an explicit error message or log a clear warning regarding the detected cycle.
 
 ## Acceptance Criteria
-- [ ] epic-334-335-circular-dependency-detection-epic
+- [ ] epic-334-338-circular-dependency-detection
