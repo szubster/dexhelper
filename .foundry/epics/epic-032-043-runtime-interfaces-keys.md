@@ -2,12 +2,12 @@
 id: epic-032-043-runtime-interfaces-keys
 type: EPIC
 title: Update Runtime Interfaces to Verbose Keys
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-05-21'
-updated_at: '2026-07-21'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '15119671586332056850'
+jules_session_id: null
 parent: prd-005-032-revert-data-optimizations
 rejection_reason: ''
 notes: ''

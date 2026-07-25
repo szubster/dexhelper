@@ -2,12 +2,12 @@
 id: task-321-322-gen3-tm-hm-parsing-impl
 type: TASK
 title: Gen 3 TM/HM Parse - Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-15'
-updated_at: '2026-07-21'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '9888776362460545697'
+jules_session_id: null
 pr_number: null
 parent: story-306-321-gen3-tm-hm-parsing
 tags:
@@ -17,7 +17,7 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/moveset-inventory-memory-offsets.md
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 

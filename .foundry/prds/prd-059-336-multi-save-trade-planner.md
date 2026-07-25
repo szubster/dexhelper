@@ -2,10 +2,10 @@
 id: prd-059-336-multi-save-trade-planner
 type: PRD
 title: Multi-Save Trade Planner
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-07-21'
-updated_at: '2026-07-21'
+updated_at: '2026-07-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
