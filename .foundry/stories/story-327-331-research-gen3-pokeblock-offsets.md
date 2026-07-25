@@ -2,10 +2,10 @@
 id: story-327-331-research-gen3-pokeblock-offsets
 type: STORY
 title: Research Gen 3 Pokéblock Case Offsets
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-17'
-updated_at: '2026-07-19'
+updated_at: '2026-07-25'
 depends_on: []
 jules_session_id: null
 pr_number: null

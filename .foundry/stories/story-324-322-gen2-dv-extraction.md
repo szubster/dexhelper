@@ -2,19 +2,19 @@
 id: story-324-322-gen2-dv-extraction
 type: STORY
 title: Gen 2 DV Data Extraction for Size Calculation
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-15'
-updated_at: '2026-07-20'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '11866184115039058030'
+jules_session_id: null
 pr_number: null
 parent: epic-112-324-npc-size-record-data-extraction
 tags:
   - dexhelper
   - generation-2
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

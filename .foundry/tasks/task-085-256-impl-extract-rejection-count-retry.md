@@ -2,12 +2,12 @@
 id: task-085-256-impl-extract-rejection-count-retry
 type: TASK
 title: Re-implement DAG Data Parsing for Rejection Count
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11313847774056704544'
 pr_number: null
 parent: story-046-085-extract-broadcast-rejection-count
 tags:

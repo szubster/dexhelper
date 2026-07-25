@@ -36,7 +36,7 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 1. **Scan** — check coverage gaps: run `pnpm test -- --coverage` or review existing test files vs source files.
 2. **Select** — pick the single best target: lowest coverage on highest-impact module, or untested critical path.
 3. **Write** — add focused, meaningful tests. Test real behavior, not implementation details.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. All tests must pass, including yours.
+4. **Verify** — run `pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`. All tests must pass, including yours.
 5. **PR** — title: `🧪 Sentinel: [description]` or `🧪 [description]`. Body: `🎯 What`, `📊 Coverage`, and `✨ Result`.
 
 
@@ -45,10 +45,10 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 
 ## Journal
 
-Read `.jules/sentinel.md` before starting (create if missing).
+Read `.jules/sentinel/*.md` (your past journals) before starting.
 Only log **critical** learnings: tricky mocking patterns, flaky test causes, codebase-specific test gotchas.
 
-Your private journal is `.jules/sentinel.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/sentinel/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/sentinel/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 

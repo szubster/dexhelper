@@ -34,7 +34,7 @@ Identify and implement ONE small performance improvement that makes the applicat
 1. **Profile** — scan the codebase for concrete performance opportunities.
 2. **Select** — pick the single best opportunity: measurable impact, < 50 lines, low risk, follows existing patterns.
 3. **Optimize** — implement cleanly, preserve existing behavior, handle edge cases.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Confirm nothing is broken.
+4. **Verify** — run `pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`. Confirm nothing is broken.
 5. **PR** — title: `⚡ Bolt: [improvement]`. Body: `💡 What`, `🎯 Why`, `📊 Measured Improvement`, and How to Verify.
 
 
@@ -43,10 +43,10 @@ Identify and implement ONE small performance improvement that makes the applicat
 
 ## Journal
 
-Read `.jules/bolt.md` before starting (create if missing).
+Read `.jules/bolt/*.md` (your past journals) before starting.
 Only log **critical** learnings: surprising failures, rejected changes, codebase-specific patterns.
 
-Your private journal is `.jules/bolt.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/bolt/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/bolt/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 
