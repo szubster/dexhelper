@@ -238,6 +238,10 @@ Appended tech lead journal for breaking down Gen 3 Volcanic Ash extraction story
 ## 2026-07-20: Diff Engine Hash Impossible Loop Resolution
 - **Node**: `story-137-294-diff-engine-logic`
 - **Actions**: Investigated the permanent failure of `task-294-316-diff-engine-impl`. Discovered that the `hash` property was missing from the `PokemonInstance` interface, leading to the Coder attempting to use a fallback generator and failing the QA contract. Drafted `research-294-335-diff-engine-hash-failure` to document the issue, `task-294-336-diff-engine-hash-fix-impl` to implement the interface addition and strict property usage, and `task-294-337-diff-engine-hash-fix-qa` for verification. Appended the replacement nodes to the parent story and checked off the failed tasks.
+## 2026-07-21: Hidden Items E2E Tests Blueprinting
+- **Node**: `story-060-157-hidden-items-e2e-tests`
+- **Actions**: Broke down the Hidden Items UI E2E testing story into an implementation task (`task-157-338-hidden-items-e2e-tests-impl`) and a QA task (`task-157-339-hidden-items-e2e-tests-qa`) as per the Intelligent Verification Protocol to ensure testing matches UI logic requirements.
+- **Constraints Enforced**: Instructed the coder and QA personas to correctly use the development server URL `http://localhost:3000/dexhelper/` and employ regex matchers instead of strict string matching for UI testing components that use tactical bracket formatting (e.g. `[ SYS.LABEL ]`).
 
 ## 2026-07-20: Gen 2 Event Flag Parsing Retry
 Drafted implementation and QA tasks for Gen 2 event flags (story-137-333). Mandated exact bit offsets derived from research (Sudowoodo=42, Ho-Oh=791, Lugia=792, Snorlax=1872, Red Gyarados=1873) and strictly enforced ADR 028 module-level constants to prevent further failures.
