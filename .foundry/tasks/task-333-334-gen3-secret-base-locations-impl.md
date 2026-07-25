@@ -2,12 +2,12 @@
 id: task-333-334-gen3-secret-base-locations-impl
 type: TASK
 title: Implement Gen 3 Secret Base Locations Parser
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-19'
-updated_at: '2026-07-20'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '11257634579018117702'
+jules_session_id: null
 pr_number: null
 parent: story-324-333-parse-secret-base-locations
 tags:
@@ -16,7 +16,7 @@ tags:
   - secret-base
   - save-parsing
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
