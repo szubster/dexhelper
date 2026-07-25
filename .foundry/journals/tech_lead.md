@@ -201,11 +201,6 @@ Created tasks 331 and 332 for Gen 2 DV extraction. Applied strict requirements f
 During the session for `story-301-314-lift-rejection-count-state`, the target Foundry artifact (`task-301-314-lift-rejection-count-state-impl.md`) unexpectedly existed prior to the session and was already marked as COMPLETED. As per the empty PR policy and anomaly guidelines, I checked off the child task in the story node as a passthrough validation step to transition the parent node without creating duplicate tasks.
 ## [2026-07-17] NPC Trade State Integration
 Created implementation and QA verification tasks for story-119-261-npc-trade-state-integration. Ensured the QA task explicitly tests the requirements like RangeError handling and constant-defined memory offsets, as state integration changes logic in the core parse pipeline, meaning verification is essential according to the Intelligent Verification Protocol.
-## 2026-07-17: Empty PR for completed child task
-Assigned to story-130-315-define-indexeddb-schema where its generated child (task-315-322-implement-savehistorydb) has already been completed and archived. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.
-
-## [Anomaly] Pre-existing completed task
-Assigned to story-127-268-bash-timeout-feedback where its generated child (task-268-322-bash-timeout-feedback-impl) has already been completed. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.
 ## 2026-07-18: Creating Missing E2E Safeguard Tasks
 - **Observation**: Assigned to `story-127-269-epic-e2e-safeguard` where previous implementation and QA tasks `task-269-269-e2e-safeguard-impl` and `task-269-270-e2e-safeguard-qa` had failed and were in a weird state (either max rejections or merged with unfulfilled acceptance criteria), leaving the parent story node active. I mistakenly tried to resolve this by checking off the pending children in the parent node without recreating replacement nodes, leading to a rejection in code review.
 - **Action**: Created replacement blueprints `task-269-334-e2e-safeguard-impl` and `task-269-335-e2e-safeguard-qa` while explicitly checking off the orphaned failed children in the parent's markdown, as required by the Impossible Loop Policy.
@@ -234,41 +229,9 @@ Transformed story-130-316-document-indexeddb-schema into a technical blueprint. 
   Reasoning: The parsing logic is already implemented, but we need comprehensive test coverage across Ruby/Sapphire, Emerald, and FireRed/LeafGreen. We instructed the coder to use dynamically constructed ArrayBuffers to test the logic due to the lack of .sav fixtures.
 - 2026-07-19: Created tasks for story-324-333-parse-secret-base-locations, enforcing DataView RangeError handling (ADR 010), module-level constants (ADR 028), and relative section offsets.
 Appended tech lead journal for breaking down Gen 3 Volcanic Ash extraction story into task nodes, ensuring relative offsets and module-level constants are strictly enforced.
-## 2026-07-20: Diff Engine Hash Impossible Loop Resolution
-- **Node**: `story-137-294-diff-engine-logic`
-- **Actions**: Investigated the permanent failure of `task-294-316-diff-engine-impl`. Discovered that the `hash` property was missing from the `PokemonInstance` interface, leading to the Coder attempting to use a fallback generator and failing the QA contract. Drafted `research-294-335-diff-engine-hash-failure` to document the issue, `task-294-336-diff-engine-hash-fix-impl` to implement the interface addition and strict property usage, and `task-294-337-diff-engine-hash-fix-qa` for verification. Appended the replacement nodes to the parent story and checked off the failed tasks.
-
-## 2026-07-20: Passthrough Tasks for Pre-Existing Implementation
-Assigned to story-119-318-gen3-move-tutor-frlg-parsing. Found that the FRLG Move Tutor parsing was already correctly implemented. Created passthrough tasks task-318-338 and task-318-339 instructed for Empty PRs.
 ## 2026-07-20
 - **Node**: story-138-295-gen3-static-encounters-ui
 - **Actions**: Broke down the Gen 3 Static Encounters UI story into task-295-338-gen3-static-encounters-ui-impl and task-295-339-gen3-static-encounters-ui-qa.
 
 ### 2026-07-19: Re-generation of Graveyard Box State Logic Tasks
 Generated task-333-338-graveyard-box-logic-impl and task-333-339-graveyard-box-logic-qa for story-131-333-graveyard-box-state. The codebase already implements this logic, so the generated tasks explicitly permit checking off and creating an empty PR. Re-generation occurs due to node resurrection loop.
-## 2026-07-20: Empty PR for completed child task
-Assigned to story-324-322-safari-zone-static-tables where its generated child (task-322-331-safari-zone-static-tables-impl) has already been completed. Checked off the child checkbox in the story markdown body and submitted a PR to transition the Story.
-## 2026-07-20: Passthrough validation for Gen 3 Trainer ID and Secret ID
-- Assigned to story-130-269-extract-gen3-trainer-id-secret-id where its generated children (task-269-263-gen3-trainer-id-secret-id-impl and task-269-264-gen3-trainer-id-secret-id-qa) have already been completed. Checked off the child checkboxes in the story markdown body and submitted an empty PR to transition the Story.
-- [2026-07-19] Checked off acceptance criteria for story-081-282-gen3-manual-time-ui-overrides because child tasks are COMPLETED, properly advancing the parent's status.
-## 2026-07-22: Passthrough validation for completed child tasks
-- **Node**: story-039-263-r2-pull-sync-logic
-- **Actions**: The generated child tasks (task-263-285-r2-pull-sync-logic-impl and task-263-286-r2-pull-sync-logic-qa) were already completed. Checked off their checkboxes in the story markdown body and submitted an empty PR to transition the Story to VERIFYING.
-
-## 2026-07-22: Break down session unique journals story
-- **Node**: story-338-336-implement-session-unique-journals
-- **Actions**: Broke down the story into an implementation task to update agent prompts and orchestrator for session-unique journals, and a QA verification task to ensure the instructions and parsing logic are correct.
-## 2026-07-22: Automerge Journal Updates
-- **Node**: story-338-336-implement-session-unique-journals
-- **Actions**: Added additional tasks to update the automerge GitHub action to allow PRs containing only journal file changes to be automatically merged.
-## 2026-07-22: Combined Automerge Updates
-- **Node**: story-338-336-implement-session-unique-journals
-- **Actions**: Updated automerge tasks to specify that PRs containing a combination of both journal entries and checkbox updates should be auto-merged.
-
-## 2026-07-22: Contest Advisor UI
-- Created two task blueprints (`task-151-342-contest-advisor-ui-integration-impl` and `task-151-343-contest-advisor-ui-integration-qa`) to integrate the Contest Recommendation UI and Warning states into `PokemonDetails.tsx`.
-- Assigned the QA task with a strict `depends_on` the implementation task to enforce sequencing.
-- Drafted task-336-342-zod-schema-definition-impl and task-336-343-zod-schema-definition-qa for story 336.
-## 2026-07-23: Graveyard Box State Logic Re-generation
-- **Node**: story-131-333-graveyard-box-state
-- **Actions**: Marked `task-333-338-graveyard-box-logic-impl` and `task-333-339-graveyard-box-logic-qa` as complete in the parent node since they were already completed in the tasks directory but the parent was erroneously assigned. Spawned replacement nodes `task-333-344` and `task-333-345` with READY status to pass the resurrected parent state.
