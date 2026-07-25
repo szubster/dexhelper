@@ -48,9 +48,6 @@ Broke down epic-115-331-remove-orphaned-qa-task-rule-from-docs into story-331-33
 * Dynamically generated missing child stories (story-324-333, story-324-334, story-324-335) for epic-045-324-gen3-secret-base-parsing-v2 because the previous ones were archived/cancelled.
 
 ## 2026-07-19
-* Verified epic-044-149-gen3-roamer-core-extraction-v4. All child stories are already completed and archived. Proceeding with empty PR.
-
-## 2026-07-19
 * Generated missing story `story-149-333-gen3-roamer-unit-tests` from `epic-044-149-gen3-roamer-core-extraction-v4` to implement required unit tests against save fixtures. Updated epic to leave criteria unchecked so it correctly demotes to PENDING.
 * Resolved 'Max rejection count reached' failure for story-136-295-sorting-standard-strategies by spawning research-136-330-investigate-sorting-strategies-failure and replacement stories (story-136-333 and story-136-334). Checked off permanently failed child nodes in epic-106-136-pc-box-sorting-algorithms.
 

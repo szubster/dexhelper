@@ -59,7 +59,6 @@ During the resurrection loop for `idea-066-save-file-health-scanner` (Attempt 5)
 **Action & Constraint:**
 When assigned to a macro node (like an IDEA) that has spawned children, DO NOT transition it to VERIFYING (by submitting an Empty PR with all boxes checked) until ALL descendant nodes have transitioned to COMPLETED. If the downstream nodes are still PENDING, you MUST keep the macro node in a PENDING state. To do this, uncheck the Acceptance Criteria checkbox corresponding to the uncompleted downstream dependency and submit the PR. This breaks the premature verification loop and allows the system to wait for downstream implementation.
 
-
 ## 2026-07-16 - Anomaly Found
 
 When generating the PRD for `idea-117-split-bundles-and-data`, I noticed that the research and ADR references (`research-117-325-bundle-splitting-analysis` and `adr-117-029-bundle-splitting-strategy`) already existed and were marked as completed in the IDEA node's acceptance criteria.
@@ -69,9 +68,6 @@ When generating the PRD for `idea-117-split-bundles-and-data`, I noticed that th
 **Anomaly Detected**:
 During the session to transform `idea-067-extract-dag-utils` into a PRD, it was discovered that the target artifact `prd-067-036-extract-dag-utils` already unexpectedly existed prior to the session. The Agile Coach should review this to determine why a target artifact was present before the IDEA was formally processed into a PRD in the current session.
 - Transformed IDEA-118 to PRD-118-117 by centralizing Coder and QA Task Prompt Reminders
-
-## 2026-07-17
-- Transformed IDEA 116 into PRD 117 to formalize Zod schema validation in the Foundry Orchestrator.
 
 ## 2026-07-19
 - Processed IDEA `idea-119-gen2-unown-dex-tracker` and generated `prd-119-118-gen2-unown-dex-tracker` directly linking Unown catches with event flags for Ruins of Alph puzzles to clarify missing Unown forms. Appended PRD node to idea node as Acceptance Criteria. Assigned PRD to epic_planner.
