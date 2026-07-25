@@ -2,7 +2,7 @@
 id: task-261-283-gen3-met-location-qa
 type: TASK
 title: QA Gen 3 Met Location Extraction
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-08'
 updated_at: '2026-07-20'
@@ -15,8 +15,8 @@ tags:
   - verification
   - nuzlocke
   - gen3
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

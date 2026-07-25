@@ -2,12 +2,12 @@
 id: story-331-333-remove-orphaned-qa-rule
 type: STORY
 title: Remove Orphaned QA Rule from Documentation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-18'
 updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5626317265523714296'
 pr_number: null
 parent: epic-115-331-remove-orphaned-qa-task-rule-from-docs
 tags:
@@ -28,4 +28,4 @@ The obsolete "Orphaned QA Task Cancellation Rule" needs to be completely removed
 This story tracks identifying and removing those obsolete instructions from `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks
+- [x] Tech Lead: Break down into Tasks
