@@ -33,6 +33,7 @@ Parse the Gen 3 save file Item Bag to extract the player's current TM and HM inv
   - Must adhere to ADR 015 regarding full `PokeData` property names. No short property names.
   - Must follow ADR 028 for dynamic save block extraction. All memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level. Inline magic numbers are strictly forbidden.
   - Since this is Gen 3 save file parsing, you MUST use the resolved section offset (e.g., `section1Offset`) to calculate relative memory offsets instead of hardcoded absolute offsets to properly support A/B bank flash memory.
+  - Must catch `RangeError` from out-of-bounds `DataView` reads and throw a new error with the message "The save file is corrupted or incomplete."
 
 ## Reminder
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
@@ -44,3 +45,4 @@ Parse the Gen 3 save file Item Bag to extract the player's current TM and HM inv
 - [ ] Extract Event Flags for one-time TM collection.
 - [ ] Ensure all offsets/lengths/bit locations/shifts are module-level constants.
 - [ ] Use resolved section offsets for relative memory offset calculations.
+- [ ] Catch `RangeError` from out-of-bounds `DataView` reads and throw a new error with the message "The save file is corrupted or incomplete."

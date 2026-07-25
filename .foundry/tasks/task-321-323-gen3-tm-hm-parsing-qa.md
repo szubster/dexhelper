@@ -37,3 +37,4 @@ QA verification for the Gen 3 TM/HM parsing implementation.
 - [ ] Verify all offsets/lengths/bit locations/shifts are module-level constants (no inline magic numbers).
 - [ ] Verify resolved section offsets are used for relative memory offset calculations.
 - [ ] Verify full `PokeData` property names are used.
+- [ ] Verify `RangeError` from out-of-bounds `DataView` reads is caught and throws a new error with the message "The save file is corrupted or incomplete."
