@@ -5,7 +5,7 @@ title: IndexedDB Storage Engine for Save State History
 status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-01'
-updated_at: '2026-07-03'
+updated_at: '2026-07-25'
 depends_on: []
 jules_session_id: null
 pr_number: null

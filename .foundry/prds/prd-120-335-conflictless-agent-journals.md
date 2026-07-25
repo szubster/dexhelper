@@ -2,12 +2,12 @@
 id: prd-120-335-conflictless-agent-journals
 type: PRD
 title: Research and Implement Conflict-less Agent Journals
-status: ACTIVE
-owner_persona: epic_planner
+status: PENDING
+owner_persona: auditor
 created_at: '2026-07-20'
 updated_at: '2026-07-21'
 depends_on: []
-jules_session_id: '4325088506730602939'
+jules_session_id: null
 pr_number: null
 parent: idea-120-conflictless-agent-journals
 tags:
@@ -32,4 +32,4 @@ To resolve frequent git merge conflicts on `.foundry/journals/*.md` files, we wi
 4. Downstream nodes must correctly reference these fragmented journal files if necessary, or rely on aggregation mechanisms.
 
 ## Acceptance Criteria
-- [ ] epic-120-338-implement-conflictless-journals
+- [x] epic-120-338-implement-conflictless-journals
