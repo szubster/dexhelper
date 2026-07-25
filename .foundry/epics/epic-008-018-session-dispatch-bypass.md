@@ -2,7 +2,7 @@
 id: epic-008-018-session-dispatch-bypass
 type: EPIC
 title: "Session Dispatch Bypass and Fulfillment"
-status: "ACTIVE"
+status: ACTIVE
 owner_persona: story_owner
 created_at: "2026-04-29"
 updated_at: "2026-04-29"
@@ -14,7 +14,6 @@ rejection_count: 1
 rejection_reason: ""
 notes: ""
 ---
-
 # Epic: Session Dispatch Bypass and Fulfillment
 
 ## Overview

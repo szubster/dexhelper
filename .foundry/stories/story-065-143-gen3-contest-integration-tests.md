@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-16'
 updated_at: '2026-06-16'
-depends_on:
-  - story-065-142-gen3-contest-data-mapping
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: epic-040-065-gen3-contest-data-integration
@@ -21,7 +20,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # STORY: Gen 3 Contest Integration Tests
 
 ## 1. Context

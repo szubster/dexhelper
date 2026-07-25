@@ -9,3 +9,4 @@
   - Required using `// biome-ignore lint/suspicious/noExplicitAny: allow mock state for test` when using `as any` to force minimal mock objects into complex type shapes.
   - Used explicit types for `vi.fn()` like `vi.fn<(key: string) => Promise<void>>()` to pass strict typing rules.
 - **Testing React Components**: Verified components rendering logic via `isSettingsOpen` and user interactions invoking the state reset functions (including testing confirmation modals).
+- Added E2E coverage for invalid save file upload in tests/e2e/save_management.spec.ts.

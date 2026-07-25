@@ -1,5 +1,5 @@
 import gen1MapLocations from '../../data/gen1/mapLocations.json';
-import { parseGen1StaticEncounters } from '../utils/gen1EventFlags';
+import { GEN1_TM_HM_TO_MOVE_ID, parseGen1StaticEncounters, parseGen1TMFlags } from '../utils/gen1EventFlags';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs } from './common';
 
@@ -403,25 +403,27 @@ function parseGen1HallOfFameRecords(view: DataView, hallOfFameCount: number, tra
  */
 
 /**
- * Detects the specific Generation 1 game version and calculates the necessary offset shift.
+ * Dynamically detects the exact Generation 1 game version (Red, Blue, or Yellow) and
+ * calculates the required memory offset shift.
  *
- * **Why is an offset shift needed?**
- * Pokémon Yellow added new memory structures (like Pikachu's friendship data) that forced
- * many subsequent data blocks (like the Pokédex and PC Boxes) to shift forward by exactly 1 byte
- * compared to Red and Blue. Because the save file doesn't explicitly declare its version,
- * we must dynamically "probe" the memory to see which alignment produces valid data.
+ * **Architecture & Heuristics:**
+ * Gen 1 save files do not contain a self-describing version header. Furthermore,
+ * Pokémon Yellow shifted the vast majority of memory offsets by `+1` byte to accommodate
+ * Pikachu's friendship data earlier in the save file.
  *
- * We do this by checking the Pokédex data. The Gen 1 Pokédex has 152 bits allocated for
- * owned/seen flags (19 bytes * 8 bits = 152 bits). Since there are only 151 Pokémon, the 152nd
- * bit (the MSB of the 19th byte) is unused padding and must be `0`.
- * By checking this padding bit at both the Red/Blue offset (`0x25A3`) and the Yellow offset (`0x25A4`),
- * we can determine the correct alignment for the entire save file.
+ * To determine the correct alignment, this function probes the Pokédex padding bit.
+ * The 19th byte of the Pokédex bitmask holds IDs 145-152, but since Pokémon 152 does not exist,
+ * the most significant bit (bit 7, or 0x80) MUST be zero.
  *
- * @param view - The raw save file data view.
- * @param forcedVersion - An optional version override.
- * @param trainerName - The player's trainer name (used for native Pokémon heuristic checks).
- * @param quickParty - Basic party details (used to check for version-exclusive Pokémon).
- * @returns The determined offset shift (0 for R/B, 1 for Yellow), the game version, and the parsed Pokédex sets.
+ * We probe the expected Pokédex start offset for Red/Blue (`0x25A3`) and the expected
+ * start offset for Yellow (`0x25A4`). Whichever offset results in a valid zeroed padding bit
+ * dictates the structural alignment (`offsetShift`).
+ *
+ * @param view - The raw save file DataView.
+ * @param forcedVersion - Optional user override.
+ * @param trainerName - The decoded trainer name (parsed before the offset shift).
+ * @param quickParty - A partial party parsed before the offset shift, used for Pikachu detection.
+ * @returns An object containing the detected `offsetShift` (0 or 1), `gameVersion`, and Pokédex state.
  */
 function detectVersionAndOffsets(
   view: DataView,
@@ -749,6 +751,15 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
     hiddenItemFlags,
     hiddenCoinFlags,
     gen1StaticEncounters: parseGen1StaticEncounters(eventFlags),
+    gen1TMEventFlags: parseGen1TMFlags(eventFlags),
+    tms: Object.entries(GEN1_TM_HM_TO_MOVE_ID).map(([idStr, moveId]) => {
+      const id = parseInt(idStr, 10);
+      const inventoryQty = inventory.find((i) => i.id === id)?.quantity || 0;
+      const pcQty = pcItems.find((i) => i.id === id)?.quantity || 0;
+      const quantity = inventoryQty + pcQty;
+      const isAcquired = quantity > 0 || !!parseGen1TMFlags(eventFlags)[id];
+      return { id, moveId, isAcquired, quantity };
+    }),
     // Gen 1 trades: The 2 bytes are at eventFlagsOffset - 16 and - 15. We convert this into a boolean array.
     npcTradeFlags: Array.from({ length: 16 }, (_, i) => {
       const byte = view.getUint8(eventFlagsOffset - 16 + Math.floor(i / 8));
