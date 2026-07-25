@@ -2,10 +2,10 @@
 id: prd-095-057-prevent-blocking-bash-commands
 type: PRD
 title: Automated Timeout Wrapper for Bash Sessions
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-30'
-updated_at: '2026-07-24'
+updated_at: '2026-07-25'
 depends_on: []
 jules_session_id: '13025108147948745503'
 pr_number: null

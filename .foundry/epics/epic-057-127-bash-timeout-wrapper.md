@@ -2,10 +2,10 @@
 id: epic-057-127-bash-timeout-wrapper
 type: EPIC
 title: Timeout Wrapper for Bash Sessions
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-02'
-updated_at: '2026-07-24'
+updated_at: '2026-07-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,10 +15,8 @@ tags:
   - system-improvement
   - resilience
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
