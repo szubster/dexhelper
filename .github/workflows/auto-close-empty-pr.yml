@@ -20,12 +20,12 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           MERGE=false
-          if [ "${{ github.event.pull_request.changed_files }}" -eq "0" ]; then
+          if [ "${{ github.event.pull_request.changed_files }}" = "0" ]; then
             echo "Empty PR detected."
             MERGE=true
           else
             echo "Non-empty PR. Analyzing diff for checkbox-only or journal changes..."
-            if gh pr diff $PR_NUMBER --repo ${{ github.repository }} | node .github/scripts/analyze-diff.js; then
+            if gh pr diff "$PR_NUMBER" --repo "${{ github.repository }}" | node .github/scripts/analyze-diff.js; then
               echo "Checkbox-only or journal changes detected."
               MERGE=true
             else
@@ -34,6 +34,6 @@ jobs:
           fi
 
           if [ "$MERGE" = "true" ]; then
-            gh pr comment $PR_NUMBER --body "Automatically merged PR (empty, checkbox-only, or journal updates) to progress DAG." --repo ${{ github.repository }}
-            gh pr merge $PR_NUMBER --squash --admin --repo ${{ github.repository }}
+            gh pr comment "$PR_NUMBER" --body "Automatically merged PR (empty, checkbox-only, or journal updates) to progress DAG." --repo "${{ github.repository }}"
+            gh pr merge "$PR_NUMBER" --squash --admin --repo "${{ github.repository }}"
           fi
