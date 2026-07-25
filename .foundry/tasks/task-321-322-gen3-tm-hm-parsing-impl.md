@@ -2,12 +2,12 @@
 id: task-321-322-gen3-tm-hm-parsing-impl
 type: TASK
 title: Gen 3 TM/HM Parse - Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-15'
 updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '11438718915167914264'
+jules_session_id: null
 pr_number: null
 parent: story-306-321-gen3-tm-hm-parsing
 tags:

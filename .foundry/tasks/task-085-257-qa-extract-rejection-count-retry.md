@@ -2,13 +2,13 @@
 id: task-085-257-qa-extract-rejection-count-retry
 type: TASK
 title: QA Re-implement DAG Data Parsing for Rejection Count
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-04'
 updated_at: '2026-07-25'
 depends_on:
   - task-085-256-impl-extract-rejection-count-retry
-jules_session_id: '10411185586999946812'
+jules_session_id: null
 pr_number: null
 parent: story-046-085-extract-broadcast-rejection-count
 tags:

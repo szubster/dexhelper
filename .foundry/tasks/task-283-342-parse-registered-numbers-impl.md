@@ -2,13 +2,13 @@
 id: task-283-342-parse-registered-numbers-impl
 type: TASK
 title: Implement Gen 2 Pokegear Registered Numbers Parsing
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-23'
-updated_at: '2026-07-24'
+updated_at: '2026-07-25'
 depends_on:
   - research-283-336-gen2-phone-memory-offsets
-jules_session_id: '17205299688216999320'
+jules_session_id: null
 pr_number: null
 parent: story-116-283-parse-registered-numbers
 tags:
