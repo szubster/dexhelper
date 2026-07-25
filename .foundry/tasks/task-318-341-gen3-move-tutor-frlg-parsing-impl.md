@@ -38,7 +38,7 @@ As defined in `gen3_move_tutor_offsets.md` and mandated by ADR 010 and ADR 028:
 - The use of inline magic numbers for memory operations is strictly forbidden.
 
 ## Acceptance Criteria
-- [ ] Implement `DataView` parsing logic for FRLG move tutors.
-- [ ] Define all offsets, flags, and constants at the module level (no inline magic numbers).
-- [ ] Use relative memory offsets from the resolved section offset.
-- [ ] Throw and catch `RangeError` on invalid bounds gracefully.
+- [x] Implement `DataView` parsing logic for FRLG move tutors.
+- [x] Define all offsets, flags, and constants at the module level (no inline magic numbers).
+- [x] Use relative memory offsets from the resolved section offset.
+- [x] Throw and catch `RangeError` on invalid bounds gracefully.
