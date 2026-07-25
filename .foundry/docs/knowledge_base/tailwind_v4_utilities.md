@@ -1,7 +1,7 @@
 # Tailwind v4 `@utility` Consolidation Strategy
 
 ## Objective
-This document outlines the findings and strategy for migrating repetitive UI classes from the deprecated `@layer components` syntax to the native `@utility` directive in Tailwind CSS v4.
+This document outlines the strategy for consolidating repetitive UI classes using the native `@utility` directive in Tailwind CSS v4.
 
 ## Findings: The `@utility` API in Tailwind v4
 
@@ -13,7 +13,7 @@ Based on research and terminal testing with `tailwindcss v4.3.0`, the `@utility`
 3.  **Nesting and `@apply`**: `@apply` works perfectly inside `@utility` blocks. Tailwind v4 correctly maps applied classes (e.g., `hover:bg-blue-600` inside `@apply`) into properly nested css rules (e.g., `@media (hover: hover) { &:hover { ... } }`).
     *   This makes it trivial to compose complex utilities from existing utility classes while retaining all variant support.
 
-## Migration Edge Cases and Pitfalls
+## Edge Cases and Pitfalls
 
 1.  **Over-scoping with Nested Selectors**: When using nested selectors inside `@utility` (e.g., `& .child { ... }`), be aware that variants applied to the utility will affect the entire nested block. This is generally expected but can sometimes lead to overly broad target matching if not careful.
 2.  **Specificity**: Utilities defined with `@utility` share the same specificity as standard Tailwind utilities. This is generally better than `@layer components` because it integrates more naturally with the rest of the utility-first ecosystem.

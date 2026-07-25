@@ -2,12 +2,12 @@
 id: idea-062-drive-cloudflare-sync
 type: IDEA
 title: Google Drive and Cloudflare Server-Side Sync
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-05-21'
 updated_at: '2026-07-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14567517025638071445'
 pr_number: null
 parent: null
 tags:
