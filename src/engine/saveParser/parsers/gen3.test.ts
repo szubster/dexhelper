@@ -1374,7 +1374,7 @@ describe('parseGen3MetLocation', () => {
     const view = new DataView(buffer);
     const miscSubstructureOffset = 4;
 
-    // MISC_MET_LOCATION_OFFSET is 1
+    // MET_LOCATION_OFFSET_IN_M is 1
     // 4 + 1 = 5
     view.setUint8(5, 42); // 42 is the met location
 

@@ -8,7 +8,6 @@ created_at: '2026-06-05'
 updated_at: '2026-06-05'
 depends_on:
   - epic-036-058-feebas-backend-parsing
-  - task-036-148-feebas-visualization-adr
 jules_session_id: null
 pr_number: null
 parent: prd-066-036-feebas-tile-predictor
@@ -19,7 +18,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Feebas Route 119 Visual Component
 
 ## Objective
