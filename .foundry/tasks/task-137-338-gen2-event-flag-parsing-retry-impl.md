@@ -36,6 +36,6 @@ Implement the extraction of Gen 2 event flags from the save file.
 - Ensure appropriate RangeError handling for DataView operations.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 2 event flag extraction using the specified bit offsets.
-- [ ] Define all memory offsets and bit locations as reusable constants at the module level (no magic numbers).
-- [ ] Expose the extracted flags to the state management layer.
+- [x] Implement Gen 2 event flag extraction using the specified bit offsets.
+- [x] Define all memory offsets and bit locations as reusable constants at the module level (no magic numbers).
+- [x] Expose the extracted flags to the state management layer.

@@ -34,16 +34,18 @@ const EVENT_FLAGS_OFFSET_GS = 0x2624;
 const DAYCARE_EGG_FLAG_OFFSET_CRYSTAL = 0x282b;
 const DAYCARE_EGG_FLAG_MASK = 0x01;
 
-const EVENT_FLAG_SUDOWOODO_BYTE = Math.floor(51 / 8);
-const EVENT_FLAG_SUDOWOODO_BIT = 51 % 8;
-const EVENT_FLAG_HO_OH_BYTE = Math.floor(470 / 8);
-const EVENT_FLAG_HO_OH_BIT = 470 % 8;
-const EVENT_FLAG_LUGIA_BYTE = Math.floor(471 / 8);
-const EVENT_FLAG_LUGIA_BIT = 471 % 8;
-const EVENT_FLAG_SNORLAX_BYTE = Math.floor(1326 / 8);
-const EVENT_FLAG_SNORLAX_BIT = 1326 % 8;
-const EVENT_FLAG_RED_GYARADOS_BYTE = Math.floor(1327 / 8);
-const EVENT_FLAG_RED_GYARADOS_BIT = 1327 % 8;
+const EVENT_FLAG_SUDOWOODO_BYTE = Math.floor(42 / 8);
+const EVENT_FLAG_SUDOWOODO_BIT = 42 % 8;
+const EVENT_FLAG_HO_OH_BYTE = Math.floor(791 / 8);
+const EVENT_FLAG_HO_OH_BIT = 791 % 8;
+const EVENT_FLAG_LUGIA_BYTE = Math.floor(792 / 8);
+const EVENT_FLAG_LUGIA_BIT = 792 % 8;
+const EVENT_FLAG_SNORLAX_BYTE = Math.floor(1872 / 8);
+const EVENT_FLAG_SNORLAX_BIT = 1872 % 8;
+const EVENT_FLAG_RED_GYARADOS_BYTE = Math.floor(1873 / 8);
+const EVENT_FLAG_RED_GYARADOS_BIT = 1873 % 8;
+
+const EVENT_FLAGS_LENGTH = 0x100;
 
 const CAUGHT_TIME_MASK = 0xc0;
 const CAUGHT_TIME_SHIFT = 6;
@@ -689,9 +691,9 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   const roamingLegendaries = parseRoamingLegendaries(view, isCrystal);
 
   const eventFlagsOffset = isCrystal ? EVENT_FLAGS_OFFSET_CRYSTAL : EVENT_FLAGS_OFFSET_GS;
-  const eventFlags = new Uint8Array(0x100);
+  const eventFlags = new Uint8Array(EVENT_FLAGS_LENGTH);
   try {
-    for (let i = 0; i < 0x100; i++) {
+    for (let i = 0; i < EVENT_FLAGS_LENGTH; i++) {
       eventFlags[i] = view.getUint8(eventFlagsOffset + i);
     }
   } catch (error) {
