@@ -238,6 +238,10 @@ Appended tech lead journal for breaking down Gen 3 Volcanic Ash extraction story
 ## 2026-07-20: Diff Engine Hash Impossible Loop Resolution
 - **Node**: `story-137-294-diff-engine-logic`
 - **Actions**: Investigated the permanent failure of `task-294-316-diff-engine-impl`. Discovered that the `hash` property was missing from the `PokemonInstance` interface, leading to the Coder attempting to use a fallback generator and failing the QA contract. Drafted `research-294-335-diff-engine-hash-failure` to document the issue, `task-294-336-diff-engine-hash-fix-impl` to implement the interface addition and strict property usage, and `task-294-337-diff-engine-hash-fix-qa` for verification. Appended the replacement nodes to the parent story and checked off the failed tasks.
+
+## 2026-07-21: Progression Save Model Breakdown
+- **Node**: `story-036-255-progression-save-model`
+- **Actions**: Broke down STORY into implementation (`task-255-338-db-schema-saves-impl`) and QA (`task-255-339-db-schema-saves-qa`) TASKs for updating the IndexedDB schema for multiple saves. Updated the parent STORY acceptance criteria. Addressed code reviewer feedback by providing a concrete database schema design in the implementation task instead of generic requirements.
 ## 2026-07-21: Hidden Items E2E Tests Blueprinting
 - **Node**: `story-060-157-hidden-items-e2e-tests`
 - **Actions**: Broke down the Hidden Items UI E2E testing story into an implementation task (`task-157-338-hidden-items-e2e-tests-impl`) and a QA task (`task-157-339-hidden-items-e2e-tests-qa`) as per the Intelligent Verification Protocol to ensure testing matches UI logic requirements.
