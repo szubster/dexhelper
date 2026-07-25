@@ -8,7 +8,6 @@ created_at: "2026-06-08"
 updated_at: "2026-06-08"
 depends_on:
   - epic-038-061-mirage-island-save-parsing
-  - epic-038-062-personality-value-extraction
 jules_session_id: null
 pr_number: null
 parent: prd-068-038-mirage-island-data-extraction
@@ -21,7 +20,6 @@ rejection_count: 0
 rejection_reason: ""
 notes: ""
 ---
-
 # Hydrate Mirage Island State
 
 ## Context

@@ -30,5 +30,5 @@ Parse save files to extract the `met_location` for all Pokémon in the Party and
 
 ## Acceptance Criteria
 - [x] Tasks are generated
-- [ ] task-261-282-gen3-met-location-impl
-- [ ] task-261-283-gen3-met-location-qa
+- [x] task-261-282-gen3-met-location-impl
+- [x] task-261-283-gen3-met-location-qa

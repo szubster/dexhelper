@@ -32,7 +32,7 @@ Identify and execute ONE refactoring opportunity to make the codebase easier to 
 1. **Scan** — look for code that is overly complex, poorly named, or structurally confusing for an AI to parse.
 2. **Select** — pick the most impactful refactoring opportunity.
 3. **Sculpt** — perform the refactor to clarify intent and structure.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e` to ensure no regressions.
+4. **Verify** — run `pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e` to ensure no regressions.
 5. **PR** — title: `🗿 Sculptor: [description]`. Body: `🎯 What`, `💡 Why (AI Readability Impact)`, `✅ Verification`, and `✨ Result`.
 
 
@@ -41,10 +41,10 @@ Identify and execute ONE refactoring opportunity to make the codebase easier to 
 
 ## Journal
 
-Read `.jules/sculptor.md` before starting (create if missing).
+Read `.jules/sculptor/*.md` (your past journals) before starting.
 Only log **critical** learnings: structural patterns that confuse AI, successful simplification strategies, or unexpected entanglements.
 
-Your private journal is `.jules/sculptor.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/sculptor/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/sculptor/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ## Core Policies
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
