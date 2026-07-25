@@ -5,9 +5,9 @@ title: Implement Gen 2 Pokegear Registered Numbers Parsing
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-11'
-updated_at: '2026-07-19'
+updated_at: '2026-07-24'
 depends_on: []
-jules_session_id: '7218689177537318182'
+jules_session_id: '844255851782217015'
 pr_number: null
 parent: story-116-283-parse-registered-numbers
 tags:
@@ -16,7 +16,7 @@ tags:
   - parser
 research_references:
   - .foundry/docs/knowledge_base/engine/save_parsing/gen2_phone_mechanics.md
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---

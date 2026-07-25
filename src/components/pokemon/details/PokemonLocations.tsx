@@ -17,6 +17,7 @@ import { cn } from '../../../utils/cn';
 import { DataLabel } from '../../DataLabel';
 import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
+import { TacticalBlockHeader } from '../../TacticalBlockHeader';
 import { TacticalNode } from '../../TacticalNode';
 import { TacticalPanel } from '../../TacticalPanel';
 import { LocationRow } from './LocationRow';
@@ -124,22 +125,14 @@ function GeospatialNode({ encounter: e, areaName }: { encounter: CompactEncounte
     <TacticalNode variant="primary">
       <div className="flex flex-col gap-4 p-4 pl-6">
         {/* Header */}
-        <div className="flex items-start justify-between border-zinc-800/50 border-b border-dashed pb-3">
-          <div className="flex flex-col gap-1">
-            <span className="flex items-center gap-1.5 font-mono text-[9px] text-[var(--theme-primary)] uppercase tracking-widest">
-              <Crosshair size={10} /> [ ZONE_ID: {e.aid.toString().padStart(3, '0')} ]
-            </span>
-            <span className="font-black font-display text-white text-xl uppercase tracking-tight drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] transition-colors group-hover:text-[var(--theme-primary)]">
-              {areaName.toUpperCase()}
-            </span>
-          </div>
-          <div className="flex h-8 w-8 items-center justify-center rounded-none border border-[var(--theme-primary)]/20 bg-[var(--theme-primary)]/5 shadow-[inset_0_0_10px_rgba(var(--theme-primary-rgb),0.1)]">
-            <Navigation
-              size={14}
-              className="text-[var(--theme-primary)]/60 transition-colors group-hover:text-[var(--theme-primary)]"
-            />
-          </div>
-        </div>
+        <TacticalBlockHeader
+          variant="primary"
+          icon={<Crosshair size={10} />}
+          trackingLabel={`[ ZONE_ID: ${e.aid.toString().padStart(3, '0')} ]`}
+          title={areaName.toUpperCase()}
+          trailingIcon={<Navigation size={14} />}
+          className="border-zinc-800/50"
+        />
 
         {/* Vectors */}
         <div className="flex flex-col gap-2">

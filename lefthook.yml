@@ -2,7 +2,7 @@
 # Refer to https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
 
 pre-commit:
-  parallel: false
+  parallel: true
   commands:
     validate-foundry-schema:
       run: git diff --name-only --cached --diff-filter=d -- {staged_files} | xargs -r node --experimental-strip-types scripts/validate-foundry-schema.ts
