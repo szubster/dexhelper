@@ -25,9 +25,11 @@ Create a utility module that reads the parsed save file's data at the identified
 ## Acceptance Criteria
 - [x] Create a utility module for Feebas seed extraction.
 - [x] Implement Gen 3 algorithm to calculate the 6 tile coordinates based on the seed.
-- [ ] Ensure fast calculation concurrent with save file hydration.
+- [x] Ensure fast calculation concurrent with save file hydration.
 - [x] .foundry/archive/stories/story-058-095-feebas-seed-extraction.md
 - [x] .foundry/archive/stories/story-058-096-feebas-tile-calculation.md
 - [x] .foundry/archive/stories/story-058-152-refactor-feebas-magic-numbers.md
-- [ ] story-058-280-feebas-backend-integration
+- [x] story-058-280-feebas-backend-integration
+- [ ] story-058-341-feebas-fast-calculation
+- [ ] story-058-342-feebas-backend-integration-retry
 
