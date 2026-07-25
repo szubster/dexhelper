@@ -40,7 +40,7 @@ Parse the Gen 3 save file Item Bag to extract the player's current TM and HM inv
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 3 TM/HM item bag parsing mapping items to moves.
-- [ ] Extract Event Flags for one-time TM collection.
-- [ ] Ensure all offsets/lengths/bit locations/shifts are module-level constants.
-- [ ] Use resolved section offsets for relative memory offset calculations.
+- [x] Implement Gen 3 TM/HM item bag parsing mapping items to moves.
+- [x] Extract Event Flags for one-time TM collection.
+- [x] Ensure all offsets/lengths/bit locations/shifts are module-level constants.
+- [x] Use resolved section offsets for relative memory offset calculations.
