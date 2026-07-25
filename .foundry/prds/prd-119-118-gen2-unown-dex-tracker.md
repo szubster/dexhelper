@@ -2,12 +2,12 @@
 id: prd-119-118-gen2-unown-dex-tracker
 type: PRD
 title: Gen 2 Unown Dex Progress Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-19'
-updated_at: '2026-07-20'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '1134336885660559134'
+jules_session_id: null
 parent: idea-119-gen2-unown-dex-tracker
 tags:
   - feature

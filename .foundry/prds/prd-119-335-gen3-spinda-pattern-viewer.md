@@ -2,10 +2,10 @@
 id: prd-119-335-gen3-spinda-pattern-viewer
 type: PRD
 title: Gen 3 Spinda Pattern Viewer
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-07-20'
-updated_at: '2026-07-20'
+updated_at: '2026-07-25'
 depends_on: []
 jules_session_id: null
 pr_number: null

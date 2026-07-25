@@ -2,12 +2,12 @@
 id: story-331-333-remove-orphaned-qa-rule
 type: STORY
 title: Remove Orphaned QA Rule from Documentation
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-18'
-updated_at: '2026-07-20'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '5626317265523714296'
+jules_session_id: null
 pr_number: null
 parent: epic-115-331-remove-orphaned-qa-task-rule-from-docs
 tags:
@@ -15,7 +15,7 @@ tags:
   - agile-coach
   - orchestrator
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

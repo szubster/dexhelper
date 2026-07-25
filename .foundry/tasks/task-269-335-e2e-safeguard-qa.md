@@ -2,10 +2,10 @@
 id: task-269-335-e2e-safeguard-qa
 type: TASK
 title: QA - Implement E2E Safeguards on Epics
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-18'
-updated_at: '2026-07-18'
+updated_at: '2026-07-25'
 depends_on:
   - task-269-334-e2e-safeguard-impl
 jules_session_id: null
