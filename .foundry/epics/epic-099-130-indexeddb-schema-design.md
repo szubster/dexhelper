@@ -29,5 +29,5 @@ Define the storage schema for the save state history, including DB name, object 
 - [x] Define the database name and version.
 - [x] Define object stores for storing save files, metadata, and indexes for efficient retrieval.
 - [x] Document the schema.
-- [ ] story-130-315-define-indexeddb-schema
-- [ ] story-130-316-document-indexeddb-schema
+- [x] story-130-315-define-indexeddb-schema
+- [x] story-130-316-document-indexeddb-schema
