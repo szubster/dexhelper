@@ -2,12 +2,12 @@
 id: epic-099-130-gen3-trainer-data-extraction
 type: EPIC
 title: Gen 3 Trainer Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-03'
 updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7629362275415868252'
 pr_number: null
 parent: prd-082-099-gen3-trainer-data-extraction
 tags:
