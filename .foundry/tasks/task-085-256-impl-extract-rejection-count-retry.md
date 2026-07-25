@@ -33,7 +33,7 @@ This is a retry of the previously permanently failed `task-085-142`. In order to
 2. The core requirement is to verify that the React context layer (`DagContext.tsx`) correctly exposes the property to connected UI views. Ensure that the initial state in `DagContext.tsx` sets the `rejection_count` properly from the parsed nodes.
 
 ## Acceptance Criteria
-- [ ] Coder: Ensure React context layer correctly exposes the property.
+- [x] Coder: Ensure React context layer correctly exposes the property.
 
 ## Reminders
 - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
