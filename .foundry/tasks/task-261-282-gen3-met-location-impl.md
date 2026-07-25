@@ -5,9 +5,9 @@ title: Implement Gen 3 Met Location Extraction
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-08'
-updated_at: '2026-07-20'
+updated_at: '2026-07-24'
 depends_on: []
-jules_session_id: '349394712558575080'
+jules_session_id: '6808535811296121455'
 pr_number: null
 parent: story-097-261-extract-pokemon-met-locations
 tags:

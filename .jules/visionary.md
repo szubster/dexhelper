@@ -236,3 +236,15 @@
 ## 2026-07-18
 **Idea:** Gen 2 Unown Dex Progress Tracker
 **Learning:** Expanding on collection capabilities, extracting and tracking Unown forms along with the Ruins of Alph puzzle flags transforms a tedious, multi-step sub-quest into an actionable dashboard. This caters to hardcore completionists and leverages the save file's deep state to offer premium utility, perfectly aligning with DexHelper's vision.
+
+## 2026-07-21
+**Idea:** Implement Critical Path Node Prioritization in the DAG Orchestrator
+**Learning:** Focusing on scheduling enhancements for the multi-agent pipeline provides significant performance optimizations for the Foundry system. By applying topological weighting (counting downstream dependencies) to prioritize READY nodes, we ensure agents unblock critical paths faster, reducing pipeline bottlenecks. This perfectly balances the 50/50 split between product features and orchestrator health.
+
+## 2026-07-23
+**Idea:** Gen 2 Time Capsule Compatibility Validator
+**Learning:** Targeting opaque cross-generation mechanics (like the Time Capsule restrictions) provides massive utility. By dynamically evaluating a player's PC box against static backward-compatibility rules (movesets and species), we transform a frustrating trial-and-error process into an actionable checklist (e.g., "Delete these specific moves to trade"). This reinforces DexHelper as a premium tool that bridges complex game knowledge with real-time save data.
+
+## 2026-07-23 (Update)
+**Idea:** Gen 2 Time Capsule Compatibility Validator
+**Learning:** This idea was rejected because the Time Capsule is already supported in the codebase. I must ensure I thoroughly explore existing features and utilities in the `src/utils` or `src/engine` directories (e.g., `src/utils/timeCapsule.ts`) before proposing ideas to avoid duplicates.

@@ -7,7 +7,6 @@ owner_persona: story_owner
 created_at: '2026-06-15'
 updated_at: '2026-06-15'
 depends_on:
-  - epic-041-065-individual-contest-stats-view
   - epic-041-066-global-ribbon-checklist-dashboard
 jules_session_id: null
 pr_number: null
@@ -23,7 +22,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Epic: Visual Regression and Accessibility Checks
 
 ## 1. Context

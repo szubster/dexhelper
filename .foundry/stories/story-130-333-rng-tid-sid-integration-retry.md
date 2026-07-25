@@ -2,13 +2,13 @@
 id: story-130-333-rng-tid-sid-integration-retry
 type: STORY
 title: Retry RNG TID/SID Integration
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-18'
-updated_at: '2026-07-18'
+updated_at: '2026-07-25'
 depends_on:
   - research-130-332-rng-tid-sid-integration-failure
-jules_session_id: null
+jules_session_id: '8343471591373657836'
 pr_number: null
 parent: epic-100-130-rng-tid-sid-display
 tags:
@@ -16,7 +16,7 @@ tags:
   - ui
 research_references:
   - research-130-332-rng-tid-sid-integration-failure
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
