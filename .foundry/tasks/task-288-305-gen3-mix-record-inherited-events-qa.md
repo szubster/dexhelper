@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-07-11'
-depends_on:
-  - task-288-304-gen3-mix-record-inherited-events-impl
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-081-288-gen3-mix-record-inherited-events
@@ -22,7 +21,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Blueprint: QA Gen 3 Mix Record Inherited Events Extraction
 
 ## Objective

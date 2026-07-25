@@ -5,7 +5,7 @@ title: Pokerus Strain Specific UI Tracker
 status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-12'
-updated_at: '2026-07-19'
+updated_at: '2026-07-24'
 depends_on: []
 jules_session_id: '804269472408404809'
 pr_number: null
@@ -45,4 +45,6 @@ Currently, the UI only displays whether a Pokémon is "Infected" or "Cured". It 
 ## 4. Acceptance Criteria
 - [x] Epic Planner: Break this PRD down into one or more Epics.
 - [x] epic-112-322-pokerus-strain-ui-detail-view
-- [x] epic-112-323-pokerus-strain-ui-grid-view
+- [ ] epic-112-323-pokerus-strain-ui-grid-view
+- [ ] research-112-334-investigate-pokerus-ui-epic-failure
+- [ ] epic-112-335-pokerus-strain-ui-detail-view-v2

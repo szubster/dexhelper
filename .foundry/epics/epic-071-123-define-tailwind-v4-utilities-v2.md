@@ -6,9 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-03'
 updated_at: '2026-07-18'
-depends_on:
-  - task-071-150-tailwind-v4-adr
-  - research-071-217-investigate-session-id-failure
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
@@ -20,7 +18,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Epic: Define Tailwind v4 Tactical Utilities V2
 
 ## Objective

@@ -2,12 +2,12 @@
 id: idea-119-gen3-spinda-pattern-viewer
 type: IDEA
 title: Gen 3 Spinda Pattern Viewer
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-19'
 updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11744952049611154664'
 pr_number: null
 parent: null
 tags:
@@ -34,4 +34,5 @@ Spinda collectors have no external tools to visualize and catalog their unique S
 Create a Spinda Pattern Viewer dashboard that parses Spinda PIDs from the uploaded Gen 3 save file and uses a 2D canvas (or layered SVG) approach to render the exact spot patterns for each owned Spinda, displaying them in a unified gallery.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this idea into a PRD to formalize the rendering approach and assign it to an epic for tracking.
+- [x] Product Manager: Convert this idea into a PRD to formalize the rendering approach and assign it to an epic for tracking.
+- [ ] prd-119-335-gen3-spinda-pattern-viewer

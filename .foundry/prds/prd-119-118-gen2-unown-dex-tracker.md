@@ -2,12 +2,12 @@
 id: prd-119-118-gen2-unown-dex-tracker
 type: PRD
 title: Gen 2 Unown Dex Progress Tracker
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-07-19'
 updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1134336885660559134'
 parent: idea-119-gen2-unown-dex-tracker
 tags:
   - feature
@@ -30,4 +30,8 @@ Currently, DexHelper provides an UnownDexPanel that highlights caught forms, but
 4. Provide actionable warnings if the player is missing Unown forms because they have not completed the requisite puzzle. For example, if they are missing forms unlocked by the Ho-Oh puzzle, the dashboard should explicitly state: "You must complete the Ho-Oh puzzle in the Ruins of Alph to encounter more Unown forms."
 
 ## Epic Breakdown Task
-- Break this PRD down into one or more epics to implement the memory extraction logic and the UI presentation.
+- [x] Break this PRD down into one or more epics to implement the memory extraction logic and the UI presentation.
+
+## Acceptance Criteria
+- [ ] epic-118-338-gen2-unown-dex-data-extraction
+- [ ] epic-118-339-gen2-unown-dex-dashboard-ui

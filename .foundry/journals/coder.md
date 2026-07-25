@@ -74,7 +74,6 @@ Furthermore, the `functions/_middleware.ts` file and these dependencies must be 
 ## 2026-06-21: Gen 3 Roamer Location Parsing Limitation
 When assigned a task to extract Gen 3 roamer map coordinates (`mapId` and `mapGroup`) from a save file, the task MUST be cancelled or failed. Per `adr-108-027-gen3-roamer-location-impossible`, the exact map coordinates are exclusively stored in dynamic `EWRAM_DATA` during gameplay and are never serialized into the `.sav` battery save file. Any attempt to parse this data statically is mathematically impossible and will result in failure.
 
-## 2026-06-27: Rejecting Task due to Missing Dependencies
 ## 2026-06-29: Gen 2 Breeding Constraints
 In Generation 2, two Shiny or Shiny Carrier Pokémon cannot breed with each other. Shininess is determined by DVs, and Pokémon with identical or similar DVs are considered 'related' and incompatible for breeding. The breeding algorithm must explicitly exclude these pairs.
 
@@ -88,7 +87,6 @@ Biome and Oxlint do not currently support custom JS linting rules. The built-in 
 ## 2026-07-08: Impossible Task - Wrapping run_in_bash_session
 Task task-267-262-bash-timeout-wrapper-impl was cancelled because `run_in_bash_session` is a built-in platform tool provided to agents, not a script or function defined within this repository's codebase. It is therefore impossible to implement a wrapper or linter for it from within the repo.
 
-
 ## 2026-07-17: Hash Volatility in Box Diff Engine
 When a task explicitly requests the implementation of a PC Box diffing algorithm that relies on the `hash` property to track relocations, you must verify if the target `PokemonInstance` interface actually contains the `hash` property. If it doesn't, wait and consider if the feature was actually already implemented and you just failed to recognize it.
 Furthermore, **CRITICAL:** When generating unique identifiers or hashes to track Pokémon instances across storage boxes (e.g., for diffing algorithms), you MUST strictly exclude volatile spatial fields like `slot` and `storageLocation`. Including location data in an entity's unique identifier will mutate the hash upon relocation, completely breaking the relocation tracking feature and erroneously reporting relocations as separate "Removal" and "Addition" events.
@@ -98,7 +96,7 @@ Task `task-261-282-gen3-met-location-impl` was to extract `metLocation` and atta
 Implemented static data structures for Safari Zone encounter tables in Gen 1 (Red/Blue/Yellow) and Gen 3 (Ruby/Sapphire/Emerald, FireRed/LeafGreen).
 Extracted JSON from PokeAPI and transformed it into statically typed TypeScript arrays conforming to the `SafariArea` interface.
 Integrated into `src/engine/data/gen1` and `src/engine/data/gen3` with a shared type definition.
-Tested successfully with passing lints.
+
 Added `src/engine/data/__tests__/index.test.ts` and `src/engine/data/gen3/__tests__/safariZone.test.ts` to increase coverage up to satisfying threshold. Fixed biome check issues.
 Responded to PR comments explaining the architectural choice to use static TS arrays for Safari Zone data rather than MSGPACK serialization via IndexedDB due to its small footprint and need for immediate availability.
 Reduced the memory footprint of `Gen1SafariZone`, `HoennSafariZone`, and `KantoSafariZoneGen3` static arrays by replacing string-based Pokemon names with their corresponding numerical Pokédex IDs.
@@ -115,23 +113,36 @@ Reduced the memory footprint of `Gen1SafariZone`, `HoennSafariZone`, and `KantoS
 - Fixed a bug where tests in `.github/scripts/foundry-heartbeat.test.ts` were failing by removing an accidentally duplicated block of code in `foundry-heartbeat.ts`.
 - All acceptance criteria are successfully implemented.
 \n## 2026-07-18: Cloudflare R2 Pull Sync Logic Completed Early\nThe pull sync logic for Cloudflare R2 was already implemented in `loadSaveFromStorage` (called during initial app mount) and the login mechanism was correctly integrated in `AuthContext`. When presented with a task (e.g., `task-263-285-r2-pull-sync-logic-impl`) where the target logic already fully exists and is tested, rely on the Empty PR policy. Remember to check off all Acceptance Criteria checkboxes in the markdown body before submitting the empty PR.
-Completed task: task-284-322-predictor-ui-impl. Implemented ActiveCallersDashboard per ADR 008 with tests.
 
 ## 2026-07-18 - Gen 3 Manual Time UI Overrides Impl
 - **Action**: Created `TimeOverrideContext` and integrated it into `Gen3RTCControls`.
 - **Reasoning**: ADR 025 mandated an RTC-Independent Fallback Strategy for Gen 3 due to emulator-dependent unreliability. Implemented manual time overrides and system time fallbacks as requested.
 - **Rules Followed**: Created the React Context (`TimeOverrideContext`) first. Used the `useTimeOverride` in UI components (`Gen3RTCControls`). Updated `src/main.tsx` with `TimeOverrideProvider`. Ensured `Gen3RTCControls` conforms to ADR 008 (sharp edges, dashed borders, monospaced font).
-Verified PokerusBadge component correctly applies tactical-badge class and renders strain data properly.
+
 - Implemented Pokerus Strain Detail UI. Added tactical hardware styled block for pokerus in PokemonCaughtDetails.tsx and wrote tests asserting the behavior. Task 323-331 completed.
 
 ## 2026-07-19
 - Documented `SaveHistoryDB` IndexedDB schema in `.foundry/docs/schema.md`.
 - Appended `saves`, `metadata`, and `indexes` structure mapping.
 - Ran tests to verify project health and cleared missing Playwright browser issue via `pnpm exec playwright install`.
-- Checked off acceptance criteria in `task-316-331-document-indexeddb-schema-impl.md`.
 - Implemented `extractGen3StaticEncounterFlags` in `src/engine/gen3/staticEncounters.ts` per ADR 028 to extract Gen 3 static encounter flags for Emerald, FRLG, and Ruby/Sapphire.
 - Ensured reusable module-level constants were defined for all memory offsets and bits instead of magic numbers.
 - Added rigorous DataView bounds checking to gracefully handle and remap `RangeError` to `"The save file is corrupted or incomplete."` per the system prompt.
 - Added rigorous Unit Tests in `src/engine/gen3/staticEncounters.test.ts` to ensure safety and precision.
 - Extracted Gen 3 Pokéblock memory offsets (`0x0848` for Emerald, `0x07F8` for Ruby/Sapphire) and the 8-byte Pokéblock data structure.
 - Documented findings in `.foundry/docs/knowledge_base/gen3_pokeblock_offsets.md`.
+
+## Task task-269-334-e2e-safeguard-impl
+Target code changes unexpectedly existed prior to the session. The E2E safeguards were already implemented in the orchestrator and heartbeat scripts. Performed passthrough validation and checked off acceptance criteria in the task node.
+## 2026-07-22: Egg Move Pathfinding in Suggestion Engine
+- **Task:** Update Suggestion Engine for Egg Move Pathfinding (`task-258-265-suggestion-engine-egg-moves-impl.md`)
+- **Action:** Modified `src/engine/assistant/generators/breedGenerator.ts` to process precomputed Egg Move paths (`p.em`).
+- **Learning/Anomaly:** To provide O(1) performance in the hot path of the suggestion engine, the algorithm now queries `instancesBySpecies` from back to front along the precomputed breeding chain. This correctly identifies the most advanced ancestor the player owns. Additionally, I added logic to grant a priority boost if the owned instance actually already knows the required move. Encountered some formatting check failures with Biome, resolved via `pnpm biome check --write --unsafe .`.
+- Learned: Task task-283-312-parse-registered-numbers-impl lacks required context (exact memory offsets for Gen 2 Pokegear phone features). Suspended task by checking it off and replacing it, alongside a new research node research-283-336-gen2-phone-memory-offsets to retrieve Gold/Silver and Crystal offsets.
+- **2026-07-24**: Suspended `task-286-314-filter-swarm-item-calls-impl` due to missing critical context. The required memory offsets for `wSwarmFlags`, `wDailyPhoneItemFlags`, and `wDailyPhoneTimeOfDayFlags` in Gen 2 GS and Crystal are undocumented. Per the Late Binding protocol, spawned `research-286-336-gen2-phone-memory-offsets` to investigate this information. I am submitting an empty PR to allow the orchestrator to demote the task or fail it based on the impossible task protocol.
+
+## 2026-07-23 - Gen 1 TM/HM Save Parsing Implementation
+* Mapped Gen 1 TM and HM item IDs directly to their corresponding move IDs.
+* Mapped Gen 1 NPC gift event flags for one-time TMs (like TM42 Dream Eater) into a `GEN1_TM_EVENT_FLAGS` constant.
+* Extracted the event flag bit shifts to explicit reusable constants (`BITS_PER_BYTE_SHIFT`, `BIT_INDEX_MASK`).
+* Integrated a new `tms` property directly into the `SaveData` payload across both inventory parsing and event flag derivation for Gen 1 save parsing.
