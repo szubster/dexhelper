@@ -177,7 +177,9 @@ Drafted technical blueprints (`task-286-314-filter-swarm-item-calls-impl` and `t
 
 ## 2026-07-12: Gen 3 Dynamic Save Block Extraction Pattern
 When generating blueprints for Gen 3 dynamic save block extraction (like Volcanic Ash), ensure explicit instructions are provided to use the dynamically resolved `section1Offset` for relative offset calculations rather than hardcoding absolute values. Using absolute offsets breaks A/B bank flash memory parsing.
-\n## 2026-07-15: Gen 3 TM/HM Parsing Breakdown\nCreated task-321-322-gen3-tm-hm-parsing-impl and task-321-323-gen3-tm-hm-parsing-qa from story-306-321-gen3-tm-hm-parsing. Included architectural constraints for full PokeData properties (ADR 015) and relative module-level constants (ADR 028) along with resolved section offset calculation instructions.
+
+## 2026-07-15: Gen 3 TM/HM Parsing Breakdown
+Created task-321-322-gen3-tm-hm-parsing-impl and task-321-323-gen3-tm-hm-parsing-qa from story-306-321-gen3-tm-hm-parsing. Included architectural constraints for full PokeData properties (ADR 015) and relative module-level constants (ADR 028) along with resolved section offset calculation instructions.
 
 ## 2026-07-14
 - Drafted blueprints for Gen 3 Contest & Battle Frontier Extraction (`story-304-320-gen3-contest-frontier-extraction`).
@@ -188,7 +190,11 @@ When generating blueprints for Gen 3 dynamic save block extraction (like Volcani
 2026-07-16: Created retry 7 for Gen 3 TV parser because retry 6 failed QA due to inline magic numbers and incorrect error message string.
 - Passthrough validation executed for story-304-320-gen3-contest-frontier-extraction: Target child tasks were already COMPLETED.
 - 2026-07-17: Drafted `task-322-331-gen2-decoration-savings-parsing-impl` and `task-322-332-gen2-decoration-savings-parsing-qa` from `story-311-322-gen2-room-decoration-parsing`. Included explicit architectural constraints requiring the Coder to use module-level constants for offsets and forbidding inline magic numbers (ADR 028).
-## 2026-07-17: Safari Zone Static Tables Breakdown\n- **story-324-322-safari-zone-static-tables**: Broke down the Safari Zone static data story into a single implementation task `task-322-331-safari-zone-static-tables-impl` for the Coder persona.\n- Because this task involved straightforward static data compilation without complex logic or risk, I applied the Intelligent Verification Protocol to require the Coder to self-verify rather than spawning a separate QA task.\n- Ensured the task included standard error handling constraints (updating YAML frontmatter to FAILED/CANCELLED with a rejection reason upon failure).\n
+## 2026-07-17: Safari Zone Static Tables Breakdown
+- **story-324-322-safari-zone-static-tables**: Broke down the Safari Zone static data story into a single implementation task `task-322-331-safari-zone-static-tables-impl` for the Coder persona.
+- Because this task involved straightforward static data compilation without complex logic or risk, I applied the Intelligent Verification Protocol to require the Coder to self-verify rather than spawning a separate QA task.
+- Ensured the task included standard error handling constraints (updating YAML frontmatter to FAILED/CANCELLED with a rejection reason upon failure).
+
 Created tasks 331 and 332 for Gen 2 DV extraction. Applied strict requirements from Gen 2 memory guidelines, specifically ensuring all constants are defined at the module level and explicit RangeError bounds checking is enforced.
 - Anomaly: Pre-existing completed node task-317-322-detect-party-zero-hp-impl found prior to session.
 
@@ -232,6 +238,9 @@ Appended tech lead journal for breaking down Gen 3 Volcanic Ash extraction story
 ## 2026-07-20: Diff Engine Hash Impossible Loop Resolution
 - **Node**: `story-137-294-diff-engine-logic`
 - **Actions**: Investigated the permanent failure of `task-294-316-diff-engine-impl`. Discovered that the `hash` property was missing from the `PokemonInstance` interface, leading to the Coder attempting to use a fallback generator and failing the QA contract. Drafted `research-294-335-diff-engine-hash-failure` to document the issue, `task-294-336-diff-engine-hash-fix-impl` to implement the interface addition and strict property usage, and `task-294-337-diff-engine-hash-fix-qa` for verification. Appended the replacement nodes to the parent story and checked off the failed tasks.
+
+## 2026-07-20: Gen 2 Event Flag Parsing Retry
+Drafted implementation and QA tasks for Gen 2 event flags (story-137-333). Mandated exact bit offsets derived from research (Sudowoodo=42, Ho-Oh=791, Lugia=792, Snorlax=1872, Red Gyarados=1873) and strictly enforced ADR 028 module-level constants to prevent further failures.
 ## [Anomaly] Pre-existing completed task
 - **Node**: story-130-316-document-indexeddb-schema
 - **Actions**: Executed passthrough validation. The generated child task (task-316-331-document-indexeddb-schema-impl) unexpectedly existed prior to the session and was already COMPLETED. This is an anomaly flagged for the Agile Coach to review later. Checked off all acceptance criteria checkboxes in the parent story node since the required work is already present in schema.md, and submitted an Empty PR to correctly transition the parent node to VERIFYING.
