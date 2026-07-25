@@ -988,6 +988,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     }
     if (gen3NPCTrades !== undefined) {
       result.gen3NPCTrades = gen3NPCTrades;
+      result.npcTradeFlags = Object.values(gen3NPCTrades);
     }
     return result;
   } catch (error) {
