@@ -800,28 +800,27 @@ export function parseGen3TrainerId(view: DataView, section0Offset: number): { tr
   }
 }
 
+function safeParse<T>(fn: () => T): T | undefined {
+  try {
+    return fn();
+  } catch {
+    return undefined;
+  }
+}
+
 export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveData {
   try {
-    let section2Offset: number;
-    try {
-      section2Offset = getLatestSectionOffset(view, 2);
-    } catch {
-      throw new RangeError('Out of bounds during block scan');
-    }
+    const getSection = (id: number) => {
+      try {
+        return getLatestSectionOffset(view, id);
+      } catch {
+        throw new RangeError('Out of bounds during block scan');
+      }
+    };
 
-    let section1Offset: number;
-    try {
-      section1Offset = getLatestSectionOffset(view, 1);
-    } catch {
-      throw new RangeError('Out of bounds during block scan');
-    }
-
-    let section0Offset: number;
-    try {
-      section0Offset = getLatestSectionOffset(view, 0);
-    } catch {
-      throw new RangeError('Out of bounds during block scan');
-    }
+    const section2Offset = getSection(2);
+    const section1Offset = getSection(1);
+    const section0Offset = getSection(0);
 
     const gen3BerryPatches = extractBerryPatches(view, section1Offset);
     const gen3SecretBases = parseGen3SecretBases(view, section1Offset, _forcedVersion || 'ruby');
@@ -832,28 +831,24 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const gen3VolcanicAsh = parseGen3VolcanicAsh(view, section1Offset, _forcedVersion || 'ruby');
 
     const roamingLegendaries = [];
-    try {
-      const roamer = parseGen3Roamer(view, section1Offset, _forcedVersion || 'ruby');
-      if (roamer?.isActive) {
-        roamingLegendaries.push({
-          speciesId: roamer.speciesId,
-          level: roamer.level,
-          isActive: roamer.isActive,
-          ivs: {
-            hp: (roamer.ivs >> IV_SHIFT_HP) & IV_MASK,
-            atk: (roamer.ivs >> IV_SHIFT_ATK) & IV_MASK,
-            def: (roamer.ivs >> IV_SHIFT_DEF) & IV_MASK,
-            spd: (roamer.ivs >> IV_SHIFT_SPD) & IV_MASK,
-            spAtk: (roamer.ivs >> IV_SHIFT_SPATK) & IV_MASK,
-            spDef: (roamer.ivs >> IV_SHIFT_SPDEF) & IV_MASK,
-          },
-          personalityValue: roamer.personality,
-          hp: roamer.hp,
-          statusCondition: roamer.status,
-        });
-      }
-    } catch {
-      // Ignored
+    const roamer = safeParse(() => parseGen3Roamer(view, section1Offset, _forcedVersion || 'ruby'));
+    if (roamer?.isActive) {
+      roamingLegendaries.push({
+        speciesId: roamer.speciesId,
+        level: roamer.level,
+        isActive: roamer.isActive,
+        ivs: {
+          hp: (roamer.ivs >> IV_SHIFT_HP) & IV_MASK,
+          atk: (roamer.ivs >> IV_SHIFT_ATK) & IV_MASK,
+          def: (roamer.ivs >> IV_SHIFT_DEF) & IV_MASK,
+          spd: (roamer.ivs >> IV_SHIFT_SPD) & IV_MASK,
+          spAtk: (roamer.ivs >> IV_SHIFT_SPATK) & IV_MASK,
+          spDef: (roamer.ivs >> IV_SHIFT_SPDEF) & IV_MASK,
+        },
+        personalityValue: roamer.personality,
+        hp: roamer.hp,
+        statusCondition: roamer.status,
+      });
     }
 
     const flagsOffset = section2Offset + 0x02f0;
@@ -876,70 +871,29 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     let gen3NPCTrades: Record<string, boolean> | undefined;
 
     if (_forcedVersion === 'emerald') {
-      try {
-        gen3MoveTutors = parseGen3EmeraldMoveTutors(view, section1Offset);
-      } catch {
-        // Ignored
-      }
-      try {
-        gen3NPCTrades = parseGen3RSENPCTrades(view, section1Offset);
-      } catch {
-        // Ignored
-      }
+      gen3MoveTutors = safeParse(() => parseGen3EmeraldMoveTutors(view, section1Offset));
+      gen3NPCTrades = safeParse(() => parseGen3RSENPCTrades(view, section1Offset));
+      gen3BattleFrontierWinStreaks = safeParse(() => parseGen3BattleFrontierWinStreaks(view, section2Offset));
+      gen3BattleFrontierSymbols = safeParse(() => parseGen3BattleFrontierSymbols(view, section1Offset));
+      gen3TotalBattlePoints = safeParse(() => parseGen3TotalBattlePoints(view, section2Offset));
+      gen3BattlePoints = safeParse(() => parseGen3BattlePoints(view, section2Offset));
     } else if (_forcedVersion === 'ruby' || _forcedVersion === 'sapphire') {
-      try {
-        gen3NPCTrades = parseGen3RSENPCTrades(view, section1Offset);
-      } catch {
-        // Ignored
-      }
+      gen3NPCTrades = safeParse(() => parseGen3RSENPCTrades(view, section1Offset));
     } else if (_forcedVersion === 'firered' || _forcedVersion === 'leafgreen') {
-      try {
-        gen3MoveTutors = parseGen3FRLGMoveTutors(view, section1Offset);
-      } catch {
-        // Ignored
-      }
-      try {
-        gen3NPCTrades = parseGen3FRLGNPCTrades(view, section1Offset);
-      } catch {
-        // Ignored
-      }
+      gen3MoveTutors = safeParse(() => parseGen3FRLGMoveTutors(view, section1Offset));
+      gen3NPCTrades = safeParse(() => parseGen3FRLGNPCTrades(view, section1Offset));
     }
 
-    if (_forcedVersion === 'emerald') {
-      try {
-        gen3BattleFrontierWinStreaks = parseGen3BattleFrontierWinStreaks(view, section2Offset);
-      } catch {
-        // Ignored if missing or corrupted, allowing the rest of the save to load
-      }
-      try {
-        gen3BattleFrontierSymbols = parseGen3BattleFrontierSymbols(view, section1Offset);
-      } catch {
-        // Ignored if missing or corrupted, allowing the rest of the save to load
-      }
-      try {
-        gen3TotalBattlePoints = parseGen3TotalBattlePoints(view, section2Offset);
-      } catch {
-        // Ignored if missing or corrupted, allowing the rest of the save to load
-      }
-      try {
-        gen3BattlePoints = parseGen3BattlePoints(view, section2Offset);
-      } catch {
-        // Ignored if missing or corrupted, allowing the rest of the save to load
-      }
-    }
     let gen3FeebasTiles: number[] | undefined;
     if (_forcedVersion === 'ruby' || _forcedVersion === 'sapphire' || _forcedVersion === 'emerald') {
-      try {
+      gen3FeebasTiles = safeParse(() => {
         const seed = extractFeebasSeed(view, _forcedVersion, section1Offset);
-        gen3FeebasTiles = calculateFeebasTiles(seed);
-      } catch {
-        // Ignored
-      }
+        return calculateFeebasTiles(seed);
+      });
     }
 
     const { trainerId, secretId } = parseGen3TrainerId(view, section0Offset);
 
-    // Dummy scaffold values for now until fully implemented
     const result: SaveData = {
       generation: 3,
       owned: new Set(),
@@ -968,27 +922,15 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       gen3VolcanicAsh,
       gen3TrickHouse: parseTrickHouse(view, section1Offset),
     };
-    if (gen3FeebasTiles !== undefined) {
-      result.gen3FeebasTiles = gen3FeebasTiles;
-    }
-    if (gen3BattleFrontierWinStreaks) {
-      result.gen3BattleFrontierWinStreaks = gen3BattleFrontierWinStreaks;
-    }
-    if (gen3BattleFrontierSymbols) {
-      result.gen3BattleFrontierSymbols = gen3BattleFrontierSymbols;
-    }
-    if (gen3MoveTutors !== undefined) {
-      result.gen3MoveTutors = gen3MoveTutors;
-    }
-    if (gen3TotalBattlePoints !== undefined) {
-      result.gen3TotalBattlePoints = gen3TotalBattlePoints;
-    }
-    if (gen3BattlePoints !== undefined) {
-      result.gen3BattlePoints = gen3BattlePoints;
-    }
-    if (gen3NPCTrades !== undefined) {
-      result.gen3NPCTrades = gen3NPCTrades;
-    }
+
+    if (gen3FeebasTiles !== undefined) result.gen3FeebasTiles = gen3FeebasTiles;
+    if (gen3BattleFrontierWinStreaks) result.gen3BattleFrontierWinStreaks = gen3BattleFrontierWinStreaks;
+    if (gen3BattleFrontierSymbols) result.gen3BattleFrontierSymbols = gen3BattleFrontierSymbols;
+    if (gen3MoveTutors !== undefined) result.gen3MoveTutors = gen3MoveTutors;
+    if (gen3TotalBattlePoints !== undefined) result.gen3TotalBattlePoints = gen3TotalBattlePoints;
+    if (gen3BattlePoints !== undefined) result.gen3BattlePoints = gen3BattlePoints;
+    if (gen3NPCTrades !== undefined) result.gen3NPCTrades = gen3NPCTrades;
+
     return result;
   } catch (error) {
     if (error instanceof RangeError) {
