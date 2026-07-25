@@ -207,11 +207,6 @@ Created tasks 331 and 332 for Gen 2 DV extraction. Applied strict requirements f
 During the session for `story-301-314-lift-rejection-count-state`, the target Foundry artifact (`task-301-314-lift-rejection-count-state-impl.md`) unexpectedly existed prior to the session and was already marked as COMPLETED. As per the empty PR policy and anomaly guidelines, I checked off the child task in the story node as a passthrough validation step to transition the parent node without creating duplicate tasks.
 ## [2026-07-17] NPC Trade State Integration
 Created implementation and QA verification tasks for story-119-261-npc-trade-state-integration. Ensured the QA task explicitly tests the requirements like RangeError handling and constant-defined memory offsets, as state integration changes logic in the core parse pipeline, meaning verification is essential according to the Intelligent Verification Protocol.
-## 2026-07-17: Empty PR for completed child task
-Assigned to story-130-315-define-indexeddb-schema where its generated child (task-315-322-implement-savehistorydb) has already been completed and archived. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.
-
-## [Anomaly] Pre-existing completed task
-Assigned to story-127-268-bash-timeout-feedback where its generated child (task-268-322-bash-timeout-feedback-impl) has already been completed. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.
 ## 2026-07-18: Creating Missing E2E Safeguard Tasks
 - **Observation**: Assigned to `story-127-269-epic-e2e-safeguard` where previous implementation and QA tasks `task-269-269-e2e-safeguard-impl` and `task-269-270-e2e-safeguard-qa` had failed and were in a weird state (either max rejections or merged with unfulfilled acceptance criteria), leaving the parent story node active. I mistakenly tried to resolve this by checking off the pending children in the parent node without recreating replacement nodes, leading to a rejection in code review.
 - **Action**: Created replacement blueprints `task-269-334-e2e-safeguard-impl` and `task-269-335-e2e-safeguard-qa` while explicitly checking off the orphaned failed children in the parent's markdown, as required by the Impossible Loop Policy.
@@ -232,6 +227,8 @@ Transformed story-130-316-document-indexeddb-schema into a technical blueprint. 
 - **Node**: `story-138-294-gen3-static-encounters-parsing`
 - **Actions**: Broke down the Gen 3 Static Encounters story into `task-294-331-gen3-static-encounter-flags-impl` and `task-294-332-gen3-static-encounter-flags-qa` as per the Intelligent Verification Protocol.
 - **Constraints Enforced**: Explicitly instructed the Coder and QA personas in the task blueprints to strictly enforce ADR 028 (no magic numbers, module-level constants) and relative offset calculations using `section1Offset` for Gen 3 save block extraction, specifically referencing the `DataView` RangeError handling rules based on previous recurring failure patterns.
+- **Empty PR Checkbox Policy Compliance:** When completing a previously rejected story, ensure all descendant tasks (including newly spawned retry tasks) and all acceptance criteria are explicitly checked off, and any obsolete Rejection notices (e.g. \`### Auditor Rejection\`) are completely removed from the markdown body.
+- **Scratchpad Cleanup Enforcement:** Always explicitly delete any temporary scratchpad files (e.g., \`test.md\`) created during the session before committing, as leaving them pollutes the root directory and triggers rejection during code review.
 
 - Date: 2026-07-19
   Action: Drafted task blueprint (task-333-333-gen3-roamer-extraction-tests-impl) for Gen 3 roamer core extraction unit tests.
@@ -244,3 +241,12 @@ Appended tech lead journal for breaking down Gen 3 Volcanic Ash extraction story
 
 ## 2026-07-20: Gen 2 Event Flag Parsing Retry
 Drafted implementation and QA tasks for Gen 2 event flags (story-137-333). Mandated exact bit offsets derived from research (Sudowoodo=42, Ho-Oh=791, Lugia=792, Snorlax=1872, Red Gyarados=1873) and strictly enforced ADR 028 module-level constants to prevent further failures.
+## [Anomaly] Pre-existing completed task
+- **Node**: story-130-316-document-indexeddb-schema
+- **Actions**: Executed passthrough validation. The generated child task (task-316-331-document-indexeddb-schema-impl) unexpectedly existed prior to the session and was already COMPLETED. This is an anomaly flagged for the Agile Coach to review later. Checked off all acceptance criteria checkboxes in the parent story node since the required work is already present in schema.md, and submitted an Empty PR to correctly transition the parent node to VERIFYING.
+## 2026-07-20
+- **Node**: story-138-295-gen3-static-encounters-ui
+- **Actions**: Broke down the Gen 3 Static Encounters UI story into task-295-338-gen3-static-encounters-ui-impl and task-295-339-gen3-static-encounters-ui-qa.
+
+### 2026-07-19: Re-generation of Graveyard Box State Logic Tasks
+Generated task-333-338-graveyard-box-logic-impl and task-333-339-graveyard-box-logic-qa for story-131-333-graveyard-box-state. The codebase already implements this logic, so the generated tasks explicitly permit checking off and creating an empty PR. Re-generation occurs due to node resurrection loop.

@@ -16,9 +16,23 @@ import { r2Client } from './utils/r2/client';
  */
 
 // ─── Types ───────────────────────────────────────────────────────────
+/**
+ * Represents the supported game versions (e.g., 'red', 'gold', 'emerald')
+ * used throughout the application to determine version-specific logic.
+ */
 export type GameVersion = GameVersionType;
+/**
+ * The array of valid UI filter strings used to restrict which Pokémon
+ * are currently visible in the Dex grids.
+ */
 export const FILTER_TYPES = ['secured', 'missing', 'dex-only'] as const;
+
+/** Union type representing an active UI filter mode. */
 export type FilterType = (typeof FILTER_TYPES)[number];
+/**
+ * Represents the visual style of Pokéball used as a global theme override
+ * across the application UI (e.g., in headers and list items).
+ */
 export type PokeballType =
   | 'poke'
   | 'great'

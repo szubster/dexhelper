@@ -28,8 +28,8 @@ notes: ''
 Document the structure and specifications of the `SaveHistoryDB` IndexedDB schema that was defined. This documentation should outline the overall configuration, database name, version, and the structure of each object store (`saves`, `metadata`, `indexes`).
 
 ## Acceptance Criteria
-- [ ] task-316-331-document-indexeddb-schema-impl
-- [ ] Create or update schema documentation to reflect the `SaveHistoryDB` configuration.
-- [ ] Detail the structure and key-value types for the `saves` object store.
-- [ ] Detail the structure and key-value types for the `metadata` object store.
-- [ ] Detail the structure and key-value types for the `indexes` object store.
+- [x] task-316-331-document-indexeddb-schema-impl
+- [x] Create or update schema documentation to reflect the `SaveHistoryDB` configuration.
+- [x] Detail the structure and key-value types for the `saves` object store.
+- [x] Detail the structure and key-value types for the `metadata` object store.
+- [x] Detail the structure and key-value types for the `indexes` object store.

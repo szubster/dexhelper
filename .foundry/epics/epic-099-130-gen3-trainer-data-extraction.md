@@ -2,10 +2,10 @@
 id: epic-099-130-gen3-trainer-data-extraction
 type: EPIC
 title: Gen 3 Trainer Data Extraction
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-07-05'
+updated_at: '2026-07-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,10 @@ tags:
   - gen3
   - trainer
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 2
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: ''
 ---
 
@@ -26,10 +28,10 @@ notes: ''
 Extract the Trainer ID (TID) and Secret ID (SID) from a Gen 3 save file.
 
 ## Requirements
-- [ ] Identify memory offsets for Trainer ID, and Secret ID in a save file.
-- [ ] Update the relevant interface to include Secret ID.
-- [ ] Implement extraction logic in `src/engine/saveParser/parsers/gen3.ts`.
+- [x] Identify memory offsets for Trainer ID, and Secret ID in a save file.
+- [x] Update the relevant interface to include Secret ID.
+- [x] Implement extraction logic in `src/engine/saveParser/parsers/gen3.ts`.
 
 ## Acceptance Criteria
 - [x] Story Owner: Convert this Epic into Stories.
-- [ ] story-130-269-extract-gen3-trainer-id-secret-id
+- [x] story-130-269-extract-gen3-trainer-id-secret-id

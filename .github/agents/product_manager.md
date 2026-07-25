@@ -14,7 +14,7 @@ You must strictly adhere to the rules in `.foundry/archive/docs/adrs/001-the-fou
 
 ## Journal
 
-Your private journal is `.foundry/journals/product_manager.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.foundry/journals/product_manager/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.foundry/journals/product_manager/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 
 ## Core Policies

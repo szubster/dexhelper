@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { main, identifyBranchesForCleanup, cleanupRemoteBranches, transitionNodeToCompleted } from './foundry-heartbeat.ts';
+import { main, identifyBranchesForCleanup, cleanupRemoteBranches, transitionNodeToCompleted, transitionNodeToReady, transitionNodeToReadyWithoutPenalty, transitionNodeToFailed } from './foundry-heartbeat.ts';
 import * as orchestrator from './foundry-orchestrator.ts';
 
 vi.mock('node:fs');
@@ -15,6 +15,7 @@ describe('Foundry Heartbeat', () => {
   const mockRepoRoot = '/mock/repo';
 
   beforeEach(() => {
+    vi.resetAllMocks();
     vi.clearAllMocks();
     globalFetch.mockClear();
     process.env = { ...originalEnv, JULES_API_KEY: 'mock-api-key', GITHUB_TOKEN: 'mock-token' };
@@ -1333,6 +1334,53 @@ status: ACTIVE
       expect(fs.writeFileSync).not.toHaveBeenCalled();
     });
   });
+
+
+  describe('Regression: Archived Parent and Child Path Matching in Heartbeat', () => {
+    it('should transition an EPIC in archive to VERIFYING when its E2E story child is also in archive and parent reference is original path', async () => {
+      const mockEpicRegression = {
+        filePath: '/mock/repo/.foundry/archive/epics/epic-regression-archived.md',
+        repoPath: '.foundry/archive/epics/epic-regression-archived.md',
+        frontmatter: {
+          id: 'epic-regression-archived',
+          type: 'EPIC',
+          status: 'ACTIVE',
+          jules_session_id: 'session-regression-1',
+          owner_persona: 'story_owner'
+        },
+        rawContent: '---\ntype: EPIC\nstatus: ACTIVE\njules_session_id: "session-regression-1"\nowner_persona: "story_owner"\n---\nBody'
+      };
+
+      const mockChildRegression = {
+        filePath: '/mock/repo/.foundry/archive/stories/story-regression-archived.md',
+        repoPath: '.foundry/archive/stories/story-regression-archived.md',
+        frontmatter: {
+          id: 'story-regression-archived',
+          type: 'STORY',
+          parent: '.foundry/epics/epic-regression-archived.md',
+          tags: ['integration']
+        }
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue([
+        '/mock/repo/.foundry/archive/epics/epic-regression-archived.md',
+        '/mock/repo/.foundry/archive/stories/story-regression-archived.md'
+      ]);
+      vi.mocked(orchestrator.parseNodeFile).mockImplementation((fp) => {
+        if (fp === '/mock/repo/.foundry/archive/epics/epic-regression-archived.md') return mockEpicRegression as any;
+        if (fp === '/mock/repo/.foundry/archive/stories/story-regression-archived.md') return mockChildRegression as any;
+        return null;
+      });
+
+      await transitionNodeToCompleted(mockEpicRegression, '/mock/repo', 123);
+
+      expect(fs.writeFileSync).toHaveBeenCalled();
+      const writeCall = vi.mocked(fs.writeFileSync).mock.calls.find(call => call[0] === mockEpicRegression.filePath);
+      expect(writeCall).toBeDefined();
+      expect(writeCall![1]).toContain('status: VERIFYING');
+      expect(writeCall![1]).toContain('owner_persona: auditor');
+    });
+  });
 });
 
   describe('cleanupRemoteBranches', () => {
@@ -1599,5 +1647,87 @@ status: ACTIVE
 
       const result = await identifyBranchesForCleanup('/mock', ['origin/branch-session-fail'], ['branch-session-fail']);
       expect(result).toEqual([]);
+    });
+  });
+
+  describe('Terminal Status Protection', () => {
+    it('should preserve CANCELLED or COMPLETED status in transitionNodeToCompleted', async () => {
+      vi.mocked(fs.writeFileSync).mockClear();
+      const mockCancelledNode = {
+        filePath: '/mock/repo/.foundry/epics/epic-1.md',
+        repoPath: '.foundry/epics/epic-1.md',
+        rawContent: '---\ntype: EPIC\nstatus: CANCELLED\njules_session_id: "session-1"\n---\nBody'
+      };
+      await transitionNodeToCompleted(mockCancelledNode, '/mock/repo', 123);
+      expect(fs.writeFileSync).not.toHaveBeenCalled();
+
+      vi.mocked(fs.writeFileSync).mockClear();
+      const mockCompletedNode = {
+        filePath: '/mock/repo/.foundry/epics/epic-1.md',
+        repoPath: '.foundry/epics/epic-1.md',
+        rawContent: '---\ntype: EPIC\nstatus: COMPLETED\njules_session_id: "session-1"\n---\nBody'
+      };
+      await transitionNodeToCompleted(mockCompletedNode, '/mock/repo', 123);
+      expect(fs.writeFileSync).not.toHaveBeenCalled();
+    });
+
+    it('should preserve CANCELLED or COMPLETED status in transitionNodeToReady', async () => {
+      vi.mocked(fs.writeFileSync).mockClear();
+      const mockCancelledNode = {
+        filePath: '/mock/repo/.foundry/epics/epic-1.md',
+        repoPath: '.foundry/epics/epic-1.md',
+        rawContent: '---\ntype: EPIC\nstatus: CANCELLED\njules_session_id: "session-1"\n---\nBody'
+      };
+      await transitionNodeToReady(mockCancelledNode, '/mock/repo', 'reason');
+      expect(fs.writeFileSync).not.toHaveBeenCalled();
+
+      vi.mocked(fs.writeFileSync).mockClear();
+      const mockCompletedNode = {
+        filePath: '/mock/repo/.foundry/epics/epic-1.md',
+        repoPath: '.foundry/epics/epic-1.md',
+        rawContent: '---\ntype: EPIC\nstatus: COMPLETED\njules_session_id: "session-1"\n---\nBody'
+      };
+      await transitionNodeToReady(mockCompletedNode, '/mock/repo', 'reason');
+      expect(fs.writeFileSync).not.toHaveBeenCalled();
+    });
+
+    it('should preserve CANCELLED or COMPLETED status in transitionNodeToReadyWithoutPenalty', async () => {
+      vi.mocked(fs.writeFileSync).mockClear();
+      const mockCancelledNode = {
+        filePath: '/mock/repo/.foundry/epics/epic-1.md',
+        repoPath: '.foundry/epics/epic-1.md',
+        rawContent: '---\ntype: EPIC\nstatus: CANCELLED\njules_session_id: "session-1"\n---\nBody'
+      };
+      await transitionNodeToReadyWithoutPenalty(mockCancelledNode, '/mock/repo', 'reason');
+      expect(fs.writeFileSync).not.toHaveBeenCalled();
+
+      vi.mocked(fs.writeFileSync).mockClear();
+      const mockCompletedNode = {
+        filePath: '/mock/repo/.foundry/epics/epic-1.md',
+        repoPath: '.foundry/epics/epic-1.md',
+        rawContent: '---\ntype: EPIC\nstatus: COMPLETED\njules_session_id: "session-1"\n---\nBody'
+      };
+      await transitionNodeToReadyWithoutPenalty(mockCompletedNode, '/mock/repo', 'reason');
+      expect(fs.writeFileSync).not.toHaveBeenCalled();
+    });
+
+    it('should preserve CANCELLED or COMPLETED status in transitionNodeToFailed', async () => {
+      vi.mocked(fs.writeFileSync).mockClear();
+      const mockCancelledNode = {
+        filePath: '/mock/repo/.foundry/epics/epic-1.md',
+        repoPath: '.foundry/epics/epic-1.md',
+        rawContent: '---\ntype: EPIC\nstatus: CANCELLED\njules_session_id: "session-1"\n---\nBody'
+      };
+      await transitionNodeToFailed(mockCancelledNode, '/mock/repo', 'reason');
+      expect(fs.writeFileSync).not.toHaveBeenCalled();
+
+      vi.mocked(fs.writeFileSync).mockClear();
+      const mockCompletedNode = {
+        filePath: '/mock/repo/.foundry/epics/epic-1.md',
+        repoPath: '.foundry/epics/epic-1.md',
+        rawContent: '---\ntype: EPIC\nstatus: COMPLETED\njules_session_id: "session-1"\n---\nBody'
+      };
+      await transitionNodeToFailed(mockCompletedNode, '/mock/repo', 'reason');
+      expect(fs.writeFileSync).not.toHaveBeenCalled();
     });
   });

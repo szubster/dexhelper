@@ -2,12 +2,12 @@
 id: research-294-335-diff-engine-hash-failure
 type: RESEARCH
 title: Investigate Diff Engine Hash Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-20'
 updated_at: '2026-07-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5413365205932644365'
 pr_number: null
 parent: story-137-294-diff-engine-logic
 tags:

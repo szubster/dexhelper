@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-06-19'
-depends_on:
-  - adr-044-021-hof-data-parsing-architecture
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: prd-070-044-hall-of-fame-exporter
@@ -20,7 +19,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
 # Parse Gen 1 and Gen 2 Hall of Fame Data
 
 ## Overview
