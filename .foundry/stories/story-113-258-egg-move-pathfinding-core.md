@@ -29,9 +29,9 @@ Implement the foundational Breadth-First Search (BFS) pathfinding algorithm to c
 - [ ] Support searching through static database (learnsets, Egg Moves).
 - [x] Break this story down into actionable TASKS.
 - [x] task-258-263-egg-move-precomputation-etl-impl
-- [ ] task-258-264-egg-move-precomputation-etl-qa
-- [ ] task-258-265-suggestion-engine-egg-moves-impl
-- [ ] task-258-266-suggestion-engine-egg-moves-qa
+- [x] task-258-264-egg-move-precomputation-etl-qa
+- [x] task-258-265-suggestion-engine-egg-moves-impl
+- [x] task-258-266-suggestion-engine-egg-moves-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
