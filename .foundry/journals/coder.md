@@ -129,6 +129,8 @@ Reduced the memory footprint of `Gen1SafariZone`, `HoennSafariZone`, and `KantoS
 - Ensured reusable module-level constants were defined for all memory offsets and bits instead of magic numbers.
 - Added rigorous DataView bounds checking to gracefully handle and remap `RangeError` to `"The save file is corrupted or incomplete."` per the system prompt.
 - Added rigorous Unit Tests in `src/engine/gen3/staticEncounters.test.ts` to ensure safety and precision.
+- Extracted Gen 3 Pokéblock memory offsets (`0x0848` for Emerald, `0x07F8` for Ruby/Sapphire) and the 8-byte Pokéblock data structure.
+- Documented findings in `.foundry/docs/knowledge_base/gen3_pokeblock_offsets.md`.
 
 ## Task task-269-334-e2e-safeguard-impl
 Target code changes unexpectedly existed prior to the session. The E2E safeguards were already implemented in the orchestrator and heartbeat scripts. Performed passthrough validation and checked off acceptance criteria in the task node.
