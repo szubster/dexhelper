@@ -1374,7 +1374,7 @@ describe('parseGen3MetLocation', () => {
     const view = new DataView(buffer);
     const miscSubstructureOffset = 4;
 
-    // MISC_MET_LOCATION_OFFSET is 1
+    // MET_LOCATION_OFFSET_IN_M is 1
     // 4 + 1 = 5
     view.setUint8(5, 42); // 42 is the met location
 
@@ -1390,5 +1390,142 @@ describe('parseGen3MetLocation', () => {
     expect(() => parseGen3MetLocation(view, miscSubstructureOffset)).toThrowError(
       'The save file is corrupted or incomplete.',
     );
+  });
+});
+
+const GEN3_ROAMER_OFFSET_RS = 0x3144;
+const GEN3_ROAMER_OFFSET_EMERALD = 0x31dc;
+const GEN3_ROAMER_OFFSET_FRLG = 0x30d0;
+
+const ROAMER_IVS_OFFSET = 0;
+const ROAMER_PV_OFFSET = 4;
+const ROAMER_SPECIES_ID_OFFSET = 8;
+const ROAMER_HP_OFFSET = 10;
+const ROAMER_LEVEL_OFFSET = 12;
+const ROAMER_STATUS_OFFSET = 13;
+const ROAMER_ACTIVE_OFFSET = 0x13;
+const ROAMER_COOL_OFFSET = 0x0e;
+const ROAMER_BEAUTY_OFFSET = 0x0f;
+const ROAMER_CUTE_OFFSET = 0x10;
+const ROAMER_SMART_OFFSET = 0x11;
+const ROAMER_TOUGH_OFFSET = 0x12;
+
+describe('parseGen3Roamer', () => {
+  it('correctly parses Ruby/Sapphire roamer with non-zero saveBlock1Offset', () => {
+    const saveBlock1Offset = 100;
+    const buffer = new ArrayBuffer(saveBlock1Offset + GEN3_ROAMER_OFFSET_RS + 36);
+    const view = new DataView(buffer);
+    const baseOffset = saveBlock1Offset + GEN3_ROAMER_OFFSET_RS;
+
+    view.setUint32(baseOffset + ROAMER_IVS_OFFSET, 0x12345678, true);
+    view.setUint32(baseOffset + ROAMER_PV_OFFSET, 0x87654321, true);
+    view.setUint16(baseOffset + ROAMER_SPECIES_ID_OFFSET, 380, true); // Latias
+    view.setUint16(baseOffset + ROAMER_HP_OFFSET, 120, true);
+    view.setUint8(baseOffset + ROAMER_LEVEL_OFFSET, 40);
+    view.setUint8(baseOffset + ROAMER_STATUS_OFFSET, 0);
+    view.setUint8(baseOffset + ROAMER_COOL_OFFSET, 1);
+    view.setUint8(baseOffset + ROAMER_BEAUTY_OFFSET, 2);
+    view.setUint8(baseOffset + ROAMER_CUTE_OFFSET, 3);
+    view.setUint8(baseOffset + ROAMER_SMART_OFFSET, 4);
+    view.setUint8(baseOffset + ROAMER_TOUGH_OFFSET, 5);
+    view.setUint8(baseOffset + ROAMER_ACTIVE_OFFSET, 1);
+
+    const result = parseGen3Roamer(view, saveBlock1Offset, 'ruby');
+
+    expect(result).toEqual({
+      isActive: true,
+      speciesId: 380,
+      level: 40,
+      hp: 120,
+      status: 0,
+      personality: 0x87654321,
+      ivs: 0x12345678,
+      cool: 1,
+      beauty: 2,
+      cute: 3,
+      smart: 4,
+      tough: 5,
+    });
+  });
+
+  it('correctly parses Emerald roamer with non-zero saveBlock1Offset', () => {
+    const saveBlock1Offset = 200;
+    const buffer = new ArrayBuffer(saveBlock1Offset + GEN3_ROAMER_OFFSET_EMERALD + 36);
+    const view = new DataView(buffer);
+    const baseOffset = saveBlock1Offset + GEN3_ROAMER_OFFSET_EMERALD;
+
+    view.setUint32(baseOffset + ROAMER_IVS_OFFSET, 0x11111111, true);
+    view.setUint32(baseOffset + ROAMER_PV_OFFSET, 0x22222222, true);
+    view.setUint16(baseOffset + ROAMER_SPECIES_ID_OFFSET, 381, true); // Latios
+    view.setUint16(baseOffset + ROAMER_HP_OFFSET, 130, true);
+    view.setUint8(baseOffset + ROAMER_LEVEL_OFFSET, 40);
+    view.setUint8(baseOffset + ROAMER_STATUS_OFFSET, 0);
+    view.setUint8(baseOffset + ROAMER_COOL_OFFSET, 10);
+    view.setUint8(baseOffset + ROAMER_BEAUTY_OFFSET, 20);
+    view.setUint8(baseOffset + ROAMER_CUTE_OFFSET, 30);
+    view.setUint8(baseOffset + ROAMER_SMART_OFFSET, 40);
+    view.setUint8(baseOffset + ROAMER_TOUGH_OFFSET, 50);
+    view.setUint8(baseOffset + ROAMER_ACTIVE_OFFSET, 1);
+
+    const result = parseGen3Roamer(view, saveBlock1Offset, 'emerald');
+
+    expect(result).toEqual({
+      isActive: true,
+      speciesId: 381,
+      level: 40,
+      hp: 130,
+      status: 0,
+      personality: 0x22222222,
+      ivs: 0x11111111,
+      cool: 10,
+      beauty: 20,
+      cute: 30,
+      smart: 40,
+      tough: 50,
+    });
+  });
+
+  it('correctly parses FireRed/LeafGreen roamer with non-zero saveBlock1Offset', () => {
+    const saveBlock1Offset = 300;
+    const buffer = new ArrayBuffer(saveBlock1Offset + GEN3_ROAMER_OFFSET_FRLG + 36);
+    const view = new DataView(buffer);
+    const baseOffset = saveBlock1Offset + GEN3_ROAMER_OFFSET_FRLG;
+
+    view.setUint32(baseOffset + ROAMER_IVS_OFFSET, 0x33333333, true);
+    view.setUint32(baseOffset + ROAMER_PV_OFFSET, 0x44444444, true);
+    view.setUint16(baseOffset + ROAMER_SPECIES_ID_OFFSET, 244, true); // Entei
+    view.setUint16(baseOffset + ROAMER_HP_OFFSET, 140, true);
+    view.setUint8(baseOffset + ROAMER_LEVEL_OFFSET, 50);
+    view.setUint8(baseOffset + ROAMER_STATUS_OFFSET, 0);
+    view.setUint8(baseOffset + ROAMER_COOL_OFFSET, 15);
+    view.setUint8(baseOffset + ROAMER_BEAUTY_OFFSET, 25);
+    view.setUint8(baseOffset + ROAMER_CUTE_OFFSET, 35);
+    view.setUint8(baseOffset + ROAMER_SMART_OFFSET, 45);
+    view.setUint8(baseOffset + ROAMER_TOUGH_OFFSET, 55);
+    view.setUint8(baseOffset + ROAMER_ACTIVE_OFFSET, 1);
+
+    const result = parseGen3Roamer(view, saveBlock1Offset, 'firered');
+
+    expect(result).toEqual({
+      isActive: true,
+      speciesId: 244,
+      level: 50,
+      hp: 140,
+      status: 0,
+      personality: 0x44444444,
+      ivs: 0x33333333,
+      cool: 15,
+      beauty: 25,
+      cute: 35,
+      smart: 45,
+      tough: 55,
+    });
+  });
+
+  it('throws a corrupted file error on out-of-bounds reads', () => {
+    const buffer = new ArrayBuffer(10);
+    const view = new DataView(buffer);
+
+    expect(() => parseGen3Roamer(view, 0, 'ruby')).toThrow('The save file is corrupted or incomplete.');
   });
 });

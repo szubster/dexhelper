@@ -27,3 +27,9 @@ Mechanic Update - 2026-07-22
 - Fixed `status` fields that were manually set to `READY` in multiple nodes (ideas, prds, stories, tasks, research), resetting them to `PENDING`. (Orchestrator computes `READY` automatically).
 - Removed circular dependencies where parent nodes were improperly listed in a child`s `depends_on` array or children in parents, across active and archived nodes.
 - Validated all `.foundry/` node schemas using a custom python script.
+
+# Mechanic Update - 2026-07-21
+
+- Fixed 38 missing or archived dependency paths in `depends_on` arrays across the DAG. These dead dependencies cause deadlocks during Orchestrator runs.
+- Detected and repaired a task (`task-261-331-npc-trade-state-integration-impl.md`) that had a manually set `READY` status, reverting it back to `PENDING`.
+- Verified that no parent-child dependency cycles remain.

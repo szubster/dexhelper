@@ -4,29 +4,71 @@ const diff = fs.readFileSync(0, 'utf-8');
 
 function analyzeDiff(diffText) {
   const lines = diffText.split('\n');
-  let hasCheckboxChanges = false;
+  let hasValidChanges = false;
+  let currentFileIsJournal = false;
 
   let i = 0;
   while (i < lines.length) {
     const line = lines[i];
 
-    // Skip headers and unchanged lines
+    if (line.startsWith('diff --git ')) {
+      // The original script has a bug where extended git headers like 'new file mode' might be considered a bad prefix if not skipped.
+      const match = line.match(/^diff --git a\/(.+?) b\/(.+?)$/);
+
+      if (match) {
+        // If file is deleted, b/ is the filename. If created, b/ is the filename.
+        const filename = match[2];
+        if (filename.startsWith('.foundry/journals/') || filename.startsWith('.jules/')) {
+          currentFileIsJournal = true;
+          // Note: Just because we saw a journal file in diff header, doesn't mean it has changes yet, but if it has changes we'll process them below. However, for empty file creations, git diff might have NO +/- lines.
+          hasValidChanges = true;
+        } else {
+          currentFileIsJournal = false;
+        }
+      }
+      i++;
+      continue;
+    }
+
+    // Skip headers and unchanged lines - THESE ARE SAFE TO SKIP EVERYWHERE
     if (
-      line.startsWith('diff --git') ||
       line.startsWith('index') ||
       line.startsWith('---') ||
-      line.startsWith('+++') ||
+      line.startsWith('+++ ') ||
       line.startsWith('@@') ||
       line.startsWith(' ') ||
       line === '' ||
-      line.startsWith('\\ No newline at end of file')
+      line.startsWith('\\ No newline at end of file') ||
+      line.startsWith('old mode ') ||
+      line.startsWith('new mode ') ||
+      line.startsWith('similarity index ') ||
+      line.startsWith('rename from ') ||
+      line.startsWith('rename to ')
     ) {
+      i++;
+      continue;
+    }
+
+    // Check for file creations/deletions. Non-journal files shouldn't be created/deleted if we're only auto-merging checkboxes.
+    if (
+      line.startsWith('new file mode ') ||
+      line.startsWith('deleted file mode ')
+    ) {
+      if (!currentFileIsJournal) {
+          return false;
+      }
       i++;
       continue;
     }
 
     // Process hunks of additions/removals
     if (line.startsWith('-') || line.startsWith('+')) {
+      if (currentFileIsJournal) {
+        hasValidChanges = true;
+        i++;
+        continue;
+      }
+
       const removed = [];
       const added = [];
 
@@ -53,7 +95,7 @@ function analyzeDiff(diffText) {
         const isCheckboxChange = (rReplaced === aReplaced) && /^\s*-\s*\[\s\]/.test(r);
 
         if (!isCheckboxChange) return false;
-        hasCheckboxChanges = true;
+        hasValidChanges = true;
       }
     } else {
       // Any other unexpected line prefix means it's not a clean diff we want to auto-merge
@@ -61,7 +103,7 @@ function analyzeDiff(diffText) {
     }
   }
 
-  return hasCheckboxChanges;
+  return hasValidChanges;
 }
 
 if (analyzeDiff(diff)) {

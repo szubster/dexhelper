@@ -10,7 +10,7 @@ depends_on:
   - epic-110-307-tm-hm-compatibility-logic
 jules_session_id: null
 pr_number: null
-parent: "prd-105-110-tm-hm-inventory-planner"
+parent: prd-105-110-tm-hm-inventory-planner
 tags:
   - feature
   - ui
