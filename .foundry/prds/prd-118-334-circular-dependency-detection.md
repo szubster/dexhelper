@@ -2,12 +2,12 @@
 id: prd-118-334-circular-dependency-detection
 type: PRD
 title: Circular Dependency Detection in DAG Orchestrator
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-20'
-updated_at: '2026-07-20'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '9070248959047080232'
+jules_session_id: null
 pr_number: null
 parent: idea-118-orchestrator-circular-dependency-detection
 tags:
@@ -34,4 +34,4 @@ The orchestrator must be able to detect cycles in the dependency graph during it
 5. In `--dry-run` or `--strict` modes, the orchestrator should also output an explicit error message or log a clear warning regarding the detected cycle.
 
 ## Acceptance Criteria
-- [ ] epic-334-335-circular-dependency-detection-epic
+- [ ] epic-334-338-circular-dependency-detection

@@ -2,10 +2,10 @@
 id: epic-099-130-indexeddb-schema-design
 type: EPIC
 title: IndexedDB Storage Schema Design
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2024-05-24'
-updated_at: '2026-07-12'
+updated_at: '2026-07-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,9 @@ tags:
   - history
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: ''
 ---
 
@@ -26,8 +28,8 @@ notes: ''
 Define the storage schema for the save state history, including DB name, object stores, and indexes. This forms the foundation for storing sequential `.sav` file uploads for a given playthrough.
 
 ## Acceptance Criteria
-- [ ] Define the database name and version.
-- [ ] Define object stores for storing save files, metadata, and indexes for efficient retrieval.
-- [ ] Document the schema.
-- [ ] story-130-315-define-indexeddb-schema
-- [ ] story-130-316-document-indexeddb-schema
+- [x] Define the database name and version.
+- [x] Define object stores for storing save files, metadata, and indexes for efficient retrieval.
+- [x] Document the schema.
+- [x] story-130-315-define-indexeddb-schema
+- [x] story-130-316-document-indexeddb-schema
