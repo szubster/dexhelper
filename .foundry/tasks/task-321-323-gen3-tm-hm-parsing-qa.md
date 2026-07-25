@@ -2,13 +2,13 @@
 id: task-321-323-gen3-tm-hm-parsing-qa
 type: TASK
 title: Gen 3 TM/HM Parse - QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-15'
 updated_at: '2026-07-25'
 depends_on:
   - task-321-322-gen3-tm-hm-parsing-impl
-jules_session_id: null
+jules_session_id: '4149916957270768213'
 pr_number: null
 parent: story-306-321-gen3-tm-hm-parsing
 tags:
