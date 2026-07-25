@@ -31,3 +31,7 @@ To ensure the Hidden Items Finder UI functions as expected and integrates proper
 ## 3. Acceptance Criteria
 - [ ] E2E tests are implemented and pass consistently.
 - [ ] Tests correctly evaluate component rendering and dynamic updates.
+
+## Tasks
+- [ ] task-157-338-hidden-items-e2e-tests-impl
+- [ ] task-157-339-hidden-items-e2e-tests-qa

@@ -2,12 +2,12 @@
 id: task-085-256-impl-extract-rejection-count-retry
 type: TASK
 title: Re-implement DAG Data Parsing for Rejection Count
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-04'
 updated_at: '2026-07-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11313847774056704544'
 pr_number: null
 parent: story-046-085-extract-broadcast-rejection-count
 tags:
@@ -33,7 +33,7 @@ This is a retry of the previously permanently failed `task-085-142`. In order to
 2. The core requirement is to verify that the React context layer (`DagContext.tsx`) correctly exposes the property to connected UI views. Ensure that the initial state in `DagContext.tsx` sets the `rejection_count` properly from the parsed nodes.
 
 ## Acceptance Criteria
-- [ ] Coder: Ensure React context layer correctly exposes the property.
+- [x] Coder: Ensure React context layer correctly exposes the property.
 
 ## Reminders
 - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.

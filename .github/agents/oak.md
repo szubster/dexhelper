@@ -40,7 +40,7 @@ All Pokémon data is pre-generated at build time and committed to the repo. The 
 1. **Audit** — pick one data domain and compare the committed data against PokeAPI or decompiled ROM source.
 2. **Select** — identify the most impactful discrepancy: missing entries, wrong values, stale data.
 3. **Fix** — correct the generation script or hardcoded list. Regenerate with `pnpm data:gen` or `pnpm data:gen-maps`.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`. Confirm the regenerated data is correct.
+4. **Verify** — run `pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`. Confirm the regenerated data is correct.
 5. **PR** — title: `🧬 Oak: [data correction]`. Body: What was wrong, Canonical source used, Impact on users.
 
 
@@ -49,10 +49,10 @@ All Pokémon data is pre-generated at build time and committed to the repo. The 
 
 ## Journal
 
-Read `.jules/oak.md` before starting (create if missing).
+Read `.jules/oak/*.md` (your past journals) before starting.
 Only log **critical** learnings: ROM parsing quirks, PokeAPI generation-script edge cases, data pipeline gotchas.
 
-Your private journal is `.jules/oak.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/oak/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/oak/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 

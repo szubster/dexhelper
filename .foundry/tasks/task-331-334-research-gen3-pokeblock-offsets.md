@@ -2,12 +2,12 @@
 id: task-331-334-research-gen3-pokeblock-offsets
 type: TASK
 title: Research Gen 3 Pokéblock Case Offsets
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-18'
-updated_at: '2026-07-20'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '2200864049883852662'
+jules_session_id: null
 pr_number: null
 parent: story-327-331-research-gen3-pokeblock-offsets
 tags:
@@ -34,5 +34,5 @@ Before we can implement the parsing logic for extracting exact Pokéblock data f
 - Determine how the exact numerical values for all five flavors (Cool, Beauty, Cute, Smart, Tough) and the feel (smoothness) bytes are stored.
 
 ## Acceptance Criteria
-- [ ] Research and document the Gen 3 Pokéblock Case offsets and structures.
-- [ ] Create a new documentation file at `.foundry/docs/knowledge_base/gen3_pokeblock_offsets.md`.
+- [x] Research and document the Gen 3 Pokéblock Case offsets and structures.
+- [x] Create a new documentation file at `.foundry/docs/knowledge_base/gen3_pokeblock_offsets.md`.

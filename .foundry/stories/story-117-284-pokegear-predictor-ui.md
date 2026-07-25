@@ -2,12 +2,12 @@
 id: story-117-284-pokegear-predictor-ui
 type: STORY
 title: Implement Predictor Engine UI
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-07'
-updated_at: '2026-07-16'
+updated_at: '2026-07-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12952137245803701504'
 pr_number: null
 parent: epic-055-117-pokegear-predictor
 tags:
