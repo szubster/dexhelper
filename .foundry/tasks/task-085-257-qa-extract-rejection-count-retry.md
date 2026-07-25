@@ -33,7 +33,7 @@ This is a verification task for `task-085-256-impl-extract-rejection-count-retry
 1. Verify context layer broadcasts `rejection_count`.
 
 ## Acceptance Criteria
-- [ ] QA: Verify context layer broadcasts `rejection_count`.
+- [x] QA: Verify context layer broadcasts `rejection_count`.
 
 ## Reminders
 - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
