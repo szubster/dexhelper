@@ -22,5 +22,5 @@ notes: ''
 Define the core Zod schema based on the rules and structure defined in `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Implement the Zod schema
-- [ ] Write unit tests for schema validation
+- [x] Implement the Zod schema
+- [x] Write unit tests for schema validation
