@@ -2,13 +2,13 @@
 id: task-319-323-gen1-tm-hm-parsing-qa
 type: TASK
 title: Gen 1 TM/HM Save Parsing QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-14'
-updated_at: '2026-07-24'
+updated_at: '2026-07-26'
 depends_on:
   - task-319-322-gen1-tm-hm-parsing-impl
-jules_session_id: '12963042110592146086'
+jules_session_id: null
 pr_number: null
 parent: story-306-319-gen1-tm-hm-parsing
 tags:

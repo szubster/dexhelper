@@ -2,12 +2,12 @@
 id: epic-055-119-gen3-move-tutor-save-parsing
 type: EPIC
 title: Gen 3 Move Tutor Save File Parsing
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: 2026-06-30T00:00:00.000Z
 updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '445421974531024931'
+jules_session_id: null
 pr_number: null
 parent: prd-094-055-move-tutor-tracker
 tags:
@@ -17,7 +17,9 @@ tags:
 research_references:
   - research-055-247-gen3-move-tutor-offsets
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: ''
 ---
 # Epic: Gen 3 Move Tutor Save File Parsing
