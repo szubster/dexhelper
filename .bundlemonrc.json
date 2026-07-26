@@ -42,6 +42,10 @@
       "maxSize": "165kb"
     },
     {
+      "path": "assets/msgpackr-<hash>.js",
+      "maxSize": "50kb"
+    },
+    {
       "path": "data/pokedata.msgpack",
       "maxSize": "800kb"
     },
