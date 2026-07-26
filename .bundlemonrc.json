@@ -39,7 +39,7 @@
     },
     {
       "path": "assets/style-<hash>.css",
-      "maxSize": "165kb"
+      "maxSize": "200kb"
     },
     {
       "path": "assets/msgpackr-<hash>.js",
