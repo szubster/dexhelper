@@ -2,20 +2,26 @@
 id: task-336-343-zod-schema-definition-qa
 type: TASK
 title: QA Zod Schema Definition
-status: COMPLETED
+status: PENDING
 owner_persona: qa
-created_at: '2026-07-23'
-updated_at: '2026-07-24'
+created_at: "2026-07-25"
+updated_at: "2026-07-25"
 depends_on:
-  - task-336-342-zod-schema-definition-impl
+  - .foundry/tasks/task-336-342-zod-schema-definition-impl.md
 jules_session_id: null
+pr_number: null
 parent: story-334-336-zod-schema-definition
-rejection_reason: ''
+tags: []
+research_references: []
+rejection_count: 0
+rejection_reason: ""
+notes: ""
 ---
 
 # QA Zod Schema Definition
 
-Verify the core Zod schema definition based on `.foundry/docs/schema.md`.
+Verify the implementation of the core Zod schema based on the rules and structure defined in `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [x] Verify Zod schema matches all constraints in `schema.md`
+- [ ] Validate the Zod schema implementation
+- [ ] Confirm all tests pass

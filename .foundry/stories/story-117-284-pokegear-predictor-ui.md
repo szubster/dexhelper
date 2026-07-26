@@ -2,12 +2,12 @@
 id: story-117-284-pokegear-predictor-ui
 type: STORY
 title: Implement Predictor Engine UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-07'
-updated_at: '2026-07-22'
+updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '12952137245803701504'
+jules_session_id: null
 pr_number: null
 parent: epic-055-117-pokegear-predictor
 tags:
@@ -29,5 +29,5 @@ Break down the implementation of the Pokegear Predictor UI into tasks.
 
 ## Acceptance Criteria
 - [x] Create tasks for the predictor engine UI
-- [ ] task-284-322-predictor-ui-impl
-- [ ] task-284-323-predictor-ui-qa
+- [x] task-284-322-predictor-ui-impl
+- [x] task-284-323-predictor-ui-qa

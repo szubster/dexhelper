@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "assets/index-<hash>.js",
-      "maxSize": "335kb"
+      "maxSize": "330kb"
     },
     {
       "path": "assets/query-<hash>.js",
@@ -34,8 +34,16 @@
       "maxSize": "200kb"
     },
     {
+      "path": "assets/idb-<hash>.js",
+      "maxSize": "10kb"
+    },
+    {
       "path": "assets/style-<hash>.css",
-      "maxSize": "165kb"
+      "maxSize": "200kb"
+    },
+    {
+      "path": "assets/msgpackr-<hash>.js",
+      "maxSize": "50kb"
     },
     {
       "path": "data/pokedata.msgpack",

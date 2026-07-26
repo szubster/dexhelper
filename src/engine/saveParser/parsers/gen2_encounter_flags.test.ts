@@ -14,10 +14,10 @@ describe('Gen 2 Static Encounter Flags', () => {
     // Offset for Event Flags in GS is 0x2624
     const offset = 0x2624;
 
-    const EVENT_FLAG_SUDOWOODO_BYTE = Math.floor(51 / 8);
-    const EVENT_FLAG_SUDOWOODO_BIT = 51 % 8;
-    const EVENT_FLAG_HO_OH_BYTE = Math.floor(470 / 8);
-    const EVENT_FLAG_HO_OH_BIT = 470 % 8;
+    const EVENT_FLAG_SUDOWOODO_BYTE = Math.floor(42 / 8);
+    const EVENT_FLAG_SUDOWOODO_BIT = 42 % 8;
+    const EVENT_FLAG_HO_OH_BYTE = Math.floor(791 / 8);
+    const EVENT_FLAG_HO_OH_BIT = 791 % 8;
 
     // Set Sudowoodo (byte 6, bit 3)
     view.setUint8(offset + EVENT_FLAG_SUDOWOODO_BYTE, 1 << EVENT_FLAG_SUDOWOODO_BIT);

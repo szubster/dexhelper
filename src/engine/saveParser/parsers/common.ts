@@ -70,6 +70,7 @@ export interface PokemonInstance {
         metLocation?: number;
       }
     | undefined;
+  otId?: number | undefined;
   otName?: string | undefined;
   nickname?: string | undefined;
   storageLocation: string;

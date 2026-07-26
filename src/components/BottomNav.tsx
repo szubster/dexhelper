@@ -21,23 +21,35 @@ export function BottomNav() {
   const activeIndex = isDex ? 0 : isStorage ? 1 : isAssistant ? 2 : isDag ? 3 : isFrontier ? 4 : -1;
 
   return (
-    <nav className="fixed right-0 bottom-0 left-0 z-50 border-[var(--theme-primary)]/30 border-t-[3px] border-dashed bg-zinc-950 p-2 pb-[env(safe-area-inset-bottom,16px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.8)] sm:hidden">
+    <nav className="fixed right-0 bottom-0 left-0 z-50 border-[var(--theme-primary)]/50 border-t-[4px] border-dashed bg-zinc-950 pb-[env(safe-area-inset-bottom,0px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.9)] sm:hidden">
+      {/* Hazard stripes lip */}
+      <div
+        className="absolute top-0 right-0 left-0 h-1.5 opacity-20"
+        style={{
+          backgroundImage:
+            'repeating-linear-gradient(45deg, var(--theme-primary) 25%, transparent 25%, transparent 50%, var(--theme-primary) 50%, var(--theme-primary) 75%, transparent 75%, transparent)',
+          backgroundSize: '10px 10px',
+        }}
+      />
       {/* Hardware top lip */}
-      <div className="absolute top-0 right-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="absolute top-1.5 right-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
 
       {/* Telemetry decoration */}
       <TelemetryDecoration
-        label="SYS_LINK_ACTIVE"
-        className="-top-[21px] left-4 rounded-none border-t border-b-0 bg-zinc-950 text-[10px]"
+        label="TERMINAL_LINK_ACTIVE"
+        className="-top-[21px] left-4 rounded-none border-t border-b-0 bg-zinc-950 text-[10px] text-[var(--theme-primary)]"
+        dotClassName="text-[var(--theme-primary)]"
       />
 
-      <div className="relative mx-auto flex h-16 max-w-md items-center gap-1 rounded-none border-[4px] border-zinc-800 border-t-zinc-700 border-l-zinc-700 bg-zinc-900 p-1 shadow-[4px_4px_0px_rgba(0,0,0,0.8)]">
+      <div className="relative flex h-[72px] w-full items-stretch gap-0 rounded-none border-zinc-800 border-t-[2px] bg-zinc-900 shadow-[inset_0_4px_20px_rgba(0,0,0,0.8)]">
         {/* Active Indicator Hardware Frame */}
         {activeIndex !== -1 && (
           <div
-            className="pointer-events-none absolute z-20 h-[calc(100%-8px)] w-[calc(20%-5.6px)] transition-transform duration-300 ease-[cubic-bezier(0.2,1,0.2,1)]"
-            style={{ transform: `translateX(calc(${activeIndex * 100}% + ${activeIndex * 4}px))` }}
+            className="pointer-events-none absolute z-20 h-full w-[16.666%] transition-transform duration-300 ease-[cubic-bezier(0.2,1,0.2,1)]"
+            style={{ transform: `translateX(calc(${activeIndex * 100}%))` }}
           >
+            {/* Top illuminated bracket */}
+            <div className="absolute top-0 right-0 left-0 h-[3px] bg-[var(--theme-primary)] drop-shadow-[0_0_8px_var(--theme-primary)]" />
             {/* Sliding Bracket Corners */}
             <div className="absolute -top-1 -left-1 h-3 w-3 border-[var(--theme-primary)] border-t-[4px] border-l-[4px] drop-shadow-[0_0_5px_var(--theme-primary)]" />
             <div className="absolute -top-1 -right-1 h-3 w-3 border-[var(--theme-primary)] border-t-[4px] border-r-[4px] drop-shadow-[0_0_5px_var(--theme-primary)]" />

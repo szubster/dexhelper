@@ -2,12 +2,12 @@
 id: story-327-331-research-gen3-pokeblock-offsets
 type: STORY
 title: Research Gen 3 Pokéblock Case Offsets
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-17'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '10170810524076287237'
+jules_session_id: null
 pr_number: null
 parent: epic-114-327-gen3-pokeblock-case-parsing
 tags:
@@ -35,4 +35,5 @@ Before we can implement the parsing logic for extracting exact Pokéblock data f
 
 ## Acceptance Criteria
 - [x] Create a TASK for a Researcher or Tech Lead to find and document the Pokéblock Case offsets and structures in a new document under `.foundry/docs/knowledge_base/` (e.g. `gen3_pokeblock_offsets.md`).
-- [ ] task-331-334-research-gen3-pokeblock-offsets
+- [x] task-331-334-research-gen3-pokeblock-offsets
+- [ ] task-331-346-research-gen3-pokeblock-offsets-retry

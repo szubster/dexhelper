@@ -149,13 +149,29 @@ describe('verifyBounds', () => {
   it('should handle multiple anomalies in a single scan', () => {
     const saveData = createMockSaveData({
       generation: 1,
-      partyDetails: [createMockPokemon({ speciesId: 152, dvs: { hp: 16, atk: 15, def: 15, spd: 15, spc: 15 } })],
+      partyDetails: [createMockPokemon({ speciesId: 152, dvs: { hp: 16, atk: 15, def: 16, spd: 15, spc: -1 } })],
     });
 
     const result = verifyBounds(saveData);
 
     expect(result.isValid).toBe(false);
-    expect(result.anomalies).toHaveLength(2); // One for ID, one for DV
-    expect(result.anomalies.map((a) => a.code)).toEqual(['OutOfBoundsId', 'InvalidStat']);
+    expect(result.anomalies).toHaveLength(4); // One for ID, three for DV
+    expect(result.anomalies.map((a) => a.code)).toEqual(['OutOfBoundsId', 'InvalidStat', 'InvalidStat', 'InvalidStat']);
+  });
+
+  it('should test remaining stat anomalies', () => {
+    const saveData = createMockSaveData({
+      generation: 1,
+      partyDetails: [createMockPokemon({ speciesId: 1, dvs: { hp: 15, atk: 15, def: 16, spd: 16, spc: 16 } })],
+    });
+
+    const result = verifyBounds(saveData);
+
+    expect(result.isValid).toBe(false);
+    expect(result.anomalies).toHaveLength(3);
+    const descriptions = result.anomalies.map((a) => a.description);
+    expect(descriptions[0]).toContain('DV for DEF is out of bounds');
+    expect(descriptions[1]).toContain('DV for SPD is out of bounds');
+    expect(descriptions[2]).toContain('DV for SPC is out of bounds');
   });
 });

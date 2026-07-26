@@ -35,23 +35,35 @@ export function AppHeader({
     return total > 0 ? (securedIds.size / total) * 100 : 0;
   }, [saveData]);
   return (
-    <header className="sticky top-0 z-50 flex w-full flex-col border-[var(--theme-primary)]/50 border-b-[3px] border-dashed bg-zinc-950 px-4 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.5)] lg:flex-row lg:items-center lg:justify-between lg:px-8">
+    <header className="sticky top-0 z-50 flex w-full flex-col border-[var(--theme-primary)]/50 border-b-[4px] border-dashed bg-zinc-950 px-4 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.8)] lg:flex-row lg:items-center lg:justify-between lg:px-8">
+      {/* Hazard Stripes Lip */}
+      <div
+        className="absolute top-0 right-0 left-0 h-1.5 opacity-30"
+        style={{
+          backgroundImage:
+            'repeating-linear-gradient(45deg, var(--theme-primary) 25%, transparent 25%, transparent 50%, var(--theme-primary) 50%, var(--theme-primary) 75%, transparent 75%, transparent)',
+          backgroundSize: '20px 20px',
+        }}
+      />
       {/* Top hardware lip */}
-      <div className="absolute top-0 right-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--theme-primary)]/20 to-transparent" />
+      <div className="absolute top-1.5 right-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--theme-primary)]/40 to-transparent" />
+      <div className="pointer-events-none absolute top-0 right-0 bottom-0 left-0 bg-[radial-gradient(ellipse_at_top,var(--theme-primary)_0%,transparent_70%)] opacity-[0.03]" />
 
-      <div className="flex w-full items-center justify-between gap-8 lg:w-auto">
+      <div className="relative z-10 flex w-full items-center justify-between gap-8 lg:w-auto">
         <Link to="/" className="focus-visible:tactical-focus relative flex items-center gap-4 rounded-none px-2 py-1">
           <CornerCrosshairs className="h-2 w-2 border-[var(--theme-primary)] opacity-50" />
           <div className="group slide-in-from-left-4 fade-in flex animate-in items-center gap-3 duration-500">
-            <span className="font-black text-3xl text-white tracking-tighter transition-colors group-hover:text-[var(--theme-primary)]">
+            <span className="font-black text-3xl text-white tracking-tighter transition-all group-hover:text-[var(--theme-primary)] group-hover:drop-shadow-[0_0_10px_rgba(var(--theme-primary-rgb),0.8)]">
               DEX<span className="text-[var(--theme-primary)] transition-colors group-hover:text-white">HELPER</span>
             </span>
-            <div className="h-6 w-[1px] bg-zinc-800" />
-            <div className="flex flex-col justify-center">
+            <div className="mx-1 h-8 w-[2px] border-zinc-900 border-l border-dashed bg-zinc-800" />
+            <div className="flex flex-col justify-center border border-zinc-800 border-dashed bg-zinc-950/80 px-2 py-0.5">
               <span className="font-retro text-[8px] text-zinc-500 uppercase tracking-[0.3em]">
                 {saveData ? getGenerationConfig(saveData.generation).label : 'Protocol X'}
               </span>
-              <span className="tactical-text text-[8px] text-[var(--theme-primary)]">[ ONLINE ]</span>
+              <span className="animate-pulse font-black text-[9px] text-[var(--theme-primary)] shadow-[0_0_5px_var(--theme-primary)]">
+                [ SYS_ONLINE ]
+              </span>
             </div>
           </div>
         </Link>
