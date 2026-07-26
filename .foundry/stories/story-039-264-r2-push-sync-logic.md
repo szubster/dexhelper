@@ -31,4 +31,6 @@ As the user makes progress or uploads new saves locally, these changes must be s
 - Define when pushes occur (e.g., periodically, on explicit save).
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-264-346-r2-push-sync-logic-impl
+- [ ] task-264-347-r2-push-sync-logic-qa
