@@ -2,7 +2,7 @@
 id: story-127-269-epic-e2e-safeguard
 type: STORY
 title: Enforce E2E Safeguards on Epics
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-04'
 updated_at: '2026-07-26'

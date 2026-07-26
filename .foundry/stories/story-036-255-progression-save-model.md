@@ -2,12 +2,12 @@
 id: story-036-255-progression-save-model
 type: STORY
 title: Database Schema for Multiple Saves
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-03'
 updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '12774191174114317974'
+jules_session_id: null
 pr_number: null
 parent: epic-031-036-progression-tracking
 tags:

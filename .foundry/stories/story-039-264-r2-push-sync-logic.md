@@ -2,7 +2,7 @@
 id: story-039-264-r2-push-sync-logic
 type: STORY
 title: Cloudflare R2 Push Sync Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-04'
 updated_at: '2026-07-26'
