@@ -2,12 +2,12 @@
 id: story-036-255-progression-save-model
 type: STORY
 title: Database Schema for Multiple Saves
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-21'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '9181733031462753205'
+jules_session_id: null
 pr_number: null
 parent: epic-031-036-progression-tracking
 tags:
@@ -30,4 +30,6 @@ To support progression tracking and multiple save files per playthrough, we need
 - Ensure the schema supports syncing with the Cloudflare backend.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into Tasks to define the specific database tables and indexes needed for managing multiple save files.
+- [x] Tech Lead: Break this Story down into Tasks to define the specific database tables and indexes needed for managing multiple save files.
+- [ ] task-255-338-db-schema-saves-impl
+- [ ] task-255-339-db-schema-saves-qa

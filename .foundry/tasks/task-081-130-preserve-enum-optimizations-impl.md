@@ -5,9 +5,9 @@ title: Preserve Enum Optimizations with Verbose Keys in Generation Pipeline
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-05-22'
-updated_at: '2026-07-21'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '14416586020404263544'
+jules_session_id: '3054949712823617193'
 parent: story-042-081-preserve-enum-optimizations
 rejection_count: 2
 rejection_reason: ''

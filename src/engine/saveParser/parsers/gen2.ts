@@ -20,6 +20,7 @@ const POKEMON_OFFSET_NICKNAME = POKEMON_DATA_BLOCK_SIZE + POKEMON_NAME_LENGTH;
 const POKEMON_OFFSET_CURRENT_HP = 34;
 const NPC_TRADE_FLAGS_OFFSET_CRYSTAL = 0x24eb;
 const NPC_TRADE_FLAGS_OFFSET_GS = 0x250f;
+const GEN2_NPC_TRADE_COUNT = 7;
 const GEN2_EGG_SPECIES_ID = 253;
 const GEN2_EGG_CYCLE_STEPS = 256;
 
@@ -702,11 +703,18 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   }
   const hiddenItemFlags = eventFlags;
 
-  const npcTradeFlagsOffset = isCrystal ? NPC_TRADE_FLAGS_OFFSET_CRYSTAL : NPC_TRADE_FLAGS_OFFSET_GS;
-  const npcTradeByte = view.getUint8(npcTradeFlagsOffset);
   const npcTradeFlags: boolean[] = [];
-  for (let i = 0; i < 7; i++) {
-    npcTradeFlags.push((npcTradeByte & (1 << i)) !== 0);
+  try {
+    const npcTradeFlagsOffset = isCrystal ? NPC_TRADE_FLAGS_OFFSET_CRYSTAL : NPC_TRADE_FLAGS_OFFSET_GS;
+    const npcTradeByte = view.getUint8(npcTradeFlagsOffset);
+    for (let i = 0; i < GEN2_NPC_TRADE_COUNT; i++) {
+      npcTradeFlags.push((npcTradeByte & (1 << i)) !== 0);
+    }
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
   }
 
   return {
