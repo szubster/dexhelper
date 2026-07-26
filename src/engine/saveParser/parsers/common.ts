@@ -270,6 +270,13 @@ export interface SaveData {
     hoOh: boolean;
     lugia: boolean;
   };
+  gen2Pokegear?: {
+    phoneList: number[];
+    swarmFlags: number;
+    dailyPhoneItemFlags: number;
+    dailyPhoneTimeOfDayFlags: number;
+    specialPhoneCallID: number;
+  };
   /** Detailed structural data for Pokémon currently left in the Daycare (Gen 2). */
   daycare?: PokemonInstance[];
   /** Gen 2 specific: Indicates if an Egg is currently waiting to be picked up from the Daycare. */

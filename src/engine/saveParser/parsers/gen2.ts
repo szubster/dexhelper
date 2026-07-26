@@ -3,6 +3,7 @@ import gen2MapLocations from '../../data/gen2/mapLocations.json';
 import { GEN2_VERSION_EXCLUSIVES } from '../../exclusives/gen2Exclusives';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs, parsePokerus } from './common';
+import { parseGen2Pokegear } from './gen2/phone/parser';
 
 const POKEMON_OFFSET_SPECIES_ID = 0;
 const POKEMON_OFFSET_ITEM = 1;
@@ -751,5 +752,6 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
       hoOh: (((eventFlags[EVENT_FLAG_HO_OH_BYTE] ?? 0) >> EVENT_FLAG_HO_OH_BIT) & 1) === 1,
       lugia: (((eventFlags[EVENT_FLAG_LUGIA_BYTE] ?? 0) >> EVENT_FLAG_LUGIA_BIT) & 1) === 1,
     },
+    gen2Pokegear: parseGen2Pokegear(view, isCrystal),
   };
 }
