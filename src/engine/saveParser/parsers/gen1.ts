@@ -568,6 +568,7 @@ function parseGen1Pokemon(
     otName,
     storageLocation,
     slot,
+    hash: `${speciesId}-${level}-${otName}-${dvs.hp}-${dvs.atk}-${dvs.def}-${dvs.spd}-${dvs.spc}`,
   };
 }
 

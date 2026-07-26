@@ -21,6 +21,7 @@ describe('GraveyardView', () => {
         level: 15,
         currentHp: 35,
         isShiny: false,
+        hash: '',
         moves: [],
         otName: 'ASH',
         storageLocation: 'Box 1',
@@ -36,6 +37,7 @@ describe('GraveyardView', () => {
         level: 10,
         currentHp: 45,
         isShiny: false,
+        hash: '',
         moves: [],
         storageLocation: 'Box 1',
         caughtData: {

@@ -79,6 +79,7 @@ export interface PokemonInstance {
   unownForm?: string | undefined;
   condition?: Gen3ConditionStats | undefined;
   ribbons?: Gen3Ribbons | undefined;
+  hash: string;
 }
 
 /**

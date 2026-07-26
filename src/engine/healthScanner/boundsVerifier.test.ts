@@ -12,6 +12,7 @@ describe('verifyBounds', () => {
     speciesId: 1,
     level: 5,
     isShiny: false,
+    hash: '',
     moves: [1],
     storageLocation: 'Party',
     ...overrides,

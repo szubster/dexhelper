@@ -39,9 +39,9 @@ describe('PokemonDetails', () => {
       pc: [1],
       owned: new Set([1, 2]),
       // @ts-expect-error - strict typing allows partial structure for test
-      partyDetails: [{ speciesId: 1, isShiny: true }],
+      partyDetails: [{ speciesId: 1, isShiny: true, hash: '' }],
       // @ts-expect-error - strict typing allows partial structure for test
-      pcDetails: [{ speciesId: 1, isShiny: false }],
+      pcDetails: [{ speciesId: 1, isShiny: false, hash: '' }],
       badges: 0,
       money: 0,
       id: 1,
@@ -132,7 +132,7 @@ describe('PokemonDetails', () => {
       owned: new Set([7]),
       partyDetails: [],
       // @ts-expect-error - strict typing allows partial structure for test
-      pcDetails: [{ speciesId: 7, isShiny: false, isShinyCarrier: true }],
+      pcDetails: [{ speciesId: 7, isShiny: false, hash: '', isShinyCarrier: true }],
       badges: 0,
       money: 0,
       id: 1,

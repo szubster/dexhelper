@@ -14,21 +14,21 @@ describe('aggregateEncountersByLocation', () => {
         {
           speciesId: 1,
           caughtData: { location: 1, locationName: 'Route 1', level: 5, time: 'Day' },
-        } as PokemonInstance,
+        } as unknown as PokemonInstance,
       ],
       pcDetails: [
         {
           speciesId: 2,
           caughtData: { location: 1, locationName: 'Route 1', level: 6, time: 'Day' },
-        } as PokemonInstance,
+        } as unknown as PokemonInstance,
         {
           speciesId: 3,
           caughtData: { location: 2, locationName: 'Route 2', level: 7, time: 'Day' },
-        } as PokemonInstance,
+        } as unknown as PokemonInstance,
         {
           speciesId: 4,
           caughtData: undefined,
-        } as PokemonInstance,
+        } as unknown as PokemonInstance,
       ],
     };
 
@@ -60,7 +60,7 @@ describe('aggregateEncountersByLocation', () => {
         {
           speciesId: 1,
           caughtData: { location: 99, level: 5, time: 'Day' },
-        } as PokemonInstance,
+        } as unknown as PokemonInstance,
       ],
     };
     const result = aggregateEncountersByLocation(saveData as SaveData);
@@ -76,13 +76,13 @@ describe('detectNuzlockeViolations', () => {
         {
           speciesId: 1,
           caughtData: { location: 1, locationName: 'Route 1', level: 5, time: 'Day' },
-        } as PokemonInstance,
+        } as unknown as PokemonInstance,
       ],
       pcDetails: [
         {
           speciesId: 3,
           caughtData: { location: 2, locationName: 'Route 2', level: 7, time: 'Day' },
-        } as PokemonInstance,
+        } as unknown as PokemonInstance,
       ],
     };
 
@@ -96,17 +96,17 @@ describe('detectNuzlockeViolations', () => {
         {
           speciesId: 1,
           caughtData: { location: 1, locationName: 'Route 1', level: 5, time: 'Day' },
-        } as PokemonInstance,
+        } as unknown as PokemonInstance,
       ],
       pcDetails: [
         {
           speciesId: 2,
           caughtData: { location: 1, locationName: 'Route 1', level: 6, time: 'Day' },
-        } as PokemonInstance,
+        } as unknown as PokemonInstance,
         {
           speciesId: 3,
           caughtData: { location: 2, locationName: 'Route 2', level: 7, time: 'Day' },
-        } as PokemonInstance,
+        } as unknown as PokemonInstance,
       ],
     };
 
@@ -123,10 +123,10 @@ describe('getDeadPokemon', () => {
   it('should return pokemon in the party with 0 HP', () => {
     const saveData: Partial<SaveData> = {
       partyDetails: [
-        { speciesId: 1, currentHp: 10 } as PokemonInstance,
-        { speciesId: 2, currentHp: 0 } as PokemonInstance,
-        { speciesId: 3, currentHp: undefined } as PokemonInstance,
-        { speciesId: 4, currentHp: 0 } as PokemonInstance,
+        { speciesId: 1, currentHp: 10 } as unknown as PokemonInstance,
+        { speciesId: 2, currentHp: 0 } as unknown as PokemonInstance,
+        { speciesId: 3, currentHp: undefined } as unknown as PokemonInstance,
+        { speciesId: 4, currentHp: 0 } as unknown as PokemonInstance,
       ],
     };
 
@@ -139,8 +139,8 @@ describe('getDeadPokemon', () => {
   it('should return empty array if no pokemon have 0 HP', () => {
     const saveData: Partial<SaveData> = {
       partyDetails: [
-        { speciesId: 1, currentHp: 10 } as PokemonInstance,
-        { speciesId: 3, currentHp: undefined } as PokemonInstance,
+        { speciesId: 1, currentHp: 10 } as unknown as PokemonInstance,
+        { speciesId: 3, currentHp: undefined } as unknown as PokemonInstance,
       ],
     };
 
@@ -159,9 +159,9 @@ describe('getGraveyardPokemon', () => {
   it('should return pokemon stored in the designated graveyard box', () => {
     const saveData: Partial<SaveData> = {
       pcDetails: [
-        { speciesId: 1, storageLocation: 'Box 1' } as PokemonInstance,
-        { speciesId: 2, storageLocation: 'Box 14' } as PokemonInstance,
-        { speciesId: 3, storageLocation: 'Box 14' } as PokemonInstance,
+        { speciesId: 1, storageLocation: 'Box 1' } as unknown as PokemonInstance,
+        { speciesId: 2, storageLocation: 'Box 14' } as unknown as PokemonInstance,
+        { speciesId: 3, storageLocation: 'Box 14' } as unknown as PokemonInstance,
       ],
     };
 
@@ -174,8 +174,8 @@ describe('getGraveyardPokemon', () => {
   it('should return empty array if no pokemon are in the graveyard box', () => {
     const saveData: Partial<SaveData> = {
       pcDetails: [
-        { speciesId: 1, storageLocation: 'Box 1' } as PokemonInstance,
-        { speciesId: 2, storageLocation: 'Box 2' } as PokemonInstance,
+        { speciesId: 1, storageLocation: 'Box 1' } as unknown as PokemonInstance,
+        { speciesId: 2, storageLocation: 'Box 2' } as unknown as PokemonInstance,
       ],
     };
 

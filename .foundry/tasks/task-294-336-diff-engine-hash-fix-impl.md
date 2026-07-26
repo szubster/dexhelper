@@ -39,6 +39,6 @@ This task involves two main changes:
 - **Error Handling Reminder**: If you experience a transient failure requiring retry, update the YAML frontmatter to `status: FAILED` with a `rejection_reason`. If you must abort (impossible or max rejections reached), update to `status: CANCELLED` with a `rejection_reason`.
 
 ## Acceptance Criteria
-- [ ] Add the `hash: string;` property to the `PokemonInstance` interface in `src/engine/saveParser/parsers/common.ts`.
-- [ ] Update `calculateBoxDiff` in `src/engine/saveParser/utils/boxDiff.ts` to exclusively use the `hash` property of `PokemonInstance` to track identities.
-- [ ] Ensure all unit tests pass.
+- [x] Add the `hash: string;` property to the `PokemonInstance` interface in `src/engine/saveParser/parsers/common.ts`.
+- [x] Update `calculateBoxDiff` in `src/engine/saveParser/utils/boxDiff.ts` to exclusively use the `hash` property of `PokemonInstance` to track identities.
+- [x] Ensure all unit tests pass.

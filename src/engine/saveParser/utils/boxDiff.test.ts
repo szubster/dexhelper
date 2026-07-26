@@ -12,6 +12,7 @@ describe('calculateBoxDiff', () => {
     isShiny: false,
     moves: [],
     dvs: { hp: id, atk: id, def: id, spd: id, spc: id },
+    hash: `${id}-${5}-${nickname}-${id}-${id}-${id}-${id}-${id}`,
   });
 
   test('identifies additions', () => {

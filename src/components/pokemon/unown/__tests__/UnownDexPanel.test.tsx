@@ -13,6 +13,7 @@ describe('UnownDexPanel', () => {
     speciesId: 201,
     level: 5,
     isShiny: false,
+    hash: '',
     moves: [],
     location: 'Party',
     storageLocation: 'Party',

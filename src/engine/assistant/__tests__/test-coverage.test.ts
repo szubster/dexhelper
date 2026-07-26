@@ -18,16 +18,16 @@ test('coverage for suggestionEngine new lines', () => {
     currentMapId: 0,
     eventFlags: new Uint8Array(300),
     partyDetails: [
-      { speciesId: 133, level: 20, otName: 'PLAYER' } as PokemonInstance,
+      { speciesId: 133, level: 20, otName: 'PLAYER' } as unknown as PokemonInstance,
       {
         speciesId: 236,
         level: 20,
         otName: 'PLAYER',
         dvs: { hp: 15, atk: 15, def: 0, spd: 15, spc: 15 },
         statExp: { hp: 0, atk: 0, def: 0, spd: 0, spc: 0 },
-      } as PokemonInstance,
-      { speciesId: 67, level: 30, otName: 'PLAYER' } as PokemonInstance,
-      { speciesId: 95, level: 30, otName: 'PLAYER' } as PokemonInstance,
+      } as unknown as PokemonInstance,
+      { speciesId: 67, level: 30, otName: 'PLAYER' } as unknown as PokemonInstance,
+      { speciesId: 95, level: 30, otName: 'PLAYER' } as unknown as PokemonInstance,
     ],
     pcDetails: [],
     trainerName: 'PLAYER',
@@ -201,7 +201,7 @@ test('coverage for gen 2 breeding edge case without valid base pokemon', () => {
     inventory: [],
     currentMapId: 0,
     eventFlags: new Uint8Array(300),
-    partyDetails: [{ speciesId: 1, level: 20, otName: 'PLAYER' } as PokemonInstance], // need physical instance of evo (bulbasaur)
+    partyDetails: [{ speciesId: 1, level: 20, otName: 'PLAYER' } as unknown as PokemonInstance], // need physical instance of evo (bulbasaur)
     pcDetails: [],
     trainerName: 'PLAYER',
   } as unknown as SaveData;
@@ -241,7 +241,7 @@ test('coverage for missing target id in pokemonMetadata for Gen 2 breeding', () 
     inventory: [],
     currentMapId: 0,
     eventFlags: new Uint8Array(300),
-    partyDetails: [{ speciesId: 25, level: 20, otName: 'PLAYER' } as PokemonInstance],
+    partyDetails: [{ speciesId: 25, level: 20, otName: 'PLAYER' } as unknown as PokemonInstance],
     pcDetails: [],
     trainerName: 'PLAYER',
   } as unknown as SaveData;
@@ -341,7 +341,7 @@ test('coverage for suggestionEngine getGameItemId unknown generation', () => {
     inventory: [{ id: 82, quantity: 1 }],
     currentMapId: 0,
     eventFlags: new Uint8Array(300),
-    partyDetails: [{ speciesId: 133, level: 20, otName: 'PLAYER' } as PokemonInstance],
+    partyDetails: [{ speciesId: 133, level: 20, otName: 'PLAYER' } as unknown as PokemonInstance],
     pcDetails: [],
     trainerName: 'PLAYER',
   } as unknown as SaveData;
@@ -377,7 +377,7 @@ test('coverage for recursive missing exclusive logic', () => {
     seen: new Set([4]),
     party: [],
     pc: [],
-    partyDetails: [{ speciesId: 4, level: 36, isShiny: false, moves: [], storageLocation: 'party' }],
+    partyDetails: [{ speciesId: 4, level: 36, isShiny: false, hash: '', moves: [], storageLocation: 'party' }],
     pcDetails: [],
     inventory: [],
     trainerName: 'ASH',

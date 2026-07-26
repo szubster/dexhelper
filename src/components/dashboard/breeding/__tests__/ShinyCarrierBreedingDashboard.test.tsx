@@ -52,6 +52,7 @@ test('renders optimal breeding pairs if matches are found', async () => {
     speciesId: 25, // Pikachu
     isShinyCarrier: true,
     isShiny: false,
+    hash: '',
     dvs: { hp: 15, atk: 0, def: 10, spd: 10, spc: 10 },
   };
 
@@ -59,13 +60,14 @@ test('renders optimal breeding pairs if matches are found', async () => {
     speciesId: 132, // Ditto
     isShinyCarrier: false,
     isShiny: true,
+    hash: '',
     dvs: { hp: 15, atk: 15, def: 15, spd: 15, spc: 15 },
   };
 
   vi.mocked(useStore, true).mockReturnValue({
     generation: 2,
-    partyDetails: [pA as PokemonInstance],
-    pcDetails: [pB as PokemonInstance],
+    partyDetails: [pA as unknown as PokemonInstance],
+    pcDetails: [pB as unknown as PokemonInstance],
   } as unknown as SaveData);
 
   vi.mocked(pokeDB.getAllPokemon, true).mockResolvedValue([

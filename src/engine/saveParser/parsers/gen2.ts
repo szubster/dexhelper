@@ -229,6 +229,7 @@ function parseGen2PokemonInstance(
     storageLocation,
     slot,
     unownForm,
+    hash: `${speciesId}-${level}-${nickname || otName}-${dvs.hp}-${dvs.atk}-${dvs.def}-${dvs.spd}-${dvs.spc}`,
   };
 }
 

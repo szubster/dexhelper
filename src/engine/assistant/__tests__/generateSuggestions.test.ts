@@ -26,6 +26,7 @@ describe('generateSuggestions', () => {
           speciesId: 95,
           level: 20,
           isShiny: false,
+          hash: '',
           moves: [],
           storageLocation: 'Box 1',
           item: 0x8f, // Holding Metal Coat!
@@ -88,6 +89,7 @@ describe('generateSuggestions', () => {
           speciesId: 95,
           level: 20,
           isShiny: false,
+          hash: '',
           moves: [],
           storageLocation: 'Box 1',
           otName: 'ASH',
@@ -96,6 +98,7 @@ describe('generateSuggestions', () => {
           speciesId: 16, // Random Pidgey
           level: 5,
           isShiny: false,
+          hash: '',
           moves: [],
           storageLocation: 'Box 1',
           item: 0x8f, // Holding Metal Coat!
@@ -160,6 +163,7 @@ describe('generateSuggestions', () => {
           speciesId: 35,
           level: 20,
           isShiny: false,
+          hash: '',
           moves: [],
           storageLocation: 'Box 1',
           otName: 'ASH',
@@ -168,6 +172,7 @@ describe('generateSuggestions', () => {
           speciesId: 16, // Random Pidgey
           level: 5,
           isShiny: false,
+          hash: '',
           moves: [],
           storageLocation: 'Box 1',
           item: 0x08, // Holding Moon Stone!
@@ -487,6 +492,7 @@ describe('generateSuggestions', () => {
           speciesId: 153, // Bayleef
           level: 20,
           isShiny: false,
+          hash: '',
           moves: [],
           storageLocation: 'Box 1',
         },
@@ -497,6 +503,7 @@ describe('generateSuggestions', () => {
           speciesId: 153, // Bayleef in daycare
           level: 20,
           isShiny: false,
+          hash: '',
           moves: [],
           storageLocation: 'Daycare',
         },
@@ -504,6 +511,7 @@ describe('generateSuggestions', () => {
           speciesId: 132, // Ditto in daycare
           level: 20,
           isShiny: false,
+          hash: '',
           moves: [],
           storageLocation: 'Daycare',
         },
@@ -588,6 +596,7 @@ describe('generateSuggestions', () => {
         speciesId: 153, // Bayleef in daycare
         level: 20,
         isShiny: false,
+        hash: '',
         moves: [],
         storageLocation: 'Daycare',
       },
@@ -629,6 +638,7 @@ describe('generateSuggestions', () => {
           speciesId: 133,
           level: 20,
           isShiny: false,
+          hash: '',
           moves: [],
           storageLocation: 'Box 1',
         },
@@ -756,6 +766,7 @@ describe('generateSuggestions', () => {
         speciesId: 1,
         level: 10,
         isShiny: false,
+        hash: '',
         moves: [29, 249], // Headbutt and Rock Smash
         storageLocation: 'Party',
       },
@@ -817,6 +828,7 @@ describe('generateSuggestions', () => {
             dvs,
             statExp: { hp: 0, atk: 0, def: 0, spd: 0, spc: 0 },
             isShiny: false,
+            hash: '',
             moves: [],
             storageLocation: 'Box 1',
           },
@@ -883,7 +895,7 @@ describe('generateSuggestions', () => {
       inventory: [],
       currentMapId: 0,
       partyDetails: [],
-      pcDetails: [{ speciesId: 6, level: 40, storageLocation: 'Box 1', otName: 'TEST' } as PokemonInstance],
+      pcDetails: [{ speciesId: 6, level: 40, storageLocation: 'Box 1', otName: 'TEST' } as unknown as PokemonInstance],
       trainerName: 'TEST',
     } as unknown as SaveData;
 
@@ -921,7 +933,9 @@ describe('generateSuggestions', () => {
       party: [],
       inventory: [],
       currentMapId: 0,
-      partyDetails: [{ speciesId: 25, level: 40, storageLocation: 'Box 1', otName: 'TEST' } as PokemonInstance],
+      partyDetails: [
+        { speciesId: 25, level: 40, storageLocation: 'Box 1', otName: 'TEST' } as unknown as PokemonInstance,
+      ],
       pcDetails: [],
       trainerName: 'TEST',
     } as unknown as SaveData;
@@ -1000,6 +1014,7 @@ describe('generateSuggestions', () => {
         speciesId: 1,
         level: 10,
         isShiny: false,
+        hash: '',
         moves: [29, 249], // Headbutt and Rock Smash
         storageLocation: 'Party',
       } as unknown as PokemonInstance,
@@ -1029,6 +1044,7 @@ describe('generateSuggestions', () => {
         speciesId: 1,
         level: 10,
         isShiny: false,
+        hash: '',
         moves: [29], // Only Headbutt
         storageLocation: 'Party',
       } as unknown as PokemonInstance,
@@ -1063,6 +1079,7 @@ describe('generateSuggestions', () => {
           speciesId: 274,
           level: 20,
           isShiny: false,
+          hash: '',
           moves: [], // No moves initially
           storageLocation: 'Box 1',
           otName: 'ASH',
@@ -1129,6 +1146,7 @@ describe('generateSuggestions', () => {
           speciesId: 274,
           level: 20,
           isShiny: false,
+          hash: '',
           moves: [13], // Knows Razor Leaf
           storageLocation: 'Box 1',
           otName: 'ASH',
