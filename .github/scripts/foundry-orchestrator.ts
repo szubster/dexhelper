@@ -414,15 +414,40 @@ function main(): void {
 
   const childToParents = new Map<string, Set<string>>();
 
+  /**
+   * Helper to resolve a node reference (either ID or path) to a repo-relative path.
+   */
+  function resolveNodePath(ref: string | null | undefined): string | null {
+    if (!ref) return null;
+    if (idToPathMap.has(ref)) return idToPathMap.get(ref)!;
+    if (ref.startsWith('.foundry/')) {
+      if (nodeMap.has(ref) || fs.existsSync(path.join(repoRoot, ref))) {
+        return ref;
+      }
+      if (!ref.startsWith('.foundry/archive/')) {
+        const archivedRef = ref.replace(/^\.foundry\//, '.foundry/archive/');
+        if (nodeMap.has(archivedRef) || fs.existsSync(path.join(repoRoot, archivedRef))) {
+          return archivedRef;
+        }
+      }
+      return ref;
+    }
+
+    // Log a warning if we can't resolve a non-empty reference.
+    warn(`Unresolvable node reference: '${ref}'`);
+    return null;
+  }
+
   // 1. First pass: strictly populate nodeMap and idToPathMap (Already done above)
 
   // 2. Second pass: evaluate explicit parents and markdown links
   for (const node of nodes) {
     let parentPath = node.frontmatter.parent;
     if (parentPath) {
-      // Resolve parent path if it's an ID
-      if (idToPathMap.has(parentPath)) {
-        parentPath = idToPathMap.get(parentPath)!;
+      // Resolve parent path fully (handles IDs and archived/non-archived paths)
+      const resolvedParent = resolveNodePath(parentPath);
+      if (resolvedParent) {
+        parentPath = resolvedParent;
       }
 
       if (!parentToChildren.has(parentPath)) {
@@ -449,7 +474,7 @@ function main(): void {
       .map(id => idToPathMap.get(id))
       .filter((path): path is string => !!path);
 
-    const matches = [...new Set([...linkMatches, ...idMatches])];
+    const matches = [...new Set([...linkMatches, ...idMatches])].map(m => resolveNodePath(m)).filter((m): m is string => !!m);
 
     for (const match of matches) {
       // node.repoPath is the parent, match is the child
@@ -469,19 +494,6 @@ function main(): void {
         }
       }
     }
-  }
-
-  /**
-   * Helper to resolve a node reference (either ID or path) to a repo-relative path.
-   */
-  function resolveNodePath(ref: string | null | undefined): string | null {
-    if (!ref) return null;
-    if (idToPathMap.has(ref)) return idToPathMap.get(ref)!;
-    if (ref.startsWith('.foundry/')) return ref;
-
-    // Log a warning if we can't resolve a non-empty reference.
-    warn(`Unresolvable node reference: '${ref}'`);
-    return null;
   }
 
   // ── Phase 3.0: MAX REJECTION THRESHOLD CHECK ───────────────────────────────
@@ -679,8 +691,7 @@ function main(): void {
       node.frontmatter.rejection_reason &&
       !node.frontmatter.rejection_reason.startsWith('[ACKNOWLEDGED]') &&
       node.frontmatter.rejection_reason !== 'Cancelled due to cascading cancellation from parent' &&
-      !node.frontmatter.rejection_reason.startsWith('Cancelled due to permanent failure of dependency:')) ||
-      (node.frontmatter.status === 'CANCELLED' && node.frontmatter.rejection_reason === 'Max rejection count reached')
+      !node.frontmatter.rejection_reason.startsWith('Cancelled due to permanent failure of dependency:'))
     ) {
       // Skip waking up parent if the child is merely suspended (waiting for dependencies/children).
       // We ignore the parent node itself during this check because it's exactly what we want to find out
@@ -896,7 +907,8 @@ function main(): void {
 
       const parentPath = resolveNodePath(node.frontmatter.parent);
       const resolvedDeps = node.frontmatter.depends_on.map(d => resolveNodePath(d));
-      const targetArtifacts = matches.filter(m =>
+      const targetArtifacts = matches.map(resolveNodePath).filter((m): m is string =>
+        !!m &&
         m !== node.repoPath &&
         m !== parentPath &&
         !resolvedDeps.includes(m)
@@ -1043,10 +1055,14 @@ function main(): void {
       const links = [...body.matchAll(linkRegex)].map(m => m[1]);
 
       if (links.length > 0) {
-        const allExist = links.every(l => nodeMap.has(l));
-        const hasChild = links.some(l => {
+        const resolvedLinks = links.map(resolveNodePath).filter((l): l is string => !!l);
+        const allExist = resolvedLinks.every(l => nodeMap.has(l));
+        const hasChild = resolvedLinks.some(l => {
           const childNode = nodeMap.get(l);
-          return !!childNode && childNode.frontmatter.parent === node.repoPath;
+          if (!childNode) return false;
+          const resolvedParentOfChild = resolveNodePath(childNode.frontmatter.parent);
+          const resolvedNodePathValue = resolveNodePath(node.repoPath);
+          return resolvedParentOfChild === resolvedNodePathValue || childNode.frontmatter.parent === node.frontmatter.id;
         });
 
         if (allExist && hasChild) {
@@ -1086,7 +1102,11 @@ function main(): void {
         promoteNodeStatus(node, 'PENDING', 'COMPLETED');
 
         const dateStr = todayISO();
-        const logPath = require('node:path').join(repoRoot, '.foundry/journals/agile_coach.md');
+        const logDir = require('node:path').join(repoRoot, '.foundry/journals/agile_coach');
+        if (!DRY_RUN && !require('node:fs').existsSync(logDir)) {
+          require('node:fs').mkdirSync(logDir, { recursive: true });
+        }
+        const logPath = require('node:path').join(logDir, `${Date.now()}.md`);
         const logEntry = `\n## ${dateStr}: Pre-existing Artifacts Anomaly\n\n### Observation\nThe orchestrator detected that target artifacts for \`${node.repoPath}\` already existed and were completely formed before dispatch.\n\n### Action Taken\nBypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.\n`;
 
         if (!DRY_RUN) {
@@ -1157,6 +1177,49 @@ function main(): void {
 
   // ── Phase 6: COLLECT ───────────────────────────────────────────────────────
   info('Phase 6: Collecting all READY nodes for matrix output...');
+
+  // Calculate critical path weights for all nodes to prioritize tasks that unblock the most downstream work
+  const dependents = buildReverseDependencyGraph(nodes, resolveNodePath as (ref: string) => string | null);
+
+  // We need to also include parent relationships as a dependency, because a child completing unblocks its parent
+  for (const node of nodes) {
+    const parentPath = resolveNodePath(node.frontmatter.parent);
+    if (parentPath) {
+      if (!dependents.has(node.repoPath)) {
+        dependents.set(node.repoPath, []);
+      }
+      dependents.get(node.repoPath)!.push(parentPath);
+    }
+  }
+
+  const criticalPathWeights = new Map<string, number>();
+
+  function getWeight(nodePath: string): number {
+    if (criticalPathWeights.has(nodePath)) {
+        return criticalPathWeights.get(nodePath)!;
+    }
+
+    const deps = dependents.get(nodePath) || [];
+    const allReachable = new Set<string>();
+    const queue = [...deps];
+
+    while(queue.length > 0) {
+        const curr = queue.shift()!;
+        if (!allReachable.has(curr)) {
+            allReachable.add(curr);
+            const currDeps = dependents.get(curr) || [];
+            queue.push(...currDeps);
+        }
+    }
+
+    criticalPathWeights.set(nodePath, allReachable.size);
+    return allReachable.size;
+  }
+
+  for (const n of nodes) {
+      getWeight(n.repoPath);
+  }
+
   // Include both freshly-promoted nodes AND any that were already READY before
   // this run (idempotent: re-running the orchestrator is always safe).
   const readyNodes = nodes
@@ -1165,17 +1228,25 @@ function main(): void {
       ...n.frontmatter,
       repo_path: n.repoPath,
       owner_persona: n.frontmatter.status === 'VERIFYING' ? 'auditor' : n.frontmatter.owner_persona,
+      critical_weight: getWeight(n.repoPath),
     }))
     .sort((a, b) => {
+      // 1. Sort by Critical Path Weight descending (highest weight first)
+      const weightA = a.critical_weight;
+      const weightB = b.critical_weight;
+      if (weightA !== weightB) {
+        return weightB - weightA;
+      }
+
+      // 2. Fallback: Sort by created_at ascending (oldest first)
       const dateA = new Date(a.created_at).getTime();
       const dateB = new Date(b.created_at).getTime();
 
-      // Sort by created_at ascending (oldest first)
       if (!Number.isNaN(dateA) && !Number.isNaN(dateB) && dateA !== dateB) {
         return dateA - dateB;
       }
 
-      // Fallback: sort by numeric id ascending
+      // 3. Fallback: sort by numeric id ascending
       return a.id.localeCompare(b.id, undefined, { numeric: true, sensitivity: 'base' });
     });
 

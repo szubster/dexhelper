@@ -2,12 +2,12 @@
 id: idea-062-drive-cloudflare-sync
 type: IDEA
 title: Google Drive and Cloudflare Server-Side Sync
-status: ACTIVE
-owner_persona: product_manager
+status: PENDING
+owner_persona: auditor
 created_at: '2026-05-21'
-updated_at: '2026-07-21'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '14567517025638071445'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -39,4 +39,5 @@ Instead of server-side Drive integration, we could develop a minimal Android com
 This ensures that users playing on dedicated Android emulators or their phones can enjoy a "live tracker" experience without being blocked by mobile browser API limitations, further solidifying the multi-device vision established in IDEA-055.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD.
+- [x] Product Manager: Convert this idea into a PRD.
+- [ ] prd-062-336-drive-cloudflare-sync

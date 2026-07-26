@@ -5,9 +5,9 @@ title: Implement Graceful Ignorance of Emulator Trailing Bytes in Gen 3 Save Fil
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-06'
-updated_at: '2026-07-21'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '16635974294090452713'
+jules_session_id: '15570707258758750458'
 pr_number: null
 parent: story-081-279-gen3-ignore-emulator-trailing-bytes
 tags:

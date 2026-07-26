@@ -350,6 +350,24 @@ describe('gen2 parsers', () => {
 
       expect(() => parseGen2(view, true)).toThrow('The save file is corrupted or incomplete.');
     });
+
+    it('should throw "The save file is corrupted or incomplete." if reading npcTradeFlags out of bounds', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x2865, 1);
+      view.setUint8(0x2866, 1);
+      view.setUint8(0x2866 + 7, 1);
+
+      // Force view.getUint8 to throw RangeError for npcTradeFlagsOffset (Crystal = 0x24eb)
+      view.getUint8 = (offset: number) => {
+        if (offset === 0x24eb) {
+          throw new RangeError('Out of bounds');
+        }
+        return DataView.prototype.getUint8.call(view, offset);
+      };
+
+      expect(() => parseGen2(view, true)).toThrow('The save file is corrupted or incomplete.');
+    });
   });
 
   describe('Gen 2 Egg Parsing', () => {

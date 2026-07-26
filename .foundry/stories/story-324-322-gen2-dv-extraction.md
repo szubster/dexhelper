@@ -2,19 +2,19 @@
 id: story-324-322-gen2-dv-extraction
 type: STORY
 title: Gen 2 DV Data Extraction for Size Calculation
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-15'
-updated_at: '2026-07-20'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '11866184115039058030'
+jules_session_id: null
 pr_number: null
 parent: epic-112-324-npc-size-record-data-extraction
 tags:
   - dexhelper
   - generation-2
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
@@ -30,5 +30,5 @@ Design the technical breakdown to extract DVs (Attack, Defense, Speed, Special) 
 
 ## Acceptance Criteria
 - [x] Create tasks for the implementation of Gen 2 DV data extraction.
-- [ ] task-322-331-gen2-dv-extraction-impl
-- [ ] task-322-332-gen2-dv-extraction-qa
+- [x] task-322-331-gen2-dv-extraction-impl
+- [x] task-322-332-gen2-dv-extraction-qa

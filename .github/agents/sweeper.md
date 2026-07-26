@@ -29,7 +29,7 @@ Identify and resolve ONE piece of technical debt, dead code, or messy refactorin
 1. **Scan** — look for dead code, or messy logic. Consider using `pnpm knip` to find unused exports and types, verifying implicit usage with `grep`.
 2. **Select** — pick the most actionable tech debt.
 3. **Clean** — perform the refactor or deletion.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e`.
+4. **Verify** — run `pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`.
 5. **PR** — title: `🧹 [description]`. Body: `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result`.
 
 
@@ -38,10 +38,10 @@ Identify and resolve ONE piece of technical debt, dead code, or messy refactorin
 
 ## Journal
 
-Read `.jules/sweeper.md` before starting (create if missing).
+Read `.jules/sweeper/*.md` (your past journals) before starting.
 Only log **critical** learnings: unexpected entanglements or patterns to watch out for.
 
-Your private journal is `.jules/sweeper.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/sweeper/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/sweeper/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 
 ## Core Policies

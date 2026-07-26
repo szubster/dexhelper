@@ -177,7 +177,9 @@ Drafted technical blueprints (`task-286-314-filter-swarm-item-calls-impl` and `t
 
 ## 2026-07-12: Gen 3 Dynamic Save Block Extraction Pattern
 When generating blueprints for Gen 3 dynamic save block extraction (like Volcanic Ash), ensure explicit instructions are provided to use the dynamically resolved `section1Offset` for relative offset calculations rather than hardcoding absolute values. Using absolute offsets breaks A/B bank flash memory parsing.
-\n## 2026-07-15: Gen 3 TM/HM Parsing Breakdown\nCreated task-321-322-gen3-tm-hm-parsing-impl and task-321-323-gen3-tm-hm-parsing-qa from story-306-321-gen3-tm-hm-parsing. Included architectural constraints for full PokeData properties (ADR 015) and relative module-level constants (ADR 028) along with resolved section offset calculation instructions.
+
+## 2026-07-15: Gen 3 TM/HM Parsing Breakdown
+Created task-321-322-gen3-tm-hm-parsing-impl and task-321-323-gen3-tm-hm-parsing-qa from story-306-321-gen3-tm-hm-parsing. Included architectural constraints for full PokeData properties (ADR 015) and relative module-level constants (ADR 028) along with resolved section offset calculation instructions.
 
 ## 2026-07-14
 - Drafted blueprints for Gen 3 Contest & Battle Frontier Extraction (`story-304-320-gen3-contest-frontier-extraction`).
@@ -188,7 +190,11 @@ When generating blueprints for Gen 3 dynamic save block extraction (like Volcani
 2026-07-16: Created retry 7 for Gen 3 TV parser because retry 6 failed QA due to inline magic numbers and incorrect error message string.
 - Passthrough validation executed for story-304-320-gen3-contest-frontier-extraction: Target child tasks were already COMPLETED.
 - 2026-07-17: Drafted `task-322-331-gen2-decoration-savings-parsing-impl` and `task-322-332-gen2-decoration-savings-parsing-qa` from `story-311-322-gen2-room-decoration-parsing`. Included explicit architectural constraints requiring the Coder to use module-level constants for offsets and forbidding inline magic numbers (ADR 028).
-## 2026-07-17: Safari Zone Static Tables Breakdown\n- **story-324-322-safari-zone-static-tables**: Broke down the Safari Zone static data story into a single implementation task `task-322-331-safari-zone-static-tables-impl` for the Coder persona.\n- Because this task involved straightforward static data compilation without complex logic or risk, I applied the Intelligent Verification Protocol to require the Coder to self-verify rather than spawning a separate QA task.\n- Ensured the task included standard error handling constraints (updating YAML frontmatter to FAILED/CANCELLED with a rejection reason upon failure).\n
+## 2026-07-17: Safari Zone Static Tables Breakdown
+- **story-324-322-safari-zone-static-tables**: Broke down the Safari Zone static data story into a single implementation task `task-322-331-safari-zone-static-tables-impl` for the Coder persona.
+- Because this task involved straightforward static data compilation without complex logic or risk, I applied the Intelligent Verification Protocol to require the Coder to self-verify rather than spawning a separate QA task.
+- Ensured the task included standard error handling constraints (updating YAML frontmatter to FAILED/CANCELLED with a rejection reason upon failure).
+
 Created tasks 331 and 332 for Gen 2 DV extraction. Applied strict requirements from Gen 2 memory guidelines, specifically ensuring all constants are defined at the module level and explicit RangeError bounds checking is enforced.
 - Anomaly: Pre-existing completed node task-317-322-detect-party-zero-hp-impl found prior to session.
 
@@ -201,11 +207,6 @@ Created tasks 331 and 332 for Gen 2 DV extraction. Applied strict requirements f
 During the session for `story-301-314-lift-rejection-count-state`, the target Foundry artifact (`task-301-314-lift-rejection-count-state-impl.md`) unexpectedly existed prior to the session and was already marked as COMPLETED. As per the empty PR policy and anomaly guidelines, I checked off the child task in the story node as a passthrough validation step to transition the parent node without creating duplicate tasks.
 ## [2026-07-17] NPC Trade State Integration
 Created implementation and QA verification tasks for story-119-261-npc-trade-state-integration. Ensured the QA task explicitly tests the requirements like RangeError handling and constant-defined memory offsets, as state integration changes logic in the core parse pipeline, meaning verification is essential according to the Intelligent Verification Protocol.
-## 2026-07-17: Empty PR for completed child task
-Assigned to story-130-315-define-indexeddb-schema where its generated child (task-315-322-implement-savehistorydb) has already been completed and archived. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.
-
-## [Anomaly] Pre-existing completed task
-Assigned to story-127-268-bash-timeout-feedback where its generated child (task-268-322-bash-timeout-feedback-impl) has already been completed. Checked off the child checkbox in the story markdown body and submitted an empty PR to transition the Story.
 ## 2026-07-18: Creating Missing E2E Safeguard Tasks
 - **Observation**: Assigned to `story-127-269-epic-e2e-safeguard` where previous implementation and QA tasks `task-269-269-e2e-safeguard-impl` and `task-269-270-e2e-safeguard-qa` had failed and were in a weird state (either max rejections or merged with unfulfilled acceptance criteria), leaving the parent story node active. I mistakenly tried to resolve this by checking off the pending children in the parent node without recreating replacement nodes, leading to a rejection in code review.
 - **Action**: Created replacement blueprints `task-269-334-e2e-safeguard-impl` and `task-269-335-e2e-safeguard-qa` while explicitly checking off the orphaned failed children in the parent's markdown, as required by the Impossible Loop Policy.
@@ -237,3 +238,26 @@ Appended tech lead journal for breaking down Gen 3 Volcanic Ash extraction story
 ## 2026-07-20: Diff Engine Hash Impossible Loop Resolution
 - **Node**: `story-137-294-diff-engine-logic`
 - **Actions**: Investigated the permanent failure of `task-294-316-diff-engine-impl`. Discovered that the `hash` property was missing from the `PokemonInstance` interface, leading to the Coder attempting to use a fallback generator and failing the QA contract. Drafted `research-294-335-diff-engine-hash-failure` to document the issue, `task-294-336-diff-engine-hash-fix-impl` to implement the interface addition and strict property usage, and `task-294-337-diff-engine-hash-fix-qa` for verification. Appended the replacement nodes to the parent story and checked off the failed tasks.
+## 2026-07-21: Parse Gen 2 Roamer Core Data
+- **Node**: story-139-297-gen2-roamer-core-extraction
+- **Actions**: Broke down the story into an implementation TASK (task-297-338-gen2-roamer-core-extraction-impl) and a QA TASK (task-297-339-gen2-roamer-core-extraction-qa). Ensured requirements for module-level constants and DataView RangeError catching (ADR 010) were explicitly required. Checked off the breakdown acceptance criteria in the parent node without modifying YAML frontmatter.
+
+## 2026-07-21: Progression Save Model Breakdown
+- **Node**: `story-036-255-progression-save-model`
+- **Actions**: Broke down STORY into implementation (`task-255-338-db-schema-saves-impl`) and QA (`task-255-339-db-schema-saves-qa`) TASKs for updating the IndexedDB schema for multiple saves. Updated the parent STORY acceptance criteria. Addressed code reviewer feedback by providing a concrete database schema design in the implementation task instead of generic requirements.
+## 2026-07-21: Hidden Items E2E Tests Blueprinting
+- **Node**: `story-060-157-hidden-items-e2e-tests`
+- **Actions**: Broke down the Hidden Items UI E2E testing story into an implementation task (`task-157-338-hidden-items-e2e-tests-impl`) and a QA task (`task-157-339-hidden-items-e2e-tests-qa`) as per the Intelligent Verification Protocol to ensure testing matches UI logic requirements.
+- **Constraints Enforced**: Instructed the coder and QA personas to correctly use the development server URL `http://localhost:3000/dexhelper/` and employ regex matchers instead of strict string matching for UI testing components that use tactical bracket formatting (e.g. `[ SYS.LABEL ]`).
+
+## 2026-07-20: Gen 2 Event Flag Parsing Retry
+Drafted implementation and QA tasks for Gen 2 event flags (story-137-333). Mandated exact bit offsets derived from research (Sudowoodo=42, Ho-Oh=791, Lugia=792, Snorlax=1872, Red Gyarados=1873) and strictly enforced ADR 028 module-level constants to prevent further failures.
+## [Anomaly] Pre-existing completed task
+- **Node**: story-130-316-document-indexeddb-schema
+- **Actions**: Executed passthrough validation. The generated child task (task-316-331-document-indexeddb-schema-impl) unexpectedly existed prior to the session and was already COMPLETED. This is an anomaly flagged for the Agile Coach to review later. Checked off all acceptance criteria checkboxes in the parent story node since the required work is already present in schema.md, and submitted an Empty PR to correctly transition the parent node to VERIFYING.
+## 2026-07-20
+- **Node**: story-138-295-gen3-static-encounters-ui
+- **Actions**: Broke down the Gen 3 Static Encounters UI story into task-295-338-gen3-static-encounters-ui-impl and task-295-339-gen3-static-encounters-ui-qa.
+
+### 2026-07-19: Re-generation of Graveyard Box State Logic Tasks
+Generated task-333-338-graveyard-box-logic-impl and task-333-339-graveyard-box-logic-qa for story-131-333-graveyard-box-state. The codebase already implements this logic, so the generated tasks explicitly permit checking off and creating an empty PR. Re-generation occurs due to node resurrection loop.

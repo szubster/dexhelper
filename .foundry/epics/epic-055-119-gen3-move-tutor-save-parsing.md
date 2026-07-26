@@ -2,12 +2,12 @@
 id: epic-055-119-gen3-move-tutor-save-parsing
 type: EPIC
 title: Gen 3 Move Tutor Save File Parsing
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: 2026-06-30T00:00:00.000Z
-updated_at: '2026-07-12'
+updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: null
+jules_session_id: '445421974531024931'
 pr_number: null
 parent: prd-094-055-move-tutor-tracker
 tags:
@@ -36,9 +36,9 @@ Implement the logic to parse Gen 3 save files and extract the event flags indica
 - The underlying research (`research-055-247-gen3-move-tutor-offsets`) must be completed to provide the necessary memory offsets and event flag mappings.
 
 ## Acceptance Criteria
-- [ ] Move Tutor flags are correctly extracted from Emerald save files using `DataView`.
-- [ ] Move Tutor flags are correctly extracted from FireRed/LeafGreen save files using `DataView`.
-- [ ] The parser correctly distinguishes between "Available" (flag unset) and "Used" (flag set) tutors.
-- [ ] Out-of-bounds reads or malformed saves are handled gracefully without application crashes.
-- [ ] story-119-267-gen3-move-tutor-emerald-parsing
-- [ ] story-119-318-gen3-move-tutor-frlg-parsing
+- [x] Move Tutor flags are correctly extracted from Emerald save files using `DataView`.
+- [x] Move Tutor flags are correctly extracted from FireRed/LeafGreen save files using `DataView`.
+- [x] The parser correctly distinguishes between "Available" (flag unset) and "Used" (flag set) tutors.
+- [x] Out-of-bounds reads or malformed saves are handled gracefully without application crashes.
+- [x] story-119-267-gen3-move-tutor-emerald-parsing
+- [x] story-119-318-gen3-move-tutor-frlg-parsing

@@ -2,12 +2,12 @@
 id: research-136-329-gen1-checklist-ui-failure
 type: RESEARCH
 title: Investigate Gen 1 Checklist UI Failure
-status: ACTIVE
+status: READY
 owner_persona: researcher
 created_at: '2026-07-17'
-updated_at: '2026-07-21'
+updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '6250382566121501162'
+jules_session_id: null
 pr_number: null
 parent: epic-106-136-gen1-static-encounters
 tags:
