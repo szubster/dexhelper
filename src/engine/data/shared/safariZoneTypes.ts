@@ -8,5 +8,10 @@ export interface SafariEncounter {
 
 export interface SafariArea {
   name: string;
-  encounters: Record<string, SafariEncounter[]>;
+  encounters: {
+    red?: SafariEncounter[];
+    blue?: SafariEncounter[];
+    yellow?: SafariEncounter[];
+    [version: string]: SafariEncounter[] | undefined;
+  };
 }

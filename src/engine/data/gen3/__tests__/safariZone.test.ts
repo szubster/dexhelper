@@ -12,6 +12,7 @@ describe('Gen3 Safari Zones', () => {
       expect(area.name).toBeDefined();
       expect(area.encounters).toBeDefined();
       for (const [version, encounters] of Object.entries(area.encounters)) {
+        if (!encounters) continue;
         expect(['ruby', 'sapphire', 'emerald']).toContain(version);
         for (const encounter of encounters) {
           expect(encounter.pokemon).toBeDefined();
@@ -34,6 +35,7 @@ describe('Gen3 Safari Zones', () => {
       expect(area.name).toBeDefined();
       expect(area.encounters).toBeDefined();
       for (const [version, encounters] of Object.entries(area.encounters)) {
+        if (!encounters) continue;
         expect(['firered', 'leafgreen']).toContain(version);
         for (const encounter of encounters) {
           expect(encounter.pokemon).toBeDefined();
