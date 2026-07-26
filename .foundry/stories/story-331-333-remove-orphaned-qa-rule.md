@@ -29,3 +29,4 @@ This story tracks identifying and removing those obsolete instructions from `.fo
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks
+- [ ] task-333-346-remove-orphaned-qa-rule-impl
