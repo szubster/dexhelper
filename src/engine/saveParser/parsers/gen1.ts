@@ -20,6 +20,38 @@ const HOF_POKEMON_COUNT = 6;
 const HOF_POKEMON_LENGTH = 0x10;
 const INVENTORY_OFFSET = 0x25c9;
 const PC_ITEMS_OFFSET = 0x27e6;
+const POKEDEX_OWNED_BASE_RB = 0x25a3;
+const POKEDEX_OWNED_BASE_YELLOW = 0x25a4;
+const POKEDEX_SEEN_OFFSET_FROM_OWNED = 19;
+const POKEDEX_TOTAL_MONS = 151;
+const POKEDEX_PADDING_BYTE_OFFSET = 18;
+const POKEDEX_PADDING_BIT_MASK = 0x80;
+const PC_CURRENT_BOX_NUM_OFFSET = 0x284c;
+const PC_CURRENT_BOX_COUNT_OFFSET = 0x30c0;
+const PC_CURRENT_BOX_DATA_START_OFFSET = 0x30c1;
+const PC_CURRENT_BOX_MONS_HEADER_LENGTH = 21;
+const PC_CURRENT_BOX_MON_DATA_LENGTH = 33;
+const PC_BOX_OT_NAME_LENGTH = 11;
+const PC_MAX_BOX_MONS = 20;
+const PC_BOX_DATA_START_OFFSET_FROM_COUNT = 22;
+const PARTY_COUNT_OFFSET = 0x2f2c;
+const PARTY_DATA_START_OFFSET = 0x2f2d;
+const PARTY_MONS_HEADER_LENGTH = 7;
+const PARTY_MON_DATA_LENGTH = 44;
+const PARTY_OT_NAME_LENGTH = 11;
+const PARTY_MAX_MONS = 6;
+const TRAINER_NAME_OFFSET = 0x2598;
+const BADGES_OFFSET = 0x2602;
+const TRAINER_ID_OFFSET = 0x2605;
+const CURRENT_MAP_ID_OFFSET = 0x260a;
+const HALL_OF_FAME_COUNT_OFFSET = 0x25b3;
+const NPC_TRADES_OFFSET = -16;
+const NPC_TRADES_COUNT = 16;
+const PIKACHU_FOLLOWING_STATUS_OFFSET = 0x271c;
+const PIKACHU_HAPPINESS_OFFSET = 0x271d;
+const PC_BOX_NUM_MASK = 0x7f;
+const PC_MAX_ITEMS = 50;
+const PC_BOX_OFFSETS = [0x4000, 0x4462, 0x48c4, 0x4d26, 0x5188, 0x55ea, 0x6000, 0x6462, 0x68c4, 0x6d26, 0x7188, 0x75ea];
 
 const INTERNAL_ID_TO_DEX: Record<number, number> = {
   1: 112,
@@ -187,9 +219,9 @@ const INTERNAL_ID_TO_DEX: Record<number, number> = {
  */
 function hasYellowPikachuMarkers(view: DataView): boolean {
   // High-confidence Yellow markers in English version
-  // 0x271C: Following Pikachu status, 0x271D: Pikachu Happiness
-  const followingPikachu = view.getUint8(0x271c);
-  const pikachuHappiness = view.getUint8(0x271d);
+  // PIKACHU_FOLLOWING_STATUS_OFFSET: Following Pikachu status, PIKACHU_HAPPINESS_OFFSET: Pikachu Happiness
+  const followingPikachu = view.getUint8(PIKACHU_FOLLOWING_STATUS_OFFSET);
+  const pikachuHappiness = view.getUint8(PIKACHU_HAPPINESS_OFFSET);
 
   // If these are non-zero and not FF (unitialized), it's almost certainly Yellow.
   // We use > 0 and < 0xFF to be safe against garbage data.
@@ -304,23 +336,28 @@ function detectGen1GameVersion(
  * **Why these specific checks?**
  * Gen 1 save files lack robust block checksums. If the main save checksum (`0x3523`) is corrupted,
  * we must fallback to structural heuristics to prove the file is indeed a Gen 1 save.
- * We do this by checking the active Party Pokémon block, which always starts at `0x2F2C`:
- * 1. The byte at `0x2F2C` represents the number of Pokémon in the party (must be <= 6).
- * 2. The subsequent array of species IDs starting at `0x2F2D` must be explicitly terminated with `0xFF`.
+ * We do this by checking the active Party Pokémon block, which always starts at `PARTY_COUNT_OFFSET`:
+ * 1. The byte at `PARTY_COUNT_OFFSET` represents the number of Pokémon in the party (must be <= PARTY_MAX_MONS).
+ * 2. The subsequent array of species IDs starting at `PARTY_DATA_START_OFFSET` must be explicitly terminated with `0xFF`.
  * 3. The internal IDs before the terminator must map to valid species.
  *
  * @param view - The raw save file DataView.
  * @returns True if the structure looks like a valid Gen 1 save.
  */
 export function isGen1Save(view: DataView): boolean {
-  const partyCount = view.getUint8(0x2f2c);
-  if (partyCount > 6) return false;
-  if (view.getUint8(0x2f2d + partyCount) !== 0xff) return false;
-  for (let i = 0; i < partyCount; i++) {
-    const id = view.getUint8(0x2f2d + i);
-    if (id === 0 || id === 0xff) return false;
+  try {
+    const partyCount = view.getUint8(PARTY_COUNT_OFFSET);
+    if (partyCount > PARTY_MAX_MONS) return false;
+    if (view.getUint8(PARTY_DATA_START_OFFSET + partyCount) !== 0xff) return false;
+    for (let i = 0; i < partyCount; i++) {
+      const id = view.getUint8(PARTY_DATA_START_OFFSET + i);
+      if (id === 0 || id === 0xff) return false;
+    }
+    return true;
+  } catch (e) {
+    if (e instanceof RangeError) return false;
+    throw e;
   }
-  return true;
 }
 
 /**
@@ -339,50 +376,39 @@ function parseGen1HallOfFameRecords(view: DataView, hallOfFameCount: number, tra
 
   const maxRecords = Math.min(hallOfFameCount, HOF_MAX_RECORDS);
 
-  for (let recordIndex = 0; recordIndex < maxRecords; recordIndex++) {
-    const pokemon: { speciesId: number; level: number; nickname: string }[] = [];
+  try {
+    for (let recordIndex = 0; recordIndex < maxRecords; recordIndex++) {
+      const pokemon: { speciesId: number; level: number; nickname: string }[] = [];
 
-    for (let pokemonIndex = 0; pokemonIndex < HOF_POKEMON_COUNT; pokemonIndex++) {
-      const offset = HOF_BASE_OFFSET + recordIndex * HOF_RECORD_LENGTH + pokemonIndex * HOF_POKEMON_LENGTH;
+      for (let pokemonIndex = 0; pokemonIndex < HOF_POKEMON_COUNT; pokemonIndex++) {
+        const offset = HOF_BASE_OFFSET + recordIndex * HOF_RECORD_LENGTH + pokemonIndex * HOF_POKEMON_LENGTH;
+        const internalId = view.getUint8(offset);
 
-      let internalId: number;
-      try {
-        internalId = view.getUint8(offset);
-      } catch (e) {
-        if (e instanceof RangeError) {
-          break;
+        if (internalId === 0x00 || internalId === 0xff) {
+          continue;
         }
-        throw e;
-      }
 
-      if (internalId === 0x00 || internalId === 0xff) {
-        continue;
-      }
-
-      const speciesId = INTERNAL_ID_TO_DEX[internalId];
-      if (!speciesId) {
-        continue;
-      }
-
-      let level: number;
-      try {
-        level = view.getUint8(offset + 1);
-      } catch (e) {
-        if (e instanceof RangeError) {
-          break;
+        const speciesId = INTERNAL_ID_TO_DEX[internalId];
+        if (!speciesId) {
+          continue;
         }
-        throw e;
+
+        const level = view.getUint8(offset + 1);
+        const nickname = decodeGen12String(view, offset + 2, 11);
+
+        pokemon.push({ speciesId, level, nickname });
       }
 
-      const nickname = decodeGen12String(view, offset + 2, 11);
-
-      pokemon.push({ speciesId, level, nickname });
+      records.push({
+        playerName: trainerName,
+        pokemon,
+      });
     }
-
-    records.push({
-      playerName: trainerName,
-      pokemon,
-    });
+  } catch (e) {
+    if (e instanceof RangeError) {
+      return records;
+    }
+    throw e;
   }
 
   return records;
@@ -437,27 +463,36 @@ function detectVersionAndOffsets(
   const detectForOffset = (ownedBase: number) => {
     const owned = new Set<number>();
     const seen = new Set<number>();
+    let paddingBitIsCorrect = false;
 
-    for (let i = 1; i <= 151; i++) {
-      const byteIdx = Math.floor((i - 1) / 8);
-      const bitIdx = (i - 1) % 8;
-      const oByte = view.getUint8(ownedBase + byteIdx);
-      // The "Seen" Pokédex flags start 19 bytes after the "Owned" flags (0x25B6 - 0x25A3 = 19)
-      const sByte = view.getUint8(ownedBase + (0x25b6 - 0x25a3) + byteIdx);
-      if ((oByte & (1 << bitIdx)) !== 0) owned.add(i);
-      if ((sByte & (1 << bitIdx)) !== 0) seen.add(i);
+    try {
+      for (let i = 1; i <= POKEDEX_TOTAL_MONS; i++) {
+        const byteIdx = Math.floor((i - 1) / 8);
+        const bitIdx = (i - 1) % 8;
+        const oByte = view.getUint8(ownedBase + byteIdx);
+        // The "Seen" Pokédex flags start 19 bytes after the "Owned" flags
+        const sByte = view.getUint8(ownedBase + POKEDEX_SEEN_OFFSET_FROM_OWNED + byteIdx);
+        if ((oByte & (1 << bitIdx)) !== 0) owned.add(i);
+        if ((sByte & (1 << bitIdx)) !== 0) seen.add(i);
+      }
+      // Byte 18 (the 19th byte) holds bits for IDs 145-152. ID 152 does not exist, so bit 7 (0x80) must be 0.
+      paddingBitIsCorrect = (view.getUint8(ownedBase + POKEDEX_PADDING_BYTE_OFFSET) & POKEDEX_PADDING_BIT_MASK) === 0;
+    } catch (e) {
+      if (e instanceof RangeError) {
+        throw new Error('The save file is corrupted or incomplete.');
+      }
+      throw e;
     }
-    // Byte 18 (the 19th byte) holds bits for IDs 145-152. ID 152 does not exist, so bit 7 (0x80) must be 0.
-    const paddingBitIsCorrect = (view.getUint8(ownedBase + 18) & 0x80) === 0;
+
     const version = detectGen1GameVersion(view, owned, seen, trainerName, quickParty);
     return { version, owned, seen, paddingBitIsCorrect };
   };
 
-  // Probe offset 0x25A3 (Expected Red/Blue start address for Pokédex Owned flags)
+  // Probe offset POKEDEX_OWNED_BASE_RB (Expected Red/Blue start address for Pokédex Owned flags)
   // If the MSB of the 19th byte is 0, this offset alignment is structurally valid.
-  const res0 = detectForOffset(0x25a3);
-  // Probe offset 0x25A4 (Expected Yellow start address for Pokédex Owned flags, shifted by +1)
-  const res1 = detectForOffset(0x25a4);
+  const res0 = detectForOffset(POKEDEX_OWNED_BASE_RB);
+  // Probe offset POKEDEX_OWNED_BASE_YELLOW (Expected Yellow start address for Pokédex Owned flags, shifted by +1)
+  const res1 = detectForOffset(POKEDEX_OWNED_BASE_YELLOW);
 
   // If the Yellow offset produces a valid padding bit but the Red/Blue offset does not, we use the shifted offset.
   const resToUse = res1.paddingBitIsCorrect && !res0.paddingBitIsCorrect ? res1 : res0;
@@ -557,10 +592,17 @@ function parsePartyList(
   shiftedPartyOTOffset: number,
 ): PokemonInstance[] {
   const partyDetails: PokemonInstance[] = [];
-  for (let i = 0; i < partyCount; i++) {
-    const offset = shiftedPartyDataOffset + i * 44;
-    const p = parseGen1Pokemon(view, offset, shiftedPartyOTOffset + i * 11, true, 'Party', i + 1);
-    if (p) partyDetails.push(p);
+  try {
+    for (let i = 0; i < partyCount; i++) {
+      const offset = shiftedPartyDataOffset + i * PARTY_MON_DATA_LENGTH;
+      const p = parseGen1Pokemon(view, offset, shiftedPartyOTOffset + i * PARTY_OT_NAME_LENGTH, true, 'Party', i + 1);
+      if (p) partyDetails.push(p);
+    }
+  } catch (e) {
+    if (e instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw e;
   }
   return partyDetails;
 }
@@ -587,40 +629,56 @@ function parsePCBoxes(
   const pc: number[] = [];
   const pcDetails: PokemonInstance[] = [];
 
-  const currentBoxNum = view.getUint8(0x284c + offsetShift) & 0x7f;
-  const currentBoxCount = view.getUint8(0x30c0 + offsetShift);
-  const currentBoxDataOffset = 0x30c1 + offsetShift + 21;
-  const currentBoxOTOffset = currentBoxDataOffset + 20 * 33;
+  let currentBoxNum = 0;
+  let currentBoxCount = 0;
 
-  for (let i = 0; i < currentBoxCount; i++) {
-    const id = view.getUint8(0x30c1 + offsetShift + i);
-    const dex = INTERNAL_ID_TO_DEX[id];
-    if (dex !== undefined) pc.push(dex);
+  try {
+    currentBoxNum = view.getUint8(PC_CURRENT_BOX_NUM_OFFSET + offsetShift) & PC_BOX_NUM_MASK;
+    currentBoxCount = view.getUint8(PC_CURRENT_BOX_COUNT_OFFSET + offsetShift);
+    const currentBoxDataOffset = PC_CURRENT_BOX_DATA_START_OFFSET + offsetShift + PC_CURRENT_BOX_MONS_HEADER_LENGTH;
+    const currentBoxOTOffset = currentBoxDataOffset + PC_MAX_BOX_MONS * PC_CURRENT_BOX_MON_DATA_LENGTH;
 
-    const offset = currentBoxDataOffset + i * 33;
-    const p = parseGen1Pokemon(view, offset, currentBoxOTOffset + i * 11, false, `Box ${currentBoxNum + 1}`, i + 1);
-    if (p) pcDetails.push(p);
-  }
-
-  const boxOffsets = [0x4000, 0x4462, 0x48c4, 0x4d26, 0x5188, 0x55ea, 0x6000, 0x6462, 0x68c4, 0x6d26, 0x7188, 0x75ea];
-  for (const [i, offset] of boxOffsets.entries()) {
-    if (i === currentBoxNum) continue;
-    const count = view.getUint8(offset);
-    if (count > 20) continue;
-
-    for (let j = 0; j < count; j++) {
-      const id = view.getUint8(offset + 1 + j);
+    for (let i = 0; i < currentBoxCount; i++) {
+      const id = view.getUint8(PC_CURRENT_BOX_DATA_START_OFFSET + offsetShift + i);
       const dex = INTERNAL_ID_TO_DEX[id];
       if (dex !== undefined) pc.push(dex);
-    }
 
-    const boxDataOffset = offset + 22;
-    const boxOTOffset = boxDataOffset + 20 * 33;
-    for (let j = 0; j < count; j++) {
-      const pOff = boxDataOffset + j * 33;
-      const p = parseGen1Pokemon(view, pOff, boxOTOffset + j * 11, false, `Box ${i + 1}`, j + 1);
+      const offset = currentBoxDataOffset + i * PC_CURRENT_BOX_MON_DATA_LENGTH;
+      const p = parseGen1Pokemon(
+        view,
+        offset,
+        currentBoxOTOffset + i * PC_BOX_OT_NAME_LENGTH,
+        false,
+        `Box ${currentBoxNum + 1}`,
+        i + 1,
+      );
       if (p) pcDetails.push(p);
     }
+
+    for (const [i, offset] of PC_BOX_OFFSETS.entries()) {
+      if (i === currentBoxNum) continue;
+      const count = view.getUint8(offset);
+      if (count > PC_MAX_BOX_MONS) continue;
+
+      for (let j = 0; j < count; j++) {
+        const id = view.getUint8(offset + 1 + j);
+        const dex = INTERNAL_ID_TO_DEX[id];
+        if (dex !== undefined) pc.push(dex);
+      }
+
+      const boxDataOffset = offset + PC_BOX_DATA_START_OFFSET_FROM_COUNT;
+      const boxOTOffset = boxDataOffset + PC_MAX_BOX_MONS * PC_CURRENT_BOX_MON_DATA_LENGTH;
+      for (let j = 0; j < count; j++) {
+        const pOff = boxDataOffset + j * PC_CURRENT_BOX_MON_DATA_LENGTH;
+        const p = parseGen1Pokemon(view, pOff, boxOTOffset + j * PC_BOX_OT_NAME_LENGTH, false, `Box ${i + 1}`, j + 1);
+        if (p) pcDetails.push(p);
+      }
+    }
+  } catch (e) {
+    if (e instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw e;
   }
 
   return { pc, pcDetails, currentBoxCount };
@@ -644,21 +702,30 @@ function parsePCBoxes(
  * @returns The fully constructed SaveData object.
  */
 export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData {
-  const trainerName = decodeGen12String(view, 0x2598);
-
-  const partyCount = view.getUint8(0x2f2c);
+  let trainerName = '';
+  let partyCount = 0;
   const quickParty: { speciesId: number; otName: string }[] = [];
-  const partyDataOffset = 0x2f2d + 7;
-  const partyOTOffset = partyDataOffset + 6 * 44;
+  const partyDataOffset = PARTY_DATA_START_OFFSET + PARTY_MONS_HEADER_LENGTH;
+  const partyOTOffset = partyDataOffset + PARTY_MAX_MONS * PARTY_MON_DATA_LENGTH;
 
-  for (let i = 0; i < partyCount; i++) {
-    const offset = partyDataOffset + i * 44;
-    const internalId = view.getUint8(offset);
-    const speciesId = INTERNAL_ID_TO_DEX[internalId];
-    if (speciesId) {
-      const otName = decodeGen12String(view, partyOTOffset + i * 11);
-      quickParty.push({ speciesId, otName });
+  try {
+    trainerName = decodeGen12String(view, TRAINER_NAME_OFFSET);
+    partyCount = view.getUint8(PARTY_COUNT_OFFSET);
+
+    for (let i = 0; i < partyCount; i++) {
+      const offset = partyDataOffset + i * PARTY_MON_DATA_LENGTH;
+      const internalId = view.getUint8(offset);
+      const speciesId = INTERNAL_ID_TO_DEX[internalId];
+      if (speciesId) {
+        const otName = decodeGen12String(view, partyOTOffset + i * PARTY_OT_NAME_LENGTH);
+        quickParty.push({ speciesId, otName });
+      }
     }
+  } catch (e) {
+    if (e instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw e;
   }
 
   const { offsetShift, gameVersion, owned, seen } = detectVersionAndOffsets(
@@ -668,33 +735,47 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
     quickParty,
   );
 
-  const shiftedPartyDataOffset = 0x2f2d + offsetShift + 7;
-  const shiftedPartyOTOffset = shiftedPartyDataOffset + 6 * 44;
+  const shiftedPartyDataOffset = PARTY_DATA_START_OFFSET + offsetShift + PARTY_MONS_HEADER_LENGTH;
+  const shiftedPartyOTOffset = shiftedPartyDataOffset + PARTY_MAX_MONS * PARTY_MON_DATA_LENGTH;
   const partyDetails = parsePartyList(view, partyCount, shiftedPartyDataOffset, shiftedPartyOTOffset);
   const party = partyDetails.map((p) => p.speciesId);
 
   const { pc, pcDetails, currentBoxCount } = parsePCBoxes(view, offsetShift);
 
-  const badges = view.getUint8(0x2602 + offsetShift);
-  const trainerId = view.getUint16(0x2605 + offsetShift, false);
-  const currentMapId = view.getUint8(0x260a + offsetShift);
+  const inventory: { id: number; quantity: number }[] = [];
+  const pcItems: { id: number; quantity: number }[] = [];
+  let badges = 0;
+  let trainerId = 0;
+  let currentMapId = 0;
+  let hallOfFameRaw = 0;
+
+  try {
+    badges = view.getUint8(BADGES_OFFSET + offsetShift);
+    trainerId = view.getUint16(TRAINER_ID_OFFSET + offsetShift, false);
+    currentMapId = view.getUint8(CURRENT_MAP_ID_OFFSET + offsetShift);
+
+    const itemCount = view.getUint8(INVENTORY_OFFSET + offsetShift);
+    for (let i = 0; i < itemCount; i++) {
+      const itemOffset = INVENTORY_OFFSET + 1 + offsetShift + i * 2;
+      inventory.push({ id: view.getUint8(itemOffset), quantity: view.getUint8(itemOffset + 1) });
+    }
+
+    const pcItemCount = view.getUint8(PC_ITEMS_OFFSET + offsetShift);
+    for (let i = 0; i < Math.min(pcItemCount, PC_MAX_ITEMS); i++) {
+      const itemOffset = PC_ITEMS_OFFSET + 1 + offsetShift + i * 2;
+      pcItems.push({ id: view.getUint8(itemOffset), quantity: view.getUint8(itemOffset + 1) });
+    }
+
+    hallOfFameRaw = view.getUint8(HALL_OF_FAME_COUNT_OFFSET + offsetShift);
+  } catch (e) {
+    if (e instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw e;
+  }
+
   const mapIdStr = currentMapId.toString();
   const currentMapName = isValidMapId(mapIdStr) ? gen1MapLocations[mapIdStr] : 'Unknown Map';
-  const inventory: { id: number; quantity: number }[] = [];
-  const itemCount = view.getUint8(INVENTORY_OFFSET + offsetShift);
-  for (let i = 0; i < itemCount; i++) {
-    const itemOffset = INVENTORY_OFFSET + 1 + offsetShift + i * 2;
-    inventory.push({ id: view.getUint8(itemOffset), quantity: view.getUint8(itemOffset + 1) });
-  }
-
-  const pcItems: { id: number; quantity: number }[] = [];
-  const pcItemCount = view.getUint8(PC_ITEMS_OFFSET + offsetShift);
-  for (let i = 0; i < Math.min(pcItemCount, 50); i++) {
-    const itemOffset = PC_ITEMS_OFFSET + 1 + offsetShift + i * 2;
-    pcItems.push({ id: view.getUint8(itemOffset), quantity: view.getUint8(itemOffset + 1) });
-  }
-
-  const hallOfFameRaw = view.getUint8(0x25b3 + offsetShift);
   const hallOfFameCount = hallOfFameRaw === 0xff ? 0 : hallOfFameRaw;
   const hallOfFameRecords = parseGen1HallOfFameRecords(view, hallOfFameCount, trainerName);
 
@@ -763,8 +844,8 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
       return { id, moveId, isAcquired, quantity };
     }),
     // Gen 1 trades: The 2 bytes are at eventFlagsOffset - 16 and - 15. We convert this into a boolean array.
-    npcTradeFlags: Array.from({ length: 16 }, (_, i) => {
-      const byte = view.getUint8(eventFlagsOffset - 16 + Math.floor(i / 8));
+    npcTradeFlags: Array.from({ length: NPC_TRADES_COUNT }, (_, i) => {
+      const byte = view.getUint8(eventFlagsOffset + NPC_TRADES_OFFSET + Math.floor(i / 8));
       return (byte & (1 << (i % 8))) !== 0;
     }),
   };

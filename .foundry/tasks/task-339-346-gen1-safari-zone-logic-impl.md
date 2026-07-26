@@ -35,6 +35,6 @@ This task implements the logic to compare a user's Gen 1 save file data against 
 - **Architectural Constraint:** If any modifications are made to the save parser, all memory offsets, lengths, bit locations, and shifts must be explicitly defined as reusable constants at the module level. Inline magic numbers are strictly forbidden. The parser must catch `RangeError` from out-of-bounds `DataView` reads and throw a new Error with the message "The save file is corrupted or incomplete."
 
 ## Acceptance Criteria
-- [ ] Implement missing encounter logic for Gen 1 Safari Zone.
-- [ ] Write unit tests verifying the missing encounters are correctly identified based on save data.
-- [ ] Ensure architectural constraints on memory parsing are strictly followed if the parser is touched.
+- [x] Implement missing encounter logic for Gen 1 Safari Zone.
+- [x] Write unit tests verifying the missing encounters are correctly identified based on save data.
+- [x] Ensure architectural constraints on memory parsing are strictly followed if the parser is touched.

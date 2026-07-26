@@ -341,8 +341,7 @@ describe('parseGen1 - additional branches', () => {
 
     const data = parseGen1(view);
     expect(data.hallOfFameCount).toBe(1);
-    expect(data.hallOfFameRecords?.length).toBe(1); // Since it breaks, it creates an empty record for the iteration?
-    expect(data.hallOfFameRecords?.[0]?.pokemon.length).toBe(0);
+    expect(data.hallOfFameRecords?.length).toBe(0); // With full block try/catch, broken record is aborted
   });
 
   it('should safely catch RangeError when reading HOF level out of bounds', () => {
@@ -375,8 +374,7 @@ describe('parseGen1 - additional branches', () => {
 
     const data = parseGen1(view);
     expect(data.hallOfFameCount).toBe(1);
-    expect(data.hallOfFameRecords?.length).toBe(1);
-    expect(data.hallOfFameRecords?.[0]?.pokemon.length).toBe(0);
+    expect(data.hallOfFameRecords?.length).toBe(0); // With full block try/catch, broken record is aborted
   });
 
   it('should rethrow unexpected errors', () => {
