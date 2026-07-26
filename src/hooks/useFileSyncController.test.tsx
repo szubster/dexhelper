@@ -206,6 +206,41 @@ describe('useFileSyncController', () => {
     expect(r2Client.putSave).toHaveBeenCalledWith('existing-save-id', expect.any(Uint8Array));
   });
 
+  it('should fallback to save-1 if no R2 saves exist', async () => {
+    const { AUTH_LOGGED_IN_INDICATOR } = await import('../contexts/AuthContext');
+    const { r2Client } = await import('../utils/r2/client');
+
+    localStorage.setItem(AUTH_LOGGED_IN_INDICATOR, 'true');
+    vi.mocked(r2Client.listSaves).mockResolvedValue([]);
+
+    // Setup file mock
+    const mockFile = {
+      arrayBuffer: vi.fn<() => Promise<ArrayBuffer>>().mockResolvedValue(new ArrayBuffer(8)),
+      get lastModified() { return 1000; },
+    };
+
+    const mockHandle = {
+      getFile: vi.fn<() => Promise<unknown>>().mockImplementation(() => Promise.resolve(mockFile)),
+    };
+
+    Object.defineProperty(window, 'showOpenFilePicker', {
+      value: vi.fn<() => Promise<unknown[]>>().mockResolvedValue([mockHandle]),
+      writable: true,
+      configurable: true,
+    });
+
+    vi.mocked(saveParser.parseSaveFile).mockReturnValue({
+      gameVersion: 'red',
+      // biome-ignore lint/suspicious/noExplicitAny: Mock value typing
+    } as any);
+
+    void render(<TestComponent />);
+    await page.getByTestId('request-btn').click();
+    await vi.advanceTimersByTimeAsync(0);
+
+    expect(r2Client.putSave).toHaveBeenCalledWith('save-1', expect.any(Uint8Array));
+  });
+
   it('should gracefully handle R2 failure', async () => {
     const { AUTH_LOGGED_IN_INDICATOR } = await import('../contexts/AuthContext');
     const { r2Client } = await import('../utils/r2/client');
