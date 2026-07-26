@@ -1,10 +1,12 @@
 import type React from 'react';
 import { useEffect } from 'react';
+import { AUTH_LOGGED_IN_INDICATOR } from '../contexts/AuthContext';
 import { saveDB } from '../db/SaveDB';
 import { parseSaveFile } from '../engine/saveParser/index';
 import { useStore } from '../store';
 import { cn } from '../utils/cn';
 import { VERSION_THEMES } from '../utils/generationConfig';
+import { r2Client } from '../utils/r2/client';
 import { reloadPage } from '../utils/window';
 import { AppHeader } from './AppHeader';
 import { BottomNav } from './BottomNav';
@@ -39,7 +41,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = (e) => {
+    reader.onload = async (e) => {
       try {
         if (!(e.target?.result instanceof ArrayBuffer)) {
           throw new Error('Failed to read file as ArrayBuffer');
@@ -55,7 +57,19 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           setManualVersion(null);
         }
 
-        saveDB.putSave('last_save_file', new Uint8Array(buffer)).catch(() => console.error('System: sync failed'));
+        await saveDB
+          .putSave('last_save_file', new Uint8Array(buffer))
+          .catch(() => console.error('System: sync failed'));
+
+        if (localStorage.getItem(AUTH_LOGGED_IN_INDICATOR) === 'true') {
+          try {
+            const saves = await r2Client.listSaves();
+            const saveId = saves.length > 0 && saves[0] ? saves[0] : 'save-1';
+            await r2Client.putSave(saveId, new Uint8Array(buffer));
+          } catch {
+            console.error('System: push to cloud failed');
+          }
+        }
       } catch {
         setError('Failed to parse save file.');
         setSaveData(null);

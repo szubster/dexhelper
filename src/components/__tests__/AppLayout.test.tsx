@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createMemoryHistory, createRootRoute, createRouter, RouterProvider } from '@tanstack/react-router';
 import { afterEach, beforeEach, describe, expect, it, type Mock, vi } from 'vitest';
@@ -16,6 +17,13 @@ vi.mock('../../utils/window', () => ({
 
 vi.mock('../../engine/saveParser/index', () => ({
   parseSaveFile: vi.fn<typeof parseSaveFile>(),
+}));
+
+vi.mock('../../utils/r2/client', () => ({
+  r2Client: {
+    listSaves: vi.fn<() => Promise<string[]>>(),
+    putSave: vi.fn<(id: string, data: Uint8Array) => Promise<void>>(),
+  },
 }));
 
 describe('AppLayout chunk error handling', () => {
@@ -229,5 +237,176 @@ describe('AppLayout file upload', () => {
     );
 
     vi.unstubAllGlobals();
+  });
+
+  it('should push save to R2 when logged in', async () => {
+    const { AUTH_LOGGED_IN_INDICATOR } = await import('../../contexts/AuthContext');
+    const { r2Client } = await import('../../utils/r2/client');
+
+    localStorage.setItem(AUTH_LOGGED_IN_INDICATOR, 'true');
+    vi.mocked(r2Client.listSaves).mockResolvedValue(['existing-save']);
+    vi.mocked(r2Client.putSave).mockResolvedValue();
+
+    const putSaveSpy = vi.spyOn(saveDB, 'putSave').mockResolvedValue(undefined);
+
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>,
+    );
+
+    const file = new File(['mock save content'], 'save.sav', { type: 'application/octet-stream' });
+
+    await expect.element(page.getByText('[ UPLOAD.SYS ]')).toBeInTheDocument();
+
+    // biome-ignore lint/suspicious/noExplicitAny: Required for mock overriding context
+    const readAsArrayBufferMock = vi.fn<(_f: File) => void>(function (this: any, _f: File) {
+      const buffer = new ArrayBuffer(10);
+      if (this.onload) {
+        // biome-ignore lint/suspicious/noExplicitAny: internal mock state
+        this.onload({ target: { result: buffer } } as any);
+      }
+    });
+    vi.stubGlobal(
+      'FileReader',
+      class {
+        readAsArrayBuffer = readAsArrayBufferMock;
+      },
+    );
+
+    const element = document.querySelector('input[type="file"]') as HTMLInputElement;
+    const dataTransfer = new DataTransfer();
+    dataTransfer.items.add(file);
+
+    Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'files')?.set?.call(element, dataTransfer.files);
+    Object.defineProperty(element, 'files', {
+      value: dataTransfer.files,
+      configurable: true,
+      writable: true,
+    });
+
+    const changeEvent = new Event('change', { bubbles: true, cancelable: true });
+    element.dispatchEvent(changeEvent);
+
+    await vi.waitFor(
+      () => {
+        expect(parseSaveFile).toHaveBeenCalled();
+        expect(putSaveSpy).toHaveBeenCalled();
+        expect(r2Client.listSaves).toHaveBeenCalled();
+        expect(r2Client.putSave).toHaveBeenCalledWith('existing-save', expect.any(Uint8Array));
+      },
+      { timeout: 3000 },
+    );
+
+    vi.unstubAllGlobals();
+    localStorage.clear();
+  });
+
+  it('should fallback to save-1 if no R2 saves exist on upload', async () => {
+    const { AUTH_LOGGED_IN_INDICATOR } = await import('../../contexts/AuthContext');
+    const { r2Client } = await import('../../utils/r2/client');
+
+    localStorage.setItem(AUTH_LOGGED_IN_INDICATOR, 'true');
+    vi.mocked(r2Client.listSaves).mockResolvedValue([]);
+    vi.mocked(r2Client.putSave).mockResolvedValue();
+
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>,
+    );
+
+    const file = new File(['mock save content'], 'save.sav', { type: 'application/octet-stream' });
+    await expect.element(page.getByText('[ UPLOAD.SYS ]')).toBeInTheDocument();
+
+    // biome-ignore lint/suspicious/noExplicitAny: Required for mock overriding context
+    const readAsArrayBufferMock = vi.fn<(_f: File) => void>(function (this: any, _f: File) {
+      const buffer = new ArrayBuffer(10);
+      if (this.onload) {
+        // biome-ignore lint/suspicious/noExplicitAny: internal mock state
+        this.onload({ target: { result: buffer } } as any);
+      }
+    });
+    vi.stubGlobal(
+      'FileReader',
+      class {
+        readAsArrayBuffer = readAsArrayBufferMock;
+      },
+    );
+
+    const element = document.querySelector('input[type="file"]') as HTMLInputElement;
+    const dataTransfer = new DataTransfer();
+    dataTransfer.items.add(file);
+
+    Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'files')?.set?.call(element, dataTransfer.files);
+    Object.defineProperty(element, 'files', { value: dataTransfer.files, configurable: true, writable: true });
+
+    const changeEvent = new Event('change', { bubbles: true, cancelable: true });
+    element.dispatchEvent(changeEvent);
+
+    await vi.waitFor(
+      () => {
+        expect(r2Client.putSave).toHaveBeenCalledWith('save-1', expect.any(Uint8Array));
+      },
+      { timeout: 3000 },
+    );
+
+    vi.unstubAllGlobals();
+    localStorage.clear();
+  });
+
+  it('should gracefully handle R2 failure on upload', async () => {
+    const { AUTH_LOGGED_IN_INDICATOR } = await import('../../contexts/AuthContext');
+    const { r2Client } = await import('../../utils/r2/client');
+
+    localStorage.setItem(AUTH_LOGGED_IN_INDICATOR, 'true');
+    vi.mocked(r2Client.listSaves).mockRejectedValue(new Error('Network error'));
+
+    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    await render(
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>,
+    );
+
+    const file = new File(['mock save content'], 'save.sav', { type: 'application/octet-stream' });
+    await expect.element(page.getByText('[ UPLOAD.SYS ]')).toBeInTheDocument();
+
+    // biome-ignore lint/suspicious/noExplicitAny: Required for mock overriding context
+    const readAsArrayBufferMock = vi.fn<(_f: File) => void>(function (this: any, _f: File) {
+      const buffer = new ArrayBuffer(10);
+      if (this.onload) {
+        // biome-ignore lint/suspicious/noExplicitAny: internal mock state
+        this.onload({ target: { result: buffer } } as any);
+      }
+    });
+    vi.stubGlobal(
+      'FileReader',
+      class {
+        readAsArrayBuffer = readAsArrayBufferMock;
+      },
+    );
+
+    const element = document.querySelector('input[type="file"]') as HTMLInputElement;
+    const dataTransfer = new DataTransfer();
+    dataTransfer.items.add(file);
+
+    Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'files')?.set?.call(element, dataTransfer.files);
+    Object.defineProperty(element, 'files', { value: dataTransfer.files, configurable: true, writable: true });
+
+    const changeEvent = new Event('change', { bubbles: true, cancelable: true });
+    element.dispatchEvent(changeEvent);
+
+    await vi.waitFor(
+      () => {
+        expect(consoleErrorSpy).toHaveBeenCalledWith('System: push to cloud failed');
+      },
+      { timeout: 3000 },
+    );
+
+    vi.unstubAllGlobals();
+    localStorage.clear();
+    consoleErrorSpy.mockRestore();
   });
 });
