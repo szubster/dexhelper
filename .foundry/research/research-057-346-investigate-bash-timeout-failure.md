@@ -2,7 +2,7 @@
 id: research-057-346-investigate-bash-timeout-failure
 type: RESEARCH
 title: Investigate Bash Timeout Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-07-26'
 updated_at: '2026-07-26'

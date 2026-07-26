@@ -2,7 +2,7 @@
 id: task-259-348-egg-move-breeding-rules-impl
 type: TASK
 title: Breeding Mechanics Integration for Pathfinding (Implementation)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-26'
 updated_at: '2026-07-26'

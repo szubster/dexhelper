@@ -2,7 +2,7 @@
 id: task-261-332-npc-trade-state-integration-qa
 type: TASK
 title: NPC Trade State Integration QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-17'
 updated_at: '2026-07-26'

@@ -2,12 +2,12 @@
 id: task-333-346-rng-tid-sid-integration-impl
 type: TASK
 title: Implement RNG TID/SID Integration
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-25'
 updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '12455144608732302771'
+jules_session_id: null
 pr_number: null
 parent: story-130-333-rng-tid-sid-integration-retry
 tags:

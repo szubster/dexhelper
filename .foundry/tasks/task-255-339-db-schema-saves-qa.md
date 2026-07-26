@@ -2,13 +2,13 @@
 id: task-255-339-db-schema-saves-qa
 type: TASK
 title: QA Database Schema for Multiple Saves
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-21'
 updated_at: '2026-07-26'
 depends_on:
   - task-255-338-db-schema-saves-impl
-jules_session_id: '14373879936299843698'
+jules_session_id: null
 pr_number: null
 parent: story-036-255-progression-save-model
 tags:

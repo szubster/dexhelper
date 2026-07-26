@@ -1,11 +1,11 @@
 ---
 id: epic-335-345-spinda-pid-extraction
 type: EPIC
-title: "Gen 3 Spinda PID Extraction"
-status: PENDING
-owner_persona: "story_owner"
-created_at: "2026-07-26"
-updated_at: "2026-07-26"
+title: Gen 3 Spinda PID Extraction
+status: READY
+owner_persona: story_owner
+created_at: '2026-07-26'
+updated_at: '2026-07-26'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - data-extraction
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 3 Spinda PID Extraction

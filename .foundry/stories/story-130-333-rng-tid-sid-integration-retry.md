@@ -2,7 +2,7 @@
 id: story-130-333-rng-tid-sid-integration-retry
 type: STORY
 title: Retry RNG TID/SID Integration
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-18'
 updated_at: '2026-07-26'
