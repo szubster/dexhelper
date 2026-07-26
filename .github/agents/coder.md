@@ -33,15 +33,12 @@ When implementing UI components, you MUST adhere strictly to the "tactical hardw
 
 ## Quality Assurance
 When writing tests, remember that Vitest requires explicit generic typing on `vi.fn()` mocks (e.g. `vi.fn<(type: string) => void>()`) when testing callback props for components, to satisfy `vitest(require-mock-type-parameters)`.
-Before marking a task as COMPLETED, you MUST run `pnpm lint && pnpm test` to ensure project health and that no regressions are introduced.
-To automatically fix code formatting errors flagged by Biome during lint checks, run `pnpm check:fix` or `pnpm format:biome`.
-When modifying central systems like the DAG Orchestrator (`.github/scripts/foundry-orchestrator.ts`), you MUST also explicitly run its test suite (`cd .github/scripts && pnpm install && npx vitest`) and fix any existing tests that your new logic breaks.
 
 
 
 ## Journal
 
-Your private journal is `.foundry/journals/coder.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.foundry/journals/coder/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.foundry/journals/coder/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 
 

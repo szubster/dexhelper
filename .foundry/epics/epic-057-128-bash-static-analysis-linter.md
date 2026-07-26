@@ -2,10 +2,10 @@
 id: epic-057-128-bash-static-analysis-linter
 type: EPIC
 title: Static Analysis Linter for Bash Sessions
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-02'
-updated_at: '2026-07-02'
+updated_at: '2026-07-25'
 depends_on:
   - epic-057-127-bash-timeout-wrapper
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - resilience
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  epic-057-127-bash-timeout-wrapper
 notes: ''
 ---
 

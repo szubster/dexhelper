@@ -2,12 +2,12 @@
 id: idea-059-multi-save-trade-planner
 type: IDEA
 title: Multi-Save Trade Planner
-status: ACTIVE
-owner_persona: product_manager
+status: PENDING
+owner_persona: auditor
 created_at: '2026-05-20'
-updated_at: '2026-07-21'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '11035802156572541606'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -36,4 +36,5 @@ Introduce a "Multi-Save Mode" in DexHelper that allows users to analyze two or m
 This feature transforms DexHelper from a single-file viewer into a comprehensive Collection Manager. It directly solves the most tedious aspect of completing the retro Pokédex by providing actionable, cross-game intelligence, significantly reducing manual tracking and planning for players managing multiple versions.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD.
+- [x] Product Manager: Convert this idea into a PRD.
+- [ ] prd-059-336-multi-save-trade-planner

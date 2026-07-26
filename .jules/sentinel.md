@@ -13,3 +13,4 @@
 
 * Tested `extractPlayerTools` and `filterSuggestionsByMissingTools` in `encounterTools.ts`
 * Found a few type-checking edge cases when dealing with Vitest mocks and type definitions of `Suggestion`. Explicit casting via `CatchSuggestion` is necessary to satisfy strict schema shapes when instantiating subset configurations in tests.
+- Added E2E coverage for invalid save file upload in tests/e2e/save_management.spec.ts.

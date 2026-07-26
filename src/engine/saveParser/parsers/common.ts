@@ -1,3 +1,17 @@
+/**
+ * @module common
+ *
+ * Shared utilities and definitions for the save file parser engine.
+ *
+ * This module serves two critical roles:
+ * 1. **Unified Schema (`SaveData`)**: It defines the singular, cross-generation interface
+ *    that normalizes wildly different binary architectures (e.g. Gen 1's sequential block
+ *    vs Gen 3's A/B encrypted flash banks) into a consistent JSON payload for the UI.
+ * 2. **Shared Utilities**: It provides decoding and evaluation functions that are common
+ *    across multiple generations, such as character decoding (`decodeGen12String`), stat
+ *    DV parsing, and Shininess evaluation (`checkShiny`).
+ */
+
 export type GameVersion =
   | 'red'
   | 'blue'
@@ -221,6 +235,10 @@ export interface SaveData {
   kantoBadges?: number;
   /** The player's active bag inventory. */
   inventory: { id: number; quantity: number }[];
+  /** Gen 1 specific: Event flags for one-time TMs. */
+  gen1TMEventFlags?: Record<number, boolean>;
+  /** TM and HM inventory mapped to moves. */
+  tms?: { id: number; moveId: number; isAcquired: boolean; quantity: number }[];
   /** Items stored in the player's PC. */
   pcItems?: { id: number; quantity: number }[];
   /** The total number of Pokémon currently stored in the active PC box. */
@@ -298,6 +316,10 @@ export interface SaveData {
   gen3MoveTutors?: Gen3MoveTutors;
   /** Gen 3 specific: Volcanic Ash gather count */
   gen3VolcanicAsh?: number;
+  /** Gen 3 specific: TM and HM inventory mapped to moves */
+  gen3TMHMs?: { itemId: number; quantity: number; moveId: number }[];
+  /** Gen 3 specific: TM event flags for one-time TM collection */
+  gen3TMEventFlags?: Record<string, boolean>;
 }
 
 // Removed byte helper as DataView provides getUint8 natively.

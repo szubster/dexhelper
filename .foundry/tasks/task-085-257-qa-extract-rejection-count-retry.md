@@ -2,10 +2,10 @@
 id: task-085-257-qa-extract-rejection-count-retry
 type: TASK
 title: QA Re-implement DAG Data Parsing for Rejection Count
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-25'
 depends_on:
   - task-085-256-impl-extract-rejection-count-retry
 jules_session_id: null
@@ -33,7 +33,7 @@ This is a verification task for `task-085-256-impl-extract-rejection-count-retry
 1. Verify context layer broadcasts `rejection_count`.
 
 ## Acceptance Criteria
-- [ ] QA: Verify context layer broadcasts `rejection_count`.
+- [x] QA: Verify context layer broadcasts `rejection_count`.
 
 ## Reminders
 - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
