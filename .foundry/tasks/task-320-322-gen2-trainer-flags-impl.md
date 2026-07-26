@@ -5,9 +5,9 @@ title: Gen 2 Trainer Data Extraction Implementation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-15'
-updated_at: '2026-07-24'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '4391890820326690560'
+jules_session_id: '139225397814633113'
 pr_number: null
 parent: story-306-320-gen2-trainer-data-extraction
 tags:

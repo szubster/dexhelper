@@ -5,9 +5,9 @@ title: Investigate Gen 2 Pokegear Phone Memory Offsets
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-24'
-updated_at: '2026-07-24'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '1305569792546413998'
+jules_session_id: '12134025364786193415'
 pr_number: null
 parent: story-118-286-filter-swarm-item-calls
 tags:

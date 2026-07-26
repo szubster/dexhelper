@@ -5,10 +5,10 @@ title: Implement Gen 2 Pokegear Registered Numbers Parsing
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-23'
-updated_at: '2026-07-24'
+updated_at: '2026-07-25'
 depends_on:
   - research-283-336-gen2-phone-memory-offsets
-jules_session_id: '17205299688216999320'
+jules_session_id: '6485052553091534731'
 pr_number: null
 parent: story-116-283-parse-registered-numbers
 tags:

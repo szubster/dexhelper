@@ -2,13 +2,13 @@
 id: task-319-323-gen1-tm-hm-parsing-qa
 type: TASK
 title: Gen 1 TM/HM Save Parsing QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-14'
-updated_at: '2026-07-24'
+updated_at: '2026-07-26'
 depends_on:
   - task-319-322-gen1-tm-hm-parsing-impl
-jules_session_id: '12963042110592146086'
+jules_session_id: null
 pr_number: null
 parent: story-306-319-gen1-tm-hm-parsing
 tags:
@@ -38,8 +38,8 @@ Verify the implementation of Gen 1 TM/HM save parsing logic. The parsing engine 
 - Inline magic numbers (e.g., 0x27e6, 0x25c9) are directly used in `src/engine/saveParser/parsers/gen1.ts` for extraction. These need to be converted to module-level constants.
 
 ## Acceptance Criteria
-- [ ] Verify that Gen 1 TM/HM parsing correctly extracts items and quantities.
-- [ ] Verify that TM/HMs are correctly mapped to moves.
-- [ ] Verify that event flags for one-time TMs are extracted.
-- [ ] Verify compliance with ADR 028 (no magic numbers, constants at module level).
-- [ ] Run test suite and ensure all tests pass.
+- [x] Verify that Gen 1 TM/HM parsing correctly extracts items and quantities.
+- [x] Verify that TM/HMs are correctly mapped to moves.
+- [x] Verify that event flags for one-time TMs are extracted.
+- [x] Verify compliance with ADR 028 (no magic numbers, constants at module level).
+- [x] Run test suite and ensure all tests pass.

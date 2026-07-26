@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-07-19'
 updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '10972748191367287349'
+jules_session_id: '17371367933937836846'
 pr_number: null
 parent: epic-044-149-gen3-roamer-core-extraction-v4
 tags:

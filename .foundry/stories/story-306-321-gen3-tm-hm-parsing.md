@@ -5,9 +5,9 @@ title: Gen 3 TM/HM Parse
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-07-16'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '590647662185466620'
 pr_number: null
 parent: epic-110-306-tm-hm-save-parsing
 tags:

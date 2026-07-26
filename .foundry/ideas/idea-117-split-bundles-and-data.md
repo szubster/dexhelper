@@ -2,12 +2,12 @@
 id: idea-117-split-bundles-and-data
 type: IDEA
 title: Split bundles and data by game generation
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2025-07-16'
 updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '3144329530440511414'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -49,3 +49,4 @@ Implement generation-based splitting for JavaScript engine logic, UI components,
 - [ ] `PokeDB.ts` updated to support multi-part data synchronization.
 - [ ] Performance verification: Measure and confirm reduction in initial JS and data payload.
 - [ ] Assigned a scheduled agent (e.g., **Bolt**) to monitor and maintain bundle sizes and lazy loading adherence.
+- [ ] prd-117-337-split-bundles-and-data

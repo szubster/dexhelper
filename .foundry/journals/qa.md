@@ -104,3 +104,9 @@ Validated that the implementation successfully fetches save data from R2 upon su
 - Verified that out-of-bounds `RangeError` reads are caught and rethrown with 'The save file is corrupted or incomplete.'
 - Verified tests pass (`pnpm lint && pnpm test`).
 - Marked task as COMPLETED by checking off acceptance criteria.
+## 2026-07-21: task-137-210-global-ribbon-dashboard-scaffold-qa
+
+- Evaluated the `GlobalRibbonChecklistDashboard` component.
+- The implementer correctly added tests for the Gen 3 data handling.
+- E2E tests have been added (`global_ribbons.spec.ts`) that correctly omit the `DASH` tab when handling earlier generation saves (Gen 1 / Gen 2).
+- Marked the E2E test for Gen 3 as skipped until a reliable Gen 3 save fixture becomes available.

@@ -5,9 +5,9 @@ title: Gen 3 Static Encounters UI Implementation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-20'
-updated_at: '2026-07-24'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '2387973019396036236'
+jules_session_id: '11437146369172009827'
 pr_number: null
 parent: story-138-295-gen3-static-encounters-ui
 tags:

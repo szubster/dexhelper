@@ -2,7 +2,7 @@
 id: epic-112-335-pokerus-strain-ui-detail-view-v2
 type: EPIC
 title: Pokerus Strain UI Tracker - Detail View V2
-status: FAILED
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-20'
 updated_at: '2026-07-25'
@@ -15,10 +15,8 @@ tags:
   - pokerus
   - ui
 research_references: []
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 # Epic: Pokerus Strain UI Tracker - Detail View V2

@@ -89,6 +89,8 @@ Updated the PRD by appending the Epics to the Acceptance Criteria. Corrected a m
 ## [2026-07-18] PRD to Epic Breakdown for Zod Schema Validation
 Broke down PRD prd-116-117-zod-schema-validation-orchestrator into two Epics: epic-117-334-define-zod-schema (to define the schema) and epic-117-335-integrate-zod-orchestrator (to integrate it into the orchestrator).
 
+## 2026-07-20: DAG ID Resolution from Pre-populated Checkboxes
+When creating Epics from PRDs that already have explicitly pre-populated child checkboxes in their Acceptance Criteria (e.g. `- [ ] epic-334-335-circular-dependency-detection-epic`), it is critical to not blindly trust the pre-populated sequence number (like `335`). You must dynamically resolve the correct next sequence number by checking the `.foundry/epics/` directory and update the parent's markdown accordingly (e.g. changing it to `338`). Failing to do so causes DAG ID conflicts and overwrites existing Epic nodes.
 ## 2026-07-20 - PRD-119-118 Breakdown
 **Action**: Broke down `prd-119-118-gen2-unown-dex-tracker` into two granular epics.
 - `epic-118-338-gen2-unown-dex-data-extraction`: Handles extracting caught Unown forms and Ruins of Alph puzzle event flags from Gen 2 save data.

@@ -95,10 +95,18 @@ const BITS_PER_BYTE_SHIFT = 3;
 const BIT_INDEX_MASK = 7;
 
 /**
- * Evaluates which Gen 1 static encounters have been claimed.
+ * Evaluates which Gen 1 static encounters (gifts, trades, legendaries) have been claimed.
  *
- * @param eventFlags - The raw byte array of event flags.
- * @returns A dictionary of claimed static encounters.
+ * **Architecture Note:**
+ * The Gen 1 Game Boy stores all global event flags in a packed bit array (1 bit per event)
+ * to conserve memory. Since the game engine provides the flag ID as a continuous integer, we
+ * must map it into the specific byte offset and bit position in the buffer.
+ *
+ * @param eventFlags - The raw byte array of event flags (`0x29e6` to `0x2afe`).
+ * @returns A dictionary mapping the specific Pokémon instance ID to a boolean of whether it has been claimed.
+ * @example
+ * const claimed = parseGen1StaticEncounters(saveData.eventFlags);
+ * if (claimed[150]) { console.log('Mewtwo has been captured!'); }
  */
 export function parseGen1StaticEncounters(eventFlags: Uint8Array): Record<number, boolean> {
   const claimed: Record<number, boolean> = {};
