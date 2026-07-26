@@ -26,9 +26,9 @@ notes: ''
 Verify the Graveyard Box UI setting and its integration with the backend state.
 
 ## Contract / Acceptance Criteria
-- [ ] Verify the UI component for Graveyard Box selection exists and works.
-- [ ] Verify the UI setting is correctly connected to the backend state (`nuzlockeGraveyardBox` in the store).
-- [ ] Verify adherence to the tactical hardware/snooping design constraint.
+- [x] Verify the UI component for Graveyard Box selection exists and works.
+- [x] Verify the UI setting is correctly connected to the backend state (`nuzlockeGraveyardBox` in the store).
+- [x] Verify adherence to the tactical hardware/snooping design constraint.
 
 ## Instructions & Reminders for QA
 - **Note:** This functionality appears to already exist. Verify it.
