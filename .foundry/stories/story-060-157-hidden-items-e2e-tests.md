@@ -2,12 +2,12 @@
 id: story-060-157-hidden-items-e2e-tests
 type: STORY
 title: E2E Tests for Hidden Items UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-28'
-updated_at: '2026-07-21'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '9434132320820354098'
+jules_session_id: null
 pr_number: null
 parent: epic-037-060-hidden-items-ui
 tags:
@@ -31,3 +31,7 @@ To ensure the Hidden Items Finder UI functions as expected and integrates proper
 ## 3. Acceptance Criteria
 - [ ] E2E tests are implemented and pass consistently.
 - [ ] Tests correctly evaluate component rendering and dynamic updates.
+
+## Tasks
+- [ ] task-157-338-hidden-items-e2e-tests-impl
+- [ ] task-157-339-hidden-items-e2e-tests-qa

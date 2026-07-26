@@ -2,10 +2,10 @@
 id: epic-112-335-pokerus-strain-ui-detail-view-v2
 type: EPIC
 title: Pokerus Strain UI Tracker - Detail View V2
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-20'
-updated_at: '2026-07-20'
+updated_at: '2026-07-25'
 depends_on:
   - research-112-334-investigate-pokerus-ui-epic-failure
 jules_session_id: null
@@ -15,8 +15,8 @@ tags:
   - pokerus
   - ui
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 # Epic: Pokerus Strain UI Tracker - Detail View V2
@@ -28,4 +28,5 @@ Implement the UI presentation layer to display the specific Pokerus strain data 
 - Requires completion of `research-112-334-investigate-pokerus-ui-epic-failure` to incorporate fixes from previous rejections.
 
 ## 3. Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into actionable Stories based on research findings.
+- [x] Story Owner: Break down this Epic into actionable Stories based on research findings.
+- [x] story-322-323-pokerus-strain-detail-ui

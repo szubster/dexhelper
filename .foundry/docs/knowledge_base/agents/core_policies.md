@@ -75,7 +75,7 @@ If you are woken up by the Orchestrator because a child node reached its Max Rej
 1. Spawn a `RESEARCH` node to investigate the root cause of the failure.
 2. Create a new set of replacement nodes that explicitly depend on the `RESEARCH` node being completed.
 3. Append these new nodes to your own markdown body.
-4. **CRITICAL:** You MUST check off the markdown checkboxes (`- [x]`) of the permanently failed child nodes in your own markdown body. (Note: The Orchestrator will automatically cascade cancellations to any orphaned dependent child nodes). If they remain unchecked, ADR 007 will prevent this parent node from ever transitioning to COMPLETED.
+4. **CRITICAL:** You MUST check off the markdown checkboxes (`- [x]`) of the permanently failed child nodes in your own markdown body. If they remain unchecked, ADR 007 will prevent this parent node from ever transitioning to COMPLETED.
 
 ## Late Binding for Missing Context
 If you lack critical context or specifications (e.g., exact memory offsets) necessary to implement a task or generate actionable blueprints, DO NOT guess or implement generic fallbacks. Instead, you MUST utilize the late binding pattern to suspend the task:
@@ -114,3 +114,8 @@ If you lack critical context or specifications (e.g., exact memory offsets) nece
 * Use non-blocking alternatives like `cat` or `tail -n`.
 * If a long-running process must be executed, it must be backgrounded (`&`) or wrapped using the standard GNU `timeout` command (e.g., `timeout 30s command`).
 * **Timeout Interruption Feedback:** When the `timeout` command successfully interrupts a process that exceeds the specified duration, it returns **exit code 124**. Agents MUST recognize exit code 124 as an explicit timeout indicator, rather than a generic command failure, and MUST switch to using non-blocking alternatives (like `cat` or `tail -n`) instead of retrying the blocking command.
+
+## Quality Assurance & Testing Policy
+Before marking a task as COMPLETED or approving it, you MUST run `pnpm lint && pnpm test` to ensure project health and that no regressions are introduced.
+To automatically fix code formatting errors flagged by Biome during lint checks, run `pnpm check:fix` or `pnpm format:biome`.
+When modifying or verifying central systems like the DAG Orchestrator (`.github/scripts/foundry-orchestrator.ts`), you MUST also explicitly run its test suite (`cd .github/scripts && pnpm install && npx vitest`) and verify that no test functionality is broken.

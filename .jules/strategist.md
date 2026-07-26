@@ -394,8 +394,19 @@
 **Why:** Agents were repeatedly instructed to read `.foundry/docs/adrs/` in their initialization rules, but the ADRs were actually moved to `.foundry/archive/docs/adrs/` in a past update. This led to agents failing to read crucial architectural constraints, or failing during context gathering because the directory was practically empty (`.gitkeep`).
 **Pattern:** Ensure system prompts point to the correct, actual paths for documentation and context files to prevent agents from operating with outdated or missing constraints.
 
+## 2026-08-01 - [Accepted] - Prompt improvement - Consolidate Quality Assurance Policies
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The prompt evaluation identified duplication in the agent prompts where the "Quality Assurance" rules (running pnpm lint && pnpm test, Biome fixes, orchestrator tests) were explicitly defined in coder.md and qa.md, despite applying universally to implementers and reviewers. This bloated the prompts and caused inconsistencies.
+**Pattern:** Consolidate duplicated core prompt instructions into .foundry/docs/knowledge_base/agents/core_policies.md and instruct the agents to read it. This drastically reduces prompt size, creates a single source of truth, and allows global policy updates without touching multiple individual schedule files.
 ## 2026-08-01 - [Accepted] - Prompt improvement - Enforce xvfb-run for Playwright E2E tests
 **Type:** Prompt improvement
 **Outcome:** Merged
 **Why:** The memory requires that when running browser-based tests (such as Playwright E2E or Vitest browser) in the headless agent environment, agents must strictly prefix the test command with `xvfb-run` (e.g., `xvfb-run pnpm test:e2e`) to prevent browser launch failures and protocol connection errors. Several agent prompts (bolt, infras, mason, nurse, oak, palette, sculptor, sentinel, shield, sweeper, trainer) and the core policies were just using `pnpm test:e2e` instead of `xvfb-run pnpm test:e2e`.
 **Pattern:** Codify specific, recurring test framework constraints (like xvfb-run prefix for headless browser tests) directly into the agent prompts and core policies to prevent recurring test failures during the QA phase.
+
+## 2026-08-02 - [Accepted] - Prompt improvement - Enforce RangeError verification in Tech Lead blueprints
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `tech_lead.md` journal recorded that when drafting save parser blueprints using `DataView`, they explicitly mandate catching `RangeError` and throwing 'The save file is corrupted or incomplete.' to prevent QA rejections. However, this explicit blueprinting constraint was missing from the Tech Lead agent's prompt, which could lead to missed requirements and QA rejections for the Coder.
+**Pattern:** Codify specific, recurring architectural validation requirements (like checking for `RangeError` handling in save file parsers) directly into the Tech Lead agent's prompt to ensure strict and consistent architectural enforcement when generating tasks.

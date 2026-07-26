@@ -2,11 +2,6 @@ export interface LotteryPokemon {
   otId: number;
 }
 
-export const TIER_1_MATCHES = 5;
-export const TIER_2_MATCHES = 4;
-export const TIER_3_MATCHES = 3;
-export const TIER_4_MATCHES = 2;
-
 export interface LotteryResult {
   tier: 0 | 1 | 2 | 3 | 4;
   winningPokemon: LotteryPokemon | null; // Replace any with appropriate Pokemon type

@@ -2,12 +2,12 @@
 id: task-321-322-gen3-tm-hm-parsing-impl
 type: TASK
 title: Gen 3 TM/HM Parse - Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-15'
-updated_at: '2026-07-21'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '9888776362460545697'
+jules_session_id: null
 pr_number: null
 parent: story-306-321-gen3-tm-hm-parsing
 tags:
@@ -16,7 +16,7 @@ tags:
   - save-parsing
 research_references:
   - .foundry/docs/knowledge_base/moveset-inventory-memory-offsets.md
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
@@ -40,7 +40,7 @@ Parse the Gen 3 save file Item Bag to extract the player's current TM and HM inv
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 3 TM/HM item bag parsing mapping items to moves.
-- [ ] Extract Event Flags for one-time TM collection.
-- [ ] Ensure all offsets/lengths/bit locations/shifts are module-level constants.
-- [ ] Use resolved section offsets for relative memory offset calculations.
+- [x] Implement Gen 3 TM/HM item bag parsing mapping items to moves.
+- [x] Extract Event Flags for one-time TM collection.
+- [x] Ensure all offsets/lengths/bit locations/shifts are module-level constants.
+- [x] Use resolved section offsets for relative memory offset calculations.

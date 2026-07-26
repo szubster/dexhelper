@@ -88,7 +88,23 @@ Updated the PRD by appending the Epics to the Acceptance Criteria. Corrected a m
 - Re-enforced that assumptions about save file flags should not dictate extracting tasks without concrete evidence, opting instead for pure app-state tracking for the checklist.
 ## [2026-07-18] PRD to Epic Breakdown for Zod Schema Validation
 Broke down PRD prd-116-117-zod-schema-validation-orchestrator into two Epics: epic-117-334-define-zod-schema (to define the schema) and epic-117-335-integrate-zod-orchestrator (to integrate it into the orchestrator).
+
+## 2026-07-20: DAG ID Resolution from Pre-populated Checkboxes
+When creating Epics from PRDs that already have explicitly pre-populated child checkboxes in their Acceptance Criteria (e.g. `- [ ] epic-334-335-circular-dependency-detection-epic`), it is critical to not blindly trust the pre-populated sequence number (like `335`). You must dynamically resolve the correct next sequence number by checking the `.foundry/epics/` directory and update the parent's markdown accordingly (e.g. changing it to `338`). Failing to do so causes DAG ID conflicts and overwrites existing Epic nodes.
+## 2026-07-20 - PRD-119-118 Breakdown
+**Action**: Broke down `prd-119-118-gen2-unown-dex-tracker` into two granular epics.
+- `epic-118-338-gen2-unown-dex-data-extraction`: Handles extracting caught Unown forms and Ruins of Alph puzzle event flags from Gen 2 save data.
+- `epic-118-339-gen2-unown-dex-dashboard-ui`: Handles the visual presentation of the 26 Unown forms and actionable warnings for missing puzzle requirements. Depends on the data extraction epic.
+
+**Learnings/Decisions**:
+- Kept data logic separate from presentation to allow for independent implementation and testing.
+- Followed standard schema guidelines for mapping dependencies and setting sequence IDs.
+## 2026-07-19: Trick House Save Parsing Epic Replacement
+**Context:** The `epic-054-111-trick-house-save-parsing` node failed because it merged with unfulfilled acceptance criteria, specifically missing an E2E/integration story.
+**Action:** Cancelled the failed Epic and generated a replacement, `epic-054-338-trick-house-save-parsing`, which explicitly includes the missing E2E integration story requirement in its scope and acceptance criteria. Updated the parent PRD to check off the failed Epic and appended the new replacement Epic as an unchecked task using its Node ID. Updated the dependency in `epic-054-112-trick-house-ui` to point to the new replacement Epic.
 \nDemoted PRD 107 to PENDING by unchecking the 'Break down into Epics' acceptance criteria because its child epics are still pending or failed, adhering to the Late-Binding Orchestrator Demotion Rule.
 
 ## 2026-07-21
 - Transformed PRD for conflictless journals into an Epic. Ensures we transition from monolithic markdown files to conflict-less storage per session.
+
+- Handling Permanent Failures: When a downstream epic permanently fails, I must not just blindly resubmit. I must spawn a research node, create replacement epics dependent on that research, and check off the permanently failed nodes in the parent PRD.

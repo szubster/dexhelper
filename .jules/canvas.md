@@ -288,3 +288,15 @@
 **Outcome:** Accepted
 **Why:** Brings the version resolution interface fully in line with the tactical specialization motif. Standard modals and flat button grids break the "specialized hardware" immersion during a critical application action. Evolving it into a multi-pane hardware matrix with explicit diagnostics and data stream visualizations reinforces the fantasy of using raw hardware interfaces.
 **Pattern:** For critical decision inputs or error state resolutions, avoid standard web modals. Transform them into active "Arbitration Matrices" featuring multi-pane layouts, explicit diagnostic visualizers (like crosshairs or rotating radar elements), and faux hardware selection nodes to maintain the specialized device aesthetic.
+
+## 2026-08-16 - [Accepted] - 🖼️ Canvas: Tactical Reconnaissance Matrix Redesign
+**What:** Redesigned the `SearchAndFilters` component into a "Tactical Reconnaissance Matrix". Replaced the default variant of `TacticalPanel` with the cyan variant, added `<LcdGrid>` and `<HoverScanner>` to the container, and restyled the search input area to resemble a "Target Acquisition" radar node featuring an animated crosshair. Modified the filter buttons to resemble physical membrane switches with dedicated status LED indicators.
+**Outcome:** Accepted
+**Why:** The previous search bar and filter section looked like a standard web form, which broke the "specialized hardware" immersion during regular interaction. Transforming it into an active intelligence dashboard with radar crosshairs and membrane switch filters reinforces the fantasy of using a physical tactical device.
+**Pattern:** Always elevate search and filter controls from standard inputs to active "Acquisition Matrices" by incorporating hardware analogies (e.g. radar scans, membrane toggles, status LEDs) and structural paneling (`[ TARGET_ACQUISITION ]`) to maintain the specialized device simulation.
+
+## 2026-08-20 - [Accepted] - 🖼️ Canvas: Tactical Telemetry DataLabel Redesign
+**What:** Redesigned the `DataLabel` component into a "Tactical Telemetry Data Node". Replaced the simple span with a `w-fit` rigid segmented block (`group relative flex items-center border-l-[2px] border-dashed`) featuring an active status LED indicator (an absolutely positioned node that glows on hover) and strict uppercase monospace typography.
+**Outcome:** Accepted
+**Why:** Brings the granular data display labels in line with the established specialized hardware motif. The previous `DataLabel` was a simple styled text span, which broke the terminal simulation. Treating individual labels as active telemetry endpoints reinforces the physical device fantasy.
+**Pattern:** Apply tactical aesthetics (dashed borders acting as connecting lines, absolute positioning LEDs, tight monospace typography) even to the smallest, most granular data labeling elements to maintain absolute visual coherence deep within complex data views.

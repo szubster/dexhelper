@@ -39,10 +39,10 @@ Identify and implement ONE React refactoring opportunity by extracting a reusabl
 
 ## Journal
 
-Read `.jules/mason.md` before starting (create if missing).
+Read `.jules/mason/*.md` (your past journals) before starting.
 Log critical learnings: recurring patterns, extraction challenges, or reusable logic wins.
 
-Your private journal is `.jules/mason.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/mason/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/mason/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 
 ## Core Policies

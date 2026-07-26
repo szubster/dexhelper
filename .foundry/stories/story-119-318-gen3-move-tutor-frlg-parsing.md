@@ -2,12 +2,12 @@
 id: story-119-318-gen3-move-tutor-frlg-parsing
 type: STORY
 title: Parse Gen 3 FireRed/LeafGreen Move Tutor Flags
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-12'
-updated_at: '2026-07-20'
+updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '10241534692141613310'
+jules_session_id: null
 pr_number: null
 parent: epic-055-119-gen3-move-tutor-save-parsing
 tags:
@@ -34,4 +34,7 @@ As described in `research-055-247-gen3-move-tutor-offsets` (detailed in `gen3_mo
 - Extract the 18 specific Move Tutors available in FRLG.
 
 ## Acceptance Criteria
-- [ ] Create tasks for implementing DataView-based extraction of FRLG Move Tutor bits.
+- [x] Create tasks for implementing DataView-based extraction of FRLG Move Tutor bits.
+
+- [x] task-318-341-gen3-move-tutor-frlg-parsing-impl
+- [x] task-318-342-gen3-move-tutor-frlg-parsing-qa
