@@ -35,5 +35,5 @@ This is a retry of the cancelled `story-130-270-rng-tid-sid-integration`. The im
 - Ensure the component is correctly imported in `TelemetryMatrix.tsx`.
 
 ## Acceptance Criteria
-- [ ] Import `RngTidSidDisplay` in `src/components/header/TelemetryMatrix.tsx`.
-- [ ] Render `RngTidSidDisplay` in `TelemetryMatrix.tsx` and pass `saveData.trainerId` as `tid` and `saveData.secretId` as `sid`.
+- [x] Import `RngTidSidDisplay` in `src/components/header/TelemetryMatrix.tsx`.
+- [x] Render `RngTidSidDisplay` in `TelemetryMatrix.tsx` and pass `saveData.trainerId` as `tid` and `saveData.secretId` as `sid`.
