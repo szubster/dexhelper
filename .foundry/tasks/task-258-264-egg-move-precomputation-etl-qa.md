@@ -31,9 +31,9 @@ Verify the correct implementation of the BFS algorithm for Egg Move precomputati
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify BFS pathfinding algorithm correctly handles breeding mechanics (Egg Groups, etc.).
-- [ ] Verify the precomputed static data contains valid breeding chains for (Target Species, Egg Move) combinations.
-- [ ] Verify code meets project standards and no regressions are introduced.
+- [x] Verify BFS pathfinding algorithm correctly handles breeding mechanics (Egg Groups, etc.).
+- [x] Verify the precomputed static data contains valid breeding chains for (Target Species, Egg Move) combinations.
+- [x] Verify code meets project standards and no regressions are introduced.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
