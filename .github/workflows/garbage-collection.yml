@@ -39,7 +39,7 @@ jobs:
         run: |
           git config --global user.name "Foundry Orchestrator"
           git config --global user.email "orchestrator@szubster.com"
-          if [[ `git status --porcelain` ]]; then
+          if [[ $(git status --porcelain) ]]; then
             git add .
             git commit -m "chore(foundry): auto-remediate zombie nodes"
             git push

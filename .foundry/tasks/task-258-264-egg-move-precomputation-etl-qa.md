@@ -5,8 +5,9 @@ title: QA - Implement Egg Move Precomputation in ETL
 status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-03'
-updated_at: '2026-07-18'
-depends_on: []
+updated_at: '2026-07-26'
+depends_on:
+  - task-258-263-egg-move-precomputation-etl-impl
 jules_session_id: null
 pr_number: null
 parent: story-113-258-egg-move-pathfinding-core
@@ -15,7 +16,7 @@ tags:
   - mechanics
   - algorithm
 research_references: []
-rejection_count: 2
+rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---

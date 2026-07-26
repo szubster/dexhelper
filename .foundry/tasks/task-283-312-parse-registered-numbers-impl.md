@@ -2,12 +2,12 @@
 id: task-283-312-parse-registered-numbers-impl
 type: TASK
 title: Implement Gen 2 Pokegear Registered Numbers Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-11'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '18258845014153830342'
+jules_session_id: null
 pr_number: null
 parent: story-116-283-parse-registered-numbers
 tags:
@@ -34,7 +34,7 @@ Implement the parsing logic for Generation 2 Pokegear registered numbers and sta
 - **Empty PRs**: If you submit an empty PR for a completed task (e.g., passthrough), you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Define module-level constants for `wPhoneList` (size 11), `wSwarmFlags`, `wDailyPhoneItemFlags`, `wDailyPhoneTimeOfDayFlags`, and `wSpecialPhoneCallID`.
-- [ ] Implement robust save file parsing logic using the DataView API to extract the Pokegear registered numbers.
-- [ ] Implement explicit `RangeError` handling with `try/catch` block for out-of-bounds reads returning "The save file is corrupted or incomplete".
-- [ ] Ensure all code passes linting, tests, and formatting checks before submission.
+- [x] Define module-level constants for `wPhoneList` (size 11), `wSwarmFlags`, `wDailyPhoneItemFlags`, `wDailyPhoneTimeOfDayFlags`, and `wSpecialPhoneCallID`.
+- [x] Implement robust save file parsing logic using the DataView API to extract the Pokegear registered numbers.
+- [x] Implement explicit `RangeError` handling with `try/catch` block for out-of-bounds reads returning "The save file is corrupted or incomplete".
+- [x] Ensure all code passes linting, tests, and formatting checks before submission.

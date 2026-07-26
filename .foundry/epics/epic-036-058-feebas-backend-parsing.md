@@ -2,12 +2,12 @@
 id: epic-036-058-feebas-backend-parsing
 type: EPIC
 title: Feebas Seed Backend Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-05'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '3235657042468598680'
+jules_session_id: null
 pr_number: null
 parent: prd-066-036-feebas-tile-predictor
 tags:
@@ -25,9 +25,11 @@ Create a utility module that reads the parsed save file's data at the identified
 ## Acceptance Criteria
 - [x] Create a utility module for Feebas seed extraction.
 - [x] Implement Gen 3 algorithm to calculate the 6 tile coordinates based on the seed.
-- [ ] Ensure fast calculation concurrent with save file hydration.
+- [x] Ensure fast calculation concurrent with save file hydration.
 - [x] .foundry/archive/stories/story-058-095-feebas-seed-extraction.md
 - [x] .foundry/archive/stories/story-058-096-feebas-tile-calculation.md
 - [x] .foundry/archive/stories/story-058-152-refactor-feebas-magic-numbers.md
-- [ ] story-058-280-feebas-backend-integration
+- [x] story-058-280-feebas-backend-integration
+- [ ] story-058-341-feebas-fast-calculation
+- [ ] story-058-342-feebas-backend-integration-retry
 

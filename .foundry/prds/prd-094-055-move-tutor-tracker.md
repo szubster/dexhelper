@@ -5,7 +5,7 @@ title: Gen 3 Move Tutor Availability Dashboard PRD
 status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-30'
-updated_at: '2026-07-02'
+updated_at: '2026-07-26'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,13 +2,13 @@
 id: story-324-340-gen3-safari-zone-save-state
 type: STORY
 title: Gen 3 Safari Zone Save State Integration
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-22'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on:
   - story-324-322-safari-zone-static-tables
-jules_session_id: '17815098921364247089'
+jules_session_id: null
 pr_number: null
 parent: epic-113-324-safari-zone-data-integration
 tags:
@@ -32,4 +32,6 @@ This story covers extracting current Pokédex and PC Box state from Gen 3 save f
 - Map extracted data against static encounter tables for Safari Zone to calculate missing encounters.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] .foundry/tasks/task-340-341-gen3-safari-zone-state-impl.md
+- [ ] .foundry/tasks/task-340-342-gen3-safari-zone-state-qa.md
