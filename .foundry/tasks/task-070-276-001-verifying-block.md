@@ -2,19 +2,19 @@
 id: task-070-276-001-verifying-block
 type: TASK
 title: Orchestrator VERIFYING Hierarchical Block Fix Implementation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-14'
-updated_at: '2026-07-22'
+updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '4018754089040117417'
+jules_session_id: null
 pr_number: null
 parent: story-070-276-orchestrator-verifying-block
 tags:
   - orchestrator
   - bugfix
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---

@@ -2,13 +2,13 @@
 id: story-323-323-integrate-pokerus-strain-party-view
 type: STORY
 title: Integrate Pokerus Strain Badge in Party View
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-14'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on:
   - story-323-322-pokerus-strain-badge-component
-jules_session_id: '13829426497704316041'
+jules_session_id: null
 pr_number: null
 parent: epic-112-323-pokerus-strain-ui-grid-view
 tags:
@@ -30,4 +30,5 @@ Integrate the newly created Pokerus Strain badge into the Party view so players 
 - Extract the Pokerus strain data from the parsed Pokémon structure and pass it down.
 
 ## 3. Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-323-346-integrate-pokerus-strain-party-view-impl

@@ -2,12 +2,12 @@
 id: story-127-269-epic-e2e-safeguard
 type: STORY
 title: Enforce E2E Safeguards on Epics
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '8216856509574027356'
+jules_session_id: null
 pr_number: null
 parent: epic-057-127-orchestrator-safeguard-investigation
 tags:
@@ -33,6 +33,8 @@ Implement logic in `.github/scripts/foundry-orchestrator.ts` (or `foundry-heartb
 - [ ] task-269-334-e2e-safeguard-impl
 - [x] task-269-270-e2e-safeguard-qa
 - [ ] task-269-335-e2e-safeguard-qa
+- [ ] task-269-346-e2e-safeguard-impl
+- [ ] task-269-347-e2e-safeguard-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

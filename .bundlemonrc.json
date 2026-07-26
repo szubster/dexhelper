@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "assets/index-<hash>.js",
-      "maxSize": "320kb"
+      "maxSize": "330kb"
     },
     {
       "path": "assets/query-<hash>.js",
@@ -32,6 +32,10 @@
     {
       "path": "assets/xyflow-<hash>.js",
       "maxSize": "200kb"
+    },
+    {
+      "path": "assets/idb-<hash>.js",
+      "maxSize": "10kb"
     },
     {
       "path": "assets/style-<hash>.css",

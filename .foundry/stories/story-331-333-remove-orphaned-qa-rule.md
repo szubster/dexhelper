@@ -5,7 +5,7 @@ title: Remove Orphaned QA Rule from Documentation
 status: READY
 owner_persona: tech_lead
 created_at: '2026-07-18'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - agile-coach
   - orchestrator
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---

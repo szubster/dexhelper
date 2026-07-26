@@ -5,7 +5,7 @@ title: Implement Gen 2 Pokegear Registered Numbers Parsing
 status: READY
 owner_persona: coder
 created_at: '2026-07-23'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on:
   - research-283-336-gen2-phone-memory-offsets
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - parser
 research_references:
   - .foundry/docs/knowledge_base/engine/save_parsing/gen2_phone_mechanics.md
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

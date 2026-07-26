@@ -5,9 +5,9 @@ title: Gen 2 TM/HM Parse Implementation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-14'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '5642436163128061145'
+jules_session_id: '4574366430382659043'
 pr_number: null
 parent: story-306-320-gen2-tm-hm-parsing
 tags:
@@ -15,7 +15,7 @@ tags:
   - gen2
   - save-parsing
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

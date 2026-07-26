@@ -59,14 +59,6 @@ During the resurrection loop for `idea-066-save-file-health-scanner` (Attempt 5)
 **Action & Constraint:**
 When assigned to a macro node (like an IDEA) that has spawned children, DO NOT transition it to VERIFYING (by submitting an Empty PR with all boxes checked) until ALL descendant nodes have transitioned to COMPLETED. If the downstream nodes are still PENDING, you MUST keep the macro node in a PENDING state. To do this, uncheck the Acceptance Criteria checkbox corresponding to the uncompleted downstream dependency and submit the PR. This breaks the premature verification loop and allows the system to wait for downstream implementation.
 
-## 2026-07-16 - Anomaly Found
-
-When generating the PRD for `idea-117-split-bundles-and-data`, I noticed that the research and ADR references (`research-117-325-bundle-splitting-analysis` and `adr-117-029-bundle-splitting-strategy`) already existed and were marked as completed in the IDEA node's acceptance criteria.
-
-## 2026-07-18
-
-**Anomaly Detected**:
-During the session to transform `idea-067-extract-dag-utils` into a PRD, it was discovered that the target artifact `prd-067-036-extract-dag-utils` already unexpectedly existed prior to the session. The Agile Coach should review this to determine why a target artifact was present before the IDEA was formally processed into a PRD in the current session.
 - Transformed IDEA-118 to PRD-118-117 by centralizing Coder and QA Task Prompt Reminders
 
 ## 2026-07-19
@@ -76,8 +68,6 @@ I noticed that `idea-118-orchestrator-circular-dependency-detection.md` containe
 ## 2026-07-20: PRD Formalization Protocol
 When converting an IDEA to a PRD, it is crucial to ensure that the PRD fully formalizes the proposed solution, rather than just copying a stripped-down summary. Specifically, if the IDEA outlines a distinct architectural or rendering approach (e.g., using a 2D canvas or layered SVG for rendering a procedurally generated visual pattern), these technical details MUST be explicitly carried over into the PRD's description to ensure downstream personas (Epic Planner, Architect, Tech Lead) have the correct context.
 
-## 2026-07-20 - Anomaly Found
-When handling idea-117-split-bundles-and-data, I found that the target PRD artifact prd-117-116-split-bundles-and-data already existed with status COMPLETED. The PRD was successfully generated beforehand.
 - 2026-07-20: Formalized idea-120 into prd-120-335 to transition from monolithic agent journals to session-unique markdown files, eliminating persistent GitHub merge conflicts.
 
 ## [2026-07-21] Converted IDEA-062 into PRD-062-336
@@ -85,8 +75,3 @@ When handling idea-117-split-bundles-and-data, I found that the target PRD artif
 - Outlined Server-Side Integration (Cloudflare webhook) and Alternative Companion App approaches.
 ## Multi-Save Trade Planner PRD Generation (2026-07-21)
 Converted idea-059 into PRD. Encountered a unique case where the feature operates across multiple concurrent active data states, heavily affecting architectural assumptions around single-source-of-truth stores. Future PMs should be mindful when writing PRDs that span multiple saves simultaneously.
-## 2026-07-22 - Idea Transformation to PRD Anomaly
-When beginning the session to transform `idea-117-split-bundles-and-data` into a PRD, I discovered that the target artifact `prd-117-116-split-bundles-and-data` already existed and its acceptance criteria was checked on the idea node. This is an anomaly that the Agile Coach should review. Submitting an empty PR to allow the DAG to progress since the target artifact exists.
-
-## Anomaly: Target Artifact Already Exists
-During the session to process `idea-117-split-bundles-and-data`, it was discovered that the target artifact `prd-117-116-split-bundles-and-data` already existed and was checked off prior to this session. This anomaly should be reviewed by the Agile Coach. Submitting an empty PR to demote the parent node to PENDING.
