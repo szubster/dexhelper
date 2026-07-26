@@ -25,9 +25,9 @@ notes: ''
 Implement a UI setting to allow users to designate a specific PC box as the Graveyard Box.
 
 ## Contract / Acceptance Criteria
-- [ ] Create a UI component/setting for Graveyard Box selection (or verify it exists, as it seems present in `SettingsControls`).
-- [ ] Connect the UI setting to the backend state (it appears to be connected in `SettingsModal`).
-- [ ] Strictly adhere to the tactical hardware/snooping design constraint for all UI components.
+- [x] Create a UI component/setting for Graveyard Box selection (or verify it exists, as it seems present in `SettingsControls`).
+- [x] Connect the UI setting to the backend state (it appears to be connected in `SettingsModal`).
+- [x] Strictly adhere to the tactical hardware/snooping design constraint for all UI components.
 
 ## Instructions & Reminders for Coder
 - **Note:** This functionality appears to already exist in `src/components/settings/SettingsControls.tsx` and `src/components/SettingsModal.tsx`. Ensure everything works as expected and submit an Empty PR checking off all Acceptance Criteria if no code changes are needed.
