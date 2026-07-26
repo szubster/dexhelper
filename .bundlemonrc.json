@@ -34,6 +34,10 @@
       "maxSize": "200kb"
     },
     {
+      "path": "assets/idb-<hash>.js",
+      "maxSize": "10kb"
+    },
+    {
       "path": "assets/style-<hash>.css",
       "maxSize": "165kb"
     },

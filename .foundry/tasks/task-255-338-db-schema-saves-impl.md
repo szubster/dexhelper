@@ -32,6 +32,6 @@ To support progression tracking and multiple save files per playthrough, we need
 - Ensure the schema structures are serializable and structured appropriately to support future syncing with the Cloudflare backend.
 
 ## Acceptance Criteria
-- [ ] Update `SAVE_HISTORY_DB_CONFIG.VERSION` to 2 in `src/db/schema.ts`.
-- [ ] Add the `trainers` object store to `SaveHistoryDBSchema`.
-- [ ] Add the necessary indexes to the `saves` store to establish relationships to the `trainers` store.
+- [x] Update `SAVE_HISTORY_DB_CONFIG.VERSION` to 2 in `src/db/schema.ts`.
+- [x] Add the `trainers` object store to `SaveHistoryDBSchema`.
+- [x] Add the necessary indexes to the `saves` store to establish relationships to the `trainers` store.
