@@ -51,6 +51,10 @@ const BERRY_WATERED_OFFSET = 5;
 const HIDDEN_ITEM_FLAGS_OFFSET = 62;
 
 const SECTION_SIZE = 4096;
+const GEN3_BERRY_PATCH_OFFSET = 0x071c;
+const GEN3_FLAGS_SECTION2_OFFSET = 0x02f0;
+const MIRAGE_ISLAND_OFFSET_EMERALD = 0x0464;
+const MIRAGE_ISLAND_OFFSET_RS = 0x0408;
 const GEN3_TRAINER_ID_OFFSET = 0x000a;
 const SECRET_ID_SHIFT = 16;
 const NUM_SECTIONS = 14;
@@ -356,7 +360,7 @@ function getLatestSectionOffset(view: DataView, targetSectionId: number): number
  */
 function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
   const patches: Gen3BerryPatch[] = [];
-  const baseOffset = saveBlock1Offset + 0x071c;
+  const baseOffset = saveBlock1Offset + GEN3_BERRY_PATCH_OFFSET;
 
   for (let i = 0; i < 128; i++) {
     const offset = baseOffset + i * 8;
@@ -910,7 +914,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       // Ignored
     }
 
-    const flagsOffset = section2Offset + 0x02f0;
+    const flagsOffset = section2Offset + GEN3_FLAGS_SECTION2_OFFSET;
     const hiddenItemFlags = new Uint8Array(14);
 
     for (let i = 0; i < 14; i++) {
@@ -919,7 +923,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       hiddenItemFlags[i] = ((currentByte >> 4) | ((nextByte & 0x0f) << 4)) & 0xff;
     }
 
-    const mirageIslandOffset = _forcedVersion === 'emerald' ? 0x0464 : 0x0408;
+    const mirageIslandOffset = _forcedVersion === 'emerald' ? MIRAGE_ISLAND_OFFSET_EMERALD : MIRAGE_ISLAND_OFFSET_RS;
     const mirageIslandValue = parseGen3MirageIslandValue(view, section2Offset + mirageIslandOffset);
 
     let gen3BattleFrontierWinStreaks: Gen3BattleFrontierWinStreaks | undefined;
