@@ -2,12 +2,12 @@
 id: story-139-297-gen2-roamer-core-extraction
 type: STORY
 title: Parse Gen 2 Roamer Core Data
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-11'
-updated_at: '2026-07-21'
+updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '7341714039294424840'
+jules_session_id: null
 pr_number: null
 parent: epic-043-139-gen2-roamer-data-extraction
 tags: []
