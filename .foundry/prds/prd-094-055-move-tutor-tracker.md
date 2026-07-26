@@ -2,7 +2,7 @@
 id: prd-094-055-move-tutor-tracker
 type: PRD
 title: Gen 3 Move Tutor Availability Dashboard PRD
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-30'
 updated_at: '2026-07-26'

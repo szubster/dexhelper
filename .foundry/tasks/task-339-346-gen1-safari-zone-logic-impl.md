@@ -2,10 +2,10 @@
 id: task-339-346-gen1-safari-zone-logic-impl
 type: TASK
 title: Gen 1 Safari Zone Missing Encounters Logic Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-25'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on: []
 jules_session_id: null
 pr_number: null
