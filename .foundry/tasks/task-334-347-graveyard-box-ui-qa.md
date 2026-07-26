@@ -2,13 +2,13 @@
 id: task-334-347-graveyard-box-ui-qa
 type: TASK
 title: Graveyard Box UI QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-25'
 updated_at: '2026-07-26'
 depends_on:
   - task-334-346-graveyard-box-ui-impl
-jules_session_id: '4493110731399186264'
+jules_session_id: null
 pr_number: null
 parent: story-131-334-graveyard-box-ui
 tags:
