@@ -33,6 +33,8 @@ Implement logic in `.github/scripts/foundry-orchestrator.ts` (or `foundry-heartb
 - [ ] task-269-334-e2e-safeguard-impl
 - [x] task-269-270-e2e-safeguard-qa
 - [ ] task-269-335-e2e-safeguard-qa
+- [ ] task-269-346-e2e-safeguard-impl
+- [ ] task-269-347-e2e-safeguard-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
