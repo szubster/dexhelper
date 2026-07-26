@@ -2,10 +2,10 @@
 id: story-119-318-gen3-move-tutor-frlg-parsing
 type: STORY
 title: Parse Gen 3 FireRed/LeafGreen Move Tutor Flags
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-12'
-updated_at: '2026-07-24'
+updated_at: '2026-07-26'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,5 +36,5 @@ As described in `research-055-247-gen3-move-tutor-offsets` (detailed in `gen3_mo
 ## Acceptance Criteria
 - [x] Create tasks for implementing DataView-based extraction of FRLG Move Tutor bits.
 
-- [ ] task-318-341-gen3-move-tutor-frlg-parsing-impl
-- [ ] task-318-342-gen3-move-tutor-frlg-parsing-qa
+- [x] task-318-341-gen3-move-tutor-frlg-parsing-impl
+- [x] task-318-342-gen3-move-tutor-frlg-parsing-qa

@@ -2,12 +2,12 @@
 id: story-138-294-gen3-static-encounters-parsing
 type: STORY
 title: Gen 3 Static Encounters Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-11'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '13196900096244356753'
+jules_session_id: null
 pr_number: null
 parent: epic-106-138-gen3-static-encounters
 tags:
@@ -31,3 +31,5 @@ Implement the save block extraction logic for Gen 3 event flags related to stati
 - [ ] Follow dynamic save block extraction guidelines (ADR 028).
 - [ ] task-294-331-gen3-static-encounter-flags-impl
 - [ ] task-294-332-gen3-static-encounter-flags-qa
+- [ ] task-294-346-gen3-static-encounter-flags-impl
+- [ ] task-294-347-gen3-static-encounter-flags-qa

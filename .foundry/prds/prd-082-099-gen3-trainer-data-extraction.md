@@ -2,12 +2,12 @@
 id: prd-082-099-gen3-trainer-data-extraction
 type: PRD
 title: Gen 3 Trainer Data Extraction
-status: ACTIVE
+status: READY
 owner_persona: epic_planner
 created_at: '2026-07-01'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '1822128316479176715'
+jules_session_id: null
 pr_number: null
 parent: idea-082-gen3-secret-id-shiny-rng
 tags:
@@ -32,3 +32,4 @@ Extract the Trainer ID (TID) and Secret ID (SID) from a Gen 3 save file and disp
 ## Acceptance Criteria
 - [x] Epic Planner: Convert this PRD into Epics.
 - [ ] epic-099-130-gen3-trainer-data-extraction
+- [ ] epic-099-346-gen3-trainer-data-extraction

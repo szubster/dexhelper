@@ -1370,7 +1370,7 @@ function readEventFlag(view: DataView, baseOffset: number, flag: number): boolea
  * Extracts event flags indicating if specific TMs have been collected.
  *
  * @param view - The raw save file DataView.
- * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @param saveBlock2Offset - The resolved memory offset to the active SaveBlock2.
  * @param gameVersion - The detected game version.
  * @returns An object containing boolean statuses for collected TMs.
  */

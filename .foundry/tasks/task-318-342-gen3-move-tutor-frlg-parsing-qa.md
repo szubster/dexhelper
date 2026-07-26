@@ -2,13 +2,13 @@
 id: task-318-342-gen3-move-tutor-frlg-parsing-qa
 type: TASK
 title: QA Gen 3 FRLG Move Tutor Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-25'
 updated_at: '2026-07-26'
 depends_on:
   - task-318-341-gen3-move-tutor-frlg-parsing-impl
-jules_session_id: '5216732828107445733'
+jules_session_id: null
 pr_number: null
 parent: story-119-318-gen3-move-tutor-frlg-parsing
 tags:

@@ -2,13 +2,13 @@
 id: epic-108-340-extend-phase-3-6-cancelled-nodes-retry
 type: EPIC
 title: Extend Phase 3.6 for CANCELLED nodes (Retry)
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-24'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on:
   - research-108-339-investigate-orchestrator-phase-3-6-failure
-jules_session_id: '12085455394380553495'
+jules_session_id: null
 pr_number: null
 parent: prd-086-108-fix-orchestrator-phase-3-6
 tags:
@@ -37,4 +37,5 @@ In `foundry-orchestrator.ts` Phase 3.6, nodes transitioning to `CANCELLED` statu
 - Update tests in `foundry-orchestrator.test.ts` to verify this exact behavior.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] [.foundry/stories/story-340-346-extend-phase-3-6-cancelled-nodes.md](.foundry/stories/story-340-346-extend-phase-3-6-cancelled-nodes.md)
