@@ -9,9 +9,10 @@ describe('MultiCriterionSorter', () => {
       speciesId: id,
       level,
       isShiny: false,
+      hash: '',
       moves: [],
       storageLocation: 'Box 1',
-    } as PokemonInstance,
+    } as unknown as PokemonInstance,
     metadata: {
       id,
       n: name,

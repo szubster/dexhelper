@@ -11,7 +11,7 @@ describe('Recursive Evolution Suggestions', () => {
       seen: new Set([4, 5, 6]),
       party: [],
       pc: [],
-      partyDetails: [{ speciesId: 4, level: 36, isShiny: false, moves: [], storageLocation: 'party' }],
+      partyDetails: [{ speciesId: 4, level: 36, isShiny: false, hash: '', moves: [], storageLocation: 'party' }],
       pcDetails: [],
       inventory: [],
       trainerName: 'ASH',

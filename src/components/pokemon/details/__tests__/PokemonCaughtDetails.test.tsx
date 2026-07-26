@@ -18,6 +18,7 @@ describe('PokemonCaughtDetails', () => {
     speciesId: 1, // Bulbasaur
     level: 5,
     isShiny: false,
+    hash: '',
     otName: 'ASH',
     storageLocation: 'Party',
     slot: 1,

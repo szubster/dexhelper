@@ -12,6 +12,7 @@ describe('AliveTeamView', () => {
       level: 5,
       currentHp: 18,
       isShiny: false,
+      hash: '',
       moves: [1, 2],
       storageLocation: 'Party',
       otName: 'CYNDAQUIL',
@@ -21,6 +22,7 @@ describe('AliveTeamView', () => {
       level: 4,
       currentHp: 0, // Dead
       isShiny: false,
+      hash: '',
       moves: [3, 4],
       storageLocation: 'Party',
       otName: 'PIDGEY',
@@ -30,6 +32,7 @@ describe('AliveTeamView', () => {
       level: 3,
       currentHp: 15,
       isShiny: false,
+      hash: '',
       moves: [5],
       storageLocation: 'Party',
       // Missing otName to test fallback
@@ -59,8 +62,8 @@ describe('AliveTeamView', () => {
 
   it('renders Team Wipe Detected state when no members are alive', async () => {
     const deadTeam: PokemonInstance[] = [
-      { ...mockTeam[1] } as PokemonInstance,
-      { ...mockTeam[1], speciesId: 19, otName: 'RATTATA' } as PokemonInstance,
+      { ...mockTeam[1] } as unknown as PokemonInstance,
+      { ...mockTeam[1], speciesId: 19, otName: 'RATTATA' } as unknown as PokemonInstance,
     ];
     await render(<AliveTeamView team={deadTeam} generation={mockGeneration} />);
 

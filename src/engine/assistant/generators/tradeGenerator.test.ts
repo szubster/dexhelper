@@ -18,7 +18,7 @@ describe('tradeGenerator', () => {
       'emerald',
       new Set([280]),
       { pokemonMetadata: {} } as unknown as import('../suggestionEngineTypes').AssistantApiData,
-      new Map([[280, [{} as PokemonInstance]]]),
+      new Map([[280, [{} as unknown as PokemonInstance]]]),
       suggestions,
       new Set([273, 116]),
     );

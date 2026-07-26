@@ -41,11 +41,7 @@ export function calculateBoxDiff(current: PokemonInstance[], target: PokemonInst
   const targetMap = new Map<string, PokemonInstance>();
 
   const getHash = (p: PokemonInstance) => {
-    // If the pokemon has a 'hash' property natively, use it, else generate one
-    if ('hash' in p && typeof p.hash === 'string') {
-      return p.hash;
-    }
-    return `${p.speciesId}-${p.level}-${p.nickname}-${p.dvs?.hp}-${p.dvs?.atk}-${p.dvs?.def}-${p.dvs?.spd}-${p.dvs?.spc}`;
+    return p.hash;
   };
 
   for (const p of current) {

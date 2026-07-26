@@ -83,7 +83,7 @@ describe('encounterTools', () => {
         pcItems: [],
       } as unknown as SaveData;
       const allInstances: PokemonInstance[] = [
-        { moves: [29, 249, 57] } as PokemonInstance, // Headbutt, Rock Smash, Surf
+        { moves: [29, 249, 57] } as unknown as PokemonInstance, // Headbutt, Rock Smash, Surf
       ];
 
       const tools = extractPlayerTools(saveData, allInstances);
@@ -113,7 +113,7 @@ describe('encounterTools', () => {
 
     it('should ignore missing arrays (undefined)', () => {
       const saveData: SaveData = {} as unknown as SaveData;
-      const allInstances: PokemonInstance[] = [{} as PokemonInstance];
+      const allInstances: PokemonInstance[] = [{} as unknown as PokemonInstance];
 
       const tools = extractPlayerTools(saveData, allInstances);
 

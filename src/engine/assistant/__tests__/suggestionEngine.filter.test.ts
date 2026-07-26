@@ -229,7 +229,7 @@ describe('Catch Encounter Filtering', () => {
     const saveData = createMockSaveData({
       owned: new Set([16]),
       partyDetails: [
-        { speciesId: 1, level: 10, otName: 'ASH', isShiny: false, moves: [29], storageLocation: 'party' },
+        { speciesId: 1, level: 10, otName: 'ASH', isShiny: false, hash: '', moves: [29], storageLocation: 'party' },
       ] as unknown as PokemonInstance[],
     });
     const apiData = createMockApiData();
@@ -397,7 +397,7 @@ describe('Catch Encounter Filtering', () => {
     const saveData = createMockSaveData({
       owned: new Set([16]),
       partyDetails: [
-        { speciesId: 1, level: 10, otName: 'ASH', isShiny: false, moves: [57], storageLocation: 'party' },
+        { speciesId: 1, level: 10, otName: 'ASH', isShiny: false, hash: '', moves: [57], storageLocation: 'party' },
       ] as unknown as PokemonInstance[],
     });
     const apiData = createMockApiData();

@@ -52,10 +52,18 @@ test('renders grid with pokemon', async () => {
       (selector as (state: unknown) => unknown)({
         saveData: {
           generation: 1,
-          partyDetails: [{ speciesId: 1, storageLocation: 'Party', level: 5, isShiny: false, otName: 'RED' }],
+          partyDetails: [{ speciesId: 1, storageLocation: 'Party', level: 5, isShiny: false, hash: '', otName: 'RED' }],
           pcDetails: [
-            { speciesId: 4, storageLocation: 'Box 1', level: 10, isShiny: true, otName: 'BLUE' },
-            { speciesId: 7, storageLocation: 'Box 1', level: 5, isShiny: false, isShinyCarrier: true, otName: 'GREEN' },
+            { speciesId: 4, storageLocation: 'Box 1', level: 10, isShiny: true, hash: '', otName: 'BLUE' },
+            {
+              speciesId: 7,
+              storageLocation: 'Box 1',
+              level: 5,
+              isShiny: false,
+              hash: '',
+              isShinyCarrier: true,
+              otName: 'GREEN',
+            },
           ],
         },
       }),
@@ -94,7 +102,15 @@ test('renders carrier anomaly LED correctly', async () => {
           generation: 1,
           partyDetails: [],
           pcDetails: [
-            { speciesId: 4, storageLocation: 'Box 1', level: 10, isShiny: false, isShinyCarrier: true, otName: 'BLUE' },
+            {
+              speciesId: 4,
+              storageLocation: 'Box 1',
+              level: 10,
+              isShiny: false,
+              hash: '',
+              isShinyCarrier: true,
+              otName: 'BLUE',
+            },
           ],
         },
       }),
