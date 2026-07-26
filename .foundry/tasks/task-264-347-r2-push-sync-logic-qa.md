@@ -31,5 +31,5 @@ Verify the implementation of pushing local save data to Cloudflare R2.
 - Verify it fails gracefully if R2 is unreachable, logging an error but still working locally.
 
 ## Acceptance Criteria
-- [ ] Push logic verified to execute upon file change/upload when logged in.
-- [ ] Graceful degradation is verified.
+- [x] Push logic verified to execute upon file change/upload when logged in.
+- [x] Graceful degradation is verified.
