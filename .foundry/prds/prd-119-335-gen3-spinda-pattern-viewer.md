@@ -28,4 +28,7 @@ Create a visual dashboard that parses Gen 3 save files to extract Spinda PIDs an
 The Spinda Pattern Viewer dashboard will parse Spinda PIDs from the uploaded Gen 3 save file and use a 2D canvas (or layered SVG) approach to render the exact spot patterns for each owned Spinda, displaying them in a unified gallery.
 
 ## Acceptance Criteria
-- [ ] epic_planner: Break this PRD down into actionable Epics.
+- [x] epic_planner: Break this PRD down into actionable Epics.
+- [ ] epic-335-345-spinda-pid-extraction
+- [ ] epic-335-346-spinda-pattern-rendering-engine
+- [ ] epic-335-347-spinda-viewer-dashboard-ui
