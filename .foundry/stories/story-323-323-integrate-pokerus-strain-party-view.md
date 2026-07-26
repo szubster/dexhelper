@@ -30,4 +30,5 @@ Integrate the newly created Pokerus Strain badge into the Party view so players 
 - Extract the Pokerus strain data from the parsed Pokémon structure and pass it down.
 
 ## 3. Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-323-346-integrate-pokerus-strain-party-view-impl
