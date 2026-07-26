@@ -36,6 +36,6 @@ You must verify the implementation from `task-318-341-gen3-move-tutor-frlg-parsi
 - Relative offsets calculated from the resolved section offset are used (ADR 028).
 
 ## Acceptance Criteria
-- [ ] Verify `DataView` is used exclusively for FRLG move tutor extraction.
-- [ ] Verify there are NO inline magic numbers for memory offsets.
-- [ ] Verify the parser relies on `DataView` bounds checking to fail gracefully on corrupted files.
+- [x] Verify `DataView` is used exclusively for FRLG move tutor extraction.
+- [x] Verify there are NO inline magic numbers for memory offsets.
+- [x] Verify the parser relies on `DataView` bounds checking to fail gracefully on corrupted files.
