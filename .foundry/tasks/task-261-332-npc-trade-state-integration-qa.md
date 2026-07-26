@@ -2,13 +2,13 @@
 id: task-261-332-npc-trade-state-integration-qa
 type: TASK
 title: NPC Trade State Integration QA
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-07-17'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on:
   - task-261-331-npc-trade-state-integration-impl
-jules_session_id: '8547507497881523917'
+jules_session_id: null
 pr_number: null
 parent: story-119-261-npc-trade-state-integration
 tags:
@@ -17,7 +17,7 @@ tags:
   - state-integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 

@@ -2,10 +2,10 @@
 id: task-324-346-integrate-pokerus-strain-box-view-impl
 type: TASK
 title: Integrate Pokerus Strain Badge in Box View Impl
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-25'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on: []
 jules_session_id: null
 pr_number: null

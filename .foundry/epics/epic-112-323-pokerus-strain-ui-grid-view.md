@@ -2,10 +2,10 @@
 id: epic-112-323-pokerus-strain-ui-grid-view
 type: EPIC
 title: Pokerus Strain UI Tracker - List/Grid View
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-07-13'
-updated_at: '2026-07-16'
+updated_at: '2026-07-26'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
 

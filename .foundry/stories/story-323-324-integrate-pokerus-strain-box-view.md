@@ -2,13 +2,13 @@
 id: story-323-324-integrate-pokerus-strain-box-view
 type: STORY
 title: Integrate Pokerus Strain Badge in Box View
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-14'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on:
   - story-323-322-pokerus-strain-badge-component
-jules_session_id: '9487673420993399529'
+jules_session_id: null
 pr_number: null
 parent: epic-112-323-pokerus-strain-ui-grid-view
 tags:

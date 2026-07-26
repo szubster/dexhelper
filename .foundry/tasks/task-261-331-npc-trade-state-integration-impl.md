@@ -2,10 +2,10 @@
 id: task-261-331-npc-trade-state-integration-impl
 type: TASK
 title: NPC Trade State Integration Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-07-17'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - backend
   - state-integration
 research_references: []
-rejection_count: 1
-rejection_reason: 'Implementation failed. 1) Test coverage for SaveData integration of npcTradeFlags and gen3NPCTrades is missing in gen3.test.ts. 2) Gen 3 parser uses section2Offset instead of section1Offset for Emerald and FRLG in parseGen3.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
