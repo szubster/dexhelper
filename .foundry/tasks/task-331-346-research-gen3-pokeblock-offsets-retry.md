@@ -2,12 +2,12 @@
 id: task-331-346-research-gen3-pokeblock-offsets-retry
 type: TASK
 title: Research Gen 3 Pokéblock Case Offsets (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-25'
 updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: null
+jules_session_id: '242603640380065275'
 pr_number: null
 parent: story-327-331-research-gen3-pokeblock-offsets
 tags:
