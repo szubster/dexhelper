@@ -19,6 +19,7 @@
  */
 
 import { calculateFeebasTiles, extractFeebasSeed } from '../../gen3/feebas';
+import { parseGen3MatchCall } from '../../gen3/matchCall/parser';
 import { parseSecretBaseRecord } from '../../gen3/secretBase/parser';
 import {
   parseGen3BattleFrontierSymbols,
@@ -1000,6 +1001,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const gen3TMHMs = parseGen3TMHMs(view, section1Offset, _forcedVersion || 'ruby', securityKey);
 
     const gen3TMEventFlags = parseGen3TMEventFlags(view, section2Offset, _forcedVersion || 'ruby');
+    const gen3MatchCall = parseGen3MatchCall(view, section1Offset, section2Offset, _forcedVersion || 'ruby');
 
     // Dummy scaffold values for now until fully implemented
     const result: SaveData = {
@@ -1032,6 +1034,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       gen3TMHMs,
       gen3TMEventFlags,
       gen3TrickHouse: parseTrickHouse(view, section1Offset),
+      ...(gen3MatchCall ? { gen3MatchCall } : {}),
     };
     if (gen3FeebasTiles !== undefined) {
       result.gen3FeebasTiles = gen3FeebasTiles;
