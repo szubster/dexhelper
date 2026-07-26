@@ -2,7 +2,7 @@
 id: prd-082-099-gen3-trainer-data-extraction
 type: PRD
 title: Gen 3 Trainer Data Extraction
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-01'
 updated_at: '2026-07-26'
