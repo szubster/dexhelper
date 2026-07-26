@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createMemoryHistory, createRootRoute, createRouter, RouterProvider } from '@tanstack/react-router';
 import { afterEach, beforeEach, describe, expect, it, type Mock, vi } from 'vitest';
@@ -20,8 +21,8 @@ vi.mock('../../engine/saveParser/index', () => ({
 
 vi.mock('../../utils/r2/client', () => ({
   r2Client: {
-    listSaves: vi.fn(),
-    putSave: vi.fn(),
+    listSaves: vi.fn<() => Promise<string[]>>(),
+    putSave: vi.fn<(id: string, data: Uint8Array) => Promise<void>>(),
   },
 }));
 

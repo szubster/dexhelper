@@ -1,4 +1,5 @@
 import { useState } from 'react';
+/* eslint-disable @typescript-eslint/unbound-method */
 import { afterEach, beforeEach, describe, expect, it, type Mock, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
@@ -10,8 +11,8 @@ import { useFileSyncController } from './useFileSyncController';
 // Mock dependencies
 vi.mock('../utils/r2/client', () => ({
   r2Client: {
-    listSaves: vi.fn(),
-    putSave: vi.fn(),
+    listSaves: vi.fn<() => Promise<string[]>>(),
+    putSave: vi.fn<(id: string, data: Uint8Array) => Promise<void>>(),
   },
 }));
 
