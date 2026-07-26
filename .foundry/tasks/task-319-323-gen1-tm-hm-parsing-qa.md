@@ -38,8 +38,8 @@ Verify the implementation of Gen 1 TM/HM save parsing logic. The parsing engine 
 - Inline magic numbers (e.g., 0x27e6, 0x25c9) are directly used in `src/engine/saveParser/parsers/gen1.ts` for extraction. These need to be converted to module-level constants.
 
 ## Acceptance Criteria
-- [ ] Verify that Gen 1 TM/HM parsing correctly extracts items and quantities.
-- [ ] Verify that TM/HMs are correctly mapped to moves.
-- [ ] Verify that event flags for one-time TMs are extracted.
-- [ ] Verify compliance with ADR 028 (no magic numbers, constants at module level).
-- [ ] Run test suite and ensure all tests pass.
+- [x] Verify that Gen 1 TM/HM parsing correctly extracts items and quantities.
+- [x] Verify that TM/HMs are correctly mapped to moves.
+- [x] Verify that event flags for one-time TMs are extracted.
+- [x] Verify compliance with ADR 028 (no magic numbers, constants at module level).
+- [x] Run test suite and ensure all tests pass.
