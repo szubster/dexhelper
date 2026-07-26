@@ -46,11 +46,11 @@ Verify the implementation of E2E safeguards on Epic nodes.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify E2E enforcement logic in `foundry-orchestrator.ts`.
-- [ ] Verify E2E enforcement logic in `foundry-heartbeat.ts`.
-- [ ] Verify unit tests in `foundry-orchestrator.test.ts`.
-- [ ] Verify unit tests in `foundry-heartbeat.test.ts`.
-- [ ] Ensure all unit tests pass successfully.
+- [x] Verify E2E enforcement logic in `foundry-orchestrator.ts`.
+- [x] Verify E2E enforcement logic in `foundry-heartbeat.ts`.
+- [x] Verify unit tests in `foundry-orchestrator.test.ts`.
+- [x] Verify unit tests in `foundry-heartbeat.test.ts`.
+- [x] Ensure all unit tests pass successfully.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
