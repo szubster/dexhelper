@@ -143,7 +143,7 @@ body {
 }
 
 @utility tactical-tooltip {
-  @apply rounded-none border border-dashed border-[var(--theme-border)] bg-zinc-950 px-2 py-1 font-mono text-[9px] text-zinc-300 uppercase tracking-widest whitespace-nowrap shadow-md;
+  @apply pointer-events-none absolute top-full left-1/2 z-50 mt-2 -translate-x-1/2 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100 rounded-none border border-dashed border-[var(--theme-border)] bg-zinc-950 px-2 py-1 font-mono text-[9px] text-zinc-300 uppercase tracking-widest whitespace-nowrap shadow-md;
 }
 
 @utility tactical-icon-button {
