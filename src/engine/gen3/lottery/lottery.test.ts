@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import type { PokemonInstance } from '../../saveParser/parsers/common';
 import { calculateLotteryTier, getBestLotteryMatch } from './lottery';
 
 describe('Lottery Matching Logic', () => {
@@ -37,9 +38,9 @@ describe('Lottery Matching Logic', () => {
   describe('getBestLotteryMatch', () => {
     it('should return the best match and corresponding pokemon', () => {
       const pokemonList = [
-        { otId: 11111 }, // No match
-        { otId: 99345 }, // Tier 3
-        { otId: 92345 }, // Tier 2
+        { otId: 11111 } as unknown as PokemonInstance, // No match
+        { otId: 99345 } as unknown as PokemonInstance, // Tier 3
+        { otId: 92345 } as unknown as PokemonInstance, // Tier 2
       ];
       const winningNumber = 12345;
 
@@ -49,7 +50,10 @@ describe('Lottery Matching Logic', () => {
     });
 
     it('should return tier 0 if no match found', () => {
-      const pokemonList = [{ otId: 11111 }, { otId: 22222 }];
+      const pokemonList = [
+        { otId: 11111 } as unknown as PokemonInstance,
+        { otId: 22222 } as unknown as PokemonInstance,
+      ];
       const winningNumber = 12345;
 
       const result = getBestLotteryMatch(pokemonList, winningNumber);
