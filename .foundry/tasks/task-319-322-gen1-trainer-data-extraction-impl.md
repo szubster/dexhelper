@@ -2,12 +2,12 @@
 id: task-319-322-gen1-trainer-data-extraction-impl
 type: TASK
 title: Gen 1 Trainer Data Extraction Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-14'
 updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5435473348021556757'
 pr_number: null
 parent: story-306-319-gen1-trainer-data-extraction
 tags:
