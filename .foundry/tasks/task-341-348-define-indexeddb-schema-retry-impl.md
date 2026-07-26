@@ -26,7 +26,7 @@ notes: ''
 Implement the database configuration and schema initialization logic for `SaveHistoryDB`. This may already be implemented in `src/db/schema.ts` from a previous iteration. If the target artifact already exists and is complete, submit an empty PR.
 
 ## Acceptance Criteria
-- [ ] Implement `SaveHistoryDB` configuration (version, name, object stores).
-- [ ] Define the `saves` object store.
-- [ ] Define the `metadata` object store.
-- [ ] Define the `indexes` object store.
+- [x] Implement `SaveHistoryDB` configuration (version, name, object stores).
+- [x] Define the `saves` object store.
+- [x] Define the `metadata` object store.
+- [x] Define the `indexes` object store.
