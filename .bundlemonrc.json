@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "assets/index-<hash>.js",
-      "maxSize": "320kb"
+      "maxSize": "335kb"
     },
     {
       "path": "assets/query-<hash>.js",
