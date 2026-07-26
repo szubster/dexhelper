@@ -27,11 +27,11 @@ Develop unit tests to verify that the core parsing logic for the Gen 3 Roamer st
 If you don't have access to fixtures, dynamically construct ArrayBuffer views representing the memory structure according to the constants defined in `src/engine/saveParser/parsers/gen3.ts`, and pass these ArrayBuffer views into `parseGen3Roamer`.
 Since this is a simple low-risk test implementation task, the Coder will self-verify. Document the verification in the coder's journal.
 ## Acceptance Criteria
-- [ ] Implement unit tests in `src/engine/saveParser/parsers/gen3.test.ts` for `parseGen3Roamer` logic.
-- [ ] Test extraction works for Ruby/Sapphire.
-- [ ] Test extraction works for Emerald.
-- [ ] Test extraction works for FireRed/LeafGreen.
-- [ ] Ensure `parseGen3Roamer` logic itself catches `RangeError` from out-of-bounds `DataView` reads and throws a new error with the exact message 'The save file is corrupted or incomplete.' (if not already handled).
-- [ ] Ensure all memory offsets, lengths, bit locations, and shifts in the source code are explicitly defined as reusable constants at the module level, strictly avoiding inline magic numbers.
-- [ ] Ensure the source uses the resolved section offset (e.g., `section1Offset`) to calculate relative memory offsets instead of hardcoded absolute offsets to properly support A/B bank flash memory.
-- [ ] The coder must run `pnpm test` to verify the tests pass successfully.
+- [x] Implement unit tests in `src/engine/saveParser/parsers/gen3.test.ts` for `parseGen3Roamer` logic.
+- [x] Test extraction works for Ruby/Sapphire.
+- [x] Test extraction works for Emerald.
+- [x] Test extraction works for FireRed/LeafGreen.
+- [x] Ensure `parseGen3Roamer` logic itself catches `RangeError` from out-of-bounds `DataView` reads and throws a new error with the exact message 'The save file is corrupted or incomplete.' (if not already handled).
+- [x] Ensure all memory offsets, lengths, bit locations, and shifts in the source code are explicitly defined as reusable constants at the module level, strictly avoiding inline magic numbers.
+- [x] Ensure the source uses the resolved section offset (e.g., `section1Offset`) to calculate relative memory offsets instead of hardcoded absolute offsets to properly support A/B bank flash memory.
+- [x] The coder must run `pnpm test` to verify the tests pass successfully.
