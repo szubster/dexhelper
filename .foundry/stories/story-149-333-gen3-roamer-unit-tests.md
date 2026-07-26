@@ -30,4 +30,4 @@ Develop unit tests to verify that the core parsing logic for the Gen 3 Roamer st
 ## Acceptance Criteria
 - [x] Tech Lead: Break down this Story into executable Tasks.
 - [x] task-333-333-gen3-roamer-extraction-tests-impl
-- [ ] task-333-346-gen3-roamer-extraction-tests-impl
+- [x] task-333-346-gen3-roamer-extraction-tests-impl
