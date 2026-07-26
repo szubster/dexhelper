@@ -156,3 +156,7 @@ Target code changes unexpectedly existed prior to the session. The E2E safeguard
 * Mapped Gen 1 NPC gift event flags for one-time TMs (like TM42 Dream Eater) into a `GEN1_TM_EVENT_FLAGS` constant.
 * Extracted the event flag bit shifts to explicit reusable constants (`BITS_PER_BYTE_SHIFT`, `BIT_INDEX_MASK`).
 * Integrated a new `tms` property directly into the `SaveData` payload across both inventory parsing and event flag derivation for Gen 1 save parsing.
+
+## 2026-07-26 - task-261-331-npc-trade-state-integration-impl
+- **Action**: Empty PR submitted for task-261-331-npc-trade-state-integration-impl because Gen 2 and Gen 3 NPC Trade mapping features to unified `SaveData.npcTradeFlags` (using `Object.values(gen3NPCTrades)` and array boolean maps) were already comprehensively implemented along with error catching and DataView validation tests. Checked off remaining Acceptance Criteria to advance the DAG naturally.
+- **Learnings**: Always verify codebase before implementing logic that might already be functionally complete.
