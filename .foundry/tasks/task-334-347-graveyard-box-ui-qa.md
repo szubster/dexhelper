@@ -2,10 +2,10 @@
 id: task-334-347-graveyard-box-ui-qa
 type: TASK
 title: Graveyard Box UI QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-25'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on:
   - task-334-346-graveyard-box-ui-impl
 jules_session_id: null
