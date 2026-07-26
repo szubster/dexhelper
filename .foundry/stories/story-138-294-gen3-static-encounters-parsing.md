@@ -31,3 +31,5 @@ Implement the save block extraction logic for Gen 3 event flags related to stati
 - [ ] Follow dynamic save block extraction guidelines (ADR 028).
 - [ ] task-294-331-gen3-static-encounter-flags-impl
 - [ ] task-294-332-gen3-static-encounter-flags-qa
+- [ ] task-294-346-gen3-static-encounter-flags-impl
+- [ ] task-294-347-gen3-static-encounter-flags-qa
