@@ -33,6 +33,6 @@ Verify the implementation of the new database schema updates for managing multip
 3. **Sync Readiness**: Review the schema design to ensure it is structured appropriately for syncing with the Cloudflare backend.
 
 ## Acceptance Criteria
-- [ ] Verify the schema correctly stores multiple save files per playthrough.
-- [ ] Verify the relationships between Trainer profiles and their respective save history.
-- [ ] Verify the schema supports syncing with the Cloudflare backend.
+- [x] Verify the schema correctly stores multiple save files per playthrough.
+- [x] Verify the relationships between Trainer profiles and their respective save history.
+- [x] Verify the schema supports syncing with the Cloudflare backend.
