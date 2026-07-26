@@ -2,6 +2,8 @@ import type { SaveData } from '../../engine/saveParser';
 import { CornerCrosshairs } from '../CornerCrosshairs';
 import { InlineDataPoint } from '../InlineDataPoint';
 import { VerticalDivider } from '../VerticalDivider';
+import { RngTidSidDisplay } from '../RngTidSidDisplay';
+
 
 interface TelemetryMatrixProps {
   saveData: SaveData;
@@ -39,6 +41,14 @@ export function TelemetryMatrix({ saveData, progressPercentage }: TelemetryMatri
           />
         </div>
       </div>
+      {saveData.secretId !== undefined && (
+        <>
+          <VerticalDivider className="h-8" />
+          <div className="flex h-full items-center justify-center pl-4">
+            <RngTidSidDisplay tid={saveData.trainerId} sid={saveData.secretId} className="h-full border-none !p-0 bg-transparent" />
+          </div>
+        </>
+      )}
     </div>
   );
 }
