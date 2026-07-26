@@ -22,10 +22,7 @@ export const TacticalIconButton = React.forwardRef<HTMLButtonElement, TacticalIc
       >
         {children}
         {title && (
-          <span
-            aria-hidden="true"
-            className="tactical-tooltip pointer-events-none absolute top-full left-1/2 z-50 mt-2 -translate-x-1/2 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
-          >
+          <span aria-hidden="true" className="tactical-tooltip">
             {title}
           </span>
         )}
