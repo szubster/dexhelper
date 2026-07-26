@@ -2,12 +2,12 @@
 id: story-113-258-egg-move-pathfinding-core
 type: STORY
 title: Core Pathfinding Algorithm for Breeding Chains
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-05'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9620075145162597744'
 pr_number: null
 parent: epic-055-113-egg-move-pathfinding-engine
 tags:

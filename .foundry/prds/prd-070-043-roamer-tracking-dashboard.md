@@ -5,9 +5,9 @@ title: Roamer Tracking Dashboard PRD
 status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-09'
-updated_at: '2026-07-10'
+updated_at: '2026-07-25'
 depends_on: []
-jules_session_id: '10479712932444324014'
+jules_session_id: '2458114442433715625'
 pr_number: null
 parent: idea-070-roamer-tracking-dashboard
 tags:
@@ -53,15 +53,15 @@ Based on an initial evaluation of the codebase:
 - [ ] A dedicated UI component displays the current location of any active roamers.
 - [ ] The feature only displays roamers that have actually been released in the save file's event flags.
 - [x] Break down this PRD into Epics.
-- [ ] research-043-263-roamer-tracking-remediation
+- [x] research-043-263-roamer-tracking-remediation
 - [ ] epic-043-139-gen2-roamer-data-extraction
 - [ ] epic-043-140-gen2-roamer-map-translation
 - [ ] epic-043-142-gen2-roamer-radar-widget
 - [ ] epic-043-143-gen2-roamer-map-integration
-- [ ] epic-043-152-gen3-roamer-data-extraction
-- [ ] epic-043-153-gen3-roamer-map-translation
-- [ ] epic-043-154-gen3-roamer-radar-widget
-- [ ] epic-043-155-gen3-roamer-map-integration
+- [x] epic-043-152-gen3-roamer-data-extraction
+- [x] epic-043-153-gen3-roamer-map-translation
+- [x] epic-043-154-gen3-roamer-radar-widget
+- [x] epic-043-155-gen3-roamer-map-integration
 
 ## 5. Next Steps
 - [x] Epic Planner: Break this PRD down into executable Epics (e.g., Engine Parsing, Mapping Translation, UI Dashboard).

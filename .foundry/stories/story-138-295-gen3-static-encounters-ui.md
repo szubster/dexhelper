@@ -2,12 +2,12 @@
 id: story-138-295-gen3-static-encounters-ui
 type: STORY
 title: Gen 3 Static Encounters UI
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-11'
-updated_at: '2026-07-20'
+updated_at: '2026-07-22'
 depends_on: []
-jules_session_id: '3000533230688195182'
+jules_session_id: null
 pr_number: null
 parent: epic-106-138-gen3-static-encounters
 tags:
@@ -28,3 +28,5 @@ Implement a UI checklist to track Gen 3 static encounters using the extracted sa
 - [ ] Create UI components to display static encounter checklist.
 - [ ] The UI must strictly adhere to the 'tactical hardware/snooping' design constraint, utilizing styling primitives like sharp edges (e.g., `rounded-none`), dashed borders (e.g., `border-dashed`), and monospaced telemetry fonts.
 - [ ] Ensure the component integrates seamlessly with the Gen 3 dashboard.
+- [ ] task-295-338-gen3-static-encounters-ui-impl
+- [ ] task-295-339-gen3-static-encounters-ui-qa

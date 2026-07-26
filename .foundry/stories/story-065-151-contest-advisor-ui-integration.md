@@ -2,12 +2,12 @@
 id: story-065-151-contest-advisor-ui-integration
 type: STORY
 title: Contest Advisor UI Integration
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-19'
-updated_at: '2026-07-21'
+updated_at: '2026-07-24'
 depends_on: []
-jules_session_id: '4305462415677248209'
+jules_session_id: null
 pr_number: null
 parent: epic-042-065-gen3-contest-advisor-ui
 tags:
@@ -29,3 +29,6 @@ Integrate the newly developed Contest Recommendation and Warning UI components i
 ## Acceptance Criteria
 - [ ] Integrate Contest Recommendation UI into the individual Pokémon detail view.
 - [ ] Integrate Contest Warning States UI into the individual Pokémon detail view.
+
+- [ ] task-151-342-contest-advisor-ui-integration-impl
+- [ ] task-151-343-contest-advisor-ui-integration-qa
