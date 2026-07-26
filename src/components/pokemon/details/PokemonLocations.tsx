@@ -10,6 +10,7 @@ import {
   Trees,
   Waves,
 } from 'lucide-react';
+import { useMemo } from 'react';
 import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schema';
 import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
 import { isValidStaticGameVersion, staticEncounters } from '../../../engine/data/shared/staticData';
@@ -47,7 +48,8 @@ export function PokemonLocations({
 }: PokemonLocationsProps) {
   const currentVersionId = POKE_VERSION_MAP[gameVersion.toLowerCase()];
   const staticEnc = isValidStaticGameVersion(gameVersion) ? staticEncounters[pokemonId]?.[gameVersion] : undefined;
-  const versionEnc = encounters.filter((e) => e.v === currentVersionId);
+  // ⚡ Bolt: Memoize versionEnc filtering to prevent unneeded array allocations on every render
+  const versionEnc = useMemo(() => encounters.filter((e) => e.v === currentVersionId), [encounters, currentVersionId]);
   const hasEncounters = (staticEnc && staticEnc.length > 0) || versionEnc.length > 0 || evoReq;
 
   return (

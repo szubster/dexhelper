@@ -111,6 +111,12 @@ export default defineConfig(() => {
             if (id.includes('node_modules/@xyflow/')) {
               return 'xyflow';
             }
+            if (id.includes('node_modules/msgpackr/')) {
+              return 'msgpackr';
+            }
+            if (id.includes('node_modules/idb/')) {
+              return 'idb';
+            }
             return undefined;
           }
         },

@@ -33,8 +33,8 @@ QA verification for the Gen 3 TM/HM parsing implementation.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify Gen 3 TM/HM item bag parsing maps items to moves correctly.
-- [ ] Verify Event Flags for one-time TM collection are extracted.
-- [ ] Verify all offsets/lengths/bit locations/shifts are module-level constants (no inline magic numbers).
-- [ ] Verify resolved section offsets are used for relative memory offset calculations.
-- [ ] Verify full `PokeData` property names are used.
+- [x] Verify Gen 3 TM/HM item bag parsing maps items to moves correctly.
+- [x] Verify Event Flags for one-time TM collection are extracted.
+- [x] Verify all offsets/lengths/bit locations/shifts are module-level constants (no inline magic numbers).
+- [x] Verify resolved section offsets are used for relative memory offset calculations.
+- [x] Verify full `PokeData` property names are used.
