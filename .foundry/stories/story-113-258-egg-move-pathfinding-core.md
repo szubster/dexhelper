@@ -25,8 +25,8 @@ notes: ''
 Implement the foundational Breadth-First Search (BFS) pathfinding algorithm to calculate valid breeding chains. This algorithm will traverse the static database (learnsets and Egg Moves) to find the shortest breeding path needed to pass a desired Egg Move to a target Pokémon species.
 
 ## Acceptance Criteria
-- [ ] Implement core pathfinding algorithm to find shortest breeding chains.
-- [ ] Support searching through static database (learnsets, Egg Moves).
+- [x] Implement core pathfinding algorithm to find shortest breeding chains.
+- [x] Support searching through static database (learnsets, Egg Moves).
 - [x] Break this story down into actionable TASKS.
 - [x] task-258-263-egg-move-precomputation-etl-impl
 - [x] task-258-264-egg-move-precomputation-etl-qa
