@@ -32,5 +32,5 @@ As the user makes progress or uploads new saves locally, these changes must be s
 - Use try/catch so R2 failures do not crash the app or block local IndexedDB persistence.
 
 ## Acceptance Criteria
-- [ ] Logic implemented to push local save data to R2 upon file upload and live file change in `useFileSyncController.ts`.
-- [ ] Implementation handles auth checks correctly.
+- [x] Logic implemented to push local save data to R2 upon file upload and live file change in `useFileSyncController.ts`.
+- [x] Implementation handles auth checks correctly.

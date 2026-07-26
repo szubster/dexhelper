@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { AUTH_LOGGED_IN_INDICATOR } from '../contexts/AuthContext';
 import { saveDB } from '../db/SaveDB';
 import { parseSaveFile } from '../engine/saveParser/index';
 import { useStore } from '../store';
+import { r2Client } from '../utils/r2/client';
 
 /**
  * Represents the current state of the File System Access API synchronization.
@@ -75,6 +77,17 @@ export function useFileSyncController() {
         }
 
         await saveDB.putSave('last_save_file', new Uint8Array(buffer));
+
+        if (localStorage.getItem(AUTH_LOGGED_IN_INDICATOR) === 'true') {
+          try {
+            const saves = await r2Client.listSaves();
+            const saveId = saves.length > 0 && saves[0] ? saves[0] : 'save-1';
+            await r2Client.putSave(saveId, new Uint8Array(buffer));
+          } catch {
+            console.error('System: push to cloud failed');
+          }
+        }
+
         setStatus('live');
         setErrorMsg(null);
       } catch {
