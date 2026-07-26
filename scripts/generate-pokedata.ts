@@ -947,10 +947,14 @@ for (const moveId of eggMovesIds) {
     if (!uData) continue;
 
     // Check if u can be male (gender_rate < 8 and !== -1)
+      // The father (u) passes the egg move. It must be male.
     const uGr = uData.gr !== undefined ? uData.gr : 4;
-    if (uGr === -1 || uGr === 8) continue; // Genderless or 100% Female cannot pass egg moves
+      if (uGr === -1 || uGr === 8) continue; // Genderless (-1) or 100% Female (8) cannot pass egg moves
 
-    const uEg = getEffectiveEggGroups(u);
+      // For the father, we strictly use its *own* egg groups, not effective ones from evolutions,
+      // because baby forms (which don't have egg groups) cannot be fathers.
+      const uEg = uData.eg || [];
+      if (uEg.length === 0 || uEg.includes(15)) continue; // 15 is "No Eggs" (e.g., babies, legendaries)
 
     for (const vData of pokemon) {
       const v = vData.id;
@@ -960,11 +964,16 @@ for (const moveId of eggMovesIds) {
       if (!targets.has(v) && !sources.has(v)) continue;
 
       const vGr = vData.gr !== undefined ? vData.gr : 4;
+        // The mother (v) determines the species. If it's a baby, it can't breed, but its evolved form can.
+        // So we use getEffectiveEggGroups to see if the species line can produce eggs.
       const vEg = getEffectiveEggGroups(v);
+
+        // If the mother's effective egg group is empty or is "No Eggs", it cannot breed.
+        if (vEg.length === 0 || vEg.includes(15)) continue;
 
       let canProduce = false;
 
-      // 1. Normal breeding: v has females, and u and v share an egg group
+        // 1. Normal breeding: v can be female (not genderless, not 100% male), and u and v share an egg group.
       if (vGr !== -1 && vGr !== 0 && uEg.some((g: number) => vEg.includes(g))) {
         canProduce = true;
       }
