@@ -3,6 +3,7 @@ import { getGen3UnobtainableReason } from '../../exclusives/gen3Exclusives';
 import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen3Graph';
 import type { SaveData } from '../../saveParser/index';
 import type { AssistantStrategy, Suggestion } from './types';
+import { getMatchCallSuggestions } from './utils/matchCall';
 import { getRoamerSuggestions } from './utils/roamer';
 
 export const gen3Strategy: AssistantStrategy = {
@@ -29,6 +30,7 @@ export const gen3Strategy: AssistantStrategy = {
       { id: 381, name: 'Latios' },
     ];
     suggestions.push(...getRoamerSuggestions(saveData, missingSet, roamers));
+    suggestions.push(...getMatchCallSuggestions(saveData));
 
     return suggestions;
   },
