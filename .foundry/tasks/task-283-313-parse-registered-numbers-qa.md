@@ -2,10 +2,10 @@
 id: task-283-313-parse-registered-numbers-qa
 type: TASK
 title: QA Gen 2 Pokegear Registered Numbers Parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-11'
-updated_at: '2026-07-11'
+updated_at: '2026-07-26'
 depends_on:
   - task-283-312-parse-registered-numbers-impl
 jules_session_id: null

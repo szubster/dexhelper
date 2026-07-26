@@ -5,7 +5,7 @@ title: Gen 3 Trainer Data Extraction
 status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - trainer
 research_references: []
 rejection_count: 3
-rejection_reason: Max rejection count reached
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

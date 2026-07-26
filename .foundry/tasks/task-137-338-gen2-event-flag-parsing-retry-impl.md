@@ -2,12 +2,12 @@
 id: task-137-338-gen2-event-flag-parsing-retry-impl
 type: TASK
 title: Gen 2 Event Flag Parsing Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-20'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '14037663772721128626'
+jules_session_id: null
 pr_number: null
 parent: story-137-333-gen2-event-flag-parsing-retry
 tags:
@@ -36,6 +36,6 @@ Implement the extraction of Gen 2 event flags from the save file.
 - Ensure appropriate RangeError handling for DataView operations.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 2 event flag extraction using the specified bit offsets.
-- [ ] Define all memory offsets and bit locations as reusable constants at the module level (no magic numbers).
-- [ ] Expose the extracted flags to the state management layer.
+- [x] Implement Gen 2 event flag extraction using the specified bit offsets.
+- [x] Define all memory offsets and bit locations as reusable constants at the module level (no magic numbers).
+- [x] Expose the extracted flags to the state management layer.

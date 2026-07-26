@@ -19,6 +19,7 @@
  */
 
 import { calculateFeebasTiles, extractFeebasSeed } from '../../gen3/feebas';
+import { parseGen3MatchCall } from '../../gen3/matchCall/parser';
 import { parseSecretBaseRecord } from '../../gen3/secretBase/parser';
 import {
   parseGen3BattleFrontierSymbols,
@@ -51,6 +52,10 @@ const BERRY_WATERED_OFFSET = 5;
 const HIDDEN_ITEM_FLAGS_OFFSET = 62;
 
 const SECTION_SIZE = 4096;
+const GEN3_BERRY_PATCH_OFFSET = 0x071c;
+const GEN3_FLAGS_SECTION2_OFFSET = 0x02f0;
+const MIRAGE_ISLAND_OFFSET_EMERALD = 0x0464;
+const MIRAGE_ISLAND_OFFSET_RS = 0x0408;
 const GEN3_TRAINER_ID_OFFSET = 0x000a;
 const SECRET_ID_SHIFT = 16;
 const NUM_SECTIONS = 14;
@@ -356,7 +361,7 @@ function getLatestSectionOffset(view: DataView, targetSectionId: number): number
  */
 function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
   const patches: Gen3BerryPatch[] = [];
-  const baseOffset = saveBlock1Offset + 0x071c;
+  const baseOffset = saveBlock1Offset + GEN3_BERRY_PATCH_OFFSET;
 
   for (let i = 0; i < 128; i++) {
     const offset = baseOffset + i * 8;
@@ -910,7 +915,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       // Ignored
     }
 
-    const flagsOffset = section2Offset + 0x02f0;
+    const flagsOffset = section2Offset + GEN3_FLAGS_SECTION2_OFFSET;
     const hiddenItemFlags = new Uint8Array(14);
 
     for (let i = 0; i < 14; i++) {
@@ -919,7 +924,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       hiddenItemFlags[i] = ((currentByte >> 4) | ((nextByte & 0x0f) << 4)) & 0xff;
     }
 
-    const mirageIslandOffset = _forcedVersion === 'emerald' ? 0x0464 : 0x0408;
+    const mirageIslandOffset = _forcedVersion === 'emerald' ? MIRAGE_ISLAND_OFFSET_EMERALD : MIRAGE_ISLAND_OFFSET_RS;
     const mirageIslandValue = parseGen3MirageIslandValue(view, section2Offset + mirageIslandOffset);
 
     let gen3BattleFrontierWinStreaks: Gen3BattleFrontierWinStreaks | undefined;
@@ -996,6 +1001,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const gen3TMHMs = parseGen3TMHMs(view, section1Offset, _forcedVersion || 'ruby', securityKey);
 
     const gen3TMEventFlags = parseGen3TMEventFlags(view, section2Offset, _forcedVersion || 'ruby');
+    const gen3MatchCall = parseGen3MatchCall(view, section1Offset, section2Offset, _forcedVersion || 'ruby');
 
     // Dummy scaffold values for now until fully implemented
     const result: SaveData = {
@@ -1028,6 +1034,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       gen3TMHMs,
       gen3TMEventFlags,
       gen3TrickHouse: parseTrickHouse(view, section1Offset),
+      ...(gen3MatchCall ? { gen3MatchCall } : {}),
     };
     if (gen3FeebasTiles !== undefined) {
       result.gen3FeebasTiles = gen3FeebasTiles;
@@ -1376,7 +1383,7 @@ function readEventFlag(view: DataView, baseOffset: number, flag: number): boolea
  * Extracts event flags indicating if specific TMs have been collected.
  *
  * @param view - The raw save file DataView.
- * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @param saveBlock2Offset - The resolved memory offset to the active SaveBlock2.
  * @param gameVersion - The detected game version.
  * @returns An object containing boolean statuses for collected TMs.
  */

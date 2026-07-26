@@ -2,12 +2,12 @@
 id: task-255-338-db-schema-saves-impl
 type: TASK
 title: Database Schema for Multiple Saves
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-21'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '3962446635472905754'
+jules_session_id: null
 pr_number: null
 parent: story-036-255-progression-save-model
 tags:
@@ -32,6 +32,6 @@ To support progression tracking and multiple save files per playthrough, we need
 - Ensure the schema structures are serializable and structured appropriately to support future syncing with the Cloudflare backend.
 
 ## Acceptance Criteria
-- [ ] Update `SAVE_HISTORY_DB_CONFIG.VERSION` to 2 in `src/db/schema.ts`.
-- [ ] Add the `trainers` object store to `SaveHistoryDBSchema`.
-- [ ] Add the necessary indexes to the `saves` store to establish relationships to the `trainers` store.
+- [x] Update `SAVE_HISTORY_DB_CONFIG.VERSION` to 2 in `src/db/schema.ts`.
+- [x] Add the `trainers` object store to `SaveHistoryDBSchema`.
+- [x] Add the necessary indexes to the `saves` store to establish relationships to the `trainers` store.

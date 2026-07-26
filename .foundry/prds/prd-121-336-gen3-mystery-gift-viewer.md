@@ -2,12 +2,12 @@
 id: prd-121-336-gen3-mystery-gift-viewer
 type: PRD
 title: Gen 3 Mystery Gift Viewer
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2024-07-24'
-updated_at: '2026-07-25'
+updated_at: '2026-07-26'
 depends_on: []
-jules_session_id: '448054359944447803'
+jules_session_id: null
 pr_number: null
 parent: idea-121-gen3-mystery-gift-viewer
 tags:
@@ -38,4 +38,6 @@ Create a Mystery Gift Viewer dashboard that parses the Mystery Gift blocks from 
 - Gen 1 or 2 Mystery Gift events.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into manageable Epics and Tasks for data extraction, UI dashboard creation, and testing.
+- [x] Epic Planner: Break down this PRD into manageable Epics and Tasks for data extraction, UI dashboard creation, and testing.
+- [ ] epic-121-345-gen3-mystery-gift-data-extraction
+- [ ] epic-121-346-gen3-mystery-gift-dashboard-ui

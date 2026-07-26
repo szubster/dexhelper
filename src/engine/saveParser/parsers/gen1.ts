@@ -18,6 +18,8 @@ const HIDDEN_COIN_FLAGS_OFFSET = 0x29aa;
 const HIDDEN_COIN_FLAGS_LENGTH = 2;
 const HOF_POKEMON_COUNT = 6;
 const HOF_POKEMON_LENGTH = 0x10;
+const INVENTORY_OFFSET = 0x25c9;
+const PC_ITEMS_OFFSET = 0x27e6;
 
 const INTERNAL_ID_TO_DEX: Record<number, number> = {
   1: 112,
@@ -679,16 +681,16 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
   const mapIdStr = currentMapId.toString();
   const currentMapName = isValidMapId(mapIdStr) ? gen1MapLocations[mapIdStr] : 'Unknown Map';
   const inventory: { id: number; quantity: number }[] = [];
-  const itemCount = view.getUint8(0x25c9 + offsetShift);
+  const itemCount = view.getUint8(INVENTORY_OFFSET + offsetShift);
   for (let i = 0; i < itemCount; i++) {
-    const itemOffset = 0x25ca + offsetShift + i * 2;
+    const itemOffset = INVENTORY_OFFSET + 1 + offsetShift + i * 2;
     inventory.push({ id: view.getUint8(itemOffset), quantity: view.getUint8(itemOffset + 1) });
   }
 
   const pcItems: { id: number; quantity: number }[] = [];
-  const pcItemCount = view.getUint8(0x27e6 + offsetShift);
+  const pcItemCount = view.getUint8(PC_ITEMS_OFFSET + offsetShift);
   for (let i = 0; i < Math.min(pcItemCount, 50); i++) {
-    const itemOffset = 0x27e7 + offsetShift + i * 2;
+    const itemOffset = PC_ITEMS_OFFSET + 1 + offsetShift + i * 2;
     pcItems.push({ id: view.getUint8(itemOffset), quantity: view.getUint8(itemOffset + 1) });
   }
 

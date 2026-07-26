@@ -2,7 +2,7 @@
 id: task-333-333-gen3-roamer-extraction-tests-impl
 type: TASK
 title: Implement Gen 3 Roamer Core Extraction Unit Tests
-status: COMPLETED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-19'
 updated_at: '2026-07-25'

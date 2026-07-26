@@ -1,11 +1,11 @@
 ---
 id: task-137-339-gen2-event-flag-parsing-retry-qa
 type: TASK
-title: "Gen 2 Event Flag Parsing QA"
-status: PENDING
+title: Gen 2 Event Flag Parsing QA
+status: READY
 owner_persona: qa
-created_at: "2026-07-20"
-updated_at: "2026-07-20"
+created_at: '2026-07-20'
+updated_at: '2026-07-26'
 depends_on:
   - task-137-338-gen2-event-flag-parsing-retry-impl
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
 research_references:
   - research-137-330-investigate-gen2-event-flag-failure
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 2 Event Flag Parsing QA
