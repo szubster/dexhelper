@@ -31,3 +31,5 @@ Define the `SaveHistoryDB` IndexedDB schema within the application codebase. Thi
 - [ ] Define the `saves` object store for raw binary save files (`Uint8Array`).
 - [ ] Define the `metadata` object store for save file metadata.
 - [ ] Define the `indexes` object store for fast retrieval of save data without parsing raw saves.
+- [ ] task-341-348-define-indexeddb-schema-retry-impl
+- [ ] task-341-349-define-indexeddb-schema-retry-qa
