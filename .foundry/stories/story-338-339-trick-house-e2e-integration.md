@@ -31,4 +31,4 @@ Write an E2E/integration testing story for end-to-end verification of Gen 3 Tric
 - Verify end-to-end flow with actual save file data.
 
 ## Acceptance Criteria
-- [ ] Create a TASK to write Playwright E2E tests for Trick House state extraction and display.
+- [x] Create a TASK to write Playwright E2E tests for Trick House state extraction and display.
