@@ -2,13 +2,13 @@
 id: task-294-336-diff-engine-hash-fix-impl
 type: TASK
 title: Implement PC Box Diff Engine Hash Fix
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-20'
 updated_at: '2026-07-26'
 depends_on:
   - research-294-335-diff-engine-hash-failure
-jules_session_id: null
+jules_session_id: '15858509672040182303'
 pr_number: null
 parent: story-137-294-diff-engine-logic
 tags:
