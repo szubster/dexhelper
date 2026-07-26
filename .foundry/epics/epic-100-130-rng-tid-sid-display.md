@@ -2,10 +2,10 @@
 id: epic-100-130-rng-tid-sid-display
 type: EPIC
 title: RNG TID and SID Display UI
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-02'
-updated_at: '2026-07-19'
+updated_at: '2026-07-26'
 depends_on: []
 jules_session_id: null
 pr_number: null
