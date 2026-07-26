@@ -30,4 +30,6 @@ Implement changes required by ADR 015. Update the runtime interfaces and compone
 
 ## Acceptance Criteria
 - [ ] Implement required application changes.
-- [ ] Break down story into tasks for technical blueprinting and implementation.
+- [x] Break down story into tasks for technical blueprinting and implementation.
+- [ ] task-336-346-update-runtime-interfaces-keys-impl
+- [ ] task-336-347-update-runtime-interfaces-keys-qa
