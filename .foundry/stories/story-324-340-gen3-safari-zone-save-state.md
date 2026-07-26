@@ -32,4 +32,6 @@ This story covers extracting current Pokédex and PC Box state from Gen 3 save f
 - Map extracted data against static encounter tables for Safari Zone to calculate missing encounters.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] .foundry/tasks/task-340-341-gen3-safari-zone-state-impl.md
+- [ ] .foundry/tasks/task-340-342-gen3-safari-zone-state-qa.md
