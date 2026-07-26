@@ -30,4 +30,5 @@ Integrate the Pokerus Strain badge into the PC Box list/grid view components.
 - Ensure it aligns correctly within the dense PC UI while adhering to the tactical design.
 
 ## 3. Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-324-346-integrate-pokerus-strain-box-view-impl
