@@ -59,7 +59,7 @@ const STATIC_GIFT_PIDS_GEN2 = Object.keys(STATIC_GIFT_DATA_GEN2).map((id) => par
  *
  * @param saveData - The parsed save data containing the player's current state, inventory, and party.
  * @param queryTargets - An array of Pokemon IDs (Pokedex numbers) the engine is actively trying to find suggestions for.
- * @returns An object containing grouped maps, locations, encounters, and pokemon metadata required for the engine's synchronous pass.
+ * @returns {Promise<AssistantApiData>} An object containing grouped maps, locations, encounters, and pokemon metadata required for the engine's synchronous pass.
  *
  * @remarks
  * **Why this design?**
