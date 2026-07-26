@@ -8,6 +8,13 @@ import { useStore } from '../store';
 import { useFileSyncController } from './useFileSyncController';
 
 // Mock dependencies
+vi.mock('../utils/r2/client', () => ({
+  r2Client: {
+    listSaves: vi.fn(),
+    putSave: vi.fn(),
+  },
+}));
+
 vi.mock('../db/SaveDB', () => ({
   saveDB: {
     putSave: vi.fn<() => void>(),
@@ -57,6 +64,7 @@ describe('useFileSyncController', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
+    localStorage.clear();
     vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'setTimeout'] });
 
     // Setup store mocks
@@ -155,6 +163,91 @@ describe('useFileSyncController', () => {
 
     expect(mockHandle.getFile).toHaveBeenCalledTimes(14); // 4 + 10 polls
     expect(mockSetSaveData).toHaveBeenCalledTimes(2); // File didn't change again
+  });
+
+  it('should push to R2 when logged in', async () => {
+    const { AUTH_LOGGED_IN_INDICATOR } = await import('../contexts/AuthContext');
+    const { r2Client } = await import('../utils/r2/client');
+
+    localStorage.setItem(AUTH_LOGGED_IN_INDICATOR, 'true');
+    vi.mocked(r2Client.listSaves).mockResolvedValue(['existing-save-id']);
+
+    // Setup file mock
+    const mockFile = {
+      arrayBuffer: vi.fn<() => Promise<ArrayBuffer>>().mockResolvedValue(new ArrayBuffer(8)),
+      get lastModified() {
+        return 1000;
+      },
+    };
+
+    const mockHandle = {
+      getFile: vi.fn<() => Promise<unknown>>().mockImplementation(() => {
+        return Promise.resolve(mockFile);
+      }),
+    };
+
+    Object.defineProperty(window, 'showOpenFilePicker', {
+      value: vi.fn<() => Promise<unknown[]>>().mockResolvedValue([mockHandle]),
+      writable: true,
+      configurable: true,
+    });
+
+    vi.mocked(saveParser.parseSaveFile).mockReturnValue({
+      gameVersion: 'red',
+      // biome-ignore lint/suspicious/noExplicitAny: Mock value typing
+    } as any);
+
+    void render(<TestComponent />);
+    await page.getByTestId('request-btn').click();
+    await vi.advanceTimersByTimeAsync(0);
+
+    expect(r2Client.listSaves).toHaveBeenCalled();
+    expect(r2Client.putSave).toHaveBeenCalledWith('existing-save-id', expect.any(Uint8Array));
+  });
+
+  it('should gracefully handle R2 failure', async () => {
+    const { AUTH_LOGGED_IN_INDICATOR } = await import('../contexts/AuthContext');
+    const { r2Client } = await import('../utils/r2/client');
+
+    localStorage.setItem(AUTH_LOGGED_IN_INDICATOR, 'true');
+    vi.mocked(r2Client.listSaves).mockRejectedValue(new Error('Network error'));
+
+    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    // Setup file mock
+    const mockFile = {
+      arrayBuffer: vi.fn<() => Promise<ArrayBuffer>>().mockResolvedValue(new ArrayBuffer(8)),
+      get lastModified() {
+        return 1000;
+      },
+    };
+
+    const mockHandle = {
+      getFile: vi.fn<() => Promise<unknown>>().mockImplementation(() => {
+        return Promise.resolve(mockFile);
+      }),
+    };
+
+    Object.defineProperty(window, 'showOpenFilePicker', {
+      value: vi.fn<() => Promise<unknown[]>>().mockResolvedValue([mockHandle]),
+      writable: true,
+      configurable: true,
+    });
+
+    vi.mocked(saveParser.parseSaveFile).mockReturnValue({
+      gameVersion: 'red',
+      // biome-ignore lint/suspicious/noExplicitAny: Mock value typing
+    } as any);
+
+    void render(<TestComponent />);
+    await page.getByTestId('request-btn').click();
+    await vi.advanceTimersByTimeAsync(0);
+
+    expect(consoleErrorSpy).toHaveBeenCalledWith('System: push to cloud failed');
+    // Ensure state still transitioned to live despite the R2 error
+    await expect.element(page.getByTestId('status')).toHaveTextContent('live');
+
+    consoleErrorSpy.mockRestore();
   });
 
   it('should clean up interval on unmount', async () => {
