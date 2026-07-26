@@ -21,7 +21,7 @@ describe('NodeFrontmatterSchema', () => {
       rejection_reason: "",
       notes: ""
     };
-    expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow();
+    expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
   });
 
   it('validates a minimal node', () => {
@@ -36,7 +36,7 @@ describe('NodeFrontmatterSchema', () => {
       depends_on: [],
       jules_session_id: null
     };
-    expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow();
+    expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
   });
 
   it('fails if required field is missing', () => {
@@ -51,7 +51,7 @@ describe('NodeFrontmatterSchema', () => {
       depends_on: [],
       jules_session_id: null
     };
-    expect(() => NodeFrontmatterSchema.parse(node)).toThrow();
+    expect(() => NodeFrontmatterSchema.parse(node)).toThrow(Error);
   });
 
   it('fails if type is invalid', () => {
@@ -66,7 +66,7 @@ describe('NodeFrontmatterSchema', () => {
       depends_on: [],
       jules_session_id: null
     };
-    expect(() => NodeFrontmatterSchema.parse(node)).toThrow();
+    expect(() => NodeFrontmatterSchema.parse(node)).toThrow(Error);
   });
 
   it('fails if status is invalid', () => {
@@ -81,7 +81,7 @@ describe('NodeFrontmatterSchema', () => {
       depends_on: [],
       jules_session_id: null
     };
-    expect(() => NodeFrontmatterSchema.parse(node)).toThrow();
+    expect(() => NodeFrontmatterSchema.parse(node)).toThrow(Error);
   });
 
   it('fails if owner_persona is invalid', () => {
@@ -96,7 +96,7 @@ describe('NodeFrontmatterSchema', () => {
       depends_on: [],
       jules_session_id: null
     };
-    expect(() => NodeFrontmatterSchema.parse(node)).toThrow();
+    expect(() => NodeFrontmatterSchema.parse(node)).toThrow(Error);
   });
 
   it('validates handling optional tags', () => {
@@ -112,6 +112,6 @@ describe('NodeFrontmatterSchema', () => {
       jules_session_id: null,
       tags: ["one", "two"]
     };
-    expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow();
+    expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
   });
 });
