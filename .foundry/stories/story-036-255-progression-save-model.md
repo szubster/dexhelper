@@ -31,5 +31,5 @@ To support progression tracking and multiple save files per playthrough, we need
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break this Story down into Tasks to define the specific database tables and indexes needed for managing multiple save files.
-- [ ] task-255-338-db-schema-saves-impl
-- [ ] task-255-339-db-schema-saves-qa
+- [x] task-255-338-db-schema-saves-impl
+- [x] task-255-339-db-schema-saves-qa
