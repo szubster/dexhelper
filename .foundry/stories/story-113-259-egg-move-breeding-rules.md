@@ -30,4 +30,6 @@ Enhance the core pathfinding algorithm to respect Gen 2 and Gen 3 breeding mecha
 - [ ] Ensure algorithm respects Egg Group matching.
 - [ ] Ensure algorithm respects gender requirements (opposite genders).
 - [ ] Exclude invalid breeding pairs (e.g., "No Eggs" group).
-- [ ] Break this story down into actionable TASKS.
+- [x] Break this story down into actionable TASKS.
+- [ ] task-259-348-egg-move-breeding-rules-impl
+- [ ] task-259-349-egg-move-breeding-rules-qa
