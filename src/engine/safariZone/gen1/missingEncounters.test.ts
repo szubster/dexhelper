@@ -45,7 +45,7 @@ describe('getMissingGen1SafariEncounters', () => {
     // Total areas should match the original data length, assuming all have 'red' encounters
     const redAreasWithEncounters = Gen1SafariZone.filter((a) => a.encounters.red && a.encounters.red.length > 0).length;
     expect(result.length).toBe(redAreasWithEncounters);
-    expect(result[0].encounters.red).toEqual(Gen1SafariZone[0].encounters.red);
+    expect(result[0]?.encounters.red).toEqual(Gen1SafariZone[0]?.encounters.red);
   });
 
   it('should correctly filter out owned pokemon', () => {

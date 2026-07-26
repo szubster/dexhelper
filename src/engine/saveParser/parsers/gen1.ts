@@ -47,8 +47,8 @@ const CURRENT_MAP_ID_OFFSET = 0x260a;
 const HALL_OF_FAME_COUNT_OFFSET = 0x25b3;
 const NPC_TRADES_OFFSET = -16;
 const NPC_TRADES_COUNT = 16;
-const _PIKACHU_FOLLOWING_STATUS_OFFSET = 0x271c;
-const _PIKACHU_HAPPINESS_OFFSET = 0x271d;
+const PIKACHU_FOLLOWING_STATUS_OFFSET = 0x271c;
+const PIKACHU_HAPPINESS_OFFSET = 0x271d;
 const PC_BOX_NUM_MASK = 0x7f;
 const PC_MAX_ITEMS = 50;
 const PC_BOX_OFFSETS = [0x4000, 0x4462, 0x48c4, 0x4d26, 0x5188, 0x55ea, 0x6000, 0x6462, 0x68c4, 0x6d26, 0x7188, 0x75ea];
@@ -219,9 +219,9 @@ const INTERNAL_ID_TO_DEX: Record<number, number> = {
  */
 function hasYellowPikachuMarkers(view: DataView): boolean {
   // High-confidence Yellow markers in English version
-  // 0x271C: Following Pikachu status, 0x271D: Pikachu Happiness
-  const followingPikachu = view.getUint8(0x271c);
-  const pikachuHappiness = view.getUint8(0x271d);
+  // PIKACHU_FOLLOWING_STATUS_OFFSET: Following Pikachu status, PIKACHU_HAPPINESS_OFFSET: Pikachu Happiness
+  const followingPikachu = view.getUint8(PIKACHU_FOLLOWING_STATUS_OFFSET);
+  const pikachuHappiness = view.getUint8(PIKACHU_HAPPINESS_OFFSET);
 
   // If these are non-zero and not FF (unitialized), it's almost certainly Yellow.
   // We use > 0 and < 0xFF to be safe against garbage data.
@@ -382,36 +382,33 @@ function parseGen1HallOfFameRecords(view: DataView, hallOfFameCount: number, tra
 
       for (let pokemonIndex = 0; pokemonIndex < HOF_POKEMON_COUNT; pokemonIndex++) {
         const offset = HOF_BASE_OFFSET + recordIndex * HOF_RECORD_LENGTH + pokemonIndex * HOF_POKEMON_LENGTH;
-        let internalId = view.getUint8(offset);
+        const internalId = view.getUint8(offset);
 
-      if (internalId === 0x00 || internalId === 0xff) {
-        continue;
-      }
-
-      const speciesId = INTERNAL_ID_TO_DEX[internalId];
-      if (!speciesId) {
-        continue;
-      }
-
-      let level: number;
-      try {
-        level = view.getUint8(offset + 1);
-      } catch (e) {
-        if (e instanceof RangeError) {
-          break;
+        if (internalId === 0x00 || internalId === 0xff) {
+          continue;
         }
-        throw e;
+
+        const speciesId = INTERNAL_ID_TO_DEX[internalId];
+        if (!speciesId) {
+          continue;
+        }
+
+        const level = view.getUint8(offset + 1);
+        const nickname = decodeGen12String(view, offset + 2, 11);
+
+        pokemon.push({ speciesId, level, nickname });
       }
 
-      const nickname = decodeGen12String(view, offset + 2, 11);
-
-      pokemon.push({ speciesId, level, nickname });
+      records.push({
+        playerName: trainerName,
+        pokemon,
+      });
     }
-
-    records.push({
-      playerName: trainerName,
-      pokemon,
-    });
+  } catch (e) {
+    if (e instanceof RangeError) {
+      return records;
+    }
+    throw e;
   }
 
   return records;
