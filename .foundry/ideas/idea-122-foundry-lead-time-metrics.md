@@ -2,7 +2,7 @@
 id: idea-122-foundry-lead-time-metrics
 type: IDEA
 title: "Implement Foundry Lead Time Metrics and Bottleneck Analysis"
-status: PENDING
+status: CANCELLED
 owner_persona: product_manager
 created_at: "2026-07-25"
 updated_at: "2026-07-25"
@@ -15,8 +15,8 @@ tags:
   - orchestrator
   - metrics
 research_references: []
-rejection_count: 0
-rejection_reason: ""
+rejection_count: 1
+rejection_reason: "User does not need lead time metrics; most time is spent on verification."
 notes: ""
 ---
 
