@@ -319,13 +319,20 @@ describe('AppLayout file upload', () => {
     const file = new File(['mock save content'], 'save.sav', { type: 'application/octet-stream' });
     await expect.element(page.getByText('[ UPLOAD.SYS ]')).toBeInTheDocument();
 
+    // biome-ignore lint/suspicious/noExplicitAny: Required for mock overriding context
     const readAsArrayBufferMock = vi.fn<(_f: File) => void>(function (this: any, _f: File) {
       const buffer = new ArrayBuffer(10);
       if (this.onload) {
+        // biome-ignore lint/suspicious/noExplicitAny: internal mock state
         this.onload({ target: { result: buffer } } as any);
       }
     });
-    vi.stubGlobal('FileReader', class { readAsArrayBuffer = readAsArrayBufferMock; });
+    vi.stubGlobal(
+      'FileReader',
+      class {
+        readAsArrayBuffer = readAsArrayBufferMock;
+      },
+    );
 
     const element = document.querySelector('input[type="file"]') as HTMLInputElement;
     const dataTransfer = new DataTransfer();
@@ -366,13 +373,20 @@ describe('AppLayout file upload', () => {
     const file = new File(['mock save content'], 'save.sav', { type: 'application/octet-stream' });
     await expect.element(page.getByText('[ UPLOAD.SYS ]')).toBeInTheDocument();
 
+    // biome-ignore lint/suspicious/noExplicitAny: Required for mock overriding context
     const readAsArrayBufferMock = vi.fn<(_f: File) => void>(function (this: any, _f: File) {
       const buffer = new ArrayBuffer(10);
       if (this.onload) {
+        // biome-ignore lint/suspicious/noExplicitAny: internal mock state
         this.onload({ target: { result: buffer } } as any);
       }
     });
-    vi.stubGlobal('FileReader', class { readAsArrayBuffer = readAsArrayBufferMock; });
+    vi.stubGlobal(
+      'FileReader',
+      class {
+        readAsArrayBuffer = readAsArrayBufferMock;
+      },
+    );
 
     const element = document.querySelector('input[type="file"]') as HTMLInputElement;
     const dataTransfer = new DataTransfer();

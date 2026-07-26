@@ -216,7 +216,9 @@ describe('useFileSyncController', () => {
     // Setup file mock
     const mockFile = {
       arrayBuffer: vi.fn<() => Promise<ArrayBuffer>>().mockResolvedValue(new ArrayBuffer(8)),
-      get lastModified() { return 1000; },
+      get lastModified() {
+        return 1000;
+      },
     };
 
     const mockHandle = {
