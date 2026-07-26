@@ -1269,10 +1269,20 @@ export const GEN3_TM_HM_MOVE_MAP: Record<number, number> = {
 /**
  * Extracts the Security Key used for encryption (money, items) in Gen 3 FRLG/Emerald saves.
  *
+ * **Architecture Note: Anti-Tampering (XOR Encryption)**
+ * While Ruby and Sapphire store player inventory and money in plain text, FireRed, LeafGreen,
+ * and Emerald introduced a rudimentary anti-tampering system to prevent trivial GameShark edits.
+ *
+ * At save time, the game generates a randomized 32-bit Security Key and stores it in Section 0.
+ * Critical values (like item quantities and wallet balances) are then XORed (`^`) against this
+ * key before being written to flash memory.
+ * To read the true quantity of a TM or item, the parser must first extract this dynamically
+ * shifting key and XOR it against the encrypted inventory values in SaveBlock1.
+ *
  * @param view - The raw save file DataView.
- * @param section0Offset - The resolved offset to Section 0.
- * @param gameVersion - The detected game version.
- * @returns The 32-bit security key.
+ * @param section0Offset - The resolved memory offset to Section 0 (where the key is located).
+ * @param gameVersion - The detected game version (determines the key's exact offset within Section 0).
+ * @returns The 32-bit security key (or 0 if Ruby/Sapphire, as they do not use encryption).
  */
 export function parseGen3SecurityKey(view: DataView, section0Offset: number, gameVersion: GameVersion): number {
   try {
