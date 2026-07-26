@@ -38,4 +38,6 @@ Create a Mystery Gift Viewer dashboard that parses the Mystery Gift blocks from 
 - Gen 1 or 2 Mystery Gift events.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into manageable Epics and Tasks for data extraction, UI dashboard creation, and testing.
+- [x] Epic Planner: Break down this PRD into manageable Epics and Tasks for data extraction, UI dashboard creation, and testing.
+- [ ] epic-121-345-gen3-mystery-gift-data-extraction
+- [ ] epic-121-346-gen3-mystery-gift-dashboard-ui
