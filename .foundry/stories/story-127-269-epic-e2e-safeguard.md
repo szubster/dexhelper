@@ -27,14 +27,14 @@ As part of enforcing macro node functional boundaries, we need to ensure that an
 Implement logic in `.github/scripts/foundry-orchestrator.ts` (or `foundry-heartbeat.ts`) to ensure that an EPIC node cannot be promoted to VERIFYING or COMPLETED unless it contains at least one child STORY that explicitly represents integration or E2E testing (e.g., tags contain `e2e` or `integration`).
 
 ## Acceptance Criteria
-- [ ] Implement E2E enforcement logic in orchestrator scripts.
-- [ ] Add unit tests for this new verification rule.
+- [x] Implement E2E enforcement logic in orchestrator scripts.
+- [x] Add unit tests for this new verification rule.
 - [x] task-269-269-e2e-safeguard-impl
-- [ ] task-269-334-e2e-safeguard-impl
+- [x] task-269-334-e2e-safeguard-impl
 - [x] task-269-270-e2e-safeguard-qa
-- [ ] task-269-335-e2e-safeguard-qa
-- [ ] task-269-346-e2e-safeguard-impl
-- [ ] task-269-347-e2e-safeguard-qa
+- [x] task-269-335-e2e-safeguard-qa
+- [x] task-269-346-e2e-safeguard-impl
+- [x] task-269-347-e2e-safeguard-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
