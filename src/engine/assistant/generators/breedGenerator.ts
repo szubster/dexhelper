@@ -64,7 +64,11 @@ export function generateBreedingSuggestions(
       if (canBreed && evolutionIdToBreed) {
         const isInDaycare = saveData.daycare?.some((d) => d.speciesId === evolutionIdToBreed) ?? false;
 
-        let description = `Leave your #${evolutionIdToBreed} at the Daycare to get an Egg!`;
+        let incenseText = '';
+        if (targetId === 298) incenseText = ' holding a Sea Incense';
+        else if (targetId === 360) incenseText = ' holding a Lax Incense';
+
+        let description = `Leave your #${evolutionIdToBreed}${incenseText} at the Daycare to get an Egg!`;
         let priority = 85;
         let title = `Breed: #${targetId}`;
 
@@ -85,7 +89,7 @@ export function generateBreedingSuggestions(
             priority = 80;
           }
         } else {
-          description = `Leave your #${evolutionIdToBreed} and a compatible partner (like Ditto) at the Daycare to get an Egg!`;
+          description = `Leave your #${evolutionIdToBreed}${incenseText} and a compatible partner (like Ditto) at the Daycare to get an Egg!`;
         }
 
         suggestions.push({
