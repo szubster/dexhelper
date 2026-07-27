@@ -33,5 +33,5 @@ Implement extraction of the Volcanic Ash count from Gen 3 save files using dynam
 
 ## Acceptance Criteria
 - [x] Break down this Story into TASK nodes outlining constants definition and actual extraction logic.
-- [ ] task-331-333-gen3-ash-extraction-impl
-- [ ] task-331-346-gen3-ash-extraction-impl
+- [x] task-331-333-gen3-ash-extraction-impl
+- [x] task-331-346-gen3-ash-extraction-impl
