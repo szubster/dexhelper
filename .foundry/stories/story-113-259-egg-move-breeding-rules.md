@@ -27,9 +27,9 @@ notes: ''
 Enhance the core pathfinding algorithm to respect Gen 2 and Gen 3 breeding mechanics. This includes matching compatible Egg Groups, ensuring opposite genders for parents, and correctly excluding invalid groups such as the "No Eggs" group.
 
 ## Acceptance Criteria
-- [ ] Ensure algorithm respects Egg Group matching.
-- [ ] Ensure algorithm respects gender requirements (opposite genders).
-- [ ] Exclude invalid breeding pairs (e.g., "No Eggs" group).
+- [x] Ensure algorithm respects Egg Group matching.
+- [x] Ensure algorithm respects gender requirements (opposite genders).
+- [x] Exclude invalid breeding pairs (e.g., "No Eggs" group).
 - [x] Break this story down into actionable TASKS.
-- [ ] task-259-348-egg-move-breeding-rules-impl
-- [ ] task-259-349-egg-move-breeding-rules-qa
+- [x] task-259-348-egg-move-breeding-rules-impl
+- [x] task-259-349-egg-move-breeding-rules-qa
