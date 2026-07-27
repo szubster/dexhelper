@@ -78,4 +78,35 @@ describe('calculateBoxDiff', () => {
     expect(diff.relocations[0]?.sourceBox).toBe(1);
     expect(diff.relocations[0]?.targetBox).toBe(3);
   });
+
+  test('disambiguates duplicates using hash', () => {
+    // Two Pokémon with identical species and level, but different hashes
+    const p1 = createPoke(1, 'Twin', 'Box 1', 0);
+    p1.hash = 'hash1';
+
+    const p2 = createPoke(1, 'Twin', 'Box 1', 1);
+    p2.hash = 'hash2';
+
+    const current: PokemonInstance[] = [p1, p2];
+
+    // Target moves p1 to Box 2 and removes p2, adds p3 (also a duplicate but new hash)
+    const p1Target = { ...p1, storageLocation: 'Box 2', slot: 5 };
+    const p3 = createPoke(1, 'Twin', 'Box 1', 1);
+    p3.hash = 'hash3';
+
+    const target: PokemonInstance[] = [p1Target, p3];
+
+    const diff = calculateBoxDiff(current, target);
+
+    expect(diff.removals).toHaveLength(1);
+    expect(diff.removals[0]?.hash).toBe('hash2');
+
+    expect(diff.additions).toHaveLength(1);
+    expect(diff.additions[0]?.hash).toBe('hash3');
+
+    expect(diff.relocations).toHaveLength(1);
+    expect(diff.relocations[0]?.pokemon.hash).toBe('hash1');
+    expect(diff.relocations[0]?.sourceBox).toBe(1);
+    expect(diff.relocations[0]?.targetBox).toBe(2);
+  });
 });

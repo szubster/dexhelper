@@ -45,6 +45,6 @@ Your role as QA is to review the code for edge cases and ensure the tests adequa
 - **Error Handling Reminder**: If you experience a transient failure requiring retry (or if the coder's implementation fails your checks), update the YAML frontmatter to `status: FAILED` with a detailed `rejection_reason` explaining what the coder missed. If you must permanently abort (impossible or max rejections reached), update to `status: CANCELLED` with a `rejection_reason`.
 
 ## Acceptance Criteria
-- [ ] Verify the `hash` property is added to `PokemonInstance` in `src/engine/saveParser/parsers/common.ts`.
-- [ ] Verify the diff algorithm correctly computes additions, removals, and relocations strictly using the `hash` field.
-- [ ] Verify unit test coverage is comprehensive for edge cases.
+- [x] Verify the `hash` property is added to `PokemonInstance` in `src/engine/saveParser/parsers/common.ts`.
+- [x] Verify the diff algorithm correctly computes additions, removals, and relocations strictly using the `hash` field.
+- [x] Verify unit test coverage is comprehensive for edge cases.
