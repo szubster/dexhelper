@@ -189,7 +189,7 @@ describe('encounterTools', () => {
         {
           ...baseCatchSuggestion,
           encounterInfo: {
-            '1': [{ method: 'headbutt', chance: 10, minLevel: 5, maxLevel: 5, aid: 1 }],
+            '1': [{ method: 'headbutt', chance: 10, minLevel: 5, maxLevel: 5, areaId: 1 }],
           },
         },
       ];
@@ -215,7 +215,7 @@ describe('encounterTools', () => {
         {
           ...baseCatchSuggestion,
           encounterInfo: {
-            '1': [{ method: 'headbutt', chance: 10, minLevel: 5, maxLevel: 5, aid: 1 }],
+            '1': [{ method: 'headbutt', chance: 10, minLevel: 5, maxLevel: 5, areaId: 1 }],
           },
         },
       ];
@@ -244,8 +244,8 @@ describe('encounterTools', () => {
           ...baseCatchSuggestion,
           encounterInfo: {
             '1': [
-              { method: 'headbutt', chance: 10, minLevel: 5, maxLevel: 5, aid: 1 }, // Inaccessible
-              { method: 'walk', chance: 10, minLevel: 5, maxLevel: 5, aid: 1 }, // Accessible
+              { method: 'headbutt', chance: 10, minLevel: 5, maxLevel: 5, areaId: 1 }, // Inaccessible
+              { method: 'walk', chance: 10, minLevel: 5, maxLevel: 5, areaId: 1 }, // Accessible
             ],
           },
         },
@@ -296,8 +296,8 @@ describe('encounterTools', () => {
           ...baseCatchSuggestion,
           encounterInfo: {
             '1': [
-              { method: 'headbutt', chance: 10, minLevel: 5, maxLevel: 5, aid: 1 },
-              { method: 'surf', chance: 10, minLevel: 5, maxLevel: 5, aid: 1 },
+              { method: 'headbutt', chance: 10, minLevel: 5, maxLevel: 5, areaId: 1 },
+              { method: 'surf', chance: 10, minLevel: 5, maxLevel: 5, areaId: 1 },
             ],
           },
           warning: 'Some previous warning',
@@ -326,7 +326,7 @@ describe('encounterTools', () => {
           ...baseCatchSuggestion,
           pokemonIds: [1, 2],
           encounterInfo: {
-            '1': [{ method: 'headbutt', chance: 10, minLevel: 5, maxLevel: 5, aid: 1 }],
+            '1': [{ method: 'headbutt', chance: 10, minLevel: 5, maxLevel: 5, areaId: 1 }],
             // pid 2 is missing from encounterInfo
           },
         },
@@ -383,10 +383,10 @@ describe('encounterTools', () => {
           ...baseCatchSuggestion,
           encounterInfo: {
             '1': [
-              { method: 'old-rod', chance: 10, minLevel: 5, maxLevel: 5, aid: 1 },
-              { method: 'good-rod', chance: 10, minLevel: 5, maxLevel: 5, aid: 1 },
-              { method: 'super-rod', chance: 10, minLevel: 5, maxLevel: 5, aid: 1 },
-              { method: 'rock-smash', chance: 10, minLevel: 5, maxLevel: 5, aid: 1 },
+              { method: 'old-rod', chance: 10, minLevel: 5, maxLevel: 5, areaId: 1 },
+              { method: 'good-rod', chance: 10, minLevel: 5, maxLevel: 5, areaId: 1 },
+              { method: 'super-rod', chance: 10, minLevel: 5, maxLevel: 5, areaId: 1 },
+              { method: 'rock-smash', chance: 10, minLevel: 5, maxLevel: 5, areaId: 1 },
             ],
           },
         },

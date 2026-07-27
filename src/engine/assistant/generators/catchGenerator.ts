@@ -77,7 +77,7 @@ export function generateCatchSuggestions(
             method: METHOD_NAMES[ed.m] || 'walk',
             minLevel: ed.min,
             maxLevel: ed.max,
-            aid: re.aid,
+            areaId: re.aid,
             time: ed.t,
           });
         }
@@ -139,7 +139,7 @@ export function generateCatchSuggestions(
     }
 
     if (bestDist < 8 && bestE) {
-      const aid = bestE.aid;
+      const areaId = bestE.aid;
       const bestDetails: EncounterDetail[] = [];
       for (let d = 0; d < bestE.d.length; d++) {
         const ed = bestE.d[d];
@@ -149,12 +149,12 @@ export function generateCatchSuggestions(
           method: METHOD_NAMES[ed.m] || 'walk',
           minLevel: ed.min,
           maxLevel: ed.max,
-          aid,
+          areaId,
           time: ed.t,
         });
       }
 
-      const key = `${aid}-${bestDist}`;
+      const key = `${areaId}-${bestDist}`;
       let group = nearbyByArea.get(key);
       if (!group) {
         group = { dist: bestDist, areaName: bestAreaName, pids: new Set(), encounterInfo: {} };

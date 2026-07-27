@@ -86,9 +86,9 @@ export function CatchMethodSection({
                     <span className="font-black text-[9px] text-white transition-colors group-hover/sprite:text-emerald-400">
                       Lv. {enc.minLevel === enc.maxLevel ? enc.minLevel : `${enc.minLevel}-${enc.maxLevel}`}
                     </span>
-                    {areaNames?.[enc.aid] && (
+                    {areaNames?.[enc.areaId] && (
                       <span className="max-w-[80px] truncate text-center text-[8px] text-zinc-500 uppercase">
-                        {areaNames[enc.aid]}
+                        {areaNames[enc.areaId]}
                       </span>
                     )}
                   </div>

@@ -14,7 +14,7 @@ export interface EncounterDetail {
   method: string;
   minLevel: number;
   maxLevel?: number | undefined;
-  aid: number;
+  areaId: number;
   time?: number | undefined;
 }
 

@@ -154,8 +154,8 @@ describe('AssistantSuggestionCard', () => {
       description: 'Go catch them.',
       pokemonIds: [1, 4],
       encounterInfo: {
-        1: [{ aid: 0, method: 'walk', chance: 20, minLevel: 5, maxLevel: 5 }],
-        4: [{ aid: 0, method: 'surf', chance: 10, minLevel: 10, maxLevel: 15 }],
+        1: [{ areaId: 0, method: 'walk', chance: 20, minLevel: 5, maxLevel: 5 }],
+        4: [{ areaId: 0, method: 'surf', chance: 10, minLevel: 10, maxLevel: 15 }],
       },
     };
 
@@ -189,7 +189,7 @@ describe('AssistantSuggestionCard', () => {
       description: 'Fish it.',
       pokemonIds: [129],
       encounterInfo: {
-        129: [{ aid: 0, method: 'old-rod', chance: 100, minLevel: 5, maxLevel: 5 }],
+        129: [{ areaId: 0, method: 'old-rod', chance: 100, minLevel: 5, maxLevel: 5 }],
       },
     };
 
@@ -247,9 +247,9 @@ describe('AssistantSuggestionCard', () => {
       pokemonIds: [7],
       encounterInfo: {
         7: [
-          { aid: 0, method: 'walk', chance: 10, minLevel: 5, maxLevel: 5 },
-          { aid: 0, method: 'walk', chance: 30, minLevel: 6, maxLevel: 6 },
-          { aid: 0, method: 'walk', chance: 20, minLevel: 7, maxLevel: 7 },
+          { areaId: 0, method: 'walk', chance: 10, minLevel: 5, maxLevel: 5 },
+          { areaId: 0, method: 'walk', chance: 30, minLevel: 6, maxLevel: 6 },
+          { areaId: 0, method: 'walk', chance: 20, minLevel: 7, maxLevel: 7 },
         ],
       },
     };
@@ -308,8 +308,8 @@ describe('AssistantSuggestionCard', () => {
       pokemonIds: [10],
       encounterInfo: {
         10: [
-          { aid: 0, method: 'walk', chance: 10, minLevel: 5, maxLevel: 5 },
-          { aid: 0, method: 'walk', chance: 10, minLevel: 6, maxLevel: 6 },
+          { areaId: 0, method: 'walk', chance: 10, minLevel: 5, maxLevel: 5 },
+          { areaId: 0, method: 'walk', chance: 10, minLevel: 6, maxLevel: 6 },
         ],
       },
     };
