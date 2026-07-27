@@ -2,13 +2,13 @@
 id: task-336-343-zod-schema-definition-qa
 type: TASK
 title: QA Zod Schema Definition
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-25'
-updated_at: '2026-07-26'
+updated_at: '2026-07-27'
 depends_on:
   - .foundry/tasks/task-336-342-zod-schema-definition-impl.md
-jules_session_id: '5456126595183673067'
+jules_session_id: null
 pr_number: null
 parent: story-334-336-zod-schema-definition
 tags: []
