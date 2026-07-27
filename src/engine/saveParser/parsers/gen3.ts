@@ -27,6 +27,7 @@ import {
   parseGen3BattlePoints,
   parseGen3TotalBattlePoints,
 } from '../gen3/battleFrontier/parser';
+import { parseGen3LotteryNumber } from '../gen3/lottery/parser';
 import { parseTrickHouse } from '../gen3/trickHouse/parser';
 import type {
   GameVersion,
@@ -1023,6 +1024,13 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const gen3TMEventFlags = parseGen3TMEventFlags(view, section2Offset, _forcedVersion || 'ruby');
     const gen3MatchCall = parseGen3MatchCall(view, section1Offset, section2Offset, _forcedVersion || 'ruby');
 
+    let gen3LotteryNumber: number | undefined;
+    try {
+      gen3LotteryNumber = parseGen3LotteryNumber(view, section1Offset, _forcedVersion || 'ruby');
+    } catch {
+      // Ignored for games that don't support lottery (e.g. FireRed/LeafGreen)
+    }
+
     // Dummy scaffold values for now until fully implemented
     const result: SaveData = {
       generation: 3,
@@ -1056,6 +1064,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       gen3TrickHouse: parseTrickHouse(view, section1Offset),
       ...(gen3MatchCall ? { gen3MatchCall } : {}),
     };
+    if (gen3LotteryNumber !== undefined) {
+      result.gen3LotteryNumber = gen3LotteryNumber;
+    }
     if (gen3FeebasTiles !== undefined) {
       result.gen3FeebasTiles = gen3FeebasTiles;
     }

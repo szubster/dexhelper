@@ -1,0 +1,3 @@
+- Use `try/catch` to elegantly handle missing/unsupported data extraction in save parsers when older or varying versions (like FireRed) don't include the feature, such as Gen 3 lottery.
+- `useMemo` is highly critical for operations matching across hundreds of pokemon (like `getBestLotteryMatch` scanning party + PC + daycare) to avoid heavy re-renders in UI components.
+- When creating Vitest hooks mocking external stores like Zustand, ensure the generic typing of `vi.fn<() => ReturnType>()` correctly mirrors the expected store data shape to avoid strict TS any-type errors (`lint/suspicious/noExplicitAny`).

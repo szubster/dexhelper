@@ -323,6 +323,8 @@ export interface SaveData {
   gen3TMHMs?: { itemId: number; quantity: number; moveId: number }[];
   /** Gen 3 specific: TM event flags for one-time TM collection */
   gen3TMEventFlags?: Record<string, boolean>;
+  /** Gen 3 specific: The 16-bit daily lottery number */
+  gen3LotteryNumber?: number;
 }
 
 // Removed byte helper as DataView provides getUint8 natively.
