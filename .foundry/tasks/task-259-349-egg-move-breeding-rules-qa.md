@@ -27,6 +27,6 @@ notes: ''
 Verify the implementation of breeding mechanics integration within the pathfinding algorithm in `scripts/generate-pokedata.ts`. The implementation task (`task-259-348-egg-move-breeding-rules-impl`) modified the Breadth-First Search (BFS) algorithm to properly respect Egg Groups, Gender Rates, and invalid breeding pair exclusions (such as the "No Eggs" group).
 
 ## Acceptance Criteria
-- [ ] Verify algorithm respects Egg Group matching.
-- [ ] Verify algorithm respects gender requirements.
-- [ ] Verify invalid breeding pairs are excluded.
+- [x] Verify algorithm respects Egg Group matching.
+- [x] Verify algorithm respects gender requirements.
+- [x] Verify invalid breeding pairs are excluded.
