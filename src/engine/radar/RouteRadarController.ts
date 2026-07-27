@@ -2,7 +2,7 @@ import type { Suggestion } from '../assistant/strategies/types';
 
 /**
  * Output structure for the Smart Route Radar.
- * Maps an areaId (formerly aid) to a density score.
+ * Maps an areaId (formerly areaId) to a density score.
  */
 export interface RouteRadarHeatmap {
   [areaId: number]: number;
@@ -27,12 +27,12 @@ export class RouteRadarController {
       if (suggestion.category === 'Catch' && suggestion.encounterInfo) {
         const uniqueAreaIds = new Set<number>();
 
-        // Iterate through all map IDs (keys) and extract areaIds (aid) from the encounter details
+        // Iterate through all map IDs (keys) and extract areaIds (areaId) from the encounter details
         for (const mapId in suggestion.encounterInfo) {
           const encounters = suggestion.encounterInfo[mapId];
           if (encounters) {
             for (const encounter of encounters) {
-              uniqueAreaIds.add(encounter.aid);
+              uniqueAreaIds.add(encounter.areaId);
             }
           }
         }

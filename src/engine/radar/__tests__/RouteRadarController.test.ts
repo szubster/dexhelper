@@ -38,9 +38,9 @@ describe('RouteRadarController', () => {
         category: 'Catch',
         encounterInfo: {
           // mapId 1 has areaId 10
-          1: [{ chance: 50, method: 'grass', minLevel: 2, aid: 10 }],
+          1: [{ chance: 50, method: 'grass', minLevel: 2, areaId: 10 }],
           // mapId 2 has areaId 20
-          2: [{ chance: 40, method: 'grass', minLevel: 3, aid: 20 }],
+          2: [{ chance: 40, method: 'grass', minLevel: 3, areaId: 20 }],
         },
       };
 
@@ -62,8 +62,8 @@ describe('RouteRadarController', () => {
         encounterInfo: {
           // mapId 1 has areaId 10 twice (e.g. morning/night or different levels)
           1: [
-            { chance: 50, method: 'grass', minLevel: 2, aid: 10 },
-            { chance: 30, method: 'grass', minLevel: 4, aid: 10 },
+            { chance: 50, method: 'grass', minLevel: 2, areaId: 10 },
+            { chance: 30, method: 'grass', minLevel: 4, areaId: 10 },
           ],
         },
       };
@@ -82,7 +82,7 @@ describe('RouteRadarController', () => {
         priority: 1,
         category: 'Catch',
         encounterInfo: {
-          1: [{ chance: 50, method: 'grass', minLevel: 2, aid: 10 }],
+          1: [{ chance: 50, method: 'grass', minLevel: 2, areaId: 10 }],
         },
       };
 
@@ -93,7 +93,7 @@ describe('RouteRadarController', () => {
         priority: 1,
         category: 'Catch',
         encounterInfo: {
-          2: [{ chance: 50, method: 'grass', minLevel: 2, aid: 10 }],
+          2: [{ chance: 50, method: 'grass', minLevel: 2, areaId: 10 }],
         },
       };
 
