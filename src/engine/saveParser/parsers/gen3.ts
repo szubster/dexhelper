@@ -914,7 +914,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     if (effectiveVersion === 'emerald' || effectiveVersion === 'ruby' || effectiveVersion === 'sapphire') {
       try {
         gen3LotteryNumber = parseGen3LotteryNumber(view, section1Offset, effectiveVersion);
-      } catch (_e) {}
+      } catch {}
     }
 
     const roamingLegendaries = [];
