@@ -2,12 +2,12 @@
 id: task-259-348-egg-move-breeding-rules-impl
 type: TASK
 title: Breeding Mechanics Integration for Pathfinding (Implementation)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-26'
-updated_at: '2026-07-26'
+updated_at: '2026-07-27'
 depends_on: []
-jules_session_id: '9439737012059559338'
+jules_session_id: null
 pr_number: null
 parent: story-113-259-egg-move-breeding-rules
 tags:

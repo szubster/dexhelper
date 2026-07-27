@@ -2,10 +2,10 @@
 id: task-341-348-define-indexeddb-schema-retry-impl
 type: TASK
 title: Define SaveHistoryDB Schema Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-07-26'
-updated_at: '2026-07-26'
+updated_at: '2026-07-27'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - indexeddb
   - history
 research_references: []
-rejection_count: 1
-rejection_reason: 'Implementation does not match schema requirements in .foundry/docs/schema.md (Section 14). Specifically, VERSION is 2 instead of 1, and there is an extra TRAINERS store and trainerId index.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

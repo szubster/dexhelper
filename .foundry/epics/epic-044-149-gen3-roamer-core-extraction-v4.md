@@ -2,12 +2,12 @@
 id: epic-044-149-gen3-roamer-core-extraction-v4
 type: EPIC
 title: Gen 3 Roamer Core Extraction v4
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-07-08'
 updated_at: '2026-07-27'
 depends_on: []
-jules_session_id: '12066916843217249989'
+jules_session_id: null
 pr_number: null
 parent: prd-071-044-gen3-roamer-tracker
 tags:
@@ -16,7 +16,9 @@ tags:
 research_references:
   - research-071-138-gen3-roamer-offsets
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: ''
 ---
 # Gen 3 Roamer Core Extraction v4

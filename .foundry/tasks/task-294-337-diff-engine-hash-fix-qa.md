@@ -2,13 +2,13 @@
 id: task-294-337-diff-engine-hash-fix-qa
 type: TASK
 title: QA PC Box Diff Engine Hash Fix
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-20'
-updated_at: '2026-07-26'
+updated_at: '2026-07-27'
 depends_on:
   - task-294-336-diff-engine-hash-fix-impl
-jules_session_id: '11281423417366724467'
+jules_session_id: null
 pr_number: null
 parent: story-137-294-diff-engine-logic
 tags:

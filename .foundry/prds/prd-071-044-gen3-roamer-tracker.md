@@ -2,10 +2,10 @@
 id: prd-071-044-gen3-roamer-tracker
 type: PRD
 title: Gen 3 Roaming Legendary Tracker and IV Glitch Inspector
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-06-09'
-updated_at: '2026-07-10'
+updated_at: '2026-07-27'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,10 +2,10 @@
 id: story-039-265-r2-offline-conflict-resolution
 type: STORY
 title: Cloudflare R2 Offline Conflict Resolution
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-07-27'
 depends_on:
   - story-039-264-r2-push-sync-logic
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - r2
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Story: Cloudflare R2 Offline Conflict Resolution

@@ -2,10 +2,10 @@
 id: task-259-349-egg-move-breeding-rules-qa
 type: TASK
 title: Breeding Mechanics Integration for Pathfinding (QA)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-26'
-updated_at: '2026-07-26'
+updated_at: '2026-07-27'
 depends_on:
   - task-259-348-egg-move-breeding-rules-impl
 jules_session_id: null
