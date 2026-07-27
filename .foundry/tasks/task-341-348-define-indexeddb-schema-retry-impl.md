@@ -23,10 +23,12 @@ notes: ''
 # Define SaveHistoryDB Schema Implementation
 
 ## Overview
-Implement the database configuration and schema initialization logic for `SaveHistoryDB`. This may already be implemented in `src/db/schema.ts` from a previous iteration. If the target artifact already exists and is complete, submit an empty PR.
+Implement the database configuration and schema initialization logic for `SaveHistoryDB` in `src/db/schema.ts`. You must **strictly adhere** to the schema defined in Section 14 of `.foundry/docs/schema.md`. Do not add any extraneous stores or indexes.
 
 ## Acceptance Criteria
-- [ ] Implement `SaveHistoryDB` configuration (version, name, object stores).
-- [ ] Define the `saves` object store.
-- [ ] Define the `metadata` object store.
-- [ ] Define the `indexes` object store.
+- [ ] Implement `SaveHistoryDB` configuration strictly with `VERSION: 1`.
+- [ ] Define the `saves` object store for raw binary save files.
+- [ ] Define the `metadata` object store for save file metadata.
+- [ ] Define the `indexes` object store for fast retrieval.
+- [ ] Ensure the `TRAINERS` object store is removed.
+- [ ] Ensure the `trainerId` index is removed from the `indexes` store.
