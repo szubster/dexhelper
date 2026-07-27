@@ -14,9 +14,9 @@ export default defineConfig({
   forbidOnly: !!process.env['CI'],
   retries: process.env['CI'] ? 2 : 0,
   workers: process.env['CI'] ? 2 : '50%',
-  reporter: [
-    ['html', { open: 'never' }],
-  ],
+  reporter: process.env['CI']
+    ? [['github'], ['html', { open: 'never' }]]
+    : [['html', { open: 'never' }]],
   use: {
     actionTimeout: 15000,
     navigationTimeout: 30000,

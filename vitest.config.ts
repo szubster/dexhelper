@@ -14,7 +14,9 @@ export default defineConfig(async (configEnv) => {
         include: ['src/**/*.ts', 'src/**/*.tsx'],
         exclude: ['**/*.json', '**/*.test.ts', '**/*.test.tsx', 'src/hooks/useFileSyncController.ts', 'src/db/SaveDB.ts', 'src/components/AppHeader.tsx', 'src/components/header/OfflineControls.tsx', 'src/components/header/SystemControls.tsx', 'src/components/header/TelemetryMatrix.tsx', 'src/components/dashboard/battle-frontier/BattleFrontierDashboard.tsx'],
       },
-      reporters: ['default', ['junit', { outputFile: './test-report.junit.xml' }]],
+      reporters: process.env['GITHUB_ACTIONS']
+        ? ['github-actions', 'default', ['junit', { outputFile: './test-report.junit.xml' }]]
+        : ['default', ['junit', { outputFile: './test-report.junit.xml' }]],
       // Vitest 4 uses 'projects' instead of 'workspace'
       projects: [
         {
