@@ -2,7 +2,7 @@
 id: task-269-347-e2e-safeguard-qa
 type: TASK
 title: QA - Implement E2E Safeguards on Epics
-status: COMPLETED
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-25'
 updated_at: '2026-07-26'
@@ -46,11 +46,11 @@ Verify the implementation of E2E safeguards on Epic nodes.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [x] Verify E2E enforcement logic in `foundry-orchestrator.ts`.
-- [x] Verify E2E enforcement logic in `foundry-heartbeat.ts`.
-- [x] Verify unit tests in `foundry-orchestrator.test.ts`.
-- [x] Verify unit tests in `foundry-heartbeat.test.ts`.
-- [x] Ensure all unit tests pass successfully.
+- [ ] Verify E2E enforcement logic in `foundry-orchestrator.ts`.
+- [ ] Verify E2E enforcement logic in `foundry-heartbeat.ts`.
+- [ ] Verify unit tests in `foundry-orchestrator.test.ts`.
+- [ ] Verify unit tests in `foundry-heartbeat.test.ts`.
+- [ ] Ensure all unit tests pass successfully.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

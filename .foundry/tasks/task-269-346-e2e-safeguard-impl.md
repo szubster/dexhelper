@@ -2,7 +2,7 @@
 id: task-269-346-e2e-safeguard-impl
 type: TASK
 title: Implement E2E Safeguards on Epics
-status: COMPLETED
+status: PENDING
 owner_persona: coder
 created_at: '2026-07-25'
 updated_at: '2026-07-26'
@@ -48,10 +48,10 @@ Implement logic in `.github/scripts/foundry-orchestrator.ts` and `.github/script
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [x] Implement E2E enforcement logic in `foundry-orchestrator.ts` (Phase 4.1 / 4.5).
-- [x] Implement E2E enforcement logic in `foundry-heartbeat.ts` (`transitionNodeToCompleted`).
-- [x] Add unit tests in `foundry-orchestrator.test.ts` covering the new rules for EPICs.
-- [x] Add unit tests in `foundry-heartbeat.test.ts` covering the new rules for EPICs.
+- [ ] Implement E2E enforcement logic in `foundry-orchestrator.ts` (Phase 4.1 / 4.5).
+- [ ] Implement E2E enforcement logic in `foundry-heartbeat.ts` (`transitionNodeToCompleted`).
+- [ ] Add unit tests in `foundry-orchestrator.test.ts` covering the new rules for EPICs.
+- [ ] Add unit tests in `foundry-heartbeat.test.ts` covering the new rules for EPICs.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
