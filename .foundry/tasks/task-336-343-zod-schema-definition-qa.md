@@ -23,5 +23,5 @@ notes: ''
 Verify the implementation of the core Zod schema based on the rules and structure defined in `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Validate the Zod schema implementation
-- [ ] Confirm all tests pass
+- [x] Validate the Zod schema implementation
+- [x] Confirm all tests pass
