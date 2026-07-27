@@ -30,6 +30,7 @@ Parse the Gen 3 save file Item Bag to extract the player's current TM and HM inv
 - Implement logic to map parsed TM/HM items to their corresponding moves.
 - Extract Event Flags to determine if one-time TMs have already been collected.
 - **Architectural Constraints:**
+  - Must strictly adhere to all guidelines defined in **Section 13 ("Save File Parsing & Extraction Guidelines")** of `.foundry/docs/schema.md`.
   - Must adhere to ADR 015 regarding full `PokeData` property names. No short property names.
   - Must follow ADR 028 for dynamic save block extraction. All memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level. Inline magic numbers are strictly forbidden.
   - Since this is Gen 3 save file parsing, you MUST use the resolved section offset (e.g., `section1Offset`) to calculate relative memory offsets instead of hardcoded absolute offsets to properly support A/B bank flash memory.
