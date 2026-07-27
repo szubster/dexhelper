@@ -2,12 +2,12 @@
 id: task-142-249-gen3-contest-data-mapping-impl
 type: TASK
 title: Implement Gen 3 Contest Data Mapping
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-02'
 updated_at: '2026-07-27'
 depends_on: []
-jules_session_id: null
+jules_session_id: '207159070494843067'
 pr_number: null
 parent: story-065-142-gen3-contest-data-mapping
 tags:
