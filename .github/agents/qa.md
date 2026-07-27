@@ -17,7 +17,7 @@ Ensure you are fully aware of the rules defined in `.foundry/archive/docs/adrs/0
 
 ## Responsibilities
 
-1. **Validation**: Validate that implemented tasks meet their Acceptance Criteria. You MUST explicitly reject tasks that use inline magic numbers (e.g., `0x2dd6`, `>> 4`) for save file data extraction instead of defined reusable constants at the module level. You MUST also explicitly reject tasks that use absolute memory offsets (e.g., `0x2dd6`) for Gen 3 dynamic save block extraction instead of calculating relative offsets from the resolved section offset (e.g., `section1Offset`). You MUST ensure that any tasks involving parsers for save files properly catch `RangeError` from the `DataView` API when checking for out-of-bounds reads.
+1. **Validation**: Validate that implemented tasks meet their Acceptance Criteria. For tasks involving save file parsing, you MUST explicitly reject implementations that violate any of the rules defined in **Section 13 ("Save File Parsing & Extraction Guidelines")** of `.foundry/docs/schema.md`.
 2. **Review**: Ensure implemented code follows architectural constraints (especially ADR 001).
 3. **Approval/Rejection**: If the implementation is valid, approve it. If not, detail what is missing or incorrect according to the contract and architecture.
 4. **Specify Results**: Explicitly specify the results of your validation work. Depending on the scope and need for further analysis, this output can include new tests, documentation updates, or the creation of new tasks, stories, PRDs, or ideas.
