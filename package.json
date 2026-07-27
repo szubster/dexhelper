@@ -76,7 +76,7 @@
     "lightningcss": "^1.33.0",
     "madge": "^8.0.0",
     "oxlint": "^1.75.0",
-    "oxlint-tsgolint": "^0.24.0",
+    "oxlint-tsgolint": "^7.0.2001",
     "playwright": "^1.62.0",
     "rollup-plugin-visualizer": "^7.0.1",
     "sort-package-json": "^4.0.0",
