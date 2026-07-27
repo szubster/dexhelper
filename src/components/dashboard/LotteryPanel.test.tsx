@@ -5,7 +5,7 @@ import { useLottery } from '../../hooks/useLottery';
 import { LotteryPanel } from './LotteryPanel';
 
 vi.mock('../../hooks/useLottery', () => ({
-  useLottery: vi.fn(),
+  useLottery: vi.fn<() => unknown>(),
 }));
 
 describe('LotteryPanel', () => {
