@@ -128,6 +128,7 @@ export interface Gen3SecretBasePartyMember {
 
 export interface Gen3SecretBase {
   secretBaseId: number;
+  mapId: number;
   trainerName: string;
   trainerId: number;
   battledOwnerToday?: boolean;
