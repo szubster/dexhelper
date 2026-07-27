@@ -77,7 +77,7 @@ export function generateCatchSuggestions(
             method: METHOD_NAMES[ed.m] || 'walk',
             minLevel: ed.min,
             maxLevel: ed.max,
-            aid: re.aid,
+            areaId: re.areaId,
             time: ed.t,
           });
         }
@@ -130,7 +130,7 @@ export function generateCatchSuggestions(
     for (const e of encData.enc) {
       if (e.v !== displayVersionId) continue;
 
-      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations);
+      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.areaId, apiData.allLocations);
       if (distInfo && distInfo.distance < bestDist) {
         bestDist = distInfo.distance;
         bestAreaName = distInfo.name;
@@ -149,7 +149,7 @@ export function generateCatchSuggestions(
           method: METHOD_NAMES[ed.m] || 'walk',
           minLevel: ed.min,
           maxLevel: ed.max,
-          aid,
+          areaId,
           time: ed.t,
         });
       }
