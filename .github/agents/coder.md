@@ -16,14 +16,8 @@ When modifying the Foundry Orchestrator (`.github/scripts/foundry-orchestrator.t
 
 
 
-## Save File Parsing & Magic Numbers
-When implementing save file parsing or data definitions, you MUST explicitly define and use reusable constants for memory offsets, lengths, bit locations, and shifts at the module level. Strictly avoid using inline magic numbers (e.g., `0x2dd6`, `>> 4`) directly in parsing functions. This ensures robustness against version-specific shifts and prevents brittle code. Furthermore, when using the `DataView` API for array bounds checking or extraction limits (e.g., max record counts), you MUST NOT use inline magic numbers; these bounds must also be defined as reusable constants at the module level.
-
-When writing Gen 3 save block extraction functions, you must pass and utilize the resolved section offset (e.g., `section1Offset` or `section2Offset`) to calculate relative memory offsets, rather than using absolute hardcoded offsets, to properly support the Gen 3 A/B bank flash memory architecture.
-
-When parsing bitwise blocks (like event flag arrays) using the `DataView` API, you must explicitly map the specific bit offsets corresponding to target events. Just extracting the array is insufficient; explicitly identifying the individual bit offsets is required for downstream consumption.
-
-When using the `DataView` API to parse save files, you MUST catch `RangeError` for out-of-bounds reads and throw a new error with the message "The save file is corrupted or incomplete." to prevent crashes and QA rejections.
+## Save File Parsing
+When implementing save file parsing, extraction functions, or mapping bitwise blocks, you MUST strictly adhere to the guidelines defined in **Section 13 ("Save File Parsing & Extraction Guidelines")** of `.foundry/docs/schema.md`. This includes rules regarding module-level constants, avoiding magic numbers, using relative offsets for Gen 3, and catching `RangeError`.
 
 ## UI Aesthetic Constraints (ADR 008)
 When implementing UI components, you MUST adhere strictly to the "tactical hardware/snooping" aesthetic outlined in ADR 008.

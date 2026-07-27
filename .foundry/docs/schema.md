@@ -307,11 +307,14 @@ Enum-to-number optimizations (e.g., mapping encounter methods or string triggers
 
 ---
 
-## 13. Dynamic Save Block Extraction Guidelines
+## 13. Save File Parsing & Extraction Guidelines
 
-As defined in ADR 028, to ensure maintainability and readability within the save parsing engine, the following rules apply when extracting dynamic save blocks:
-*   **Module-Level Constants:** All memory offsets, lengths, bit locations, and shifts must be explicitly defined as reusable constants at the module level.
-*   **No Magic Numbers:** The use of inline magic numbers for memory operations during dynamic save block extraction is strictly forbidden. This constraint must be enforced during code reviews.
+To ensure maintainability and readability within the save parsing engine, the following rules apply when parsing or extracting save file blocks:
+*   **Module-Level Constants:** All memory offsets, lengths, bit locations, shifts, and array bounds checking limits must be explicitly defined as reusable constants at the module level.
+*   **No Magic Numbers:** The use of inline magic numbers (e.g., `0x2dd6`, `>> 4`) directly in parsing functions is strictly forbidden.
+*   **Relative Offsets (Gen 3):** When extracting Gen 3 save blocks, you must pass and utilize the resolved section offset (e.g., `section1Offset` or `section2Offset`) to calculate relative memory offsets rather than absolute hardcoded offsets, supporting the A/B bank flash memory architecture.
+*   **Bitwise Mapping:** When parsing bitwise blocks (e.g., event flags) using the `DataView` API, you must explicitly map the specific bit offsets corresponding to target events. Just extracting the raw array is insufficient.
+*   **RangeError Handling:** When using the `DataView` API, you MUST catch `RangeError` for out-of-bounds reads and throw a new error with the message "The save file is corrupted or incomplete." to prevent application crashes.
 
 ---
 
