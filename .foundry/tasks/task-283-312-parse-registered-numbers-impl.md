@@ -2,7 +2,7 @@
 id: task-283-312-parse-registered-numbers-impl
 type: TASK
 title: Implement Gen 2 Pokegear Registered Numbers Parsing
-status: COMPLETED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-11'
 updated_at: '2026-07-26'
@@ -16,8 +16,8 @@ tags:
   - parser
 research_references:
   - .foundry/docs/knowledge_base/engine/save_parsing/gen2_phone_mechanics.md
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: 'Max rejection count reached. The implementation violates the Section 13 Bitwise Mapping rule from schema.md. It merely extracts raw 32-bit/8-bit values for wSwarmFlags, wDailyPhoneItemFlags, and wDailyPhoneTimeOfDayFlags without mapping the specific bit offsets to target events. However, the required bitwise mapping is impossible to implement correctly because the provided research context (.foundry/docs/knowledge_base/engine/save_parsing/gen2_phone_mechanics.md) lacks the necessary bit locations, requiring further research. This task is thus impossible to complete in its current state.'
 notes: ''
 ---
 
@@ -34,7 +34,7 @@ Implement the parsing logic for Generation 2 Pokegear registered numbers and sta
 - **Empty PRs**: If you submit an empty PR for a completed task (e.g., passthrough), you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [x] Define module-level constants for `wPhoneList` (size 11), `wSwarmFlags`, `wDailyPhoneItemFlags`, `wDailyPhoneTimeOfDayFlags`, and `wSpecialPhoneCallID`.
-- [x] Implement robust save file parsing logic using the DataView API to extract the Pokegear registered numbers.
-- [x] Implement explicit `RangeError` handling with `try/catch` block for out-of-bounds reads returning "The save file is corrupted or incomplete".
-- [x] Ensure all code passes linting, tests, and formatting checks before submission.
+- [ ] Define module-level constants for `wPhoneList` (size 11), `wSwarmFlags`, `wDailyPhoneItemFlags`, `wDailyPhoneTimeOfDayFlags`, and `wSpecialPhoneCallID`.
+- [ ] Implement robust save file parsing logic using the DataView API to extract the Pokegear registered numbers.
+- [ ] Implement explicit `RangeError` handling with `try/catch` block for out-of-bounds reads returning "The save file is corrupted or incomplete".
+- [ ] Ensure all code passes linting, tests, and formatting checks before submission.
