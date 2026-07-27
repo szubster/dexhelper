@@ -24,11 +24,10 @@ notes: ''
 # QA Define SaveHistoryDB Schema
 
 ## Overview
-Verify the implementation of the `SaveHistoryDB` schema configuration in `src/db/schema.ts` against the defined requirements.
+Verify the implementation of the `SaveHistoryDB` schema configuration in `src/db/schema.ts` strictly adheres to Section 14 of `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Verify `SaveHistoryDB` configuration exists with the correct stores (`saves`, `metadata`, `indexes`).
-
-## QA Notes
-- Validation FAILED. The implementation in `src/db/schema.ts` sets `SAVE_HISTORY_DB_CONFIG.VERSION` to 2 instead of 1. It also incorrectly adds a `TRAINERS` store and a `trainerId` index, which are not part of the schema defined in `.foundry/docs/schema.md` (Section 14).
-- Target task `task-341-348-define-indexeddb-schema-retry-impl` has been updated to `FAILED` with rejection feedback to prompt a retry.
+- [ ] Verify `SaveHistoryDB` configuration uses exactly `VERSION: 1`.
+- [ ] Verify `SaveHistoryDB` configuration has exactly three stores: `saves`, `metadata`, and `indexes`.
+- [ ] Verify there is NO `TRAINERS` store.
+- [ ] Verify there is NO `trainerId` index defined on the `indexes` store.
