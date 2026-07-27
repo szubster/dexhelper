@@ -33,6 +33,6 @@ The engine will return a set of differences detailing which specific entity is c
 - [x] task-294-316-diff-engine-impl
 - [x] task-294-317-diff-engine-qa
 - [x] Break down story into tasks for diff engine implementation.
-- [ ] research-294-335-diff-engine-hash-failure
-- [ ] task-294-336-diff-engine-hash-fix-impl
-- [ ] task-294-337-diff-engine-hash-fix-qa
+- [x] research-294-335-diff-engine-hash-failure
+- [x] task-294-336-diff-engine-hash-fix-impl
+- [x] task-294-337-diff-engine-hash-fix-qa
