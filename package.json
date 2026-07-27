@@ -73,7 +73,7 @@
     "fake-indexeddb": "^6.2.5",
     "knip": "^6.27.0",
     "lefthook": "^2.1.10",
-    "lightningcss": "^1.32.0",
+    "lightningcss": "^1.33.0",
     "madge": "^8.0.0",
     "oxlint": "^1.75.0",
     "oxlint-tsgolint": "^0.24.0",
