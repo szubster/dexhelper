@@ -27,7 +27,7 @@ notes: ''
 Verify the implementation of the `SaveHistoryDB` schema configuration in `src/db/schema.ts` strictly adheres to Section 14 of `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Verify `SaveHistoryDB` configuration uses exactly `VERSION: 1`.
-- [ ] Verify `SaveHistoryDB` configuration has exactly three stores: `saves`, `metadata`, and `indexes`.
-- [ ] Verify there is NO `TRAINERS` store.
-- [ ] Verify there is NO `trainerId` index defined on the `indexes` store.
+- [x] Verify `SaveHistoryDB` configuration uses exactly `VERSION: 1`.
+- [x] Verify `SaveHistoryDB` configuration has exactly three stores: `saves`, `metadata`, and `indexes`.
+- [x] Verify there is NO `TRAINERS` store.
+- [x] Verify there is NO `trainerId` index defined on the `indexes` store.
