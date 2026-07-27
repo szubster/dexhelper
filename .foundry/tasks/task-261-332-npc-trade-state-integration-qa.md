@@ -28,6 +28,7 @@ Verify the implementation of NPC Trade State Integration into the `SaveData` obj
 
 ### QA Notes
 - 2026-07-25: Rejected `task-261-331-npc-trade-state-integration-impl`. The tests in `gen3.test.ts` do not verify the integration into the `SaveData` object, and the `parseGen3` function incorrectly uses `section2Offset` instead of `section1Offset` for Emerald and FRLG.
+- 2026-07-27: Rejected `task-261-331-npc-trade-state-integration-impl` again. The previous feedback was not addressed. The tests in `gen3.test.ts` still do not verify the integration into the `SaveData` object, and the `parseGen3` function still incorrectly uses `section2Offset` instead of `section1Offset` for Emerald and FRLG.
 
 ## Context and Constraints
 - The `qa` persona MUST verify that the `coder` correctly implemented the state integration logic for NPC Trade flags.
