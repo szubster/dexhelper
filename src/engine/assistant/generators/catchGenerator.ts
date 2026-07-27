@@ -77,7 +77,7 @@ export function generateCatchSuggestions(
             method: METHOD_NAMES[ed.m] || 'walk',
             minLevel: ed.min,
             maxLevel: ed.max,
-            areaId: re.areaId,
+            areaId: re.aid,
             time: ed.t,
           });
         }
@@ -130,7 +130,7 @@ export function generateCatchSuggestions(
     for (const e of encData.enc) {
       if (e.v !== displayVersionId) continue;
 
-      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.areaId, apiData.allLocations);
+      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations);
       if (distInfo && distInfo.distance < bestDist) {
         bestDist = distInfo.distance;
         bestAreaName = distInfo.name;
@@ -139,7 +139,7 @@ export function generateCatchSuggestions(
     }
 
     if (bestDist < 8 && bestE) {
-      const aid = bestE.aid;
+      const areaId = bestE.aid;
       const bestDetails: EncounterDetail[] = [];
       for (let d = 0; d < bestE.d.length; d++) {
         const ed = bestE.d[d];
@@ -154,7 +154,7 @@ export function generateCatchSuggestions(
         });
       }
 
-      const key = `${aid}-${bestDist}`;
+      const key = `${areaId}-${bestDist}`;
       let group = nearbyByArea.get(key);
       if (!group) {
         group = { dist: bestDist, areaName: bestAreaName, pids: new Set(), encounterInfo: {} };
