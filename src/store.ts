@@ -58,7 +58,7 @@ export type PokeballType =
  *    toggles are intentionally excluded using the `partialize` configuration.
  *    This prevents localStorage quota exhaustion and stale UI states.
  */
-interface AppStore {
+export interface AppStore {
   // Save data
   /**
    * The heavy, transient parsed save state.
