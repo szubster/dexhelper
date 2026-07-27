@@ -2,7 +2,7 @@
 id: epic-044-149-gen3-roamer-core-extraction-v4
 type: EPIC
 title: Gen 3 Roamer Core Extraction v4
-status: FAILED
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-08'
 updated_at: '2026-07-27'
@@ -15,10 +15,8 @@ tags:
   - roamer
 research_references:
   - research-071-138-gen3-roamer-offsets
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 # Gen 3 Roamer Core Extraction v4

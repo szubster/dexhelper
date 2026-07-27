@@ -2,10 +2,10 @@
 id: story-150-293-gen3-roamer-iv-glitch-detection-logic
 type: STORY
 title: Gen 3 Roamer IV Glitch Detection Logic
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-07-08'
-updated_at: '2026-07-08'
+updated_at: '2026-07-27'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - iv-glitch
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 # Gen 3 Roamer IV Glitch Detection Logic

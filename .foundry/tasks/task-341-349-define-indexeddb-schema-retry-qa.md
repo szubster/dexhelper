@@ -2,7 +2,7 @@
 id: task-341-349-define-indexeddb-schema-retry-qa
 type: TASK
 title: QA Define SaveHistoryDB Schema
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-07-26'
 updated_at: '2026-07-27'
@@ -16,8 +16,8 @@ tags:
   - indexeddb
   - qa
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
