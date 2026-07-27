@@ -909,6 +909,13 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const gen3MixRecords = parseGen3MixRecords(view, section1Offset + TV_SHOWS_OFFSET);
     const gen3ActiveSwarm = parseGen3ActiveSwarm(view, section1Offset + TV_SHOWS_OFFSET);
     const gen3VolcanicAsh = parseGen3VolcanicAsh(view, section1Offset, _forcedVersion || 'ruby');
+    let gen3LotteryNumber: number | undefined;
+    const effectiveVersion = _forcedVersion || 'ruby';
+    if (effectiveVersion === 'emerald' || effectiveVersion === 'ruby' || effectiveVersion === 'sapphire') {
+      try {
+        gen3LotteryNumber = parseGen3LotteryNumber(view, section1Offset, effectiveVersion);
+      } catch (_e) {}
+    }
 
     const roamingLegendaries = [];
     try {
@@ -1051,6 +1058,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       ...(gen3ActiveSwarm !== undefined ? { gen3ActiveSwarm } : {}),
       roamingLegendaries,
       gen3VolcanicAsh,
+      ...(gen3LotteryNumber !== undefined ? { gen3LotteryNumber } : {}),
       gen3TMHMs,
       gen3TMEventFlags,
       gen3TrickHouse: parseTrickHouse(view, section1Offset),
@@ -1230,7 +1238,9 @@ export function parseGen3EmeraldMoveTutors(view: DataView, saveBlock2Offset: num
  * @returns An object containing boolean statuses for each RSE NPC trade.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export { parseGen3LotteryNumber } from '../gen3/lottery/parser';
+import { parseGen3LotteryNumber } from '../gen3/lottery/parser';
+
+export { parseGen3LotteryNumber };
 
 export const GEN3_TM_HM_MOVE_MAP: Record<number, number> = {
   289: 264,

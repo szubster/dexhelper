@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { ShieldAlert } from 'lucide-react';
 import { BattleFrontierDashboard } from '../components/dashboard/battle-frontier/BattleFrontierDashboard';
 import { ShinyCarrierBreedingDashboard } from '../components/dashboard/breeding/ShinyCarrierBreedingDashboard';
+import { LotteryPanel } from '../components/dashboard/LotteryPanel';
 import { GlobalRibbonChecklistDashboard } from '../components/dashboard/ribbons/GlobalRibbonChecklistDashboard';
 import { EmptyState } from '../components/EmptyState';
 
@@ -24,6 +25,7 @@ function DashboardPage() {
         <>
           <BattleFrontierDashboard saveData={saveData} />
           <GlobalRibbonChecklistDashboard />
+          <LotteryPanel />
         </>
       ) : (
         <ShinyCarrierBreedingDashboard />

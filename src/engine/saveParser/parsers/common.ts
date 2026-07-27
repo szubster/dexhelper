@@ -318,6 +318,8 @@ export interface SaveData {
   /** Gen 3 specific: Emerald Move Tutor usage */
   gen3MoveTutors?: Gen3MoveTutors;
   /** Gen 3 specific: Volcanic Ash gather count */
+  /** Gen 3 specific: Daily lottery number */
+  gen3LotteryNumber?: number;
   gen3VolcanicAsh?: number;
   /** Gen 3 specific: TM and HM inventory mapped to moves */
   gen3TMHMs?: { itemId: number; quantity: number; moveId: number }[];
