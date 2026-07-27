@@ -2,13 +2,13 @@
 id: story-113-259-egg-move-breeding-rules
 type: STORY
 title: Breeding Mechanics Integration for Pathfinding
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-03'
 updated_at: '2026-07-27'
 depends_on:
   - story-113-258-egg-move-pathfinding-core
-jules_session_id: '11038442721559131539'
+jules_session_id: null
 pr_number: null
 parent: epic-055-113-egg-move-pathfinding-engine
 tags:
