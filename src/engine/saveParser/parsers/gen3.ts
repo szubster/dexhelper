@@ -665,6 +665,14 @@ export function parseGen3VolcanicAsh(view: DataView, saveBlock1Offset: number, v
   }
 }
 
+/**
+ * Parses the TV Shows block to detect an active Mass Outbreak (Swarm) event.
+ * Swarms alter wild encounter tables temporarily (e.g., Seedot on Route 102).
+ *
+ * @param view - The raw save file DataView.
+ * @param offset - The memory offset of the TV Shows block.
+ * @returns An object containing swarm details if active, or undefined if no swarm is occurring.
+ */
 export function parseGen3ActiveSwarm(view: DataView, offset: number): Gen3ActiveSwarm | undefined {
   try {
     const shows = parseGen3TVBlock(view, offset);
@@ -859,6 +867,18 @@ export function parseGen3TrainerId(view: DataView, section0Offset: number): { tr
   }
 }
 
+/**
+ * The main orchestrator for parsing a Generation 3 (R/S/E/FR/LG) save file.
+ *
+ * Generation 3 uses a complex A/B bank flash memory architecture to prevent data corruption.
+ * This function locates the most recent, non-corrupted Section 0 (Trainer Info),
+ * Section 1 (Team/Items), and Section 2 (Game State) blocks before extracting their data.
+ *
+ * @param view - The raw save file DataView.
+ * @param _forcedVersion - An optional game version override to bypass auto-detection.
+ * @returns The fully constructed SaveData object containing the player's progress and Pokémon.
+ * @throws {Error} If the save file is corrupted, incomplete, or out-of-bounds reads occur.
+ */
 export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveData {
   try {
     let section2Offset: number;
@@ -1449,6 +1469,13 @@ export function parseGen3TMEventFlags(
   }
 }
 
+/**
+ * Parses the event flags to determine which in-game NPC trades have been completed in Ruby, Sapphire, and Emerald.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock2Offset - The memory offset of SaveBlock2.
+ * @returns A record mapping NPC trade internal names to a boolean indicating if they have been completed.
+ */
 export function parseGen3RSENPCTrades(view: DataView, saveBlock2Offset: number): Record<string, boolean> {
   try {
     const baseOffset = saveBlock2Offset + GEN3_EVENT_FLAGS_OFFSET;
@@ -1510,6 +1537,14 @@ export function parseGen3FRLGNPCTrades(view: DataView, saveBlock2Offset: number)
   }
 }
 
+/**
+ * Parses the event flags to determine which one-time Move Tutors have been used in FireRed and LeafGreen.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock2Offset - The memory offset of SaveBlock2.
+ * @returns An object containing boolean statuses for each FRLG move tutor.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
 export function parseGen3FRLGMoveTutors(view: DataView, saveBlock2Offset: number) {
   try {
     const baseOffset = saveBlock2Offset + GEN3_EVENT_FLAGS_OFFSET;
