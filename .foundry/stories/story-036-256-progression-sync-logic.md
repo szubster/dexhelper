@@ -31,4 +31,6 @@ With the database schema in place for storing multiple saves, we need to impleme
 - Resolve conflicts intelligently, prioritizing the most recent local offline progression.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into Tasks to implement the progression recording and sync conflict resolution algorithms.
+- [x] Tech Lead: Break this Story down into Tasks to implement the progression recording and sync conflict resolution algorithms.
+- [ ] task-256-350-progression-sync-engine-impl
+- [ ] task-256-351-progression-sync-engine-qa
