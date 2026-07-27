@@ -40,5 +40,5 @@ When researching and documenting these offsets, ensure the findings provide suff
 - **Graceful Failures:** The documented structures will be parsed using the `DataView` API. The implementation will be required to catch `RangeError` from out-of-bounds reads and throw a new error ("The save file is corrupted or incomplete."). Keep this in mind if there are specific edge cases or variable-length arrays.
 
 ## Acceptance Criteria
-- [ ] Research and document the Gen 3 Pokéblock Case offsets and structures.
-- [ ] Create a new documentation file at `.foundry/docs/knowledge_base/gen3_pokeblock_offsets.md`.
+- [x] Research and document the Gen 3 Pokéblock Case offsets and structures.
+- [x] Create a new documentation file at `.foundry/docs/knowledge_base/gen3_pokeblock_offsets.md`.
