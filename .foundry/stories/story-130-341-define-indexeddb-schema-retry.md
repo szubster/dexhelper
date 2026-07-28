@@ -2,7 +2,7 @@
 id: story-130-341-define-indexeddb-schema-retry
 type: STORY
 title: Define IndexedDB Schema (Retry)
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-25'
 updated_at: '2026-07-28'
