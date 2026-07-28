@@ -80,6 +80,30 @@ describe('movePlanner', () => {
     ]);
   });
 
+  it('handles empty state / no diffs', () => {
+    const diff: BoxDiffResult = {
+      additions: [],
+      removals: [],
+      relocations: [],
+    };
+    const plan = calculateMovePlan(diff);
+    expect(plan).toEqual([]);
+  });
+
+  it('handles simple additions and removals', () => {
+    const diff: BoxDiffResult = {
+      additions: [createMockPokemon('A', 1, 1)],
+      removals: [createMockPokemon('B', 1, 2)],
+      relocations: [],
+    };
+    const plan = calculateMovePlan(diff);
+    // Removals should be processed first as WITHDRAWs
+    expect(plan).toEqual([
+      { type: 'WITHDRAW', sourceBox: 1, sourceSlot: 2, targetBox: -1, targetSlot: -1 },
+      { type: 'DEPOSIT', sourceBox: -1, sourceSlot: -1, targetBox: 1, targetSlot: 1 },
+    ]);
+  });
+
   it('handles cycle resolutions (3+ Pokémon)', () => {
     const diff: BoxDiffResult = {
       additions: [],

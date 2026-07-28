@@ -39,6 +39,6 @@ You must verify the implementation handles the following scenarios correctly via
 6. **Full Box Constraints**: Testing behavior when there are very few or zero empty slots available for holding space.
 
 ## Acceptance Criteria
-- [ ] Verify the implementation of `calculateMovePlan` correctly resolves cyclic dependencies.
-- [ ] Verify unit tests cover direct swaps and N=3+ cycles.
-- [ ] Run `pnpm test` and ensure all tests pass.
+- [x] Verify the implementation of `calculateMovePlan` correctly resolves cyclic dependencies.
+- [x] Verify unit tests cover direct swaps and N=3+ cycles.
+- [x] Run `pnpm test` and ensure all tests pass.
