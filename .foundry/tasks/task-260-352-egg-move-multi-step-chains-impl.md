@@ -33,6 +33,6 @@ When a Pokémon requires an egg move, the static data (`p.em[moveId]`) provides 
 - The suggestion should encourage breeding the owned ancestor to produce the next step in the chain.
 
 ## Acceptance Criteria
-- [ ] Multi-step chains are fully traversed to find an owned ancestor.
-- [ ] Suggestions indicate which owned Pokémon to breed and what the resulting intermediate offspring will be.
-- [ ] Ensure O(1) in-place array mutation is maintained for performance as per Architecture Notes.
+- [x] Multi-step chains are fully traversed to find an owned ancestor.
+- [x] Suggestions indicate which owned Pokémon to breed and what the resulting intermediate offspring will be.
+- [x] Ensure O(1) in-place array mutation is maintained for performance as per Architecture Notes.
