@@ -41,8 +41,8 @@ The output should be a structured list of operations, such as:
 3. The output operations should be minimal.
 
 ## Acceptance Criteria
-- [ ] Implement `calculateMovePlan` (or similar) function.
-- [ ] Define the output operation structure (e.g., `MoveOperation` type).
-- [ ] Write unit tests for basic linear moves.
-- [ ] Write unit tests for swap scenarios (two Pokémon trading spots).
-- [ ] Write unit tests for cycle resolutions (3+ Pokémon forming a relocation cycle).
+- [x] Implement `calculateMovePlan` (or similar) function.
+- [x] Define the output operation structure (e.g., `MoveOperation` type).
+- [x] Write unit tests for basic linear moves.
+- [x] Write unit tests for swap scenarios (two Pokémon trading spots).
+- [x] Write unit tests for cycle resolutions (3+ Pokémon forming a relocation cycle).
