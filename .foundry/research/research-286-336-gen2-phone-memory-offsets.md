@@ -2,12 +2,12 @@
 id: research-286-336-gen2-phone-memory-offsets
 type: RESEARCH
 title: Investigate Gen 2 Pokegear Phone Memory Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-24'
-updated_at: '2026-07-26'
+updated_at: '2026-07-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16652988148086082343'
 pr_number: null
 parent: story-118-286-filter-swarm-item-calls
 tags:
