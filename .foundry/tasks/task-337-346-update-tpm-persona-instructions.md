@@ -2,12 +2,12 @@
 id: task-337-346-update-tpm-persona-instructions
 type: TASK
 title: Update TPM Persona Instructions for Session Journals
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-25'
-updated_at: '2026-07-26'
+updated_at: '2026-07-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11492831618979811396'
 pr_number: null
 parent: story-338-337-update-tpm-aggregation
 tags:
