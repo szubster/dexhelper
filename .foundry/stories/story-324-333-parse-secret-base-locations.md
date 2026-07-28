@@ -32,5 +32,8 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer, we need to extract the
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break this Story down into actionable Tasks.
-- [ ] task-333-334-gen3-secret-base-locations-impl
-- [ ] task-333-335-gen3-secret-base-locations-qa
+- [x] task-333-334-gen3-secret-base-locations-impl
+- [x] task-333-335-gen3-secret-base-locations-qa
+- [ ] research-333-348-investigate-secret-base-offsets
+- [ ] task-333-349-gen3-secret-base-locations-retry-impl
+- [ ] task-333-350-gen3-secret-base-locations-retry-qa
