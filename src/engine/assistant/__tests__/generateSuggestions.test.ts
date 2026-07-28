@@ -1194,4 +1194,140 @@ describe('generateSuggestions', () => {
     expect(emSuggestion?.description).toBe('Breed your #274 (which knows the Egg Move) to get a #1!');
     expect(emSuggestion?.priority).toBe(88);
   });
+
+  it('should generate breeding suggestions for Egg Moves when owning an ancestor multiple steps back in a 3+ step chain', () => {
+    const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
+    ownedSet.delete(1); // Missing final evolution
+
+    const mockSaveData = {
+      generation: 2,
+      gameVersion: 'gold',
+      trainerName: 'ASH',
+      owned: ownedSet,
+      party: [],
+      pc: [100], // Owns the earliest ancestor (e.g., step 1 in a 3-step chain)
+      inventory: [],
+      partyDetails: [],
+      pcDetails: [
+        {
+          speciesId: 100,
+          level: 20,
+          isShiny: false,
+          hash: '',
+          moves: [], // No moves initially
+          storageLocation: 'Box 1',
+          otName: 'ASH',
+        },
+      ],
+    } as unknown as SaveData;
+
+    const mockApiData = {
+      pokemonMetadata: {
+        1: {
+          id: 1,
+          n: 'TestFinal',
+          cr: 45,
+          baby: false,
+          eto: [],
+          efrm: [],
+          det: [],
+          em: {
+            20: [100, 101, 1], // Move 20, chain: 100 -> 101 -> 1
+          },
+        },
+        100: {
+          id: 100,
+          n: 'TestBase',
+          cr: 45,
+          baby: false,
+          eto: [],
+          efrm: [],
+          det: [],
+        },
+      } as Record<number, PokemonMetadata>,
+      localAid: null,
+      localEncounters: null,
+      missingEncounters: {},
+      ancestralEncounters: {},
+      areaNames: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const strategy = getStrategy(2);
+    const result = generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
+
+    const emSuggestion = result.suggestions.find((s) => s.id === 'egg-move-1-20-100');
+    expect(emSuggestion).toBeDefined();
+    expect(emSuggestion?.description).toBe('Breed your #100 to get a #101 with the Egg Move!');
+    expect(emSuggestion?.priority).toBe(82);
+    expect(emSuggestion?.pokemonId).toBe(101);
+  });
+
+  it('should generate higher priority breeding suggestions for Egg Moves in a 3+ step chain when the early ancestor knows the move', () => {
+    const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
+    ownedSet.delete(1); // Missing final evolution
+
+    const mockSaveData = {
+      generation: 2,
+      gameVersion: 'gold',
+      trainerName: 'ASH',
+      owned: ownedSet,
+      party: [],
+      pc: [100], // Owns the earliest ancestor
+      inventory: [],
+      partyDetails: [],
+      pcDetails: [
+        {
+          speciesId: 100,
+          level: 20,
+          isShiny: false,
+          hash: '',
+          moves: [20], // Knows the Egg Move
+          storageLocation: 'Box 1',
+          otName: 'ASH',
+        },
+      ],
+    } as unknown as SaveData;
+
+    const mockApiData = {
+      pokemonMetadata: {
+        1: {
+          id: 1,
+          n: 'TestFinal',
+          cr: 45,
+          baby: false,
+          eto: [],
+          efrm: [],
+          det: [],
+          em: {
+            20: [100, 101, 1], // Move 20, chain: 100 -> 101 -> 1
+          },
+        },
+        100: {
+          id: 100,
+          n: 'TestBase',
+          cr: 45,
+          baby: false,
+          eto: [],
+          efrm: [],
+          det: [],
+        },
+      } as Record<number, PokemonMetadata>,
+      localAid: null,
+      localEncounters: null,
+      missingEncounters: {},
+      ancestralEncounters: {},
+      areaNames: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const strategy = getStrategy(2);
+    const result = generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
+
+    const emSuggestion = result.suggestions.find((s) => s.id === 'egg-move-1-20-100');
+    expect(emSuggestion).toBeDefined();
+    expect(emSuggestion?.description).toBe('Breed your #100 (which knows the Egg Move) to get a #101!');
+    expect(emSuggestion?.priority).toBe(88);
+    expect(emSuggestion?.pokemonId).toBe(101);
+  });
 });
