@@ -36,4 +36,4 @@ Before we can implement the parsing logic for extracting exact Pokéblock data f
 ## Acceptance Criteria
 - [x] Create a TASK for a Researcher or Tech Lead to find and document the Pokéblock Case offsets and structures in a new document under `.foundry/docs/knowledge_base/` (e.g. `gen3_pokeblock_offsets.md`).
 - [x] task-331-334-research-gen3-pokeblock-offsets
-- [ ] task-331-346-research-gen3-pokeblock-offsets-retry
+- [x] task-331-346-research-gen3-pokeblock-offsets-retry
