@@ -46,6 +46,41 @@ const EVENT_FLAG_SNORLAX_BIT = 1872 % 8;
 const EVENT_FLAG_RED_GYARADOS_BYTE = Math.floor(1873 / 8);
 const EVENT_FLAG_RED_GYARADOS_BIT = 1873 % 8;
 
+const PARTY_COUNT_OFFSET_GS = 0x288a;
+const PARTY_COUNT_OFFSET_CRYSTAL = 0x2865;
+const PARTY_SPECIES_OFFSET_GS = 0x288b;
+const PARTY_SPECIES_OFFSET_CRYSTAL = 0x2866;
+const POKEDEX_OWNED_OFFSET_GS = 0x2a4c;
+const POKEDEX_OWNED_OFFSET_CRYSTAL = 0x2a69;
+const POKEDEX_SEEN_OFFSET_GS = 0x2a6c;
+const POKEDEX_SEEN_OFFSET_CRYSTAL = 0x2a89;
+const CURRENT_BOX_NUM_OFFSET_GS = 0x2724;
+const CURRENT_BOX_NUM_OFFSET_CRYSTAL = 0x2700;
+const CURRENT_BOX_COUNT_OFFSET = 0x2d10;
+const CURRENT_BOX_SPECIES_OFFSET = 0x2d11;
+const TM_POCKET_OFFSET_GS = 0x23e7;
+const TM_POCKET_OFFSET_CRYSTAL = 0x23c8;
+const ITEMS_POCKET_OFFSET_GS = 0x2420;
+const ITEMS_POCKET_OFFSET_CRYSTAL = 0x2402;
+const KEY_ITEMS_POCKET_OFFSET_GS = 0x244a;
+const KEY_ITEMS_POCKET_OFFSET_CRYSTAL = 0x242c;
+const BALLS_POCKET_OFFSET_GS = 0x2465;
+const BALLS_POCKET_OFFSET_CRYSTAL = 0x2447;
+const PC_ITEMS_POCKET_OFFSET_GS = 0x247e;
+const PC_ITEMS_POCKET_OFFSET_CRYSTAL = 0x2460;
+const ROAMING_LEGENDARIES_OFFSET_GS = 0x28da;
+const ROAMING_LEGENDARIES_OFFSET_CRYSTAL = 0x28b6;
+const JOHTO_BADGES_OFFSET_GS = 0x23e4;
+const JOHTO_BADGES_OFFSET_CRYSTAL = 0x23e5;
+const KANTO_BADGES_OFFSET_GS = 0x23e5;
+const KANTO_BADGES_OFFSET_CRYSTAL = 0x23e6;
+const TRAINER_NAME_OFFSET = 0x200b;
+const TRAINER_ID_OFFSET = 0x2009;
+const MAP_BANK_OFFSET_GS = 0x25b3;
+const MAP_BANK_OFFSET_CRYSTAL = 0x25c6;
+const MAP_ID_OFFSET_GS = 0x25b4;
+const MAP_ID_OFFSET_CRYSTAL = 0x25c7;
+
 const EVENT_FLAGS_LENGTH = 0x100;
 
 const CAUGHT_TIME_MASK = 0xc0;
@@ -281,8 +316,8 @@ function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): GameVersi
  * @returns True if the structure looks like a valid Gen 2 save for the specified game type.
  */
 export function isGen2Save(view: DataView, crystal: boolean): boolean {
-  const countOffset = crystal ? 0x2865 : 0x288a;
-  const speciesOffset = crystal ? 0x2866 : 0x288b;
+  const countOffset = crystal ? PARTY_COUNT_OFFSET_CRYSTAL : PARTY_COUNT_OFFSET_GS;
+  const speciesOffset = crystal ? PARTY_SPECIES_OFFSET_CRYSTAL : PARTY_SPECIES_OFFSET_GS;
   const partyCount = view.getUint8(countOffset);
   if (partyCount > 6) return false;
   if (view.getUint8(speciesOffset + partyCount) !== 0xff) return false;
@@ -510,10 +545,10 @@ function parseDaycare(view: DataView, isCrystal: boolean) {
 function parseInventory(view: DataView, isCrystal: boolean) {
   const inventory: { id: number; quantity: number }[] = [];
 
-  const tmPocket = isCrystal ? 0x23c8 : 0x23e7;
-  const itemsPocket = isCrystal ? 0x2402 : 0x2420;
-  const keyItemsPocket = isCrystal ? 0x242c : 0x244a;
-  const ballsPocket = isCrystal ? 0x2447 : 0x2465;
+  const tmPocket = isCrystal ? TM_POCKET_OFFSET_CRYSTAL : TM_POCKET_OFFSET_GS;
+  const itemsPocket = isCrystal ? ITEMS_POCKET_OFFSET_CRYSTAL : ITEMS_POCKET_OFFSET_GS;
+  const keyItemsPocket = isCrystal ? KEY_ITEMS_POCKET_OFFSET_CRYSTAL : KEY_ITEMS_POCKET_OFFSET_GS;
+  const ballsPocket = isCrystal ? BALLS_POCKET_OFFSET_CRYSTAL : BALLS_POCKET_OFFSET_GS;
 
   // TM/HMs
   for (let i = 0; i < 57; i++) {
@@ -571,7 +606,7 @@ function parseInventory(view: DataView, isCrystal: boolean) {
  */
 function parseRoamingLegendaries(view: DataView, isCrystal: boolean) {
   const roamingLegendaries: { speciesId: number; level: number; mapGroup: number; mapId: number }[] = [];
-  const roamingOffset = isCrystal ? 0x28b6 : 0x28da;
+  const roamingOffset = isCrystal ? ROAMING_LEGENDARIES_OFFSET_CRYSTAL : ROAMING_LEGENDARIES_OFFSET_GS;
 
   for (let i = 0; i < 3; i++) {
     const structOffset = roamingOffset + i * 7;
@@ -606,8 +641,8 @@ function parseRoamingLegendaries(view: DataView, isCrystal: boolean) {
 export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   let isCrystal = forceCrystal;
   if (!isCrystal) {
-    const gsPartyCount = view.getUint8(0x288a);
-    const cPartyCount = view.getUint8(0x2865);
+    const gsPartyCount = view.getUint8(PARTY_COUNT_OFFSET_GS);
+    const cPartyCount = view.getUint8(PARTY_COUNT_OFFSET_CRYSTAL);
     if (cPartyCount <= 6 && cPartyCount > 0 && gsPartyCount > 6) {
       isCrystal = true;
     }
@@ -615,30 +650,30 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
 
   const offsets = isCrystal
     ? {
-        owned: 0x2a69,
-        seen: 0x2a89,
-        partyCount: 0x2865,
-        partySpecies: 0x2866,
-        currentBoxNum: 0x2700,
-        currentBoxCount: 0x2d10,
-        currentBoxSpecies: 0x2d11,
+        owned: POKEDEX_OWNED_OFFSET_CRYSTAL,
+        seen: POKEDEX_SEEN_OFFSET_CRYSTAL,
+        partyCount: PARTY_COUNT_OFFSET_CRYSTAL,
+        partySpecies: PARTY_SPECIES_OFFSET_CRYSTAL,
+        currentBoxNum: CURRENT_BOX_NUM_OFFSET_CRYSTAL,
+        currentBoxCount: CURRENT_BOX_COUNT_OFFSET,
+        currentBoxSpecies: CURRENT_BOX_SPECIES_OFFSET,
       }
     : {
-        owned: 0x2a4c,
-        seen: 0x2a6c,
-        partyCount: 0x288a,
-        partySpecies: 0x288b,
-        currentBoxNum: 0x2724,
-        currentBoxCount: 0x2d10,
-        currentBoxSpecies: 0x2d11,
+        owned: POKEDEX_OWNED_OFFSET_GS,
+        seen: POKEDEX_SEEN_OFFSET_GS,
+        partyCount: PARTY_COUNT_OFFSET_GS,
+        partySpecies: PARTY_SPECIES_OFFSET_GS,
+        currentBoxNum: CURRENT_BOX_NUM_OFFSET_GS,
+        currentBoxCount: CURRENT_BOX_COUNT_OFFSET,
+        currentBoxSpecies: CURRENT_BOX_SPECIES_OFFSET,
       };
 
   const { owned, seen } = parsePokedex(view, offsets);
   const { party, partyDetails } = parseParty(view, offsets, isCrystal);
   const { pc, pcDetails } = parsePCBoxes(view, offsets, isCrystal);
 
-  const johtoBadgesOffset = isCrystal ? 0x23e5 : 0x23e4;
-  const kantoBadgesOffset = isCrystal ? 0x23e6 : 0x23e5;
+  const johtoBadgesOffset = isCrystal ? JOHTO_BADGES_OFFSET_CRYSTAL : JOHTO_BADGES_OFFSET_GS;
+  const kantoBadgesOffset = isCrystal ? KANTO_BADGES_OFFSET_CRYSTAL : KANTO_BADGES_OFFSET_GS;
 
   const { daycare, daycareHasEgg } = parseDaycare(view, isCrystal);
   for (const p of daycare) pcDetails.push(p);
@@ -656,11 +691,11 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     gameVersion = 'gold';
   }
 
-  const trainerName = decodeGen12String(view, 0x200b);
-  const trainerId = view.getUint16(0x2009, false);
+  const trainerName = decodeGen12String(view, TRAINER_NAME_OFFSET);
+  const trainerId = view.getUint16(TRAINER_ID_OFFSET, false);
 
-  const mapBankOffset = isCrystal ? 0x25c6 : 0x25b3;
-  const mapIdOffset = isCrystal ? 0x25c7 : 0x25b4;
+  const mapBankOffset = isCrystal ? MAP_BANK_OFFSET_CRYSTAL : MAP_BANK_OFFSET_GS;
+  const mapIdOffset = isCrystal ? MAP_ID_OFFSET_CRYSTAL : MAP_ID_OFFSET_GS;
   const mapGroup = view.getUint8(mapBankOffset);
   const currentMapId = view.getUint8(mapIdOffset);
 
@@ -676,7 +711,7 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   const inventory = parseInventory(view, isCrystal);
 
   const pcItems: { id: number; quantity: number }[] = [];
-  const pcItemsPocket = isCrystal ? 0x2460 : 0x247e;
+  const pcItemsPocket = isCrystal ? PC_ITEMS_POCKET_OFFSET_CRYSTAL : PC_ITEMS_POCKET_OFFSET_GS;
   const pcItemsCount = view.getUint8(pcItemsPocket);
   if (pcItemsCount > 0 && pcItemsCount <= 50) {
     for (let i = 0; i < pcItemsCount; i++) {
