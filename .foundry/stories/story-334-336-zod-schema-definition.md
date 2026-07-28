@@ -2,12 +2,12 @@
 id: story-334-336-zod-schema-definition
 type: STORY
 title: Zod Schema Definition
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-20'
 updated_at: '2026-07-28'
 depends_on: []
-jules_session_id: '14670499431203077321'
+jules_session_id: null
 parent: epic-117-334-define-zod-schema
 rejection_reason: ''
 ---
