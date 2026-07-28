@@ -80,6 +80,7 @@ const CATEGORY_STYLES: Record<SuggestionCategory, { icon: React.ReactNode; color
 export function AssistantPanel({ saveData, isLivingDex, manualVersion }: AssistantPanelProps) {
   const { suggestions, debug, isLoading, areaNames } = useAssistant(saveData, isLivingDex, manualVersion);
   const [showDebug, setShowDebug] = React.useState(false);
+  const [activeCategory, setActiveCategory] = React.useState<SuggestionCategory | null>(null);
 
   // ⚡ Bolt: Removed redundant IDB query, use cached data from root route loader
   const { data: pokemonList } = useSuspenseQuery(pokemonListQueryOptions);
@@ -111,6 +112,23 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
     }
     return acc;
   }, [suggestions]);
+
+  const orderedCategories = React.useMemo(() => {
+    return objectEntries(groupedSuggestions)
+      .sort(([a], [b]) => {
+        const orderA = isValidCategory(a) ? CATEGORY_ORDER[a] : 99;
+        const orderB = isValidCategory(b) ? CATEGORY_ORDER[b] : 99;
+        return orderA - orderB;
+      })
+      .map(([cat]) => cat as SuggestionCategory);
+  }, [groupedSuggestions]);
+
+  // Set active category initially or if it disappears
+  React.useEffect(() => {
+    if (orderedCategories.length > 0 && (!activeCategory || !orderedCategories.includes(activeCategory))) {
+      setActiveCategory(orderedCategories[0] || null);
+    }
+  }, [orderedCategories, activeCategory]);
 
   return (
     <div className="flex-1 space-y-6">
@@ -165,73 +183,111 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
           </p>
         </div>
       ) : (
-        <div className="space-y-8">
-          {objectEntries(groupedSuggestions)
-            // Custom sort order for categories
-            .sort(([a], [b]) => {
-              // ⚡ Bolt: Use O(1) object lookup instead of array indexOf inside sort callback
-              const orderA = isValidCategory(a) ? CATEGORY_ORDER[a] : 99;
-              const orderB = isValidCategory(b) ? CATEGORY_ORDER[b] : 99;
-              return orderA - orderB;
-            })
-            .map(([category, items]) => {
-              const catStyle = CATEGORY_STYLES[category] ?? CATEGORY_STYLES.Utility;
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
+          {/* Operations Sidebar */}
+          <div className="w-full shrink-0 border border-zinc-800 border-dashed bg-black/40 p-2 lg:w-64">
+            <EdgeLabel className="-top-2.5 left-4 text-[var(--theme-primary)]">OPS.MATRIX</EdgeLabel>
+            <div className="flex flex-col gap-1">
+              {orderedCategories.map((category) => {
+                const items = groupedSuggestions[category] || [];
+                const catStyle = CATEGORY_STYLES[category] ?? CATEGORY_STYLES.Utility;
+                const isActive = activeCategory === category;
 
-              return (
-                <div key={category} className="space-y-6">
-                  {/* Tactical Data Stream Separator */}
-                  <div className="relative flex items-center">
-                    <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-zinc-800 via-zinc-700 to-transparent" />
-                    <div className="relative flex items-center gap-4 bg-zinc-950 pr-4">
+                return (
+                  <button
+                    key={category}
+                    type="button"
+                    onClick={() => setActiveCategory(category)}
+                    className={`focus-visible:tactical-focus group relative flex items-center justify-between border border-dashed px-4 py-3 transition-all duration-300 ${
+                      isActive
+                        ? `border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[inset_4px_0_0_var(--theme-primary)]`
+                        : 'border-zinc-800/50 bg-transparent text-zinc-500 hover:border-zinc-700 hover:bg-zinc-900/50 hover:text-zinc-300'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
                       <div
-                        className={`flex items-center gap-3 border border-zinc-800 border-dashed bg-zinc-900/80 px-4 py-2`}
+                        className={`${isActive ? catStyle.color.replace('border-', 'text-') : 'text-zinc-600 group-hover:text-zinc-400'}`}
                       >
-                        <EdgeLabel className="-top-2 left-2 text-[8px]">SYS.CAT</EdgeLabel>
-                        <div className={`${catStyle.bg} ${catStyle.color.replace('border-', 'text-')} p-1`}>
-                          {catStyle.icon}
-                        </div>
-                        <h3 className="tactical-text font-black text-lg text-white">
-                          [{' '}
-                          {category === 'Catch'
-                            ? 'WILD ENCOUNTERS'
-                            : category === 'Trade'
-                              ? 'TRADE REQUIRED'
-                              : category.toUpperCase()}{' '}
-                          ]
-                        </h3>
-                        <div className="ml-2 flex h-5 w-5 items-center justify-center border border-zinc-700 border-dashed bg-zinc-800 font-mono text-[10px] text-zinc-400">
-                          {items.length}
-                        </div>
+                        {catStyle.icon}
                       </div>
+                      <span className="font-black font-mono text-[11px] uppercase tracking-wider">
+                        {category === 'Catch'
+                          ? 'ENCOUNTERS'
+                          : category === 'Trade'
+                            ? 'TRADES'
+                            : category}
+                      </span>
+                    </div>
+                    <div
+                      className={`flex h-5 items-center justify-center border border-dashed px-2 font-mono text-[10px] ${
+                        isActive
+                          ? 'border-[var(--theme-primary)]/40 bg-[var(--theme-primary)]/20 text-[var(--theme-primary)]'
+                          : 'border-zinc-800 bg-zinc-950 text-zinc-600 group-hover:border-zinc-700 group-hover:text-zinc-400'
+                      }`}
+                    >
+                      {items.length}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Active Operation Content */}
+          <div className="min-h-[500px] flex-1">
+            {activeCategory && groupedSuggestions[activeCategory] && (
+              <div className="fade-in animate-in space-y-6 duration-500">
+                {/* Active Category Header */}
+                <div className="relative flex items-center border border-zinc-800 border-dashed bg-zinc-900/40 p-4">
+                  <div className="absolute top-0 bottom-0 left-0 w-1 bg-gradient-to-b from-[var(--theme-primary)]/80 to-[var(--theme-primary)]/10" />
+                  <EdgeLabel className="-top-2.5 left-4 text-[var(--theme-primary)]">ACTIVE.OP</EdgeLabel>
+                  <div className="flex items-center gap-4">
+                    <div className={`${CATEGORY_STYLES[activeCategory]?.bg} ${CATEGORY_STYLES[activeCategory]?.color.replace('border-', 'text-')} p-2`}>
+                      {CATEGORY_STYLES[activeCategory]?.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-black font-display text-xl text-white uppercase tracking-wider">
+                        {activeCategory === 'Catch'
+                          ? 'WILD ENCOUNTERS'
+                          : activeCategory === 'Trade'
+                            ? 'TRADE REQUIRED'
+                            : activeCategory}
+                      </h3>
+                      <p className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
+                        [ {groupedSuggestions[activeCategory]?.length || 0} TARGETS IDENTIFIED ]
+                      </p>
                     </div>
                   </div>
-
-                  <div
-                    className={`fade-in grid animate-in gap-6 duration-500 ${category === 'Catch' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}
-                  >
-                    {items.map((s, idx) => {
-                      const style = CATEGORY_STYLES[s.category] ?? CATEGORY_STYLES.Utility;
-                      return (
-                        <div
-                          key={s.id}
-                          className="slide-in-from-bottom-4 animate-in fill-mode-both duration-500"
-                          style={{ animationDelay: `${idx * 100}ms` }}
-                        >
-                          <AssistantSuggestionCard
-                            suggestion={s}
-                            style={style}
-                            showDebug={showDebug}
-                            saveData={saveData}
-                            getPokemonName={getPokemonName}
-                            areaNames={areaNames}
-                          />
-                        </div>
-                      );
-                    })}
-                  </div>
                 </div>
-              );
-            })}
+
+                <div
+                  className={`grid gap-6 ${
+                    activeCategory === 'Catch' ? 'grid-cols-1 xl:grid-cols-2' : 'grid-cols-1 md:grid-cols-2'
+                  }`}
+                >
+                  {groupedSuggestions[activeCategory]?.map((s, idx) => {
+                    const style = CATEGORY_STYLES[s.category] ?? CATEGORY_STYLES.Utility;
+                    return (
+                      <div
+                        key={s.id}
+                        className="slide-in-from-bottom-4 animate-in fill-mode-both duration-500"
+                        style={{ animationDelay: `${idx * 100}ms` }}
+                      >
+                        <AssistantSuggestionCard
+                          suggestion={s}
+                          style={style}
+                          showDebug={showDebug}
+                          saveData={saveData}
+                          getPokemonName={getPokemonName}
+                          areaNames={areaNames}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       )}
 
