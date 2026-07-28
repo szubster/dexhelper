@@ -2,12 +2,12 @@
 id: task-319-323-gen3-hof-pokedex-extraction-impl
 type: TASK
 title: Implement Gen 3 Hall of Fame & Pokédex Data Extraction
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-15'
 updated_at: '2026-07-28'
 depends_on: []
-jules_session_id: '12475589138110001973'
+jules_session_id: null
 pr_number: null
 parent: story-304-319-gen3-hof-pokedex-extraction
 tags:
@@ -17,7 +17,7 @@ research_references:
   - .foundry/docs/knowledge_base/engine/save_parsing/gen3_hall_of_fame.md
   - .foundry/docs/knowledge_base/gen3_pokemon_data_structure.md
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 

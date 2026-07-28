@@ -2,10 +2,10 @@
 id: idea-128-gen3-acro-bike-route-planner
 type: IDEA
 title: Gen 3 Acro Bike / Mach Bike Route Requirements
-status: PENDING
+status: READY
 owner_persona: product_manager
-created_at: 2026-07-28
-updated_at: 2026-07-28
+created_at: 2026-07-28T00:00:00.000Z
+updated_at: '2026-07-28'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,10 @@ tags:
   - map
   - quality-of-life
 research_references: []
-notes: "Pivoted from Roamer, Radio, and Berry ideas (which were rejected/ongoing) to focus on a novel map utility."
+notes: >-
+  Pivoted from Roamer, Radio, and Berry ideas (which were rejected/ongoing) to
+  focus on a novel map utility.
+rejection_reason: ''
 ---
 
 # Gen 3 Acro Bike / Mach Bike Route Requirements

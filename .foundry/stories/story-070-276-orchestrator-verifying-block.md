@@ -2,10 +2,10 @@
 id: story-070-276-orchestrator-verifying-block
 type: STORY
 title: Orchestrator VERIFYING Hierarchical Block Fix
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-07-16'
+updated_at: '2026-07-28'
 depends_on: []
 jules_session_id: null
 pr_number: null

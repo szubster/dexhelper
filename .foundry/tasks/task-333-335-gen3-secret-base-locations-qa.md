@@ -2,10 +2,10 @@
 id: task-333-335-gen3-secret-base-locations-qa
 type: TASK
 title: QA Gen 3 Secret Base Locations Parser
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-19'
-updated_at: '2026-07-19'
+updated_at: '2026-07-28'
 depends_on:
   - task-333-334-gen3-secret-base-locations-impl
 jules_session_id: null

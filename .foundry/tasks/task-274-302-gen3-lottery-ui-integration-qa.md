@@ -2,10 +2,10 @@
 id: task-274-302-gen3-lottery-ui-integration-qa
 type: TASK
 title: Gen3 Lottery UI Integration - QA
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-07-10'
-updated_at: '2026-07-10'
+updated_at: '2026-07-28'
 depends_on:
   - task-274-301-gen3-lottery-ui-integration-impl
 jules_session_id: null
@@ -15,7 +15,9 @@ tags:
   - feature
   - gen3
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-274-301-gen3-lottery-ui-integration-impl
 notes: ''
 ---
 

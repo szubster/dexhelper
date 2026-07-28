@@ -2,10 +2,10 @@
 id: task-274-301-gen3-lottery-ui-integration-impl
 type: TASK
 title: Gen3 Lottery UI Integration - Implementation
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-10'
-updated_at: '2026-07-27'
+updated_at: '2026-07-28'
 depends_on: []
 jules_session_id: '4288905185604697711'
 pr_number: null
@@ -13,8 +13,8 @@ parent: story-133-274-gen3-lottery-ui-integration
 tags:
   - feature
   - gen3
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 ---
 

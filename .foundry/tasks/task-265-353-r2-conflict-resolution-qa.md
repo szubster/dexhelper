@@ -2,7 +2,7 @@
 id: task-265-353-r2-conflict-resolution-qa
 type: TASK
 title: Cloudflare R2 Offline Conflict Resolution - QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-28'
 updated_at: '2026-07-28'

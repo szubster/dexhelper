@@ -2,12 +2,12 @@
 id: story-306-321-gen3-tm-hm-parsing
 type: STORY
 title: Gen 3 TM/HM Parse
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-07-27'
+updated_at: '2026-07-28'
 depends_on: []
-jules_session_id: '12479736792511015206'
+jules_session_id: null
 pr_number: null
 parent: epic-110-306-tm-hm-save-parsing
 tags:

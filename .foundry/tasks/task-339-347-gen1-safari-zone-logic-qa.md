@@ -2,13 +2,13 @@
 id: task-339-347-gen1-safari-zone-logic-qa
 type: TASK
 title: QA for Gen 1 Safari Zone Missing Encounters Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-25'
 updated_at: '2026-07-28'
 depends_on:
   - task-339-346-gen1-safari-zone-logic-impl
-jules_session_id: '5078513534650429293'
+jules_session_id: null
 pr_number: null
 parent: story-324-339-gen1-safari-zone-save-state
 tags:

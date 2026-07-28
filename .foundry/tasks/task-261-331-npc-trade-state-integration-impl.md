@@ -2,10 +2,10 @@
 id: task-261-331-npc-trade-state-integration-impl
 type: TASK
 title: NPC Trade State Integration Implementation
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-17'
-updated_at: '2026-07-26'
+updated_at: '2026-07-28'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - state-integration
 research_references: []
 rejection_count: 3
-rejection_reason: 'The tests in gen3.test.ts do not verify the integration into the SaveData object, and the parseGen3 function incorrectly uses section2Offset instead of section1Offset for Emerald and FRLG.'
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

@@ -2,7 +2,7 @@
 id: task-295-352-move-planner-impl
 type: TASK
 title: Implement Move Planner Algorithm
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-28'
 updated_at: '2026-07-28'
