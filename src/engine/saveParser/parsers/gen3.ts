@@ -262,6 +262,28 @@ export const GEN3_EMERALD_VARS_OFFSET = 0x139c;
 export const GEN3_RS_VARS_OFFSET = 0x1340;
 export const GEN3_ASH_VAR_RELATIVE_OFFSET = 0x90;
 
+export const GEN3_GAME_STATS_OFFSET_EMERALD = 0x159c;
+export const GEN3_GAME_STATS_OFFSET_RS = 0x1540;
+export const GEN3_GAME_STATS_OFFSET_FRLG = 0x1200;
+export const GAME_STAT_ENTERED_HOF_ID = 10;
+
+export const GEN3_POKEDEX_OFFSET = 0x18;
+export const GEN3_POKEDEX_OWNED_OFFSET = 0x10;
+export const GEN3_POKEDEX_SEEN_OFFSET = 0x44;
+export const NATIONAL_DEX_MAX = 386;
+
+export const HOENN_DEX_NATIONAL_IDS = new Set<number>([
+  252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274,
+  275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 63, 64, 65, 290, 291, 292, 293, 294, 295,
+  296, 297, 118, 119, 129, 130, 298, 183, 184, 74, 75, 76, 299, 300, 301, 41, 42, 169, 72, 73, 302, 303, 304, 305, 306,
+  66, 67, 68, 307, 308, 309, 310, 311, 312, 81, 82, 100, 101, 313, 314, 43, 44, 45, 182, 84, 85, 315, 316, 317, 318,
+  319, 320, 321, 322, 323, 218, 219, 324, 88, 89, 109, 110, 325, 326, 27, 28, 327, 227, 328, 329, 330, 331, 332, 333,
+  334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 174, 39, 40, 349, 350, 351, 120, 121, 352,
+  353, 354, 355, 356, 357, 358, 359, 37, 38, 172, 25, 26, 54, 55, 360, 202, 177, 178, 203, 231, 232, 127, 214, 111, 112,
+  361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 222, 170, 171, 371, 116, 117, 230, 372, 373, 374, 375, 376, 377,
+  378, 379, 380, 381, 382, 383, 384, 385, 386,
+]);
+
 /**
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
  *
@@ -1023,11 +1045,50 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const gen3TMEventFlags = parseGen3TMEventFlags(view, section2Offset, _forcedVersion || 'ruby');
     const gen3MatchCall = parseGen3MatchCall(view, section1Offset, section2Offset, _forcedVersion || 'ruby');
 
+    let gameStatsOffset = GEN3_GAME_STATS_OFFSET_RS;
+    if (_forcedVersion === 'emerald') gameStatsOffset = GEN3_GAME_STATS_OFFSET_EMERALD;
+    else if (_forcedVersion === 'firered' || _forcedVersion === 'leafgreen')
+      gameStatsOffset = GEN3_GAME_STATS_OFFSET_FRLG;
+
+    let hallOfFameCount = 0;
+    try {
+      hallOfFameCount = view.getUint32(section1Offset + gameStatsOffset + GAME_STAT_ENTERED_HOF_ID * 4, true);
+    } catch {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+
+    const owned = new Set<number>();
+    const seen = new Set<number>();
+    const pokedexOwnedOffset = section0Offset + GEN3_POKEDEX_OFFSET + GEN3_POKEDEX_OWNED_OFFSET;
+    const pokedexSeenOffset = section0Offset + GEN3_POKEDEX_OFFSET + GEN3_POKEDEX_SEEN_OFFSET;
+
+    try {
+      // In Gen 3, the National Dex goes up to 386.
+      for (let dexId = 1; dexId <= NATIONAL_DEX_MAX; dexId++) {
+        // Internal flags are 0-indexed where index 0 is Bulbasaur (Dex ID 1)
+        const bitIndex = dexId - 1;
+        const byteIdx = Math.floor(bitIndex / 8);
+        const bitPos = bitIndex % 8;
+        const oByte = view.getUint8(pokedexOwnedOffset + byteIdx);
+        const sByte = view.getUint8(pokedexSeenOffset + byteIdx);
+        if ((oByte & (1 << bitPos)) !== 0) owned.add(dexId);
+        if ((sByte & (1 << bitPos)) !== 0) seen.add(dexId);
+      }
+    } catch {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+
+    let hoennDexCount = 0;
+    for (const id of owned) {
+      if (HOENN_DEX_NATIONAL_IDS.has(id)) hoennDexCount++;
+    }
+    const nationalDexCount = owned.size;
+
     // Dummy scaffold values for now until fully implemented
     const result: SaveData = {
       generation: 3,
-      owned: new Set(),
-      seen: new Set(),
+      owned,
+      seen,
       party: [],
       pc: [],
       partyDetails: [],
@@ -1040,7 +1101,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       currentMapId: 0,
       inventory: [],
       currentBoxCount: 0,
-      hallOfFameCount: 0,
+      hallOfFameCount,
+      hoennDexCount,
+      nationalDexCount,
 
       gen3BerryPatches,
       gen3SecretBases,

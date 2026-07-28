@@ -314,6 +314,10 @@ export interface SaveData {
   /** Gen 3 specific: Battle Points (BP) balance */
   gen3TotalBattlePoints?: number;
   gen3BattlePoints?: number;
+  /** Gen 3 specific: Number of Pokémon caught in the Hoenn Dex. */
+  hoennDexCount?: number;
+  /** Gen 3 specific: Number of Pokémon caught in the National Dex. */
+  nationalDexCount?: number;
   /** Gen 3 specific: Volcanic Ash gather count */
   /** Gen 3 specific: Emerald Move Tutor usage */
   gen3MoveTutors?: Gen3MoveTutors;
