@@ -18,5 +18,5 @@ Define the core Zod schema based on schema.md
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-336-342-zod-schema-definition-impl
-- [ ] task-336-343-zod-schema-definition-qa
+- [x] task-336-342-zod-schema-definition-impl
+- [x] task-336-343-zod-schema-definition-qa
