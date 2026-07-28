@@ -11,8 +11,9 @@ import { useFileSyncController } from './useFileSyncController';
 // Mock dependencies
 vi.mock('../utils/r2/client', () => ({
   r2Client: {
-    listSaves: vi.fn<() => Promise<string[]>>(),
-    putSave: vi.fn<(id: string, data: Uint8Array) => Promise<void>>(),
+    listSaves: vi.fn<() => Promise<{ id: string; lastModified?: number }[]>>(),
+    getSave: vi.fn<(id: string) => Promise<{ data: Uint8Array; lastModified?: number } | undefined>>(),
+    putSave: vi.fn<(id: string, data: Uint8Array, lastModified?: number) => Promise<void>>(),
   },
 }));
 
@@ -171,7 +172,7 @@ describe('useFileSyncController', () => {
     const { r2Client } = await import('../utils/r2/client');
 
     localStorage.setItem(AUTH_LOGGED_IN_INDICATOR, 'true');
-    vi.mocked(r2Client.listSaves).mockResolvedValue(['existing-save-id']);
+    vi.mocked(r2Client.listSaves).mockResolvedValue([{ id: 'existing-save-id', lastModified: 900 }]);
 
     // Setup file mock
     const mockFile = {
@@ -203,7 +204,7 @@ describe('useFileSyncController', () => {
     await vi.advanceTimersByTimeAsync(0);
 
     expect(r2Client.listSaves).toHaveBeenCalled();
-    expect(r2Client.putSave).toHaveBeenCalledWith('existing-save-id', expect.any(Uint8Array));
+    expect(r2Client.putSave).toHaveBeenCalledWith('existing-save-id', expect.any(Uint8Array), 1000);
   });
 
   it('should fallback to save-1 if no R2 saves exist', async () => {
@@ -240,7 +241,7 @@ describe('useFileSyncController', () => {
     await page.getByTestId('request-btn').click();
     await vi.advanceTimersByTimeAsync(0);
 
-    expect(r2Client.putSave).toHaveBeenCalledWith('save-1', expect.any(Uint8Array));
+    expect(r2Client.putSave).toHaveBeenCalledWith('save-1', expect.any(Uint8Array), 1000);
   });
 
   it('should gracefully handle R2 failure', async () => {

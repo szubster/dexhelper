@@ -33,6 +33,6 @@ Because DexHelper is offline-first, a user might make local changes while discon
 - Add error handling for cases where timestamps cannot be reliably determined.
 
 ## Acceptance Criteria
-- [ ] Logic implemented to detect conflicts between local file state and remote R2 state.
-- [ ] Conflict resolution strategy (e.g., last-write-wins) implemented and correctly handling offline/online transitions.
-- [ ] API endpoints and `r2Client` updated to handle and expose timestamps for sync comparison.
+- [x] Logic implemented to detect conflicts between local file state and remote R2 state.
+- [x] Conflict resolution strategy (e.g., last-write-wins) implemented and correctly handling offline/online transitions.
+- [x] API endpoints and `r2Client` updated to handle and expose timestamps for sync comparison.

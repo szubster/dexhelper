@@ -244,7 +244,7 @@ describe('AppLayout file upload', () => {
     const { r2Client } = await import('../../utils/r2/client');
 
     localStorage.setItem(AUTH_LOGGED_IN_INDICATOR, 'true');
-    vi.mocked(r2Client.listSaves).mockResolvedValue(['existing-save']);
+    vi.mocked(r2Client.listSaves).mockResolvedValue([{ id: 'existing-save' }]);
     vi.mocked(r2Client.putSave).mockResolvedValue();
 
     const putSaveSpy = vi.spyOn(saveDB, 'putSave').mockResolvedValue(undefined);
@@ -293,7 +293,7 @@ describe('AppLayout file upload', () => {
         expect(parseSaveFile).toHaveBeenCalled();
         expect(putSaveSpy).toHaveBeenCalled();
         expect(r2Client.listSaves).toHaveBeenCalled();
-        expect(r2Client.putSave).toHaveBeenCalledWith('existing-save', expect.any(Uint8Array));
+        expect(r2Client.putSave).toHaveBeenCalledWith('existing-save', expect.any(Uint8Array), file.lastModified);
       },
       { timeout: 3000 },
     );
@@ -346,7 +346,7 @@ describe('AppLayout file upload', () => {
 
     await vi.waitFor(
       () => {
-        expect(r2Client.putSave).toHaveBeenCalledWith('save-1', expect.any(Uint8Array));
+        expect(r2Client.putSave).toHaveBeenCalledWith('save-1', expect.any(Uint8Array), file.lastModified);
       },
       { timeout: 3000 },
     );

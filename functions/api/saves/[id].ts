@@ -14,6 +14,11 @@ export const onRequestGet: PagesFunction<Env, 'id', PluginData> = async ({ env, 
   const headers = new Headers();
   object.writeHttpMetadata(headers as any);
   headers.set('etag', object.httpEtag);
+
+  if (object.customMetadata?.['client-last-modified']) {
+    headers.set('client-last-modified', object.customMetadata['client-last-modified']);
+  }
+
   return new globalThis.Response(object.body as unknown as ReadableStream, { headers }) as any;
 };
 
@@ -21,6 +26,16 @@ export const onRequestPut: PagesFunction<Env, 'id', PluginData> = async ({ reque
   const email = data.cloudflareAccess?.JWT?.payload?.email;
   if (!email) return new globalThis.Response('Unauthorized', { status: 401 }) as any;
   const id = params.id as string;
-  await env.SAVES_BUCKET.put(`${email}/${id}`, request.body as any);
+
+  const clientLastModified = request.headers.get('client-last-modified');
+
+  const customMetadata: Record<string, string> = {};
+  if (clientLastModified) {
+    customMetadata['client-last-modified'] = clientLastModified;
+  }
+
+  await env.SAVES_BUCKET.put(`${email}/${id}`, request.body as any, {
+    customMetadata
+  });
   return new globalThis.Response('Created', { status: 201 }) as any;
 };

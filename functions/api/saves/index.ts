@@ -12,8 +12,11 @@ export const onRequestGet: PagesFunction<Env, any, PluginData> = async ({ env, d
   }
 
   const prefix = `${email}/`;
-  const list = await env.SAVES_BUCKET.list({ prefix });
-  const files = list.objects.map((obj: any) => obj.key.substring(prefix.length));
+  const list = await env.SAVES_BUCKET.list({ prefix, include: ['customMetadata'] });
+  const files = list.objects.map((obj: any) => ({
+    id: obj.key.substring(prefix.length),
+    lastModified: obj.customMetadata?.['client-last-modified'] ? parseInt(obj.customMetadata['client-last-modified'], 10) : undefined,
+  }));
 
   return new globalThis.Response(JSON.stringify(files), {
     headers: { 'Content-Type': 'application/json' },
