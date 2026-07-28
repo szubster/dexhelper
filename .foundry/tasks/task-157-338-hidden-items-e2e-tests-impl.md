@@ -2,12 +2,12 @@
 id: task-157-338-hidden-items-e2e-tests-impl
 type: TASK
 title: Implement E2E Tests for Hidden Items UI
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-21'
-updated_at: '2026-07-26'
+updated_at: '2026-07-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1318722923399979430'
 pr_number: null
 parent: story-060-157-hidden-items-e2e-tests
 tags:
