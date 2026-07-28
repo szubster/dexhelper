@@ -1637,28 +1637,4 @@ describe('parseGen3 (Pokedex & Hall of Fame)', () => {
     expect(() => parseGen3(view, 'emerald')).toThrow('The save file is corrupted or incomplete.');
   });
 
-  // Make buffer too small so getLatestSectionOffset passes but reading Pokedex fails
-  const buffer = new ArrayBuffer(0x3000); // Only enough for 3 sections but let's say section 0 is at the very end
-  const view = new DataView(buffer);
-
-  // In order for parseGen3 to reach the Pokedex read, it must successfully find section 0, 1, 2.
-  // If we put section 0 at offset 8192, and buffer size is 8192 + 0x18 + 0x10 + 50... wait
-  // We can just throw RangeError directly by mocking or setting up an exact buffer boundary.
-  // The previous tests do this, we can just use a buffer of 12288 bytes.
-  view.setUint32(0 + 4088, 0x08012025, true);
-  view.setUint16(0 + 4084, 1, true); // section 1
-
-  view.setUint32(4096 + 4088, 0x08012025, true);
-  view.setUint16(4096 + 4084, 2, true); // section 2
-
-  view.setUint32(8192 + 4088, 0x08012025, true);
-  view.setUint16(8192 + 4084, 0, true); // section 0
-
-  // Now buffer is 12288, section 0 starts at 8192.
-  // Pokedex read needs to read up to 8192 + 0x18 + 0x10 + 48 = 8264.
-  // If we make buffer exactly 8200 bytes, reading 8192 + 4088 (SIGNATURE) will fail... wait,
-  // we must supply a valid signature for section 0.
-  // Let's just create an ArrayBuffer of exactly 12288 bytes (8192 + 4096).
-  // The reading of Pokedex won't fail because it's only at offset 8264 < 12288.
-  // Wait, let's create a proxy DataView or just mock it.
 });
