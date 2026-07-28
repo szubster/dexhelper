@@ -54,7 +54,7 @@ The `map.json` file contains all the topological and encounter configuration for
 
 ## 3. Human Readable Location Names
 
-The `region_map_section` constant found in `map.json` is mapped to a human-readable string using `src/data/region_map/region_map_sections.json` (or `.json.txt` templates in older branches).
+The `region_map_section` constant found in `map.json` is mapped to a human-readable string using `src/engine/data/gen3/mapLocations.json (or similar)` (or `.json.txt` templates in older branches).
 This file contains an array `map_sections` which maps the `id` (e.g., `MAPSEC_LITTLEROOT_TOWN`) to its `name` (`LITTLEROOT TOWN`).
 
 ## Summary of Parsing Pipeline
@@ -64,4 +64,4 @@ To fully map Gen 3 locations, the implementation task must:
 2. Read each corresponding `map.json`.
 3. Extract `connections` array to populate node connections in the unified map graph.
 4. Extract `warp_events` -> `dest_map` to populate the `prnt` parent node logic.
-5. Use the map's `region_map_section` to look up the final localized text via `region_map_sections.json`.
+5. Use the map's `region_map_section` to look up the final localized text via `mapLocations.json` (or similar).
