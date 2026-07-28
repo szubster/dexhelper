@@ -31,4 +31,6 @@ Because the app is offline-first, a user might make local changes while disconne
 - Implement a resolution strategy (e.g., timestamp-based last-write-wins, or prompting the user).
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] .foundry/tasks/task-265-352-r2-conflict-resolution-impl.md
+- [ ] .foundry/tasks/task-265-353-r2-conflict-resolution-qa.md
