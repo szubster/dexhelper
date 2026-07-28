@@ -1,4 +1,4 @@
-import { decodeGen12String, type GameVersion, type Gen3SecretBasePartyMember } from '../../saveParser/parsers/common';
+import { decodeGen12String, type Gen3SecretBasePartyMember } from '../../saveParser/parsers/common';
 
 export const SECRET_BASE_SIZE = 160;
 export const SECRET_BASE_MAP_ID_DIVISOR = 10;
@@ -6,11 +6,9 @@ export const FLAGS_OFFSET = 0x01;
 export const BATTLED_OWNER_TODAY_MASK = 1 << 5;
 
 export const TRAINER_NAME_OFFSET = 0x02;
-export const TRAINER_NAME_LENGTH_RS = 7;
-export const TRAINER_NAME_LENGTH_EMERALD = 8;
+export const TRAINER_NAME_LENGTH = 7;
 
-export const TRAINER_ID_OFFSET_RS = 0x09;
-export const TRAINER_ID_OFFSET_EMERALD = 0x0a;
+export const TRAINER_ID_OFFSET = 0x09;
 
 export const PARTY_OFFSET = 0x34;
 export const PARTY_COUNT = 6;
@@ -87,10 +85,9 @@ export function parseSecretBaseParty(view: DataView, partyOffset: number): Gen3S
  *
  * @param view - The DataView of the save file.
  * @param offset - The start offset of the Secret Base struct.
- * @param gameVersion - The parsed GameVersion
  * @returns The parsed trainer metadata and party for the secret base, or null if the base is invalid.
  */
-export function parseSecretBaseRecord(view: DataView, offset: number, gameVersion: GameVersion) {
+export function parseSecretBaseRecord(view: DataView, offset: number) {
   try {
     const secretBaseId = view.getUint8(offset);
 
@@ -104,14 +101,10 @@ export function parseSecretBaseRecord(view: DataView, offset: number, gameVersio
     const flags = view.getUint8(offset + FLAGS_OFFSET);
     const battledOwnerToday = (flags & BATTLED_OWNER_TODAY_MASK) !== 0;
 
-    const isEmerald = gameVersion === 'emerald';
-    const trainerNameLength = isEmerald ? TRAINER_NAME_LENGTH_EMERALD : TRAINER_NAME_LENGTH_RS;
-    const trainerIdOffset = isEmerald ? TRAINER_ID_OFFSET_EMERALD : TRAINER_ID_OFFSET_RS;
-
-    const trainerName = decodeGen12String(view, offset + TRAINER_NAME_OFFSET, trainerNameLength);
+    const trainerName = decodeGen12String(view, offset + TRAINER_NAME_OFFSET, TRAINER_NAME_LENGTH);
 
     // Read the 4 byte Trainer ID
-    const trainerId = view.getUint32(offset + trainerIdOffset, true);
+    const trainerId = view.getUint32(offset + TRAINER_ID_OFFSET, true);
 
     const party = parseSecretBaseParty(view, offset + PARTY_OFFSET);
 

@@ -45,7 +45,7 @@ describe('Secret Base Parser', () => {
       const view = new DataView(buffer);
       view.setUint8(0, 0); // Empty base
 
-      const record = parseSecretBaseRecord(view, 0, 'emerald');
+      const record = parseSecretBaseRecord(view, 0);
       expect(record).toBeNull();
     });
 
@@ -66,15 +66,14 @@ describe('Secret Base Parser', () => {
       view.setUint8(6, 0xff);
       view.setUint8(7, 0xff);
       view.setUint8(8, 0xff);
-      view.setUint8(9, 0xff);
 
-      view.setUint32(10, 1234567, true);
+      view.setUint32(9, 1234567, true);
 
       // Let's set some party data
       const partyOffset = 52;
       view.setUint16(partyOffset + 0x48, 1, true); // Bulbasaur
 
-      const record = parseSecretBaseRecord(view, 0, 'emerald');
+      const record = parseSecretBaseRecord(view, 0);
 
       expect(record).toBeDefined();
       expect(record?.secretBaseId).toBe(15);
@@ -90,7 +89,7 @@ describe('Secret Base Parser', () => {
       const view = new DataView(buffer);
       view.setUint8(0, 1);
 
-      expect(() => parseSecretBaseRecord(view, 0, 'emerald')).toThrow('The save file is corrupted or incomplete.');
+      expect(() => parseSecretBaseRecord(view, 0)).toThrow('The save file is corrupted or incomplete.');
     });
   });
 });

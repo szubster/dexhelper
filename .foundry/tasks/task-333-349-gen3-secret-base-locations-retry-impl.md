@@ -38,8 +38,8 @@ The previous implementation failed due to incorrect offsets. It incorrectly assu
 - Map the internal location IDs to the unified Gen 3 map graph.
 
 ## Acceptance Criteria
-- [ ] Parser correctly extracts the internal location IDs and active state of the secret bases, using the correct trainer name length (7) and trainer ID offset (0x09).
-- [ ] `RangeError` is caught and rethrown with the exact message.
-- [ ] No inline magic numbers; all memory offsets and sizes are module-level constants.
-- [ ] Parsing correctly uses the relative `section1Offset` rather than absolute offsets.
-- [ ] Location IDs are mapped to the correct Gen 3 map graph locations.
+- [x] Parser correctly extracts the internal location IDs and active state of the secret bases, using the correct trainer name length (7) and trainer ID offset (0x09).
+- [x] `RangeError` is caught and rethrown with the exact message.
+- [x] No inline magic numbers; all memory offsets and sizes are module-level constants.
+- [x] Parsing correctly uses the relative `section1Offset` rather than absolute offsets.
+- [x] Location IDs are mapped to the correct Gen 3 map graph locations.

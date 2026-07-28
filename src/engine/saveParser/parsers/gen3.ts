@@ -835,7 +835,7 @@ export function parseGen3SecretBases(
     const secretBases: Gen3SecretBase[] = [];
     for (let i = 0; i < SECRET_BASES_COUNT; i++) {
       const offset = baseOffset + i * SECRET_BASE_SIZE;
-      const record = parseSecretBaseRecord(view, offset, gameVersion);
+      const record = parseSecretBaseRecord(view, offset);
       if (record) {
         secretBases.push(record);
       }
