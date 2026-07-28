@@ -5,7 +5,7 @@ export const GEN3_VERSION_EXCLUSIVES: Record<string, number[]> = {
   // Sapphire missing (Ruby exclusives)
   sapphire: [273, 274, 275, 303, 335, 338, 381, 383],
   // Emerald missing
-  emerald: [270, 271, 272, 283, 284, 307, 308, 315, 335, 337],
+  emerald: [283, 284, 307, 308, 315, 335, 337],
   // FireRed missing (LeafGreen exclusives)
   firered: [27, 28, 37, 38, 69, 70, 71, 79, 80, 120, 121, 126, 127, 183, 184, 199, 200, 215, 223, 224, 226, 240, 298],
   // LeafGreen missing (FireRed exclusives)

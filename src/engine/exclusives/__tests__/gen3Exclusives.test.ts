@@ -30,6 +30,11 @@ describe('gen3Exclusives', () => {
       expect(getGen3UnobtainableReason(273, 'emerald', 0, ownedSet)).toBeNull();
     });
 
+    it('should return null for Lotad in Emerald (available natively)', () => {
+      const ownedSet = new Set<number>();
+      expect(getGen3UnobtainableReason(270, 'emerald', 0, ownedSet)).toBeNull();
+    });
+
     it('should return reason for FireRed exclusive missing (LeafGreen exclusives)', () => {
       const ownedSet = new Set<number>();
       const reason = getGen3UnobtainableReason(27, 'firered', 0, ownedSet); // Sandshrew
