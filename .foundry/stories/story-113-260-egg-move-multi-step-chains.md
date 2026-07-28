@@ -29,4 +29,6 @@ Expand and validate the pathfinding engine to reliably support complex, multi-st
 ## Acceptance Criteria
 - [ ] Implement support for chains requiring multiple intermediate parents.
 - [ ] Write robust test cases validating multi-step paths against known Gen 2 and Gen 3 chains.
-- [ ] Break this story down into actionable TASKS.
+- [x] Break this story down into actionable TASKS.
+- [ ] .foundry/tasks/task-260-352-egg-move-multi-step-chains-impl.md
+- [ ] .foundry/tasks/task-260-353-egg-move-multi-step-chains-qa.md
