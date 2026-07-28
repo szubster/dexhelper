@@ -35,5 +35,5 @@ QA verification for the Gen 3 Secret Base Locations parser (retry task). The pre
 - Verify that internal location IDs are correctly mapped to Gen 3 map locations.
 
 ## Acceptance Criteria
-- [ ] Code review passes, ensuring no magic numbers exist, correct offset sizes are used, and all ADRs are followed.
-- [ ] Unit tests cover out-of-bounds reads and correct extraction/mapping.
+- [x] Code review passes, ensuring no magic numbers exist, correct offset sizes are used, and all ADRs are followed.
+- [x] Unit tests cover out-of-bounds reads and correct extraction/mapping.
