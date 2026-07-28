@@ -2,12 +2,12 @@
 id: story-327-331-research-gen3-pokeblock-offsets
 type: STORY
 title: Research Gen 3 Pokéblock Case Offsets
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-17'
-updated_at: '2026-07-27'
+updated_at: '2026-07-28'
 depends_on: []
-jules_session_id: '14535561385166092400'
+jules_session_id: null
 pr_number: null
 parent: epic-114-327-gen3-pokeblock-case-parsing
 tags:

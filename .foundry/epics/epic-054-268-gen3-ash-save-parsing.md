@@ -2,10 +2,10 @@
 id: epic-054-268-gen3-ash-save-parsing
 type: EPIC
 title: 'Epic: Gen 3 Volcanic Ash Save Parsing'
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-17'
-updated_at: '2026-07-19'
+updated_at: '2026-07-28'
 depends_on: []
 jules_session_id: null
 pr_number: null
