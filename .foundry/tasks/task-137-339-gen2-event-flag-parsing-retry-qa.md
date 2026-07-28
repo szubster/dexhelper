@@ -31,6 +31,6 @@ Verify the implementation of the Gen 2 event flag parsing.
 - Ensure the state management layer correctly receives the extracted data.
 
 ## Acceptance Criteria
-- [ ] Verify exact bit offsets are used for static encounters.
-- [ ] Verify strict adherence to ADR 028 (no magic numbers, module-level constants used).
-- [ ] Verify integration with the state management layer.
+- [x] Verify exact bit offsets are used for static encounters.
+- [x] Verify strict adherence to ADR 028 (no magic numbers, module-level constants used).
+- [x] Verify integration with the state management layer.
