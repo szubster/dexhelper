@@ -41,7 +41,7 @@ Verify the implementation of NPC Trade State Integration into the `SaveData` obj
 - If an empty PR is submitted for a completed task, all Acceptance Criteria checkboxes MUST be checked off before submitting.
 
 ## Acceptance Criteria
-- [ ] Test coverage includes robust tests for `SaveData` updating correctly with `npcTradeFlags` (Gen 2) and `gen3NPCTrades` (Gen 3).
-- [ ] Test coverage includes tests verifying `RangeError` is caught and the exact message "The save file is corrupted or incomplete." is thrown.
-- [ ] No inline magic numbers exist for memory offsets/lengths; constants are properly used.
-- [ ] Gen 3 parses with `section1Offset` as expected.
+- [x] Test coverage includes robust tests for `SaveData` updating correctly with `npcTradeFlags` (Gen 2) and `gen3NPCTrades` (Gen 3).
+- [x] Test coverage includes tests verifying `RangeError` is caught and the exact message "The save file is corrupted or incomplete." is thrown.
+- [x] No inline magic numbers exist for memory offsets/lengths; constants are properly used.
+- [x] Gen 3 parses with `section1Offset` as expected.
