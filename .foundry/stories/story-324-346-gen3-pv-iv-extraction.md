@@ -29,4 +29,6 @@ Design the technical breakdown to extract Personality Value (PV) and IVs (HP, At
 - Handle the 48-byte encrypted Data block taking into account the substructure order determined by `PV % 24`.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into actionable Tasks.
+- [x] Tech Lead: Break this Story down into actionable Tasks.
+- [ ] task-346-352-gen3-pv-iv-extraction-impl
+- [ ] task-346-353-gen3-pv-iv-extraction-qa
