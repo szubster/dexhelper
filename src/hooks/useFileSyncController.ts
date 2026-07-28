@@ -80,26 +80,26 @@ export function useFileSyncController() {
           try {
             const saves = await r2Client.listSaves();
             const saveId = saves.length > 0 && saves[0] ? saves[0].id : 'save-1';
-            const cloudSaveInfo = saves.find(s => s.id === saveId);
+            const cloudSaveInfo = saves.find((s) => s.id === saveId);
 
             if (cloudSaveInfo?.lastModified && file.lastModified < cloudSaveInfo.lastModified) {
-               // Cloud is newer, we should pull instead of pushing local (Conflict Resolution: pull-wins if newer)
-               const cloudSave = await r2Client.getSave(saveId);
-               if (cloudSave) {
-                 const cloudData = parseSaveFile(cloudSave.data.buffer, manualVersion || undefined);
-                 setSaveData(cloudData);
+              // Cloud is newer, we should pull instead of pushing local (Conflict Resolution: pull-wins if newer)
+              const cloudSave = await r2Client.getSave(saveId);
+              if (cloudSave) {
+                const cloudData = parseSaveFile(cloudSave.data.buffer, manualVersion || undefined);
+                setSaveData(cloudData);
 
-                 if (cloudData.gameVersion === 'unknown') {
-                   setIsVersionModalOpen(true);
-                 } else {
-                   setManualVersion(null);
-                 }
+                if (cloudData.gameVersion === 'unknown') {
+                  setIsVersionModalOpen(true);
+                } else {
+                  setManualVersion(null);
+                }
 
-                 await saveDB.putSave('last_save_file', cloudSave.data);
-                 setStatus('live');
-                 setErrorMsg(null);
-                 return; // Abort pushing local
-               }
+                await saveDB.putSave('last_save_file', cloudSave.data);
+                setStatus('live');
+                setErrorMsg(null);
+                return; // Abort pushing local
+              }
             }
 
             await saveDB.putSave('last_save_file', new Uint8Array(buffer));

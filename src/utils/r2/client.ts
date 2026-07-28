@@ -18,7 +18,10 @@ export const r2Client = {
     const lastModified = clientLastModifiedStr ? parseInt(clientLastModifiedStr, 10) : undefined;
 
     const buffer = await res.arrayBuffer();
-    return { data: new Uint8Array(buffer), lastModified };
+    if (lastModified !== undefined) {
+      return { data: new Uint8Array(buffer), lastModified };
+    }
+    return { data: new Uint8Array(buffer) };
   },
   async putSave(id: string, data: Uint8Array<ArrayBuffer>, lastModified?: number): Promise<void> {
     const headers: Record<string, string> = { 'Content-Type': 'application/octet-stream' };
