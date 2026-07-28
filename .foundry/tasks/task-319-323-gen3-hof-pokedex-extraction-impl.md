@@ -37,13 +37,13 @@ Implement the logic to extract the Hall of Fame entry flag (`GAME_STAT_ENTERED_H
 - **Testing:** You MUST write corresponding Vitest unit tests to cover the new extraction logic.
 
 ## Acceptance Criteria
-- [ ] `DataView` API is used for parsing.
-- [ ] All offsets and constants are defined at the module level.
-- [ ] Relative offsets from `section1Offset` are used for `SaveBlock1` data.
-- [ ] `RangeError` is caught and translated to `"The save file is corrupted or incomplete."`.
-- [ ] `GAME_STAT_ENTERED_HOF` or equivalent Hall of Fame entry flag is extracted.
-- [ ] Number of caught Pokémon in Hoenn and National Dex is extracted.
-- [ ] Tests are written and pass.
+- [x] `DataView` API is used for parsing.
+- [x] All offsets and constants are defined at the module level.
+- [x] Relative offsets from `section1Offset` are used for `SaveBlock1` data.
+- [x] `RangeError` is caught and translated to `"The save file is corrupted or incomplete."`.
+- [x] `GAME_STAT_ENTERED_HOF` or equivalent Hall of Fame entry flag is extracted.
+- [x] Number of caught Pokémon in Hoenn and National Dex is extracted.
+- [x] Tests are written and pass.
 
 ## Persona Instructions
 - **Coder & QA:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
