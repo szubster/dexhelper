@@ -2,13 +2,13 @@
 id: task-260-353-egg-move-multi-step-chains-qa
 type: TASK
 title: QA Verification - Multi-Step Breeding Chains Support
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-27'
 updated_at: '2026-07-28'
 depends_on:
   - task-260-352-egg-move-multi-step-chains-impl
-jules_session_id: null
+jules_session_id: '7181633806701509626'
 pr_number: null
 parent: story-113-260-egg-move-multi-step-chains
 tags:
