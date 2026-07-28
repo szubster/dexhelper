@@ -27,8 +27,8 @@ notes: ''
 Verify the implementation of the `SaveHistoryDB` schema configuration in `src/db/schema.ts`, `src/db/SaveHistoryDB.ts`, and `src/db/__tests__/SaveHistoryDB.test.ts` strictly adheres to Section 14 of `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Verify `SAVE_HISTORY_DB_CONFIG.VERSION` is exactly `1` in `src/db/schema.ts`.
-- [ ] Verify `SaveHistoryDB` configuration in `src/db/schema.ts` has exactly three stores: `saves`, `metadata`, and `indexes` in both `SAVE_HISTORY_DB_CONFIG` and `SaveHistoryDBSchema`.
-- [ ] Verify there is NO `TRAINERS` store creation in `src/db/SaveHistoryDB.ts`.
-- [ ] Verify there is NO `trainerId` index creation in `src/db/SaveHistoryDB.ts`.
-- [ ] Verify tests pass and have no references to the removed `TRAINERS` store in `src/db/__tests__/SaveHistoryDB.test.ts`.
+- [x] Verify `SAVE_HISTORY_DB_CONFIG.VERSION` is exactly `1` in `src/db/schema.ts`.
+- [x] Verify `SaveHistoryDB` configuration in `src/db/schema.ts` has exactly three stores: `saves`, `metadata`, and `indexes` in both `SAVE_HISTORY_DB_CONFIG` and `SaveHistoryDBSchema`.
+- [x] Verify there is NO `TRAINERS` store creation in `src/db/SaveHistoryDB.ts`.
+- [x] Verify there is NO `trainerId` index creation in `src/db/SaveHistoryDB.ts`.
+- [x] Verify tests pass and have no references to the removed `TRAINERS` store in `src/db/__tests__/SaveHistoryDB.test.ts`.
