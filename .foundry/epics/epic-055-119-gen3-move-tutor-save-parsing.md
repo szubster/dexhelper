@@ -42,3 +42,4 @@ Implement the logic to parse Gen 3 save files and extract the event flags indica
 - [x] Out-of-bounds reads or malformed saves are handled gracefully without application crashes.
 - [x] story-119-267-gen3-move-tutor-emerald-parsing
 - [x] story-119-318-gen3-move-tutor-frlg-parsing
+- [x] story-119-268-gen3-move-tutor-frlg-parsing
