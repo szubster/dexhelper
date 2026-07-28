@@ -33,6 +33,7 @@ QA verification for the Gen 3 TM/HM parsing implementation.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
+- [x] Verify adherence to all guidelines defined in **Section 13 ("Save File Parsing & Extraction Guidelines")** of `.foundry/docs/schema.md`.
 - [x] Verify Gen 3 TM/HM item bag parsing maps items to moves correctly.
 - [x] Verify Event Flags for one-time TM collection are extracted.
 - [x] Verify all offsets/lengths/bit locations/shifts are module-level constants (no inline magic numbers).

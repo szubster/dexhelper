@@ -33,5 +33,5 @@ Parse the Gen 3 save file Item Bag to extract the player's current TM and HM inv
 
 ## Acceptance Criteria
 - [x] Break down into TASK nodes for implementation.
-- [ ] task-321-322-gen3-tm-hm-parsing-impl
-- [ ] task-321-323-gen3-tm-hm-parsing-qa
+- [x] task-321-322-gen3-tm-hm-parsing-impl
+- [x] task-321-323-gen3-tm-hm-parsing-qa
