@@ -120,6 +120,9 @@ export function generateBreedingSuggestions(
               const instances = instancesBySpecies.get(stepSpeciesId) || [];
               const hasMove = instances.some((inst) => inst.moves?.includes(moveId));
 
+              // If it doesn't have the move, and it's not the base of the chain, keep traversing
+              if (!hasMove && k > 0) continue;
+
               let description = `Breed your #${stepSpeciesId} to get a #${nextStepSpeciesId} with the Egg Move!`;
               const title = `Breed: #${nextStepSpeciesId}`;
               if (hasMove) {
