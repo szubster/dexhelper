@@ -34,5 +34,5 @@ QA verification for the implementation of the logic comparing user Gen 1 save fi
 - Verify adherence to architectural constraints if the save parser was modified: no magic numbers for memory offsets, lengths, bit locations, or shifts, and proper handling of `RangeError` by throwing an error with "The save file is corrupted or incomplete."
 
 ## Acceptance Criteria
-- [ ] Verify unit tests pass and cover missing encounter logic for different versions and edge cases.
-- [ ] Verify no architectural constraints were violated.
+- [x] Verify unit tests pass and cover missing encounter logic for different versions and edge cases.
+- [x] Verify no architectural constraints were violated.

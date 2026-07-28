@@ -25,6 +25,7 @@ const POKEDEX_OWNED_BASE_YELLOW = 0x25a4;
 const POKEDEX_SEEN_OFFSET_FROM_OWNED = 19;
 const POKEDEX_TOTAL_MONS = 151;
 const POKEDEX_PADDING_BYTE_OFFSET = 18;
+const BITS_PER_BYTE = 8;
 const POKEDEX_PADDING_BIT_MASK = 0x80;
 const PC_CURRENT_BOX_NUM_OFFSET = 0x284c;
 const PC_CURRENT_BOX_COUNT_OFFSET = 0x30c0;
@@ -467,8 +468,8 @@ function detectVersionAndOffsets(
 
     try {
       for (let i = 1; i <= POKEDEX_TOTAL_MONS; i++) {
-        const byteIdx = Math.floor((i - 1) / 8);
-        const bitIdx = (i - 1) % 8;
+        const byteIdx = Math.floor((i - 1) / BITS_PER_BYTE);
+        const bitIdx = (i - 1) % BITS_PER_BYTE;
         const oByte = view.getUint8(ownedBase + byteIdx);
         // The "Seen" Pokédex flags start 19 bytes after the "Owned" flags
         const sByte = view.getUint8(ownedBase + POKEDEX_SEEN_OFFSET_FROM_OWNED + byteIdx);
@@ -846,8 +847,8 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
     }),
     // Gen 1 trades: The 2 bytes are at eventFlagsOffset - 16 and - 15. We convert this into a boolean array.
     npcTradeFlags: Array.from({ length: NPC_TRADES_COUNT }, (_, i) => {
-      const byte = view.getUint8(eventFlagsOffset + NPC_TRADES_OFFSET + Math.floor(i / 8));
-      return (byte & (1 << (i % 8))) !== 0;
+      const byte = view.getUint8(eventFlagsOffset + NPC_TRADES_OFFSET + Math.floor(i / BITS_PER_BYTE));
+      return (byte & (1 << (i % BITS_PER_BYTE))) !== 0;
     }),
   };
 }
