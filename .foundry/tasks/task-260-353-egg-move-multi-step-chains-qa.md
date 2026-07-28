@@ -30,6 +30,6 @@ Verify the implementation of multi-step breeding chains support.
 - Write test cases in `src/engine/assistant/__tests__/generateSuggestions.test.ts` to ensure multi-step chains correctly generate suggestions when only an early ancestor is owned.
 
 ## Acceptance Criteria
-- [ ] Tests verify a 3+ step breeding chain correctly identifies an owned ancestor multiple steps back.
-- [ ] Tests verify priority logic works as expected.
-- [ ] Ensure no regressions in existing breeding generation tests.
+- [x] Tests verify a 3+ step breeding chain correctly identifies an owned ancestor multiple steps back.
+- [x] Tests verify priority logic works as expected.
+- [x] Ensure no regressions in existing breeding generation tests.
