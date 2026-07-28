@@ -108,6 +108,7 @@ export function calculateMovePlan(diff: BoxDiffResult): MoveOperation[] {
     if (cycle.length === 2) {
       // 2-cycle can be resolved with a single SWAP
       const r0 = cycle[0];
+      if (!r0) continue;
       operations.push({
         type: 'SWAP',
         sourceBox: r0.sourceBox,
@@ -122,6 +123,7 @@ export function calculateMovePlan(diff: BoxDiffResult): MoveOperation[] {
       const tempSlot = -1;
 
       const firstReloc = cycle[0];
+      if (!firstReloc) continue;
 
       // MOVE first pokemon to Temp
       operations.push({
@@ -135,6 +137,7 @@ export function calculateMovePlan(diff: BoxDiffResult): MoveOperation[] {
       // Move remaining pokemon in the cycle backwards
       for (let i = cycle.length - 1; i > 0; i--) {
         const r = cycle[i];
+        if (!r) continue;
         operations.push({
           type: 'MOVE',
           sourceBox: r.sourceBox,
