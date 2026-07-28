@@ -4,8 +4,7 @@
   "ignoreDependencies": [
     "wrangler",
     "@cloudflare/pages-plugin-cloudflare-access",
-    "@cloudflare/workers-types",
-    "zod"
+    "@cloudflare/workers-types"
   ],
   "ignore": [
     "src/test-setup.ts",
