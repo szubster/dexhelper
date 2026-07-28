@@ -2,7 +2,7 @@
 id: task-261-331-npc-trade-state-integration-impl
 type: TASK
 title: NPC Trade State Integration Implementation
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-17'
 updated_at: '2026-07-26'
@@ -14,8 +14,8 @@ tags:
   - backend
   - state-integration
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: 'The tests in gen3.test.ts do not verify the integration into the SaveData object, and the parseGen3 function incorrectly uses section2Offset instead of section1Offset for Emerald and FRLG.'
 notes: ''
 ---
 
@@ -35,8 +35,8 @@ Implement the logic to integrate the extracted NPC trade flags into the unified 
 - **CRITICAL:** You must catch `RangeError` for out-of-bounds reads and explicitly throw a new error with the message "The save file is corrupted or incomplete."
 
 ## Acceptance Criteria
-- [x] Integrate Gen 2 and Gen 3 extracted NPC trade flags into the unified `SaveData` object.
-- [x] Ensure `SaveData` interface properties are correctly typed and updated if necessary.
-- [x] Explicitly define and use reusable constants for memory offsets, lengths, and bit locations.
-- [x] Use `section1Offset` for relative Gen 3 calculations.
-- [x] Properly catch `RangeError` and throw the exact error message: "The save file is corrupted or incomplete."
+- [ ] Integrate Gen 2 and Gen 3 extracted NPC trade flags into the unified `SaveData` object.
+- [ ] Ensure `SaveData` interface properties are correctly typed and updated if necessary.
+- [ ] Explicitly define and use reusable constants for memory offsets, lengths, and bit locations.
+- [ ] Use `section1Offset` for relative Gen 3 calculations.
+- [ ] Properly catch `RangeError` and throw the exact error message: "The save file is corrupted or incomplete."
