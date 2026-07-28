@@ -33,3 +33,6 @@ Define the `SaveHistoryDB` IndexedDB schema within the application codebase. Thi
 - [ ] Define the `indexes` object store for fast retrieval of save data without parsing raw saves.
 - [x] task-341-348-define-indexeddb-schema-retry-impl
 - [x] task-341-349-define-indexeddb-schema-retry-qa
+- [ ] research-341-354-investigate-indexeddb-schema-failure
+- [ ] task-341-355-define-indexeddb-schema-retry-v2-impl
+- [ ] task-341-356-define-indexeddb-schema-retry-v2-qa
