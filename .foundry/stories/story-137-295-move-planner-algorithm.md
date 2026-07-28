@@ -32,4 +32,6 @@ It needs to account for constraints such as full boxes or "swap" operations if a
 The algorithm should output structured operations that the UI can step the user through.
 
 ## Acceptance Criteria
-- [ ] Break down story into tasks for move planner algorithm implementation.
+- [x] Break down story into tasks for move planner algorithm implementation.
+- [ ] task-295-352-move-planner-impl
+- [ ] task-295-353-move-planner-qa
