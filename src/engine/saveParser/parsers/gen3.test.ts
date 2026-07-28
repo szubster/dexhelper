@@ -1529,3 +1529,136 @@ describe('parseGen3Roamer', () => {
     expect(() => parseGen3Roamer(view, 0, 'ruby')).toThrow('The save file is corrupted or incomplete.');
   });
 });
+
+describe('parseGen3 (Pokedex & Hall of Fame)', () => {
+  it('extracts hallOfFameCount correctly based on version offsets', () => {
+    // We mock a buffer big enough to hold section 0 and section 1.
+    // parseGen3 uses getLatestSectionOffset which checks 0x08012025 at offset 4088 of each section.
+    const buffer = new ArrayBuffer(0x10000); // 64KB block A
+    const view = new DataView(buffer);
+
+    // Mock Section 0 (SaveBlock2)
+    const section0Offset = 0;
+    view.setUint32(section0Offset + 4088, 0x08012025, true); // SIGNATURE
+    view.setUint16(section0Offset + 4084, 0, true); // SECTION_ID = 0
+    view.setUint32(section0Offset + 4092, 1, true); // SAVE_INDEX
+
+    // Mock Section 1 (SaveBlock1)
+    const section1Offset = 4096;
+    view.setUint32(section1Offset + 4088, 0x08012025, true); // SIGNATURE
+    view.setUint16(section1Offset + 4084, 1, true); // SECTION_ID = 1
+    view.setUint32(section1Offset + 4092, 1, true); // SAVE_INDEX
+
+    // Mock Section 2
+    const section2Offset = 8192;
+    view.setUint32(section2Offset + 4088, 0x08012025, true); // SIGNATURE
+    view.setUint16(section2Offset + 4084, 2, true); // SECTION_ID = 2
+    view.setUint32(section2Offset + 4092, 1, true); // SAVE_INDEX
+
+    // In Emerald, GAME_STATS_OFFSET is 0x159C.
+    view.setUint32(section1Offset + 0x159c + 10 * 4, 42, true);
+
+    const resultEmerald = parseGen3(view, 'emerald');
+    expect(resultEmerald.hallOfFameCount).toBe(42);
+
+    // In RS, GAME_STATS_OFFSET is 0x1540.
+    view.setUint32(section1Offset + 0x1540 + 10 * 4, 15, true);
+    const resultRS = parseGen3(view, 'ruby');
+    expect(resultRS.hallOfFameCount).toBe(15);
+
+    // In FRLG, GAME_STATS_OFFSET is 0x1200.
+    view.setUint32(section1Offset + 0x1200 + 10 * 4, 7, true);
+    const resultFRLG = parseGen3(view, 'firered');
+    expect(resultFRLG.hallOfFameCount).toBe(7);
+  });
+
+  it('extracts hoennDexCount and nationalDexCount correctly', () => {
+    const buffer = new ArrayBuffer(0x10000);
+    const view = new DataView(buffer);
+
+    const section0Offset = 0;
+    view.setUint32(section0Offset + 4088, 0x08012025, true);
+    view.setUint16(section0Offset + 4084, 0, true);
+    view.setUint32(section0Offset + 4092, 1, true);
+
+    const section1Offset = 4096;
+    view.setUint32(section1Offset + 4088, 0x08012025, true);
+    view.setUint16(section1Offset + 4084, 1, true);
+    view.setUint32(section1Offset + 4092, 1, true);
+
+    const section2Offset = 8192;
+    view.setUint32(section2Offset + 4088, 0x08012025, true);
+    view.setUint16(section2Offset + 4084, 2, true);
+    view.setUint32(section2Offset + 4092, 1, true);
+
+    // Setup Pokedex data in Section 0
+    const pokedexOwnedOffset = section0Offset + 0x18 + 0x10;
+    const pokedexSeenOffset = section0Offset + 0x18 + 0x44;
+
+    // Set bit 0 (Bulbasaur - Nat 1, not Hoenn)
+    view.setUint8(pokedexOwnedOffset, 1);
+    view.setUint8(pokedexSeenOffset, 1);
+
+    // Set Treecko (Nat 252). bitIndex = 251. byte = 251 / 8 = 31. bit = 251 % 8 = 3
+    view.setUint8(pokedexOwnedOffset + 31, 1 << 3);
+
+    // Set Deoxys (Nat 386). bitIndex = 385. byte = 385 / 8 = 48. bit = 385 % 8 = 1
+    view.setUint8(pokedexOwnedOffset + 48, 1 << 1);
+
+    const result = parseGen3(view, 'emerald');
+
+    expect(result.nationalDexCount).toBe(3); // Bulbasaur, Treecko, Deoxys
+    expect(result.hoennDexCount).toBe(2); // Treecko, Deoxys
+    expect(result.owned.has(1)).toBe(true);
+    expect(result.owned.has(252)).toBe(true);
+    expect(result.owned.has(386)).toBe(true);
+  });
+
+  it('throws corrupted error on out of bounds Pokedex read', () => {
+    const buffer = new ArrayBuffer(0x3000);
+    const view = new DataView(buffer);
+
+    view.setUint32(0 + 4088, 0x08012025, true);
+    view.setUint16(0 + 4084, 1, true);
+
+    view.setUint32(4096 + 4088, 0x08012025, true);
+    view.setUint16(4096 + 4084, 2, true);
+
+    view.setUint32(8192 + 4088, 0x08012025, true);
+    view.setUint16(8192 + 4084, 0, true);
+
+    // Override the getUint8 method to throw RangeError
+    const originalGetUint8 = view.getUint8.bind(view);
+    view.getUint8 = (byteOffset) => {
+      if (byteOffset >= 8192 + 0x18 + 0x10) throw new RangeError('Out of bounds');
+      return originalGetUint8(byteOffset);
+    };
+
+    expect(() => parseGen3(view, 'emerald')).toThrow('The save file is corrupted or incomplete.');
+  });
+
+  // Make buffer too small so getLatestSectionOffset passes but reading Pokedex fails
+  const buffer = new ArrayBuffer(0x3000); // Only enough for 3 sections but let's say section 0 is at the very end
+  const view = new DataView(buffer);
+
+  // In order for parseGen3 to reach the Pokedex read, it must successfully find section 0, 1, 2.
+  // If we put section 0 at offset 8192, and buffer size is 8192 + 0x18 + 0x10 + 50... wait
+  // We can just throw RangeError directly by mocking or setting up an exact buffer boundary.
+  // The previous tests do this, we can just use a buffer of 12288 bytes.
+  view.setUint32(0 + 4088, 0x08012025, true);
+  view.setUint16(0 + 4084, 1, true); // section 1
+
+  view.setUint32(4096 + 4088, 0x08012025, true);
+  view.setUint16(4096 + 4084, 2, true); // section 2
+
+  view.setUint32(8192 + 4088, 0x08012025, true);
+  view.setUint16(8192 + 4084, 0, true); // section 0
+
+  // Now buffer is 12288, section 0 starts at 8192.
+  // Pokedex read needs to read up to 8192 + 0x18 + 0x10 + 48 = 8264.
+  // If we make buffer exactly 8200 bytes, reading 8192 + 4088 (SIGNATURE) will fail... wait,
+  // we must supply a valid signature for section 0.
+  // Let's just create an ArrayBuffer of exactly 12288 bytes (8192 + 4096).
+  // The reading of Pokedex won't fail because it's only at offset 8264 < 12288.
+  // Wait, let's create a proxy DataView or just mock it.
+});
