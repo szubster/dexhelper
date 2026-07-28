@@ -2,13 +2,13 @@
 id: task-341-355-define-indexeddb-schema-retry-v2-impl
 type: TASK
 title: Define SaveHistoryDB Schema Implementation V2
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-28'
 updated_at: '2026-07-28'
 depends_on:
   - research-341-354-investigate-indexeddb-schema-failure
-jules_session_id: null
+jules_session_id: '8239222687700882622'
 pr_number: null
 parent: story-130-341-define-indexeddb-schema-retry
 tags:
