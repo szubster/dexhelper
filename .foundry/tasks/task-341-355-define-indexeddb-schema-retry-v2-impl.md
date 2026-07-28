@@ -2,7 +2,7 @@
 id: task-341-355-define-indexeddb-schema-retry-v2-impl
 type: TASK
 title: Define SaveHistoryDB Schema Implementation V2
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-28'
 updated_at: '2026-07-28'

@@ -2,7 +2,7 @@
 id: task-333-335-gen3-secret-base-locations-qa
 type: TASK
 title: QA Gen 3 Secret Base Locations Parser
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-07-19'
 updated_at: '2026-07-28'
@@ -17,8 +17,8 @@ tags:
   - secret-base
   - qa
 research_references: []
-rejection_count: 0
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

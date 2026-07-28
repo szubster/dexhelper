@@ -2,12 +2,12 @@
 id: research-341-354-investigate-indexeddb-schema-failure
 type: RESEARCH
 title: Investigate IndexedDB Schema Implementation Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-07-28'
 updated_at: '2026-07-28'
 depends_on: []
-jules_session_id: '325996419609454313'
+jules_session_id: null
 pr_number: null
 parent: story-130-341-define-indexeddb-schema-retry
 tags:
