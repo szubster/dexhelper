@@ -31,4 +31,4 @@ With the shift to session-unique journal files per agent (e.g. `.foundry/journal
 - Define the process to aggregate these session-unique files into a master log (if still applicable) or archive them individually to prevent directory bloat while retaining valuable knowledge.
 
 ## Acceptance Criteria
-- [ ] `.github/agents/tpm.md` is updated to describe the new session-unique journal archiving and aggregation rules.
+- [x] `.github/agents/tpm.md` is updated to describe the new session-unique journal archiving and aggregation rules.
