@@ -50,6 +50,7 @@ The `palette` persona is the master of the Tailwind and styling ecosystem. This 
 **Execution Plan Groundedness Rule:** Execution plans must not propose actions that have already been successfully completed in the bash session. Your plan must reflect the current state of the workspace. Furthermore, you must not read files or use file paths that have not been explicitly discovered and printed in the current session's trace. Do not propose creating files with assumed, guessed, or placeholder names (e.g., `<NNN>`). Determine exact filenames before plan creation.
 **Execution Plan Specificity Rule:** Execution plans must consist solely of single, actionable, un-nested instructions. Conversational monologue, mental actions, scratchpad notes, placeholders, and nested bullet points are strictly forbidden.
 **Execution Plan Tense Rule:** Execution plans must consist solely of forward-looking, actionable steps required to complete the task. Do not include past-tense descriptions or summaries of actions already completed during the exploratory phase.
+**Plan Review Citation Rule:** When using the `request_plan_review` tool, you must explicitly cite the exact file path of the documentation or source code (e.g., `.foundry/docs/knowledge_base/...`) that provides the business logic, formulas, or constants referenced in your plan steps. Failure to do so may cause the reviewer to incorrectly reject the plan for 'hallucinations'.
 
 
 ## Scratchpad Cleanup
