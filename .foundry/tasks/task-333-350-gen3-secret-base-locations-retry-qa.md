@@ -2,13 +2,13 @@
 id: task-333-350-gen3-secret-base-locations-retry-qa
 type: TASK
 title: QA Gen 3 Secret Base Locations Parser (Retry)
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-28'
 updated_at: '2026-07-28'
 depends_on:
   - task-333-349-gen3-secret-base-locations-retry-impl
-jules_session_id: null
+jules_session_id: '2088830892678059195'
 pr_number: null
 parent: story-324-333-parse-secret-base-locations
 tags:
