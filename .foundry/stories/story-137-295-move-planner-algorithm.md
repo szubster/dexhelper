@@ -2,13 +2,13 @@
 id: story-137-295-move-planner-algorithm
 type: STORY
 title: PC Box Move Planner Algorithm
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-10'
 updated_at: '2026-07-28'
 depends_on:
   - story-137-294-diff-engine-logic
-jules_session_id: null
+jules_session_id: '5994555207857068904'
 pr_number: null
 parent: epic-106-137-pc-box-diff-engine-move-planner
 tags:
