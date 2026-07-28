@@ -37,7 +37,7 @@ jobs:
       - name: Biome Check
         run: pnpm check:biome
       - name: Oxlint
-        run: pnpm exec oxlint --type-aware --type-check --import-plugin --promise-plugin .
+        run: pnpm exec oxlint -c .oxlintrc.json --type-aware --type-check .
       - name: Knip
         run: pnpm knip
       - name: Circular Dependency Check
