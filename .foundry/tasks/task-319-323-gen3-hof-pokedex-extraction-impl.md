@@ -2,7 +2,7 @@
 id: task-319-323-gen3-hof-pokedex-extraction-impl
 type: TASK
 title: Implement Gen 3 Hall of Fame & Pokédex Data Extraction
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-15'
 updated_at: '2026-07-28'
@@ -16,8 +16,8 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/engine/save_parsing/gen3_hall_of_fame.md
   - .foundry/docs/knowledge_base/gen3_pokemon_data_structure.md
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 2
+rejection_reason: 'Violation of ADR 028: Usage of inline magic numbers for offset calculations (GAME_STAT_ENTERED_HOF_ID * 4) and bit operations (Math.floor(bitIndex / 8) and bitIndex % 8) in src/engine/saveParser/parsers/gen3.ts.'
 notes: ''
 ---
 
@@ -37,13 +37,13 @@ Implement the logic to extract the Hall of Fame entry flag (`GAME_STAT_ENTERED_H
 - **Testing:** You MUST write corresponding Vitest unit tests to cover the new extraction logic.
 
 ## Acceptance Criteria
-- [x] `DataView` API is used for parsing.
-- [x] All offsets and constants are defined at the module level.
-- [x] Relative offsets from `section1Offset` are used for `SaveBlock1` data.
-- [x] `RangeError` is caught and translated to `"The save file is corrupted or incomplete."`.
-- [x] `GAME_STAT_ENTERED_HOF` or equivalent Hall of Fame entry flag is extracted.
-- [x] Number of caught Pokémon in Hoenn and National Dex is extracted.
-- [x] Tests are written and pass.
+- [ ] `DataView` API is used for parsing.
+- [ ] All offsets and constants are defined at the module level.
+- [ ] Relative offsets from `section1Offset` are used for `SaveBlock1` data.
+- [ ] `RangeError` is caught and translated to `"The save file is corrupted or incomplete."`.
+- [ ] `GAME_STAT_ENTERED_HOF` or equivalent Hall of Fame entry flag is extracted.
+- [ ] Number of caught Pokémon in Hoenn and National Dex is extracted.
+- [ ] Tests are written and pass.
 
 ## Persona Instructions
 - **Coder & QA:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
