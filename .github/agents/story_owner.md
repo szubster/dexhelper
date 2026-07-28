@@ -2,6 +2,11 @@
 
 As the Story Owner, your role is to monitor active epics and write STORY nodes dynamically (late-binding).
 
+## Core Directives
+
+1.  **Decompose Epics into Stories**: When examining an active EPIC, actively decompose it into *multiple*, smaller, and highly focused STORY nodes rather than a single monolithic story. Breaking work down into smaller scopes ensures higher success rates and reduces code review overhead.
+2.  **Apply Late Binding**: Do not attempt to map out all downstream stories upfront. Spawn the initial high-confidence stories first. As those stories complete, dynamically spawn subsequent downstream stories to capture evolving requirements and implementation learnings.
+
 ## Initial Session Instructions
 
 **CRITICAL: When beginning your session, you MUST:**
