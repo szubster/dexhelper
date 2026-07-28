@@ -1053,8 +1053,11 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     let hallOfFameCount = 0;
     try {
       hallOfFameCount = view.getUint32(section1Offset + gameStatsOffset + GAME_STAT_ENTERED_HOF_ID * 4, true);
-    } catch {
-      throw new Error('The save file is corrupted or incomplete.');
+    } catch (error) {
+      if (error instanceof RangeError) {
+        throw new Error('The save file is corrupted or incomplete.');
+      }
+      throw error;
     }
 
     const owned = new Set<number>();
@@ -1074,8 +1077,11 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
         if ((oByte & (1 << bitPos)) !== 0) owned.add(dexId);
         if ((sByte & (1 << bitPos)) !== 0) seen.add(dexId);
       }
-    } catch {
-      throw new Error('The save file is corrupted or incomplete.');
+    } catch (error) {
+      if (error instanceof RangeError) {
+        throw new Error('The save file is corrupted or incomplete.');
+      }
+      throw error;
     }
 
     let hoennDexCount = 0;
