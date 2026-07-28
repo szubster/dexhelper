@@ -2,7 +2,7 @@
 id: task-333-334-gen3-secret-base-locations-impl
 type: TASK
 title: Implement Gen 3 Secret Base Locations Parser
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-19'
 updated_at: '2026-07-28'
@@ -16,8 +16,8 @@ tags:
   - secret-base
   - save-parsing
 research_references: []
-rejection_count: 2
-rejection_reason: 'The implementation uses incorrect constants for trainer name and trainer id. Per gen3_secret_base_offsets.md, TRAINER_NAME_LENGTH is exactly 7 bytes and TRAINER_ID_OFFSET is 0x09 identically across all Gen 3 games (Ruby/Sapphire and Emerald). The implementation incorrectly used 8 bytes and 0x0a for Emerald.'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

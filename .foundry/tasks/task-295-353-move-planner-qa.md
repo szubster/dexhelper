@@ -2,7 +2,7 @@
 id: task-295-353-move-planner-qa
 type: TASK
 title: QA Move Planner Algorithm
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-28'
 updated_at: '2026-07-28'

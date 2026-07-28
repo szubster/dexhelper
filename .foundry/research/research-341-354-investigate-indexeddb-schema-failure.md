@@ -2,7 +2,7 @@
 id: research-341-354-investigate-indexeddb-schema-failure
 type: RESEARCH
 title: Investigate IndexedDB Schema Implementation Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-07-28'
 updated_at: '2026-07-28'

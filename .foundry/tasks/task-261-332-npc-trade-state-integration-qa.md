@@ -2,7 +2,7 @@
 id: task-261-332-npc-trade-state-integration-qa
 type: TASK
 title: NPC Trade State Integration QA
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-07-17'
 updated_at: '2026-07-28'
@@ -16,8 +16,8 @@ tags:
   - qa
   - state-integration
 research_references: []
-rejection_count: 1
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

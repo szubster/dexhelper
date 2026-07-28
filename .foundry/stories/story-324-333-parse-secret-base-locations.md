@@ -2,10 +2,10 @@
 id: story-324-333-parse-secret-base-locations
 type: STORY
 title: Parse Gen 3 Secret Base Locations (v2)
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-18'
-updated_at: '2026-07-20'
+updated_at: '2026-07-28'
 depends_on: []
 jules_session_id: null
 pr_number: null

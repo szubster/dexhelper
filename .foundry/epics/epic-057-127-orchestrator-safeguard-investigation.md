@@ -2,7 +2,7 @@
 id: epic-057-127-orchestrator-safeguard-investigation
 type: EPIC
 title: Orchestrator Safeguard Investigation
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-03'
 updated_at: '2026-07-28'
@@ -13,10 +13,8 @@ parent: prd-096-057-macro-node-boundary-enforcement
 tags:
   - process
   - orchestrator
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

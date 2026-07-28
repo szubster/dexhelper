@@ -2,13 +2,13 @@
 id: task-333-335-gen3-secret-base-locations-qa
 type: TASK
 title: QA Gen 3 Secret Base Locations Parser
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-07-19'
 updated_at: '2026-07-28'
 depends_on:
   - task-333-334-gen3-secret-base-locations-impl
-jules_session_id: '13362131402450864056'
+jules_session_id: null
 pr_number: null
 parent: story-324-333-parse-secret-base-locations
 tags:
@@ -18,7 +18,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 

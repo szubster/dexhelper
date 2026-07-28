@@ -2,12 +2,12 @@
 id: task-295-352-move-planner-impl
 type: TASK
 title: Implement Move Planner Algorithm
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-28'
 updated_at: '2026-07-28'
 depends_on: []
-jules_session_id: '6146293549486245581'
+jules_session_id: null
 pr_number: null
 parent: story-137-295-move-planner-algorithm
 tags:

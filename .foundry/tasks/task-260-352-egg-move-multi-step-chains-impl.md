@@ -2,12 +2,12 @@
 id: task-260-352-egg-move-multi-step-chains-impl
 type: TASK
 title: Implement Multi-Step Breeding Chains Support
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-27'
 updated_at: '2026-07-28'
 depends_on: []
-jules_session_id: '2523728584342463970'
+jules_session_id: null
 pr_number: null
 parent: story-113-260-egg-move-multi-step-chains
 tags:
