@@ -34,8 +34,8 @@ QA verification for the Gen 3 Secret Base Locations parser.
 - Verify that internal location IDs are correctly mapped to Gen 3 map locations.
 
 ## Acceptance Criteria
-- [ ] Code review passes, ensuring no magic numbers exist and all ADRs are followed.
-- [ ] Unit tests cover out-of-bounds reads and correct extraction/mapping.
+- [x] Code review passes, ensuring no magic numbers exist and all ADRs are followed.
+- [x] Unit tests cover out-of-bounds reads and correct extraction/mapping.
 
 ## Notes
 - 2026-07-28: Validation failed. The Coder incorrectly assumed Emerald uses 8 bytes for `trainerName` and `0x0A` for the `trainerId` offset. As per `gen3_secret_base_offsets.md`, `TRAINER_NAME_LENGTH` is exactly 7 bytes and `TRAINER_ID_OFFSET` is `0x09` identically across all Gen 3 games. Task has been marked as FAILED to trigger resurrection loop.
