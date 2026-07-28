@@ -1,5 +1,5 @@
-import type { BoxDiffResult } from './boxDiff';
 import type { PokemonInstance } from '../parsers/common';
+import type { BoxDiffResult } from './boxDiff';
 
 export type MoveOperationType = 'MOVE' | 'SWAP' | 'DEPOSIT' | 'WITHDRAW';
 
@@ -60,7 +60,8 @@ export function calculateMovePlan(diff: BoxDiffResult): MoveOperation[] {
 
   // Resolve paths backwards to avoid overwriting
   while (queue.length > 0) {
-    const curr = queue.shift()!;
+    const curr = queue.shift();
+    if (!curr) continue;
     const reloc = inEdge.get(curr);
     if (reloc) {
       operations.push({

@@ -1,22 +1,23 @@
-import { describe, it, expect } from 'vitest';
-import { calculateMovePlan } from './movePlanner';
-import type { BoxDiffResult } from './boxDiff';
+import { describe, expect, it } from 'vitest';
 import type { PokemonInstance } from '../parsers/common';
+import type { BoxDiffResult } from './boxDiff';
+import { calculateMovePlan } from './movePlanner';
 
 describe('movePlanner', () => {
-  const createMockPokemon = (hash: string, box: number, slot: number): PokemonInstance => ({
-    hash,
-    storageLocation: `Box ${box}`,
-    slot,
-    speciesName: 'Bulbasaur',
-    speciesId: 1,
-    level: 5,
-    nickname: '',
-    exp: 0,
-    isShiny: false,
-    moves: [],
-    dvs: { hp: 0, atk: 0, def: 0, spc: 0, spe: 0 },
-  } as unknown as PokemonInstance);
+  const createMockPokemon = (hash: string, box: number, slot: number): PokemonInstance =>
+    ({
+      hash,
+      storageLocation: `Box ${box}`,
+      slot,
+      speciesName: 'Bulbasaur',
+      speciesId: 1,
+      level: 5,
+      nickname: '',
+      exp: 0,
+      isShiny: false,
+      moves: [],
+      dvs: { hp: 0, atk: 0, def: 0, spc: 0, spe: 0 },
+    }) as unknown as PokemonInstance;
 
   it('handles basic linear moves', () => {
     const diff: BoxDiffResult = {
