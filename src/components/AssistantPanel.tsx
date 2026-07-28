@@ -211,11 +211,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                         {catStyle.icon}
                       </div>
                       <span className="font-black font-mono text-[11px] uppercase tracking-wider">
-                        {category === 'Catch'
-                          ? 'ENCOUNTERS'
-                          : category === 'Trade'
-                            ? 'TRADES'
-                            : category}
+                        {category === 'Catch' ? 'ENCOUNTERS' : category === 'Trade' ? 'TRADES' : category}
                       </span>
                     </div>
                     <div
@@ -242,11 +238,13 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                   <div className="absolute top-0 bottom-0 left-0 w-1 bg-gradient-to-b from-[var(--theme-primary)]/80 to-[var(--theme-primary)]/10" />
                   <EdgeLabel className="-top-2.5 left-4 text-[var(--theme-primary)]">ACTIVE.OP</EdgeLabel>
                   <div className="flex items-center gap-4">
-                    <div className={`${CATEGORY_STYLES[activeCategory]?.bg} ${CATEGORY_STYLES[activeCategory]?.color.replace('border-', 'text-')} p-2`}>
+                    <div
+                      className={`${CATEGORY_STYLES[activeCategory]?.bg} ${CATEGORY_STYLES[activeCategory]?.color.replace('border-', 'text-')} p-2`}
+                    >
                       {CATEGORY_STYLES[activeCategory]?.icon}
                     </div>
                     <div>
-                      <h3 className="font-black font-display text-xl text-white uppercase tracking-wider">
+                      <h3 className="font-black font-display text-white text-xl uppercase tracking-wider">
                         {activeCategory === 'Catch'
                           ? 'WILD ENCOUNTERS'
                           : activeCategory === 'Trade'

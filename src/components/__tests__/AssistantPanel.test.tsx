@@ -126,8 +126,13 @@ describe('AssistantPanel', () => {
     await renderWithProviders(<AssistantPanel saveData={mockSaveData} isLivingDex={false} manualVersion={null} />);
 
     await expect.element(page.getByText(/WILD ENCOUNTERS/)).toBeVisible();
-    await expect.element(page.getByText(/TRADE REQUIRED/)).toBeVisible();
     await expect.element(page.getByText(/Catch Bulbasaur/)).toBeVisible();
+
+    // Click the TRADES category in the new OPS.MATRIX sidebar to see trade suggestions
+    const tradesCategoryBtn = page.getByRole('button', { name: /TRADES/i });
+    await userEvent.click(tradesCategoryBtn);
+
+    await expect.element(page.getByText(/TRADE REQUIRED/)).toBeVisible();
     await expect.element(page.getByText(/Trade for Machamp/)).toBeVisible();
 
     const debugBtn = page.getByRole('button', { name: /Toggle Debug Mode/i });
