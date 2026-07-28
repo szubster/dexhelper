@@ -11,16 +11,11 @@ let dbPromise: Promise<IDBPDatabase<SaveHistoryDBSchema>> | null = null;
 const getDB = async (): Promise<IDBPDatabase<SaveHistoryDBSchema>> => {
   if (!dbPromise) {
     dbPromise = openDB<SaveHistoryDBSchema>(SAVE_HISTORY_DB_CONFIG.NAME, SAVE_HISTORY_DB_CONFIG.VERSION, {
-      upgrade(db, oldVersion, _newVersion, transaction) {
+      upgrade(db, oldVersion, _newVersion, _transaction) {
         if (oldVersion < 1) {
           db.createObjectStore(SAVE_HISTORY_DB_CONFIG.STORES.SAVES);
           db.createObjectStore(SAVE_HISTORY_DB_CONFIG.STORES.METADATA);
           db.createObjectStore(SAVE_HISTORY_DB_CONFIG.STORES.INDEXES);
-        }
-        if (oldVersion < 2) {
-          db.createObjectStore(SAVE_HISTORY_DB_CONFIG.STORES.TRAINERS);
-          const indexesStore = transaction.objectStore(SAVE_HISTORY_DB_CONFIG.STORES.INDEXES);
-          indexesStore.createIndex('trainerId', 'trainerId');
         }
       },
     });
