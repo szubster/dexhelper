@@ -2,12 +2,12 @@
 id: story-324-333-parse-secret-base-locations
 type: STORY
 title: Parse Gen 3 Secret Base Locations (v2)
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-18'
 updated_at: '2026-07-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17846287558025326046'
 pr_number: null
 parent: epic-045-324-gen3-secret-base-parsing-v2
 tags:
