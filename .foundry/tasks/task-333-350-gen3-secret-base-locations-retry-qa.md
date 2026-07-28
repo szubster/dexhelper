@@ -2,7 +2,7 @@
 id: task-333-350-gen3-secret-base-locations-retry-qa
 type: TASK
 title: QA Gen 3 Secret Base Locations Parser (Retry)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-28'
 updated_at: '2026-07-28'

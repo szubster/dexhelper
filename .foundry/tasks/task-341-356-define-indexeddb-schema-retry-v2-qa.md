@@ -2,7 +2,7 @@
 id: task-341-356-define-indexeddb-schema-retry-v2-qa
 type: TASK
 title: QA Define SaveHistoryDB Schema V2
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-28'
 updated_at: '2026-07-28'
