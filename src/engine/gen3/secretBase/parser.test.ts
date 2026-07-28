@@ -78,6 +78,7 @@ describe('Secret Base Parser', () => {
 
       expect(record).toBeDefined();
       expect(record?.secretBaseId).toBe(15);
+      expect(record?.mapId).toBe(1);
       expect(record?.trainerName).toBe('ASH');
       expect(record?.trainerId).toBe(1234567);
       expect(record?.battledOwnerToday).toBe(true);
