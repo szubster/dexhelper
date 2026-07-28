@@ -2,13 +2,13 @@
 id: task-283-343-parse-registered-numbers-qa
 type: TASK
 title: QA Gen 2 Pokegear Registered Numbers Parsing
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-23'
-updated_at: '2026-07-26'
+updated_at: '2026-07-28'
 depends_on:
   - task-283-342-parse-registered-numbers-impl
-jules_session_id: null
+jules_session_id: '14711255524066460026'
 pr_number: null
 parent: story-116-283-parse-registered-numbers
 tags:
