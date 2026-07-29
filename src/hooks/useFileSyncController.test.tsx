@@ -251,7 +251,6 @@ describe('useFileSyncController', () => {
   it('should push to R2 when local is newer than remote', async () => {
     const { AUTH_LOGGED_IN_INDICATOR } = await import('../contexts/AuthContext');
     const { r2Client } = await import('../utils/r2/client');
-    const { saveDB } = await import('../db/SaveDB');
 
     localStorage.setItem(AUTH_LOGGED_IN_INDICATOR, 'true');
     vi.mocked(r2Client.listSaves).mockResolvedValue([{ id: 'save-1', lastModified: 1000 }]);
