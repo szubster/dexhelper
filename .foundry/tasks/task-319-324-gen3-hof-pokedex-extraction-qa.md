@@ -27,6 +27,9 @@ notes: ''
 ## Objective
 Verify the implementation of the Gen 3 Hall of Fame entry and Pokédex data extraction logic against the architectural requirements.
 
+**Validation Result:**
+REJECTED: The implementation in `src/engine/saveParser/parsers/gen3.ts` violates ADR 028. It uses inline magic numbers for offset calculations (`GAME_STAT_ENTERED_HOF_ID * 4`) and bit operations (`Math.floor(bitIndex / 8)` and `bitIndex % 8`).
+
 ## Verification Tasks
 1.  **Architecture Verification (ADR 010):** Verify that the `coder` exclusively used the `DataView` API. If they used raw `Uint8Array` manipulations, reject the PR.
 2.  **Architecture Verification (ADR 028):** Verify that all memory offsets, limits, bit locations, and shifts are defined as reusable module-level constants. Inline magic numbers are forbidden.
