@@ -51,7 +51,7 @@
   "devDependencies": {
     "@11ty/gray-matter": "^2.1.0",
     "@biomejs/biome": "^2.5.5",
-    "@cloudflare/workers-types": "^5.20260727.1",
+    "@cloudflare/workers-types": "^5.20260728.1",
     "@codecov/vite-plugin": "^2.0.1",
     "@playwright/test": "^1.62.0",
     "@tailwindcss/typography": "0.5.20",
