@@ -2,13 +2,13 @@
 id: task-334-353-gen3-mixed-record-trainer-qa
 type: TASK
 title: QA Gen 3 Mixed Record Trainer Data Extraction
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-07-29'
 updated_at: '2026-07-29'
 depends_on:
   - task-334-352-parse-secret-base-trainer-party-impl
-jules_session_id: '5239641501844674364'
+jules_session_id: null
 pr_number: null
 parent: story-324-334-extract-mixed-record-trainer-data
 tags:
@@ -18,7 +18,7 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 # TASK: QA Gen 3 Mixed Record Trainer Data Extraction

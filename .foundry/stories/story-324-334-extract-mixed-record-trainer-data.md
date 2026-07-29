@@ -2,7 +2,7 @@
 id: story-324-334-extract-mixed-record-trainer-data
 type: STORY
 title: Extract Gen 3 Mixed Record Trainer Data (v2)
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-18'
 updated_at: '2026-07-29'

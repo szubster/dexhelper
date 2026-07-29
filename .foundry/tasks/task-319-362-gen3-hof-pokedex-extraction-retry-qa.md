@@ -2,7 +2,7 @@
 id: task-319-362-gen3-hof-pokedex-extraction-retry-qa
 type: TASK
 title: 'QA: Gen 3 Hall of Fame & Pokédex Data Extraction (Retry)'
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-29'
 updated_at: '2026-07-29'

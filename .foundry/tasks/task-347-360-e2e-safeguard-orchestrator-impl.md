@@ -2,7 +2,7 @@
 id: task-347-360-e2e-safeguard-orchestrator-impl
 type: TASK
 title: E2E Integration for Orchestrator Safeguards
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-29'
 updated_at: '2026-07-29'

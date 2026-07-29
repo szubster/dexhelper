@@ -2,7 +2,7 @@
 id: story-039-265-r2-offline-conflict-resolution
 type: STORY
 title: Cloudflare R2 Offline Conflict Resolution
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-04'
 updated_at: '2026-07-29'
