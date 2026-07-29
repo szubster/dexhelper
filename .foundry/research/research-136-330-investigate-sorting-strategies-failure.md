@@ -25,5 +25,11 @@ notes: ''
 Investigate the root cause for the `story-136-295-sorting-standard-strategies` task failing with `Max rejection count reached`.
 
 ## Acceptance Criteria
-- [ ] Investigate the rejection reasons for `story-136-295-sorting-standard-strategies`.
-- [ ] Write a summary of the failure causes and proposed technical solutions in this file.
+- [x] Investigate the rejection reasons for `story-136-295-sorting-standard-strategies`.
+- [x] Write a summary of the failure causes and proposed technical solutions in this file.
+
+## Findings
+The tasks for `story-136-295-sorting-standard-strategies` failed because they asked the coder to implement a `TypeSorter` that sorts by primary and secondary types. However, the `PokemonMetadata` interface in `src/db/schema.ts` lacks any typing fields. Therefore, the implementer lacked the data required to build the sorter.
+
+## Proposed Solution
+We need a new node to add `types` (or similar) to `PokemonMetadata`, potentially sourcing this data from PokeAPI or our Pokedata generator (`scripts/generate-pokedata.ts`). Once the schema includes type data, the sorting strategies can be safely resurrected.
