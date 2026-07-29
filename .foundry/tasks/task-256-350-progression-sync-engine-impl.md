@@ -2,12 +2,12 @@
 id: task-256-350-progression-sync-engine-impl
 type: TASK
 title: Implement Progression Sync Engine
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-27'
 updated_at: '2026-07-29'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12636677565696233014'
 pr_number: null
 parent: story-036-256-progression-sync-logic
 tags:
