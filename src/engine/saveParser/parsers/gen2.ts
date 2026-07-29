@@ -98,6 +98,23 @@ const UNOWN_SPECIES_ID = 201;
 const UNOWN_DV_SHIFT = 1;
 const UNOWN_DV_MASK = 0b11;
 const UNOWN_FORM_ATK_SHIFT = 6;
+
+const BANK_1_BOX_1_OFFSET = 0x4000;
+const BANK_1_BOX_2_OFFSET = 0x444e;
+const BANK_1_BOX_3_OFFSET = 0x489c;
+const BANK_1_BOX_4_OFFSET = 0x4cea;
+const BANK_1_BOX_5_OFFSET = 0x5138;
+const BANK_1_BOX_6_OFFSET = 0x5586;
+const BANK_1_BOX_7_OFFSET = 0x59d4;
+const BANK_2_BOX_8_OFFSET = 0x6000;
+const BANK_2_BOX_9_OFFSET = 0x644e;
+const BANK_2_BOX_10_OFFSET = 0x689c;
+const BANK_2_BOX_11_OFFSET = 0x6cea;
+const BANK_2_BOX_12_OFFSET = 0x7138;
+const BANK_2_BOX_13_OFFSET = 0x7586;
+const BANK_2_BOX_14_OFFSET = 0x79d4;
+
+const HALL_OF_FAME_OFFSET_RELATIVE_TO_JOHTO_BADGES = 0xa8;
 const UNOWN_FORM_DEF_SHIFT = 4;
 const UNOWN_FORM_SPD_SHIFT = 2;
 const UNOWN_FORM_MOD = 28;
@@ -452,20 +469,20 @@ function parsePCBoxes(
   }
 
   const boxOffsets = [
-    0x4000,
-    0x444e,
-    0x489c,
-    0x4cea,
-    0x5138,
-    0x5586,
-    0x59d4, // Bank 1
-    0x6000,
-    0x644e,
-    0x689c,
-    0x6cea,
-    0x7138,
-    0x7586,
-    0x79d4, // Bank 2
+    BANK_1_BOX_1_OFFSET,
+    BANK_1_BOX_2_OFFSET,
+    BANK_1_BOX_3_OFFSET,
+    BANK_1_BOX_4_OFFSET,
+    BANK_1_BOX_5_OFFSET,
+    BANK_1_BOX_6_OFFSET,
+    BANK_1_BOX_7_OFFSET, // Bank 1
+    BANK_2_BOX_8_OFFSET,
+    BANK_2_BOX_9_OFFSET,
+    BANK_2_BOX_10_OFFSET,
+    BANK_2_BOX_11_OFFSET,
+    BANK_2_BOX_12_OFFSET,
+    BANK_2_BOX_13_OFFSET,
+    BANK_2_BOX_14_OFFSET, // Bank 2
   ];
 
   for (const [i, offset] of boxOffsets.entries()) {
@@ -722,7 +739,7 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     }
   }
 
-  const hallOfFameOffset = johtoBadgesOffset + 0xa8;
+  const hallOfFameOffset = johtoBadgesOffset + HALL_OF_FAME_OFFSET_RELATIVE_TO_JOHTO_BADGES;
   const hallOfFameCount = view.getUint8(hallOfFameOffset);
 
   const roamingLegendaries = parseRoamingLegendaries(view, isCrystal);
