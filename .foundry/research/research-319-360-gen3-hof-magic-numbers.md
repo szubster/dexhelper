@@ -2,12 +2,12 @@
 id: research-319-360-gen3-hof-magic-numbers
 type: RESEARCH
 title: Investigate Magic Numbers for Gen 3 HOF Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-29'
 updated_at: '2026-07-29'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7509224859674163249'
 pr_number: null
 parent: story-304-319-gen3-hof-pokedex-extraction
 tags:
