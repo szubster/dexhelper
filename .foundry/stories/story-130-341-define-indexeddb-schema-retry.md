@@ -2,12 +2,12 @@
 id: story-130-341-define-indexeddb-schema-retry
 type: STORY
 title: Define IndexedDB Schema (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-25'
-updated_at: '2026-07-28'
+updated_at: '2026-07-29'
 depends_on: []
-jules_session_id: '3331448176599956450'
+jules_session_id: null
 pr_number: null
 parent: epic-099-130-indexeddb-schema-design
 tags:

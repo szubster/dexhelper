@@ -2,13 +2,13 @@
 id: task-261-332-npc-trade-state-integration-qa
 type: TASK
 title: NPC Trade State Integration QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-17'
-updated_at: '2026-07-28'
+updated_at: '2026-07-29'
 depends_on:
   - task-261-331-npc-trade-state-integration-impl
-jules_session_id: '10878215721882527611'
+jules_session_id: null
 pr_number: null
 parent: story-119-261-npc-trade-state-integration
 tags:

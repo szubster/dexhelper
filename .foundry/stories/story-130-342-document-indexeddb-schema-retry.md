@@ -2,10 +2,10 @@
 id: story-130-342-document-indexeddb-schema-retry
 type: STORY
 title: Document IndexedDB Schema (Retry)
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-25'
-updated_at: '2026-07-25'
+updated_at: '2026-07-29'
 depends_on:
   - story-130-341-define-indexeddb-schema-retry
 jules_session_id: null
