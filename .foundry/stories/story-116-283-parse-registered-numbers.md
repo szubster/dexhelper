@@ -25,9 +25,9 @@ notes: ''
 Parse the registered numbers list from the Generation 2 save file based on research findings.
 
 ## Acceptance Criteria
-- [ ] Implement parsing logic for Pokegear registered numbers.
+- [x] Implement parsing logic for Pokegear registered numbers.
 - [x] task-283-312-parse-registered-numbers-impl
 - [x] task-283-313-parse-registered-numbers-qa
-- [ ] research-283-336-gen2-phone-memory-offsets
-- [ ] task-283-342-parse-registered-numbers-impl
-- [ ] task-283-343-parse-registered-numbers-qa
+- [x] research-283-336-gen2-phone-memory-offsets
+- [x] task-283-342-parse-registered-numbers-impl
+- [x] task-283-343-parse-registered-numbers-qa
