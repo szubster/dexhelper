@@ -2,12 +2,12 @@
 id: epic-054-268-gen3-ash-save-parsing
 type: EPIC
 title: 'Epic: Gen 3 Volcanic Ash Save Parsing'
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-17'
-updated_at: '2026-07-28'
+updated_at: '2026-07-29'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8117127116122783330'
 pr_number: null
 parent: prd-089-054-gen3-ash-gathering-tracker
 tags:
