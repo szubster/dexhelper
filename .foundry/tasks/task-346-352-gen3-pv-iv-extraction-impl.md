@@ -2,7 +2,7 @@
 id: task-346-352-gen3-pv-iv-extraction-impl
 type: TASK
 title: Implement Gen 3 PV and IV Data Extraction
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-28'
 updated_at: '2026-07-29'
@@ -15,8 +15,8 @@ tags:
   - generation-3
   - save-parsing
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Implementation violated Section 13 Guidelines by using an inline magic number (24) for the `pv % 24` permutation index calculation.'
 notes: ''
 ---
 
