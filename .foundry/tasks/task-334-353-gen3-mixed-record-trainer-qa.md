@@ -2,7 +2,7 @@
 id: task-334-353-gen3-mixed-record-trainer-qa
 type: TASK
 title: QA Gen 3 Mixed Record Trainer Data Extraction
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-07-29'
 updated_at: '2026-07-29'
@@ -17,8 +17,8 @@ tags:
   - secret-base
   - save-parsing
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 # TASK: QA Gen 3 Mixed Record Trainer Data Extraction
