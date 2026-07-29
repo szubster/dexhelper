@@ -33,5 +33,5 @@ The algorithm should output structured operations that the UI can step the user 
 
 ## Acceptance Criteria
 - [x] Break down story into tasks for move planner algorithm implementation.
-- [ ] task-295-352-move-planner-impl
-- [ ] task-295-353-move-planner-qa
+- [x] task-295-352-move-planner-impl
+- [x] task-295-353-move-planner-qa
