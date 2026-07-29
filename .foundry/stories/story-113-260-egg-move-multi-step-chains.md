@@ -27,8 +27,8 @@ notes: ''
 Expand and validate the pathfinding engine to reliably support complex, multi-step breeding chains. This includes chains requiring multiple intermediate parents before the final desired Egg Move can be passed to the target species.
 
 ## Acceptance Criteria
-- [ ] Implement support for chains requiring multiple intermediate parents.
-- [ ] Write robust test cases validating multi-step paths against known Gen 2 and Gen 3 chains.
+- [x] Implement support for chains requiring multiple intermediate parents.
+- [x] Write robust test cases validating multi-step paths against known Gen 2 and Gen 3 chains.
 - [x] Break this story down into actionable TASKS.
-- [ ] .foundry/tasks/task-260-352-egg-move-multi-step-chains-impl.md
-- [ ] .foundry/tasks/task-260-353-egg-move-multi-step-chains-qa.md
+- [x] task-260-352-egg-move-multi-step-chains-impl
+- [x] task-260-353-egg-move-multi-step-chains-qa
