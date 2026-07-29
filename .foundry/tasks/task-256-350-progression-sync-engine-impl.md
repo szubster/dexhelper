@@ -31,7 +31,7 @@ With the local IndexedDB schema for `SaveHistoryDB` implemented (as per `story-0
 4. **Architectural Consistency:** Follow ADR 019 for Cloudflare native authentication awareness. Ensure that network requests handle offline scenarios gracefully without throwing unhandled exceptions.
 
 ## Acceptance Criteria
-- [ ] Coder: Expand or implement the sync logic to push and pull progression saves using `r2Client`.
-- [ ] Coder: Implement a conflict resolution algorithm that prioritizes the most recent local progression.
-- [ ] Coder: Ensure network failures during sync gracefully fall back to local offline storage.
-- [ ] Coder: Add unit tests to cover the sync and conflict resolution logic.
+- [x] Coder: Expand or implement the sync logic to push and pull progression saves using `r2Client`.
+- [x] Coder: Implement a conflict resolution algorithm that prioritizes the most recent local progression.
+- [x] Coder: Ensure network failures during sync gracefully fall back to local offline storage.
+- [x] Coder: Add unit tests to cover the sync and conflict resolution logic.
