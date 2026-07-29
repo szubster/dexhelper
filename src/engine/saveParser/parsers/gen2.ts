@@ -13,6 +13,93 @@ const POKEMON_OFFSET_POKERUS = 28;
 const POKEMON_OFFSET_CAUGHT_BYTE_1 = 29;
 const POKEMON_OFFSET_CAUGHT_BYTE_2 = 30;
 const POKEMON_OFFSET_LEVEL = 31;
+
+const GEN2_TM_EVENT_FLAGS: Record<number, number> = {
+  191: 10,
+  192: 92,
+  193: 206,
+  195: 75,
+  196: 209,
+  197: 211,
+  198: 72,
+  200: 85,
+  202: 119,
+  203: 59,
+  206: 14,
+  209: 208,
+  213: 13,
+  214: 15,
+  219: 215,
+  220: 12,
+  221: 8,
+  226: 86,
+  227: 114,
+  232: 212,
+  235: 11,
+  237: 113,
+  239: 9,
+  240: 80,
+};
+
+const GEN2_TM_HM_MOVE_MAP: Record<number, number> = {
+  191: 223,
+  192: 29,
+  193: 174,
+  194: 205,
+  195: 46,
+  196: 92,
+  197: 192,
+  198: 249,
+  199: 143,
+  200: 237,
+  201: 241,
+  202: 230,
+  203: 173,
+  204: 59,
+  205: 63,
+  206: 196,
+  207: 182,
+  208: 240,
+  209: 202,
+  210: 203,
+  211: 218,
+  212: 76,
+  213: 231,
+  214: 225,
+  215: 87,
+  216: 89,
+  217: 216,
+  218: 91,
+  219: 94,
+  220: 247,
+  221: 189,
+  222: 104,
+  223: 8,
+  224: 207,
+  225: 214,
+  226: 188,
+  227: 201,
+  228: 126,
+  229: 129,
+  230: 111,
+  231: 9,
+  232: 138,
+  233: 17,
+  234: 156,
+  235: 213,
+  236: 168,
+  237: 211,
+  238: 7,
+  239: 210,
+  240: 171,
+  241: 15,
+  242: 19,
+  243: 57,
+  244: 70,
+  245: 148,
+  246: 250,
+  247: 127,
+};
 const POKEMON_DATA_BLOCK_SIZE = 32;
 const POKEMON_NAME_LENGTH = 11;
 const POKEMON_OFFSET_OT_NAME = POKEMON_DATA_BLOCK_SIZE;
@@ -761,6 +848,26 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   }
   const hiddenItemFlags = eventFlags;
 
+  const tms = Object.entries(GEN2_TM_HM_MOVE_MAP).map(([idStr, moveId]) => {
+    const id = parseInt(idStr, 10);
+    const inventoryQty = inventory.find((i) => i.id === id)?.quantity || 0;
+    const pcQty = pcItems.find((i) => i.id === id)?.quantity || 0;
+    const quantity = inventoryQty + pcQty;
+
+    let isAcquired = quantity > 0;
+    if (!isAcquired && GEN2_TM_EVENT_FLAGS[id] !== undefined) {
+      const flag = GEN2_TM_EVENT_FLAGS[id];
+      const byteIdx = Math.floor(flag / BITS_PER_BYTE);
+      const bitIdx = flag % BITS_PER_BYTE;
+      const byte = eventFlags[byteIdx] ?? 0;
+      if ((byte & (1 << bitIdx)) !== 0) {
+        isAcquired = true;
+      }
+    }
+
+    return { id, moveId, isAcquired, quantity };
+  });
+
   const trainerFlags: boolean[] = [];
   for (let i = 0; i < EVENT_FLAGS_MAX_BITS; i++) {
     const byteIdx = Math.floor(i / BITS_PER_BYTE);
@@ -811,6 +918,7 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     trainerFlags,
     hiddenItemFlags,
     npcTradeFlags,
+    tms,
     gen2StaticEncounters: {
       sudowoodo: (((eventFlags[EVENT_FLAG_SUDOWOODO_BYTE] ?? 0) >> EVENT_FLAG_SUDOWOODO_BIT) & 1) === 1,
       snorlax: (((eventFlags[EVENT_FLAG_SNORLAX_BYTE] ?? 0) >> EVENT_FLAG_SNORLAX_BIT) & 1) === 1,
