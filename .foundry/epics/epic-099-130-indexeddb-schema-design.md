@@ -2,10 +2,10 @@
 id: epic-099-130-indexeddb-schema-design
 type: EPIC
 title: IndexedDB Storage Schema Design
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2024-05-24'
-updated_at: '2026-07-26'
+updated_at: '2026-07-29'
 depends_on: []
 jules_session_id: null
 pr_number: null
