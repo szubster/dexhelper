@@ -39,6 +39,11 @@ body {
   overflow-x: hidden;
 }
 
+::selection {
+  background-color: rgba(var(--theme-primary-rgb), 0.3);
+  color: inherit;
+}
+
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
@@ -123,6 +128,19 @@ body {
 
 .lcd-flicker {
   animation: screen-flicker 0.1s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    /* biome-ignore lint/complexity/noImportantStyles: A11y override */
+    animation-duration: 0.01ms !important;
+    /* biome-ignore lint/complexity/noImportantStyles: A11y override */
+    animation-iteration-count: 1 !important;
+    /* biome-ignore lint/complexity/noImportantStyles: A11y override */
+    transition-duration: 0.01ms !important;
+    /* biome-ignore lint/complexity/noImportantStyles: A11y override */
+    scroll-behavior: auto !important;
+  }
 }
 
 
