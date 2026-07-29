@@ -2,13 +2,13 @@
 id: story-136-333-sorting-standard-strategies-retry
 type: STORY
 title: Implement Standard PC Box Sorting Strategies (Retry)
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-18'
 updated_at: '2026-07-29'
 depends_on:
   - research-136-330-investigate-sorting-strategies-failure
-jules_session_id: null
+jules_session_id: '5206166470138702986'
 pr_number: null
 parent: epic-106-136-pc-box-sorting-algorithms
 tags:
