@@ -2,12 +2,12 @@
 id: task-320-322-gen2-tm-hm-parsing-impl
 type: TASK
 title: Gen 2 TM/HM Parse Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-14'
 updated_at: '2026-07-29'
 depends_on: []
-jules_session_id: '5159861642537491088'
+jules_session_id: null
 pr_number: null
 parent: story-306-320-gen2-tm-hm-parsing
 tags:
@@ -16,7 +16,7 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 

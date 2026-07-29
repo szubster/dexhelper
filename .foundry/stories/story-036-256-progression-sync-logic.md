@@ -2,10 +2,10 @@
 id: story-036-256-progression-sync-logic
 type: STORY
 title: Progression Sync Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-27'
+updated_at: '2026-07-29'
 depends_on:
   - story-036-255-progression-save-model
 jules_session_id: null

@@ -2,7 +2,7 @@
 id: task-296-361-move-planner-tests-qa
 type: TASK
 title: QA move planner and diff engine edge case tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-29'
 updated_at: '2026-07-29'
