@@ -37,6 +37,6 @@ Implement the logic to extract and parse the trainer defeat flags for Generation
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 2 trainer flags extraction logic.
-- [ ] Ensure ADR 026 compliance (explicit bitwise logic).
-- [ ] Ensure ADR 028 compliance (module-level constants, no magic numbers).
+- [x] Implement Gen 2 trainer flags extraction logic.
+- [x] Ensure ADR 026 compliance (explicit bitwise logic).
+- [x] Ensure ADR 028 compliance (module-level constants, no magic numbers).

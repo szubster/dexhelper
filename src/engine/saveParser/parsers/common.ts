@@ -260,6 +260,8 @@ export interface SaveData {
   }[];
   /** Raw byte array containing all in-game event flags (e.g., claimed static gifts, story progression). */
   eventFlags?: Uint8Array;
+  /** Boolean array mapping the 2048 trainer defeat and general event flags in Gen 2. */
+  trainerFlags?: boolean[];
   /** Raw byte array containing hidden item event flags. */
   hiddenItemFlags?: Uint8Array;
   /** Raw byte array containing hidden coin event flags. */
