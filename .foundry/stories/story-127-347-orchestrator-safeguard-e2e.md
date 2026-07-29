@@ -29,3 +29,5 @@ Implement E2E testing for the new orchestrator safeguard to verify that an EPIC 
 
 ## Acceptance Criteria
 - [ ] Implement E2E tests for the orchestrator safeguard.
+- [ ] [task-347-360-e2e-safeguard-orchestrator-impl](.foundry/tasks/task-347-360-e2e-safeguard-orchestrator-impl.md)
+- [ ] [task-347-361-e2e-safeguard-orchestrator-qa](.foundry/tasks/task-347-361-e2e-safeguard-orchestrator-qa.md)
