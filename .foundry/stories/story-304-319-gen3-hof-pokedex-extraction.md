@@ -2,7 +2,7 @@
 id: story-304-319-gen3-hof-pokedex-extraction
 type: STORY
 title: 'Story: Gen 3 Hall of Fame & Pokédex Data Extraction'
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-13'
 updated_at: '2026-07-29'

@@ -2,7 +2,7 @@
 id: task-319-324-gen3-hof-pokedex-extraction-qa
 type: TASK
 title: 'QA: Gen 3 Hall of Fame & Pokédex Data Extraction'
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-07-15'
 updated_at: '2026-07-29'
@@ -17,8 +17,8 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/engine/save_parsing/gen3_hall_of_fame.md
   - .foundry/docs/knowledge_base/gen3_pokemon_data_structure.md
-rejection_count: 0
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

@@ -2,10 +2,10 @@
 id: idea-129-epic-level-distillation-archival
 type: IDEA
 title: Epic-Level Distillation and Cold Storage Archival
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: 2026-07-29T12:00:00.000Z
-updated_at: 2026-07-29T12:00:00.000Z
+updated_at: '2026-07-29'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - performance
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Epic-Level Distillation and Cold Storage Archival

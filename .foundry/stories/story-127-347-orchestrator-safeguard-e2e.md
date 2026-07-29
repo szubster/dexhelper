@@ -2,7 +2,7 @@
 id: story-127-347-orchestrator-safeguard-e2e
 type: STORY
 title: E2E Integration for Orchestrator Safeguards
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-29'
 updated_at: '2026-07-29'

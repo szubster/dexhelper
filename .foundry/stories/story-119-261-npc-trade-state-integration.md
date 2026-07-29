@@ -2,13 +2,13 @@
 id: story-119-261-npc-trade-state-integration
 type: STORY
 title: NPC Trade State Integration
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-03'
 updated_at: '2026-07-29'
 depends_on:
   - story-119-260-npc-trade-data-mapping
-jules_session_id: '5301939723423526707'
+jules_session_id: null
 pr_number: null
 parent: epic-095-119-in-game-trade-data-extraction
 tags:

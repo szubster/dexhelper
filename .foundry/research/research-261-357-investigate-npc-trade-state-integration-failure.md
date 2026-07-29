@@ -2,7 +2,7 @@
 id: research-261-357-investigate-npc-trade-state-integration-failure
 type: RESEARCH
 title: Investigate NPC Trade State Integration Failure
-status: PENDING
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-07-29'
 updated_at: '2026-07-29'
