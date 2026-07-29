@@ -2,13 +2,13 @@
 id: task-334-352-parse-secret-base-trainer-party-impl
 type: TASK
 title: Implement Gen 3 Secret Base Party Info Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-29'
 updated_at: '2026-07-29'
 depends_on:
   - task-334-351-parse-secret-base-trainer-info-impl
-jules_session_id: null
+jules_session_id: '73377806227284060'
 pr_number: null
 parent: story-324-334-extract-mixed-record-trainer-data
 tags:
