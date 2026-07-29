@@ -39,6 +39,6 @@ Verify the implementation of the Gen 2 trainer defeat flags extraction logic.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify Gen 2 trainer flags extraction logic works as intended.
-- [ ] Confirm ADR 026 compliance.
-- [ ] Confirm ADR 028 compliance.
+- [x] Verify Gen 2 trainer flags extraction logic works as intended.
+- [x] Confirm ADR 026 compliance.
+- [x] Confirm ADR 028 compliance.
