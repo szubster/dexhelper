@@ -30,4 +30,6 @@ Write comprehensive unit tests for the diff engine and move planner algorithms t
 The move planner logic involves complex states (full boxes, swap chains, cyclic moves). This story requires building robust test fixtures covering these scenarios to guarantee the generated operations are minimal, correct, and do not lead to invalid states (like moving a Pokémon into a full box without swapping).
 
 ## Acceptance Criteria
-- [ ] Break down story into tasks to implement unit tests for diff engine and move planner scenarios.
+- [x] Break down story into tasks to implement unit tests for diff engine and move planner scenarios.
+- [ ] [task-296-360-move-planner-tests-impl](../tasks/task-296-360-move-planner-tests-impl.md)
+- [ ] [task-296-361-move-planner-tests-qa](../tasks/task-296-361-move-planner-tests-qa.md)
