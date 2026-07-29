@@ -31,7 +31,8 @@ Develop the core algorithmic engine for calculating valid breeding chains. This 
 - [x] Exclude invalid breeding pairs (e.g., "No Eggs" group).
 - [x] Support chains requiring multiple intermediate parents.
 - [x] Story Owner: Break this Epic down into actionable STORIES.
-- [x] story-113-258-egg-move-pathfinding-core
-- [x] story-113-259-egg-move-breeding-rules
-- [x] story-113-260-egg-move-multi-step-chains
-- [x] research-113-248-egg-move-precomputation
+- [x] [story-113-258-egg-move-pathfinding-core](.foundry/stories/story-113-258-egg-move-pathfinding-core.md)
+- [x] [story-113-259-egg-move-breeding-rules](.foundry/stories/story-113-259-egg-move-breeding-rules.md)
+- [x] [story-113-260-egg-move-multi-step-chains](.foundry/stories/story-113-260-egg-move-multi-step-chains.md)
+- [x] [research-113-248-egg-move-precomputation](.foundry/archive/research/research-113-248-egg-move-precomputation.md)
+- [ ] [story-113-348-egg-move-pathfinding-e2e](.foundry/stories/story-113-348-egg-move-pathfinding-e2e.md)
