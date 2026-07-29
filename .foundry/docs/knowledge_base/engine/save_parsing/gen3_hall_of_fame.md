@@ -39,3 +39,11 @@ The total number of times the player has entered the Hall of Fame is tracked glo
 - It is located in the `gameStats` array in `SaveBlock1` (Offset `0x228C` in Emerald `SaveBlock1` for the array base, but the game stat ID logic will be handled dynamically or by parsing the stats array).
 - This stat acts as the "page number" or "times entered" counter.
 - While the stat can exceed 50 (up to 999), only the last 50 teams are kept in memory. The game uses a shift mechanism (moving `beforeTeam = afterTeam`) to drop the oldest team and append the new one at the end if the 50 limit is reached.
+
+## 5. Game Stat Parsing Constants
+When parsing the `gameStats` array, each stat is a 32-bit (4-byte) integer. To avoid inline magic numbers as mandated by the Save File Parsing Guidelines, the following module-level constant must be defined:
+- `BYTES_PER_GAME_STAT = 4`: Used to calculate the offset within the `gameStats` array (e.g., `GAME_STAT_ENTERED_HOF_ID * BYTES_PER_GAME_STAT`).
+
+## 6. Bitwise Operation Constants
+When extracting bitwise data such as Pokedex entries or event flags, literal magic numbers must be avoided. The following module-level constant must be defined:
+- `BITS_PER_BYTE = 8`: Used for byte index calculation (`Math.floor(bitIndex / BITS_PER_BYTE)`) and bit offset calculation (`bitIndex % BITS_PER_BYTE`).

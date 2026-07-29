@@ -31,5 +31,13 @@ Investigate how to avoid using magic numbers for offset calculations in the Gen 
 - Provide a summary of the required constants and their purposes.
 
 ## Acceptance Criteria
-- [ ] Determine module-level constants for `4` (bytes per stat) and `8` (bits per byte) to avoid inline magic numbers.
-- [ ] Provide documentation on how these constants should be used in the parsing logic.
+- [x] Determine module-level constants for `4` (bytes per stat) and `8` (bits per byte) to avoid inline magic numbers.
+- [x] Provide documentation on how these constants should be used in the parsing logic.
+
+## Findings
+To adhere to the "No Magic Numbers" policy outlined in the Save File Parsing & Extraction Guidelines (Section 13 of `.foundry/docs/schema.md`), the following module-level constants have been identified and must be defined in the parsing module:
+
+- **`BYTES_PER_GAME_STAT = 4`**: Since each game stat is a 32-bit integer, this constant replaces the inline `4` when calculating offsets in the `gameStats` array. It should be used as: `offset = GAME_STAT_ENTERED_HOF_ID * BYTES_PER_GAME_STAT`.
+- **`BITS_PER_BYTE = 8`**: This constant replaces the inline `8` used during bitwise operations (like Pokédex extraction). It should be used to calculate the byte index (`Math.floor(bitIndex / BITS_PER_BYTE)`) and the remaining bit offset (`bitIndex % BITS_PER_BYTE`).
+
+These requirements have been documented in `.foundry/docs/knowledge_base/engine/save_parsing/gen3_hall_of_fame.md`.
