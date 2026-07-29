@@ -109,4 +109,19 @@ describe('calculateBoxDiff', () => {
     expect(diff.relocations[0]?.sourceBox).toBe(1);
     expect(diff.relocations[0]?.targetBox).toBe(2);
   });
+
+  test('handles storage locations that do not match expected Box N regex', () => {
+    const current: PokemonInstance[] = [createPoke(1, 'Test', 'Party', 0)];
+    const target: PokemonInstance[] = [createPoke(1, 'Test', 'Daycare', 1)];
+
+    const diff = calculateBoxDiff(current, target);
+    expect(diff.relocations).toHaveLength(1);
+    expect(diff.relocations[0]).toEqual({
+      pokemon: target[0],
+      sourceBox: -1,
+      sourceSlot: 0,
+      targetBox: -1,
+      targetSlot: 1,
+    });
+  });
 });
