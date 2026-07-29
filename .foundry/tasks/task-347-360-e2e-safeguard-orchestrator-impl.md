@@ -26,4 +26,4 @@ notes: ''
 Implement E2E testing for the new orchestrator safeguard to verify that an EPIC node cannot be promoted to VERIFYING or COMPLETED unless it contains at least one child STORY that explicitly represents integration or E2E testing.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for the orchestrator safeguard.
+- [x] Implement E2E tests for the orchestrator safeguard.
