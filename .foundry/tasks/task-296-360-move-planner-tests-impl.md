@@ -35,7 +35,7 @@ Also, we need to add edge case tests for `boxDiff.ts`.
 4. Add tests in `boxDiff.test.ts` to handle storage locations that do not match the expected `Box N` regex.
 
 ## Acceptance Criteria
-- [ ] Implement disjoint cycle tests in `movePlanner.test.ts`.
-- [ ] Implement open-chain move tests in `movePlanner.test.ts`.
-- [ ] Implement complex mixed operation tests in `movePlanner.test.ts`.
-- [ ] Implement invalid format storage location test in `boxDiff.test.ts`.
+- [x] Implement disjoint cycle tests in `movePlanner.test.ts`.
+- [x] Implement open-chain move tests in `movePlanner.test.ts`.
+- [x] Implement complex mixed operation tests in `movePlanner.test.ts`.
+- [x] Implement invalid format storage location test in `boxDiff.test.ts`.

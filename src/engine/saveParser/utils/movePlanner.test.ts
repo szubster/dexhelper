@@ -145,4 +145,67 @@ describe('movePlanner', () => {
       { type: 'MOVE', sourceBox: -1, sourceSlot: -1, targetBox: 1, targetSlot: 2 },
     ]);
   });
+
+  it('handles overlapping/disjoint cycles', () => {
+    const diff: BoxDiffResult = {
+      additions: [],
+      removals: [],
+      relocations: [
+        // Cycle 1: 1:1 -> 1:2 -> 1:1 (SWAP)
+        { pokemon: createMockPokemon('A', 1, 1), sourceBox: 1, sourceSlot: 1, targetBox: 1, targetSlot: 2 },
+        { pokemon: createMockPokemon('B', 1, 2), sourceBox: 1, sourceSlot: 2, targetBox: 1, targetSlot: 1 },
+        // Cycle 2: 2:1 -> 2:2 -> 2:3 -> 2:1
+        { pokemon: createMockPokemon('C', 2, 1), sourceBox: 2, sourceSlot: 1, targetBox: 2, targetSlot: 2 },
+        { pokemon: createMockPokemon('D', 2, 2), sourceBox: 2, sourceSlot: 2, targetBox: 2, targetSlot: 3 },
+        { pokemon: createMockPokemon('E', 2, 3), sourceBox: 2, sourceSlot: 3, targetBox: 2, targetSlot: 1 },
+      ],
+    };
+
+    const plan = calculateMovePlan(diff);
+    expect(plan).toEqual(expect.arrayContaining([
+      { type: 'SWAP', sourceBox: 1, sourceSlot: 1, targetBox: 1, targetSlot: 2 },
+      { type: 'MOVE', sourceBox: 2, sourceSlot: 1, targetBox: -1, targetSlot: -1 },
+      { type: 'MOVE', sourceBox: 2, sourceSlot: 3, targetBox: 2, targetSlot: 1 },
+      { type: 'MOVE', sourceBox: 2, sourceSlot: 2, targetBox: 2, targetSlot: 3 },
+      { type: 'MOVE', sourceBox: -1, sourceSlot: -1, targetBox: 2, targetSlot: 2 },
+    ]));
+  });
+
+  it('handles an open-chain move (chain ending in empty slot)', () => {
+    const diff: BoxDiffResult = {
+      additions: [],
+      removals: [],
+      relocations: [
+        // Chain: 1:1 -> 1:2 -> 1:3 (1:3 is empty)
+        { pokemon: createMockPokemon('A', 1, 1), sourceBox: 1, sourceSlot: 1, targetBox: 1, targetSlot: 2 },
+        { pokemon: createMockPokemon('B', 1, 2), sourceBox: 1, sourceSlot: 2, targetBox: 1, targetSlot: 3 },
+      ],
+    };
+
+    const plan = calculateMovePlan(diff);
+    expect(plan).toEqual([
+      { type: 'MOVE', sourceBox: 1, sourceSlot: 2, targetBox: 1, targetSlot: 3 },
+      { type: 'MOVE', sourceBox: 1, sourceSlot: 1, targetBox: 1, targetSlot: 2 },
+    ]);
+  });
+
+  it('handles complex mixed operations (add, remove, move, cycle, swap)', () => {
+    const diff: BoxDiffResult = {
+      additions: [createMockPokemon('Add1', 3, 1)],
+      removals: [createMockPokemon('Rem1', 3, 2)],
+      relocations: [
+        { pokemon: createMockPokemon('A', 1, 1), sourceBox: 1, sourceSlot: 1, targetBox: 1, targetSlot: 2 },
+        { pokemon: createMockPokemon('B', 1, 2), sourceBox: 1, sourceSlot: 2, targetBox: 1, targetSlot: 1 },
+        { pokemon: createMockPokemon('C', 2, 1), sourceBox: 2, sourceSlot: 1, targetBox: 2, targetSlot: 2 },
+      ],
+    };
+
+    const plan = calculateMovePlan(diff);
+    expect(plan).toEqual(expect.arrayContaining([
+      { type: 'WITHDRAW', sourceBox: 3, sourceSlot: 2, targetBox: -1, targetSlot: -1 },
+      { type: 'MOVE', sourceBox: 2, sourceSlot: 1, targetBox: 2, targetSlot: 2 },
+      { type: 'SWAP', sourceBox: 1, sourceSlot: 1, targetBox: 1, targetSlot: 2 },
+      { type: 'DEPOSIT', sourceBox: -1, sourceSlot: -1, targetBox: 3, targetSlot: 1 },
+    ]));
+  });
 });
