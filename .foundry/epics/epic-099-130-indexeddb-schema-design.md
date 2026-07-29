@@ -31,8 +31,8 @@ Define the storage schema for the save state history, including DB name, object 
 - [x] Document the schema.
 - [x] story-130-315-define-indexeddb-schema
 - [x] story-130-316-document-indexeddb-schema
-- [ ] story-130-341-define-indexeddb-schema-retry
-- [ ] story-130-342-document-indexeddb-schema-retry
+- [x] story-130-341-define-indexeddb-schema-retry
+- [x] story-130-342-document-indexeddb-schema-retry
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
