@@ -297,7 +297,7 @@ describe('gen2 parsers', () => {
       });
     });
 
-    it('should extract eventFlags and hiddenItemFlags for Gold/Silver', () => {
+    it('should extract eventFlags, trainerFlags, and hiddenItemFlags for Gold/Silver', () => {
       const buffer = new ArrayBuffer(32768);
       const view = new DataView(buffer);
       view.setUint8(0x288a, 1);
@@ -314,6 +314,39 @@ describe('gen2 parsers', () => {
       expect(data.eventFlags?.[255]).toBe(0x99);
       expect(data.eventFlags?.length).toBe(0x100);
       expect(data.hiddenItemFlags).toBe(data.eventFlags);
+      expect(data.trainerFlags).toBeDefined();
+      expect(data.trainerFlags?.length).toBe(2048);
+      // 0x11 = 00010001 in binary
+      expect(data.trainerFlags?.[0]).toBe(true);
+      expect(data.trainerFlags?.[1]).toBe(false);
+      expect(data.trainerFlags?.[4]).toBe(true);
+      // 0x99 = 10011001 in binary, index 255 byte starts at bit 2040
+      expect(data.trainerFlags?.[2040]).toBe(true);
+      expect(data.trainerFlags?.[2041]).toBe(false);
+      expect(data.trainerFlags?.[2043]).toBe(true);
+      expect(data.trainerFlags?.[2044]).toBe(true);
+      expect(data.trainerFlags?.[2047]).toBe(true);
+    });
+
+    it('should extract trainerFlags with absolute zero state and boundary values (ADR 026)', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x2865, 1); // Crystal valid party count
+      view.setUint8(0x2866, 1);
+      view.setUint8(0x2866 + 7, 1);
+
+      // Absolute zero state
+      let data = parseGen2(view, true);
+      expect(data.trainerFlags).toBeDefined();
+      expect(data.trainerFlags?.length).toBe(2048);
+      expect(data.trainerFlags?.every((flag) => flag === false)).toBe(true);
+
+      // Max boundary state
+      for (let i = 0; i < 256; i++) {
+        view.setUint8(0x2600 + i, 0xff);
+      }
+      data = parseGen2(view, true);
+      expect(data.trainerFlags?.every((flag) => flag === true)).toBe(true);
     });
 
     it('should extract eventFlags and hiddenItemFlags for Crystal', () => {

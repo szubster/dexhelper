@@ -82,6 +82,9 @@ const MAP_ID_OFFSET_GS = 0x25b4;
 const MAP_ID_OFFSET_CRYSTAL = 0x25c7;
 
 const EVENT_FLAGS_LENGTH = 0x100;
+const EVENT_FLAGS_MAX_BITS = 2048;
+const BITS_PER_BYTE = 8;
+const BIT_MASK = 1;
 
 const CAUGHT_TIME_MASK = 0xc0;
 const CAUGHT_TIME_SHIFT = 6;
@@ -758,6 +761,14 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   }
   const hiddenItemFlags = eventFlags;
 
+  const trainerFlags: boolean[] = [];
+  for (let i = 0; i < EVENT_FLAGS_MAX_BITS; i++) {
+    const byteIdx = Math.floor(i / BITS_PER_BYTE);
+    const bitIdx = i % BITS_PER_BYTE;
+    const byte = eventFlags[byteIdx] ?? 0;
+    trainerFlags.push(((byte >> bitIdx) & BIT_MASK) !== 0);
+  }
+
   const npcTradeFlags: boolean[] = [];
   try {
     const npcTradeFlagsOffset = isCrystal ? NPC_TRADE_FLAGS_OFFSET_CRYSTAL : NPC_TRADE_FLAGS_OFFSET_GS;
@@ -797,6 +808,7 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     hallOfFameCount,
     roamingLegendaries,
     eventFlags,
+    trainerFlags,
     hiddenItemFlags,
     npcTradeFlags,
     gen2StaticEncounters: {
