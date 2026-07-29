@@ -2,10 +2,10 @@
 id: task-319-323-gen3-hof-pokedex-extraction-impl
 type: TASK
 title: Implement Gen 3 Hall of Fame & Pokédex Data Extraction
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-15'
-updated_at: '2026-07-28'
+updated_at: '2026-07-29'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/engine/save_parsing/gen3_hall_of_fame.md
   - .foundry/docs/knowledge_base/gen3_pokemon_data_structure.md
-rejection_count: 2
-rejection_reason: 'Violation of ADR 028: Usage of inline magic numbers for offset calculations (GAME_STAT_ENTERED_HOF_ID * 4) and bit operations (Math.floor(bitIndex / 8) and bitIndex % 8) in src/engine/saveParser/parsers/gen3.ts.'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

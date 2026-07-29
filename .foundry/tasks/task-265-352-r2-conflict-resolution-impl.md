@@ -2,12 +2,12 @@
 id: task-265-352-r2-conflict-resolution-impl
 type: TASK
 title: Cloudflare R2 Offline Conflict Resolution - Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-28'
-updated_at: '2026-07-28'
+updated_at: '2026-07-29'
 depends_on: []
-jules_session_id: '3577743536037796835'
+jules_session_id: null
 pr_number: null
 parent: story-039-265-r2-offline-conflict-resolution
 tags:
@@ -16,7 +16,7 @@ tags:
   - r2
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 

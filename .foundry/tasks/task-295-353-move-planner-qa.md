@@ -2,13 +2,13 @@
 id: task-295-353-move-planner-qa
 type: TASK
 title: QA Move Planner Algorithm
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-28'
-updated_at: '2026-07-28'
+updated_at: '2026-07-29'
 depends_on:
   - task-295-352-move-planner-impl
-jules_session_id: '12238424697542487405'
+jules_session_id: null
 pr_number: null
 parent: story-137-295-move-planner-algorithm
 tags:

@@ -2,10 +2,10 @@
 id: prd-066-099-save-state-history-storage
 type: PRD
 title: IndexedDB Storage Engine for Save State History
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-07-01'
-updated_at: '2026-07-25'
+updated_at: '2026-07-29'
 depends_on: []
 jules_session_id: null
 pr_number: null
