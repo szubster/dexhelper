@@ -35,6 +35,6 @@ Implement extraction of NPC team composition (Pokémon, levels, moves, EVs) asso
 6.  Write unit tests validating the extraction logic.
 
 ## Acceptance Criteria
-- [ ] Implement extraction logic for party details (Pokémon, levels, moves, EVs) for Gen 3 Secret Bases.
-- [ ] Conform to all rules in Section 13 of `schema.md`.
-- [ ] Unit tests added for the extraction logic.
+- [x] Implement extraction logic for party details (Pokémon, levels, moves, EVs) for Gen 3 Secret Bases.
+- [x] Conform to all rules in Section 13 of `schema.md`.
+- [x] Unit tests added for the extraction logic.
