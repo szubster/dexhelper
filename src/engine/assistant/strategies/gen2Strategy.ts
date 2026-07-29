@@ -1,4 +1,5 @@
 import type { UnifiedLocation } from '../../../db/schema';
+import { getGenerationConfig } from '../../../utils/generationConfig';
 import { getGen2UnobtainableReason } from '../../exclusives/gen2Exclusives';
 import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen2Graph';
 import type { SaveData } from '../../saveParser/index';
@@ -23,6 +24,18 @@ export const gen2Strategy: AssistantStrategy = {
   getSpecialSuggestions(saveData: SaveData, missingIds: number[]): Suggestion[] {
     const suggestions: Suggestion[] = [];
     const missingSet = new Set(missingIds);
+    const genConfig = getGenerationConfig(2);
+
+    if (saveData.currentBoxCount >= genConfig.boxWarningThreshold) {
+      suggestions.push({
+        id: 'box-full-warning',
+        pokemonId: 0,
+        title: 'Current Box Almost Full',
+        category: 'Event',
+        priority: 1000,
+        description: `Your current box has ${saveData.currentBoxCount}/${genConfig.boxCapacity} Pokémon. Switch boxes at a Pokémon Center PC or new catches will fail!`,
+      });
+    }
 
     // 1. Roamer tracking
     const roamers = [

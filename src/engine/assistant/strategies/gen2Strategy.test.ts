@@ -24,6 +24,7 @@ describe('gen2Strategy', () => {
   const mockLocations: UnifiedLocation[] = [];
   const mockSaveData = {
     currentMapId: 0x0306,
+    currentBoxCount: 0,
   } as SaveData;
 
   it('has generation 2', () => {
@@ -70,6 +71,21 @@ describe('gen2Strategy', () => {
     expect(suggestions[1]?.id).toBe('headbutt-reminder');
     expect(suggestions[2]?.id).toBe('rocksmash-reminder');
     expect(suggestions[3]?.id).toBe('time-based-reminder');
+  });
+
+  it('warns when the current box is almost full', () => {
+    const saveData = {
+      ...mockSaveData,
+      currentBoxCount: 19,
+      johtoBadges: 0,
+      inventory: [],
+      partyDetails: [],
+    } as unknown as SaveData;
+
+    const suggestions = gen2Strategy.getSpecialSuggestions(saveData, []);
+    const warning = suggestions.find((s) => s.id === 'box-full-warning');
+    expect(warning).toBeDefined();
+    expect(warning?.description).toContain('Your current box has 19/20 Pokémon');
   });
 
   it('handles tyrogue evo paths for Hitmonchan and Hitmontop', () => {
