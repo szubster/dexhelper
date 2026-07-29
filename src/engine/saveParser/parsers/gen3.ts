@@ -300,6 +300,8 @@ export const GEN3_GAME_STATS_OFFSET_EMERALD = 0x159c;
 export const GEN3_GAME_STATS_OFFSET_RS = 0x1540;
 export const GEN3_GAME_STATS_OFFSET_FRLG = 0x1200;
 export const GAME_STAT_ENTERED_HOF_ID = 10;
+export const BYTES_PER_GAME_STAT = 4;
+export const BITS_PER_BYTE = 8;
 
 export const GEN3_POKEDEX_OFFSET = 0x18;
 export const GEN3_POKEDEX_OWNED_OFFSET = 0x10;
@@ -1130,7 +1132,10 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
 
     let hallOfFameCount = 0;
     try {
-      hallOfFameCount = view.getUint32(section1Offset + gameStatsOffset + GAME_STAT_ENTERED_HOF_ID * 4, true);
+      hallOfFameCount = view.getUint32(
+        section1Offset + gameStatsOffset + GAME_STAT_ENTERED_HOF_ID * BYTES_PER_GAME_STAT,
+        true,
+      );
     } catch (error) {
       if (error instanceof RangeError) {
         throw new Error('The save file is corrupted or incomplete.');
@@ -1148,8 +1153,8 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       for (let dexId = 1; dexId <= NATIONAL_DEX_MAX; dexId++) {
         // Internal flags are 0-indexed where index 0 is Bulbasaur (Dex ID 1)
         const bitIndex = dexId - 1;
-        const byteIdx = Math.floor(bitIndex / 8);
-        const bitPos = bitIndex % 8;
+        const byteIdx = Math.floor(bitIndex / BITS_PER_BYTE);
+        const bitPos = bitIndex % BITS_PER_BYTE;
         const oByte = view.getUint8(pokedexOwnedOffset + byteIdx);
         const sByte = view.getUint8(pokedexSeenOffset + byteIdx);
         if ((oByte & (1 << bitPos)) !== 0) owned.add(dexId);
