@@ -92,3 +92,19 @@ When parsing Gen 3 event flags for static encounters (like legendaries or Snorla
 
 ## 2026-07-20 - Diff Engine Hash Failure Analysis
 Investigated the failure of `task-294-316-diff-engine-impl`. The root cause is a missing `hash` property on the `PokemonInstance` interface in `src/engine/saveParser/parsers/common.ts`. Downstream logic (`calculateBoxDiff`) implemented a fallback hash generator instead of relying on the contract. Moving forward, ensure that data interfaces (like `PokemonInstance`) strictly define necessary properties for downstream operations (like diffing) to prevent silent fallback behavior.
+
+## Session 12219787187610158486
+
+# Session 12219787187610158486
+
+* **Task**: Investigate Gen 2 Pokegear Phone Memory Offsets
+* **Target Node**: `research-283-336-gen2-phone-memory-offsets`
+
+## Findings
+I investigated the Pokegear memory offsets for Gen 2 (Gold, Silver, and Crystal). I discovered that:
+* In Gold/Silver, `wPhoneListIndex` is located at `0xCF2A`, `wSpecialPhoneCallID` is at `0xD97B`, and `wPhoneList` is at `0xD9C6`.
+* Unlike Crystal, Gold/Silver does not possess tracked distinct arrays for `wSwarmFlags`, `wDailyPhoneItemFlags`, or `wDailyPhoneTimeOfDayFlags`.
+* In Crystal, `wPhoneListIndex` is at `0xD03F`, `wSwarmFlags` is at `0xDC20`, `wSpecialPhoneCallID` is at `0xDC31`, `wDailyPhoneItemFlags` is at `0xDC50`, `wDailyPhoneTimeOfDayFlags` is at `0xDC54`, and `wPhoneList` is at `0xDC7C`.
+
+## Critical Policy Reminder
+When researching external codebases by building dependencies (like rgbds) or cloning git repositories (like pokecrystal and pokegold), **all temporary files and artifacts must be deleted and removed from git cache** before finishing the session. Failure to do so will severely pollute the root repository space, and the PR will be rejected.
