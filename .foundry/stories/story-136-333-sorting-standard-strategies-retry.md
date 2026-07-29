@@ -33,4 +33,8 @@ Building upon the standard interface, we need specific, actionable sorters that 
 - [ ] Implement a `LevelSorter` (supports ascending/descending).
 - [ ] Implement a `TypeSorter` (sorts by primary type, then secondary type).
 - [ ] Implement an `AlphaSorter` (alphabetical by nickname/species name).
-- [ ] Break down story into tasks for technical blueprinting and implementation.
+- [x] Break down story into tasks for technical blueprinting and implementation.
+- [ ] [task-333-363-pokemon-types-data-impl](.foundry/tasks/task-333-363-pokemon-types-data-impl.md)
+- [ ] [task-333-364-pokemon-types-data-qa](.foundry/tasks/task-333-364-pokemon-types-data-qa.md)
+- [ ] [task-333-365-sorting-strategies-impl](.foundry/tasks/task-333-365-sorting-strategies-impl.md)
+- [ ] [task-333-366-sorting-strategies-qa](.foundry/tasks/task-333-366-sorting-strategies-qa.md)
