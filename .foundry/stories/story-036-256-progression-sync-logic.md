@@ -32,5 +32,5 @@ With the database schema in place for storing multiple saves, we need to impleme
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break this Story down into Tasks to implement the progression recording and sync conflict resolution algorithms.
-- [ ] task-256-350-progression-sync-engine-impl
-- [ ] task-256-351-progression-sync-engine-qa
+- [x] [task-256-350-progression-sync-engine-impl](.foundry/tasks/task-256-350-progression-sync-engine-impl.md)
+- [x] [task-256-351-progression-sync-engine-qa](.foundry/tasks/task-256-351-progression-sync-engine-qa.md)
