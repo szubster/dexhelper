@@ -1,4 +1,4 @@
-import type React from 'react';
+import React from 'react';
 import { cn } from '../../../utils/cn';
 import { TacticalPanel } from '../../TacticalPanel';
 
@@ -7,10 +7,27 @@ interface ContestSheenDisplayProps {
   className?: string;
 }
 
-export const ContestSheenDisplay: React.FC<ContestSheenDisplayProps> = ({ sheen, className }) => {
+// ⚡ Bolt: Wrapped in React.memo and replaced Array.from().map() with a manual loop to prevent unnecessary re-renders and eliminate intermediate array allocations. Lifted invariant calculations out of the loop.
+export const ContestSheenDisplay: React.FC<ContestSheenDisplayProps> = React.memo(({ sheen, className }) => {
   const maxSheen = 255;
   const isMaxed = sheen >= maxSheen;
   const segments = 15;
+
+  const segmentElements = [];
+  const ratio = sheen / maxSheen;
+  const colorClass = isMaxed
+    ? 'bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.8)]'
+    : 'bg-blue-500 shadow-[0_0_5px_rgba(59,130,246,0.8)]';
+  const emptyColorClass = isMaxed ? 'bg-emerald-950/30' : 'bg-blue-950/30';
+
+  for (let i = 0; i < segments; i++) {
+    const threshold = (i + 1) / segments;
+    const isActive = ratio >= threshold;
+
+    segmentElements.push(
+      <div key={`sheen-segment-${i}`} className={cn('h-full flex-1', isActive ? colorClass : emptyColorClass)} />,
+    );
+  }
 
   return (
     <TacticalPanel
@@ -33,26 +50,10 @@ export const ContestSheenDisplay: React.FC<ContestSheenDisplayProps> = ({ sheen,
         aria-valuenow={sheen}
         aria-valuemax={maxSheen}
       >
-        {Array.from({ length: segments }).map((_, i) => {
-          const ratio = sheen / maxSheen;
-          const threshold = (i + 1) / segments;
-          const isActive = ratio >= threshold;
-
-          const colorClass = isMaxed
-            ? 'bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.8)]'
-            : 'bg-blue-500 shadow-[0_0_5px_rgba(59,130,246,0.8)]';
-
-          const emptyColorClass = isMaxed ? 'bg-emerald-950/30' : 'bg-blue-950/30';
-
-          return (
-            <div
-              // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and safe here
-              key={`sheen-segment-${i}`}
-              className={cn('h-full flex-1', isActive ? colorClass : emptyColorClass)}
-            />
-          );
-        })}
+        {segmentElements}
       </div>
     </TacticalPanel>
   );
-};
+});
+
+ContestSheenDisplay.displayName = 'ContestSheenDisplay';
