@@ -33,4 +33,7 @@ When players mix records in Gen 3, they exchange Secret Bases and trainer data. 
 - Calculate or extract the EV yields associated with defeating these trainers.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into actionable Tasks.
+- [x] Tech Lead: Break this Story down into actionable Tasks.
+- [ ] task-334-351-parse-secret-base-trainer-info-impl
+- [ ] task-334-352-parse-secret-base-trainer-party-impl
+- [ ] task-334-353-gen3-mixed-record-trainer-qa
