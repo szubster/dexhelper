@@ -206,10 +206,10 @@ export const useStore = create<AppStore>()(
             try {
               const saves = await r2Client.listSaves();
               if (saves.length > 0 && saves[0]) {
-                const cloudSave = await r2Client.getSave(saves[0]);
+                const cloudSave = await r2Client.getSave(saves[0].id);
                 if (cloudSave) {
-                  await saveDB.putSave('last_save_file', cloudSave);
-                  buffer = cloudSave;
+                  await saveDB.putSave('last_save_file', cloudSave.data);
+                  buffer = cloudSave.data;
                 }
               }
             } catch {

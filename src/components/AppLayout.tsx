@@ -64,8 +64,8 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         if (localStorage.getItem(AUTH_LOGGED_IN_INDICATOR) === 'true') {
           try {
             const saves = await r2Client.listSaves();
-            const saveId = saves.length > 0 && saves[0] ? saves[0] : 'save-1';
-            await r2Client.putSave(saveId, new Uint8Array(buffer));
+            const saveId = saves.length > 0 && saves[0] ? saves[0].id : 'save-1';
+            await r2Client.putSave(saveId, new Uint8Array(buffer), file.lastModified);
           } catch {
             console.error('System: push to cloud failed');
           }

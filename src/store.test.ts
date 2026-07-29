@@ -7,8 +7,8 @@ import { r2Client } from './utils/r2/client';
 
 vi.mock('./utils/r2/client', () => ({
   r2Client: {
-    listSaves: vi.fn<() => Promise<string[]>>(),
-    getSave: vi.fn<(id: string) => Promise<Uint8Array | undefined>>(),
+    listSaves: vi.fn<() => Promise<{ id: string; lastModified?: number }[]>>(),
+    getSave: vi.fn<(id: string) => Promise<{ data: Uint8Array; lastModified?: number } | undefined>>(),
   },
 }));
 
@@ -162,9 +162,9 @@ describe('Zustand Store', () => {
         setItem: vi.fn<() => void>(),
         removeItem: vi.fn<() => void>(),
       });
-      vi.mocked(r2Client.listSaves).mockResolvedValue(['cloud-save-id']);
+      vi.mocked(r2Client.listSaves).mockResolvedValue([{ id: 'cloud-save-id' }]);
       const cloudData = new Uint8Array([9, 9, 9]);
-      vi.mocked(r2Client.getSave).mockResolvedValue(cloudData);
+      vi.mocked(r2Client.getSave).mockResolvedValue({ data: cloudData });
       const putSaveSpy = vi.spyOn(saveDB, 'putSave').mockResolvedValue(undefined);
 
       const mockSaveData = { trainerName: 'CLOUD', generation: 1, gameVersion: 'red' };

@@ -15,13 +15,13 @@ describe('r2Client', () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     mockFetch.mockResolvedValueOnce({
       ok: true,
-      json: async () => ['save1', 'save2'],
+      json: async () => [{ id: 'save1' }, { id: 'save2', lastModified: 100 }],
       // biome-ignore lint/suspicious/noExplicitAny: Mocking fetch requires any
     } as any);
 
     const saves = await r2Client.listSaves();
     expect(mockFetch).toHaveBeenCalledWith('/api/saves');
-    expect(saves).toEqual(['save1', 'save2']);
+    expect(saves).toEqual([{ id: 'save1' }, { id: 'save2', lastModified: 100 }]);
   });
 
   it('handles list saves error', async () => {
@@ -34,17 +34,20 @@ describe('r2Client', () => {
   });
 
   it('gets a save', async () => {
+    const mockHeaders = new Headers();
+    mockHeaders.set('client-last-modified', '12345');
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     mockFetch.mockResolvedValueOnce({
       ok: true,
       status: 200,
       arrayBuffer: async () => new Uint8Array([1, 2, 3]).buffer,
+      headers: mockHeaders,
       // biome-ignore lint/suspicious/noExplicitAny: Mocking fetch requires any
     } as any);
 
     const save = await r2Client.getSave('save1');
     expect(mockFetch).toHaveBeenCalledWith('/api/saves/save1');
-    expect(save).toEqual(new Uint8Array([1, 2, 3]));
+    expect(save).toEqual({ data: new Uint8Array([1, 2, 3]), lastModified: 12345 });
   });
 
   it('handles getSave error', async () => {
@@ -78,11 +81,11 @@ describe('r2Client', () => {
     } as any);
 
     const data = new Uint8Array([1, 2, 3]);
-    await r2Client.putSave('save1', data);
+    await r2Client.putSave('save1', data, 100);
     expect(mockFetch).toHaveBeenCalledWith('/api/saves/save1', {
       method: 'PUT',
       body: expect.anything(),
-      headers: { 'Content-Type': 'application/octet-stream' },
+      headers: { 'Content-Type': 'application/octet-stream', 'client-last-modified': '100' },
     });
   });
 
