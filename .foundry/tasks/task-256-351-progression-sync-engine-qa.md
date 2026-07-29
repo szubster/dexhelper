@@ -27,7 +27,7 @@ notes: ''
 The Coder has implemented the progression sync engine (`task-256-350-progression-sync-engine-impl.md`) which pushes and pulls save files to the Cloudflare R2 backend, handling offline-first scenarios and conflict resolution. We need to verify that this implementation works correctly and safely.
 
 ## Acceptance Criteria
-- [ ] QA: Verify that the implementation successfully pushes and pulls save states using `r2Client`.
-- [ ] QA: Verify the conflict resolution algorithm correctly prioritizes the most recent local progression.
-- [ ] QA: Verify that network failures during sync gracefully fall back to local offline storage without unhandled exceptions.
-- [ ] QA: Review the unit tests for the sync and conflict resolution logic to ensure they cover critical edge cases.
+- [x] QA: Verify that the implementation successfully pushes and pulls save states using `r2Client`.
+- [x] QA: Verify the conflict resolution algorithm correctly prioritizes the most recent local progression.
+- [x] QA: Verify that network failures during sync gracefully fall back to local offline storage without unhandled exceptions.
+- [x] QA: Review the unit tests for the sync and conflict resolution logic to ensure they cover critical edge cases.
