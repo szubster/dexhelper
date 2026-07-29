@@ -34,5 +34,5 @@ Extract and parse the trainer defeat flags for Generation 2 games from Bank 1.
 - [x] Break down into Tasks
 
 
-- [ ] task-320-322-gen2-trainer-flags-impl
-- [ ] task-320-323-gen2-trainer-flags-qa
+- [x] task-320-322-gen2-trainer-flags-impl
+- [x] task-320-323-gen2-trainer-flags-qa
