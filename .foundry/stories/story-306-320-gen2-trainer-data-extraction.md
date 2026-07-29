@@ -2,10 +2,10 @@
 id: story-306-320-gen2-trainer-data-extraction
 type: STORY
 title: Gen 2 Trainer Data Extraction
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-07-16'
+updated_at: '2026-07-29'
 depends_on: []
 jules_session_id: null
 pr_number: null

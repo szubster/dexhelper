@@ -2,7 +2,7 @@
 id: task-334-353-gen3-mixed-record-trainer-qa
 type: TASK
 title: QA Gen 3 Mixed Record Trainer Data Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-29'
 updated_at: '2026-07-29'

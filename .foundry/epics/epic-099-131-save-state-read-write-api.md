@@ -2,10 +2,10 @@
 id: epic-099-131-save-state-read-write-api
 type: EPIC
 title: Save State Read/Write API
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2024-05-24'
-updated_at: '2024-05-24'
+updated_at: '2026-07-29'
 depends_on:
   - epic-099-130-indexeddb-schema-design
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - history
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  epic-099-130-indexeddb-schema-design
 notes: ''
 ---
 
