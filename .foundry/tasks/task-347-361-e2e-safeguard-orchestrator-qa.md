@@ -27,4 +27,4 @@ notes: ''
 Verify the implementation of E2E testing for the orchestrator safeguard.
 
 ## Acceptance Criteria
-- [ ] Verify E2E tests for the orchestrator safeguard.
+- [x] Verify E2E tests for the orchestrator safeguard.
