@@ -43,6 +43,6 @@ You MUST strictly adhere to all guidelines defined in **Section 13 ("Save File P
 -   **RangeError Handling:** When using the `DataView` API, you MUST catch `RangeError` for out-of-bounds reads and throw a new error with the exact message: "The save file is corrupted or incomplete."
 
 ## Acceptance Criteria
-- [ ] Implement PV and IV extraction logic for Gen 3.
-- [ ] Strictly adhere to Section 13 guidelines (no magic numbers, RangeError handling).
-- [ ] Ensure the permutation logic (`PV % 24`) and decryption (`PV ^ OT_ID`) are correctly implemented.
+- [x] Implement PV and IV extraction logic for Gen 3.
+- [x] Strictly adhere to Section 13 guidelines (no magic numbers, RangeError handling).
+- [x] Ensure the permutation logic (`PV % 24`) and decryption (`PV ^ OT_ID`) are correctly implemented.

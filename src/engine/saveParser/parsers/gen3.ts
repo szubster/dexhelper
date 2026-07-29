@@ -196,6 +196,40 @@ export const FLAG_GOT_TM03_FROM_MISTY = 0x297;
 export const FLAG_GOT_TM26_FROM_GIOVANNI = 0x298;
 export const FLAG_GOT_TM04_FROM_SABRINA = 0x29a;
 
+export const GEN3_POKEMON_STRUCT_SIZE = 100;
+export const GEN3_POKEMON_PV_OFFSET = 0;
+export const GEN3_POKEMON_OT_ID_OFFSET = 4;
+export const GEN3_POKEMON_DATA_OFFSET = 32;
+export const MISC_IVS_OFFSET = 4;
+export const SUBSTRUCTURE_SIZE = 12;
+
+export const SUBSTRUCTURE_ORDER = [
+  'GAEM',
+  'GAME',
+  'GEAM',
+  'GEMA',
+  'GMAE',
+  'GMEA',
+  'AGEM',
+  'AGME',
+  'AEGM',
+  'AEMG',
+  'AMGE',
+  'AMEG',
+  'EGAM',
+  'EGMA',
+  'EAGM',
+  'EAMG',
+  'EMGA',
+  'EMAG',
+  'MGAE',
+  'MGEA',
+  'MAGE',
+  'MAEG',
+  'MEGA',
+  'MEAG',
+];
+
 export const EMERALD_MOVE_TUTOR_BYTE_1_OFFSET = 0x36;
 export const EMERALD_MOVE_TUTOR_BYTE_2_OFFSET = 0x37;
 
@@ -451,6 +485,50 @@ export function isGen3Save(view: DataView): boolean {
   } catch (error) {
     if (error instanceof RangeError) {
       return false;
+    }
+    throw error;
+  }
+}
+
+/**
+ * Extracts the PV and IVs for a Gen 3 Pokémon.
+ *
+ * @param view - The raw save file DataView.
+ * @param offset - The memory offset to the start of the 100-byte Pokémon structure.
+ * @returns An object containing the IVs and the PV.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3PokemonPVAndIVs(view: DataView, offset: number) {
+  try {
+    const pv = view.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
+    const otId = view.getUint32(offset + GEN3_POKEMON_OT_ID_OFFSET, true);
+
+    const decryptionKey = pv ^ otId;
+    const permutationIndex = pv % 24;
+    const permutation = SUBSTRUCTURE_ORDER[permutationIndex];
+    if (!permutation) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    const indexOfM = permutation.indexOf('M');
+
+    // The Miscellaneous (M) substructure starts at offset + 32 + (indexOfM * 12)
+    const miscSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfM * SUBSTRUCTURE_SIZE;
+
+    // The IVs are located at offset 4 within the M substructure. This corresponds to the second 32-bit word.
+    const encryptedIVs = view.getUint32(miscSubstructureOffset + MISC_IVS_OFFSET, true);
+    const decryptedIVs = encryptedIVs ^ decryptionKey;
+
+    const hp = (decryptedIVs >> IV_SHIFT_HP) & IV_MASK;
+    const attack = (decryptedIVs >> IV_SHIFT_ATK) & IV_MASK;
+    const defense = (decryptedIVs >> IV_SHIFT_DEF) & IV_MASK;
+    const speed = (decryptedIVs >> IV_SHIFT_SPD) & IV_MASK;
+    const specialAttack = (decryptedIVs >> IV_SHIFT_SPATK) & IV_MASK;
+    const specialDefense = (decryptedIVs >> IV_SHIFT_SPDEF) & IV_MASK;
+
+    return { hp, attack, defense, speed, specialAttack, specialDefense, pv };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
