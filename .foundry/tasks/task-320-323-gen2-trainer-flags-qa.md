@@ -2,10 +2,10 @@
 id: task-320-323-gen2-trainer-flags-qa
 type: TASK
 title: Gen 2 Trainer Data Extraction QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-15'
-updated_at: '2026-07-15'
+updated_at: '2026-07-29'
 depends_on:
   - task-320-322-gen2-trainer-flags-impl
 jules_session_id: null

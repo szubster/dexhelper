@@ -2,12 +2,12 @@
 id: task-320-322-gen2-trainer-flags-impl
 type: TASK
 title: Gen 2 Trainer Data Extraction Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-15'
 updated_at: '2026-07-29'
 depends_on: []
-jules_session_id: '3859012993382043144'
+jules_session_id: null
 pr_number: null
 parent: story-306-320-gen2-trainer-data-extraction
 tags:

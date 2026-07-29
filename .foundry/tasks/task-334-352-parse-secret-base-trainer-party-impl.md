@@ -2,7 +2,7 @@
 id: task-334-352-parse-secret-base-trainer-party-impl
 type: TASK
 title: Implement Gen 3 Secret Base Party Info Extraction
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-29'
 updated_at: '2026-07-29'

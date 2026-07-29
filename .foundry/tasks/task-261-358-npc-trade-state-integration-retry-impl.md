@@ -2,7 +2,7 @@
 id: task-261-358-npc-trade-state-integration-retry-impl
 type: TASK
 title: NPC Trade State Integration Retry Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-29'
 updated_at: '2026-07-29'

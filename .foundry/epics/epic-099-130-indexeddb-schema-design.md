@@ -2,12 +2,12 @@
 id: epic-099-130-indexeddb-schema-design
 type: EPIC
 title: IndexedDB Storage Schema Design
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2024-05-24'
 updated_at: '2026-07-29'
 depends_on: []
-jules_session_id: '13927943714410618976'
+jules_session_id: null
 pr_number: null
 parent: prd-066-099-save-state-history-storage
 tags:
@@ -16,7 +16,9 @@ tags:
   - history
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: ''
 ---
 

@@ -2,7 +2,7 @@
 id: epic-055-113-egg-move-pathfinding-engine
 type: EPIC
 title: Smart Egg Move Pathfinding Engine
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-30'
 updated_at: '2026-07-29'
@@ -15,10 +15,8 @@ tags:
   - mechanics
   - algorithm
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
