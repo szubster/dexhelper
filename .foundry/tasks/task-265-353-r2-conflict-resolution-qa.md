@@ -2,13 +2,13 @@
 id: task-265-353-r2-conflict-resolution-qa
 type: TASK
 title: Cloudflare R2 Offline Conflict Resolution - QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-28'
 updated_at: '2026-07-29'
 depends_on:
   - task-265-352-r2-conflict-resolution-impl
-jules_session_id: null
+jules_session_id: '1724012485101210185'
 pr_number: null
 parent: story-039-265-r2-offline-conflict-resolution
 tags:
