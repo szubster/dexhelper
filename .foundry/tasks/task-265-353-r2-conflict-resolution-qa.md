@@ -33,6 +33,6 @@ The offline conflict resolution logic has been implemented. This task requires t
 - Write tests or verify existing tests to ensure robustness against various edge cases.
 
 ## Acceptance Criteria
-- [ ] Conflict detection logic verified to correctly identify the newer save file.
-- [ ] Offline-to-online sync behavior confirmed (newer local overwrites remote, newer remote overwrites local).
-- [ ] Edge cases tested and handled appropriately without crashing or corrupting state.
+- [x] Conflict detection logic verified to correctly identify the newer save file.
+- [x] Offline-to-online sync behavior confirmed (newer local overwrites remote, newer remote overwrites local).
+- [x] Edge cases tested and handled appropriately without crashing or corrupting state.
