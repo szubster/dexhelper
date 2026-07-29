@@ -2,12 +2,12 @@
 id: story-116-283-parse-registered-numbers
 type: STORY
 title: Parse Registered Numbers
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-07'
-updated_at: '2026-07-28'
+updated_at: '2026-07-29'
 depends_on: []
-jules_session_id: '13237432710609766374'
+jules_session_id: '9819492269911096036'
 pr_number: null
 parent: epic-055-116-pokegear-active-callers
 tags:
