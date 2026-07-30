@@ -2,13 +2,13 @@
 id: task-320-323-gen2-tm-hm-parsing-qa
 type: TASK
 title: Gen 2 TM/HM Parse QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-14'
 updated_at: '2026-07-30'
 depends_on:
   - task-320-322-gen2-tm-hm-parsing-impl
-jules_session_id: null
+jules_session_id: '16268222064868257650'
 pr_number: null
 parent: story-306-320-gen2-tm-hm-parsing
 tags:
