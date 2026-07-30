@@ -2,11 +2,12 @@
 id: task-320-323-gen2-tm-hm-parsing-qa
 type: TASK
 title: Gen 2 TM/HM Parse QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-14'
-updated_at: '2026-07-14'
-depends_on: ["task-320-322-gen2-tm-hm-parsing-impl"]
+updated_at: '2026-07-30'
+depends_on:
+  - task-320-322-gen2-tm-hm-parsing-impl
 jules_session_id: null
 pr_number: null
 parent: story-306-320-gen2-tm-hm-parsing

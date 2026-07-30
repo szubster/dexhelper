@@ -2,13 +2,13 @@
 id: story-036-256-progression-sync-logic
 type: STORY
 title: Progression Sync Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-29'
+updated_at: '2026-07-30'
 depends_on:
   - story-036-255-progression-save-model
-jules_session_id: '1994820634687727130'
+jules_session_id: null
 pr_number: null
 parent: epic-031-036-progression-tracking
 tags:

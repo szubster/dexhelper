@@ -2,13 +2,13 @@
 id: task-319-361-gen3-hof-pokedex-extraction-retry-impl
 type: TASK
 title: Implement Gen 3 Hall of Fame & Pokédex Data Extraction (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-29'
-updated_at: '2026-07-29'
+updated_at: '2026-07-30'
 depends_on:
   - research-319-360-gen3-hof-magic-numbers
-jules_session_id: '151059372485234069'
+jules_session_id: null
 pr_number: null
 parent: story-304-319-gen3-hof-pokedex-extraction
 tags:
