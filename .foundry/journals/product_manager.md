@@ -75,3 +75,22 @@ When converting an IDEA to a PRD, it is crucial to ensure that the PRD fully for
 - Outlined Server-Side Integration (Cloudflare webhook) and Alternative Companion App approaches.
 ## Multi-Save Trade Planner PRD Generation (2026-07-21)
 Converted idea-059 into PRD. Encountered a unique case where the feature operates across multiple concurrent active data states, heavily affecting architectural assumptions around single-source-of-truth stores. Future PMs should be mindful when writing PRDs that span multiple saves simultaneously.
+
+
+## Session Extract: 2026-07-25-11-14-11.md
+
+# Product Manager Journal
+
+## Anomaly Detected
+When starting the session for `idea-117-split-bundles-and-data`, I noticed that its Acceptance Criteria contained a pre-checked entry for a PRD (`- [x] prd-117-116-split-bundles-and-data`) that did not exist in the `.foundry/prds/` directory. I created the correct PRD node (`prd-117-337-split-bundles-and-data`) and appended it as an unchecked task to the idea node, adhering to the node generation rules. This anomaly should be reviewed by the Agile Coach.
+
+## Session Extract: 4787396288865281111.md
+
+# Product Manager Journal
+*   **Session ID:** 4787396288865281111
+*   **Context:** Transforming IDEA `idea-121-gen3-mystery-gift-viewer` into a PRD.
+*   **Learnings:**
+    *   Adhered to system policy ADR 001 for autonomous orchestration.
+    *   Used precise sequence ID `336` for the PRD node (`prd-121-336-gen3-mystery-gift-viewer.md`) to follow sequence structure in `.foundry/prds`.
+    *   Set `owner_persona: epic_planner` for downstream delegation.
+    *   Included required markdown checkbox references in parent `idea-121-gen3-mystery-gift-viewer`.
