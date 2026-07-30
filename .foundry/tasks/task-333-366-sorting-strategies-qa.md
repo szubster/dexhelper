@@ -2,10 +2,10 @@
 id: task-333-366-sorting-strategies-qa
 type: TASK
 title: QA PC Box Sorting Strategies
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-07-29'
-updated_at: '2026-07-29'
+updated_at: '2026-07-30'
 depends_on:
   - task-333-365-sorting-strategies-impl
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - sorting
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-333-363-pokemon-types-data-impl
 notes: ''
 ---
 
