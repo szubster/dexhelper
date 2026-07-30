@@ -31,11 +31,11 @@ Extract the `GAME_STAT_ENTERED_HOF` (ID 10) to determine Hall of Fame entry and 
 - Extract magic numbers into module-level reusable constants (ADR 028).
 
 ## Acceptance Criteria
-- [ ] Implement Hall of Fame extraction logic.
-- [ ] Implement Pokédex extraction logic.
+- [x] Implement Hall of Fame extraction logic.
+- [x] Implement Pokédex extraction logic.
 
 - [x] task-319-323-gen3-hof-pokedex-extraction-impl
 - [x] task-319-324-gen3-hof-pokedex-extraction-qa
-- [ ] [research-319-360-gen3-hof-magic-numbers](.foundry/research/research-319-360-gen3-hof-magic-numbers.md)
-- [ ] [task-319-361-gen3-hof-pokedex-extraction-retry-impl](.foundry/tasks/task-319-361-gen3-hof-pokedex-extraction-retry-impl.md)
-- [ ] [task-319-362-gen3-hof-pokedex-extraction-retry-qa](.foundry/tasks/task-319-362-gen3-hof-pokedex-extraction-retry-qa.md)
+- [x] [research-319-360-gen3-hof-magic-numbers](.foundry/research/research-319-360-gen3-hof-magic-numbers.md)
+- [x] [task-319-361-gen3-hof-pokedex-extraction-retry-impl](.foundry/tasks/task-319-361-gen3-hof-pokedex-extraction-retry-impl.md)
+- [x] [task-319-362-gen3-hof-pokedex-extraction-retry-qa](.foundry/tasks/task-319-362-gen3-hof-pokedex-extraction-retry-qa.md)
