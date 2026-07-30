@@ -2,12 +2,12 @@
 id: task-333-363-pokemon-types-data-impl
 type: TASK
 title: Add Pokemon Types to Data Pipeline
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-29'
 updated_at: '2026-07-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15128922950892269428'
 pr_number: null
 parent: story-136-333-sorting-standard-strategies-retry
 tags:
