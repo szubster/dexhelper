@@ -18,4 +18,6 @@ rejection_reason: ''
 Implement integration tests and apply the Zod schema across orchestrator scripts
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-337-367-zod-schema-integration-impl
+- [ ] task-337-368-zod-schema-integration-qa
