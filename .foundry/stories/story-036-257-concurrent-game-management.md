@@ -2,13 +2,13 @@
 id: story-036-257-concurrent-game-management
 type: STORY
 title: Concurrent Game Management UI/UX
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-03'
 updated_at: '2026-07-30'
 depends_on:
   - story-036-256-progression-sync-logic
-jules_session_id: null
+jules_session_id: '6946331862394963567'
 pr_number: null
 parent: epic-031-036-progression-tracking
 tags:
