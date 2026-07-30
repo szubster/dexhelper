@@ -44,6 +44,9 @@ export function AssistantDebugView({ rejected, getPokemonName, saveData }: Assis
             valueClassName="truncate px-2"
             subValue={`ID: ${saveData.trainerId}`}
           />
+          {saveData.generation === 3 && saveData.gen3VolcanicAsh !== undefined && (
+            <DiagnosticCard label="ASH.CNT" value={saveData.gen3VolcanicAsh} subValue="Volcanic Ash" />
+          )}
         </div>
       </TacticalPanel>
 
