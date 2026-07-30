@@ -26,6 +26,6 @@ notes: ''
 Verify the comprehensive unit tests for the diff engine and move planner algorithms to ensure they cover complex edge cases appropriately.
 
 ## Acceptance Criteria
-- [ ] Review and verify the tests implemented in `task-296-360-move-planner-tests-impl`.
-- [ ] Ensure tests cover disjoint cycles, open chains, and mixed operations.
-- [ ] Ensure tests cover invalid format storage locations in `boxDiff.ts`.
+- [x] Review and verify the tests implemented in `task-296-360-move-planner-tests-impl`.
+- [x] Ensure tests cover disjoint cycles, open chains, and mixed operations.
+- [x] Ensure tests cover invalid format storage locations in `boxDiff.ts`.
