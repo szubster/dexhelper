@@ -31,5 +31,5 @@ The move planner logic involves complex states (full boxes, swap chains, cyclic 
 
 ## Acceptance Criteria
 - [x] Break down story into tasks to implement unit tests for diff engine and move planner scenarios.
-- [ ] [task-296-360-move-planner-tests-impl](../tasks/task-296-360-move-planner-tests-impl.md)
-- [ ] [task-296-361-move-planner-tests-qa](../tasks/task-296-361-move-planner-tests-qa.md)
+- [x] [task-296-360-move-planner-tests-impl](../tasks/task-296-360-move-planner-tests-impl.md)
+- [x] [task-296-361-move-planner-tests-qa](../tasks/task-296-361-move-planner-tests-qa.md)
