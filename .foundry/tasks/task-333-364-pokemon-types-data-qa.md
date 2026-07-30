@@ -2,13 +2,13 @@
 id: task-333-364-pokemon-types-data-qa
 type: TASK
 title: QA Pokemon Types Data Pipeline
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-29'
 updated_at: '2026-07-30'
 depends_on:
   - task-333-363-pokemon-types-data-impl
-jules_session_id: null
+jules_session_id: '9292922148767915467'
 pr_number: null
 parent: story-136-333-sorting-standard-strategies-retry
 tags:
