@@ -30,3 +30,6 @@ The coder has implemented typing data extraction in the Pokemon database pipelin
 - [ ] Verify `generate-pokedata.ts` correctly reads `pData.types`, sorts by slot (if applicable), and stores integer IDs.
 - [ ] Run the generation script locally or verify the source code to ensure types are correctly assigned to `pokemon.push(...)`.
 - [ ] Ensure `pnpm lint` and `pnpm test` pass.
+
+### QA Rejection Note
+Rejected task-333-363-pokemon-types-data-impl. The `generate-pokedata.ts` script extracts types but fails to sort them by `slot` before pushing them into the array, which is required by the acceptance criteria.

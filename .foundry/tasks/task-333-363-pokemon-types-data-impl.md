@@ -2,7 +2,7 @@
 id: task-333-363-pokemon-types-data-impl
 type: TASK
 title: Add Pokemon Types to Data Pipeline
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-29'
 updated_at: '2026-07-30'
@@ -14,8 +14,8 @@ tags:
   - data
   - pokemon
 research_references: []
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 2
+rejection_reason: 'The generate-pokedata.ts script maps types but fails to sort them by slot as required by the acceptance criteria.'
 notes: ''
 ---
 
