@@ -26,5 +26,5 @@ Extract the event flags for Gen 2 static encounters from the save file. This inv
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-137-338-gen2-event-flag-parsing-retry-impl
-- [ ] task-137-339-gen2-event-flag-parsing-retry-qa
+- [x] task-137-338-gen2-event-flag-parsing-retry-impl
+- [x] task-137-339-gen2-event-flag-parsing-retry-qa
