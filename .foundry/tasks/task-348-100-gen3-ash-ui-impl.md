@@ -32,6 +32,6 @@ Integrate the `gen3VolcanicAsh` property into the frontend UI, displaying it in 
 - The UI structure must remain consistent with the existing layout in `AssistantDebugView.tsx`.
 
 ## Acceptance Criteria
-- [ ] Add a `DiagnosticCard` in `src/components/assistant/AssistantDebugView.tsx` to display the Volcanic Ash count.
-- [ ] The card should conditionally render based on the presence of `saveData.gen3VolcanicAsh` and `saveData.generation === 3`.
-- [ ] Self-verify the implementation and document the results in the `coder` persona journal.
+- [x] Add a `DiagnosticCard` in `src/components/assistant/AssistantDebugView.tsx` to display the Volcanic Ash count.
+- [x] The card should conditionally render based on the presence of `saveData.gen3VolcanicAsh` and `saveData.generation === 3`.
+- [x] Self-verify the implementation and document the results in the `coder` persona journal.
