@@ -39,5 +39,5 @@ Verify the implementation of Gen 3 PV and IV data extraction.
     - Ensure all offsets and shifts are defined as module-level constants.
 
 ## Acceptance Criteria
-- [ ] Verify correctness of PV and IV extraction logic and decryption.
-- [ ] Verify strict adherence to Section 13 guidelines (no magic numbers, RangeError handling).
+- [x] Verify correctness of PV and IV extraction logic and decryption.
+- [x] Verify strict adherence to Section 13 guidelines (no magic numbers, RangeError handling).
