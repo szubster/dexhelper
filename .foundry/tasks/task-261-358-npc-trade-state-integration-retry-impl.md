@@ -5,10 +5,10 @@ title: NPC Trade State Integration Retry Implementation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-29'
-updated_at: '2026-07-29'
+updated_at: '2026-07-30'
 depends_on:
   - research-261-357-investigate-npc-trade-state-integration-failure
-jules_session_id: '9278428589159885023'
+jules_session_id: '6713116346744771570'
 pr_number: null
 parent: story-119-261-npc-trade-state-integration
 tags:

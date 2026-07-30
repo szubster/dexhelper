@@ -5,9 +5,9 @@ title: Implement E2E Tests for Hidden Items UI
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-21'
-updated_at: '2026-07-29'
+updated_at: '2026-07-30'
 depends_on: []
-jules_session_id: '4915016510766180561'
+jules_session_id: '18043666486623975496'
 pr_number: null
 parent: story-060-157-hidden-items-e2e-tests
 tags:
