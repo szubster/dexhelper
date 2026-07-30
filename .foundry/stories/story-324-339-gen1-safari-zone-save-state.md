@@ -33,5 +33,5 @@ This story covers extracting current Pokédex and PC Box state from Gen 1 save f
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-339-346-gen1-safari-zone-logic-impl
-- [ ] task-339-347-gen1-safari-zone-logic-qa
+- [x] task-339-346-gen1-safari-zone-logic-impl
+- [x] task-339-347-gen1-safari-zone-logic-qa
