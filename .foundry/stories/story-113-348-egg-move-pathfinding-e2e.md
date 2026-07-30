@@ -2,13 +2,13 @@
 id: story-113-348-egg-move-pathfinding-e2e
 type: STORY
 title: E2E Tests for Egg Move Pathfinding Engine
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-29'
-updated_at: '2026-07-29'
+updated_at: '2026-07-30'
 depends_on:
   - story-113-260-egg-move-multi-step-chains
-jules_session_id: null
+jules_session_id: '8654105216727085636'
 pr_number: null
 parent: epic-055-113-egg-move-pathfinding-engine
 tags:
