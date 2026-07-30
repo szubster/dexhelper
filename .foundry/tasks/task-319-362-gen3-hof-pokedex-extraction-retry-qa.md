@@ -36,12 +36,12 @@ Verify the implementation of the Gen 3 Hall of Fame entry and Pokédex data extr
 6.  **Test Verification:** Verify that the Vitest test suite is updated and all tests pass.
 
 ## Acceptance Criteria
-- [ ] Code uses only `DataView` API.
-- [ ] No inline magic numbers exist for offsets/limits/shifts/multipliers.
-- [ ] Relative offsets based on `section1Offset` are used.
-- [ ] `RangeError` handling is strictly implemented as specified.
-- [ ] Logic correctly extracts Hall of Fame entry flag and Pokédex caught counts.
-- [ ] Tests exist, are comprehensive, and pass.
+- [x] Code uses only `DataView` API.
+- [x] No inline magic numbers exist for offsets/limits/shifts/multipliers.
+- [x] Relative offsets based on `section1Offset` are used.
+- [x] `RangeError` handling is strictly implemented as specified.
+- [x] Logic correctly extracts Hall of Fame entry flag and Pokédex caught counts.
+- [x] Tests exist, are comprehensive, and pass.
 
 ## Persona Instructions
 - **Coder & QA:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
