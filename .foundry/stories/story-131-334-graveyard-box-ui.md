@@ -32,5 +32,5 @@ Implement a UI setting to allow users to designate a specific PC box as the Grav
 
 ## Acceptance Criteria
 - [x] Tasks are generated
-- [ ] task-334-346-graveyard-box-ui-impl
-- [ ] task-334-347-graveyard-box-ui-qa
+- [x] task-334-346-graveyard-box-ui-impl
+- [x] task-334-347-graveyard-box-ui-qa
