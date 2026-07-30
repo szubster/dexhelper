@@ -2,13 +2,13 @@
 id: task-286-315-filter-swarm-item-calls-qa
 type: TASK
 title: QA High-Value Pokegear Call Filtering
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-11'
 updated_at: '2026-07-30'
 depends_on:
   - task-286-314-filter-swarm-item-calls-impl
-jules_session_id: null
+jules_session_id: '2564293867211876841'
 pr_number: null
 parent: story-118-286-filter-swarm-item-calls
 tags:
