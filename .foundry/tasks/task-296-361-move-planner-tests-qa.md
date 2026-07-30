@@ -2,13 +2,13 @@
 id: task-296-361-move-planner-tests-qa
 type: TASK
 title: QA move planner and diff engine edge case tests
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-29'
-updated_at: '2026-07-29'
+updated_at: '2026-07-30'
 depends_on:
   - task-296-360-move-planner-tests-impl
-jules_session_id: null
+jules_session_id: '10969418204996104685'
 pr_number: null
 parent: story-137-296-move-planner-unit-tests
 tags:
