@@ -28,6 +28,6 @@ As part of enforcing macro node functional boundaries, we need to ensure that an
 Implement E2E testing for the new orchestrator safeguard to verify that an EPIC node cannot be promoted to VERIFYING or COMPLETED unless it contains at least one child STORY that explicitly represents integration or E2E testing.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for the orchestrator safeguard.
-- [ ] [task-347-360-e2e-safeguard-orchestrator-impl](.foundry/tasks/task-347-360-e2e-safeguard-orchestrator-impl.md)
-- [ ] [task-347-361-e2e-safeguard-orchestrator-qa](.foundry/tasks/task-347-361-e2e-safeguard-orchestrator-qa.md)
+- [x] Implement E2E tests for the orchestrator safeguard.
+- [x] [task-347-360-e2e-safeguard-orchestrator-impl](.foundry/tasks/task-347-360-e2e-safeguard-orchestrator-impl.md)
+- [x] [task-347-361-e2e-safeguard-orchestrator-qa](.foundry/tasks/task-347-361-e2e-safeguard-orchestrator-qa.md)
