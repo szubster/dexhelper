@@ -32,5 +32,5 @@ Because the app is offline-first, a user might make local changes while disconne
 
 ## Acceptance Criteria
 - [x] Break down into Tasks.
-- [ ] .foundry/tasks/task-265-352-r2-conflict-resolution-impl.md
-- [ ] .foundry/tasks/task-265-353-r2-conflict-resolution-qa.md
+- [x] .foundry/tasks/task-265-352-r2-conflict-resolution-impl.md
+- [x] .foundry/tasks/task-265-353-r2-conflict-resolution-qa.md
