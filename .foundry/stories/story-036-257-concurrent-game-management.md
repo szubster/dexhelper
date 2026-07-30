@@ -31,4 +31,8 @@ Users may play multiple games simultaneously (e.g., swapping between Pokémon Re
 - Build a timeline or visualization showing the progression of a specific playthrough over its saved history.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into Tasks to implement the concurrent game switcher UI, state management, and progression visualization.
+- [x] Tech Lead: Break this Story down into Tasks to implement the concurrent game switcher UI, state management, and progression visualization.
+- [ ] task-257-367-concurrent-games-context-impl
+- [ ] task-257-368-concurrent-games-context-qa
+- [ ] task-257-369-concurrent-games-ui-impl
+- [ ] task-257-370-concurrent-games-ui-qa
