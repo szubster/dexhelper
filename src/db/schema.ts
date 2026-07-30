@@ -43,6 +43,49 @@ export const ENCOUNTER_METHOD = {
   BUG_CATCHING_CONTEST: 18,
 } as const;
 
+/** @public */
+export const POKEMON_TYPE = {
+  NORMAL: 1,
+  FIGHTING: 2,
+  FLYING: 3,
+  POISON: 4,
+  GROUND: 5,
+  ROCK: 6,
+  BUG: 7,
+  GHOST: 8,
+  STEEL: 9,
+  FIRE: 10,
+  WATER: 11,
+  GRASS: 12,
+  ELECTRIC: 13,
+  PSYCHIC: 14,
+  ICE: 15,
+  DRAGON: 16,
+  DARK: 17,
+  FAIRY: 18,
+} as const;
+
+export const POKEMON_TYPE_MAP: Record<string, number> = {
+  normal: 1,
+  fighting: 2,
+  flying: 3,
+  poison: 4,
+  ground: 5,
+  rock: 6,
+  bug: 7,
+  ghost: 8,
+  steel: 9,
+  fire: 10,
+  water: 11,
+  grass: 12,
+  electric: 13,
+  psychic: 14,
+  ice: 15,
+  dragon: 16,
+  dark: 17,
+  fairy: 18,
+};
+
 export const ENCOUNTER_METHOD_MAP: Record<string, number> = {
   walk: 1,
   surf: 2,
@@ -182,6 +225,7 @@ export interface PokemonMetadata {
   gr?: number | undefined; // gender rate
   eg?: number[] | undefined; // egg groups (EGG_GROUP)
   baby: boolean; // is baby
+  types?: number[] | undefined; // pokemon types
   // Embedded evolution data
   eto: CompactChainLink[];
   efrm: number[]; // Parent, Grandparent, etc.

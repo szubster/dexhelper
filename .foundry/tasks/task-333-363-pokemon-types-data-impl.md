@@ -37,7 +37,7 @@ As discovered in `research-136-330`, the `TypeSorter` could not be implemented b
    - Update `DEFAULT_POKEMON_METADATA` if necessary to include an empty array `[]` for `types`.
 
 ## Acceptance Criteria
-- [ ] `POKEMON_TYPE` and `POKEMON_TYPE_MAP` are exported in `schema.ts`.
-- [ ] `PokemonMetadata` includes the `types?: number[]` property.
-- [ ] `scripts/generate-pokedata.ts` populates `types` based on `pData.types`.
-- [ ] Running `pnpm lint` and `pnpm test` passes successfully.
+- [x] `POKEMON_TYPE` and `POKEMON_TYPE_MAP` are exported in `schema.ts`.
+- [x] `PokemonMetadata` includes the `types?: number[]` property.
+- [x] `scripts/generate-pokedata.ts` populates `types` based on `pData.types`.
+- [x] Running `pnpm lint` and `pnpm test` passes successfully.

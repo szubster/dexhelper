@@ -47,6 +47,7 @@ async function bulkGet<T>(store: IDBObjectStore, ids: readonly number[]): Promis
 const DEFAULT_POKEMON_METADATA = {
   gr: 4,
   baby: false,
+  types: [],
   eto: [],
   efrm: [],
   det: [],

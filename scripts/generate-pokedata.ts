@@ -42,7 +42,8 @@ import {
   ENCOUNTER_METHOD_MAP,
   EVO_TRIGGER_MAP,
   EGG_GROUP_MAP,
-  MOVE_DAMAGE_CLASS
+  MOVE_DAMAGE_CLASS,
+  POKEMON_TYPE_MAP
 } from '../src/db/schema.ts';
 import { GEN1_MAPS, INDOOR_TO_PARENT_MAP } from './data/gen1/mapping.ts';
 import { GEN2_MAP_TO_AID, decodeGen2Id } from './data/gen2/mapping.ts';
@@ -261,6 +262,7 @@ async function main() {
       gr: sData.gender_rate,
       eg: sData.egg_groups?.map((g: any) => EGG_GROUP_MAP[g.name] || 0) || [],
       baby: sData.is_baby,
+      types: pData.types?.map((t: any) => POKEMON_TYPE_MAP[t.type.name]) || [],
       em: undefined, // Will be populated in second pass
       // Temporaries to be filled in second pass
       eto: [],

@@ -16,6 +16,8 @@
     "functions/api/saves/index.ts",
     "functions/api/saves/[id].ts"
   ],
+  "project": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"],
+  "ignoreExportsUsedInFile": true,
   "rules": {
     "files": "warn",
     "exports": "warn",
