@@ -2,7 +2,7 @@
 id: task-346-353-gen3-pv-iv-extraction-qa
 type: TASK
 title: QA Gen 3 PV and IV Data Extraction
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-28'
 updated_at: '2026-07-30'
@@ -16,8 +16,8 @@ tags:
   - generation-3
   - save-parsing
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
