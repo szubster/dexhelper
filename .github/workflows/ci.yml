@@ -35,11 +35,11 @@ jobs:
       - name: Type Check
         run: pnpm type-check
       - name: Biome Check
-        run: pnpm check:biome
+        run: pnpm exec biome check --error-on-warnings --reporter=github .
       - name: Oxlint
-        run: pnpm exec oxlint -c .oxlintrc.json --type-aware --type-check .
+        run: pnpm exec oxlint -c .oxlintrc.json --type-aware --type-check -f github .
       - name: Knip
-        run: pnpm knip
+        run: pnpm knip --reporter github-actions
       - name: Circular Dependency Check
         run: pnpm lint:circular
       - name: Package JSON Sort Check
