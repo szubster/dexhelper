@@ -30,5 +30,5 @@ Design the technical breakdown to extract Personality Value (PV) and IVs (HP, At
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break this Story down into actionable Tasks.
-- [ ] task-346-352-gen3-pv-iv-extraction-impl
-- [ ] task-346-353-gen3-pv-iv-extraction-qa
+- [x] task-346-352-gen3-pv-iv-extraction-impl
+- [x] task-346-353-gen3-pv-iv-extraction-qa
