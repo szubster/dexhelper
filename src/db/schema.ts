@@ -62,6 +62,10 @@ export const ENCOUNTER_METHOD_MAP: Record<string, number> = {
   'squirt-bottle': 16,
   'roaming-grass': 17,
   'bug-catching-contest': 18,
+  static: 19,
+  'roaming-water': 20,
+  'devon-scope': 21,
+  'feebas-tile-fishing': 22,
 };
 
 export const REVERSE_METHOD_MAP: Record<number, string> = Object.fromEntries(
