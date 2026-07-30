@@ -2,10 +2,10 @@
 id: epic-111-304-gen3-trainer-card-data-extraction
 type: EPIC
 title: 'Epic: Gen 3 Trainer Card Stars Data Extraction'
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-12'
-updated_at: '2026-07-13'
+updated_at: '2026-07-30'
 depends_on: []
 jules_session_id: null
 pr_number: null
