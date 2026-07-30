@@ -132,19 +132,37 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
   }
 
   return (
-    <div className="fade-in grid animate-in grid-cols-2 gap-5 px-1 pb-10 duration-500 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
-      {finalPokemon.map((pokemon, idx) => (
-        <PokedexCard
-          key={pokemon.id}
-          pokemon={pokemon}
-          idx={idx}
-          saveData={saveData}
-          isLivingDex={isLivingDex}
-          partySet={partySet}
-          pcSet={pcSet}
-          shinySpeciesIds={shinySpeciesIds}
-        />
-      ))}
+    <div className="fade-in animate-in pb-10 duration-500">
+      <div className="mb-4 flex items-center justify-between border-[var(--theme-primary)]/30 border-b border-dashed bg-[var(--theme-primary)]/5 px-4 py-2">
+        <div className="flex items-center gap-3">
+          <span className="font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-[0.2em]">
+            SYS.SECTOR_SCAN
+          </span>
+          <div className="h-4 w-px border-r border-dashed bg-[var(--theme-primary)]/30" />
+          <span className="font-bold font-mono text-white text-xs uppercase tracking-wider">Pokedex Matrix</span>
+        </div>
+        <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-400">
+          <span>ENTITIES:</span>
+          <span className="font-bold text-[var(--theme-primary)]">
+            {finalPokemon.length.toString().padStart(3, '0')}
+          </span>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 px-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {finalPokemon.map((pokemon, idx) => (
+          <PokedexCard
+            key={pokemon.id}
+            pokemon={pokemon}
+            idx={idx}
+            saveData={saveData}
+            isLivingDex={isLivingDex}
+            partySet={partySet}
+            pcSet={pcSet}
+            shinySpeciesIds={shinySpeciesIds}
+          />
+        ))}
+      </div>
     </div>
   );
 }
