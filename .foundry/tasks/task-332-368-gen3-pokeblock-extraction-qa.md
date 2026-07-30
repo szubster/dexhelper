@@ -2,7 +2,7 @@
 id: task-332-368-gen3-pokeblock-extraction-qa
 type: TASK
 title: QA Verification for Gen 3 Pokéblock Case Parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-30'
 updated_at: '2026-07-30'

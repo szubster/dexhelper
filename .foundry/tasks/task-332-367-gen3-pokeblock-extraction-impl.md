@@ -2,12 +2,12 @@
 id: task-332-367-gen3-pokeblock-extraction-impl
 type: TASK
 title: Implement Gen 3 Pokéblock Case Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-30'
 updated_at: '2026-07-30'
 depends_on: []
-jules_session_id: '14349731040270638568'
+jules_session_id: null
 pr_number: null
 parent: story-327-332-implement-gen3-pokeblock-parsing
 tags:

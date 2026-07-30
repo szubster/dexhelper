@@ -2,7 +2,7 @@
 id: story-324-346-gen3-pv-iv-extraction
 type: STORY
 title: Gen 3 PV and IV Data Extraction for Size Calculation
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-25'
 updated_at: '2026-07-30'
