@@ -154,6 +154,8 @@ const KEY_ITEMS_POCKET_OFFSET_CRYSTAL = 0x242c;
 const BALLS_POCKET_OFFSET_GS = 0x2465;
 const BALLS_POCKET_OFFSET_CRYSTAL = 0x2447;
 const PC_ITEMS_POCKET_OFFSET_GS = 0x247e;
+const GEN2_TM_HM_COUNT = 57;
+const GEN2_TM_BASE_ITEM_ID = 191;
 const PC_ITEMS_POCKET_OFFSET_CRYSTAL = 0x2460;
 const ROAMING_LEGENDARIES_OFFSET_GS = 0x28da;
 const ROAMING_LEGENDARIES_OFFSET_CRYSTAL = 0x28b6;
@@ -657,45 +659,52 @@ function parseInventory(view: DataView, isCrystal: boolean) {
   const keyItemsPocket = isCrystal ? KEY_ITEMS_POCKET_OFFSET_CRYSTAL : KEY_ITEMS_POCKET_OFFSET_GS;
   const ballsPocket = isCrystal ? BALLS_POCKET_OFFSET_CRYSTAL : BALLS_POCKET_OFFSET_GS;
 
-  // TM/HMs
-  for (let i = 0; i < 57; i++) {
-    const qty = view.getUint8(tmPocket + i);
-    if (qty > 0) {
-      const itemId = 191 + i;
-      inventory.push({ id: itemId, quantity: qty });
+  try {
+    // TM/HMs
+    for (let i = 0; i < GEN2_TM_HM_COUNT; i++) {
+      const qty = view.getUint8(tmPocket + i);
+      if (qty > 0) {
+        const itemId = GEN2_TM_BASE_ITEM_ID + i;
+        inventory.push({ id: itemId, quantity: qty });
+      }
     }
-  }
 
-  // Items
-  const itemsCount = view.getUint8(itemsPocket);
-  if (itemsCount > 0 && itemsCount <= 20) {
-    for (let i = 0; i < itemsCount; i++) {
-      const offset = itemsPocket + 1 + i * 2;
-      const id = view.getUint8(offset);
-      const quantity = view.getUint8(offset + 1);
-      inventory.push({ id, quantity });
+    // Items
+    const itemsCount = view.getUint8(itemsPocket);
+    if (itemsCount > 0 && itemsCount <= 20) {
+      for (let i = 0; i < itemsCount; i++) {
+        const offset = itemsPocket + 1 + i * 2;
+        const id = view.getUint8(offset);
+        const quantity = view.getUint8(offset + 1);
+        inventory.push({ id, quantity });
+      }
     }
-  }
 
-  // Key Items
-  const keyItemsCount = view.getUint8(keyItemsPocket);
-  if (keyItemsCount > 0 && keyItemsCount <= 26) {
-    for (let i = 0; i < keyItemsCount; i++) {
-      const offset = keyItemsPocket + 1 + i;
-      const id = view.getUint8(offset);
-      inventory.push({ id, quantity: 1 });
+    // Key Items
+    const keyItemsCount = view.getUint8(keyItemsPocket);
+    if (keyItemsCount > 0 && keyItemsCount <= 26) {
+      for (let i = 0; i < keyItemsCount; i++) {
+        const offset = keyItemsPocket + 1 + i;
+        const id = view.getUint8(offset);
+        inventory.push({ id, quantity: 1 });
+      }
     }
-  }
 
-  // Balls
-  const ballsCount = view.getUint8(ballsPocket);
-  if (ballsCount > 0 && ballsCount <= 12) {
-    for (let i = 0; i < ballsCount; i++) {
-      const offset = ballsPocket + 1 + i * 2;
-      const id = view.getUint8(offset);
-      const quantity = view.getUint8(offset + 1);
-      inventory.push({ id, quantity });
+    // Balls
+    const ballsCount = view.getUint8(ballsPocket);
+    if (ballsCount > 0 && ballsCount <= 12) {
+      for (let i = 0; i < ballsCount; i++) {
+        const offset = ballsPocket + 1 + i * 2;
+        const id = view.getUint8(offset);
+        const quantity = view.getUint8(offset + 1);
+        inventory.push({ id, quantity });
+      }
     }
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
   }
 
   return inventory;
