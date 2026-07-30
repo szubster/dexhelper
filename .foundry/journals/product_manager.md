@@ -1,5 +1,3 @@
-# Product Manager Journal
-
 ## Macro-Level Node Completion Timing
 **Observation:**
 Currently, macroscopic Foundry nodes (such as Epics and Stories) transition to the `VERIFYING` (and subsequently `COMPLETED`) status prematurely once their immediate Acceptance Criteria (usually just creating child nodes) are met, even though the actual implementation tasks have not been merged into the codebase.
@@ -58,8 +56,6 @@ During the resurrection loop for `idea-066-save-file-health-scanner` (Attempt 5)
 
 **Action & Constraint:**
 When assigned to a macro node (like an IDEA) that has spawned children, DO NOT transition it to VERIFYING (by submitting an Empty PR with all boxes checked) until ALL descendant nodes have transitioned to COMPLETED. If the downstream nodes are still PENDING, you MUST keep the macro node in a PENDING state. To do this, uncheck the Acceptance Criteria checkbox corresponding to the uncompleted downstream dependency and submit the PR. This breaks the premature verification loop and allows the system to wait for downstream implementation.
-
-- Transformed IDEA-118 to PRD-118-117 by centralizing Coder and QA Task Prompt Reminders
 
 ## 2026-07-19
 - Processed IDEA `idea-119-gen2-unown-dex-tracker` and generated `prd-119-118-gen2-unown-dex-tracker` directly linking Unown catches with event flags for Ruins of Alph puzzles to clarify missing Unown forms. Appended PRD node to idea node as Acceptance Criteria. Assigned PRD to epic_planner.
