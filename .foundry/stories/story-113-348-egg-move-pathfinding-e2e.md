@@ -27,4 +27,6 @@ Implement end-to-end (E2E) tests for the Egg Move Pathfinding Engine to ensure t
 
 ## Acceptance Criteria
 - [ ] Implement Playwright E2E tests for the pathfinding engine.
-- [ ] Break down this story into tasks.
+- [x] Break down this story into tasks.
+- [ ] [task-348-363-egg-move-pathfinding-e2e-impl](.foundry/tasks/task-348-363-egg-move-pathfinding-e2e-impl.md)
+- [ ] [task-348-364-egg-move-pathfinding-e2e-qa](.foundry/tasks/task-348-364-egg-move-pathfinding-e2e-qa.md)
