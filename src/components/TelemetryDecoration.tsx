@@ -1,3 +1,4 @@
+import React from 'react';
 import { cn } from '../utils/cn';
 
 interface TelemetryDecorationProps {
@@ -7,7 +8,13 @@ interface TelemetryDecorationProps {
   textClassName?: string;
 }
 
-export function TelemetryDecoration({ label, className, dotClassName, textClassName }: TelemetryDecorationProps) {
+// ⚡ Bolt: Wrapped TelemetryDecoration in React.memo as it is used heavily and its props rarely change.
+export const TelemetryDecoration = React.memo(function TelemetryDecoration({
+  label,
+  className,
+  dotClassName,
+  textClassName,
+}: TelemetryDecorationProps) {
   return (
     <div
       className={cn(
@@ -19,4 +26,4 @@ export function TelemetryDecoration({ label, className, dotClassName, textClassN
       <span className={textClassName}>{label}</span>
     </div>
   );
-}
+});

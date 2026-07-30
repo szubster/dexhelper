@@ -6,8 +6,9 @@ interface LcdGridProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: number;
 }
 
-export const LcdGrid = React.forwardRef<HTMLDivElement, LcdGridProps>(
-  ({ color = 'white', size = 4, className, style, ...props }, ref) => {
+// ⚡ Bolt: Wrapped LcdGrid in React.memo since it is used extensively across the app and its props rarely change.
+export const LcdGrid = React.memo(
+  React.forwardRef<HTMLDivElement, LcdGridProps>(({ color = 'white', size = 4, className, style, ...props }, ref) => {
     return (
       <div
         ref={ref}
@@ -20,7 +21,7 @@ export const LcdGrid = React.forwardRef<HTMLDivElement, LcdGridProps>(
         {...props}
       />
     );
-  },
+  }),
 );
 
 LcdGrid.displayName = 'LcdGrid';
