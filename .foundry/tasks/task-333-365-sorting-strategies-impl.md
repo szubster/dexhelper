@@ -2,13 +2,13 @@
 id: task-333-365-sorting-strategies-impl
 type: TASK
 title: Implement PC Box Sorting Strategies
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-29'
 updated_at: '2026-07-30'
 depends_on:
   - task-333-363-pokemon-types-data-impl
-jules_session_id: null
+jules_session_id: '1822939805966644680'
 pr_number: null
 parent: story-136-333-sorting-standard-strategies-retry
 tags:
