@@ -32,4 +32,6 @@ Integrate the extracted Gen 3 Volcanic Ash count into the frontend UI and ensure
 - Implement comprehensive E2E testing to satisfy the E2E safeguard.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into TASK nodes outlining frontend implementation and E2E testing.
+- [x] Break down this Story into TASK nodes outlining frontend implementation and E2E testing.
+- [ ] [task-348-100-gen3-ash-ui-impl](.foundry/tasks/task-348-100-gen3-ash-ui-impl.md)
+- [ ] [task-348-101-gen3-ash-ui-qa](.foundry/tasks/task-348-101-gen3-ash-ui-qa.md)
