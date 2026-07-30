@@ -48,8 +48,8 @@ Implement the following sorter functions/classes that conform to the `SortingStr
 - Write comprehensive unit tests for each strategy using Vitest in a corresponding `.test.ts` file.
 
 ## Acceptance Criteria
-- [ ] `DexNumberSorter` is implemented.
-- [ ] `LevelSorter` is implemented with asc/desc support.
-- [ ] `TypeSorter` is implemented and utilizes the new `types` metadata.
-- [ ] `AlphaSorter` is implemented.
-- [ ] Unit tests are provided for all sorters and `pnpm test` passes.
+- [x] `DexNumberSorter` is implemented.
+- [x] `LevelSorter` is implemented with asc/desc support.
+- [x] `TypeSorter` is implemented and utilizes the new `types` metadata.
+- [x] `AlphaSorter` is implemented.
+- [x] Unit tests are provided for all sorters and `pnpm test` passes.
