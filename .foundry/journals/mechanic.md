@@ -33,3 +33,9 @@ Mechanic Update - 2026-07-22
 - Fixed 38 missing or archived dependency paths in `depends_on` arrays across the DAG. These dead dependencies cause deadlocks during Orchestrator runs.
 - Detected and repaired a task (`task-261-331-npc-trade-state-integration-impl.md`) that had a manually set `READY` status, reverting it back to `PENDING`.
 - Verified that no parent-child dependency cycles remain.
+
+
+## Session Extract: 2026-07-24-12-00-00.md
+
+# Mechanic Session
+Implemented critical path scheduling in the DAG orchestrator.

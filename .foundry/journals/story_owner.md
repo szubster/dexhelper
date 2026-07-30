@@ -90,3 +90,154 @@ Checked off acceptance criteria checkboxes for completed epic epic-057-127-bash-
 * Task: epic-108-303-extend-phase-3-6-cancelled-nodes
 * Action: Verified epic-108-303-extend-phase-3-6-cancelled-nodes. All child stories (story-303-299) are already completed. Proceeding with empty PR.
 * Cancelled epic-043-152-gen3-roamer-data-extraction via the impossible task protocol. Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file (ADR 108-027), making static extraction impossible. Left YAML frontmatter completely untouched and submitted an empty PR without checking acceptance criteria.
+
+
+## Session Extract: 10929901102298299333.md
+
+# Session 10929901102298299333
+Epic epic-043-152-gen3-roamer-data-extraction is permanently cancelled due to ADR 108-027, as Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file.
+
+## Session Extract: 12066916843217249989.md
+
+# Journal Update
+
+Pre-existing completed tasks / stories were identified correctly (in this case `story-149-333-gen3-roamer-unit-tests.md` existed and was `COMPLETED` along with its child task nodes). The epic's acceptance criteria checkboxes were updated accordingly. No new story needed to be created.
+
+## Session Extract: 12085455394380553495.md
+
+# Session 12085455394380553495
+
+* **Task**: Extend Phase 3.6 for CANCELLED nodes (Retry)
+* **Target Node**: `epic-108-340-extend-phase-3-6-cancelled-nodes-retry`
+
+## Actions
+- Analyzed the issue regarding orchestrator Phase 3.6 for CANCELLED nodes.
+- Confirmed that the fix was actually already implemented and tested in the codebase under the previous attempt, but the previous tasks (like `task-299-322-extend-phase-3-6-impl` and `task-299-323-extend-phase-3-6-qa`) were completed, while the epic itself was cancelled due to max rejections in other descendant nodes.
+- Since the implementation and tests are already present and functioning, I am breaking down the Epic into a single passthrough STORY node (`story-340-346-extend-phase-3-6-cancelled-nodes.md`) which explicitly allows the tech lead to check off its acceptance criteria.
+
+## Session Extract: 13779139715883828322.md
+
+# Session 13779139715883828322
+Epic epic-043-152-gen3-roamer-data-extraction is permanently cancelled because Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file, making static extraction impossible as per ADR 108-027.
+
+## Session Extract: 14509794423475170690.md
+
+# Story Owner Journal
+
+## Session: 14509794423475170690
+
+### Critical Learning: Gen 3 Roamer Location Constraints
+I encountered a cancelled epic today: `epic-043-152-gen3-roamer-data-extraction.md`. The stated objective was to extract Gen 3 roamer data and standardize the structure for roaming legendaries. However, the epic has been permanently CANCELLED as Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file. This makes static extraction impossible as per `research-043-263-roamer-tracking-remediation` and ADR 108-027.
+
+## Session Extract: 15926776242114287155.md
+
+# Session 15926776242114287155
+
+Epic epic-043-152-gen3-roamer-data-extraction is permanently cancelled because Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file, making static extraction impossible as per research-043-263-roamer-tracking-remediation and ADR 108-027.
+
+## Session Extract: 17349959000128358027.md
+
+# Story Owner Journal
+
+## Session 17349959000128358027
+
+### Lessons Learned
+- **Precomputation Priority**: When evaluating complex algorithms on static data (like the Egg Move pathfinding mechanics across species), it is critical to spawn research nodes explicitly evaluating the feasibility of precomputation (e.g., `research-113-248-egg-move-precomputation`). Precomputing the entire static state space during the ETL phase shifts expensive runtime traversals away from the client to O(1) lookups, which must be standard practice for static mechanics.
+
+## Session Extract: 2026-07-23-23-57-48.md
+
+# Journal Entry - 2026-07-23
+
+## Handling Cancelled Epics
+Epic `epic-043-152-gen3-roamer-data-extraction` is permanently cancelled. Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file, making static extraction impossible (as per `research-043-263-roamer-tracking-remediation` and ADR 108-027).
+
+As Story Owner, when encountering a permanently cancelled Epic, I leave the acceptance criteria checkboxes unchecked, document the cancellation in this journal, and submit an empty PR to fail the node gracefully without modifying its YAML frontmatter.
+
+## Session Extract: 2610669616610393911.md
+
+# Journal - Story Owner
+Session: 2610669616610393911
+
+- Created new STORY node `.foundry/stories/story-338-336-implement-orchestrator-cycle-detection.md` to implement circular dependency detection for the DAG Orchestrator.
+- Did not modify the parent epic's YAML frontmatter. Left acceptance criteria checkbox for this story UNCHECKED in the Epic body because the child node is still PENDING.
+
+## Session Extract: 3122477383916726742.md
+
+# Session 3122477383916726742
+
+## Cancellation of epic-043-152-gen3-roamer-data-extraction
+The Epic `epic-043-152-gen3-roamer-data-extraction` is permanently CANCELLED and aborted. As detailed in ADR 108-027 and `research-043-263-roamer-tracking-remediation`, Gen 3 roamer map coordinates are stored in dynamically allocated EWRAM during gameplay and are not serialized to the save file, making static extraction mathematically impossible.
+
+## Session Extract: 3235657042468598680.md
+
+# 3235657042468598680
+
+Generated new child STORY nodes (story-058-341-feebas-fast-calculation and story-058-342-feebas-backend-integration-retry) to address the unfulfilled acceptance criteria of epic-036-058-feebas-backend-parsing.
+
+## Session Extract: 44504463888886379.md
+
+# Session Journal - 44504463888886379
+
+## Epic Cancellation
+`epic-043-152-gen3-roamer-data-extraction` has been permanently cancelled.
+
+**Reasoning:**
+As per `ADR 108-027`, extracting Gen 3 roamer map coordinates is mathematically impossible because the roamer's location (`sRoamerLocation`) and its map history (`sLocationHistory`) are kept exclusively in dynamically allocated `EWRAM_DATA` during gameplay. When the game saves, these values are never serialized into the save file. This makes static extraction impossible, rendering the Epic unachievable.
+
+## Session Extract: 445421974531024931.md
+
+# Session 445421974531024931
+
+The target artifact `epic-055-119-gen3-move-tutor-save-parsing` is already completely implemented via `story-119-267-gen3-move-tutor-emerald-parsing` and `story-119-318-gen3-move-tutor-frlg-parsing`.
+The completion of child stories and their child tasks were pre-existing.
+
+## Session Extract: 4888067131241406297.md
+
+Cancellation of Epic 043-152 due to ADR 108-027 making static map extraction impossible
+
+## Session Extract: 5789674109407981456.md
+
+# Session: 5789674109407981456
+
+Created new story node `story-324-346-gen3-pv-iv-extraction` for Epic `epic-112-324-npc-size-record-data-extraction` to handle Gen 3 PV and IV data extraction. Updated the epic's acceptance criteria to reflect the newly generated story and marked the Gen 2 DV extraction story as completed.
+
+## Session Extract: 6579414286306081301.md
+
+# Session 6579414286306081301
+
+The `epic-055-119-gen3-move-tutor-save-parsing` was incorrectly advancing and potentially failing because a completed child node `story-119-268-gen3-move-tutor-frlg-parsing` was entirely missing from its acceptance criteria checkboxes. I have appended `- [x] story-119-268-gen3-move-tutor-frlg-parsing` to the markdown body of the parent to ensure the strict parent-child verification checks in the DAG Orchestrator are satisfied.
+
+## Session Extract: 6640220430386297973.md
+
+Encountered anomaly where child tasks for `epic-112-335-pokerus-strain-ui-detail-view-v2` were already completed in a previous epic `epic-112-322-pokerus-strain-ui-detail-view` which was cancelled. Proceeding with empty PR by checking off `story-322-323-pokerus-strain-detail-ui` as it is already complete.
+
+## Session Extract: 692935771812904034.md
+
+# Session 692935771812904034
+
+Cancelled Epic epic-043-152-gen3-roamer-data-extraction because Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file, making static extraction impossible as per research-043-263-roamer-tracking-remediation and ADR 108-027.
+
+## Session Extract: 7684408797279668300.md
+
+# Journal Session 7684408797279668300
+
+## Epic Cancellation
+
+Epic `epic-043-152-gen3-roamer-data-extraction` is permanently cancelled. As stated in the Epic's Task Cancellation block:
+
+> This Epic is permanently CANCELLED as Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file, making static extraction impossible as per research-043-263-roamer-tracking-remediation and ADR 108-027.
+
+The checkboxes in the markdown body of the node have been deliberately left unchecked, and no YAML frontmatter has been modified, in accordance with the memory: "When handling a permanently cancelled or impossible Epic as the Story Owner, leave the acceptance criteria checkboxes unchecked, document the cancellation in a session-unique journal, and submit an empty PR to fail the node gracefully without modifying its YAML frontmatter."
+
+## Session Extract: 8117127116122783330.md
+
+# Session 8117127116122783330
+- Identified that the E2E safeguard required a new story with the `integration` tag.
+- Created `story-268-348-gen3-ash-integration.md` to handle UI integration and E2E testing.
+- Updated `epic-054-268-gen3-ash-save-parsing.md` to format the child nodes as valid markdown links to prevent parsing failures by the Orchestrator, as learned from system invariant rules.
+
+## Session Extract: 8656734789421139177.md
+
+## 2026-07-25
+* Task: epic-057-127-bash-timeout-wrapper
+* Action: Submitted empty PR to transition the epic since all child stories are already completed and their acceptance criteria were checked.

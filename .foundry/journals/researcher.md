@@ -92,3 +92,34 @@ When parsing Gen 3 event flags for static encounters (like legendaries or Snorla
 
 ## 2026-07-20 - Diff Engine Hash Failure Analysis
 Investigated the failure of `task-294-316-diff-engine-impl`. The root cause is a missing `hash` property on the `PokemonInstance` interface in `src/engine/saveParser/parsers/common.ts`. Downstream logic (`calculateBoxDiff`) implemented a fallback hash generator instead of relying on the contract. Moving forward, ensure that data interfaces (like `PokemonInstance`) strictly define necessary properties for downstream operations (like diffing) to prevent silent fallback behavior.
+
+
+## Session Extract: 12219787187610158486.md
+
+# Session 12219787187610158486
+
+* **Task**: Investigate Gen 2 Pokegear Phone Memory Offsets
+* **Target Node**: `research-283-336-gen2-phone-memory-offsets`
+
+## Findings
+I investigated the Pokegear memory offsets for Gen 2 (Gold, Silver, and Crystal). I discovered that:
+* In Gold/Silver, `wPhoneListIndex` is located at `0xCF2A`, `wSpecialPhoneCallID` is at `0xD97B`, and `wPhoneList` is at `0xD9C6`.
+* Unlike Crystal, Gold/Silver does not possess tracked distinct arrays for `wSwarmFlags`, `wDailyPhoneItemFlags`, or `wDailyPhoneTimeOfDayFlags`.
+* In Crystal, `wPhoneListIndex` is at `0xD03F`, `wSwarmFlags` is at `0xDC20`, `wSpecialPhoneCallID` is at `0xDC31`, `wDailyPhoneItemFlags` is at `0xDC50`, `wDailyPhoneTimeOfDayFlags` is at `0xDC54`, and `wPhoneList` is at `0xDC7C`.
+
+## Critical Policy Reminder
+When researching external codebases by building dependencies (like rgbds) or cloning git repositories (like pokecrystal and pokegold), **all temporary files and artifacts must be deleted and removed from git cache** before finishing the session. Failure to do so will severely pollute the root repository space, and the PR will be rejected.
+
+## Session Extract: 2026-07-29-investigate-sorting-failure.md
+
+---
+trigger: `story-136-295-sorting-standard-strategies`
+---
+Founding issue: The task failed because it asks to sort by type, and `PokemonMetadata` doesn't have type info.
+
+## Session Extract: 7509224859674163249.md
+
+# Session 7509224859674163249
+
+## Save File Parsing - Magic Numbers
+When reviewing the Hall of Fame parsing implementation, it was rejected for using inline magic numbers (e.g. `4` for bytes per stat, and `8` for bits per byte). The "No Magic Numbers" architectural rule requires explicitly defining module-level constants (like `BYTES_PER_GAME_STAT` and `BITS_PER_BYTE`). I have documented these specific constants in `.foundry/docs/knowledge_base/engine/save_parsing/gen3_hall_of_fame.md` to prevent future implementers from repeating this violation during offset and bitwise calculations.
