@@ -47,7 +47,7 @@ export class TypeSorter {
     const secondaryB = typesB[1] ?? Infinity;
 
     if (secondaryA === secondaryB) {
-        return 0;
+      return 0;
     }
 
     return secondaryA - secondaryB;
