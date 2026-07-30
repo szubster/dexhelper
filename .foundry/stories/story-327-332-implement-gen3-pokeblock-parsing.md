@@ -34,4 +34,6 @@ Now that we have the exact memory offsets and data structure for the Pokéblock 
 - Parse the exact numerical values for all five flavors (Cool, Beauty, Cute, Smart, Tough) and the feel (smoothness) bytes.
 
 ## Acceptance Criteria
-- [ ] Create TASK(s) to implement the extraction logic for Pokéblocks in the backend data engine.
+- [x] Create TASK(s) to implement the extraction logic for Pokéblocks in the backend data engine.
+- [ ] task-332-367-gen3-pokeblock-extraction-impl
+- [ ] task-332-368-gen3-pokeblock-extraction-qa
