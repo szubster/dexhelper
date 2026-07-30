@@ -2,12 +2,12 @@
 id: story-127-347-orchestrator-safeguard-e2e
 type: STORY
 title: E2E Integration for Orchestrator Safeguards
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-29'
 updated_at: '2026-07-30'
 depends_on: []
-jules_session_id: '13323367110096540679'
+jules_session_id: null
 pr_number: null
 parent: epic-057-127-orchestrator-safeguard-investigation
 tags:

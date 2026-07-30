@@ -5,7 +5,7 @@ title: Pokerus Strain Specific UI Tracker
 status: READY
 owner_persona: product_manager
 created_at: '2026-07-09'
-updated_at: '2026-07-29'
+updated_at: '2026-07-30'
 depends_on: []
 jules_session_id: null
 pr_number: null
