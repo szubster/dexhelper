@@ -26,6 +26,6 @@ notes: ''
 Investigate and document the exact memory offsets and bit layouts for `wSwarmFlags`, `wDailyPhoneItemFlags`, and `wDailyPhoneTimeOfDayFlags` across both Gen 2 Gold/Silver and Crystal versions.
 
 ## Acceptance Criteria
-- [ ] Document the exact memory offsets for `wSwarmFlags`, `wDailyPhoneItemFlags`, and `wDailyPhoneTimeOfDayFlags` for Gold/Silver.
-- [ ] Document the exact memory offsets for `wSwarmFlags`, `wDailyPhoneItemFlags`, and `wDailyPhoneTimeOfDayFlags` for Crystal.
-- [ ] Add these findings to the knowledge base document `.foundry/docs/knowledge_base/engine/save_parsing/gen2_phone_mechanics.md`.
+- [x] Document the exact memory offsets for `wSwarmFlags`, `wDailyPhoneItemFlags`, and `wDailyPhoneTimeOfDayFlags` for Gold/Silver.
+- [x] Document the exact memory offsets for `wSwarmFlags`, `wDailyPhoneItemFlags`, and `wDailyPhoneTimeOfDayFlags` for Crystal.
+- [x] Add these findings to the knowledge base document `.foundry/docs/knowledge_base/engine/save_parsing/gen2_phone_mechanics.md`.
