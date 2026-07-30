@@ -68,4 +68,18 @@ describe('AssistantDebugView', () => {
     await expect.element(page.getByText('MISSING_DATA')).toBeVisible();
     await expect.element(page.getByText('"This is a test reason"')).toBeVisible();
   });
+
+  it('renders Volcanic Ash count for Gen 3 saves', async () => {
+    const gen3SaveData: SaveData = {
+      ...mockSaveData,
+      generation: 3,
+      gameVersion: 'emerald',
+      gen3VolcanicAsh: 450,
+    };
+
+    await render(<AssistantDebugView rejected={[]} getPokemonName={mockGetPokemonName} saveData={gen3SaveData} />);
+
+    await expect.element(page.getByText('450', { exact: true })).toBeVisible();
+    await expect.element(page.getByText('Volcanic Ash')).toBeVisible();
+  });
 });
