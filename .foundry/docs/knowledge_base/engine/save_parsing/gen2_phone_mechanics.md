@@ -9,8 +9,10 @@ This document outlines the memory structures and RNG mechanics governing Pokegea
   - Size: `CONTACT_LIST_SIZE + 1` bytes. `CONTACT_LIST_SIZE` is exactly 10, thus this structure is 11 bytes long.
 
 ### State Flags & Overworld Data
-- **`wSwarmFlags` (1 byte)**: Bitmask storing the state of active swarms in the overworld.
-- **`wDailyPhoneItemFlags` (4 bytes) & `wDailyPhoneTimeOfDayFlags` (4 bytes)**: Manage item-giving states from specific NPCs (e.g., evolution stones or berries given by trainers on specific days/times).
+- **`wSwarmFlags` (1 byte)** (Crystal Only: `0xDC20`): Bitmask storing the state of active swarms in the overworld.
+  - *Note for Gold/Silver*: Swarms are not tracked in a single bitflag byte. Instead, `wSwarmMapGroup` (`0xDD17`), `wSwarmMapNumber` (`0xDD18`), and `wFishingSwarmFlag` (`0xDD19`) handle active swarms along with a daily flag in `wDailyFlags1` (`0xD968`).
+- **`wDailyPhoneItemFlags` (4 bytes)** (Crystal Only: `0xDC50`) **& `wDailyPhoneTimeOfDayFlags` (4 bytes)** (Crystal Only: `0xDC54`): Manage item-giving states from specific NPCs (e.g., evolution stones or berries given by trainers on specific days/times).
+  - *Note for Gold/Silver*: These arrays do not exist. In GS, trainer item events and rematches are tracked using standard event flags in the general `wEventFlags` array (`0xD7B7`), rather than dedicated phone memory arrays.
 - **`wSpecialPhoneCallID` (1 byte)**: Dictates forced or scripted phone calls (e.g., calls from Prof. Elm, the Bike Shop). If non-zero, triggers specific override behavior before evaluating standard RNG.
 
 ## RNG Call Trigger Logic

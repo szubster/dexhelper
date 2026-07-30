@@ -202,6 +202,7 @@ export const GEN3_POKEMON_OT_ID_OFFSET = 4;
 export const GEN3_POKEMON_DATA_OFFSET = 32;
 export const MISC_IVS_OFFSET = 4;
 export const SUBSTRUCTURE_SIZE = 12;
+export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
 
 export const SUBSTRUCTURE_ORDER = [
   'GAEM',
@@ -506,7 +507,7 @@ export function parseGen3PokemonPVAndIVs(view: DataView, offset: number) {
     const otId = view.getUint32(offset + GEN3_POKEMON_OT_ID_OFFSET, true);
 
     const decryptionKey = pv ^ otId;
-    const permutationIndex = pv % 24;
+    const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
     const permutation = SUBSTRUCTURE_ORDER[permutationIndex];
     if (!permutation) {
       throw new Error('The save file is corrupted or incomplete.');

@@ -2,7 +2,7 @@
 id: epic-055-119-gen3-move-tutor-save-parsing
 type: EPIC
 title: Gen 3 Move Tutor Save File Parsing
-status: ACTIVE
+status: CANCELLED
 owner_persona: story_owner
 created_at: 2026-06-30T00:00:00.000Z
 updated_at: '2026-07-30'
@@ -16,8 +16,8 @@ tags:
   - move-tutor
 research_references:
   - research-055-247-gen3-move-tutor-offsets
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 # Epic: Gen 3 Move Tutor Save File Parsing
