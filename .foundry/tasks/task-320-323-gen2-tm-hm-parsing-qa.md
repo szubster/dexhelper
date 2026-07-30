@@ -34,8 +34,8 @@ Verify the implementation of TM/HM parsing for Gen 2 save files.
   - If submitting an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify that ADR 028 is followed: No magic numbers are used for offsets; constants are defined at the module level.
-- [ ] Verify that ADR 015 is followed: Full property names are used.
-- [ ] Verify TM/HM extraction logic works correctly for both Crystal and GS saves.
-- [ ] Verify one-time TM collection event flags are extracted.
-- [ ] Verify that pnpm test passes.
+- [x] Verify that ADR 028 is followed: No magic numbers are used for offsets; constants are defined at the module level.
+- [x] Verify that ADR 015 is followed: Full property names are used.
+- [x] Verify TM/HM extraction logic works correctly for both Crystal and GS saves.
+- [x] Verify one-time TM collection event flags are extracted.
+- [x] Verify that pnpm test passes.
