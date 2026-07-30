@@ -29,10 +29,10 @@ Implement the extraction logic for Pokéblocks from Gen 3 save files in the back
 Reference: `.foundry/docs/knowledge_base/gen3_pokeblock_offsets.md`
 
 ## Acceptance Criteria
-- [ ] Implement parsing logic for the Pokéblock array in SaveBlock1.
+- [x] Implement parsing logic for the Pokéblock array in SaveBlock1.
   - Emerald: Offset `0x0848`
   - Ruby / Sapphire: Offset `0x07F8`
-- [ ] Implement parsing for the exact 8-byte structure of individual Pokéblocks:
+- [x] Implement parsing for the exact 8-byte structure of individual Pokéblocks:
   - `color` (Byte 0)
   - `spicy` (Byte 1)
   - `dry` (Byte 2)
@@ -40,8 +40,8 @@ Reference: `.foundry/docs/knowledge_base/gen3_pokeblock_offsets.md`
   - `bitter` (Byte 4)
   - `sour` (Byte 5)
   - `feel` (Byte 6)
-- [ ] Explicitly map the flavors correctly based on the docs.
-- [ ] Strictly adhere to Section 13 ("Save File Parsing & Extraction Guidelines") of `.foundry/docs/schema.md`.
+- [x] Explicitly map the flavors correctly based on the docs.
+- [x] Strictly adhere to Section 13 ("Save File Parsing & Extraction Guidelines") of `.foundry/docs/schema.md`.
   - Use module-level constants.
   - No magic numbers.
   - Use relative offsets (Gen 3).

@@ -27,6 +27,7 @@ import {
   parseGen3BattlePoints,
   parseGen3TotalBattlePoints,
 } from '../gen3/battleFrontier/parser';
+import { parseGen3Pokeblocks } from '../gen3/pokeblock/parser';
 import { parseTrickHouse } from '../gen3/trickHouse/parser';
 import type {
   GameVersion,
@@ -1008,6 +1009,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const gen3BerryPatches = extractBerryPatches(view, section1Offset);
     const gen3SecretBases = parseGen3SecretBases(view, section1Offset, _forcedVersion || 'ruby');
 
+    const gen3Pokeblocks = parseGen3Pokeblocks(view, section1Offset, _forcedVersion || 'ruby');
     const gen3PokeNews = parseGen3PokeNews(view, section1Offset + POKE_NEWS_OFFSET);
     const gen3MixRecords = parseGen3MixRecords(view, section1Offset + TV_SHOWS_OFFSET);
     const gen3ActiveSwarm = parseGen3ActiveSwarm(view, section1Offset + TV_SHOWS_OFFSET);
@@ -1206,6 +1208,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       gen3VolcanicAsh,
       gen3TMHMs,
       gen3TMEventFlags,
+      ...(gen3Pokeblocks ? { gen3Pokeblocks } : {}),
       gen3TrickHouse: parseTrickHouse(view, section1Offset),
       ...(gen3MatchCall ? { gen3MatchCall } : {}),
     };
