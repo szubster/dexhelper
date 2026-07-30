@@ -2,10 +2,10 @@
 id: epic-055-121-gen3-move-tutor-dashboard-ui
 type: EPIC
 title: Gen 3 Move Tutor Dashboard UI
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
-created_at: 2026-06-30
-updated_at: 2026-06-30
+created_at: 2026-06-30T00:00:00.000Z
+updated_at: '2026-07-30'
 depends_on:
   - epic-055-120-gen3-move-tutor-compatibility
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - move-tutor
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  epic-055-119-gen3-move-tutor-save-parsing
 notes: ''
 ---
 

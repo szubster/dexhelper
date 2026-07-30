@@ -2,12 +2,12 @@
 id: epic-057-127-orchestrator-safeguard-investigation
 type: EPIC
 title: Orchestrator Safeguard Investigation
-status: ACTIVE
+status: COMPLETED
 owner_persona: auditor
 created_at: '2026-07-03'
 updated_at: '2026-07-30'
 depends_on: []
-jules_session_id: '18386111525126870827'
+jules_session_id: null
 pr_number: null
 parent: prd-096-057-macro-node-boundary-enforcement
 tags:
