@@ -51,6 +51,8 @@ const BERRY_YIELD_OFFSET = 4;
 const BERRY_WATERED_OFFSET = 5;
 const HIDDEN_ITEM_FLAGS_OFFSET = 62;
 
+const HIDDEN_ITEM_FLAGS_SIZE = 14;
+
 const SECTION_SIZE = 4096;
 const GEN3_BERRY_PATCH_OFFSET = 0x071c;
 const GEN3_FLAGS_SECTION2_OFFSET = 0x02f0;
@@ -1036,9 +1038,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     }
 
     const flagsOffset = section2Offset + GEN3_FLAGS_SECTION2_OFFSET;
-    const hiddenItemFlags = new Uint8Array(14);
+    const hiddenItemFlags = new Uint8Array(HIDDEN_ITEM_FLAGS_SIZE);
 
-    for (let i = 0; i < 14; i++) {
+    for (let i = 0; i < HIDDEN_ITEM_FLAGS_SIZE; i++) {
       const currentByte = view.getUint8(flagsOffset + HIDDEN_ITEM_FLAGS_OFFSET + i);
       const nextByte = view.getUint8(flagsOffset + HIDDEN_ITEM_FLAGS_OFFSET + i + 1);
       hiddenItemFlags[i] = ((currentByte >> 4) | ((nextByte & 0x0f) << 4)) & 0xff;

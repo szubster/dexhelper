@@ -183,6 +183,14 @@ const CAUGHT_LOC_EVENT = 0x7e;
 const CAUGHT_LOC_TRADED = 0x7f;
 
 const MAX_VALID_SPECIES_ID = 251;
+
+const MAX_ITEMS_POCKET_CAPACITY = 20;
+const MAX_KEY_ITEMS_POCKET_CAPACITY = 26;
+const MAX_BALLS_POCKET_CAPACITY = 12;
+const MAX_PC_ITEMS_CAPACITY = 50;
+const TM_HM_COUNT = 57;
+const TM_HM_ITEM_ID_START = 191;
+
 const POKEMON_MOVE_COUNT = 4;
 const UNOWN_SPECIES_ID = 201;
 const UNOWN_DV_SHIFT = 1;
@@ -658,17 +666,17 @@ function parseInventory(view: DataView, isCrystal: boolean) {
   const ballsPocket = isCrystal ? BALLS_POCKET_OFFSET_CRYSTAL : BALLS_POCKET_OFFSET_GS;
 
   // TM/HMs
-  for (let i = 0; i < 57; i++) {
+  for (let i = 0; i < TM_HM_COUNT; i++) {
     const qty = view.getUint8(tmPocket + i);
     if (qty > 0) {
-      const itemId = 191 + i;
+      const itemId = TM_HM_ITEM_ID_START + i;
       inventory.push({ id: itemId, quantity: qty });
     }
   }
 
   // Items
   const itemsCount = view.getUint8(itemsPocket);
-  if (itemsCount > 0 && itemsCount <= 20) {
+  if (itemsCount > 0 && itemsCount <= MAX_ITEMS_POCKET_CAPACITY) {
     for (let i = 0; i < itemsCount; i++) {
       const offset = itemsPocket + 1 + i * 2;
       const id = view.getUint8(offset);
@@ -679,7 +687,7 @@ function parseInventory(view: DataView, isCrystal: boolean) {
 
   // Key Items
   const keyItemsCount = view.getUint8(keyItemsPocket);
-  if (keyItemsCount > 0 && keyItemsCount <= 26) {
+  if (keyItemsCount > 0 && keyItemsCount <= MAX_KEY_ITEMS_POCKET_CAPACITY) {
     for (let i = 0; i < keyItemsCount; i++) {
       const offset = keyItemsPocket + 1 + i;
       const id = view.getUint8(offset);
@@ -689,7 +697,7 @@ function parseInventory(view: DataView, isCrystal: boolean) {
 
   // Balls
   const ballsCount = view.getUint8(ballsPocket);
-  if (ballsCount > 0 && ballsCount <= 12) {
+  if (ballsCount > 0 && ballsCount <= MAX_BALLS_POCKET_CAPACITY) {
     for (let i = 0; i < ballsCount; i++) {
       const offset = ballsPocket + 1 + i * 2;
       const id = view.getUint8(offset);
@@ -820,7 +828,7 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   const pcItems: { id: number; quantity: number }[] = [];
   const pcItemsPocket = isCrystal ? PC_ITEMS_POCKET_OFFSET_CRYSTAL : PC_ITEMS_POCKET_OFFSET_GS;
   const pcItemsCount = view.getUint8(pcItemsPocket);
-  if (pcItemsCount > 0 && pcItemsCount <= 50) {
+  if (pcItemsCount > 0 && pcItemsCount <= MAX_PC_ITEMS_CAPACITY) {
     for (let i = 0; i < pcItemsCount; i++) {
       const offset = pcItemsPocket + 1 + i * 2;
       const id = view.getUint8(offset);
