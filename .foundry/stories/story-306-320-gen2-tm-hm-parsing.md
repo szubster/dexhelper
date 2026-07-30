@@ -2,10 +2,10 @@
 id: story-306-320-gen2-tm-hm-parsing
 type: STORY
 title: Gen 2 TM/HM Parse
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-07-29'
+updated_at: '2026-07-30'
 depends_on: []
 jules_session_id: null
 pr_number: null
