@@ -2,10 +2,10 @@
 id: task-333-365-sorting-strategies-impl
 type: TASK
 title: Implement PC Box Sorting Strategies
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-29'
-updated_at: '2026-07-29'
+updated_at: '2026-07-30'
 depends_on:
   - task-333-363-pokemon-types-data-impl
 jules_session_id: null

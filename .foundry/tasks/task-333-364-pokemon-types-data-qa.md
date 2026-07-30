@@ -2,10 +2,10 @@
 id: task-333-364-pokemon-types-data-qa
 type: TASK
 title: QA Pokemon Types Data Pipeline
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-29'
-updated_at: '2026-07-29'
+updated_at: '2026-07-30'
 depends_on:
   - task-333-363-pokemon-types-data-impl
 jules_session_id: null
