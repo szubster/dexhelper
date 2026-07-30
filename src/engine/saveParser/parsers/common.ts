@@ -195,6 +195,7 @@ export interface Gen3BattleFrontierSymbols {
 }
 
 export interface SaveData {
+  gen3Pokeblocks?: import('../gen3/pokeblock/types').Gen3Pokeblock[];
   gen3TrickHouse?: import('./../gen3/trickHouse/parser').Gen3TrickHouse;
   gen3MatchCall?: import('../../gen3/matchCall/parser').Gen3MatchCall;
   /** The generation of the parsed save file (1 or 2). */
