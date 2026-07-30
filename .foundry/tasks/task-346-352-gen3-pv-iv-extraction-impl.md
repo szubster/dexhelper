@@ -2,12 +2,12 @@
 id: task-346-352-gen3-pv-iv-extraction-impl
 type: TASK
 title: Implement Gen 3 PV and IV Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-28'
 updated_at: '2026-07-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17592435228941965730'
 pr_number: null
 parent: story-324-346-gen3-pv-iv-extraction
 tags:
