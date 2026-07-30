@@ -2,12 +2,12 @@
 id: story-324-346-gen3-pv-iv-extraction
 type: STORY
 title: Gen 3 PV and IV Data Extraction for Size Calculation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-25'
 updated_at: '2026-07-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10397136322045447599'
 pr_number: null
 parent: epic-112-324-npc-size-record-data-extraction
 tags:
