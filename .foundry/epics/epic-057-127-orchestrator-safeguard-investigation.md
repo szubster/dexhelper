@@ -30,4 +30,4 @@ Investigate `.github/scripts/foundry-orchestrator.ts` and `.github/scripts/found
 - [x] Analyze orchestrator scripts for programmatic safeguards.
 - [x] Create necessary STORY nodes for investigation and implementation if viable.
 - [x] [story-127-269-epic-e2e-safeguard](.foundry/stories/story-127-269-epic-e2e-safeguard.md)
-- [ ] [story-127-347-orchestrator-safeguard-e2e](.foundry/stories/story-127-347-orchestrator-safeguard-e2e.md)
+- [x] [story-127-347-orchestrator-safeguard-e2e](.foundry/stories/story-127-347-orchestrator-safeguard-e2e.md)
