@@ -36,7 +36,7 @@ A retry of `task-333-363`. We need to expose a Pokemon's primary and secondary t
    - **CRITICAL**: Ensure the types are sorted by their `slot` property before storing them.
 
 ## Acceptance Criteria
-- [ ] `POKEMON_TYPE` and `POKEMON_TYPE_MAP` are exported in `schema.ts`.
-- [ ] `PokemonMetadata` includes the `types?: number[]` property.
-- [ ] `generate-pokedata.ts` populates `types`, sorted by `slot`.
-- [ ] Running `pnpm lint` and `pnpm test` passes successfully.
+- [x] `POKEMON_TYPE` and `POKEMON_TYPE_MAP` are exported in `schema.ts`.
+- [x] `PokemonMetadata` includes the `types?: number[]` property.
+- [x] `generate-pokedata.ts` populates `types`, sorted by `slot`.
+- [x] Running `pnpm lint` and `pnpm test` passes successfully.
