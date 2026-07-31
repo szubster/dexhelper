@@ -42,3 +42,5 @@ Building upon the standard interface, we need specific, actionable sorters that 
 - [ ] [task-333-369-pokemon-types-data-retry-impl](.foundry/tasks/task-333-369-pokemon-types-data-retry-impl.md)
 - [ ] [task-333-370-pokemon-types-data-retry-qa](.foundry/tasks/task-333-370-pokemon-types-data-retry-qa.md)
 - [ ] [task-333-371-sorting-strategies-retry-qa](.foundry/tasks/task-333-371-sorting-strategies-retry-qa.md)
+- [ ] task-333-375-sorting-strategies-regional-dex-impl
+- [ ] task-333-376-sorting-strategies-regional-dex-qa
