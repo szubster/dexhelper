@@ -261,7 +261,7 @@ async function main() {
       cr: sData.capture_rate,
       gr: sData.gender_rate,
       eg: sData.egg_groups?.map((g: any) => EGG_GROUP_MAP[g.name] || 0) || [],
-      types: pData.types?.map((t: any) => POKEMON_TYPE_MAP[t.type.name] || 0) || [],
+      types: pData.types?.sort((a: any, b: any) => a.slot - b.slot).map((t: any) => POKEMON_TYPE_MAP[t.type.name] || 0) || [],
       baby: sData.is_baby,
       em: undefined, // Will be populated in second pass
       // Temporaries to be filled in second pass
