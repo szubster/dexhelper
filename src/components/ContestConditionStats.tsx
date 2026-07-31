@@ -11,51 +11,52 @@ export interface ContestConditionStatsProps extends React.HTMLAttributes<HTMLDiv
   tough?: number;
 }
 
-const StatBar = ({
-  label,
-  value,
-  max = 255,
-  colorClass,
-  emptyColorClass,
-}: {
-  label: string;
-  value: number;
-  max?: number;
-  colorClass: string;
-  emptyColorClass: string;
-}) => {
-  const segmentCount = 15;
+// ⚡ Bolt: Wrapped in React.memo to prevent unnecessary re-renders, lifted invariant calculations out of the loop, and replaced Array.from().map() with a manual loop to eliminate intermediate array allocations (O(N) -> O(1) memory overhead).
+const StatBar = React.memo(
+  ({
+    label,
+    value,
+    max = 255,
+    colorClass,
+    emptyColorClass,
+  }: {
+    label: string;
+    value: number;
+    max?: number;
+    colorClass: string;
+    emptyColorClass: string;
+  }) => {
+    const segmentCount = 15;
+    const segments = [];
+    const ratio = value / max;
 
-  return (
-    <div className="flex flex-col gap-1.5 border-zinc-800 border-l border-dashed pl-3 transition-colors hover:border-zinc-500">
-      <div className="tactical-text flex justify-between text-[9px] text-zinc-400">
-        <span className="font-black uppercase tracking-widest">[ {label} ]</span>
-        <span className="font-mono text-zinc-500">{value}</span>
-      </div>
-      {/* oxlint-disable jsx-a11y/prefer-tag-over-role */}
-      <div
-        className="flex h-2 w-full gap-px bg-black p-px"
-        role="progressbar"
-        aria-valuenow={value}
-        aria-valuemax={max}
-      >
-        {Array.from({ length: segmentCount }).map((_, i) => {
-          const ratio = value / max;
-          const threshold = (i + 1) / segmentCount;
-          const isActive = ratio >= threshold;
+    for (let i = 0; i < segmentCount; i++) {
+      const threshold = (i + 1) / segmentCount;
+      const isActive = ratio >= threshold;
+      segments.push(
+        <div key={`stat-segment-${i}`} className={cn('h-full flex-1', isActive ? colorClass : emptyColorClass)} />,
+      );
+    }
 
-          return (
-            <div
-              // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and safe here
-              key={`stat-segment-${i}`}
-              className={cn('h-full flex-1', isActive ? colorClass : emptyColorClass)}
-            />
-          );
-        })}
+    return (
+      <div className="flex flex-col gap-1.5 border-zinc-800 border-l border-dashed pl-3 transition-colors hover:border-zinc-500">
+        <div className="tactical-text flex justify-between text-[9px] text-zinc-400">
+          <span className="font-black uppercase tracking-widest">[ {label} ]</span>
+          <span className="font-mono text-zinc-500">{value}</span>
+        </div>
+        {/* oxlint-disable jsx-a11y/prefer-tag-over-role */}
+        <div
+          className="flex h-2 w-full gap-px bg-black p-px"
+          role="progressbar"
+          aria-valuenow={value}
+          aria-valuemax={max}
+        >
+          {segments}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  },
+);
 
 export const ContestConditionStats = React.forwardRef<HTMLDivElement, ContestConditionStatsProps>(
   ({ cool = 0, beauty = 0, cute = 0, smart = 0, tough = 0, className, ...props }, ref) => {
