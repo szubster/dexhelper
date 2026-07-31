@@ -58,6 +58,7 @@ describe('gen3 parser scaffolding', () => {
       const resultRS = parseGen3(view, 'ruby');
       expect(resultRS.gen3FeebasTiles).toBeDefined();
       expect(resultRS.gen3FeebasTiles?.length).toBe(6);
+      expect(resultRS.gen3FeebasTiles?.[0]?.length).toBe(2);
     } catch {
       // ignore
     }

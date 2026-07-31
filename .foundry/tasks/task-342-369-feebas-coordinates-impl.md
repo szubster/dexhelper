@@ -25,11 +25,11 @@ notes: ''
 Update the `SaveData` schema to store Feebas tile locations as 2D coordinates `[number, number][]` instead of 1D spot IDs `number[]`, and ensure they are correctly mapped during hydration in the Gen 3 save parser.
 
 ## Acceptance Criteria
-- [ ] Change the type of `gen3FeebasTiles` in the `SaveData` interface (`src/engine/saveParser/parsers/common.ts`) from `number[]` to `[number, number][]`.
-- [ ] In `src/engine/saveParser/parsers/gen3.ts`, update the Feebas hydration logic to call `mapSpotIdsToCoordinates(gen3FeebasTiles)` and assign the result to `result.gen3FeebasTiles` when constructing the `SaveData` object.
-- [ ] Ensure that `extractFeebasSeed`, `calculateFeebasTiles`, and `mapSpotIdsToCoordinates` are correctly utilized and imported.
-- [ ] Strictly adhere to all guidelines defined in Section 13 ("Save File Parsing & Extraction Guidelines") of `.foundry/docs/schema.md`.
-- [ ] Update any corresponding tests (e.g., `gen3.test.ts`) that expect `gen3FeebasTiles` to assert the length of the array and verify it contains coordinate tuples (length 2) instead of scalar numbers.
+- [x] Change the type of `gen3FeebasTiles` in the `SaveData` interface (`src/engine/saveParser/parsers/common.ts`) from `number[]` to `[number, number][]`.
+- [x] In `src/engine/saveParser/parsers/gen3.ts`, update the Feebas hydration logic to call `mapSpotIdsToCoordinates(gen3FeebasTiles)` and assign the result to `result.gen3FeebasTiles` when constructing the `SaveData` object.
+- [x] Ensure that `extractFeebasSeed`, `calculateFeebasTiles`, and `mapSpotIdsToCoordinates` are correctly utilized and imported.
+- [x] Strictly adhere to all guidelines defined in Section 13 ("Save File Parsing & Extraction Guidelines") of `.foundry/docs/schema.md`.
+- [x] Update any corresponding tests (e.g., `gen3.test.ts`) that expect `gen3FeebasTiles` to assert the length of the array and verify it contains coordinate tuples (length 2) instead of scalar numbers.
 
 ## Failure Rules & Instructions
 - If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
