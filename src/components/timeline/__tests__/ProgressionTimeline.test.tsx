@@ -6,7 +6,7 @@ import type { GameVersion } from '../../../store';
 import { ProgressionTimeline } from '../ProgressionTimeline';
 
 vi.mock('../../../contexts/ConcurrentGameContext', () => ({
-  useConcurrentGame: vi.fn(),
+  useConcurrentGame: vi.fn<() => import('../../../contexts/ConcurrentGameContext').ConcurrentGameContextType>(),
 }));
 
 describe('ProgressionTimeline', () => {
@@ -17,7 +17,12 @@ describe('ProgressionTimeline', () => {
   it('renders empty state when there are no playthroughs', async () => {
     vi.mocked(useConcurrentGame).mockReturnValue({
       state: { playthroughs: [], activePlaythroughId: null },
-      addPlaythrough: vi.fn<(playthrough: any) => void>(),
+      addPlaythrough:
+        vi.fn<
+          (
+            playthrough: Omit<import('../../../contexts/ConcurrentGameContext').Playthrough, 'id' | 'lastPlayed'>,
+          ) => void
+        >(),
       removePlaythrough: vi.fn<(id: string) => void>(),
       setActivePlaythrough: vi.fn<(id: string | null) => void>(),
     });
@@ -35,7 +40,12 @@ describe('ProgressionTimeline', () => {
         ],
         activePlaythroughId: '1',
       },
-      addPlaythrough: vi.fn<(playthrough: any) => void>(),
+      addPlaythrough:
+        vi.fn<
+          (
+            playthrough: Omit<import('../../../contexts/ConcurrentGameContext').Playthrough, 'id' | 'lastPlayed'>,
+          ) => void
+        >(),
       removePlaythrough: vi.fn<(id: string) => void>(),
       setActivePlaythrough: vi.fn<(id: string | null) => void>(),
     });
