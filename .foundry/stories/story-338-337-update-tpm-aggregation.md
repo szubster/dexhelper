@@ -33,4 +33,4 @@ With agents writing to session-unique journal files, the TPM persona must be upd
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break this Story down into actionable Tasks.
-- [ ] task-337-346-update-tpm-persona-instructions
+- [x] task-337-346-update-tpm-persona-instructions
