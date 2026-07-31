@@ -2,12 +2,12 @@
 id: task-342-369-feebas-coordinates-impl
 type: TASK
 title: Map Feebas IDs to Coordinates in SaveData
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-31'
 updated_at: '2026-07-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14491832442511681790'
 pr_number: null
 parent: story-058-342-feebas-backend-integration-retry
 tags:
