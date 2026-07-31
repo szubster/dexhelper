@@ -26,3 +26,5 @@ Ensure that the calculation of the 6 Feebas tile coordinates is fast and occurs 
 ## Acceptance Criteria
 - [ ] Implement asynchronous or web-worker based calculation for the Feebas tiles during hydration.
 - [ ] Ensure the main save parsing process is not blocked.
+- [ ] task-341-369-feebas-calculation-worker-impl
+- [ ] task-341-370-feebas-calculation-worker-qa
