@@ -211,6 +211,9 @@ describe('parseGen1 - specific data extraction', () => {
 });
 
 describe('parseGen1 - trainerFlags extraction', () => {
+  const EVENT_FLAGS_OFFSET = 0x29e6;
+  const EVENT_FLAGS_LENGTH = 0x118;
+
   it('should extract trainerFlags with absolute zero state and boundary values (ADR 026)', () => {
     const buffer = new ArrayBuffer(32768);
     const view = new DataView(buffer);
@@ -222,18 +225,18 @@ describe('parseGen1 - trainerFlags extraction', () => {
     expect(data.trainerFlags?.every((flag) => flag === false)).toBe(true);
 
     // Set all bits to 1
-    for (let i = 0; i < 0x118; i++) {
-      view.setUint8(0x29e6 + i, 0xff);
+    for (let i = 0; i < EVENT_FLAGS_LENGTH; i++) {
+      view.setUint8(EVENT_FLAGS_OFFSET + i, 0xff);
     }
     data = parseGen1(view);
     expect(data.trainerFlags?.every((flag) => flag === true)).toBe(true);
 
     // Set specific boundaries (first bit and last bit)
-    for (let i = 0; i < 0x118; i++) {
-      view.setUint8(0x29e6 + i, 0x00);
+    for (let i = 0; i < EVENT_FLAGS_LENGTH; i++) {
+      view.setUint8(EVENT_FLAGS_OFFSET + i, 0x00);
     }
-    view.setUint8(0x29e6, 0x01); // 1st bit
-    view.setUint8(0x29e6 + 0x117, 0x80); // Last bit
+    view.setUint8(EVENT_FLAGS_OFFSET, 0x01); // 1st bit
+    view.setUint8(EVENT_FLAGS_OFFSET + EVENT_FLAGS_LENGTH - 1, 0x80); // Last bit
     data = parseGen1(view);
     expect(data.trainerFlags?.[0]).toBe(true);
     expect(data.trainerFlags?.[1]).toBe(false);
