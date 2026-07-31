@@ -30,7 +30,7 @@ Extract the necessary internal data structures from Gen 2 and Gen 3 save files t
 - **Gen 3:** Extract Personality Value (PV) and IVs (HP, Attack, Defense, Speed, Special Attack, Special Defense) for each Pokémon. Handle the 48-byte encrypted Data block taking into account the substructure order determined by `PV % 24`.
 
 ## Acceptance Criteria
-- [ ] Implement data extraction for Gen 2 DVs.
-- [ ] Implement data extraction for Gen 3 PV and IVs.
-- [ ] story-324-322-gen2-dv-extraction
-- [ ] story-324-346-gen3-pv-iv-extraction
+- [x] Implement data extraction for Gen 2 DVs.
+- [x] Implement data extraction for Gen 3 PV and IVs.
+- [x] story-324-322-gen2-dv-extraction
+- [x] story-324-346-gen3-pv-iv-extraction
