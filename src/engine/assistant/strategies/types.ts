@@ -96,7 +96,7 @@ export interface AssistantStrategy {
    * @returns An object containing the distance and the name of the target area, or null if unreachable.
    *
    * @example
-   * const distInfo = strategy.getMapDistance(saveData.currentMapId, encounter.aid, allLocations);
+   * const distInfo = strategy.getMapDistance(saveData.currentMapId, encounter.areaId, allLocations);
    */
   getMapDistance(
     currentMapId: number,
