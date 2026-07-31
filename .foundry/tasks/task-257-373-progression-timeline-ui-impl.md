@@ -2,7 +2,7 @@
 id: task-257-373-progression-timeline-ui-impl
 type: TASK
 title: Progression Timeline UI
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-31'
 updated_at: '2026-07-31'

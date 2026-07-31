@@ -2,10 +2,10 @@
 id: prd-105-110-tm-hm-inventory-planner
 type: PRD
 title: Gen 1-3 TM/HM Inventory & Compatibility Planner
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-07-11'
-updated_at: '2026-07-13'
+updated_at: '2026-07-31'
 depends_on: []
 jules_session_id: null
 pr_number: null

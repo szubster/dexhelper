@@ -2,7 +2,7 @@
 id: task-342-370-feebas-coordinates-qa
 type: TASK
 title: QA - Map Feebas IDs to Coordinates
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-31'
 updated_at: '2026-07-31'

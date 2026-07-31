@@ -2,12 +2,12 @@
 id: epic-110-306-tm-hm-save-parsing
 type: EPIC
 title: Gen 1-3 TM/HM Save Parsing
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-07-12'
 updated_at: '2026-07-31'
 depends_on: []
-jules_session_id: '1413129821608211533'
+jules_session_id: null
 pr_number: null
 parent: prd-105-110-tm-hm-inventory-planner
 tags:
@@ -19,7 +19,9 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/moveset-inventory-memory-offsets.md
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: ''
 ---
 

@@ -2,10 +2,10 @@
 id: story-097-262-aggregate-first-catch-by-route
 type: STORY
 title: Aggregate First Catch by Route
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-03'
+updated_at: '2026-07-31'
 depends_on:
   - story-097-261-extract-pokemon-met-locations
 jules_session_id: null

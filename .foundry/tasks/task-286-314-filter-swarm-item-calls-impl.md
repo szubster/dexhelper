@@ -2,7 +2,7 @@
 id: task-286-314-filter-swarm-item-calls-impl
 type: TASK
 title: Filter Swarm & Item Calls (Implementation)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-31'
 updated_at: '2026-07-31'

@@ -2,7 +2,7 @@
 id: task-257-370-concurrent-game-context-qa
 type: TASK
 title: QA Concurrent Game Context Layer
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-31'
 updated_at: '2026-07-31'

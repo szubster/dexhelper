@@ -2,10 +2,10 @@
 id: task-333-370-pokemon-types-data-retry-qa
 type: TASK
 title: QA Pokemon Types Data Pipeline (Retry)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-30'
-updated_at: '2026-07-30'
+updated_at: '2026-07-31'
 depends_on:
   - task-333-369-pokemon-types-data-retry-impl
 jules_session_id: null

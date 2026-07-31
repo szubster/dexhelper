@@ -2,7 +2,7 @@
 id: task-257-371-concurrent-game-switcher-ui-impl
 type: TASK
 title: Concurrent Game Switcher UI
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-31'
 updated_at: '2026-07-31'
