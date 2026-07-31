@@ -37,7 +37,7 @@ As part of the Gen 1-3 TM/HM Inventory & Compatibility Planner, this Epic focuse
 - **Constraint:** Must follow ADR 028 for dynamic save block extraction (no inline magic numbers, use module-level constants for offsets/lengths).
 
 ## Acceptance Criteria
-- [ ] story-306-319-gen1-tm-hm-parsing
-- [ ] story-306-320-gen2-tm-hm-parsing
-- [ ] story-306-321-gen3-tm-hm-parsing
+- [x] story-306-319-gen1-tm-hm-parsing
+- [x] story-306-320-gen2-tm-hm-parsing
+- [x] story-306-321-gen3-tm-hm-parsing
 - [x] Break down into STORY nodes for Gen 1, Gen 2, and Gen 3 parsing.
