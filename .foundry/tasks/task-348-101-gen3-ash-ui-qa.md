@@ -32,5 +32,5 @@ Implement comprehensive E2E testing to verify the Gen 3 Volcanic Ash UI integrat
 - Use Playwright for the E2E test, adhering to existing testing conventions.
 
 ## Acceptance Criteria
-- [ ] Write an E2E test to verify the Volcanic Ash count renders correctly when a relevant Gen 3 save file is loaded.
-- [ ] Document the test execution and validation results in the `qa` persona journal.
+- [x] Write an E2E test to verify the Volcanic Ash count renders correctly when a relevant Gen 3 save file is loaded.
+- [x] Document the test execution and validation results in the `qa` persona journal.

@@ -494,6 +494,16 @@ export function isGen3Save(view: DataView): boolean {
     if (view.byteLength > 0) {
       view.getUint8(0);
     }
+
+    // Quick scan for the signature to detect Gen 3 saves
+    for (let i = 0; i < 28; i++) {
+      const offset = i * 4096;
+      if (offset + 4092 <= view.byteLength) {
+        if (view.getUint32(offset + 4088, true) === 0x08012025) {
+          return true;
+        }
+      }
+    }
     return false;
   } catch (error) {
     if (error instanceof RangeError) {

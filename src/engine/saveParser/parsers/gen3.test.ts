@@ -34,7 +34,7 @@ import {
 } from './gen3';
 
 describe('gen3 parser scaffolding', () => {
-  it('isGen3Save should return false normally', () => {
+  it('isGen3Save should return false normally for invalid save', () => {
     const buffer = new ArrayBuffer(8);
     const view = new DataView(buffer);
     expect(isGen3Save(view)).toBe(false);
