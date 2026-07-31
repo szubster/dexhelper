@@ -2,13 +2,13 @@
 id: task-342-370-feebas-coordinates-qa
 type: TASK
 title: QA - Map Feebas IDs to Coordinates
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-31'
 updated_at: '2026-07-31'
 depends_on:
   - task-342-369-feebas-coordinates-impl
-jules_session_id: null
+jules_session_id: '4230931540957269591'
 pr_number: null
 parent: story-058-342-feebas-backend-integration-retry
 tags:
