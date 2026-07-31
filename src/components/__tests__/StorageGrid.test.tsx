@@ -52,7 +52,17 @@ test('renders grid with pokemon', async () => {
       (selector as (state: unknown) => unknown)({
         saveData: {
           generation: 1,
-          partyDetails: [{ speciesId: 1, storageLocation: 'Party', level: 5, isShiny: false, hash: '', otName: 'RED' }],
+          partyDetails: [
+            {
+              speciesId: 1,
+              storageLocation: 'Party',
+              level: 5,
+              isShiny: false,
+              hash: '',
+              otName: 'RED',
+              pokerus: { strain: 3, daysRemaining: 2 },
+            },
+          ],
           pcDetails: [
             { speciesId: 4, storageLocation: 'Box 1', level: 10, isShiny: true, hash: '', otName: 'BLUE' },
             {
@@ -82,6 +92,7 @@ test('renders grid with pokemon', async () => {
   // Check party pokemon
   await expect.element(page.getByText('Bulbasaur')).toBeInTheDocument();
   await expect.element(page.getByText('RED')).toBeInTheDocument();
+  await expect.element(page.getByText('[PKRS STRN: 3]')).toBeInTheDocument();
 
   // Check box pokemon
   await expect.element(page.getByText('Charmander')).toBeInTheDocument();

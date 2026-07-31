@@ -6,6 +6,7 @@ import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { getTimeCapsuleValidation } from '../utils/timeCapsule';
 import { CapacitySegmentedBar } from './CapacitySegmentedBar';
+import { PokerusBadge } from './PokerusBadge';
 import { PokemonSprite } from './pokemon/PokemonSprite';
 import { ShinyBadge } from './ShinyBadge';
 import { TacticalBadge } from './TacticalBadge';
@@ -78,6 +79,7 @@ const StorageCard = React.memo(
               {p.otName}
             </TacticalBadge>
           )}
+          {location === 'Party' && p.pokerus && p.pokerus.strain > 0 && <PokerusBadge strain={p.pokerus.strain} />}
         </div>
         <div className="relative mb-4 flex h-20 w-20 items-center justify-center sm:h-24 sm:w-24">
           <PokemonSprite
