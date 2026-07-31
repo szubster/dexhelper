@@ -2,12 +2,12 @@
 id: research-333-361-investigate-pokemon-types-failure
 type: RESEARCH
 title: Investigate Pokemon Types Data Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-30'
 updated_at: '2026-07-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9973392608168783559'
 pr_number: null
 parent: story-136-333-sorting-standard-strategies-retry
 tags:
