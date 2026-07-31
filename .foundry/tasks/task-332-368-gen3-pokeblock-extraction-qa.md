@@ -30,7 +30,7 @@ notes: ''
 Verify the implementation of the Gen 3 Pokéblock Case parsing logic.
 
 ## Acceptance Criteria
-- [ ] Verify that the Pokéblock array is correctly extracted from `SaveBlock1` (Offsets: Emerald `0x0848`, RS `0x07F8`).
-- [ ] Verify that the 8-byte structure is parsed correctly for all properties (color, flavors, feel).
-- [ ] Verify strict adherence to Section 13 ("Save File Parsing & Extraction Guidelines") of `.foundry/docs/schema.md` (e.g., module-level constants, no magic numbers, relative offsets, and catching `RangeError` with the correct error message).
-- [ ] Verify tests exist and pass for extracting Pokéblocks.
+- [x] Verify that the Pokéblock array is correctly extracted from `SaveBlock1` (Offsets: Emerald `0x0848`, RS `0x07F8`).
+- [x] Verify that the 8-byte structure is parsed correctly for all properties (color, flavors, feel).
+- [x] Verify strict adherence to Section 13 ("Save File Parsing & Extraction Guidelines") of `.foundry/docs/schema.md` (e.g., module-level constants, no magic numbers, relative offsets, and catching `RangeError` with the correct error message).
+- [x] Verify tests exist and pass for extracting Pokéblocks.
