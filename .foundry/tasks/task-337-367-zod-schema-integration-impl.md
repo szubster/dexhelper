@@ -24,5 +24,5 @@ Refactor `.github/scripts/foundry-orchestrator.ts` and other relevant orchestrat
 Remove the manual validation logic (like `REQUIRED_FIELDS`, `VALID_STATUSES`, `VALID_TYPES`) in favor of Zod's `safeParse()`. Note that some scripts like `foundry-heartbeat.ts`, `remediate-zombie.ts`, `sweep-active-nodes.ts` may also need updates.
 
 ## Acceptance Criteria
-- [ ] Refactor `.github/scripts/foundry-orchestrator.ts` to use `NodeFrontmatterSchema`
-- [ ] Refactor other relevant scripts in `.github/scripts/` to use `NodeFrontmatterSchema`
+- [x] Refactor `.github/scripts/foundry-orchestrator.ts` to use `NodeFrontmatterSchema`
+- [x] Refactor other relevant scripts in `.github/scripts/` to use `NodeFrontmatterSchema`
