@@ -2,13 +2,13 @@
 id: task-348-101-gen3-ash-ui-qa
 type: TASK
 title: 'Task: QA E2E Testing for Gen 3 Volcanic Ash UI'
-status: ACTIVE
+status: READY
 owner_persona: qa
 created_at: '2026-07-29'
-updated_at: '2026-07-30'
+updated_at: '2026-07-31'
 depends_on:
   - task-348-100-gen3-ash-ui-impl
-jules_session_id: '16432020033423981607'
+jules_session_id: null
 pr_number: null
 parent: story-268-348-gen3-ash-integration
 tags:
