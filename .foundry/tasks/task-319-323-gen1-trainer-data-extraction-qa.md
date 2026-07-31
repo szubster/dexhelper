@@ -2,13 +2,13 @@
 id: task-319-323-gen1-trainer-data-extraction-qa
 type: TASK
 title: Gen 1 Trainer Data Extraction QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-14'
 updated_at: '2026-07-31'
 depends_on:
   - task-319-322-gen1-trainer-data-extraction-impl
-jules_session_id: null
+jules_session_id: '10545465525477158768'
 pr_number: null
 parent: story-306-319-gen1-trainer-data-extraction
 tags:
