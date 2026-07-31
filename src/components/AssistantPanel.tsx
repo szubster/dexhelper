@@ -8,6 +8,7 @@ import { objectEntries } from '../utils/object';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 import { AssistantDebugView } from './assistant/AssistantDebugView';
 import { AssistantSuggestionCard } from './assistant/AssistantSuggestionCard';
+import { MapUI } from './assistant/MapUI';
 import { CornerCrosshairs } from './CornerCrosshairs';
 import { EdgeLabel } from './EdgeLabel';
 
@@ -78,7 +79,7 @@ const CATEGORY_STYLES: Record<SuggestionCategory, { icon: React.ReactNode; color
 };
 
 export function AssistantPanel({ saveData, isLivingDex, manualVersion }: AssistantPanelProps) {
-  const { suggestions, debug, isLoading, areaNames } = useAssistant(saveData, isLivingDex, manualVersion);
+  const { suggestions, debug, isLoading, areaNames, heatmap } = useAssistant(saveData, isLivingDex, manualVersion);
   const [showDebug, setShowDebug] = React.useState(false);
   const [activeCategory, setActiveCategory] = React.useState<SuggestionCategory | null>(null);
 
@@ -185,48 +186,51 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
       ) : (
         <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
           {/* Operations Sidebar */}
-          <div className="w-full shrink-0 border border-zinc-800 border-dashed bg-black/40 p-2 lg:w-64">
-            <EdgeLabel className="-top-2.5 left-4 text-[var(--theme-primary)]">OPS.MATRIX</EdgeLabel>
-            <div className="flex flex-col gap-1">
-              {orderedCategories.map((category) => {
-                const items = groupedSuggestions[category] || [];
-                const catStyle = CATEGORY_STYLES[category] ?? CATEGORY_STYLES.Utility;
-                const isActive = activeCategory === category;
+          <div className="flex w-full shrink-0 flex-col gap-6 lg:w-64">
+            <div className="relative w-full border border-zinc-800 border-dashed bg-black/40 p-2">
+              <EdgeLabel className="-top-2.5 left-4 text-[var(--theme-primary)]">OPS.MATRIX</EdgeLabel>
+              <div className="flex flex-col gap-1">
+                {orderedCategories.map((category) => {
+                  const items = groupedSuggestions[category] || [];
+                  const catStyle = CATEGORY_STYLES[category] ?? CATEGORY_STYLES.Utility;
+                  const isActive = activeCategory === category;
 
-                return (
-                  <button
-                    key={category}
-                    type="button"
-                    onClick={() => setActiveCategory(category)}
-                    className={`focus-visible:tactical-focus group relative flex items-center justify-between border border-dashed px-4 py-3 transition-all duration-300 ${
-                      isActive
-                        ? `border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[inset_4px_0_0_var(--theme-primary)]`
-                        : 'border-zinc-800/50 bg-transparent text-zinc-500 hover:border-zinc-700 hover:bg-zinc-900/50 hover:text-zinc-300'
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div
-                        className={`${isActive ? catStyle.color.replace('border-', 'text-') : 'text-zinc-600 group-hover:text-zinc-400'}`}
-                      >
-                        {catStyle.icon}
-                      </div>
-                      <span className="font-black font-mono text-[11px] uppercase tracking-wider">
-                        {category === 'Catch' ? 'ENCOUNTERS' : category === 'Trade' ? 'TRADES' : category}
-                      </span>
-                    </div>
-                    <div
-                      className={`flex h-5 items-center justify-center border border-dashed px-2 font-mono text-[10px] ${
+                  return (
+                    <button
+                      key={category}
+                      type="button"
+                      onClick={() => setActiveCategory(category)}
+                      className={`focus-visible:tactical-focus group relative flex items-center justify-between border border-dashed px-4 py-3 transition-all duration-300 ${
                         isActive
-                          ? 'border-[var(--theme-primary)]/40 bg-[var(--theme-primary)]/20 text-[var(--theme-primary)]'
-                          : 'border-zinc-800 bg-zinc-950 text-zinc-600 group-hover:border-zinc-700 group-hover:text-zinc-400'
+                          ? `border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[inset_4px_0_0_var(--theme-primary)]`
+                          : 'border-zinc-800/50 bg-transparent text-zinc-500 hover:border-zinc-700 hover:bg-zinc-900/50 hover:text-zinc-300'
                       }`}
                     >
-                      {items.length}
-                    </div>
-                  </button>
-                );
-              })}
+                      <div className="flex items-center gap-3">
+                        <div
+                          className={`${isActive ? catStyle.color.replace('border-', 'text-') : 'text-zinc-600 group-hover:text-zinc-400'}`}
+                        >
+                          {catStyle.icon}
+                        </div>
+                        <span className="font-black font-mono text-[11px] uppercase tracking-wider">
+                          {category === 'Catch' ? 'ENCOUNTERS' : category === 'Trade' ? 'TRADES' : category}
+                        </span>
+                      </div>
+                      <div
+                        className={`flex h-5 items-center justify-center border border-dashed px-2 font-mono text-[10px] ${
+                          isActive
+                            ? 'border-[var(--theme-primary)]/40 bg-[var(--theme-primary)]/20 text-[var(--theme-primary)]'
+                            : 'border-zinc-800 bg-zinc-950 text-zinc-600 group-hover:border-zinc-700 group-hover:text-zinc-400'
+                        }`}
+                      >
+                        {items.length}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
+            <MapUI heatmap={heatmap} {...(areaNames ? { areaNames } : {})} />
           </div>
 
           {/* Active Operation Content */}

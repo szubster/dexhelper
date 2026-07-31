@@ -31,10 +31,10 @@ Following the findings in `research-089-167-investigate-heatmap-failure`, the pr
 3. As mandated by ADR 018, integrate the `RouteRadarController` into the application. Pass the calculated Heatmap State as props or via context to the Map UI component.
 
 ## Acceptance Criteria
-- [ ] Update `EncounterDetail` interface and references to use `areaId` instead of `aid` (ADR 015).
-- [ ] Implement `calculateHeatmap` in `RouteRadarController` using `areaId`.
-- [ ] Ensure the heatmap data flows into the Map UI component (`Save State -> suggestionEngine -> RouteRadarController -> Heatmap State`).
-- [ ] Write/update unit tests to validate the aggregation logic using mock `suggestionEngine` outputs.
+- [x] Update `EncounterDetail` interface and references to use `areaId` instead of `aid` (ADR 015).
+- [x] Implement `calculateHeatmap` in `RouteRadarController` using `areaId`.
+- [x] Ensure the heatmap data flows into the Map UI component (`Save State -> suggestionEngine -> RouteRadarController -> Heatmap State`).
+- [x] Write/update unit tests to validate the aggregation logic using mock `suggestionEngine` outputs.
 
 **Important Persona Instructions:**
 - **CODER**: If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting. Do not modify the frontmatter otherwise.

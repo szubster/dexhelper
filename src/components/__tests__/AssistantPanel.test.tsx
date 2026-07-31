@@ -77,6 +77,7 @@ describe('AssistantPanel', () => {
       debug: { rejected: [] },
       isLoading: true,
       areaNames: {},
+      heatmap: {},
     });
 
     await renderWithProviders(<AssistantPanel saveData={mockSaveData} isLivingDex={false} manualVersion={null} />);
@@ -90,6 +91,7 @@ describe('AssistantPanel', () => {
       debug: { rejected: [] },
       isLoading: false,
       areaNames: {},
+      heatmap: {},
     });
 
     await renderWithProviders(<AssistantPanel saveData={mockSaveData} isLivingDex={false} manualVersion={null} />);
@@ -121,6 +123,7 @@ describe('AssistantPanel', () => {
       },
       isLoading: false,
       areaNames: {},
+      heatmap: {},
     });
 
     await renderWithProviders(<AssistantPanel saveData={mockSaveData} isLivingDex={false} manualVersion={null} />);

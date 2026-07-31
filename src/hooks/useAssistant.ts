@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useMemo } from 'react';
 import { getStrategy } from '../engine/assistant/strategies/index';
 import { fetchAssistantApiData, generateSuggestions } from '../engine/assistant/suggestionEngine';
+import { RouteRadarController } from '../engine/radar/RouteRadarController';
 import type { SaveData } from '../engine/saveParser/index';
 import { getGenerationConfig } from '../utils/generationConfig';
 
@@ -64,10 +65,17 @@ export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, ma
   const { suggestions, debug } = useMemo(() => {
     return generateSuggestions(saveData, isLivingDex, manualVersion, apiData ?? null, strategy);
   }, [saveData, isLivingDex, manualVersion, apiData, strategy]);
+
+  const heatmap = useMemo(() => {
+    const controller = new RouteRadarController();
+    return controller.calculateHeatmap(suggestions);
+  }, [suggestions]);
+
   return {
     suggestions,
     debug,
     isLoading: isLoadingEncounters,
     areaNames: apiData?.areaNames,
+    heatmap,
   };
 }
