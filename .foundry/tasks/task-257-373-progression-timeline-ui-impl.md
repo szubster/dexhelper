@@ -31,4 +31,4 @@ Build a timeline or visualization showing the progression of a specific playthro
 - Build the visualization UI.
 
 ## Acceptance Criteria
-- [ ] Implement the Progression Timeline UI.
+- [x] Implement the Progression Timeline UI.
