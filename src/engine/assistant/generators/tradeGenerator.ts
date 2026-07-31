@@ -110,12 +110,12 @@ export function generateGiftAndTradeSuggestions(
       // If they physically own a pre-evolution, they don't strictly need to trade, they can evolve it!
       const p = apiData.pokemonMetadata?.[pid];
       let hasPhysicalPreEvo = false;
-      if (p?.efrm && p.efrm.length > 0) {
+      if (p?.evolvesFrom && p.evolvesFrom.length > 0) {
         // Iterate backwards through all ancestors (recursive ownership check)
         // The current logic only checked immediate parents, so if a player had Charmander,
         // Charizard might incorrectly be flagged as Unobtainable/Trade.
-        for (let i = p.efrm.length - 1; i >= 0; i--) {
-          const preId = p.efrm[i];
+        for (let i = p.evolvesFrom.length - 1; i >= 0; i--) {
+          const preId = p.evolvesFrom[i];
           if (preId !== undefined && instancesBySpecies.has(preId)) {
             hasPhysicalPreEvo = true;
             break;

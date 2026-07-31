@@ -44,12 +44,12 @@ describe('tradeGenerator', () => {
       new Set([63, 37]), // Don't own 38, but own 37. Makes 38 unobtainable via exclusives if pre-evo isn't checked
       {
         pokemonMetadata: {
-          30: { efrm: [] },
-          122: { efrm: [] },
-          124: { efrm: [] },
-          131: { efrm: [] },
-          37: { efrm: [] },
-          38: { efrm: [37] },
+          30: { evolvesFrom: [] },
+          122: { evolvesFrom: [] },
+          124: { evolvesFrom: [] },
+          131: { evolvesFrom: [] },
+          37: { evolvesFrom: [] },
+          38: { evolvesFrom: [37] },
         },
       } as unknown as import('../suggestionEngineTypes').AssistantApiData,
       new Map([
@@ -89,9 +89,9 @@ describe('tradeGenerator', () => {
       new Set([63]),
       {
         pokemonMetadata: {
-          66: { efrm: [] },
-          175: { efrm: [] },
-          37: { efrm: [] },
+          66: { evolvesFrom: [] },
+          175: { evolvesFrom: [] },
+          37: { evolvesFrom: [] },
         },
       } as unknown as import('../suggestionEngineTypes').AssistantApiData,
       new Map([[96, [{} as PokemonInstance]]]), // Drowzee for Machop trade

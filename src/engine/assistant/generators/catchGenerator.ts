@@ -55,7 +55,7 @@ export function generateCatchSuggestions(
     const staticGiftData = saveData.generation === 2 ? STATIC_GIFT_DATA_GEN2 : STATIC_GIFT_DATA_GEN1;
 
     for (const lae of apiData.localEncounters) {
-      const pid = lae.pid;
+      const pid = lae.pokemonId;
       // ⚡ Bolt: Early exit to prevent processing if the pokemon is already owned or a static gift
       if (staticGiftData[pid] && myOtIds.has(pid)) continue;
       if (!missingIds.has(pid)) continue;
@@ -64,21 +64,21 @@ export function generateCatchSuggestions(
       let hasRelevant = false;
       const details: EncounterDetail[] = [];
 
-      for (let r = 0; r < lae.enc.length; r++) {
-        const re = lae.enc[r];
-        if (!re || re.aid !== localAid || re.v !== displayVersionId) continue;
+      for (let r = 0; r < lae.encounters.length; r++) {
+        const re = lae.encounters[r];
+        if (!re || re.areaId !== localAid || re.versionId !== displayVersionId) continue;
 
         hasRelevant = true;
-        for (let d = 0; d < re.d.length; d++) {
-          const ed = re.d[d];
+        for (let d = 0; d < re.details.length; d++) {
+          const ed = re.details[d];
           if (!ed) continue;
           details.push({
-            chance: ed.c,
-            method: METHOD_NAMES[ed.m] || 'walk',
-            minLevel: ed.min,
-            maxLevel: ed.max,
-            areaId: re.aid,
-            time: ed.t,
+            chance: ed.chance,
+            method: METHOD_NAMES[ed.method] || 'walk',
+            minLevel: ed.minLevel,
+            maxLevel: ed.maxLevel,
+            areaId: re.areaId,
+            time: ed.timeOfDay,
           });
         }
       }
@@ -119,18 +119,18 @@ export function generateCatchSuggestions(
     if (localPids.has(pid)) continue;
 
     const encData = apiData.missingEncounters[pid];
-    if (!encData?.enc) continue;
+    if (!encData?.encounters) continue;
 
     let bestDist = 999;
     let bestAreaName = '';
     // ⚡ Bolt: Store the best encounter reference and defer mapping EncounterDetails until after the loop
     // to prevent redundant array allocations and O(N) mapping operations for every missing Pokémon.
-    let bestE: (typeof encData.enc)[0] | null = null;
+    let bestE: (typeof encData.encounters)[0] | null = null;
 
-    for (const e of encData.enc) {
-      if (e.v !== displayVersionId) continue;
+    for (const e of encData.encounters) {
+      if (e.versionId !== displayVersionId) continue;
 
-      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations);
+      const distInfo = strategy.getMapDistance(saveData.currentMapId, e.areaId, apiData.allLocations);
       if (distInfo && distInfo.distance < bestDist) {
         bestDist = distInfo.distance;
         bestAreaName = distInfo.name;
@@ -139,18 +139,18 @@ export function generateCatchSuggestions(
     }
 
     if (bestDist < 8 && bestE) {
-      const areaId = bestE.aid;
+      const areaId = bestE.areaId;
       const bestDetails: EncounterDetail[] = [];
-      for (let d = 0; d < bestE.d.length; d++) {
-        const ed = bestE.d[d];
+      for (let d = 0; d < bestE.details.length; d++) {
+        const ed = bestE.details[d];
         if (!ed) continue;
         bestDetails.push({
-          chance: ed.c,
-          method: METHOD_NAMES[ed.m] || 'walk',
-          minLevel: ed.min,
-          maxLevel: ed.max,
+          chance: ed.chance,
+          method: METHOD_NAMES[ed.method] || 'walk',
+          minLevel: ed.minLevel,
+          maxLevel: ed.maxLevel,
           areaId,
-          time: ed.t,
+          time: ed.timeOfDay,
         });
       }
 

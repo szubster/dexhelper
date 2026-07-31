@@ -56,8 +56,8 @@ export class TypeSorter {
 
 export class AlphaSorter {
   public sort: SortingStrategy = (a, b) => {
-    const nameA = a.instance.nickname || a.metadata?.n || String(a.instance.speciesId);
-    const nameB = b.instance.nickname || b.metadata?.n || String(b.instance.speciesId);
+    const nameA = a.instance.nickname || a.metadata?.name || String(a.instance.speciesId);
+    const nameB = b.instance.nickname || b.metadata?.name || String(b.instance.speciesId);
 
     return nameA.localeCompare(nameB);
   };

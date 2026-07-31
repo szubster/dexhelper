@@ -229,16 +229,16 @@ describe('useAssistant - generateSuggestions logic', () => {
       },
     },
     pokemonMetadata: {
-      39: { id: 39, n: 'Jigglypuff', cr: 170, gr: 6, baby: false, efrm: [], det: [], eto: [] } as PokemonMetadata,
+      39: { id: 39, n: 'Jigglypuff', cr: 170, gr: 6, baby: false, evolvesFrom: [], evolutionDetails: [], evolvesTo: [] } as PokemonMetadata,
       40: {
         id: 40,
         n: 'Wigglytuff',
         cr: 50,
         gr: 6,
         baby: false,
-        efrm: [39],
-        det: [{ tr: 3, item: 81 }],
-        eto: [],
+        evolvesFrom: [39],
+        evolutionDetails: [{ tr: 3, item: 81 }],
+        evolvesTo: [],
       } as PokemonMetadata,
       62: {
         id: 62,
@@ -246,9 +246,9 @@ describe('useAssistant - generateSuggestions logic', () => {
         cr: 45,
         gr: 4,
         baby: false,
-        efrm: [61, 60],
-        det: [{ tr: 3, item: 84 }],
-        eto: [],
+        evolvesFrom: [61, 60],
+        evolutionDetails: [{ tr: 3, item: 84 }],
+        evolvesTo: [],
       } as PokemonMetadata,
     },
     allLocations: [],
@@ -289,7 +289,7 @@ describe('useAssistant - generateSuggestions logic', () => {
       },
       pokemonMetadata: {
         ...mockApiData.pokemonMetadata,
-        13: { id: 13, n: 'Weedle', cr: 255, gr: 4, baby: false, efrm: [], det: [], eto: [] } as PokemonMetadata,
+        13: { id: 13, n: 'Weedle', cr: 255, gr: 4, baby: false, evolvesFrom: [], evolutionDetails: [], evolvesTo: [] } as PokemonMetadata,
       },
     };
 

@@ -49,7 +49,7 @@ export function PokemonLocations({
   const currentVersionId = POKE_VERSION_MAP[gameVersion.toLowerCase()];
   const staticEnc = isValidStaticGameVersion(gameVersion) ? staticEncounters[pokemonId]?.[gameVersion] : undefined;
   // ⚡ Bolt: Memoize versionEnc filtering to prevent unneeded array allocations on every render
-  const versionEnc = useMemo(() => encounters.filter((e) => e.v === currentVersionId), [encounters, currentVersionId]);
+  const versionEnc = useMemo(() => encounters.filter((e) => e.versionId === currentVersionId), [encounters, currentVersionId]);
   const hasEncounters = (staticEnc && staticEnc.length > 0) || versionEnc.length > 0 || evoReq;
 
   return (
@@ -107,9 +107,9 @@ export function PokemonLocations({
               ))}
               {versionEnc.map((e) => (
                 <GeospatialNode
-                  key={`${e.aid}-${e.v}`}
+                  key={`${e.areaId}-${e.versionId}` dialogue}
                   encounter={e}
-                  areaName={areaNames?.[e.aid] || `AREA #${e.aid}`}
+                  areaName={areaNames?.[e.areaId] || `AREA #${e.areaId}`}
                 />
               ))}
             </>
@@ -130,7 +130,7 @@ function GeospatialNode({ encounter: e, areaName }: { encounter: CompactEncounte
         <TacticalBlockHeader
           variant="primary"
           icon={<Crosshair size={10} />}
-          trackingLabel={`[ ZONE_ID: ${e.aid.toString().padStart(3, '0')} ]`}
+          trackingLabel={`[ ZONE_ID: ${e.areaId.toString().padStart(3, '0')} ]`}
           title={areaName.toUpperCase()}
           trailingIcon={<Navigation size={14} />}
           className="border-zinc-800/50"
@@ -140,14 +140,14 @@ function GeospatialNode({ encounter: e, areaName }: { encounter: CompactEncounte
         <div className="flex flex-col gap-2">
           <DataLabel>[ DETECTION VECTORS ]</DataLabel>
           <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
-            {e.d.map((d: CompactEncounterDetail, di: number) => {
-              const methodStr = REVERSE_METHOD_MAP[d.m]?.toLowerCase() || 'unknown';
+            {e.details.map((d: CompactEncounterDetail, di: number) => {
+              const methodStr = REVERSE_METHOD_MAP[d.method]?.toLowerCase() || 'unknown';
               const isRod = methodStr.includes('rod');
               const isSurf = methodStr === 'surf';
               const isGrass = methodStr === 'walk';
               const Icon = isRod ? Fish : isSurf ? Waves : isGrass ? Trees : Target;
 
-              const blocks = Math.ceil(d.c / 10);
+              const blocks = Math.ceil(d.chance / 10);
 
               return (
                 <div
@@ -165,7 +165,7 @@ function GeospatialNode({ encounter: e, areaName }: { encounter: CompactEncounte
                       </span>
                       <span className="border border-[var(--theme-primary)]/20 bg-[var(--theme-primary)]/10 px-1 font-black font-mono text-[10px] text-[var(--theme-primary)]">
                         LV.{d.min}
-                        {d.min !== d.max ? `-${d.max}` : ''}
+                        {d.minLevel !== d.maxLevelLevelLevel ? `-${d.maxLevelLevel}` : ''}
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
@@ -183,7 +183,7 @@ function GeospatialNode({ encounter: e, areaName }: { encounter: CompactEncounte
                           />
                         ))}
                       </div>
-                      <span className="w-7 text-right font-black text-[9px] text-[var(--theme-primary)]">{d.c}%</span>
+                      <span className="w-7 text-right font-black text-[9px] text-[var(--theme-primary)]">{d.chance}%</span>
                     </div>
                   </div>
                 </div>
@@ -217,15 +217,15 @@ function FallbackLocations({
       <div className="grid grid-cols-1 gap-2 pl-6 sm:grid-cols-2">
         {encounters.map((e) => (
           <div
-            key={`${e.aid}-${e.v}`}
+            key={`${e.areaId}-${e.versionId}` dialogue}
             className="flex flex-col rounded-none border border-zinc-800 border-dashed bg-zinc-950 p-3 transition-colors hover:border-amber-500/30"
           >
             <div className="flex items-center justify-between">
               <span className="font-bold text-[10px] text-zinc-300 uppercase tracking-wide">
-                {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
+                {(areaNames?.[e.areaId] || `AREA #${e.areaId}`).toUpperCase()}
               </span>
               <TacticalBadge variant="amber" className="border-amber-500/20 bg-amber-500/5 px-1.5 py-0.5 text-[8px]">
-                V-ID: {e.v}
+                V-ID: {e.versionId}
               </TacticalBadge>
             </div>
           </div>

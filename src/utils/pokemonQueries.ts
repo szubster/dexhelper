@@ -16,8 +16,8 @@ export const pokemonListQueryOptions = queryOptions({
     return data
       .map((p) => ({
         id: p.id,
-        name: p.n.charAt(0).toUpperCase() + p.n.slice(1),
-        nameLower: p.n.toLowerCase(),
+        name: p.name.charAt(0).toUpperCase() + p.name.slice(1),
+        nameLower: p.name.toLowerCase(),
         idString: p.id.toString(),
       }))
       .sort((a, b) => a.id - b.id);

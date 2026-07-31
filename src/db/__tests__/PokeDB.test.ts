@@ -17,9 +17,9 @@ vi.stubGlobal(
     arrayBuffer: async () =>
       pack({
         hash: 'test-hash',
-        poke: [],
-        enc: [],
-        loc: [],
+        pokemon: [],
+        encounters: [],
+        locations: [],
       }),
   } as unknown as Response),
 );
@@ -32,9 +32,9 @@ describe('PokeDB', () => {
       arrayBuffer: async () =>
         pack({
           hash: 'test-hash',
-          poke: [],
-          enc: [],
-          loc: [],
+          pokemon: [],
+          encounters: [],
+          locations: [],
         }),
     } as unknown as Response);
     pokeDB._resetSync();
@@ -76,7 +76,7 @@ describe('PokeDB', () => {
     // Verify it was reset by calling again with a successful fetch
     vi.mocked(fetch).mockResolvedValueOnce({
       ok: true,
-      arrayBuffer: async () => pack({ hash: 'test-hash-2', poke: [], enc: [], loc: [] }),
+      arrayBuffer: async () => pack({ hash: 'test-hash-2', pokemon: [], encounters: [], locations: [] }),
     } as unknown as Response);
 
     await pokeDB.sync();
@@ -117,7 +117,7 @@ describe('PokeDB', () => {
 
     vi.mocked(fetch).mockResolvedValueOnce({
       ok: true,
-      arrayBuffer: async () => pack({ hash: 'old-hash', poke: [], enc: [], loc: [] }),
+      arrayBuffer: async () => pack({ hash: 'old-hash', pokemon: [], encounters: [], locations: [] }),
     } as unknown as Response);
 
     const transactionSpy = vi.spyOn(db, 'transaction');
@@ -163,20 +163,20 @@ describe('PokeDB', () => {
     const mockData = {
       items: [],
       hash: 'new-hash',
-      poke: [
+      pokemon: [
         {
           id: 1,
           n: 'Bulbasaur',
           cr: 45,
           gr: 1,
           baby: false,
-          eto: [],
-          efrm: [],
-          det: [],
+          evolvesTo: [],
+          evolvesFrom: [],
+          evolutionDetails: [],
         },
       ],
-      enc: [{ pid: 1, enc: [] }],
-      loc: [{ id: 1, n: 'Pallet Town', pids: [1], dist: {} }],
+      encounters: [{ pokemonId: 1, encounters: [] }],
+      locations: [{ id: 1, n: 'Pallet Town', pids: [1], dist: {} }],
     };
 
     vi.mocked(fetch).mockResolvedValue({
@@ -187,20 +187,20 @@ describe('PokeDB', () => {
     await pokeDB.sync();
 
     const p = await pokeDB.getPokemon(1);
-    expect(p?.n).toBe('Bulbasaur');
-    expect(p?.cr).toBe(45);
+    expect(p?.name).toBe('Bulbasaur');
+    expect(p?.captureRate).toBe(45);
   });
 
   it('performs bulk operations for pokemons', async () => {
     const mockData = {
       items: [],
       hash: 'bulk-hash',
-      poke: [
-        { id: 1, n: 'P1', cr: 10, gr: 1, baby: false, eto: [], efrm: [], det: [] },
-        { id: 2, n: 'P2', cr: 10, gr: 1, baby: false, eto: [], efrm: [], det: [] },
+      pokemon: [
+        { id: 1, n: 'P1', cr: 10, gr: 1, baby: false, evolvesTo: [], evolvesFrom: [], evolutionDetails: [] },
+        { id: 2, n: 'P2', cr: 10, gr: 1, baby: false, evolvesTo: [], evolvesFrom: [], evolutionDetails: [] },
       ],
-      enc: [],
-      loc: [],
+      encounters: [],
+      locations: [],
     };
 
     vi.mocked(fetch).mockResolvedValue({
@@ -215,11 +215,11 @@ describe('PokeDB', () => {
 
     const r1 = results[0];
     if (!r1 || r1 instanceof Error) throw r1 ?? new Error('r1 undefined');
-    expect(r1.n).toBe('P1');
+    expect(r1.name).toBe('P1');
 
     const r2 = results[1];
     if (!r2 || r2 instanceof Error) throw r2 ?? new Error('r2 undefined');
-    expect(r2.n).toBe('P2');
+    expect(r2.name).toBe('P2');
 
     expect(results[2]).toBeInstanceOf(Error);
   });
@@ -236,32 +236,32 @@ describe('PokeDB', () => {
     const mockData = {
       items: [],
       hash: 'evo-chain-hash',
-      poke: [
+      pokemon: [
         {
           id: 1,
           n: 'P1',
           cr: 10,
           gr: 1,
           baby: false,
-          efrm: [],
-          det: [],
-          eto: [
+          evolvesFrom: [],
+          evolutionDetails: [],
+          evolvesTo: [
             {
               id: 2,
-              det: [{ tr: 1 }],
-              eto: [
+              evolutionDetails: [{ trigger: 1 }],
+              evolvesTo: [
                 {
                   id: 3,
-                  det: [{ tr: 2 }],
-                  eto: [],
+                  evolutionDetails: [{ trigger: 2 }],
+                  evolvesTo: [],
                 },
               ],
             },
           ],
         },
       ],
-      enc: [],
-      loc: [],
+      encounters: [],
+      locations: [],
     };
 
     vi.mocked(fetch).mockResolvedValue({
@@ -272,19 +272,19 @@ describe('PokeDB', () => {
     await pokeDB.sync();
 
     const p1 = await pokeDB.getPokemon(1);
-    expect(p1?.eto?.[0]?.id).toBe(2);
-    expect(p1?.eto?.[0]?.det?.[0]?.tr).toBe(1);
-    expect(p1?.eto?.[0]?.eto?.[0]?.id).toBe(3);
-    expect(p1?.eto?.[0]?.eto?.[0]?.det?.[0]?.tr).toBe(2);
+    expect(p1?.evolvesTo?.[0]?.id).toBe(2);
+    expect(p1?.evolvesTo?.[0]?.evolutionDetails?.[0]?.trigger).toBe(1);
+    expect(p1?.evolvesTo?.[0]?.evolvesTo?.[0]?.id).toBe(3);
+    expect(p1?.evolvesTo?.[0]?.evolvesTo?.[0]?.evolutionDetails?.[0]?.trigger).toBe(2);
   });
 
   it('resolves area names correctly', async () => {
     const mockData = {
       items: [],
       hash: 'area-hash',
-      poke: [],
-      enc: [],
-      loc: [
+      pokemon: [],
+      encounters: [],
+      locations: [
         { id: 1, n: 'Viridian Forest', pids: [], dist: {} },
         { id: 2, n: 'Route 1', pids: [], dist: {} },
       ],
@@ -308,24 +308,24 @@ describe('PokeDB', () => {
     const mockData = {
       items: [],
       hash: 'em-hash',
-      poke: [
+      pokemon: [
         {
           id: 1,
           n: 'Bulbasaur',
           cr: 45,
           gr: 1,
           baby: false,
-          efrm: [],
-          det: [],
-          eto: [],
+          evolvesFrom: [],
+          evolutionDetails: [],
+          evolvesTo: [],
           em: {
             '13': [274, 1],
             '80': [43, 1],
           },
         },
       ],
-      enc: [],
-      loc: [],
+      encounters: [],
+      locations: [],
     };
 
     vi.mocked(fetch).mockResolvedValue({
@@ -345,7 +345,7 @@ describe('PokeDB', () => {
     it('returns correct status when synced', async () => {
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
-        arrayBuffer: async () => pack({ hash: 'new-hash', poke: [], enc: [], loc: [] }),
+        arrayBuffer: async () => pack({ hash: 'new-hash', pokemon: [], encounters: [], locations: [] }),
       } as unknown as Response);
 
       await pokeDB.sync();
@@ -374,7 +374,7 @@ describe('PokeDB', () => {
 
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
-        arrayBuffer: async () => pack({ hash: 'synced-hash', poke: [], enc: [], loc: [] }),
+        arrayBuffer: async () => pack({ hash: 'synced-hash', pokemon: [], encounters: [], locations: [] }),
       } as unknown as Response);
 
       await pokeDB.ready();
@@ -385,12 +385,12 @@ describe('PokeDB', () => {
       const mockData = {
         items: [],
         hash: 'new-hash',
-        poke: [
-          { id: 1, n: 'Bulbasaur', cr: 45, gr: 1, baby: false, eto: [], efrm: [], det: [] },
-          { id: 2, n: 'Ivysaur', cr: 45, gr: 1, baby: false, eto: [], efrm: [], det: [] },
+        pokemon: [
+          { id: 1, n: 'Bulbasaur', cr: 45, gr: 1, baby: false, evolvesTo: [], evolvesFrom: [], evolutionDetails: [] },
+          { id: 2, n: 'Ivysaur', cr: 45, gr: 1, baby: false, evolvesTo: [], evolvesFrom: [], evolutionDetails: [] },
         ],
-        enc: [],
-        loc: [],
+        encounters: [],
+        locations: [],
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
@@ -400,7 +400,7 @@ describe('PokeDB', () => {
 
       const all = await pokeDB.getAllPokemon();
       expect(all).toHaveLength(2);
-      expect(all[0]?.n).toBe('Bulbasaur');
+      expect(all[0]?.name).toBe('Bulbasaur');
     });
 
     it('getEncounters returns undefined for invalid id', async () => {
@@ -411,9 +411,9 @@ describe('PokeDB', () => {
       const mockData = {
         items: [],
         hash: 'new-hash',
-        poke: [],
-        enc: [{ pid: 1, enc: [] }],
-        loc: [],
+        pokemon: [],
+        encounters: [{ pokemonId: 1, encounters: [] }],
+        locations: [],
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
@@ -422,19 +422,19 @@ describe('PokeDB', () => {
       await pokeDB.sync();
 
       const enc = await pokeDB.getEncounters(1);
-      expect(enc?.pid).toBe(1);
+      expect(enc?.pokemonId).toBe(1);
     });
 
     it('getEncountersBulk returns correctly', async () => {
       const mockData = {
         items: [],
         hash: 'new-hash',
-        poke: [],
-        enc: [
-          { pid: 1, enc: [] },
-          { pid: 2, enc: [] },
+        pokemon: [],
+        encounters: [
+          { pokemonId: 1, encounters: [] },
+          { pokemonId: 2, encounters: [] },
         ],
-        loc: [],
+        locations: [],
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
@@ -444,8 +444,8 @@ describe('PokeDB', () => {
 
       const results = await pokeDB.getEncountersBulk([1, 2, 999]);
       expect(results).toHaveLength(3);
-      expect((results[0] as { pid: number }).pid).toBe(1);
-      expect((results[1] as { pid: number }).pid).toBe(2);
+      expect((results[0] as { pokemonId: number }).pokemonId).toBe(1);
+      expect((results[1] as { pokemonId: number }).pokemonId).toBe(2);
       expect(results[2]).toBeInstanceOf(Error);
     });
 
@@ -458,12 +458,12 @@ describe('PokeDB', () => {
       const mockData = {
         items: [],
         hash: 'new-hash',
-        poke: [],
-        enc: [
-          { pid: 1, enc: [] },
-          { pid: 2, enc: [] },
+        pokemon: [],
+        encounters: [
+          { pokemonId: 1, encounters: [] },
+          { pokemonId: 2, encounters: [] },
         ],
-        loc: [],
+        locations: [],
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
@@ -483,9 +483,9 @@ describe('PokeDB', () => {
       const mockData = {
         items: [],
         hash: 'new-hash',
-        poke: [],
-        enc: [],
-        loc: [{ id: 1, n: 'Pallet Town', pids: [1], dist: {} }],
+        pokemon: [],
+        encounters: [],
+        locations: [{ id: 1, n: 'Pallet Town', pids: [1], dist: {} }],
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
@@ -494,16 +494,16 @@ describe('PokeDB', () => {
       await pokeDB.sync();
 
       const loc = await pokeDB.getLocation(1);
-      expect(loc?.n).toBe('Pallet Town');
+      expect(loc?.name).toBe('Pallet Town');
     });
 
     it('getLocations returns all locations', async () => {
       const mockData = {
         items: [],
         hash: 'new-hash',
-        poke: [],
-        enc: [],
-        loc: [
+        pokemon: [],
+        encounters: [],
+        locations: [
           { id: 1, n: 'Pallet Town', pids: [1], dist: {} },
           { id: 2, n: 'Route 1', pids: [1], dist: {} },
         ],
@@ -526,9 +526,9 @@ describe('PokeDB', () => {
       const mockData = {
         items: [],
         hash: 'new-hash',
-        poke: [],
-        enc: [],
-        loc: [{ id: 1, n: 'Pallet Town', pids: [1], dist: {} }],
+        pokemon: [],
+        encounters: [],
+        locations: [{ id: 1, n: 'Pallet Town', pids: [1], dist: {} }],
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
@@ -538,16 +538,16 @@ describe('PokeDB', () => {
 
       const areas = await pokeDB.getAreas(1);
       expect(areas).toHaveLength(1);
-      expect(areas[0]?.n).toBe('Pallet Town');
+      expect(areas[0]?.name).toBe('Pallet Town');
     });
 
     it('getAllAreas returns all locations', async () => {
       const mockData = {
         items: [],
         hash: 'new-hash',
-        poke: [],
-        enc: [],
-        loc: [{ id: 1, n: 'Pallet Town', pids: [1], dist: {} }],
+        pokemon: [],
+        encounters: [],
+        locations: [{ id: 1, n: 'Pallet Town', pids: [1], dist: {} }],
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
@@ -567,9 +567,9 @@ describe('PokeDB', () => {
       const mockData = {
         items: [],
         hash: 'new-hash',
-        poke: [],
-        enc: [],
-        loc: [{ id: 1, n: 'Pallet Town', pids: [1, 2], dist: {} }],
+        pokemon: [],
+        encounters: [],
+        locations: [{ id: 1, n: 'Pallet Town', pids: [1, 2], dist: {} }],
       };
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
@@ -585,9 +585,9 @@ describe('PokeDB', () => {
       const mockData = {
         items: [],
         hash: 'new-hash-bulk',
-        poke: [],
-        enc: [],
-        loc: [
+        pokemon: [],
+        encounters: [],
+        locations: [
           { id: 1, n: 'Pallet Town', pids: [1, 2], dist: {} },
           { id: 2, n: 'Route 1', pids: [3], dist: {} },
         ],

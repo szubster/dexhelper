@@ -172,65 +172,64 @@ export const MOVE_DAMAGE_CLASS = {
 } as const;
 
 export interface CompactEncounterDetail {
-  c: number; // chance
-  m: number; // method (ENCOUNTER_METHOD)
-  min: number; // min_level
-  max?: number | undefined; // max_level
-  t?: number | undefined; // time of day bitmask (1: morning, 2: day, 4: night)
+  chance: number;
+  method: number;
+  minLevel: number;
+  maxLevel?: number | undefined;
+  timeOfDay?: number | undefined;
 }
 
 export interface CompactEncounter {
-  aid: number; // area id (gameId)
-  v: number; // version id
-  d: CompactEncounterDetail[];
+  areaId: number;
+  versionId: number;
+  details: CompactEncounterDetail[];
 }
 
 export interface LocationAreaEncounters {
-  pid: number;
-  enc: CompactEncounter[];
+  pokemonId: number;
+  encounters: CompactEncounter[];
 }
 
 export interface UnifiedLocation {
-  id: number; // ROM Map ID
-  n: string; // display name
-  prnt?: number | undefined; // ROM Map ID of parent (e.g., city containing this building)
-  conn?: number[] | undefined; // Connected Map IDs for navigation
-  pids?: number[] | undefined; // Pokémon IDs found here
-  dist?: Record<number, number> | undefined; // Precomputed distance matrix (targetId -> hops)
+  id: number;
+  name: string;
+  parent?: number | undefined;
+  connections?: number[] | undefined;
+  pokemonIds?: number[] | undefined;
+  distances?: Record<number, number> | undefined;
 }
 
 export type GenericLocation = UnifiedLocation;
 
 interface CompactEvolutionDetail {
-  tr?: number | undefined; // trigger (EVO_TRIGGER)
-  ml?: number | undefined; // min_level
-  mh?: number | undefined; // min_happiness
-  item?: number | undefined; // item id
-  held?: number | undefined; // held item id
-  time?: number | undefined; // 1: day, 2: night
-  rps?: number | undefined; // relative_physical_stats (1: Atk > Def, -1: Atk < Def, 0: Atk == Def)
+  trigger?: number | undefined;
+  minLevel?: number | undefined;
+  minHappiness?: number | undefined;
+  itemId?: number | undefined;
+  heldItemId?: number | undefined;
+  timeOfDay?: number | undefined;
+  relativePhysicalStats?: number | undefined;
 }
 
 export interface CompactChainLink {
-  id: number; // species id
-  eto: CompactChainLink[];
-  det: CompactEvolutionDetail[];
-  ef?: number | undefined; // evolves from species id
+  id: number;
+  evolvesTo: CompactChainLink[];
+  evolutionDetails: CompactEvolutionDetail[];
+  evolvesFromId?: number | undefined;
 }
 
 export interface PokemonMetadata {
-  id: number; // pokemon id
-  n: string; // name
-  cr: number; // capture rate
-  gr?: number | undefined; // gender rate
-  eg?: number[] | undefined; // egg groups (EGG_GROUP)
-  types?: number[] | undefined; // pokemon types (POKEMON_TYPE)
-  baby: boolean; // is baby
-  // Embedded evolution data
-  eto: CompactChainLink[];
-  efrm: number[]; // Parent, Grandparent, etc.
-  det: CompactEvolutionDetail[]; // Evolutionary requirements to reach THIS pokemon from parent
-  em?: Record<number, number[]> | undefined; // Precomputed shortest breeding chains for egg moves: MoveID -> chain of Pokemon IDs
+  id: number;
+  name: string;
+  captureRate: number;
+  genderRate?: number | undefined;
+  eggGroups?: number[] | undefined;
+  types?: number[] | undefined;
+  baby: boolean;
+  evolvesTo: CompactChainLink[];
+  evolvesFrom: number[];
+  evolutionDetails: CompactEvolutionDetail[];
+  em?: Record<number, number[]> | undefined;
 }
 
 export interface ItemMetadata {
@@ -238,7 +237,7 @@ export interface ItemMetadata {
   name: string;
   cost?: number | undefined;
   category?: number | undefined;
-  fling_p?: number | undefined;
+  flingPower?: number | undefined;
   effect?: string | undefined;
   sprite?: string | undefined;
 }
@@ -252,9 +251,9 @@ export interface HiddenItemData {
 }
 
 export interface PokeDataExport {
-  poke: PokemonMetadata[];
-  enc: LocationAreaEncounters[];
-  loc: UnifiedLocation[];
+  pokemon: PokemonMetadata[];
+  encounters: LocationAreaEncounters[];
+  locations: UnifiedLocation[];
   items: ItemMetadata[];
   hash: string;
   sourceSha?: string;

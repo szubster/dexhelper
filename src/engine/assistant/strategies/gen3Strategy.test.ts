@@ -22,14 +22,14 @@ describe('gen3Strategy', () => {
 
   it('resolveMapAid should resolve outdoor map', () => {
     const saveData = { currentMapId: 1 } as SaveData;
-    const allLocations = [{ id: 1, prnt: 2 }, { id: 2 }] as UnifiedLocation[];
+    const allLocations = [{ id: 1, parent: 2 }, { id: 2 }] as UnifiedLocation[];
     expect(gen3Strategy.resolveMapAid(saveData, allLocations)).toBe(2);
   });
 
   it('getMapDistance should return correct distance', () => {
     const allLocations = [
-      { id: 1, n: 'Start', dist: { 2: 5 } },
-      { id: 2, n: 'Target' },
+      { id: 1, name: 'Start', distances: { 2: 5 } },
+      { id: 2, name: 'Target' },
     ] as UnifiedLocation[];
     const result = gen3Strategy.getMapDistance(1, 2, allLocations);
     expect(result).toEqual({ distance: 5, name: 'Target' });

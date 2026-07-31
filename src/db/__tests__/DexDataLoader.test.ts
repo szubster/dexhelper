@@ -46,23 +46,23 @@ describe('DexDataLoader', () => {
         cr: 45,
         gr: 1,
         baby: false,
-        eto: [],
-        efrm: [],
-        det: [],
+        evolvesTo: [],
+        evolvesFrom: [],
+        evolutionDetails: [],
       } as PokemonMetadata,
     ]);
     vi.mocked(pokeDB.getEncountersBulk).mockResolvedValue([
       {
-        pid: 1,
-        enc: [{ aid: 1, v: 1, d: [] }] as CompactEncounter[],
+        pokemonId: 1,
+        encounters: [{ aid: 1, v: 1, d: [] }] as CompactEncounter[],
       },
     ]);
     vi.mocked(pokeDB.getAreaNames).mockResolvedValue({ 1: 'Area 1' });
 
     const details = await dexDataLoader.getPokemonDetails(1);
 
-    expect(details.pokemon.n).toBe('P1');
-    expect(details.enc).toHaveLength(1);
+    expect(details.pokemon.name).toBe('P1');
+    expect(details.encounters).toHaveLength(1);
     expect(details.areaNames).toEqual({ 1: 'Area 1' });
   });
 
@@ -74,9 +74,9 @@ describe('DexDataLoader', () => {
         cr: 45,
         gr: 1,
         baby: false,
-        efrm: [0], // Fake ancestor
-        eto: [{ id: 2, eto: [], det: [] }], // Fake descendant
-        det: [],
+        evolvesFrom: [0], // Fake ancestor
+        evolvesTo: [{ id: 2, evolvesTo: [], evolutionDetails: [] }], // Fake descendant
+        evolutionDetails: [],
       } as unknown as PokemonMetadata,
       { id: 2, n: 'Ivy' } as unknown as PokemonMetadata,
       { id: 0, n: 'Egg' } as unknown as PokemonMetadata,
@@ -85,7 +85,7 @@ describe('DexDataLoader', () => {
     vi.mocked(pokeDB.getPokemons).mockImplementation(async (ids: number[]) => {
       return ids.map((id) => mockPokes.find((p) => p.id === id) || new Error('Not found'));
     });
-    vi.mocked(pokeDB.getEncountersBulk).mockResolvedValue([{ pid: 1, enc: [{ aid: 99, v: 1, d: [] }] }]);
+    vi.mocked(pokeDB.getEncountersBulk).mockResolvedValue([{ pokemonId: 1, encounters: [{ aid: 99, v: 1, d: [] }] }]);
     vi.mocked(pokeDB.getAreaNames).mockResolvedValue({ 99: 'Test Area' });
 
     const result = await dexDataLoader.getPokemonDetails(1);
@@ -110,15 +110,15 @@ describe('DexDataLoader', () => {
       {
         id: 1,
         n: 'Bulba',
-        efrm: [1], // self-referencing to hit already-defined ancestor
-        eto: [{ id: 1, eto: [], det: [] }], // self-referencing descendant to hit already-defined
+        evolvesFrom: [1], // self-referencing to hit already-defined ancestor
+        evolvesTo: [{ id: 1, evolvesTo: [], evolutionDetails: [] }], // self-referencing descendant to hit already-defined
       } as unknown as PokemonMetadata,
     ];
 
     vi.mocked(pokeDB.getPokemons).mockImplementation(async (ids: number[]) => {
       return ids.map((id) => mockPokes.find((p) => p.id === id) || new Error('Not found'));
     });
-    vi.mocked(pokeDB.getEncountersBulk).mockResolvedValue([{ pid: 1, enc: [] }]);
+    vi.mocked(pokeDB.getEncountersBulk).mockResolvedValue([{ pokemonId: 1, encounters: [] }]);
     vi.mocked(pokeDB.getAreaNames).mockResolvedValue({});
 
     const result = await dexDataLoader.getPokemonDetails(1);
@@ -135,8 +135,8 @@ describe('DexDataLoader', () => {
       {
         id: 1,
         n: 'Bulba',
-        efrm: [2], // Missing ancestor to trigger loadMany
-        eto: [],
+        evolvesFrom: [2], // Missing ancestor to trigger loadMany
+        evolvesTo: [],
       } as unknown as PokemonMetadata,
     ];
 
@@ -149,7 +149,7 @@ describe('DexDataLoader', () => {
       return [new Error('Ancestor missing')] as (PokemonMetadata | Error)[];
     });
 
-    vi.mocked(pokeDB.getEncountersBulk).mockResolvedValue([{ pid: 1, enc: [] }]);
+    vi.mocked(pokeDB.getEncountersBulk).mockResolvedValue([{ pokemonId: 1, encounters: [] }]);
     vi.mocked(pokeDB.getAreaNames).mockResolvedValue({});
 
     const result = await dexDataLoader.getPokemonDetails(1);
@@ -167,9 +167,9 @@ describe('DexDataLoader', () => {
         cr: 45,
         gr: 1,
         baby: false,
-        efrm: [0],
-        eto: [],
-        det: [],
+        evolvesFrom: [0],
+        evolvesTo: [],
+        evolutionDetails: [],
       } as PokemonMetadata,
       { id: 0, n: 'Egg' } as unknown as PokemonMetadata,
     ];
@@ -196,9 +196,9 @@ describe('DexDataLoader', () => {
         cr: 45,
         gr: 1,
         baby: false,
-        efrm: [0],
-        eto: [],
-        det: [],
+        evolvesFrom: [0],
+        evolvesTo: [],
+        evolutionDetails: [],
       } as PokemonMetadata,
     ];
     vi.mocked(pokeDB.getPokemons).mockImplementation(async (ids: number[]) => {
@@ -220,7 +220,7 @@ describe('DexDataLoader', () => {
     vi.mocked(pokeDB.getAreaNames).mockResolvedValue({});
 
     const result = await dexDataLoader.getPokemonDetails(1);
-    expect(result.enc).toEqual([]);
+    expect(result.encounters).toEqual([]);
     expect(result.nameMap[0]).toBe('Fake-0'); // The mock ID 0 isn't properly returned except via Fake-0.
   });
 });

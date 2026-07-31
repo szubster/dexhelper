@@ -19,9 +19,9 @@ describe('StandardSorters', () => {
             n: speciesName || '',
             cr: 100,
             baby: false,
-            eto: [],
-            efrm: [],
-            det: [],
+            evolvesTo: [],
+            evolvesFrom: [],
+            evolutionDetails: [],
             types,
           } as unknown as PokemonMetadata)
         : undefined;

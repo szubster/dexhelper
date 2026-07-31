@@ -257,18 +257,18 @@ async function main() {
 
     pokemon.push(sortObj({
       id: pData.id,
-      n: sData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || sData.name,
-      cr: sData.capture_rate,
-      gr: sData.gender_rate,
-      eg: sData.egg_groups?.map((g: any) => EGG_GROUP_MAP[g.name] || 0) || [],
+      name: sData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || sData.name,
+      captureRate: sData.capture_rate,
+      genderRate: sData.gender_rate,
+      eggGroups: sData.egg_groups?.map((g: any) => EGG_GROUP_MAP[g.name] || 0) || [],
       types: pData.types?.sort((a: any, b: any) => a.slot - b.slot).map((t: any) => POKEMON_TYPE_MAP[t.type.name] || 0) || [],
       baby: sData.is_baby,
       em: undefined, // Will be populated in second pass
       // Temporaries to be filled in second pass
-      eto: [],
-      efrm: [],
-      det: [],
-    }, ['id', 'n']));
+      evolvesTo: [],
+      evolvesFrom: [],
+      evolutionDetails: [],
+    }, ['id', 'name']));
 
     const pokemonEncounters: { aid: number; version_details: { v: number; d: CompactEncounterDetail[] }[] }[] = [];
     for (const areaEnc of eData) {
@@ -336,9 +336,9 @@ async function main() {
                 id: gameId,
                 n: localName || areaData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || locData.name,
                 conn: connections,
-                pids: [],
-                dist: {}
-              }, ['id', 'n']));
+                pokemonIds: [],
+                distances: {}
+              }, ['id', 'name']));
             }
           }
         }
@@ -346,10 +346,10 @@ async function main() {
         // Update Pokémon index
         const loc = locationMap.get(gameId);
         if (loc) {
-          if (!loc.pids) loc.pids = [];
-          if (!loc.pids.includes(i)) {
-            loc.pids.push(i);
-            loc.pids.sort((a, b) => a - b);
+          if (!loc.pids) loc.pokemonIds = [];
+          if (!loc.pokemonIds.includes(i)) {
+            loc.pokemonIds.push(i);
+            loc.pokemonIds.sort((a, b) => a - b);
           }
         }
       }
@@ -360,13 +360,13 @@ async function main() {
         if (!vId) continue;
 
         vDetails.push({
-          v: vId,
-          d: vd.encounter_details.map((ed) => {
-            const det: CompactEncounterDetail = {
-              c: ed.chance,
-              m: ENCOUNTER_METHOD_MAP[ed.method.name] || 0,
-              min: ed.min_level,
-              max: ed.max_level,
+          versionId: vId,
+          details: vd.encounter_details.map((ed) => {
+            const evolutionDetails: CompactEncounterDetail = {
+              chance: ed.chance,
+              method: ENCOUNTER_METHOD_MAP[ed.method.name] || 0,
+              minLevel: ed.min_level,
+              maxLevel: ed.max_level,
             };
 
             if (ed.condition_values && ed.condition_values.length > 0) {
@@ -376,7 +376,7 @@ async function main() {
                 if (cv.name === 'time-day') timeMask |= 2;
                 if (cv.name === 'time-night') timeMask |= 4;
               }
-              if (timeMask > 0) det.t = timeMask;
+              if (timeMask > 0) det.timeOfDay = timeMask;
             }
             return det;
           })
@@ -415,10 +415,10 @@ async function main() {
       };
 
       const bccData = {
-        c: bccChance[i] || 5,
-        m: ENCOUNTER_METHOD_MAP['bug-catching-contest'] || 18,
-        min: bccLevelRange[i]?.min || 24,
-        max: bccLevelRange[i]?.max || 36
+        chance: bccChance[i] || 5,
+        method: ENCOUNTER_METHOD_MAP['bug-catching-contest'] || 18,
+        minLevel: bccLevelRange[i]?.min || 24,
+        maxLevel: bccLevelRange[i]?.max || 36
       };
 
       let npEncounter = pokemonEncounters.find(e => e.aid === 783);
@@ -428,7 +428,7 @@ async function main() {
       }
 
       for (const v of [4, 5, 6]) { // Gold, Silver, Crystal
-        let vDetail = npEncounter.version_details.find(vd => vd.v === v);
+        let vDetail = npEncounter.version_details.find(vd => vd.versionId === v);
         if (!vDetail) {
           vDetail = { v: v, d: [] };
           npEncounter.version_details.push(vDetail);
@@ -442,9 +442,9 @@ async function main() {
       for (const pe of pokemonEncounters) {
         for (const vd of pe.version_details) {
           finalEncs.push({
-            aid: pe.aid,
-            v: vd.v,
-            d: vd.d
+            areaId: pe.aid,
+            versionId: vd.versionId,
+            details: vd.details
           });
         }
       }
@@ -466,9 +466,9 @@ async function main() {
         id: gameId,
         n: map.name,
         conn: map.connections,
-        pids: [],
-        dist: {}
-      }, ['id', 'n']));
+        pokemonIds: [],
+        distances: {}
+      }, ['id', 'name']));
     }
   }
   for (const [group, maps] of Object.entries(GEN2_MAP_TO_AID)) {
@@ -483,10 +483,10 @@ async function main() {
         locationMap.set(gameId, sortObj({
           id: gameId,
           n: mapNode.name,
-          conn: mapNode.connections,
-          pids: [],
-          dist: {}
-        }, ['id', 'n']));
+          connections: mapNode.connections,
+          pokemonIds: [],
+          distances: {}
+        }, ['id', 'name']));
       }
     }
   }
@@ -502,10 +502,10 @@ async function main() {
         locationMap.set(gameId, sortObj({
           id: gameId,
           n: mapNode.name,
-          conn: mapNode.connections,
-          pids: [],
-          dist: {}
-        }, ['id', 'n']));
+          connections: mapNode.connections,
+          pokemonIds: [],
+          distances: {}
+        }, ['id', 'name']));
       }
     }
   }
@@ -515,12 +515,12 @@ console.log('\nReconciling location parents...');
 for (const loc of locationMap.values()) {
   if (loc.id < 256) {
     const parentId = INDOOR_TO_PARENT_MAP[loc.id];
-    if (parentId !== undefined) loc.prnt = parentId;
+    if (parentId !== undefined) loc.parent = parentId;
   } else if ((loc.id >> 16) === 3) {
     // Decode Gen 3 id to look up in the map, then re-encode the parent
     const decodedId = loc.id & 0xffff;
     const parentId = GEN3_INDOOR_TO_PARENT_MAP[decodedId];
-    if (parentId !== undefined) loc.prnt = (3 << 16) | parentId;
+    if (parentId !== undefined) loc.parent = (3 << 16) | parentId;
   }
 }
 
@@ -541,8 +541,8 @@ for (const i of ids) {
 for (const loc of locations) {
   const distLoc = dist[loc.id];
   if (distLoc) {
-    if (loc.conn) {
-      for (const target of loc.conn) {
+    if (loc.connections) {
+      for (const target of loc.connections) {
         const distTarget = dist[target];
         if (distTarget) {
           distLoc[target] = 1;
@@ -550,8 +550,8 @@ for (const loc of locations) {
         }
       }
     }
-    if (loc.prnt !== undefined) {
-      const p = loc.prnt;
+    if (loc.parent !== undefined) {
+      const p = loc.parent;
       const distP = dist[p];
       if (distP) {
         distLoc[p] = 0; // Indoors are effectively "at" the town
@@ -625,17 +625,17 @@ for (const cid of uniqueChainIds) {
 
     return {
       id,
-      eto: link.evolves_to.map(l => mapLink(l, id)),
-      det: validEvolutionDetails.map((ed) => ({
-        tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
-        ml: ed.min_level ?? undefined,
-        mh: ed.min_happiness ?? undefined,
+      evolvesTo: link.evolves_to.map(l => mapLink(l, id)),
+      evolutionDetails: validEvolutionDetails.map((ed) => ({
+        trigger: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
+        minLevel: ed.min_level ?? undefined,
+        minHappiness: ed.min_happiness ?? undefined,
         item: ed.item
           ? parseInt(ed.item.url.split('/').filter(Boolean).pop() || '0', 10)
           : undefined,
-        held: ed.held_item ? parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
-        time: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
-        rps: ed.relative_physical_stats ?? undefined,
+        heldItemId: ed.held_item ? parseInt(ed.held_item.url.split('/').filter(Boolean).pop() || '0', 10) : undefined,
+        timeOfDay: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
+        relativePhysicalStats: ed.relative_physical_stats ?? undefined,
       })),
       ef,
     };
@@ -646,12 +646,12 @@ for (const cid of uniqueChainIds) {
   const registerChain = (node: CompactChainLink, ancestors: number[]) => {
     const p = pokemon.find(p => p.id === node.id);
     if (p) {
-      p.eto = node.eto;
-      p.efrm = ancestors;
-      p.det = node.det;
+      p.evolvesTo = node.evolvesTo;
+      p.evolvesFrom = ancestors;
+      p.evolutionDetails = node.evolutionDetails;
     }
 
-    node.eto.forEach(child => registerChain(child, [node.id, ...ancestors]));
+    node.evolvesTo.forEach(child => registerChain(child, [node.id, ...ancestors]));
   };
 
   registerChain(fullChain, []);
@@ -703,10 +703,10 @@ for (let i = 1; i <= MAX_MOVE_ID; i++) {
     id: mData.id,
     name: mData.names.find((n: PokeApiName) => n.language.name === 'en')?.name || mData.name,
     type: typeId,
-    p: mData.power,
-    acc: mData.accuracy,
+    power: mData.power,
+    accuracy: mData.accuracy,
     pp: mData.pp,
-    dmg_class: dmgClass,
+    damageClass: dmgClass,
   };
 
   if (mData.past_values && mData.past_values.length > 0) {
@@ -760,7 +760,7 @@ for (let i = 1; i <= MAX_ITEM_ID; i++) {
     name: iData.names?.find((n: PokeApiName) => n.language.name === 'en')?.name || iData.name,
     cost: iData.cost,
     category: categoryId,
-    fling_p: iData.fling_power,
+    flingPower: iData.fling_power,
     effect: enEffect,
     sprite: spriteFilename,
   };
@@ -799,28 +799,28 @@ function compact(obj: any): any {
       // Omit baby: false
       if (key === 'baby' && value === false) continue;
       // Omit m: 1 (WALK)
-      if (key === 'm' && value === 1) continue;
-      // Omit empty objects (dist: {})
+      if (key === 'method' && value === 1) continue;
+      // Omit empty objects (distances: {})
       if (value !== null && typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 0) continue;
       
       // Omit gr: 4 (gender_rate default)
-      if (key === 'gr' && value === 4) continue;
+      if (key === 'genderRate' && value === 4) continue;
       // Omit tr: 1 (EVO_TRIGGER.LEVEL_UP default)
-      if (key === 'tr' && value === 1) continue;
+      if (key === 'trigger' && value === 1) continue;
       // Omit mh: 160 (min_happiness default)
-      if (key === 'mh' && value === 160) continue;
+      if (key === 'minHappiness' && value === 160) continue;
       // Omit max if same as min (encounter levels)
-      if (key === 'max' && value === obj.min) continue;
+      if (key === 'maxLevel' && value === obj.minLevelLevel) continue;
 
       // Omit move power p if 0 or null
-      if (key === 'p' && (value === 0 || value === null)) continue;
+      if (key === 'power' && (value === 0 || value === null)) continue;
       // Omit move acc if 100 or null
-      if (key === 'acc' && (value === 100 || value === null)) continue;
+      if (key === 'accuracy' && (value === 100 || value === null)) continue;
 
       // Omit item cost if 0 or null
       if (key === 'cost' && (value === 0 || value === null)) continue;
       // Omit item fling_p if null
-      if (key === 'fling_p' && value === null) continue;
+      if (key === 'flingPower' && value === null) continue;
       // Omit item effect if null or empty
       if (key === 'effect' && (value === null || value === '')) continue;
       // Omit item sprite if null
@@ -895,11 +895,11 @@ const getEffectiveEggGroups = (pid: number, visited = new Set<number>()): number
   const p = speciesMap.get(pid);
   if (!p) return [];
 
-  if (p.eg && !p.eg.includes(15)) return p.eg;
+  if (p.eggGroups && !p.eggGroups.includes(15)) return p.eggGroups;
 
   // Try to inherit from evolved forms
-  if (p.eto) {
-    for (const link of p.eto) {
+  if (p.evolvesTo) {
+    for (const link of p.evolvesTo) {
       const evolvedEg = getEffectiveEggGroups(link.id, visited);
       if (evolvedEg.length > 0 && !evolvedEg.includes(15)) return evolvedEg;
     }
@@ -950,12 +950,12 @@ for (const moveId of eggMovesIds) {
 
     // Check if u can be male (gender_rate < 8 and !== -1)
       // The father (u) passes the egg move. It must be male.
-    const uGr = uData.gr !== undefined ? uData.gr : 4;
+    const uGr = uData.genderRate !== undefined ? uData.genderRate : 4;
       if (uGr === -1 || uGr === 8) continue; // Genderless (-1) or 100% Female (8) cannot pass egg moves
 
       // For the father, we strictly use its *own* egg groups, not effective ones from evolutions,
       // because baby forms (which don't have egg groups) cannot be fathers.
-      const uEg = uData.eg || [];
+      const uEg = uData.eggGroups || [];
       if (uEg.length === 0 || uEg.includes(15)) continue; // 15 is "No Eggs" (e.g., babies, legendaries)
 
     for (const vData of pokemon) {
@@ -965,7 +965,7 @@ for (const moveId of eggMovesIds) {
       // Ensure intermediate parents can actually learn the move (either natively or as an egg move)
       if (!targets.has(v) && !sources.has(v)) continue;
 
-      const vGr = vData.gr !== undefined ? vData.gr : 4;
+      const vGr = vData.genderRate !== undefined ? vData.genderRate : 4;
         // The mother (v) determines the species. If it's a baby, it can't breed, but its evolved form can.
         // So we use getEffectiveEggGroups to see if the species line can produce eggs.
       const vEg = getEffectiveEggGroups(v);
@@ -1026,9 +1026,9 @@ console.log('\nWriting split JSONL files...');
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
 writeJsonl(path.join(OUTPUT_DIR, 'pokemon.jsonl'), pokemon.map(compact));
-writeJsonl(path.join(OUTPUT_DIR, 'encounters.jsonl'), Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
-  pid,
-  enc: encs.map(compact)
+writeJsonl(path.join(OUTPUT_DIR, 'encounters.jsonl'), Array.from(pokemonEncounterMap.entries()).map(([pokemonId, encounters]) => ({
+  pokemonId,
+  encounters: encounters.map(compact)
 })));
 writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()).map(compact).sort((a, b) => a.id - b.id));
 writeJsonl(path.join(OUTPUT_DIR, 'moves.jsonl'), moves.map(compact));

@@ -18,17 +18,17 @@ describe('MultiCriterionSorter', () => {
       n: name,
       cr: 100,
       baby: false,
-      eto: [],
-      efrm: [],
-      det: [],
+      evolvesTo: [],
+      evolvesFrom: [],
+      evolutionDetails: [],
     } as PokemonMetadata,
   });
 
   const sortById: SortingStrategy = (a, b) => a.instance.speciesId - b.instance.speciesId;
   const sortByLevel: SortingStrategy = (a, b) => a.instance.level - b.instance.level;
   const sortByName: SortingStrategy = (a, b) => {
-    const nameA = a.metadata?.n || '';
-    const nameB = b.metadata?.n || '';
+    const nameA = a.metadata?.name || '';
+    const nameB = b.metadata?.name || '';
     return nameA.localeCompare(nameB);
   };
 

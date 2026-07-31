@@ -18,9 +18,9 @@ describe('PokemonDetails', () => {
       pokemon: {
         id: 1,
 
-        efrm: [2, 3],
-        eto: [],
-        det: [{ tr: 1, ml: 16 }],
+        evolvesFrom: [2, 3],
+        evolvesTo: [],
+        evolutionDetails: [{ tr: 1, ml: 16 }],
         cr: 45,
         baby: false,
       } as unknown as import('../../db/schema').PokemonMetadata,
@@ -77,9 +77,9 @@ describe('PokemonDetails', () => {
       pokemon: {
         id: 4,
 
-        efrm: [],
-        eto: [{ id: 5, det: [{ tr: 1, ml: 16 }] }],
-        det: [],
+        evolvesFrom: [],
+        evolvesTo: [{ id: 5, evolutionDetails: [{ tr: 1, ml: 16 }] }],
+        evolutionDetails: [],
         cr: 45,
         baby: true,
       } as unknown as import('../../db/schema').PokemonMetadata,
@@ -114,9 +114,9 @@ describe('PokemonDetails', () => {
     vi.spyOn(dexDataLoader, 'getPokemonDetails').mockResolvedValue({
       pokemon: {
         id: 7,
-        efrm: [],
-        eto: [],
-        det: [],
+        evolvesFrom: [],
+        evolvesTo: [],
+        evolutionDetails: [],
         cr: 45,
         baby: false,
       } as unknown as import('../../db/schema').PokemonMetadata,

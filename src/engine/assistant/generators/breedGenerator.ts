@@ -42,9 +42,9 @@ export function generateBreedingSuggestions(
       let evolutionIdToBreed: number | null = null;
 
       // Only base Pokemon can be hatched from an egg
-      if (p.efrm === undefined || p.efrm.length === 0) {
+      if (p.evolvesFrom === undefined || p.evolvesFrom.length === 0) {
         // Look at all evolutions of the target (recursive)
-        const stack = [...(p.eto || [])];
+        const stack = [...(p.evolvesTo || [])];
         while (stack.length > 0) {
           const evo = stack.pop();
           if (
@@ -55,8 +55,8 @@ export function generateBreedingSuggestions(
             evolutionIdToBreed = evo.id;
             break;
           }
-          if (evo?.eto && evo.eto.length > 0) {
-            stack.push(...evo.eto);
+          if (evo?.evolvesTo && evo.evolvesTo.length > 0) {
+            stack.push(...evo.evolvesTo);
           }
         }
       }

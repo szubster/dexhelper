@@ -28,8 +28,8 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
       122: { pid: 122, enc: [] },
     },
     pokemonMetadata: {
-      124: { id: 124, n: 'Jynx', cr: 45, gr: 4, baby: false, eto: [], efrm: [], det: [] } as PokemonMetadata,
-      122: { id: 122, n: 'Mr. Mime', cr: 45, gr: 4, baby: false, eto: [], efrm: [], det: [] } as PokemonMetadata,
+      124: { id: 124, n: 'Jynx', cr: 45, gr: 4, baby: false, evolvesTo: [], evolvesFrom: [], evolutionDetails: [] } as PokemonMetadata,
+      122: { id: 122, n: 'Mr. Mime', cr: 45, gr: 4, baby: false, evolvesTo: [], evolvesFrom: [], evolutionDetails: [] } as PokemonMetadata,
     },
     ancestralEncounters: { 124: {}, 122: {} },
     areaNames: {},

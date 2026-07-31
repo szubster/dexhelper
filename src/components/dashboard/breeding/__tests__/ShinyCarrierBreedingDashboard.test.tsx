@@ -71,8 +71,8 @@ test('renders optimal breeding pairs if matches are found', async () => {
   } as unknown as SaveData);
 
   vi.mocked(pokeDB.getAllPokemon, true).mockResolvedValue([
-    { id: 25, n: 'Pikachu', cr: 0, gr: 4, eg: [5, 6], baby: false, eto: [], efrm: [], det: [] },
-    { id: 132, n: 'Ditto', cr: 0, gr: -1, eg: [13], baby: false, eto: [], efrm: [], det: [] },
+    { id: 25, n: 'Pikachu', cr: 0, gr: 4, eg: [5, 6], baby: false, evolvesTo: [], evolvesFrom: [], evolutionDetails: [] },
+    { id: 132, n: 'Ditto', cr: 0, gr: -1, eg: [13], baby: false, evolvesTo: [], evolvesFrom: [], evolutionDetails: [] },
   ]);
 
   await render(<ShinyCarrierBreedingDashboard />, { wrapper });

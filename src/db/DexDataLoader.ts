@@ -60,9 +60,9 @@ export const dexDataLoader = {
     const nameMap: Record<number, string> = {};
     const idsToLoad: number[] = [];
     // Current species
-    nameMap[pokemon.id] = pokemon.n;
+    nameMap[pokemon.id] = pokemon.name;
     // Ancestors
-    for (const ancestorId of pokemon.efrm) {
+    for (const ancestorId of pokemon.evolvesFrom) {
       if (nameMap[ancestorId] === undefined) {
         nameMap[ancestorId] = '';
         idsToLoad.push(ancestorId);
@@ -74,24 +74,24 @@ export const dexDataLoader = {
         nameMap[node.id] = '';
         idsToLoad.push(node.id);
       }
-      node.eto.forEach(traverse);
+      node.evolvesTo.forEach(traverse);
     };
-    pokemon.eto.forEach(traverse);
+    pokemon.evolvesTo.forEach(traverse);
 
     const chainSpecies = await dexDataLoader.pokemon.loadMany(idsToLoad);
     for (const p of chainSpecies) {
-      if (p && !(p instanceof Error)) nameMap[p.id] = p.n;
+      if (p && !(p instanceof Error)) nameMap[p.id] = p.name;
     }
 
     // Resolve area names for all encounters
     const areaIds = [
-      ...new Set((encounters && !(encounters instanceof Error) ? encounters.enc : []).map((e) => e.aid)),
+      ...new Set((encounters && !(encounters instanceof Error) ? encounters.encounters : []).map((e) => e.areaId)),
     ];
     const areaNames = await pokeDB.getAreaNames(areaIds);
 
     return {
       pokemon,
-      enc: encounters && !(encounters instanceof Error) ? encounters.enc : [],
+      enc: encounters && !(encounters instanceof Error) ? encounters.encounters : [],
       nameMap,
       areaNames,
     };

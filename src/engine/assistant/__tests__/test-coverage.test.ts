@@ -47,58 +47,58 @@ test('coverage for suggestionEngine new lines', () => {
       196: {
         id: 196,
         n: 'Espeon',
-        efrm: [133],
-        det: [{ tr: 1, mh: 220, time: 1 }],
-        eto: [],
+        evolvesFrom: [133],
+        evolutionDetails: [{ tr: 1, mh: 220, time: 1 }],
+        evolvesTo: [],
       }, // Espeon
       197: {
         id: 197,
         n: 'Umbreon',
-        efrm: [133],
-        det: [{ tr: 1, mh: 220, time: 2 }],
-        eto: [],
+        evolvesFrom: [133],
+        evolutionDetails: [{ tr: 1, mh: 220, time: 2 }],
+        evolvesTo: [],
       }, // Umbreon
       106: {
         id: 106,
         n: 'Hitmonlee',
-        efrm: [236],
-        det: [{ tr: 1, ml: 20, rps: 1 }],
-        eto: [],
+        evolvesFrom: [236],
+        evolutionDetails: [{ tr: 1, ml: 20, rps: 1 }],
+        evolvesTo: [],
       }, // Hitmonlee
       107: {
         id: 107,
         n: 'Hitmonchan',
-        efrm: [236],
-        det: [{ tr: 1, ml: 20, rps: -1 }],
-        eto: [],
+        evolvesFrom: [236],
+        evolutionDetails: [{ tr: 1, ml: 20, rps: -1 }],
+        evolvesTo: [],
       }, // Hitmonchan
       237: {
         id: 237,
         n: 'Hitmontop',
-        efrm: [236],
-        det: [{ tr: 1, ml: 20, rps: 0 }],
-        eto: [],
+        evolvesFrom: [236],
+        evolutionDetails: [{ tr: 1, ml: 20, rps: 0 }],
+        evolvesTo: [],
       }, // Hitmontop
       136: {
         id: 136,
         n: 'Flareon',
-        efrm: [133],
-        det: [{ tr: 3, item: 82 }], // Fire Stone
-        eto: [],
+        evolvesFrom: [133],
+        evolutionDetails: [{ tr: 3, item: 82 }], // Fire Stone
+        evolvesTo: [],
       }, // Flareon (Item)
       68: {
         id: 68,
         n: 'Machamp',
-        efrm: [67, 66],
-        det: [{ tr: 2 }], // Trade (EVO_TRIGGER.TRADE = 2)
-        eto: [],
+        evolvesFrom: [67, 66],
+        evolutionDetails: [{ tr: 2 }], // Trade (EVO_TRIGGER.TRADE = 2)
+        evolvesTo: [],
       }, // Machamp (Trade)
       208: {
         id: 208,
         n: 'Steelix',
-        efrm: [95],
-        det: [{ tr: 2, held: 0x8f }], // Trade with Metal Coat
-        eto: [],
+        evolvesFrom: [95],
+        evolutionDetails: [{ tr: 2, held: 0x8f }], // Trade with Metal Coat
+        evolvesTo: [],
       }, // Steelix
     },
     areaNames: {},
@@ -175,9 +175,9 @@ test('coverage for suggestionEngine edge cases', () => {
       135: {
         id: 135,
         n: 'Jolteon',
-        efrm: [133],
-        det: [{ tr: 3, item: 83 }], // Jolteon, but no stone in inventory
-        eto: [],
+        evolvesFrom: [133],
+        evolutionDetails: [{ tr: 3, item: 83 }], // Jolteon, but no stone in inventory
+        evolvesTo: [],
       },
     },
     areaNames: {},
@@ -214,9 +214,9 @@ test('coverage for gen 2 breeding edge case without valid base pokemon', () => {
       50: {
         id: 50, // Pichu
         n: 'Pichu',
-        efrm: [],
-        det: [],
-        eto: [{ id: 1, min: 0, m: 1, tr: 1, mh: 220, item: null, held: null, time: null, rel_s: null }], // Pitchu evolves into Bulbasaur
+        evolvesFrom: [],
+        evolutionDetails: [],
+        evolvesTo: [{ id: 1, min: 0, m: 1, tr: 1, mh: 220, item: null, held: null, time: null, rel_s: null }], // Pitchu evolves into Bulbasaur
       },
     },
     areaNames: {},
@@ -286,9 +286,9 @@ test('coverage for generateSuggestions with missing parent / target id / empty d
       50: {
         id: 50,
         n: 'Diglett',
-        efrm: [25], // Diglett evolves from Pikachu (but we don't own Pikachu)
-        det: [],
-        eto: [],
+        evolvesFrom: [25], // Diglett evolves from Pikachu (but we don't own Pikachu)
+        evolutionDetails: [],
+        evolvesTo: [],
       },
     },
     areaNames: {},
@@ -354,9 +354,9 @@ test('coverage for suggestionEngine getGameItemId unknown generation', () => {
       136: {
         id: 136,
         n: 'Flareon',
-        efrm: [133],
-        det: [{ tr: 3, item: 82 }],
-        eto: [],
+        evolvesFrom: [133],
+        evolutionDetails: [{ tr: 3, item: 82 }],
+        evolvesTo: [],
       },
     },
     areaNames: {},
@@ -389,9 +389,9 @@ test('coverage for recursive missing exclusive logic', () => {
     localEncounters: [],
     missingEncounters: {},
     pokemonMetadata: {
-      4: { id: 4, n: 'Charmander', efrm: [], det: [], eto: [] },
-      5: { id: 5, n: 'Charmeleon', efrm: [4], det: [{ tr: 1, ml: 16 }], eto: [] },
-      6: { id: 6, n: 'Charizard', efrm: [5, 4], det: [{ tr: 1, ml: 36 }], eto: [] }, // Charizard has Charmeleon (5) and Charmander (4) as ancestors
+      4: { id: 4, n: 'Charmander', evolvesFrom: [], evolutionDetails: [], evolvesTo: [] },
+      5: { id: 5, n: 'Charmeleon', evolvesFrom: [4], evolutionDetails: [{ tr: 1, ml: 16 }], evolvesTo: [] },
+      6: { id: 6, n: 'Charizard', evolvesFrom: [5, 4], evolutionDetails: [{ tr: 1, ml: 36 }], evolvesTo: [] }, // Charizard has Charmeleon (5) and Charmander (4) as ancestors
     },
     ancestralEncounters: {},
     areaNames: {},
@@ -439,8 +439,8 @@ test('coverage for localPids.delete with array of pokemonIds', () => {
     },
     ancestralEncounters: {},
     pokemonMetadata: {
-      1: { id: 1, n: 'Bulbasaur', efrm: [], det: [], eto: [] },
-      2: { id: 2, n: 'Ivysaur', efrm: [1], det: [], eto: [] },
+      1: { id: 1, n: 'Bulbasaur', evolvesFrom: [], evolutionDetails: [], evolvesTo: [] },
+      2: { id: 2, n: 'Ivysaur', evolvesFrom: [1], evolutionDetails: [], evolvesTo: [] },
     },
     areaNames: {},
     allLocations: [{ id: 1, name: 'Route 1', pids: [1, 2], type: 'route', gen: 2, isLandmark: false }],
@@ -490,7 +490,7 @@ test('coverage for localPids.delete with single pokemonId', () => {
     },
     ancestralEncounters: {},
     pokemonMetadata: {
-      1: { id: 1, n: 'Bulbasaur', efrm: [], det: [], eto: [] },
+      1: { id: 1, n: 'Bulbasaur', evolvesFrom: [], evolutionDetails: [], evolvesTo: [] },
     },
     areaNames: {},
     allLocations: [{ id: 1, name: 'Route 1', pids: [1], type: 'route', gen: 2, isLandmark: false }],
@@ -550,8 +550,8 @@ test('coverage for localPids.delete with some ids filtered out', () => {
     },
     ancestralEncounters: {},
     pokemonMetadata: {
-      1: { id: 1, n: 'Bulbasaur', efrm: [], det: [], eto: [] },
-      2: { id: 2, n: 'Ivysaur', efrm: [1], det: [], eto: [] },
+      1: { id: 1, n: 'Bulbasaur', evolvesFrom: [], evolutionDetails: [], evolvesTo: [] },
+      2: { id: 2, n: 'Ivysaur', evolvesFrom: [1], evolutionDetails: [], evolvesTo: [] },
     },
     areaNames: {},
     allLocations: [{ id: 1, name: 'Route 1', pids: [1, 2], type: 'route', gen: 2, isLandmark: false }],
@@ -600,7 +600,7 @@ test('coverage for suggestionEngine catch filtering with single pokemonId', () =
     },
     ancestralEncounters: {},
     pokemonMetadata: {
-      1: { id: 1, n: 'Bulbasaur', efrm: [], det: [], eto: [] },
+      1: { id: 1, n: 'Bulbasaur', evolvesFrom: [], evolutionDetails: [], evolvesTo: [] },
     },
     areaNames: {},
     allLocations: [{ id: 1, name: 'Route 1', pids: [1], type: 'route', gen: 2, isLandmark: false }],
@@ -655,8 +655,8 @@ test('coverage for suggestionEngine catch filtering when pokemonIds has undefine
     missingEncounters: {},
     ancestralEncounters: {},
     pokemonMetadata: {
-      1: { id: 1, n: 'Bulbasaur', efrm: [], det: [], eto: [] },
-      2: { id: 2, n: 'Ivysaur', efrm: [1], det: [], eto: [] },
+      1: { id: 1, n: 'Bulbasaur', evolvesFrom: [], evolutionDetails: [], evolvesTo: [] },
+      2: { id: 2, n: 'Ivysaur', evolvesFrom: [1], evolutionDetails: [], evolvesTo: [] },
     },
     areaNames: {},
     allLocations: [{ id: 1, name: 'Route 1', pids: [1, 2], type: 'route', gen: 2, isLandmark: false }],

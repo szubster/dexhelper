@@ -45,9 +45,9 @@ export function resolveOutdoorMapId(allLocations: UnifiedLocation[], mapId: numb
   let loc = getLocation(allLocations, currentMapId);
   const visited = new Set<number>();
 
-  while (loc?.prnt !== undefined && !visited.has(currentMapId)) {
+  while (loc?.parent !== undefined && !visited.has(currentMapId)) {
     visited.add(currentMapId);
-    currentMapId = loc.prnt;
+    currentMapId = loc.parent;
     loc = getLocation(allLocations, currentMapId);
   }
 
@@ -82,7 +82,7 @@ export function getDistanceToMapBase(
   const targetLoc = getLocation(allLocations, targetAid);
   if (!targetLoc) return null;
 
-  const targetDisplayName = targetLoc.n;
+  const targetDisplayName = targetLoc.name;
 
   // 2. Resolve start location (where the player is)
   const outdoorStartMapId = resolveOutdoorMapId(allLocations, startMapId);
@@ -100,7 +100,7 @@ export function getDistanceToMapBase(
     return { distance: 0, name: targetDisplayName };
   }
 
-  const distance = startLoc.dist?.[targetLoc.id];
+  const distance = startLoc.distances?.[targetLoc.id];
   if (distance !== undefined) {
     return { distance, name: targetDisplayName };
   }

@@ -65,11 +65,12 @@ export function generateEvolutionSuggestions(
     let closestOwnedParentId: number | undefined;
     let immediateEvoTargetId: number = targetId;
 
-    for (let i = 0; i < p.efrm.length; i++) {
-      const ancestorId = p.efrm[i];
+    const lineage = p.evolvesFrom || [];
+    for (let i = 0; i < lineage.length; i++) {
+      const ancestorId = lineage[i];
       if (ancestorId !== undefined && instancesBySpecies.has(ancestorId)) {
         closestOwnedParentId = ancestorId;
-        const nextTarget = i === 0 ? targetId : p.efrm[i - 1];
+        const nextTarget = i === 0 ? targetId : lineage[i - 1];
         if (nextTarget !== undefined) {
           immediateEvoTargetId = nextTarget;
         }
@@ -93,17 +94,17 @@ export function generateEvolutionSuggestions(
       continue;
     }
 
-    const details = immediateEvoTarget.det;
+    const details = immediateEvoTarget.evolutionDetails;
     if (!details || details.length === 0) continue;
 
     for (const detail of details) {
-      const tr = detail.tr;
-      const min_l = detail.ml;
-      const min_h = detail.mh;
-      const item = detail.item;
-      const held = detail.held;
-      const tod = detail.time === 1 ? 'day' : detail.time === 2 ? 'night' : undefined;
-      const rps = detail.rps;
+      const tr = detail.trigger;
+      const min_l = detail.minLevel;
+      const min_h = detail.minHappiness;
+      const item = detail.itemId;
+      const held = detail.heldItemId;
+      const tod = detail.timeOfDay === 1 ? 'day' : detail.timeOfDay === 2 ? 'night' : undefined;
+      const rps = detail.relativePhysicalStats;
 
       // Filter out Yellow Starter Pikachu as it refuses to evolve
       const evolvableInstances = ownedInstances.filter(

@@ -81,7 +81,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     for (let i = 0; i < allLocations.length; i++) {
       const loc = allLocations[i];
       if (loc && loc.id === localAid) {
-        localPids = loc.pids || [];
+        localPids = loc.pokemonIds || [];
         break;
       }
     }
@@ -99,7 +99,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const encountersByPid = new Map<number, LocationAreaEncounters>();
   for (let i = 0; i < targetEncounters.length; i++) {
     const e = targetEncounters[i];
-    if (e && !(e instanceof Error)) encountersByPid.set(e.pid, e);
+    if (e && !(e instanceof Error)) encountersByPid.set(e.pokemonId, e);
   }
 
   if (localAid) {
@@ -108,10 +108,10 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
       if (pid === undefined) continue;
       const lae = encountersByPid.get(pid);
       if (!lae) continue;
-      const enc = lae.enc;
+      const enc = lae.encountersounters;
       for (let j = 0; j < enc.length; j++) {
         const e = enc[j];
-        if (e && e.aid === localAid) {
+        if (e && e.areaId === localAid) {
           localEncounters.push(lae);
           break;
         }
@@ -155,7 +155,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
   const areaNames: Record<number, string> = {};
   for (let i = 0; i < allLocations.length; i++) {
     const loc = allLocations[i];
-    if (loc) areaNames[loc.id] = loc.n;
+    if (loc) areaNames[loc.id] = loc.name;
   }
 
   return {

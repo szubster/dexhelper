@@ -62,18 +62,18 @@ export function PokemonDetails({
   const nameMap = allData?.nameMap;
   const areaNames = allData?.areaNames;
 
-  const catchRate = pokemon?.cr ?? null;
+  const catchRate = pokemon?.captureRate ?? null;
 
   const evoReq = React.useMemo(() => {
-    if (!pokemon || pokemon.efrm.length === 0) return null;
+    if (!pokemon || pokemon.evolvesFrom.length === 0) return null;
 
-    const fromId = pokemon.efrm[0];
+    const fromId = pokemon.evolvesFrom[0];
     if (fromId === undefined) return null;
     if (saveData && fromId > getGenerationConfig(saveData.generation).maxDex) return null;
 
     let methodStr = 'Unknown';
 
-    const details = pokemon.det;
+    const details = pokemon.evolutionDetails;
     if (details && details.length > 0) {
       const d = details[0];
       if (!d) return null;
@@ -92,7 +92,7 @@ export function PokemonDetails({
   const evolvesTo = React.useMemo(() => {
     if (!pokemon) return [];
 
-    const evos = pokemon.eto;
+    const evos = pokemon.evolvesTo;
     if (!evos || evos.length === 0) return [];
 
     // ⚡ Bolt: Fused .map() and .filter() into a single pass to prevent intermediate object allocations
@@ -107,7 +107,7 @@ export function PokemonDetails({
       if (id > maxDex) continue;
 
       let methodStr = 'Unknown';
-      const d = evo.det[0];
+      const d = evo.evolutionDetails[0];
       if (d) {
         if (d.tr === 1) methodStr = d.ml ? `Level ${d.ml}` : 'Level up';
         else if (d.tr === 3) methodStr = 'Use Item';
@@ -127,7 +127,7 @@ export function PokemonDetails({
     if (!pokemon?.baby) return null;
     if (saveData && !getGenerationConfig(saveData.generation).hasBreeding) return null;
 
-    const rootId = pokemon.efrm.length > 0 ? pokemon.efrm[pokemon.efrm.length - 1] : pokemon.id;
+    const rootId = pokemon.evolvesFrom.length > 0 ? pokemon.evolvesFrom[pokemon.evolvesFrom.length - 1] : pokemon.id;
 
     if (rootId === undefined) return null;
 
@@ -142,9 +142,9 @@ export function PokemonDetails({
   const encountersByVersion = React.useMemo(() => {
     const map = new Map<number, typeof encounters>();
     for (const enc of encounters) {
-      const arr = map.get(enc.v) || [];
+      const arr = map.get(enc.versionIdersionId) || [];
       arr.push(enc);
-      map.set(enc.v, arr);
+      map.set(enc.versionIdersionId, arr);
     }
     return map;
   }, [encounters]);
@@ -159,7 +159,7 @@ export function PokemonDetails({
     for (let i = 0; i < versionEncounters.length; i++) {
       const enc = versionEncounters[i];
       if (enc) {
-        const name = areaNames?.[enc.aid] || `Area #${enc.aid}`;
+        const name = areaNames?.[enc.areaId] || `Area #${enc.areaId}`;
         if (name.toLowerCase().includes('safari zone')) {
           return true;
         }

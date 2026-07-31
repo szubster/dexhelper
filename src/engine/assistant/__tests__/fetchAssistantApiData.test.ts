@@ -28,10 +28,10 @@ describe('fetchAssistantApiData', () => {
     ]);
     vi.spyOn(dexDataLoader.pokemon, 'loadMany').mockImplementation(async (ids) => {
       const all: Record<number, unknown> = {
-        1: { id: 1, n: 'bulbasaur', efrm: [], eto: [], det: [] },
-        2: { id: 2, n: 'ivysaur', efrm: [1], eto: [], det: [] },
-        4: { id: 4, n: 'charmander', efrm: [], eto: [], det: [] },
-        5: { id: 5, n: 'charmeleon', efrm: [4], eto: [], det: [] },
+        1: { id: 1, n: 'bulbasaur', evolvesFrom: [], evolvesTo: [], evolutionDetails: [] },
+        2: { id: 2, n: 'ivysaur', evolvesFrom: [1], evolvesTo: [], evolutionDetails: [] },
+        4: { id: 4, n: 'charmander', evolvesFrom: [], evolvesTo: [], evolutionDetails: [] },
+        5: { id: 5, n: 'charmeleon', evolvesFrom: [4], evolvesTo: [], evolutionDetails: [] },
       };
       const arrIds = Array.from(ids) as number[];
       return arrIds.map((id) => (all[id] as PokemonMetadata) || (new Error('not found') as unknown as PokemonMetadata));
@@ -43,7 +43,7 @@ describe('fetchAssistantApiData', () => {
     // It should have correctly populated pokemonMetadata
     expect(result.pokemonMetadata[2]).toBeDefined();
     expect(result.pokemonMetadata[1]).toBeDefined();
-    expect(result.pokemonMetadata[2]?.n).toBe('ivysaur');
+    expect(result.pokemonMetadata[2]?.name).toBe('ivysaur');
   });
 });
 
@@ -63,9 +63,9 @@ it('should fetch local encounters using bulk and correctly map encounters', asyn
 
   vi.spyOn(pokeDB, 'getEncountersBulk').mockImplementation(async (ids) => {
     const db: Record<number, unknown> = {
-      99: { pid: 99, enc: [{ aid: 1, v: 1, d: [] }] },
-      100: { pid: 100, enc: [{ aid: 1, v: 1, d: [] }] },
-      101: { pid: 101, enc: [{ aid: 2, v: 1, d: [] }] }, // Missing target
+      99: { pokemonId: 99, encounters: [{ areaId: 1, versionId: 1, details: [] }] },
+      100: { pokemonId: 100, encounters: [{ areaId: 1, versionId: 1, details: [] }] },
+      101: { pokemonId: 101, encounters: [{ areaId: 2, versionId: 1, details: [] }] }, // Missing target
       102: new Error('not found'), // Edge case
     };
     return ids.map((id) => db[id] || new Error('not found')) as (LocationAreaEncounters | Error)[];
@@ -78,7 +78,7 @@ it('should fetch local encounters using bulk and correctly map encounters', asyn
   expect(result.localAid).toBe(1);
   expect(result.localEncounters).toBeDefined();
   expect(result.localEncounters?.length).toBe(2);
-  expect(result.localEncounters?.[0]?.pid).toBe(99);
+  expect(result.localEncounters?.[0]?.pokemonId).toBe(99);
 
   expect(result.missingEncounters[101]).toBeDefined();
   expect(result.missingEncounters[102]).toBeUndefined();
@@ -144,7 +144,7 @@ it('should ignore encounters not matching localAid', async () => {
 
   vi.spyOn(pokeDB, 'getEncountersBulk').mockImplementation(async (ids) => {
     const db: Record<number, unknown> = {
-      99: { pid: 99, enc: [{ aid: 2, v: 1, d: [] }] }, // aid mismatch
+      99: { pokemonId: 99, encounters: [{ aid: 2, v: 1, d: [] }] }, // aid mismatch
     };
     return ids.map((id) => db[id] || new Error('not found')) as (LocationAreaEncounters | Error)[];
   });

@@ -33,14 +33,14 @@ describe('EVO_TRIGGER.SHED', () => {
         292: {
           id: 292,
           n: 'Shedinja',
-          efrm: [290], // Nincada
-          det: [{ tr: 4 }], // SHED
+          evolvesFrom: [290], // Nincada
+          evolutionDetails: [{ tr: 4 }], // SHED
         },
         290: {
           id: 290,
           n: 'Nincada',
-          efrm: [],
-          det: [],
+          evolvesFrom: [],
+          evolutionDetails: [],
         },
       },
     } as unknown as AssistantApiData;
@@ -93,14 +93,14 @@ it('generates a suggestion for Shedinja (Gen 4+ with Pokeball)', () => {
       292: {
         id: 292,
         n: 'Shedinja',
-        efrm: [290], // Nincada
-        det: [{ tr: 4 }], // SHED
+        evolvesFrom: [290], // Nincada
+        evolutionDetails: [{ tr: 4 }], // SHED
       },
       290: {
         id: 290,
         n: 'Nincada',
-        efrm: [],
-        det: [],
+        evolvesFrom: [],
+        evolutionDetails: [],
       },
     },
   } as unknown as AssistantApiData;
@@ -152,14 +152,14 @@ it('warns if missing party space', () => {
       292: {
         id: 292,
         n: 'Shedinja',
-        efrm: [290], // Nincada
-        det: [{ tr: 4 }], // SHED
+        evolvesFrom: [290], // Nincada
+        evolutionDetails: [{ tr: 4 }], // SHED
       },
       290: {
         id: 290,
         n: 'Nincada',
-        efrm: [],
-        det: [],
+        evolvesFrom: [],
+        evolutionDetails: [],
       },
     },
   } as unknown as AssistantApiData;
@@ -211,14 +211,14 @@ it('warns if missing Pokeball in Gen 4+', () => {
       292: {
         id: 292,
         n: 'Shedinja',
-        efrm: [290], // Nincada
-        det: [{ tr: 4 }], // SHED
+        evolvesFrom: [290], // Nincada
+        evolutionDetails: [{ tr: 4 }], // SHED
       },
       290: {
         id: 290,
         n: 'Nincada',
-        efrm: [],
-        det: [],
+        evolvesFrom: [],
+        evolutionDetails: [],
       },
     },
   } as unknown as AssistantApiData;
@@ -270,14 +270,14 @@ it('suggests standard level up requirement if under leveled', () => {
       292: {
         id: 292,
         n: 'Shedinja',
-        efrm: [290], // Nincada
-        det: [{ tr: 4 }], // SHED
+        evolvesFrom: [290], // Nincada
+        evolutionDetails: [{ tr: 4 }], // SHED
       },
       290: {
         id: 290,
         n: 'Nincada',
-        efrm: [],
-        det: [],
+        evolvesFrom: [],
+        evolutionDetails: [],
       },
     },
   } as unknown as AssistantApiData;

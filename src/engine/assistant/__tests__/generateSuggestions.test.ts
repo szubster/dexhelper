@@ -42,18 +42,18 @@ describe('generateSuggestions', () => {
           n: 'Onix',
           cr: 45,
           baby: false,
-          eto: [{ id: 208, eto: [], det: [{ tr: 2, held: 210 }], ef: 95 }],
-          efrm: [],
-          det: [],
+          evolvesTo: [{ id: 208, evolvesTo: [], evolutionDetails: [{ tr: 2, held: 210 }], ef: 95 }],
+          evolvesFrom: [],
+          evolutionDetails: [],
         },
         208: {
           id: 208,
           n: 'Steelix',
           cr: 25,
           baby: false,
-          eto: [],
-          efrm: [95],
-          det: [{ tr: 2, held: 210 }],
+          evolvesTo: [],
+          evolvesFrom: [95],
+          evolutionDetails: [{ tr: 2, held: 210 }],
         },
       },
       missingEncounters: {},
@@ -114,18 +114,18 @@ describe('generateSuggestions', () => {
           n: 'Onix',
           cr: 45,
           baby: false,
-          eto: [{ id: 208, eto: [], det: [{ tr: 2, held: 210 }], ef: 95 }],
-          efrm: [],
-          det: [],
+          evolvesTo: [{ id: 208, evolvesTo: [], evolutionDetails: [{ tr: 2, held: 210 }], ef: 95 }],
+          evolvesFrom: [],
+          evolutionDetails: [],
         },
         208: {
           id: 208,
           n: 'Steelix',
           cr: 25,
           baby: false,
-          eto: [],
-          efrm: [95],
-          det: [{ tr: 2, held: 210 }],
+          evolvesTo: [],
+          evolvesFrom: [95],
+          evolutionDetails: [{ tr: 2, held: 210 }],
         },
       },
       missingEncounters: {},
@@ -188,18 +188,18 @@ describe('generateSuggestions', () => {
           n: 'Clefairy',
           cr: 45,
           baby: false,
-          eto: [{ id: 36, eto: [], det: [{ tr: 3, item: 81 }], ef: 35 }],
-          efrm: [173],
-          det: [],
+          evolvesTo: [{ id: 36, evolvesTo: [], evolutionDetails: [{ tr: 3, item: 81 }], ef: 35 }],
+          evolvesFrom: [173],
+          evolutionDetails: [],
         },
         36: {
           id: 36,
           n: 'Clefable',
           cr: 25,
           baby: false,
-          eto: [],
-          efrm: [35],
-          det: [{ tr: 3, item: 81 }], // tr: 3 is USE_ITEM, item 81 is Moon Stone pokeapi ID
+          evolvesTo: [],
+          evolvesFrom: [35],
+          evolutionDetails: [{ tr: 3, item: 81 }], // tr: 3 is USE_ITEM, item 81 is Moon Stone pokeapi ID
         },
       },
       missingEncounters: {},
@@ -527,16 +527,16 @@ describe('generateSuggestions', () => {
         152: {
           // Chikorita
           id: 152,
-          eto: [{ id: 153 }], // Evolves to 153
-          efrm: [],
-          det: [],
+          evolvesTo: [{ id: 153 }], // Evolves to 153
+          evolvesFrom: [],
+          evolutionDetails: [],
         } as unknown as PokemonMetadata,
         153: {
           // Bayleef
           id: 153,
-          eto: [],
-          efrm: [152],
-          det: [],
+          evolvesTo: [],
+          evolvesFrom: [152],
+          evolutionDetails: [],
         } as unknown as PokemonMetadata,
       },
       ancestralEncounters: {},
@@ -653,9 +653,9 @@ describe('generateSuggestions', () => {
       pokemonMetadata: {
         196: {
           id: 196,
-          eto: [],
-          efrm: [133],
-          det: [{ tr: 1, time: 1 }], // Level up, day, no min_h or min_l
+          evolvesTo: [],
+          evolvesFrom: [133],
+          evolutionDetails: [{ tr: 1, time: 1 }], // Level up, day, no min_h or min_l
         } as unknown as PokemonMetadata,
       },
       ancestralEncounters: {},
@@ -791,9 +791,9 @@ describe('generateSuggestions', () => {
       localEncounters: [],
       missingEncounters: {},
       pokemonMetadata: {
-        106: { id: 106, efrm: [236], det: [{ tr: 1, ml: 20, rps: 1 }] } as unknown as PokemonMetadata, // Hitmonlee
-        107: { id: 107, efrm: [236], det: [{ tr: 1, ml: 20, rps: -1 }] } as unknown as PokemonMetadata, // Hitmonchan
-        237: { id: 237, efrm: [236], det: [{ tr: 1, ml: 20, rps: 0 }] } as unknown as PokemonMetadata, // Hitmontop
+        106: { id: 106, evolvesFrom: [236], evolutionDetails: [{ tr: 1, ml: 20, rps: 1 }] } as unknown as PokemonMetadata, // Hitmonlee
+        107: { id: 107, evolvesFrom: [236], evolutionDetails: [{ tr: 1, ml: 20, rps: -1 }] } as unknown as PokemonMetadata, // Hitmonchan
+        237: { id: 237, evolvesFrom: [236], evolutionDetails: [{ tr: 1, ml: 20, rps: 0 }] } as unknown as PokemonMetadata, // Hitmontop
       },
       ancestralEncounters: {},
       areaNames: {},
@@ -877,9 +877,9 @@ describe('generateSuggestions', () => {
       localEncounters: [],
       missingEncounters: {},
       pokemonMetadata: {
-        4: { id: 4, baby: false, efrm: [], eto: [{ id: 5, eto: [{ id: 6 }] }] } as unknown as PokemonMetadata,
-        5: { id: 5, baby: false, efrm: [4], eto: [{ id: 6, eto: [] }] } as unknown as PokemonMetadata, // Charmeleon
-        6: { id: 6, baby: false, efrm: [5, 4], eto: [] } as unknown as PokemonMetadata, // Charizard
+        4: { id: 4, baby: false, evolvesFrom: [], evolvesTo: [{ id: 5, evolvesTo: [{ id: 6 }] }] } as unknown as PokemonMetadata,
+        5: { id: 5, baby: false, evolvesFrom: [4], evolvesTo: [{ id: 6, evolvesTo: [] }] } as unknown as PokemonMetadata, // Charmeleon
+        6: { id: 6, baby: false, evolvesFrom: [5, 4], evolvesTo: [] } as unknown as PokemonMetadata, // Charizard
       },
       ancestralEncounters: {},
       areaNames: {},
@@ -913,9 +913,9 @@ describe('generateSuggestions', () => {
       localEncounters: [],
       missingEncounters: {},
       pokemonMetadata: {
-        172: { id: 172, baby: true, efrm: [], eto: [{ id: 25, eto: [] }] } as unknown as PokemonMetadata, // Pichu
-        25: { id: 25, baby: false, efrm: [172], eto: [{ id: 26, eto: [] }] } as unknown as PokemonMetadata, // Pikachu
-        26: { id: 26, baby: false, efrm: [25, 172], eto: [] } as unknown as PokemonMetadata, // Raichu
+        172: { id: 172, baby: true, evolvesFrom: [], evolvesTo: [{ id: 25, evolvesTo: [] }] } as unknown as PokemonMetadata, // Pichu
+        25: { id: 25, baby: false, evolvesFrom: [172], evolvesTo: [{ id: 26, evolvesTo: [] }] } as unknown as PokemonMetadata, // Pikachu
+        26: { id: 26, baby: false, evolvesFrom: [25, 172], evolvesTo: [] } as unknown as PokemonMetadata, // Raichu
       },
       ancestralEncounters: {},
       areaNames: {},
@@ -991,8 +991,8 @@ describe('generateSuggestions', () => {
         },
       },
       pokemonMetadata: {
-        10: { id: 10, n: 'Caterpie', efrm: [], eto: [] } as unknown as PokemonMetadata,
-        11: { id: 11, n: 'Metapod', efrm: [], eto: [] } as unknown as PokemonMetadata,
+        10: { id: 10, n: 'Caterpie', evolvesFrom: [], evolvesTo: [] } as unknown as PokemonMetadata,
+        11: { id: 11, n: 'Metapod', evolvesFrom: [], evolvesTo: [] } as unknown as PokemonMetadata,
       },
       ancestralEncounters: {},
       areaNames: { 2: 'Route 2' },
@@ -1094,9 +1094,9 @@ describe('generateSuggestions', () => {
           n: 'Bulbasaur',
           cr: 45,
           baby: false,
-          eto: [],
-          efrm: [],
-          det: [],
+          evolvesTo: [],
+          evolvesFrom: [],
+          evolutionDetails: [],
           em: {
             13: [274, 1], // Move 13 (Razor Leaf), chain: Nuzleaf -> Bulbasaur
           },
@@ -1106,9 +1106,9 @@ describe('generateSuggestions', () => {
           n: 'Nuzleaf',
           cr: 45,
           baby: false,
-          eto: [],
-          efrm: [],
-          det: [],
+          evolvesTo: [],
+          evolvesFrom: [],
+          evolutionDetails: [],
         },
       } as Record<number, PokemonMetadata>,
       localAid: null,
@@ -1161,9 +1161,9 @@ describe('generateSuggestions', () => {
           n: 'Bulbasaur',
           cr: 45,
           baby: false,
-          eto: [],
-          efrm: [],
-          det: [],
+          evolvesTo: [],
+          evolvesFrom: [],
+          evolutionDetails: [],
           em: {
             13: [274, 1], // Move 13 (Razor Leaf), chain: Nuzleaf -> Bulbasaur
           },
@@ -1173,9 +1173,9 @@ describe('generateSuggestions', () => {
           n: 'Nuzleaf',
           cr: 45,
           baby: false,
-          eto: [],
-          efrm: [],
-          det: [],
+          evolvesTo: [],
+          evolvesFrom: [],
+          evolutionDetails: [],
         },
       } as Record<number, PokemonMetadata>,
       localAid: null,
@@ -1228,9 +1228,9 @@ describe('generateSuggestions', () => {
           n: 'TestFinal',
           cr: 45,
           baby: false,
-          eto: [],
-          efrm: [],
-          det: [],
+          evolvesTo: [],
+          evolvesFrom: [],
+          evolutionDetails: [],
           em: {
             20: [100, 101, 1], // Move 20, chain: 100 -> 101 -> 1
           },
@@ -1240,9 +1240,9 @@ describe('generateSuggestions', () => {
           n: 'TestBase',
           cr: 45,
           baby: false,
-          eto: [],
-          efrm: [],
-          det: [],
+          evolvesTo: [],
+          evolvesFrom: [],
+          evolutionDetails: [],
         },
       } as Record<number, PokemonMetadata>,
       localAid: null,
@@ -1296,9 +1296,9 @@ describe('generateSuggestions', () => {
           n: 'TestFinal',
           cr: 45,
           baby: false,
-          eto: [],
-          efrm: [],
-          det: [],
+          evolvesTo: [],
+          evolvesFrom: [],
+          evolutionDetails: [],
           em: {
             20: [100, 101, 1], // Move 20, chain: 100 -> 101 -> 1
           },
@@ -1308,9 +1308,9 @@ describe('generateSuggestions', () => {
           n: 'TestBase',
           cr: 45,
           baby: false,
-          eto: [],
-          efrm: [],
-          det: [],
+          evolvesTo: [],
+          evolvesFrom: [],
+          evolutionDetails: [],
         },
       } as Record<number, PokemonMetadata>,
       localAid: null,

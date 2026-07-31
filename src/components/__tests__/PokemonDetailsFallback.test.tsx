@@ -16,9 +16,9 @@ describe('PokemonDetails Locations Test', () => {
     vi.spyOn(dexDataLoader, 'getPokemonDetails').mockResolvedValue({
       pokemon: {
         id: 4,
-        efrm: [],
-        eto: [],
-        det: [],
+        evolvesFrom: [],
+        evolvesTo: [],
+        evolutionDetails: [],
         cr: 45,
         baby: false,
       } as unknown as import('../../db/schema').PokemonMetadata,

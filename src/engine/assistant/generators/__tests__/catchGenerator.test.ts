@@ -40,7 +40,7 @@ describe('catchGenerator', () => {
   it('should skip pokemon if they are static gifts and already owned (myOtIds)', () => {
     const apiData = {
       localEncounters: [
-        { pid: 133, enc: [{ aid: 1, v: 1, d: [{ c: 100, m: 1, min: 25, max: 25 }] }] }, // Eevee (static gift Gen 1)
+        { pokemonId: 133, encounters: [{ areaId: 1, versionId: 1, details: [{ chance: 100, method: 1, minLevel: 25, maxLevel: 25 }] }] }, // Eevee (static gift Gen 1)
       ],
       localAid: 1,
       missingEncounters: {},
@@ -71,7 +71,7 @@ describe('catchGenerator', () => {
 
   it('should add local encounter suggestion with details and time', () => {
     const apiData = {
-      localEncounters: [{ pid: 1, enc: [{ aid: 1, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5, t: 1 }] }] }],
+      localEncounters: [{ pokemonId: 1, encounters: [{ areaId: 1, versionId: 1, details: [{ chance: 10, method: 1, minLevel: 2, maxLevel: 5, timeOfDay: 1 }] }] }],
       localAid: 1,
       missingEncounters: {},
       allLocations: [],
@@ -112,10 +112,10 @@ describe('catchGenerator', () => {
     const apiData = {
       localEncounters: [
         {
-          pid: 1,
-          enc: [
-            { aid: 2, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }, // Wrong aid
-            { aid: 1, v: 2, d: [{ c: 10, m: 1, min: 2, max: 5 }] }, // Wrong version
+          pokemonId: 1,
+          encounters: [
+            { areaId: 2, versionId: 1, details: [{ chance: 10, method: 1, minLevel: 2, maxLevel: 5 }] }, // Wrong aid
+            { areaId: 1, versionId: 2, details: [{ chance: 10, method: 1, minLevel: 2, maxLevel: 5 }] }, // Wrong version
           ],
         },
       ],
@@ -151,8 +151,8 @@ describe('catchGenerator', () => {
       localEncounters: [],
       localAid: undefined,
       missingEncounters: {
-        1: { enc: null } as unknown,
-        2: { enc: [{ aid: 2, v: 1, d: [undefined] }] } as unknown, // Missing detail object
+        1: { encounters: null } as unknown,
+        2: { encounters: [{ areaId: 2, versionId: 1, details: [undefined] }] } as unknown, // Missing detail object
       },
       allLocations: [],
     } as unknown as AssistantApiData;
@@ -200,9 +200,9 @@ describe('catchGenerator', () => {
       localEncounters: [],
       localAid: undefined,
       missingEncounters: {
-        1: { enc: [{ aid: 2, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] },
-        2: { enc: [{ aid: 2, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] },
-        3: { enc: [{ aid: 3, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] },
+        1: { encounters: [{ areaId: 2, versionId: 1, details: [{ chance: 10, method: 1, minLevel: 2, maxLevel: 5 }] }] },
+        2: { encounters: [{ areaId: 2, versionId: 1, details: [{ chance: 10, method: 1, minLevel: 2, maxLevel: 5 }] }] },
+        3: { encounters: [{ areaId: 3, versionId: 1, details: [{ chance: 10, method: 1, minLevel: 2, maxLevel: 5 }] }] },
       },
       allLocations: [],
     } as unknown as AssistantApiData;
@@ -250,8 +250,8 @@ describe('catchGenerator', () => {
       localEncounters: [],
       localAid: undefined,
       missingEncounters: {
-        1: { enc: [{ aid: 2, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] },
-        2: { enc: [{ aid: 3, v: 2, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] }, // wrong version
+        1: { encounters: [{ areaId: 2, versionId: 1, details: [{ chance: 10, method: 1, minLevel: 2, maxLevel: 5 }] }] },
+        2: { encounters: [{ areaId: 3, versionId: 2, details: [{ chance: 10, method: 1, minLevel: 2, maxLevel: 5 }] }] }, // wrong version
       },
       allLocations: [],
     } as unknown as AssistantApiData;
