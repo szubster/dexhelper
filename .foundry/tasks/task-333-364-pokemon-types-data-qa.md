@@ -2,10 +2,10 @@
 id: task-333-364-pokemon-types-data-qa
 type: TASK
 title: QA Pokemon Types Data Pipeline
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-07-29'
-updated_at: '2026-07-30'
+updated_at: '2026-07-31'
 depends_on:
   - task-333-363-pokemon-types-data-impl
 jules_session_id: null
@@ -15,8 +15,8 @@ tags:
   - data
   - pokemon
 research_references: []
-rejection_count: 0
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
