@@ -2,12 +2,12 @@
 id: task-337-367-zod-schema-integration-impl
 type: TASK
 title: Zod Schema Integration Implementation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-30'
-updated_at: '2026-07-30'
+updated_at: '2026-07-31'
 depends_on: []
-jules_session_id: '3450513848452188372'
+jules_session_id: null
 pr_number: null
 parent: story-334-337-zod-schema-integration
 tags: []

@@ -2,14 +2,14 @@
 id: task-333-371-sorting-strategies-retry-qa
 type: TASK
 title: QA PC Box Sorting Strategies (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-30'
 updated_at: '2026-07-31'
 depends_on:
   - task-333-370-pokemon-types-data-retry-qa
   - task-333-365-sorting-strategies-impl
-jules_session_id: '11675279234255863070'
+jules_session_id: null
 pr_number: null
 parent: story-136-333-sorting-standard-strategies-retry
 tags:
