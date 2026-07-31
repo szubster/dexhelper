@@ -26,7 +26,7 @@ notes: ''
 QA verification for `task-333-369-pokemon-types-data-retry-impl`.
 
 ## Acceptance Criteria
-- [ ] Verify `POKEMON_TYPE` and `POKEMON_TYPE_MAP` are defined in `src/db/schema.ts`.
-- [ ] Verify `generate-pokedata.ts` correctly extracts types, sorts by slot, and stores integer IDs.
-- [ ] Run the generation script locally or verify the source code to ensure types are correctly assigned in `generate-pokedata.ts`.
-- [ ] Ensure `pnpm lint` and `pnpm test` pass.
+- [x] Verify `POKEMON_TYPE` and `POKEMON_TYPE_MAP` are defined in `src/db/schema.ts`.
+- [x] Verify `generate-pokedata.ts` correctly extracts types, sorts by slot, and stores integer IDs.
+- [x] Run the generation script locally or verify the source code to ensure types are correctly assigned in `generate-pokedata.ts`.
+- [x] Ensure `pnpm lint` and `pnpm test` pass.
