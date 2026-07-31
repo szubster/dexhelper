@@ -35,5 +35,5 @@ Now that we have the exact memory offsets and data structure for the Pokéblock 
 
 ## Acceptance Criteria
 - [x] Create TASK(s) to implement the extraction logic for Pokéblocks in the backend data engine.
-- [ ] task-332-367-gen3-pokeblock-extraction-impl
-- [ ] task-332-368-gen3-pokeblock-extraction-qa
+- [x] task-332-367-gen3-pokeblock-extraction-impl
+- [x] task-332-368-gen3-pokeblock-extraction-qa
