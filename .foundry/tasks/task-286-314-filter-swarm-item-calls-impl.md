@@ -2,7 +2,7 @@
 id: task-286-314-filter-swarm-item-calls-impl
 type: TASK
 title: Implement High-Value Pokegear Call Filtering
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-11'
 updated_at: '2026-07-24'
@@ -16,8 +16,8 @@ tags:
   - data
   - implement
 research_references: []
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 2
+rejection_reason: 'Implementation missing. No Gen 2 phone call mechanics were implemented in the source code.'
 notes: ''
 ---
 
@@ -37,8 +37,8 @@ This task requires understanding of Gen 2 phone mechanics:
 - **Empty PR Policy:** If the required logic is already present or you must submit an empty PR, you **MUST check off all Acceptance Criteria checkboxes** below before submitting. Submitting an empty PR with unchecked boxes violates ADR 007/009 and will result in immediate rejection.
 
 ## Acceptance Criteria
-- [x] Create or update the logic layer to identify callers associated with swarms.
-- [x] Create or update the logic layer to identify callers that offer rare items.
-- [x] Implement a filtering mechanism or add a flag to the data structure that distinguishes these "high-value" calls from standard calls.
-- [x] Ensure all necessary flags and bitmasks (`wSwarmFlags`, `wDailyPhoneItemFlags`, etc.) are mapped correctly without using magic numbers in inline logic.
-- [x] research-286-336-gen2-phone-memory-offsets
+- [ ] Create or update the logic layer to identify callers associated with swarms.
+- [ ] Create or update the logic layer to identify callers that offer rare items.
+- [ ] Implement a filtering mechanism or add a flag to the data structure that distinguishes these "high-value" calls from standard calls.
+- [ ] Ensure all necessary flags and bitmasks (`wSwarmFlags`, `wDailyPhoneItemFlags`, etc.) are mapped correctly without using magic numbers in inline logic.
+- [ ] research-286-336-gen2-phone-memory-offsets
