@@ -2,13 +2,13 @@
 id: story-338-337-update-tpm-aggregation
 type: STORY
 title: Update TPM Persona to Aggregate Session Journals
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-22'
 updated_at: '2026-07-31'
 depends_on:
   - story-338-336-implement-session-unique-journals
-jules_session_id: '3812543643284052044'
+jules_session_id: null
 pr_number: null
 parent: epic-120-338-implement-conflictless-journals
 tags:

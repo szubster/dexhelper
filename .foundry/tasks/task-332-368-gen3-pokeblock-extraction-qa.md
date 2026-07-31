@@ -2,13 +2,13 @@
 id: task-332-368-gen3-pokeblock-extraction-qa
 type: TASK
 title: QA Verification for Gen 3 Pokéblock Case Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-30'
 updated_at: '2026-07-31'
 depends_on:
   - task-332-367-gen3-pokeblock-extraction-impl
-jules_session_id: '9725628562564447045'
+jules_session_id: null
 pr_number: null
 parent: story-327-332-implement-gen3-pokeblock-parsing
 tags:
