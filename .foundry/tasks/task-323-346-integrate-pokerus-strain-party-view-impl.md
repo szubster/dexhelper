@@ -34,6 +34,6 @@ Implement the integration of the Pokerus Strain Badge into the StorageGrid compo
 - **Intelligent Verification Protocol:** As this is a UI integration task that involves simple rendering logic with low risk, self-verification by the coder is sufficient. Ensure component integration tests are updated in `src/components/__tests__/StorageGrid.test.tsx`.
 
 ## 3. Acceptance Criteria
-- [ ] Integrate `PokerusBadge` into the `StorageCard` component for Party Pokémon in `src/components/StorageGrid.tsx`.
-- [ ] Extract Pokerus data from the parsed Pokémon structure (`p.pokerus.strain`) and pass it down.
-- [ ] Update `src/components/__tests__/StorageGrid.test.tsx` to verify the badge is rendered when appropriate data is provided.
+- [x] Integrate `PokerusBadge` into the `StorageCard` component for Party Pokémon in `src/components/StorageGrid.tsx`.
+- [x] Extract Pokerus data from the parsed Pokémon structure (`p.pokerus.strain`) and pass it down.
+- [x] Update `src/components/__tests__/StorageGrid.test.tsx` to verify the badge is rendered when appropriate data is provided.
