@@ -1,6 +1,6 @@
 import * as path from 'node:path';
 import * as fs from 'node:fs';
-import { FoundryFrontmatter } from './foundry-orchestrator';
+import { type NodeFrontmatter } from './schema.ts';
 
 export function getValidOwnerPersona(type: string): string {
   switch (type) {
@@ -15,7 +15,7 @@ export function getValidOwnerPersona(type: string): string {
   }
 }
 
-export function createValidNodeFrontmatter(overrides: Partial<FoundryFrontmatter> & { type?: string; [key: string]: any } = {}): string {
+export function createValidNodeFrontmatter(overrides: Partial<NodeFrontmatter> & { type?: string; [key: string]: any } = {}): string {
   const type = overrides.type || 'TASK';
   const owner_persona = overrides.owner_persona || getValidOwnerPersona(type);
 
@@ -75,7 +75,7 @@ export function createValidNodeFrontmatter(overrides: Partial<FoundryFrontmatter
   return yaml.trim();
 }
 
-export function createValidTestNode(tmpDir: string, relPath: string, overrides: Partial<FoundryFrontmatter> & { type?: string; [key: string]: any } = {}, body: string = '# Title') {
+export function createValidTestNode(tmpDir: string, relPath: string, overrides: Partial<NodeFrontmatter> & { type?: string; [key: string]: any } = {}, body: string = '# Title') {
   const fullPath = path.join(tmpDir, relPath);
   const dir = path.dirname(fullPath);
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });

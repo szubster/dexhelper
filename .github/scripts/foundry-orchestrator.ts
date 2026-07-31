@@ -29,6 +29,7 @@ import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
 import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, logToJournal } from './dag-utils.ts';
+import { NodeFrontmatterSchema, type NodeFrontmatter } from './schema.ts';
 
 // gray-matter is CJS; import via require() for clean ESM interop.
 const require = createRequire(import.meta.url);
@@ -36,68 +37,17 @@ const matter = require('gray-matter') as typeof import('gray-matter');
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-const VALID_STATUSES = [
-  'PENDING',
-  'READY',
-  'ACTIVE',
-  'VERIFYING',
-  'COMPLETED',
-  'FAILED',
-  'BLOCKED',
-  'CANCELLED',
-] as const;
-
-type Status = (typeof VALID_STATUSES)[number];
-
-const VALID_TYPES = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK', 'RESEARCH', 'ADR'] as const;
-type NodeType = (typeof VALID_TYPES)[number];
-
-/** Mirrors the YAML frontmatter schema defined in .foundry/docs/schema.md §3 */
-export interface FoundryFrontmatter {
-  // Supports both <type>-<NNN>-<slug> and <type>-<parent_NNN>-<NNN>-<slug>
-  id: string;
-  type: NodeType;
-  title: string;
-  status: Status;
-  owner_persona: string;
-  created_at: string;
-  updated_at: string;
-  depends_on: string[];
-  jules_session_id: string | null;
-  parent?: string | null;
-  tags?: string[];
-  research_references?: string[];
-  rejection_count?: number;
-  rejection_reason?: string;
-  pr_number?: number;
-  notes?: string;
-}
-
 interface ParsedNode {
   /** Absolute path on disk */
   filePath: string;
   /** Repo-relative path, e.g. ".foundry/stories/story-001-scaffold.md" */
   repoPath: string;
-  frontmatter: FoundryFrontmatter;
+  frontmatter: NodeFrontmatter;
   /** Full raw file content — needed for surgical in-place mutation */
   rawContent: string;
   /** Markdown body content without frontmatter */
   body: string;
 }
-
-// ─── Required fields (schema §3.1) ───────────────────────────────────────────
-
-const REQUIRED_FIELDS: ReadonlyArray<keyof FoundryFrontmatter> = [
-  'id',
-  'type',
-  'title',
-  'status',
-  'owner_persona',
-  'created_at',
-  'updated_at',
-  'depends_on',
-  'jules_session_id',
-];
 
 // ─── CLI flags ────────────────────────────────────────────────────────────────
 
@@ -185,7 +135,7 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
     return null;
   }
 
-  const fm = parsed.data as Partial<FoundryFrontmatter>;
+  const fm = parsed.data;
 
   // Files without a frontmatter block have an empty data object.
   if (Object.keys(fm).length === 0) {
@@ -193,42 +143,16 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
     return null;
   }
 
-  // Validate required fields.
-  for (const field of REQUIRED_FIELDS) {
-    if (fm[field] === undefined) {
-      warn(`Missing required field '${field}' in: ${repoPath} — skipping`);
-      return null;
-    }
-  }
-
-  // Validate status enum.
-  if (!VALID_STATUSES.includes(fm.status as Status)) {
-    warn(`Invalid status '${String(fm.status)}' in: ${repoPath} — skipping`);
-    return null;
-  }
-
-  // Validate type enum.
-  if (!VALID_TYPES.includes(fm.type as NodeType)) {
-    warn(`Invalid type '${String(fm.type)}' in: ${repoPath} — skipping`);
-    return null;
-  }
-
-  // Ensure depends_on is an array (gray-matter may parse a missing key as undefined).
-  if (!Array.isArray(fm.depends_on)) {
-    warn(`'depends_on' is not an array in: ${repoPath} — skipping`);
-    return null;
-  }
-
-  // Validate owner_persona is a single string (not array, no commas).
-  if (typeof fm.owner_persona !== 'string' || fm.owner_persona.includes(',')) {
-    warn(`Multiple owner_personas detected in: ${repoPath} — skipping`);
+  const parseResult = NodeFrontmatterSchema.safeParse(fm);
+  if (!parseResult.success) {
+    warn(`Schema validation failed in: ${repoPath} — skipping. Errors: ${parseResult.error.message}`);
     return null;
   }
 
   return {
     filePath,
     repoPath,
-    frontmatter: fm as FoundryFrontmatter,
+    frontmatter: parseResult.data,
     rawContent,
     body: parsed.content,
   };
@@ -242,7 +166,7 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
  *
  * In --dry-run mode, logs the intended change but does NOT write to disk.
  */
-function promoteNodeStatus(node: ParsedNode, currentStatus: Status, targetStatus: Status): void {
+function promoteNodeStatus(node: ParsedNode, currentStatus: NodeFrontmatter['status'], targetStatus: NodeFrontmatter['status']): void {
   const dateStr = todayISO();
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
@@ -251,7 +175,7 @@ function promoteNodeStatus(node: ParsedNode, currentStatus: Status, targetStatus
     return;
   }
 
-  const clearRejectionReasonStatuses: Status[] = ['ACTIVE', 'READY', 'PENDING', 'VERIFYING', 'COMPLETED'];
+  const clearRejectionReasonStatuses: NodeFrontmatter['status'][] = ['ACTIVE', 'READY', 'PENDING', 'VERIFYING', 'COMPLETED'];
 
   const newData = { ...node.frontmatter, status: targetStatus, updated_at: dateStr };
 
@@ -271,7 +195,7 @@ function promoteNodeStatus(node: ParsedNode, currentStatus: Status, targetStatus
   }
 
   // Update in-memory state so downstream phases see the correct status.
-  node.frontmatter = newData as FoundryFrontmatter;
+  node.frontmatter = newData as NodeFrontmatter;
   node.rawContent = newContent;
 
   info(`${dryTag}Promoted ${currentStatus} → ${targetStatus}: ${node.repoPath}`);
@@ -293,7 +217,7 @@ function promoteNodeToTpm(node: ParsedNode): void {
     }
   }
 
-  node.frontmatter = newData as FoundryFrontmatter;
+  node.frontmatter = newData as NodeFrontmatter;
   node.rawContent = newContent;
 
   info(`${dryTag}Flagged node for TPM: ${node.repoPath}`);
@@ -303,7 +227,7 @@ function promoteNodeToCancelledWithReason(node: ParsedNode, reason: string): voi
   const dateStr = todayISO();
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
-  const newData = { ...node.frontmatter, status: 'CANCELLED' as Status, rejection_reason: reason, updated_at: dateStr };
+  const newData = { ...node.frontmatter, status: 'CANCELLED' as NodeFrontmatter['status'], rejection_reason: reason, updated_at: dateStr };
   const newContent = matter.stringify(node.body, newData);
 
   if (!DRY_RUN) {
@@ -315,7 +239,7 @@ function promoteNodeToCancelledWithReason(node: ParsedNode, reason: string): voi
     }
   }
 
-  node.frontmatter = newData as FoundryFrontmatter;
+  node.frontmatter = newData as NodeFrontmatter;
   node.rawContent = newContent;
 
   info(`${dryTag}Cancelled node ${node.repoPath} with reason: ${reason}`);
@@ -325,7 +249,7 @@ function promoteNodeToFailedWithReason(node: ParsedNode, reason: string): void {
   const dateStr = todayISO();
   const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
 
-  const newData = { ...node.frontmatter, status: 'FAILED' as Status, rejection_reason: reason, updated_at: dateStr };
+  const newData = { ...node.frontmatter, status: 'FAILED' as NodeFrontmatter['status'], rejection_reason: reason, updated_at: dateStr };
   const newContent = matter.stringify(node.body, newData);
 
   if (!DRY_RUN) {
@@ -337,7 +261,7 @@ function promoteNodeToFailedWithReason(node: ParsedNode, reason: string): void {
     }
   }
 
-  node.frontmatter = newData as FoundryFrontmatter;
+  node.frontmatter = newData as NodeFrontmatter;
   node.rawContent = newContent;
 
   info(`${dryTag}Flagged node as FAILED due to ${reason}: ${node.repoPath}`);
@@ -360,7 +284,7 @@ function acknowledgeNodeFailure(node: ParsedNode): void {
     }
   }
 
-  node.frontmatter = newData as FoundryFrontmatter;
+  node.frontmatter = newData as NodeFrontmatter;
   node.rawContent = newContent;
 
   info(`${dryTag}Acknowledged failure in: ${node.repoPath}`);

@@ -1,6 +1,7 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
+import { NodeFrontmatterSchema } from './schema.ts';
 
 const _require = createRequire(import.meta.url);
 const matter = _require('gray-matter') as typeof import('gray-matter');
@@ -41,7 +42,13 @@ export function sweepActiveNodes(repoRoot: string): string[] {
     try {
       const content = fs.readFileSync(fp, 'utf-8');
       const parsed = matter(content);
-      const status = parsed.data?.['status'];
+      const parseResult = NodeFrontmatterSchema.safeParse(parsed.data);
+
+      if (!parseResult.success) {
+        continue;
+      }
+
+      const status = parseResult.data.status;
 
       if (status === 'ACTIVE') {
         const relativePath = path.relative(repoRoot, fp);

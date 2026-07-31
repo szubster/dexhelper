@@ -1,6 +1,7 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
+import { NodeFrontmatterSchema } from './schema.ts';
 
 const _require = createRequire(import.meta.url);
 const matter = _require('gray-matter') as typeof import('gray-matter');
@@ -34,14 +35,20 @@ export function remediateZombieNode(repoRoot: string, relativeFilePath: string, 
       return false;
     }
 
-    if (parsed.data?.status !== 'ACTIVE') {
+    const parseResult = NodeFrontmatterSchema.safeParse(parsed.data);
+    if (!parseResult.success) {
+      console.warn(`Malformed schema in: ${fullPath}`);
+      return false;
+    }
+
+    if (parseResult.data.status !== 'ACTIVE') {
       console.warn(`Node is not ACTIVE: ${fullPath}`);
       return false;
     }
 
     const newData = {
-      ...parsed.data,
-      status: 'FAILED',
+      ...parseResult.data,
+      status: 'FAILED' as const,
       rejection_reason: rejectionReason,
     };
 
