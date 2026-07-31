@@ -2,12 +2,12 @@
 id: task-319-322-gen3-trainer-flags-extraction-impl
 type: TASK
 title: Implement Gen 3 Trainer Defeat Flags Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-14'
 updated_at: '2026-07-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4950712106817684861'
 pr_number: null
 parent: story-307-319-gen3-trainer-flags-extraction
 tags:
