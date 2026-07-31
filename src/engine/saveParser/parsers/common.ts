@@ -215,7 +215,7 @@ export interface SaveData {
   /** In-game NPC trade status flags mapped by their flag name for Gen 3 games. */
   gen3NPCTrades?: Record<string, boolean>;
   /** Gen 3 specific: Calculated valid Feebas tile locations. */
-  gen3FeebasTiles?: number[];
+  gen3FeebasTiles?: [number, number][];
   /** Gen 1 specific: Claimed static encounters. */
   gen1StaticEncounters?: Record<number, boolean>;
   /** The specific game version detected or forced (e.g., 'red', 'crystal'). */

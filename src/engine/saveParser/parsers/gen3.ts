@@ -18,7 +18,7 @@
  * is determined by `PV % 24`.
  */
 
-import { calculateFeebasTiles, extractFeebasSeed } from '../../gen3/feebas';
+import { calculateFeebasTiles, extractFeebasSeed, mapSpotIdsToCoordinates } from '../../gen3/feebas';
 import { parseGen3MatchCall } from '../../gen3/matchCall/parser';
 import { parseSecretBaseRecord } from '../../gen3/secretBase/parser';
 import {
@@ -1120,11 +1120,11 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
         // Ignored if missing or corrupted, allowing the rest of the save to load
       }
     }
-    let gen3FeebasTiles: number[] | undefined;
+    let gen3FeebasSpotIds: number[] | undefined;
     if (_forcedVersion === 'ruby' || _forcedVersion === 'sapphire' || _forcedVersion === 'emerald') {
       try {
         const seed = extractFeebasSeed(view, _forcedVersion, section1Offset);
-        gen3FeebasTiles = calculateFeebasTiles(seed);
+        gen3FeebasSpotIds = calculateFeebasTiles(seed);
       } catch {
         // Ignored
       }
@@ -1221,8 +1221,8 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       gen3TrickHouse: parseTrickHouse(view, section1Offset),
       ...(gen3MatchCall ? { gen3MatchCall } : {}),
     };
-    if (gen3FeebasTiles !== undefined) {
-      result.gen3FeebasTiles = gen3FeebasTiles;
+    if (gen3FeebasSpotIds !== undefined) {
+      result.gen3FeebasTiles = mapSpotIdsToCoordinates(gen3FeebasSpotIds);
     }
     if (gen3BattleFrontierWinStreaks) {
       result.gen3BattleFrontierWinStreaks = gen3BattleFrontierWinStreaks;
