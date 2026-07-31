@@ -2,10 +2,10 @@
 id: task-337-368-zod-schema-integration-qa
 type: TASK
 title: QA Zod Schema Integration
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-30'
-updated_at: '2026-07-30'
+updated_at: '2026-07-31'
 depends_on:
   - task-337-367-zod-schema-integration-impl
 jules_session_id: null

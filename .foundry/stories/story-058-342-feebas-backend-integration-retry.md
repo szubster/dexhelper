@@ -2,7 +2,7 @@
 id: story-058-342-feebas-backend-integration-retry
 type: STORY
 title: Integrate Feebas Utility into Save Parser (Retry)
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-25'
 updated_at: '2026-07-31'

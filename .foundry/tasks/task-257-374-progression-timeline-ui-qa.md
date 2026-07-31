@@ -2,7 +2,7 @@
 id: task-257-374-progression-timeline-ui-qa
 type: TASK
 title: QA Progression Timeline UI
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-31'
 updated_at: '2026-07-31'

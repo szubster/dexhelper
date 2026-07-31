@@ -2,7 +2,7 @@
 id: task-262-375-aggregate-first-catch-impl
 type: TASK
 title: Implement Aggregate First Catch by Route
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-31'
 updated_at: '2026-07-31'
