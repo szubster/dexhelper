@@ -50,6 +50,15 @@ const BERRY_STAGE_OFFSET = 1;
 const BERRY_MINUTES_OFFSET = 2;
 const BERRY_YIELD_OFFSET = 4;
 const BERRY_WATERED_OFFSET = 5;
+const BERRY_STAGE_MASK = 0x7f;
+const BERRY_STOP_GROWTH_MASK = 0x80;
+const BERRY_REGROWTH_MASK = 0x0f;
+const BERRY_WATERED_1_MASK = 0x10;
+const BERRY_WATERED_2_MASK = 0x20;
+const BERRY_WATERED_3_MASK = 0x40;
+const BERRY_WATERED_4_MASK = 0x80;
+const NIBBLE_MASK = 0x0f;
+
 const HIDDEN_ITEM_FLAGS_OFFSET = 62;
 
 const SECTION_SIZE = 4096;
@@ -428,18 +437,18 @@ function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
     try {
       const berryId = view.getUint8(offset);
       const stageByte = view.getUint8(offset + BERRY_STAGE_OFFSET);
-      const stage = stageByte & 0x7f;
-      const stopGrowth = (stageByte & 0x80) !== 0;
+      const stage = stageByte & BERRY_STAGE_MASK;
+      const stopGrowth = (stageByte & BERRY_STOP_GROWTH_MASK) !== 0;
 
       const minutesUntilNextStage = view.getUint16(offset + BERRY_MINUTES_OFFSET, true);
       const berryYield = view.getUint8(offset + BERRY_YIELD_OFFSET);
 
       const wateredByte = view.getUint8(offset + BERRY_WATERED_OFFSET);
-      const regrowthCount = wateredByte & 0x0f;
-      const watered1 = (wateredByte & 0x10) !== 0;
-      const watered2 = (wateredByte & 0x20) !== 0;
-      const watered3 = (wateredByte & 0x40) !== 0;
-      const watered4 = (wateredByte & 0x80) !== 0;
+      const regrowthCount = wateredByte & BERRY_REGROWTH_MASK;
+      const watered1 = (wateredByte & BERRY_WATERED_1_MASK) !== 0;
+      const watered2 = (wateredByte & BERRY_WATERED_2_MASK) !== 0;
+      const watered3 = (wateredByte & BERRY_WATERED_3_MASK) !== 0;
+      const watered4 = (wateredByte & BERRY_WATERED_4_MASK) !== 0;
 
       patches.push({
         berryId,
@@ -1046,7 +1055,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     for (let i = 0; i < 14; i++) {
       const currentByte = view.getUint8(flagsOffset + HIDDEN_ITEM_FLAGS_OFFSET + i);
       const nextByte = view.getUint8(flagsOffset + HIDDEN_ITEM_FLAGS_OFFSET + i + 1);
-      hiddenItemFlags[i] = ((currentByte >> 4) | ((nextByte & 0x0f) << 4)) & 0xff;
+      hiddenItemFlags[i] = ((currentByte >> 4) | ((nextByte & NIBBLE_MASK) << 4)) & 0xff;
     }
 
     const mirageIslandOffset = _forcedVersion === 'emerald' ? MIRAGE_ISLAND_OFFSET_EMERALD : MIRAGE_ISLAND_OFFSET_RS;
