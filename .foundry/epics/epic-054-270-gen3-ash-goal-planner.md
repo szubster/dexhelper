@@ -6,9 +6,8 @@ status: PENDING
 owner_persona: story_owner
 created_at: "2026-07-17"
 updated_at: "2026-07-17"
-depends_on: [
-  "epic-054-269-gen3-ash-dashboard"
-]
+depends_on:
+  - "epic-054-269-gen3-ash-dashboard"
 jules_session_id: null
 pr_number: null
 parent: prd-089-054-gen3-ash-gathering-tracker
