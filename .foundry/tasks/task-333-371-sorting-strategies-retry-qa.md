@@ -27,7 +27,7 @@ notes: ''
 QA for the sorting strategies implementation in `task-333-365-sorting-strategies-impl`. This was cancelled due to its dependency failing, but now that the data pipeline will be fixed, we can re-verify the sorting logic.
 
 ## Acceptance Criteria
-- [ ] Verify `DexNumberSorter`, `LevelSorter`, `TypeSorter`, and `AlphaSorter` correctly implement the `SortingStrategy` signature.
-- [ ] Verify edge cases (e.g. missing data) are handled gracefully without throwing errors during sort.
-- [ ] Run `pnpm test` to ensure all sorting unit tests pass and properly assert correct sorting orders.
-- [ ] Verify `pnpm lint` passes.
+- [x] Verify `DexNumberSorter`, `LevelSorter`, `TypeSorter`, and `AlphaSorter` correctly implement the `SortingStrategy` signature.
+- [x] Verify edge cases (e.g. missing data) are handled gracefully without throwing errors during sort.
+- [x] Run `pnpm test` to ensure all sorting unit tests pass and properly assert correct sorting orders.
+- [x] Verify `pnpm lint` passes.
