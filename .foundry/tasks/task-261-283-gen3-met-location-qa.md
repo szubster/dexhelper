@@ -2,10 +2,10 @@
 id: task-261-283-gen3-met-location-qa
 type: TASK
 title: QA Gen 3 Met Location Extraction
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-08'
-updated_at: '2026-07-20'
+updated_at: '2026-07-31'
 depends_on:
   - task-261-282-gen3-met-location-impl
 jules_session_id: null

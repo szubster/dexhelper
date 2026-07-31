@@ -2,7 +2,7 @@
 id: task-286-315-filter-swarm-item-calls-qa
 type: TASK
 title: QA High-Value Pokegear Call Filtering
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-07-11'
 updated_at: '2026-07-31'
@@ -17,8 +17,8 @@ tags:
   - data
   - qa
 research_references: []
-rejection_count: 0
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

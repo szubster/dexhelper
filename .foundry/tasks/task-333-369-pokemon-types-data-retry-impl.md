@@ -2,10 +2,10 @@
 id: task-333-369-pokemon-types-data-retry-impl
 type: TASK
 title: Add Pokemon Types to Data Pipeline (Retry)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-30'
-updated_at: '2026-07-30'
+updated_at: '2026-07-31'
 depends_on:
   - research-333-361-investigate-pokemon-types-failure
 jules_session_id: null
