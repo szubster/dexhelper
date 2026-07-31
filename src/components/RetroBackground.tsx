@@ -37,7 +37,9 @@ export function RetroBackground(_props: RetroBackgroundProps) {
           <div className="animate-[scroll-up_60s_linear_infinite]">
             {Array.from({ length: 100 }).map((_, i) => (
               // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable representing background items
-              <div key={`hex-${i}`}>0x{Math.random().toString(16).slice(2, 10).toUpperCase()}</div>
+              <div key={`hex-${i}`}>
+                0x{window.crypto.getRandomValues(new Uint32Array(1))[0]?.toString(16).padStart(8, '0').toUpperCase()}
+              </div>
             ))}
           </div>
         </div>
