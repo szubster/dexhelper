@@ -2,7 +2,7 @@
 id: task-341-369-feebas-calculation-worker-impl
 type: TASK
 title: Implement Feebas Web Worker
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-31'
 updated_at: '2026-07-31'

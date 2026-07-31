@@ -2,7 +2,7 @@
 id: task-342-369-feebas-coordinates-impl
 type: TASK
 title: Map Feebas IDs to Coordinates in SaveData
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-07-31'
 updated_at: '2026-07-31'

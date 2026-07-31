@@ -2,10 +2,10 @@
 id: research-333-361-investigate-pokemon-types-failure
 type: RESEARCH
 title: Investigate Pokemon Types Data Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-07-30'
-updated_at: '2026-07-30'
+updated_at: '2026-07-31'
 depends_on: []
 jules_session_id: null
 pr_number: null
