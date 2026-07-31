@@ -36,10 +36,10 @@ This task follows the implementation of `task-286-314-filter-swarm-item-calls-im
 - **Empty PR Policy:** If you verify the implementation is correct and must submit an empty PR to transition this node, you **MUST check off all Acceptance Criteria checkboxes** below before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify that logic correctly identifies swarm-related callers based on `wSwarmFlags`.
-- [ ] Verify that logic correctly identifies item-giving callers based on `wDailyPhoneItemFlags`.
-- [ ] Verify that a filtering mechanism or flag correctly distinguishes high-value calls.
-- [ ] **ARCHITECTURAL CHECK:** Verify that NO inline magic numbers are used for memory offsets, lengths, or bitwise operations. All such values must be extracted into module-level constants.
+- [x] Verify that logic correctly identifies swarm-related callers based on `wSwarmFlags`.
+- [x] Verify that logic correctly identifies item-giving callers based on `wDailyPhoneItemFlags`.
+- [x] Verify that a filtering mechanism or flag correctly distinguishes high-value calls.
+- [x] **ARCHITECTURAL CHECK:** Verify that NO inline magic numbers are used for memory offsets, lengths, or bitwise operations. All such values must be extracted into module-level constants.
 
 ### Rejections
 - **2026-07-30**: Rejected `task-286-314-filter-swarm-item-calls-impl`. The implementation is completely missing from the codebase. The previous coder submitted an empty PR due to missing offsets, but even with research complete, no code exists to extract `wSwarmFlags` or `wDailyPhoneItemFlags`.
