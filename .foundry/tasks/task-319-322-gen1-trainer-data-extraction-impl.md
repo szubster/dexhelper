@@ -35,7 +35,7 @@ We need to extract the trainer defeat flags for Generation 1 games. This is part
 7. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 1 trainer data extraction.
-- [ ] Define all memory offsets, lengths, bit locations, and shifts as reusable constants at the module level.
-- [ ] Use explicit bitwise logic with boundary testing.
-- [ ] Write unit tests for extraction.
+- [x] Implement Gen 1 trainer data extraction.
+- [x] Define all memory offsets, lengths, bit locations, and shifts as reusable constants at the module level.
+- [x] Use explicit bitwise logic with boundary testing.
+- [x] Write unit tests for extraction.

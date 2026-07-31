@@ -26,6 +26,8 @@ const POKEDEX_SEEN_OFFSET_FROM_OWNED = 19;
 const POKEDEX_TOTAL_MONS = 151;
 const POKEDEX_PADDING_BYTE_OFFSET = 18;
 const BITS_PER_BYTE = 8;
+const EVENT_FLAGS_MAX_BITS = EVENT_FLAGS_LENGTH * BITS_PER_BYTE;
+const BIT_MASK = 1;
 const POKEDEX_PADDING_BIT_MASK = 0x80;
 const PC_CURRENT_BOX_NUM_OFFSET = 0x284c;
 const PC_CURRENT_BOX_COUNT_OFFSET = 0x30c0;
@@ -817,6 +819,15 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
     if (e instanceof RangeError) throw new Error('The save file is corrupted or incomplete.');
     throw e;
   }
+
+  const trainerFlags: boolean[] = [];
+  for (let i = 0; i < EVENT_FLAGS_MAX_BITS; i++) {
+    const byteIdx = Math.floor(i / BITS_PER_BYTE);
+    const bitIdx = i % BITS_PER_BYTE;
+    const byte = eventFlags[byteIdx] ?? 0;
+    trainerFlags.push(((byte >> bitIdx) & BIT_MASK) !== 0);
+  }
+
   const hiddenItemFlagsOffset = HIDDEN_ITEM_FLAGS_OFFSET + offsetShift;
   const hiddenItemFlags = new Uint8Array(HIDDEN_ITEM_FLAGS_LENGTH);
   try {
@@ -859,6 +870,7 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
     hallOfFameCount,
     hallOfFameRecords,
     eventFlags,
+    trainerFlags,
     hiddenItemFlags,
     hiddenCoinFlags,
     gen1StaticEncounters: parseGen1StaticEncounters(eventFlags),
