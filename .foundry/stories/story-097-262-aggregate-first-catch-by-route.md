@@ -30,4 +30,6 @@ Aggregate caught Pokémon by their `met_location` and identify the first catch f
 - Order by catch sequence or time to establish the first encounter.
 
 ## Acceptance Criteria
-- [ ] Tasks are generated
+- [x] Tasks are generated
+- [ ] task-262-375-aggregate-first-catch-impl
+- [ ] task-262-376-aggregate-first-catch-qa
