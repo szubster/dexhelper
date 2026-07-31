@@ -29,6 +29,13 @@ Investigate the root cause behind the max rejection count and cancellation of `e
 The zombie node remediation epic reached max rejections. To properly unblock this DAG and resolve the infinite loops, we need to understand what specifically failed during its implementation or verification.
 
 ## Acceptance Criteria
-- [ ] Read the auditor and qa persona journals to understand why `epic-050-090-zombie-node-remediation-and-gc` failed.
-- [ ] Produce a summary of findings.
-- [ ] Determine the path forward for the replacement Epics.
+- [x] Read the auditor and qa persona journals to understand why `epic-050-090-zombie-node-remediation-and-gc` failed.
+- [x] Produce a summary of findings.
+- [x] Determine the path forward for the replacement Epics.
+
+## Summary of Findings
+Based on the auditor's journal (session `18386111525126870827`), a programmatic safeguard was implemented in `foundry-orchestrator.ts` and `foundry-heartbeat.ts` requiring that before an `EPIC` can be marked `COMPLETED`, at least one of its child `STORY` nodes must have `e2e` or `integration` in its `tags` array.
+The previous epic (`epic-050-090-zombie-node-remediation-and-gc`) and its child stories (`story-090-133-remediation-state-transition-logic` and `story-090-134-garbage-collection-integration`) did not include these tags. This caused the orchestrator to fail the verification repeatedly, leading to the max rejection count being reached and the epic being cancelled.
+
+## Path Forward for Replacement Epics
+To ensure successful completion of the replacement epics (`epic-050-330-zombie-node-remediation-logic` and `epic-050-331-zombie-node-gc-integration`), they must explicitly require that at least one of their generated child `STORY` nodes includes `e2e` or `integration` in its `tags`.
