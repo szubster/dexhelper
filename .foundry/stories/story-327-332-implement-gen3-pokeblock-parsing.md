@@ -2,13 +2,13 @@
 id: story-327-332-implement-gen3-pokeblock-parsing
 type: STORY
 title: Implement Gen 3 Pokéblock Case Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-17'
 updated_at: '2026-07-31'
 depends_on:
   - story-327-331-research-gen3-pokeblock-offsets
-jules_session_id: '7360935672012331387'
+jules_session_id: null
 pr_number: null
 parent: epic-114-327-gen3-pokeblock-case-parsing
 tags:

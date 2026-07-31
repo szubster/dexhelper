@@ -2,10 +2,10 @@
 id: epic-114-327-gen3-pokeblock-case-parsing
 type: EPIC
 title: Gen 3 Pokéblock Case Save Parsing
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-07-18'
+updated_at: '2026-07-31'
 depends_on: []
 jules_session_id: null
 pr_number: null
