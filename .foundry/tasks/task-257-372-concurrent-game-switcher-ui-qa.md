@@ -30,4 +30,4 @@ QA verification for the Concurrent Game Switcher UI.
 - Validate the UI component works correctly.
 
 ## Acceptance Criteria
-- [ ] Verify the UI component implementation.
+- [x] Verify the UI component implementation.
