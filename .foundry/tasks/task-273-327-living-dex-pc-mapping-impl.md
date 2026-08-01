@@ -25,8 +25,8 @@ notes: ''
 This task implements the mapping layer to identify which Pokémon the player currently owns and their exact PC Box and Slot locations. This data mapping allows the Living Dex Tracker to properly render and track owned Pokémon in their current positions.
 
 ## Acceptance Criteria
-- [ ] Implement data mapping functions to extract PC Box and Slot locations for owned Pokémon.
-- [ ] Parse PC Box data correctly according to Gen 3 architecture specifications.
+- [x] Implement data mapping functions to extract PC Box and Slot locations for owned Pokémon.
+- [x] Parse PC Box data correctly according to Gen 3 architecture specifications.
 
 ## Technical Blueprint
 

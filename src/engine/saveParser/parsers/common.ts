@@ -60,6 +60,7 @@ export interface PokemonInstance {
   pokerus?: { strain: number; daysRemaining: number } | undefined;
   currentHp?: number | undefined;
   dvs?: { hp: number; atk: number; def: number; spd: number; spc: number };
+  ivs?: { hp: number; attack: number; defense: number; speed: number; specialAttack: number; specialDefense: number };
   statExp?: { hp: number; atk: number; def: number; spd: number; spc: number };
   caughtData?:
     | {
