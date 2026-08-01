@@ -34,6 +34,6 @@ Develop a background process (diff engine) that compares the current layout of P
 - [x] Break down epic into stories for the diff engine logic.
 - [x] Break down epic into stories for the move planner algorithm and minimal operation calculation.
 - [x] Break down epic into stories for comprehensive unit tests of complex move scenarios.
-- [ ] story-137-294-diff-engine-logic
-- [ ] story-137-295-move-planner-algorithm
-- [ ] story-137-296-move-planner-unit-tests
+- [x] story-137-294-diff-engine-logic
+- [x] story-137-295-move-planner-algorithm
+- [x] story-137-296-move-planner-unit-tests
