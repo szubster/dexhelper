@@ -33,5 +33,5 @@ Implement the data extraction layer for the "Missed Trainer Radar" feature speci
 
 ## Acceptance Criteria
 - [x] Break down into Stories
-- [ ] story-306-319-gen1-trainer-data-extraction
-- [ ] story-306-320-gen2-trainer-data-extraction
+- [x] story-306-319-gen1-trainer-data-extraction
+- [x] story-306-320-gen2-trainer-data-extraction
