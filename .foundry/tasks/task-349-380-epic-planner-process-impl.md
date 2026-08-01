@@ -27,4 +27,4 @@ As part of enforcing macro node functional boundaries, we need to enforce a proc
 Update the instructions for the Epic Planner persona to enforce the creation of an Integration/Verification story for every EPIC.
 
 ## Acceptance Criteria
-- [ ] Update `.github/agents/epic_planner.md` to explicitly require a final E2E Integration STORY when breaking down a PRD into Epics. Ensure this rule is clearly stated under Core Directives or a similarly prominent section.
+- [x] Update `.github/agents/epic_planner.md` to explicitly require a final E2E Integration STORY when breaking down a PRD into Epics. Ensure this rule is clearly stated under Core Directives or a similarly prominent section.
