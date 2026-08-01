@@ -35,3 +35,4 @@ To ensure the Hidden Items Finder UI functions as expected and integrates proper
 ## Tasks
 - [ ] task-157-338-hidden-items-e2e-tests-impl
 - [ ] task-157-339-hidden-items-e2e-tests-qa
+- [ ] story-060-158-hidden-items-checklist-integration
