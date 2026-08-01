@@ -2,7 +2,7 @@
 id: task-295-339-gen3-static-encounters-ui-qa
 type: TASK
 title: Gen 3 Static Encounters UI QA
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-20'
 updated_at: '2026-08-01'
@@ -17,8 +17,8 @@ tags:
   - ui
   - qa
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
