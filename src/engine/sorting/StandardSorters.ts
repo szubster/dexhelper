@@ -1,3 +1,4 @@
+import { HOENN_DEX_ORDER } from '../saveParser/parsers/gen3';
 import type { SortingStrategy } from './SortingStrategy';
 
 export class DexNumberSorter {
@@ -9,7 +10,14 @@ export class DexNumberSorter {
 
   public sort: SortingStrategy = (a, b) => {
     if (this.config.variant === 'regional') {
-      throw new Error('Regional variant sorting is not supported yet.');
+      const idxA = HOENN_DEX_ORDER.indexOf(a.instance.speciesId);
+      const idxB = HOENN_DEX_ORDER.indexOf(b.instance.speciesId);
+      const rankA = idxA !== -1 ? idxA : Infinity;
+      const rankB = idxB !== -1 ? idxB : Infinity;
+      if (rankA === rankB) {
+        return a.instance.speciesId - b.instance.speciesId;
+      }
+      return rankA - rankB;
     }
     return a.instance.speciesId - b.instance.speciesId;
   };

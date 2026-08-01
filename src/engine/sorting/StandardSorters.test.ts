@@ -52,10 +52,28 @@ describe('StandardSorters', () => {
       expect(sorter(p2, p1)).toBeLessThan(0);
     });
 
-    it('throws error for regional variant', () => {
-      expect(() =>
-        new DexNumberSorter({ variant: 'regional' }).sort(createSortable(1, 1), createSortable(2, 1)),
-      ).toThrow('Regional variant sorting is not supported yet.');
+    it('sorts by Hoenn dex order for regional variant', () => {
+      const sorter = new DexNumberSorter({ variant: 'regional' }).sort;
+      // Treecko (252) is #1 in Hoenn Dex, Abra (63) is #39, Bulbasaur (1) is not in Hoenn Dex
+      const treecko = createSortable(252, 5);
+      const abra = createSortable(63, 5);
+      const bulbasaur = createSortable(1, 5);
+
+      expect(sorter(treecko, abra)).toBeLessThan(0);
+      expect(sorter(abra, treecko)).toBeGreaterThan(0);
+      expect(sorter(treecko, bulbasaur)).toBeLessThan(0);
+      expect(sorter(bulbasaur, treecko)).toBeGreaterThan(0);
+    });
+
+    it('sorts by National Dex order for regional variant if both are not in Hoenn Dex', () => {
+      const sorter = new DexNumberSorter({ variant: 'regional' }).sort;
+      // Bulbasaur (1) and Charmander (4) are not in Hoenn Dex
+      const bulbasaur = createSortable(1, 5);
+      const charmander = createSortable(4, 5);
+
+      expect(sorter(bulbasaur, charmander)).toBeLessThan(0);
+      expect(sorter(charmander, bulbasaur)).toBeGreaterThan(0);
+      expect(sorter(bulbasaur, bulbasaur)).toBe(0);
     });
   });
 

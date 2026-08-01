@@ -319,7 +319,7 @@ export const GEN3_POKEDEX_OWNED_OFFSET = 0x10;
 export const GEN3_POKEDEX_SEEN_OFFSET = 0x44;
 export const NATIONAL_DEX_MAX = 386;
 
-export const HOENN_DEX_NATIONAL_IDS = new Set<number>([
+export const HOENN_DEX_ORDER = [
   252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274,
   275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 63, 64, 65, 290, 291, 292, 293, 294, 295,
   296, 297, 118, 119, 129, 130, 298, 183, 184, 74, 75, 76, 299, 300, 301, 41, 42, 169, 72, 73, 302, 303, 304, 305, 306,
@@ -329,7 +329,9 @@ export const HOENN_DEX_NATIONAL_IDS = new Set<number>([
   353, 354, 355, 356, 357, 358, 359, 37, 38, 172, 25, 26, 54, 55, 360, 202, 177, 178, 203, 231, 232, 127, 214, 111, 112,
   361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 222, 170, 171, 371, 116, 117, 230, 372, 373, 374, 375, 376, 377,
   378, 379, 380, 381, 382, 383, 384, 385, 386,
-]);
+];
+
+export const HOENN_DEX_NATIONAL_IDS = new Set<number>(HOENN_DEX_ORDER);
 
 /**
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
