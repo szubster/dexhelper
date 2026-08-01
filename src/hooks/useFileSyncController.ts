@@ -84,7 +84,12 @@ export function useFileSyncController() {
 
             if (cloudSaveInfo?.lastModified && file.lastModified < cloudSaveInfo.lastModified) {
               // Cloud is newer, we should pull instead of pushing local (Conflict Resolution: pull-wins if newer)
-              const cloudSave = await r2Client.getSave(saveId);
+              let cloudSave = null;
+              try {
+                cloudSave = await r2Client.getSave(saveId);
+              } catch {
+                console.warn('System: pull from cloud failed');
+              }
               if (cloudSave) {
                 const cloudData = parseSaveFile(cloudSave.data.buffer, manualVersion || undefined);
                 setSaveData(cloudData);
@@ -103,9 +108,13 @@ export function useFileSyncController() {
             }
 
             await saveDB.putSave('last_save_file', new Uint8Array(buffer));
-            await r2Client.putSave(saveId, new Uint8Array(buffer), file.lastModified);
+            try {
+              await r2Client.putSave(saveId, new Uint8Array(buffer), file.lastModified);
+            } catch {
+              console.warn('System: push to cloud failed');
+            }
           } catch {
-            console.error('System: push to cloud failed');
+            console.warn('System: list saves from cloud failed');
             await saveDB.putSave('last_save_file', new Uint8Array(buffer));
           }
         } else {

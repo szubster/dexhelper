@@ -206,14 +206,19 @@ export const useStore = create<AppStore>()(
             try {
               const saves = await r2Client.listSaves();
               if (saves.length > 0 && saves[0]) {
-                const cloudSave = await r2Client.getSave(saves[0].id);
+                let cloudSave = null;
+                try {
+                  cloudSave = await r2Client.getSave(saves[0].id);
+                } catch {
+                  console.warn('System: failed to pull save from cloud');
+                }
                 if (cloudSave) {
                   await saveDB.putSave('last_save_file', cloudSave.data);
                   buffer = cloudSave.data;
                 }
               }
             } catch {
-              console.error('System: failed to pull from cloud');
+              console.warn('System: failed to list saves from cloud');
             }
           }
 

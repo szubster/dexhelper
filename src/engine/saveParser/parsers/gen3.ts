@@ -21,6 +21,7 @@
 import { calculateFeebasTiles, extractFeebasSeed, mapSpotIdsToCoordinates } from '../../gen3/feebas';
 import { parseGen3MatchCall } from '../../gen3/matchCall/parser';
 import { parseSecretBaseRecord } from '../../gen3/secretBase/parser';
+import { extractGen3StaticEncounterFlags } from '../../gen3/staticEncounters';
 import {
   parseGen3BattleFrontierSymbols,
   parseGen3BattleFrontierWinStreaks,
@@ -1019,6 +1020,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
 
     const gen3BerryPatches = extractBerryPatches(view, section1Offset);
     const gen3SecretBases = parseGen3SecretBases(view, section1Offset, _forcedVersion || 'ruby');
+    const gen3StaticEncounters = extractGen3StaticEncounterFlags(view, _forcedVersion || 'ruby', section1Offset);
 
     const gen3Pokeblocks = parseGen3Pokeblocks(view, section1Offset, _forcedVersion || 'ruby');
     const gen3PokeNews = parseGen3PokeNews(view, section1Offset + POKE_NEWS_OFFSET);
@@ -1072,12 +1074,12 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
 
     if (_forcedVersion === 'emerald') {
       try {
-        gen3MoveTutors = parseGen3EmeraldMoveTutors(view, section2Offset);
+        gen3MoveTutors = parseGen3EmeraldMoveTutors(view, section1Offset);
       } catch {
         // Ignored
       }
       try {
-        gen3NPCTrades = parseGen3RSENPCTrades(view, section2Offset);
+        gen3NPCTrades = parseGen3RSENPCTrades(view, section1Offset);
       } catch {
         // Ignored
       }
@@ -1089,12 +1091,12 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       }
     } else if (_forcedVersion === 'firered' || _forcedVersion === 'leafgreen') {
       try {
-        gen3MoveTutors = parseGen3FRLGMoveTutors(view, section2Offset);
+        gen3MoveTutors = parseGen3FRLGMoveTutors(view, section1Offset);
       } catch {
         // Ignored
       }
       try {
-        gen3NPCTrades = parseGen3FRLGNPCTrades(view, section2Offset);
+        gen3NPCTrades = parseGen3FRLGNPCTrades(view, section1Offset);
       } catch {
         // Ignored
       }
@@ -1136,7 +1138,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const securityKey = parseGen3SecurityKey(view, section0Offset, _forcedVersion || 'ruby');
     const gen3TMHMs = parseGen3TMHMs(view, section1Offset, _forcedVersion || 'ruby', securityKey);
 
-    const gen3TMEventFlags = parseGen3TMEventFlags(view, section2Offset, _forcedVersion || 'ruby');
+    const gen3TMEventFlags = parseGen3TMEventFlags(view, section1Offset, _forcedVersion || 'ruby');
     const gen3MatchCall = parseGen3MatchCall(view, section1Offset, section2Offset, _forcedVersion || 'ruby');
 
     let gameStatsOffset = GEN3_GAME_STATS_OFFSET_RS;
@@ -1208,6 +1210,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       hoennDexCount,
       nationalDexCount,
 
+      ...(gen3StaticEncounters ? { gen3StaticEncounters } : {}),
       gen3BerryPatches,
       gen3SecretBases,
       hiddenItemFlags,
@@ -1355,9 +1358,9 @@ export function parseGen3PokeNews(view: DataView, offset: number) {
  * @returns An object containing boolean flags for each move tutor.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3EmeraldMoveTutors(view: DataView, saveBlock2Offset: number) {
+export function parseGen3EmeraldMoveTutors(view: DataView, saveBlock1Offset: number) {
   try {
-    const baseOffset = saveBlock2Offset + GEN3_EVENT_FLAGS_OFFSET;
+    const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
     const byte1 = view.getUint8(baseOffset + EMERALD_MOVE_TUTOR_BYTE_1_OFFSET);
     const byte2 = view.getUint8(baseOffset + EMERALD_MOVE_TUTOR_BYTE_2_OFFSET);
 
@@ -1595,11 +1598,11 @@ function readEventFlag(view: DataView, baseOffset: number, flag: number): boolea
  */
 export function parseGen3TMEventFlags(
   view: DataView,
-  saveBlock2Offset: number,
+  saveBlock1Offset: number,
   gameVersion: GameVersion,
 ): Record<string, boolean> {
   try {
-    const baseOffset = saveBlock2Offset + GEN3_EVENT_FLAGS_OFFSET;
+    const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
 
     // TMs are unique per version, so we check version context
     if (gameVersion === 'emerald' || gameVersion === 'ruby' || gameVersion === 'sapphire') {
@@ -1668,9 +1671,9 @@ export function parseGen3TMEventFlags(
  * @returns A record mapping NPC trade internal names to a boolean indicating if they have been completed.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3RSENPCTrades(view: DataView, saveBlock2Offset: number): Record<string, boolean> {
+export function parseGen3RSENPCTrades(view: DataView, saveBlock1Offset: number): Record<string, boolean> {
   try {
-    const baseOffset = saveBlock2Offset + GEN3_EVENT_FLAGS_OFFSET;
+    const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
 
     // Bitwise extraction: divide flag by 8 to find the byte, modulo 8 to find the bit.
     const readFlag = (flag: number) => {
@@ -1705,9 +1708,9 @@ export function parseGen3RSENPCTrades(view: DataView, saveBlock2Offset: number):
  * @returns An object containing boolean statuses for each FRLG NPC trade.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3FRLGNPCTrades(view: DataView, saveBlock2Offset: number): Record<string, boolean> {
+export function parseGen3FRLGNPCTrades(view: DataView, saveBlock1Offset: number): Record<string, boolean> {
   try {
-    const baseOffset = saveBlock2Offset + GEN3_EVENT_FLAGS_OFFSET;
+    const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
 
     // Bitwise extraction: divide flag by 8 to find the byte, modulo 8 to find the bit.
     const readFlag = (flag: number) => {
@@ -1748,9 +1751,9 @@ export function parseGen3FRLGNPCTrades(view: DataView, saveBlock2Offset: number)
  * @returns An object containing boolean statuses for each FRLG move tutor.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3FRLGMoveTutors(view: DataView, saveBlock2Offset: number) {
+export function parseGen3FRLGMoveTutors(view: DataView, saveBlock1Offset: number) {
   try {
-    const baseOffset = saveBlock2Offset + GEN3_EVENT_FLAGS_OFFSET;
+    const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
 
     // Extract the 4 sequential bytes that store tutor states
     const byte1 = view.getUint8(baseOffset + FRLG_MOVE_TUTOR_BYTE_1_OFFSET);

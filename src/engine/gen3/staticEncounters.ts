@@ -1,5 +1,3 @@
-import type { GameVersion } from '../saveParser/parsers/common';
-
 export const EVENT_FLAGS_START = 0x1270;
 
 // Emerald Offsets & Bits
@@ -133,7 +131,19 @@ function getBit(dataView: DataView, offset: number, bitPosition: number): boolea
 
 export function extractGen3StaticEncounterFlags(
   saveData: DataView,
-  gameVersion: GameVersion,
+  gameVersion:
+    | 'emerald'
+    | 'firered'
+    | 'leafgreen'
+    | 'ruby'
+    | 'sapphire'
+    | 'unknown'
+    | 'red'
+    | 'blue'
+    | 'yellow'
+    | 'gold'
+    | 'silver'
+    | 'crystal',
   section1Offset: number,
 ): Gen3StaticEncounters | undefined {
   try {

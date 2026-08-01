@@ -1,11 +1,11 @@
 ---
 id: task-349-381-epic-planner-process-qa
 type: TASK
-title: "Epic Planner Process Update Implementation QA"
-status: PENDING
-owner_persona: "qa"
-created_at: "2024-05-24"
-updated_at: "2024-05-24"
+title: Epic Planner Process Update Implementation QA
+status: COMPLETED
+owner_persona: qa
+created_at: '2024-05-24'
+updated_at: '2026-08-01'
 depends_on:
   - task-349-380-epic-planner-process-impl
 jules_session_id: null
@@ -15,8 +15,8 @@ tags:
   - process
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # TASK: Epic Planner Process Update Implementation QA
@@ -28,5 +28,5 @@ As part of enforcing macro node functional boundaries, we need to enforce a proc
 Verify that the updates to the Epic Planner persona instructions were implemented correctly.
 
 ## Acceptance Criteria
-- [ ] Verify that `.github/agents/epic_planner.md` has been updated to explicitly require a final E2E Integration STORY for every EPIC.
-- [ ] Ensure the new requirement is clearly stated under the Core Directives section or similar prominent location.
+- [x] Verify that `.github/agents/epic_planner.md` has been updated to explicitly require a final E2E Integration STORY for every EPIC.
+- [x] Ensure the new requirement is clearly stated under the Core Directives section or similar prominent location.

@@ -2,13 +2,13 @@
 id: story-136-333-sorting-standard-strategies-retry
 type: STORY
 title: Implement Standard PC Box Sorting Strategies (Retry)
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-18'
 updated_at: '2026-08-01'
 depends_on:
   - research-136-330-investigate-sorting-strategies-failure
-jules_session_id: '3343818922287022378'
+jules_session_id: '10011728327050311015'
 pr_number: null
 parent: epic-106-136-pc-box-sorting-algorithms
 tags:
@@ -44,3 +44,5 @@ Building upon the standard interface, we need specific, actionable sorters that 
 - [ ] [task-333-371-sorting-strategies-retry-qa](.foundry/tasks/task-333-371-sorting-strategies-retry-qa.md)
 - [ ] task-333-375-sorting-strategies-regional-dex-impl
 - [ ] task-333-376-sorting-strategies-regional-dex-qa
+- [ ] task-333-382-sorting-strategies-core-impl
+- [ ] task-333-383-sorting-strategies-core-qa

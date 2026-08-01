@@ -2,7 +2,7 @@
 id: task-349-381-rng-tid-sid-e2e-qa
 type: TASK
 title: QA - Verify E2E Tests for RNG TID and SID Display UI
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-01'
 updated_at: '2026-08-01'

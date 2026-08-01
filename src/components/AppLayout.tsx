@@ -65,9 +65,13 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           try {
             const saves = await r2Client.listSaves();
             const saveId = saves.length > 0 && saves[0] ? saves[0].id : 'save-1';
-            await r2Client.putSave(saveId, new Uint8Array(buffer), file.lastModified);
+            try {
+              await r2Client.putSave(saveId, new Uint8Array(buffer), file.lastModified);
+            } catch {
+              console.warn('System: push to cloud failed');
+            }
           } catch {
-            console.error('System: push to cloud failed');
+            console.warn('System: list saves from cloud failed');
           }
         }
       } catch {
