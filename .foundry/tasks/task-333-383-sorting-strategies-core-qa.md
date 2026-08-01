@@ -26,7 +26,7 @@ notes: ''
 The coder has implemented standard PC Box sorting strategies (Dex, Level, Type, Alpha).
 
 ## Acceptance Criteria
-- [ ] Verify `DexNumberSorter`, `LevelSorter`, `TypeSorter`, and `AlphaSorter` correctly implement the `SortingStrategy` signature in `src/engine/sorting/StandardSorters.ts`.
-- [ ] Verify edge cases (missing metadata, missing types, missing nicknames) are handled gracefully without throwing errors during sort.
-- [ ] Run `pnpm test` to ensure all sorting unit tests pass and properly assert correct sorting orders.
-- [ ] Verify `pnpm lint` passes.
+- [x] Verify `DexNumberSorter`, `LevelSorter`, `TypeSorter`, and `AlphaSorter` correctly implement the `SortingStrategy` signature in `src/engine/sorting/StandardSorters.ts`.
+- [x] Verify edge cases (missing metadata, missing types, missing nicknames) are handled gracefully without throwing errors during sort.
+- [x] Run `pnpm test` to ensure all sorting unit tests pass and properly assert correct sorting orders.
+- [x] Verify `pnpm lint` passes.
