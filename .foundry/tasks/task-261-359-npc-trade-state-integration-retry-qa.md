@@ -2,13 +2,13 @@
 id: task-261-359-npc-trade-state-integration-retry-qa
 type: TASK
 title: NPC Trade State Integration Retry QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-29'
 updated_at: '2026-08-01'
 depends_on:
   - task-261-358-npc-trade-state-integration-retry-impl
-jules_session_id: null
+jules_session_id: '8910873009238236330'
 pr_number: null
 parent: story-119-261-npc-trade-state-integration
 tags:
