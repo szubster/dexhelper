@@ -2,7 +2,7 @@
 id: task-257-373-progression-timeline-ui-impl
 type: TASK
 title: Progression Timeline UI
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-31'
 updated_at: '2026-07-31'
@@ -16,8 +16,8 @@ tags:
   - progression
   - ui
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Duplicate ProgressionTimeline components exist in src/components/dashboard/progression and src/components/timeline. Component uses a placeholder for history integration.'
 notes: ''
 ---
 
@@ -31,4 +31,4 @@ Build a timeline or visualization showing the progression of a specific playthro
 - Build the visualization UI.
 
 ## Acceptance Criteria
-- [x] Implement the Progression Timeline UI.
+- [ ] Implement the Progression Timeline UI.
