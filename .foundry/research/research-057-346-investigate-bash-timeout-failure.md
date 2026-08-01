@@ -2,12 +2,12 @@
 id: research-057-346-investigate-bash-timeout-failure
 type: RESEARCH
 title: Investigate Bash Timeout Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-26'
-updated_at: '2026-07-26'
+updated_at: '2026-08-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17405217448684639915'
 pr_number: null
 parent: prd-095-057-prevent-blocking-bash-commands
 tags:
