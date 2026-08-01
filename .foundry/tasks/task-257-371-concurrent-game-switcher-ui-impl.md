@@ -31,4 +31,4 @@ Develop a UI for users to select and manage multiple active playthroughs across 
 - Build the switcher component.
 
 ## Acceptance Criteria
-- [ ] Implement the Concurrent Game Switcher UI.
+- [x] Implement the Concurrent Game Switcher UI.
