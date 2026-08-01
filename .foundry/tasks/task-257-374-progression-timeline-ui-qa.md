@@ -2,13 +2,13 @@
 id: task-257-374-progression-timeline-ui-qa
 type: TASK
 title: QA Progression Timeline UI
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-31'
-updated_at: '2026-07-31'
+updated_at: '2026-08-01'
 depends_on:
   - task-257-373-progression-timeline-ui-impl
-jules_session_id: null
+jules_session_id: '5848252374865416625'
 pr_number: null
 parent: story-036-257-concurrent-game-management
 tags:
