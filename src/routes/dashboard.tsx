@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { ShieldAlert } from 'lucide-react';
 import { BattleFrontierDashboard } from '../components/dashboard/battle-frontier/BattleFrontierDashboard';
 import { ShinyCarrierBreedingDashboard } from '../components/dashboard/breeding/ShinyCarrierBreedingDashboard';
+import { Gen3StaticEncountersDashboard } from '../components/dashboard/encounters/Gen3StaticEncountersDashboard';
 import { GlobalRibbonChecklistDashboard } from '../components/dashboard/ribbons/GlobalRibbonChecklistDashboard';
 import { EmptyState } from '../components/EmptyState';
 
@@ -23,6 +24,7 @@ function DashboardPage() {
       {saveData.generation === 3 ? (
         <>
           <BattleFrontierDashboard saveData={saveData} />
+          <Gen3StaticEncountersDashboard saveData={saveData} />
           <GlobalRibbonChecklistDashboard />
         </>
       ) : (

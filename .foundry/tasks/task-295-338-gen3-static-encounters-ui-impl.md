@@ -25,6 +25,6 @@ notes: ''
 Implement a UI checklist to track Gen 3 static encounters using the extracted save file event flags.
 
 ## Acceptance Criteria
-- [ ] Create UI components to display the static encounter checklist.
-- [ ] The UI must strictly adhere to the 'tactical hardware/snooping' design constraint, utilizing styling primitives like sharp edges (e.g., rounded-none), dashed borders (e.g., border-dashed), and monospaced telemetry fonts.
-- [ ] Ensure the component integrates seamlessly with the Gen 3 dashboard.
+- [x] Create UI components to display the static encounter checklist.
+- [x] The UI must strictly adhere to the 'tactical hardware/snooping' design constraint, utilizing styling primitives like sharp edges (e.g., rounded-none), dashed borders (e.g., border-dashed), and monospaced telemetry fonts.
+- [x] Ensure the component integrates seamlessly with the Gen 3 dashboard.
