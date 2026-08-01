@@ -26,6 +26,9 @@ notes: ''
 
 Verify the Gen 3 static encounters UI implementation.
 
+### QA Rejection Note
+The implementation failed validation. The `Gen3StaticEncountersDashboard` component was created and tested, but it was not integrated into the central Gen 3 dashboard (`src/routes/dashboard.tsx`). Missing this integration means the UI is not accessible to users.
+
 ## Acceptance Criteria
 - [ ] Verify the UI correctly displays the static encounter checklist based on save file flags.
 - [ ] Verify the UI strictly adheres to the 'tactical hardware/snooping' design constraints (e.g., rounded-none, border-dashed, monospaced telemetry fonts).

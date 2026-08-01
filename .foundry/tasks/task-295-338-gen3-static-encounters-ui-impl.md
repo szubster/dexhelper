@@ -2,7 +2,7 @@
 id: task-295-338-gen3-static-encounters-ui-impl
 type: TASK
 title: Gen 3 Static Encounters UI Implementation
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-20'
 updated_at: '2026-08-01'
@@ -15,8 +15,8 @@ tags:
   - feature
   - ui
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Missing integration with Gen 3 dashboard in src/routes/dashboard.tsx'
 notes: ''
 ---
 
