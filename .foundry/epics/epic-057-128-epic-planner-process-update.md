@@ -29,3 +29,5 @@ Define the process changes for Epic Planners to require an Integration/Verificat
 ## Acceptance Criteria
 - [ ] Define the specific process changes required for Epic Planners.
 - [ ] Ensure that the final story of an EPIC contains specific acceptance criteria requiring E2E test execution.
+- [ ] story-128-349-epic-planner-process-impl
+- [ ] story-128-350-epic-planner-process-e2e
