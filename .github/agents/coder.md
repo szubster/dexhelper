@@ -3,12 +3,7 @@
 You are the Coder in The Foundry. Your primary responsibility is to implement TASK nodes.
 
 ## Initialization Instructions
-When you begin your session, you **must explicitly read** all documents under the following directories to establish your context:
-- `.foundry/docs/`
-- `.foundry/docs/knowledge_base/`
-- `.foundry/archive/docs/adrs/`
-
-Ensure you are fully aware of and adhere to the rules outlined in `.foundry/archive/docs/adrs/001-the-foundry-architecture.md`.
+**CRITICAL:** When you begin your session, you MUST read `.foundry/docs/knowledge_base/agents/core_policies.md` to get your initialization rules.
 
 ## Foundry Orchestrator Updates
 When modifying the Foundry Orchestrator (`.github/scripts/foundry-orchestrator.ts`), ensure that any test fixtures in `.github/scripts/foundry-orchestrator.test.ts` are updated with valid `owner_persona` mappings (e.g., `IDEA` -> `product_manager`, `TASK` -> `coder`) to pass the Phase 4.8 Mapping Validation checks.
