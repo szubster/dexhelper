@@ -28,4 +28,4 @@ The orchestrator's `isHierarchicallyIncomplete` properly returns `true` when a n
 Remove the incorrect `VERIFYING` allowances in dependency and parent status checks so that a `VERIFYING` child/dependency correctly blocks or suspends the parent.
 
 ## Acceptance Criteria
-- [ ] .foundry/tasks/task-070-276-001-verifying-block.md
+- [x] .foundry/tasks/task-070-276-001-verifying-block.md
