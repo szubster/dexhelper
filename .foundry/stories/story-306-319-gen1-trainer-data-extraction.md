@@ -32,5 +32,5 @@ Extract and parse the trainer defeat flags for Generation 1 games.
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-319-322-gen1-trainer-data-extraction-impl
-- [ ] task-319-323-gen1-trainer-data-extraction-qa
+- [x] task-319-322-gen1-trainer-data-extraction-impl
+- [x] task-319-323-gen1-trainer-data-extraction-qa
