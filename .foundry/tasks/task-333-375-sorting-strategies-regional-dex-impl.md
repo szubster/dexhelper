@@ -30,6 +30,6 @@ The `DexNumberSorter` in `src/engine/sorting/StandardSorters.ts` currently throw
 3. Update `src/engine/sorting/StandardSorters.test.ts` to cover the new functionality.
 
 ## Acceptance Criteria
-- [ ] `DexNumberSorter` successfully sorts by regional dex order when configured with `variant: 'regional'`.
-- [ ] Unit tests in `StandardSorters.test.ts` pass and assert correct regional sorting orders.
-- [ ] `pnpm lint` and `pnpm test` pass.
+- [x] `DexNumberSorter` successfully sorts by regional dex order when configured with `variant: 'regional'`.
+- [x] Unit tests in `StandardSorters.test.ts` pass and assert correct regional sorting orders.
+- [x] `pnpm lint` and `pnpm test` pass.
