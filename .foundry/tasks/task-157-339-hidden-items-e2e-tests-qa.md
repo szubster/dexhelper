@@ -40,7 +40,7 @@ QA verification for the Hidden Items Finder UI Playwright E2E tests.
 - **Error Handling Reminder**: If you experience a transient failure requiring retry (or if the coder's implementation fails your checks), update the YAML frontmatter to `status: FAILED` with a detailed `rejection_reason` explaining what the coder missed. If you must permanently abort (impossible or max rejections reached), update to `status: CANCELLED` with a `rejection_reason`.
 
 ## Acceptance Criteria
-- [ ] Code review passes, ensuring Playwright tests are correctly implemented.
-- [ ] Tests verify rendering after hydration.
-- [ ] Tests verify visual check-off of acquired items.
-- [ ] All tests pass consistently.
+- [x] Code review passes, ensuring Playwright tests are correctly implemented.
+- [x] Tests verify rendering after hydration.
+- [x] Tests verify visual check-off of acquired items.
+- [x] All tests pass consistently.

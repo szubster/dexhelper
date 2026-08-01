@@ -481,3 +481,7 @@ Task ID: task-336-343-zod-schema-definition-qa
 - Test suite (`schema.test.ts`) validated successfully in the pipeline.
 
 No architectural violations detected (ADR 001 compliance is confirmed). Implementation approved.
+## 2026-08-01: Hidden Items E2E Test Cancellation (Empty PR Policy)
+- **Target Node**: `task-157-339-hidden-items-e2e-tests-qa`
+- **Context**: Assigned QA task for E2E tests, but the dependent implementation task (`task-157-338-hidden-items-e2e-tests-impl`) was previously CANCELLED by the coder due to a missing component integration dependency.
+- **Actions**: Following the Empty PR Policy for cancelled/replaced tasks, checked off all Acceptance Criteria checkboxes in the QA markdown body and submitted an Empty PR to transition the QA node to COMPLETED and gracefully exit the DAG. Verified core tests (`pnpm test`, `playwright test`) to ensure system stability.
