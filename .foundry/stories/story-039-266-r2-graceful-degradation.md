@@ -30,4 +30,6 @@ The application must continue to function even if Cloudflare services are unavai
 - Ensure save files gracefully fall back to using local browser IndexedDB storage without throwing fatal errors if R2 sync fails or is unavailable.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-266-377-r2-graceful-degradation-impl
+- [ ] task-266-378-r2-graceful-degradation-qa
