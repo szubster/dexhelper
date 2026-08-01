@@ -1714,3 +1714,72 @@ describe('parseGen3 (Pokedex & Hall of Fame)', () => {
   // The reading of Pokedex won't fail because it's only at offset 8264 < 12288.
   // Wait, let's create a proxy DataView or just mock it.
 });
+
+describe('parseGen3 (npcTradeFlags Integration)', () => {
+  it('correctly extracts npcTradeFlags and integrates into SaveData', () => {
+    const buffer = new ArrayBuffer(0x10000);
+    const view = new DataView(buffer);
+
+    const section0Offset = 0;
+    view.setUint32(section0Offset + 4088, 0x08012025, true);
+    view.setUint16(section0Offset + 4084, 0, true);
+    view.setUint32(section0Offset + 4092, 1, true);
+
+    const section1Offset = 4096;
+    view.setUint32(section1Offset + 4088, 0x08012025, true);
+    view.setUint16(section1Offset + 4084, 1, true);
+    view.setUint32(section1Offset + 4092, 1, true);
+
+    const section2Offset = 8192;
+    view.setUint32(section2Offset + 4088, 0x08012025, true);
+    view.setUint16(section2Offset + 4084, 2, true);
+    view.setUint32(section2Offset + 4092, 1, true);
+
+    const baseOffset = section1Offset + GEN3_EVENT_FLAGS_OFFSET;
+
+    // FLAG_RUSTBORO_NPC_TRADE_COMPLETED = 0x99 -> byte 19, bit 1
+    // FLAG_FORTREE_NPC_TRADE_COMPLETED = 0x9B -> byte 19, bit 3
+    view.setUint8(baseOffset + 19, (1 << 1) | (1 << 3));
+
+    const result = parseGen3(view, 'emerald');
+
+    expect(result.gen3NPCTrades).toBeDefined();
+    expect(result.npcTradeFlags).toBeDefined();
+
+    expect(result.gen3NPCTrades).toEqual({
+      RUSTBORO: true,
+      PACIFIDLOG: false,
+      FORTREE: true,
+      BATTLE_FRONTIER: false,
+    });
+
+    // Check if the array values match the gen3NPCTrades values
+    expect(result.npcTradeFlags).toEqual([true, false, true, false]);
+  });
+
+  it('throws "The save file is corrupted or incomplete." when RangeError occurs during npcTradeFlags parsing', () => {
+    const buffer = new ArrayBuffer(0x3000);
+    const view = new DataView(buffer);
+
+    view.setUint32(0 + 4088, 0x08012025, true);
+    view.setUint16(0 + 4084, 1, true);
+
+    view.setUint32(4096 + 4088, 0x08012025, true);
+    view.setUint16(4096 + 4084, 2, true);
+
+    view.setUint32(8192 + 4088, 0x08012025, true);
+    view.setUint16(8192 + 4084, 0, true);
+
+    // Mock view.getUint8 to throw a RangeError when trying to read npcTradeFlags in section1Offset + GEN3_EVENT_FLAGS_OFFSET
+    const originalGetUint8 = view.getUint8.bind(view);
+    view.getUint8 = (byteOffset) => {
+      // In this setup, section1Offset is 0. Base offset is 0 + GEN3_EVENT_FLAGS_OFFSET
+      if (byteOffset >= GEN3_EVENT_FLAGS_OFFSET) {
+        throw new RangeError('Out of bounds');
+      }
+      return originalGetUint8(byteOffset);
+    };
+
+    expect(() => parseGen3(view, 'emerald')).toThrow('The save file is corrupted or incomplete.');
+  });
+});

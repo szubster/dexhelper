@@ -36,8 +36,8 @@ Implement the logic to integrate the extracted NPC trade flags into the unified 
 - **CRITICAL:** You must catch `RangeError` for out-of-bounds reads and explicitly throw a new error with the message "The save file is corrupted or incomplete."
 
 ## Acceptance Criteria
-- [ ] Integrate Gen 2 and Gen 3 extracted NPC trade flags into the unified `SaveData` object.
-- [ ] Ensure `SaveData` interface properties are correctly typed and updated if necessary.
-- [ ] Explicitly define and use reusable constants for memory offsets, lengths, and bit locations.
-- [ ] Use `section1Offset` for relative Gen 3 calculations.
-- [ ] Properly catch `RangeError` and throw the exact error message: "The save file is corrupted or incomplete."
+- [x] Integrate Gen 2 and Gen 3 extracted NPC trade flags into the unified `SaveData` object.
+- [x] Ensure `SaveData` interface properties are correctly typed and updated if necessary.
+- [x] Explicitly define and use reusable constants for memory offsets, lengths, and bit locations.
+- [x] Use `section1Offset` for relative Gen 3 calculations.
+- [x] Properly catch `RangeError` and throw the exact error message: "The save file is corrupted or incomplete."
