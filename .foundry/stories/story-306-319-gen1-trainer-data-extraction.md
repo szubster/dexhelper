@@ -2,12 +2,12 @@
 id: story-306-319-gen1-trainer-data-extraction
 type: STORY
 title: Gen 1 Trainer Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-07-31'
+updated_at: '2026-08-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4075027378976492253'
 pr_number: null
 parent: epic-109-306-missed-trainer-data-extraction-gen1-gen2
 tags:
