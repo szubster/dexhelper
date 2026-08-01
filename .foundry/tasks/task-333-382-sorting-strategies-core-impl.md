@@ -37,9 +37,9 @@ Implement concrete sorting strategies using the base `SortingStrategy` interface
 - Write comprehensive unit tests for each strategy using Vitest in a corresponding `.test.ts` file.
 
 ## Acceptance Criteria
-- [ ] `DexNumberSorter` is implemented and supports both National and Regional variants.
-- [ ] `LevelSorter` is implemented with asc/desc support.
-- [ ] `TypeSorter` is implemented and gracefully handles missing data.
-- [ ] `AlphaSorter` is implemented.
-- [ ] Comprehensive unit tests are provided in `StandardSorters.test.ts`.
-- [ ] `pnpm lint` and `pnpm test` pass.
+- [x] `DexNumberSorter` is implemented and supports both National and Regional variants.
+- [x] `LevelSorter` is implemented with asc/desc support.
+- [x] `TypeSorter` is implemented and gracefully handles missing data.
+- [x] `AlphaSorter` is implemented.
+- [x] Comprehensive unit tests are provided in `StandardSorters.test.ts`.
+- [x] `pnpm lint` and `pnpm test` pass.
