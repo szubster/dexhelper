@@ -26,6 +26,6 @@ notes: ''
 QA verification for the regional dex sorting strategy implemented in `task-333-375-sorting-strategies-regional-dex-impl`.
 
 ## Acceptance Criteria
-- [ ] Verify `DexNumberSorter` correctly sorts using the regional dex when configured with `variant: 'regional'`.
-- [ ] Verify `pnpm test` passes for sorting unit tests.
-- [ ] Verify `pnpm lint` passes.
+- [x] Verify `DexNumberSorter` correctly sorts using the regional dex when configured with `variant: 'regional'`.
+- [x] Verify `pnpm test` passes for sorting unit tests.
+- [x] Verify `pnpm lint` passes.
