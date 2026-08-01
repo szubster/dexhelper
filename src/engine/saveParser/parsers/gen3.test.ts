@@ -1582,6 +1582,8 @@ describe('parseGen3Roamer', () => {
   });
 });
 
+
+
 describe('parseGen3 (Pokedex & Hall of Fame)', () => {
   it('extracts hallOfFameCount correctly based on version offsets', () => {
     // We mock a buffer big enough to hold section 0 and section 1.
