@@ -27,5 +27,8 @@ Investigate the permanent failure of `epic-107-301-lift-rejection-count-state` a
 ## Context
 The permanent failure threshold filtering logic (`rejection_count >= 3`) is hardcoded in several components. Attempting to lift this state failed in downstream execution.
 
+## Findings
+`epic-107-301-lift-rejection-count-state` failed permanently (reaching max rejection count) because its generated stories were missing the `e2e` or `integration` tag. This caused the Orchestrator's late-binding macro completion safeguard to continually reject the Epic (promoting it to FAILED) when it attempted to transition to COMPLETED, eventually hitting the max rejection count. This gap has already been addressed by the Story Owner who spawned `epic-107-339-lift-rejection-count-state` to replace the failed node and explicitly require E2E testing.
+
 ## Acceptance Criteria
-- [ ] Research root cause of failure.
+- [x] Research root cause of failure.
