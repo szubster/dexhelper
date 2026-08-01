@@ -36,5 +36,8 @@ Users may play multiple games simultaneously (e.g., swapping between Pokémon Re
 - [ ] task-257-370-concurrent-game-context-qa
 - [ ] task-257-371-concurrent-game-switcher-ui-impl
 - [ ] task-257-372-concurrent-game-switcher-ui-qa
-- [ ] task-257-373-progression-timeline-ui-impl
-- [ ] task-257-374-progression-timeline-ui-qa
+- [x] task-257-373-progression-timeline-ui-impl
+- [x] task-257-374-progression-timeline-ui-qa
+- [ ] research-257-377-investigate-progression-timeline-failure
+- [ ] task-257-378-progression-timeline-ui-retry-impl
+- [ ] task-257-379-progression-timeline-ui-retry-qa
