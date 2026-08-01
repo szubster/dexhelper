@@ -53,8 +53,6 @@
     "@biomejs/biome": "^2.5.6",
     "@cloudflare/workers-types": "^5.20260730.1",
     "@codecov/vite-plugin": "^2.0.1",
-    "@commitlint/cli": "^21.2.1",
-    "@commitlint/config-conventional": "^21.2.0",
     "@playwright/test": "^1.62.0",
     "@tailwindcss/typography": "0.5.20",
     "@tailwindcss/vite": "4.3.3",
