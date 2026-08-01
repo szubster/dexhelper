@@ -79,7 +79,7 @@ const StorageCard = React.memo(
               {p.otName}
             </TacticalBadge>
           )}
-          {location === 'Party' && p.pokerus && p.pokerus.strain > 0 && <PokerusBadge strain={p.pokerus.strain} />}
+          {p.pokerus && p.pokerus.strain > 0 && <PokerusBadge strain={p.pokerus.strain} />}
         </div>
         <div className="relative mb-4 flex h-20 w-20 items-center justify-center sm:h-24 sm:w-24">
           <PokemonSprite
