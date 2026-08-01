@@ -19,3 +19,6 @@ allowBuilds:
 auditConfig:
   ignoreGhsas:
     - GHSA-rmmr-r34h-pfm5
+
+overrides:
+  "brace-expansion@<2.1.3": "^2.1.3"
