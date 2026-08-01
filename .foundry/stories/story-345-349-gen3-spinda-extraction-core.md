@@ -29,3 +29,5 @@ Extract Gen 3 Spinda PID data from PC Boxes and Active Party.
 - [ ] Implement parsing logic to identify Spinda Pokémon in both PC Box and Party datasets.
 - [ ] Extract the 32-bit PID for each identified Spinda.
 - [ ] Define the interface/data structure to store the extracted Spinda info for the UI layer.
+- [ ] task-349-380-gen3-spinda-extraction-impl
+- [ ] task-349-381-gen3-spinda-extraction-qa
