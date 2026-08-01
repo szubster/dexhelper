@@ -31,12 +31,12 @@ Furthermore, the `RangeError` from the DataView API must be gracefully handled t
 Implement parsing for Emerald, FireRed/LeafGreen, and Ruby/Sapphire based on `.foundry/docs/knowledge_base/gen3_static_encounters/gen3_static_encounter_offsets.md`.
 
 ## Acceptance Criteria
-- [ ] Ensure `src/engine/gen3/staticEncounters.ts` meets the criteria.
-- [ ] Define module-level constants for all event flags and bit positions.
-- [ ] Implement `extractGen3StaticEncounterFlags` mapping DataView to flags boolean state.
-- [ ] Follow ADR 028: No magic numbers. Use relative offsets `section1Offset + EVENT_FLAGS_START + BYTE_OFFSET`.
-- [ ] Handle `RangeError` and re-throw with "The save file is corrupted or incomplete."
-- [ ] Write tests ensuring offsets are parsed correctly and RangeError is handled.
+- [x] Ensure `src/engine/gen3/staticEncounters.ts` meets the criteria.
+- [x] Define module-level constants for all event flags and bit positions.
+- [x] Implement `extractGen3StaticEncounterFlags` mapping DataView to flags boolean state.
+- [x] Follow ADR 028: No magic numbers. Use relative offsets `section1Offset + EVENT_FLAGS_START + BYTE_OFFSET`.
+- [x] Handle `RangeError` and re-throw with "The save file is corrupted or incomplete."
+- [x] Write tests ensuring offsets are parsed correctly and RangeError is handled.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
