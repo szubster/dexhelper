@@ -2,12 +2,12 @@
 id: epic-097-131-nuzlocke-death-tracking
 type: EPIC
 title: Automated Death Tracking
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-07-30'
+updated_at: '2026-08-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1590629296744893676'
 pr_number: null
 parent: prd-057-097-automated-nuzlocke-tracker
 tags:
