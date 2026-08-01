@@ -29,20 +29,20 @@ Implement concrete sorting strategies using the base `SortingStrategy` interface
 Building upon the standard interface, we need specific, actionable sorters that understand the `PokeData` structure.
 
 ## Acceptance Criteria
-- [ ] Implement a `DexNumberSorter` (supports both National and Regional variants).
-- [ ] Implement a `LevelSorter` (supports ascending/descending).
-- [ ] Implement a `TypeSorter` (sorts by primary type, then secondary type).
-- [ ] Implement an `AlphaSorter` (alphabetical by nickname/species name).
+- [x] Implement a `DexNumberSorter` (supports both National and Regional variants).
+- [x] Implement a `LevelSorter` (supports ascending/descending).
+- [x] Implement a `TypeSorter` (sorts by primary type, then secondary type).
+- [x] Implement an `AlphaSorter` (alphabetical by nickname/species name).
 - [x] Break down story into tasks for technical blueprinting and implementation.
 - [x] [task-333-363-pokemon-types-data-impl](.foundry/tasks/task-333-363-pokemon-types-data-impl.md)
 - [x] [task-333-364-pokemon-types-data-qa](.foundry/tasks/task-333-364-pokemon-types-data-qa.md)
 - [x] [task-333-365-sorting-strategies-impl](.foundry/tasks/task-333-365-sorting-strategies-impl.md)
 - [x] [task-333-366-sorting-strategies-qa](.foundry/tasks/task-333-366-sorting-strategies-qa.md)
-- [ ] [research-333-361-investigate-pokemon-types-failure](.foundry/research/research-333-361-investigate-pokemon-types-failure.md)
-- [ ] [task-333-369-pokemon-types-data-retry-impl](.foundry/tasks/task-333-369-pokemon-types-data-retry-impl.md)
-- [ ] [task-333-370-pokemon-types-data-retry-qa](.foundry/tasks/task-333-370-pokemon-types-data-retry-qa.md)
-- [ ] [task-333-371-sorting-strategies-retry-qa](.foundry/tasks/task-333-371-sorting-strategies-retry-qa.md)
-- [ ] task-333-375-sorting-strategies-regional-dex-impl
-- [ ] task-333-376-sorting-strategies-regional-dex-qa
-- [ ] task-333-382-sorting-strategies-core-impl
-- [ ] task-333-383-sorting-strategies-core-qa
+- [x] [research-333-361-investigate-pokemon-types-failure](.foundry/research/research-333-361-investigate-pokemon-types-failure.md)
+- [x] [task-333-369-pokemon-types-data-retry-impl](.foundry/tasks/task-333-369-pokemon-types-data-retry-impl.md)
+- [x] [task-333-370-pokemon-types-data-retry-qa](.foundry/tasks/task-333-370-pokemon-types-data-retry-qa.md)
+- [x] [task-333-371-sorting-strategies-retry-qa](.foundry/tasks/task-333-371-sorting-strategies-retry-qa.md)
+- [x] task-333-375-sorting-strategies-regional-dex-impl
+- [x] task-333-376-sorting-strategies-regional-dex-qa
+- [x] task-333-382-sorting-strategies-core-impl
+- [x] task-333-383-sorting-strategies-core-qa
