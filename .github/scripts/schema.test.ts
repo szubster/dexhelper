@@ -114,4 +114,21 @@ describe('NodeFrontmatterSchema', () => {
     };
     expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
   });
+
+  it('successfully parses created_at and updated_at when they are Date instances', () => {
+    const node = {
+      id: "idea-001",
+      type: "IDEA",
+      title: "New Idea",
+      status: "PENDING",
+      owner_persona: "product_manager",
+      created_at: new Date("2026-06-16T00:00:00.000Z"),
+      updated_at: new Date("2026-07-03T00:00:00.000Z"),
+      depends_on: [],
+      jules_session_id: null
+    };
+    const parsed = NodeFrontmatterSchema.parse(node);
+    expect(parsed.created_at).toBe("2026-06-16T00:00:00.000Z");
+    expect(parsed.updated_at).toBe("2026-07-03T00:00:00.000Z");
+  });
 });
