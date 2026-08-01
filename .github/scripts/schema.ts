@@ -38,14 +38,22 @@ export const OwnerPersonaEnum = z.enum([
   'auditor',
 ]);
 
+export const DateCoercionSchema = z.preprocess((arg) => {
+  if (arg instanceof Date) {
+    // If it's a Date object, convert to YYYY-MM-DD format based on UTC or ISO string
+    return arg.toISOString().split('T')[0];
+  }
+  return arg;
+}, z.string());
+
 export const NodeFrontmatterSchema = z.object({
   id: z.string(),
   type: NodeTypeEnum,
   title: z.string(),
   status: NodeStatusEnum,
   owner_persona: OwnerPersonaEnum,
-  created_at: z.string(),
-  updated_at: z.string(),
+  created_at: DateCoercionSchema,
+  updated_at: DateCoercionSchema,
   depends_on: z.array(z.string()),
   jules_session_id: z.string().nullable(),
   pr_number: z.number().int().nullable().optional(),
