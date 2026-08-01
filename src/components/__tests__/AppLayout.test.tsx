@@ -362,7 +362,7 @@ describe('AppLayout file upload', () => {
     localStorage.setItem(AUTH_LOGGED_IN_INDICATOR, 'true');
     vi.mocked(r2Client.listSaves).mockRejectedValue(new Error('Network error'));
 
-    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
     await render(
       <QueryClientProvider client={queryClient}>
@@ -400,13 +400,13 @@ describe('AppLayout file upload', () => {
 
     await vi.waitFor(
       () => {
-        expect(consoleErrorSpy).toHaveBeenCalledWith('System: push to cloud failed');
+        expect(consoleWarnSpy).toHaveBeenCalledWith('System: list saves from cloud failed');
       },
       { timeout: 3000 },
     );
 
     vi.unstubAllGlobals();
     localStorage.clear();
-    consoleErrorSpy.mockRestore();
+    consoleWarnSpy.mockRestore();
   });
 });
