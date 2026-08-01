@@ -21,6 +21,7 @@
 import { calculateFeebasTiles, extractFeebasSeed, mapSpotIdsToCoordinates } from '../../gen3/feebas';
 import { parseGen3MatchCall } from '../../gen3/matchCall/parser';
 import { parseSecretBaseRecord } from '../../gen3/secretBase/parser';
+import { extractGen3StaticEncounterFlags } from '../../gen3/staticEncounters';
 import {
   parseGen3BattleFrontierSymbols,
   parseGen3BattleFrontierWinStreaks,
@@ -1019,6 +1020,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
 
     const gen3BerryPatches = extractBerryPatches(view, section1Offset);
     const gen3SecretBases = parseGen3SecretBases(view, section1Offset, _forcedVersion || 'ruby');
+    const gen3StaticEncounters = extractGen3StaticEncounterFlags(view, _forcedVersion || 'ruby', section1Offset);
 
     const gen3Pokeblocks = parseGen3Pokeblocks(view, section1Offset, _forcedVersion || 'ruby');
     const gen3PokeNews = parseGen3PokeNews(view, section1Offset + POKE_NEWS_OFFSET);
@@ -1208,6 +1210,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       hoennDexCount,
       nationalDexCount,
 
+      ...(gen3StaticEncounters ? { gen3StaticEncounters } : {}),
       gen3BerryPatches,
       gen3SecretBases,
       hiddenItemFlags,

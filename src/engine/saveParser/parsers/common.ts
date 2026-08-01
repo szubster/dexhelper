@@ -1,3 +1,5 @@
+import type { Gen3StaticEncounters } from '../../gen3/staticEncounters';
+
 /**
  * @module common
  *
@@ -331,6 +333,8 @@ export interface SaveData {
   gen3TMHMs?: { itemId: number; quantity: number; moveId: number }[];
   /** Gen 3 specific: TM event flags for one-time TM collection */
   gen3TMEventFlags?: Record<string, boolean>;
+  /** Gen 3 specific: Static encounters completion flags */
+  gen3StaticEncounters?: Gen3StaticEncounters;
 }
 
 // Removed byte helper as DataView provides getUint8 natively.
