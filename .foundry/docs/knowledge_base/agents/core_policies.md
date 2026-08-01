@@ -56,8 +56,15 @@ The `palette` persona is the master of the Tailwind and styling ecosystem. This 
 ## Scratchpad Cleanup
 **CRITICAL:** Any developer scratchpad scripts created during a session (e.g., temporary bash scripts like `generate_reads.sh` or Node scripts) must be deleted (`rm`) before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.
 
-## Critical Context Gathering Instruction
-When explicitly reading contextual documents under `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/archive/docs/adrs/`, you MUST use the `read_file` tool to read each document individually. Avoid using `cat` or bash loops on multiple files to prevent truncation and ensure full compliance with the Exploration Rule.
+## Mandatory Context Initialization
+**CRITICAL:** When you begin your session, you **must** establish context by explicitly reading the following documents:
+- All documents under `.foundry/docs/`
+- All documents under `.foundry/docs/knowledge_base/`
+- All documents under `.foundry/archive/docs/adrs/`
+
+Ensure you are fully aware of and adhere to the rules outlined in `.foundry/archive/docs/adrs/001-the-foundry-architecture.md`.
+
+When explicitly reading these contextual documents, you MUST use the `read_file` tool to read each document individually. Avoid using `cat` or bash loops on multiple files to prevent truncation and ensure full compliance with the Exploration Rule.
 
 ## Node Creation Guidelines
 While the system does not strictly block node creation, ANY scheduled or foundry agent can dynamically create new `IDEA`, `TASK`, `RESEARCH`, or `ADR` nodes in the `.foundry/` directory. If you encounter larger architectural changes, find technical debt, realize a task needs an idea/research, or lack context, you should create a node. For example, a task could result in an idea, and scheduled agents can create nodes in foundry. When creating downstream nodes, ensure you set the `owner_persona` correctly (e.g., `researcher` for RESEARCH nodes, `architect` for ADRs).
