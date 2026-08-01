@@ -26,7 +26,9 @@ notes: ''
 Write end-to-end tests for the RNG TID and SID Display UI to ensure it is functioning as expected in the Trainer dashboard, particularly that the correct TID and SID are displayed and that the copy-to-clipboard functionality works.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Generate actionable Tasks.
+- [x] Tech Lead: Generate actionable Tasks.
+- [ ] task-349-380-rng-tid-sid-e2e-impl
+- [ ] task-349-381-rng-tid-sid-e2e-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
