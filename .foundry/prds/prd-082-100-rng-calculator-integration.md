@@ -2,10 +2,10 @@
 id: prd-082-100-rng-calculator-integration
 type: PRD
 title: RNG Calculator Integration
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-07-01'
-updated_at: '2026-07-04'
+updated_at: '2026-08-01'
 depends_on: []
 jules_session_id: null
 pr_number: null

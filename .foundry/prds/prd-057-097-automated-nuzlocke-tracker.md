@@ -2,10 +2,10 @@
 id: prd-057-097-automated-nuzlocke-tracker
 type: PRD
 title: Automated Nuzlocke Verification and Run Tracker
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-07-01'
-updated_at: '2026-07-03'
+updated_at: '2026-08-01'
 depends_on: []
 jules_session_id: null
 pr_number: null

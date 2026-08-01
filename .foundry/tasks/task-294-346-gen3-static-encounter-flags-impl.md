@@ -2,12 +2,12 @@
 id: task-294-346-gen3-static-encounter-flags-impl
 type: TASK
 title: Implement Gen 3 Static Encounter Flags Parsing
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-25'
-updated_at: '2026-07-31'
+updated_at: '2026-08-01'
 depends_on: []
-jules_session_id: '2755754346321736892'
+jules_session_id: null
 pr_number: null
 parent: epic-106-138-gen3-static-encounters
 tags:

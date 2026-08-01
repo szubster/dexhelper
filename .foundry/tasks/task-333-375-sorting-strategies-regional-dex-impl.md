@@ -2,12 +2,12 @@
 id: task-333-375-sorting-strategies-regional-dex-impl
 type: TASK
 title: Implement Regional Dex Sorting Strategy
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-31'
-updated_at: '2026-07-31'
+updated_at: '2026-08-01'
 depends_on: []
-jules_session_id: '9002915095100024659'
+jules_session_id: null
 pr_number: null
 parent: story-136-333-sorting-standard-strategies-retry
 tags:
@@ -15,7 +15,7 @@ tags:
   - sorting
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 
