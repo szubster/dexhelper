@@ -2,10 +2,10 @@
 id: story-138-295-gen3-static-encounters-ui
 type: STORY
 title: Gen 3 Static Encounters UI
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-11'
-updated_at: '2026-07-22'
+updated_at: '2026-08-01'
 depends_on: []
 jules_session_id: null
 pr_number: null

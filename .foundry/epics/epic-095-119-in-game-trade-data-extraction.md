@@ -2,10 +2,10 @@
 id: epic-095-119-in-game-trade-data-extraction
 type: EPIC
 title: In-Game Trade Data Extraction
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-30'
-updated_at: '2026-07-03'
+updated_at: '2026-08-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
