@@ -2,13 +2,13 @@
 id: task-257-371-concurrent-game-switcher-ui-impl
 type: TASK
 title: Concurrent Game Switcher UI
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-31'
-updated_at: '2026-07-31'
+updated_at: '2026-08-01'
 depends_on:
   - task-257-369-concurrent-game-context-impl
-jules_session_id: null
+jules_session_id: '16019314865216773266'
 pr_number: null
 parent: story-036-257-concurrent-game-management
 tags:
