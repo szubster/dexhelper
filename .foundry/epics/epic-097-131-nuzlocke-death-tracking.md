@@ -34,3 +34,4 @@ Implement the logic to track dead Pokémon based on HP and Graveyard box assignm
 - [x] story-131-317-detect-party-zero-hp
 - [x] story-131-333-graveyard-box-state
 - [x] story-131-334-graveyard-box-ui
+- [ ] story-131-351-nuzlocke-death-tracking-e2e
