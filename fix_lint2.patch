@@ -1,0 +1,11 @@
+--- src/components/dashboard/ribbons/GlobalRibbonChecklistDashboard.tsx
++++ src/components/dashboard/ribbons/GlobalRibbonChecklistDashboard.tsx
+@@ -79,7 +79,7 @@
+                 {pokemon.ribbons &&
+                   // ⚡ Bolt: Replaced objectEntries().map() with a static array literal to eliminate runtime Object iteration and intermediate tuple allocations.
+                   (['cool', 'beauty', 'cute', 'smart', 'tough'] as const).map((key) => {
+-                    const rank = pokemon.ribbons![key];
++                    const rank = pokemon.ribbons?.[key];
+                     if (rank === 0 || !rankMap[rank]) return null;
+                     return <ContestRibbonBadge key={key} type={conditionMap[key]} rank={rankMap[rank]} />;
+                   })}
