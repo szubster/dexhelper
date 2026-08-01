@@ -67,9 +67,9 @@ describe('PokemonDetails', () => {
     // Wait for the query to resolve
     await expect.element(page.getByRole('heading', { name: 'Bulbasaur' })).toBeVisible();
 
-    // Check that we render the locations correctly (Safari Zone)
-    await expect.element(page.getByText(/Safari Zone/i)).toBeVisible();
-    await expect.element(page.getByText(/Another Area/i)).toBeVisible();
+    // Give it time to lazy load
+    await expect.element(page.getByText(/Safari Zone/i).first()).toBeVisible();
+    await expect.element(page.getByText(/Another Area/i).first()).toBeVisible();
   });
 
   it('handles unknown version and empty encounters safely', async () => {
@@ -106,8 +106,8 @@ describe('PokemonDetails', () => {
     // Wait for the query to resolve
     await expect.element(page.getByRole('heading', { name: 'Charmander' })).toBeVisible();
 
-    // Check that we render the empty locations string "External cross-version extraction required" or similar from PokemonLocations component
-    await expect.element(page.getByText(/SAT-LINK: UNKNOWN/i)).toBeVisible();
+    // Give it time to lazy load
+    await expect.element(page.getByText(/SAT-LINK: UNKNOWN/i).first()).toBeVisible();
   });
 
   it('renders shiny carrier badge correctly', async () => {
