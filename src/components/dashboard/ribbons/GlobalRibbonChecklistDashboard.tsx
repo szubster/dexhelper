@@ -1,7 +1,6 @@
 import type React from 'react';
 import { useMemo } from 'react';
 import { useStore } from '../../../store';
-import { objectEntries } from '../../../utils/object';
 import {
   type ContestConditionType,
   ContestRibbonBadge,
@@ -20,7 +19,12 @@ export const GlobalRibbonChecklistDashboard: React.FC = () => {
     }
     const allPokemon = [...saveData.partyDetails, ...saveData.pcDetails];
     // Deduplicate or filter if needed, for now just show all with ribbons
-    return allPokemon.filter((p) => p.ribbons && Object.values(p.ribbons).some((r) => r > 0));
+    // ⚡ Bolt: Replaced Object.values().some() with manual property checks to eliminate intermediate array allocations per pokemon in the hot path.
+    return allPokemon.filter((p) => {
+      if (!p.ribbons) return false;
+      const r = p.ribbons;
+      return r.cool > 0 || r.beauty > 0 || r.cute > 0 || r.smart > 0 || r.tough > 0;
+    });
   }, [saveData]);
 
   if (saveData?.generation !== 3) {
@@ -72,8 +76,10 @@ export const GlobalRibbonChecklistDashboard: React.FC = () => {
               </span>
               <div className="flex flex-wrap justify-end gap-2">
                 {pokemon.ribbons &&
-                  objectEntries(pokemon.ribbons).map(([key, rank]) => {
-                    if (rank === 0 || !rankMap[rank]) return null;
+                  // ⚡ Bolt: Replaced objectEntries().map() with a static array literal to eliminate runtime Object iteration and intermediate tuple allocations.
+                  (['cool', 'beauty', 'cute', 'smart', 'tough'] as const).map((key) => {
+                    const rank = pokemon.ribbons?.[key] ?? 0;
+                    if (rank === 0 || rankMap[rank] === undefined) return null;
                     return <ContestRibbonBadge key={key} type={conditionMap[key]} rank={rankMap[rank]} />;
                   })}
               </div>
