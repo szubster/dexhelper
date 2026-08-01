@@ -186,6 +186,30 @@ describe('Zustand Store', () => {
         setItem: vi.fn<() => void>(),
         removeItem: vi.fn<() => void>(),
       });
+      vi.mocked(r2Client.listSaves).mockResolvedValue([{ id: 'cloud-save-id' }]);
+      vi.mocked(r2Client.getSave).mockRejectedValue(new Error('Network error'));
+
+      const localData = new Uint8Array([1, 2, 3]);
+      vi.spyOn(saveDB, 'getSave').mockResolvedValue(localData);
+      const mockSaveData = { trainerName: 'LOCAL', generation: 1, gameVersion: 'red' };
+      vi.mocked(parseSaveFile).mockReturnValue(mockSaveData as unknown as ReturnType<typeof parseSaveFile>);
+
+      await useStore.getState().loadSaveFromStorage();
+
+      expect(r2Client.listSaves).toHaveBeenCalled();
+      expect(r2Client.getSave).toHaveBeenCalledWith('cloud-save-id');
+      expect(saveDB.getSave).toHaveBeenCalledWith('last_save_file');
+      expect(useStore.getState().saveData).toEqual(mockSaveData);
+
+      vi.unstubAllGlobals();
+    });
+
+    it('should fallback to local DB if R2 list saves fails', async () => {
+      vi.stubGlobal('localStorage', {
+        getItem: () => 'true',
+        setItem: vi.fn<() => void>(),
+        removeItem: vi.fn<() => void>(),
+      });
       vi.mocked(r2Client.listSaves).mockRejectedValue(new Error('Network error'));
 
       const localData = new Uint8Array([1, 2, 3]);
