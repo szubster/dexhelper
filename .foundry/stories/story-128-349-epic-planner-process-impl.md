@@ -28,5 +28,5 @@ Update the instructions for the Epic Planner persona to enforce the creation of 
 ## Acceptance Criteria
 - [x] Draft a `TASK` to update the Epic Planner prompt instructions (`.github/agents/epic_planner.md`) to explicitly require a final E2E Integration STORY when breaking down a PRD.
 - [x] Draft a QA `TASK` to verify that the Epic Planner process changes have been correctly documented.
-- [ ] task-349-380-epic-planner-process-impl
-- [ ] task-349-381-epic-planner-process-qa
+- [x] task-349-380-epic-planner-process-impl
+- [x] task-349-381-epic-planner-process-qa
