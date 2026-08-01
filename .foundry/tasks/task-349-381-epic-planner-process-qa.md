@@ -28,5 +28,5 @@ As part of enforcing macro node functional boundaries, we need to enforce a proc
 Verify that the updates to the Epic Planner persona instructions were implemented correctly.
 
 ## Acceptance Criteria
-- [ ] Verify that `.github/agents/epic_planner.md` has been updated to explicitly require a final E2E Integration STORY for every EPIC.
-- [ ] Ensure the new requirement is clearly stated under the Core Directives section or similar prominent location.
+- [x] Verify that `.github/agents/epic_planner.md` has been updated to explicitly require a final E2E Integration STORY for every EPIC.
+- [x] Ensure the new requirement is clearly stated under the Core Directives section or similar prominent location.
