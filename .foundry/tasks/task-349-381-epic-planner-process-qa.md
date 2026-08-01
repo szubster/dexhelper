@@ -2,13 +2,13 @@
 id: task-349-381-epic-planner-process-qa
 type: TASK
 title: Epic Planner Process Update Implementation QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2024-05-24'
 updated_at: '2026-08-01'
 depends_on:
   - task-349-380-epic-planner-process-impl
-jules_session_id: null
+jules_session_id: '9151166772465145672'
 pr_number: null
 parent: story-128-349-epic-planner-process-impl
 tags:
