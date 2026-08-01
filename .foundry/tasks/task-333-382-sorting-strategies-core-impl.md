@@ -2,12 +2,12 @@
 id: task-333-382-sorting-strategies-core-impl
 type: TASK
 title: Implement Core PC Box Sorting Strategies
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-01'
 updated_at: '2026-08-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6269677492933104175'
 pr_number: null
 parent: story-136-333-sorting-standard-strategies-retry
 tags:
