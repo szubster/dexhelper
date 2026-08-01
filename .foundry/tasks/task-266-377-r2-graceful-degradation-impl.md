@@ -31,5 +31,5 @@ The application currently attempts to sync files to R2 when the user is logged i
 - Ensure the UI does not show a global error when only the R2 sync fails, but the local save is successful.
 
 ## Acceptance Criteria
-- [ ] R2 API failures in `useFileSyncController.ts` are caught and gracefully ignored, allowing local sync to continue.
-- [ ] R2 API failures in `AppLayout.tsx` are caught and gracefully ignored, allowing file uploads to continue locally.
+- [x] R2 API failures in `useFileSyncController.ts` are caught and gracefully ignored, allowing local sync to continue.
+- [x] R2 API failures in `AppLayout.tsx` are caught and gracefully ignored, allowing file uploads to continue locally.

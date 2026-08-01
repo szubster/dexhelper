@@ -330,7 +330,7 @@ describe('useFileSyncController', () => {
     localStorage.setItem(AUTH_LOGGED_IN_INDICATOR, 'true');
     vi.mocked(r2Client.listSaves).mockRejectedValue(new Error('Network error'));
 
-    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
     // Setup file mock
     const mockFile = {
@@ -361,11 +361,11 @@ describe('useFileSyncController', () => {
     await page.getByTestId('request-btn').click();
     await vi.advanceTimersByTimeAsync(0);
 
-    expect(consoleErrorSpy).toHaveBeenCalledWith('System: push to cloud failed');
+    expect(consoleWarnSpy).toHaveBeenCalledWith('System: list saves from cloud failed');
     // Ensure state still transitioned to live despite the R2 error
     await expect.element(page.getByTestId('status')).toHaveTextContent('live');
 
-    consoleErrorSpy.mockRestore();
+    consoleWarnSpy.mockRestore();
   });
 
   it('should clean up interval on unmount', async () => {
