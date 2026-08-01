@@ -2,13 +2,13 @@
 id: task-334-353-gen3-mixed-record-trainer-qa
 type: TASK
 title: QA Gen 3 Mixed Record Trainer Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-29'
 updated_at: '2026-08-01'
 depends_on:
   - task-334-352-parse-secret-base-trainer-party-impl
-jules_session_id: null
+jules_session_id: '16064947660609822773'
 pr_number: null
 parent: story-324-334-extract-mixed-record-trainer-data
 tags:
