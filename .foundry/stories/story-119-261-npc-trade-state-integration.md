@@ -29,6 +29,6 @@ Integrate the extracted flags into the unified `SaveData` object, ensuring consi
 - [x] Tech Lead: Break down into tasks for `SaveData` update and test coverage.
 - [x] task-261-331-npc-trade-state-integration-impl
 - [x] task-261-332-npc-trade-state-integration-qa
-- [ ] research-261-357-investigate-npc-trade-state-integration-failure
-- [ ] task-261-358-npc-trade-state-integration-retry-impl
-- [ ] task-261-359-npc-trade-state-integration-retry-qa
+- [x] research-261-357-investigate-npc-trade-state-integration-failure
+- [x] task-261-358-npc-trade-state-integration-retry-impl
+- [x] task-261-359-npc-trade-state-integration-retry-qa
