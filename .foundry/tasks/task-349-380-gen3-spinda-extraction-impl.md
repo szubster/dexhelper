@@ -1,11 +1,11 @@
 ---
 id: task-349-380-gen3-spinda-extraction-impl
 type: TASK
-title: "Gen3 Spinda Extraction Implementation"
-status: PENDING
-owner_persona: "coder"
-created_at: "2026-08-01"
-updated_at: "2026-08-01"
+title: Gen3 Spinda Extraction Implementation
+status: READY
+owner_persona: coder
+created_at: '2026-08-01'
+updated_at: '2026-08-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - data-extraction
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen3 Spinda Extraction Implementation
