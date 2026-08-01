@@ -44,3 +44,5 @@ Building upon the standard interface, we need specific, actionable sorters that 
 - [ ] [task-333-371-sorting-strategies-retry-qa](.foundry/tasks/task-333-371-sorting-strategies-retry-qa.md)
 - [ ] task-333-375-sorting-strategies-regional-dex-impl
 - [ ] task-333-376-sorting-strategies-regional-dex-qa
+- [ ] task-333-382-sorting-strategies-core-impl
+- [ ] task-333-383-sorting-strategies-core-qa
