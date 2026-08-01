@@ -2,10 +2,10 @@
 id: story-324-334-extract-mixed-record-trainer-data
 type: STORY
 title: Extract Gen 3 Mixed Record Trainer Data (v2)
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-18'
-updated_at: '2026-07-29'
+updated_at: '2026-08-01'
 depends_on:
   - story-324-333-parse-secret-base-locations
 jules_session_id: null
