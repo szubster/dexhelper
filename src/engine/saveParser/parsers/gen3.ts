@@ -1559,6 +1559,17 @@ export function parseGen3TMHMs(
 
 /**
  * Helper to read a specific bit flag from the event flags block.
+ *
+ * @remarks
+ * Event flags in Generation 3 are packed into a continuous byte array.
+ * To find the exact byte and bit for a specific flag:
+ * 1. `flag >> FLAG_BYTE_SHIFT` (divide by 8) gives the byte offset.
+ * 2. `flag & FLAG_BIT_MASK` (modulo 8) gives the specific bit index within that byte.
+ *
+ * @param view - The raw save file DataView.
+ * @param baseOffset - The absolute offset to the start of the event flags block.
+ * @param flag - The specific flag ID to query.
+ * @returns True if the flag is set (1), false otherwise (0).
  */
 function readEventFlag(view: DataView, baseOffset: number, flag: number): boolean {
   const byteOffset = baseOffset + (flag >> FLAG_BYTE_SHIFT);
@@ -1569,10 +1580,18 @@ function readEventFlag(view: DataView, baseOffset: number, flag: number): boolea
 /**
  * Extracts event flags indicating if specific TMs have been collected.
  *
+ * @remarks
+ * Why version context is required:
+ * TM IDs and their associated unlock methods (flags) are drastically different
+ * between Hoenn (RSE) and Kanto (FRLG). For example, TM34 (Shock Wave) has a
+ * unique flag for Wattson in Hoenn, but a different flag for Surge in Kanto.
+ * We must route the flag lookups based on the underlying `gameVersion`.
+ *
  * @param view - The raw save file DataView.
  * @param saveBlock2Offset - The resolved memory offset to the active SaveBlock2.
- * @param gameVersion - The detected game version.
- * @returns An object containing boolean statuses for collected TMs.
+ * @param gameVersion - The detected game version to correctly map TM flags.
+ * @returns An object containing boolean statuses for collected one-time TMs.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
 export function parseGen3TMEventFlags(
   view: DataView,
@@ -1639,14 +1658,21 @@ export function parseGen3TMEventFlags(
 /**
  * Parses the event flags to determine which in-game NPC trades have been completed in Ruby, Sapphire, and Emerald.
  *
+ * @remarks
+ * NPC Trade completion is tracked via standard event flags.
+ * Evaluating these flags is critical because some version-exclusive Pokemon
+ * are only obtainable via these trades (e.g., Makuhita in Rustboro).
+ *
  * @param view - The raw save file DataView.
  * @param saveBlock2Offset - The memory offset of SaveBlock2.
  * @returns A record mapping NPC trade internal names to a boolean indicating if they have been completed.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
 export function parseGen3RSENPCTrades(view: DataView, saveBlock2Offset: number): Record<string, boolean> {
   try {
     const baseOffset = saveBlock2Offset + GEN3_EVENT_FLAGS_OFFSET;
 
+    // Bitwise extraction: divide flag by 8 to find the byte, modulo 8 to find the bit.
     const readFlag = (flag: number) => {
       const byteOffset = baseOffset + (flag >> FLAG_BYTE_SHIFT);
       const bitIndex = flag & FLAG_BIT_MASK;
@@ -1670,8 +1696,12 @@ export function parseGen3RSENPCTrades(view: DataView, saveBlock2Offset: number):
 /**
  * Parses the NPC trade completion flags from a Gen 3 FRLG save file.
  *
+ * @remarks
+ * Similar to RSE, FireRed and LeafGreen use event flags to track NPC trades.
+ * However, the specific flags and the Pokemon involved differ (e.g., Mr. Mime / MIMIEN).
+ *
  * @param view - The raw save file DataView.
- * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @param saveBlock2Offset - The resolved memory offset to the active SaveBlock2 block.
  * @returns An object containing boolean statuses for each FRLG NPC trade.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
@@ -1679,6 +1709,7 @@ export function parseGen3FRLGNPCTrades(view: DataView, saveBlock2Offset: number)
   try {
     const baseOffset = saveBlock2Offset + GEN3_EVENT_FLAGS_OFFSET;
 
+    // Bitwise extraction: divide flag by 8 to find the byte, modulo 8 to find the bit.
     const readFlag = (flag: number) => {
       const byteOffset = baseOffset + (flag >> FLAG_BYTE_SHIFT);
       const bitIndex = flag & FLAG_BIT_MASK;
@@ -1707,6 +1738,11 @@ export function parseGen3FRLGNPCTrades(view: DataView, saveBlock2Offset: number)
 /**
  * Parses the event flags to determine which one-time Move Tutors have been used in FireRed and LeafGreen.
  *
+ * @remarks
+ * In FRLG, one-time move tutors (like Double-Edge and Seismic Toss) are tracked
+ * across a specific, contiguous 4-byte sequence within the event flags block.
+ * This parser reads those 4 bytes directly and extracts the individual bits for each move.
+ *
  * @param view - The raw save file DataView.
  * @param saveBlock2Offset - The memory offset of SaveBlock2.
  * @returns An object containing boolean statuses for each FRLG move tutor.
@@ -1715,11 +1751,14 @@ export function parseGen3FRLGNPCTrades(view: DataView, saveBlock2Offset: number)
 export function parseGen3FRLGMoveTutors(view: DataView, saveBlock2Offset: number) {
   try {
     const baseOffset = saveBlock2Offset + GEN3_EVENT_FLAGS_OFFSET;
+
+    // Extract the 4 sequential bytes that store tutor states
     const byte1 = view.getUint8(baseOffset + FRLG_MOVE_TUTOR_BYTE_1_OFFSET);
     const byte2 = view.getUint8(baseOffset + FRLG_MOVE_TUTOR_BYTE_2_OFFSET);
     const byte3 = view.getUint8(baseOffset + FRLG_MOVE_TUTOR_BYTE_3_OFFSET);
     const byte4 = view.getUint8(baseOffset + FRLG_MOVE_TUTOR_BYTE_4_OFFSET);
 
+    // Bit mask to boolean: shift the specific move's bit to the 0th position and mask with 1.
     return {
       doubleEdge: !!((byte1 >> FRLG_MOVE_TUTOR_DOUBLE_EDGE_BIT) & 1),
       thunderWave: !!((byte1 >> FRLG_MOVE_TUTOR_THUNDER_WAVE_BIT) & 1),
