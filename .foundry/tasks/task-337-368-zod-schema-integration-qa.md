@@ -2,7 +2,7 @@
 id: task-337-368-zod-schema-integration-qa
 type: TASK
 title: QA Zod Schema Integration
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-30'
 updated_at: '2026-08-01'
@@ -13,8 +13,8 @@ pr_number: null
 parent: story-334-337-zod-schema-integration
 tags: []
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

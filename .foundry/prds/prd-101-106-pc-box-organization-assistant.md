@@ -2,7 +2,7 @@
 id: prd-101-106-pc-box-organization-assistant
 type: PRD
 title: Gen 1-3 PC Box Organization Assistant
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-04'
 updated_at: '2026-08-01'

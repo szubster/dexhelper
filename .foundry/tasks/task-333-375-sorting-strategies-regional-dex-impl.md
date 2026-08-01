@@ -2,12 +2,12 @@
 id: task-333-375-sorting-strategies-regional-dex-impl
 type: TASK
 title: Implement Regional Dex Sorting Strategy
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-31'
 updated_at: '2026-08-01'
 depends_on: []
-jules_session_id: '247304201345729590'
+jules_session_id: null
 pr_number: null
 parent: story-136-333-sorting-standard-strategies-retry
 tags:

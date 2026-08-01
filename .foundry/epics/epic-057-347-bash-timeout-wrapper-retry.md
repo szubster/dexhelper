@@ -2,10 +2,10 @@
 id: epic-057-347-bash-timeout-wrapper-retry
 type: EPIC
 title: Timeout Wrapper for Bash Sessions (Retry)
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-26'
-updated_at: '2026-07-26'
+updated_at: '2026-08-01'
 depends_on:
   - research-057-346-investigate-bash-timeout-failure
 jules_session_id: null

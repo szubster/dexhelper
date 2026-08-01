@@ -2,7 +2,7 @@
 id: task-257-374-progression-timeline-ui-qa
 type: TASK
 title: QA Progression Timeline UI
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-31'
 updated_at: '2026-08-01'
@@ -16,8 +16,8 @@ tags:
   - progression
   - ui
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

@@ -1,11 +1,11 @@
 ---
 id: epic-110-308-tm-hm-user-interface
 type: EPIC
-title: "TM/HM Inventory & Compatibility UI"
-status: PENDING
-owner_persona: "story_owner"
-created_at: "2026-07-12"
-updated_at: "2026-07-12"
+title: TM/HM Inventory & Compatibility UI
+status: CANCELLED
+owner_persona: story_owner
+created_at: '2026-07-12'
+updated_at: '2026-08-01'
 depends_on:
   - epic-110-307-tm-hm-compatibility-logic
 jules_session_id: null
@@ -16,8 +16,10 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  epic-110-306-tm-hm-save-parsing
+notes: ''
 ---
 
 # TM/HM Inventory & Compatibility UI

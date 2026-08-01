@@ -2,7 +2,7 @@
 id: task-266-378-r2-graceful-degradation-qa
 type: TASK
 title: Cloudflare R2 Graceful Degradation QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-01'
 updated_at: '2026-08-01'

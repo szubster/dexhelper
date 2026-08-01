@@ -2,10 +2,10 @@
 id: task-333-376-sorting-strategies-regional-dex-qa
 type: TASK
 title: QA Regional Dex Sorting Strategy
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-31'
-updated_at: '2026-07-31'
+updated_at: '2026-08-01'
 depends_on:
   - task-333-375-sorting-strategies-regional-dex-impl
 jules_session_id: null
