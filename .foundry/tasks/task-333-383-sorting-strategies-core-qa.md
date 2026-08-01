@@ -2,7 +2,7 @@
 id: task-333-383-sorting-strategies-core-qa
 type: TASK
 title: QA Core PC Box Sorting Strategies
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-01'
 updated_at: '2026-08-01'
