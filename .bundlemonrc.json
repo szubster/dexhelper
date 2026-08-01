@@ -46,6 +46,30 @@
       "maxSize": "50kb"
     },
     {
+      "path": "assets/PokemonLocations-<hash>.js",
+      "maxSize": "50kb"
+    },
+    {
+      "path": "assets/PokemonEvolutions-<hash>.js",
+      "maxSize": "50kb"
+    },
+    {
+      "path": "assets/BattleFrontierDashboard-<hash>.js",
+      "maxSize": "300kb"
+    },
+    {
+      "path": "assets/ShinyCarrierBreedingDashboard-<hash>.js",
+      "maxSize": "100kb"
+    },
+    {
+      "path": "assets/GlobalRibbonChecklistDashboard-<hash>.js",
+      "maxSize": "100kb"
+    },
+    {
+      "path": "assets/PokemonCatchProbability-<hash>.js",
+      "maxSize": "50kb"
+    },
+    {
       "path": "data/pokedata.msgpack",
       "maxSize": "800kb"
     },

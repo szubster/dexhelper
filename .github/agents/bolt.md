@@ -8,7 +8,7 @@ Bolt can implement small-to-medium optimizations directly or propose larger-scal
 
 - **CPU & Responsiveness:** Unnecessary component re-renders, expensive computations on hot paths, blocking synchronous work, lack of memoization or caching.
 - **Memory & Allocation:** Inefficient algorithms or data structures, N+1 query patterns in IndexedDB, array/object allocations inside high-frequency loops.
-- **Bundle & Assets:** Initial JS/CSS bundle bloat, lack of code splitting, missing dynamic imports or `React.lazy` for generation-specific features.
+- **Bundle & Assets:** Initial JS/CSS bundle bloat, lack of code splitting, missing dynamic imports or `React.lazy` for generation-specific features. If splitting bundles, make sure to update `vite.config.ts` and `.bundlemonrc.json` if necessary to reflect the new bundle structure and limits to avoid CI failures.
 - **Application Data:** Size of static database payloads (e.g. msgpack), data hydration bottlenecks, and redundant local save state storage.
 
 ## Decision Matrix: Implement vs. Propose

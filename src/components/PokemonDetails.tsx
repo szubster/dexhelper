@@ -11,12 +11,21 @@ import { getGenerationConfig } from '../utils/generationConfig';
 import { CornerCrosshairs } from './CornerCrosshairs';
 import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
-import { PokemonCatchProbability } from './pokemon/details/PokemonCatchProbability';
 import { PokemonCaughtDetails } from './pokemon/details/PokemonCaughtDetails';
-import { PokemonEvolutions } from './pokemon/details/PokemonEvolutions';
-import { PokemonLocations } from './pokemon/details/PokemonLocations';
 import { PokemonSprite } from './pokemon/PokemonSprite';
 import { UnownDexPanel } from './pokemon/unown/UnownDexPanel';
+
+// ⚡ Bolt: Lazy load heavy sub-components to reduce initial PokemonDetails chunk size
+const PokemonLocations = React.lazy(() =>
+  import('./pokemon/details/PokemonLocations').then((m) => ({ default: m.PokemonLocations })),
+);
+const PokemonEvolutions = React.lazy(() =>
+  import('./pokemon/details/PokemonEvolutions').then((m) => ({ default: m.PokemonEvolutions })),
+);
+const PokemonCatchProbability = React.lazy(() =>
+  import('./pokemon/details/PokemonCatchProbability').then((m) => ({ default: m.PokemonCatchProbability })),
+);
+
 import { ScanlineOverlay } from './ScanlineOverlay';
 import { ShinyBadge } from './ShinyBadge';
 import { TacticalIconButton } from './TacticalIconButton';
@@ -305,20 +314,28 @@ export function PokemonDetails({
           {/* Left Column Data Feed */}
           <div className="flex flex-col gap-6 xl:gap-8">
             {catchRate !== null && (
-              <PokemonCatchProbability catchRate={catchRate} effectivePokeball={effectivePokeball} />
+              <React.Suspense
+                fallback={<div className="h-24 animate-pulse rounded border border-zinc-800/50 bg-zinc-900/50" />}
+              >
+                <PokemonCatchProbability catchRate={catchRate} effectivePokeball={effectivePokeball} />
+              </React.Suspense>
             )}
 
-            <PokemonEvolutions
-              evoReq={evoReq}
-              evolvesTo={evolvesTo || []}
-              breedingInfo={breedingInfo}
-              hasPreEvo={hasPreEvo}
-              onNavigate={onNavigate}
-              yourPokemonLength={yourPokemon.length}
-              pokemonId={pokemonId}
-              gameVersion={gameVersion}
-              saveData={saveData}
-            />
+            <React.Suspense
+              fallback={<div className="h-48 animate-pulse rounded border border-zinc-800/50 bg-zinc-900/50" />}
+            >
+              <PokemonEvolutions
+                evoReq={evoReq}
+                evolvesTo={evolvesTo || []}
+                breedingInfo={breedingInfo}
+                hasPreEvo={hasPreEvo}
+                onNavigate={onNavigate}
+                yourPokemonLength={yourPokemon.length}
+                pokemonId={pokemonId}
+                gameVersion={gameVersion}
+                saveData={saveData}
+              />
+            </React.Suspense>
           </div>
 
           {/* Right Column Data Feed */}
@@ -326,14 +343,18 @@ export function PokemonDetails({
             <PokemonCaughtDetails yourPokemon={yourPokemon} />
             {pokemonId === 201 && saveData?.generation === 2 && <UnownDexPanel yourPokemon={yourPokemon} />}
 
-            <PokemonLocations
-              pokemonId={pokemonId}
-              gameVersion={gameVersion}
-              encounters={encounters}
-              areaNames={areaNames}
-              evoReq={evoReq}
-              loading={loading}
-            />
+            <React.Suspense
+              fallback={<div className="h-48 animate-pulse rounded border border-zinc-800/50 bg-zinc-900/50" />}
+            >
+              <PokemonLocations
+                pokemonId={pokemonId}
+                gameVersion={gameVersion}
+                encounters={encounters}
+                areaNames={areaNames}
+                evoReq={evoReq}
+                loading={loading}
+              />
+            </React.Suspense>
           </div>
         </div>
       </div>
