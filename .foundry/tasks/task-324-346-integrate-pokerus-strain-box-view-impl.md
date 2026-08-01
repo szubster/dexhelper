@@ -32,5 +32,5 @@ Integrate the `PokerusBadge` component into the PC Box storage grid component (`
 - The Coder will self-verify this UI integration as per the Intelligent Verification Protocol for simple UI tasks.
 
 ## 3. Acceptance Criteria
-- [ ] Coder: Integrate `PokerusBadge` into the `StorageCard` component within `src/components/StorageGrid.tsx`.
-- [ ] Coder: Self-verify the integration and log findings in `.foundry/journals/coder/<session_id>.md`.
+- [x] Coder: Integrate `PokerusBadge` into the `StorageCard` component within `src/components/StorageGrid.tsx`.
+- [x] Coder: Self-verify the integration and log findings in `.foundry/journals/coder/<session_id>.md`.
