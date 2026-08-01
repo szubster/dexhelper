@@ -2,13 +2,13 @@
 id: task-295-339-gen3-static-encounters-ui-qa
 type: TASK
 title: Gen 3 Static Encounters UI QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-20'
 updated_at: '2026-08-01'
 depends_on:
   - task-295-338-gen3-static-encounters-ui-impl
-jules_session_id: null
+jules_session_id: '12335444189339326262'
 pr_number: null
 parent: story-138-295-gen3-static-encounters-ui
 tags:
