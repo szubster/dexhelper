@@ -44,8 +44,14 @@ export const NodeFrontmatterSchema = z.object({
   title: z.string(),
   status: NodeStatusEnum,
   owner_persona: OwnerPersonaEnum,
-  created_at: z.string(),
-  updated_at: z.string(),
+  created_at: z.union([
+    z.string(),
+    z.date().transform((val) => val.toISOString()),
+  ]),
+  updated_at: z.union([
+    z.string(),
+    z.date().transform((val) => val.toISOString()),
+  ]),
   depends_on: z.array(z.string()),
   jules_session_id: z.string().nullable(),
   pr_number: z.number().int().nullable().optional(),
