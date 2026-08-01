@@ -39,8 +39,8 @@ import type {
   Gen3Ribbons,
   Gen3SecretBase,
   Gen3TVShow,
-  SaveData,
   PokemonInstance,
+  SaveData,
 } from './common';
 
 const SIGNATURE = 0x08012025;
@@ -1006,9 +1006,23 @@ function parseGen3PCBoxes(view: DataView): { pc: number[]; pcDetails: PokemonIns
 
   for (let i = 0; i < PC_BUFFER_SECTION_IDS.length; i++) {
     const sectionId = PC_BUFFER_SECTION_IDS[i] as number;
-    const sectionOffset = getLatestSectionOffset(view, sectionId);
+    let sectionOffset = -1;
+    try {
+      sectionOffset = getLatestSectionOffset(view, sectionId);
+    } catch (e) {
+      if (e instanceof Error && e.message === 'Target section not found or invalid signature.') {
+        sectionOffset = -1;
+      } else {
+        throw e;
+      }
+    }
 
     const size = sectionId === 13 ? PC_BUFFER_LAST_SECTION_SIZE : PC_BUFFER_SECTION_SIZE;
+    if (sectionOffset === -1) {
+      bufferOffset += size;
+      continue;
+    }
+
     for (let j = 0; j < size; j++) {
       pcBuffer[bufferOffset++] = view.getUint8(sectionOffset + j);
     }
