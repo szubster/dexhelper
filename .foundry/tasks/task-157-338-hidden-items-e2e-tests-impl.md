@@ -2,7 +2,7 @@
 id: task-157-338-hidden-items-e2e-tests-impl
 type: TASK
 title: Implement E2E Tests for Hidden Items UI
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-21'
 updated_at: '2026-08-01'
@@ -16,7 +16,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'HiddenItemsChecklist is not integrated into any route, making E2E testing impossible. Task cancelled. Need integration first.'
 notes: ''
 ---
 
@@ -44,3 +44,6 @@ To ensure the Hidden Items Finder UI functions as expected and integrates proper
 - [ ] The tests verify that the Hidden Items view renders correctly after save hydration.
 - [ ] The tests verify that acquired items are visually checked off.
 - [ ] Tests pass consistently.
+
+
+- [ ] story-060-158-hidden-items-checklist-integration
