@@ -33,5 +33,7 @@ Provide UI elements to clearly display both the Trainer ID (TID) and Secret ID (
 - [x] research-130-332-rng-tid-sid-integration-failure
 - [x] story-130-333-rng-tid-sid-integration-retry
 
+- [ ] story-130-349-rng-tid-sid-e2e
+
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
