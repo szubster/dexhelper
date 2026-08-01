@@ -2,10 +2,10 @@
 id: story-036-257-concurrent-game-management
 type: STORY
 title: Concurrent Game Management UI/UX
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-31'
+updated_at: '2026-08-01'
 depends_on:
   - story-036-256-progression-sync-logic
 jules_session_id: null

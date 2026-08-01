@@ -2,10 +2,10 @@
 id: task-257-373-progression-timeline-ui-impl
 type: TASK
 title: Progression Timeline UI
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-07-31'
-updated_at: '2026-07-31'
+updated_at: '2026-08-01'
 depends_on:
   - task-257-369-concurrent-game-context-impl
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - progression
   - ui
 research_references: []
-rejection_count: 1
-rejection_reason: 'Duplicate ProgressionTimeline components exist in src/components/dashboard/progression and src/components/timeline. Component uses a placeholder for history integration.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

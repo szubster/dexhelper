@@ -2,7 +2,7 @@
 id: epic-100-130-rng-tid-sid-display
 type: EPIC
 title: RNG TID and SID Display UI
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-02'
 updated_at: '2026-08-01'
@@ -15,10 +15,8 @@ tags:
   - rng
   - ui
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 # RNG TID and SID Display UI

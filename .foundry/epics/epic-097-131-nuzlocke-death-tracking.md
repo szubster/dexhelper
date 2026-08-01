@@ -2,7 +2,7 @@
 id: epic-097-131-nuzlocke-death-tracking
 type: EPIC
 title: Automated Death Tracking
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-03'
 updated_at: '2026-08-01'
@@ -14,10 +14,8 @@ tags:
   - feature
   - nuzlocke
   - verification
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

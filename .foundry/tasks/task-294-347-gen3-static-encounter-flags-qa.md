@@ -2,10 +2,10 @@
 id: task-294-347-gen3-static-encounter-flags-qa
 type: TASK
 title: QA Gen 3 Static Encounter Flags Parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-25'
-updated_at: '2026-07-25'
+updated_at: '2026-08-01'
 depends_on:
   - task-294-346-gen3-static-encounter-flags-impl
 jules_session_id: null
