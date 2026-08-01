@@ -2,12 +2,12 @@
 id: story-070-276-orchestrator-verifying-block
 type: STORY
 title: Orchestrator VERIFYING Hierarchical Block Fix
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-07-28'
+updated_at: '2026-08-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7749805739820101322'
 pr_number: null
 parent: epic-045-070-orchestrator-strict-completion
 tags:
