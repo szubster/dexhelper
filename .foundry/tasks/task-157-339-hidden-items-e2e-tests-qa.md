@@ -2,10 +2,10 @@
 id: task-157-339-hidden-items-e2e-tests-qa
 type: TASK
 title: QA E2E Tests for Hidden Items UI
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-21'
-updated_at: '2026-07-21'
+updated_at: '2026-08-01'
 depends_on:
   - task-157-338-hidden-items-e2e-tests-impl
 jules_session_id: null

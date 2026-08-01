@@ -2,7 +2,7 @@
 id: story-060-158-hidden-items-checklist-integration
 type: STORY
 title: Integrate Hidden Items Checklist into Dashboard
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-08-01'
 updated_at: '2026-08-01'
@@ -14,8 +14,10 @@ tags:
   - ui
   - integration
 rejection_count: 0
-rejection_reason: ''
-notes: 'Spawned via late-binding to integrate the unmounted HiddenItemsChecklist component.'
+rejection_reason: Cancelled due to cascading cancellation from parent
+notes: >-
+  Spawned via late-binding to integrate the unmounted HiddenItemsChecklist
+  component.
 ---
 
 # Story: Integrate Hidden Items Checklist into Dashboard
