@@ -664,34 +664,36 @@ function main(): void {
   }
 
   const visitedForCycle = new Set<string>();
-  const recursionStack = new Set<string>();
+  const recursionStackPath: string[] = [];
+  const recursionSet = new Set<string>();
   const nodesInCycle = new Set<string>();
 
-  function dfsCycle(nodePath: string): boolean {
+  function dfsCycle(nodePath: string) {
     visitedForCycle.add(nodePath);
-    recursionStack.add(nodePath);
+    recursionStackPath.push(nodePath);
+    recursionSet.add(nodePath);
 
     const deps = dependencyGraph.get(nodePath) || [];
-    let hasCycle = false;
     for (const dep of deps) {
       if (!dependencyGraph.has(dep)) continue; // Only care about PENDING dependencies
 
       if (!visitedForCycle.has(dep)) {
-        if (dfsCycle(dep)) {
-          nodesInCycle.add(dep);
-          hasCycle = true;
+        dfsCycle(dep);
+      } else if (recursionSet.has(dep)) {
+        const cycleStartIndex = recursionStackPath.indexOf(dep);
+        const cyclePath = recursionStackPath.slice(cycleStartIndex);
+        cyclePath.push(dep);
+
+        warn(`Detected circular dependency: ${cyclePath.join(' -> ')}`);
+
+        for (const cycleNode of cyclePath) {
+          nodesInCycle.add(cycleNode);
         }
-      } else if (recursionStack.has(dep)) {
-        nodesInCycle.add(dep);
-        hasCycle = true;
       }
     }
 
-    recursionStack.delete(nodePath);
-    if (hasCycle) {
-       nodesInCycle.add(nodePath);
-    }
-    return hasCycle;
+    recursionStackPath.pop();
+    recursionSet.delete(nodePath);
   }
 
   for (const n of pendingNodesForCycleDetection) {
@@ -701,7 +703,6 @@ function main(): void {
   }
 
   if (nodesInCycle.size > 0) {
-    warn(`Detected circular dependency involving ${nodesInCycle.size} nodes.`);
     for (const nodePath of nodesInCycle) {
       const cycleNode = nodes.find(n => n.repoPath === nodePath);
       if (cycleNode) {
