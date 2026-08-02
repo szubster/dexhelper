@@ -39,6 +39,6 @@ Players can battle the NPC trainers in Secret Bases once per day. The `battledOw
 3.  **Code Review & Test Coverage:** Run `pnpm test` and review the new/updated tests. Ensure that the conditional rendering logic for `battledOwnerToday` is properly covered by unit or component tests.
 
 ## Acceptance Criteria
-- [ ] Verify UI functionality for displaying `battledOwnerToday` status.
-- [ ] Verify UI components strictly adhere to ADR 008 styling guidelines.
-- [ ] Verify comprehensive test coverage exists and passes.
+- [x] Verify UI functionality for displaying `battledOwnerToday` status.
+- [x] Verify UI components strictly adhere to ADR 008 styling guidelines.
+- [x] Verify comprehensive test coverage exists and passes.
