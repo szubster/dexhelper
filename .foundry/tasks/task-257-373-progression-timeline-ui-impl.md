@@ -2,13 +2,13 @@
 id: task-257-373-progression-timeline-ui-impl
 type: TASK
 title: Progression Timeline UI
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-31'
-updated_at: '2026-08-01'
+updated_at: '2026-08-02'
 depends_on:
   - task-257-369-concurrent-game-context-impl
-jules_session_id: '1264813996879152032'
+jules_session_id: null
 pr_number: null
 parent: story-036-257-concurrent-game-management
 tags:

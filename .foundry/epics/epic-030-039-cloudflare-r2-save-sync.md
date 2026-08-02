@@ -2,10 +2,10 @@
 id: epic-030-039-cloudflare-r2-save-sync
 type: EPIC
 title: Cloudflare R2 Offline-First Save Syncing
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-21'
-updated_at: '2026-07-03'
+updated_at: '2026-08-02'
 depends_on: []
 jules_session_id: null
 pr_number: null

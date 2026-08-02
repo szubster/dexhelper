@@ -2,7 +2,7 @@
 id: epic-095-119-in-game-trade-data-extraction
 type: EPIC
 title: In-Game Trade Data Extraction
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-30'
 updated_at: '2026-08-02'
@@ -15,10 +15,8 @@ tags:
   - backend
   - save-parsing
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

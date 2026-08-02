@@ -2,10 +2,10 @@
 id: prd-113-114-gen3-pokeblock-stats-viewer
 type: PRD
 title: Gen 3 Pokéblock Exact Stats Viewer
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-07-13'
-updated_at: '2026-07-16'
+updated_at: '2026-08-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
