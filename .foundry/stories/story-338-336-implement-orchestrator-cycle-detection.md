@@ -22,9 +22,13 @@ rejection_reason: ''
 Implement robust circular dependency detection during the MAP or RESOLVE phases of the DAG orchestrator execution in `.github/scripts/foundry-orchestrator.ts`. The orchestrator must properly evaluate all `PENDING` nodes and their `depends_on` relationships to detect cycles (e.g., using a topological sort or DFS with a recursion stack).
 
 ## Acceptance Criteria
-- [ ] Orchestrator detects circular dependencies and transitions involved nodes to `FAILED`.
-- [ ] Descriptive `rejection_reason` (e.g., "Circular dependency detected") is appended in the frontmatter of failed nodes.
-- [ ] Running orchestrator in `--dry-run` or `--strict` modes outputs explicit warnings/error logs detailing the detected cycle.
+- [x] Orchestrator detects circular dependencies and transitions involved nodes to `FAILED`.
+- [x] Descriptive `rejection_reason` (e.g., "Circular dependency detected") is appended in the frontmatter of failed nodes.
+- [x] Running orchestrator in `--dry-run` or `--strict` modes outputs explicit warnings/error logs detailing the detected cycle.
 
 ### Generated Tasks
-<!-- Tech lead will append tasks here -->
+- [ ] task-336-388-implement-orchestrator-cycle-detection
+- [ ] task-336-389-orchestrator-cycle-detection-qa
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
