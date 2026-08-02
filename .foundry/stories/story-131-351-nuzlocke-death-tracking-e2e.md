@@ -30,4 +30,6 @@ Implement End-to-End tests to verify the automated death tracking logic and Grav
 - Implement E2E tests verifying Pokémon in the Graveyard box are correctly identified as dead.
 
 ## Acceptance Criteria
-- [ ] Breakdown into Tasks
+- [x] Breakdown into Tasks
+- [ ] task-351-384-nuzlocke-death-tracking-e2e-impl
+- [ ] task-351-385-nuzlocke-death-tracking-e2e-qa
