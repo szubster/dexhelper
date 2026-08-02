@@ -2,13 +2,13 @@
 id: task-294-347-gen3-static-encounter-flags-qa
 type: TASK
 title: QA Gen 3 Static Encounter Flags Parsing
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-25'
-updated_at: '2026-08-01'
+updated_at: '2026-08-02'
 depends_on:
   - task-294-346-gen3-static-encounter-flags-impl
-jules_session_id: null
+jules_session_id: '122550939105258130'
 pr_number: null
 parent: epic-106-138-gen3-static-encounters
 tags:
