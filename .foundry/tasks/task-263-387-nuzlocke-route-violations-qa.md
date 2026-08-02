@@ -31,6 +31,6 @@ Verify the validation logic correctly flags Nuzlocke route violations where mult
 - Verify that the structured output for flagged violations correctly identifies the Pokémon involved and the duplicated route.
 
 ## Acceptance Criteria
-- [ ] Logic correctly identifies route duplicates based on `met_location` in tests.
-- [ ] Structured output format is correct for the flagged violations.
-- [ ] Tests cover various edge cases (e.g., no duplicates, multiple duplicates on same route, duplicates on multiple routes).
+- [x] Logic correctly identifies route duplicates based on `met_location` in tests.
+- [x] Structured output format is correct for the flagged violations.
+- [x] Tests cover various edge cases (e.g., no duplicates, multiple duplicates on same route, duplicates on multiple routes).
