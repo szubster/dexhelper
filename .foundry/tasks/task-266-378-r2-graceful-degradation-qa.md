@@ -33,5 +33,5 @@ The application should fallback gracefully to local storage if Cloudflare R2 ser
 - Ensure the UI does not show a global error when only the R2 sync fails, but the local save is successful.
 
 ## Acceptance Criteria
-- [ ] UI remains functional without global errors when R2 operations fail during file upload.
-- [ ] UI remains functional without global errors when R2 operations fail during live sync polling.
+- [x] UI remains functional without global errors when R2 operations fail during file upload.
+- [x] UI remains functional without global errors when R2 operations fail during live sync polling.
