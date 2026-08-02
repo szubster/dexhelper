@@ -26,10 +26,10 @@ Implement the save block extraction logic for Gen 3 event flags related to stati
 
 ## Acceptance Criteria
 - [x] research-294-320-gen3-static-encounter-offsets
-- [ ] Define module-level constants for static encounter event flag offsets and bit locations.
-- [ ] Implement save file parsing logic to extract static encounter status.
-- [ ] Follow dynamic save block extraction guidelines (ADR 028).
-- [ ] task-294-331-gen3-static-encounter-flags-impl
-- [ ] task-294-332-gen3-static-encounter-flags-qa
-- [ ] task-294-346-gen3-static-encounter-flags-impl
-- [ ] task-294-347-gen3-static-encounter-flags-qa
+- [x] Define module-level constants for static encounter event flag offsets and bit locations.
+- [x] Implement save file parsing logic to extract static encounter status.
+- [x] Follow dynamic save block extraction guidelines (ADR 028).
+- [x] task-294-331-gen3-static-encounter-flags-impl
+- [x] task-294-332-gen3-static-encounter-flags-qa
+- [x] task-294-346-gen3-static-encounter-flags-impl
+- [x] task-294-347-gen3-static-encounter-flags-qa
