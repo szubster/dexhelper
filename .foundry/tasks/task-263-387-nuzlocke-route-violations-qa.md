@@ -2,13 +2,13 @@
 id: task-263-387-nuzlocke-route-violations-qa
 type: TASK
 title: QA Nuzlocke Route Violations Validation
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-02'
 updated_at: '2026-08-02'
 depends_on:
   - task-263-386-nuzlocke-route-violations-impl
-jules_session_id: '11535290665484556346'
+jules_session_id: null
 pr_number: null
 parent: story-097-263-flag-nuzlocke-route-violations
 tags:
