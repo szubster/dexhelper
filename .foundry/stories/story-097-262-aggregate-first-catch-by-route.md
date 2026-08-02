@@ -31,5 +31,5 @@ Aggregate caught Pokémon by their `met_location` and identify the first catch f
 
 ## Acceptance Criteria
 - [x] Tasks are generated
-- [ ] task-262-375-aggregate-first-catch-impl
-- [ ] task-262-376-aggregate-first-catch-qa
+- [x] task-262-375-aggregate-first-catch-impl
+- [x] task-262-376-aggregate-first-catch-qa
