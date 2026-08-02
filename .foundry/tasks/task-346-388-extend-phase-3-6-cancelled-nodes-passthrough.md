@@ -33,5 +33,5 @@ The required changes and tests for the parent story have already been implemente
 - Verify the tests in `.github/scripts/foundry-orchestrator.test.ts` assert this behavior.
 
 ## Acceptance Criteria
-- [ ] Verify the implementation is already present.
-- [ ] Submit an Empty PR using the `submit` tool.
+- [x] Verify the implementation is already present.
+- [x] Submit an Empty PR using the `submit` tool.
