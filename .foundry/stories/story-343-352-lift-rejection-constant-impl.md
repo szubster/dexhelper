@@ -32,4 +32,6 @@ Required by ADR 017. The value is currently hardcoded in multiple files.
 2. Update usages in `DagDashboard.tsx`, `DagNode.tsx`, etc., to use the lifted constant.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-352-388-lift-rejection-constant-impl
+- [ ] task-352-389-lift-rejection-constant-qa
