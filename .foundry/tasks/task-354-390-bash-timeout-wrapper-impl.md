@@ -2,12 +2,12 @@
 id: task-354-390-bash-timeout-wrapper-impl
 type: TASK
 title: Bash Timeout Wrapper Implementation (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-02'
 updated_at: '2026-08-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14672935916813700627'
 pr_number: null
 parent: story-347-354-bash-timeout-wrapper-impl
 tags:
