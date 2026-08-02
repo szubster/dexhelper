@@ -25,6 +25,6 @@ notes: ''
 Verify the implementation of the `Gen2Checklist` UI component.
 
 ## Acceptance Criteria
-- [ ] Verify that the `Gen2Checklist` component successfully displays the correct static encounters (Sudowoodo, Snorlax, Red Gyarados, and Ho-Oh/Lugia) based on mocked event flags.
-- [ ] Verify that the implementation strictly applies the tactical hardware aesthetic: sharp edges (`rounded-none`), no rounded corners, dashed borders (`border-dashed`), and monospaced telemetry fonts (`font-mono`).
-- [ ] Ensure proper component integration tests are present and passing.
+- [x] Verify that the `Gen2Checklist` component successfully displays the correct static encounters (Sudowoodo, Snorlax, Red Gyarados, and Ho-Oh/Lugia) based on mocked event flags.
+- [x] Verify that the implementation strictly applies the tactical hardware aesthetic: sharp edges (`rounded-none`), no rounded corners, dashed borders (`border-dashed`), and monospaced telemetry fonts (`font-mono`).
+- [x] Ensure proper component integration tests are present and passing.
