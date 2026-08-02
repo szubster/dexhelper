@@ -678,3 +678,99 @@ Documenting the occurrence of a permanent child failure for `task-341-348-define
 # Session Log
 
 In this session, I was assigned to `story-113-259-egg-move-breeding-rules`. I reviewed the existing state of the codebase and discovered that the target artifacts - `task-259-348-egg-move-breeding-rules-impl` and `task-259-349-egg-move-breeding-rules-qa` - have already been successfully completed, and the implementation in `scripts/generate-pokedata.ts` correctly handles Egg Group matching, gender requirements, and exclusion of invalid breeding pairs ("No Eggs" group).
+
+## From Session 5542101591727077873
+
+# Tech Lead Journal - 5542101591727077873
+
+## Observations
+- Task `story-334-337-zod-schema-integration` was dispatched back to the Tech Lead because its implementation QA task (`task-337-368`) rejected the coder's implementation due to a bug in `schema.ts`.
+- The child tasks are not yet complete, and the parent node must remain in PENDING status.
+- According to the MACRO NODE COMPLETION EXCEPTION, we must not transition the node to VERIFYING (via checking off its child checkboxes) until all descendants are COMPLETED.
+- Thus, the node was left intact with its children unchecked and submitted as an Empty PR to pause its lifecycle while its children are retried.
+
+## Policies
+- Do not check off child task checkboxes in a STORY node's markdown body when submitting an empty PR if the child tasks are still active or failing. This correctly handles Idempotent Generation Bypasses.
+
+
+## From Session 10057604791182292706
+
+# Tech Lead Journal - 10057604791182292706
+
+## Session Context
+- Node: story-304-319-gen3-hof-pokedex-extraction
+- Status: Verifying completed children.
+
+## Learnings & Actions
+- The Hall of Fame and Pokédex extraction logic was successfully implemented in retry tasks after an initial magic numbers failure.
+- All child tasks (`research-319-360-gen3-hof-magic-numbers`, `task-319-361-gen3-hof-pokedex-extraction-retry-impl`, `task-319-362-gen3-hof-pokedex-extraction-retry-qa`) have reached `COMPLETED` status.
+- Checked off all acceptance criteria and child nodes in the story's markdown body to allow the Orchestrator to transition it to VERIFYING.
+
+## From Session 2026-07-30-15-51-35
+
+# Tech Lead Session Log: 2026-07-30-15-51-35
+
+## Action Taken
+Checked off completed child tasks for `story-131-334-graveyard-box-ui` and submitted an Empty PR.
+
+## Lesson Learned
+The Orchestrator's dependency graph requires explicit checkbox completion in parent nodes to progress. Even if child task files are marked as COMPLETED in their frontmatter, the parent node's markdown must reflect this via checked boxes (`[x]`) to prevent infinite DAG stalls.
+
+## From Session 4551867605052812174
+
+# Tech Lead Session: 4551867605052812174
+
+## Context
+Decomposing STORY `story-036-257-concurrent-game-management` into TASK nodes.
+
+## Lessons Learned
+- Followed the architectural scaffolding policy (ADR 013, ADR 017) to explicitly break out the shared React Context state layer (`task-257-369`) separate from the UI components (`task-257-371`, `task-257-373`). This prevents tight coupling and ensures a clean single source of truth for the Concurrent Game Management feature.
+- Enforced the Intelligent Verification Protocol by creating matching QA tasks for all components due to the complexity of shared state and concurrent playthrough swapping.
+- Strictly used exact node IDs (without file extensions) in the `depends_on` arrays and unchecked markdown references to prevent DAG deadlocks.
+
+
+## From Session 2273735193209472995
+
+# Session 2273735193209472995
+
+## Context
+Reviewed story `story-130-349-rng-tid-sid-e2e` to create tasks for E2E tests for the RNG TID and SID display UI.
+
+## Actions Taken
+- Created `task-349-380-rng-tid-sid-e2e-impl` for the Coder persona to implement Playwright E2E tests verifying the RNG TID/SID display and the copy-to-clipboard functionality.
+- Created `task-349-381-rng-tid-sid-e2e-qa` for the QA persona to verify the E2E tests implemented by the Coder, ensuring test reliability and coverage. (Following the Intelligent Verification Protocol)
+- Updated parent story to list these new tasks as dependencies.
+
+## Key Learnings/Architectural Notes
+- Ensuring UI components related to RNG display have clear E2E coverage is important, particularly for functionality like copy-to-clipboard which relies on browser APIs.
+
+
+## From Session 5031591788488001874
+
+# Session 5031591788488001874
+
+## Policy Application: Empty PRs for Completed Artifacts
+Observed an instance where child tasks were marked as COMPLETED, but the parent STORY node still had unchecked acceptance criteria checkboxes for these children, preventing DAG progression.
+
+### Lesson / Guideline
+- When child tasks complete out-of-band or via manual processes, parent nodes will stall in ACTIVE state until their markdown body checkboxes are explicitly checked.
+- It is critical to regularly verify and check off acceptance criteria in macro nodes when verifying state to ensure the DAG unblocks, even if no new implementation work is required (the Empty PR Policy).
+
+
+## From Session 16694797876941020287
+
+# Session 16694797876941020287
+
+## Learnings
+When attempting to implement complex UI features like a Progression Timeline, ensure that architectural blueprints explicitly address potential issues such as component duplication and integration complexity with external systems (like history). If a task fails repeatedly for these reasons, it is necessary to step back, conduct targeted research to understand the underlying constraints, and re-architect the solution before attempting implementation again. We must use the late binding pattern to handle failures by generating research tasks to unblock.
+
+## From Session 2026-07-31-08-02-43
+
+# Tech Lead Session: 2026-07-31-08-02-43
+
+## Action Taken
+- Drafted `.foundry/tasks/task-342-369-feebas-coordinates-impl.md` for the Coder to implement the Feebas coordinate mapping correctly.
+- Drafted `.foundry/tasks/task-342-370-feebas-coordinates-qa.md` for QA verification.
+
+## Architecture/Lessons Learned
+- While the basic Feebas seed extraction was integrated in a previous version of the codebase, it was incorrectly populating the `SaveData` schema with the 1D spot IDs instead of the required 2D coordinates `[number, number][]` as requested by the Acceptance Criteria. I instructed the Coder to update the schema and utilize the existing `mapSpotIdsToCoordinates` helper during save hydration.

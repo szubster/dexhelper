@@ -485,3 +485,13 @@ No architectural violations detected (ADR 001 compliance is confirmed). Implemen
 - **Target Node**: `task-157-339-hidden-items-e2e-tests-qa`
 - **Context**: Assigned QA task for E2E tests, but the dependent implementation task (`task-157-338-hidden-items-e2e-tests-impl`) was previously CANCELLED by the coder due to a missing component integration dependency.
 - **Actions**: Following the Empty PR Policy for cancelled/replaced tasks, checked off all Acceptance Criteria checkboxes in the QA markdown body and submitted an Empty PR to transition the QA node to COMPLETED and gracefully exit the DAG. Verified core tests (`pnpm test`, `playwright test`) to ensure system stability.
+
+## From Session 5848252374865416625
+
+# Session 5848252374865416625
+
+## Validation Results
+Task task-257-373-progression-timeline-ui-impl was FAILED.
+
+## Architectural Lessons
+Found duplicate components for ProgressionTimeline. One at `src/components/dashboard/progression/ProgressionTimeline.tsx` and another at `src/components/timeline/ProgressionTimeline.tsx`. The developer also left placeholders and didn't implement the true SaveHistory integration yet. Future QA validations should explicitly check for duplicate components and verify data integrations.

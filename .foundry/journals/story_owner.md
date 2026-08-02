@@ -241,3 +241,43 @@ The checkboxes in the markdown body of the node have been deliberately left unch
 ## 2026-07-25
 * Task: epic-057-127-bash-timeout-wrapper
 * Action: Submitted empty PR to transition the epic since all child stories are already completed and their acceptance criteria were checked.
+
+## From Session 17280423300421497066
+
+# Story Owner Journal Entry
+
+**Session ID:** 17280423300421497066
+**Date:** 2026-08-01
+**Topic:** Node Generation for Epic Planner Process Update
+
+## Learnings & Constraints
+
+1.  **Orchestrator Safeguard E2E Requirement:** When breaking down epics, the new orchestrator safeguard strictly enforces that an EPIC cannot be marked `COMPLETED` unless it contains at least one child STORY that explicitly represents integration or E2E testing (tagged with `e2e` or `integration`). When dynamically generating stories, I must always ensure that the final functional breakdown includes this verification layer to prevent the epic from permanently stalling in `PENDING` or `ACTIVE` states. This is crucial for maintaining macro-node functional boundaries.
+2.  **Node ID Strictness:** When appending newly generated child nodes as unchecked tasks to a parent node's markdown body, I must strictly use the exact Node ID without file extensions or directory paths (e.g., `- [ ] story-128-349-epic-planner-process-impl`). This ensures the DAG orchestration resolves correctly without malformed path issues.
+
+
+## From Session 1969587438162257968
+
+# Session 1969587438162257968
+
+## Epic Status
+Working on `epic-100-130-rng-tid-sid-display`.
+
+## Learnings & Observations
+- **Orchestrator Safeguard E2E**: Discovered that EPIC nodes cannot transition to COMPLETED unless they possess at least one child STORY node tagged with `e2e` or `integration`.
+- **Action Taken**: Dynamically created an E2E story node (`story-130-349-rng-tid-sid-e2e`) explicitly tagged with `e2e` and added it to the Epic's Acceptance Criteria to satisfy the safeguard.
+- **Future Implication**: When creating Stories for an Epic as the Story Owner, I must remember to include an E2E/integration story if it doesn't already exist, otherwise the parent Epic will fail to complete due to the orchestrator's E2E safeguard.
+
+
+## From Session 11163296237589080000
+
+# Session: 11163296237589080000
+
+## Activities
+- Reviewed Epic: epic-100-130-rng-tid-sid-display.
+- Verified that all child nodes, including research and integration retry, are COMPLETED.
+- Marked all acceptance criteria in the epic as completed.
+- Generated empty PR to allow the DAG to progress, as no further story generation is needed.
+
+## Learnings
+- When child tasks fail (like the integration), research nodes and retries correctly re-evaluate the DAG. Wait until retries complete to mark the epic as resolved.

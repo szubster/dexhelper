@@ -131,3 +131,10 @@ When verifying `idea-067-extract-dag-utils`, it was discovered that one of its s
 
 **Why this matters:**
 The Auditor MUST reject any macro node whose descendant nodes have been permanently cancelled. This enforces the Impossible Loop Policy, ensuring the node owner takes responsibility for handling the permanent failure (e.g., by spawning a `RESEARCH` node and defining a new path forward) instead of allowing an incomplete feature to bypass verification.
+
+## From Session 18386111525126870827
+
+# Epic 057-127: Orchestrator Safeguard Investigation
+## Verification and Learnings
+- **Verification**: The epic successfully investigated and implemented programmatic safeguards in `foundry-orchestrator.ts` and `foundry-heartbeat.ts` to require at least one child STORY with `e2e` or `integration` tags before an EPIC can be marked `COMPLETED`. The logic accurately checks for these tags. Both child stories (`story-127-269-epic-e2e-safeguard` and `story-127-347-orchestrator-safeguard-e2e`) are fully completed and verified.
+- **Learnigns**: The programmatic enforcement of E2E tasks is vital to maintain quality for macro nodes. Orchestrator-level checks prevent manual errors from skipping important integration verifications.

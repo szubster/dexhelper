@@ -38,4 +38,4 @@ Derived from `epic-041-066-global-ribbon-checklist-dashboard`, this story focuse
 
 ## 4. Child Nodes
 - [ ] .foundry/tasks/task-137-209-global-ribbon-dashboard-scaffold-impl.md
-- [ ] .foundry/tasks/task-137-210-global-ribbon-dashboard-scaffold-qa.md
+- [ ] .foundry/archive/tasks/task-137-210-global-ribbon-dashboard-scaffold-qa.md

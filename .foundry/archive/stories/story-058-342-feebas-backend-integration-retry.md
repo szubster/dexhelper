@@ -28,5 +28,5 @@ Re-verify and ensure complete integration of the Feebas seed extraction and tile
 - [x] Verify `extractFeebasSeed` and `calculateFeebasTiles` are called correctly within `parseGen3`.
 - [x] Ensure the calculated coordinates are mapped to the updated `SaveData` schema during hydration.
 
-- [x] .foundry/tasks/task-342-369-feebas-coordinates-impl.md
-- [x] .foundry/tasks/task-342-370-feebas-coordinates-qa.md
+- [x] .foundry/archive/tasks/task-342-369-feebas-coordinates-impl.md
+- [x] .foundry/archive/tasks/task-342-370-feebas-coordinates-qa.md

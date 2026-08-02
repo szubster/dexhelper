@@ -28,4 +28,4 @@ Even though we use vitest, oxlint uses the jest plugin to lint test files. We tu
 
 ## Generated Tasks
 - [.foundry/tasks/task-017-041-fix-jest-standalone-expect.md](../tasks/task-017-041-fix-jest-standalone-expect.md)
-- [.foundry/archive/tasks/task-017-042-fix-jest-disabled-tests.md](../archive/tasks/task-017-042-fix-jest-disabled-tests.md)
+- [.foundry/archive/tasks/task-017-042-fix-jest-disabled-tests.md](../tasks/task-017-042-fix-jest-disabled-tests.md)
