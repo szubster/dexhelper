@@ -1,8 +1,8 @@
 ---
 id: task-336-389-orchestrator-cycle-detection-qa
 type: TASK
-title: 'QA Orchestrator Cycle Detection'
-status: PENDING
+title: QA Orchestrator Cycle Detection
+status: READY
 owner_persona: qa
 created_at: '2026-08-02'
 updated_at: '2026-08-02'

@@ -2,7 +2,7 @@
 id: task-354-390-bash-timeout-wrapper-impl
 type: TASK
 title: Bash Timeout Wrapper Implementation (Retry)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-02'
 updated_at: '2026-08-02'
