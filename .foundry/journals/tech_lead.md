@@ -196,7 +196,6 @@ Created task-321-322-gen3-tm-hm-parsing-impl and task-321-323-gen3-tm-hm-parsing
 - Ensured the task included standard error handling constraints (updating YAML frontmatter to FAILED/CANCELLED with a rejection reason upon failure).
 
 Created tasks 331 and 332 for Gen 2 DV extraction. Applied strict requirements from Gen 2 memory guidelines, specifically ensuring all constants are defined at the module level and explicit RangeError bounds checking is enforced.
-- Anomaly: Pre-existing completed node task-317-322-detect-party-zero-hp-impl found prior to session.
 
 ## 2026-07-17: False Negative on Empty PR Submission
 - **Incident**: While completing `story-303-299-extend-phase-3-6-cancelled-nodes` where the child tasks (`task-299-322-extend-phase-3-6-impl` and `task-299-323-extend-phase-3-6-qa`) were already generated and completed (one even archived), the automated code review incorrectly flagged the patch as incomplete for not creating the files.
@@ -625,7 +624,6 @@ Decomposed story-127-347-orchestrator-safeguard-e2e into implementation and QA t
 ## Session ID: 800926013637352944
 
 ## Observations & Actions
-- Assigned to `story-149-333-gen3-roamer-unit-tests`.
 - The child task `task-333-346-gen3-roamer-extraction-tests-impl` has already been `COMPLETED`.
 
 ## Session Extract: 8343471591373657836.md

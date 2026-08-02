@@ -2,7 +2,6 @@
 # Mechanic Update - 2026-07-09
 
 - Found several TPM-blocked nodes related to duplicate/rejected ideas or missing session IDs. Repaired YAML states autonomously.
-- Verified that Orchestrator Phase 3.6 correctly handles Impossible Loops for both FAILED and CANCELLED nodes, as previously requested in `task-154-278`. Completed the task's acceptance criteria to unblock its PR.
 
 # Mechanic Update - 2026-07-20
 
@@ -32,7 +31,6 @@ Mechanic Update - 2026-07-22
 
 - Fixed 38 missing or archived dependency paths in `depends_on` arrays across the DAG. These dead dependencies cause deadlocks during Orchestrator runs.
 - Detected and repaired a task (`task-261-331-npc-trade-state-integration-impl.md`) that had a manually set `READY` status, reverting it back to `PENDING`.
-- Verified that no parent-child dependency cycles remain.
 
 
 ## Session Extract: 2026-07-24-12-00-00.md
