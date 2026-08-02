@@ -30,6 +30,6 @@ Implement validation logic for Nuzlocke rules to compare the extracted catching 
 - Strictly adhere to all guidelines defined in **Section 13 ("Save File Parsing & Extraction Guidelines")** of `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Logic correctly identifies route duplicates based on `met_location`.
-- [ ] Structured output format is implemented for the flagged violations.
-- [ ] Code follows all Save File Parsing & Extraction Guidelines.
+- [x] Logic correctly identifies route duplicates based on `met_location`.
+- [x] Structured output format is implemented for the flagged violations.
+- [x] Code follows all Save File Parsing & Extraction Guidelines.
