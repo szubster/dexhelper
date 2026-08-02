@@ -2,12 +2,12 @@
 id: task-335-386-track-daily-rematch-status-impl
 type: TASK
 title: Integrate Gen 3 Secret Base Daily Rematch Status UI
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-02'
 updated_at: '2026-08-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6416454005956742836'
 pr_number: null
 parent: story-324-335-track-daily-rematch-status
 tags:
