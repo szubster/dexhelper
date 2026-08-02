@@ -30,5 +30,5 @@ Verify the implementation of aggregating caught Pokémon by their `met_location`
 - Verify that the correct Pokémon is identified as the first catch based on catch sequence or time.
 
 ## Acceptance Criteria
-- [ ] Aggregation logic is verified and works correctly.
-- [ ] Tests pass and cover edge cases.
+- [x] Aggregation logic is verified and works correctly.
+- [x] Tests pass and cover edge cases.
