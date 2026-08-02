@@ -2562,6 +2562,57 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(cContent).toContain("rejection_reason: Circular dependency detected");
   });
 
+  test('Deadlock Prevention: Correctly isolates cycle and doesn\'t fail innocent nodes pointing to cycle', () => {
+    // Task A points to B, but is not in the cycle
+    createValidTestNode(tmpDir, '.foundry/tasks/task-a.md', {
+      id: "task-a",
+      type: "TASK",
+      title: "Task A",
+      status: "PENDING",
+      owner_persona: "coder",
+      depends_on: [".foundry/tasks/task-b.md"],
+    });
+
+    // Task B and Task C form a cycle
+    createValidTestNode(tmpDir, '.foundry/tasks/task-b.md', {
+      id: "task-b",
+      type: "TASK",
+      title: "Task B",
+      status: "PENDING",
+      owner_persona: "coder",
+      depends_on: [".foundry/tasks/task-c.md"],
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-c.md', {
+      id: "task-c",
+      type: "TASK",
+      title: "Task C",
+      status: "PENDING",
+      owner_persona: "coder",
+      depends_on: [".foundry/tasks/task-b.md"],
+    });
+
+    const stderrSpy = vi.spyOn(process.stderr, 'write');
+
+    main();
+
+    const output = stderrSpy.mock.calls.map(call => call[0] as string).join('');
+
+    // It should explicitly output the cycle format
+    expect(output).toContain('Detected circular dependency: .foundry/tasks/task-b.md -> .foundry/tasks/task-c.md -> .foundry/tasks/task-b.md');
+
+    const aContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-a.md"), "utf-8");
+    const bContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-b.md"), "utf-8");
+    const cContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-c.md"), "utf-8");
+
+    // Task A should not fail from cycle
+    expect(aContent).toContain("status: PENDING");
+    expect(bContent).toContain("status: FAILED");
+    expect(bContent).toContain("rejection_reason: Circular dependency detected");
+    expect(cContent).toContain("status: FAILED");
+    expect(cContent).toContain("rejection_reason: Circular dependency detected");
+  });
+
   test('Late-Binding Completion: EPIC fails if it lacks E2E story', () => {
     createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
       id: "epic-001",
