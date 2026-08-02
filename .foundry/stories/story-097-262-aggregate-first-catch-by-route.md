@@ -2,13 +2,13 @@
 id: story-097-262-aggregate-first-catch-by-route
 type: STORY
 title: Aggregate First Catch by Route
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-03'
 updated_at: '2026-08-02'
 depends_on:
   - story-097-261-extract-pokemon-met-locations
-jules_session_id: null
+jules_session_id: '2514004418098250139'
 pr_number: null
 parent: epic-097-130-nuzlocke-route-tracking
 tags:
