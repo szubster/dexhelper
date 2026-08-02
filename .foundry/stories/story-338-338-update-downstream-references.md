@@ -32,4 +32,5 @@ Various nodes, scripts, and personas (like the Agile Coach or resurrected FAILED
 - Update them to either reference the new directory structure, the TPM's aggregated master logs, or instruct them to read fragmented files dynamically.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into actionable Tasks.
+- [x] Tech Lead: Break this Story down into actionable Tasks.
+- [ ] task-338-388-update-journal-references
