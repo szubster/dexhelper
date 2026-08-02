@@ -38,4 +38,4 @@ Extract the Trick House puzzle state from Gen 3 save files using the `DataView` 
 - [x] story-111-249-investigate-trick-house-offsets
 - [x] story-111-276-trick-house-parser-impl
 - [x] story-111-277-trick-house-parser-qa
-- [ ] story-338-339-trick-house-e2e-integration
+- [x] story-338-339-trick-house-e2e-integration
