@@ -26,4 +26,6 @@ notes: ''
 This story focuses on the initial step of the Mystery Gift data extraction: parsing Wonder Card data from Gen 3 save files. Following the late-binding principle, we will begin with just this core extraction before moving to event flags in subsequent stories.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down this Story into manageable Tasks.
+- [x] Tech Lead: Break down this Story into manageable Tasks.
+- [ ] task-354-391-gen3-wonder-card-extraction-impl
+- [ ] task-354-392-gen3-wonder-card-extraction-qa
