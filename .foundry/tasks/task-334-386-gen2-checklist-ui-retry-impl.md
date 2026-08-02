@@ -2,12 +2,12 @@
 id: task-334-386-gen2-checklist-ui-retry-impl
 type: TASK
 title: Gen 2 Checklist UI Implementation (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-02'
 updated_at: '2026-08-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4822719619031629821'
 pr_number: null
 parent: story-137-334-gen2-checklist-ui-retry
 tags:
