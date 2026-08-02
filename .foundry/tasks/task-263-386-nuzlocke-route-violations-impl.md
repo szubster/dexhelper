@@ -2,12 +2,12 @@
 id: task-263-386-nuzlocke-route-violations-impl
 type: TASK
 title: Implement Nuzlocke Route Violations Validation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-02'
 updated_at: '2026-08-02'
 depends_on: []
-jules_session_id: '1113702446035089068'
+jules_session_id: null
 pr_number: null
 parent: story-097-263-flag-nuzlocke-route-violations
 tags:

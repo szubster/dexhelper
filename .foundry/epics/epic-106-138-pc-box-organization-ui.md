@@ -2,10 +2,10 @@
 id: epic-106-138-pc-box-organization-ui
 type: EPIC
 title: PC Box Organization UI
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-06'
-updated_at: '2026-07-06'
+updated_at: '2026-08-02'
 depends_on:
   - epic-106-136-pc-box-sorting-algorithms
   - epic-106-137-pc-box-diff-engine-move-planner
@@ -18,7 +18,9 @@ tags:
   - organization
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  epic-106-137-pc-box-diff-engine-move-planner
 notes: ''
 ---
 

@@ -2,12 +2,12 @@
 id: epic-111-304-gen3-trainer-card-data-extraction
 type: EPIC
 title: 'Epic: Gen 3 Trainer Card Stars Data Extraction'
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-07-12'
 updated_at: '2026-08-02'
 depends_on: []
-jules_session_id: '15711741856033055140'
+jules_session_id: null
 pr_number: null
 parent: prd-102-111-gen3-trainer-card-stars
 tags:
@@ -19,7 +19,9 @@ research_references:
   - .foundry/docs/knowledge_base/gen3_battle_frontier_data.md
   - .foundry/docs/knowledge_base/gen3_pokemon_data_structure.md
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: ''
 ---
 
