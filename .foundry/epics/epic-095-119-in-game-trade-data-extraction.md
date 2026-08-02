@@ -32,12 +32,12 @@ Implement and standardize the extraction of in-game NPC trade completion flags f
 - **Integration:** Ensure the extracted flags are available in the `SaveData` object for use by the Assistant and UI layers.
 
 ## Acceptance Criteria
-- [ ] Gen 2 NPC trade flags are accurately extracted and mapped.
-- [ ] Gen 3 NPC trade flags are identified and extracted for all core versions (RSE/FRLG).
-- [ ] The `npcTradeFlags` field in `SaveData` is consistently populated across both generations.
-- [ ] All parsing logic strictly adheres to the `DataView` API and handles `RangeError` for corrupted saves.
+- [x] Gen 2 NPC trade flags are accurately extracted and mapped.
+- [x] Gen 3 NPC trade flags are identified and extracted for all core versions (RSE/FRLG).
+- [x] The `npcTradeFlags` field in `SaveData` is consistently populated across both generations.
+- [x] All parsing logic strictly adheres to the `DataView` API and handles `RangeError` for corrupted saves.
 - [x] Story Owner: Break down this Epic into executable Stories.
-- [ ] story-119-258-gen2-npc-trade-parsing
-- [ ] story-119-259-gen3-npc-trade-parsing
-- [ ] story-119-260-npc-trade-data-mapping
-- [ ] story-119-261-npc-trade-state-integration
+- [x] story-119-258-gen2-npc-trade-parsing
+- [x] story-119-259-gen3-npc-trade-parsing
+- [x] story-119-260-npc-trade-data-mapping
+- [x] story-119-261-npc-trade-state-integration
