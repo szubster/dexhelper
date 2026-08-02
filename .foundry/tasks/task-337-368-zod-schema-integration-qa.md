@@ -2,13 +2,13 @@
 id: task-337-368-zod-schema-integration-qa
 type: TASK
 title: QA Zod Schema Integration
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-30'
 updated_at: '2026-08-02'
 depends_on:
   - task-337-367-zod-schema-integration-impl
-jules_session_id: null
+jules_session_id: '4008053206973011992'
 pr_number: null
 parent: story-334-337-zod-schema-integration
 tags: []
