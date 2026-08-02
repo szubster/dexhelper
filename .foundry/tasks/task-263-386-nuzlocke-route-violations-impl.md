@@ -2,7 +2,7 @@
 id: task-263-386-nuzlocke-route-violations-impl
 type: TASK
 title: Implement Nuzlocke Route Violations Validation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-02'
 updated_at: '2026-08-02'

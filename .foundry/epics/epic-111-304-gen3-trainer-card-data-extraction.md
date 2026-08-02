@@ -2,7 +2,7 @@
 id: epic-111-304-gen3-trainer-card-data-extraction
 type: EPIC
 title: 'Epic: Gen 3 Trainer Card Stars Data Extraction'
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-12'
 updated_at: '2026-08-02'
@@ -18,10 +18,8 @@ research_references:
   - .foundry/docs/knowledge_base/engine/save_parsing/gen3_hall_of_fame.md
   - .foundry/docs/knowledge_base/gen3_battle_frontier_data.md
   - .foundry/docs/knowledge_base/gen3_pokemon_data_structure.md
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

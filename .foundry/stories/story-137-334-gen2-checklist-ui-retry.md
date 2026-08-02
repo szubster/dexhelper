@@ -2,13 +2,13 @@
 id: story-137-334-gen2-checklist-ui-retry
 type: STORY
 title: Gen 2 Checklist UI (Retry)
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-18'
 updated_at: '2026-08-02'
 depends_on:
   - story-137-333-gen2-event-flag-parsing-retry
-jules_session_id: '5663395059347855538'
+jules_session_id: null
 pr_number: null
 parent: epic-106-137-gen2-static-encounters
 tags:

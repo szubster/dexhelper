@@ -2,7 +2,7 @@
 id: story-343-352-lift-rejection-constant-impl
 type: STORY
 title: Extract MAX_REJECTION_THRESHOLD Constant
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-02'
 updated_at: '2026-08-02'

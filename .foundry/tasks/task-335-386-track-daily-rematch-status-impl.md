@@ -2,7 +2,7 @@
 id: task-335-386-track-daily-rematch-status-impl
 type: TASK
 title: Integrate Gen 3 Secret Base Daily Rematch Status UI
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-02'
 updated_at: '2026-08-02'
