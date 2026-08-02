@@ -28,4 +28,6 @@ notes: ''
 Implement a timeout wrapper for `run_in_bash_session` to interrupt commands that run over a specific threshold (e.g., 30 seconds), based on findings from the research phase.
 
 ## Acceptance Criteria
-- [ ] Break down this epic into stories.
+- [x] Break down this epic into stories.
+- [ ] story-347-354-bash-timeout-wrapper-impl
+- [ ] story-347-355-bash-timeout-wrapper-e2e
