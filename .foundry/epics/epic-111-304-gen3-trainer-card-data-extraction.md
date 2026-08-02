@@ -48,6 +48,6 @@ Implement the logic to extract the requisite achievements from the Gen 3 (Emeral
    - Magic numbers for offsets and flags must be extracted into module-level reusable constants (ADR 028).
 
 ## Acceptance Criteria
-- [ ] Break down into Stories for data extraction implementation.
-- [ ] story-304-319-gen3-hof-pokedex-extraction
-- [ ] story-304-320-gen3-contest-frontier-extraction
+- [x] Break down into Stories for data extraction implementation.
+- [x] story-304-319-gen3-hof-pokedex-extraction
+- [x] story-304-320-gen3-contest-frontier-extraction
