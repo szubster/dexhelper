@@ -22,6 +22,6 @@ rejection_reason: ''
 Verify the implementation of circular dependency detection in `.github/scripts/foundry-orchestrator.ts`.
 
 ## Acceptance Criteria
-- [ ] Orchestrator detects circular dependencies and transitions involved nodes to `FAILED`.
-- [ ] Descriptive `rejection_reason` is appended in the frontmatter of failed nodes.
-- [ ] Tests verify this functionality without deadlocks.
+- [x] Orchestrator detects circular dependencies and transitions involved nodes to `FAILED`.
+- [x] Descriptive `rejection_reason` is appended in the frontmatter of failed nodes.
+- [x] Tests verify this functionality without deadlocks.
