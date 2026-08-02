@@ -179,11 +179,11 @@ function compareEncounters(a: PokemonInstance, b: PokemonInstance): boolean {
   if (a.storageLocation === 'Party' && b.storageLocation !== 'Party') return true;
   if (b.storageLocation === 'Party' && a.storageLocation !== 'Party') return false;
 
-  const aBoxMatch = a.storageLocation.match(/Box (\d+)/);
-  const bBoxMatch = b.storageLocation.match(/Box (\d+)/);
+  const aBoxMatch = a.storageLocation ? a.storageLocation.match(/Box (\d+)/) : null;
+  const bBoxMatch = b.storageLocation ? b.storageLocation.match(/Box (\d+)/) : null;
 
-  const aBoxNum = aBoxMatch ? parseInt(aBoxMatch[1], 10) : 999;
-  const bBoxNum = bBoxMatch ? parseInt(bBoxMatch[1], 10) : 999;
+  const aBoxNum = aBoxMatch?.[1] ? parseInt(aBoxMatch[1], 10) : 999;
+  const bBoxNum = bBoxMatch?.[1] ? parseInt(bBoxMatch[1], 10) : 999;
 
   if (aBoxNum !== bBoxNum) {
     return aBoxNum < bBoxNum;
