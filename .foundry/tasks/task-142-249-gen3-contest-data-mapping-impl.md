@@ -2,11 +2,12 @@
 id: task-142-249-gen3-contest-data-mapping-impl
 type: TASK
 title: Implement Gen 3 Contest Data Mapping
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-02'
 updated_at: '2026-08-02'
-depends_on: []
+depends_on:
+  - research-249-384-gen3-party-box-integration
 jules_session_id: '16753877163619077531'
 pr_number: null
 parent: story-065-142-gen3-contest-data-mapping
@@ -17,7 +18,7 @@ tags:
   - mapping
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Suspended via Late Binding: Cannot map contest data in parseGen3 because Gen 3 Party and PC Box extraction logic is completely missing (currently hardcoded to return empty arrays). Awaiting research on integration strategy.'
 notes: ''
 ---
 
