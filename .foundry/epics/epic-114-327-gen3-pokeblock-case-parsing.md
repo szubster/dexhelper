@@ -34,5 +34,5 @@ This Epic covers the backend save parsing necessary to extract exact Pokéblock 
 
 ## Acceptance Criteria
 - [x] Create STORY(s) for researching offsets and implementing the Pokéblock extraction logic.
-- [ ] story-327-331-research-gen3-pokeblock-offsets
-- [ ] story-327-332-implement-gen3-pokeblock-parsing
+- [x] story-327-331-research-gen3-pokeblock-offsets
+- [x] story-327-332-implement-gen3-pokeblock-parsing
