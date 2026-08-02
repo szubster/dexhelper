@@ -2,13 +2,13 @@
 id: task-335-387-track-daily-rematch-status-qa
 type: TASK
 title: QA Gen 3 Secret Base Daily Rematch Status UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-02'
 updated_at: '2026-08-02'
 depends_on:
   - task-335-386-track-daily-rematch-status-impl
-jules_session_id: '2391820398741892403'
+jules_session_id: null
 pr_number: null
 parent: story-324-335-track-daily-rematch-status
 tags:

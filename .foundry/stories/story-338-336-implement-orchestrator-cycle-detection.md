@@ -2,7 +2,7 @@
 id: story-338-336-implement-orchestrator-cycle-detection
 type: STORY
 title: 'Story: Implement Orchestrator Cycle Detection'
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-26'
 updated_at: '2026-08-02'

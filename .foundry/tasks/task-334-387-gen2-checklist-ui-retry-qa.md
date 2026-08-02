@@ -2,13 +2,13 @@
 id: task-334-387-gen2-checklist-ui-retry-qa
 type: TASK
 title: Gen 2 Checklist UI QA (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-02'
 updated_at: '2026-08-02'
 depends_on:
   - task-334-386-gen2-checklist-ui-retry-impl
-jules_session_id: '1838380686724773617'
+jules_session_id: null
 pr_number: null
 parent: story-137-334-gen2-checklist-ui-retry
 tags:

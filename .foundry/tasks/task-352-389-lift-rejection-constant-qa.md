@@ -2,13 +2,13 @@
 id: task-352-389-lift-rejection-constant-qa
 type: TASK
 title: QA - Extract MAX_REJECTION_THRESHOLD Constant
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-02'
 updated_at: '2026-08-02'
 depends_on:
   - task-352-388-lift-rejection-constant-impl
-jules_session_id: '7235123451149483247'
+jules_session_id: null
 pr_number: null
 parent: story-343-352-lift-rejection-constant-impl
 tags:

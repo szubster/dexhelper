@@ -2,13 +2,13 @@
 id: task-336-389-orchestrator-cycle-detection-qa
 type: TASK
 title: QA Orchestrator Cycle Detection
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-02'
 updated_at: '2026-08-02'
 depends_on:
   - task-336-388-implement-orchestrator-cycle-detection
-jules_session_id: '6607903321732293864'
+jules_session_id: null
 parent: story-338-336-implement-orchestrator-cycle-detection
 tags:
   - qa

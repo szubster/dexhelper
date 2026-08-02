@@ -2,12 +2,12 @@
 id: task-346-388-extend-phase-3-6-cancelled-nodes-passthrough
 type: TASK
 title: Verify and passthrough Phase 3.6 for CANCELLED nodes
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-02'
 updated_at: '2026-08-02'
 depends_on: []
-jules_session_id: '14763409627936914631'
+jules_session_id: null
 pr_number: null
 parent: story-340-346-extend-phase-3-6-cancelled-nodes
 tags:
