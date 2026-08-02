@@ -2,12 +2,16 @@ import { Background, BackgroundVariant, Controls, MiniMap, ReactFlow } from '@xy
 import '@xyflow/react/dist/style.css';
 import type { Edge as FlowEdge, Node as FlowNode } from '@xyflow/react';
 import { useCallback, useMemo, useState } from 'react';
+import { MAX_REJECTION_THRESHOLD } from '../../utils/constants';
 import { getHighlightPath } from '../../utils/dag/highlighting';
 import { useDagContext } from '../dashboard/DagContext';
 import { DagFilterPanel } from './DagFilterPanel';
 import { DagNode, type DagNodeData } from './DagNode';
 
-export function getMiniMapNodeColor(node: FlowNode<DagNodeData>, maxRejectionThreshold = 3): string {
+export function getMiniMapNodeColor(
+  node: FlowNode<DagNodeData>,
+  maxRejectionThreshold = MAX_REJECTION_THRESHOLD,
+): string {
   if (node.data?.status === 'FAILED' && (node.data?.rejection_count ?? 0) >= maxRejectionThreshold) {
     return '#dc2626'; // red-600
   }
