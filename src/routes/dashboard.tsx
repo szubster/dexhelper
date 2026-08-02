@@ -28,6 +28,12 @@ const GlobalRibbonChecklistDashboard = React.lazy(() =>
   })),
 );
 
+const Gen2Checklist = React.lazy(() =>
+  import('../components/dashboard/checklist/Gen2Checklist').then((m) => ({
+    default: m.Gen2Checklist,
+  })),
+);
+
 export const Route = createFileRoute('/dashboard')({
   component: DashboardPage,
 });
@@ -49,7 +55,10 @@ function DashboardPage() {
             <Gen3SecretBaseDashboard saveData={saveData} />
           </>
         ) : (
-          <ShinyCarrierBreedingDashboard />
+          <>
+            <Gen2Checklist />
+            <ShinyCarrierBreedingDashboard />
+          </>
         )}
       </Suspense>
     </div>
