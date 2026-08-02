@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type { PokemonInstance, SaveData } from '../saveParser/parsers/common';
 import {
   aggregateEncountersByLocation,
+  aggregateFirstCatchByRoute,
   detectNuzlockeViolations,
   getDeadPokemon,
   getGraveyardPokemon,
@@ -187,5 +188,62 @@ describe('getGraveyardPokemon', () => {
     const saveData: Partial<SaveData> = {};
     const result = getGraveyardPokemon(saveData as SaveData, 'Box 14');
     expect(result).toHaveLength(0);
+  });
+});
+
+describe('aggregateFirstCatchByRoute', () => {
+  it('should identify the first catch correctly based on storageLocation and slot', () => {
+    const saveData: Partial<SaveData> = {
+      partyDetails: [
+        {
+          speciesId: 2,
+          caughtData: { location: 1, locationName: 'Route 1' },
+          storageLocation: 'Party',
+          slot: 2,
+        } as unknown as PokemonInstance,
+      ],
+      pcDetails: [
+        {
+          speciesId: 1,
+          caughtData: { metLocation: 1, locationName: 'Route 1' },
+          storageLocation: 'Box 1',
+          slot: 1,
+        } as unknown as PokemonInstance,
+        {
+          speciesId: 3,
+          caughtData: { location: 2, locationName: 'Route 2' },
+          storageLocation: 'Box 2',
+          slot: 5,
+        } as unknown as PokemonInstance,
+        {
+          speciesId: 4,
+          caughtData: { location: 2, locationName: 'Route 2' },
+          storageLocation: 'Box 1',
+          slot: 2,
+        } as unknown as PokemonInstance,
+        {
+          speciesId: 5,
+          caughtData: { location: 2, locationName: 'Route 2' },
+          storageLocation: 'Box 1',
+          slot: 1,
+        } as unknown as PokemonInstance,
+      ],
+    };
+
+    const result = aggregateFirstCatchByRoute(saveData as SaveData);
+
+    expect(result).toHaveLength(2);
+
+    const route1 = result.find((r) => r.locationId === 1);
+    expect(route1).toBeDefined();
+    expect(route1?.encounters).toHaveLength(1);
+    // Party takes precedence over PC
+    expect(route1?.encounters[0]?.speciesId).toBe(2);
+
+    const route2 = result.find((r) => r.locationId === 2);
+    expect(route2).toBeDefined();
+    expect(route2?.encounters).toHaveLength(1);
+    // Box 1 slot 1 takes precedence over Box 1 slot 2 and Box 2 slot 5
+    expect(route2?.encounters[0]?.speciesId).toBe(5);
   });
 });

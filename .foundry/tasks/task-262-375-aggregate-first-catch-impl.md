@@ -31,5 +31,5 @@ Implement logic to aggregate caught Pokémon by their `met_location` and identif
 - Adhere to Section 13 ("Save File Parsing & Extraction Guidelines") of `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Aggregation logic is implemented and can identify the first catch for each distinct location.
-- [ ] Code follows project conventions.
+- [x] Aggregation logic is implemented and can identify the first catch for each distinct location.
+- [x] Code follows project conventions.

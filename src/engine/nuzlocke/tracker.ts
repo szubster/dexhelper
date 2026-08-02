@@ -28,8 +28,9 @@ export function aggregateEncountersByLocation(saveData: SaveData): LocationEncou
   const processInstances = (instances: PokemonInstance[]) => {
     for (let i = 0; i < instances.length; i++) {
       const instance = instances[i];
-      if (instance?.caughtData?.location) {
-        const { location, locationName } = instance.caughtData;
+      if (instance?.caughtData?.location !== undefined || instance?.caughtData?.metLocation !== undefined) {
+        const location = instance.caughtData.metLocation ?? (instance.caughtData.location as number);
+        const locationName = instance.caughtData.locationName;
 
         let entry = locationMap.get(location);
         if (!entry) {
@@ -127,4 +128,69 @@ export function getGraveyardPokemon(saveData: SaveData, graveyardBox: string): P
     }
   }
   return dead;
+}
+
+/**
+ * Aggregates caught Pokémon by their location (using metLocation as primary for Gen 3)
+ * and identifies the first catch for each distinct location.
+ *
+ * @param saveData - The parsed save data.
+ * @returns An array of locations with only the first catch in the encounters array.
+ */
+export function aggregateFirstCatchByRoute(saveData: SaveData): LocationEncounters[] {
+  const aggregates = aggregateEncountersByLocation(saveData);
+
+  const firstCatches: LocationEncounters[] = [];
+
+  for (let i = 0; i < aggregates.length; i++) {
+    const loc = aggregates[i];
+    if (!loc || loc.encounters.length === 0) continue;
+
+    // Determine the first catch based on storageLocation and slot
+    let firstEncounter = loc.encounters[0] as PokemonInstance;
+
+    for (let j = 1; j < loc.encounters.length; j++) {
+      const current = loc.encounters[j] as PokemonInstance;
+
+      const isFirstBetter = compareEncounters(firstEncounter, current);
+      if (!isFirstBetter) {
+        firstEncounter = current;
+      }
+    }
+
+    firstCatches.push({
+      locationId: loc.locationId,
+      locationName: loc.locationName,
+      encounters: [firstEncounter],
+    });
+  }
+
+  return firstCatches;
+}
+
+/**
+ * Helper to compare two PokemonInstances to find which was caught earlier.
+ * Party comes first.
+ * Then PC Boxes ordered by box number ascending, then by slot ascending.
+ *
+ * @returns true if a is 'earlier' than b, false otherwise.
+ */
+function compareEncounters(a: PokemonInstance, b: PokemonInstance): boolean {
+  if (a.storageLocation === 'Party' && b.storageLocation !== 'Party') return true;
+  if (b.storageLocation === 'Party' && a.storageLocation !== 'Party') return false;
+
+  const aBoxMatch = a.storageLocation.match(/Box (\d+)/);
+  const bBoxMatch = b.storageLocation.match(/Box (\d+)/);
+
+  const aBoxNum = aBoxMatch ? parseInt(aBoxMatch[1], 10) : 999;
+  const bBoxNum = bBoxMatch ? parseInt(bBoxMatch[1], 10) : 999;
+
+  if (aBoxNum !== bBoxNum) {
+    return aBoxNum < bBoxNum;
+  }
+
+  const aSlot = a.slot ?? 999;
+  const bSlot = b.slot ?? 999;
+
+  return aSlot <= bSlot;
 }
