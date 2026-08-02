@@ -30,4 +30,6 @@ Compare the extracted catching history against Nuzlocke rules and flag violation
 - Provide structured output for flagged violations.
 
 ## Acceptance Criteria
-- [ ] Tasks are generated
+- [x] Tasks are generated
+- [ ] task-263-386-nuzlocke-route-violations-impl
+- [ ] task-263-387-nuzlocke-route-violations-qa
