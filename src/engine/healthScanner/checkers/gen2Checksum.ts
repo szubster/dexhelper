@@ -1,5 +1,38 @@
 import type { Anomaly } from '../models';
 
+export const GEN2_CHECKSUM_MASK = 0xffff;
+
+export const GEN2_CRYSTAL_JP_MAIN_START = 0x2009;
+export const GEN2_CRYSTAL_JP_MAIN_END = 0x2ae2;
+export const GEN2_CRYSTAL_JP_MAIN_STORED = 0x2d0d;
+export const GEN2_CRYSTAL_JP_BACKUP_START = 0x7209;
+export const GEN2_CRYSTAL_JP_BACKUP_END = 0x7ce2;
+export const GEN2_CRYSTAL_JP_BACKUP_STORED = 0x7f0d;
+
+export const GEN2_CRYSTAL_EN_MAIN_START = 0x2009;
+export const GEN2_CRYSTAL_EN_MAIN_END = 0x2b82;
+export const GEN2_CRYSTAL_EN_MAIN_STORED = 0x2d0d;
+export const GEN2_CRYSTAL_EN_BACKUP_START = 0x1209;
+export const GEN2_CRYSTAL_EN_BACKUP_END = 0x1d82;
+export const GEN2_CRYSTAL_EN_BACKUP_STORED = 0x1f0d;
+
+export const GEN2_GS_JP_MAIN_START = 0x2009;
+export const GEN2_GS_JP_MAIN_END = 0x2c8b;
+export const GEN2_GS_JP_MAIN_STORED = 0x2d0d;
+export const GEN2_GS_JP_BACKUP_START = 0x7209;
+export const GEN2_GS_JP_BACKUP_END = 0x7e8b;
+export const GEN2_GS_JP_BACKUP_STORED = 0x7f0d;
+
+export const GEN2_GS_EN_MAIN_START = 0x2009;
+export const GEN2_GS_EN_MAIN_END = 0x2d68;
+export const GEN2_GS_EN_MAIN_STORED = 0x2d69;
+export const GEN2_GS_EN_BACKUP_R1_START = 0x0c6b;
+export const GEN2_GS_EN_BACKUP_R1_END = 0x17ec;
+export const GEN2_GS_EN_BACKUP_R2_START = 0x3d96;
+export const GEN2_GS_EN_BACKUP_R2_END = 0x3f3f;
+export const GEN2_GS_EN_BACKUP_R3_START = 0x7e39;
+export const GEN2_GS_EN_BACKUP_R3_END = 0x7e6c;
+export const GEN2_GS_EN_BACKUP_STORED = 0x7e6d;
 export function checkGen2Checksums(view: DataView, isCrystal: boolean, isJapanese: boolean = false): Anomaly[] {
   const anomalies: Anomaly[] = [];
 
@@ -10,7 +43,7 @@ export function checkGen2Checksums(view: DataView, isCrystal: boolean, isJapanes
         sum += view.getUint8(i);
       }
     }
-    return sum & 0xffff;
+    return sum & GEN2_CHECKSUM_MASK;
   }
 
   let mainRanges: [number, number][];
@@ -20,31 +53,31 @@ export function checkGen2Checksums(view: DataView, isCrystal: boolean, isJapanes
 
   if (isCrystal) {
     if (isJapanese) {
-      mainRanges = [[0x2009, 0x2ae2]];
-      mainStoredOffset = 0x2d0d;
-      backupRanges = [[0x7209, 0x7ce2]];
-      backupStoredOffset = 0x7f0d;
+      mainRanges = [[GEN2_CRYSTAL_JP_MAIN_START, GEN2_CRYSTAL_JP_MAIN_END]];
+      mainStoredOffset = GEN2_CRYSTAL_JP_MAIN_STORED;
+      backupRanges = [[GEN2_CRYSTAL_JP_BACKUP_START, GEN2_CRYSTAL_JP_BACKUP_END]];
+      backupStoredOffset = GEN2_CRYSTAL_JP_BACKUP_STORED;
     } else {
-      mainRanges = [[0x2009, 0x2b82]];
-      mainStoredOffset = 0x2d0d;
-      backupRanges = [[0x1209, 0x1d82]];
-      backupStoredOffset = 0x1f0d;
+      mainRanges = [[GEN2_CRYSTAL_EN_MAIN_START, GEN2_CRYSTAL_EN_MAIN_END]];
+      mainStoredOffset = GEN2_CRYSTAL_EN_MAIN_STORED;
+      backupRanges = [[GEN2_CRYSTAL_EN_BACKUP_START, GEN2_CRYSTAL_EN_BACKUP_END]];
+      backupStoredOffset = GEN2_CRYSTAL_EN_BACKUP_STORED;
     }
   } else {
     if (isJapanese) {
-      mainRanges = [[0x2009, 0x2c8b]];
-      mainStoredOffset = 0x2d0d;
-      backupRanges = [[0x7209, 0x7e8b]];
-      backupStoredOffset = 0x7f0d;
+      mainRanges = [[GEN2_GS_JP_MAIN_START, GEN2_GS_JP_MAIN_END]];
+      mainStoredOffset = GEN2_GS_JP_MAIN_STORED;
+      backupRanges = [[GEN2_GS_JP_BACKUP_START, GEN2_GS_JP_BACKUP_END]];
+      backupStoredOffset = GEN2_GS_JP_BACKUP_STORED;
     } else {
-      mainRanges = [[0x2009, 0x2d68]];
-      mainStoredOffset = 0x2d69;
+      mainRanges = [[GEN2_GS_EN_MAIN_START, GEN2_GS_EN_MAIN_END]];
+      mainStoredOffset = GEN2_GS_EN_MAIN_STORED;
       backupRanges = [
-        [0x0c6b, 0x17ec],
-        [0x3d96, 0x3f3f],
-        [0x7e39, 0x7e6c],
+        [GEN2_GS_EN_BACKUP_R1_START, GEN2_GS_EN_BACKUP_R1_END],
+        [GEN2_GS_EN_BACKUP_R2_START, GEN2_GS_EN_BACKUP_R2_END],
+        [GEN2_GS_EN_BACKUP_R3_START, GEN2_GS_EN_BACKUP_R3_END],
       ];
-      backupStoredOffset = 0x7e6d;
+      backupStoredOffset = GEN2_GS_EN_BACKUP_STORED;
     }
   }
 
