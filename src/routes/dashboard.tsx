@@ -16,6 +16,12 @@ const ShinyCarrierBreedingDashboard = React.lazy(() =>
     default: m.ShinyCarrierBreedingDashboard,
   })),
 );
+const Gen3SecretBaseDashboard = React.lazy(() =>
+  import('../components/dashboard/secret-base/Gen3SecretBaseDashboard').then((m) => ({
+    default: m.Gen3SecretBaseDashboard,
+  })),
+);
+
 const GlobalRibbonChecklistDashboard = React.lazy(() =>
   import('../components/dashboard/ribbons/GlobalRibbonChecklistDashboard').then((m) => ({
     default: m.GlobalRibbonChecklistDashboard,
@@ -40,6 +46,7 @@ function DashboardPage() {
           <>
             <BattleFrontierDashboard saveData={saveData} />
             <GlobalRibbonChecklistDashboard />
+            <Gen3SecretBaseDashboard saveData={saveData} />
           </>
         ) : (
           <ShinyCarrierBreedingDashboard />

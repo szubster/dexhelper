@@ -36,6 +36,6 @@ Integrate the `battledOwnerToday` status into the extracted Secret Base trainer 
 4.  Write or update relevant tests to ensure the UI correctly conditionally renders the battle status based on the `battledOwnerToday` boolean flag.
 
 ## Acceptance Criteria
-- [ ] Implement UI integration for the `battledOwnerToday` status in Gen 3 Secret Base views.
-- [ ] Strictly adhere to ADR 008 styling guidelines.
-- [ ] Add/update relevant unit or component tests.
+- [x] Implement UI integration for the `battledOwnerToday` status in Gen 3 Secret Base views.
+- [x] Strictly adhere to ADR 008 styling guidelines.
+- [x] Add/update relevant unit or component tests.
