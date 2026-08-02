@@ -25,4 +25,6 @@ notes: ''
 Create the UI component to display the checklist of Gen 2 static encounters (Sudowoodo, Snorlax, Red Gyarados, and Ho-Oh/Lugia) based on the event flags parsed from the backend. The design must adhere strictly to the project's 'tactical hardware/snooping' aesthetic (sharp edges, dashed borders, monospaced telemetry fonts).
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-334-386-gen2-checklist-ui-retry-impl
+- [ ] task-334-387-gen2-checklist-ui-retry-qa
