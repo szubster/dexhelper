@@ -25,4 +25,5 @@ notes: ''
 Implement a timeout wrapper for `run_in_bash_session` to interrupt commands that run over a specific threshold.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-354-390-bash-timeout-wrapper-impl
