@@ -364,6 +364,7 @@ function getLatestSectionOffset(view: DataView, targetSectionId: number): number
   let sectionOffsetA = -1;
   let sectionOffsetB = -1;
 
+  // Scan Save Bank A (0x0000 to 0xDFFF)
   for (let i = 0; i < NUM_SECTIONS; i++) {
     const offset = SAVE_BLOCK_A + i * SECTION_SIZE;
     try {
@@ -379,6 +380,7 @@ function getLatestSectionOffset(view: DataView, targetSectionId: number): number
     }
   }
 
+  // Scan Save Bank B (0xE000 to 0x1BFFF)
   for (let i = 0; i < NUM_SECTIONS; i++) {
     const offset = SAVE_BLOCK_B + i * SECTION_SIZE;
     try {
@@ -398,10 +400,12 @@ function getLatestSectionOffset(view: DataView, targetSectionId: number): number
     throw new Error('Target section not found or invalid signature.');
   }
 
+  // If both banks are valid, the one with the higher saveIndex is the most recent save
   if (sectionOffsetA !== -1 && sectionOffsetB !== -1) {
     return saveIndexA > saveIndexB ? sectionOffsetA : sectionOffsetB;
   }
 
+  // Fallback: If only one bank is valid (e.g. the other was corrupted during saving), use it
   return sectionOffsetA !== -1 ? sectionOffsetA : sectionOffsetB;
 }
 
