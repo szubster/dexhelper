@@ -35,7 +35,7 @@ To prevent massive context bloat while keeping tasks context-aware, global syste
 ## 4. Personas Pipeline (`.github/agents/`)
 
 ### Agent Journals
-Every agent persona maintains a continuous log in **`.foundry/journals/<agent_name>.md`**. 
+Every agent persona maintains a continuous log in **`.foundry/journals/<agent_name>/*.md`**.
 When the 'Resurrection Loop' runs, the returning agent updates its local journal with its mistake, ensuring the persona learns localized domain knowledge from CEO rejections.
 
 **The Product Team:**

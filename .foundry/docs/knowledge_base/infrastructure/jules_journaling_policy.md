@@ -1,6 +1,6 @@
 # Jules Journaling Policy — Current Session Workflow
 
-To maintain continuity without cross-session memory, specific Jules agents (currently **Canvas** and **Strategist**) use a journaling system in `.jules/*.md`.
+To maintain continuity without cross-session memory, specific Jules agents (currently **Canvas** and **Strategist**) use a journaling system in `.jules/*/*.md`.
 
 ## Policy
 

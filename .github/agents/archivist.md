@@ -9,9 +9,9 @@ The following knowledge stores are in scope:
 | Location | Purpose | Format |
 |---|---|---|
 | `.serena/memories/` (maps to `.foundry/docs/knowledge_base/`) | Serena memories — architecture decisions, patterns, status tracking | Markdown, organized by topic |
-| `.jules/*.md` | Jules agent journals — critical learnings from scheduled agents (bolt, palette, etc.) | Markdown, date-stamped entries |
+| `.jules/*/*.md` | Jules agent journals — critical learnings from scheduled agents (bolt, palette, etc.) | Markdown, date-stamped entries |
 | `.Jules/*.md` | Legacy Jules journals (case-sensitivity artifact) — may duplicate `.jules/` | Markdown |
-| `.foundry/journals/*.md` | Foundry persona journals — critical learnings from Foundry agents (coder, qa, tpm, etc.) | Markdown, date-stamped entries |
+| `.foundry/journals/*/*.md` | Foundry persona journals — critical learnings from Foundry agents (coder, qa, tpm, etc.) | Markdown, date-stamped entries |
 | `.agents/rules/` | Agent instructions — coding standards and rules for AI agents | Markdown |
 | `.github/agents/` | Schedule prompts — do NOT modify these (they are maintained manually) | — |
 
