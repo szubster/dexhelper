@@ -2,12 +2,12 @@
 id: epic-121-345-gen3-mystery-gift-data-extraction
 type: EPIC
 title: Gen 3 Mystery Gift Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-25'
-updated_at: '2026-07-26'
+updated_at: '2026-08-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17921375163729908912'
 pr_number: null
 parent: prd-121-336-gen3-mystery-gift-viewer
 tags:
