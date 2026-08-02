@@ -33,5 +33,5 @@ ADR 017 requires `MAX_REJECTION_THRESHOLD` to not be hardcoded in multiple front
 2. Verify `DagDashboard.tsx` and `DagNode.tsx` and their tests use the `maxRejectionThreshold` from context or the constant instead of hardcoded numbers.
 
 ## Acceptance Criteria
-- [ ] Code is linted and tests pass.
-- [ ] No hardcoded threshold is used in the frontend components for rejection count logic.
+- [x] Code is linted and tests pass.
+- [x] No hardcoded threshold is used in the frontend components for rejection count logic.
