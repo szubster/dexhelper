@@ -32,4 +32,6 @@ Currently, the threshold for determining if a node has permanently failed (`reje
 1. Extract `MAX_REJECTION_THRESHOLD = 3` to `DagContext.tsx` or a shared constants file.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-343-352-lift-rejection-constant-impl
+- [ ] story-343-353-lift-rejection-constant-e2e
