@@ -2,10 +2,10 @@
 id: story-039-266-r2-graceful-degradation
 type: STORY
 title: Cloudflare R2 Graceful Degradation
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-04'
-updated_at: '2026-08-01'
+updated_at: '2026-08-02'
 depends_on:
   - story-039-265-r2-offline-conflict-resolution
 jules_session_id: null

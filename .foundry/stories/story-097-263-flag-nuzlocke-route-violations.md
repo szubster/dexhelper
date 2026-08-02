@@ -2,10 +2,10 @@
 id: story-097-263-flag-nuzlocke-route-violations
 type: STORY
 title: Flag Nuzlocke Route Violations
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-03'
-updated_at: '2026-07-03'
+updated_at: '2026-08-02'
 depends_on:
   - story-097-262-aggregate-first-catch-by-route
 jules_session_id: null
