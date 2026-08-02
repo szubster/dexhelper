@@ -2,12 +2,12 @@
 id: story-138-294-gen3-static-encounters-parsing
 type: STORY
 title: Gen 3 Static Encounters Parsing
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-11'
 updated_at: '2026-08-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4323048511878442271'
 pr_number: null
 parent: epic-106-138-gen3-static-encounters
 tags:
