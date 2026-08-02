@@ -1,13 +1,13 @@
 ---
 id: task-336-388-implement-orchestrator-cycle-detection
 type: TASK
-title: 'Implement Orchestrator Cycle Detection'
-status: READY
+title: Implement Orchestrator Cycle Detection
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-02'
 updated_at: '2026-08-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8190986103606625335'
 parent: story-338-336-implement-orchestrator-cycle-detection
 tags:
   - foundry
