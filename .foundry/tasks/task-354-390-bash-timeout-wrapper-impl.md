@@ -29,4 +29,4 @@ Implement a timeout wrapper for run_in_bash_session to interrupt commands that r
 The core implementation work was already completed in previous tasks (via instructional policy enforcement in core_policies.md). You must verify that the policy exists, check off the acceptance criteria, self-verify, and submit an Empty PR to complete this task.
 
 ## Acceptance Criteria
-- [ ] Verify that .foundry/docs/knowledge_base/agents/core_policies.md contains the bash timeout wrapper instructions.
+- [x] Verify that .foundry/docs/knowledge_base/agents/core_policies.md contains the bash timeout wrapper instructions.
