@@ -32,4 +32,5 @@ This Epic covers the extraction of Mystery Gift data (including Wonder Cards and
 - [ ] Extract Wonder Card data from Gen 3 save files.
 - [ ] Extract active event flags associated with Mystery Gift (e.g., Aurora Ticket, MysticTicket).
 - [ ] Integrate with the existing save file parsing engine in DexHelper.
-- [ ] Story Owner: Break down this Epic into manageable Stories.
+- [x] Story Owner: Break down this Epic into manageable Stories.
+- [ ] story-345-354-gen3-wonder-card-extraction
