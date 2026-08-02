@@ -2,12 +2,12 @@
 id: epic-106-137-pc-box-diff-engine-move-planner
 type: EPIC
 title: PC Box Diff Engine & Move Planner
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-06'
-updated_at: '2026-08-01'
+updated_at: '2026-08-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5071980810204465470'
 pr_number: null
 parent: prd-101-106-pc-box-organization-assistant
 tags:
