@@ -2,7 +2,7 @@
 id: story-345-354-gen3-wonder-card-extraction
 type: STORY
 title: Gen 3 Wonder Card Extraction
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-02'
 updated_at: '2026-08-02'

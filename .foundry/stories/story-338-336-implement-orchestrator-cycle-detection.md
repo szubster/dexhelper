@@ -2,12 +2,12 @@
 id: story-338-336-implement-orchestrator-cycle-detection
 type: STORY
 title: 'Story: Implement Orchestrator Cycle Detection'
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-26'
 updated_at: '2026-08-02'
 depends_on: []
-jules_session_id: '238874281912570029'
+jules_session_id: null
 parent: epic-334-338-circular-dependency-detection
 tags:
   - foundry

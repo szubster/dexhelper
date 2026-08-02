@@ -2,13 +2,13 @@
 id: story-338-338-update-downstream-references
 type: STORY
 title: Update Downstream References for Fragmented Journals
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-22'
 updated_at: '2026-08-02'
 depends_on:
   - story-338-337-update-tpm-aggregation
-jules_session_id: '17585573154336270447'
+jules_session_id: null
 pr_number: null
 parent: epic-120-338-implement-conflictless-journals
 tags:

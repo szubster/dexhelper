@@ -2,7 +2,7 @@
 id: epic-114-327-gen3-pokeblock-case-parsing
 type: EPIC
 title: Gen 3 Pokéblock Case Save Parsing
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-14'
 updated_at: '2026-08-02'
@@ -17,10 +17,8 @@ tags:
   - backend
   - save-parsing
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

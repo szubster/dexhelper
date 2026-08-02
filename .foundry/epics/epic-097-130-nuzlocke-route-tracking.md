@@ -2,12 +2,12 @@
 id: epic-097-130-nuzlocke-route-tracking
 type: EPIC
 title: Automated Route Tracking
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-07-03'
 updated_at: '2026-08-02'
 depends_on: []
-jules_session_id: '15225830083189864990'
+jules_session_id: null
 pr_number: null
 parent: prd-057-097-automated-nuzlocke-tracker
 tags:
@@ -15,7 +15,9 @@ tags:
   - nuzlocke
   - verification
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: ''
 ---
 
