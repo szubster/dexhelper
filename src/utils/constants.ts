@@ -1,0 +1,1 @@
+export const MAX_REJECTION_THRESHOLD = 3;

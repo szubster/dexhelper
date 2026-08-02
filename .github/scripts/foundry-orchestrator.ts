@@ -51,10 +51,10 @@ interface ParsedNode {
 
 // ─── CLI flags ────────────────────────────────────────────────────────────────
 
+const MAX_REJECTION_THRESHOLD = 3; // Hardcoded fallback for isolated test environments
+
 const DRY_RUN: boolean = process.argv.includes('--dry-run');
 const STRICT: boolean = process.argv.includes('--strict');
-
-const MAX_REJECTION_THRESHOLD = 3;
 
 // ─── Logging (all diagnostic output → stderr; only the matrix JSON → stdout) ─
 

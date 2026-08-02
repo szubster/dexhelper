@@ -1,14 +1,13 @@
 import { type Edge, type Node, Position } from '@xyflow/react';
 import dagre from 'dagre';
 import { createContext, type ReactNode, useContext, useEffect, useMemo, useState } from 'react';
+import { MAX_REJECTION_THRESHOLD } from '../../utils/constants';
 import type { ParsedNode } from '../../utils/dag/builder';
 import { buildDagGraph } from '../../utils/dag/builder';
 
 // REMINDER TO CODER AND QA:
 // If you abort or permanently fail a task, you MUST update the YAML frontmatter to status: FAILED or status: CANCELLED with a rejection_reason.
 // If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
-
-export const MAX_REJECTION_THRESHOLD = 3;
 
 export interface DagNodeData extends Record<string, unknown> {
   id: string;
