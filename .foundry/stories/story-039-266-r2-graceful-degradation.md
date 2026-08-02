@@ -31,5 +31,5 @@ The application must continue to function even if Cloudflare services are unavai
 
 ## Acceptance Criteria
 - [x] Break down into Tasks.
-- [ ] task-266-377-r2-graceful-degradation-impl
-- [ ] task-266-378-r2-graceful-degradation-qa
+- [x] task-266-377-r2-graceful-degradation-impl
+- [x] task-266-378-r2-graceful-degradation-qa
