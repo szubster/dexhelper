@@ -2,12 +2,12 @@
 id: story-347-354-bash-timeout-wrapper-impl
 type: STORY
 title: Bash Timeout Wrapper Implementation (Retry)
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-02'
 updated_at: '2026-08-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16981402898077233868'
 pr_number: null
 parent: epic-057-347-bash-timeout-wrapper-retry
 tags:
