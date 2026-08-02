@@ -2,10 +2,10 @@
 id: task-262-376-aggregate-first-catch-qa
 type: TASK
 title: QA Aggregate First Catch by Route
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-31'
-updated_at: '2026-07-31'
+updated_at: '2026-08-02'
 depends_on:
   - task-262-375-aggregate-first-catch-impl
 jules_session_id: null
