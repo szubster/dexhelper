@@ -18,9 +18,6 @@ The implementer (`coder`) failed `task-121-219-gen3-tv-block-parser-retry-impl` 
 **Task**: task-109-248-parse-secret-base-trainer-party-qa (QA for task-109-247-parse-secret-base-trainer-party)
 **Outcome**: Passed Validation
 **Notes**:
-- Verified that `DataView` API is used exclusively in `src/engine/gen3/secretBase/parser.ts` for all read operations (e.g. `getUint32`, `getUint16`, `getUint8`).
-- Verified that all offsets, lengths, and bit locations are defined as reusable constants at the module level.
-- Verified that comprehensive unit tests are present, including checking for out-of-bounds reads throwing `The save file is corrupted or incomplete.` when catching `RangeError`.
 
 ## 2026-07-11: Trick House Parser Rejection
 - **Date**: 2026-07-11
@@ -62,7 +59,6 @@ The coder failed to properly implement relative memory offsets using `section1Of
 - **Task**: task-258-264-egg-move-precomputation-etl-qa
 - **Outcome**: Passed Validation
 - **Notes**:
-  - Verified that the BFS algorithm for Egg Move precomputation in `scripts/generate-pokedata.ts` generates valid chains.
   - Added test cases in `src/db/__tests__/PokeDB.test.ts` to explicitly ensure `em` structures (like `'13': [274, 1]`) are parsed and mapped correctly onto the Pokemon entries when inflating IndexedDB offline data.
   - Test run successful. Marked as complete.
 ## 2026-07-16: QA Shiny Carrier Breeding View Reawakened (task-254-261-shiny-carrier-breeding-view-qa)
@@ -82,8 +78,6 @@ The coder failed to properly implement relative memory offsets using `section1Of
 - **Task**: task-284-323-predictor-ui-qa
 - **Outcome**: Passed Validation
 - **Notes**:
-  - Verified that `ActiveCallersDashboard` correctly surfaces call probability data and uses the mandated tactical aesthetic (`rounded-none`, `border-dashed`, `font-mono`).
-  - Verified that component unit tests exist and pass.
   - Verified no linting errors were introduced.
 ## 2026-07-19
 - Rejected task-261-282-gen3-met-location-impl because it uses MISC_MET_LOCATION_OFFSET instead of the required MET_LOCATION_OFFSET_IN_M constant.
@@ -100,8 +94,6 @@ Validated that the implementation successfully fetches save data from R2 upon su
 - Validated Gen 3 Static Encounter Flags Parsing implementation. Code correctly uses module-level constants instead of inline magic numbers, catches DataView RangeError, and calculates relative offsets correctly using section1Offset.
 ## 2026-07-20 00:08:08 - QA Validation of task-322-332-gen2-dv-extraction-qa
 - Explored codebase to verify that Gen 2 DV data extraction correctly extracts Attack, Defense, Speed, and Special DVs.
-- Verified that `parseDVs` uses module-level constants for data extraction.
-- Verified that out-of-bounds `RangeError` reads are caught and rethrown with 'The save file is corrupted or incomplete.'
 - Verified tests pass (`pnpm lint && pnpm test`).
 - Marked task as COMPLETED by checking off acceptance criteria.
 ## 2026-07-21: task-137-210-global-ribbon-dashboard-scaffold-qa
@@ -214,9 +206,7 @@ Session ID: 14711255524066460026
 
 # QA Journal - 17561346958621494002
 
-- Verified that `useFileSyncController.ts` successfully pushes and pulls save states using `r2Client`.
 - Verified the conflict resolution algorithm in `useFileSyncController.ts` which uses `lastModified` correctly prioritizes the most recent local progression (pull-wins for newer cloud saves, and pushes local if local is newer).
-- Verified that network failures (like `r2Client` throwing an error) gracefully fall back to local offline storage (`saveDB.putSave`) and catch blocks prevent unhandled exceptions.
 - Reviewed and ran the unit tests `src/hooks/useFileSyncController.test.tsx` (using playwright install for headless chromium) which cover critical edge cases including `pull-wins`, local-wins, and R2 network failures. All tests passed. Task approved.
 
 ## Session Extract: 17737793789330041472.md
@@ -255,7 +245,6 @@ Status: SUCCESS
 - **Feature**: Cloudflare R2 Push Sync Logic QA
 
 ## Verification Summary
-Verified that the implementation of pushing local save data to Cloudflare R2 meets the requirements.
 
 ### Implementation Details:
 - Examined `src/hooks/useFileSyncController.ts` and `src/components/AppLayout.tsx`.
@@ -320,7 +309,6 @@ Therefore, the target task was permanently cancelled, and my QA task's acceptanc
 **Task:** Graveyard Box UI QA (task-334-347-graveyard-box-ui-qa)
 
 **Summary:**
-I verified the Graveyard Box UI setting and its integration with the backend state. The functionality was already fully implemented:
 1. The UI component for the Graveyard Box selection exists in `src/components/settings/SettingsControls.tsx` using a `<TacticalSegmentedControl>`.
 2. The UI setting is correctly connected to the backend state (`nuzlockeGraveyardBox` in the store), verified in `src/store.ts` and `src/components/StorageGrid.tsx`. Tests were verified to be passing.
 3. The component adheres to the tactical hardware/snooping design constraints, utilizing `rounded-none`, `border-dashed` styling classes, and proper colors/styling.
@@ -411,7 +399,6 @@ The implementation matches the constraints defined in `.foundry/docs/schema.md` 
 - task-137-339-gen2-event-flag-parsing-retry-qa
 
 ## Validation Notes
-- Verified that exact bit offsets were used for static encounters:
   - Sudowoodo (42) -> `EVENT_FLAG_SUDOWOODO_BYTE = Math.floor(42 / 8)` and `EVENT_FLAG_SUDOWOODO_BIT = 42 % 8`
   - Ho-Oh (791) -> `EVENT_FLAG_HO_OH_BYTE = Math.floor(791 / 8)` and `EVENT_FLAG_HO_OH_BIT = 791 % 8`
   - Lugia (792) -> `EVENT_FLAG_LUGIA_BYTE = Math.floor(792 / 8)` and `EVENT_FLAG_LUGIA_BIT = 792 % 8`
