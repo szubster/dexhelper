@@ -30,7 +30,7 @@ The design must adhere strictly to the project's "tactical hardware/snooping" ae
 - Apply monospaced telemetry fonts (`font-mono`).
 
 ## Acceptance Criteria
-- [ ] Implement `Gen2Checklist` React component.
-- [ ] Component successfully displays Sudowoodo, Snorlax, Red Gyarados, and Ho-Oh/Lugia based on event flag props.
-- [ ] UI strictly applies the tactical hardware aesthetic (`rounded-none`, `border-dashed`, `font-mono`).
-- [ ] Include explicit integration steps and tests for rendering the component to ensure it is properly integrated into the application's view hierarchy.
+- [x] Implement `Gen2Checklist` React component.
+- [x] Component successfully displays Sudowoodo, Snorlax, Red Gyarados, and Ho-Oh/Lugia based on event flag props.
+- [x] UI strictly applies the tactical hardware aesthetic (`rounded-none`, `border-dashed`, `font-mono`).
+- [x] Include explicit integration steps and tests for rendering the component to ensure it is properly integrated into the application's view hierarchy.

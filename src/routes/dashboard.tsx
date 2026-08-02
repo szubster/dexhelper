@@ -16,6 +16,11 @@ const ShinyCarrierBreedingDashboard = React.lazy(() =>
     default: m.ShinyCarrierBreedingDashboard,
   })),
 );
+const Gen2Checklist = React.lazy(() =>
+  import('../components/dashboard/encounters/Gen2Checklist').then((m) => ({
+    default: m.Gen2Checklist,
+  })),
+);
 const GlobalRibbonChecklistDashboard = React.lazy(() =>
   import('../components/dashboard/ribbons/GlobalRibbonChecklistDashboard').then((m) => ({
     default: m.GlobalRibbonChecklistDashboard,
@@ -42,7 +47,10 @@ function DashboardPage() {
             <GlobalRibbonChecklistDashboard />
           </>
         ) : (
-          <ShinyCarrierBreedingDashboard />
+          <>
+            <ShinyCarrierBreedingDashboard />
+            <Gen2Checklist saveData={saveData} />
+          </>
         )}
       </Suspense>
     </div>
