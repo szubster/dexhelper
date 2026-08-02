@@ -2,7 +2,7 @@
 id: prd-102-111-gen3-trainer-card-stars
 type: PRD
 title: PRD - Gen 3 Trainer Card Stars & Achievements Dashboard
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-07-11'
 updated_at: '2026-08-02'

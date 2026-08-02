@@ -2,10 +2,10 @@
 id: epic-095-120-in-game-trade-dashboard-ui
 type: EPIC
 title: In-Game Trade Dashboard UI
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-30'
-updated_at: '2026-06-30'
+updated_at: '2026-08-02'
 depends_on:
   - epic-095-119-in-game-trade-data-extraction
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - ux
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  epic-095-119-in-game-trade-data-extraction
 notes: ''
 ---
 
