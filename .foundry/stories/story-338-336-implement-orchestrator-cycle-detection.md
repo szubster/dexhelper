@@ -27,8 +27,8 @@ Implement robust circular dependency detection during the MAP or RESOLVE phases 
 - [x] Running orchestrator in `--dry-run` or `--strict` modes outputs explicit warnings/error logs detailing the detected cycle.
 
 ### Generated Tasks
-- [ ] task-336-388-implement-orchestrator-cycle-detection
-- [ ] task-336-389-orchestrator-cycle-detection-qa
+- [x] task-336-388-implement-orchestrator-cycle-detection
+- [x] task-336-389-orchestrator-cycle-detection-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
