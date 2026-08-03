@@ -29,8 +29,8 @@ notes: ''
 The coder has implemented cross-generation sorting adapters to handle Regional Dex mappings, Gen 1 type differences, and missing properties in older generations. This QA task ensures these implementations are robust and thoroughly tested.
 
 ## Acceptance Criteria
-- [ ] Verify `DexNumberSorter` in `src/engine/sorting/StandardSorters.ts` correctly handles specific regional dex mappings for Gen 1, Gen 2, and Gen 3.
-- [ ] Verify `TypeSorter` correctly handles Gen 1 type differences (e.g., Magnemite missing Steel type) without breaking modern sorting.
-- [ ] Verify that edge cases with null/undefined properties across older generations are handled gracefully in all standard sorters.
-- [ ] Run `pnpm test` and verify that the unit tests in `src/engine/sorting/StandardSorters.test.ts` pass and accurately cover the cross-generation considerations.
-- [ ] Ensure `pnpm lint` passes with no warnings or errors related to the new implementations.
+- [x] Verify `DexNumberSorter` in `src/engine/sorting/StandardSorters.ts` correctly handles specific regional dex mappings for Gen 1, Gen 2, and Gen 3.
+- [x] Verify `TypeSorter` correctly handles Gen 1 type differences (e.g., Magnemite missing Steel type) without breaking modern sorting.
+- [x] Verify that edge cases with null/undefined properties across older generations are handled gracefully in all standard sorters.
+- [x] Run `pnpm test` and verify that the unit tests in `src/engine/sorting/StandardSorters.test.ts` pass and accurately cover the cross-generation considerations.
+- [x] Ensure `pnpm lint` passes with no warnings or errors related to the new implementations.
