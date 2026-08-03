@@ -27,4 +27,4 @@ This includes verifying that when commands exceed the threshold they return exit
 and that non-blocking commands proceed properly.
 
 ## Acceptance Criteria
-- [ ] Write tests verifying Bash timeout wrapper behavior.
+- [x] Write tests verifying Bash timeout wrapper behavior.
