@@ -4,7 +4,11 @@ import { initializeWithSave } from '../test-utils';
 
 test.describe('Permanent Failures Dashboard', () => {
   test('should display nodes and filter correctly based on permanent failure status', async ({ page }) => {
-    // Intercept BEFORE anything
+    // We must initialize first to have access to the app
+    // We should do this first before intercepting to avoid breaking initial app load
+    await initializeWithSave(page);
+
+    // Intercept BEFORE navigating to dag
     await page.route('**/data/foundry.json', async (route) => {
       const json = [
         {
@@ -48,9 +52,6 @@ test.describe('Permanent Failures Dashboard', () => {
       });
     });
 
-    // We must initialize first to have access to the app
-    await initializeWithSave(page);
-
     // Some tests fail because the link might be named just DAG on mobile via BottomNav
     // Let's navigate directly using page.goto but to the correct base URL
     await page.goto('./dag');
@@ -67,5 +68,6 @@ test.describe('Permanent Failures Dashboard', () => {
 
     // Now only task-1 should be shown
     await expect(page.locator('[data-testid="dag-node"]')).toHaveCount(1, { timeout: 10000 });
+    await expect(page.locator('[data-testid="dag-node"]')).toContainText('task-1');
   });
 });
