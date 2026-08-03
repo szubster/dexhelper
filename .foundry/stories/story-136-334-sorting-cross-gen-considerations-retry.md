@@ -36,5 +36,5 @@ While `PokeData` provides a unified interface, certain properties (e.g., regiona
 - [x] Ensure `TypeSorter` correctly handles Gen 1 type differences (e.g., Magnemite missing Steel type) if data mapping does not already normalize this.
 - [x] Implement robust handling for null/undefined properties that may be missing in older generations.
 - [x] Break down story into tasks for technical blueprinting, implementation, and cross-generation test suites.
-- [ ] task-334-386-cross-gen-sorting-adapters-impl
-- [ ] task-334-387-cross-gen-sorting-adapters-qa
+- [x] task-334-386-cross-gen-sorting-adapters-impl
+- [x] task-334-387-cross-gen-sorting-adapters-qa
