@@ -33,5 +33,5 @@ Various nodes, scripts, and personas (like the Agile Coach or resurrected FAILED
 - Update them to either reference the new directory structure, the TPM's aggregated master logs, or instruct them to read fragmented files dynamically.
 
 ## Acceptance Criteria
-- [ ] Coder: Update all monolithic journal references (e.g. `.foundry/journals/coder.md`) to the new session-unique glob structure (`.foundry/journals/coder/*.md`) across agent prompts and documentation.
-- [ ] Coder: Self-verify that no hardcoded paths to monolithic `.md` journal files exist (using `grep`).
+- [x] Coder: Update all monolithic journal references (e.g. `.foundry/journals/coder.md`) to the new session-unique glob structure (`.foundry/journals/coder/*.md`) across agent prompts and documentation.
+- [x] Coder: Self-verify that no hardcoded paths to monolithic `.md` journal files exist (using `grep`).
