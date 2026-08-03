@@ -1,3 +1,25 @@
+/**
+ * @module gen2Parser
+ *
+ * Contains logic for parsing Generation 2 (Gold, Silver, Crystal) Game Boy Color save files.
+ *
+ * ## Architecture Overview
+ *
+ * Generation 2 maintains a linear memory layout, but with a critical distinction:
+ * Memory offsets differ significantly between Gold/Silver and Crystal.
+ *
+ * 1. **Version Detection & Offset Alignment**:
+ *    Because the save file doesn't explicitly declare its version, the parser must
+ *    heuristically determine it to apply the correct memory map. Once detected,
+ *    a boolean (`isCrystal`) is used to dynamically select the correct offset
+ *    variable via ternary operations (e.g., `DAYCARE_SLOT_1_OFFSET_CRYSTAL` vs
+ *    `DAYCARE_SLOT_1_OFFSET_GS`).
+ *
+ * 2. **Length-Prefixed Lists (Inventory)**:
+ *    Backpack inventory items (Items, Key Items, Balls) are stored dynamically as
+ *    length-prefixed lists. The first byte specifies the total count, followed by
+ *    alternating bytes for Item ID and Quantity.
+ */
 import gen2Landmarks from '../../data/gen2/landmarks.json';
 import gen2MapLocations from '../../data/gen2/mapLocations.json';
 import { GEN2_VERSION_EXCLUSIVES } from '../../exclusives/gen2Exclusives';
