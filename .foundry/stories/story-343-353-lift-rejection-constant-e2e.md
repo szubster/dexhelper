@@ -29,4 +29,8 @@ Write E2E tests to verify that the DAG Dashboard still correctly displays perman
 1. E2E test verifying permanent failure nodes on the dashboard.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+
+### Tasks
+- [ ] task-353-393-lift-rejection-constant-e2e-impl
+- [ ] task-353-394-lift-rejection-constant-e2e-qa
