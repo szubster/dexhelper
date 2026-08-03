@@ -28,9 +28,12 @@ export function aggregateEncountersByLocation(saveData: SaveData): LocationEncou
   const processInstances = (instances: PokemonInstance[]) => {
     for (let i = 0; i < instances.length; i++) {
       const instance = instances[i];
-      if (instance?.caughtData?.location !== undefined || instance?.caughtData?.metLocation !== undefined) {
-        const location = instance.caughtData.metLocation ?? (instance.caughtData.location as number);
-        const locationName = instance.caughtData.locationName;
+      const caughtData = instance?.caughtData;
+      if (caughtData && (caughtData.location !== undefined || caughtData.metLocation !== undefined)) {
+        const location = caughtData.metLocation ?? caughtData.location;
+        if (location === undefined) continue;
+
+        const locationName = caughtData.locationName;
 
         let entry = locationMap.get(location);
         if (!entry) {
@@ -41,7 +44,9 @@ export function aggregateEncountersByLocation(saveData: SaveData): LocationEncou
           };
           locationMap.set(location, entry);
         }
-        entry.encounters.push(instance);
+        if (instance) {
+          entry.encounters.push(instance);
+        }
       }
     }
   };
@@ -147,10 +152,12 @@ export function aggregateFirstCatchByRoute(saveData: SaveData): LocationEncounte
     if (!loc || loc.encounters.length === 0) continue;
 
     // Determine the first catch based on storageLocation and slot
-    let firstEncounter = loc.encounters[0] as PokemonInstance;
+    let firstEncounter = loc.encounters[0];
+    if (!firstEncounter) continue;
 
     for (let j = 1; j < loc.encounters.length; j++) {
-      const current = loc.encounters[j] as PokemonInstance;
+      const current = loc.encounters[j];
+      if (!current) continue;
 
       const isFirstBetter = compareEncounters(firstEncounter, current);
       if (!isFirstBetter) {
