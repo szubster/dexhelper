@@ -2,13 +2,13 @@
 id: story-343-353-lift-rejection-constant-e2e
 type: STORY
 title: E2E Tests for Lift Rejection Constant
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-02'
 updated_at: '2026-08-03'
 depends_on:
   - story-343-352-lift-rejection-constant-impl
-jules_session_id: null
+jules_session_id: '15126975706780519185'
 pr_number: null
 parent: epic-107-343-lift-rejection-count-state
 tags:
