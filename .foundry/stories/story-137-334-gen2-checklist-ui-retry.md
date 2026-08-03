@@ -26,5 +26,5 @@ Create the UI component to display the checklist of Gen 2 static encounters (Sud
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-334-386-gen2-checklist-ui-retry-impl
-- [ ] task-334-387-gen2-checklist-ui-retry-qa
+- [x] task-334-386-gen2-checklist-ui-retry-impl
+- [x] task-334-387-gen2-checklist-ui-retry-qa
