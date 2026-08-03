@@ -33,5 +33,5 @@ Players can battle the NPC trainers in Secret Bases once per day. We need to tra
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break this Story down into actionable Tasks.
-- [ ] task-335-386-track-daily-rematch-status-impl
-- [ ] task-335-387-track-daily-rematch-status-qa
+- [x] task-335-386-track-daily-rematch-status-impl
+- [x] task-335-387-track-daily-rematch-status-qa
