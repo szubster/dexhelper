@@ -35,3 +35,6 @@ You must explicitly adhere to the guidelines defined in **Section 13 ("Save File
 ## Acceptance Criteria
 - [ ] Coder: Implement Gen 3 Wonder Card Extraction in accordance with Section 13 guidelines.
 - [ ] Coder: Write unit tests verifying the extraction logic.
+
+### Suspended Pending Research
+- [ ] research-391-393-gen3-wonder-card-offsets
