@@ -2,12 +2,12 @@
 id: story-343-352-lift-rejection-constant-impl
 type: STORY
 title: Extract MAX_REJECTION_THRESHOLD Constant
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-02'
 updated_at: '2026-08-03'
 depends_on: []
-jules_session_id: '17146971052426948681'
+jules_session_id: null
 pr_number: null
 parent: epic-107-343-lift-rejection-count-state
 tags:

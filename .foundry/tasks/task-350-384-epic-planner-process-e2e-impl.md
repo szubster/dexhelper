@@ -2,12 +2,12 @@
 id: task-350-384-epic-planner-process-e2e-impl
 type: TASK
 title: Epic Planner Process E2E Test Implementation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2024-05-24'
-updated_at: '2026-08-02'
+updated_at: '2026-08-03'
 depends_on: []
-jules_session_id: '1131205986612274603'
+jules_session_id: null
 pr_number: null
 parent: story-128-350-epic-planner-process-e2e
 tags:
