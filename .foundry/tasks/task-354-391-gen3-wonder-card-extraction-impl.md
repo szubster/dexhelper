@@ -2,7 +2,7 @@
 id: task-354-391-gen3-wonder-card-extraction-impl
 type: TASK
 title: Gen 3 Wonder Card Extraction Implementation
-status: FAILED
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-02'
 updated_at: '2026-08-03'
@@ -15,8 +15,8 @@ tags:
   - mystery-gift
   - data-extraction
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

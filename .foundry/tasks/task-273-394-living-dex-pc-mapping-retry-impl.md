@@ -2,10 +2,10 @@
 id: task-273-394-living-dex-pc-mapping-retry-impl
 type: TASK
 title: Living Dex PC Mapping Retry Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-04'
-updated_at: '2026-08-04'
+updated_at: '2026-08-03'
 depends_on:
   - .foundry/research/research-273-393-gen3-pc-box-offsets-root-cause.md
 jules_session_id: null

@@ -2,7 +2,7 @@
 id: epic-117-334-define-zod-schema
 type: EPIC
 title: Define Zod Schema for Foundry Nodes
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-18'
 updated_at: '2026-08-03'
@@ -13,9 +13,8 @@ tags:
   - foundry
   - orchestrator
   - schema
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_reason: ''
+rejection_count: 1
 ---
 
 # Define Zod Schema for Foundry Nodes
