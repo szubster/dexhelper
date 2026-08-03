@@ -20,7 +20,6 @@ import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalBlockHeader } from '../../TacticalBlockHeader';
 import { TacticalNode } from '../../TacticalNode';
-import { TacticalPanel } from '../../TacticalPanel';
 import { LocationRow } from './LocationRow';
 
 interface EvoReq {
@@ -72,7 +71,7 @@ export function PokemonLocations({
       </div>
 
       {loading ? (
-        <TacticalPanel className="h-40 animate-pulse rounded-none border border-dashed" />
+        <div className="tactical-skeleton h-40" />
       ) : (
         <div className="relative z-10 grid grid-cols-1 gap-4" data-testid="location-list">
           {hasEncounters ? (

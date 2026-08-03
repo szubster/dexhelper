@@ -314,16 +314,12 @@ export function PokemonDetails({
           {/* Left Column Data Feed */}
           <div className="flex flex-col gap-6 xl:gap-8">
             {catchRate !== null && (
-              <React.Suspense
-                fallback={<div className="h-24 animate-pulse rounded border border-zinc-800/50 bg-zinc-900/50" />}
-              >
+              <React.Suspense fallback={<div className="tactical-skeleton h-24" />}>
                 <PokemonCatchProbability catchRate={catchRate} effectivePokeball={effectivePokeball} />
               </React.Suspense>
             )}
 
-            <React.Suspense
-              fallback={<div className="h-48 animate-pulse rounded border border-zinc-800/50 bg-zinc-900/50" />}
-            >
+            <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
               <PokemonEvolutions
                 evoReq={evoReq}
                 evolvesTo={evolvesTo || []}
@@ -343,9 +339,7 @@ export function PokemonDetails({
             <PokemonCaughtDetails yourPokemon={yourPokemon} />
             {pokemonId === 201 && saveData?.generation === 2 && <UnownDexPanel yourPokemon={yourPokemon} />}
 
-            <React.Suspense
-              fallback={<div className="h-48 animate-pulse rounded border border-zinc-800/50 bg-zinc-900/50" />}
-            >
+            <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
               <PokemonLocations
                 pokemonId={pokemonId}
                 gameVersion={gameVersion}
