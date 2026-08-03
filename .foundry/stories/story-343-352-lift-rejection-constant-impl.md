@@ -33,5 +33,5 @@ Required by ADR 017. The value is currently hardcoded in multiple files.
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-352-388-lift-rejection-constant-impl
-- [ ] task-352-389-lift-rejection-constant-qa
+- [x] task-352-388-lift-rejection-constant-impl
+- [x] task-352-389-lift-rejection-constant-qa
