@@ -21,6 +21,14 @@ describe('catchGenerator', () => {
     const suggestions: Suggestion[] = [];
     const localPids = new Set<number>();
 
+    const mockStrategy = {
+      ...gen1Strategy,
+      getMapDistance: (_curr: number, target: number) => {
+        if (target === 50) return { distance: 1, name: 'Route 1' };
+        return null;
+      },
+    } as unknown as AssistantStrategy;
+
     generateCatchSuggestions(
       apiData,
       1, // displayVersionId
@@ -28,7 +36,7 @@ describe('catchGenerator', () => {
       missingIds,
       queryTargets,
       saveData,
-      gen1Strategy,
+      mockStrategy,
       suggestions,
       localPids,
     );
@@ -284,5 +292,68 @@ describe('catchGenerator', () => {
     );
 
     expect(suggestions).toHaveLength(0);
+  });
+});
+it('should suggest catching a pre-evolution if target is missing and pre-evolution is nearby', () => {
+  const apiData = {
+    localEncounters: [],
+    localAid: null,
+    missingEncounters: {},
+    pokemonMetadata: {
+      5: { id: 5, n: 'Charmeleon', eto: [{ id: 6 }], efrm: [4] },
+    },
+    ancestralEncounters: {
+      5: {
+        4: {
+          pid: 4,
+          enc: [
+            {
+              aid: 50,
+              v: 1,
+              d: [{ m: 1, c: 10, min: 5, max: 10, t: 1 }],
+            },
+          ],
+        },
+      },
+    },
+    allLocations: [
+      { id: 1, n: 'Pallet Town', connects: [{ id: 50 }] },
+      { id: 50, n: 'Route 1' },
+    ],
+  } as unknown as AssistantApiData;
+
+  const myOtIds = new Set<number>();
+  const missingIds = new Set<number>([5]);
+  const queryTargets = [5];
+  const saveData = { generation: 1, currentMapId: 1 } as SaveData;
+  const suggestions: Suggestion[] = [];
+  const localPids = new Set<number>();
+
+  const mockStrategy = {
+    ...gen1Strategy,
+    getMapDistance: (_curr: number, target: number) => {
+      if (target === 50) return { distance: 1, name: 'Route 1' };
+      return null;
+    },
+  } as unknown as AssistantStrategy;
+
+  generateCatchSuggestions(
+    apiData,
+    1, // displayVersionId
+    myOtIds,
+    missingIds,
+    queryTargets,
+    saveData,
+    mockStrategy,
+    suggestions,
+    localPids,
+  );
+
+  expect(suggestions).toHaveLength(1);
+  expect(suggestions[0]).toMatchObject({
+    id: 'catch-preevo-nearby-50-1',
+    category: 'Catch',
+    pokemonIds: [4],
+    title: 'Nearby Pre-evolution: Route 1',
   });
 });

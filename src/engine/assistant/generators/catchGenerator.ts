@@ -125,7 +125,7 @@ export function generateCatchSuggestions(
     let bestAreaName = '';
     // ⚡ Bolt: Store the best encounter reference and defer mapping EncounterDetails until after the loop
     // to prevent redundant array allocations and O(N) mapping operations for every missing Pokémon.
-    let bestE: NonNullable<NonNullable<AssistantApiData['ancestralEncounters'][number]>[number]>['enc'][number] | null = null;
+    let bestE: (typeof encData.enc)[0] | null = null;
 
     for (const e of encData.enc) {
       if (e.v !== displayVersionId) continue;
@@ -198,7 +198,8 @@ export function generateCatchSuggestions(
 
     let bestDist = 999;
     let bestAreaName = '';
-    let bestE: NonNullable<NonNullable<AssistantApiData['ancestralEncounters'][number]>[number]>['enc'][number] | null = null;
+    let bestE: NonNullable<NonNullable<AssistantApiData['ancestralEncounters'][number]>[number]>['enc'][number] | null =
+      null;
     let bestAncestorId: number | null = null;
 
     for (const ancestorIdStr in ancestralData) {
