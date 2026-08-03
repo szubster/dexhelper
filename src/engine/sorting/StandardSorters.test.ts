@@ -52,8 +52,8 @@ describe('StandardSorters', () => {
       expect(sorter(p2, p1)).toBeLessThan(0);
     });
 
-    it('sorts by Hoenn dex order for regional variant', () => {
-      const sorter = new DexNumberSorter({ variant: 'regional' }).sort;
+    it('sorts by Hoenn dex order for regional variant Gen 3 (Ruby/Sapphire/Emerald)', () => {
+      const sorter = new DexNumberSorter({ variant: 'regional', generation: 3, gameVersion: 'emerald' }).sort;
       // Treecko (252) is #1 in Hoenn Dex, Abra (63) is #39, Bulbasaur (1) is not in Hoenn Dex
       const treecko = createSortable(252, 5);
       const abra = createSortable(63, 5);
@@ -65,15 +65,32 @@ describe('StandardSorters', () => {
       expect(sorter(bulbasaur, treecko)).toBeGreaterThan(0);
     });
 
-    it('sorts by National Dex order for regional variant if both are not in Hoenn Dex', () => {
-      const sorter = new DexNumberSorter({ variant: 'regional' }).sort;
-      // Bulbasaur (1) and Charmander (4) are not in Hoenn Dex
+    it('falls back to National Dex order for regional variant Gen 3 (FireRed/LeafGreen)', () => {
+      const sorter = new DexNumberSorter({ variant: 'regional', generation: 3, gameVersion: 'firered' }).sort;
+      const treecko = createSortable(252, 5);
       const bulbasaur = createSortable(1, 5);
-      const charmander = createSortable(4, 5);
 
-      expect(sorter(bulbasaur, charmander)).toBeLessThan(0);
-      expect(sorter(charmander, bulbasaur)).toBeGreaterThan(0);
-      expect(sorter(bulbasaur, bulbasaur)).toBe(0);
+      expect(sorter(bulbasaur, treecko)).toBeLessThan(0);
+      expect(sorter(treecko, bulbasaur)).toBeGreaterThan(0);
+    });
+
+    it('falls back to National Dex order for regional variant Gen 1 and Gen 2', () => {
+      const sorterGen1 = new DexNumberSorter({ variant: 'regional', generation: 1 }).sort;
+      const sorterGen2 = new DexNumberSorter({ variant: 'regional', generation: 2 }).sort;
+
+      const chikorita = createSortable(152, 5);
+      const bulbasaur = createSortable(1, 5);
+
+      expect(sorterGen1(bulbasaur, chikorita)).toBeLessThan(0);
+      expect(sorterGen2(bulbasaur, chikorita)).toBeLessThan(0);
+    });
+
+    it('handles missing instance properties gracefully', () => {
+      const sorter = new DexNumberSorter({ variant: 'national' }).sort;
+      const p1 = {} as SortablePokemon;
+      const p2 = createSortable(1, 5);
+      expect(sorter(p1, p2)).toBeGreaterThan(0);
+      expect(sorter(p2, p1)).toBeLessThan(0);
     });
   });
 
@@ -92,6 +109,13 @@ describe('StandardSorters', () => {
       const p2 = createSortable(2, 10);
       expect(sorter(p1, p2)).toBeGreaterThan(0);
       expect(sorter(p2, p1)).toBeLessThan(0);
+    });
+
+    it('handles missing instance properties gracefully by defaulting level to 0', () => {
+      const sorter = new LevelSorter({ direction: 'asc' }).sort;
+      const p1 = {} as SortablePokemon; // Level will default to 0
+      const p2 = createSortable(1, 5);
+      expect(sorter(p1, p2)).toBeLessThan(0);
     });
   });
 
@@ -123,6 +147,23 @@ describe('StandardSorters', () => {
       const p2 = createSortable(2, 5, undefined, [1]);
       expect(sorter(p1, p2)).toBe(0);
     });
+
+    it('filters out Steel (9) and Dark (17) types for Gen 1', () => {
+      const sorter = new TypeSorter({ generation: 1 }).sort;
+      // Magnemite is Electric (13) and Steel (9). In Gen 1, it should just be Electric.
+      const magnemite = createSortable(81, 5, undefined, [13, 9]);
+      const electabuzz = createSortable(125, 5, undefined, [13]);
+
+      // Since Steel is filtered out, both have only [13], so they should be equal
+      expect(sorter(magnemite, electabuzz)).toBe(0);
+
+      // Umbreon is Dark (17). In Gen 1 context, it should have no types.
+      const umbreon = createSortable(197, 5, undefined, [17]);
+      const porygon = createSortable(137, 5, undefined, [1]); // Normal (1)
+
+      // Porygon has type 1, Umbreon has no types (Infinity), so Porygon is less.
+      expect(sorter(porygon, umbreon)).toBeLessThan(0);
+    });
   });
 
   describe('AlphaSorter', () => {
@@ -145,6 +186,13 @@ describe('StandardSorters', () => {
       const p1 = createSortable(2, 5);
       const p2 = createSortable(10, 5);
       expect(sorter(p1, p2)).toBeGreaterThan(0); // '2' > '10' string comparison
+    });
+
+    it('handles missing instance properties gracefully', () => {
+      const sorter = new AlphaSorter().sort;
+      const p1 = {} as SortablePokemon; // Resolves to 'Infinity'
+      const p2 = createSortable(2, 5); // Resolves to '2'
+      expect(sorter(p1, p2)).toBeGreaterThan(0);
     });
   });
 });

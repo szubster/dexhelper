@@ -40,8 +40,8 @@ While `PokeData` provides a unified interface, certain properties require specif
    - Write comprehensive unit tests in `src/engine/sorting/StandardSorters.test.ts` to cover cross-generation edge cases, type differences, and regional variants.
 
 ## Acceptance Criteria
-- [ ] `DexNumberSorter` implements Generation-specific Regional Dex adapters (Gen 1 Kanto, Gen 2 Johto, Gen 3 Hoenn/Kanto).
-- [ ] `TypeSorter` correctly handles Gen 1 type differences.
-- [ ] All standard sorters implement robust handling for null/undefined properties across older generations.
-- [ ] Unit tests are written to cover all cross-generation edge cases and pass successfully.
-- [ ] Ensure `pnpm lint` and `pnpm test` pass.
+- [x] `DexNumberSorter` implements Generation-specific Regional Dex adapters (Gen 1 Kanto, Gen 2 Johto, Gen 3 Hoenn/Kanto).
+- [x] `TypeSorter` correctly handles Gen 1 type differences.
+- [x] All standard sorters implement robust handling for null/undefined properties across older generations.
+- [x] Unit tests are written to cover all cross-generation edge cases and pass successfully.
+- [x] Ensure `pnpm lint` and `pnpm test` pass.
