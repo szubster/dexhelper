@@ -26,4 +26,6 @@ notes: ''
 Write E2E tests to verify that the Bash timeout wrapper works as expected.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-355-393-bash-timeout-e2e-impl
+- [ ] task-355-394-bash-timeout-e2e-qa
