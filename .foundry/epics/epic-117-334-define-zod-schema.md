@@ -23,5 +23,5 @@ This epic focuses on creating a strict Zod schema for parsing and validating `.f
 
 ## Acceptance Criteria
 - [x] Break down into Stories
-- [ ] story-334-336-zod-schema-definition
-- [ ] story-334-337-zod-schema-integration
+- [x] story-334-336-zod-schema-definition
+- [x] story-334-337-zod-schema-integration
