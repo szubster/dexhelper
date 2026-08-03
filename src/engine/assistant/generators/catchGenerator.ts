@@ -125,7 +125,7 @@ export function generateCatchSuggestions(
     let bestAreaName = '';
     // ⚡ Bolt: Store the best encounter reference and defer mapping EncounterDetails until after the loop
     // to prevent redundant array allocations and O(N) mapping operations for every missing Pokémon.
-    let bestE: (typeof encData.enc)[0] | null = null;
+    let bestE: NonNullable<NonNullable<AssistantApiData['ancestralEncounters'][number]>[number]>['enc'][number] | null = null;
 
     for (const e of encData.enc) {
       if (e.v !== displayVersionId) continue;
@@ -175,5 +175,105 @@ export function generateCatchSuggestions(
       priority: Math.max(10, 110 - group.dist * 12),
       encounterInfo: group.encounterInfo,
     });
+  }
+
+  // C. Pre-evolution logic (Local & Nearby)
+  // If the target itself cannot be found, check if a pre-evolution can be caught nearby.
+  const preEvoNearbyByArea = new Map<
+    string,
+    {
+      dist: number;
+      areaName: string;
+      targetPids: Set<number>;
+      ancestorPids: Set<number>;
+      encounterInfo: Record<number, EncounterDetail[]>;
+    }
+  >();
+
+  for (const pid of queryTargets) {
+    if (localPids.has(pid)) continue;
+
+    const ancestralData = apiData.ancestralEncounters?.[pid];
+    if (!ancestralData) continue;
+
+    let bestDist = 999;
+    let bestAreaName = '';
+    let bestE: NonNullable<NonNullable<AssistantApiData['ancestralEncounters'][number]>[number]>['enc'][number] | null = null;
+    let bestAncestorId: number | null = null;
+
+    for (const ancestorIdStr in ancestralData) {
+      const ancestorId = parseInt(ancestorIdStr, 10);
+      const encData = ancestralData[ancestorId];
+      if (!encData?.enc) continue;
+
+      for (const e of encData.enc) {
+        if (e.v !== displayVersionId) continue;
+
+        const distInfo = strategy.getMapDistance(saveData.currentMapId, e.aid, apiData.allLocations);
+        if (distInfo && distInfo.distance < bestDist) {
+          bestDist = distInfo.distance;
+          bestAreaName = distInfo.name;
+          bestE = e;
+          bestAncestorId = ancestorId;
+        }
+      }
+    }
+
+    if (bestDist < 8 && bestE && bestAncestorId) {
+      const areaId = bestE.aid;
+      const bestDetails: EncounterDetail[] = [];
+      for (let d = 0; d < bestE.d.length; d++) {
+        const ed = bestE.d[d];
+        if (!ed) continue;
+        bestDetails.push({
+          chance: ed.c,
+          method: METHOD_NAMES[ed.m] || 'walk',
+          minLevel: ed.min,
+          maxLevel: ed.max,
+          areaId,
+          time: ed.t,
+        });
+      }
+
+      const key = `${areaId}-${bestDist}`;
+      let group = preEvoNearbyByArea.get(key);
+      if (!group) {
+        group = {
+          dist: bestDist,
+          areaName: bestAreaName,
+          targetPids: new Set(),
+          ancestorPids: new Set(),
+          encounterInfo: {},
+        };
+        preEvoNearbyByArea.set(key, group);
+      }
+      group.targetPids.add(pid);
+      group.ancestorPids.add(bestAncestorId);
+      group.encounterInfo[bestAncestorId] = bestDetails;
+    }
+  }
+
+  for (const [key, group] of preEvoNearbyByArea.entries()) {
+    // Only suggest pre-evolutions if the target itself isn't already suggested in the same area
+    const nearbyGroup = nearbyByArea.get(key);
+    let isFullyRedundant = true;
+    for (const pid of group.targetPids) {
+      if (!nearbyGroup?.pids.has(pid)) {
+        isFullyRedundant = false;
+        break;
+      }
+    }
+
+    if (!isFullyRedundant) {
+      suggestions.push({
+        id: `catch-preevo-nearby-${key}`,
+        category: 'Catch',
+        title: `Nearby Pre-evolution: ${group.areaName}`,
+        description: `Catch a pre-evolution at ${group.areaName} to evolve into #${Array.from(group.targetPids).join(', #')}.`,
+        pokemonIds: Array.from(group.ancestorPids),
+        priority: Math.max(5, 100 - group.dist * 12),
+        encounterInfo: group.encounterInfo,
+      });
+    }
   }
 }

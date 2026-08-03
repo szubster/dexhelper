@@ -150,6 +150,49 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     }
   }
 
+  // Pre-fetch ancestral encounters
+  const allAncestorPids = new Set<number>();
+  for (let i = 0; i < queryTargets.length; i++) {
+    const pid = queryTargets[i];
+    if (pid === undefined) continue;
+    const p = pokemonMetadata[pid];
+    if (p?.efrm) {
+      for (let j = 0; j < p.efrm.length; j++) {
+        const ancestorId = p.efrm[j];
+        if (ancestorId !== undefined) {
+          allAncestorPids.add(ancestorId);
+        }
+      }
+    }
+  }
+
+  const ancestorEncountersArray = await pokeDB.getEncountersBulk(Array.from(allAncestorPids));
+  const ancestorEncountersByPid = new Map<number, LocationAreaEncounters>();
+  for (let i = 0; i < ancestorEncountersArray.length; i++) {
+    const e = ancestorEncountersArray[i];
+    if (e && !(e instanceof Error)) {
+      ancestorEncountersByPid.set(e.pid, e);
+    }
+  }
+
+  for (let i = 0; i < queryTargets.length; i++) {
+    const targetPid = queryTargets[i];
+    if (targetPid === undefined) continue;
+    const p = pokemonMetadata[targetPid];
+    if (p?.efrm && p.efrm.length > 0) {
+      ancestralEncounters[targetPid] = {};
+      for (let j = 0; j < p.efrm.length; j++) {
+        const ancestorId = p.efrm[j];
+        if (ancestorId !== undefined) {
+          const enc = ancestorEncountersByPid.get(ancestorId);
+          if (enc) {
+            ancestralEncounters[targetPid][ancestorId] = enc;
+          }
+        }
+      }
+    }
+  }
+
   // ⚡ Bolt: Removed Object.fromEntries(map(...)) chain to prevent intermediate array allocations
   // Why? Transforming arrays iteratively directly into an object creates 0 intermediate tuples, reducing memory overhead from O(N) to O(1).
   const areaNames: Record<number, string> = {};
