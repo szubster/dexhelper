@@ -33,7 +33,7 @@ Update `.github/scripts/foundry-orchestrator.ts` Phase 3.6 logic to correctly aw
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-346-388-extend-phase-3-6-cancelled-nodes-passthrough
+- [x] task-346-388-extend-phase-3-6-cancelled-nodes-passthrough
 
 ### Passthrough Validation Note
 The required changes and tests for this story have already been implemented in `.github/scripts/foundry-orchestrator.ts` and `.github/scripts/foundry-orchestrator.test.ts` during a previous attempt. The tech lead should create the required passthrough tasks.
