@@ -2,12 +2,12 @@
 id: story-340-346-extend-phase-3-6-cancelled-nodes
 type: STORY
 title: Extend Phase 3.6 for CANCELLED nodes
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-25'
-updated_at: '2026-08-02'
+updated_at: '2026-08-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2640828470905402818'
 pr_number: null
 parent: epic-108-340-extend-phase-3-6-cancelled-nodes-retry
 tags:
