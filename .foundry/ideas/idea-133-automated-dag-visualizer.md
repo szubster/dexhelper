@@ -2,7 +2,7 @@
 id: idea-133-automated-dag-visualizer
 type: IDEA
 title: Automated DAG Visualizer via Mermaid Generation
-status: PENDING
+status: CANCELLED
 owner_persona: product_manager
 created_at: "2026-08-03"
 updated_at: "2026-08-03"
@@ -15,6 +15,7 @@ tags:
   - tooling
   - visualization
 rejection_count: 0
+rejection_reason: "There is already a GUI"
 notes: "Proposed to improve the developer experience and observability of the Foundry Orchestrator."
 ---
 
