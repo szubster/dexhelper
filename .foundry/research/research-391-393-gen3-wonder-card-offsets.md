@@ -2,7 +2,7 @@
 id: research-391-393-gen3-wonder-card-offsets
 type: RESEARCH
 title: Investigate Gen 3 Wonder Card Offsets
-status: READY
+status: PENDING
 owner_persona: researcher
 created_at: '2026-08-03'
 updated_at: '2026-08-03'
@@ -17,7 +17,9 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: 'Created via late binding as specific memory offsets for Wonder Cards are unknown.'
+notes: >-
+  Created via late binding as specific memory offsets for Wonder Cards are
+  unknown.
 ---
 
 # Investigate Gen 3 Wonder Card Offsets

@@ -2,10 +2,10 @@
 id: prd-116-117-zod-schema-validation-orchestrator
 type: PRD
 title: Implement Zod for Strict Node Schema Validation in Foundry Orchestrator
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-07-17'
-updated_at: '2026-07-19'
+updated_at: '2026-08-03'
 depends_on: []
 jules_session_id: null
 parent: idea-116-zod-schema-validation-orchestrator

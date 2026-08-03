@@ -2,10 +2,10 @@
 id: epic-108-340-extend-phase-3-6-cancelled-nodes-retry
 type: EPIC
 title: Extend Phase 3.6 for CANCELLED nodes (Retry)
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-24'
-updated_at: '2026-07-26'
+updated_at: '2026-08-03'
 depends_on:
   - research-108-339-investigate-orchestrator-phase-3-6-failure
 jules_session_id: null

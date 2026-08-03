@@ -2,7 +2,7 @@
 id: task-355-393-bash-timeout-e2e-impl
 type: TASK
 title: Bash Timeout Wrapper E2E Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-03'
 updated_at: '2026-08-03'

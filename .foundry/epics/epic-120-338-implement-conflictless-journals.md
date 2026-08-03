@@ -2,10 +2,10 @@
 id: epic-120-338-implement-conflictless-journals
 type: EPIC
 title: Implement Conflict-less Agent Journals
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-21'
-updated_at: '2026-07-22'
+updated_at: '2026-08-03'
 depends_on: []
 jules_session_id: null
 parent: prd-120-335-conflictless-agent-journals
