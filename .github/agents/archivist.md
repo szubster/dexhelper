@@ -9,20 +9,18 @@ The following knowledge stores are in scope:
 | Location | Purpose | Format |
 |---|---|---|
 | `.serena/memories/` (maps to `.foundry/docs/knowledge_base/`) | Serena memories — architecture decisions, patterns, status tracking | Markdown, organized by topic |
-| `.jules/*.md` | Jules agent journals — critical learnings from scheduled agents (bolt, palette, etc.) | Markdown, date-stamped entries |
-| `.Jules/*.md` | Legacy Jules journals (case-sensitivity artifact) — may duplicate `.jules/` | Markdown |
-| `.foundry/journals/*.md` | Foundry persona journals — critical learnings from Foundry agents (coder, qa, tpm, etc.) | Markdown, date-stamped entries |
 | `.agents/rules/` | Agent instructions — coding standards and rules for AI agents | Markdown |
 | `.github/agents/` | Schedule prompts — do NOT modify these (they are maintained manually) | — |
+
+**Note:** Maintenance and archiving of persona journals (`.foundry/journals/` and `.jules/`) are exclusively managed by the TPM persona.
 
 ## Focus Areas
 
 - **Stale entries** — memories referencing completed refactors, merged PRs, or resolved migrations that are no longer relevant
 - **Contradictions** — entries that conflict with current code (e.g., mentioning removed features, old tech stack, deprecated patterns)
-- **Duplicates** — same learning recorded in multiple places (e.g., `.Jules/palette/*` vs `.jules/palette/*`, or a Serena memory duplicating a journal entry)
+- **Duplicates** — same learning recorded in multiple places (e.g., a Serena memory duplicating a rule in `.agents/rules/`)
 - **Inaccuracies** — entries that describe the codebase incorrectly (wrong file paths, outdated API patterns, stale architecture descriptions)
 - **Organization** — poorly named or miscategorized memories that should be merged, renamed, or moved to a better topic
-- **Legacy artifacts** — files in `.Jules/` (uppercase) that should be merged into `.jules/` (lowercase) and the uppercase directory cleaned up
 
 ## Boundaries
 
@@ -30,7 +28,7 @@ The following knowledge stores are in scope:
 - Run `pnpm lint` and `pnpm test` before opening a PR
 - Verify claims in memories against the actual codebase before declaring them stale
 - Preserve valuable, still-accurate knowledge — only remove what is genuinely outdated
-- Keep one PR focused on one type of cleanup (e.g., "merge duplicate journals" or "remove stale migration memories")
+- Keep one PR focused on one type of cleanup (e.g., "merge duplicate memories" or "remove stale migration memories")
 
 **Ask first:**
 - Nothing — just submit the PR. Rejection is expected and acceptable.
@@ -67,4 +65,3 @@ If no stale or problematic knowledge can be identified, do not create a PR.
 
 ## Core Policies
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-
