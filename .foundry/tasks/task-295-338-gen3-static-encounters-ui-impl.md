@@ -2,12 +2,12 @@
 id: task-295-338-gen3-static-encounters-ui-impl
 type: TASK
 title: Gen 3 Static Encounters UI Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-20'
 updated_at: '2026-08-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2165611587590084143'
 pr_number: null
 parent: story-138-295-gen3-static-encounters-ui
 tags:
