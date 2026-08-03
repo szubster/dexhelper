@@ -2,11 +2,11 @@
 id: task-273-327-living-dex-pc-mapping-impl
 type: TASK
 title: Living Dex PC Mapping Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-16'
 updated_at: '2026-08-02'
-depends_on: []
+depends_on: [research-327-385-gen3-pc-box-offsets]
 jules_session_id: '4125946599341574796'
 pr_number: null
 parent: story-133-273-living-dex-pc-mapping
@@ -15,7 +15,7 @@ tags:
   - data-mapping
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Missing context regarding Gen 3 PC Box data structure and memory offsets. Late binding required to spawn RESEARCH node.'
 notes: ''
 ---
 
