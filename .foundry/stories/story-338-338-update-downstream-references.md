@@ -33,4 +33,4 @@ Various nodes, scripts, and personas (like the Agile Coach or resurrected FAILED
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break this Story down into actionable Tasks.
-- [ ] task-338-388-update-journal-references
+- [x] task-338-388-update-journal-references
