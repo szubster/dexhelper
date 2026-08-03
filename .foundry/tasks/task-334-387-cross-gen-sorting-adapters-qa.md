@@ -2,13 +2,13 @@
 id: task-334-387-cross-gen-sorting-adapters-qa
 type: TASK
 title: QA Cross-Generation Sorting Adapters
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-02'
 updated_at: '2026-08-03'
 depends_on:
   - task-334-386-cross-gen-sorting-adapters-impl
-jules_session_id: null
+jules_session_id: '15284529042228902330'
 pr_number: null
 parent: story-136-334-sorting-cross-gen-considerations-retry
 tags:
