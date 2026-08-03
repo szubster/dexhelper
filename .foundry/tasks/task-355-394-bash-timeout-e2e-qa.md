@@ -26,5 +26,5 @@ notes: ''
 Verify the implementation of the E2E tests for the Bash timeout wrapper.
 
 ## Acceptance Criteria
-- [ ] Review PR for `task-355-393-bash-timeout-e2e-impl`.
-- [ ] Run the test suite and verify new E2E tests pass reliably.
+- [x] Review PR for `task-355-393-bash-timeout-e2e-impl`.
+- [x] Run the test suite and verify new E2E tests pass reliably.
