@@ -4,51 +4,53 @@ import { initializeWithSave } from '../test-utils';
 
 test.describe('Permanent Failures Dashboard', () => {
   test('should display nodes and filter correctly based on permanent failure status', async ({ page }) => {
-    // Intercept BEFORE navigating to dag
-    // Need to do this before initializeWithSave because initializeWithSave also loads the page
-    // We just need to make sure we don't intercept other things
-    await page.route('**/data/foundry.json', async (route) => {
-      const json = [
-        {
-          filePath: '.foundry/tasks/task-1.md',
-          data: {
-            id: 'task-1',
-            type: 'TASK',
-            status: 'FAILED',
-            rejection_count: MAX_REJECTION_THRESHOLD,
-            owner_persona: 'coder',
-            depends_on: [],
+    // Intercept with high priority by intercepting specifically exact endsWith match
+    // since some other requests or initial loads might trigger interceptors
+    await page.route(
+      (url) => url.pathname.endsWith('data/foundry.json'),
+      async (route) => {
+        const json = [
+          {
+            filePath: '.foundry/tasks/task-1.md',
+            data: {
+              id: 'task-1',
+              type: 'TASK',
+              status: 'FAILED',
+              rejection_count: MAX_REJECTION_THRESHOLD,
+              owner_persona: 'coder',
+              depends_on: [],
+            },
           },
-        },
-        {
-          filePath: '.foundry/tasks/task-2.md',
-          data: {
-            id: 'task-2',
-            type: 'TASK',
-            status: 'FAILED',
-            rejection_count: MAX_REJECTION_THRESHOLD - 1,
-            owner_persona: 'coder',
-            depends_on: [],
+          {
+            filePath: '.foundry/tasks/task-2.md',
+            data: {
+              id: 'task-2',
+              type: 'TASK',
+              status: 'FAILED',
+              rejection_count: MAX_REJECTION_THRESHOLD - 1,
+              owner_persona: 'coder',
+              depends_on: [],
+            },
           },
-        },
-        {
-          filePath: '.foundry/tasks/task-3.md',
-          data: {
-            id: 'task-3',
-            type: 'TASK',
-            status: 'COMPLETED',
-            rejection_count: 0,
-            owner_persona: 'coder',
-            depends_on: [],
+          {
+            filePath: '.foundry/tasks/task-3.md',
+            data: {
+              id: 'task-3',
+              type: 'TASK',
+              status: 'COMPLETED',
+              rejection_count: 0,
+              owner_persona: 'coder',
+              depends_on: [],
+            },
           },
-        },
-      ];
-      await route.fulfill({
-        status: 200,
-        contentType: 'application/json',
-        body: JSON.stringify(json),
-      });
-    });
+        ];
+        await route.fulfill({
+          status: 200,
+          contentType: 'application/json',
+          body: JSON.stringify(json),
+        });
+      },
+    );
 
     // We must initialize first to have access to the app
     await initializeWithSave(page);
