@@ -2,12 +2,12 @@
 id: task-334-386-cross-gen-sorting-adapters-impl
 type: TASK
 title: Implement Cross-Generation Sorting Adapters
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-02'
 updated_at: '2026-08-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5211414718016982513'
 pr_number: null
 parent: story-136-334-sorting-cross-gen-considerations-retry
 tags:
