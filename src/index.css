@@ -206,3 +206,6 @@ body {
     @apply tactical-focus;
   }
 }
+@utility tactical-skeleton {
+  @apply animate-pulse rounded-none border border-dashed border-zinc-800/50 bg-zinc-900/50;
+}

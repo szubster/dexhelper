@@ -47,7 +47,7 @@ function DashboardPage() {
 
   return (
     <div className="mb-20 flex h-full flex-col gap-6 pt-4 pb-[env(safe-area-inset-bottom,16px)] md:mb-0">
-      <Suspense fallback={<div className="h-32 animate-pulse rounded-lg bg-zinc-900/50" />}>
+      <Suspense fallback={<div className="tactical-skeleton h-32" />}>
         {saveData.generation === 3 ? (
           <>
             <BattleFrontierDashboard saveData={saveData} />

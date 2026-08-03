@@ -1,5 +1,5 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
-import { Bug, Egg, Flag, Info, Loader2, Sparkles, Target, Zap } from 'lucide-react';
+import { Bug, Egg, Flag, Info, Sparkles, Target, Zap } from 'lucide-react';
 import React from 'react';
 import type { SuggestionCategory } from '../engine/assistant/strategies/types';
 import type { SaveData } from '../engine/saveParser/index';
@@ -163,13 +163,10 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
 
       {isLoading ? (
         <div
-          className="relative flex items-center justify-center border border-zinc-800/50 bg-zinc-900/50 p-12"
-          // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role
+          className="tactical-skeleton h-64 w-full" // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role
           role="status"
           aria-live="polite"
         >
-          <CornerCrosshairs thickness={2} className="h-2 w-2 border-white/20" />
-          <Loader2 className="animate-spin text-zinc-500" size={32} />
           <span className="sr-only">Loading suggestions...</span>
         </div>
       ) : suggestions.length === 0 ? (
