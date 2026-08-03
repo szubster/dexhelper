@@ -4,11 +4,9 @@ import { initializeWithSave } from '../test-utils';
 
 test.describe('Permanent Failures Dashboard', () => {
   test('should display nodes and filter correctly based on permanent failure status', async ({ page }) => {
-    // We must initialize first to have access to the app
-    // We should do this first before intercepting to avoid breaking initial app load
-    await initializeWithSave(page);
-
     // Intercept BEFORE navigating to dag
+    // Need to do this before initializeWithSave because initializeWithSave also loads the page
+    // We just need to make sure we don't intercept other things
     await page.route('**/data/foundry.json', async (route) => {
       const json = [
         {
@@ -52,7 +50,9 @@ test.describe('Permanent Failures Dashboard', () => {
       });
     });
 
-    // Some tests fail because the link might be named just DAG on mobile via BottomNav
+    // We must initialize first to have access to the app
+    await initializeWithSave(page);
+
     // Let's navigate directly using page.goto but to the correct base URL
     await page.goto('./dag');
 
