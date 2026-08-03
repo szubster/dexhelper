@@ -16,7 +16,7 @@ tags:
   - data-mapping
 research_references: []
 rejection_count: 2
-rejection_reason: Circular dependency detected
+rejection_reason: Suspended pending research
 notes: ''
 ---
 

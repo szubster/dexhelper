@@ -2,21 +2,21 @@
 id: research-327-385-gen3-pc-box-offsets
 type: RESEARCH
 title: Research PC Box Memory Offsets for Generation 3
-status: FAILED
+status: PENDING
 owner_persona: researcher
 created_at: '2026-08-02'
 updated_at: '2026-08-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: task-273-327-living-dex-pc-mapping-impl
+parent: story-133-273-living-dex-pc-mapping
 tags:
   - backend
   - save-parsing
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: Circular dependency detected
+rejection_reason: ''
 notes: ''
 ---
 
