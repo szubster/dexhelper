@@ -2,12 +2,12 @@
 id: task-338-388-update-journal-references
 type: TASK
 title: Update Journal References in Agent Prompts and Docs
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-02'
-updated_at: '2026-08-02'
+updated_at: '2026-08-03'
 depends_on: []
-jules_session_id: '3014320265389714112'
+jules_session_id: null
 pr_number: null
 parent: story-338-338-update-downstream-references
 tags:

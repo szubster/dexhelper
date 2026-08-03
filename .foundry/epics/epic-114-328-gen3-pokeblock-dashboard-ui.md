@@ -2,10 +2,10 @@
 id: epic-114-328-gen3-pokeblock-dashboard-ui
 type: EPIC
 title: Gen 3 Pokéblock Exact Stats Viewer UI
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-07-14'
+updated_at: '2026-08-03'
 depends_on:
   - epic-114-327-gen3-pokeblock-case-parsing
 jules_session_id: null
@@ -19,7 +19,9 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  epic-114-327-gen3-pokeblock-case-parsing
 notes: ''
 ---
 
