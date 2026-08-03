@@ -2,10 +2,10 @@
 id: task-273-328-living-dex-pc-mapping-qa
 type: TASK
 title: Living Dex PC Mapping Verification
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-07-16'
-updated_at: '2026-07-16'
+updated_at: '2026-08-03'
 depends_on:
   - task-273-327-living-dex-pc-mapping-impl
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - data-mapping
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-273-327-living-dex-pc-mapping-impl
 notes: ''
 ---
 

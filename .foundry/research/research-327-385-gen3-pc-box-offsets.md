@@ -2,7 +2,7 @@
 id: research-327-385-gen3-pc-box-offsets
 type: RESEARCH
 title: Research PC Box Memory Offsets for Generation 3
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-08-02'
 updated_at: '2026-08-03'
@@ -15,8 +15,8 @@ tags:
   - save-parsing
   - gen3
 research_references: []
-rejection_count: 0
-rejection_reason: Circular dependency detected
+rejection_count: 1
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

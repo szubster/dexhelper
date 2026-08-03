@@ -2,10 +2,10 @@
 id: story-133-273-living-dex-pc-mapping
 type: STORY
 title: Living Dex PC Mapping
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-07-16'
+updated_at: '2026-08-03'
 depends_on: []
 jules_session_id: null
 pr_number: null

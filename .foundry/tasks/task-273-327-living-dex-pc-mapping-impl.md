@@ -2,7 +2,7 @@
 id: task-273-327-living-dex-pc-mapping-impl
 type: TASK
 title: Living Dex PC Mapping Implementation
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-16'
 updated_at: '2026-08-03'
@@ -15,8 +15,8 @@ tags:
   - living-dex
   - data-mapping
 research_references: []
-rejection_count: 2
-rejection_reason: Circular dependency detected
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 
