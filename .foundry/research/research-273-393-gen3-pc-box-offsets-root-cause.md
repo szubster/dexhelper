@@ -2,12 +2,12 @@
 id: research-273-393-gen3-pc-box-offsets-root-cause
 type: RESEARCH
 title: Research PC Box Memory Offsets for Generation 3 Root Cause
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-04'
 updated_at: '2026-08-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6535908287339075091'
 pr_number: null
 parent: story-133-273-living-dex-pc-mapping
 tags:
