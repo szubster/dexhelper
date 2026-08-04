@@ -36,10 +36,11 @@ Leverage DexHelper's programmatic save parsing to expose hidden Secret Base and 
   - [x] .foundry/epics/epic-045-070-gen3-secret-base-parsing.md
   - [x] .foundry/epics/epic-045-071-gen3-secret-base-radar-integration.md
   - [x] .foundry/epics/epic-045-072-gen3-secret-base-dashboard.md
-  - [ ] .foundry/archive/research/research-045-321-investigate-secret-base-failure.md
-  - [ ] .foundry/epics/epic-045-324-gen3-secret-base-parsing-v2.md
-  - [ ] .foundry/epics/epic-045-325-gen3-secret-base-radar-integration-v2.md
-  - [ ] .foundry/epics/epic-045-326-gen3-secret-base-dashboard-v2.md
-
-### Auditor Rejection
-Verification failed. The PRD's new child dependencies are still active and must be completed before the PRD can be verified.
+  - [x] .foundry/archive/research/research-045-321-investigate-secret-base-failure.md
+  - [x] .foundry/epics/epic-045-324-gen3-secret-base-parsing-v2.md
+  - [x] .foundry/epics/epic-045-325-gen3-secret-base-radar-integration-v2.md
+  - [x] .foundry/epics/epic-045-326-gen3-secret-base-dashboard-v2.md
+  - [ ] research-045-396-investigate-secret-base-v2-failure
+  - [ ] epic-045-397-gen3-secret-base-parsing-v3
+  - [ ] epic-045-398-gen3-secret-base-radar-integration-v3
+  - [ ] epic-045-399-gen3-secret-base-dashboard-v3
