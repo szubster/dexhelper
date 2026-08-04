@@ -11,3 +11,5 @@ This reinforces the critical rule from ADR 007 regarding the Parent-Linked DAG e
 * **The Empty PR Checkbox Policy**: Even when all downstream work is physically finished by implementation personas, the parent generative node (like this Epic) cannot automatically close itself. A generative persona MUST wake up and check off the exact string references to its children in its markdown body to formally signal to the orchestrator that the dependency chain is complete.
 * **YAML Immutability for Completions**: The only valid way to progress a successful node to `VERIFYING` is by updating its markdown checkboxes and submitting an empty PR. Manually editing the `status` field to `VERIFYING` or `COMPLETED` is strictly prohibited.
 * This pattern of having a generative persona (Story Owner) wake up to resolve its own completed children via an empty PR is standard operating procedure for the Foundry graph.
+## Epic 045-070
+I verified that all child stories are marked as completed and all acceptance criteria are met. The Epic is already complete and I will submit an empty PR.
