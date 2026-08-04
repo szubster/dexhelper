@@ -70,6 +70,10 @@
       "maxSize": "500kb"
     },
     {
+      "path": "workbox-*.js",
+      "maxSize": "50kb"
+    },
+    {
       "path": "**/*",
       "maxSize": "100kb"
     }
