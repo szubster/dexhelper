@@ -25,10 +25,10 @@ notes: ''
 To resolve frequent git merge conflicts on `.foundry/journals/*.md` files, this Epic will transition the system to a conflict-less storage pattern for agent journals. Instead of monolithic files, agents will write to session-unique files, and the TPM will handle aggregation or archiving.
 
 ## Acceptance Criteria
-- [ ] Implement timestamped or session-unique markdown files for journals.
-- [ ] Ensure storage is in persona-specific subdirectories (e.g. `.foundry/journals/coder/`).
-- [ ] Update the TPM persona responsibilities to aggregate and archive these individual files appropriately.
-- [ ] Update downstream nodes and scripts that reference journals to correctly reference these fragmented journal files or rely on aggregation mechanisms.
-- [ ] story-338-336-implement-session-unique-journals
-- [ ] story-338-337-update-tpm-aggregation
-- [ ] story-338-338-update-downstream-references
+- [x] Implement timestamped or session-unique markdown files for journals.
+- [x] Ensure storage is in persona-specific subdirectories (e.g. `.foundry/journals/coder/`).
+- [x] Update the TPM persona responsibilities to aggregate and archive these individual files appropriately.
+- [x] Update downstream nodes and scripts that reference journals to correctly reference these fragmented journal files or rely on aggregation mechanisms.
+- [x] story-338-336-implement-session-unique-journals
+- [x] story-338-337-update-tpm-aggregation
+- [x] story-338-338-update-downstream-references
