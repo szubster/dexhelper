@@ -2,7 +2,7 @@
 id: research-099-396-investigate-indexeddb-schema-failure
 type: RESEARCH
 title: Investigate IndexedDB Schema Design Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-08-04'
 updated_at: '2026-08-04'
@@ -18,7 +18,7 @@ tags:
 research_references:
   - epic-099-130-indexeddb-schema-design
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: ACTIVE node missing or malformed session ID
 notes: ''
 ---
 

@@ -2,7 +2,7 @@
 id: story-338-356-circular-dependency-detection-e2e
 type: STORY
 title: Circular Dependency Detection E2E
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-04'
 updated_at: '2026-08-04'

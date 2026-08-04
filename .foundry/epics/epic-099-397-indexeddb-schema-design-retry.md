@@ -2,7 +2,7 @@
 id: epic-099-397-indexeddb-schema-design-retry
 type: EPIC
 title: IndexedDB Storage Schema Design (Retry)
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-08-04'
 updated_at: '2026-08-04'
@@ -17,7 +17,7 @@ tags:
   - history
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
 notes: ''
 ---
 

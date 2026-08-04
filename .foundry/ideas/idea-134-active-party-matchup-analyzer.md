@@ -2,10 +2,10 @@
 id: idea-134-active-party-matchup-analyzer
 type: IDEA
 title: Gen 1-3 Active Party Matchup Analyzer
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-08-03'
-updated_at: '2026-08-03'
+updated_at: '2026-08-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
