@@ -35,3 +35,4 @@ Implement the logic to predict Pokegear call probability based on Gen 2 save fil
 
 - [ ] story-117-283-pokegear-predictor-engine
 - [ ] story-117-284-pokegear-predictor-ui
+- [ ] story-117-356-pokegear-predictor-e2e
