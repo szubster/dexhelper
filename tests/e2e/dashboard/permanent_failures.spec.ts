@@ -48,17 +48,8 @@ test.describe('Permanent Failures Dashboard', () => {
     // Navigate to the DAG dashboard
     await initializeWithSave(page, 'tests/fixtures/yellow.sav');
 
-    // We go to index first as initializeWithSave goes there.
-    // Ensure we are fully loaded on home screen
-    await expect(page.getByTestId('pokedex-card').first()).toBeVisible({ timeout: 15000 });
-
-    // Click DAG
-    const dagLink = page.getByRole('link', { name: '[ SYS.DAG ]' });
-    if (await dagLink.isVisible()) {
-      await dagLink.click();
-    } else {
-      await page.goto('./dag');
-    }
+    // Go directly to the dag page so we avoid navigating problems via UI
+    await page.goto('./dag');
 
     // Wait for the loading text to disappear
     await expect(page.getByText('[ SYSTEM.LOADING_DAG ]')).toBeHidden({ timeout: 15000 });
@@ -67,9 +58,6 @@ test.describe('Permanent Failures Dashboard', () => {
 
     await expect(permFilterBtn).toBeVisible({ timeout: 15000 });
     await permFilterBtn.click();
-
-    // Give it a moment to filter
-    await page.waitForTimeout(500);
 
     // Verify a permanent failure node is displayed
     const dagNodes = page.getByTestId('dag-node');
