@@ -2,10 +2,10 @@
 id: epic-111-304-gen3-trainer-card-data-extraction
 type: EPIC
 title: 'Epic: Gen 3 Trainer Card Stars Data Extraction'
-status: CANCELLED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-12'
-updated_at: '2026-08-02'
+updated_at: '2026-08-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,8 +18,8 @@ research_references:
   - .foundry/docs/knowledge_base/engine/save_parsing/gen3_hall_of_fame.md
   - .foundry/docs/knowledge_base/gen3_battle_frontier_data.md
   - .foundry/docs/knowledge_base/gen3_pokemon_data_structure.md
-rejection_count: 3
-rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
+rejection_count: 0
+rejection_reason: ''
 notes: ''
 ---
 
@@ -51,3 +51,4 @@ Implement the logic to extract the requisite achievements from the Gen 3 (Emeral
 - [x] Break down into Stories for data extraction implementation.
 - [x] story-304-319-gen3-hof-pokedex-extraction
 - [x] story-304-320-gen3-contest-frontier-extraction
+- [ ] Ensure a final STORY is generated explicitly dedicated to Integration and E2E Verification.
