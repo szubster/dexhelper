@@ -22,4 +22,7 @@ rejection_reason: ''
 Implement End-to-End verification of the Zod schema validation within the Foundry Orchestrator environment.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-356-396-zod-schema-e2e-fixtures-impl
+- [ ] task-356-397-zod-schema-e2e-suite-impl
+- [ ] task-356-398-zod-schema-e2e-qa
