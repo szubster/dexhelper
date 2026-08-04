@@ -2,13 +2,13 @@
 id: story-136-334-sorting-cross-gen-considerations-retry
 type: STORY
 title: Cross-Generation Sorting Considerations and Compatibility (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-18'
-updated_at: '2026-08-03'
+updated_at: '2026-08-04'
 depends_on:
   - story-136-333-sorting-standard-strategies-retry
-jules_session_id: '6629083021265480732'
+jules_session_id: null
 pr_number: null
 parent: epic-106-136-pc-box-sorting-algorithms
 tags:
