@@ -1,36 +1,37 @@
 ---
 id: epic-110-307-tm-hm-compatibility-logic
 type: EPIC
-title: TM/HM Compatibility Engine
-status: CANCELLED
+title: TM/HM Compatibility Engine Logic
+status: PENDING
 owner_persona: story_owner
-created_at: '2026-07-12'
-updated_at: '2026-08-01'
+created_at: "2026-08-04"
+updated_at: "2026-08-04"
 depends_on:
   - epic-110-306-tm-hm-save-parsing
 jules_session_id: null
 pr_number: null
 parent: prd-105-110-tm-hm-inventory-planner
 tags:
-  - feature
   - logic
+  - compatibility
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  epic-110-306-tm-hm-save-parsing
-notes: ''
+rejection_reason: ""
+notes: ""
 ---
 
-# TM/HM Compatibility Engine
+# TM/HM Compatibility Engine Logic
 
-## Overview
-As part of the Gen 1-3 TM/HM Inventory & Compatibility Planner, this Epic focuses on the Compatibility Engine (Logic Layer) requirement. It will determine which of the player's Pokémon can learn specific TMs and identify strategic gaps in their movesets.
+## Description
+This epic covers the Logic Layer of the TM/HM Inventory Planner. It implements a compatibility engine that, given a selected TM/HM, cross-references its corresponding move against the learnsets of all Pokémon currently in the player's Party and PC Boxes.
 
-## Requirements
-- For a selected TM/HM, cross-reference the corresponding move against the learnsets of all Pokémon currently in the player's Party and PC Boxes.
-- Filter and identify which Pokémon can learn the move.
-- Further refine by identifying Pokémon that can learn the move but do not currently have a move of that type, highlighting strategic gaps.
+The engine must filter and identify which Pokémon can learn the move. Furthermore, it should refine the results by identifying Pokémon that are capable of learning the move but do not currently have a move of that type, thereby highlighting strategic gaps for the player.
+
+## Dependencies & Prerequisites
+- Requires the TM/HM inventory and mapping data provided by the Save Parsing epic.
 
 ## Acceptance Criteria
-- [ ] Break down into STORY nodes for compatibility matching and strategic gap identification.
+- [ ] Build compatibility engine to cross-reference TM/HM move with Party and PC Pokémon learnsets.
+- [ ] Implement filtering logic to identify compatible Pokémon.
+- [ ] Implement strategic gap identification logic (Pokémon that can learn the move but lack a move of that type).
+- [ ] A final STORY dedicated exclusively to Integration and E2E Verification must be generated for this EPIC.
