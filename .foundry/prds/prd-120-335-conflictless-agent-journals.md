@@ -32,4 +32,7 @@ To resolve frequent git merge conflicts on `.foundry/journals/*.md` files, we wi
 4. Downstream nodes must correctly reference these fragmented journal files if necessary, or rely on aggregation mechanisms.
 
 ## Acceptance Criteria
-- [x] epic-120-338-implement-conflictless-journals
+- [ ] epic-120-338-implement-conflictless-journals
+
+### Auditor Rejection
+The generated descendant node epic-120-338-implement-conflictless-journals is currently in a FAILED state. A macro node MUST NOT be verified until its functional requirements are fully implemented and its child tasks are COMPLETED.
