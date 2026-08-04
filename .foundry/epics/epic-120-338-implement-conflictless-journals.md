@@ -2,12 +2,12 @@
 id: epic-120-338-implement-conflictless-journals
 type: EPIC
 title: Implement Conflict-less Agent Journals
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-07-21'
 updated_at: '2026-08-04'
 depends_on: []
-jules_session_id: '5165473031168310290'
+jules_session_id: null
 parent: prd-120-335-conflictless-agent-journals
 tags:
   - foundry
@@ -15,7 +15,9 @@ tags:
   - workflow
   - DX
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: ''
 ---
 
