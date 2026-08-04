@@ -29,9 +29,10 @@ Break down the Gen 2 static encounter checklist into stories.
 - [x] story-137-294-gen2-event-flag-parsing
 - [x] story-137-295-gen2-checklist-ui
 
-- [ ] research-137-330-investigate-gen2-event-flag-failure
-- [ ] story-137-333-gen2-event-flag-parsing-retry
-- [ ] story-137-334-gen2-checklist-ui-retry
+- [x] research-137-330-investigate-gen2-event-flag-failure
+- [x] story-137-333-gen2-event-flag-parsing-retry
+- [x] story-137-334-gen2-checklist-ui-retry
+- [ ] story-137-356-gen2-static-encounters-e2e
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
