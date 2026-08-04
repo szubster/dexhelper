@@ -26,4 +26,6 @@ notes: ''
 Create end-to-end tests for the Gen 2 static encounters checklist to ensure that event flags are parsed correctly and the UI displays the correct state for Sudowoodo, Snorlax, Red Gyarados, and Ho-Oh/Lugia.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-356-396-gen2-static-encounters-e2e-impl
+- [ ] task-356-397-gen2-static-encounters-e2e-qa
