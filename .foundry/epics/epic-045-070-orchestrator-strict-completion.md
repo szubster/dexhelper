@@ -2,12 +2,12 @@
 id: epic-045-070-orchestrator-strict-completion
 type: EPIC
 title: Orchestrator Hierarchical Completion Checks
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-08-04'
 depends_on: []
-jules_session_id: '6667821936228822179'
+jules_session_id: null
 pr_number: null
 parent: prd-072-045-strict-macro-node-completion
 tags:
@@ -15,7 +15,9 @@ tags:
   - architecture
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: ''
 ---
 
