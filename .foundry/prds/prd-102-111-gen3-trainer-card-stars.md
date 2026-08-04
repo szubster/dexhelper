@@ -2,12 +2,12 @@
 id: prd-102-111-gen3-trainer-card-stars
 type: PRD
 title: PRD - Gen 3 Trainer Card Stars & Achievements Dashboard
-status: ACTIVE
+status: READY
 owner_persona: epic_planner
 created_at: '2026-07-11'
 updated_at: '2026-08-04'
 depends_on: []
-jules_session_id: '6919608559409764922'
+jules_session_id: null
 pr_number: null
 parent: idea-102-gen3-trainer-card-stars
 tags:
@@ -16,7 +16,7 @@ tags:
   - achievements
   - completionist
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

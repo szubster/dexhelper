@@ -2,7 +2,7 @@
 id: epic-044-398-gen3-roamer-iv-glitch-v5
 type: EPIC
 title: Gen 3 Roamer IV Glitch Detection v5
-status: FAILED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-04'
 updated_at: '2026-08-04'
@@ -17,8 +17,8 @@ tags:
   - roamer
   - iv-glitch
 research_references: []
-rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_count: 1
+rejection_reason: ''
 notes: Replacement for epic-044-150
 ---
 

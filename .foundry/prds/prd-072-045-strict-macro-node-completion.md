@@ -2,7 +2,7 @@
 id: prd-072-045-strict-macro-node-completion
 type: PRD
 title: Strict Macro Node Completion Enforcement
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-06-10'
 updated_at: '2026-08-04'

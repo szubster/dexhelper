@@ -2,7 +2,7 @@
 id: research-044-396-gen3-roamer-tracker-failure
 type: RESEARCH
 title: Investigate Gen 3 Roamer Tracker Failures
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-08-04'
 updated_at: '2026-08-04'
@@ -14,8 +14,8 @@ tags:
   - gen3
   - roamer
 research_references: []
-rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

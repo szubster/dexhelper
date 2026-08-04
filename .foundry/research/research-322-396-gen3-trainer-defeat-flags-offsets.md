@@ -2,7 +2,7 @@
 id: research-322-396-gen3-trainer-defeat-flags-offsets
 type: RESEARCH
 title: Investigate Gen 3 Trainer Defeat Flags Offsets
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-08-04'
 updated_at: '2026-08-04'
