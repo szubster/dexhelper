@@ -2,10 +2,10 @@
 id: story-348-356-bash-linter-impl
 type: STORY
 title: Bash Static Analysis Linter Implementation
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2024-11-20'
-updated_at: '2024-11-20'
+updated_at: '2026-08-04'
 depends_on: []
 jules_session_id: null
 pr_number: null

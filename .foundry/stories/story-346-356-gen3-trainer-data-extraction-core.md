@@ -2,10 +2,10 @@
 id: story-346-356-gen3-trainer-data-extraction-core
 type: STORY
 title: Core Gen 3 Trainer Data Extraction
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-01'
-updated_at: '2026-08-01'
+updated_at: '2026-08-04'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,7 +2,7 @@
 id: epic-044-399-gen3-roamer-dashboard-ui-v7
 type: EPIC
 title: Gen 3 Roamer Dashboard UI v7
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-08-04'
 updated_at: '2026-08-04'
@@ -19,8 +19,8 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
-notes: 'Replacement for epic-044-151'
+rejection_reason: ACTIVE node missing or malformed session ID
+notes: Replacement for epic-044-151
 ---
 
 # Gen 3 Roamer Dashboard UI v7

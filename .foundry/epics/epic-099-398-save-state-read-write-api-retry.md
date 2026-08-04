@@ -2,7 +2,7 @@
 id: epic-099-398-save-state-read-write-api-retry
 type: EPIC
 title: Save State Read/Write API (Retry)
-status: FAILED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-04'
 updated_at: '2026-08-04'
@@ -16,8 +16,8 @@ tags:
   - indexeddb
   - history
 research_references: []
-rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

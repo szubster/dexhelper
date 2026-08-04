@@ -2,7 +2,7 @@
 id: epic-099-399-save-state-lru-eviction-and-limits-retry
 type: EPIC
 title: Save State Storage Limits and LRU Eviction (Retry)
-status: FAILED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-04'
 updated_at: '2026-08-04'
@@ -16,8 +16,8 @@ tags:
   - indexeddb
   - history
 research_references: []
-rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
