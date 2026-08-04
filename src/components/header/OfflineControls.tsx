@@ -1,6 +1,7 @@
 import { Activity, Upload } from 'lucide-react';
 import type React from 'react';
 import { CornerCrosshairs } from '../CornerCrosshairs';
+import { TacticalFileInput } from '../TacticalFileInput';
 
 interface OfflineControlsProps {
   requestSync: () => void;
@@ -19,15 +20,7 @@ export function OfflineControls({ requestSync, handleFileUpload }: OfflineContro
         <CornerCrosshairs className="h-2 w-2 border-current" />
         <Upload size={20} />[ UPLOAD.SYS ]
       </button>
-      <input
-        id="init-save-input"
-        type="file"
-        tabIndex={-1}
-        aria-label="Initialize Pokedex"
-        accept=".sav"
-        className="sr-only"
-        onChange={handleFileUpload}
-      />
+      <TacticalFileInput id="init-save-input" aria-label="Initialize Pokedex" onChange={handleFileUpload} />
 
       {typeof window !== 'undefined' && 'showOpenFilePicker' in window && (
         <button

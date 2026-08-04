@@ -3,6 +3,7 @@ import type React from 'react';
 import { cn } from '../../utils/cn';
 import { CornerCrosshairs } from '../CornerCrosshairs';
 import { TacticalButton } from '../TacticalButton';
+import { TacticalFileInput } from '../TacticalFileInput';
 import { VerticalDivider } from '../VerticalDivider';
 
 interface SystemControlsProps {
@@ -131,15 +132,7 @@ export function SystemControls({
       >
         <RefreshCw size={16} />
       </TacticalButton>
-      <input
-        id="import-save-input"
-        type="file"
-        tabIndex={-1}
-        aria-label="Import New Save"
-        accept=".sav"
-        className="sr-only"
-        onChange={handleFileUpload}
-      />
+      <TacticalFileInput id="import-save-input" aria-label="Import New Save" onChange={handleFileUpload} />
     </div>
   );
 }
