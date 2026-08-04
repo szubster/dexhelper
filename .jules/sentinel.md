@@ -1,16 +1,31 @@
-- When writing Vitest tests, always provide explicit type parameters to `vi.fn()` (e.g., `vi.fn<() => void>()`) to satisfy strict Biome type-checking and avoid `any` usage.
-- In Playwright E2E tests, always call `await waitForSync(page)` after navigation to ensure IndexedDB sync completes.
-## 2024-05-27
+# Master Journal: Sentinel
 
-- **Test Target Identification**: Used test coverage reporting to identify missing test coverage for `src/components/SettingsModal.tsx`.
-- **Vitest**:
-  - Mocked `saveDB` properly to ensure tests isolate component behavior.
-  - Required using `// eslint-disable-next-line @typescript-eslint/unbound-method` when passing an unbound mock function like `saveDB.deleteSave` into `expect(...).toHaveBeenCalledWith(...)`.
-  - Required using `// biome-ignore lint/suspicious/noExplicitAny: allow mock state for test` when using `as any` to force minimal mock objects into complex type shapes.
-  - Used explicit types for `vi.fn()` like `vi.fn<(key: string) => Promise<void>>()` to pass strict typing rules.
-- **Testing React Components**: Verified components rendering logic via `isSettingsOpen` and user interactions invoking the state reset functions (including testing confirmation modals).
-## 2024-05-27
+## Session: coverage-journal
+# Sentinel Learnings: catchGenerator.ts
 
-* Tested `extractPlayerTools` and `filterSuggestionsByMissingTools` in `encounterTools.ts`
-* Found a few type-checking edge cases when dealing with Vitest mocks and type definitions of `Suggestion`. Explicit casting via `CatchSuggestion` is necessary to satisfy strict schema shapes when instantiating subset configurations in tests.
-- Added E2E coverage for invalid save file upload in tests/e2e/save_management.spec.ts.
+- **Tricky Types:** Be extremely careful about `any` casting in tests. Biome enforces strict rules against `any` (`lint/suspicious/noExplicitAny`). Always mock out explicit object interfaces (e.g., `{ encounterInfo?: Record<number, EncounterDetail[]> }` rather than `any`) or cast back to original types instead of raw `any`.
+- **Iterative Refinements:** When creating mock files from bash using regex on TS files, be sure to use a Node script (`.cjs` extension) so ESM restrictions on `require` are bypassed.
+- **Coverage Impact:** Adding complete logic branches to `catchGenerator.ts` (a heavily nested and complex graph traversal engine module) substantially helps safeguard core engine refactors in the future.
+
+## Session: coverage-suggestion-engine
+# Sentinel Session: generateSuggestions Coverage
+
+**Target File:** `src/engine/assistant/suggestionEngine.ts`
+
+**Observations & Actions:**
+- Initially, `src/engine/assistant/suggestionEngine.ts` lacked direct unit tests for its main exported orchestration function, `generateSuggestions`.
+- Added a new test suite at `src/engine/assistant/__tests__/suggestionEngine.test.ts` to strictly cover orchestration, null-checks, priority sorting, limits (`queryTargets`), and `filterSuggestionsByMissingTools`.
+- Strictly enforced types with `vi.fn<...>()` to avoid `any` and satisfy strict Biome rules.
+- Avoided conditional `expect` statements (e.g., `if (result.suggestions[0]) expect(...)`) which trigger `vitest(no-conditional-expect)` linting errors, by using fallback assignments (e.g., `const s1 = (result.suggestions[0] || {}) as Suggestion;`).
+- Verified full test suite using `pnpm test` and `xvfb-run pnpm test:e2e` after installing playwright browsers with `pnpm exec playwright install`.
+
+**Result:**
+- Reached 100% logic coverage on the core orchestrator loops without altering application code.
+
+## Session: coverage-trade-generator
+# Sentinel Learnings: tradeGenerator.ts
+
+- **Strict Type Overrides:** When mocking complex interfaces like `AssistantApiData`, specifically object maps like `pokemonMetadata`, ensure `efrm` is typed and handled properly as an array of numbers. Missing these caused failures when the engine recursively traversed pre-evolutions.
+- **Side-effects / Artifacts:** Do not commit temporary coverage outputs (`coverage-output.txt`) or `test-tradeGen.ts` runner scripts. Ensure these are cleaned up before final review.
+- **Coverage Details:** Added tests specifically checking the `hasPhysicalPreEvo` bypass logic, and explicitly setting test scenarios where the player does *not* own the requested Pokémon to test branch coverage for exclusive exclusions correctly.
+

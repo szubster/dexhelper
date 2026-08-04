@@ -34,10 +34,10 @@ Building upon the standard interface, we need specific, actionable sorters that 
 - [x] Implement a `TypeSorter` (sorts by primary type, then secondary type).
 - [x] Implement an `AlphaSorter` (alphabetical by nickname/species name).
 - [x] Break down story into tasks for technical blueprinting and implementation.
-- [x] [task-333-363-pokemon-types-data-impl](.foundry/tasks/task-333-363-pokemon-types-data-impl.md)
+- [x] [task-333-363-pokemon-types-data-impl](.foundry/archive/tasks/task-333-363-pokemon-types-data-impl.md)
 - [x] [task-333-364-pokemon-types-data-qa](.foundry/tasks/task-333-364-pokemon-types-data-qa.md)
 - [x] [task-333-365-sorting-strategies-impl](.foundry/tasks/task-333-365-sorting-strategies-impl.md)
-- [x] [task-333-366-sorting-strategies-qa](.foundry/tasks/task-333-366-sorting-strategies-qa.md)
+- [x] [task-333-366-sorting-strategies-qa](.foundry/archive/tasks/task-333-366-sorting-strategies-qa.md)
 - [x] [research-333-361-investigate-pokemon-types-failure](.foundry/research/research-333-361-investigate-pokemon-types-failure.md)
 - [x] [task-333-369-pokemon-types-data-retry-impl](.foundry/tasks/task-333-369-pokemon-types-data-retry-impl.md)
 - [x] [task-333-370-pokemon-types-data-retry-qa](.foundry/tasks/task-333-370-pokemon-types-data-retry-qa.md)

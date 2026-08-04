@@ -1,75 +1,24 @@
-## 2024-05-18 - 🧬 Oak: [Gen 1 Yellow Exclusives correction]
-**What was wrong:** Sandshrew, Sandslash, and Pinsir were incorrectly listed as unobtainable (exclusives) in Yellow version, while Electabuzz was missing from the unobtainable list.
-**Canonical source used:** PokeAPI encounters (`https://pokeapi.co/api/v2/pokemon/${id}/encounters`).
-**Impact on users:** Users playing Yellow version will now correctly see that they can catch Sandshrew, Sandslash, and Pinsir, and will correctly be told they need to trade for Electabuzz.
-**Learning:** PokeAPI encounter endpoints are the absolute source of truth for base-form version availability, especially for complex cases like Yellow version where availability diverges significantly from Red/Blue.
+# Master Journal: Oak
 
-## Data Integrity - Gen 1 Exclusives
-*   **ROM parsing quirks / Data Pipeline Gotchas:** The version exclusivity arrays in `src/engine/exclusives/gen1Exclusives.ts` operate as *exclusion* lists, not inclusion lists. The array for `red` must contain the IDs of Pokémon that are **missing** or **unobtainable** in Red (which are the Blue exclusives), and vice versa. This is counter-intuitive initially, but required because `getUnobtainableReason` checks if a Pokémon ID `.includes` in the version's list to determine if it should be locked. Always verify whether a data array in the engine is intended to represent "available" or "unavailable" entities before modifying it.
+## Session: 2026-07-30-01-53-37
+# Oak Session Log
 
-## Data Integrity - Evolution Chains
-*   **ROM parsing quirks / Data Pipeline Gotchas:** Some Gen 2 Pokémon evolutions (like Tyrogue -> Hitmonlee/Hitmonchan/Hitmontop) depend on the Pokémon's stats (Attack > Defense, Attack < Defense, or Attack == Defense). PokeAPI models this via `relative_physical_stats` in the `evolution_details`. Ensure the schema (`CompactEvolutionDetail`) and data generation script (`scripts/generate-pokedata.ts`) correctly map `relative_physical_stats` (to `rps`) so the application logic can accurately evaluate these conditional evolutions.
+## Learnings
+* PokeAPI's `encounter-method` list includes many methods that were missing from DexHelper's `ENCOUNTER_METHOD_MAP` in `src/db/schema.ts`, specifically: `static`, `roaming-water`, `devon-scope`, and `feebas-tile-fishing`.
+* Because these strings weren't mapped to internal IDs in the schema, the `scripts/generate-pokedata.ts` generator defaulted them to `m: 0`. This caused 68 static and special encounters (e.g., Mewtwo, Latios, Feebas) to have invalid methods.
+* Adding them to `ENCOUNTER_METHOD_MAP` and regenerating the data successfully restored these encounter types.
+* Ensure that any new PokeAPI encounter methods added upstream in the future have corresponding integer mappings in `src/db/schema.ts` to prevent data loss.
 
-## 2026-04-24 - 🧬 Oak: [story-010-015-enforce-strict-oxlint-rules frontmatter fix]
-**What was wrong:** The STORY node \`.foundry/stories/story-010-015-enforce-strict-oxlint-rules.md\` was missing the required \`jules_session_id\` field in its frontmatter, and it also had an incorrect \`parent\` path (\`.foundry/epics/epic-002-005-static-analysis.md\` which does not exist). Both issues caused the orchestrator to skip or block the node.
-**Canonical source used:** The Foundry Master Schema (\`.foundry/docs/schema.md\`) for required fields, and the \`.foundry/epics/\` directory to find the correct parent (\`epic-010-oxlint-config.md\`).
-**Impact on users:** The STORY was not being resolved by the DAG orchestrator, preventing downstream TASKS from being scheduled.
-**Learning:** Manual creation of Foundry nodes is prone to human error; automation or strict linting of node files should be considered. Also, always verify that parent paths exist in the repo.
+## Session: 2026-08-02-02-34-03
+# Session Learnings: Gen 2 Exclusives
 
-## Data Integrity - Item Mapping
-* **Data Pipeline Gotchas**: PokeAPI uses its own item IDs (e.g. 80 for Sun Stone) which don't map directly to the item IDs found in decompiled ROM saves. Gen 1 items are explicitly mapped via `POKEAPI_TO_GEN1_ITEM` in `generate-pokedata.ts`, but Gen 2 items currently default to their PokeAPI IDs. If building features that check the player's in-game inventory to suggest evolutions (like Sun Stone for Bellossom or Metal Coat for Scizor), we must ensure we either map PokeAPI IDs to Gen 2 ROM item IDs or use a lookup table, otherwise the app will fail to recognize when a player possesses the required evolution item.
+* Caterpie and Weedle lines were incorrectly flagged as Silver and Gold exclusives, respectively.
+* Although they are absent in normal wild grass encounters in those versions, they are fully obtainable in BOTH versions by participating in the Bug-Catching Contest at the National Park on Tuesdays, Thursdays, and Saturdays.
+* Celebi (251) was listed in Gold and Silver exclusives. Mythical event Pokémon should not be managed via the standard version exclusives array as the fallback message "Must be traded from another version" is inaccurate for them. The `crystal` array already omitted it correctly.
+* Re-generated PokeAPI cross-referencing code to accurately check exclusives by analyzing missing subsets.
 
-## Data Integrity - Gen 2 Exclusives
-* **Data Pipeline Gotchas:** The Gen 2 version exclusives list (`goldExclusives` and `silverExclusives`) was hardcoded into the `detectGen2GameVersion` function inside the save parser and contained inaccuracies (e.g., missing Mantine, incorrectly attributing Ekans to Silver-only when it's obtainable in Gold via Game Corner). Additionally, the `suggestionEngine` was applying Gen 1 exclusive logic to Gen 2 games. Version exclusives should be managed in dedicated generation-specific modules (e.g., `gen2Exclusives.ts`) to be shared between save parsing version detection and suggestion logic.
-
-## Data Integrity - Late Game Johto Map Identifiers
-* **ROM parsing quirks / Data Pipeline Gotchas:** The Gen 2 map graph in `GEN2_MAP_TO_AID` incorrectly mapped late-game areas (Route 40 to 46, Silver Cave) to wrong PokeAPI Area IDs, or overrode each other. For example, Route 41 (Mantine's only spawn in Gold/Silver/Crystal) was erroneously assigned `aid: 424` (Hoenn Route 110) instead of its real Johto Sea Route 41 `aid: 226`, completely erasing Mantine from the `pnpm data:gen` output. The mapping dictionary must be cross-verified directly with PokeAPI `/api/v2/location-area/<id>` data when establishing connections.
-
-## Data Integrity - Gen 2 Exclusives Refactoring
-* **Data Pipeline Gotchas:** Gen 2 Exclusives correctly vary between Gold and Silver for the base game logic, but Crystal version dictates its own specific missing list (like missing Vulpix, Mareep, Remoraid). Ensure that array indexes in `GEN2_VERSION_EXCLUSIVES` use safe bracket notation (`['crystal']`) with a `// biome-ignore lint/complexity/useLiteralKeys` directive to satisfy TypeScript's strict index signature checks while remaining compatible with Biome.
-
-## Data Integrity - Gen 1 NPC Trades
-* **ROM parsing quirks / Data Pipeline Gotchas:** When verifying in-game NPC trades (e.g., in `STATIC_NPC_TRADE_DATA`), verify that the `receivedId` and `offeredId` map correctly to the macro definitions in the decompiled ROMs (`npctrade GIVE_MON, GET_MON`). For example, in Yellow version, the `Lickitung for Dugtrio` trade was incorrectly mapped as receiving Lickitung, when the ROM actually dictates giving Lickitung to receive Dugtrio. Additionally, ensure that trades are correctly assigned to their respective game versions; the Red/Blue `Venonat for Tangela` trade was incorrectly marked as Yellow-exclusive, hiding the true Yellow-exclusive `Tangela for Parasect` trade.
-
-## Data Integrity - Gen 2 Bug Catching Contest
-* **Data Pipeline Gotchas:** When modifying generation scripts to correct hardcoded defaults (e.g., Bug Catching Contest encounter chances and levels in `scripts/generate-pokedata.ts`), it's crucial to map the specifics carefully based on `bug_contest_mons.asm` in the `pokecrystal` decompilation source. Furthermore, running `pnpm run data:gen` to regenerate the JSONL outputs may cause huge unrelated changes (like wiped encounter data for completely unrelated areas) if run in an environment that cannot fully connect to PokeAPI or hits API rate limits. In such cases, only the script modifications should be committed so the full data set can be generated consistently by CI pipelines.
-
-## Data Integrity - Gen 2 Exclusives (Caterpie and Weedle)
-* **Data Pipeline Gotchas:** The Gen 2 version exclusives list for Gold and Silver incorrectly included the Caterpie line (10-12) as Gold exclusive and the Weedle line (13-15) as Silver exclusive. However, both evolution lines are actually obtainable in *both* Gold and Silver via the Bug-Catching Contest (as verified in the decompiled ROM `bug_contest_mons.asm`). They are not true version exclusives and must not be locked out in the `GEN2_VERSION_EXCLUSIVES` arrays.
-- **Gen 2 Exclusives Quirks**: Ekans and Sandshrew are often mistaken as version exclusives because they are only found in the wild in one version. However, they are obtainable via the Goldenrod Game Corner in the other version, making them available in both Gold and Silver without trading.
+## Session: session-correction
 # Oak Learnings
 
-- `GEN1_VERSION_EXCLUSIVES` and `GEN2_VERSION_EXCLUSIVES` maps hold the Pokemon that are **unobtainable** in a given version, functioning as an exclusion list. For example, `red` contains Sandshrew because Sandshrew is a Blue exclusive and therefore unobtainable in Red. Do not accidentally invert this logic by swapping arrays.
+* **Data Pipeline Gotchas:** The Gen 3 version exclusives list for Emerald in `src/engine/exclusives/gen3Exclusives.ts` incorrectly included the Lotad evolutionary line (270, 271, 272). Lotad is actually available natively in Emerald (e.g. Route 102), making it a Ruby exclusive (missing in Ruby) but NOT an Emerald exclusive (missing in Emerald). Only Surskit, Masquerain, Meditite, Medicham, Roselia, Zangoose, and Lunatone are truly missing from Emerald. Always cross-reference the exact PokeAPI encounter data for version `emerald` before trusting arrays labeled "missing".
 
-## Data Integrity - Gen 2 Version Detection
-* **ROM parsing quirks / Data Pipeline Gotchas:** The logic in `src/engine/saveParser/parsers/gen2.ts` for detecting the Gen 2 game version used the exclusives list inverted. The exclusives lists in `src/engine/exclusives/gen2Exclusives.ts` contain Pokémon that are **unobtainable** in the respective game version. Thus, if a player owns a Pokémon from `goldExclusives` (e.g. Meowth), it implies the player is playing **Silver** (since Meowth is unavailable in Gold). The `detectGen2GameVersion` logic was mistakenly assigning points to the version whose *exclusion* list the owned Pokémon appeared in, thereby misidentifying the game version as the one where the Pokémon shouldn't exist. Always ensure that the evaluation logic treats these exclusive lists as *unobtainable* lists.
-
-## Data Integrity - Gen 1 NPC Trades (Extended)
-* **ROM parsing quirks / Data Pipeline Gotchas:** In Gen 1, the `tradeIndex` mapping in `STATIC_NPC_TRADE_DATA` must exactly correspond to the zero-indexed position of the `npctrade` macro call within `data/events/trades.asm` of the respective decompiled ROM (`pokered` or `pokeyellow`). For example, the `Lickitung for Dugtrio` trade (GURIO) is index 0 in Yellow, while the `Nidorino for Nidorina` trade (TERRY) is index 0 in Red/Blue. Mismatching `tradeIndex` leads to the save parser incorrectly reading the `wCompletedInGameTradeFlags` bitmask, causing the app to erroneously suggest or hide trades the player has already completed. Furthermore, the `offeredId` and `receivedId` must be strictly verified against PokeAPI standard IDs (e.g., Venonat is 48, not 49).
-
-## Data Integrity - Gen 1/2 Exclusives Refactoring
-* **Data Pipeline Gotchas:** The Gen 1 and Gen 2 version exclusive lists were missing some unobtainable Pokémon, or listing some as unobtainable when they are in fact obtainable. For example, Gen 1 Yellow exclusives missed a few entries, and Gen 2 Crystal missing exclusives also lacked some entries (like Arcanine / Growlithe line). PokeAPI encounters are the source of truth for base-form availability, but one must carefully check all versions (`version_details`) in the encounter data.
-# Oak Learnings
-
-- Within the `engine/exclusives/` data domain, the version-specific arrays (e.g., `GEN1_VERSION_EXCLUSIVES`, `GEN2_VERSION_EXCLUSIVES`) store the IDs of Pokémon that are **unobtainable (excluded)** in that game version, rather than the ones exclusively available. This is crucial for verifying data against Bulbapedia.
-## Data Integrity - Gen 3 Exclusives
-* **Data Pipeline Gotchas:** The Gen 3 version exclusives list for Emerald incorrectly assumed it was just a combination of Ruby and Sapphire exclusives. However, Emerald has its own distinct missing list (Surskit, Masquerain, Meditite, Medicham, Roselia, Zangoose, and Lunatone). Always verify against PokeAPI encounters or canonical sources rather than assuming third versions simply exclude both base version exclusives.
-In the Dexhelper codebase, version-exclusive arrays (such as `GEN2_VERSION_EXCLUSIVES` in `engine/exclusives/`) track the Pokémon that are UNOBTAINABLE (missing) in that specific version, not the Pokémon that are exclusively present.
-
-## Data Integrity - Gen 3 Exclusives
-* **Data Pipeline Gotchas:** The Gen 3 version exclusives list for FireRed and LeafGreen was inaccurate because it improperly tracked Pokémon lines that cannot be naturally encountered but are still completely exclusive due to evolution chains (like Bellossom, Scizor, and babies like Elekid). Exclusivity must be evaluated on the entire evolutionary line, not just wild encounters. Additionally, the Machop evolution line is obtainable in both FireRed and LeafGreen and must not be marked as a version exclusive.
-
-## Data Integrity - Gen 3 Exclusives
-* **Data Pipeline Gotchas:** In version-exclusive logic (`src/engine/exclusives/*`), Pokémon are NOT considered unobtainable/exclusive if any pre-evolution in their family is catchable natively in that version (e.g., Dusclops is obtainable in Emerald because Duskull is available natively).
-## Data Integrity - Gen 2 Exclusives (Caterpie and Weedle Update)
-* **Data Pipeline Gotchas:** The arrays in `src/engine/exclusives/` represent lists of **unobtainable** Pokémon. Caterpie (10-12) and Weedle (13-15) were previously incorrectly marked as unobtainable in Silver and Gold, respectively. However, both evolution lines can be caught in both game versions during the Bug-Catching Contest, meaning they are not truly version exclusive in Gen 2. They must not be included in the exclusion lists (`GEN2_VERSION_EXCLUSIVES`) for Gold or Silver.
-
-## Data Integrity - Gen 2 Exclusives (Crystal Re-Verification)
-* **Data Pipeline Gotchas:** In Gen 2 Pokémon Crystal, while Teddiursa and Ursaring are Gold exclusives when compared directly against Silver, they **are obtainable** in Crystal (specifically in Dark Cave). When verifying version exclusivity against PokeAPI encounter data, be aware that filtering encounters specifically for `version: 6` (Crystal) correctly shows them present. Do not mistakenly add them to the Crystal unobtainable array (`crystal`) based on their absence in Silver. The existing Gen 2 missing list is factually correct.
-
-All Pokémon data in dexhelper is offline-first and pre-generated. To fix data discrepancies, modify the source scripts (e.g., `scripts/generate-pokedata.ts`) or hardcoded lists (e.g., `src/engine/exclusives/`), then regenerate the committed data using `pnpm data:gen` or `pnpm data:gen-maps`. Do not patch output files directly.
-Execution Plan Specificity (File Modifications): When proposing a plan to modify files, formulate a single, un-nested step dictating the exact tool (e.g., `replace_with_git_merge_diff`) and the exact code block to use. Avoid conversational monologues or vague 'modify' instructions.
-
-## Data Integrity - Gen 2 Map Locations (Johto Routes)
-* **Data Pipeline Gotchas:** When modifying Pokémon map generation scripts (e.g., `scripts/data/gen2/mapping.ts`), verify the PokeAPI Location Area ID (`aid`) using PokeAPI's `/api/v2/location/<name>` endpoint, specifically looking at the `areas` array in the response to fetch the exact ID from the URL. Many Johto routes were mapped to Hoenn route area IDs (e.g., `415` for Hoenn Route 123 instead of `188` for Johto Route 31) which resulted in incorrect data extraction.
-* **Important:** Always execute *both* `pnpm data:gen-maps` to update `src/engine/data/` and `pnpm data:gen` to update `data/db/` so the committed data exactly matches the script fixes before submitting.

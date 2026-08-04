@@ -1,32 +1,28 @@
+# Master Journal: Scribe
+
+## Session: 2026-08-01-03-05-13
+# Scribe Journal - Gen 3 JSDoc
+
+When creating JSDoc for complex binary parsing logic, ensure you document the 'why' and the specific bitwise math. Bitwise operations like `(flag >> FLAG_BYTE_SHIFT)` and `(flag & FLAG_BIT_MASK)` are non-obvious to standard UI developers and warrant explicit inline comments. Also, when extracting boolean states from a dense event flags block (e.g. Move Tutors), document the multi-byte block structure used to fetch the data.
+
+## Session: 2026-08-02-03-02-36
 # Scribe Memory
 
-- **2024-03-XX:** Documented the `detectVersionAndOffsets` function in `src/engine/saveParser/parsers/gen1.ts`. Discovered that the Pokémon Yellow +1 offset shift heuristic works by explicitly checking the 152nd bit (byte 19, MSB) of the Pokédex "Owned" and "Seen" flags array. Because there are only 151 Pokémon, this bit must always be `0`. By checking this padding bit at `0x25a3` vs `0x25a4`, the parser can safely identify the correct memory alignment without explicit version flags.
-The Scribe persona's private memory is strictly `.jules/scribe.md` and must be used solely to log long-term lessons, architectural constraints, and recurring failures, never as an execution logbook. Universally applicable knowledge should instead be documented in `.foundry/docs/`.
-When documenting functions, never place two consecutive `/** ... */` JSDoc blocks directly above a single function, as this breaks standard documentation tooling (TypeScript compiler, VSCode IntelliSense, TypeDoc). Merge them into a single block instead.
+- When adding JSDoc comments to complex parsing domains (like `src/engine/saveParser/parsers/gen3.ts`), it is crucial to explain the architectural 'why' behind the logic, such as the A/B bank flash memory architecture in Generation 3, which alternates between 56KB banks to prevent data corruption.
+- While adding inline comments is helpful, providing a more comprehensive update by also including JSDoc annotations on exported APIs makes the documentation effort much more complete and valuable.
 
-- **2024-03-XX:** Ensure you do not add redundant JSDoc comments to functions that already have them, as this breaks standard documentation tooling (TypeScript compiler, VSCode IntelliSense, TypeDoc). Always verify a function's current documentation state before attempting to rewrite or add new JSDoc blocks.
-- **2024-03-XX:** When executing testing steps like `pnpm test`, if `browserType.launch: Executable doesn't exist` errors occur, explicitly run `pnpm exec playwright install` to download required browser binaries before running the test suite again.
-When documenting TypeScript interfaces, ensure you explain the *why* (architectural purpose, constraints) alongside the *what*. For complex interfaces used across multiple modules, explain how they prevent N+1 query problems or support O(1) lookups. When an execution plan modifies a file, file modification verification (e.g., using `read_file` or `cat`) and code stability testing (e.g., running `pnpm lint` or `pnpm test`) must be split into two distinct, sequential steps to satisfy granularity and memory policies.
-- If `pnpm install` or testing commands (like `pnpm lint`) hang during git hook or `lefthook` setup, run `git config --unset-all --global core.hooksPath` to resolve the issue before retrying.
-- When operating as the Scribe persona, documentation must explain 'why' instead of 'what', avoid redundant comments, never modify application logic, use JSDoc for TypeScript APIs, and PR titles must use the format `📜 Scribe: [what was documented]`.
-When updating JSDoc for complex exported domain functions in the save parser, focus heavily on explaining *why* binary parsing operations are performed (e.g., memory constraints, bit packing) rather than simply restating the logic, and always include comprehensive @param, @returns, and @example tags to aid future engineers.
-- **2024-03-XX:** When replacing functions to add JSDoc comments using replace_with_git_merge_diff, make sure not to duplicate existing JSDoc blocks. Check the original file carefully before crafting the search block to ensure it replaces any existing comment blocks.
-- **2024-03-XX:** Added architectural documentation to `src/engine/saveParser/parsers/gen3.ts`, specifically explaining why `isGen3Save` is stubbed (to avoid double-scanning the heavy A/B flash blocks during initial file detection) and detailing the general execution flow and A/B bank error correction mechanisms in `parseGen3`.
-- **2024-03-XX:** Added architectural JSDoc to `getLivingDexGhosts` in `src/engine/livingDex/ghostTracker.ts`. The documentation explains *why* the function must perform a full O(N) sweep across the player's physical party and PC box arrays rather than relying on boolean Pokédex flags, bridging the gap between game data constraints and the conceptual requirements of a Living Dex.
+## Session: 2026-08-03-03-09-10
+# Scribe Session Log
 
-## Gen 3 Data Generation (scripts/gen3-fetch-locations.ts)
-- **Architectural Discovery**: Gen 3 save files identify player location using a composite Map ID (`(MapGroup << 8) | MapIndex`). Modern datasets (like PokeAPI) lack this binary mapping.
-- **Solution Documented**: The `gen3-fetch-locations.ts` script bridges this gap by fetching original Game Boy assembly files directly from the `pret/pokeemerald` decompilation repository to extract the exact binary IDs and build a topological graph.
-- When writing documentation, strictly use JSDoc for TypeScript APIs and Markdown for architecture docs.
-- Explanations must be concise, scannable, and focus on *why* the code exists rather than *what* it does, avoiding redundant restatements of logic.
-- When submitting documentation-only PRs (like Scribe tasks), the PR title must follow the format `📜 Scribe: [what was documented]` and the PR must strictly modify documentation/comments without altering any application logic.
+- Task: Add architecture overview to Gen 2 save parser (`src/engine/saveParser/parsers/gen2.ts`).
+- Observation: When analyzing memory operations in Gen 2, it is critical to note that version detection (Gold/Silver vs Crystal) dictates all base offsets. Instead of static offset maps, the codebase heavily utilizes ternary operations predicated on the `isCrystal` boolean. Inventory parsing also features dynamic length-prefixed lists rather than fixed structs.
+- Rule: Ensure architectural documentation does not hallucinate hex offsets or complex structures (e.g., roaming legendaries) if they are not definitively proven in the `run_in_bash_session` output. Strict adherence to grounded facts is required.
 
-### Suggestion Engine O(1) Optimizations
-The suggestion engine generators (`evolutionGenerator.ts`, `breedGenerator.ts`, `tradeGenerator.ts`) heavily utilize an **In-Place Mutation** architectural pattern. Instead of using `.filter().map()` chains which allocate intermediate arrays and cause garbage collection spikes during the hot path, they accept a shared `suggestions: Suggestion[]` array and push to it directly. JSDoc has been added to explicitly document this constraint to prevent future developers from "refactoring" it into non-performant pure functions.
-The application's core logic modules (saveParser, mapGraph, suggestionEngine), exported hooks, Zustand store, and ETL scripts already feature comprehensive JSDoc annotations, markdown architecture summaries, and inline comments explaining complex heuristics. No meaningful documentation gap was identified during this session.
+## Session: journal
+Journal entry: Failed the first code review due to missing 'meaningful documentation gap'. The reviewer correctly observed that adding a type to a JSDoc block in a TypeScript codebase is redundant. For the next iteration, I should document a highly complex logic block that is currently lacking inline comments, such as the detectVersionAndOffsets heuristic in gen1.ts, or the memory offset logic in gen3.ts to actually provide value to future developers reading the code.
 
-## JSDoc and Domain Specific Documentation
-- **2024-03-XX:** When operating as the Scribe persona, it's crucial to explain the "why" and architectural context of complex operations, rather than simply stating what the code does. For instance, when documenting the Gen 1 save parser's `parseGen1StaticEncounters` method, the JSDoc explicitly highlighted why bitwise extraction is necessary (Game Boy memory optimization packing flags into 1-bit fields).
-- **2024-03-XX:** When documenting the graph traversal in `getDistanceToMap` for Gen 3 games (`src/engine/mapGraph/gen3Graph.ts`), the added architecture note explicitly explains the universal fallback to Littleroot Town (Map ID 0) as a mechanism to prevent UI crashes if the player enters an unmapped or glitch location.
-- **2024-03-XX:** Added architectural JSDoc to `BoxDiffResult` and `calculateBoxDiff` in `src/engine/saveParser/utils/boxDiff.ts`. The documentation explains *why* the diff engine uses a synthetic hashing strategy based on deterministic traits (Species ID, Level, Nickname, DVs) instead of relying on unique identifiers, as early generations lack UUIDs or PIDs. This delta is critical for avoiding O(N^2) comparisons during React render cycles.
-- Ensure JSDoc additions explicitly state the 'why' based on architecture/heuristics, and not just the 'what', as required by Scribe guidelines.
+## Session: session-fix
+# Scribe Memory
+
+- When adding JSDoc comments to complex parsing domains (like `src/engine/saveParser/parsers/gen3.ts`), focus on explaining the architectural 'why' (e.g., A/B bank flash memory architecture, Swarms altering encounter tables) rather than just restating what the function arguments are.
+
