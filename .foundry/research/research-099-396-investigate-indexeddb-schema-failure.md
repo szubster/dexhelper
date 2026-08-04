@@ -2,12 +2,12 @@
 id: research-099-396-investigate-indexeddb-schema-failure
 type: RESEARCH
 title: Investigate IndexedDB Schema Design Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-04'
 updated_at: '2026-08-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3239184284682901692'
 pr_number: null
 parent: prd-066-099-save-state-history-storage
 tags:
