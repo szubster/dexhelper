@@ -30,3 +30,4 @@ Implement robust circular dependency detection during the MAP or RESOLVE phases 
 
 ## Acceptance Criteria
 - [ ] story-338-336-implement-orchestrator-cycle-detection
+- [ ] story-338-356-circular-dependency-detection-e2e
