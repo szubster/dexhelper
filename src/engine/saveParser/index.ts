@@ -3,6 +3,14 @@ import { isGen1Save, parseGen1 } from './parsers/gen1';
 import { isGen2Save, parseGen2 } from './parsers/gen2';
 import { isGen3Save, parseGen3 } from './parsers/gen3';
 
+const GEN1_CHECKSUM_DATA_START = 0x2598;
+const GEN1_CHECKSUM_DATA_END = 0x3522;
+const GEN1_CHECKSUM_OFFSET = 0x3523;
+
+const GEN2_CHECKSUM_DATA_START = 0x2009;
+const GEN2_CHECKSUM_DATA_END = 0x2d0c;
+const GEN2_CHECKSUM_OFFSET = 0x2d0d;
+
 export type { GameVersion, PokemonInstance, SaveData };
 
 /**
@@ -28,19 +36,19 @@ export function parseSaveFile(buffer: ArrayBufferLike, forcedVersion?: GameVersi
     // subtracting each byte's value from an initial value of 255 (0xFF).
     // The result is stored at 0x3523.
     let gen1Sum = 255;
-    for (let i = 0x2598; i <= 0x3522; i++) {
+    for (let i = GEN1_CHECKSUM_DATA_START; i <= GEN1_CHECKSUM_DATA_END; i++) {
       gen1Sum -= view.getUint8(i);
     }
-    const isGen1ChecksumValid = (gen1Sum & 0xff) === view.getUint8(0x3523);
+    const isGen1ChecksumValid = (gen1Sum & 0xff) === view.getUint8(GEN1_CHECKSUM_OFFSET);
 
     // Gen 2 Checksum
     // Gen 2 calculates its checksum by summing up the bytes in the main save data block (0x2009 to 0x2D0C).
     // The expected total is stored as a 16-bit little-endian integer at 0x2D0D.
     let gen2Sum = 0;
-    for (let i = 0x2009; i <= 0x2d0c; i++) {
+    for (let i = GEN2_CHECKSUM_DATA_START; i <= GEN2_CHECKSUM_DATA_END; i++) {
       gen2Sum += view.getUint8(i);
     }
-    const gen2Checksum = view.getUint16(0x2d0d, true);
+    const gen2Checksum = view.getUint16(GEN2_CHECKSUM_OFFSET, true);
     const isGen2ChecksumValid = (gen2Sum & 0xffff) === gen2Checksum;
 
     if (isGen1ChecksumValid && isGen1Save(view)) {
