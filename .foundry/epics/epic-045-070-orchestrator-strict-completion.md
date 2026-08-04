@@ -40,7 +40,7 @@ Update the DAG Orchestrator to ensure strict hierarchical completion. A node mus
 - [ ] Add unit tests verifying the behavior blocks transition when children are not completed.
 - [ ] Ensure tests cover both `parent` field links and markdown body references.
 
-- [ ] story-070-108-orchestrator-hierarchical-completion-logic
-- [ ] story-070-109-orchestrator-hierarchical-completion-tests
+- [x] story-070-108-orchestrator-hierarchical-completion-logic
+- [x] story-070-109-orchestrator-hierarchical-completion-tests
 
-- [ ] story-070-276-orchestrator-verifying-block
+- [x] story-070-276-orchestrator-verifying-block

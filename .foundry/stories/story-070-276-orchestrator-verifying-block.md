@@ -2,7 +2,7 @@
 id: story-070-276-orchestrator-verifying-block
 type: STORY
 title: Orchestrator VERIFYING Hierarchical Block Fix
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-06'
 updated_at: '2026-08-01'
@@ -28,4 +28,4 @@ The orchestrator's `isHierarchicallyIncomplete` properly returns `true` when a n
 Remove the incorrect `VERIFYING` allowances in dependency and parent status checks so that a `VERIFYING` child/dependency correctly blocks or suspends the parent.
 
 ## Acceptance Criteria
-- [ ] .foundry/tasks/task-070-276-001-verifying-block.md
+- [x] .foundry/tasks/task-070-276-001-verifying-block.md
