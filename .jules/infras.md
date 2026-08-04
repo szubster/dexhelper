@@ -1,122 +1,54 @@
-[Output truncated for brevity]
+# Master Journal: Infras
 
-gned as a drop-in replacement for a subset of ESLint rules, it catches issues (like empty object destructuring or unused catch parameters) that Biome might miss or hasn't implemented yet, all while remaining extremely fast.
+## Session: 2026-07-26-02-18-04
+# Infras Journal
 
-## 2026-04-24 - Enabled TypeScript Incremental Builds
-**Learning:** Enabled `"incremental": true` in the base `tsconfig.json` to significantly improve local `pnpm type-check` performance (reducing run time from ~14s to ~4s on subsequent runs). This provides a massive developer experience improvement for local pre-commit hooks, allowing the system to maintain full project type safety (as originally desired) without the painful delay of a complete rebuild every time. Added `*.tsbuildinfo` to `.gitignore` to prevent cache file pollution.
+## Critical Learnings
+- **CI Synchronization**: The local `pnpm lint` script in `package.json` was running `pnpm check:biome`, but the GitHub Actions CI workflow (`.github/workflows/ci.yml`) was completely missing the Biome check step, allowing unformatted code to bypass CI. When adding or modifying tools in the `lint` script, ensure they are also mirrored as discrete steps in the CI pipeline.
 
-## 2026-04-26 - Enabled Playwright Parallelism
-**Learning:** Updated `playwright.config.ts` to allow multiple workers (`workers: process.env['CI'] ? 2 : '50%'`) instead of the hardcoded `1` worker. This unblocks Playwright's concurrency capabilities, drastically speeding up E2E test suite execution time both locally and in CI. Additionally, confirmed that caching `.tsbuildinfo` in CI is actively rejected by the user, as the incremental build cache is strictly intended for local development performance.
+## Session: 2026-08-03-02-16-49
+# Infras Journal - Session $(date +"%Y-%m-%d-%H-%M-%S")
 
-## 2026-04-25 - Rejected cspell
-**Learning:** Evaluated using `cspell` as a spelling checker for code, comments, and configuration files. User rejected this change, preferring to avoid adding automated spell checking to the pipeline.
+## Critical Learnings
+- **CI Synchronization**: Discovered that the Playwright end-to-end tests (which are comprehensive and essential for ensuring no regressions in the UI workflow) were omitted from the GitHub Actions CI pipeline because `vitest` explicitly excludes `tests/e2e/`. Added a parallel `e2e` job in `.github/workflows/ci.yml` that sets up Playwright browsers and runs `pnpm test:e2e`. Also included uploading the `playwright-report` directory as an artifact to improve debugging DX in CI.
 
-## 2026-04-24 - Rejected caching location query locally
-**Learning:** Evaluated caching location query directly inside IndexedDB client using local variable, since `LocationSuggestions.tsx` gets a debounced input to query locations repeatedly. But user requested not to do so, because data fetching caching is already handled well enough by `dataloader` and `tanstack/query`.
+## Session: 2026-08-03-12-14-24
+# Infras Journal - Session $(date +"%Y-%m-%d-%H-%M-%S")
 
-## 2026-04-27 - Enabled oxlint type-aware rules
-**Learning:** Installed `oxlint-tsgolint` and enabled `--type-aware` in oxlint. Fixed multiple floating promise warnings across the codebase. Type-aware linting acts as a fast alternative to full typescript-eslint type checking.
-- **Orchestrator fixes:** Identified and fixed a bug where the DAG orchestrator entered an impossible loop due to incorrectly evaluating a completed parent's completion status based on its pending child. `isHierarchicallyIncomplete` was modified to accept `evaluatingFor` and correctly ignore the evaluating node and its descendants. Also fixed a bug where `COMPLETED` nodes were improperly suspended if their children were incomplete. Added robust parsing fallbacks for missing/unparsed nodes to correctly evaluate their completion status.
+## Critical Learnings
+- **Tooling configuration context**: Discovered that Playwright end-to-end tests are already being run by a separate, dedicated GitHub Action workflow. Therefore, they should NOT be added as an extra job to the main CI workflow (`.github/workflows/ci.yml`), as this would lead to duplicate test executions.
+- **Action Required**: The proposed PR must be reverted to keep the CI pipeline clean and avoid redundant e2e test executions.
 
-## 2026-05-01 - Optimized CI Pipeline
-**Learning:** Evaluated current sequential CI setup. Discovered that splitting testing, linting, and building into parallel jobs decreases total CI run time for the `ci.yml` workflow. Added `concurrency` blocks across `ci.yml`, `playwright.yml`, and `biome.yml` to automatically cancel redundant in-progress runs when new commits are pushed, saving CI minutes and improving developer experience.
+## Session: jules-12956813812122219687-27266662
+# Infras Journal - Session jules-12956813812122219687-27266662
 
-## 2026-05-02 - Added pnpm audit to CI
-**Learning:** Added `pnpm audit` job to `.github/workflows/ci.yml` to automatically catch dependency vulnerabilities during CI runs. Configured it to run with `--prod` flag to avoid failing builds on devDependency vulnerabilities, as they are mostly harmless in this context and can block releases unnecessarily.
+## Critical Learnings
 
-## 2026-05-03 - Suppressed chunk size warning limit
-**Learning:** Added `chunkSizeWarningLimit: 1000` to `vite.config.ts` to suppress noisy terminal warnings (`Some chunks are larger than 500 kB`) during builds. The user previously decided to favor a single chunk setup because the app is small and splitting would marginalize caching benefits due to frequent updates. This cleans up the build DX while retaining the deliberate architectural choice.
+- Found a critical bug in the Foundry DAG Orchestrator where completed or cancelled tasks that were moved to `.foundry/archive/` were not correctly resolved by references pointing to their original paths.
+- Fixed `resolveNodePath` in `.github/scripts/foundry-orchestrator.ts` to automatically attempt to resolve paths to their archived counterparts if the original file does not exist.
+- Updated Phase 3 matches, Phase 4 target artifacts, and Phase 4.5 idempotent links to resolve using the updated helper.
+- Added extensive regression tests to prevent similar issues in the future.
 
-## 2026-05-04 - Fixed Biome Schema Version Mismatch
-**Learning:** The Biome CLI version (2.4.14) in `package.json` did not match the schema version (2.4.13) in `biome.jsonc` and `.github/workflows/biome.yml`, causing `knip` to throw schema mismatch warnings during `pnpm lint`. Used `biome migrate` to automatically resolve the `biome.jsonc` schema and manually updated the GitHub Action version to maintain alignment and clean CI output.
+## Session: jules-session-infras-2026-07-30-01-45-54
+# Infras Journal
 
-## 2026-05-06 - Clean up test coverage parsing errors
-**Learning:** Configured `coverage` blocks in `vitest.config.ts` to exclusively `include: ['src/**/*.ts', 'src/**/*.tsx']` and explicitly `exclude: ['**/*.json']`. This stops `rolldown` (used by `@vitest/coverage-v8`) from attempting to parse statically imported `.json` files as modules, which caused noisy syntax errors during `pnpm test --coverage` runs and broke test suite exits.
-Critical learnings:
-- Removed `syncPromise` and `_resetSync` from `src/db/PokeDB.ts` completely to eliminate caching and rely exclusively on dataloader/react-query, which also successfully resolves the hanging Vitest process in the `node` test suite, preventing issues caused by dangling unhandled promises or unclosed requests.
+## Critical Learnings
+- The GitHub Actions  pipeline runs multiple linters (Biome, Oxlint, Knip) without configuring their reporters, making PR review DX suboptimal since logs must be read manually.
+- Configured each linter in  to output in Github Annotations format (e.g.  for Biome,  for Oxlint,  for Knip). This will directly flag the relevant lines of code in a PR's 'Files Changed' tab.
 
-## 2026-05-10 - Added sort-package-json
-**Learning:** Added `sort-package-json` to the pipeline via `devDependencies` and `lefthook.yml` to automatically sort `package.json` locally. Note: Biome currently does not natively sort `package.json` correctly. We did not add it to the `pnpm lint` script as it currently modifies files instead of just checking them.
-- **Updated**: Added `lint:package-json` with `--check` flag to the `lint` command to enforce that `package.json` stays correctly sorted in CI pipelines.
+## Session: jules-session-infras-2026-07-30-01-47-06
+# Infras Journal
 
-## 2026-05-11 - Cleaned up knip.json
-**Learning:** Removed outdated `ignore` and `ignoreDependencies` configurations from `knip.json` that were previously suggested by `pnpm knip`. This avoids unnecessary ignored files and configuration hints during linting.
+## Critical Learnings
+- **GitHub Annotations DX:** The GitHub Actions pipeline runs multiple linters (Biome, Oxlint, Knip) without configuring their reporters, making PR review DX suboptimal since logs must be read manually.
+- Configured each linter in `.github/workflows/ci.yml` to output in Github Annotations format (e.g. `--reporter=github` for Biome, `-f github` for Oxlint, `--reporter github-actions` for Knip). This directly flags the relevant lines of code in a PR's 'Files Changed' tab.
 
-## 2026-05-13 - Optimized Lefthook Pre-Commit
-**Learning:** Found that `type-check` hook in `lefthook.yml` was running `pnpm lint`, which sequentially ran `type-check`, `check:biome`, `oxlint`, `knip`, and `lint:package-json` across the *entire project*. Because `lefthook` already has separate commands for `biome-check`, `oxlint`, and `sort-package-json` on `{staged_files}`, this caused redundant full-project checks on every commit, significantly slowing down DX. Replaced `run: pnpm lint` with `run: pnpm type-check` for the `type-check` command to maintain the full-project type safety requested by the user while avoiding redundant linter execution.
+## Session: jules-session-infras
+# Infras Journal - Session jules-infras
 
-## 2026-05-15 - Switched jest rules to vitest rules in oxlint
-**Learning:** Found that `.oxlintrc.json` had rules configured for `jest` plugin (`jest/no-disabled-tests`, `jest/no-standalone-expect`) but the project uses Vitest and explicitly registered the `"vitest"` plugin. Replaced the `jest` prefix with `vitest` to properly apply the rules to Vitest files.
+## Critical Learnings
+- **Tooling configuration context:** `lefthook.yml` parallel execution can safely be enabled for this repo without hitting race conditions on pre-commit since the tasks (lint, check, types) do not mutually overlap file writes in a way that breaks.
+- **Git hooks and Node engine issue:** Using `lefthook` along with `pnpm` can sometimes get into a broken state (`[ERROR] Command failed with exit code 1: pnpm install`) if hooks aren't set up correctly initially. Running `git config --unset-all --global core.hooksPath` allows `pnpm install` and the subsequent `lefthook install` to run properly.
+- **CI Annotations with Built-in Reporters:** Tools like Playwright and Vitest support native Github Actions reporters that generate inline PR annotations. They can easily be activated in CI environments using `process.env['CI']` and `process.env['GITHUB_ACTIONS']` without needing dedicated Github Actions marketplace extensions.
+- **Oxlint configuration**: CLI configuration arguments for `oxlint` (like `--import-plugin`, `--promise-plugin`) can be centralized using an `.oxlintrc.json` configuration file, which helps simplify scripts across different environments (e.g. `package.json` vs `.github/workflows/ci.yml`). We moved the configuration flags into `.oxlintrc.json` and updated scripts to use `-c .oxlintrc.json` to reduce CLI complexity.
 
-## 2026-05-18 - Added madge for circular dependency checking
-**Learning:** Integrated `madge` to statically analyze and prevent circular dependencies in the codebase. Added `lint:circular` to the `lint` pipeline to ensure PRs fail if circular dependencies are introduced.
-* The project uses Vite 8 with Rolldown. When configuring `manualChunks` in `vite.config.ts`'s `rollupOptions.output`, it must be defined as a function (e.g., `manualChunks(id) { ... }`) rather than an object to avoid build errors like 'Expected Function but received Object'.
-
-## 2026-05-20 - Fixed Biome Schema Version Mismatch Again
-**Learning:** The Biome CLI version (2.4.15) in `package.json` and `biome.jsonc` was bumped but the version in `.github/workflows/biome.yml` was left at `2.4.14`, meaning CI wasn't using the same version as local. Updated the workflow to match.
-
-## 2026-05-21 - Rejected SWC Vite Plugin
-**Learning:** Initially evaluated replacing `@vitejs/plugin-react` with `@vitejs/plugin-react-swc` under the assumption it used Babel. The user rejected this, noting that in Vite 8, the default react plugin utilizes `oxc` and is currently considered superior to `swc`. The change was reverted to preserve the optimal default tooling.
-
-## 2026-05-22 - Rejected commitlint
-**Learning:** Evaluated using `commitlint` in the pre-commit hook (`lefthook.yml`) to enforce conventional commits. User rejected this change because they do not care about conventional commits formatting that much and do not want to add friction and cost to AI development.
-
-## 2026-05-23 - Updated Tooling Dependencies
-**Learning:** Updated dependencies to keep tooling modern and secure.
-
-## 2026-05-27 - Optimized Vite Chunk Strategy
-**Learning:** Added explicit chunk splitting in `vite.config.ts` for `@tanstack/react-query` and `lucide-react`. This extracts relatively static vendor logic from the main app chunk, slightly reducing its size and dramatically improving long-term cache hits for clients between minor app deployments. Corresponding limits in `.bundlemonrc.json` were updated to lock in these granular optimizations.
-
-## 2026-05-24 - Enforced package.json sorting in CI
-**Learning:** Discovered that the local `pnpm lint` pipeline had `lint:package-json` added, but the CI pipeline (`.github/workflows/ci.yml`) was missing it. I have added the `Package JSON Sort Check` to `ci.yml` to ensure `package.json` sorting is properly enforced in CI environments, preventing unsorted packages from slipping through into merged code.
-
-## 2026-05-28 - Rejected strict dead code detection with Knip
-**Learning:** Configured `knip.json` with `"files": "error"` and `"exports": "error"` to strictly fail CI if there is any unused files or dead code exports. User rejected this change, stating "We can have some dead code. For features which are being worked on. That's fine. AI agent should verify findings (I think one already does it) and decide about deletion". Reverted strict Knip settings to allow dead code during active development.
-
-## 2026-06-02 - Use .nvmrc for GitHub Actions
-**Learning:** Replaced hardcoded `node-version: 24` and `node-version: '24'` with `node-version-file: \".nvmrc\"` in all GitHub Actions workflows (`ci.yml`, `deploy.yml`, `foundry-engine.yml`, `playwright.yml`, `sync-pokedata.yml`). This ensures that the CI environment always matches the exact local development version of Node.js specified in `.nvmrc`, providing a single source of truth and preventing version drift between environments.
-
-## 2026-06-05 - Bumped knip to latest
-**Learning:** Evaluated upgrading `knip` to `v6.16.0`. Discovered that the `$schema` URL in `knip.json` also needs to be updated to `@6` to avoid schema validation warnings. Discovered `pnpm knip` failing due to `gh` being used in bash scripts. Fixed this by adding `ignoreBinaries: ["gh"]` to `knip.json`. Also removed an unused barrel file `src/components/run/index.ts` identified by Knip. Finally, the test `AssistantSuggestionCard.test.tsx` needed to have `expect` statements added to satisfy `vitest/expect-expect` rule.
-
-## 2026-06-09 - Fix Biome schema version
-**Learning:** Config drift between `package.json` (`2.4.16`), `biome.yml` (`2.4.15`), and `biome.jsonc` schemas can cause `sort-package-json` or `pnpm lint:package-json` to fail in CI pipelines, as well as lead to config mismatch between local devs and CI runners. Always ensure Biome schema and runner versions are updated in sync when upgrading.
-
-
-## 2026-06-13 - Sync CI Linting with package.json
-**Learning:** Found that `pnpm lint` in `package.json` runs `oxlint --type-aware --type-check --import-plugin --promise-plugin` and `pnpm lint:type-coverage`, but the GitHub Actions CI workflow (`.github/workflows/ci.yml`) was missing these specific flags and the type coverage check entirely. Updated the CI configuration to ensure the linting checks run in CI exactly match the local script, preventing untested code regressions from being missed by CI.
-\n## 2026-06-19 - Empty PR Policy and Playwright for tests\n**Learning:** Running unit tests (`pnpm test`) locally requires installing Playwright browsers (`pnpm exec playwright install chromium --with-deps`) beforehand, as the Vitest configuration relies on the `@vitest/browser-playwright` plugin. Additionally, if the existing development infrastructure (e.g., Biome, Oxlint, Knip, Lefthook) is highly optimized and no further tooling improvement can be cleanly implemented without introducing bloat, the Infras persona must submit an empty PR rather than forcing a change.
-
-
-## 2026-06-25 - Empty PR Policy and Environment Troubleshooting
-**Learning:**
-1. **Empty PR Policy for Infrastructure:** When tasked with improving development tooling, if the existing infrastructure (Biome, Oxlint, Knip, Lefthook, Dependabot, Caching, Bundlemon, Codecov, Playwright) is highly optimized and tests pass, it is strictly preferable to submit an empty PR rather than forcing a change. Attempting to add unnecessary tools violates system mandates against introducing bloat or technical debt. Do not modify the application logic or UI code to address tooling findings (like unused files) during an infrastructure task. This policy also applies to tasks dynamically spawned by Foundry.
-2. **Playwright for Tests:** Running unit tests (`pnpm test`) locally requires installing Playwright browsers beforehand using `pnpm exec playwright install chromium --with-deps`, as the Vitest configuration relies on the `@vitest/browser-playwright` plugin.
-3. **Lefthook Setup:** If `pnpm install` fails due to lefthook postinstall scripts failing to install hooks in `/dev/null`, explicitly unset the global hooks path using `git config --unset-all --global core.hooksPath` to allow the repository's local hooks to be configured.
-
-## 2026-06-25 - Workspace Root Dependency Installation
-**Learning:** When attempting to add or upgrade a dependency at the workspace root level using `pnpm` in a monorepo setup (indicated by `pnpm-workspace.yaml`), you must explicitly include the `-w` or `--workspace-root` flag (e.g., `pnpm install -Dw @biomejs/biome@2.5.1`). Failing to do so will result in an `ERR_PNPM_ADDING_TO_ROOT` error and halt the installation process.
-## 2026-06-25 - Vitest Coverage Parsing Errors
-**Learning:** The `coverage` blocks in `vitest.config.ts` must exclusively `include: ['src/**/*.ts', 'src/**/*.tsx']` and explicitly `exclude: ['**/*.json']` to prevent `rolldown` (used by `@vitest/coverage-v8`) from attempting to parse statically imported `.json` files as modules, which causes noisy syntax errors and breaks test suite exits.
-
-## 2026-06-25 - Strict Focus on Tooling, Not Application Code
-**Learning:** When tasked with improving development tooling (e.g., updating Biome, configuring Knip), strictly avoid modifying application logic or UI code to address tooling findings. For example, if configuring Knip reveals unused exports or dead code in the application (e.g., `SaveHistoryDBSchema`), do not delete that code. Focus solely on the configuration and integration of the tool itself. Modifying application code during an infrastructure task violates strict negative constraints.
-
-## 2026-07-10 - Submitted Empty PR
-**Learning:** Evaluated adding `actionlint` to lint GitHub Actions workflows but discovered the CLI is not readily available as a binary via `pnpm` without additional setup that violates "do not introduce bloat" policies. Confirmed that the current infrastructure (Biome, Knip, Oxlint, Dependabot) is highly optimized and tests pass. Submitted an Empty PR as per system policies to advance the pipeline without forcing unnecessary changes.
-
-## 2026-07-11 - Removed type-coverage
-**Learning:** Removed `type-coverage` tool as it was outdated (no updates in 2 years) and incompatible with newer TypeScript versions. The project already maintains high type safety through strict TypeScript configuration (`tsconfig.json`) and `oxlint` with type-aware rules, making a separate type coverage tool redundant.
-
-## 2026-07-13 - Fixed Biome CI Version Drift
-**Learning:** The project's Biome version was bumped to `2.5.3` locally (`package.json`, `biome.jsonc`), but the CI workflow (`.github/workflows/biome.yml`) remained at `2.5.2`. This causes CI drift where the GitHub Actions checks use a different linter version than local development. When upgrading local linters, you must explicitly search for and update corresponding CI actions to prevent false positive/negative linting results in PRs.
-
-## 2026-07-17 - Empty PR Policy for Infrastructure
-**Learning:** Audited the development tooling, found to be highly optimized and matching CI parity. An empty PR will be submitted to respect the bloat policy.
-## 2026-07-17 - Empty PR Policy for Infrastructure\n**Learning:** Audited the development tooling, found to be highly optimized and matching CI parity. An empty PR will be submitted to respect the bloat policy. Also, ran bundle analysis requiring `pnpm build`.
-
-## 2026-07-20 - Fixed Biome CI Version Drift
-**Learning:** The Biome version was bumped to 2.5.4 in `package.json` and `biome.jsonc`, but the CI workflow (`.github/workflows/biome.yml`) remained at `2.5.3`. It's important to update the GitHub Actions check to ensure the CI environment matches the local environment, avoiding false positive/negative linting results in PRs.
-
-## 2026-07-25 - Empty PR Policy for Infrastructure
-**Learning:** Audited the development tooling (Biome, Oxlint, Knip, Bundlemon, Codecov, Lefthook, Dependabot), and found it to be highly optimized and matching CI parity. An empty PR will be submitted to respect the bloat policy, as existing tests and linters are functioning properly and there are no obvious gaps. Verified by running tests including end-to-end tests locally (which require setting up playwright browsers and using xvfb).

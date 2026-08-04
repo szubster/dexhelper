@@ -1,3 +1,14 @@
-# Nurse type improvements
-Found and removed an unnecessary `as` cast in `src/components/TacticalSegmentedControl.tsx` that was bypassing the compiler checks for `document.activeElement`. Replaced with proper type narrowing.
-- Replaced unsafe 'as' casts in ShinyCarrierBreedingDashboard.tsx for breeding pair parents with generic types in BreedingPair and calculateBreedingPairs to allow TypeScript to automatically infer the types.
+# Master Journal: Nurse
+
+## Session: 2026-07-24-01-37-29
+# Learnings
+
+When resolving TypeScript type errors assigning `Uint8Array` to a `fetch` `body` (`BodyInit`), avoid using `as any` by explicitly typing the variable as `Uint8Array<ArrayBuffer>` instead of the wider default `Uint8Array<ArrayBufferLike>`, as `SharedArrayBuffer` is incompatible.
+
+## Session: 2026-07-26-01-35-17
+## [2024-05-18] - Accepted - Nurse: Type-safety improvement for LotteryPokemon
+
+**Type:** Type Narrowing / Interface Tightening
+**Outcome:** Successfully replaced the weak structural type `LotteryPokemon` with the core domain `PokemonInstance` type.
+**Why:** The Gen 3 lottery matching logic used a narrow, structural interface `{ otId: number }` which forced the test file to use unsafe `as any` and `as unknown` casts to mock the array. This bypassed the TypeScript compiler's checks for the other required fields in a true Pokemon instance. Replacing this with `PokemonInstance` unified the types and allowed removing the unsafe casts.
+**Pattern:** When functions expect a subset of a domain object, but callers must use the full domain object, strongly prefer typing the parameter as the full domain object (or `Partial<DomainObject>`) rather than a bespoke structural interface if it leads to unsafe casts at the call site.
