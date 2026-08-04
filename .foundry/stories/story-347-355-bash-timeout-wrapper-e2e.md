@@ -2,13 +2,13 @@
 id: story-347-355-bash-timeout-wrapper-e2e
 type: STORY
 title: Bash Timeout Wrapper E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-02'
 updated_at: '2026-08-04'
 depends_on:
   - story-347-354-bash-timeout-wrapper-impl
-jules_session_id: '1544293448135432607'
+jules_session_id: null
 pr_number: null
 parent: epic-057-347-bash-timeout-wrapper-retry
 tags:
