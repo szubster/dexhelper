@@ -42,3 +42,6 @@ Implement the logic to extract standard and rematch trainer defeat flags from Ge
 - **Transient Failures:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
 - **Permanent Failures:** If you must abort or permanently fail a task (impossible or max rejections reached), you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - **Empty PR Submission:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting. Do not manually update the status.
+
+## Late Binding Dependencies
+- [ ] research-322-396-gen3-trainer-defeat-flags-offsets
