@@ -1,11 +1,11 @@
 ---
 id: epic-114-327-gen3-pokeblock-case-parsing
 type: EPIC
-title: Gen 3 Pokéblock Case Save Parsing
-status: CANCELLED
+title: Gen 3 Pokéblock Case Parsing
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-08-03'
+updated_at: '2026-08-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,22 +17,21 @@ tags:
   - backend
   - save-parsing
 research_references: []
-rejection_count: 3
-rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
+rejection_count: 0
+rejection_reason: ''
 notes: ''
 ---
 
-# Gen 3 Pokéblock Case Save Parsing
+# Gen 3 Pokéblock Case Parsing
 
 ## Overview
-This Epic covers the backend save parsing necessary to extract exact Pokéblock data from the Pokéblock Case block in Gen 3 save files.
+This Epic implements the backend logic to parse the Pokéblock Case from Gen 3 save files, extracting exact values for all five flavors (Cool, Beauty, Cute, Smart, Tough) and the feel (smoothness) bytes.
 
 ## Goals
-- Identify the memory offsets for the Pokéblock Case in Gen 3.
+- Identify and implement the memory offsets for the Pokéblock Case block in Generation 3 save files.
 - Extract individual Pokéblock structures from the case array.
-- Parse the exact numerical values for all five flavors (Cool, Beauty, Cute, Smart, Tough) and the feel (smoothness) bytes.
+- Parse the exact numerical values for all five flavors and the feel bytes into a runtime-friendly data structure.
 
 ## Acceptance Criteria
-- [x] Create STORY(s) for researching offsets and implementing the Pokéblock extraction logic.
-- [x] story-327-331-research-gen3-pokeblock-offsets
-- [x] story-327-332-implement-gen3-pokeblock-parsing
+- [ ] Break down this Epic into STORY nodes for save parsing and data extraction.
+- [ ] Create a STORY node dedicated exclusively to Integration and E2E Verification of the parsing logic.

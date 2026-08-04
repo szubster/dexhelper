@@ -48,5 +48,5 @@ In Generation 3 (Ruby, Sapphire, Emerald), Pokéblocks are created by blending B
 ## Acceptance Criteria
 - [x] Create EPIC(s) for the backend data integration (parsing the Pokéblock Case).
 - [x] Create EPIC(s) for the frontend dashboard UI and state management.
-- [ ] epic-114-327-gen3-pokeblock-case-parsing
-- [ ] epic-114-328-gen3-pokeblock-dashboard-ui
+- [x] epic-114-327-gen3-pokeblock-case-parsing
+- [x] epic-114-328-gen3-pokeblock-dashboard-ui
