@@ -2,12 +2,12 @@
 id: prd-110-112-npc-size-record-assistant
 type: PRD
 title: Gen 2 & Gen 3 NPC Size Record Assistant
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-07-12'
-updated_at: '2026-07-31'
+updated_at: '2026-08-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4858986812884022433'
 pr_number: null
 parent: idea-110-npc-size-record-assistant
 tags:
