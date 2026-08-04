@@ -36,6 +36,10 @@ To support save state version history, we need a robust local storage solution. 
 - [ ] Define storage schema (DB name, object stores, indexes).
 - [ ] Implement write API to store a new save state.
 - [ ] Implement read API to retrieve states (by playthrough, ordered by time).
-- [ ] epic-099-130-indexeddb-schema-design
-- [ ] epic-099-131-save-state-read-write-api
-- [ ] epic-099-132-save-state-lru-eviction-and-limits
+- [x] epic-099-130-indexeddb-schema-design
+- [x] epic-099-131-save-state-read-write-api
+- [x] epic-099-132-save-state-lru-eviction-and-limits
+- [ ] research-099-396-investigate-indexeddb-schema-failure
+- [ ] epic-099-397-indexeddb-schema-design-retry
+- [ ] epic-099-398-save-state-read-write-api-retry
+- [ ] epic-099-399-save-state-lru-eviction-and-limits-retry
