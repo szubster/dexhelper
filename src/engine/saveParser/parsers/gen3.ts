@@ -337,6 +337,7 @@ export const HOENN_DEX_NATIONAL_IDS = new Set<number>(HOENN_DEX_ORDER);
 /**
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
  *
+ * @remarks
  * **A/B Bank Architecture:**
  * Gen 3 games use flash memory divided into two 56KB blocks: Bank A (`0x0000`) and Bank B (`0xe000`).
  * When saving, the game writes to whichever bank was NOT used previously, acting as a fail-safe
@@ -346,12 +347,6 @@ export const HOENN_DEX_NATIONAL_IDS = new Set<number>(HOENN_DEX_ORDER);
  * This function scans both banks for the target section using the magic signature `0x08012025`.
  * If the section exists in both banks, it compares their `saveIndex` values (the number of times
  * the game has been saved) to return the offset of the most recent, non-corrupted write.
- *
- * **Why this is needed:**
- * Generation 3 uses an A/B bank flash memory architecture to prevent data corruption during saves.
- * It alternates writing between two 56KB blocks (`0x0000` and `0xe000`). If power is lost mid-save,
- * the older bank remains intact. The engine must scan both banks, verify the `0x08012025` signature,
- * and compare the `saveIndex` values (the highest index represents the most recent successful save).
  *
  * @param view - The raw save file DataView.
  * @param targetSectionId - The internal ID of the section to locate (e.g., 1 for SaveBlock1, 2 for SaveBlock2).
@@ -1357,6 +1352,12 @@ export function parseGen3PokeNews(view: DataView, offset: number) {
 /**
  * Parses the Emerald Move Tutor usage flags.
  *
+ * @remarks
+ * **Binary Data Structure:**
+ * Move tutor usage in Emerald is tracked via specific event flags packed into a multi-byte sequence
+ * starting at `SaveBlock1 + 0x02f0 + 0x36` (Byte 1) and `0x37` (Byte 2).
+ * Each tutor move is assigned a specific bit within these bytes.
+ *
  * @param view - The raw save file DataView.
  * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
  * @returns An object containing boolean flags for each move tutor.
@@ -1666,12 +1667,13 @@ export function parseGen3TMEventFlags(
  * Parses the event flags to determine which in-game NPC trades have been completed in Ruby, Sapphire, and Emerald.
  *
  * @remarks
- * NPC Trade completion is tracked via standard event flags.
+ * **Architecture Note:**
+ * NPC Trade completion is tracked via standard event flags stored in a contiguous multi-byte array.
  * Evaluating these flags is critical because some version-exclusive Pokemon
  * are only obtainable via these trades (e.g., Makuhita in Rustboro).
  *
  * @param view - The raw save file DataView.
- * @param saveBlock2Offset - The memory offset of SaveBlock2.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
  * @returns A record mapping NPC trade internal names to a boolean indicating if they have been completed.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
@@ -1708,7 +1710,7 @@ export function parseGen3RSENPCTrades(view: DataView, saveBlock1Offset: number):
  * However, the specific flags and the Pokemon involved differ (e.g., Mr. Mime / MIMIEN).
  *
  * @param view - The raw save file DataView.
- * @param saveBlock2Offset - The resolved memory offset to the active SaveBlock2 block.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1 block.
  * @returns An object containing boolean statuses for each FRLG NPC trade.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
@@ -1746,12 +1748,14 @@ export function parseGen3FRLGNPCTrades(view: DataView, saveBlock1Offset: number)
  * Parses the event flags to determine which one-time Move Tutors have been used in FireRed and LeafGreen.
  *
  * @remarks
+ * **Binary Data Structure:**
  * In FRLG, one-time move tutors (like Double-Edge and Seismic Toss) are tracked
- * across a specific, contiguous 4-byte sequence within the event flags block.
- * This parser reads those 4 bytes directly and extracts the individual bits for each move.
+ * across a specific, contiguous 4-byte sequence within the event flags block
+ * starting at `SaveBlock1 + 0x02f0 + 0x58`.
+ * This parser reads those 4 sequential bytes directly and extracts the individual bits for each move.
  *
  * @param view - The raw save file DataView.
- * @param saveBlock2Offset - The memory offset of SaveBlock2.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
  * @returns An object containing boolean statuses for each FRLG move tutor.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
