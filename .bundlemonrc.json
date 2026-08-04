@@ -3,35 +3,35 @@
   "pathLabels": {
     "hash": "[a-zA-Z0-9-_]+"
   },
-  "defaultCompression": "none",
+  "defaultCompression": "gzip",
   "files": [
     {
       "path": "assets/index-<hash>.js",
-      "maxSize": "325kb"
+      "maxSize": "100kb"
     },
     {
       "path": "assets/query-<hash>.js",
-      "maxSize": "50kb"
+      "maxSize": "10kb"
     },
     {
       "path": "assets/icons-<hash>.js",
-      "maxSize": "50kb"
+      "maxSize": "10kb"
     },
     {
       "path": "assets/dag-<hash>.js",
-      "maxSize": "100kb"
+      "maxSize": "50kb"
     },
     {
       "path": "assets/react-<hash>.js",
-      "maxSize": "250kb"
-    },
-    {
-      "path": "assets/router-<hash>.js",
       "maxSize": "100kb"
     },
     {
+      "path": "assets/router-<hash>.js",
+      "maxSize": "50kb"
+    },
+    {
       "path": "assets/xyflow-<hash>.js",
-      "maxSize": "200kb"
+      "maxSize": "100kb"
     },
     {
       "path": "assets/idb-<hash>.js",
@@ -39,47 +39,51 @@
     },
     {
       "path": "assets/style-<hash>.css",
-      "maxSize": "200kb"
+      "maxSize": "50kb"
     },
     {
       "path": "assets/msgpackr-<hash>.js",
-      "maxSize": "50kb"
+      "maxSize": "20kb"
     },
     {
       "path": "assets/PokemonLocations-<hash>.js",
-      "maxSize": "50kb"
+      "maxSize": "20kb"
     },
     {
       "path": "assets/PokemonEvolutions-<hash>.js",
-      "maxSize": "50kb"
+      "maxSize": "20kb"
     },
     {
       "path": "assets/BattleFrontierDashboard-<hash>.js",
-      "maxSize": "300kb"
+      "maxSize": "150kb"
     },
     {
       "path": "assets/ShinyCarrierBreedingDashboard-<hash>.js",
-      "maxSize": "100kb"
+      "maxSize": "50kb"
     },
     {
       "path": "assets/GlobalRibbonChecklistDashboard-<hash>.js",
-      "maxSize": "100kb"
+      "maxSize": "50kb"
     },
     {
       "path": "assets/PokemonCatchProbability-<hash>.js",
-      "maxSize": "50kb"
+      "maxSize": "20kb"
     },
     {
       "path": "data/pokedata.msgpack",
       "maxSize": "800kb"
     },
     {
+      "path": "icon-512.png",
+      "maxSize": "500kb"
+    },
+    {
       "path": "workbox-<hash>.js",
-      "maxSize": "50kb"
+      "maxSize": "25kb"
     },
     {
       "path": "**/*",
-      "maxSize": "500kb"
+      "maxSize": "100kb"
     }
   ],
   "reportOutput": [
