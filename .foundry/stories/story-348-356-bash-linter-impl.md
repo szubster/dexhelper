@@ -2,12 +2,12 @@
 id: story-348-356-bash-linter-impl
 type: STORY
 title: Bash Static Analysis Linter Implementation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2024-11-20'
 updated_at: '2026-08-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14176431166898246845'
 pr_number: null
 parent: epic-057-348-bash-static-analysis-linter-retry
 tags:
