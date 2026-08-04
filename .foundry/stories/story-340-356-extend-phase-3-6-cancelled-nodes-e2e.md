@@ -32,4 +32,5 @@ Implement e2e/integration verification to ensure Phase 3.6 logic in `foundry-orc
 - Add an end-to-end integration test or comprehensive unit test coverage verifying the entire lifecycle from rejection counting to node cancellation, and the subsequent parent state transition to PENDING/READY.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] .foundry/tasks/task-356-396-extend-phase-3-6-cancelled-nodes-e2e-impl.md
