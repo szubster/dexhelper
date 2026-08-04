@@ -1,5 +1,5 @@
 ---
-id: epic-111-304-gen3-trainer-card-data-extraction
+id: epic-111-400-gen3-trainer-card-data-extraction
 type: EPIC
 title: Epic - Gen 3 Trainer Card Data Extraction
 status: PENDING

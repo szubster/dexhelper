@@ -67,3 +67,5 @@ Create a dedicated view (or a prominent section on the main Gen 3 dashboard) tha
 ## Acceptance Criteria
 - [x] epic-111-304-gen3-trainer-card-data-extraction
 - [x] epic-111-305-gen3-trainer-card-dashboard-ui
+- [x] epic-111-400-gen3-trainer-card-data-extraction
+- [x] epic-111-401-gen3-trainer-card-dashboard-ui
