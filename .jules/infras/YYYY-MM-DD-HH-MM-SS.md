@@ -1,6 +1,6 @@
 # Infras Journal - Session $(date +"%Y-%m-%d-%H-%M-%S")
 
 ## Critical Learnings
-- **Tooling configuration context**: Discovered that the `.bundlemonrc.json` configuration was not using compression (`"defaultCompression": "none"`), which resulted in misleadingly large bundle size reports compared to what users actually download.
-- **Action Taken**: Configured `.bundlemonrc.json` to use `"gzip"` compression and meticulously adjusted all file threshold `maxSize` rules downward to reflect realistic post-compression network sizes.
+- **Tooling configuration context**: Discovered that the `.bundlemonrc.json` configuration was reporting uncompressed chunk sizes. While gzip sizes are useful for tracking network transfer, tracking uncompressed bundle sizes is a more accurate proxy for JavaScript VM parse, compile, and execution time constraints on lower-end devices. Therefore, we should keep `.bundlemonrc.json` configured with `"defaultCompression": "none"`.
+- **Action Taken**: Configured `.bundlemonrc.json` with appropriate `maxSize` thresholds for uncompressed assets to prevent false positive CI failures, explicitly defining limits for each generated chunk based on their uncompressed footprint to accurately monitor JS VM load.
 - **Vite Build Output Analysis**: When analyzing Vite's build logs or JSON files like `.bundlemonrc.json`, standard bash tools like `cat` may truncate output. Always use targeted extraction tools like `jq` (e.g. `jq '.files' .bundlemonrc.json`) or `grep` combined with `tail` (e.g. `grep -E 'dist/' build.log | tail -n 20`) to fetch complete, untruncated arrays or lists before making assumptions about paths or sizes.
