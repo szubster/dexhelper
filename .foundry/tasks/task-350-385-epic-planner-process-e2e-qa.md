@@ -29,4 +29,4 @@ As part of enforcing macro node functional boundaries, we need to enforce a proc
 Verify the execution of the E2E test for the Epic Planner process changes.
 
 ## Acceptance Criteria
-- [ ] Verify that the E2E tests created by the coder pass successfully and correctly validate the process changes.
+- [x] Verify that the E2E tests created by the coder pass successfully and correctly validate the process changes.
