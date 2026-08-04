@@ -65,5 +65,5 @@ Create a dedicated view (or a prominent section on the main Gen 3 dashboard) tha
 - [x] Epic Planner: Break this PRD down into specific Epics (e.g., Data Parsing, UI Implementation).
 
 ## Acceptance Criteria
-- [ ] epic-111-304-gen3-trainer-card-data-extraction
-- [ ] epic-111-305-gen3-trainer-card-dashboard-ui
+- [x] epic-111-304-gen3-trainer-card-data-extraction
+- [x] epic-111-305-gen3-trainer-card-dashboard-ui
