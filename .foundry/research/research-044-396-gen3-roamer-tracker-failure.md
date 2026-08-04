@@ -2,12 +2,12 @@
 id: research-044-396-gen3-roamer-tracker-failure
 type: RESEARCH
 title: Investigate Gen 3 Roamer Tracker Failures
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-04'
 updated_at: '2026-08-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10945032757222295795'
 pr_number: null
 parent: prd-071-044-gen3-roamer-tracker
 tags:
