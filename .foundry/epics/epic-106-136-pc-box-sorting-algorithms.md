@@ -43,3 +43,4 @@ Implement reusable sorting strategies (e.g., National Dex order, Type, Level, et
 - [ ] research-136-330-investigate-sorting-strategies-failure
 - [ ] story-136-333-sorting-standard-strategies-retry
 - [ ] story-136-334-sorting-cross-gen-considerations-retry
+- [ ] story-136-356-pc-box-sorting-algorithms-e2e
