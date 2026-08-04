@@ -82,6 +82,6 @@ Targeting mathematically complex, hidden sub-mechanics provides incredible uniqu
 
 ## Acceptance Criteria
 - [x] Break down this PRD into EPIC nodes.
-- [ ] epic-112-324-npc-size-record-data-extraction
-- [ ] epic-112-325-npc-size-record-calculation-engine
-- [ ] epic-112-326-npc-size-record-dashboard-ui
+- [x] epic-112-324-npc-size-record-data-extraction
+- [x] epic-112-325-npc-size-record-calculation-engine
+- [x] epic-112-326-npc-size-record-dashboard-ui
