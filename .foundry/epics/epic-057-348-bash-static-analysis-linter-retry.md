@@ -27,4 +27,6 @@ notes: ''
 Implement a static analysis linter to proactively block known infinite-blocking commands like `tail -f` before execution.
 
 ## Acceptance Criteria
-- [ ] Break down this epic into stories.
+- [x] Break down this epic into stories.
+- [ ] story-348-356-bash-linter-impl
+- [ ] story-348-357-bash-linter-e2e
