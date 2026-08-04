@@ -2,13 +2,13 @@
 id: story-340-356-extend-phase-3-6-cancelled-nodes-e2e
 type: STORY
 title: Extend Phase 3.6 for CANCELLED nodes (E2E Verification)
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-04'
 updated_at: '2026-08-04'
 depends_on:
   - story-340-346-extend-phase-3-6-cancelled-nodes
-jules_session_id: null
+jules_session_id: '2451764453257378518'
 pr_number: null
 parent: epic-108-340-extend-phase-3-6-cancelled-nodes-retry
 tags:
