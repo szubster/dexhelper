@@ -28,5 +28,8 @@ In-game NPC trades provide Pokémon with good IVs and rare items, but tracking t
 
 ## Acceptance Criteria
 - [x] Break down into Epics (Parse Data, Build UI).
-- [ ] epic-095-119-in-game-trade-data-extraction
-- [ ] epic-095-120-in-game-trade-dashboard-ui
+- [x] epic-095-119-in-game-trade-data-extraction
+- [x] epic-095-120-in-game-trade-dashboard-ui
+- [ ] research-056-394-investigate-in-game-trade-failure
+- [ ] epic-056-349-in-game-trade-data-extraction-v2
+- [ ] epic-056-350-in-game-trade-dashboard-ui-v2
