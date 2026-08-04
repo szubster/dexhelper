@@ -36,9 +36,9 @@ Update the DAG Orchestrator to ensure strict hierarchical completion. A node mus
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] Implement hierarchical completion logic in `foundry-orchestrator.ts`.
-- [ ] Add unit tests verifying the behavior blocks transition when children are not completed.
-- [ ] Ensure tests cover both `parent` field links and markdown body references.
+- [x] Implement hierarchical completion logic in `foundry-orchestrator.ts`.
+- [x] Add unit tests verifying the behavior blocks transition when children are not completed.
+- [x] Ensure tests cover both `parent` field links and markdown body references.
 
 - [x] story-070-108-orchestrator-hierarchical-completion-logic
 - [x] story-070-109-orchestrator-hierarchical-completion-tests
