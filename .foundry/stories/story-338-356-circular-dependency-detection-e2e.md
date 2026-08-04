@@ -2,13 +2,13 @@
 id: story-338-356-circular-dependency-detection-e2e
 type: STORY
 title: Circular Dependency Detection E2E
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-04'
 updated_at: '2026-08-04'
 depends_on:
   - story-338-336-implement-orchestrator-cycle-detection
-jules_session_id: null
+jules_session_id: '860198274882843441'
 pr_number: null
 parent: epic-334-338-circular-dependency-detection
 tags:
