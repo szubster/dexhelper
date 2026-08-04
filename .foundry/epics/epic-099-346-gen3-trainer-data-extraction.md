@@ -32,4 +32,9 @@ Extract the Trainer ID (TID) and Secret ID (SID) from a Gen 3 save file.
 - Include E2E/integration testing to ensure reliability and correct rendering.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Convert this Epic into Stories.
+- [x] Story Owner: Convert this Epic into Stories.
+- [ ] story-346-356-gen3-trainer-data-extraction-core
+- [ ] story-346-357-gen3-trainer-data-e2e
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
