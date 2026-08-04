@@ -2,6 +2,9 @@ import { expect, test } from '@playwright/test';
 import { initializeWithSave } from './test-utils';
 
 test.describe('Version Selection', () => {
+  // Clear any existing auth state since this test had a flaky read on user.json
+  test.use({ storageState: { cookies: [], origins: [] } });
+
   test('should allow selecting a version manually and update UI', async ({ page }) => {
     // Start with a clean state and initialize
     await initializeWithSave(page);

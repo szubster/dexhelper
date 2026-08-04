@@ -68,15 +68,22 @@ test.describe('Permanent Failures Dashboard', () => {
     await expect(permFilterBtn).toBeVisible({ timeout: 15000 });
     await permFilterBtn.click();
 
+    // Give it a moment to filter
+    await page.waitForTimeout(500);
+
     // Verify a permanent failure node is displayed
     const dagNodes = page.getByTestId('dag-node');
     // Ensure that at least one node is visible
     await expect(dagNodes.first()).toBeVisible({ timeout: 15000 });
 
     // We expect the visible nodes to only be the permanent failure
-    const allVisibleNodes = await dagNodes.all();
-    expect(allVisibleNodes.length).toBe(1);
+    // Adding toPass block to account for state propagation delays
+    await expect(async () => {
+      const allVisibleNodes = await dagNodes.all();
+      expect(allVisibleNodes.length).toBe(1);
+    }).toPass({ timeout: 15000 });
 
+    const allVisibleNodes = await dagNodes.all();
     const firstNode = allVisibleNodes[0];
     if (!firstNode) {
       throw new Error('Expected at least one node');
