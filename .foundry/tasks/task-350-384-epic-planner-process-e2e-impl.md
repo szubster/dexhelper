@@ -28,4 +28,4 @@ As part of enforcing macro node functional boundaries, we need to enforce a proc
 Implement an E2E test to verify that the instructions for the Epic Planner enforce the creation of a final Integration/Verification story for every EPIC breakdown.
 
 ## Acceptance Criteria
-- [ ] Implement E2E test(s) verifying the process changes for Epic Planners.
+- [x] Implement E2E test(s) verifying the process changes for Epic Planners.
