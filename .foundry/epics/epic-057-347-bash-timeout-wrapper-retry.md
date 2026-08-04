@@ -29,5 +29,5 @@ Implement a timeout wrapper for `run_in_bash_session` to interrupt commands that
 
 ## Acceptance Criteria
 - [x] Break down this epic into stories.
-- [ ] story-347-354-bash-timeout-wrapper-impl
-- [ ] story-347-355-bash-timeout-wrapper-e2e
+- [x] story-347-354-bash-timeout-wrapper-impl
+- [x] story-347-355-bash-timeout-wrapper-e2e
