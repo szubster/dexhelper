@@ -2,12 +2,12 @@
 id: story-039-356-r2-sync-e2e
 type: STORY
 title: Cloudflare R2 Offline-First Save Syncing E2E
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-04'
 updated_at: '2026-08-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16675216324266481746'
 pr_number: null
 parent: epic-030-039-cloudflare-r2-save-sync
 tags:
