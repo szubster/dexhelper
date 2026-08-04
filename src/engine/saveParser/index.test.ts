@@ -1,5 +1,11 @@
 import { describe, expect, it, vi } from 'vitest';
 import { parseSaveFile } from './index';
+
+const GEN1_CHECKSUM_DATA_START = 0x2598;
+const GEN2_CHECKSUM_DATA_START = 0x2009;
+const GEN2_CHECKSUM_DATA_END = 0x2d0c;
+const GEN2_CHECKSUM_OFFSET = 0x2d0d;
+
 import * as gen3Module from './parsers/gen3';
 
 vi.mock('./parsers/gen3', async (importOriginal) => {
@@ -122,11 +128,11 @@ describe('saveParser - Error Handling and Fallbacks', () => {
 
     // Gen 2 checksum
     let gen2Sum = 0;
-    for (let i = 0x2009; i <= 0x2d0c; i++) {
+    for (let i = GEN2_CHECKSUM_DATA_START; i <= GEN2_CHECKSUM_DATA_END; i++) {
       gen2Sum += buffer[i] as number;
     }
     const view = new DataView(buffer.buffer);
-    view.setUint16(0x2d0d, gen2Sum, true);
+    view.setUint16(GEN2_CHECKSUM_OFFSET, gen2Sum, true);
 
     const data = parseSaveFile(buffer.buffer);
     expect(data.generation).toBe(2);
@@ -140,11 +146,11 @@ describe('saveParser - Error Handling and Fallbacks', () => {
 
     // Gen 2 checksum
     let gen2Sum = 0;
-    for (let i = 0x2009; i <= 0x2d0c; i++) {
+    for (let i = GEN2_CHECKSUM_DATA_START; i <= GEN2_CHECKSUM_DATA_END; i++) {
       gen2Sum += buffer[i] as number;
     }
     const view = new DataView(buffer.buffer);
-    view.setUint16(0x2d0d, gen2Sum, true);
+    view.setUint16(GEN2_CHECKSUM_OFFSET, gen2Sum, true);
 
     const data = parseSaveFile(buffer.buffer);
     expect(data.generation).toBe(2);
@@ -161,11 +167,11 @@ describe('saveParser - Error Handling and Fallbacks', () => {
 
     // Gen 2 checksum
     let gen2Sum = 0;
-    for (let i = 0x2009; i <= 0x2d0c; i++) {
+    for (let i = GEN2_CHECKSUM_DATA_START; i <= GEN2_CHECKSUM_DATA_END; i++) {
       gen2Sum += buffer[i] as number;
     }
     const view = new DataView(buffer.buffer);
-    view.setUint16(0x2d0d, gen2Sum, true);
+    view.setUint16(GEN2_CHECKSUM_OFFSET, gen2Sum, true);
 
     const data = parseSaveFile(buffer.buffer);
     expect(data.generation).toBe(2);
@@ -189,7 +195,7 @@ describe('saveParser - Error Handling and Fallbacks', () => {
         this.byteLength = byteLength ?? buffer.byteLength;
       }
       getUint8(byteOffset: number) {
-        if (byteOffset === 0x2598) {
+        if (byteOffset === GEN1_CHECKSUM_DATA_START) {
           throw new RangeError('Out of bounds');
         }
         return new originalDataView(this.buffer, this.byteOffset, this.byteLength).getUint8(byteOffset);
