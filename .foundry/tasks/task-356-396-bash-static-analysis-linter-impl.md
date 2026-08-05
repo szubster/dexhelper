@@ -2,12 +2,12 @@
 id: task-356-396-bash-static-analysis-linter-impl
 type: TASK
 title: Implement Bash Static Analysis Linter
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-04'
 updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9029543228350100736'
 parent: story-348-356-bash-linter-impl
 tags:
   - bash
