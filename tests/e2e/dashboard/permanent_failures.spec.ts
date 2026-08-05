@@ -16,7 +16,6 @@ test.describe('Permanent Failures Dashboard', () => {
             rejection_count: MAX_REJECTION_THRESHOLD, // Permanent failure
             depends_on: [],
             title: 'Task 1 - Permanent Failure',
-            label: 'task-permanent-failure',
           },
         },
         {
@@ -29,7 +28,6 @@ test.describe('Permanent Failures Dashboard', () => {
             rejection_count: MAX_REJECTION_THRESHOLD - 1, // Regular failure
             depends_on: [],
             title: 'Task 2 - Regular Failure',
-            label: 'task-regular-failure',
           },
         },
         {
@@ -42,7 +40,6 @@ test.describe('Permanent Failures Dashboard', () => {
             rejection_count: 0,
             depends_on: [],
             title: 'Task 3 - Completed',
-            label: 'task-completed',
           },
         },
       ];
@@ -52,7 +49,8 @@ test.describe('Permanent Failures Dashboard', () => {
     // Navigate to the DAG dashboard
     await page.goto('./dag');
 
-    // Wait for the DAG to load and render nodes.
+    // The node label is rendered as data.label which is set to node.id in DagContext.tsx
+    // so we should look for 'task-permanent-failure' as the text.
     const task1Node = page.getByTestId('dag-node').filter({ hasText: 'task-permanent-failure' });
     const task2Node = page.getByTestId('dag-node').filter({ hasText: 'task-regular-failure' });
     const task3Node = page.getByTestId('dag-node').filter({ hasText: 'task-completed' });
