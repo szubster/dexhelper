@@ -1,3 +1,22 @@
+/**
+ * @module gen1Parser
+ *
+ * Contains logic for parsing Generation 1 (Red, Blue, Yellow) Game Boy save files.
+ *
+ * ## Architecture Overview
+ * Generation 1 save files use a monolithic layout where data is laid out sequentially without
+ * complex bank-switching or encryption. However, Yellow version introduces minor offset shifts
+ * for certain data blocks compared to Red/Blue.
+ *
+ * This module extracts the player's party, PC box contents, Pokédex completion status, inventory,
+ * and event flags (e.g. defeated trainers or collected items).
+ *
+ * Important structural notes:
+ * - Text encoding uses a custom character set (parsed via `decodeGen12String`).
+ * - PC storage requires switching between multiple "boxes" stored in different areas of the save file.
+ * - Unlike later generations, Pokémon data structs do not hold a "caught location", making origin tracking reliant entirely on Original Trainer (OT) matches.
+ */
+
 import gen1MapLocations from '../../data/gen1/mapLocations.json';
 import { GEN1_TM_HM_TO_MOVE_ID, parseGen1StaticEncounters, parseGen1TMFlags } from '../utils/gen1EventFlags';
 import type { GameVersion, PokemonInstance, SaveData } from './common';
@@ -237,13 +256,15 @@ const INTERNAL_ID_TO_DEX: Record<number, number> = {
 };
 
 /**
- * Checks for specific memory offsets utilized only by Pokémon Yellow's follow-Pikachu mechanic.
+ * Scans specific memory offsets to heuristically determine if the save file belongs to
+ * Pokémon Yellow. Yellow introduces a unique "following Pikachu" mechanic whose data
+ * is stored at specific addresses not used (or used differently) by Red/Blue.
  *
  * In Pokémon Yellow, memory address 0x271C stores Pikachu's status, and 0x271D stores Pikachu's
  * friendship/happiness level. If these bytes are actively utilized (non-zero and not 0xFF),
  * it strongly indicates the save file originated from Yellow version.
  *
- * @param view - The raw save file DataView.
+ * @param view - The DataView of the save file.
  * @returns True if high-confidence Yellow version markers are present.
  */
 function hasYellowPikachuMarkers(view: DataView): boolean {
@@ -460,13 +481,12 @@ function parseGen1HallOfFameRecords(view: DataView, hallOfFameCount: number, tra
  */
 
 /**
- * Dynamically detects the exact Generation 1 game version (Red, Blue, or Yellow) and
- * calculates the required memory offset shift.
+ * Determines the specific Game Boy version (Red/Blue vs Yellow) by evaluating heuristics
+ * and looking for structural differences. This is necessary because Gen 1 saves do not
+ * explicitly declare their version.
  *
- * **Architecture & Heuristics:**
- * Gen 1 save files do not contain a self-describing version header. Furthermore,
- * Pokémon Yellow shifted the vast majority of memory offsets by `+1` byte to accommodate
- * Pikachu's friendship data earlier in the save file.
+ * Pokémon Yellow introduces a 1-byte shift to most structural data blocks to accommodate
+ * Pikachu's friendship data earlier in the save file. This shift is returned as `offsetShift`.
  *
  * To determine the correct alignment, this function probes the Pokédex padding bit.
  * The 19th byte of the Pokédex bitmask holds IDs 145-152, but since Pokémon 152 does not exist,
@@ -476,10 +496,10 @@ function parseGen1HallOfFameRecords(view: DataView, hallOfFameCount: number, tra
  * start offset for Yellow (`0x25A4`). Whichever offset results in a valid zeroed padding bit
  * dictates the structural alignment (`offsetShift`).
  *
- * @param view - The raw save file DataView.
- * @param forcedVersion - Optional user override.
- * @param trainerName - The decoded trainer name (parsed before the offset shift).
- * @param quickParty - A partial party parsed before the offset shift, used for Pikachu detection.
+ * @param view - The DataView of the save file.
+ * @param forcedVersion - A manual override if auto-detection is skipped.
+ * @param trainerName - Parsed original trainer name used for origin tracking.
+ * @param quickParty - Parsed party summary to aid in cross-referencing caught pokemon.
  * @returns An object containing the detected `offsetShift` (0 or 1), `gameVersion`, and Pokédex state.
  */
 function detectVersionAndOffsets(
@@ -488,7 +508,13 @@ function detectVersionAndOffsets(
   trainerName: string,
   quickParty: { speciesId: number; otName: string }[],
 ) {
-  // A helper function to parse the Pokédex flags starting at a given base address
+  /**
+   * Helper function to decode the 152-bit Pokédex bitfields.
+   * Gen 1 stores the Pokédex as two separate bitfields: Owned and Seen.
+   * Since there are 151 Pokémon, the structure requires 19 bytes (19 * 8 = 152 bits).
+   *
+   * @param ownedBase - The dynamic memory offset where the 'Owned' bitfield begins.
+   */
   const detectForOffset = (ownedBase: number) => {
     const owned = new Set<number>();
     const seen = new Set<number>();
