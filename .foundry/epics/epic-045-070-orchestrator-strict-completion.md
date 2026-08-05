@@ -2,7 +2,7 @@
 id: epic-045-070-orchestrator-strict-completion
 type: EPIC
 title: Orchestrator Hierarchical Completion Checks
-status: ACTIVE
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-08-04'
@@ -14,8 +14,8 @@ tags:
   - orchestrator
   - architecture
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

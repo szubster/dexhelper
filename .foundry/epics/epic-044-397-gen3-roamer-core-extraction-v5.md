@@ -2,7 +2,7 @@
 id: epic-044-397-gen3-roamer-core-extraction-v5
 type: EPIC
 title: Gen 3 Roamer Core Extraction v5
-status: FAILED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-04'
 updated_at: '2026-08-04'
@@ -16,8 +16,8 @@ tags:
   - roamer
 research_references:
   - research-071-138-gen3-roamer-offsets
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
+rejection_count: 1
+rejection_reason: ''
 notes: Replacement for epic-044-149
 ---
 

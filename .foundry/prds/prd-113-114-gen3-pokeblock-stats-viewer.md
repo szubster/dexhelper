@@ -5,9 +5,9 @@ title: Gen 3 Pokéblock Exact Stats Viewer
 status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-07-13'
-updated_at: '2026-08-04'
+updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '4523463936753787687'
+jules_session_id: '2513819693854721323'
 pr_number: null
 parent: idea-113-gen3-pokeblock-stats-viewer
 tags:
@@ -16,7 +16,7 @@ tags:
   - pokeblocks
   - quality-of-life
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
