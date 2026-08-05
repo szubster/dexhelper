@@ -34,6 +34,6 @@ Verify the implementation of the Gen 2 phone call filtering logic (Swarms & Item
 - Validate logic handles the differences between Gold/Silver and Crystal versions.
 
 ## Acceptance Criteria
-- [ ] Verify magic numbers are not used and constants are module-level
-- [ ] Verify RangeError is caught
-- [ ] Run test suite and ensure no regressions
+- [x] Verify magic numbers are not used and constants are module-level
+- [x] Verify RangeError is caught
+- [x] Run test suite and ensure no regressions
