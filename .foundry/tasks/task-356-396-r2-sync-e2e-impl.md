@@ -34,5 +34,5 @@ This task implements the end-to-end verification for the Cloudflare R2 offline-f
 - Adhere to the core policies: utilize real save fixtures in `tests/fixtures`, hydrate app state using `initializeWithSave(page)` from `tests/e2e/test-utils.ts`, and always call `await waitForSync(page)` after navigation.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests covering R2 push/pull.
-- [ ] Implement E2E tests for conflict resolution and offline fallback.
+- [x] Implement E2E tests covering R2 push/pull.
+- [x] Implement E2E tests for conflict resolution and offline fallback.
