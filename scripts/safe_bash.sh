@@ -6,6 +6,15 @@ if [ "$#" -eq 0 ]; then
     exit 1
 fi
 
+COMMAND_STR="$*"
+
+if [[ "$COMMAND_STR" == *"tail -f"* ]]; then
+    echo "Error: Static analysis detected a known blocking command ('tail -f')." >&2
+    echo "Execution prevented to avoid infinite hangs." >&2
+    echo "Please use non-blocking alternatives like 'cat' or 'tail -n'." >&2
+    exit 1
+fi
+
 # Set a threshold of 30 seconds
 TIMEOUT_DURATION=30
 
