@@ -44,4 +44,4 @@ Update the DAG Orchestrator to ensure strict hierarchical completion. A node mus
 - [x] story-070-109-orchestrator-hierarchical-completion-tests
 
 - [x] story-070-276-orchestrator-verifying-block
-- [ ] story-070-358-orchestrator-strict-completion-e2e
+- [x] story-070-358-orchestrator-strict-completion-e2e

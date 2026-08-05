@@ -1,0 +1,29 @@
+---
+id: story-070-358-orchestrator-strict-completion-e2e
+type: STORY
+title: Orchestrator Hierarchical Completion Checks E2E
+status: PENDING
+owner_persona: tech_lead
+created_at: '2026-08-05'
+updated_at: '2026-08-05'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: epic-045-070-orchestrator-strict-completion
+tags:
+  - orchestrator
+  - architecture
+  - e2e
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Orchestrator Hierarchical Completion Checks E2E
+
+## Objective
+Add E2E tests for the orchestrator to ensure strict hierarchical completion logic is correctly evaluated and blocks VERIFYING nodes appropriately.
+
+## Acceptance Criteria
+- [ ] Implement E2E tests for strict hierarchical completion
