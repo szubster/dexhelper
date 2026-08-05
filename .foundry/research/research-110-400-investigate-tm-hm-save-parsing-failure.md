@@ -30,4 +30,15 @@ The original TM/HM save parsing epic (`epic-110-306-tm-hm-save-parsing`) failed 
 - Provide a summary of the failure and actionable recommendations for the V2 parsing Epic.
 
 ## Acceptance Criteria
-- [ ] Root cause of parsing failure identified and documented.
+- [x] Root cause of parsing failure identified and documented.
+
+## Research Findings & Recommendations
+**Root Cause Analysis:**
+1. **Orchestrator Safeguard Failure:** The `epic-110-306-tm-hm-save-parsing` node repeatedly failed and reached its max rejection count because it lacked an `e2e` or `integration` tagged child STORY node. As per the Orchestrator Safeguard rules, an Epic cannot transition to COMPLETED without one. When the Story Owner submitted Empty PRs to transition the Epic, it was rejected.
+2. **QA Rejections for Architecture Violations:** Earlier in the pipeline, the Gen 1 implementation (`task-319-322-gen1-tm-hm-parsing-impl`) was rejected by QA because it violated ADR 028 (it used inline magic numbers like `0x27e6` for memory offsets). These code issues were resolved in subsequent iterations, and the code now complies with ADR 028.
+
+**Recommendations for V2:**
+- The codebase already contains the correct, compliant parsing logic for Gen 1, Gen 2, and Gen 3.
+- The V2 Epic (`epic-110-401-tm-hm-save-parsing-v2`) should be spawned.
+- The Story Owner must immediately create an E2E story (e.g., `story-401-402-tm-hm-save-parsing-e2e`) explicitly tagged with `e2e` and add it to the Epic's Acceptance Criteria.
+- Once the E2E story is completed, the Story Owner can submit an Empty PR to transition the V2 Epic to COMPLETED.
