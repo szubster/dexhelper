@@ -31,5 +31,12 @@ The v2 epics for Secret Base and Mixed Record parsing (`epic-045-324-gen3-secret
 - Identify missing architectural requirements, offsets, or logic that caused the rejections.
 - Propose a revised approach or updated offsets to ensure the v3 replacement tasks succeed.
 
+## Findings
+The root cause of the permanent failure (Max rejection count reached) for `epic-045-324-gen3-secret-base-parsing-v2` is the missing Orchestrator Safeguard (E2E/Integration Requirement). The Epic did not generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+Consequently, the Orchestrator repeatedly rejected the Epic until it reached the maximum rejection count, causing a permanent failure and the cascading cancellation of its dependent epics (`epic-045-325-gen3-secret-base-radar-integration-v2`, `epic-045-326-gen3-secret-base-dashboard-v2`).
+
+For the v3 implementation, the revised approach is:
+- Ensure that the generative persona (Epic Planner/Story Owner) explicitly spawns an E2E/Integration STORY tagged with `e2e` or `integration` when breaking down the Epic.
+
 ## Acceptance Criteria
-- [ ] Researcher: Produce a research document detailing the root cause of the failure and providing correct offsets/logic for v3.
+- [x] Researcher: Produce a research document detailing the root cause of the failure and providing correct offsets/logic for v3.
