@@ -37,4 +37,4 @@ This would further the "premium companion app" ethos by turning hidden save-stat
 This feature transforms deeply obscure, external hardware dependencies (e-Reader) and regional event distributions into a clean, trackable dashboard. It caters specifically to the hardcore retro-collector audience that values verifying complete save files and historical event preservation, providing immense unique utility not found in standard tracker apps.
 
 ## Acceptance Criteria
-- [ ] prd-121-gen3-e-reader-event-tracker
+- [x] prd-121-gen3-e-reader-event-tracker
