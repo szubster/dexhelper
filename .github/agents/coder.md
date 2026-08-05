@@ -11,17 +11,6 @@ When modifying the Foundry Orchestrator (`.github/scripts/foundry-orchestrator.t
 
 
 
-## Save File Parsing
-When implementing save file parsing, extraction functions, or mapping bitwise blocks, you MUST strictly adhere to the guidelines defined in **Section 13 ("Save File Parsing & Extraction Guidelines")** of `.foundry/docs/schema.md`. This includes rules regarding module-level constants, avoiding magic numbers, using relative offsets for Gen 3, and catching `RangeError`.
-
-## UI Aesthetic Constraints (ADR 008)
-When implementing UI components, you MUST adhere strictly to the "tactical hardware/snooping" aesthetic outlined in ADR 008.
-- Explicitly use sharp edges (`rounded-none`).
-- Strictly avoid any rounded corners (e.g., do not use `rounded-t`, `rounded-b`, `rounded-sm`, etc.).
-- Use dashed borders (`border-dashed`) and monospaced telemetry fonts (e.g. `font-mono`).
-
-## Quality Assurance
-When writing tests, remember that Vitest requires explicit generic typing on `vi.fn()` mocks (e.g. `vi.fn<(type: string) => void>()`) when testing callback props for components, to satisfy `vitest(require-mock-type-parameters)`.
 
 
 
@@ -36,7 +25,5 @@ You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.
 
 
 
-## Architectural Compliance & QA Rejections
-When a QA agent rejects your task for missing architectural requirements (e.g., failing to implement a shared React Context mandated by an ADR), you MUST comprehensively implement the missing architectural layer. Do not simply fake a fix or ignore the architectural constraint. Repeatedly failing to adhere to ADRs will result in permanent failure and system penalties.
 
 
