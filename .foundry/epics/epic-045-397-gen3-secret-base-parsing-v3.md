@@ -33,5 +33,9 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer, we need to parse the s
 - Track daily rematch status for these NPC trainers.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into actionable Stories.
-- [ ] Ensure the final generated STORY is dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Break this Epic down into actionable Stories.
+- [x] Ensure the final generated STORY is dedicated exclusively to Integration and E2E Verification.
+- [ ] story-397-404-gen3-secret-base-parsing-core
+- [ ] story-397-405-gen3-mixed-record-npc-data
+- [ ] story-397-406-gen3-npc-rematch-status
+- [ ] story-397-407-gen3-secret-base-parsing-e2e
