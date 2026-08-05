@@ -15,7 +15,7 @@ export function EmptyState({ label, icon, className, labelClassName }: EmptyStat
   return (
     <div
       className={cn(
-        'group relative col-span-full flex w-full flex-col items-center justify-center overflow-hidden rounded-none border border-zinc-800/80 border-dashed bg-black/40 p-12 text-center transition-colors duration-500 hover:border-zinc-700 hover:bg-zinc-950/60',
+        'group relative col-span-full flex w-full flex-col overflow-hidden rounded-none border border-zinc-800/80 border-dashed bg-black/40 p-6 transition-colors duration-500 hover:border-zinc-700 hover:bg-zinc-950/60',
         className,
       )}
     >
@@ -23,53 +23,69 @@ export function EmptyState({ label, icon, className, labelClassName }: EmptyStat
       <ScanlineOverlay opacityClass="opacity-10" />
       <CornerCrosshairs className="h-2 w-2 border-zinc-700/50 transition-colors group-hover:border-[var(--theme-primary)]/50" />
 
-      {/* Radar / Scanner Visual */}
-      <div className="relative mb-8 flex h-24 w-24 items-center justify-center">
-        {/* Outer Ring */}
-        <div className="absolute inset-0 rounded-full border border-zinc-800/80 border-dashed transition-colors group-hover:border-zinc-700" />
-        {/* Inner Ring */}
-        <div className="absolute inset-4 rounded-full border border-zinc-800/50 transition-colors group-hover:border-zinc-700/80" />
+      <div className="relative z-10 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+        {/* Warning Indicator Block */}
+        <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden border border-red-900/30 bg-red-950/20">
+          {/* Diagonal Warning Stripes */}
+          <div
+            className="absolute inset-0 opacity-20"
+            style={{
+              background: 'repeating-linear-gradient(45deg, transparent, transparent 4px, #7f1d1d 4px, #7f1d1d 8px)',
+            }}
+          />
 
-        {/* Scanning beam */}
-        <div className="absolute inset-0 origin-center animate-[spin_3s_linear_infinite] rounded-full border-[var(--theme-primary)]/30 border-t border-r bg-[conic-gradient(from_0deg,transparent_0deg,transparent_270deg,rgba(var(--theme-primary-rgb),0.05)_360deg)] opacity-0 transition-opacity duration-1000 group-hover:opacity-100" />
+          <div className="relative z-10 text-red-500/80 group-hover:animate-pulse group-hover:text-red-400">
+            {icon ? (
+              icon
+            ) : (
+              <div className="flex items-center gap-1">
+                <div className="h-4 w-1 bg-red-500/80" />
+                <div className="flex h-4 w-4 items-center justify-center rounded-none border-2 border-red-500/80">
+                  <div className="h-1 w-1 bg-red-500/80" />
+                </div>
+              </div>
+            )}
+          </div>
 
-        {/* Center Icon or Default Blip */}
-        <div className="relative z-10 flex h-10 w-10 items-center justify-center text-zinc-600 transition-colors duration-500 group-hover:text-[var(--theme-primary)]/70 group-hover:drop-shadow-[0_0_8px_rgba(var(--theme-primary-rgb),0.5)]">
-          {icon ? (
-            icon
-          ) : (
-            <div className="h-2 w-2 rounded-none bg-zinc-700 transition-colors group-hover:animate-pulse group-hover:bg-[var(--theme-primary)] group-hover:shadow-[0_0_8px_var(--theme-primary)]" />
-          )}
+          <div className="absolute right-0 bottom-0 h-1.5 w-1.5 border-red-500/50 border-r border-b" />
         </div>
 
-        {/* Crosshairs for the radar */}
-        <div className="absolute top-1/2 left-[-20%] h-[1px] w-[140%] bg-zinc-800/50 transition-colors group-hover:bg-[var(--theme-primary)]/20" />
-        <div className="absolute top-[-20%] left-1/2 h-[140%] w-[1px] bg-zinc-800/50 transition-colors group-hover:bg-[var(--theme-primary)]/20" />
+        {/* Diagnostic Text Sequence */}
+        <div className="flex flex-1 flex-col gap-2">
+          <div className="flex items-center gap-2 border-zinc-800/80 border-b border-dashed pb-2">
+            <div className="h-2 w-2 rounded-none bg-red-900/50 transition-colors duration-500 group-hover:bg-red-500 group-hover:shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+            <span className="font-bold font-mono text-[10px] text-zinc-500 uppercase tracking-[0.2em] transition-colors group-hover:text-zinc-400">
+              [ DIAGNOSTIC_FAULT ]
+            </span>
+          </div>
+
+          <span
+            className={cn(
+              'font-black font-mono text-base text-zinc-300 uppercase tracking-widest transition-colors group-hover:text-white',
+              labelClassName,
+            )}
+          >
+            {label}
+          </span>
+
+          <div className="mt-1 flex flex-col gap-1 font-mono text-[9px] text-zinc-600 uppercase">
+            <div className="flex items-center gap-2">
+              <span className="text-red-900/80">{'>'}</span>
+              <span className="overflow-hidden whitespace-nowrap">ERR_CODE: 0x00000404 - ENTITY_NOT_FOUND</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-red-900/80">{'>'}</span>
+              <span className="animate-[pulse_2s_ease-in-out_infinite] overflow-hidden whitespace-nowrap">
+                AWAITING NEW PARAMETERS...
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="relative z-10 flex flex-col items-center gap-3">
-        <div className="flex items-center gap-2">
-          <div className="h-2 w-2 rounded-none border border-red-900 bg-red-900/20 group-hover:animate-pulse group-hover:bg-red-500 group-hover:shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
-          <span className="font-black font-mono text-[10px] text-zinc-600 uppercase tracking-[0.3em] transition-colors group-hover:text-zinc-400">
-            [ SIGNAL_LOST ]
-          </span>
-        </div>
-
-        <span
-          className={cn(
-            'font-bold font-mono text-sm text-zinc-500 uppercase tracking-widest transition-colors group-hover:text-zinc-300',
-            labelClassName,
-          )}
-        >
-          {label}
-        </span>
-
-        {/* Data processing decoration */}
-        <div className="mt-2 flex gap-1.5 opacity-50 transition-opacity group-hover:opacity-100">
-          <div className="h-1 w-6 bg-zinc-800 transition-colors group-hover:bg-[var(--theme-primary)]/40" />
-          <div className="h-1 w-1.5 bg-zinc-800 transition-colors delay-100 group-hover:bg-[var(--theme-primary)]/60" />
-          <div className="h-1 w-1.5 bg-zinc-800 transition-colors delay-200 group-hover:bg-[var(--theme-primary)]/80" />
-        </div>
+      {/* Decorative Progress Bar */}
+      <div className="absolute bottom-0 left-0 h-1 w-full bg-zinc-900/50">
+        <div className="h-full w-1/3 bg-red-900/20 transition-colors group-hover:bg-red-900/40" />
       </div>
     </div>
   );
