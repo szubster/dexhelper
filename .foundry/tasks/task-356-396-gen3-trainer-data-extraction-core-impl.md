@@ -33,6 +33,6 @@ Implement extraction logic for Trainer ID (TID) and Secret ID (SID) from a Gen 3
 - **CRITICAL**: You MUST strictly adhere to all guidelines defined in **Section 13 ("Save File Parsing & Extraction Guidelines")** of `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Coder: Update `SaveData` interface to include `secretId`.
-- [ ] Coder: Update `parseGen3Save` return object to include `secretId`.
-- [ ] Coder: Verify the implementation's exact alignment with the documentation schemas (e.g., Section 14 of `.foundry/docs/schema.md`).
+- [x] Coder: Update `SaveData` interface to include `secretId`.
+- [x] Coder: Update `parseGen3Save` return object to include `secretId`.
+- [x] Coder: Verify the implementation's exact alignment with the documentation schemas (e.g., Section 14 of `.foundry/docs/schema.md`).
