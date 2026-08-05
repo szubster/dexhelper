@@ -5,9 +5,9 @@ title: Implement E2E Tests for RNG TID and SID Display UI
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-01'
-updated_at: '2026-08-03'
+updated_at: '2026-08-04'
 depends_on: []
-jules_session_id: '17404437096842668257'
+jules_session_id: '6520516412656580104'
 pr_number: null
 parent: story-130-349-rng-tid-sid-e2e
 tags:

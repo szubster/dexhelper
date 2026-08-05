@@ -2,12 +2,12 @@
 id: epic-099-346-gen3-trainer-data-extraction
 type: EPIC
 title: Gen 3 Trainer Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-25'
 updated_at: '2026-08-04'
 depends_on: []
-jules_session_id: '12820592256470894785'
+jules_session_id: null
 pr_number: null
 parent: prd-082-099-gen3-trainer-data-extraction
 tags:
@@ -32,4 +32,9 @@ Extract the Trainer ID (TID) and Secret ID (SID) from a Gen 3 save file.
 - Include E2E/integration testing to ensure reliability and correct rendering.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Convert this Epic into Stories.
+- [x] Story Owner: Convert this Epic into Stories.
+- [ ] story-346-356-gen3-trainer-data-extraction-core
+- [ ] story-346-357-gen3-trainer-data-e2e
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

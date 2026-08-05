@@ -7,7 +7,7 @@ owner_persona: researcher
 created_at: '2026-07-17'
 updated_at: '2026-08-04'
 depends_on: []
-jules_session_id: '3290786236580797611'
+jules_session_id: '8007616524997885249'
 pr_number: null
 parent: epic-106-136-gen1-static-encounters
 tags:

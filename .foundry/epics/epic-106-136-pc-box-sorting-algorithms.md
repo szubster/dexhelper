@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-07-06'
 updated_at: '2026-08-04'
 depends_on: []
-jules_session_id: '6815154580129705642'
+jules_session_id: '3643361663995110553'
 pr_number: null
 parent: prd-101-106-pc-box-organization-assistant
 tags:
@@ -17,7 +17,7 @@ tags:
   - gen3
   - sorting
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---

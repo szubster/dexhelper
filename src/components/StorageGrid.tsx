@@ -6,8 +6,11 @@ import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { getTimeCapsuleValidation } from '../utils/timeCapsule';
 import { CapacitySegmentedBar } from './CapacitySegmentedBar';
+import { HoverScanner } from './HoverScanner';
+import { LcdGrid } from './LcdGrid';
 import { PokerusBadge } from './PokerusBadge';
 import { PokemonSprite } from './pokemon/PokemonSprite';
+import { ScanlineOverlay } from './ScanlineOverlay';
 import { ShinyBadge } from './ShinyBadge';
 import { TacticalBadge } from './TacticalBadge';
 import { TacticalCard } from './TacticalCard';
@@ -53,51 +56,72 @@ const StorageCard = React.memo(
         title={`View details for ${pokemon.name} in ${location}`}
         onClick={handleClick}
         variant={variant}
+        className="!p-0 min-h-16"
       >
-        {timeCapsuleValidation && (
-          <div className="absolute right-2 bottom-2 z-10">
-            {timeCapsuleValidation.isEligible ? (
-              <TacticalBadge variant="emerald" className="rounded-none px-1 py-0 font-mono text-[8px] leading-none">
-                [ TIME CAPSULE READY ]
-              </TacticalBadge>
-            ) : (
-              <TacticalBadge
-                variant="red"
-                className="rounded-none px-1 py-0 font-mono text-[8px] leading-none"
-                title={timeCapsuleValidation.reason}
-              >
-                [ ERR ]
-              </TacticalBadge>
-            )}
-          </div>
-        )}
-        <div className="absolute top-3 left-3 font-bold font-mono text-[10px] text-zinc-600">LV.{p.level}</div>
-        <div className="absolute top-3 right-3 z-10 flex flex-col items-end gap-1.5">
-          <ShinyBadge isShiny={p.isShiny || false} isShinyCarrier={p.isShinyCarrier || false} size="sm" />
-          {p.otName && (
-            <TacticalBadge variant="zinc" className="max-w-[60px] truncate px-1.5 py-0.5 font-mono">
-              {p.otName}
-            </TacticalBadge>
-          )}
-          {p.pokerus && p.pokerus.strain > 0 && <PokerusBadge strain={p.pokerus.strain} />}
-        </div>
-        <div className="relative mb-4 flex h-20 w-20 items-center justify-center sm:h-24 sm:w-24">
-          <PokemonSprite
-            pokemonId={pokemon.id}
-            generation={generation}
-            isShiny={p.isShiny}
-            alt={pokemon.name}
-            className={`h-full w-full object-contain drop-shadow-xl ${isDead ? 'opacity-50 grayscale' : ''}`}
-          />
-          {isDead && (
-            <Skull
-              size={48}
-              className="pointer-events-none absolute inset-0 z-20 m-auto text-red-500/50 drop-shadow-md"
+        <div className="flex h-full w-full flex-row">
+          {/* Sprite Container - Left Side */}
+          <div className="relative flex aspect-square h-16 w-16 shrink-0 items-center justify-center overflow-hidden border-zinc-800 border-r border-dashed bg-black/40 transition-colors group-hover:bg-black/60 sm:h-20 sm:w-20">
+            <LcdGrid className="opacity-[0.05]" />
+            <HoverScanner />
+            <PokemonSprite
+              pokemonId={pokemon.id}
+              generation={generation}
+              isShiny={p.isShiny}
+              alt={pokemon.name}
+              className={`z-10 h-[80%] w-[80%] object-contain drop-shadow-xl transition-transform duration-500 group-hover:scale-110 ${isDead ? 'opacity-50 grayscale' : ''}`}
             />
-          )}
-        </div>
-        <div className="w-full truncate px-1 text-center font-bold text-[10px] text-zinc-100 uppercase tracking-wider">
-          {pokemon.name}
+            {isDead && (
+              <Skull
+                size={32}
+                className="pointer-events-none absolute inset-0 z-20 m-auto text-red-500/50 drop-shadow-md"
+              />
+            )}
+            <ScanlineOverlay opacityClass="opacity-20" />
+          </div>
+
+          {/* Data Container - Right Side */}
+          <div className="flex flex-1 flex-row items-center justify-between overflow-hidden p-2 sm:p-3">
+            {/* Primary Info */}
+            <div className="flex min-w-0 flex-col justify-center">
+              <div className="flex items-center gap-2">
+                <span className="font-mono text-[8px] text-zinc-500 uppercase tracking-widest sm:text-[10px]">
+                  LV.{p.level.toString().padStart(3, '0')}
+                </span>
+                {p.otName && (
+                  <span className="truncate font-mono text-[8px] text-zinc-600 sm:text-[10px]">[{p.otName}]</span>
+                )}
+              </div>
+              <h3 className="truncate font-bold font-mono text-sm text-white uppercase tracking-tight sm:text-base">
+                {pokemon.name}
+              </h3>
+            </div>
+
+            {/* Badges / Status */}
+            <div className="flex shrink-0 flex-row items-center gap-2 pl-2 sm:gap-3">
+              {p.pokerus && p.pokerus.strain > 0 && <PokerusBadge strain={p.pokerus.strain} />}
+              <ShinyBadge isShiny={p.isShiny || false} isShinyCarrier={p.isShinyCarrier || false} size="sm" />
+              {timeCapsuleValidation && (
+                <div>
+                  {timeCapsuleValidation.isEligible ? (
+                    <TacticalBadge
+                      variant="emerald"
+                      className="rounded-none px-1.5 py-0.5 font-mono text-[8px] leading-none sm:text-[10px]"
+                    >
+                      [ READY ]
+                    </TacticalBadge>
+                  ) : (
+                    <TacticalBadge
+                      variant="red"
+                      className="rounded-none px-1.5 py-0.5 font-mono text-[8px] leading-none sm:text-[10px]"
+                      title={timeCapsuleValidation.reason}
+                    >
+                      [ ERR ]
+                    </TacticalBadge>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </TacticalCard>
     );
@@ -224,9 +248,9 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+            <div className="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-3">
               {pokemonInLocation.length === 0 ? (
-                <TacticalPanel className="flex min-h-[180px] flex-col items-center justify-center p-5 text-center transition-all duration-300 hover:border-zinc-700/50">
+                <TacticalPanel className="col-span-full flex min-h-[60px] flex-col items-center justify-center p-2 text-center transition-all duration-300 hover:border-zinc-700/50">
                   <span className="font-black font-mono text-[10px] text-zinc-600 uppercase tracking-[0.3em]">
                     [ EMPTY ]
                   </span>
