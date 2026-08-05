@@ -28,4 +28,6 @@ notes: ''
 Write E2E tests to verify the circular dependency detection feature in the DAG orchestrator. This satisfies the Orchestrator Safeguard requirement for epics to have integration or e2e tests.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-356-396-circular-dependency-e2e-impl
+- [ ] task-356-397-circular-dependency-e2e-qa
