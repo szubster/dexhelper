@@ -33,6 +33,6 @@ Verify the implementation of Trainer ID and Secret ID extraction for Gen 3 save 
 - Verify that no regressions were introduced.
 
 ## Acceptance Criteria
-- [ ] QA: Verify `secretId` is present in `SaveData`.
-- [ ] QA: Verify `secretId` is returned by `parseGen3Save`.
-- [ ] QA: Verify tests pass (`pnpm lint && pnpm test`).
+- [x] QA: Verify `secretId` is present in `SaveData`.
+- [x] QA: Verify `secretId` is returned by `parseGen3Save`.
+- [x] QA: Verify tests pass (`pnpm lint && pnpm test`).
