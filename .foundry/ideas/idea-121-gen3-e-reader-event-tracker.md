@@ -2,12 +2,12 @@
 id: idea-121-gen3-e-reader-event-tracker
 type: IDEA
 title: Gen 3 E-Reader and Mystery Event Tracker
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-21'
-updated_at: '2026-07-25'
+updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10042879176027906022'
 pr_number: null
 parent: null
 tags:
