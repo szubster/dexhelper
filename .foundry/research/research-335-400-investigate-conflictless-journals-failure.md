@@ -2,12 +2,12 @@
 id: research-335-400-investigate-conflictless-journals-failure
 type: RESEARCH
 title: Investigate Conflict-less Journals Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-05'
 updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '17353405569114618226'
+jules_session_id: '16193668753228588588'
 parent: prd-120-335-conflictless-agent-journals
 tags:
   - foundry
