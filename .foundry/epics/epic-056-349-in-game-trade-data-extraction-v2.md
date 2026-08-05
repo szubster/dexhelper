@@ -2,10 +2,10 @@
 id: epic-056-349-in-game-trade-data-extraction-v2
 type: EPIC
 title: In-Game Trade Data Extraction v2
-status: PENDING
+status: READY
 owner_persona: story_owner
-created_at: "2026-08-04"
-updated_at: "2026-08-04"
+created_at: '2026-08-04'
+updated_at: '2026-08-05'
 depends_on:
   - research-056-394-investigate-in-game-trade-failure
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 # Epic: In-Game Trade Data Extraction v2
 
