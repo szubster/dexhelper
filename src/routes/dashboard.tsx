@@ -22,6 +22,12 @@ const Gen3SecretBaseDashboard = React.lazy(() =>
   })),
 );
 
+const Gen3StaticEncountersDashboard = React.lazy(() =>
+  import('../components/dashboard/encounters/Gen3StaticEncountersDashboard').then((m) => ({
+    default: m.Gen3StaticEncountersDashboard,
+  })),
+);
+
 const GlobalRibbonChecklistDashboard = React.lazy(() =>
   import('../components/dashboard/ribbons/GlobalRibbonChecklistDashboard').then((m) => ({
     default: m.GlobalRibbonChecklistDashboard,
@@ -53,6 +59,7 @@ function DashboardPage() {
             <BattleFrontierDashboard saveData={saveData} />
             <GlobalRibbonChecklistDashboard />
             <Gen3SecretBaseDashboard saveData={saveData} />
+            <Gen3StaticEncountersDashboard saveData={saveData} />
           </>
         ) : (
           <>
