@@ -26,6 +26,6 @@ Implement the static analysis linter for bash sessions to proactively block know
 We need a linter or pre-execution check that detects and blocks commands known to hang indefinitely, such as `tail -f`. The goal is to fail fast before the command is passed to the shell, preventing indefinite hangs that require timeouts to catch.
 
 ## Acceptance Criteria
-- [ ] Implement a static analysis check that scans bash commands for known blocking patterns (like `tail -f`).
-- [ ] If a blocking pattern is detected, immediately return a clear error preventing execution and suggesting non-blocking alternatives.
-- [ ] Add unit tests verifying the static analysis correctly flags blocking commands and allows valid commands.
+- [x] Implement a static analysis check that scans bash commands for known blocking patterns (like `tail -f`).
+- [x] If a blocking pattern is detected, immediately return a clear error preventing execution and suggesting non-blocking alternatives.
+- [x] Add unit tests verifying the static analysis correctly flags blocking commands and allows valid commands.

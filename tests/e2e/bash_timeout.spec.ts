@@ -11,6 +11,25 @@ test.describe('Bash Timeout Wrapper E2E', () => {
     expect(result).toBe('Hello Timeout');
   });
 
+  test('should block known blocking commands before execution via static analysis', () => {
+    try {
+      execSync(`${safeBashPath} tail -f mylog.log`, { stdio: 'pipe' });
+      // If it doesn't throw, the test should fail
+      expect(true).toBe(false);
+    } catch (error: unknown) {
+      const err = error as { status?: number; stderr?: { toString: () => string } };
+      expect(err.status).toBe(1);
+      if (err.stderr) {
+        const stderr = err.stderr.toString();
+        expect(stderr).toContain("Error: Static analysis detected a known blocking command ('tail -f').");
+        expect(stderr).toContain('Execution prevented to avoid infinite hangs.');
+        expect(stderr).toContain("Please use non-blocking alternatives like 'cat' or 'tail -n'.");
+      } else {
+        expect(true).toBe(false); // Force fail if stderr is missing
+      }
+    }
+  });
+
   test('should terminate a blocking command and return exit code 124', () => {
     try {
       test.setTimeout(40000);
