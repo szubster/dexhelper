@@ -61,6 +61,13 @@ export function getUnobtainableReason(
     if (pokemonId === base && !ownedSet.has(base) && evos.some((e) => ownedSet.has(e))) {
       return `Pre-evolution missed. In Generation 1, you must trade to replace evolved one-time Pokémon.`;
     }
+
+    if (evos.length > 2 && evos.includes(pokemonId) && !ownedSet.has(pokemonId)) {
+      if (!ownedSet.has(base) && evos.some((e) => e !== pokemonId && ownedSet.has(e))) {
+        return `You evolved your one-time Pokémon into a different form. Must trade.`;
+      }
+    }
+
     // Also, if you picked the OTHER choice, you can't get this one.
     // For hitmons: If evaluating 106, and you own 107 but not 106, it's locked.
     // Actually, fossils and hitmons are mutually exclusive choices.
