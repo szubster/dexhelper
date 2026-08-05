@@ -24,6 +24,11 @@ notes: ''
 Investigate the root cause of `epic-120-338-implement-conflictless-journals` reaching its max rejection count.
 
 ## Tasks
-- [ ] Analyze the rejection reasons for `epic-120-338-implement-conflictless-journals`.
-- [ ] Identify the blockers preventing the transition to conflict-less storage patterns for agent journals.
-- [ ] Propose a new approach or architecture to overcome these blockers.
+- [x] Analyze the rejection reasons for `epic-120-338-implement-conflictless-journals`.
+- [x] Identify the blockers preventing the transition to conflict-less storage patterns for agent journals.
+- [x] Propose a new approach or architecture to overcome these blockers.
+
+## Findings
+The epic `epic-120-338-implement-conflictless-journals` failed permanently and reached its max rejection count because it violated the Orchestrator Safeguard. Every EPIC node must have at least one child STORY node dedicated to Integration and E2E Verification (tagged with `e2e` or `integration`) before it can transition to `COMPLETED`. The epic lacked this E2E story, causing repeated rejections by the orchestrator upon completion attempts.
+
+To unblock the transition to conflict-less journals, the replacement epic (`epic-335-401-implement-conflictless-journals-retry`) must include a story dedicated to E2E verification of the new journal structure and TPM aggregation.
