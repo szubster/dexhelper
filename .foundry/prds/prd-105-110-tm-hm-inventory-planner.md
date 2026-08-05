@@ -55,6 +55,10 @@ Retro Pokémon players using DexHelper to manage their saves, specifically those
 
 ## Acceptance Criteria
 - [x] Break down into EPIC nodes for Data Parsing, Compatibility Logic, and UI.
-- [ ] epic-110-306-tm-hm-save-parsing
-- [ ] epic-110-307-tm-hm-compatibility-logic
-- [ ] epic-110-308-tm-hm-user-interface
+- [x] epic-110-306-tm-hm-save-parsing
+- [x] epic-110-307-tm-hm-compatibility-logic
+- [x] epic-110-308-tm-hm-user-interface
+- [ ] research-110-400-investigate-tm-hm-save-parsing-failure
+- [ ] epic-110-401-tm-hm-save-parsing-v2
+- [ ] epic-110-402-tm-hm-compatibility-logic-v2
+- [ ] epic-110-403-tm-hm-user-interface-v2
