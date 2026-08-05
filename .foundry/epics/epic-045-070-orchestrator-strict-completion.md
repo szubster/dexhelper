@@ -2,10 +2,10 @@
 id: epic-045-070-orchestrator-strict-completion
 type: EPIC
 title: Orchestrator Hierarchical Completion Checks
-status: CANCELLED
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-08-04'
+updated_at: '2026-08-05'
 depends_on: []
 jules_session_id: '15966663207683891967'
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - orchestrator
   - architecture
 research_references: []
-rejection_count: 3
-rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
+rejection_count: 0
+rejection_reason: ''
 notes: ''
 ---
 
@@ -44,3 +44,4 @@ Update the DAG Orchestrator to ensure strict hierarchical completion. A node mus
 - [x] story-070-109-orchestrator-hierarchical-completion-tests
 
 - [x] story-070-276-orchestrator-verifying-block
+- [ ] story-070-358-orchestrator-strict-completion-e2e

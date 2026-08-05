@@ -1783,3 +1783,63 @@ describe('parseGen3 (npcTradeFlags Integration)', () => {
     expect(() => parseGen3(view, 'emerald')).toThrow('The save file is corrupted or incomplete.');
   });
 });
+
+describe('Gen3 PC Box Parsing', () => {
+  it('should parse PC boxes correctly', () => {
+    const buffer = new ArrayBuffer(0x1bfff);
+    const view = new DataView(buffer);
+
+    // Setup Sections 0-4 (dummy)
+    for (let i = 0; i <= 4; i++) {
+      view.setUint16(i * 4096 + 4084, i, true);
+      view.setUint32(i * 4096 + 4088, 0x08012025, true);
+      view.setUint32(i * 4096 + 4092, 1, true);
+    }
+
+    // Setup Sections 5-13
+    for (let i = 5; i <= 13; i++) {
+      view.setUint16(i * 4096 + 4084, i, true);
+      view.setUint32(i * 4096 + 4088, 0x08012025, true);
+      view.setUint32(i * 4096 + 4092, 1, true);
+    }
+
+    // Write PC Box Data
+    // Current Box = 2 (so index 1)
+    view.setUint32(5 * 4096 + 0, 1, true);
+
+    // Write a Pokemon in Box 2, Slot 5 (Index 30 + 4 = 34)
+    const pokemonIndex = 34;
+    // 34 * 80 = 2720, which is well within Section 5 (3968 bytes)
+    const offset = 5 * 4096 + 4 + pokemonIndex * 80;
+
+    const pv = 0x12345678;
+    const otId = 0x87654321;
+    view.setUint32(offset + 0, pv, true);
+    view.setUint32(offset + 4, otId, true);
+
+    const decryptionKey = pv ^ otId;
+
+    const speciesId = 25; // Pikachu
+    const item = 0;
+    const encryptedSpecies = speciesId ^ (decryptionKey & 0xffff);
+    const encryptedItem = item ^ (decryptionKey >>> 16);
+    view.setUint16(offset + 32 + 0, encryptedSpecies, true);
+    view.setUint16(offset + 32 + 2, encryptedItem, true);
+
+    // A (Attacks) at index 1 -> offset 32 + 12 = 44
+    const move1 = 33; // Tackle
+    const encryptedMove1 = move1 ^ (decryptionKey & 0xffff);
+    view.setUint16(offset + 44 + 0, encryptedMove1, true);
+
+    // Run parser
+    const saveData = parseGen3(view, 'ruby');
+
+    expect(saveData.currentBoxCount).toBe(2);
+    expect(saveData.pc).toContain(25);
+    expect(saveData.pcDetails.length).toBe(1);
+    expect(saveData.pcDetails[0]?.speciesId).toBe(25);
+    expect(saveData.pcDetails[0]?.storageLocation).toBe('Box 2');
+    expect(saveData.pcDetails[0]?.slot).toBe(4);
+    expect(saveData.pcDetails[0]?.moves).toContain(33);
+  });
+});

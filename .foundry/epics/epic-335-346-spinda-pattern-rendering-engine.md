@@ -7,7 +7,7 @@ owner_persona: "story_owner"
 created_at: "2026-07-26"
 updated_at: "2026-07-26"
 depends_on:
-  - .foundry/epics/epic-335-345-spinda-pid-extraction.md
+  - epic-335-345-spinda-pid-extraction
 jules_session_id: null
 pr_number: null
 parent: prd-119-335-gen3-spinda-pattern-viewer
