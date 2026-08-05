@@ -24,6 +24,6 @@ rejection_reason: ''
 Verify the static analysis linter for bash sessions correctly blocks known infinite-blocking commands like `tail -f` before execution.
 
 ## Acceptance Criteria
-- [ ] Verify that commands like `tail -f` are proactively blocked with a helpful error message before execution.
-- [ ] Verify that legitimate commands (e.g., `tail -n 50`) are allowed to execute normally.
-- [ ] Ensure all unit tests pass and the linter implementation does not introduce regressions.
+- [x] Verify that commands like `tail -f` are proactively blocked with a helpful error message before execution.
+- [x] Verify that legitimate commands (e.g., `tail -n 50`) are allowed to execute normally.
+- [x] Ensure all unit tests pass and the linter implementation does not introduce regressions.
