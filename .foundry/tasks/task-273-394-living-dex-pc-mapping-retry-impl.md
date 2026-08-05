@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-08-04'
 updated_at: '2026-08-05'
 depends_on:
-  - .foundry/research/research-273-393-gen3-pc-box-offsets-root-cause.md
+  - research-273-393-gen3-pc-box-offsets-root-cause
 jules_session_id: '15246823197009902888'
 pr_number: null
 parent: story-133-273-living-dex-pc-mapping

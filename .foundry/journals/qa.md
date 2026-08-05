@@ -443,3 +443,170 @@ Task ID: task-336-343-zod-schema-definition-qa
 - Test suite (`schema.test.ts`) validated successfully in the pipeline.
 
 No architectural violations detected (ADR 001 compliance is confirmed). Implementation approved.
+
+
+## Session 9297002747926214163.md
+
+Approved implementation of the regional dex sorting strategy. All tests and linting passed. Changes strictly adhered to the node update rules.
+
+---
+
+## Session 9292922148767915467.md
+
+# QA Journal Entry - Session 9292922148767915467
+
+## Validation of task-333-363-pokemon-types-data-impl
+
+1. **Verify schemas & generator**: `POKEMON_TYPE` and `POKEMON_TYPE_MAP` are properly defined in `src/db/schema.ts`. `types` was added to `PokemonMetadata`.
+2. **Verify generate-pokedata.ts sorting**: The code reads `pData.types` and maps them using `POKEMON_TYPE_MAP`, but it **fails to sort by slot** before mapping, violating the specific acceptance criterion: "sorts by slot (if applicable)".
+3. **Conclusion**: Implementation is incomplete. Rejecting the task and setting `status: FAILED`, incrementing `rejection_count`, and providing the reason. My own QA task remains `ACTIVE`.
+
+---
+
+## Session 4230931540957269591.md
+
+# Session 4230931540957269591
+
+## Task
+task-342-370-feebas-coordinates-qa
+
+## Findings
+- Verified `gen3FeebasTiles` in `SaveData` is correctly typed as `[number, number][]`.
+- Verified `mapSpotIdsToCoordinates` is properly integrated in `src/engine/saveParser/parsers/gen3.ts`.
+- Verified the code adhered to "Save File Parsing & Extraction Guidelines" (Section 13). Constants used, catching `RangeError`, using `DataView` API.
+- Verified tests pass (`gen3.test.ts` and `feebas.test.ts`) and ensure it's coordinates.
+
+## Action
+Checked off acceptance criteria and preparing empty PR.
+
+---
+
+## Session 6970073752816280400.md
+
+# QA Session
+
+Validation of task `task-319-361-gen3-hof-pokedex-extraction-retry-impl`.
+
+1. Code uses only DataView API: Verified. `DataView.getUint32` and `DataView.getUint8` are used.
+2. No inline magic numbers: Verified. Constants `BYTES_PER_GAME_STAT` and `BITS_PER_BYTE` are used.
+3. Relative offsets based on `section1Offset`: Verified. `section1Offset + gameStatsOffset` is used.
+4. RangeError handling: Verified. Caught and re-thrown correctly.
+5. Logic extracts Hall of Fame entry and Pokedex caught counts: Verified.
+6. Tests exist and pass: Verified. `pnpm test src/engine/saveParser/parsers/gen3.test.ts` passed 75 tests.
+
+Implementation approved.
+
+---
+
+## Session 5848252374865416625.md
+
+# Session 5848252374865416625
+
+## Validation Results
+Task task-257-373-progression-timeline-ui-impl was FAILED.
+
+## Architectural Lessons
+Found duplicate components for ProgressionTimeline. One at `src/components/dashboard/progression/ProgressionTimeline.tsx` and another at `src/components/timeline/ProgressionTimeline.tsx`. The developer also left placeholders and didn't implement the true SaveHistory integration yet. Future QA validations should explicitly check for duplicate components and verify data integrations.
+
+---
+
+## Session 4628964964798248082.md
+
+# QA Session Journal
+
+Session ID: 4628964964798248082
+Date: 2026-08-03
+
+## Context
+Assigned to `task-355-394-bash-timeout-e2e-qa` to verify the implementation of E2E tests for the Bash timeout wrapper.
+The implementation was completed in `task-355-393-bash-timeout-e2e-impl`.
+
+## Actions Taken
+1. Reviewed the PR for `task-355-393-bash-timeout-e2e-impl`. Found that it added tests to `tests/e2e/bash_timeout.spec.ts`.
+2. Encountered an issue where playwright tests were failing because browsers were not installed. Addressed this by running `pnpm exec playwright install`.
+3. Ran the E2E tests successfully using `xvfb-run pnpm test:e2e tests/e2e/bash_timeout.spec.ts`.
+4. Verified that the new E2E tests for the Bash timeout wrapper passed reliably.
+5. Checked off the acceptance criteria in the markdown body of `task-355-394-bash-timeout-e2e-qa`.
+6. Verified no regressions were introduced.
+
+## Learnings & Patterns
+- When running Playwright E2E tests for the first time in a new environment, make sure to install browsers via `pnpm exec playwright install` if they are missing. This is a common requirement in CI or fresh development environments.
+
+---
+
+## Session 16672278174141634420.md
+
+# QA Journal - 16672278174141634420
+
+## Task: task-337-368-zod-schema-integration-qa
+
+### Context
+QA review for Zod schema integration within `.github/scripts`.
+
+### Validation
+- Ran `cd .github/scripts && pnpm install && npx vitest run`. Test suite passed.
+- Analyzed `schema.ts`. Discovered that `created_at` and `updated_at` use `z.string()`.
+- The Foundry DAG orchestrator validates frontmatter fields `created_at` and `updated_at` using Zod schema which accepts both strings and JS Date objects (coercing Date objects into ISO strings) to gracefully handle unquoted dates parsed by gray-matter. `z.string()` alone does not satisfy this architectural requirement.
+
+### Result
+Target implementation rejected. `task-337-367-zod-schema-integration-impl.md` was updated to `status: FAILED` with a rejection count of 1.
+
+---
+
+## Session 11535290665484556346.md
+
+Successfully completed the QA task for Nuzlocke Route Violations. Ensure strict adherence to the negative constraints regarding YAML frontmatter updates when acting as QA.
+
+---
+
+## Session 12335444189339326262.md
+
+# QA Session 12335444189339326262
+
+Rejected task `task-295-338-gen3-static-encounters-ui-impl` because the implementation failed to integrate the new component into the main dashboard (`src/routes/dashboard.tsx`).
+
+---
+
+## Session 6372821458457417512.md
+
+# QA Session: task-262-376-aggregate-first-catch-qa
+
+**Date:** 2026-08-02
+**Target Task:** `task-262-375-aggregate-first-catch-impl`
+
+## Review Notes
+- Validated implementation of `aggregateFirstCatchByRoute` in `src/engine/nuzlocke/tracker.ts`.
+- Verified the logic groups by location and selects the earliest catch correctly.
+- Confirmed unit tests in `src/engine/nuzlocke/tracker.test.ts` thoroughly cover the new logic and edge cases.
+- Execution matches the specifications and does not violate any core architecture or save file parsing constraints.
+- Implementation passes standard verification checks (`pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`).
+- Action: Approving implementation and checking off criteria for parent node completion.
+
+---
+
+## Session 15284529042228902330.md
+
+# QA Session 15284529042228902330
+
+- **Task**: `task-334-387-cross-gen-sorting-adapters-qa`
+- **Target Task**: `task-334-386-cross-gen-sorting-adapters-impl`
+
+## Review Summary
+- Verified `DexNumberSorter` implementation in `src/engine/sorting/StandardSorters.ts`. It correctly checks the generation and game version to apply Hoenn Dex sorting for Gen 3 RSE games. It uses the `HOENN_DEX_ORDER` array correctly. For other Gen 1/Gen 2 regional settings where data might not be fully fleshed out yet, it correctly falls back to National Dex.
+- Verified `TypeSorter`. It correctly checks for `generation === 1` in its config and filters out Steel (9) and Dark (17) types.
+- Verified standard sorters handles missing null/undefined properties across older generations (e.g., using `Infinity`, `0`, or empty strings).
+- Tested and verified the unit tests in `src/engine/sorting/StandardSorters.test.ts`. Tests include coverage for national/regional variants, fallback logic, type filtering, and graceful degradation for missing properties.
+- Ran `pnpm lint`, `pnpm test`, and `xvfb-run pnpm test:e2e`. All checks passed.
+
+## Action Taken
+- Approved the implementation.
+- Marked all acceptance criteria in `task-334-387-cross-gen-sorting-adapters-qa.md` as checked.
+- No modifications made to YAML frontmatter, adhering to strict empty PR policy for transitioning task nodes.
+
+---
+
+## Session 14863696901989894627.md
+
+# QA Session: 14863696901989894627
+
+Target task `task-286-314-filter-swarm-item-calls-impl` has been cancelled due to max rejections. Following ADR 007 and ADR 009, I am checking off the acceptance criteria checkboxes in QA task `task-286-315-filter-swarm-item-calls-qa` and submitting an Empty PR to allow the node to gracefully exit the DAG.
