@@ -2,7 +2,7 @@
 id: task-273-395-living-dex-pc-mapping-retry-qa
 type: TASK
 title: Living Dex PC Mapping Retry Verification
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-04'
 updated_at: '2026-08-05'
@@ -16,8 +16,8 @@ tags:
   - qa
   - data-mapping
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
