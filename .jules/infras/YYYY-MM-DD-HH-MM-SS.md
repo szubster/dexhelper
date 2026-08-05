@@ -1,0 +1,1 @@
+The project uses `@vitejs/plugin-react-swc` instead of `@vitejs/plugin-react` for Vite React builds. When managing dependencies, ensure `@swc/core` is allowed in `pnpm-workspace.yaml` under `allowBuilds`.
