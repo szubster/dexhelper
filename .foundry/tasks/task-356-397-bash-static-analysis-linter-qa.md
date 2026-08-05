@@ -2,13 +2,13 @@
 id: task-356-397-bash-static-analysis-linter-qa
 type: TASK
 title: QA Bash Static Analysis Linter
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-04'
 updated_at: '2026-08-05'
 depends_on:
   - task-356-396-bash-static-analysis-linter-impl
-jules_session_id: null
+jules_session_id: '3422444418495626110'
 parent: story-348-356-bash-linter-impl
 tags:
   - bash
