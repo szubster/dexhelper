@@ -2,12 +2,12 @@
 id: research-110-400-investigate-tm-hm-save-parsing-failure
 type: RESEARCH
 title: Investigate TM/HM Save Parsing Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-05'
 updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18338464510116993461'
 pr_number: null
 parent: prd-105-110-tm-hm-inventory-planner
 tags:
