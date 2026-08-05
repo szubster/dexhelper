@@ -60,3 +60,51 @@ Successfully broke down PRD `prd-119-335-gen3-spinda-pattern-viewer.md` into 3 s
 - `epic-335-347-spinda-viewer-dashboard-ui.md` (depends on rendering)
 
 Appended the new nodes as unchecked items to the PRD to prevent premature verification. Applied Sibling Dependency Recommendations (ADR-005) to correctly order the DAG nodes.
+
+
+## Session 5775857715362814694.md
+
+# Session Log
+Foundry child nodes (epic-095-119 and epic-095-120) for PRD 095-056 permanently failed due to reaching max rejection count. Spawned a RESEARCH node to investigate the root cause, and created replacement EPICs. Ensured to check off the cancelled child nodes in the parent PRD markdown body to avoid the Impossible Loop constraint and adhere to ADR 007.
+
+---
+
+## Session 5406308992691137803.md
+
+# 5406308992691137803
+
+## Context
+Woken up by the Orchestrator for `prd-073-045-gen3-secret-base-viewer` due to an Auditor Rejection.
+The child nodes (`epic-045-324-gen3-secret-base-parsing-v2`, `epic-045-325-gen3-secret-base-radar-integration-v2`, `epic-045-326-gen3-secret-base-dashboard-v2`) failed permanently (Max rejection count reached).
+
+## Actions Taken
+- Created a `RESEARCH` node (`research-045-396-investigate-secret-base-v2-failure`) to investigate the root cause of the v2 epic failures.
+- Created replacement `EPIC` nodes (`epic-045-397-gen3-secret-base-parsing-v3`, `epic-045-398-gen3-secret-base-radar-integration-v3`, `epic-045-399-gen3-secret-base-dashboard-v3`) that depend on the `RESEARCH` node.
+- Appended the new nodes to the PRD's markdown body.
+- Checked off the failed child nodes in the PRD's markdown body to comply with the "Handling Permanent Child Failures (The Impossible Loop)" policy and satisfy ADR 007.
+- Removed the `### Auditor Rejection` block.
+- Enforced a final STORY dedicated exclusively to Integration and E2E Verification in the acceptance criteria of each new EPIC.
+
+## Learned
+When children fail permanently, we must spawn research to figure out why, create new nodes that depend on that research, and check off the permanently failed ones so the parent node isn't blocked forever, per the impossible loop policy. Also, every EPIC must explicitly generate a final STORY dedicated exclusively to Integration and E2E Verification.
+
+---
+
+## Session 2026-08-04-00-27-08.md
+
+# Epic Planner Session Journal
+
+## Session ID
+6110336391984079559 (or 2026-08-04-00-27-08)
+
+## Target Node
+prd-066-099-save-state-history-storage
+
+## Action Taken
+Handled the "Impossible Loop" where a child node (`epic-099-130-indexeddb-schema-design`) reached Max Rejection Count and failed permanently. This also caused its downstream dependencies (`epic-099-131`, `epic-099-132`) to be cancelled.
+
+## Key Learnings
+1. **The Impossible Loop Policy**: When a child node permanently fails, we must explicitly spawn a `RESEARCH` node to investigate the root cause *before* spawning new retry epics.
+2. **Dependency Chaining**: The newly spawned retry epics must explicitly depend on the new `RESEARCH` node to ensure the root cause is resolved before implementation resumes.
+3. **Markdown Checkboxes**: The permanently failed/cancelled child nodes *must* be checked off (`- [x]`) in the parent PRD's markdown body. Leaving them unchecked will cause ADR 007 to permanently block the parent PRD from transitioning to COMPLETED.
+4. **E2E Verification Enforcement**: All newly spawned EPICs must now explicitly include a final STORY dedicated exclusively to Integration and E2E Verification, per updated Core Directives.

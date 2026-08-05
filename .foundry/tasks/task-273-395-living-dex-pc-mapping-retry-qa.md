@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-08-04'
 updated_at: '2026-08-04'
 depends_on:
-  - .foundry/tasks/task-273-394-living-dex-pc-mapping-retry-impl.md
+  - task-273-394-living-dex-pc-mapping-retry-impl
 jules_session_id: null
 pr_number: null
 parent: story-133-273-living-dex-pc-mapping

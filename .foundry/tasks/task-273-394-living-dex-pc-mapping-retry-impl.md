@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-08-04'
 updated_at: '2026-08-05'
 depends_on:
-  - .foundry/research/research-273-393-gen3-pc-box-offsets-root-cause.md
+  - research-273-393-gen3-pc-box-offsets-root-cause
 jules_session_id: '15246823197009902888'
 pr_number: null
 parent: story-133-273-living-dex-pc-mapping
@@ -27,8 +27,8 @@ This task implements the mapping layer to identify which Pokémon the player cur
 This is a retry task generated after the permanent failure of `task-273-327-living-dex-pc-mapping-impl` due to missing Gen 3 memory offsets. Implementation MUST follow the findings from the prerequisite research node `research-273-393-gen3-pc-box-offsets-root-cause`.
 
 ## Acceptance Criteria
-- [ ] Implement data mapping functions to extract PC Box and Slot locations for owned Pokémon.
-- [ ] Parse PC Box data correctly according to Gen 3 architecture specifications.
+- [x] Implement data mapping functions to extract PC Box and Slot locations for owned Pokémon.
+- [x] Parse PC Box data correctly according to Gen 3 architecture specifications.
 
 ## Technical Blueprint
 

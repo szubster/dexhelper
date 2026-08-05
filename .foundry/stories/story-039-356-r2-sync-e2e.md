@@ -2,12 +2,12 @@
 id: story-039-356-r2-sync-e2e
 type: STORY
 title: Cloudflare R2 Offline-First Save Syncing E2E
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-04'
-updated_at: '2026-08-04'
+updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '16675216324266481746'
+jules_session_id: null
 pr_number: null
 parent: epic-030-039-cloudflare-r2-save-sync
 tags:
@@ -30,4 +30,6 @@ Based on Orchestrator safeguards, an EPIC must have at least one child STORY nod
 - Ensure proper end-to-end tests exist for R2 sync functionality.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-356-396-r2-sync-e2e-impl
+- [ ] task-356-397-r2-sync-e2e-qa

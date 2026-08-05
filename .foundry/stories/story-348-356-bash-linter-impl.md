@@ -2,12 +2,12 @@
 id: story-348-356-bash-linter-impl
 type: STORY
 title: Bash Static Analysis Linter Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2024-11-20'
-updated_at: '2026-08-04'
+updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '14176431166898246845'
+jules_session_id: null
 pr_number: null
 parent: epic-057-348-bash-static-analysis-linter-retry
 tags:
@@ -26,4 +26,6 @@ notes: ''
 Implement the static analysis linter for bash sessions to proactively block known infinite-blocking commands like `tail -f` before execution.
 
 ## Acceptance Criteria
-- [ ] Break down this story into tasks for implementation.
+- [x] Break down this story into tasks for implementation.
+- [ ] task-356-396-bash-static-analysis-linter-impl
+- [ ] task-356-397-bash-static-analysis-linter-qa

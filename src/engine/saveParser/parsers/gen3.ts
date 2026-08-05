@@ -213,6 +213,17 @@ export const GEN3_POKEMON_OT_ID_OFFSET = 4;
 export const GEN3_POKEMON_DATA_OFFSET = 32;
 export const MISC_IVS_OFFSET = 0x04;
 export const SUBSTRUCTURE_SIZE = 12;
+export const PC_BOX_BUFFER_SIZE = 33744;
+export const PC_BOX_CURRENT_BOX_OFFSET = 0x0000;
+export const PC_BOX_POKEMON_LIST_OFFSET = 0x0004;
+export const PC_BOX_NAMES_OFFSET = 0x8344;
+export const PC_BOX_WALLPAPERS_OFFSET = 0x83c2;
+export const PC_BOX_COUNT = 14;
+export const PC_BOX_CAPACITY = 30;
+export const GEN3_PC_POKEMON_STRUCT_SIZE = 80;
+export const GEN3_POKEMON_SPECIES_OFFSET_IN_G = 0x00;
+export const GEN3_POKEMON_ITEM_OFFSET_IN_G = 0x02;
+export const GEN3_POKEMON_MOVES_OFFSET_IN_A = 0x00;
 export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
 
 export const SUBSTRUCTURE_ORDER = [
@@ -513,6 +524,123 @@ export function isGen3Save(view: DataView): boolean {
  * @returns An object containing the IVs and the PV.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
+/**
+ * Reconstructs the contiguous PC Buffer from Gen 3 save sections 5 through 13.
+ *
+ * @param view - The raw save file DataView.
+ * @returns A Uint8Array containing the contiguous PC Buffer.
+ * @throws RangeError if a required section is out of bounds or missing.
+ */
+export function parseGen3PCBuffer(view: DataView): Uint8Array {
+  const pcBuffer = new Uint8Array(PC_BOX_BUFFER_SIZE);
+  let pcBufferOffset = 0;
+
+  for (let sectionId = 5; sectionId <= 13; sectionId++) {
+    const sectionOffset = getLatestSectionOffset(view, sectionId);
+
+    // Sections 5-12 contain 3968 bytes, Section 13 contains 2000 bytes.
+    const bytesToCopy = sectionId === 13 ? 2000 : 3968;
+
+    for (let i = 0; i < bytesToCopy; i++) {
+      pcBuffer[pcBufferOffset++] = view.getUint8(sectionOffset + i);
+    }
+  }
+
+  return pcBuffer;
+}
+
+/**
+ * Parses the PC Boxes to extract all stored Pokemon.
+ *
+ * @param pcBufferView - A DataView of the reconstructed PC Buffer.
+ * @returns An object containing the simple array of species IDs (`pc`) and the detailed `pcDetails`.
+ * @throws Error - "The save file is corrupted or incomplete." on invalid data.
+ */
+export function parseGen3PCBoxes(pcBufferView: DataView) {
+  const pc: number[] = [];
+  const pcDetails: import('./common').PokemonInstance[] = [];
+
+  try {
+    for (let box = 0; box < PC_BOX_COUNT; box++) {
+      for (let slot = 0; slot < PC_BOX_CAPACITY; slot++) {
+        const pokemonIndex = box * PC_BOX_CAPACITY + slot;
+        const offset = PC_BOX_POKEMON_LIST_OFFSET + pokemonIndex * GEN3_PC_POKEMON_STRUCT_SIZE;
+
+        const pv = pcBufferView.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
+        const otId = pcBufferView.getUint32(offset + GEN3_POKEMON_OT_ID_OFFSET, true);
+
+        // If both PV and OTID are 0, it's an empty slot.
+        if (pv === 0 && otId === 0) continue;
+
+        const decryptionKey = pv ^ otId;
+        const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
+        const permutation = SUBSTRUCTURE_ORDER[permutationIndex];
+        if (!permutation) {
+          throw new Error('The save file is corrupted or incomplete.');
+        }
+
+        const indexOfG = permutation.indexOf('G');
+        const indexOfA = permutation.indexOf('A');
+
+        const growthSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfG * SUBSTRUCTURE_SIZE;
+        const attacksSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfA * SUBSTRUCTURE_SIZE;
+
+        const encryptedSpecies = pcBufferView.getUint16(
+          growthSubstructureOffset + GEN3_POKEMON_SPECIES_OFFSET_IN_G,
+          true,
+        );
+        const encryptedItem = pcBufferView.getUint16(growthSubstructureOffset + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
+        const speciesId = encryptedSpecies ^ (decryptionKey & 0xffff);
+        const item = encryptedItem ^ (decryptionKey >>> 16);
+
+        const encryptedMove1 = pcBufferView.getUint16(attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
+        const encryptedMove2 = pcBufferView.getUint16(
+          attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + 2,
+          true,
+        );
+        const encryptedMove3 = pcBufferView.getUint16(
+          attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + 4,
+          true,
+        );
+        const encryptedMove4 = pcBufferView.getUint16(
+          attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + 6,
+          true,
+        );
+
+        const moves = [
+          encryptedMove1 ^ (decryptionKey & 0xffff),
+          encryptedMove2 ^ (decryptionKey >>> 16),
+          encryptedMove3 ^ (decryptionKey & 0xffff),
+          encryptedMove4 ^ (decryptionKey >>> 16),
+        ].filter((m) => m > 0);
+
+        const isShiny = false; // We can skip full shiny calculation for PC boxes for now unless requested
+
+        const p: import('./common').PokemonInstance = {
+          hash: `${pv}-${otId}`,
+          speciesId,
+          level: 1, // PC pokemon don't have level in the 80 bytes, it's generated on withdrawal.
+          isShiny,
+          item: item > 0 ? item : undefined,
+          moves,
+          storageLocation: `Box ${box + 1}`,
+          slot,
+        };
+
+        pc.push(speciesId);
+        pcDetails.push(p);
+      }
+    }
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+
+  return { pc, pcDetails };
+}
+
 export function parseGen3PokemonPVAndIVs(view: DataView, offset: number) {
   try {
     const pv = view.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
@@ -1187,15 +1315,30 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     }
     const nationalDexCount = owned.size;
 
+    let pc: number[] = [];
+    let pcDetails: import('./common').PokemonInstance[] = [];
+    let currentBoxCount = 0;
+
+    try {
+      const pcBuffer = parseGen3PCBuffer(view);
+      const pcBufferView = new DataView(pcBuffer.buffer);
+      currentBoxCount = pcBufferView.getUint32(PC_BOX_CURRENT_BOX_OFFSET, true) + 1;
+      const boxesResult = parseGen3PCBoxes(pcBufferView);
+      pc = boxesResult.pc;
+      pcDetails = boxesResult.pcDetails;
+    } catch {
+      // Ignored, PC data might be missing or corrupt
+    }
+
     // Dummy scaffold values for now until fully implemented
     const result: SaveData = {
       generation: 3,
       owned,
       seen,
       party: [],
-      pc: [],
+      pc,
       partyDetails: [],
-      pcDetails: [],
+      pcDetails,
       gameVersion: _forcedVersion || 'ruby',
       badges: 0,
       trainerName: '',
@@ -1203,7 +1346,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       secretId,
       currentMapId: 0,
       inventory: [],
-      currentBoxCount: 0,
+      currentBoxCount,
       hallOfFameCount,
       hoennDexCount,
       nationalDexCount,

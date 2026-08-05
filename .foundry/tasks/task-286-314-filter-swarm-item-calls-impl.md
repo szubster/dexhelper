@@ -35,6 +35,6 @@ Memory offsets are documented in `.foundry/docs/knowledge_base/gen2_phone_offset
 - Create a filtering layer or flag in the data structure for high-value calls.
 
 ## Acceptance Criteria
-- [ ] Implement constant definitions for phone offsets (Crystal vs G/S)
-- [ ] Implement data logic for identifying high-value Pokegear calls (swarm & item-giving)
-- [ ] Comply strictly with Section 13 parsing guidelines (module-level constants, no magic numbers, catch RangeError)
+- [x] Implement constant definitions for phone offsets (Crystal vs G/S)
+- [x] Implement data logic for identifying high-value Pokegear calls (swarm & item-giving)
+- [x] Comply strictly with Section 13 parsing guidelines (module-level constants, no magic numbers, catch RangeError)
