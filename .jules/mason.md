@@ -174,3 +174,16 @@ When reusing standard React components, use getByRole for finding interactive el
 - **Why**: Reduced duplication of verbose tactical utility classes and standardized the header presentation across variants (primary, red, purple, blue, pink, amber).
 - **Key Learnings**:
   - We can use `React.cloneElement` on the `trailingIcon` to inject specific color and hover classes without needing the caller to specify them.
+
+
+## Session 2026-08-04-02-27-56.md
+
+# Mason Refactoring Session
+
+## Refactoring Actions
+- Extracted duplicated `<input type="file" className="sr-only" tabIndex={-1} accept=".sav" />` pattern from `OfflineControls.tsx` and `SystemControls.tsx` into a reusable `TacticalFileInput` component.
+- Leveraged `React.forwardRef` and `React.InputHTMLAttributes` to provide full standard input capabilities (like `onChange`, `id`, `aria-label`) while keeping defaults clean and DRY.
+
+## Learnings
+- Repeated HTML elements that only differ by `id`, `aria-label`, and event handlers are prime targets for extraction, especially when they share functional constraints like being hidden (`sr-only`) and having specific tab indexing and accept attributes.
+- Replacing standard HTML elements with typed `Tactical*` components maintains codebase consistency with the overarching ADR 008 styling/tactical theme, even for invisible elements like file inputs.

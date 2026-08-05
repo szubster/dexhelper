@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-08-01'
 updated_at: '2026-08-01'
 depends_on:
-  - .foundry/stories/story-346-356-gen3-trainer-data-extraction-core.md
+  - story-346-356-gen3-trainer-data-extraction-core
 jules_session_id: null
 pr_number: null
 parent: epic-099-346-gen3-trainer-data-extraction
