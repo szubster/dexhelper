@@ -129,7 +129,8 @@ export type SaveData = Gen1SaveData | Gen2SaveData | Gen3SaveData;
 - **Self-Documenting Code**: By looking at the types, anyone can instantly understand exactly what features and fields are present on each generation's save file.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this idea into a PRD to define the expected structure and design.
+- [x] Product Manager: Convert this idea into a PRD to define the expected structure and design.
+- [ ] prd-123-122-improved-savedata-typing
 - [ ] Architect: Design and draft an ADR (Architecture Decision Record) detailing the typed schema, and map out downstream consumer components that will benefit from this type narrowing.
 - [ ] Coder: Refactor the `SaveData` union type in `src/engine/saveParser/parsers/common.ts` and ensure all parser modules (`gen1.ts`, `gen2.ts`, `gen3.ts`) return their respective narrowed types properly.
 - [ ] QA: Run all existing parser tests to ensure no regressions occur and verify type-narrowing works seamlessly.
