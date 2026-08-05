@@ -2,12 +2,12 @@
 id: story-346-356-gen3-trainer-data-extraction-core
 type: STORY
 title: Core Gen 3 Trainer Data Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-01'
 updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '11791111605249876168'
+jules_session_id: null
 pr_number: null
 parent: epic-099-346-gen3-trainer-data-extraction
 tags:

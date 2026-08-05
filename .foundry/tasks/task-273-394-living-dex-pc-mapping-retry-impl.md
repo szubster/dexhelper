@@ -2,7 +2,7 @@
 id: task-273-394-living-dex-pc-mapping-retry-impl
 type: TASK
 title: Living Dex PC Mapping Retry Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-04'
 updated_at: '2026-08-05'
@@ -15,8 +15,8 @@ tags:
   - living-dex
   - data-mapping
 research_references: []
-rejection_count: 1
-rejection_reason: 'Implementation rejected due to the usage of inline magic numbers (+ 2, + 4, + 6 for offsets, 0xffff for masking, 16 for shifting) in parseGen3PCBoxes, violating Section 13 of the schema.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

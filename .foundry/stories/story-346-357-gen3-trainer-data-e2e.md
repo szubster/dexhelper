@@ -2,10 +2,10 @@
 id: story-346-357-gen3-trainer-data-e2e
 type: STORY
 title: Gen 3 Trainer Data Extraction E2E/Integration
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-01'
-updated_at: '2026-08-01'
+updated_at: '2026-08-05'
 depends_on:
   - story-346-356-gen3-trainer-data-extraction-core
 jules_session_id: null

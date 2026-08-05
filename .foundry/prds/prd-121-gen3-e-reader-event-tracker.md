@@ -2,7 +2,7 @@
 id: prd-121-gen3-e-reader-event-tracker
 type: PRD
 title: Gen 3 E-Reader and Mystery Event Tracker
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-08-05'
 updated_at: '2026-08-05'

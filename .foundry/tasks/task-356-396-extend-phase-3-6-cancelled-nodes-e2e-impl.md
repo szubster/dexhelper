@@ -2,12 +2,12 @@
 id: task-356-396-extend-phase-3-6-cancelled-nodes-e2e-impl
 type: TASK
 title: Implement Extend Phase 3.6 for CANCELLED nodes E2E
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-04'
 updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '7758135811857039899'
+jules_session_id: null
 pr_number: null
 parent: story-340-356-extend-phase-3-6-cancelled-nodes-e2e
 tags:

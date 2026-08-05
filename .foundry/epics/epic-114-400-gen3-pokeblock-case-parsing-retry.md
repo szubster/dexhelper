@@ -2,7 +2,7 @@
 id: epic-114-400-gen3-pokeblock-case-parsing-retry
 type: EPIC
 title: Gen 3 Pokéblock Case Data Parsing
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-05'
 updated_at: '2026-08-05'

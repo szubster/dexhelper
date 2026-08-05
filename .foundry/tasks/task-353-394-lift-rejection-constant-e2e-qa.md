@@ -2,10 +2,10 @@
 id: task-353-394-lift-rejection-constant-e2e-qa
 type: TASK
 title: QA E2E Test for Permanent Failure Dashboard
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-03'
-updated_at: '2026-08-03'
+updated_at: '2026-08-05'
 depends_on:
   - task-353-393-lift-rejection-constant-e2e-impl
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-353-393-lift-rejection-constant-e2e-impl
 notes: ''
 ---
 

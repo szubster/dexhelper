@@ -2,12 +2,12 @@
 id: task-333-386-remove-orphaned-qa-rule-impl
 type: TASK
 title: Implement - Remove Orphaned QA Rule from Documentation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-02'
 updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '18086198181454023699'
+jules_session_id: null
 pr_number: null
 parent: story-331-333-remove-orphaned-qa-rule
 tags:

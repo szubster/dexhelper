@@ -2,12 +2,12 @@
 id: idea-123-improved-savedata-typing
 type: IDEA
 title: Improve SaveData Typing with Discriminated Generation Unions
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-26'
 updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '15729851376444046401'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

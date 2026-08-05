@@ -2,12 +2,12 @@
 id: epic-336-349-multi-save-infrastructure
 type: EPIC
 title: Multi-Save Infrastructure Integration
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-04'
 updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '11846112506053863652'
+jules_session_id: null
 pr_number: null
 parent: prd-059-336-multi-save-trade-planner
 tags:

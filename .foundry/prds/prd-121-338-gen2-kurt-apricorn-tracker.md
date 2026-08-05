@@ -2,7 +2,7 @@
 id: prd-121-338-gen2-kurt-apricorn-tracker
 type: PRD
 title: Gen 2 Kurt Apricorn Tracker
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-08-05'
 updated_at: '2026-08-05'

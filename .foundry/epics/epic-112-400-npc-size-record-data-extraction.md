@@ -1,11 +1,11 @@
 ---
 id: epic-112-400-npc-size-record-data-extraction
 type: EPIC
-title: "NPC Size Record: Data Extraction"
-status: PENDING
+title: 'NPC Size Record: Data Extraction'
+status: READY
 owner_persona: epic_planner
-created_at: "2026-07-12"
-updated_at: "2026-08-05"
+created_at: '2026-07-12'
+updated_at: '2026-08-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - generation-3
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 # NPC Size Record: Data Extraction
 
