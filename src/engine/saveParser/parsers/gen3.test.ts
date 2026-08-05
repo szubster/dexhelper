@@ -40,7 +40,7 @@ describe('gen3 parser scaffolding', () => {
     expect(isGen3Save(view)).toBe(false);
   });
 
-  it('should calculate feebas tiles properly within parseGen3', () => {
+  it('should extract feebas seed properly within parseGen3', () => {
     const buffer = new ArrayBuffer(0x200000);
     const view = new DataView(buffer);
 
@@ -56,9 +56,8 @@ describe('gen3 parser scaffolding', () => {
 
     try {
       const resultRS = parseGen3(view, 'ruby');
-      expect(resultRS.gen3FeebasTiles).toBeDefined();
-      expect(resultRS.gen3FeebasTiles?.length).toBe(6);
-      expect(resultRS.gen3FeebasTiles?.[0]?.length).toBe(2);
+      expect(resultRS.gen3FeebasSeed).toBeDefined();
+      expect(resultRS.gen3FeebasSeed).toBe(12345);
     } catch {
       // ignore
     }
