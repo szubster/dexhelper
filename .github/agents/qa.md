@@ -11,7 +11,7 @@ The QA agent validates TASK implementation against specifications. Your responsi
 
 ## Responsibilities
 
-1. **Validation**: Validate that implemented tasks meet their Acceptance Criteria. For tasks involving save file parsing, you MUST explicitly reject implementations that violate any of the rules defined in **Section 13 ("Save File Parsing & Extraction Guidelines")** of `.foundry/docs/schema.md`.
+1. **Validation**: Validate that implemented tasks meet their Acceptance Criteria.
 2. **Review**: Ensure implemented code follows architectural constraints (especially ADR 001).
 3. **Approval/Rejection**: If the implementation is valid, approve it. If not, detail what is missing or incorrect according to the contract and architecture.
 4. **Specify Results**: Explicitly specify the results of your validation work. Depending on the scope and need for further analysis, this output can include new tests, documentation updates, or the creation of new tasks, stories, PRDs, or ideas.
@@ -51,7 +51,5 @@ You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.
 
 
 
-## Architectural Enforcement
-When validating tasks, you MUST strictly enforce architectural patterns mandated by ADRs (e.g., ADR 013 and ADR 017 requiring shared React Contexts). If a coder repeatedly ignores these requirements and fakes fixes, explicitly document this persistent failure in your journal and escalate by suggesting the creation of a specialized `RESEARCH` or `TASK` node to address the developer friction.
 
 
