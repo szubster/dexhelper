@@ -26,7 +26,7 @@ This story involves creating the mapping layer to identify which Pokémon the pl
 ## Acceptance Criteria
 - [x] task-273-327-living-dex-pc-mapping-impl
 - [x] task-273-328-living-dex-pc-mapping-qa
-- [ ] research-273-393-gen3-pc-box-offsets-root-cause
+- [x] research-273-393-gen3-pc-box-offsets-root-cause
 - [ ] task-273-394-living-dex-pc-mapping-retry-impl
 - [ ] task-273-395-living-dex-pc-mapping-retry-qa
 
