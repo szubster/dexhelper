@@ -5,10 +5,10 @@ title: Living Dex PC Mapping Retry Implementation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-04'
-updated_at: '2026-08-03'
+updated_at: '2026-08-05'
 depends_on:
   - .foundry/research/research-273-393-gen3-pc-box-offsets-root-cause.md
-jules_session_id: '9031571494832671234'
+jules_session_id: '15246823197009902888'
 pr_number: null
 parent: story-133-273-living-dex-pc-mapping
 tags:

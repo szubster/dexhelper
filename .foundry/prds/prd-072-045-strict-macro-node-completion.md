@@ -2,10 +2,10 @@
 id: prd-072-045-strict-macro-node-completion
 type: PRD
 title: Strict Macro Node Completion Enforcement
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-10'
-updated_at: '2026-08-04'
+updated_at: '2026-08-05'
 depends_on: []
 jules_session_id: '16381290464964185201'
 pr_number: null
@@ -36,5 +36,5 @@ Enforce the rule that a macro node (IDEA, PRD, EPIC, STORY) MUST NOT be verified
 
 
 ### Generated Epics
-- [ ] .foundry/epics/epic-045-070-orchestrator-strict-completion.md
-- [ ] .foundry/epics/epic-045-071-documentation-macro-node-completion.md
+- [x] .foundry/epics/epic-045-070-orchestrator-strict-completion.md
+- [x] .foundry/epics/epic-045-071-documentation-macro-node-completion.md

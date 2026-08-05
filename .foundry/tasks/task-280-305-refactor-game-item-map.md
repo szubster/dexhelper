@@ -5,9 +5,9 @@ title: Refactor Game Item Map Data
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-06'
-updated_at: '2026-08-04'
+updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '1824204462921449091'
+jules_session_id: '2764892505881953282'
 pr_number: null
 parent: story-087-280-item-runtime-integration
 tags:

@@ -5,17 +5,17 @@ title: Implement E2E Test for Permanent Failure Dashboard
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-03'
-updated_at: '2026-08-04'
+updated_at: '2026-08-05'
 depends_on:
   - story-343-352-lift-rejection-constant-impl
-jules_session_id: '15402904036828030314'
+jules_session_id: '10139717366112844072'
 pr_number: null
 parent: story-343-353-lift-rejection-constant-e2e
 tags:
   - e2e
   - testing
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---
