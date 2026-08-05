@@ -2,11 +2,12 @@
 id: task-356-397-gen3-trainer-data-extraction-core-qa
 type: TASK
 title: QA Core Gen 3 Trainer Data Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-04'
-updated_at: '2026-08-04'
-depends_on: ["task-356-396-gen3-trainer-data-extraction-core-impl"]
+updated_at: '2026-08-05'
+depends_on:
+  - task-356-396-gen3-trainer-data-extraction-core-impl
 jules_session_id: null
 pr_number: null
 parent: story-346-356-gen3-trainer-data-extraction-core

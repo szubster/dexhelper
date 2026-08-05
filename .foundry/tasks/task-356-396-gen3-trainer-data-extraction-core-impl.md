@@ -2,12 +2,12 @@
 id: task-356-396-gen3-trainer-data-extraction-core-impl
 type: TASK
 title: Implement Core Gen 3 Trainer Data Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-04'
 updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '14727926831459962706'
+jules_session_id: null
 pr_number: null
 parent: story-346-356-gen3-trainer-data-extraction-core
 tags:

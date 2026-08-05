@@ -2,12 +2,12 @@
 id: prd-120-335-conflictless-agent-journals
 type: PRD
 title: Research and Implement Conflict-less Agent Journals
-status: ACTIVE
+status: READY
 owner_persona: auditor
 created_at: '2026-07-20'
 updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '17353405569114618226'
+jules_session_id: null
 pr_number: null
 parent: idea-120-conflictless-agent-journals
 tags:

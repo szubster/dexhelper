@@ -2,7 +2,7 @@
 id: research-110-400-investigate-tm-hm-save-parsing-failure
 type: RESEARCH
 title: Investigate TM/HM Save Parsing Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-08-05'
 updated_at: '2026-08-05'
@@ -16,6 +16,7 @@ tags:
 research_references:
   - .foundry/archive/epics/epic-110-306-tm-hm-save-parsing.md
 notes: ''
+rejection_reason: ''
 ---
 
 # Investigate TM/HM Save Parsing Failure

@@ -2,12 +2,12 @@
 id: prd-062-336-drive-cloudflare-sync
 type: PRD
 title: Google Drive and Cloudflare Server-Side Sync
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-21'
 updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '7219397311223081152'
+jules_session_id: null
 pr_number: null
 parent: idea-062-drive-cloudflare-sync
 tags:
