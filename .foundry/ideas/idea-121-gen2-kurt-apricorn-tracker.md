@@ -2,12 +2,12 @@
 id: idea-121-gen2-kurt-apricorn-tracker
 type: IDEA
 title: Gen 2 Kurt Apricorn Tracker
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-22'
-updated_at: '2026-07-26'
+updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14647999565651871835'
 pr_number: null
 parent: null
 tags:

@@ -30,4 +30,6 @@ Based on Orchestrator safeguards, an EPIC must have at least one child STORY nod
 - Ensure proper end-to-end tests exist for R2 sync functionality.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-356-396-r2-sync-e2e-impl
+- [ ] task-356-397-r2-sync-e2e-qa
