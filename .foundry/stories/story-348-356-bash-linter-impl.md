@@ -27,5 +27,5 @@ Implement the static analysis linter for bash sessions to proactively block know
 
 ## Acceptance Criteria
 - [x] Break down this story into tasks for implementation.
-- [ ] task-356-396-bash-static-analysis-linter-impl
-- [ ] task-356-397-bash-static-analysis-linter-qa
+- [x] task-356-396-bash-static-analysis-linter-impl
+- [x] task-356-397-bash-static-analysis-linter-qa
