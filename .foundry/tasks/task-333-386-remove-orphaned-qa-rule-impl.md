@@ -30,4 +30,4 @@ Remove the obsolete instructions related to the "Orphaned QA Task Cancellation R
 - Locate references to the obsolete rule in `.foundry/docs/knowledge_base/agents/core_policies.md` and carefully remove the outdated instructions. Ensure the rest of the documentation flows naturally after removal.
 
 ## Acceptance Criteria
-- [ ] Coder: Remove obsolete instructions regarding the "Orphaned QA Task Cancellation Rule" from `.foundry/docs/knowledge_base/agents/core_policies.md`.
+- [x] Coder: Remove obsolete instructions regarding the "Orphaned QA Task Cancellation Rule" from `.foundry/docs/knowledge_base/agents/core_policies.md`.
