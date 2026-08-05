@@ -2,12 +2,12 @@
 id: task-286-314-filter-swarm-item-calls-impl
 type: TASK
 title: Filter Swarm & Item Calls (Implementation)
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-31'
-updated_at: '2026-08-04'
+updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '14388775228995580045'
+jules_session_id: null
 pr_number: null
 parent: story-118-286-filter-swarm-item-calls
 tags:
