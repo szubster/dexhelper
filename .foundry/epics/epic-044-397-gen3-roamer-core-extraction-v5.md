@@ -33,5 +33,9 @@ Parse the `Roamer` struct from the save file (SaveBlock1) to extract the IVs, Pe
 - [ ] Implement robust `DataView` parsing for the Gen 3 `Roamer` struct across all Gen 3 game versions.
 - [ ] Extract and expose the `active` boolean to determine if the roamer is currently available in the game world.
 - [ ] Write unit tests verifying extraction against known good save fixtures for each game version.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification to ensure proper system-wide rendering.
-- [ ] Story Owner: Break down this Epic into executable Stories.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification to ensure proper system-wide rendering.
+- [x] Story Owner: Break down this Epic into executable Stories.
+
+- [ ] story-397-358-gen3-roamer-dataview-parsing
+- [ ] story-397-359-gen3-roamer-unit-tests
+- [ ] story-397-360-gen3-roamer-integration-e2e
