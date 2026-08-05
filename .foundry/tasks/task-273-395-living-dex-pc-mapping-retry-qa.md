@@ -48,3 +48,13 @@ This QA task verifies the retry implementation of the Living Dex PC Mapping laye
 - **Permanent Failures**: If you must abort or permanently fail a task, you MUST update the YAML frontmatter to `status: CANCELLED` with a `rejection_reason`.
 - **Target Rejections**: If you reject the Coder's implementation, you MUST update the **TARGET task's** YAML frontmatter (`status: FAILED`, increment `rejection_count`, add `rejection_reason`) and do not check its Acceptance Criteria. You MUST NOT modify your own QA task's YAML frontmatter; instead, note the failure in your markdown body and submit an Empty PR.
 - **Empty PR Submission**: If you submit an empty PR for a successfully completed QA task, you MUST check off all Acceptance Criteria checkboxes before submitting.
+
+## QA Rejection Notes
+Implementation of `task-273-394-living-dex-pc-mapping-retry-impl` has been rejected due to violation of Section 13 ("Save File Parsing & Extraction Guidelines") in `src/engine/saveParser/parsers/gen3.ts`.
+
+Specifically, inline magic numbers were used in `parseGen3PCBoxes`:
+- `+ 2`, `+ 4`, `+ 6` for move offset calculations.
+- `0xffff` for bit masking decryption keys.
+- `16` for right-shifting decryption keys.
+
+All these values must be explicitly defined as reusable constants at the module level.

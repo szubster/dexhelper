@@ -2,7 +2,7 @@
 id: task-273-394-living-dex-pc-mapping-retry-impl
 type: TASK
 title: Living Dex PC Mapping Retry Implementation
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-04'
 updated_at: '2026-08-05'
@@ -15,8 +15,8 @@ tags:
   - living-dex
   - data-mapping
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Implementation rejected due to the usage of inline magic numbers (+ 2, + 4, + 6 for offsets, 0xffff for masking, 16 for shifting) in parseGen3PCBoxes, violating Section 13 of the schema.'
 notes: ''
 ---
 
@@ -27,8 +27,8 @@ This task implements the mapping layer to identify which Pokémon the player cur
 This is a retry task generated after the permanent failure of `task-273-327-living-dex-pc-mapping-impl` due to missing Gen 3 memory offsets. Implementation MUST follow the findings from the prerequisite research node `research-273-393-gen3-pc-box-offsets-root-cause`.
 
 ## Acceptance Criteria
-- [x] Implement data mapping functions to extract PC Box and Slot locations for owned Pokémon.
-- [x] Parse PC Box data correctly according to Gen 3 architecture specifications.
+- [ ] Implement data mapping functions to extract PC Box and Slot locations for owned Pokémon.
+- [ ] Parse PC Box data correctly according to Gen 3 architecture specifications.
 
 ## Technical Blueprint
 
