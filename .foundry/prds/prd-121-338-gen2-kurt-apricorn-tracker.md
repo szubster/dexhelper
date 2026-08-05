@@ -1,15 +1,15 @@
 ---
-id: idea-121-gen2-kurt-apricorn-tracker
-type: IDEA
+id: prd-121-338-gen2-kurt-apricorn-tracker
+type: PRD
 title: Gen 2 Kurt Apricorn Tracker
-status: ACTIVE
-owner_persona: product_manager
-created_at: '2026-07-22'
+status: PENDING
+owner_persona: epic_planner
+created_at: '2026-08-05'
 updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '14647999565651871835'
+jules_session_id: null
 pr_number: null
-parent: null
+parent: idea-121-gen2-kurt-apricorn-tracker
 tags:
   - feature
   - gen2
@@ -19,7 +19,7 @@ rejection_reason: ''
 notes: ''
 ---
 
-# Idea: Gen 2 Kurt Apricorn Tracker
+# Gen 2 Kurt Apricorn Tracker
 
 ## Context
 In Generation 2 (Gold, Silver, Crystal), players can harvest Apricorns and give them to Kurt in Azalea Town to craft special Poké Balls (like the Heavy Ball, Lure Ball, Fast Ball). However, this is a multi-day process. The player gives Kurt an Apricorn, and must wait until the next real-world day to receive the crafted item. The game provides zero UI or journal indicating what type of Apricorn was given, how many, or if the order is ready for pickup.
@@ -30,9 +30,5 @@ Leverage DexHelper's save file parsing to track the hidden event flags related t
 - **Ready for Pickup Notification:** By checking the state against the system clock (similarly to the Daily Events Tracker), highlight when Kurt's crafting is finished and the balls are ready for pickup.
 - **Resource Dashboard:** Show a quick tally of uncrafted Apricorns currently in the player's bag vs. what is currently with Kurt.
 
-## Value Proposition
-This feature targets a specific, time-gated mechanic that creates significant player friction due to lack of in-game tracking. By surfacing this hidden state (Kurt's current crafting job), we turn an opaque waiting game into an actionable dashboard. It perfectly fits the premium companion app philosophy of DexHelper.
-
 ## Acceptance Criteria
-- [x] prd-121-000-gen2-kurt-apricorn-tracker
-- [ ] prd-121-338-gen2-kurt-apricorn-tracker
+- [ ] epic_planner: Break this PRD down into actionable Epics.
