@@ -218,6 +218,8 @@ export interface SaveData {
   gen3NPCTrades?: Record<string, boolean>;
   /** Gen 3 specific: Calculated valid Feebas tile locations. */
   gen3FeebasTiles?: [number, number][];
+  /** Gen 3 specific: The 16-bit Feebas seed, used to calculate Feebas tiles in a Web Worker. */
+  gen3FeebasSeed?: number;
   /** Gen 1 specific: Claimed static encounters. */
   gen1StaticEncounters?: Record<number, boolean>;
   /** The specific game version detected or forced (e.g., 'red', 'crystal'). */
