@@ -2,12 +2,12 @@
 id: task-356-396-zod-schema-e2e-fixtures-impl
 type: TASK
 title: Implement Zod Schema E2E Test Fixtures
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-04'
 updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7726498580976577312'
 parent: story-334-356-zod-schema-e2e
 tags:
   - e2e
