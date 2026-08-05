@@ -31,4 +31,6 @@ Extract the Trainer ID (TID) and Secret ID (SID) from a Gen 3 save file and upda
 - Implement extraction logic in `src/engine/saveParser/parsers/gen3.ts`.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down the core logic implementation into `TASK` nodes.
+- [x] Tech Lead: Break down the core logic implementation into `TASK` nodes.
+- [ ] task-356-396-gen3-trainer-data-extraction-core-impl
+- [ ] task-356-397-gen3-trainer-data-extraction-core-qa
