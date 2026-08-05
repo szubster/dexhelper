@@ -89,6 +89,27 @@ describe('gen1Exclusives', () => {
       });
     });
 
+    describe('Branching evolutions (Eevee)', () => {
+      it('should lock Jolteon (135) if Vaporeon (134) is owned, and Eevee (133) and Jolteon (135) are not', () => {
+        const ownedSet = new Set([134]);
+        const reason = getUnobtainableReason(135, 'red', 1, ownedSet);
+        expect(typeof reason).toBe('string');
+        expect(reason).toContain('different form');
+      });
+
+      it('should not lock Jolteon (135) if Eevee (133) is owned', () => {
+        const ownedSet = new Set([133, 134]);
+        const reason = getUnobtainableReason(135, 'red', 2, ownedSet);
+        expect(reason).toBeNull();
+      });
+
+      it('should not lock Jolteon (135) if no eeveelution is owned', () => {
+        const ownedSet = new Set<number>();
+        const reason = getUnobtainableReason(135, 'red', 0, ownedSet);
+        expect(reason).toBeNull();
+      });
+    });
+
     describe('Hitmons (Mutually Exclusive)', () => {
       it('should lock Hitmonlee (106) if Hitmonchan (107) is owned and Hitmonlee is not', () => {
         const ownedSet = new Set([107]); // Own Hitmonchan
