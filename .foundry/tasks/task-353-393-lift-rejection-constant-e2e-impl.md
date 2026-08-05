@@ -2,13 +2,13 @@
 id: task-353-393-lift-rejection-constant-e2e-impl
 type: TASK
 title: Implement E2E Test for Permanent Failure Dashboard
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-03'
 updated_at: '2026-08-05'
 depends_on:
   - story-343-352-lift-rejection-constant-impl
-jules_session_id: null
+jules_session_id: '10139717366112844072'
 pr_number: null
 parent: story-343-353-lift-rejection-constant-e2e
 tags:
