@@ -31,7 +31,11 @@ As analyzed in research-117-325-bundle-splitting-analysis and ADR-117-029, the a
 - Refactor synchronization logic to load extensions and code on demand based on detected generation.
 
 ## Acceptance Criteria
-- [ ] Epic for Engine Code Splitting generated
-- [ ] Epic for UI Component Splitting generated
-- [ ] Epic for Data Splitting generated
-- [ ] Epic for Synchronization Flow generated
+- [x] Epic for Engine Code Splitting generated
+- [x] Epic for UI Component Splitting generated
+- [x] Epic for Data Splitting generated
+- [x] Epic for Synchronization Flow generated
+- [ ] epic-337-400-data-splitting
+- [ ] epic-337-401-engine-code-splitting
+- [ ] epic-337-402-ui-component-splitting
+- [ ] epic-337-403-synchronization-flow
