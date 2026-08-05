@@ -27,8 +27,8 @@ This task implements the mapping layer to identify which Pokémon the player cur
 This is a retry task generated after the permanent failure of `task-273-327-living-dex-pc-mapping-impl` due to missing Gen 3 memory offsets. Implementation MUST follow the findings from the prerequisite research node `research-273-393-gen3-pc-box-offsets-root-cause`.
 
 ## Acceptance Criteria
-- [ ] Implement data mapping functions to extract PC Box and Slot locations for owned Pokémon.
-- [ ] Parse PC Box data correctly according to Gen 3 architecture specifications.
+- [x] Implement data mapping functions to extract PC Box and Slot locations for owned Pokémon.
+- [x] Parse PC Box data correctly according to Gen 3 architecture specifications.
 
 ## Technical Blueprint
 
