@@ -17,3 +17,4 @@ Epic epic-120-338-implement-conflictless-journals is fully implemented. All acce
 # Session Log
 
 epic-120-338-implement-conflictless-journals is fully implemented since all its acceptance criteria and child stories are marked as completed.
+Started session for epic-336-349-multi-save-infrastructure. Remembered to append child nodes as unchecked tasks to the markdown body using exact Node IDs, and to use exact Node IDs for depends_on arrays.
