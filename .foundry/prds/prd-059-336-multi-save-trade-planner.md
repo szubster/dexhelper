@@ -49,4 +49,8 @@ Introduce a "Multi-Save Mode" in DexHelper that allows users to analyze two or m
     - Develop the necessary data structures and comparison algorithms for analyzing multiple save files in memory simultaneously.
 
 ## Acceptance Criteria
-- [ ] Ensure all functional requirements are broken down into logical Epic chunks.
+- [x] Ensure all functional requirements are broken down into logical Epic chunks.
+- [ ] epic-336-349-multi-save-infrastructure
+- [ ] epic-336-350-cross-save-synergy-analysis
+- [ ] epic-336-351-trade-evolution-tracking
+- [ ] epic-336-352-consolidated-pokedex-ui
