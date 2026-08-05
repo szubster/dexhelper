@@ -27,11 +27,13 @@ notes: ''
 Define the storage schema for the save state history, including DB name, object stores, and indexes. This forms the foundation for storing sequential `.sav` file uploads for a given playthrough. This is a retry of the previously failed epic-099-130-indexeddb-schema-design.
 
 ## Acceptance Criteria
-- [ ] Incorporate learnings and architectural shifts from `research-099-396-investigate-indexeddb-schema-failure`.
-- [ ] Define the database name and version.
-- [ ] Define object stores for storing save files, metadata, and indexes for efficient retrieval.
-- [ ] Document the schema.
-- [ ] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Incorporate learnings and architectural shifts from `research-099-396-investigate-indexeddb-schema-failure`.
+- [x] Define the database name and version.
+- [x] Define object stores for storing save files, metadata, and indexes for efficient retrieval.
+- [x] Document the schema.
+- [x] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-397-358-indexeddb-schema-retry-impl
+- [ ] story-397-359-indexeddb-schema-retry-e2e
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
