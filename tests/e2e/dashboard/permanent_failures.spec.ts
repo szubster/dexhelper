@@ -7,39 +7,42 @@ test.describe('Permanent Failures Dashboard', () => {
     await page.route('**/data/foundry.json', async (route) => {
       const mockData = [
         {
-          filePath: 'tasks/task-1.md',
+          filePath: 'tasks/task-permanent-failure.md',
           data: {
-            id: 'task-1',
+            id: 'task-permanent-failure',
             type: 'TASK',
             status: 'FAILED',
             owner_persona: 'coder',
             rejection_count: MAX_REJECTION_THRESHOLD, // Permanent failure
             depends_on: [],
             title: 'Task 1 - Permanent Failure',
+            label: 'task-permanent-failure',
           },
         },
         {
-          filePath: 'tasks/task-2.md',
+          filePath: 'tasks/task-regular-failure.md',
           data: {
-            id: 'task-2',
+            id: 'task-regular-failure',
             type: 'TASK',
             status: 'FAILED',
             owner_persona: 'coder',
             rejection_count: MAX_REJECTION_THRESHOLD - 1, // Regular failure
             depends_on: [],
             title: 'Task 2 - Regular Failure',
+            label: 'task-regular-failure',
           },
         },
         {
-          filePath: 'tasks/task-3.md',
+          filePath: 'tasks/task-completed.md',
           data: {
-            id: 'task-3',
+            id: 'task-completed',
             type: 'TASK',
             status: 'COMPLETED',
             owner_persona: 'coder',
             rejection_count: 0,
             depends_on: [],
             title: 'Task 3 - Completed',
+            label: 'task-completed',
           },
         },
       ];
@@ -50,10 +53,9 @@ test.describe('Permanent Failures Dashboard', () => {
     await page.goto('./dag');
 
     // Wait for the DAG to load and render nodes.
-    // Use data-testid="dag-node" and filter by text to ensure we find the exact component.
-    const task1Node = page.getByTestId('dag-node').filter({ hasText: 'task-1' });
-    const task2Node = page.getByTestId('dag-node').filter({ hasText: 'task-2' });
-    const task3Node = page.getByTestId('dag-node').filter({ hasText: 'task-3' });
+    const task1Node = page.getByTestId('dag-node').filter({ hasText: 'task-permanent-failure' });
+    const task2Node = page.getByTestId('dag-node').filter({ hasText: 'task-regular-failure' });
+    const task3Node = page.getByTestId('dag-node').filter({ hasText: 'task-completed' });
 
     await expect(task1Node).toBeVisible();
     await expect(task2Node).toBeVisible();
