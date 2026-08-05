@@ -1,5 +1,5 @@
 ---
-id: epic-112-324-npc-size-record-data-extraction
+id: epic-112-400-npc-size-record-data-extraction
 type: EPIC
 title: "NPC Size Record: Data Extraction"
 status: PENDING
@@ -27,4 +27,4 @@ This epic covers the backend logic to parse and extract the necessary hidden val
 ## Acceptance Criteria
 - [ ] Implement Gen 2 DV extraction for Attack, Defense, Speed, and Special.
 - [ ] Implement Gen 3 IV/PV extraction, handling the 48-byte encrypted Data block and substructure order `PV % 24`.
-- [ ] story-112-324-integration-e2e
+- [ ] story-112-400-integration-e2e
