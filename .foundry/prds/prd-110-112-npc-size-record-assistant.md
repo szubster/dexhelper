@@ -5,9 +5,9 @@ title: Gen 2 & Gen 3 NPC Size Record Assistant
 status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-07-12'
-updated_at: '2026-08-04'
+updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '4858986812884022433'
+jules_session_id: '2717109338024783069'
 pr_number: null
 parent: idea-110-npc-size-record-assistant
 tags:
@@ -16,7 +16,7 @@ tags:
   - generation-2
   - generation-3
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

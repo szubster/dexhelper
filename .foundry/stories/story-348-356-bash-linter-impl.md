@@ -26,4 +26,6 @@ notes: ''
 Implement the static analysis linter for bash sessions to proactively block known infinite-blocking commands like `tail -f` before execution.
 
 ## Acceptance Criteria
-- [ ] Break down this story into tasks for implementation.
+- [x] Break down this story into tasks for implementation.
+- [ ] task-356-396-bash-static-analysis-linter-impl
+- [ ] task-356-397-bash-static-analysis-linter-qa

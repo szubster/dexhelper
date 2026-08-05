@@ -2,10 +2,10 @@
 id: epic-120-338-implement-conflictless-journals
 type: EPIC
 title: Implement Conflict-less Agent Journals
-status: READY
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-07-21'
-updated_at: '2026-08-04'
+updated_at: '2026-08-05'
 depends_on: []
 jules_session_id: null
 parent: prd-120-335-conflictless-agent-journals
@@ -14,8 +14,8 @@ tags:
   - journals
   - workflow
   - DX
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 ---
 

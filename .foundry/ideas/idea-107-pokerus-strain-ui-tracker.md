@@ -2,12 +2,12 @@
 id: idea-107-pokerus-strain-ui-tracker
 type: IDEA
 title: Pokerus Strain Specific UI Tracker
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-09'
-updated_at: '2026-08-01'
+updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10108792700210574818'
 pr_number: null
 parent: null
 tags:
@@ -26,4 +26,4 @@ With the standardization of bitwise extraction for Pokerus (`parsePokerus` in `c
 
 ## Acceptance Criteria
 - [x] Product Manager: Convert this idea into a PRD.
-- [ ] prd-107-112-pokerus-strain-ui-tracker
+- [x] prd-107-112-pokerus-strain-ui-tracker
