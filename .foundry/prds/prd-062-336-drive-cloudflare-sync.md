@@ -62,6 +62,9 @@ Instead of a server-side Google Drive integration, we could develop a minimal na
 Implementing this feature ensures that users playing on dedicated Android emulators or their phones can enjoy a real-time "live tracker" experience. It removes the blocking limitations of mobile browser APIs and solidifies the multi-device, cloud-first vision for DexHelper.
 
 ## Acceptance Criteria
-- [ ] Research the feasibility and limitations of Google Drive Webhooks within Cloudflare Workers.
-- [ ] Determine the exact architectural path: Server-Side Integration vs. Android Companion App (requires Architect input/ADR).
-- [ ] epic-062-000-implement-cloudflare-drive-sync (Placeholder for downstream epic once path is decided)
+- [x] Research the feasibility and limitations of Google Drive Webhooks within Cloudflare Workers.
+- [x] Determine the exact architectural path: Server-Side Integration vs. Android Companion App (requires Architect input/ADR).
+- [x] epic-062-000-implement-cloudflare-drive-sync (Placeholder for downstream epic once path is decided)
+- [ ] research-336-400-cloudflare-drive-webhooks
+- [ ] task-336-401-architect-drive-sync-adr
+- [ ] epic-336-402-implement-cloudflare-drive-sync
