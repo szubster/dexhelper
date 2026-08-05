@@ -26,4 +26,4 @@ With the standardization of bitwise extraction for Pokerus (`parsePokerus` in `c
 
 ## Acceptance Criteria
 - [x] Product Manager: Convert this idea into a PRD.
-- [ ] prd-107-112-pokerus-strain-ui-tracker
+- [x] prd-107-112-pokerus-strain-ui-tracker
