@@ -2,10 +2,10 @@
 id: story-118-286-filter-swarm-item-calls
 type: STORY
 title: Filter Swarm & Item Calls
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-07'
-updated_at: '2026-07-31'
+updated_at: '2026-08-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
