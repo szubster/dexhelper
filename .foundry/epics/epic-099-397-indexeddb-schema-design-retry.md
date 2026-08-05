@@ -2,10 +2,10 @@
 id: epic-099-397-indexeddb-schema-design-retry
 type: EPIC
 title: IndexedDB Storage Schema Design (Retry)
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-04'
-updated_at: '2026-08-04'
+updated_at: '2026-08-05'
 depends_on:
   - research-099-396-investigate-indexeddb-schema-failure
 jules_session_id: null

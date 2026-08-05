@@ -2,12 +2,12 @@
 id: research-045-396-investigate-secret-base-v2-failure
 type: RESEARCH
 title: Investigate Gen 3 Secret Base Parsing Permanent Failure (v2)
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-04'
-updated_at: '2026-08-04'
+updated_at: '2026-08-05'
 depends_on: []
-jules_session_id: '10700555374232106227'
+jules_session_id: null
 pr_number: null
 parent: prd-073-045-gen3-secret-base-viewer
 tags:

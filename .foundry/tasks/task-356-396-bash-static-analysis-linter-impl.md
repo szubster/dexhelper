@@ -2,10 +2,10 @@
 id: task-356-396-bash-static-analysis-linter-impl
 type: TASK
 title: Implement Bash Static Analysis Linter
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-04'
-updated_at: '2026-08-04'
+updated_at: '2026-08-05'
 depends_on: []
 jules_session_id: null
 parent: story-348-356-bash-linter-impl
@@ -14,6 +14,7 @@ tags:
   - linter
   - implementation
 rejection_count: 0
+rejection_reason: ''
 ---
 
 # Implement Bash Static Analysis Linter
