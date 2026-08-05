@@ -1532,6 +1532,36 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(result).toContain('status: READY');
   });
 
+  test('Phase 3.6 E2E: Lifecycle from max rejection to node cancellation and parent awakening', () => {
+    createValidTestNode(tmpDir, '.foundry/stories/story-e2e.md', {
+      id: "story-e2e",
+      type: "STORY",
+      title: "Story E2E",
+      status: "PENDING",
+      owner_persona: "tech_lead",
+    }, "- [ ] .foundry/tasks/task-e2e-1.md");
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-e2e-1.md', {
+      id: "task-e2e-1",
+      type: "TASK",
+      title: "Task E2E 1",
+      status: "FAILED",
+      owner_persona: "coder",
+      parent: "story-e2e",
+      rejection_reason: "Failed a lot",
+      rejection_count: 3
+    });
+
+    main();
+
+    const task1Content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-e2e-1.md'), 'utf-8');
+    expect(task1Content).toContain('status: CANCELLED');
+    expect(task1Content).toContain("rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'");
+
+    const storyContent = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-e2e.md'), 'utf-8');
+    expect(storyContent).toContain('status: READY');
+  });
+
   test('Impossible Loop: Auto-cancels node when max rejection count is reached', async () => {
     createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
       id: "story-001",
