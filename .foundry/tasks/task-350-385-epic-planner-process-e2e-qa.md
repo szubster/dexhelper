@@ -1,32 +1,34 @@
 ---
 id: task-350-385-epic-planner-process-e2e-qa
 type: TASK
-title: Epic Planner Process E2E Test QA
-status: COMPLETED
+title: QA E2E Test for Epic Planner Process Update
+status: READY
 owner_persona: qa
-created_at: '2024-05-24'
+created_at: '2026-08-05'
 updated_at: '2026-08-05'
 depends_on:
   - task-350-384-epic-planner-process-e2e-impl
-jules_session_id: null
+jules_session_id: '9824085891786636607'
 pr_number: null
 parent: story-128-350-epic-planner-process-e2e
 tags:
   - process
   - e2e
-research_references: []
+  - qa
 rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
-
-# TASK: Epic Planner Process E2E Test QA
+# TASK: QA E2E Test for Epic Planner Process Update
 
 ## Context
-As part of enforcing macro node functional boundaries, we need to enforce a process where every EPIC MUST generate a final STORY dedicated to Integration and E2E Verification. The changes to the Epic Planner instructions need to be verified.
+The coder has implemented an E2E test verifying that the Epic Planner enforces the creation of a final Integration/Verification story for every EPIC.
 
-## Goal
-Verify the execution of the E2E test for the Epic Planner process changes.
+## Requirements
+- Review the implemented E2E test for the Epic Planner process update.
+- Ensure the test adequately covers the requirement.
+- Verify the test runs successfully using `xvfb-run pnpm test:e2e`.
 
 ## Acceptance Criteria
-- [x] Verify that the E2E tests created by the coder pass successfully and correctly validate the process changes.
+- [ ] Code review completed.
+- [ ] Tests run successfully locally.
