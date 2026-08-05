@@ -2,13 +2,13 @@
 id: epic-045-397-gen3-secret-base-parsing-v3
 type: EPIC
 title: Gen 3 Secret Base Save File Parsing (v3)
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-04'
 updated_at: '2026-08-05'
 depends_on:
   - research-045-396-investigate-secret-base-v2-failure
-jules_session_id: null
+jules_session_id: '12400858913551395760'
 pr_number: null
 parent: prd-073-045-gen3-secret-base-viewer
 tags:
