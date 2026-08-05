@@ -2,10 +2,10 @@
 id: task-356-398-zod-schema-e2e-qa
 type: TASK
 title: QA Zod Schema E2E Verification
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-04'
-updated_at: '2026-08-04'
+updated_at: '2026-08-05'
 depends_on:
   - task-356-397-zod-schema-e2e-suite-impl
 jules_session_id: null
