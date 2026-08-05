@@ -49,26 +49,31 @@ test.describe('Permanent Failures Dashboard', () => {
     // Navigate to the DAG dashboard
     await page.goto('./dag');
 
-    // Wait for the DAG to load and render nodes
-    await expect(page.locator('text=task-1')).toBeVisible();
-    await expect(page.locator('text=task-2')).toBeVisible();
-    await expect(page.locator('text=task-3')).toBeVisible();
+    // Wait for the DAG to load and render nodes.
+    // Use data-testid="dag-node" and filter by text to ensure we find the exact component.
+    const task1Node = page.getByTestId('dag-node').filter({ hasText: 'task-1' });
+    const task2Node = page.getByTestId('dag-node').filter({ hasText: 'task-2' });
+    const task3Node = page.getByTestId('dag-node').filter({ hasText: 'task-3' });
+
+    await expect(task1Node).toBeVisible();
+    await expect(task2Node).toBeVisible();
+    await expect(task3Node).toBeVisible();
 
     // Click the "Permanent failures only" toggle
     await page.getByText('[ PERMANENT_FAILURES_ONLY ]').click();
 
     // Assert that only the permanent failure node is visible
-    await expect(page.locator('text=task-1')).toBeVisible();
+    await expect(task1Node).toBeVisible();
 
     // The other nodes should not be in the document
-    await expect(page.locator('text=task-2')).toHaveCount(0);
-    await expect(page.locator('text=task-3')).toHaveCount(0);
+    await expect(task2Node).toHaveCount(0);
+    await expect(task3Node).toHaveCount(0);
 
     // Toggle off to make sure they come back
     await page.getByText('[ PERMANENT_FAILURES_ONLY ]').click();
 
-    await expect(page.locator('text=task-1')).toBeVisible();
-    await expect(page.locator('text=task-2')).toBeVisible();
-    await expect(page.locator('text=task-3')).toBeVisible();
+    await expect(task1Node).toBeVisible();
+    await expect(task2Node).toBeVisible();
+    await expect(task3Node).toBeVisible();
   });
 });
