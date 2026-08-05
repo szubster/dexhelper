@@ -28,5 +28,8 @@ As part of the Multi-Save Trade Planner, this Epic establishes the foundational 
 - Develop the necessary data structures and comparison algorithms for analyzing multiple save files in memory simultaneously.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into Stories.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Break this Epic down into Stories.
+- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-349-358-multi-save-data-structures
+- [ ] story-349-359-multi-save-comparison-algorithms
+- [ ] story-349-360-multi-save-integration-e2e
