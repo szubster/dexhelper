@@ -32,5 +32,5 @@ Extract the Trainer ID (TID) and Secret ID (SID) from a Gen 3 save file and upda
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down the core logic implementation into `TASK` nodes.
-- [ ] task-356-396-gen3-trainer-data-extraction-core-impl
-- [ ] task-356-397-gen3-trainer-data-extraction-core-qa
+- [x] task-356-396-gen3-trainer-data-extraction-core-impl
+- [x] task-356-397-gen3-trainer-data-extraction-core-qa
