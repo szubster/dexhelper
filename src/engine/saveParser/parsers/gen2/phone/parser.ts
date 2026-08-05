@@ -19,10 +19,14 @@ export const CRYSTAL_WPHONE_LIST = 0xdc7c;
 export const CONTACT_LIST_SIZE = 10;
 export const PHONE_LIST_LENGTH = CONTACT_LIST_SIZE + 1;
 
+import type { HighValueContact } from './constants';
+import { filterHighValueCalls } from './filter';
+
 export interface PokegearPhoneData {
   phoneListIndex: number;
   specialPhoneCallId: number;
   phoneList: number[];
+  highValueContacts?: HighValueContact[];
   swarmFlags?: number;
   dailyPhoneItemFlags?: number;
   dailyPhoneTimeOfDayFlags?: number;
@@ -53,6 +57,7 @@ export function parseGen2PokegearData(dataView: DataView, isCrystal: boolean): P
         dailyPhoneItemFlags,
         dailyPhoneTimeOfDayFlags,
         phoneList,
+        highValueContacts: filterHighValueCalls(phoneList),
       };
     } else {
       const phoneListIndex = dataView.getUint8(GS_WPHONE_LIST_INDEX - SRAM_WRAM_OFFSET_ADJUST);
@@ -68,6 +73,7 @@ export function parseGen2PokegearData(dataView: DataView, isCrystal: boolean): P
         phoneListIndex,
         specialPhoneCallId,
         phoneList,
+        highValueContacts: filterHighValueCalls(phoneList),
       };
     }
   } catch (error) {

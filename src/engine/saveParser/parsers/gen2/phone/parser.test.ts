@@ -25,6 +25,10 @@ describe('Gen 2 Pokegear Parser', () => {
     expect(result.phoneList[0]).toBe(1);
     expect(result.phoneList[10]).toBe(11);
     expect(result.swarmFlags).toBeUndefined();
+    // In our test loop above, we populate IDs 1 to 11.
+    // ID 6 is Beverly (Nugget)
+    expect(result.highValueContacts).toBeDefined();
+    expect(result.highValueContacts?.some((c) => c.id === 6)).toBe(true);
   });
 
   it('should parse Crystal data correctly', () => {
@@ -51,6 +55,10 @@ describe('Gen 2 Pokegear Parser', () => {
     expect(result.dailyPhoneTimeOfDayFlags).toBe(0x87654321);
     expect(result.phoneList).toHaveLength(PHONE_LIST_LENGTH);
     expect(result.phoneList[0]).toBe(20);
+    // In our loop, we populate IDs from 20 down to 10.
+    // ID 20 is Camper Todd (HP Up), ID 17 is Ralph (Swarm), ID 16 is Wade, ID 13 is Jose.
+    expect(result.highValueContacts).toBeDefined();
+    expect(result.highValueContacts?.length).toBeGreaterThan(0);
   });
 
   it('should throw an error on out of bounds reads', () => {
