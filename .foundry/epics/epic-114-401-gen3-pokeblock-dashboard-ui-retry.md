@@ -1,5 +1,5 @@
 ---
-id: epic-114-328-gen3-pokeblock-dashboard-ui
+id: epic-114-401-gen3-pokeblock-dashboard-ui-retry
 type: EPIC
 title: Gen 3 Pokéblock Exact Stats Viewer Dashboard UI
 status: READY
@@ -7,7 +7,7 @@ owner_persona: epic_planner
 created_at: '2026-08-05'
 updated_at: '2026-08-05'
 depends_on:
-  - epic-114-327-gen3-pokeblock-case-parsing
+  - epic-114-400-gen3-pokeblock-case-parsing-retry
 jules_session_id: '2513819693854721323'
 pr_number: null
 parent: prd-113-114-gen3-pokeblock-stats-viewer
@@ -25,7 +25,7 @@ notes: ''
 # Gen 3 Pokéblock Exact Stats Viewer Dashboard UI
 
 ## Context
-As defined in `prd-113-114-gen3-pokeblock-stats-viewer`, we need a dedicated dashboard to visualize the exact flavor and feel stats of Pokéblocks extracted from the player's save file. This epic depends on the successful parsing of the Pokéblock Case (`epic-114-327-gen3-pokeblock-case-parsing`).
+As defined in `prd-113-114-gen3-pokeblock-stats-viewer`, we need a dedicated dashboard to visualize the exact flavor and feel stats of Pokéblocks extracted from the player's save file. This epic depends on the successful parsing of the Pokéblock Case (`epic-114-400-gen3-pokeblock-case-parsing-retry`).
 
 ## Acceptance Criteria
 - [ ] Create a new dashboard route and main component for the Pokéblock Viewer.

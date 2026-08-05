@@ -1,5 +1,5 @@
 ---
-id: epic-114-327-gen3-pokeblock-case-parsing
+id: epic-114-400-gen3-pokeblock-case-parsing-retry
 type: EPIC
 title: Gen 3 Pokéblock Case Data Parsing
 status: READY
