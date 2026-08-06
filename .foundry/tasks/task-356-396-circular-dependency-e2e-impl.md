@@ -28,7 +28,7 @@ notes: ''
 Implement E2E test cases to verify the circular dependency detection feature in the DAG orchestrator. This task creates the actual test scripts and ensures they correctly identify cycles.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for circular dependency detection in `.github/scripts/foundry-orchestrator.test.ts`.
-- [ ] Ensure tests cover scenarios such as direct circular references (A -> B -> A).
-- [ ] Ensure tests cover indirect circular references (A -> B -> C -> A).
-- [ ] Validate that the orchestrator rejects PRs or fails safely when a cycle is detected.
+- [x] Implement E2E tests for circular dependency detection in `.github/scripts/foundry-orchestrator.test.ts`.
+- [x] Ensure tests cover scenarios such as direct circular references (A -> B -> A).
+- [x] Ensure tests cover indirect circular references (A -> B -> C -> A).
+- [x] Validate that the orchestrator rejects PRs or fails safely when a cycle is detected.

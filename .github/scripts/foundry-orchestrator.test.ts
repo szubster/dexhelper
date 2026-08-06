@@ -2592,6 +2592,43 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(cContent).toContain("rejection_reason: Circular dependency detected");
   });
 
+  test('Deadlock Prevention: Handles direct circular dependencies (A -> B -> A) safely', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-a.md', {
+      id: "task-a",
+      type: "TASK",
+      title: "Task A",
+      status: "PENDING",
+      owner_persona: "coder",
+      depends_on: [".foundry/tasks/task-b.md"],
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-b.md', {
+      id: "task-b",
+      type: "TASK",
+      title: "Task B",
+      status: "PENDING",
+      owner_persona: "coder",
+      depends_on: [".foundry/tasks/task-a.md"],
+    });
+
+    const stderrSpy = vi.spyOn(process.stderr, 'write');
+
+    main();
+
+    const output = stderrSpy.mock.calls.map(call => call[0] as string).join('');
+
+    // It should explicitly output the cycle format
+    expect(output).toContain('Detected circular dependency: .foundry/tasks/task-a.md -> .foundry/tasks/task-b.md -> .foundry/tasks/task-a.md');
+
+    const aContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-a.md"), "utf-8");
+    const bContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-b.md"), "utf-8");
+
+    expect(aContent).toContain("status: FAILED");
+    expect(aContent).toContain("rejection_reason: Circular dependency detected");
+    expect(bContent).toContain("status: FAILED");
+    expect(bContent).toContain("rejection_reason: Circular dependency detected");
+  });
+
   test('Deadlock Prevention: Correctly isolates cycle and doesn\'t fail innocent nodes pointing to cycle', () => {
     // Task A points to B, but is not in the cycle
     createValidTestNode(tmpDir, '.foundry/tasks/task-a.md', {
