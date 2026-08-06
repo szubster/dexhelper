@@ -2,12 +2,12 @@
 id: epic-106-136-pc-box-sorting-algorithms
 type: EPIC
 title: PC Box Sorting Algorithms
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-06'
-updated_at: '2026-08-05'
+updated_at: '2026-08-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14104580671778253056'
 pr_number: null
 parent: prd-101-106-pc-box-organization-assistant
 tags:
