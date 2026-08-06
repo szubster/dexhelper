@@ -43,4 +43,4 @@ Following the establishment of a secure authentication layer, the application ne
 - [x] story-039-264-r2-push-sync-logic
 - [x] story-039-265-r2-offline-conflict-resolution
 - [x] story-039-266-r2-graceful-degradation
-- [ ] story-039-356-r2-sync-e2e
+- [x] story-039-356-r2-sync-e2e
