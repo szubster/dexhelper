@@ -106,7 +106,8 @@ Node transitions in our DAG are reimagined as classic Gen 1 progression mechanic
 ---
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this idea into a PRD specifying the theme integration and updating the Foundry schema.
+- [x] Product Manager: Convert this idea into a PRD specifying the theme integration and updating the Foundry schema.
+- [ ] prd-122-339-pokemon-themed-foundry-personas
 - [ ] Designer: Create custom visual icons/badges representing the mapped Pokémon roles on the DAG dashboard.
 - [ ] Coder: Update the DAG UI dashboard and log-viewing panels to show the themed names, statuses, and icons.
 - [ ] TPM: Update `.github/scripts/foundry-orchestrator.ts` to output themed messages and emoji badges to GitHub Action summaries.
