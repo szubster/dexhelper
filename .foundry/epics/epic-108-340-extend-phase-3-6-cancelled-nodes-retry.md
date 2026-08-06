@@ -39,4 +39,4 @@ In `foundry-orchestrator.ts` Phase 3.6, nodes transitioning to `CANCELLED` statu
 ## Acceptance Criteria
 - [x] Break down into Stories
 - [x] [.foundry/stories/story-340-346-extend-phase-3-6-cancelled-nodes.md](.foundry/stories/story-340-346-extend-phase-3-6-cancelled-nodes.md)
-- [ ] story-340-356-extend-phase-3-6-cancelled-nodes-e2e
+- [x] story-340-356-extend-phase-3-6-cancelled-nodes-e2e
