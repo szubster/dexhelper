@@ -2,13 +2,13 @@
 id: task-356-397-r2-sync-e2e-qa
 type: TASK
 title: QA Cloudflare R2 Offline-First Save Syncing E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-04'
-updated_at: '2026-08-05'
+updated_at: '2026-08-06'
 depends_on:
   - task-356-396-r2-sync-e2e-impl
-jules_session_id: null
+jules_session_id: '18080809321842070059'
 pr_number: null
 parent: story-039-356-r2-sync-e2e
 tags:
