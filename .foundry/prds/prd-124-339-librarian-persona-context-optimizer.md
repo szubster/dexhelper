@@ -1,15 +1,15 @@
 ---
-id: idea-124-librarian-persona-context-optimizer
-type: IDEA
+id: prd-124-339-librarian-persona-context-optimizer
+type: PRD
 title: Librarian Persona for Context Token Optimization
-status: ACTIVE
-owner_persona: product_manager
-created_at: '2026-07-27'
+status: PENDING
+owner_persona: epic_planner
+created_at: '2026-08-06'
 updated_at: '2026-08-06'
 depends_on: []
-jules_session_id: '12806013623311356559'
+jules_session_id: null
 pr_number: null
-parent: null
+parent: idea-124-librarian-persona-context-optimizer
 tags:
   - foundry
   - orchestrator
@@ -23,7 +23,7 @@ notes: ''
 # Librarian Persona for Context Token Optimization
 
 ## Description
-To enhance the Foundry Orchestrator's efficiency and prevent the degradation of agent context windows, this idea proposes the introduction of a new Foundry Owner Persona: the **`librarian`**.
+To enhance the Foundry Orchestrator's efficiency and prevent the degradation of agent context windows, this PRD proposes the introduction of a new Foundry Owner Persona: the **`librarian`**.
 
 Following the strict Generation 1 gamification theme established in `idea-122`, the `librarian` will be mapped to **Snorlax (#143 - The Deep Dreamer)**. While it may appear asleep, its massive subconscious mind digests vast amounts of historical data into compact, essential memories.
 
@@ -48,8 +48,4 @@ Currently, as the repository grows, agent journals and archived nodes become hea
 ---
 
 ## Acceptance Criteria
-- [x] Product Manager: Convert this idea into a PRD outlining the exact triggers, scripts, and responsibilities for the `librarian` persona.
-- [ ] Architect: Review the proposed system architecture for integrating the `librarian` into the Foundry Orchestrator's cron schedules.
-- [ ] Coder: Update `schema.md` to formally introduce the `librarian` role mapped to Snorlax.
-- [ ] Coder: Implement the Node/TypeScript scripts in `.github/scripts/` to enable the Librarian's scheduled journal ingestion phase.
-- [ ] prd-124-339-librarian-persona-context-optimizer
+- [ ] Break down into Epics (e.g. schema updates, github scripts implementation).
