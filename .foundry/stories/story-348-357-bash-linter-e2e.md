@@ -27,4 +27,5 @@ notes: ''
 Ensure e2e integration testing of the static analysis linter for bash sessions to verify it correctly blocks infinite-blocking commands in simulated usage.
 
 ## Acceptance Criteria
-- [ ] Break down this story into a task exclusively for Integration and E2E Verification.
+- [x] Break down this story into a task exclusively for Integration and E2E Verification.
+- [ ] task-357-402-bash-linter-e2e-impl
