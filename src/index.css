@@ -80,7 +80,8 @@ body {
 .glass-card {
   background: var(--theme-surface);
   backdrop-filter: blur(12px);
-  border: 1px solid var(--theme-border);
+  border: 1px dashed var(--theme-border);
+  border-radius: 0;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
