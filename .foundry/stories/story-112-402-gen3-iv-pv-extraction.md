@@ -1,0 +1,28 @@
+---
+id: story-112-402-gen3-iv-pv-extraction
+type: STORY
+title: 'Gen 3 IV/PV Extraction'
+status: PENDING
+owner_persona: tech_lead
+created_at: '2026-08-05'
+updated_at: '2026-08-05'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: epic-112-400-npc-size-record-data-extraction
+tags:
+  - dexhelper
+  - generation-3
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Gen 3 IV/PV Extraction
+
+## Overview
+Implement the Gen 3 IV/PV extraction, handling the 48-byte encrypted Data block and substructure order `PV % 24`. The implementation must adhere to the Save File Parsing & Extraction Guidelines.
+
+## Acceptance Criteria
+- [ ] Implement Gen 3 IV/PV extraction, handling the 48-byte encrypted Data block and substructure order `PV % 24`.
