@@ -51,8 +51,12 @@ const BERRY_STAGE_OFFSET = 0x01;
 const BERRY_MINUTES_OFFSET = 0x02;
 const BERRY_YIELD_OFFSET = 0x04;
 const BERRY_WATERED_OFFSET = 0x05;
+
+// Berry patches use bitwise flags to cram status data into single bytes.
+// Byte 1 stores the growth stage (bits 0-6) and whether growth has stopped (bit 7).
 const BERRY_STAGE_MASK = 0x7f;
 const BERRY_STOP_GROWTH_MASK = 0x80;
+// Byte 5 stores the watering history (bits 4-7) and the number of times it has regrown (bits 0-3).
 const BERRY_REGROWTH_MASK = 0x0f;
 const BERRY_WATERED_1_MASK = 0x10;
 const BERRY_WATERED_2_MASK = 0x20;
@@ -226,6 +230,11 @@ export const GEN3_POKEMON_ITEM_OFFSET_IN_G = 0x02;
 export const GEN3_POKEMON_MOVES_OFFSET_IN_A = 0x00;
 export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
 
+/**
+ * Maps the 24 possible permutations of a Gen 3 Pokémon's 48-byte data block.
+ * The permutation index is determined by `PV % 24`.
+ * The four blocks are: Growth (G), Attacks (A), EVs/Condition (E), and Miscellaneous (M).
+ */
 export const SUBSTRUCTURE_ORDER = [
   'GAEM',
   'GAME',
@@ -331,6 +340,11 @@ export const GEN3_POKEDEX_OWNED_OFFSET = 0x10;
 export const GEN3_POKEDEX_SEEN_OFFSET = 0x44;
 export const NATIONAL_DEX_MAX = 386;
 
+/**
+ * Maps National Dex IDs to their inclusion in the Regional Hoenn Pokédex.
+ * Used to calculate the `hoennDexCount` stat since the save file only tracks
+ * Pokédex completion globally via National Dex flags.
+ */
 export const HOENN_DEX_ORDER = [
   252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274,
   275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 63, 64, 65, 290, 291, 292, 293, 294, 295,
