@@ -33,4 +33,4 @@ Implement e2e/integration verification to ensure Phase 3.6 logic in `foundry-orc
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] .foundry/tasks/task-356-396-extend-phase-3-6-cancelled-nodes-e2e-impl.md
+- [ ] .foundry/archive/task-356-396-extend-phase-3-6-cancelled-nodes-e2e-impl.md
