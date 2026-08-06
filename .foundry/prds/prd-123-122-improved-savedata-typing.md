@@ -48,3 +48,5 @@ This project aims to refactor the `SaveData` type into a Discriminated Union bas
 ## 5. Non-Functional Requirements
 - Maintain backward compatibility in terms of runtime data shape.
 - Ensure no runtime overhead is introduced by type definitions.
+
+- [ ] epic-122-404-refactor-savedata-typing
