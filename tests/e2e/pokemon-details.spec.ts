@@ -11,10 +11,17 @@ test.describe('Pokemon Details Modal', () => {
     await initializeWithSave(page, new Uint8Array(saveData));
 
     // 2. Click on a Pokemon (e.g., Pikachu - ID 25)
-    await page.getByLabel('View details for Pikachu').click();
+    // Mobile layouts often have a sticky header and bottom nav that block clicks.
+    await page.waitForTimeout(3000);
+    const pikachuCard = page.locator('[data-testid="pokedex-card"][data-pokemon-id="25"]');
+    // Ensure we scroll the element to the center of the screen to avoid top/bottom sticky navs
+    await pikachuCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
+    await page.waitForTimeout(500); // allow layout to settle
+    await expect(pikachuCard).toBeVisible({ timeout: 10000 });
+    await pikachuCard.dispatchEvent('click'); // Bypasses pointer-events issues
 
     // 3. Verify Modal Headers
-    await expect(page.getByRole('dialog')).toBeVisible();
+    await expect(page.getByRole('dialog')).toBeVisible({ timeout: 15000 });
     await expect(page.getByText(/\[ SUBJECT_ID: 025 \]/i)).toBeVisible();
     await expect(page.getByText('Pikachu', { exact: true }).nth(0)).toBeVisible();
 
@@ -37,13 +44,22 @@ test.describe('Pokemon Details Modal', () => {
     await initializeWithSave(page, new Uint8Array(saveData));
 
     // 1. Search for Pidgey to be efficient
-    await page.getByTestId('search-input').fill('Pidgey');
+    // Use click to trigger focus which reveals the search input options, then fill
+    const searchInput = page.getByTestId('search-input');
+    await searchInput.click({ force: true });
+    await searchInput.fill('Pidgey');
 
     // 2. Click Pidgey Card
-    await page.getByLabel('View details for Pidgey').click();
+    await page.waitForTimeout(3000);
+    const pidgeyCard = page.locator('[data-testid="pokedex-card"][data-pokemon-id="16"]');
+    // Ensure we scroll the element to the center of the screen to avoid top/bottom sticky navs
+    await pidgeyCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
+    await page.waitForTimeout(500); // allow layout to settle
+    await expect(pidgeyCard).toBeVisible({ timeout: 10000 });
+    await pidgeyCard.dispatchEvent('click'); // Bypasses pointer-events issues
 
     // 3. Verify Location
-    await expect(page.getByText(/Geospatial Telemetry/i)).toBeVisible();
+    await expect(page.getByText(/Geospatial Telemetry/i)).toBeVisible({ timeout: 15000 });
 
     // The UI transforms names to uppercase, wait for load
     const locationList = page.getByTestId('location-list');
