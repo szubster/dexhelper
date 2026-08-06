@@ -34,3 +34,6 @@ Implement an **Epic-Level Distillation and Cold Storage Archival** strategy driv
 
 ## Why this matters
 This directly addresses the scalability limits of treating a Git repository as an active database. It ensures the orchestrator remains fast and cost-efficient by actively pruning dead branches of the DAG once their value has been fully realized and extracted.
+
+## Acceptance Criteria
+- [ ] prd-129-339-epic-level-distillation-archival
