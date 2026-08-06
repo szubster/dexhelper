@@ -26,4 +26,7 @@ With the standardization of bitwise extraction for Pokerus (`parsePokerus` in `c
 
 ## Acceptance Criteria
 - [x] Product Manager: Convert this idea into a PRD.
-- [x] prd-107-112-pokerus-strain-ui-tracker
+- [ ] prd-107-112-pokerus-strain-ui-tracker
+
+### Auditor Rejection
+The PRD and its descendant epics (epic-112-322-pokerus-strain-ui-detail-view, epic-112-323-pokerus-strain-ui-grid-view, and epic-112-335-pokerus-strain-ui-detail-view-v2) were CANCELLED. Therefore, the functional requirements for this idea have not been implemented. Sending back to trigger the Resurrection Loop.
