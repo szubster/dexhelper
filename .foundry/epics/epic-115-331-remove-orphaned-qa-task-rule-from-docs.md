@@ -2,7 +2,7 @@
 id: epic-115-331-remove-orphaned-qa-task-rule-from-docs
 type: EPIC
 title: Remove Orphaned QA Task Rule From Docs
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-16'
 updated_at: '2026-08-06'
@@ -15,8 +15,8 @@ tags:
   - agile-coach
   - orchestrator
 research_references: []
-rejection_count: 0
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
