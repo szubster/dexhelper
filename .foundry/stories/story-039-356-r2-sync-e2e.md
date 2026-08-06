@@ -2,10 +2,10 @@
 id: story-039-356-r2-sync-e2e
 type: STORY
 title: Cloudflare R2 Offline-First Save Syncing E2E
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-04'
-updated_at: '2026-08-05'
+updated_at: '2026-08-06'
 depends_on: []
 jules_session_id: null
 pr_number: null
