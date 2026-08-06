@@ -52,22 +52,68 @@ export interface BreedingPair<T extends PokemonWithMetadata = PokemonWithMetadat
 export function calculateBreedingPairs<T extends PokemonWithMetadata>(pokemonList: T[]): BreedingPair<T>[] {
   const pairs: BreedingPair<T>[] = [];
 
-  for (let i = 0; i < pokemonList.length; i++) {
-    for (let j = i + 1; j < pokemonList.length; j++) {
-      const p1 = pokemonList[i];
-      const p2 = pokemonList[j];
+  const males: T[] = [];
+  const females: T[] = [];
+  const dittos: T[] = [];
+  const genderless: T[] = [];
 
-      if (p1 && p2 && isValidPair(p1, p2)) {
-        let score = 0;
-        if (p1.isShinyCarrier || p1.isShiny) score += 1;
-        if (p2.isShinyCarrier || p2.isShiny) score += 1;
-        pairs.push({
-          parentA: p1,
-          parentB: p2,
-          score,
-        });
-      }
+  for (let i = 0; i < pokemonList.length; i++) {
+    const p = pokemonList[i];
+    if (!p) continue;
+    if (p.eggGroups.includes(EGG_GROUP.NO_EGGS)) continue;
+
+    if (p.eggGroups.includes(EGG_GROUP.DITTO)) {
+      dittos.push(p);
+    } else if (p.gender === 'Male') {
+      males.push(p);
+    } else if (p.gender === 'Female') {
+      females.push(p);
+    } else {
+      genderless.push(p);
     }
+  }
+
+  const checkAndPushPair = (p1: T, p2: T) => {
+    if (isValidPair(p1, p2)) {
+      let score = 0;
+      if (p1.isShinyCarrier || p1.isShiny) score += 1;
+      if (p2.isShinyCarrier || p2.isShiny) score += 1;
+      pairs.push({
+        parentA: p1,
+        parentB: p2,
+        score,
+      });
+    }
+  };
+
+  // Male x Female
+  for (let i = 0; i < males.length; i++) {
+    const m = males[i];
+    if (!m) continue;
+    for (let j = 0; j < females.length; j++) {
+      const f = females[j];
+      if (f) checkAndPushPair(m, f);
+    }
+  }
+
+  // Ditto x (Male | Female | Genderless)
+  for (let i = 0; i < dittos.length; i++) {
+    const d = dittos[i];
+    if (!d) continue;
+
+    for (let j = 0; j < males.length; j++) {
+      const p = males[j];
+      if (p) checkAndPushPair(d, p);
+    }
+    for (let j = 0; j < females.length; j++) {
+      const p = females[j];
+      if (p) checkAndPushPair(d, p);
+    }
+    for (let j = 0; j < genderless.length; j++) {
+      const p = genderless[j];
+      if (p) checkAndPushPair(d, p);
+    }
+    // Ditto x Ditto is not possible, so we omit it
   }
 
   return pairs.sort((a, b) => b.score - a.score);
