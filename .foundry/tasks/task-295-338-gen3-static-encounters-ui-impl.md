@@ -2,7 +2,7 @@
 id: task-295-338-gen3-static-encounters-ui-impl
 type: TASK
 title: Gen 3 Static Encounters UI Implementation
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-20'
 updated_at: '2026-08-05'
@@ -15,8 +15,8 @@ tags:
   - feature
   - ui
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: 'QA Rejection: Component Gen3StaticEncountersDashboard is orphaned and not integrated into the central Gen 3 dashboard.'
 notes: ''
 ---
 
