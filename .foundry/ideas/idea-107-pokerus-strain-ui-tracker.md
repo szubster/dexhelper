@@ -2,12 +2,12 @@
 id: idea-107-pokerus-strain-ui-tracker
 type: IDEA
 title: Pokerus Strain Specific UI Tracker
-status: VERIFYING
+status: ACTIVE
 owner_persona: auditor
 created_at: '2026-07-09'
-updated_at: '2026-08-05'
+updated_at: '2026-08-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '235985108815209509'
 pr_number: null
 parent: null
 tags:
