@@ -2,12 +2,12 @@
 id: epic-030-039-cloudflare-r2-save-sync
 type: EPIC
 title: Cloudflare R2 Offline-First Save Syncing
-status: ACTIVE
-owner_persona: story_owner
+status: VERIFYING
+owner_persona: auditor
 created_at: '2026-05-21'
 updated_at: '2026-08-06'
 depends_on: []
-jules_session_id: '1515348053254920808'
+jules_session_id: null
 pr_number: null
 parent: prd-055-030-cloudflare-auth-sync
 tags:
