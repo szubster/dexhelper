@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { test } from '@playwright/test';
 
 test('verify search and filters UI changes', async ({ page }) => {
   await page.goto('http://localhost:3000/dexhelper/');
@@ -11,8 +11,8 @@ test('verify search and filters UI changes', async ({ page }) => {
   // Try to find the search input
   const searchInput = page.getByPlaceholder('[ ENTER COORDINATES, ID OR ENTITY ]');
   if (await searchInput.isVisible()) {
-      await searchInput.fill('pikachu');
-      await page.waitForTimeout(1000);
+    await searchInput.fill('pikachu');
+    await page.waitForTimeout(1000);
   }
 
   await page.screenshot({ path: '/home/jules/verification/playwright_test.png' });
