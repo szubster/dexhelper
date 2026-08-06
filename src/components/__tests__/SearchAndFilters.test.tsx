@@ -58,7 +58,7 @@ describe('SearchAndFilters', () => {
       </QueryClientProvider>,
     );
 
-    await expect.element(page.getByText('[ PARAMETER_MATRIX ]')).toBeInTheDocument();
+    await expect.element(page.getByText('[ PARAMETER_ROUTING ]')).toBeInTheDocument();
   });
 
   it('updates search term on input', async () => {
@@ -68,7 +68,7 @@ describe('SearchAndFilters', () => {
       </QueryClientProvider>,
     );
 
-    const input = page.getByPlaceholder('[ ENTER COORDINATES OR ID ]');
+    const input = page.getByPlaceholder('[ ENTER COORDINATES, ID OR ENTITY ]');
     await input.fill('pikachu');
     await expect.element(input).toHaveValue('pikachu');
     expect(useStore.getState().searchTerm).toBe('pikachu');
@@ -83,7 +83,7 @@ describe('SearchAndFilters', () => {
       </QueryClientProvider>,
     );
 
-    const input = page.getByPlaceholder('[ ENTER COORDINATES OR ID ]');
+    const input = page.getByPlaceholder('[ ENTER COORDINATES, ID OR ENTITY ]');
     await input.click();
     await input.fill('test');
 
