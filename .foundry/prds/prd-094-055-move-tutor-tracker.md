@@ -73,7 +73,7 @@ In Gen 3 games (FireRed/LeafGreen, Emerald), one-time Move Tutors are scattered 
 
 ## Generated Epics
 <!-- Append generated child EPIC nodes here as unchecked checkboxes -->
-- [ ] research-055-247-gen3-move-tutor-offsets
-- [ ] epic-055-119-gen3-move-tutor-save-parsing
-- [ ] epic-055-120-gen3-move-tutor-compatibility
-- [ ] epic-055-121-gen3-move-tutor-dashboard-ui
+- [ ] research-055-404-gen3-move-tutor-offsets
+- [ ] epic-055-405-gen3-move-tutor-save-parsing
+- [ ] epic-055-406-gen3-move-tutor-compatibility
+- [ ] epic-055-407-gen3-move-tutor-dashboard-ui
