@@ -2,10 +2,10 @@
 id: epic-115-331-remove-orphaned-qa-task-rule-from-docs
 type: EPIC
 title: Remove Orphaned QA Task Rule From Docs
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-07-16'
-updated_at: '2026-07-19'
+updated_at: '2026-08-06'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - orchestrator
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
 
