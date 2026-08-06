@@ -6,7 +6,7 @@ A "CEO-Level" orchestration system where the human provides high-level ideas and
 ## Core Directives
 - **Direct Commits**: Agents propose ideas by making actual file changes to their own branches (no PR description-only proposals).
 - **CEO Checkpoints**: ALL PR transitions (from PRDs to Code) require explicit CEO approval. Automerge is strictly disabled.
-- **The Journal & Veto Power**: The CEO says "No" by closing a PR without merging. System personas (like Agile Coach and Strategist) use a persistent journal to log closed PRs and extract lessons for future cycles.
+- **The Journal & Veto Power**: The CEO says "No" by closing a PR without merging. System personas (like Strategist) use a persistent journal to log closed PRs and extract lessons for future cycles.
 
 ## 1. State Store (`.foundry/` Monofolder)
 The repository acts as the database for the entire product lifecycle, containing markdown files representing nodes.
