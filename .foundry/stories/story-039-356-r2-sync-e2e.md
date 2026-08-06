@@ -31,5 +31,5 @@ Based on Orchestrator safeguards, an EPIC must have at least one child STORY nod
 
 ## Acceptance Criteria
 - [x] Break down into Tasks.
-- [ ] task-356-396-r2-sync-e2e-impl
-- [ ] task-356-397-r2-sync-e2e-qa
+- [x] task-356-396-r2-sync-e2e-impl
+- [x] task-356-397-r2-sync-e2e-qa
