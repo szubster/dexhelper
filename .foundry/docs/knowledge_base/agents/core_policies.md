@@ -73,7 +73,7 @@ While the system does not strictly block node creation, ANY scheduled or foundry
 **CRITICAL - RESUMING FAILED NODES/TASKS:** If you are assigned to a node that was previously FAILED and has been resurrected, you MUST explicitly read its `rejection_reason` in the YAML frontmatter and explicitly read the Auditor or QA persona's journal (`.foundry/journals/auditor/*.md` or `.foundry/journals/qa/*.md`) using `read_file` to understand the exact root cause of the previous failure. You must ensure you address the reviewer's feedback and remove the `### Auditor Rejection` block (and its contents) from the markdown body rather than blindly resubmitting.
 
 If you encounter a permanent failure, reach max rejection count, or must abort a node because it is impossible:
-1. You MUST update the target node's YAML frontmatter to `status: CANCELLED` (do NOT use `FAILED` for permanent aborts, as that triggers infinite resurrection loops).
+1. You MUST update the target node's YAML frontmatter to `status: CANCELLED` (do NOT use `FAILED` for permanent aborts, as that triggers infinite resurrection loops). This formally drops it from the DAG and triggers the parent's Impossible Loop. Leaving it as `FAILED` will cause endless resurrection loops.
 2. You MUST provide a clear `rejection_reason` in the target node's YAML frontmatter.
 3. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed node.
 4. You MUST document the failure in your persona journal.
@@ -84,6 +84,13 @@ If you are woken up by the Orchestrator because a child node reached its Max Rej
 2. Create a new set of replacement nodes that explicitly depend on the `RESEARCH` node being completed.
 3. Append these new nodes to your own markdown body.
 4. **CRITICAL:** You MUST check off the markdown checkboxes (`- [x]`) of the permanently failed child nodes in your own markdown body. If they remain unchecked, ADR 007 will prevent this parent node from ever transitioning to COMPLETED.
+
+## Handling Cancelled/Replaced Tasks (Graceful Exit)
+If your target task has been permanently failed, replaced, or explicitly cancelled via a note in the Markdown body:
+1. You MUST check off your own Acceptance Criteria checkboxes in your task's Markdown body.
+2. You MUST use the `submit` tool to create an Empty PR. Even if no real work is needed, those checkboxes must be checked for the node to safely transition to COMPLETED and gracefully exit the DAG.
+
+If a cancelled or replaced task node is reawakened (e.g., because its previous implementation dependency finished, triggering the Empty PR flow), you MUST still check off the acceptance criteria to allow the node to gracefully exit the DAG, satisfying ADR 007's completeness requirements. Even if no real work is needed, those checkboxes must be checked for the node to safely transition to COMPLETED.
 
 ## Late Binding for Missing Context
 If you lack critical context or specifications (e.g., exact memory offsets) necessary to implement a task or generate actionable blueprints, DO NOT guess or implement generic fallbacks. Instead, you MUST utilize the late binding pattern to suspend the task:
