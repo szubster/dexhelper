@@ -2,12 +2,12 @@
 id: prd-129-339-epic-level-distillation-archival
 type: PRD
 title: Epic-Level Distillation and Cold Storage Archival
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-08-06'
 updated_at: '2026-08-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1517778892017773348'
 pr_number: null
 parent: idea-129-epic-level-distillation-archival
 tags:
