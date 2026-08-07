@@ -2,12 +2,12 @@
 id: idea-132-gen3-pal-park-migration-planner
 type: IDEA
 title: Gen 3 Pal Park Migration Planner
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-01'
-updated_at: '2026-08-01'
+updated_at: '2026-08-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15596827163213391358'
 pr_number: null
 parent: null
 tags:
