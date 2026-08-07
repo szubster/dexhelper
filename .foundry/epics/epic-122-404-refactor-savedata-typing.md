@@ -36,4 +36,8 @@ The current `SaveData` type is monolithic, lacking generation-specific constrain
 - [ ] Refactor `SaveData` in `src/engine/saveParser/parsers/common.ts` into a discriminated union.
 - [ ] Update generation-specific parsers to return the correctly narrowed types.
 - [ ] Ensure all existing parser tests pass without regressions.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-404-361-draft-savedata-adr
+- [ ] story-404-362-refactor-savedata-type
+- [ ] story-404-363-update-parsers
+- [ ] story-404-364-savedata-e2e-verification
