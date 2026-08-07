@@ -36,4 +36,7 @@ Introduce a "Shoal Cave Dashboard" specifically for Gen 3 saves.
 This feature reduces player frustration by eliminating the need to guess the current in-game tide or manually check their bag for Shoal items. It provides a direct, highly specific utility for Gen 3 players that ties into DexHelper's strength of deep save file analysis, enhancing the overall game completion experience.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD outlining the technical approach for extracting the RTC and inventory counts for Shoal items.
+- [x] Product Manager: Convert this idea into a PRD outlining the technical approach for extracting the RTC and inventory counts for Shoal items.
+
+## Acceptance Criteria
+- [ ] prd-130-340-shoal-cave-tide-tracker
