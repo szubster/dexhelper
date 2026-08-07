@@ -2,12 +2,12 @@
 id: idea-122-pokemon-themed-foundry-personas
 type: IDEA
 title: Pokémon-Themed Foundry Persona Skins and Gamified Workflow
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-25'
-updated_at: '2026-08-06'
+updated_at: '2026-08-07'
 depends_on: []
-jules_session_id: '14335820539822717565'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

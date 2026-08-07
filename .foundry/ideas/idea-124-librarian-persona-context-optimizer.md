@@ -2,12 +2,12 @@
 id: idea-124-librarian-persona-context-optimizer
 type: IDEA
 title: Librarian Persona for Context Token Optimization
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-27'
-updated_at: '2026-08-06'
+updated_at: '2026-08-07'
 depends_on: []
-jules_session_id: '12806013623311356559'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

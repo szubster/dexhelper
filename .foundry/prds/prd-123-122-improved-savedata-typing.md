@@ -2,12 +2,12 @@
 id: prd-123-122-improved-savedata-typing
 type: PRD
 title: Improved SaveData Typing with Discriminated Generation Unions
-status: ACTIVE
-owner_persona: epic_planner
+status: PENDING
+owner_persona: auditor
 created_at: '2026-08-05'
-updated_at: '2026-08-06'
+updated_at: '2026-08-07'
 depends_on: []
-jules_session_id: '8018793722451541202'
+jules_session_id: null
 pr_number: null
 parent: idea-123-improved-savedata-typing
 tags:
