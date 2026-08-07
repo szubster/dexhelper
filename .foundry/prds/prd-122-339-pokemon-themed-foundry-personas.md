@@ -2,12 +2,12 @@
 id: prd-122-339-pokemon-themed-foundry-personas
 type: PRD
 title: Pokémon-Themed Foundry Persona Skins and Gamified Workflow
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-08-06'
 updated_at: '2026-08-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15386311754732118295'
 pr_number: null
 parent: idea-122-pokemon-themed-foundry-personas
 tags:
