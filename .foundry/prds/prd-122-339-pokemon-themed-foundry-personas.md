@@ -38,4 +38,8 @@ Additionally, it translates the system's strict directed acyclic graph (DAG) sta
 - **Consistency:** Ensure the narrative theme is consistently applied across all documentation, UI components, and logs.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into EPICs and dependencies.
+- [x] Epic Planner: Break down this PRD into EPICs and dependencies.
+- [ ] epic-339-405-schema-role-mapping
+- [ ] epic-339-406-jules-agent-skins
+- [ ] epic-339-407-gamified-dashboard-ui
+- [ ] epic-339-408-orchestrator-themed-output
