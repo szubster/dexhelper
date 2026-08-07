@@ -9,21 +9,21 @@ export interface HighValueContact {
 
 // Module-level constants for phone contact IDs
 export const GEN2_CONTACT_RALPH = 17;
-export const GEN2_CONTACT_ANTHONY = 19;
-export const GEN2_CONTACT_ARNIE = 23;
-export const GEN2_CONTACT_CHAD = 27;
+const GEN2_CONTACT_ANTHONY = 19;
+const GEN2_CONTACT_ARNIE = 23;
+const GEN2_CONTACT_CHAD = 27;
 
-export const GEN2_CONTACT_BEVERLY = 6;
-export const GEN2_CONTACT_JOSE = 13;
-export const GEN2_CONTACT_WADE = 16;
-export const GEN2_CONTACT_TODD = 20;
+const GEN2_CONTACT_BEVERLY = 6;
+const GEN2_CONTACT_JOSE = 13;
+const GEN2_CONTACT_WADE = 16;
+const GEN2_CONTACT_TODD = 20;
 export const GEN2_CONTACT_GINA = 21;
-export const GEN2_CONTACT_ALAN = 24;
-export const GEN2_CONTACT_DANA = 26;
+const GEN2_CONTACT_ALAN = 24;
+const GEN2_CONTACT_DANA = 26;
 export const GEN2_CONTACT_TULLY = 29;
-export const GEN2_CONTACT_TIFFANY = 31;
-export const GEN2_CONTACT_WILTON = 33;
-export const GEN2_CONTACT_KENJI = 34;
+const GEN2_CONTACT_TIFFANY = 31;
+const GEN2_CONTACT_WILTON = 33;
+const GEN2_CONTACT_KENJI = 34;
 
 export const GEN2_PHONE_CALLER_REGISTRY: Record<number, Omit<HighValueContact, 'id'>> = {
   // Swarm callers
