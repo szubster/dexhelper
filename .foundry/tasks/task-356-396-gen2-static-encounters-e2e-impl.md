@@ -2,12 +2,12 @@
 id: task-356-396-gen2-static-encounters-e2e-impl
 type: TASK
 title: Implement Gen 2 Static Encounters E2E Tests
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-04T00:00:00.000Z'
-updated_at: '2026-08-06'
+updated_at: '2026-08-07'
 depends_on: []
-jules_session_id: '10877996472445313053'
+jules_session_id: null
 pr_number: null
 parent: story-137-356-gen2-static-encounters-e2e
 tags:
