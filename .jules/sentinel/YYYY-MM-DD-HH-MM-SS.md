@@ -1,5 +1,3 @@
-# Session: YYYY-MM-DD-HH-MM-SS
-
 ## Focus
 Added unit tests for the Gen 3 Battle Frontier save parser (`src/engine/saveParser/gen3/battleFrontier/parser.ts`) to improve coverage in `engine/saveParser`.
 

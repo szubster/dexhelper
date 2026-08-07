@@ -1,13 +1,9 @@
-# Master Journal: Sentinel
-
-## Session: coverage-journal
 # Sentinel Learnings: catchGenerator.ts
 
 - **Tricky Types:** Be extremely careful about `any` casting in tests. Biome enforces strict rules against `any` (`lint/suspicious/noExplicitAny`). Always mock out explicit object interfaces (e.g., `{ encounterInfo?: Record<number, EncounterDetail[]> }` rather than `any`) or cast back to original types instead of raw `any`.
 - **Iterative Refinements:** When creating mock files from bash using regex on TS files, be sure to use a Node script (`.cjs` extension) so ESM restrictions on `require` are bypassed.
 - **Coverage Impact:** Adding complete logic branches to `catchGenerator.ts` (a heavily nested and complex graph traversal engine module) substantially helps safeguard core engine refactors in the future.
 
-## Session: coverage-suggestion-engine
 # Sentinel Session: generateSuggestions Coverage
 
 **Target File:** `src/engine/assistant/suggestionEngine.ts`
@@ -22,10 +18,8 @@
 **Result:**
 - Reached 100% logic coverage on the core orchestrator loops without altering application code.
 
-## Session: coverage-trade-generator
 # Sentinel Learnings: tradeGenerator.ts
 
 - **Strict Type Overrides:** When mocking complex interfaces like `AssistantApiData`, specifically object maps like `pokemonMetadata`, ensure `efrm` is typed and handled properly as an array of numbers. Missing these caused failures when the engine recursively traversed pre-evolutions.
 - **Side-effects / Artifacts:** Do not commit temporary coverage outputs (`coverage-output.txt`) or `test-tradeGen.ts` runner scripts. Ensure these are cleaned up before final review.
 - **Coverage Details:** Added tests specifically checking the `hasPhysicalPreEvo` bypass logic, and explicitly setting test scenarios where the player does *not* own the requested Pokémon to test branch coverage for exclusive exclusions correctly.
-

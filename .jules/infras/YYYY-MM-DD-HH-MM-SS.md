@@ -1,5 +1,3 @@
-# Infras Journal - Session $(date +"%Y-%m-%d-%H-%M-%S")
-
 ## Critical Learnings
 - **Tooling configuration context**: Discovered that the `.bundlemonrc.json` configuration was reporting uncompressed chunk sizes. While gzip sizes are useful for tracking network transfer, tracking uncompressed bundle sizes is a more accurate proxy for JavaScript VM parse, compile, and execution time constraints on lower-end devices. Therefore, we should keep `.bundlemonrc.json` configured with `"defaultCompression": "none"`.
 - **Action Taken**: Configured `.bundlemonrc.json` with appropriate `maxSize` thresholds for uncompressed assets to prevent false positive CI failures, explicitly defining limits for each generated chunk based on their uncompressed footprint to accurately monitor JS VM load.

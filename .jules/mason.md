@@ -1,5 +1,3 @@
-# Mason Journal
-
 ## TacticalInput Extraction
 
 - **What**: Extracted the repeating tactical `<input>` element pattern (including wrappers, label, corner crosshairs, and clear button) into a reusable `TacticalInput` component.
@@ -136,8 +134,6 @@
 - **Key Learnings**:
   - The extraction allows `CapacitySegmentedBar` to be easily dropped into other panels that require a tactical capacity readout (e.g. PC storage, memory limits, team size).
   - Passing `current` and `max` directly rather than the full `PokemonInstance[]` array decouples the component from domain-specific data models.
-## LocationRow Extraction\n- Identified a repeating JSX pattern in `PokemonLocations.tsx` for displaying location information (both evolution requirements and static encounters).\n- Extracted the pattern into a reusable `LocationRow` component.\n- **Key Learnings**:\n  - When extracting rows with specific, variable icon structures and tactical badges, leveraging React nodes (`icon`, `badge`) as props ensures maximum flexibility for the parent while containing the rigid wrapper styling logic.
-
 ## EmptyState Extraction
 - **What**: Extracted a repeated JSX pattern for empty states into a reusable `EmptyState` component.
 - **Why**: Reduced duplication of the verbose tactical utility classes `relative col-span-full flex flex-col items-center justify-center rounded-none border border-zinc-800/50 border-dashed bg-zinc-950/20 p-6 text-center` and standardizes the empty state presentation.
@@ -174,11 +170,6 @@ When reusing standard React components, use getByRole for finding interactive el
 - **Why**: Reduced duplication of verbose tactical utility classes and standardized the header presentation across variants (primary, red, purple, blue, pink, amber).
 - **Key Learnings**:
   - We can use `React.cloneElement` on the `trailingIcon` to inject specific color and hover classes without needing the caller to specify them.
-
-
-## Session 2026-08-04-02-27-56.md
-
-# Mason Refactoring Session
 
 ## Refactoring Actions
 - Extracted duplicated `<input type="file" className="sr-only" tabIndex={-1} accept=".sav" />` pattern from `OfflineControls.tsx` and `SystemControls.tsx` into a reusable `TacticalFileInput` component.

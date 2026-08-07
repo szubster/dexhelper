@@ -1,6 +1,3 @@
-# Master Journal: Visionary
-
-## Session: 13048993490522208946
 # Visionary Journal
 
 - **Active Session ID:** 13048993490522208946
@@ -25,7 +22,6 @@
 - **How this idea maintains the 50/50 balance between DexHelper and Foundry:**
   In the previous session, we proposed a Foundry orchestration feature (IDEA-131: Orchestrator Resource Locking). To strictly maintain the required 50/50 strategic balance, this session focuses on a direct product feature for DexHelper, aiming at Gen 3 players prepping for Gen 4 transfers.
 
-## Session: 2024-07-24-12-00-00
 # Visionary Journal
 
 - Acknowledgment: Dry-run feature for DAG orchestrator already exists.
@@ -33,7 +29,6 @@
 - Domain: DexHelper (Main Project)
 - Rationale: Maintains the 50/50 balance between DexHelper and Foundry ideas, proposing a premium utility for viewing Mystery Gift event data in Gen 3 saves.
 
-## Session: 2026-07-25-01-47-00
 # Visionary Journal
 
 - Acknowledgment: Previous session proposed a DexHelper idea (IDEA-121 Gen 3 Mystery Gift Viewer).
@@ -41,7 +36,6 @@
 - Domain: Foundry System
 - Rationale: Maintains the 50/50 balance between DexHelper and Foundry ideas. This idea focuses on scheduling enhancements and DAG orchestrator improvements by tracking the time nodes spend in various states to identify pipeline bottlenecks.
 
-## Session: 2026-07-26-18-00-00
 # Visionary Journal
 
 - **Active Session/Timestamp:** 2026-07-26-18-00-00
@@ -56,7 +50,6 @@
   In the previous session, we proposed/progressed ideas such as `idea-122-pokemon-themed-foundry-personas.md` and circular dependency checks, which strictly focus on **Foundry (internal orchestrator/factory tooling)**.
   To preserve the mandatory **50/50 strategic balance** between DexHelper (the core application/product) and the Foundry (the internal software factory), we are now focusing on a highly impactful technical feature for **DexHelper**. Specifically, the type-safety of the save parsing engine, which is the foundational database of the entire application.
 
-## Session: 2026-07-27-12-00-00
 # Visionary Journal
 
 - **Active Session/Timestamp:** 2026-07-27-12-00-00
@@ -71,7 +64,6 @@
   In the previous session, we proposed a high-value DexHelper product feature (`idea-123-improved-savedata-typing.md`) designed to improve the application's core type engine.
   To strictly maintain our required **50/50 strategic balance**, we pivot back to the Foundry infrastructure for this session. By proposing IDEA-124, we focus entirely on the internal software factory, optimizing its scheduling, garbage collection, and token usage to prevent the orchestrator from collapsing under its own accumulated state weight over time.
 
-## Session: 2026-07-30-12-00-00
 # Visionary Journal
 
 - **Active Session ID:** null
@@ -82,7 +74,6 @@
 - **How this idea maintains the 50/50 balance between DexHelper and Foundry:**
   In the last session (idea-129), we proposed an infrastructure improvement for the Foundry orchestrator (Epic-Level Distillation). To maintain the strict 50/50 split, this session focuses on a direct product feature for DexHelper (Gen 3 Shoal Cave tracking).
 
-## Session: 2026-07-31-01-56-15
 # Visionary Journal
 
 - **Active Session ID:** null
@@ -93,7 +84,6 @@
 - **How this idea maintains the 50/50 balance between DexHelper and Foundry:**
   In the previous session, we proposed a DexHelper idea (IDEA-130 Shoal Cave Tide & Item Tracker). To adhere to the strict 50/50 split requirement, this session focuses entirely on the internal Foundry system, proposing a core structural improvement to the orchestrator's concurrency model.
 
-## Session: 2026-08-03-01-53-42
 # Visionary Journal
 
 - **Active Session/Timestamp:** 2026-08-03-01-53-42
@@ -104,4 +94,3 @@
 - **How this idea maintains the 50/50 balance between DexHelper and Foundry:**
   In the previous session, we proposed a DexHelper idea (IDEA-132: Gen 3 Pal Park Migration Planner). To adhere to the strict 50/50 split requirement between core product features and internal factory tooling, this session focuses entirely on the internal Foundry system, proposing a visualization capability for the DAG orchestrator.
 - **Outcome:** The idea was rejected by the maintainer because a GUI already exists. I have cancelled the IDEA node accordingly.
-

@@ -1,5 +1,3 @@
-# Session Journal
-
 ## Task
 Find and implement ONE micro-UX improvement that makes the interface more intuitive, accessible, or pleasant.
 

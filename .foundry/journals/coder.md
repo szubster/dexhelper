@@ -1,6 +1,3 @@
-# Master Journal: Coder
-
-## Session: 10059958912073536410
 # Session 10059958912073536410
 
 Successfully implemented the Gen 3 Static Encounters UI.
@@ -10,14 +7,10 @@ Successfully implemented the Gen 3 Static Encounters UI.
 - Modified `SaveData` schema correctly to handle `gen3StaticEncounters` safely, treating it as an optional property and safely falling back when integrating into the parser.
 - Modified Foundry orchestrator markdown safely without touching the frontmatter fields.
 
-## Session: 1113702446035089068
 # Session 1113702446035089068
 
 The task was to implement Nuzlocke route violation detection.
 After inspecting the codebase, I found that `detectNuzlockeViolations` and `aggregateEncountersByLocation` are already fully implemented and tested in `src/engine/nuzlocke/tracker.ts` and `src/engine/nuzlocke/tracker.test.ts`.
-
-## Session: 11438718915167914264
-# Coder Journal - 11438718915167914264
 
 ## Session Context
 - **Task:** Gen 3 TM/HM Parse - Implementation
@@ -27,17 +20,11 @@ After inspecting the codebase, I found that `detectNuzlockeViolations` and `aggr
 ## Execution Summary
 Upon inspecting the codebase, specifically `src/engine/saveParser/parsers/gen3.ts`, I found that the TM/HM parsing logic and event flag extraction for Gen 3 have already been completely implemented. The functions `parseGen3TMHMs` and `parseGen3TMEventFlags` exist and use module-level constants and relative memory offset calculations via `section1Offset` and `section2Offset` correctly. The unit tests are also passing.
 
-## Session: 11806030505333644093
-# Session: 11806030505333644093
 ## Gen 3 Volcanic Ash UI Implementation
 - Added a `DiagnosticCard` to `AssistantDebugView.tsx` to display Volcanic Ash for Gen 3 saves.
 - Encountered no issues, correctly conditionally rendering based on `saveData.generation === 3` and `saveData.gen3VolcanicAsh`.
 - Self-verified implementation by running unit and e2e tests.
 
-## Session: 11832409004893453669
-## 2026-07-25 - Gen 3 Roamer tests were already fully implemented
-
-## Session: 12455144608732302771
 # Coder Session Journal
 - **Task ID**: task-333-346-rng-tid-sid-integration-impl
 - **Session ID**: 12455144608732302771
@@ -56,9 +43,6 @@ Upon inspecting the codebase, specifically `src/engine/saveParser/parsers/gen3.t
 - Pre-commit verification (Intelligent Verification Protocol): I self-verified this task visually via a Playwright UI screenshot with `emerald_postgame.sav`, confirming the tid/sid component aligns beautifully in the top-right of the telemetry matrix when populated.
 - Tests (both Vitest and E2E) run and pass flawlessly.
 
-## Session: 14037663772721128626
-# Coder Journal - Session 14037663772721128626
-
 ## Pattern Observed: Gen 2 Event Flag Parsing
 
 When extracting event flag constants from the Pokécrystal source code (`constants/event_flags.asm`), we MUST NOT use line numbers as bit indices, because the assembly uses macros (like `const_skip`, `const_def`) to dynamically advance the constant counter. Instead, we must use the true parsed bit values explicitly.
@@ -72,41 +56,27 @@ For the static encounters:
 
 Also, under ADR 028, we must strictly define all offsets, lengths (such as `EVENT_FLAGS_LENGTH = 0x100`), and bit locations as reusable constants at the module level. Inline magic numbers are not allowed.
 
-## Session: 14215905289876486017
-# Session 14215905289876486017
-
-I was assigned to implement E2E Safeguards on Epics (`task-269-346-e2e-safeguard-impl`). Upon exploring the codebase (`.github/scripts/foundry-orchestrator.ts` and `.github/scripts/foundry-heartbeat.ts`), I discovered that the requested feature (enforcing that EPICs contain at least one E2E/integration STORY) was already completely implemented.
-
 ## Session: 14217363794546868270
 Session: 14217363794546868270
 Node: task-341-348-define-indexeddb-schema-retry-impl
-
-## Session: 14515499224242142360
-# Session 14515499224242142360 (Coder)
 
 ## Learnings
 * **Playwright Dependencies for Testing:** If Vitest fails locally with `browserType.launch: Executable doesn't exist at /home/jules/.cache/ms-playwright/...`, we must explicitly run `pnpm exec playwright install` to download the browser binaries required by `@vitest/browser-playwright`.
 * **ADR 028 (Constants Extraction):** Ensure that removed constants from branch logic (e.g. game-specific branches) are safely refactored into universal module-level constants.
 
-## Session: 151059372485234069
 # Coder Journal - 151059372485234069
 
 When writing parsing logic to satisfy Save File Parsing & Extraction Guidelines, ensure ALL DataView reads, including reads inside loops, are wrapped in a try/catch block that translates native RangeError into the application-specific error message, otherwise QA will reject the task for unsafe memory reads.
 
-## Session: 15887075026124936146
 # Coder Session 15887075026124936146
 
 Target artifact for `task-318-341-gen3-move-tutor-frlg-parsing-impl` is already complete. `parseGen3FRLGMoveTutors` function and tests are already present in `src/engine/saveParser/parsers/gen3.ts` and `src/engine/saveParser/parsers/gen3.test.ts`.
 
-## Session: 16019314865216773266
 # Session 16019314865216773266
 
 - For Vitest browser tests, import `page` and `userEvent` from `vitest/browser` (do not use the deprecated `@vitest/browser/context`).
 - The project uses `biome` for linting and code formatting. Run `pnpm check:fix` to automatically resolve fixable biome issues across the codebase.
 - ADR 008 explicitly requires `rounded-none` to be present on UI components for the "tactical hardware/snooping" aesthetic, even if standard elements like `div` are sharp by default.
-
-## Session: 16023824777838054890
-# Session 16023824777838054890
 
 ## Objective
 Remove the incorrect `VERIFYING` allowances in dependency and parent status checks.
@@ -117,9 +87,6 @@ Remove the incorrect `VERIFYING` allowances in dependency and parent status chec
 - Since the implementation in the codebase was already functioning as intended and correctly lacked the `!== 'VERIFYING'` bypasses, the only required action was to verify this behavior and update the task's markdown checkboxes.
 - All acceptance criteria have been met and the tests ran successfully (`pnpm test`).
 
-## Session: 1729946980013165128
-# Coder Session: 1729946980013165128
-
 ## Task
 `task-333-346-gen3-roamer-extraction-tests-impl`
 
@@ -128,9 +95,6 @@ The target artifacts for this task (`src/engine/saveParser/parsers/gen3.test.ts`
 
 ## Session: 17996358567011161271
 I learned that catching and checking for `RangeError` before re-throwing it as a general corrupted save file error is critical for ensuring non-range errors (like null pointer exceptions or reference errors) surface properly during the parsing phase. In `src/engine/saveParser/parsers/gen3.ts`, the try/catch blocks wrapping `getUint32` and the Pokedex bit-mask loop were updated to enforce this checking.
-
-## Session: 1822939805966644680
-# Session 1822939805966644680
 
 ## Objective
 Implement PC Box Sorting Strategies (`DexNumberSorter`, `LevelSorter`, `TypeSorter`, `AlphaSorter`) in `src/engine/sorting/StandardSorters.ts` according to task `task-333-365-sorting-strategies-impl.md`.
@@ -151,41 +115,25 @@ Implement PC Box Sorting Strategies (`DexNumberSorter`, `LevelSorter`, `TypeSort
 - **erasableSyntaxOnly**: Do not use constructor parameter properties.
 - **exactOptionalPropertyTypes**: Cannot assign an explicit `undefined` to an optional property (`?`), instead conditionally omit the property or conditionally assign it.
 
-## Session: 1835102008074381226
 # Journal Entry for Graveyard Box Logic
 
 The logic for the Graveyard Box already exists in `src/engine/nuzlocke/tracker.ts` and `src/store.ts`. No new code was required. Task acceptance criteria have been checked off.
 
-## Session: 18439034431639401693
 # Session 18439034431639401693
 Implemented `.github/scripts/schema.ts` defining `Zod` schemas for `NodeFrontmatter` following `.foundry/docs/schema.md` requirements. Fixed `zod` dependency issues in CI scripts by adding it to package.json and `knip.json`. Verified all tests locally. Checked off acceptance criteria in task node without modifying YAML frontmatter.
 
-## Session: 2026-07-24-22-13-27
 ## 2026-07-24 - Gen 1 TM/HM Save Parsing Implementation
 The task `task-319-322-gen1-tm-hm-parsing-impl` was to extract TM and HM inventory, map them to moves, and extract event flags.
 Upon investigation, this has already been completed in a previous session. `parseGen1TMFlags` extracts event flags and is used in `parseGen1`. The `tms` object is created and correctly uses `GEN1_TM_HM_TO_MOVE_ID`, `inventory`, `pcItems`, and `GEN1_TM_EVENT_FLAGS`. Tests also exist for these implementations.
 
-## Session: 2026-07-26-22-10-55
 # Session Log: Egg Move Breeding Rules
 - Modified `scripts/generate-pokedata.ts` to enforce accurate gender rates and egg groups for the father (male, explicit egg groups) and mother (female, effective egg groups from evolutions).
 - Addressed 'No Eggs' (group 15) edge cases by explicitly filtering them out.
 - Handled tests and Playwright binary dependency setup.
 
-## Session: 2026-07-26-23-02-04
-# 2026-07-26-23-02-04
-
-## Session: 2026-07-27
-# 2026-07-27 Session Log
-
 ## Observation
-I was assigned to implement E2E safeguards on Epic nodes. Upon exploring `.github/scripts/foundry-orchestrator.ts` and `.github/scripts/foundry-heartbeat.ts`, I found that the logic to enforce an `e2e` or `integration` tagged child `STORY` before marking an `EPIC` as `COMPLETED` was already fully implemented.
 
 The tests in `.github/scripts/foundry-orchestrator.test.ts` and `.github/scripts/foundry-heartbeat.test.ts` also already exist and pass perfectly.
-
-## Action Taken
-
-## Session: 2026-07-31-13-04-25
-# Session Journal: task-333-369-pokemon-types-data-retry-impl
 
 ## Observations
 - The previous task `task-333-363` correctly updated `schema.ts` to export `POKEMON_TYPE` and `POKEMON_TYPE_MAP`.
@@ -205,15 +153,8 @@ The tests in `.github/scripts/foundry-orchestrator.test.ts` and `.github/scripts
 ## Session: 2026-07-31-17-47-28
 Remember to use -w flag when adding dev dependencies to a pnpm workspace
 
-## Session: 242603640380065275
-# Session: 242603640380065275
-
-## Session: 2523728584342463970
 # Journal
 Verified and corrected backwards traversal in egg move breeding generator to support multi-step chains efficiently and correctly evaluated intermediate ancestors that lack the required move.
-
-## Session: 3577743536037796835
-# Coder Journal: R2 Conflict Resolution
 
 ## 2026-07-28
 - **R2 Meta Data**: When utilizing custom metadata in Cloudflare R2 `list` requests, you must specify the `include: ['customMetadata']` parameter in the list options. Otherwise, `customMetadata` is undefined on the returned objects.
@@ -222,16 +163,12 @@ Verified and corrected backwards traversal in egg move breeding generator to sup
 - **Vitest Environment**: Ensure tests using `vi.mocked` reflect updated interface types correctly (e.g., changing from an array of strings to an array of objects for `listSaves()`).
 - **Playwright Tests Error Fix**: Encountered error about missing Playwright browsers (executable doesn't exist). Successfully fixed by running `npx playwright install`.
 
-## Session: 3962446635472905754
-# Session 3962446635472905754
-
 ## Tasks Completed
 - Updated `src/db/schema.ts` to `SAVE_HISTORY_DB_CONFIG.VERSION` to 2.
 - Added `trainers` to `SAVE_HISTORY_DB_CONFIG.STORES`.
 - Created an index for `trainerId` in `SaveHistoryDBSchema` to establish relationships between saves and trainers.
 - Updated `openDB` `upgrade` logic in `src/db/SaveHistoryDB.ts` for handling version updates up to 2.
 
-## Session: 4148472136526610249
 ## Session 4148472136526610249
 
 - **Task**: task-333-334-gen3-secret-base-locations-impl
@@ -240,20 +177,15 @@ Verified and corrected backwards traversal in egg move breeding generator to sup
 ## Session: 4633870046994094550
 Updated logic in useFileSyncController.ts and AppLayout.tsx to push local save data to R2 upon file upload and live file change. Handled auth checks correctly using AUTH_LOGGED_IN_INDICATOR.
 
-## Session: 6146293549486245581
 # Session 6146293549486245581
 
 * Learned that when resolving relocation cycles in save parsing diffs, identifying nodes with an in-degree > 0 but an out-degree of 0 provides acyclic paths that must be processed backwards to prevent data overwrites.
 * Discovered that resolving 3+ size cycles efficiently requires a temporary holding space (`-1, -1` box/slot), as swapping sequentially overwrites the next member of the cycle before it can be moved.
 
-## Session: 7029373149455725137
 # Session 7029373149455725137
 
 Implemented ConcurrentGameContext.tsx and verified it using the provided React testing library tools.
 Ensured all tests passed by running playwright install-deps before vitest tests in CI/CD pipeline.
-
-## Session: 7211173924062047310
-# Session 7211173924062047310
 
 ## Task
 Gen 1 Safari Zone Missing Encounters Logic Implementation (task-339-346-gen1-safari-zone-logic-impl)
@@ -271,16 +203,13 @@ Gen 1 Safari Zone Missing Encounters Logic Implementation (task-339-346-gen1-saf
 - While refactoring `gen1.ts`, initially left `RangeError` handling fragmented. I consolidated it to encapsulate larger chunks of parsing logic.
 - Remapped existing logic in `gen1.ts` accurately to new named constants to prevent regression. All existing tests continue to pass.
 
-## Session: 8350965654602483516
 # Coder Journal - Session 8350965654602483516
 
 The task `task-333-344-graveyard-box-logic-impl` was to implement graveyard box state and logic. Upon investigating the codebase, it was discovered that this logic was already fully implemented in `src/engine/nuzlocke/tracker.ts` (`getGraveyardPokemon`) and `src/store.ts` (`nuzlockeGraveyardBox` and `setNuzlockeGraveyardBox`).
 
-## Session: 9469146534230943501
 ## 2026-07-29: Implementing Gen 3 Secret Base Party Info Extraction
 
 **Context / Action:**
-The task `task-334-352-parse-secret-base-trainer-party-impl` was assigned to implement the extraction of Secret Base party information in Gen 3. The objective was to extract Pokemon, levels, moves, EVs, etc., while adhering to Section 13 of `schema.md` (e.g., using module-level constants and avoiding inline magic numbers).
 
 **Findings / Reflection:**
 Upon exploring the codebase, specifically `src/engine/gen3/secretBase/parser.ts` and its associated tests in `parser.test.ts`, I discovered that the extraction logic (`parseSecretBaseParty`) and the overarching record parsing logic (`parseSecretBaseRecord`) were already fully implemented.
@@ -291,15 +220,11 @@ The node `task-334-352-parse-secret-base-trainer-party-impl` also already had al
 
 **Conclusion:**
 
-## Session: 9901766214864946898
 # Session: 9901766214864946898
 - Integrated `PokerusBadge` into `StorageCard` in `src/components/StorageGrid.tsx`.
 - Displayed the badge when a Pokémon is in the Party and its Pokerus strain > 0.
 - Updated `src/components/__tests__/StorageGrid.test.tsx` to ensure `[PKRS STRN: 3]` renders.
 - Completed the task to integrate the Pokerus strain badge for Party Pokémon.
-
-## Session: 9955088546035772120
-# Session 9955088546035772120
 
 ## Anomalies / Rejection Handling
 The QA agent identified that ignoring non-journal files when extended headers were present completely broke the auto-merge logic for checkboxes, because standard files still have an `index` line (and potentially permission mode headers) emitted in `git diff`. By hard-failing when these safe headers appeared in non-journal files, we were rejecting valid PRs before inspecting their diff hunks.
@@ -308,17 +233,10 @@ The QA agent identified that ignoring non-journal files when extended headers we
 Adjusted `.github/scripts/analyze-diff.js` to only reject non-journal file changes specifically when encountering file creation (`new file mode`) or deletion (`deleted file mode`) headers, instead of generically failing on safe headers like `index`.
 Updated the CI workflows to correctly parse and auto-approve the creation of files within `.foundry/journals/` while preserving the checkbox-only condition.
 
-## Session: journal-automerge-impl
 # Coder Journal: Enable Automerge for Journal Entries
 
 - **When manually parsing git diff outputs (e.g., in `.github/scripts/analyze-diff.js`), explicitly skip git extended header lines** (e.g., `new file mode`, `deleted file mode`, `rename from`, `rename to`, `similarity index`, `old mode`, `new mode`) to prevent the parser from falsely rejecting file creations, deletions, or renames.
 - **Strictly adhere to explicit directory/file path scope constraints in task specifications.** Do not silently expand the scope to undocumented paths (e.g., adding `.jules/` when only `.foundry/journals/` is requested). This violates explicit negative constraints and poses security/workflow risks by bypassing code reviews for unauthorized directories.
-
-
-## Session 18378992954016717954.md
-
-## Learned from Epic Planner Instructions Test\n\n### Observation\nThe Epic Planner requires E2E story enforcement. We created a test file to explicitly check for this sentence in the agent instructions. \n\n### Action Taken\nWe created  to statically analyze the  file for the exact required instruction text. We also updated the TASK markdown file to mark it as complete.
-## Learned from Epic Planner Instructions Test
 
 ### Observation
 The Epic Planner requires E2E story enforcement. We created a test file to explicitly check for this sentence in the agent instructions.
@@ -327,10 +245,6 @@ The Epic Planner requires E2E story enforcement. We created a test file to expli
 We created `.github/scripts/epic-planner-instructions.test.ts` to statically analyze the `.github/agents/epic_planner.md` file for the exact required instruction text. We also updated the TASK markdown file to mark it as complete.
 
 ---
-
-## Session 14672935916813700627.md
-
-# Coder Journal - Session 14672935916813700627
 
 ## Observations & Lessons Learned
 
@@ -341,9 +255,6 @@ We created `.github/scripts/epic-planner-instructions.test.ts` to statically ana
 
 ---
 
-## Session 9116088618557175964.md
-
-# Session 9116088618557175964
 ## Summary
 Implemented the Route Radar UI Integration as requested in task-089-177-radar-heatmap-ui-integration-impl.
 
@@ -359,8 +270,6 @@ Implemented the Route Radar UI Integration as requested in task-089-177-radar-he
 This solves the UI requirement where the user needs an interactive visual map of where catch suggestions are located, as guided by ADR 018 "Smart Route Radar Architecture". Code coverage required test cases for the new MapUI component.
 
 ---
-
-## Session 14491832442511681790.md
 
 # Session 14491832442511681790
 
@@ -380,8 +289,6 @@ Task: Map Feebas IDs to Coordinates in SaveData (task-342-369-feebas-coordinates
 
 ---
 
-## Session 14349731040270638568.md
-
 # Coder Session 14349731040270638568
 
 Implemented Pokéblock parsing for Gen 3 save files.
@@ -398,10 +305,6 @@ I have added the Pokemon types to the data generation script. I learned how to m
 
 ---
 
-## Session coder_6416454005956742836.md
-
-# Coder Session: 6416454005956742836
-
 ## Context
 Implemented Gen 3 Secret Base Daily Rematch Status UI per task requirements.
 
@@ -413,10 +316,6 @@ Implemented Gen 3 Secret Base Daily Rematch Status UI per task requirements.
 * Ensure to handle Array iteration appropriately in React rendering loops to avoid linting issues around using index as `key`, specifically utilizing derived fields as unique keys.
 
 ---
-
-## Session 16753877163619077531.md
-
-# Session 16753877163619077531
 
 ## Context
 Attempted to implement `task-142-249-gen3-contest-data-mapping-impl` to extract and map Contest condition stats and ribbons to Gen 3 Party and PC Box `PokemonInstance` structures.
@@ -432,8 +331,6 @@ I utilized the **Late Binding for Missing Context** system policy to suspend the
 
 ---
 
-## Session 15859836416427117556.md
-
 # Session 15859836416427117556
 
 Attempted to implement `task-354-391-gen3-wonder-card-extraction-impl`. However, exact memory offsets and structure for Gen 3 Wonder Cards were not available in `.foundry/docs/schema.md` or anywhere in the codebase.
@@ -447,20 +344,14 @@ This ensures we do not guess offsets or fallback to generic code when critical t
 
 ---
 
-## Session 14382996938646149882.md
-
 # Late Binding for Missing Context
 When a task asks to implement extraction from memory (e.g. Gen 3 Party and PC box extraction), but the specific memory offsets for these structures are not yet defined as constants in the parser (`src/engine/saveParser/parsers/gen3.ts`), I must not guess. Following the core policies, I must suspend the current task by setting its `status` to `FAILED` with an appropriate `rejection_reason`, create a new `RESEARCH` node to find the offsets, append the new node to the `depends_on` array and body of the task.
 
 ---
 
-## Session 247304201345729590.md
-
 # Session 247304201345729590\n\nTask task-333-375-sorting-strategies-regional-dex-impl was already completely implemented in the codebase (using HOENN_DEX_ORDER). As such, following the Empty PR policy, submitted an empty PR without making any code changes. The required core verification commands were successful.
 
 ---
-
-## Session 2026-08-01-08-18-27.md
 
 # Session Journal
 
@@ -475,8 +366,6 @@ When a task asks to implement extraction from memory (e.g. Gen 3 Party and PC bo
 
 ---
 
-## Session 5211414718016982513.md
-
 # Session 5211414718016982513
 
 - When dealing with Gen 1 types, remember that the Steel and Dark types did not exist. If utilizing a shared data source (like the modern National Dex), they must be manually filtered out for generation-specific features using their IDs (Steel is 9, Dark is 17).
@@ -484,10 +373,6 @@ When a task asks to implement extraction from memory (e.g. Gen 3 Party and PC bo
 - When creating generational abstractions for sorting algorithms, handle fallback arrays carefully; ensure all `speciesId` checks gracefully default to National mapping when regional subsets (like Johto) are unavailable or undefined.
 
 ---
-
-## Session 2026-08-02-02-10-55.md
-
-# Coder Journal Entry: 2026-08-02
 
 ## Learnings & Observations
 

@@ -1,6 +1,3 @@
-# Master Journal: Researcher
-
-## Session: 12219787187610158486
 # Session 12219787187610158486
 
 * **Task**: Investigate Gen 2 Pokegear Phone Memory Offsets
@@ -21,7 +18,6 @@ trigger: `story-136-295-sorting-standard-strategies`
 ---
 Founding issue: The task failed because it asks to sort by type, and `PokemonMetadata` doesn't have type info.
 
-## Session: 2026-07-31-00-00-00
 # Research Session: 2026-07-31-00-00-00
 Target Node: `research-050-329-investigate-zombie-gc-failure`
 
@@ -31,9 +27,6 @@ Because the previous epic's stories did not have these tags, verification failed
 
 ## Actions
 I have documented these findings in the research node and outlined the path forward for the replacement epics (`epic-050-330` and `epic-050-331`), ensuring they incorporate these required tags in their child stories.
-
-## Session: 5532047153809885056
-# Session 5532047153809885056
 
 ## Findings
 I investigated the exact memory offsets and bit layouts for `wSwarmFlags`, `wDailyPhoneItemFlags`, and `wDailyPhoneTimeOfDayFlags` across Gen 2 Gold/Silver and Crystal versions.
@@ -49,7 +42,6 @@ For Crystal, the explicit offsets (within WRAM Bank 1) are:
 
 I have updated `.foundry/docs/knowledge_base/engine/save_parsing/gen2_phone_mechanics.md` with this context.
 
-## Session: 6535908287339075091
 # Research Journal: Gen 3 PC Box Offsets Root Cause
 Session: 6535908287339075091
 
@@ -72,14 +64,8 @@ Furthermore, the data structure for Pokémon stored in the PC is only **80 bytes
 
 These findings have been documented in `.foundry/docs/knowledge_base/engine/save_parsing/gen3_pc_box_offsets.md`.
 
-## Session: 7509224859674163249
-# Session 7509224859674163249
-
 ## Save File Parsing - Magic Numbers
 When reviewing the Hall of Fame parsing implementation, it was rejected for using inline magic numbers (e.g. `4` for bytes per stat, and `8` for bits per byte). The "No Magic Numbers" architectural rule requires explicitly defining module-level constants (like `BYTES_PER_GAME_STAT` and `BITS_PER_BYTE`). I have documented these specific constants in `.foundry/docs/knowledge_base/engine/save_parsing/gen3_hall_of_fame.md` to prevent future implementers from repeating this violation during offset and bitwise calculations.
-
-## Session: 9973392608168783559
-# Research Journal: Investigate Pokemon Types Data Failure
 
 ## Goal
 Investigate why `task-333-363-pokemon-types-data-impl` was rejected due to a sorting issue in `generate-pokedata.ts`.
@@ -111,4 +97,3 @@ The `generate-pokedata.ts` script in the rejected implementation was likely simp
 
 To satisfy the acceptance criteria and ensure types are ordered correctly (primary type first), it must sort the array by the `slot` property before mapping:
 `pData.types?.sort((a: any, b: any) => a.slot - b.slot).map((t: any) => POKEMON_TYPE_MAP[t.type.name] || 0) || []`
-

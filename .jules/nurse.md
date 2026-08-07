@@ -1,11 +1,7 @@
-# Master Journal: Nurse
-
-## Session: 2026-07-24-01-37-29
 # Learnings
 
 When resolving TypeScript type errors assigning `Uint8Array` to a `fetch` `body` (`BodyInit`), avoid using `as any` by explicitly typing the variable as `Uint8Array<ArrayBuffer>` instead of the wider default `Uint8Array<ArrayBufferLike>`, as `SharedArrayBuffer` is incompatible.
 
-## Session: 2026-07-26-01-35-17
 ## [2024-05-18] - Accepted - Nurse: Type-safety improvement for LotteryPokemon
 
 **Type:** Type Narrowing / Interface Tightening
