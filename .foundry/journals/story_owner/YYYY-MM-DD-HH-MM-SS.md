@@ -1,5 +1,3 @@
-# Story Owner Journal Entry
-
 ## Issue
 I was woken up because the Epic `epic-057-347-bash-timeout-wrapper-retry` had missing checkboxes in its markdown body for its child nodes, even though the underlying stories (`story-347-354-bash-timeout-wrapper-impl` and `story-347-355-bash-timeout-wrapper-e2e`) were already marked as `COMPLETED`. This prevented the node from properly transitioning to the `VERIFYING` state.
 
@@ -12,7 +10,6 @@ This reinforces the critical rule from ADR 007 regarding the Parent-Linked DAG e
 * **YAML Immutability for Completions**: The only valid way to progress a successful node to `VERIFYING` is by updating its markdown checkboxes and submitting an empty PR. Manually editing the `status` field to `VERIFYING` or `COMPLETED` is strictly prohibited.
 * This pattern of having a generative persona (Story Owner) wake up to resolve its own completed children via an empty PR is standard operating procedure for the Foundry graph.
 ## Epic 045-070
-I verified that all child stories are marked as completed and all acceptance criteria are met. The Epic is already complete and I will submit an empty PR.
 Epic epic-120-338-implement-conflictless-journals is fully implemented. All acceptance criteria are already marked as completed. Submitted an empty PR.
 # Session Log
 
