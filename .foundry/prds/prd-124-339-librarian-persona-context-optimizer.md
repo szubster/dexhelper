@@ -49,3 +49,6 @@ Currently, as the repository grows, agent journals and archived nodes become hea
 
 ## Acceptance Criteria
 - [ ] Break down into Epics (e.g. schema updates, github scripts implementation).
+- [ ] epic-339-405-librarian-persona-core
+- [ ] epic-339-406-librarian-journal-ingestion
+- [ ] epic-339-407-knowledge-base-updates
