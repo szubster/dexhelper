@@ -2,7 +2,7 @@
 id: idea-107-pokerus-strain-ui-tracker
 type: IDEA
 title: Pokerus Strain Specific UI Tracker
-status: ACTIVE
+status: CANCELLED
 owner_persona: auditor
 created_at: '2026-07-09'
 updated_at: '2026-08-07'
@@ -15,7 +15,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Fundamentally impossible: all descendant epics (epic-112-322, epic-112-323, epic-112-335) were permanently CANCELLED.'
 notes: ''
 ---
 
