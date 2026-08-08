@@ -20,3 +20,9 @@ I need to generate these two Epics.
 Since every EPIC must generate a final STORY dedicated exclusively to Integration and E2E Verification in its Acceptance Criteria, I will make sure to include that in both Epics.
 Generated epic-111-304 and epic-111-305 for prd-102-111. The PRD checkboxes were checked off.
 Generated epic-111-400 and epic-111-401 to replace conflicting sequence IDs for prd-102-111. The PRD checkboxes were updated to include these new nodes and checked off.
+
+## Session 2026-08-08 - Move Tutor Epic Breakdown
+*   **Observation:** The previous generated epics for PRD `prd-094-055-move-tutor-tracker` referenced old sequence numbers and failed to include the E2E verification stories in their acceptance criteria.
+*   **Action:** Created `research-055-405-gen3-move-tutor-offsets` and epics `epic-055-406-gen3-move-tutor-save-parsing`, `epic-055-407-gen3-move-tutor-compatibility`, and `epic-055-408-gen3-move-tutor-dashboard-ui`.
+*   **Action:** Enforced Epic Planner Core Directive by explicitly adding an acceptance criterion to each EPIC requiring a final STORY dedicated exclusively to Integration and E2E Verification.
+*   **Action:** Replaced stale generated epic references in `prd-094-055-move-tutor-tracker` with newly generated sequence numbers.
