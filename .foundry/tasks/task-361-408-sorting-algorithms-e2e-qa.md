@@ -7,6 +7,10 @@ owner_persona: qa
 parent: story-136-361-sorting-algorithms-e2e
 depends_on:
   - task-361-407-sorting-algorithms-e2e-impl
+created_at: '2026-08-08'
+updated_at: '2026-08-08'
+jules_session_id: '10654294140655719595'
+rejection_reason: ''
 ---
 
 # Task: E2E Verification for PC Box Sorting Algorithms - QA
