@@ -24,5 +24,10 @@ notes: ''
 ## Overview
 Implement the Gen 2 DV extraction for Attack, Defense, Speed, and Special. The parsed save file blocks must comply with the Save File Parsing & Extraction Guidelines.
 
+## Tasks
+- [ ] task-401-408-gen2-dv-extraction-types
+- [ ] task-401-409-gen2-dv-extraction-impl
+- [ ] task-401-410-gen2-dv-extraction-qa
+
 ## Acceptance Criteria
-- [ ] Implement Gen 2 DV extraction for Attack, Defense, Speed, and Special.
+- [x] Implement Gen 2 DV extraction for Attack, Defense, Speed, and Special.
