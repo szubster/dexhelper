@@ -25,6 +25,9 @@ notes: ''
 This epic covers the backend logic to parse and extract the necessary hidden values (DVs for Gen 2; IVs and PV for Gen 3) from the player's save files to support NPC Size Record calculations.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 2 DV extraction for Attack, Defense, Speed, and Special.
-- [ ] Implement Gen 3 IV/PV extraction, handling the 48-byte encrypted Data block and substructure order `PV % 24`.
-- [ ] story-112-400-integration-e2e
+- [x] Implement Gen 2 DV extraction for Attack, Defense, Speed, and Special.
+- [x] Implement Gen 3 IV/PV extraction, handling the 48-byte encrypted Data block and substructure order `PV % 24`.
+- [x] story-112-400-integration-e2e
+- [ ] story-112-401-gen2-dv-extraction
+- [ ] story-112-402-gen3-iv-pv-extraction
+- [ ] story-112-403-integration-e2e
