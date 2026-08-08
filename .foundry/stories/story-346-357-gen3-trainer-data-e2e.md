@@ -32,4 +32,6 @@ Implement E2E and integration testing for the Gen 3 Trainer Data Extraction logi
 - Include E2E/integration testing to ensure reliability and correct rendering of the TID and SID.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down E2E and Integration test requirements into `TASK` nodes.
+- [x] Tech Lead: Break down E2E and Integration test requirements into `TASK` nodes.
+- [ ] task-357-399-gen3-trainer-data-e2e-impl
+- [ ] task-357-400-gen3-trainer-data-e2e-qa
