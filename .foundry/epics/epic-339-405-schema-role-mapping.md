@@ -30,5 +30,7 @@ Update the `.foundry/docs/schema.md` to officially define the Pokemon Gen 1 narr
 - Ensure strict adherence to Generation 1 Pokemon.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Generate STORY node(s) for updating schema.md with role and status mappings.
-- [ ] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Story Owner: Generate STORY node(s) for updating schema.md with role and status mappings.
+- [x] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-405-408-schema-role-status-mapping
+- [ ] story-405-409-schema-role-mapping-e2e
