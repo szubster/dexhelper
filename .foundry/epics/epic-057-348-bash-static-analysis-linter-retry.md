@@ -28,5 +28,5 @@ Implement a static analysis linter to proactively block known infinite-blocking 
 
 ## Acceptance Criteria
 - [x] Break down this epic into stories.
-- [ ] story-348-356-bash-linter-impl
-- [ ] story-348-357-bash-linter-e2e
+- [x] story-348-356-bash-linter-impl
+- [x] story-348-357-bash-linter-e2e
