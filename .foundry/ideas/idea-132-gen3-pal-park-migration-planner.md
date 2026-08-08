@@ -36,4 +36,5 @@ Create a "Pal Park Migration Planner" utility within DexHelper for Gen 3 save fi
 This directly supports the hardcore collector and Ribbon Master communities who frequently migrate Pokémon upwards through the generations. It takes a tedious, error-prone preparation phase (where a single HM move can ruin a migration attempt) and turns it into a streamlined, automated checklist.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD to define the UI layout for the migration planner and the logic for HM move validation.
+- [x] Product Manager: Convert this idea into a PRD to define the UI layout for the migration planner and the logic for HM move validation.
+- [ ] prd-132-340-gen3-pal-park-migration-planner
