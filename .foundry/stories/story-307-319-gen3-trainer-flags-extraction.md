@@ -34,5 +34,5 @@ Extract standard and rematch trainer defeat flags from Gen 3 save files to be us
 ## Acceptance Criteria
 - [x] Create Tech Lead Task Blueprints
 
-- [ ] task-319-322-gen3-trainer-flags-extraction-impl
-- [ ] task-319-323-gen3-trainer-flags-extraction-qa
+- [x] task-319-322-gen3-trainer-flags-extraction-impl
+- [x] task-319-323-gen3-trainer-flags-extraction-qa
