@@ -2,10 +2,10 @@
 id: epic-057-348-bash-static-analysis-linter-retry
 type: EPIC
 title: Static Analysis Linter for Bash Sessions (Retry)
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-26'
-updated_at: '2026-08-04'
+updated_at: '2026-08-08'
 depends_on:
   - epic-057-347-bash-timeout-wrapper-retry
 jules_session_id: null
