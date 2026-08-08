@@ -48,4 +48,9 @@ Currently, as the repository grows, agent journals and archived nodes become hea
 ---
 
 ## Acceptance Criteria
-- [ ] Break down into Epics (e.g. schema updates, github scripts implementation).
+- [x] Break down into Epics (e.g. schema updates, github scripts implementation).
+- [ ] epic-339-409-librarian-schema-updates
+- [ ] epic-339-410-librarian-github-scripts-implementation
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
