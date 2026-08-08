@@ -290,6 +290,61 @@ function acknowledgeNodeFailure(node: ParsedNode): void {
   info(`${dryTag}Acknowledged failure in: ${node.repoPath}`);
 }
 
+function compilePromptForNode(node: ParsedNode, repoRoot: string): string {
+  const ownerPersona = node.frontmatter.status === 'VERIFYING' ? 'auditor' : node.frontmatter.owner_persona;
+
+  // 1. Load Generic Persona Prompt
+  let genericPrompt = '';
+  const genericPath = path.join(repoRoot, '.github', 'agents', 'generic', `${ownerPersona}.md`);
+  const fallbackPath = path.join(repoRoot, '.github', 'agents', `${ownerPersona}.md`);
+
+  if (fs.existsSync(genericPath)) {
+    genericPrompt = fs.readFileSync(genericPath, 'utf-8');
+  } else if (fs.existsSync(fallbackPath)) {
+    genericPrompt = fs.readFileSync(fallbackPath, 'utf-8');
+  } else {
+    genericPrompt = `As the ${ownerPersona} of The Foundry, your task is described in the provided node file.`;
+  }
+
+  let combined = genericPrompt;
+
+  // 2. Load Specific Prompt Layers (based on tags or layers field)
+  const layers = new Set<string>();
+  if (node.frontmatter.tags) {
+    for (const tag of node.frontmatter.tags) {
+      layers.add(tag.toLowerCase());
+    }
+  }
+  const fmAny = node.frontmatter as any;
+  if (fmAny.layers && Array.isArray(fmAny.layers)) {
+    for (const layer of fmAny.layers) {
+      layers.add(layer.toLowerCase());
+    }
+  }
+
+  for (const layer of layers) {
+    const layerPath = path.join(repoRoot, '.github', 'agents', 'specific', `${layer}.md`);
+    if (fs.existsSync(layerPath)) {
+      const layerContent = fs.readFileSync(layerPath, 'utf-8');
+      combined += `\n\n### SPECIFIC CONTEXT: ${layer.toUpperCase()}\n${layerContent}`;
+    }
+  }
+
+  // 3. Load Core Principles/Policies (checks for core_policies.md or core_principles.md)
+  const corePoliciesPath = path.join(repoRoot, '.foundry', 'docs', 'knowledge_base', 'agents', 'core_policies.md');
+  const corePrinciplesPath = path.join(repoRoot, '.foundry', 'docs', 'knowledge_base', 'agents', 'core_principles.md');
+
+  if (fs.existsSync(corePoliciesPath)) {
+    const corePoliciesContent = fs.readFileSync(corePoliciesPath, 'utf-8');
+    combined += `\n\n### CORE SYSTEM POLICIES\n${corePoliciesContent}`;
+  } else if (fs.existsSync(corePrinciplesPath)) {
+    const corePrinciplesContent = fs.readFileSync(corePrinciplesPath, 'utf-8');
+    combined += `\n\n### CORE SYSTEM POLICIES\n${corePrinciplesContent}`;
+  }
+
+  return combined;
+}
+
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
@@ -1149,12 +1204,16 @@ function main(): void {
   // this run (idempotent: re-running the orchestrator is always safe).
   const readyNodes = nodes
     .filter((n) => n.frontmatter.status === 'READY' || n.frontmatter.status === 'VERIFYING')
-    .map((n) => ({
-      ...n.frontmatter,
-      repo_path: n.repoPath,
-      owner_persona: n.frontmatter.status === 'VERIFYING' ? 'auditor' : n.frontmatter.owner_persona,
-      critical_weight: getWeight(n.repoPath),
-    }))
+    .map((n) => {
+      const compiledPrompt = compilePromptForNode(n, repoRoot);
+      return {
+        ...n.frontmatter,
+        repo_path: n.repoPath,
+        owner_persona: n.frontmatter.status === 'VERIFYING' ? 'auditor' : n.frontmatter.owner_persona,
+        critical_weight: getWeight(n.repoPath),
+        compiled_prompt: compiledPrompt,
+      };
+    })
     .sort((a, b) => {
       // 1. Sort by Critical Path Weight descending (highest weight first)
       const weightA = a.critical_weight;
