@@ -44,5 +44,5 @@ This transforms deeply obscure, external hardware dependencies (e-Reader) and re
 - Emulating e-Reader functionality or Mystery Gift wireless distribution natively.
 
 ## Acceptance Criteria
-- [ ] epic-121-400-gen3-e-reader-event-data-extraction
-- [ ] epic-121-401-gen3-e-reader-event-dashboard-ui
+- [x] epic-121-404-gen3-e-reader-event-data-extraction
+- [x] epic-121-405-gen3-e-reader-event-dashboard-ui
