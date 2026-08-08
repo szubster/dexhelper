@@ -2,12 +2,12 @@
 id: epic-334-338-circular-dependency-detection
 type: EPIC
 title: Circular Dependency Detection
-status: VERIFYING
+status: ACTIVE
 owner_persona: auditor
 created_at: '2026-07-20'
 updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3737266981357817510'
 pr_number: null
 parent: prd-118-334-circular-dependency-detection
 tags:
