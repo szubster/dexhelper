@@ -22,5 +22,5 @@ rejection_count: 1
 Create valid and invalid test fixtures for Foundry orchestrator E2E testing of the Zod schema validation. The valid fixtures should conform strictly to the Schema, and the invalid fixtures should contain various schema violations (e.g. missing fields, incorrect types).
 
 ## Acceptance Criteria
-- [ ] Create at least 3 valid Foundry node fixtures.
-- [ ] Create at least 3 invalid Foundry node fixtures that fail Zod validation.
+- [x] Create at least 3 valid Foundry node fixtures.
+- [x] Create at least 3 invalid Foundry node fixtures that fail Zod validation.

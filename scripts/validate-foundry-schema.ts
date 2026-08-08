@@ -30,6 +30,7 @@ function validateSchema() {
       if (normalizedRelative.includes('.foundry/docs/') && !normalizedRelative.includes('.foundry/docs/adrs/')) return false;
       if (normalizedRelative.includes('.foundry/journals/')) return false;
       if (normalizedRelative.includes('.foundry/archive/journals/')) return false;
+      if (normalizedRelative.includes('.foundry/fixtures/')) return false;
       return true;
     });
   } else {
@@ -47,6 +48,7 @@ function validateSchema() {
       if (normalizedRelative.startsWith('docs/') && !normalizedRelative.startsWith('docs/adrs/')) return false;
       if (normalizedRelative.startsWith('journals/')) return false;
       if (normalizedRelative.startsWith('archive/journals/')) return false;
+      if (normalizedRelative.startsWith('fixtures/')) return false;
       return true;
     });
   }
