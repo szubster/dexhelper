@@ -2,12 +2,12 @@
 id: epic-122-404-refactor-savedata-typing
 type: EPIC
 title: Refactor SaveData Typing with Discriminated Generation Unions
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-06'
-updated_at: '2026-08-07'
+updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: '15700522367460075049'
+jules_session_id: null
 pr_number: null
 parent: prd-123-122-improved-savedata-typing
 tags:

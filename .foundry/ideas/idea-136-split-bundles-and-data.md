@@ -1,11 +1,11 @@
 ---
 id: idea-136-split-bundles-and-data
 type: IDEA
-title: "Split bundles and data by game generation"
-status: PENDING
+title: Split bundles and data by game generation
+status: READY
 owner_persona: product_manager
-created_at: "2024-08-07"
-updated_at: "2024-08-07"
+created_at: '2024-08-07'
+updated_at: '2026-08-08'
 depends_on: []
 jules_session_id: null
 parent: null
@@ -15,8 +15,8 @@ tags:
   - bundles
   - database
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 # Idea: Split bundles and data by game generation
 
