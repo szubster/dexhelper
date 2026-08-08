@@ -33,9 +33,9 @@ Verify the correctness of the Gen 3 Trainer Defeat Flags Extraction implementati
 4. **Resolved Section Offsets:** Verify the use of resolved section offsets (e.g., `section1Offset`) to calculate relative memory offsets.
 
 ## Acceptance Criteria
-- [ ] Review code to verify compliance with ADR 010, 026, and 028.
-- [ ] Review code to verify correct A/B bank flash memory support via section offset calculations.
-- [ ] Ensure all required unit tests pass and cover the edge cases.
+- [x] Review code to verify compliance with ADR 010, 026, and 028.
+- [x] Review code to verify correct A/B bank flash memory support via section offset calculations.
+- [x] Ensure all required unit tests pass and cover the edge cases.
 
 ## Node Handling Policies
 - **Transient Failures:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
