@@ -2,12 +2,12 @@
 id: task-348-363-egg-move-pathfinding-e2e-impl
 type: TASK
 title: Implement E2E Tests for Egg Move Pathfinding Engine
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-30'
 updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1043928075170521981'
 pr_number: null
 parent: story-113-348-egg-move-pathfinding-e2e
 tags:
