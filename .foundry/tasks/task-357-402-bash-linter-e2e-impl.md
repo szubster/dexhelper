@@ -26,5 +26,5 @@ notes: ''
 Implement integration and E2E verification tests for the static analysis linter to verify it correctly blocks infinite-blocking commands in simulated usage.
 
 ## Acceptance Criteria
-- [ ] Add E2E tests to simulate execution of a blocked bash command (e.g., `tail -f`) and assert that it correctly throws an error with the expected message.
-- [ ] Add a similar test simulating the execution of an allowed bash command to assert it executes successfully.
+- [x] Add E2E tests to simulate execution of a blocked bash command (e.g., `tail -f`) and assert that it correctly throws an error with the expected message.
+- [x] Add a similar test simulating the execution of an allowed bash command to assert it executes successfully.
