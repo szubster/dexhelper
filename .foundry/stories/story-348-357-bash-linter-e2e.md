@@ -2,13 +2,13 @@
 id: story-348-357-bash-linter-e2e
 type: STORY
 title: Bash Static Analysis Linter E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2024-11-20'
 updated_at: '2026-08-08'
 depends_on:
   - story-348-356-bash-linter-impl
-jules_session_id: null
+jules_session_id: '10440561693621034155'
 pr_number: null
 parent: epic-057-348-bash-static-analysis-linter-retry
 tags:
