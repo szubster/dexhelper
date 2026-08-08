@@ -2,12 +2,12 @@
 id: task-358-402-gen3-roamer-model-and-struct-parser-impl
 type: TASK
 title: Gen 3 Roamer Model and Struct Parser Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-05'
-updated_at: '2026-08-05'
+updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7956672584671289782'
 pr_number: null
 parent: story-397-358-gen3-roamer-dataview-parsing
 tags:
