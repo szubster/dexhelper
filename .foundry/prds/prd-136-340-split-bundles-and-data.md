@@ -1,29 +1,29 @@
 ---
-id: idea-136-split-bundles-and-data
-type: IDEA
+id: prd-136-340-split-bundles-and-data
+type: PRD
 title: Split bundles and data by game generation
-status: ACTIVE
-owner_persona: product_manager
-created_at: '2024-08-07'
+status: PENDING
+owner_persona: epic_planner
+created_at: '2026-08-08'
 updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: '17749450542018693624'
-parent: null
+jules_session_id: null
+parent: idea-136-split-bundles-and-data
 tags:
   - performance
   - architecture
   - bundles
   - database
 rejection_count: 0
-rejection_reason: ''
-notes: ''
+rejection_reason: ""
+notes: ""
 ---
-# Idea: Split bundles and data by game generation
+# PRD: Split bundles and data by game generation
 
-## Context
+## Context & Objectives
 As DexHelper supports more Pokémon generations, the amount of code (parsers, strategies) and data (encounters, locations) is increasing. Currently, everything is loaded upfront, which affects initial load performance and memory usage.
 
-## Proposal
+## Requirements
 Implement generation-based splitting for JavaScript engine logic, UI components, and static Pokedex data.
 - Use dynamic imports for generation-specific parsers in `src/engine/saveParser/index.ts`.
 - Use dynamic imports for generation-specific assistant strategies in `src/engine/assistant/strategies/index.ts`.
@@ -31,10 +31,9 @@ Implement generation-based splitting for JavaScript engine logic, UI components,
 - Split the monolithic `pokedata.msgpack` into a core bundle and generation-specific extensions in `vite-plugins/pokedata-plugin.ts` by emitting multiple msgpack bundles.
 - Refactor the synchronization logic in `src/db/PokeDB.ts` to support multi-part data synchronization to load extensions and code on demand when a specific generation is detected.
 
-## Value Proposition
-- **Faster Initial Load**: Reduced initial download size by deferring generation-specific assets.
-- **Improved Scalability**: Support for future generations (Gen 4+) without bloating the initial app experience.
-- **Better Resource Management**: Only load the data, code, and UI the user actually needs.
-
 ## Acceptance Criteria
-- [x] prd-136-340-split-bundles-and-data
+- [ ] Breakdown PRD into EPIC nodes.
+- [ ] research-340-405-background-fetching
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
