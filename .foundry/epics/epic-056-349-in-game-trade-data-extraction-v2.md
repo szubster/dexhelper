@@ -35,5 +35,8 @@ Implement and standardize the extraction of in-game NPC trade completion flags f
 - [ ] Gen 3 NPC trade flags are identified and extracted for all core versions.
 - [ ] The `npcTradeFlags` field in `SaveData` is consistently populated across both generations.
 - [ ] All parsing logic strictly adheres to the `DataView` API and handles `RangeError` for corrupted saves.
-- [ ] Story Owner: Break down this Epic into executable Stories.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Break down this Epic into executable Stories.
+- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-349-361-gen2-trade-extraction
+- [ ] story-349-362-gen3-trade-extraction
+- [ ] story-349-363-trade-extraction-e2e
