@@ -32,4 +32,7 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer Epic, we need to implem
 - Expose this functionality via a clear, typed API.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into actionable TASK nodes (Coder/QA as needed).
+- [x] Tech Lead: Break down into actionable TASK nodes (Coder/QA as needed).
+- [ ] task-404-407-gen3-secret-base-types-impl
+- [ ] task-404-408-gen3-secret-base-parser-impl
+- [ ] task-404-409-gen3-secret-base-parser-qa
