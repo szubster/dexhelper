@@ -42,4 +42,4 @@ This feature directly solves the "what do I do next" paralysis that plagues casu
 - [x] Product Manager: Convert this idea into a PRD to detail the event flags needed to determine story progression and the logic for the matchup recommendation engine.
 
 ## Acceptance Criteria
-- [ ] prd-134-135-active-party-matchup-analyzer
+- [x] prd-134-340-active-party-matchup-analyzer
