@@ -182,19 +182,24 @@ jobs:
           NODE_TITLE: ${{ matrix.node.title }}
           GITHUB_REPO: ${{ github.repository }}
           NODE_ID: ${{ matrix.node.id }}
+          NODE_COMPILED_PROMPT: ${{ matrix.node.compiled_prompt }}
         run: |
           set -o pipefail
           {
             # 1. Capture task content for the prompt
             task_content=$(cat "$NODE_REPO_PATH")
             
-            owner_persona="$NODE_OWNER_PERSONA"
-            agent_file=".github/agents/${owner_persona}.md"
-
-            if [[ -n "$owner_persona" && -f "$agent_file" ]]; then
-              agent_context=$(cat "$agent_file")
+            if [[ -n "$NODE_COMPILED_PROMPT" ]]; then
+              agent_context="$NODE_COMPILED_PROMPT"
             else
-              agent_context="As the coder of The Foundry, your task is described in the provided node file. You must automatically index and read relevant knowledge from .foundry/docs/knowledge_base/ whenever assigned a task. Follow the schema rules and implementation guidelines."
+              owner_persona="$NODE_OWNER_PERSONA"
+              agent_file=".github/agents/${owner_persona}.md"
+
+              if [[ -n "$owner_persona" && -f "$agent_file" ]]; then
+                agent_context=$(cat "$agent_file")
+              else
+                agent_context="As the coder of The Foundry, your task is described in the provided node file. You must automatically index and read relevant knowledge from .foundry/docs/knowledge_base/ whenever assigned a task. Follow the schema rules and implementation guidelines."
+              fi
             fi
 
             # 1.5 Extract research_references from parent chain safely

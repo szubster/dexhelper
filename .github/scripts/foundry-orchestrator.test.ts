@@ -2848,4 +2848,48 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     // It should be promoted to COMPLETED directly, bypassing READY/ACTIVE dispatch!
     expect(parentContent).toContain('status: COMPLETED');
   });
+
+  test('Prompt Compilation: compiles a multi-layered prompt with generic, specific, and core policies', () => {
+    // Ensure the directories exist
+    fs.mkdirSync(path.join(tmpDir, '.github/agents/specific'), { recursive: true });
+    fs.mkdirSync(path.join(tmpDir, '.github/agents/generic'), { recursive: true });
+    fs.mkdirSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents'), { recursive: true });
+
+    // Write mock persona, specific layer and core policy files
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/coder.md'), 'CODER_GENERIC_PROMPT_CONTENT');
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/specific/typescript.md'), 'TYPESCRIPT_SPECIFIC_CONTENT');
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/specific/react.md'), 'REACT_SPECIFIC_CONTENT');
+    fs.writeFileSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents/core_policies.md'), 'CORE_POLICIES_CONTENT');
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-001.md', {
+      id: "task-001",
+      type: "TASK",
+      title: "Task with Layers",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      tags: ["typescript", "react"],
+      jules_session_id: null,
+    });
+
+    // Mock console.log to intercept orchestrator stdout output
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    main();
+
+    expect(logSpy).toHaveBeenCalled();
+    const lastCall = logSpy.mock.calls[logSpy.mock.calls.length - 1][0];
+    const parsedOutput = JSON.parse(lastCall);
+
+    expect(parsedOutput).toHaveLength(1);
+    expect(parsedOutput[0].id).toBe('task-001');
+    expect(parsedOutput[0].compiled_prompt).toContain('CODER_GENERIC_PROMPT_CONTENT');
+    expect(parsedOutput[0].compiled_prompt).toContain('TYPESCRIPT_SPECIFIC_CONTENT');
+    expect(parsedOutput[0].compiled_prompt).toContain('REACT_SPECIFIC_CONTENT');
+    expect(parsedOutput[0].compiled_prompt).toContain('CORE_POLICIES_CONTENT');
+
+    logSpy.mockRestore();
+  });
 });
