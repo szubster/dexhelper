@@ -2,12 +2,12 @@
 id: task-351-384-nuzlocke-death-tracking-e2e-impl
 type: TASK
 title: Nuzlocke Death Tracking E2E Tests Implementation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-01'
-updated_at: '2026-08-07'
+updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: '375483784143880412'
+jules_session_id: null
 pr_number: null
 parent: story-131-351-nuzlocke-death-tracking-e2e
 tags:
