@@ -48,3 +48,5 @@ To implement an archival strategy that maintains crucial historical context whil
 - [ ] Implement synthesis logic to append "Changelog & Learnings" to the EPIC node.
 - [ ] Implement file system logic to move child node files to `.foundry/archive/`.
 - [ ] Ensure the orchestrator is updated to ignore `.foundry/archive/` during DAG parsing.
+- [ ] epic-339-405-orchestrator-archive-bypass
+- [ ] epic-339-406-tpm-distillation-logic
