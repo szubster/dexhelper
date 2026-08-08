@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import type { SafariEncounter } from '../../data/shared/safariZoneTypes';
 import type { SaveData } from '../../saveParser/parsers/common';
 import { getMissingGen3SafariEncounters } from './missingEncounters';
 
@@ -19,7 +20,8 @@ describe('getMissingGen3SafariEncounters', () => {
       currentMapId: 0,
       inventory: [],
       hallOfFameCount: 0,
-    } as SaveData;
+      currentBoxCount: 0,
+    } as unknown as SaveData;
   };
 
   it('should return empty array for unsupported versions', () => {
@@ -40,8 +42,11 @@ describe('getMissingGen3SafariEncounters', () => {
     expect(bikeArea).toBeDefined();
 
     // It should have Psyduck (54) but NOT Oddish (43) or Gloom (44).
-    const emeraldEncounters = bikeArea?.encounters.emerald || [];
-    const pokemonIds = emeraldEncounters.map((e) => e.pokemon);
+    const emeraldEncounters: SafariEncounter[] = bikeArea?.encounters
+      ? // @ts-expect-error: dynamic access
+        bikeArea.encounters.emerald || []
+      : [];
+    const pokemonIds = emeraldEncounters.map((e: SafariEncounter) => e.pokemon);
 
     expect(pokemonIds).not.toContain(43);
     expect(pokemonIds).not.toContain(44);
@@ -59,8 +64,11 @@ describe('getMissingGen3SafariEncounters', () => {
     const area1East = missing.find((a) => a.name === 'kanto-safari-zone-area-1-east');
     expect(area1East).toBeDefined();
 
-    const fireredEncounters = area1East?.encounters.firered || [];
-    const pokemonIds = fireredEncounters.map((e) => e.pokemon);
+    const fireredEncounters: SafariEncounter[] = area1East?.encounters
+      ? // @ts-expect-error: dynamic access
+        area1East.encounters.firered || []
+      : [];
+    const pokemonIds = fireredEncounters.map((e: SafariEncounter) => e.pokemon);
 
     expect(pokemonIds).not.toContain(29);
     expect(pokemonIds).toContain(32);
@@ -71,7 +79,12 @@ describe('getMissingGen3SafariEncounters', () => {
     const saveData = createMockSaveData('leafgreen', [], [], [29]); // 29 is Nidoran F
     const missing = getMissingGen3SafariEncounters(saveData);
     const middleArea = missing.find((a) => a.name === 'kanto-safari-zone-middle');
-    const pokemonIds = middleArea?.encounters.leafgreen?.map((e) => e.pokemon) || [];
+
+    const leafgreenEncounters: SafariEncounter[] = middleArea?.encounters
+      ? // @ts-expect-error: dynamic access
+        middleArea.encounters.leafgreen || []
+      : [];
+    const pokemonIds = leafgreenEncounters.map((e: SafariEncounter) => e.pokemon);
 
     expect(pokemonIds).not.toContain(29);
     expect(pokemonIds).toContain(30); // Nidorina
