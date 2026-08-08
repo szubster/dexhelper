@@ -28,4 +28,6 @@ As part of the Multi-Save Trade Planner, this Story focuses on developing the ne
 - Integrate these structures with the existing save architecture.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into tasks.
+- [x] Tech Lead: Break down into tasks.
+- [ ] task-358-402-multi-save-data-structures-impl
+- [ ] task-358-403-multi-save-data-structures-qa
