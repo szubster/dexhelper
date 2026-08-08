@@ -38,14 +38,6 @@ If you reject an implementation or validation fails (transient error):
 
 **CRITICAL - PERMANENT FAILURES:** If you are rejecting an implementation because it has reached its max rejection count or is fundamentally impossible, you MUST update the target task's YAML frontmatter to `status: CANCELLED` instead of `FAILED`. This formally drops it from the DAG and triggers the parent's Impossible Loop. Leaving it as `FAILED` will cause endless resurrection loops.
 
-### Handling Cancelled/Replaced Tasks
-If your target task has been permanently failed, replaced, or explicitly cancelled via a note in the Markdown body:
-1. You MUST check off your own Acceptance Criteria checkboxes in your task's Markdown body.
-2. You MUST use the `submit` tool to create an Empty PR. Even if no real work is needed, those checkboxes must be checked for the node to safely transition to COMPLETED and gracefully exit the DAG.
-
-### Dealing with Cancelled/Replaced Tasks Reawakening
-If a cancelled or replaced task node is reawakened (e.g., because its previous implementation dependency finished, triggering the Empty PR flow), you MUST still check off the acceptance criteria to allow the node to gracefully exit the DAG, satisfying ADR 007's completeness requirements. Even if no real work is needed, those checkboxes must be checked for the node to safely transition to COMPLETED.
-
 ## Core Policies
 You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
 
