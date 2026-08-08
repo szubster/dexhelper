@@ -32,5 +32,8 @@ Write E2E tests to verify that the DAG Dashboard still correctly displays perman
 - [x] Break down into Tasks
 
 ### Tasks
-- [ ] task-353-393-lift-rejection-constant-e2e-impl
-- [ ] task-353-394-lift-rejection-constant-e2e-qa
+- [x] task-353-393-lift-rejection-constant-e2e-impl
+- [x] task-353-394-lift-rejection-constant-e2e-qa
+- [ ] research-353-404-investigate-lift-rejection-e2e-failure
+- [ ] task-353-405-lift-rejection-constant-e2e-retry-impl
+- [ ] task-353-406-lift-rejection-constant-e2e-retry-qa
