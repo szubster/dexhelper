@@ -29,5 +29,5 @@ Write E2E tests to verify the circular dependency detection feature in the DAG o
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-356-396-circular-dependency-e2e-impl
-- [ ] task-356-397-circular-dependency-e2e-qa
+- [x] task-356-396-circular-dependency-e2e-impl
+- [x] task-356-397-circular-dependency-e2e-qa
