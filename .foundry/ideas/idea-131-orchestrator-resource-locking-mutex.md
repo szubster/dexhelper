@@ -33,4 +33,7 @@ Introduce a formal "Resource Locking" (Mutex) mechanism within the DAG orchestra
 This ensures that multiple agents do not stomp on each other's work or cause complex git merge conflicts when dealing with central configuration or index files. It moves the Foundry from simple state tracking to true concurrent execution safety.
 
 ## Next Steps
-- [ ] Product Manager: Draft a PRD outlining the YAML schema changes and the orchestrator logic for lock acquisition and release.
+- [x] Product Manager: Draft a PRD outlining the YAML schema changes and the orchestrator logic for lock acquisition and release.
+
+## Acceptance Criteria
+- [ ] prd-131-340-orchestrator-resource-locking-mutex
