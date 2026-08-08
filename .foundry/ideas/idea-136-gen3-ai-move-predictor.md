@@ -2,10 +2,10 @@
 id: idea-136-gen3-ai-move-predictor
 type: IDEA
 title: Gen 3 Trainer AI Move Predictor
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-08-07'
-updated_at: '2026-08-07'
+updated_at: '2026-08-08'
 depends_on: []
 jules_session_id: null
 pr_number: null

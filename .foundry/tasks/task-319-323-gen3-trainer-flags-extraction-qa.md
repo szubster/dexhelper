@@ -2,10 +2,10 @@
 id: task-319-323-gen3-trainer-flags-extraction-qa
 type: TASK
 title: QA Gen 3 Trainer Defeat Flags Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-14'
-updated_at: '2026-07-14'
+updated_at: '2026-08-08'
 depends_on:
   - task-319-322-gen3-trainer-flags-extraction-impl
 jules_session_id: null

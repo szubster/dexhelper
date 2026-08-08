@@ -2,12 +2,12 @@
 id: idea-128-gen3-acro-bike-route-planner
 type: IDEA
 title: Gen 3 Acro Bike / Mach Bike Route Requirements
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: 2026-07-28T00:00:00.000Z
-updated_at: '2026-08-06'
+updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: '17212340013779522449'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
