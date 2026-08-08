@@ -2,7 +2,7 @@
 id: idea-107-pokerus-strain-ui-tracker
 type: IDEA
 title: Pokerus Strain Specific UI Tracker
-status: ACTIVE
+status: CANCELLED
 owner_persona: auditor
 created_at: '2026-07-09'
 updated_at: '2026-08-08'
