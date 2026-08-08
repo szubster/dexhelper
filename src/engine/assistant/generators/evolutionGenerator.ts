@@ -1,6 +1,7 @@
 import { EVO_TRIGGER } from '../../../db/schema';
+import { pokeDB } from '../../../db/PokeDB';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
-import { EVO_ITEM_NAMES, getGameItemId } from '../strategies/items/gameItemMap';
+import { getGameItemId } from '../strategies/items/gameItemMap';
 import type { Suggestion } from '../strategies/types';
 import type { AssistantApiData } from '../suggestionEngineTypes';
 
@@ -41,7 +42,7 @@ export function findInstanceHoldingItem(
  * @param displayVersion - The current game version, used to handle special cases (like Yellow Pikachu refusing to evolve).
  * @param missingIds - A Set of Pokémon IDs the player needs to obtain, used to prevent redundant intermediate evolution suggestions.
  */
-export function generateEvolutionSuggestions(
+export async function generateEvolutionSuggestions(
   queryTargets: number[],
   saveData: SaveData,
   apiData: AssistantApiData,
@@ -210,7 +211,7 @@ export function generateEvolutionSuggestions(
           });
         }
       } else if (tr === EVO_TRIGGER.USE_ITEM && item) {
-        const gameItemId = getGameItemId(item, saveData.generation);
+        const gameItemId = await getGameItemId(item, saveData.generation);
         const hasStoneInBag =
           saveData.inventory.some((i) => i.id === gameItemId && i.quantity > 0) ||
           (saveData.pcItems?.some((i) => i.id === gameItemId && i.quantity > 0) ?? false);
@@ -218,7 +219,9 @@ export function generateEvolutionSuggestions(
           ? undefined
           : findInstanceHoldingItem(instancesBySpecies, gameItemId);
         const hasStone = hasStoneInBag || !!otherHoldingInstance;
-        const itemName = EVO_ITEM_NAMES[item] || 'item';
+
+        const itemRecord = await pokeDB.getItem(item);
+        const itemName = itemRecord?.name || 'item';
 
         let description = hasStone
           ? `Use your ${itemName} to evolve it${evolveTargetText}!`
@@ -242,7 +245,7 @@ export function generateEvolutionSuggestions(
         });
       } else if (tr === EVO_TRIGGER.TRADE) {
         if (held) {
-          const gameHeldId = getGameItemId(held, saveData.generation);
+          const gameHeldId = await getGameItemId(held, saveData.generation);
           const hasHeldItemInBag =
             saveData.inventory.some((i) => i.id === gameHeldId && i.quantity > 0) ||
             (saveData.pcItems?.some((i) => i.id === gameHeldId && i.quantity > 0) ?? false);
@@ -254,7 +257,9 @@ export function generateEvolutionSuggestions(
             otherHoldingInstance = findInstanceHoldingItem(instancesBySpecies, gameHeldId);
           }
           const hasHeldItem = hasHeldItemInBag || !!holdingPreEvoInstance || !!otherHoldingInstance;
-          const itemName = EVO_ITEM_NAMES[held] || 'item';
+
+          const heldRecord = await pokeDB.getItem(held);
+          const itemName = heldRecord?.name || 'item';
 
           let description = `Find a ${itemName}, have your pre-evolution hold it, and trade to evolve${evolveTargetText}.`;
           if (holdingPreEvoInstance) {
@@ -291,7 +296,7 @@ export function generateEvolutionSuggestions(
         // In Generation 3, Shedinja does NOT require a Poké Ball in the bag to appear.
         // It only requires an empty party slot. The Poké Ball requirement was introduced in Gen 4.
         const requiresPokeball = saveData.generation >= 4;
-        const pokeballId = getGameItemId(4, saveData.generation); // 4 is standard Pokéball
+        const pokeballId = await getGameItemId(4, saveData.generation); // 4 is standard Pokéball
         const hasPokeball = requiresPokeball
           ? saveData.inventory.some((i) => i.id === pokeballId && i.quantity > 0) ||
             (saveData.pcItems?.some((i) => i.id === pokeballId && i.quantity > 0) ?? false)

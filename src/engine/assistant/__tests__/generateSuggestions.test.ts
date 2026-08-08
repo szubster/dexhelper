@@ -9,7 +9,7 @@ import { generateSuggestions } from '../suggestionEngine';
 import type { AssistantApiData } from '../suggestionEngineTypes';
 
 describe('generateSuggestions', () => {
-  it('should detect when an evolution item is already equipped for Trade evolutions', () => {
+  it('should detect when an evolution item is already equipped for Trade evolutions', async () => {
     const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
     ownedSet.delete(208); // Missing Steelix
     const mockSaveData = {
@@ -65,14 +65,14 @@ describe('generateSuggestions', () => {
       generation: 2,
     };
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
     const suggestion = suggestions.find((s) => s.id === 'evo-trade-held-208');
     expect(suggestion).toBeDefined();
     expect(suggestion?.title).toBe('Ready to Trade Evolve: #208!');
     expect(suggestion?.description).toBe('Your pre-evolution is already holding the Metal Coat! Trade it to evolve!');
   });
 
-  it('should suggest taking an evolution item from another pokemon if equipped for Trade evolutions', () => {
+  it('should suggest taking an evolution item from another pokemon if equipped for Trade evolutions', async () => {
     const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
     ownedSet.delete(208); // Missing Steelix
     const mockSaveData = {
@@ -137,7 +137,7 @@ describe('generateSuggestions', () => {
       generation: 2,
     };
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
     const suggestion = suggestions.find((s) => s.id === 'evo-trade-held-208');
     expect(suggestion).toBeDefined();
     expect(suggestion?.title).toBe('Ready to Trade Evolve: #208!');
@@ -146,7 +146,7 @@ describe('generateSuggestions', () => {
     );
   });
 
-  it('should suggest taking an evolution item from another pokemon if equipped for USE_ITEM evolutions', () => {
+  it('should suggest taking an evolution item from another pokemon if equipped for USE_ITEM evolutions', async () => {
     const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
     ownedSet.delete(36); // Missing Clefable
     const mockSaveData = {
@@ -211,14 +211,14 @@ describe('generateSuggestions', () => {
       generation: 2,
     };
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
     const suggestion = suggestions.find((s) => s.id === 'evo-item-36-81');
     expect(suggestion).toBeDefined();
     expect(suggestion?.title).toBe('Ready to Evolve: #36!');
     expect(suggestion?.description).toBe('Take the Moon Stone held by your Pokémon (#16) and use it to evolve it!');
   });
 
-  it('should generate "Catch Right Here" (catch-local) suggestions', () => {
+  it('should generate "Catch Right Here" (catch-local) suggestions', async () => {
     const mockSaveData: SaveData = {
       generation: 1,
       gameVersion: 'red',
@@ -241,6 +241,7 @@ describe('generateSuggestions', () => {
           pid: 16, // Pidgey
           enc: [
             {
+              text: '',
               aid: 1, // localAid matches
               v: 1, // Red version (POKE_VERSION_MAP['red'] == 1)
               d: [{ m: 1, c: 50, min: 2, max: 5 }],
@@ -262,7 +263,7 @@ describe('generateSuggestions', () => {
       ],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
 
     const localSuggestion = suggestions.find((s) => s.id === 'catch-local');
     expect(localSuggestion).toBeDefined();
@@ -271,7 +272,7 @@ describe('generateSuggestions', () => {
     expect(localSuggestion?.priority).toBe(120);
   });
 
-  it('should generate "Nearby" (catch-nearby) suggestions', () => {
+  it('should generate "Nearby" (catch-nearby) suggestions', async () => {
     const mockSaveData: SaveData = {
       generation: 1,
       gameVersion: 'red',
@@ -295,6 +296,7 @@ describe('generateSuggestions', () => {
           pid: 19,
           enc: [
             {
+              text: '',
               aid: 2, // nearby aid
               v: 1, // Red
               d: [{ m: 1, c: 50, min: 2, max: 5 }],
@@ -325,7 +327,7 @@ describe('generateSuggestions', () => {
       },
     };
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, mockStrategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, mockStrategy);
 
     const nearbySuggestion = suggestions.find((s) => s.id === 'catch-nearby-2-1');
     expect(nearbySuggestion).toBeDefined();
@@ -335,7 +337,7 @@ describe('generateSuggestions', () => {
     expect(nearbySuggestion?.priority).toBe(98);
   });
 
-  it('should generate "Gift" suggestions when event flag is not set and badges are sufficient', () => {
+  it('should generate "Gift" suggestions when event flag is not set and badges are sufficient', async () => {
     const eventFlags = new Uint8Array(300);
     // Do not set 0x190 (Lapras gift flag)
 
@@ -364,7 +366,7 @@ describe('generateSuggestions', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
 
     const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
     expect(giftSuggestion).toBeDefined();
@@ -372,7 +374,7 @@ describe('generateSuggestions', () => {
     expect(giftSuggestion?.category).toBe('Gift');
   });
 
-  it('should not generate "Gift" suggestions when badges are insufficient', () => {
+  it('should not generate "Gift" suggestions when badges are insufficient', async () => {
     const eventFlags = new Uint8Array(300);
 
     const mockSaveData: SaveData = {
@@ -400,13 +402,13 @@ describe('generateSuggestions', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
 
     const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
     expect(giftSuggestion).toBeUndefined();
   });
 
-  it('should not generate "Gift" suggestions when event flag is set', () => {
+  it('should not generate "Gift" suggestions when event flag is set', async () => {
     const eventFlags = new Uint8Array(300);
     // Set 0x190 (Lapras gift flag)
     const byteIndex = 0x190 >> 3;
@@ -439,13 +441,13 @@ describe('generateSuggestions', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
 
     const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
     expect(giftSuggestion).toBeUndefined();
   });
 
-  it('should not generate "Trade" suggestions when tradeIndex flag is set', () => {
+  it('should not generate "Trade" suggestions when tradeIndex flag is set', async () => {
     const mockSaveData: SaveData = {
       generation: 1,
       gameVersion: 'red',
@@ -470,13 +472,13 @@ describe('generateSuggestions', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
 
     const tradeSuggestion = suggestions.find((s) => s.id === 'npc-trade-122');
     expect(tradeSuggestion).toBeUndefined();
   });
 
-  it('should generate "Breed" suggestions for Gen 2 based on daycare egg status', () => {
+  it('should generate "Breed" suggestions for Gen 2 based on daycare egg status', async () => {
     const mockSaveData: SaveData = {
       generation: 2,
       gameVersion: 'crystal',
@@ -550,7 +552,7 @@ describe('generateSuggestions', () => {
       generation: 2, // Must be 2 for Gen2 logic
     };
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategy);
 
     const breedSuggestion = suggestions.find((s) => s.id === 'breed-152');
     expect(breedSuggestion).toBeDefined();
@@ -560,7 +562,7 @@ describe('generateSuggestions', () => {
 
     // Test when no egg is ready
     mockSaveData.daycareHasEgg = false;
-    const { suggestions: suggestionsWait } = generateSuggestions(
+    const { suggestions: suggestionsWait } = await generateSuggestions(
       mockSaveData,
       false,
       'crystal',
@@ -575,7 +577,7 @@ describe('generateSuggestions', () => {
 
     // Test when pokemon not in daycare
     mockSaveData.daycare = [];
-    const { suggestions: suggestionsNotInDaycare } = generateSuggestions(
+    const { suggestions: suggestionsNotInDaycare } = await generateSuggestions(
       mockSaveData,
       false,
       'crystal',
@@ -602,7 +604,7 @@ describe('generateSuggestions', () => {
       },
     ];
     mockSaveData.daycareHasEgg = false;
-    const { suggestions: suggestionsAlone } = generateSuggestions(
+    const { suggestions: suggestionsAlone } = await generateSuggestions(
       mockSaveData,
       false,
       'crystal',
@@ -618,7 +620,7 @@ describe('generateSuggestions', () => {
     expect(breedSuggestionAlone?.priority).toBe(80);
   });
 
-  it('should generate "Evolve" suggestion when min_l and min_h are missing (time-based fallback)', () => {
+  it('should generate "Evolve" suggestion when min_l and min_h are missing (time-based fallback)', async () => {
     const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
     ownedSet.delete(196); // Missing Espeon (196)
     ownedSet.add(133); // Owns Eevee (133)
@@ -669,7 +671,7 @@ describe('generateSuggestions', () => {
       generation: 2,
     };
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, mockStrategy);
 
     const evoSuggestion = suggestions.find((s) => s.id === 'evo-lvl-any-196');
     expect(evoSuggestion).toBeDefined();
@@ -678,7 +680,7 @@ describe('generateSuggestions', () => {
     expect(evoSuggestion?.priority).toBe(70);
   });
 
-  it('should penalize priority and add warnings for Headbutt and Rock Smash encounters if items are missing', () => {
+  it('should penalize priority and add warnings for Headbutt and Rock Smash encounters if items are missing', async () => {
     const localSaveData: SaveData = {
       generation: 2,
       gameVersion: 'gold',
@@ -720,6 +722,7 @@ describe('generateSuggestions', () => {
       pid: missingPid,
       enc: [
         {
+          text: '',
           aid: 2,
           v: 4, // 4 = gold
           d: [
@@ -728,12 +731,12 @@ describe('generateSuggestions', () => {
           ], // m = 8 is Headbutt, m = 7 is Rock Smash
         },
       ],
-    };
+    } as unknown as import('../../../db/schema').LocationAreaEncounters;
 
     // 1. Missing item
     localSaveData.generation = 2;
     localSaveData.inventory = [];
-    const result1 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const result1 = await generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
     const catch1 = result1.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
     expect(catch1).toBeDefined(); // Retained, but with warning
     expect(catch1?.priority).toBe(45);
@@ -745,7 +748,7 @@ describe('generateSuggestions', () => {
       { id: 198, quantity: 1 },
     ];
     localSaveData.johtoBadges = 0;
-    const result2 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const result2 = await generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
     const catch2 = result2.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
     expect(catch2).toBeDefined(); // Included since badges aren't needed
     expect(
@@ -769,9 +772,9 @@ describe('generateSuggestions', () => {
         hash: '',
         moves: [29, 249], // Headbutt and Rock Smash
         storageLocation: 'Party',
-      },
+      } as unknown as PokemonInstance,
     ];
-    const result3 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const result3 = await generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
     const catch3 = result3.suggestions.find((s) => s.category === 'Catch' && s.id.startsWith('catch-nearby'));
     expect(catch3).toBeDefined(); // Included because of known moves
     expect(
@@ -785,7 +788,7 @@ describe('generateSuggestions', () => {
       ),
     ).toBe(true);
   });
-  it('should generate stat-based evolution suggestions for Tyrogue (Atk > Def, Atk < Def, Atk = Def)', () => {
+  it('should generate stat-based evolution suggestions for Tyrogue (Atk > Def, Atk < Def, Atk = Def)', async () => {
     const mockApiData: AssistantApiData = {
       localAid: 1,
       localEncounters: [],
@@ -839,7 +842,7 @@ describe('generateSuggestions', () => {
 
     // Case 1: Atk > Def (Hitmonlee - 106)
     const dataAtkGtr = createSaveDataWithTyrogue({ atk: 15, def: 0 }, [106]);
-    const { suggestions: suggs1 } = generateSuggestions(dataAtkGtr, false, 'gold', mockApiData, mockStrategy);
+    const { suggestions: suggs1 } = await generateSuggestions(dataAtkGtr, false, 'gold', mockApiData, mockStrategy);
     const evoLee = suggs1.find((s) => s.id === 'evo-lvl-106');
     expect(evoLee).toBeDefined();
     expect(evoLee?.title).toBe('Level Up Evolution: #106');
@@ -847,7 +850,7 @@ describe('generateSuggestions', () => {
 
     // Case 2: Atk < Def (Hitmonchan - 107)
     const dataAtkLsr = createSaveDataWithTyrogue({ atk: 0, def: 15 }, [107]);
-    const { suggestions: suggs2 } = generateSuggestions(dataAtkLsr, false, 'gold', mockApiData, mockStrategy);
+    const { suggestions: suggs2 } = await generateSuggestions(dataAtkLsr, false, 'gold', mockApiData, mockStrategy);
     const evoChan = suggs2.find((s) => s.id === 'evo-lvl-107');
     expect(evoChan).toBeDefined();
     expect(evoChan?.title).toBe('Level Up Evolution: #107');
@@ -855,7 +858,7 @@ describe('generateSuggestions', () => {
 
     // Case 3: Atk = Def (Hitmontop - 237)
     const dataAtkEq = createSaveDataWithTyrogue({ atk: 10, def: 10 }, [237]);
-    const { suggestions: suggs3 } = generateSuggestions(dataAtkEq, false, 'gold', mockApiData, mockStrategy);
+    const { suggestions: suggs3 } = await generateSuggestions(dataAtkEq, false, 'gold', mockApiData, mockStrategy);
     const evoTop = suggs3.find((s) => s.id === 'evo-lvl-237');
     expect(evoTop).toBeDefined();
     expect(evoTop?.title).toBe('Level Up Evolution: #237');
@@ -863,7 +866,7 @@ describe('generateSuggestions', () => {
 
     // Case 4: Not matching Atk > Def for Hitmonlee
     const dataAtkNotGtr = createSaveDataWithTyrogue({ atk: 0, def: 15 }, [106]);
-    const { suggestions: suggs4 } = generateSuggestions(dataAtkNotGtr, false, 'gold', mockApiData, mockStrategy);
+    const { suggestions: suggs4 } = await generateSuggestions(dataAtkNotGtr, false, 'gold', mockApiData, mockStrategy);
     const evoLeeNotReady = suggs4.find((s) => s.id === 'evo-lvl-106');
     expect(evoLeeNotReady).toBeDefined();
     expect(evoLeeNotReady?.title).toBe('Level Up Evolution: #106');
@@ -871,7 +874,7 @@ describe('generateSuggestions', () => {
     expect(evoLeeNotReady?.priority).toBe(75); // Lower priority because it's not actually ready
   });
 
-  it('should suppress breeding suggestions for intermediate evolutions (e.g. Charmeleon)', () => {
+  it('should suppress breeding suggestions for intermediate evolutions (e.g. Charmeleon)', async () => {
     const mockApiData = {
       localAid: 1,
       localEncounters: [],
@@ -901,13 +904,13 @@ describe('generateSuggestions', () => {
 
     const strategy = getStrategy(2);
     if (!strategy) throw new Error('Strategy not found');
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
 
     const breedSugg = suggestions.find((s) => s.category === 'Breed' && s.pokemonId === 5);
     expect(breedSugg).toBeUndefined(); // It should be undefined because Charizard egg hatches to Charmander
   });
 
-  it('should generate breeding suggestions for base/baby pokemon (e.g. Pichu)', () => {
+  it('should generate breeding suggestions for base/baby pokemon (e.g. Pichu)', async () => {
     const mockApiData = {
       localAid: 1,
       localEncounters: [],
@@ -942,13 +945,13 @@ describe('generateSuggestions', () => {
 
     const strategy = getStrategy(2);
     if (!strategy) throw new Error('Strategy not found');
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
 
     const breedSugg = suggestions.find((s) => s.category === 'Breed' && s.pokemonId === 172);
     expect(breedSugg).toBeDefined();
     expect(breedSugg?.title).toBe('Breed: #172');
   });
-  it('should properly handle suggestion.pokemonIds and warnings when some or all encounters require missing tools', () => {
+  it('should properly handle suggestion.pokemonIds and warnings when some or all encounters require missing tools', async () => {
     const localSaveData: SaveData = {
       generation: 2,
       gameVersion: 'gold',
@@ -1020,7 +1023,7 @@ describe('generateSuggestions', () => {
       } as unknown as PokemonInstance,
     ];
 
-    const resAll = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const resAll = await generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
     const suggAll = resAll.suggestions.find((s) => s.id === 'catch-local');
     expect(suggAll).toBeDefined();
     expect(suggAll?.pokemonIds?.includes(10)).toBe(true);
@@ -1028,7 +1031,7 @@ describe('generateSuggestions', () => {
 
     // 1. Both encounters filtered out (no Headbutt, no Rock Smash)
     localSaveData.partyDetails = []; // No moves
-    const res1 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const res1 = await generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
     const sugg1 = res1.suggestions.find((s) => s.id === 'catch-local');
     expect(sugg1).toBeDefined(); // Should NOT be removed, just penalized
     expect(sugg1?.priority).toBe(45);
@@ -1049,7 +1052,7 @@ describe('generateSuggestions', () => {
         storageLocation: 'Party',
       } as unknown as PokemonInstance,
     ];
-    const res2 = generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
+    const res2 = await generateSuggestions(localSaveData, false, 'gold', localApiData, localStrategy);
     const sugg2 = res2.suggestions.find((s) => s.id === 'catch-local');
 
     expect(sugg2).toBeDefined();
@@ -1061,7 +1064,7 @@ describe('generateSuggestions', () => {
     expect(sugg2?.warning).toBe('Requires Rock Smash');
   });
 
-  it('should generate breeding suggestions for Egg Moves when owning an ancestor in the chain', () => {
+  it('should generate breeding suggestions for Egg Moves when owning an ancestor in the chain', async () => {
     const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
     ownedSet.delete(1); // Missing Bulbasaur
 
@@ -1120,7 +1123,7 @@ describe('generateSuggestions', () => {
     } as unknown as AssistantApiData;
 
     const strategy = getStrategy(2);
-    const result = generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
+    const result = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
 
     const emSuggestion = result.suggestions.find((s) => s.id === 'egg-move-1-13-274');
     expect(emSuggestion).toBeDefined();
@@ -1128,7 +1131,7 @@ describe('generateSuggestions', () => {
     expect(emSuggestion?.priority).toBe(82);
   });
 
-  it('should generate higher priority breeding suggestions for Egg Moves when owning an ancestor that actually knows the move', () => {
+  it('should generate higher priority breeding suggestions for Egg Moves when owning an ancestor that actually knows the move', async () => {
     const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
     ownedSet.delete(1); // Missing Bulbasaur
 
@@ -1187,7 +1190,7 @@ describe('generateSuggestions', () => {
     } as unknown as AssistantApiData;
 
     const strategy = getStrategy(2);
-    const result = generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
+    const result = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
 
     const emSuggestion = result.suggestions.find((s) => s.id === 'egg-move-1-13-274');
     expect(emSuggestion).toBeDefined();
@@ -1195,7 +1198,7 @@ describe('generateSuggestions', () => {
     expect(emSuggestion?.priority).toBe(88);
   });
 
-  it('should generate breeding suggestions for Egg Moves when owning an ancestor multiple steps back in a 3+ step chain', () => {
+  it('should generate breeding suggestions for Egg Moves when owning an ancestor multiple steps back in a 3+ step chain', async () => {
     const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
     ownedSet.delete(1); // Missing final evolution
 
@@ -1254,7 +1257,7 @@ describe('generateSuggestions', () => {
     } as unknown as AssistantApiData;
 
     const strategy = getStrategy(2);
-    const result = generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
+    const result = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
 
     const emSuggestion = result.suggestions.find((s) => s.id === 'egg-move-1-20-100');
     expect(emSuggestion).toBeDefined();
@@ -1263,7 +1266,7 @@ describe('generateSuggestions', () => {
     expect(emSuggestion?.pokemonId).toBe(101);
   });
 
-  it('should generate higher priority breeding suggestions for Egg Moves in a 3+ step chain when the early ancestor knows the move', () => {
+  it('should generate higher priority breeding suggestions for Egg Moves in a 3+ step chain when the early ancestor knows the move', async () => {
     const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
     ownedSet.delete(1); // Missing final evolution
 
@@ -1322,7 +1325,7 @@ describe('generateSuggestions', () => {
     } as unknown as AssistantApiData;
 
     const strategy = getStrategy(2);
-    const result = generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
+    const result = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
 
     const emSuggestion = result.suggestions.find((s) => s.id === 'egg-move-1-20-100');
     expect(emSuggestion).toBeDefined();

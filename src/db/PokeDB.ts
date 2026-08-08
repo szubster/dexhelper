@@ -9,6 +9,7 @@ import {
   type PokeDBSchema,
   type PokemonMetadata,
   type UnifiedLocation,
+  type ItemMetadata,
 } from './schema';
 
 let dbPromise: Promise<IDBPDatabase<PokeDBSchema>> | null = null;
@@ -304,6 +305,15 @@ export const pokeDB = {
   },
 
   /**
+   * Fetches a single Item's metadata by its ID.
+   */
+  getItem: async (id: number): Promise<ItemMetadata | undefined> => {
+    await pokeDB.ready();
+    if (id === undefined || id === null || Number.isNaN(id)) return undefined;
+    return (await getDB()).get(DB_CONFIG.STORES.ITEMS, id);
+  },
+
+  /**
    * Fetches the encounter tables for a specific Pokemon by its Pokedex ID.
    *
    * @param pid - The Pokedex ID of the Pokemon.
@@ -385,7 +395,6 @@ export const pokeDB = {
     await pokeDB.ready();
     const db = await getDB();
     const names: Record<number, string> = {};
-    // ⚡ Bolt: Used single readonly transaction to prevent N+1 IDB overhead
     const tx = db.transaction(DB_CONFIG.STORES.LOCATIONS, 'readonly');
     const store = unwrap(tx.objectStore(DB_CONFIG.STORES.LOCATIONS));
     const locations = await bulkGet<UnifiedLocation>(store, ids);
@@ -439,7 +448,6 @@ export const pokeDB = {
     const validIds = ids.filter((id) => typeof id === 'number' && !Number.isNaN(id));
     if (validIds.length === 0) return ids.map(() => new Error('Invalid ID provided'));
 
-    // ⚡ Bolt: Used single readonly transaction to prevent N+1 IDB overhead for encounters
     const tx = db.transaction(DB_CONFIG.STORES.ENCOUNTERS, 'readonly');
     const store = unwrap(tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS));
     const fetched = await bulkGet<LocationAreaEncounters>(store, validIds);

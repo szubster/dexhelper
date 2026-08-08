@@ -4,7 +4,7 @@ import { gen1Strategy } from '../strategies/gen1Strategy';
 import { generateSuggestions } from '../suggestionEngine';
 import type { AssistantApiData } from '../suggestionEngineTypes';
 
-test('coverage for suggestionEngine new lines', () => {
+test('coverage for suggestionEngine new lines', async () => {
   const mockSaveData: SaveData = {
     generation: 2,
     gameVersion: 'crystal',
@@ -106,7 +106,7 @@ test('coverage for suggestionEngine new lines', () => {
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
 
   const espeon = suggestions.find((s) => s.pokemonId === 196);
   expect(espeon).toBeDefined();
@@ -140,7 +140,7 @@ test('coverage for suggestionEngine new lines', () => {
 
   // Verify ready trade evolve
   mockSaveData.inventory.push({ id: 0x8f, quantity: 1 });
-  const { suggestions: readySuggestions } = generateSuggestions(
+  const { suggestions: readySuggestions } = await generateSuggestions(
     mockSaveData,
     false,
     'crystal',
@@ -152,7 +152,7 @@ test('coverage for suggestionEngine new lines', () => {
   expect(readySteelix?.title).toContain('Ready to Trade Evolve');
 });
 
-test('coverage for suggestionEngine edge cases', () => {
+test('coverage for suggestionEngine edge cases', async () => {
   const mockSaveData = {
     generation: 1,
     gameVersion: 'yellow',
@@ -185,13 +185,13 @@ test('coverage for suggestionEngine edge cases', () => {
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'gold', mockApiData, gen1Strategy);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, gen1Strategy);
   const jolteon = suggestions.find((s) => s.pokemonId === 135);
   expect(jolteon).toBeDefined();
   expect(jolteon?.title).toContain('Item Needed');
 });
 
-test('coverage for gen 2 breeding edge case without valid base pokemon', () => {
+test('coverage for gen 2 breeding edge case without valid base pokemon', async () => {
   const mockSaveData = {
     generation: 2,
     gameVersion: 'crystal',
@@ -224,14 +224,14 @@ test('coverage for gen 2 breeding edge case without valid base pokemon', () => {
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
 
   const pichu = suggestions.find((s) => s.pokemonId === 50);
   expect(pichu).toBeDefined();
   expect(pichu?.title).toContain('Breed');
 });
 
-test('coverage for missing target id in pokemonMetadata for Gen 2 breeding', () => {
+test('coverage for missing target id in pokemonMetadata for Gen 2 breeding', async () => {
   const mockSaveData = {
     generation: 2,
     gameVersion: 'crystal',
@@ -258,12 +258,12 @@ test('coverage for missing target id in pokemonMetadata for Gen 2 breeding', () 
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
   const diglett = suggestions.find((s) => s.pokemonId === 50);
   expect(diglett).toBeUndefined();
 });
 
-test('coverage for generateSuggestions with missing parent / target id / empty details in evolution logic', () => {
+test('coverage for generateSuggestions with missing parent / target id / empty details in evolution logic', async () => {
   const mockSaveData = {
     generation: 2,
     gameVersion: 'crystal',
@@ -296,12 +296,12 @@ test('coverage for generateSuggestions with missing parent / target id / empty d
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
   const diglett = suggestions.find((s) => s.pokemonId === 50);
   expect(diglett).toBeUndefined();
 });
 
-test('coverage for missing target metadata entirely in evo logic', () => {
+test('coverage for missing target metadata entirely in evo logic', async () => {
   const mockSaveData = {
     generation: 1,
     gameVersion: 'red',
@@ -326,12 +326,12 @@ test('coverage for missing target metadata entirely in evo logic', () => {
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
   const invalidEvo = suggestions.find((s) => s.category === 'Evolve');
   expect(invalidEvo).toBeUndefined();
 });
 
-test('coverage for suggestionEngine getGameItemId unknown generation', () => {
+test('coverage for suggestionEngine getGameItemId unknown generation', async () => {
   const mockSaveData: SaveData = {
     generation: 4, // Forcing this to 4 to hit the return on line 59.
     gameVersion: 'red',
@@ -364,12 +364,12 @@ test('coverage for suggestionEngine getGameItemId unknown generation', () => {
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  expect(() => generateSuggestions(mockSaveData, false, 'ruby', mockApiData, gen1Strategy)).toThrow(
+  await expect(generateSuggestions(mockSaveData, false, 'ruby', mockApiData, gen1Strategy)).rejects.toThrow(
     'Unknown generation',
   );
 });
 
-test('coverage for recursive missing exclusive logic', () => {
+test('coverage for recursive missing exclusive logic', async () => {
   const mockSaveData = {
     generation: 1,
     gameVersion: 'red',
@@ -405,12 +405,12 @@ test('coverage for recursive missing exclusive logic', () => {
     getUnobtainableReason: (pid: number) => (pid === 6 ? 'Needs Link Cable' : null),
   } as unknown as import('../strategies/types').AssistantStrategy;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, mockStrategy);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, mockStrategy);
   const exclusiveSuggestion = suggestions.find((s) => s.id === 'exclusive-6');
   expect(exclusiveSuggestion).toBeUndefined();
 });
 
-test('coverage for localPids.delete with array of pokemonIds', () => {
+test('coverage for localPids.delete with array of pokemonIds', async () => {
   const mockSaveData = {
     generation: 2,
     gameVersion: 'crystal',
@@ -456,14 +456,14 @@ test('coverage for localPids.delete with array of pokemonIds', () => {
     resolveMapAid: () => 1,
   } as unknown as import('../strategies/types').AssistantStrategy;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
 
   // Both should be filtered out, suggestions length should be >0 but not contain Route 1 catch
   const locSugg = suggestions.find((s) => s.category === 'Catch');
   expect(locSugg).toBeUndefined();
 });
 
-test('coverage for localPids.delete with single pokemonId', () => {
+test('coverage for localPids.delete with single pokemonId', async () => {
   const mockSaveData = {
     generation: 2,
     gameVersion: 'crystal',
@@ -506,13 +506,13 @@ test('coverage for localPids.delete with single pokemonId', () => {
     resolveMapAid: () => 1,
   } as unknown as import('../strategies/types').AssistantStrategy;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
 
   const locSugg = suggestions.find((s) => s.category === 'Catch');
   expect(locSugg).toBeUndefined();
 });
 
-test('coverage for localPids.delete with some ids filtered out', () => {
+test('coverage for localPids.delete with some ids filtered out', async () => {
   const mockSaveData = {
     generation: 2,
     gameVersion: 'crystal',
@@ -567,13 +567,13 @@ test('coverage for localPids.delete with some ids filtered out', () => {
     resolveMapAid: () => 1,
   } as unknown as import('../strategies/types').AssistantStrategy;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
 
   // Suggestion exists but only has 1
   expect(suggestions.length).toBeGreaterThan(0);
 });
 
-test('coverage for suggestionEngine catch filtering with single pokemonId', () => {
+test('coverage for suggestionEngine catch filtering with single pokemonId', async () => {
   const mockSaveData = {
     generation: 2,
     gameVersion: 'crystal',
@@ -629,13 +629,13 @@ test('coverage for suggestionEngine catch filtering with single pokemonId', () =
     ],
   } as unknown as import('../strategies/types').AssistantStrategy;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
 
   const locSugg = suggestions.find((s) => s.category === 'Catch');
   expect(locSugg).toBeUndefined();
 });
 
-test('coverage for suggestionEngine catch filtering when pokemonIds has undefined encounterInfo elements', () => {
+test('coverage for suggestionEngine catch filtering when pokemonIds has undefined encounterInfo elements', async () => {
   const mockSaveData = {
     generation: 2,
     gameVersion: 'crystal',
@@ -697,7 +697,7 @@ test('coverage for suggestionEngine catch filtering when pokemonIds has undefine
     ],
   } as unknown as import('../strategies/types').AssistantStrategy;
 
-  const { suggestions } = generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
 
   const locSugg = suggestions.find((s) => s.category === 'Catch');
   expect(locSugg).toBeDefined();
