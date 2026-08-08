@@ -229,7 +229,16 @@ describe('useAssistant - generateSuggestions logic', () => {
       },
     },
     pokemonMetadata: {
-      39: { id: 39, n: 'Jigglypuff', cr: 170, gr: 6, baby: false, efrm: [], eto: [], det: [] } as unknown as PokemonMetadata,
+      39: {
+        id: 39,
+        n: 'Jigglypuff',
+        cr: 170,
+        gr: 6,
+        baby: false,
+        efrm: [],
+        eto: [],
+        det: [],
+      } as unknown as PokemonMetadata,
       40: {
         id: 40,
         n: 'Wigglytuff',
@@ -289,7 +298,16 @@ describe('useAssistant - generateSuggestions logic', () => {
       },
       pokemonMetadata: {
         ...mockApiData.pokemonMetadata,
-        13: { id: 13, n: 'Weedle', cr: 255, gr: 4, baby: false, efrm: [], det: [], eto: [] } as unknown as PokemonMetadata,
+        13: {
+          id: 13,
+          n: 'Weedle',
+          cr: 255,
+          gr: 4,
+          baby: false,
+          efrm: [],
+          det: [],
+          eto: [],
+        } as unknown as PokemonMetadata,
       },
     };
 

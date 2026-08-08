@@ -1,11 +1,14 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import { pokeDB } from '../../../db/PokeDB';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
 import { generateEvolutionSuggestions } from '../generators/evolutionGenerator';
 import type { Suggestion } from '../strategies/types';
 import type { AssistantApiData } from '../suggestionEngineTypes';
 
+vi.spyOn(pokeDB, 'getItem').mockResolvedValue(undefined);
+
 describe('EVO_TRIGGER.SHED', () => {
-  it('generates a suggestion for Shedinja (Gen 3)', () => {
+  it('generates a suggestion for Shedinja (Gen 3)', async () => {
     const queryTargets = [292];
     const missingIds = new Set([292]);
     const displayVersion = 'ruby';
@@ -46,7 +49,7 @@ describe('EVO_TRIGGER.SHED', () => {
     } as unknown as AssistantApiData;
 
     const suggestions: Suggestion[] = [];
-    generateEvolutionSuggestions(
+    await generateEvolutionSuggestions(
       queryTargets,
       saveData,
       apiData,
@@ -65,7 +68,7 @@ describe('EVO_TRIGGER.SHED', () => {
   });
 });
 
-it('generates a suggestion for Shedinja (Gen 4+ with Pokeball)', () => {
+it('generates a suggestion for Shedinja (Gen 4+ with Pokeball)', async () => {
   const queryTargets = [292];
   const missingIds = new Set([292]);
   const displayVersion = 'diamond'; // Or something that signifies Gen 4+
@@ -106,7 +109,7 @@ it('generates a suggestion for Shedinja (Gen 4+ with Pokeball)', () => {
   } as unknown as AssistantApiData;
 
   const suggestions: Suggestion[] = [];
-  generateEvolutionSuggestions(
+  await generateEvolutionSuggestions(
     queryTargets,
     saveData,
     apiData,
@@ -124,7 +127,7 @@ it('generates a suggestion for Shedinja (Gen 4+ with Pokeball)', () => {
   );
 });
 
-it('warns if missing party space', () => {
+it('warns if missing party space', async () => {
   const queryTargets = [292];
   const missingIds = new Set([292]);
   const displayVersion = 'ruby';
@@ -165,7 +168,7 @@ it('warns if missing party space', () => {
   } as unknown as AssistantApiData;
 
   const suggestions: Suggestion[] = [];
-  generateEvolutionSuggestions(
+  await generateEvolutionSuggestions(
     queryTargets,
     saveData,
     apiData,
@@ -183,7 +186,7 @@ it('warns if missing party space', () => {
   );
 });
 
-it('warns if missing Pokeball in Gen 4+', () => {
+it('warns if missing Pokeball in Gen 4+', async () => {
   const queryTargets = [292];
   const missingIds = new Set([292]);
   const displayVersion = 'diamond';
@@ -224,7 +227,7 @@ it('warns if missing Pokeball in Gen 4+', () => {
   } as unknown as AssistantApiData;
 
   const suggestions: Suggestion[] = [];
-  generateEvolutionSuggestions(
+  await generateEvolutionSuggestions(
     queryTargets,
     saveData,
     apiData,
@@ -242,7 +245,7 @@ it('warns if missing Pokeball in Gen 4+', () => {
   );
 });
 
-it('suggests standard level up requirement if under leveled', () => {
+it('suggests standard level up requirement if under leveled', async () => {
   const queryTargets = [292];
   const missingIds = new Set([292]);
   const displayVersion = 'ruby';
@@ -283,7 +286,7 @@ it('suggests standard level up requirement if under leveled', () => {
   } as unknown as AssistantApiData;
 
   const suggestions: Suggestion[] = [];
-  generateEvolutionSuggestions(
+  await generateEvolutionSuggestions(
     queryTargets,
     saveData,
     apiData,

@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
-import { getGameItemId } from './gameItemMap';
 import { pokeDB } from '../../../../db/PokeDB';
+import { getGameItemId } from './gameItemMap';
 
 describe('gameItemMap', () => {
   describe('getGameItemId', () => {

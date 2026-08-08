@@ -4,12 +4,12 @@ import { objectValues } from '../utils/object';
 import {
   type CompactChainLink,
   DB_CONFIG,
+  type ItemMetadata,
   type LocationAreaEncounters,
   type PokeDataExport,
   type PokeDBSchema,
   type PokemonMetadata,
   type UnifiedLocation,
-  type ItemMetadata,
 } from './schema';
 
 let dbPromise: Promise<IDBPDatabase<PokeDBSchema>> | null = null;

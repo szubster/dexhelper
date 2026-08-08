@@ -1,5 +1,5 @@
-import { EVO_TRIGGER } from '../../../db/schema';
 import { pokeDB } from '../../../db/PokeDB';
+import { EVO_TRIGGER } from '../../../db/schema';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
 import { getGameItemId } from '../strategies/items/gameItemMap';
 import type { Suggestion } from '../strategies/types';

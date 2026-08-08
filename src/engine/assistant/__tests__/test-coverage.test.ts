@@ -1,20 +1,40 @@
-import { expect, test } from 'vitest';
+import { expect, test, vi } from 'vitest';
+import { pokeDB } from '../../../db/PokeDB';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
 import { gen1Strategy } from '../strategies/gen1Strategy';
 import { generateSuggestions } from '../suggestionEngine';
 import type { AssistantApiData } from '../suggestionEngineTypes';
 
+const MOCK_ITEMS: Record<number, Record<string, string | number>> = {
+  4: { id: 4, name: 'Poké Ball', gen1_id: 4, gen2_id: 4, gen3_id: 4 },
+  80: { id: 80, name: 'Sun Stone', gen1_id: 17, gen2_id: 169, gen3_id: 93 },
+  81: { id: 81, name: 'Moon Stone', gen1_id: 10, gen2_id: 8, gen3_id: 94 },
+  82: { id: 82, name: 'Fire Stone', gen1_id: 32, gen2_id: 22, gen3_id: 95 },
+  83: { id: 83, name: 'Thunder Stone', gen1_id: 33, gen2_id: 23, gen3_id: 96 },
+  84: { id: 84, name: 'Water Stone', gen1_id: 34, gen2_id: 24, gen3_id: 97 },
+  85: { id: 85, name: 'Leaf Stone', gen1_id: 47, gen2_id: 34, gen3_id: 98 },
+  198: { id: 198, name: "King's Rock", gen1_id: 198, gen2_id: 221, gen3_id: 187 },
+  210: { id: 210, name: 'Metal Coat', gen1_id: 210, gen2_id: 143, gen3_id: 199 },
+  212: { id: 212, name: 'Dragon Scale', gen1_id: 212, gen2_id: 151, gen3_id: 201 },
+  229: { id: 229, name: 'Upgrade', gen1_id: 229, gen2_id: 172, gen3_id: 218 },
+  203: { id: 203, name: 'Deep Sea Tooth', gen1_id: 203, gen2_id: 203, gen3_id: 192 },
+  204: { id: 204, name: 'Deep Sea Scale', gen1_id: 204, gen2_id: 204, gen3_id: 193 },
+};
+
+vi.spyOn(pokeDB, 'getItem').mockImplementation(async (id) => {
+  return MOCK_ITEMS[id] as unknown as import('../../../db/schema').ItemMetadata;
+});
+
 test('coverage for suggestionEngine new lines', async () => {
   const mockSaveData: SaveData = {
     generation: 2,
     gameVersion: 'crystal',
-    // Mock owned up to 251 except the ones we want to suggest (targets must be missing)
     owned: new Set(
       [...Array(251).keys()].map((i) => i + 1).filter((i) => ![196, 197, 106, 107, 237, 136, 68, 208].includes(i)),
     ),
     seen: new Set(),
     party: [],
-    inventory: [{ id: 0x16, quantity: 1 }], // Fire Stone
+    inventory: [{ id: 0x16, quantity: 1 }],
     currentMapId: 0,
     eventFlags: new Uint8Array(300),
     partyDetails: [
@@ -33,7 +53,6 @@ test('coverage for suggestionEngine new lines', async () => {
     trainerName: 'PLAYER',
   } as unknown as SaveData;
 
-  // Manually ensure Eevee, Tyrogue, and Machoke are in owned
   mockSaveData.owned.add(133);
   mockSaveData.owned.add(236);
   mockSaveData.owned.add(67);
@@ -50,56 +69,56 @@ test('coverage for suggestionEngine new lines', async () => {
         efrm: [133],
         det: [{ tr: 1, mh: 220, time: 1 }],
         eto: [],
-      }, // Espeon
+      },
       197: {
         id: 197,
         n: 'Umbreon',
         efrm: [133],
         det: [{ tr: 1, mh: 220, time: 2 }],
         eto: [],
-      }, // Umbreon
+      },
       106: {
         id: 106,
         n: 'Hitmonlee',
         efrm: [236],
         det: [{ tr: 1, ml: 20, rps: 1 }],
         eto: [],
-      }, // Hitmonlee
+      },
       107: {
         id: 107,
         n: 'Hitmonchan',
         efrm: [236],
         det: [{ tr: 1, ml: 20, rps: -1 }],
         eto: [],
-      }, // Hitmonchan
+      },
       237: {
         id: 237,
         n: 'Hitmontop',
         efrm: [236],
         det: [{ tr: 1, ml: 20, rps: 0 }],
         eto: [],
-      }, // Hitmontop
+      },
       136: {
         id: 136,
         n: 'Flareon',
         efrm: [133],
-        det: [{ tr: 3, item: 82 }], // Fire Stone
+        det: [{ tr: 3, item: 82 }],
         eto: [],
-      }, // Flareon (Item)
+      },
       68: {
         id: 68,
         n: 'Machamp',
         efrm: [67, 66],
-        det: [{ tr: 2 }], // Trade (EVO_TRIGGER.TRADE = 2)
+        det: [{ tr: 2 }],
         eto: [],
-      }, // Machamp (Trade)
+      },
       208: {
         id: 208,
         n: 'Steelix',
         efrm: [95],
-        det: [{ tr: 2, held: 0x8f }], // Trade with Metal Coat
+        det: [{ tr: 2, held: 0x8f }],
         eto: [],
-      }, // Steelix
+      },
     },
     areaNames: {},
     allLocations: [],
@@ -138,7 +157,6 @@ test('coverage for suggestionEngine new lines', async () => {
   expect(steelix).toBeDefined();
   expect(steelix?.title).toContain('Item Needed for Trade');
 
-  // Verify ready trade evolve
   mockSaveData.inventory.push({ id: 0x8f, quantity: 1 });
   const { suggestions: readySuggestions } = await generateSuggestions(
     mockSaveData,
@@ -156,7 +174,7 @@ test('coverage for suggestionEngine edge cases', async () => {
   const mockSaveData = {
     generation: 1,
     gameVersion: 'yellow',
-    owned: new Set([...Array(134).keys()].map((i) => i + 1)), // Covers 1-134, including 133
+    owned: new Set([...Array(134).keys()].map((i) => i + 1)),
     seen: new Set(),
     party: [],
     inventory: [],
@@ -176,7 +194,7 @@ test('coverage for suggestionEngine edge cases', async () => {
         id: 135,
         n: 'Jolteon',
         efrm: [133],
-        det: [{ tr: 3, item: 83 }], // Jolteon, but no stone in inventory
+        det: [{ tr: 3, item: 83 }],
         eto: [],
       },
     },
@@ -195,13 +213,13 @@ test('coverage for gen 2 breeding edge case without valid base pokemon', async (
   const mockSaveData = {
     generation: 2,
     gameVersion: 'crystal',
-    owned: new Set([1]), // own bulbasaur, missing pichu (target)
+    owned: new Set([1]),
     seen: new Set(),
     party: [],
     inventory: [],
     currentMapId: 0,
     eventFlags: new Uint8Array(300),
-    partyDetails: [{ speciesId: 1, level: 20, otName: 'PLAYER' } as unknown as PokemonInstance], // need physical instance of evo (bulbasaur)
+    partyDetails: [{ speciesId: 1, level: 20, otName: 'PLAYER' } as unknown as PokemonInstance],
     pcDetails: [],
     trainerName: 'PLAYER',
   } as unknown as SaveData;
@@ -212,11 +230,11 @@ test('coverage for gen 2 breeding edge case without valid base pokemon', async (
     ancestralEncounters: {},
     pokemonMetadata: {
       50: {
-        id: 50, // Pichu
+        id: 50,
         n: 'Pichu',
         efrm: [],
         det: [],
-        eto: [{ id: 1, min: 0, m: 1, tr: 1, mh: 220, item: null, held: null, time: null, rel_s: null }], // Pitchu evolves into Bulbasaur
+        eto: [{ id: 1, min: 0, m: 1, tr: 1, mh: 220, item: null, held: null, time: null, rel_s: null }],
       },
     },
     areaNames: {},
@@ -235,7 +253,7 @@ test('coverage for missing target id in pokemonMetadata for Gen 2 breeding', asy
   const mockSaveData = {
     generation: 2,
     gameVersion: 'crystal',
-    owned: new Set([25]), // own Pikachu
+    owned: new Set([25]),
     seen: new Set(),
     party: [],
     inventory: [],
@@ -250,9 +268,7 @@ test('coverage for missing target id in pokemonMetadata for Gen 2 breeding', asy
     localEncounters: [],
     missingEncounters: {},
     ancestralEncounters: {},
-    pokemonMetadata: {
-      // 50 is NOT defined here
-    },
+    pokemonMetadata: {},
     areaNames: {},
     allLocations: [],
     allAreas: [],
@@ -267,7 +283,7 @@ test('coverage for generateSuggestions with missing parent / target id / empty d
   const mockSaveData = {
     generation: 2,
     gameVersion: 'crystal',
-    owned: new Set([1, 2, 3]), // don't own 50
+    owned: new Set([1, 2, 3]),
     seen: new Set(),
     party: [],
     inventory: [],
@@ -286,7 +302,7 @@ test('coverage for generateSuggestions with missing parent / target id / empty d
       50: {
         id: 50,
         n: 'Diglett',
-        efrm: [25], // Diglett evolves from Pikachu (but we don't own Pikachu)
+        efrm: [25],
         det: [],
         eto: [],
       },
@@ -333,7 +349,7 @@ test('coverage for missing target metadata entirely in evo logic', async () => {
 
 test('coverage for suggestionEngine getGameItemId unknown generation', async () => {
   const mockSaveData: SaveData = {
-    generation: 4, // Forcing this to 4 to hit the return on line 59.
+    generation: 4,
     gameVersion: 'red',
     owned: new Set([133]),
     seen: new Set(),
@@ -373,7 +389,7 @@ test('coverage for recursive missing exclusive logic', async () => {
   const mockSaveData = {
     generation: 1,
     gameVersion: 'red',
-    owned: new Set([4]), // Only owns Charmander
+    owned: new Set([4]),
     seen: new Set([4]),
     party: [],
     pc: [],
@@ -391,7 +407,7 @@ test('coverage for recursive missing exclusive logic', async () => {
     pokemonMetadata: {
       4: { id: 4, n: 'Charmander', efrm: [], det: [], eto: [] },
       5: { id: 5, n: 'Charmeleon', efrm: [4], det: [{ tr: 1, ml: 16 }], eto: [] },
-      6: { id: 6, n: 'Charizard', efrm: [5, 4], det: [{ tr: 1, ml: 36 }], eto: [] }, // Charizard has Charmeleon (5) and Charmander (4) as ancestors
+      6: { id: 6, n: 'Charizard', efrm: [5, 4], det: [{ tr: 1, ml: 36 }], eto: [] },
     },
     ancestralEncounters: {},
     areaNames: {},
@@ -414,7 +430,7 @@ test('coverage for localPids.delete with array of pokemonIds', async () => {
   const mockSaveData = {
     generation: 2,
     gameVersion: 'crystal',
-    owned: new Set([]), // Empty to trigger catch logic
+    owned: new Set([]),
     seen: new Set(),
     party: [],
     inventory: [],
@@ -431,16 +447,14 @@ test('coverage for localPids.delete with array of pokemonIds', async () => {
       1: {
         aid: 1,
         locId: 1,
-        pids: [1, 2], // Both will be filtered out because no valid details
-        details: [
-          // No details means hasValidEncounter will be false
-        ],
+        pids: [1, 2],
+        details: [],
       },
     },
     ancestralEncounters: {},
     pokemonMetadata: {
-      1: { id: 1, n: 'Bulbasaur', efrm: [], det: [], eto: [] },
-      2: { id: 2, n: 'Ivysaur', efrm: [1], det: [], eto: [] },
+      1: { id: 1, n: 'Bulbasaur', efrm: [], eto: [] } as unknown as import('../../../db/schema').PokemonMetadata,
+      2: { id: 2, n: 'Ivysaur', efrm: [1], eto: [] } as unknown as import('../../../db/schema').PokemonMetadata,
     },
     areaNames: {},
     allLocations: [{ id: 1, name: 'Route 1', pids: [1, 2], type: 'route', gen: 2, isLandmark: false }],
@@ -458,7 +472,6 @@ test('coverage for localPids.delete with array of pokemonIds', async () => {
 
   const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
 
-  // Both should be filtered out, suggestions length should be >0 but not contain Route 1 catch
   const locSugg = suggestions.find((s) => s.category === 'Catch');
   expect(locSugg).toBeUndefined();
 });
@@ -467,7 +480,7 @@ test('coverage for localPids.delete with single pokemonId', async () => {
   const mockSaveData = {
     generation: 2,
     gameVersion: 'crystal',
-    owned: new Set([]), // Empty to trigger catch logic
+    owned: new Set([]),
     seen: new Set(),
     party: [],
     inventory: [],
@@ -484,13 +497,13 @@ test('coverage for localPids.delete with single pokemonId', async () => {
       1: {
         aid: 1,
         locId: 1,
-        pids: [1], // Single ID, filtered out because no details
+        pids: [1],
         details: [],
       },
     },
     ancestralEncounters: {},
     pokemonMetadata: {
-      1: { id: 1, n: 'Bulbasaur', efrm: [], det: [], eto: [] },
+      1: { id: 1, n: 'Bulbasaur', efrm: [], eto: [] } as unknown as import('../../../db/schema').PokemonMetadata,
     },
     areaNames: {},
     allLocations: [{ id: 1, name: 'Route 1', pids: [1], type: 'route', gen: 2, isLandmark: false }],
@@ -516,7 +529,7 @@ test('coverage for localPids.delete with some ids filtered out', async () => {
   const mockSaveData = {
     generation: 2,
     gameVersion: 'crystal',
-    owned: new Set([]), // Empty to trigger catch logic
+    owned: new Set([]),
     seen: new Set(),
     party: [],
     inventory: [],
@@ -533,7 +546,7 @@ test('coverage for localPids.delete with some ids filtered out', async () => {
       1: {
         aid: 1,
         locId: 1,
-        pids: [1, 2], // 1 has details, 2 doesn't
+        pids: [1, 2],
         details: [
           {
             method: 'WALK',
@@ -543,7 +556,7 @@ test('coverage for localPids.delete with some ids filtered out', async () => {
             minLevel: 10,
             maxLevel: 10,
             games: [],
-            pid: 1, // Only pid 1 is valid
+            pid: 1,
           },
         ],
       },
@@ -569,7 +582,6 @@ test('coverage for localPids.delete with some ids filtered out', async () => {
 
   const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, mockStrategyWithCatch);
 
-  // Suggestion exists but only has 1
   expect(suggestions.length).toBeGreaterThan(0);
 });
 
@@ -577,7 +589,7 @@ test('coverage for suggestionEngine catch filtering with single pokemonId', asyn
   const mockSaveData = {
     generation: 2,
     gameVersion: 'crystal',
-    owned: new Set([]), // Empty to trigger catch logic
+    owned: new Set([]),
     seen: new Set(),
     party: [],
     inventory: [],
@@ -592,15 +604,16 @@ test('coverage for suggestionEngine catch filtering with single pokemonId', asyn
     localEncounters: [],
     missingEncounters: {
       1: {
+        placeholder: true,
         aid: 1,
         locId: 1,
-        pids: [1], // Single ID
-        details: [], // No details -> hasValidEncounter = false
+        pids: [1],
+        details: [],
       },
     },
     ancestralEncounters: {},
     pokemonMetadata: {
-      1: { id: 1, n: 'Bulbasaur', efrm: [], det: [], eto: [] },
+      1: { id: 1, n: 'Bulbasaur', efrm: [], eto: [] } as unknown as import('../../../db/schema').PokemonMetadata,
     },
     areaNames: {},
     allLocations: [{ id: 1, name: 'Route 1', pids: [1], type: 'route', gen: 2, isLandmark: false }],
@@ -620,7 +633,7 @@ test('coverage for suggestionEngine catch filtering with single pokemonId', asyn
         category: 'Catch',
         title: 'Catch Right Here',
         description: '...',
-        pokemonId: 1, // Notice this is a single ID, not array pokemonIds
+        pokemonId: 1,
         priority: 120,
         encounterInfo: {
           1: undefined,
@@ -639,7 +652,7 @@ test('coverage for suggestionEngine catch filtering when pokemonIds has undefine
   const mockSaveData = {
     generation: 2,
     gameVersion: 'crystal',
-    owned: new Set([]), // Empty to trigger catch logic
+    owned: new Set([]),
     seen: new Set(),
     party: [],
     inventory: [],
@@ -701,5 +714,5 @@ test('coverage for suggestionEngine catch filtering when pokemonIds has undefine
 
   const locSugg = suggestions.find((s) => s.category === 'Catch');
   expect(locSugg).toBeDefined();
-  expect(locSugg?.pokemonIds).toEqual([1]); // 2 is filtered out
+  expect(locSugg?.pokemonIds).toEqual([1]);
 });

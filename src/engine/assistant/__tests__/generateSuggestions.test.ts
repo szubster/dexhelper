@@ -1,4 +1,5 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import { pokeDB } from '../../../db/PokeDB';
 import type { PokemonMetadata } from '../../../db/schema';
 import type { SaveData } from '../../saveParser/index';
 import type { PokemonInstance } from '../../saveParser/parsers/common';
@@ -7,6 +8,26 @@ import { gen1Strategy } from '../strategies/gen1Strategy';
 import type { EncounterDetail } from '../strategies/types';
 import { generateSuggestions } from '../suggestionEngine';
 import type { AssistantApiData } from '../suggestionEngineTypes';
+
+const MOCK_ITEMS: Record<number, Record<string, string | number>> = {
+  4: { id: 4, name: 'Poké Ball', gen1_id: 4, gen2_id: 4, gen3_id: 4 },
+  80: { id: 80, name: 'Sun Stone', gen1_id: 17, gen2_id: 169, gen3_id: 93 },
+  81: { id: 81, name: 'Moon Stone', gen1_id: 10, gen2_id: 8, gen3_id: 94 },
+  82: { id: 82, name: 'Fire Stone', gen1_id: 32, gen2_id: 22, gen3_id: 95 },
+  83: { id: 83, name: 'Thunder Stone', gen1_id: 33, gen2_id: 23, gen3_id: 96 },
+  84: { id: 84, name: 'Water Stone', gen1_id: 34, gen2_id: 24, gen3_id: 97 },
+  85: { id: 85, name: 'Leaf Stone', gen1_id: 47, gen2_id: 34, gen3_id: 98 },
+  198: { id: 198, name: "King's Rock", gen1_id: 198, gen2_id: 221, gen3_id: 187 },
+  210: { id: 210, name: 'Metal Coat', gen1_id: 210, gen2_id: 143, gen3_id: 199 },
+  212: { id: 212, name: 'Dragon Scale', gen1_id: 212, gen2_id: 151, gen3_id: 201 },
+  229: { id: 229, name: 'Upgrade', gen1_id: 229, gen2_id: 172, gen3_id: 218 },
+  203: { id: 203, name: 'Deep Sea Tooth', gen1_id: 203, gen2_id: 203, gen3_id: 192 },
+  204: { id: 204, name: 'Deep Sea Scale', gen1_id: 204, gen2_id: 204, gen3_id: 193 },
+};
+
+vi.spyOn(pokeDB, 'getItem').mockImplementation(async (id) => {
+  return MOCK_ITEMS[id] as unknown as import('../../../db/schema').ItemMetadata;
+});
 
 describe('generateSuggestions', () => {
   it('should detect when an evolution item is already equipped for Trade evolutions', async () => {
