@@ -28,4 +28,4 @@ Ensure e2e integration testing of the static analysis linter for bash sessions t
 
 ## Acceptance Criteria
 - [x] Break down this story into a task exclusively for Integration and E2E Verification.
-- [ ] task-357-402-bash-linter-e2e-impl
+- [x] task-357-402-bash-linter-e2e-impl
