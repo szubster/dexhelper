@@ -2,12 +2,12 @@
 id: epic-339-405-orchestrator-archive-bypass
 type: EPIC
 title: Orchestrator Archive Bypass
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-07'
-updated_at: '2026-08-07'
+updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15676409047472414353'
 pr_number: null
 parent: prd-129-339-epic-level-distillation-archival
 tags:
