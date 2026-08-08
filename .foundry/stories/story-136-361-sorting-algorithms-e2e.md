@@ -30,5 +30,7 @@ Verify the end-to-end functionality of PC Box Sorting Algorithms across Gen 1, G
 As per the Orchestrator Safeguard, this story ensures that all sorting strategies (DexNumber, Level, Type, Alpha) work correctly together and handle all cross-generation considerations properly in an integrated environment.
 
 ## Acceptance Criteria
-- [ ] Break down this story into a task to implement E2E tests for PC Box Sorting Algorithms.
-- [ ] Break down this story into a task to QA the E2E tests for PC Box Sorting Algorithms.
+- [x] Break down this story into a task to implement E2E tests for PC Box Sorting Algorithms.
+- [x] Break down this story into a task to QA the E2E tests for PC Box Sorting Algorithms.
+- [ ] task-361-407-sorting-algorithms-e2e-impl
+- [ ] task-361-408-sorting-algorithms-e2e-qa
