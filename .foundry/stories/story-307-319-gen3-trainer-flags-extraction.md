@@ -2,10 +2,10 @@
 id: story-307-319-gen3-trainer-flags-extraction
 type: STORY
 title: Gen 3 Trainer Defeat Flags Extraction
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-07-16'
+updated_at: '2026-08-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -34,5 +34,5 @@ Extract standard and rematch trainer defeat flags from Gen 3 save files to be us
 ## Acceptance Criteria
 - [x] Create Tech Lead Task Blueprints
 
-- [ ] task-319-322-gen3-trainer-flags-extraction-impl
-- [ ] task-319-323-gen3-trainer-flags-extraction-qa
+- [x] task-319-322-gen3-trainer-flags-extraction-impl
+- [x] task-319-323-gen3-trainer-flags-extraction-qa

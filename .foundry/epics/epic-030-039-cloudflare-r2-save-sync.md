@@ -2,12 +2,12 @@
 id: epic-030-039-cloudflare-r2-save-sync
 type: EPIC
 title: Cloudflare R2 Offline-First Save Syncing
-status: ACTIVE
+status: COMPLETED
 owner_persona: auditor
 created_at: '2026-05-21'
-updated_at: '2026-08-06'
+updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: '6871811641807749271'
+jules_session_id: null
 pr_number: null
 parent: prd-055-030-cloudflare-auth-sync
 tags:
@@ -44,3 +44,6 @@ Following the establishment of a secure authentication layer, the application ne
 - [x] story-039-265-r2-offline-conflict-resolution
 - [x] story-039-266-r2-graceful-degradation
 - [x] story-039-356-r2-sync-e2e
+
+## Follow-up Action Items
+- [ ] idea-039-401-r2-conflict-resolution-ui

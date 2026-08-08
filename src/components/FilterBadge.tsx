@@ -14,7 +14,11 @@ export function FilterBadge({ isActive, label }: FilterBadgeProps) {
           isActive ? 'bg-[var(--theme-primary)] shadow-[0_0_5px_var(--theme-primary)]' : 'bg-zinc-800',
         )}
       />
-      <span>[ {label} ]</span>
+      <span>
+        <span aria-hidden="true">[ </span>
+        {label}
+        <span aria-hidden="true"> ]</span>
+      </span>
     </span>
   );
 }

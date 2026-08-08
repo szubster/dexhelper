@@ -46,7 +46,7 @@ describe('Catch Encounter Filtering', () => {
     postProcessSuggestions: () => {},
   };
 
-  it('penalizes priority and adds warning for headbutt encounters if player lacks the TM', () => {
+  it('penalizes priority and adds warning for headbutt encounters if player lacks the TM', async () => {
     const mockStrategyWithCatch: AssistantStrategy = {
       ...mockStrategy,
       getSpecialSuggestions: () => [
@@ -77,14 +77,14 @@ describe('Catch Encounter Filtering', () => {
     });
     const apiData = createMockApiData();
 
-    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const { suggestions } = await generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
     const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
     expect(catchLocal).toBeDefined();
     expect(catchLocal?.priority).toBe(45);
     expect(catchLocal?.warning).toBe('Requires Headbutt');
   });
 
-  it('retains headbutt encounters if player has the TM in inventory', () => {
+  it('retains headbutt encounters if player has the TM in inventory', async () => {
     const mockStrategyWithCatch: AssistantStrategy = {
       ...mockStrategy,
       getSpecialSuggestions: () => [
@@ -117,13 +117,13 @@ describe('Catch Encounter Filtering', () => {
     });
     const apiData = createMockApiData();
 
-    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const { suggestions } = await generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
     const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
     expect(catchLocal).toBeDefined();
     expect(catchLocal?.encounterInfo?.[16]).toHaveLength(1);
   });
 
-  it('penalizes priority and adds warning for rock-smash encounters if player lacks the TM', () => {
+  it('penalizes priority and adds warning for rock-smash encounters if player lacks the TM', async () => {
     const mockStrategyWithCatch: AssistantStrategy = {
       ...mockStrategy,
       getSpecialSuggestions: () => [
@@ -154,14 +154,14 @@ describe('Catch Encounter Filtering', () => {
     });
     const apiData = createMockApiData();
 
-    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const { suggestions } = await generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
     const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
     expect(catchLocal).toBeDefined();
     expect(catchLocal?.priority).toBe(45);
     expect(catchLocal?.warning).toBe('Requires Rock Smash');
   });
 
-  it('retains rock-smash encounters if player has the TM in pcItems', () => {
+  it('retains rock-smash encounters if player has the TM in pcItems', async () => {
     const mockStrategyWithCatch: AssistantStrategy = {
       ...mockStrategy,
       getSpecialSuggestions: () => [
@@ -194,13 +194,13 @@ describe('Catch Encounter Filtering', () => {
     });
     const apiData = createMockApiData();
 
-    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const { suggestions } = await generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
     const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
     expect(catchLocal).toBeDefined();
     expect(catchLocal?.encounterInfo?.[16]).toHaveLength(1);
   });
 
-  it('retains headbutt encounters if a pokemon in party has the move', () => {
+  it('retains headbutt encounters if a pokemon in party has the move', async () => {
     const mockStrategyWithCatch: AssistantStrategy = {
       ...mockStrategy,
       getSpecialSuggestions: () => [
@@ -234,13 +234,13 @@ describe('Catch Encounter Filtering', () => {
     });
     const apiData = createMockApiData();
 
-    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const { suggestions } = await generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
     const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
     expect(catchLocal).toBeDefined();
     expect(catchLocal?.encounterInfo?.[16]).toHaveLength(1);
   });
 
-  it('adds warnings to specific encounters when some pokemon lack tools but others have accessible methods', () => {
+  it('adds warnings to specific encounters when some pokemon lack tools but others have accessible methods', async () => {
     const mockStrategyWithCatch: AssistantStrategy = {
       ...mockStrategy,
       getSpecialSuggestions: () => [
@@ -281,7 +281,7 @@ describe('Catch Encounter Filtering', () => {
     });
     const apiData = createMockApiData();
 
-    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const { suggestions } = await generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
     const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
     expect(catchLocal).toBeDefined();
     expect(catchLocal?.pokemonIds).toEqual([16, 17]);
@@ -291,7 +291,7 @@ describe('Catch Encounter Filtering', () => {
     expect(catchLocal?.priority).toBe(45);
   });
 
-  it('penalizes priority and adds warning for surf encounters if player lacks the HM and move', () => {
+  it('penalizes priority and adds warning for surf encounters if player lacks the HM and move', async () => {
     const mockStrategyWithCatch: AssistantStrategy = {
       ...mockStrategy,
       getSpecialSuggestions: () => [
@@ -322,14 +322,14 @@ describe('Catch Encounter Filtering', () => {
     });
     const apiData = createMockApiData();
 
-    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const { suggestions } = await generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
     const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
     expect(catchLocal).toBeDefined();
     expect(catchLocal?.priority).toBe(45);
     expect(catchLocal?.warning).toBe('Requires Surf');
   });
 
-  it('retains surf encounters if player has the HM in inventory', () => {
+  it('retains surf encounters if player has the HM in inventory', async () => {
     const mockStrategyWithCatch: AssistantStrategy = {
       ...mockStrategy,
       getSpecialSuggestions: () => [
@@ -362,13 +362,13 @@ describe('Catch Encounter Filtering', () => {
     });
     const apiData = createMockApiData();
 
-    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const { suggestions } = await generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
     const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
     expect(catchLocal).toBeDefined();
     expect(catchLocal?.encounterInfo?.[16]).toHaveLength(1);
   });
 
-  it('retains surf encounters if a pokemon in party has the move', () => {
+  it('retains surf encounters if a pokemon in party has the move', async () => {
     const mockStrategyWithCatch: AssistantStrategy = {
       ...mockStrategy,
       getSpecialSuggestions: () => [
@@ -402,13 +402,13 @@ describe('Catch Encounter Filtering', () => {
     });
     const apiData = createMockApiData();
 
-    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const { suggestions } = await generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
     const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
     expect(catchLocal).toBeDefined();
     expect(catchLocal?.encounterInfo?.[16]).toHaveLength(1);
   });
 
-  it('penalizes priority and adds warnings for rod encounters if player lacks the Rod item', () => {
+  it('penalizes priority and adds warnings for rod encounters if player lacks the Rod item', async () => {
     const mockStrategyWithCatch: AssistantStrategy = {
       ...mockStrategy,
       getSpecialSuggestions: () => [
@@ -433,14 +433,14 @@ describe('Catch Encounter Filtering', () => {
     });
     const apiData = createMockApiData();
 
-    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const { suggestions } = await generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
     const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
     expect(catchLocal).toBeDefined();
     expect(catchLocal?.priority).toBe(45);
     expect(catchLocal?.warning).toBe('Requires Old Rod, Requires Good Rod, Requires Super Rod');
   });
 
-  it('retains rod encounters if player has the correct rod in inventory', () => {
+  it('retains rod encounters if player has the correct rod in inventory', async () => {
     const mockStrategyWithCatch: AssistantStrategy = {
       ...mockStrategy,
       getSpecialSuggestions: () => [
@@ -470,7 +470,7 @@ describe('Catch Encounter Filtering', () => {
     });
     const apiData = createMockApiData();
 
-    const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+    const { suggestions } = await generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
     const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
     expect(catchLocal).toBeDefined();
     expect(catchLocal?.encounterInfo?.[16]).toHaveLength(1);
@@ -479,7 +479,7 @@ describe('Catch Encounter Filtering', () => {
   });
 
   describe('Edge cases', () => {
-    it('handles priority penalizing when encounterInfo details contains undefined elements', () => {
+    it('handles priority penalizing when encounterInfo details contains undefined elements', async () => {
       const mockStrategyWithCatch: AssistantStrategy = {
         ...mockStrategy,
         getSpecialSuggestions: () => [
@@ -511,14 +511,14 @@ describe('Catch Encounter Filtering', () => {
       });
       const apiData = createMockApiData();
 
-      const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+      const { suggestions } = await generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
       const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
       expect(catchLocal).toBeDefined();
       expect(catchLocal?.priority).toBe(45);
       expect(catchLocal?.warning).toBe('Requires Headbutt');
     });
 
-    it('handles warning logic when single pokemonId is used instead of pokemonIds array', () => {
+    it('handles warning logic when single pokemonId is used instead of pokemonIds array', async () => {
       const mockStrategyWithCatch: AssistantStrategy = {
         ...mockStrategy,
         getSpecialSuggestions: () => [
@@ -549,7 +549,7 @@ describe('Catch Encounter Filtering', () => {
       });
       const apiData = createMockApiData();
 
-      const { suggestions } = generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
+      const { suggestions } = await generateSuggestions(saveData, false, 'crystal', apiData, mockStrategyWithCatch);
       const catchLocal = suggestions.find((s) => s.id === 'catch-local') as CatchSuggestion | undefined;
       expect(catchLocal).toBeDefined();
       expect(catchLocal?.priority).toBe(45);

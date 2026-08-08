@@ -18,6 +18,14 @@ export type { GameVersion, PokemonInstance, SaveData };
  * It identifies whether the file belongs to Generation 1 (R/B/Y), Generation 2 (G/S/C), or
  * Generation 3 (R/S/E/FR/LG) by verifying checksums, signatures, and internal structures.
  *
+ * ## Architecture Overview
+ * The parser uses a two-pass heuristic pipeline to detect the game generation:
+ * 1. **Checksum Verification**: First, it attempts to validate the file using strict
+ *    mathematical checksum algorithms specific to Gen 1 and Gen 2.
+ * 2. **Structural Fallback**: If the checksums fail (often due to emulator bugs, GameShark cheats,
+ *    or corrupt flash memory), the parser falls back to structural "duck typing". It scans specific
+ *    memory offsets for known signatures (e.g., trainer names, money encoding) to make a best-guess.
+ *
  * @param buffer - The raw binary data of the .sav file.
  * @param forcedVersion - An optional version override provided by the user to force specific parsing logic (e.g., forcing Yellow, Crystal, or Emerald).
  * @returns The structured SaveData object representing the player's progress and Pokémon.
@@ -60,6 +68,11 @@ export function parseSaveFile(buffer: ArrayBufferLike, forcedVersion?: GameVersi
       return parseGen2(view);
     } else {
       // Fallback for saves with broken checksums but valid structure
+      // Why do we need this?
+      // Emulators, cheats (like GameShark), and third-party save editors frequently modify
+      // the save payload without recalculating and updating the checksum byte at the end of the block.
+      // If we strictly relied on checksums, these files would be permanently unreadable.
+      // Instead, we use structural signatures (`isGen1Save`, `isGen2Save`, `isGen3Save`) to identify them.
       if (isGen1Save(view)) {
         return parseGen1(view, forcedVersion);
       } else if (isGen2Save(view, true)) {
@@ -67,6 +80,8 @@ export function parseSaveFile(buffer: ArrayBufferLike, forcedVersion?: GameVersi
       } else if (isGen2Save(view, false)) {
         return parseGen2(view, false);
       } else if (isGen3Save(view)) {
+        // Note: Gen 3 uses a complex A/B flash bank system with multiple checksums per sector,
+        // so its initial detection heavily relies on this structural fallback path rather than a single contiguous block checksum.
         return parseGen3(view, forcedVersion);
       }
       throw new Error(

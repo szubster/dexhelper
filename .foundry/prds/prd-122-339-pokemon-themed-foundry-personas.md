@@ -2,12 +2,12 @@
 id: prd-122-339-pokemon-themed-foundry-personas
 type: PRD
 title: Pokémon-Themed Foundry Persona Skins and Gamified Workflow
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-06'
-updated_at: '2026-08-07'
+updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: '15386311754732118295'
+jules_session_id: null
 pr_number: null
 parent: idea-122-pokemon-themed-foundry-personas
 tags:
@@ -38,4 +38,8 @@ Additionally, it translates the system's strict directed acyclic graph (DAG) sta
 - **Consistency:** Ensure the narrative theme is consistently applied across all documentation, UI components, and logs.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into EPICs and dependencies.
+- [x] Epic Planner: Break down this PRD into EPICs and dependencies.
+- [ ] epic-339-405-schema-role-mapping
+- [ ] epic-339-406-jules-agent-skins
+- [ ] epic-339-407-gamified-dashboard-ui
+- [ ] epic-339-408-orchestrator-themed-output

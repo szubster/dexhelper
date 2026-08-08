@@ -84,7 +84,7 @@ export const TacticalCard = React.memo(
           {/* Corner Crosshairs */}
           <CornerCrosshairs
             thickness={2}
-            className="h-2 w-2 border-white/40 transition-colors group-hover:border-[var(--theme-primary)]"
+            className="h-2 w-2 border-white/40 transition-colors group-hover:border-[var(--theme-primary)] group-focus-visible:border-[var(--theme-primary)]"
           />
           {children}
         </button>

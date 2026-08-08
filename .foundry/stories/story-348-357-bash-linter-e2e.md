@@ -2,7 +2,7 @@
 id: story-348-357-bash-linter-e2e
 type: STORY
 title: Bash Static Analysis Linter E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2024-11-20'
 updated_at: '2026-08-08'
@@ -28,4 +28,4 @@ Ensure e2e integration testing of the static analysis linter for bash sessions t
 
 ## Acceptance Criteria
 - [x] Break down this story into a task exclusively for Integration and E2E Verification.
-- [ ] task-357-402-bash-linter-e2e-impl
+- [x] task-357-402-bash-linter-e2e-impl

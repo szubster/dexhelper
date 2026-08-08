@@ -2,12 +2,12 @@
 id: idea-131-orchestrator-resource-locking-mutex
 type: IDEA
 title: Implement Resource Locking (Mutex) in DAG Orchestrator
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-31'
-updated_at: '2026-08-07'
+updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: '7649435094531398053'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -33,4 +33,7 @@ Introduce a formal "Resource Locking" (Mutex) mechanism within the DAG orchestra
 This ensures that multiple agents do not stomp on each other's work or cause complex git merge conflicts when dealing with central configuration or index files. It moves the Foundry from simple state tracking to true concurrent execution safety.
 
 ## Next Steps
-- [ ] Product Manager: Draft a PRD outlining the YAML schema changes and the orchestrator logic for lock acquisition and release.
+- [x] Product Manager: Draft a PRD outlining the YAML schema changes and the orchestrator logic for lock acquisition and release.
+
+## Acceptance Criteria
+- [ ] prd-131-340-orchestrator-resource-locking-mutex

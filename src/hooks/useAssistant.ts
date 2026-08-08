@@ -9,7 +9,7 @@ import { getGenerationConfig } from '../utils/generationConfig';
 /**
  * A React hook that orchestrates the Pokémon suggestion engine.
  * It identifies missing Pokémon, fetches necessary encounter data from IndexedDB,
- * and generates prioritized recommendations.
+ * and generates prioritized recommendations asynchronously.
  *
  * @param saveData - The parsed save data of the current game.
  * @param isLivingDex - If true, evaluates "owned" based on physical storage (PC/Party) instead of Pokédex flags.
@@ -48,23 +48,29 @@ export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, ma
     return missingIds.slice(0, 30);
   }, [saveData, isLivingDex]);
 
-  const { data: apiData, isLoading: isLoadingEncounters } = useQuery({
+  const { data: queryData, isLoading } = useQuery({
     queryKey: [
       'assistantData',
       saveData?.generation,
       saveData?.currentMapId,
       queryTargetsSlice.join(','),
       saveData?.party?.join(','),
+      isLivingDex,
+      manualVersion,
     ],
-    queryFn: () => (saveData ? fetchAssistantApiData(saveData, queryTargetsSlice) : Promise.reject('No save data')),
+    queryFn: async () => {
+      if (!saveData) throw new Error('No save data');
+      const apiData = await fetchAssistantApiData(saveData, queryTargetsSlice);
+      const strategy = getStrategy(saveData.generation);
+      const suggestionsResult = await generateSuggestions(saveData, isLivingDex, manualVersion, apiData, strategy);
+      return { apiData, ...suggestionsResult };
+    },
     enabled: !!saveData,
   });
 
-  const strategy = useMemo(() => getStrategy(saveData?.generation || 1), [saveData?.generation]);
-  // ⚡ Bolt: Memoize expensive synchronous suggestion generation to prevent blocking the main thread on every re-render
-  const { suggestions, debug } = useMemo(() => {
-    return generateSuggestions(saveData, isLivingDex, manualVersion, apiData ?? null, strategy);
-  }, [saveData, isLivingDex, manualVersion, apiData, strategy]);
+  const suggestions = queryData?.suggestions ?? [];
+  const debug = queryData?.debug ?? { rejected: [] };
+  const areaNames = queryData?.apiData?.areaNames;
 
   const heatmap = useMemo(() => {
     const controller = new RouteRadarController();
@@ -74,8 +80,8 @@ export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, ma
   return {
     suggestions,
     debug,
-    isLoading: isLoadingEncounters,
-    areaNames: apiData?.areaNames,
+    isLoading: isLoading,
+    areaNames,
     heatmap,
   };
 }

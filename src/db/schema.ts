@@ -241,6 +241,9 @@ export interface ItemMetadata {
   fling_p?: number | undefined;
   effect?: string | undefined;
   sprite?: string | undefined;
+  gen1_id?: number | undefined;
+  gen2_id?: number | undefined;
+  gen3_id?: number | undefined;
 }
 
 export interface HiddenItemData {

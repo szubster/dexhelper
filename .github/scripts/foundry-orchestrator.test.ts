@@ -2592,6 +2592,43 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(cContent).toContain("rejection_reason: Circular dependency detected");
   });
 
+  test('Deadlock Prevention: Handles direct circular dependencies (A -> B -> A) safely', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-a.md', {
+      id: "task-a",
+      type: "TASK",
+      title: "Task A",
+      status: "PENDING",
+      owner_persona: "coder",
+      depends_on: [".foundry/tasks/task-b.md"],
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-b.md', {
+      id: "task-b",
+      type: "TASK",
+      title: "Task B",
+      status: "PENDING",
+      owner_persona: "coder",
+      depends_on: [".foundry/tasks/task-a.md"],
+    });
+
+    const stderrSpy = vi.spyOn(process.stderr, 'write');
+
+    main();
+
+    const output = stderrSpy.mock.calls.map(call => call[0] as string).join('');
+
+    // It should explicitly output the cycle format
+    expect(output).toContain('Detected circular dependency: .foundry/tasks/task-a.md -> .foundry/tasks/task-b.md -> .foundry/tasks/task-a.md');
+
+    const aContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-a.md"), "utf-8");
+    const bContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-b.md"), "utf-8");
+
+    expect(aContent).toContain("status: FAILED");
+    expect(aContent).toContain("rejection_reason: Circular dependency detected");
+    expect(bContent).toContain("status: FAILED");
+    expect(bContent).toContain("rejection_reason: Circular dependency detected");
+  });
+
   test('Deadlock Prevention: Correctly isolates cycle and doesn\'t fail innocent nodes pointing to cycle', () => {
     // Task A points to B, but is not in the cycle
     createValidTestNode(tmpDir, '.foundry/tasks/task-a.md', {
@@ -2810,5 +2847,49 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     const parentContent = fs.readFileSync(path.join(tmpDir, '.foundry/archive/epics/epic-parent.md'), 'utf-8');
     // It should be promoted to COMPLETED directly, bypassing READY/ACTIVE dispatch!
     expect(parentContent).toContain('status: COMPLETED');
+  });
+
+  test('Prompt Compilation: compiles a multi-layered prompt with generic, specific, and core policies', () => {
+    // Ensure the directories exist
+    fs.mkdirSync(path.join(tmpDir, '.github/agents/specific'), { recursive: true });
+    fs.mkdirSync(path.join(tmpDir, '.github/agents/generic'), { recursive: true });
+    fs.mkdirSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents'), { recursive: true });
+
+    // Write mock persona, specific layer and core policy files
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/coder.md'), 'CODER_GENERIC_PROMPT_CONTENT');
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/specific/typescript.md'), 'TYPESCRIPT_SPECIFIC_CONTENT');
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/specific/react.md'), 'REACT_SPECIFIC_CONTENT');
+    fs.writeFileSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents/core_policies.md'), 'CORE_POLICIES_CONTENT');
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-001.md', {
+      id: "task-001",
+      type: "TASK",
+      title: "Task with Layers",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      tags: ["typescript", "react"],
+      jules_session_id: null,
+    });
+
+    // Mock console.log to intercept orchestrator stdout output
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    main();
+
+    expect(logSpy).toHaveBeenCalled();
+    const lastCall = logSpy.mock.calls[logSpy.mock.calls.length - 1][0];
+    const parsedOutput = JSON.parse(lastCall);
+
+    expect(parsedOutput).toHaveLength(1);
+    expect(parsedOutput[0].id).toBe('task-001');
+    expect(parsedOutput[0].compiled_prompt).toContain('CODER_GENERIC_PROMPT_CONTENT');
+    expect(parsedOutput[0].compiled_prompt).toContain('TYPESCRIPT_SPECIFIC_CONTENT');
+    expect(parsedOutput[0].compiled_prompt).toContain('REACT_SPECIFIC_CONTENT');
+    expect(parsedOutput[0].compiled_prompt).toContain('CORE_POLICIES_CONTENT');
+
+    logSpy.mockRestore();
   });
 });

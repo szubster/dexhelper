@@ -2,10 +2,10 @@
 id: epic-057-348-bash-static-analysis-linter-retry
 type: EPIC
 title: Static Analysis Linter for Bash Sessions (Retry)
-status: PENDING
-owner_persona: story_owner
+status: COMPLETED
+owner_persona: auditor
 created_at: '2026-07-26'
-updated_at: '2026-08-04'
+updated_at: '2026-08-08'
 depends_on:
   - epic-057-347-bash-timeout-wrapper-retry
 jules_session_id: null
@@ -28,5 +28,5 @@ Implement a static analysis linter to proactively block known infinite-blocking 
 
 ## Acceptance Criteria
 - [x] Break down this epic into stories.
-- [ ] story-348-356-bash-linter-impl
-- [ ] story-348-357-bash-linter-e2e
+- [x] story-348-356-bash-linter-impl
+- [x] story-348-357-bash-linter-e2e

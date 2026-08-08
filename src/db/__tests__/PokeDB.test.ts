@@ -20,6 +20,7 @@ vi.stubGlobal(
         poke: [],
         enc: [],
         loc: [],
+        items: [],
       }),
   } as unknown as Response),
 );
@@ -35,6 +36,7 @@ describe('PokeDB', () => {
           poke: [],
           enc: [],
           loc: [],
+          items: [],
         }),
     } as unknown as Response);
     pokeDB._resetSync();
@@ -45,6 +47,7 @@ describe('PokeDB', () => {
         DB_CONFIG.STORES.POKEMON,
         DB_CONFIG.STORES.ENCOUNTERS,
         DB_CONFIG.STORES.LOCATIONS,
+        DB_CONFIG.STORES.ITEMS,
         DB_CONFIG.STORES.METADATA,
       ].map((s) => tx.objectStore(s).clear()),
     );
@@ -76,7 +79,7 @@ describe('PokeDB', () => {
     // Verify it was reset by calling again with a successful fetch
     vi.mocked(fetch).mockResolvedValueOnce({
       ok: true,
-      arrayBuffer: async () => pack({ hash: 'test-hash-2', poke: [], enc: [], loc: [] }),
+      arrayBuffer: async () => pack({ hash: 'test-hash-2', poke: [], enc: [], loc: [], items: [] }),
     } as unknown as Response);
 
     await pokeDB.sync();
@@ -117,7 +120,7 @@ describe('PokeDB', () => {
 
     vi.mocked(fetch).mockResolvedValueOnce({
       ok: true,
-      arrayBuffer: async () => pack({ hash: 'old-hash', poke: [], enc: [], loc: [] }),
+      arrayBuffer: async () => pack({ hash: 'old-hash', poke: [], enc: [], loc: [], items: [] }),
     } as unknown as Response);
 
     const transactionSpy = vi.spyOn(db, 'transaction');
@@ -130,6 +133,7 @@ describe('PokeDB', () => {
       DB_CONFIG.STORES.POKEMON,
       DB_CONFIG.STORES.ENCOUNTERS,
       DB_CONFIG.STORES.LOCATIONS,
+      DB_CONFIG.STORES.ITEMS,
       DB_CONFIG.STORES.METADATA,
     ];
     expect(transactionSpy).not.toHaveBeenCalledWith(allStoreNames, 'readwrite');
@@ -138,7 +142,6 @@ describe('PokeDB', () => {
   });
 
   it('emits progress events during sync', async () => {
-    // We cannot easily spy on window if it's undefined, let's inject it into global context
     const originalWindow = global.window;
     const dispatchEventMock = vi.fn<(event: CustomEvent) => boolean>();
 
@@ -189,6 +192,25 @@ describe('PokeDB', () => {
     const p = await pokeDB.getPokemon(1);
     expect(p?.n).toBe('Bulbasaur');
     expect(p?.cr).toBe(45);
+  });
+
+  it('fetches single item correctly', async () => {
+    const mockData = {
+      items: [{ id: 81, name: 'Moon Stone', gen1_id: 10, gen2_id: 8, gen3_id: 94 }],
+      hash: 'item-hash',
+      poke: [],
+      enc: [],
+      loc: [],
+    };
+    vi.mocked(fetch).mockResolvedValue({
+      ok: true,
+      arrayBuffer: async () => pack(mockData),
+    } as unknown as Response);
+    await pokeDB.sync();
+
+    const item = await pokeDB.getItem(81);
+    expect(item?.name).toBe('Moon Stone');
+    expect(item?.gen1_id).toBe(10);
   });
 
   it('performs bulk operations for pokemons', async () => {
@@ -345,7 +367,7 @@ describe('PokeDB', () => {
     it('returns correct status when synced', async () => {
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
-        arrayBuffer: async () => pack({ hash: 'new-hash', poke: [], enc: [], loc: [] }),
+        arrayBuffer: async () => pack({ hash: 'new-hash', poke: [], enc: [], loc: [], items: [] }),
       } as unknown as Response);
 
       await pokeDB.sync();
@@ -374,7 +396,7 @@ describe('PokeDB', () => {
 
       vi.mocked(fetch).mockResolvedValue({
         ok: true,
-        arrayBuffer: async () => pack({ hash: 'synced-hash', poke: [], enc: [], loc: [] }),
+        arrayBuffer: async () => pack({ hash: 'synced-hash', poke: [], enc: [], loc: [], items: [] }),
       } as unknown as Response);
 
       await pokeDB.ready();

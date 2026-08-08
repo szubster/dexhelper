@@ -2,10 +2,10 @@
 id: story-338-356-circular-dependency-detection-e2e
 type: STORY
 title: Circular Dependency Detection E2E
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-04'
-updated_at: '2026-08-05'
+updated_at: '2026-08-08'
 depends_on:
   - story-338-336-implement-orchestrator-cycle-detection
 jules_session_id: null
@@ -29,5 +29,5 @@ Write E2E tests to verify the circular dependency detection feature in the DAG o
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-356-396-circular-dependency-e2e-impl
-- [ ] task-356-397-circular-dependency-e2e-qa
+- [x] task-356-396-circular-dependency-e2e-impl
+- [x] task-356-397-circular-dependency-e2e-qa

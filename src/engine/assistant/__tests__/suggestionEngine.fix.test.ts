@@ -36,8 +36,8 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
     allLocations: [],
   };
 
-  it('should only show "Version Exclusive" for Jynx in Yellow', () => {
-    const { suggestions } = generateSuggestions(
+  it('should only show "Version Exclusive" for Jynx in Yellow', async () => {
+    const { suggestions } = await generateSuggestions(
       mockSaveData as unknown as SaveData,
       false,
       'yellow',
@@ -51,8 +51,8 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
     expect(jynxSuggestions[0]?.title).toContain('Version Exclusive');
   });
 
-  it('should suppress "Version Exclusive" for Mr. Mime and only show NPC trade', () => {
-    const { suggestions } = generateSuggestions(
+  it('should suppress "Version Exclusive" for Mr. Mime and only show NPC trade', async () => {
+    const { suggestions } = await generateSuggestions(
       mockSaveData as unknown as SaveData,
       false,
       'yellow',

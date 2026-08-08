@@ -2,12 +2,12 @@
 id: prd-129-339-epic-level-distillation-archival
 type: PRD
 title: Epic-Level Distillation and Cold Storage Archival
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-06'
-updated_at: '2026-08-07'
+updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: '1517778892017773348'
+jules_session_id: null
 pr_number: null
 parent: idea-129-epic-level-distillation-archival
 tags:
@@ -48,3 +48,5 @@ To implement an archival strategy that maintains crucial historical context whil
 - [ ] Implement synthesis logic to append "Changelog & Learnings" to the EPIC node.
 - [ ] Implement file system logic to move child node files to `.foundry/archive/`.
 - [ ] Ensure the orchestrator is updated to ignore `.foundry/archive/` during DAG parsing.
+- [ ] epic-339-405-orchestrator-archive-bypass
+- [ ] epic-339-406-tpm-distillation-logic

@@ -2,12 +2,12 @@
 id: idea-136-split-bundles-and-data
 type: IDEA
 title: Split bundles and data by game generation
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2024-08-07'
 updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17749450542018693624'
 parent: null
 tags:
   - performance
@@ -36,5 +36,5 @@ Implement generation-based splitting for JavaScript engine logic, UI components,
 - **Improved Scalability**: Support for future generations (Gen 4+) without bloating the initial app experience.
 - **Better Resource Management**: Only load the data, code, and UI the user actually needs.
 
-## Next Steps
-- [ ] prd-136-split-bundles-and-data
+## Acceptance Criteria
+- [x] prd-136-340-split-bundles-and-data
