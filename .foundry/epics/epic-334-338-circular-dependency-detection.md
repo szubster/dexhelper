@@ -29,5 +29,5 @@ The Foundry DAG Orchestrator currently resolves dependencies linearly. Without c
 Implement robust circular dependency detection during the MAP or RESOLVE phases of the DAG orchestrator execution in `.github/scripts/foundry-orchestrator.ts`. The algorithm (such as a topological sort or DFS with a recursion stack) must properly evaluate all `PENDING` nodes and their `depends_on` relationships. If a circular dependency is detected, the orchestrator should immediately transition the involved nodes to a `FAILED` status and append a descriptive `rejection_reason` (e.g., "Circular dependency detected") in the frontmatter. Additionally, running the orchestrator in `--dry-run` or `--strict` modes should output explicit warnings or error logs detailing the detected cycle.
 
 ## Acceptance Criteria
-- [ ] story-338-336-implement-orchestrator-cycle-detection
-- [ ] story-338-356-circular-dependency-detection-e2e
+- [x] story-338-336-implement-orchestrator-cycle-detection
+- [x] story-338-356-circular-dependency-detection-e2e
