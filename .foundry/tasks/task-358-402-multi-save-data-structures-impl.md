@@ -30,6 +30,6 @@ As part of the Multi-Save Trade Planner, this task implements the necessary data
 - Ensure `saves` and `activeSaveId` are not persisted via `partialize`, following the invariant of keeping heavy payload data out of localStorage.
 
 ## Acceptance Criteria
-- [ ] Implement `saves` dictionary in the store.
-- [ ] Implement `activeSaveId` in the store.
-- [ ] Maintain `saveData` backwards compatibility.
+- [x] Implement `saves` dictionary in the store.
+- [x] Implement `activeSaveId` in the store.
+- [x] Maintain `saveData` backwards compatibility.
