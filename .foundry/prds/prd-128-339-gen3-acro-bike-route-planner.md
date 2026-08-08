@@ -33,4 +33,7 @@ Specifically, it will provide:
 3. **Save-State Aware Recommendations:** By reading the player's current inventory from the save file (checking if they currently hold the Acro or Mach bike), DexHelper can suggest optimal exploration paths or warn the player that they need to fly back to Mauville City before attempting a specific route.
 
 ## Acceptance Criteria
-- [ ] epic_planner: Break this PRD down into actionable Epics.
+- [x] epic_planner: Break this PRD down into actionable Epics.
+- [ ] epic-339-406-gen3-bike-requirement-route-mapping
+- [ ] epic-339-407-gen3-bike-item-gating-integration
+- [ ] epic-339-408-gen3-bike-save-state-recommendations
