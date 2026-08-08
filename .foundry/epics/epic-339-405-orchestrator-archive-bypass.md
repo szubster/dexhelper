@@ -33,4 +33,9 @@ Update the `foundry-orchestrator.ts` script to ignore the `.foundry/archive/` di
 
 ## Acceptance Criteria
 - [ ] Implement bypass logic in the orchestrator discovery phase.
-- [ ] Delegate the generation of the E2E STORY to the `story_owner`.
+- [x] Delegate the generation of the E2E STORY to the `story_owner`.
+- [ ] story-405-408-orchestrator-archive-bypass-implementation
+- [ ] story-405-409-orchestrator-archive-bypass-e2e
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
