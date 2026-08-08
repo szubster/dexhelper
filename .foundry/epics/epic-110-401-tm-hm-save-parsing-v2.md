@@ -37,5 +37,9 @@ This Epic focuses on parsing the Item Bag structures for Generation 1, 2, and 3 
 - **Constraint:** Must follow ADR 028 for dynamic save block extraction (no inline magic numbers, use module-level constants for offsets/lengths).
 
 ## Acceptance Criteria
-- [ ] Break down into STORY nodes for Gen 1, Gen 2, and Gen 3 parsing.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Break down into STORY nodes for Gen 1, Gen 2, and Gen 3 parsing.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-401-408-gen1-tm-hm-parsing
+- [ ] story-401-409-gen2-tm-hm-parsing
+- [ ] story-401-410-gen3-tm-hm-parsing
+- [ ] story-401-411-tm-hm-integration-e2e
