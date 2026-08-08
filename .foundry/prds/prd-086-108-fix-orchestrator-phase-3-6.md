@@ -36,3 +36,10 @@ In `foundry-orchestrator.ts` Phase 3.6, nodes transitioning to `CANCELLED` statu
 - [x] epic-108-303-extend-phase-3-6-cancelled-nodes
 - [x] research-108-339-investigate-orchestrator-phase-3-6-failure
 - [x] epic-108-340-extend-phase-3-6-cancelled-nodes-retry
+
+### Auditor Learnings
+The fix correctly addressed the edge case where `CANCELLED` nodes caused by max rejection counts failed to awaken parent nodes. However, identifying these edge cases solely through production failure is inefficient. To address this gap in testing, a follow-up idea for state machine fuzzing has been spawned.
+Follow-up spawned: idea-108-406-orchestrator-state-machine-fuzzing
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
