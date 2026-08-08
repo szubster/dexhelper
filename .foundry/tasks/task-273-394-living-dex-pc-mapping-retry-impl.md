@@ -2,13 +2,13 @@
 id: task-273-394-living-dex-pc-mapping-retry-impl
 type: TASK
 title: Living Dex PC Mapping Retry Implementation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-04'
-updated_at: '2026-08-07'
+updated_at: '2026-08-08'
 depends_on:
   - research-273-393-gen3-pc-box-offsets-root-cause
-jules_session_id: '14218444160383313987'
+jules_session_id: null
 pr_number: null
 parent: story-133-273-living-dex-pc-mapping
 tags:
