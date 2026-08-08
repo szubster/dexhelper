@@ -2,12 +2,12 @@
 id: idea-039-401-r2-conflict-resolution-ui
 type: IDEA
 title: Cloudflare R2 Conflict Resolution UI
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-06'
 updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5835723209406590956'
 pr_number: null
 parent: epic-030-039-cloudflare-r2-save-sync
 tags:
