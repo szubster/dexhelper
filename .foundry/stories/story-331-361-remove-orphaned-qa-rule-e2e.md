@@ -28,4 +28,7 @@ notes: ''
 This story acts as the E2E integration test for the removal of the obsolete "Orphaned QA Task Cancellation Rule" from the system documentation. It ensures that the documentation is completely scrubbed of manual node cancellation instructions.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks
+- [x] Tech Lead: Break down into Tasks
+- [ ] task-361-407-remove-orphaned-qa-rule-e2e-setup
+- [ ] task-361-408-remove-orphaned-qa-rule-e2e-impl
+- [ ] task-361-409-remove-orphaned-qa-rule-e2e-qa
