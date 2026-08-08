@@ -1,8 +1,16 @@
 import type { PokemonInstance } from '../parsers/common';
 import type { BoxDiffResult } from './boxDiff';
 
+/**
+ * Represents the type of manual action required in the PC.
+ */
 export type MoveOperationType = 'MOVE' | 'SWAP' | 'DEPOSIT' | 'WITHDRAW';
 
+/**
+ * A discrete step in a sequence of PC box operations.
+ * For DEPOSIT/WITHDRAW operations, or when utilizing temporary holding space (like the Party),
+ * a value of `-1` is used for the relevant box and slot fields.
+ */
 export interface MoveOperation {
   type: MoveOperationType;
   sourceBox: number;
@@ -21,11 +29,22 @@ function extractBoxSlot(p: PokemonInstance): { box: number; slot: number } {
 /**
  * Translates a BoxDiffResult into a sequential list of minimal, actionable manual user
  * operations required to transition the PC layout from the current state to the target state.
+ *
+ * It models the relocations as a directed graph where nodes are PC slots. To prevent overwriting
+ * Pokémon, the algorithm resolves acyclic paths backwards (leaves to roots) and breaks cycles
+ * by utilizing temporary holding spaces.
+ *
+ * @param diff - The computed differences containing additions, removals, and relocations.
+ * @returns An array of sequential move operations to execute.
+ *
+ * @example
+ * const diff = calculateBoxDiff(oldState, newState);
+ * const plan = calculateMovePlan(diff);
  */
 export function calculateMovePlan(diff: BoxDiffResult): MoveOperation[] {
   const operations: MoveOperation[] = [];
 
-  // 1. Process all WITHDRAWs (Removals) to free up slots
+  // 1. Process WITHDRAWs first to maximize available empty slots for subsequent moves, reducing collision risk.
   for (const removal of diff.removals) {
     const { box, slot } = extractBoxSlot(removal);
     operations.push({
@@ -58,7 +77,8 @@ export function calculateMovePlan(diff: BoxDiffResult): MoveOperation[] {
     }
   }
 
-  // Resolve paths backwards to avoid overwriting
+  // Resolve acyclic paths backwards (from destination to source).
+  // Moving the tail node first guarantees the slot is vacated before the predecessor attempts to move into it.
   while (queue.length > 0) {
     const curr = queue.shift();
     if (!curr) continue;
@@ -106,7 +126,7 @@ export function calculateMovePlan(diff: BoxDiffResult): MoveOperation[] {
     }
 
     if (cycle.length === 2) {
-      // 2-cycle can be resolved with a single SWAP
+      // In-game mechanics allow directly swapping two Pokémon in one action, neatly resolving a 2-node cycle.
       const r0 = cycle[0];
       if (!r0) continue;
       operations.push({
@@ -117,8 +137,8 @@ export function calculateMovePlan(diff: BoxDiffResult): MoveOperation[] {
         targetSlot: r0.targetSlot,
       });
     } else if (cycle.length > 2) {
-      // 3+ cycle needs a temporary holding space (Party / empty slot)
-      // We will use -1, -1 to denote temporary holding space
+      // Direct multi-way swaps aren't possible. A cycle of 3+ nodes requires a temporary buffer (Party or an empty slot)
+      // to break the cycle into an acyclic path. We denote this temporary space using index -1.
       const tempBox = -1;
       const tempSlot = -1;
 
