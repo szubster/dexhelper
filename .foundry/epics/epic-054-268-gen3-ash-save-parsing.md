@@ -36,5 +36,5 @@ Extract the Volcanic Ash count (step counter) from Gen 3 save files (Ruby, Sapph
 
 ## Acceptance Criteria
 - [x] Break down this Epic into corresponding STORY nodes.
-- [x] [story-268-331-gen3-ash-dataview-extraction-relative](.foundry/stories/story-268-331-gen3-ash-dataview-extraction-relative.md)
+- [x] [story-268-331-gen3-ash-dataview-extraction-relative](.foundry/archive/stories/story-268-331-gen3-ash-dataview-extraction-relative.md)
 - [ ] [story-268-348-gen3-ash-integration](.foundry/stories/story-268-348-gen3-ash-integration.md)

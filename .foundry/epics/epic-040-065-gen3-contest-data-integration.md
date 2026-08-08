@@ -37,5 +37,5 @@ As derived from PRD `prd-070-040-gen3-contest-data-parsing`, this Epic handles i
 - [ ] Write integration tests confirming the parsing engine successfully processes full Gen 3 save files and maps contest data correctly.
 
 - [ ] .foundry/archive/stories/story-065-141-gen3-contest-error-handling.md
-- [ ] .foundry/stories/story-065-142-gen3-contest-data-mapping.md
+- [ ] .foundry/archive/stories/story-065-142-gen3-contest-data-mapping.md
 - [ ] .foundry/stories/story-065-143-gen3-contest-integration-tests.md

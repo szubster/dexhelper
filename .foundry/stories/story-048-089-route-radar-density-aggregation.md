@@ -40,5 +40,5 @@ Implement the data transformation pipeline inside the `RouteRadarController`. It
 - [ ] .foundry/archive/tasks/task-089-165-radar-heatmap-density-logic-impl.md
 - [ ] .foundry/archive/tasks/task-089-166-qa-radar-heatmap-density-logic.md
 - [ ] research-089-167-investigate-heatmap-failure
-- [ ] .foundry/tasks/task-089-177-radar-heatmap-ui-integration-impl.md
+- [ ] .foundry/archive/tasks/task-089-177-radar-heatmap-ui-integration-impl.md
 - [ ] .foundry/tasks/task-089-178-qa-radar-heatmap-ui-integration.md

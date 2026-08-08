@@ -37,3 +37,11 @@
 **Type:** Retirement
 **Why:** The `mechanic` persona's remaining responsibilities are completely redundant. Resolving DAG deadlocks and orchestrator issues is handled by the `tpm` (hourly), and proactively proposing system improvements (IDEA nodes) for the Foundry orchestrator is explicitly handled by the `visionary` (which maintains a 50/50 split between DexHelper and Foundry ideas). Its previous prompt-improvement duties were already moved to `strategist`. Removing it reduces overhead and eliminates overlapping meta-agents.
 **Pattern:** Retire agents whose responsibilities have been fully absorbed by more specialized personas to keep the roster lean and prevent conflicting actions.
+
+
+## Session from 2026-08-06-04-18-00.md
+## 2026-08-06 - [Accepted] - Prompt improvement - Cleanup retired personas and centralized policies
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `product_manager` schedule had a reference to the `Agile Coach` persona which has been retired. The `epic_planner` schedule had duplicated `Integration Rule` and `Integration Requirement` directives which have been centralized to `core_policies.md`.
+**Pattern:** Regularly scrub agent schedules to remove references to retired personas and eliminate duplicate directives that are centralized in `core_policies.md` to keep prompts concise.

@@ -36,5 +36,5 @@ This Epic corresponds to the third requirement in the Missing Hidden Items Finde
 - [ ] E2E tests verify the new view correctly renders based on an initialized save state.
 
 ## 4. Generated Stories
-- [ ] .foundry/stories/story-060-156-hidden-items-checklist-component.md
-- [ ] .foundry/stories/story-060-157-hidden-items-e2e-tests.md
+- [ ] .foundry/archive/stories/story-060-156-hidden-items-checklist-component.md
+- [ ] .foundry/archive/stories/story-060-157-hidden-items-e2e-tests.md

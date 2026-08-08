@@ -349,7 +349,7 @@ When a task asks to implement extraction from memory (e.g. Gen 3 Party and PC bo
 
 ---
 
-# Session 247304201345729590\n\nTask task-333-375-sorting-strategies-regional-dex-impl was already completely implemented in the codebase (using HOENN_DEX_ORDER). As such, following the Empty PR policy, submitted an empty PR without making any code changes. The required core verification commands were successful.
+
 
 ---
 
@@ -387,3 +387,33 @@ When a task asks to implement extraction from memory (e.g. Gen 3 Party and PC bo
 ## Session 17592435228941965730.md
 
 Session 17592435228941965730: Learned that all array lengths and mathematical modulos used in save parsing logic MUST be explicitly defined as module-level constants to avoid magic number violations during QA.
+
+
+## Session from 12236130546163448785.md
+# Session 12236130546163448785
+
+* **TypeScript strictness**: Remember to use `import type { ... }` or `import { type ... }` when importing interfaces/types because `verbatimModuleSyntax` is enabled in `tsconfig.json`. Failing to do so causes `TS1484` errors during linting/type-checking.
+* **Gen 2 Save File Parsing**: Identified high-value phone contacts (swarms and items) and successfully mapped them to `GEN2_PHONE_CALLER_REGISTRY`. Ensure tests cover these specific offsets. Adhered to Section 13 guidelines by avoiding magic numbers and using constants.
+* **Cleanup**: Ensure scratchpad `.py` scripts and temporary `plan.md` files are deleted before submission to avoid polluting the repository.
+
+
+## Session from 18086198181454023699.md
+# Session 18086198181454023699
+
+- Discovered that the obsolete "Orphaned QA Task Cancellation Rule" in `.foundry/docs/knowledge_base/agents/core_policies.md` had already been removed prior to this task executing.
+- Marked the acceptance criteria in `.foundry/tasks/task-333-386-remove-orphaned-qa-rule-impl.md` as checked (`- [x]`) and completed the empty PR policy, noting the absence of the target rule.
+
+## Session from 5212192808236188313.md
+When implementing E2E tests for Playwright that simulate File Picker API interactions, relying on `window.showOpenFilePicker` injection can be brittle or complex due to transient activation requirements. Where possible, test application state indirectly or inject mocks via `page.evaluate` to emulate file handles, or test normal file upload paths and intercept network requests (like `/api/saves`) to verify fallback and conflict resolution behavior.
+
+## Session from 7758135811857039899.md
+### Task Description
+Implement e2e/integration verification to ensure Phase 3.6 logic in `foundry-orchestrator.ts` correctly awakens parent nodes for child nodes transitioning to `CANCELLED` status with `rejection_reason === 'Max rejection count reached'`.
+
+### Implementation & Results
+Added E2E test `'Phase 3.6 E2E: Lifecycle from max rejection to node cancellation and parent awakening'` which correctly sets up a parent node (`story-e2e`) and a child node (`task-e2e-1`) with `rejection_reason: "Failed a lot"` and `rejection_count: 3`. It verifies that when the orchestrator runs, `task-e2e-1` gets cancelled with `rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'` and the parent is set to `READY` state.
+
+I verified all tests in `.github/scripts` using `pnpm install && npx vitest run`, and they all passed successfully. The acceptance criteria checkboxes in `.foundry/tasks/task-356-396-extend-phase-3-6-cancelled-nodes-e2e-impl.md` have been checked.
+
+## Session from 9029543228350100736.md
+The `run_in_bash_session` tool blocks execution if the command string contains the word `exit`. To create or modify scripts containing `exit`, avoid inline bash creation (like `cat <<EOF`) and instead use `replace_with_git_merge_diff` or `write_file`.

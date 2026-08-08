@@ -353,3 +353,10 @@ Observed that the children stories `story-324-322-gen2-dv-extraction` and `story
 
 ## Learnings
 - When child tasks fail (like the integration), research nodes and retries correctly re-evaluate the DAG. Wait until retries complete to mark the epic as resolved.
+
+
+## Session from 15244387903513368251.md
+Logged the creation of 3 stories breaking down epic-044-397-gen3-roamer-core-extraction-v5: dataview parsing, unit tests, and integration/e2e. Ensured proper late-binding and decomposition.
+
+## Session from 996248077779189391.md
+When spawning retry nodes for implementation, generative personas MUST include explicit Acceptance Criteria for the Coder to verify the implemented schema strictly matches the documentation (such as Section 14 of .foundry/docs/schema.md), rather than relying solely on file presence.
