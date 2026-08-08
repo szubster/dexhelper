@@ -26,6 +26,7 @@ import {
   parseGen3PokeNews,
   parseGen3Ribbons,
   parseGen3Roamer,
+  parseGen3RoamerStruct,
   parseGen3RSENPCTrades,
   parseGen3SecretBases,
   parseGen3TotalBattlePoints,
@@ -837,6 +838,49 @@ describe('parseGen3BattleFrontierWinStreaks', () => {
   });
 });
 
+describe('parseGen3RoamerStruct', () => {
+  it('should successfully parse Gen 3 roamer struct and unpack IVs', () => {
+    const buffer = new ArrayBuffer(20);
+    const view = new DataView(buffer);
+
+    // Set ivs: HP=31, Atk=10, Def=15, Spd=20, SpAtk=25, SpDef=30
+    // 31 | (10 << 5) | (15 << 10) | (20 << 15) | (25 << 20) | (30 << 25) = 0x3D9A3D5F
+    view.setUint32(0, 0x3d9a3d5f, true);
+    view.setUint32(4, 0x12345678, true); // PV
+    view.setUint16(8, 380, true); // Species
+    view.setUint16(10, 150, true); // HP
+    view.setUint8(12, 40); // Level
+    view.setUint8(13, 1); // Status Condition
+    view.setUint8(19, 1); // isActive
+
+    const result = parseGen3RoamerStruct(view, 0);
+
+    expect(result).toEqual({
+      isActive: true,
+      speciesId: 380,
+      level: 40,
+      hp: 150,
+      statusCondition: 1,
+      personalityValue: 0x12345678,
+      ivs: {
+        hp: 31,
+        atk: 10,
+        def: 15,
+        spd: 20,
+        spAtk: 25,
+        spDef: 30,
+      },
+    });
+  });
+
+  it('should throw corrupted save error on RangeError', () => {
+    const buffer = new ArrayBuffer(10); // Too small
+    const view = new DataView(buffer);
+
+    expect(() => parseGen3RoamerStruct(view, 0)).toThrow('The save file is corrupted or incomplete.');
+  });
+});
+
 describe('parseGen3Roamer', () => {
   it('should parse Gen 3 roamer data', () => {
     const buffer = new ArrayBuffer(0x3144 + 20);
@@ -881,9 +925,12 @@ describe('parseGen3Roamer', () => {
       speciesId: 380,
       level: 40,
       hp: 150,
+      statusCondition: 1,
       status: 1,
+      personalityValue: 0x12345678,
       personality: 0x12345678,
       ivs: 0x3d9a3d5f,
+      unpackedIvs: { hp: 31, atk: 10, def: 15, spd: 20, spAtk: 25, spDef: 30 },
       cool: 10,
       beauty: 20,
       cute: 30,
@@ -912,9 +959,12 @@ describe('parseGen3Roamer', () => {
       speciesId: 380,
       level: 40,
       hp: 150,
+      statusCondition: 1,
       status: 1,
+      personalityValue: 0x12345678,
       personality: 0x12345678,
       ivs: 0,
+      unpackedIvs: { hp: 0, atk: 0, def: 0, spd: 0, spAtk: 0, spDef: 0 },
       cool: 0,
       beauty: 0,
       cute: 0,
@@ -944,9 +994,12 @@ describe('parseGen3Roamer', () => {
       speciesId: 380,
       level: 40,
       hp: 150,
+      statusCondition: 1,
       status: 1,
+      personalityValue: 0x12345678,
       personality: 0x12345678,
       ivs: 1073741823,
+      unpackedIvs: { hp: 31, atk: 31, def: 31, spd: 31, spAtk: 31, spDef: 31 },
       cool: 0,
       beauty: 0,
       cute: 0,
@@ -983,9 +1036,12 @@ describe('parseGen3Roamer', () => {
       speciesId: 381,
       level: 40,
       hp: 150,
+      statusCondition: 0,
       status: 0,
+      personalityValue: 0x12345678,
       personality: 0x12345678,
       ivs: 0,
+      unpackedIvs: { hp: 0, atk: 0, def: 0, spd: 0, spAtk: 0, spDef: 0 },
       cool: 0,
       beauty: 0,
       cute: 0,
@@ -1014,9 +1070,12 @@ describe('parseGen3Roamer', () => {
       speciesId: 244,
       level: 50,
       hp: 150,
+      statusCondition: 0,
       status: 0,
+      personalityValue: 0x12345678,
       personality: 0x12345678,
       ivs: 0,
+      unpackedIvs: { hp: 0, atk: 0, def: 0, spd: 0, spAtk: 0, spDef: 0 },
       cool: 0,
       beauty: 0,
       cute: 0,
@@ -1488,8 +1547,18 @@ describe('parseGen3Roamer', () => {
       speciesId: 380,
       level: 40,
       hp: 120,
+      statusCondition: 0,
       status: 0,
+      personalityValue: 0x87654321,
       personality: 0x87654321,
+      unpackedIvs: {
+        hp: (0x12345678 >> 0) & 0x1f,
+        atk: (0x12345678 >> 5) & 0x1f,
+        def: (0x12345678 >> 10) & 0x1f,
+        spd: (0x12345678 >> 15) & 0x1f,
+        spAtk: (0x12345678 >> 20) & 0x1f,
+        spDef: (0x12345678 >> 25) & 0x1f,
+      },
       ivs: 0x12345678,
       cool: 1,
       beauty: 2,
@@ -1525,8 +1594,18 @@ describe('parseGen3Roamer', () => {
       speciesId: 381,
       level: 40,
       hp: 130,
+      statusCondition: 0,
       status: 0,
+      personalityValue: 0x22222222,
       personality: 0x22222222,
+      unpackedIvs: {
+        hp: (0x11111111 >> 0) & 0x1f,
+        atk: (0x11111111 >> 5) & 0x1f,
+        def: (0x11111111 >> 10) & 0x1f,
+        spd: (0x11111111 >> 15) & 0x1f,
+        spAtk: (0x11111111 >> 20) & 0x1f,
+        spDef: (0x11111111 >> 25) & 0x1f,
+      },
       ivs: 0x11111111,
       cool: 10,
       beauty: 20,
@@ -1562,8 +1641,18 @@ describe('parseGen3Roamer', () => {
       speciesId: 244,
       level: 50,
       hp: 140,
+      statusCondition: 0,
       status: 0,
+      personalityValue: 0x44444444,
       personality: 0x44444444,
+      unpackedIvs: {
+        hp: (0x33333333 >> 0) & 0x1f,
+        atk: (0x33333333 >> 5) & 0x1f,
+        def: (0x33333333 >> 10) & 0x1f,
+        spd: (0x33333333 >> 15) & 0x1f,
+        spAtk: (0x33333333 >> 20) & 0x1f,
+        spDef: (0x33333333 >> 25) & 0x1f,
+      },
       ivs: 0x33333333,
       cool: 15,
       beauty: 25,

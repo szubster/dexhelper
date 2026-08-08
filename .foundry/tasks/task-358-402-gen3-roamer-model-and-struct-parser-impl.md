@@ -28,7 +28,7 @@ Define the TypeScript interfaces and implement a generic `DataView` parsing util
 This task forms the foundation for Roamer parsing in Gen 3 games. The core structure holds data about the roaming Pokémon (Latias, Latios, Raikou, Entei, Suicune). We need strict typing and robust binary parsing following Section 13 guidelines.
 
 ## Acceptance Criteria
-- [ ] Define a TypeScript interface `Gen3RoamerData` representing the parsed Roamer data structure (IVs, Personality Value, Species, HP, Level, Status, active boolean).
-- [ ] Implement a generic `parseGen3RoamerStruct(dataView: DataView, offset: number)` function.
-- [ ] Strictly adhere to `.foundry/docs/schema.md` Section 13 (Save File Parsing & Extraction Guidelines): explicitly map bitwise flags, define module-level constants for offsets/lengths, avoid magic numbers, and explicitly catch/throw `RangeError` for out-of-bounds reads with the message "The save file is corrupted or incomplete.".
-- [ ] Add unit tests verifying parsing logic and error handling (RangeError).
+- [x] Define a TypeScript interface `Gen3RoamerData` representing the parsed Roamer data structure (IVs, Personality Value, Species, HP, Level, Status, active boolean).
+- [x] Implement a generic `parseGen3RoamerStruct(dataView: DataView, offset: number)` function.
+- [x] Strictly adhere to `.foundry/docs/schema.md` Section 13 (Save File Parsing & Extraction Guidelines): explicitly map bitwise flags, define module-level constants for offsets/lengths, avoid magic numbers, and explicitly catch/throw `RangeError` for out-of-bounds reads with the message "The save file is corrupted or incomplete.".
+- [x] Add unit tests verifying parsing logic and error handling (RangeError).
