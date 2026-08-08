@@ -33,4 +33,6 @@ Parse the Emerald save file to determine the status of the goals required for Tr
 - [ ] Parse Contest Master Rank flags (Cool, Beauty, Cute, Smart, Tough).
 - [ ] Parse Battle Frontier Gold Symbols flags.
 - [ ] Verify the implementation's exact alignment with the documentation schemas (e.g., Section 14 of .foundry/docs/schema.md) before marking tasks complete.
-- [ ] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-400-358-gen3-trainer-card-parsing-core
+- [ ] story-400-359-gen3-trainer-card-parsing-e2e
