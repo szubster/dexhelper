@@ -97,3 +97,14 @@ The `generate-pokedata.ts` script in the rejected implementation was likely simp
 
 To satisfy the acceptance criteria and ensure types are ordered correctly (primary type first), it must sort the array by the `slot` property before mapping:
 `pData.types?.sort((a: any, b: any) => a.slot - b.slot).map((t: any) => POKEMON_TYPE_MAP[t.type.name] || 0) || []`
+
+
+## Session from 2026-08-04.md
+Session 2026-08-04: Investigated Gen 3 trainer flag offsets and saved to .foundry/docs/knowledge_base/gen3_trainer_flags_offsets.md
+
+## Session from 3239184284682901692.md
+# Session 3239184284682901692
+
+- Completed research-099-396-investigate-indexeddb-schema-failure.
+- Root Cause: Coder misused Empty PR Policy by failing to verify DB schema matched Section 14 of docs/schema.md.
+- Solution: Enforce strict schema validation in Acceptance Criteria for retry tasks.

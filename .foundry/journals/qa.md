@@ -490,3 +490,18 @@ Rejected task `task-295-338-gen3-static-encounters-ui-impl` because the implemen
 # QA Session: 14863696901989894627
 
 Target task `task-286-314-filter-swarm-item-calls-impl` has been cancelled due to max rejections. Following ADR 007 and ADR 009, I am checking off the acceptance criteria checkboxes in QA task `task-286-315-filter-swarm-item-calls-qa` and submitting an Empty PR to allow the node to gracefully exit the DAG.
+
+
+## Session from 13731916331356838535.md
+Verified task-356-397-gen3-trainer-data-extraction-core-impl. No changes needed since `secretId` was already present in `SaveData` and being correctly extracted and returned by `parseGen3`. Emptied PR.
+
+## Session from 2026-08-05-14-00-00.md
+## QA Session: Living Dex PC Mapping Retry Rejection
+- **Issue**: Coder implementations consistently use inline magic numbers in `DataView` parsing functions for Gen 3 save files, specifically for bitmasking (e.g., `0xffff`), bit shifting (e.g., `16`), and nested offset additions (e.g., `+ 2`, `+ 4`).
+- **Action**: Rejected the implementation of `task-273-394-living-dex-pc-mapping-retry-impl`.
+- **Guideline Reinforcement**: All memory offsets, lengths, bit locations, shifts, and masks MUST be explicitly defined as reusable constants at the module level to comply with Section 13 of `.foundry/docs/schema.md`. Inline magic numbers in parsing functions are strictly forbidden.
+
+## Session from 3422444418495626110.md
+# QA Session Journal
+
+Verified the bash static analysis linter correctly blocks `tail -f` from executing, ensuring agent processes do not hang indefinitely and preventing useless timeout waiting. It correctly handles legitimate commands such as `tail -n 50`. The e2e tests were successful and confirm the linter logic fails fast when necessary. This aligns with our core policy against executing blocking bash commands in `run_in_bash_session`.

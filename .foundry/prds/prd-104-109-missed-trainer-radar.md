@@ -44,7 +44,7 @@ Players often accidentally or deliberately skip trainers during their initial ro
 3.  **Aesthetics:** The UI should follow the project's tactical, snooping aesthetic as defined by existing ADRs and the UI style guides.
 
 ## Acceptance Criteria
-- [ ] .foundry/epics/epic-109-306-missed-trainer-data-extraction-gen1-gen2.md
+- [ ] .foundry/archive/epics/epic-109-306-missed-trainer-data-extraction-gen1-gen2.md
 - [ ] .foundry/epics/epic-109-307-missed-trainer-data-extraction-gen3.md
-- [ ] .foundry/epics/epic-109-308-missed-trainer-radar-ui.md
+- [ ] .foundry/archive/epics/epic-109-308-missed-trainer-radar-ui.md
 - [x] Break down into Epics
