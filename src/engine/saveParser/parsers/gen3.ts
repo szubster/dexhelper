@@ -38,6 +38,7 @@ import type {
   Gen3BerryPatch,
   Gen3MoveTutors,
   Gen3Ribbons,
+  Gen3RoamerData,
   Gen3SecretBase,
   Gen3TVShow,
   SaveData,
@@ -770,6 +771,55 @@ export function parseGen3EggSteps(
  * @returns An object containing the extracted roamer data, including unpacked IVs.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
+/**
+ * Generic DataView parser for extracting Gen 3 Roamer data structures.
+ *
+ * @param dataView - The raw save file DataView.
+ * @param offset - The memory offset to the start of the roamer structure.
+ * @returns The parsed Gen3RoamerData object.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3RoamerStruct(dataView: DataView, offset: number): Gen3RoamerData {
+  try {
+    const rawIvs = dataView.getUint32(offset + ROAMER_IVS_OFFSET, true);
+    const personalityValue = dataView.getUint32(offset + ROAMER_PV_OFFSET, true);
+    const speciesId = dataView.getUint16(offset + ROAMER_SPECIES_ID_OFFSET, true);
+    const hp = dataView.getUint16(offset + ROAMER_HP_OFFSET, true);
+    const level = dataView.getUint8(offset + ROAMER_LEVEL_OFFSET);
+    const statusCondition = dataView.getUint8(offset + ROAMER_STATUS_OFFSET);
+    const isActive = dataView.getUint8(offset + ROAMER_ACTIVE_OFFSET) !== 0;
+
+    const hpIv = (rawIvs >> IV_SHIFT_HP) & IV_MASK;
+    const atkIv = (rawIvs >> IV_SHIFT_ATK) & IV_MASK;
+    const defIv = (rawIvs >> IV_SHIFT_DEF) & IV_MASK;
+    const spdIv = (rawIvs >> IV_SHIFT_SPD) & IV_MASK;
+    const spAtkIv = (rawIvs >> IV_SHIFT_SPATK) & IV_MASK;
+    const spDefIv = (rawIvs >> IV_SHIFT_SPDEF) & IV_MASK;
+
+    return {
+      isActive,
+      speciesId,
+      level,
+      hp,
+      statusCondition,
+      personalityValue,
+      ivs: {
+        hp: hpIv,
+        atk: atkIv,
+        def: defIv,
+        spd: spdIv,
+        spAtk: spAtkIv,
+        spDef: spDefIv,
+      },
+    };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
 export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVersion: GameVersion) {
   let offset = saveBlock1Offset;
   if (gameVersion === 'ruby' || gameVersion === 'sapphire') {
@@ -784,27 +834,22 @@ export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVe
   }
 
   try {
-    const ivs = view.getUint32(offset + ROAMER_IVS_OFFSET, true);
-    const personalityValue = view.getUint32(offset + ROAMER_PV_OFFSET, true);
-    const speciesId = view.getUint16(offset + ROAMER_SPECIES_ID_OFFSET, true);
-    const hp = view.getUint16(offset + ROAMER_HP_OFFSET, true);
-    const level = view.getUint8(offset + ROAMER_LEVEL_OFFSET);
-    const status = view.getUint8(offset + ROAMER_STATUS_OFFSET);
+    const roamerData = parseGen3RoamerStruct(view, offset);
+
+    // Also parse contest stats which are specific to the legacy parseGen3Roamer return type
+    // (They are skipped in the strict Gen3RoamerData model)
     const cool = view.getUint8(offset + ROAMER_COOL_OFFSET);
     const beauty = view.getUint8(offset + ROAMER_BEAUTY_OFFSET);
     const cute = view.getUint8(offset + ROAMER_CUTE_OFFSET);
     const smart = view.getUint8(offset + ROAMER_SMART_OFFSET);
     const tough = view.getUint8(offset + ROAMER_TOUGH_OFFSET);
-    const isActive = view.getUint8(offset + ROAMER_ACTIVE_OFFSET) !== 0;
 
     return {
-      isActive,
-      speciesId,
-      level,
-      hp,
-      status,
-      personality: personalityValue,
-      ivs,
+      ...roamerData,
+      status: roamerData.statusCondition,
+      personality: roamerData.personalityValue,
+      ivs: view.getUint32(offset + ROAMER_IVS_OFFSET, true), // Legacy implementation expects packed 32-bit IVs
+      unpackedIvs: roamerData.ivs,
       cool,
       beauty,
       cute,
@@ -1177,17 +1222,10 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
           speciesId: roamer.speciesId,
           level: roamer.level,
           isActive: roamer.isActive,
-          ivs: {
-            hp: (roamer.ivs >> IV_SHIFT_HP) & IV_MASK,
-            atk: (roamer.ivs >> IV_SHIFT_ATK) & IV_MASK,
-            def: (roamer.ivs >> IV_SHIFT_DEF) & IV_MASK,
-            spd: (roamer.ivs >> IV_SHIFT_SPD) & IV_MASK,
-            spAtk: (roamer.ivs >> IV_SHIFT_SPATK) & IV_MASK,
-            spDef: (roamer.ivs >> IV_SHIFT_SPDEF) & IV_MASK,
-          },
-          personalityValue: roamer.personality,
+          ivs: roamer.unpackedIvs,
+          personalityValue: roamer.personalityValue,
           hp: roamer.hp,
-          statusCondition: roamer.status,
+          statusCondition: roamer.statusCondition,
         });
       }
     } catch {

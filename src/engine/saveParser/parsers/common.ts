@@ -108,6 +108,23 @@ export interface Gen3TVShow {
   itemOffset: number;
 }
 
+export interface Gen3RoamerData {
+  isActive: boolean;
+  speciesId: number;
+  level: number;
+  hp: number;
+  statusCondition: number;
+  personalityValue: number;
+  ivs: {
+    hp: number;
+    atk: number;
+    def: number;
+    spd: number;
+    spAtk: number;
+    spDef: number;
+  };
+}
+
 export interface Gen3ActiveSwarm {
   speciesId: number;
   mapId: number;
