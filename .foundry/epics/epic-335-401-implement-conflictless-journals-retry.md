@@ -30,3 +30,7 @@ To resolve frequent git merge conflicts on `.foundry/journals/*.md` files, this 
 - [ ] Ensure storage is in persona-specific subdirectories (e.g. `.foundry/journals/coder/`).
 - [ ] Update the TPM persona responsibilities to aggregate and archive these individual files appropriately.
 - [ ] Update downstream nodes and scripts that reference journals.
+- [ ] story-401-408-persona-specific-journal-directories
+- [ ] story-401-409-tpm-journal-aggregation
+- [ ] story-401-410-update-downstream-journal-scripts
+- [ ] story-401-411-conflictless-journals-e2e-verification
