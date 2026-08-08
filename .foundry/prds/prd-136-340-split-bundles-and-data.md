@@ -33,6 +33,7 @@ Implement generation-based splitting for JavaScript engine logic, UI components,
 
 ## Acceptance Criteria
 - [ ] Breakdown PRD into EPIC nodes.
+- [ ] research-340-405-background-fetching
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
