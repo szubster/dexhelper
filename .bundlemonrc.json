@@ -26,6 +26,18 @@
       "maxSize": "30kb"
     },
     {
+      "path": "assets/Gen2Checklist-<hash>.js",
+      "maxSize": "10kb"
+    },
+    {
+      "path": "assets/Gen3SecretBaseDashboard-<hash>.js",
+      "maxSize": "10kb"
+    },
+    {
+      "path": "assets/Gen3StaticEncountersDashboard-<hash>.js",
+      "maxSize": "10kb"
+    },
+    {
       "path": "assets/ShinyCarrierBreedingDashboard-<hash>.js",
       "maxSize": "100kb"
     },

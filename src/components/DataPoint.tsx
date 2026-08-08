@@ -33,7 +33,9 @@ export const DataPoint = React.memo(function DataPoint({
           labelClassName,
         )}
       >
-        [ {label} ]
+        <span aria-hidden="true">[ </span>
+        {label}
+        <span aria-hidden="true"> ]</span>
       </span>
       <span className={cn('font-bold font-mono text-[11px] text-zinc-300 uppercase tracking-tight', valueClassName)}>
         {value || children}
