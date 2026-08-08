@@ -25,4 +25,7 @@ notes: ''
 Implement the Gen 3 IV/PV extraction, handling the 48-byte encrypted Data block and substructure order `PV % 24`. The implementation must adhere to the Save File Parsing & Extraction Guidelines.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 3 IV/PV extraction, handling the 48-byte encrypted Data block and substructure order `PV % 24`.
+- [x] Implement Gen 3 IV/PV extraction, handling the 48-byte encrypted Data block and substructure order `PV % 24`.
+- [ ] task-402-407-gen3-iv-pv-types-impl
+- [ ] task-402-408-gen3-iv-pv-parser-impl
+- [ ] task-402-409-gen3-iv-pv-qa
