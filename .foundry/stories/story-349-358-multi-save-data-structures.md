@@ -2,12 +2,12 @@
 id: story-349-358-multi-save-data-structures
 type: STORY
 title: Multi-Save Data Structures
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-08-05'
+updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: '2256360421046757948'
+jules_session_id: null
 pr_number: null
 parent: epic-336-349-multi-save-infrastructure
 tags:

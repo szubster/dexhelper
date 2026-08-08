@@ -2,10 +2,10 @@
 id: task-358-403-multi-save-data-structures-qa
 type: TASK
 title: Multi-Save Data Structures QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-05'
-updated_at: '2026-08-05'
+updated_at: '2026-08-08'
 depends_on:
   - task-358-402-multi-save-data-structures-impl
 jules_session_id: null

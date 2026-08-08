@@ -2,12 +2,12 @@
 id: epic-112-400-npc-size-record-data-extraction
 type: EPIC
 title: 'NPC Size Record: Data Extraction'
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-12'
-updated_at: '2026-08-05'
+updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: '7199940091353528071'
+jules_session_id: null
 pr_number: null
 parent: prd-110-112-npc-size-record-assistant
 tags:

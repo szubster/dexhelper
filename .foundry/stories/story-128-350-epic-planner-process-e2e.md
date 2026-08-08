@@ -2,19 +2,19 @@
 id: story-128-350-epic-planner-process-e2e
 type: STORY
 title: E2E Verification for Epic Planner Process Update
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-01'
-updated_at: '2026-08-05'
+updated_at: '2026-08-08'
 depends_on:
   - story-128-349-epic-planner-process-impl
-jules_session_id: '9824085891786636607'
+jules_session_id: null
 pr_number: null
 parent: epic-057-128-epic-planner-process-update
 tags:
   - process
   - e2e
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---

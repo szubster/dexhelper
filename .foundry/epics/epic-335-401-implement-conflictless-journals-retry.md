@@ -2,10 +2,10 @@
 id: epic-335-401-implement-conflictless-journals-retry
 type: EPIC
 title: Implement Conflict-less Agent Journals (Retry)
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-05'
-updated_at: '2026-08-05'
+updated_at: '2026-08-08'
 depends_on:
   - research-335-400-investigate-conflictless-journals-failure
 jules_session_id: '17353405569114618226'

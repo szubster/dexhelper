@@ -1,11 +1,11 @@
 ---
 id: story-112-402-gen3-iv-pv-extraction
 type: STORY
-title: 'Gen 3 IV/PV Extraction'
-status: PENDING
+title: Gen 3 IV/PV Extraction
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-08-05'
+updated_at: '2026-08-08'
 depends_on: []
 jules_session_id: null
 pr_number: null

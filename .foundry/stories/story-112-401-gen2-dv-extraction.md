@@ -1,11 +1,11 @@
 ---
 id: story-112-401-gen2-dv-extraction
 type: STORY
-title: 'Gen 2 DV Extraction'
-status: PENDING
+title: Gen 2 DV Extraction
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-08-05'
+updated_at: '2026-08-08'
 depends_on: []
 jules_session_id: null
 pr_number: null

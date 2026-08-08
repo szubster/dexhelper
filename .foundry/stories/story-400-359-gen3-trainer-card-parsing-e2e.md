@@ -2,10 +2,10 @@
 id: story-400-359-gen3-trainer-card-parsing-e2e
 type: STORY
 title: Story - Gen 3 Trainer Card Data Parsing E2E
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-08-05'
+updated_at: '2026-08-08'
 depends_on:
   - story-400-358-gen3-trainer-card-parsing-core
 jules_session_id: '17094807873661096187'
