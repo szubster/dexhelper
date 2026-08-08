@@ -4,7 +4,7 @@ import React from 'react';
 import type { SuggestionCategory } from '../engine/assistant/strategies/types';
 import type { SaveData } from '../engine/saveParser/index';
 import { useAssistant } from '../hooks/useAssistant';
-import { objectEntries } from '../utils/object';
+import { objectKeys } from '../utils/object';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 import { AssistantDebugView } from './assistant/AssistantDebugView';
 import { AssistantSuggestionCard } from './assistant/AssistantSuggestionCard';
@@ -115,13 +115,11 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
   }, [suggestions]);
 
   const orderedCategories = React.useMemo(() => {
-    return objectEntries(groupedSuggestions)
-      .sort(([a], [b]) => {
-        const orderA = isValidCategory(a) ? CATEGORY_ORDER[a] : 99;
-        const orderB = isValidCategory(b) ? CATEGORY_ORDER[b] : 99;
-        return orderA - orderB;
-      })
-      .map(([cat]) => cat as SuggestionCategory);
+    return objectKeys(groupedSuggestions).sort((a, b) => {
+      const orderA = isValidCategory(a) ? CATEGORY_ORDER[a] : 99;
+      const orderB = isValidCategory(b) ? CATEGORY_ORDER[b] : 99;
+      return orderA - orderB;
+    });
   }, [groupedSuggestions]);
 
   // Set active category initially or if it disappears
