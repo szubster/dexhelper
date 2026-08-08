@@ -2,12 +2,12 @@
 id: story-112-402-gen3-iv-pv-extraction
 type: STORY
 title: Gen 3 IV/PV Extraction
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7576463888308128664'
 pr_number: null
 parent: epic-112-400-npc-size-record-data-extraction
 tags:
