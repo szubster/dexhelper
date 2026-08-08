@@ -229,7 +229,16 @@ describe('useAssistant - generateSuggestions logic', () => {
       },
     },
     pokemonMetadata: {
-      39: { id: 39, n: 'Jigglypuff', cr: 170, gr: 6, baby: false, efrm: [], det: [], eto: [] } as PokemonMetadata,
+      39: {
+        id: 39,
+        n: 'Jigglypuff',
+        cr: 170,
+        gr: 6,
+        baby: false,
+        efrm: [],
+        eto: [],
+        det: [],
+      } as unknown as PokemonMetadata,
       40: {
         id: 40,
         n: 'Wigglytuff',
@@ -239,7 +248,7 @@ describe('useAssistant - generateSuggestions logic', () => {
         efrm: [39],
         det: [{ tr: 3, item: 81 }],
         eto: [],
-      } as PokemonMetadata,
+      } as unknown as PokemonMetadata,
       62: {
         id: 62,
         n: 'Poliwrath',
@@ -249,13 +258,13 @@ describe('useAssistant - generateSuggestions logic', () => {
         efrm: [61, 60],
         det: [{ tr: 3, item: 84 }],
         eto: [],
-      } as PokemonMetadata,
+      } as unknown as PokemonMetadata,
     },
     allLocations: [],
   };
 
-  it('should NOT mark Wigglytuff as Trade Required in Pokémon Yellow (ancestor logic)', () => {
-    const { suggestions } = generateSuggestions(
+  it('should NOT mark Wigglytuff as Trade Required in Pokémon Yellow (ancestor logic)', async () => {
+    const { suggestions } = await generateSuggestions(
       mockSaveData,
       false,
       'yellow',
@@ -266,8 +275,8 @@ describe('useAssistant - generateSuggestions logic', () => {
     expect(wigglyTrade).toBeUndefined();
   });
 
-  it('should NOT mark Poliwrath as Trade Required in Pokémon Yellow if Poliwag is catchable', () => {
-    const { suggestions } = generateSuggestions(
+  it('should NOT mark Poliwrath as Trade Required in Pokémon Yellow if Poliwag is catchable', async () => {
+    const { suggestions } = await generateSuggestions(
       mockSaveData,
       false,
       'yellow',
@@ -278,7 +287,7 @@ describe('useAssistant - generateSuggestions logic', () => {
     expect(poliTrade).toBeUndefined();
   });
 
-  it('should mark Version Exclusives as Trade Required', () => {
+  it('should mark Version Exclusives as Trade Required', async () => {
     const exclusiveApiData = {
       ...mockApiData,
       missingEncounters: {
@@ -289,11 +298,20 @@ describe('useAssistant - generateSuggestions logic', () => {
       },
       pokemonMetadata: {
         ...mockApiData.pokemonMetadata,
-        13: { id: 13, n: 'Weedle', cr: 255, gr: 4, baby: false, efrm: [], det: [], eto: [] } as PokemonMetadata,
+        13: {
+          id: 13,
+          n: 'Weedle',
+          cr: 255,
+          gr: 4,
+          baby: false,
+          efrm: [],
+          det: [],
+          eto: [],
+        } as unknown as PokemonMetadata,
       },
     };
 
-    const { suggestions } = generateSuggestions(
+    const { suggestions } = await generateSuggestions(
       mockSaveData,
       false,
       'yellow',
@@ -305,7 +323,7 @@ describe('useAssistant - generateSuggestions logic', () => {
     expect(weedleTrade?.title).toContain('Version Exclusive');
   });
 
-  it('should NOT duplicate "Catch Right Here" when found in both local and nearby logic', () => {
+  it('should NOT duplicate "Catch Right Here" when found in both local and nearby logic', async () => {
     const duplicateApiData = {
       ...mockApiData,
       localEncounters: [
@@ -325,7 +343,7 @@ describe('useAssistant - generateSuggestions logic', () => {
 
     // Current map matches localAid slug
     const testSaveData = { ...mockSaveData, currentMapId: 0x0c, owned: new Set([25]) } as unknown as SaveData;
-    const { suggestions } = generateSuggestions(
+    const { suggestions } = await generateSuggestions(
       testSaveData,
       false,
       'yellow',

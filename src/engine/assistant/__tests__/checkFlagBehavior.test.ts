@@ -5,7 +5,7 @@ import { generateSuggestions } from '../suggestionEngine';
 import type { AssistantApiData } from '../suggestionEngineTypes';
 
 describe('suggestionEngine - checkFlag Edge Cases', () => {
-  it('should ignore gift suggestion when eventFlags is undefined', () => {
+  it('should ignore gift suggestion when eventFlags is undefined', async () => {
     const mockSaveData: SaveData = {
       generation: 1,
       gameVersion: 'red',
@@ -31,12 +31,12 @@ describe('suggestionEngine - checkFlag Edge Cases', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
     const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
     expect(giftSuggestion).toBeDefined();
   });
 
-  it('should ignore gift suggestion when byteIndex is out of bounds', () => {
+  it('should ignore gift suggestion when byteIndex is out of bounds', async () => {
     const mockSaveData: SaveData = {
       generation: 1,
       gameVersion: 'red',
@@ -62,7 +62,7 @@ describe('suggestionEngine - checkFlag Edge Cases', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
     const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
     expect(giftSuggestion).toBeDefined();
   });

@@ -3,7 +3,7 @@ import { gen1Strategy } from '../strategies/gen1Strategy';
 import { generateSuggestions } from '../suggestionEngine';
 
 describe('Recursive Evolution Suggestions', () => {
-  it('should suggest evolving Charmander into Charmeleon if missing Charizard, owns Charmeleon dex entry, but only physically has Charmander', () => {
+  it('should suggest evolving Charmander into Charmeleon if missing Charizard, owns Charmeleon dex entry, but only physically has Charmander', async () => {
     const mockSaveData = {
       generation: 1,
       gameVersion: 'red',
@@ -32,7 +32,7 @@ describe('Recursive Evolution Suggestions', () => {
     };
 
     const mockStrategy = { ...gen1Strategy, getSpecialSuggestions: () => [] };
-    const { suggestions } = generateSuggestions(
+    const { suggestions } = await generateSuggestions(
       mockSaveData as unknown as import('../../saveParser/index').SaveData,
       false,
       null,

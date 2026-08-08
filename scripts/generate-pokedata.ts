@@ -510,14 +510,13 @@ async function main() {
     }
   }
 
-// Second pass on locations to reconcile prnt for indoors
+// Reconcile parents
 console.log('\nReconciling location parents...');
 for (const loc of locationMap.values()) {
   if (loc.id < 256) {
     const parentId = INDOOR_TO_PARENT_MAP[loc.id];
     if (parentId !== undefined) loc.prnt = parentId;
   } else if ((loc.id >> 16) === 3) {
-    // Decode Gen 3 id to look up in the map, then re-encode the parent
     const decodedId = loc.id & 0xffff;
     const parentId = GEN3_INDOOR_TO_PARENT_MAP[decodedId];
     if (parentId !== undefined) loc.prnt = (3 << 16) | parentId;
@@ -596,7 +595,6 @@ for (const loc of locations) {
 }
 
 console.log('\nProcessing Evolution Chains...');
-// We need cid temporarily for the pass, so we extract it again (could have stored it in a map)
 const pokemonSpeciesToChain = new Map<number, number>();
 for (let i = 1; i <= POKEMON_COUNT; i++) {
   const sData = readJson(path.join(dataPath, `pokemon-species/${i}/index.json`));
@@ -614,12 +612,6 @@ for (const cid of uniqueChainIds) {
 
   const mapLink = (link: PokeApiChainLink, ef?: number): CompactChainLink => {
     const id = parseInt(link.species.url.split('/').filter(Boolean).pop() || '0', 10);
-
-    // Filter out Alolan/Galarian/etc base forms.
-    // If an evolution detail has a `base_form`, it means it's a regional variant evolution.
-    // For Gen 1/2 DexHelper, we only care about base form null (original).
-    // Note: PokeAPI recently added base_form but older instances might not have it.
-    // A safe heuristic is to check if there are duplicate evolution details.
 
     const validEvolutionDetails = link.evolution_details.filter((ed: any) => !ed.base_form || ed.base_form === null);
 
@@ -659,7 +651,6 @@ for (const cid of uniqueChainIds) {
 
 console.log('\nProcessing Moves...');
 const moves: any[] = [];
-// We primarily care about moves present up to Gen 3
 const MAX_MOVE_ID = 354;
 
 const genMap: Record<number, number> = {
@@ -683,7 +674,6 @@ for (let i = 1; i <= MAX_MOVE_ID; i++) {
   let dmgClass = 0;
   if (mData.damage_class) {
     const dcId = parseInt(mData.damage_class.url.split('/').filter(Boolean).pop() || '0', 10);
-    // PokeAPI: 1=status, 2=physical, 3=special
     if (dcId === 2) dmgClass = MOVE_DAMAGE_CLASS.PHYSICAL;
     else if (dcId === 3) dmgClass = MOVE_DAMAGE_CLASS.SPECIAL;
     else if (dcId === 1) dmgClass = MOVE_DAMAGE_CLASS.STATUS;
@@ -765,6 +755,19 @@ for (let i = 1; i <= MAX_ITEM_ID; i++) {
     sprite: spriteFilename,
   };
 
+  if (iData.game_indices) {
+    for (const gi of iData.game_indices) {
+      const genName = gi.generation?.name;
+      if (genName === 'generation-i') {
+        item.gen1_id = gi.game_index;
+      } else if (genName === 'generation-ii') {
+        item.gen2_id = gi.game_index;
+      } else if (genName === 'generation-iii') {
+        item.gen3_id = gi.game_index;
+      }
+    }
+  }
+
   items.push(item);
 }
 
@@ -774,18 +777,6 @@ for (let i = 1; i <= MAX_ITEM_ID; i++) {
  *
  * @param obj - The raw JSON-parsed object to be compressed.
  * @returns A structurally identical object with redundant keys entirely removed.
- *
- * @remarks
- * **Why this is critical for frontend performance:**
- * The generated JSON contains thousands of highly granular encounters and evolutions.
- * Fields like `baby: false`, `m: 1` (walking method), or empty arrays (`condition_values: []`)
- * occur constantly and account for over 90% of the total JSON payload size.
- * Because this compiled database is downloaded directly to the user's browser and stored
- * in IndexedDB, aggressive compaction is mandatory. It significantly reduces bandwidth usage,
- * minimizes the parsing time on the UI thread during app initialization, and prevents quota
- * exhaustion limits on mobile devices.
- * The client implicitly understands these omissions and re-inflates default values upon
- * access (see `src/db/PokeDB.ts`).
  */
 function compact(obj: any): any {
   if (Array.isArray(obj)) {
@@ -794,38 +785,23 @@ function compact(obj: any): any {
   if (obj !== null && typeof obj === 'object') {
     const result: any = {};
     for (const [key, value] of Object.entries(obj)) {
-      // Omit empty arrays
       if (Array.isArray(value) && value.length === 0) continue;
-      // Omit baby: false
       if (key === 'baby' && value === false) continue;
-      // Omit m: 1 (WALK)
       if (key === 'm' && value === 1) continue;
-      // Omit empty objects (dist: {})
       if (value !== null && typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 0) continue;
       
-      // Omit gr: 4 (gender_rate default)
       if (key === 'gr' && value === 4) continue;
-      // Omit tr: 1 (EVO_TRIGGER.LEVEL_UP default)
       if (key === 'tr' && value === 1) continue;
-      // Omit mh: 160 (min_happiness default)
       if (key === 'mh' && value === 160) continue;
-      // Omit max if same as min (encounter levels)
       if (key === 'max' && value === obj.min) continue;
 
-      // Omit move power p if 0 or null
       if (key === 'p' && (value === 0 || value === null)) continue;
-      // Omit move acc if 100 or null
       if (key === 'acc' && (value === 100 || value === null)) continue;
 
-      // Omit item cost if 0 or null
       if (key === 'cost' && (value === 0 || value === null)) continue;
-      // Omit item fling_p if null
       if (key === 'fling_p' && value === null) continue;
-      // Omit item effect if null or empty
       if (key === 'effect' && (value === null || value === '')) continue;
-      // Omit item sprite if null
       if (key === 'sprite' && value === null) continue;
-      // Omit empty egg moves map
       if (key === 'em' && (value === null || typeof value !== 'object' || Object.keys(value).length === 0)) continue;
 
 
@@ -839,7 +815,7 @@ function compact(obj: any): any {
 
 console.log('\nPrecomputing Egg Move Paths...');
 
-// 1. Collect all learners
+// Collect learners
 const nativeLearners = new Map<number, Set<number>>();
 const eggLearners = new Map<number, Set<number>>();
 
@@ -850,7 +826,7 @@ for (let i = 1; i <= POKEMON_COUNT; i++) {
 
   for (const m of pData.moves) {
     const moveId = parseInt(m.move.url.split('/').filter(Boolean).pop() || '0', 10);
-    if (moveId > MAX_MOVE_ID) continue; // Only care about Gen 1-3 moves
+    if (moveId > MAX_MOVE_ID) continue;
 
     let isNative = false;
     let isEgg = false;
@@ -859,7 +835,6 @@ for (let i = 1; i <= POKEMON_COUNT; i++) {
       const vgId = parseInt(vg.version_group.url.split('/').filter(Boolean).pop() || '0', 10);
       const vgGen = genMap[vgId] || 99;
 
-      // We only care if they can learn it in Gen 1, 2, or 3
       if (vgGen <= 3) {
         if (vg.move_learn_method.name === 'egg') {
           isEgg = true;
@@ -881,13 +856,11 @@ for (let i = 1; i <= POKEMON_COUNT; i++) {
 }
 
 
-// 2. Build breeding graph
 const speciesMap = new Map<number, PokemonMetadata>();
 for (const p of pokemon) {
   speciesMap.set(p.id, p);
 }
 
-// Helper to get effective egg groups (babies inherit from evolved forms)
 const getEffectiveEggGroups = (pid: number, visited = new Set<number>()): number[] => {
   if (visited.has(pid)) return [];
   visited.add(pid);
@@ -897,7 +870,6 @@ const getEffectiveEggGroups = (pid: number, visited = new Set<number>()): number
 
   if (p.eg && !p.eg.includes(15)) return p.eg;
 
-  // Try to inherit from evolved forms
   if (p.eto) {
     for (const link of p.eto) {
       const evolvedEg = getEffectiveEggGroups(link.id, visited);
@@ -908,7 +880,6 @@ const getEffectiveEggGroups = (pid: number, visited = new Set<number>()): number
 };
 
 
-// 3. BFS for each move
 const eggMovesIds = Array.from(eggLearners.keys());
 let movesProcessed = 0;
 
@@ -918,7 +889,6 @@ for (const moveId of eggMovesIds) {
     process.stdout.write(`\rEgg Move Progress: ${Math.round((movesProcessed / eggMovesIds.length) * 100)}% (${movesProcessed}/${eggMovesIds.length})`);
   }
 
-  // Smeargle (235) can sketch any move, making it a source for all egg moves
   if (!nativeLearners.has(moveId)) {
     nativeLearners.set(moveId, new Set());
   }
@@ -930,8 +900,6 @@ for (const moveId of eggMovesIds) {
   const sources = nativeLearners.get(moveId) || new Set<number>();
   if (sources.size === 0) continue;
 
-  // We want to find the shortest path from any source to each target
-  // State is species ID.
   const queue: number[] = Array.from(sources);
   const distances = new Map<number, number>();
   const predecessors = new Map<number, number>();
@@ -948,46 +916,34 @@ for (const moveId of eggMovesIds) {
     const uData = speciesMap.get(u);
     if (!uData) continue;
 
-    // Check if u can be male (gender_rate < 8 and !== -1)
-      // The father (u) passes the egg move. It must be male.
     const uGr = uData.gr !== undefined ? uData.gr : 4;
-      if (uGr === -1 || uGr === 8) continue; // Genderless (-1) or 100% Female (8) cannot pass egg moves
+      if (uGr === -1 || uGr === 8) continue;
 
-      // For the father, we strictly use its *own* egg groups, not effective ones from evolutions,
-      // because baby forms (which don't have egg groups) cannot be fathers.
       const uEg = uData.eg || [];
-      if (uEg.length === 0 || uEg.includes(15)) continue; // 15 is "No Eggs" (e.g., babies, legendaries)
+      if (uEg.length === 0 || uEg.includes(15)) continue;
 
     for (const vData of pokemon) {
       const v = vData.id;
       if (u === v) continue;
 
-      // Ensure intermediate parents can actually learn the move (either natively or as an egg move)
       if (!targets.has(v) && !sources.has(v)) continue;
 
       const vGr = vData.gr !== undefined ? vData.gr : 4;
-        // The mother (v) determines the species. If it's a baby, it can't breed, but its evolved form can.
-        // So we use getEffectiveEggGroups to see if the species line can produce eggs.
       const vEg = getEffectiveEggGroups(v);
 
-        // If the mother's effective egg group is empty or is "No Eggs", it cannot breed.
         if (vEg.length === 0 || vEg.includes(15)) continue;
 
       let canProduce = false;
 
-        // 1. Normal breeding: v can be female (not genderless, not 100% male), and u and v share an egg group.
       if (vGr !== -1 && vGr !== 0 && uEg.some((g: number) => vEg.includes(g))) {
         canProduce = true;
       }
-      // 2. Nidoran M (32) is produced by Nidoran F (29)
       else if (v === 32 && uEg.some((g: number) => getEffectiveEggGroups(29).includes(g))) {
         canProduce = true;
       }
-      // 3. Volbeat (313) is produced by Illumise (314)
       else if (v === 313 && uEg.some((g: number) => getEffectiveEggGroups(314).includes(g))) {
         canProduce = true;
       }
-      // 4. Tyrogue (236) is produced by Hitmonlee(106), Hitmonchan(107), or Hitmontop(237) breeding with Ditto
       else if (v === 236 && (u === 106 || u === 107 || u === 237)) {
         canProduce = true;
       }
@@ -1002,7 +958,6 @@ for (const moveId of eggMovesIds) {
     }
   }
 
-  // Assign paths to targets
   for (const target of targets) {
     if (distances.has(target)) {
       const path: number[] = [];
@@ -1020,7 +975,7 @@ for (const moveId of eggMovesIds) {
     }
   }
 }
-console.log(); // newline after progress
+console.log();
 
 console.log('\nWriting split JSONL files...');
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
@@ -1034,7 +989,6 @@ writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.valu
 writeJsonl(path.join(OUTPUT_DIR, 'moves.jsonl'), moves.map(compact));
 writeJsonl(path.join(OUTPUT_DIR, 'items.jsonl'), items.map(compact));
 
-  // Write metadata
   fs.writeFileSync(path.join(OUTPUT_DIR, 'metadata.json'), JSON.stringify({
     sourceSha: upstreamSha,
     generatedAt: new Date().toISOString(),

@@ -3,7 +3,7 @@ import { gen1Strategy } from '../strategies/gen1Strategy';
 import { generateSuggestions } from '../suggestionEngine';
 
 describe('Recursive Exclusive Checking', () => {
-  it('should not suggest a version exclusive trade if the player owns a deep ancestor (e.g. Charmander for Charizard)', () => {
+  it('should not suggest a version exclusive trade if the player owns a deep ancestor (e.g. Charmander for Charizard)', async () => {
     const mockSaveData = {
       generation: 1,
       gameVersion: 'red',
@@ -39,7 +39,7 @@ describe('Recursive Exclusive Checking', () => {
       getUnobtainableReason: (pid: number) => (pid === 6 ? 'Needs Link Cable' : null),
     };
 
-    const { suggestions } = generateSuggestions(
+    const { suggestions } = await generateSuggestions(
       mockSaveData as unknown as import('../../saveParser/index').SaveData,
       false,
       null,
