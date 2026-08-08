@@ -35,4 +35,5 @@ Introduce an **Automated Agent A/B Testing Framework** natively within the Found
 This transforms the Foundry from a static execution pipeline into a self-optimizing system. By systematically A/B testing agent prompts and configurations, we can continuously refine the "factory floor" to yield higher quality code with fewer rework cycles, directly improving the velocity of the entire multi-agent pipeline.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a PRD detailing the schema changes for node experiments and the orchestrator logic for parallel variant execution and selection.
+- [x] Product Manager: Draft a PRD detailing the schema changes for node experiments and the orchestrator logic for parallel variant execution and selection.
+- [ ] prd-135-340-automated-agent-ab-testing-framework
