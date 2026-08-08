@@ -40,6 +40,8 @@ Implement reusable sorting strategies (e.g., National Dex order, Type, Level, et
 - [x] story-136-295-sorting-standard-strategies
 - [x] story-136-296-sorting-cross-gen-considerations
 
-- [ ] research-136-330-investigate-sorting-strategies-failure
-- [ ] story-136-333-sorting-standard-strategies-retry
-- [ ] story-136-334-sorting-cross-gen-considerations-retry
+- [x] research-136-330-investigate-sorting-strategies-failure
+- [x] story-136-333-sorting-standard-strategies-retry
+- [x] story-136-334-sorting-cross-gen-considerations-retry
+- [x] Break down epic into an E2E verification story.
+- [ ] story-136-361-sorting-algorithms-e2e
