@@ -36,4 +36,8 @@ This feature will:
 This premium utility would provide massive value to competitive players and challenge runners, aligning perfectly with DexHelper's goal of offering deep, technical game insights.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a PRD detailing the AI simulation approach and user flow for the prediction tool.
+- [x] Product Manager: Draft a PRD detailing the AI simulation approach and user flow for the prediction tool.
+- [ ] prd-136-340-gen3-ai-move-predictor
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
