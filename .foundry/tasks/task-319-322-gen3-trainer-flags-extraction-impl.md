@@ -32,11 +32,11 @@ Implement the logic to extract standard and rematch trainer defeat flags from Ge
 5. **Data Structure:** The extracted flags must be structured correctly for use in the UI.
 
 ## Acceptance Criteria
-- [ ] Implement `DataView` parsing for standard trainer defeat flags.
-- [ ] Implement `DataView` parsing for rematch trainer defeat flags.
-- [ ] Ensure all offsets and bit shifts are module-level constants.
-- [ ] Ensure A/B bank relative offset logic is used.
-- [ ] Add unit tests covering extraction logic (including absolute zero and boundary states per ADR 026).
+ - [x] Implement `DataView` parsing for standard trainer defeat flags.
+ - [x] Implement `DataView` parsing for rematch trainer defeat flags.
+ - [x] Ensure all offsets and bit shifts are module-level constants.
+ - [x] Ensure A/B bank relative offset logic is used.
+ - [x] Add unit tests covering extraction logic (including absolute zero and boundary states per ADR 026).
 
 ## Node Handling Policies
 - **Transient Failures:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
@@ -44,4 +44,4 @@ Implement the logic to extract standard and rematch trainer defeat flags from Ge
 - **Empty PR Submission:** If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting. Do not manually update the status.
 
 ## Late Binding Dependencies
-- [ ] research-322-396-gen3-trainer-defeat-flags-offsets
+ - [x] research-322-396-gen3-trainer-defeat-flags-offsets
