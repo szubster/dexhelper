@@ -25,4 +25,7 @@ notes: ''
 Draft an Architecture Decision Record (ADR) detailing the typed schema and downstream consumer impact for the new discriminated union SaveData type.
 
 ## Acceptance Criteria
-- [ ] Create tasks for the architect to draft the ADR.
+- [x] Create tasks for the architect to draft the ADR.
+- [ ] task-361-408-draft-savedata-adr-types
+- [ ] task-361-409-draft-savedata-adr-impl
+- [ ] task-361-410-draft-savedata-adr-qa
