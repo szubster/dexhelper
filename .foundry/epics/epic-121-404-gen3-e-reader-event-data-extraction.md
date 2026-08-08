@@ -31,5 +31,11 @@ This Epic handles the extraction of specific event flags and inventory data from
 - Provide a clean data interface for the UI dashboard.
 
 ## Acceptance Criteria
-- [ ] Break down into STORY nodes for extraction logic and data structuring.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Break down into STORY nodes for extraction logic and data structuring.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-404-408-gen3-event-flags-extraction
+- [ ] story-404-409-gen3-event-inventory-extraction
+- [ ] story-404-410-gen3-e-reader-data-e2e
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
