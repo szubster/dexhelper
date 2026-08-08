@@ -1,11 +1,11 @@
 ---
 id: epic-339-405-schema-role-mapping
 type: EPIC
-title: "Schema Updates: Map Roles to Pokemon Entities"
-status: PENDING
+title: 'Schema Updates: Map Roles to Pokemon Entities'
+status: READY
 owner_persona: story_owner
-created_at: "2024-05-18"
-updated_at: "2024-05-18"
+created_at: '2024-05-18'
+updated_at: '2026-08-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - schema
   - gamification
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Schema Updates: Map Roles to Pokemon Entities

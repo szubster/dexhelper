@@ -2,10 +2,10 @@
 id: prd-131-340-orchestrator-resource-locking-mutex
 type: PRD
 title: PRD for Orchestrator Resource Locking (Mutex)
-status: PENDING
+status: READY
 owner_persona: epic_planner
-created_at: "2026-08-07"
-updated_at: "2026-08-07"
+created_at: '2026-08-07'
+updated_at: '2026-08-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - architecture
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # PRD: Orchestrator Resource Locking (Mutex)

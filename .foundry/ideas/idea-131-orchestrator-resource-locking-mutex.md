@@ -2,12 +2,12 @@
 id: idea-131-orchestrator-resource-locking-mutex
 type: IDEA
 title: Implement Resource Locking (Mutex) in DAG Orchestrator
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-31'
-updated_at: '2026-08-07'
+updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: '7649435094531398053'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

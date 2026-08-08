@@ -2,12 +2,12 @@
 id: idea-130-shoal-cave-tide-tracker
 type: IDEA
 title: Shoal Cave Tide & Item Tracker (Gen 3)
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-30'
-updated_at: '2026-08-07'
+updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: '7931881873165298671'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

@@ -2,8 +2,8 @@
 id: idea-136-in-game-mail-archiver
 type: IDEA
 title: Gen 1-3 In-Game Mail Archiver
-status: ACTIVE
-owner_persona: product_manager
+status: BLOCKED
+owner_persona: tpm
 created_at: '2026-08-08'
 updated_at: '2026-08-08'
 depends_on: []
@@ -16,7 +16,7 @@ tags:
   - collector
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
 notes: ''
 ---
 

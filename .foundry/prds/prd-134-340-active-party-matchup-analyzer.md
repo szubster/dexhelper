@@ -2,10 +2,10 @@
 id: prd-134-340-active-party-matchup-analyzer
 type: PRD
 title: Gen 1-3 Active Party Matchup Analyzer
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-08-07'
-updated_at: '2026-08-07'
+updated_at: '2026-08-08'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,10 +2,10 @@
 id: epic-339-406-tpm-distillation-logic
 type: EPIC
 title: TPM Distillation and Archival Logic
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-07'
-updated_at: '2026-08-07'
+updated_at: '2026-08-08'
 depends_on:
   - epic-339-405-orchestrator-archive-bypass
 jules_session_id: null

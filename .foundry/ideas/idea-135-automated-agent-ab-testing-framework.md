@@ -2,12 +2,12 @@
 id: idea-135-automated-agent-ab-testing-framework
 type: IDEA
 title: Automated Agent A/B Testing Framework
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-05'
-updated_at: '2026-08-07'
+updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: '3690536818887696381'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

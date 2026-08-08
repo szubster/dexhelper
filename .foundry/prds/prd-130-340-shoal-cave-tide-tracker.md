@@ -2,10 +2,10 @@
 id: prd-130-340-shoal-cave-tide-tracker
 type: PRD
 title: Shoal Cave Tide & Item Tracker (Gen 3)
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-08-07'
-updated_at: '2026-08-07'
+updated_at: '2026-08-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - item-tracker
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # PRD: Shoal Cave Tide & Item Tracker (Gen 3)
