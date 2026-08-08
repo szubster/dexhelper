@@ -31,3 +31,9 @@ Implement robust circular dependency detection during the MAP or RESOLVE phases 
 ## Acceptance Criteria
 - [x] story-338-336-implement-orchestrator-cycle-detection
 - [x] story-338-356-circular-dependency-detection-e2e
+
+### Auditor Learnings Follow-up
+- [ ] idea-000-137-orchestrator-telemetry-for-cycles
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
