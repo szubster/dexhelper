@@ -9,6 +9,8 @@ export async function initializeWithSave(
 
   await expect(page.locator('header')).toBeVisible({ timeout: 15000 });
   await waitForSync(page);
+  // Add a slight delay to allow the complex DOM (targeting array) to render correctly in CI
+  await page.waitForTimeout(500);
 
   const isInitialized = await page.getByText(/TRNR/i).first().isVisible({ timeout: 2000 });
 
