@@ -2,12 +2,12 @@
 id: prd-086-108-fix-orchestrator-phase-3-6
 type: PRD
 title: Fix orchestrator phase 3.6 for CANCELLED nodes
-status: VERIFYING
+status: ACTIVE
 owner_persona: auditor
 created_at: '2026-07-06'
 updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13247854585939205384'
 pr_number: null
 parent: idea-086-fix-orchestrator-phase-3-6
 tags:
