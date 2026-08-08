@@ -30,3 +30,5 @@ Implement a UI checklist to track Gen 3 static encounters using the extracted sa
 - [ ] Ensure the component integrates seamlessly with the Gen 3 dashboard.
 - [ ] task-295-338-gen3-static-encounters-ui-impl
 - [ ] task-295-339-gen3-static-encounters-ui-qa
+- [ ] task-295-407-gen3-static-encounters-ui-impl-retry
+- [ ] task-295-408-gen3-static-encounters-ui-qa-retry
