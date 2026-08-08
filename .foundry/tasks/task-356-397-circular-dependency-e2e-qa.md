@@ -28,5 +28,5 @@ notes: ''
 Verify the implemented E2E tests for circular dependency detection within the DAG orchestrator.
 
 ## Acceptance Criteria
-- [ ] Verify that E2E tests correctly detect and fail upon circular dependencies (direct and indirect).
-- [ ] Verify the codebase changes adhere to the schema and testing guidelines.
+- [x] Verify that E2E tests correctly detect and fail upon circular dependencies (direct and indirect).
+- [x] Verify the codebase changes adhere to the schema and testing guidelines.
