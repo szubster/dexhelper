@@ -26,3 +26,6 @@ During the implementation of Cloudflare R2 offline-first save syncing (epic-030-
 
 ## Proposal
 Implement a UI prompt when a conflict is detected. The prompt should allow the user to select whether they want to keep their local save, pull the remote save, or merge/compare them if possible. This guarantees the user has final say over which progression state is canonical.
+
+## Acceptance Criteria
+- [ ] prd-401-340-r2-conflict-resolution-ui
