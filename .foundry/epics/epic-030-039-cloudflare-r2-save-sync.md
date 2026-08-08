@@ -44,3 +44,6 @@ Following the establishment of a secure authentication layer, the application ne
 - [x] story-039-265-r2-offline-conflict-resolution
 - [x] story-039-266-r2-graceful-degradation
 - [x] story-039-356-r2-sync-e2e
+
+## Follow-up Action Items
+- [ ] idea-039-401-r2-conflict-resolution-ui
