@@ -65,6 +65,8 @@ interface AppStore {
    * This is intentionally excluded from localStorage persistence (via `partialize`)
    * to prevent bloating the storage quota and stale state bugs.
    */
+  saves: Record<string, SaveData>;
+  activeSaveId: string | null;
   saveData: SaveData | null;
   error: string | null;
   /**
@@ -157,9 +159,16 @@ export const useStore = create<AppStore>()(
   persist(
     (set, get) => ({
       // Save data
+      saves: {},
+      activeSaveId: null,
       saveData: null,
       error: null,
-      setSaveData: (data) => set({ saveData: data }),
+      setSaveData: (data) =>
+        set({
+          saveData: data,
+          activeSaveId: data ? 'default' : null,
+          saves: data ? { default: data } : {},
+        }),
       setError: (v) => set({ error: v }),
 
       // Settings
@@ -229,7 +238,7 @@ export const useStore = create<AppStore>()(
           if (buffer) {
             const { manualVersion } = get();
             const data = parseSaveFile(buffer.buffer, manualVersion || undefined);
-            set({ saveData: data });
+            get().setSaveData(data);
           }
         } catch {
           console.error('System: load failed');

@@ -20,6 +20,8 @@ describe('Zustand Store', () => {
   beforeEach(() => {
     // Reset the store state before each test
     useStore.setState({
+      saves: {},
+      activeSaveId: null,
       saveData: null,
       error: null,
       filters: [],
