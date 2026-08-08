@@ -2,7 +2,7 @@
 id: story-348-357-bash-linter-e2e
 type: STORY
 title: Bash Static Analysis Linter E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2024-11-20'
 updated_at: '2026-08-08'

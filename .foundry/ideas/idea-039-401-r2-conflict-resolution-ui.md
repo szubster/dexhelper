@@ -2,7 +2,7 @@
 id: idea-039-401-r2-conflict-resolution-ui
 type: IDEA
 title: Cloudflare R2 Conflict Resolution UI
-status: FAILED
+status: READY
 owner_persona: product_manager
 created_at: '2026-08-06'
 updated_at: '2026-08-08'
@@ -15,8 +15,8 @@ tags:
   - sync
   - ux
 research_references: []
-rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 # Idea: Cloudflare R2 Conflict Resolution UI

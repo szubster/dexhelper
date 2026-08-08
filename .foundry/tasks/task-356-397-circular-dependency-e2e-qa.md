@@ -2,13 +2,13 @@
 id: task-356-397-circular-dependency-e2e-qa
 type: TASK
 title: Circular Dependency Detection E2E QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-04'
 updated_at: '2026-08-08'
 depends_on:
   - task-356-396-circular-dependency-e2e-impl
-jules_session_id: '15743685604030569034'
+jules_session_id: null
 pr_number: null
 parent: story-338-356-circular-dependency-detection-e2e
 tags:

@@ -2,12 +2,12 @@
 id: task-357-402-bash-linter-e2e-impl
 type: TASK
 title: Implement E2E Verification for Bash Linter
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-06'
 updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: '9723693029286564975'
+jules_session_id: null
 pr_number: null
 parent: story-348-357-bash-linter-e2e
 tags:
