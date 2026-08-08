@@ -2,12 +2,12 @@
 id: epic-121-404-gen3-e-reader-event-data-extraction
 type: EPIC
 title: Gen 3 E-Reader Event Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-06'
 updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12466255363606973417'
 pr_number: null
 parent: prd-121-gen3-e-reader-event-tracker
 tags:
