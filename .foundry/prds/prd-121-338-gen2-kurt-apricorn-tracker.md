@@ -31,4 +31,6 @@ Leverage DexHelper's save file parsing to track the hidden event flags related t
 - **Resource Dashboard:** Show a quick tally of uncrafted Apricorns currently in the player's bag vs. what is currently with Kurt.
 
 ## Acceptance Criteria
-- [ ] epic_planner: Break this PRD down into actionable Epics.
+- [x] epic_planner: Break this PRD down into actionable Epics.
+- [ ] epic-338-404-kurt-apricorn-data-engine
+- [ ] epic-338-405-kurt-apricorn-dashboard-ui
