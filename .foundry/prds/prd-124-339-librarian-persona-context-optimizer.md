@@ -2,12 +2,12 @@
 id: prd-124-339-librarian-persona-context-optimizer
 type: PRD
 title: Librarian Persona for Context Token Optimization
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-06'
 updated_at: '2026-08-08'
 depends_on: []
-jules_session_id: '10706468742724014262'
+jules_session_id: null
 pr_number: null
 parent: idea-124-librarian-persona-context-optimizer
 tags:

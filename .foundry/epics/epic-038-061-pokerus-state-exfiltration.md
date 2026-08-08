@@ -2,7 +2,7 @@
 id: epic-038-061-pokerus-state-exfiltration
 type: EPIC
 title: Pokerus State Exfiltration Epic
-status: FAILED
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-07'
 updated_at: '2026-08-08'
@@ -15,8 +15,8 @@ tags:
   - save-engine
   - pokerus
 research_references: []
-rejection_count: 2
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

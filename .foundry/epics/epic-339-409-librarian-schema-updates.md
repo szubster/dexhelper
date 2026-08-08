@@ -2,10 +2,10 @@
 id: epic-339-409-librarian-schema-updates
 type: EPIC
 title: Schema Updates for Librarian Persona
-status: PENDING
+status: READY
 owner_persona: story_owner
-created_at: "2026-08-08"
-updated_at: "2026-08-08"
+created_at: '2026-08-08'
+updated_at: '2026-08-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - schema
   - documentation
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Schema Updates for Librarian Persona
