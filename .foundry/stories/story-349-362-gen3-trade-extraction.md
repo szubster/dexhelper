@@ -28,4 +28,9 @@ Implement extraction of in-game NPC trade completion flags from Generation 3 (RS
 - [ ] Gen 3 NPC trade flags are identified and extracted for all core versions.
 - [ ] The `npcTradeFlags` field in `SaveData` is consistently populated.
 - [ ] Parsing logic strictly adheres to the `DataView` API and handles `RangeError` for corrupted saves.
-- [ ] Tech Lead: Break down this Story into executable Tasks.
+- [x] Tech Lead: Break down this Story into executable Tasks.
+- [ ] task-362-407-gen3-trade-extraction-impl
+- [ ] task-362-408-gen3-trade-extraction-qa
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
