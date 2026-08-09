@@ -34,6 +34,9 @@ export const NUM_TIMES_ENTERED_OFFSET = 0x10;
 export const DECORATIONS_OFFSET = 0x12;
 export const DECORATION_POSITIONS_OFFSET = 0x22;
 
+export const EMPTY_SECRET_BASE_ID = 0;
+export const FLAG_FALSE = 0;
+
 /**
  * Parses the Secret Base Party member structures from a Gen 3 save file.
  *
@@ -98,14 +101,14 @@ export function parseSecretBaseRecord(view: DataView, offset: number) {
     const secretBaseId = view.getUint8(offset);
 
     // If ID is 0, the secret base slot is typically empty.
-    if (secretBaseId === 0) {
+    if (secretBaseId === EMPTY_SECRET_BASE_ID) {
       return null;
     }
 
     const mapId = Math.floor(secretBaseId / SECRET_BASE_MAP_ID_DIVISOR);
 
     const flags = view.getUint8(offset + FLAGS_OFFSET);
-    const battledOwnerToday = (flags & BATTLED_OWNER_TODAY_MASK) !== 0;
+    const battledOwnerToday = (flags & BATTLED_OWNER_TODAY_MASK) !== FLAG_FALSE;
 
     const trainerName = decodeGen12String(view, offset + TRAINER_NAME_OFFSET, TRAINER_NAME_LENGTH);
 
