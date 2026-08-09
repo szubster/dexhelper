@@ -92,6 +92,7 @@ function discoverNodeFiles(dir: string): string[] {
       if (entry.isDirectory()) {
         // Skip journals entirely. For docs, only explore the adrs/ subdirectory.
         if (entry.name === 'journals') continue;
+        if (entry.name === 'fixtures') continue;
         if (entry.name === 'docs') {
           const adrsPath = path.join(fullPath, 'adrs');
           if (fs.existsSync(adrsPath)) walk(adrsPath);

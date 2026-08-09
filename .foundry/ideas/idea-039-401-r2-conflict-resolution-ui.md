@@ -2,10 +2,10 @@
 id: idea-039-401-r2-conflict-resolution-ui
 type: IDEA
 title: Cloudflare R2 Conflict Resolution UI
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-06'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on: []
 jules_session_id: '5835723209406590956'
 pr_number: null

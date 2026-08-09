@@ -2,10 +2,10 @@
 id: story-349-362-gen3-trade-extraction
 type: STORY
 title: Gen 3 NPC Trade Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-06'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on: []
 jules_session_id: '3945360231739565700'
 pr_number: null
