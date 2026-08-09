@@ -26,6 +26,9 @@ Implement the Gen 3 IV/PV extraction, handling the 48-byte encrypted Data block 
 
 ## Acceptance Criteria
 - [x] Implement Gen 3 IV/PV extraction, handling the 48-byte encrypted Data block and substructure order `PV % 24`.
-- [ ] task-402-407-gen3-iv-pv-types-impl
-- [ ] task-402-408-gen3-iv-pv-parser-impl
-- [ ] task-402-409-gen3-iv-pv-qa
+- [x] task-402-407-gen3-iv-pv-types-impl
+- [x] task-402-408-gen3-iv-pv-parser-impl
+- [x] task-402-409-gen3-iv-pv-qa
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
