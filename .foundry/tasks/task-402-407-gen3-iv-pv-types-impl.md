@@ -26,11 +26,11 @@ As the first step in implementing Gen 3 IV/PV extraction, define the necessary t
 Gen 3 Pokémon data is stored in a 48-byte encrypted data block, which is divided into four 12-byte substructures (Growth, Attacks, EVs/Condition, Miscellaneous). The order of these substructures is determined by `PV % 24`. The IVs are packed into a 32-bit integer within the Miscellaneous substructure.
 
 ## Acceptance Criteria
-- [ ] Define constants for `GEN3_POKEMON_PV_OFFSET` and `GEN3_POKEMON_OT_ID_OFFSET`.
-- [ ] Define the `SUBSTRUCTURE_ORDER` array containing the 24 possible permutations (e.g., 'G', 'A', 'E', 'M').
-- [ ] Define constants for `NUM_SUBSTRUCTURE_PERMUTATIONS` and `SUBSTRUCTURE_SIZE`.
-- [ ] Define the `MISC_IVS_OFFSET` constant.
-- [ ] Ensure all constants related to IV bitwise shifts (`IV_SHIFT_HP`, `IV_SHIFT_ATK`, etc.) and masks (`IV_MASK`) are defined and exported if they don't already exist.
+- [x] Define constants for `GEN3_POKEMON_PV_OFFSET` and `GEN3_POKEMON_OT_ID_OFFSET`.
+- [x] Define the `SUBSTRUCTURE_ORDER` array containing the 24 possible permutations (e.g., 'G', 'A', 'E', 'M').
+- [x] Define constants for `NUM_SUBSTRUCTURE_PERMUTATIONS` and `SUBSTRUCTURE_SIZE`.
+- [x] Define the `MISC_IVS_OFFSET` constant.
+- [x] Ensure all constants related to IV bitwise shifts (`IV_SHIFT_HP`, `IV_SHIFT_ATK`, etc.) and masks (`IV_MASK`) are defined and exported if they don't already exist.
 
 ## Intelligent Verification Protocol
 This task creates constants and types that will be used by the parser. The `coder` is responsible for self-verifying these changes. The subsequent QA task will verify the end-to-end integration.
