@@ -46,8 +46,8 @@ This task involves deprecating those hardcoded tables and replacing them with qu
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Remove hardcoded item tables (`POKEAPI_TO_GENX_ITEM`, `EVO_ITEM_NAMES`) from `gameItemMap.ts`.
-- [ ] Implement `getGameItemId` (and any other replaced functions) to asynchronously query `PokeDB` for item data.
-- [ ] Update all calling modules to handle the new asynchronous behavior of item lookups.
-- [ ] Run `pnpm type-check` and `pnpm lint` successfully.
-- [ ] Run unit tests (`pnpm test`) to verify the refactored item map logic works correctly.
+- [x] Remove hardcoded item tables (`POKEAPI_TO_GENX_ITEM`, `EVO_ITEM_NAMES`) from `gameItemMap.ts`.
+- [x] Implement `getGameItemId` (and any other replaced functions) to asynchronously query `PokeDB` for item data.
+- [x] Update all calling modules to handle the new asynchronous behavior of item lookups.
+- [x] Run `pnpm type-check` and `pnpm lint` successfully.
+- [x] Run unit tests (`pnpm test`) to verify the refactored item map logic works correctly.
