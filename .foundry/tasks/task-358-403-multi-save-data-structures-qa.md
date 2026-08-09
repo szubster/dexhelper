@@ -30,6 +30,6 @@ Verify the implementation of the multi-save data structures in the Zustand store
 - Verify that `saves` and `activeSaveId` are not included in the `partialize` configuration for localStorage persistence.
 
 ## Acceptance Criteria
-- [ ] Verify `saves` and `activeSaveId` are present and correctly typed in the store.
-- [ ] Verify `saveData` backwards compatibility is maintained.
-- [ ] Verify heavy save data is not persisted to localStorage.
+- [x] Verify `saves` and `activeSaveId` are present and correctly typed in the store.
+- [x] Verify `saveData` backwards compatibility is maintained.
+- [x] Verify heavy save data is not persisted to localStorage.
