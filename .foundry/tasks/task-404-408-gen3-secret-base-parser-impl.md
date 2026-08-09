@@ -2,13 +2,13 @@
 id: task-404-408-gen3-secret-base-parser-impl
 type: TASK
 title: Gen 3 Secret Base Parsing Engine Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-08'
 updated_at: '2026-08-09'
 depends_on:
   - task-404-407-gen3-secret-base-types-impl
-jules_session_id: null
+jules_session_id: '676485139982691484'
 pr_number: null
 parent: story-397-404-gen3-secret-base-parsing-core
 tags:
