@@ -30,6 +30,9 @@ Verify the implementation of filtering the list of active callers to isolate NPC
 As part of the Pokegear Alerts Epic, we need a way to filter the active Pokegear callers and surface the high-value NPCs that provide swarms or rare items. The tech lead has determined this requires an explicit QA step due to potential data mapping complexities.
 
 ## Acceptance Criteria
-- [ ] Verify that the data logic correctly identifies high-value Pokegear callers (swarm and item-giving) based on research offsets.
-- [ ] Verify that a filtering layer or flag is correctly implemented in the data structure for high-value calls.
-- [ ] Verify test coverage is complete and accurate for the implemented logic.
+- [x] Verify that the data logic correctly identifies high-value Pokegear callers (swarm and item-giving) based on research offsets.
+- [x] Verify that a filtering layer or flag is correctly implemented in the data structure for high-value calls.
+- [x] Verify test coverage is complete and accurate for the implemented logic.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
