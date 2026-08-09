@@ -363,7 +363,7 @@ function main(): void {
   if (!fs.existsSync(foundryDir)) {
     warn(`'.foundry/' directory not found at repo root: ${repoRoot}`);
     console.log(JSON.stringify([]));
-    process.exit(0);
+    return;
   }
 
   // ── Phase 1: DISCOVER ──────────────────────────────────────────────────────
@@ -1244,10 +1244,9 @@ function main(): void {
   // ── Phase 8: EXIT ──────────────────────────────────────────────────────────
   if (hasUnresolvableDeps && STRICT) {
     warn('Exiting with code 1: unresolvable dependency paths detected (--strict mode).');
-    process.exit(1);
+    process.exitCode = 1;
+    return;
   }
-
-  process.exit(0);
 }
 
 if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith('foundry-orchestrator.ts')) {
