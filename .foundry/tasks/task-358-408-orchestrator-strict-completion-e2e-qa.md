@@ -2,15 +2,15 @@
 id: task-358-408-orchestrator-strict-completion-e2e-qa
 type: TASK
 title: Orchestrator Hierarchical Completion Checks E2E QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-08'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on:
   - task-358-407-orchestrator-strict-completion-e2e-impl
-parent: story-070-358-orchestrator-strict-completion-e2e
 jules_session_id: null
 pr_number: null
+parent: story-070-358-orchestrator-strict-completion-e2e
 tags:
   - orchestrator
   - architecture
