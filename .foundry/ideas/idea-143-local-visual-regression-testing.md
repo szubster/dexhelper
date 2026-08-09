@@ -2,7 +2,7 @@
 id: idea-143-local-visual-regression-testing
 type: IDEA
 title: Local Visual Regression Testing & Component Diffing
-status: FAILED
+status: READY
 owner_persona: canvas
 created_at: '2026-08-09'
 updated_at: '2026-08-09'
@@ -14,8 +14,8 @@ tags:
   - testing
   - frontend
   - visual-regression
-rejection_count: 0
-rejection_reason: Invalid owner_persona mapping
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
