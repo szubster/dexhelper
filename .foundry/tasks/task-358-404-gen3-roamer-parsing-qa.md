@@ -2,13 +2,13 @@
 id: task-358-404-gen3-roamer-parsing-qa
 type: TASK
 title: QA Gen 3 Roamer Parsing
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-05'
 updated_at: '2026-08-09'
 depends_on:
   - task-358-403-gen3-roamer-game-integrations-impl
-jules_session_id: null
+jules_session_id: '8469824578769131854'
 pr_number: null
 parent: story-397-358-gen3-roamer-dataview-parsing
 tags:
