@@ -191,6 +191,10 @@ export interface Gen3SaveData extends BaseSaveData {
 export type SaveData = Gen1SaveData | Gen2SaveData | Gen3SaveData;
 ```
 
+## Implementation Impact
+- **Core Parser Updates:** The core generation-specific parsers (`parseGen1Save`, `parseGen2Save`, `parseGen3Save`) must be updated to explicitly return their respective specific types (`Gen1SaveData`, `Gen2SaveData`, `Gen3SaveData`) rather than a generic `SaveData`.
+- **Downstream Consumer Adjustments:** React components and utility functions that consume `SaveData` will need to implement type guards or use type narrowing (e.g., `if (data.generation === 3)`) to securely access generation-specific properties without relying on non-null assertions or encountering type errors.
+
 ## Consequences
 - **Positive:** Increased type safety. TypeScript will automatically narrow the type based on `if (saveData.generation === 3)`, allowing safe access to `saveData.gen3FeebasTiles` without optional chaining or non-null assertions.
 - **Positive:** Better developer experience and self-documenting code.

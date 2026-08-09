@@ -26,4 +26,4 @@ notes: ''
 Draft the implementation impact portion of the Architecture Decision Record (ADR) detailing the typed schema and downstream consumer impact for the new discriminated union SaveData type.
 
 ## Acceptance Criteria
-- [ ] Draft the implementation impact in the ADR in `.foundry/archive/docs/adrs/`.
+- [x] Draft the implementation impact in the ADR in `.foundry/archive/docs/adrs/`.
