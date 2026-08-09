@@ -56,6 +56,9 @@ const MAX_REJECTION_THRESHOLD = 3; // Hardcoded fallback for isolated test envir
 const DRY_RUN: boolean = process.argv.includes('--dry-run');
 const STRICT: boolean = process.argv.includes('--strict');
 
+const COMPILE_ARG_INDEX = process.argv.indexOf('--compile');
+const COMPILE_PATH = COMPILE_ARG_INDEX !== -1 ? process.argv[COMPILE_ARG_INDEX + 1] : null;
+
 // ─── Logging (all diagnostic output → stderr; only the matrix JSON → stdout) ─
 
 function warn(msg: string): void {
@@ -349,6 +352,22 @@ function compilePromptForNode(node: ParsedNode, repoRoot: string): string {
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 function main(): void {
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  const repoRoot = process.env.VITEST ? process.cwd() : path.resolve(__dirname, '..', '..');
+
+  if (COMPILE_PATH) {
+    const fullPath = path.resolve(repoRoot, COMPILE_PATH);
+    const node = parseNodeFile(fullPath, repoRoot);
+    if (!node) {
+      warn(`Could not parse node at compile path: ${COMPILE_PATH}`);
+      process.exitCode = 1;
+      return;
+    }
+    const compiled = compilePromptForNode(node, repoRoot);
+    process.stdout.write(compiled);
+    return;
+  }
+
   if (DRY_RUN) {
     info('🔍 Dry-run mode active — no files will be modified.');
   }
@@ -356,8 +375,6 @@ function main(): void {
     info('⚠️  Strict mode active — unresolvable deps will cause exit(1).');
   }
 
-  const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const repoRoot = process.env.VITEST ? process.cwd() : path.resolve(__dirname, '..', '..');
   const foundryDir = path.join(repoRoot, '.foundry');
 
   if (!fs.existsSync(foundryDir)) {
@@ -1202,17 +1219,20 @@ function main(): void {
 
   // Include both freshly-promoted nodes AND any that were already READY before
   // this run (idempotent: re-running the orchestrator is always safe).
+  const includePrompt = process.argv.includes('--include-prompt');
   const readyNodes = nodes
     .filter((n) => n.frontmatter.status === 'READY' || n.frontmatter.status === 'VERIFYING')
     .map((n) => {
-      const compiledPrompt = compilePromptForNode(n, repoRoot);
-      return {
+      const item: any = {
         ...n.frontmatter,
         repo_path: n.repoPath,
         owner_persona: n.frontmatter.status === 'VERIFYING' ? 'auditor' : n.frontmatter.owner_persona,
         critical_weight: getWeight(n.repoPath),
-        compiled_prompt: compiledPrompt,
       };
+      if (includePrompt) {
+        item.compiled_prompt = compilePromptForNode(n, repoRoot);
+      }
+      return item;
     })
     .sort((a, b) => {
       // 1. Sort by Critical Path Weight descending (highest weight first)
