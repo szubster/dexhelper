@@ -21,5 +21,8 @@ rejection_reason: ''
 Review and verify the test fixtures and E2E test suite implemented for the Zod schema orchestrator verification. Execute `cd .github/scripts && pnpm install && npx vitest` and verify the correctness.
 
 ## Acceptance Criteria
-- [ ] Verify test fixtures are realistic and cover edge cases.
-- [ ] Verify test suite properly tests the Orchestrator with Zod schema validation.
+- [x] Verify test fixtures are realistic and cover edge cases.
+- [x] Verify test suite properly tests the Orchestrator with Zod schema validation.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
