@@ -26,6 +26,6 @@ notes: ''
 Write robust unit tests for the Gen 2 NPC trade extraction implementation to verify correctness across versions and handling of corrupted saves.
 
 ## Acceptance Criteria
-- [ ] Add unit test verifying that Gold/Silver save layouts correctly map the extracted `npcTradeFlags`.
-- [ ] Add unit test verifying that Crystal save layouts correctly map the extracted `npcTradeFlags`.
-- [ ] Add unit test verifying that a specific `Error('The save file is corrupted or incomplete.')` is thrown when `DataView` triggers a `RangeError` on out-of-bounds reads.
+- [x] Add unit test verifying that Gold/Silver save layouts correctly map the extracted `npcTradeFlags`.
+- [x] Add unit test verifying that Crystal save layouts correctly map the extracted `npcTradeFlags`.
+- [x] Add unit test verifying that a specific `Error('The save file is corrupted or incomplete.')` is thrown when `DataView` triggers a `RangeError` on out-of-bounds reads.
