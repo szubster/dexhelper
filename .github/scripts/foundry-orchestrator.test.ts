@@ -2877,7 +2877,10 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     // Mock console.log to intercept orchestrator stdout output
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
 
+    // Pass --include-prompt to the main orchestrator test to run exactly as before
+    process.argv.push('--include-prompt');
     main();
+    process.argv.splice(process.argv.indexOf('--include-prompt'), 1);
 
     expect(logSpy).toHaveBeenCalled();
     const lastCall = logSpy.mock.calls[logSpy.mock.calls.length - 1][0];

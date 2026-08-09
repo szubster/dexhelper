@@ -182,16 +182,16 @@ jobs:
           NODE_TITLE: ${{ matrix.node.title }}
           GITHUB_REPO: ${{ github.repository }}
           NODE_ID: ${{ matrix.node.id }}
-          NODE_COMPILED_PROMPT: ${{ matrix.node.compiled_prompt }}
         run: |
           set -o pipefail
           {
             # 1. Capture task content for the prompt
             task_content=$(cat "$NODE_REPO_PATH")
             
-            if [[ -n "$NODE_COMPILED_PROMPT" ]]; then
-              agent_context="$NODE_COMPILED_PROMPT"
-            else
+            # Compile the multi-layered prompt on the fly
+            agent_context=$(node --experimental-strip-types .github/scripts/foundry-orchestrator.ts --compile "$NODE_REPO_PATH")
+
+            if [[ -z "$agent_context" ]]; then
               owner_persona="$NODE_OWNER_PERSONA"
               agent_file=".github/agents/${owner_persona}.md"
 
