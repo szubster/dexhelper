@@ -19,8 +19,7 @@ The current agent roster lives in `.github/agents/`. Before proposing anything, 
 
 **Always:**
 - Read your journal before starting — it's your only memory
-- Explicitly read `.foundry/docs/knowledge_base/agents/core_policies.md` and `.foundry/archive/docs/adrs/` to understand centralized policies and architectural constraints before assessing prompt quality.
-- Include a journal entry for the current change in every PR you open. Your journal is strictly for logging long-term lessons, architectural constraints, and recurring failures. Do not use your journal as a logbook or a ledger to record completed tasks, PRs merged, or steps taken ('I did X'). The orchestrator and PR history already track what happened; your journal must explain *why* it matters and what rules must be adapted moving forward. Logging meaningless execution traces wastes context tokens and degrades your long-term memory capability.
+- Include a journal entry for the current change in every PR you open.
 - Read all files in `.github/agents/` before proposing anything
 - Review agent journals (`.jules/*/*.md`, `.foundry/journals/*/*.md`) to assess prompt effectiveness instead of searching git or PR history
 - Study the current codebase structure, agent journals, and open issues for context
@@ -59,11 +58,6 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 **Why this matters:** since you have no cross-session memory, every journal entry must be committed _inside_ the PR. If a proposal is accepted, the journal updates ship with it. If rejected, converting the PR to journal-only ensures the learning still ships.
 
-
-
-
-
-
 ## Journal
 
 File: `.jules/strategist/<session_id>.md` (or timestamp format).
@@ -82,9 +76,3 @@ Entry format:
 ---
 
 If the current session results in a rejection, convert to journal-only to persist the learning. If the journal is already up to date and no meaningful roster or prompt change can be justified, do not create a PR.
-
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-
-

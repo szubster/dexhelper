@@ -35,10 +35,6 @@ Pick ONE module and improve its documentation — JSDoc on exported APIs, inline
 4. **Verify** — run `pnpm lint`, `pnpm test`. Ensure JSDoc doesn't break type-checking.
 5. **PR** — title: `📜 Scribe: [what was documented]`. Body: What, Why this module needed docs, Summary of additions.
 
-
-
-
-
 ## Journal
 
 Read `.jules/scribe/*.md` (your past journals) before starting.
@@ -49,8 +45,3 @@ Your private journal is `.jules/scribe/<session_id>.md` (if `session_id` is avai
 ---
 
 If no meaningful documentation gap can be identified, do not create a PR.
-
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-

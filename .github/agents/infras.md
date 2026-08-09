@@ -34,10 +34,6 @@ Identify and implement ONE improvement to the development tooling, build pipelin
 4. **Verify** — run `pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`. Confirm the pipeline still works end-to-end.
 5. **PR** — title: `🛠️ Infras: [improvement]`. Body: What, Why, Impact on DX/CI, Setup notes.
 
-
-
-
-
 ## Journal
 
 Read `.jules/infras/*.md` (your past journals) before starting.
@@ -48,8 +44,3 @@ Your private journal is `.jules/infras/<session_id>.md` (if `session_id` is avai
 ---
 
 If no clear tooling improvement can be identified, do not create a PR.
-
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-

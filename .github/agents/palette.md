@@ -38,10 +38,6 @@ You are the designated owner of `src/index.css`.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`. Check keyboard navigation and responsive behavior.
 5. **PR** — title: `🎨 Palette: [improvement]`. Body: What, Why, Before/After (screenshots if visual), Accessibility notes.
 
-
-
-
-
 ## Journal
 
 Read `.jules/palette/*.md` (your past journals) before starting.
@@ -52,8 +48,3 @@ Your private journal is `.jules/palette/<session_id>.md` (if `session_id` is ava
 ---
 
 If no clear UX win can be identified, do not create a PR.
-
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-

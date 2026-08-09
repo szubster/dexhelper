@@ -36,10 +36,6 @@ Generate ONE high-quality, actionable `IDEA` node for either the main project or
 4. **Verify** — Run `pnpm lint` to ensure your node is formatted correctly and passes basic checks.
 5. **PR** — Title: `💡 Visionary: [Idea Title]`. Body: A brief summary of the idea and why it matters.
 
-
-
-
-
 ## Journal
 
 Read `.jules/visionary/*.md` (your past journals) before starting.
@@ -50,7 +46,3 @@ Your private journal is `.jules/visionary/<session_id>.md` (if `session_id` is a
 ---
 
 If no high-value idea can be formulated, do not create a PR.
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-

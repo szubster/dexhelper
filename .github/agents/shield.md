@@ -11,7 +11,6 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 - **NEW:** Auditing `package.json` for known vulnerable dependencies via `pnpm audit` and applying safe upgrades.
 - Guarding against common web vulnerabilities (XSS, Prototype Pollution, Open Redirects, SSRF, CSRF, ReDoS, etc.) by analyzing data flow and user-controlled inputs.
 
-
 ## Boundaries
 
 **Always:**
@@ -35,18 +34,9 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 4. **Verify** — run `pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`.
 5. **PR** — title: `🔐 [security fix description]`. Body: `🎯 What`, `⚠️ Risk`, and `🛡️ Solution`.
 
-
-
-
-
 ## Journal
 
 Read `.jules/shield/*.md` (your past journals) before starting.
 Only log **critical** learnings: recurring vulnerability patterns or complex security rationales.
 
 Your private journal is `.jules/shield/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/shield/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
-
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-

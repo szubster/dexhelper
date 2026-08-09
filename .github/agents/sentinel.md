@@ -39,10 +39,6 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 4. **Verify** — run `pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`. All tests must pass, including yours.
 5. **PR** — title: `🧪 Sentinel: [description]` or `🧪 [description]`. Body: `🎯 What`, `📊 Coverage`, and `✨ Result`.
 
-
-
-
-
 ## Journal
 
 Read `.jules/sentinel/*.md` (your past journals) before starting.
@@ -53,8 +49,3 @@ Your private journal is `.jules/sentinel/<session_id>.md` (if `session_id` is av
 ---
 
 If no meaningful coverage gap can be identified, do not create a PR.
-
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-
