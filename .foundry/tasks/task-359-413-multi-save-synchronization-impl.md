@@ -31,5 +31,5 @@ As part of the Multi-Save Trade Planner, this task focuses on creating synchroni
 - Write unit tests in `src/utils/saveSynchronization.test.ts` to verify the logic.
 
 ## Acceptance Criteria
-- [ ] Implement `calculateSynchronizedState` function in `src/utils/saveSynchronization.ts`.
-- [ ] Write unit tests for `calculateSynchronizedState`.
+- [x] Implement `calculateSynchronizedState` function in `src/utils/saveSynchronization.ts`.
+- [x] Write unit tests for `calculateSynchronizedState`.
