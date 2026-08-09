@@ -2,12 +2,12 @@
 id: task-408-411-schema-role-mapping
 type: TASK
 title: Update Schema.md with Role to Gen 1 Mappings
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-09'
 updated_at: '2026-08-09'
 depends_on: []
-jules_session_id: '8762110962037075739'
+jules_session_id: null
 pr_number: null
 parent: story-405-408-schema-role-status-mapping
 tags:

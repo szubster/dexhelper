@@ -2,7 +2,7 @@
 id: story-128-350-epic-planner-process-e2e
 type: STORY
 title: E2E Verification for Epic Planner Process Update
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-01'
 updated_at: '2026-08-09'

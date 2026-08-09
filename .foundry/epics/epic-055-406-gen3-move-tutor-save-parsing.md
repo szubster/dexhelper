@@ -2,10 +2,10 @@
 id: epic-055-406-gen3-move-tutor-save-parsing
 type: EPIC
 title: Gen 3 Move Tutor Save Parsing
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-08'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on:
   - research-055-405-gen3-move-tutor-offsets
 jules_session_id: null

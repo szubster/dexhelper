@@ -2,7 +2,7 @@
 id: story-349-361-gen2-trade-extraction
 type: STORY
 title: Gen 2 NPC Trade Extraction
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-06'
 updated_at: '2026-08-09'

@@ -2,12 +2,12 @@
 id: story-397-358-gen3-roamer-dataview-parsing
 type: STORY
 title: Gen 3 Roamer DataView Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-09'
 depends_on: []
-jules_session_id: '9758010313738458954'
+jules_session_id: null
 pr_number: null
 parent: epic-044-397-gen3-roamer-core-extraction-v5
 tags:

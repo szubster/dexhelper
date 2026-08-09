@@ -2,7 +2,7 @@
 id: story-404-361-draft-savedata-adr
 type: STORY
 title: Draft ADR for SaveData Typed Schema
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-07'
 updated_at: '2026-08-09'

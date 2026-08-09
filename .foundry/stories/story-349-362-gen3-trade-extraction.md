@@ -2,12 +2,12 @@
 id: story-349-362-gen3-trade-extraction
 type: STORY
 title: Gen 3 NPC Trade Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-06'
 updated_at: '2026-08-09'
 depends_on: []
-jules_session_id: '2959356290281764463'
+jules_session_id: null
 pr_number: null
 parent: epic-056-349-in-game-trade-data-extraction-v2
 tags:

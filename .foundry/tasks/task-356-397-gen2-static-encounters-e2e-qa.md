@@ -2,10 +2,10 @@
 id: task-356-397-gen2-static-encounters-e2e-qa
 type: TASK
 title: QA Gen 2 Static Encounters E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
-created_at: 2026-08-04
-updated_at: 2026-08-04
+created_at: '2026-08-04T00:00:00.000Z'
+updated_at: '2026-08-09'
 depends_on:
   - task-356-396-gen2-static-encounters-e2e-impl
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # QA Gen 2 Static Encounters E2E Tests

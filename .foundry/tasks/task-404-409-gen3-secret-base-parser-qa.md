@@ -2,7 +2,7 @@
 id: task-404-409-gen3-secret-base-parser-qa
 type: TASK
 title: QA - Gen 3 Secret Base Parsing Engine
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-08'
 updated_at: '2026-08-09'
