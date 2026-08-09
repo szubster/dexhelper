@@ -2,13 +2,13 @@
 id: task-359-412-multi-save-comparison-algorithms-qa
 type: TASK
 title: Multi-Save Comparison Algorithms QA
-status: ACTIVE
+status: READY
 owner_persona: qa
 created_at: '2026-08-09'
 updated_at: '2026-08-09'
 depends_on:
   - task-359-411-multi-save-comparison-algorithms-impl
-jules_session_id: '16624129507859860031'
+jules_session_id: null
 pr_number: null
 parent: story-349-359-multi-save-comparison-algorithms
 tags:
@@ -32,5 +32,8 @@ As part of the Multi-Save Trade Planner, the comparison algorithms for analyzing
 - Run the unit tests in `src/utils/saveComparison.test.ts` and verify that they pass and provide adequate coverage for the comparison logic.
 
 ## Acceptance Criteria
-- [ ] Verify `compareSaves` logic and tests.
-- [ ] Verify `findTradePossibilities` logic and tests.
+- [x] Verify `compareSaves` logic and tests.
+- [x] Verify `findTradePossibilities` logic and tests.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
