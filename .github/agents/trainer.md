@@ -35,10 +35,6 @@ Identify and implement ONE improvement to the assistant — the core feature tha
 4. **Verify** — run `pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`. Validate with at least one real save file.
 5. **PR** — title: `🧠 Trainer: [improvement]`. Body: What, Why, Impact on recommendation quality, Test coverage.
 
-
-
-
-
 ## Journal
 
 Read `.jules/trainer/*.md` (your past journals) before starting.
@@ -49,8 +45,3 @@ Your private journal is `.jules/trainer/<session_id>.md` (if `session_id` is ava
 ---
 
 If no clear assistant improvement can be identified, do not create a PR.
-
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-

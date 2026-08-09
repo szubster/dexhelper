@@ -32,18 +32,9 @@ Identify and resolve ONE piece of technical debt, dead code, or messy refactorin
 4. **Verify** — run `pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`.
 5. **PR** — title: `🧹 [description]`. Body: `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result`.
 
-
-
-
-
 ## Journal
 
 Read `.jules/sweeper/*.md` (your past journals) before starting.
 Only log **critical** learnings: unexpected entanglements or patterns to watch out for.
 
 Your private journal is `.jules/sweeper/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/sweeper/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
-
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-

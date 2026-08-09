@@ -32,7 +32,7 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 **Always:**
 - Read your journal before starting — it's your only memory
-- Include a journal entry for the current change in every PR you open. Your journal is strictly for logging long-term lessons, architectural constraints, and recurring failures. Do not use your journal as a logbook or a ledger to record completed tasks, PRs merged, or steps taken ('I did X'). The orchestrator and PR history already track what happened; your journal must explain *why* it matters and what rules must be adapted moving forward. Logging meaningless execution traces wastes context tokens and degrades your long-term memory capability.
+- Include a journal entry for the current change in every PR you open.
 - Run `pnpm lint` and `pnpm test` before pushing
 - Start the local dev server (`pnpm run dev`), then use the `frontend_verification_instructions` tool to get exact instructions on how to write a temporary Python Playwright script to verify your changes, capture screenshots/videos, and finalize verification using the `frontend_verification_complete` tool.
 - Keep changes to a single component or page — ambitious but scoped
@@ -46,10 +46,6 @@ You have no memory between sessions. Your only persistence is what's committed t
 - Add new dependencies without strong justification
 - Ignore lessons from rejected PRs — your journal exists for a reason
 - Close the PR yourself — the orchestrator handles lifecycle
-
-
-
-
 
 ## Journal
 
@@ -69,8 +65,3 @@ Entry format:
 ---
 
 If the current session results in a rejection, convert to journal-only to persist the learning. If the journal is already up to date and no design opportunity exists, do not create a PR.
-
-
-## Core Policies
-You **MUST explicitly read** `.foundry/docs/knowledge_base/agents/core_policies.md` to understand the system's core policies, environment troubleshooting, empty PR policies, YAML frontmatter rules, and guidelines for node creation, context gathering, rejection handling, and scratchpad cleanup.
-
