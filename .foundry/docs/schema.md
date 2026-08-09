@@ -147,23 +147,23 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 
 ## 5. Owner Persona Enum
 
-| Value | Role |
-|---|---|
-| `canvas` | Master of interactive layouts, canvases, visual rendering and UI diff structures. |
-| `palette` | Master of Tailwind and styling ecosystem. Maintains `src/index.css` and custom tactical `@utility` primitives as per ADR 024. |
-| `product_manager` | Transforms `IDEA` → `PRD`. |
-| `epic_planner` | Transforms `PRD` → `EPIC` breakdown. |
-| `story_owner` | Monitors active epics; writes `STORY` nodes dynamically (late-binding). |
-| `architect` | Master of the Blueprint. Maintains ADRs, schemas, and defines global App/Foundry architecture. Cannot own `PRD` nodes; if an ADR is needed, the `product_manager` spawns a `TASK` for the `architect` alongside a `PRD` for the `epic_planner`. |
-| `tech_lead` | Transforms `STORY` → `TASK` (technical implementation plans). |
-| `coder` | Implements individual `TASK` nodes. |
-| `qa` | Validates `TASK` implementation against technical contracts. |
-| `human` | A human contributor. Bypasses Jules dispatch and heartbeat timeouts. |
-| `tpm` | Runs hourly. Archives `COMPLETED` nodes, resolves minor graph deadlocks, manages journals. |
-| `agile_coach` | Master of the Process. Evolves persona prompts, monitors learning logs, and optimizes system-wide workflows. |
-| `mechanic` | Ensures the Foundry is working as intended. Analyzes history and nodes to resolve deadlocks and loops. |
-| `researcher` | Responsible for exploratory tasks. Late-bound research nodes can be dynamically created by active nodes. Multiple researchers can be assigned to different sibling research nodes. |
-| `auditor` | Verifies artifacts against original intent, extracts learnings, and dynamically spawns follow-up nodes before archiving. |
+| Value | Role | Pokémon (Gen 1) |
+|---|---|---|
+| `canvas` | Master of interactive layouts, canvases, visual rendering and UI diff structures. | Porygon |
+| `palette` | Master of Tailwind and styling ecosystem. Maintains `src/index.css` and custom tactical `@utility` primitives as per ADR 024. | Starmie |
+| `product_manager` | Transforms `IDEA` → `PRD`. | Dragonite |
+| `epic_planner` | Transforms `PRD` → `EPIC` breakdown. | Alakazam |
+| `story_owner` | Monitors active epics; writes `STORY` nodes dynamically (late-binding). | Lapras |
+| `architect` | Master of the Blueprint. Maintains ADRs, schemas, and defines global App/Foundry architecture. Cannot own `PRD` nodes; if an ADR is needed, the `product_manager` spawns a `TASK` for the `architect` alongside a `PRD` for the `epic_planner`. | Rhydon |
+| `tech_lead` | Transforms `STORY` → `TASK` (technical implementation plans). | Mewtwo |
+| `coder` | Implements individual `TASK` nodes. | Machamp |
+| `qa` | Validates `TASK` implementation against technical contracts. | Mr. Mime |
+| `human` | A human contributor. Bypasses Jules dispatch and heartbeat timeouts. | Pikachu |
+| `tpm` | Runs hourly. Archives `COMPLETED` nodes, resolves minor graph deadlocks, manages journals. | Chansey |
+| `agile_coach` | Master of the Process. Evolves persona prompts, monitors learning logs, and optimizes system-wide workflows. | Eevee |
+| `mechanic` | Ensures the Foundry is working as intended. Analyzes history and nodes to resolve deadlocks and loops. | Magnemite |
+| `researcher` | Responsible for exploratory tasks. Late-bound research nodes can be dynamically created by active nodes. Multiple researchers can be assigned to different sibling research nodes. | Omanyte |
+| `auditor` | Verifies artifacts against original intent, extracts learnings, and dynamically spawns follow-up nodes before archiving. | Pidgeot |
 
 ---
 
