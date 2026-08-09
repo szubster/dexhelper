@@ -2,7 +2,7 @@
 id: task-402-408-gen3-iv-pv-parser-impl
 type: TASK
 title: Gen 3 IV/PV Parser Implementation
-status: FAILED
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-08'
 updated_at: '2026-08-09'
@@ -14,7 +14,8 @@ tags:
   - dexhelper
   - generation-3
   - save-parsing
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: ''
 ---
 
 # Gen 3 IV/PV Parser Implementation

@@ -2,7 +2,7 @@
 id: task-402-407-gen3-iv-pv-types-impl
 type: TASK
 title: Gen 3 IV/PV Types and Constants Definition
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-08'
 updated_at: '2026-08-09'
@@ -13,7 +13,8 @@ tags:
   - dexhelper
   - generation-3
   - save-parsing
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_reason: ''
+rejection_count: 1
 ---
 
 # Gen 3 IV/PV Types and Constants Definition

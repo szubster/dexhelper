@@ -2,7 +2,7 @@
 id: task-402-409-gen3-iv-pv-qa
 type: TASK
 title: Gen 3 IV/PV Extraction QA
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-08'
 updated_at: '2026-08-09'
@@ -15,7 +15,8 @@ tags:
   - generation-3
   - save-parsing
   - qa
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: ''
 ---
 
 # Gen 3 IV/PV Extraction QA
