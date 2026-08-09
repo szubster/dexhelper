@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { parseGen3RSRoamer, parseGen3EmeraldRoamer, parseGen3FRLGRoamer } from './parser';
+import { describe, expect, it } from 'vitest';
+import { parseGen3EmeraldRoamer, parseGen3FRLGRoamer, parseGen3RSRoamer } from './parser';
 
 const GEN3_ROAMER_OFFSET_RS = 0x3144;
 const GEN3_ROAMER_OFFSET_EMERALD = 0x31dc;
