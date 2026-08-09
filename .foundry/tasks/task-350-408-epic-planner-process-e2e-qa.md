@@ -28,6 +28,9 @@ The Coder has implemented an E2E test in `.github/scripts/epic-planner-instructi
 Verify the execution of the E2E test and ensure it correctly tests the required Epic Planner instruction update.
 
 ## Acceptance Criteria
-- [ ] Verify that the E2E test file (`.github/scripts/epic-planner-instructions.test.ts`) runs successfully using Vitest.
-- [ ] Confirm that the test explicitly asserts the presence of the exact string: `'You MUST enforce a process where every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification.'`
-- [ ] Run `pnpm test` and `xvfb-run pnpm test:e2e` (if applicable) and confirm tests pass without regressions.
+- [x] Verify that the E2E test file (`.github/scripts/epic-planner-instructions.test.ts`) runs successfully using Vitest.
+- [x] Confirm that the test explicitly asserts the presence of the exact string: `'You MUST enforce a process where every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification.'`
+- [x] Run `pnpm test` and `xvfb-run pnpm test:e2e` (if applicable) and confirm tests pass without regressions.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
