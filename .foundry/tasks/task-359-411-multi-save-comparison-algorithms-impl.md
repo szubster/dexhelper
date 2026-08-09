@@ -32,6 +32,6 @@ As part of the Multi-Save Trade Planner, this task creates comparison algorithms
 - Write unit tests in `src/utils/saveComparison.test.ts` to verify the logic of the comparison functions.
 
 ## Acceptance Criteria
-- [ ] Implement `compareSaves` function in `src/utils/saveComparison.ts`.
-- [ ] Implement `findTradePossibilities` function in `src/utils/saveComparison.ts`.
-- [ ] Write unit tests for `compareSaves` and `findTradePossibilities`.
+- [x] Implement `compareSaves` function in `src/utils/saveComparison.ts`.
+- [x] Implement `findTradePossibilities` function in `src/utils/saveComparison.ts`.
+- [x] Write unit tests for `compareSaves` and `findTradePossibilities`.
