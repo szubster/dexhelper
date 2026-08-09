@@ -2,13 +2,13 @@
 id: task-350-407-epic-planner-process-e2e-impl
 type: TASK
 title: Implement E2E Test for Epic Planner Process Instructions
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-01'
 updated_at: '2026-08-09'
 depends_on: []
 parent: story-128-350-epic-planner-process-e2e
-jules_session_id: '963424884238909850'
+jules_session_id: null
 pr_number: null
 tags:
   - e2e

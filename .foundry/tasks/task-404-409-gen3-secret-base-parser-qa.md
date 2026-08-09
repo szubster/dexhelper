@@ -2,13 +2,13 @@
 id: task-404-409-gen3-secret-base-parser-qa
 type: TASK
 title: QA - Gen 3 Secret Base Parsing Engine
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-08-08'
 updated_at: '2026-08-09'
 depends_on:
   - task-404-408-gen3-secret-base-parser-impl
-jules_session_id: '12960983747185356556'
+jules_session_id: null
 pr_number: null
 parent: story-397-404-gen3-secret-base-parsing-core
 tags:
@@ -19,7 +19,7 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 

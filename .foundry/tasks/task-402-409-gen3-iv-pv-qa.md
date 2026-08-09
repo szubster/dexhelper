@@ -2,13 +2,13 @@
 id: task-402-409-gen3-iv-pv-qa
 type: TASK
 title: Gen 3 IV/PV Extraction QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-08'
 updated_at: '2026-08-09'
 depends_on:
   - task-402-408-gen3-iv-pv-parser-impl
-jules_session_id: '11361217312313065104'
+jules_session_id: null
 parent: story-112-402-gen3-iv-pv-extraction
 tags:
   - dexhelper

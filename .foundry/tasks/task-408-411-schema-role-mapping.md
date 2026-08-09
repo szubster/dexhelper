@@ -2,7 +2,7 @@
 id: task-408-411-schema-role-mapping
 type: TASK
 title: Update Schema.md with Role to Gen 1 Mappings
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-09'
 updated_at: '2026-08-09'
