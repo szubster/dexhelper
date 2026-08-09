@@ -74,7 +74,7 @@ jobs:
             sh -c "exit $exit_code" || true
             exit "$exit_code"
           fi
-          echo "matrix=$output" >> "$GITHUB_OUTPUT"
+          printf 'matrix=%s\n' "$output" >> "$GITHUB_OUTPUT"
 
       - name: Report DAG Warnings
         if: always() && steps.set-matrix.outputs.dag_has_warnings == 'true'
