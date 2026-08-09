@@ -32,4 +32,4 @@ Update the Owner Persona Enum in `.foundry/docs/schema.md` to map the 13 system 
 - Ensure all 13 system roles have a mapped Gen 1 Pokémon.
 
 ## Acceptance Criteria
-- [ ] Coder: Update `.foundry/docs/schema.md` with Gen 1 mappings for all 13 roles.
+- [x] Coder: Update `.foundry/docs/schema.md` with Gen 1 mappings for all 13 roles.
