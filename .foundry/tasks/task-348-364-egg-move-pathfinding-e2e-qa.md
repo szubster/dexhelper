@@ -32,4 +32,7 @@ Verify the newly implemented E2E tests for the Egg Move Pathfinding Engine.
 - Run the E2E tests to confirm they pass and correctly validate the breeding chains.
 
 ## Acceptance Criteria
-- [ ] E2E tests are verified and passing.
+- [x] E2E tests are verified and passing.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
