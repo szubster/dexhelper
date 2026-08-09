@@ -2,10 +2,10 @@
 id: task-401-408-gen2-dv-extraction-types
 type: TASK
 title: Gen 2 DV Extraction Types
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-08'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
