@@ -2,10 +2,10 @@
 id: task-361-408-gen2-trade-extraction-test
 type: TASK
 title: Gen 2 NPC Trade Extraction Testing
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-08'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on:
   - .foundry/tasks/task-361-407-gen2-trade-extraction-impl.md
 jules_session_id: null

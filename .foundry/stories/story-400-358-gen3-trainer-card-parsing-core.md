@@ -2,12 +2,12 @@
 id: story-400-358-gen3-trainer-card-parsing-core
 type: STORY
 title: Story - Gen 3 Trainer Card Data Parsing Core
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on: []
-jules_session_id: '6732127653968511474'
+jules_session_id: null
 pr_number: null
 parent: epic-111-400-gen3-trainer-card-data-extraction
 tags:
