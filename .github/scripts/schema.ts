@@ -36,6 +36,7 @@ export const OwnerPersonaEnum = z.enum([
   'mechanic',
   'researcher',
   'auditor',
+  'canvas',
 ]);
 
 export const NodeFrontmatterSchema = z.object({
