@@ -35,6 +35,6 @@ Implement extraction of in-game NPC trade completion flags from Generation 3 (RS
 - Populate the `npcTradeFlags` field in `SaveData`.
 
 ## Acceptance Criteria
-- [ ] Implement extraction logic following all constraints above.
-- [ ] Populate `npcTradeFlags` correctly.
-- [ ] Write unit tests to cover success and `RangeError` cases.
+- [x] Implement extraction logic following all constraints above.
+- [x] Populate `npcTradeFlags` correctly.
+- [x] Write unit tests to cover success and `RangeError` cases.
