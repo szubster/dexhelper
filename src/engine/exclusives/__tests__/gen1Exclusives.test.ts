@@ -248,3 +248,33 @@ describe('gen1Exclusives', () => {
     });
   });
 });
+
+describe('getUnobtainableReason - Missing Linear Evolutions', () => {
+  it('should lock intermediate linear evolution if only final stage is owned', () => {
+    // Bulbasaur (1), Ivysaur (2), Venusaur (3).
+    // Owns ONLY Venusaur (3). Asking for Ivysaur (2).
+    const ownedSet = new Set([3]);
+    const reason = getUnobtainableReason(2, 'red', 1, ownedSet);
+    expect(reason).toContain('Pre-evolution missed');
+  });
+
+  it('should lock intermediate linear evolution if only final stage is owned (Charmander)', () => {
+    // Charmander (4), Charmeleon (5), Charizard (6).
+    // Owns ONLY Charizard (6). Asking for Charmeleon (5).
+    const ownedSet = new Set([6]);
+    const reason = getUnobtainableReason(5, 'red', 1, ownedSet);
+    expect(reason).toContain('Pre-evolution missed');
+  });
+
+  it('should lock base stage if only intermediate stage is owned', () => {
+    const ownedSet = new Set([5]); // Charmeleon
+    const reason = getUnobtainableReason(4, 'red', 1, ownedSet);
+    expect(reason).toContain('Pre-evolution missed');
+  });
+
+  it('should NOT lock intermediate stage if base is owned', () => {
+    const ownedSet = new Set([4]); // Charmander
+    const reason = getUnobtainableReason(5, 'red', 1, ownedSet);
+    expect(reason).toBeNull();
+  });
+});
