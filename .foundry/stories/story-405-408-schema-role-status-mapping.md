@@ -1,11 +1,11 @@
 ---
 id: story-405-408-schema-role-status-mapping
 type: STORY
-title: 'Draft Tasks for Schema Role and Status Mapping'
-status: PENDING
+title: Draft Tasks for Schema Role and Status Mapping
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,10 +2,10 @@
 id: epic-110-401-tm-hm-save-parsing-v2
 type: EPIC
 title: Gen 1-3 TM/HM Save Parsing V2
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-05'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on:
   - research-110-400-investigate-tm-hm-save-parsing-failure
 jules_session_id: '12203003015986713856'
@@ -19,8 +19,8 @@ tags:
   - save-parsing
 research_references:
   - .foundry/docs/knowledge_base/moveset-inventory-memory-offsets.md
-notes: ''
 rejection_reason: ''
+notes: ''
 ---
 
 # Gen 1-3 TM/HM Save Parsing V2
