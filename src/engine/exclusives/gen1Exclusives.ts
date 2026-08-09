@@ -62,9 +62,23 @@ export function getUnobtainableReason(
       return `Pre-evolution missed. In Generation 1, you must trade to replace evolved one-time Pokémon.`;
     }
 
+    const evoIdx = evos.indexOf(pokemonId);
+    if (base !== 133 && evoIdx !== -1 && !ownedSet.has(pokemonId)) {
+      // If intermediate stage is missing, and we own a later stage but not the base stage
+      if (!ownedSet.has(base) && evos.some((e, i) => i > evoIdx && ownedSet.has(e))) {
+        return `Pre-evolution missed. In Generation 1, you must trade to replace evolved one-time Pokémon.`;
+      }
+    }
+
     if (evos.length > 2 && evos.includes(pokemonId) && !ownedSet.has(pokemonId)) {
-      if (!ownedSet.has(base) && evos.some((e) => e !== pokemonId && ownedSet.has(e))) {
-        return `You evolved your one-time Pokémon into a different form. Must trade.`;
+      // Eevee branching logic vs Starter linear logic
+      // In Gen 1, Eevee (133) has 3 branches (134, 135, 136)
+      // Starters have linear evolutions (e.g. 1 -> 2 -> 3)
+      // Eevee's evolutions are all branches, so we can check if another evolution is owned
+      if (base === 133) {
+        if (!ownedSet.has(base) && evos.some((e) => e !== pokemonId && ownedSet.has(e))) {
+          return `You evolved your one-time Pokémon into a different form. Must trade.`;
+        }
       }
     }
 
