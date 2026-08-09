@@ -26,9 +26,12 @@ notes: ''
 Verify the implementation of the Gen 3 NPC trade extraction logic.
 
 ## Acceptance Criteria
-- [ ] Verify `npcTradeFlags` is populated correctly.
-- [ ] Verify implementation strictly adheres to the `DataView` API usage.
-- [ ] Verify `RangeError` is handled correctly and throws exactly "The save file is corrupted or incomplete."
-- [ ] Verify all constants are extracted correctly and no magic numbers are used.
-- [ ] Verify relative offsets are used correctly for Gen 3.
-- [ ] Tests pass locally (`pnpm test`).
+- [x] Verify `npcTradeFlags` is populated correctly.
+- [x] Verify implementation strictly adheres to the `DataView` API usage.
+- [x] Verify `RangeError` is handled correctly and throws exactly "The save file is corrupted or incomplete."
+- [x] Verify all constants are extracted correctly and no magic numbers are used.
+- [x] Verify relative offsets are used correctly for Gen 3.
+- [x] Tests pass locally (`pnpm test`).
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
