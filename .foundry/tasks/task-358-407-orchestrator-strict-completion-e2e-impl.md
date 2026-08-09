@@ -2,7 +2,7 @@
 id: task-358-407-orchestrator-strict-completion-e2e-impl
 type: TASK
 title: Orchestrator Hierarchical Completion Checks E2E Impl
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-08'
 updated_at: '2026-08-09'
@@ -15,8 +15,8 @@ tags:
   - architecture
   - e2e
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

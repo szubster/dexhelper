@@ -2,7 +2,7 @@
 id: story-070-358-orchestrator-strict-completion-e2e
 type: STORY
 title: Orchestrator Hierarchical Completion Checks E2E
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-09'
