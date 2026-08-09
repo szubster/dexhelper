@@ -27,6 +27,9 @@ As part of enforcing macro node functional boundaries, we need to enforce a proc
 Implement an E2E test in `.github/scripts/epic-planner-instructions.test.ts` or a relevant verification script/test file, verifying that the Epic Planner process enforces the creation of a final Integration/Verification story for every EPIC breakdown.
 
 ## Acceptance Criteria
-- [ ] Ensure that a Vitest or equivalent test verifies that the Epic Planner's instructions file (`.github/agents/epic_planner.md`) enforce a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] The test must explicitly look for the exact string: `'You MUST enforce a process where every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification.'`
-- [ ] Run the tests and ensure no regressions are introduced.
+- [x] Ensure that a Vitest or equivalent test verifies that the Epic Planner's instructions file (`.github/agents/epic_planner.md`) enforce a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] The test must explicitly look for the exact string: `'You MUST enforce a process where every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification.'`
+- [x] Run the tests and ensure no regressions are introduced.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
