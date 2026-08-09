@@ -25,8 +25,11 @@ rejection_reason: ''
 Verify the implementation of the Gen 3 IV/PV extraction logic. Ensure that the correct types/constants are used, the bitwise unpacking logic is accurate, and proper error handling (`RangeError`) is in place.
 
 ## Acceptance Criteria
-- [ ] Verify that `parseGen3PokemonPVAndIVs` correctly calculates the decryption key and locates the Miscellaneous substructure using the `PV % 24` logic.
-- [ ] Verify that the IV unpacking correctly applies the defined masks and shifts.
-- [ ] Verify that `RangeError` from the `DataView` API is caught and re-thrown as "The save file is corrupted or incomplete."
-- [ ] Ensure that unit tests are present and passing for `parseGen3PokemonPVAndIVs`.
-- [ ] Run `pnpm lint && pnpm test` to confirm no regressions are introduced.
+- [x] Verify that `parseGen3PokemonPVAndIVs` correctly calculates the decryption key and locates the Miscellaneous substructure using the `PV % 24` logic.
+- [x] Verify that the IV unpacking correctly applies the defined masks and shifts.
+- [x] Verify that `RangeError` from the `DataView` API is caught and re-thrown as "The save file is corrupted or incomplete."
+- [x] Ensure that unit tests are present and passing for `parseGen3PokemonPVAndIVs`.
+- [x] Run `pnpm lint && pnpm test` to confirm no regressions are introduced.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
