@@ -69,6 +69,19 @@ describe('Secret Base Parser', () => {
 
       view.setUint32(9, 1234567, true);
 
+      view.setUint16(0x0e, 42, true); // numSecretBasesReceived
+      view.setUint8(0x10, 5); // numTimesEntered
+
+      // Decorations
+      for (let i = 0; i < 16; i++) {
+        view.setUint8(0x12 + i, i + 1);
+      }
+
+      // Decoration Positions
+      for (let i = 0; i < 16; i++) {
+        view.setUint8(0x22 + i, 16 - i);
+      }
+
       // Let's set some party data
       const partyOffset = 52;
       view.setUint16(partyOffset + 0x48, 1, true); // Bulbasaur
@@ -81,6 +94,10 @@ describe('Secret Base Parser', () => {
       expect(record?.trainerName).toBe('ASH');
       expect(record?.trainerId).toBe(1234567);
       expect(record?.battledOwnerToday).toBe(true);
+      expect(record?.numSecretBasesReceived).toBe(42);
+      expect(record?.numTimesEntered).toBe(5);
+      expect(record?.decorations).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+      expect(record?.decorationPositions).toEqual([16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]);
       expect(record?.party[0]?.species).toBe(1);
     });
 

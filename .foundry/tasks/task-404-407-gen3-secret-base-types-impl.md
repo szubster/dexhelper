@@ -31,6 +31,6 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer Epic, we are breaking d
 - Expose these types for use in subsequent parser and UI implementation tasks.
 
 ## Acceptance Criteria
-- [ ] Define `SecretBase` and related interfaces (e.g., location, decorations) reflecting Gen 3 specific attributes.
-- [ ] Ensure types are exported and available for the parser engine.
-- [ ] Write basic unit tests to verify type shape where applicable (or verify via `type-check`).
+- [x] Define `SecretBase` and related interfaces (e.g., location, decorations) reflecting Gen 3 specific attributes.
+- [x] Ensure types are exported and available for the parser engine.
+- [x] Write basic unit tests to verify type shape where applicable (or verify via `type-check`).
