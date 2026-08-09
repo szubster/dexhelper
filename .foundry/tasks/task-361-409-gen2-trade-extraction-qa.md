@@ -26,8 +26,11 @@ notes: ''
 Verify the Gen 2 NPC trade extraction implementation and testing suite to ensure correctness and adherence to architectural guidelines.
 
 ## Acceptance Criteria
-- [ ] Verify that `NPC_TRADE_FLAGS_OFFSET_CRYSTAL`, `NPC_TRADE_FLAGS_OFFSET_GS`, and `GEN2_NPC_TRADE_COUNT` are strictly defined as module-level constants (no inline magic numbers).
-- [ ] Ensure that `DataView.getUint8` is correctly utilized for bitwise parsing without architectural regressions.
-- [ ] Ensure `RangeError` from the `DataView` API gracefully throws `Error('The save file is corrupted or incomplete.')`.
-- [ ] Verify that tests added correctly assert both G/S and Crystal offsets, as well as the error handling behaviors.
-- [ ] Run test suite (`pnpm test`) and confirm it passes.
+- [x] Verify that `NPC_TRADE_FLAGS_OFFSET_CRYSTAL`, `NPC_TRADE_FLAGS_OFFSET_GS`, and `GEN2_NPC_TRADE_COUNT` are strictly defined as module-level constants (no inline magic numbers).
+- [x] Ensure that `DataView.getUint8` is correctly utilized for bitwise parsing without architectural regressions.
+- [x] Ensure `RangeError` from the `DataView` API gracefully throws `Error('The save file is corrupted or incomplete.')`.
+- [x] Verify that tests added correctly assert both G/S and Crystal offsets, as well as the error handling behaviors.
+- [x] Run test suite (`pnpm test`) and confirm it passes.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
