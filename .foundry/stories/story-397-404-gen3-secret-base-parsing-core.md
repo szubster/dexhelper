@@ -2,12 +2,12 @@
 id: story-397-404-gen3-secret-base-parsing-core
 type: STORY
 title: Core Gen 3 Secret Base Save Parsing
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-04'
 updated_at: '2026-08-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2768317464415410871'
 pr_number: null
 parent: epic-045-397-gen3-secret-base-parsing-v3
 tags:
