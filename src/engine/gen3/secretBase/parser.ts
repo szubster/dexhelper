@@ -28,6 +28,12 @@ export const POKEMON_HELD_ITEM_SIZE = 2;
 export const POKEMON_LEVEL_SIZE = 1;
 export const POKEMON_EVS_SIZE = 1;
 
+export const DECOR_MAX_SECRET_BASE = 16;
+export const NUM_SECRET_BASES_RECEIVED_OFFSET = 0x0e;
+export const NUM_TIMES_ENTERED_OFFSET = 0x10;
+export const DECORATIONS_OFFSET = 0x12;
+export const DECORATION_POSITIONS_OFFSET = 0x22;
+
 /**
  * Parses the Secret Base Party member structures from a Gen 3 save file.
  *
@@ -106,6 +112,19 @@ export function parseSecretBaseRecord(view: DataView, offset: number) {
     // Read the 4 byte Trainer ID
     const trainerId = view.getUint32(offset + TRAINER_ID_OFFSET, true);
 
+    const numSecretBasesReceived = view.getUint16(offset + NUM_SECRET_BASES_RECEIVED_OFFSET, true);
+    const numTimesEntered = view.getUint8(offset + NUM_TIMES_ENTERED_OFFSET);
+
+    const decorations: number[] = [];
+    for (let i = 0; i < DECOR_MAX_SECRET_BASE; i++) {
+      decorations.push(view.getUint8(offset + DECORATIONS_OFFSET + i));
+    }
+
+    const decorationPositions: number[] = [];
+    for (let i = 0; i < DECOR_MAX_SECRET_BASE; i++) {
+      decorationPositions.push(view.getUint8(offset + DECORATION_POSITIONS_OFFSET + i));
+    }
+
     const party = parseSecretBaseParty(view, offset + PARTY_OFFSET);
 
     return {
@@ -114,6 +133,10 @@ export function parseSecretBaseRecord(view: DataView, offset: number) {
       trainerName,
       trainerId,
       battledOwnerToday,
+      numSecretBasesReceived,
+      numTimesEntered,
+      decorations,
+      decorationPositions,
       party,
     };
   } catch (error) {

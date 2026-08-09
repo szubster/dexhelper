@@ -151,6 +151,10 @@ export interface Gen3SecretBase {
   trainerName: string;
   trainerId: number;
   battledOwnerToday?: boolean;
+  numSecretBasesReceived: number;
+  numTimesEntered: number;
+  decorations: number[];
+  decorationPositions: number[];
   party: Gen3SecretBasePartyMember[];
 }
 
