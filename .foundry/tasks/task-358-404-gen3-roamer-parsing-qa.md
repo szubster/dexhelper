@@ -26,7 +26,10 @@ notes: ''
 Verify the correctness of the Gen 3 Roamer data extraction implementation and strict adherence to save parsing guidelines.
 
 ## Acceptance Criteria
-- [ ] Verify that `Gen3RoamerData` interface accurately reflects extracted data fields (IVs, Personality Value, Species, HP, Level, Status, active boolean).
-- [ ] Verify that the `DataView` parsing logic strictly adheres to Section 13 of `.foundry/docs/schema.md` (module-level constants, no magic numbers, explicit bitwise mapping, `RangeError` catching).
-- [ ] Verify that game-specific extraction functions correctly utilize relative offsets based on the resolved section offset, not absolute offsets.
-- [ ] Ensure that automated tests cover the extraction logic and correctly handle missing/corrupted block scenarios.
+- [x] Verify that `Gen3RoamerData` interface accurately reflects extracted data fields (IVs, Personality Value, Species, HP, Level, Status, active boolean).
+- [x] Verify that the `DataView` parsing logic strictly adheres to Section 13 of `.foundry/docs/schema.md` (module-level constants, no magic numbers, explicit bitwise mapping, `RangeError` catching).
+- [x] Verify that game-specific extraction functions correctly utilize relative offsets based on the resolved section offset, not absolute offsets.
+- [x] Ensure that automated tests cover the extraction logic and correctly handle missing/corrupted block scenarios.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
