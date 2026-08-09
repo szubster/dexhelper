@@ -34,10 +34,10 @@ Specifically, add tests for the following scenarios:
 3. `Hierarchical Completion: considers VERIFYING child as incomplete and suspends ACTIVE parent`
 
 ## Acceptance Criteria
-- [ ] Implement test: `Hierarchical Completion: suspends VERIFYING parent to PENDING if it has incomplete children`
-- [ ] Implement test: `Hierarchical Completion: suspends READY parent to PENDING if it has incomplete children`
-- [ ] Implement test: `Hierarchical Completion: considers VERIFYING child as incomplete and suspends ACTIVE parent`
-- [ ] Ensure all tests pass.
+- [x] Implement test: `Hierarchical Completion: suspends VERIFYING parent to PENDING if it has incomplete children`
+- [x] Implement test: `Hierarchical Completion: suspends READY parent to PENDING if it has incomplete children`
+- [x] Implement test: `Hierarchical Completion: considers VERIFYING child as incomplete and suspends ACTIVE parent`
+- [x] Ensure all tests pass.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
