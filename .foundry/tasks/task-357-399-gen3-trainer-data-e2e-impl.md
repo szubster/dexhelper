@@ -2,13 +2,13 @@
 id: task-357-399-gen3-trainer-data-e2e-impl
 type: TASK
 title: Implement Gen 3 Trainer Data E2E/Integration Tests
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-01'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on:
   - task-356-396-gen3-trainer-data-extraction-core-impl
-jules_session_id: '2598243495852791780'
+jules_session_id: null
 pr_number: null
 parent: story-346-357-gen3-trainer-data-e2e
 tags:

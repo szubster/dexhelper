@@ -2,12 +2,12 @@
 id: task-280-305-refactor-game-item-map
 type: TASK
 title: Refactor Game Item Map Data
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-06'
 updated_at: '2026-08-09'
 depends_on: []
-jules_session_id: '6543786281113168425'
+jules_session_id: null
 pr_number: null
 parent: story-087-280-item-runtime-integration
 tags:

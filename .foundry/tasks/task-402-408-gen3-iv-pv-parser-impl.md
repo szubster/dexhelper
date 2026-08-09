@@ -2,7 +2,7 @@
 id: task-402-408-gen3-iv-pv-parser-impl
 type: TASK
 title: Gen 3 IV/PV Parser Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-08'
 updated_at: '2026-08-09'

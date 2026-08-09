@@ -2,10 +2,10 @@
 id: story-349-358-multi-save-data-structures
 type: STORY
 title: Multi-Save Data Structures
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,7 +2,7 @@
 id: task-404-408-gen3-secret-base-parser-impl
 type: TASK
 title: Gen 3 Secret Base Parsing Engine Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-08'
 updated_at: '2026-08-09'
