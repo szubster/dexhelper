@@ -374,6 +374,12 @@ export const HOENN_DEX_NATIONAL_IDS = new Set<number>(HOENN_DEX_ORDER);
  * If the section exists in both banks, it compares their `saveIndex` values (the number of times
  * the game has been saved) to return the offset of the most recent, non-corrupted write.
  *
+ * **Architecture Note:**
+ * Generation 3 uses a complex A/B bank flash memory architecture to prevent data corruption.
+ * The game alternates writing between two 56KB blocks (`0x0000` and `0xe000`). Each block is
+ * further divided into 14 4KB sections. The engine must scan both banks, verify the `0x08012025`
+ * signature, and compare `saveIndex` values to locate the most recent, non-corrupted data block.
+ *
  * @param view - The raw save file DataView.
  * @param targetSectionId - The internal ID of the section to locate (e.g., 1 for SaveBlock1, 2 for SaveBlock2).
  * @returns The memory offset of the most recent section.
@@ -567,6 +573,11 @@ export function parseGen3PCBuffer(view: DataView): Uint8Array {
 /**
  * Parses the PC Boxes to extract all stored Pokemon.
  *
+ * **Architecture Note:**
+ * Gen 3 PC Box data is spread across multiple 4KB sections (sections 5 through 13).
+ * Before this function is called, those scattered sections must be concatenated into
+ * a single contiguous buffer (`pcBufferView`).
+ *
  * @param pcBufferView - A DataView of the reconstructed PC Buffer.
  * @returns An object containing the simple array of species IDs (`pc`) and the detailed `pcDetails`.
  * @throws Error - "The save file is corrupted or incomplete." on invalid data.
@@ -656,6 +667,21 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
   return { pc, pcDetails };
 }
 
+/**
+ * Extracts the Personality Value (PV) and Individual Values (IVs) from a Pokémon's data structure.
+ *
+ * **Architecture Note:**
+ * In Gen 3, each Pokémon's core data is stored in a 48-byte encrypted substructure block.
+ * To read this block, two operations are required:
+ * 1. **Decryption:** The data is XORed against a decryption key derived from `Personality Value (PV) ^ Original Trainer ID (OT_ID)`.
+ * 2. **Permutation:** The 48 bytes are divided into four 12-byte substructures (Growth, Attacks, EVs, Misc).
+ *    Their order (e.g., GAEM vs MGEA) varies per Pokémon and is determined by `PV % 24`.
+ *
+ * @param view - The DataView of the raw save buffer or PC buffer.
+ * @param offset - The memory offset where the Pokémon's 100-byte structure begins.
+ * @returns An object containing the PV and a raw 32-bit integer representing the packed IVs.
+ * @throws Error - "The save file is corrupted or incomplete." on invalid data.
+ */
 export function parseGen3PokemonPVAndIVs(view: DataView, offset: number) {
   try {
     const pv = view.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
@@ -1172,9 +1198,13 @@ export function parseGen3TrainerId(view: DataView, section0Offset: number): { tr
 /**
  * The main orchestrator for parsing a Generation 3 (R/S/E/FR/LG) save file.
  *
- * Generation 3 uses a complex A/B bank flash memory architecture to prevent data corruption.
- * This function locates the most recent, non-corrupted Section 0 (Trainer Info),
- * Section 1 (Team/Items), and Section 2 (Game State) blocks before extracting their data.
+ * **Architecture Overview & Orchestration:**
+ * 1. **Sector Resolution:** The parser first identifies the most recent valid blocks for Section 0 (Trainer Info),
+ *    Section 1 (Team/Items), and Section 2 (GameState/Time) by scanning both A and B flash memory banks.
+ * 2. **PC Buffer Stitching:** Gen 3 PC Box data is spread across 9 different 4KB sections (Sections 5-13).
+ *    The engine resolves the latest versions of these sectors and stitches them together into a contiguous buffer.
+ * 3. **Data Extraction:** Extracts Pokémon (decrypting their 48-byte substructures), inventory,
+ *    event flags, and metadata specific to Hoenn or Kanto (Gen 3).
  *
  * @param view - The raw save file DataView.
  * @param _forcedVersion - An optional game version override to bypass auto-detection.
