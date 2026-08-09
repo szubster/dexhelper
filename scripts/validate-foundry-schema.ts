@@ -63,11 +63,11 @@ function validateSchema() {
   const validStatuses = ['PENDING', 'READY', 'ACTIVE', 'VERIFYING', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED'];
   const validPersonas = [
     'product_manager', 'epic_planner', 'story_owner', 'architect',
-    'tech_lead', 'coder', 'qa', 'human', 'tpm', 'agile_coach', 'researcher', 'auditor', 'palette'
+    'tech_lead', 'coder', 'qa', 'human', 'tpm', 'agile_coach', 'researcher', 'auditor', 'palette', 'canvas'
   ];
 
   const validMappings: Record<string, string[]> = {
-    IDEA: ['product_manager'],
+    IDEA: ['product_manager', 'canvas'],
     PRD: ['epic_planner', 'story_owner'],
     EPIC: ['story_owner', 'epic_planner'],
     STORY: ['tech_lead', 'story_owner'],
