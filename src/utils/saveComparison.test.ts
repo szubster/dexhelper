@@ -12,6 +12,14 @@ describe('saveComparison', () => {
       pc: [],
       partyDetails: [],
       pcDetails: [],
+      gameVersion: 'red',
+      badges: 0,
+      trainerName: 'Ash',
+      trainerId: 12345,
+      currentMapId: 0,
+      inventory: [],
+      currentBoxCount: 0,
+      hallOfFameCount: 0,
     };
   };
 

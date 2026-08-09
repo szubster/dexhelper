@@ -43,10 +43,13 @@ export function findTradePossibilities(saves: Record<string, SaveData>): TradePo
 
       const sourceId = saveIds[i];
       const targetId = saveIds[j];
+
+      if (!sourceId || !targetId) continue;
+
       const sourceSave = saves[sourceId];
       const targetSave = saves[targetId];
 
-      if (sourceId && targetId && sourceSave && targetSave) {
+      if (sourceSave && targetSave) {
         const targetNeeds: number[] = [];
 
         for (const speciesId of sourceSave.owned) {
