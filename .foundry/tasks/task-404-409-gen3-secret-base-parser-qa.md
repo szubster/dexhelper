@@ -33,11 +33,11 @@ A QA pass is required to verify the complex logic implemented for the Gen 3 Secr
 - Ensure strict adherence to ADR 010 and Section 13 of `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Verify that `DataView` is used exclusively for memory access.
-- [ ] Verify that there are no inline magic numbers (all constants are module-level).
-- [ ] Verify that relative offsets are used correctly, passing in the section offset.
-- [ ] Verify that out-of-bounds `DataView` errors (`RangeError`) are caught and the exact message `'The save file is corrupted or incomplete.'` is thrown.
-- [ ] Verify unit tests cover standard and edge-case (corrupted) save files.
+- [x] Verify that `DataView` is used exclusively for memory access.
+- [x] Verify that there are no inline magic numbers (all constants are module-level).
+- [x] Verify that relative offsets are used correctly, passing in the section offset.
+- [x] Verify that out-of-bounds `DataView` errors (`RangeError`) are caught and the exact message `'The save file is corrupted or incomplete.'` is thrown.
+- [x] Verify unit tests cover standard and edge-case (corrupted) save files.
 
 ## QA Notes
 - Rejected `task-404-408-gen3-secret-base-parser-impl` for violating Section 13 (No Magic Numbers) of the schema. The implementation hardcoded `0` for empty secret bases (`if (secretBaseId === 0)`) and in the bitwise check (`(flags & BATTLED_OWNER_TODAY_MASK) !== 0`).
