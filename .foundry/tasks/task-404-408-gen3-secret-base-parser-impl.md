@@ -33,8 +33,8 @@ Following the definition of the Secret Base types, this task implements the core
 - Adhere to `ADR 010: Gen3 Data Parsing Strategy`.
 
 ## Acceptance Criteria
-- [ ] Implement `DataView` based parser for Gen 3 Secret Bases.
-- [ ] Ensure all memory offsets, lengths, bit locations, shifts, and masks are defined as reusable module-level constants (No inline magic numbers).
-- [ ] Calculate relative memory offsets using the resolved section offset (e.g., `section1Offset`), rather than absolute hardcoded offsets, to support Gen 3 A/B bank flash memory.
-- [ ] Catch `RangeError` from out-of-bounds reads and throw a new error with the exact message: 'The save file is corrupted or incomplete.'
-- [ ] Write unit tests verifying successful parsing, corrupted file handling (`RangeError`), and correct relative offset usage.
+- [x] Implement `DataView` based parser for Gen 3 Secret Bases.
+- [x] Ensure all memory offsets, lengths, bit locations, shifts, and masks are defined as reusable module-level constants (No inline magic numbers).
+- [x] Calculate relative memory offsets using the resolved section offset (e.g., `section1Offset`), rather than absolute hardcoded offsets, to support Gen 3 A/B bank flash memory.
+- [x] Catch `RangeError` from out-of-bounds reads and throw a new error with the exact message: 'The save file is corrupted or incomplete.'
+- [x] Write unit tests verifying successful parsing, corrupted file handling (`RangeError`), and correct relative offset usage.
