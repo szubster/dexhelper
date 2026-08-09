@@ -2053,3 +2053,4 @@ export function parseGen3MetLocation(view: DataView, miscSubstructureOffset: num
   }
 }
 export * from '../gen3/trainerFlags/parser';
+export * from '../../gen3/roamer/parser';
