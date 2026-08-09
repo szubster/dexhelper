@@ -21,5 +21,8 @@ rejection_reason: ''
 Write a test suite for the Zod schema orchestrator integration using the test fixtures. Ensure that the orchestrator rejects the invalid schemas gracefully and accepts the valid schemas.
 
 ## Acceptance Criteria
-- [ ] Test orchestrator behavior with valid node fixtures.
-- [ ] Test orchestrator behavior with invalid node fixtures.
+- [x] Test orchestrator behavior with valid node fixtures.
+- [x] Test orchestrator behavior with invalid node fixtures.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
