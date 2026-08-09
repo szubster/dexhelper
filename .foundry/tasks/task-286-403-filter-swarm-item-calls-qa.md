@@ -2,13 +2,13 @@
 id: task-286-403-filter-swarm-item-calls-qa
 type: TASK
 title: QA Filter Swarm & Item Calls
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-05'
 updated_at: '2026-08-09'
 depends_on:
   - task-286-402-filter-swarm-item-calls-impl
-jules_session_id: null
+jules_session_id: '10610034023932477089'
 pr_number: null
 parent: story-118-286-filter-swarm-item-calls
 tags:
