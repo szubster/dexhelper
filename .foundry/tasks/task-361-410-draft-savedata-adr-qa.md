@@ -26,4 +26,7 @@ notes: ''
 Review the Drafted Architecture Decision Record (ADR) detailing the typed schema and downstream consumer impact for the new discriminated union SaveData type.
 
 ## Acceptance Criteria
-- [ ] Review the ADR in `.foundry/archive/docs/adrs/`.
+- [x] Review the ADR in `.foundry/archive/docs/adrs/`.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
