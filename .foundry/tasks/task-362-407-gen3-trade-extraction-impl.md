@@ -2,12 +2,12 @@
 id: task-362-407-gen3-trade-extraction-impl
 type: TASK
 title: Implement Gen 3 NPC Trade Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-08'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '84465899427133993'
 pr_number: null
 parent: story-349-362-gen3-trade-extraction
 tags:
