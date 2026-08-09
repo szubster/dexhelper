@@ -2,13 +2,13 @@
 id: task-361-410-draft-savedata-adr-qa
 type: TASK
 title: Draft ADR for SaveData Typed Schema - QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-08'
 updated_at: '2026-08-09'
 depends_on:
   - task-361-409-draft-savedata-adr-impl
-jules_session_id: null
+jules_session_id: '15950893375840004707'
 pr_number: null
 parent: story-404-361-draft-savedata-adr
 tags:
