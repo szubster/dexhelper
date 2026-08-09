@@ -2,10 +2,10 @@
 id: idea-137-external-source-links
 type: IDEA
 title: Add Links to External Sources
-status: ACTIVE
-owner_persona: product_manager
+status: BLOCKED
+owner_persona: tpm
 created_at: '2026-08-08'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - documentation
   - ui
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
 notes: ''
 ---
 

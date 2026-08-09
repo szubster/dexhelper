@@ -2,12 +2,12 @@
 id: epic-109-307-missed-trainer-data-extraction-gen3
 type: EPIC
 title: Missed Trainer Radar - Data Extraction (Gen 3)
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-12'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on: []
-jules_session_id: '1396747965809513759'
+jules_session_id: null
 pr_number: null
 parent: prd-104-109-missed-trainer-radar
 tags:

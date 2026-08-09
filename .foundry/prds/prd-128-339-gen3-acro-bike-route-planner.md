@@ -2,12 +2,12 @@
 id: prd-128-339-gen3-acro-bike-route-planner
 type: PRD
 title: Gen 3 Acro Bike / Mach Bike Route Requirements
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-06'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on: []
-jules_session_id: '15023750986512382605'
+jules_session_id: null
 pr_number: null
 parent: idea-128-gen3-acro-bike-route-planner
 tags:

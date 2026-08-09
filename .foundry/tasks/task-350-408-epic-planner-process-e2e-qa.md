@@ -2,15 +2,15 @@
 id: task-350-408-epic-planner-process-e2e-qa
 type: TASK
 title: QA E2E Test for Epic Planner Process Instructions
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-01'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on:
   - task-350-407-epic-planner-process-e2e-impl
-parent: story-128-350-epic-planner-process-e2e
 jules_session_id: null
 pr_number: null
+parent: story-128-350-epic-planner-process-e2e
 tags:
   - qa
   - process

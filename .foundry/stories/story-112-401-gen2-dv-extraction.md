@@ -2,12 +2,12 @@
 id: story-112-401-gen2-dv-extraction
 type: STORY
 title: Gen 2 DV Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on: []
-jules_session_id: '4520037015934081433'
+jules_session_id: null
 pr_number: null
 parent: epic-112-400-npc-size-record-data-extraction
 tags:

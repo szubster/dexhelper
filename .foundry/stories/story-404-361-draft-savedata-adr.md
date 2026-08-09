@@ -2,12 +2,12 @@
 id: story-404-361-draft-savedata-adr
 type: STORY
 title: Draft ADR for SaveData Typed Schema
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-07'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on: []
-jules_session_id: '1392165514213755200'
+jules_session_id: null
 pr_number: null
 parent: epic-122-404-refactor-savedata-typing
 tags:

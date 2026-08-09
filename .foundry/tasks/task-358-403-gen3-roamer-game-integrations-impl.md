@@ -2,10 +2,10 @@
 id: task-358-403-gen3-roamer-game-integrations-impl
 type: TASK
 title: Gen 3 Roamer Game Integrations Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-05'
-updated_at: '2026-08-08'
+updated_at: '2026-08-09'
 depends_on:
   - task-358-402-gen3-roamer-model-and-struct-parser-impl
 jules_session_id: null
