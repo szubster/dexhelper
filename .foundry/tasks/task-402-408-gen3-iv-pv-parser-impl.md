@@ -2,13 +2,13 @@
 id: task-402-408-gen3-iv-pv-parser-impl
 type: TASK
 title: Gen 3 IV/PV Parser Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-08'
 updated_at: '2026-08-09'
 depends_on:
   - task-402-407-gen3-iv-pv-types-impl
-jules_session_id: null
+jules_session_id: '5647805953903088409'
 parent: story-112-402-gen3-iv-pv-extraction
 tags:
   - dexhelper
