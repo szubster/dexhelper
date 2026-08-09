@@ -2,7 +2,7 @@
 id: task-402-409-gen3-iv-pv-qa
 type: TASK
 title: Gen 3 IV/PV Extraction QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-08'
 updated_at: '2026-08-09'
