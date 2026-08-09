@@ -27,12 +27,12 @@ Implement the Gen 3 IV/PV extraction logic in `src/engine/saveParser/parsers/gen
 The extraction function must strictly adhere to the Save File Parsing Guidelines, specifically by catching `RangeError` from the `DataView` API and throwing a generic corrupted save error. It must use the constants defined in the prerequisite task.
 
 ## Acceptance Criteria
-- [ ] Implement `parseGen3PokemonPVAndIVs(view: DataView, offset: number)`.
-- [ ] Read PV and OT ID, and calculate `decryptionKey = PV ^ OT ID`.
-- [ ] Determine the substructure permutation from `PV % 24` using the `SUBSTRUCTURE_ORDER` array.
-- [ ] Locate the Miscellaneous (M) substructure based on the permutation index.
-- [ ] Decrypt the 32-bit IV integer and unpack HP, Attack, Defense, Speed, Sp. Attack, and Sp. Defense using the defined bitwise constants.
-- [ ] Catch `RangeError` and throw a new error with the exact message: "The save file is corrupted or incomplete."
+- [x] Implement `parseGen3PokemonPVAndIVs(view: DataView, offset: number)`.
+- [x] Read PV and OT ID, and calculate `decryptionKey = PV ^ OT ID`.
+- [x] Determine the substructure permutation from `PV % 24` using the `SUBSTRUCTURE_ORDER` array.
+- [x] Locate the Miscellaneous (M) substructure based on the permutation index.
+- [x] Decrypt the 32-bit IV integer and unpack HP, Attack, Defense, Speed, Sp. Attack, and Sp. Defense using the defined bitwise constants.
+- [x] Catch `RangeError` and throw a new error with the exact message: "The save file is corrupted or incomplete."
 
 ## Intelligent Verification Protocol
 This task implements complex bitwise logic and memory offset calculations. A separate QA task will explicitly verify this implementation. The `coder` must write tests for this implementation.
