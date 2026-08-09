@@ -2,11 +2,12 @@
 id: story-400-358-gen3-trainer-card-parsing-core
 type: STORY
 title: Story - Gen 3 Trainer Card Data Parsing Core
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-09'
-depends_on: []
+depends_on:
+  - research-358-406-gen3-trainer-card-offsets
 jules_session_id: '6461270398892069517'
 pr_number: null
 parent: epic-111-400-gen3-trainer-card-data-extraction
@@ -17,7 +18,7 @@ tags:
   - completionist
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Suspended pending research on Contest Master Rank memory offsets.'
 notes: ''
 ---
 
@@ -33,3 +34,7 @@ Implement the core parsing logic to extract the Gen 3 Trainer Card upgrade data 
 - [ ] Parse Contest Master Rank flags (Cool, Beauty, Cute, Smart, Tough).
 - [ ] Parse Battle Frontier Gold Symbols flags.
 - [ ] Verify the implementation's exact alignment with the documentation schemas (e.g., Section 13 of .foundry/docs/schema.md) before marking tasks complete.
+- [ ] research-358-406-gen3-trainer-card-offsets
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
