@@ -30,4 +30,6 @@ Break down the work into tasks to update `.foundry/docs/schema.md` with the offi
 - Ensure strict adherence to Generation 1 Pokemon.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Generate TASK node(s) for updating schema.md.
+- [x] Tech Lead: Generate TASK node(s) for updating schema.md.
+- [ ] task-408-411-schema-role-mapping
+- [ ] task-408-412-schema-status-mapping
