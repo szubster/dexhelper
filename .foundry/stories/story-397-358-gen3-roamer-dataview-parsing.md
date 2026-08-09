@@ -25,10 +25,13 @@ notes: ''
 Implement robust DataView parsing to extract the core data structure of the roaming legendary from Gen 3 save files across Ruby/Sapphire, Emerald, FireRed/LeafGreen.
 
 ## Acceptance Criteria
-- [ ] Implement `DataView` parsing for the Gen 3 `Roamer` struct (SaveBlock1) for Ruby/Sapphire, Emerald, FireRed/LeafGreen.
-- [ ] Extract IVs, Personality Value, Species, HP, Level, Status.
-- [ ] Extract and expose the `active` boolean to determine if the roamer is currently available in the game world.
+- [x] Implement `DataView` parsing for the Gen 3 `Roamer` struct (SaveBlock1) for Ruby/Sapphire, Emerald, FireRed/LeafGreen.
+- [x] Extract IVs, Personality Value, Species, HP, Level, Status.
+- [x] Extract and expose the `active` boolean to determine if the roamer is currently available in the game world.
 - [x] Tech Lead: Break this Story down into actionable Tasks.
-- [ ] task-358-402-gen3-roamer-model-and-struct-parser-impl
-- [ ] task-358-403-gen3-roamer-game-integrations-impl
-- [ ] task-358-404-gen3-roamer-parsing-qa
+- [x] task-358-402-gen3-roamer-model-and-struct-parser-impl
+- [x] task-358-403-gen3-roamer-game-integrations-impl
+- [x] task-358-404-gen3-roamer-parsing-qa
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
