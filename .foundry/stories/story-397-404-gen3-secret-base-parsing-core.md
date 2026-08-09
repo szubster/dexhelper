@@ -2,10 +2,10 @@
 id: story-397-404-gen3-secret-base-parsing-core
 type: STORY
 title: Core Gen 3 Secret Base Save Parsing
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-04'
-updated_at: '2026-08-09'
+updated_at: '2026-08-08'
 depends_on: []
 jules_session_id: '14098730566339435365'
 pr_number: null

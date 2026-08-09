@@ -2,10 +2,10 @@
 id: task-362-408-gen3-trade-extraction-qa
 type: TASK
 title: QA Gen 3 NPC Trade Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-08'
-updated_at: '2026-08-09'
+updated_at: '2026-08-08'
 depends_on:
   - task-362-407-gen3-trade-extraction-impl
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: epic-339-405-schema-role-mapping
 type: EPIC
 title: 'Schema Updates: Map Roles to Pokemon Entities'
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2024-05-18'
-updated_at: '2026-08-09'
+updated_at: '2026-08-08'
 depends_on: []
 jules_session_id: '11206536485884555630'
 pr_number: null

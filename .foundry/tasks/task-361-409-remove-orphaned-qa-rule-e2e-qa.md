@@ -2,10 +2,10 @@
 id: task-361-409-remove-orphaned-qa-rule-e2e-qa
 type: TASK
 title: QA E2E Verification for Removed Orphaned QA Rule
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-08'
-updated_at: '2026-08-09'
+updated_at: '2026-08-08'
 depends_on:
   - task-361-408-remove-orphaned-qa-rule-e2e-impl
 jules_session_id: null

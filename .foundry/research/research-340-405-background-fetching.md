@@ -2,10 +2,10 @@
 id: research-340-405-background-fetching
 type: RESEARCH
 title: Investigate background fetching and preloading for msgpack files
-status: READY
+status: PENDING
 owner_persona: researcher
 created_at: '2026-08-08'
-updated_at: '2026-08-09'
+updated_at: '2026-08-08'
 depends_on: []
 jules_session_id: null
 parent: prd-136-340-split-bundles-and-data
@@ -13,8 +13,8 @@ tags:
   - performance
   - preloading
 rejection_count: 0
-rejection_reason: ''
-notes: ''
+rejection_reason: ""
+notes: ""
 ---
 # Research: Background Fetching and Preloading
 

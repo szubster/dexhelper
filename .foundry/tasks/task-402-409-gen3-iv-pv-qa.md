@@ -2,10 +2,10 @@
 id: task-402-409-gen3-iv-pv-qa
 type: TASK
 title: Gen 3 IV/PV Extraction QA
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-08'
-updated_at: '2026-08-09'
+updated_at: '2026-08-08'
 depends_on:
   - task-402-408-gen3-iv-pv-parser-impl
 jules_session_id: '7576463888308128664'

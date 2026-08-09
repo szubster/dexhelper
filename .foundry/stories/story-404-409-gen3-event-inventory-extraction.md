@@ -2,10 +2,10 @@
 id: story-404-409-gen3-event-inventory-extraction
 type: STORY
 title: Gen 3 Event Inventory Items Extraction
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-09'
+updated_at: '2026-08-08'
 depends_on: []
 jules_session_id: null
 pr_number: null

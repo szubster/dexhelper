@@ -2,10 +2,10 @@
 id: story-331-361-remove-orphaned-qa-rule-e2e
 type: STORY
 title: Remove Orphaned QA Rule from Documentation E2E
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-06'
-updated_at: '2026-08-09'
+updated_at: '2026-08-08'
 depends_on:
   - story-331-333-remove-orphaned-qa-rule
 jules_session_id: '13551609711745111196'

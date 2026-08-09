@@ -1,11 +1,11 @@
 ---
 id: task-361-408-draft-savedata-adr-types
 type: TASK
-title: Draft ADR for SaveData Typed Schema - Types
-status: READY
-owner_persona: coder
-created_at: '2026-08-08'
-updated_at: '2026-08-09'
+title: "Draft ADR for SaveData Typed Schema - Types"
+status: PENDING
+owner_persona: "coder"
+created_at: "2026-08-08"
+updated_at: "2026-08-08"
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - typescript
 research_references: []
 rejection_count: 0
-rejection_reason: ''
-notes: ''
+rejection_reason: ""
+notes: ""
 ---
 
 # Draft ADR for SaveData Typed Schema - Types
