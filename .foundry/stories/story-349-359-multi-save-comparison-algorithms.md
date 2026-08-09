@@ -29,4 +29,11 @@ As part of the Multi-Save Trade Planner, this Story focuses on creating comparis
 - Ensure efficient execution given the multi-save context.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into tasks.
+- [x] Tech Lead: Break down into tasks.
+- [ ] task-359-411-multi-save-comparison-algorithms-impl
+- [ ] task-359-412-multi-save-comparison-algorithms-qa
+- [ ] task-359-413-multi-save-synchronization-impl
+- [ ] task-359-414-multi-save-synchronization-qa
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
