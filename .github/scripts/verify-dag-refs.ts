@@ -13,7 +13,7 @@ function discoverNodeFiles(dir: string): string[] {
     for (const entry of entries) {
       const fullPath = path.join(current, entry.name);
       if (entry.isDirectory()) {
-        if (entry.name === 'journals') continue;
+        if (entry.name === 'journals' || entry.name === 'fixtures') continue;
         if (entry.name === 'docs') {
             const adrsPath = path.join(fullPath, 'adrs');
             if (fs.existsSync(adrsPath)) walk(adrsPath);
