@@ -2,13 +2,13 @@
 id: task-404-409-gen3-secret-base-parser-qa
 type: TASK
 title: QA - Gen 3 Secret Base Parsing Engine
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-08'
 updated_at: '2026-08-09'
 depends_on:
   - task-404-408-gen3-secret-base-parser-impl
-jules_session_id: null
+jules_session_id: '13486394762440823753'
 pr_number: null
 parent: story-397-404-gen3-secret-base-parsing-core
 tags:
