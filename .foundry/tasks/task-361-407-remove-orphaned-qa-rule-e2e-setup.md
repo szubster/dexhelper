@@ -24,4 +24,7 @@ notes: ''
 Set up the e2e test script requirements to verify that the obsolete "Orphaned QA Task Cancellation Rule" has been completely removed from system documentation.
 
 ## Acceptance Criteria
-- [ ] Coder: Implement script setup.
+- [x] Coder: Implement script setup.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
