@@ -1841,6 +1841,55 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(taskArchitectResult).toContain('status: READY');
   });
 
+  test('Mapping Validation: allows canvas to own IDEA nodes, and researcher/palette to own TASK nodes', () => {
+    createValidTestNode(tmpDir, '.foundry/ideas/idea-canvas.md', {
+      id: "idea-canvas",
+      type: "IDEA",
+      title: "Canvas Idea",
+      status: "PENDING",
+      owner_persona: "canvas",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-researcher.md', {
+      id: "task-researcher",
+      type: "TASK",
+      title: "Researcher Task",
+      status: "PENDING",
+      owner_persona: "researcher",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-palette.md', {
+      id: "task-palette",
+      type: "TASK",
+      title: "Palette Task",
+      status: "PENDING",
+      owner_persona: "palette",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const ideaResult = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-canvas.md'), 'utf-8');
+    expect(ideaResult).toContain('status: READY');
+
+    const researcherResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-researcher.md'), 'utf-8');
+    expect(researcherResult).toContain('status: READY');
+
+    const paletteResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-palette.md'), 'utf-8');
+    expect(paletteResult).toContain('status: READY');
+  });
+
   test('Atomic Handoffs: resolves dependencies across single-persona atomic tasks', () => {
     createValidTestNode(tmpDir, '.foundry/tasks/task-atomic-1.md', {
       id: "task-atomic-1",
