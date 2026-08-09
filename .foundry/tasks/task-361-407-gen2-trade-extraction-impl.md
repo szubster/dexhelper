@@ -25,7 +25,7 @@ notes: ''
 Implement extraction of in-game NPC trade completion flags from Generation 2 save files using the `DataView` API. Ensure that memory offsets and magic numbers are strictly extracted as module-level constants, avoiding inline hardcoding.
 
 ## Acceptance Criteria
-- [ ] Define reusable constants `NPC_TRADE_FLAGS_OFFSET_CRYSTAL`, `NPC_TRADE_FLAGS_OFFSET_GS`, and `GEN2_NPC_TRADE_COUNT` for offset handling.
-- [ ] Implement bitwise mapping using `DataView.getUint8` to accurately extract all trade flags.
-- [ ] Ensure that parsing strictly throws a new `Error('The save file is corrupted or incomplete.')` when encountering `RangeError` from the `DataView` API reading out of bounds.
-- [ ] Incorporate extracted `npcTradeFlags` correctly into the mapped `SaveData` output.
+- [x] Define reusable constants `NPC_TRADE_FLAGS_OFFSET_CRYSTAL`, `NPC_TRADE_FLAGS_OFFSET_GS`, and `GEN2_NPC_TRADE_COUNT` for offset handling.
+- [x] Implement bitwise mapping using `DataView.getUint8` to accurately extract all trade flags.
+- [x] Ensure that parsing strictly throws a new `Error('The save file is corrupted or incomplete.')` when encountering `RangeError` from the `DataView` API reading out of bounds.
+- [x] Incorporate extracted `npcTradeFlags` correctly into the mapped `SaveData` output.
