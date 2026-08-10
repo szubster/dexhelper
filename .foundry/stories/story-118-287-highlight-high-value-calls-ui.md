@@ -31,3 +31,6 @@ Create the UI components to highlight swarm and item-giving Pokegear callers.
 
 ## Acceptance Criteria
 - [ ] Implement UI elements for high-value calls
+- [ ] task-287-415-tactical-caller-component-impl
+- [ ] task-287-416-active-callers-dashboard-integration
+- [ ] task-287-417-highlight-high-value-calls-ui-qa
