@@ -32,4 +32,7 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer Epic, we need to extrac
 - Ensure strict adherence to Section 13 of `.foundry/docs/schema.md` (Save File Parsing & Extraction Guidelines).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into actionable TASK nodes (Coder/QA as needed).
+- [x] Tech Lead: Break down into actionable TASK nodes (Coder/QA as needed).
+- [ ] task-405-415-gen3-mixed-record-types-impl
+- [ ] task-405-416-gen3-mixed-record-parser-impl
+- [ ] task-405-417-gen3-mixed-record-parser-qa
