@@ -2,12 +2,12 @@
 id: story-070-358-orchestrator-strict-completion-e2e
 type: STORY
 title: Orchestrator Hierarchical Completion Checks E2E
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17024899423430629007'
 pr_number: null
 parent: epic-045-070-orchestrator-strict-completion
 tags:
