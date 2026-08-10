@@ -2,13 +2,13 @@
 id: story-404-362-refactor-savedata-type
 type: STORY
 title: Refactor SaveData Type into Discriminated Union
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-07'
 updated_at: '2026-08-10'
 depends_on:
   - story-404-361-draft-savedata-adr
-jules_session_id: null
+jules_session_id: '11932857869913318362'
 pr_number: null
 parent: epic-122-404-refactor-savedata-typing
 tags:
