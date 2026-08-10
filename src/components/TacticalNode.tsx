@@ -4,7 +4,7 @@ import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
 
 export interface TacticalNodeProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: 'primary' | 'red' | 'purple' | 'blue' | 'pink';
+  variant?: 'primary' | 'red' | 'purple' | 'blue' | 'pink' | 'amber';
 }
 
 export function TacticalNode({ variant = 'primary', className, children, ...props }: TacticalNodeProps) {
@@ -37,6 +37,13 @@ export function TacticalNode({ variant = 'primary', className, children, ...prop
           pipe: 'border-pink-500/30 bg-pink-500/10 group-hover:border-pink-500 group-hover:bg-pink-500/20',
           ledOuter: 'border-pink-500 shadow-[0_0_8px_rgba(236,72,153,0.5)]',
           ledInner: 'bg-pink-500',
+        };
+      case 'amber':
+        return {
+          wrapper: 'border-amber-500/30 hover:border-amber-500/50',
+          pipe: 'border-amber-500/30 bg-amber-500/10 group-hover:border-amber-500 group-hover:bg-amber-500/20',
+          ledOuter: 'border-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]',
+          ledInner: 'bg-amber-500',
         };
       default:
         return {

@@ -12,9 +12,9 @@ test.describe('Settings', () => {
       await page.getByRole('button', { name: 'System Settings' }).click();
     }
 
-    await expect(page.getByText('SYS.CONFIG').first()).toBeVisible();
+    await expect(page.getByText('[ SYSTEM CONFIGURATION MENU ]').first()).toBeVisible();
 
-    const livingDexBtn = page.getByText('[ LIVING DEX ]');
+    const livingDexBtn = page.getByText('[ LIVING DEX PROTOCOL ]');
     await livingDexBtn.click();
 
     await page.getByRole('button', { name: 'Close settings' }).click();
@@ -29,8 +29,8 @@ test.describe('Settings', () => {
     } else {
       await page.getByRole('button', { name: 'System Settings' }).click();
     }
-    await expect(page.getByText('SYS.CONFIG').first()).toBeVisible();
+    await expect(page.getByText('[ SYSTEM CONFIGURATION MENU ]').first()).toBeVisible();
 
-    await expect(page.getByText('[ LIVING DEX ]')).toHaveClass(/bg-emerald-500/);
+    await expect(page.getByText('[ LIVING DEX PROTOCOL ]')).toHaveClass(/bg-emerald-500/);
   });
 });
