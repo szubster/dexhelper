@@ -41,3 +41,19 @@
 **Outcome:** Accepted -> wait for review
 **Why:** The radar animation felt too playful and generic. A horizontal diagnostic block with explicit error codes and warning stripes better aligns with the harsh, data-heavy, "tactical snooping" terminal aesthetic mandated by the project (ADR 008 style). It treats empty states as system faults rather than just missing content.
 **Pattern:** Shifting empty/error states from central illustrations to left-aligned, text-heavy diagnostic readouts increases immersion. Use raw hex codes and command-line prefixes (`>`) to emphasize the terminal feel.
+
+
+### Session: 2026-08-06-02-12-16.md
+## 2026-08-06 - Accepted - 🖼️ Canvas: SearchAndFilters Targeting Array Redesign
+**What:** Transformed the SearchAndFilters component into a complex "Targeting Array" with rotating crosshairs, a faux hex-code data stream, and hardware-style toggle switches, fully adhering to the tactical/snooping aesthetic.
+**Outcome:** Accepted
+**Why:** Ambitious, transformative UI redesign that leans into the hardware/snooping aesthetic, utilizing sharp edges, dashed borders, and monospaced telemetry fonts.
+**Pattern:** Continue using hardware-inspired visual metaphors (radars, targeting systems, telemetry streams) with sharp, grid-based layouts and dashed borders. Avoid rounded corners and generic UI elements.
+
+
+### Session: 2026-08-07-02-34-45.md
+## 2026-08-07 - [Accepted] - 🖼️ Canvas: Redesign PokemonStatusBadge
+**What:** Redesigned the `PokemonStatusBadge` to include diagonal warning stripes and a diagnostic light for SECURED states.
+**Outcome:** Accepted -> wait for review
+**Why:** The previous text-only badge felt too plain for a tactical hardware interface. Adding diagnostic stripes and hardware LED elements increases the realism and density of the tactical aesthetic.
+**Pattern:** Shifting from basic text badges to hardware-inspired modules with animated elements (like warning stripes and pulsing LEDs) improves immersion.

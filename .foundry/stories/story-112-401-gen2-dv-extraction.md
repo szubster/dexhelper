@@ -2,7 +2,7 @@
 id: story-112-401-gen2-dv-extraction
 type: STORY
 title: Gen 2 DV Extraction
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-09'
@@ -30,4 +30,4 @@ Implement the Gen 2 DV extraction for Attack, Defense, Speed, and Special. The p
 - [ ] task-401-410-gen2-dv-extraction-qa
 
 ## Acceptance Criteria
-- [x] Implement Gen 2 DV extraction for Attack, Defense, Speed, and Special.
+- [ ] Implement Gen 2 DV extraction for Attack, Defense, Speed, and Special.

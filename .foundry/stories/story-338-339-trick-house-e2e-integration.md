@@ -2,7 +2,7 @@
 id: story-338-339-trick-house-e2e-integration
 type: STORY
 title: Trick House Parser E2E/Integration Tests
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-23'
 updated_at: '2026-07-26'
@@ -31,4 +31,4 @@ Write an E2E/integration testing story for end-to-end verification of Gen 3 Tric
 - Verify end-to-end flow with actual save file data.
 
 ## Acceptance Criteria
-- [x] Create a TASK to write Playwright E2E tests for Trick House state extraction and display.
+- [ ] Create a TASK to write Playwright E2E tests for Trick House state extraction and display.

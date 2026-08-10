@@ -23,3 +23,13 @@
 - **Strict Type Overrides:** When mocking complex interfaces like `AssistantApiData`, specifically object maps like `pokemonMetadata`, ensure `efrm` is typed and handled properly as an array of numbers. Missing these caused failures when the engine recursively traversed pre-evolutions.
 - **Side-effects / Artifacts:** Do not commit temporary coverage outputs (`coverage-output.txt`) or `test-tradeGen.ts` runner scripts. Ensure these are cleaned up before final review.
 - **Coverage Details:** Added tests specifically checking the `hasPhysicalPreEvo` bypass logic, and explicitly setting test scenarios where the player does *not* own the requested Pokémon to test branch coverage for exclusive exclusions correctly.
+
+
+### Session: YYYY-MM-DD-HH-MM-SS.md
+## Focus
+Added unit tests for the Gen 3 Battle Frontier save parser (`src/engine/saveParser/gen3/battleFrontier/parser.ts`) to improve coverage in `engine/saveParser`.
+
+## Learnings
+*   **Vitest Configuration Constraints**: The project uses Vitest with `@vitest/browser-playwright`. When creating targeted tests for specific files (especially parsers handling `ArrayBuffer` and `DataView`), using the standard `node` environment is highly efficient. The command `pnpm test` successfully executes the `.test.ts` file without needing to spin up a full browser if it runs in the node environment block.
+*   **Mocking Bits for Save File Parsing**: Creating test fixtures using `new ArrayBuffer()` and `new DataView()` and manually populating `Uint8` and `Uint16` is effective for testing the engine logic without requiring full binary save files in `tests/fixtures/`, specifically for targeted unit tests for parsers.
+*   **Playwright Execution Gotcha**: If `browserType.launch: Executable doesn't exist` appears during tests locally, ensure `pnpm exec playwright install` is executed before E2E tests are run in a new container/sandbox.

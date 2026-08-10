@@ -506,3 +506,32 @@ Verified task-356-397-gen3-trainer-data-extraction-core-impl. No changes needed 
 
 Verified the bash static analysis linter correctly blocks `tail -f` from executing, ensuring agent processes do not hang indefinitely and preventing useless timeout waiting. It correctly handles legitimate commands such as `tail -n 50`. The e2e tests were successful and confirm the linter logic fails fast when necessary. This aligns with our core policy against executing blocking bash commands in `run_in_bash_session`.
 ## Session from 1776390025790580442\nVerified task-362-407-gen3-trade-extraction-impl. Extracted `npcTradeFlags` successfully, implemented without magic numbers and using dataView, throwing exact RangeError, and using relative offsets for Gen 3. The implementation adheres to Section 13.
+
+
+### Session: YYYY-MM-DD-HH-MM-SS.md
+Session YYYY-MM-DD-HH-MM-SS: Verified the E2E test for the Epic Planner process changes is effectively tested by Vitest inside .github/scripts/foundry-orchestrator.test.ts, satisfying the acceptance criteria.
+
+
+### Session: 12960983747185356556.md
+# QA Journal - 12960983747185356556
+
+## Learnings
+- **Recurring Issue:** Coders frequently violate Section 13 (No Magic Numbers) of `.foundry/docs/schema.md` when parsing Gen 3 Secret Base data.
+- **Specific Instance:** In `task-404-408-gen3-secret-base-parser-impl`, the implementation hardcoded `0` to check for empty secret bases (`if (secretBaseId === 0)`) and in the bitwise flag check (`(flags & BATTLED_OWNER_TODAY_MASK) !== 0`), instead of defining and using module-level constants for these values.
+- **Action Required:** Ensure coders are explicitly reminded of Section 13 constraints, particularly regarding implicit/magic numbers like `0` in conditional statements.
+
+
+### Session: 11361217312313065104.md
+- Verified Gen 3 IV/PV Extraction implementation met all acceptance criteria, tests are passing, no regressions found.
+
+
+### Session: 14509821843729640775.md
+The task was already implemented. Checked the markdown boxes and submitted an empty PR.
+
+
+### Session: 10610034023932477089.md
+# QA Session 10610034023932477089
+
+- Executed Empty PR policy for completed implementation of `task-286-403-filter-swarm-item-calls-qa`.
+- Ensured `### SCHEMA` link at the bottom of markdown was preserved to avoid rejection during plan review by explicitly reading the bottom 500 characters using `tail -c 500`.
+- Verified file write modifications and test stability to satisfy completeness rules before submittal.

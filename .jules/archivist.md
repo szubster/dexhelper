@@ -25,3 +25,11 @@
 
 **Learning:** Purely operational execution traces continue to accumulate across all persona journals (`coder`, `qa`, `tech_lead`, `story_owner`, `product_manager`, etc.) despite the explicit journaling policies. For example, lines like "Completed task...", "Verified that...", "Assigned to...", "Generated missing story...", and "Transformed idea...". These bloat context windows for all downstream agents.
 **Action:** Used a robust Python script to surgically scrub these operational traces from all `.foundry/journals/*.md` and `.jules/*.md` files, ensuring that only blocks explicitly marked as critical learnings, constraints, or anomalies are preserved. The script was refined to clean up empty headers, trailing whitespace, and orphaned files to prevent degrading markdown formatting. Validated via `pnpm lint` and `pnpm test`.
+
+
+### Session: YYYY-MM-DD-HH-MM-SS.md
+# Master Journal: Archivist
+
+## Critical Learnings
+- **Cleanups execution constraints**: I must ensure that any temporary scripts I use to assist with finding and replacing string patterns are removed and do not leak into the commit history.
+- **Journal Organization**: Cleaned up repetitive, contradictory logs in `.jules/infras.md` and `.jules/sweeper.md`.

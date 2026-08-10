@@ -106,3 +106,50 @@
   Proposes a framework within the Foundry Orchestrator to A/B test system prompts and agent configurations on identical tasks in parallel. This allows the system to empirically determine which prompt structures or personas perform best (based on QA acceptance and lowest rejection count), enabling continuous, data-driven optimization of the multi-agent pipeline.
 - **Strategic Balance:**
   In the previous session, we proposed IDEA-134 (Active Party Matchup Analyzer) for DexHelper. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a Foundry Orchestrator idea.
+
+
+### Session: YYYY-MM-DD-HH-MM-SS.md
+# Visionary Journal
+
+- **Active Session/Timestamp:** 2026-08-04
+- **Domain:** Main Project (DexHelper)
+- **Proposed Idea:** Gen 1-3 Active Party Matchup Analyzer (IDEA-134)
+- **Rationale & Concept:**
+  As players progress through retro Pokémon games, they often hit roadblocks at major boss fights (Gym Leaders, Rivals). They may not realize their PC Box contains a perfect counter or that a TM in their inventory could solve their problem. By combining DexHelper's ability to read event flags (to know the next boss) with the player's full inventory and PC Box state, we can dynamically suggest party swaps and TM usage to optimize their team for the upcoming fight. This transforms DexHelper into an active strategic companion.
+- **How this idea maintains the 50/50 balance between DexHelper and Foundry:**
+  In the previous session, we proposed a Foundry orchestration feature (IDEA-133: Automated DAG Visualizer). To rigidly adhere to the required 50/50 strategic balance, this session pivots entirely to a direct product feature for DexHelper, aiming to improve the gameplay experience for end-users rather than optimizing the internal software factory.
+
+
+### Session: 2026-08-07-02-12-23.md
+# Visionary Journal
+
+- **Active Session/Timestamp:** 2026-08-07
+- **Domain:** Main Project (DexHelper)
+- **Proposed Idea:** Gen 3 Trainer AI Move Predictor (IDEA-136)
+- **Rationale & Concept:**
+  Proposes a tool for DexHelper that predicts enemy trainer moves by simulating Generation 3 AI behavior scripts against the player's active party. Targeting hardcore challenge runners and Nuzlockers.
+- **Strategic Balance:**
+  Pivoting back to the DexHelper product domain after previously proposing a Foundry System idea (Automated Agent A/B Testing Framework, IDEA-135) to maintain the required 50/50 balance.
+
+
+### Session: 2026-08-09-00-56-30.md
+# Visionary Journal
+
+- **Active Session/Timestamp:** 2026-08-09
+- **Domain:** Foundry System
+- **Proposed Idea:** Automated ADR Compliance Linter (IDEA-142)
+- **Rationale & Concept:**
+  Proposes an automated CI linter that verifies codebase compliance against static rules defined in ADRs (e.g., UI constraints, React context requirements). This offloads enforcement from expensive LLM QA cycles to deterministic AST analysis.
+- **Strategic Balance:**
+  In previous sessions, we focused heavily on DexHelper features (e.g. IDEA-136 Gen 1-3 In-Game Mail Archiver, IDEA-134 Active Party Matchup Analyzer). To maintain the strict 50/50 balance between product features and system orchestrator improvements, this session introduces an optimization specifically targeting the Foundry system's CI and QA efficiency.
+
+### Session: 2026-08-08-00-56-14.md
+# Visionary Journal
+
+- **Active Session/Timestamp:** 2026-08-08
+- **Domain:** Main Project (DexHelper)
+- **Proposed Idea:** Gen 1-3 In-Game Mail Archiver (IDEA-136)
+- **Rationale & Concept:**
+  Proposes a premium collector utility to extract and display custom messages written on in-game Mail held by Pokémon in the PC/Party. This preserves nostalgic social interactions from childhood saves.
+- **Strategic Balance:**
+  In the previous session, we proposed IDEA-135 (Automated Agent A/B Testing Framework) for the Foundry System. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a DexHelper product feature.

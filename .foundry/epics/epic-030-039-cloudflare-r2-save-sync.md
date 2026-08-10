@@ -2,7 +2,7 @@
 id: epic-030-039-cloudflare-r2-save-sync
 type: EPIC
 title: Cloudflare R2 Offline-First Save Syncing
-status: COMPLETED
+status: PENDING
 owner_persona: auditor
 created_at: '2026-05-21'
 updated_at: '2026-08-08'
@@ -37,13 +37,13 @@ Following the establishment of a secure authentication layer, the application ne
 - Ensure graceful degradation so save files continue to use local browser storage without errors when Cloudflare is unavailable (e.g., hosted on GitHub pages).
 
 ## Acceptance Criteria
-- [x] Story Owner: Break this Epic down into Stories.
-- [x] story-039-262-r2-client-infrastructure
-- [x] story-039-263-r2-pull-sync-logic
-- [x] story-039-264-r2-push-sync-logic
-- [x] story-039-265-r2-offline-conflict-resolution
-- [x] story-039-266-r2-graceful-degradation
-- [x] story-039-356-r2-sync-e2e
+- [ ] Story Owner: Break this Epic down into Stories.
+- [ ] story-039-262-r2-client-infrastructure
+- [ ] story-039-263-r2-pull-sync-logic
+- [ ] story-039-264-r2-push-sync-logic
+- [ ] story-039-265-r2-offline-conflict-resolution
+- [ ] story-039-266-r2-graceful-degradation
+- [ ] story-039-356-r2-sync-e2e
 
 ## Follow-up Action Items
 - [ ] idea-039-401-r2-conflict-resolution-ui

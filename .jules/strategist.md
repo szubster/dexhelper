@@ -45,3 +45,31 @@
 **Outcome:** Merged
 **Why:** The `product_manager` schedule had a reference to the `Agile Coach` persona which has been retired. The `epic_planner` schedule had duplicated `Integration Rule` and `Integration Requirement` directives which have been centralized to `core_policies.md`.
 **Pattern:** Regularly scrub agent schedules to remove references to retired personas and eliminate duplicate directives that are centralized in `core_policies.md` to keep prompts concise.
+
+
+### Session: YYYY-MM-DD-HH-MM-SS.md
+## YYYY-MM-DD-HH-MM-SS - [Accepted] - Prompt improvement - Centralize E2E Orchestrator Safeguard
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `epic_planner` prompt had an explicit rule to generate E2E verification stories for every Epic. However, `story_owner` (who dynamically generates stories for Epics) lacked this instruction. Because of the orchestrator safeguard, Epics handled by `story_owner` were stalling and failing.
+**Pattern:** Move critical orchestrator safeguard generation rules (like E2E requirements) out of individual generative prompts (`epic_planner`) and into the "Node Generation Rules" section of `core_policies.md` so that all generative personas (`story_owner`, etc.) enforce them uniformly.
+
+## 2026-08-05 - [Accepted] - Prompt improvement - Centralize architectural and verification constraints
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** Several personas (Coder, QA, Tech Lead, Auditor) shared duplicated constraints around Save File Parsing (Section 13), UI Aesthetics (ADR 008), Architectural Scaffolding, Vitest mocks, and the Intelligent Verification Protocol. This leads to drift and bloated context windows.
+**Pattern:** Extract duplicated coding and verification policies from individual agent schedules and centralize them into `core_policies.md` to ensure all agents operate from a single, consistent source of truth, reducing token usage and simplifying prompt maintenance.
+
+
+### Session: 2026-08-09-00-00-00.md
+## 2026-08-09 - [Accepted] - Prompt improvement - Centralize core policy read requirements and journal instructions
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `foundry-orchestrator.ts` already automatically appends the contents of `.foundry/docs/knowledge_base/agents/core_policies.md` to every agent prompt via the `compiled_prompt` field. Therefore, instructing agents inside their markdown files to "read" that file manually is redundant and a waste of tokens. Additionally, the exact journaling instructions (e.g., explaining why memory shouldn't be used as a ledger) were duplicated across many agent prompts (`canvas`, `strategist`, etc.).
+**Pattern:** Ensure duplicated text and redundant read commands are centralized in `core_policies.md` or removed entirely when handled by orchestrator automation, preserving maximum context window space for the actual tasks.
+
+
+### Session: 2026-08-07-03-00-00.md
+## 2026-08-07 - [Accepted] - Prompt improvement - Centralize Cancelled/Replaced Tasks Handling
+**Type:** Prompt improvement
+**Outcome:** Merged
