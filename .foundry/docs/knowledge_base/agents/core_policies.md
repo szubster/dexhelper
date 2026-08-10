@@ -69,6 +69,15 @@ When explicitly reading these contextual documents, you MUST use the `read_file`
 ## Node Creation Guidelines
 While the system does not strictly block node creation, ANY scheduled or foundry agent can dynamically create new `IDEA`, `TASK`, `RESEARCH`, or `ADR` nodes in the `.foundry/` directory. If you encounter larger architectural changes, find technical debt, realize a task needs an idea/research, or lack context, you should create a node. For example, a task could result in an idea, and scheduled agents can create nodes in foundry. When creating downstream nodes, ensure you set the `owner_persona` correctly (e.g., `researcher` for RESEARCH nodes, `architect` for ADRs).
 
+## Triggering Transient Rejections
+If you reject an implementation or validation fails (transient error):
+1. You MUST update the target task's YAML frontmatter to `status: FAILED`.
+2. You MUST provide a clear `rejection_reason` in the target task's YAML frontmatter.
+3. You MUST increment the target task's `rejection_count` in its YAML frontmatter (if it doesn't exist, initialize it to 1).
+4. You MUST NOT check off the Acceptance Criteria checkboxes in the markdown body of the failed task.
+5. You MUST NOT modify your own task's YAML frontmatter (e.g., your QA or Auditor task must remain ACTIVE). Only update your own markdown body to note the failure.
+6. You MUST document the rejection in your persona journal.
+
 ## Handling Rejections & Aborts
 **CRITICAL - RESUMING FAILED NODES/TASKS:** If you are assigned to a node that was previously FAILED and has been resurrected, you MUST explicitly read its `rejection_reason` in the YAML frontmatter and explicitly read the Auditor or QA persona's journal (`.foundry/journals/auditor/*.md` or `.foundry/journals/qa/*.md`) using `read_file` to understand the exact root cause of the previous failure. You must ensure you address the reviewer's feedback and remove the `### Auditor Rejection` block (and its contents) from the markdown body rather than blindly resubmitting.
 
