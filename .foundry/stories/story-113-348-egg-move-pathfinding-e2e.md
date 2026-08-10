@@ -26,7 +26,7 @@ notes: ''
 Implement end-to-end (E2E) tests for the Egg Move Pathfinding Engine to ensure that valid breeding chains are correctly calculated and surfaced to the user. This satisfies the orchestrator E2E safeguard requirement.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for the pathfinding engine.
+- [x] Implement Playwright E2E tests for the pathfinding engine.
 - [x] Break down this story into tasks.
-- [ ] [task-348-363-egg-move-pathfinding-e2e-impl](.foundry/tasks/task-348-363-egg-move-pathfinding-e2e-impl.md)
-- [ ] [task-348-364-egg-move-pathfinding-e2e-qa](.foundry/tasks/task-348-364-egg-move-pathfinding-e2e-qa.md)
+- [x] [task-348-363-egg-move-pathfinding-e2e-impl](.foundry/tasks/task-348-363-egg-move-pathfinding-e2e-impl.md)
+- [x] [task-348-364-egg-move-pathfinding-e2e-qa](.foundry/tasks/task-348-364-egg-move-pathfinding-e2e-qa.md)
