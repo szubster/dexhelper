@@ -30,15 +30,14 @@ describe('SettingsModal', () => {
   it('should not render when isSettingsOpen is false', async () => {
     useStore.setState({ isSettingsOpen: false });
     const { baseElement } = await render(<SettingsModal />);
-    expect(baseElement.innerHTML).not.toContain('SYS.CONFIG');
+    expect(baseElement.innerHTML).not.toContain('[ SYSTEM CONFIGURATION MENU ]');
   });
 
   it('should render when isSettingsOpen is true', async () => {
     useStore.setState({ isSettingsOpen: true });
     await render(<SettingsModal />);
 
-    await expect.element(page.getByRole('heading', { name: 'SYS.CONFIG' })).toBeInTheDocument();
-    await expect.element(page.getByText('Configure your experience')).toBeInTheDocument();
+    await expect.element(page.getByText('[ SYSTEM CONFIGURATION MENU ]')).toBeInTheDocument();
   });
 
   it('should close when the close button is clicked', async () => {
