@@ -1,12 +1,26 @@
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
 import type { Suggestion } from '../strategies/types';
 
+/**
+ * Represents the set of exploration tools and Hidden Machines (HMs) currently
+ * available to the player.
+ *
+ * This object is used by the suggestion engine to evaluate whether the player
+ * can physically reach or trigger specific encounters. If a tool is missing,
+ * dependent encounters are either penalized in priority or removed entirely.
+ */
 export interface PlayerTools {
+  /** Can the player use Headbutt on special trees? */
   hasHeadbutt: boolean;
+  /** Can the player use Rock Smash on cracked boulders? */
   hasRockSmash: boolean;
+  /** Can the player travel across water using Surf? */
   hasSurf: boolean;
+  /** Can the player fish for low-level Pokémon with an Old Rod? */
   hasOldRod: boolean;
+  /** Can the player fish for mid-level Pokémon with a Good Rod? */
   hasGoodRod: boolean;
+  /** Can the player fish for high-level Pokémon with a Super Rod? */
   hasSuperRod: boolean;
 }
 
