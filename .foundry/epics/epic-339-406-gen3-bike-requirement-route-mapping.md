@@ -2,12 +2,12 @@
 id: epic-339-406-gen3-bike-requirement-route-mapping
 type: EPIC
 title: Route Pre-computation & Mapping
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-08'
-updated_at: '2026-08-09'
+updated_at: '2026-08-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13517574185344680176'
 pr_number: null
 parent: prd-128-339-gen3-acro-bike-route-planner
 tags:
