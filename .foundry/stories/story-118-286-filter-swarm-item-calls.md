@@ -32,5 +32,5 @@ Filter the list of active callers to isolate NPCs that offer rare items or swarm
 - [x] Implement data logic for identifying high-value Pokegear calls
 - [x] task-286-314-filter-swarm-item-calls-impl
 - [x] task-286-315-filter-swarm-item-calls-qa
-- [ ] task-286-402-filter-swarm-item-calls-impl
-- [ ] task-286-403-filter-swarm-item-calls-qa
+- [x] task-286-402-filter-swarm-item-calls-impl
+- [x] task-286-403-filter-swarm-item-calls-qa
