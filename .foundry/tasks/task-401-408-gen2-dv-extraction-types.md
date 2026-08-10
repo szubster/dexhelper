@@ -25,4 +25,4 @@ notes: ''
 Define the TypeScript types and interfaces required for the Gen 2 DV extraction (Attack, Defense, Speed, and Special).
 
 ## Acceptance Criteria
-- [ ] Create or update the types representing the parsed Gen 2 DVs. The interface should at least include: `attack: number`, `defense: number`, `speed: number`, and `special: number`.
+- [x] Create or update the types representing the parsed Gen 2 DVs. The interface should at least include: `attack: number`, `defense: number`, `speed: number`, and `special: number`.
