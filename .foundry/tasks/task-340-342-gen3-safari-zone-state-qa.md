@@ -39,3 +39,6 @@ Verify the Safari Zone state extraction logic for Gen 3 save files, ensuring com
 - [ ] PC Box data extraction logic is verified.
 - [ ] Encounter calculation is verified.
 - [ ] Architectural directives (constants, relative offsets, RangeError handling) are explicitly verified in the implementation.
+
+### Rejection Note
+**Rejection Reason:** Implementation task rejected due to strict architecture check violation. Magic numbers (`5`, `13`, `2000`, `3968`) were found in `parseGen3PCBuffer` within `src/engine/saveParser/parsers/gen3.ts` when processing PC Box sections. All memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level (per ADR 028).

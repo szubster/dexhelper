@@ -2,7 +2,7 @@
 id: task-340-341-gen3-safari-zone-state-impl
 type: TASK
 title: Gen 3 Safari Zone State Parsing Implementation
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-25'
 updated_at: '2026-08-09'
@@ -15,8 +15,8 @@ tags:
   - safari-zone
   - gen3
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Magic numbers (5, 13, 2000, 3968) were used in parseGen3PCBuffer in src/engine/saveParser/parsers/gen3.ts, violating the strict architecture check. All memory offsets, lengths, bit locations, and shifts MUST be defined as reusable constants at the module level. Inline magic numbers are strictly forbidden (per ADR 028).'
 notes: ''
 ---
 
@@ -36,9 +36,9 @@ Implement parsing logic to extract Pokédex and PC Box state from Gen 3 save fil
 - **Corrupted Saves**: You MUST catch `RangeError` from out-of-bounds `DataView` reads and throw a new error with the exact message: "The save file is corrupted or incomplete."
 
 ## Acceptance Criteria
-- [x] Implement Pokédex data extraction.
-- [x] Implement PC Box data extraction.
-- [x] Implement Safari Zone missing encounters calculation.
-- [x] All memory offsets are defined as module-level constants.
-- [x] Relative offsets are used with resolved section offsets.
-- [x] RangeError is caught and re-thrown with the correct message.
+- [ ] Implement Pokédex data extraction.
+- [ ] Implement PC Box data extraction.
+- [ ] Implement Safari Zone missing encounters calculation.
+- [ ] All memory offsets are defined as module-level constants.
+- [ ] Relative offsets are used with resolved section offsets.
+- [ ] RangeError is caught and re-thrown with the correct message.
