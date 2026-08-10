@@ -107,7 +107,6 @@ Drafted execution blueprints for `story-130-341-define-indexeddb-schema-retry`.
 Session ID: 15623139035472938995
 
 ## Context
-Drafted blueprints for `story-039-264-r2-push-sync-logic`.
 
 ## Action
 - Created `task-264-346-r2-push-sync-logic-impl` to implement push sync logic in `useFileSyncController.ts` and `AppLayout.tsx`. Instructed to check `AUTH_LOGGED_IN_INDICATOR` and use `r2Client.putSave` in a non-blocking manner (try/catch).
@@ -534,7 +533,6 @@ I need to check off the acceptance criteria for this task in the story node's ma
 ---
 
 ## Observations
-- Drafted blueprints for story-343-352-lift-rejection-constant-impl to ensure `MAX_REJECTION_THRESHOLD` is extracted.
 - Some extraction appears already done in the codebase, but creating thorough cleanup tasks to ensure no hardcoded values remain.
 - Ensured QA task is linked correctly and specific validation tasks are provided.
 
