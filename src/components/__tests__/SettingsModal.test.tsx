@@ -37,7 +37,8 @@ describe('SettingsModal', () => {
     useStore.setState({ isSettingsOpen: true });
     await render(<SettingsModal />);
 
-    await expect.element(page.getByText('[ SYSTEM CONFIGURATION MENU ]')).toBeInTheDocument();
+    await expect.element(page.getByRole('heading', { name: 'SYS.CONFIG' })).toBeInTheDocument();
+    await expect.element(page.getByText('Configure your experience')).toBeInTheDocument();
   });
 
   it('should close when the close button is clicked', async () => {

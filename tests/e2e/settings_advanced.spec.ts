@@ -14,7 +14,7 @@ test.describe('Advanced Settings Persistence', () => {
     }
 
     // Verify settings modal is open
-    await expect(page.getByText('SYS.CONFIG').first()).toBeVisible();
+    await expect(page.getByText('[ SYSTEM CONFIGURATION MENU ]').first()).toBeVisible();
 
     // 1. Change Game Version to Yellow
     await page.getByRole('radio', { name: 'Yellow', exact: true }).click();
@@ -41,7 +41,7 @@ test.describe('Advanced Settings Persistence', () => {
     } else {
       await page.getByRole('button', { name: 'System Settings' }).click();
     }
-    await expect(page.getByText('SYS.CONFIG').first()).toBeVisible();
+    await expect(page.getByText('[ SYSTEM CONFIGURATION MENU ]').first()).toBeVisible();
 
     // Verify persistence via checked state of the radio buttons
     await expect(page.getByRole('radio', { name: 'Yellow', exact: true })).toBeChecked();
