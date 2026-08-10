@@ -29,6 +29,6 @@ Verify the process changes end-to-end to ensure the Epic Planner correctly requi
 
 ## Acceptance Criteria
 - [x] Draft a `TASK` to create an E2E test to verify that the instructions for the Epic Planner enforce the creation of a final Integration/Verification story for every EPIC breakdown.
-- [ ] task-350-407-epic-planner-process-e2e-impl
+- [x] task-350-407-epic-planner-process-e2e-impl
 - [x] Draft a QA `TASK` to verify the execution of the E2E test.
-- [ ] task-350-408-epic-planner-process-e2e-qa
+- [x] task-350-408-epic-planner-process-e2e-qa
