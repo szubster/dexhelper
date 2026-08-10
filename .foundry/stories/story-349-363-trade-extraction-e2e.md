@@ -29,4 +29,6 @@ Verify the end-to-end integration of NPC trade flag extraction for Generation 2 
 
 ## Acceptance Criteria
 - [ ] Ensure end-to-end extraction works for both generations.
-- [ ] Tech Lead: Break down this Story into executable Tasks.
+- [x] Tech Lead: Break down this Story into executable Tasks.
+- [ ] task-363-415-trade-extraction-e2e-impl
+- [ ] task-363-416-trade-extraction-e2e-qa
