@@ -2,13 +2,13 @@
 id: epic-057-128-epic-planner-process-update
 type: EPIC
 title: Epic Planner Process Update
-status: ACTIVE
-owner_persona: story_owner
+status: VERIFYING
+owner_persona: auditor
 created_at: '2026-07-03'
 updated_at: '2026-08-10'
 depends_on:
   - epic-057-127-orchestrator-safeguard-investigation
-jules_session_id: '4061683249242859916'
+jules_session_id: null
 pr_number: null
 parent: prd-096-057-macro-node-boundary-enforcement
 tags:
