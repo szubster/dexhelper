@@ -56,7 +56,7 @@ describe('SettingsControls', () => {
     await page.getByText('[ BOX 1 ]').click();
     expect(setNuzlockeGraveyardBox).toHaveBeenCalledWith('Box 1');
 
-    await page.getByText('[ NONE ]').click();
+    await page.getByText('[ NO ASSIGNMENT ]').click();
     expect(setNuzlockeGraveyardBox).toHaveBeenCalledWith(null);
   });
 
@@ -97,10 +97,10 @@ describe('SettingsControls', () => {
       />,
     );
 
-    await page.getByText('Red').click();
+    await page.getByText('Red', { exact: true }).click();
     expect(setManualVersion).toHaveBeenCalledWith('red');
 
-    await page.getByText('AUTO').click();
+    await page.getByText('AUTO', { exact: true }).click();
     expect(setManualVersion).toHaveBeenCalledWith(null);
   });
 
@@ -125,10 +125,10 @@ describe('SettingsControls', () => {
       />,
     );
 
-    await page.getByText('[ LIVING DEX ]').click();
+    await page.getByText('[ LIVING DEX PROTOCOL ]').click();
     expect(setIsLivingDex).toHaveBeenCalledWith(true);
 
-    await page.getByText('[ STANDARD ]').click();
+    await page.getByText('[ STANDARD PROTOCOL ]').click();
     expect(setIsLivingDex).toHaveBeenCalledWith(false);
   });
 
