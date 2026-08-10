@@ -26,8 +26,8 @@ notes: ''
 Verify the end-to-end tests for the Gen 2 static encounters checklist to ensure they correctly test that event flags are parsed correctly and the UI displays the correct state for Sudowoodo, Snorlax, Red Gyarados, and Ho-Oh/Lugia.
 
 ## Acceptance Criteria
-- [ ] Verify Playwright E2E tests correctly test Gen 2 static encounters
-- [ ] Verify tests use real save fixtures from `tests/fixtures`
-- [ ] Verify tests hydrate app state using `initializeWithSave(page)` from `tests/e2e/test-utils.ts`
-- [ ] Verify tests call `await waitForSync(page)` after navigation to ensure IndexedDB sync completes
-- [ ] Verify save file parsing strictly adheres to all guidelines defined in Section 13 ("Save File Parsing & Extraction Guidelines") of `.foundry/docs/schema.md`
+- [x] Verify Playwright E2E tests correctly test Gen 2 static encounters
+- [x] Verify tests use real save fixtures from `tests/fixtures`
+- [x] Verify tests hydrate app state using `initializeWithSave(page)` from `tests/e2e/test-utils.ts`
+- [x] Verify tests call `await waitForSync(page)` after navigation to ensure IndexedDB sync completes
+- [x] Verify save file parsing strictly adheres to all guidelines defined in Section 13 ("Save File Parsing & Extraction Guidelines") of `.foundry/docs/schema.md`
