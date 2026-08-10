@@ -2,13 +2,13 @@
 id: story-334-356-zod-schema-e2e
 type: STORY
 title: Zod Schema Orchestrator E2E
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-03'
 updated_at: '2026-08-10'
 depends_on:
   - story-334-337-zod-schema-integration
-jules_session_id: '4084012260817645332'
+jules_session_id: null
 parent: epic-117-334-define-zod-schema
 tags:
   - e2e
