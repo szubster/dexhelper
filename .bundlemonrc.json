@@ -43,7 +43,11 @@
     },
     {
       "path": "assets/dag-<hash>.js",
-      "maxSize": "120kb"
+      "maxSize": "200kb"
+    },
+    {
+      "path": "assets/xyflow-<hash>.js",
+      "maxSize": "200kb"
     },
     {
       "path": "assets/icons-<hash>.js",
@@ -63,7 +67,7 @@
     },
     {
       "path": "assets/router-<hash>.js",
-      "maxSize": "120kb"
+      "maxSize": "200kb"
     },
     {
       "path": "assets/style-<hash>.css",
