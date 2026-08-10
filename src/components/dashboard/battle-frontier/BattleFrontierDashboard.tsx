@@ -1,6 +1,4 @@
-import { Background, ReactFlow } from '@xyflow/react';
-import '@xyflow/react/dist/style.css';
-import type React from 'react';
+import React from 'react';
 import { FRONTIER_BRAIN_THRESHOLDS } from '../../../engine/gen3/battleFrontier/constants';
 import type { Gen3BattleFrontierWinStreaks, SaveData } from '../../../engine/saveParser/parsers/common';
 import { objectKeys } from '../../../utils/object';
@@ -30,7 +28,8 @@ export interface ProgressNodeData extends Record<string, unknown> {
   statusColor: string;
 }
 
-const ProgressNode = ({ data }: { data: ProgressNodeData }) => {
+// ⚡ Bolt: Wrapped in React.memo to eliminate unnecessary re-renders.
+const ProgressNode = React.memo(({ data }: { data: ProgressNodeData }) => {
   return (
     <div className="flex w-[180px] flex-col gap-0 border-2 border-zinc-700 border-dashed bg-black/80 font-mono text-white">
       <div className="border-zinc-700 border-b border-dashed bg-black/40 p-2 text-center font-black text-[10px] text-zinc-400 uppercase">
@@ -53,13 +52,10 @@ const ProgressNode = ({ data }: { data: ProgressNodeData }) => {
       )}
     </div>
   );
-};
+});
 
-const nodeTypes = {
-  progressNode: ProgressNode,
-};
-
-export const BattleFrontierDashboard: React.FC<BattleFrontierDashboardProps> = ({ saveData }) => {
+// ⚡ Bolt: Removed ReactFlow for rendering single nodes to eliminate bundle/memory bloat.
+export const BattleFrontierDashboard = React.memo(({ saveData }: BattleFrontierDashboardProps) => {
   if (saveData.generation !== 3) {
     return null;
   }
@@ -94,28 +90,20 @@ export const BattleFrontierDashboard: React.FC<BattleFrontierDashboardProps> = (
       target = FRONTIER_BRAIN_THRESHOLDS[key].silver;
     }
 
-    const nodes = [
-      {
-        id: `node-${key}`,
-        type: 'progressNode',
-        position: { x: 0, y: 0 },
-        data: {
-          label: FACILITY_NAMES[key],
-          current: currentStreak,
-          target,
-          status,
-          statusColor,
-        },
-      },
-    ];
+    const data = {
+      label: FACILITY_NAMES[key],
+      current: currentStreak,
+      target,
+      status,
+      statusColor,
+    };
 
     return {
       key,
       name: FACILITY_NAMES[key],
-      streaks: gen3BattleFrontierWinStreaks[key] || { current: 0, record: 0 },
       symbols,
       variant,
-      nodes,
+      data,
     };
   });
 
@@ -144,26 +132,12 @@ export const BattleFrontierDashboard: React.FC<BattleFrontierDashboardProps> = (
               <span className="tactical-text z-10 font-black text-white">[ {facility.name} ]</span>
             </div>
 
-            <div className="h-full w-full bg-black">
-              <ReactFlow
-                nodes={facility.nodes}
-                nodeTypes={nodeTypes}
-                panOnDrag={false}
-                zoomOnScroll={false}
-                zoomOnDoubleClick={false}
-                elementsSelectable={false}
-                nodesConnectable={false}
-                nodesDraggable={false}
-                fitView
-                fitViewOptions={{ padding: 0.2 }}
-                proOptions={{ hideAttribution: true }}
-              >
-                <Background color="#3f3f46" gap={12} size={1} />
-              </ReactFlow>
+            <div className="flex h-full w-full items-center justify-center bg-[#3f3f46]/20">
+              <ProgressNode data={facility.data} />
             </div>
           </TacticalPanel>
         ))}
       </div>
     </div>
   );
-};
+});
