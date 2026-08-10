@@ -2,12 +2,12 @@
 id: epic-339-409-librarian-schema-updates
 type: EPIC
 title: Schema Updates for Librarian Persona
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-08'
-updated_at: '2026-08-08'
+updated_at: '2026-08-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10276800548726137575'
 pr_number: null
 parent: prd-124-339-librarian-persona-context-optimizer
 tags:
