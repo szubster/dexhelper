@@ -2,12 +2,12 @@
 id: story-404-408-gen3-event-flags-extraction
 type: STORY
 title: Gen 3 Event Flags Extraction Logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-08'
 updated_at: '2026-08-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3953654674528194667'
 pr_number: null
 parent: epic-121-404-gen3-e-reader-event-data-extraction
 tags:
