@@ -2,12 +2,12 @@
 id: task-295-407-gen3-static-encounters-ui-impl-retry
 type: TASK
 title: Gen 3 Static Encounters UI Integration Retry
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-08'
-updated_at: '2026-08-08'
+updated_at: '2026-08-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5687811837647216779'
 pr_number: null
 parent: story-138-295-gen3-static-encounters-ui
 tags:
