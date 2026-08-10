@@ -5,10 +5,10 @@ title: Story - Gen 3 Trainer Card Data Parsing Core
 status: FAILED
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-08-09'
+updated_at: '2026-08-10'
 depends_on:
   - research-358-406-gen3-trainer-card-offsets
-jules_session_id: '6461270398892069517'
+jules_session_id: null
 pr_number: null
 parent: epic-111-400-gen3-trainer-card-data-extraction
 tags:
@@ -17,8 +17,8 @@ tags:
   - achievements
   - completionist
 research_references: []
-rejection_count: 0
-rejection_reason: 'Suspended pending research on Contest Master Rank memory offsets.'
+rejection_count: 1
+rejection_reason: Circular dependency detected
 notes: ''
 ---
 
