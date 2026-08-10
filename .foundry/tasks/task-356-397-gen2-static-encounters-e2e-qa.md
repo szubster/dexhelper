@@ -2,13 +2,13 @@
 id: task-356-397-gen2-static-encounters-e2e-qa
 type: TASK
 title: QA Gen 2 Static Encounters E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-04T00:00:00.000Z'
-updated_at: '2026-08-09'
+updated_at: '2026-08-10'
 depends_on:
   - task-356-396-gen2-static-encounters-e2e-impl
-jules_session_id: null
+jules_session_id: '10584594702360912293'
 pr_number: null
 parent: story-137-356-gen2-static-encounters-e2e
 tags:
