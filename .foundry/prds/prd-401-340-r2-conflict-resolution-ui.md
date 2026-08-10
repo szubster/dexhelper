@@ -2,12 +2,12 @@
 id: prd-401-340-r2-conflict-resolution-ui
 type: PRD
 title: Cloudflare R2 Conflict Resolution UI
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-08-08'
-updated_at: '2026-08-09'
+updated_at: '2026-08-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7463524733062821600'
 pr_number: null
 parent: idea-039-401-r2-conflict-resolution-ui
 tags:
