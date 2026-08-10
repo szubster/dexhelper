@@ -2,7 +2,7 @@
 id: story-400-358-gen3-trainer-card-parsing-core
 type: STORY
 title: Story - Gen 3 Trainer Card Data Parsing Core
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-10'
@@ -17,8 +17,8 @@ tags:
   - achievements
   - completionist
 research_references: []
-rejection_count: 1
-rejection_reason: Circular dependency detected
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

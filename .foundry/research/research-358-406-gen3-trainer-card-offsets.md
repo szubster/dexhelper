@@ -2,7 +2,7 @@
 id: research-358-406-gen3-trainer-card-offsets
 type: RESEARCH
 title: Research - Gen 3 Trainer Card Contest Master Rank Offsets
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-08-09'
 updated_at: '2026-08-10'
@@ -15,8 +15,8 @@ tags:
   - gen3
   - completionist
 research_references: []
-rejection_count: 0
-rejection_reason: Circular dependency detected
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
