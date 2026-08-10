@@ -2,12 +2,12 @@
 id: story-118-286-filter-swarm-item-calls
 type: STORY
 title: Filter Swarm & Item Calls
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-07'
-updated_at: '2026-08-09'
+updated_at: '2026-08-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18396204845909116995'
 pr_number: null
 parent: epic-055-118-pokegear-alerts
 tags:
