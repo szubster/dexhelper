@@ -30,10 +30,10 @@ Verify the E2E tests for the strict hierarchical completion checks in the orches
 The coder has implemented E2E tests for strict hierarchical completion logic to ensure it blocks VERIFYING nodes appropriately. Review the implementation in `.github/scripts/foundry-orchestrator.test.ts`.
 
 ## Acceptance Criteria
-- [ ] Verify test exists and passes: `Hierarchical Completion: suspends VERIFYING parent to PENDING if it has incomplete children`
-- [ ] Verify test exists and passes: `Hierarchical Completion: suspends READY parent to PENDING if it has incomplete children`
-- [ ] Verify test exists and passes: `Hierarchical Completion: considers VERIFYING child as incomplete and suspends ACTIVE parent`
-- [ ] Ensure `pnpm run test` passes without errors.
+- [x] Verify test exists and passes: `Hierarchical Completion: suspends VERIFYING parent to PENDING if it has incomplete children`
+- [x] Verify test exists and passes: `Hierarchical Completion: suspends READY parent to PENDING if it has incomplete children`
+- [x] Verify test exists and passes: `Hierarchical Completion: considers VERIFYING child as incomplete and suspends ACTIVE parent`
+- [x] Ensure `pnpm run test` passes without errors.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
