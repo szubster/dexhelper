@@ -25,9 +25,9 @@ notes: ''
 Implement extraction of in-game NPC trade completion flags from Generation 2 save files.
 
 ## Acceptance Criteria
-- [ ] Gen 2 NPC trade flags are accurately extracted and mapped.
-- [ ] Parsing logic strictly adheres to the `DataView` API and handles `RangeError` for corrupted saves.
+- [x] Gen 2 NPC trade flags are accurately extracted and mapped.
+- [x] Parsing logic strictly adheres to the `DataView` API and handles `RangeError` for corrupted saves.
 - [x] Tech Lead: Break down this Story into executable Tasks.
-- [ ] task-361-407-gen2-trade-extraction-impl
-- [ ] task-361-408-gen2-trade-extraction-test
-- [ ] task-361-409-gen2-trade-extraction-qa
+- [x] task-361-407-gen2-trade-extraction-impl
+- [x] task-361-408-gen2-trade-extraction-test
+- [x] task-361-409-gen2-trade-extraction-qa
