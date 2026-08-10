@@ -2,12 +2,12 @@
 id: research-358-406-gen3-trainer-card-offsets
 type: RESEARCH
 title: Research - Gen 3 Trainer Card Contest Master Rank Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-09'
 updated_at: '2026-08-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9486604902122696726'
 pr_number: null
 parent: story-400-358-gen3-trainer-card-parsing-core
 tags:
