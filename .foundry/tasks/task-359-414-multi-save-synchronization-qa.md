@@ -31,4 +31,7 @@ The synchronization algorithms for calculating shared states across multiple sav
 - Run the unit tests in `src/utils/saveSynchronization.test.ts` and verify adequate coverage.
 
 ## Acceptance Criteria
-- [ ] Verify `calculateSynchronizedState` logic and tests.
+- [x] Verify `calculateSynchronizedState` logic and tests.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
