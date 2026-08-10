@@ -2,10 +2,10 @@
 id: story-118-287-highlight-high-value-calls-ui
 type: STORY
 title: Highlight High Value Calls UI
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-07'
-updated_at: '2026-07-07'
+updated_at: '2026-08-10'
 depends_on:
   - story-118-286-filter-swarm-item-calls
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 # Story: Highlight High Value Calls UI
 

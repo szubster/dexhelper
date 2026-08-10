@@ -2,13 +2,13 @@
 id: task-358-408-orchestrator-strict-completion-e2e-qa
 type: TASK
 title: Orchestrator Hierarchical Completion Checks E2E QA
-status: ACTIVE
+status: READY
 owner_persona: qa
 created_at: '2026-08-08'
 updated_at: '2026-08-10'
 depends_on:
   - task-358-407-orchestrator-strict-completion-e2e-impl
-jules_session_id: '8375930369296630014'
+jules_session_id: null
 pr_number: null
 parent: story-070-358-orchestrator-strict-completion-e2e
 tags:
