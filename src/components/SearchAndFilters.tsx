@@ -16,9 +16,9 @@ import { TelemetryDecoration } from './TelemetryDecoration';
 function generateHexStream(length: number) {
   let result = '';
   const characters = '0123456789ABCDEF';
-  const randomValues = window.crypto.getRandomValues(new Uint8Array(length));
+  const randomValues = globalThis.crypto.getRandomValues(new Uint8Array(length));
   for (let i = 0; i < length; i++) {
-    result += characters.charAt(randomValues[i] % characters.length);
+    result += characters.charAt((randomValues[i] || 0) & 0x0f);
   }
   return result;
 }
