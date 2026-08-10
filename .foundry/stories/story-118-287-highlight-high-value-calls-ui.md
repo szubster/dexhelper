@@ -2,13 +2,13 @@
 id: story-118-287-highlight-high-value-calls-ui
 type: STORY
 title: Highlight High Value Calls UI
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-07'
 updated_at: '2026-08-10'
 depends_on:
   - story-118-286-filter-swarm-item-calls
-jules_session_id: null
+jules_session_id: '11142390195606321667'
 pr_number: null
 parent: epic-055-118-pokegear-alerts
 tags:
