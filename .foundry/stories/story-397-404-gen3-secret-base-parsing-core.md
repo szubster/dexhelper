@@ -33,6 +33,6 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer Epic, we need to implem
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into actionable TASK nodes (Coder/QA as needed).
-- [ ] task-404-407-gen3-secret-base-types-impl
-- [ ] task-404-408-gen3-secret-base-parser-impl
-- [ ] task-404-409-gen3-secret-base-parser-qa
+- [x] task-404-407-gen3-secret-base-types-impl
+- [x] task-404-408-gen3-secret-base-parser-impl
+- [x] task-404-409-gen3-secret-base-parser-qa
