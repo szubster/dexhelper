@@ -2,13 +2,13 @@
 id: task-341-370-feebas-calculation-worker-qa
 type: TASK
 title: Verify Feebas Web Worker Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-31'
 updated_at: '2026-08-11'
 depends_on:
   - task-341-369-feebas-calculation-worker-impl
-jules_session_id: '367874685721681175'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

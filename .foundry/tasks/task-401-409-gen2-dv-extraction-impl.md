@@ -2,13 +2,13 @@
 id: task-401-409-gen2-dv-extraction-impl
 type: TASK
 title: Gen 2 DV Extraction Implementation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-08'
-updated_at: '2026-08-10'
+updated_at: '2026-08-11'
 depends_on:
   - .foundry/archive/tasks/task-401-408-gen2-dv-extraction-types.md
-jules_session_id: '14309564332476668412'
+jules_session_id: null
 pr_number: null
 parent: story-112-401-gen2-dv-extraction
 tags:

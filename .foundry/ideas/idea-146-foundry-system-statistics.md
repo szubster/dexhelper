@@ -2,7 +2,7 @@
 id: idea-146-foundry-system-statistics
 type: IDEA
 title: Implement Foundry System Statistics Reporting and Backfilling
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-08-11'
 updated_at: '2026-08-11'

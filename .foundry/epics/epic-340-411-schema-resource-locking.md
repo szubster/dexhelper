@@ -2,7 +2,7 @@
 id: epic-340-411-schema-resource-locking
 type: EPIC
 title: Schema Update for Orchestrator Resource Locking
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-11'
 updated_at: '2026-08-11'

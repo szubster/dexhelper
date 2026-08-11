@@ -2,7 +2,7 @@
 id: epic-340-413-qa-automated-evaluation
 type: EPIC
 title: QA Evaluation and Variant Selection Logic
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-11'
 updated_at: '2026-08-11'

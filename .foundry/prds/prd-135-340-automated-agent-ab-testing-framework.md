@@ -2,12 +2,12 @@
 id: prd-135-340-automated-agent-ab-testing-framework
 type: PRD
 title: Automated Agent A/B Testing Framework
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-07'
 updated_at: '2026-08-11'
 depends_on: []
-jules_session_id: '16018736345658701892'
+jules_session_id: null
 pr_number: null
 parent: idea-135-automated-agent-ab-testing-framework
 tags:
