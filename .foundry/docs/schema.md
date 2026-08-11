@@ -106,16 +106,16 @@ notes: ""               # Optional. Free-form Markdown remarks.
 
 ### 4.1 Status Enum
 
-| Status | Description |
-|---|---|
-| `PENDING` | Node exists but has unresolved `depends_on` entries — not yet eligible for dispatch. |
-| `READY` | **Orchestrator-written only.** All `depends_on` nodes are `COMPLETED`. Node is queued for the next dispatch cycle. |
-| `ACTIVE` | A Jules session (`jules_session_id`) is currently working on this node. This status persists if a PR is open for review. |
-| `VERIFYING` | A PR was merged, and the `auditor` is currently verifying the outcome. |
-| `COMPLETED` | PR merged (or auditor verification passed). TPM archives the node. |
-| `FAILED` | Session crashed silently or PR was rejected/closed without merge. Resurrection Loop re-spawns a fresh session. |
-| `BLOCKED` | DAG deadlock or explicit TPM hold. Requires CEO or TPM intervention to resolve. |
-| `CANCELLED` | Node retired by CEO decision or permanently failed. TPM archives the node. |
+| Status | Gen 1 Mapping | Description |
+|---|---|---|
+| `PENDING` | Pokémon Egg | Node exists but has unresolved `depends_on` entries — not yet eligible for dispatch. |
+| `READY` | Hatched Pokémon | **Orchestrator-written only.** All `depends_on` nodes are `COMPLETED`. Node is queued for the next dispatch cycle. |
+| `ACTIVE` | In Battle / Training | A Jules session (`jules_session_id`) is currently working on this node. This status persists if a PR is open for review. |
+| `VERIFYING` | Gym Leader Evaluation | A PR was merged, and the `auditor` is currently verifying the outcome. |
+| `COMPLETED` | Fully Evolved / Hall of Fame | PR merged (or auditor verification passed). TPM archives the node. |
+| `FAILED` | Fainted / Blacked Out | Session crashed silently or PR was rejected/closed without merge. Resurrection Loop re-spawns a fresh session. |
+| `BLOCKED` | Sleeping (Snorlax) | DAG deadlock or explicit TPM hold. Requires CEO or TPM intervention to resolve. |
+| `CANCELLED` | Released | Node retired by CEO decision or permanently failed. TPM archives the node. |
 
 ### 4.2 Valid State Transitions
 

@@ -33,4 +33,4 @@ Update the Status Enum in `.foundry/docs/schema.md` to map standard DAG statuses
 - Ensure all standard statuses have a mapping.
 
 ## Acceptance Criteria
-- [ ] Coder: Update `.foundry/docs/schema.md` with Gen 1 mappings for DAG statuses.
+- [x] Coder: Update `.foundry/docs/schema.md` with Gen 1 mappings for DAG statuses.
