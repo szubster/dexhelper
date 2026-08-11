@@ -50,3 +50,9 @@ For robust offline support and caching of large static payloads like the extensi
 1.  **Core Preload**: Inject `<link rel="preload" href="pokedata-core.msgpack" as="fetch" crossorigin="anonymous">` into the `index.html` to prioritize the core data payload.
 2.  **Idle Prefetching**: Implement logic (e.g., using `requestIdleCallback` or a React `useEffect` with low priority) to dynamically inject `<link rel="prefetch">` tags for the `pokedata-gen{N}.msgpack` files after the initial core load is complete and the application is idle.
 3.  **Service Worker Caching**: Enhance the existing Service Worker (or implement one) to cache all `.msgpack` requests using a Cache-First strategy to guarantee instant availability on subsequent visits and offline usage.
+
+
+### 4. Vite Plugins Integration
+*   To streamline this process and ensure it integrates well with our build pipeline, this background fetching logic should be implemented as a Vite plugin.
+*   A custom Vite plugin can automatically analyze the output chunks during the build process and dynamically inject the necessary `<link rel="preload">` and `<link rel="prefetch">` tags into the generated `index.html`.
+*   This approach avoids manual HTML manipulation and keeps the preloading logic tightly coupled with the actual generated assets.
