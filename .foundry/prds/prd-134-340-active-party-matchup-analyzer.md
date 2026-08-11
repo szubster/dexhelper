@@ -44,4 +44,6 @@ To build an "Active Party Matchup Analyzer" view in DexHelper that assists retro
 - Simulating individual turn-by-turn battles (focus is on team-level matchup viability).
 
 ## Acceptance Criteria
-- [ ] epic-340-405-active-party-matchup-analyzer
+- [ ] epic-340-411-save-data-extraction
+- [ ] epic-340-412-matchup-recommendation-engine
+- [ ] epic-340-413-ui-dashboard-integration
