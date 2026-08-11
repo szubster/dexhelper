@@ -35,8 +35,10 @@ As the system evolves, new metrics and ideas will inevitably emerge. Therefore, 
 ## Proposed Solution
 We propose adding an automated statistics generator to the Foundry Orchestrator.
 
-### 1. Unified Statistics Document
-A structured statistics file (e.g., `.foundry/docs/statistics.json`, `.foundry/docs/statistics.yaml`, or `.foundry/docs/statistics.md` containing markdown tables and JSON blocks) will serve as the single source of truth for current metrics. It will contain:
+### 1. Unified Statistics Document (Root Location)
+A structured statistics file (e.g., `foundry-statistics.json`, `foundry-statistics.yaml`, or `foundry-statistics.md` containing markdown tables and JSON blocks) **must be stored in the root directory of the repository** (not in any subdirectory like `.foundry/docs/` or `.foundry/`). This keeps the statistics immediately accessible and prominent at the top level of the workspace.
+
+The file will contain:
 - **PR Metrics**: Total PRs, Auto-merged PRs, Auto-merge success rate.
 - **Node Status Counts**: A flat dictionary or table of statuses and their counts.
 - **Node Type Counts**: A flat dictionary or table of types and their counts.
@@ -61,8 +63,8 @@ This feature transforms the Foundry from an opaque workflow engine into a data-d
 
 ## Acceptance Criteria
 - [ ] Product Manager: Draft a comprehensive PRD detailing the statistics schema, git history parser, and real-time generation triggers.
-- [ ] Implement an automated statistics calculation script under `.github/scripts/` that parses the current state of `.foundry/` and outputs metrics.
-- [ ] Integrate statistics generation into the orchestrator/heartbeat workflow so that statistics are updated and auto-committed to the `main` branch.
+- [ ] Implement an automated statistics calculation script under `.github/scripts/` that parses the current state of `.foundry/` and outputs metrics to a root file (e.g., `foundry-statistics.json`, `foundry-statistics.yaml` or `foundry-statistics.md`).
+- [ ] Integrate statistics generation into the orchestrator/heartbeat workflow so that statistics are updated and auto-committed to the `main` branch at the root of the repository.
 - [ ] Implement a backfilling CLI script capable of reconstructing historical statistics by parsing git history and commit states.
 
 ### Downstream Graph Nodes
