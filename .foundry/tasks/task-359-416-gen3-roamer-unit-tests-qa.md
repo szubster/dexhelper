@@ -26,6 +26,6 @@ notes: ''
 Verify the correctness of the Gen 3 Roamer data extraction unit tests.
 
 ## Acceptance Criteria
-- [ ] Verify unit tests exist for Emerald, Ruby/Sapphire, and FireRed/LeafGreen `Roamer` struct parsing.
-- [ ] Verify the tests check the extraction of IVs, Personality Value, Species, HP, Level, Status, and Active boolean using programmatic DataView mocks.
-- [ ] Ensure all tests pass.
+- [x] Verify unit tests exist for Emerald, Ruby/Sapphire, and FireRed/LeafGreen `Roamer` struct parsing.
+- [x] Verify the tests check the extraction of IVs, Personality Value, Species, HP, Level, Status, and Active boolean using programmatic DataView mocks.
+- [x] Ensure all tests pass.
