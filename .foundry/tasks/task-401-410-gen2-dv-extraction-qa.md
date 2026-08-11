@@ -2,13 +2,13 @@
 id: task-401-410-gen2-dv-extraction-qa
 type: TASK
 title: Gen 2 DV Extraction QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-08'
 updated_at: '2026-08-11'
 depends_on:
   - .foundry/tasks/task-401-409-gen2-dv-extraction-impl.md
-jules_session_id: '16585296348294548606'
+jules_session_id: null
 pr_number: null
 parent: story-112-401-gen2-dv-extraction
 tags:

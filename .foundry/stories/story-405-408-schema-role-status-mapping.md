@@ -2,12 +2,12 @@
 id: story-405-408-schema-role-status-mapping
 type: STORY
 title: Draft Tasks for Schema Role and Status Mapping
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-08'
 updated_at: '2026-08-11'
 depends_on: []
-jules_session_id: '11036646935220608430'
+jules_session_id: null
 pr_number: null
 parent: epic-339-405-schema-role-mapping
 tags:
