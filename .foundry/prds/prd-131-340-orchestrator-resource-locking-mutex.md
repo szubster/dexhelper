@@ -37,6 +37,9 @@ Currently, multiple active agents may attempt to modify the same shared files si
 
 ## Next Steps
 - [ ] Epic Planner: Draft the EPIC breaking this PRD down into architecture, orchestrator modifications, and schema updates.
+- [ ] epic-340-411-schema-resource-locking
+- [ ] epic-340-412-orchestrator-resource-locking
+- [ ] epic-340-413-orchestrator-locking-e2e
 
 ## Acceptance Criteria
-- [ ] Epic Planner completes PRD decomposition.
+- [x] Epic Planner completes PRD decomposition.
