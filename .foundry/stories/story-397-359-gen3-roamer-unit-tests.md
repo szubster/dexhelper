@@ -2,13 +2,13 @@
 id: story-397-359-gen3-roamer-unit-tests
 type: STORY
 title: Gen 3 Roamer Unit Tests
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-11'
 depends_on:
   - story-397-358-gen3-roamer-dataview-parsing
-jules_session_id: '16098904352958916566'
+jules_session_id: null
 pr_number: null
 parent: epic-044-397-gen3-roamer-core-extraction-v5
 tags:

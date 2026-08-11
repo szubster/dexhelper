@@ -2,7 +2,7 @@
 id: task-359-415-gen3-roamer-unit-tests-impl
 type: TASK
 title: Impl Gen 3 Roamer Unit Tests
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-10'
 updated_at: '2026-08-11'
@@ -14,8 +14,8 @@ tags:
   - gen3
   - roamer
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

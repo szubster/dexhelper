@@ -2,10 +2,10 @@
 id: story-349-360-multi-save-integration-e2e
 type: STORY
 title: Multi-Save Integration E2E
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-08-05'
+updated_at: '2026-08-11'
 depends_on:
   - story-349-359-multi-save-comparison-algorithms
 jules_session_id: null
