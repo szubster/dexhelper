@@ -3,6 +3,7 @@ import { getGenerationConfig } from '../../../utils/generationConfig';
 import { getGen2UnobtainableReason } from '../../exclusives/gen2Exclusives';
 import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen2Graph';
 import type { SaveData } from '../../saveParser/index';
+import { ITEM_HEADBUTT_GEN2, ITEM_ROCK_SMASH_GEN2, MOVE_HEADBUTT, MOVE_ROCK_SMASH } from '../utils/encounterTools';
 import type { AssistantStrategy, Suggestion } from './types';
 import { getRoamerSuggestions } from './utils/roamer';
 
@@ -48,17 +49,16 @@ export const gen2Strategy: AssistantStrategy = {
     // 2. Headbutt / Rock Smash
     // TM08 (Rock Smash) is Item ID 198 (0xC6), TM02 (Headbutt) is Item ID 192 (0xC0)
     // Actually, TMs are stored in TM pocket directly in Gen 2 parsed inventory as item IDs
-    // Headbutt = TM02 = Item ID 192, Rock Smash = TM08 = Item ID 198
     // In Gen 2, these are single-use and do not require badges to use in the field.
     const allInstances = [...(saveData.partyDetails || []), ...(saveData.pcDetails || [])];
     const hasHeadbutt =
-      saveData.inventory.some((i) => i.id === 192 && i.quantity > 0) ||
-      (saveData.pcItems?.some((i) => i.id === 192 && i.quantity > 0) ?? false) ||
-      allInstances.some((p) => p.moves?.includes(29));
+      saveData.inventory.some((i) => i.id === ITEM_HEADBUTT_GEN2 && i.quantity > 0) ||
+      (saveData.pcItems?.some((i) => i.id === ITEM_HEADBUTT_GEN2 && i.quantity > 0) ?? false) ||
+      allInstances.some((p) => p.moves?.includes(MOVE_HEADBUTT));
     const hasRockSmash =
-      saveData.inventory.some((i) => i.id === 198 && i.quantity > 0) ||
-      (saveData.pcItems?.some((i) => i.id === 198 && i.quantity > 0) ?? false) ||
-      allInstances.some((p) => p.moves?.includes(249));
+      saveData.inventory.some((i) => i.id === ITEM_ROCK_SMASH_GEN2 && i.quantity > 0) ||
+      (saveData.pcItems?.some((i) => i.id === ITEM_ROCK_SMASH_GEN2 && i.quantity > 0) ?? false) ||
+      allInstances.some((p) => p.moves?.includes(MOVE_ROCK_SMASH));
 
     if (hasHeadbutt) {
       suggestions.push({
