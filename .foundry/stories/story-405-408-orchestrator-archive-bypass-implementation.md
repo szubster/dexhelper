@@ -2,12 +2,12 @@
 id: story-405-408-orchestrator-archive-bypass-implementation
 type: STORY
 title: Orchestrator Archive Bypass Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-10'
+updated_at: '2026-08-11'
 depends_on: []
-jules_session_id: '15624461644370182551'
+jules_session_id: null
 pr_number: null
 parent: epic-339-405-orchestrator-archive-bypass
 tags:

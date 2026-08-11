@@ -2,10 +2,10 @@
 id: task-401-410-gen2-dv-extraction-qa
 type: TASK
 title: Gen 2 DV Extraction QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-08'
-updated_at: '2026-08-08'
+updated_at: '2026-08-11'
 depends_on:
   - .foundry/tasks/task-401-409-gen2-dv-extraction-impl.md
 jules_session_id: null

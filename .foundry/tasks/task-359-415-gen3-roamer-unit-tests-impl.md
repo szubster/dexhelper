@@ -2,10 +2,10 @@
 id: task-359-415-gen3-roamer-unit-tests-impl
 type: TASK
 title: Impl Gen 3 Roamer Unit Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-10'
-updated_at: '2026-08-10'
+updated_at: '2026-08-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - roamer
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Impl Gen 3 Roamer Unit Tests
