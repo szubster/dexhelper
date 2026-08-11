@@ -32,4 +32,6 @@ Break down the work into tasks to update `.foundry/docs/schema.md` with the offi
 ## Acceptance Criteria
 - [x] Tech Lead: Generate TASK node(s) for updating schema.md.
 - [ ] task-408-411-schema-role-mapping
+- [ ] task-408-418-schema-role-mapping-qa
 - [ ] task-408-412-schema-status-mapping
+- [ ] task-408-419-schema-status-mapping-qa
