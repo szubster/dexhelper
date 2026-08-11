@@ -135,6 +135,9 @@ export default defineConfig(() => {
             if (id.includes('src/components/pokemon/details/PokemonCatchProbability.tsx')) {
               return 'PokemonCatchProbability';
             }
+            if (id.includes('src/components/pokemon/details/PokemonCaughtDetails.tsx')) {
+              return 'PokemonCaughtDetails';
+            }
             return undefined;
           }
         },
