@@ -30,5 +30,5 @@ Verify the Coder's implementation of the Gen 2 DV extraction.
 - Verify that out-of-bounds reads using `DataView` catch the `RangeError` and re-throw a new error with the exact message: `'The save file is corrupted or incomplete.'`
 
 ## Acceptance Criteria
-- [ ] Verify Gen 2 DV extraction logic correctly extracts values.
-- [ ] Verify the exact error `'The save file is corrupted or incomplete.'` is thrown on `RangeError`.
+- [x] Verify Gen 2 DV extraction logic correctly extracts values.
+- [x] Verify the exact error `'The save file is corrupted or incomplete.'` is thrown on `RangeError`.
