@@ -40,4 +40,7 @@ Introduce an Automated Agent A/B Testing Framework within the Foundry Orchestrat
 - The A/B testing logic should handle edge cases, such as both variants failing permanently.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into Epics (e.g., Schema Updates, Orchestrator Parallelization, QA Evaluation Logic).
+- [x] Epic Planner: Break this PRD down into Epics (e.g., Schema Updates, Orchestrator Parallelization, QA Evaluation Logic).
+- [ ] epic-340-411-experiment-schema-updates
+- [ ] epic-340-412-orchestrator-parallel-execution
+- [ ] epic-340-413-qa-automated-evaluation
