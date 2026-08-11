@@ -22,6 +22,10 @@ const Gen3SecretBaseDashboard = React.lazy(() =>
   })),
 );
 
+const Gen3NpcTrades = React.lazy(() =>
+  import('../components/dashboard/trades/Gen3NpcTrades').then((m) => ({ default: m.Gen3NpcTrades })),
+);
+
 const Gen3StaticEncountersDashboard = React.lazy(() =>
   import('../components/dashboard/encounters/Gen3StaticEncountersDashboard').then((m) => ({
     default: m.Gen3StaticEncountersDashboard,
@@ -32,6 +36,10 @@ const GlobalRibbonChecklistDashboard = React.lazy(() =>
   import('../components/dashboard/ribbons/GlobalRibbonChecklistDashboard').then((m) => ({
     default: m.GlobalRibbonChecklistDashboard,
   })),
+);
+
+const Gen2NpcTrades = React.lazy(() =>
+  import('../components/dashboard/trades/Gen2NpcTrades').then((m) => ({ default: m.Gen2NpcTrades })),
 );
 
 const Gen2Checklist = React.lazy(() =>
@@ -60,10 +68,12 @@ function DashboardPage() {
             <GlobalRibbonChecklistDashboard />
             <Gen3SecretBaseDashboard saveData={saveData} />
             <Gen3StaticEncountersDashboard saveData={saveData} />
+            <Gen3NpcTrades />
           </>
         ) : (
           <>
             <Gen2Checklist />
+            <Gen2NpcTrades />
             <ShinyCarrierBreedingDashboard />
           </>
         )}

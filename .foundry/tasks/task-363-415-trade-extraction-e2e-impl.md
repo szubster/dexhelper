@@ -2,13 +2,14 @@
 id: task-363-415-trade-extraction-e2e-impl
 type: TASK
 title: NPC Trade Extraction Integration & E2E Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-11'
 updated_at: '2026-08-11'
 depends_on:
   - task-361-407-gen2-trade-extraction-impl
   - task-362-407-gen3-trade-extraction-impl
+  - research-363-416-gen3-save-fixture
 jules_session_id: '15318964772229254624'
 pr_number: null
 parent: story-349-363-trade-extraction-e2e
@@ -18,8 +19,8 @@ tags:
   - save-parsing
   - e2e
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Suspended pending research node to acquire a Gen 3 save fixture for E2E testing.'
 notes: ''
 ---
 
@@ -32,3 +33,5 @@ Implement end-to-end (E2E) tests for the NPC trade flag extraction logic across 
 - [ ] Write E2E test files for Gen 2 NPC trade flag extraction.
 - [ ] Write E2E test files for Gen 3 NPC trade flag extraction.
 - [ ] Ensure tests verify end-to-end extraction (from save file parsing to resulting flags in `SaveData`).
+
+- [ ] research-363-416-gen3-save-fixture
