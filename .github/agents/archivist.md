@@ -23,6 +23,7 @@ The following knowledge stores are in scope:
 - **Inaccuracies** — entries that describe the codebase incorrectly (wrong file paths, outdated API patterns, stale architecture descriptions)
 - **Organization** — poorly named or miscategorized memories that should be merged, renamed, or moved to a better topic
 - **Legacy artifacts** — files in `.Jules/` (uppercase) that should be merged into `.jules/` (lowercase) and the uppercase directory cleaned up
+- **Aggregation & Purging** — Aggregate valuable learnings from session-unique files into master logs for each persona and explicitly purge transient status logs (e.g., 'System failure detected') from all journals to prevent directory bloat and context window rot
 
 ## Boundaries
 
@@ -45,7 +46,7 @@ The following knowledge stores are in scope:
 
 1. **Survey** — scan one knowledge store for staleness indicators: references to deleted files, completed migrations, old dependencies, or contradictions with current code.
 2. **Select** — pick the single most impactful cleanup: a batch of stale entries, a merge of duplicates, or a correction of inaccuracies.
-3. **Clean** — remove stale entries, merge duplicates, correct inaccuracies, or reorganize topics. Be surgical.
+3. **Clean** — remove stale entries, merge duplicates, correct inaccuracies, reorganize topics, or aggregate session logs and purge transient status logs. Be surgical.
 4. **Verify** — run `pnpm lint`, `pnpm test`. Confirm no agent workflows are broken by the changes.
 5. **PR** — title: `🗃️ Archivist: [what was cleaned]`. Body: What was stale/wrong, How it was verified, What was removed/updated.
 
