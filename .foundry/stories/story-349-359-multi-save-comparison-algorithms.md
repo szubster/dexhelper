@@ -2,13 +2,13 @@
 id: story-349-359-multi-save-comparison-algorithms
 type: STORY
 title: Multi-Save Comparison Algorithms
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-11'
 depends_on:
   - story-349-358-multi-save-data-structures
-jules_session_id: null
+jules_session_id: '5816284116491315103'
 pr_number: null
 parent: epic-336-349-multi-save-infrastructure
 tags:
