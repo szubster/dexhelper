@@ -27,7 +27,7 @@ notes: ''
 Verify that the Coder successfully implemented the Feebas Web Worker, ensuring that the synchronous parsing function is no longer blocked by the LCG tile calculation and that the architecture complies with ADR 020 and Section 13 of the Schema.
 
 ## Acceptance Criteria
-- [ ] The `calculateFeebasTiles` execution is verified to run asynchronously via a Web Worker or non-blocking mechanism.
-- [ ] The synchronous save file parsing pipeline does not block on tile calculation.
-- [ ] The code complies with ADR 020 and the Section 13 Save File Parsing schema guidelines (no magic numbers, proper relative offsets, explicit bitwise mapping).
-- [ ] All automated tests (`pnpm test`) pass successfully.
+- [x] The `calculateFeebasTiles` execution is verified to run asynchronously via a Web Worker or non-blocking mechanism.
+- [x] The synchronous save file parsing pipeline does not block on tile calculation.
+- [x] The code complies with ADR 020 and the Section 13 Save File Parsing schema guidelines (no magic numbers, proper relative offsets, explicit bitwise mapping).
+- [x] All automated tests (`pnpm test`) pass successfully.
