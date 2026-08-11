@@ -27,4 +27,6 @@ notes: ''
 Refactor the `SaveData` type in `src/engine/saveParser/parsers/common.ts` into a discriminated union based on the `generation` field.
 
 ## Acceptance Criteria
-- [ ] Create task to refactor the `SaveData` type.
+- [x] Create task to refactor the `SaveData` type.
+- [ ] task-362-415-refactor-savedata-type-impl
+- [ ] task-362-416-refactor-savedata-type-qa
