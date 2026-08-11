@@ -18,6 +18,10 @@
       "maxSize": "25kb"
     },
     {
+      "path": "assets/PokemonCaughtDetails-<hash>.js",
+      "maxSize": "40kb"
+    },
+    {
       "path": "assets/PokemonEvolutions-<hash>.js",
       "maxSize": "40kb"
     },

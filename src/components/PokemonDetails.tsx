@@ -11,7 +11,6 @@ import { getGenerationConfig } from '../utils/generationConfig';
 import { CornerCrosshairs } from './CornerCrosshairs';
 import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
-import { PokemonCaughtDetails } from './pokemon/details/PokemonCaughtDetails';
 import { PokemonSprite } from './pokemon/PokemonSprite';
 import { UnownDexPanel } from './pokemon/unown/UnownDexPanel';
 
@@ -24,6 +23,10 @@ const PokemonEvolutions = React.lazy(() =>
 );
 const PokemonCatchProbability = React.lazy(() =>
   import('./pokemon/details/PokemonCatchProbability').then((m) => ({ default: m.PokemonCatchProbability })),
+);
+// ⚡ Bolt: Lazy load PokemonCaughtDetails to reduce initial bundle size by splitting it into its own chunk
+const PokemonCaughtDetails = React.lazy(() =>
+  import('./pokemon/details/PokemonCaughtDetails').then((m) => ({ default: m.PokemonCaughtDetails })),
 );
 
 import { ScanlineOverlay } from './ScanlineOverlay';
@@ -336,7 +339,9 @@ export function PokemonDetails({
 
           {/* Right Column Data Feed */}
           <div className="flex flex-col gap-6 xl:gap-8">
-            <PokemonCaughtDetails yourPokemon={yourPokemon} />
+            <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
+              <PokemonCaughtDetails yourPokemon={yourPokemon} />
+            </React.Suspense>
             {pokemonId === 201 && saveData?.generation === 2 && <UnownDexPanel yourPokemon={yourPokemon} />}
 
             <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
