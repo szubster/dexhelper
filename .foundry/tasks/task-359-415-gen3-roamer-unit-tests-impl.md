@@ -25,7 +25,7 @@ notes: ''
 Implement unit tests verifying the extraction of the Gen 3 Roamer struct against known good save fixtures for each game version.
 
 ## Acceptance Criteria
-- [ ] Create unit tests for Emerald `Roamer` struct parsing.
-- [ ] Create unit tests for Ruby/Sapphire `Roamer` struct parsing.
-- [ ] Create unit tests for FireRed/LeafGreen `Roamer` struct parsing.
-- [ ] Tests must verify the extraction of IVs, Personality Value, Species, HP, Level, Status, and Active boolean. Note: Programmatic DataView mock buffers are acceptable as fixtures since binary `.sav` fixtures for Gen 3 are currently unavailable.
+- [x] Create unit tests for Emerald `Roamer` struct parsing.
+- [x] Create unit tests for Ruby/Sapphire `Roamer` struct parsing.
+- [x] Create unit tests for FireRed/LeafGreen `Roamer` struct parsing.
+- [x] Tests must verify the extraction of IVs, Personality Value, Species, HP, Level, Status, and Active boolean. Note: Programmatic DataView mock buffers are acceptable as fixtures since binary `.sav` fixtures for Gen 3 are currently unavailable.
