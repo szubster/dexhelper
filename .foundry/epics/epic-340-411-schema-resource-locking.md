@@ -2,12 +2,12 @@
 id: epic-340-411-schema-resource-locking
 type: EPIC
 title: Schema Update for Orchestrator Resource Locking
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-11'
 updated_at: '2026-08-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6207212354005436450'
 pr_number: null
 parent: prd-131-340-orchestrator-resource-locking-mutex
 tags:
