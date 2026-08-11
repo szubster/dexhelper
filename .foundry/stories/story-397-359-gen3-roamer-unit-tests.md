@@ -30,4 +30,9 @@ Write unit tests verifying the extraction of the Gen 3 Roamer struct against kno
 - [ ] Create unit tests for Ruby/Sapphire `Roamer` struct parsing.
 - [ ] Create unit tests for FireRed/LeafGreen `Roamer` struct parsing.
 - [ ] Tests must verify the extraction of IVs, Personality Value, Species, HP, Level, Status, and Active boolean against fixtures.
-- [ ] Tech Lead: Break this Story down into actionable Tasks.
+- [x] Tech Lead: Break this Story down into actionable Tasks.
+- [ ] task-359-415-gen3-roamer-unit-tests-impl
+- [ ] task-359-416-gen3-roamer-unit-tests-qa
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
