@@ -212,7 +212,6 @@ export const FLAG_GOT_TM03_FROM_MISTY = 0x297;
 export const FLAG_GOT_TM26_FROM_GIOVANNI = 0x298;
 export const FLAG_GOT_TM04_FROM_SABRINA = 0x29a;
 
-export const GEN3_POKEMON_STRUCT_SIZE = 100;
 export const GEN3_POKEMON_PV_OFFSET = 0;
 export const GEN3_POKEMON_OT_ID_OFFSET = 4;
 export const GEN3_POKEMON_DATA_OFFSET = 32;
@@ -221,8 +220,6 @@ export const SUBSTRUCTURE_SIZE = 12;
 export const PC_BOX_BUFFER_SIZE = 33744;
 export const PC_BOX_CURRENT_BOX_OFFSET = 0x0000;
 export const PC_BOX_POKEMON_LIST_OFFSET = 0x0004;
-export const PC_BOX_NAMES_OFFSET = 0x8344;
-export const PC_BOX_WALLPAPERS_OFFSET = 0x83c2;
 export const PC_BOX_COUNT = 14;
 export const PC_BOX_CAPACITY = 30;
 export const GEN3_PC_POKEMON_STRUCT_SIZE = 80;
@@ -1629,7 +1626,6 @@ export function parseGen3EmeraldMoveTutors(view: DataView, saveBlock1Offset: num
  * @returns An object containing boolean statuses for each RSE NPC trade.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export { parseGen3LotteryNumber } from '../gen3/lottery/parser';
 
 export const GEN3_TM_HM_MOVE_MAP: Record<number, number> = {
   289: 264,
