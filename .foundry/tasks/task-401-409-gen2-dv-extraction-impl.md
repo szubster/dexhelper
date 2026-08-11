@@ -30,5 +30,5 @@ Implement the logic to extract Gen 2 DVs (Attack, Defense, Speed, and Special) f
 - You must catch `RangeError` from out-of-bounds reads using `DataView` and throw a new error with the exact message: `'The save file is corrupted or incomplete.'`
 
 ## Acceptance Criteria
-- [ ] Implement Gen 2 DV extraction logic.
-- [ ] Ensure that `RangeError` is caught during extraction, throwing a new error with the message `'The save file is corrupted or incomplete.'`.
+- [x] Implement Gen 2 DV extraction logic.
+- [x] Ensure that `RangeError` is caught during extraction, throwing a new error with the message `'The save file is corrupted or incomplete.'`.
