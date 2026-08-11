@@ -25,4 +25,4 @@ notes: ''
 Verify that the implemented E2E tests accurately ensure the removal of the manual node cancellation instructions.
 
 ## Acceptance Criteria
-- [ ] QA: Verify E2E tests for the removed rule.
+- [x] QA: Verify E2E tests for the removed rule.
