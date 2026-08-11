@@ -2,12 +2,12 @@
 id: research-353-404-investigate-lift-rejection-e2e-failure
 type: RESEARCH
 title: Investigate E2E Test Failure for Permanent Failure Dashboard
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-06'
-updated_at: '2026-08-10'
+updated_at: '2026-08-11'
 depends_on: []
-jules_session_id: '7961952418459437431'
+jules_session_id: null
 pr_number: null
 parent: story-343-353-lift-rejection-constant-e2e
 tags:

@@ -2,10 +2,10 @@
 id: task-295-408-gen3-static-encounters-ui-qa-retry
 type: TASK
 title: Gen 3 Static Encounters UI Integration Retry QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-08'
-updated_at: '2026-08-09'
+updated_at: '2026-08-11'
 depends_on:
   - task-295-407-gen3-static-encounters-ui-impl-retry
 jules_session_id: null
