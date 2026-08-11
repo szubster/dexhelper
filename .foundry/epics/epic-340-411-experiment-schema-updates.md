@@ -2,12 +2,12 @@
 id: epic-340-411-experiment-schema-updates
 type: EPIC
 title: Experiment Schema and Metadata Updates
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-11'
 updated_at: '2026-08-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11236954308959706417'
 pr_number: null
 parent: prd-135-340-automated-agent-ab-testing-framework
 tags:
