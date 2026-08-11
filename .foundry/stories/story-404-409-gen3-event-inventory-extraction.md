@@ -2,12 +2,12 @@
 id: story-404-409-gen3-event-inventory-extraction
 type: STORY
 title: Gen 3 Event Inventory Items Extraction
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-08'
 updated_at: '2026-08-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1864267426480191396'
 pr_number: null
 parent: epic-121-404-gen3-e-reader-event-data-extraction
 tags:
