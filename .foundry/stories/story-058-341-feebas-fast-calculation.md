@@ -2,12 +2,12 @@
 id: story-058-341-feebas-fast-calculation
 type: STORY
 title: Feebas Fast Calculation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-25'
 updated_at: '2026-08-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4633531859007503175'
 pr_number: null
 parent: epic-036-058-feebas-backend-parsing
 tags:
