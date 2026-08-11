@@ -26,3 +26,4 @@ Implement logic in `discoverNodeFiles` in `.github/scripts/foundry-orchestrator.
 ## Acceptance Criteria
 - [ ] Update `discoverNodeFiles` to skip `archive/` directories.
 - [ ] Ensure this exclusion logic covers both `.foundry/archive/stories/` and `.foundry/archive/tasks/`.
+- [ ] task-408-415-orchestrator-archive-bypass-implementation
