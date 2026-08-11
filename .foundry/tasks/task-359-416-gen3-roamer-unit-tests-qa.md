@@ -2,13 +2,13 @@
 id: task-359-416-gen3-roamer-unit-tests-qa
 type: TASK
 title: QA Gen 3 Roamer Unit Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-10'
 updated_at: '2026-08-11'
 depends_on:
   - task-359-415-gen3-roamer-unit-tests-impl
-jules_session_id: '10130303434836686484'
+jules_session_id: null
 pr_number: null
 parent: story-397-359-gen3-roamer-unit-tests
 tags:

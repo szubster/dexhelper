@@ -2,10 +2,10 @@
 id: epic-117-334-define-zod-schema
 type: EPIC
 title: Define Zod Schema for Foundry Nodes
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-18'
-updated_at: '2026-08-04'
+updated_at: '2026-08-11'
 depends_on: []
 jules_session_id: null
 parent: prd-116-117-zod-schema-validation-orchestrator
@@ -13,8 +13,8 @@ tags:
   - foundry
   - orchestrator
   - schema
-rejection_reason: ''
 rejection_count: 1
+rejection_reason: ''
 ---
 
 # Define Zod Schema for Foundry Nodes

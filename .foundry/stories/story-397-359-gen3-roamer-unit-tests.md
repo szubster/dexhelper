@@ -2,7 +2,7 @@
 id: story-397-359-gen3-roamer-unit-tests
 type: STORY
 title: Gen 3 Roamer Unit Tests
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-11'
