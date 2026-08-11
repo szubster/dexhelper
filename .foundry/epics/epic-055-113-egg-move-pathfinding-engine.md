@@ -2,12 +2,12 @@
 id: epic-055-113-egg-move-pathfinding-engine
 type: EPIC
 title: Smart Egg Move Pathfinding Engine
-status: ACTIVE
-owner_persona: story_owner
+status: VERIFYING
+owner_persona: auditor
 created_at: '2026-06-30'
 updated_at: '2026-08-11'
 depends_on: []
-jules_session_id: '17038802532145424436'
+jules_session_id: null
 pr_number: null
 parent: prd-091-055-smart-egg-move-path-finder
 tags:
