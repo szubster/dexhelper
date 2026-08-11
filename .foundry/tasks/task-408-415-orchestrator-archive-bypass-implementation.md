@@ -2,12 +2,12 @@
 id: task-408-415-orchestrator-archive-bypass-implementation
 type: TASK
 title: Orchestrator Archive Bypass Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-10'
-updated_at: '2026-08-10'
+updated_at: '2026-08-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13843471647610493611'
 pr_number: null
 parent: story-405-408-orchestrator-archive-bypass-implementation
 tags:
