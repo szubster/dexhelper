@@ -31,3 +31,7 @@ This story ensures that the backend logic to parse and extract hidden values fro
 - [ ] Write integration tests for Gen 2 DV extraction.
 - [ ] Write integration tests for Gen 3 IV/PV extraction.
 - [ ] Run complete E2E test suite to verify overall functionality.
+- [ ] task-403-418-gen2-dv-integration-impl
+- [ ] task-403-419-gen3-iv-pv-integration-impl
+- [ ] task-403-420-playwright-e2e-impl
+- [ ] task-403-421-e2e-integration-qa
