@@ -33,5 +33,5 @@ This story covers extracting current Pokédex and PC Box state from Gen 3 save f
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] .foundry/tasks/task-340-341-gen3-safari-zone-state-impl.md
+- [ ] .foundry/archive/tasks/task-340-341-gen3-safari-zone-state-impl.md
 - [ ] .foundry/tasks/task-340-342-gen3-safari-zone-state-qa.md

@@ -35,4 +35,4 @@ Develop the core algorithmic engine for calculating valid breeding chains. This 
 - [x] [story-113-259-egg-move-breeding-rules](.foundry/archive/stories/story-113-259-egg-move-breeding-rules.md)
 - [x] [story-113-260-egg-move-multi-step-chains](.foundry/archive/stories/story-113-260-egg-move-multi-step-chains.md)
 - [x] [research-113-248-egg-move-precomputation](.foundry/archive/research/research-113-248-egg-move-precomputation.md)
-- [ ] [story-113-348-egg-move-pathfinding-e2e](.foundry/stories/story-113-348-egg-move-pathfinding-e2e.md)
+- [ ] [story-113-348-egg-move-pathfinding-e2e](.foundry/archive/stories/story-113-348-egg-move-pathfinding-e2e.md)
