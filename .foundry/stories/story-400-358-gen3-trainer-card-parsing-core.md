@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-10'
-depends_on:
-  - research-358-406-gen3-trainer-card-offsets
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: epic-111-400-gen3-trainer-card-data-extraction
