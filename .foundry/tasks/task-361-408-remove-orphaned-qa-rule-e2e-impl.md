@@ -25,4 +25,4 @@ notes: ''
 Write the actual assertion checks/E2E tests confirming the removal of the manual cancellation instructions.
 
 ## Acceptance Criteria
-- [ ] Coder: Implement tests.
+- [x] Coder: Implement tests.
