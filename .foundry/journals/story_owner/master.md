@@ -1,6 +1,8 @@
 ## Entry from 10642899106052443585.md
 
-## Session 10642899106052443585
+#
+
+# Session 10642899106052443585
 - Under the Late-Binding Orchestrator Demotion Compliance Rule, when processing a READY parent node (like an EPIC) with pending child tasks, we must generally submit an Empty PR without checking off the child tasks if they are incomplete.
 - However, if ALL descendant nodes (e.g. STORIES) are actually COMPLETED (e.g., they have transitioned to VERIFYING/COMPLETED in the system but the parent node's markdown checkbox is still unchecked), we MUST check off the parent's Acceptance Criteria checkboxes before submitting the PR. This satisfies ADR 007 and allows the macro node to transition to COMPLETED and gracefully exit the DAG.
 - Checking off a child node prematurely when it is not actually completed violates the Premature Verification policy and the MACRO NODE COMPLETION EXCEPTION.
@@ -17,7 +19,9 @@ Learnings:
 
 ## Entry from 12591213007050017544.md
 
-## Session 12591213007050017544
+#
+
+# Session 12591213007050017544
 
 **What:** Created an E2E story for epic-115-331-remove-orphaned-qa-task-rule-from-docs.
 
@@ -92,6 +96,7 @@ This reinforces the critical rule from ADR 007 regarding the Parent-Linked DAG e
 * **YAML Immutability for Completions**: The only valid way to progress a successful node to `VERIFYING` is by updating its markdown checkboxes and submitting an empty PR. Manually editing the `status` field to `VERIFYING` or `COMPLETED` is strictly prohibited.
 * This pattern of having a generative persona (Story Owner) wake up to resolve its own completed children via an empty PR is standard operating procedure for the Foundry graph.
 ## Epic 045-070
+
 # Session Log
 
 epic-120-338-implement-conflictless-journals is fully implemented since all its acceptance criteria and child stories are marked as completed.

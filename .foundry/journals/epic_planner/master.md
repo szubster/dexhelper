@@ -38,7 +38,9 @@ Broke down the PRD into 3 Epics:
 
 # 2026-08-07
 
-## Session Details
+#
+
+# Session Details
 - **Task:** Break down PRD `prd-122-339-pokemon-themed-foundry-personas` into actionable EPICs.
 - **Outcome:** Successfully created 4 EPICs (`epic-339-405` through `epic-339-408`) targeting the schema mapping, agent skins, dashboard UI, and orchestrator output.
 - **Learnings:** When generating sequence numbers, it is crucial to use a rigorous search over the existing directory (e.g. `ls -1 .foundry/epics/ | sort -n -t '-' -k 3 | tail -n 10`) instead of guessing from truncated outputs, to prevent ID collisions. Additionally, strictly enforced the use of exact raw Node IDs for the `depends_on` arrays rather than file paths, complying with the Groundedness Rule. Included E2E explicit delegation instructions for the `story_owner` to guarantee the orchestrator safeguard.
@@ -51,7 +53,9 @@ When breaking down Epics, I enforced a process where every EPIC generates a fina
 
 ## Entry from 7199940091353528071.md
 
-## Session 7199940091353528071
+#
+
+# Session 7199940091353528071
 
 When generating markdown node files (e.g., using `echo`), avoid prepending the YAML frontmatter with a newline (`\n---`), as empty lines before the frontmatter boundary will break the system's parser. Start the string directly with `---`.
 
@@ -74,17 +78,23 @@ The PRD requires breaking down into Epics. The acceptance criteria in the PRD ma
 - [ ] epic-111-305-gen3-trainer-card-dashboard-ui
 # Multi-Save Trade Planner Epic Breakdown
 
-## Session 2026-08-04 - Epic Planner Hand-off
+#
+
+# Session 2026-08-04 - Epic Planner Hand-off
 
 *   **Action:** Created `research-044-396-gen3-roamer-tracker-failure` to investigate the root cause, satisfying the rule for handling permanently failed child nodes.
 *   **Action:** Created replacement epics (`epic-044-397-gen3-roamer-core-extraction-v5`, `epic-044-398-gen3-roamer-iv-glitch-v5`, `epic-044-399-gen3-roamer-dashboard-ui-v7`). Crucially, enforced the Epic Planner Core Directive by explicitly adding an acceptance criterion to each EPIC requiring a final STORY dedicated exclusively to Integration and E2E Verification to ensure proper system-wide rendering and prevent future integration failures.
 
-## Session 2026-08-05 - Bundle Splitting Epic Generation
+#
+
+# Session 2026-08-05 - Bundle Splitting Epic Generation
 *   **Action:** Enforced node ID usage for `depends_on` when decomposing PRD 117-337 into its components.
 *   **Action:** Created four epics in sequential order, explicitly including E2E and integration verification stories in their acceptance criteria.
 Since every EPIC must generate a final STORY dedicated exclusively to Integration and E2E Verification in its Acceptance Criteria, I will make sure to include that in both Epics.
 
-## Session 2026-08-08 - Move Tutor Epic Breakdown
+#
+
+# Session 2026-08-08 - Move Tutor Epic Breakdown
 *   **Action:** Created `research-055-405-gen3-move-tutor-offsets` and epics `epic-055-406-gen3-move-tutor-save-parsing`, `epic-055-407-gen3-move-tutor-compatibility`, and `epic-055-408-gen3-move-tutor-dashboard-ui`.
 *   **Action:** Enforced Epic Planner Core Directive by explicitly adding an acceptance criterion to each EPIC requiring a final STORY dedicated exclusively to Integration and E2E Verification.
 

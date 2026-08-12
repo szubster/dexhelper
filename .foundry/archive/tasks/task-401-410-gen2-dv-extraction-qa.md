@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-08-08'
 updated_at: '2026-08-11'
 depends_on:
-  - .foundry/tasks/task-401-409-gen2-dv-extraction-impl.md
+  - task-401-409-gen2-dv-extraction-impl
 jules_session_id: null
 pr_number: null
 parent: story-112-401-gen2-dv-extraction

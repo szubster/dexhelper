@@ -28,7 +28,9 @@ No notable architectural learnings or recurring failures to log for this session
 
 ## Entry from 16515298578694210866.md
 
-## Session 16515298578694210866
+#
+
+# Session 16515298578694210866
 
 # Handled the Impossible Loop
 - Encountered a situation where child tasks (task-353-393, task-353-394) failed permanently and reached the Max Rejection Count.
@@ -156,7 +158,9 @@ Key Learnings:
 # Tech Lead Journal: Handling Pre-Implemented Stories
 
 ## Date: 2026-08-08
-## Session ID: 8763873187215868612
+#
+
+# Session ID: 8763873187215868612
 
 ### Observation
 While drafting tasks for `story-349-361-gen2-trade-extraction`, I observed that the codebase already contained the implementation and unit tests for Gen 2 NPC trade extraction (in `src/engine/saveParser/parsers/gen2.ts` and `gen2.test.ts`).
@@ -170,7 +174,9 @@ When encountering a STORY where the feature is already implemented, the Tech Lea
 ## From YYYY-MM-DD-HH-MM-SS.md
 
 ## YYYY-MM-DD-HH-MM-SS
-## Session: YYYY-MM-DD-HH-MM-SS
+#
+
+# Session: YYYY-MM-DD-HH-MM-SS
 
 ## From 2026-08-10-18-10-20.md
 
