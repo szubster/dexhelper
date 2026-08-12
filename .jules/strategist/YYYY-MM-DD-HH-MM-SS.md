@@ -9,9 +9,3 @@
 **Outcome:** Merged
 **Why:** Several personas (Coder, QA, Tech Lead, Auditor) shared duplicated constraints around Save File Parsing (Section 13), UI Aesthetics (ADR 008), Architectural Scaffolding, Vitest mocks, and the Intelligent Verification Protocol. This leads to drift and bloated context windows.
 **Pattern:** Extract duplicated coding and verification policies from individual agent schedules and centralize them into `core_policies.md` to ensure all agents operate from a single, consistent source of truth, reducing token usage and simplifying prompt maintenance.
-
-## YYYY-MM-DD - [Accepted] - Centralize Journal Management to Archivist
-**Type:** Prompt improvement
-**Outcome:** Merged
-**Why:** The `tpm.md` persona was burdened with aggregating session logs and purging transient status logs, which overlapped with the `archivist.md` persona whose primary focus is "Knowledge Hygiene". TPM is a pipeline orchestrator and resolving deadlocks; Archivist is the domain owner of logs and memories.
-**Pattern:** Move domain-specific knowledge maintenance duties out of pipeline orchestration agents (TPM) and strictly centralize them within the knowledge maintenance agent (Archivist) to preserve separation of concerns.
