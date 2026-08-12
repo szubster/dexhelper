@@ -2,12 +2,12 @@
 id: epic-115-331-remove-orphaned-qa-task-rule-from-docs
 type: EPIC
 title: Remove Orphaned QA Task Rule From Docs
-status: ACTIVE
-owner_persona: story_owner
+status: VERIFYING
+owner_persona: auditor
 created_at: '2026-07-16'
 updated_at: '2026-08-12'
 depends_on: []
-jules_session_id: '14264417279972840899'
+jules_session_id: null
 pr_number: null
 parent: prd-115-115-remove-obsolete-orphaned-node-manual-cancellation
 tags:

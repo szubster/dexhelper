@@ -2,7 +2,7 @@
 id: epic-341-414-orchestrator-fuzzer-core
 type: EPIC
 title: Orchestrator State Machine Fuzzing - Core Framework
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-12'
 updated_at: '2026-08-12'

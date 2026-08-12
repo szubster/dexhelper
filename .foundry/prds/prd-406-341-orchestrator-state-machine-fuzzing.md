@@ -2,12 +2,12 @@
 id: prd-406-341-orchestrator-state-machine-fuzzing
 type: PRD
 title: Implement Orchestrator State Machine Fuzzing
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-12'
 updated_at: '2026-08-12'
 depends_on: []
-jules_session_id: '1401431591230702636'
+jules_session_id: null
 pr_number: null
 parent: idea-108-406-orchestrator-state-machine-fuzzing
 tags:
