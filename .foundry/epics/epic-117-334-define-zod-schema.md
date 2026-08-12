@@ -26,4 +26,4 @@ This epic focuses on creating a strict Zod schema for parsing and validating `.f
 - [x] Break down into Stories
 - [x] story-334-336-zod-schema-definition
 - [x] story-334-337-zod-schema-integration
-- [ ] story-334-356-zod-schema-e2e
+- [x] story-334-356-zod-schema-e2e
