@@ -48,5 +48,8 @@ The `epic_planner` should decompose this PRD into distinct, modular epics (and d
 *Orchestrator Safeguard:* The `epic_planner` MUST ensure that an explicit acceptance criterion is added to drafted EPICs delegating the generation of the final E2E Integration Verification STORY to the `story_owner`.
 
 ## Acceptance Criteria
-- [ ] Break down into EPIC(s) for Data Extraction.
-- [ ] Break down into EPIC(s) for UI Dashboard.
+- [x] Break down into EPIC(s) for Data Extraction.
+- [x] Break down into EPIC(s) for UI Dashboard.
+
+- [ ] epic-340-411-shoal-cave-data-extraction
+- [ ] epic-340-412-shoal-cave-ui-dashboard
