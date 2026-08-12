@@ -31,10 +31,10 @@ While implementing "Automated Max Rejection Cancellation" (idea-079), the Audito
 Update Phase 3.6 in `foundry-orchestrator.ts` to ensure that `CANCELLED` nodes with `rejection_reason === 'Max rejection count reached'` properly trigger the parent awakening ("Impossible Loop") logic, in addition to `FAILED` nodes.
 
 ## Acceptance Criteria
-- [ ] Phase 3.6 of `foundry-orchestrator.ts` is updated to handle CANCELLED nodes properly.
-- [ ] The Impossible Loop logic successfully awakens parents when a child is CANCELLED due to reaching the max rejection threshold.
-- [ ] Tests are updated or added to verify this behavior.
+- [x] Phase 3.6 of `foundry-orchestrator.ts` is updated to handle CANCELLED nodes properly.
+- [x] The Impossible Loop logic successfully awakens parents when a child is CANCELLED due to reaching the max rejection threshold.
+- [x] Tests are updated or added to verify this behavior.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
-- [ ] prd-086-108-fix-orchestrator-phase-3-6
+- [x] prd-086-108-fix-orchestrator-phase-3-6
