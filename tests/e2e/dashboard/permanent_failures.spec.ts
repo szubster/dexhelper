@@ -44,6 +44,10 @@ test.describe('Permanent Failures Dashboard', () => {
     // 3. Wait for Load
     await expect(page.getByText('[ SYSTEM.LOADING_DAG ]')).toBeHidden({ timeout: 10000 });
 
+    // The react flow graph rendering is not totally deterministic
+    // We add an extra wait block to allow the canvas to fully mount.
+    await page.waitForTimeout(2000);
+
     // Ensure the nodes are rendered by React Flow
     // The nodes are rendered in `DagNode` which displays `data.label` inside a `div`
     // Assert initial state: both nodes should be visible
