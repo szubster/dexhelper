@@ -2,13 +2,13 @@
 id: story-331-361-remove-orphaned-qa-rule-e2e
 type: STORY
 title: Remove Orphaned QA Rule from Documentation E2E
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-06'
 updated_at: '2026-08-12'
 depends_on:
   - story-331-333-remove-orphaned-qa-rule
-jules_session_id: '13433951541555983911'
+jules_session_id: null
 pr_number: null
 parent: epic-115-331-remove-orphaned-qa-task-rule-from-docs
 tags:
