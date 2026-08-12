@@ -28,6 +28,6 @@ Acquire or create a Gen 3 (RSE or FRLG) save file fixture and add it to `tests/f
 The current E2E test for Gen 3 NPC Trades (`tests/e2e/dashboard/gen3_npc_trades.spec.ts`) cannot be properly implemented or verified because there are no Gen 3 save files in the `tests/fixtures/` directory. Attempting to test Gen 3 specific UI using a Gen 2 save file only verifies that the UI correctly hides itself, rather than verifying actual extraction and rendering logic.
 
 ## Acceptance Criteria
-- [ ] A valid Gen 3 save file (e.g., `emerald.sav` or `firered.sav`) is acquired or generated.
-- [ ] The save file is added to `tests/fixtures/`.
-- [ ] The save file has at least one in-game NPC trade completed to allow for proper E2E assertions.
+- [x] A valid Gen 3 save file (e.g., `emerald.sav` or `firered.sav`) is acquired or generated.
+- [x] The save file is added to `tests/fixtures/`.
+- [x] The save file has at least one in-game NPC trade completed to allow for proper E2E assertions.
