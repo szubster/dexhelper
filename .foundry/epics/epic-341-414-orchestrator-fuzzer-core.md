@@ -32,4 +32,6 @@ Integrate a fuzzing framework or property-based testing setup into the existing 
 3. This Epic MUST generate a final STORY dedicated exclusively to Integration and E2E Verification.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories.
+- [x] Break down into Stories.
+- [ ] story-414-418-fuzzing-setup-and-properties
+- [ ] story-414-419-fuzzing-integration-and-e2e
