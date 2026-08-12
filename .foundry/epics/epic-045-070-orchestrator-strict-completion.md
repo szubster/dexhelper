@@ -2,10 +2,10 @@
 id: epic-045-070-orchestrator-strict-completion
 type: EPIC
 title: Orchestrator Hierarchical Completion Checks
-status: PENDING
+status: COMPLETED
 owner_persona: auditor
 created_at: '2026-06-10'
-updated_at: '2026-08-08'
+updated_at: '2026-08-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
