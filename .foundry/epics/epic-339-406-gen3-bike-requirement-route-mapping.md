@@ -27,5 +27,9 @@ Introduce a "Bike Requirement Filter" to DexHelper's Smart Route Radar or intera
 Route Pre-computation: When a player views a route in DexHelper, clearly tag the route with badges like `[Requires Mach Bike]` or `[Requires Acro Bike]` if significant portions are gated behind those mechanics.
 
 ## Acceptance Criteria
-- [ ] story_owner: Break down this Epic into Stories.
-- [ ] story_owner: Ensure one final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [x] story_owner: Break down this Epic into Stories.
+- [x] story_owner: Ensure one final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [ ] story-406-412-gen3-bike-map-parsing
+- [ ] story-406-413-bike-requirement-heatmap
+- [ ] story-406-414-bike-requirement-ui-badges
+- [ ] story-406-415-bike-requirement-e2e
