@@ -30,4 +30,7 @@ As part of the Multi-Save Trade Planner, this Story focuses on the E2E verificat
 - Validate that the infrastructure successfully integrates with the existing multi-playthrough architecture.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into tasks.
+- [x] Tech Lead: Break down into tasks.
+- [ ] task-360-418-multi-save-integration-e2e-impl
+- [ ] task-360-420-multi-save-integration-e2e-architecture
+- [ ] task-360-419-multi-save-integration-e2e-qa
