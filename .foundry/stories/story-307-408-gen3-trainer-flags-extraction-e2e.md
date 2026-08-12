@@ -2,13 +2,13 @@
 id: story-307-408-gen3-trainer-flags-extraction-e2e
 type: STORY
 title: Gen 3 Trainer Flags Extraction E2E
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-10'
+updated_at: '2026-08-12'
 depends_on:
   - story-307-319-gen3-trainer-flags-extraction
-jules_session_id: '9105124652685831101'
+jules_session_id: null
 pr_number: null
 parent: epic-109-307-missed-trainer-data-extraction-gen3
 tags:

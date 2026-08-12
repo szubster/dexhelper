@@ -2,10 +2,10 @@
 id: story-406-412-gen3-bike-map-parsing
 type: STORY
 title: Core Map Data Parsing Logic for Bike Requirements
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-10'
+updated_at: '2026-08-12'
 depends_on: []
 jules_session_id: null
 pr_number: null

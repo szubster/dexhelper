@@ -2,10 +2,10 @@
 id: story-406-415-bike-requirement-e2e
 type: STORY
 title: E2E Verification for Bike Requirement Route Mapping
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-10'
+updated_at: '2026-08-12'
 depends_on: []
 jules_session_id: null
 pr_number: null

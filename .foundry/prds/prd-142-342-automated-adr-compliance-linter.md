@@ -2,10 +2,10 @@
 id: prd-142-342-automated-adr-compliance-linter
 type: PRD
 title: Automated ADR Compliance Linter PRD
-status: PENDING
+status: READY
 owner_persona: epic_planner
-created_at: 2026-08-12
-updated_at: 2026-08-12
+created_at: '2026-08-12T00:00:00.000Z'
+updated_at: '2026-08-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - adr
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Automated ADR Compliance Linter PRD

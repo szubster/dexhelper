@@ -2,12 +2,12 @@
 id: task-362-415-refactor-savedata-type-impl
 type: TASK
 title: Implement SaveData Type Refactor
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-10'
-updated_at: '2026-08-11'
+updated_at: '2026-08-12'
 depends_on: []
-jules_session_id: '14384729692650674414'
+jules_session_id: null
 pr_number: null
 parent: story-404-362-refactor-savedata-type
 tags:

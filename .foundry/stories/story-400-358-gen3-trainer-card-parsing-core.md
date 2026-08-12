@@ -2,10 +2,10 @@
 id: story-400-358-gen3-trainer-card-parsing-core
 type: STORY
 title: Story - Gen 3 Trainer Card Data Parsing Core
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-08-10'
+updated_at: '2026-08-12'
 depends_on: []
 jules_session_id: null
 pr_number: null

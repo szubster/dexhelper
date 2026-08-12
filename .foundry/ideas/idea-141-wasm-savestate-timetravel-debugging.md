@@ -2,12 +2,12 @@
 id: idea-141-wasm-savestate-timetravel-debugging
 type: IDEA
 title: WASM Savestate Time Travel and Debugging Suite
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-08'
 updated_at: '2026-08-12'
 depends_on: []
-jules_session_id: '9220888308953600367'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
