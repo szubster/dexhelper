@@ -6,7 +6,8 @@ status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-12'
 updated_at: '2026-08-12'
-depends_on: []
+depends_on:
+  - idea-137-builtin-emulator
 jules_session_id: null
 pr_number: null
 parent: idea-139-live-battle-prediction-overlay
