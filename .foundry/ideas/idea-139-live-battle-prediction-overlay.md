@@ -2,12 +2,12 @@
 id: idea-139-live-battle-prediction-overlay
 type: IDEA
 title: Live Battle Advisor and Prediction Overlay
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-08'
 updated_at: '2026-08-12'
 depends_on: []
-jules_session_id: '10727474090535828137'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

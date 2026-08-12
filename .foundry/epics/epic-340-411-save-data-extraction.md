@@ -2,10 +2,10 @@
 id: epic-340-411-save-data-extraction
 type: EPIC
 title: Active Party Matchup - Save Data Extraction
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-08-12'
 depends_on: []
 jules_session_id: null
 pr_number: null

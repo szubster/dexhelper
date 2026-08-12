@@ -2,12 +2,12 @@
 id: prd-136-340-gen3-ai-move-predictor
 type: PRD
 title: Gen 3 Trainer AI Move Predictor Product Requirements Document
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-08'
-updated_at: '2026-08-11'
+updated_at: '2026-08-12'
 depends_on: []
-jules_session_id: '6067531488387496095'
+jules_session_id: null
 pr_number: null
 parent: idea-136-gen3-ai-move-predictor
 tags:

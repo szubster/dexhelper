@@ -2,10 +2,10 @@
 id: epic-340-411-shoal-cave-data-extraction
 type: EPIC
 title: Data Extraction Layer (RTC & Shoal Items)
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-08-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,8 +18,8 @@ tags:
   - data-extraction
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Epic: Data Extraction Layer (RTC & Shoal Items)

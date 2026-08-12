@@ -2,10 +2,10 @@
 id: research-408-415-gen3-event-flags-bit-indices
 type: RESEARCH
 title: Research Gen 3 Event Flags Bit Indices
-status: READY
+status: FAILED
 owner_persona: researcher
 created_at: '2026-08-10'
-updated_at: '2026-08-10'
+updated_at: '2026-08-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - research
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Circular dependency detected
 notes: ''
 ---
 

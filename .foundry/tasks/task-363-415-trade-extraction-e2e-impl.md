@@ -2,15 +2,15 @@
 id: task-363-415-trade-extraction-e2e-impl
 type: TASK
 title: NPC Trade Extraction Integration & E2E Implementation
-status: FAILED
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-08-12'
 depends_on:
   - task-361-407-gen2-trade-extraction-impl
   - task-362-407-gen3-trade-extraction-impl
   - research-363-416-gen3-save-fixture
-jules_session_id: '15318964772229254624'
+jules_session_id: null
 pr_number: null
 parent: story-349-363-trade-extraction-e2e
 tags:
@@ -19,8 +19,8 @@ tags:
   - save-parsing
   - e2e
 research_references: []
-rejection_count: 1
-rejection_reason: 'Suspended pending research node to acquire a Gen 3 save fixture for E2E testing.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

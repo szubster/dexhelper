@@ -2,10 +2,10 @@
 id: task-408-418-schema-role-mapping-qa
 type: TASK
 title: QA - Update Schema.md with Role to Gen 1 Mappings
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-08-12'
 depends_on:
   - task-408-411-schema-role-mapping
 jules_session_id: null

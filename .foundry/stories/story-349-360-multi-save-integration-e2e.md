@@ -2,13 +2,13 @@
 id: story-349-360-multi-save-integration-e2e
 type: STORY
 title: Multi-Save Integration E2E
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-08-11'
+updated_at: '2026-08-12'
 depends_on:
   - story-349-359-multi-save-comparison-algorithms
-jules_session_id: '16365820274788789826'
+jules_session_id: null
 pr_number: null
 parent: epic-336-349-multi-save-infrastructure
 tags:

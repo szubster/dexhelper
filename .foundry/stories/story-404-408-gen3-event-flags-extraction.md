@@ -5,18 +5,18 @@ title: Gen 3 Event Flags Extraction Logic
 status: FAILED
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-10'
+updated_at: '2026-08-12'
 depends_on:
   - research-408-415-gen3-event-flags-bit-indices
-jules_session_id: '3953654674528194667'
+jules_session_id: null
 pr_number: null
 parent: epic-121-404-gen3-e-reader-event-data-extraction
 tags:
   - gen3
   - extraction
 research_references: []
-rejection_count: 1
-rejection_reason: 'Suspended pending research for exact event flag bit indices.'
+rejection_count: 2
+rejection_reason: Circular dependency detected
 notes: ''
 ---
 

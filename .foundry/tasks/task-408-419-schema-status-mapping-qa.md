@@ -2,10 +2,10 @@
 id: task-408-419-schema-status-mapping-qa
 type: TASK
 title: QA - Update Schema.md with Status to Gen 1 Mappings
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-08-12'
 depends_on:
   - task-408-412-schema-status-mapping
 jules_session_id: null

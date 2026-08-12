@@ -2,10 +2,10 @@
 id: story-409-412-add-librarian-persona-schema
 type: STORY
 title: Add Librarian Persona to Schema
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-10'
+updated_at: '2026-08-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
