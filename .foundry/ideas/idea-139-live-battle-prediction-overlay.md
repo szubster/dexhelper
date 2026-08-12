@@ -34,4 +34,5 @@ Design a modern, HUD-style Battle Advisor overlay that wraps the built-in emulat
 Players can execute perfect battle strategies without tedious manual calculations, elevating DexHelper to the premier tactical guide for challenge runners.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a PRD detailing the UX overlay layout, the real-time damage calculator feed, and the move-prediction visualization framework.
+- [x] Product Manager: Draft a PRD detailing the UX overlay layout, the real-time damage calculator feed, and the move-prediction visualization framework.
+- [ ] prd-139-342-live-battle-prediction-overlay
