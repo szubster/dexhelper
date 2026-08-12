@@ -8,7 +8,7 @@ test.describe('Permanent Failures Dashboard', () => {
       const json = [
         {
           filePath: 'mock-1.md',
-          id: 'mock-1',
+          id: 'node-permanent-failure',
           data: {
             id: 'node-permanent-failure',
             type: 'TASK',
@@ -22,7 +22,7 @@ test.describe('Permanent Failures Dashboard', () => {
         },
         {
           filePath: 'mock-2.md',
-          id: 'mock-2',
+          id: 'node-regular-failure',
           data: {
             id: 'node-regular-failure',
             type: 'TASK',
