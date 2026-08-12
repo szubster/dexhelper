@@ -2,10 +2,10 @@
 id: epic-117-335-integrate-zod-orchestrator
 type: EPIC
 title: Integrate Zod Validation into Foundry Orchestrator
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-18'
-updated_at: '2026-07-18'
+updated_at: '2026-08-12'
 depends_on:
   - epic-117-334-define-zod-schema
 jules_session_id: null
