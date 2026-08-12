@@ -9,3 +9,9 @@
 **Outcome:** Merged
 **Why:** Several personas (Coder, QA, Tech Lead, Auditor) shared duplicated constraints around Save File Parsing (Section 13), UI Aesthetics (ADR 008), Architectural Scaffolding, Vitest mocks, and the Intelligent Verification Protocol. This leads to drift and bloated context windows.
 **Pattern:** Extract duplicated coding and verification policies from individual agent schedules and centralize them into `core_policies.md` to ensure all agents operate from a single, consistent source of truth, reducing token usage and simplifying prompt maintenance.
+
+## 2026-08-12 - [Accepted] - Prompt improvement - Cleanup centralized policies from epic_planner
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `epic_planner` prompt had duplicated `E2E Verification` directives which have been centralized to `core_policies.md` under `Orchestrator Safeguard (E2E/Integration Requirement)`.
+**Pattern:** Extracted duplicated directives from individual agent schedules and centralized them into `core_policies.md` to ensure all agents operate from a single, consistent source of truth, reducing token usage and simplifying prompt maintenance.
