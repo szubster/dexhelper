@@ -1,6 +1,6 @@
 import { defineConfig, mergeConfig } from 'vitest/config';
 import { playwright } from '@vitest/browser-playwright';
-import viteConfigFn from './vite.config';
+import viteConfigFn from './vite.config.ts';
 
 export default defineConfig(async (configEnv) => {
   const baseConfig = typeof viteConfigFn === 'function' 

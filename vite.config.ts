@@ -9,11 +9,11 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { browserslistToTargets } from 'lightningcss';
 import browserslist from 'browserslist';
 
-import { pokedataPlugin } from './vite-plugins/pokedata-plugin';
-import { foundryPlugin } from './vite-plugins/foundry-plugin';
+import { pokedataPlugin } from './vite-plugins/pokedata-plugin.ts';
+import { foundryPlugin } from './vite-plugins/foundry-plugin.ts';
 
 export default defineConfig(() => {
-  const sourceDir = path.resolve(__dirname, 'data/db');
+  const sourceDir = path.resolve(import.meta.dirname, 'data/db');
   const target = 'chrome130';
 
   return {
@@ -76,7 +76,7 @@ export default defineConfig(() => {
     ].filter(Boolean),
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': path.resolve(import.meta.dirname, '.'),
       },
     },
     css: {
