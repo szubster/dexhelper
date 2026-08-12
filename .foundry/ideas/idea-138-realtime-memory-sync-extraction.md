@@ -2,12 +2,12 @@
 id: idea-138-realtime-memory-sync-extraction
 type: IDEA
 title: Real-Time WebAssembly Memory Sync and Extraction
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-08'
-updated_at: '2026-08-09'
+updated_at: '2026-08-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3007686605071408403'
 pr_number: null
 parent: null
 tags:
