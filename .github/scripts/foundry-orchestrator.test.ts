@@ -2909,8 +2909,8 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(parentContent).toContain('status: READY');
   });
 
-  test('Regression: Idempotent generation check bypasses dispatch of archived parent with archived children', () => {
-    createValidTestNode(tmpDir, '.foundry/archive/epics/epic-parent.md', {
+  test('Regression: Idempotent generation check bypasses dispatch of parent with completed children', () => {
+    createValidTestNode(tmpDir, '.foundry/epics/epic-parent.md', {
       id: "epic-parent",
       type: "EPIC",
       title: "Epic Parent",
@@ -2924,7 +2924,7 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
 ## Acceptance Criteria
 - [x] Child Story: [.foundry/stories/story-child.md](.foundry/stories/story-child.md)`);
 
-    createValidTestNode(tmpDir, '.foundry/archive/stories/story-child.md', {
+    createValidTestNode(tmpDir, '.foundry/stories/story-child.md', {
       id: "story-child",
       type: "STORY",
       title: "Story Child",
@@ -2940,7 +2940,7 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
 
     main();
 
-    const parentContent = fs.readFileSync(path.join(tmpDir, '.foundry/archive/epics/epic-parent.md'), 'utf-8');
+    const parentContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-parent.md'), 'utf-8');
     // It should be promoted to COMPLETED directly, bypassing READY/ACTIVE dispatch!
     expect(parentContent).toContain('status: COMPLETED');
   });
