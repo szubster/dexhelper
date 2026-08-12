@@ -613,7 +613,7 @@ for (const cid of uniqueChainIds) {
   const mapLink = (link: PokeApiChainLink, ef?: number): CompactChainLink => {
     const id = parseInt(link.species.url.split('/').filter(Boolean).pop() || '0', 10);
 
-    const validEvolutionDetails = link.evolution_details.filter((ed: any) => !ed.base_form || ed.base_form === null);
+    const validEvolutionDetails = link.evolution_details.filter((ed: any) => !ed.evolved_form);
 
     return {
       id,
