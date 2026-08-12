@@ -25,6 +25,10 @@ Add UI badges indicating Pokerus status (Uninfected, Infected/Contagious, Cured/
 Create a dedicated tool to strategically plan Pokerus spread, suggesting party configurations and warning before a cure.
 
 ## Generated Epics
-- [ ] epic-038-061-pokerus-state-exfiltration
-- [ ] epic-038-062-pokerus-visual-tracker
-- [ ] epic-038-063-pokerus-spread-planner
+- [x] epic-038-061-pokerus-state-exfiltration
+- [x] epic-038-062-pokerus-visual-tracker
+- [x] epic-038-063-pokerus-spread-planner
+- [ ] research-038-407-investigate-pokerus-state-exfiltration-failure
+- [ ] epic-038-411-pokerus-state-exfiltration-retry
+- [ ] epic-038-412-pokerus-visual-tracker-retry
+- [ ] epic-038-413-pokerus-spread-planner-retry
