@@ -33,4 +33,4 @@ Verify the updates made to `.foundry/docs/schema.md` regarding the mappings of s
 - Ensure strict adherence to Generation 1 mechanics/themes.
 
 ## Acceptance Criteria
-- [ ] QA: Verify `.foundry/docs/schema.md` has been correctly updated with Gen 1 mappings for all DAG statuses.
+- [x] QA: Verify `.foundry/docs/schema.md` has been correctly updated with Gen 1 mappings for all DAG statuses.
