@@ -33,4 +33,6 @@ Implement save parsing logic to read specific event flags associated with one-ti
 
 ## Acceptance Criteria
 - [ ] Move Tutor flags are correctly parsed from Emerald and FireRed/LeafGreen save files using `DataView`.
-- [ ] A final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [x] A final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [ ] story-406-412-gen3-move-tutor-parsing-core
+- [ ] story-406-413-gen3-move-tutor-parsing-e2e
