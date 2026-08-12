@@ -1,6 +1,8 @@
 ## Entry from 10642899106052443585.md
 
-## Session 10642899106052443585
+#
+
+# Session 10642899106052443585
 - Under the Late-Binding Orchestrator Demotion Compliance Rule, when processing a READY parent node (like an EPIC) with pending child tasks, we must generally submit an Empty PR without checking off the child tasks if they are incomplete.
 - However, if ALL descendant nodes (e.g. STORIES) are actually COMPLETED (e.g., they have transitioned to VERIFYING/COMPLETED in the system but the parent node's markdown checkbox is still unchecked), we MUST check off the parent's Acceptance Criteria checkboxes before submitting the PR. This satisfies ADR 007 and allows the macro node to transition to COMPLETED and gracefully exit the DAG.
 - Checking off a child node prematurely when it is not actually completed violates the Premature Verification policy and the MACRO NODE COMPLETION EXCEPTION.
@@ -17,7 +19,9 @@ Learnings:
 
 ## Entry from 12591213007050017544.md
 
-## Session 12591213007050017544
+#
+
+# Session 12591213007050017544
 
 **What:** Created an E2E story for epic-115-331-remove-orphaned-qa-task-rule-from-docs.
 
@@ -78,3 +82,22 @@ Epic Planner process changes have been implemented to enforce the inclusion of a
 # Journal Entry - 2026-08-08
 
 Based on the failure of `epic-120-338-implement-conflictless-journals` (investigated in `research-335-400`), it is a critical project-specific constraint that every EPIC must spawn at least one child STORY node explicitly dedicated to Integration and E2E Verification. This STORY must be tagged with `e2e` or `integration`. Failing to generate this verification story will cause the orchestrator to repeatedly reject the epic when it attempts to transition to COMPLETED.
+
+## From YYYY-MM-DD-HH-MM-SS.md
+
+## Issue
+I was woken up because the Epic `epic-057-347-bash-timeout-wrapper-retry` had missing checkboxes in its markdown body for its child nodes, even though the underlying stories (`story-347-354-bash-timeout-wrapper-impl` and `story-347-355-bash-timeout-wrapper-e2e`) were already marked as `COMPLETED`. This prevented the node from properly transitioning to the `VERIFYING` state.
+
+## Action Taken
+
+## Learnings & Takeaways
+This reinforces the critical rule from ADR 007 regarding the Parent-Linked DAG execution model:
+* **The Empty PR Checkbox Policy**: Even when all downstream work is physically finished by implementation personas, the parent generative node (like this Epic) cannot automatically close itself. A generative persona MUST wake up and check off the exact string references to its children in its markdown body to formally signal to the orchestrator that the dependency chain is complete.
+* **YAML Immutability for Completions**: The only valid way to progress a successful node to `VERIFYING` is by updating its markdown checkboxes and submitting an empty PR. Manually editing the `status` field to `VERIFYING` or `COMPLETED` is strictly prohibited.
+* This pattern of having a generative persona (Story Owner) wake up to resolve its own completed children via an empty PR is standard operating procedure for the Foundry graph.
+## Epic 045-070
+
+# Session Log
+
+epic-120-338-implement-conflictless-journals is fully implemented since all its acceptance criteria and child stories are marked as completed.
+Started session for epic-336-349-multi-save-infrastructure. Remembered to append child nodes as unchecked tasks to the markdown body using exact Node IDs, and to use exact Node IDs for depends_on arrays.

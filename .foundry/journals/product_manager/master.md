@@ -57,3 +57,12 @@ Transform IDEA idea-130-shoal-cave-tide-tracker into a PRD.
 - Explored existing PRDs to find the next global sequence number (340).
 - Drafted PRD for Shoal Cave Tide & Item Tracker to extract RTC and inventory items (Shoal Shells, Shoal Salt).
 - Enforced the decomposition rule by identifying separate logical chunks for save parsing and UI presentation, and included an Orchestrator E2E Safeguard requirement.
+
+## From 9284848879758577313.md
+
+# Product Manager Journal - Session 9284848879758577313
+
+## Anomaly: Target Artifact Already Exists
+During the execution of `idea-086-fix-orchestrator-phase-3-6`, it was observed that the target downstream PRD artifact (`prd-086-108-fix-orchestrator-phase-3-6`) already existed prior to the session.
+
+This anomaly is being logged for later review as per the Product Manager persona Core Directives. The `idea-086-fix-orchestrator-phase-3-6.md` file's checkboxes were updated and an empty PR submitted to allow the orchestrator to correctly demote the parent, following the Empty PR Policy and Late-Binding Orchestrator Demotion Compliance Rule.

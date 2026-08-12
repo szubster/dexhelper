@@ -2,7 +2,9 @@
 
 # Canvas Journal - 2026-08-09-08-35-00
 
-## Session Summary
+#
+
+# Session Summary
 In this session, we analyzed the team's need for a cost-effective, local, and reliable visual regression testing solution to track visual differences in UI components (especially the interactive node canvas) after exhausting Argos CI's free tier.
 
 To address this, we created a new PENDING IDEA node (`idea-143-local-visual-regression-testing.md`) to establish a free, self-hosted, and Playwright-backed visual testing framework.

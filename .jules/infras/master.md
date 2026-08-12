@@ -41,3 +41,9 @@
 - **Knip configuration context**: `knip.json` ignored a file that was already deleted or implicitly resolved (`src/engine/saveParser/parsers/feebas.worker.ts`), causing knip to throw an unnecessary configuration hint. Removed it to silence the warning.
 - **Action Taken**: Updated the Biome versions in `biome.jsonc` and `biome.yml` to match `package.json` (`2.5.7`). Removed stale ignore entry in `knip.json`.
 - **Package Manager Lockfiles**: When upgrading tooling versions, especially those defined in `package.json`, ensure that you also update the `pnpm-lock.yaml` file (or equivalent) to enforce consistent resolution across all developer environments. However, since we merely bumped the CI versions and `package.json` already specified `^2.5.7`, a `pnpm install` did not result in a lockfile change in this session.
+
+## From YYYY-MM-DD-HH-MM-SS.md
+
+## Critical Learnings
+- **Tooling configuration context**: Discovered that the `.bundlemonrc.json` configuration was reporting uncompressed chunk sizes. While gzip sizes are useful for tracking network transfer, tracking uncompressed bundle sizes is a more accurate proxy for JavaScript VM parse, compile, and execution time constraints on lower-end devices. Therefore, we should keep `.bundlemonrc.json` configured with `"defaultCompression": "none"`.
+- **Vite Build Output Analysis**: When analyzing Vite's build logs or JSON files like `.bundlemonrc.json`, standard bash tools like `cat` may truncate output. Always use targeted extraction tools like `jq` (e.g. `jq '.files' .bundlemonrc.json`) or `grep` combined with `tail` (e.g. `grep -E 'dist/' build.log | tail -n 20`) to fetch complete, untruncated arrays or lists before making assumptions about paths or sizes.

@@ -26,3 +26,15 @@ Added documentation to `src/engine/assistant/utils/encounterTools.ts`.
 ## Entry from 2026-08-09-02-15-33.md
 
 **What:** Added JSDoc and inline comments to Gen 3 save parser, specifically explaining A/B flash memory and decryption logic.\n**Why:** The code lacked high-level architectural documentation regarding the A/B banks and the 48-byte encrypted substructure permutations.\n**Outcome:** Provided clear architectural overview in `parseGen3`, `getLatestSectionOffset`, and `parseGen3PokemonPVAndIVs`.
+
+## From 2025-02-14.md
+
+## 2025-02-14 - Accepted - Scribe: Gen 3 Save Parser Documentation
+**What:** Added inline comments and JSDoc blocks to `src/engine/saveParser/parsers/gen3.ts`.
+**Why:** The complex Gen 3 constants (`BERRY_STAGE_MASK`, `SUBSTRUCTURE_ORDER`, `HOENN_DEX_ORDER`) were missing explanations of their bitwise architectures and mapping intent.
+**Outcome:** The constants are now fully documented, explaining the binary structure of Berry patches and the permutations of the 48-byte Pokemon block.
+**Pattern:** Document the *why* (architecture layout) over the *what* (the numbers).
+
+## From session_scribe_20260808015543.md
+
+Logging execution details for Scribe.

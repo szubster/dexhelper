@@ -12,3 +12,7 @@
 ## Entry from 2026-08-09-01-42-55.md
 
 When identifying linear vs branching evolutions for one-time Pokémon (like Gen 1 Starters vs Eevee), you must be careful not to apply array length checks globally. Branching evolutions like Eevee have all their target IDs in the same \`evos\` array (e.g., \`[134, 135, 136]\`). A linear chain (e.g. \`[2, 3]\`) requires checking if you own a stage *after* the intermediate stage but *not* the base stage. Ensure explicit bounds/ID checks (e.g. \`base !== 133\`) are used to isolate logic between branched and linear paths so as not to break existing branching logic when improving linear logic.
+
+## From YYYY-MM-DD-HH-MM-SS.md
+
+When fixing Assistant Logic related to branching vs linear evolutions, ensure the difference is accounted for using array length or similar logic. Specifically, do not assume `evos.some(...)` works perfectly for linear evolutions because the `evos` array contains BOTH the next stage and final stage, thus the next stage is correctly interpreted as a "different" form if not handled correctly.

@@ -34,6 +34,6 @@ Breeding for "Egg Moves" is a core mechanic for competitive battling and challen
 
 ## Next Steps
 - [x] Epic Planner: Break this PRD down into actionable EPICs.
-- [ ] .foundry/epics/epic-055-113-egg-move-pathfinding-engine.md
+- [ ] .foundry/archive/epics/epic-055-113-egg-move-pathfinding-engine.md
 - [ ] .foundry/epics/epic-055-114-egg-move-inventory-cross-reference.md
 - [ ] .foundry/epics/epic-055-115-egg-move-pathfinder-ui.md

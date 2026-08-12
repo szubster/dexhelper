@@ -28,7 +28,9 @@ No notable architectural learnings or recurring failures to log for this session
 
 ## Entry from 16515298578694210866.md
 
-## Session 16515298578694210866
+#
+
+# Session 16515298578694210866
 
 # Handled the Impossible Loop
 - Encountered a situation where child tasks (task-353-393, task-353-394) failed permanently and reached the Max Rejection Count.
@@ -156,7 +158,9 @@ Key Learnings:
 # Tech Lead Journal: Handling Pre-Implemented Stories
 
 ## Date: 2026-08-08
-## Session ID: 8763873187215868612
+#
+
+# Session ID: 8763873187215868612
 
 ### Observation
 While drafting tasks for `story-349-361-gen2-trade-extraction`, I observed that the codebase already contained the implementation and unit tests for Gen 2 NPC trade extraction (in `src/engine/saveParser/parsers/gen2.ts` and `gen2.test.ts`).
@@ -166,3 +170,70 @@ If a STORY node's core requirements are already present in the codebase from a p
 
 ### Action / Rule Adaptation
 When encountering a STORY where the feature is already implemented, the Tech Lead must still explicitly draft the downstream TASK nodes (e.g., `impl`, `test`, and `qa`). This allows the Coder and QA agents to formally adopt, verify, and check off the work within the system. It ensures that the Orchestrator's dependency graph remains intact and all architectural and testing checks (like verifying `RangeError` handling and module-level constants) are officially executed and recorded by the designated personas.
+
+## From YYYY-MM-DD-HH-MM-SS.md
+
+## YYYY-MM-DD-HH-MM-SS
+#
+
+# Session: YYYY-MM-DD-HH-MM-SS
+
+## From 2026-08-10-18-10-20.md
+
+# Tech Lead Journal: End-to-End Extraction Workflow Breakdown
+
+When breaking down cross-generation integration stories, it is critical to use the DAG's sibling dependency resolution. Specifically, when generating tasks for implementing E2E verification across different game engines (Gen 2 vs. Gen 3), the resulting E2E implementation tasks must explicitly declare cross-story dependencies via the `depends_on` array.
+
+## From 14365303022829798647.md
+
+# Tech Lead Journal: Gen 3 Roamer Unit Tests
+
+**Date:** 2026-08-10
+**Context:** Story `story-397-359-gen3-roamer-unit-tests` required creating tasks for Gen 3 roamer unit testing.
+
+## Learnings & Constraints
+
+1.  **Test Environment Constraints:** Binary `.sav` fixtures for Gen 3 games are not available in the `tests/fixtures/` directory.
+2.  **Mitigation:** The codebase currently uses programmatic `DataView` mock buffers within the test files (`src/engine/gen3/roamer/parser.test.ts`) to verify parsing logic. This is an acceptable alternative when raw binary fixtures are unavailable.
+3.  **Task Drafting:** When drafting tasks, explicitly stating this accepted alternative prevents the Coder/QA personas from becoming blocked trying to locate non-existent binary fixtures.
+
+## From 1009842629473833134.md
+
+# Session 1009842629473833134
+
+Assigned to `story-070-358-orchestrator-strict-completion-e2e`. The child tasks `task-358-407-orchestrator-strict-completion-e2e-impl` and `task-358-408-orchestrator-strict-completion-e2e-qa` were already marked `COMPLETED` in `.foundry/archive/tasks/`.
+However, because this is a late-binding parent node that had pending child tasks drafted from a previous iteration, checking off its overarching acceptance criteria prematurely violates the **Late-Binding Orchestrator Demotion Compliance Rule**.
+Thus, I am submitting an empty PR without checking off the overarching acceptance criteria to allow the orchestrator to correctly demote the parent to PENDING while it waits for its children.
+
+## From 10078909000897565882.md
+
+When submitting an Empty PR to let the orchestrator demote a parent node (because child nodes were already drafted), do NOT check off the overarching acceptance criteria for those child nodes in the parent node. Checking them off violates the Late-Binding Orchestrator Demotion Compliance Rule, because a parent node cannot be verified (which checking the boxes signals) until all descendant nodes are fully COMPLETED.
+
+## From 15624461644370182551.md
+
+# Tech Lead Journal: Session 15624461644370182551
+
+## Learnings & Constraints
+- **Execution Plan Compliance (Exploration & Groundedness Rules):** All file paths must be explicitly discovered (e.g., using `ls`) and their contents fully read before proposing file modifications in an execution plan. Avoid proposing context-gathering steps (like reading a file to verify its structure) as future actions in the plan.
+- **Handling Truncated Markdown Files:** When retrieving file content (e.g., using `cat`) for exact file replacements in execution plans, verify whether the output is truncated. If so, use `tail -n <lines>` to explicitly read the end of the file (such as the Acceptance Criteria checkboxes and footers) to ensure no structural elements (like `### SCHEMA`) are accidentally lost during the rewrite, satisfying the Groundedness and Specificity rules.
+- **Premature Verification Enforcement:** When appending newly created task IDs to a parent node's `## Acceptance Criteria` section, ensure they are appended as unchecked checkboxes (`- [ ]`). Do not check off any of the parent node's existing Acceptance Criteria checkboxes, as this violates the Premature Verification policy which forbids parent nodes from transitioning to VERIFYING before all their child nodes are COMPLETED.
+- **Intelligent Verification Protocol in Action:** For highly isolated and trivial changes (such as a single-line `if` statement modification), it is acceptable to bypass drafting a separate QA task node, allowing the `coder` persona to self-verify.
+
+## From 4633531859007503175.md
+
+# Journal for Session 4633531859007503175
+
+- Ran into an issue where the pre-commit review rule rejected the execution plan. Make sure to use the exact phrasing 'Complete pre-commit steps to ensure proper testing, verification, review, and reflection are done.'
+- Empty PR submission when all artifacts are complete must include checking off the checkboxes in the markdown file.
+
+## From 8423345158858950298.md
+
+Created tasks for extracting Gen 3 Mixed Record NPC data. Split the work into Types definition (task-405-415-gen3-mixed-record-types-impl) and Parser implementation (task-405-416-gen3-mixed-record-parser-impl) followed by a QA task (task-405-417-gen3-mixed-record-parser-qa). The tasks explicitly require adherence to Section 13 of schema.md (module-level constants, no magic numbers, relative offsets, RangeError handling).
+
+## From 2483211844051615071.md
+
+# Journal Entry: Anomalous Completed Tasks (Session 2483211844051615071)
+
+During this session, I was assigned to `story-397-359-gen3-roamer-unit-tests.md`. I discovered that the target artifacts (tests in `src/engine/gen3/roamer/parser.test.ts`) were completely implemented, and the child tasks `task-359-415-gen3-roamer-unit-tests-impl.md` and `task-359-416-gen3-roamer-unit-tests-qa.md` were already marked as `COMPLETED` prior to this session beginning.
+
+To address this anomaly and allow the story node to gracefully exit the DAG, I followed the "Handling Cancelled/Replaced Tasks" policy, checked off all the overarching acceptance criteria and child task checkboxes in the story node's markdown body, and will submit an Empty PR.

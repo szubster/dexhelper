@@ -24,3 +24,24 @@ Furthermore, QA rejections regarding ADR 028 (magic numbers) must be carefully v
 - Formatted the required data into tables and updated the active `RESEARCH` node `.foundry/research/research-055-405-gen3-move-tutor-offsets.md`.
 - Removed scratchpad script file `test_script.py` which was accidentally created and flagged during code review.
 - Ran system verification test commands. E2E tests command `xvfb-run -a pnpm test:e2e` resulted in Playwright timing out and failing to find generic `chromium` project. Found that Playwright uses explicit test projects in this repository: `setup`, `Desktop FullHD`, `Desktop 1440p`, `Mobile Pixel 9`.
+
+## From YYYY-MM-DD-HH-MM-SS.md
+
+#
+
+# Session 2026-08-04
+
+Identified that the DAG Orchestrator enforces a strict E2E safeguard. Any EPIC whose child nodes complete without having spawned at least one STORY tagged with `e2e` or `integration` will be automatically rejected and permanently failed. All generative personas must explicitly ensure they fulfill this criteria during the breakdown phase to avoid repeating this impossible loop failure.
+
+# Session YYYY-MM-DD-HH-MM-SS
+When executing as the Researcher persona, log your session details to your private journal at `.foundry/journals/researcher/<session_id>.md` (or `YYYY-MM-DD-HH-MM-SS.md`), and explicitly read `.foundry/docs/knowledge_base/agents/core_policies.md` at session start.
+The root cause of the permanent failure (Max rejection count reached) for the Gen 3 Secret Base Parsing epic was the missing Orchestrator Safeguard (E2E/Integration Requirement). The Epic did not generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`). Consequently, the Orchestrator repeatedly rejected the Epic until it reached the maximum rejection count. Always ensure generative personas explicitly spawn an E2E/Integration STORY when breaking down an Epic.
+
+## From 7961952418459437431.md
+
+# Session 7961952418459437431
+
+## Learnings
+* **Testing against live repository data**: E2E tests targeting features that rely on repository metadata (like the Foundry DAG Dashboard reading `foundry.json`) should NOT rely on live repository state. In clean environments or CI, nodes with specific states (e.g., permanent failures) may not exist, causing non-deterministic timeouts.
+* **Resolution**: Such tests must use Playwright's `page.route` to mock the `**/data/foundry.json` response, providing a deterministic dataset containing the exact edge cases the UI expects.
+* **YAML Frontmatter Integrity**: When successfully completing a node (including RESEARCH nodes), never modify the YAML frontmatter (e.g., changing status to READY or clearing `jules_session_id`). Modifying the frontmatter breaks the Orchestrator's state machine. Only update the markdown body.

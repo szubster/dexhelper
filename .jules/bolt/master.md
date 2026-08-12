@@ -31,3 +31,11 @@ Found that `BattleFrontierDashboard.tsx` was using `@xyflow/react` (React Flow) 
 ## Summary of actions
 
 Refactored `calculateBreedingPairs` in `src/engine/breeding/pair_algorithm.ts` from O(N²) to a partitioned approach (grouping by gender and egg groups) to reduce nested iterations. This removes redundant comparisons and significantly optimizes BreedingPair calculation.
+
+## From 2024-11-20-10-00-00.md
+
+# Bolt Session Journal
+
+Identified `PokemonCaughtDetails` as a relatively large bundle that can be lazy loaded similar to `PokemonCatchProbability`.
+- Replaced static import in `src/components/PokemonDetails.tsx` with a `React.lazy` component wrapped in a suspense boundary.
+- Updated `vite.config.ts` chunking function and `.bundlemonrc.json` limits for the new component.
