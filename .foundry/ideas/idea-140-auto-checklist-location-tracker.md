@@ -2,12 +2,12 @@
 id: idea-140-auto-checklist-location-tracker
 type: IDEA
 title: Automated Location Tracking and Checklist Sync
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-08'
-updated_at: '2026-08-09'
+updated_at: '2026-08-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '690769539770218561'
 pr_number: null
 parent: null
 tags:
