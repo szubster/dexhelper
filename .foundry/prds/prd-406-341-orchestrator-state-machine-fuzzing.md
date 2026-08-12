@@ -38,4 +38,7 @@ The scope of this PRD covers the addition of a fuzzing framework to the existing
 6. **Automated Execution**: Integrate the fuzzer into the CI/CD pipeline to run nightly or on relevant PRs.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics.
+- [x] Break down into Epics.
+- [ ] epic-341-414-orchestrator-fuzzer-core
+- [ ] epic-341-415-orchestrator-fuzzer-simulation
+- [ ] epic-341-416-orchestrator-fuzzer-ci
