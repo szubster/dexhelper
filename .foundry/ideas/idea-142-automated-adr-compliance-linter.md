@@ -2,12 +2,12 @@
 id: idea-142-automated-adr-compliance-linter
 type: IDEA
 title: Automated ADR Compliance Linter
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-09'
-updated_at: '2026-08-09'
+updated_at: '2026-08-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12655990224999805232'
 pr_number: null
 parent: null
 tags:
