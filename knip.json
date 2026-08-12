@@ -9,7 +9,6 @@
   "ignore": [
     "src/test-setup.ts",
     ".github/scripts/extract-research.ts",
-    ".github/scripts/verify-dag-refs.ts",
     "scripts/gen3-fetch-locations.ts",
     "functions/_middleware.ts",
     "functions/api/saves/index.ts",
