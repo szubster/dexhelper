@@ -2,7 +2,7 @@
 id: task-408-417-gen3-trainer-flags-testing-qa
 type: TASK
 title: QA Gen 3 Trainer Flags Tests
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-10'
 updated_at: '2026-08-12'
@@ -17,8 +17,8 @@ tags:
   - e2e
   - gen3
 research_references: []
-rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

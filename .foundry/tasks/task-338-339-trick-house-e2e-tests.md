@@ -2,12 +2,12 @@
 id: task-338-339-trick-house-e2e-tests
 type: TASK
 title: Implement Trick House E2E Tests
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-25'
-updated_at: '2026-08-11'
+updated_at: '2026-08-12'
 depends_on: []
-jules_session_id: '2525002963847787974'
+jules_session_id: null
 pr_number: null
 parent: story-338-339-trick-house-e2e-integration
 tags:

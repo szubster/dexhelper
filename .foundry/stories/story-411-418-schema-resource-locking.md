@@ -2,10 +2,10 @@
 id: story-411-418-schema-resource-locking
 type: STORY
 title: Schema Resource Locking
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-08-12'
 depends_on: []
 jules_session_id: null
 pr_number: null

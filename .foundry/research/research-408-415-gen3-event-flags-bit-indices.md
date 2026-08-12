@@ -2,7 +2,7 @@
 id: research-408-415-gen3-event-flags-bit-indices
 type: RESEARCH
 title: Research Gen 3 Event Flags Bit Indices
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-08-10'
 updated_at: '2026-08-12'
@@ -15,8 +15,8 @@ tags:
   - extraction
   - research
 research_references: []
-rejection_count: 0
-rejection_reason: Circular dependency detected
+rejection_count: 1
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

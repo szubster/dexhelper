@@ -2,7 +2,7 @@
 id: task-408-415-gen3-trainer-flags-integration-impl
 type: TASK
 title: Implement Gen 3 Trainer Flags Integration Tests
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-10'
 updated_at: '2026-08-12'
@@ -14,8 +14,8 @@ tags:
   - integration
   - gen3
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

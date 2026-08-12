@@ -2,10 +2,10 @@
 id: story-404-410-gen3-e-reader-data-e2e
 type: STORY
 title: Gen 3 E-Reader Event Data E2E Verification
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-08'
+updated_at: '2026-08-12'
 depends_on:
   - story-404-408-gen3-event-flags-extraction
   - story-404-409-gen3-event-inventory-extraction
@@ -18,7 +18,9 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  story-404-408-gen3-event-flags-extraction
 notes: ''
 ---
 
