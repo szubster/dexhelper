@@ -2,7 +2,7 @@
 id: story-335-412-integrate-zod-schema
 type: STORY
 title: Replace Manual Orchestrator Validation with Zod Schema
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-12'
 updated_at: '2026-08-12'
