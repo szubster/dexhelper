@@ -1,6 +1,23 @@
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
 import type { Suggestion } from '../strategies/types';
 
+export const ITEM_HEADBUTT_GEN2 = 192;
+export const ITEM_ROCK_SMASH_GEN2 = 198;
+export const ITEM_SURF_GEN3 = 399;
+export const ITEM_OLD_ROD_GEN1 = 52;
+export const ITEM_OLD_ROD_GEN2 = 69;
+export const ITEM_OLD_ROD_GEN3 = 260;
+export const ITEM_GOOD_ROD_GEN1 = 53;
+export const ITEM_GOOD_ROD_GEN2 = 70;
+export const ITEM_GOOD_ROD_GEN3 = 261;
+export const ITEM_SUPER_ROD_GEN1 = 54;
+export const ITEM_SUPER_ROD_GEN2 = 71;
+export const ITEM_SUPER_ROD_GEN3 = 262;
+
+export const MOVE_HEADBUTT = 29;
+export const MOVE_ROCK_SMASH = 249;
+export const MOVE_SURF = 57;
+
 /**
  * Represents the set of exploration tools and Hidden Machines (HMs) currently
  * available to the player.
@@ -53,13 +70,14 @@ export function extractPlayerTools(saveData: SaveData, allInstances: PokemonInst
     const item = inventory[i];
     if (item && item.quantity > 0) {
       const id = item.id;
-      if (id === 192) hasHeadbutt = true;
-      else if (id === 198) {
+      if (id === ITEM_HEADBUTT_GEN2) hasHeadbutt = true;
+      else if (id === ITEM_ROCK_SMASH_GEN2) {
         hasRockSmash = true;
-      } else if (id === 399) hasSurf = true;
-      else if (id === 52 || id === 69 || id === 260) hasOldRod = true;
-      else if (id === 53 || id === 70 || id === 261) hasGoodRod = true;
-      else if (id === 54 || id === 71 || id === 262) hasSuperRod = true;
+      } else if (id === ITEM_SURF_GEN3) hasSurf = true;
+      else if (id === ITEM_OLD_ROD_GEN1 || id === ITEM_OLD_ROD_GEN2 || id === ITEM_OLD_ROD_GEN3) hasOldRod = true;
+      else if (id === ITEM_GOOD_ROD_GEN1 || id === ITEM_GOOD_ROD_GEN2 || id === ITEM_GOOD_ROD_GEN3) hasGoodRod = true;
+      else if (id === ITEM_SUPER_ROD_GEN1 || id === ITEM_SUPER_ROD_GEN2 || id === ITEM_SUPER_ROD_GEN3)
+        hasSuperRod = true;
     }
   }
 
@@ -68,13 +86,14 @@ export function extractPlayerTools(saveData: SaveData, allInstances: PokemonInst
     const item = pcItems[i];
     if (item && item.quantity > 0) {
       const id = item.id;
-      if (id === 192) hasHeadbutt = true;
-      else if (id === 198) {
+      if (id === ITEM_HEADBUTT_GEN2) hasHeadbutt = true;
+      else if (id === ITEM_ROCK_SMASH_GEN2) {
         hasRockSmash = true;
-      } else if (id === 399) hasSurf = true;
-      else if (id === 52 || id === 69 || id === 260) hasOldRod = true;
-      else if (id === 53 || id === 70 || id === 261) hasGoodRod = true;
-      else if (id === 54 || id === 71 || id === 262) hasSuperRod = true;
+      } else if (id === ITEM_SURF_GEN3) hasSurf = true;
+      else if (id === ITEM_OLD_ROD_GEN1 || id === ITEM_OLD_ROD_GEN2 || id === ITEM_OLD_ROD_GEN3) hasOldRod = true;
+      else if (id === ITEM_GOOD_ROD_GEN1 || id === ITEM_GOOD_ROD_GEN2 || id === ITEM_GOOD_ROD_GEN3) hasGoodRod = true;
+      else if (id === ITEM_SUPER_ROD_GEN1 || id === ITEM_SUPER_ROD_GEN2 || id === ITEM_SUPER_ROD_GEN3)
+        hasSuperRod = true;
     }
   }
 
@@ -84,9 +103,9 @@ export function extractPlayerTools(saveData: SaveData, allInstances: PokemonInst
       const moves = p.moves || [];
       for (let j = 0; j < moves.length; j++) {
         const m = moves[j];
-        if (m === 29) hasHeadbutt = true;
-        else if (m === 249) hasRockSmash = true;
-        else if (m === 57) hasSurf = true;
+        if (m === MOVE_HEADBUTT) hasHeadbutt = true;
+        else if (m === MOVE_ROCK_SMASH) hasRockSmash = true;
+        else if (m === MOVE_SURF) hasSurf = true;
       }
     }
   }
