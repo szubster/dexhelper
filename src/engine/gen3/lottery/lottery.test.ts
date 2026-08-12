@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import type { PokemonInstance } from '../../saveParser/parsers/common';
-import { calculateLotteryTier, getBestLotteryMatch } from './lottery';
+import type { PokemonInstance, SaveData } from '../../saveParser/parsers/common';
+import { calculateLotteryTier, checkSaveDataForLottery, getBestLotteryMatch } from './lottery';
 
 describe('Lottery Matching Logic', () => {
   describe('calculateLotteryTier', () => {
@@ -39,14 +39,14 @@ describe('Lottery Matching Logic', () => {
     it('should return the best match and corresponding pokemon', () => {
       const pokemonList = [
         { otId: 11111 } as unknown as PokemonInstance, // No match
-        { otId: 99345 } as unknown as PokemonInstance, // Tier 3
-        { otId: 92345 } as unknown as PokemonInstance, // Tier 2
+        { otId: 33809 } as unknown as PokemonInstance, // Tier 3 (33809 & 0xFFFF = 33809 => ends in 345, vs 12345 -> 3 match)
+        { otId: 12345 } as unknown as PokemonInstance, // Tier 1 (12345 & 0xFFFF = 12345 -> 5 match)
       ];
       const winningNumber = 12345;
 
       const result = getBestLotteryMatch(pokemonList, winningNumber);
-      expect(result.tier).toBe(2);
-      expect(result.winningPokemon).toEqual({ otId: 92345 });
+      expect(result.tier).toBe(1);
+      expect(result.winningPokemon).toEqual({ otId: 12345 });
     });
 
     it('should return tier 0 if no match found', () => {
@@ -57,6 +57,73 @@ describe('Lottery Matching Logic', () => {
       const winningNumber = 12345;
 
       const result = getBestLotteryMatch(pokemonList, winningNumber);
+      expect(result.tier).toBe(0);
+      expect(result.winningPokemon).toBeNull();
+    });
+
+    it('should extract the 16-bit Trainer ID and ignore the 16-bit Secret ID', () => {
+      // otId is stored as a 32-bit number (SID << 16 | TID)
+      // SID = 0x8765, TID = 0x4321
+      // otId = 0x87654321 = 2271560481
+      // TID = 0x4321 = 17185
+      const pokemonList = [{ otId: 0x87654321 } as unknown as PokemonInstance];
+
+      // If we match exactly the Trainer ID part (17185), it should be a perfect match (Tier 1).
+      const result1 = getBestLotteryMatch(pokemonList, 17185);
+      expect(result1.tier).toBe(1);
+      expect(result1.winningPokemon).toEqual({ otId: 0x87654321 });
+
+      // If we attempt to match the full 32-bit otId (which is impossible in-game but proves we mask), it shouldn't match.
+      const result2 = getBestLotteryMatch(pokemonList, 2271560481);
+      expect(result2.tier).toBe(0); // Because 17185 != 2271560481 in any of the lower digits
+    });
+  });
+
+  describe('checkSaveDataForLottery', () => {
+    it('should find best match checking both party and pc pokemon', () => {
+      const saveData = {
+        partyDetails: [
+          { otId: 11111 } as unknown as PokemonInstance,
+          { otId: 33809 } as unknown as PokemonInstance, // Tier 3 match
+        ],
+        pcDetails: [
+          { otId: 22222 } as unknown as PokemonInstance,
+          { otId: 32345 } as unknown as PokemonInstance, // Tier 2 match (better)
+        ],
+      } as unknown as SaveData;
+      const winningNumber = 12345;
+
+      const result = checkSaveDataForLottery(saveData, winningNumber);
+      expect(result.tier).toBe(2);
+      expect(result.winningPokemon).toEqual({ otId: 32345 });
+    });
+
+    it('should prioritize Party match if ties occur', () => {
+      const saveData = {
+        partyDetails: [
+          { otId: 32345, speciesId: 1 } as unknown as PokemonInstance, // Tier 2 match
+        ],
+        pcDetails: [
+          { otId: 32345, speciesId: 2 } as unknown as PokemonInstance, // Tier 2 match
+        ],
+      } as unknown as SaveData;
+      const winningNumber = 12345;
+
+      const result = checkSaveDataForLottery(saveData, winningNumber);
+      expect(result.tier).toBe(2);
+      // Party comes first in array concat, so it's matched first. But wait, getBestLotteryMatch only replaces if tier < bestTier.
+      // So the first one found with Tier 2 will be kept.
+      expect(result.winningPokemon).toEqual({ otId: 32345, speciesId: 1 });
+    });
+
+    it('should return tier 0 if lists are empty', () => {
+      const saveData = {
+        partyDetails: [],
+        pcDetails: [],
+      } as unknown as SaveData;
+      const winningNumber = 12345;
+
+      const result = checkSaveDataForLottery(saveData, winningNumber);
       expect(result.tier).toBe(0);
       expect(result.winningPokemon).toBeNull();
     });

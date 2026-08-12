@@ -38,7 +38,7 @@ Iterate through Party and PC Box Pokémon to find the best lottery match against
 - **Save File Parsing (ADR 028)**: Explicitly require that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level. Inline magic numbers are forbidden.
 
 ## Acceptance Criteria
-- [ ] Implement the Party and PC Box iteration logic to collect Pokémon.
-- [ ] Ensure 16-bit OT IDs are extracted safely without magic numbers.
-- [ ] Integrate with the core matching logic to determine the best match.
-- [ ] Add unit tests verifying the iteration over standard and edge-case Party/Box structures.
+- [x] Implement the Party and PC Box iteration logic to collect Pokémon.
+- [x] Ensure 16-bit OT IDs are extracted safely without magic numbers.
+- [x] Integrate with the core matching logic to determine the best match.
+- [x] Add unit tests verifying the iteration over standard and edge-case Party/Box structures.

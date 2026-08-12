@@ -1,4 +1,6 @@
-import type { PokemonInstance } from '../../saveParser/parsers/common';
+import type { PokemonInstance, SaveData } from '../../saveParser/parsers/common';
+
+export const GEN3_TRAINER_ID_MASK = 0xffff;
 
 export interface LotteryResult {
   tier: 0 | 1 | 2 | 3 | 4;
@@ -31,7 +33,12 @@ export function getBestLotteryMatch(pokemonList: PokemonInstance[], winningNumbe
 
   for (const pokemon of pokemonList) {
     if (pokemon.otId === undefined) continue;
-    const tier = calculateLotteryTier(pokemon.otId, winningNumber);
+
+    // Use only the lower 16 bits of the OT ID, which represents the Trainer ID.
+    // The upper 16 bits (Secret ID) are not used for lottery matching.
+    const trainerId = pokemon.otId & GEN3_TRAINER_ID_MASK;
+
+    const tier = calculateLotteryTier(trainerId, winningNumber);
     if (tier !== 0 && (bestTier === 0 || tier < bestTier)) {
       // tier 1 is best, tier 4 is worst
       bestTier = tier;
@@ -43,4 +50,9 @@ export function getBestLotteryMatch(pokemonList: PokemonInstance[], winningNumbe
   }
 
   return { tier: bestTier, winningPokemon: bestPokemon };
+}
+
+export function checkSaveDataForLottery(saveData: SaveData, winningNumber: number): LotteryResult {
+  const pokemonList = [...saveData.partyDetails, ...saveData.pcDetails];
+  return getBestLotteryMatch(pokemonList, winningNumber);
 }
