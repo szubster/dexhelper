@@ -27,5 +27,5 @@ Create end-to-end tests for the Gen 2 static encounters checklist to ensure that
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-356-396-gen2-static-encounters-e2e-impl
-- [ ] task-356-397-gen2-static-encounters-e2e-qa
+- [x] task-356-396-gen2-static-encounters-e2e-impl
+- [x] task-356-397-gen2-static-encounters-e2e-qa
