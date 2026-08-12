@@ -28,5 +28,7 @@ Implement the core logic for detecting conflicts during Cloudflare R2 syncing.
 - Future-proof for potential diffing/merging functionality.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Generate STORY node(s) for the core conflict detection logic.
-- [ ] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Story Owner: Generate STORY node(s) for the core conflict detection logic.
+- [x] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-411-420-r2-conflict-detection-logic
+- [ ] story-411-421-r2-conflict-resolution-e2e
