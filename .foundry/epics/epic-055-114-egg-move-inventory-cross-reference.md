@@ -31,4 +31,8 @@ Extend the pathfinding engine to interact with the player's dynamic save state. 
 - [ ] Implement logic to check if required intermediate species are present in the player's PC or party.
 - [ ] Ensure the gender check strictly requires a Male parent for passing down the move, according to Gen 2/3 mechanics.
 - [ ] Calculate the "missing links" (species the player needs to catch to complete the chain).
-- [ ] Story Owner: Break this Epic down into actionable STORIES.
+- [x] Story Owner: Break this Epic down into actionable STORIES.
+- [ ] story-114-412-egg-move-inventory-integration
+- [ ] story-114-413-egg-move-inventory-cross-reference-logic
+- [ ] story-114-414-egg-move-inventory-missing-links
+- [ ] story-114-415-egg-move-inventory-cross-reference-e2e
