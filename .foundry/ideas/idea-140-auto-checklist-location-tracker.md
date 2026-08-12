@@ -34,4 +34,5 @@ Create an automation engine that hooks into the emulator's memory to track playe
 Eliminates all tedious manual tracking. The player simply plays their game in the emulator, and their entire checklisted state updates organically.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a PRD outlining the event-flag-to-checklist mapper architecture, detailing coordinate mappings and wild encounter state detection.
+- [x] Product Manager: Draft a PRD outlining the event-flag-to-checklist mapper architecture, detailing coordinate mappings and wild encounter state detection.
+- [ ] prd-140-342-automated-location-tracking-and-checklist-sync
