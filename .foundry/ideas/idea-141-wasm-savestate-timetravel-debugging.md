@@ -34,4 +34,5 @@ Introduce a WASM Savestate Time Travel system.
 Provides unprecedented analytical tools for developers and speedrunners, letting them test strategies and debug game states with absolute precision.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a PRD defining the savestate snapshot triggers, diff schema, and interactive timeline visualization UX.
+- [x] Product Manager: Draft a PRD defining the savestate snapshot triggers, diff schema, and interactive timeline visualization UX.
+- [ ] prd-141-342-wasm-savestate-timetravel-debugging
