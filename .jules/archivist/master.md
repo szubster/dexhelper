@@ -22,3 +22,11 @@
 
 **Learning:** When cleaning up retired personas (`agile_coach` and `mechanic`), it's important to strictly respect the directory boundaries. Only knowledge base files, journals, and rules should be updated, as `.ts` orchestrator scripts and `.yml` files are out-of-scope for the Archivist persona.
 **Action:** Deleted `.foundry/journals/agile_coach.md` and `.foundry/journals/mechanic.md`. Removed references to these personas from `.foundry/docs/knowledge_base/architecture/the_foundry_system.md`.
+
+## From YYYY-MM-DD-HH-MM-SS.md
+
+# Master Journal: Archivist
+
+## Critical Learnings
+- **Cleanups execution constraints**: I must ensure that any temporary scripts I use to assist with finding and replacing string patterns are removed and do not leak into the commit history.
+- **Journal Organization**: Cleaned up repetitive, contradictory logs in `.jules/infras.md` and `.jules/sweeper.md`.

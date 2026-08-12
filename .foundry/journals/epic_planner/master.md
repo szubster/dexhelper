@@ -64,3 +64,43 @@ When generating markdown node files (e.g., using `echo`), avoid prepending the Y
 **Learnings:**
 - Sequence numbers shouldn't be blindly trusted from the PRD if they are clearly stale compared to actual disk state. I replaced the IDs in the PRD with `404` and `405` based on `ls -1 | sort -n | tail`.
 - While replacing them in the PRD is fine, I forgot to mark the newly appended checkboxes as checked `[x]` upon epic generation. This causes the PRD to get stuck since macro nodes cannot complete without child completion / verified checkmarks. I've updated the nodes with `[x]`.
+
+## From YYYY-MM-DD-HH-MM-SS.md
+
+# Session YYYY-MM-DD-HH-MM-SS
+Reviewed PRD prd-102-111-gen3-trainer-card-stars.
+The PRD requires breaking down into Epics. The acceptance criteria in the PRD markdown body mentions:
+- [ ] epic-111-304-gen3-trainer-card-data-extraction
+- [ ] epic-111-305-gen3-trainer-card-dashboard-ui
+# Multi-Save Trade Planner Epic Breakdown
+
+## Session 2026-08-04 - Epic Planner Hand-off
+
+*   **Action:** Created `research-044-396-gen3-roamer-tracker-failure` to investigate the root cause, satisfying the rule for handling permanently failed child nodes.
+*   **Action:** Created replacement epics (`epic-044-397-gen3-roamer-core-extraction-v5`, `epic-044-398-gen3-roamer-iv-glitch-v5`, `epic-044-399-gen3-roamer-dashboard-ui-v7`). Crucially, enforced the Epic Planner Core Directive by explicitly adding an acceptance criterion to each EPIC requiring a final STORY dedicated exclusively to Integration and E2E Verification to ensure proper system-wide rendering and prevent future integration failures.
+
+## Session 2026-08-05 - Bundle Splitting Epic Generation
+*   **Action:** Enforced node ID usage for `depends_on` when decomposing PRD 117-337 into its components.
+*   **Action:** Created four epics in sequential order, explicitly including E2E and integration verification stories in their acceptance criteria.
+Since every EPIC must generate a final STORY dedicated exclusively to Integration and E2E Verification in its Acceptance Criteria, I will make sure to include that in both Epics.
+
+## Session 2026-08-08 - Move Tutor Epic Breakdown
+*   **Action:** Created `research-055-405-gen3-move-tutor-offsets` and epics `epic-055-406-gen3-move-tutor-save-parsing`, `epic-055-407-gen3-move-tutor-compatibility`, and `epic-055-408-gen3-move-tutor-dashboard-ui`.
+*   **Action:** Enforced Epic Planner Core Directive by explicitly adding an acceptance criterion to each EPIC requiring a final STORY dedicated exclusively to Integration and E2E Verification.
+
+## From epic-planner-ab-testing-e2e.md
+
+# Epic Planner Learning: E2E Verification Rule for Epics
+
+
+Do not create a single standalone Epic for E2E testing, as this violates the mandate that *every* Epic must generate its own E2E verification Story.
+
+## From 2026-08-07-tpm.md
+
+# Session Log
+
+## From 3429537633230405371.md
+
+# Epic Planner Session Learnings
+
+- When generating children in the markdown body of a parent, I must also use just the node IDs without file paths.
