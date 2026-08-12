@@ -30,4 +30,4 @@ This epic covers scanning the documentation (specifically `core_policies.md` and
 ## Acceptance Criteria
 - [x] Story Owner: Break down this Epic into Stories.
 - [x] story-331-333-remove-orphaned-qa-rule
-- [ ] story-331-361-remove-orphaned-qa-rule-e2e
+- [x] story-331-361-remove-orphaned-qa-rule-e2e
