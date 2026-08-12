@@ -33,4 +33,4 @@ Verify the updates made to `.foundry/docs/schema.md` regarding the mappings of t
 - Ensure strict adherence to Generation 1 Pokemon (no Pokemon from later generations).
 
 ## Acceptance Criteria
-- [ ] QA: Verify `.foundry/docs/schema.md` has been correctly updated with Gen 1 mappings for all 13 system roles.
+- [x] QA: Verify `.foundry/docs/schema.md` has been correctly updated with Gen 1 mappings for all 13 system roles.
