@@ -23,4 +23,7 @@ rejection_reason: ''
 This epic focuses on replacing the manual YAML frontmatter validation logic in `.github/scripts/foundry-orchestrator.ts` with the Zod schema defined in the preceding epic. It must reject malformed nodes strictly and output clear, actionable error messages.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-335-412-integrate-zod-schema
+- [ ] story-335-413-zod-validation-error-handling
+- [ ] story-335-414-zod-orchestrator-e2e
