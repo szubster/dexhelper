@@ -2,21 +2,21 @@
 id: research-408-415-gen3-event-flags-bit-indices
 type: RESEARCH
 title: Research Gen 3 Event Flags Bit Indices
-status: FAILED
+status: PENDING
 owner_persona: researcher
 created_at: '2026-08-10'
 updated_at: '2026-08-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: story-404-408-gen3-event-flags-extraction
+parent: epic-121-404-gen3-e-reader-event-data-extraction
 tags:
   - gen3
   - extraction
   - research
 research_references: []
 rejection_count: 0
-rejection_reason: Circular dependency detected
+rejection_reason: ''
 notes: ''
 ---
 

@@ -2,7 +2,7 @@
 id: story-404-408-gen3-event-flags-extraction
 type: STORY
 title: Gen 3 Event Flags Extraction Logic
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-08'
 updated_at: '2026-08-12'
@@ -16,7 +16,7 @@ tags:
   - extraction
 research_references: []
 rejection_count: 2
-rejection_reason: Circular dependency detected
+rejection_reason: ''
 notes: ''
 ---
 
