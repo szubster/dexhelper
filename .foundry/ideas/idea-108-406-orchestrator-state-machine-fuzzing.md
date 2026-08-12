@@ -32,3 +32,4 @@ Implement a DAG state machine fuzzer for `foundry-orchestrator.ts`. It should ge
 - [ ] Fuzzing framework integrated into the orchestrator test suite.
 - [ ] Fuzzer verifies that no test scenarios result in infinite deadlocks.
 - [ ] Automated CI job runs fuzzer against orchestrator logic nightly or on PRs.
+- [ ] prd-406-341-orchestrator-state-machine-fuzzing
