@@ -47,4 +47,7 @@ Implement an AI Move Predictor feature that evaluates an upcoming trainer battle
 - Focuses on single battles initially; double battles can be out of scope for MVP.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down the AI Move Predictor PRD into actionable EPIC nodes.
+- [x] Epic Planner: Break down the AI Move Predictor PRD into actionable EPIC nodes.
+- [ ] epic-340-411-gen3-ai-data-extraction
+- [ ] epic-340-412-gen3-ai-simulation-engine
+- [ ] epic-340-413-gen3-ai-dashboard-ui
