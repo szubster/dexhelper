@@ -34,4 +34,5 @@ Develop a high-performance WebAssembly Memory Bridge between the embedded emulat
 Enables absolute synchrony between gameplay and data overlays without CPU performance impact. This serves as the pipeline enabling all other live features.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a PRD defining the target RAM offset blocks for Gen 1, Gen 2, and Gen 3, and outline the pub-sub mechanism for the memory bridge.
+- [x] Product Manager: Draft a PRD defining the target RAM offset blocks for Gen 1, Gen 2, and Gen 3, and outline the pub-sub mechanism for the memory bridge.
+- [ ] prd-138-342-realtime-memory-sync
