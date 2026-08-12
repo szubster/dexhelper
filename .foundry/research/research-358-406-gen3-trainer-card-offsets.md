@@ -26,5 +26,5 @@ notes: ''
 Investigate the specific memory offsets and logic required to parse the "Contest Master Rank" requirement for the Gen 3 Trainer Card upgrade. The documentation currently details how individual Pokemon ribbons are stored (`gen3_pokemon_data_structure.md`), but it is unclear if the Trainer Card star is awarded via a global flag (such as the Lilycove Museum painting flags) or if it requires scanning PC boxes for specific ribbons.
 
 ## Acceptance Criteria
-- [ ] Document the memory offsets and bitwise flags representing the Contest Master Rank criteria for the Gen 3 Trainer Card.
-- [ ] Create an ADR or update the Knowledge Base (`.foundry/docs/knowledge_base/`) with the findings.
+- [x] Document the memory offsets and bitwise flags representing the Contest Master Rank criteria for the Gen 3 Trainer Card.
+- [x] Create an ADR or update the Knowledge Base (`.foundry/docs/knowledge_base/`) with the findings.
