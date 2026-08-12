@@ -1,27 +1,32 @@
 import * as fs from 'node:fs';
 import { test as baseTest, describe, expect } from 'vitest';
-import type { SaveData } from './common';
+import type { GameVersion, SaveData } from './common';
 import { parseGen1 } from './gen1';
 import { parseGen2 } from './gen2';
+import { parseGen3 } from './gen3';
 
 // Define the custom context/fixtures for these tests
 interface ParserFixtures {
-  loadSaveData: (fileName: string, gen: 1 | 2) => SaveData;
+  loadSaveData: (fileName: string, gen: 1 | 2 | 3, forcedVersion?: GameVersion) => SaveData;
 }
 
 // Extend base vitest test with our injected save loader
-// oxlint-disable vitest/expect-expect
-// eslint-disable-next-line vitest/expect-expect
-// oxlint-disable-next-line vitest/no-disabled-tests
 const customTest = baseTest.extend<ParserFixtures>({
   loadSaveData: async ({ task: _task }, use) => {
     // Provide a loader utility that abstracts disk I/O and root parsing
-    const loader = (fileName: string, gen: 1 | 2) => {
+    const loader = (fileName: string, gen: 1 | 2 | 3, forcedVersion?: GameVersion) => {
       const buffer = fs.readFileSync(`tests/fixtures/${fileName}`);
       // Use the actual ArrayBuffer from the Buffer
       const arrayBuffer = buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
       const view = new DataView(arrayBuffer);
-      return gen === 1 ? parseGen1(view) : parseGen2(view);
+      if (gen === 1) {
+        return parseGen1(view, forcedVersion);
+      }
+      if (gen === 2) {
+        const isCrystal = forcedVersion === 'crystal';
+        return parseGen2(view, isCrystal);
+      }
+      return parseGen3(view, forcedVersion);
     };
     await use(loader); // inject provider into tests
   },
@@ -48,7 +53,7 @@ describe('Real Save Fixtures Verification', () => {
     {
       file: 'blue.sav',
       gen: 1 as const,
-      expectedVersion: 'unknown', // Valid fallback for very early-game states where unique exclusives or Pikachu status offsets aren't sufficient indicators
+      expectedVersion: 'unknown',
       expectedTrainer: 'Carlyle',
       expectedId: 20590,
       expectedPartyLength: 1,
@@ -77,15 +82,56 @@ describe('Real Save Fixtures Verification', () => {
       expectedId: 62198,
       expectedPartyLength: 6,
     },
+    {
+      file: 'red.sav',
+      gen: 1 as const,
+      expectedVersion: 'unknown',
+      expectedTrainer: 'RED',
+      expectedId: 7945,
+      expectedPartyLength: 6,
+    },
+    {
+      file: 'blue-evolve.sav',
+      gen: 1 as const,
+      expectedVersion: 'unknown',
+      expectedTrainer: 'BLUE',
+      expectedId: 57434,
+      expectedPartyLength: 6,
+    },
+    {
+      file: 'silver.sav',
+      gen: 2 as const,
+      expectedVersion: 'gold',
+      expectedTrainer: 'SILVER',
+      expectedId: 3403,
+      expectedPartyLength: 4,
+    },
+    {
+      file: 'crystal-evolve.sav',
+      gen: 2 as const,
+      expectedVersion: 'crystal',
+      expectedTrainer: 'CRYSTAL',
+      expectedId: 51078,
+      expectedPartyLength: 6,
+    },
+    {
+      file: 'emerald.sav',
+      gen: 3 as const,
+      forcedVersion: 'emerald' as GameVersion,
+      expectedVersion: 'emerald',
+      expectedTrainer: '',
+      expectedId: 58646,
+      expectedPartyLength: 0,
+    },
   ];
 
-  // Using the advanced 'test.for' to map our suite, removing all duplication
-  // and securely injecting the `loadSaveData` contextual fixture.
-  // oxlint-disable vitest/no-standalone-expect
   customTest.for(saveCases)(
     'should parse generic bounds for $file',
-    ({ file, gen, expectedVersion, expectedTrainer, expectedId, expectedPartyLength }, { loadSaveData }) => {
-      const data = loadSaveData(file, gen);
+    (
+      { file, gen, forcedVersion, expectedVersion, expectedTrainer, expectedId, expectedPartyLength },
+      { loadSaveData },
+    ) => {
+      const data = loadSaveData(file, gen, forcedVersion);
 
       expect(data.generation).toBe(gen);
       expect(data.gameVersion).toBe(expectedVersion);
@@ -93,7 +139,6 @@ describe('Real Save Fixtures Verification', () => {
       expect(data.trainerId).toBe(expectedId);
       expect(data.party).toHaveLength(expectedPartyLength);
 
-      // Verify PC box counts don't error and are numbers
       expect(typeof data.pc.length).toBe('number');
     },
   );
