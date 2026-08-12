@@ -2,12 +2,12 @@
 id: task-360-418-multi-save-integration-e2e-impl
 type: TASK
 title: Multi-Save Integration E2E - Algorithms
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-11'
 updated_at: '2026-08-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '404455634780489554'
 pr_number: null
 parent: story-349-360-multi-save-integration-e2e
 tags:
