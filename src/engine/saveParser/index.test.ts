@@ -43,29 +43,29 @@ describe('saveParser - Dynamic Offset Shift Detection', () => {
     return buffer.buffer;
   }
 
-  it('should detect NO SHIFT when padding at 0x25B5 is correct', () => {
+  it('should detect NO SHIFT when padding at 0x25B5 is correct', async () => {
     // 0x25A3 + 18 = 0x25B5. Bit 7 = 0 means correct.
     const buffer = createMockSave({ 0x25b5: 0x00, 0x25b6: 0x80 }, 0x1f, 0x260a);
-    const data = parseSaveFile(buffer);
+    const data = await parseSaveFile(buffer);
 
     expect(data.currentMapId).toBe(0x1f); // Route 20
     expect(data.gameVersion).toBe('yellow');
   });
 
-  it('should detect 1-BYTE SHIFT when padding at 0x25B5 is incorrect and 0x25B6 is correct', () => {
+  it('should detect 1-BYTE SHIFT when padding at 0x25B5 is incorrect and 0x25B6 is correct', async () => {
     // 0x25B5: 0x80 (Incorrect for res0)
     // 0x25B6: 0x00 (Correct for res1)
     // Map ID at 0x260A + 1 = 0x260B
     const buffer = createMockSave({ 0x25b5: 0x80, 0x25b6: 0x00 }, 0x0c, 0x260b);
-    const data = parseSaveFile(buffer);
+    const data = await parseSaveFile(buffer);
 
     expect(data.currentMapId).toBe(0x0c); // Route 1
     expect(data.gameVersion).toBe('yellow');
   });
 
-  it('should fallback to 0 shift if neither padding is correct (safest bet)', () => {
+  it('should fallback to 0 shift if neither padding is correct (safest bet)', async () => {
     const buffer = createMockSave({ 0x25b5: 0x80, 0x25b6: 0x80 }, 0x1f, 0x260a);
-    const data = parseSaveFile(buffer);
+    const data = await parseSaveFile(buffer);
     expect(data.currentMapId).toBe(0x1f);
   });
 });
@@ -73,29 +73,29 @@ describe('saveParser - Dynamic Offset Shift Detection', () => {
 describe('saveParser - Error Handling and Fallbacks', () => {
   const HEADER_SIZE = 32768;
 
-  it('should throw if buffer is too small', () => {
+  it('should throw if buffer is too small', async () => {
     const smallBuffer = new Uint8Array(100).buffer;
-    expect(() => parseSaveFile(smallBuffer)).toThrow('Invalid save file size. Expected at least 32KB.');
+    await expect(() => parseSaveFile(smallBuffer)).rejects.toThrow('Invalid save file size. Expected at least 32KB.');
   });
 
-  it('should fallback to gen1 if checksum invalid but structurally valid', () => {
+  it('should fallback to gen1 if checksum invalid but structurally valid', async () => {
     const buffer = new Uint8Array(HEADER_SIZE);
     buffer[0x2f2c] = 0; // party count
     buffer[0x2f2d] = 0xff; // party terminator
-    const data = parseSaveFile(buffer.buffer);
+    const data = await parseSaveFile(buffer.buffer);
     expect(data.generation).toBe(1);
   });
 
-  it('should fallback to gen2 (crystal) if checksum invalid but structurally valid', () => {
+  it('should fallback to gen2 (crystal) if checksum invalid but structurally valid', async () => {
     const buffer = new Uint8Array(HEADER_SIZE);
     buffer[0x2f2d] = 0x00;
     buffer[0x288a] = 0; // party count
     buffer[0x288b] = 0xff; // terminator
-    const data = parseSaveFile(buffer.buffer);
+    const data = await parseSaveFile(buffer.buffer);
     expect(data.generation).toBe(2);
   });
 
-  it('should throw if no valid structure is found', () => {
+  it('should throw if no valid structure is found', async () => {
     const buffer = new Uint8Array(HEADER_SIZE);
 
     // Clear gen1 check
@@ -109,19 +109,19 @@ describe('saveParser - Error Handling and Fallbacks', () => {
     buffer[0x288a] = 0x01;
     buffer[0x288b] = 0x00;
 
-    expect(() => parseSaveFile(buffer.buffer)).toThrow(
+    await expect(() => parseSaveFile(buffer.buffer)).rejects.toThrow(
       'Could not detect a valid Pokémon Red/Blue/Yellow or Gold/Silver/Crystal save file. Please ensure you are uploading a .sav file from a Gen 1 or Gen 2 game.',
     );
   });
-  it('should fallback to gen2 (gold/silver) if checksum invalid but structurally valid', () => {
+  it('should fallback to gen2 (gold/silver) if checksum invalid but structurally valid', async () => {
     const buffer = new Uint8Array(HEADER_SIZE);
     buffer[0x2865] = 0; // party count
     buffer[0x2866] = 0xff; // terminator
-    const data = parseSaveFile(buffer.buffer);
+    const data = await parseSaveFile(buffer.buffer);
     expect(data.generation).toBe(2);
   });
 
-  it('should parse gen2 (gold/silver) if checksum valid and structurally valid', () => {
+  it('should parse gen2 (gold/silver) if checksum valid and structurally valid', async () => {
     const buffer = new Uint8Array(HEADER_SIZE);
     buffer[0x2865] = 0; // party count
     buffer[0x2866] = 0xff; // terminator
@@ -134,11 +134,11 @@ describe('saveParser - Error Handling and Fallbacks', () => {
     const view = new DataView(buffer.buffer);
     view.setUint16(GEN2_CHECKSUM_OFFSET, gen2Sum, true);
 
-    const data = parseSaveFile(buffer.buffer);
+    const data = await parseSaveFile(buffer.buffer);
     expect(data.generation).toBe(2);
   });
 
-  it('should parse gen2 (crystal) if checksum valid and structurally valid', () => {
+  it('should parse gen2 (crystal) if checksum valid and structurally valid', async () => {
     const buffer = new Uint8Array(HEADER_SIZE);
     buffer[0x2f2d] = 0x00;
     buffer[0x288a] = 0; // party count
@@ -152,11 +152,11 @@ describe('saveParser - Error Handling and Fallbacks', () => {
     const view = new DataView(buffer.buffer);
     view.setUint16(GEN2_CHECKSUM_OFFSET, gen2Sum, true);
 
-    const data = parseSaveFile(buffer.buffer);
+    const data = await parseSaveFile(buffer.buffer);
     expect(data.generation).toBe(2);
   });
 
-  it('should try to parse gen2 if checksum valid but structurally weird', () => {
+  it('should try to parse gen2 if checksum valid but structurally weird', async () => {
     const buffer = new Uint8Array(HEADER_SIZE);
 
     // Break structural validity
@@ -173,11 +173,11 @@ describe('saveParser - Error Handling and Fallbacks', () => {
     const view = new DataView(buffer.buffer);
     view.setUint16(GEN2_CHECKSUM_OFFSET, gen2Sum, true);
 
-    const data = parseSaveFile(buffer.buffer);
+    const data = await parseSaveFile(buffer.buffer);
     expect(data.generation).toBe(2);
   });
 
-  it('should throw RangeError wrapper when RangeError is thrown', () => {
+  it('should throw RangeError wrapper when RangeError is thrown', async () => {
     const buffer = new Uint8Array(HEADER_SIZE);
     // make isGen1Save true
     buffer[0x2f2c] = 0;
@@ -240,13 +240,13 @@ describe('saveParser - Error Handling and Fallbacks', () => {
     } as unknown as typeof DataView;
 
     try {
-      expect(() => parseSaveFile(buffer.buffer)).toThrow('The save file is corrupted or incomplete.');
+      await expect(() => parseSaveFile(buffer.buffer)).rejects.toThrow('The save file is corrupted or incomplete.');
     } finally {
       global.DataView = originalDataView;
     }
   });
 
-  it('should fallback to gen3 if checksum invalid but structurally valid for gen3', () => {
+  it('should fallback to gen3 if checksum invalid but structurally valid for gen3', async () => {
     const buffer = new Uint8Array(HEADER_SIZE);
 
     // Clear gen1/gen2 checks
@@ -260,7 +260,7 @@ describe('saveParser - Error Handling and Fallbacks', () => {
     const isGen3Spy = vi.spyOn(gen3Module, 'isGen3Save').mockReturnValue(true);
 
     // Should call parseGen3, which throws 'The save file is corrupted or incomplete.'
-    expect(() => parseSaveFile(buffer.buffer)).toThrow('The save file is corrupted or incomplete.');
+    await expect(() => parseSaveFile(buffer.buffer)).rejects.toThrow('The save file is corrupted or incomplete.');
 
     isGen3Spy.mockRestore();
   });

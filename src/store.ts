@@ -237,7 +237,7 @@ export const useStore = create<AppStore>()(
 
           if (buffer) {
             const { manualVersion } = get();
-            const data = parseSaveFile(buffer.buffer, manualVersion || undefined);
+            const data = await parseSaveFile(buffer.buffer, manualVersion || undefined);
             get().setSaveData(data);
           }
         } catch {

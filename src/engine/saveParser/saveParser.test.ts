@@ -12,10 +12,10 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     return buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
   };
 
-  it('should correctly detect and parse the provided yellow.sav (R/B layout)', () => {
+  it('should correctly detect and parse the provided yellow.sav (R/B layout)', async () => {
     // Note: The sample yellow.sav provided uses a Red/Blue memory layout (no +1 shift).
     // Our parser should detect this automatically and parse it correctly.
-    const data = parseSaveFile(getBuffer());
+    const data = await parseSaveFile(getBuffer());
 
     // Auto-detection might see it as 'blue' because of the layout and traded mons,
     // but the important thing is that the offsetShift is 0 and it reads real data.
@@ -27,8 +27,8 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     expect(data.owned.has(7)).toBe(true); // Squirtle
   });
 
-  it('should correctly identify claimed gifts in the save file', () => {
-    const data = parseSaveFile(getBuffer());
+  it('should correctly identify claimed gifts in the save file', async () => {
+    const data = await parseSaveFile(getBuffer());
     expect(data.eventFlags).toBeDefined();
     const flags = data.eventFlags;
     if (!flags) throw new Error('eventFlags not found');
@@ -47,15 +47,15 @@ describe('saveParser - Pokémon Gen 1 Validation', () => {
     expect(squirtleClaimed).toBe(true);
   });
 
-  it('should support manual version overrides', () => {
+  it('should support manual version overrides', async () => {
     // If we force 'yellow' on a save that doesn't have the shift, it might see garbage,
     // but we test that the mechanism exists.
-    const data = parseSaveFile(getBuffer(), 'yellow' as GameVersion);
+    const data = await parseSaveFile(getBuffer(), 'yellow' as GameVersion);
     expect(data.gameVersion).toBe('yellow');
   });
 
-  it('should parse full pcDetails for all 12 boxes', () => {
-    const data = parseSaveFile(getBuffer());
+  it('should parse full pcDetails for all 12 boxes', async () => {
+    const data = await parseSaveFile(getBuffer());
     expect(data.pcDetails.length).toBeGreaterThan(0);
 
     // Check that we have boxes other than the current one (if any)
@@ -127,8 +127,8 @@ describe('saveParser - Pokémon Gen 2 Inventory', () => {
     return buffer.buffer;
   }
 
-  it('should extract Key Items, Special Rods, TM/HMs, Apricorns, and Evolution Items for GS', () => {
-    const data = parseSaveFile(createGen2MockSave(false));
+  it('should extract Key Items, Special Rods, TM/HMs, Apricorns, and Evolution Items for GS', async () => {
+    const data = await parseSaveFile(createGen2MockSave(false));
     const inv = data.inventory;
 
     // TM02 (Headbutt) ID 192
@@ -147,10 +147,10 @@ describe('saveParser - Pokémon Gen 2 Inventory', () => {
     expect(inv.find((i) => i.id === 1)?.quantity).toBe(99);
   });
 
-  it('should extract Key Items, Special Rods, TM/HMs, Apricorns, and Evolution Items for Crystal', () => {
+  it('should extract Key Items, Special Rods, TM/HMs, Apricorns, and Evolution Items for Crystal', async () => {
     // Note: We'll force the parser version to avoid detection logic getting confused by empty Pokédex blocks
     const buffer = createGen2MockSave(true);
-    const data = parseSaveFile(buffer, 'crystal');
+    const data = await parseSaveFile(buffer, 'crystal');
     const inv = data.inventory;
 
     expect(inv.find((i) => i.id === 192)?.quantity).toBe(1);
