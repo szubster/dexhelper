@@ -2,12 +2,12 @@
 id: epic-341-415-orchestrator-fuzzer-simulation
 type: EPIC
 title: Orchestrator State Machine Fuzzing - DAG & State Simulation
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-12'
 updated_at: '2026-08-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14983270230859506161'
 pr_number: null
 parent: prd-406-341-orchestrator-state-machine-fuzzing
 tags:
