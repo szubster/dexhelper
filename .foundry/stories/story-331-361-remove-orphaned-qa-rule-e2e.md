@@ -29,6 +29,6 @@ This story acts as the E2E integration test for the removal of the obsolete "Orp
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks
-- [ ] task-361-407-remove-orphaned-qa-rule-e2e-setup
-- [ ] task-361-408-remove-orphaned-qa-rule-e2e-impl
-- [ ] task-361-409-remove-orphaned-qa-rule-e2e-qa
+- [x] task-361-407-remove-orphaned-qa-rule-e2e-setup
+- [x] task-361-408-remove-orphaned-qa-rule-e2e-impl
+- [x] task-361-409-remove-orphaned-qa-rule-e2e-qa
