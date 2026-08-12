@@ -33,4 +33,7 @@ Implement logic within the fuzzing framework to generate randomized DAG graphs a
 4. This Epic MUST generate a final STORY dedicated exclusively to Integration and E2E Verification.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories.
+- [x] Break down into Stories.
+- [ ] story-415-415-fuzzer-dag-generation
+- [ ] story-415-416-fuzzer-state-simulation
+- [ ] story-415-417-fuzzer-simulation-e2e
