@@ -144,10 +144,7 @@ const EVENT_FLAGS_OFFSET_GS = 0x2624;
 const DAYCARE_EGG_FLAG_OFFSET_CRYSTAL = 0x282b;
 const DAYCARE_EGG_FLAG_MASK = 0x01;
 
-const PARTY_COUNT_OFFSET_GS = 0x288a;
-const PARTY_COUNT_OFFSET_CRYSTAL = 0x2865;
-const PARTY_SPECIES_OFFSET_GS = 0x288b;
-const PARTY_SPECIES_OFFSET_CRYSTAL = 0x2866;
+import { GEN2_PARTY_COUNT_OFFSET_GS as PARTY_COUNT_OFFSET_GS, GEN2_PARTY_COUNT_OFFSET_CRYSTAL as PARTY_COUNT_OFFSET_CRYSTAL, GEN2_PARTY_SPECIES_OFFSET_GS as PARTY_SPECIES_OFFSET_GS, GEN2_PARTY_SPECIES_OFFSET_CRYSTAL as PARTY_SPECIES_OFFSET_CRYSTAL } from '../utils/detection';
 const POKEDEX_OWNED_OFFSET_GS = 0x2a4c;
 const POKEDEX_OWNED_OFFSET_CRYSTAL = 0x2a69;
 const POKEDEX_SEEN_OFFSET_GS = 0x2a6c;
@@ -446,18 +443,6 @@ function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): GameVersi
  * @param crystal - Whether to test offsets specific to Pokémon Crystal.
  * @returns True if the structure looks like a valid Gen 2 save for the specified game type.
  */
-export function isGen2Save(view: DataView, crystal: boolean): boolean {
-  const countOffset = crystal ? PARTY_COUNT_OFFSET_CRYSTAL : PARTY_COUNT_OFFSET_GS;
-  const speciesOffset = crystal ? PARTY_SPECIES_OFFSET_CRYSTAL : PARTY_SPECIES_OFFSET_GS;
-  const partyCount = view.getUint8(countOffset);
-  if (partyCount > 6) return false;
-  if (view.getUint8(speciesOffset + partyCount) !== 0xff) return false;
-  for (let i = 0; i < partyCount; i++) {
-    const id = view.getUint8(speciesOffset + i);
-    if (id === 0 || id > 251) return false;
-  }
-  return true;
-}
 
 /**
  * Extracts all relevant game data (party, PC boxes, inventory, Pokédex, etc.) from a Gen 2 save.

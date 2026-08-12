@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { isGen2Save, parseGen2 } from './gen2';
+import { parseGen2 } from './gen2';
+import { isGen2Save } from '../utils/detection';
 
 describe('gen2 parsers', () => {
   describe('isGen2Save', () => {

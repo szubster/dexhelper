@@ -6,10 +6,10 @@ const GEN2_CHECKSUM_DATA_START = 0x2009;
 const GEN2_CHECKSUM_DATA_END = 0x2d0c;
 const GEN2_CHECKSUM_OFFSET = 0x2d0d;
 
-import * as gen3Module from './parsers/gen3';
+import * as detectionModule from './utils/detection';
 
-vi.mock('./parsers/gen3', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('./parsers/gen3')>();
+vi.mock('./utils/detection', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('./utils/detection')>();
   return {
     ...actual,
   };
@@ -257,7 +257,7 @@ describe('saveParser - Error Handling and Fallbacks', () => {
     buffer[0x288b] = 0x00;
 
     // Mock isGen3Save to return true
-    const isGen3Spy = vi.spyOn(gen3Module, 'isGen3Save').mockReturnValue(true);
+    const isGen3Spy = vi.spyOn(detectionModule, 'isGen3Save').mockReturnValue(true);
 
     // Should call parseGen3, which throws 'The save file is corrupted or incomplete.'
     await expect(() => parseSaveFile(buffer.buffer)).rejects.toThrow('The save file is corrupted or incomplete.');

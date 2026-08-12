@@ -1,7 +1,5 @@
 import type { GameVersion, PokemonInstance, SaveData } from './parsers/common';
-import { isGen1Save } from './parsers/gen1';
-import { isGen2Save } from './parsers/gen2';
-import { isGen3Save } from './parsers/gen3';
+import { isGen1Save, isGen2Save, isGen3Save } from './utils/detection';
 
 const GEN1_CHECKSUM_DATA_START = 0x2598;
 const GEN1_CHECKSUM_DATA_END = 0x3522;

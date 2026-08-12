@@ -522,20 +522,6 @@ function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
  * @param view - The raw save file DataView.
  * @returns True if the structure looks like a valid Gen 3 save.
  */
-export function isGen3Save(view: DataView): boolean {
-  try {
-    // Scaffolding read to allow testing of RangeError handling
-    if (view.byteLength > 0) {
-      view.getUint8(0);
-    }
-    return false;
-  } catch (error) {
-    if (error instanceof RangeError) {
-      return false;
-    }
-    throw error;
-  }
-}
 
 /**
  * Extracts the PV and IVs for a Gen 3 Pokémon.
