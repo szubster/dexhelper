@@ -2,12 +2,12 @@
 id: story-114-412-egg-move-inventory-integration
 type: STORY
 title: Egg Move Inventory Integration
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-08-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12024737096141025951'
 pr_number: null
 parent: epic-055-114-egg-move-inventory-cross-reference
 tags:
