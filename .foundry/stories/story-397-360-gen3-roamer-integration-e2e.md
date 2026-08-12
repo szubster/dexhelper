@@ -30,4 +30,8 @@ Generate Integration and E2E Verification to ensure proper system-wide rendering
 ## Acceptance Criteria
 - [ ] Verify proper system-wide rendering of Gen 3 Roamer data (IVs, PV, Species, etc.) in the frontend.
 - [ ] E2E tests for the roamer rendering across different game versions (R/S, E, FR/LG).
-- [ ] Tech Lead: Break this Story down into actionable Tasks.
+- [x] Tech Lead: Break this Story down into actionable Tasks.
+
+- [ ] task-360-418-gen3-roamer-ui-impl
+- [ ] task-360-419-gen3-roamer-e2e-impl
+- [ ] task-360-420-gen3-roamer-ui-and-e2e-qa
