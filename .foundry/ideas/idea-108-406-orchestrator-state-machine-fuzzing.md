@@ -2,12 +2,12 @@
 id: idea-108-406-orchestrator-state-machine-fuzzing
 type: IDEA
 title: Implement Orchestrator State Machine Fuzzing
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-08'
-updated_at: '2026-08-08'
+updated_at: '2026-08-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12755707352703376525'
 pr_number: null
 parent: null
 tags:
