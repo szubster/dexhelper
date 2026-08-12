@@ -32,4 +32,5 @@ Create an automated static analysis linter script (e.g. `scripts/verify-adr-comp
 This significantly reduces the LLM context token consumption and offloads static architectural compliance enforcement to faster, deterministic CI checks. This frees up the QA persona to focus exclusively on complex behavioral verification rather than basic linting rules.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a PRD defining the specific ADRs to be automatically enforced and the AST tooling to be used.
+- [x] Product Manager: Draft a PRD defining the specific ADRs to be automatically enforced and the AST tooling to be used.
+- [ ] prd-142-342-automated-adr-compliance-linter
