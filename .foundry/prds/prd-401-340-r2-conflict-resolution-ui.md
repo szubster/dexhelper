@@ -29,3 +29,11 @@ Provide users with a UI prompt when a save conflict is detected during Cloudflar
 - Display a UI prompt listing options: Keep Local, Pull Remote.
 - Display relevant metadata (timestamp, play time if possible) to help the user decide.
 - Future-proof for potential diffing/merging functionality.
+
+## Acceptance Criteria
+- [ ] epic-340-411-r2-conflict-resolution-core
+- [ ] epic-340-412-r2-conflict-resolution-ui-prompt
+- [ ] epic-340-413-r2-conflict-resolution-e2e
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
