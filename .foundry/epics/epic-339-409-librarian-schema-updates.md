@@ -28,5 +28,7 @@ This epic covers updating `.foundry/docs/schema.md` to formally define the `libr
 - None
 
 ## Acceptance Criteria
-- [ ] Generate stories for updating the schema documentation.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Generate stories for updating the schema documentation.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-409-412-add-librarian-persona-schema
+- [ ] story-409-413-librarian-schema-e2e
