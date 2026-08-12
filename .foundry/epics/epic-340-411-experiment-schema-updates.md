@@ -29,4 +29,7 @@ Update the Foundry YAML schema and underlying types to support defining A/B expe
 2. Update TypeScript interfaces and parsers in the orchestrator scripts to successfully parse and validate the new fields.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down into Stories. Ensure that a final STORY dedicated exclusively to Integration and E2E Verification is generated and appropriately tagged with `e2e` or `integration`.
+- [x] Story Owner: Break down into Stories. Ensure that a final STORY dedicated exclusively to Integration and E2E Verification is generated and appropriately tagged with `e2e` or `integration`.
+- [ ] story-411-412-define-experiment-schema
+- [ ] story-411-413-update-orchestrator-types
+- [ ] story-411-414-experiment-schema-e2e
