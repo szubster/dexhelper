@@ -27,8 +27,8 @@ Add E2E tests for the orchestrator to ensure strict hierarchical completion logi
 
 ## Acceptance Criteria
 - [x] Implement E2E tests for strict hierarchical completion
-- [ ] task-358-407-orchestrator-strict-completion-e2e-impl
-- [ ] task-358-408-orchestrator-strict-completion-e2e-qa
+- [x] task-358-407-orchestrator-strict-completion-e2e-impl
+- [x] task-358-408-orchestrator-strict-completion-e2e-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
