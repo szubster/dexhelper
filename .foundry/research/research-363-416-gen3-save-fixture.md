@@ -2,12 +2,12 @@
 id: research-363-416-gen3-save-fixture
 type: RESEARCH
 title: Acquire Gen 3 Save Fixture for E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-11'
 updated_at: '2026-08-12'
 depends_on: []
-jules_session_id: '14294444319199255346'
+jules_session_id: null
 pr_number: null
 parent: task-363-415-trade-extraction-e2e-impl
 tags:

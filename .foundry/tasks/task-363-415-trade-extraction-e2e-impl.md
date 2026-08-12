@@ -2,7 +2,7 @@
 id: task-363-415-trade-extraction-e2e-impl
 type: TASK
 title: NPC Trade Extraction Integration & E2E Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-11'
 updated_at: '2026-08-12'

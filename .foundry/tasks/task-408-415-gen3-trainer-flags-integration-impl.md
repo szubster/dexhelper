@@ -2,12 +2,12 @@
 id: task-408-415-gen3-trainer-flags-integration-impl
 type: TASK
 title: Implement Gen 3 Trainer Flags Integration Tests
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-10'
 updated_at: '2026-08-12'
 depends_on: []
-jules_session_id: '10747050449314996160'
+jules_session_id: null
 pr_number: null
 parent: story-307-408-gen3-trainer-flags-extraction-e2e
 tags:
