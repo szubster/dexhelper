@@ -32,4 +32,5 @@ Create a utility module that reads the parsed save file's data at the identified
 - [x] story-058-280-feebas-backend-integration
 - [ ] story-058-341-feebas-fast-calculation
 - [ ] story-058-342-feebas-backend-integration-retry
+- [ ] story-058-412-feebas-parsing-e2e
 
