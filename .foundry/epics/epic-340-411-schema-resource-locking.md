@@ -29,5 +29,7 @@ This EPIC covers the schema updates required to introduce the new `locks` field 
 - Update any necessary schema validators to ensure the `locks` field is correctly parsed as an array of string file paths.
 
 ## Acceptance Criteria
-- [ ] Story Owner completes EPIC decomposition.
-- [ ] Story Owner generates a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner completes EPIC decomposition.
+- [x] Story Owner generates a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-411-418-schema-resource-locking
+- [ ] story-411-419-schema-resource-locking-e2e
