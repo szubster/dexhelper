@@ -39,3 +39,9 @@ Verify the Safari Zone state extraction logic for Gen 3 save files, ensuring com
 - [ ] PC Box data extraction logic is verified.
 - [ ] Encounter calculation is verified.
 - [ ] Architectural directives (constants, relative offsets, RangeError handling) are explicitly verified in the implementation.
+
+### QA Rejection
+Implementation for `task-340-341-gen3-safari-zone-state-impl` has been rejected due to architectural violations:
+- Found inline magic numbers used for block lengths in `parseGen3PCBuffer` (2000, 3968) and move offsets in `parseGen3PCBoxes`.
+- `RangeError` from out-of-bounds `DataView` reads is unhandled in `parseGen3PCBuffer` and silently swallowed in `parseGen3`.
+The target task has been transitioned to `FAILED` and sent back to the coder for fixes.
