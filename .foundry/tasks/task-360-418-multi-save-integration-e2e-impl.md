@@ -29,5 +29,5 @@ As part of the Multi-Save Trade Planner, this task focuses on the implementation
 - Ensure efficient execution and accuracy of comparisons in an end-to-end environment.
 
 ## Acceptance Criteria
-- [ ] Implement E2E test cases covering multi-save data structures and algorithms.
-- [ ] Ensure the algorithm integration tests pass (`xvfb-run pnpm test:e2e`).
+- [x] Implement E2E test cases covering multi-save data structures and algorithms.
+- [x] Ensure the algorithm integration tests pass (`xvfb-run pnpm test:e2e`).
