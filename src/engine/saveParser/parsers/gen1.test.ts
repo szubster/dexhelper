@@ -1,6 +1,6 @@
 import { describe, expect, it, test } from 'vitest';
-import { parseGen1 } from './gen1';
 import { isGen1Save } from '../utils/detection';
+import { parseGen1 } from './gen1';
 
 describe('gen1 parsers', () => {
   describe('TM/HM parsing', () => {
