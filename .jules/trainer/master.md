@@ -1,5 +1,3 @@
-## Entry from 2026-07-26-02-51-53.md
-
 # Session Details
 - Date: $(date)
 - Focus: Implemented Gen 3 Match Call support for Emerald.
