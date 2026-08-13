@@ -27,4 +27,6 @@ This story covers updating `.foundry/docs/schema.md` to formally define the `lib
 
 ## Acceptance Criteria
 - [ ] Update `schema.md` to define the `librarian` persona in Section 5.
-- [ ] Create TASKS to implement the updates and QA verify.
+- [x] Create TASKS to implement the updates and QA verify.
+- [ ] task-412-422-implement-librarian-persona-schema
+- [ ] task-412-423-qa-librarian-persona-schema
