@@ -32,5 +32,5 @@ Implement the logic to compare Pokémon OT IDs against the daily winning number.
 ## Acceptance Criteria
 - [x] Implement matching logic
 - [x] task-273-303-lottery-matching-core-logic
-- [ ] task-273-307-gen3-lottery-matching-iteration-impl
-- [ ] task-273-308-gen3-lottery-matching-iteration-qa
+- [x] task-273-307-gen3-lottery-matching-iteration-impl
+- [x] task-273-308-gen3-lottery-matching-iteration-qa
