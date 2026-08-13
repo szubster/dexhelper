@@ -73,7 +73,7 @@
     "browserslist": "^4.28.8",
     "bundlemon": "^3.1.0",
     "fake-indexeddb": "^6.2.5",
-    "knip": "^6.32.1",
+    "knip": "^6.32.2",
     "lefthook": "^2.1.10",
     "lightningcss": "^1.33.0",
     "madge": "^8.0.0",
