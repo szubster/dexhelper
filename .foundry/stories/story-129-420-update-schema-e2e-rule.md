@@ -2,10 +2,10 @@
 id: story-129-420-update-schema-e2e-rule
 type: STORY
 title: Update Schema Documentation with E2E Rule
-status: PENDING
+status: READY
 owner_persona: tech_lead
-created_at: "2026-08-13"
-updated_at: "2026-08-13"
+created_at: '2026-08-13'
+updated_at: '2026-08-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - documentation
   - schema
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Update Schema Documentation with E2E Rule
