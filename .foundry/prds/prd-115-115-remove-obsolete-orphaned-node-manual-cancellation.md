@@ -2,12 +2,12 @@
 id: prd-115-115-remove-obsolete-orphaned-node-manual-cancellation
 type: PRD
 title: Remove Obsolete Orphaned Node Manual Cancellation Rule
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-07-15'
-updated_at: '2026-08-12'
+updated_at: '2026-08-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17664444670264022956'
 pr_number: null
 parent: idea-115-remove-obsolete-orphaned-node-manual-cancellation
 tags:
