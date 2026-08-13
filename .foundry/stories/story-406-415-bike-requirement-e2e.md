@@ -2,12 +2,12 @@
 id: story-406-415-bike-requirement-e2e
 type: STORY
 title: E2E Verification for Bike Requirement Route Mapping
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-12'
+updated_at: '2026-08-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5298763863197760482'
 pr_number: null
 parent: epic-339-406-gen3-bike-requirement-route-mapping
 tags:
