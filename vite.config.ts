@@ -138,6 +138,9 @@ export default defineConfig(() => {
             if (id.includes('src/components/pokemon/details/PokemonCaughtDetails.tsx')) {
               return 'PokemonCaughtDetails';
             }
+            if (id.includes('src/engine/saveParser/parsers/common') || id.includes('src/engine/saveParser/utils')) {
+              return 'saveParserCommon';
+            }
             if (id.includes('src/engine/saveParser/parsers/gen1')) {
               return 'saveParserGen1';
             }

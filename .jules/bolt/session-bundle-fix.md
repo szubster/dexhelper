@@ -1,0 +1,1 @@
+Session completed successfully. Optimized the Vite build by adding a saveParserCommon chunk, eliminating the +6KB overhead duplication between saveParserGenX chunks and clarifying the 49KB Rollup chunk-drop in the GlobalRibbonChecklistDashboard.
