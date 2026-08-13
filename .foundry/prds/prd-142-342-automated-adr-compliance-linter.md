@@ -2,12 +2,12 @@
 id: prd-142-342-automated-adr-compliance-linter
 type: PRD
 title: Automated ADR Compliance Linter PRD
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-08-12T00:00:00.000Z'
-updated_at: '2026-08-12'
+updated_at: '2026-08-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3355379518708574393'
 pr_number: null
 parent: idea-142-automated-adr-compliance-linter
 tags:
