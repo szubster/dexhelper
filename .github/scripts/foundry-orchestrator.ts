@@ -594,6 +594,11 @@ function main(): void {
     const node = nodeMap.get(nodePath);
 
     if (!node) {
+      if (fs.existsSync(path.join(repoRoot, nodePath))) {
+        // If it exists on disk but isn't in nodeMap, it was likely archived/skipped during discovery.
+        // Archived tasks are implicitly completed/cancelled and therefore not incomplete.
+        return false;
+      }
       warn(`Node not found in resolution map: ${nodePath}`);
       hasUnresolvableDeps = true;
       return true;
