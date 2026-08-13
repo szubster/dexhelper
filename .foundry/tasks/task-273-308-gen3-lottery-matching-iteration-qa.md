@@ -39,6 +39,6 @@ Verify the Party and PC Box iteration logic and integration with the lottery mat
 - **Empty PRs**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify that all unit tests added by the coder pass successfully.
-- [ ] Ensure that no magic numbers are used in the memory parsing logic (ADR 028 compliance).
-- [ ] Verify the correctness of the best match selection by manually feeding test case data.
+- [x] Verify that all unit tests added by the coder pass successfully.
+- [x] Ensure that no magic numbers are used in the memory parsing logic (ADR 028 compliance).
+- [x] Verify the correctness of the best match selection by manually feeding test case data.
