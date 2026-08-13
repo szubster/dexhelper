@@ -3,7 +3,7 @@ id: research-411-420-shoal-cave-rtc-strategy
 type: RESEARCH
 title: Investigate RTC Strategy for Shoal Cave (ADR 025 Compliance)
 status: COMPLETED
-owner_persona: story_owner
+owner_persona: researcher
 created_at: '2026-08-13'
 updated_at: '2026-08-13'
 depends_on: []
