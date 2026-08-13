@@ -2,12 +2,12 @@
 id: story-133-273-gen3-lottery-matching-algorithm
 type: STORY
 title: Gen3 Lottery Matching Algorithm
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-05'
 updated_at: '2026-08-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8196266641844191262'
 pr_number: null
 parent: epic-105-133-lottery-matching-logic
 tags:
