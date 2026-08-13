@@ -7,6 +7,9 @@ owner_persona: coder
 parent: story-406-415-bike-requirement-e2e
 depends_on: []
 created_at: '2026-08-13'
+rejection_count: 0
+rejection_reason: ''
+jules_session_id: ''
 updated_at: '2026-08-13'
 ---
 
