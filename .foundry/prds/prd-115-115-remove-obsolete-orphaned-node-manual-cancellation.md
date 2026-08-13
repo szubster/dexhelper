@@ -27,4 +27,4 @@ The Agile Coach identified friction caused by the obsolete "Orphaned QA Task Can
 
 ## Acceptance Criteria
 - [x] Epic Planner: Break down this PRD into Epics.
-- [ ] epic-115-331-remove-orphaned-qa-task-rule-from-docs
+- [x] epic-115-331-remove-orphaned-qa-task-rule-from-docs
