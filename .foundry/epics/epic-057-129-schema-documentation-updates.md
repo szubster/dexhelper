@@ -28,5 +28,7 @@ As part of enforcing macro node functional boundaries, we need to update templat
 Update `.foundry/docs/schema.md` or other relevant documentation/templates to explicitly require an Integration/E2E Story for all new Epics.
 
 ## Acceptance Criteria
+- [ ] story-129-420-update-schema-e2e-rule
+- [ ] story-129-421-verify-schema-documentation-e2e
 - [ ] Update `.foundry/docs/schema.md` with the new process requirements.
 - [ ] Update any other necessary documentation and schemas.
