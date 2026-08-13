@@ -33,11 +33,10 @@ Currently, the Foundry orchestrator (`.github/scripts/foundry-orchestrator.ts`) 
 Introduce a **Priority Scheduling Engine** into the orchestrator:
 1. Add a `priority` integer field to the standard `.foundry/docs/schema.md` node definition (defaulting to 0 or 50).
 2. Refactor `foundry-orchestrator.ts` so that when identifying READY nodes (in-degree zero), it sorts them by `priority` descending.
-3. Implement a `MAX_CONCURRENT_DISPATCH_LIMIT` (e.g., 5). The orchestrator will slice the sorted array and only dispatch the top N highest-priority nodes, leaving the rest as READY but un-dispatched until slots open up.
-4. Allow higher-level nodes (like Epics) to dictate the priority of their generated children, creating focused "vertical slice" execution paths.
+3. Allow higher-level nodes (like Epics) to dictate the priority of their generated children, creating focused "vertical slice" execution paths.
 
 ## Value Proposition
-This enhancement transitions the autonomous software factory from naive parallel execution to focused, strategic delivery. It reduces CI bottlenecks, minimizes git merge conflicts, and ensures that the most critical features are delivered end-to-end first.
+This enhancement transitions the autonomous software factory from naive parallel execution to focused, strategic delivery. It prioritizes critical path tasks, minimizes git merge conflicts, and ensures that the most important features are delivered end-to-end first, while still maximizing Jules agent utilization.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a comprehensive PRD detailing the schema changes and scheduling algorithms for DAG execution throttling.
+- [ ] Product Manager: Draft a comprehensive PRD detailing the schema changes and priority scheduling algorithm.
