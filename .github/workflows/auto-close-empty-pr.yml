@@ -34,6 +34,22 @@ jobs:
           fi
 
           if [ "$MERGE" = "true" ]; then
-            gh pr comment "$PR_NUMBER" --body "Automatically merged PR (empty, checkbox-only, or journal updates) to progress DAG." --repo "${{ github.repository }}"
-            gh pr merge "$PR_NUMBER" --squash --admin --repo "${{ github.repository }}"
+            MAX_RETRIES=3
+            for ((i=1; i<=MAX_RETRIES; i++)); do
+              if gh pr comment "$PR_NUMBER" --body "Automatically merged PR (empty, checkbox-only, or journal updates) to progress DAG." --repo "${{ github.repository }}"; then
+                break
+              else
+                echo "Failed to comment, retrying ($i/$MAX_RETRIES)..."
+                sleep 5
+              fi
+            done
+
+            for ((i=1; i<=MAX_RETRIES; i++)); do
+              if gh pr merge "$PR_NUMBER" --squash --admin --repo "${{ github.repository }}"; then
+                break
+              else
+                echo "Failed to merge, retrying ($i/$MAX_RETRIES)..."
+                sleep 5
+              fi
+            done
           fi
