@@ -2,12 +2,12 @@
 id: epic-340-411-gen3-ai-data-extraction
 type: EPIC
 title: Gen 3 AI Move Predictor - Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-08'
-updated_at: '2026-08-12'
+updated_at: '2026-08-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10951981620713216813'
 pr_number: null
 parent: prd-136-340-gen3-ai-move-predictor
 tags:
