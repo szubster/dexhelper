@@ -1,7 +1,3 @@
-## Entry from 2026-08-09-08-35-00.md
-
-# Canvas Journal - 2026-08-09-08-35-00
-
 #
 
 # Session Summary

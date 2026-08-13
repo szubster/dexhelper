@@ -1,22 +1,14 @@
-## Entry from 11433354673368983253.md
-
 # Session Log
 - Read core policies.
 - Generating PRD for IDEA `idea-136-gen3-ai-move-predictor`.
-
-## Entry from 17749450542018693624.md
 
 # Session 17749450542018693624
 
 Generated PRD for "Split bundles and data by game generation" from idea-136-split-bundles-and-data.
 
-## Entry from 2026-08-07-00-00-00.md
-
 # Session: 2026-08-07-00-00-00
 
 Generated PRD for Active Party Matchup Analyzer (`prd-134-340-active-party-matchup-analyzer`) from `idea-134-active-party-matchup-analyzer`. Enforced standard generation rules and updated the parent node.
-
-## Entry from 2026-08-08-18-32-48.md
 
 # Product Manager Journal - Built-in Emulator Ideas Initialization
 *   **Session ID:** 11433354673368983253
@@ -32,20 +24,12 @@ This allows us to transition from a retrospective checker to a real-time copilot
 2. **Memory Maps over Binary Files:** Reading WRAM/IRAM allows us to hook into events as they occur (such as wild encounter state shifts) rather than polling a filesystem timestamp every 3 seconds, significantly reducing the I/O load on the browser.
 3. **Reactive UI Loop:** This design decouples the heavy UI calculations from the emulator thread, ensuring zero-latency play with highly granular overlay indicators.
 
-## Entry from 5835723209406590956.md
-
 # Session 5835723209406590956
 
 Drafted PRD for Cloudflare R2 conflict resolution UI (prd-401-340-r2-conflict-resolution-ui) based on idea-039-401-r2-conflict-resolution-ui. Appended the generated downstream PRD as an unchecked task in the IDEA node's acceptance criteria.
 
-## Entry from 7649435094531398053.md
-
-# Session 7649435094531398053
-
 ## Reflection on Mutex Implementation
 To safely execute multiple agent threads and prevent merge conflicts across the repo (e.g. index files), the DAG orchestrator will require a resource locking mechanism. By preventing parallel writes to the same paths based on schema metadata, this change solidifies our transition towards safe concurrency.
-
-## Entry from 7931881873165298671.md
 
 # Session 7931881873165298671
 Date: 2026-08-07
@@ -58,11 +42,24 @@ Transform IDEA idea-130-shoal-cave-tide-tracker into a PRD.
 - Drafted PRD for Shoal Cave Tide & Item Tracker to extract RTC and inventory items (Shoal Shells, Shoal Salt).
 - Enforced the decomposition rule by identifying separate logical chunks for save parsing and UI presentation, and included an Orchestrator E2E Safeguard requirement.
 
-## From 9284848879758577313.md
-
-# Product Manager Journal - Session 9284848879758577313
-
 ## Anomaly: Target Artifact Already Exists
 During the execution of `idea-086-fix-orchestrator-phase-3-6`, it was observed that the target downstream PRD artifact (`prd-086-108-fix-orchestrator-phase-3-6`) already existed prior to the session.
 
 This anomaly is being logged for later review as per the Product Manager persona Core Directives. The `idea-086-fix-orchestrator-phase-3-6.md` file's checkboxes were updated and an empty PR submitted to allow the orchestrator to correctly demote the parent, following the Empty PR Policy and Late-Binding Orchestrator Demotion Compliance Rule.
+
+# Journal Entry: Downstream PRD Anomaly
+
+Date: 2026-08-12
+Session ID: 1280394659067550547
+
+## Observation
+While processing `idea-086-fix-orchestrator-phase-3-6`, I discovered that the target downstream PRD artifact (`prd-086-108-fix-orchestrator-phase-3-6`) already exists in the `.foundry/archive/prds/` directory and is marked as COMPLETED.
+
+## Action Taken
+Following the system directives for this scenario, I am checking off the Acceptance Criteria checkboxes in the markdown body of `idea-086-fix-orchestrator-phase-3-6` and submitting an Empty PR to allow the node to gracefully transition to COMPLETED.
+
+## Automated Location Tracking PRD
+I've drafted the PRD for Automated Location Tracking and Checklist Sync. The goal is to fully automate the user's checklist interactions by pulling X/Y coords, current Map IDs, and event flags straight from emulator RAM.
+
+## Architectural Pattern: Late-Binding
+I noted in the PRD that an ADR should be created by the Architect specifically addressing the background memory polling pattern (e.g. Web Workers) to prevent the main thread from blocking. I've left the exact event flag array mapping architecture open for the Epic Planner and Architect to negotiate in downstream nodes.

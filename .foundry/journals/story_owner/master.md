@@ -1,13 +1,9 @@
-## Entry from 10642899106052443585.md
-
 #
 
 # Session 10642899106052443585
 - Under the Late-Binding Orchestrator Demotion Compliance Rule, when processing a READY parent node (like an EPIC) with pending child tasks, we must generally submit an Empty PR without checking off the child tasks if they are incomplete.
 - However, if ALL descendant nodes (e.g. STORIES) are actually COMPLETED (e.g., they have transitioned to VERIFYING/COMPLETED in the system but the parent node's markdown checkbox is still unchecked), we MUST check off the parent's Acceptance Criteria checkboxes before submitting the PR. This satisfies ADR 007 and allows the macro node to transition to COMPLETED and gracefully exit the DAG.
 - Checking off a child node prematurely when it is not actually completed violates the Premature Verification policy and the MACRO NODE COMPLETION EXCEPTION.
-
-## Entry from 12203003015986713856.md
 
 # Session 12203003015986713856
 
@@ -16,8 +12,6 @@ Learnings:
 - When setting `depends_on` or `parent` fields in node frontmatter, strictly use exact Node IDs without file extensions.
 - All macro nodes (e.g., EPIC) must generate a final STORY dedicated exclusively to Integration and E2E Verification.
 - Do not modify the YAML frontmatter of an active task node; only update the markdown checkboxes.
-
-## Entry from 12591213007050017544.md
 
 #
 
@@ -29,8 +23,6 @@ Learnings:
 
 **Pattern:** Late-binding E2E story generation after the initial story completes.
 
-## Entry from 15700522367460075049.md
-
 # 15700522367460075049
 
 Enforced the Orchestrator E2E Safeguard by generating a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
@@ -39,13 +31,9 @@ Enforced the Orchestrator E2E Safeguard by generating a final STORY node dedicat
 
 Initialized story-070-358-orchestrator-strict-completion-e2e for e2e validation of strict verification requirements.
 
-## Entry from 17094807873661096187.md
-
 # Session 17094807873661096187
 
 When defining acceptance criteria that refer to documentation (e.g., Section 14 of .foundry/docs/schema.md vs Section 13 for Save File Parsing Guidelines), verify the actual content of the documentation before propagating potentially incorrect section numbers to stories to prevent downstream confusion.
-
-## Entry from 2026-08-06-11-32-38.md
 
 ## 2026-08-06-11-32-38
 
@@ -58,46 +46,83 @@ The Orchestrator Safeguard policy states that every EPIC node must have at least
 **Pattern:**
 Late-binding pattern was correctly utilized. An existing parent EPIC had a new child STORY dynamically drafted. We updated the parent's markdown body with the unchecked `[ ]` child node ID without altering its YAML frontmatter.
 
-## Entry from 2026-08-08-15-33-28.md
-
-# Session 2026-08-08-15-33-28
-
 ## Learnings
 When breaking down Gen 3 save data parsing epics, it is crucial to separate the extraction of boolean event flags from inventory/bag parsing. Although both serve to detect events, they interact with entirely different memory blocks (flag arrays vs. structured item structs) and require different DataView parsing strategies. Grouping them into a single monolithic story leads to bloated implementation tasks. Furthermore, strictly enforce sibling dependencies (e.g., making the E2E story depend on the individual extraction stories) rather than leaving them parallel, to prevent DAG race conditions and ensure the E2E verification is only unblocked once both extraction logic stories are fully completed.
-
-## Entry from 3965440180567252160.md
 
 # Session 3965440180567252160
 
 Submitted an empty PR for `epic-055-113-egg-move-pathfinding-engine` because its child task `story-113-348-egg-move-pathfinding-e2e` is technically COMPLETED but has not been archived yet by the TPM (still located in `.foundry/stories/`). According to the Late-Binding Orchestrator Demotion Compliance Rule, when assigned a READY parent node that already has pending/active child tasks drafted from a previous iteration, the agent must submit an empty PR *without* checking off its overarching acceptance criteria. This allows the orchestrator to correctly demote the parent to PENDING while it waits for its children.
 
-## Entry from 4061683249242859916.md
-
 # Session 4061683249242859916
 
 Epic Planner process changes have been implemented to enforce the inclusion of an E2E verification story for every EPIC. This ensures proper integration and verification of all generated epics.
-
-## Entry from 5799943991093245774.md
 
 # Journal Entry - 2026-08-08
 
 Based on the failure of `epic-120-338-implement-conflictless-journals` (investigated in `research-335-400`), it is a critical project-specific constraint that every EPIC must spawn at least one child STORY node explicitly dedicated to Integration and E2E Verification. This STORY must be tagged with `e2e` or `integration`. Failing to generate this verification story will cause the orchestrator to repeatedly reject the epic when it attempts to transition to COMPLETED.
 
-## From YYYY-MM-DD-HH-MM-SS.md
-
 ## Issue
 I was woken up because the Epic `epic-057-347-bash-timeout-wrapper-retry` had missing checkboxes in its markdown body for its child nodes, even though the underlying stories (`story-347-354-bash-timeout-wrapper-impl` and `story-347-355-bash-timeout-wrapper-e2e`) were already marked as `COMPLETED`. This prevented the node from properly transitioning to the `VERIFYING` state.
-
-## Action Taken
 
 ## Learnings & Takeaways
 This reinforces the critical rule from ADR 007 regarding the Parent-Linked DAG execution model:
 * **The Empty PR Checkbox Policy**: Even when all downstream work is physically finished by implementation personas, the parent generative node (like this Epic) cannot automatically close itself. A generative persona MUST wake up and check off the exact string references to its children in its markdown body to formally signal to the orchestrator that the dependency chain is complete.
 * **YAML Immutability for Completions**: The only valid way to progress a successful node to `VERIFYING` is by updating its markdown checkboxes and submitting an empty PR. Manually editing the `status` field to `VERIFYING` or `COMPLETED` is strictly prohibited.
 * This pattern of having a generative persona (Story Owner) wake up to resolve its own completed children via an empty PR is standard operating procedure for the Foundry graph.
-## Epic 045-070
-
 # Session Log
 
 epic-120-338-implement-conflictless-journals is fully implemented since all its acceptance criteria and child stories are marked as completed.
 Started session for epic-336-349-multi-save-infrastructure. Remembered to append child nodes as unchecked tasks to the markdown body using exact Node IDs, and to use exact Node IDs for depends_on arrays.
+
+In session 11236954308959706417 I created the STORIES to break down Epic 340-411. Found a critical bug where E2E story dependencies were mistakenly defined using repo-relative file paths instead of strict IDs, breaking orchestrator validation. Fixed it and verified test suites.
+
+## Late-Binding Demotion
+
+When encountering a parent macro node that has pending child nodes located in active directories (like `.foundry/stories/`), even if their internal YAML status is `COMPLETED`, they are treated as pending by the Orchestrator. Therefore, their checkboxes must NOT be checked in the parent node's markdown body.
+
+We must submit an Empty PR (with 0 file changes) to allow the orchestrator to correctly demote the parent to PENDING. This satisfies the Late-Binding Orchestrator Demotion Compliance Rule.
+
+## Context
+Breaking down epic `epic-117-335-integrate-zod-orchestrator` into story nodes as a story_owner.
+
+## Actions taken
+- Broke down the EPIC into three stories (335-412, 335-413, 335-414).
+- Complied with the "E2E Requirement" by including `story-335-414-zod-orchestrator-e2e.md` (tagged with e2e and integration).
+- Correctly checked off the parent's markdown `Break down into Stories` acceptance criteria.
+- Set `owner_persona: tech_lead` for the newly created STORY nodes as they are downstream from `story_owner`.
+- Verified system state and ran E2E testing to verify correctness.
+
+## Rules adapted
+- Ensure testing happens immediately prior to `pre_commit_instructions` as required by the Execution Plan Rules.
+- Reverified that "pre-commit" rule must exactly match the expected phrasing in the plan.
+- For all node creation, always specify `owner_persona` appropriately for handoffs to the next stage rather than inheriting current persona.
+
+# Session 2026-08-12-19-06-04
+
+Broke down the `epic-341-415-orchestrator-fuzzer-simulation` into three distinct stories to tackle DAG generation, state simulation, and E2E integration:
+- `story-415-415-fuzzer-dag-generation`
+- `story-415-416-fuzzer-state-simulation`
+- `story-415-417-fuzzer-simulation-e2e`
+
+Notes for Future:
+- When appending generated child nodes to a parent's markdown body, strictly use the exact Node ID without file extensions.
+- Ensuring there's a dedicated E2E verification story for complex features like fuzzing is critical for ensuring orchestration components operate as a cohesive unit.
+
+# Story Owner Journal: Generating Child Nodes and Updating Parents
+
+**Date:** $(date +%Y-%m-%d)
+
+## Context
+When dynamically creating downstream child nodes (e.g., STORY nodes from an EPIC), I need to register them with the parent node by appending them as markdown checkboxes.
+
+## Challenge
+In the past, I used multi-line cat commands wrapped in a bash script to rewrite the entire parent file. This technique incorrectly re-evaluated bash variables (\$(date +%Y-%m-%d)) in the YAML frontmatter, corrupting the parent's updated_at field and failing schema validation (a strict policy violation since frontmatter cannot be modified).
+
+## Solution and Process Change
+Moving forward, when generating child nodes and updating the parent's markdown body via bash scripts, I MUST NOT overwrite the entire parent file using a cat block.
+
+Instead, I MUST strictly use appending (>>) to add the new task list items and targeted stream editors (e.g., sed -i) to update the parent's checkboxes. This guarantees the YAML frontmatter is completely untouched, avoiding Automated Code Review rejections and schema failures.
+
+# Session 6207212354005436450
+
+Decomposed epic-340-411-schema-resource-locking into story-411-418-schema-resource-locking and story-411-419-schema-resource-locking-e2e.

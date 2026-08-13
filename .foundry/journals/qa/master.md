@@ -1,18 +1,11 @@
-## Entry from 10610034023932477089.md
-
 # QA Session 10610034023932477089
 
-- Executed Empty PR policy for completed implementation of `task-286-403-filter-swarm-item-calls-qa`.
 - Ensured `### SCHEMA` link at the bottom of markdown was preserved to avoid rejection during plan review by explicitly reading the bottom 500 characters using `tail -c 500`.
 - Verified file write modifications and test stability to satisfy completeness rules before submittal.
 
 ## Entry from 11361217312313065104.md
 
 - Verified Gen 3 IV/PV Extraction implementation met all acceptance criteria, tests are passing, no regressions found.
-
-## Entry from 12960983747185356556.md
-
-# QA Journal - 12960983747185356556
 
 ## Learnings
 - **Recurring Issue:** Coders frequently violate Section 13 (No Magic Numbers) of `.foundry/docs/schema.md` when parsing Gen 3 Secret Base data.
@@ -31,13 +24,9 @@ Session YYYY-MM-DD-HH-MM-SS: Verified the E2E test for the Epic Planner process 
 
 Session 16585296348294548606: Verified task-401-410-gen2-dv-extraction-qa. Submitted empty PR satisfying ADR 007 checkboxes. If Vitest or a similar test command fails with a 'JavaScript heap out of memory' error, increase the Node.js memory allocation by prepending NODE_OPTIONS="--max-old-space-size=4096" to your test command.
 
-## From 5577391814493307708.md
-
 # QA Journal Entry
 Tested the QA e2e verification task for orphaned QA rule removal.
 Checked off the acceptance criteria box as the rule verification is implemented successfully.
-
-## From 10130303434836686484.md
 
 # QA Session - 2026-08-11-21-55-58
 
@@ -46,6 +35,9 @@ Checked off the acceptance criteria box as the rule verification is implemented 
 - Verified testing suites passing without error.
 - Task criteria successfully signed off.
 
-## From 367874685721681175.md
+## Verified Task
+task-408-418-schema-role-mapping-qa
 
-- Verified that the Feebas Web Worker implementation correctly isolates LCG calculation, satisfying ADR 020 and Section 13 schemas. Checked off task-341-370-feebas-calculation-worker-qa criteria successfully and passed pre-commits.
+## Learnings & Observations
+- The `test_list.sh` scratchpad file must be removed before PR creation.
+- Checked off the Markdown box for the empty PR rule safely without modifying YAML frontmatter.

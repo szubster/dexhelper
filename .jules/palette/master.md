@@ -1,29 +1,19 @@
-## Entry from 2024-05-15-12-00-00.md
-
 ## Learnings
 * **Tactical Skeletons:** Introduced `@utility tactical-skeleton` in `index.css` to centralize the loading state styling, enforcing the 'tactical hardware' aesthetic (`rounded-none`, `border-dashed`, `border-zinc-800/50`, `bg-zinc-900/50`, `animate-pulse`).
 * **Vite Dev Server Port:** When running `pnpm run dev`, the server defaults to port 3000, not 5173. Tests running against localhost must target port 3000.
-
-## Entry from 2026-07-26-02-19-21.md
 
 ## Critical Learnings:
 - Accessibility win for custom tooltips: Adding `aria-hidden="true"` to visually-hidden tooltips prevents screen readers from redundantly reading the tooltip content when the parent interactive element already correctly uses `aria-label` or `title`. This is a common pattern for custom CSS-based tooltips in the codebase (e.g. `tactical-tooltip`).
 - If adding simple aria attributes pushes the bundle past the strict `BundleMon` size limit, adjust `.bundlemonrc.json` appropriately, as long as the size increase is small and justified.
 
-## Entry from 2026-07-30-01-51-16.md
-
 ## Critical Learnings:
 - When modifying headless or purely visual states (like hover delays or color contrast) using Tailwind, Playwright snapshots might not easily capture intermediate hover states or pseudo-classes (`group-hover:opacity-100`) without explicit `.hover()` events and adequately padded `wait_for_timeout()` calls.
 - Purely CSS micro-UX changes that do not break functionality are safe to merge, even if screenshots result in a blank viewport during headless execution, provided the standard unit/integration test suites and linter pass.
-
-## Entry from 2026-07-31-02-17-19.md
 
 ## Critical Learnings
 - When updating utility classes in `src/index.css`, ensure test scripts and artifacts are cleaned up before committing (received feedback about residual test html files).
 - Always use specific `git add` instead of `git add .` to avoid committing temporary artifacts.
 - Modifying shared layout utilities in Tailwind v4 with custom `@utility` directives is straightforward, keeping adjustments <50 lines in accordance with ADR 024.
-
-## Entry from 2026-08-01-02-23-25.md
 
 ## Observations
 - `ClearFiltersBadge` used an ad-hoc `<button>` with many hardcoded tailwind classes to match the design system.
@@ -37,13 +27,10 @@
 
 Learned to verify code completely when files are truncated by using tools like tail or grep -A before making a git merge diff replacement.
 
-## From YYYY-MM-DD-HH-MM-SS.md
-
 ## Task
 Find and implement ONE micro-UX improvement that makes the interface more intuitive, accessible, or pleasant.
 
 ## Action Taken
-- Identified that `.glass-card` in `src/index.css` used a solid border (`1px solid`) which violated the project's tactical hardware aesthetic (ADR 008).
 - Replaced the solid border with a dashed border (`1px dashed`) and explicitly added `border-radius: 0;` (sharp edges).
 
 ## Learnings & Constraints
