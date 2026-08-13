@@ -23,4 +23,4 @@ The Agile Coach identified friction caused by the obsolete "Orphaned QA Task Can
 
 ## Acceptance Criteria
 - [x] Product Manager: Convert this idea into a PRD to formalize the removal of manual orphaned node cancellation rules across the documentation.
-- [ ] prd-115-115-remove-obsolete-orphaned-node-manual-cancellation
+- [x] prd-115-115-remove-obsolete-orphaned-node-manual-cancellation
