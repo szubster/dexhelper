@@ -2,12 +2,12 @@
 id: prd-115-115-remove-obsolete-orphaned-node-manual-cancellation
 type: PRD
 title: Remove Obsolete Orphaned Node Manual Cancellation Rule
-status: ACTIVE
+status: COMPLETED
 owner_persona: auditor
 created_at: '2026-07-15'
 updated_at: '2026-08-13'
 depends_on: []
-jules_session_id: '15464940069201629570'
+jules_session_id: null
 pr_number: null
 parent: idea-115-remove-obsolete-orphaned-node-manual-cancellation
 tags:

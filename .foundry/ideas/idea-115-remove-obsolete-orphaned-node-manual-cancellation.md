@@ -2,10 +2,10 @@
 id: idea-115-remove-obsolete-orphaned-node-manual-cancellation
 type: IDEA
 title: Remove Obsolete Orphaned Node Manual Cancellation Rule
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-07-12'
-updated_at: '2026-07-16'
+updated_at: '2026-08-13'
 depends_on: []
 jules_session_id: null
 parent: null
