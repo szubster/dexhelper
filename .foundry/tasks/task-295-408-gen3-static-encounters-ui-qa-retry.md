@@ -27,5 +27,5 @@ notes: ''
 Verify the integration of the Gen 3 Static Encounters UI.
 
 ## Acceptance Criteria
-- [ ] Verify that `Gen3StaticEncountersDashboard` is correctly displayed on the main Gen 3 dashboard (`src/routes/dashboard.tsx`).
-- [ ] Verify the UI correctly displays the static encounter checklist based on save file flags.
+- [x] Verify that `Gen3StaticEncountersDashboard` is correctly displayed on the main Gen 3 dashboard (`src/routes/dashboard.tsx`).
+- [x] Verify the UI correctly displays the static encounter checklist based on save file flags.
