@@ -429,6 +429,28 @@ function main(): void {
       return ref;
     }
 
+    // Attempt to resolve ID from archive filesystem manually if it's an ID format
+    const idRegexMatch = ref.match(/^(idea|prd|epic|story|task|research|adr)-/);
+    if (idRegexMatch) {
+       const typeMap: Record<string, string> = {
+         idea: 'ideas',
+         prd: 'prds',
+         epic: 'epics',
+         story: 'stories',
+         task: 'tasks',
+         research: 'research',
+         adr: 'docs/adrs'
+       };
+       const prefix = idRegexMatch[1];
+       const folder = typeMap[prefix];
+       if (folder) {
+         const archivedPath = `.foundry/archive/${folder}/${ref}.md`;
+         if (fs.existsSync(path.join(repoRoot, archivedPath))) {
+           return archivedPath;
+         }
+       }
+    }
+
     // Log a warning if we can't resolve a non-empty reference.
     warn(`Unresolvable node reference: '${ref}'`);
     return null;
