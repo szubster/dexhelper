@@ -25,6 +25,7 @@ notes: ''
 The `epic-038-061-pokerus-state-exfiltration` implementation failed permanently with a maximum rejection count. This research node is tasked with investigating the root cause of this failure to unblock the pokerus tracker feature.
 
 ## Acceptance Criteria
-- [ ] Read the failure logs and related node journals to determine the root cause of the failure.
-- [ ] Document the findings and propose a technical solution or workaround.
-- [ ] Create subsequent implementation nodes (e.g. ADR or TASKS) required to correctly exfiltrate Pokerus state based on the research.
+- [x] Read the failure logs and related node journals to determine the root cause of the failure.
+- [x] Document the findings and propose a technical solution or workaround.
+- [x] Create subsequent implementation nodes (e.g. ADR or TASKS) required to correctly exfiltrate Pokerus state based on the research.
+- [ ] story-407-415-pokerus-state-exfiltration-e2e
