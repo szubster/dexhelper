@@ -489,7 +489,7 @@ function main(): void {
     const linkMatches = [...body.matchAll(linkRegex)].map(m => m[1]);
     const idMatches = [...body.matchAll(idRegex)]
       .map(m => m[0])
-      .map(id => idToPathMap.get(id))
+      .map(id => resolveNodePath(id))
       .filter((path): path is string => !!path);
 
     const matches = [...new Set([...linkMatches, ...idMatches])].map(m => resolveNodePath(m)).filter((m): m is string => !!m);
