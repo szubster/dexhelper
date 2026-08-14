@@ -24,4 +24,7 @@ notes: ''
 Integrate mGBA or binjgb via WASM to provide an embedded Game Boy emulator. Handle ROM loading via local file picker/drag-and-drop. ROMs must be securely stored in the browser's persistent storage (IndexedDB/LocalStorage) and never transmitted over the network.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this EPIC into STORY nodes. Ensure a final STORY is dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Break down this EPIC into STORY nodes. Ensure a final STORY is dedicated exclusively to Integration and E2E Verification.
+- [ ] story-423-424-wasm-emulator-ui-and-rom-loader
+- [ ] story-423-425-wasm-emulator-core-integration
+- [ ] story-423-426-wasm-emulator-integration-e2e
