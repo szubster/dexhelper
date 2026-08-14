@@ -27,7 +27,7 @@ This epic covers the backend logic to parse and extract the necessary hidden val
 ## Acceptance Criteria
 - [x] Implement Gen 2 DV extraction for Attack, Defense, Speed, and Special.
 - [x] Implement Gen 3 IV/PV extraction, handling the 48-byte encrypted Data block and substructure order `PV % 24`.
-- [x] story-112-400-integration-e2e
+- [x] .foundry/stories/story-112-400-integration-e2e.md
 - [ ] story-112-401-gen2-dv-extraction
 - [ ] story-112-402-gen3-iv-pv-extraction
 - [ ] story-112-403-integration-e2e

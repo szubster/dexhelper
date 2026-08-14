@@ -40,5 +40,5 @@ We need a dedicated "Living Dex Tracker" view in the DexHelper UI.
 ## 4. Acceptance Criteria
 - [x] Epic Planner: Break down this PRD into manageable Epics.
 - [ ] epic-103-133-living-dex-data-engine
-- [ ] epic-103-134-living-dex-grid-ui
+- [ ] .foundry/epics/epic-103-134-living-dex-grid-ui.md
 - [ ] epic-103-135-living-dex-evolution-highlighting

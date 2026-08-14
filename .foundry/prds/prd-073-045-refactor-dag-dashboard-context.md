@@ -5,7 +5,7 @@ title: Refactor DagDashboard to use React Context (ADR 013/017)
 status: PENDING
 owner_persona: epic_planner
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 parent: idea-073-refactor-dag-dashboard-context

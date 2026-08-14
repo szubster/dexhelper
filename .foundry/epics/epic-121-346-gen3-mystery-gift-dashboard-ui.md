@@ -7,7 +7,7 @@ owner_persona: "story_owner"
 created_at: "2026-07-25"
 updated_at: "2026-07-25"
 depends_on:
-  - epic-121-345-gen3-mystery-gift-data-extraction
+  - .foundry/epics/epic-121-345-gen3-mystery-gift-data-extraction.md
 jules_session_id: null
 pr_number: null
 parent: prd-121-336-gen3-mystery-gift-viewer

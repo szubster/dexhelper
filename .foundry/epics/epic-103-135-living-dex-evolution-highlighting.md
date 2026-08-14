@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-07-04'
 updated_at: '2026-07-04'
 depends_on:
-  - epic-103-134-living-dex-grid-ui
+  - .foundry/epics/epic-103-134-living-dex-grid-ui.md
 jules_session_id: null
 pr_number: null
 parent: prd-056-103-living-dex-tracker
