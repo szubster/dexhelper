@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: researcher
 created_at: '2026-08-11'
 updated_at: '2026-08-11'
-depends_on:
-  - .foundry/ideas/idea-145-component-variants-theming-consolidation.md
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: idea-145-component-variants-theming-consolidation

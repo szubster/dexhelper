@@ -2776,6 +2776,42 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(cContent).toContain("rejection_reason: Circular dependency detected");
   });
 
+  test('Hierarchical Deadlock: warns when child depends on parent and parent has unchecked checkbox for child', () => {
+    createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', {
+      id: "idea-001",
+      type: "IDEA",
+      title: "Idea A",
+      status: "PENDING",
+      owner_persona: "product_manager",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    }, `# Title
+## Acceptance Criteria
+- [ ] Child Story: [.foundry/stories/story-001.md](.foundry/stories/story-001.md)`);
+
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story 1",
+      status: "PENDING",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: ["idea-001"],
+      parent: "idea-001",
+      jules_session_id: null,
+    });
+
+    const stderrSpy = vi.spyOn(process.stderr, 'write');
+    main();
+
+    const output = stderrSpy.mock.calls.map(call => call[0] as string).join('');
+    expect(output).toContain("Hierarchical deadlock detected: Parent 'idea-001'");
+    expect(output).toContain("has unchecked/incomplete child 'story-001'");
+  });
+
   test('Late-Binding Completion: EPIC fails if it lacks E2E story', () => {
     createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
       id: "epic-001",

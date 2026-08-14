@@ -6,8 +6,7 @@ status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-07'
 updated_at: '2026-08-07'
-depends_on:
-  - idea-132-gen3-pal-park-migration-planner
+depends_on: []
 jules_session_id: null
 pr_number: null
 parent: idea-132-gen3-pal-park-migration-planner
