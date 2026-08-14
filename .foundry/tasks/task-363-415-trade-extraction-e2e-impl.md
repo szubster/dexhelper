@@ -2,7 +2,7 @@
 id: task-363-415-trade-extraction-e2e-impl
 type: TASK
 title: NPC Trade Extraction Integration & E2E Implementation
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-11'
 updated_at: '2026-08-14'
@@ -19,8 +19,8 @@ tags:
   - save-parsing
   - e2e
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

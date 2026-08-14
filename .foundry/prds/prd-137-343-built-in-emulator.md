@@ -2,10 +2,10 @@
 id: prd-137-343-built-in-emulator
 type: PRD
 title: Built-in Emulator Integration
-status: PENDING
+status: READY
 owner_persona: epic_planner
-created_at: "2026-08-13"
-updated_at: "2026-08-13"
+created_at: '2026-08-13'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - research
   - core
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # PRD: Built-in Emulator Integration (No ROMs Included)

@@ -2,7 +2,7 @@
 id: epic-344-420-save-editor-cli-core
 type: EPIC
 title: Save Editor CLI Core Framework
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-14'
 updated_at: '2026-08-14'

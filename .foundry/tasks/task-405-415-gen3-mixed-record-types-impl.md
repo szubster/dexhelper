@@ -2,12 +2,12 @@
 id: task-405-415-gen3-mixed-record-types-impl
 type: TASK
 title: Define Gen 3 Mixed Record Types and Offsets
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-10'
-updated_at: '2026-08-12'
+updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: '18193670929889448405'
+jules_session_id: null
 pr_number: null
 parent: story-397-405-gen3-mixed-record-npc-data
 tags:
@@ -16,7 +16,7 @@ tags:
   - mixed-records
   - types
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

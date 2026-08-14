@@ -2,12 +2,12 @@
 id: prd-146-001-foundry-system-statistics
 type: PRD
 title: Foundry System Statistics Reporting and Backfilling PRD
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-11'
 updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: '11083204589735225959'
+jules_session_id: null
 pr_number: null
 parent: idea-146-foundry-system-statistics
 tags:

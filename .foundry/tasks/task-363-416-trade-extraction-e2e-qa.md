@@ -2,10 +2,10 @@
 id: task-363-416-trade-extraction-e2e-qa
 type: TASK
 title: NPC Trade Extraction Integration & E2E QA
-status: PENDING
-owner_persona: "qa"
-created_at: "2026-08-11"
-updated_at: "2026-08-11"
+status: CANCELLED
+owner_persona: qa
+created_at: '2026-08-11'
+updated_at: '2026-08-14'
 depends_on:
   - task-363-415-trade-extraction-e2e-impl
 jules_session_id: null
@@ -19,8 +19,10 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-363-415-trade-extraction-e2e-impl
+notes: ''
 ---
 
 # Task: NPC Trade Extraction Integration & E2E QA

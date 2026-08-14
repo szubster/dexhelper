@@ -2,12 +2,12 @@
 id: story-335-412-integrate-zod-schema
 type: STORY
 title: Replace Manual Orchestrator Validation with Zod Schema
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-12'
-updated_at: '2026-08-12'
+updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: '16577579250750351928'
+jules_session_id: null
 parent: epic-117-335-integrate-zod-orchestrator
 tags:
   - foundry

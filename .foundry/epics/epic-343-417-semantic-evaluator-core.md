@@ -2,12 +2,12 @@
 id: epic-343-417-semantic-evaluator-core
 type: EPIC
 title: Semantic Evaluator Utility Core
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-14'
 updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: '10222618806438349124'
+jules_session_id: null
 pr_number: null
 parent: prd-145-343-semantic-prompt-validation
 tags:
