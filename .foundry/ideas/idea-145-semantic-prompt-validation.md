@@ -2,12 +2,12 @@
 id: idea-145-semantic-prompt-validation
 type: IDEA
 title: Semantic Validation for Agent Prompts
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5495596116386946728'
 pr_number: null
 parent: null
 tags:
