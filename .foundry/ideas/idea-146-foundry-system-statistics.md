@@ -62,7 +62,7 @@ This feature transforms the Foundry from an opaque workflow engine into a data-d
 - It provides an extensible framework to easily append new metrics as the team comes up with more ideas during development.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a comprehensive PRD detailing the statistics schema, git history parser, and real-time generation triggers.
+- [x] Product Manager: Draft a comprehensive PRD detailing the statistics schema, git history parser, and real-time generation triggers.
 - [ ] Implement an automated statistics calculation script under `.github/scripts/` that parses the current state of `.foundry/` and outputs metrics to a root file (e.g., `foundry-statistics.json`, `foundry-statistics.yaml` or `foundry-statistics.md`).
 - [ ] Integrate statistics generation into the orchestrator/heartbeat workflow so that statistics are updated and auto-committed to the `main` branch at the root of the repository.
 - [ ] Implement a backfilling CLI script capable of reconstructing historical statistics by parsing git history and commit states.
