@@ -47,7 +47,7 @@ Your job is to thoroughly test and verify that these changes are functionally co
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify `items` object store is successfully populated in IndexedDB.
-- [ ] Verify hardcoded mappings are removed from `gameItemMap.ts`.
-- [ ] Run test suite (`pnpm test`) and ensure all tests pass.
-- [ ] Submit an empty PR passthrough using `request_code_review` if all checks pass successfully.
+- [x] Verify `items` object store is successfully populated in IndexedDB.
+- [x] Verify hardcoded mappings are removed from `gameItemMap.ts`.
+- [x] Run test suite (`pnpm test`) and ensure all tests pass.
+- [x] Submit an empty PR passthrough using `request_code_review` if all checks pass successfully.
