@@ -2,12 +2,12 @@
 id: prd-148-344-save-editor-cli
 type: PRD
 title: Save Editor CLI
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-08-14'
 updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7870633467577142804'
 pr_number: null
 parent: idea-148-save-editor-cli
 tags:
