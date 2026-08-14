@@ -2,12 +2,12 @@
 id: prd-132-340-gen3-pal-park-migration-planner
 type: PRD
 title: Gen 3 Pal Park Migration Planner PRD
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-08-07'
 updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4748008888346775248'
 pr_number: null
 parent: idea-132-gen3-pal-park-migration-planner
 tags:
