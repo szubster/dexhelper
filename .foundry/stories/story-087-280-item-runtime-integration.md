@@ -30,10 +30,10 @@ We have successfully generated `items.jsonl` dynamically and integrated it into 
 3. Replace manual/hardcoded tables for item data (like `EVO_ITEM_NAMES` in `src/engine/assistant/strategies/items/gameItemMap.ts`) to use the dynamically populated runtime DB.
 
 ## Acceptance Criteria
-- [ ] Add the `items` object store in IndexedDB.
-- [ ] Implement inflation and storage logic for items in `PokeDB.ts` during `syncData`.
-- [ ] Replace usage of hardcoded item maps with queries to the new database store.
+- [x] Add the `items` object store in IndexedDB.
+- [x] Implement inflation and storage logic for items in `PokeDB.ts` during `syncData`.
+- [x] Replace usage of hardcoded item maps with queries to the new database store.
 - [x] Break down this STORY into concrete TASK nodes for implementation.
 - [x] task-280-304-item-db-schema-and-sync
-- [ ] task-280-305-refactor-game-item-map
+- [x] task-280-305-refactor-game-item-map
 - [x] task-280-306-item-runtime-qa
