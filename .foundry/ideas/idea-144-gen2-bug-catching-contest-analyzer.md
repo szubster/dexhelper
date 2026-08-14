@@ -34,4 +34,5 @@ Introduce a dedicated "Bug-Catching Contest Score Analyzer" in DexHelper. By par
 This feature perfectly aligns with DexHelper's goal of demystifying retro Pokémon games by making hidden, complex state transparent and actionable. It turns a frustrating grind for a Sun Stone into a deterministic, strategic process, offering utility not commonly found in generic save editors.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a PRD defining the exact Gen 2 Bug-Catching score formula and the UI components for the Analyzer dashboard.
+- [x] Product Manager: Draft a PRD defining the exact Gen 2 Bug-Catching score formula and the UI components for the Analyzer dashboard.
+- [ ] prd-144-343-gen2-bug-catching-contest-analyzer
