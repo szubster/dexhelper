@@ -30,8 +30,8 @@ notes: ''
 Implement end-to-end (E2E) tests for the NPC trade flag extraction logic across Gen 2 and Gen 3 save files.
 
 ## Acceptance Criteria
-- [ ] Write E2E test files for Gen 2 NPC trade flag extraction.
-- [ ] Write E2E test files for Gen 3 NPC trade flag extraction.
-- [ ] Ensure tests verify end-to-end extraction (from save file parsing to resulting flags in `SaveData`).
+- [x] Write E2E test files for Gen 2 NPC trade flag extraction.
+- [x] Write E2E test files for Gen 3 NPC trade flag extraction.
+- [x] Ensure tests verify end-to-end extraction (from save file parsing to resulting flags in `SaveData`).
 
-- [ ] research-363-416-gen3-save-fixture
+- [x] research-363-416-gen3-save-fixture

@@ -13,5 +13,10 @@ test.describe('Gen 2 NPC Trades', () => {
 
     await expect(page.getByText('ROCKY')).toBeVisible();
     await expect(page.getByText('MUSCLE')).toBeVisible();
+    await expect(page.getByText('VOLTY')).toBeVisible();
+    await expect(page.getByText('DORIS')).toBeVisible();
+    await expect(page.getByText('MARBLE')).toBeVisible();
+    await expect(page.getByText('KEN')).toBeVisible();
+    await expect(page.getByText('SHUCKIE')).toBeVisible();
   });
 });
