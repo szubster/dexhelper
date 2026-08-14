@@ -43,3 +43,5 @@ use those fixtures to improve current tests across board, write new tests, stop 
 - [ ] Refactor `saveFixtures.test.ts` loader to support Gen 1, 2, and 3, and run parameterized verification over all of them.
 - [ ] Verify all 1120 unit and browser tests pass successfully.
 - [ ] extend current set of tests
+- [ ] epic-343-417-test-fixtures-sourcing
+- [ ] epic-343-418-test-suite-adaptation
