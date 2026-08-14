@@ -478,13 +478,25 @@ function main(): void {
     const matches = [...new Set([...linkMatches, ...idMatches])].map(m => resolveNodePath(m)).filter((m): m is string => !!m);
 
     for (const match of matches) {
-      // node.repoPath is the parent, match is the child
+      // node.repoPath is the potential parent, match is the potential child
       if (match !== node.repoPath) {
-        if (!parentToChildren.has(node.repoPath)) {
-          parentToChildren.set(node.repoPath, []);
-        }
         const matchedNode = nodeMap.get(match);
         if (matchedNode) {
+          // Check 1: If matchedNode has an explicit parent in frontmatter, do not add node as parent if it differs
+          const explicitParent = resolveNodePath(matchedNode.frontmatter.parent);
+          if (explicitParent && explicitParent !== node.repoPath && explicitParent !== node.frontmatter.id) {
+            continue;
+          }
+
+          // Check 2: If node depends on matchedNode (directly via depends_on), node cannot be parent of matchedNode
+          const nodeDeps = (node.frontmatter.depends_on || []).map(d => resolveNodePath(d)).filter(Boolean);
+          if (nodeDeps.includes(match)) {
+            continue;
+          }
+
+          if (!parentToChildren.has(node.repoPath)) {
+            parentToChildren.set(node.repoPath, []);
+          }
           if (!parentToChildren.get(node.repoPath)!.find(n => n.repoPath === match)) {
             parentToChildren.get(node.repoPath)!.push(matchedNode);
           }
@@ -820,8 +832,38 @@ function main(): void {
         }
       }
 
+      // Also check if parent transitively depends on child
+      if (!isCyclic) {
+        const parentQueue = [node.repoPath];
+        const parentVisited = new Set<string>();
+        while (parentQueue.length > 0) {
+          const curr = parentQueue.shift()!;
+          if (parentVisited.has(curr)) continue;
+          parentVisited.add(curr);
+
+          if (curr === child.repoPath) {
+            isCyclic = true;
+            break;
+          }
+
+          const currNode = nodeMap.get(curr);
+          if (currNode) {
+            for (const depRef of currNode.frontmatter.depends_on) {
+              const depPath = resolveNodePath(depRef);
+              if (depPath) parentQueue.push(depPath);
+            }
+          }
+        }
+      }
+
       if (isCyclic) {
-        warn(`Hierarchical deadlock detected: Parent '${node.frontmatter.id}' (${node.repoPath}) has unchecked/incomplete child '${child.frontmatter.id}' (${child.repoPath}), but '${child.frontmatter.id}' transitively depends on '${node.frontmatter.id}' via its depends_on array!`);
+        warn(`Hierarchical deadlock detected: Parent '${node.frontmatter.id}' (${node.repoPath}) has unchecked/incomplete child '${child.frontmatter.id}' (${child.repoPath}), but a dependency cycle exists between them!`);
+        if (node.frontmatter.status === 'PENDING') {
+          promoteNodeToFailedWithReason(node, 'Hierarchical deadlock detected');
+        }
+        if (child.frontmatter.status === 'PENDING') {
+          promoteNodeToFailedWithReason(child, 'Hierarchical deadlock detected');
+        }
       }
     }
   }

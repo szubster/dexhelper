@@ -3085,4 +3085,77 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
 
     logSpy.mockRestore();
   });
+
+  test('Regression: Downstream ADR referencing research node ID in body while depending on it does not deadlock research node', () => {
+    fs.mkdirSync(path.join(foundryDir, 'research'), { recursive: true });
+    fs.mkdirSync(path.join(foundryDir, 'docs/adrs'), { recursive: true });
+
+    // Idea 145
+    createValidTestNode(tmpDir, '.foundry/ideas/idea-145-component-variants-theming-consolidation.md', {
+      id: "idea-145-component-variants-theming-consolidation",
+      type: "IDEA",
+      title: "Component Variants and Theming Consolidation",
+      status: "PENDING",
+      owner_persona: "product_manager",
+      created_at: "2026-08-11",
+      updated_at: "2026-08-11",
+      depends_on: [],
+      jules_session_id: null
+    }, `## Acceptance Criteria
+- [ ] Create deep-dive research evaluating component-variant management libraries.
+- [ ] Draft an Architecture Decision Record (ADR) presenting multiple architecture paths.
+
+### Downstream Graph Nodes
+- [ ] .foundry/research/research-145-001-component-variant-libraries.md
+- [ ] .foundry/docs/adrs/adr-145-031-component-variant-theming.md
+`);
+
+    // Research 145-001
+    createValidTestNode(tmpDir, '.foundry/research/research-145-001-component-variant-libraries.md', {
+      id: "research-145-001-component-variant-libraries",
+      type: "RESEARCH",
+      title: "Research Component Variant Libraries",
+      status: "PENDING",
+      owner_persona: "researcher",
+      created_at: "2026-08-11",
+      updated_at: "2026-08-11",
+      depends_on: [],
+      parent: "idea-145-component-variants-theming-consolidation",
+      jules_session_id: null
+    }, `# Objective\nResearch on variant libraries...\n## Acceptance Criteria\n- [ ] Complete research report\n`);
+
+    // ADR 145-031 depending on Research 145-001 AND mentioning research-145-001-component-variant-libraries in body
+    createValidTestNode(tmpDir, '.foundry/docs/adrs/adr-145-031-component-variant-theming.md', {
+      id: "adr-145-031-component-variant-theming",
+      type: "ADR",
+      title: "ADR 031: Unified Component Variants and Theming",
+      status: "PENDING",
+      owner_persona: "architect",
+      created_at: "2026-08-11",
+      updated_at: "2026-08-11",
+      depends_on: [".foundry/research/research-145-001-component-variant-libraries.md"],
+      parent: "idea-145-component-variants-theming-consolidation",
+      jules_session_id: null
+    }, `# Context\nWe conducted research across component variant libraries (research-145-001-component-variant-libraries) and decided...\n## Acceptance Criteria\n- [ ] Complete ADR\n`);
+
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    main();
+
+    // Research 145-001 SHOULD be promoted to READY because it has no dependencies,
+    // and ADR 145-031 should NOT be treated as its parent despite mentioning its ID in body.
+    const researchContent = fs.readFileSync(path.join(tmpDir, '.foundry/research/research-145-001-component-variant-libraries.md'), 'utf-8');
+    expect(researchContent).toContain('status: READY');
+
+    // ADR 145-031 SHOULD remain PENDING waiting for research-145-001 to complete
+    const adrContent = fs.readFileSync(path.join(tmpDir, '.foundry/docs/adrs/adr-145-031-component-variant-theming.md'), 'utf-8');
+    expect(adrContent).toContain('status: PENDING');
+
+    // Matrix output should contain research-145-001
+    const lastCall = consoleSpy.mock.calls[consoleSpy.mock.calls.length - 1][0];
+    const readyNodes = JSON.parse(lastCall);
+    expect(readyNodes.some((n: any) => n.id === 'research-145-001-component-variant-libraries')).toBe(true);
+
+    consoleSpy.mockRestore();
+  });
 });
