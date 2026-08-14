@@ -1036,17 +1036,40 @@ function main(): void {
           }
 
           if (!isDepIncomplete) {
+            // Auto-fulfill acceptance criteria checkboxes corresponding to completed/cancelled children
+            let updatedBody = node.body;
+            for (const child of children) {
+              if (child.frontmatter.status === 'COMPLETED' || child.frontmatter.status === 'CANCELLED') {
+                const childIdEscaped = child.frontmatter.id.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
+                const childPathEscaped = child.repoPath.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
+                const checkboxRegex = new RegExp(`^(\\s*-\\s*\\[)\\s(\\]\\s*(?:.*(?:${childIdEscaped}|${childPathEscaped}).*))`, 'gm');
+                updatedBody = updatedBody.replace(checkboxRegex, '$1x$2');
+              }
+            }
+
+            if (updatedBody !== node.body) {
+              node.body = updatedBody;
+              const newContent = matter.stringify(node.body, node.frontmatter);
+              node.rawContent = newContent;
+              if (!isDryRun()) {
+                try {
+                  fs.writeFileSync(node.filePath, newContent, 'utf-8');
+                  info(`Auto-checked completed child tasks in parent node: ${node.repoPath}`);
+                } catch (e) {
+                  warn(`Failed to write auto-checked parent file ${node.repoPath}: ${String(e)}`);
+                }
+              }
+            }
+
             const acceptanceCriteriaMatch = node.body.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
             const acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
             const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(acceptanceCriteriaText);
             if (hasUncheckedTasks) {
               warn(`Parent Node Stall Warning: ${node.repoPath} has all children COMPLETED/CANCELLED, but cannot complete due to unchecked acceptance criteria!`);
               info(`Late-Binding Parent Waking Up: ${node.repoPath} has completed children, but still has unchecked tasks. Promoting to READY.`);
-              // Add to eligible if not already there, so it's picked up by subsequent phases (Phase 5)
               if (!eligible.includes(node)) {
                 eligible.push(node);
               }
-              // Prevent promotion to COMPLETED by bypassing the else branch
             } else {
               if (node.frontmatter.type === 'EPIC') {
                 const hasE2E = children.some(child =>
