@@ -39,6 +39,6 @@ As part of the Egg Move Inventory Integration, this task connects the egg move p
    - Verify that both party and PC members are included, and that the data is correctly indexed by species.
 
 ## Acceptance Criteria
-- [ ] Data fetching from the save file inventory parser is implemented or extracted into a robust utility.
-- [ ] PC box and party data are formatted into a unified, easily searchable inventory object.
-- [ ] Integration tests verify the inventory loading and formatting using mock save data.
+- [x] Data fetching from the save file inventory parser is implemented or extracted into a robust utility.
+- [x] PC box and party data are formatted into a unified, easily searchable inventory object.
+- [x] Integration tests verify the inventory loading and formatting using mock save data.
