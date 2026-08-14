@@ -97,8 +97,8 @@ function discoverNodeFiles(dir: string): string[] {
       const fullPath = path.join(current, entry.name);
 
       if (entry.isDirectory()) {
-        // Skip journals and fixtures entirely. For docs, only explore the adrs/ subdirectory.
-        if (entry.name === 'journals' || entry.name === 'fixtures') continue;
+        // Skip journals, fixtures, and archive entirely. For docs, only explore the adrs/ subdirectory.
+        if (entry.name === 'journals' || entry.name === 'fixtures' || entry.name === 'archive') continue;
         if (entry.name === 'docs') {
           const adrsPath = path.join(fullPath, 'adrs');
           if (fs.existsSync(adrsPath)) walk(adrsPath);
@@ -434,6 +434,28 @@ function main(): void {
       return ref;
     }
 
+    // Attempt to resolve ID from archive filesystem manually if it's an ID format
+    const idRegexMatch = ref.match(/^(idea|prd|epic|story|task|research|adr)-/);
+    if (idRegexMatch) {
+       const typeMap: Record<string, string> = {
+         idea: 'ideas',
+         prd: 'prds',
+         epic: 'epics',
+         story: 'stories',
+         task: 'tasks',
+         research: 'research',
+         adr: 'docs/adrs'
+       };
+       const prefix = idRegexMatch[1];
+       const folder = typeMap[prefix];
+       if (folder) {
+         const archivedPath = `.foundry/archive/${folder}/${ref}.md`;
+         if (fs.existsSync(path.join(repoRoot, archivedPath))) {
+           return archivedPath;
+         }
+       }
+    }
+
     // Log a warning if we can't resolve a non-empty reference.
     warn(`Unresolvable node reference: '${ref}'`);
     return null;
@@ -472,7 +494,7 @@ function main(): void {
     const linkMatches = [...body.matchAll(linkRegex)].map(m => m[1]);
     const idMatches = [...body.matchAll(idRegex)]
       .map(m => m[0])
-      .map(id => idToPathMap.get(id))
+      .map(id => resolveNodePath(id))
       .filter((path): path is string => !!path);
 
     const matches = [...new Set([...linkMatches, ...idMatches])].map(m => resolveNodePath(m)).filter((m): m is string => !!m);
@@ -589,6 +611,11 @@ function main(): void {
     const node = nodeMap.get(nodePath);
 
     if (!node) {
+      if (fs.existsSync(path.join(repoRoot, nodePath))) {
+        // If it exists on disk but isn't in nodeMap, it was likely archived/skipped during discovery.
+        // Archived tasks are implicitly completed/cancelled and therefore not incomplete.
+        return false;
+      }
       warn(`Node not found in resolution map: ${nodePath}`);
       hasUnresolvableDeps = true;
       return true;
