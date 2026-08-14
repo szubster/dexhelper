@@ -30,6 +30,6 @@ Specifically:
 - Locate `const item: any = {` (around line 727 in `main`). The output node structure should be correctly typed instead of defaulting to `any`. You can define a specific interface for the extended item output or rely on standard intersection types.
 
 ## Acceptance Criteria
-- [ ] Replace `any` casts with proper type usage based on `NodeFrontmatterSchema`.
-- [ ] Ensure that TypeScript compiles successfully (`pnpm type-check` or via your editor) after removing the `any` casts.
-- [ ] Ensure tests pass after the refactoring.
+- [x] Replace `any` casts with proper type usage based on `NodeFrontmatterSchema`.
+- [x] Ensure that TypeScript compiles successfully (`pnpm type-check` or via your editor) after removing the `any` casts.
+- [x] Ensure tests pass after the refactoring.
