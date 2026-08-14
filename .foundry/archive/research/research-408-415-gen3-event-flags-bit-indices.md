@@ -26,7 +26,7 @@ notes: ''
 Investigate and determine the exact bit indices for specific event flags in Gen 3 save files to enable data extraction.
 
 ## Context
-As defined in `.foundry/stories/story-404-408-gen3-event-flags-extraction.md`, we need to parse specific event flags: `FLAG_SYS_EON_TICKET_ENABLE`, `FLAG_ENABLE_MYSTERY_GIFT`, and `FLAG_RECEIVED_AURORA_TICKET`. We know the base offset for `SaveBlock1` event flags is `0x1270`, but we are missing the exact bit index or offset for these specific flags.
+As defined in `.foundry/archive/stories/story-404-408-gen3-event-flags-extraction.md`, we need to parse specific event flags: `FLAG_SYS_EON_TICKET_ENABLE`, `FLAG_ENABLE_MYSTERY_GIFT`, and `FLAG_RECEIVED_AURORA_TICKET`. We know the base offset for `SaveBlock1` event flags is `0x1270`, but we are missing the exact bit index or offset for these specific flags.
 Without the exact bit indices, the implementation tasks cannot be formulated properly.
 
 ## Requirements
