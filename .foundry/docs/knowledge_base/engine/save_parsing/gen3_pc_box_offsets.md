@@ -44,7 +44,7 @@ The 80-byte structure is as follows:
 
 | Offset within Record | Size (Bytes) | Field |
 | :--- | :--- | :--- |
-| `0x00` | 4 | Personality value (`u32`) |
+| `0x00` | 4 | Personality value (PID) (`u32`) |
 | `0x04` | 4 | Original Trainer (OT) ID (`u32`) |
 | `0x08` | 10 | Nickname (`u8[10]`) |
 | `0x12` | 1 | Language (`u8`) |
@@ -54,5 +54,7 @@ The 80-byte structure is as follows:
 | `0x1C` | 2 | Checksum (`u16`) |
 | `0x1E` | 2 | Unknown/Padding (`u16`) |
 | `0x20` | 48 | Data / Substructures (`u8[48]`) |
+
+**PID Details**: The Personality Value (PID) at offset `0x00` is a 4-byte (`u32`) little-endian value. It is vital for determining the substructure layout of the `Data` block, as well as the Pokémon's nature, gender, and shininess.
 
 The `Data` block (48 bytes starting at offset `0x20`) is encrypted via XOR with a key derived from the Personality Value and OT ID. It contains 4 substructures of 12 bytes each, determining the Pokémon's species, item, moves, IVs, EVs, and other core attributes. (In party pokemon, the data after these 80 bytes starts at `0x50` with Status condition).

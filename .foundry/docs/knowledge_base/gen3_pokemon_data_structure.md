@@ -1,7 +1,18 @@
 # Gen 3 Pokémon Data Structure
 
 ## Overview
-In Generation 3 (Ruby, Sapphire, Emerald, FireRed, LeafGreen), a Pokémon's full data structure in the party is 100 bytes long. However, the core details are stored in a 48-byte encrypted Data block (bytes 32 through 79 of the 100-byte structure).
+In Generation 3 (Ruby, Sapphire, Emerald, FireRed, LeafGreen), a Pokémon's full data structure in the party is 100 bytes long, whereas in the PC it is truncated to 80 bytes. However, the core details are stored in a 48-byte encrypted Data block (bytes 32 through 79).
+
+## Personality Value (PID) Structure
+The **Personality Value** (often referred to as PID or PV) is located at offset `0x00` of the Pokémon data structure (both in the Party 100-byte structure and the PC 80-byte structure). It is a 32-bit (4-byte) integer that controls:
+- Gender
+- Ability
+- Nature
+- Shininess (when combined with OT ID)
+- Spinda's spots
+- Unown's letter
+- The decryption key for the 48-byte Data block
+- The permutation order of the 48-byte Data block's substructures (`PV % 24`)
 
 ## The 48-Byte Encrypted Data Block
 This block is divided into four 12-byte substructures:
