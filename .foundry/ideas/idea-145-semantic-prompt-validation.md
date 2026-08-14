@@ -30,4 +30,5 @@ Implement a system for semantic validation of agent prompts. Instead of assertin
 This will make persona instructions and process updates much more resilient to refactoring, reducing the overhead of updating brittle tests every time a prompt's phrasing is improved, while still enforcing critical process rules like E2E story generation.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a PRD exploring the feasibility and architecture of a semantic validation utility for prompt tests.
+- [x] Product Manager: Draft a PRD exploring the feasibility and architecture of a semantic validation utility for prompt tests.
+- [ ] prd-145-343-semantic-prompt-validation
