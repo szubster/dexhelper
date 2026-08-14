@@ -22,4 +22,5 @@ rejection_reason: ''
 Currently, Foundry persona prompts are large and monolithic. Decoupling them into generic roles (e.g., Coder, QA) and highly-focused, reusable technology/context specific layers (e.g., React, TypeScript, DexHelper) combined dynamically by the orchestrator will make Foundry extremely portable across different projects and environments. We should also explore breaking personas into finer-grained specializations (e.g., splitting a monolithic role into frontend/backend or domain specific sub-personas) to scale development.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Break down this idea into a PRD to formalize the decoupling of persona prompts and splitting of roles.
+- [x] Product Manager: Break down this idea into a PRD to formalize the decoupling of persona prompts and splitting of roles.
+- [ ] prd-137-343-decouple-persona-prompts
