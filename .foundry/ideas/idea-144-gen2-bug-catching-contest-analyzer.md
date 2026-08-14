@@ -2,12 +2,12 @@
 id: idea-144-gen2-bug-catching-contest-analyzer
 type: IDEA
 title: Gen 2 Bug-Catching Contest Score Analyzer
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-10'
-updated_at: '2026-08-10'
+updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6587908441254463849'
 pr_number: null
 parent: null
 tags:
