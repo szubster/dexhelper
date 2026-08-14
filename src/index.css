@@ -131,12 +131,6 @@ body {
   animation: screen-flicker 0.1s infinite;
 }
 
-@keyframes slideRight {
-  0% { transform: translateX(-100%); }
-  50% { transform: translateX(100%); }
-  100% { transform: translateX(100%); }
-}
-
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     /* biome-ignore lint/complexity/noImportantStyles: A11y override */

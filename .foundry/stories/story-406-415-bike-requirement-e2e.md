@@ -30,5 +30,4 @@ As per Orchestrator Safeguard requirements, every EPIC must generate a final STO
 Implement end-to-end integration tests using Playwright to ensure that the bike requirement filtering on the Smart Route Radar and the UI badges on the interactive map are functioning correctly together. Mock data representing maps with Acro and Mach bike requirements should be used to verify visual badges and heatmap data integration.
 
 ## Acceptance Criteria
-- [x] tech_lead: Break down this Story into Tasks.
-- [ ] task-415-422-bike-requirement-e2e-impl
+- [ ] tech_lead: Break down this Story into Tasks.

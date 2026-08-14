@@ -80,20 +80,6 @@ export const GEN1_TM_EVENT_FLAGS: Record<number, number> = {
   249: 0x18e,
 };
 
-/**
- * Evaluates which Gen 1 TMs (Technical Machines) and HMs (Hidden Machines) have been obtained.
- *
- * **Architecture Note:**
- * Similar to static encounters, Gen 1 stores TM/HM acquisition in a packed bit array to save memory.
- * This function extracts the bit corresponding to each TM/HM using bitwise operations
- * and maps it to a boolean record indexed by the move ID.
- *
- * @param eventFlags - The raw byte array of event flags.
- * @returns A dictionary mapping the specific TM/HM move ID to a boolean of whether it has been acquired.
- * @example
- * const tms = parseGen1TMFlags(saveData.eventFlags);
- * if (tms[206]) { console.log('Obtained TM 206!'); }
- */
 export function parseGen1TMFlags(eventFlags: Uint8Array): Record<number, boolean> {
   const flags: Record<number, boolean> = {};
   for (const [idStr, flag] of Object.entries(GEN1_TM_EVENT_FLAGS)) {

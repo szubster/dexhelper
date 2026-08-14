@@ -25,7 +25,7 @@ notes: ""
 # Epic: Gen 3 Berry Tracker Map Integration
 
 ## Overview
-This Epic implements the mapping and graph overlay functionality for the Gen 3 Berry Farming Tracker. It relies on the data extraction provided by `epic-067-055-gen3-berry-tracker-data-extraction`. The core objective is to plot the parsed berry patches on the unified Gen 3 map graph.
+This Epic implements the mapping and graph overlay functionality for the Gen 3 Berry Farming Tracker. It relies on the data extraction provided by `epic-037-055-gen3-berry-tracker-data-extraction`. The core objective is to plot the parsed berry patches on the unified Gen 3 map graph.
 
 ## Details
 *   **Graph Mapping:** Utilize the unified `gen3Graph.ts` (as defined in ADR 010 `010-gen3-map-graph-design.md`) to map internal map IDs from berry patches to their corresponding logical nodes on the overworld map.

@@ -2,7 +2,7 @@
 id: task-418-426-qa-fast-check-setup
 type: TASK
 title: QA Fast-Check Setup and Properties
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-14'
 updated_at: '2026-08-14'

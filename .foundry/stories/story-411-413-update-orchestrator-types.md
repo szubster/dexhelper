@@ -29,5 +29,4 @@ Update the TypeScript interfaces and Zod validators in `.github/scripts/schema.t
 2. Add `experiment_variants` to the `NodeFrontmatterSchema` in `.github/scripts/schema.ts` as an optional array of strings (e.g. `z.array(z.string()).optional()`).
 
 ## Acceptance Criteria
-- [x] Tech Lead: Break down into Tasks.
-- [ ] task-413-422-update-orchestrator-types
+- [ ] Tech Lead: Break down into Tasks.

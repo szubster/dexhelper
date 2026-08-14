@@ -63,7 +63,3 @@ For each of these 5 slots, if the `species` field (a `u16` at offset `0x08` with
 - When implementing Trainer Card validation for the Contest Star, **do not** scan PC boxes for ribbons.
 - You must parse the `contestWinners` array at the end of `SaveBlock1` (Emerald offset `0x2e90`), specifically checking the `species` ID of indices 8 through 12.
 - A new ADR/KB document `.foundry/docs/knowledge_base/gen3_contest_museum_offsets.md` was created to document the exact byte offsets.
-
-# Session 13338548861872728964
-
-The permanent failure (Max rejection count reached) of `epic-038-061-pokerus-state-exfiltration` was caused by a violation of the Orchestrator Safeguard. Although the codebase implementations for parsing the Gen 2 Pokerus byte were correctly verified and refactored (as confirmed by the auditor and Tech Lead), the Epic was continuously rejected upon transition attempts because the Story Owner did not append a STORY node dedicated to Integration and E2E Verification (tagged with `e2e` or `integration`). As a strict macro-node constraint, every Epic must terminate with an E2E story.

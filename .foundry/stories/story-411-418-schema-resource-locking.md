@@ -29,7 +29,4 @@ Implement schema updates to introduce the `locks` field into the Foundry DAG orc
 - Update `.github/scripts/schema.ts` to validate this field as an array of strings.
 
 ## Acceptance Criteria
-- [x] Tech Lead breaks down this STORY into TASK nodes for implementation.
-- [ ] task-418-422-document-locks-schema
-- [ ] task-418-423-implement-locks-zod
-- [ ] task-418-424-schema-locks-qa
+- [ ] Tech Lead breaks down this STORY into TASK nodes for implementation.

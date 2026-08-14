@@ -27,7 +27,7 @@ notes: ""
 This Epic focuses on creating a user-friendly, read-only UI dashboard to display the Mystery Gift data extracted from a Gen 3 save file. Collectors and retro gamers will use this dashboard to view their active Wonder Cards and corresponding event ticket statuses natively within DexHelper.
 
 ## Prerequisites
-- The data extraction pipeline for Mystery Gift (epic-121-345) must be completed.
+- The data extraction pipeline for Mystery Gift (epic-121-345-gen3-mystery-gift-data-extraction) must be completed.
 
 ## Acceptance Criteria
 - [ ] Create a read-only UI dashboard component to display Mystery Gift data.

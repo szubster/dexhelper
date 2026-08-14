@@ -27,5 +27,5 @@ The Foundry DAG Orchestrator currently traverses the entire `.foundry` directory
 Update `discoverNodeFiles` in `.github/scripts/foundry-orchestrator.ts` to skip `archive` directories. Specifically, update the directory skip logic in the `if (entry.isDirectory())` block to also skip `entry.name === 'archive'`.
 
 ## Acceptance Criteria
-- [x] Update `discoverNodeFiles` to skip `archive/` directories.
-- [x] Ensure this exclusion logic covers both `.foundry/archive/stories/` and `.foundry/archive/tasks/`.
+- [ ] Update `discoverNodeFiles` to skip `archive/` directories.
+- [ ] Ensure this exclusion logic covers both `.foundry/archive/stories/` and `.foundry/archive/tasks/`.

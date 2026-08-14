@@ -29,5 +29,4 @@ Update `.foundry/docs/schema.md` to define the YAML structure for defining A/B e
 2. Define an `experiment_variants` array property in the frontmatter schema, indicating it supports tracking variant configurations.
 
 ## Acceptance Criteria
-- [x] Tech Lead: Break down into Tasks.
-- [ ] task-412-422-update-experiment-schema
+- [ ] Tech Lead: Break down into Tasks.

@@ -4,13 +4,10 @@ const BOX_LOCATION_PREFIX = 'Box';
 
 /**
  * Groups an array of PokemonInstance by speciesId, filtering out any Pokemon
- * that are not stored in a PC Box (e.g., filtering out Pokemon in the Party or Daycare).
+ * that are not stored in a PC Box.
  *
  * @param pokemonList Array of PokemonInstance to filter and group
  * @returns Record grouping speciesId to an array of PokemonInstance
- * @example
- * const grouped = groupBoxPokemonBySpecies(saveData.allPokemon);
- * const pikachusInPC = grouped[25] || [];
  */
 export function groupBoxPokemonBySpecies(pokemonList: PokemonInstance[]): Record<number, PokemonInstance[]> {
   const grouped: Record<number, PokemonInstance[]> = {};

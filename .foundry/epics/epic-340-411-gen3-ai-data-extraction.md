@@ -35,9 +35,5 @@ Extract the necessary state from Gen 3 save files to feed into the AI move predi
 - Must support Emerald, FireRed, LeafGreen, Ruby, and Sapphire.
 
 ## Acceptance Criteria
-- [x] Story Owner: Break down into actionable STORY nodes.
-- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] story-411-420-extract-player-team
-- [ ] story-411-421-extract-player-location
-- [ ] story-411-422-extract-opponent-data
-- [ ] story-411-423-gen3-ai-data-extraction-e2e
+- [ ] Story Owner: Break down into actionable STORY nodes.
+- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
