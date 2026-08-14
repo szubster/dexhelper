@@ -36,5 +36,5 @@ Enforce the rule that a macro node (IDEA, PRD, EPIC, STORY) MUST NOT be verified
 
 
 ### Generated Epics
-- [x] .foundry/epics/epic-045-070-orchestrator-strict-completion.md
+- [x] .foundry/archive/epics/epic-045-070-orchestrator-strict-completion.md
 - [x] .foundry/epics/epic-045-071-documentation-macro-node-completion.md
