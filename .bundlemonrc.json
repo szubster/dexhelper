@@ -78,6 +78,10 @@
       "maxSize": "200kb"
     },
     {
+      "path": "assets/*-<hash>.js",
+      "maxSize": "10kb"
+    },
+    {
       "path": "data/foundry.json",
       "maxSize": "250kb"
     },
