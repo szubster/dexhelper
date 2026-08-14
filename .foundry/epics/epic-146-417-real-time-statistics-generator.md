@@ -8,6 +8,8 @@ created_at: '2026-08-14'
 updated_at: '2026-08-14'
 depends_on: []
 parent: prd-146-001-foundry-system-statistics
+jules_session_id: '11083204589735225959'
+pr_number: null
 tags:
   - orchestrator
   - metrics
