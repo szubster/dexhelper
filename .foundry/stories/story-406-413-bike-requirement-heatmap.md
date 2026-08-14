@@ -28,4 +28,6 @@ As part of the Route Pre-computation & Mapping Epic, we need to expose the parse
 Update `RouteRadarController` or related mapping components to consume the newly parsed map data that indicates bike requirements, and structure it so that the frontend can easily read which areas (or significant portions) require which bikes.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks.
+- [x] tech_lead: Break down this Story into Tasks.
+- [ ] task-413-422-update-route-radar-controller
+- [ ] task-413-423-route-radar-controller-qa
