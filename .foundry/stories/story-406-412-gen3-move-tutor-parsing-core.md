@@ -42,3 +42,6 @@ The parsing implementation must use `DataView` for all byte reading, as per ADR 
 - [ ] The core extraction logic uses `DataView`.
 - [ ] Logic gracefully handles `RangeError` during out-of-bounds `DataView` access.
 - [ ] Unit tests cover parsing valid and malformed structures for both game versions.
+- [ ] task-412-422-gen3-move-tutor-constants
+- [ ] task-412-423-gen3-move-tutor-extractor
+- [ ] task-412-424-gen3-move-tutor-qa
