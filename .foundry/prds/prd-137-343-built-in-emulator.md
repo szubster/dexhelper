@@ -33,4 +33,7 @@ To address this, we want to embed a high-performance, open-source Game Boy (GB/G
 4.  **Reactive UI Foundation**: Ensure the existing React UI components can reactively re-render based on these live memory streams, transforming DexHelper from a static tool to a real-time live companion.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into EPIC nodes that address emulator integration, memory reading, and reactive UI updates.
+- [x] Epic Planner: Break down this PRD into EPIC nodes that address emulator integration, memory reading, and reactive UI updates.
+- [ ] epic-343-423-wasm-emulator-integration
+- [ ] epic-343-424-live-memory-reading
+- [ ] epic-343-425-reactive-ui-updates
