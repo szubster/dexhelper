@@ -25,5 +25,7 @@ notes: ''
 Implement the core semantic validation utility using an LLM-based assertion or structured abstract representation evaluator. This utility will evaluate agent prompt tests by verifying intent and presence of a rule rather than enforcing precise textual representation.
 
 ## Acceptance Criteria
-- [ ] Break down this Epic into Stories.
-- [ ] Ensure a final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [x] Break down this Epic into Stories.
+- [x] Ensure a final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [ ] story-417-422-implement-semantic-evaluator-engine
+- [ ] story-417-423-semantic-evaluator-e2e
