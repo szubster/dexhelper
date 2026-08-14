@@ -2,7 +2,7 @@
 id: idea-149-reevaluate-acceptance-criteria
 type: IDEA
 title: Re-evaluate Acceptance Criteria Structure and Usage in Foundry
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-08-14'
 updated_at: '2026-08-14'
