@@ -3003,8 +3003,8 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(parentContent).toContain('status: COMPLETED');
   });
 
-  test('Regression: Idempotent generation check bypasses dispatch of archived parent with archived children', () => {
-    createValidTestNode(tmpDir, '.foundry/archive/epics/epic-parent.md', {
+  test('Regression: Idempotent generation check bypasses dispatch of parent with completed children', () => {
+    createValidTestNode(tmpDir, '.foundry/epics/epic-parent.md', {
       id: "epic-parent",
       type: "EPIC",
       title: "Epic Parent",
@@ -3018,7 +3018,7 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
 ## Acceptance Criteria
 - [x] Child Story: [.foundry/stories/story-child.md](.foundry/stories/story-child.md)`);
 
-    createValidTestNode(tmpDir, '.foundry/archive/stories/story-child.md', {
+    createValidTestNode(tmpDir, '.foundry/stories/story-child.md', {
       id: "story-child",
       type: "STORY",
       title: "Story Child",
@@ -3034,8 +3034,45 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
 
     main();
 
-    const parentContent = fs.readFileSync(path.join(tmpDir, '.foundry/archive/epics/epic-parent.md'), 'utf-8');
+    const parentContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-parent.md'), 'utf-8');
     // It should be promoted to COMPLETED directly, bypassing READY/ACTIVE dispatch!
+    expect(parentContent).toContain('status: COMPLETED');
+  });
+
+  test('Archived Child ID Resolution: resolves child ID when child is archived and not in ID map', () => {
+    createValidTestNode(tmpDir, '.foundry/epics/epic-parent.md', {
+      id: "epic-parent",
+      type: "EPIC",
+      title: "Epic Parent",
+      status: "PENDING",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    }, `# Epic Parent
+## Acceptance Criteria
+- [x] story-child-archived`);
+
+    // Archived child that the orchestrator will explicitly skip during discovery
+    createValidTestNode(tmpDir, '.foundry/archive/stories/story-child-archived.md', {
+      id: "story-child-archived",
+      type: "STORY",
+      title: "Archived Story Child",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: "epic-parent",
+      tags: ["e2e"],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const parentContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-parent.md'), 'utf-8');
+    // Because the child was successfully resolved to COMPLETED, the parent should be promoted to COMPLETED directly.
     expect(parentContent).toContain('status: COMPLETED');
   });
 

@@ -29,4 +29,8 @@ As part of the Route Pre-computation & Mapping Epic, players should visually see
 Implement UI badges (e.g., `[Requires Mach Bike]` or `[Requires Acro Bike]`) on the interactive map and Smart Route Radar. These badges should be displayed when a player views a route where significant portions are gated by these mechanics, utilizing the newly exposed heatmap data. Ensure adherence to the tactical hardware aesthetic guidelines.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks.
+- [x] tech_lead: Break down this Story into Tasks.
+
+- [ ] task-414-422-bike-badge-component-impl
+- [ ] task-414-423-map-ui-bike-integration-impl
+- [ ] task-414-424-bike-badge-ui-qa

@@ -30,6 +30,6 @@ Implement integration tests for the Gen 3 Trainer Flags Extraction logic to ensu
 3. **Environment**: Utilize the established vitest setup in the repository for integration tests.
 
 ## Acceptance Criteria
-- [ ] Implement integration tests verifying Gen 3 standard trainer defeat flag extractions.
-- [ ] Implement integration tests verifying Gen 3 rematch trainer flag extractions.
-- [ ] Ensure all tests pass in the CI environment (`pnpm test`).
+- [x] Implement integration tests verifying Gen 3 standard trainer defeat flag extractions.
+- [x] Implement integration tests verifying Gen 3 rematch trainer flag extractions.
+- [x] Ensure all tests pass in the CI environment (`pnpm test`).

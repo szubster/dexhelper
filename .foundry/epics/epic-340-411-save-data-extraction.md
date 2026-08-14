@@ -30,4 +30,9 @@ This epic focuses on building the underlying data extraction for the Active Part
 - [ ] Parse narrative/story progression flags to determine upcoming major bosses.
 - [ ] Extract Active Party data and synchronize it with the matchup context.
 - [ ] Extract PC Box and TM Inventory data concurrently to be used by the recommendation engine.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+
+- [ ] story-411-420-narrative-progression-flags
+- [ ] story-411-421-active-party-extraction
+- [ ] story-411-422-pc-box-and-tm-extraction
+- [ ] story-411-423-save-data-extraction-e2e
