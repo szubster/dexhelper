@@ -1,4 +1,4 @@
-import type React from 'react';
+import React from 'react';
 import { getGenerationConfig } from '../../utils/generationConfig';
 
 interface PokemonSpriteProps {
@@ -19,7 +19,8 @@ interface PokemonSpriteProps {
  * Shared Pokémon sprite component that always uses the correct generation-specific
  * sprite URL from generationConfig. Eliminates hardcoded sprite URLs across components.
  */
-export function PokemonSprite({
+// ⚡ Bolt: Wrapped in React.memo to prevent unnecessary image re-evaluations across large list views (PC storage and Pokedex grids)
+export const PokemonSprite = React.memo(function PokemonSprite({
   pokemonId,
   generation,
   isShiny = false,
@@ -48,4 +49,4 @@ export function PokemonSprite({
       onError={handleError}
     />
   );
-}
+});

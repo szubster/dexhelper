@@ -1,3 +1,4 @@
+import React from 'react';
 import { TacticalMultiSelectControl } from '../TacticalMultiSelectControl';
 
 export interface DagFilterPanelProps {
@@ -12,7 +13,8 @@ export interface DagFilterPanelProps {
 const ALL_TYPES = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK'];
 const ALL_STATUSES = ['PENDING', 'READY', 'ACTIVE', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED'];
 
-export function DagFilterPanel({
+// ⚡ Bolt: Wrapped in React.memo to prevent unnecessary re-renders of the filter panel during DAG pan/zoom
+export const DagFilterPanel = React.memo(function DagFilterPanel({
   activeTypes,
   activeStatuses,
   showPermanentFailures,
@@ -96,4 +98,4 @@ export function DagFilterPanel({
       </button>
     </div>
   );
-}
+});
