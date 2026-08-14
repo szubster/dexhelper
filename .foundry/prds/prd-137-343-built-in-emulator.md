@@ -28,7 +28,7 @@ To address this, we want to embed a high-performance, open-source Game Boy (GB/G
 
 ## Scope
 1.  **Emulator Selection & Integration**: Integrate `mGBA` or `binjgb` via WASM. Ensure it has memory mapping visibility so that we can read from memory rather than the save file sector.
-2.  **Zero ROM Policy**: Users must provide their own `.gba` or `.gbc` files via a local file picker or drag-and-drop. No ROMs can be hosted or bundled.
+2.  **Zero ROM Policy**: Users must provide their own `.gba` or `.gbc` files via a local file picker or drag-and-drop. No ROMs can be hosted or bundled. These ROMs should be stored securely in the browser's persistent storage (like IndexedDB or LocalStorage) to persist across sessions but must never be transmitted over the network or transferred from the client device.
 3.  **Real-Time Ram Reading**: Establish a direct channel to read WASM memory buffers in real-time, mapping standard save blocks and game state variables continuously.
 4.  **Reactive UI Foundation**: Ensure the existing React UI components can reactively re-render based on these live memory streams, transforming DexHelper from a static tool to a real-time live companion.
 
