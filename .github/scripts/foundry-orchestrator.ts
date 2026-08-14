@@ -783,6 +783,44 @@ function main(): void {
     }
   }
 
+  // ── Phase 3.10: HIERARCHICAL DEADLOCK DETECTION ────────────────────────────
+  info('Phase 3.10: Detecting hierarchical deadlocks...');
+  for (const node of nodes) {
+    if (node.frontmatter.status === 'COMPLETED' || node.frontmatter.status === 'CANCELLED') continue;
+
+    const children = parentToChildren.get(node.repoPath) || [];
+    for (const child of children) {
+      if (child.frontmatter.status === 'COMPLETED' || child.frontmatter.status === 'CANCELLED') continue;
+
+      const queue = [child.repoPath];
+      const visited = new Set<string>();
+      let isCyclic = false;
+
+      while (queue.length > 0) {
+        const curr = queue.shift()!;
+        if (visited.has(curr)) continue;
+        visited.add(curr);
+
+        if (curr === node.repoPath) {
+          isCyclic = true;
+          break;
+        }
+
+        const currNode = nodeMap.get(curr);
+        if (currNode) {
+          for (const depRef of currNode.frontmatter.depends_on) {
+            const depPath = resolveNodePath(depRef);
+            if (depPath) queue.push(depPath);
+          }
+        }
+      }
+
+      if (isCyclic) {
+        warn(`Hierarchical deadlock detected: Parent '${node.frontmatter.id}' (${node.repoPath}) has unchecked/incomplete child '${child.frontmatter.id}' (${child.repoPath}), but '${child.frontmatter.id}' transitively depends on '${node.frontmatter.id}' via its depends_on array!`);
+      }
+    }
+  }
+
   // ── Phase 4: RESOLVE ───────────────────────────────────────────────────────
   info('Phase 4: Resolving DAG — finding eligible PENDING nodes...');
   const eligible: ParsedNode[] = [];
