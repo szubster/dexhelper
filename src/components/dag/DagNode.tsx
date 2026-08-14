@@ -1,4 +1,5 @@
 import { Handle, Position } from '@xyflow/react';
+import React from 'react';
 import { cn } from '../../utils/cn';
 import { CornerCrosshairs } from '../CornerCrosshairs';
 import { useDagContext } from '../dashboard/DagContext';
@@ -14,7 +15,8 @@ export type DagNodeData = Record<string, unknown> & {
   isDimmed?: boolean;
 };
 
-export function DagNode({ data }: { data: DagNodeData }) {
+// ⚡ Bolt: Wrapped in React.memo to prevent unnecessary re-renders when parent states or viewports change
+export const DagNode = React.memo(function DagNode({ data }: { data: DagNodeData }) {
   const { maxRejectionThreshold } = useDagContext();
   let statusColor = 'text-zinc-500';
   let dotColor = 'text-zinc-500';
@@ -90,4 +92,4 @@ export function DagNode({ data }: { data: DagNodeData }) {
       <Handle type="source" position={Position.Bottom} className="!bg-zinc-500 !w-2 !h-2 !rounded-none !border-0" />
     </div>
   );
-}
+});
