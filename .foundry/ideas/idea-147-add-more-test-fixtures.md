@@ -1,13 +1,13 @@
 ---
 id: idea-147-add-more-test-fixtures
 type: IDEA
-title: Add more real save file test fixtures for Gen 1, 2, and 3
-status: READY
+title: 'Add more real save file test fixtures for Gen 1, 2, and 3'
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-12'
-updated_at: '2026-08-12'
+updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16549200668202358255'
 pr_number: null
 parent: null
 tags:
