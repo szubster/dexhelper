@@ -2,12 +2,12 @@
 id: epic-343-423-wasm-emulator-integration
 type: EPIC
 title: WASM Emulator Integration
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-14'
 updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5531363747770716529'
 pr_number: null
 parent: prd-137-343-built-in-emulator
 tags:
