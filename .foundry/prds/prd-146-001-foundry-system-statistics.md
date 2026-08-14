@@ -36,7 +36,7 @@ As the system evolves, new metrics and ideas will inevitably emerge. Therefore, 
 We propose adding an automated statistics generator to the Foundry Orchestrator, alongside a standalone history backfilling script.
 
 ### 1. Unified Statistics Document Schema
-A structured JSON statistics file `foundry-statistics.json` **must be stored in the root directory of the repository**. This keeps the statistics immediately accessible and prominent at the top level of the workspace.
+A structured JSON statistics file `foundry-statistics.json` and a markdown file `foundry-statistics.md` **must be stored in the root directory of the repository**. This keeps the statistics immediately accessible and prominent at the top level of the workspace for both programmatic and human consumption.
 
 The JSON schema should resemble:
 ```json
@@ -45,7 +45,8 @@ The JSON schema should resemble:
   "pr_metrics": {
     "total_prs": 150,
     "auto_merged_prs": 120,
-    "manual_merged_prs": 30,
+    "manual_merged_prs": 20,
+    "closed_not_merged_prs": 10,
     "auto_merge_success_rate": 0.80
   },
   "node_status_counts": {
@@ -88,8 +89,8 @@ The statistics calculation logic should be modularized (e.g., in `.github/script
 - **Workflow**:
   1. The script recursively scans the `.foundry/` directory to count nodes by type and status, parsing YAML frontmatter.
   2. It queries the GitHub API (via `gh pr list --state all --json`) to compile PR metrics.
-  3. It generates the `foundry-statistics.json` file.
-  4. If the file has changed, it automatically commits the update directly to the `main` branch.
+  3. It generates both the `foundry-statistics.json` file and a human-readable `foundry-statistics.md` file containing markdown tables.
+  4. If either file has changed, it automatically commits the updates directly to the `main` branch.
 
 ### 3. Git History Parser (Backfilling Engine)
 We will develop a standalone CLI utility, `foundry-backfill-stats.ts`, located under `.github/scripts/`.
