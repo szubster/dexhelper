@@ -1,15 +1,15 @@
 ---
-id: story-411-413-update-orchestrator-types
-type: STORY
+id: task-413-422-update-orchestrator-types
+type: TASK
 title: Update Orchestrator Types for Experiment Schema
-status: ACTIVE
-owner_persona: tech_lead
-created_at: '2026-08-11'
-updated_at: '2026-08-12'
+status: PENDING
+owner_persona: coder
+created_at: '2026-08-13'
+updated_at: '2026-08-13'
 depends_on: []
-jules_session_id: '17097646988462648489'
+jules_session_id: null
 pr_number: null
-parent: epic-340-411-experiment-schema-updates
+parent: story-411-413-update-orchestrator-types
 tags:
   - schema
   - foundry
@@ -27,7 +27,8 @@ Update the TypeScript interfaces and Zod validators in `.github/scripts/schema.t
 ## Scope
 1. Update `NodeTypeEnum` in `.github/scripts/schema.ts` to include `'EXPERIMENT'`.
 2. Add `experiment_variants` to the `NodeFrontmatterSchema` in `.github/scripts/schema.ts` as an optional array of strings (e.g. `z.array(z.string()).optional()`).
+3. Add corresponding tests in `.github/scripts/schema.test.ts`.
 
 ## Acceptance Criteria
-- [x] Tech Lead: Break down into Tasks.
-- [ ] task-413-422-update-orchestrator-types
+- [ ] Coder: Update `schema.ts`.
+- [ ] Coder: Update `schema.test.ts`.
