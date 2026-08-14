@@ -2,10 +2,10 @@
 id: story-087-280-item-runtime-integration
 type: STORY
 title: Item Data Runtime Integration
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-07-11'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,4 +36,4 @@ We have successfully generated `items.jsonl` dynamically and integrated it into 
 - [x] Break down this STORY into concrete TASK nodes for implementation.
 - [x] task-280-304-item-db-schema-and-sync
 - [ ] task-280-305-refactor-game-item-map
-- [ ] task-280-306-item-runtime-qa
+- [x] task-280-306-item-runtime-qa
