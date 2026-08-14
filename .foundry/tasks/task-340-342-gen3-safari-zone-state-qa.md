@@ -2,7 +2,7 @@
 id: task-340-342-gen3-safari-zone-state-qa
 type: TASK
 title: Gen 3 Safari Zone State Parsing QA
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-25'
 updated_at: '2026-08-14'
@@ -16,8 +16,8 @@ tags:
   - safari-zone
   - gen3
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
