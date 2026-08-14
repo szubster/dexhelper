@@ -2,12 +2,12 @@
 id: research-038-407-investigate-pokerus-state-exfiltration-failure
 type: RESEARCH
 title: Investigate Pokerus State Exfiltration Failure
-status: ACTIVE
+status: PENDING
 owner_persona: researcher
 created_at: '2026-08-10'
-updated_at: '2026-08-13'
+updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: '13338548861872728964'
+jules_session_id: null
 pr_number: null
 parent: prd-069-038-pokerus-tracker
 tags:

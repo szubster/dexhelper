@@ -2,10 +2,10 @@
 id: story-411-420-extract-player-team
 type: STORY
 title: Extract Player's Active Team
-status: PENDING
+status: READY
 owner_persona: tech_lead
-created_at: "2026-08-13"
-updated_at: "2026-08-13"
+created_at: '2026-08-13'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - ai
   - save-engine
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Story: Extract Player's Active Team

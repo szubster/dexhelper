@@ -2,12 +2,12 @@
 id: prd-137-343-built-in-emulator
 type: PRD
 title: Built-in Emulator Integration
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-13'
 updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: '13026451573028062878'
+jules_session_id: null
 pr_number: null
 parent: idea-137-builtin-emulator
 tags:

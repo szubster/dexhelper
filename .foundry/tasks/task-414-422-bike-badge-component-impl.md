@@ -2,10 +2,10 @@
 id: task-414-422-bike-badge-component-impl
 type: TASK
 title: Implement Bike Requirement UI Badge Component
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-13'
-updated_at: '2026-08-13'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

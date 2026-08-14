@@ -2,12 +2,12 @@
 id: story-409-412-add-librarian-persona-schema
 type: STORY
 title: Add Librarian Persona to Schema
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-13'
+updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: '11430797882080647600'
+jules_session_id: null
 pr_number: null
 parent: epic-339-409-librarian-schema-updates
 tags:

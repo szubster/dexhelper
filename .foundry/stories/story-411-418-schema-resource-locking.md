@@ -2,12 +2,12 @@
 id: story-411-418-schema-resource-locking
 type: STORY
 title: Schema Resource Locking
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-11'
-updated_at: '2026-08-12'
+updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: '4135588043217249821'
+jules_session_id: null
 pr_number: null
 parent: epic-340-411-schema-resource-locking
 tags:

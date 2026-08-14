@@ -2,10 +2,10 @@
 id: story-405-408-orchestrator-archive-bypass-implementation
 type: STORY
 title: Orchestrator Archive Bypass Implementation
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-11'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -26,4 +26,4 @@ Implement logic in `discoverNodeFiles` in `.github/scripts/foundry-orchestrator.
 ## Acceptance Criteria
 - [ ] Update `discoverNodeFiles` to skip `archive/` directories.
 - [ ] Ensure this exclusion logic covers both `.foundry/archive/stories/` and `.foundry/archive/tasks/`.
-- [ ] task-408-415-orchestrator-archive-bypass-implementation
+- [x] task-408-415-orchestrator-archive-bypass-implementation

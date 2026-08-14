@@ -2,10 +2,10 @@
 id: task-412-422-implement-librarian-persona-schema
 type: TASK
 title: Implement Librarian Persona in Schema
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-10'
-updated_at: '2026-08-10'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,10 +2,10 @@
 id: story-411-420-narrative-progression-flags
 type: STORY
 title: Parse narrative/story progression flags to determine upcoming major bosses.
-status: PENDING
+status: READY
 owner_persona: tech_lead
-created_at: 2026-08-11
-updated_at: 2026-08-11
+created_at: '2026-08-11T00:00:00.000Z'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 # Parse narrative/story progression flags to determine upcoming major bosses.
 

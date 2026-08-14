@@ -2,10 +2,10 @@
 id: task-408-416-gen3-trainer-flags-e2e-impl
 type: TASK
 title: Implement Gen 3 Trainer Flags E2E Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-10'
-updated_at: '2026-08-12'
+updated_at: '2026-08-14'
 depends_on:
   - task-408-415-gen3-trainer-flags-integration-impl
 jules_session_id: null

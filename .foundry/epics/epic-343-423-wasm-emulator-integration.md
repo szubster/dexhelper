@@ -2,7 +2,7 @@
 id: epic-343-423-wasm-emulator-integration
 type: EPIC
 title: WASM Emulator Integration
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-14'
 updated_at: '2026-08-14'

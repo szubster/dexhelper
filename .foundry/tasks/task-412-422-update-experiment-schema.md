@@ -2,10 +2,10 @@
 id: task-412-422-update-experiment-schema
 type: TASK
 title: Update Schema with EXPERIMENT type and experiment_variants
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-08-12"
-updated_at: "2026-08-12"
+created_at: '2026-08-12'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - schema
   - documentation
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Update Schema with EXPERIMENT type and experiment_variants
