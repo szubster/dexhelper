@@ -30,4 +30,8 @@ Implement the extraction of key event items from the player's Bag in Gen 3 save 
 - Expose this data for the UI dashboard.
 
 ## Acceptance Criteria
-- [ ] Break down into TASK nodes for inventory extraction and testing.
+- [x] Break down into TASK nodes for inventory extraction and testing.
+- [ ] task-409-418-gen3-event-inventory-extraction-parser-impl
+- [ ] task-409-419-gen3-event-inventory-extraction-parser-qa
+- [ ] task-409-420-gen3-event-inventory-extraction-ui-impl
+- [ ] task-409-421-gen3-event-inventory-extraction-ui-qa
