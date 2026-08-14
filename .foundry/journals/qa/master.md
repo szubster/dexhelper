@@ -41,3 +41,13 @@ task-408-418-schema-role-mapping-qa
 ## Learnings & Observations
 - The `test_list.sh` scratchpad file must be removed before PR creation.
 - Checked off the Markdown box for the empty PR rule safely without modifying YAML frontmatter.
+
+
+---
+
+# QA Session 8427761960184787152
+
+Verified the implementation of the Gen 3 Static Encounters UI (`task-295-408-gen3-static-encounters-ui-qa-retry`).
+The `Gen3StaticEncountersDashboard` is correctly displayed on the main Gen 3 dashboard (`src/routes/dashboard.tsx`).
+The UI correctly displays the static encounter checklist based on save file flags as verified by the Vitest unit tests in `src/components/dashboard/encounters/__tests__/Gen3StaticEncountersDashboard.test.tsx`.
+Checked off the acceptance criteria in the task markdown file.

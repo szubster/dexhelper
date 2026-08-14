@@ -1,7 +1,6 @@
 #
 
 # Session 10642899106052443585
-- Under the Late-Binding Orchestrator Demotion Compliance Rule, when processing a READY parent node (like an EPIC) with pending child tasks, we must generally submit an Empty PR without checking off the child tasks if they are incomplete.
 - However, if ALL descendant nodes (e.g. STORIES) are actually COMPLETED (e.g., they have transitioned to VERIFYING/COMPLETED in the system but the parent node's markdown checkbox is still unchecked), we MUST check off the parent's Acceptance Criteria checkboxes before submitting the PR. This satisfies ADR 007 and allows the macro node to transition to COMPLETED and gracefully exit the DAG.
 - Checking off a child node prematurely when it is not actually completed violates the Premature Verification policy and the MACRO NODE COMPLETION EXCEPTION.
 
@@ -51,7 +50,6 @@ When breaking down Gen 3 save data parsing epics, it is crucial to separate the 
 
 # Session 3965440180567252160
 
-Submitted an empty PR for `epic-055-113-egg-move-pathfinding-engine` because its child task `story-113-348-egg-move-pathfinding-e2e` is technically COMPLETED but has not been archived yet by the TPM (still located in `.foundry/stories/`). According to the Late-Binding Orchestrator Demotion Compliance Rule, when assigned a READY parent node that already has pending/active child tasks drafted from a previous iteration, the agent must submit an empty PR *without* checking off its overarching acceptance criteria. This allows the orchestrator to correctly demote the parent to PENDING while it waits for its children.
 
 # Session 4061683249242859916
 
@@ -80,7 +78,6 @@ In session 11236954308959706417 I created the STORIES to break down Epic 340-411
 
 When encountering a parent macro node that has pending child nodes located in active directories (like `.foundry/stories/`), even if their internal YAML status is `COMPLETED`, they are treated as pending by the Orchestrator. Therefore, their checkboxes must NOT be checked in the parent node's markdown body.
 
-We must submit an Empty PR (with 0 file changes) to allow the orchestrator to correctly demote the parent to PENDING. This satisfies the Late-Binding Orchestrator Demotion Compliance Rule.
 
 ## Context
 Breaking down epic `epic-117-335-integrate-zod-orchestrator` into story nodes as a story_owner.
@@ -126,3 +123,18 @@ Instead, I MUST strictly use appending (>>) to add the new task list items and t
 # Session 6207212354005436450
 
 Decomposed epic-340-411-schema-resource-locking into story-411-418-schema-resource-locking and story-411-419-schema-resource-locking-e2e.
+
+
+---
+
+# Session 13140198223003532357
+
+## Context
+
+## Constraints Encountered
+- **DAG ID Strictness**: We must use exact Node IDs without file extensions when defining `depends_on`.
+- **E2E Safeguard**: Epics require a final E2E verification Story, even for documentation-focused Epics, to comply with Orchestrator Safeguard.
+- **Empty PR Policy (Demotion)**: Since we generated pending children for the Epic, we must explicitly *not* check off the Epic's acceptance criteria. The Orchestrator requires these to be unchecked to demote the Epic back to PENDING. Submitting with unchecked boxes triggers the demotion correctly.
+
+## Strategy Adjustment
+In future planning for schema updates, ensure we always explicitly generate E2E validation stories.

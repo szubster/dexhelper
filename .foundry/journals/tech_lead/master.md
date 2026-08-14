@@ -47,11 +47,9 @@ The Gen 3 Trainer Card requires the Contest Master Rank flag, but standard docum
 
 ## Actions Taken
 - Explored codebase to find that Gen 3 trade parsing was already implemented with tasks `task-362-407-gen3-trade-extraction-impl` and `task-362-408-gen3-trade-extraction-qa` fully `COMPLETED`.
-- Followed the "Late-Binding Orchestrator Demotion Compliance Rule" and "Empty PR Policy" to submit an Empty PR.
 - Because all descendant nodes (`task-362-407` and `task-362-408`) were already `COMPLETED`, checking off the overarching acceptance criteria and child task checkboxes in the `STORY` markdown body was REQUIRED to satisfy the ADR 007 completeness contract, allowing the macro node to transition to `COMPLETED`.
 
 ## Lessons Learned
-- When executing the Empty PR Policy on macro nodes (e.g. `STORY`), you MUST verify the status of the child nodes first. If the child tasks are `COMPLETED`, you MUST check off the checkboxes in the parent `STORY` markdown body to satisfy ADR 007, and you can safely ignore automated code review tools flagging this as a violation of the "Late-Binding Orchestrator Demotion Compliance Rule". The Demotion Compliance Rule only applies when the parent is waiting on PENDING/drafted children, not completed ones.
 
 ## Actions Taken
 - Explored codebase to find that the epic planner e2e verification tasks (`task-350-407-epic-planner-process-e2e-impl` and `task-350-408-epic-planner-process-e2e-qa`) were fully `COMPLETED`.
@@ -59,7 +57,6 @@ The Gen 3 Trainer Card requires the Contest Master Rank flag, but standard docum
 - Followed the Empty PR Policy to submit an Empty PR.
 
 ## Lessons Learned
-- When executing the Empty PR Policy on macro nodes (e.g. `STORY`), you MUST verify the status of the child nodes first. If the child tasks are `COMPLETED`, you MUST check off the checkboxes in the parent `STORY` markdown body to satisfy ADR 007, and you can safely ignore automated code review tools flagging this as a violation of the "Late-Binding Orchestrator Demotion Compliance Rule". The Demotion Compliance Rule only applies when the parent is waiting on PENDING/drafted children, not completed ones.
 
 # Tech Lead Journal - Session 2256360421046757948
 
@@ -70,7 +67,6 @@ When introducing multi-state architectures (like multi-save structures), it's cr
 *   **Modularizing Binary Parsing vs. Offset Mapping (Gen 3):** When designing extraction pipelines for Gen 3 save files (which use A/B flash banks), there is a strong tendency to create monolithic tasks that attempt to parse the struct and map offsets simultaneously. I observed that breaking this down into separate tasks—one for defining the generic `DataView` struct parsing utility and another for determining game-engine specific block offsets (RS/E/FRLG) and invoking the generic parser—significantly improves task scoping and adherence to Section 13 guidelines. This modularity prevents the "Two-Tasks-Max" anti-pattern and provides clearer boundaries for unit testing relative offsets versus bitwise extraction. Moving forward, extraction stories spanning multiple Gen 3 engines should be broken down into at least three downstream tasks (Struct Parser, Game-Specific Integrations, QA Verification).
 
 ## Macro Node Completion & Orchestrator Demotion Compliance
-When tasked with updating a parent node whose children have all transitioned to COMPLETED, the Macro Node Completion Exception in the Late-Binding Orchestrator Demotion Compliance Rule applies.
 In this case, all child tasks (`task-356-396-zod-schema-e2e-fixtures-impl`, `task-356-397-zod-schema-e2e-suite-impl`, `task-356-398-zod-schema-e2e-qa`) were COMPLETED.
 Therefore, it was mandatory to check off their corresponding acceptance criteria checkboxes (`- [x]`) in the markdown body.
 Submitting an empty PR *without* checking the boxes is ONLY for when children are STILL pending (to allow demotion).
@@ -80,7 +76,6 @@ To trigger the pull request effectively without altering frontmatter (which is f
 
 ## Entry from 3919087474871679675.md
 
-Under the Late-Binding Orchestrator Demotion Compliance Rule, when processing a READY parent node with pending child tasks drafted from a previous iteration, you must submit an Empty PR without checking off the child task acceptance criteria. However, if ALL descendant nodes are already COMPLETED, you must check off the parent's Acceptance Criteria checkboxes before submitting the Empty PR to satisfy ADR 007 and allow the macro node to transition out of the DAG.
 
 # Journal Entry
 
@@ -131,13 +126,10 @@ When breaking down cross-generation integration stories, it is critical to use t
 
 # Session 1009842629473833134
 
-Assigned to `story-070-358-orchestrator-strict-completion-e2e`. The child tasks `task-358-407-orchestrator-strict-completion-e2e-impl` and `task-358-408-orchestrator-strict-completion-e2e-qa` were already marked `COMPLETED` in `.foundry/archive/tasks/`.
-However, because this is a late-binding parent node that had pending child tasks drafted from a previous iteration, checking off its overarching acceptance criteria prematurely violates the **Late-Binding Orchestrator Demotion Compliance Rule**.
 Thus, I am submitting an empty PR without checking off the overarching acceptance criteria to allow the orchestrator to correctly demote the parent to PENDING while it waits for its children.
 
 ## From 10078909000897565882.md
 
-When submitting an Empty PR to let the orchestrator demote a parent node (because child nodes were already drafted), do NOT check off the overarching acceptance criteria for those child nodes in the parent node. Checking them off violates the Late-Binding Orchestrator Demotion Compliance Rule, because a parent node cannot be verified (which checking the boxes signals) until all descendant nodes are fully COMPLETED.
 
 ## Learnings & Constraints
 - **Execution Plan Compliance (Exploration & Groundedness Rules):** All file paths must be explicitly discovered (e.g., using `ls`) and their contents fully read before proposing file modifications in an execution plan. Avoid proposing context-gathering steps (like reading a file to verify its structure) as future actions in the plan.
@@ -203,11 +195,9 @@ This anomaly suggests a potential timing issue or interruption in a previous ses
 
 When assigned to verify a parent node (in this case, `story-331-361-remove-orphaned-qa-rule-e2e.md`) and transition it from ACTIVE to VERIFYING, I noticed an anomaly where the drafted child tasks (`task-361-407`, `task-361-408`, `task-361-409`) were already marked as `COMPLETED` prior to this session.
 
-As per the DAG orchestration policies, since all child tasks have already transitioned to COMPLETED, the parent node's acceptance criteria checkboxes for these children MUST be explicitly checked off (`- [x]`) before submitting the PR. The Late-Binding Orchestrator Demotion Compliance Rule (which requires leaving boxes unchecked to allow the orchestrator to demote the parent to PENDING) applies *exclusively* to PENDING child tasks, not COMPLETED ones.
 
 Failing to check off the completed children's checkboxes results in a violation of the Macro Node Completion Exception and ADR 007's completeness requirements, preventing the parent node from successfully transitioning to the VERIFYING state. Therefore, it is critical to verify the status of the child tasks (e.g., using `grep "^status:"`) before determining whether to check off their corresponding checkboxes in the parent node's markdown body.
 
-LATE-BINDING ORCHESTRATOR DEMOTION COMPLIANCE RULE: When assigned a READY parent node that already has pending child tasks drafted from a previous iteration, we MUST submit an empty PR *without* checking off its overarching acceptance criteria. This allows the orchestrator to correctly demote the parent to PENDING while it waits for its children. We should NOT check off the child tasks in the parent node.
 
 # Session 3638590109204854976
 
@@ -242,3 +232,11 @@ To maintain compliance with the "Mandate Decomposition, Granularity, and Late Bi
 
 ## Future Implications
 Always separate headless test implementations (Vitest) from browser-driven test implementations (Playwright) into distinct tasks. This improves CI parallelization and allows more targeted debugging if one layer fails, enforcing strict boundaries between data modeling tests and presentation layer tests.
+
+---
+
+## Consolidated Learnings: Late-Binding Orchestrator Demotion Compliance Rule
+
+* **The Rule:** When assigned a READY parent node (like a STORY or EPIC) that already has pending child tasks drafted from a previous iteration, you MUST submit an empty PR *without* checking off its overarching acceptance criteria checkboxes.
+* **Why:** This allows the orchestrator to correctly demote the parent to PENDING while it waits for its children. Checking them off prematurely violates the MACRO NODE COMPLETION EXCEPTION.
+* **Exception for COMPLETED Children:** This rule applies *exclusively* to PENDING child tasks. If ALL descendant nodes are already `COMPLETED`, you MUST check off the parent's Acceptance Criteria checkboxes before submitting the Empty PR to satisfy ADR 007 and allow the macro node to transition out of the DAG.
