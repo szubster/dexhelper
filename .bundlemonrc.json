@@ -30,15 +30,15 @@
       "maxSize": "30kb"
     },
     {
-      "path": "assets/saveParserGen1-<hash>.js",
+      "path": "assets/gen1-<hash>.js",
       "maxSize": "20kb"
     },
     {
-      "path": "assets/saveParserGen2-<hash>.js",
+      "path": "assets/gen2-<hash>.js",
       "maxSize": "20kb"
     },
     {
-      "path": "assets/saveParserGen3-<hash>.js",
+      "path": "assets/gen3-<hash>.js",
       "maxSize": "30kb"
     },
     {
