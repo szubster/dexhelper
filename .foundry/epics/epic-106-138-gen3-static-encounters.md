@@ -2,12 +2,12 @@
 id: epic-106-138-gen3-static-encounters
 type: EPIC
 title: Gen 3 Static Encounters
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-06'
 updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3577853507697108357'
 pr_number: null
 parent: prd-100-106-static-encounter-tracker
 tags:
