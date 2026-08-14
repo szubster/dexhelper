@@ -2,10 +2,10 @@
 id: adr-145-031-component-variant-theming
 type: ADR
 title: 'ADR: Unified Component Variants and Theming'
-status: PENDING
+status: COMPLETED
 owner_persona: architect
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-08-14'
 depends_on:
   - .foundry/research/research-145-001-component-variant-libraries.md
   - .foundry/research/research-145-002-component-theming-mechanisms.md
