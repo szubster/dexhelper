@@ -29,4 +29,6 @@ This story focuses on creating the plumbing to connect the previously completed 
 - [ ] Implement data fetching from the save file inventory parser.
 - [ ] Format PC box and party data into a unified, easily searchable inventory object.
 - [ ] Write integration tests verifying inventory loading from mock save data.
-- [ ] Tech Lead: Draft TASK nodes to execute this story.
+- [x] Tech Lead: Draft TASK nodes to execute this story.
+- [ ] task-412-422-implement-egg-move-inventory
+- [ ] task-412-423-qa-egg-move-inventory
