@@ -11,6 +11,9 @@ The workspace configuration is handled via `test.projects` in `vitest.config.ts`
   - `pnpm test`: Runs all projects (node and browser).
   - `pnpm test:ct`: Runs only the browser-based component tests.
 
+## Banned Frameworks
+- **@testing-library/react and @testing-library/**: Strictly prohibited. Use `vitest-browser-react` for component unit tests and `@playwright/test` for E2E tests.
+
 ## Mocking Constraints
 - **window.location**: In Vitest Browser Mode (Playwright), `window.location` is read-only. Traditional JSDOM-style mocks using `Object.defineProperty` will fail.
 - **Recommendation**: Wrap window-level actions (like `reload()`) in utility functions (e.g., `src/utils/window.ts`) and mock the utility module using `vi.mock`.

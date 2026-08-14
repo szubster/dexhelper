@@ -144,6 +144,7 @@ If you lack critical context or specifications (e.g., exact memory offsets) nece
 
 ## Quality Assurance & Testing Policy
 Before marking a task as COMPLETED or approving it, you MUST run `pnpm lint && pnpm test` to ensure project health and that no regressions are introduced.
+**Prohibited Testing Libraries:** Do NOT use `@testing-library/react` or `@testing-library/*`. Use `vitest-browser-react` for browser component testing and `@playwright/test` for E2E testing.
 To automatically fix code formatting errors flagged by Biome during lint checks, run `pnpm check:fix` or `pnpm format:biome`.
 When modifying or verifying central systems like the DAG Orchestrator (`.github/scripts/foundry-orchestrator.ts`), you MUST also explicitly run its test suite (`cd .github/scripts && pnpm install && npx vitest`) and verify that no test functionality is broken.
 

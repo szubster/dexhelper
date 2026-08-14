@@ -31,7 +31,8 @@ When a bug or regression is reported:
     3. The application is in a stable state.
 
 ## 5. Documentation & Standard Patterns
-- **Unit Testing Framework**: [Vitest](https://vitest.dev/) for hooks and isolated logic.
+- **Unit Testing Framework**: [Vitest](https://vitest.dev/) for hooks and isolated logic (`vitest-browser-react` for component tests).
+- **Prohibited Frameworks**: `@testing-library/react` and `@testing-library/*` are strictly banned.
 - **E2E Tests**: [Playwright](https://playwright.dev/). Use `initializeWithSave(page)` from `tests/e2e/test-utils.ts` to hydrate the app state.
 - **Test Commands**: 
   - Unit tests: `pnpm test`
