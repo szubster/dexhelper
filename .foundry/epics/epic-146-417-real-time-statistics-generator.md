@@ -27,7 +27,7 @@ Implement a real-time statistics generation module that runs at the end of each 
 
 ## Requirements
 1. **Module Creation**: Create `.github/scripts/utils/statistics.ts` to house the counting and generation logic.
-2. **Node Scanning**: Scan `.foundry/` recursively to count nodes by type and status, parsing their YAML frontmatter.
+2. **Node Scanning**: Scan `.foundry/` recursively to count nodes by type and status, parsing their YAML frontmatter. Ensure it correctly categorizes and includes archived nodes from `.foundry/archive/`.
 3. **PR Metrics**: Fetch PR metrics via `gh pr list --state all --json` to compile data on total PRs, merged PRs, etc.
 4. **Report Output**: Generate `foundry-statistics.json` and `foundry-statistics.md` at the repository root.
 5. **Orchestrator Integration**: Integrate this module into `.github/scripts/foundry-orchestrator.ts` or `.github/workflows/foundry-heartbeat.yml` to trigger after each run and auto-commit if there are changes.
