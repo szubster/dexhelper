@@ -28,4 +28,6 @@ Implement the core logic for detecting conflicts during Cloudflare R2 syncing.
 - Future-proof for potential diffing/merging functionality.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Generate TASK node(s) for the core conflict detection logic.
+- [x] Tech Lead: Generate TASK node(s) for the core conflict detection logic.
+- [ ] task-420-425-r2-conflict-detection-logic-impl
+- [ ] task-420-426-r2-conflict-detection-logic-qa
