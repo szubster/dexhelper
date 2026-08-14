@@ -28,4 +28,8 @@ As part of the Route Pre-computation & Mapping Epic, we need to extract and pars
 Implement parsing logic within the map data extraction engine that specifically looks for map layout attributes or objects that are gated by either Mach or Acro bike mechanics. This data should be structured in a way that downstream consumers (like the Route Radar controller) can utilize.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks.
+- [x] tech_lead: Break down this Story into Tasks.
+- [ ] task-412-422-gen3-mach-bike-parsing-impl
+- [ ] task-412-423-gen3-acro-bike-parsing-impl
+- [ ] task-412-424-gen3-bike-data-struct-integration-impl
+- [ ] task-412-425-gen3-bike-map-parsing-qa
