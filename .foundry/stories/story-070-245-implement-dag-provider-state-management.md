@@ -2,10 +2,10 @@
 id: story-070-245-implement-dag-provider-state-management
 type: STORY
 title: Implement DagProvider State Management and Wrapper
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -25,5 +25,5 @@ The Auditor rejected `epic-045-070-implement-dag-context` because `DagProvider` 
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] .foundry/archive/tasks/task-245-249-implement-dag-provider-logic.md
-- [ ] .foundry/archive/tasks/task-245-250-implement-dag-provider-logic-qa.md
+- [x] .foundry/archive/tasks/task-245-249-implement-dag-provider-logic.md
+- [x] .foundry/archive/tasks/task-245-250-implement-dag-provider-logic-qa.md

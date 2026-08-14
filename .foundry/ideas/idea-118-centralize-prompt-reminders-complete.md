@@ -2,10 +2,10 @@
 id: idea-118-centralize-prompt-reminders-complete
 type: IDEA
 title: Re-evaluate Need for Coder/QA Reminders
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-07-24'
-updated_at: '2026-07-24'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

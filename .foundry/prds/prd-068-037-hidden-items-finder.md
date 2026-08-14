@@ -2,10 +2,10 @@
 id: prd-068-037-hidden-items-finder
 type: PRD
 title: Missing Hidden Items Finder Feature
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-06-01'
-updated_at: '2026-06-06'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

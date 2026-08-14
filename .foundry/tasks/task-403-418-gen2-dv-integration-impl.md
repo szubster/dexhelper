@@ -1,11 +1,11 @@
 ---
 id: task-403-418-gen2-dv-integration-impl
 type: TASK
-title: "Implement Integration Tests for Gen 2 DV Extraction"
-status: PENDING
+title: Implement Integration Tests for Gen 2 DV Extraction
+status: READY
 owner_persona: coder
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-08-14'
 depends_on:
   - story-112-401-gen2-dv-extraction
 jules_session_id: null

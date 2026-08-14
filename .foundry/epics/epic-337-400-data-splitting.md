@@ -2,10 +2,10 @@
 id: epic-337-400-data-splitting
 type: EPIC
 title: Data Splitting by Game Generation
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-05'
-updated_at: '2026-08-05'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

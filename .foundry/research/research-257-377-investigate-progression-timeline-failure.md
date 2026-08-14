@@ -2,10 +2,10 @@
 id: research-257-377-investigate-progression-timeline-failure
 type: RESEARCH
 title: Investigate Progression Timeline UI Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-08-01'
-updated_at: '2026-08-01'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

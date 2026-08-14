@@ -2,10 +2,10 @@
 id: epic-118-338-gen2-unown-dex-data-extraction
 type: EPIC
 title: Gen 2 Unown Dex Data Extraction
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-20'
-updated_at: '2026-07-20'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 parent: prd-119-118-gen2-unown-dex-tracker

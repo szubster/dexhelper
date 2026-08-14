@@ -2,10 +2,10 @@
 id: research-145-002-component-theming-mechanisms
 type: RESEARCH
 title: Research Component Theming Mechanisms
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

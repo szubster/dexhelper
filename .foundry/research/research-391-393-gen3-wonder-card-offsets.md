@@ -2,10 +2,10 @@
 id: research-391-393-gen3-wonder-card-offsets
 type: RESEARCH
 title: Investigate Gen 3 Wonder Card Offsets
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-08-03'
-updated_at: '2026-08-03'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

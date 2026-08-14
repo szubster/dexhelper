@@ -2,10 +2,10 @@
 id: task-281-305-gen3-system-time-fallback-qa
 type: TASK
 title: QA Gen 3 System Time Fallback Logic
-status: PENDING
+status: READY
 owner_persona: qa
-created_at: "2026-07-11"
-updated_at: "2026-07-11"
+created_at: '2026-07-11'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Task: QA Gen 3 System Time Fallback Logic

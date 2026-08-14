@@ -1,11 +1,11 @@
 ---
 id: story-083-126-gen3-match-call-dataview-implementation
 type: STORY
-title: 'Implement DataView Parser for Match Call'
-status: PENDING
+title: Implement DataView Parser for Match Call
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

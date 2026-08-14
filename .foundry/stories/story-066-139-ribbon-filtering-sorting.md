@@ -2,10 +2,10 @@
 id: story-066-139-ribbon-filtering-sorting
 type: STORY
 title: Ribbon Dashboard Filtering and Sorting
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-16'
-updated_at: '2026-06-16'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

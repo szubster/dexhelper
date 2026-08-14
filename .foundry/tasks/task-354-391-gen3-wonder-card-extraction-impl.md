@@ -2,10 +2,10 @@
 id: task-354-391-gen3-wonder-card-extraction-impl
 type: TASK
 title: Gen 3 Wonder Card Extraction Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-02'
-updated_at: '2026-08-03'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

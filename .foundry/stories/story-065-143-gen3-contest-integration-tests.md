@@ -2,10 +2,10 @@
 id: story-065-143-gen3-contest-integration-tests
 type: STORY
 title: Gen 3 Contest Integration Tests
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-16'
-updated_at: '2026-06-16'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

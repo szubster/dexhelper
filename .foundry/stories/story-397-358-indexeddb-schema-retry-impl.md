@@ -2,10 +2,10 @@
 id: story-397-358-indexeddb-schema-retry-impl
 type: STORY
 title: IndexedDB Storage Schema Implementation
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-08-05'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

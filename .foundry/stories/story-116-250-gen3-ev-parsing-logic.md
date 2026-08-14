@@ -2,10 +2,10 @@
 id: story-116-250-gen3-ev-parsing-logic
 type: STORY
 title: Story - Gen 3 EV Parsing Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-02'
-updated_at: '2026-07-02'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

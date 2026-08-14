@@ -2,10 +2,10 @@
 id: task-281-304-gen3-system-time-fallback-impl
 type: TASK
 title: Implement Gen 3 System Time Fallback Logic
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-07-11"
-updated_at: "2026-07-11"
+created_at: '2026-07-11'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - rtc
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Task: Implement Gen 3 System Time Fallback Logic

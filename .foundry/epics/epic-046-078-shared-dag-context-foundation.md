@@ -2,10 +2,10 @@
 id: epic-046-078-shared-dag-context-foundation
 type: EPIC
 title: Shared DagContext Foundation
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-11'
-updated_at: '2026-07-03'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - dashboard
   - state-management
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
 

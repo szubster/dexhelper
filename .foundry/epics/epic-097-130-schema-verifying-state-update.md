@@ -2,10 +2,10 @@
 id: epic-097-130-schema-verifying-state-update
 type: EPIC
 title: Update schema.md regarding VERIFYING state
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-07-03'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - schema
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Update schema.md regarding VERIFYING state

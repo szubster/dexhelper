@@ -2,10 +2,10 @@
 id: story-066-140-ribbon-dashboard-performance
 type: STORY
 title: Ribbon Dashboard Rendering Performance Optimization
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-16'
-updated_at: '2026-06-16'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

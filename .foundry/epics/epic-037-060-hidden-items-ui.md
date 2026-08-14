@@ -2,10 +2,10 @@
 id: epic-037-060-hidden-items-ui
 type: EPIC
 title: Missing Hidden Items Finder UI
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-04'
-updated_at: '2026-06-28'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,5 +36,5 @@ This Epic corresponds to the third requirement in the Missing Hidden Items Finde
 - [ ] E2E tests verify the new view correctly renders based on an initialized save state.
 
 ## 4. Generated Stories
-- [ ] .foundry/archive/stories/story-060-156-hidden-items-checklist-component.md
-- [ ] .foundry/archive/stories/story-060-157-hidden-items-e2e-tests.md
+- [x] .foundry/archive/stories/story-060-156-hidden-items-checklist-component.md
+- [x] .foundry/archive/stories/story-060-157-hidden-items-e2e-tests.md

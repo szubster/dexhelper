@@ -2,10 +2,10 @@
 id: task-089-178-qa-radar-heatmap-ui-integration
 type: TASK
 title: QA Route Radar UI Integration
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-08-14'
 depends_on:
   - task-089-177-radar-heatmap-ui-integration-impl
 jules_session_id: null

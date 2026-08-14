@@ -2,10 +2,10 @@
 id: epic-117-334-centralize-prompt-rules
 type: EPIC
 title: Centralize Coder and QA Prompt Rules
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-19'
-updated_at: '2026-07-19'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,10 +2,10 @@
 id: task-288-305-gen3-mix-record-inherited-events-qa
 type: TASK
 title: QA Gen 3 Mix Record Inherited Events Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-06'
-updated_at: '2026-07-11'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

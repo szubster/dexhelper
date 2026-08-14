@@ -1,11 +1,11 @@
 ---
 id: story-309-002-dv-overlap-constraint
 type: STORY
-title: "Gen 2 DV Overlap Constraint (Incest Prevention)"
-status: PENDING
-owner_persona: "tech_lead"
-created_at: "2026-07-13"
-updated_at: "2026-07-13"
+title: Gen 2 DV Overlap Constraint (Incest Prevention)
+status: READY
+owner_persona: tech_lead
+created_at: '2026-07-13'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/development/gen2_breeding_dv_overlap.md
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 2 DV Overlap Constraint (Incest Prevention)

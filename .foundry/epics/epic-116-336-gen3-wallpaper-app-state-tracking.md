@@ -2,10 +2,10 @@
 id: epic-116-336-gen3-wallpaper-app-state-tracking
 type: EPIC
 title: Gen 3 Wallpaper App State Tracking
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-19'
-updated_at: '2026-07-19'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 parent: prd-116-049-gen3-pc-box-wallpaper-customizer
@@ -13,8 +13,8 @@ tags:
   - gen3
   - customization
   - state
-rejection_reason: ''
 rejection_count: 0
+rejection_reason: ''
 ---
 
 # Gen 3 Wallpaper App State Tracking

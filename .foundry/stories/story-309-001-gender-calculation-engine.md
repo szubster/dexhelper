@@ -1,11 +1,11 @@
 ---
 id: story-309-001-gender-calculation-engine
 type: STORY
-title: "Gen 2 Gender Calculation Engine"
-status: PENDING
-owner_persona: "tech_lead"
-created_at: "2026-07-13"
-updated_at: "2026-07-13"
+title: Gen 2 Gender Calculation Engine
+status: READY
+owner_persona: tech_lead
+created_at: '2026-07-13'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/engine/gen2-breeding.md
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 2 Gender Calculation Engine

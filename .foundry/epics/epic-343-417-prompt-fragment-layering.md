@@ -2,7 +2,7 @@
 id: epic-343-417-prompt-fragment-layering
 type: EPIC
 title: Implement Prompt Fragment Layering System
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-14'
 updated_at: '2026-08-14'
