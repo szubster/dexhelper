@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import * as configModule from '../../utils/generationConfig';
 import type { SaveData } from '../saveParser/parsers/common';
-import { getLivingDexGhosts } from './ghostTracker';
+import { getLivingDexGhosts, getOwnedPokemonLocations } from './ghostTracker';
 
 // Mock getGenerationConfig
 vi.mock('../../utils/generationConfig', () => ({
@@ -40,5 +40,32 @@ describe('ghostTracker', () => {
       pc: [],
     };
     expect(() => getLivingDexGhosts(mockSave as SaveData, true)).toThrowError(/NotImplemented/);
+  });
+});
+
+describe('getOwnedPokemonLocations', () => {
+  it('extracts box and slot locations correctly', () => {
+    const mockSave: Partial<SaveData> = {
+      pcDetails: [
+        { speciesId: 1, storageLocation: 'Box 1', slot: 0 } as import('../saveParser/parsers/common').PokemonInstance,
+        { speciesId: 4, storageLocation: 'Box 2', slot: 15 } as import('../saveParser/parsers/common').PokemonInstance,
+        { speciesId: 0, storageLocation: 'Box 3', slot: 1 } as import('../saveParser/parsers/common').PokemonInstance,
+        { speciesId: 7, storageLocation: 'Party', slot: 0 } as import('../saveParser/parsers/common').PokemonInstance,
+        {
+          speciesId: 25,
+          storageLocation: 'Box 14',
+          slot: 29,
+        } as import('../saveParser/parsers/common').PokemonInstance,
+      ],
+    };
+
+    const locations = getOwnedPokemonLocations(mockSave as SaveData);
+
+    expect(locations).toHaveLength(3);
+    expect(locations).toEqual([
+      { speciesId: 1, box: 1, slot: 0 },
+      { speciesId: 4, box: 2, slot: 15 },
+      { speciesId: 25, box: 14, slot: 29 },
+    ]);
   });
 });
