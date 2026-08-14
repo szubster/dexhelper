@@ -358,6 +358,10 @@ export interface SaveData {
   gen3TMEventFlags?: Record<string, boolean>;
   /** Gen 3 specific: Static encounters completion flags */
   gen3StaticEncounters?: Gen3StaticEncounters;
+  /** Gen 3 specific: Standard trainer defeat flags */
+  gen3TrainerDefeatFlags?: boolean[];
+  /** Gen 3 specific: Rematch trainer state flags */
+  gen3TrainerRematchFlags?: number[];
 }
 
 // Removed byte helper as DataView provides getUint8 natively.

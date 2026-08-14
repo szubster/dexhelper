@@ -29,6 +29,7 @@ import {
   parseGen3TotalBattlePoints,
 } from '../gen3/battleFrontier/parser';
 import { parseGen3Pokeblocks } from '../gen3/pokeblock/parser';
+import { parseGen3TrainerDefeatFlags, parseGen3TrainerRematchFlags } from '../gen3/trainerFlags/parser';
 import { parseTrickHouse } from '../gen3/trickHouse/parser';
 import type {
   GameVersion,
@@ -1328,6 +1329,24 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       }
     }
 
+    let gen3TrainerDefeatFlags: boolean[] | undefined;
+    let gen3TrainerRematchFlags: number[] | undefined;
+
+    if (
+      _forcedVersion === 'ruby' ||
+      _forcedVersion === 'sapphire' ||
+      _forcedVersion === 'emerald' ||
+      _forcedVersion === 'firered' ||
+      _forcedVersion === 'leafgreen'
+    ) {
+      try {
+        gen3TrainerDefeatFlags = parseGen3TrainerDefeatFlags(view, section1Offset, _forcedVersion);
+        gen3TrainerRematchFlags = parseGen3TrainerRematchFlags(view, section1Offset, _forcedVersion);
+      } catch {
+        // Ignored
+      }
+    }
+
     const { trainerId, secretId } = parseGen3TrainerId(view, section0Offset);
     const securityKey = parseGen3SecurityKey(view, section0Offset, _forcedVersion || 'ruby');
     const gen3TMHMs = parseGen3TMHMs(view, section1Offset, _forcedVersion || 'ruby', securityKey);
@@ -1456,6 +1475,12 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     if (gen3NPCTrades !== undefined) {
       result.gen3NPCTrades = gen3NPCTrades;
       result.npcTradeFlags = Object.values(gen3NPCTrades);
+    }
+    if (gen3TrainerDefeatFlags !== undefined) {
+      result.gen3TrainerDefeatFlags = gen3TrainerDefeatFlags;
+    }
+    if (gen3TrainerRematchFlags !== undefined) {
+      result.gen3TrainerRematchFlags = gen3TrainerRematchFlags;
     }
     return result;
   } catch (error) {
