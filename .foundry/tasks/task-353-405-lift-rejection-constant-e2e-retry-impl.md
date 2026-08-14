@@ -29,7 +29,7 @@ Implement an E2E test to verify that the DAG Dashboard correctly displays perman
 1. E2E test verifying permanent failure nodes on the dashboard.
 
 ## Acceptance Criteria
-- [ ] Create a Playwright test file at `tests/e2e/dashboard/permanent_failures.spec.ts`.
-- [ ] Implement a test that opens the dashboard, toggles the "Permanent failures only" filter, and asserts that permanent failures are correctly highlighted.
-- [ ] The test must verify that the UI correctly identifies nodes with a `rejection_count` of at least `MAX_REJECTION_THRESHOLD` as permanent failures.
-- [ ] The implementation must explicitly address and resolve the issues identified in `research-353-404-investigate-lift-rejection-e2e-failure.md`.
+- [x] Create a Playwright test file at `tests/e2e/dashboard/permanent_failures.spec.ts`.
+- [x] Implement a test that opens the dashboard, toggles the "Permanent failures only" filter, and asserts that permanent failures are correctly highlighted.
+- [x] The test must verify that the UI correctly identifies nodes with a `rejection_count` of at least `MAX_REJECTION_THRESHOLD` as permanent failures.
+- [x] The implementation must explicitly address and resolve the issues identified in `research-353-404-investigate-lift-rejection-e2e-failure.md`.
