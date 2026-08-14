@@ -53,16 +53,20 @@ interface ParsedNode {
 
 const MAX_REJECTION_THRESHOLD = 3; // Hardcoded fallback for isolated test environments
 
-const DRY_RUN: boolean = process.argv.includes('--dry-run');
-const STRICT: boolean = process.argv.includes('--strict');
+const isDryRun = (): boolean => process.argv.includes('--dry-run');
+const isStrict = (): boolean => process.argv.includes('--strict');
 
 const COMPILE_ARG_INDEX = process.argv.indexOf('--compile');
 const COMPILE_PATH = COMPILE_ARG_INDEX !== -1 ? process.argv[COMPILE_ARG_INDEX + 1] : null;
 
 // ─── Logging (all diagnostic output → stderr; only the matrix JSON → stdout) ─
 
+let hasWarnings = false;
+
 function warn(msg: string): void {
+  hasWarnings = true;
   process.stderr.write(`[orchestrator] WARN  ${msg}\n`);
+  process.stderr.write(`::warning::[orchestrator] ${msg}\n`);
 }
 
 function info(msg: string): void {
@@ -171,7 +175,7 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
  */
 function promoteNodeStatus(node: ParsedNode, currentStatus: NodeFrontmatter['status'], targetStatus: NodeFrontmatter['status']): void {
   const dateStr = todayISO();
-  const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
+  const dryTag = isDryRun() ? '[DRY-RUN] ' : '';
 
   if (node.frontmatter.status !== currentStatus) {
     warn(`${dryTag}Cannot promote status. Current status is ${node.frontmatter.status}, expected ${currentStatus} in: ${node.repoPath}`);
@@ -188,7 +192,7 @@ function promoteNodeStatus(node: ParsedNode, currentStatus: NodeFrontmatter['sta
 
   const newContent = matter.stringify(node.body, newData);
 
-  if (!DRY_RUN) {
+  if (!isDryRun()) {
     try {
       fs.writeFileSync(node.filePath, newContent, 'utf-8');
     } catch (e) {
@@ -206,12 +210,12 @@ function promoteNodeStatus(node: ParsedNode, currentStatus: NodeFrontmatter['sta
 
 function promoteNodeToTpm(node: ParsedNode): void {
   const dateStr = todayISO();
-  const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
+  const dryTag = isDryRun() ? '[DRY-RUN] ' : '';
 
   const newData = { ...node.frontmatter, status: 'BLOCKED', owner_persona: 'tpm', updated_at: dateStr };
   const newContent = matter.stringify(node.body, newData);
 
-  if (!DRY_RUN) {
+  if (!isDryRun()) {
     try {
       fs.writeFileSync(node.filePath, newContent, 'utf-8');
     } catch (e) {
@@ -228,12 +232,12 @@ function promoteNodeToTpm(node: ParsedNode): void {
 
 function promoteNodeToCancelledWithReason(node: ParsedNode, reason: string): void {
   const dateStr = todayISO();
-  const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
+  const dryTag = isDryRun() ? '[DRY-RUN] ' : '';
 
   const newData = { ...node.frontmatter, status: 'CANCELLED' as NodeFrontmatter['status'], rejection_reason: reason, updated_at: dateStr };
   const newContent = matter.stringify(node.body, newData);
 
-  if (!DRY_RUN) {
+  if (!isDryRun()) {
     try {
       fs.writeFileSync(node.filePath, newContent, 'utf-8');
     } catch (e) {
@@ -250,12 +254,12 @@ function promoteNodeToCancelledWithReason(node: ParsedNode, reason: string): voi
 
 function promoteNodeToFailedWithReason(node: ParsedNode, reason: string): void {
   const dateStr = todayISO();
-  const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
+  const dryTag = isDryRun() ? '[DRY-RUN] ' : '';
 
   const newData = { ...node.frontmatter, status: 'FAILED' as NodeFrontmatter['status'], rejection_reason: reason, updated_at: dateStr };
   const newContent = matter.stringify(node.body, newData);
 
-  if (!DRY_RUN) {
+  if (!isDryRun()) {
     try {
       fs.writeFileSync(node.filePath, newContent, 'utf-8');
     } catch (e) {
@@ -272,13 +276,13 @@ function promoteNodeToFailedWithReason(node: ParsedNode, reason: string): void {
 
 function acknowledgeNodeFailure(node: ParsedNode): void {
   const dateStr = todayISO();
-  const dryTag = DRY_RUN ? '[DRY-RUN] ' : '';
+  const dryTag = isDryRun() ? '[DRY-RUN] ' : '';
 
   const newReason = `[ACKNOWLEDGED] ${node.frontmatter.rejection_reason || ''}`.trim();
   const newData = { ...node.frontmatter, rejection_reason: newReason, updated_at: dateStr };
   const newContent = matter.stringify(node.body, newData);
 
-  if (!DRY_RUN) {
+  if (!isDryRun()) {
     try {
       fs.writeFileSync(node.filePath, newContent, 'utf-8');
     } catch (e) {
@@ -352,6 +356,7 @@ function compilePromptForNode(node: ParsedNode, repoRoot: string): string {
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 function main(): void {
+  hasWarnings = false;
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
   const repoRoot = process.env.VITEST ? process.cwd() : path.resolve(__dirname, '..', '..');
 
@@ -368,10 +373,10 @@ function main(): void {
     return;
   }
 
-  if (DRY_RUN) {
+  if (isDryRun()) {
     info('🔍 Dry-run mode active — no files will be modified.');
   }
-  if (STRICT) {
+  if (isStrict()) {
     info('⚠️  Strict mode active — unresolvable deps will cause exit(1).');
   }
 
@@ -1138,13 +1143,13 @@ function main(): void {
 
         const dateStr = todayISO();
         const logDir = require('node:path').join(repoRoot, '.foundry/journals/agile_coach');
-        if (!DRY_RUN && !require('node:fs').existsSync(logDir)) {
+        if (!isDryRun() && !require('node:fs').existsSync(logDir)) {
           require('node:fs').mkdirSync(logDir, { recursive: true });
         }
         const logPath = require('node:path').join(logDir, `${Date.now()}.md`);
         const logEntry = `\n## ${dateStr}: Pre-existing Artifacts Anomaly\n\n### Observation\nThe orchestrator detected that target artifacts for \`${node.repoPath}\` already existed and were completely formed before dispatch.\n\n### Action Taken\nBypassed Jules session dispatch via idempotent generation check and auto-fulfilled the node.\n`;
 
-        if (!DRY_RUN) {
+        if (!isDryRun()) {
           try {
             logToJournal(logPath, logEntry);
             info(`Logged anomaly to ${logPath}`);
@@ -1300,8 +1305,8 @@ function main(): void {
   console.log(JSON.stringify(readyNodes));
 
   // ── Phase 8: EXIT ──────────────────────────────────────────────────────────
-  if (hasUnresolvableDeps && STRICT) {
-    warn('Exiting with code 1: unresolvable dependency paths detected (--strict mode).');
+  if ((hasUnresolvableDeps || hasWarnings) && isStrict()) {
+    warn('Exiting with code 1: DAG resolution warnings or unresolvable dependencies detected (--strict mode).');
     process.exitCode = 1;
     return;
   }
