@@ -25,4 +25,6 @@ notes: ''
 Implement the core engine that leverages an LLM to perform semantic evaluations. This includes setting up the API client, defining the prompt template for the evaluator, and creating the function signature for asserting semantic equivalence.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-422-425-semantic-evaluator-engine-impl
+- [ ] task-422-426-semantic-evaluator-engine-qa
