@@ -2,12 +2,12 @@
 id: idea-137-decouple-persona-prompts
 type: IDEA
 title: Decouple Persona Prompts and Support Composite Multi-Layered Prompts
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-10'
 updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: '11580169431922696554'
+jules_session_id: null
 parent: null
 tags:
   - foundry
