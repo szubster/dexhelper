@@ -418,7 +418,7 @@ function main(): void {
   /**
    * Helper to resolve a node reference (either ID or path) to a repo-relative path.
    */
-  function resolveNodePath(ref: string | null | undefined): string | null {
+  function resolveNodePath(ref: string | null | undefined, silent = false): string | null {
     if (!ref) return null;
     if (idToPathMap.has(ref)) return idToPathMap.get(ref)!;
     if (ref.startsWith('.foundry/')) {
@@ -457,7 +457,7 @@ function main(): void {
     }
 
     // Log a warning if we can't resolve a non-empty reference.
-    warn(`Unresolvable node reference: '${ref}'`);
+    if (!silent) warn(`Unresolvable node reference: '${ref}'`);
     return null;
   }
 
@@ -494,10 +494,10 @@ function main(): void {
     const linkMatches = [...body.matchAll(linkRegex)].map(m => m[1]);
     const idMatches = [...body.matchAll(idRegex)]
       .map(m => m[0])
-      .map(id => resolveNodePath(id))
+      .map(id => resolveNodePath(id, true))
       .filter((path): path is string => !!path);
 
-    const matches = [...new Set([...linkMatches, ...idMatches])].map(m => resolveNodePath(m)).filter((m): m is string => !!m);
+    const matches = [...new Set([...linkMatches, ...idMatches])].map(m => resolveNodePath(m, true)).filter((m): m is string => !!m);
 
     for (const match of matches) {
       // node.repoPath is the potential parent, match is the potential child
@@ -770,7 +770,7 @@ function main(): void {
   const dependencyGraph = new Map<string, string[]>();
 
   for (const n of pendingNodesForCycleDetection) {
-    const deps = (n.frontmatter.depends_on || []).map(resolveNodePath).filter(Boolean) as string[];
+    const deps = (n.frontmatter.depends_on || []).map(d => resolveNodePath(d)).filter(Boolean) as string[];
     // Also include implicit parent dependencies
     const parentPath = resolveNodePath(n.frontmatter.parent);
     if (parentPath) {
@@ -921,6 +921,10 @@ function main(): void {
 
       const parentNode = nodeMap.get(currParent);
       if (!parentNode) {
+        if (fs.existsSync(path.join(repoRoot, currParent))) {
+          // Parent is archived (exists on disk) — implicitly completed/cancelled
+          continue;
+        }
         warn(`Parent '${currParent}' not found for: ${node.repoPath}`);
         blocked = true;
         break;
@@ -1016,7 +1020,7 @@ function main(): void {
 
       const parentPath = resolveNodePath(node.frontmatter.parent);
       const resolvedDeps = node.frontmatter.depends_on.map(d => resolveNodePath(d));
-      const targetArtifacts = matches.map(resolveNodePath).filter((m): m is string =>
+      const targetArtifacts = matches.map(m => resolveNodePath(m)).filter((m): m is string =>
         !!m &&
         m !== node.repoPath &&
         m !== parentPath &&
@@ -1188,7 +1192,7 @@ function main(): void {
       const links = [...body.matchAll(linkRegex)].map(m => m[1]);
 
       if (links.length > 0) {
-        const resolvedLinks = links.map(resolveNodePath).filter((l): l is string => !!l);
+        const resolvedLinks = links.map(l => resolveNodePath(l)).filter((l): l is string => !!l);
         const allExist = resolvedLinks.every(l => nodeMap.has(l));
         const hasChild = resolvedLinks.some(l => {
           const childNode = nodeMap.get(l);
