@@ -37,7 +37,7 @@ Section 13 of `.foundry/docs/schema.md` states: "All memory offsets, lengths, bi
 5. Write unit tests to ensure these constants are correct.
 
 ## Acceptance Criteria
-- [ ] Module-level constants for Emerald Move Tutor flags are correctly defined.
-- [ ] Module-level constants for FireRed/LeafGreen Move Tutor flags are correctly defined.
-- [ ] Base event flag offsets for `SaveBlock1` are defined.
-- [ ] Unit tests are passing for these constants.
+- [x] Module-level constants for Emerald Move Tutor flags are correctly defined.
+- [x] Module-level constants for FireRed/LeafGreen Move Tutor flags are correctly defined.
+- [x] Base event flag offsets for `SaveBlock1` are defined.
+- [x] Unit tests are passing for these constants.
