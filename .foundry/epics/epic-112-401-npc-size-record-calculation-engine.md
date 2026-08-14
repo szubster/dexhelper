@@ -28,4 +28,4 @@ This epic implements the mathematical calculation engine to convert the extracte
 ## Acceptance Criteria
 - [ ] Implement Gen 2 Size Calculation formula based on DVs.
 - [ ] Implement Gen 3 Size Calculation formula based on IVs and PV.
-- [ ] story-112-401-integration-e2e
+- [x] story-112-401-integration-e2e

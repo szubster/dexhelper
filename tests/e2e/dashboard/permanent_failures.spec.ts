@@ -5,7 +5,6 @@ test.describe('Permanent Failures Dashboard Filter', () => {
   test.use({ storageState: { cookies: [], origins: [] } });
 
   test('correctly filters and highlights permanent failures', async ({ page }) => {
-
     // We are getting 675 nodes because Vite's preview server in CI is fetching via native JS fetch,
     // and Playwright's `page.route` might be missing it due to Service Workers or Vite's dev/preview server network proxy setup.
     // Let's use evaluateOnNewDocument to mock the global window.fetch function
@@ -50,7 +49,7 @@ test.describe('Permanent Failures Dashboard Filter', () => {
       ];
 
       const originalFetch = window.fetch;
-      window.fetch = async function(input, init) {
+      window.fetch = async (input, init) => {
         let url = '';
         if (typeof input === 'string') {
           url = input;
@@ -63,7 +62,7 @@ test.describe('Permanent Failures Dashboard Filter', () => {
         if (url.includes('foundry.json')) {
           return new Response(JSON.stringify(mockData), {
             status: 200,
-            headers: { 'Content-Type': 'application/json' }
+            headers: { 'Content-Type': 'application/json' },
           });
         }
 
@@ -151,7 +150,9 @@ test.describe('Permanent Failures Dashboard Filter', () => {
     await expect(successText.first()).not.toBeVisible();
 
     // Find the node container up from the text element
-    const permFailNode = page.locator('xpath=//div[@data-testid="dag-node" and .//*[contains(text(), "task-perm-fail")]]');
+    const permFailNode = page.locator(
+      'xpath=//div[@data-testid="dag-node" and .//*[contains(text(), "task-perm-fail")]]',
+    );
     await expect(permFailNode).toHaveClass(/border-red-500/);
     await expect(permFailNode).toHaveClass(/brightness-125/);
   });

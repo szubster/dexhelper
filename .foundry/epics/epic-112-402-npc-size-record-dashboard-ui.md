@@ -29,4 +29,4 @@ Build the UI dashboard to display the calculated sizes for the relevant species.
 ## Acceptance Criteria
 - [ ] Build Target Species Filter for relevant Gen 2/Gen 3 NPCs.
 - [ ] Build Data Grid showing Box/Slot, calculated size, and "Record Beater" indicator.
-- [ ] story-112-402-integration-e2e
+- [x] story-112-402-integration-e2e

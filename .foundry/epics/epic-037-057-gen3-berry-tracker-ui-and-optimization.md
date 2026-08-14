@@ -26,7 +26,7 @@ notes: ""
 # Epic: Gen 3 Berry Tracker UI and Optimization Engine
 
 ## Overview
-This Epic involves building the user-facing UI components and the optimization logic for the Gen 3 Berry Farming Tracker. It builds upon the map integration (`epic-067-056-gen3-berry-tracker-map-integration`) to present actionable insights to the user.
+This Epic involves building the user-facing UI components and the optimization logic for the Gen 3 Berry Farming Tracker. It builds upon the map integration (`epic-037-056-gen3-berry-tracker-map-integration`) to present actionable insights to the user.
 
 ## Details
 *   **Dashboard/List View:** Create a dedicated view displaying all active berry patches, their current growth stage, and time estimations to the next stage based on mechanics.
