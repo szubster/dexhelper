@@ -42,10 +42,6 @@
       "maxSize": "30kb"
     },
     {
-      "path": "assets/*-<hash>.js",
-      "maxSize": "10kb"
-    },
-    {
       "path": "assets/ShinyCarrierBreedingDashboard-<hash>.js",
       "maxSize": "100kb"
     },
@@ -72,6 +68,14 @@
     {
       "path": "assets/router-<hash>.js",
       "maxSize": "200kb"
+    },
+    {
+      "path": "assets/zod-<hash>.js",
+      "maxSize": "100kb"
+    },
+    {
+      "path": "assets/*-<hash>.js",
+      "maxSize": "10kb"
     },
     {
       "path": "assets/style-<hash>.css",

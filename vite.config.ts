@@ -138,6 +138,9 @@ export default defineConfig(() => {
             if (id.includes('src/components/pokemon/details/PokemonCaughtDetails.tsx')) {
               return 'PokemonCaughtDetails';
             }
+            if (id.includes('node_modules/zod/')) {
+              return 'zod';
+            }
             return undefined;
           }
         },
