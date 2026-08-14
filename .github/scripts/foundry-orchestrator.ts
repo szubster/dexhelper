@@ -37,6 +37,12 @@ const matter = require('gray-matter') as typeof import('gray-matter');
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
+export interface ReadyNodeItem extends NodeFrontmatter {
+  repo_path: string;
+  critical_weight: number;
+  compiled_prompt?: string;
+}
+
 interface ParsedNode {
   /** Absolute path on disk */
   filePath: string;
@@ -322,9 +328,8 @@ function compilePromptForNode(node: ParsedNode, repoRoot: string): string {
       layers.add(tag.toLowerCase());
     }
   }
-  const fmAny = node.frontmatter as any;
-  if (fmAny.layers && Array.isArray(fmAny.layers)) {
-    for (const layer of fmAny.layers) {
+  if (node.frontmatter.layers && Array.isArray(node.frontmatter.layers)) {
+    for (const layer of node.frontmatter.layers) {
       layers.add(layer.toLowerCase());
     }
   }
@@ -1363,7 +1368,7 @@ function main(): void {
   const readyNodes = nodes
     .filter((n) => n.frontmatter.status === 'READY' || n.frontmatter.status === 'VERIFYING')
     .map((n) => {
-      const item: any = {
+      const item: ReadyNodeItem = {
         ...n.frontmatter,
         repo_path: n.repoPath,
         owner_persona: n.frontmatter.status === 'VERIFYING' ? 'auditor' : n.frontmatter.owner_persona,
