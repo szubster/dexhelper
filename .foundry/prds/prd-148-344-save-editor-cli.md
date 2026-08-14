@@ -1,15 +1,15 @@
 ---
-id: idea-148-save-editor-cli
-type: IDEA
+id: prd-148-344-save-editor-cli
+type: PRD
 title: Save Editor CLI
-status: ACTIVE
-owner_persona: product_manager
+status: PENDING
+owner_persona: epic_planner
 created_at: '2026-08-14'
 updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: '6634707505833850732'
+jules_session_id: null
 pr_number: null
-parent: null
+parent: idea-148-save-editor-cli
 tags:
   - cli
   - saveEditor
@@ -19,7 +19,7 @@ rejection_reason: ''
 notes: ''
 ---
 
-# Idea: Save Editor CLI
+# PRD: Save Editor CLI
 
 ## Context & Problem Statement
 To manipulate saves which will be needed in future for multi-save support and progression, as well as trading between saves.
@@ -28,5 +28,5 @@ To manipulate saves which will be needed in future for multi-save support and pr
 Create a new save editor (CLI) tool.
 
 ## Acceptance Criteria
-- [x] Explore possibilities.
-- [ ] prd-148-344-save-editor-cli
+- [ ] Explore possibilities.
+- [ ] Break down this PRD into Epics.
