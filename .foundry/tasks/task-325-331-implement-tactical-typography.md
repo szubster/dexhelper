@@ -3,7 +3,7 @@ id: task-325-331-implement-tactical-typography
 type: TASK
 title: Implement Tactical Typography Utilities
 status: PENDING
-owner_persona: palette
+owner_persona: coder
 created_at: '2026-07-18'
 updated_at: '2026-07-18'
 depends_on: []
