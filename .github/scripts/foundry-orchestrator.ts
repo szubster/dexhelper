@@ -998,11 +998,7 @@ function main(): void {
         info(`Late-Binding Parent: ${node.repoPath} is waiting for children to complete.`);
       } else {
         const hasCheckboxes = /^\s*-\s*\[\s*[xX\s]\s*\]/m.test(acceptanceCriteriaText);
-        const isResearchOrAdr = node.frontmatter.type === 'RESEARCH' || node.frontmatter.type === 'ADR';
-        if (isResearchOrAdr && node.body.trim().length > 200) {
-          info(`Research/ADR node ${node.repoPath} has written content. Promoting directly to COMPLETED.`);
-          promoteNodeStatus(node, 'PENDING', 'COMPLETED');
-        } else if (hasCheckboxes && !hasUncheckedTasks) {
+        if (hasCheckboxes && !hasUncheckedTasks) {
           info(`Leaf node ${node.repoPath} has all acceptance criteria checked. Promoting directly to COMPLETED to prevent reawakening.`);
           promoteNodeStatus(node, 'PENDING', 'COMPLETED');
         } else {
