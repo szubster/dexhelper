@@ -2,7 +2,7 @@
 id: task-363-415-trade-extraction-e2e-impl
 type: TASK
 title: NPC Trade Extraction Integration & E2E Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-11'
 updated_at: '2026-08-14'
@@ -10,7 +10,7 @@ depends_on:
   - task-361-407-gen2-trade-extraction-impl
   - task-362-407-gen3-trade-extraction-impl
   - research-363-416-gen3-save-fixture
-jules_session_id: null
+jules_session_id: '4876544076547989020'
 pr_number: null
 parent: story-349-363-trade-extraction-e2e
 tags:
