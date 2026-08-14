@@ -29,4 +29,7 @@ Create a new save editor (CLI) tool.
 
 ## Acceptance Criteria
 - [ ] Explore possibilities.
-- [ ] Break down this PRD into Epics.
+- [x] Break down this PRD into Epics.
+- [ ] epic-344-420-save-editor-cli-core
+- [ ] epic-344-421-save-editor-cli-reading
+- [ ] epic-344-422-save-editor-cli-editing
