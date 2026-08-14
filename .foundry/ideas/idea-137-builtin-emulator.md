@@ -35,4 +35,5 @@ Embed a high-performance, open-source Game Boy (GB/GBC) and Game Boy Advance (GB
 This upgrades DexHelper from a static post-save analyzer into an interactive, live-reactive companion. Players get a single, unified interface for playing games with professional, real-time advice.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a comprehensive PRD outlining the web-emulator integration flow, UI/UX layouts, and the reactive instruction schema.
+- [x] Product Manager: Draft a comprehensive PRD outlining the web-emulator integration flow, UI/UX layouts, and the reactive instruction schema.
+- [ ] prd-137-343-built-in-emulator
