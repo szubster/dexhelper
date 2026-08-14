@@ -27,6 +27,17 @@
           "customTest.each"
         ]
       }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": ["@testing-library/*", "@testing-library/react"],
+            "message": "Do not use @testing-library. Use vitest-browser-react for component tests or @playwright/test for E2E tests."
+          }
+        ]
+      }
     ]
   },
   "env": {
