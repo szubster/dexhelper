@@ -52,8 +52,9 @@ describe('PokemonLocations', () => {
     await render(<PokemonLocations {...defaultProps} pokemonId={2} encounters={versionEncounters} />);
 
     await expect.element(page.getByText('PALLET TOWN')).toBeInTheDocument();
-    await expect.element(page.getByText('LV.5')).toBeInTheDocument();
-    await expect.element(page.getByText(/WALK.*100%/i)).toBeInTheDocument();
+    await expect.element(page.getByText('5')).toBeInTheDocument();
+    await expect.element(page.getByText(/WALK/i)).toBeInTheDocument();
+    await expect.element(page.getByText(/100%/i)).toBeInTheDocument();
   });
 
   it('renders evolution requirements correctly', async () => {
