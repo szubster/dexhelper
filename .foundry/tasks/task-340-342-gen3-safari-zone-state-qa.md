@@ -2,7 +2,7 @@
 id: task-340-342-gen3-safari-zone-state-qa
 type: TASK
 title: Gen 3 Safari Zone State Parsing QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-25'
 updated_at: '2026-08-14'
