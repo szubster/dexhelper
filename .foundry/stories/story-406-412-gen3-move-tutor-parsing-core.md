@@ -2,12 +2,12 @@
 id: story-406-412-gen3-move-tutor-parsing-core
 type: STORY
 title: Gen 3 Move Tutor Parsing Core
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-12'
+updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: '17030692349781794310'
+jules_session_id: null
 pr_number: null
 parent: epic-055-406-gen3-move-tutor-save-parsing
 tags:

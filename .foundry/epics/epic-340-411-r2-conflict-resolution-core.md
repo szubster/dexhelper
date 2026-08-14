@@ -2,12 +2,12 @@
 id: epic-340-411-r2-conflict-resolution-core
 type: EPIC
 title: Cloudflare R2 Conflict Resolution Core Logic
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2025-01-08'
-updated_at: '2026-08-12'
+updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: '3988001473291538854'
+jules_session_id: null
 pr_number: null
 parent: prd-401-340-r2-conflict-resolution-ui
 tags:
