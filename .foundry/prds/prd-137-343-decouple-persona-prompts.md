@@ -36,4 +36,7 @@ Currently, Foundry persona prompts are large and monolithic. Decoupling them int
 - Must remain backward compatible during the transition phase.
 
 ## 4. Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into Epics.
+- [x] Epic Planner: Break down this PRD into Epics.
+- [ ] epic-343-417-prompt-fragment-layering
+- [ ] epic-343-418-orchestrator-integration
+- [ ] epic-343-419-persona-migration
