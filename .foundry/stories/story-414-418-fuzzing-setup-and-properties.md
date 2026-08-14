@@ -26,4 +26,6 @@ notes: ''
 Set up `fast-check` and define the initial set of properties to verify the DAG state evaluation logic.
 
 ## Acceptance Criteria
-- [ ] Tasks generated.
+- [x] Tasks generated.
+- [ ] task-418-425-setup-fast-check
+- [ ] task-418-426-qa-fast-check-setup
