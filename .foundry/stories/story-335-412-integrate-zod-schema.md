@@ -23,4 +23,6 @@ rejection_reason: ''
 This story focuses on refactoring `.github/scripts/foundry-orchestrator.ts` to utilize the `NodeFrontmatterSchema` from `schema.ts`. We need to replace all ad-hoc YAML type-checking and manual validation logic. Ensure the orchestrator behaves consistently using the Zod-parsed object.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-412-418-refactor-orchestrator-zod-impl
+- [ ] task-412-419-refactor-orchestrator-zod-qa
