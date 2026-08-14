@@ -108,4 +108,6 @@ This feature transforms the Foundry from an opaque workflow engine into a data-d
 - It provides an extensible framework to easily append new metrics as the team comes up with more ideas during development.
 
 ## Acceptance Criteria
-- [ ] Break down this PRD into an Epic.
+- [x] Break down this PRD into an Epic.
+- [ ] epic-146-417-real-time-statistics-generator
+- [ ] epic-146-418-historical-statistics-backfilling
