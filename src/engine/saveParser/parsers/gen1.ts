@@ -56,12 +56,16 @@ const PC_CURRENT_BOX_MON_DATA_LENGTH = 33;
 const PC_BOX_OT_NAME_LENGTH = 11;
 const PC_MAX_BOX_MONS = 20;
 const PC_BOX_DATA_START_OFFSET_FROM_COUNT = 22;
-const PARTY_COUNT_OFFSET = 0x2f2c;
-const PARTY_DATA_START_OFFSET = 0x2f2d;
+
+import {
+  GEN1_PARTY_COUNT_OFFSET as PARTY_COUNT_OFFSET,
+  GEN1_PARTY_DATA_START_OFFSET as PARTY_DATA_START_OFFSET,
+  GEN1_PARTY_MAX_MONS as PARTY_MAX_MONS,
+} from '../utils/detection';
+
 const PARTY_MONS_HEADER_LENGTH = 7;
 const PARTY_MON_DATA_LENGTH = 44;
 const PARTY_OT_NAME_LENGTH = 11;
-const PARTY_MAX_MONS = 6;
 const TRAINER_NAME_OFFSET = 0x2598;
 const BADGES_OFFSET = 0x2602;
 const TRAINER_ID_OFFSET = 0x2605;
@@ -394,21 +398,6 @@ function detectGen1GameVersion(
  * @param view - The raw save file DataView.
  * @returns True if the structure looks like a valid Gen 1 save.
  */
-export function isGen1Save(view: DataView): boolean {
-  try {
-    const partyCount = view.getUint8(PARTY_COUNT_OFFSET);
-    if (partyCount > PARTY_MAX_MONS) return false;
-    if (view.getUint8(PARTY_DATA_START_OFFSET + partyCount) !== 0xff) return false;
-    for (let i = 0; i < partyCount; i++) {
-      const id = view.getUint8(PARTY_DATA_START_OFFSET + i);
-      if (id === 0 || id === 0xff) return false;
-    }
-    return true;
-  } catch (e) {
-    if (e instanceof RangeError) return false;
-    throw e;
-  }
-}
 
 /**
  * Parses the Hall of Fame records from a Gen 1 save.

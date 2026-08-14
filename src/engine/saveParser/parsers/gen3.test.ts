@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { FEEBAS_SEED_RELATIVE_OFFSET_RS } from '../../gen3/feebas';
+import { isGen3Save } from '../utils/detection';
 import {
   EMERALD_MOVE_TUTOR_BYTE_1_OFFSET,
   EMERALD_MOVE_TUTOR_BYTE_2_OFFSET,
@@ -8,7 +9,6 @@ import {
   FRLG_MOVE_TUTOR_BYTE_3_OFFSET,
   FRLG_MOVE_TUTOR_BYTE_4_OFFSET,
   GEN3_EVENT_FLAGS_OFFSET,
-  isGen3Save,
   parseGen3,
   parseGen3ActiveSwarm,
   parseGen3BattleFrontierSymbols,

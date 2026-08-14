@@ -47,7 +47,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           throw new Error('Failed to read file as ArrayBuffer');
         }
         const buffer = e.target.result;
-        const data = parseSaveFile(buffer, manualVersion || undefined);
+        const data = await parseSaveFile(buffer, manualVersion || undefined);
         setSaveData(data);
         setError(null);
 

@@ -66,7 +66,7 @@ export function useFileSyncController() {
     async (file: File) => {
       try {
         const buffer = await file.arrayBuffer();
-        const data = parseSaveFile(buffer, manualVersion || undefined);
+        const data = await parseSaveFile(buffer, manualVersion || undefined);
 
         setSaveData(data);
 
@@ -91,7 +91,7 @@ export function useFileSyncController() {
                 console.warn('System: pull from cloud failed');
               }
               if (cloudSave) {
-                const cloudData = parseSaveFile(cloudSave.data.buffer, manualVersion || undefined);
+                const cloudData = await parseSaveFile(cloudSave.data.buffer, manualVersion || undefined);
                 setSaveData(cloudData);
 
                 if (cloudData.gameVersion === 'unknown') {

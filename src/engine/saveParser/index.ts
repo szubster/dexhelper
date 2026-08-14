@@ -1,7 +1,5 @@
 import type { GameVersion, PokemonInstance, SaveData } from './parsers/common';
-import { isGen1Save, parseGen1 } from './parsers/gen1';
-import { isGen2Save, parseGen2 } from './parsers/gen2';
-import { isGen3Save, parseGen3 } from './parsers/gen3';
+import { isGen1Save, isGen2Save, isGen3Save } from './utils/detection';
 
 const GEN1_CHECKSUM_DATA_START = 0x2598;
 const GEN1_CHECKSUM_DATA_END = 0x3522;
@@ -31,7 +29,8 @@ export type { GameVersion, PokemonInstance, SaveData };
  * @returns The structured SaveData object representing the player's progress and Pokémon.
  * @throws An Error if the file size is invalid or if no known Generation structure could be matched.
  */
-export function parseSaveFile(buffer: ArrayBufferLike, forcedVersion?: GameVersion): SaveData {
+// ⚡ Bolt: Use dynamic imports for generation-specific parsers to reduce the initial bundle size.
+export async function parseSaveFile(buffer: ArrayBufferLike, forcedVersion?: GameVersion): Promise<SaveData> {
   const view = new DataView(buffer);
 
   if (buffer.byteLength < 32768) {
@@ -60,8 +59,10 @@ export function parseSaveFile(buffer: ArrayBufferLike, forcedVersion?: GameVersi
     const isGen2ChecksumValid = (gen2Sum & 0xffff) === gen2Checksum;
 
     if (isGen1ChecksumValid && isGen1Save(view)) {
+      const { parseGen1 } = await import('./parsers/gen1');
       return parseGen1(view, forcedVersion);
     } else if (isGen2ChecksumValid) {
+      const { parseGen2 } = await import('./parsers/gen2');
       if (isGen2Save(view, true)) return parseGen2(view, true);
       if (isGen2Save(view, false)) return parseGen2(view, false);
       // If checksum is valid but structure is weird, still try to parse
@@ -74,14 +75,18 @@ export function parseSaveFile(buffer: ArrayBufferLike, forcedVersion?: GameVersi
       // If we strictly relied on checksums, these files would be permanently unreadable.
       // Instead, we use structural signatures (`isGen1Save`, `isGen2Save`, `isGen3Save`) to identify them.
       if (isGen1Save(view)) {
+        const { parseGen1 } = await import('./parsers/gen1');
         return parseGen1(view, forcedVersion);
       } else if (isGen2Save(view, true)) {
+        const { parseGen2 } = await import('./parsers/gen2');
         return parseGen2(view, true);
       } else if (isGen2Save(view, false)) {
+        const { parseGen2 } = await import('./parsers/gen2');
         return parseGen2(view, false);
       } else if (isGen3Save(view)) {
         // Note: Gen 3 uses a complex A/B flash bank system with multiple checksums per sector,
         // so its initial detection heavily relies on this structural fallback path rather than a single contiguous block checksum.
+        const { parseGen3 } = await import('./parsers/gen3');
         return parseGen3(view, forcedVersion);
       }
       throw new Error(
