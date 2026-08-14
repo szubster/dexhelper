@@ -37,4 +37,6 @@ Specifically, this script must use tools like `biome` and `oxlint` (which are al
 This significantly reduces LLM context token consumption and offloads static architectural compliance enforcement to faster, deterministic CI checks. This frees up the QA persona to focus exclusively on complex behavioral verification.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Draft an Epic breaking down the linter script and CI integration into technical chunks.
+- [x] Epic Planner: Draft an Epic breaking down the linter script and CI integration into technical chunks.
+- [ ] epic-142-417-automated-adr-compliance-linter
+- [ ] epic-142-418-automated-adr-compliance-ci-integration
