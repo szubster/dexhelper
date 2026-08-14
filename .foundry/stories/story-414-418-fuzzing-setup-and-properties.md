@@ -2,12 +2,12 @@
 id: story-414-418-fuzzing-setup-and-properties
 type: STORY
 title: Fuzzing Setup and Property Definitions
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-12'
 updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10333725279912214818'
 pr_number: null
 parent: epic-341-414-orchestrator-fuzzer-core
 tags:
