@@ -2,12 +2,12 @@
 id: prd-145-343-semantic-prompt-validation
 type: PRD
 title: Semantic Validation for Agent Prompts PRD
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-14'
 updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: '7654390589700833801'
+jules_session_id: null
 pr_number: null
 parent: idea-145-semantic-prompt-validation
 tags:

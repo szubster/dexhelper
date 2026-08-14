@@ -2,12 +2,12 @@
 id: prd-147-343-test-fixtures
 type: PRD
 title: 'PRD: Add more real save file test fixtures for Gen 1, 2, and 3'
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-14'
 updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: '14446118077751033343'
+jules_session_id: null
 pr_number: null
 parent: idea-147-add-more-test-fixtures
 tags:

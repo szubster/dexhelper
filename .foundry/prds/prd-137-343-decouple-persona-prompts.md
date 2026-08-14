@@ -2,12 +2,12 @@
 id: prd-137-343-decouple-persona-prompts
 type: PRD
 title: Decouple Persona Prompts and Support Composite Multi-Layered Prompts
-status: ACTIVE
-owner_persona: epic_planner
+status: PENDING
+owner_persona: auditor
 created_at: '2026-08-14'
 updated_at: '2026-08-14'
 depends_on: []
-jules_session_id: '10215115551899892429'
+jules_session_id: null
 pr_number: null
 parent: idea-137-decouple-persona-prompts
 tags:

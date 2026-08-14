@@ -1,11 +1,11 @@
 ---
 id: epic-343-417-test-fixtures-sourcing
 type: EPIC
-title: "Epic: Source and Integrate Real Save File Fixtures"
-status: PENDING
-owner_persona: "story_owner"
-created_at: "2026-08-14"
-updated_at: "2026-08-14"
+title: 'Epic: Source and Integrate Real Save File Fixtures'
+status: READY
+owner_persona: story_owner
+created_at: '2026-08-14'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Epic: Source and Integrate Real Save File Fixtures

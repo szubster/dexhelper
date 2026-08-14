@@ -2,7 +2,7 @@
 id: epic-343-417-semantic-evaluator-core
 type: EPIC
 title: Semantic Evaluator Utility Core
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-14'
 updated_at: '2026-08-14'
