@@ -2999,8 +2999,8 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     main();
 
     const parentContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-parent.md'), 'utf-8');
-    // It should be promoted to READY exactly once (it wakes up because child is complete but it has unchecked tasks)
-    expect(parentContent).toContain('status: READY');
+    // Completed child checkbox is auto-checked, so parent auto-completes to COMPLETED
+    expect(parentContent).toContain('status: COMPLETED');
   });
 
   test('Regression: Idempotent generation check bypasses dispatch of archived parent with archived children', () => {
