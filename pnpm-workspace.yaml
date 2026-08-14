@@ -1,29 +1,25 @@
 packages:
-  - "."
-  - ".github/scripts"
-
+- .
+- .github/scripts
 legacyPeerDeps: true
-
 minimumReleaseAgeExclude:
-  - "@oxlint-tsgolint/*"
-  - "oxlint-tsgolint"
-  - "serialize-javascript"
-  - undici@7.29.0
-  - fast-uri@3.1.5
-
+- '@oxlint-tsgolint/*'
+- oxlint-tsgolint
+- serialize-javascript
+- undici@7.29.0
+- fast-uri@3.1.5
 allowBuilds:
   esbuild: true
   lefthook: true
   sharp: true
   msgpackr-extract: true
   workerd: true
-
 auditConfig:
   ignoreGhsas:
-    - GHSA-rmmr-r34h-pfm5
-
+  - GHSA-rmmr-r34h-pfm5
 overrides:
-  "brace-expansion@<2.1.3": "^2.1.3"
+  brace-expansion@<2.1.3: ^2.1.3
   fast-uri@>=3.0.0 <3.1.5: ^3.1.5
   undici@>=7.0.0 <7.29.0: ^7.29.0
   js-yaml@>=3.0.0 <3.15.1: ^3.15.1
+  nanoid@<3.3.18: ^3.3.18
