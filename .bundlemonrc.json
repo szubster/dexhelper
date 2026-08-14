@@ -42,15 +42,7 @@
       "maxSize": "30kb"
     },
     {
-      "path": "assets/Gen2Checklist-<hash>.js",
-      "maxSize": "10kb"
-    },
-    {
-      "path": "assets/Gen3SecretBaseDashboard-<hash>.js",
-      "maxSize": "10kb"
-    },
-    {
-      "path": "assets/Gen3StaticEncountersDashboard-<hash>.js",
+      "path": "assets/*-<hash>.js",
       "maxSize": "10kb"
     },
     {
@@ -72,10 +64,6 @@
     {
       "path": "assets/index-<hash>.js",
       "maxSize": "250kb"
-    },
-    {
-      "path": "assets/query-<hash>.js",
-      "maxSize": "5kb"
     },
     {
       "path": "assets/react-<hash>.js",
