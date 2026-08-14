@@ -1937,6 +1937,26 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(taskArchitectResult).toContain('status: READY');
   });
 
+  test('RESEARCH/ADR nodes with >200 chars and unchecked tasks are promoted to READY, not auto-completed', () => {
+    const longBody = '## Acceptance Criteria\n- [ ] Task 1\n- [ ] Task 2\n' + 'a'.repeat(250);
+    createValidTestNode(tmpDir, '.foundry/research/research-long.md', {
+      id: "research-long",
+      type: "RESEARCH",
+      title: "Long Research",
+      status: "PENDING",
+      owner_persona: "researcher",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null
+    }, longBody);
+
+    main();
+
+    const researchResult = fs.readFileSync(path.join(tmpDir, '.foundry/research/research-long.md'), 'utf-8');
+    expect(researchResult).toContain('status: READY');
+  });
+
   test('Atomic Handoffs: resolves dependencies across single-persona atomic tasks', () => {
     createValidTestNode(tmpDir, '.foundry/tasks/task-atomic-1.md', {
       id: "task-atomic-1",
