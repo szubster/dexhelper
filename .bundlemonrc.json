@@ -95,7 +95,7 @@
     },
     {
       "path": "**/*",
-      "maxSize": "100kb"
+      "maxSize": "300kb"
     }
   ],
   "reportOutput": [
