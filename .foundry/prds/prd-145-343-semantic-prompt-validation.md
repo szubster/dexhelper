@@ -31,4 +31,6 @@ Implement a semantic validation utility (e.g., using an LLM-based assertion or a
 This will make persona instructions and process updates much more resilient to refactoring, reducing the overhead of updating brittle tests every time a prompt's phrasing is improved.
 
 ## Acceptance Criteria
-- [ ] Break down this PRD into Epics.
+- [x] Break down this PRD into Epics.
+- [ ] epic-343-417-semantic-evaluator-core
+- [ ] epic-343-418-agent-test-migration
