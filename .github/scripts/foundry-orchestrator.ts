@@ -998,7 +998,11 @@ function main(): void {
         info(`Late-Binding Parent: ${node.repoPath} is waiting for children to complete.`);
       } else {
         const hasCheckboxes = /^\s*-\s*\[\s*[xX\s]\s*\]/m.test(acceptanceCriteriaText);
-        if (hasCheckboxes && !hasUncheckedTasks) {
+        const isResearchOrAdr = node.frontmatter.type === 'RESEARCH' || node.frontmatter.type === 'ADR';
+        if (isResearchOrAdr && node.body.trim().length > 200) {
+          info(`Research/ADR node ${node.repoPath} has written content. Promoting directly to COMPLETED.`);
+          promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+        } else if (hasCheckboxes && !hasUncheckedTasks) {
           info(`Leaf node ${node.repoPath} has all acceptance criteria checked. Promoting directly to COMPLETED to prevent reawakening.`);
           promoteNodeStatus(node, 'PENDING', 'COMPLETED');
         } else {
@@ -1040,6 +1044,7 @@ function main(): void {
             const acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
             const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(acceptanceCriteriaText);
             if (hasUncheckedTasks) {
+              warn(`Parent Node Stall Warning: ${node.repoPath} has all children COMPLETED/CANCELLED, but cannot complete due to unchecked acceptance criteria!`);
               info(`Late-Binding Parent Waking Up: ${node.repoPath} has completed children, but still has unchecked tasks. Promoting to READY.`);
               // Add to eligible if not already there, so it's picked up by subsequent phases (Phase 5)
               if (!eligible.includes(node)) {
