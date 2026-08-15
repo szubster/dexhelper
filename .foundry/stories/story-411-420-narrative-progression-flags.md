@@ -2,12 +2,12 @@
 id: story-411-420-narrative-progression-flags
 type: STORY
 title: Parse narrative/story progression flags to determine upcoming major bosses.
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-11T00:00:00.000Z'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: '10775929736187095198'
+jules_session_id: null
 pr_number: null
 parent: epic-340-411-save-data-extraction
 tags:

@@ -2,10 +2,10 @@
 id: task-418-423-implement-locks-zod
 type: TASK
 title: Implement Schema Resource Locking in Zod
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-08-15'
 depends_on:
   - task-418-422-document-locks-schema
 jules_session_id: null

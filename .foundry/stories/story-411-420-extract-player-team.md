@@ -2,12 +2,12 @@
 id: story-411-420-extract-player-team
 type: STORY
 title: Extract Player's Active Team
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-13'
 updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: '16025757702880546454'
+jules_session_id: null
 pr_number: null
 parent: epic-340-411-gen3-ai-data-extraction
 tags:

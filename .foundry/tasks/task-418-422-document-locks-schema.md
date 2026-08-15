@@ -2,12 +2,12 @@
 id: task-418-422-document-locks-schema
 type: TASK
 title: Document Schema Resource Locking
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-11'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: '9807158921600540556'
+jules_session_id: null
 pr_number: null
 parent: story-411-418-schema-resource-locking
 tags:
