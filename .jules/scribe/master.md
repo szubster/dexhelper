@@ -5,7 +5,6 @@
 
 # Scribe Session Log
 
-- Task: Add architecture overview to Gen 2 save parser (`src/engine/saveParser/parsers/gen2.ts`).
 - Observation: When analyzing memory operations in Gen 2, it is critical to note that version detection (Gold/Silver vs Crystal) dictates all base offsets. Instead of static offset maps, the codebase heavily utilizes ternary operations predicated on the `isCrystal` boolean. Inventory parsing also features dynamic length-prefixed lists rather than fixed structs.
 - Rule: Ensure architectural documentation does not hallucinate hex offsets or complex structures (e.g., roaming legendaries) if they are not definitively proven in the `run_in_bash_session` output. Strict adherence to grounded facts is required.
 
@@ -28,3 +27,7 @@ Added documentation to `src/engine/assistant/utils/encounterTools.ts`.
 ## From session_scribe_20260808015543.md
 
 Logging execution details for Scribe.
+
+
+<!-- Source: 2026-08-13-02-15-11.md -->
+# Scribe Journal - 2026-08-13\n\n## Session Documentation\n- Documented `parseGen1TMFlags` in `src/engine/saveParser/utils/gen1EventFlags.ts`: Added JSDoc explaining the architectural *why* (packed bit array for memory savings).\n- Documented `groupBoxPokemonBySpecies` in `src/engine/saveParser/utils/boxGrouping.ts`: Added JSDoc explaining the *why* (filtering out non-box Pokemon like Daycare/Party) and provided an example.

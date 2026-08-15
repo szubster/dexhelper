@@ -138,3 +138,17 @@ Decomposed epic-340-411-schema-resource-locking into story-411-418-schema-resour
 
 ## Strategy Adjustment
 In future planning for schema updates, ensure we always explicitly generate E2E validation stories.
+
+<!-- Source: 10951981620713216813.md -->
+- Created story nodes for extracting Gen 3 AI data: active team, location, opponent data, and e2e verification. Appended unchecked tasks to the parent epic-340-411-gen3-ai-data-extraction.
+
+
+<!-- Source: 2746641942440721799.md -->
+# Anomaly Detection: Pre-existing Save Files
+The target artifacts (save files such as `red.sav`, `blue-evolve.sav`, `silver.sav`, `crystal-evolve.sav`, and `emerald.sav`) for Epic `epic-343-417-test-fixtures-sourcing` were found to already exist in `tests/fixtures/` prior to the session.
+
+
+<!-- Source: 17957934727210826373.md -->
+# Session 17957934727210826373
+
+When writing STORY nodes dynamically, always list the existing files in the directory and sort them to find the correct next sequence number (e.g., `ls -1 .foundry/stories/ | sort -n -t '-' -k 3`). Do not rely on pre-populated sequence numbers in the parent EPIC's Acceptance Criteria, as they might be hallucinated or cause collisions with existing nodes. Additionally, always ensure that every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification to satisfy the Orchestrator Safeguard.

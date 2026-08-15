@@ -108,7 +108,6 @@ Epic `epic-043-152-gen3-roamer-data-extraction` is permanently cancelled. As sta
 - Updated `epic-054-268-gen3-ash-save-parsing.md` to format the child nodes as valid markdown links to prevent parsing failures by the Orchestrator, as learned from system invariant rules.
 
 ## 2026-07-25
-* Task: epic-057-127-bash-timeout-wrapper
 
 # Journal Entry
 
@@ -316,7 +315,6 @@ Observed that all downstream stories and acceptance criteria for `epic-095-119-i
 ---
 
 ## 2908635611465516618
-* Task: epic-110-306-tm-hm-save-parsing
 * Learning: When an Epic's required child stories are already complete and its markdown checkboxes are ticked, submit an Empty PR to unblock the DAG. As story owner, always check existing filesystem state before blindly drafting duplicate downstream tasks.
 
 ---

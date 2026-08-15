@@ -240,3 +240,23 @@ Always separate headless test implementations (Vitest) from browser-driven test 
 * **The Rule:** When assigned a READY parent node (like a STORY or EPIC) that already has pending child tasks drafted from a previous iteration, you MUST submit an empty PR *without* checking off its overarching acceptance criteria checkboxes.
 * **Why:** This allows the orchestrator to correctly demote the parent to PENDING while it waits for its children. Checking them off prematurely violates the MACRO NODE COMPLETION EXCEPTION.
 * **Exception for COMPLETED Children:** This rule applies *exclusively* to PENDING child tasks. If ALL descendant nodes are already `COMPLETED`, you MUST check off the parent's Acceptance Criteria checkboxes before submitting the Empty PR to satisfy ADR 007 and allow the macro node to transition out of the DAG.
+
+<!-- Source: 12024737096141025951.md -->
+# Tech Lead Journal: 12024737096141025951
+
+## Egg Move Inventory Integration (Story 114-412)
+
+When breaking down stories that involve data formatting or parsing and integrating it with larger logic, ensure we're looking out for existing optimization patterns like the O(1) structures used in the `suggestionEngine.ts` (e.g., mapping species to an array of instances in `instancesBySpecies`).
+
+For this story, the coder is instructed to extract and formalize `instancesBySpecies` from `suggestionEngine.ts` into a utility to handle the combined PC and Party details format.
+
+
+<!-- Source: 17030692349781794310.md -->
+# Session 17030692349781794310
+- When troubleshooting or targeting specific tests, ensure you do not mistakenly target Vitest unit tests (e.g., `src/*.test.ts`) with the Playwright test command (`pnpm test:e2e`), as this will result in a 'No tests found' error.
+
+
+<!-- Source: 9448454815623706963.md -->
+# Lesson Learned
+
+It is important to separate base UI primitive component implementations from higher-level component integrations into separate TASK nodes when drafting blueprints. This ensures maximum parallel development and avoids monolithic tasks.

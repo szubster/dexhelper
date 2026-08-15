@@ -29,3 +29,23 @@ Refactored `calculateBreedingPairs` in `src/engine/breeding/pair_algorithm.ts` f
 Identified `PokemonCaughtDetails` as a relatively large bundle that can be lazy loaded similar to `PokemonCatchProbability`.
 - Replaced static import in `src/components/PokemonDetails.tsx` with a `React.lazy` component wrapped in a suspense boundary.
 - Updated `vite.config.ts` chunking function and `.bundlemonrc.json` limits for the new component.
+
+
+<!-- Source: performance-lazy-load.md -->
+# Performance Optimization: Lazy Load Save Parsers\n\n- Extracted detection logic to `src/engine/saveParser/utils/detection.ts` to prevent `INEFFECTIVE_DYNAMIC_IMPORT` warnings from Rollup.\n- Used dynamic imports in `parseSaveFile` to lazily load `parseGen1`, `parseGen2`, and `parseGen3` depending on the detected save generation.\n- Configured Vite's `manualChunks` to break out `saveParserGen1`, `saveParserGen2`, and `saveParserGen3` into independent bundles.\n- Adjusted `.bundlemonrc.json` limits to accept the newly split chunk files.\n- Verified with `pnpm test:bundle` and E2E tests passing.\n- Added `// ⚡ Bolt:` inline comment documenting the optimization.\n\n
+
+
+<!-- Source: 2026-08-06.md -->
+# Session: 2024-08-07-02-15-00
+Persona: Bolt
+
+Identified multiple React components that frequently re-render with large data sets or complex interactive parent nodes (like the DAG dashboard).
+- Added `React.memo` to `DagNode` in `src/components/dag/DagNode.tsx` to prevent unnecessary DOM re-evaluations during DAG pan/zoom.
+- Added `React.memo` to `DagFilterPanel` in `src/components/dag/DagFilterPanel.tsx` to isolate its render cycle from the complex parent DAG context changes.
+- Added `React.memo` to `PokemonSprite` in `src/components/pokemon/PokemonSprite.tsx` to prevent cascading render evaluations across large list views (like PC storage grids and Pokedex lists).
+- Annotated all changes with `// ⚡ Bolt:` comments explaining the memoization context.
+
+
+<!-- Source: session-bundle-fix.md -->
+Session completed successfully. Optimized the Vite build by adding a saveParserCommon chunk, eliminating the +6KB overhead duplication between saveParserGenX chunks and clarifying the 49KB Rollup chunk-drop in the GlobalRibbonChecklistDashboard.
+Learned that Vite and Rollup automatically handle chunk splitting for dynamic imports. Removed hardcoded manual chunks from vite.config.ts and confirmed correct splitting without duplication.
