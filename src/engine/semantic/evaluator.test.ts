@@ -35,7 +35,7 @@ describe('evaluateSemanticCondition', () => {
 
     expect(fetch).toHaveBeenCalledWith(
       expect.stringContaining(
-        'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent?key=test-key',
+        'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=test-key',
       ),
       expect.objectContaining({
         method: 'POST',
@@ -50,12 +50,13 @@ describe('evaluateSemanticCondition', () => {
     const mockResponse = {
       ok: false,
       status: 500,
+      json: vi.fn<() => Promise<unknown>>().mockResolvedValue({ error: 'Internal Server Error' }),
     };
 
     vi.mocked(fetch).mockResolvedValue(mockResponse as unknown as Response);
 
     await expect(evaluateSemanticCondition('condition', 'prompt')).rejects.toThrow(
-      'LLM API request failed with status 500',
+      'LLM API request failed with status 500: {"error":"Internal Server Error"}',
     );
   });
 

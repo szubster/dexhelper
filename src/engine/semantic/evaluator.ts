@@ -35,7 +35,7 @@ ${prompt}`,
   };
 
   const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent?key=${apiKey}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
     {
       method: 'POST',
       headers: {
@@ -46,7 +46,14 @@ ${prompt}`,
   );
 
   if (!response.ok) {
-    throw new Error(`LLM API request failed with status ${response.status}`);
+    let errorText = '';
+    try {
+      const errorJson = await response.json();
+      errorText = JSON.stringify(errorJson);
+    } catch {
+      errorText = await response.text();
+    }
+    throw new Error(`LLM API request failed with status ${response.status}: ${errorText}`);
   }
 
   const data = await response.json();
