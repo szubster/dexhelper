@@ -51,3 +51,45 @@ Verified the implementation of the Gen 3 Static Encounters UI (`task-295-408-gen
 The `Gen3StaticEncountersDashboard` is correctly displayed on the main Gen 3 dashboard (`src/routes/dashboard.tsx`).
 The UI correctly displays the static encounter checklist based on save file flags as verified by the Vitest unit tests in `src/components/dashboard/encounters/__tests__/Gen3StaticEncountersDashboard.test.tsx`.
 Checked off the acceptance criteria in the task markdown file.
+
+<!-- Source: 5152784191889048494.md -->
+# QA Journal Entry
+
+## Context
+QA Verification for Item Data Runtime Integration (Task `task-280-306-item-runtime-qa`).
+
+## Findings
+- Successfully verified that the codebase's test suite passed, implying that the IndexedDB modifications and removal of hardcoded tables functioned correctly under test conditions.
+- Adhered to the `Empty PR Checkbox Policy` by checking off acceptance criteria for a completed target artifact and submitting a passthrough PR without modifying the task's YAML frontmatter.
+- Discovered that running background tasks like `xvfb-run pnpm test:e2e &` requires careful monitoring of output streams (`tail e2e_output.log`) and potentially process management since Xvfb might fail to start if another instance is already running (requiring `killall Xvfb`).
+- When proposing execution plans for Empty PRs, the plan must include exactly the core verification commands (`pnpm lint`, `pnpm test`, and `xvfb-run pnpm test:e2e`) without extra unmentioned commands, and the plan steps must be strictly un-nested forward-looking actions.
+
+
+<!-- Source: 2026-08-12-19-05-51.md -->
+# QA Rejection: Gen 3 Safari Zone State Parsing Implementation
+
+**Session ID**: 2026-08-12-19-05-51
+**Target Task**: `task-340-341-gen3-safari-zone-state-impl`
+**Status**: Rejected (FAILED)
+
+## Architectural Violations
+The implementation for `task-340-341-gen3-safari-zone-state-impl` was rejected due to several violations of the architectural guidelines and contracts established for the codebase.
+
+1. **Inline Magic Numbers**:
+   - `parseGen3PCBuffer`: Hardcoded length values `2000` and `3968` instead of using module-level constants.
+   - `parseGen3PCBoxes`: Hardcoded level value `1` and hardcoded offset addition `2`, `4`, `6` for moves instead of module-level constants.
+   - All memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level (ADR 028).
+
+2. **Swallowed Exceptions (RangeError)**:
+   - `parseGen3PCBuffer`: Did not wrap the `DataView` read inside a `try...catch` block to handle `RangeError`.
+   - Out-of-bounds `DataView` reads that throw `RangeError` must be explicitly caught and re-thrown with the exact message: "The save file is corrupted or incomplete." (as defined in the contract). `parseGen3PCBoxes` does this, but `parseGen3PCBuffer` fails to do so. Also in `parseGen3` where PC boxes are parsed it wraps it in an empty catch `catch {}` which swallows all errors.
+
+## Action Taken
+- Transitioned `task-340-341-gen3-safari-zone-state-impl` to `FAILED` status.
+- Added `rejection_reason` explaining the violations.
+- Incremented `rejection_count`.
+- Left Acceptance Criteria checkboxes as they were (per Transient Rejection policy).
+
+## Guidelines Followed
+- **Triggering Transient Rejections**: Failed the target task without checking off checkboxes in its markdown body.
+- **Strict Architecture Check**: Magic number and `RangeError` handling rules were strictly enforced based on task requirements and schema.

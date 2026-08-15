@@ -177,3 +177,28 @@
   In Pokemon Emerald, tracking the Marine Cave (Kyogre) and Terra Cave (Groudon) anomalies requires repeatedly revisiting the Weather Institute. DexHelper can automate this by extracting the relevant event flags and variables directly from the save file and highlighting the affected routes on the map UI.
 - **How this idea maintains the 50/50 balance between DexHelper and Foundry:**
   In the previous session, we proposed IDEA-146 (Implement Foundry System Statistics Reporting and Backfilling), which focused purely on the Foundry Orchestrator. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to proposing a direct user-facing feature for DexHelper (a Gen 3 tracker).
+
+
+<!-- Source: 2026-08-13-01-12-40.md -->
+# Visionary Journal
+
+- **Active Session/Timestamp:** 2026-08-13-01-12-40
+- **Domain:** Foundry System
+- **Proposed Idea:** Foundry Orchestrator DAG Priority Scheduling (IDEA-148)
+- **Rationale & Concept:**
+  As the Foundry DAG grows, "horizontal explosions" occur where dozens of nodes become unblocked simultaneously. Naively dispatching all of them in parallel starves CI runner matrix limits and creates massive merge conflict storms. By introducing a `priority` field and throttling the dispatch logic in the orchestrator, we can ensure focused vertical delivery and reduce pipeline bottlenecks.
+- **Strategic Balance:**
+  In the preceding sessions, a sequence of DexHelper product ideas were proposed (including IDEA-147 Gen 3 Weather Anomaly Tracker). Moving back to a core platform orchestration feature for the autonomous software factory (such as DAG priority scheduling and dispatch throttling) successfully maintains the strict 50/50 strategic balance between direct end-user features (DexHelper) and internal pipeline improvements (Foundry).
+- **Update:** The dispatch limit / throttling part of the proposal was rejected in PR review to ensure we continue to maximize Jules' usage. The priority queue remains.
+
+
+<!-- Source: 2026-08-14-01-04-00.md -->
+# Visionary Journal
+
+- **Active Session/Timestamp:** 2026-08-14-01-04-00
+- **Domain:** Foundry System (Orchestrator)
+- **Proposed Idea:** Priority-Based Dispatch Queue for Orchestrator (IDEA-148)
+- **Rationale & Concept:**
+  Currently, the Foundry orchestrator dispatches `READY` nodes indiscriminately. As the DAG grows, this can lead to low-priority research nodes consuming pipeline resources while critical path tasks are starved. Implementing a priority queue (e.g., via a `priority` field in the frontmatter, defaulting to 0) would allow the orchestrator to prioritize critical path Epics and their descendant Tasks.
+- **Strategic Balance:**
+  In the previous session, we proposed IDEA-147 (Gen 3 Weather Anomaly Tracker) for DexHelper. To maintain the strict 50/50 balance between product features and system improvements, this session pivots back to a Foundry orchestrator improvement.

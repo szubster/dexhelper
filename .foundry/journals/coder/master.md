@@ -1,6 +1,5 @@
 ## Entry from 12015024896685344229.md
 
-Session 12015024896685344229: Fixed magic numbers in parseSecretBaseRecord to comply with QA feedback and Section 13 (No Magic Numbers) of .foundry/docs/schema.md, and checked off the task's acceptance criteria to transition it to COMPLETED using an Empty PR.
 
 # Session Journal
 
@@ -14,8 +13,6 @@ Session 12015024896685344229: Fixed magic numbers in parseSecretBaseRecord to co
 
 # Coder Session: task-341-369-feebas-calculation-worker-impl
 Learned to add web workers to knip.json to prevent them from being flagged as unused code.
-Checked coverage report, tests pass locally except an environmental issue with Playwright running headlessly. The CodeCov error is likely a false positive regarding coverage percentage. Proceeding to submit.
-Added strict typing for the vi.fn mocks in feebas.worker.test.ts to satisfy vitest(require-mock-type-parameters).
 
 ## Suspended task-319-322-gen3-trainer-flags-extraction-impl
 Lacked critical context for exact memory offsets for standard trainer defeat flags in Gen 3 saves. Spawning research node research-322-396-gen3-trainer-defeat-flags-offsets.md and late-binding.
@@ -38,3 +35,25 @@ Executed Empty PR policy for completed implementation of `task-359-415-gen3-roam
 *   Because the Gen 3 lottery system evaluates only the 16-bit Trainer ID, we must mask it explicitly (`pokemon.otId & 0xFFFF`) before checking matches to prevent the SID from interfering with false matches or missed matches.
 *   As per ADR 028, we must always extract magic numbers into module-level constants (e.g. `GEN3_TRAINER_ID_MASK = 0xFFFF`).
 *   Always ensure any scratchpad or testing files created (`fix.ts`, `plan.md`) are deleted before requesting code reviews or concluding pre-commit steps.
+
+
+<!-- Source: 10681144955246699899.md -->
+# Session 10681144955246699899
+
+## Learnings
+*   When applying conditional Tailwind CSS classes to UI components, always use complete literal class name strings in theme configurations or mapping objects instead of string interpolation (e.g., `'border-cyan-900/30'` instead of `'border-' + color + '-900'`). This ensures the Tailwind compiler can successfully parse and include the specific classes during the build process, preventing them from being purged.
+*   To test components using Playwright's visual verification process in this repository efficiently, one useful pattern is rendering the target component inside an ephemeral, dedicated `-TestRoute.tsx` or similar route, rendering variations to inspect their visual correctness, and capturing that isolated screen.
+
+
+<!-- Source: 9435376775466367264.md -->
+# Session 9435376775466367264
+
+When modifying files using bash utilities like `patch` or `sed`, ensure all temporary artifacts such as `.diff`, `.orig`, and `.rej` files are completely deleted from the repository before executing pre-commit steps or requesting code review to avoid repository hygiene rejections.
+
+
+<!-- Source: 10325287912478917300.md -->
+# Session 10325287912478917300
+
+## Orchestrator modifications & test fixtures
+When modifying orchestrator discovery logic to exclude directories (e.g., bypassing `archive`), do not blindly delete failing unit tests that rely on fixtures inside those bypassed paths.
+Instead, relocate the test fixtures to active directories (e.g., `.foundry/epics/`) and update the test paths to maintain original test coverage and intent. This avoids regressing test validity.

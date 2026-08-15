@@ -1,5 +1,0 @@
-## 2025-02-12 - [Accepted] - 🖼️ Canvas: PokedexCard Target Acquisition Redesign
-**What:** Redesigned the `PokedexCard` component to align with the "tactical hardware" and "snooping" aesthetic. Replaced plain solid borders with layered cyan/emerald/amber dashed frames, added hover effects simulating a matrix target lock (glitch overlays, spinning crosshairs, intense scanlines), and refactored the right-side data container to include dynamic status bars and hex stream overlays on hover. Replaced generic `NO.` with `ID.` for increased tactical flavor.
-**Outcome:** Accepted -> wait for review
-**Why:** The original `PokedexCard` lacked depth and felt generic compared to components like `SearchAndFilters`. This change grounds the card visually in the broader terminal OS theme.
-**Pattern:** For interactive display cards, rely on layered dashed frames, raw data streams (hex/binary), and mechanical hover animations (e.g., crosshairs or pulsing LEDs) rather than generic UI scales or shadows. Ensure custom animations referenced in Tailwind arbitrary values are explicitly defined in `index.css`.

@@ -22,8 +22,6 @@ To pass `epic-planner-instructions.test.ts`, the Epic Planner's instructions fil
 # Session 15023750986512382605
 
 Read `.foundry/docs/knowledge_base/agents/core_policies.md`.
-Processed PRD `prd-128-339-gen3-acro-bike-route-planner`.
-Broke down the PRD into 3 Epics:
 - `epic-339-406-gen3-bike-requirement-route-mapping`
 - `epic-339-407-gen3-bike-item-gating-integration`
 - `epic-339-408-gen3-bike-save-state-recommendations`
@@ -134,3 +132,69 @@ To resolve this and resurrect the feature, I:
 4. Checked off the cancelled child Epics in the parent `prd-069-038-pokerus-tracker` body to allow proper DAG progress.
 
 All new Epics strictly enforce the Orchestrator safeguard requirement to generate an E2E STORY for verification.
+
+
+<!-- Source: 10215115551899892429.md -->
+# Epic Planner Journal: Prompt Layering Migration (Session 10215115551899892429)
+
+## Context
+Broke down PRD `prd-137-343-decouple-persona-prompts` into actionable Epics for decoupling monolithic persona prompts into modular fragments.
+
+## Lessons & Adherence
+1.  **Dependency Mapping:** Effectively chained the Epics. The Orchestrator integration (`epic-343-418`) explicitly depends on the foundational schema/system implementation (`epic-343-417`). The migration (`epic-343-419`) correctly depends on the Orchestrator integration being completed first. This ensures a safe, backward-compatible rollout.
+2.  **E2E Enforcement:** Ensured strict compliance with the Orchestrator Safeguard rule. Every generated Epic explicitly includes `- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.` in its Acceptance Criteria, which will force downstream `story_owner` generation to account for it.
+3.  **Strict ID Referencing:** Applied strict ID-only references (`epic-343-417-prompt-fragment-layering`) rather than file paths when appending generated Epics to the parent PRD's unchecked task list, adhering to the latest parent-linking syntax rules.
+
+
+<!-- Source: 2026-08-14-11-08-24.md -->
+# Epic Planner Journal Entry
+
+Session ID: 11083204589735225959
+Date: 2026-08-14
+
+Successfully broke down PRD `prd-146-001-foundry-system-statistics` into two distinct Epics:
+- `epic-146-417-real-time-statistics-generator`
+- `epic-146-418-historical-statistics-backfilling`
+
+**Key Actions & Compliance:**
+1. Mapped dependencies appropriately (`epic-146-418` depends on `epic-146-417` as real-time needs to be established before historical can accurately reflect schema).
+2. Enforced E2E testing criteria on both generated epics, fulfilling the orchestrator safeguard.
+3. Updated the parent PRD to correctly list the generated children as unchecked markdown boxes without mutating its YAML frontmatter, preserving the orchestrator verification lifecycle.
+4. Correctly installed playwright browser dependencies when vitest failed due to missing headless browser instances.
+
+<!-- Source: 3355379518708574393.md -->
+# Epic Planner Session: 3355379518708574393
+
+## Node Breakdown
+- Parent: `prd-142-342-automated-adr-compliance-linter`
+- Children:
+  - `epic-142-417-automated-adr-compliance-linter`: Focuses on writing the `verify-adr-compliance.ts` static analysis script.
+  - `epic-142-418-automated-adr-compliance-ci-integration`: Focuses on integrating the new script into the CI pipeline (Lefthook, package.json).
+
+## Learnings & Constraints
+- Splitting the linter script creation and its CI integration into separate epics prevents monolithic PRs and allows parallel development.
+- The linter must enforce ADR 008 (tactical hardware UI aesthetics) and ADR 013 (React context for state management) to significantly reduce QA LLM context usage.
+
+
+<!-- Source: 7870633467577142804.md -->
+# Journal Entry - Save Editor CLI Epic Breakdown
+When creating Epics for CLI-based tooling, we must enforce a process where the Epic generates a final STORY dedicated exclusively to Integration and E2E Verification to ensure all CLI inputs and save file outputs are fully validated before marking the feature as complete. This ensures we follow the orchestrator safeguard rule for E2E verification as defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+
+
+<!-- Source: 14446118077751033343.md -->
+# Epic Planner Session - 14446118077751033343
+
+Decomposed `prd-147-343-test-fixtures` into two Epics:
+1. `epic-343-417-test-fixtures-sourcing`: Focuses on acquiring and storing the physical `.sav` fixture files.
+2. `epic-343-418-test-suite-adaptation`: Focuses on refactoring `saveFixtures.test.ts` to use parameterized testing (`test.for`) on the newly sourced fixtures. This Epic explicitly depends on the first Epic.
+
+Both Epics include a mandate to generate a final STORY dedicated exclusively to E2E Verification, complying with the orchestrator rules.
+
+
+<!-- Source: 7654390589700833801.md -->
+# Epic Planner Session Journal
+
+**Date:** 2026-08-14
+**Session ID:** 7654390589700833801
+
+Created breakdown for PRD `prd-145-343-semantic-prompt-validation` mapping out the implementation of semantic validation utility for agent prompts, and testing integration. Noted importance of explicit dependency between implementation and test migration to ensure validation utility exists prior to migrating brittle tests.

@@ -43,3 +43,11 @@
 **Type:** Prompt improvement
 **Why:** Several personas (Coder, QA, Tech Lead, Auditor) shared duplicated constraints around Save File Parsing (Section 13), UI Aesthetics (ADR 008), Architectural Scaffolding, Vitest mocks, and the Intelligent Verification Protocol. This leads to drift and bloated context windows.
 **Pattern:** Extract duplicated coding and verification policies from individual agent schedules and centralize them into `core_policies.md` to ensure all agents operate from a single, consistent source of truth, reducing token usage and simplifying prompt maintenance.
+
+
+<!-- Source: 2026-08-13.md -->
+## 2026-08-13 - [Accepted] - Prompt improvement - Clean up Epic Planner rules handled in core_policies
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `epic_planner.md` schedule still contained the "E2E Verification" generation rule which had already been migrated to `core_policies.md` under "Orchestrator Safeguard". We need to remove the duplicate rule from `epic_planner.md` to prevent prompt bloat and reduce redundancy. Also, deleted the `epic-planner-instructions.test.ts` as the E2E verification rule is now universally enforced in `core_policies.md` and no longer needs a specific check in `epic_planner.md`.
+**Pattern:** Always check and verify that older tests checking for prompt specific rules are also cleaned up when a rule is migrated to a central file like `core_policies.md`.
