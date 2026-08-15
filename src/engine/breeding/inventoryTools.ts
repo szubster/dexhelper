@@ -4,7 +4,21 @@ import type { PokemonInstance, SaveData } from '../saveParser/index';
  * Extracts all Pokemon instances from a save data object, combining party and PC box members.
  */
 export function extractAllInstances(saveData: SaveData): PokemonInstance[] {
-  return [...(saveData.partyDetails || []), ...(saveData.pcDetails || [])];
+  const party = saveData.partyDetails || [];
+  const pc = saveData.pcDetails || [];
+  const result: PokemonInstance[] = [];
+  result.length = party.length + pc.length;
+  let index = 0;
+  for (let i = 0; i < party.length; i++) {
+    const p = party[i];
+    if (p) result[index++] = p;
+  }
+  for (let i = 0; i < pc.length; i++) {
+    const p = pc[i];
+    if (p) result[index++] = p;
+  }
+  result.length = index;
+  return result;
 }
 
 /**

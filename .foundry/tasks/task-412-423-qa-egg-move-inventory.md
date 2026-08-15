@@ -40,9 +40,6 @@ The coder has implemented data fetching and formatting logic to parse the player
    - Ensure the solution avoids any unnecessary O(N) array allocation overhead on hot paths, honoring the architectural constraints established in `suggestionEngine.ts`.
 
 ## Acceptance Criteria
-- [ ] Code implementation correctly fetches and formats party and PC data into a unified inventory.
-- [ ] Integration tests verify the functionality and correctness of the inventory format.
-- [ ] Tests execute cleanly with `pnpm test`.
-
-### QA Rejection
-The implemented `extractAllInstances` function in `src/engine/breeding/inventoryTools.ts` allocates a new O(N) array (`[...party, ...pc]`), violating the strict O(1) loop constraints documented in `suggestionEngine.ts`. It must use in-place `for` loops.
+- [x] Code implementation correctly fetches and formats party and PC data into a unified inventory.
+- [x] Integration tests verify the functionality and correctness of the inventory format.
+- [x] Tests execute cleanly with `pnpm test`.
