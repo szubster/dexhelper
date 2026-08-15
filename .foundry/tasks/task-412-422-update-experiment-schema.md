@@ -2,12 +2,12 @@
 id: task-412-422-update-experiment-schema
 type: TASK
 title: Update Schema with EXPERIMENT type and experiment_variants
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-12'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9853675902930891922'
 pr_number: null
 parent: story-411-412-define-experiment-schema
 tags:
