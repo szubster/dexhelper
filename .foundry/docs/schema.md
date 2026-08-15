@@ -69,6 +69,7 @@ created_at: ""          # Required. ISO-8601 date (YYYY-MM-DD). Set once, never 
 updated_at: ""          # Required. ISO-8601 date. Updated by any persona that edits the node.
 depends_on: []          # Required. Array of repo-relative file paths. Empty [] = unblocked.
 jules_session_id: null  # Required. Active Jules session ID string, or null when idle.
+locks: []               # Optional. Array of strings for resource identifiers the node needs exclusive access to.
 pr_number: null         # Optional. PR number for human-in-the-loop tasks, or null.
 parent: null            # Required if node is derived from another node (e.g. PRD from IDEA, EPIC from PRD). The ID (preferred) or repo-relative path to the logical parent node. Blocks the parent from completion if this node is incomplete.
 tags: []                # Optional. Free-form string labels for filtering and context injection.
@@ -93,6 +94,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `updated_at` | `date` | ✅ | ISO-8601 (YYYY-MM-DD). Must be updated whenever the file is edited. |
 | `depends_on` | `string[]` | ✅ | Repo-relative paths to blocking nodes (e.g., `.foundry/stories/story-001-scaffold.md`). **Empty array `[]` means the node has in-degree zero and is eligible for dispatch once all other preconditions are met.** |
 | `jules_session_id` | `string \| null` | ✅ | Jules session ID while `ACTIVE`. Always present; `null` when the node is not being processed. Monitored by the heartbeat workflow. |
+| `locks` | `string[]` | optional | Resource identifiers (e.g., persona names, application areas) that the node requires exclusive access to during execution to prevent git merge conflicts. |
 | `pr_number` | `integer \| null` | optional | PR number for human-in-the-loop tasks, or `null`. |
 | `parent` | `string \| null` | optional | The ID (preferred) or repo-relative path to logical parent (e.g., a story's parent epic). Used for context hydration when spawning Jules — concatenates reading graphs upward. Does **not** affect DAG blocking. |
 | `tags` | `string[]` | optional | Labels for filtering and selective context injection (e.g. `["gen2", "save-engine"]`). |
@@ -223,6 +225,7 @@ created_at: "YYYY-MM-DD"
 updated_at: "YYYY-MM-DD"
 depends_on: []
 jules_session_id: null
+locks: []
 pr_number: null
 parent: null
 tags: []

@@ -30,4 +30,4 @@ Document the new `locks` array field in the Foundry DAG orchestrator schema to p
 - It will be used to hold resource identifiers (like persona names or specific areas of the application) that a given node requires exclusive access to during execution.
 
 ## Acceptance Criteria
-- [ ] Coder updates `.foundry/docs/schema.md` to document the `locks` array field.
+- [x] Coder updates `.foundry/docs/schema.md` to document the `locks` array field.
