@@ -26,4 +26,7 @@ Implement the UI for the emulator and ROM loading via local file picker or drag-
 ## Acceptance Criteria
 - [ ] Implement UI for the emulator and ROM loader.
 - [ ] Save the ROM in IndexedDB/LocalStorage.
-- [ ] Break down this STORY into TASK nodes.
+- [x] Break down this STORY into TASK nodes.
+- [ ] task-424-427-wasm-rom-storage-layer
+- [ ] task-424-428-wasm-emulator-ui-component
+- [ ] task-424-429-wasm-emulator-qa
