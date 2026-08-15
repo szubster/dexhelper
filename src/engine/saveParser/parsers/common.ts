@@ -352,6 +352,8 @@ export interface SaveData {
   gen3MoveTutors?: Gen3MoveTutors;
   /** Gen 3 specific: Volcanic Ash gather count */
   gen3VolcanicAsh?: number;
+  /** Gen 3 specific: Key event items boolean flags. */
+  gen3EventItems?: Record<number, boolean>;
   /** Gen 3 specific: TM and HM inventory mapped to moves */
   gen3TMHMs?: { itemId: number; quantity: number; moveId: number }[];
   /** Gen 3 specific: TM event flags for one-time TM collection */
