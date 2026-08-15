@@ -34,10 +34,10 @@ Review the work performed in `task-089-177-radar-heatmap-ui-integration-impl`.
 3. Validate that `calculateHeatmap` in `RouteRadarController` correctly transforms `Suggestion` arrays into a density `RouteRadarHeatmap`.
 
 ## Acceptance Criteria
-- [ ] Verify `areaId` is used consistently instead of `aid`.
-- [ ] Verify the heatmap data structure is correctly wired into the Map UI component.
-- [ ] Run test suite (`pnpm test`) and confirm passing.
-- [ ] Verify the aggregation correctly maps `areaId`s to missing species count without double-counting.
+- [x] Verify `areaId` is used consistently instead of `aid`.
+- [x] Verify the heatmap data structure is correctly wired into the Map UI component.
+- [x] Run test suite (`pnpm test`) and confirm passing.
+- [x] Verify the aggregation correctly maps `areaId`s to missing species count without double-counting.
 
 **Important Persona Instructions:**
 - **QA**: If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting. Do not modify the frontmatter otherwise.
