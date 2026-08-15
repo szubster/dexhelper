@@ -51,4 +51,6 @@ Pal Park rejects any Pokémon knowing an HM move. The validation logic must accu
   - Clicking the icon will display a tooltip specifying the HM move(s) that must be deleted in-game before migration can occur.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into Epics.
+- [x] Epic Planner: Break this PRD down into Epics.
+- [ ] epic-340-420-pal-park-core-engine
+- [ ] epic-340-421-pal-park-dashboard-ui
