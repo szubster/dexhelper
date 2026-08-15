@@ -29,7 +29,7 @@ Research the exact memory offsets and structure for Party Pokémon and PC Box Po
 The Gen 3 PID extraction task requires implementing backend data extraction for Gen 3 Party and PC Box PIDs. The exact memory offsets and structure of this data within the save file are currently unknown in the codebase, preventing implementation without risking memory layout errors.
 
 ## Acceptance Criteria
-- [ ] Research and document the memory offsets and structure for Party Pokémon in Gen 3 saves (Ruby/Sapphire, Emerald, FireRed/LeafGreen).
-- [ ] Research and document the memory offsets and structure for PC Box data in Gen 3 saves (Ruby/Sapphire, Emerald, FireRed/LeafGreen).
-- [ ] Detail the structure and offsets of the PIDs for Pokémon stored within the party and boxes.
-- [ ] Document these findings in `.foundry/docs/knowledge_base/engine/save_parsing/`.
+- [x] Research and document the memory offsets and structure for Party Pokémon in Gen 3 saves (Ruby/Sapphire, Emerald, FireRed/LeafGreen).
+- [x] Research and document the memory offsets and structure for PC Box data in Gen 3 saves (Ruby/Sapphire, Emerald, FireRed/LeafGreen).
+- [x] Detail the structure and offsets of the PIDs for Pokémon stored within the party and boxes.
+- [x] Document these findings in `.foundry/docs/knowledge_base/engine/save_parsing/`.
