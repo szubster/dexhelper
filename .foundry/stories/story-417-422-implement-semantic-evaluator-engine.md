@@ -26,5 +26,5 @@ Implement the core engine that leverages an LLM to perform semantic evaluations.
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-422-425-semantic-evaluator-engine-impl
+- [x] task-422-425-semantic-evaluator-engine-impl
 - [ ] task-422-426-semantic-evaluator-engine-qa
