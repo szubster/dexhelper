@@ -15,8 +15,9 @@ allowBuilds:
   sharp: true
   msgpackr-extract: true
   workerd: true
+  '@google/genai': set this to true or false
+  protobufjs: set this to true or false
 
 auditConfig:
   ignoreGhsas:
     - GHSA-rmmr-r34h-pfm5
-

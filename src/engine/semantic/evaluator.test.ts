@@ -1,9 +1,33 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { evaluateSemanticCondition } from './evaluator';
 
+// Mock the GoogleGenAI module
+vi.mock('@google/genai', () => {
+  const mockGenerateContent = vi.fn<() => Promise<unknown>>();
+
+  // Need to provide a constructor-compatible mock
+  class MockGoogleGenAI {
+    models = {
+      generateContent: mockGenerateContent,
+    };
+  }
+
+  return {
+    GoogleGenAI: MockGoogleGenAI,
+    // Export the mock so we can access it in tests
+    __mockGenerateContent: mockGenerateContent,
+  };
+});
+
 describe('evaluateSemanticCondition', () => {
-  beforeEach(() => {
-    vi.stubGlobal('fetch', vi.fn<typeof fetch>());
+  let mockGenerateContent: ReturnType<typeof vi.fn>;
+
+  beforeEach(async () => {
+    // dynamically import the mock to gain access to the injected function
+    // biome-ignore lint/suspicious/noExplicitAny: Used for vi.mock interop
+    const mockModule = (await import('@google/genai')) as any;
+    mockGenerateContent = mockModule.__mockGenerateContent;
+
     vi.stubEnv('GEMINI_API_KEY', 'test-key');
   });
 
@@ -15,66 +39,34 @@ describe('evaluateSemanticCondition', () => {
   });
 
   it('returns evaluation result on success', async () => {
-    const mockResponse = {
-      ok: true,
-      json: vi.fn<() => Promise<unknown>>().mockResolvedValue({
-        candidates: [
-          {
-            content: {
-              parts: [{ text: JSON.stringify({ isEquivalent: true, reasoning: 'Matches.' }) }],
-            },
-          },
-        ],
-      }),
-    };
-
-    // Use a type assertion that bypasses the warning, or omit 'as any'
-    vi.mocked(fetch).mockResolvedValue(mockResponse as unknown as Response);
+    mockGenerateContent.mockResolvedValue({
+      text: JSON.stringify({ isEquivalent: true, reasoning: 'Matches.' }),
+    });
 
     const result = await evaluateSemanticCondition('is greeting', 'hello');
 
-    expect(fetch).toHaveBeenCalledWith(
-      expect.stringContaining(
-        'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=test-key',
-      ),
-      expect.objectContaining({
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-      }),
-    );
+    expect(mockGenerateContent).toHaveBeenCalledWith({
+      model: 'gemini-2.5-flash',
+      contents: 'Condition to evaluate:\nis greeting\n\nPrompt text:\nhello',
+      config: {
+        systemInstruction: expect.any(String),
+        responseMimeType: 'application/json',
+      },
+    });
 
     expect(result).toEqual({ isEquivalent: true, reasoning: 'Matches.' });
   });
 
   it('throws an error if the API request fails', async () => {
-    const mockResponse = {
-      ok: false,
-      status: 500,
-      json: vi.fn<() => Promise<unknown>>().mockResolvedValue({ error: 'Internal Server Error' }),
-    };
+    mockGenerateContent.mockRejectedValue(new Error('Internal Server Error'));
 
-    vi.mocked(fetch).mockResolvedValue(mockResponse as unknown as Response);
-
-    await expect(evaluateSemanticCondition('condition', 'prompt')).rejects.toThrow(
-      'LLM API request failed with status 500: {"error":"Internal Server Error"}',
-    );
+    await expect(evaluateSemanticCondition('condition', 'prompt')).rejects.toThrow('Internal Server Error');
   });
 
   it('throws an error if parsing JSON response fails', async () => {
-    const mockResponse = {
-      ok: true,
-      json: vi.fn<() => Promise<unknown>>().mockResolvedValue({
-        candidates: [
-          {
-            content: {
-              parts: [{ text: 'invalid json' }],
-            },
-          },
-        ],
-      }),
-    };
-
-    vi.mocked(fetch).mockResolvedValue(mockResponse as unknown as Response);
+    mockGenerateContent.mockResolvedValue({
+      text: 'invalid json',
+    });
 
     await expect(evaluateSemanticCondition('condition', 'prompt')).rejects.toThrow(
       'Failed to parse LLM response as JSON',
@@ -97,15 +89,17 @@ describe('evaluateSemanticCondition', () => {
       throw new Error('RUN_LLM_INTEGRATION_TESTS is true, but GEMINI_API_KEY is missing.');
     }
 
-    // Restore fetch so it makes a real network request
-    vi.unstubAllGlobals();
+    // Restore real implementation for integration test
+    vi.doUnmock('@google/genai');
+
+    // Need to dynamically import the REAL module now since it was previously mocked
+    const { evaluateSemanticCondition: realEval } = await import('./evaluator');
 
     console.log('--- STARTING REAL SEMANTIC EVALUATION API TEST ---');
-    const result = await evaluateSemanticCondition('is greeting', 'hello', realKey);
+    const result = await realEval('is greeting', 'hello', realKey);
     console.log('--- RECEIVED REAL SEMANTIC EVALUATION RESULT ---');
     console.log(JSON.stringify(result, null, 2));
 
-    // We expect it to succeed and return an object indicating equivalence
     expect(result).toBeDefined();
     expect(result.isEquivalent).toBeDefined();
     expect(typeof result.isEquivalent).toBe('boolean');

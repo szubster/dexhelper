@@ -1,3 +1,5 @@
+import { GoogleGenAI } from '@google/genai';
+
 export interface SemanticEvaluationResult {
   isEquivalent: boolean;
   reasoning: string;
@@ -13,51 +15,22 @@ export async function evaluateSemanticCondition(
     throw new Error('GEMINI_API_KEY is required for semantic evaluation.');
   }
 
-  const payload = {
-    contents: [
-      {
-        parts: [
-          {
-            text: `You are an expert prompt validator. Analyze the following prompt and determine if it strictly adheres to the given condition. Return the evaluation in JSON format containing a boolean "isEquivalent" field and a "reasoning" string explaining the decision.
+  const ai = new GoogleGenAI({ apiKey });
 
-Condition to evaluate:
-${condition}
+  const systemInstruction = `You are an expert prompt validator. Analyze the following prompt and determine if it strictly adheres to the given condition. Return the evaluation in JSON format containing a boolean "isEquivalent" field and a "reasoning" string explaining the decision.`;
 
-Prompt text:
-${prompt}`,
-          },
-        ],
-      },
-    ],
-    generationConfig: {
+  const inputPrompt = `Condition to evaluate:\n${condition}\n\nPrompt text:\n${prompt}`;
+
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.5-flash',
+    contents: inputPrompt,
+    config: {
+      systemInstruction,
       responseMimeType: 'application/json',
     },
-  };
+  });
 
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    },
-  );
-
-  if (!response.ok) {
-    let errorText = '';
-    try {
-      const errorJson = await response.json();
-      errorText = JSON.stringify(errorJson);
-    } catch {
-      errorText = await response.text();
-    }
-    throw new Error(`LLM API request failed with status ${response.status}: ${errorText}`);
-  }
-
-  const data = await response.json();
-  const textContent = data.candidates?.[0]?.content?.parts?.[0]?.text;
+  const textContent = response.text;
 
   if (!textContent) {
     throw new Error('Failed to extract text content from LLM response.');
