@@ -32,8 +32,8 @@ Verify the implementation of the Gen 3 EV parsing logic.
 - Run `pnpm lint` and `pnpm test`.
 
 ## Acceptance Criteria
-- [ ] Implementation uses `DataView` API.
-- [ ] Explicit module-level constants are used for offsets.
-- [ ] `RangeError` is handled properly.
-- [ ] Unit tests cover EV parsing and out-of-bounds reads.
-- [ ] `pnpm lint` and `pnpm test` pass.
+- [x] Implementation uses `DataView` API.
+- [x] Explicit module-level constants are used for offsets.
+- [x] `RangeError` is handled properly.
+- [x] Unit tests cover EV parsing and out-of-bounds reads.
+- [x] `pnpm lint` and `pnpm test` pass.
