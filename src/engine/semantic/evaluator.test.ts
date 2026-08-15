@@ -94,7 +94,10 @@ describe('evaluateSemanticCondition', () => {
     // Restore fetch so it makes a real network request
     vi.unstubAllGlobals();
 
+    console.log('--- STARTING REAL SEMANTIC EVALUATION API TEST ---');
     const result = await evaluateSemanticCondition('is greeting', 'hello', realKey);
+    console.log('--- RECEIVED REAL SEMANTIC EVALUATION RESULT ---');
+    console.log(JSON.stringify(result, null, 2));
 
     // We expect it to succeed and return an object indicating equivalence
     expect(result).toBeDefined();
