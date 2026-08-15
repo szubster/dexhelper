@@ -34,5 +34,5 @@ Update the master schema document (`.foundry/docs/schema.md`) to formally suppor
     *   Add `EXPERIMENT` to the enum list in the comment for the `type:` field in the template.
 
 ## Acceptance Criteria
-- [ ] Schema document updated to include `EXPERIMENT` type and `experiment_variants` frontmatter field.
-- [ ] No formatting regressions introduced in the markdown table.
+- [x] Schema document updated to include `EXPERIMENT` type and `experiment_variants` frontmatter field.
+- [x] No formatting regressions introduced in the markdown table.

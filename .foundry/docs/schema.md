@@ -61,7 +61,7 @@ Every node file (idea, PRD, epic, story, task) **must** begin with a YAML frontm
 ```yaml
 ---
 id: ""                  # Required. Globally unique slug. Convention: <type>-<parent_NNN>-<NNN>-<slug>
-type: ""                # Required. Enum: IDEA | PRD | EPIC | STORY | TASK | RESEARCH | ADR
+type: ""                # Required. Enum: IDEA | PRD | EPIC | STORY | TASK | RESEARCH | ADR | EXPERIMENT
 title: ""               # Required. Human-readable short title.
 status: ""              # Required. Enum: see Status Lifecycle section.
 owner_persona: "coder"  # Required. Enum: see Owner Persona section.
@@ -73,6 +73,7 @@ pr_number: null         # Optional. PR number for human-in-the-loop tasks, or nu
 parent: null            # Required if node is derived from another node (e.g. PRD from IDEA, EPIC from PRD). The ID (preferred) or repo-relative path to the logical parent node. Blocks the parent from completion if this node is incomplete.
 tags: []                # Optional. Free-form string labels for filtering and context injection.
 research_references: [] # Optional. Array of repo-relative paths to research nodes.
+experiment_variants: [] # Optional. Tracks variant configurations for A/B experiments.
 rejection_count: 0      # Optional. Incremented by the Resurrection Loop on each CEO veto. Omit for IDEA nodes. Broadcasted to UI for permanent failure tracking (ADR 017).
 rejection_reason: ""    # Optional. Used when transitioning a node to FAILED because it is fundamentally impossible to complete.
 notes: ""               # Optional. Free-form Markdown remarks.
@@ -84,7 +85,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | Field | Type | Required | Description |
 |---|---|---|---|
 | `id` | `string` | ✅ | Globally unique. Convention: `<type>-<parent_NNN>-<NNN>-<slug>` (IDEA nodes omit parent NNN). Used by humans and search; the DAG uses file paths. |
-| `type` | `enum` | ✅ | `IDEA \| PRD \| EPIC \| STORY \| TASK \| RESEARCH \| ADR` |
+| `type` | `enum` | ✅ | `IDEA \| PRD \| EPIC \| STORY \| TASK \| RESEARCH \| ADR \| EXPERIMENT` |
 | `title` | `string` | ✅ | Short, human-readable description. |
 | `status` | `enum` | ✅ | Current lifecycle state. See §4. |
 | `owner_persona` | `enum` | ✅ | Persona responsible for progressing this node. Must be exactly one assigned persona (no arrays or multiple personas). See §5. |
@@ -96,6 +97,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `parent` | `string \| null` | optional | The ID (preferred) or repo-relative path to logical parent (e.g., a story's parent epic). Used for context hydration when spawning Jules — concatenates reading graphs upward. Does **not** affect DAG blocking. |
 | `tags` | `string[]` | optional | Labels for filtering and selective context injection (e.g. `["gen2", "save-engine"]`). |
 | `research_references` | `string[]` | optional | Array of repo-relative paths to research nodes. |
+| `experiment_variants` | `string[]` | optional | Tracks variant configurations for A/B experiments. |
 | `rejection_count` | `integer` | optional | Tracks CEO vetoes. Incremented by the Resurrection Loop. The `agile_coach` monitors high values as signals of chronic failure areas. Omit for `IDEA` and `PRD` nodes. Also broadcasted to the Permanent Failure Dashboard UI for visibility (ADR 017). |
 | `rejection_reason` | `string` | optional | Used when transitioning a node to `FAILED` because it is fundamentally impossible to complete. |
 | `notes` | `string` | optional | Free-form Markdown for human remarks, caveats, or inline research. |
@@ -213,7 +215,7 @@ Copy-paste this block to start any new node. Fill in all required fields before 
 ```yaml
 ---
 id: <type>-<parent_NNN>-<NNN>-<slug> # e.g. task-001-002-implement-feature
-type: 
+type: # Enum: IDEA | PRD | EPIC | STORY | TASK | RESEARCH | ADR | EXPERIMENT
 title: ""
 status: PENDING
 owner_persona: "coder"
