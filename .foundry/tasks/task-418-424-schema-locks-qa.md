@@ -30,5 +30,5 @@ Verify the schema documentation and Zod implementation for the `locks` array fie
 - Verify that `NodeFrontmatterSchema` in `.github/scripts/schema.ts` correctly validates the `locks` field as an array of strings (`z.array(z.string()).optional()`).
 
 ## Acceptance Criteria
-- [ ] QA verifies schema documentation.
-- [ ] QA verifies Zod implementation.
+- [x] QA verifies schema documentation.
+- [x] QA verifies Zod implementation.
