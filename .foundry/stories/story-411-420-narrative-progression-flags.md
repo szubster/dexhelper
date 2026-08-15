@@ -25,3 +25,7 @@ notes: ''
 ## Acceptance Criteria
 - [ ] Implement parsing of narrative/story progression flags.
 - [ ] Determine upcoming major bosses based on progression flags.
+- [ ] task-420-426-gen1-narrative-extraction
+- [ ] task-420-427-gen2-narrative-extraction
+- [ ] task-420-428-gen3-narrative-extraction
+- [ ] task-420-429-narrative-extraction-qa
