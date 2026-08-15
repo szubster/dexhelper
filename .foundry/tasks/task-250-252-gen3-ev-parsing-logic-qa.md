@@ -2,13 +2,13 @@
 id: task-250-252-gen3-ev-parsing-logic-qa
 type: TASK
 title: QA Gen 3 EV Parsing Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-16'
 updated_at: '2026-08-15'
 depends_on:
   - task-250-251-gen3-ev-parsing-logic-impl
-jules_session_id: '4272093056787575257'
+jules_session_id: null
 pr_number: null
 parent: story-116-250-gen3-ev-parsing-logic
 tags:
