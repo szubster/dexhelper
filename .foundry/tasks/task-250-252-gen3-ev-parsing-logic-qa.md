@@ -2,10 +2,10 @@
 id: task-250-252-gen3-ev-parsing-logic-qa
 type: TASK
 title: QA Gen 3 EV Parsing Logic
-status: PENDING
+status: READY
 owner_persona: qa
-created_at: "2026-08-16"
-updated_at: "2026-08-16"
+created_at: '2026-08-16'
+updated_at: '2026-08-15'
 depends_on:
   - task-250-251-gen3-ev-parsing-logic-impl
 jules_session_id: null
@@ -15,8 +15,8 @@ tags:
   - gen3
   - save-engine
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # QA Gen 3 EV Parsing Logic

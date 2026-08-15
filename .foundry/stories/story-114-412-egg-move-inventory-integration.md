@@ -2,7 +2,7 @@
 id: story-114-412-egg-move-inventory-integration
 type: STORY
 title: Egg Move Inventory Integration
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-11'
 updated_at: '2026-08-15'
@@ -26,9 +26,9 @@ notes: ''
 This story focuses on creating the plumbing to connect the previously completed egg move pathfinding engine with the existing save file inventory parser. It will ensure that the current PC box and party data are cleanly loaded and formatted for the cross-reference engine to consume.
 
 ## Acceptance Criteria
-- [ ] Implement data fetching from the save file inventory parser.
-- [ ] Format PC box and party data into a unified, easily searchable inventory object.
-- [ ] Write integration tests verifying inventory loading from mock save data.
+- [x] Implement data fetching from the save file inventory parser.
+- [x] Format PC box and party data into a unified, easily searchable inventory object.
+- [x] Write integration tests verifying inventory loading from mock save data.
 - [x] Tech Lead: Draft TASK nodes to execute this story.
-- [ ] task-412-422-implement-egg-move-inventory
-- [ ] task-412-423-qa-egg-move-inventory
+- [x] task-412-422-implement-egg-move-inventory
+- [x] task-412-423-qa-egg-move-inventory

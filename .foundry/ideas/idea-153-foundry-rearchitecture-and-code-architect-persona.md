@@ -1,8 +1,10 @@
 ---
 id: idea-153-foundry-rearchitecture-and-code-architect-persona
 type: IDEA
-title: 'Foundry Rearchitecture: State Machine/Graph Libraries & Scheduled Code Architect Persona'
-status: PENDING
+title: >-
+  Foundry Rearchitecture: State Machine/Graph Libraries & Scheduled Code
+  Architect Persona
+status: READY
 owner_persona: product_manager
 created_at: '2026-08-15'
 updated_at: '2026-08-15'
