@@ -1194,9 +1194,9 @@ export function parseGen3TrainerId(view: DataView, section0Offset: number): { tr
  * 3. **Data Extraction:** Extracts Pokémon (decrypting their 48-byte substructures), inventory,
  *    event flags, and metadata specific to Hoenn or Kanto (Gen 3).
  *
- * @param view - The raw save file DataView.
- * @param _forcedVersion - An optional game version override to bypass auto-detection.
- * @returns The fully constructed SaveData object containing the player's progress and Pokémon.
+ * @param view - The DataView of the 128KB binary Flash memory save file.
+ * @param _forcedVersion - An optional version override (unused currently, reserved for future heuristic bypassing).
+ * @returns The fully mapped `SaveData` object, abstracting away the complex encrypted substructures of Gen 3 Pokemon.
  * @throws {Error} If the save file is corrupted, incomplete, or out-of-bounds reads occur.
  */
 export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveData {

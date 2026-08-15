@@ -764,9 +764,9 @@ function parseRoamingLegendaries(view: DataView, isCrystal: boolean) {
  * 3. **Data Extraction:** Extracts Pokédex, Party, PC Boxes, Daycare, Inventory, and event flags (badges).
  * 4. **Badge Merging:** Merges Kanto and Johto badges.
  *
- * @param view - The raw save file DataView.
- * @param forceCrystal - An optional flag to force Crystal offset parsing.
- * @returns The fully constructed SaveData object.
+ * @param view - The raw binary save file wrapper, mapped to the Gen 2 double-bank payload.
+ * @param forceCrystal - Forces the parser to use `_CRYSTAL` memory offsets, overriding the heuristic `PARTY_COUNT` detection check.
+ * @returns The extracted save state mapped to the universal `SaveData` schema.
  */
 export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   let isCrystal = forceCrystal;

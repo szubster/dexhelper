@@ -747,9 +747,9 @@ function parsePCBoxes(
  * 3. **Data Extraction:** Uses the calculated `offsetShift` to align reading of the full party,
  *    PC boxes (WRAM + SRAM), inventory, badges, and event flags.
  *
- * @param view - The raw save file DataView.
- * @param forcedVersion - An optional version override provided by the user.
- * @returns The fully constructed SaveData object.
+ * @param view - The raw binary save file wrapper, initialized with ArrayBuffer from `.sav` file upload.
+ * @param forcedVersion - An optional version override (e.g., 'yellow', 'red') to bypass heuristic detection. Useful for modified ROM saves.
+ * @returns The fully constructed SaveData object mapping binary offsets to structured JSON for the frontend.
  */
 export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData {
   let trainerName = '';
