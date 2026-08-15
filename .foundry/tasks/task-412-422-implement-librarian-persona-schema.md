@@ -25,4 +25,4 @@ notes: ''
 Update `.foundry/docs/schema.md` to formally define the `librarian` persona in Section 5 (Owner Persona Enum).
 
 ## Acceptance Criteria
-- [ ] Add the `librarian` persona to the Owner Persona Enum table in Section 5 of `.foundry/docs/schema.md` with the description: "Mapped to Snorlax (#143). Responsible for context token optimization by digesting historical data and pruning stale entries.".
+- [x] Add the `librarian` persona to the Owner Persona Enum table in Section 5 of `.foundry/docs/schema.md` with the description: "Mapped to Snorlax (#143). Responsible for context token optimization by digesting historical data and pruning stale entries.".
