@@ -2,12 +2,12 @@
 id: task-358-427-indexeddb-schema-impl
 type: TASK
 title: IndexedDB Storage Schema Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-05'
 updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13248586827349519394'
 pr_number: null
 parent: story-397-358-indexeddb-schema-retry-impl
 tags:
