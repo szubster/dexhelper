@@ -25,11 +25,11 @@ notes: ''
 Implement End-to-End tests using Playwright to verify the automated death tracking logic and Graveyard Box functionality.
 
 ## Contract / Acceptance Criteria
-- [ ] Implement E2E tests covering the detection of party Pokémon at 0 HP.
-- [ ] Implement E2E tests verifying Graveyard box designation and UI settings.
-- [ ] Implement E2E tests verifying Pokémon in the Graveyard box are correctly identified as dead.
-- [ ] If tactical bracket formatting (e.g., `[ SYS.LABEL ]`) is targeted in tests, use regex matchers in `getByText` queries (e.g., `/SYS.LABEL/i`).
-- [ ] Ensure all E2E tests run successfully via `pnpm test:e2e` or `xvfb-run pnpm test:e2e`.
+- [x] Implement E2E tests covering the detection of party Pokémon at 0 HP.
+- [x] Implement E2E tests verifying Graveyard box designation and UI settings.
+- [x] Implement E2E tests verifying Pokémon in the Graveyard box are correctly identified as dead.
+- [x] If tactical bracket formatting (e.g., `[ SYS.LABEL ]`) is targeted in tests, use regex matchers in `getByText` queries (e.g., `/SYS.LABEL/i`).
+- [x] Ensure all E2E tests run successfully via `pnpm test:e2e` or `xvfb-run pnpm test:e2e`.
 
 ## Instructions & Reminders for Coder
 - **Transient Failures:** If you experience a transient failure requiring a retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
