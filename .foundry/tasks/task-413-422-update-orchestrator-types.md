@@ -30,5 +30,5 @@ Update the TypeScript interfaces and Zod validators in `.github/scripts/schema.t
 3. Add corresponding tests in `.github/scripts/schema.test.ts`.
 
 ## Acceptance Criteria
-- [ ] Coder: Update `schema.ts`.
-- [ ] Coder: Update `schema.test.ts`.
+- [x] Coder: Update `schema.ts`.
+- [x] Coder: Update `schema.test.ts`.

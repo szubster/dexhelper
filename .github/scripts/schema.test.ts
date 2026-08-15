@@ -131,4 +131,20 @@ describe('NodeFrontmatterSchema', () => {
     expect(parsed.created_at).toBe("2026-06-16T00:00:00.000Z");
     expect(parsed.updated_at).toBe("2026-07-03T00:00:00.000Z");
   });
+
+  it('validates an EXPERIMENT node with experiment_variants', () => {
+    const node = {
+      id: "experiment-001",
+      type: "EXPERIMENT",
+      title: "New Experiment",
+      status: "PENDING",
+      owner_persona: "product_manager",
+      created_at: "2026-08-14",
+      updated_at: "2026-08-14",
+      depends_on: [],
+      jules_session_id: null,
+      experiment_variants: ["A", "B"]
+    };
+    expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
+  });
 });
