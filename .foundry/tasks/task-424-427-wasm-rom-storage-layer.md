@@ -24,6 +24,6 @@ notes: ''
 Implement the persistent storage layer for ROM loading. ROMs must be securely stored in the browser's persistent storage (IndexedDB/LocalStorage) and never transmitted over the network. This layer will provide the API for the UI to save and retrieve ROM data.
 
 ## Acceptance Criteria
-- [ ] Implement saving the ROM in IndexedDB/LocalStorage using native browser APIs.
-- [ ] Implement retrieving the ROM from IndexedDB/LocalStorage.
-- [ ] Implement unit tests for the storage layer.
+- [x] Implement saving the ROM in IndexedDB/LocalStorage using native browser APIs.
+- [x] Implement retrieving the ROM from IndexedDB/LocalStorage.
+- [x] Implement unit tests for the storage layer.
