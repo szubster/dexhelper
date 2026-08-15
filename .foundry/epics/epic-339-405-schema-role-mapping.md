@@ -2,10 +2,10 @@
 id: epic-339-405-schema-role-mapping
 type: EPIC
 title: 'Schema Updates: Map Roles to Pokemon Entities'
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2024-05-18'
-updated_at: '2026-08-09'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -32,5 +32,5 @@ Update the `.foundry/docs/schema.md` to officially define the Pokemon Gen 1 narr
 ## Acceptance Criteria
 - [x] Story Owner: Generate STORY node(s) for updating schema.md with role and status mappings.
 - [x] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
-- [ ] story-405-408-schema-role-status-mapping
-- [ ] story-405-409-schema-role-mapping-e2e
+- [x] story-405-408-schema-role-status-mapping
+- [x] story-405-409-schema-role-mapping-e2e
