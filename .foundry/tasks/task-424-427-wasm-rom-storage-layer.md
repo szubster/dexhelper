@@ -2,7 +2,7 @@
 id: task-424-427-wasm-rom-storage-layer
 type: TASK
 title: WASM Emulator ROM Storage Layer
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-15'
 updated_at: '2026-08-15'

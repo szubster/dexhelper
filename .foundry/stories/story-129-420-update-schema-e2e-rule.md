@@ -2,10 +2,10 @@
 id: story-129-420-update-schema-e2e-rule
 type: STORY
 title: Update Schema Documentation with E2E Rule
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-13'
-updated_at: '2026-08-13'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: '5024974543220692233'
 pr_number: null

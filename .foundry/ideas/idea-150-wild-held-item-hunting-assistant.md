@@ -2,7 +2,7 @@
 id: idea-150-wild-held-item-hunting-assistant
 type: IDEA
 title: Wild Held Item Hunting Assistant
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-08-15'
 updated_at: '2026-08-15'

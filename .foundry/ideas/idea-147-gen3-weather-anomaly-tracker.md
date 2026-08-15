@@ -2,10 +2,10 @@
 id: idea-147-gen3-weather-anomaly-tracker
 type: IDEA
 title: Gen 3 Weather Anomaly Tracker (Groudon & Kyogre)
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-12'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: '9259650360933596027'
 pr_number: null

@@ -2,10 +2,10 @@
 id: prd-144-343-gen2-bug-catching-contest-analyzer
 type: PRD
 title: Gen 2 Bug-Catching Contest Score Analyzer
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-08-10'
-updated_at: '2026-08-10'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
