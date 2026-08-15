@@ -51,7 +51,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          fetch-depth: 2
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+        with:
+          files: |
+            .github/scripts/semantic/**
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
         with:
@@ -67,6 +75,9 @@ jobs:
         run: pnpm exec playwright install chromium --with-deps
       - name: Test
         run: pnpm test --coverage
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          RUN_LLM_INTEGRATION_TESTS: ${{ steps.changed-files.outputs.any_changed == 'true' && 'true' || 'false' }}
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
         uses: codecov/codecov-action@v7
