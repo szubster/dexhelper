@@ -26,21 +26,21 @@ notes: ''
 Implement the storage schema for the save state history according to Section 14 of `.foundry/docs/schema.md`.
 
 ## Context
-The application requires a robust storage mechanism for save files and their metadata. The IndexedDB schema has been designed, and this task is responsible for implementing it using Dexie.
+The application requires a robust storage mechanism for save files and their metadata. The IndexedDB schema has been designed, and this task is responsible for implementing it using idb.
 
 ## Requirements
 - Create `src/engine/storage/historyDb.ts`.
-- Initialize a Dexie database named `SaveHistoryDB`.
+- Initialize an idb database named `SaveHistoryDB`.
 - Set the database version to `1`.
 - Define the following object stores:
   - `saves`: primary key is a string (id), stores `Uint8Array` as values.
   - `metadata`: primary key is a string (id), stores `Record<string, unknown>` as values.
   - `indexes`: primary key is a string (id), stores `Record<string, unknown>` as values.
 - Ensure the types map accurately to the requirements in Section 14 of the schema document.
-- Use `Dexie` to configure the schema correctly.
+- Use `idb` to configure the schema correctly.
 
 ## Acceptance Criteria
-- [ ] `src/engine/storage/historyDb.ts` is created and exports a valid Dexie database instance named `SaveHistoryDB`.
+- [ ] `src/engine/storage/historyDb.ts` is created and exports a valid idb database instance named `SaveHistoryDB`.
 - [ ] Database version is exactly 1.
 - [ ] Object stores `saves`, `metadata`, and `indexes` are defined.
 - [ ] Database schema strictly adheres to Section 14 of `.foundry/docs/schema.md`.

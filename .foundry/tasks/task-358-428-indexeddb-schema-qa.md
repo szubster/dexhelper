@@ -28,7 +28,7 @@ notes: ''
 Verify the IndexedDB storage schema implementation against Section 14 of `.foundry/docs/schema.md`.
 
 ## Context
-The coder has implemented the `SaveHistoryDB` IndexedDB database using Dexie. This task ensures the implementation is correct and conforms to the specifications.
+The coder has implemented the `SaveHistoryDB` IndexedDB database using idb. This task ensures the implementation is correct and conforms to the specifications.
 
 ## Acceptance Criteria
 - [ ] Verify `SaveHistoryDB` database name and version 1.
