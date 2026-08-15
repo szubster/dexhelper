@@ -2,7 +2,7 @@
 id: story-405-409-schema-role-mapping-e2e
 type: STORY
 title: Schema Role and Status Mapping E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-08'
 updated_at: '2026-08-15'
@@ -29,4 +29,4 @@ Break down the work to verify that the schema mappings have been applied success
 
 ## Acceptance Criteria
 - [x] Tech Lead: Generate QA/Integration TASK node(s) for verifying schema mappings.
-- [ ] task-409-422-schema-role-mapping-e2e-qa
+- [x] task-409-422-schema-role-mapping-e2e-qa

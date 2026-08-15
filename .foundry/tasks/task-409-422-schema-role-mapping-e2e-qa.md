@@ -2,14 +2,14 @@
 id: task-409-422-schema-role-mapping-e2e-qa
 type: TASK
 title: Schema Role and Status Mapping E2E Verification
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-13'
 updated_at: '2026-08-15'
 depends_on:
   - task-408-418-schema-role-mapping-qa
   - task-408-419-schema-status-mapping-qa
-jules_session_id: '5603568255521294227'
+jules_session_id: null
 pr_number: null
 parent: story-405-409-schema-role-mapping-e2e
 tags:

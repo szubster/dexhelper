@@ -2,13 +2,13 @@
 id: task-358-428-indexeddb-schema-qa
 type: TASK
 title: IndexedDB Storage Schema QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-05'
 updated_at: '2026-08-15'
 depends_on:
   - task-358-427-indexeddb-schema-impl
-jules_session_id: '15928285207238918454'
+jules_session_id: null
 pr_number: null
 parent: story-397-358-indexeddb-schema-retry-impl
 tags:
