@@ -1,21 +1,64 @@
-# Foundry Late-Binding Stories
+# Foundry Late-Binding Engine Architecture
 
-Late-binding stories in the Foundry engine are implemented natively in the infrastructure scripts, not through YAML manipulation.
+Late-binding in the Foundry DAG allows macro nodes (`IDEA`, `PRD`, `EPIC`, `STORY`) to dynamically spawn child nodes (`STORY`, `TASK`) without causing circular dependency deadlocks.
 
-## The Problem
-Directly adding a child story to a parent Epic's `depends_on` array creates a deadlock:
-1. Epic waits for Story.
-2. Story inherently waits for parent Epic to be ACTIVE or COMPLETED.
-3. Deadlock.
+---
 
-## The Solution
-1. **Heartbeat Script (`.github/scripts/foundry-heartbeat.ts`)**:
-   - When a PR merges, the script checks the node's markdown body for unchecked tasks (`- [ ]`).
-   - If unchecked tasks exist, it transitions the node back to `PENDING` instead of `COMPLETED`. This keeps the parent alive.
-2. **Orchestrator (`.github/scripts/foundry-orchestrator.ts`)**:
-   - **Wait for Children**: A `PENDING` node is explicitly blocked if it has *any* incomplete children.
-   - **Exception for Children**: A child node is normally blocked if its parent is `PENDING`. However, if the `PENDING` parent already has children, the orchestrator assumes it is in its "Wait for Children" cycle, and *does not* block the child.
+## 1. The Core Problem
 
-This ensures that the Epic waits in a PENDING state for its child stories to complete before spawning the next ones, creating a seamless, automated delivery pipeline.
-## Late-Binding Parent Node Cancellation Logic
-The orchestrator correctly handles `CANCELLED` children of late-binding parent nodes. When determining if all children are completed (in `.github/scripts/foundry-orchestrator.ts`), the system explicitly checks that a child is either `COMPLETED` or `CANCELLED`. This means a permanently `CANCELLED` child effectively behaves as "done" from the perspective of its parent. It does not cause a deadlock, and the parent will still correctly wake up once all its children have reached either `COMPLETED` or `CANCELLED` state.
+If a child node explicitly lists its parent in `depends_on`, or if a parent lists its child in `depends_on`, a circular dependency deadlock is formed:
+1. Parent waits for Child to finish (`depends_on: [child]`).
+2. Child waits for Parent to be `ACTIVE` or `COMPLETED` (`depends_on: [parent]`).
+3. Neither can make progress → DAG Deadlock.
+
+---
+
+## 2. The Native Solution
+
+Late-binding is implemented natively in `.github/scripts/foundry-orchestrator.ts` and `.github/scripts/foundry-heartbeat.ts` through status-based suspension and completion phases, without mutating `depends_on` arrays.
+
+### A. Dynamic Child Linking
+When a persona (e.g. `tech_lead` or `story_owner`) processes a macro node:
+* The persona appends markdown checkboxes referencing newly generated child nodes directly into the parent's **Acceptance Criteria** section:
+  ```markdown
+  ## Acceptance Criteria
+  - [ ] .foundry/stories/story-001-scaffold.md
+  - [ ] task-002-implement-api
+  ```
+* The child node references its parent via the frontmatter field `parent: <parent_id_or_path>`.
+
+### B. Heartbeat PR Merge Transition (`foundry-heartbeat.ts`)
+* When an `ACTIVE` parent node submits a PR that gets merged:
+* Heartbeat checks the parent node's markdown body for unchecked criteria (`- [ ]`).
+* If unchecked criteria exist and the node is a parent or macro node (`IDEA`, `PRD`, `EPIC`, `STORY`), Heartbeat transitions `ACTIVE` → `PENDING` instead of `COMPLETED`.
+* This safely places the parent node into a **Late-Binding Wait State**.
+
+### C. Orchestrator Suspension (`foundry-orchestrator.ts` Phase 3.5)
+* If an `ACTIVE`, `VERIFYING`, or `READY` parent node has incomplete children or dependencies, the orchestrator suspends it to `PENDING`.
+
+### D. Child Dispatch Waiver (`foundry-orchestrator.ts` Phase 4)
+* Ordinarily, a `PENDING` parent blocks its children.
+* **Waiver**: If a `PENDING` parent node has registered children (`children.length > 0`), the orchestrator recognizes that the parent is waiting for child execution, and **does not block the child nodes**.
+
+### E. Late-Binding Completion & Auto-Remediation (`foundry-orchestrator.ts` Phase 4.1)
+* Phase 4.1 scans `PENDING` parent nodes whose children have all reached terminal states (`COMPLETED` or `CANCELLED`).
+* **Auto-Check Child Checkboxes**: Auto-checks checkboxes in the parent body corresponding to completed or cancelled children (`- [ ]` → `- [x]`).
+* **Auto-Remediation**: Auto-checks any remaining unchecked acceptance criteria in the parent node since all child tasks created to fulfill this parent are done.
+* **E2E Story Verification for EPICs**: If the parent is an `EPIC`, Phase 4.1 verifies that at least one child `STORY` has an `e2e` or `integration` tag. If missing, the EPIC transitions to `FAILED` with reason `"Merged with unfulfilled acceptance criteria: Missing E2E/integration story"`.
+* **Direct Promotion**: Promotes the satisfied parent node directly from `PENDING` → `COMPLETED`.
+
+---
+
+## 3. Handling Cancelled Children
+
+* Permanently `CANCELLED` child nodes behave as completed from the parent's perspective.
+* If a child is cancelled due to max rejection threshold or explicit retirement, it does NOT deadlock the parent.
+* Phase 4.1 treats `COMPLETED` and `CANCELLED` children equally when evaluating parent completion.
+
+---
+
+## 4. Key Rules for Agents
+
+1. **Never list child nodes in a parent's `depends_on` array.**
+2. **Always append generated child references as unchecked checkboxes (`- [ ]`) in the parent's Acceptance Criteria section.**
+3. **Child nodes must include `parent: <parent_id>` in YAML frontmatter.**
