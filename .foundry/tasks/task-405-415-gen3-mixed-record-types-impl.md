@@ -27,7 +27,7 @@ notes: ''
 As part of extracting Gen 3 Mixed Record NPC Data, we need to first define the necessary TypeScript types, Zod schemas, and memory offsets. This aligns with Section 13 of `.foundry/docs/schema.md` (Save File Parsing & Extraction Guidelines).
 
 ## Acceptance Criteria
-- [ ] Define TypeScript interfaces for Gen 3 Mixed Record NPC data (trainer names, teams, EV yields).
-- [ ] Define Zod schemas for validation.
-- [ ] Define module-level constants for all relevant memory offsets and lengths.
-- [ ] Write unit tests to verify the schemas.
+- [x] Define TypeScript interfaces for Gen 3 Mixed Record NPC data (trainer names, teams, EV yields).
+- [x] Define Zod schemas for validation.
+- [x] Define module-level constants for all relevant memory offsets and lengths.
+- [x] Write unit tests to verify the schemas.
