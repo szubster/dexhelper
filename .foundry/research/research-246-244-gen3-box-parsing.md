@@ -2,12 +2,12 @@
 id: research-246-244-gen3-box-parsing
 type: RESEARCH
 title: Research PC Box Memory Offsets for Generation 3
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-02'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14319651166110609807'
 pr_number: null
 parent: story-108-246-gen3-box-parsing
 tags:
