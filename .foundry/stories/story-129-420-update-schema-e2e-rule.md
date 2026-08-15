@@ -28,4 +28,5 @@ Update `.foundry/docs/schema.md` to explicitly require an Integration/E2E Story 
 
 ## Acceptance Criteria
 - [ ] Add the Orchestrator Safeguard (E2E/Integration Requirement) to `.foundry/docs/schema.md` under System Invariants or Node Generation Rules.
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-420-422-schema-e2e-rule
