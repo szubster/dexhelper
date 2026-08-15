@@ -147,4 +147,20 @@ describe('NodeFrontmatterSchema', () => {
     };
     expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
   });
+
+  it('validates a node with locks', () => {
+    const node = {
+      id: "task-001",
+      type: "TASK",
+      title: "New Task",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-08-14",
+      updated_at: "2026-08-14",
+      depends_on: [],
+      jules_session_id: null,
+      locks: ["lock1", "lock2"]
+    };
+    expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
+  });
 });

@@ -30,4 +30,4 @@ Update `.github/scripts/schema.ts` to implement Zod validation for the new `lock
 - Add `locks: z.array(z.string()).optional()` to the schema object.
 
 ## Acceptance Criteria
-- [ ] Coder updates `.github/scripts/schema.ts` to validate the `locks` field as an array of strings.
+- [x] Coder updates `.github/scripts/schema.ts` to validate the `locks` field as an array of strings.
