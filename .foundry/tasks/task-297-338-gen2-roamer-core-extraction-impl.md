@@ -2,12 +2,12 @@
 id: task-297-338-gen2-roamer-core-extraction-impl
 type: TASK
 title: Implement Gen 2 Roamer Core Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-21'
 updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7891823221822470730'
 pr_number: null
 parent: story-139-297-gen2-roamer-core-extraction
 tags:
