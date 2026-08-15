@@ -11,9 +11,6 @@ importers:
       '@cloudflare/pages-plugin-cloudflare-access':
         specifier: ^1.0.5
         version: 1.0.5
-      '@google/genai':
-        specifier: ^2.17.1
-        version: 2.17.1(supports-color@10.2.2)
       '@tanstack/react-query':
         specifier: ^5.101.4
         version: 5.101.4(react@19.2.8)
@@ -180,6 +177,9 @@ importers:
 
   .github/scripts:
     dependencies:
+      '@google/genai':
+        specifier: ^2.17.1
+        version: 2.17.1(supports-color@10.2.2)
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3

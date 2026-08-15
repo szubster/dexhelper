@@ -12,6 +12,7 @@
     "verify:refs": "node --experimental-strip-types verify-dag-refs.ts"
   },
   "dependencies": {
+    "@google/genai": "^2.17.1",
     "gray-matter": "^4.0.3",
     "zod": "^4.4.3"
   },
