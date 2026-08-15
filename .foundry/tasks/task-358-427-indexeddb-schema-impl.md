@@ -40,8 +40,8 @@ The application requires a robust storage mechanism for save files and their met
 - Use `idb` to configure the schema correctly.
 
 ## Acceptance Criteria
-- [ ] `src/engine/storage/historyDb.ts` is created and exports a valid idb database instance named `SaveHistoryDB`.
-- [ ] Database version is exactly 1.
-- [ ] Object stores `saves`, `metadata`, and `indexes` are defined.
-- [ ] Database schema strictly adheres to Section 14 of `.foundry/docs/schema.md`.
-- [ ] Write a test in `src/engine/storage/historyDb.test.ts` to instantiate the database and assert the schema structures.
+- [x] `src/engine/storage/historyDb.ts` is created and exports a valid idb database instance named `SaveHistoryDB`.
+- [x] Database version is exactly 1.
+- [x] Object stores `saves`, `metadata`, and `indexes` are defined.
+- [x] Database schema strictly adheres to Section 14 of `.foundry/docs/schema.md`.
+- [x] Write a test in `src/engine/storage/historyDb.test.ts` to instantiate the database and assert the schema structures.
