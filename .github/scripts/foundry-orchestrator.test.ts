@@ -660,7 +660,7 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(epicContent).toContain('status: COMPLETED');
   });
 
-  test('Late-Binding: Parent wakes up to READY if it has unchecked tasks', () => {
+  test('Late-Binding: Parent auto-remediates to COMPLETED if it has unchecked tasks and completed children', () => {
     // Epic 1: PENDING (Waiting for children)
     createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
       id: "epic-001",
@@ -690,15 +690,17 @@ vi.doMock('node:url', async (importOriginal) => {
       depends_on: [],
       parent: ".foundry/epics/epic-001.md",
       jules_session_id: null,
+      tags: ["e2e"],
     });
 
     main();
 
     const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
-    expect(epicContent).toContain('status: READY');
+    expect(epicContent).toContain('status: COMPLETED');
+    expect(epicContent).toContain('- [x] Unchecked task');
   });
 
-  test('Late-Binding: Parent wakes up to ACTIVE if owned by human and it has unchecked tasks', () => {
+  test('Late-Binding: Human-owned parent auto-remediates to COMPLETED when children are completed', () => {
     createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
       id: "epic-001",
       type: "EPIC",
@@ -726,12 +728,14 @@ vi.doMock('node:url', async (importOriginal) => {
       depends_on: [],
       parent: ".foundry/epics/epic-001.md",
       jules_session_id: null,
+      tags: ["e2e"],
     });
 
     main();
 
     const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
-    expect(epicContent).toContain('status: ACTIVE');
+    expect(epicContent).toContain('status: COMPLETED');
+    expect(epicContent).toContain('- [x] Unchecked task');
   });
 
   test('Late-Binding: Parent does not wake up if dependencies are unresolvable', () => {
@@ -1189,7 +1193,7 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(prdContent).toContain('status: READY');
   });
 
-  test('Parent-ID Resolution: Late-Binding wakes up parent identified by ID', () => {
+  test('Parent-ID Resolution: Late-Binding completes parent identified by ID when child is COMPLETED', () => {
     createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', {
       id: "idea-001",
       type: "IDEA",
@@ -1222,7 +1226,8 @@ vi.doMock('node:url', async (importOriginal) => {
     main();
 
     const ideaContent = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), 'utf-8');
-    expect(ideaContent).toContain('status: READY');
+    expect(ideaContent).toContain('status: COMPLETED');
+    expect(ideaContent).toContain('- [x] Unchecked task');
   });
 
 
@@ -2197,7 +2202,7 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(doublePromotionWarning).toBeUndefined();
 
     const ideaContent = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), 'utf-8');
-    expect(ideaContent).toContain('status: READY');
+    expect(ideaContent).toContain('status: COMPLETED');
   });
 
   test('Mapping Validation: allows architect to own TASK nodes', () => {
@@ -2416,7 +2421,7 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(storyContent).toContain('status: READY');
   });
 
-  test('Late-Binding with Markdown ID references: Parent wakes up to READY if it has unchecked tasks and completed children referenced by ID', () => {
+  test('Late-Binding with Markdown ID references: Parent auto-remediates to COMPLETED when children referenced by ID are completed', () => {
     createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', {
       id: "idea-001",
       type: "IDEA",
@@ -2444,10 +2449,11 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     main();
 
     const ideaContent = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), 'utf-8');
-    expect(ideaContent).toContain('status: READY');
+    expect(ideaContent).toContain('status: COMPLETED');
+    expect(ideaContent).toContain('- [x] Unchecked task');
   });
 
-  test('Late-Binding with Markdown Link: Parent wakes up to READY if it has unchecked tasks and completed children', () => {
+  test('Late-Binding with Markdown Link: Parent auto-remediates to COMPLETED when markdown-linked children are completed', () => {
     createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', {
       id: "idea-001",
       type: "IDEA",
@@ -2475,7 +2481,8 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     main();
 
     const ideaContent = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), 'utf-8');
-    expect(ideaContent).toContain('status: READY');
+    expect(ideaContent).toContain('status: COMPLETED');
+    expect(ideaContent).toContain('- [x] Unchecked task');
   });
 
   test('Impossible Loop: Wakes up parent even if FAILED child has incomplete sub-children', () => {

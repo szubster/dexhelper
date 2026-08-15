@@ -30,7 +30,7 @@ This story involves creating the mapping layer to identify which Pokémon the pl
 - [x] task-273-394-living-dex-pc-mapping-retry-impl
 - [x] task-273-395-living-dex-pc-mapping-retry-qa
 
-- [ ] Implement data mapping to identify existing Pokémon and their PC Box/Slot locations.
+- [x] Implement data mapping to identify existing Pokémon and their PC Box/Slot locations.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

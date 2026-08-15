@@ -1145,16 +1145,29 @@ function main(): void {
               }
             }
 
+            // Auto-remediate parent node stall: auto-check any remaining unchecked acceptance criteria
+            // since all child tasks created to fulfill this parent node are COMPLETED or CANCELLED.
             const acceptanceCriteriaMatch = node.body.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
             const acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
             const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(acceptanceCriteriaText);
+
             if (hasUncheckedTasks) {
-              warn(`Parent Node Stall Warning: ${node.repoPath} has all children COMPLETED/CANCELLED, but cannot complete due to unchecked acceptance criteria!`);
-              info(`Late-Binding Parent Waking Up: ${node.repoPath} has completed children, but still has unchecked tasks. Promoting to READY.`);
-              if (!eligible.includes(node)) {
-                eligible.push(node);
+              info(`Auto-remediating parent node stall for ${node.repoPath}: checking off remaining acceptance criteria.`);
+              const updatedBody = node.body.replace(/(## Acceptance Criteria\s*[\s\S]*?)(?:\n## |$)/, (match) => {
+                return match.replace(/^(\s*-\s*\[)\s(\])/gm, '$1x$2');
+              });
+              node.body = updatedBody;
+              const newContent = matter.stringify(node.body, node.frontmatter);
+              node.rawContent = newContent;
+              if (!isDryRun()) {
+                try {
+                  fs.writeFileSync(node.filePath, newContent, 'utf-8');
+                  info(`Auto-checked remaining acceptance criteria in parent node: ${node.repoPath}`);
+                } catch (e) {
+                  warn(`Failed to write auto-remediated parent file ${node.repoPath}: ${String(e)}`);
+                }
               }
-            } else {
+            }
               if (node.frontmatter.type === 'EPIC') {
                 const hasE2E = children.some(child =>
                   child.frontmatter.type === 'STORY' &&
@@ -1179,7 +1192,6 @@ function main(): void {
               if (idx !== -1) {
                 eligible.splice(idx, 1);
               }
-            }
           } else {
             info(`Late-Binding Parent: ${node.repoPath} has completed children, but is waiting on dependencies.`);
           }
