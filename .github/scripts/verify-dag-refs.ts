@@ -53,13 +53,22 @@ for (const fp of files) {
 
 let broken = 0;
 
+function existsOrArchived(ref: string): boolean {
+  if (fs.existsSync(path.join(repoRoot, ref))) return true;
+  if (!ref.startsWith('.foundry/archive/')) {
+    const archived = ref.replace(/^\.foundry\//, '.foundry/archive/');
+    if (fs.existsSync(path.join(repoRoot, archived))) return true;
+  }
+  return false;
+}
+
 for (const node of nodes) {
   const deps = node.fm.depends_on || [];
   for (const dep of deps) {
     if (!idToPath.has(dep) && !dep.startsWith('.foundry/')) {
        process.stderr.write(`BROKEN DEP: ${node.repoPath} -> ${dep}\n`);
        broken++;
-    } else if (dep.startsWith('.foundry/') && !fs.existsSync(path.join(repoRoot, dep))) {
+    } else if (dep.startsWith('.foundry/') && !existsOrArchived(dep)) {
        process.stderr.write(`BROKEN DEP PATH: ${node.repoPath} -> ${dep}\n`);
        broken++;
     }
@@ -70,7 +79,7 @@ for (const node of nodes) {
     if (!idToPath.has(parent) && !parent.startsWith('.foundry/')) {
        process.stderr.write(`BROKEN PARENT: ${node.repoPath} -> ${parent}\n`);
        broken++;
-    } else if (parent.startsWith('.foundry/') && !fs.existsSync(path.join(repoRoot, parent))) {
+    } else if (parent.startsWith('.foundry/') && !existsOrArchived(parent)) {
        process.stderr.write(`BROKEN PARENT PATH: ${node.repoPath} -> ${parent}\n`);
        broken++;
     }
