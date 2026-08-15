@@ -28,4 +28,6 @@ Implement the Gen 2 Pokémon gender calculation logic. This includes creating ut
 The logic must adhere to the formula: `female_threshold = gender_rate * 2`. A Pokémon is female if its `Attack DV < female_threshold`. It must correctly handle edge cases, such as `gender_rate === -1` (Genderless).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this STORY down into actionable TASK nodes for the engineering team.
+- [x] Tech Lead: Break this STORY down into actionable TASK nodes for the engineering team.
+- [ ] task-309-430-gen2-gender-calculation-engine
+- [ ] task-309-431-gen2-gender-calculation-qa
