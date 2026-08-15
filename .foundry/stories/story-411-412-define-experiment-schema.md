@@ -2,10 +2,10 @@
 id: story-411-412-define-experiment-schema
 type: STORY
 title: Define Experiment Schema in Documentation
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-11'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,4 +30,4 @@ Update `.foundry/docs/schema.md` to define the YAML structure for defining A/B e
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-412-422-update-experiment-schema
+- [x] task-412-422-update-experiment-schema

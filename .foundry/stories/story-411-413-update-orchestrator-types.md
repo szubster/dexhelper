@@ -2,10 +2,10 @@
 id: story-411-413-update-orchestrator-types
 type: STORY
 title: Update Orchestrator Types for Experiment Schema
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-11'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,4 +30,4 @@ Update the TypeScript interfaces and Zod validators in `.github/scripts/schema.t
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-413-422-update-orchestrator-types
+- [x] task-413-422-update-orchestrator-types

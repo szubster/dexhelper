@@ -2,12 +2,12 @@
 id: task-413-422-update-orchestrator-types
 type: TASK
 title: Update Orchestrator Types for Experiment Schema
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-13'
 updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: '16421537501581985018'
+jules_session_id: null
 pr_number: null
 parent: story-411-413-update-orchestrator-types
 tags:

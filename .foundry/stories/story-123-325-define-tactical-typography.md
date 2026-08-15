@@ -2,10 +2,10 @@
 id: story-123-325-define-tactical-typography
 type: STORY
 title: Define Tactical Typography Utilities
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-17'
-updated_at: '2026-07-19'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -29,4 +29,4 @@ Define any remaining typography-related `@utility` primitives in `src/index.css`
 
 ## Acceptance Criteria
 - [x] Typography utilities are fully verified to match the scope of epic-071-123.
-- [ ] task-325-331-implement-tactical-typography
+- [x] task-325-331-implement-tactical-typography
