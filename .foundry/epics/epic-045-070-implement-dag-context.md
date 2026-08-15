@@ -38,4 +38,4 @@ As per ADR 013 and ADR 017, the core DAG data state must be lifted into a shared
 - [x] .foundry/archive/stories/story-070-245-implement-dag-provider-state-management.md
 
 ### Auditor Rejection
-The generated artifacts do not meet the Acceptance Criteria of the Epic. While DagContext and DagProvider were created, DagProvider does not actually manage the core DAG data state (nodes, edges) by fetching it, nor does it wrap the DAG views. This work was improperly deferred to story-078-120. The Epic cannot be verified until the provider fully manages and provides the state as originally required.
+The generated artifacts do not meet the Acceptance Criteria of the Epic. While DagContext and DagProvider were created, DagProvider does not actually manage the core DAG data state (nodes, edges) by fetching it, nor does it wrap the DAG views. This work was improperly deferred to story-046-120. The Epic cannot be verified until the provider fully manages and provides the state as originally required.

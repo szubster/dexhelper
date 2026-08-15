@@ -29,4 +29,4 @@ Following the grid UI, this epic focuses on a specific feature: highlighting dup
 ## Acceptance Criteria
 - [ ] Add visual indicators for "duplicate" Pokémon.
 - [ ] Add visual indicators for "evolution paths" that can be used to fill missing Living Dex slots.
-- [ ] Ensure integration with the numerical grid view from epic-103-134.
+- [ ] Ensure integration with the numerical grid view from epic-103-134-living-dex-grid-ui.
