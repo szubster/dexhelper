@@ -35,5 +35,5 @@ As part of `story-112-403-integration-e2e`, we need to verify that the Gen 2 DV 
    - Ensure the extraction logic aligns with the schema rules and outputs exactly as defined in the data structures.
 
 ## Acceptance Criteria
-- [ ] Integration tests for Gen 2 DV extraction are written using Vitest.
-- [ ] Tests successfully execute (`pnpm test`) and correctly verify DV parsing.
+- [x] Integration tests for Gen 2 DV extraction are written using Vitest.
+- [x] Tests successfully execute (`pnpm test`) and correctly verify DV parsing.
