@@ -29,10 +29,10 @@ Following the creation of the `RouteRadarController` in `story-048-088-create-ro
 Implement the data transformation pipeline inside the `RouteRadarController`. It must aggregate missing encounter suggestions by their `areaId` (e.g., Route 1, Viridian Forest) and calculate a "density" score (number of unique missing species) for each area.
 
 ## Acceptance Criteria
-- [ ] Implement the aggregation method in `RouteRadarController`.
-- [ ] Ensure the density score correctly maps `areaId`s to their corresponding missing species counts.
-- [ ] Ensure it accurately processes edge cases (e.g., areas with 0 missing encounters should not be present in the output or have a score of 0).
-- [ ] Write unit tests to validate the aggregation logic using mock `suggestionEngine` outputs.
+- [x] Implement the aggregation method in `RouteRadarController`.
+- [x] Ensure the density score correctly maps `areaId`s to their corresponding missing species counts.
+- [x] Ensure it accurately processes edge cases (e.g., areas with 0 missing encounters should not be present in the output or have a score of 0).
+- [x] Write unit tests to validate the aggregation logic using mock `suggestionEngine` outputs.
 
 ## Generated Tasks
 - [x] .foundry/archive/tasks/task-089-153-implement-radar-heatmap-logic.md

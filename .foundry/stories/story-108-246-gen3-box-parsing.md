@@ -34,7 +34,7 @@ Implement the backend data grouping and aggregation logic to parse PC box data f
 - Format the aggregated data into a structure suitable for the frontend Comparison Matrix UI.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 3 PC box parsing and species grouping.
-- [ ] Verify that Party Pokémon are successfully excluded from the extracted data.
-- [ ] Ensure all required stats (IVs, Natures, Hidden Power, Shininess) are calculated correctly for each Pokémon.
+- [x] Implement Gen 3 PC box parsing and species grouping.
+- [x] Verify that Party Pokémon are successfully excluded from the extracted data.
+- [x] Ensure all required stats (IVs, Natures, Hidden Power, Shininess) are calculated correctly for each Pokémon.
 - [x] research-246-244-gen3-box-parsing
