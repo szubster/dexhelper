@@ -2,10 +2,10 @@
 id: research-249-384-gen3-party-box-integration
 type: RESEARCH
 title: Investigate Gen 3 Party and Box Parsing Integration
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-08-02'
-updated_at: '2026-08-02'
+updated_at: '2026-08-15'
 depends_on:
   - research-157-369-gen3-party-box-offsets
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-412-423-qa-librarian-persona-schema
 type: TASK
 title: QA Librarian Persona in Schema
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-10'
-updated_at: '2026-08-10'
+updated_at: '2026-08-15'
 depends_on:
   - task-412-422-implement-librarian-persona-schema
 jules_session_id: null

@@ -2,12 +2,12 @@
 id: task-412-423-gen3-acro-bike-parsing-impl
 type: TASK
 title: Parse Gen 3 Acro Bike Map Requirements
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-13'
 updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: '14285277591022292627'
+jules_session_id: null
 pr_number: null
 parent: story-406-412-gen3-bike-map-parsing
 tags:

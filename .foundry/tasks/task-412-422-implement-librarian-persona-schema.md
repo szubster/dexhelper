@@ -2,12 +2,12 @@
 id: task-412-422-implement-librarian-persona-schema
 type: TASK
 title: Implement Librarian Persona in Schema
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-10'
 updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: '11217044717195847381'
+jules_session_id: null
 pr_number: null
 parent: story-409-412-add-librarian-persona-schema
 tags:
