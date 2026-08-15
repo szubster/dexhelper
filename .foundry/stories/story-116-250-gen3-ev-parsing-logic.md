@@ -31,3 +31,6 @@ In Gen 3, EV data is stored in the EVs & Condition (E) substructure of the 48-by
 - Make sure to correctly map the decrypted bytes to their corresponding stats.
 
 ## 4. Acceptance Criteria
+
+- [ ] task-250-251-gen3-ev-parsing-logic-impl
+- [ ] task-250-252-gen3-ev-parsing-logic-qa
