@@ -2,10 +2,10 @@
 id: epic-038-061-mirage-island-save-parsing
 type: EPIC
 title: Parse Daily Mirage Island Value
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-08'
-updated_at: '2026-06-09'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - mirage-island
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
 
@@ -33,5 +33,5 @@ As defined in PRD `prd-068-038-mirage-island-data-extraction`, we need to implem
 
 ## Acceptance Criteria
 - [x] Story Owner: Generate child stories to implement the save file parsing logic and integrate it into the parser engine.
-- [ ] story-061-098-locate-mirage-island-data
-- [ ] story-061-099-implement-mirage-island-parser
+- [x] story-061-098-locate-mirage-island-data
+- [x] story-061-099-implement-mirage-island-parser
