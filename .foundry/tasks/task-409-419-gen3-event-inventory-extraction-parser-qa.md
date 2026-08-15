@@ -35,6 +35,6 @@ Verify the Coder's implementation of the Gen 3 event inventory item extraction b
 - Verify that unit tests comprehensively cover the new parsing logic.
 
 ## Acceptance Criteria
-- [ ] Code has been reviewed for functional correctness against Gen 3 save files.
-- [ ] Code strict architectural adherence is confirmed.
-- [ ] Tests pass and provide adequate coverage.
+- [x] Code has been reviewed for functional correctness against Gen 3 save files.
+- [x] Code strict architectural adherence is confirmed.
+- [x] Tests pass and provide adequate coverage.
