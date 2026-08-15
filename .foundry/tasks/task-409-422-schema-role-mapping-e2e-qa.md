@@ -32,5 +32,5 @@ Verify that the schema mappings have been applied successfully and don't introdu
 - E2E testing to ensure internal tools or GitHub actions (like `foundry-orchestrator.ts`) still parse the nodes correctly without validation errors due to the updated schema documentation.
 
 ## Acceptance Criteria
-- [ ] QA: Verify `schema.md` changes don't cause orchestrator parse failures on new nodes.
-- [ ] QA: Run all orchestrator unit tests (`cd .github/scripts && pnpm install && npx vitest`) and confirm they pass.
+- [x] QA: Verify `schema.md` changes don't cause orchestrator parse failures on new nodes.
+- [x] QA: Run all orchestrator unit tests (`cd .github/scripts && pnpm install && npx vitest`) and confirm they pass.
