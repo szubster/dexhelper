@@ -2,13 +2,13 @@
 id: task-412-423-qa-egg-move-inventory
 type: TASK
 title: QA Verification for Egg Move Inventory Formatting
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-12'
 updated_at: '2026-08-15'
 depends_on:
   - task-412-422-implement-egg-move-inventory
-jules_session_id: null
+jules_session_id: '2073088893547697519'
 pr_number: null
 parent: story-114-412-egg-move-inventory-integration
 tags:
