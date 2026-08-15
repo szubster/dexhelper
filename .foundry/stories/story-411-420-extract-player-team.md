@@ -29,3 +29,8 @@ Implement extraction of the player's active team from Gen 3 save files, adhering
 - Extract moves for the active team.
 - Extract stats for the active team.
 - Implement tests verifying extraction correctly reads the required data.
+
+## Acceptance Criteria
+- [x] Tech Lead: Break down into actionable TASK nodes.
+- [ ] task-420-427-gen3-extract-active-team-impl
+- [ ] task-420-428-gen3-extract-active-team-qa
