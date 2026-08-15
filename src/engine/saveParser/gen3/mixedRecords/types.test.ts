@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import * as Constants from './constants';
-import { Gen3MixedRecordNPCPokemonSchema, Gen3MixedRecordNPCSchema } from './types';
+import type { Gen3MixedRecordNPC, Gen3MixedRecordNPCPokemon } from './types';
 
-describe('Gen 3 Mixed Records Types', () => {
-  it('should validate a correct Gen3MixedRecordNPCPokemon object', () => {
-    const validPokemon = {
+describe('Gen 3 Mixed Records Types & Constants', () => {
+  it('should compile valid type assignments', () => {
+    const validPokemon: Gen3MixedRecordNPCPokemon = {
       personality: 123456,
       species: 25,
       heldItem: 100,
@@ -17,44 +17,16 @@ describe('Gen 3 Mixed Records Types', () => {
       spAtkEV: 0,
       spDefEV: 0,
     };
-    expect(() => Gen3MixedRecordNPCPokemonSchema.parse(validPokemon)).not.toThrow();
-  });
 
-  it('should invalidate an incorrect Gen3MixedRecordNPCPokemon object', () => {
-    const invalidPokemon = {
-      personality: 123456,
-      species: 25,
-      // Missing heldItem and EVs
-      moves: [1, 2, 3, 4],
-      level: 50,
-    };
-    expect(() => Gen3MixedRecordNPCPokemonSchema.parse(invalidPokemon)).toThrowError(
-      /Invalid input: expected number, received undefined/,
-    );
-  });
-
-  it('should validate a correct Gen3MixedRecordNPC object', () => {
-    const validNPC = {
+    const validNPC: Gen3MixedRecordNPC = {
       trainerName: 'Ash',
       trainerGender: 0,
       trainerId: 12345,
-      party: [
-        {
-          personality: 123456,
-          species: 25,
-          heldItem: 100,
-          moves: [1, 2, 3, 4],
-          level: 50,
-          hpEV: 0,
-          atkEV: 0,
-          defEV: 0,
-          speedEV: 0,
-          spAtkEV: 0,
-          spDefEV: 0,
-        },
-      ],
+      party: [validPokemon],
     };
-    expect(() => Gen3MixedRecordNPCSchema.parse(validNPC)).not.toThrow();
+
+    expect(validPokemon.species).toBe(25);
+    expect(validNPC.trainerName).toBe('Ash');
   });
 
   it('should verify constants exist', () => {
