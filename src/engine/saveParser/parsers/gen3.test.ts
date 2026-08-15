@@ -23,6 +23,7 @@ import {
   parseGen3MirageIslandValue,
   parseGen3MixRecords,
   parseGen3PersonalityValue,
+  parseGen3PokemonFriendship,
   parseGen3PokeNews,
   parseGen3Ribbons,
   parseGen3Roamer,
@@ -1428,6 +1429,53 @@ describe('parseGen3FRLGMoveTutors', () => {
 });
 
 import { parseGen3PokemonPVAndIVs } from './gen3';
+
+describe('parseGen3PokemonFriendship', () => {
+  it('should extract the friendship value correctly for permutation GAEM', () => {
+    const buffer = new ArrayBuffer(100);
+    const view = new DataView(buffer);
+    const pv = 0; // PV % 24 = 0 -> GAEM
+    const otId = 12345;
+    const decryptionKey = pv ^ otId;
+
+    view.setUint32(0, pv, true); // PV
+    view.setUint32(4, otId, true); // OT ID
+
+    const growthOffset = 32;
+    // Set friendship to 255. Friendship is at offset 4 of Growth, so we XOR the 32-bit word with decryptionKey
+    const friendshipWord = 255; // 255 in lower 8 bits
+    view.setUint32(growthOffset + 4, friendshipWord ^ decryptionKey, true);
+
+    const result = parseGen3PokemonFriendship(view, 0);
+    expect(result).toBe(255);
+  });
+
+  it('should extract the friendship value correctly for permutation MGEA', () => {
+    const buffer = new ArrayBuffer(100);
+    const view = new DataView(buffer);
+    const pv = 19; // PV % 24 = 19 -> MGEA
+    const otId = 54321;
+    const decryptionKey = pv ^ otId;
+
+    view.setUint32(0, pv, true); // PV
+    view.setUint32(4, otId, true); // OT ID
+
+    const growthOffset = 32 + 1 * 12;
+    const friendshipWord = 120;
+    view.setUint32(growthOffset + 4, friendshipWord ^ decryptionKey, true);
+
+    const result = parseGen3PokemonFriendship(view, 0);
+    expect(result).toBe(120);
+  });
+
+  it('should explicitly catch RangeError and throw corrupted file error on out-of-bounds reads', () => {
+    const buffer = new ArrayBuffer(30);
+    const view = new DataView(buffer);
+
+    // Buffer is too small, reading PV or OT ID will throw RangeError
+    expect(() => parseGen3PokemonFriendship(view, 0)).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
 
 describe('parseGen3PokemonPVAndIVs', () => {
   it('should extract PV and IVs correctly for a known permutation', () => {

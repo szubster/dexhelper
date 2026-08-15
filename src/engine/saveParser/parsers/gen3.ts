@@ -85,7 +85,7 @@ const SECRET_BASE_OFFSET_EMERALD = 0x1a9c;
 const SAVE_BLOCK_A = 0x0000;
 const SAVE_BLOCK_B = 0xe000;
 export const LOWER_16_BIT_MASK = 0xffff;
-const LOWER_8_BIT_MASK = 0xff;
+export const LOWER_8_BIT_MASK = 0xff;
 
 const GEN3_ROAMER_OFFSET_RS = 0x3144;
 const GEN3_ROAMER_OFFSET_EMERALD = 0x31dc;
@@ -157,7 +157,7 @@ const POKE_NEWS_COUNTDOWN_OFFSET = 0x02;
 const MISC_IV_EGG_ABILITY_OFFSET = 0x04;
 export const MET_LOCATION_OFFSET_IN_M = 1;
 const IS_EGG_BIT_SHIFT = 30;
-const GROWTH_FRIENDSHIP_OFFSET = 0x04;
+export const GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G = 0x04;
 const EGG_CYCLE_STEPS = 256;
 
 export const TM_POCKET_OFFSET_RS = 0x0640;
@@ -633,6 +633,12 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
           encryptedMove4 ^ (decryptionKey >>> UPPER_16_BIT_SHIFT),
         ].filter((m) => m > 0);
 
+        const encryptedFriendship = pcBufferView.getUint32(
+          growthSubstructureOffset + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G,
+          true,
+        );
+        const friendship = (encryptedFriendship ^ decryptionKey) & LOWER_8_BIT_MASK;
+
         const isShiny = false; // We can skip full shiny calculation for PC boxes for now unless requested
 
         const p: import('./common').PokemonInstance = {
@@ -642,6 +648,7 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
           isShiny,
           item: item > 0 ? item : undefined,
           moves,
+          friendship,
           storageLocation: `Box ${box + 1}`,
           slot,
         };
@@ -675,6 +682,30 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
  * @returns An object containing the PV and a raw 32-bit integer representing the packed IVs.
  * @throws Error - "The save file is corrupted or incomplete." on invalid data.
  */
+export function parseGen3PokemonFriendship(view: DataView, offset: number): number {
+  try {
+    const pv = view.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
+    const otId = view.getUint32(offset + GEN3_POKEMON_OT_ID_OFFSET, true);
+
+    const decryptionKey = pv ^ otId;
+    const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
+    const permutation = SUBSTRUCTURE_ORDER[permutationIndex];
+    if (!permutation) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    const indexOfG = permutation.indexOf('G');
+
+    const growthSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfG * SUBSTRUCTURE_SIZE;
+    const encryptedFriendship = view.getUint32(growthSubstructureOffset + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G, true);
+    return (encryptedFriendship ^ decryptionKey) & LOWER_8_BIT_MASK;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
 export function parseGen3PokemonPVAndIVs(view: DataView, offset: number) {
   try {
     const pv = view.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
@@ -738,7 +769,7 @@ export function parseGen3EggSteps(
       return null;
     }
 
-    const eggCycles = view.getUint8(growthSubstructureOffset + GROWTH_FRIENDSHIP_OFFSET);
+    const eggCycles = view.getUint8(growthSubstructureOffset + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
     return eggCycles * EGG_CYCLE_STEPS;
   } catch (error) {
     if (error instanceof RangeError) {
