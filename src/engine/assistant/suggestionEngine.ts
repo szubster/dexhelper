@@ -36,11 +36,11 @@ import { dexDataLoader } from '../../db/DexDataLoader';
 import { pokeDB } from '../../db/PokeDB';
 import { type LocationAreaEncounters, POKE_VERSION_MAP, type PokemonMetadata } from '../../db/schema';
 import { getGenerationConfig } from '../../utils/generationConfig';
-
+import { buildInventoryBySpecies, extractAllInstances } from '../breeding/inventoryTools';
 import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN1 } from '../data/gen1/assistantData';
 import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN2 } from '../data/gen2/assistantData';
 import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN3 } from '../data/gen3/assistantData';
-import type { PokemonInstance, SaveData } from '../saveParser/index';
+import type { SaveData } from '../saveParser/index';
 import { generateBreedingSuggestions } from './generators/breedGenerator';
 // Generators
 import { generateCatchSuggestions } from './generators/catchGenerator';
@@ -236,7 +236,7 @@ export async function generateSuggestions(
     ? new Set([...(saveData.party || []), ...(saveData.pc || [])])
     : saveData.owned || new Set<number>();
 
-  const allInstances = [...(saveData.partyDetails || []), ...(saveData.pcDetails || [])];
+  const allInstances = extractAllInstances(saveData);
   const myOtIds = new Set<number>();
   for (let i = 0; i < allInstances.length; i++) {
     const p = allInstances[i];
@@ -289,11 +289,7 @@ export async function generateSuggestions(
 
   filterSuggestionsByMissingTools(suggestions, playerTools, localPids);
 
-  const instancesBySpecies = new Map<number, PokemonInstance[]>();
-  for (const p of allInstances) {
-    if (!instancesBySpecies.has(p.speciesId)) instancesBySpecies.set(p.speciesId, []);
-    instancesBySpecies.get(p.speciesId)?.push(p);
-  }
+  const instancesBySpecies = buildInventoryBySpecies(allInstances);
 
   generateGiftAndTradeSuggestions(
     queryTargets,
