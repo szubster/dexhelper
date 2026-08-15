@@ -67,6 +67,8 @@ jobs:
         run: pnpm exec playwright install chromium --with-deps
       - name: Test
         run: pnpm test --coverage
+        env:
+          JULES_API_KEY: ${{ secrets.JULES_API_KEY }}
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
         uses: codecov/codecov-action@v7
