@@ -2,12 +2,12 @@
 id: story-397-358-indexeddb-schema-retry-impl
 type: STORY
 title: IndexedDB Storage Schema Implementation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: '10488278309655833194'
+jules_session_id: '7098371956486585639'
 pr_number: null
 parent: epic-099-397-indexeddb-schema-design-retry
 tags:
