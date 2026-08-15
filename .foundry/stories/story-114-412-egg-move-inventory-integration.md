@@ -2,7 +2,7 @@
 id: story-114-412-egg-move-inventory-integration
 type: STORY
 title: Egg Move Inventory Integration
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-11'
 updated_at: '2026-08-15'
