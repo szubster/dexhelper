@@ -2,12 +2,12 @@
 id: story-116-250-gen3-ev-parsing-logic
 type: STORY
 title: Story - Gen 3 EV Parsing Logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-02'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15863037152588661750'
 pr_number: null
 parent: epic-092-116-gen3-ev-data-extraction
 tags:
