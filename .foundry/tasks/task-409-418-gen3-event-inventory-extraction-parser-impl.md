@@ -30,8 +30,8 @@ Implement the binary extraction logic of key event items from the player's Bag i
 - Write unit tests to verify the binary parsing logic works correctly against Gen 3 save files.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 3 event inventory item extraction parser.
-- [ ] Module-level constants are used for memory offsets, lengths, bit locations, shifts, etc.
-- [ ] Relative offsets are used with the resolved section offset.
-- [ ] `RangeError` is handled properly with the exact error message.
-- [ ] Unit tests verify the parsing logic.
+- [x] Implement Gen 3 event inventory item extraction parser.
+- [x] Module-level constants are used for memory offsets, lengths, bit locations, shifts, etc.
+- [x] Relative offsets are used with the resolved section offset.
+- [x] `RangeError` is handled properly with the exact error message.
+- [x] Unit tests verify the parsing logic.

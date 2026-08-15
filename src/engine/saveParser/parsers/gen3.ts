@@ -28,6 +28,7 @@ import {
   parseGen3BattlePoints,
   parseGen3TotalBattlePoints,
 } from '../gen3/battleFrontier/parser';
+import { parseGen3EventItems } from '../gen3/inventory/parser';
 import { parseGen3Pokeblocks } from '../gen3/pokeblock/parser';
 import { parseGen3TrainerDefeatFlags, parseGen3TrainerRematchFlags } from '../gen3/trainerFlags/parser';
 import { parseTrickHouse } from '../gen3/trickHouse/parser';
@@ -1235,6 +1236,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const gen3MixRecords = parseGen3MixRecords(view, section1Offset + TV_SHOWS_OFFSET);
     const gen3ActiveSwarm = parseGen3ActiveSwarm(view, section1Offset + TV_SHOWS_OFFSET);
     const gen3VolcanicAsh = parseGen3VolcanicAsh(view, section1Offset, _forcedVersion || 'ruby');
+    const gen3EventItems = parseGen3EventItems(view, section1Offset, _forcedVersion || 'ruby');
 
     const roamingLegendaries = [];
     try {
@@ -1453,6 +1455,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       ...(gen3ActiveSwarm !== undefined ? { gen3ActiveSwarm } : {}),
       roamingLegendaries,
       gen3VolcanicAsh,
+      gen3EventItems,
       gen3TMHMs,
       gen3TMEventFlags,
       ...(gen3Pokeblocks ? { gen3Pokeblocks } : {}),
