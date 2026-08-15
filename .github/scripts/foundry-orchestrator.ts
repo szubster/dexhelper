@@ -507,7 +507,13 @@ function main(): void {
     for (const match of matches) {
       // node.repoPath is the potential parent, match is the potential child
       if (match !== node.repoPath) {
-        const matchedNode = nodeMap.get(match);
+        let matchedNode = nodeMap.get(match);
+        if (!matchedNode && fs.existsSync(path.join(repoRoot, match))) {
+          const parsed = parseNodeFile(path.join(repoRoot, match), repoRoot);
+          if (parsed) {
+            matchedNode = parsed;
+          }
+        }
         if (matchedNode) {
           // Check 1: If matchedNode has an explicit parent in frontmatter, do not add node as parent if it differs
           const explicitParent = resolveNodePath(matchedNode.frontmatter.parent);
@@ -1198,9 +1204,12 @@ function main(): void {
 
       if (links.length > 0) {
         const resolvedLinks = links.map(l => resolveNodePath(l)).filter((l): l is string => !!l);
-        const allExist = resolvedLinks.every(l => nodeMap.has(l));
+        const allExist = resolvedLinks.every(l => nodeMap.has(l) || fs.existsSync(path.join(repoRoot, l)));
         const hasChild = resolvedLinks.some(l => {
-          const childNode = nodeMap.get(l);
+          let childNode = nodeMap.get(l);
+          if (!childNode && fs.existsSync(path.join(repoRoot, l))) {
+            childNode = parseNodeFile(path.join(repoRoot, l), repoRoot) || undefined;
+          }
           if (!childNode) return false;
           const resolvedParentOfChild = resolveNodePath(childNode.frontmatter.parent);
           const resolvedNodePathValue = resolveNodePath(node.repoPath);
