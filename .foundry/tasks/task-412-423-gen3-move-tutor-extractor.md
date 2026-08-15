@@ -38,8 +38,8 @@ As per ADR 010, the parsing implementation must use `DataView` for all byte read
 6. Write unit tests to cover parsing malformed structures (out-of-bounds `DataView` access) for both game versions to ensure `RangeError` is handled properly.
 
 ## Acceptance Criteria
-- [ ] Extraction function for Emerald is correctly implemented using `DataView` and relative offsets.
-- [ ] Extraction function for FireRed/LeafGreen is correctly implemented using `DataView` and relative offsets.
-- [ ] Both functions catch `RangeError` and throw the expected error message.
-- [ ] Unit tests cover parsing valid structures for both games.
-- [ ] Unit tests cover parsing malformed structures (out-of-bounds) for both games.
+- [x] Extraction function for Emerald is correctly implemented using `DataView` and relative offsets.
+- [x] Extraction function for FireRed/LeafGreen is correctly implemented using `DataView` and relative offsets.
+- [x] Both functions catch `RangeError` and throw the expected error message.
+- [x] Unit tests cover parsing valid structures for both games.
+- [x] Unit tests cover parsing malformed structures (out-of-bounds) for both games.
