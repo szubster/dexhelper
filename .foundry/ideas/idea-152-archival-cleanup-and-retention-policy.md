@@ -2,7 +2,7 @@
 id: idea-152-archival-cleanup-and-retention-policy
 type: IDEA
 title: Archival Cleanup & Incremental Node Retention Policy
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-08-15'
 updated_at: '2026-08-15'

@@ -2,7 +2,7 @@
 id: task-412-423-qa-egg-move-inventory
 type: TASK
 title: QA Verification for Egg Move Inventory Formatting
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-08-12'
 updated_at: '2026-08-15'
@@ -16,8 +16,8 @@ tags:
   - qa
   - testing
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

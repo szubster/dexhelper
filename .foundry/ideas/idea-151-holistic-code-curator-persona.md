@@ -1,8 +1,10 @@
 ---
 id: idea-151-holistic-code-curator-persona
 type: IDEA
-title: 'Holistic Code Curator Persona: Architectural Refactoring & Historical Backtracking'
-status: PENDING
+title: >-
+  Holistic Code Curator Persona: Architectural Refactoring & Historical
+  Backtracking
+status: READY
 owner_persona: product_manager
 created_at: '2026-08-15'
 updated_at: '2026-08-15'

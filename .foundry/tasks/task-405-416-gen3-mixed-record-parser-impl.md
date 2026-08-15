@@ -2,10 +2,10 @@
 id: task-405-416-gen3-mixed-record-parser-impl
 type: TASK
 title: Implement Gen 3 Mixed Record Parser
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-08-10"
-updated_at: "2026-08-10"
+created_at: '2026-08-10'
+updated_at: '2026-08-15'
 depends_on:
   - task-405-415-gen3-mixed-record-types-impl
 jules_session_id: null
@@ -18,8 +18,8 @@ tags:
   - parser
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # TASK: Implement Gen 3 Mixed Record Parser
