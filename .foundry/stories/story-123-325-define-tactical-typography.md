@@ -28,5 +28,5 @@ Define any remaining typography-related `@utility` primitives in `src/index.css`
 2. If any further specific variations of `tactical-text` are required by the scope (or if `tactical-text` was only partially implemented), define them. Since `tactical-text` is already present in `src/index.css`, this story acts as a final audit and closure for the typography portion of the epic.
 
 ## Acceptance Criteria
-- [ ] Typography utilities are fully verified to match the scope of epic-071-123.
+- [x] Typography utilities are fully verified to match the scope of epic-071-123.
 - [ ] task-325-331-implement-tactical-typography

@@ -2,10 +2,10 @@
 id: epic-340-418-ui-component-splitting
 type: EPIC
 title: Implement React.lazy code splitting for UI components
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-13'
-updated_at: '2026-08-13'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 parent: prd-136-340-split-bundles-and-data
