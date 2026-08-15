@@ -26,5 +26,7 @@ notes: ''
 Implement the storage schema for the save state history according to `epic-099-397-indexeddb-schema-design-retry`.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-358-427-indexeddb-schema-impl
+- [ ] task-358-428-indexeddb-schema-qa
 - [ ] Verify the implemented schema (database version, object store structures) strictly matches the documentation (Section 14 of .foundry/docs/schema.md) before marking tasks complete.
