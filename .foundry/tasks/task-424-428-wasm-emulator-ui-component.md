@@ -2,13 +2,13 @@
 id: task-424-428-wasm-emulator-ui-component
 type: TASK
 title: WASM Emulator UI Component
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-15'
 updated_at: '2026-08-15'
 depends_on:
   - task-424-427-wasm-rom-storage-layer
-jules_session_id: null
+jules_session_id: '4270801382085493539'
 pr_number: null
 parent: story-423-424-wasm-emulator-ui-and-rom-loader
 tags:
