@@ -230,6 +230,7 @@ export const PC_BOX_CAPACITY = 30;
 export const GEN3_PC_POKEMON_STRUCT_SIZE = 80;
 export const GEN3_POKEMON_SPECIES_OFFSET_IN_G = 0x00;
 export const GEN3_POKEMON_ITEM_OFFSET_IN_G = 0x02;
+export const GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G = 0x04;
 export const GEN3_POKEMON_MOVES_OFFSET_IN_A = 0x00;
 export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
 
@@ -604,8 +605,13 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
           true,
         );
         const encryptedItem = pcBufferView.getUint16(growthSubstructureOffset + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
+        const encryptedFriendship = pcBufferView.getUint8(
+          growthSubstructureOffset + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G,
+        );
+
         const speciesId = encryptedSpecies ^ (decryptionKey & LOWER_16_BIT_MASK);
         const item = encryptedItem ^ (decryptionKey >>> 16);
+        const friendship = encryptedFriendship ^ (decryptionKey & 0xff);
 
         const encryptedMove1 = pcBufferView.getUint16(attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
         const encryptedMove2 = pcBufferView.getUint16(
@@ -637,6 +643,7 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
           isShiny,
           item: item > 0 ? item : undefined,
           moves,
+          friendship,
           storageLocation: `Box ${box + 1}`,
           slot,
         };

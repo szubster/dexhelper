@@ -22,6 +22,7 @@ import {
   parseGen3MetLocation,
   parseGen3MirageIslandValue,
   parseGen3MixRecords,
+  parseGen3PCBoxes,
   parseGen3PersonalityValue,
   parseGen3PokeNews,
   parseGen3Ribbons,
@@ -35,6 +36,40 @@ import {
 } from './gen3';
 
 describe('gen3 parser scaffolding', () => {
+  it('should extract friendship properly from PC Boxes with correct PV permutations', () => {
+    const buffer = new ArrayBuffer(83744); // At least PC_BOX_BUFFER_SIZE
+    const view = new DataView(buffer);
+
+    // Box 0, Slot 0
+    // PV = 0 (Permutation 0: GAEM) -> G is at offset 0
+    const slot0Offset = 4; // PC_BOX_POKEMON_LIST_OFFSET
+    view.setUint32(slot0Offset + 0, 0, true); // PV
+    view.setUint32(slot0Offset + 4, 0x12345678, true); // OTID
+    // KEY = 0x12345678
+    // Friendship offset in G = 4. Since G is at 0, offset in data = 4. Data starts at 32. Total offset = 4 + 32 = 36.
+    // We want decrypted friendship = 255.
+    // Encrypted = 255 ^ (0x12345678 & 0xFF) = 255 ^ 0x78 = 135
+    view.setUint8(slot0Offset + 36, 135);
+
+    // Box 0, Slot 1
+    // PV = 6 (Permutation 6: AGEM) -> G is at offset 12
+    const slot1Offset = 4 + 80;
+    view.setUint32(slot1Offset + 0, 6, true); // PV
+    view.setUint32(slot1Offset + 4, 0x87654321, true); // OTID
+    // KEY = 6 ^ 0x87654321
+    // Friendship offset in G = 4. Since G is at 12, offset in data = 16. Total offset = 84 + 32 + 16 = 132.
+    // We want decrypted friendship = 100.
+    // Encrypted = 100 ^ (KEY & 0xFF) = 100 ^ 39 = 67
+    view.setUint8(slot1Offset + 16 + 32, 67);
+
+    // Mock current box count for parseGen3PCBoxes buffer parsing logic if needed
+    view.setUint32(0, 0, true); // PC_BOX_CURRENT_BOX_OFFSET
+
+    const result = parseGen3PCBoxes(view);
+    expect(result.pcDetails[0]?.friendship).toBe(255);
+    expect(result.pcDetails[1]?.friendship).toBe(100);
+  });
+
   it('isGen3Save should return false normally', () => {
     const buffer = new ArrayBuffer(8);
     const view = new DataView(buffer);
