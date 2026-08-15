@@ -47,3 +47,31 @@ export function getLivingDexGhosts(saveData: SaveData, regionalOnly = false): nu
 
   return ghosts;
 }
+
+export interface PokemonLocation {
+  speciesId: number;
+  box: number;
+  slot: number;
+}
+
+/**
+ * Extracts PC Box and Slot locations for owned Pokémon.
+ *
+ * @param saveData - The parsed binary save data indicating the player's progress and inventory.
+ * @returns An array of PokemonLocation objects indicating the box and slot for each Pokemon in the PC.
+ */
+export function getOwnedPokemonLocations(saveData: SaveData): PokemonLocation[] {
+  const locations: PokemonLocation[] = [];
+
+  for (const p of saveData.pcDetails) {
+    if (p.speciesId > 0 && p.slot !== undefined && p.storageLocation?.startsWith('Box ')) {
+      locations.push({
+        speciesId: p.speciesId,
+        box: parseInt(p.storageLocation.substring(4), 10),
+        slot: p.slot,
+      });
+    }
+  }
+
+  return locations;
+}
