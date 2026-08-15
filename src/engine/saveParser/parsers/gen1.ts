@@ -78,6 +78,8 @@ const PIKACHU_HAPPINESS_OFFSET = 0x271d;
 const PC_BOX_NUM_MASK = 0x7f;
 const PC_MAX_ITEMS = 50;
 
+const GEN1_EMPTY_SLOT = 0xff;
+
 const BANK_1_BOX_1_OFFSET = 0x4000;
 const BANK_1_BOX_2_OFFSET = 0x4462;
 const BANK_1_BOX_3_OFFSET = 0x48c4;
@@ -279,7 +281,10 @@ function hasYellowPikachuMarkers(view: DataView): boolean {
 
   // If these are non-zero and not FF (unitialized), it's almost certainly Yellow.
   // We use > 0 and < 0xFF to be safe against garbage data.
-  return (followingPikachu > 0 && followingPikachu < 0xff) || (pikachuHappiness > 0 && pikachuHappiness < 0xff);
+  return (
+    (followingPikachu > 0 && followingPikachu < GEN1_EMPTY_SLOT) ||
+    (pikachuHappiness > 0 && pikachuHappiness < GEN1_EMPTY_SLOT)
+  );
 }
 
 /**
@@ -423,7 +428,7 @@ function parseGen1HallOfFameRecords(view: DataView, hallOfFameCount: number, tra
         const offset = HOF_BASE_OFFSET + recordIndex * HOF_RECORD_LENGTH + pokemonIndex * HOF_POKEMON_LENGTH;
         const internalId = view.getUint8(offset);
 
-        if (internalId === 0x00 || internalId === 0xff) {
+        if (internalId === 0x00 || internalId === GEN1_EMPTY_SLOT) {
           continue;
         }
 
@@ -821,7 +826,7 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): SaveData
 
   const mapIdStr = currentMapId.toString();
   const currentMapName = isValidMapId(mapIdStr) ? gen1MapLocations[mapIdStr] : 'Unknown Map';
-  const hallOfFameCount = hallOfFameRaw === 0xff ? 0 : hallOfFameRaw;
+  const hallOfFameCount = hallOfFameRaw === GEN1_EMPTY_SLOT ? 0 : hallOfFameRaw;
   const hallOfFameRecords = parseGen1HallOfFameRecords(view, hallOfFameCount, trainerName);
 
   const eventFlagsOffset = EVENT_FLAGS_OFFSET + offsetShift;

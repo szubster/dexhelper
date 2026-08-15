@@ -476,7 +476,7 @@ export function decodeGen12String(view: DataView, offset: number, maxLength: num
       throw e;
     }
 
-    if (charCode === 0x50 || charCode === 0x00 || charCode === 0xff) break;
+    if (charCode === 0x50 || charCode === 0x00 || charCode === COMMON_EMPTY_SLOT) break;
     result += GEN12_CHAR_MAP[charCode] ?? '?';
   }
   return result.trim();
@@ -573,6 +573,7 @@ export function checkShinyGene(dvs: { atk: number; def: number; spd: number; spc
 
 const POKERUS_STRAIN_SHIFT = 4;
 const POKERUS_DAYS_MASK = 0x0f;
+const COMMON_EMPTY_SLOT = 0xff;
 
 /**
  * Parses the Pokerus byte.

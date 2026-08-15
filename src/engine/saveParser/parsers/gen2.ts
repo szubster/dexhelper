@@ -208,6 +208,7 @@ const CAUGHT_TIME_DAY = 2;
 const CAUGHT_TIME_NIGHT = 3;
 const CAUGHT_LOC_EVENT = 0x7e;
 const CAUGHT_LOC_TRADED = 0x7f;
+const GEN2_EMPTY_SLOT = 0xff;
 
 const MAX_VALID_SPECIES_ID = 251;
 const POKEMON_MOVE_COUNT = 4;
@@ -637,7 +638,7 @@ function parseDaycare(view: DataView, isCrystal: boolean) {
     const offset = offsets[i];
     if (offset === undefined) continue;
     const speciesId = view.getUint8(offset);
-    if (speciesId !== 0 && speciesId !== 0xff) {
+    if (speciesId !== 0 && speciesId !== GEN2_EMPTY_SLOT) {
       const p = parseGen2PokemonInstance(view, offset, isCrystal, 'Daycare', i + 1);
       if (p) {
         daycare.push(p);
