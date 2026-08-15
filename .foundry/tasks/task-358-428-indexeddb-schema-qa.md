@@ -31,7 +31,7 @@ Verify the IndexedDB storage schema implementation against Section 14 of `.found
 The coder has implemented the `SaveHistoryDB` IndexedDB database using idb. This task ensures the implementation is correct and conforms to the specifications.
 
 ## Acceptance Criteria
-- [ ] Verify `SaveHistoryDB` database name and version 1.
-- [ ] Verify object stores `saves`, `metadata`, and `indexes` are present.
-- [ ] Ensure types defined in the schema map correctly (e.g., `saves` storing `Uint8Array`).
-- [ ] Verify the test in `src/engine/storage/historyDb.test.ts` correctly instantiates the database and asserts the schema structures.
+- [x] Verify `SaveHistoryDB` database name and version 1.
+- [x] Verify object stores `saves`, `metadata`, and `indexes` are present.
+- [x] Ensure types defined in the schema map correctly (e.g., `saves` storing `Uint8Array`).
+- [x] Verify the test in `src/engine/storage/historyDb.test.ts` correctly instantiates the database and asserts the schema structures.
