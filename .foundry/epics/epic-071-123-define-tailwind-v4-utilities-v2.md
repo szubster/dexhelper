@@ -35,8 +35,8 @@ Extract and consolidate common, repetitive Tailwind class patterns used througho
 3. **Verify Compliance**: Ensure all custom utilities correctly use `@apply` or raw CSS to define the desired baseline "tactical hardware" aesthetic as dictated by ADR 024. Confirm that hover and focus states can be correctly inherited natively through v4's directive structure.
 
 ## Acceptance Criteria
-- [ ] Appropriate `@utility` primitives are defined in `src/index.css`.
-- [ ] Tailwind v4 formatting and structure is respected.
+- [x] Appropriate `@utility` primitives are defined in `src/index.css`.
+- [x] Tailwind v4 formatting and structure is respected.
 - [x] story-123-269-define-tactical-layout-utilities
 - [x] story-123-270-define-tactical-form-utilities
 
