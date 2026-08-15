@@ -2,10 +2,10 @@
 id: task-250-251-gen3-ev-parsing-logic-impl
 type: TASK
 title: Implement Gen 3 EV Parsing Logic
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-08-16"
-updated_at: "2026-08-16"
+created_at: '2026-08-16'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - gen3
   - save-engine
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Implement Gen 3 EV Parsing Logic

@@ -2,7 +2,7 @@
 id: story-411-420-r2-conflict-detection-logic
 type: STORY
 title: Cloudflare R2 Conflict Detection Core Logic
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-12'
 updated_at: '2026-08-15'
@@ -29,5 +29,5 @@ Implement the core logic for detecting conflicts during Cloudflare R2 syncing.
 
 ## Acceptance Criteria
 - [x] Tech Lead: Generate TASK node(s) for the core conflict detection logic.
-- [ ] task-420-425-r2-conflict-detection-logic-impl
-- [ ] task-420-426-r2-conflict-detection-logic-qa
+- [x] task-420-425-r2-conflict-detection-logic-impl
+- [x] task-420-426-r2-conflict-detection-logic-qa

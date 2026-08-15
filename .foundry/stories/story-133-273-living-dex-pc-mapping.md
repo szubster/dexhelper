@@ -2,10 +2,10 @@
 id: story-133-273-living-dex-pc-mapping
 type: STORY
 title: Living Dex PC Mapping
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-08-05'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -27,8 +27,8 @@ This story involves creating the mapping layer to identify which Pokémon the pl
 - [x] task-273-327-living-dex-pc-mapping-impl
 - [x] task-273-328-living-dex-pc-mapping-qa
 - [x] research-273-393-gen3-pc-box-offsets-root-cause
-- [ ] task-273-394-living-dex-pc-mapping-retry-impl
-- [ ] task-273-395-living-dex-pc-mapping-retry-qa
+- [x] task-273-394-living-dex-pc-mapping-retry-impl
+- [x] task-273-395-living-dex-pc-mapping-retry-qa
 
 - [ ] Implement data mapping to identify existing Pokémon and their PC Box/Slot locations.
 

@@ -2,13 +2,13 @@
 id: task-412-423-qa-egg-move-inventory
 type: TASK
 title: QA Verification for Egg Move Inventory Formatting
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-08-12'
 updated_at: '2026-08-15'
 depends_on:
   - task-412-422-implement-egg-move-inventory
-jules_session_id: '7897433691328219165'
+jules_session_id: null
 pr_number: null
 parent: story-114-412-egg-move-inventory-integration
 tags:
@@ -17,7 +17,7 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 
