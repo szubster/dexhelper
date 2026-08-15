@@ -28,4 +28,5 @@ Break down the work to verify that the schema mappings have been applied success
 - Draft TASK nodes for verifying the schema correctness.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Generate QA/Integration TASK node(s) for verifying schema mappings.
+- [x] Tech Lead: Generate QA/Integration TASK node(s) for verifying schema mappings.
+- [ ] task-409-422-schema-role-mapping-e2e-qa
