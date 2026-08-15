@@ -43,6 +43,8 @@ This epic focuses on the backend parsing logic for extracting necessary data fro
    - Investigate and potentially extract the daily flag for Shell Bell crafting.
 
 ## Acceptance Criteria
-- [ ] Implement RTC data extraction logic complying with Section 13 guidelines.
-- [ ] Implement item pocket parsing for Shoal Shells and Shoal Salts.
-- [ ] E2E / Integration Verification STORY must be drafted to integrate extracted data with dashboard and test it end-to-end.
+- [x] Implement RTC data extraction logic complying with Section 13 guidelines. (Cancelled per ADR 025)
+- [x] Implement item pocket parsing for Shoal Shells and Shoal Salts.
+- [x] E2E / Integration Verification STORY must be drafted to integrate extracted data with dashboard and test it end-to-end.
+- [ ] story-411-421-shoal-items-parsing
+- [ ] story-411-422-shoal-items-e2e
