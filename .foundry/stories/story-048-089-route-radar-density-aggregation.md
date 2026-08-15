@@ -2,10 +2,10 @@
 id: story-048-089-route-radar-density-aggregation
 type: STORY
 title: Implement Density Aggregation Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-05-31'
-updated_at: '2026-06-13'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -35,10 +35,10 @@ Implement the data transformation pipeline inside the `RouteRadarController`. It
 - [ ] Write unit tests to validate the aggregation logic using mock `suggestionEngine` outputs.
 
 ## Generated Tasks
-- [ ] .foundry/archive/tasks/task-089-153-implement-radar-heatmap-logic.md
-- [ ] .foundry/archive/tasks/task-089-154-qa-radar-heatmap-logic.md
-- [ ] .foundry/archive/tasks/task-089-165-radar-heatmap-density-logic-impl.md
-- [ ] .foundry/archive/tasks/task-089-166-qa-radar-heatmap-density-logic.md
-- [ ] research-089-167-investigate-heatmap-failure
-- [ ] .foundry/archive/tasks/task-089-177-radar-heatmap-ui-integration-impl.md
-- [ ] .foundry/tasks/task-089-178-qa-radar-heatmap-ui-integration.md
+- [x] .foundry/archive/tasks/task-089-153-implement-radar-heatmap-logic.md
+- [x] .foundry/archive/tasks/task-089-154-qa-radar-heatmap-logic.md
+- [x] .foundry/archive/tasks/task-089-165-radar-heatmap-density-logic-impl.md
+- [x] .foundry/archive/tasks/task-089-166-qa-radar-heatmap-density-logic.md
+- [x] research-089-167-investigate-heatmap-failure
+- [x] .foundry/archive/tasks/task-089-177-radar-heatmap-ui-integration-impl.md
+- [x] .foundry/tasks/task-089-178-qa-radar-heatmap-ui-integration.md

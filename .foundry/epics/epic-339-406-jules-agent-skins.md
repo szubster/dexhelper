@@ -1,11 +1,11 @@
 ---
 id: epic-339-406-jules-agent-skins
 type: EPIC
-title: "Jules Agent Skins Integration"
-status: PENDING
+title: Jules Agent Skins Integration
+status: READY
 owner_persona: story_owner
-created_at: "2024-05-18"
-updated_at: "2024-05-18"
+created_at: '2024-05-18'
+updated_at: '2026-08-15'
 depends_on:
   - epic-339-405-schema-role-mapping
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - personas
   - gamification
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Jules Agent Skins Integration

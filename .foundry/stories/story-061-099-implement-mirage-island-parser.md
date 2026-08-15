@@ -2,10 +2,10 @@
 id: story-061-099-implement-mirage-island-parser
 type: STORY
 title: Implement Mirage Island Save Parser
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-09'
-updated_at: '2026-06-16'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 pr_number: null

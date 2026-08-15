@@ -2,12 +2,12 @@
 id: task-358-428-gen3-battle-frontier-parsing-impl
 type: TASK
 title: Task - Gen 3 Battle Frontier Parsing Implementation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-14'
 updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: '4309533226967995641'
+jules_session_id: null
 pr_number: null
 parent: story-400-358-gen3-trainer-card-parsing-core
 tags:

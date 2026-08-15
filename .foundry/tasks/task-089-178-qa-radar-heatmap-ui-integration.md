@@ -2,13 +2,13 @@
 id: task-089-178-qa-radar-heatmap-ui-integration
 type: TASK
 title: QA Route Radar UI Integration
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-06-13'
 updated_at: '2026-08-15'
 depends_on:
   - task-089-177-radar-heatmap-ui-integration-impl
-jules_session_id: '2060859421992588804'
+jules_session_id: null
 pr_number: null
 parent: story-048-089-route-radar-density-aggregation
 tags:
