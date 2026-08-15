@@ -83,7 +83,7 @@ const SECRET_BASE_OFFSET_EMERALD = 0x1a9c;
 
 const SAVE_BLOCK_A = 0x0000;
 const SAVE_BLOCK_B = 0xe000;
-const LOWER_16_BIT_MASK = 0xffff;
+export const LOWER_16_BIT_MASK = 0xffff;
 const LOWER_8_BIT_MASK = 0xff;
 
 const GEN3_ROAMER_OFFSET_RS = 0x3144;
@@ -231,6 +231,10 @@ export const GEN3_PC_POKEMON_STRUCT_SIZE = 80;
 export const GEN3_POKEMON_SPECIES_OFFSET_IN_G = 0x00;
 export const GEN3_POKEMON_ITEM_OFFSET_IN_G = 0x02;
 export const GEN3_POKEMON_MOVES_OFFSET_IN_A = 0x00;
+export const GEN3_POKEMON_MOVE_2_OFFSET = 0x02;
+export const GEN3_POKEMON_MOVE_3_OFFSET = 0x04;
+export const GEN3_POKEMON_MOVE_4_OFFSET = 0x06;
+export const UPPER_16_BIT_SHIFT = 16;
 export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
 
 /**
@@ -605,27 +609,27 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
         );
         const encryptedItem = pcBufferView.getUint16(growthSubstructureOffset + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
         const speciesId = encryptedSpecies ^ (decryptionKey & LOWER_16_BIT_MASK);
-        const item = encryptedItem ^ (decryptionKey >>> 16);
+        const item = encryptedItem ^ (decryptionKey >>> UPPER_16_BIT_SHIFT);
 
         const encryptedMove1 = pcBufferView.getUint16(attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
         const encryptedMove2 = pcBufferView.getUint16(
-          attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + 2,
+          attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET,
           true,
         );
         const encryptedMove3 = pcBufferView.getUint16(
-          attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + 4,
+          attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_3_OFFSET,
           true,
         );
         const encryptedMove4 = pcBufferView.getUint16(
-          attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + 6,
+          attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET,
           true,
         );
 
         const moves = [
           encryptedMove1 ^ (decryptionKey & LOWER_16_BIT_MASK),
-          encryptedMove2 ^ (decryptionKey >>> 16),
+          encryptedMove2 ^ (decryptionKey >>> UPPER_16_BIT_SHIFT),
           encryptedMove3 ^ (decryptionKey & LOWER_16_BIT_MASK),
-          encryptedMove4 ^ (decryptionKey >>> 16),
+          encryptedMove4 ^ (decryptionKey >>> UPPER_16_BIT_SHIFT),
         ].filter((m) => m > 0);
 
         const isShiny = false; // We can skip full shiny calculation for PC boxes for now unless requested
