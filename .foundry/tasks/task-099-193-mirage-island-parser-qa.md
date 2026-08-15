@@ -2,12 +2,12 @@
 id: task-099-193-mirage-island-parser-qa
 type: TASK
 title: QA - Mirage Island Parser Logic
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-16'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1407707214553800842'
 pr_number: null
 parent: story-061-099-implement-mirage-island-parser
 tags:
