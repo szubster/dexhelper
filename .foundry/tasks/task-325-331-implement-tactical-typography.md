@@ -31,4 +31,4 @@ Finalize and implement any remaining typography-related `@utility` primitives in
 4. Perform coder self-verification of the changes as per the Intelligent Verification Protocol for low-risk tasks, and document it in the journal.
 
 ## Acceptance Criteria
-- [ ] Typography utility definitions (like `tactical-text`) are complete and verified in `src/index.css`.
+- [x] Typography utility definitions (like `tactical-text`) are complete and verified in `src/index.css`.
