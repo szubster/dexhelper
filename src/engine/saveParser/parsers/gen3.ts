@@ -84,6 +84,7 @@ const SECRET_BASE_OFFSET_EMERALD = 0x1a9c;
 const SAVE_BLOCK_A = 0x0000;
 const SAVE_BLOCK_B = 0xe000;
 const LOWER_16_BIT_MASK = 0xffff;
+const LOWER_8_BIT_MASK = 0xff;
 
 const GEN3_ROAMER_OFFSET_RS = 0x3144;
 const GEN3_ROAMER_OFFSET_EMERALD = 0x31dc;
@@ -603,7 +604,7 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
           true,
         );
         const encryptedItem = pcBufferView.getUint16(growthSubstructureOffset + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
-        const speciesId = encryptedSpecies ^ (decryptionKey & 0xffff);
+        const speciesId = encryptedSpecies ^ (decryptionKey & LOWER_16_BIT_MASK);
         const item = encryptedItem ^ (decryptionKey >>> 16);
 
         const encryptedMove1 = pcBufferView.getUint16(attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
@@ -621,9 +622,9 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
         );
 
         const moves = [
-          encryptedMove1 ^ (decryptionKey & 0xffff),
+          encryptedMove1 ^ (decryptionKey & LOWER_16_BIT_MASK),
           encryptedMove2 ^ (decryptionKey >>> 16),
-          encryptedMove3 ^ (decryptionKey & 0xffff),
+          encryptedMove3 ^ (decryptionKey & LOWER_16_BIT_MASK),
           encryptedMove4 ^ (decryptionKey >>> 16),
         ].filter((m) => m > 0);
 
@@ -1255,7 +1256,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     for (let i = 0; i < 14; i++) {
       const currentByte = view.getUint8(flagsOffset + HIDDEN_ITEM_FLAGS_OFFSET + i);
       const nextByte = view.getUint8(flagsOffset + HIDDEN_ITEM_FLAGS_OFFSET + i + 1);
-      hiddenItemFlags[i] = ((currentByte >> 4) | ((nextByte & NIBBLE_MASK) << 4)) & 0xff;
+      hiddenItemFlags[i] = ((currentByte >> 4) | ((nextByte & NIBBLE_MASK) << 4)) & LOWER_8_BIT_MASK;
     }
 
     const mirageIslandOffset = _forcedVersion === 'emerald' ? MIRAGE_ISLAND_OFFSET_EMERALD : MIRAGE_ISLAND_OFFSET_RS;
