@@ -32,7 +32,12 @@ Implement generation-based splitting for JavaScript engine logic, UI components,
 - Refactor the synchronization logic in `src/db/PokeDB.ts` to support multi-part data synchronization to load extensions and code on demand when a specific generation is detected.
 
 ## Acceptance Criteria
-- [ ] Breakdown PRD into EPIC nodes.
+- [x] Breakdown PRD into EPIC nodes.
+- [ ] epic-340-417-engine-code-splitting
+- [ ] epic-340-418-ui-component-splitting
+- [ ] epic-340-419-data-splitting
+- [ ] epic-340-420-background-fetching
+- [ ] epic-340-421-e2e-verification
 - [ ] research-340-405-background-fetching
 
 ### SCHEMA
