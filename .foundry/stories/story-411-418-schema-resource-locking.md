@@ -2,10 +2,10 @@
 id: story-411-418-schema-resource-locking
 type: STORY
 title: Schema Resource Locking
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-11'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,6 +30,6 @@ Implement schema updates to introduce the `locks` field into the Foundry DAG orc
 
 ## Acceptance Criteria
 - [x] Tech Lead breaks down this STORY into TASK nodes for implementation.
-- [ ] task-418-422-document-locks-schema
-- [ ] task-418-423-implement-locks-zod
-- [ ] task-418-424-schema-locks-qa
+- [x] task-418-422-document-locks-schema
+- [x] task-418-423-implement-locks-zod
+- [x] task-418-424-schema-locks-qa
