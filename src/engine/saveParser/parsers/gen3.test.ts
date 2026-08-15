@@ -17,6 +17,7 @@ import {
   parseGen3ConditionStats,
   parseGen3EggSteps,
   parseGen3EmeraldMoveTutors,
+  parseGen3EVs,
   parseGen3FRLGMoveTutors,
   parseGen3FRLGNPCTrades,
   parseGen3MetLocation,
@@ -33,6 +34,36 @@ import {
   parseGen3TrainerId,
   parseGen3VolcanicAsh,
 } from './gen3';
+
+describe('parseGen3EVs', () => {
+  it('should correctly parse EVs', () => {
+    const buffer = new ArrayBuffer(6);
+    const view = new DataView(buffer);
+    view.setUint8(0, 10);
+    view.setUint8(1, 20);
+    view.setUint8(2, 30);
+    view.setUint8(3, 40);
+    view.setUint8(4, 50);
+    view.setUint8(5, 60);
+
+    const result = parseGen3EVs(view, 0);
+    expect(result).toEqual({
+      hp: 10,
+      attack: 20,
+      defense: 30,
+      speed: 40,
+      specialAttack: 50,
+      specialDefense: 60,
+    });
+  });
+
+  it('should throw "The save file is corrupted or incomplete." on RangeError', () => {
+    const buffer = new ArrayBuffer(2); // Too small
+    const view = new DataView(buffer);
+
+    expect(() => parseGen3EVs(view, 0)).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
 
 describe('gen3 parser scaffolding', () => {
   it('isGen3Save should return false normally', () => {

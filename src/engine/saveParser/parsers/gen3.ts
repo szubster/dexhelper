@@ -125,6 +125,12 @@ export const IV_SHIFT_DEF = 10;
 export const IV_SHIFT_SPD = 15;
 export const IV_SHIFT_SPATK = 20;
 export const IV_SHIFT_SPDEF = 25;
+export const EV_HP_OFFSET = 0x00;
+export const EV_ATK_OFFSET = 0x01;
+export const EV_DEF_OFFSET = 0x02;
+export const EV_SPD_OFFSET = 0x03;
+export const EV_SPATK_OFFSET = 0x04;
+export const EV_SPDEF_OFFSET = 0x05;
 
 const TV_SHOWS_OFFSET = 0x27cc;
 const TV_SHOWS_COUNT = 25;
@@ -675,6 +681,24 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
  * @returns An object containing the PV and a raw 32-bit integer representing the packed IVs.
  * @throws Error - "The save file is corrupted or incomplete." on invalid data.
  */
+export function parseGen3EVs(view: DataView, offset: number) {
+  try {
+    const hp = view.getUint8(offset + EV_HP_OFFSET);
+    const attack = view.getUint8(offset + EV_ATK_OFFSET);
+    const defense = view.getUint8(offset + EV_DEF_OFFSET);
+    const speed = view.getUint8(offset + EV_SPD_OFFSET);
+    const specialAttack = view.getUint8(offset + EV_SPATK_OFFSET);
+    const specialDefense = view.getUint8(offset + EV_SPDEF_OFFSET);
+
+    return { hp, attack, defense, speed, specialAttack, specialDefense };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
 export function parseGen3PokemonPVAndIVs(view: DataView, offset: number) {
   try {
     const pv = view.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);

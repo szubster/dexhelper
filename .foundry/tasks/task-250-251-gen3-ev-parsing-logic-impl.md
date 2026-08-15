@@ -40,7 +40,7 @@ Implement the logic to extract Effort Values (EVs) from the decrypted Gen 3 Pok√
 - Write unit tests in `src/engine/saveParser/parsers/gen3.test.ts`.
 
 ## Acceptance Criteria
-- [ ] Implement `parseGen3EVs` using `DataView`.
-- [ ] Add explicit module-level constants for EV offsets.
-- [ ] Handle `RangeError` by throwing "The save file is corrupted or incomplete."
-- [ ] Write unit tests to cover successful parsing and bounds checking.
+- [x] Implement `parseGen3EVs` using `DataView`.
+- [x] Add explicit module-level constants for EV offsets.
+- [x] Handle `RangeError` by throwing "The save file is corrupted or incomplete."
+- [x] Write unit tests to cover successful parsing and bounds checking.
