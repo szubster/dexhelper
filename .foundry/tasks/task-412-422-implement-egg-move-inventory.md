@@ -2,7 +2,7 @@
 id: task-412-422-implement-egg-move-inventory
 type: TASK
 title: Implement Egg Move Inventory Formatting
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-12'
 updated_at: '2026-08-15'
@@ -15,8 +15,8 @@ tags:
   - feature
   - state
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'The extractAllInstances function allocates an O(N) array instead of iterating in place, violating O(1) constraints.'
 notes: ''
 ---
 
