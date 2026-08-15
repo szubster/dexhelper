@@ -32,5 +32,5 @@ As part of the Route Pre-computation & Mapping Epic, we need UI badges indicatin
 - Write a unit test `src/components/__tests__/BikeBadge.test.tsx` for the component.
 
 ## Acceptance Criteria
-- [ ] Implement `BikeBadge` component.
-- [ ] Implement unit tests for `BikeBadge`.
+- [x] Implement `BikeBadge` component.
+- [x] Implement unit tests for `BikeBadge`.
