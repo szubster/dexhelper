@@ -29,8 +29,8 @@ Research the exact memory offsets and structure for PC Box data in Generation 3 
 Story `story-108-246-gen3-box-parsing` requires implementing backend data extraction for Gen 3 PC Boxes. The exact offsets and structure of this data within the `SaveBlock1` or `SaveBlock2` sections (or elsewhere) are currently unknown.
 
 ## Acceptance Criteria
-- [ ] Research and document the memory structure of PC Boxes in Gen 3 saves (Ruby, Sapphire, Emerald, FireRed, LeafGreen).
-- [ ] Determine the exact base offset for PC Box data.
-- [ ] Determine the exact offset for the `currentBoxCount` (or equivalent).
-- [ ] Detail the structure and offsets of the Pokémon stored within the boxes.
-- [ ] Document these findings in a new knowledge base markdown file in `.foundry/docs/knowledge_base/engine/save_parsing/`.
+- [x] Research and document the memory structure of PC Boxes in Gen 3 saves (Ruby, Sapphire, Emerald, FireRed, LeafGreen).
+- [x] Determine the exact base offset for PC Box data.
+- [x] Determine the exact offset for the `currentBoxCount` (or equivalent).
+- [x] Detail the structure and offsets of the Pokémon stored within the boxes.
+- [x] Document these findings in a new knowledge base markdown file in `.foundry/docs/knowledge_base/engine/save_parsing/`.
