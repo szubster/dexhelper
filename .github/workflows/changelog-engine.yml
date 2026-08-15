@@ -1,0 +1,81 @@
+name: Changelog Engine
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Hourly sync
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.foundry/changelog-state.json'
+
+concurrency:
+  group: changelog-engine
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  run_changelog_engine:
+    name: Execute Changelog Engine
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          run_install: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run Changelog Engine Script
+        env:
+          JULES_API_KEY: ${{ secrets.JULES_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+        run: |
+          node --strip-types .github/scripts/changelog-engine.ts
+
+      - name: Commit State Pointer
+        run: |
+          set -o pipefail
+          if [[ -n $(git status --porcelain .foundry/changelog-state.json) ]]; then
+            git add .foundry/changelog-state.json
+            git commit -m "Changelog: Update backfill/continuous state pointer"
+            git pull --rebase origin main
+            git push origin main
+          else
+            echo "No state pointer changes to commit."
+          fi
+
+      - name: Trigger Next Backfill Cycle If Needed
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -f .foundry/changelog-state.json ]; then
+            mode=$(jq -r '.mode // "continuous"' .foundry/changelog-state.json)
+            status=$(jq -r '.status // "idle"' .foundry/changelog-state.json)
+            if [ "$mode" = "backfill" ] && [ "$status" = "idle" ]; then
+              echo "Backfill still in progress. Triggering next cycle..."
+              gh workflow run changelog-engine.yml --ref main || true
+            fi
+          fi
