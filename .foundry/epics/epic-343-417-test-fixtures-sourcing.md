@@ -2,7 +2,7 @@
 id: epic-343-417-test-fixtures-sourcing
 type: EPIC
 title: 'Epic: Source and Integrate Real Save File Fixtures'
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-14'
 updated_at: '2026-08-15'
