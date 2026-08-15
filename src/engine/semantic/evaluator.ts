@@ -7,10 +7,10 @@ export async function evaluateSemanticCondition(
   condition: string,
   prompt: string,
   // biome-ignore lint/complexity/useLiteralKeys: needed for types
-  apiKey: string = process.env['JULES_API_KEY'] || '',
+  apiKey: string = process.env['GEMINI_API_KEY'] || '',
 ): Promise<SemanticEvaluationResult> {
   if (!apiKey) {
-    throw new Error('JULES_API_KEY is required for semantic evaluation.');
+    throw new Error('GEMINI_API_KEY is required for semantic evaluation.');
   }
 
   const payload = {

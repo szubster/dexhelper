@@ -4,13 +4,13 @@ import { evaluateSemanticCondition } from './evaluator';
 describe('evaluateSemanticCondition', () => {
   beforeEach(() => {
     vi.stubGlobal('fetch', vi.fn<typeof fetch>());
-    vi.stubEnv('JULES_API_KEY', 'test-key');
+    vi.stubEnv('GEMINI_API_KEY', 'test-key');
   });
 
   it('throws an error if API key is missing', async () => {
     vi.unstubAllEnvs();
     await expect(evaluateSemanticCondition('condition', 'prompt', '')).rejects.toThrow(
-      'JULES_API_KEY is required for semantic evaluation.',
+      'GEMINI_API_KEY is required for semantic evaluation.',
     );
   });
 
@@ -80,15 +80,20 @@ describe('evaluateSemanticCondition', () => {
     );
   });
 
-  it('works in CI with a real API request if key is present (integration)', async () => {
-    // Only run this test if JULES_API_KEY is present in the real environment
-    // Note: We unstub the env so we read the actual process.env
+  it('works with a real API request if key is present AND explicitly requested (integration)', async () => {
+    // Only run this test if explicitly requested via env var to prevent exhausting API limits in CI
     vi.unstubAllEnvs();
+
     // biome-ignore lint/complexity/useLiteralKeys: needed for types
-    const realKey = process.env['JULES_API_KEY'];
+    const runIntegration = process.env['RUN_LLM_INTEGRATION_TESTS'] === 'true';
+    if (!runIntegration) {
+      return; // Skip test to preserve quota
+    }
+
+    // biome-ignore lint/complexity/useLiteralKeys: needed for types
+    const realKey = process.env['GEMINI_API_KEY'];
     if (!realKey) {
-      // Skip if no real key is present
-      return;
+      throw new Error('RUN_LLM_INTEGRATION_TESTS is true, but GEMINI_API_KEY is missing.');
     }
 
     // Restore fetch so it makes a real network request
