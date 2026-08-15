@@ -2,10 +2,10 @@
 id: task-273-395-living-dex-pc-mapping-retry-qa
 type: TASK
 title: Living Dex PC Mapping Retry Verification
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-04'
-updated_at: '2026-08-05'
+updated_at: '2026-08-15'
 depends_on:
   - task-273-394-living-dex-pc-mapping-retry-impl
 jules_session_id: null

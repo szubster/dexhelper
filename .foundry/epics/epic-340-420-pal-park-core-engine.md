@@ -2,10 +2,10 @@
 id: epic-340-420-pal-park-core-engine
 type: EPIC
 title: Pal Park Migration Core Engine
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 pr_number: null

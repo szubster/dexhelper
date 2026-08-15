@@ -2,10 +2,10 @@
 id: epic-071-123-define-tailwind-v4-utilities-v2
 type: EPIC
 title: Define Tailwind v4 Tactical Utilities V2
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-07-18'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -40,4 +40,4 @@ Extract and consolidate common, repetitive Tailwind class patterns used througho
 - [x] story-123-269-define-tactical-layout-utilities
 - [x] story-123-270-define-tactical-form-utilities
 
-- [ ] story-123-325-define-tactical-typography
+- [x] story-123-325-define-tactical-typography

@@ -2,12 +2,12 @@
 id: research-157-369-gen3-party-box-offsets
 type: RESEARCH
 title: Research Gen 3 Party and PC Box Memory Offsets
-status: ACTIVE
+status: READY
 owner_persona: researcher
 created_at: '2026-07-31'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: '546387705439514187'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -15,7 +15,7 @@ tags:
   - save-parsing
   - gen3
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

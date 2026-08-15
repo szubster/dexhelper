@@ -2,10 +2,10 @@
 id: task-412-423-gen3-move-tutor-extractor
 type: TASK
 title: Gen 3 Move Tutor Extractor Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-12'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on:
   - task-412-422-gen3-move-tutor-constants
 jules_session_id: null

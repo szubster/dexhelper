@@ -2,12 +2,12 @@
 id: epic-340-411-shoal-cave-data-extraction
 type: EPIC
 title: Data Extraction Layer (RTC & Shoal Items)
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-11'
-updated_at: '2026-08-13'
+updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: '1809259624386391484'
+jules_session_id: null
 pr_number: null
 parent: prd-130-340-shoal-cave-tide-tracker
 tags:

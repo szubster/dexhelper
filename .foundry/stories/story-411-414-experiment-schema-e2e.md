@@ -2,10 +2,10 @@
 id: story-411-414-experiment-schema-e2e
 type: STORY
 title: Integration and E2E Verification for Experiment Schema
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-08-15'
 depends_on:
   - story-411-412-define-experiment-schema
   - story-411-413-update-orchestrator-types

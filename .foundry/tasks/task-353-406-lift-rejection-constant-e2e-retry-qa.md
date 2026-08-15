@@ -2,10 +2,10 @@
 id: task-353-406-lift-rejection-constant-e2e-retry-qa
 type: TASK
 title: QA Retry E2E Test for Permanent Failure Dashboard
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-06'
-updated_at: '2026-08-08'
+updated_at: '2026-08-15'
 depends_on:
   - task-353-405-lift-rejection-constant-e2e-retry-impl
 jules_session_id: null
