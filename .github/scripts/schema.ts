@@ -8,6 +8,7 @@ export const NodeTypeEnum = z.enum([
   'TASK',
   'RESEARCH',
   'ADR',
+  'EXPERIMENT',
 ]);
 
 export const NodeStatusEnum = z.enum([
@@ -57,6 +58,7 @@ export const NodeFrontmatterSchema = z.object({
   rejection_count: z.number().int().optional(),
   rejection_reason: z.string().optional(),
   notes: z.string().optional(),
+  experiment_variants: z.array(z.string()).optional(),
 });
 
 export type NodeFrontmatter = z.infer<typeof NodeFrontmatterSchema>;
