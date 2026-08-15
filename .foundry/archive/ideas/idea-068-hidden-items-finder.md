@@ -37,4 +37,4 @@ Introduce a "Missing Hidden Items Finder" feature in DexHelper.
 This perfectly aligns with DexHelper's goal of surfacing hidden state to eliminate tedious, manual retro gaming tasks.
 
 ## Generated Nodes
-- PRD: `.foundry/prds/prd-068-037-hidden-items-finder.md`
+- PRD: `.foundry/archive/prds/prd-068-037-hidden-items-finder.md`
