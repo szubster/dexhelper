@@ -79,4 +79,27 @@ describe('evaluateSemanticCondition', () => {
       'Failed to parse LLM response as JSON',
     );
   });
+
+  it('works in CI with a real API request if key is present (integration)', async () => {
+    // Only run this test if JULES_API_KEY is present in the real environment
+    // Note: We unstub the env so we read the actual process.env
+    vi.unstubAllEnvs();
+    // biome-ignore lint/complexity/useLiteralKeys: needed for types
+    const realKey = process.env['JULES_API_KEY'];
+    if (!realKey) {
+      // Skip if no real key is present
+      return;
+    }
+
+    // Restore fetch so it makes a real network request
+    vi.unstubAllGlobals();
+
+    const result = await evaluateSemanticCondition('is greeting', 'hello', realKey);
+
+    // We expect it to succeed and return an object indicating equivalence
+    expect(result).toBeDefined();
+    expect(result.isEquivalent).toBeDefined();
+    expect(typeof result.isEquivalent).toBe('boolean');
+    expect(typeof result.reasoning).toBe('string');
+  });
 });
