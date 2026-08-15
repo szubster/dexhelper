@@ -30,5 +30,5 @@ Implement logic to detect conflicts between the local save state and remote R2 s
 - Consider edge cases like new saves being pushed.
 
 ## Acceptance Criteria
-- [ ] Implement conflict detection function returning conflict status.
-- [ ] Write unit tests for various sync scenarios.
+- [x] Implement conflict detection function returning conflict status.
+- [x] Write unit tests for various sync scenarios.
