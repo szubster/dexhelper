@@ -2,10 +2,10 @@
 id: idea-148-priority-based-dispatch-queue
 type: IDEA
 title: Priority-Based Dispatch Queue for Orchestrator
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-08-14'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 pr_number: null

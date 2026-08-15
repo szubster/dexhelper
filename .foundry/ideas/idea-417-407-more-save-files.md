@@ -2,10 +2,10 @@
 id: idea-417-407-more-save-files
 type: IDEA
 title: 'Idea: Source additional save files for testing'
-status: ACTIVE
+status: FAILED
 owner_persona: product_manager
 created_at: '2026-08-14'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
 notes: ''
 ---
 

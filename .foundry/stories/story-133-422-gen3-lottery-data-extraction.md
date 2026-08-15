@@ -2,10 +2,10 @@
 id: story-133-422-gen3-lottery-data-extraction
 type: STORY
 title: Gen3 Lottery Data Extraction
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-14'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: null
 pr_number: null

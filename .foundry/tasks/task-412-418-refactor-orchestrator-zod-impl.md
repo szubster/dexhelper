@@ -2,12 +2,12 @@
 id: task-412-418-refactor-orchestrator-zod-impl
 type: TASK
 title: Refactor Foundry Orchestrator Zod Types (Impl)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-12'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: '9256054614234195746'
+jules_session_id: null
 pr_number: null
 parent: story-335-412-integrate-zod-schema
 tags:

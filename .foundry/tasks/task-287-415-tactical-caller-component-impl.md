@@ -2,12 +2,12 @@
 id: task-287-415-tactical-caller-component-impl
 type: TASK
 title: Implement Tactical Caller Card Component
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-10'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: '10681144955246699899'
+jules_session_id: null
 pr_number: null
 parent: story-118-287-highlight-high-value-calls-ui
 tags:

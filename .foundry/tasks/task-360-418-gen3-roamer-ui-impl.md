@@ -2,12 +2,12 @@
 id: task-360-418-gen3-roamer-ui-impl
 type: TASK
 title: Implement Gen 3 Roamer Dossier UI
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-11'
-updated_at: '2026-08-13'
+updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: '12677769615811595547'
+jules_session_id: null
 pr_number: null
 parent: story-397-360-gen3-roamer-integration-e2e
 tags:

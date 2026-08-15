@@ -2,12 +2,12 @@
 id: epic-105-133-lottery-matching-logic
 type: EPIC
 title: Lottery Matching Logic Module
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-08-14'
+updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: '17957934727210826373'
+jules_session_id: null
 pr_number: null
 parent: prd-098-105-gen3-lottery-predictor-ui
 tags:

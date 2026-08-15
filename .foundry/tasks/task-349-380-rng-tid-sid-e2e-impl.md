@@ -2,12 +2,12 @@
 id: task-349-380-rng-tid-sid-e2e-impl
 type: TASK
 title: Implement E2E Tests for RNG TID and SID Display UI
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-01'
-updated_at: '2026-08-13'
+updated_at: '2026-08-15'
 depends_on: []
-jules_session_id: '8606677181842104699'
+jules_session_id: null
 pr_number: null
 parent: story-130-349-rng-tid-sid-e2e
 tags:
