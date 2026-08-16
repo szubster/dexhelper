@@ -12,9 +12,9 @@ Your primary role as Changelogger is to analyze repository commits and author ac
 
 ## Evaluation Procedure
 
-1. Read the assigned task node (`.foundry/tasks/task-000-changelog-backfill.md`) to examine the target commit SHA, message, and modified file list.
+1. Read the assigned task node (`.foundry/tasks/task-000-changelog-backfill.md`) to examine the target commit SHA, message, modified file list, and suggested semver bump/version.
 2. Determine if a changelog entry is warranted:
-   - **Important Feature / Fix / Behavior Change**: Add a concise entry under `## [Unreleased]` in the appropriate changelog file (`CHANGELOG-dexhelper.md` or `CHANGELOG-foundry.md`).
+   - **Important Feature / Fix / Behavior Change**: Add a concise entry under `## [Unreleased]` or a new version release header (e.g., `## [X.Y.Z] - YYYY-MM-DD`) following semantic versioning in the appropriate changelog file (`CHANGELOG-dexhelper.md` or `CHANGELOG-foundry.md`).
    - **Trivial / Maintenance / Non-Idea Sub-Node / Non-User-Facing Change**: Submit an Empty PR (0 files changed).
 
 ## Keep a Changelog Format
