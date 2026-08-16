@@ -28,5 +28,5 @@ Based on the Route Pre-computation & Mapping Epic, we need to extract Gen 3 map 
 Implement logic in the Gen 3 map extraction engine to parse map attributes corresponding to Mach Bike required areas.
 
 ## Acceptance Criteria
-- [ ] Implement parsing for Mach Bike map triggers.
-- [ ] Write unit tests for Mach Bike map parsing.
+- [x] Implement parsing for Mach Bike map triggers.
+- [x] Write unit tests for Mach Bike map parsing.
