@@ -31,3 +31,6 @@ Verify the parsing of Gen 1 TM/HM inventory and event flags from the save file. 
 - [ ] Review implementation in `src/engine/saveParser/parsers/gen1.ts` and `src/engine/saveParser/utils/gen1EventFlags.ts`.
 - [ ] Ensure inline magic numbers are avoided and module-level constants are used.
 - [ ] Ensure tests cover the TM/HM parsing logic and pass successfully.
+
+### QA Rejection Note
+Validation failed due to missing unit tests for `parseGen1TMFlags` in `src/engine/saveParser/utils/gen1EventFlags.test.ts`. Triggering transient rejection.
