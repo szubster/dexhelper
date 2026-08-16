@@ -27,4 +27,6 @@ Integration and E2E Verification for the dynamic generation of items PokeData. T
 
 ## Acceptance Criteria
 - [ ] Write E2E tests for item dynamic generation and integration.
-- [ ] Break down this STORY into TASK nodes.
+- [x] Break down this STORY into TASK nodes.
+- [ ] task-427-433-dynamic-item-list-parsing-e2e-impl
+- [ ] task-427-434-dynamic-item-list-parsing-e2e-qa
