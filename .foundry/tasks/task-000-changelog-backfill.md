@@ -25,23 +25,26 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `5dc74ecb97f2ce7914bd98ab158ff1efbd351816`
+- **Commit SHA:** `49dc139a6eeac048840a8a8f543822a94ccc8cb4`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
 - **Suggested SemVer Bump:** `minor` (from `0.1.0` -> `0.2.0`)
 
 ## Commit Message
 ```text
-feat: Implement core Pokedex functionality with PokeAPI integration, PWA support, and updated dependencies.
+feat: Implement PWA functionality with a custom service worker and integrate React Query.
 ```
 
 ## Modified Files
+- `index.html`
 - `package-lock.json`
 - `package.json`
-- `src/App.tsx`
-- `src/components/PokemonDetails.tsx`
+- `public/icon-192.png`
+- `public/icon-512.png`
+- `public/icon-96.png`
+- `public/manifest.json`
+- `public/sw.js`
 - `src/main.tsx`
-- `src/utils/pokeapi.ts`
 - `vite.config.ts`
 
 ## Evaluation Instructions
