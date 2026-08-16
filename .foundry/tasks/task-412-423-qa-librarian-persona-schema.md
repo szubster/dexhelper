@@ -27,4 +27,4 @@ notes: ''
 QA the implementation of the `librarian` persona in Section 5 of `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Verify that `librarian` persona is defined in Section 5 of `.foundry/docs/schema.md` with the description: "Mapped to Snorlax (#143). Responsible for context token optimization by digesting historical data and pruning stale entries.".
+- [x] Verify that `librarian` persona is defined in Section 5 of `.foundry/docs/schema.md` with the description: "Mapped to Snorlax (#143). Responsible for context token optimization by digesting historical data and pruning stale entries.".
