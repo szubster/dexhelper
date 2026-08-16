@@ -25,20 +25,19 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `f392dbd8d5391441b784959b2fc7e5e2f5eade3f`
+- **Commit SHA:** `888f3b975ae80fa276832304042b924e60c6a156`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
 - **Suggested SemVer Bump:** `minor` (from `0.1.0` -> `0.2.0`)
 
 ## Commit Message
 ```text
-feat: Implement core save file parsing for Gen 1/2 Pokémon games and initial UI components for displaying save data.
+feat: Implement core Pokedex save file viewer with save file parsing, filtering, and UI.
 ```
 
 ## Modified Files
 - `src/App.tsx`
 - `src/components/PokemonDetails.tsx`
-- `src/utils/saveParser.ts`
 
 ## Evaluation Instructions
 As Changelogger, inspect the commit changes above.
