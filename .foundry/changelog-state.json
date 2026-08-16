@@ -1,5 +1,6 @@
 {
   "mode": "backfill",
-  "last_processed_commit": null,
-  "status": "idle"
+  "last_processed_commit": "ee3b870c4cb8a7e415a12b76986046b2175b2c5c",
+  "status": "pending_jules",
+  "last_updated": "2026-08-16T09:51:10.903Z"
 }
