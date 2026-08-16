@@ -2,12 +2,12 @@
 id: task-412-422-gen3-mach-bike-parsing-impl
 type: TASK
 title: Parse Gen 3 Mach Bike Map Requirements
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-13'
 updated_at: '2026-08-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17636230230044930249'
 pr_number: null
 parent: story-406-412-gen3-bike-map-parsing
 tags:
