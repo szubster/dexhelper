@@ -2,12 +2,12 @@
 id: task-359-430-indexeddb-schema-e2e-impl
 type: TASK
 title: IndexedDB Storage Schema E2E Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-16'
 updated_at: '2026-08-16'
 depends_on: []
-jules_session_id: '11075100908637588114'
+jules_session_id: null
 pr_number: null
 parent: story-397-359-indexeddb-schema-retry-e2e
 tags:

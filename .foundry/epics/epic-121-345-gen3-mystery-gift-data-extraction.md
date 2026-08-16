@@ -2,7 +2,7 @@
 id: epic-121-345-gen3-mystery-gift-data-extraction
 type: EPIC
 title: Gen 3 Mystery Gift Data Extraction
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-25'
 updated_at: '2026-08-16'
@@ -15,8 +15,8 @@ tags:
   - mystery-gift
   - data-extraction
 research_references: []
-rejection_count: 0
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

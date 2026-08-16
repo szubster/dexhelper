@@ -2,7 +2,7 @@
 id: task-359-431-indexeddb-schema-e2e-qa
 type: TASK
 title: IndexedDB Storage Schema E2E QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-16'
 updated_at: '2026-08-16'
