@@ -33,6 +33,6 @@ This task requires writing an End-to-End Playwright test to verify the dynamic i
 4. Do not test exact counts if they may change in the future, just ensure non-zero valid data exists.
 
 ## Acceptance Criteria
-- [ ] Create `tests/e2e/dynamic_items_integration.spec.ts`.
-- [ ] The test hydrates the app state and queries IndexedDB.
-- [ ] The test asserts that the `items` object store is populated with generated item data.
+- [x] Create `tests/e2e/dynamic_items_integration.spec.ts`.
+- [x] The test hydrates the app state and queries IndexedDB.
+- [x] The test asserts that the `items` object store is populated with generated item data.
