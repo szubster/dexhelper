@@ -26,4 +26,6 @@ notes: ''
 Implement the parsing of Gen 3 TM/HM inventory from the A/B bank flash memory save blocks. Must pass and utilize resolved section offsets (e.g. section1Offset) for relative memory offsets instead of hardcoded absolute ones, catch RangeErrors, and avoid inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Break down into multiple TASK nodes for implementation and QA.
+- [x] Break down into multiple TASK nodes for implementation and QA.
+- [ ] task-410-430-gen3-tm-hm-parsing-impl
+- [ ] task-410-431-gen3-tm-hm-parsing-qa
