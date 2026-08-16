@@ -132,26 +132,29 @@ export const EV_SPD_OFFSET = 0x03;
 export const EV_SPATK_OFFSET = 0x04;
 export const EV_SPDEF_OFFSET = 0x05;
 
-const TV_SHOWS_OFFSET = 0x27cc;
-const TV_SHOWS_COUNT = 25;
-const TVSHOW_STRUCT_SIZE = 36;
-const TV_SHOW_KIND_OFFSET = 0x00;
-const TV_SHOW_ACTIVE_OFFSET = 0x01;
-const TV_SHOW_PAYLOAD_OFFSET = 0x02;
-const TV_SHOW_PAYLOAD_LENGTH = 34;
+export const TV_SHOWS_OFFSET = 0x27cc;
+export const TV_SHOWS_COUNT = 25;
+export const TVSHOW_STRUCT_SIZE = 36;
+export const TV_SHOW_KIND_OFFSET = 0x00;
+export const TV_SHOW_ACTIVE_OFFSET = 0x01;
+export const TV_SHOW_PAYLOAD_OFFSET = 0x02;
+export const TV_SHOW_PAYLOAD_LENGTH = 34;
 
-const TVGROUP_RECORD_MIX_START = 21;
-const TVGROUP_RECORD_MIX_END = 40;
+export const TVGROUP_RECORD_MIX_START = 21;
+export const TVGROUP_RECORD_MIX_END = 40;
 
-const TVSHOW_MASS_OUTBREAK = 41;
-const OUTBREAK_MOVES_OFFSET = 0x04;
-const OUTBREAK_SPECIES_OFFSET = 0x0c;
-const OUTBREAK_MAP_NUM_OFFSET = 0x10;
-const OUTBREAK_MAP_GROUP_OFFSET = 0x11;
-const OUTBREAK_PROBABILITY_OFFSET = 0x13;
-const OUTBREAK_LEVEL_OFFSET = 0x14;
-const OUTBREAK_DAYS_BEFORE_OFFSET = 0x16;
-const OUTBREAK_LANGUAGE_OFFSET = 0x18;
+export const TVSHOW_MASS_OUTBREAK = 41;
+export const OUTBREAK_MOVES_OFFSET = 0x04;
+export const OUTBREAK_MOVE_2_OFFSET = 0x06;
+export const OUTBREAK_MOVE_3_OFFSET = 0x08;
+export const OUTBREAK_MOVE_4_OFFSET = 0x0a;
+export const OUTBREAK_SPECIES_OFFSET = 0x0c;
+export const OUTBREAK_MAP_NUM_OFFSET = 0x10;
+export const OUTBREAK_MAP_GROUP_OFFSET = 0x11;
+export const OUTBREAK_PROBABILITY_OFFSET = 0x13;
+export const OUTBREAK_LEVEL_OFFSET = 0x14;
+export const OUTBREAK_DAYS_BEFORE_OFFSET = 0x16;
+export const OUTBREAK_LANGUAGE_OFFSET = 0x18;
 
 const POKE_NEWS_OFFSET = 0x2b50;
 const POKE_NEWS_COUNT = 16;
@@ -1031,9 +1034,9 @@ export function parseGen3ActiveSwarm(view: DataView, offset: number): Gen3Active
         const daysRemaining = view.getUint16(show.itemOffset + OUTBREAK_DAYS_BEFORE_OFFSET, true);
         const moves: [number, number, number, number] = [
           view.getUint16(show.itemOffset + OUTBREAK_MOVES_OFFSET, true),
-          view.getUint16(show.itemOffset + OUTBREAK_MOVES_OFFSET + 2, true),
-          view.getUint16(show.itemOffset + OUTBREAK_MOVES_OFFSET + 4, true),
-          view.getUint16(show.itemOffset + OUTBREAK_MOVES_OFFSET + 6, true),
+          view.getUint16(show.itemOffset + OUTBREAK_MOVE_2_OFFSET, true),
+          view.getUint16(show.itemOffset + OUTBREAK_MOVE_3_OFFSET, true),
+          view.getUint16(show.itemOffset + OUTBREAK_MOVE_4_OFFSET, true),
         ];
         const probability = view.getUint8(show.itemOffset + OUTBREAK_PROBABILITY_OFFSET);
         const level = view.getUint8(show.itemOffset + OUTBREAK_LEVEL_OFFSET);
