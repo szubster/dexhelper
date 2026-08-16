@@ -46,6 +46,9 @@ export interface PlayerTools {
  * Used to determine if the player can access certain map areas or encounter methods
  * (e.g., using Surf to cross water, or Old Rod to fish).
  *
+ * By pre-calculating this once per suggestion loop, we avoid repeatedly scanning the
+ * player's inventory for every single wild encounter.
+ *
  * @param saveData - The parsed save data containing the player's inventory and PC items.
  * @param allInstances - An array of all Pokémon currently owned by the player (Party + PC), used to check for learned HM moves.
  * @returns A `PlayerTools` object indicating which tools and HMs are currently accessible.
@@ -122,6 +125,11 @@ export function extractPlayerTools(saveData: SaveData, allInstances: PokemonInst
 
 /**
  * Filters out HM/Item dependent encounters (like Headbutt, Surf, Fishing) if the player lacks the required tools.
+ *
+ * **Architecture Note: In-Place Mutation**
+ * This function mutates the `suggestions` array directly instead of returning a new array.
+ * This is a deliberate performance optimization to prevent intermediate O(N) array allocations
+ * during the hot path of the suggestion generation loop.
  *
  * If a Pokémon requires a missing tool to be encountered but is still conceptually valid,
  * its priority is heavily penalized rather than being removed entirely, serving as a hint
