@@ -36,7 +36,7 @@ export function MapUI({ heatmap, areaNames }: MapUIProps) {
             <button
               type="button"
               key={areaId}
-              className="flex items-center justify-between rounded-none border border-zinc-800 border-dashed bg-zinc-950/50 p-3 transition-colors hover:border-[var(--theme-primary)]/50"
+              className="focus-visible:tactical-focus flex items-center justify-between rounded-none border border-zinc-800 border-dashed bg-zinc-950/50 p-3 transition-colors hover:border-[var(--theme-primary)]/50"
             >
               <span className="font-mono text-xs text-zinc-300">{areaNames?.[areaId] || `AREA #${areaId}`}</span>
               <div className="flex items-center gap-2">
