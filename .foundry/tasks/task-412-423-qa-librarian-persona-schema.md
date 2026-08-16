@@ -2,13 +2,13 @@
 id: task-412-423-qa-librarian-persona-schema
 type: TASK
 title: QA Librarian Persona in Schema
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-10'
-updated_at: '2026-08-15'
+updated_at: '2026-08-16'
 depends_on:
   - task-412-422-implement-librarian-persona-schema
-jules_session_id: null
+jules_session_id: '16079649228024339896'
 pr_number: null
 parent: story-409-412-add-librarian-persona-schema
 tags:
