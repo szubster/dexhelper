@@ -16,6 +16,7 @@ export interface ChangelogState {
   mode: 'backfill' | 'continuous';
   last_processed_commit: string | null;
   status: 'idle' | 'pending_jules' | 'paused_quota' | 'completed' | 'error';
+  active_session_id?: string | null;
   last_updated?: string;
 }
 
@@ -291,11 +292,111 @@ Please inspect the changes in this commit. If a changelog entry is warranted, cr
   }
 }
 
+export async function checkAndResetStaleSession(state: ChangelogState, julesApiKey: string): Promise<boolean> {
+  if (state.status !== 'pending_jules') {
+    return false;
+  }
+
+  // Check if session timestamp is stale (> 2 hours old)
+  if (state.last_updated) {
+    const elapsed = Date.now() - new Date(state.last_updated).getTime();
+    if (elapsed > 2 * 60 * 60 * 1000) {
+      process.stdout.write('[changelog-engine] Session timestamp >2h old. Resetting state status to idle.\n');
+      state.status = 'idle';
+      state.active_session_id = null;
+      return true;
+    }
+  }
+
+  if (!state.active_session_id || !julesApiKey) {
+    state.status = 'idle';
+    return true;
+  }
+
+  try {
+    const res = await fetch(`https://jules.googleapis.com/v1alpha/sessions/${state.active_session_id}`, {
+      headers: { 'X-Goog-Api-Key': julesApiKey }
+    });
+
+    if (res.status === 404) {
+      process.stdout.write(`[changelog-engine] Session ${state.active_session_id} NOT_FOUND. Resetting status to idle.\n`);
+      state.status = 'idle';
+      state.active_session_id = null;
+      return true;
+    }
+
+    if (res.ok) {
+      const data = (await res.json()) as any;
+      const sessionState = data.state;
+      if (['FAILED', 'COMPLETED', 'TERMINATED', 'CANCELLED'].includes(sessionState)) {
+        process.stdout.write(
+          `[changelog-engine] Session ${state.active_session_id} ended with state ${sessionState}. Resetting status to idle.\n`
+        );
+        state.status = 'idle';
+        state.active_session_id = null;
+        return true;
+      }
+    }
+  } catch (err) {
+    process.stderr.write(`[changelog-engine] Error checking session liveliness: ${String(err)}\n`);
+  }
+
+  return false;
+}
+
+export function generateContinuousMaintenanceIdeaNode(): void {
+  const ideaPath = path.join(process.cwd(), '.foundry', 'ideas', 'idea-000-changelog-continuous-maintenance.md');
+  if (fs.existsSync(ideaPath)) {
+    return;
+  }
+
+  const today = new Date().toISOString().split('T')[0];
+  const content = `---
+id: idea-000-changelog-continuous-maintenance
+type: IDEA
+title: "Continuous Changelog Maintenance for Merged Ideas"
+status: COMPLETED
+owner_persona: "product_manager"
+created_at: "${today}"
+updated_at: "${today}"
+depends_on: []
+jules_session_id: null
+locks: []
+pr_number: null
+parent: null
+tags: ["changelog", "automation"]
+research_references: []
+rejection_count: 0
+rejection_reason: ""
+notes: "Automatically generated upon historical changelog backfill completion."
+---
+
+# Continuous Changelog Maintenance for Merged Ideas
+
+Historical repository backfill for changelogs is complete. Continuous changelog maintenance is now active in The Foundry engine.
+
+## Lifecycle Integration
+Whenever an \`IDEA\` node is completed in the Foundry Engine (via \`foundry-heartbeat.ts\`), a changelog entry is automatically appended under \`## [Unreleased]\` to either \`CHANGELOG-foundry.md\` or \`CHANGELOG-dexhelper.md\`.
+`;
+
+  const dir = path.dirname(ideaPath);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+  fs.writeFileSync(ideaPath, content, 'utf8');
+  process.stdout.write(`[changelog-engine] Created IDEA node: idea-000-changelog-continuous-maintenance.md\n`);
+}
+
 export async function runChangelogEngine(): Promise<void> {
   const state = loadState();
+  const julesApiKey = process.env['JULES_API_KEY'] || '';
+  const repo = process.env['GITHUB_REPO'] || 'owner/repo';
 
-  // Reset pending_jules or paused_quota status when a new run begins
-  if (state.status === 'pending_jules' || state.status === 'paused_quota') {
+  // Check and reset stale session if active
+  await checkAndResetStaleSession(state, julesApiKey);
+
+  // Reset paused_quota status when a new run begins
+  if (state.status === 'paused_quota' || state.status === 'error') {
     state.status = 'idle';
   }
 
@@ -305,9 +406,6 @@ export async function runChangelogEngine(): Promise<void> {
     process.stdout.write('[changelog-engine] No commits found in git history.\n');
     return;
   }
-
-  const julesApiKey = process.env['JULES_API_KEY'] || '';
-  const repo = process.env['GITHUB_REPO'] || 'owner/repo';
 
   let startIndex = 0;
   if (state.last_processed_commit) {
@@ -358,6 +456,7 @@ export async function runChangelogEngine(): Promise<void> {
     if (dispatchResult.success) {
       state.last_processed_commit = sha;
       state.status = 'pending_jules';
+      state.active_session_id = dispatchResult.sessionId;
       saveState(state);
       process.stdout.write(`[changelog-engine] Dispatched Jules session for commit ${sha.slice(0, 7)}. Exiting cycle.\n`);
       return;
@@ -370,11 +469,12 @@ export async function runChangelogEngine(): Promise<void> {
     return;
   }
 
-  // If backfill reached HEAD, switch mode to continuous
+  // If backfill reached HEAD, switch mode to continuous and create IDEA node
   if (state.mode === 'backfill' && state.last_processed_commit === commits[commits.length - 1]) {
     state.mode = 'continuous';
     state.status = 'idle';
     saveState(state);
+    generateContinuousMaintenanceIdeaNode();
     process.stdout.write('[changelog-engine] 🎉 History backfill complete! Switched mode to "continuous".\n');
   }
 }

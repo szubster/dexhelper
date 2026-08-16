@@ -43,6 +43,69 @@ function getSessionId(node: any): string | null {
   return trimmed;
 }
 
+export function appendContinuousChangelogEntry(node: any, repoRoot: string): void {
+  const nodeType = node.frontmatter?.type || 'TASK';
+  if (nodeType !== 'IDEA') return;
+
+  // Only run when state mode is 'continuous' to avoid merge conflicts during backfill
+  const statePath = path.join(repoRoot, '.foundry', 'changelog-state.json');
+  if (fs.existsSync(statePath)) {
+    try {
+      const state = JSON.parse(fs.readFileSync(statePath, 'utf8'));
+      if (state.mode !== 'continuous') {
+        info(`Changelog state is in '${state.mode}' mode. Skipping heartbeat continuous changelog append.`);
+        return;
+      }
+    } catch {
+      return;
+    }
+  } else {
+    return;
+  }
+
+  const title = node.frontmatter?.title || 'Completed Idea';
+  const filePath = node.filePath || '';
+  const filename = path.basename(filePath).toLowerCase();
+
+  const isFoundryDomain =
+    filename.includes('foundry') ||
+    filename.includes('orchestrator') ||
+    filename.includes('persona') ||
+    filename.includes('dag') ||
+    filename.includes('zombie') ||
+    filename.includes('journal') ||
+    filename.includes('telemetry') ||
+    title.toLowerCase().includes('foundry') ||
+    title.toLowerCase().includes('orchestrator');
+
+  const changelogFile = isFoundryDomain ? 'CHANGELOG-foundry.md' : 'CHANGELOG-dexhelper.md';
+  const changelogPath = path.join(repoRoot, changelogFile);
+
+  if (!fs.existsSync(changelogPath)) return;
+
+  try {
+    let content = fs.readFileSync(changelogPath, 'utf8');
+    const entry = `- ${title}\n`;
+
+    if (content.includes(title)) {
+      return;
+    }
+
+    if (content.includes('## [Unreleased]')) {
+      content = content.replace('## [Unreleased]', `## [Unreleased]\n\n### Added\n${entry}`);
+    } else {
+      content += `\n\n## [Unreleased]\n\n### Added\n${entry}`;
+    }
+
+    if (!DRY_RUN) {
+      fs.writeFileSync(changelogPath, content, 'utf8');
+    }
+    info(`Appended continuous changelog entry for ${node.frontmatter.id} to ${changelogFile}`);
+  } catch (err) {
+    warn(`Failed to append continuous changelog entry: ${String(err)}`);
+  }
+}
+
 /** Surgical mutation to FAILED */
 export async function transitionNodeToFailed(node: any, repoRoot: string, rejectionReason?: string): Promise<void> {
   const dateStr = todayISO();
@@ -197,6 +260,7 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
 
     if (!DRY_RUN) {
       fs.writeFileSync(node.filePath, newContent, 'utf-8');
+      appendContinuousChangelogEntry(node, repoRoot);
     }
     info(`${dryTag}Transitioned ACTIVE → COMPLETED: ${node.repoPath} (PR #${prNumber})`);
   }

@@ -3,14 +3,17 @@ import path from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   type ChangelogState,
+  checkAndResetStaleSession,
   classifyCommit,
   dispatchJulesSession,
+  generateContinuousMaintenanceIdeaNode,
   loadState,
   saveState
 } from './changelog-engine.ts';
 
 describe('changelog-engine', () => {
   const testStatePath = path.join(process.cwd(), '.foundry', 'test-changelog-state.json');
+  const testIdeaPath = path.join(process.cwd(), '.foundry', 'ideas', 'idea-000-changelog-continuous-maintenance.md');
 
   beforeEach(() => {
     if (fs.existsSync(testStatePath)) {
@@ -21,6 +24,9 @@ describe('changelog-engine', () => {
   afterEach(() => {
     if (fs.existsSync(testStatePath)) {
       fs.unlinkSync(testStatePath);
+    }
+    if (fs.existsSync(testIdeaPath)) {
+      fs.unlinkSync(testIdeaPath);
     }
     vi.restoreAllMocks();
   });
@@ -128,6 +134,52 @@ describe('changelog-engine', () => {
       });
       expect(res.action).toBe('dispatch');
       expect(res.domain).toBe('foundry');
+    });
+  });
+
+  describe('stale session detection & continuous node creation', () => {
+    it('resets stale status when session timestamp is older than 2 hours', async () => {
+      const state: ChangelogState = {
+        mode: 'backfill',
+        last_processed_commit: '123',
+        status: 'pending_jules',
+        active_session_id: 'sess-stale',
+        last_updated: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString()
+      };
+
+      const wasReset = await checkAndResetStaleSession(state, 'key');
+      expect(wasReset).toBe(true);
+      expect(state.status).toBe('idle');
+      expect(state.active_session_id).toBeNull();
+    });
+
+    it('resets status when Jules API returns COMPLETED or FAILED for active session', async () => {
+      const mockFetch = vi.fn<typeof fetch>().mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        json: async () => ({ state: 'COMPLETED' })
+      } as Response);
+      vi.stubGlobal('fetch', mockFetch);
+
+      const state: ChangelogState = {
+        mode: 'backfill',
+        last_processed_commit: '123',
+        status: 'pending_jules',
+        active_session_id: 'sess-done',
+        last_updated: new Date().toISOString()
+      };
+
+      const wasReset = await checkAndResetStaleSession(state, 'key');
+      expect(wasReset).toBe(true);
+      expect(state.status).toBe('idle');
+    });
+
+    it('creates continuous maintenance idea node correctly', () => {
+      generateContinuousMaintenanceIdeaNode();
+      expect(fs.existsSync(testIdeaPath)).toBe(true);
+      const content = fs.readFileSync(testIdeaPath, 'utf8');
+      expect(content).toContain('id: idea-000-changelog-continuous-maintenance');
+      expect(content).toContain('Continuous Changelog Maintenance for Merged Ideas');
     });
   });
 
