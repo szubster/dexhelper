@@ -2,12 +2,12 @@
 id: story-086-275-move-runtime-integration
 type: STORY
 title: Move Data Runtime Integration
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-08-15'
+updated_at: '2026-08-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9903529552067732772'
 pr_number: null
 parent: epic-049-086-dynamic-move-pp-parsing
 tags:
