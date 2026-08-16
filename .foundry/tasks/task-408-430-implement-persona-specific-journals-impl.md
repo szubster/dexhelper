@@ -1,14 +1,13 @@
 ---
 id: task-408-430-implement-persona-specific-journals-impl
 type: TASK
-title: "Implement Persona-Specific Journal Directories"
-status: PENDING
+title: Implement Persona-Specific Journal Directories
+status: READY
 owner_persona: coder
-created_at: "2026-08-16"
-updated_at: "2026-08-16"
+created_at: '2026-08-16'
+updated_at: '2026-08-16'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-401-408-persona-specific-journal-directories
 tags:
@@ -16,8 +15,9 @@ tags:
   - journals
   - workflow
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Implement Persona-Specific Journal Directories

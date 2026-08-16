@@ -2,10 +2,10 @@
 id: task-412-423-gen3-move-tutor-extractor
 type: TASK
 title: Gen 3 Move Tutor Extractor Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-12'
-updated_at: '2026-08-15'
+updated_at: '2026-08-16'
 depends_on:
   - task-412-422-gen3-move-tutor-constants
 jules_session_id: null
@@ -15,8 +15,8 @@ tags:
   - feature
   - gen3
   - save-parsing
-rejection_count: 1
-rejection_reason: 'Architectural violation: using magic number 8 instead of BITS_PER_BYTE'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

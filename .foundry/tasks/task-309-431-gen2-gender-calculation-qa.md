@@ -2,7 +2,7 @@
 id: task-309-431-gen2-gender-calculation-qa
 type: TASK
 title: QA - Gen 2 Gender Calculation Utility
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-16'
 updated_at: '2026-08-16'
