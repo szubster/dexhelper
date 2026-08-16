@@ -25,21 +25,20 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `a8bd4639d4c7702841582f812eefe73421ec2bd5`
+- **Commit SHA:** `f392dbd8d5391441b784959b2fc7e5e2f5eade3f`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
 - **Suggested SemVer Bump:** `minor` (from `0.1.0` -> `0.2.0`)
 
 ## Commit Message
 ```text
-feat: Implement initial Pokedex application with save file parsing and UI, removing unused dependencies.
+feat: Implement core save file parsing for Gen 1/2 Pokémon games and initial UI components for displaying save data.
 ```
 
 ## Modified Files
-- `package-lock.json`
-- `package.json`
 - `src/App.tsx`
-- `src/components/AIChat.tsx`
+- `src/components/PokemonDetails.tsx`
+- `src/utils/saveParser.ts`
 
 ## Evaluation Instructions
 As Changelogger, inspect the commit changes above.
