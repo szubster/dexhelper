@@ -25,36 +25,19 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `2ca9f177ab37f435f7afd05c33782025974f84e2`
+- **Commit SHA:** `a7301db6a474560583409f80e10cd68d4d278c13`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
 - **Suggested SemVer Bump:** `minor` (from `0.1.0` -> `0.2.0`)
 
 ## Commit Message
 ```text
-feat: Implement initial Pokedex application with save file parsing, routing, and interactive UI components.
+feat: Implement core application layout including save file upload, header navigation, and a mobile-friendly bottom navigation.
 ```
 
 ## Modified Files
-- `package-lock.json`
-- `package.json`
 - `src/components/AppLayout.tsx`
 - `src/components/BottomNav.tsx`
-- `src/components/PokedexGrid.tsx`
-- `src/components/PokemonDetails.tsx`
-- `src/components/SearchAndFilters.tsx`
-- `src/components/SettingsModal.tsx`
-- `src/components/StorageGrid.tsx`
-- `src/components/VersionModal.tsx`
-- `src/main.tsx`
-- `src/routeTree.gen.ts`
-- `src/routes/__root.tsx`
-- `src/routes/index.tsx`
-- `src/routes/pokemon.$pokemonId.tsx`
-- `src/routes/storage.tsx`
-- `src/state.tsx`
-- `tsconfig.json`
-- `vite.config.ts`
 
 ## Evaluation Instructions
 As Changelogger, inspect the commit changes above.
