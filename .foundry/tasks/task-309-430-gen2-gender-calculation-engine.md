@@ -2,12 +2,12 @@
 id: task-309-430-gen2-gender-calculation-engine
 type: TASK
 title: Implement Gen 2 Gender Calculation Utility
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-16'
 updated_at: '2026-08-16'
 depends_on: []
-jules_session_id: '3335143345593700737'
+jules_session_id: null
 pr_number: null
 parent: story-309-001-gender-calculation-engine
 tags:

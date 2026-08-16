@@ -2,7 +2,7 @@
 id: task-418-431-dag-evaluation-properties-impl
 type: TASK
 title: DAG Evaluation Fuzzing Properties Implementation
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-16'
 updated_at: '2026-08-16'

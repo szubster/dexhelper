@@ -1,11 +1,11 @@
 ---
 id: story-087-427-dynamic-item-list-parsing-e2e
 type: STORY
-title: "Dynamic Generation of Items PokeData E2E Verification"
-status: PENDING
+title: Dynamic Generation of Items PokeData E2E Verification
+status: READY
 owner_persona: tech_lead
-created_at: "2026-08-16"
-updated_at: "2026-08-16"
+created_at: '2026-08-16'
+updated_at: '2026-08-16'
 depends_on:
   - story-087-280-item-runtime-integration
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - integration
   - db
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Dynamic Generation of Items PokeData E2E Verification

@@ -2,10 +2,10 @@
 id: story-409-413-librarian-schema-e2e
 type: STORY
 title: Librarian Schema Updates E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-10'
+updated_at: '2026-08-16'
 depends_on:
   - story-409-412-add-librarian-persona-schema
 jules_session_id: null

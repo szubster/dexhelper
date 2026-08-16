@@ -2,10 +2,10 @@
 id: task-348-100-gen3-ash-ui-impl
 type: TASK
 title: 'Task: Implement Gen 3 Volcanic Ash UI Integration'
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-07-29'
-updated_at: '2026-07-30'
+updated_at: '2026-08-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - ash
   - ui
 research_references: []
-rejection_count: 1
-rejection_reason: 'isGen3Save is just a stub and breaks parsing, preventing e2e tests from running. Please implement it properly in src/engine/saveParser/utils/detection.ts.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

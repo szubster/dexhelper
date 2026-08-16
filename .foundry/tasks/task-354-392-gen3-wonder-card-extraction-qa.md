@@ -2,10 +2,10 @@
 id: task-354-392-gen3-wonder-card-extraction-qa
 type: TASK
 title: Gen 3 Wonder Card Extraction QA
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-02'
-updated_at: '2026-08-02'
+updated_at: '2026-08-16'
 depends_on:
   - task-354-391-gen3-wonder-card-extraction-impl
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-354-391-gen3-wonder-card-extraction-impl
 notes: ''
 ---
 

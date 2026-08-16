@@ -1,11 +1,11 @@
 ---
 id: task-403-420-playwright-e2e-impl
 type: TASK
-title: "Implement Playwright E2E Tests for DV/IV Extraction"
-status: PENDING
+title: Implement Playwright E2E Tests for DV/IV Extraction
+status: READY
 owner_persona: coder
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-08-16'
 depends_on:
   - task-403-418-gen2-dv-integration-impl
   - task-403-419-gen3-iv-pv-integration-impl

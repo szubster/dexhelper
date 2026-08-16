@@ -2,7 +2,7 @@
 id: task-418-432-dag-evaluation-properties-qa
 type: TASK
 title: DAG Evaluation Fuzzing Properties QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-16'
 updated_at: '2026-08-16'
