@@ -36,5 +36,5 @@ The application relies on IndexedDB for save states. We need to verify that our 
 - Verify basic read/write operations mapping to the schema.
 
 ## Acceptance Criteria
-- [ ] `tests/e2e/indexeddb-schema.spec.ts` is created and runs without errors.
-- [ ] The test confirms the presence and proper structure of the IndexedDB schemas in a real browser.
+- [x] `tests/e2e/indexeddb-schema.spec.ts` is created and runs without errors.
+- [x] The test confirms the presence and proper structure of the IndexedDB schemas in a real browser.
