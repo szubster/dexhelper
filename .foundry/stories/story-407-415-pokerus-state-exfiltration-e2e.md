@@ -2,12 +2,12 @@
 id: story-407-415-pokerus-state-exfiltration-e2e
 type: STORY
 title: Pokerus State Exfiltration E2E
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-13'
-updated_at: '2026-08-14'
+updated_at: '2026-08-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4149241716763847586'
 pr_number: null
 parent: research-038-407-investigate-pokerus-state-exfiltration-failure
 tags:
