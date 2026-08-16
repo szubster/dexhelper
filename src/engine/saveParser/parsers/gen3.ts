@@ -235,6 +235,11 @@ export const PC_BOX_WALLPAPERS_OFFSET = 0x83c2;
 export const PC_BOX_COUNT = 14;
 export const PC_BOX_CAPACITY = 30;
 export const GEN3_PC_POKEMON_STRUCT_SIZE = 80;
+export const GEN3_PARTY_SIZE_OFFSET_RS = 0x0234;
+export const GEN3_PARTY_SIZE_OFFSET_FRLG = 0x0034;
+export const GEN3_PARTY_POKEMON_LIST_OFFSET_RS = 0x0238;
+export const GEN3_PARTY_POKEMON_LIST_OFFSET_FRLG = 0x0038;
+export const GEN3_PARTY_CAPACITY = 6;
 export const GEN3_POKEMON_SPECIES_OFFSET_IN_G = 0x00;
 export const GEN3_POKEMON_ITEM_OFFSET_IN_G = 0x02;
 export const GEN3_POKEMON_MOVES_OFFSET_IN_A = 0x00;
@@ -650,6 +655,7 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
           moves,
           storageLocation: `Box ${box + 1}`,
           slot,
+          personalityValue: pv,
         };
 
         pc.push(speciesId);
@@ -681,6 +687,90 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
  * @returns An object containing the PV and a raw 32-bit integer representing the packed IVs.
  * @throws Error - "The save file is corrupted or incomplete." on invalid data.
  */
+export function parseGen3Party(view: DataView, saveBlock1Offset: number, gameVersion: GameVersion) {
+  const party: number[] = [];
+  const partyDetails: import('./common').PokemonInstance[] = [];
+
+  const isFRLG = gameVersion === 'firered' || gameVersion === 'leafgreen';
+  const sizeOffset = isFRLG ? GEN3_PARTY_SIZE_OFFSET_FRLG : GEN3_PARTY_SIZE_OFFSET_RS;
+  const listOffset = isFRLG ? GEN3_PARTY_POKEMON_LIST_OFFSET_FRLG : GEN3_PARTY_POKEMON_LIST_OFFSET_RS;
+
+  try {
+    const teamSize = view.getUint8(saveBlock1Offset + sizeOffset);
+    const boundedSize = Math.min(teamSize, GEN3_PARTY_CAPACITY);
+
+    for (let slot = 0; slot < boundedSize; slot++) {
+      const offset = saveBlock1Offset + listOffset + slot * GEN3_POKEMON_STRUCT_SIZE;
+
+      const pv = view.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
+      const otId = view.getUint32(offset + GEN3_POKEMON_OT_ID_OFFSET, true);
+
+      if (pv === 0 && otId === 0) continue;
+
+      const decryptionKey = pv ^ otId;
+      const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
+      const permutation = SUBSTRUCTURE_ORDER[permutationIndex];
+      if (!permutation) {
+        throw new Error('The save file is corrupted or incomplete.');
+      }
+
+      const indexOfG = permutation.indexOf('G');
+      const indexOfA = permutation.indexOf('A');
+
+      const growthSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfG * SUBSTRUCTURE_SIZE;
+      const attacksSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfA * SUBSTRUCTURE_SIZE;
+
+      const encryptedSpecies = view.getUint16(growthSubstructureOffset + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
+      const encryptedItem = view.getUint16(growthSubstructureOffset + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
+      const speciesId = encryptedSpecies ^ (decryptionKey & LOWER_16_BIT_MASK);
+      const item = encryptedItem ^ (decryptionKey >>> UPPER_16_BIT_SHIFT);
+
+      const encryptedMove1 = view.getUint16(attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
+      const encryptedMove2 = view.getUint16(
+        attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET,
+        true,
+      );
+      const encryptedMove3 = view.getUint16(
+        attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_3_OFFSET,
+        true,
+      );
+      const encryptedMove4 = view.getUint16(
+        attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET,
+        true,
+      );
+
+      const moves = [
+        encryptedMove1 ^ (decryptionKey & LOWER_16_BIT_MASK),
+        encryptedMove2 ^ (decryptionKey >>> UPPER_16_BIT_SHIFT),
+        encryptedMove3 ^ (decryptionKey & LOWER_16_BIT_MASK),
+        encryptedMove4 ^ (decryptionKey >>> UPPER_16_BIT_SHIFT),
+      ].filter((m) => m > 0);
+
+      const p: import('./common').PokemonInstance = {
+        hash: `${pv}-${otId}`,
+        speciesId,
+        level: 1, // Detailed level is generated further down in the 100 bytes, but skipping for Spinda extraction unless needed
+        isShiny: false,
+        item: item > 0 ? item : undefined,
+        moves,
+        storageLocation: 'Party',
+        slot,
+        personalityValue: pv,
+      };
+
+      party.push(speciesId);
+      partyDetails.push(p);
+    }
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+
+  return { party, partyDetails };
+}
+
 export function parseGen3EVs(view: DataView, offset: number) {
   try {
     const hp = view.getUint8(offset + EV_HP_OFFSET);
@@ -1454,14 +1544,24 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       // Ignored, PC data might be missing or corrupt
     }
 
+    let party: number[] = [];
+    let partyDetails: import('./common').PokemonInstance[] = [];
+    try {
+      const partyResult = parseGen3Party(view, section1Offset, _forcedVersion || 'ruby');
+      party = partyResult.party;
+      partyDetails = partyResult.partyDetails;
+    } catch {
+      // Ignored, Party data might be missing or corrupt
+    }
+
     // Dummy scaffold values for now until fully implemented
     const result: SaveData = {
       generation: 3,
       owned,
       seen,
-      party: [],
+      party,
       pc,
-      partyDetails: [],
+      partyDetails,
       pcDetails,
       gameVersion: _forcedVersion || 'ruby',
       badges: 0,
