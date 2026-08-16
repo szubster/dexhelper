@@ -1,4 +1,5 @@
 import {
+  BITS_PER_BYTE,
   EMERALD_EVENT_FLAGS_BASE_OFFSET,
   EMERALD_MOVE_TUTOR_DOUBLE_EDGE_FLAG,
   EMERALD_MOVE_TUTOR_DYNAMIC_PUNCH_FLAG,
@@ -32,8 +33,8 @@ import {
 } from './constants';
 
 const readFlag = (dataView: DataView, baseOffset: number, flagId: number): boolean => {
-  const byteOffset = Math.floor(flagId / 8);
-  const bitPosition = flagId % 8;
+  const byteOffset = Math.floor(flagId / BITS_PER_BYTE);
+  const bitPosition = flagId % BITS_PER_BYTE;
   return (dataView.getUint8(baseOffset + byteOffset) & (1 << bitPosition)) !== 0;
 };
 
