@@ -26,4 +26,6 @@ notes: ''
 Implement the parsing of Gen 2 TM/HM inventory and event flags from the save file. This includes extracting item quantities and checking event flags for one-time TMs, avoiding inline magic numbers and using module-level constants.
 
 ## Acceptance Criteria
-- [ ] Break down into multiple TASK nodes for implementation and QA.
+- [x] Break down into multiple TASK nodes for implementation and QA.
+- [ ] task-409-430-gen2-tm-hm-parsing-impl
+- [ ] task-409-431-gen2-tm-hm-parsing-qa
