@@ -27,7 +27,7 @@ locks: []
 Implement the parsing of Gen 1 TM/HM inventory and event flags from the save file. This includes extracting item quantities and checking event flags for one-time TMs, while strictly avoiding inline magic numbers and using module-level constants. Use full PokeData property names as per ADR 015.
 
 ## Acceptance Criteria
-- [ ] Implement parsing of Gen 1 TM/HM inventory in `src/engine/saveParser/parsers/gen1.ts`.
-- [ ] Extract item quantities and check event flags for one-time TMs using constants defined in `src/engine/saveParser/utils/gen1EventFlags.ts`.
-- [ ] Avoid inline magic numbers and use module-level constants.
-- [ ] Write unit tests for the parsing logic.
+- [x] Implement parsing of Gen 1 TM/HM inventory in `src/engine/saveParser/parsers/gen1.ts`.
+- [x] Extract item quantities and check event flags for one-time TMs using constants defined in `src/engine/saveParser/utils/gen1EventFlags.ts`.
+- [x] Avoid inline magic numbers and use module-level constants.
+- [x] Write unit tests for the parsing logic.
