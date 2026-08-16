@@ -340,6 +340,10 @@ export interface SaveData {
     hp?: number;
     statusCondition?: number;
   }[];
+  /** Global map group tracking variable for roaming legendaries. */
+  roamerCurMapGroup?: number;
+  /** Global map number tracking variable for roaming legendaries. */
+  roamerCurMapId?: number;
   /** Gen 3 specific: The 16-bit daily Mirage Island random value. */
   mirageIslandValue?: number;
   /** Gen 3 specific: Battle Frontier win streaks */

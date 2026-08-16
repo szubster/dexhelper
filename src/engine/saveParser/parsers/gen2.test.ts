@@ -268,6 +268,9 @@ describe('gen2 parsers', () => {
         level: 40,
         mapGroup: 5,
         mapId: 2,
+        isActive: true,
+        hp: 0,
+        ivs: { hp: 0, atk: 0, def: 0, spd: 0, spAtk: 0, spDef: 0 },
       });
     });
 
@@ -295,6 +298,9 @@ describe('gen2 parsers', () => {
         level: 40,
         mapGroup: 8,
         mapId: 3,
+        isActive: true,
+        hp: 0,
+        ivs: { hp: 0, atk: 0, def: 0, spd: 0, spAtk: 0, spDef: 0 },
       });
     });
 
