@@ -35,5 +35,5 @@ The task `task-354-391-gen3-wonder-card-extraction-impl` requires implementing G
 5. Provide actionable constants and types that can be directly mapped to code.
 
 ## Acceptance Criteria
-- [ ] Researcher: Identify the exact memory offsets and structures for Gen 3 Wonder Cards.
-- [ ] Researcher: Update `.foundry/docs/schema.md` or provide a detailed breakdown in the ticket for the Coder to use.
+- [x] Researcher: Identify the exact memory offsets and structures for Gen 3 Wonder Cards.
+- [x] Researcher: Update `.foundry/docs/schema.md` or provide a detailed breakdown in the ticket for the Coder to use.
