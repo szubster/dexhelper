@@ -29,6 +29,6 @@ notes: ''
 Verify the implementation of the Gen 2 Pokémon gender calculation logic implemented by the coder in `src/engine/breeding/gender.ts`.
 
 ## Acceptance Criteria
-- [ ] Verify `getGen2Gender(attackDV: number, genderRate: number)` is implemented according to the specified formula.
-- [ ] Verify it correctly handles edge cases, such as `gender_rate === -1` (Genderless), `0` (Male), and `8` (Female).
-- [ ] Verify unit tests have been added and cover all cases.
+- [x] Verify `getGen2Gender(attackDV: number, genderRate: number)` is implemented according to the specified formula.
+- [x] Verify it correctly handles edge cases, such as `gender_rate === -1` (Genderless), `0` (Male), and `8` (Female).
+- [x] Verify unit tests have been added and cover all cases.
