@@ -21,6 +21,7 @@ jobs:
   execute_scheduled_agent:
     name: Execute Scheduled Agent
     runs-on: ubuntu-latest
+    timeout-minutes: 240
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -67,21 +68,38 @@ jobs:
               "title": $title
             }')
 
-          # Request session from Jules API
+          # Request session from Jules API with retry loop for quota / API errors
+          max_retries=3
+          retry_delay=3600
+          attempt=1
+
           echo "Dispatching Jules session for: $persona"
-          response=$(curl -s -X POST "https://jules.googleapis.com/v1alpha/sessions" \
-            -H "Content-Type: application/json" \
-            -H "X-Goog-Api-Key: $JULES_API_KEY" \
-            -d "$prompt_json")
 
-          # Extract and verify session ID
-          session_id=$(echo "$response" | jq -r '.id')
+          while [[ $attempt -le $((max_retries + 1)) ]]; do
+            if [[ $attempt -gt 1 ]]; then
+              echo "Attempt $attempt of $((max_retries + 1)): Retrying in $retry_delay seconds (waiting for quota)..."
+              sleep "$retry_delay"
+            fi
 
-          if [[ -z "$session_id" || "$session_id" == "null" ]]; then
-            echo "::error::Failed to capture Jules session ID"
-            echo "Response: $response"
-            exit 1
-          fi
+            response=$(curl -s -X POST "https://jules.googleapis.com/v1alpha/sessions" \
+              -H "Content-Type: application/json" \
+              -H "X-Goog-Api-Key: $JULES_API_KEY" \
+              -d "$prompt_json")
 
-          echo "SESSION_ID=$session_id" >> "$GITHUB_ENV"
-          echo "Successfully spawned Jules session: $session_id"
+            session_id=$(echo "$response" | jq -r '.id // empty')
+
+            if [[ -n "$session_id" && "$session_id" != "null" ]]; then
+              echo "Successfully spawned Jules session: $session_id"
+              echo "SESSION_ID=$session_id" >> "$GITHUB_ENV"
+              exit 0
+            fi
+
+            error_msg=$(echo "$response" | jq -r '.error.message // .error.status // "Unknown error"')
+            echo "::warning::Attempt $attempt failed: $error_msg"
+            echo "Full API response: $response"
+
+            attempt=$((attempt + 1))
+          done
+
+          echo "::error::Failed to capture Jules session ID after $attempt attempts."
+          exit 1
