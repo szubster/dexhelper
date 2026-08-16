@@ -11,8 +11,7 @@ export default [
         'src/routes/**/*.test.{ts,tsx}',
         'src/contexts/**/*.test.{ts,tsx}',
         'src/hooks/**/*.test.{ts,tsx}',
-      ],
-      setupFiles: ['./vitest.node.setup.ts'],
+      ]
     },
   },
   {
