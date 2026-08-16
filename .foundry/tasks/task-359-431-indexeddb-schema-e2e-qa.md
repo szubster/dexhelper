@@ -36,5 +36,5 @@ The Coder has implemented an E2E test in Playwright to verify the IndexedDB hist
 - Confirm tests pass successfully via `xvfb-run pnpm test:e2e`.
 
 ## Acceptance Criteria
-- [ ] E2E tests in `tests/e2e/indexeddb-schema.spec.ts` have been reviewed and validated.
-- [ ] Tests correctly simulate reading and writing to the target schemas.
+- [x] E2E tests in `tests/e2e/indexeddb-schema.spec.ts` have been reviewed and validated.
+- [x] Tests correctly simulate reading and writing to the target schemas.
