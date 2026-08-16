@@ -29,5 +29,5 @@ The utility should export a function `getGen2Gender(attackDV: number, genderRate
 The logic must adhere to the formula: `female_threshold = gender_rate * 2`. A Pokémon is female if its `Attack DV < female_threshold`. It must correctly handle edge cases, such as `gender_rate === -1` (Genderless), `0` (Male), and `8` (Female).
 
 ## Acceptance Criteria
-- [ ] Implement `getGen2Gender` utility in `src/engine/breeding/gender.ts`.
-- [ ] Add unit tests for `getGen2Gender` in `src/engine/breeding/gender.test.ts`.
+- [x] Implement `getGen2Gender` utility in `src/engine/breeding/gender.ts`.
+- [x] Add unit tests for `getGen2Gender` in `src/engine/breeding/gender.test.ts`.
