@@ -31,4 +31,4 @@ Verify the core logic for detecting conflicts during Cloudflare R2 syncing with 
 - Note: There is an existing test in `tests/e2e/r2_sync.spec.ts` named "should resolve conflicts preferring newer remote state" which may already cover this. The QA persona should verify if the existing test is sufficient, and if so, submit an empty PR.
 
 ## Acceptance Criteria
-- [ ] Run and verify E2E tests for R2 conflict detection logic.
+- [x] Run and verify E2E tests for R2 conflict detection logic.
