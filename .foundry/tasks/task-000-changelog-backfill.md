@@ -25,19 +25,21 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `888f3b975ae80fa276832304042b924e60c6a156`
+- **Commit SHA:** `70ee2e9bf946d3a4ac37cf711d3da663a12718dd`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
 - **Suggested SemVer Bump:** `minor` (from `0.1.0` -> `0.2.0`)
 
 ## Commit Message
 ```text
-feat: Implement core Pokedex save file viewer with save file parsing, filtering, and UI.
+feat: Add Node.js 24 engine requirement and configure GitHub Actions for CI and GitHub Pages deployment.
 ```
 
 ## Modified Files
-- `src/App.tsx`
-- `src/components/PokemonDetails.tsx`
+- `.github/workflows/ci.yml`
+- `.github/workflows/deploy.yml`
+- `.nvmrc`
+- `package.json`
 
 ## Evaluation Instructions
 As Changelogger, inspect the commit changes above.
