@@ -28,4 +28,6 @@ notes: ''
 Integration and E2E Verification for the IndexedDB Storage Schema.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-359-430-indexeddb-schema-e2e-impl
+- [ ] task-359-431-indexeddb-schema-e2e-qa
