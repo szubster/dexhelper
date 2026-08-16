@@ -2,7 +2,7 @@
 id: story-411-421-r2-conflict-resolution-e2e
 type: STORY
 title: Cloudflare R2 Conflict Detection Core Logic E2E
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-12'
 updated_at: '2026-08-16'
@@ -30,4 +30,4 @@ Verify the core logic for detecting conflicts during Cloudflare R2 syncing with 
 
 ## Acceptance Criteria
 - [x] Tech Lead: Generate TASK node(s) for the E2E verification of conflict detection logic.
-- [ ] task-421-432-r2-conflict-detection-e2e
+- [x] task-421-432-r2-conflict-detection-e2e

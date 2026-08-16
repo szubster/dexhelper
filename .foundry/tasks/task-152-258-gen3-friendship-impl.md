@@ -2,12 +2,12 @@
 id: task-152-258-gen3-friendship-impl
 type: TASK
 title: Implement Gen 3 Friendship Data Extraction
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-07-03'
-updated_at: '2026-08-15'
+updated_at: '2026-08-16'
 depends_on: []
-jules_session_id: '15228275774364920376'
+jules_session_id: null
 pr_number: null
 parent: story-094-152-gen3-friendship-extraction
 tags:

@@ -1,11 +1,11 @@
 ---
 id: story-309-003-egg-group-validation
 type: STORY
-title: "Gen 2 Egg Group Validation"
-status: PENDING
-owner_persona: "tech_lead"
-created_at: "2026-07-13"
-updated_at: "2026-07-13"
+title: Gen 2 Egg Group Validation
+status: READY
+owner_persona: tech_lead
+created_at: '2026-07-13'
+updated_at: '2026-08-16'
 depends_on:
   - story-309-001-gender-calculation-engine
 jules_session_id: null
@@ -18,8 +18,8 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/engine/gen2-breeding.md
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 2 Egg Group Validation
