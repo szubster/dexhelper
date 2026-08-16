@@ -1,0 +1,6 @@
+<<<<<<< SEARCH
+  statExp?: { hp: number; atk: number; def: number; spd: number; spc: number };
+=======
+  statExp?: { hp: number; atk: number; def: number; spd: number; spc: number };
+  battleStats?: { hp: number; atk: number; def: number; spd: number; spAtk: number; spDef: number };
+>>>>>>> REPLACE

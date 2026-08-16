@@ -1,0 +1,76 @@
+<<<<<<< SEARCH
+describe('Gen3 PC Box Parsing', () => {
+=======
+describe('Gen3 Party Parsing', () => {
+  it('should parse Party correctly', () => {
+    const buffer = new ArrayBuffer(0x1bfff);
+    const view = new DataView(buffer);
+
+    for (let i = 0; i <= 4; i++) {
+      view.setUint16(i * 4096 + 4084, i, true);
+      view.setUint32(i * 4096 + 4088, 0x08012025, true);
+      view.setUint32(i * 4096 + 4092, 1, true);
+    }
+
+    const section1Offset = 1 * 4096;
+    view.setUint32(section1Offset + 0x0234, 1, true); // Team size 1
+
+    const offset = section1Offset + 0x0238 + 0 * 100;
+    const pv = 0x12345678;
+    const otId = 0x87654321;
+    view.setUint32(offset + 0, pv, true);
+    view.setUint32(offset + 4, otId, true);
+
+    const decryptionKey = pv ^ otId;
+    const speciesId = 25; // Pikachu
+    const item = 0;
+    const encryptedSpecies = speciesId ^ (decryptionKey & 0xffff);
+    const encryptedItem = item ^ (decryptionKey >>> 16);
+    view.setUint16(offset + 32 + 0, encryptedSpecies, true);
+    view.setUint16(offset + 32 + 2, encryptedItem, true);
+
+    // A (Attacks) at index 1 -> offset 32 + 12 = 44
+    const move1 = 33; // Tackle
+    const encryptedMove1 = move1 ^ (decryptionKey & 0xffff);
+    view.setUint16(offset + 44 + 0, encryptedMove1, true);
+
+    // Level
+    view.setUint8(offset + 0x54, 5);
+    // Current HP
+    view.setUint16(offset + 0x56, 20, true);
+    // Max HP
+    view.setUint16(offset + 0x58, 20, true);
+    // Attack
+    view.setUint16(offset + 0x5a, 10, true);
+    // Defense
+    view.setUint16(offset + 0x5c, 11, true);
+    // Speed
+    view.setUint16(offset + 0x5e, 12, true);
+    // SpAtk
+    view.setUint16(offset + 0x60, 13, true);
+    // SpDef
+    view.setUint16(offset + 0x62, 14, true);
+
+    const saveData = parseGen3(view, 'ruby');
+
+    expect(saveData.party.length).toBe(1);
+    expect(saveData.partyDetails.length).toBe(1);
+    expect(saveData.party).toContain(25);
+    expect(saveData.partyDetails[0]?.speciesId).toBe(25);
+    expect(saveData.partyDetails[0]?.storageLocation).toBe('Party');
+    expect(saveData.partyDetails[0]?.level).toBe(5);
+    expect(saveData.partyDetails[0]?.currentHp).toBe(20);
+    expect(saveData.partyDetails[0]?.moves).toContain(33);
+    expect(saveData.partyDetails[0]?.battleStats).toEqual({
+      hp: 20,
+      atk: 10,
+      def: 11,
+      spd: 12,
+      spAtk: 13,
+      spDef: 14,
+    });
+  });
+});
+
+describe('Gen3 PC Box Parsing', () => {
+>>>>>>> REPLACE
