@@ -28,3 +28,9 @@ Improve AI readability by refactoring `extractPlayerTools` to use clear item/mov
 ## Critical Learnings
 - Magic numbers like `192` (Headbutt TM), `198` (Rock Smash TM), and `399` (Surf HM) scattered throughout item verification logic confuse AI interpretation. Extracting them into clearly named constants (e.g., `ITEM_HEADBUTT_GEN2`) significantly improves semantic readability.
 - When replacing magic numbers, ensure to look at related strategies (like `gen2Strategy.ts`) which might have also duplicated these integer literals.
+
+<!-- Source: 2026-08-15-00-51-58.md -->
+## Critical Learnings
+* **Inline magic numbers obfuscate bitwise and data logic:** Using inline hex values (like `0xff`, `0xffff`) deeply embedded in parsing logic makes it extremely difficult for AI to grasp the binary architecture and bounds of save files.
+* **Top-level constants provide semantic mapping:** Extracting these to named constants (`GEN1_EMPTY_SLOT`, `COMMON_EMPTY_SLOT`, etc.) immediately clarifies their purpose and limits.
+* **Refactoring Strategy:** Using Node `.js` scripts is significantly safer and more precise than standard bash `sed` or `grep` tools for manipulating large TypeScript parsing files.

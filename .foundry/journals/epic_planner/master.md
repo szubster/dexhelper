@@ -198,3 +198,17 @@ Both Epics include a mandate to generate a final STORY dedicated exclusively to 
 **Session ID:** 7654390589700833801
 
 Created breakdown for PRD `prd-145-343-semantic-prompt-validation` mapping out the implementation of semantic validation utility for agent prompts, and testing integration. Noted importance of explicit dependency between implementation and test migration to ensure validation utility exists prior to migrating brittle tests.
+
+<!-- Source: 2026-08-14-15-10-45.md -->
+# Session 2026-08-14-15-10-45
+
+When decomposing a PRD into Epics, it is critical to explicitly enforce the "E2E Integration Verification" constraint in the Acceptance Criteria of *each generated Epic*. This ensures the `story_owner` who processes these Epics down the line will not forget to create the required integration verification stories.
+
+<!-- Source: 25645832560175386.md -->
+# Epic Planner Journal - Session 25645832560175386
+
+## Context
+Assigned to `prd-095-057-prevent-blocking-bash-commands`. The previous implementation attempt failed due to the orchestrator safeguard requiring E2E/integration stories for `EPIC` nodes.
+
+## Learnings
+- **Orchestrator Safeguard (E2E Requirement)**: When replacing permanently failed epics or creating new ones, it is critical to explicitly document the requirement for a final STORY dedicated exclusively to Integration and E2E Verification. If this is not done, the epic will fail to transition to COMPLETED when the orchestrator's safeguard checks the child stories.

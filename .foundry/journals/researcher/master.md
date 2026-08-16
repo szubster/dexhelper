@@ -67,3 +67,26 @@ For each of these 5 slots, if the `species` field (a `u16` at offset `0x08` with
 # Session 13338548861872728964
 
 The permanent failure (Max rejection count reached) of `epic-038-061-pokerus-state-exfiltration` was caused by a violation of the Orchestrator Safeguard. Although the codebase implementations for parsing the Gen 2 Pokerus byte were correctly verified and refactored (as confirmed by the auditor and Tech Lead), the Epic was continuously rejected upon transition attempts because the Story Owner did not append a STORY node dedicated to Integration and E2E Verification (tagged with `e2e` or `integration`). As a strict macro-node constraint, every Epic must terminate with an E2E story.
+
+<!-- Source: 14319651166110609807.md -->
+# Session 14319651166110609807
+
+## Artifact Anomaly Detection
+During the research task `research-246-244-gen3-box-parsing`, I discovered that the target Foundry artifact `.foundry/docs/knowledge_base/engine/save_parsing/gen3_pc_box_offsets.md` unexpectedly existed prior to the session. The file accurately documents the PC Box memory structure, base offset (`0x0004`), current PC Box offset (`0x0000`), and the 80-byte PC Pokémon data structure as required. I checked off the acceptance criteria in the task's markdown body and submitted the changes as a standard PR.
+
+<!-- Source: 2026-08-16-12-00-00.md -->
+# Session Journal: Gen 3 Party and PC Box Memory Offsets
+
+Research task: `research-157-369-gen3-party-box-offsets`
+
+## Objective
+Research the exact memory offsets and structure for Party Pokémon and PC Box Pokémon in Generation 3 save files to enable accurate data extraction of PIDs.
+
+## Findings
+- Party Pokémon data is stored in Section 1 (Team / Items).
+  - Offset `0x0234` (RS/E) or `0x0034` (FRLG) contains the Team Size (4 bytes or 1 byte).
+  - Offset `0x0238` (RS/E) or `0x0038` (FRLG) contains the Team Pokémon list (600 bytes), which is an array of up to 6 100-byte Pokémon structures.
+- PC Box Pokémon data is stored in the PC buffer (Sections 5-13).
+  - Offset `0x0004` within the PC buffer contains the PC Boxes Pokémon list (33,600 bytes), which is an array of 420 80-byte Pokémon structures.
+- The PID (Personality Value) is always located at offset `0x00` (the first 4 bytes) of both the 100-byte Party structure and the 80-byte PC Box structure.
+- The 100-byte and 80-byte structures share the same first 80 bytes. The 100-byte structure contains an additional 20 bytes for battle stats, status condition, HP, etc.

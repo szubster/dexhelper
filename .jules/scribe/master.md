@@ -31,3 +31,23 @@ Logging execution details for Scribe.
 
 <!-- Source: 2026-08-13-02-15-11.md -->
 # Scribe Journal - 2026-08-13\n\n## Session Documentation\n- Documented `parseGen1TMFlags` in `src/engine/saveParser/utils/gen1EventFlags.ts`: Added JSDoc explaining the architectural *why* (packed bit array for memory savings).\n- Documented `groupBoxPokemonBySpecies` in `src/engine/saveParser/utils/boxGrouping.ts`: Added JSDoc explaining the *why* (filtering out non-box Pokemon like Daycare/Party) and provided an example.
+
+<!-- Source: 2026-08-14-02-23-33.md -->
+Added JSDoc for parseGen1, parseGen2, and parseGen3 in src/engine/saveParser/parsers/. The changes successfully provided context on memory offsets, flash banks, and heuristics.
+
+<!-- Source: 2026-08-15-12-00-00.md -->
+# Scribe Session: 2026-08-15-12-00-00
+
+## Target Module
+`src/engine/assistant/suggestionEngine.ts`
+
+## Motivation
+The engine module's exported APIs `fetchAssistantApiData` and `generateSuggestions` lacked comprehensive JSDoc comments. This area is critical to the suggestion algorithm's performance constraint (e.g. evaluating hundreds of missing Pokémon) and should be well-documented.
+
+## Actions Completed
+- Added `@param`, `@returns`, and `@example` tags to `fetchAssistantApiData` and `generateSuggestions`.
+- Addressed code review feedback by directly ensuring all Scribe parameters were included.
+- Passed `pnpm lint`, `pnpm test`, and selectively verified Playwright tests.
+
+## Lessons Learned
+- When documenting high-complexity domain logic, focusing on synchronous database lookups and generation-specific strategies gives critical context to *why* the functions are built the way they are.

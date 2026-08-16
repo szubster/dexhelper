@@ -202,3 +202,15 @@
   Currently, the Foundry orchestrator dispatches `READY` nodes indiscriminately. As the DAG grows, this can lead to low-priority research nodes consuming pipeline resources while critical path tasks are starved. Implementing a priority queue (e.g., via a `priority` field in the frontmatter, defaulting to 0) would allow the orchestrator to prioritize critical path Epics and their descendant Tasks.
 - **Strategic Balance:**
   In the previous session, we proposed IDEA-147 (Gen 3 Weather Anomaly Tracker) for DexHelper. To maintain the strict 50/50 balance between product features and system improvements, this session pivots back to a Foundry orchestrator improvement.
+
+<!-- Source: 2026-08-15-00-42-59.md -->
+# Visionary Journal
+
+- **Active Session/Timestamp:** 2026-08-15
+- **Domain:** Main Project (DexHelper)
+- **Proposed Idea:** Wild Held Item Hunting Assistant (IDEA-150)
+- **Rationale & Concept:**
+  In Pokemon games (specifically Gen 2 and Gen 3), many valuable and competitive items can only be found as held items on wild Pokemon. Examples include the Thick Club, Light Ball, Metal Coat, and Lucky Egg. Hunting for these items involves repeatedly encountering specific wild Pokemon, using moves like Thief or Covet, and checking if the item was obtained. It's an incredibly tedious process.
+  The Wild Held Item Hunting Assistant will be a DexHelper feature that aids players in this grind by scanning Party Pokemon, PC Box Pokemon, and the Bag to detect if the target item was successfully acquired, providing immediate feedback.
+- **Strategic Balance:**
+  In the preceding sessions, a sequence of Foundry orchestrator ideas were proposed (including IDEA-148 Priority-Based Dispatch Queue and IDEA-149 Re-evaluate Acceptance Criteria). Moving back to a core product feature for DexHelper (Wild Held Item Hunting Assistant) successfully maintains the strict 50/50 strategic balance between direct end-user features (DexHelper) and internal pipeline improvements (Foundry).
