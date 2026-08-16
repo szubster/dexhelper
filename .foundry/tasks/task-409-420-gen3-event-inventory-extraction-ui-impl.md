@@ -32,6 +32,6 @@ Implement the React state/context layer and UI components to expose the extracte
 - Write component tests and verify the UI rendering.
 
 ## Acceptance Criteria
-- [ ] Application state correctly integrates the parser data.
-- [ ] UI components are updated to display the event items.
-- [ ] Component tests verify the integration and rendering.
+- [x] Application state correctly integrates the parser data.
+- [x] UI components are updated to display the event items.
+- [x] Component tests verify the integration and rendering.
