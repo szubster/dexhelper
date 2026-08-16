@@ -27,5 +27,5 @@ locks: []
 Verify the E2E test implementation created by the Coder in `task-427-433-dynamic-item-list-parsing-e2e-impl`.
 
 ## Acceptance Criteria
-- [ ] Verify that the E2E test `tests/e2e/dynamic_items_integration.spec.ts` passes locally via `xvfb-run pnpm test:e2e tests/e2e/dynamic_items_integration.spec.ts`.
-- [ ] Ensure the test checks the IndexedDB `items` store correctly using the `initializeWithSave` hook.
+- [x] Verify that the E2E test `tests/e2e/dynamic_items_integration.spec.ts` passes locally via `xvfb-run pnpm test:e2e tests/e2e/dynamic_items_integration.spec.ts`.
+- [x] Ensure the test checks the IndexedDB `items` store correctly using the `initializeWithSave` hook.
