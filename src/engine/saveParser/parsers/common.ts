@@ -105,6 +105,7 @@ export interface Gen3TrainerCard {
   hasHallOfFame: boolean;
   hasHoennDex: boolean;
   hasNationalDex: boolean;
+  hasBattleFrontier: boolean;
 }
 
 export interface Gen3TVShow {
