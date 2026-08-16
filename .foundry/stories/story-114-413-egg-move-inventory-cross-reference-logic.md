@@ -2,13 +2,13 @@
 id: story-114-413-egg-move-inventory-cross-reference-logic
 type: STORY
 title: Egg Move Inventory Cross-Reference Logic
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-11'
 updated_at: '2026-08-16'
 depends_on:
   - story-114-412-egg-move-inventory-integration
-jules_session_id: '3218120981661404426'
+jules_session_id: null
 pr_number: null
 parent: epic-055-114-egg-move-inventory-cross-reference
 tags:

@@ -2,10 +2,10 @@
 id: task-412-424-gen3-bike-data-struct-integration-impl
 type: TASK
 title: Gen 3 Bike Map Data Integration
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-13'
-updated_at: '2026-08-14'
+updated_at: '2026-08-16'
 depends_on:
   - task-412-422-gen3-mach-bike-parsing-impl
   - task-412-423-gen3-acro-bike-parsing-impl

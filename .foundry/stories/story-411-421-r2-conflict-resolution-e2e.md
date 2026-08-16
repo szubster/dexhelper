@@ -2,13 +2,13 @@
 id: story-411-421-r2-conflict-resolution-e2e
 type: STORY
 title: Cloudflare R2 Conflict Detection Core Logic E2E
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-12'
 updated_at: '2026-08-16'
 depends_on:
   - story-411-420-r2-conflict-detection-logic
-jules_session_id: '1634983857607734011'
+jules_session_id: null
 pr_number: null
 parent: epic-340-411-r2-conflict-resolution-core
 tags:

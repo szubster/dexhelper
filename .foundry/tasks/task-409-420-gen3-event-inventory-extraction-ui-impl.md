@@ -2,13 +2,13 @@
 id: task-409-420-gen3-event-inventory-extraction-ui-impl
 type: TASK
 title: Gen 3 Event Inventory Items Extraction UI State Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-12'
 updated_at: '2026-08-16'
 depends_on:
   - task-409-419-gen3-event-inventory-extraction-parser-qa
-jules_session_id: '1371752092130045144'
+jules_session_id: null
 pr_number: null
 parent: story-404-409-gen3-event-inventory-extraction
 tags:

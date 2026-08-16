@@ -2,13 +2,13 @@
 id: story-397-359-indexeddb-schema-retry-e2e
 type: STORY
 title: IndexedDB Storage Schema E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-16'
 depends_on:
   - story-397-358-indexeddb-schema-retry-impl
-jules_session_id: '11032080700696752706'
+jules_session_id: null
 pr_number: null
 parent: epic-099-397-indexeddb-schema-design-retry
 tags:

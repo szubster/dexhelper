@@ -2,7 +2,7 @@
 id: task-421-432-r2-conflict-detection-e2e
 type: TASK
 title: Cloudflare R2 Conflict Detection Core Logic E2E
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-16'
 updated_at: '2026-08-16'

@@ -2,7 +2,7 @@
 id: task-412-424-gen3-move-tutor-qa
 type: TASK
 title: Gen 3 Move Tutor Extractor QA Verification
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-12'
 updated_at: '2026-08-16'

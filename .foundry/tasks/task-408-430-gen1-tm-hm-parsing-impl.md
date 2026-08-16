@@ -2,13 +2,12 @@
 id: task-408-430-gen1-tm-hm-parsing-impl
 type: TASK
 title: Gen 1 TM/HM Parsing Implementation
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-08-16"
-updated_at: "2026-08-16"
+created_at: '2026-08-16'
+updated_at: '2026-08-16'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-401-408-gen1-tm-hm-parsing
 tags:
@@ -17,8 +16,9 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/moveset-inventory-memory-offsets.md
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Gen 1 TM/HM Parsing Implementation
