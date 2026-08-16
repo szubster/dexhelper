@@ -2,12 +2,12 @@
 id: story-087-280-item-runtime-integration
 type: STORY
 title: Item Data Runtime Integration
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-08-14'
+updated_at: '2026-08-16'
 depends_on: []
-jules_session_id: '10838116963551128908'
+jules_session_id: null
 pr_number: null
 parent: epic-049-087-dynamic-item-list-parsing
 tags:
