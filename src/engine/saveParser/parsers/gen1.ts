@@ -66,6 +66,17 @@ import {
 const PARTY_MONS_HEADER_LENGTH = 7;
 const PARTY_MON_DATA_LENGTH = 44;
 const PARTY_OT_NAME_LENGTH = 11;
+
+const POKEMON_OFFSET_CURRENT_HP = 1;
+const POKEMON_PARTY_OFFSET_LEVEL = 33;
+const POKEMON_PC_OFFSET_LEVEL = 3;
+const POKEMON_OFFSET_MOVES = 8;
+const POKEMON_OFFSET_DVS = 27;
+
+const HOF_POKEMON_OFFSET_LEVEL = 1;
+const HOF_POKEMON_OFFSET_NICKNAME = 2;
+
+const PC_BOX_OFFSET_MON_LIST_START = 1;
 const TRAINER_NAME_OFFSET = 0x2598;
 const BADGES_OFFSET = 0x2602;
 const TRAINER_ID_OFFSET = 0x2605;
@@ -437,8 +448,8 @@ function parseGen1HallOfFameRecords(view: DataView, hallOfFameCount: number, tra
           continue;
         }
 
-        const level = view.getUint8(offset + 1);
-        const nickname = decodeGen12String(view, offset + 2, 11);
+        const level = view.getUint8(offset + HOF_POKEMON_OFFSET_LEVEL);
+        const nickname = decodeGen12String(view, offset + HOF_POKEMON_OFFSET_NICKNAME, 11);
 
         pokemon.push({ speciesId, level, nickname });
       }
@@ -592,16 +603,16 @@ function parseGen1Pokemon(
   const speciesId = INTERNAL_ID_TO_DEX[internalId];
   if (!speciesId) return null;
 
-  const currentHp = isParty ? view.getUint16(offset + 1, false) : undefined;
+  const currentHp = isParty ? view.getUint16(offset + POKEMON_OFFSET_CURRENT_HP, false) : undefined;
 
   // Party has stats, so level is at offset + 33. PC has no stats, level is at offset + 3.
-  const level = view.getUint8(isParty ? offset + 33 : offset + 3);
+  const level = view.getUint8(isParty ? offset + POKEMON_PARTY_OFFSET_LEVEL : offset + POKEMON_PC_OFFSET_LEVEL);
   const moves: number[] = [];
   for (let j = 0; j < 4; j++) {
-    const m = view.getUint8(offset + 8 + j);
+    const m = view.getUint8(offset + POKEMON_OFFSET_MOVES + j);
     if (m > 0) moves.push(m);
   }
-  const dvs = parseDVs(view.getUint16(offset + 27, false));
+  const dvs = parseDVs(view.getUint16(offset + POKEMON_OFFSET_DVS, false));
   const isShiny = checkShiny(dvs);
   const isShinyCarrier = checkShinyGene(dvs);
   const otName = decodeGen12String(view, otOffset);
@@ -711,7 +722,7 @@ function parsePCBoxes(
       if (count > PC_MAX_BOX_MONS) continue;
 
       for (let j = 0; j < count; j++) {
-        const id = view.getUint8(offset + 1 + j);
+        const id = view.getUint8(offset + PC_BOX_OFFSET_MON_LIST_START + j);
         const dex = INTERNAL_ID_TO_DEX[id];
         if (dex !== undefined) pc.push(dex);
       }
