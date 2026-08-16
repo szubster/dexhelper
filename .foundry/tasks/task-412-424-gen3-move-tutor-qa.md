@@ -36,6 +36,9 @@ As per the Intelligent Verification Protocol, a QA task is needed due to the str
 5. Review the test suite to ensure comprehensive coverage for both valid and malformed save structures for both Emerald and FireRed/LeafGreen.
 6. Verify no architectural rules were broken in the implementation.
 
+### Validation Failed
+Detected an architectural violation: magic number `8` is used for bit shifts and module logic instead of the mandated `BITS_PER_BYTE` constant.
+
 ## Acceptance Criteria
 - [ ] Constants are correct and match specifications.
 - [ ] No magic numbers are used in parsing.
