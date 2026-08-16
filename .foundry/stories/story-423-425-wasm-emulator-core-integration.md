@@ -27,4 +27,3 @@ Integrate the WASM emulator core (mGBA or binjgb) and connect it with the loaded
 ## Acceptance Criteria
 - [ ] Integrate WASM emulator.
 - [ ] Break down this STORY into TASK nodes.
-- [ ] research-425-421-wasm-emulator-options

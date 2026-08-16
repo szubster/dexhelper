@@ -9,7 +9,7 @@ updated_at: '2026-08-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: story-423-425-wasm-emulator-core-integration
+parent: null
 tags:
   - emulator
   - wasm
