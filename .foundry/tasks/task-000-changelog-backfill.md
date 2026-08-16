@@ -25,36 +25,18 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `ee3b870c4cb8a7e415a12b76986046b2175b2c5c`
+- **Commit SHA:** `ad5c67a2a94e052d27b2375415c79311baf2bfb7`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
 
 ## Commit Message
 ```text
-feat: Initialize project structure and core components
-
-Sets up the foundational files and structure for the Retro Save Reader application. Includes basic README, .gitignore, and tsconfig, along with initial components for the React app, CSS styling, and Vite configuration. Also adds `package.json` with necessary dependencies for React, PokeAPI interaction, and AI integration.
+feat: Set up GitHub Actions for CI and GitHub Pages deployment, and configure Vite base path.
 ```
 
 ## Modified Files
-- `.env.example`
-- `.gitignore`
-- `README.md`
-- `index.html`
-- `metadata.json`
-- `package-lock.json`
-- `package.json`
-- `public/manifest.json`
-- `public/sw.js`
-- `src/App.tsx`
-- `src/components/AIChat.tsx`
-- `src/components/PokemonDetails.tsx`
-- `src/index.css`
-- `src/main.tsx`
-- `src/utils/pokeapi.ts`
-- `src/utils/saveParser.ts`
-- `src/vite-env.d.ts`
-- `tsconfig.json`
+- `.github/workflows/ci.yml`
+- `.github/workflows/deploy.yml`
 - `vite.config.ts`
 
 ## Evaluation Instructions
