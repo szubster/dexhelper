@@ -4,8 +4,11 @@ import matter from 'gray-matter';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   type ChangelogState,
+  bumpVersion,
   classifyCommit,
+  determineSemverBump,
   generateContinuousMaintenanceIdeaNode,
+  getLatestVersion,
   loadState,
   saveState,
   updateTaskNodeForCommit
@@ -36,6 +39,29 @@ describe('changelog-engine', () => {
       fs.unlinkSync(testIdeaPath);
     }
     vi.restoreAllMocks();
+  });
+
+  describe('semver functions', () => {
+    it('determines semver bump correctly', () => {
+      expect(determineSemverBump('feat!: breaking change feature')).toBe('major');
+      expect(determineSemverBump('feat!: unscoped breaking change')).toBe('major');
+      expect(determineSemverBump('fix: resolve issue\n\nBREAKING CHANGE: api update')).toBe('major');
+      expect(determineSemverBump('feat(ui): add new button')).toBe('minor');
+      expect(determineSemverBump('fix(parser): fix buffer index')).toBe('patch');
+      expect(determineSemverBump('chore: update dependencies')).toBe('patch');
+    });
+
+    it('extracts latest version from changelog content', () => {
+      const content = '# Changelog\n\n## [1.2.3] - 2026-01-01\n- Feature';
+      expect(getLatestVersion(content)).toBe('1.2.3');
+      expect(getLatestVersion('# Changelog\n\n## [Unreleased]')).toBe('0.1.0');
+    });
+
+    it('bumps versions according to semantic versioning', () => {
+      expect(bumpVersion('1.2.3', 'major')).toBe('2.0.0');
+      expect(bumpVersion('1.2.3', 'minor')).toBe('1.3.0');
+      expect(bumpVersion('1.2.3', 'patch')).toBe('1.2.4');
+    });
   });
 
   describe('state management', () => {

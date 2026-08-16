@@ -217,17 +217,64 @@ export function classifyCommit(details: CommitDetails): CommitClassification {
   return { action: 'skip', reason: 'Non-critical repo modification' };
 }
 
+export function determineSemverBump(message: string): 'major' | 'minor' | 'patch' {
+  const msgLower = message.toLowerCase();
+  if (msgLower.includes('breaking change') || msgLower.includes('breaking-change') || /^[a-z]+(\([a-z0-9_.-]+\))?!:/.test(message)) {
+    return 'major';
+  }
+  if (message.startsWith('feat') || /^feat(\([a-z0-9_.-]+\))?:/.test(message)) {
+    return 'minor';
+  }
+  return 'patch';
+}
+
+export function getLatestVersion(changelogContent: string): string {
+  const match = changelogContent.match(/##\s*\[(\d+\.\d+\.\d+)\]/);
+  return match?.[1] || '0.1.0';
+}
+
+export function bumpVersion(currentVersion: string, bump: 'major' | 'minor' | 'patch'): string {
+  const parts = currentVersion.split('.').map((n) => Number.parseInt(n, 10));
+  let major = parts[0] ?? 0;
+  let minor = parts[1] ?? 1;
+  let patch = parts[2] ?? 0;
+
+  if (bump === 'major') {
+    major += 1;
+    minor = 0;
+    patch = 0;
+  } else if (bump === 'minor') {
+    minor += 1;
+    patch = 0;
+  } else {
+    patch += 1;
+  }
+
+  return `${major}.${minor}.${patch}`;
+}
+
 export function updateTaskNodeForCommit(
   commitDetails: CommitDetails,
   classification: CommitClassification,
   taskPath: string = TASK_NODE_PATH
 ): void {
-  const today = new Date().toISOString().split('T')[0];
+  const today = new Date().toISOString().split('T')[0]!;
 
   let rawContent = '';
   if (fs.existsSync(taskPath)) {
     rawContent = fs.readFileSync(taskPath, 'utf8');
   }
+
+  const domain = classification.domain || 'dexhelper';
+  const changelogFilename = domain === 'foundry' ? 'CHANGELOG-foundry.md' : 'CHANGELOG-dexhelper.md';
+  const changelogPath = path.join(process.cwd(), changelogFilename);
+  let latestVersion = '0.1.0';
+  if (fs.existsSync(changelogPath)) {
+    latestVersion = getLatestVersion(fs.readFileSync(changelogPath, 'utf8'));
+  }
+
+  const bumpType = determineSemverBump(commitDetails.message);
+  const nextVersion = bumpVersion(latestVersion, bumpType);
 
   const parsed = matter(rawContent);
   parsed.data.status = 'READY';
@@ -241,7 +288,8 @@ Target commit details injected by \`changelog-engine.ts\`:
 
 - **Commit SHA:** \`${commitDetails.sha}\`
 - **Classification Reason:** ${classification.reason}
-- **Recommended Domain:** ${classification.domain || 'dexhelper'}
+- **Recommended Domain:** ${domain}
+- **Suggested SemVer Bump:** \`${bumpType}\` (from \`${latestVersion}\` -> \`${nextVersion}\`)
 
 ## Commit Message
 \`\`\`text
@@ -253,7 +301,7 @@ ${commitDetails.files.map((f) => `- \`${f}\``).join('\n')}
 
 ## Evaluation Instructions
 As Changelogger, inspect the commit changes above.
-If a changelog entry is warranted, create a PR adding a concise bullet point under \`## [Unreleased]\` in \`CHANGELOG-dexhelper.md\` or \`CHANGELOG-foundry.md\`.
+If a changelog entry is warranted, create a PR adding a concise bullet point under \`## [Unreleased]\` or new release header \`## [${nextVersion}] - ${today}\` in \`${changelogFilename}\`.
 If no entry is necessary, submit an Empty PR.
 `;
 
