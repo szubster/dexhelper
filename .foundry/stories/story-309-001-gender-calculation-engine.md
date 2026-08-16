@@ -2,7 +2,7 @@
 id: story-309-001-gender-calculation-engine
 type: STORY
 title: Gen 2 Gender Calculation Engine
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-13'
 updated_at: '2026-08-16'
@@ -29,5 +29,5 @@ The logic must adhere to the formula: `female_threshold = gender_rate * 2`. A Po
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break this STORY down into actionable TASK nodes for the engineering team.
-- [ ] task-309-430-gen2-gender-calculation-engine
-- [ ] task-309-431-gen2-gender-calculation-qa
+- [x] task-309-430-gen2-gender-calculation-engine
+- [x] task-309-431-gen2-gender-calculation-qa

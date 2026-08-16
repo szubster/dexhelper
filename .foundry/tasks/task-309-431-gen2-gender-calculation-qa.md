@@ -2,13 +2,13 @@
 id: task-309-431-gen2-gender-calculation-qa
 type: TASK
 title: QA - Gen 2 Gender Calculation Utility
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-16'
 updated_at: '2026-08-16'
 depends_on:
   - task-309-430-gen2-gender-calculation-engine
-jules_session_id: '4167650424668125636'
+jules_session_id: null
 pr_number: null
 parent: story-309-001-gender-calculation-engine
 tags:

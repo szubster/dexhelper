@@ -2,7 +2,7 @@
 id: story-397-359-indexeddb-schema-retry-e2e
 type: STORY
 title: IndexedDB Storage Schema E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-16'
@@ -29,5 +29,5 @@ Integration and E2E Verification for the IndexedDB Storage Schema.
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-359-430-indexeddb-schema-e2e-impl
-- [ ] task-359-431-indexeddb-schema-e2e-qa
+- [x] task-359-430-indexeddb-schema-e2e-impl
+- [x] task-359-431-indexeddb-schema-e2e-qa
