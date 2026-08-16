@@ -2,20 +2,20 @@
 id: story-423-425-wasm-emulator-core-integration
 type: STORY
 title: WASM Emulator Core Integration
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-08-14'
 updated_at: '2026-08-16'
 depends_on:
-  - story-423-424-wasm-emulator-ui-and-rom-loader
+  - research-425-421-wasm-emulator-options
 jules_session_id: '1178001651502597617'
 pr_number: null
 parent: epic-343-423-wasm-emulator-integration
 tags:
   - emulator
   - wasm
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Suspended pending research on emulator options.'
 notes: ''
 ---
 
