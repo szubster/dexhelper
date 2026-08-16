@@ -29,9 +29,9 @@ Build the Roamer Dossier React component to display the internal stats of the Ge
 Based on the UI specification in `.foundry/docs/knowledge_base/ui/gen3_roamer_dashboard_spec.md`, create a component that displays a detailed breakdown of the roamer's internal stats, including Species ID, Level, HP, Status Condition, Internal IVs, and Personality Value. The UI must adhere strictly to the tactical hardware aesthetic.
 
 ## Acceptance Criteria
-- [ ] Build a React component for the Roamer Dossier.
-- [ ] Connect the component to the extracted Gen 3 roamer state data.
-- [ ] Display Species ID, Level, HP, Status Condition, Internal IVs, and Personality Value.
-- [ ] Include the Active Status Indicator (blinking/high-contrast dot).
-- [ ] Implement the Roamer IV Glitch Warning Module.
-- [ ] Ensure strict adherence to ADR 008 (tactical hardware aesthetic: `rounded-none`, `border-dashed`, `font-mono`).
+- [x] Build a React component for the Roamer Dossier.
+- [x] Connect the component to the extracted Gen 3 roamer state data.
+- [x] Display Species ID, Level, HP, Status Condition, Internal IVs, and Personality Value.
+- [x] Include the Active Status Indicator (blinking/high-contrast dot).
+- [x] Implement the Roamer IV Glitch Warning Module.
+- [x] Ensure strict adherence to ADR 008 (tactical hardware aesthetic: `rounded-none`, `border-dashed`, `font-mono`).
