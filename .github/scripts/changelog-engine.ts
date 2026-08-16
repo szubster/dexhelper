@@ -2,21 +2,21 @@
  * changelog-engine.ts
  * ─────────────────────────────────────────────────────────────────────────────
  * Engine script for changelog backfill and continuous maintenance.
- * Inspects repository history commit-by-commit, auto-detects non-changelog
- * commits to fast-forward the pointer, and dispatches Jules sessions when a
- * changelog entry is required.
+ * Leverages the standard Foundry Task Node lifecycle (.foundry/tasks/task-000-changelog-backfill.md).
+ * Auto-detects non-idea sub-node/chore commits to fast-forward the pointer,
+ * and re-opens the task node as READY with commit details for Jules session dispatching.
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import matter from 'gray-matter';
 
 export interface ChangelogState {
   mode: 'backfill' | 'continuous';
   last_processed_commit: string | null;
-  status: 'idle' | 'pending_jules' | 'paused_quota' | 'completed' | 'error';
-  active_session_id?: string | null;
+  status: 'idle' | 'pending_jules' | 'completed' | 'error';
   last_updated?: string;
 }
 
@@ -28,7 +28,7 @@ export interface CommitClassification {
 }
 
 const STATE_FILE_PATH = path.join(process.cwd(), '.foundry', 'changelog-state.json');
-const CHANGELOGGER_AGENT_PATH = path.join(process.cwd(), '.github', 'agents', 'changelogger.md');
+const TASK_NODE_PATH = path.join(process.cwd(), '.foundry', 'tasks', 'task-000-changelog-backfill.md');
 
 export function loadState(statePath: string = STATE_FILE_PATH): ChangelogState {
   if (!fs.existsSync(statePath)) {
@@ -217,131 +217,52 @@ export function classifyCommit(details: CommitDetails): CommitClassification {
   return { action: 'skip', reason: 'Non-critical repo modification' };
 }
 
-export async function dispatchJulesSession(
+export function updateTaskNodeForCommit(
   commitDetails: CommitDetails,
   classification: CommitClassification,
-  julesApiKey: string,
-  repo: string
-): Promise<{ success: boolean; sessionId?: string; isQuotaError?: boolean }> {
-  try {
-    let agentContext = 'As Changelogger, analyze this commit and update the appropriate changelog file.';
-    if (fs.existsSync(CHANGELOGGER_AGENT_PATH)) {
-      agentContext = fs.readFileSync(CHANGELOGGER_AGENT_PATH, 'utf8');
-    }
+  taskPath: string = TASK_NODE_PATH
+): void {
+  const today = new Date().toISOString().split('T')[0];
 
-    const domain = classification.domain || 'dexhelper';
-    const targetFile = domain === 'foundry' ? 'CHANGELOG-foundry.md' : 'CHANGELOG-dexhelper.md';
-
-    const promptText = `${agentContext}\n\n### ASSIGNED COMMIT TO EVALUATE
-Commit SHA: ${commitDetails.sha}
-Message: ${commitDetails.message}
-Modified Files:
-${commitDetails.files.join('\n')}
-
-Classification Reason: ${classification.reason}
-Target Changelog: ${targetFile}
-
-Please inspect the changes in this commit. If a changelog entry is warranted, create a PR adding a concise entry under '## [Unreleased]' in ${targetFile}. If no entry is necessary, submit an empty PR.`;
-
-    const payload = {
-      prompt: promptText,
-      sourceContext: {
-        source: `sources/github/${repo}`,
-        githubRepoContext: {
-          startingBranch: 'main'
-        }
-      },
-      automationMode: 'AUTO_CREATE_PR',
-      title: `Changelogger: Evaluate commit ${commitDetails.sha.slice(0, 7)}`
-    };
-
-    const res = await fetch('https://jules.googleapis.com/v1alpha/sessions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Goog-Api-Key': julesApiKey
-      },
-      body: JSON.stringify(payload)
-    });
-
-    const bodyText = await res.text();
-    let data: any = {};
-    try {
-      data = JSON.parse(bodyText);
-    } catch {
-      // JSON parse error
-    }
-
-    if (data?.error?.status === 'FAILED_PRECONDITION' || res.status === 429) {
-      process.stderr.write(
-        `::warning::Jules session failed due to quota/precondition (FAILED_PRECONDITION / 429). Will retry on next run.\n`
-      );
-      return { success: false, isQuotaError: true };
-    }
-
-    if (!res.ok || !data.id) {
-      process.stderr.write(`[changelog-engine] Failed to spawn Jules session: ${res.status} ${bodyText}\n`);
-      return { success: false };
-    }
-
-    process.stdout.write(`Successfully spawned Jules session: ${data.id}\n`);
-    return { success: true, sessionId: data.id };
-  } catch (err) {
-    process.stderr.write(`[changelog-engine] Network error dispatching Jules session: ${String(err)}\n`);
-    return { success: false };
-  }
-}
-
-export async function checkAndResetStaleSession(state: ChangelogState, julesApiKey: string): Promise<boolean> {
-  if (state.status !== 'pending_jules') {
-    return false;
+  let rawContent = '';
+  if (fs.existsSync(taskPath)) {
+    rawContent = fs.readFileSync(taskPath, 'utf8');
   }
 
-  // Check if session timestamp is stale (> 2 hours old)
-  if (state.last_updated) {
-    const elapsed = Date.now() - new Date(state.last_updated).getTime();
-    if (elapsed > 2 * 60 * 60 * 1000) {
-      process.stdout.write('[changelog-engine] Session timestamp >2h old. Resetting state status to idle.\n');
-      state.status = 'idle';
-      state.active_session_id = null;
-      return true;
-    }
+  const parsed = matter(rawContent);
+  parsed.data.status = 'READY';
+  parsed.data.jules_session_id = null;
+  parsed.data.updated_at = today;
+  parsed.data.owner_persona = 'changelogger';
+
+  const body = `# Changelog Backfill Commit Evaluation
+
+Target commit details injected by \`changelog-engine.ts\`:
+
+- **Commit SHA:** \`${commitDetails.sha}\`
+- **Classification Reason:** ${classification.reason}
+- **Recommended Domain:** ${classification.domain || 'dexhelper'}
+
+## Commit Message
+\`\`\`text
+${commitDetails.message}
+\`\`\`
+
+## Modified Files
+${commitDetails.files.map((f) => `- \`${f}\``).join('\n')}
+
+## Evaluation Instructions
+As Changelogger, inspect the commit changes above.
+If a changelog entry is warranted, create a PR adding a concise bullet point under \`## [Unreleased]\` in \`CHANGELOG-dexhelper.md\` or \`CHANGELOG-foundry.md\`.
+If no entry is necessary, submit an Empty PR.
+`;
+
+  const newContent = matter.stringify(body, parsed.data);
+  const dir = path.dirname(taskPath);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
   }
-
-  if (!state.active_session_id || !julesApiKey) {
-    state.status = 'idle';
-    return true;
-  }
-
-  try {
-    const res = await fetch(`https://jules.googleapis.com/v1alpha/sessions/${state.active_session_id}`, {
-      headers: { 'X-Goog-Api-Key': julesApiKey }
-    });
-
-    if (res.status === 404) {
-      process.stdout.write(`[changelog-engine] Session ${state.active_session_id} NOT_FOUND. Resetting status to idle.\n`);
-      state.status = 'idle';
-      state.active_session_id = null;
-      return true;
-    }
-
-    if (res.ok) {
-      const data = (await res.json()) as any;
-      const sessionState = data.state;
-      if (['FAILED', 'COMPLETED', 'TERMINATED', 'CANCELLED'].includes(sessionState)) {
-        process.stdout.write(
-          `[changelog-engine] Session ${state.active_session_id} ended with state ${sessionState}. Resetting status to idle.\n`
-        );
-        state.status = 'idle';
-        state.active_session_id = null;
-        return true;
-      }
-    }
-  } catch (err) {
-    process.stderr.write(`[changelog-engine] Error checking session liveliness: ${String(err)}\n`);
-  }
-
-  return false;
+  fs.writeFileSync(taskPath, newContent, 'utf8');
 }
 
 export function generateContinuousMaintenanceIdeaNode(): void {
@@ -389,15 +310,27 @@ Whenever an \`IDEA\` node is completed in the Foundry Engine (via \`foundry-hear
 
 export async function runChangelogEngine(): Promise<void> {
   const state = loadState();
-  const julesApiKey = process.env['JULES_API_KEY'] || '';
-  const repo = process.env['GITHUB_REPO'] || 'owner/repo';
 
-  // Check and reset stale session if active
-  await checkAndResetStaleSession(state, julesApiKey);
+  // If already in continuous mode, nothing to do here (foundry-heartbeat handles new ideas)
+  if (state.mode === 'continuous') {
+    process.stdout.write('[changelog-engine] System is in "continuous" mode. Historical backfill complete.\n');
+    return;
+  }
 
-  // Reset paused_quota status when a new run begins
-  if (state.status === 'paused_quota' || state.status === 'error') {
-    state.status = 'idle';
+  // Check current status of the task node
+  if (fs.existsSync(TASK_NODE_PATH)) {
+    try {
+      const taskRaw = fs.readFileSync(TASK_NODE_PATH, 'utf8');
+      const taskParsed = matter(taskRaw);
+      const taskStatus = taskParsed.data.status;
+
+      if (taskStatus === 'ACTIVE' || taskStatus === 'VERIFYING') {
+        process.stdout.write(`[changelog-engine] Backfill task is currently ${taskStatus}. Waiting for session completion.\n`);
+        return;
+      }
+    } catch {
+      // parse error
+    }
   }
 
   const commits = getCommitList();
@@ -433,39 +366,14 @@ export async function runChangelogEngine(): Promise<void> {
 
     process.stdout.write(`[changelog-engine] Evaluating commit ${sha.slice(0, 7)}: ${classification.reason}\n`);
 
-    if (!julesApiKey) {
-      process.stderr.write(
-        `[changelog-engine] JULES_API_KEY missing. Cannot dispatch session for ${sha.slice(0, 7)}. Pausing.\n`
-      );
-      state.status = 'error';
-      saveState(state);
-      return;
-    }
+    // Re-open task node as READY for this commit
+    updateTaskNodeForCommit(details, classification);
 
-    const dispatchResult = await dispatchJulesSession(details, classification, julesApiKey, repo);
-
-    if (dispatchResult.isQuotaError) {
-      process.stdout.write(
-        `[changelog-engine] Quota limit reached. Setting status to 'paused_quota' without advancing past ${sha.slice(0, 7)}.\n`
-      );
-      state.status = 'paused_quota';
-      saveState(state);
-      return;
-    }
-
-    if (dispatchResult.success) {
-      state.last_processed_commit = sha;
-      state.status = 'pending_jules';
-      state.active_session_id = dispatchResult.sessionId;
-      saveState(state);
-      process.stdout.write(`[changelog-engine] Dispatched Jules session for commit ${sha.slice(0, 7)}. Exiting cycle.\n`);
-      return;
-    }
-
-    // On non-quota network/dispatch error, pause execution at current commit to prevent skipping data
-    process.stderr.write(`[changelog-engine] Dispatch error for ${sha.slice(0, 7)}. Pausing for retry.\n`);
-    state.status = 'error';
+    state.last_processed_commit = sha;
+    state.status = 'pending_jules';
     saveState(state);
+
+    process.stdout.write(`[changelog-engine] Set task-000-changelog-backfill to READY for commit ${sha.slice(0, 7)}. Exiting cycle.\n`);
     return;
   }
 
@@ -475,6 +383,15 @@ export async function runChangelogEngine(): Promise<void> {
     state.status = 'idle';
     saveState(state);
     generateContinuousMaintenanceIdeaNode();
+
+    // Set backfill task node to COMPLETED
+    if (fs.existsSync(TASK_NODE_PATH)) {
+      const taskRaw = fs.readFileSync(TASK_NODE_PATH, 'utf8');
+      const taskParsed = matter(taskRaw);
+      taskParsed.data.status = 'COMPLETED';
+      fs.writeFileSync(TASK_NODE_PATH, matter.stringify(taskParsed.content, taskParsed.data), 'utf8');
+    }
+
     process.stdout.write('[changelog-engine] 🎉 History backfill complete! Switched mode to "continuous".\n');
   }
 }

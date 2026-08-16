@@ -1,29 +1,36 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import matter from 'gray-matter';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   type ChangelogState,
-  checkAndResetStaleSession,
   classifyCommit,
-  dispatchJulesSession,
   generateContinuousMaintenanceIdeaNode,
   loadState,
-  saveState
+  saveState,
+  updateTaskNodeForCommit
 } from './changelog-engine.ts';
 
 describe('changelog-engine', () => {
   const testStatePath = path.join(process.cwd(), '.foundry', 'test-changelog-state.json');
+  const testTaskPath = path.join(process.cwd(), '.foundry', 'tasks', 'test-task-000-backfill.md');
   const testIdeaPath = path.join(process.cwd(), '.foundry', 'ideas', 'idea-000-changelog-continuous-maintenance.md');
 
   beforeEach(() => {
     if (fs.existsSync(testStatePath)) {
       fs.unlinkSync(testStatePath);
     }
+    if (fs.existsSync(testTaskPath)) {
+      fs.unlinkSync(testTaskPath);
+    }
   });
 
   afterEach(() => {
     if (fs.existsSync(testStatePath)) {
       fs.unlinkSync(testStatePath);
+    }
+    if (fs.existsSync(testTaskPath)) {
+      fs.unlinkSync(testTaskPath);
     }
     if (fs.existsSync(testIdeaPath)) {
       fs.unlinkSync(testIdeaPath);
@@ -137,41 +144,29 @@ describe('changelog-engine', () => {
     });
   });
 
-  describe('stale session detection & continuous node creation', () => {
-    it('resets stale status when session timestamp is older than 2 hours', async () => {
-      const state: ChangelogState = {
-        mode: 'backfill',
-        last_processed_commit: '123',
-        status: 'pending_jules',
-        active_session_id: 'sess-stale',
-        last_updated: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString()
+  describe('task node updates & continuous node creation', () => {
+    it('updates task node status to READY and injects commit details', () => {
+      const commitDetails = {
+        sha: 'abcdef1234567890',
+        message: 'feat(ui): add new party analyzer widget',
+        files: ['src/components/PartyAnalyzer.tsx']
+      };
+      const classification = {
+        action: 'dispatch' as const,
+        reason: 'Ad-hoc user-facing Dexhelper code modification',
+        domain: 'dexhelper' as const
       };
 
-      const wasReset = await checkAndResetStaleSession(state, 'key');
-      expect(wasReset).toBe(true);
-      expect(state.status).toBe('idle');
-      expect(state.active_session_id).toBeNull();
-    });
+      updateTaskNodeForCommit(commitDetails, classification, testTaskPath);
 
-    it('resets status when Jules API returns COMPLETED or FAILED for active session', async () => {
-      const mockFetch = vi.fn<typeof fetch>().mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => ({ state: 'COMPLETED' })
-      } as Response);
-      vi.stubGlobal('fetch', mockFetch);
+      expect(fs.existsSync(testTaskPath)).toBe(true);
+      const raw = fs.readFileSync(testTaskPath, 'utf8');
+      const parsed = matter(raw);
 
-      const state: ChangelogState = {
-        mode: 'backfill',
-        last_processed_commit: '123',
-        status: 'pending_jules',
-        active_session_id: 'sess-done',
-        last_updated: new Date().toISOString()
-      };
-
-      const wasReset = await checkAndResetStaleSession(state, 'key');
-      expect(wasReset).toBe(true);
-      expect(state.status).toBe('idle');
+      expect(parsed.data.status).toBe('READY');
+      expect(parsed.data.owner_persona).toBe('changelogger');
+      expect(parsed.content).toContain('abcdef1234567890');
+      expect(parsed.content).toContain('feat(ui): add new party analyzer widget');
     });
 
     it('creates continuous maintenance idea node correctly', () => {
@@ -180,48 +175,6 @@ describe('changelog-engine', () => {
       const content = fs.readFileSync(testIdeaPath, 'utf8');
       expect(content).toContain('id: idea-000-changelog-continuous-maintenance');
       expect(content).toContain('Continuous Changelog Maintenance for Merged Ideas');
-    });
-  });
-
-  describe('dispatchJulesSession', () => {
-    it('handles quota / FAILED_PRECONDITION errors gracefully', async () => {
-      const mockFetch = vi.fn<typeof fetch>().mockResolvedValueOnce({
-        ok: false,
-        status: 400,
-        text: async () => JSON.stringify({ error: { status: 'FAILED_PRECONDITION' } })
-      } as Response);
-
-      vi.stubGlobal('fetch', mockFetch);
-
-      const result = await dispatchJulesSession(
-        { sha: '12345678', message: 'test', files: ['src/app.ts'] },
-        { action: 'dispatch', reason: 'Ad-hoc app change', domain: 'dexhelper' },
-        'fake-key',
-        'test/repo'
-      );
-
-      expect(result.success).toBe(false);
-      expect(result.isQuotaError).toBe(true);
-    });
-
-    it('returns success on 200 response with session ID', async () => {
-      const mockFetch = vi.fn<typeof fetch>().mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        text: async () => JSON.stringify({ id: 'jules-session-999' })
-      } as Response);
-
-      vi.stubGlobal('fetch', mockFetch);
-
-      const result = await dispatchJulesSession(
-        { sha: '12345678', message: 'test', files: ['src/app.ts'] },
-        { action: 'dispatch', reason: 'Ad-hoc app change', domain: 'dexhelper' },
-        'fake-key',
-        'test/repo'
-      );
-
-      expect(result.success).toBe(true);
-      expect(result.sessionId).toBe('jules-session-999');
     });
   });
 });

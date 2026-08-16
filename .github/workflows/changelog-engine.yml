@@ -9,13 +9,13 @@ on:
       - main
     paths:
       - '.foundry/changelog-state.json'
+      - '.foundry/tasks/task-000-changelog-backfill.md'
 
 concurrency:
   group: changelog-engine
 
 permissions:
   contents: write
-  actions: write
 
 jobs:
   run_changelog_engine:
@@ -48,34 +48,17 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Run Changelog Engine Script
-        env:
-          JULES_API_KEY: ${{ secrets.JULES_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPO: ${{ github.repository }}
         run: |
           node --strip-types .github/scripts/changelog-engine.ts
 
-      - name: Commit State Pointer
+      - name: Commit Backfill Task Updates
         run: |
           set -o pipefail
-          if [[ -n $(git status --porcelain .foundry/changelog-state.json) ]]; then
-            git add .foundry/changelog-state.json
-            git commit -m "Changelog: Update backfill/continuous state pointer"
+          if [[ -n $(git status --porcelain .foundry) ]]; then
+            git add .foundry
+            git commit -m "Foundry: Re-open task-000-changelog-backfill for commit evaluation"
             git pull --rebase origin main
             git push origin main
           else
-            echo "No state pointer changes to commit."
-          fi
-
-      - name: Trigger Next Backfill Cycle If Needed
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          if [ -f .foundry/changelog-state.json ]; then
-            mode=$(jq -r '.mode // "continuous"' .foundry/changelog-state.json)
-            status=$(jq -r '.status // "idle"' .foundry/changelog-state.json)
-            if [ "$mode" = "backfill" ] && [ "$status" = "idle" ]; then
-              echo "Backfill still in progress. Triggering next cycle..."
-              gh workflow run changelog-engine.yml --ref main || true
-            fi
+            echo "No backfill task changes to commit."
           fi
