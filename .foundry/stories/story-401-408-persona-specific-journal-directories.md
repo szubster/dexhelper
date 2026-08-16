@@ -27,3 +27,5 @@ Transition the system to use timestamped or session-unique markdown files for jo
 ## Acceptance Criteria
 - [ ] Implement logic to generate timestamped or session-unique markdown files.
 - [ ] Ensure files are saved in the correct persona-specific directory.
+- [ ] task-408-430-implement-persona-specific-journals-impl
+- [ ] task-408-431-implement-persona-specific-journals-qa
