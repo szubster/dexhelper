@@ -2,13 +2,13 @@
 id: task-424-429-wasm-emulator-qa
 type: TASK
 title: WASM Emulator QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-15'
 updated_at: '2026-08-16'
 depends_on:
   - task-424-428-wasm-emulator-ui-component
-jules_session_id: null
+jules_session_id: '10369836402744093764'
 pr_number: null
 parent: story-423-424-wasm-emulator-ui-and-rom-loader
 tags:
