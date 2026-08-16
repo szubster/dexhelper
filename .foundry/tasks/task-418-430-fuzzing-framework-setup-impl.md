@@ -26,5 +26,5 @@ notes: ''
 Add `fast-check` to the orchestrator scripts package and configure the base fuzzing utilities.
 
 ## Acceptance Criteria
-- [ ] `fast-check` dependency is added to `.github/scripts/package.json`.
-- [ ] Fuzzing utilities or a placeholder file is set up and tested for `fast-check` execution.
+- [x] `fast-check` dependency is added to `.github/scripts/package.json`.
+- [x] Fuzzing utilities or a placeholder file is set up and tested for `fast-check` execution.
