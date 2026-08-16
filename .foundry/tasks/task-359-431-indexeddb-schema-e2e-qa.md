@@ -2,13 +2,13 @@
 id: task-359-431-indexeddb-schema-e2e-qa
 type: TASK
 title: IndexedDB Storage Schema E2E QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-16'
 updated_at: '2026-08-16'
 depends_on:
   - task-359-430-indexeddb-schema-e2e-impl
-jules_session_id: null
+jules_session_id: '12102491039704430075'
 pr_number: null
 parent: story-397-359-indexeddb-schema-retry-e2e
 tags:
