@@ -25,7 +25,7 @@ notes: ''
 Verify the full implementation of the emulator UI and ROM loading functionality. Ensure that ROMs are securely stored in the browser's persistent storage (IndexedDB/LocalStorage) and that the UI adheres strictly to the tactical hardware aesthetic.
 
 ## Acceptance Criteria
-- [ ] Verify the UI allows loading ROMs via local file picker and drag-and-drop.
-- [ ] Verify the loaded ROM is successfully saved in and retrieved from IndexedDB/LocalStorage.
-- [ ] Verify the UI adheres to the tactical hardware styling (ADR 008).
-- [ ] Review the unit tests implemented by the coder for both the storage layer and UI component.
+- [x] Verify the UI allows loading ROMs via local file picker and drag-and-drop.
+- [x] Verify the loaded ROM is successfully saved in and retrieved from IndexedDB/LocalStorage.
+- [x] Verify the UI adheres to the tactical hardware styling (ADR 008).
+- [x] Review the unit tests implemented by the coder for both the storage layer and UI component.
