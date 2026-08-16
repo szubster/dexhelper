@@ -34,3 +34,6 @@ Implement comprehensive E2E testing to verify the Gen 3 Volcanic Ash UI integrat
 ## Acceptance Criteria
 - [ ] Write an E2E test to verify the Volcanic Ash count renders correctly when a relevant Gen 3 save file is loaded.
 - [ ] Document the test execution and validation results in the `qa` persona journal.
+
+### QA Rejection
+The UI looks fine but `isGen3Save` is a stub returning false which fails to parse the save entirely during e2e. Rejecting task-348-100-gen3-ash-ui-impl so it can be fixed.
