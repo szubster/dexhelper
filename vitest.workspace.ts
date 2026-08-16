@@ -11,6 +11,7 @@ export default [
         'src/routes/**/*.test.{ts,tsx}',
         'src/contexts/**/*.test.{ts,tsx}',
         'src/hooks/**/*.test.{ts,tsx}',
+        'src/**/*.browser.test.{ts,tsx}'
       ]
     },
   },
@@ -29,6 +30,7 @@ export default [
         'src/routes/**/*.test.{ts,tsx}',
         'src/contexts/**/*.test.{ts,tsx}',
         'src/hooks/**/*.test.{ts,tsx}',
+        'src/**/*.browser.test.{ts,tsx}'
       ],
     },
   },
