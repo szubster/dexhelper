@@ -25,27 +25,21 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `49dc139a6eeac048840a8a8f543822a94ccc8cb4`
+- **Commit SHA:** `a8bd4639d4c7702841582f812eefe73421ec2bd5`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
 - **Suggested SemVer Bump:** `minor` (from `0.1.0` -> `0.2.0`)
 
 ## Commit Message
 ```text
-feat: Implement PWA functionality with a custom service worker and integrate React Query.
+feat: Implement initial Pokedex application with save file parsing and UI, removing unused dependencies.
 ```
 
 ## Modified Files
-- `index.html`
 - `package-lock.json`
 - `package.json`
-- `public/icon-192.png`
-- `public/icon-512.png`
-- `public/icon-96.png`
-- `public/manifest.json`
-- `public/sw.js`
-- `src/main.tsx`
-- `vite.config.ts`
+- `src/App.tsx`
+- `src/components/AIChat.tsx`
 
 ## Evaluation Instructions
 As Changelogger, inspect the commit changes above.
