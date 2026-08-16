@@ -26,6 +26,6 @@ notes: ''
 Implement the core parsing logic to extract the Gen 3 Trainer Card upgrade criteria for the Pokedex and Hall of Fame. Add a `Gen3TrainerCard` interface with `hasHallOfFame`, `hasHoennDex`, and `hasNationalDex` boolean properties, and add `gen3TrainerCard` to `SaveData`. The logic should check for `hallOfFameCount > 0`, `hoennDexCount === 202`, and `nationalDexCount === 386`. Ensure strict adherence to the schema guidelines.
 
 ## Acceptance Criteria
-- [ ] Define `Gen3TrainerCard` in `src/engine/saveParser/parsers/common.ts` and add it to `SaveData`.
-- [ ] Construct and return `gen3TrainerCard` object within `parseGen3`.
-- [ ] Verify the implementation using appropriate unit tests.
+- [x] Define `Gen3TrainerCard` in `src/engine/saveParser/parsers/common.ts` and add it to `SaveData`.
+- [x] Construct and return `gen3TrainerCard` object within `parseGen3`.
+- [x] Verify the implementation using appropriate unit tests.

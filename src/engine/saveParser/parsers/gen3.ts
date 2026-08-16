@@ -1433,6 +1433,12 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     }
     const nationalDexCount = owned.size;
 
+    const gen3TrainerCard = {
+      hasHallOfFame: hallOfFameCount > 0,
+      hasHoennDex: hoennDexCount === 202,
+      hasNationalDex: nationalDexCount === 386,
+    };
+
     let pc: number[] = [];
     let pcDetails: import('./common').PokemonInstance[] = [];
     let currentBoxCount = 0;
@@ -1485,6 +1491,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       ...(gen3Pokeblocks ? { gen3Pokeblocks } : {}),
       gen3TrickHouse: parseTrickHouse(view, section1Offset),
       ...(gen3MatchCall ? { gen3MatchCall } : {}),
+      gen3TrainerCard,
     };
     if (gen3FeebasSeed !== undefined) {
       result.gen3FeebasSeed = gen3FeebasSeed;

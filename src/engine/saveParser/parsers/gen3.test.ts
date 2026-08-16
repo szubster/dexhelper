@@ -2095,4 +2095,35 @@ describe('parseGen3 (trainer flags integration)', () => {
     expect(result.gen3TrainerRematchFlags?.length).toBe(100);
     expect(result.gen3TrainerRematchFlags?.[0]).toBe(3);
   });
+
+  it('correctly constructs gen3TrainerCard', () => {
+    const buffer = new ArrayBuffer(131072);
+    const view = new DataView(buffer);
+
+    // Section 0 setup
+    const section0Offset = 0xe000;
+    view.setUint16(section0Offset + 4084, 0, true);
+    view.setUint32(section0Offset + 4088, 0x08012025, true);
+    view.setUint32(section0Offset + 4092, 25, true);
+
+    // Section 1 setup
+    const section1Offset = 0xe000 + 1 * 4096;
+    view.setUint16(section1Offset + 4084, 1, true);
+    view.setUint32(section1Offset + 4088, 0x08012025, true);
+    view.setUint32(section1Offset + 4092, 25, true);
+
+    // Section 2 setup (required by parseGen3)
+    const section2Offset = 0xe000 + 2 * 4096;
+    view.setUint16(section2Offset + 4084, 2, true);
+    view.setUint32(section2Offset + 4088, 0x08012025, true);
+    view.setUint32(section2Offset + 4092, 25, true);
+
+    const saveData = parseGen3(view);
+    expect(saveData.gen3TrainerCard).toBeDefined();
+    expect(saveData.gen3TrainerCard).toEqual({
+      hasHallOfFame: false,
+      hasHoennDex: false,
+      hasNationalDex: false,
+    });
+  });
 });

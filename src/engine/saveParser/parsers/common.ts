@@ -101,6 +101,12 @@ export interface Gen3MixRecord {
   payload?: Uint8Array;
 }
 
+export interface Gen3TrainerCard {
+  hasHallOfFame: boolean;
+  hasHoennDex: boolean;
+  hasNationalDex: boolean;
+}
+
 export interface Gen3TVShow {
   kind: number;
   active: boolean;
@@ -364,6 +370,8 @@ export interface SaveData {
   gen3TrainerDefeatFlags?: boolean[];
   /** Gen 3 specific: Rematch trainer state flags */
   gen3TrainerRematchFlags?: number[];
+  /** Gen 3 specific: Trainer Card Upgrade conditions */
+  gen3TrainerCard?: Gen3TrainerCard;
 }
 
 // Removed byte helper as DataView provides getUint8 natively.
