@@ -2,12 +2,12 @@
 id: story-401-408-persona-specific-journal-directories
 type: STORY
 title: Implement Persona-Specific Journal Directories
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-14'
+updated_at: '2026-08-16'
 depends_on: []
-jules_session_id: '5799943991093245774'
+jules_session_id: '18056465718335660648'
 pr_number: null
 parent: epic-335-401-implement-conflictless-journals-retry
 tags:
