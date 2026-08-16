@@ -30,6 +30,6 @@ Downstream consumers like the Route Radar controller need to ingest structured m
 Define the final structured data format for Route requirements and integrate the Mach and Acro parsers to output this structure. Follow `.foundry/docs/knowledge_base/gen3_map_parsing.md`.
 
 ## Acceptance Criteria
-- [ ] Define the integrated Map Requirement data structure for bikes.
-- [ ] Integrate Mach and Acro parsers to output this format.
-- [ ] Write tests ensuring proper integration and data structure formatting.
+- [x] Define the integrated Map Requirement data structure for bikes.
+- [x] Integrate Mach and Acro parsers to output this format.
+- [x] Write tests ensuring proper integration and data structure formatting.
