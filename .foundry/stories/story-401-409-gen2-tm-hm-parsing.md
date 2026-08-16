@@ -2,12 +2,12 @@
 id: story-401-409-gen2-tm-hm-parsing
 type: STORY
 title: Gen 2 TM/HM Parsing
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-14'
+updated_at: '2026-08-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2904662752158940396'
 pr_number: null
 parent: epic-110-401-tm-hm-save-parsing-v2
 tags:
