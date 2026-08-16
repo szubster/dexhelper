@@ -2,11 +2,12 @@
 id: task-354-391-gen3-wonder-card-extraction-impl
 type: TASK
 title: Gen 3 Wonder Card Extraction Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-02'
 updated_at: '2026-08-16'
-depends_on: []
+depends_on:
+  - research-391-393-gen3-wonder-card-offsets
 jules_session_id: '2444734361635274119'
 pr_number: null
 parent: story-345-354-gen3-wonder-card-extraction
@@ -15,8 +16,8 @@ tags:
   - mystery-gift
   - data-extraction
 research_references: []
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 2
+rejection_reason: 'Suspended pending research for exact memory offsets'
 notes: ''
 ---
 
