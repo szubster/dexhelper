@@ -343,3 +343,17 @@ The `SaveHistoryDB` database is used to track and store user save states and dif
 *   `indexes`:
     *   **Key Type:** `string`
     *   **Value Type:** `Record<string, unknown>`
+
+---
+
+## 15. Changelog & Continuous Release Guidelines
+
+To ensure accurate historical tracking and continuous release notes across both Dexhelper and The Foundry:
+
+1. **Dual Changelogs**:
+   - `CHANGELOG-dexhelper.md`: Tracks application changes, UI features, save file parsing, game trackers, and user-facing capabilities.
+   - `CHANGELOG-foundry.md`: Tracks Foundry engine automation, DAG orchestrator updates, heartbeat routines, personas, and system tooling.
+
+2. **Ad-Hoc Changes Without IDEA Nodes**:
+   - Any contributor or persona submitting ad-hoc changes (without an associated IDEA node completion) MUST evaluate whether the change introduces significant new functionality, bug fixes, or system behaviors.
+   - If significant, an appropriate entry under `## [Unreleased]` must be included in `CHANGELOG-dexhelper.md` or `CHANGELOG-foundry.md` within the PR.
