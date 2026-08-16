@@ -29,4 +29,5 @@ Verify the core logic for detecting conflicts during Cloudflare R2 syncing with 
 - E2E Integration and verification of the logic from `story-411-420-r2-conflict-detection-logic`.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Generate TASK node(s) for the E2E verification of conflict detection logic.
+- [x] Tech Lead: Generate TASK node(s) for the E2E verification of conflict detection logic.
+- [ ] task-421-432-r2-conflict-detection-e2e
