@@ -2,10 +2,10 @@
 id: epic-121-345-gen3-mystery-gift-data-extraction
 type: EPIC
 title: Gen 3 Mystery Gift Data Extraction
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-07-25'
-updated_at: '2026-08-02'
+updated_at: '2026-08-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - data-extraction
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
 
@@ -29,8 +29,8 @@ This Epic covers the extraction of Mystery Gift data (including Wonder Cards and
 - Knowledge of Gen 3 save file structure and Mystery Gift memory blocks.
 
 ## Acceptance Criteria
-- [ ] Extract Wonder Card data from Gen 3 save files.
-- [ ] Extract active event flags associated with Mystery Gift (e.g., Aurora Ticket, MysticTicket).
-- [ ] Integrate with the existing save file parsing engine in DexHelper.
+- [x] Extract Wonder Card data from Gen 3 save files.
+- [x] Extract active event flags associated with Mystery Gift (e.g., Aurora Ticket, MysticTicket).
+- [x] Integrate with the existing save file parsing engine in DexHelper.
 - [x] Story Owner: Break down this Epic into manageable Stories.
-- [ ] story-345-354-gen3-wonder-card-extraction
+- [x] story-345-354-gen3-wonder-card-extraction
