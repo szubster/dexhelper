@@ -2,13 +2,13 @@
 id: task-403-419-gen3-iv-pv-integration-impl
 type: TASK
 title: Implement Integration Tests for Gen 3 IV/PV Extraction
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-11'
-updated_at: '2026-08-15'
+updated_at: '2026-08-16'
 depends_on:
   - story-112-402-gen3-iv-pv-extraction
-jules_session_id: '9461419360079009733'
+jules_session_id: null
 pr_number: null
 parent: story-112-403-integration-e2e
 tags:
