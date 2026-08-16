@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AssistantRouteImport } from './routes/assistant'
 import { Route as DagRouteImport } from './routes/dag'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as EmulatorRouteImport } from './routes/emulator'
 import { Route as StorageRouteImport } from './routes/storage'
 import { Route as PokemonPokemonIdRouteImport } from './routes/pokemon.$pokemonId'
 
@@ -36,6 +37,11 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmulatorRoute = EmulatorRouteImport.update({
+  id: '/emulator',
+  path: '/emulator',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StorageRoute = StorageRouteImport.update({
   id: '/storage',
   path: '/storage',
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/assistant': typeof AssistantRoute
   '/dag': typeof DagRoute
   '/dashboard': typeof DashboardRoute
+  '/emulator': typeof EmulatorRoute
   '/storage': typeof StorageRoute
   '/pokemon/$pokemonId': typeof PokemonPokemonIdRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/assistant': typeof AssistantRoute
   '/dag': typeof DagRoute
   '/dashboard': typeof DashboardRoute
+  '/emulator': typeof EmulatorRoute
   '/storage': typeof StorageRoute
   '/pokemon/$pokemonId': typeof PokemonPokemonIdRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/assistant': typeof AssistantRoute
   '/dag': typeof DagRoute
   '/dashboard': typeof DashboardRoute
+  '/emulator': typeof EmulatorRoute
   '/storage': typeof StorageRoute
   '/pokemon/$pokemonId': typeof PokemonPokemonIdRoute
 }
@@ -79,6 +88,7 @@ export interface FileRouteTypes {
     | '/assistant'
     | '/dag'
     | '/dashboard'
+    | '/emulator'
     | '/storage'
     | '/pokemon/$pokemonId'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
     | '/assistant'
     | '/dag'
     | '/dashboard'
+    | '/emulator'
     | '/storage'
     | '/pokemon/$pokemonId'
   id:
@@ -95,6 +106,7 @@ export interface FileRouteTypes {
     | '/assistant'
     | '/dag'
     | '/dashboard'
+    | '/emulator'
     | '/storage'
     | '/pokemon/$pokemonId'
   fileRoutesById: FileRoutesById
@@ -104,6 +116,7 @@ export interface RootRouteChildren {
   AssistantRoute: typeof AssistantRoute
   DagRoute: typeof DagRoute
   DashboardRoute: typeof DashboardRoute
+  EmulatorRoute: typeof EmulatorRoute
   StorageRoute: typeof StorageRoute
   PokemonPokemonIdRoute: typeof PokemonPokemonIdRoute
 }
@@ -138,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/emulator': {
+      id: '/emulator'
+      path: '/emulator'
+      fullPath: '/emulator'
+      preLoaderRoute: typeof EmulatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/storage': {
       id: '/storage'
       path: '/storage'
@@ -160,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   AssistantRoute: AssistantRoute,
   DagRoute: DagRoute,
   DashboardRoute: DashboardRoute,
+  EmulatorRoute: EmulatorRoute,
   StorageRoute: StorageRoute,
   PokemonPokemonIdRoute: PokemonPokemonIdRoute,
 }

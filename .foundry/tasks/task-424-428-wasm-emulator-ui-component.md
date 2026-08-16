@@ -26,7 +26,7 @@ Implement the UI for the emulator and ROM loading via local file picker or drag-
 As defined in ADR 008, the UI component must use tactical hardware styling: `rounded-none`, `border-dashed`, and monospaced telemetry fonts.
 
 ## Acceptance Criteria
-- [ ] Implement UI for the emulator and ROM loader (file picker and drag-and-drop).
-- [ ] Integrate the UI with the ROM storage layer.
-- [ ] Apply tactical hardware aesthetic styles (ADR 008).
-- [ ] Implement unit tests for the UI component (using vitest-browser-react).
+- [x] Implement UI for the emulator and ROM loader (file picker and drag-and-drop).
+- [x] Integrate the UI with the ROM storage layer.
+- [x] Apply tactical hardware aesthetic styles (ADR 008).
+- [x] Implement unit tests for the UI component (using vitest-browser-react).
