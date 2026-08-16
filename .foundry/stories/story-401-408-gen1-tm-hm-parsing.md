@@ -26,4 +26,6 @@ notes: ''
 Implement the parsing of Gen 1 TM/HM inventory and event flags from the save file. This includes extracting item quantities and checking event flags for one-time TMs, while strictly avoiding inline magic numbers and using module-level constants. Use full PokeData property names as per ADR 015.
 
 ## Acceptance Criteria
-- [ ] Break down into multiple TASK nodes for implementation and QA.
+- [x] Break down into multiple TASK nodes for implementation and QA.
+- [ ] task-408-430-gen1-tm-hm-parsing-impl
+- [ ] task-408-431-gen1-tm-hm-parsing-qa
