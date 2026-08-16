@@ -38,3 +38,4 @@ Currently, valid item lists are either manually maintained or fetched ad-hoc. Ma
 - [x] story-087-128-dynamic-item-list-parsing
 - [x] story-087-245-item-list-validation
 - [x] story-087-280-item-runtime-integration
+- [ ] story-087-427-dynamic-item-list-parsing-e2e

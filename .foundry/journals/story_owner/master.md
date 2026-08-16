@@ -159,3 +159,6 @@ When writing STORY nodes dynamically, always list the existing files in the dire
 ## Learnings
 - **ADR 025 Enforcement:** When breaking down epics, it is critical to cross-reference architectural decisions (ADRs). In this session, an epic required extracting the internal RTC from a Gen 3 save file. However, ADR 025 explicitly mandates an "RTC-Independent Fallback Strategy" utilizing system time and UI overrides. The RTC extraction requirement was therefore bypassed and documented via a RESEARCH node to maintain architectural compliance.
 - **Late Binding Pattern:** Utilized the late-binding pattern to dynamically generate a RESEARCH node to investigate the RTC conflict and subsequently generated the correct implementation stories for parsing the Shoal items and the mandated E2E verification story.
+
+## 2026-08-16: E2E Requirement for Epics
+Learned that Epics must always have a final STORY dedicated exclusively to Integration and E2E Verification to avoid rejection from the orchestrator.
