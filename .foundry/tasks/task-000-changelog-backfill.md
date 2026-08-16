@@ -25,21 +25,26 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `ad5c67a2a94e052d27b2375415c79311baf2bfb7`
+- **Commit SHA:** `5dc74ecb97f2ce7914bd98ab158ff1efbd351816`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
+- **Suggested SemVer Bump:** `minor` (from `0.1.0` -> `0.2.0`)
 
 ## Commit Message
 ```text
-feat: Set up GitHub Actions for CI and GitHub Pages deployment, and configure Vite base path.
+feat: Implement core Pokedex functionality with PokeAPI integration, PWA support, and updated dependencies.
 ```
 
 ## Modified Files
-- `.github/workflows/ci.yml`
-- `.github/workflows/deploy.yml`
+- `package-lock.json`
+- `package.json`
+- `src/App.tsx`
+- `src/components/PokemonDetails.tsx`
+- `src/main.tsx`
+- `src/utils/pokeapi.ts`
 - `vite.config.ts`
 
 ## Evaluation Instructions
 As Changelogger, inspect the commit changes above.
-If a changelog entry is warranted, create a PR adding a concise bullet point under `## [Unreleased]` in `CHANGELOG-dexhelper.md` or `CHANGELOG-foundry.md`.
+If a changelog entry is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.2.0] - 2026-08-16` in `CHANGELOG-dexhelper.md`.
 If no entry is necessary, submit an Empty PR.
