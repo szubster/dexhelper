@@ -2,12 +2,12 @@
 id: task-409-430-gen2-tm-hm-parsing-impl
 type: TASK
 title: Implement Gen 2 TM/HM Parsing
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-16'
 updated_at: '2026-08-16'
 depends_on: []
-jules_session_id: '8123197213852891084'
+jules_session_id: null
 pr_number: null
 parent: story-401-409-gen2-tm-hm-parsing
 tags:
@@ -32,5 +32,8 @@ Implement the parsing logic for Gen 2 TM/HM inventory and event flags from the s
 4.  **Bitwise Mapping:** When parsing bitwise blocks (e.g., event flags) using the `DataView` API, you must explicitly map the specific bit offsets corresponding to target events. Just extracting the raw array is insufficient.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 2 TM/HM parsing logic adhering to Section 13 guidelines.
-- [ ] Add unit tests verifying parsing logic and `RangeError` handling.
+- [x] Implement Gen 2 TM/HM parsing logic adhering to Section 13 guidelines.
+- [x] Add unit tests verifying parsing logic and `RangeError` handling.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
