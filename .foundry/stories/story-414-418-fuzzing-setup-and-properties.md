@@ -26,4 +26,7 @@ notes: ''
 Set up `fast-check` and define the initial set of properties to verify the DAG state evaluation logic.
 
 ## Acceptance Criteria
-- [ ] Tasks generated.
+- [x] Tasks generated.
+- [ ] task-418-430-fuzzing-framework-setup-impl
+- [ ] task-418-431-dag-evaluation-properties-impl
+- [ ] task-418-432-dag-evaluation-properties-qa
