@@ -1507,6 +1507,47 @@ describe('parseGen3PokemonPVAndIVs', () => {
     const view = new DataView(buffer);
     expect(() => parseGen3PokemonPVAndIVs(view, 0)).toThrowError('The save file is corrupted or incomplete.');
   });
+
+  it('should correctly parse IVs and PVs from an offset located in Bank B', () => {
+    const buffer = new ArrayBuffer(0xe000 + 100);
+    const view = new DataView(buffer);
+    const offset = 0xe000;
+
+    const pv = 0x12345678;
+    const otId = 0xabcdef01;
+    view.setUint32(offset + 0, pv, true);
+    view.setUint32(offset + 4, otId, true);
+
+    const decryptionKey = pv ^ otId;
+
+    const hp = 31;
+    const attack = 30;
+    const defense = 29;
+    const speed = 28;
+    const specialAttack = 27;
+    const specialDefense = 26;
+
+    const ivs =
+      (hp << 0) | (attack << 5) | (defense << 10) | (speed << 15) | (specialAttack << 20) | (specialDefense << 25);
+
+    const encryptedIVs = ivs ^ decryptionKey;
+    view.setUint32(offset + 72, encryptedIVs, true);
+
+    const result = parseGen3PokemonPVAndIVs(view, offset);
+    expect(result.pv).toBe(pv);
+    expect(result.hp).toBe(hp);
+    expect(result.attack).toBe(attack);
+    expect(result.defense).toBe(defense);
+    expect(result.speed).toBe(speed);
+    expect(result.specialAttack).toBe(specialAttack);
+    expect(result.specialDefense).toBe(specialDefense);
+  });
+
+  it('should throw corrupted error on out-of-bounds reads within Bank B', () => {
+    const buffer = new ArrayBuffer(0xe000 + 10);
+    const view = new DataView(buffer);
+    expect(() => parseGen3PokemonPVAndIVs(view, 0xe000)).toThrowError('The save file is corrupted or incomplete.');
+  });
 });
 
 describe('parseGen3MetLocation', () => {

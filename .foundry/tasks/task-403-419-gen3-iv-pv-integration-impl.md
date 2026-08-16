@@ -35,7 +35,7 @@ As part of `story-112-403-integration-e2e`, we need to write robust integration 
    - Verify that corrupted or artificially small mock saves trigger a standard `RangeError` which the extraction function properly catches and re-throws as "The save file is corrupted or incomplete." as per ADR 010 / schema rules.
 
 ## Acceptance Criteria
-- [ ] Integration tests for Gen 3 IV/PV extraction are written using Vitest.
-- [ ] Tests validate A/B banking logic and relative offsets.
-- [ ] Tests validate correct handling and re-throwing of RangeErrors for bounds issues.
-- [ ] Tests pass via `pnpm test`.
+- [x] Integration tests for Gen 3 IV/PV extraction are written using Vitest.
+- [x] Tests validate A/B banking logic and relative offsets.
+- [x] Tests validate correct handling and re-throwing of RangeErrors for bounds issues.
+- [x] Tests pass via `pnpm test`.
