@@ -2,12 +2,12 @@
 id: task-420-427-gen2-narrative-extraction
 type: TASK
 title: Implement Gen 2 Narrative Progression Flag Extraction
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-14'
-updated_at: '2026-08-15'
+updated_at: '2026-08-16'
 depends_on: []
-jules_session_id: '14633921402280037835'
+jules_session_id: null
 pr_number: null
 parent: story-411-420-narrative-progression-flags
 tags:
