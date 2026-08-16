@@ -30,4 +30,6 @@ This story handles the core business logic of checking the calculated breeding c
 - [ ] Implement cross-referencing logic to compare required breeding intermediates against the player's inventory.
 - [ ] Ensure strict gender verification (Male required for passing down the egg move) is applied correctly.
 - [ ] Write unit tests to cover various scenarios, including missing males, present females, and present males with the correct move.
-- [ ] Tech Lead: Draft TASK nodes to execute this story.
+- [x] Tech Lead: Draft TASK nodes to execute this story.
+- [ ] task-413-430-egg-move-inventory-cross-reference-logic-impl
+- [ ] task-413-431-egg-move-inventory-cross-reference-logic-qa
