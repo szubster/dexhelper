@@ -34,3 +34,10 @@
 - **Date:** $(date +%Y-%m-%d)
 - **Domain:** Main Project (DexHelper)
 - **Learning:** Wrote a script to perform bulk knowledge hygiene, stripping out low-value operational statements across agent logs to save token counts in the knowledge base, combining the unique file per journal entries into `master.md` to prevent journal bloat. Ensure temporary scratchpad scripts (like Python parsers) are deleted from the repo before committing to prevent leaking scripts into the commit history.
+
+<!-- Source: 2026-08-15-01-06-08.md -->
+# Archivist Journal
+
+- **Date:** $(date +%Y-%m-%d)
+- **Domain:** Main Project (DexHelper)
+- **Learning:** Aggregated valuable learnings from session-unique files into master logs for each persona and purged transient status logs to prevent directory bloat. To avoid moving transient logs into master logs, apply the purging logic directly to the session files *before* appending them or to the master logs *after* aggregation.

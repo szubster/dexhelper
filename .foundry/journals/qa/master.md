@@ -5,7 +5,6 @@
 
 ## Entry from 11361217312313065104.md
 
-- Verified Gen 3 IV/PV Extraction implementation met all acceptance criteria, tests are passing, no regressions found.
 
 ## Learnings
 - **Recurring Issue:** Coders frequently violate Section 13 (No Magic Numbers) of `.foundry/docs/schema.md` when parsing Gen 3 Secret Base data.
@@ -14,29 +13,19 @@
 
 ## Entry from 14509821843729640775.md
 
-The task was already implemented. Checked the markdown boxes and submitted an empty PR.
 
 ## From YYYY-MM-DD-HH-MM-SS.md
 
-Session YYYY-MM-DD-HH-MM-SS: Verified the E2E test for the Epic Planner process changes is effectively tested by Vitest inside .github/scripts/foundry-orchestrator.test.ts, satisfying the acceptance criteria.
 
 ## From 16585296348294548606.md
 
 Session 16585296348294548606: Verified task-401-410-gen2-dv-extraction-qa. Submitted empty PR satisfying ADR 007 checkboxes. If Vitest or a similar test command fails with a 'JavaScript heap out of memory' error, increase the Node.js memory allocation by prepending NODE_OPTIONS="--max-old-space-size=4096" to your test command.
 
 # QA Journal Entry
-Tested the QA e2e verification task for orphaned QA rule removal.
-Checked off the acceptance criteria box as the rule verification is implemented successfully.
 
 # QA Session - 2026-08-11-21-55-58
 
-- Task `task-359-416-gen3-roamer-unit-tests-qa` was correctly implemented.
-- Unit tests for Emerald, Ruby/Sapphire, and FireRed/LeafGreen `Roamer` struct parsing exist and cover IVs, Personality Value, Species, HP, Level, Status, and Active boolean using DataView mocks.
-- Verified testing suites passing without error.
-- Task criteria successfully signed off.
 
-## Verified Task
-task-408-418-schema-role-mapping-qa
 
 ## Learnings & Observations
 - The `test_list.sh` scratchpad file must be removed before PR creation.
@@ -93,3 +82,34 @@ The implementation for `task-340-341-gen3-safari-zone-state-impl` was rejected d
 ## Guidelines Followed
 - **Triggering Transient Rejections**: Failed the target task without checking off checkboxes in its markdown body.
 - **Strict Architecture Check**: Magic number and `RangeError` handling rules were strictly enforced based on task requirements and schema.
+
+<!-- Source: 11343941284762065362.md -->
+# QA Journal - 11343941284762065362
+
+## Validated task-273-394-living-dex-pc-mapping-retry-impl
+- Checked save file parsing code. Magic numbers like `0xffff` and `16` for shift limits were removed and proper constants `LOWER_16_BIT_MASK` and `UPPER_16_BIT_SHIFT` used.
+- Verified offset addition logic to use constant rather than inline magic numbers.
+- Code conforms to architecture specifications outlined in ADRs for Gen 3 parsing.
+
+<!-- Source: 1407707214553800842.md -->
+# QA Journal 1407707214553800842
+
+- Verified Mirage Island save parser logic correctly extracts 16-bit random value
+- Verified RangeError on out-of-bounds reads is correctly caught and mapped to standard corrupted file error
+- Handled via `parseGen3MirageIslandValue` which strictly uses DataView and implements explicit exception boundaries mapping `RangeError` to `Error('The save file is corrupted or incomplete.')`
+
+<!-- Source: 7897433691328219165.md -->
+# QA Journal
+- **Task ID:** task-412-423-qa-egg-move-inventory
+- **Action:** Rejected task-412-422-implement-egg-move-inventory
+- **Reason:** The `extractAllInstances` implementation uses the spread operator to allocate a new array (`[...party, ...pc]`), which violates the engine's strict O(1)/no intermediate allocation constraints as explicitly documented in `suggestionEngine.ts`. Array methods must be avoided in favor of manual `for` loops.
+
+<!-- Source: 83497810752904267.md -->
+# QA Session Journal (Session ID: 83497810752904267)
+
+Verified the implementation of Cloudflare R2 Conflict Detection Logic (`task-420-425-r2-conflict-detection-logic-impl`) by reviewing the unit tests and logic in `src/utils/r2/syncLogic.test.ts` and `src/utils/r2/syncLogic.ts`.
+
+The test cases correctly covered different timestamp scenarios including `push`, `pull`, `up-to-date`, and `conflict` states. Tests executed successfully using `pnpm test`.
+
+E2E testing was skipped to avoid timeout given the change only affected unit logic.
+Markdown checkbox in `task-420-426-r2-conflict-detection-logic-qa.md` was checked off, adhering to the Empty PR policy to transition the node to COMPLETED.

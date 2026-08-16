@@ -79,3 +79,17 @@ Anomaly: The target downstream PRD `prd-115-115-remove-obsolete-orphaned-node-ma
 - Discovered that the implementation target for IDEA 147 (`tests/fixtures` and `saveFixtures.test.ts`) was actually already complete in source (an anomaly/pre-existing artifact).
 - Ensured I created the downstream PRD node anyway (`prd-147-343-test-fixtures`) retaining the full context so downstream agents can appropriately pass it through the DAG.
 - Discovered sorting rule for parent-linked IDs: must use `sort -n -t '-' -k 3` instead of `-k 2` because the second segment is the parent sequence number, not the global sequence number.
+
+<!-- Source: 6587908441254463849.md -->
+Successfully extracted Gen 2 Bug-Catching Contest score formula and implemented the PRD. Delegated epic breakdown to Epic Planner via unchecked task checkbox to satisfy macro node completion rules.
+
+<!-- Source: 9259650360933596027.md -->
+# Session 9259650360933596027
+
+## Node
+Draft PRD for `idea-147-gen3-weather-anomaly-tracker`
+
+## Learnings & Observations
+- **ES Modules in Scratchpads**: The project uses `"type": "module"`. When creating temporary Node.js scratchpad scripts, `require()` will fail. Always use `import` or the `.cjs` extension.
+- **E2E Test Timeouts**: The full Playwright E2E test suite takes >400s and will time out the bash session. Always explicitly target specific E2E tests (e.g., `tests/e2e/home.spec.ts`) after ensuring `playwright install` has been run.
+- **Bash Curl Failures vs External Sources**: When pulling exact offset/variable definitions from external sources like `pret/pokeemerald`, standard `curl | grep` can sometimes fail or truncate. Downloading the file locally and then running `grep` with context flags (`-A`, `-B`) is more reliable.

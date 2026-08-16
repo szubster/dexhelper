@@ -152,3 +152,10 @@ The target artifacts (save files such as `red.sav`, `blue-evolve.sav`, `silver.s
 # Session 17957934727210826373
 
 When writing STORY nodes dynamically, always list the existing files in the directory and sort them to find the correct next sequence number (e.g., `ls -1 .foundry/stories/ | sort -n -t '-' -k 3`). Do not rely on pre-populated sequence numbers in the parent EPIC's Acceptance Criteria, as they might be hallucinated or cause collisions with existing nodes. Additionally, always ensure that every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification to satisfy the Orchestrator Safeguard.
+
+<!-- Source: 1809259624386391484.md -->
+# Story Owner Journal - Session 1809259624386391484
+
+## Learnings
+- **ADR 025 Enforcement:** When breaking down epics, it is critical to cross-reference architectural decisions (ADRs). In this session, an epic required extracting the internal RTC from a Gen 3 save file. However, ADR 025 explicitly mandates an "RTC-Independent Fallback Strategy" utilizing system time and UI overrides. The RTC extraction requirement was therefore bypassed and documented via a RESEARCH node to maintain architectural compliance.
+- **Late Binding Pattern:** Utilized the late-binding pattern to dynamically generate a RESEARCH node to investigate the RTC conflict and subsequently generated the correct implementation stories for parsing the Shoal items and the mandated E2E verification story.

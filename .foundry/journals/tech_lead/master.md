@@ -260,3 +260,25 @@ For this story, the coder is instructed to extract and formalize `instancesBySpe
 # Lesson Learned
 
 It is important to separate base UI primitive component implementations from higher-level component integrations into separate TASK nodes when drafting blueprints. This ensures maximum parallel development and avoids monolithic tasks.
+
+<!-- Source: 10488278309655833194.md -->
+- When implementing IndexedDB schemas using idb, explicitly map TypeScript types to enforce schema structure (e.g., mapping string keys to Uint8Array or Record types) to compensate for idb's lack of runtime type enforcement.
+
+<!-- Source: 15863037152588661750.md -->
+# Tech Lead Session 15863037152588661750
+
+- Remember that when generating child nodes using the Parent-Linked ID Schema (`<type>-<parent_NNN>-<NNN>-<slug>`), the `<parent_NNN>` must be the exact 3-digit sequence number of the *immediate* parent node (e.g., a Task's parent is the Story's sequence number, not the Epic's). I initially used `116` (the epic's number) for the tasks when it should have been `250` (the story's number).
+- DAG ID Strictness: When linking nodes in `depends_on`, `parent` fields, or appended markdown checkboxes (`- [ ]`), strictly use the exact Node ID. Do not include directory prefixes (e.g., `.foundry/tasks/`) or file extensions (e.g., `.md`), as this violates formatting rules and breaks the DAG Orchestrator. I mistakenly included `.foundry/tasks/...md` in the checkboxes and `depends_on`.
+
+<!-- Source: 2026-08-15-03-51-47.md -->
+# Tech Lead Journal
+
+- **Node Types Dictate Paths**: Foundry nodes are stored in type-specific directories (e.g., STORY nodes are in `.foundry/stories/`, not `.foundry/tasks/`). Do not blindly `cat` a task path without checking the node type first. Use `find` to discover the exact path.
+- **Bash Subshell Escaping**: When using heredocs (`cat << 'EOF'`) to generate files, command substitutions like `$(date ...)` are treated literally. If dynamic execution is needed in file generation, explicitly write scripts using a language that handles templating (like a small node `.cjs` script) or properly format `sed` replacements to inject dynamic values afterwards.
+- **Test File Verification**: When a coder is responsible for implementing test files (like `historyDb.test.ts`), the corresponding QA node should not be tasked with *writing* the test file again. Instead, it should be tasked with *verifying* the coder's test file. The tech lead must accurately dictate boundaries in generated acceptance criteria.
+
+<!-- Source: 5024974543220692233.md -->
+Created `task-420-422-schema-e2e-rule` to enforce that every EPIC generates an E2E Verification STORY. No separate QA task was created because this is a low-risk documentation change, so the Coder can self-verify.
+
+<!-- Source: 7407366660319062198.md -->
+The Tech Lead properly decomposed the story into three separate parsing implementation steps, each with a QA pair, avoiding the two-tasks-max anti-pattern. E2E tests for the home page passed after installing playwright browsers.
