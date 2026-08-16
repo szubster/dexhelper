@@ -30,10 +30,45 @@ import {
   parseGen3RoamerStruct,
   parseGen3RSENPCTrades,
   parseGen3SecretBases,
+  parseGen3TMHMs,
   parseGen3TotalBattlePoints,
   parseGen3TrainerId,
   parseGen3VolcanicAsh,
 } from './gen3';
+
+describe('parseGen3TMHMs', () => {
+  it('should parse TM/HM items correctly', () => {
+    // 256 bytes for RS TM pocket
+    const buffer = new ArrayBuffer(0x1000);
+    const view = new DataView(buffer);
+
+    // offset RS TM pocket = 0x0640
+    const offset = 0x0640;
+
+    // item 1: TM01 Focus Punch (itemId 289) quantity 2 (masked with key 0x1234)
+    view.setUint16(offset + 0, 289, true); // TM01 Focus Punch
+    view.setUint16(offset + 2, 2 ^ 0x1234, true); // Quantity 2 masked
+
+    // item 2: empty
+    view.setUint16(offset + 4, 0, true);
+
+    // item 3: TM02 Dragon Claw (itemId 290) quantity 1 (masked with key 0x1234)
+    view.setUint16(offset + 8, 290, true); // TM02 Dragon Claw
+    view.setUint16(offset + 10, 1 ^ 0x1234, true); // Quantity 1 masked
+
+    const result = parseGen3TMHMs(view, 0, 'ruby', 0xabcd1234);
+
+    expect(result).toHaveLength(2);
+    expect(result[0]).toEqual({ itemId: 289, quantity: 2, moveId: 264 }); // 264 = Focus Punch
+    expect(result[1]).toEqual({ itemId: 290, quantity: 1, moveId: 337 }); // 337 = Dragon Claw
+  });
+
+  it('should throw Error "The save file is corrupted or incomplete." on RangeError', () => {
+    const buffer = new ArrayBuffer(10);
+    const view = new DataView(buffer);
+    expect(() => parseGen3TMHMs(view, 0, 'ruby', 0)).toThrow('The save file is corrupted or incomplete.');
+  });
+});
 
 describe('parseGen3EVs', () => {
   it('should correctly parse EVs', () => {
