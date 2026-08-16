@@ -2,10 +2,10 @@
 id: epic-049-087-dynamic-item-list-parsing
 type: EPIC
 title: Dynamic Generation of Items PokeData
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-13'
-updated_at: '2026-07-07'
+updated_at: '2026-08-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - db
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
 # EPIC: Dynamic Generation of Items PokeData
@@ -37,4 +37,4 @@ Currently, valid item lists are either manually maintained or fetched ad-hoc. Ma
 
 - [x] story-087-128-dynamic-item-list-parsing
 - [x] story-087-245-item-list-validation
-- [ ] story-087-280-item-runtime-integration
+- [x] story-087-280-item-runtime-integration
