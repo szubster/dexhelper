@@ -923,7 +923,7 @@ describe('generateSuggestions', () => {
       trainerName: 'TEST',
     } as unknown as SaveData;
 
-    const strategy = getStrategy(2);
+    const strategy = await getStrategy(2);
     if (!strategy) throw new Error('Strategy not found');
     const { suggestions } = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
 
@@ -964,7 +964,7 @@ describe('generateSuggestions', () => {
       trainerName: 'TEST',
     } as unknown as SaveData;
 
-    const strategy = getStrategy(2);
+    const strategy = await getStrategy(2);
     if (!strategy) throw new Error('Strategy not found');
     const { suggestions } = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
 
@@ -1143,7 +1143,7 @@ describe('generateSuggestions', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const strategy = getStrategy(2);
+    const strategy = await getStrategy(2);
     const result = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
 
     const emSuggestion = result.suggestions.find((s) => s.id === 'egg-move-1-13-274');
@@ -1210,7 +1210,7 @@ describe('generateSuggestions', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const strategy = getStrategy(2);
+    const strategy = await getStrategy(2);
     const result = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
 
     const emSuggestion = result.suggestions.find((s) => s.id === 'egg-move-1-13-274');
@@ -1277,7 +1277,7 @@ describe('generateSuggestions', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const strategy = getStrategy(2);
+    const strategy = await getStrategy(2);
     const result = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
 
     const emSuggestion = result.suggestions.find((s) => s.id === 'egg-move-1-20-100');
@@ -1345,7 +1345,7 @@ describe('generateSuggestions', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const strategy = getStrategy(2);
+    const strategy = await getStrategy(2);
     const result = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, strategy);
 
     const emSuggestion = result.suggestions.find((s) => s.id === 'egg-move-1-20-100');

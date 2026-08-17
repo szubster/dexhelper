@@ -1,6 +1,3 @@
-import { gen1Strategy } from './gen1Strategy';
-import { gen2Strategy } from './gen2Strategy';
-import { gen3Strategy } from './gen3Strategy';
 import type { AssistantStrategy } from './types';
 
 /**
@@ -16,12 +13,6 @@ const fallbackStrategy: AssistantStrategy = {
   getUnobtainableReason: () => null,
   getSpecialSuggestions: () => [],
   isInternallyObtainable: () => false,
-};
-
-const STRATEGIES: Record<number, AssistantStrategy> = {
-  1: gen1Strategy,
-  2: gen2Strategy,
-  3: gen3Strategy,
 };
 
 /**
@@ -40,9 +31,19 @@ const STRATEGIES: Record<number, AssistantStrategy> = {
  *
  * @example
  * // In suggestionEngine.ts
- * const strategy = getStrategy(saveData.generation);
+ * const strategy = await getStrategy(saveData.generation);
  * const localAid = strategy.resolveMapAid(saveData, allLocations);
  */
-export function getStrategy(generation: number): AssistantStrategy {
-  return STRATEGIES[generation] ?? fallbackStrategy;
+// ⚡ Bolt: Dynamically import generation strategies to split bundles and reduce initial payload.
+export async function getStrategy(generation: number): Promise<AssistantStrategy> {
+  switch (generation) {
+    case 1:
+      return (await import('./gen1Strategy')).gen1Strategy;
+    case 2:
+      return (await import('./gen2Strategy')).gen2Strategy;
+    case 3:
+      return (await import('./gen3Strategy')).gen3Strategy;
+    default:
+      return fallbackStrategy;
+  }
 }

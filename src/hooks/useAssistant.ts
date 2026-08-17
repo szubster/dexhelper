@@ -61,7 +61,7 @@ export function useAssistant(saveData: SaveData | null, isLivingDex: boolean, ma
     queryFn: async () => {
       if (!saveData) throw new Error('No save data');
       const apiData = await fetchAssistantApiData(saveData, queryTargetsSlice);
-      const strategy = getStrategy(saveData.generation);
+      const strategy = await getStrategy(saveData.generation);
       const suggestionsResult = await generateSuggestions(saveData, isLivingDex, manualVersion, apiData, strategy);
       return { apiData, ...suggestionsResult };
     },
