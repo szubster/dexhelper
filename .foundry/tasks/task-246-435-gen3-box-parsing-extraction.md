@@ -2,12 +2,12 @@
 id: task-246-435-gen3-box-parsing-extraction
 type: TASK
 title: Gen 3 PC Box Binary Extraction and Decryption
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-17'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4759542303385887476'
 pr_number: null
 parent: story-108-246-gen3-box-parsing
 tags:
