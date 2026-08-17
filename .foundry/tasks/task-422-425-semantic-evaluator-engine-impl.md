@@ -2,7 +2,7 @@
 id: task-422-425-semantic-evaluator-engine-impl
 type: TASK
 title: Implement Semantic Evaluator Engine Logic
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-14'
 updated_at: '2026-08-15'
@@ -12,8 +12,8 @@ pr_number: null
 parent: story-417-422-implement-semantic-evaluator-engine
 tags: []
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Implementation placed in wrong directory (.github/scripts/semantic/ instead of src/engine/semantic/) and integration test fails due to unhandled markdown in LLM JSON response.'
 notes: ''
 ---
 
