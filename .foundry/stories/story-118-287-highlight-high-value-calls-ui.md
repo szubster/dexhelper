@@ -2,7 +2,7 @@
 id: story-118-287-highlight-high-value-calls-ui
 type: STORY
 title: Highlight High Value Calls UI
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-07'
 updated_at: '2026-08-17'
