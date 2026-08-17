@@ -36,7 +36,7 @@ Ensure adherence to `.foundry/docs/schema.md` Section 13:
 - Are Vitest tests present and do they pass?
 
 ## Acceptance Criteria
-- [ ] Verify magic numbers are extracted into module-level constants.
-- [ ] Verify relative section offsets are utilized (no absolute mapping for A/B bank structures).
-- [ ] Verify `RangeError` handling is correctly mapped to "The save file is corrupted or incomplete."
-- [ ] Verify passing Vitest suite for TM/HM extraction.
+- [x] Verify magic numbers are extracted into module-level constants.
+- [x] Verify relative section offsets are utilized (no absolute mapping for A/B bank structures).
+- [x] Verify `RangeError` handling is correctly mapped to "The save file is corrupted or incomplete."
+- [x] Verify passing Vitest suite for TM/HM extraction.
