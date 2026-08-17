@@ -2,12 +2,12 @@
 id: task-275-435-move-db-schema-inflation
 type: TASK
 title: Move Data DB Schema and Inflation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-17'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9330737274448347349'
 pr_number: null
 parent: story-086-275-move-runtime-integration
 tags:
