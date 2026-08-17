@@ -2,7 +2,7 @@
 id: epic-035-048-smart-radar-data-unification
 type: EPIC
 title: Smart Radar Data Unification
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-23'
 updated_at: '2026-08-17'
@@ -16,8 +16,8 @@ tags:
   - map
   - data
 research_references: []
-rejection_count: 0
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 # Epic: Smart Radar Data Unification

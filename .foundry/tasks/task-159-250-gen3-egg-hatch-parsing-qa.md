@@ -2,12 +2,12 @@
 id: task-159-250-gen3-egg-hatch-parsing-qa
 type: TASK
 title: QA Gen 3 Egg Hatch Data Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-02'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: '7174353390618791673'
+jules_session_id: null
 pr_number: null
 parent: story-106-159-gen3-egg-hatch-parsing
 tags:

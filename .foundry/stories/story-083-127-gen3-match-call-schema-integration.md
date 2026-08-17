@@ -1,11 +1,11 @@
 ---
 id: story-083-127-gen3-match-call-schema-integration
 type: STORY
-title: 'Integrate Match Call Data into SaveData Schema'
-status: PENDING
+title: Integrate Match Call Data into SaveData Schema
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-08-17'
 depends_on:
   - story-083-126-gen3-match-call-dataview-implementation
 jules_session_id: null
