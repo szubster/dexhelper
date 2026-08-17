@@ -2,12 +2,12 @@
 id: research-331-335-gen2-decoration-savings-offsets
 type: RESEARCH
 title: Investigate Gen 2 Room Decoration & Bank Savings Offsets
-status: ACTIVE
+status: READY
 owner_persona: researcher
 created_at: '2026-07-19'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: '15434338489149326760'
+jules_session_id: null
 pr_number: null
 parent: task-322-331-gen2-decoration-savings-parsing-impl
 tags:
@@ -32,7 +32,7 @@ As per the task's Architectural Constraints (ADR 028), guessing offsets is stric
 The Coder has suspended the task and spawned this RESEARCH node to investigate the correct offsets.
 
 ## Acceptance Criteria
-- [ ] Find and document the exact memory offsets and data structures to read the flags for unlocked room decorations in Gen 2 (GS and Crystal).
-- [ ] Find and document the exact memory offsets to parse the money currently saved in Mom's bank account in Gen 2 (GS and Crystal).
-- [ ] Ensure all findings use relative offsets suitable for the parsing engine and are free of inline magic numbers.
-- [ ] Update the relevant `.foundry/docs/` documentation with the newly discovered offsets.
+- [x] Find and document the exact memory offsets and data structures to read the flags for unlocked room decorations in Gen 2 (GS and Crystal).
+- [x] Find and document the exact memory offsets to parse the money currently saved in Mom's bank account in Gen 2 (GS and Crystal).
+- [x] Ensure all findings use relative offsets suitable for the parsing engine and are free of inline magic numbers.
+- [x] Update the relevant `.foundry/docs/` documentation with the newly discovered offsets.
