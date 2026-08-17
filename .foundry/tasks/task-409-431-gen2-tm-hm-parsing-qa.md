@@ -28,7 +28,7 @@ notes: ''
 Verify the implementation of Gen 2 TM/HM parsing, ensuring it strictly adheres to the technical contract.
 
 ## Acceptance Criteria
-- [ ] Verify that all memory offsets and magic numbers are extracted to module-level constants.
-- [ ] Verify that `RangeError` is properly caught and re-thrown with the correct message.
-- [ ] Verify that bitwise mapping is explicit and correct.
-- [ ] Verify unit tests cover edge cases.
+- [x] Verify that all memory offsets and magic numbers are extracted to module-level constants.
+- [x] Verify that `RangeError` is properly caught and re-thrown with the correct message.
+- [x] Verify that bitwise mapping is explicit and correct.
+- [x] Verify unit tests cover edge cases.
