@@ -33,11 +33,11 @@ To provide an integrated, in-browser emulation experience with live stat trackin
 We will adopt a multi-emulator architecture to maximize performance and compatibility across different game generations.
 
 1. **Gen 1 & Gen 2**: We will use `binjgb`. It offers a highly optimized, lightweight footprint tailored specifically for browser execution of 8-bit systems, providing extreme lightweight performance and simple WASM memory integration.
-2. **Gen 3**: We will use either `mGBA` or `SkyEmu` (both compiled to WASM) to handle Game Boy Advance titles, as both provide excellent cross-platform web support and high accuracy.
+2. **Gen 3**: We will use `mGBA` (compiled to WASM) to handle Game Boy Advance titles. It provides high accuracy and robust features for Game Boy Advance and is proven to work in the browser via WASM.
 
-### Technical Approach for Integration and Save Data Extraction
-- **binjgb (Gen 1 & 2)**: Utilize the provided `binjgb.js` and `binjgb.wasm` interface. Extract the save state (`saveStateBuffer`) directly via Javascript bindings to synchronize with our parsing engine.
-- **mGBA / SkyEmu (Gen 3)**: Integrate the WASM build into the client-side Single Page App. Implement a synchronization layer to extract the SRAM/Save data from the emulator's memory or persistent save state slots and pass it to the DexHelper parsing engine.
+### Technical Approach for Integration and Memory/Save Data Extraction
+- **binjgb (Gen 1 & 2)**: Utilize the provided `binjgb.js` and `binjgb.wasm` interface. Extract the save state (`saveStateBuffer`) and directly access the emulator's memory space via Javascript bindings to synchronize with our parsing engine for real-time suggestions.
+- **mGBA (Gen 3)**: Integrate the WASM build into the client-side Single Page App. Implement a synchronization layer to extract the SRAM/Save data and directly access the emulator's memory space to enable real-time extraction for live stat tracking and suggestions, passing this data to the DexHelper parsing engine.
 
 ## Consequences
 - **Positive**: We achieve optimal performance for each specific generation without compromising accuracy.
@@ -46,4 +46,4 @@ We will adopt a multi-emulator architecture to maximize performance and compatib
 
 ## Acceptance Criteria
 - [ ] Implement the integration for `binjgb` for Gen 1 & 2.
-- [ ] Implement the integration for Gen 3 emulator (`mGBA` or `SkyEmu`).
+- [ ] Implement the integration for `mGBA` for Gen 3.
