@@ -37,7 +37,7 @@ As per the Intelligent Verification Protocol, a QA task is needed due to the str
 6. Verify no architectural rules were broken in the implementation.
 
 ### Validation Failed
-Detected an architectural violation: magic number `8` is used for bit shifts and module logic instead of the mandated `BITS_PER_BYTE` constant.
+Detected an architectural violation: magic number `8` is used for bit shifts and module logic instead of the mandated `BITS_PER_BYTE` constant. I have rejected the target implementation task.
 
 ## Acceptance Criteria
 - [ ] Constants are correct and match specifications.
