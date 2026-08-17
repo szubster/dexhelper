@@ -2,12 +2,12 @@
 id: task-408-430-gen1-tm-hm-parsing-impl
 type: TASK
 title: Gen 1 TM/HM Parsing Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-16'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: '7599093223222192944'
+jules_session_id: null
 pr_number: null
 parent: story-401-408-gen1-tm-hm-parsing
 tags:

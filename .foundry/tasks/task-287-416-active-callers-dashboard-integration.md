@@ -2,13 +2,13 @@
 id: task-287-416-active-callers-dashboard-integration
 type: TASK
 title: Integrate Tactical Caller Card into Dashboard
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-10'
 updated_at: '2026-08-17'
 depends_on:
   - task-287-415-tactical-caller-component-impl
-jules_session_id: '14225188113793861849'
+jules_session_id: null
 pr_number: null
 parent: story-118-287-highlight-high-value-calls-ui
 tags:
@@ -17,7 +17,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 

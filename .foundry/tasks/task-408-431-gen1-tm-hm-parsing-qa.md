@@ -2,7 +2,7 @@
 id: task-408-431-gen1-tm-hm-parsing-qa
 type: TASK
 title: Gen 1 TM/HM Parsing QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-16'
 updated_at: '2026-08-17'

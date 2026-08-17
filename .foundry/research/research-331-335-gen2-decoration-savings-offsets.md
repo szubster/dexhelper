@@ -2,12 +2,12 @@
 id: research-331-335-gen2-decoration-savings-offsets
 type: RESEARCH
 title: Investigate Gen 2 Room Decoration & Bank Savings Offsets
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-07-19'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: '4109760789388743502'
+jules_session_id: null
 pr_number: null
 parent: task-322-331-gen2-decoration-savings-parsing-impl
 tags:

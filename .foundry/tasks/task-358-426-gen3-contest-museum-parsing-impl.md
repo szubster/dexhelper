@@ -2,12 +2,12 @@
 id: task-358-426-gen3-contest-museum-parsing-impl
 type: TASK
 title: Task - Gen 3 Contest Museum Parsing Implementation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-14'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: '9329992510588527193'
+jules_session_id: null
 pr_number: null
 parent: story-400-358-gen3-trainer-card-parsing-core
 tags:
@@ -16,7 +16,7 @@ tags:
   - completionist
 research_references:
   - .foundry/research/research-358-406-gen3-trainer-card-offsets.md
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

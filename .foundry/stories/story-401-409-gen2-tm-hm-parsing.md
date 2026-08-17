@@ -2,10 +2,10 @@
 id: story-401-409-gen2-tm-hm-parsing
 type: STORY
 title: Gen 2 TM/HM Parsing
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-16'
+updated_at: '2026-08-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -27,5 +27,5 @@ Implement the parsing of Gen 2 TM/HM inventory and event flags from the save fil
 
 ## Acceptance Criteria
 - [x] Break down into multiple TASK nodes for implementation and QA.
-- [ ] task-409-430-gen2-tm-hm-parsing-impl
-- [ ] task-409-431-gen2-tm-hm-parsing-qa
+- [x] task-409-430-gen2-tm-hm-parsing-impl
+- [x] task-409-431-gen2-tm-hm-parsing-qa

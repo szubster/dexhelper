@@ -2,10 +2,10 @@
 id: story-423-425-wasm-emulator-core-integration
 type: STORY
 title: WASM Emulator Core Integration
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-14'
-updated_at: '2026-08-16'
+updated_at: '2026-08-17'
 depends_on:
   - research-425-421-wasm-emulator-options
 jules_session_id: null
