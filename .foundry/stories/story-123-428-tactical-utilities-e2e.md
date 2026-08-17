@@ -29,3 +29,5 @@ Verify the correctness of Tailwind v4 custom utilities (`tactical-panel`, `tacti
 
 ## Acceptance Criteria
 - [ ] Appropriate E2E tests are implemented and passing.
+- [ ] task-428-436-tactical-utilities-e2e-impl
+- [ ] task-428-437-tactical-utilities-e2e-qa
