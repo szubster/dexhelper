@@ -69,7 +69,7 @@ const STATIC_GIFT_PIDS_GEN3 = Object.keys(STATIC_GIFT_DATA_GEN3).map((id) => par
 export async function fetchAssistantApiData(saveData: SaveData, queryTargets: number[]) {
   const allLocations = await pokeDB.getLocations();
 
-  const strategy = getStrategy(saveData.generation);
+  const strategy = await getStrategy(saveData.generation);
   const localAid = strategy ? strategy.resolveMapAid(saveData, allLocations) : null;
 
   let localPids: number[] = [];
@@ -214,7 +214,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
  * @returns An object containing the sorted array of `Suggestion`s and debug information.
  *
  * @example
- * const strategy = getStrategy(saveData.generation);
+ * const strategy = await getStrategy(saveData.generation);
  * const suggestions = await generateSuggestions(saveData, false, undefined, apiData, strategy);
  */
 export async function generateSuggestions(
