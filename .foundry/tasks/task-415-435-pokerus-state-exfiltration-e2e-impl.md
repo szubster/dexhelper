@@ -2,12 +2,12 @@
 id: task-415-435-pokerus-state-exfiltration-e2e-impl
 type: TASK
 title: Pokerus State Exfiltration E2E Verification Impl
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-16'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10621515031125279867'
 pr_number: null
 parent: story-407-415-pokerus-state-exfiltration-e2e
 tags:
