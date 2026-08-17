@@ -2,12 +2,12 @@
 id: task-421-435-wasm-emulator-adr
 type: TASK
 title: Create WASM Emulator ADR
-status: ACTIVE
+status: PENDING
 owner_persona: architect
 created_at: '2026-08-16'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: '9188044347237264838'
+jules_session_id: null
 pr_number: null
 parent: research-425-421-wasm-emulator-options
 tags:
