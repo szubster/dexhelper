@@ -27,6 +27,6 @@ notes: ''
 This is a QA task to verify the refactoring work completed in `task-412-418-refactor-orchestrator-zod-impl`. The orchestrator script (`.github/scripts/foundry-orchestrator.ts`) should no longer use manual `any` casts around node frontmatter variables and data objects.
 
 ## Acceptance Criteria
-- [ ] Verify that `any` casts have been removed and replaced with appropriate typings from `NodeFrontmatterSchema`.
-- [ ] Verify that running `cd .github/scripts && npx vitest` completes successfully with no failures.
-- [ ] Verify the codebase successfully type checks.
+- [x] Verify that `any` casts have been removed and replaced with appropriate typings from `NodeFrontmatterSchema`.
+- [x] Verify that running `cd .github/scripts && npx vitest` completes successfully with no failures.
+- [x] Verify the codebase successfully type checks.
