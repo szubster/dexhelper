@@ -69,16 +69,35 @@ jobs:
             }')
 
           # Request session from Jules API with retry loop for quota / API errors
-          max_retries=3
-          retry_delay=3600
+          # Retries every ~15 minutes (+ random jitter) up to 4 hours total (14,400s)
+          base_delay=900
+          max_duration=14400
+          start_time=$(date +%s)
           attempt=1
 
           echo "Dispatching Jules session for: $persona"
 
-          while [[ $attempt -le $((max_retries + 1)) ]]; do
+          while true; do
+            now=$(date +%s)
+            elapsed=$((now - start_time))
+
             if [[ $attempt -gt 1 ]]; then
-              echo "Attempt $attempt of $((max_retries + 1)): Retrying in $retry_delay seconds (waiting for quota)..."
-              sleep "$retry_delay"
+              if [[ $elapsed -ge $max_duration ]]; then
+                echo "::error::Reached max duration of 4 hours ($elapsed seconds elapsed) without successfully spawning session."
+                exit 1
+              fi
+
+              # Add random jitter between 0 and 120 seconds to 15 minutes base delay
+              jitter=$(( RANDOM % 120 ))
+              delay=$(( base_delay + jitter ))
+
+              remaining=$(( max_duration - elapsed ))
+              if [[ $delay -gt $remaining ]]; then
+                delay=$remaining
+              fi
+
+              echo "Attempt $attempt: Retrying in $delay seconds ($elapsed seconds elapsed so far)..."
+              sleep "$delay"
             fi
 
             response=$(curl -s -X POST "https://jules.googleapis.com/v1alpha/sessions" \
@@ -100,6 +119,3 @@ jobs:
 
             attempt=$((attempt + 1))
           done
-
-          echo "::error::Failed to capture Jules session ID after $attempt attempts."
-          exit 1
