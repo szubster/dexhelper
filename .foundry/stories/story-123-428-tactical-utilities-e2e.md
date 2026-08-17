@@ -2,12 +2,12 @@
 id: story-123-428-tactical-utilities-e2e
 type: STORY
 title: Tactical Utilities E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-17'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7826825758083849725'
 pr_number: null
 parent: epic-071-123-define-tailwind-v4-utilities-v2
 tags:
