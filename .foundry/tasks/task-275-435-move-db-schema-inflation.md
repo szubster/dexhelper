@@ -30,5 +30,5 @@ The `moves.jsonl` data has been generated. We need to integrate this dataset int
 2. Implement inflation logic in the client runtime.
 
 ## Acceptance Criteria
-- [ ] Integrate `moves` dataset into database schema and sync.
-- [ ] Implement inflation logic for move data.
+- [x] Integrate `moves` dataset into database schema and sync.
+- [x] Implement inflation logic for move data.
