@@ -2,12 +2,12 @@
 id: adr-421-032-wasm-emulator-selection
 type: ADR
 title: 'ADR 032: WASM Emulator Selection'
-status: READY
+status: ACTIVE
 owner_persona: architect
 created_at: '2026-08-17'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3516674530186811251'
 pr_number: null
 parent: task-421-435-wasm-emulator-adr
 tags:
