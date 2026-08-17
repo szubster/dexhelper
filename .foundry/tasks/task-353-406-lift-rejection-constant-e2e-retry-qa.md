@@ -27,6 +27,6 @@ notes: ''
 Verify the retry implementation of the E2E test for the Permanent Failure Dashboard.
 
 ## Acceptance Criteria
-- [ ] Verify the Playwright test file at `tests/e2e/dashboard/permanent_failures.spec.ts` exists.
-- [ ] Run the E2E tests and ensure the new test passes.
-- [ ] Verify that the test correctly asserts the behaviour of the "Permanent failures only" filter.
+- [x] Verify the Playwright test file at `tests/e2e/dashboard/permanent_failures.spec.ts` exists.
+- [x] Run the E2E tests and ensure the new test passes.
+- [x] Verify that the test correctly asserts the behaviour of the "Permanent failures only" filter.
