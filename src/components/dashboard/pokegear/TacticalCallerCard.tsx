@@ -7,7 +7,7 @@ import { LcdGrid } from '../../LcdGrid';
 interface TacticalCallerCardProps {
   contact: Contact;
   type: CallerType;
-  details?: string;
+  details?: string | undefined;
   probability: number;
 }
 

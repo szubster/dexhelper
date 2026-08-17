@@ -1,9 +1,9 @@
+import { GEN2_PHONE_CALLER_REGISTRY } from '../../../engine/saveParser/parsers/gen2/phone/constants';
 import type { Contact, TimerState } from '../../../engine/saveParser/parsers/gen2/phone/predictor';
 import { CornerCrosshairs } from '../../CornerCrosshairs';
-import { HoverScanner } from '../../HoverScanner';
-import { LcdGrid } from '../../LcdGrid';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
+import { TacticalCallerCard } from './TacticalCallerCard';
 
 interface ActiveCallersDashboardProps {
   contacts: Contact[];
@@ -45,34 +45,18 @@ export function ActiveCallersDashboard({ contacts, timerState }: ActiveCallersDa
           </div>
         ) : (
           <div className="z-10 grid grid-cols-1 gap-4 lg:grid-cols-2">
-            {contacts.map((contact) => (
-              <div
-                key={contact.id}
-                className="group relative flex flex-col gap-2 rounded-none border-2 border-cyan-900/30 border-dashed bg-black/60 p-3 font-mono text-xs transition-colors hover:border-cyan-500/50"
-              >
-                <LcdGrid className="opacity-10" />
-                <HoverScanner colorClass="via-cyan-500/10" />
-                <CornerCrosshairs className="h-2 w-2 border-cyan-900/50 group-hover:border-cyan-500/50" thickness={2} />
-
-                <div className="absolute top-0 right-0 rounded-none border-cyan-900/50 border-b-2 border-l-2 border-dashed bg-cyan-950/80 px-2 py-1 text-[9px] text-cyan-400">
-                  PROB: {probability}%
-                </div>
-
-                <div className="flex w-full flex-col gap-2 pt-2">
-                  <div className="flex items-center justify-between">
-                    <div className="flex flex-col">
-                      <span className="tactical-text text-[10px] text-cyan-700">[ TARGET_LOCK ]</span>
-                      <span className="font-bold text-white uppercase tracking-widest">{contact.name}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div
-                        className={`h-2 w-2 rounded-full ${isCoolingDown ? 'bg-amber-500/50' : 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]'}`}
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+            {contacts.map((contact) => {
+              const registryEntry = GEN2_PHONE_CALLER_REGISTRY[contact.id];
+              return (
+                <TacticalCallerCard
+                  key={contact.id}
+                  contact={contact}
+                  type={registryEntry ? registryEntry.type : 'NONE'}
+                  details={registryEntry ? registryEntry.details : undefined}
+                  probability={probability}
+                />
+              );
+            })}
           </div>
         )}
       </TacticalPanel>
