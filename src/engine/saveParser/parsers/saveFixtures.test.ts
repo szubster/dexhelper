@@ -121,7 +121,7 @@ describe('Real Save Fixtures Verification', () => {
       expectedVersion: 'emerald',
       expectedTrainer: '',
       expectedId: 58646,
-      expectedPartyLength: 0,
+      expectedPartyLength: 5,
     },
   ];
 

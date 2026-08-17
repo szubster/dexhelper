@@ -33,12 +33,12 @@ As part of the Mirage Island Engine updates, we need to extract the 32-bit Perso
 4.  **Graceful Error Handling**: Do not crash on out-of-bounds reads. Rely on `DataView` throwing `RangeError` and handle it gracefully by propagating specific validation errors (e.g., "Corrupted Save File").
 
 ## Acceptance Criteria
-- [ ] Implement Gen 3 party parsing logic using `DataView` to extract PIDs.
-- [ ] Implement Gen 3 PC box parsing logic using `DataView` to extract PIDs.
-- [ ] Ensure `RangeError` is caught and handled gracefully as per ADR 010.
+- [x] Implement Gen 3 party parsing logic using `DataView` to extract PIDs.
+- [x] Implement Gen 3 PC box parsing logic using `DataView` to extract PIDs.
+- [x] Ensure `RangeError` is caught and handled gracefully as per ADR 010.
 
 ## Coder Persona Reminders
 - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` and provide a clear `rejection_reason`.
 - If you submit an empty PR for a completed task (e.g., if the work is already done), you MUST check off all Acceptance Criteria checkboxes before submitting. Do not modify the frontmatter in this case.
 
-- [ ] research-157-369-gen3-party-box-offsets
+- [x] research-157-369-gen3-party-box-offsets
