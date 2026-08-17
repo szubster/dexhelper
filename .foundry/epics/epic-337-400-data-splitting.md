@@ -27,6 +27,9 @@ From PRD `prd-117-337-split-bundles-and-data`: Split the monolithic `pokedata.ms
 - Create generation-specific extension bundles.
 
 ## Acceptance Criteria
-- [ ] Story for extracting core data
-- [ ] Story for generating gen-specific extensions
-- [ ] Story dedicated exclusively to Integration and E2E Verification
+- [x] Story for extracting core data
+- [x] Story for generating gen-specific extensions
+- [x] Story dedicated exclusively to Integration and E2E Verification
+- [ ] story-400-428-extract-core-data
+- [ ] story-400-429-gen-specific-extensions
+- [ ] story-400-430-data-splitting-integration-e2e
