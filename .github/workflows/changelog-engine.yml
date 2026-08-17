@@ -1,7 +1,15 @@
 name: Changelog Engine
 
 on:
+  schedule:
+    - cron: '0 * * * *' # Hourly sync
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.foundry/changelog-state.json'
+      - '.foundry/tasks/task-000-changelog-backfill.md'
 
 concurrency:
   group: changelog-engine
