@@ -31,10 +31,10 @@ The UI MUST adhere strictly to the tactical aesthetic defined in ADR 008: sharp 
 As this is a low-risk UI task, the `coder` is expected to self-verify their implementation (no separate QA task).
 
 ## Acceptance Criteria
-- [ ] Build the Active Callers dashboard UI component.
-- [ ] Render a list of registered Pokegear NPCs in the UI.
-- [ ] Apply the tactical hardware/snooping aesthetic (sharp edges, dashed borders, monospace fonts) as per ADR 008.
-- [ ] Self-verify the UI implementation and document the testing in your task journal.
+- [x] Build the Active Callers dashboard UI component.
+- [x] Render a list of registered Pokegear NPCs in the UI.
+- [x] Apply the tactical hardware/snooping aesthetic (sharp edges, dashed borders, monospace fonts) as per ADR 008.
+- [x] Self-verify the UI implementation and document the testing in your task journal.
 
 ## Developer Guidelines
 - **Empty PR Rule**: If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
