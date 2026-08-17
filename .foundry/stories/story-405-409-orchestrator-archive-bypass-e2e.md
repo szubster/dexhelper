@@ -2,10 +2,10 @@
 id: story-405-409-orchestrator-archive-bypass-e2e
 type: STORY
 title: Orchestrator Archive Bypass E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-08'
+updated_at: '2026-08-17'
 depends_on:
   - story-405-408-orchestrator-archive-bypass-implementation
 jules_session_id: null

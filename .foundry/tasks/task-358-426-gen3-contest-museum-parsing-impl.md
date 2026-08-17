@@ -2,12 +2,12 @@
 id: task-358-426-gen3-contest-museum-parsing-impl
 type: TASK
 title: Task - Gen 3 Contest Museum Parsing Implementation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-14'
-updated_at: '2026-08-16'
+updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: '2224557447277882102'
+jules_session_id: null
 pr_number: null
 parent: story-400-358-gen3-trainer-card-parsing-core
 tags:

@@ -2,12 +2,12 @@
 id: research-425-421-wasm-emulator-options
 type: RESEARCH
 title: WASM Emulator Options Research
-status: ACTIVE
+status: PENDING
 owner_persona: researcher
 created_at: '2026-08-16'
-updated_at: '2026-08-16'
+updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: '9706653369368188933'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

@@ -2,10 +2,10 @@
 id: epic-340-411-experiment-schema-updates
 type: EPIC
 title: Experiment Schema and Metadata Updates
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-11'
-updated_at: '2026-08-12'
+updated_at: '2026-08-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,6 +30,6 @@ Update the Foundry YAML schema and underlying types to support defining A/B expe
 
 ## Acceptance Criteria
 - [x] Story Owner: Break down into Stories. Ensure that a final STORY dedicated exclusively to Integration and E2E Verification is generated and appropriately tagged with `e2e` or `integration`.
-- [ ] story-411-412-define-experiment-schema
-- [ ] story-411-413-update-orchestrator-types
-- [ ] story-411-414-experiment-schema-e2e
+- [x] story-411-412-define-experiment-schema
+- [x] story-411-413-update-orchestrator-types
+- [x] story-411-414-experiment-schema-e2e
