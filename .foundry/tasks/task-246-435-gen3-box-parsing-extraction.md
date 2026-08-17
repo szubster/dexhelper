@@ -32,7 +32,7 @@ Reference `research-246-244-gen3-box-parsing` for exact offsets and structures.
 You must use the `DataView` API (ADR 010) and define all offsets as module-level constants (ADR 028).
 
 ## Acceptance Criteria
-- [ ] Implement robust `DataView` bounds-checked extraction of the 420 PC Box Pokémon records.
-- [ ] Implement the XOR decryption for the 48-byte Data block of each PC Pokémon using its PV and OT ID.
-- [ ] Exclude Party Pokémon or empty slots (represented by 80 bytes of 0x00) from the PC extraction payload.
-- [ ] Create module-level constants for all relevant PC Box and Pokemon Data offsets.
+- [x] Implement robust `DataView` bounds-checked extraction of the 420 PC Box Pokémon records.
+- [x] Implement the XOR decryption for the 48-byte Data block of each PC Pokémon using its PV and OT ID.
+- [x] Exclude Party Pokémon or empty slots (represented by 80 bytes of 0x00) from the PC extraction payload.
+- [x] Create module-level constants for all relevant PC Box and Pokemon Data offsets.
