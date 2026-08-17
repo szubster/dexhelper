@@ -6,7 +6,8 @@ import { ActiveCallersDashboard } from '../ActiveCallersDashboard';
 
 const mockContacts: Contact[] = [
   { id: 1, name: 'Mom' },
-  { id: 2, name: 'Prof. Elm' },
+  { id: 17, name: 'Fisher Ralph' },
+  { id: 6, name: 'Pokefan Beverly' },
 ];
 
 test('renders correctly with contacts and shows 50% probability when active', async () => {
@@ -16,10 +17,16 @@ test('renders correctly with contacts and shows 50% probability when active', as
   await expect.element(page.getByText('ACTIVE CALLERS MATRIX')).toBeInTheDocument();
   await expect.element(page.getByText('ACTIVE', { exact: true })).toBeInTheDocument();
   await expect.element(page.getByText(/Mom/i)).toBeInTheDocument();
-  await expect.element(page.getByText(/Prof\. Elm/i)).toBeInTheDocument();
+  await expect.element(page.getByText(/Fisher Ralph/i)).toBeInTheDocument();
+  await expect.element(page.getByText(/Pokefan Beverly/i)).toBeInTheDocument();
+
+  await expect.element(page.getByText('[ SWARM ]')).toBeInTheDocument();
+  await expect.element(page.getByText('Qwilfish')).toBeInTheDocument();
+  await expect.element(page.getByText('[ ITEM ]')).toBeInTheDocument();
+  await expect.element(page.getByText('Nugget')).toBeInTheDocument();
 
   const probabilityElements = page.getByText('PROB: 50%').elements();
-  expect(probabilityElements.length).toBe(2);
+  expect(probabilityElements.length).toBe(3);
 });
 
 test('shows 0% probability when cooling down', async () => {
@@ -28,7 +35,7 @@ test('shows 0% probability when cooling down', async () => {
 
   await expect.element(page.getByText('COOLING_DOWN')).toBeInTheDocument();
   const probabilityElements = page.getByText('PROB: 0%').elements();
-  expect(probabilityElements.length).toBe(2);
+  expect(probabilityElements.length).toBe(3);
 });
 
 test('renders empty state correctly', async () => {
