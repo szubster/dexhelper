@@ -2,14 +2,14 @@
 id: task-360-419-multi-save-integration-e2e-qa
 type: TASK
 title: Multi-Save Integration E2E - QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-11'
 updated_at: '2026-08-17'
 depends_on:
   - task-360-418-multi-save-integration-e2e-impl
   - task-360-420-multi-save-integration-e2e-architecture
-jules_session_id: null
+jules_session_id: '6864594137092532025'
 pr_number: null
 parent: story-349-360-multi-save-integration-e2e
 tags:
