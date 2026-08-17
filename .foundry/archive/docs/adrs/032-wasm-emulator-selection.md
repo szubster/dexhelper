@@ -45,8 +45,5 @@ We will adopt a multi-emulator architecture to maximize performance and compatib
 - **Negative**: Increases architectural complexity by requiring the integration and maintenance of multiple distinct emulator engines and their respective memory interfaces.
 
 ## Acceptance Criteria
-- [x] Implement the integration for `binjgb` for Gen 1 & 2.
-- [x] Implement the integration for `mGBA` for Gen 3.
-
-- [ ] epic-421-426-binjgb-integration
-- [ ] epic-421-427-mgba-integration
+- [ ] Implement the integration for `binjgb` for Gen 1 & 2.
+- [ ] Implement the integration for `mGBA` for Gen 3.

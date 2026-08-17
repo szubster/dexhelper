@@ -322,6 +322,7 @@ To ensure maintainability and readability within the save parsing engine, the fo
 *   **Relative Offsets (Gen 3):** When extracting Gen 3 save blocks, you must pass and utilize the resolved section offset (e.g., `section1Offset` or `section2Offset`) to calculate relative memory offsets rather than absolute hardcoded offsets, supporting the A/B bank flash memory architecture.
 *   **Bitwise Mapping:** When parsing bitwise blocks (e.g., event flags) using the `DataView` API, you must explicitly map the specific bit offsets corresponding to target events. Just extracting the raw array is insufficient.
 *   **RangeError Handling:** When using the `DataView` API, you MUST catch `RangeError` for out-of-bounds reads and throw a new error with the message "The save file is corrupted or incomplete." to prevent application crashes.
+*   **WASM Emulator Integration & Memory Extraction (ADR 032):** The system supports a multi-emulator architecture (`binjgb` for Gen 1 & Gen 2; `mGBA` for Gen 3). Emulator state synchronization MUST extract SRAM/Save data directly from the emulator's memory space via Javascript bindings during active gameplay. This live memory buffer is directly passed to the DexHelper parsing engine, bypassing the need for manual file-based exports.
 
 ---
 
