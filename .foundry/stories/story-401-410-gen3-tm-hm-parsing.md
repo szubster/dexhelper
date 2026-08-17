@@ -2,10 +2,10 @@
 id: story-401-410-gen3-tm-hm-parsing
 type: STORY
 title: Gen 3 TM/HM Parsing
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-16'
+updated_at: '2026-08-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -27,5 +27,5 @@ Implement the parsing of Gen 3 TM/HM inventory from the A/B bank flash memory sa
 
 ## Acceptance Criteria
 - [x] Break down into multiple TASK nodes for implementation and QA.
-- [ ] task-410-430-gen3-tm-hm-parsing-impl
-- [ ] task-410-431-gen3-tm-hm-parsing-qa
+- [x] task-410-430-gen3-tm-hm-parsing-impl
+- [x] task-410-431-gen3-tm-hm-parsing-qa
