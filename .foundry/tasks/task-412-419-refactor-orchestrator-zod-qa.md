@@ -2,13 +2,13 @@
 id: task-412-419-refactor-orchestrator-zod-qa
 type: TASK
 title: Refactor Foundry Orchestrator Zod Types (QA)
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-12'
 updated_at: '2026-08-17'
 depends_on:
   - task-412-418-refactor-orchestrator-zod-impl
-jules_session_id: null
+jules_session_id: '14772337559640623733'
 pr_number: null
 parent: story-335-412-integrate-zod-schema
 tags:
