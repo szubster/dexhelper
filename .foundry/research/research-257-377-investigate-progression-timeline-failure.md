@@ -2,12 +2,12 @@
 id: research-257-377-investigate-progression-timeline-failure
 type: RESEARCH
 title: Investigate Progression Timeline UI Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-01'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1758892004316565308'
 pr_number: null
 parent: story-036-257-concurrent-game-management
 tags:
