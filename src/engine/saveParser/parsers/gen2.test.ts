@@ -584,4 +584,65 @@ describe('gen2 parsers', () => {
       expect(data.npcTradeFlags).toEqual([false, true, false, true, false, true, false]);
     });
   });
+
+  describe('Gen 2 TM/HM Parsing', () => {
+    it('should correctly parse TM/HM inventory and event flags', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+
+      // TM Pocket is a flat array of 57 bytes (no length prefix).
+      // Item ID 191 is TM01, stored at index 0.
+      view.setUint8(0x23e7, 2); // 2 of TM01
+
+      // Item ID 193 is TM03, stored at index 2.
+      view.setUint8(0x23e7 + 2, 1); // 1 of TM03
+
+      // Set Event Flags (GS offset: 0x2624)
+      // TM02 (Headbutt, itemId 192) event flag is 92.
+      // Byte offset: Math.floor(92 / 8) = 11. Bit offset: 92 % 8 = 4.
+      // 0x2624 + 11 = 0x262f. Set bit 4.
+      view.setUint8(0x262f, 1 << 4);
+
+      const data = parseGen2(view, false);
+      expect(data.tms).toBeDefined();
+
+      const tm01 = data.tms?.find((t) => t.id === 191);
+      expect(tm01?.quantity).toBe(2);
+      expect(tm01?.isAcquired).toBe(true);
+
+      const tm02 = data.tms?.find((t) => t.id === 192);
+      expect(tm02?.quantity).toBe(0);
+      expect(tm02?.isAcquired).toBe(true);
+
+      const tm03 = data.tms?.find((t) => t.id === 193);
+      expect(tm03?.quantity).toBe(1);
+      expect(tm03?.isAcquired).toBe(true); // TM03 has no event flag, but isAcquired is true because quantity > 0
+
+      const tm04 = data.tms?.find((t) => t.id === 194);
+      expect(tm04?.quantity).toBe(0);
+      expect(tm04?.isAcquired).toBe(false);
+    });
+
+    it('should throw "The save file is corrupted or incomplete." if eventFlags are out of bounds', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+
+      // Force view.getUint8 to throw RangeError for Event Flags (0x2624)
+      const originalGetUint8 = view.getUint8.bind(view);
+      view.getUint8 = (offset: number) => {
+        if (offset === 0x2624) {
+          throw new RangeError('Out of bounds');
+        }
+        return originalGetUint8(offset);
+      };
+
+      expect(() => parseGen2(view, false)).toThrow('The save file is corrupted or incomplete.');
+    });
+  });
 });
