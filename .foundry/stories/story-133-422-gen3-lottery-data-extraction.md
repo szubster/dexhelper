@@ -27,4 +27,6 @@ Implement the logic to extract the daily winning number from Gen 3 save data.
 - Parse the daily winning number from the extracted save file data.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-422-435-gen3-lottery-extraction-impl
+- [ ] task-422-436-gen3-lottery-extraction-qa
