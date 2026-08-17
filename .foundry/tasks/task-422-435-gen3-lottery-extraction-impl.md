@@ -2,7 +2,7 @@
 id: task-422-435-gen3-lottery-extraction-impl
 type: TASK
 title: Gen3 Lottery Data Extraction Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-17'
 updated_at: '2026-08-17'

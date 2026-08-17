@@ -2,7 +2,7 @@
 id: task-246-437-gen3-box-parsing-qa
 type: TASK
 title: QA Gen 3 Box Parsing and Grouping
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-17'
 updated_at: '2026-08-17'

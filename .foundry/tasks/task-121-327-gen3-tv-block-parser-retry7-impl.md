@@ -2,13 +2,13 @@
 id: task-121-327-gen3-tv-block-parser-retry7-impl
 type: TASK
 title: Implement Gen 3 TV Block DataView Parser (Retry 7)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-16'
-updated_at: '2026-08-16'
+updated_at: '2026-08-17'
 depends_on:
   - task-121-310-gen3-tv-block-parser-retry6-qa
-jules_session_id: '1770119609591006502'
+jules_session_id: null
 pr_number: null
 parent: story-081-121-gen3-tv-block-dataview-parser
 tags:
@@ -17,7 +17,7 @@ tags:
   - data-parsing
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 

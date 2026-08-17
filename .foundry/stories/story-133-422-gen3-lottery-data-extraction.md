@@ -2,12 +2,12 @@
 id: story-133-422-gen3-lottery-data-extraction
 type: STORY
 title: Gen3 Lottery Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-14'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: '13453087144710348889'
+jules_session_id: null
 pr_number: null
 parent: epic-105-133-lottery-matching-logic
 tags:

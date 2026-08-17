@@ -2,10 +2,10 @@
 id: task-099-158-gen3-extract-pokemon-pids-qa
 type: TASK
 title: QA Gen 3 Pokemon PID Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-08-17'
 depends_on:
   - task-099-157-gen3-extract-pokemon-pids-impl
 jules_session_id: null

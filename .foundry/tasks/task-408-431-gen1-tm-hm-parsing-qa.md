@@ -2,13 +2,13 @@
 id: task-408-431-gen1-tm-hm-parsing-qa
 type: TASK
 title: Gen 1 TM/HM Parsing QA
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-08-16'
-updated_at: '2026-08-16'
+updated_at: '2026-08-17'
 depends_on:
   - task-408-430-gen1-tm-hm-parsing-impl
-jules_session_id: '3946985886307560841'
+jules_session_id: null
 pr_number: null
 parent: story-401-408-gen1-tm-hm-parsing
 tags:
@@ -17,7 +17,7 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/moveset-inventory-memory-offsets.md
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 locks: []
 ---

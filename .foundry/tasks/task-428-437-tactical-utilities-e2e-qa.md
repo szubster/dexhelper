@@ -2,7 +2,7 @@
 id: task-428-437-tactical-utilities-e2e-qa
 type: TASK
 title: QA Tactical Utilities E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-17'
 updated_at: '2026-08-17'
