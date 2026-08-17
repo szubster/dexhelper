@@ -214,6 +214,62 @@ describe('PokeDB', () => {
     expect(item?.gen1_id).toBe(10);
   });
 
+  it('retrieves single moves correctly', async () => {
+    const mockData = {
+      items: [],
+      moves: [{ id: 10, name: 'Scratch', type: 1, p: 40, pp: 35, dmg_class: 1, effect: 0 }],
+      hash: 'move-hash',
+      poke: [],
+      enc: [],
+      loc: [],
+    };
+
+    vi.mocked(fetch).mockResolvedValue({
+      ok: true,
+      arrayBuffer: async () => pack(mockData),
+    } as unknown as Response);
+    await pokeDB.sync();
+
+    const move = await pokeDB.getMove(10);
+    expect(move?.name).toBe('Scratch');
+    expect(move?.p).toBe(40);
+    expect(move?.acc).toBe(100); // Check inflation
+  });
+
+  it('performs bulk operations for moves', async () => {
+    const mockData = {
+      items: [],
+      moves: [
+        { id: 1, name: 'M1', type: 1, p: 40, pp: 35, dmg_class: 1, effect: 0 },
+        { id: 2, name: 'M2', type: 1, p: 40, pp: 35, dmg_class: 1, effect: 0 },
+      ],
+      hash: 'bulk-move-hash',
+      poke: [],
+      enc: [],
+      loc: [],
+    };
+
+    vi.mocked(fetch).mockResolvedValue({
+      ok: true,
+      arrayBuffer: async () => pack(mockData),
+    } as unknown as Response);
+
+    await pokeDB.sync();
+
+    const results = await pokeDB.getMovesBulk([1, 2, 999]);
+    expect(results).toHaveLength(3);
+
+    const r1 = results[0];
+    if (!r1 || r1 instanceof Error) throw r1 ?? new Error('r1 undefined');
+    expect(r1.name).toBe('M1');
+
+    const r2 = results[1];
+    if (!r2 || r2 instanceof Error) throw r2 ?? new Error('r2 undefined');
+    expect(r2.name).toBe('M2');
+
+    expect(results[2]).toBeInstanceOf(Error);
+  });
+
   it('performs bulk operations for pokemons', async () => {
     const mockData = {
       items: [],
