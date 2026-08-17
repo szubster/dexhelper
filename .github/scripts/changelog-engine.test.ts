@@ -10,6 +10,7 @@ import {
   generateContinuousMaintenanceIdeaNode,
   getLatestVersion,
   loadState,
+  runChangelogEngine,
   saveState,
   updateTaskNodeForCommit
 } from './changelog-engine.ts';
@@ -201,6 +202,41 @@ describe('changelog-engine', () => {
       const content = fs.readFileSync(testIdeaPath, 'utf8');
       expect(content).toContain('id: idea-000-changelog-continuous-maintenance');
       expect(content).toContain('Continuous Changelog Maintenance for Merged Ideas');
+    });
+  });
+
+  describe('runChangelogEngine task guards', () => {
+    it('exits early when task node status is READY, ACTIVE, or VERIFYING', async () => {
+      const taskPath = path.join(process.cwd(), '.foundry', 'tasks', 'task-000-changelog-backfill.md');
+      const initialTaskContent = `---
+id: task-000-changelog-backfill
+type: TASK
+title: Changelog Backfill Commit Evaluation
+status: READY
+owner_persona: changelogger
+created_at: '2026-04-20'
+updated_at: '2026-04-20'
+depends_on: []
+jules_session_id: null
+rejection_count: 0
+rejection_reason: ''
+---
+# Task
+`;
+      fs.writeFileSync(taskPath, initialTaskContent, 'utf8');
+
+      const stdoutSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+      await runChangelogEngine();
+
+      expect(stdoutSpy).toHaveBeenCalledWith(
+        expect.stringContaining('Backfill task is currently READY. Waiting for session completion.')
+      );
+
+      // Clean up created task file
+      if (fs.existsSync(taskPath)) {
+        fs.unlinkSync(taskPath);
+      }
     });
   });
 });

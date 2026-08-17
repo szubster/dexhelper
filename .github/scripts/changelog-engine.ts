@@ -372,7 +372,7 @@ export async function runChangelogEngine(): Promise<void> {
       const taskParsed = matter(taskRaw);
       const taskStatus = taskParsed.data.status;
 
-      if (taskStatus === 'ACTIVE' || taskStatus === 'VERIFYING') {
+      if (taskStatus === 'READY' || taskStatus === 'ACTIVE' || taskStatus === 'VERIFYING') {
         process.stdout.write(`[changelog-engine] Backfill task is currently ${taskStatus}. Waiting for session completion.\n`);
         return;
       }
@@ -417,7 +417,6 @@ export async function runChangelogEngine(): Promise<void> {
     // Re-open task node as READY for this commit
     updateTaskNodeForCommit(details, classification);
 
-    state.last_processed_commit = sha;
     state.status = 'pending_jules';
     saveState(state);
 
