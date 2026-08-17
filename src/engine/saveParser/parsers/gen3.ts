@@ -1433,10 +1433,21 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     }
     const nationalDexCount = owned.size;
 
+    const hasBattleFrontier = !!(
+      gen3BattleFrontierSymbols?.tower.gold &&
+      gen3BattleFrontierSymbols.dome.gold &&
+      gen3BattleFrontierSymbols.palace.gold &&
+      gen3BattleFrontierSymbols.arena.gold &&
+      gen3BattleFrontierSymbols.factory.gold &&
+      gen3BattleFrontierSymbols.pike.gold &&
+      gen3BattleFrontierSymbols.pyramid.gold
+    );
+
     const gen3TrainerCard = {
       hasHallOfFame: hallOfFameCount > 0,
       hasHoennDex: hoennDexCount === 202,
       hasNationalDex: nationalDexCount === 386,
+      hasBattleFrontier,
     };
 
     let pc: number[] = [];
