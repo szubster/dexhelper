@@ -2,16 +2,20 @@ import { describe, it, expect } from 'vitest';
 import fc from 'fast-check';
 import { buildReverseDependencyGraph, getOrphanedNodes } from './dag-utils';
 
-// Helper to generate a random DAG (or graph with cycles)
-// A node is an object with repoPath (string) and frontmatter.depends_on (string[])
-const graphNodeArbitrary = fc.record({
-  repoPath: fc.stringMatching(/^[a-z0-9-]+$/),
-  frontmatter: fc.record({
-    depends_on: fc.array(fc.stringMatching(/^[a-z0-9-]+$/))
-  })
-});
+const pathsArbitrary = fc.uniqueArray(fc.stringMatching(/^[a-z0-9-]+$/), { minLength: 1, maxLength: 20 });
 
-const graphArbitrary = fc.array(graphNodeArbitrary, { maxLength: 20 });
+const graphArbitrary = pathsArbitrary.chain((paths) => {
+  return fc.array(
+    fc.record({
+      repoPath: fc.constantFrom(...paths),
+      frontmatter: fc.record({
+        // Depends on either another node in the graph, or a dummy external path
+        depends_on: fc.array(fc.constantFrom(...paths, 'external-dep'), { maxLength: 5 })
+      })
+    }),
+    { maxLength: 20 }
+  );
+});
 
 describe('DAG evaluation fuzzing properties', () => {
 
@@ -21,7 +25,6 @@ describe('DAG evaluation fuzzing properties', () => {
         const resolveNodePath = (ref: string) => ref;
         const reverseGraph = buildReverseDependencyGraph(nodes, resolveNodePath);
 
-        // Property 1: If A depends on B, then A must be in the dependents list of B in the reverse graph
         for (const node of nodes) {
           for (const dep of node.frontmatter.depends_on) {
             const dependentsOfDep = reverseGraph.get(dep);
@@ -53,7 +56,6 @@ describe('DAG evaluation fuzzing properties', () => {
 
         const orphaned = getOrphanedNodes(startNode, reverseGraph);
 
-        // Property: For every node in 'orphaned', all of its dependents must also be in 'orphaned'
         for (const node of orphaned) {
           const dependents = reverseGraph.get(node) || [];
           for (const dependent of dependents) {
@@ -67,10 +69,6 @@ describe('DAG evaluation fuzzing properties', () => {
 });
 
   it('detecting cycles behaves deterministically under fuzzing', () => {
-    // A simplified cycle detection check: if we traverse the reverse graph and find our start node again,
-    // there's a cycle. But since getOrphanedNodes uses a Set to prevent infinite loops,
-    // we just want to assert that getOrphanedNodes NEVER throws an error (e.g. stack overflow)
-    // even for highly connected or cyclic graphs.
     fc.assert(
       fc.property(graphArbitrary, fc.stringMatching(/^[a-z0-9-]+$/), (nodes, startNode) => {
         const resolveNodePath = (ref: string) => ref;
