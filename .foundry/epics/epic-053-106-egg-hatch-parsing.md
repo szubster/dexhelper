@@ -2,10 +2,10 @@
 id: epic-053-106-egg-hatch-parsing
 type: EPIC
 title: Egg Hatch Tracker Data Extraction Engine
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-22'
-updated_at: '2026-06-29'
+updated_at: '2026-08-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - breeding
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
 
@@ -35,5 +35,5 @@ Implement offline save parsing to calculate exact steps remaining for Eggs.
 
 ## Acceptance Criteria
 - [x] Break down into Stories.
-- [ ] .foundry/archive/stories/story-106-158-gen2-egg-hatch-parsing.md
-- [ ] .foundry/stories/story-106-159-gen3-egg-hatch-parsing.md
+- [x] .foundry/archive/stories/story-106-158-gen2-egg-hatch-parsing.md
+- [x] .foundry/stories/story-106-159-gen3-egg-hatch-parsing.md

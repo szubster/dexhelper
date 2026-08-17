@@ -2,12 +2,12 @@
 id: task-288-305-gen3-mix-record-inherited-events-qa
 type: TASK
 title: QA Gen 3 Mix Record Inherited Events Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-06'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: '4835345170691585571'
+jules_session_id: null
 pr_number: null
 parent: story-081-288-gen3-mix-record-inherited-events
 tags:
