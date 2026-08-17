@@ -118,6 +118,21 @@ const RIBBON_CUTE_SHIFT = 6;
 const RIBBON_SMART_SHIFT = 9;
 const RIBBON_TOUGH_SHIFT = 12;
 
+export const GEN3_PARTY_SIZE_OFFSET_RSE = 0x0234;
+export const GEN3_PARTY_SIZE_OFFSET_FRLG = 0x0034;
+export const GEN3_PARTY_LIST_OFFSET_RSE = 0x0238;
+export const GEN3_PARTY_LIST_OFFSET_FRLG = 0x0038;
+export const GEN3_PARTY_MAX_SIZE = 6;
+export const GEN3_PARTY_STATUS_OFFSET = 0x50;
+export const GEN3_PARTY_LEVEL_OFFSET = 0x54;
+export const GEN3_PARTY_HP_OFFSET = 0x56;
+export const GEN3_PARTY_MAX_HP_OFFSET = 0x58;
+export const GEN3_PARTY_ATTACK_OFFSET = 0x5a;
+export const GEN3_PARTY_DEFENSE_OFFSET = 0x5c;
+export const GEN3_PARTY_SPEED_OFFSET = 0x5e;
+export const GEN3_PARTY_SPATK_OFFSET = 0x60;
+export const GEN3_PARTY_SPDEF_OFFSET = 0x62;
+
 export const IV_MASK = 0x1f;
 export const IV_SHIFT_HP = 0;
 export const IV_SHIFT_ATK = 5;
