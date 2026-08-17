@@ -58,6 +58,26 @@ export const GEN1_TM_HM_TO_MOVE_ID: Record<number, number> = {
   250: 165,
 };
 
+export const GEN1_BOSS_EVENT_FLAGS: Record<string, number> = {
+  EVENT_BEAT_BROCK: 0x20, // 32
+  EVENT_BEAT_CERULEAN_RIVAL: 0x21, // 33
+  EVENT_BEAT_MISTY: 0x26, // 38
+  EVENT_BEAT_POKEMON_TOWER_RIVAL: 0x29, // 41
+  EVENT_BEAT_LT_SURGE: 0x47, // 71
+  EVENT_BEAT_ERIKA: 0x4e, // 78
+  EVENT_BEAT_KOGA: 0x62, // 98
+  EVENT_BEAT_SABRINA: 0x8a, // 138
+  EVENT_BEAT_BLAINE: 0x6c, // 108
+  EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI: 0x13, // 19
+  EVENT_BEAT_ROUTE22_RIVAL_1ST_BATTLE: 0x13b, // 315
+  EVENT_BEAT_ROUTE22_RIVAL_2ND_BATTLE: 0x13c, // 316
+  EVENT_BEAT_ROCKET_HIDEOUT_GIOVANNI: 0x1a1, // 417
+  EVENT_BEAT_SILPH_CO_RIVAL: 0x1bd, // 445
+  EVENT_BEAT_SILPH_CO_GIOVANNI: 0x1d7, // 471
+  EVENT_BEAT_LANCE: 0x1e6, // 486
+  EVENT_BEAT_CHAMPION_RIVAL: 0x1e8, // 488
+};
+
 export const GEN1_TM_EVENT_FLAGS: Record<number, number> = {
   206: 0x258,
   211: 0x0be,
@@ -94,6 +114,45 @@ export const GEN1_TM_EVENT_FLAGS: Record<number, number> = {
  * const tms = parseGen1TMFlags(saveData.eventFlags);
  * if (tms[206]) { console.log('Obtained TM 206!'); }
  */
+export function parseGen1NarrativeFlags(eventFlags: Uint8Array): Record<string, boolean> {
+  const flags: Record<string, boolean> = {};
+  for (const [key, flag] of Object.entries(GEN1_BOSS_EVENT_FLAGS)) {
+    const byteIndex = flag >> BITS_PER_BYTE_SHIFT;
+    const bitIndex = flag & BIT_INDEX_MASK;
+    flags[key] = eventFlags[byteIndex] !== undefined && (eventFlags[byteIndex] & (1 << bitIndex)) !== 0;
+  }
+  return flags;
+}
+
+export function getUpcomingGen1Boss(defeatedBosses: Record<string, boolean>): string | null {
+  const narrativeOrder = [
+    'EVENT_BEAT_ROUTE22_RIVAL_1ST_BATTLE',
+    'EVENT_BEAT_BROCK',
+    'EVENT_BEAT_CERULEAN_RIVAL',
+    'EVENT_BEAT_MISTY',
+    'EVENT_BEAT_LT_SURGE',
+    'EVENT_BEAT_ERIKA',
+    'EVENT_BEAT_ROCKET_HIDEOUT_GIOVANNI',
+    'EVENT_BEAT_POKEMON_TOWER_RIVAL',
+    'EVENT_BEAT_KOGA',
+    'EVENT_BEAT_SILPH_CO_RIVAL',
+    'EVENT_BEAT_SILPH_CO_GIOVANNI',
+    'EVENT_BEAT_SABRINA',
+    'EVENT_BEAT_BLAINE',
+    'EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI',
+    'EVENT_BEAT_ROUTE22_RIVAL_2ND_BATTLE',
+    'EVENT_BEAT_LANCE',
+    'EVENT_BEAT_CHAMPION_RIVAL',
+  ];
+
+  for (const boss of narrativeOrder) {
+    if (!defeatedBosses[boss]) {
+      return boss;
+    }
+  }
+  return null;
+}
+
 export function parseGen1TMFlags(eventFlags: Uint8Array): Record<number, boolean> {
   const flags: Record<number, boolean> = {};
   for (const [idStr, flag] of Object.entries(GEN1_TM_EVENT_FLAGS)) {

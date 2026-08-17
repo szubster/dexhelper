@@ -1,6 +1,86 @@
 import { describe, expect, it } from 'vitest';
 import { STATIC_GIFT_DATA } from '../../data/gen1/assistantData';
-import { GEN1_TM_EVENT_FLAGS, parseGen1StaticEncounters, parseGen1TMFlags } from './gen1EventFlags';
+import {
+  GEN1_BOSS_EVENT_FLAGS,
+  GEN1_TM_EVENT_FLAGS,
+  getUpcomingGen1Boss,
+  parseGen1NarrativeFlags,
+  parseGen1StaticEncounters,
+  parseGen1TMFlags,
+} from './gen1EventFlags';
+
+describe('parseGen1NarrativeFlags', () => {
+  it('should handle an absolute zero state correctly for narrative flags', () => {
+    const eventFlags = new Uint8Array(0x118);
+    const claimed = parseGen1NarrativeFlags(eventFlags);
+    for (const key of Object.keys(GEN1_BOSS_EVENT_FLAGS)) {
+      expect(claimed[key]).toBe(false);
+    }
+  });
+
+  it('should parse specific claimed narrative flags correctly', () => {
+    const eventFlags = new Uint8Array(0x118);
+
+    // biome-ignore lint/complexity/useLiteralKeys: required for typescript indexing rule
+    const brockFlag = GEN1_BOSS_EVENT_FLAGS['EVENT_BEAT_BROCK'];
+    if (brockFlag !== undefined) {
+      const byteIndex = brockFlag >> 3;
+      const bitIndex = brockFlag & 7;
+      const current = eventFlags[byteIndex];
+      if (current !== undefined) eventFlags[byteIndex] = current | (1 << bitIndex);
+    }
+
+    const claimed = parseGen1NarrativeFlags(eventFlags);
+    // biome-ignore lint/complexity/useLiteralKeys: required for typescript indexing rule
+    expect(claimed['EVENT_BEAT_BROCK']).toBe(true);
+    // biome-ignore lint/complexity/useLiteralKeys: required for typescript indexing rule
+    expect(claimed['EVENT_BEAT_MISTY']).toBe(false);
+  });
+});
+
+describe('getUpcomingGen1Boss', () => {
+  it('should return the first boss when no bosses are defeated', () => {
+    const defeatedBosses: Record<string, boolean> = {};
+    const upcomingBoss = getUpcomingGen1Boss(defeatedBosses);
+    expect(upcomingBoss).toBe('EVENT_BEAT_ROUTE22_RIVAL_1ST_BATTLE');
+  });
+
+  it('should return the next boss when some bosses are defeated', () => {
+    const defeatedBosses: Record<string, boolean> = {
+      EVENT_BEAT_ROUTE22_RIVAL_1ST_BATTLE: true,
+      EVENT_BEAT_BROCK: true,
+      EVENT_BEAT_CERULEAN_RIVAL: true,
+      EVENT_BEAT_MISTY: true,
+      EVENT_BEAT_LT_SURGE: true,
+    };
+    const upcomingBoss = getUpcomingGen1Boss(defeatedBosses);
+    expect(upcomingBoss).toBe('EVENT_BEAT_ERIKA');
+  });
+
+  it('should return null when all bosses are defeated', () => {
+    const defeatedBosses: Record<string, boolean> = {
+      EVENT_BEAT_ROUTE22_RIVAL_1ST_BATTLE: true,
+      EVENT_BEAT_BROCK: true,
+      EVENT_BEAT_CERULEAN_RIVAL: true,
+      EVENT_BEAT_MISTY: true,
+      EVENT_BEAT_LT_SURGE: true,
+      EVENT_BEAT_ERIKA: true,
+      EVENT_BEAT_ROCKET_HIDEOUT_GIOVANNI: true,
+      EVENT_BEAT_POKEMON_TOWER_RIVAL: true,
+      EVENT_BEAT_KOGA: true,
+      EVENT_BEAT_SILPH_CO_RIVAL: true,
+      EVENT_BEAT_SILPH_CO_GIOVANNI: true,
+      EVENT_BEAT_SABRINA: true,
+      EVENT_BEAT_BLAINE: true,
+      EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI: true,
+      EVENT_BEAT_ROUTE22_RIVAL_2ND_BATTLE: true,
+      EVENT_BEAT_LANCE: true,
+      EVENT_BEAT_CHAMPION_RIVAL: true,
+    };
+    const upcomingBoss = getUpcomingGen1Boss(defeatedBosses);
+    expect(upcomingBoss).toBeNull();
+  });
+});
 
 describe('parseGen1StaticEncounters', () => {
   it('should handle an absolute zero state correctly', () => {

@@ -251,6 +251,8 @@ export interface SaveData {
   gen3FeebasSeed?: number;
   /** Gen 1 specific: Claimed static encounters. */
   gen1StaticEncounters?: Record<number, boolean>;
+  /** Gen 1 specific: Narrative progression flags. */
+  gen1NarrativeFlags?: Record<string, boolean>;
   /** The specific game version detected or forced (e.g., 'red', 'crystal'). */
   gameVersion: GameVersion;
   /** Bitflag representation of the total number of gym badges obtained. */
