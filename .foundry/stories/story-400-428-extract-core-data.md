@@ -2,12 +2,12 @@
 id: story-400-428-extract-core-data
 type: STORY
 title: Extract Core Data
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-17'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14753864145728940608'
 pr_number: null
 parent: epic-337-400-data-splitting
 tags:
