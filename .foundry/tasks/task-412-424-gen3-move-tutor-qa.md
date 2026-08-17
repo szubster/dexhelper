@@ -2,13 +2,13 @@
 id: task-412-424-gen3-move-tutor-qa
 type: TASK
 title: Gen 3 Move Tutor Extractor QA Verification
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-12'
 updated_at: '2026-08-17'
 depends_on:
   - task-412-423-gen3-move-tutor-extractor
-jules_session_id: null
+jules_session_id: '13807068712582513234'
 pr_number: null
 parent: story-406-412-gen3-move-tutor-parsing-core
 tags:
