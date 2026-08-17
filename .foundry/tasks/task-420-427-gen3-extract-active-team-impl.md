@@ -36,5 +36,5 @@ Implement extraction of the player's active team from Gen 3 save files, adhering
 - Implement tests verifying extraction correctly reads the required data. Use vitest and vitest-browser-react, not @testing-library.
 
 ## Acceptance Criteria
-- [ ] Implement team extraction logic as per requirements.
-- [ ] Implement unit tests verifying extraction.
+- [x] Implement team extraction logic as per requirements.
+- [x] Implement unit tests verifying extraction.

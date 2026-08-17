@@ -678,13 +678,22 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
       party.push(speciesId);
       partyDetails.push({
         speciesId,
-        level: view.getUint8(offset + 84), // 0x54
+        level: view.getUint8(offset + GEN3_PARTY_LEVEL_OFFSET),
         isShiny: false, // We'll implement shiny calculation separately
         item: item > 0 ? item : undefined,
         moves,
         personalityValue: pv,
         storageLocation: 'Party',
         hash: `${pv}-${otId}`,
+        currentHp: view.getUint16(offset + GEN3_PARTY_HP_OFFSET, true),
+        stats: {
+          hp: view.getUint16(offset + GEN3_PARTY_MAX_HP_OFFSET, true),
+          atk: view.getUint16(offset + GEN3_PARTY_ATTACK_OFFSET, true),
+          def: view.getUint16(offset + GEN3_PARTY_DEFENSE_OFFSET, true),
+          spd: view.getUint16(offset + GEN3_PARTY_SPEED_OFFSET, true),
+          spatk: view.getUint16(offset + GEN3_PARTY_SPATK_OFFSET, true),
+          spdef: view.getUint16(offset + GEN3_PARTY_SPDEF_OFFSET, true),
+        },
       });
     }
   } catch (error) {
