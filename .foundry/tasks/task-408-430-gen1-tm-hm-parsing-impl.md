@@ -2,7 +2,7 @@
 id: task-408-430-gen1-tm-hm-parsing-impl
 type: TASK
 title: Gen 1 TM/HM Parsing Implementation
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-16'
 updated_at: '2026-08-16'
@@ -15,8 +15,8 @@ tags:
   - save-parsing
 research_references:
   - .foundry/docs/knowledge_base/moveset-inventory-memory-offsets.md
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'QA validation failed: Missing unit tests for parseGen1TMFlags in gen1EventFlags.test.ts'
 notes: ''
 locks: []
 ---
