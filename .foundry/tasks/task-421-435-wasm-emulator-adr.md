@@ -27,5 +27,6 @@ notes: ''
 Research into WASM emulator options (mGBA, binjgb, SkyEmu) has been completed. The CEO has approved a multi-emulator architecture. The Architect must now formalize the decision into an ADR.
 
 ## Acceptance Criteria
-- [ ] Create `adr-421-032-wasm-emulator-selection.md` detailing the choice of a multi-emulator strategy for in-browser play.
-- [ ] Document the technical approach for integrating the emulators and extracting save data.
+- [x] Create `adr-421-032-wasm-emulator-selection.md` detailing the choice of a multi-emulator strategy for in-browser play.
+- [x] Document the technical approach for integrating the emulators and extracting save data.
+- [ ] adr-421-032-wasm-emulator-selection
