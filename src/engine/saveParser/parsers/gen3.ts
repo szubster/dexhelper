@@ -266,6 +266,13 @@ export const GEN3_POKEMON_MOVE_4_OFFSET = 0x06;
 export const UPPER_16_BIT_SHIFT = 16;
 export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
 
+export const GEN3_CONTEST_WINNERS_SECTION_ID = 3;
+export const GEN3_CONTEST_WINNERS_RELATIVE_OFFSET = 0x10;
+export const MUSEUM_CONTEST_WINNERS_START = 8;
+export const MUSEUM_CONTEST_WINNERS_COUNT = 5;
+export const CONTEST_WINNER_STRUCT_SIZE = 32;
+export const CONTEST_WINNER_SPECIES_OFFSET = 0x08;
+
 /**
  * Maps the 24 possible permutations of a Gen 3 Pokémon's 48-byte data block.
  * The permutation index is determined by `PV % 24`.
@@ -1330,6 +1337,39 @@ export function parseGen3TrainerId(view: DataView, section0Offset: number): { tr
 }
 
 /**
+ * Parses the Contest Winners array to determine if the player has unlocked the
+ * Contest Master Rank on their Trainer Card (earned by having 5 museum paintings).
+ *
+ * @param view - The raw save file DataView.
+ * @param section3Offset - The resolved memory offset to the active Section 3.
+ * @returns True if all 5 museum paintings exist.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3ContestMaster(view: DataView, section3Offset: number): boolean {
+  try {
+    const baseOffset = section3Offset + GEN3_CONTEST_WINNERS_RELATIVE_OFFSET;
+
+    for (let i = 0; i < MUSEUM_CONTEST_WINNERS_COUNT; i++) {
+      const winnerIndex = MUSEUM_CONTEST_WINNERS_START + i;
+      const offset = baseOffset + winnerIndex * CONTEST_WINNER_STRUCT_SIZE;
+
+      // Check if the species field is non-zero
+      const species = view.getUint16(offset + CONTEST_WINNER_SPECIES_OFFSET, true);
+      if (species === 0) {
+        return false;
+      }
+    }
+
+    return true;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+/**
  * The main orchestrator for parsing a Generation 3 (R/S/E/FR/LG) save file.
  *
  * **Architecture Overview & Orchestration:**
@@ -1366,6 +1406,14 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       section0Offset = getLatestSectionOffset(view, 0);
     } catch {
       throw new RangeError('Out of bounds during block scan');
+    }
+
+    let section3Offset: number;
+    try {
+      section3Offset = getLatestSectionOffset(view, 3);
+    } catch {
+      // Ignored for older Gen 3 games if necessary, or let it fail gracefully
+      section3Offset = -1;
     }
 
     const gen3BerryPatches = extractBerryPatches(view, section1Offset);
@@ -1560,11 +1608,22 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
       gen3BattleFrontierSymbols.pyramid.gold
     );
 
+    let hasContestMaster = false;
+    const version = _forcedVersion || 'ruby';
+    if (section3Offset !== -1 && (version === 'ruby' || version === 'sapphire' || version === 'emerald')) {
+      try {
+        hasContestMaster = parseGen3ContestMaster(view, section3Offset);
+      } catch {
+        // Ignored
+      }
+    }
+
     const gen3TrainerCard = {
       hasHallOfFame: hallOfFameCount > 0,
       hasHoennDex: hoennDexCount === 202,
       hasNationalDex: nationalDexCount === 386,
       hasBattleFrontier,
+      hasContestMaster,
     };
 
     let pc: number[] = [];

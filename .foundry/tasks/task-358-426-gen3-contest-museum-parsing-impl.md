@@ -27,6 +27,6 @@ notes: ''
 Implement the core parsing logic to extract the Gen 3 Trainer Card upgrade criteria for Contest Master Rank. Add `hasContestMaster` boolean property to `Gen3TrainerCard`. For Contest Master Rank, verify the 5 Museum Contest paintings (flags starting at `0x2e90` in SaveBlock1, index 8). Ensure strict adherence to the schema guidelines.
 
 ## Acceptance Criteria
-- [ ] Implement `parseGen3ContestMaster` logic in `src/engine/saveParser/parsers/gen3.ts` using the museum offsets detailed in `.foundry/docs/knowledge_base/gen3_contest_museum_offsets.md`.
-- [ ] Construct and return `gen3TrainerCard.hasContestMaster` object within `parseGen3`.
-- [ ] Verify the implementation using appropriate unit tests.
+- [x] Implement `parseGen3ContestMaster` logic in `src/engine/saveParser/parsers/gen3.ts` using the museum offsets detailed in `.foundry/docs/knowledge_base/gen3_contest_museum_offsets.md`.
+- [x] Construct and return `gen3TrainerCard.hasContestMaster` object within `parseGen3`.
+- [x] Verify the implementation using appropriate unit tests.
