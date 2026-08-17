@@ -2,13 +2,13 @@
 id: task-418-431-dag-evaluation-properties-impl
 type: TASK
 title: DAG Evaluation Fuzzing Properties Implementation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-16'
-updated_at: '2026-08-16'
+updated_at: '2026-08-17'
 depends_on:
   - task-418-430-fuzzing-framework-setup-impl
-jules_session_id: '7923839517047536106'
+jules_session_id: null
 pr_number: null
 parent: story-414-418-fuzzing-setup-and-properties
 tags:

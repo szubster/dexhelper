@@ -2,10 +2,10 @@
 id: epic-340-412-orchestrator-parallel-execution
 type: EPIC
 title: Orchestrator Parallel Variant Execution
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-08-17'
 depends_on:
   - epic-340-411-experiment-schema-updates
 jules_session_id: null

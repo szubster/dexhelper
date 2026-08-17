@@ -2,10 +2,10 @@
 id: task-428-437-update-data-loading-logic
 type: TASK
 title: Update Data Loading Logic for Core Bundle
-status: READY
+status: PENDING
 owner_persona: coder
-created_at: '$(date -I)'
-updated_at: '$(date -I)'
+created_at: $(date -I)
+updated_at: '2026-08-17'
 depends_on:
   - task-428-436-refactor-core-data-generation
 jules_session_id: null

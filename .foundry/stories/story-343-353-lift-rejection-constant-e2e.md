@@ -2,10 +2,10 @@
 id: story-343-353-lift-rejection-constant-e2e
 type: STORY
 title: E2E Tests for Lift Rejection Constant
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-02'
-updated_at: '2026-08-08'
+updated_at: '2026-08-17'
 depends_on:
   - story-343-352-lift-rejection-constant-impl
 jules_session_id: null
@@ -34,6 +34,6 @@ Write E2E tests to verify that the DAG Dashboard still correctly displays perman
 ### Tasks
 - [x] task-353-393-lift-rejection-constant-e2e-impl
 - [x] task-353-394-lift-rejection-constant-e2e-qa
-- [ ] research-353-404-investigate-lift-rejection-e2e-failure
-- [ ] task-353-405-lift-rejection-constant-e2e-retry-impl
-- [ ] task-353-406-lift-rejection-constant-e2e-retry-qa
+- [x] research-353-404-investigate-lift-rejection-e2e-failure
+- [x] task-353-405-lift-rejection-constant-e2e-retry-impl
+- [x] task-353-406-lift-rejection-constant-e2e-retry-qa

@@ -2,10 +2,10 @@
 id: task-428-438-extract-core-data-qa
 type: TASK
 title: Verify Core Data Extraction
-status: READY
+status: PENDING
 owner_persona: qa
-created_at: '$(date -I)'
-updated_at: '$(date -I)'
+created_at: $(date -I)
+updated_at: '2026-08-17'
 depends_on:
   - task-428-437-update-data-loading-logic
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-412-425-gen3-bike-map-parsing-qa
 type: TASK
 title: QA Gen 3 Bike Map Data Parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-13'
-updated_at: '2026-08-14'
+updated_at: '2026-08-17'
 depends_on:
   - task-412-424-gen3-bike-data-struct-integration-impl
 jules_session_id: null
