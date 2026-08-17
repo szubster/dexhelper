@@ -2,10 +2,10 @@
 id: task-410-431-gen3-tm-hm-parsing-qa
 type: TASK
 title: Gen 3 TM/HM Parsing QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-16'
-updated_at: '2026-08-16'
+updated_at: '2026-08-17'
 depends_on:
   - task-410-430-gen3-tm-hm-parsing-impl
 jules_session_id: null

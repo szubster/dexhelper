@@ -2,10 +2,10 @@
 id: story-335-412-integrate-zod-schema
 type: STORY
 title: Replace Manual Orchestrator Validation with Zod Schema
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-12'
-updated_at: '2026-08-14'
+updated_at: '2026-08-17'
 depends_on: []
 jules_session_id: null
 parent: epic-117-335-integrate-zod-orchestrator
@@ -24,5 +24,5 @@ This story focuses on refactoring `.github/scripts/foundry-orchestrator.ts` to u
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-412-418-refactor-orchestrator-zod-impl
-- [ ] task-412-419-refactor-orchestrator-zod-qa
+- [x] task-412-418-refactor-orchestrator-zod-impl
+- [x] task-412-419-refactor-orchestrator-zod-qa
