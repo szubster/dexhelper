@@ -173,6 +173,17 @@ const GEN2_TM_BASE_ITEM_ID = 191;
 const PC_ITEMS_POCKET_OFFSET_CRYSTAL = 0x2460;
 const ROAMING_LEGENDARIES_OFFSET_GS = 0x28da;
 const ROAMING_LEGENDARIES_OFFSET_CRYSTAL = 0x28b6;
+const ROAMER_STRUCT_SIZE = 7;
+const ROAMER_OFFSET_SPECIES = 0;
+const ROAMER_OFFSET_LEVEL = 1;
+const ROAMER_OFFSET_MAP_GROUP = 2;
+const ROAMER_OFFSET_MAP_NUMBER = 3;
+const ROAMER_OFFSET_HP = 4;
+const ROAMER_OFFSET_DVS = 5;
+const ROAMER_GLOBAL_OFFSET_MAP_NUMBER = 19;
+const ROAMER_GLOBAL_OFFSET_MAP_GROUP = 20;
+const ROAMER_COUNT = 3;
+const ROAMER_INACTIVE_MAP_GROUP = 0xff;
 const JOHTO_BADGES_OFFSET_GS = 0x23e4;
 const JOHTO_BADGES_OFFSET_CRYSTAL = 0x23e5;
 const KANTO_BADGES_OFFSET_GS = 0x23e5;
@@ -732,26 +743,58 @@ function parseInventory(view: DataView, isCrystal: boolean) {
  *
  * @param view - The raw save file DataView.
  * @param isCrystal - True if the save is Crystal.
- * @returns An array detailing each roaming beast's location.
+ * @returns An object detailing each roaming beast's location and the global roaming map tracking variables.
  */
 function parseRoamingLegendaries(view: DataView, isCrystal: boolean) {
-  const roamingLegendaries: { speciesId: number; level: number; mapGroup: number; mapId: number }[] = [];
+  const legendaries: {
+    speciesId: number;
+    level: number;
+    mapGroup: number;
+    mapId: number;
+    isActive: boolean;
+    hp: number;
+    ivs: { hp: number; atk: number; def: number; spd: number; spAtk: number; spDef: number };
+  }[] = [];
   const roamingOffset = isCrystal ? ROAMING_LEGENDARIES_OFFSET_CRYSTAL : ROAMING_LEGENDARIES_OFFSET_GS;
+  let curMapGroup: number | undefined;
+  let curMapNumber: number | undefined;
 
-  for (let i = 0; i < 3; i++) {
-    const structOffset = roamingOffset + i * 7;
-    const speciesId = view.getUint8(structOffset);
-    if (speciesId === 243 || speciesId === 244 || speciesId === 245) {
-      roamingLegendaries.push({
-        speciesId,
-        level: view.getUint8(structOffset + 1),
-        mapGroup: view.getUint8(structOffset + 2),
-        mapId: view.getUint8(structOffset + 3),
-      });
+  try {
+    for (let i = 0; i < ROAMER_COUNT; i++) {
+      const structOffset = roamingOffset + i * ROAMER_STRUCT_SIZE;
+      const speciesId = view.getUint8(structOffset + ROAMER_OFFSET_SPECIES);
+      if (speciesId === 243 || speciesId === 244 || speciesId === 245) {
+        const mapGroup = view.getUint8(structOffset + ROAMER_OFFSET_MAP_GROUP);
+        const rawDvs = parseDVs(view.getUint16(structOffset + ROAMER_OFFSET_DVS, false));
+        legendaries.push({
+          speciesId,
+          level: view.getUint8(structOffset + ROAMER_OFFSET_LEVEL),
+          mapGroup,
+          mapId: view.getUint8(structOffset + ROAMER_OFFSET_MAP_NUMBER),
+          isActive: mapGroup !== ROAMER_INACTIVE_MAP_GROUP,
+          hp: view.getUint8(structOffset + ROAMER_OFFSET_HP),
+          ivs: {
+            hp: rawDvs.hp,
+            atk: rawDvs.atk,
+            def: rawDvs.def,
+            spd: rawDvs.spd,
+            spAtk: rawDvs.spc,
+            spDef: rawDvs.spc,
+          },
+        });
+      }
     }
+
+    curMapNumber = view.getUint8(roamingOffset + ROAMER_GLOBAL_OFFSET_MAP_NUMBER);
+    curMapGroup = view.getUint8(roamingOffset + ROAMER_GLOBAL_OFFSET_MAP_GROUP);
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
   }
 
-  return roamingLegendaries;
+  return { legendaries, curMapGroup, curMapNumber };
 }
 /**
  * Orchestrates the full extraction of a Generation 2 (Gold/Silver/Crystal) save file.
@@ -855,7 +898,11 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   const hallOfFameOffset = johtoBadgesOffset + HALL_OF_FAME_OFFSET_RELATIVE_TO_JOHTO_BADGES;
   const hallOfFameCount = view.getUint8(hallOfFameOffset);
 
-  const roamingLegendaries = parseRoamingLegendaries(view, isCrystal);
+  const {
+    legendaries: roamingLegendaries,
+    curMapGroup: roamerCurMapGroup,
+    curMapNumber: roamerCurMapId,
+  } = parseRoamingLegendaries(view, isCrystal);
 
   const eventFlagsOffset = isCrystal ? EVENT_FLAGS_OFFSET_CRYSTAL : EVENT_FLAGS_OFFSET_GS;
   const eventFlags = new Uint8Array(EVENT_FLAGS_LENGTH);
@@ -947,6 +994,8 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
     currentBoxCount: 0,
     hallOfFameCount,
     roamingLegendaries,
+    roamerCurMapGroup,
+    roamerCurMapId,
     eventFlags,
     trainerFlags,
     hiddenItemFlags,

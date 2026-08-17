@@ -33,7 +33,7 @@ As part of the Gen 2 Roamer Data Extraction Epic, we need to extract the 7-byte 
 - **CRITICAL:** All memory offsets, lengths, bit locations, and shifts must be explicitly defined as reusable constants at the module level. Inline magic numbers for memory operations are strictly forbidden.
 
 ## Acceptance Criteria
-- [ ] Implement data extraction for the 3 Gen 2 roaming legendaries based on the 7-byte `roam_struct`.
-- [ ] Extract the map tracking variables correctly.
-- [ ] Ensure all memory offsets and lengths are defined as module-level constants.
-- [ ] Catch `RangeError` exceptions originating from out-of-bounds `DataView` reads, and rethrow them with the message: `'The save file is corrupted or incomplete.'` (per ADR 010).
+- [x] Implement data extraction for the 3 Gen 2 roaming legendaries based on the 7-byte `roam_struct`.
+- [x] Extract the map tracking variables correctly.
+- [x] Ensure all memory offsets and lengths are defined as module-level constants.
+- [x] Catch `RangeError` exceptions originating from out-of-bounds `DataView` reads, and rethrow them with the message: `'The save file is corrupted or incomplete.'` (per ADR 010).
