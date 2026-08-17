@@ -21,3 +21,7 @@ notes: ''
 # QA Semantic Evaluator Engine Logic
 
 Review and verify the implementation of the semantic evaluator engine. Ensure tests are written correctly, prompt templates are correct, API setup is correct.
+
+### QA Rejection
+The implementation failed validation:
+1. The integration test (`RUN_LLM_INTEGRATION_TESTS=true`) fails because the LLM returns JSON wrapped in markdown tags (e.g., \`\`\`json) which causes `JSON.parse` to throw an error. The implementation needs to strip these markdown code blocks.
