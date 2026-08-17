@@ -30,3 +30,6 @@ This story covers the extraction of core data (shared data like basic Pokemon li
 ## Acceptance Criteria
 - [ ] Task to refactor generation scripts to output `pokedata-core.msgpack`
 - [ ] Task to update data loading logic to fetch `pokedata-core.msgpack` initially
+- [ ] task-428-436-refactor-core-data-generation
+- [ ] task-428-437-update-data-loading-logic
+- [ ] task-428-438-extract-core-data-qa
