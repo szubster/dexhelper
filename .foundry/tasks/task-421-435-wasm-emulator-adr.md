@@ -2,7 +2,7 @@
 id: task-421-435-wasm-emulator-adr
 type: TASK
 title: Create WASM Emulator ADR
-status: PENDING
+status: READY
 owner_persona: architect
 created_at: '2026-08-16'
 updated_at: '2026-08-17'
@@ -29,4 +29,4 @@ Research into WASM emulator options (mGBA, binjgb, SkyEmu) has been completed. T
 ## Acceptance Criteria
 - [x] Create `adr-421-032-wasm-emulator-selection.md` detailing the choice of a multi-emulator strategy for in-browser play.
 - [x] Document the technical approach for integrating the emulators and extracting save data.
-- [ ] adr-421-032-wasm-emulator-selection
+- [ ] 032-wasm-emulator-selection

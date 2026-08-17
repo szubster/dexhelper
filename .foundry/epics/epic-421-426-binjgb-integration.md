@@ -1,14 +1,13 @@
 ---
 id: epic-421-426-binjgb-integration
 type: EPIC
-title: 'Implement binjgb WASM Emulator Integration for Gen 1 & 2'
-status: PENDING
+title: Implement binjgb WASM Emulator Integration for Gen 1 & 2
+status: READY
 owner_persona: epic_planner
 created_at: '2026-08-17'
 updated_at: '2026-08-17'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: adr-421-032-wasm-emulator-selection
 tags:
@@ -18,8 +17,9 @@ tags:
   - gen2
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Implement binjgb WASM Emulator Integration for Gen 1 & 2

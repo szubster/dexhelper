@@ -1,14 +1,13 @@
 ---
 id: epic-421-427-mgba-integration
 type: EPIC
-title: 'Implement mGBA WASM Emulator Integration for Gen 3'
-status: PENDING
+title: Implement mGBA WASM Emulator Integration for Gen 3
+status: READY
 owner_persona: epic_planner
 created_at: '2026-08-17'
 updated_at: '2026-08-17'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: adr-421-032-wasm-emulator-selection
 tags:
@@ -17,8 +16,9 @@ tags:
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Implement mGBA WASM Emulator Integration for Gen 3
