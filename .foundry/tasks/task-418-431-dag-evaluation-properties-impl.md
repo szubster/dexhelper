@@ -27,5 +27,5 @@ notes: ''
 Define the initial set of properties using `fast-check` to verify the DAG state evaluation logic for Foundry orchestrator.
 
 ## Acceptance Criteria
-- [ ] Properties tests for DAG evaluation logic are written using `fast-check`.
-- [ ] Tests verify behavior such as deadlocks or completion transitions.
+- [x] Properties tests for DAG evaluation logic are written using `fast-check`.
+- [x] Tests verify behavior such as deadlocks or completion transitions.
