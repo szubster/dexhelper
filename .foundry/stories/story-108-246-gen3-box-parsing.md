@@ -2,12 +2,12 @@
 id: story-108-246-gen3-box-parsing
 type: STORY
 title: Gen 3 Box Parsing and Grouping
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-29'
-updated_at: '2026-08-15'
+updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6245437706644371596'
 pr_number: null
 parent: epic-054-108-box-analyzer-save-parsing
 tags:
