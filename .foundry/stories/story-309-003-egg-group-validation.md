@@ -31,4 +31,4 @@ Implement standard breeding compatibility checks based on Egg Groups for Generat
 - Non-Ditto pairs must share at least one egg group AND be of opposite genders (which relies on the Gender Calculation Engine).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this STORY down into actionable TASK nodes for the engineering team.
+- [x] Tech Lead: Break this STORY down into actionable TASK nodes for the engineering team.
