@@ -38,3 +38,6 @@ Implement the backend data grouping and aggregation logic to parse PC box data f
 - [x] Verify that Party Pokémon are successfully excluded from the extracted data.
 - [x] Ensure all required stats (IVs, Natures, Hidden Power, Shininess) are calculated correctly for each Pokémon.
 - [x] research-246-244-gen3-box-parsing
+- [ ] task-246-435-gen3-box-parsing-extraction
+- [ ] task-246-436-gen3-box-parsing-aggregation
+- [ ] task-246-437-gen3-box-parsing-qa
