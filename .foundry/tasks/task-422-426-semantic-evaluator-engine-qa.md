@@ -24,5 +24,4 @@ Review and verify the implementation of the semantic evaluator engine. Ensure te
 
 ### QA Rejection
 The implementation failed validation:
-1. Files were placed in `.github/scripts/semantic/` instead of `src/engine/semantic/` as mandated by `.foundry/docs/knowledge_base/testing/semantic_evaluator_api.md`.
-2. The integration test (`RUN_LLM_INTEGRATION_TESTS=true`) fails because the LLM returns JSON wrapped in markdown tags (e.g., \`\`\`json) which causes `JSON.parse` to throw an error. The implementation needs to strip these markdown code blocks.
+1. The integration test (`RUN_LLM_INTEGRATION_TESTS=true`) fails because the LLM returns JSON wrapped in markdown tags (e.g., \`\`\`json) which causes `JSON.parse` to throw an error. The implementation needs to strip these markdown code blocks.

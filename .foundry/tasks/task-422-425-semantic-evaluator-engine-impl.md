@@ -13,7 +13,7 @@ parent: story-417-422-implement-semantic-evaluator-engine
 tags: []
 research_references: []
 rejection_count: 1
-rejection_reason: 'Implementation placed in wrong directory (.github/scripts/semantic/ instead of src/engine/semantic/) and integration test fails due to unhandled markdown in LLM JSON response.'
+rejection_reason: 'Integration test fails due to unhandled markdown in LLM JSON response.'
 notes: ''
 ---
 
