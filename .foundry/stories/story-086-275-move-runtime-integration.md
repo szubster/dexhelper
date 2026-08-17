@@ -32,3 +32,11 @@ The `moves.jsonl` data has been successfully generated via `scripts/generate-pok
 - [ ] Integrate the parsed `moves` dataset into the client database schema and sync process.
 - [ ] Implement inflation logic in the client runtime to restore omitted default values for move data.
 - [ ] Remove hardcoded manual move data tables and switch the runtime to utilize the dynamic PokeDB data.
+
+## Implementation Tasks
+- [ ] task-275-435-move-db-schema-inflation
+- [ ] task-275-436-move-db-schema-qa
+- [ ] task-275-437-move-runtime-refactor
+- [ ] task-275-438-move-runtime-qa
+
+- [x] Break down into Tasks
