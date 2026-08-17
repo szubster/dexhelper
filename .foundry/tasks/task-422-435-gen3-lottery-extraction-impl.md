@@ -2,12 +2,12 @@
 id: task-422-435-gen3-lottery-extraction-impl
 type: TASK
 title: Gen3 Lottery Data Extraction Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-17'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17087646146611549727'
 pr_number: null
 parent: story-133-422-gen3-lottery-data-extraction
 tags:
