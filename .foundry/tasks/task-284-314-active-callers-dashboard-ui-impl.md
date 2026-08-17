@@ -2,12 +2,12 @@
 id: task-284-314-active-callers-dashboard-ui-impl
 type: TASK
 title: Active Callers Dashboard UI Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-07'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: '15972532334912457743'
+jules_session_id: null
 pr_number: null
 parent: story-116-284-active-callers-dashboard-ui
 tags:

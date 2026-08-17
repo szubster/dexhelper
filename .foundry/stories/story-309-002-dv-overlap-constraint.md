@@ -2,12 +2,12 @@
 id: story-309-002-dv-overlap-constraint
 type: STORY
 title: Gen 2 DV Overlap Constraint (Incest Prevention)
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-13'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: '7542590417705425224'
+jules_session_id: null
 pr_number: null
 parent: epic-112-309-gen2-shiny-breeding-logic
 tags:

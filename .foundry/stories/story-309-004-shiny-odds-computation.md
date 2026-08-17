@@ -1,11 +1,11 @@
 ---
 id: story-309-004-shiny-odds-computation
 type: STORY
-title: "Gen 2 Shiny Odds Computation"
-status: PENDING
-owner_persona: "tech_lead"
-created_at: "2026-07-13"
-updated_at: "2026-07-13"
+title: Gen 2 Shiny Odds Computation
+status: READY
+owner_persona: tech_lead
+created_at: '2026-07-13'
+updated_at: '2026-08-17'
 depends_on:
   - story-309-001-gender-calculation-engine
   - story-309-002-dv-overlap-constraint
@@ -21,8 +21,8 @@ research_references:
   - .foundry/docs/knowledge_base/engine/gen2-breeding.md
   - .foundry/docs/knowledge_base/development/gen2_breeding_dv_overlap.md
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 2 Shiny Odds Computation

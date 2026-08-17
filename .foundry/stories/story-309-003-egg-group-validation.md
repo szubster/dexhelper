@@ -2,13 +2,13 @@
 id: story-309-003-egg-group-validation
 type: STORY
 title: Gen 2 Egg Group Validation
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-13'
 updated_at: '2026-08-17'
 depends_on:
   - story-309-001-gender-calculation-engine
-jules_session_id: '14302369576285470772'
+jules_session_id: null
 pr_number: null
 parent: epic-112-309-gen2-shiny-breeding-logic
 tags:

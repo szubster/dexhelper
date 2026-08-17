@@ -2,7 +2,7 @@
 id: epic-053-106-egg-hatch-parsing
 type: EPIC
 title: Egg Hatch Tracker Data Extraction Engine
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-22'
 updated_at: '2026-08-17'
@@ -15,8 +15,8 @@ tags:
   - gen3
   - breeding
 research_references: []
-rejection_count: 0
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
