@@ -24,6 +24,8 @@ notes: ''
 ## Context
 Integrate the WASM emulator core (mGBA or binjgb) and connect it with the loaded ROM and inputs.
 
+**Note:** This story has been cancelled and superseded by `epic-421-426-binjgb-integration` and `epic-421-427-mgba-integration` in accordance with `adr-421-032-wasm-emulator-selection`.
+
 ## Acceptance Criteria
-- [ ] Integrate WASM emulator.
-- [ ] Break down this STORY into TASK nodes.
+- [x] Integrate WASM emulator.
+- [x] Break down this STORY into TASK nodes.
