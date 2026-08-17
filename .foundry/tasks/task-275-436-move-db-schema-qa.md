@@ -27,5 +27,5 @@ locks: []
 Verify DB integration and inflation logic for the `moves` data.
 
 ## Acceptance Criteria
-- [ ] Verify database schema syncs properly.
-- [ ] Verify inflation logic restores omitted defaults.
+- [x] Verify database schema syncs properly.
+- [x] Verify inflation logic restores omitted defaults.
