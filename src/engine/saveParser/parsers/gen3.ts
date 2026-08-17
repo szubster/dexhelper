@@ -279,6 +279,12 @@ export const SUBSTRUCTURE_ORDER = [
 export const EMERALD_MOVE_TUTOR_BYTE_1_OFFSET = 0x36;
 export const EMERALD_MOVE_TUTOR_BYTE_2_OFFSET = 0x37;
 
+export const GEN3_CONTEST_WINNERS_OFFSET = 0x2e90;
+export const MUSEUM_CONTEST_WINNERS_START = 8;
+export const NUM_MUSEUM_CONTEST_WINNERS = 5;
+export const CONTEST_WINNER_STRUCT_SIZE = 32;
+export const CONTEST_WINNER_SPECIES_OFFSET = 8;
+
 export const FRLG_MOVE_TUTOR_BYTE_1_OFFSET = 0x58;
 export const FRLG_MOVE_TUTOR_BYTE_2_OFFSET = 0x59;
 export const FRLG_MOVE_TUTOR_BYTE_3_OFFSET = 0x5b;
@@ -1433,10 +1439,13 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     }
     const nationalDexCount = owned.size;
 
+    const hasContestMaster = parseGen3ContestMaster(view, section1Offset);
+
     const gen3TrainerCard = {
       hasHallOfFame: hallOfFameCount > 0,
       hasHoennDex: hoennDexCount === 202,
       hasNationalDex: nationalDexCount === 386,
+      hasContestMaster,
     };
 
     let pc: number[] = [];
@@ -2095,6 +2104,28 @@ export {
 export function parseGen3MetLocation(view: DataView, miscSubstructureOffset: number): number {
   try {
     return view.getUint8(miscSubstructureOffset + MET_LOCATION_OFFSET_IN_M);
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+export function parseGen3ContestMaster(view: DataView, saveBlock1Offset: number): boolean {
+  try {
+    const baseOffset = saveBlock1Offset + GEN3_CONTEST_WINNERS_OFFSET;
+
+    for (let i = 0; i < NUM_MUSEUM_CONTEST_WINNERS; i++) {
+      const index = MUSEUM_CONTEST_WINNERS_START + i;
+      const structOffset = baseOffset + index * CONTEST_WINNER_STRUCT_SIZE;
+      const species = view.getUint16(structOffset + CONTEST_WINNER_SPECIES_OFFSET, true);
+
+      if (species === 0) {
+        return false;
+      }
+    }
+    return true;
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');

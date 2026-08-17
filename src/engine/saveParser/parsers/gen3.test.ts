@@ -15,6 +15,7 @@ import {
   parseGen3BattleFrontierWinStreaks,
   parseGen3BattlePoints,
   parseGen3ConditionStats,
+  parseGen3ContestMaster,
   parseGen3EggSteps,
   parseGen3EmeraldMoveTutors,
   parseGen3EVs,
@@ -1585,6 +1586,37 @@ describe('parseGen3PokemonPVAndIVs', () => {
   });
 });
 
+describe('parseGen3ContestMaster', () => {
+  it('should return true if all 5 museum contest paintings are present', () => {
+    const buffer = new ArrayBuffer(0x4000);
+    const view = new DataView(buffer);
+    const saveBlock1Offset = 0;
+    const baseOffset = saveBlock1Offset + 0x2e90 + 8 * 32;
+    for (let i = 0; i < 5; i++) {
+      view.setUint16(baseOffset + i * 32 + 8, 25, true); // species Pikachu
+    }
+    expect(parseGen3ContestMaster(view, saveBlock1Offset)).toBe(true);
+  });
+
+  it('should return false if any museum contest painting is missing', () => {
+    const buffer = new ArrayBuffer(0x4000);
+    const view = new DataView(buffer);
+    const saveBlock1Offset = 0;
+    const baseOffset = saveBlock1Offset + 0x2e90 + 8 * 32;
+    for (let i = 0; i < 4; i++) {
+      view.setUint16(baseOffset + i * 32 + 8, 25, true);
+    }
+    view.setUint16(baseOffset + 4 * 32 + 8, 0, true); // missing 5th painting
+    expect(parseGen3ContestMaster(view, saveBlock1Offset)).toBe(false);
+  });
+
+  it('should throw an error for corrupted save files', () => {
+    const buffer = new ArrayBuffer(100);
+    const view = new DataView(buffer);
+    expect(() => parseGen3ContestMaster(view, 0)).toThrow('The save file is corrupted or incomplete.');
+  });
+});
+
 describe('parseGen3MetLocation', () => {
   it('should parse the met location byte correctly', () => {
     const buffer = new ArrayBuffer(10);
@@ -2159,6 +2191,7 @@ describe('parseGen3 (trainer flags integration)', () => {
       hasHallOfFame: false,
       hasHoennDex: false,
       hasNationalDex: false,
+      hasContestMaster: false,
     });
   });
 });
