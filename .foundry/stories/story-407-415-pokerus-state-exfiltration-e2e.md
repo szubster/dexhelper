@@ -28,4 +28,6 @@ notes: >-
 This story implements the Orchestrator Safeguard requirement. We must write an E2E test verifying that the Pokerus byte parsing (strain and duration) is correctly integrated and exfiltrated into the frontend layer.
 
 ## Acceptance Criteria
-- [ ] Write an E2E test that verifies Pokerus data is correctly extracted and formatted in the application UI or state.
+- [x] Write an E2E test that verifies Pokerus data is correctly extracted and formatted in the application UI or state.
+- [ ] task-415-435-pokerus-state-exfiltration-e2e-impl
+- [ ] task-415-436-pokerus-state-exfiltration-e2e-qa
