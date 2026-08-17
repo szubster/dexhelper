@@ -36,7 +36,7 @@ Verify the implementation of Gen 3 Egg Hatch data extraction. The `coder` should
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting (ADR 009, ADR 007).
 
 ## Acceptance Criteria
-- [ ] Verify `DataView` API is used exclusively.
-- [ ] Verify module-level constants are used for offsets/shifts.
-- [ ] Verify `RangeError` handling is implemented.
-- [ ] Verify unit tests cover the new logic and pass.
+- [x] Verify `DataView` API is used exclusively.
+- [x] Verify module-level constants are used for offsets/shifts.
+- [x] Verify `RangeError` handling is implemented.
+- [x] Verify unit tests cover the new logic and pass.
