@@ -2,10 +2,10 @@
 id: epic-340-412-r2-conflict-resolution-ui-prompt
 type: EPIC
 title: Cloudflare R2 Conflict Resolution UI Prompt
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2025-01-08'
-updated_at: '2025-01-08'
+updated_at: '2026-08-17'
 depends_on:
   - epic-340-411-r2-conflict-resolution-core
 jules_session_id: null
