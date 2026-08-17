@@ -32,7 +32,7 @@ Generation 3 save files utilize an A/B bank flash memory structure, meaning save
 Additionally, as per `.foundry/docs/schema.md` Section 13, all magic numbers must be extracted into module-level constants. When extracting data via the `DataView` API, you must wrap operations in a try-catch block and explicitly catch `RangeError` for out-of-bounds reads, throwing a new error with the message "The save file is corrupted or incomplete."
 
 ## Acceptance Criteria
-- [ ] Define module-level constants for section offsets, item offsets, array limits, etc.
-- [ ] Implement a parsing function that calculates TM/HM inventory offsets relative to the provided section offset.
-- [ ] Ensure `RangeError` is caught during `DataView` operations and correctly rethrown with the string "The save file is corrupted or incomplete."
-- [ ] Write unit tests verifying correct TM/HM parsing and explicit `RangeError` handling.
+- [x] Define module-level constants for section offsets, item offsets, array limits, etc.
+- [x] Implement a parsing function that calculates TM/HM inventory offsets relative to the provided section offset.
+- [x] Ensure `RangeError` is caught during `DataView` operations and correctly rethrown with the string "The save file is corrupted or incomplete."
+- [x] Write unit tests verifying correct TM/HM parsing and explicit `RangeError` handling.
