@@ -29,5 +29,5 @@ Implement the logic to extract the daily winning number from Gen 3 save data.
 - Reference offsets defined in `gen3_lottery_offsets.md`.
 
 ## Acceptance Criteria
-- [ ] Implement Gen3 lottery data extraction logic.
-- [ ] Ensure tests cover extraction logic and errors.
+- [x] Implement Gen3 lottery data extraction logic.
+- [x] Ensure tests cover extraction logic and errors.
