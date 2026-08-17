@@ -2,13 +2,13 @@
 id: story-116-251-gen3-ev-integration
 type: STORY
 title: Story - Gen 3 EV Integration
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-02'
-updated_at: '2026-08-15'
+updated_at: '2026-08-17'
 depends_on:
   - story-116-250-gen3-ev-parsing-logic
-jules_session_id: null
+jules_session_id: '12423998219961334071'
 pr_number: null
 parent: epic-092-116-gen3-ev-data-extraction
 tags:
