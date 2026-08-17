@@ -2,13 +2,13 @@
 id: task-297-339-gen2-roamer-core-extraction-qa
 type: TASK
 title: QA Gen 2 Roamer Core Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-21'
 updated_at: '2026-08-17'
 depends_on:
   - task-297-338-gen2-roamer-core-extraction-impl
-jules_session_id: null
+jules_session_id: '13607317761982446669'
 pr_number: null
 parent: story-139-297-gen2-roamer-core-extraction
 tags:
