@@ -3,7 +3,7 @@ id: adr-421-032-wasm-emulator-selection
 type: ADR
 title: 'ADR 032: WASM Emulator Selection'
 status: READY
-owner_persona: story_owner
+owner_persona: architect
 created_at: '2026-08-17'
 updated_at: '2026-08-17'
 depends_on: []
