@@ -1,0 +1,17 @@
+--- dag-evaluation-fuzz.test.ts
++++ dag-evaluation-fuzz.test.ts
+@@ -69,8 +69,6 @@
+         }
+       })
+     );
+   });
+-
+-});
+
+   it('detecting cycles behaves deterministically under fuzzing', () => {
+@@ -82,4 +80,6 @@
+       })
+     );
+   });
++
++});
