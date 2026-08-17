@@ -7,12 +7,13 @@ import type { DBSchema } from 'idb';
 
 export const DB_CONFIG = {
   NAME: 'PokeDB',
-  VERSION: 10,
+  VERSION: 11,
   STORES: {
     POKEMON: 'pokemon',
     ENCOUNTERS: 'encounters',
     LOCATIONS: 'locations',
     ITEMS: 'items',
+    MOVES: 'moves',
     METADATA: 'metadata',
   },
 } as const;
@@ -233,6 +234,17 @@ export interface PokemonMetadata {
   em?: Record<number, number[]> | undefined; // Precomputed shortest breeding chains for egg moves: MoveID -> chain of Pokemon IDs
 }
 
+export interface MoveMetadata {
+  id: number;
+  name: string;
+  type: number;
+  p?: number | undefined; // power
+  acc?: number | undefined; // accuracy
+  pp: number;
+  dmg_class: number;
+  effect?: number | undefined;
+}
+
 export interface ItemMetadata {
   id: number;
   name: string;
@@ -259,6 +271,7 @@ export interface PokeDataExport {
   enc: LocationAreaEncounters[];
   loc: UnifiedLocation[];
   items: ItemMetadata[];
+  moves: MoveMetadata[];
   hash: string;
   sourceSha?: string;
 }
@@ -275,6 +288,10 @@ export interface PokeDBSchema extends DBSchema {
   [DB_CONFIG.STORES.ITEMS]: {
     key: number;
     value: ItemMetadata;
+  };
+  [DB_CONFIG.STORES.MOVES]: {
+    key: number;
+    value: MoveMetadata;
   };
   [DB_CONFIG.STORES.LOCATIONS]: {
     key: number;

@@ -6,6 +6,7 @@ import {
   DB_CONFIG,
   type ItemMetadata,
   type LocationAreaEncounters,
+  type MoveMetadata,
   type PokeDataExport,
   type PokeDBSchema,
   type PokemonMetadata,
@@ -70,6 +71,10 @@ const DEFAULT_LOCATION = {
   dist: {},
 };
 
+const DEFAULT_MOVE_METADATA = {
+  acc: 100,
+};
+
 type ValidStoreName = (typeof DB_CONFIG.STORES)[keyof typeof DB_CONFIG.STORES];
 
 /**
@@ -95,6 +100,7 @@ export const getDB = () => {
           [DB_CONFIG.STORES.LOCATIONS]: 'id',
           [DB_CONFIG.STORES.METADATA]: 'key',
           [DB_CONFIG.STORES.ITEMS]: 'id',
+          [DB_CONFIG.STORES.MOVES]: 'id',
         };
 
         // Always delete existing stores to ensure keyPaths are applied correctly
@@ -175,6 +181,7 @@ const syncData = async () => {
         DB_CONFIG.STORES.ENCOUNTERS,
         DB_CONFIG.STORES.LOCATIONS,
         DB_CONFIG.STORES.ITEMS,
+        DB_CONFIG.STORES.MOVES,
         DB_CONFIG.STORES.METADATA,
       ],
       'readwrite',
@@ -185,12 +192,20 @@ const syncData = async () => {
     const eStore = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
     const lStore = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
     const iStore = tx.objectStore(DB_CONFIG.STORES.ITEMS);
+    const mvStore = tx.objectStore(DB_CONFIG.STORES.MOVES);
     const mStore = tx.objectStore(DB_CONFIG.STORES.METADATA);
 
     // Clear old data
-    await Promise.all([pStore.clear(), eStore.clear(), lStore.clear(), iStore.clear(), mStore.clear()]);
+    await Promise.all([
+      pStore.clear(),
+      eStore.clear(),
+      lStore.clear(),
+      iStore.clear(),
+      mvStore.clear(),
+      mStore.clear(),
+    ]);
 
-    emit(1, 4, 'Pokemon');
+    emit(1, 5, 'Pokemon');
     const inflateChain = (links: CompactChainLink[] | undefined): CompactChainLink[] => {
       return (links || []).map((l) => ({
         ...l,
@@ -216,7 +231,7 @@ const syncData = async () => {
       });
     }
 
-    emit(2, 4, 'Encounters');
+    emit(2, 5, 'Encounters');
     for (const e of data.enc) {
       const inflatedEnc = e.enc.map((enc) => ({
         ...enc,
@@ -229,7 +244,7 @@ const syncData = async () => {
       void eStore.put({ pid: e.pid, enc: inflatedEnc });
     }
 
-    emit(3, 4, 'Locations');
+    emit(3, 5, 'Locations');
     for (const l of data.loc) {
       void lStore.put({
         ...DEFAULT_LOCATION,
@@ -238,9 +253,17 @@ const syncData = async () => {
       });
     }
 
-    emit(4, 4, 'Items');
+    emit(4, 5, 'Items');
     for (const item of data.items || []) {
       void iStore.put(item);
+    }
+
+    emit(5, 5, 'Moves');
+    for (const move of data.moves || []) {
+      void mvStore.put({
+        ...DEFAULT_MOVE_METADATA,
+        ...move,
+      });
     }
 
     await mStore.put({ key: 'hash', value: data.hash });
@@ -311,6 +334,15 @@ export const pokeDB = {
     await pokeDB.ready();
     if (id === undefined || id === null || Number.isNaN(id)) return undefined;
     return (await getDB()).get(DB_CONFIG.STORES.ITEMS, id);
+  },
+
+  /**
+   * Fetches a single Move's metadata by its ID.
+   */
+  getMove: async (id: number): Promise<MoveMetadata | undefined> => {
+    await pokeDB.ready();
+    if (id === undefined || id === null || Number.isNaN(id)) return undefined;
+    return (await getDB()).get(DB_CONFIG.STORES.MOVES, id);
   },
 
   /**
@@ -438,6 +470,33 @@ export const pokeDB = {
     await pokeDB.ready();
     return (await getDB()).getAll(DB_CONFIG.STORES.POKEMON);
   },
+  /**
+   * Fetches multiple Move records in a single database transaction using `bulkGet`.
+   * Designed to be called exclusively by `DexDataLoader` to prevent N+1 IDB query bottlenecks.
+   */
+  getMovesBulk: async (ids: number[]): Promise<(MoveMetadata | Error)[]> => {
+    await pokeDB.ready();
+    const db = await getDB();
+    const validIds = ids.filter((id) => typeof id === 'number' && !Number.isNaN(id));
+    if (validIds.length === 0) return ids.map(() => new Error('Invalid ID provided'));
+
+    const tx = db.transaction(DB_CONFIG.STORES.MOVES, 'readonly');
+    const store = unwrap(tx.objectStore(DB_CONFIG.STORES.MOVES));
+    const fetched = await bulkGet<MoveMetadata>(store, validIds);
+    await tx.done;
+
+    const resultMap = new Map<number, MoveMetadata>();
+    for (const mv of fetched) {
+      if (mv) resultMap.set(mv.id, mv);
+    }
+
+    return ids.map((id) => {
+      if (typeof id !== 'number' || Number.isNaN(id)) return new Error('Invalid ID');
+      const found = resultMap.get(id);
+      return found ?? new Error(`Move not found for ${id}`);
+    });
+  },
+
   /**
    * Fetches multiple Encounter records in a single database transaction using `bulkGet`.
    * Designed to be called exclusively by `DexDataLoader` to prevent N+1 IDB query bottlenecks.

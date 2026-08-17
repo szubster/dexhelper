@@ -153,11 +153,12 @@ describe('PokeDB', () => {
     const events = dispatchEventMock.mock.calls.map((call) => call[0] as CustomEvent);
     const progressEvents = events.filter((e) => e.type === 'pokedata-sync-progress');
 
-    expect(progressEvents).toHaveLength(4);
-    expect(progressEvents[0]?.detail).toEqual({ current: 1, total: 4, stage: 'Pokemon' });
-    expect(progressEvents[1]?.detail).toEqual({ current: 2, total: 4, stage: 'Encounters' });
-    expect(progressEvents[2]?.detail).toEqual({ current: 3, total: 4, stage: 'Locations' });
-    expect(progressEvents[3]?.detail).toEqual({ current: 4, total: 4, stage: 'Items' });
+    expect(progressEvents).toHaveLength(5);
+    expect(progressEvents[0]?.detail).toEqual({ current: 1, total: 5, stage: 'Pokemon' });
+    expect(progressEvents[1]?.detail).toEqual({ current: 2, total: 5, stage: 'Encounters' });
+    expect(progressEvents[2]?.detail).toEqual({ current: 3, total: 5, stage: 'Locations' });
+    expect(progressEvents[3]?.detail).toEqual({ current: 4, total: 5, stage: 'Items' });
+    expect(progressEvents[4]?.detail).toEqual({ current: 5, total: 5, stage: 'Moves' });
 
     global.window = originalWindow;
   });
