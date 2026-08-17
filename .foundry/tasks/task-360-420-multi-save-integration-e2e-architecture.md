@@ -2,12 +2,12 @@
 id: task-360-420-multi-save-integration-e2e-architecture
 type: TASK
 title: Multi-Save Integration E2E - Architecture Validation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-11'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9982756060063750335'
 pr_number: null
 parent: story-349-360-multi-save-integration-e2e
 tags:
