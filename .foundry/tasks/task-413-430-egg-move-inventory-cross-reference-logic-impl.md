@@ -2,12 +2,12 @@
 id: task-413-430-egg-move-inventory-cross-reference-logic-impl
 type: TASK
 title: Implement Egg Move Inventory Cross-Reference Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-16'
 updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10653456248762152634'
 pr_number: null
 parent: story-114-413-egg-move-inventory-cross-reference-logic
 tags:
