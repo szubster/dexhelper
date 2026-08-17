@@ -28,4 +28,4 @@ Implement the Gen 2 "incest prevention" check that determines if two Pokémon ar
 Condition for Incompatibility: `(Defense DV A === Defense DV B) AND ((Special DV A === Special DV B) OR (Math.abs(Special DV A - Special DV B) === 8))`.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this STORY down into actionable TASK nodes for the engineering team.
+- [x] Tech Lead: Break this STORY down into actionable TASK nodes for the engineering team.
