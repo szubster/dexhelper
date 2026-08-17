@@ -402,6 +402,25 @@ describe('gen2 parsers', () => {
 
       expect(() => parseGen2(view, true)).toThrow('The save file is corrupted or incomplete.');
     });
+
+    it('should throw "The save file is corrupted or incomplete." if TM Pocket is out of bounds', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+
+      // Force view.getUint8 to throw RangeError for TM Pocket GS (0x23e7)
+      const originalGetUint8 = view.getUint8.bind(view);
+      view.getUint8 = (offset: number) => {
+        if (offset === 0x23e7) {
+          throw new RangeError('Out of bounds');
+        }
+        return originalGetUint8(offset);
+      };
+
+      expect(() => parseGen2(view, false)).toThrow('The save file is corrupted or incomplete.');
+    });
   });
 
   describe('Gen 2 Egg Parsing', () => {

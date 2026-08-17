@@ -871,25 +871,35 @@ export function parseGen2(view: DataView, forceCrystal = false): SaveData {
   }
   const hiddenItemFlags = eventFlags;
 
-  const tms = Object.entries(GEN2_TM_HM_MOVE_MAP).map(([idStr, moveId]) => {
-    const id = parseInt(idStr, 10);
-    const inventoryQty = inventory.find((i) => i.id === id)?.quantity || 0;
-    const pcQty = pcItems.find((i) => i.id === id)?.quantity || 0;
-    const quantity = inventoryQty + pcQty;
+  let tms: { id: number; moveId: number; isAcquired: boolean; quantity: number }[] = [];
+  try {
+    tms = Object.entries(GEN2_TM_HM_MOVE_MAP).map(([idStr, moveId]) => {
+      const id = parseInt(idStr, 10);
+      const inventoryQty = inventory.find((i) => i.id === id)?.quantity || 0;
+      const pcQty = pcItems.find((i) => i.id === id)?.quantity || 0;
+      const quantity = inventoryQty + pcQty;
 
-    let isAcquired = quantity > 0;
-    if (!isAcquired && GEN2_TM_EVENT_FLAGS[id] !== undefined) {
-      const flag = GEN2_TM_EVENT_FLAGS[id];
-      const byteIdx = Math.floor(flag / BITS_PER_BYTE);
-      const bitIdx = flag % BITS_PER_BYTE;
-      const byte = eventFlags[byteIdx] ?? 0;
-      if ((byte & (1 << bitIdx)) !== 0) {
-        isAcquired = true;
+      let isAcquired = quantity > 0;
+      if (!isAcquired && GEN2_TM_EVENT_FLAGS[id] !== undefined) {
+        const flag = GEN2_TM_EVENT_FLAGS[id];
+        const byteIdx = Math.floor(flag / BITS_PER_BYTE);
+        const bitIdx = flag % BITS_PER_BYTE;
+
+        // This is safe because we already extracted eventFlags.
+        const byte = eventFlags[byteIdx] ?? 0;
+        if ((byte & (1 << bitIdx)) !== 0) {
+          isAcquired = true;
+        }
       }
-    }
 
-    return { id, moveId, isAcquired, quantity };
-  });
+      return { id, moveId, isAcquired, quantity };
+    });
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
 
   const trainerFlags: boolean[] = [];
   for (let i = 0; i < EVENT_FLAGS_MAX_BITS; i++) {
