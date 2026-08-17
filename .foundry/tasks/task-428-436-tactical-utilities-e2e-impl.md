@@ -27,4 +27,4 @@ Implement Playwright E2E tests to verify that Tailwind v4 custom utilities (`tac
 See ADR 024 for details on the "tactical hardware" aesthetic.
 
 ## Acceptance Criteria
-- [ ] E2E tests are implemented and passing.
+- [x] E2E tests are implemented and passing.
