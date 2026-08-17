@@ -2,12 +2,12 @@
 id: epic-071-123-define-tailwind-v4-utilities-v2
 type: EPIC
 title: Define Tailwind v4 Tactical Utilities V2
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-08-15'
+updated_at: '2026-08-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5010734802888651985'
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
 tags:
