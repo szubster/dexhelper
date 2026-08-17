@@ -2,7 +2,7 @@
 id: research-425-421-wasm-emulator-options
 type: RESEARCH
 title: WASM Emulator Options Research
-status: PENDING
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-16'
 updated_at: '2026-08-17'
@@ -28,4 +28,4 @@ Research available WASM emulators (e.g., mGBA, binjgb) to determine the best fit
 - [x] Research available WASM emulator options.
 - [x] Document features, performance, and integration paths for top candidates.
 - [x] Create an ADR task for the Architect to make the final decision based on this research.
-- [ ] task-421-435-wasm-emulator-adr
+- [x] task-421-435-wasm-emulator-adr

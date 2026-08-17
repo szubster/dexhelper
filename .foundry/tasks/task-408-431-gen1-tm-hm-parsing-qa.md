@@ -2,7 +2,7 @@
 id: task-408-431-gen1-tm-hm-parsing-qa
 type: TASK
 title: Gen 1 TM/HM Parsing QA
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-16'
 updated_at: '2026-08-17'
@@ -16,8 +16,8 @@ tags:
   - save-parsing
 research_references:
   - .foundry/docs/knowledge_base/moveset-inventory-memory-offsets.md
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
