@@ -32,4 +32,4 @@ Verify that the `EXPERIMENT` node type and `experiment_variants` frontmatter fie
 2. Confirm `.foundry/docs/schema.md` properly matches the runtime Zod schema logic.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
