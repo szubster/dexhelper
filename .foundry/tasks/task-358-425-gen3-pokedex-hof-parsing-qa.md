@@ -27,5 +27,5 @@ notes: ''
 Perform QA validation on the implementation of the Gen 3 Trainer Card upgrade criteria parsing logic for Pokedex and Hall of Fame. Ensure that the logic accurately verifies the Hall of Fame and Pokedex (Hoenn and National) requirements. Ensure no regressions occur in the parser.
 
 ## Acceptance Criteria
-- [ ] Verify `Gen3TrainerCard` properties are correctly populated in `SaveData`.
-- [ ] Ensure unit tests adequately cover the extraction logic and edge cases.
+- [x] Verify `Gen3TrainerCard` properties are correctly populated in `SaveData`.
+- [x] Ensure unit tests adequately cover the extraction logic and edge cases.
