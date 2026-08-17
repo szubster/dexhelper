@@ -29,5 +29,5 @@ As part of the Multi-Save Trade Planner, this task ensures that the multi-save f
 - Ensure that having multiple saves open simultaneously does not cause shared-state regressions.
 
 ## Acceptance Criteria
-- [ ] Implement E2E test cases validating multi-playthrough architecture integration.
-- [ ] Ensure the architecture integration tests pass (`xvfb-run pnpm test:e2e`).
+- [x] Implement E2E test cases validating multi-playthrough architecture integration.
+- [x] Ensure the architecture integration tests pass (`xvfb-run pnpm test:e2e`).
