@@ -2,10 +2,10 @@
 id: epic-107-343-lift-rejection-count-state
 type: EPIC
 title: Lift Constant and Update Context
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-22'
-updated_at: '2026-08-02'
+updated_at: '2026-08-17'
 depends_on:
   - research-107-342-investigate-lift-rejection-count-failure
 jules_session_id: null
@@ -33,5 +33,5 @@ Currently, the threshold for determining if a node has permanently failed (`reje
 
 ## Acceptance Criteria
 - [x] Break down into Stories
-- [ ] story-343-352-lift-rejection-constant-impl
-- [ ] story-343-353-lift-rejection-constant-e2e
+- [x] story-343-352-lift-rejection-constant-impl
+- [x] story-343-353-lift-rejection-constant-e2e
