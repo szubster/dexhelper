@@ -24,8 +24,8 @@ notes: ''
 # Create WASM Emulator ADR
 
 ## Context
-Research into WASM emulator options (mGBA vs binjgb) has been completed. The Architect must now formalize the decision into an ADR.
+Research into WASM emulator options (mGBA vs binjgb) has been completed. The CEO has approved a multi-emulator architecture (e.g. `binjgb` for Gen 1/2, `mGBA` for Gen 3). The Architect must now formalize the decision into an ADR.
 
 ## Acceptance Criteria
-- [ ] Create `adr-421-032-wasm-emulator-selection.md` detailing the choice of WASM emulator for in-browser play.
-- [ ] Document the technical approach for integrating the emulator and extracting save data.
+- [ ] Create `adr-421-032-wasm-emulator-selection.md` detailing the choice of a multi-emulator strategy for in-browser play.
+- [ ] Document the technical approach for integrating the emulators and extracting save data.
