@@ -26,6 +26,6 @@ notes: ''
 Write the parsing logic using `DataView` API to extract Match Call states and rematch flags, ensuring strict bounds checking per ADR 010.
 
 ## Acceptance Criteria
-- [ ] Implement Match Call parser using DataView
-- [ ] Extract rematch flags and states securely
-- [ ] Conform to ADR 010
+- [x] Implement Match Call parser using DataView
+- [x] Extract rematch flags and states securely
+- [x] Conform to ADR 010
