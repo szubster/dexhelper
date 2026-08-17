@@ -32,5 +32,5 @@ As part of the Multi-Save Trade Planner, this QA task focuses on verifying the E
 - Ensure tests run successfully and there are no regressions.
 
 ## Acceptance Criteria
-- [ ] Review and verify the E2E test implementations for multi-save algorithms and architecture integration.
-- [ ] Ensure all tests pass via `xvfb-run pnpm test:e2e`.
+- [x] Review and verify the E2E test implementations for multi-save algorithms and architecture integration.
+- [x] Ensure all tests pass via `xvfb-run pnpm test:e2e`.
