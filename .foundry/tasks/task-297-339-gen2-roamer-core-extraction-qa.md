@@ -35,5 +35,5 @@ QA verification for the Gen 2 Roamer Core Data Extraction.
 - Verify that map tracking variables (`wRoamMons_CurMapGroup`, `wRoamMons_CurMapNumber`) are properly extracted.
 
 ## Acceptance Criteria
-- [ ] Code review passes, ensuring no magic numbers exist and all ADRs are followed.
-- [ ] Unit tests cover out-of-bounds reads and correct extraction mapping.
+- [x] Code review passes, ensuring no magic numbers exist and all ADRs are followed.
+- [x] Unit tests cover out-of-bounds reads and correct extraction mapping.
