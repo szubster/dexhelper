@@ -44,6 +44,6 @@ The coder has implemented logic to parse the `TVShow` array in `SaveBlock1` at o
    - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Code is reviewed for correctness in parsing `TVShow` structs.
-- [ ] Magic numbers are not used for bounding loops or defining offsets.
-- [ ] Tests comprehensively cover the new functionality.
+- [x] Code is reviewed for correctness in parsing `TVShow` structs.
+- [x] Magic numbers are not used for bounding loops or defining offsets.
+- [x] Tests comprehensively cover the new functionality.
