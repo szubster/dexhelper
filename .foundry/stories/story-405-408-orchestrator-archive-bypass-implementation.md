@@ -24,6 +24,6 @@ notes: ''
 Implement logic in `discoverNodeFiles` in `.github/scripts/foundry-orchestrator.ts` to ignore the `.foundry/archive/` directory during its parsing and discovery process.
 
 ## Acceptance Criteria
-- [ ] Update `discoverNodeFiles` to skip `archive/` directories.
-- [ ] Ensure this exclusion logic covers both `.foundry/archive/stories/` and `.foundry/archive/tasks/`.
+- [x] Update `discoverNodeFiles` to skip `archive/` directories.
+- [x] Ensure this exclusion logic covers both `.foundry/archive/stories/` and `.foundry/archive/tasks/`.
 - [x] task-408-415-orchestrator-archive-bypass-implementation
