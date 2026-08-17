@@ -2,13 +2,13 @@
 id: task-412-424-gen3-move-tutor-qa
 type: TASK
 title: Gen 3 Move Tutor Extractor QA Verification
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-08-12'
-updated_at: '2026-08-16'
+updated_at: '2026-08-17'
 depends_on:
   - task-412-423-gen3-move-tutor-extractor
-jules_session_id: '3073931848802426215'
+jules_session_id: null
 pr_number: null
 parent: story-406-412-gen3-move-tutor-parsing-core
 tags:
@@ -16,7 +16,7 @@ tags:
   - gen3
   - save-parsing
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 

@@ -2,10 +2,10 @@
 id: task-412-423-gen3-move-tutor-extractor
 type: TASK
 title: Gen 3 Move Tutor Extractor Implementation
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-12'
-updated_at: '2026-08-16'
+updated_at: '2026-08-17'
 depends_on:
   - task-412-422-gen3-move-tutor-constants
 jules_session_id: null
@@ -16,7 +16,7 @@ tags:
   - gen3
   - save-parsing
 rejection_count: 3
-rejection_reason: 'Architectural violation: magic number 8 used for bit shifts and module logic instead of the mandated BITS_PER_BYTE constant.'
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 
