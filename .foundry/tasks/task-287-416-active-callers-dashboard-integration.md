@@ -30,8 +30,8 @@ Integrate the `TacticalCallerCard` component into the `ActiveCallersDashboard`, 
 With the reusable `TacticalCallerCard` component created, it now needs to be wired up to the `ActiveCallersDashboard`. The dashboard receives a list of raw `Contact` objects. It must look up each contact in the `GEN2_PHONE_CALLER_REGISTRY` to determine if they are a high-value caller (SWARM or ITEM) and pass that data down to the card component so it renders the correct tactical highlighting.
 
 ## Acceptance Criteria
-- [ ] In `src/components/dashboard/pokegear/ActiveCallersDashboard.tsx`, import `GEN2_PHONE_CALLER_REGISTRY` from `src/engine/saveParser/parsers/gen2/phone/constants.ts`.
-- [ ] Refactor the caller list rendering in `ActiveCallersDashboard` to use the newly created `TacticalCallerCard` component instead of inline markup.
-- [ ] For each contact, lookup their ID in `GEN2_PHONE_CALLER_REGISTRY`. If an entry exists, pass the high-value data (`CallerType` and `details`) to the `TacticalCallerCard`.
-- [ ] Update `src/components/dashboard/pokegear/__tests__/ActiveCallersDashboard.test.tsx` to include known high-value contacts (e.g., Ralph or Beverly) in the mock data.
-- [ ] Assert in the tests that the dashboard correctly renders the high-value badges (e.g., SWARM, ITEM) for those specific mock contacts, confirming the integration is successful.
+- [x] In `src/components/dashboard/pokegear/ActiveCallersDashboard.tsx`, import `GEN2_PHONE_CALLER_REGISTRY` from `src/engine/saveParser/parsers/gen2/phone/constants.ts`.
+- [x] Refactor the caller list rendering in `ActiveCallersDashboard` to use the newly created `TacticalCallerCard` component instead of inline markup.
+- [x] For each contact, lookup their ID in `GEN2_PHONE_CALLER_REGISTRY`. If an entry exists, pass the high-value data (`CallerType` and `details`) to the `TacticalCallerCard`.
+- [x] Update `src/components/dashboard/pokegear/__tests__/ActiveCallersDashboard.test.tsx` to include known high-value contacts (e.g., Ralph or Beverly) in the mock data.
+- [x] Assert in the tests that the dashboard correctly renders the high-value badges (e.g., SWARM, ITEM) for those specific mock contacts, confirming the integration is successful.
