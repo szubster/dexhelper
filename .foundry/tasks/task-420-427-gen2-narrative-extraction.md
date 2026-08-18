@@ -28,6 +28,6 @@ Implement logic to extract and parse narrative/story progression flags from Gene
 The player's story progression and defeated major bosses are stored in event flags. We need to parse these to track narrative progress in Johto and Kanto.
 
 ## Acceptance Criteria
-- [ ] Implement parsing for Gen 2 story progression event flags.
-- [ ] Implement logic to determine the upcoming major boss based on the parsed progression flags.
-- [ ] Add unit tests verifying correct extraction of Gen 2 narrative progression flags.
+- [x] Implement parsing for Gen 2 story progression event flags.
+- [x] Implement logic to determine the upcoming major boss based on the parsed progression flags.
+- [x] Add unit tests verifying correct extraction of Gen 2 narrative progression flags.
