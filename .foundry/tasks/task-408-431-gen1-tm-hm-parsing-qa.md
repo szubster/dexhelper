@@ -28,9 +28,6 @@ locks: []
 Verify the parsing of Gen 1 TM/HM inventory and event flags from the save file. Ensure item quantities are extracted correctly, event flags are checked for one-time TMs, inline magic numbers are avoided, and full PokeData property names are used as per ADR 015.
 
 ## Acceptance Criteria
-- [ ] Review implementation in `src/engine/saveParser/parsers/gen1.ts` and `src/engine/saveParser/utils/gen1EventFlags.ts`.
-- [ ] Ensure inline magic numbers are avoided and module-level constants are used.
-- [ ] Ensure tests cover the TM/HM parsing logic and pass successfully.
-
-### QA Rejection Note
-Validation failed due to missing unit tests for `parseGen1TMFlags` in `src/engine/saveParser/utils/gen1EventFlags.test.ts`. Triggering transient rejection.
+- [x] Review implementation in `src/engine/saveParser/parsers/gen1.ts` and `src/engine/saveParser/utils/gen1EventFlags.ts`.
+- [x] Ensure inline magic numbers are avoided and module-level constants are used.
+- [x] Ensure tests cover the TM/HM parsing logic and pass successfully.
