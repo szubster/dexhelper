@@ -26,7 +26,7 @@ notes: ''
 Write Playwright E2E tests for the WASM emulator integration to ensure the UI renders correctly and handles ROM uploads via the file picker and drag-and-drop mechanics.
 
 ## Acceptance Criteria
-- [ ] Add `tests/e2e/emulator_integration.spec.ts` with Playwright tests for the Emulator UI.
-- [ ] Verify that navigating to `/emulator` renders the Emulator UI heading.
-- [ ] Verify that the drop-zone and file input elements are visible/attached.
-- [ ] Run `pnpm test:e2e` to ensure the new tests pass.
+- [x] Add `tests/e2e/emulator_integration.spec.ts` with Playwright tests for the Emulator UI.
+- [x] Verify that navigating to `/emulator` renders the Emulator UI heading.
+- [x] Verify that the drop-zone and file input elements are visible/attached.
+- [x] Run `pnpm test:e2e` to ensure the new tests pass.
