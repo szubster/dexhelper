@@ -51,11 +51,11 @@ Any size, ID, or increment constants must NOT be hardcoded inline inside parsing
 When parsing Gen 3 save files, memory offsets must be calculated as relative offsets from the resolved section offset (e.g., `section1Offset + 0x90`) rather than using absolute memory offsets (e.g., `0x142c`).
 
 ## Acceptance Criteria
-- [ ] The TV block extraction logic is built entirely using `DataView`.
-- [ ] All memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level (no inline magic numbers).
-- [ ] Memory offsets are calculated as relative offsets from the resolved section offset.
-- [ ] Explicit error handling catches `RangeError` exceptions natively thrown by `DataView`, translating it to an Error with message exactly `"The save file is corrupted or incomplete."`.
-- [ ] New parsing functions conform to the existing Gen 1 and Gen 2 backward-compatible parsing interfaces without breaking them.
+- [x] The TV block extraction logic is built entirely using `DataView`.
+- [x] All memory offsets, lengths, bit locations, and shifts are defined as reusable constants at the module level (no inline magic numbers).
+- [x] Memory offsets are calculated as relative offsets from the resolved section offset.
+- [x] Explicit error handling catches `RangeError` exceptions natively thrown by `DataView`, translating it to an Error with message exactly `"The save file is corrupted or incomplete."`.
+- [x] New parsing functions conform to the existing Gen 1 and Gen 2 backward-compatible parsing interfaces without breaking them.
 
 ## Important Protocols (For Coder)
 - **Transient Failure:** If you experience a transient failure requiring retry, you MUST update the YAML frontmatter to `status: FAILED` with a `rejection_reason`.
