@@ -29,5 +29,7 @@ Implement the UI prompt allowing users to choose which save file to keep.
 - Display relevant metadata (timestamp, play time if possible) to help the user decide.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Generate STORY node(s) for the conflict resolution UI prompt components.
-- [ ] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Story Owner: Generate STORY node(s) for the conflict resolution UI prompt components.
+- [x] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-412-431-r2-conflict-resolution-prompt-components
+- [ ] story-412-432-r2-conflict-resolution-prompt-e2e
