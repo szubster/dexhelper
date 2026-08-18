@@ -50,7 +50,8 @@ export function generateBreedingSuggestions(
           const evo = stack.pop();
           if (
             evo &&
-            (instancesBySpecies.has(evo.id) || (saveData.daycare?.some((d) => d.speciesId === evo.id) ?? false))
+            (instancesBySpecies.has(evo.id) ||
+              (('daycare' in saveData ? saveData.daycare : undefined)?.some((d) => d.speciesId === evo.id) ?? false))
           ) {
             canBreed = true;
             evolutionIdToBreed = evo.id;
@@ -63,7 +64,9 @@ export function generateBreedingSuggestions(
       }
 
       if (canBreed && evolutionIdToBreed) {
-        const isInDaycare = saveData.daycare?.some((d) => d.speciesId === evolutionIdToBreed) ?? false;
+        const isInDaycare =
+          ('daycare' in saveData ? saveData.daycare : undefined)?.some((d) => d.speciesId === evolutionIdToBreed) ??
+          false;
 
         let incenseText = '';
         if (targetId === 298) incenseText = ' holding a Sea Incense';
@@ -74,8 +77,11 @@ export function generateBreedingSuggestions(
         let title = `Breed: #${targetId}`;
 
         if (isInDaycare) {
-          if (saveData.daycare && saveData.daycare.length === 2) {
-            if (saveData.daycareHasEgg) {
+          if (
+            ('daycare' in saveData ? saveData.daycare : undefined) &&
+            ('daycare' in saveData ? (saveData.daycare as PokemonInstance[]) : []).length === 2
+          ) {
+            if ('daycareHasEgg' in saveData ? saveData.daycareHasEgg : undefined) {
               title = `Egg Ready: #${targetId}!`;
               description = `Pick up your Egg from the Daycare!`;
               priority = 95;

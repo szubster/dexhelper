@@ -2,7 +2,10 @@ import type { SaveData } from '../../../saveParser/index';
 import type { Suggestion } from '../types';
 
 export function getMatchCallSuggestions(saveData: SaveData): Suggestion[] {
-  if (saveData.gameVersion !== 'emerald' || !saveData.gen3MatchCall?.hasMatchCall) {
+  if (
+    saveData.gameVersion !== 'emerald' ||
+    !('gen3MatchCall' in saveData ? saveData.gen3MatchCall : undefined)?.hasMatchCall
+  ) {
     return [];
   }
 
@@ -10,7 +13,8 @@ export function getMatchCallSuggestions(saveData: SaveData): Suggestion[] {
 
   let hasRematches = false;
   let totalMissing = 0;
-  const rematchStates = saveData.gen3MatchCall.rematchStates;
+  const rematchStates =
+    'gen3MatchCall' in saveData && saveData.gen3MatchCall ? saveData.gen3MatchCall.rematchStates : [];
   for (let i = 0; i < rematchStates.length; i++) {
     const state = rematchStates[i];
     if (state !== undefined && state > 0) {

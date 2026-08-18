@@ -115,7 +115,7 @@ export function verifyBounds(saveData: SaveData): HealthScanResult {
   });
 
   // Scan Daycare (Gen 2 mainly)
-  if (saveData.daycare) {
+  if ('daycare' in saveData && saveData.daycare) {
     saveData.daycare.forEach((pokemon, index) => {
       checkPokemon(pokemon, { type: 'daycare', index });
     });

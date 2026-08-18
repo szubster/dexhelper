@@ -124,6 +124,9 @@ describe('Zustand Store', () => {
   describe('Save data', () => {
     it('should set and clear save data', () => {
       const mockSave = {
+        // biome-ignore lint/suspicious/noExplicitAny: test mock
+      } as any;
+      Object.assign(mockSave, {
         generation: 1,
         gameVersion: 'red' as const,
         trainerName: 'RED',
@@ -140,7 +143,7 @@ describe('Zustand Store', () => {
         eventFlags: new Uint8Array(300),
         partyDetails: [],
         pcDetails: [],
-      };
+      });
 
       useStore.getState().setSaveData(mockSave);
       expect(useStore.getState().saveData).toBe(mockSave);

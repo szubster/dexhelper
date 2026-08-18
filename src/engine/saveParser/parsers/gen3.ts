@@ -43,7 +43,6 @@ import type {
   Gen3RoamerData,
   Gen3SecretBase,
   Gen3TVShow,
-  SaveData,
 } from './common';
 
 const SIGNATURE = 0x08012025;
@@ -1354,7 +1353,7 @@ export function parseGen3TrainerId(view: DataView, section0Offset: number): { tr
  * @returns The fully mapped `SaveData` object, abstracting away the complex encrypted substructures of Gen 3 Pokemon.
  * @throws {Error} If the save file is corrupted, incomplete, or out-of-bounds reads occur.
  */
-export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveData {
+export function parseGen3(view: DataView, _forcedVersion?: GameVersion): import('./common').Gen3SaveData {
   try {
     let section2Offset: number;
     try {
@@ -1594,7 +1593,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): SaveDat
     const { party, partyDetails } = parseGen3Party(view, section1Offset, _forcedVersion || 'ruby');
 
     // Dummy scaffold values for now until fully implemented
-    const result: SaveData = {
+    const result: import('./common').Gen3SaveData = {
       generation: 3,
       owned,
       seen,

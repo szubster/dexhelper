@@ -20,6 +20,7 @@ describe('getMissingGen1SafariEncounters', () => {
       partyDetails: [],
       pcDetails: [],
       badges: 0,
+      // @ts-expect-error test mock
       kantoBadges: 0,
       trainerName: 'ASH',
       trainerId: 12345,
