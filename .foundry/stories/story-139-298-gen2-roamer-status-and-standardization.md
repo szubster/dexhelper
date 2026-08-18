@@ -31,4 +31,5 @@ Apply logic to determine if each Gen 2 roamer is currently active, and map the d
 ## Acceptance Criteria
 - [ ] Determine roamer activity based on `MapGroup != 0xFF` and `HP > 0`.
 - [ ] Standardize the parsed data and add it to `saveData.roamingLegendaries`.
-- [ ] Break down this Story into Tasks.
+- [x] Break down this Story into Tasks.
+- [ ] task-298-440-gen2-roamer-status-hp-check-impl
