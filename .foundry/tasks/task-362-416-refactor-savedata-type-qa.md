@@ -27,9 +27,9 @@ notes: ''
 Verify the implementation of the `SaveData` type refactor in `src/engine/saveParser/parsers/common.ts`. Ensure the discriminated union correctly enforces type safety and that downstream consumers properly handle generation-specific properties without non-null assertions or optional chaining when inappropriate.
 
 ## Acceptance Criteria
-- [ ] Verify `SaveData` is refactored into a discriminated union.
-- [ ] Verify core parser functions return specific generation types.
-- [ ] Verify downstream consumers use proper type guards.
+- [x] Verify `SaveData` is refactored into a discriminated union.
+- [x] Verify core parser functions return specific generation types.
+- [x] Verify downstream consumers use proper type guards.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
