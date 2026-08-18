@@ -36,3 +36,6 @@ Verify the implementation of Gen 2 room decoration and bank parsing.
 - [ ] Verify accuracy of parsed room decoration data.
 - [ ] Verify accuracy of parsed bank savings data.
 - [ ] Verify strict usage of module-level constants for all offsets (No inline magic numbers).
+
+### QA Rejection Note
+Rejected because the coder did not implement any of the parsing logic. No offsets or extraction code found in the saveParser for Gen 2 room decorations or Mom's bank savings.
