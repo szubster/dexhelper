@@ -2,10 +2,10 @@
 id: epic-336-349-multi-save-infrastructure
 type: EPIC
 title: Multi-Save Infrastructure Integration
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-04'
-updated_at: '2026-08-05'
+updated_at: '2026-08-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,6 +30,6 @@ As part of the Multi-Save Trade Planner, this Epic establishes the foundational 
 ## Acceptance Criteria
 - [x] Story Owner: Break this Epic down into Stories.
 - [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] story-349-358-multi-save-data-structures
-- [ ] story-349-359-multi-save-comparison-algorithms
-- [ ] story-349-360-multi-save-integration-e2e
+- [x] story-349-358-multi-save-data-structures
+- [x] story-349-359-multi-save-comparison-algorithms
+- [x] story-349-360-multi-save-integration-e2e

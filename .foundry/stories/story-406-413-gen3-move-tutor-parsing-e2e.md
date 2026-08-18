@@ -2,10 +2,10 @@
 id: story-406-413-gen3-move-tutor-parsing-e2e
 type: STORY
 title: Gen 3 Move Tutor Parsing E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-12'
+updated_at: '2026-08-18'
 depends_on:
   - story-406-412-gen3-move-tutor-parsing-core
 jules_session_id: null
