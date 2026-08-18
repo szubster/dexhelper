@@ -66,8 +66,6 @@ describe('DAG evaluation fuzzing properties', () => {
     );
   });
 
-});
-
   it('detecting cycles behaves deterministically under fuzzing', () => {
     fc.assert(
       fc.property(graphArbitrary, fc.stringMatching(/^[a-z0-9-]+$/), (nodes, startNode) => {
@@ -81,3 +79,4 @@ describe('DAG evaluation fuzzing properties', () => {
       })
     );
   });
+});

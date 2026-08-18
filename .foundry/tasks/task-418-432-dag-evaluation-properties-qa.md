@@ -27,5 +27,5 @@ notes: ''
 Verify the correctness and coverage of the implemented `fast-check` properties tests for DAG evaluation.
 
 ## Acceptance Criteria
-- [ ] Code is verified against architectural guidelines.
-- [ ] Tests correctly use `fast-check` and validate DAG state evaluation behavior.
+- [x] Code is verified against architectural guidelines.
+- [x] Tests correctly use `fast-check` and validate DAG state evaluation behavior.
