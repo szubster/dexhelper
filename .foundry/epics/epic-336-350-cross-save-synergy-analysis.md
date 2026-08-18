@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-08-04'
 updated_at: '2026-08-18'
 depends_on:
-  - .foundry/epics/epic-336-349-multi-save-infrastructure.md
+  - epic-336-349-multi-save-infrastructure
 jules_session_id: null
 pr_number: null
 parent: prd-059-336-multi-save-trade-planner

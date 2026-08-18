@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: '2026-07-25'
 updated_at: '2026-07-27'
 depends_on:
-  - .foundry/archive/tasks/task-336-342-zod-schema-definition-impl.md
+  - task-336-342-zod-schema-definition-impl
 jules_session_id: null
 pr_number: null
 parent: story-334-336-zod-schema-definition

@@ -7,7 +7,7 @@ owner_persona: "epic_planner"
 created_at: "2026-08-12"
 updated_at: "2026-08-12"
 depends_on:
-  - .foundry/ideas/idea-137-builtin-emulator.md
+  - idea-137-builtin-emulator
 jules_session_id: null
 pr_number: null
 parent: idea-141-wasm-savestate-timetravel-debugging

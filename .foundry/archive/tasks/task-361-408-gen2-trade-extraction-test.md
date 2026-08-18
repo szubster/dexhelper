@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-08-08'
 updated_at: '2026-08-09'
 depends_on:
-  - .foundry/archive/tasks/task-361-407-gen2-trade-extraction-impl.md
+  - task-361-407-gen2-trade-extraction-impl
 jules_session_id: null
 pr_number: null
 parent: story-349-361-gen2-trade-extraction
