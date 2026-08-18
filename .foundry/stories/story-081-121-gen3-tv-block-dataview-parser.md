@@ -2,10 +2,10 @@
 id: story-081-121-gen3-tv-block-dataview-parser
 type: STORY
 title: Parse Gen 3 TV Block Data with DataView
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-12'
-updated_at: '2026-08-17'
+updated_at: '2026-08-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -26,8 +26,8 @@ notes: ''
 Implement the foundational logic to locate and read the TV broadcast data block from the Gen 3 save file structure, strictly utilizing the `DataView` API.
 
 ## Acceptance Criteria
-- [ ] Implement parser logic using `DataView` to read the TV event block.
-- [ ] Handle bounds checking and corrupted reads gracefully.
+- [x] Implement parser logic using `DataView` to read the TV event block.
+- [x] Handle bounds checking and corrupted reads gracefully.
 - [x] Break down into Tasks
 
 ## Child Tasks
@@ -52,5 +52,5 @@ Implement the foundational logic to locate and read the TV broadcast data block 
 - [x] task-121-305-gen3-tv-block-parser-retry5-qa
 - [x] task-121-309-gen3-tv-block-parser-retry6-impl
 - [x] task-121-310-gen3-tv-block-parser-retry6-qa
-- [ ] task-121-327-gen3-tv-block-parser-retry7-impl
-- [ ] task-121-328-gen3-tv-block-parser-retry7-qa
+- [x] task-121-327-gen3-tv-block-parser-retry7-impl
+- [x] task-121-328-gen3-tv-block-parser-retry7-qa

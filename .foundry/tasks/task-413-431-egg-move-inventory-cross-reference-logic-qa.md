@@ -2,10 +2,10 @@
 id: task-413-431-egg-move-inventory-cross-reference-logic-qa
 type: TASK
 title: QA - Egg Move Inventory Cross-Reference Logic
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-16'
-updated_at: '2026-08-16'
+updated_at: '2026-08-18'
 depends_on:
   - task-413-430-egg-move-inventory-cross-reference-logic-impl
 jules_session_id: null
