@@ -119,6 +119,7 @@ describe('verifyBounds', () => {
   it('should report InvalidStat for DV > 15', () => {
     const saveData = createMockSaveData({
       generation: 1,
+      // @ts-expect-error test mock
       daycare: [createMockPokemon({ speciesId: 10, dvs: { hp: 16, atk: 15, def: 15, spd: 15, spc: 15 } })],
     });
 

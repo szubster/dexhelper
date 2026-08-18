@@ -521,6 +521,7 @@ describe('generateSuggestions', () => {
         },
       ],
       trainerName: 'GOLD',
+
       daycare: [
         {
           speciesId: 153, // Bayleef in daycare
@@ -539,6 +540,7 @@ describe('generateSuggestions', () => {
           storageLocation: 'Daycare',
         },
       ],
+
       daycareHasEgg: true,
     } as unknown as SaveData;
 
@@ -582,6 +584,7 @@ describe('generateSuggestions', () => {
     expect(breedSuggestion?.priority).toBe(95);
 
     // Test when no egg is ready
+    // @ts-expect-error
     mockSaveData.daycareHasEgg = false;
     const { suggestions: suggestionsWait } = await generateSuggestions(
       mockSaveData,
@@ -597,6 +600,7 @@ describe('generateSuggestions', () => {
     expect(breedSuggestionWait?.priority).toBe(85);
 
     // Test when pokemon not in daycare
+    // @ts-expect-error
     mockSaveData.daycare = [];
     const { suggestions: suggestionsNotInDaycare } = await generateSuggestions(
       mockSaveData,
@@ -614,6 +618,7 @@ describe('generateSuggestions', () => {
     expect(breedSuggestionNotInDaycare?.priority).toBe(85);
 
     // Test when pokemon is in daycare but alone
+    // @ts-expect-error
     mockSaveData.daycare = [
       {
         speciesId: 153, // Bayleef in daycare
@@ -624,6 +629,7 @@ describe('generateSuggestions', () => {
         storageLocation: 'Daycare',
       },
     ];
+    // @ts-expect-error
     mockSaveData.daycareHasEgg = false;
     const { suggestions: suggestionsAlone } = await generateSuggestions(
       mockSaveData,

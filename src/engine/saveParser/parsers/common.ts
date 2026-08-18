@@ -27,7 +27,6 @@ export type GameVersion =
   | 'firered'
   | 'leafgreen'
   | 'unknown';
-type Generation = number;
 
 /**
  * Represents a single caught Pokémon found in the player's party, PC boxes, or Daycare.
@@ -225,12 +224,7 @@ export interface Gen3BattleFrontierSymbols {
   pyramid: { silver: boolean; gold: boolean };
 }
 
-export interface SaveData {
-  gen3Pokeblocks?: import('../gen3/pokeblock/types').Gen3Pokeblock[];
-  gen3TrickHouse?: import('./../gen3/trickHouse/parser').Gen3TrickHouse;
-  gen3MatchCall?: import('../../gen3/matchCall/parser').Gen3MatchCall;
-  /** The generation of the parsed save file (1 or 2). */
-  generation: Generation;
+export interface BaseSaveData {
   /** A set of Pokémon species IDs that have been caught (O(1) lookup). */
   owned: Set<number>;
   /** A set of Pokémon species IDs that have been encountered. */
@@ -243,16 +237,6 @@ export interface SaveData {
   partyDetails: PokemonInstance[];
   /** Detailed structural data for all Pokémon stored in PC boxes. */
   pcDetails: PokemonInstance[];
-  /** In-game NPC trade status flags mapped by their flag name for Gen 3 games. */
-  gen3NPCTrades?: Record<string, boolean>;
-  /** Gen 3 specific: Calculated valid Feebas tile locations. */
-  gen3FeebasTiles?: [number, number][];
-  /** Gen 3 specific: The 16-bit Feebas seed, used to calculate Feebas tiles in a Web Worker. */
-  gen3FeebasSeed?: number;
-  /** Gen 1 specific: Claimed static encounters. */
-  gen1StaticEncounters?: Record<number, boolean>;
-  /** Gen 1 specific: Narrative progression flags. */
-  gen1NarrativeFlags?: Record<string, boolean>;
   /** The specific game version detected or forced (e.g., 'red', 'crystal'). */
   gameVersion: GameVersion;
   /** Bitflag representation of the total number of gym badges obtained. */
@@ -261,22 +245,12 @@ export interface SaveData {
   trainerName: string;
   /** The player's unique Trainer ID (TID), used for static gift verification and shiny calculations in later gens. */
   trainerId: number;
-  /** The player's Secret ID (SID), introduced in Gen 3 for shiny calculations. */
-  secretId?: number;
   /** The raw internal Map ID where the player last saved the game. */
   currentMapId: number;
   /** The human-readable name of the current map, resolved via mapping constants. */
   currentMapName?: string;
-  /** Gen 2 specific: The Map Group ID used alongside currentMapId to uniquely identify a location. */
-  mapGroup?: number;
-  /** Gen 2 specific: The number of Johto gym badges obtained. */
-  johtoBadges?: number;
-  /** Gen 2 specific: The number of Kanto gym badges obtained. */
-  kantoBadges?: number;
   /** The player's active bag inventory. */
   inventory: { id: number; quantity: number }[];
-  /** Gen 1 specific: Event flags for one-time TMs. */
-  gen1TMEventFlags?: Record<number, boolean>;
   /** TM and HM inventory mapped to moves. */
   tms?: { id: number; moveId: number; isAcquired: boolean; quantity: number }[];
   /** Items stored in the player's PC. */
@@ -304,28 +278,6 @@ export interface SaveData {
   hiddenCoinFlags?: Uint8Array;
   /** Bitflags representing which in-game NPC trades have already been completed. */
   npcTradeFlags?: boolean[];
-  /** Gen 2 specific: Static encounter event flags. */
-  gen2StaticEncounters?: {
-    sudowoodo: boolean;
-    snorlax: boolean;
-    redGyarados: boolean;
-    hoOh: boolean;
-    lugia: boolean;
-  };
-  /** Detailed structural data for Pokémon currently left in the Daycare (Gen 2). */
-  daycare?: PokemonInstance[];
-  /** Gen 2 specific: Indicates if an Egg is currently waiting to be picked up from the Daycare. */
-  daycareHasEgg?: boolean;
-  /** Gen 3 specific: Information regarding the state of Berry Patches across Hoenn. */
-  gen3BerryPatches?: Gen3BerryPatch[];
-  /** Gen 3 specific: Active Secret Bases. */
-  gen3SecretBases?: Gen3SecretBase[];
-  /** Gen 3 specific: Upcoming event schedule. */
-  gen3PokeNews?: Gen3PokeNews[];
-  /** Gen 3 specific: Inherited Mix Record events. */
-  gen3MixRecords?: Gen3MixRecord[];
-  /** Gen 3 specific: Active Swarm (Mass Outbreak) data. */
-  gen3ActiveSwarm?: Gen3ActiveSwarm;
   /**
    * Information regarding currently roaming Legendaries (Gen 2: Raikou, Entei, Suicune. Gen 3: Latios, Latias).
    *
@@ -348,6 +300,66 @@ export interface SaveData {
   roamerCurMapGroup?: number;
   /** Global map number tracking variable for roaming legendaries. */
   roamerCurMapId?: number;
+}
+
+export interface Gen1SaveData extends BaseSaveData {
+  /** The generation of the parsed save file. */
+  generation: 1;
+  /** Gen 1 specific: Claimed static encounters. */
+  gen1StaticEncounters?: Record<number, boolean>;
+  /** Gen 1 specific: Event flags for one-time TMs. */
+  gen1TMEventFlags?: Record<number, boolean>;
+  /** Gen 1 specific: Narrative progression flags. */
+  gen1NarrativeFlags?: Record<string, boolean>;
+}
+
+export interface Gen2SaveData extends BaseSaveData {
+  /** The generation of the parsed save file. */
+  generation: 2;
+  /** Gen 2 specific: The Map Group ID used alongside currentMapId to uniquely identify a location. */
+  mapGroup?: number;
+  /** Gen 2 specific: The number of Johto gym badges obtained. */
+  johtoBadges?: number;
+  /** Gen 2 specific: The number of Kanto gym badges obtained. */
+  kantoBadges?: number;
+  /** Gen 2 specific: Static encounter event flags. */
+  gen2StaticEncounters?: {
+    sudowoodo: boolean;
+    snorlax: boolean;
+    redGyarados: boolean;
+    hoOh: boolean;
+    lugia: boolean;
+  };
+  /** Detailed structural data for Pokémon currently left in the Daycare (Gen 2). */
+  daycare?: PokemonInstance[];
+  /** Gen 2 specific: Indicates if an Egg is currently waiting to be picked up from the Daycare. */
+  daycareHasEgg?: boolean;
+}
+
+export interface Gen3SaveData extends BaseSaveData {
+  /** The generation of the parsed save file. */
+  generation: 3;
+  gen3Pokeblocks?: import('../gen3/pokeblock/types').Gen3Pokeblock[];
+  gen3TrickHouse?: import('./../gen3/trickHouse/parser').Gen3TrickHouse;
+  gen3MatchCall?: import('../../gen3/matchCall/parser').Gen3MatchCall;
+  /** In-game NPC trade status flags mapped by their flag name for Gen 3 games. */
+  gen3NPCTrades?: Record<string, boolean>;
+  /** Gen 3 specific: Calculated valid Feebas tile locations. */
+  gen3FeebasTiles?: [number, number][];
+  /** Gen 3 specific: The 16-bit Feebas seed, used to calculate Feebas tiles in a Web Worker. */
+  gen3FeebasSeed?: number;
+  /** The player's Secret ID (SID), introduced in Gen 3 for shiny calculations. */
+  secretId?: number;
+  /** Gen 3 specific: Information regarding the state of Berry Patches across Hoenn. */
+  gen3BerryPatches?: Gen3BerryPatch[];
+  /** Gen 3 specific: Active Secret Bases. */
+  gen3SecretBases?: Gen3SecretBase[];
+  /** Gen 3 specific: Upcoming event schedule. */
+  gen3PokeNews?: Gen3PokeNews[];
+  /** Gen 3 specific: Inherited Mix Record events. */
+  gen3MixRecords?: Gen3MixRecord[];
+  /** Gen 3 specific: Active Swarm (Mass Outbreak) data. */
+  gen3ActiveSwarm?: Gen3ActiveSwarm;
   /** Gen 3 specific: The 16-bit daily Mirage Island random value. */
   mirageIslandValue?: number;
   /** Gen 3 specific: Battle Frontier win streaks */
@@ -381,6 +393,8 @@ export interface SaveData {
   /** Gen 3 specific: Trainer Card Upgrade conditions */
   gen3TrainerCard?: Gen3TrainerCard;
 }
+
+export type SaveData = Gen1SaveData | Gen2SaveData | Gen3SaveData;
 
 // Removed byte helper as DataView provides getUint8 natively.
 
