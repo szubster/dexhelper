@@ -28,3 +28,4 @@ Integrate the sourced Gen 1 save files (`red.sav`, `blue.sav`, `blue-complete.sa
 ## Acceptance Criteria
 - [ ] Update test configurations to utilize the new Gen 1 fixtures.
 - [ ] Ensure relevant test cases successfully parse and validate the data from these fixtures.
+- [ ] task-422-440-integrate-gen1-fixtures-impl
