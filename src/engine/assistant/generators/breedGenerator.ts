@@ -1,3 +1,4 @@
+import { calculateGen2Gender, calculateGen3Gender } from '../../../utils/gender';
 import { getGenerationConfig } from '../../../utils/generationConfig';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
 import type { Suggestion } from '../strategies/types';
@@ -118,7 +119,20 @@ export function generateBreedingSuggestions(
               if (nextStepSpeciesId === undefined) continue;
 
               const instances = instancesBySpecies.get(stepSpeciesId) || [];
-              const hasMove = instances.some((inst) => inst.moves?.includes(moveId));
+              const hasMove = instances.some((inst) => {
+                if (!inst.moves?.includes(moveId)) return false;
+
+                const metadata = apiData.pokemonMetadata?.[inst.speciesId];
+                if (!metadata || metadata.gr === undefined) return false;
+
+                let gender: 'male' | 'female' | 'genderless' = 'genderless';
+                if (saveData.generation === 2) {
+                  gender = calculateGen2Gender(inst.dvs?.atk ?? 0, metadata.gr);
+                } else if (saveData.generation === 3) {
+                  gender = calculateGen3Gender(inst.personalityValue ?? 0, metadata.gr);
+                }
+                return gender === 'male';
+              });
 
               // If it doesn't have the move, and it's not the base of the chain, keep traversing
               if (!hasMove && k > 0) continue;

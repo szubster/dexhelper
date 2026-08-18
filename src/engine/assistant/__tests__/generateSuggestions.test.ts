@@ -1129,6 +1129,7 @@ describe('generateSuggestions', () => {
           id: 274,
           n: 'Nuzleaf',
           cr: 45,
+          gr: 4,
           baby: false,
           eto: [],
           efrm: [],
@@ -1172,6 +1173,7 @@ describe('generateSuggestions', () => {
           isShiny: false,
           hash: '',
           moves: [13], // Knows Razor Leaf
+          dvs: { atk: 15, hp: 15, def: 15, spd: 15, spc: 15 }, // Male DV
           storageLocation: 'Box 1',
           otName: 'ASH',
         },
@@ -1196,6 +1198,7 @@ describe('generateSuggestions', () => {
           id: 274,
           n: 'Nuzleaf',
           cr: 45,
+          gr: 4,
           baby: false,
           eto: [],
           efrm: [],
@@ -1263,6 +1266,7 @@ describe('generateSuggestions', () => {
           id: 100,
           n: 'TestBase',
           cr: 45,
+          gr: 4,
           baby: false,
           eto: [],
           efrm: [],
@@ -1307,6 +1311,7 @@ describe('generateSuggestions', () => {
           isShiny: false,
           hash: '',
           moves: [20], // Knows the Egg Move
+          dvs: { atk: 15, hp: 15, def: 15, spd: 15, spc: 15 }, // Male DV
           storageLocation: 'Box 1',
           otName: 'ASH',
         },
@@ -1331,6 +1336,7 @@ describe('generateSuggestions', () => {
           id: 100,
           n: 'TestBase',
           cr: 45,
+          gr: 4,
           baby: false,
           eto: [],
           efrm: [],
