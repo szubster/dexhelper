@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-08-08'
 updated_at: '2026-08-11'
 depends_on:
-  - .foundry/archive/tasks/task-401-408-gen2-dv-extraction-types.md
+  - task-401-408-gen2-dv-extraction-types
 jules_session_id: null
 pr_number: null
 parent: story-112-401-gen2-dv-extraction

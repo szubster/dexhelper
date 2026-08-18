@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: "2026-08-04"
 updated_at: "2026-08-04"
 depends_on:
-  - .foundry/epics/epic-336-351-trade-evolution-tracking.md
+  - epic-336-351-trade-evolution-tracking
 jules_session_id: null
 pr_number: null
 parent: prd-059-336-multi-save-trade-planner
