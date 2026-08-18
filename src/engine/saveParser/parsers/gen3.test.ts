@@ -2200,3 +2200,56 @@ describe('parseGen3 (trainer flags integration)', () => {
     });
   });
 });
+
+describe('Gen3 Party Parsing Extra', () => {
+  it('throws "The save file is corrupted or incomplete." when RangeError occurs in party parsing', () => {
+    const buffer = new ArrayBuffer(0x100); // Too small
+    const view = new DataView(buffer);
+
+    // Call parseGen3 with mocked offsets that lead to party/pc parsing
+    const originalGetUint32 = view.getUint32.bind(view);
+    view.getUint32 = (byteOffset, littleEndian) => {
+      // Mock section scanning to return valid offsets, but then fail during party parsing
+      if (byteOffset === 4088) return 0x08012025;
+      if (byteOffset === 4096 + 4088) return 0x08012025;
+      if (byteOffset === 8192 + 4088) return 0x08012025;
+
+      // when it tries to read party count, throw range error
+      if (byteOffset >= 0x234) throw new RangeError('Out of bounds');
+
+      return originalGetUint32(byteOffset, littleEndian);
+    };
+
+    expect(() => {
+      parseGen3(view, 'ruby');
+    }).toThrow('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('Gen3 PC Box Parsing Extra', () => {
+  it('throws "The save file is corrupted or incomplete." when RangeError occurs in PC box parsing', () => {
+    const buffer = new ArrayBuffer(0x100); // Too small
+    const view = new DataView(buffer);
+
+    const originalGetUint32 = view.getUint32.bind(view);
+    view.getUint32 = (byteOffset, littleEndian) => {
+      // Mock section scanning to return valid offsets
+      if (byteOffset === 4088) return 0x08012025;
+      if (byteOffset === 4096 + 4088) return 0x08012025;
+      if (byteOffset === 8192 + 4088) return 0x08012025;
+
+      // when it tries to read from pcBox buffer, throw range error
+      // Note: we just need it to throw RangeError during the PC Buffer stitching
+      // or parsing. Since we are testing integration through parseGen3,
+      // it handles RangeErrors gracefully.
+      if (byteOffset >= 0x0004) {
+        throw new RangeError('Out of bounds');
+      }
+      return originalGetUint32(byteOffset, littleEndian);
+    };
+
+    expect(() => {
+      parseGen3(view, 'ruby');
+    }).toThrow('The save file is corrupted or incomplete.');
+  });
+});
