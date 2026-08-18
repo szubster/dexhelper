@@ -58,7 +58,7 @@ jobs:
         uses: tj-actions/changed-files@v47
         with:
           files: |
-            .github/scripts/semantic/**
+            .github/scripts/engine/semantic/**
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
