@@ -427,6 +427,25 @@ describe('gen2 parsers', () => {
 
       expect(() => parseGen2(view, false)).toThrow('The save file is corrupted or incomplete.');
     });
+
+    it('should handle RangeError gracefully during roaming legendaries extraction', () => {
+      const buffer = new ArrayBuffer(0x8000);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+
+      // Force view.getUint8 to throw RangeError for roaming legendaries offset (GS = 0x28da)
+      const originalGetUint8 = view.getUint8.bind(view);
+      view.getUint8 = (offset: number) => {
+        if (offset === 0x28da) {
+          throw new RangeError('Out of bounds');
+        }
+        return originalGetUint8(offset);
+      };
+
+      expect(() => parseGen2(view, false)).toThrow('The save file is corrupted or incomplete.');
+    });
   });
 
   describe('Gen 2 Egg Parsing', () => {
