@@ -2,13 +2,13 @@
 id: task-408-431-gen1-tm-hm-parsing-qa
 type: TASK
 title: Gen 1 TM/HM Parsing QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-16'
-updated_at: '2026-08-17'
+updated_at: '2026-08-18'
 depends_on:
   - task-408-430-gen1-tm-hm-parsing-impl
-jules_session_id: null
+jules_session_id: '14590499822705774810'
 pr_number: null
 parent: story-401-408-gen1-tm-hm-parsing
 tags:
