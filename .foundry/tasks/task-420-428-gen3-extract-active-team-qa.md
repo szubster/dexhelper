@@ -31,4 +31,4 @@ Review the implementation of the Gen 3 active team extraction to ensure it meets
 - Verify tests cover the extraction logic and do not use @testing-library.
 
 ## Acceptance Criteria
-- [ ] Review implementation and tests.
+- [x] Review implementation and tests.
