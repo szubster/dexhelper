@@ -49,11 +49,11 @@ Ensure that the coder uses the resolved section offset (e.g., `section1Offset`) 
 Finally, verify that the `RangeError` caught includes the exact text `"The save file is corrupted or incomplete."`.
 
 ## Acceptance Criteria
-- [ ] Verified that the TV block extraction logic strictly utilizes `DataView`.
-- [ ] Verified that no inline magic numbers were used, and all offsets/lengths are reusable constants at the module level.
-- [ ] Verified that relative offsets from the resolved section offset are used, instead of absolute offsets.
-- [ ] Verified that out-of-bounds reads gracefully throw a caught `RangeError` with the exact message text `"The save file is corrupted or incomplete."`.
-- [ ] Verified that existing interfaces were not broken.
+- [x] Verified that the TV block extraction logic strictly utilizes `DataView`.
+- [x] Verified that no inline magic numbers were used, and all offsets/lengths are reusable constants at the module level.
+- [x] Verified that relative offsets from the resolved section offset are used, instead of absolute offsets.
+- [x] Verified that out-of-bounds reads gracefully throw a caught `RangeError` with the exact message text `"The save file is corrupted or incomplete."`.
+- [x] Verified that existing interfaces were not broken.
 
 ## Important Protocols (For QA)
 - **Transient Failure:** If you experience a transient failure requiring retry or if the Coder's implementation is incorrect, you MUST update the YAML frontmatter to `status: FAILED` with a detailed `rejection_reason`.
