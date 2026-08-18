@@ -2,10 +2,10 @@
 id: story-123-428-tactical-utilities-e2e
 type: STORY
 title: Tactical Utilities E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-17'
-updated_at: '2026-08-17'
+updated_at: '2026-08-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -28,6 +28,6 @@ Verify the correctness of Tailwind v4 custom utilities (`tactical-panel`, `tacti
 2. Validate visual aesthetics adhere to ADR 024.
 
 ## Acceptance Criteria
-- [ ] Appropriate E2E tests are implemented and passing.
-- [ ] task-428-436-tactical-utilities-e2e-impl
-- [ ] task-428-437-tactical-utilities-e2e-qa
+- [x] Appropriate E2E tests are implemented and passing.
+- [x] task-428-436-tactical-utilities-e2e-impl
+- [x] task-428-437-tactical-utilities-e2e-qa

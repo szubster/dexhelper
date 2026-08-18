@@ -2,13 +2,13 @@
 id: story-133-274-living-dex-evolution-material
 type: STORY
 title: Living Dex Evolution Material Detection
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-08-17'
+updated_at: '2026-08-18'
 depends_on:
   - story-133-273-living-dex-pc-mapping
-jules_session_id: '8061761771265725672'
+jules_session_id: null
 pr_number: null
 parent: epic-103-133-living-dex-data-engine
 tags:
