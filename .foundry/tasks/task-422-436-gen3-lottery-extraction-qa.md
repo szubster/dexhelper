@@ -2,10 +2,10 @@
 id: task-422-436-gen3-lottery-extraction-qa
 type: TASK
 title: Gen3 Lottery Data Extraction QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-17'
-updated_at: '2026-08-17'
+updated_at: '2026-08-18'
 depends_on:
   - task-422-435-gen3-lottery-extraction-impl
 jules_session_id: null

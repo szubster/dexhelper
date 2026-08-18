@@ -2,10 +2,10 @@
 id: story-406-412-gen3-move-tutor-parsing-core
 type: STORY
 title: Gen 3 Move Tutor Parsing Core
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-17'
+updated_at: '2026-08-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -38,10 +38,10 @@ The parsing implementation must use `DataView` for all byte reading, as per ADR 
 3. Incorporate `RangeError` handling for robust parsing of potentially malformed or smaller-than-expected save structures.
 
 ## Acceptance Criteria
-- [ ] Move Tutor constants are correctly defined for Emerald and FireRed/LeafGreen.
-- [ ] The core extraction logic uses `DataView`.
-- [ ] Logic gracefully handles `RangeError` during out-of-bounds `DataView` access.
-- [ ] Unit tests cover parsing valid and malformed structures for both game versions.
-- [ ] task-412-422-gen3-move-tutor-constants
-- [ ] task-412-423-gen3-move-tutor-extractor
-- [ ] task-412-424-gen3-move-tutor-qa
+- [x] Move Tutor constants are correctly defined for Emerald and FireRed/LeafGreen.
+- [x] The core extraction logic uses `DataView`.
+- [x] Logic gracefully handles `RangeError` during out-of-bounds `DataView` access.
+- [x] Unit tests cover parsing valid and malformed structures for both game versions.
+- [x] task-412-422-gen3-move-tutor-constants
+- [x] task-412-423-gen3-move-tutor-extractor
+- [x] task-412-424-gen3-move-tutor-qa

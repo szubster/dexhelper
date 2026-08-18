@@ -2,10 +2,10 @@
 id: story-349-360-multi-save-integration-e2e
 type: STORY
 title: Multi-Save Integration E2E
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-08-12'
+updated_at: '2026-08-18'
 depends_on:
   - story-349-359-multi-save-comparison-algorithms
 jules_session_id: null
@@ -31,6 +31,6 @@ As part of the Multi-Save Trade Planner, this Story focuses on the E2E verificat
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into tasks.
-- [ ] task-360-418-multi-save-integration-e2e-impl
-- [ ] task-360-420-multi-save-integration-e2e-architecture
-- [ ] task-360-419-multi-save-integration-e2e-qa
+- [x] task-360-418-multi-save-integration-e2e-impl
+- [x] task-360-420-multi-save-integration-e2e-architecture
+- [x] task-360-419-multi-save-integration-e2e-qa
