@@ -2,13 +2,13 @@
 id: task-358-429-gen3-battle-frontier-parsing-qa
 type: TASK
 title: Task - Gen 3 Battle Frontier Parsing QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-14'
 updated_at: '2026-08-18'
 depends_on:
   - task-358-428-gen3-battle-frontier-parsing-impl
-jules_session_id: '11415957467892657386'
+jules_session_id: null
 pr_number: null
 parent: story-400-358-gen3-trainer-card-parsing-core
 tags:

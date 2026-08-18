@@ -2,12 +2,12 @@
 id: task-281-305-gen3-system-time-fallback-qa
 type: TASK
 title: QA Gen 3 System Time Fallback Logic
-status: ACTIVE
+status: READY
 owner_persona: qa
 created_at: '2026-07-11'
-updated_at: '2026-08-17'
+updated_at: '2026-08-18'
 depends_on: []
-jules_session_id: '1612866119529150073'
+jules_session_id: null
 pr_number: null
 parent: story-081-281-gen3-system-time-fallback
 tags:

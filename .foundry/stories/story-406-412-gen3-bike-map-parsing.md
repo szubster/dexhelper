@@ -2,10 +2,10 @@
 id: story-406-412-gen3-bike-map-parsing
 type: STORY
 title: Core Map Data Parsing Logic for Bike Requirements
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-14'
+updated_at: '2026-08-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -29,7 +29,7 @@ Implement parsing logic within the map data extraction engine that specifically 
 
 ## Acceptance Criteria
 - [x] tech_lead: Break down this Story into Tasks.
-- [ ] task-412-422-gen3-mach-bike-parsing-impl
-- [ ] task-412-423-gen3-acro-bike-parsing-impl
-- [ ] task-412-424-gen3-bike-data-struct-integration-impl
-- [ ] task-412-425-gen3-bike-map-parsing-qa
+- [x] task-412-422-gen3-mach-bike-parsing-impl
+- [x] task-412-423-gen3-acro-bike-parsing-impl
+- [x] task-412-424-gen3-bike-data-struct-integration-impl
+- [x] task-412-425-gen3-bike-map-parsing-qa
