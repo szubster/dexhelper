@@ -2,10 +2,10 @@
 id: story-411-421-extract-player-location
 type: STORY
 title: Extract Player's Location and Upcoming Trainer
-status: PENDING
+status: READY
 owner_persona: tech_lead
-created_at: "2026-08-13"
-updated_at: "2026-08-13"
+created_at: '2026-08-13'
+updated_at: '2026-08-18'
 depends_on:
   - story-411-420-extract-player-team
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - ai
   - save-engine
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Story: Extract Player's Location and Upcoming Trainer
