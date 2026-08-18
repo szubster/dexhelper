@@ -29,5 +29,5 @@ Implementation for the Mach and Acro bike map triggers and their integration dat
 QA the implemented parser logic. Verify that map triggers correctly reflect Mach and Acro bike requirements in a structure usable by downstream systems.
 
 ## Acceptance Criteria
-- [ ] Review PR for parser implementations.
-- [ ] Ensure `task-412-422-gen3-mach-bike-parsing-impl`, `task-412-423-gen3-acro-bike-parsing-impl`, and `task-412-424-gen3-bike-data-struct-integration-impl` meet their respective specifications.
+- [x] Review PR for parser implementations.
+- [x] Ensure `task-412-422-gen3-mach-bike-parsing-impl`, `task-412-423-gen3-acro-bike-parsing-impl`, and `task-412-424-gen3-bike-data-struct-integration-impl` meet their respective specifications.
