@@ -23,6 +23,7 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
     const encounters = readJsonl(path.join(sourceDir, 'encounters.jsonl'));
     const locations = readJsonl(path.join(sourceDir, 'locations.jsonl'));
     const items = readJsonl(path.join(sourceDir, 'items.jsonl'));
+    const moves = readJsonl(path.join(sourceDir, 'moves.jsonl'));
     const metadataPath = path.join(sourceDir, 'metadata.json');
     const metadata = fs.existsSync(metadataPath) ? JSON.parse(fs.readFileSync(metadataPath, 'utf-8')) : {};
 
@@ -31,6 +32,7 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
       enc: encounters,
       loc: locations,
       items: items,
+      moves: moves,
       sourceSha: metadata.sourceSha,
     };
 
