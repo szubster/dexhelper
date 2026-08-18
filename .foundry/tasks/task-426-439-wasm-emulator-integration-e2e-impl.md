@@ -2,12 +2,12 @@
 id: task-426-439-wasm-emulator-integration-e2e-impl
 type: TASK
 title: WASM Emulator Integration E2E Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-18'
 updated_at: '2026-08-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '565293511631025017'
 pr_number: null
 parent: story-423-426-wasm-emulator-integration-e2e
 tags:
