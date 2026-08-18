@@ -2,13 +2,13 @@
 id: task-322-332-gen2-decoration-savings-parsing-qa
 type: TASK
 title: QA Gen 2 Room Decoration & Bank Parsing
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-17'
-updated_at: '2026-08-17'
+updated_at: '2026-08-18'
 depends_on:
   - task-322-331-gen2-decoration-savings-parsing-impl
-jules_session_id: null
+jules_session_id: '11688843103783499991'
 pr_number: null
 parent: story-311-322-gen2-room-decoration-parsing
 tags:
