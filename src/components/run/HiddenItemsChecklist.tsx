@@ -1,8 +1,7 @@
-import { Check, CircleDot, MapPin } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import { useMemo, useState } from 'react';
-import { cn } from '../../utils/cn';
-import { CornerCrosshairs } from '../CornerCrosshairs';
 import { EmptyState } from '../EmptyState';
+import { TacticalChecklistItem } from '../TacticalChecklistItem';
 import { TacticalPanel } from '../TacticalPanel';
 import { TacticalSegmentedControl } from '../TacticalSegmentedControl';
 import { TelemetryDecoration } from '../TelemetryDecoration';
@@ -81,47 +80,16 @@ export function HiddenItemsChecklist({ groupedItems }: HiddenItemsChecklistProps
             </div>
 
             <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-              {group.items.map((item, _idx) => {
-                const acquired = item.isAcquired === true;
-                return (
-                  <div
-                    key={`${group.locationId}-${item.itemId}`}
-                    className={cn(
-                      'group relative flex items-center gap-3 rounded-none border border-dashed p-3 transition-colors',
-                      acquired
-                        ? 'border-emerald-900/50 bg-emerald-950/10 hover:border-emerald-500/50'
-                        : 'border-zinc-800 bg-zinc-950/50 hover:border-zinc-700',
-                    )}
-                  >
-                    <CornerCrosshairs
-                      className={cn(
-                        'h-1.5 w-1.5 transition-colors',
-                        acquired
-                          ? 'border-emerald-900/50 group-hover:border-emerald-500/80'
-                          : 'border-zinc-700/50 group-hover:border-zinc-500',
-                      )}
-                    />
-                    {acquired ? (
-                      <Check className="h-4 w-4 shrink-0 text-emerald-500" />
-                    ) : (
-                      <CircleDot className="h-4 w-4 shrink-0 text-zinc-600" />
-                    )}
-                    <div className="flex min-w-0 flex-col">
-                      <span
-                        className={cn(
-                          'truncate font-bold text-xs uppercase tracking-wider',
-                          acquired ? 'text-zinc-500 line-through' : 'text-zinc-300',
-                        )}
-                      >
-                        {item.itemName}
-                      </span>
-                      <span className="tactical-text text-[10px] text-zinc-500">
-                        ITEM ID: {item.itemId.toString().padStart(4, '0')}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
+              {group.items.map((item) => (
+                <TacticalChecklistItem
+                  key={`${group.locationId}-${item.itemId}`}
+                  label={item.itemName}
+                  acquired={item.isAcquired === true}
+                  subtitle={`ITEM ID: ${item.itemId.toString().padStart(4, '0')}`}
+                  showCrosshairs={true}
+                  interactive={true}
+                />
+              ))}
             </div>
           </TacticalPanel>
         ))}
