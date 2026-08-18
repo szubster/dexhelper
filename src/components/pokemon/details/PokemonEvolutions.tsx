@@ -78,7 +78,7 @@ function ProcurementStrategy({
         />
 
         <div className="relative z-10 flex flex-col gap-2">
-          <DataLabel>[ STATUS REPORT ]</DataLabel>
+          <DataLabel>STATUS REPORT</DataLabel>
           <div className="border border-red-500/30 border-dashed bg-zinc-950/80 p-3">
             <div className="font-bold text-sm text-zinc-300 leading-relaxed">
               Species missing from Living Dex. Priority retrieval recommended via
@@ -101,7 +101,7 @@ function ProcurementStrategy({
           </div>
           {stadiumRewards && (
             <div className="mt-2 flex flex-col gap-2">
-              <DataLabel>[ ALTERNATE_EXTRACTION ]</DataLabel>
+              <DataLabel>ALTERNATE_EXTRACTION</DataLabel>
               <div className="flex flex-wrap gap-2">
                 {stadiumRewards.rewards.map((r) => (
                   <TacticalBadge
@@ -146,7 +146,7 @@ function EvolutionFrom({
         />
 
         <div className="relative z-10 flex flex-1 flex-col gap-2">
-          <DataLabel>[ PRE_EVOLUTION_LINK ]</DataLabel>
+          <DataLabel>PRE_EVOLUTION_LINK</DataLabel>
           <div className="flex flex-1 flex-col justify-center border border-purple-500/30 border-dashed bg-zinc-950/80 p-3">
             <div className="mb-2 font-bold text-sm text-zinc-300 leading-relaxed">
               <InlineLink
@@ -160,7 +160,7 @@ function EvolutionFrom({
             </div>
             <div className="font-black text-[10px] text-purple-400/60 uppercase">METHOD: {evoReq.method}</div>
             <div className="mt-4 flex items-center justify-between border-zinc-800 border-t border-dashed pt-2">
-              <DataLabel>[ ASSET_STATUS ]</DataLabel>
+              <DataLabel>ASSET_STATUS</DataLabel>
               <div
                 className={cn(
                   'relative z-10 inline-flex items-center gap-2 rounded-none border border-dashed px-2 py-1 font-black text-[9px] uppercase tracking-widest',
@@ -203,7 +203,7 @@ function EvolutionTo({
         />
 
         <div className="relative z-10 flex flex-1 flex-col gap-2">
-          <DataLabel>[ EVOLUTION_TRAJECTORY ]</DataLabel>
+          <DataLabel>EVOLUTION_TRAJECTORY</DataLabel>
           <div className="flex flex-col gap-2">
             {evolvesTo.map((evo) => (
               <div
@@ -257,7 +257,7 @@ function BreedingProtocol({
 
         <div className="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="flex flex-col gap-2">
-            <DataLabel>[ CROSS_REFERENCE ]</DataLabel>
+            <DataLabel>CROSS_REFERENCE</DataLabel>
             <div className="flex flex-wrap gap-2 border border-pink-500/30 border-dashed bg-zinc-950/80 p-3">
               {breedingInfo.parentNames.map((name: string, i: number) => (
                 <React.Fragment key={name}>
@@ -277,7 +277,7 @@ function BreedingProtocol({
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <DataLabel>[ METHODOLOGY ]</DataLabel>
+            <DataLabel>METHODOLOGY</DataLabel>
             <div className="relative z-10 rounded-none border border-pink-500/30 border-dashed bg-pink-500/10 p-3 font-black text-[10px] text-pink-400 uppercase leading-relaxed tracking-widest">
               {breedingInfo.method}
             </div>
