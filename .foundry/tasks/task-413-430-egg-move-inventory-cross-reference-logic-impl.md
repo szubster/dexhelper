@@ -34,6 +34,6 @@ In Gen 2 and Gen 3, only **Male** Pokémon can pass down Egg Moves to their offs
 6. Write Vitest tests covering scenarios where the player has a Female with the move (should not pass) vs a Male with the move (should pass).
 
 ## Acceptance Criteria
-- [ ] `calculateGen3Gender` is implemented in `src/utils/gender.ts`.
-- [ ] `generateBreedingSuggestions` checks if the instance is male before setting `hasMove = true`.
-- [ ] Unit tests cover gender constraints.
+- [x] `calculateGen3Gender` is implemented in `src/utils/gender.ts`.
+- [x] `generateBreedingSuggestions` checks if the instance is male before setting `hasMove = true`.
+- [x] Unit tests cover gender constraints.
