@@ -2,12 +2,12 @@
 id: story-417-422-integrate-gen1-fixtures
 type: STORY
 title: 'Story: Integrate Gen 1 Save File Fixtures'
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-14'
-updated_at: '2026-08-14'
+updated_at: '2026-08-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15527668234882479103'
 pr_number: null
 parent: epic-343-417-test-fixtures-sourcing
 tags:
