@@ -2,13 +2,13 @@
 id: story-423-426-wasm-emulator-integration-e2e
 type: STORY
 title: WASM Emulator Integration E2E
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-14'
 updated_at: '2026-08-18'
 depends_on:
   - story-423-425-wasm-emulator-core-integration
-jules_session_id: null
+jules_session_id: '13991497698687826369'
 pr_number: null
 parent: epic-343-423-wasm-emulator-integration
 tags:
