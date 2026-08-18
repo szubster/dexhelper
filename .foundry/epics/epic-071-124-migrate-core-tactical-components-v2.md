@@ -2,10 +2,10 @@
 id: epic-071-124-migrate-core-tactical-components-v2
 type: EPIC
 title: Migrate Core Tactical Components V2
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-07-07'
+updated_at: '2026-08-18'
 depends_on:
   - epic-071-123-define-tailwind-v4-utilities-v2
 jules_session_id: null

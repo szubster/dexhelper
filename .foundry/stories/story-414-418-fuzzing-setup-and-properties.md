@@ -2,10 +2,10 @@
 id: story-414-418-fuzzing-setup-and-properties
 type: STORY
 title: Fuzzing Setup and Property Definitions
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-12'
-updated_at: '2026-08-16'
+updated_at: '2026-08-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -27,6 +27,6 @@ Set up `fast-check` and define the initial set of properties to verify the DAG s
 
 ## Acceptance Criteria
 - [x] Tasks generated.
-- [ ] task-418-430-fuzzing-framework-setup-impl
-- [ ] task-418-431-dag-evaluation-properties-impl
-- [ ] task-418-432-dag-evaluation-properties-qa
+- [x] task-418-430-fuzzing-framework-setup-impl
+- [x] task-418-431-dag-evaluation-properties-impl
+- [x] task-418-432-dag-evaluation-properties-qa

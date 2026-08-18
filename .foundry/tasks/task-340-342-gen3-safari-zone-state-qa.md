@@ -2,13 +2,13 @@
 id: task-340-342-gen3-safari-zone-state-qa
 type: TASK
 title: Gen 3 Safari Zone State Parsing QA
-status: ACTIVE
+status: READY
 owner_persona: qa
 created_at: '2026-07-25'
-updated_at: '2026-08-17'
+updated_at: '2026-08-18'
 depends_on:
   - task-340-341-gen3-safari-zone-state-impl
-jules_session_id: '8789648595812264355'
+jules_session_id: null
 pr_number: null
 parent: story-324-340-gen3-safari-zone-save-state
 tags:

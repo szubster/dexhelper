@@ -2,10 +2,10 @@
 id: story-139-297-gen2-roamer-core-extraction
 type: STORY
 title: Parse Gen 2 Roamer Core Data
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-11'
-updated_at: '2026-07-26'
+updated_at: '2026-08-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -28,9 +28,9 @@ Extract the 7-byte `roam_struct` for the Gen 2 roamers (Raikou, Entei, Suicune) 
 - Extract `wRoamMons_CurMapGroup` and `wRoamMons_CurMapNumber` (at `+0x030C` and `+0x030B` respectively) to track their current location.
 
 ## Acceptance Criteria
-- [ ] Implement data extraction for the 3 Gen 2 roaming legendaries based on the 7-byte `roam_struct`.
-- [ ] Extract the map tracking variables correctly.
+- [x] Implement data extraction for the 3 Gen 2 roaming legendaries based on the 7-byte `roam_struct`.
+- [x] Extract the map tracking variables correctly.
 - [x] Break down this Story into Tasks.
 
-- [ ] task-297-338-gen2-roamer-core-extraction-impl
-- [ ] task-297-339-gen2-roamer-core-extraction-qa
+- [x] task-297-338-gen2-roamer-core-extraction-impl
+- [x] task-297-339-gen2-roamer-core-extraction-qa

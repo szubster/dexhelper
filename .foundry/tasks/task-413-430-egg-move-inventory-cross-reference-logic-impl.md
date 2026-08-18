@@ -2,12 +2,12 @@
 id: task-413-430-egg-move-inventory-cross-reference-logic-impl
 type: TASK
 title: Implement Egg Move Inventory Cross-Reference Logic
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-16'
-updated_at: '2026-08-17'
+updated_at: '2026-08-18'
 depends_on: []
-jules_session_id: '1826126204150583312'
+jules_session_id: null
 pr_number: null
 parent: story-114-413-egg-move-inventory-cross-reference-logic
 tags:
@@ -16,7 +16,7 @@ tags:
   - state
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 

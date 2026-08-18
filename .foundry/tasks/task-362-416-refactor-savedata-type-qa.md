@@ -2,10 +2,10 @@
 id: task-362-416-refactor-savedata-type-qa
 type: TASK
 title: Verify SaveData Type Refactor
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-10'
-updated_at: '2026-08-10'
+updated_at: '2026-08-18'
 depends_on:
   - task-362-415-refactor-savedata-type-impl
 jules_session_id: null
