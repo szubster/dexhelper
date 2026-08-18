@@ -27,5 +27,5 @@ notes: ''
 Perform QA validation on the implementation of the Gen 3 Trainer Card upgrade criteria parsing logic for Battle Frontier. Ensure that the logic accurately verifies the Battle Frontier requirements. Ensure no regressions occur in the parser.
 
 ## Acceptance Criteria
-- [ ] Verify Battle Frontier Gold Symbols check is correct.
-- [ ] Ensure unit tests adequately cover the extraction logic and edge cases.
+- [x] Verify Battle Frontier Gold Symbols check is correct.
+- [x] Ensure unit tests adequately cover the extraction logic and edge cases.
