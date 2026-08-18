@@ -132,3 +132,22 @@ Verified the implementation of the Gen 3 Move Tutor Extractor. The target artifa
 2. Submitted an empty PR with checkboxes enabled to gracefully exit the DAG flow and allow the parent story to handle the resurrection/cancellation logic.
 
 No further implementations made since the task gracefully aborts.
+
+Date: 2026-08-18
+Task: task-348-101-gen3-ash-ui-qa
+
+## Context
+QA validation of the Gen 3 Volcanic Ash UI integration.
+
+## Verification
+- Target implementation task `task-348-100-gen3-ash-ui-impl` failed validation.
+- The UI implementation itself looks correct.
+- However, `isGen3Save` in `src/engine/saveParser/utils/detection.ts` is currently a stub that always returns `false`.
+- This causes `parseSaveFile` to throw an error and prevents the application from initializing with Gen 3 save files during E2E testing.
+- It is impossible to write an E2E test for the Volcanic Ash UI when Gen 3 saves cannot be loaded at all.
+
+## Action
+- Failed target task `task-348-100-gen3-ash-ui-impl` according to the Transient Rejection policy.
+- Updated its YAML frontmatter (`status: FAILED`, incremented `rejection_count`, added `rejection_reason`).
+- Appended a rejection note to its markdown body without checking off its Acceptance Criteria.
+- Submitted an Empty PR to trigger the Resurrection Loop so the coder can fix the `isGen3Save` stub.

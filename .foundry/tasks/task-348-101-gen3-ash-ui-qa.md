@@ -37,3 +37,7 @@ Implement comprehensive E2E testing to verify the Gen 3 Volcanic Ash UI integrat
 
 ### QA Rejection
 The UI looks fine but `isGen3Save` is a stub returning false which fails to parse the save entirely during e2e. Rejecting task-348-100-gen3-ash-ui-impl so it can be fixed.
+
+
+### QA Note
+Target task `task-348-100-gen3-ash-ui-impl` was failed due to `isGen3Save` being a stub that blocks E2E testing.
