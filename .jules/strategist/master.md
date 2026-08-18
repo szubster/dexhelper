@@ -45,21 +45,12 @@
 **Pattern:** Extract duplicated coding and verification policies from individual agent schedules and centralize them into `core_policies.md` to ensure all agents operate from a single, consistent source of truth, reducing token usage and simplifying prompt maintenance.
 
 
-<!-- Source: 2026-08-13.md -->
 ## 2026-08-13 - [Accepted] - Prompt improvement - Clean up Epic Planner rules handled in core_policies
 **Type:** Prompt improvement
 **Outcome:** Merged
 **Why:** The `epic_planner.md` schedule still contained the "E2E Verification" generation rule which had already been migrated to `core_policies.md` under "Orchestrator Safeguard". We need to remove the duplicate rule from `epic_planner.md` to prevent prompt bloat and reduce redundancy. Also, deleted the `epic-planner-instructions.test.ts` as the E2E verification rule is now universally enforced in `core_policies.md` and no longer needs a specific check in `epic_planner.md`.
 **Pattern:** Always check and verify that older tests checking for prompt specific rules are also cleaned up when a rule is migrated to a central file like `core_policies.md`.
 
-<!-- Source: 2026-08-14-02-42-23.md -->
-## 2024-11-20 - [Accepted] - Prompt Consolidation: Centralize Auditor and PM rules
-**Type:** Prompt improvement
-**Outcome:** Merged
-**Why:** The `auditor.md` prompt contained highly detailed rules for Verification, Analysis, Node Generation, and Resolution that are fundamental DAG verification rules. Keeping them in the persona file bloats the context and limits other nodes from accessing these rules. In addition, `product_manager.md` contained a rule about "Artifact Anomaly Detection" which also applies to any node generator finding pre-existing files, which should be universally applied.
-**Pattern:** Move detailed workflow rules (like Auditor Responsibilities) and universal safety checks (like Artifact Anomaly Detection) into `core_policies.md` to ensure a single source of truth and thinner prompt files.
-
-<!-- Source: 2026-08-15-01-44-25.md -->
 ## 2026-08-15 - [Accepted] - Prompt improvement - Cleanup redundant context initialization in Tech Lead and Architect schedules
 **Type:** Prompt improvement
 **Outcome:** Merged

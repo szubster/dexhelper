@@ -23,23 +23,27 @@
 **Pattern:** Shifting from basic text badges to hardware-inspired modules with animated elements (like warning stripes and pulsing LEDs) improves immersion.
 
 
-<!-- Source: 2025-02-12.md -->
 ## 2025-02-12 - [Accepted] - 🖼️ Canvas: PokemonLocations Geospatial Telemetry Redesign
 **What:** Redesigned the `PokemonLocations` component to match the tactical terminal/snooping UI style more closely. Added sweeping animations, hex data traces, restructured the vector grids with tactical styling and probability bars, and added binary/scanline accents to static and evolution components.
 **Outcome:** Accepted -> wait for review
 **Why:** The previous design had some elements of the snooping UI, but could be pushed further. The new design feels much more like a "Geospatial Telemetry" module, fitting perfectly with the project's overall aesthetic.
 **Pattern:** Continue pushing the snooping UI aesthetic by adding diegetic elements (like hex streams, sweep animations, probability bars) and using harsh, grid-based layouts to represent data dense interfaces.
 
-<!-- Source: 2026-08-14-01-48-18.md -->
 ## 2026-08-08 - [Accepted] - 🖼️ Canvas: Hardware Diagnostics Background Redesign
 **What:** Replaced the generic concentric circle radar in `RetroBackground.tsx` with a highly tactical, dense "Hardware Diagnostics Overlay" featuring rigid dashed grids and static telemetry readouts.
 **Outcome:** Accepted -> wait for review
 **Why:** The previous background felt too generic and disconnected from the deep, snooping aesthetic established by newer components. The new rigid grid design reinforces the feeling of operating a complex piece of hardware.
 **Pattern:** Always prefer rigid, data-dense layouts over abstract circular shapes for backgrounds to maintain immersion in the tactical aesthetic.
 
-<!-- Source: pokedex_card_redesign.md -->
 ## 2025-02-12 - [Accepted] - 🖼️ Canvas: PokedexCard Target Acquisition Redesign
 **What:** Redesigned the `PokedexCard` component to align with the "tactical hardware" and "snooping" aesthetic. Replaced plain solid borders with layered cyan/emerald/amber dashed frames, added hover effects simulating a matrix target lock (glitch overlays, spinning crosshairs, intense scanlines), and refactored the right-side data container to include dynamic status bars and hex stream overlays on hover. Replaced generic `NO.` with `ID.` for increased tactical flavor.
 **Outcome:** Accepted -> wait for review
 **Why:** The original `PokedexCard` lacked depth and felt generic compared to components like `SearchAndFilters`. This change grounds the card visually in the broader terminal OS theme.
 **Pattern:** For interactive display cards, rely on layered dashed frames, raw data streams (hex/binary), and mechanical hover animations (e.g., crosshairs or pulsing LEDs) rather than generic UI scales or shadows. Ensure custom animations referenced in Tailwind arbitrary values are explicitly defined in `index.css`.
+
+
+## 2026-08-17 - Accepted - 🖼️ Canvas: redesign EmptyState as tactical diagnostic terminal
+**What:** Redesigned the `EmptyState` component from a generic centered radar UI to a horizontal, left-aligned terminal diagnostic panel.
+**Outcome:** Merged
+**Why:** The previous centered radar loop felt too playful and generic ("game UI" rather than "industrial hardware"). Real hardware diagnostics are usually text-heavy, left-aligned, and provide concrete (even if simulated) error states rather than continuous searching animations.
+**Pattern:** Avoid centered, floating "widget" components. When indicating no data, use error-like diagnostic layouts with monospace code traces.

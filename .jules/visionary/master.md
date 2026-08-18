@@ -1,5 +1,3 @@
-# Visionary Journal
-
 - **Active Session ID:** 13048993490522208946
 - **Domain:** Foundry (Internal Orchestration & Efficiency)
 - **Proposed Idea:** Epic-Level Distillation and Cold Storage Archival
@@ -12,8 +10,6 @@
   In this session, we are proposing an "Epic-Level Distillation and Cold Storage Archival" strategy, which is a **Foundry (Internal Orchestration)** infrastructure improvement.
   This maintains a strict and healthy **50/50 split** between developer-facing product features and system/orchestrator improvements, as outlined in the *Strategic Balance Learning* section of our journal.
 
-# Visionary Journal
-
 - **Active Session/Timestamp:** 2026-08-01
 - **Domain:** Main Project (DexHelper)
 - **Proposed Idea:** Gen 3 Pal Park Migration Planner (IDEA-132)
@@ -22,21 +18,15 @@
 - **How this idea maintains the 50/50 balance between DexHelper and Foundry:**
   In the previous session, we proposed a Foundry orchestration feature (IDEA-131: Orchestrator Resource Locking). To strictly maintain the required 50/50 strategic balance, this session focuses on a direct product feature for DexHelper, aiming at Gen 3 players prepping for Gen 4 transfers.
 
-# Visionary Journal
-
 - Acknowledgment: Dry-run feature for DAG orchestrator already exists.
 - Proposed Idea: Gen 3 Mystery Gift Viewer
 - Domain: DexHelper (Main Project)
 - Rationale: Maintains the 50/50 balance between DexHelper and Foundry ideas, proposing a premium utility for viewing Mystery Gift event data in Gen 3 saves.
 
-# Visionary Journal
-
 - Acknowledgment: Previous session proposed a DexHelper idea (IDEA-121 Gen 3 Mystery Gift Viewer).
 - Proposed Idea: Foundry Lead Time Metrics and Bottleneck Analysis (IDEA-122)
 - Domain: Foundry System
 - Rationale: Maintains the 50/50 balance between DexHelper and Foundry ideas. This idea focuses on scheduling enhancements and DAG orchestrator improvements by tracking the time nodes spend in various states to identify pipeline bottlenecks.
-
-# Visionary Journal
 
 - **Active Session/Timestamp:** 2026-07-26-18-00-00
 - **Domain:** DexHelper (Core Application Type Engine)
@@ -50,8 +40,6 @@
   In the previous session, we proposed/progressed ideas such as `idea-122-pokemon-themed-foundry-personas.md` and circular dependency checks, which strictly focus on **Foundry (internal orchestrator/factory tooling)**.
   To preserve the mandatory **50/50 strategic balance** between DexHelper (the core application/product) and the Foundry (the internal software factory), we are now focusing on a highly impactful technical feature for **DexHelper**. Specifically, the type-safety of the save parsing engine, which is the foundational database of the entire application.
 
-# Visionary Journal
-
 - **Active Session/Timestamp:** 2026-07-27-12-00-00
 - **Domain:** Foundry (Internal Orchestrator Optimization)
 - **Proposed Idea:** Librarian Persona for Context Token Optimization (IDEA-124)
@@ -64,8 +52,6 @@
   In the previous session, we proposed a high-value DexHelper product feature (`idea-123-improved-savedata-typing.md`) designed to improve the application's core type engine.
   To strictly maintain our required **50/50 strategic balance**, we pivot back to the Foundry infrastructure for this session. By proposing IDEA-124, we focus entirely on the internal software factory, optimizing its scheduling, garbage collection, and token usage to prevent the orchestrator from collapsing under its own accumulated state weight over time.
 
-# Visionary Journal
-
 - **Active Session ID:** null
 - **Domain:** Main Project (DexHelper)
 - **Proposed Idea:** Shoal Cave Tide & Item Tracker (Gen 3)
@@ -74,8 +60,6 @@
 - **How this idea maintains the 50/50 balance between DexHelper and Foundry:**
   In the last session (idea-129), we proposed an infrastructure improvement for the Foundry orchestrator (Epic-Level Distillation). To maintain the strict 50/50 split, this session focuses on a direct product feature for DexHelper (Gen 3 Shoal Cave tracking).
 
-# Visionary Journal
-
 - **Active Session ID:** null
 - **Domain:** Foundry System (Orchestrator)
 - **Proposed Idea:** Implement Resource Locking (Mutex) in DAG Orchestrator (IDEA-131)
@@ -83,8 +67,6 @@
   To prevent concurrent agents from stomping on shared resources or causing git merge conflicts, we need a formal resource locking mechanism built directly into the DAG orchestrator. Nodes will declare resources they need exclusive access to, and the orchestrator will ensure mutually exclusive dispatch.
 - **How this idea maintains the 50/50 balance between DexHelper and Foundry:**
   In the previous session, we proposed a DexHelper idea (IDEA-130 Shoal Cave Tide & Item Tracker). To adhere to the strict 50/50 split requirement, this session focuses entirely on the internal Foundry system, proposing a core structural improvement to the orchestrator's concurrency model.
-
-# Visionary Journal
 
 - **Active Session/Timestamp:** 2026-08-03-01-53-42
 - **Domain:** Foundry System (Orchestrator Tooling)
@@ -95,8 +77,6 @@
   In the previous session, we proposed a DexHelper idea (IDEA-132: Gen 3 Pal Park Migration Planner). To adhere to the strict 50/50 split requirement between core product features and internal factory tooling, this session focuses entirely on the internal Foundry system, proposing a visualization capability for the DAG orchestrator.
 - **Outcome:** The idea was rejected by the maintainer because a GUI already exists. I have cancelled the IDEA node accordingly.
 
-# Visionary Journal
-
 - **Active Session/Timestamp:** 2026-08-05
 - **Domain:** Foundry System
 - **Proposed Idea:** Automated Agent A/B Testing Framework (IDEA-135)
@@ -104,8 +84,6 @@
   Proposes a framework within the Foundry Orchestrator to A/B test system prompts and agent configurations on identical tasks in parallel. This allows the system to empirically determine which prompt structures or personas perform best (based on QA acceptance and lowest rejection count), enabling continuous, data-driven optimization of the multi-agent pipeline.
 - **Strategic Balance:**
   In the previous session, we proposed IDEA-134 (Active Party Matchup Analyzer) for DexHelper. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a Foundry Orchestrator idea.
-
-# Visionary Journal
 
 - **Active Session/Timestamp:** 2026-08-07
 - **Domain:** Main Project (DexHelper)
@@ -115,8 +93,6 @@
 - **Strategic Balance:**
   Pivoting back to the DexHelper product domain after previously proposing a Foundry System idea (Automated Agent A/B Testing Framework, IDEA-135) to maintain the required 50/50 balance.
 
-# Visionary Journal
-
 - **Active Session/Timestamp:** 2026-08-08
 - **Domain:** Main Project (DexHelper)
 - **Proposed Idea:** Gen 1-3 In-Game Mail Archiver (IDEA-136)
@@ -124,8 +100,6 @@
   Proposes a premium collector utility to extract and display custom messages written on in-game Mail held by Pokémon in the PC/Party. This preserves nostalgic social interactions from childhood saves.
 - **Strategic Balance:**
   In the previous session, we proposed IDEA-135 (Automated Agent A/B Testing Framework) for the Foundry System. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a DexHelper product feature.
-
-# Visionary Journal
 
 - **Active Session/Timestamp:** 2026-08-09
 - **Domain:** Foundry System
@@ -135,8 +109,6 @@
 - **Strategic Balance:**
   In previous sessions, we focused heavily on DexHelper features (e.g. IDEA-136 Gen 1-3 In-Game Mail Archiver, IDEA-134 Active Party Matchup Analyzer). To maintain the strict 50/50 balance between product features and system orchestrator improvements, this session introduces an optimization specifically targeting the Foundry system's CI and QA efficiency.
 
-# Visionary Journal
-
 - **Active Session/Timestamp:** 2026-08-10
 - **Domain:** Main Project (DexHelper)
 - **Proposed Idea:** Gen 2 Bug-Catching Contest Score Analyzer (IDEA-144)
@@ -145,8 +117,6 @@
 - **Strategic Balance:**
   Pivoting back to the DexHelper product domain after previously proposing a Foundry System idea (IDEA-143 Local Visual Regression Testing & Component Diffing) to maintain the required 50/50 balance.
 
-# Visionary Journal
-
 - **Active Session/Timestamp:** 2026-08-04
 - **Domain:** Main Project (DexHelper)
 - **Proposed Idea:** Gen 1-3 Active Party Matchup Analyzer (IDEA-134)
@@ -154,8 +124,6 @@
   As players progress through retro Pokémon games, they often hit roadblocks at major boss fights (Gym Leaders, Rivals). They may not realize their PC Box contains a perfect counter or that a TM in their inventory could solve their problem. By combining DexHelper's ability to read event flags (to know the next boss) with the player's full inventory and PC Box state, we can dynamically suggest party swaps and TM usage to optimize their team for the upcoming fight. This transforms DexHelper into an active strategic companion.
 - **How this idea maintains the 50/50 balance between DexHelper and Foundry:**
   In the previous session, we proposed a Foundry orchestration feature (IDEA-133: Automated DAG Visualizer). To rigidly adhere to the required 50/50 strategic balance, this session pivots entirely to a direct product feature for DexHelper, aiming to improve the gameplay experience for end-users rather than optimizing the internal software factory.
-
-# Visionary Journal
 
 - **Active Session/Timestamp:** 2026-08-11
 - **Domain:** Foundry system
@@ -168,8 +136,6 @@
 - **How this idea maintains the 50/50 balance between DexHelper and Foundry:**
   In the preceding sessions, a sequence of DexHelper product ideas were proposed (including the Gen 2 Bug Catching Contest Analyzer (IDEA-144) and the Component Variants and Theming Consolidation (IDEA-145)). Moving back to a core platform orchestration feature for the autonomous software factory (such as statistics and backfilling) successfully maintains the 50/50 strategic balance between direct end-user features (DexHelper) and internal pipeline improvements (Foundry).
 
-# Visionary Journal
-
 - **Active Session/Timestamp:** 2026-08-12-01-06-42
 - **Domain:** Main Project (DexHelper)
 - **Proposed Idea:** Gen 3 Weather Anomaly Tracker (IDEA-147)
@@ -177,10 +143,6 @@
   In Pokemon Emerald, tracking the Marine Cave (Kyogre) and Terra Cave (Groudon) anomalies requires repeatedly revisiting the Weather Institute. DexHelper can automate this by extracting the relevant event flags and variables directly from the save file and highlighting the affected routes on the map UI.
 - **How this idea maintains the 50/50 balance between DexHelper and Foundry:**
   In the previous session, we proposed IDEA-146 (Implement Foundry System Statistics Reporting and Backfilling), which focused purely on the Foundry Orchestrator. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to proposing a direct user-facing feature for DexHelper (a Gen 3 tracker).
-
-
-<!-- Source: 2026-08-13-01-12-40.md -->
-# Visionary Journal
 
 - **Active Session/Timestamp:** 2026-08-13-01-12-40
 - **Domain:** Foundry System
@@ -191,10 +153,6 @@
   In the preceding sessions, a sequence of DexHelper product ideas were proposed (including IDEA-147 Gen 3 Weather Anomaly Tracker). Moving back to a core platform orchestration feature for the autonomous software factory (such as DAG priority scheduling and dispatch throttling) successfully maintains the strict 50/50 strategic balance between direct end-user features (DexHelper) and internal pipeline improvements (Foundry).
 - **Update:** The dispatch limit / throttling part of the proposal was rejected in PR review to ensure we continue to maximize Jules' usage. The priority queue remains.
 
-
-<!-- Source: 2026-08-14-01-04-00.md -->
-# Visionary Journal
-
 - **Active Session/Timestamp:** 2026-08-14-01-04-00
 - **Domain:** Foundry System (Orchestrator)
 - **Proposed Idea:** Priority-Based Dispatch Queue for Orchestrator (IDEA-148)
@@ -202,9 +160,6 @@
   Currently, the Foundry orchestrator dispatches `READY` nodes indiscriminately. As the DAG grows, this can lead to low-priority research nodes consuming pipeline resources while critical path tasks are starved. Implementing a priority queue (e.g., via a `priority` field in the frontmatter, defaulting to 0) would allow the orchestrator to prioritize critical path Epics and their descendant Tasks.
 - **Strategic Balance:**
   In the previous session, we proposed IDEA-147 (Gen 3 Weather Anomaly Tracker) for DexHelper. To maintain the strict 50/50 balance between product features and system improvements, this session pivots back to a Foundry orchestrator improvement.
-
-<!-- Source: 2026-08-15-00-42-59.md -->
-# Visionary Journal
 
 - **Active Session/Timestamp:** 2026-08-15
 - **Domain:** Main Project (DexHelper)
@@ -214,3 +169,11 @@
   The Wild Held Item Hunting Assistant will be a DexHelper feature that aids players in this grind by scanning Party Pokemon, PC Box Pokemon, and the Bag to detect if the target item was successfully acquired, providing immediate feedback.
 - **Strategic Balance:**
   In the preceding sessions, a sequence of Foundry orchestrator ideas were proposed (including IDEA-148 Priority-Based Dispatch Queue and IDEA-149 Re-evaluate Acceptance Criteria). Moving back to a core product feature for DexHelper (Wild Held Item Hunting Assistant) successfully maintains the strict 50/50 strategic balance between direct end-user features (DexHelper) and internal pipeline improvements (Foundry).
+
+- **Active Session/Timestamp:** 2026-08-17-00-48-48
+- **Domain:** Main Project (DexHelper)
+- **Proposed Idea:** Gen 3 Trick House Tracker Dashboard (IDEA-155)
+- **Rationale & Concept:**
+  Proposes a Tracker Dashboard for the Generation 3 Trick House (Route 110). Using the reverse-engineered `SaveBlock1` variables, DexHelper can extract the player's current Trick House level, puzzle states, and prize pickups. This will allow the UI to dynamically suggest which HMs/Pokémon to bring before the player travels there.
+- **Strategic Balance:**
+  In the preceding session, IDEA-154 was proposed for Foundry System/Tech Stack modernization. To strictly maintain the 50/50 strategic balance between product features and system improvements, this session pivots back to proposing a direct user-facing feature for DexHelper (Gen 3 Trick House Tracker).
