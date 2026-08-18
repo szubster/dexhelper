@@ -31,6 +31,6 @@ Write end-to-end tests for the RNG TID and SID Display UI to ensure it is functi
 - If this involves save file parsing or extraction in any capacity (e.g. constructing mock saves), you MUST strictly adhere to all guidelines defined in Section 13 ("Save File Parsing & Extraction Guidelines") of `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Coder: Write E2E test to verify that the Trainer dashboard correctly displays the RNG TID.
-- [ ] Coder: Write E2E test to verify that the Trainer dashboard correctly displays the RNG SID.
-- [ ] Coder: Write E2E test to verify that the copy-to-clipboard buttons for TID and SID function correctly.
+- [x] Coder: Write E2E test to verify that the Trainer dashboard correctly displays the RNG TID.
+- [x] Coder: Write E2E test to verify that the Trainer dashboard correctly displays the RNG SID.
+- [x] Coder: Write E2E test to verify that the copy-to-clipboard buttons for TID and SID function correctly.
