@@ -2,10 +2,10 @@
 id: story-411-420-extract-player-team
 type: STORY
 title: Extract Player's Active Team
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-13'
-updated_at: '2026-08-17'
+updated_at: '2026-08-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -32,5 +32,5 @@ Implement extraction of the player's active team from Gen 3 save files, adhering
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into actionable TASK nodes.
-- [ ] task-420-427-gen3-extract-active-team-impl
-- [ ] task-420-428-gen3-extract-active-team-qa
+- [x] task-420-427-gen3-extract-active-team-impl
+- [x] task-420-428-gen3-extract-active-team-qa

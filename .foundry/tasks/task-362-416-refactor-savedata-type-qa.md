@@ -2,13 +2,13 @@
 id: task-362-416-refactor-savedata-type-qa
 type: TASK
 title: Verify SaveData Type Refactor
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-10'
 updated_at: '2026-08-18'
 depends_on:
   - task-362-415-refactor-savedata-type-impl
-jules_session_id: '7135923792955239708'
+jules_session_id: null
 pr_number: null
 parent: story-404-362-refactor-savedata-type
 tags:

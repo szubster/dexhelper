@@ -2,10 +2,10 @@
 id: story-404-362-refactor-savedata-type
 type: STORY
 title: Refactor SaveData Type into Discriminated Union
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-07'
-updated_at: '2026-08-11'
+updated_at: '2026-08-18'
 depends_on:
   - story-404-361-draft-savedata-adr
 jules_session_id: null
@@ -28,5 +28,5 @@ Refactor the `SaveData` type in `src/engine/saveParser/parsers/common.ts` into a
 
 ## Acceptance Criteria
 - [x] Create task to refactor the `SaveData` type.
-- [ ] task-362-415-refactor-savedata-type-impl
-- [ ] task-362-416-refactor-savedata-type-qa
+- [x] task-362-415-refactor-savedata-type-impl
+- [x] task-362-416-refactor-savedata-type-qa
