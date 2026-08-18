@@ -208,6 +208,7 @@ These are the hard rules the orchestrator, heartbeat, and resurrection loop rely
     - You must check off your specific acceptance criteria checkboxes in the parent node WITHOUT modifying its YAML frontmatter.
     - Do NOT submit an Empty PR to transition a parent node to VERIFYING (by checking off its own acceptance criteria) until ALL of its generated child nodes have transitioned to COMPLETED.
     - If a parent node has incomplete children, you must leave its own acceptance criteria checkboxes unchecked to keep it in PENDING status.
+16. **Orchestrator Safeguard (E2E/Integration Requirement)**: When breaking down Epics, generative personas must ensure every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`), even for documentation-focused Epics. An EPIC cannot be COMPLETED without it.
 
 ---
 
