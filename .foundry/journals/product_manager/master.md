@@ -1,12 +1,7 @@
-# Session Log
 - Read core policies.
 - Generating PRD for IDEA `idea-136-gen3-ai-move-predictor`.
 
-# Session 17749450542018693624
-
 Generated PRD for "Split bundles and data by game generation" from idea-136-split-bundles-and-data.
-
-# Session: 2026-08-07-00-00-00
 
 Generated PRD for Active Party Matchup Analyzer (`prd-134-340-active-party-matchup-analyzer`) from `idea-134-active-party-matchup-analyzer`. Enforced standard generation rules and updated the parent node.
 
@@ -24,14 +19,11 @@ This allows us to transition from a retrospective checker to a real-time copilot
 2. **Memory Maps over Binary Files:** Reading WRAM/IRAM allows us to hook into events as they occur (such as wild encounter state shifts) rather than polling a filesystem timestamp every 3 seconds, significantly reducing the I/O load on the browser.
 3. **Reactive UI Loop:** This design decouples the heavy UI calculations from the emulator thread, ensuring zero-latency play with highly granular overlay indicators.
 
-# Session 5835723209406590956
-
 Drafted PRD for Cloudflare R2 conflict resolution UI (prd-401-340-r2-conflict-resolution-ui) based on idea-039-401-r2-conflict-resolution-ui. Appended the generated downstream PRD as an unchecked task in the IDEA node's acceptance criteria.
 
 ## Reflection on Mutex Implementation
 To safely execute multiple agent threads and prevent merge conflicts across the repo (e.g. index files), the DAG orchestrator will require a resource locking mechanism. By preventing parallel writes to the same paths based on schema metadata, this change solidifies our transition towards safe concurrency.
 
-# Session 7931881873165298671
 Date: 2026-08-07
 
 ## Objective
@@ -46,8 +38,6 @@ Transform IDEA idea-130-shoal-cave-tide-tracker into a PRD.
 During the execution of `idea-086-fix-orchestrator-phase-3-6`, it was observed that the target downstream PRD artifact (`prd-086-108-fix-orchestrator-phase-3-6`) already existed prior to the session.
 
 This anomaly is being logged for later review as per the Product Manager persona Core Directives. The `idea-086-fix-orchestrator-phase-3-6.md` file's checkboxes were updated and an empty PR submitted to allow the orchestrator to correctly demote the parent, following the Empty PR Policy and Late-Binding Orchestrator Demotion Compliance Rule.
-
-# Journal Entry: Downstream PRD Anomaly
 
 Date: 2026-08-12
 Session ID: 1280394659067550547
@@ -69,9 +59,6 @@ I noted in the PRD that an ADR should be created by the Architect specifically a
 
 Anomaly: The target downstream PRD `prd-115-115-remove-obsolete-orphaned-node-manual-cancellation` already existed prior to this session.
 
-<!-- Source: 16549200668202358255.md -->
-# Journal: 16549200668202358255
-
 ## Date
 2026-08-14
 
@@ -80,11 +67,7 @@ Anomaly: The target downstream PRD `prd-115-115-remove-obsolete-orphaned-node-ma
 - Ensured I created the downstream PRD node anyway (`prd-147-343-test-fixtures`) retaining the full context so downstream agents can appropriately pass it through the DAG.
 - Discovered sorting rule for parent-linked IDs: must use `sort -n -t '-' -k 3` instead of `-k 2` because the second segment is the parent sequence number, not the global sequence number.
 
-<!-- Source: 6587908441254463849.md -->
 Successfully extracted Gen 2 Bug-Catching Contest score formula and implemented the PRD. Delegated epic breakdown to Epic Planner via unchecked task checkbox to satisfy macro node completion rules.
-
-<!-- Source: 9259650360933596027.md -->
-# Session 9259650360933596027
 
 ## Node
 Draft PRD for `idea-147-gen3-weather-anomaly-tracker`

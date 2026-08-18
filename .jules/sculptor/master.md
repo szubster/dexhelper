@@ -29,8 +29,20 @@ Improve AI readability by refactoring `extractPlayerTools` to use clear item/mov
 - Magic numbers like `192` (Headbutt TM), `198` (Rock Smash TM), and `399` (Surf HM) scattered throughout item verification logic confuse AI interpretation. Extracting them into clearly named constants (e.g., `ITEM_HEADBUTT_GEN2`) significantly improves semantic readability.
 - When replacing magic numbers, ensure to look at related strategies (like `gen2Strategy.ts`) which might have also duplicated these integer literals.
 
-<!-- Source: 2026-08-15-00-51-58.md -->
 ## Critical Learnings
 * **Inline magic numbers obfuscate bitwise and data logic:** Using inline hex values (like `0xff`, `0xffff`) deeply embedded in parsing logic makes it extremely difficult for AI to grasp the binary architecture and bounds of save files.
 * **Top-level constants provide semantic mapping:** Extracting these to named constants (`GEN1_EMPTY_SLOT`, `COMMON_EMPTY_SLOT`, etc.) immediately clarifies their purpose and limits.
 * **Refactoring Strategy:** Using Node `.js` scripts is significantly safer and more precise than standard bash `sed` or `grep` tools for manipulating large TypeScript parsing files.
+
+
+## Refactoring Goal
+Improve AI readability by refactoring magic numbers for Pokémon data offsets in Gen 1 parsing logic to use clear top-level constants.
+
+## Actions Taken
+- Extracted constants for HP (`POKEMON_OFFSET_CURRENT_HP`), levels (`POKEMON_PARTY_OFFSET_LEVEL`, `POKEMON_PC_OFFSET_LEVEL`), moves (`POKEMON_OFFSET_MOVES`), and DVs (`POKEMON_OFFSET_DVS`).
+- Updated `parseGen1Pokemon`, `parseGen1HallOfFameRecords`, and `parseGen1` PC box parsing logic in `src/engine/saveParser/parsers/gen1.ts` to use these constants instead of inline arithmetic (like `offset + 33` or `offset + 1`).
+
+## Critical Learnings
+- Inline arithmetic offsets (e.g., `offset + 33`, `offset + 8`) within complex parsing loops obfuscate the internal structure of binary records (like the Gen 1 44-byte Pokémon data struct) for AI agents.
+- Top-level constants (e.g., `POKEMON_PARTY_OFFSET_LEVEL`) explicitly document the offset semantics and make the parsing function significantly easier to comprehend and modify.
+- When replacing magic numbers, check for conditional logic that switches offsets based on context (e.g., Party vs. PC Box stat differences), and extract separate constants for each context to prevent confusion.

@@ -1,12 +1,7 @@
-# Session Log
 - Read `.foundry/docs/knowledge_base/agents/core_policies.md`.
 - Checked off the task in the acceptance criteria for `story-348-357-bash-linter-e2e` to allow it to transition to VERIFYING.
 
-## Entry from 10654294140655719595.md
-
 Do not modify the yaml frontmatter of the tasks/stories when checking off checkboxes!
-
-# Session 13273313247392705142
 
 I have decomposed STORY `story-128-350-epic-planner-process-e2e` into two tasks:
 - `task-350-407-epic-planner-process-e2e-impl` (Coder) to implement an E2E test verifying the Epic Planner's instructions require a final E2E verification story.
@@ -14,19 +9,11 @@ I have decomposed STORY `story-128-350-epic-planner-process-e2e` into two tasks:
 
 While parsing the directory for sequence numbers, I found that the originally proposed `384` and `385` had been utilized already, so I bumped them to `407` and `408`. I updated the checkboxes in the parent story to match these new task node IDs.
 
-# Session 14231080694390372471
-
-Checked off completed tasks (`task-356-396-circular-dependency-e2e-impl` and `task-356-397-circular-dependency-e2e-qa`) in the acceptance criteria of `story-338-356-circular-dependency-detection-e2e.md`.
-
 No notable architectural learnings or recurring failures to log for this session. The process of marking downstream tasks as complete on the parent story went smoothly without incident.
-
-#
 
 # Handled the Impossible Loop
 - Encountered a situation where child tasks (task-353-393, task-353-394) failed permanently and reached the Max Rejection Count.
 - Followed the Impossible Loop policy: spawned a RESEARCH node (research-353-404) to investigate the failure, created new retry TASK nodes (task-353-405, task-353-406) dependent on the research, appended them to the story node, and strictly checked off the permanently failed child nodes.
-
-## Completed Story: story-118-286-filter-swarm-item-calls
 
 The child tasks `task-286-402-filter-swarm-item-calls-impl` and `task-286-403-filter-swarm-item-calls-qa` for this story were successfully implemented and QA'd in previous iterations.
 
@@ -34,8 +21,6 @@ To gracefully transition this parent `STORY` node to `COMPLETED` and satisfy the
 
 ## Learnings
 *   **Late-Binding Completeness Protocol:** When a node's dependencies (child tasks) are fully completed, checking off the markdown checkboxes on the parent node is a critical required step before submitting an empty PR. Submitting without doing so triggers rejection due to ADR 007 and ADR 009.
-
-## Entry from 2024-08-08-00-00-00.md
 
 Always use the latest sequence number for new files by listing .foundry/tasks
 
@@ -49,20 +34,12 @@ The Gen 3 Trainer Card requires the Contest Master Rank flag, but standard docum
 - Explored codebase to find that Gen 3 trade parsing was already implemented with tasks `task-362-407-gen3-trade-extraction-impl` and `task-362-408-gen3-trade-extraction-qa` fully `COMPLETED`.
 - Because all descendant nodes (`task-362-407` and `task-362-408`) were already `COMPLETED`, checking off the overarching acceptance criteria and child task checkboxes in the `STORY` markdown body was REQUIRED to satisfy the ADR 007 completeness contract, allowing the macro node to transition to `COMPLETED`.
 
-## Lessons Learned
-
 ## Actions Taken
 - Explored codebase to find that the epic planner e2e verification tasks (`task-350-407-epic-planner-process-e2e-impl` and `task-350-408-epic-planner-process-e2e-qa`) were fully `COMPLETED`.
 - Checked off the child task checkboxes in the `STORY` markdown body of `story-128-350-epic-planner-process-e2e.md` to satisfy the ADR 007 completeness contract, allowing the macro node to transition to `COMPLETED`.
 - Followed the Empty PR Policy to submit an Empty PR.
 
-## Lessons Learned
-
-# Tech Lead Journal - Session 2256360421046757948
-
 When introducing multi-state architectures (like multi-save structures), it's crucial to explicitly mandate backwards compatibility for existing components that rely on the previous single-state abstraction (e.g. `saveData`). Mandating a derived or synchronized single-state abstraction alongside the new multi-state structures prevents widespread refactoring requirements across the codebase and minimizes the risk of breaking existing features.
-
-## Architectural Patterns & Insights
 
 *   **Modularizing Binary Parsing vs. Offset Mapping (Gen 3):** When designing extraction pipelines for Gen 3 save files (which use A/B flash banks), there is a strong tendency to create monolithic tasks that attempt to parse the struct and map offsets simultaneously. I observed that breaking this down into separate tasks—one for defining the generic `DataView` struct parsing utility and another for determining game-engine specific block offsets (RS/E/FRLG) and invoking the generic parser—significantly improves task scoping and adherence to Section 13 guidelines. This modularity prevents the "Two-Tasks-Max" anti-pattern and provides clearer boundaries for unit testing relative offsets versus bitwise extraction. Moving forward, extraction stories spanning multiple Gen 3 engines should be broken down into at least three downstream tasks (Struct Parser, Game-Specific Integrations, QA Verification).
 
@@ -73,11 +50,6 @@ Submitting an empty PR *without* checking the boxes is ONLY for when children ar
 Because the children were complete, the boxes must be checked so the orchestrator can correctly advance the parent node to VERIFYING.
 
 To trigger the pull request effectively without altering frontmatter (which is forbidden except for FAILED/CANCELLED status changes), a safe approach is appending an empty trailing newline to the markdown file. This creates a valid git diff to force the PR submission while preserving strict schema adherence.
-
-## Entry from 3919087474871679675.md
-
-
-# Journal Entry
 
 During this session, I successfully drafted Implementation and QA tasks for Gen 3 NPC Trade Extraction based on STORY-349-362.
 
@@ -96,8 +68,6 @@ Key Learnings:
 # Tech Lead Journal Entry
 **Session:** 8236035190226475414
 
-#
-
 ### Observation
 While drafting tasks for `story-349-361-gen2-trade-extraction`, I observed that the codebase already contained the implementation and unit tests for Gen 2 NPC trade extraction (in `src/engine/saveParser/parsers/gen2.ts` and `gen2.test.ts`).
 
@@ -107,28 +77,16 @@ If a STORY node's core requirements are already present in the codebase from a p
 ### Action / Rule Adaptation
 When encountering a STORY where the feature is already implemented, the Tech Lead must still explicitly draft the downstream TASK nodes (e.g., `impl`, `test`, and `qa`). This allows the Coder and QA agents to formally adopt, verify, and check off the work within the system. It ensures that the Orchestrator's dependency graph remains intact and all architectural and testing checks (like verifying `RangeError` handling and module-level constants) are officially executed and recorded by the designated personas.
 
-#
-
-# Tech Lead Journal: End-to-End Extraction Workflow Breakdown
-
 When breaking down cross-generation integration stories, it is critical to use the DAG's sibling dependency resolution. Specifically, when generating tasks for implementing E2E verification across different game engines (Gen 2 vs. Gen 3), the resulting E2E implementation tasks must explicitly declare cross-story dependencies via the `depends_on` array.
-
-# Tech Lead Journal: Gen 3 Roamer Unit Tests
 
 **Date:** 2026-08-10
 **Context:** Story `story-397-359-gen3-roamer-unit-tests` required creating tasks for Gen 3 roamer unit testing.
-
-## Learnings & Constraints
 
 1.  **Test Environment Constraints:** Binary `.sav` fixtures for Gen 3 games are not available in the `tests/fixtures/` directory.
 2.  **Mitigation:** The codebase currently uses programmatic `DataView` mock buffers within the test files (`src/engine/gen3/roamer/parser.test.ts`) to verify parsing logic. This is an acceptable alternative when raw binary fixtures are unavailable.
 3.  **Task Drafting:** When drafting tasks, explicitly stating this accepted alternative prevents the Coder/QA personas from becoming blocked trying to locate non-existent binary fixtures.
 
-# Session 1009842629473833134
-
 Thus, I am submitting an empty PR without checking off the overarching acceptance criteria to allow the orchestrator to correctly demote the parent to PENDING while it waits for its children.
-
-## From 10078909000897565882.md
 
 
 ## Learnings & Constraints
@@ -137,21 +95,11 @@ Thus, I am submitting an empty PR without checking off the overarching acceptanc
 - **Premature Verification Enforcement:** When appending newly created task IDs to a parent node's `## Acceptance Criteria` section, ensure they are appended as unchecked checkboxes (`- [ ]`). Do not check off any of the parent node's existing Acceptance Criteria checkboxes, as this violates the Premature Verification policy which forbids parent nodes from transitioning to VERIFYING before all their child nodes are COMPLETED.
 - **Intelligent Verification Protocol in Action:** For highly isolated and trivial changes (such as a single-line `if` statement modification), it is acceptable to bypass drafting a separate QA task node, allowing the `coder` persona to self-verify.
 
-# Journal for Session 4633531859007503175
-
 - Empty PR submission when all artifacts are complete must include checking off the checkboxes in the markdown file.
-
-## From 8423345158858950298.md
 
 Created tasks for extracting Gen 3 Mixed Record NPC data. Split the work into Types definition (task-405-415-gen3-mixed-record-types-impl) and Parser implementation (task-405-416-gen3-mixed-record-parser-impl) followed by a QA task (task-405-417-gen3-mixed-record-parser-qa). The tasks explicitly require adherence to Section 13 of schema.md (module-level constants, no magic numbers, relative offsets, RangeError handling).
 
-# Journal Entry: Anomalous Completed Tasks (Session 2483211844051615071)
-
-During this session, I was assigned to `story-397-359-gen3-roamer-unit-tests.md`. I discovered that the target artifacts (tests in `src/engine/gen3/roamer/parser.test.ts`) were completely implemented, and the child tasks `task-359-415-gen3-roamer-unit-tests-impl.md` and `task-359-416-gen3-roamer-unit-tests-qa.md` were already marked as `COMPLETED` prior to this session beginning.
-
 To address this anomaly and allow the story node to gracefully exit the DAG, I followed the "Handling Cancelled/Replaced Tasks" policy, checked off all the overarching acceptance criteria and child task checkboxes in the story node's markdown body, and will submit an Empty PR.
-
-# Tech Lead Journal: Schema Role and Status Mapping
 
 **Session ID:** 13525584754383778477
 **Date:** 2026-08-11
@@ -159,8 +107,6 @@ To address this anomaly and allow the story node to gracefully exit the DAG, I f
 Today, I observed an interesting pattern regarding the orchestrator state machine while breaking down tasks for `story-405-408-schema-role-status-mapping`.
 
 While drafting QA tasks based on the **Intelligent Verification Protocol**, I noticed that both `task-408-411-schema-role-mapping` and `task-408-412-schema-status-mapping` were already fully created and marked `COMPLETED` from a previous run, despite being listed as unchecked tasks in the parent story.
-
-I must explicitly check off the checkboxes (`- [x]`) for these fully completed tasks in the parent story. Leaving them as `- [ ]` while they are complete breaks the DAG orchestrator state because it expects child checklist items to correctly reflect node states. I must NOT delete existing pre-allocated child node references from a parent's markdown, as doing so destroys DAG integrity and causes CI validation failures.
 
 I drafted explicit QA validation nodes:
 * `task-408-418-schema-role-mapping-qa` (depends on `task-408-411-schema-role-mapping`)
@@ -181,8 +127,6 @@ Specifically broken down into:
 ## Architectural Enforcement
 Explicitly added requirements for `RangeError` bounds-checking and A/B banking logic verification in Gen 3 extraction blueprint (`task-403-419`) to adhere to ADR 010 and the schema guidelines.
 
-## Anomaly Detected: Child Tasks Completed Prior to Parent Verification
-
 While handling the node `story-070-358-orchestrator-strict-completion-e2e`, I encountered a situation where the child tasks (`task-358-407-orchestrator-strict-completion-e2e-impl` and `task-358-408-orchestrator-strict-completion-e2e-qa`) were already located in `.foundry/archive/tasks/` and marked as `COMPLETED`. However, their corresponding tracking checkboxes in the parent story's `Acceptance Criteria` were still unchecked.
 
 This violates the expected state transition flow described in ADR 007 and ADR 009, where a macro node cannot transition to `VERIFYING` until all its children are successfully completed AND its checkboxes are manually marked as checked by an agent.
@@ -191,15 +135,8 @@ Because the work is technically finished and the target artifacts are complete, 
 
 This anomaly suggests a potential timing issue or interruption in a previous session that prevented the parent node from having its markdown updated before the children were archived.
 
-## Anomaly: Child Tasks Completed Prior to Parent Verification Session
-
-When assigned to verify a parent node (in this case, `story-331-361-remove-orphaned-qa-rule-e2e.md`) and transition it from ACTIVE to VERIFYING, I noticed an anomaly where the drafted child tasks (`task-361-407`, `task-361-408`, `task-361-409`) were already marked as `COMPLETED` prior to this session.
-
 
 Failing to check off the completed children's checkboxes results in a violation of the Macro Node Completion Exception and ADR 007's completeness requirements, preventing the parent node from successfully transitioning to the VERIFYING state. Therefore, it is critical to verify the status of the child tasks (e.g., using `grep "^status:"`) before determining whether to check off their corresponding checkboxes in the parent node's markdown body.
-
-
-# Session 3638590109204854976
 
 - **Objective:** Break down story-397-360-gen3-roamer-integration-e2e into actionable tasks.
 - **Actions:**
@@ -224,61 +161,72 @@ Failing to check off the completed children's checkboxes results in a violation 
 ## Context
 While breaking down `story-307-408-gen3-trainer-flags-extraction-e2e`, the overarching task involved both integration testing of the core extraction layer and full end-to-end testing via Playwright to ensure the Missed Trainer Radar accurately represents the flag state.
 
-## Decision & Reasoning
-To maintain compliance with the "Mandate Decomposition, Granularity, and Late Binding" core policy, I avoided the "Two-Tasks-Max" anti-pattern. The E2E validation was explicitly broken down into three focused tasks:
-1.  **Integration Testing (`task-408-415-gen3-trainer-flags-integration-impl`)**: Assigned to the coder to test the core data extraction functionality against known valid/invalid structures using `vitest`.
-2.  **E2E Testing (`task-408-416-gen3-trainer-flags-e2e-impl`)**: Assigned to the coder to verify the full user flow (save hydration, DOM rendering) via Playwright, ensuring it uses `initializeWithSave` or mocked routes instead of fragile, non-deterministic live dependencies.
-3.  **QA Validation (`task-408-417-gen3-trainer-flags-testing-qa`)**: Assigned to the QA persona as a paired verification step according to the Intelligent Verification Protocol. Given that this involves multi-layer validation (data extraction scaling up to DOM validation), an explicit QA check is necessary to ensure no regressions are introduced into CI.
-
 ## Future Implications
 Always separate headless test implementations (Vitest) from browser-driven test implementations (Playwright) into distinct tasks. This improves CI parallelization and allows more targeted debugging if one layer fails, enforcing strict boundaries between data modeling tests and presentation layer tests.
 
 ---
 
-## Consolidated Learnings: Late-Binding Orchestrator Demotion Compliance Rule
-
 * **The Rule:** When assigned a READY parent node (like a STORY or EPIC) that already has pending child tasks drafted from a previous iteration, you MUST submit an empty PR *without* checking off its overarching acceptance criteria checkboxes.
 * **Why:** This allows the orchestrator to correctly demote the parent to PENDING while it waits for its children. Checking them off prematurely violates the MACRO NODE COMPLETION EXCEPTION.
 * **Exception for COMPLETED Children:** This rule applies *exclusively* to PENDING child tasks. If ALL descendant nodes are already `COMPLETED`, you MUST check off the parent's Acceptance Criteria checkboxes before submitting the Empty PR to satisfy ADR 007 and allow the macro node to transition out of the DAG.
-
-<!-- Source: 12024737096141025951.md -->
-# Tech Lead Journal: 12024737096141025951
-
-## Egg Move Inventory Integration (Story 114-412)
 
 When breaking down stories that involve data formatting or parsing and integrating it with larger logic, ensure we're looking out for existing optimization patterns like the O(1) structures used in the `suggestionEngine.ts` (e.g., mapping species to an array of instances in `instancesBySpecies`).
 
 For this story, the coder is instructed to extract and formalize `instancesBySpecies` from `suggestionEngine.ts` into a utility to handle the combined PC and Party details format.
 
 
-<!-- Source: 17030692349781794310.md -->
-# Session 17030692349781794310
 - When troubleshooting or targeting specific tests, ensure you do not mistakenly target Vitest unit tests (e.g., `src/*.test.ts`) with the Playwright test command (`pnpm test:e2e`), as this will result in a 'No tests found' error.
-
-
-<!-- Source: 9448454815623706963.md -->
-# Lesson Learned
 
 It is important to separate base UI primitive component implementations from higher-level component integrations into separate TASK nodes when drafting blueprints. This ensures maximum parallel development and avoids monolithic tasks.
 
-<!-- Source: 10488278309655833194.md -->
 - When implementing IndexedDB schemas using idb, explicitly map TypeScript types to enforce schema structure (e.g., mapping string keys to Uint8Array or Record types) to compensate for idb's lack of runtime type enforcement.
-
-<!-- Source: 15863037152588661750.md -->
-# Tech Lead Session 15863037152588661750
 
 - Remember that when generating child nodes using the Parent-Linked ID Schema (`<type>-<parent_NNN>-<NNN>-<slug>`), the `<parent_NNN>` must be the exact 3-digit sequence number of the *immediate* parent node (e.g., a Task's parent is the Story's sequence number, not the Epic's). I initially used `116` (the epic's number) for the tasks when it should have been `250` (the story's number).
 - DAG ID Strictness: When linking nodes in `depends_on`, `parent` fields, or appended markdown checkboxes (`- [ ]`), strictly use the exact Node ID. Do not include directory prefixes (e.g., `.foundry/tasks/`) or file extensions (e.g., `.md`), as this violates formatting rules and breaks the DAG Orchestrator. I mistakenly included `.foundry/tasks/...md` in the checkboxes and `depends_on`.
-
-<!-- Source: 2026-08-15-03-51-47.md -->
-# Tech Lead Journal
 
 - **Node Types Dictate Paths**: Foundry nodes are stored in type-specific directories (e.g., STORY nodes are in `.foundry/stories/`, not `.foundry/tasks/`). Do not blindly `cat` a task path without checking the node type first. Use `find` to discover the exact path.
 - **Bash Subshell Escaping**: When using heredocs (`cat << 'EOF'`) to generate files, command substitutions like `$(date ...)` are treated literally. If dynamic execution is needed in file generation, explicitly write scripts using a language that handles templating (like a small node `.cjs` script) or properly format `sed` replacements to inject dynamic values afterwards.
 - **Test File Verification**: When a coder is responsible for implementing test files (like `historyDb.test.ts`), the corresponding QA node should not be tasked with *writing* the test file again. Instead, it should be tasked with *verifying* the coder's test file. The tech lead must accurately dictate boundaries in generated acceptance criteria.
 
-<!-- Source: 5024974543220692233.md -->
 Created `task-420-422-schema-e2e-rule` to enforce that every EPIC generates an E2E Verification STORY. No separate QA task was created because this is a low-risk documentation change, so the Coder can self-verify.
 
-<!-- Source: 7407366660319062198.md -->
 The Tech Lead properly decomposed the story into three separate parsing implementation steps, each with a QA pair, avoiding the two-tasks-max anti-pattern. E2E tests for the home page passed after installing playwright browsers.
+
+
+The target artifacts for `story-083-126-gen3-match-call-dataview-implementation` (DataView parser for Match Call) were discovered to already be completely implemented and tested in the codebase. Therefore, no child implementation tasks were generated. The Empty PR policy was executed, checking off the existing acceptance criteria directly on the STORY node to allow it to transition to COMPLETED.
+
+1. **"Two-Tasks-Max" Anti-pattern:** When acting as the Tech Lead persona drafting tasks, it is critical to break down a STORY into multiple granular, modular steps of execution. Simply creating one monolithic "impl" task and one "qa" task is an anti-pattern and will result in rejection. The implementation must be logically decomposed (e.g., DB Schema sync vs. UI refactor).
+2. **Premature Verification Policy:** When a parent node (like a STORY) is broken down into child TASK nodes, its functional acceptance criteria checkboxes must NOT be checked (`- [x]`). They must remain unchecked (`- [ ]`) until all child nodes reach the `COMPLETED` state, allowing the Orchestrator to correctly demote the parent node to `PENDING`. Only the specific checkbox regarding task generation (e.g., `- [x] Break down into Tasks`) should be checked.
+3. **DAG ID Strictness:** When specifying dependencies in the `depends_on` array of newly generated nodes, the exact Node ID must be used (e.g., `task-275-435-move-db-schema-inflation`) rather than repo-relative file paths with extensions.
+
+When creating tasks for save file parsing, it is critical to explicitly include the constraints from `.foundry/docs/schema.md` Section 13 (Module-Level Constants, No Magic Numbers, RangeError handling, and explicit Bitwise Mapping) directly in the Technical Contract of the TASK node to ensure the coder persona adheres to them and the QA persona has a strict contract to verify against.
+
+I created tasks for the Story `story-400-428-extract-core-data`.
+
+## Learnings & Observations
+- The story involves splitting the monolithic `pokedata.msgpack` into a core bundle and generation-specific bundles, as defined in ADR 029.
+- I decomposed the work into three discrete tasks:
+  1. `task-428-436-refactor-core-data-generation`: Refactoring the generation script (`scripts/generate-pokedata.ts`) and Vite plugin.
+  2. `task-428-437-update-data-loading-logic`: Updating the client-side data loading logic (`src/db/PokeDB.ts`) to fetch and hydrate the new `pokedata-core.msgpack`. This task depends on the first one.
+  3. `task-428-438-extract-core-data-qa`: A QA task to verify the build process, application loading, and E2E tests for the new core data bundle. This task depends on the completion of the loading logic update.
+- I explicitly set the `depends_on` fields to map the dependencies correctly, preventing DAG deadlocks.
+- I appended these new tasks as unchecked checkboxes in the parent story's markdown body and checked off the acceptance criteria checkboxes in the parent story to allow for proper orchestrator demotion.
+
+## Learned
+When breaking down a story related to integration and E2E verification of an IndexedDB schema, it is important to split it into two granular tasks: an implementation task for Playwright E2E tests, and a sequential QA task depending on the implementation task. This enforces a rigorous verification of the IndexedDB layer inside an actual browser engine and adheres to the mandate for granular tasks (avoiding monolithic chunks of work).
+
+# Tech Lead Journal Entry
+**Session ID:** 7826825758083849725
+**Date:** 2026-08-17
+**Action:** Drafted tasks for Tactical Utilities E2E Verification.
+
+Created `task-428-436-tactical-utilities-e2e-impl` for implementation and `task-428-437-tactical-utilities-e2e-qa` for QA to ensure robust coverage of the styling defined in ADR 024. Added the child tasks to the parent story as unchecked checkboxes to allow late-binding orchestrator demotion.
+
+
+Learned to submit an Empty PR without checking off acceptance criteria when a READY parent node already has pending child tasks, allowing the orchestrator to correctly demote it to PENDING under the Late-Binding Orchestrator Demotion Compliance Rule.
+
+## Observations
+- Decomposed orchestrator fuzzing setup into separate framework setup and property implementation tasks to ensure better sequential testing.
+- Assigned QA validation to explicitly verify fuzzing properties functionality.
+
+During the execution of story `story-411-414-experiment-schema-e2e`, it was discovered that the target artifacts (Vitest schema validation tests in `.github/scripts/schema.test.ts` and documentation updates in `.foundry/docs/schema.md`) were already fully implemented prior to this session. No new child tasks were generated, and the Empty PR Policy with the Macro Node Completion Exception Addendum was executed.

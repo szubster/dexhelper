@@ -1,11 +1,6 @@
-#
-
-# TPM Session Log
-
 - Consolidated all the session-unique `.md` journal files across `.foundry/journals/` and `.jules/` into aggregated `master.md` files per persona.
 
 
-<!-- Source: 2026-08-14-01-12-24.md -->
 # TPM Journal
 Session ID: jules-session
 
@@ -19,7 +14,6 @@ Session ID: jules-session
 ## Notes
 - Node paths correctly updated without altering node IDs in frontmatter `depends_on` or `parent` fields.
 
-<!-- Source: 2026-08-15-00-45-14.md -->
 ---
 id: journal-2026-08-15-00-45-14
 type: journal
@@ -29,11 +23,7 @@ created_at: "2026-08-15"
 updated_at: "2026-08-15"
 ---
 
-# TPM Run 2026-08-15-00-45-14
-
 Moved COMPLETED and CANCELLED nodes to their respective archive directories.
-
-## Archived Nodes
 
 - idea-068-hidden-items-finder
 - idea-115-remove-obsolete-orphaned-node-manual-cancellation
@@ -49,6 +39,19 @@ Moved COMPLETED and CANCELLED nodes to their respective archive directories.
 - task-408-415-gen3-trainer-flags-integration-impl
 - task-408-415-orchestrator-archive-bypass-implementation
 
-## Deadlock Resolution
-
 No deadlocks were detected during this run.
+
+
+# TPM Session Journal
+Date: 2026-08-16 00:45:00
+
+## Architectural Findings and Rules
+- Always identify terminal trees before archiving. A tree is only terminal if all nodes (the parent chain and all children) are in `COMPLETED` or `CANCELLED` states.
+- The `depends_on` and `parent` fields in YAML frontmatter must strictly contain node IDs, not file paths.
+- It is crucial to preserve the integrity of inline markdown links when files are moved to the archive directory.
+- Node types correspond to subdirectories (e.g., RESEARCH goes to `.foundry/research/` and `.foundry/archive/research/`).
+
+## Archiving Constraints
+- Nodes cannot be archived individually unless their entire hierarchy satisfies terminal conditions. We must archive the entire tree.
+- A test node (such as QA or E2E) should be identified and archived if its tree is terminal.
+- Node paths in memory often lack file extensions, requiring correct mapping during directory creation and file movement.

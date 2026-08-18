@@ -1,10 +1,5 @@
-#
-
-# Session 10642899106052443585
 - However, if ALL descendant nodes (e.g. STORIES) are actually COMPLETED (e.g., they have transitioned to VERIFYING/COMPLETED in the system but the parent node's markdown checkbox is still unchecked), we MUST check off the parent's Acceptance Criteria checkboxes before submitting the PR. This satisfies ADR 007 and allows the macro node to transition to COMPLETED and gracefully exit the DAG.
 - Checking off a child node prematurely when it is not actually completed violates the Premature Verification policy and the MACRO NODE COMPLETION EXCEPTION.
-
-# Session 12203003015986713856
 
 Learnings:
 - When appending child references to a parent node, append them as unchecked tasks (e.g., `- [ ] <node_id>`) using the exact Node ID without file extensions.
@@ -12,29 +7,17 @@ Learnings:
 - All macro nodes (e.g., EPIC) must generate a final STORY dedicated exclusively to Integration and E2E Verification.
 - Do not modify the YAML frontmatter of an active task node; only update the markdown checkboxes.
 
-#
-
-# Session 12591213007050017544
-
 **What:** Created an E2E story for epic-115-331-remove-orphaned-qa-task-rule-from-docs.
 
 **Why:** Enforcing the orchestrator safeguard constraint that requires every EPIC to spawn a final STORY dedicated exclusively to Integration and E2E Verification.
 
 **Pattern:** Late-binding E2E story generation after the initial story completes.
 
-# 15700522367460075049
-
 Enforced the Orchestrator E2E Safeguard by generating a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
-
-## Entry from 15966663207683891967.md
 
 Initialized story-070-358-orchestrator-strict-completion-e2e for e2e validation of strict verification requirements.
 
-# Session 17094807873661096187
-
 When defining acceptance criteria that refer to documentation (e.g., Section 14 of .foundry/docs/schema.md vs Section 13 for Save File Parsing Guidelines), verify the actual content of the documentation before propagating potentially incorrect section numbers to stories to prevent downstream confusion.
-
-## 2026-08-06-11-32-38
 
 **What:**
 Generated an E2E verification STORY node for the "PC Box Sorting Algorithms" EPIC, ensuring compliance with the Orchestrator Safeguard.
@@ -48,14 +31,7 @@ Late-binding pattern was correctly utilized. An existing parent EPIC had a new c
 ## Learnings
 When breaking down Gen 3 save data parsing epics, it is crucial to separate the extraction of boolean event flags from inventory/bag parsing. Although both serve to detect events, they interact with entirely different memory blocks (flag arrays vs. structured item structs) and require different DataView parsing strategies. Grouping them into a single monolithic story leads to bloated implementation tasks. Furthermore, strictly enforce sibling dependencies (e.g., making the E2E story depend on the individual extraction stories) rather than leaving them parallel, to prevent DAG race conditions and ensure the E2E verification is only unblocked once both extraction logic stories are fully completed.
 
-# Session 3965440180567252160
-
-
-# Session 4061683249242859916
-
 Epic Planner process changes have been implemented to enforce the inclusion of an E2E verification story for every EPIC. This ensures proper integration and verification of all generated epics.
-
-# Journal Entry - 2026-08-08
 
 Based on the failure of `epic-120-338-implement-conflictless-journals` (investigated in `research-335-400`), it is a critical project-specific constraint that every EPIC must spawn at least one child STORY node explicitly dedicated to Integration and E2E Verification. This STORY must be tagged with `e2e` or `integration`. Failing to generate this verification story will cause the orchestrator to repeatedly reject the epic when it attempts to transition to COMPLETED.
 
@@ -67,14 +43,11 @@ This reinforces the critical rule from ADR 007 regarding the Parent-Linked DAG e
 * **The Empty PR Checkbox Policy**: Even when all downstream work is physically finished by implementation personas, the parent generative node (like this Epic) cannot automatically close itself. A generative persona MUST wake up and check off the exact string references to its children in its markdown body to formally signal to the orchestrator that the dependency chain is complete.
 * **YAML Immutability for Completions**: The only valid way to progress a successful node to `VERIFYING` is by updating its markdown checkboxes and submitting an empty PR. Manually editing the `status` field to `VERIFYING` or `COMPLETED` is strictly prohibited.
 * This pattern of having a generative persona (Story Owner) wake up to resolve its own completed children via an empty PR is standard operating procedure for the Foundry graph.
-# Session Log
 
 epic-120-338-implement-conflictless-journals is fully implemented since all its acceptance criteria and child stories are marked as completed.
 Started session for epic-336-349-multi-save-infrastructure. Remembered to append child nodes as unchecked tasks to the markdown body using exact Node IDs, and to use exact Node IDs for depends_on arrays.
 
 In session 11236954308959706417 I created the STORIES to break down Epic 340-411. Found a critical bug where E2E story dependencies were mistakenly defined using repo-relative file paths instead of strict IDs, breaking orchestrator validation. Fixed it and verified test suites.
-
-## Late-Binding Demotion
 
 When encountering a parent macro node that has pending child nodes located in active directories (like `.foundry/stories/`), even if their internal YAML status is `COMPLETED`, they are treated as pending by the Orchestrator. Therefore, their checkboxes must NOT be checked in the parent node's markdown body.
 
@@ -89,13 +62,6 @@ Breaking down epic `epic-117-335-integrate-zod-orchestrator` into story nodes as
 - Set `owner_persona: tech_lead` for the newly created STORY nodes as they are downstream from `story_owner`.
 - Verified system state and ran E2E testing to verify correctness.
 
-## Rules adapted
-- Ensure testing happens immediately prior to `pre_commit_instructions` as required by the Execution Plan Rules.
-- Reverified that "pre-commit" rule must exactly match the expected phrasing in the plan.
-- For all node creation, always specify `owner_persona` appropriately for handoffs to the next stage rather than inheriting current persona.
-
-# Session 2026-08-12-19-06-04
-
 Broke down the `epic-341-415-orchestrator-fuzzer-simulation` into three distinct stories to tackle DAG generation, state simulation, and E2E integration:
 - `story-415-415-fuzzer-dag-generation`
 - `story-415-416-fuzzer-state-simulation`
@@ -104,8 +70,6 @@ Broke down the `epic-341-415-orchestrator-fuzzer-simulation` into three distinct
 Notes for Future:
 - When appending generated child nodes to a parent's markdown body, strictly use the exact Node ID without file extensions.
 - Ensuring there's a dedicated E2E verification story for complex features like fuzzing is critical for ensuring orchestration components operate as a cohesive unit.
-
-# Story Owner Journal: Generating Child Nodes and Updating Parents
 
 **Date:** $(date +%Y-%m-%d)
 
@@ -120,16 +84,10 @@ Moving forward, when generating child nodes and updating the parent's markdown b
 
 Instead, I MUST strictly use appending (>>) to add the new task list items and targeted stream editors (e.g., sed -i) to update the parent's checkboxes. This guarantees the YAML frontmatter is completely untouched, avoiding Automated Code Review rejections and schema failures.
 
-# Session 6207212354005436450
-
 Decomposed epic-340-411-schema-resource-locking into story-411-418-schema-resource-locking and story-411-419-schema-resource-locking-e2e.
 
 
 ---
-
-# Session 13140198223003532357
-
-## Context
 
 ## Constraints Encountered
 - **DAG ID Strictness**: We must use exact Node IDs without file extensions when defining `depends_on`.
@@ -139,22 +97,13 @@ Decomposed epic-340-411-schema-resource-locking into story-411-418-schema-resour
 ## Strategy Adjustment
 In future planning for schema updates, ensure we always explicitly generate E2E validation stories.
 
-<!-- Source: 10951981620713216813.md -->
 - Created story nodes for extracting Gen 3 AI data: active team, location, opponent data, and e2e verification. Appended unchecked tasks to the parent epic-340-411-gen3-ai-data-extraction.
 
 
-<!-- Source: 2746641942440721799.md -->
 # Anomaly Detection: Pre-existing Save Files
 The target artifacts (save files such as `red.sav`, `blue-evolve.sav`, `silver.sav`, `crystal-evolve.sav`, and `emerald.sav`) for Epic `epic-343-417-test-fixtures-sourcing` were found to already exist in `tests/fixtures/` prior to the session.
 
-
-<!-- Source: 17957934727210826373.md -->
-# Session 17957934727210826373
-
 When writing STORY nodes dynamically, always list the existing files in the directory and sort them to find the correct next sequence number (e.g., `ls -1 .foundry/stories/ | sort -n -t '-' -k 3`). Do not rely on pre-populated sequence numbers in the parent EPIC's Acceptance Criteria, as they might be hallucinated or cause collisions with existing nodes. Additionally, always ensure that every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification to satisfy the Orchestrator Safeguard.
-
-<!-- Source: 1809259624386391484.md -->
-# Story Owner Journal - Session 1809259624386391484
 
 ## Learnings
 - **ADR 025 Enforcement:** When breaking down epics, it is critical to cross-reference architectural decisions (ADRs). In this session, an epic required extracting the internal RTC from a Gen 3 save file. However, ADR 025 explicitly mandates an "RTC-Independent Fallback Strategy" utilizing system time and UI overrides. The RTC extraction requirement was therefore bypassed and documented via a RESEARCH node to maintain architectural compliance.
@@ -162,3 +111,18 @@ When writing STORY nodes dynamically, always list the existing files in the dire
 
 ## 2026-08-16: E2E Requirement for Epics
 Learned that Epics must always have a final STORY dedicated exclusively to Integration and E2E Verification to avoid rejection from the orchestrator.
+
+
+Date: 2026-08-17
+Persona: Story Owner
+Task: `epic-337-400-data-splitting`
+
+Successfully broke down Epic "Data Splitting by Game Generation" (`epic-337-400-data-splitting`) into three stories:
+- `story-400-428-extract-core-data`: Extract core shared data into a separate MsgPack bundle.
+- `story-400-429-gen-specific-extensions`: Generate the gen-specific bundles (`pokedata-gen{N}.msgpack`) and implement lazy fetching.
+- `story-400-430-data-splitting-integration-e2e`: Integration and E2E verification to ensure the application works correctly with the split data bundles.
+
+The target Epic was updated with the generated child nodes and we submitted an Empty PR as per the empty PR policy, without checking off the epic's own overarching acceptance criteria (to allow the orchestrator to correctly demote it to PENDING).
+
+
+Enforced the Orchestrator Safeguard (E2E/Integration Requirement) for EPIC nodes by adding an E2E STORY to `epic-071-123-define-tailwind-v4-utilities-v2.md`, as it was missing a dedicated E2E verification story to satisfy hierarchical completion.

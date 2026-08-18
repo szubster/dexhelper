@@ -1,5 +1,3 @@
-# Session Log
-
 I investigated the permanent failure of `epic-120-338-implement-conflictless-journals`. The epic reached the max rejection count because it failed to comply with the Orchestrator Safeguard. Specifically, every EPIC must have at least one child STORY node dedicated to Integration and E2E Verification (tagged with `e2e` or `integration`) before it can transition to COMPLETED. Since `epic-120-338-implement-conflictless-journals` only had regular implementation stories without an E2E story, the orchestrator repeatedly rejected its completion attempt.
 
 The replacement epic (`epic-335-401-implement-conflictless-journals-retry`) must ensure an E2E story is created to satisfy this constraint.
@@ -9,19 +7,12 @@ When an Epic repeatedly fails during empty PR submissions despite all child stor
 
 Furthermore, QA rejections regarding ADR 028 (magic numbers) must be carefully verified to ensure the implementation extracts all memory offsets into module-level constants.
 
-# Session 3298853694244425673
-
 - Explored knowledge base files to find the memory offsets and bit positions for Gen 3 Move Tutors.
 - Discovered the data in `.foundry/docs/knowledge_base/gen3_move_tutor_offsets.md`.
 - Formatted the required data into tables and updated the active `RESEARCH` node `.foundry/research/research-055-405-gen3-move-tutor-offsets.md`.
 
-#
-
-# Session 2026-08-04
-
 Identified that the DAG Orchestrator enforces a strict E2E safeguard. Any EPIC whose child nodes complete without having spawned at least one STORY tagged with `e2e` or `integration` will be automatically rejected and permanently failed. All generative personas must explicitly ensure they fulfill this criteria during the breakdown phase to avoid repeating this impossible loop failure.
 
-# Session YYYY-MM-DD-HH-MM-SS
 When executing as the Researcher persona, log your session details to your private journal at `.foundry/journals/researcher/<session_id>.md` (or `YYYY-MM-DD-HH-MM-SS.md`), and explicitly read `.foundry/docs/knowledge_base/agents/core_policies.md` at session start.
 The root cause of the permanent failure (Max rejection count reached) for the Gen 3 Secret Base Parsing epic was the missing Orchestrator Safeguard (E2E/Integration Requirement). The Epic did not generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`). Consequently, the Orchestrator repeatedly rejected the Epic until it reached the maximum rejection count. Always ensure generative personas explicitly spawn an E2E/Integration STORY when breaking down an Epic.
 
@@ -29,8 +20,6 @@ The root cause of the permanent failure (Max rejection count reached) for the Ge
 * **Testing against live repository data**: E2E tests targeting features that rely on repository metadata (like the Foundry DAG Dashboard reading `foundry.json`) should NOT rely on live repository state. In clean environments or CI, nodes with specific states (e.g., permanent failures) may not exist, causing non-deterministic timeouts.
 * **Resolution**: Such tests must use Playwright's `page.route` to mock the `**/data/foundry.json` response, providing a deterministic dataset containing the exact edge cases the UI expects.
 * **YAML Frontmatter Integrity**: When successfully completing a node (including RESEARCH nodes), never modify the YAML frontmatter (e.g., changing status to READY or clearing `jules_session_id`). Modifying the frontmatter breaks the Orchestrator's state machine. Only update the markdown body.
-
-# Session 14294444319199255346
 
 - Explored the issue of Gen 3 save fixtures (`tests/fixtures/emerald.sav`) not being present.
 - Found that `emerald.sav` was already added by a previous session (`tests/fixtures/emerald.sav` existed).
@@ -45,8 +34,6 @@ The root cause of the permanent failure (Max rejection count reached) for the Ge
 * Suggested Service Worker Cache API for robust offline support and caching of the `.msgpack` files, using a Cache-First strategy.
 * The Background Fetch API is likely overkill for our payload sizes, so standard caching combined with prefetch is preferred.
 * Addendum: The preloading and prefetching logic should ideally be implemented as a Vite plugin to automate the injection of resource hints into the generated HTML during the build process.
-
-# Research Journal - Gen 3 Trainer Card Contest Star
 
 **Session ID:** 9486604902122696726
 
@@ -64,18 +51,7 @@ For each of these 5 slots, if the `species` field (a `u16` at offset `0x08` with
 - You must parse the `contestWinners` array at the end of `SaveBlock1` (Emerald offset `0x2e90`), specifically checking the `species` ID of indices 8 through 12.
 - A new ADR/KB document `.foundry/docs/knowledge_base/gen3_contest_museum_offsets.md` was created to document the exact byte offsets.
 
-# Session 13338548861872728964
-
 The permanent failure (Max rejection count reached) of `epic-038-061-pokerus-state-exfiltration` was caused by a violation of the Orchestrator Safeguard. Although the codebase implementations for parsing the Gen 2 Pokerus byte were correctly verified and refactored (as confirmed by the auditor and Tech Lead), the Epic was continuously rejected upon transition attempts because the Story Owner did not append a STORY node dedicated to Integration and E2E Verification (tagged with `e2e` or `integration`). As a strict macro-node constraint, every Epic must terminate with an E2E story.
-
-<!-- Source: 14319651166110609807.md -->
-# Session 14319651166110609807
-
-## Artifact Anomaly Detection
-During the research task `research-246-244-gen3-box-parsing`, I discovered that the target Foundry artifact `.foundry/docs/knowledge_base/engine/save_parsing/gen3_pc_box_offsets.md` unexpectedly existed prior to the session. The file accurately documents the PC Box memory structure, base offset (`0x0004`), current PC Box offset (`0x0000`), and the 80-byte PC Pokémon data structure as required. I checked off the acceptance criteria in the task's markdown body and submitted the changes as a standard PR.
-
-<!-- Source: 2026-08-16-12-00-00.md -->
-# Session Journal: Gen 3 Party and PC Box Memory Offsets
 
 Research task: `research-157-369-gen3-party-box-offsets`
 
@@ -90,3 +66,24 @@ Research the exact memory offsets and structure for Party Pokémon and PC Box Po
   - Offset `0x0004` within the PC buffer contains the PC Boxes Pokémon list (33,600 bytes), which is an array of 420 80-byte Pokémon structures.
 - The PID (Personality Value) is always located at offset `0x00` (the first 4 bytes) of both the 100-byte Party structure and the 80-byte PC Box structure.
 - The 100-byte and 80-byte structures share the same first 80 bytes. The 100-byte structure contains an additional 20 bytes for battle stats, status condition, HP, etc.
+
+- When tracking Gen 2 room decorations, the game doesn't use a dedicated "unlocked array". Instead, it dynamically generates the list of owned items by checking the `wEventFlags` array starting at bit 4 of byte 84 (`EVENT_DECO_BED_1`).
+- `wOwnedDecoCategories` is just a temporary buffer populated in RAM, so the save parser must rely entirely on `wEventFlags`.
+- To avoid absolute offsets failing between Gold/Silver and Crystal, the `wMomsMoney` and `wDecoBed` properties can be fetched relative to the `johtoBadgesOffset`.
+- Mom's Money: 3-byte little-endian integer.
+
+## Action
+Researched WASM emulator options (mGBA, binjgb, SkyEmu, IodineGBA) for DexHelper's web-based integration using GitHub APIs to pull README details for projects.
+
+## Findings
+`binjgb` is highly performant and lightweight, running natively in the browser via WebAssembly with simple Javascript bindings for save state extraction, but only supports Game Boy and Game Boy Color. `mGBA` and `SkyEmu` both support GB, GBC, and GBA (Gen 1-3) and can be compiled to WASM, offering unified engines for our entire feature set. `IodineGBA` is pure JS and less desirable.
+Based on CEO feedback, we evaluated a multi-emulator approach: using `binjgb` for its lightweight optimizations for Gen 1/2, and `mGBA` or `SkyEmu` specifically for Gen 3.
+
+## Next Steps
+Updated the knowledge base document `.foundry/docs/knowledge_base/architecture/wasm_emulators.md` with the expanded multi-emulator recommendation.
+Drafted `task-421-435-wasm-emulator-adr` for the Architect persona to formalize the decision into an ADR. Checked off acceptance criteria in the parent research node and submitted via Empty PR.
+
+When investigating Gen 3 decompilation code (e.g., `pokeemerald`, `pokefirered`), I discovered that the `MysteryGiftSave` structure contains several variable-length or specific-sized arrays (`WonderNews`, `WonderCard`, `WonderCardMetadata`).
+Because the C source code doesn't explicitly state the exact byte size of these nested structures in comments, it's necessary to manually calculate the sizes using the struct definitions (e.g., tracking `u8`, `u16`, `u32`, and bitfields, plus array lengths) or write a quick calculation script.
+
+**Key Learning:** When writing temporary Node.js scripts in the workspace (which uses `"type": "module"` in `package.json`), use the `.cjs` extension if the script uses CommonJS syntax (like `require()`) to avoid ES module ReferenceErrors. This ensures temporary investigative tools run smoothly.
