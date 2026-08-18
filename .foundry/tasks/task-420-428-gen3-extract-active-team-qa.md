@@ -2,13 +2,13 @@
 id: task-420-428-gen3-extract-active-team-qa
 type: TASK
 title: QA Gen 3 Active Team Extraction
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-15'
 updated_at: '2026-08-18'
 depends_on:
   - task-420-427-gen3-extract-active-team-impl
-jules_session_id: null
+jules_session_id: '16532953064820466831'
 pr_number: null
 parent: story-411-420-extract-player-team
 tags:
