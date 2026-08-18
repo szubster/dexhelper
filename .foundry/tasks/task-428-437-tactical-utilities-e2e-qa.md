@@ -26,5 +26,5 @@ notes: ''
 Review the implemented E2E tests from `task-428-436-tactical-utilities-e2e-impl` to ensure they correctly and comprehensively assert the tactical hardware aesthetics defined in ADR 024.
 
 ## Acceptance Criteria
-- [ ] Tests comprehensively cover the tactical primitives.
-- [ ] Tests pass without regressions.
+- [x] Tests comprehensively cover the tactical primitives.
+- [x] Tests pass without regressions.
