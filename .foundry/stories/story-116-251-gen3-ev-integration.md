@@ -33,3 +33,5 @@ Now that the EV parsing logic and the `PokemonInstance` interface updates are de
 - Ensure `RangeError` from the `DataView` is caught and handled gracefully (e.g., throwing a formatted Error).
 
 ## 4. Acceptance Criteria
+- [ ] task-251-439-gen3-ev-integration-impl
+- [ ] task-251-440-gen3-ev-integration-qa
