@@ -2,13 +2,13 @@
 id: story-114-414-egg-move-inventory-missing-links
 type: STORY
 title: Egg Move Inventory Missing Links
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-11'
 updated_at: '2026-08-18'
 depends_on:
   - story-114-413-egg-move-inventory-cross-reference-logic
-jules_session_id: '5611255399831106776'
+jules_session_id: null
 pr_number: null
 parent: epic-055-114-egg-move-inventory-cross-reference
 tags:
