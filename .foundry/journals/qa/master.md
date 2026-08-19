@@ -132,3 +132,7 @@ Verified the implementation of the Gen 3 Move Tutor Extractor. The target artifa
 2. Submitted an empty PR with checkboxes enabled to gracefully exit the DAG flow and allow the parent story to handle the resurrection/cancellation logic.
 
 No further implementations made since the task gracefully aborts.
+
+## 2026-08-18: Gen 2 Room Decoration & Bank Parsing Verification Failure
+- **Issue**: The Coder persona failed to implement any of the parsing logic for Gen 2 room decorations or Mom's bank savings in `src/engine/saveParser/parsers/gen2.ts`, despite marking the task as completed.
+- **Action**: Rejected `task-322-331-gen2-decoration-savings-parsing-impl.md`, setting status to FAILED, incremented rejection count, and documented the missing implementation in `task-322-332-gen2-decoration-savings-parsing-qa.md`.
