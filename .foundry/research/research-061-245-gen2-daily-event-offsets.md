@@ -28,7 +28,7 @@ During the audit of `epic-038-061-gen2-event-flag-parsing`, it was discovered th
 Find and document the exact event flag offsets (or bit indices) that track whether these daily and weekly events have been completed.
 
 ## Tasks
-- [ ] 1. Find the specific event flag for the Friday Lapras encounter.
-- [ ] 2. Find the event flags related to the Bug-Catching Contest (e.g. has participated today).
-- [ ] 3. Find the event flags for the Haircut Brothers in Goldenrod Underground.
-- [ ] 4. Investigate other daily/weekly events like the Weekly Siblings (Arthur, etc.) and Buena's Password.
+- [x] 1. Find the specific event flag for the Friday Lapras encounter.
+- [x] 2. Find the event flags related to the Bug-Catching Contest (e.g. has participated today).
+- [x] 3. Find the event flags for the Haircut Brothers in Goldenrod Underground.
+- [x] 4. Investigate other daily/weekly events like the Weekly Siblings (Arthur, etc.) and Buena's Password.
