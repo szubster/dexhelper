@@ -2,12 +2,12 @@
 id: task-428-436-refactor-core-data-generation
 type: TASK
 title: Refactor Core Data Generation Script
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: $(date -I)
 updated_at: '2026-08-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1752492447255309987'
 pr_number: null
 parent: story-400-428-extract-core-data
 tags:
