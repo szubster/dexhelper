@@ -43,3 +43,7 @@ Refactor the fundamental tactical UI components within the `src/components/` dir
 - [ ] Core tactical components are updated to use the new `tactical-*` utilities.
 - [ ] Component aesthetics remain strictly consistent with the tactical hardware style (no visual regressions).
 - [ ] Components pass `pnpm run lint` and `pnpm test`.
+- [ ] story-071-431-migrate-tactical-panel
+- [ ] story-071-432-migrate-tactical-controls
+- [ ] story-071-433-migrate-tactical-segmented
+- [ ] story-071-434-migrate-tactical-components-e2e
