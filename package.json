@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@11ty/gray-matter": "^3.0.0",
-    "@biomejs/biome": "^2.5.8",
+    "@biomejs/biome": "^2.5.9",
     "@cloudflare/workers-types": "^5.20260816.1",
     "@codecov/vite-plugin": "^2.0.1",
     "@playwright/test": "^1.62.1",
