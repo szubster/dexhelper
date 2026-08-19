@@ -26,6 +26,6 @@ notes: ''
 This task is to implement the E2E test that verifies the Pokerus data extraction and formatting in the application UI.
 
 ## Acceptance Criteria
-- [ ] Create an E2E test using Playwright.
-- [ ] Load a valid save file that contains Pokerus-infected Pokémon.
-- [ ] Verify that Pokerus state (strain and duration/status) is correctly displayed in the frontend.
+- [x] Create an E2E test using Playwright.
+- [x] Load a valid save file that contains Pokerus-infected Pokémon.
+- [x] Verify that Pokerus state (strain and duration/status) is correctly displayed in the frontend.
