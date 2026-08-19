@@ -2,7 +2,7 @@
 id: task-322-332-gen2-decoration-savings-parsing-qa
 type: TASK
 title: QA Gen 2 Room Decoration & Bank Parsing
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-17'
 updated_at: '2026-08-19'
@@ -16,8 +16,8 @@ tags:
   - engine
   - save-parsing
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

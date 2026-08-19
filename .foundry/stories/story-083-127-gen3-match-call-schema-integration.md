@@ -2,13 +2,13 @@
 id: story-083-127-gen3-match-call-schema-integration
 type: STORY
 title: Integrate Match Call Data into SaveData Schema
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-13'
 updated_at: '2026-08-19'
 depends_on:
   - story-083-126-gen3-match-call-dataview-implementation
-jules_session_id: '11458189270705376125'
+jules_session_id: null
 pr_number: null
 parent: epic-048-083-gen3-match-call-save-parsing
 tags:
