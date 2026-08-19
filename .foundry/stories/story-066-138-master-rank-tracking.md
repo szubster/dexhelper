@@ -32,3 +32,7 @@ Derived from `epic-041-066-global-ribbon-checklist-dashboard`, this story adds t
 ## 3. Acceptance Criteria
 - [ ] Extract Master Rank achievement status from aggregated ribbon data.
 - [ ] Implement UI indicators for Master Rank in specific categories.
+
+- [ ] task-138-440-master-rank-tracking-impl
+- [ ] task-138-441-master-rank-tracking-qa
+- [ ] task-138-442-master-rank-e2e
