@@ -2,12 +2,12 @@
 id: task-150-212-gen2-hof-records-extraction-impl
 type: TASK
 title: Implement Gen 2 Hall of Fame Records Extraction
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-06-21'
 updated_at: '2026-08-19'
 depends_on: []
-jules_session_id: '13316624435229171494'
+jules_session_id: null
 pr_number: null
 parent: story-070-150-parse-gen2-hof-records
 tags:
