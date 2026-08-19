@@ -61,8 +61,8 @@ importers:
         specifier: ^2.5.8
         version: 2.5.8
       '@cloudflare/workers-types':
-        specifier: ^5.20260816.1
-        version: 5.20260816.1
+        specifier: ^5.20260818.1
+        version: 5.20260818.1
       '@codecov/vite-plugin':
         specifier: ^2.0.1
         version: 2.0.1(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(yaml@2.9.0))
@@ -173,7 +173,7 @@ importers:
         version: 2.2.0(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(vitest@4.1.10)
       wrangler:
         specifier: ^4.123.0
-        version: 4.123.0(@cloudflare/workers-types@5.20260816.1)
+        version: 4.123.0(@cloudflare/workers-types@5.20260818.1)
 
   .github/scripts:
     dependencies:
@@ -838,8 +838,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@cloudflare/workers-types@5.20260816.1':
-    resolution: {integrity: sha512-ZyTm0PQQCazqNnqUf5LM91+3+40MWQYvnW5ABgHCggjOPx38rImS3HtfcjLmio7thzNbKMiZQKZChK9u4mrNJw==}
+  '@cloudflare/workers-types@5.20260818.1':
+    resolution: {integrity: sha512-a89taQDbqb7Ni+xAVSsiOSd5wQPcbBJBnZgIG3EujVdDcdQkGVwab3xa2e9z29uqtMQb/P2gYDeDcNXcBRSWQQ==}
 
   '@codecov/bundler-plugin-core@2.0.1':
     resolution: {integrity: sha512-TkdKn/rEwZQ723M7DDUmHe5r0IJa23rUT4TAx5jXmg12wGZGAHGWWU7LKeQsYCsKdLMxK7bLaGk9M++4wSRD5w==}
@@ -5845,7 +5845,7 @@ snapshots:
   '@cloudflare/workerd-windows-64@1.20260811.1':
     optional: true
 
-  '@cloudflare/workers-types@5.20260816.1': {}
+  '@cloudflare/workers-types@5.20260818.1': {}
 
   '@codecov/bundler-plugin-core@2.0.1':
     dependencies:
@@ -9748,7 +9748,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20260811.1
       '@cloudflare/workerd-windows-64': 1.20260811.1
 
-  wrangler@4.123.0(@cloudflare/workers-types@5.20260816.1):
+  wrangler@4.123.0(@cloudflare/workers-types@5.20260818.1):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.0
       '@cloudflare/unenv-preset': 2.16.1(unenv@2.0.0-rc.24)(workerd@1.20260811.1)
@@ -9759,7 +9759,7 @@ snapshots:
       unenv: 2.0.0-rc.24
       workerd: 1.20260811.1
     optionalDependencies:
-      '@cloudflare/workers-types': 5.20260816.1
+      '@cloudflare/workers-types': 5.20260818.1
       fsevents: 2.3.3
     transitivePeerDependencies:
       - bufferutil
