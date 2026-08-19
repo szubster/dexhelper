@@ -80,25 +80,25 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
             <div className="relative z-10 flex flex-1 flex-col justify-center gap-0 border-white/10 border-l-2 border-dashed bg-zinc-950/40 p-4">
               {p.otName && (
                 <div className="relative flex items-center gap-3 border-zinc-700 border-l-2 border-dashed pb-3 pl-3 before:absolute before:top-2 before:-left-[2px] before:h-1 before:w-1 before:bg-zinc-500">
-                  <DataLabel>[ OT_ID ]</DataLabel>
+                  <DataLabel>OT_ID</DataLabel>
                   <span className="truncate font-mono text-[11px] text-zinc-300">{p.otName}</span>
                 </div>
               )}
               {p.item !== undefined && p.item > 0 && (
                 <div className="relative flex items-center gap-3 border-zinc-700 border-l-2 border-dashed py-3 pl-3 before:absolute before:top-4 before:-left-[2px] before:h-1 before:w-1 before:bg-zinc-500">
-                  <DataLabel>[ HELD_ITEM ]</DataLabel>
+                  <DataLabel>HELD_ITEM</DataLabel>
                   <span className="truncate font-mono text-[11px] text-zinc-300">{gen2Items[p.item]}</span>
                 </div>
               )}
               {p.friendship !== undefined && (
                 <div className="relative flex items-center gap-3 border-zinc-700 border-l-2 border-dashed pt-3 pl-3 before:absolute before:top-4 before:-left-[2px] before:h-1 before:w-1 before:bg-zinc-500">
-                  <DataLabel>[ SYNC_RATE ]</DataLabel>
+                  <DataLabel>SYNC_RATE</DataLabel>
                   <span className="font-mono text-[11px] text-rose-400">{p.friendship} PT</span>
                 </div>
               )}
               {p.pokerus !== undefined && (
                 <div className="relative flex items-center gap-3 border-zinc-700 border-l-2 border-dashed pt-3 pl-3 before:absolute before:top-4 before:-left-[2px] before:h-1 before:w-1 before:bg-zinc-500">
-                  <DataLabel>[ POKERUS_STRAIN ]</DataLabel>
+                  <DataLabel>POKERUS_STRAIN</DataLabel>
                   <PokerusBadge strain={p.pokerus.strain} />
                 </div>
               )}
