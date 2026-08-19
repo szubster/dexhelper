@@ -301,8 +301,8 @@ ${commitDetails.files.map((f) => `- \`${f}\``).join('\n')}
 
 ## Evaluation Instructions
 As Changelogger, inspect the commit changes above.
-If a changelog entry is warranted, create a PR adding a concise bullet point under \`## [Unreleased]\` or new release header \`## [${nextVersion}] - ${today}\` in \`${changelogFilename}\`.
-If no entry is necessary, submit an Empty PR.
+If a changelog entry or \`README.md\` update is warranted, create a PR adding a concise bullet point under \`## [Unreleased]\` or new release header \`## [${nextVersion}] - ${today}\` in \`${changelogFilename}\`, and update \`README.md\` if necessary.
+If no entry or documentation update is necessary, submit an Empty PR.
 `;
 
   const newContent = matter.stringify(body, parsed.data);
