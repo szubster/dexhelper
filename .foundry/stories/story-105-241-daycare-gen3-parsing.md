@@ -24,4 +24,6 @@ notes: ''
 Extracting Gen 3 daycare info.
 
 ## Acceptance Criteria
-- [ ] Create task to parse Gen 3 Daycare Pokémon.
+- [x] Create task to parse Gen 3 Daycare Pokémon.
+- [ ] task-241-440-daycare-gen3-parsing-impl
+- [ ] task-241-441-daycare-gen3-parsing-qa
