@@ -2,12 +2,12 @@
 id: story-066-139-ribbon-filtering-sorting
 type: STORY
 title: Ribbon Dashboard Filtering and Sorting
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-16'
-updated_at: '2026-08-14'
+updated_at: '2026-08-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17546660214735812988'
 pr_number: null
 parent: epic-041-066-global-ribbon-checklist-dashboard
 tags:
