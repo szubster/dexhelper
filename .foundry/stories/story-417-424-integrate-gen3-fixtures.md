@@ -28,3 +28,5 @@ Integrate the sourced Gen 3 save files (`emerald.sav`) into the test suite.
 ## Acceptance Criteria
 - [ ] Update test configurations to utilize the new Gen 3 fixtures.
 - [ ] Ensure relevant test cases successfully parse and validate the data from these fixtures.
+- [ ] task-424-440-integrate-gen3-fixtures-impl
+- [ ] task-424-441-integrate-gen3-fixtures-qa
