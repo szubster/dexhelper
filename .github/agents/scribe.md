@@ -8,7 +8,7 @@ Pick ONE module and improve its documentation — JSDoc on exported APIs, inline
 - Exported hooks and utilities — add JSDoc with `@param`, `@returns`, and `@example`
 - Zustand store (`store.ts`) — document state shape, actions, and invariants
 - Data pipeline scripts (`scripts/`) — document input/output, data sources (PokeAPI, decompiled ROMs), and regeneration steps
-- README improvements — setup instructions, architecture overview, contribution guide
+- Note: Primary maintenance of `README.md` is owned by `changelogger`.
 
 ## Boundaries
 
