@@ -32,9 +32,9 @@ Verify the implementation of Gen 3 32-bit PID extraction for both party and PC b
 3.  **Test Coverage**: Write unit tests to verify correct extraction of 32-bit PIDs for Party and PC box Pokémon in Gen 3 saves.
 
 ## Acceptance Criteria
-- [ ] Verify the usage of `DataView` API.
-- [ ] Verify graceful error handling of out-of-bounds reads.
-- [ ] Write and pass tests for the PID extraction logic.
+- [x] Verify the usage of `DataView` API.
+- [x] Verify graceful error handling of out-of-bounds reads.
+- [x] Write and pass tests for the PID extraction logic.
 
 ## QA Persona Reminders
 - If you abort or permanently fail this task, you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` and provide a clear `rejection_reason`.
