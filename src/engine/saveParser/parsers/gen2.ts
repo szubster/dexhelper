@@ -155,6 +155,15 @@ const POKEDEX_OWNED_OFFSET_GS = 0x2a4c;
 const POKEDEX_OWNED_OFFSET_CRYSTAL = 0x2a69;
 const POKEDEX_SEEN_OFFSET_GS = 0x2a6c;
 const POKEDEX_SEEN_OFFSET_CRYSTAL = 0x2a89;
+
+const MOMS_MONEY_OFFSET_RELATIVE = -0x06;
+const MOM_SAVING_MONEY_OFFSET_RELATIVE = -0x03;
+const ACTIVE_DECO_OFFSET_RELATIVE_CRYSTAL = 0x3b8;
+const ACTIVE_DECO_OFFSET_RELATIVE_GS = 0x3dd;
+const ACTIVE_DECO_COUNT = 8;
+const UNLOCKED_DECO_BYTE_OFFSET = 0x54;
+const UNLOCKED_DECO_BIT_OFFSET = 4;
+const UNLOCKED_DECO_COUNT = 46;
 const CURRENT_BOX_NUM_OFFSET_GS = 0x2724;
 const CURRENT_BOX_NUM_OFFSET_CRYSTAL = 0x2700;
 const CURRENT_BOX_COUNT_OFFSET = 0x2d10;
@@ -948,6 +957,50 @@ export function parseGen2(view: DataView, forceCrystal = false): import('./commo
     throw error;
   }
 
+  let gen2MomsSavings: { money: number; savingActive: boolean } | undefined;
+  try {
+    const momsMoneyOffset = johtoBadgesOffset + MOMS_MONEY_OFFSET_RELATIVE;
+    const momsMoney =
+      (view.getUint8(momsMoneyOffset) << 16) |
+      (view.getUint8(momsMoneyOffset + 1) << 8) |
+      view.getUint8(momsMoneyOffset + 2);
+    const momSavingMoneyOffset = johtoBadgesOffset + MOM_SAVING_MONEY_OFFSET_RELATIVE;
+    const momSavingMoneyByte = view.getUint8(momSavingMoneyOffset);
+    const savingActive = (momSavingMoneyByte & (1 << 7)) !== 0;
+    gen2MomsSavings = { money: momsMoney, savingActive };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+
+  let gen2RoomDecorations: { active: number[]; unlocked: boolean[] } | undefined;
+  try {
+    const activeDecoOffset = isCrystal
+      ? johtoBadgesOffset + ACTIVE_DECO_OFFSET_RELATIVE_CRYSTAL
+      : johtoBadgesOffset + ACTIVE_DECO_OFFSET_RELATIVE_GS;
+    const active: number[] = [];
+    for (let i = 0; i < ACTIVE_DECO_COUNT; i++) {
+      active.push(view.getUint8(activeDecoOffset + i));
+    }
+
+    const unlocked: boolean[] = [];
+    for (let i = 0; i < UNLOCKED_DECO_COUNT; i++) {
+      const bitPosition = UNLOCKED_DECO_BIT_OFFSET + i;
+      const byteIdx = UNLOCKED_DECO_BYTE_OFFSET + Math.floor(bitPosition / BITS_PER_BYTE);
+      const bitIdx = bitPosition % BITS_PER_BYTE;
+      const byte = eventFlags[byteIdx] ?? 0;
+      unlocked.push((byte & (1 << bitIdx)) !== 0);
+    }
+    gen2RoomDecorations = { active, unlocked };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+
   const trainerFlags: boolean[] = [];
   for (let i = 0; i < EVENT_FLAGS_MAX_BITS; i++) {
     const byteIdx = Math.floor(i / BITS_PER_BYTE);
@@ -1001,6 +1054,8 @@ export function parseGen2(view: DataView, forceCrystal = false): import('./commo
     hiddenItemFlags,
     npcTradeFlags,
     tms,
+    gen2MomsSavings,
+    gen2RoomDecorations,
     gen2StaticEncounters: {
       sudowoodo: (((eventFlags[EVENT_FLAG_SUDOWOODO_BYTE] ?? 0) >> EVENT_FLAG_SUDOWOODO_BIT) & 1) === 1,
       snorlax: (((eventFlags[EVENT_FLAG_SNORLAX_BYTE] ?? 0) >> EVENT_FLAG_SNORLAX_BIT) & 1) === 1,
