@@ -4,11 +4,14 @@
     "@tsconfig/strictest/tsconfig.json"
   ],
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./apps/web/src/*"],
+      "@dexhelper/engine": ["./packages/engine/src/index.ts"],
+      "@dexhelper/engine/*": ["./packages/engine/src/*"]
     },
     "incremental": true,
     "types": ["@types/wicg-file-system-access"]
   },
-  "exclude": [".github/scripts"]
+  "exclude": ["packages/foundry"]
 }

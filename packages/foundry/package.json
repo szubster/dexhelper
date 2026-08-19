@@ -1,0 +1,33 @@
+{
+  "name": "@dexhelper/foundry",
+  "version": "1.0.0",
+  "description": "Foundry DAG orchestration scripts — run with Node 24 native TypeScript support.",
+  "type": "module",
+  "exports": {
+    "./vite-plugins/*": "./vite-plugins/*",
+    "./*": "./*"
+  },
+  "scripts": {
+    "gc": "node --experimental-strip-types garbage-collector.ts",
+    "orchestrate": "node --experimental-strip-types foundry-orchestrator.ts",
+    "orchestrate:dry": "node --experimental-strip-types foundry-orchestrator.ts --dry-run",
+    "orchestrate:strict": "node --experimental-strip-types foundry-orchestrator.ts --strict",
+    "test": "vitest run",
+    "verify:refs": "node --experimental-strip-types verify-dag-refs.ts",
+    "validate-schema": "node --experimental-strip-types scripts/validate-foundry-schema.ts",
+    "check-links": "node --experimental-strip-types scripts/check-links.ts"
+  },
+  "dependencies": {
+    "@google/genai": "^2.17.1",
+    "gray-matter": "^4.0.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "fast-check": "^4.9.0",
+    "vitest": "^4.1.10"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

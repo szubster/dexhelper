@@ -1,0 +1,22 @@
+{
+  "name": "@dexhelper/pokedata",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./vite-plugins/*": "./vite-plugins/*",
+    "./*": "./*"
+  },
+  "scripts": {
+    "data:gen": "node --experimental-strip-types scripts/generate-pokedata.ts",
+    "data:gen-maps": "node --experimental-strip-types scripts/generateMapLocations.ts"
+  },
+  "dependencies": {
+    "msgpackr": "^2.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "~7.0.2",
+    "vite": "^8.2.1"
+  }
+}
