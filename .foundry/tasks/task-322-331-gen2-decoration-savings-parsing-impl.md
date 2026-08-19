@@ -2,10 +2,10 @@
 id: task-322-331-gen2-decoration-savings-parsing-impl
 type: TASK
 title: Implement Gen 2 Room Decoration & Bank Parsing
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-07-17'
-updated_at: '2026-08-17'
+updated_at: '2026-08-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - engine
   - save-parsing
 research_references: []
-rejection_count: 1
-rejection_reason: 'Implementation missing. No parsing logic found for Gen 2 room decorations or Mom bank savings.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

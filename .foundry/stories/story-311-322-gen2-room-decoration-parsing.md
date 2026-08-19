@@ -2,10 +2,10 @@
 id: story-311-322-gen2-room-decoration-parsing
 type: STORY
 title: Gen 2 Room Decoration & Bank Parsing
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-15'
-updated_at: '2026-07-19'
+updated_at: '2026-08-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
