@@ -255,6 +255,8 @@ export const PC_BOX_NAMES_OFFSET = 0x8344;
 export const PC_BOX_WALLPAPERS_OFFSET = 0x83c2;
 export const PC_BOX_COUNT = 14;
 export const PC_BOX_CAPACITY = 30;
+export const PC_BOX_SECTION_5_TO_12_SIZE = 3968;
+export const PC_BOX_SECTION_13_SIZE = 2000;
 export const GEN3_PC_POKEMON_STRUCT_SIZE = 80;
 export const GEN3_POKEMON_SPECIES_OFFSET_IN_G = 0x00;
 export const GEN3_POKEMON_ITEM_OFFSET_IN_G = 0x02;
@@ -573,21 +575,28 @@ function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
  * @throws RangeError if a required section is out of bounds or missing.
  */
 export function parseGen3PCBuffer(view: DataView): Uint8Array {
-  const pcBuffer = new Uint8Array(PC_BOX_BUFFER_SIZE);
-  let pcBufferOffset = 0;
+  try {
+    const pcBuffer = new Uint8Array(PC_BOX_BUFFER_SIZE);
+    let pcBufferOffset = 0;
 
-  for (let sectionId = 5; sectionId <= 13; sectionId++) {
-    const sectionOffset = getLatestSectionOffset(view, sectionId);
+    for (let sectionId = 5; sectionId <= 13; sectionId++) {
+      const sectionOffset = getLatestSectionOffset(view, sectionId);
 
-    // Sections 5-12 contain 3968 bytes, Section 13 contains 2000 bytes.
-    const bytesToCopy = sectionId === 13 ? 2000 : 3968;
+      // Sections 5-12 contain 3968 bytes, Section 13 contains 2000 bytes.
+      const bytesToCopy = sectionId === 13 ? PC_BOX_SECTION_13_SIZE : PC_BOX_SECTION_5_TO_12_SIZE;
 
-    for (let i = 0; i < bytesToCopy; i++) {
-      pcBuffer[pcBufferOffset++] = view.getUint8(sectionOffset + i);
+      for (let i = 0; i < bytesToCopy; i++) {
+        pcBuffer[pcBufferOffset++] = view.getUint8(sectionOffset + i);
+      }
     }
-  }
 
-  return pcBuffer;
+    return pcBuffer;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
 }
 
 /**
@@ -1586,7 +1595,13 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): import(
       const boxesResult = parseGen3PCBoxes(pcBufferView);
       pc = boxesResult.pc;
       pcDetails = boxesResult.pcDetails;
-    } catch {
+    } catch (error) {
+      if (
+        error instanceof RangeError ||
+        (error instanceof Error && error.message === 'The save file is corrupted or incomplete.')
+      ) {
+        throw new Error('The save file is corrupted or incomplete.');
+      }
       // Ignored, PC data might be missing or corrupt
     }
 
