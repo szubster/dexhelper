@@ -1,9 +1,12 @@
 import { Activity, Dna, MapPin, Sparkles } from 'lucide-react';
 import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
+import { getContestRecommendations } from '../../../engine/gen3/contests/recommendation';
+import { getNature } from '../../../engine/gen3/nature';
 import type { PokemonInstance } from '../../../engine/saveParser/index';
 import { useStore } from '../../../store';
 import { getTimeCapsuleValidation } from '../../../utils/timeCapsule';
 import { ContestConditionStats } from '../../ContestConditionStats';
+import { ContestRecommendationPanel } from '../../ContestRecommendationPanel';
 import { DataLabel } from '../../DataLabel';
 import { HoverScanner } from '../../HoverScanner';
 import { LcdGrid } from '../../LcdGrid';
@@ -137,6 +140,16 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
                   tough={p.condition.tough}
                 />
                 {p.condition.sheen !== undefined && <ContestSheenDisplay sheen={p.condition.sheen} />}
+                {p.personalityValue !== undefined && (
+                  <ContestRecommendationPanel
+                    recommendations={getContestRecommendations(
+                      getNature(p.personalityValue),
+                      p.condition,
+                      p.condition.sheen ?? 0,
+                    )}
+                    sheen={p.condition.sheen}
+                  />
+                )}
               </div>
             )}
           </TacticalPanel>

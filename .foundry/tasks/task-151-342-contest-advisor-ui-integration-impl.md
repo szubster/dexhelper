@@ -33,5 +33,5 @@ Integrate the newly developed `ContestRecommendationPanel` into the `src/compone
 4. Ensure you pass required props to `ContestRecommendationPanel`: `recommendations` and `sheen`.
 
 ## Acceptance Criteria
-- [ ] `ContestRecommendationPanel` is integrated into `PokemonDetails.tsx`.
-- [ ] It renders correctly for Gen 3 Pokemon in the details view.
+- [x] `ContestRecommendationPanel` is integrated into `PokemonDetails.tsx`.
+- [x] It renders correctly for Gen 3 Pokemon in the details view.
