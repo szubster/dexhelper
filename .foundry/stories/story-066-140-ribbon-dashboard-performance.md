@@ -32,3 +32,5 @@ Derived from `epic-041-066-global-ribbon-checklist-dashboard`, this story focuse
 ## 3. Acceptance Criteria
 - [ ] Implement virtualization/pagination for the checklist view.
 - [ ] Verify rendering performance is adequate for large datasets (e.g., full Living Dex).
+- [ ] task-140-440-ribbon-dashboard-virtualization-impl
+- [ ] task-140-441-ribbon-dashboard-virtualization-qa
