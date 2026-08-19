@@ -34,3 +34,7 @@
 
 ## Critical Learnings
 - Upgraded infrastructure tooling versions: @biomejs/biome to 2.5.8, oxlint to 1.78.0, and knip to 6.32.2 to keep the ecosystem current.
+
+## Critical Learnings
+- **Tooling configuration context**: Discovered that Knip was running as part of the `pnpm lint` command but the `--reporter github-actions` was only defined in `.github/workflows/ci.yml`. More critically, Knip wasn't hooked into `lefthook.yml` pre-commits, meaning unused exports or dependencies could easily be committed by a local developer and only flagged once they hit GitHub Actions CI.
+- **Action Taken**: Added `knip` to `lefthook.yml` under `pre-commit` hook (in parallel) to enforce unused export validation before code can be committed locally. Explicitly added `--no-exit-code` so developers receive warnings locally without being totally blocked from making local WIP commits, which balances local DX with codebase hygiene.

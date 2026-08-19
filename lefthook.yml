@@ -14,6 +14,8 @@ pre-commit:
       fail_on_changes: ci
     oxlint:
       run: pnpm exec oxlint --type-aware --no-error-on-unmatched-pattern {staged_files}
+    knip:
+      run: pnpm knip --no-exit-code
     type-check:
       run: pnpm type-check
     sort-package-json:
