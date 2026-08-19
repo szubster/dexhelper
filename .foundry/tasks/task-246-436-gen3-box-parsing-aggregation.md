@@ -2,13 +2,13 @@
 id: task-246-436-gen3-box-parsing-aggregation
 type: TASK
 title: Gen 3 PC Box Stats Calculation and Grouping
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-17'
-updated_at: '2026-08-18'
+updated_at: '2026-08-19'
 depends_on:
   - task-246-435-gen3-box-parsing-extraction
-jules_session_id: '4158590184211362665'
+jules_session_id: null
 pr_number: null
 parent: story-108-246-gen3-box-parsing
 tags:

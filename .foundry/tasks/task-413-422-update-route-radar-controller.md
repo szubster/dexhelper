@@ -2,12 +2,12 @@
 id: task-413-422-update-route-radar-controller
 type: TASK
 title: Update RouteRadarHeatmap to Support Bike Requirements
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-14'
 updated_at: '2026-08-19'
 depends_on: []
-jules_session_id: '13927662966612960231'
+jules_session_id: null
 pr_number: null
 parent: story-406-413-bike-requirement-heatmap
 tags:
