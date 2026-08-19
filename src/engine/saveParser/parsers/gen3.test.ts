@@ -15,6 +15,7 @@ import {
   parseGen3BattleFrontierWinStreaks,
   parseGen3BattlePoints,
   parseGen3ConditionStats,
+  parseGen3ContestMaster,
   parseGen3EggSteps,
   parseGen3EmeraldMoveTutors,
   parseGen3EVs,
@@ -2160,6 +2161,7 @@ describe('parseGen3 (trainer flags integration)', () => {
       hasHoennDex: false,
       hasNationalDex: false,
       hasBattleFrontier: false,
+      hasContestMaster: false,
     });
   });
 
@@ -2197,6 +2199,48 @@ describe('parseGen3 (trainer flags integration)', () => {
       hasHoennDex: false,
       hasNationalDex: false,
       hasBattleFrontier: true,
+      hasContestMaster: false,
     });
+  });
+});
+
+describe('parseGen3ContestMaster', () => {
+  it('should return true when all 5 museum paintings exist', () => {
+    const buffer = new ArrayBuffer(0x1000);
+    const view = new DataView(buffer);
+    const section3Offset = 0;
+    const baseOffset = section3Offset + 0x10;
+
+    // Set museum paintings (indices 8 to 12) to have non-zero species
+    for (let i = 0; i < 5; i++) {
+      view.setUint16(baseOffset + (8 + i) * 32 + 8, 25, true); // Pikachu
+    }
+
+    const result = parseGen3ContestMaster(view, section3Offset);
+    expect(result).toBe(true);
+  });
+
+  it('should return false when one of the museum paintings is missing (species is 0)', () => {
+    const buffer = new ArrayBuffer(0x1000);
+    const view = new DataView(buffer);
+    const section3Offset = 0;
+    const baseOffset = section3Offset + 0x10;
+
+    // Set museum paintings (indices 8 to 12)
+    view.setUint16(baseOffset + (8 + 0) * 32 + 8, 25, true); // Pikachu
+    view.setUint16(baseOffset + (8 + 1) * 32 + 8, 25, true); // Pikachu
+    view.setUint16(baseOffset + (8 + 2) * 32 + 8, 0, true); // Missing painting
+    view.setUint16(baseOffset + (8 + 3) * 32 + 8, 25, true); // Pikachu
+    view.setUint16(baseOffset + (8 + 4) * 32 + 8, 25, true); // Pikachu
+
+    const result = parseGen3ContestMaster(view, section3Offset);
+    expect(result).toBe(false);
+  });
+
+  it('should throw an error on out of bounds read', () => {
+    const buffer = new ArrayBuffer(0x10);
+    const view = new DataView(buffer);
+    const section3Offset = 0;
+    expect(() => parseGen3ContestMaster(view, section3Offset)).toThrow('The save file is corrupted or incomplete.');
   });
 });
