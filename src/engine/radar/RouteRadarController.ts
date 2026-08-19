@@ -17,6 +17,15 @@ export class RouteRadarController {
   /**
    * Calculates the heatmap density data from the provided suggestions.
    *
+   * @remarks
+   * **Why use a Set for `uniqueAreaIds`?**
+   * A single Pokémon might have multiple distinct encounter entries on the exact same map.
+   * If we naively incremented the density score for every raw encounter entry, the heatmap would
+   * become distorted, artificially inflating the "density" of a map just because a Pokémon has many
+   * sub-encounters there. By collecting `areaId`s into a `Set` first, we guarantee that each target
+   * Pokémon only contributes a maximum of `+1` to any given area's density score, ensuring the heatmap
+   * accurately reflects the number of distinct missing Pokémon available in that area.
+   *
    * @param suggestions The raw output from the suggestionEngine.
    * @returns Heatmap data mapping areaId to density score.
    */
