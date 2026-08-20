@@ -32,5 +32,5 @@ This task should focus solely on writing a function that determines which parent
 The function should take the two parents, evaluate their genders/egg groups to determine the source of inherited DVs, and return the DVs that the offspring will inherit.
 
 ## Acceptance Criteria
-- [ ] Implement a function to determine the inherited DVs for Gen 2 breeding in a file under `src/engine/breeding`.
-- [ ] Add unit tests covering various combinations (e.g., Male/Female, Ditto/Male, Ditto/Female, Ditto/Genderless).
+- [x] Implement a function to determine the inherited DVs for Gen 2 breeding in a file under `src/engine/breeding`.
+- [x] Add unit tests covering various combinations (e.g., Male/Female, Ditto/Male, Ditto/Female, Ditto/Genderless).
