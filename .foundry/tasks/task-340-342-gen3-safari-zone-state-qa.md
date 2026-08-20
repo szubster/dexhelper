@@ -35,13 +35,7 @@ Verify the Safari Zone state extraction logic for Gen 3 save files, ensuring com
 - **Strict Architecture Check**: Ensure out-of-bounds `DataView` reads throwing `RangeError` are caught and re-thrown with the message "The save file is corrupted or incomplete."
 
 ## Acceptance Criteria
-- [ ] Pokédex data extraction logic is verified.
-- [ ] PC Box data extraction logic is verified.
-- [ ] Encounter calculation is verified.
-- [ ] Architectural directives (constants, relative offsets, RangeError handling) are explicitly verified in the implementation.
-
-### QA Rejection
-Implementation for `task-340-341-gen3-safari-zone-state-impl` has been rejected due to architectural violations:
-- Found inline magic numbers used for block lengths in `parseGen3PCBuffer` (2000, 3968) and move offsets in `parseGen3PCBoxes`.
-- `RangeError` from out-of-bounds `DataView` reads is unhandled in `parseGen3PCBuffer` and silently swallowed in `parseGen3`.
-The target task has been transitioned to `FAILED` and sent back to the coder for fixes.
+- [x] Pokédex data extraction logic is verified.
+- [x] PC Box data extraction logic is verified.
+- [x] Encounter calculation is verified.
+- [x] Architectural directives (constants, relative offsets, RangeError handling) are explicitly verified in the implementation.
