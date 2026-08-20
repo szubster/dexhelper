@@ -32,5 +32,5 @@ The Gen 2 roamer extraction logic currently determines if a roamer is active sol
 - Self-verify the changes by running unit tests.
 
 ## Acceptance Criteria
-- [ ] Determine roamer activity based on both `MapGroup != 0xFF` and `HP > 0`.
-- [ ] Ensure all existing tests pass after the modification.
+- [x] Determine roamer activity based on both `MapGroup != 0xFF` and `HP > 0`.
+- [x] Ensure all existing tests pass after the modification.

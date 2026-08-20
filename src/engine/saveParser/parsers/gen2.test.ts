@@ -259,6 +259,7 @@ describe('gen2 parsers', () => {
       view.setUint8(roamingOffset + 1, 40); // Level
       view.setUint8(roamingOffset + 2, 5); // Map Group
       view.setUint8(roamingOffset + 3, 2); // Map ID
+      view.setUint8(roamingOffset + 4, 100); // HP
 
       const data = parseGen2(view, false);
       expect(data.hallOfFameCount).toBe(12);
@@ -269,7 +270,7 @@ describe('gen2 parsers', () => {
         mapGroup: 5,
         mapId: 2,
         isActive: true,
-        hp: 0,
+        hp: 100,
         ivs: { hp: 0, atk: 0, def: 0, spd: 0, spAtk: 0, spDef: 0 },
       });
     });
@@ -289,6 +290,7 @@ describe('gen2 parsers', () => {
       view.setUint8(roamingOffset + 1, 40); // Level
       view.setUint8(roamingOffset + 2, 8); // Map Group
       view.setUint8(roamingOffset + 3, 3); // Map ID
+      view.setUint8(roamingOffset + 4, 120); // HP
 
       const data = parseGen2(view, true);
       expect(data.hallOfFameCount).toBe(5);
@@ -299,7 +301,7 @@ describe('gen2 parsers', () => {
         mapGroup: 8,
         mapId: 3,
         isActive: true,
-        hp: 0,
+        hp: 120,
         ivs: { hp: 0, atk: 0, def: 0, spd: 0, spAtk: 0, spDef: 0 },
       });
     });
@@ -426,6 +428,36 @@ describe('gen2 parsers', () => {
       };
 
       expect(() => parseGen2(view, false)).toThrow('The save file is corrupted or incomplete.');
+    });
+
+    it('should mark a roamer as inactive if hp is 0, even with valid mapGroup', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+
+      view.setUint8(0x248c, 12); // GS HoF count
+
+      // Setup Entei (Species 244) as roaming in GS
+      const roamingOffset = 0x28da;
+      view.setUint8(roamingOffset, 244); // Species
+      view.setUint8(roamingOffset + 1, 40); // Level
+      view.setUint8(roamingOffset + 2, 5); // Map Group
+      view.setUint8(roamingOffset + 3, 2); // Map ID
+      view.setUint8(roamingOffset + 4, 0); // HP is 0 (defeated or caught)
+
+      const data = parseGen2(view, false);
+      expect(data.roamingLegendaries).toHaveLength(1);
+      expect(data.roamingLegendaries?.[0]).toEqual({
+        speciesId: 244,
+        level: 40,
+        mapGroup: 5,
+        mapId: 2,
+        isActive: false, // HP is 0, so should be inactive
+        hp: 0,
+        ivs: { hp: 0, atk: 0, def: 0, spd: 0, spAtk: 0, spDef: 0 },
+      });
     });
 
     it('should handle RangeError gracefully during roaming legendaries extraction', () => {
