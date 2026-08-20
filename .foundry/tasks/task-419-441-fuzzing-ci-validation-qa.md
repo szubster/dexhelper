@@ -28,5 +28,5 @@ notes: ''
 Verify the integration of the fuzzing test suite in a CI-like environment.
 
 ## Acceptance Criteria
-- [ ] CI workflow executions reliably trigger and report fuzzing tests.
-- [ ] Failures correctly flag arbitrary path violations in the orchestrated environment.
+- [x] CI workflow executions reliably trigger and report fuzzing tests.
+- [x] Failures correctly flag arbitrary path violations in the orchestrated environment.
