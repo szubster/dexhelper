@@ -2,12 +2,12 @@
 id: task-422-440-integrate-gen1-fixtures-impl
 type: TASK
 title: 'Task: Implement Gen 1 Fixtures Integration'
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-18'
-updated_at: '2026-08-18'
+updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14451638893916426429'
 pr_number: null
 parent: story-417-422-integrate-gen1-fixtures
 tags:
