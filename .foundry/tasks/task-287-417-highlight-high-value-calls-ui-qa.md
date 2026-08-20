@@ -31,8 +31,8 @@ Verify that the `TacticalCallerCard` component correctly renders high-value Poke
 The Coder has implemented a new `TacticalCallerCard` and integrated it into the `ActiveCallersDashboard`. We need to verify that this implementation satisfies the visual requirements and correctly identifies SWARM and ITEM callers using the `GEN2_PHONE_CALLER_REGISTRY`.
 
 ## Acceptance Criteria
-- [ ] Review `src/components/dashboard/pokegear/TacticalCallerCard.tsx` to ensure it applies distinct styles for `SWARM` and `ITEM` callers, falling back to a standard style for others.
-- [ ] Verify that `TacticalCallerCard` strictly adheres to ADR 008 (tactical hardware aesthetic), specifically checking for `rounded-none`, `border-dashed`, and monospaced font usage.
-- [ ] Review `src/components/dashboard/pokegear/ActiveCallersDashboard.tsx` to ensure it correctly maps contacts against `GEN2_PHONE_CALLER_REGISTRY` and passes the required props to the `TacticalCallerCard`.
-- [ ] Run the test suite (`pnpm test`) and verify that `ActiveCallersDashboard.test.tsx` and `TacticalCallerCard.test.tsx` accurately assert the presence of high-value styling and badges.
-- [ ] Ensure no regressions were introduced to the dashboard's empty state or cooldown visualizations.
+- [x] Review `src/components/dashboard/pokegear/TacticalCallerCard.tsx` to ensure it applies distinct styles for `SWARM` and `ITEM` callers, falling back to a standard style for others.
+- [x] Verify that `TacticalCallerCard` strictly adheres to ADR 008 (tactical hardware aesthetic), specifically checking for `rounded-none`, `border-dashed`, and monospaced font usage.
+- [x] Review `src/components/dashboard/pokegear/ActiveCallersDashboard.tsx` to ensure it correctly maps contacts against `GEN2_PHONE_CALLER_REGISTRY` and passes the required props to the `TacticalCallerCard`.
+- [x] Run the test suite (`pnpm test`) and verify that `ActiveCallersDashboard.test.tsx` and `TacticalCallerCard.test.tsx` accurately assert the presence of high-value styling and badges.
+- [x] Ensure no regressions were introduced to the dashboard's empty state or cooldown visualizations.
