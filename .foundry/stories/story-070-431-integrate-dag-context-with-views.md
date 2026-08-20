@@ -31,4 +31,6 @@ This story ensures that the DAG views (like React Flow GraphView) are correctly 
 - Ensure no view is managing its own isolated DAG fetching logic anymore.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-431-447-integrate-dag-context-with-views-impl
+- [ ] task-431-448-integrate-dag-context-with-views-qa
