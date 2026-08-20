@@ -56,14 +56,14 @@ export async function main() {
         console.info(`[GC] Skipping node ${relativePath}: Session ${sessionId} is TERMINATED (heartbeat will resolve)`);
       }
     } catch (err) {
-      console.error(`[GC] Error processing node ${relativePath}:`, err);
+      console.error(`[GC] Error processing node ${relativePath}:`, err instanceof Error ? err.message : String(err));
     }
   }
 }
 
 if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith('garbage-collector.ts')) {
   main().catch(err => {
-    console.error('Fatal GC error:', err);
+    console.error('Fatal GC error:', err instanceof Error ? err.message : String(err));
     process.exit(1);
   });
 }
