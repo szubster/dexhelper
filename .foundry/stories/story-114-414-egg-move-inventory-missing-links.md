@@ -30,4 +30,6 @@ Building upon the cross-referencing logic, this story adds the calculation to id
 - [ ] Implement calculation logic to generate a list of "missing link" species based on the cross-reference results.
 - [ ] Structure the output to clearly differentiate between species completely absent and species where only a compatible gender (male) is missing.
 - [ ] Write unit tests to verify the accurate calculation of missing links for complex multi-step chains.
-- [ ] Tech Lead: Draft TASK nodes to execute this story.
+- [x] Tech Lead: Draft TASK nodes to execute this story.
+- [ ] task-414-440-egg-move-inventory-missing-links-impl
+- [ ] task-414-441-egg-move-inventory-missing-links-qa
