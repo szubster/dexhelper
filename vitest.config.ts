@@ -9,6 +9,7 @@ export default defineConfig(async (configEnv) => {
 
   return mergeConfig(baseConfig, {
     test: {
+      testTimeout: 30000,
       coverage: {
         provider: 'v8',
         include: ['src/**/*.ts', 'src/**/*.tsx'],

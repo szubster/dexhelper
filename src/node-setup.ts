@@ -10,7 +10,12 @@ import indexeddb, {
   IDBTransaction,
   IDBVersionChangeEvent,
 } from 'fake-indexeddb';
+import fc from 'fast-check';
 import { vi } from 'vitest';
+
+fc.configureGlobal({
+  numRuns: process.env.CI ? 1000 : 100,
+});
 
 globalThis.indexedDB = indexeddb;
 globalThis.IDBRequest = IDBRequest;
