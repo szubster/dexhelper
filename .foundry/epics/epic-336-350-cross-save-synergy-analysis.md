@@ -29,5 +29,9 @@ Building on the multi-save infrastructure, this Epic introduces the AI capabilit
 - It must account for game-exclusives and Pokédex completion progress in each save file.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into Stories.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Break this Epic down into Stories.
+- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+
+- [ ] story-350-440-synergy-evaluator-ai-prompting
+- [ ] story-350-441-game-exclusive-pokedex-analysis
+- [ ] story-350-442-cross-save-synergy-e2e
