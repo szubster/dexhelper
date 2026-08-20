@@ -2,10 +2,10 @@
 id: epic-341-414-orchestrator-fuzzer-core
 type: EPIC
 title: Orchestrator State Machine Fuzzing - Core Framework
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-12'
-updated_at: '2026-08-12'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -33,5 +33,5 @@ Integrate a fuzzing framework or property-based testing setup into the existing 
 
 ## Acceptance Criteria
 - [x] Break down into Stories.
-- [ ] story-414-418-fuzzing-setup-and-properties
-- [ ] story-414-419-fuzzing-integration-and-e2e
+- [x] story-414-418-fuzzing-setup-and-properties
+- [x] story-414-419-fuzzing-integration-and-e2e
