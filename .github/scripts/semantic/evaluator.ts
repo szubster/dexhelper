@@ -38,8 +38,9 @@ export async function evaluateSemanticCondition(
 
   textContent = textContent.trim();
 
-  if (textContent.startsWith('```')) {
-    textContent = textContent.replace(/^```(?:json)?\n?/, '').replace(/\n?```\n?$/, '');
+  const match = textContent.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
+  if (match) {
+    textContent = match[1];
   }
 
   try {

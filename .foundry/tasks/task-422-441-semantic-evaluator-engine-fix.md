@@ -21,3 +21,6 @@ notes: ''
 # Fix Semantic Evaluator Engine JSON Parsing
 
 Implement the fix for the semantic evaluator engine based on the research. Ensure the engine properly strips markdown code blocks from the LLM JSON response before parsing it.
+
+## Acceptance Criteria
+- [x] Ensure the engine properly strips markdown code blocks from the LLM JSON response before parsing it.
