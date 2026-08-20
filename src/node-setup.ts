@@ -10,7 +10,13 @@ import indexeddb, {
   IDBTransaction,
   IDBVersionChangeEvent,
 } from 'fake-indexeddb';
+import fc from 'fast-check';
 import { vi } from 'vitest';
+
+fc.configureGlobal({
+  // biome-ignore lint/complexity/useLiteralKeys: false positive for typescript bracket notation rules on process env
+  numRuns: process.env['CI'] ? 1000 : 100,
+});
 
 globalThis.indexedDB = indexeddb;
 globalThis.IDBRequest = IDBRequest;

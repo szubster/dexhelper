@@ -27,5 +27,5 @@ notes: ''
 Configure Vitest to effectively handle `fast-check` properties, ensuring that randomized property executions report correctly within the CI suite.
 
 ## Acceptance Criteria
-- [ ] Vitest configuration is updated to handle property-based test timeouts.
-- [ ] fast-check specific configurations (e.g. number of runs) are mapped to environment variables or test contexts.
+- [x] Vitest configuration is updated to handle property-based test timeouts.
+- [x] fast-check specific configurations (e.g. number of runs) are mapped to environment variables or test contexts.
