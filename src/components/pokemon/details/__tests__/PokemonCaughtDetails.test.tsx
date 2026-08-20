@@ -149,6 +149,34 @@ describe('PokemonCaughtDetails', () => {
     await expect.element(page.getByText('200')).toBeInTheDocument();
   });
 
+  it('renders ContestRecommendationPanel for pokemon with condition and personalityValue', async () => {
+    (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
+      (selector: unknown) =>
+        (selector as (state: unknown) => unknown)({
+          saveData: {
+            generation: 3,
+          },
+        }),
+    );
+
+    const pokemonWithConditionAndPV = {
+      ...mockPokemon,
+      personalityValue: 0, // hardy
+      condition: {
+        cool: 50,
+        beauty: 60,
+        cute: 70,
+        smart: 80,
+        tough: 90,
+        sheen: 200,
+      },
+    };
+
+    await render(<PokemonCaughtDetails yourPokemon={[pokemonWithConditionAndPV]} />);
+
+    await expect.element(page.getByText('SYS.STRATEGY_MATRIX')).toBeInTheDocument();
+  });
+
   it('renders Pokerus strain when present', async () => {
     (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
       (selector: unknown) =>
