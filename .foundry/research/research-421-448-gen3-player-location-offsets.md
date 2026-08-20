@@ -35,5 +35,5 @@ Acquire exact save file offsets, memory layouts, and data structures required to
 - Update the relevant knowledge base files in `.foundry/docs/knowledge_base/` with the findings.
 
 ## Acceptance Criteria
-- [ ] Research complete: Exact memory offsets and data structures for player location are identified.
-- [ ] Knowledge base is updated with the findings.
+- [x] Research complete: Exact memory offsets and data structures for player location are identified.
+- [x] Knowledge base is updated with the findings.
