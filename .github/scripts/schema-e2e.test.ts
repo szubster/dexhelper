@@ -18,6 +18,11 @@ describe('Zod Schema E2E Test Suite', () => {
     const validEpic = parseNodeFile(path.join(fixturesDir, 'epic-001-valid.md'), rootDir);
     expect(validEpic).not.toBeNull();
     expect(validEpic?.frontmatter.id).toBe('epic-001-valid');
+
+    const validLocks = parseNodeFile(path.join(fixturesDir, 'task-003-locks-valid.md'), rootDir);
+    expect(validLocks).not.toBeNull();
+    expect(validLocks?.frontmatter.id).toBe('task-003-locks-valid');
+    expect(validLocks?.frontmatter.locks).toEqual(['lock1', 'lock2']);
   });
 
   it('orchestrator rejects invalid node fixtures gracefully', () => {
@@ -29,5 +34,8 @@ describe('Zod Schema E2E Test Suite', () => {
 
     const invalidEpic = parseNodeFile(path.join(fixturesDir, 'epic-002-invalid.md'), rootDir);
     expect(invalidEpic).toBeNull();
+
+    const invalidLocks = parseNodeFile(path.join(fixturesDir, 'task-003-locks-invalid.md'), rootDir);
+    expect(invalidLocks).toBeNull();
   });
 });
