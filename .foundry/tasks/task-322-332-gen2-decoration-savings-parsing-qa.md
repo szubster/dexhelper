@@ -33,9 +33,6 @@ Verify the implementation of Gen 2 room decoration and bank parsing.
 - If you cannot complete this task (e.g. due to permanent failure), you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
 
 ## Acceptance Criteria
-- [ ] Verify accuracy of parsed room decoration data.
-- [ ] Verify accuracy of parsed bank savings data.
-- [ ] Verify strict usage of module-level constants for all offsets (No inline magic numbers).
-
-### QA Rejection Note
-Rejected because the coder did not implement any of the parsing logic. No offsets or extraction code found in the saveParser for Gen 2 room decorations or Mom's bank savings.
+- [x] Verify accuracy of parsed room decoration data.
+- [x] Verify accuracy of parsed bank savings data.
+- [x] Verify strict usage of module-level constants for all offsets (No inline magic numbers).
