@@ -2,10 +2,10 @@
 id: epic-343-424-live-memory-reading
 type: EPIC
 title: Live Memory Reading
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-08-14'
+updated_at: '2026-08-20'
 depends_on:
   - epic-343-423-wasm-emulator-integration
 jules_session_id: null

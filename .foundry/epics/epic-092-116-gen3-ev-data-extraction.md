@@ -15,7 +15,7 @@ tags:
   - save-engine
   - endgame
   - competitive
-rejection_count: 1
+rejection_count: 2
 rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
