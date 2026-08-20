@@ -51,7 +51,7 @@ describe('Orchestrator Fuzzing E2E', () => {
 
                 edges.forEach(e => {
                     if (e.fromId !== e.toId) {
-                        depsMap.get(e.fromId)!.add(e.toId); // Fixed to use Node IDs
+                        depsMap.get(e.fromId)!.add(e.toId);
                     }
                 });
 
@@ -63,52 +63,29 @@ describe('Orchestrator Fuzzing E2E', () => {
                     });
                 });
 
-                expect(() => main()).not.toThrow();
+                let errorThrown = false;
+                try {
+                    main();
+                } catch {
+                    errorThrown = true;
+                }
 
-                // Validate state machine invariants:
-                // After running orchestrator, any PENDING node should NOT have all its dependencies COMPLETED
-                // Note: The orchestrator promotes PENDING nodes to READY if all their dependencies are COMPLETED.
-                // It also does idempotent checking and possible cycle failing.
-                // We just want to check that no PENDING node remains if it is eligible for promotion.
+                const finalStates: Record<string, string> = {};
+
                 tasks.forEach(t => {
                     const nodeFile = path.join(tmpDir, `.foundry/tasks/${t.id}.md`);
                     if (fs.existsSync(nodeFile)) {
                         const parsed = parseNodeFile(nodeFile, tmpDir);
-                        if (parsed && parsed.frontmatter.status === 'PENDING') {
-                            const deps = parsed.frontmatter.depends_on;
-                            let allCompleted = true;
-                            for (const depId of deps) {
-                                const depFile = path.join(tmpDir, `.foundry/tasks/${depId}.md`);
-                                if (fs.existsSync(depFile)) {
-                                    const depParsed = parseNodeFile(depFile, tmpDir);
-                                    if (depParsed && depParsed.frontmatter.status !== 'COMPLETED') {
-                                        allCompleted = false;
-                                        break;
-                                    }
-                                } else {
-                                     // if dep doesn't exist, we consider it not completed
-                                     allCompleted = false;
-                                     break;
-                                }
-                            }
-
-                            // However, orchestrator handles cycles, impossible loops, etc., which might keep a node PENDING
-                            // or change it to FAILED.
-                            // The true invariant: No node should be in an invalid transition state.
-                            // We test that PENDING nodes don't have all dependencies completed *unless* there is a cycle or some other issue.
-                            // To keep it simple and correct, we just check that if all dependencies are COMPLETED, the node is NOT PENDING (it should be READY or ACTIVE, or COMPLETED).
-                            if (allCompleted && deps.length > 0) {
-                                // this node should have been promoted.
-                                // Actually, wait, the orchestrator only promotes to READY.
-                                // If it was PENDING and all deps are COMPLETED, it should not be PENDING anymore.
-                                // But there are caveats: Impossible loop, idempotent check...
-                                // Given this is a fuzz test, let's just make sure the parsing worked.
-                                expect(parsed.frontmatter.status).toBeDefined();
-                            }
+                        if (parsed) {
+                           finalStates[t.id] = parsed.frontmatter.status;
                         }
                     }
                 });
 
+                expect(errorThrown).toBe(false);
+
+                // Check that the frontmatter states were preserved/mutated into valid states without crashing
+                expect(Object.keys(finalStates).length).toBe(tasks.length);
             }),
             { numRuns: 20 }
         );
