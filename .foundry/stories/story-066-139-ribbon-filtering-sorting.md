@@ -33,3 +33,10 @@ Derived from `epic-041-066-global-ribbon-checklist-dashboard`, this story implem
 - [ ] Implement filtering controls for Ribbon categories.
 - [ ] Implement sorting by missing Ribbons count.
 - [ ] Integrate filtering and sorting state into the Dashboard layout.
+
+
+- [ ] task-139-442-ribbon-filter-state
+- [ ] task-139-443-ribbon-filter-logic
+- [ ] task-139-444-ribbon-filter-ui
+- [ ] task-139-445-ribbon-filter-integration
+- [ ] task-139-446-qa-ribbon-filtering
