@@ -30,4 +30,7 @@ Implement the core read and write APIs to store new save states and retrieve the
 - [ ] Implement write API to store a new save state file along with its metadata (timestamp, playthrough ID).
 - [ ] Implement read API to retrieve the most recent save state for a playthrough.
 - [ ] Implement read API to retrieve the *previous* state relative to a given state for diffing purposes.
-- [ ] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-398-431-save-state-write-api
+- [ ] story-398-432-save-state-read-api
+- [ ] story-398-433-save-state-read-write-api-e2e
