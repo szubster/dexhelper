@@ -2,7 +2,7 @@
 id: task-431-448-save-state-write-api-qa
 type: TASK
 title: QA Save State Write API
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-20'
 updated_at: '2026-08-20'

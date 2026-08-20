@@ -2,7 +2,7 @@
 id: task-422-442-semantic-evaluator-engine-fix-qa
 type: TASK
 title: QA Semantic Evaluator Engine JSON Parsing Fix
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-18'
 updated_at: '2026-08-20'

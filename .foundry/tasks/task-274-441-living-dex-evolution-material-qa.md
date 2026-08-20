@@ -2,7 +2,7 @@
 id: task-274-441-living-dex-evolution-material-qa
 type: TASK
 title: Living Dex Evolution Material Detection QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-18'
 updated_at: '2026-08-20'

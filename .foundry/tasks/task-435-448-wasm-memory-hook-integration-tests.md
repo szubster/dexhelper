@@ -2,7 +2,7 @@
 id: task-435-448-wasm-memory-hook-integration-tests
 type: TASK
 title: WASM Memory Buffer Hook Integration Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-20'
 updated_at: '2026-08-20'

@@ -2,10 +2,10 @@
 id: task-414-441-egg-move-inventory-missing-links-qa
 type: TASK
 title: QA - Egg Move Inventory Missing Links Calculation
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-18'
-updated_at: '2026-08-18'
+updated_at: '2026-08-20'
 depends_on:
   - task-414-440-egg-move-inventory-missing-links-impl
 jules_session_id: null

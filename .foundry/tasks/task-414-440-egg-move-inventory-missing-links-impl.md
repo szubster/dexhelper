@@ -2,12 +2,12 @@
 id: task-414-440-egg-move-inventory-missing-links-impl
 type: TASK
 title: Implement Egg Move Inventory Missing Links Calculation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-18'
 updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '354536531762217392'
+jules_session_id: null
 pr_number: null
 parent: story-114-414-egg-move-inventory-missing-links
 tags:

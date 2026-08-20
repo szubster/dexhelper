@@ -2,10 +2,10 @@
 id: task-004-003-shiny-odds-calculation-impl
 type: TASK
 title: Gen 2 Shiny Odds Calculation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-19'
-updated_at: '2026-08-19'
+updated_at: '2026-08-20'
 depends_on:
   - task-004-001-dv-inheritance-logic-impl
 jules_session_id: null

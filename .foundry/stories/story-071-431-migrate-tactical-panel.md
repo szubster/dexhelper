@@ -2,12 +2,12 @@
 id: story-071-431-migrate-tactical-panel
 type: STORY
 title: 'Migrate TacticalPanel, TacticalCard, TacticalBadge to Utility Classes'
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-19'
 updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '9087434236765241378'
+jules_session_id: null
 pr_number: null
 parent: epic-071-124-migrate-core-tactical-components-v2
 tags:
