@@ -2,7 +2,7 @@
 id: task-428-436-refactor-core-data-generation
 type: TASK
 title: Refactor Core Data Generation Script
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: $(date -I)
 updated_at: '2026-08-20'
@@ -14,8 +14,8 @@ tags:
   - performance
   - architecture
   - bundles
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Stripping encounters and locations from pokedata.msgpack causes e2e test failures because PokeDB sync fails to populate these object stores, which breaks components (like Assistant) that rely on them.'
 notes: ''
 ---
 
@@ -32,3 +32,4 @@ The Vite plugin needs to be updated to output the new filename and use the updat
 ## Acceptance Criteria
 - [ ] `scripts/generate-pokedata.ts` modified to generate `pokedata-core.msgpack` containing only core data (pokemon metadata, moves, items).
 - [ ] `vite-plugins/pokedata-plugin.ts` updated to build and output `pokedata-core.msgpack`.
+- [ ] research-436-441-data-splitting-e2e-failures
