@@ -24,4 +24,5 @@ notes: ''
 Verify the archive bypass implementation works correctly in the context of the orchestrator.
 
 ## Acceptance Criteria
-- [ ] Verify that the orchestrator skips `archive/` directories when discovering nodes.
+- [x] Verify that the orchestrator skips `archive/` directories when discovering nodes.
+- [ ] task-409-440-orchestrator-archive-bypass-e2e-impl
