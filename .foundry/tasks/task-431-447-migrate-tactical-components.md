@@ -2,12 +2,12 @@
 id: task-431-447-migrate-tactical-components
 type: TASK
 title: 'Migrate TacticalPanel, TacticalCard, TacticalBadge to Utility Classes'
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-20'
 updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '9087434236765241378'
+jules_session_id: '11865806002143543364'
 pr_number: null
 parent: story-071-431-migrate-tactical-panel
 tags:
