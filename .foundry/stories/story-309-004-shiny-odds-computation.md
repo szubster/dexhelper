@@ -34,4 +34,8 @@ Implement logic to calculate the shiny odds of offspring in Generation 2.
 - The engine must determine the specific DVs passed down and calculate the resulting 1/64 odds if a shiny parent (or a parent with the correct DVs) is used.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this STORY down into actionable TASK nodes for the engineering team.
+- [x] Tech Lead: Break this STORY down into actionable TASK nodes for the engineering team.
+- [ ] task-004-001-dv-inheritance-logic-impl
+- [ ] task-004-002-dv-inheritance-logic-qa
+- [ ] task-004-003-shiny-odds-calculation-impl
+- [ ] task-004-004-shiny-odds-calculation-qa
