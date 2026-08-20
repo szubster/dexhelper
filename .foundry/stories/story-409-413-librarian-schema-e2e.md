@@ -2,13 +2,13 @@
 id: story-409-413-librarian-schema-e2e
 type: STORY
 title: Librarian Schema Updates E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-16'
+updated_at: '2026-08-20'
 depends_on:
   - story-409-412-add-librarian-persona-schema
-jules_session_id: null
+jules_session_id: '12439487047763376377'
 pr_number: null
 parent: epic-339-409-librarian-schema-updates
 tags:
