@@ -29,3 +29,7 @@ Implement functionality to extract the raw 100-byte Pokémon data structure for 
 1. Extract the 100-byte structure.
 2. Must use `DataView` API exclusively.
 3. Handle gracefully and properly parse across Ruby, Sapphire, Emerald, FireRed, LeafGreen.
+
+## Acceptance Criteria
+- [ ] story-130-440-extract-gen3-party-data-structure
+- [ ] story-130-441-gen3-data-extraction-e2e
