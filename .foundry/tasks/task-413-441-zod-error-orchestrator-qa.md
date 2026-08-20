@@ -2,7 +2,7 @@
 id: task-413-441-zod-error-orchestrator-qa
 type: TASK
 title: QA Update Orchestrator Zod Error Messages
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-20'
 updated_at: '2026-08-20'

@@ -2,12 +2,12 @@
 id: story-058-412-feebas-parsing-e2e
 type: STORY
 title: Feebas Parsing E2E Integration
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-11'
 updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '10292285687965050645'
+jules_session_id: null
 pr_number: null
 parent: epic-036-058-feebas-backend-parsing
 tags:

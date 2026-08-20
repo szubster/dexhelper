@@ -2,13 +2,13 @@
 id: story-335-413-zod-validation-error-handling
 type: STORY
 title: Implement Detailed Actionable Error Messages for Zod Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-12'
 updated_at: '2026-08-20'
 depends_on:
   - story-335-412-integrate-zod-schema
-jules_session_id: '144174404579298274'
+jules_session_id: null
 parent: epic-117-335-integrate-zod-orchestrator
 tags:
   - foundry
