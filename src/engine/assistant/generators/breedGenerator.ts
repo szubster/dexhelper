@@ -118,12 +118,13 @@ export function generateBreedingSuggestions(
           const chain = p.em[moveId];
           if (!chain || chain.length === 0) continue;
 
+          let foundBase = false;
+          let kIndexFound = -1;
+          let baseHasMove = false;
+
           for (let k = chain.length - 2; k >= 0; k--) {
             const stepSpeciesId = chain[k];
             if (stepSpeciesId !== undefined && instancesBySpecies.has(stepSpeciesId)) {
-              const nextStepSpeciesId = chain[k + 1];
-              if (nextStepSpeciesId === undefined) continue;
-
               const instances = instancesBySpecies.get(stepSpeciesId) || [];
               const hasMove = instances.some((inst) => {
                 if (!inst.moves?.includes(moveId)) return false;
@@ -143,22 +144,62 @@ export function generateBreedingSuggestions(
               // If it doesn't have the move, and it's not the base of the chain, keep traversing
               if (!hasMove && k > 0) continue;
 
+              foundBase = true;
+              kIndexFound = k;
+              baseHasMove = hasMove;
+              break;
+            }
+          }
+
+          if (foundBase) {
+            const stepSpeciesId = chain[kIndexFound];
+            const nextStepSpeciesId = chain[kIndexFound + 1];
+            if (stepSpeciesId !== undefined && nextStepSpeciesId !== undefined) {
               let description = `Breed your #${stepSpeciesId} to get a #${nextStepSpeciesId} with the Egg Move!`;
               const title = `Breed: #${nextStepSpeciesId}`;
-              if (hasMove) {
+              if (baseHasMove) {
                 description = `Breed your #${stepSpeciesId} (which knows the Egg Move) to get a #${nextStepSpeciesId}!`;
               }
 
-              suggestions.push({
+              // Calculate missing links between base and target
+              const missingLinks: { speciesId: number; reason: 'absent' | 'missing_male' }[] = [];
+              for (let linkIndex = kIndexFound + 1; linkIndex < chain.length - 1; linkIndex++) {
+                const linkSpeciesId = chain[linkIndex];
+                if (linkSpeciesId !== undefined) {
+                  if (!instancesBySpecies.has(linkSpeciesId)) {
+                    missingLinks.push({ speciesId: linkSpeciesId, reason: 'absent' });
+                  } else {
+                    const linkInstances = instancesBySpecies.get(linkSpeciesId) || [];
+                    const hasValidMale = linkInstances.some((inst) => {
+                      const metadata = apiData.pokemonMetadata?.[inst.speciesId];
+                      if (!metadata || metadata.gr === undefined) return false;
+
+                      let gender: 'male' | 'female' | 'genderless' = 'genderless';
+                      if (saveData.generation === 2) {
+                        gender = calculateGen2Gender(inst.dvs?.atk ?? 0, metadata.gr);
+                      } else if (saveData.generation === 3) {
+                        gender = calculateGen3Gender(inst.personalityValue ?? 0, metadata.gr);
+                      }
+                      return gender === 'male';
+                    });
+                    if (!hasValidMale) {
+                      missingLinks.push({ speciesId: linkSpeciesId, reason: 'missing_male' });
+                    }
+                  }
+                }
+              }
+
+              const suggestion: Suggestion = {
                 id: `egg-move-${targetId}-${moveId}-${stepSpeciesId}`,
                 category: 'Breed',
                 title,
                 description,
                 pokemonId: nextStepSpeciesId,
-                priority: hasMove ? 88 : 82,
-              });
+                priority: baseHasMove ? 88 : 82,
+                ...(missingLinks.length > 0 ? { missingLinks } : {}),
+              };
 
-              break;
+              suggestions.push(suggestion);
             }
           }
         }

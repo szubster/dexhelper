@@ -48,6 +48,7 @@ export interface CatchSuggestion extends BaseSuggestion {
  */
 export interface StandardSuggestion extends BaseSuggestion {
   category: Exclude<SuggestionCategory, 'Catch'>;
+  missingLinks?: { speciesId: number; reason: 'absent' | 'missing_male' }[];
 }
 
 /**

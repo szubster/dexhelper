@@ -34,7 +34,7 @@ As part of the cross-referencing logic for Egg Moves, we need to calculate and d
 6. Write unit tests in `src/engine/assistant/generators/__tests__/breedGenerator.test.ts` to verify the logic correctly identifies and flags both 'absent' and 'missing_male' links for complex chains.
 
 ## Acceptance Criteria
-- [ ] `missingLinks` array is populated correctly in the `StandardSuggestion` model.
-- [ ] The engine correctly identifies species completely missing from inventory as 'absent'.
-- [ ] The engine correctly identifies species present but without a male as 'missing_male'.
-- [ ] Unit tests cover multiple chain scenarios.
+- [x] `missingLinks` array is populated correctly in the `StandardSuggestion` model.
+- [x] The engine correctly identifies species completely missing from inventory as 'absent'.
+- [x] The engine correctly identifies species present but without a male as 'missing_male'.
+- [x] Unit tests cover multiple chain scenarios.
