@@ -29,3 +29,9 @@ Parse the player's current location from Gen 3 save files and identify the neare
 - Parse the location block from Gen 3 save data.
 - Map the location to the nearest upcoming major trainer.
 - Add tests to ensure location and trainer mapping work.
+
+## Acceptance Criteria
+- [x] Tech Lead: Break down into actionable TASK nodes
+- [ ] task-421-447-extract-player-location-impl
+- [ ] research-421-448-gen3-player-location-offsets
+- [ ] task-421-449-extract-player-location-qa
