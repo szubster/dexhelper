@@ -6,8 +6,7 @@ status: FAILED
 owner_persona: coder
 created_at: $(date -I)
 updated_at: '2026-08-20'
-depends_on:
-  - research-436-441-data-splitting-e2e-failures
+depends_on: []
 jules_session_id: '16728829477920208882'
 pr_number: null
 parent: story-400-428-extract-core-data
