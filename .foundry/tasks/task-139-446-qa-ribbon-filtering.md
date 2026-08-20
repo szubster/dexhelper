@@ -2,10 +2,10 @@
 id: task-139-446-qa-ribbon-filtering
 type: TASK
 title: QA - Ribbon Dashboard Filtering and Sorting
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-19'
-updated_at: '2026-08-19'
+updated_at: '2026-08-20'
 depends_on:
   - task-139-445-ribbon-filter-integration
 jules_session_id: null

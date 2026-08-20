@@ -2,10 +2,10 @@
 id: story-130-440-extract-gen3-party-data-structure
 type: STORY
 title: Extract Gen 3 Party Data Structure
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-08-19'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null

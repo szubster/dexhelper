@@ -2,10 +2,10 @@
 id: epic-038-061-gen2-event-flag-parsing
 type: EPIC
 title: Gen 2 Event Flag Parsing Engine
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-07'
-updated_at: '2026-07-02'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - backend
   - save-parsing
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
 
@@ -26,13 +26,13 @@ Develop the core save file parsing engine to extract specific time-gated event f
 
 ## Acceptance Criteria
 - [x] Parse event flags indicating completion of daily/weekly events.
-- [ ] Expose this data cleanly to the frontend UI components.
+- [x] Expose this data cleanly to the frontend UI components.
 
 
 ### Implementation Tasks
 - [x] story-061-095-gen2-event-flag-extraction
 - [x] story-061-096-gen2-event-data-layer
-- [ ] research-061-245-gen2-daily-event-offsets
+- [x] research-061-245-gen2-daily-event-offsets
 
 ### Auditor Rejection
 The node was implemented to parse the raw event flags byte array, and basic static gifts were added. However, the core requirement of the parent PRD is a "Gen 2 Daily and Weekly Event Tracker", and none of the specific time-gated event flags (Lapras, Haircut Brothers, Bug Catching Contest) were mapped or exposed to the UI layer. Spawning a research node to find these offsets.

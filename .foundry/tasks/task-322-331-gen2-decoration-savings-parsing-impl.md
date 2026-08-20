@@ -2,12 +2,12 @@
 id: task-322-331-gen2-decoration-savings-parsing-impl
 type: TASK
 title: Implement Gen 2 Room Decoration & Bank Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-17'
-updated_at: '2026-08-19'
+updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '3301985786019230943'
+jules_session_id: null
 pr_number: null
 parent: story-311-322-gen2-room-decoration-parsing
 tags:

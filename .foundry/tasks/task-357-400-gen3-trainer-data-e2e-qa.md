@@ -1,11 +1,11 @@
 ---
 id: task-357-400-gen3-trainer-data-e2e-qa
 type: TASK
-title: "Verify Gen 3 Trainer Data E2E/Integration Tests"
-status: PENDING
+title: Verify Gen 3 Trainer Data E2E/Integration Tests
+status: READY
 owner_persona: qa
-created_at: "2026-08-01"
-updated_at: "2026-08-01"
+created_at: '2026-08-01'
+updated_at: '2026-08-20'
 depends_on:
   - task-357-399-gen3-trainer-data-e2e-impl
 jules_session_id: null
@@ -18,8 +18,8 @@ tags:
   - trainer
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Verify Gen 3 Trainer Data E2E/Integration Tests

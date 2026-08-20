@@ -2,10 +2,10 @@
 id: task-139-445-ribbon-filter-integration
 type: TASK
 title: Integration Tests for Ribbon Filtering and Sorting
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-19'
-updated_at: '2026-08-19'
+updated_at: '2026-08-20'
 depends_on:
   - task-139-444-ribbon-filter-ui
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-151-343-contest-advisor-ui-integration-qa
 type: TASK
 title: QA Contest Advisor UI Integration
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-07-22'
-updated_at: '2026-07-22'
+updated_at: '2026-08-20'
 depends_on:
   - task-151-342-contest-advisor-ui-integration-impl
 jules_session_id: null

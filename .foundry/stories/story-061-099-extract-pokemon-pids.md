@@ -2,10 +2,10 @@
 id: story-061-099-extract-pokemon-pids
 type: STORY
 title: Extract Pokemon PIDs
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-09'
-updated_at: '2026-06-10'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - mirage-island
   - rng
 research_references: []
-notes: ''
 rejection_reason: ''
+notes: ''
 ---
 
 # Extract Pokemon PIDs
@@ -32,5 +32,5 @@ Use the `DataView` API for safe data parsing as per ADR 010.
 - [x] Create/Update TASK nodes to implement parsing the 32-bit PIDs for all party and PC Pokémon in Gen 3 saves.
 
 ### Implementation Tasks
-- [ ] .foundry/tasks/task-099-157-gen3-extract-pokemon-pids-impl.md
-- [ ] .foundry/tasks/task-099-158-gen3-extract-pokemon-pids-qa.md
+- [x] .foundry/tasks/task-099-157-gen3-extract-pokemon-pids-impl.md
+- [x] .foundry/tasks/task-099-158-gen3-extract-pokemon-pids-qa.md

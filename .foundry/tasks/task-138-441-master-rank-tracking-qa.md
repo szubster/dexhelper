@@ -2,10 +2,10 @@
 id: task-138-441-master-rank-tracking-qa
 type: TASK
 title: QA Master Rank Tracking UI
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-19'
-updated_at: '2026-08-19'
+updated_at: '2026-08-20'
 depends_on:
   - task-138-440-master-rank-tracking-impl
 jules_session_id: null

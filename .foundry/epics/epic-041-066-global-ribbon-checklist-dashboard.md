@@ -2,10 +2,10 @@
 id: epic-041-066-global-ribbon-checklist-dashboard
 type: EPIC
 title: Global Ribbon Checklist Dashboard
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-09'
-updated_at: '2026-06-15'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,7 +17,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
 # Epic: Global Ribbon Checklist Dashboard
@@ -38,7 +38,7 @@ This epic builds the centralized aggregate view (or dashboard) across the entire
 - [ ] Ensure adequate rendering performance for hundreds of Pokémon.
 
 ## 4. Child Nodes
-- [ ] .foundry/archive/stories/story-066-137-global-ribbon-dashboard-scaffold.md
-- [ ] .foundry/stories/story-066-138-master-rank-tracking.md
-- [ ] .foundry/stories/story-066-139-ribbon-filtering-sorting.md
-- [ ] .foundry/stories/story-066-140-ribbon-dashboard-performance.md
+- [x] .foundry/archive/stories/story-066-137-global-ribbon-dashboard-scaffold.md
+- [x] .foundry/stories/story-066-138-master-rank-tracking.md
+- [x] .foundry/stories/story-066-139-ribbon-filtering-sorting.md
+- [x] .foundry/stories/story-066-140-ribbon-dashboard-performance.md
