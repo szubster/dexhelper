@@ -42,8 +42,8 @@ Based on our research:
 Note: As seen in `parseGen3TMHMs`, item quantities in Gen 3 pockets are XOR-masked with the lower 16 bits of the security key (`quantity = maskedQuantity ^ (securityKey & LOWER_16_BIT_MASK)`).
 
 ## Acceptance Criteria
-- [ ] In `src/engine/saveParser/parsers/gen3.ts`, define constants `ITEMS_POCKET_OFFSET_RS = 0x0560`, `ITEMS_POCKET_OFFSET_EMERALD = 0x0560`, `ITEMS_POCKET_OFFSET_FRLG = 0x0310`, `ITEMS_POCKET_SIZE_RS = 80`, `ITEMS_POCKET_SIZE_EMERALD = 120`, `ITEMS_POCKET_SIZE_FRLG = 168`, `ITEM_SHOAL_SALT = 0x02B`, `ITEM_SHOAL_SHELL = 0x02C`.
-- [ ] In `src/engine/saveParser/parsers/common.ts`, update `Gen3SaveData` to include `gen3ShoalItems?: { shells: number; salt: number };`.
-- [ ] In `src/engine/saveParser/parsers/gen3.ts`, implement `parseGen3ShoalItems(view: DataView, saveBlock1Offset: number, gameVersion: GameVersion, securityKey: number)` to extract the Shoal Items. Iterate using `ITEM_ENTRY_SIZE` and unmask quantity using the `securityKey` in the same way `parseGen3TMHMs` does.
-- [ ] In `src/engine/saveParser/parsers/gen3.ts`, update `parseGen3` to call `parseGen3ShoalItems` and attach the returned value to the main output.
-- [ ] Ensure proper RangeError handling for `DataView` operations to throw "The save file is corrupted or incomplete." on failure.
+- [x] In `src/engine/saveParser/parsers/gen3.ts`, define constants `ITEMS_POCKET_OFFSET_RS = 0x0560`, `ITEMS_POCKET_OFFSET_EMERALD = 0x0560`, `ITEMS_POCKET_OFFSET_FRLG = 0x0310`, `ITEMS_POCKET_SIZE_RS = 80`, `ITEMS_POCKET_SIZE_EMERALD = 120`, `ITEMS_POCKET_SIZE_FRLG = 168`, `ITEM_SHOAL_SALT = 0x02B`, `ITEM_SHOAL_SHELL = 0x02C`.
+- [x] In `src/engine/saveParser/parsers/common.ts`, update `Gen3SaveData` to include `gen3ShoalItems?: { shells: number; salt: number };`.
+- [x] In `src/engine/saveParser/parsers/gen3.ts`, implement `parseGen3ShoalItems(view: DataView, saveBlock1Offset: number, gameVersion: GameVersion, securityKey: number)` to extract the Shoal Items. Iterate using `ITEM_ENTRY_SIZE` and unmask quantity using the `securityKey` in the same way `parseGen3TMHMs` does.
+- [x] In `src/engine/saveParser/parsers/gen3.ts`, update `parseGen3` to call `parseGen3ShoalItems` and attach the returned value to the main output.
+- [x] Ensure proper RangeError handling for `DataView` operations to throw "The save file is corrupted or incomplete." on failure.
