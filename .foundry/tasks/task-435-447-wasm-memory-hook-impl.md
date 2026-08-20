@@ -25,6 +25,6 @@ notes: ''
 This task establishes the foundational layer to safely hook into a WASM instance to extract raw memory buffers continuously during emulator execution without causing performance degradation.
 
 ## Acceptance Criteria
-- [ ] Implement the memory hooking logic that extracts a `Uint8Array` from the active WASM memory instance.
-- [ ] Ensure the extraction mechanism is performant and does not block the main emulation loop.
-- [ ] Include unit tests verifying correct buffer extraction under simulated conditions.
+- [x] Implement the memory hooking logic that extracts a `Uint8Array` from the active WASM memory instance.
+- [x] Ensure the extraction mechanism is performant and does not block the main emulation loop.
+- [x] Include unit tests verifying correct buffer extraction under simulated conditions.
