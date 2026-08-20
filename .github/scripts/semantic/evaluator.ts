@@ -30,10 +30,16 @@ export async function evaluateSemanticCondition(
     },
   });
 
-  const textContent = response.text;
+  let textContent = response.text;
 
   if (!textContent) {
     throw new Error('Failed to extract text content from LLM response.');
+  }
+
+  textContent = textContent.trim();
+
+  if (textContent.startsWith('```')) {
+    textContent = textContent.replace(/^```(?:json)?\n?/, '').replace(/\n?```\n?$/, '');
   }
 
   try {

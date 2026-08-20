@@ -73,6 +73,15 @@ describe('evaluateSemanticCondition', () => {
     );
   });
 
+  it('successfully parses json wrapped in markdown code blocks', async () => {
+    mockGenerateContent.mockResolvedValue({
+      text: '```json\n{"isEquivalent": true, "reasoning": "Matches."}\n```',
+    });
+
+    const result = await evaluateSemanticCondition('is greeting', 'hello');
+    expect(result).toEqual({ isEquivalent: true, reasoning: 'Matches.' });
+  });
+
   it('works with a real API request if key is present AND explicitly requested (integration)', async () => {
     // Only run this test if explicitly requested via env var to prevent exhausting API limits in CI
     vi.unstubAllEnvs();
