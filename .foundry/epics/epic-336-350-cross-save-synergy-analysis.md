@@ -13,7 +13,7 @@ pr_number: null
 parent: prd-059-336-multi-save-trade-planner
 tags:
   - backend
-  - ai-assistant
+  - assistant
 rejection_count: 0
 rejection_reason: ''
 notes: ''
@@ -22,12 +22,16 @@ notes: ''
 # Epic: Cross-Save Synergy Analysis Engine
 
 ## Context
-Building on the multi-save infrastructure, this Epic introduces the AI capabilities to evaluate multiple loaded save files and identify optimal trade opportunities across them.
+Building on the multi-save infrastructure, this Epic introduces the assistant capabilities to evaluate multiple loaded save files and identify optimal trade opportunities across them.
 
 ## Requirements
-- The AI Assistant must evaluate the loaded saves and identify optimal trade opportunities.
+- The Assistant must evaluate the loaded saves and identify optimal trade opportunities.
 - It must account for game-exclusives and Pokédex completion progress in each save file.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into Stories.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Break this Epic down into Stories.
+- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+
+- [ ] story-350-440-synergy-evaluator-assistant-prompting
+- [ ] story-350-441-game-exclusive-pokedex-analysis
+- [ ] story-350-442-cross-save-synergy-e2e
