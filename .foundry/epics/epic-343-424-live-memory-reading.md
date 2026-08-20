@@ -25,4 +25,7 @@ notes: ''
 Establish a direct channel to read WASM memory buffers in real-time, mapping standard save blocks and game state variables continuously during emulator execution.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this EPIC into STORY nodes. Ensure a final STORY is dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Break down this EPIC into STORY nodes. Ensure a final STORY is dedicated exclusively to Integration and E2E Verification.
+- [ ] story-424-435-wasm-memory-buffer-hook
+- [ ] story-424-436-save-block-mapping
+- [ ] story-424-437-live-memory-e2e
