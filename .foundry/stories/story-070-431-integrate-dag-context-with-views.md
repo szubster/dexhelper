@@ -2,13 +2,13 @@
 id: story-070-431-integrate-dag-context-with-views
 type: STORY
 title: Integrate DagContext with Views
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-08-19'
+updated_at: '2026-08-20'
 depends_on:
   - story-070-245-implement-dag-provider-state-management
-jules_session_id: null
+jules_session_id: '12313043367230008462'
 pr_number: null
 parent: epic-045-070-implement-dag-context
 tags:
