@@ -30,4 +30,5 @@ This story is dedicated exclusively to Integration and E2E Verification for the 
 
 ## Acceptance Criteria
 - [ ] Verify the `librarian` persona is properly integrated in the schema documentation.
-- [ ] Create QA/integration testing TASKS to verify the changes.
+- [x] Create QA/integration testing TASKS to verify the changes.
+- [ ] task-413-440-verify-librarian-schema-e2e
