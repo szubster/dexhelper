@@ -2,12 +2,12 @@
 id: task-349-380-gen3-spinda-extraction-impl
 type: TASK
 title: Gen3 Spinda Extraction Implementation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-01'
-updated_at: '2026-08-19'
+updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '6507816064341683273'
+jules_session_id: null
 pr_number: null
 parent: story-345-349-gen3-spinda-extraction-core
 tags:

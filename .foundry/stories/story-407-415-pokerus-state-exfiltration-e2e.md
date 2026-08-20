@@ -2,10 +2,10 @@
 id: story-407-415-pokerus-state-exfiltration-e2e
 type: STORY
 title: Pokerus State Exfiltration E2E
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-13'
-updated_at: '2026-08-17'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -29,5 +29,5 @@ This story implements the Orchestrator Safeguard requirement. We must write an E
 
 ## Acceptance Criteria
 - [x] Write an E2E test that verifies Pokerus data is correctly extracted and formatted in the application UI or state.
-- [ ] task-415-435-pokerus-state-exfiltration-e2e-impl
-- [ ] task-415-436-pokerus-state-exfiltration-e2e-qa
+- [x] task-415-435-pokerus-state-exfiltration-e2e-impl
+- [x] task-415-436-pokerus-state-exfiltration-e2e-qa
