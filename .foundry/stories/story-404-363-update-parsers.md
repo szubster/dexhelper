@@ -26,5 +26,7 @@ notes: ''
 Update `gen1.ts`, `gen2.ts`, and `gen3.ts` parsers to return correctly narrowed types, and ensure all existing parser tests pass without regressions.
 
 ## Acceptance Criteria
-- [ ] Create task for coder to update parsers and tests.
-- [ ] Create task for qa to verify parser tests and type narrowing.
+- [x] Create task for coder to update parsers and tests.
+- [x] Create task for qa to verify parser tests and type narrowing.
+- [ ] task-363-440-update-parsers-impl
+- [ ] task-363-441-update-parsers-qa
