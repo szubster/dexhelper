@@ -32,6 +32,6 @@ Verify the `locks` field schema changes via integration and e2e tests.
 - Example: `task-003-locks-valid.md` with `locks: ["lock1"]` and verify the test passes.
 
 ## Acceptance Criteria
-- [ ] Added `locks` field e2e verification in `.github/scripts/schema-fixtures.test.ts` or related testing artifacts.
-- [ ] Created fixture files if necessary.
-- [ ] Tests run successfully without regressions.
+- [x] Added `locks` field e2e verification in `.github/scripts/schema-fixtures.test.ts` or related testing artifacts.
+- [x] Created fixture files if necessary.
+- [x] Tests run successfully without regressions.
