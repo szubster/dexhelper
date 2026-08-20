@@ -30,3 +30,5 @@ Implement the write API to store a new save state file along with its metadata (
 - [ ] Implement a function to store associated metadata (e.g., timestamp, playthrough ID) in the `metadata` object store.
 - [ ] Ensure the write operation supports transactions and handles potential errors gracefully.
 - [ ] Write unit tests for the write API.
+- [ ] task-431-447-save-state-write-api-impl
+- [ ] task-431-448-save-state-write-api-qa
