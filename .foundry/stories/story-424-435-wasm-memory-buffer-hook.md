@@ -26,4 +26,6 @@ notes: ''
 As part of the Built-in Emulator Integration PRD (prd-137-343-built-in-emulator) and Live Memory Reading Epic (epic-343-424-live-memory-reading), we need to establish a direct channel to read WASM memory buffers in real-time. This story focuses on the foundational layer: safely hooking into the WASM instance to extract raw memory buffers continuously during emulator execution without causing performance degradation.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down this STORY into TASK nodes, separating the memory hooking logic from integration tests.
+- [x] Tech Lead: Break down this STORY into TASK nodes, separating the memory hooking logic from integration tests.
+- [ ] task-435-447-wasm-memory-hook-impl
+- [ ] task-435-448-wasm-memory-hook-integration-tests
