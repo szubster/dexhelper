@@ -2,12 +2,12 @@
 id: research-336-400-cloudflare-drive-webhooks
 type: RESEARCH
 title: 'Research: Google Drive Webhooks on Cloudflare Workers'
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-05'
-updated_at: '2026-08-14'
+updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18001398838651776536'
 pr_number: null
 parent: prd-062-336-drive-cloudflare-sync
 tags:
