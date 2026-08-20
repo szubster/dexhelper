@@ -130,6 +130,24 @@ Verified the implementation of the Gen 3 Move Tutor Extractor. The target artifa
 
 No further implementations made since the task gracefully aborts.
 
+Date: 2026-08-18
+Task: task-348-101-gen3-ash-ui-qa
+
+## Context
+QA validation of the Gen 3 Volcanic Ash UI integration.
+
+## Verification
+- Target implementation task `task-348-100-gen3-ash-ui-impl` failed validation.
+- The UI implementation itself looks correct.
+- However, `isGen3Save` in `src/engine/saveParser/utils/detection.ts` is currently a stub that always returns `false`.
+- This causes `parseSaveFile` to throw an error and prevents the application from initializing with Gen 3 save files during E2E testing.
+- It is impossible to write an E2E test for the Volcanic Ash UI when Gen 3 saves cannot be loaded at all.
+
+## Action
+- Failed target task `task-348-100-gen3-ash-ui-impl` according to the Transient Rejection policy.
+- Updated its YAML frontmatter (`status: FAILED`, incremented `rejection_count`, added `rejection_reason`).
+- Appended a rejection note to its markdown body without checking off its Acceptance Criteria.
+- Submitted an Empty PR to trigger the Resurrection Loop so the coder can fix the `isGen3Save` stub.
 ## 2026-08-18: Gen 2 Room Decoration & Bank Parsing Verification Failure
 - **Issue**: The Coder persona failed to implement any of the parsing logic for Gen 2 room decorations or Mom's bank savings in `src/engine/saveParser/parsers/gen2.ts`, despite marking the task as completed.
 - **Action**: Rejected `task-322-331-gen2-decoration-savings-parsing-impl.md`, setting status to FAILED, incremented rejection count, and documented the missing implementation in `task-322-332-gen2-decoration-savings-parsing-qa.md`.
