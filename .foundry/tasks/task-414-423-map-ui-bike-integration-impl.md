@@ -2,13 +2,13 @@
 id: task-414-423-map-ui-bike-integration-impl
 type: TASK
 title: Integrate Bike Badges into Map UI
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-13'
 updated_at: '2026-08-20'
 depends_on:
   - task-414-422-bike-badge-component-impl
-jules_session_id: null
+jules_session_id: '287399806958238372'
 pr_number: null
 parent: story-406-414-bike-requirement-ui-badges
 tags:
