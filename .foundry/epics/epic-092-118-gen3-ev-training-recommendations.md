@@ -2,10 +2,10 @@
 id: epic-092-118-gen3-ev-training-recommendations
 type: EPIC
 title: Epic - Gen 3 EV Training Recommendations
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-30'
-updated_at: '2026-06-30'
+updated_at: '2026-08-20'
 depends_on:
   - epic-092-117-gen3-ev-dashboard-ui
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - endgame
   - competitive
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  epic-092-116-gen3-ev-data-extraction
 notes: ''
 ---
 

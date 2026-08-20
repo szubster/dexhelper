@@ -2,7 +2,7 @@
 id: epic-092-116-gen3-ev-data-extraction
 type: EPIC
 title: Epic - Gen 3 EV Data Extraction
-status: FAILED
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-30'
 updated_at: '2026-08-20'
@@ -15,8 +15,8 @@ tags:
   - save-engine
   - endgame
   - competitive
-rejection_count: 2
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 
