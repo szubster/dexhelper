@@ -25,5 +25,5 @@ notes: ''
 Integrate the sourced Gen 2 save files (`gold.sav`, `silver.sav`, `crystal.sav`, `crystal-evolve.sav`) into the test suite.
 
 ## Acceptance Criteria
-- [ ] Update test configurations to utilize the new Gen 2 fixtures.
-- [ ] Ensure relevant test cases successfully parse and validate the data from these fixtures.
+- [x] Update test configurations to utilize the new Gen 2 fixtures.
+- [x] Ensure relevant test cases successfully parse and validate the data from these fixtures.
