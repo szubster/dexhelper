@@ -134,6 +134,8 @@ jobs:
         run: node --experimental-strip-types .github/scripts/verify-dag-refs.ts
       - name: Check Links
         run: node --experimental-strip-types scripts/check-links.ts
+      - name: Test Foundry Scripts
+        run: cd .github/scripts && pnpm install --frozen-lockfile && npx vitest run
       - name: Foundry Orchestrator Dry Run
         run: node --experimental-strip-types .github/scripts/foundry-orchestrator.ts --dry-run --strict
 
