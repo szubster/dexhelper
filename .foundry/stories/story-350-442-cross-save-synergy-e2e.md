@@ -26,7 +26,7 @@ notes: ""
 This story serves as the final integration and end-to-end verification step for the Cross-Save Synergy Analysis Engine epic.
 
 ## Requirements
-- Write integration and E2E tests validating the complete workflow of the AI synergy evaluation engine.
+- Write integration and E2E tests validating the complete workflow of the Assistant synergy evaluation engine.
 - Verify that multiple saves can be analyzed and correct optimal trade opportunities considering exclusives and pokedex are generated.
 
 ## Acceptance Criteria
