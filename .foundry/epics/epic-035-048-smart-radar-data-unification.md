@@ -33,3 +33,4 @@ Unify the data structures used by the suggestion engine and the map rendering co
 - [x] Complete child stories/tasks for data unification.
 - [x] .foundry/archive/stories/story-048-088-create-route-radar-controller.md
 - [x] .foundry/stories/story-048-089-route-radar-density-aggregation.md
+- [ ] story-048-431-smart-radar-integration-e2e
