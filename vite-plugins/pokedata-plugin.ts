@@ -20,8 +20,6 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
 
   function generateData() {
     const pokemon = readJsonl(path.join(sourceDir, 'pokemon.jsonl'));
-    const encounters = readJsonl(path.join(sourceDir, 'encounters.jsonl'));
-    const locations = readJsonl(path.join(sourceDir, 'locations.jsonl'));
     const items = readJsonl(path.join(sourceDir, 'items.jsonl'));
     const moves = readJsonl(path.join(sourceDir, 'moves.jsonl'));
     const metadataPath = path.join(sourceDir, 'metadata.json');
@@ -29,8 +27,6 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
 
     const exportData = {
       poke: pokemon,
-      enc: encounters,
-      loc: locations,
       items: items,
       moves: moves,
       sourceSha: metadata.sourceSha,
@@ -79,12 +75,12 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
         }
       });
 
-      // Middleware to serve the virtual pokedata.msgpack
+      // Middleware to serve the virtual pokedata-core.msgpack
       server.middlewares.use((req, res, next) => {
         const url = req.url || '';
         const cleanUrl = url.replace(/\/$/, '');
         
-        if (cleanUrl.endsWith('/data/pokedata.msgpack')) {
+        if (cleanUrl.endsWith('/data/pokedata-core.msgpack')) {
           const data = cachedData || generateData();
           res.setHeader('Content-Type', 'application/msgpack');
           res.setHeader('Cache-Control', 'no-cache');
@@ -92,7 +88,7 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
           return;
         }
         
-        if (cleanUrl.endsWith('/data/pokedata.hash')) {
+        if (cleanUrl.endsWith('/data/pokedata-core.hash')) {
           const data = cachedData || generateData();
           res.setHeader('Content-Type', 'text/plain');
           res.setHeader('Cache-Control', 'no-cache');
@@ -110,13 +106,13 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
       
       this.emitFile({
         type: 'asset',
-        fileName: 'data/pokedata.msgpack',
+        fileName: 'data/pokedata-core.msgpack',
         source: data.finalContent
       });
 
       this.emitFile({
         type: 'asset',
-        fileName: 'data/pokedata.hash',
+        fileName: 'data/pokedata-core.hash',
         source: data.hash
       });
     }

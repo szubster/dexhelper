@@ -30,5 +30,5 @@ The generation-specific data extraction will be handled in separate tasks. For n
 The Vite plugin needs to be updated to output the new filename and use the updated generation logic.
 
 ## Acceptance Criteria
-- [ ] `scripts/generate-pokedata.ts` modified to generate `pokedata-core.msgpack` containing only core data (pokemon metadata, moves, items).
-- [ ] `vite-plugins/pokedata-plugin.ts` updated to build and output `pokedata-core.msgpack`.
+- [x] `scripts/generate-pokedata.ts` modified to generate `pokedata-core.msgpack` containing only core data (pokemon metadata, moves, items).
+- [x] `vite-plugins/pokedata-plugin.ts` updated to build and output `pokedata-core.msgpack`.

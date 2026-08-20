@@ -981,11 +981,6 @@ console.log('\nWriting split JSONL files...');
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
 writeJsonl(path.join(OUTPUT_DIR, 'pokemon.jsonl'), pokemon.map(compact));
-writeJsonl(path.join(OUTPUT_DIR, 'encounters.jsonl'), Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
-  pid,
-  enc: encs.map(compact)
-})));
-writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()).map(compact).sort((a, b) => a.id - b.id));
 writeJsonl(path.join(OUTPUT_DIR, 'moves.jsonl'), moves.map(compact));
 writeJsonl(path.join(OUTPUT_DIR, 'items.jsonl'), items.map(compact));
 
