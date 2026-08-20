@@ -2,12 +2,12 @@
 id: task-274-439-living-dex-evolution-duplicate-logic-impl
 type: TASK
 title: Living Dex Duplicate Detection Logic Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-18'
-updated_at: '2026-08-18'
+updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3485909990663108683'
 pr_number: null
 parent: story-133-274-living-dex-evolution-material
 tags:
