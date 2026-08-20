@@ -34,5 +34,12 @@ Find and implement ONE micro-UX improvement that makes the interface more intuit
 ## Learnings & Constraints
 - **Aesthetic Enforcement:** ADR 008 strictly dictates sharp edges (`rounded-none` or `border-radius: 0`) and dashed borders (`border-dashed` or `1px dashed`). Future styling components must ensure these patterns are followed instead of generic styling like solid borders.
 
-
 Learned that the e2e test takes a long time and times out, skipping per memory.
+
+## Micro-UX Improvement
+- Moved the hardcoded `[` and `]` decorative brackets from numerous `<DataLabel />` call sites internally into the `<DataLabel />` component itself.
+- Wrapped these internal brackets in `aria-hidden="true"`.
+
+## Learnings
+- **Accessibility & Screen Readers:** This simple change prevents screen readers from redundantly announcing "left bracket" and "right bracket" hundreds of times across data-heavy views (e.g. details pages).
+- **Design System Consistency:** Centralizing the brackets inside `DataLabel.tsx` strictly enforces the visual design system. Developers no longer have to manually remember to add brackets around `<DataLabel>TEXT</DataLabel>`, eliminating the risk of inconsistent UI states across different views.

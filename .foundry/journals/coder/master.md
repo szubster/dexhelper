@@ -76,14 +76,6 @@ Lessons learned:
 
 Implemented Gen 1 narrative progression flags extraction by updating the `SaveData` schema to use discriminated unions for `gen1NarrativeFlags` and extracting the flags in the `parseGen1Save` function. Created `GEN1_BOSS_EVENT_FLAGS` to map boss events to memory flag locations and wrote `getUpcomingGen1Boss` to determine the next boss the player needs to fight. Added unit tests for these components.
 
-Upon starting this session, I discovered that the `ActiveCallersDashboard` component (`src/components/dashboard/pokegear/ActiveCallersDashboard.tsx`) was already fully implemented, along with its test file (`src/components/dashboard/pokegear/__tests__/ActiveCallersDashboard.test.tsx`). The target artifacts were already completely implemented before this session began.
-
-I have executed the Empty PR Policy by checking off the acceptance criteria checkboxes in the task node without modifying the already-complete component files.
-
-
-### Coder Session - 7599093223222192944
-Target artifacts for `task-408-430-gen1-tm-hm-parsing-impl` were already completed in a previous implementation/commit. Proceeded with Empty PR flow since acceptance criteria checkboxes were already checked.
-
 ## 2026-08-16
 - **Test Authoring Learnings (Vitest Browser + DOM APIs)**:
   - When writing component tests in `vitest-browser-react` that involve mocking methods, providing explicit parameter types to `vi.fn()` (e.g. `vi.fn<(id: string, data: Uint8Array) => Promise<void>>()`) prevents Biome's `lint/suspicious/noExplicitAny` warning.
@@ -92,10 +84,7 @@ Target artifacts for `task-408-430-gen1-tm-hm-parsing-impl` were already complet
   - Applying static event listeners (`onDragOver`, `onDrop`) to `div` containers will trigger Biome's `lint/a11y/noStaticElementInteractions`. This can be suppressed using `// biome-ignore lint/a11y/noStaticElementInteractions: <reason>`.
   - When querying the container with `expect.element(container.querySelector('selector'))`, ensure the selector uses explicit typing like `<HTMLElement>` to satisfy TypeScript constraints.
 
-**Session ID:** 9371242328902962427
 **Target Task:** task-348-100-gen3-ash-ui-impl
-
-During this session, I discovered that the target artifacts for this task (`src/components/assistant/AssistantDebugView.tsx` and its tests) were already fully implemented. The UI component already correctly conditionally renders the `DiagnosticCard` for Gen 3 Volcanic Ash (`gen3VolcanicAsh`). Furthermore, the Acceptance Criteria checkboxes in the task node `.foundry/tasks/task-348-100-gen3-ash-ui-impl.md` are already checked. Therefore, no code or markdown modifications are necessary. I will execute the Empty PR Policy.
 
 Implemented the Gen 2 gender calculation utility, adhering to the strict logic where `femaleThreshold = genderRate * 2`. A pokemon is female if the `attackDV` is less than `femaleThreshold`. Edge cases (-1 genderless, 0 100% male, 8 100% female) have been handled properly, along with comprehensive unit tests for each boundary and scenario.
 
@@ -115,7 +104,20 @@ Also remembered to add `!!` to correctly coerce the evaluated symbols properties
 - When dealing with large sets of required read context files (over 80), attempting to script dynamic `read_file` tool call generation via python inside the bash session to bypass constraints can violate the strict "Exploration Rule". The required explicit context files MUST be fully executed and verified in the bash session *before* creating and requesting review of the execution plan. Attempting to schedule reading context inside the plan itself is forbidden.
 - E2E testing using Playwright with `xvfb-run pnpm test:e2e` may run successfully but exit with errors or timeouts depending on missing dependencies, such as `browserType.launch: Executable doesn't exist`. Before running the E2E test, ensure you run `pnpm exec playwright install chromium` first if testing indicates that Chromium is missing. Running just a specific file like `tests/e2e/setup.spec.ts` serves as a sufficient E2E sanity check.
 
-Session 3326878380647764239: Verified task-121-327-gen3-tv-block-parser-retry7-impl. Executed Empty PR Policy due to Artifact Anomaly. The Gen 3 TV Block DataView parsing logic, including handling of Mix Records and Mass Outbreaks, was already fully implemented in `src/engine/saveParser/parsers/gen3.ts` according to all architectural constraints (ADR 010, Section 13).
-# 2026-08-18-16-44-48
+### Implementation
+- Added `hasContestMaster` boolean property to `Gen3TrainerCard` interface.
+- Implemented `parseGen3ContestMaster` in `src/engine/saveParser/parsers/gen3.ts` to extract the Contest Master Rank flag.
+- Integrated `parseGen3ContestMaster` into `parseGen3` object constructor for `gen3TrainerCard`.
+- Updated unit tests in `src/engine/saveParser/parsers/gen3.test.ts` to verify positive, negative and boundary cases.
 
-Encountered the artifact anomaly where the target artifacts (`src/components/dashboard/pokegear/ActiveCallersDashboard.tsx` and its tests) were already completely implemented prior to the session, satisfying all requirements of task `task-287-416-active-callers-dashboard-integration`. Executed the Empty PR Policy by checking off the markdown checkboxes, explicitly overriding the false negative from the automated `request_code_review` which fails to detect pre-existing implementation.
+### Learnings
+- **Gen 3 SaveBlock1 Section-Relative Offsets:** When parsing Gen 3 save files, `SaveBlock1` is divided into four 4096-byte sections (Sections 0-3). Each section contains exactly 3968 bytes of data followed by a 128-byte footer. Absolute offsets spanning multiple sections (e.g., `0x2E90`) must be converted to section-relative offsets (e.g., `0x2E90` is in Section 3 at relative offset `0x10`) and combined with the resolved section offset (e.g., via `getLatestSectionOffset`) to avoid incorrectly reading section footers.
+
+## Context
+Refactoring `SaveData` into discriminated unions.
+
+## Actions Taken
+- Refactored `SaveData` in `src/engine/saveParser/parsers/common.ts` into `BaseSaveData`, `Gen1SaveData`, `Gen2SaveData`, and `Gen3SaveData`.
+- Updated core parser functions (`parseGen1`, `parseGen2`, `parseGen3`) to return specific generation types.
+- Fixed downstream consumers (tests, components, generators) to correctly handle the new narrowed types using `'property' in saveData` checks and TypeScript casting.
+- Verified compilation and tests pass successfully.

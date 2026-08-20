@@ -17,3 +17,14 @@
 - The previous implementation in `generate-pokedata.ts` used `!ed.base_form || ed.base_form === null` to filter valid standard evolutions. However, PokeAPI often populates `base_form` (e.g., pointing back to the pre-evolution) for standard evolutions too, meaning triggers for branching or complex standard evolutions were incorrectly dropped.
 - Changing the filter to `!ed.evolved_form` properly includes standard evolutions while filtering out unwanted variant evolutions.
 - Generated a test in `src/engine/data/__tests__/evolutions.test.ts` to ensure this logic remains correct for Eevee -> Espeon/Flareon branching logic.
+
+## Findings
+- Investigated version exclusives for Gen 1, Gen 2, and Gen 3 against PokeAPI encounter data and canonical wikis (Bulbapedia).
+- Confirmed that the committed PokeAPI data generation scripts accurately map version exclusives to the app's database.
+- Confirmed that the `engine/exclusives/` data structures accurately represent the UNOBTAINABLE Pokémon for each version. E.g. `red: [27, 28]` means Sandshrew and Sandslash (Blue exclusives) are unobtainable in Red, which is correct.
+- Found no actionable discrepancies in the data integrity audit for this run.
+
+- All target data structures for this audit are already fully correct and implemented.
+
+## Architectural Notes
+- The `engine/exclusives/` lists intentionally define Pokémon that are *missing* in the specified version.
