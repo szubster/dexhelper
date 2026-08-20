@@ -44,4 +44,6 @@ Note: The RTC extraction requirement from the parent Epic has been cancelled per
 - [ ] Create constants for Items pocket offsets, item entry size, and Shoal item IDs.
 - [ ] Implement a function to extract the Shoal items counts.
 - [ ] Call the function in `parseGen3` and add the result to the returned `SaveData`.
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-421-440-parse-items-pocket-for-shoal-items-impl
+- [ ] task-421-441-parse-items-pocket-for-shoal-items-qa
