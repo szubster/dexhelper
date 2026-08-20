@@ -2,12 +2,12 @@
 id: research-422-440-investigate-llm-json-markdown-tags
 type: RESEARCH
 title: Investigate LLM JSON Markdown Tags Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-18'
 updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15275065586819407345'
 pr_number: null
 parent: story-417-422-implement-semantic-evaluator-engine
 tags: []
