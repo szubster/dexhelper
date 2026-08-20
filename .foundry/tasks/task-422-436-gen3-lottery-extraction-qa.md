@@ -29,5 +29,5 @@ Verify the implementation of Gen 3 lottery data extraction.
 - Verify that `DataView` API is used and `RangeError` is handled.
 
 ## Acceptance Criteria
-- [ ] Verify implementation correctly extracts lottery data.
-- [ ] Verify tests pass.
+- [x] Verify implementation correctly extracts lottery data.
+- [x] Verify tests pass.
