@@ -1,3 +1,4 @@
+import type { PokemonMetadata } from '../../db/schema';
 import { getGenerationConfig } from '../../utils/generationConfig';
 import type { SaveData } from '../saveParser/parsers/common';
 
@@ -110,4 +111,43 @@ export function getOwnedPokemonLocations(saveData: SaveData): PokemonLocation[] 
   }
 
   return locations;
+}
+
+export interface EvolvableDuplicate {
+  missingSpeciesId: number;
+  duplicateSpeciesId: number;
+}
+
+/**
+ * Cross-references missing Living Dex slots with available duplicates to determine
+ * if a missing Pokemon can be obtained by evolving a duplicate pre-evolution.
+ *
+ * @param ghosts - Array of missing Pokemon species IDs.
+ * @param duplicates - Set of duplicate Pokemon species IDs possessed by the player.
+ * @param pokemonMetadata - A dictionary of Pokemon metadata to look up evolution chains.
+ * @returns An array of objects linking the missing species ID to the duplicate pre-evolution species ID.
+ */
+export function getMissingEvolutionsFromDuplicates(
+  ghosts: number[],
+  duplicates: Set<number>,
+  pokemonMetadata: Record<number, PokemonMetadata | null>,
+): EvolvableDuplicate[] {
+  const results: EvolvableDuplicate[] = [];
+
+  for (const ghostId of ghosts) {
+    const meta = pokemonMetadata[ghostId];
+    if (!meta) continue;
+
+    for (const preEvoId of meta.efrm) {
+      if (duplicates.has(preEvoId)) {
+        results.push({
+          missingSpeciesId: ghostId,
+          duplicateSpeciesId: preEvoId,
+        });
+        break; // Only map to one available duplicate pre-evolution
+      }
+    }
+  }
+
+  return results;
 }

@@ -1,7 +1,13 @@
 import { describe, expect, it, vi } from 'vitest';
+import type { PokemonMetadata } from '../../db/schema';
 import * as configModule from '../../utils/generationConfig';
 import type { SaveData } from '../saveParser/parsers/common';
-import { getLivingDexDuplicates, getLivingDexGhosts, getOwnedPokemonLocations } from './ghostTracker';
+import {
+  getLivingDexDuplicates,
+  getLivingDexGhosts,
+  getMissingEvolutionsFromDuplicates,
+  getOwnedPokemonLocations,
+} from './ghostTracker';
 
 // Mock getGenerationConfig
 vi.mock('../../utils/generationConfig', () => ({
@@ -109,5 +115,62 @@ describe('getOwnedPokemonLocations', () => {
       { speciesId: 4, box: 2, slot: 15 },
       { speciesId: 25, box: 14, slot: 29 },
     ]);
+  });
+});
+
+describe('getMissingEvolutionsFromDuplicates', () => {
+  it('identifies missing evolutions that can be obtained from duplicates', () => {
+    const ghosts = [2, 3, 6]; // Missing Ivysaur, Venusaur, Charizard
+    const duplicates = new Set([1, 4, 7]); // Has extra Bulbasaur, Charmander, Squirtle
+
+    const mockMetadata: Record<number, PokemonMetadata | null> = {
+      1: { id: 1, n: 'Bulbasaur', efrm: [], eto: [], det: [], baby: false, cr: 45 },
+      2: { id: 2, n: 'Ivysaur', efrm: [1], eto: [], det: [], baby: false, cr: 45 },
+      3: { id: 3, n: 'Venusaur', efrm: [2, 1], eto: [], det: [], baby: false, cr: 45 },
+      4: { id: 4, n: 'Charmander', efrm: [], eto: [], det: [], baby: false, cr: 45 },
+      5: { id: 5, n: 'Charmeleon', efrm: [4], eto: [], det: [], baby: false, cr: 45 },
+      6: { id: 6, n: 'Charizard', efrm: [5, 4], eto: [], det: [], baby: false, cr: 45 },
+      7: { id: 7, n: 'Squirtle', efrm: [], eto: [], det: [], baby: false, cr: 45 },
+    };
+
+    const evolvable = getMissingEvolutionsFromDuplicates(ghosts, duplicates, mockMetadata);
+
+    expect(evolvable).toHaveLength(3);
+    // Ivysaur from Bulbasaur
+    expect(evolvable).toContainEqual({ missingSpeciesId: 2, duplicateSpeciesId: 1 });
+    // Venusaur from Bulbasaur (since we have duplicate Bulbasaur)
+    expect(evolvable).toContainEqual({ missingSpeciesId: 3, duplicateSpeciesId: 1 });
+    // Charizard from Charmander
+    expect(evolvable).toContainEqual({ missingSpeciesId: 6, duplicateSpeciesId: 4 });
+  });
+
+  it('returns empty array if no duplicates match', () => {
+    const ghosts = [2, 3, 6]; // Missing Ivysaur, Venusaur, Charizard
+    const duplicates = new Set([7, 10]); // No extra Bulbasaur/Charmander
+
+    const mockMetadata: Record<number, PokemonMetadata | null> = {
+      2: { id: 2, n: 'Ivysaur', efrm: [1], eto: [], det: [], baby: false, cr: 45 },
+      3: { id: 3, n: 'Venusaur', efrm: [2, 1], eto: [], det: [], baby: false, cr: 45 },
+      6: { id: 6, n: 'Charizard', efrm: [5, 4], eto: [], det: [], baby: false, cr: 45 },
+    };
+
+    const evolvable = getMissingEvolutionsFromDuplicates(ghosts, duplicates, mockMetadata);
+
+    expect(evolvable).toHaveLength(0);
+  });
+
+  it('ignores missing metadata', () => {
+    const ghosts = [2, 999];
+    const duplicates = new Set([1]);
+
+    const mockMetadata: Record<number, PokemonMetadata | null> = {
+      2: { id: 2, n: 'Ivysaur', efrm: [1], eto: [], det: [], baby: false, cr: 45 },
+      // 999 is missing
+    };
+
+    const evolvable = getMissingEvolutionsFromDuplicates(ghosts, duplicates, mockMetadata);
+
+    expect(evolvable).toHaveLength(1);
+    expect(evolvable).toContainEqual({ missingSpeciesId: 2, duplicateSpeciesId: 1 });
   });
 });
