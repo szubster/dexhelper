@@ -48,6 +48,42 @@ export function getLivingDexGhosts(saveData: SaveData, regionalOnly = false): nu
   return ghosts;
 }
 
+/**
+ * Identifies which Pokémon the player possesses duplicates of within their physical Living Dex.
+ *
+ * @param saveData - The parsed binary save data indicating the player's progress and inventory.
+ * @returns A Set of Pokémon species IDs that the player possesses more than one of.
+ */
+export function getLivingDexDuplicates(saveData: SaveData): Set<number> {
+  const genConfig = getGenerationConfig(saveData.generation);
+  const maxDex = genConfig.maxDex;
+
+  const seen = new Set<number>();
+  const duplicates = new Set<number>();
+
+  for (const id of saveData.party) {
+    if (id > 0 && id <= maxDex) {
+      if (seen.has(id)) {
+        duplicates.add(id);
+      } else {
+        seen.add(id);
+      }
+    }
+  }
+
+  for (const id of saveData.pc) {
+    if (id > 0 && id <= maxDex) {
+      if (seen.has(id)) {
+        duplicates.add(id);
+      } else {
+        seen.add(id);
+      }
+    }
+  }
+
+  return duplicates;
+}
+
 export interface PokemonLocation {
   speciesId: number;
   box: number;

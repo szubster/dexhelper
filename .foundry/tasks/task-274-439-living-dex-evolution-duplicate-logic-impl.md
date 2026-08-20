@@ -25,6 +25,6 @@ notes: ''
 This task implements the core logic to detect when the player possesses duplicate Pokemon across their physical Party and PC box arrays. A duplicate is defined as having more than one instance of the same species ID.
 
 ## Acceptance Criteria
-- [ ] Implement logic in `src/engine/livingDex/ghostTracker.ts` (or related modules) to accurately count the number of physical instances of each Pokemon species ID.
-- [ ] Implement a function to return a map or set of species IDs for which the player possesses duplicates (count > 1).
-- [ ] Maintain O(N) constraints when sweeping across active Party and PC box arrays.
+- [x] Implement logic in `src/engine/livingDex/ghostTracker.ts` (or related modules) to accurately count the number of physical instances of each Pokemon species ID.
+- [x] Implement a function to return a map or set of species IDs for which the player possesses duplicates (count > 1).
+- [x] Maintain O(N) constraints when sweeping across active Party and PC box arrays.
