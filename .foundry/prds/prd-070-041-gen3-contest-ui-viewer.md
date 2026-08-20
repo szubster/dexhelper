@@ -2,7 +2,7 @@
 id: prd-070-041-gen3-contest-ui-viewer
 type: PRD
 title: Gen 3 Contest Condition and Ribbon Viewer UI
-status: READY
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-06-08'
 updated_at: '2026-08-20'
@@ -50,7 +50,7 @@ Following the data extraction phase, DexHelper must present the extracted Gen 3 
 - [ ] Pass visual regression and accessibility checks.
 
 ## Generated Epics
-- [ ] .foundry/archive/epics/epic-041-064-contest-ui-shared-components.md
-- [ ] .foundry/archive/epics/epic-041-065-individual-contest-stats-view.md
-- [ ] .foundry/epics/epic-041-066-global-ribbon-checklist-dashboard.md
-- [ ] .foundry/epics/epic-041-091-visual-regression-accessibility.md
+- [x] .foundry/archive/epics/epic-041-064-contest-ui-shared-components.md
+- [x] .foundry/archive/epics/epic-041-065-individual-contest-stats-view.md
+- [x] .foundry/epics/epic-041-066-global-ribbon-checklist-dashboard.md
+- [x] .foundry/epics/epic-041-091-visual-regression-accessibility.md

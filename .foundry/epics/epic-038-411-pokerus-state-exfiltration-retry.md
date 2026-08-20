@@ -2,10 +2,10 @@
 id: epic-038-411-pokerus-state-exfiltration-retry
 type: EPIC
 title: Pokerus State Exfiltration Epic (Retry)
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-10'
-updated_at: '2026-08-10'
+updated_at: '2026-08-20'
 depends_on:
   - research-038-407-investigate-pokerus-state-exfiltration-failure
 jules_session_id: null
@@ -18,7 +18,7 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: 'Retry of the cancelled epic-038-061-pokerus-state-exfiltration'
+notes: Retry of the cancelled epic-038-061-pokerus-state-exfiltration
 ---
 
 # Pokerus State Exfiltration Epic (Retry)
