@@ -5,10 +5,10 @@ title: Gen 3 Move Tutor Parsing E2E Verification
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-18'
+updated_at: '2026-08-19'
 depends_on:
   - story-406-412-gen3-move-tutor-parsing-core
-jules_session_id: '11320644304611760888'
+jules_session_id: '8175030607495719883'
 pr_number: null
 parent: epic-055-406-gen3-move-tutor-save-parsing
 tags:

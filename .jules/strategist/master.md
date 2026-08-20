@@ -44,7 +44,6 @@
 **Why:** Several personas (Coder, QA, Tech Lead, Auditor) shared duplicated constraints around Save File Parsing (Section 13), UI Aesthetics (ADR 008), Architectural Scaffolding, Vitest mocks, and the Intelligent Verification Protocol. This leads to drift and bloated context windows.
 **Pattern:** Extract duplicated coding and verification policies from individual agent schedules and centralize them into `core_policies.md` to ensure all agents operate from a single, consistent source of truth, reducing token usage and simplifying prompt maintenance.
 
-
 ## 2026-08-13 - [Accepted] - Prompt improvement - Clean up Epic Planner rules handled in core_policies
 **Type:** Prompt improvement
 **Outcome:** Merged
@@ -56,3 +55,9 @@
 **Outcome:** Merged
 **Why:** The rules for mandatory context initialization (reading `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/archive/docs/adrs/`) were consolidated into `core_policies.md` on 2026-08-01. However, `.github/agents/tech_lead.md` and `.github/agents/architect.md` still contained redundant `Workflow` steps explicitly instructing the persona to review this documentation manually. This wastes context window space and creates inconsistency.
 **Pattern:** Regularly scrub agent schedules to remove directives that are already enforced globally in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+
+## 2026-08-18 - [Accepted] - Prompt improvement: Add Journal section to Changelogger
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `changelogger.md` schedule was completely missing the standard "Journal" section and its associated directives. Because of this omission, the Changelogger agent lacked strict instructions on where to save its private journal (`.foundry/journals/changelogger/`) and an explicit requirement to adhere to the core journaling policies defined in `.foundry/docs/knowledge_base/agents/core_policies.md`. The journal section is standard across all other agent prompts and is necessary for long term learning and debugging.
+**Pattern:** Ensure all agent prompts contain the required "Journal" section specifying the correct journal location and mandating adherence to the `core_policies.md` rules to maintain consistency across the agent roster.

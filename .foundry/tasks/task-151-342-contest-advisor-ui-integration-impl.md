@@ -5,9 +5,9 @@ title: Implement Contest Advisor UI Integration
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-22'
-updated_at: '2026-08-18'
+updated_at: '2026-08-19'
 depends_on: []
-jules_session_id: '11280309860401788978'
+jules_session_id: '2424326705415073517'
 pr_number: null
 parent: story-065-151-contest-advisor-ui-integration
 tags:

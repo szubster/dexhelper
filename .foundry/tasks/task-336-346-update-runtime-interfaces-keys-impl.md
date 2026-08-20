@@ -2,12 +2,12 @@
 id: task-336-346-update-runtime-interfaces-keys-impl
 type: TASK
 title: Update Runtime Interfaces to Verbose Keys Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-26'
-updated_at: '2026-08-15'
+updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14891953899013232037'
 pr_number: null
 parent: story-043-336-update-runtime-interfaces-keys
 tags:

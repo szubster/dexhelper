@@ -5,10 +5,10 @@ title: Implement Gen 3 Trainer Flags E2E Tests
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-10'
-updated_at: '2026-08-18'
+updated_at: '2026-08-19'
 depends_on:
   - task-408-415-gen3-trainer-flags-integration-impl
-jules_session_id: '14566241007309351963'
+jules_session_id: '15111414785277202055'
 pr_number: null
 parent: story-307-408-gen3-trainer-flags-extraction-e2e
 tags:

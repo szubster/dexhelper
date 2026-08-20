@@ -107,6 +107,7 @@ export interface Gen3TrainerCard {
   hasHoennDex: boolean;
   hasNationalDex: boolean;
   hasBattleFrontier: boolean;
+  hasContestMaster: boolean;
 }
 
 export interface Gen3TVShow {
@@ -317,6 +318,8 @@ export interface Gen1SaveData extends BaseSaveData {
 export interface Gen2SaveData extends BaseSaveData {
   /** The generation of the parsed save file. */
   generation: 2;
+  /** Gen 2 specific: Narrative progression flags. */
+  gen2NarrativeFlags?: Record<string, boolean>;
   /** Gen 2 specific: The Map Group ID used alongside currentMapId to uniquely identify a location. */
   mapGroup?: number;
   /** Gen 2 specific: The number of Johto gym badges obtained. */

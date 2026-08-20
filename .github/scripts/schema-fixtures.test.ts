@@ -43,4 +43,16 @@ describe('Zod Schema E2E Test Fixtures (Markdown Files)', () => {
     const { data } = matter(file);
     expect(() => NodeFrontmatterSchema.parse(data)).toThrowError(/invalid_type/);
   });
+
+  it('validates a correct TASK file with valid locks array', () => {
+    const file = fs.readFileSync(path.join(fixturesDir, 'task-003-locks-valid.md'), 'utf-8');
+    const { data } = matter(file);
+    expect(() => NodeFrontmatterSchema.parse(data)).not.toThrow();
+  });
+
+  it('fails validation for TASK with invalid locks type', () => {
+    const file = fs.readFileSync(path.join(fixturesDir, 'task-003-locks-invalid.md'), 'utf-8');
+    const { data } = matter(file);
+    expect(() => NodeFrontmatterSchema.parse(data)).toThrowError(/invalid_type/);
+  });
 });

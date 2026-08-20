@@ -126,7 +126,6 @@ Successfully broke down PRD `prd-146-001-foundry-system-statistics` into two dis
 - Splitting the linter script creation and its CI integration into separate epics prevents monolithic PRs and allows parallel development.
 - The linter must enforce ADR 008 (tactical hardware UI aesthetics) and ADR 013 (React context for state management) to significantly reduce QA LLM context usage.
 
-
 # Journal Entry - Save Editor CLI Epic Breakdown
 When creating Epics for CLI-based tooling, we must enforce a process where the Epic generates a final STORY dedicated exclusively to Integration and E2E Verification to ensure all CLI inputs and save file outputs are fully validated before marking the feature as complete. This ensures we follow the orchestrator safeguard rule for E2E verification as defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 

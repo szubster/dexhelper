@@ -28,4 +28,6 @@ notes: ''
 Verify the full TM/HM integration across Gen 1, Gen 2, and Gen 3 save files using end-to-end tests to ensure extraction, event flag parsing, and inventory generation are working correctly according to all constraints.
 
 ## Acceptance Criteria
-- [ ] Break down into multiple TASK nodes for implementation and QA.
+- [x] Break down into multiple TASK nodes for implementation and QA.
+- [ ] task-411-440-tm-hm-integration-e2e-impl
+- [ ] task-411-441-tm-hm-integration-e2e-qa

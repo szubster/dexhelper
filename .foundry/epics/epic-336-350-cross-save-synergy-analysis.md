@@ -2,13 +2,13 @@
 id: epic-336-350-cross-save-synergy-analysis
 type: EPIC
 title: Cross-Save Synergy Analysis Engine
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-04'
-updated_at: '2026-08-18'
+updated_at: '2026-08-20'
 depends_on:
   - epic-336-349-multi-save-infrastructure
-jules_session_id: null
+jules_session_id: '5608732619010995946'
 pr_number: null
 parent: prd-059-336-multi-save-trade-planner
 tags:

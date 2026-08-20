@@ -5,9 +5,9 @@ title: Pokerus State Exfiltration E2E Verification Impl
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-16'
-updated_at: '2026-08-17'
+updated_at: '2026-08-19'
 depends_on: []
-jules_session_id: '3303954068181817696'
+jules_session_id: '2084945727380104278'
 pr_number: null
 parent: story-407-415-pokerus-state-exfiltration-e2e
 tags:

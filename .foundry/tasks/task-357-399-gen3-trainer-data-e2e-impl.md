@@ -5,10 +5,10 @@ title: Implement Gen 3 Trainer Data E2E/Integration Tests
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-01'
-updated_at: '2026-08-18'
+updated_at: '2026-08-19'
 depends_on:
   - task-356-396-gen3-trainer-data-extraction-core-impl
-jules_session_id: '18121762556773409164'
+jules_session_id: '3640935315816398710'
 pr_number: null
 parent: story-346-357-gen3-trainer-data-e2e
 tags:
