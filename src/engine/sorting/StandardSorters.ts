@@ -1,3 +1,4 @@
+import { getMissingRibbonCount } from '../filtering/RibbonFilters';
 import type { GameVersion } from '../saveParser/parsers/common';
 import { HOENN_DEX_ORDER } from '../saveParser/parsers/gen3';
 import type { SortingStrategy } from './SortingStrategy';
@@ -103,5 +104,24 @@ export class AlphaSorter {
     const nameB = b.instance?.nickname || b.metadata?.n || String(b.instance?.speciesId ?? Infinity);
 
     return nameA.localeCompare(nameB);
+  };
+}
+
+export class MissingRibbonSorter {
+  private config: { direction: 'asc' | 'desc' };
+
+  constructor(config: { direction: 'asc' | 'desc' } = { direction: 'desc' }) {
+    this.config = config;
+  }
+
+  public sort: SortingStrategy = (a, b) => {
+    const missingA = getMissingRibbonCount(a.instance);
+    const missingB = getMissingRibbonCount(b.instance);
+
+    if (this.config.direction === 'asc') {
+      return missingA - missingB;
+    } else {
+      return missingB - missingA;
+    }
   };
 }
