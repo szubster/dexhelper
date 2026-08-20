@@ -575,6 +575,12 @@ function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
 /**
  * Reconstructs the contiguous PC Buffer from Gen 3 save sections 5 through 13.
  *
+ * @remarks
+ * **Architecture Note:**
+ * Gen 3 PC Box data is spread across multiple 4KB sections (sections 5 through 13).
+ * Before individual Pokémon can be parsed, those scattered sections must be concatenated into
+ * a single contiguous buffer (`pcBufferView`).
+ *
  * @param view - The raw save file DataView.
  * @returns A Uint8Array containing the contiguous PC Buffer.
  * @throws RangeError if a required section is out of bounds or missing.
@@ -598,16 +604,18 @@ export function parseGen3PCBuffer(view: DataView): Uint8Array {
 }
 
 /**
- * Parses the PC Boxes to extract all stored Pokemon.
+ * Parses the player's active party from a Generation 3 save file.
  *
+ * @remarks
  * **Architecture Note:**
- * Gen 3 PC Box data is spread across multiple 4KB sections (sections 5 through 13).
- * Before this function is called, those scattered sections must be concatenated into
- * a single contiguous buffer (`pcBufferView`).
+ * Gen 3 party data is stored in Section 1 (SaveBlock1) of the current A/B bank.
+ * The memory offsets for the party count and list differ between Ruby/Sapphire/Emerald
+ * and FireRed/LeafGreen, so the function uses `gameVersion` to dynamically resolve them.
  *
- * @param pcBufferView - A DataView of the reconstructed PC Buffer.
- * @returns An object containing the simple array of species IDs (`pc`) and the detailed `pcDetails`.
- * @throws Error - "The save file is corrupted or incomplete." on invalid data.
+ * @param view - The raw save file DataView.
+ * @param section1Offset - The absolute memory offset to the start of the most recent Section 1 block.
+ * @param gameVersion - The specific Gen 3 game version ('ruby', 'sapphire', 'emerald', 'firered', 'leafgreen').
+ * @returns An object containing the simple array of species IDs (`party`) and detailed instances (`partyDetails`).
  */
 export function parseGen3Party(view: DataView, section1Offset: number, gameVersion: import('./common').GameVersion) {
   const party: number[] = [];
@@ -712,6 +720,19 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
   return { party, partyDetails };
 }
 
+/**
+ * Parses the PC Boxes to extract all stored Pokemon.
+ *
+ * @remarks
+ * **Architecture Note:**
+ * Gen 3 PC Box data is spread across multiple 4KB sections (sections 5 through 13).
+ * Before this function is called, those scattered sections must be concatenated into
+ * a single contiguous buffer (`pcBufferView`).
+ *
+ * @param pcBufferView - A DataView of the reconstructed PC Buffer.
+ * @returns An object containing the simple array of species IDs (`pc`) and the detailed `pcDetails`.
+ * @throws Error - "The save file is corrupted or incomplete." on invalid data.
+ */
 export function parseGen3PCBoxes(pcBufferView: DataView) {
   const pc: number[] = [];
   const pcDetails: import('./common').PokemonInstance[] = [];
@@ -1378,20 +1399,21 @@ export function parseGen3ContestMaster(view: DataView, section3Offset: number): 
 }
 
 /**
- * The main orchestrator for parsing a Generation 3 (R/S/E/FR/LG) save file.
+ * The main entry point for parsing a complete Generation 3 save file.
  *
+ * @remarks
  * **Architecture Overview & Orchestration:**
  * 1. **Sector Resolution:** The parser first identifies the most recent valid blocks for Section 0 (Trainer Info),
- *    Section 1 (Team/Items), and Section 2 (GameState/Time) by scanning both A and B flash memory banks.
+ *    Section 1 (Team/Items), and Section 2 (GameState/Time) by scanning both A and B flash memory banks checking the `saveIndex`.
  * 2. **PC Buffer Stitching:** Gen 3 PC Box data is spread across 9 different 4KB sections (Sections 5-13).
  *    The engine resolves the latest versions of these sectors and stitches them together into a contiguous buffer.
  * 3. **Data Extraction:** Extracts Pokémon (decrypting their 48-byte substructures), inventory,
  *    event flags, and metadata specific to Hoenn or Kanto (Gen 3).
  *
- * @param view - The DataView of the 128KB binary Flash memory save file.
- * @param _forcedVersion - An optional version override (unused currently, reserved for future heuristic bypassing).
- * @returns The fully mapped `SaveData` object, abstracting away the complex encrypted substructures of Gen 3 Pokemon.
- * @throws {Error} If the save file is corrupted, incomplete, or out-of-bounds reads occur.
+ * @param view - The raw binary data of the .sav file.
+ * @param _forcedVersion - An optional version override provided by the user (defaults to 'ruby' for fallbacks).
+ * @returns The structured Gen3SaveData object containing all parsed player progress.
+ * @throws RangeError if the file bounds are exceeded during the initial block scan.
  */
 export function parseGen3(view: DataView, _forcedVersion?: GameVersion): import('./common').Gen3SaveData {
   try {
