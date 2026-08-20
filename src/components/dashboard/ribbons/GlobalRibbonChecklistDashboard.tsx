@@ -1,5 +1,6 @@
 import type React from 'react';
 import { useMemo } from 'react';
+import { RibbonFilterProvider } from '../../../contexts/RibbonFilterContext';
 import { useStore } from '../../../store';
 import {
   type ContestConditionType,
@@ -9,7 +10,7 @@ import {
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 
-export const GlobalRibbonChecklistDashboard: React.FC = () => {
+const GlobalRibbonChecklistDashboardContent: React.FC = () => {
   const saveData = useStore((s) => s.saveData);
   const isLivingDex = useStore((s) => s.isLivingDex);
 
@@ -88,5 +89,13 @@ export const GlobalRibbonChecklistDashboard: React.FC = () => {
         </div>
       </TacticalPanel>
     </div>
+  );
+};
+
+export const GlobalRibbonChecklistDashboard: React.FC = () => {
+  return (
+    <RibbonFilterProvider>
+      <GlobalRibbonChecklistDashboardContent />
+    </RibbonFilterProvider>
   );
 };

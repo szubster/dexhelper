@@ -30,4 +30,4 @@ Define the React Context (or Zustand slice if global, though context is likely p
 - Write a unit test ensuring the context provider correctly updates state.
 
 ## 3. Acceptance Criteria
-- [ ] State layer for ribbon filtering/sorting is defined and tested.
+- [x] State layer for ribbon filtering/sorting is defined and tested.
