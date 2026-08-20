@@ -20,3 +20,6 @@ notes: ''
 # Investigate LLM JSON Markdown Tags Failure
 
 Investigate the integration test failure where the LLM returns JSON wrapped in markdown tags causing `JSON.parse` to throw an error. Find a robust solution to strip these markdown code blocks.
+
+## Acceptance Criteria
+- [x] Strip markdown wrappers off JSON returned by evaluateSemanticCondition
