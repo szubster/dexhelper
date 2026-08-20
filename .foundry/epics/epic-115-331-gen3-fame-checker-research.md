@@ -36,3 +36,7 @@ Before we can extract this data, we need to know exactly which bits or event fla
 ## Scope
 - Focus exclusively on Pokémon FireRed and LeafGreen save files.
 - Produce documentation detailing the findings.
+
+## Acceptance Criteria
+- [ ] story-331-431-conduct-fame-checker-research
+- [ ] story-331-432-fame-checker-research-e2e
