@@ -2,12 +2,12 @@
 id: epic-097-130-gen3-data-structure-extraction
 type: EPIC
 title: Gen 3 Data Structure Extraction
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-01'
-updated_at: '2026-08-14'
+updated_at: '2026-08-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8601309936583911484'
 pr_number: null
 parent: prd-080-097-gen3-data-parsing-infrastructure
 tags:

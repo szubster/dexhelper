@@ -5,9 +5,9 @@ title: Refactor Core Data Generation Script
 status: ACTIVE
 owner_persona: coder
 created_at: $(date -I)
-updated_at: '2026-08-17'
+updated_at: '2026-08-19'
 depends_on: []
-jules_session_id: '17529359140136458785'
+jules_session_id: '6909033818952729183'
 pr_number: null
 parent: story-400-428-extract-core-data
 tags:

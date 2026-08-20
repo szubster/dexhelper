@@ -22,7 +22,6 @@
 **Why:** The previous text-only badge felt too plain for a tactical hardware interface. Adding diagnostic stripes and hardware LED elements increases the realism and density of the tactical aesthetic.
 **Pattern:** Shifting from basic text badges to hardware-inspired modules with animated elements (like warning stripes and pulsing LEDs) improves immersion.
 
-
 ## 2025-02-12 - [Accepted] - 🖼️ Canvas: PokemonLocations Geospatial Telemetry Redesign
 **What:** Redesigned the `PokemonLocations` component to match the tactical terminal/snooping UI style more closely. Added sweeping animations, hex data traces, restructured the vector grids with tactical styling and probability bars, and added binary/scanline accents to static and evolution components.
 **Outcome:** Accepted -> wait for review
@@ -40,7 +39,6 @@
 **Outcome:** Accepted -> wait for review
 **Why:** The original `PokedexCard` lacked depth and felt generic compared to components like `SearchAndFilters`. This change grounds the card visually in the broader terminal OS theme.
 **Pattern:** For interactive display cards, rely on layered dashed frames, raw data streams (hex/binary), and mechanical hover animations (e.g., crosshairs or pulsing LEDs) rather than generic UI scales or shadows. Ensure custom animations referenced in Tailwind arbitrary values are explicitly defined in `index.css`.
-
 
 ## 2026-08-17 - Accepted - 🖼️ Canvas: redesign EmptyState as tactical diagnostic terminal
 **What:** Redesigned the `EmptyState` component from a generic centered radar UI to a horizontal, left-aligned terminal diagnostic panel.

@@ -2,15 +2,15 @@
 id: story-309-004-shiny-odds-computation
 type: STORY
 title: Gen 2 Shiny Odds Computation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-08-17'
+updated_at: '2026-08-19'
 depends_on:
   - story-309-001-gender-calculation-engine
   - story-309-002-dv-overlap-constraint
   - story-309-003-egg-group-validation
-jules_session_id: null
+jules_session_id: '11735838444595395559'
 pr_number: null
 parent: epic-112-309-gen2-shiny-breeding-logic
 tags:

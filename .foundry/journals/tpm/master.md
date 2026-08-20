@@ -1,6 +1,5 @@
 - Consolidated all the session-unique `.md` journal files across `.foundry/journals/` and `.jules/` into aggregated `master.md` files per persona.
 
-
 # TPM Journal
 Session ID: jules-session
 
@@ -41,7 +40,6 @@ Moved COMPLETED and CANCELLED nodes to their respective archive directories.
 
 No deadlocks were detected during this run.
 
-
 # TPM Session Journal
 Date: 2026-08-16 00:45:00
 
@@ -55,3 +53,6 @@ Date: 2026-08-16 00:45:00
 - Nodes cannot be archived individually unless their entire hierarchy satisfies terminal conditions. We must archive the entire tree.
 - A test node (such as QA or E2E) should be identified and archived if its tree is terminal.
 - Node paths in memory often lack file extensions, requiring correct mapping during directory creation and file movement.
+
+# TPM Session 2026-08-18-00-46-22
+During this session, I resolved several minor DAG orchestrator deadlocks where node paths (e.g. `.foundry/epics/epic-336-349-multi-save-infrastructure.md`) were incorrectly used in the `depends_on` array instead of their pure node IDs (`epic-336-349-multi-save-infrastructure`). This violation of the DAG ID strictness rule prevents the orchestrator from properly resolving dependencies. I updated multiple files in the `.foundry/archive/tasks/`, `.foundry/epics/`, and `.foundry/prds/` directories to use strict node IDs. Future nodes should enforce strict Node IDs without file paths or extensions.

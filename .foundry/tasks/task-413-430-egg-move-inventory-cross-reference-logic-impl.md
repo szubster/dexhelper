@@ -2,12 +2,12 @@
 id: task-413-430-egg-move-inventory-cross-reference-logic-impl
 type: TASK
 title: Implement Egg Move Inventory Cross-Reference Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-16'
 updated_at: '2026-08-18'
 depends_on: []
-jules_session_id: '9710672368201557725'
+jules_session_id: null
 pr_number: null
 parent: story-114-413-egg-move-inventory-cross-reference-logic
 tags:
@@ -34,6 +34,6 @@ In Gen 2 and Gen 3, only **Male** Pokémon can pass down Egg Moves to their offs
 6. Write Vitest tests covering scenarios where the player has a Female with the move (should not pass) vs a Male with the move (should pass).
 
 ## Acceptance Criteria
-- [ ] `calculateGen3Gender` is implemented in `src/utils/gender.ts`.
-- [ ] `generateBreedingSuggestions` checks if the instance is male before setting `hasMove = true`.
-- [ ] Unit tests cover gender constraints.
+- [x] `calculateGen3Gender` is implemented in `src/utils/gender.ts`.
+- [x] `generateBreedingSuggestions` checks if the instance is male before setting `hasMove = true`.
+- [x] Unit tests cover gender constraints.

@@ -40,3 +40,7 @@ Add documentation to a complex engine module (`encounterTools.ts`) focusing on t
 
 - **In-Place Array Mutation for Performance**: The core suggestion engine generation loop avoids using declarative array methods like `.filter()`, `.map()`, or `.some()` and instead heavily relies on manual `for` loops. Furthermore, arrays like `suggestions` and `localPids` are mutated *in-place* (using `splice` while iterating backwards, or `delete` on Sets). This is a critical and deliberate architectural constraint to prevent intermediate O(N) array allocations, which cause severe garbage collection overhead during the hot path. Functions like `filterSuggestionsByMissingTools` and `extractPlayerTools` perfectly demonstrate this requirement and have been documented accordingly.
 - **Pre-calculation for O(1) Lookups**: Tool availability (`extractPlayerTools`) is calculated once per suggestion generation cycle and passed down as a `PlayerTools` object to sub-generators, avoiding the need to repeatedly scan the player's full inventory for every individual wild encounter evaluation.
+
+# Session Learnings
+
+- **Gen 3 Save Detection Stub**: `isGen3Save` in `src/engine/saveParser/utils/detection.ts` is explicitly stubbed to return `false` because Gen 3 save files use a complex A/B flash bank system with multiple checksums per sector. This requires scanning for signatures across sections, which is handled in a structural fallback path in `index.ts` rather than a contiguous block heuristic. I documented this with JSDoc.

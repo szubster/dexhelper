@@ -22,7 +22,6 @@ Identified `PokemonCaughtDetails` as a relatively large bundle that can be lazy 
 - Replaced static import in `src/components/PokemonDetails.tsx` with a `React.lazy` component wrapped in a suspense boundary.
 - Updated `vite.config.ts` chunking function and `.bundlemonrc.json` limits for the new component.
 
-
 # Session: 2024-08-07-02-15-00
 Persona: Bolt
 
@@ -31,7 +30,6 @@ Identified multiple React components that frequently re-render with large data s
 - Added `React.memo` to `DagFilterPanel` in `src/components/dag/DagFilterPanel.tsx` to isolate its render cycle from the complex parent DAG context changes.
 - Added `React.memo` to `PokemonSprite` in `src/components/pokemon/PokemonSprite.tsx` to prevent cascading render evaluations across large list views (like PC storage grids and Pokedex lists).
 - Annotated all changes with `// ⚡ Bolt:` comments explaining the memoization context.
-
 
 Session completed successfully. Optimized the Vite build by adding a saveParserCommon chunk, eliminating the +6KB overhead duplication between saveParserGenX chunks and clarifying the 49KB Rollup chunk-drop in the GlobalRibbonChecklistDashboard.
 Learned that Vite and Rollup automatically handle chunk splitting for dynamic imports. Removed hardcoded manual chunks from vite.config.ts and confirmed correct splitting without duplication.

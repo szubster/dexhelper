@@ -2,13 +2,13 @@
 id: task-351-385-nuzlocke-death-tracking-e2e-qa
 type: TASK
 title: Nuzlocke Death Tracking E2E Tests Verification
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-01'
-updated_at: '2026-08-15'
+updated_at: '2026-08-20'
 depends_on:
   - task-351-384-nuzlocke-death-tracking-e2e-impl
-jules_session_id: null
+jules_session_id: '16272564245202199728'
 pr_number: null
 parent: story-131-351-nuzlocke-death-tracking-e2e
 tags:

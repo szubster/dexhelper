@@ -177,3 +177,11 @@
   Proposes a Tracker Dashboard for the Generation 3 Trick House (Route 110). Using the reverse-engineered `SaveBlock1` variables, DexHelper can extract the player's current Trick House level, puzzle states, and prize pickups. This will allow the UI to dynamically suggest which HMs/Pokémon to bring before the player travels there.
 - **Strategic Balance:**
   In the preceding session, IDEA-154 was proposed for Foundry System/Tech Stack modernization. To strictly maintain the 50/50 strategic balance between product features and system improvements, this session pivots back to proposing a direct user-facing feature for DexHelper (Gen 3 Trick House Tracker).
+
+- **Active Session/Timestamp:** 2026-08-19-00-44-27
+- **Domain:** Foundry System
+- **Proposed Idea:** Automated Graph Healing for BLOCKED Nodes (IDEA-156)
+- **Rationale & Concept:**
+  Resolving BLOCKED nodes caused by circular dependencies currently requires manual intervention. This idea proposes introducing an automated graph healing sub-routine (utilizing the mechanic persona) to run a topological sort, diagnose the failure, and have an LLM automatically fix the `depends_on` relationships via a patch PR, pushing the system closer to full autonomy.
+- **Strategic Balance:**
+  In the preceding session, IDEA-155 was proposed for DexHelper (Gen 3 Trick House Tracker). To strictly maintain the 50/50 strategic balance between product features and system improvements, this session pivots back to proposing an internal pipeline improvement for the Foundry Orchestrator.

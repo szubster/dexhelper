@@ -5,9 +5,9 @@ title: Implement Gen 3 Friendship Data Extraction
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-03'
-updated_at: '2026-08-18'
+updated_at: '2026-08-19'
 depends_on: []
-jules_session_id: '18445728545023959316'
+jules_session_id: '9848914975066968583'
 pr_number: null
 parent: story-094-152-gen3-friendship-extraction
 tags:

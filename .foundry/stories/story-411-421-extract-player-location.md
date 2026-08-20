@@ -5,10 +5,10 @@ title: Extract Player's Location and Upcoming Trainer
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-13'
-updated_at: '2026-08-18'
+updated_at: '2026-08-19'
 depends_on:
   - story-411-420-extract-player-team
-jules_session_id: '14769241083375542065'
+jules_session_id: '7968238760546209970'
 pr_number: null
 parent: epic-340-411-gen3-ai-data-extraction
 tags:
