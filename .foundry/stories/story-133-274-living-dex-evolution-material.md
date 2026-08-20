@@ -30,3 +30,6 @@ This story implements the logic to detect raw materials for evolution to fill mi
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
+- [ ] task-274-439-living-dex-evolution-duplicate-logic-impl
+- [ ] task-274-440-living-dex-evolution-material-mapping-impl
+- [ ] task-274-441-living-dex-evolution-material-qa

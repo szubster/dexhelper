@@ -2,13 +2,13 @@
 id: task-322-332-gen2-decoration-savings-parsing-qa
 type: TASK
 title: QA Gen 2 Room Decoration & Bank Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-07-17'
-updated_at: '2026-08-18'
+updated_at: '2026-08-19'
 depends_on:
   - task-322-331-gen2-decoration-savings-parsing-impl
-jules_session_id: '11688843103783499991'
+jules_session_id: null
 pr_number: null
 parent: story-311-322-gen2-room-decoration-parsing
 tags:
@@ -16,7 +16,7 @@ tags:
   - engine
   - save-parsing
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
@@ -36,3 +36,6 @@ Verify the implementation of Gen 2 room decoration and bank parsing.
 - [ ] Verify accuracy of parsed room decoration data.
 - [ ] Verify accuracy of parsed bank savings data.
 - [ ] Verify strict usage of module-level constants for all offsets (No inline magic numbers).
+
+### QA Rejection Note
+Rejected because the coder did not implement any of the parsing logic. No offsets or extraction code found in the saveParser for Gen 2 room decorations or Mom's bank savings.

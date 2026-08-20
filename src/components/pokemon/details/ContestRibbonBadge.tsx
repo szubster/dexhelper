@@ -63,7 +63,7 @@ export const ContestRibbonBadge = React.forwardRef<HTMLDivElement, ContestRibbon
 
         <div className="relative z-10 mb-4 flex items-start justify-between">
           <div className="flex flex-col">
-            <DataLabel>[ ${type}_SYS ]</DataLabel>
+            <DataLabel>${type}_SYS</DataLabel>
             <span
               className={cn('mt-0.5 font-black font-display text-xl uppercase tracking-tight', typeTextColorMap[type])}
             >

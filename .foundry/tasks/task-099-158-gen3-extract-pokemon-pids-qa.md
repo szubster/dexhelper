@@ -5,10 +5,10 @@ title: QA Gen 3 Pokemon PID Extraction
 status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-10'
-updated_at: '2026-08-18'
+updated_at: '2026-08-19'
 depends_on:
   - task-099-157-gen3-extract-pokemon-pids-impl
-jules_session_id: '17602106261494157714'
+jules_session_id: '5586949025564325789'
 pr_number: null
 parent: story-061-099-extract-pokemon-pids
 tags:
@@ -16,7 +16,7 @@ tags:
   - qa
   - mirage-island
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

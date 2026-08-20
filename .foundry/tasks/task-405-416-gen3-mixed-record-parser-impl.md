@@ -5,10 +5,10 @@ title: Implement Gen 3 Mixed Record Parser
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-10'
-updated_at: '2026-08-18'
+updated_at: '2026-08-19'
 depends_on:
   - task-405-415-gen3-mixed-record-types-impl
-jules_session_id: '16541727014282416387'
+jules_session_id: '13698183130803668677'
 pr_number: null
 parent: story-397-405-gen3-mixed-record-npc-data
 tags:

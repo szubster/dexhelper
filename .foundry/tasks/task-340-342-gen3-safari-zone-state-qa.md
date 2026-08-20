@@ -5,10 +5,10 @@ title: Gen 3 Safari Zone State Parsing QA
 status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-25'
-updated_at: '2026-08-18'
+updated_at: '2026-08-19'
 depends_on:
   - task-340-341-gen3-safari-zone-state-impl
-jules_session_id: '2052345738036648904'
+jules_session_id: '13723927411961996050'
 pr_number: null
 parent: story-324-340-gen3-safari-zone-save-state
 tags:

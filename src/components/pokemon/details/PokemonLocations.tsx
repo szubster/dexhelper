@@ -192,7 +192,7 @@ function GeospatialNode({ encounter: e, areaName }: { encounter: CompactEncounte
         {/* Vectors */}
         <div className="relative z-10 flex flex-col gap-3">
           <div className="flex items-center justify-between">
-            <DataLabel>[ DEPLOYMENT VECTORS ]</DataLabel>
+            <DataLabel>DEPLOYMENT VECTORS</DataLabel>
             <span className="font-mono text-[8px] text-zinc-600">
               VECTORS_FOUND:{e.d.length.toString().padStart(2, '0')}
             </span>

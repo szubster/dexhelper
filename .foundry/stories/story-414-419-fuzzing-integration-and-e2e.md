@@ -27,4 +27,7 @@ notes: ''
 Integrate the fuzzing framework into the Vitest suite and write E2E tests to ensure it operates correctly in a CI-like environment.
 
 ## Acceptance Criteria
-- [ ] Tasks generated.
+- [x] Tasks generated.
+- [ ] task-419-439-fuzzing-vitest-configuration-impl
+- [ ] task-419-440-fuzzing-test-suite-impl
+- [ ] task-419-441-fuzzing-ci-validation-qa

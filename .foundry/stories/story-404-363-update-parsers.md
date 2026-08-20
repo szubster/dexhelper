@@ -2,13 +2,13 @@
 id: story-404-363-update-parsers
 type: STORY
 title: Update Generation-Specific Parsers and Tests
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-07'
-updated_at: '2026-08-18'
+updated_at: '2026-08-20'
 depends_on:
   - story-404-362-refactor-savedata-type
-jules_session_id: null
+jules_session_id: '14761705676572452878'
 pr_number: null
 parent: epic-122-404-refactor-savedata-typing
 tags:
