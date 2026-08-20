@@ -26,9 +26,9 @@ notes: ''
 We need to implement the save state write API for `SaveHistoryDB` inside `src/engine/storage/historyDb.ts` to fulfill the write operations of `story-398-431-save-state-write-api`.
 
 ## Acceptance Criteria
-- [ ] Export an asynchronous function `writeSaveState(id: string, saveData: Uint8Array, metadata: Record<string, unknown>)` in `src/engine/storage/historyDb.ts`.
-- [ ] Implement the function so that it opens the database using `initHistoryDb()`.
-- [ ] Run a transaction that saves `saveData` into the `saves` object store.
-- [ ] In the same transaction, save the `metadata` into the `metadata` object store.
-- [ ] Include error handling to safely catch issues.
-- [ ] Add unit tests in `src/engine/storage/historyDb.test.ts` to verify the write operation, making sure metadata and the save states are written successfully.
+- [x] Export an asynchronous function `writeSaveState(id: string, saveData: Uint8Array, metadata: Record<string, unknown>)` in `src/engine/storage/historyDb.ts`.
+- [x] Implement the function so that it opens the database using `initHistoryDb()`.
+- [x] Run a transaction that saves `saveData` into the `saves` object store.
+- [x] In the same transaction, save the `metadata` into the `metadata` object store.
+- [x] Include error handling to safely catch issues.
+- [x] Add unit tests in `src/engine/storage/historyDb.test.ts` to verify the write operation, making sure metadata and the save states are written successfully.
