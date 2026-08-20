@@ -2,12 +2,12 @@
 id: epic-115-331-gen3-fame-checker-research
 type: EPIC
 title: Gen 3 Fame Checker Event Flag Research
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-17'
-updated_at: '2026-08-19'
+updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '14440157345016907615'
+jules_session_id: null
 pr_number: null
 parent: prd-115-115-gen3-fame-checker-assistant
 tags:

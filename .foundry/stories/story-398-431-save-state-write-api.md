@@ -2,7 +2,7 @@
 id: story-398-431-save-state-write-api
 type: STORY
 title: Implement Save State Write API
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-20'
 updated_at: '2026-08-20'

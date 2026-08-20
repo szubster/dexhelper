@@ -1,11 +1,11 @@
 ---
 id: task-336-401-architect-drive-sync-adr
 type: TASK
-title: "Author ADR: Server-Side Integration vs. Android Companion App for Drive Sync"
-status: PENDING
-owner_persona: "architect"
-created_at: "2026-08-05"
-updated_at: "2026-08-05"
+title: 'Author ADR: Server-Side Integration vs. Android Companion App for Drive Sync'
+status: READY
+owner_persona: architect
+created_at: '2026-08-05'
+updated_at: '2026-08-20'
 depends_on:
   - research-336-400-cloudflare-drive-webhooks
 jules_session_id: null
@@ -18,8 +18,8 @@ tags:
   - sync
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Author ADR: Server-Side Integration vs. Android Companion App for Drive Sync

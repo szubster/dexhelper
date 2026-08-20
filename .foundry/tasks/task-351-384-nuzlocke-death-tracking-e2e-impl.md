@@ -2,10 +2,10 @@
 id: task-351-384-nuzlocke-death-tracking-e2e-impl
 type: TASK
 title: Nuzlocke Death Tracking E2E Tests Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-01'
-updated_at: '2026-08-15'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - e2e
   - nuzlocke
   - verification
-rejection_count: 1
-rejection_reason: 'The E2E tests skip actually verifying the UI rendering of dead styling (isDead prop, opacity/grayscale effects) for party Pokemon at 0 HP and Graveyard box members, instead opting to skip tests due to Playwright locator difficulty.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
