@@ -2,13 +2,13 @@
 id: task-275-437-move-runtime-refactor
 type: TASK
 title: Refactor Runtime to use Dynamic Move Data
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-17'
 updated_at: '2026-08-20'
 depends_on:
   - task-275-436-move-db-schema-qa
-jules_session_id: null
+jules_session_id: '6314738141103660658'
 pr_number: null
 parent: story-086-275-move-runtime-integration
 tags:
