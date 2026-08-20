@@ -776,13 +776,14 @@ function parseRoamingLegendaries(view: DataView, isCrystal: boolean) {
       if (speciesId === 243 || speciesId === 244 || speciesId === 245) {
         const mapGroup = view.getUint8(structOffset + ROAMER_OFFSET_MAP_GROUP);
         const rawDvs = parseDVs(view.getUint16(structOffset + ROAMER_OFFSET_DVS, false));
+        const hp = view.getUint8(structOffset + ROAMER_OFFSET_HP);
         legendaries.push({
           speciesId,
           level: view.getUint8(structOffset + ROAMER_OFFSET_LEVEL),
           mapGroup,
           mapId: view.getUint8(structOffset + ROAMER_OFFSET_MAP_NUMBER),
-          isActive: mapGroup !== ROAMER_INACTIVE_MAP_GROUP,
-          hp: view.getUint8(structOffset + ROAMER_OFFSET_HP),
+          isActive: mapGroup !== ROAMER_INACTIVE_MAP_GROUP && hp > 0,
+          hp,
           ivs: {
             hp: rawDvs.hp,
             atk: rawDvs.atk,
