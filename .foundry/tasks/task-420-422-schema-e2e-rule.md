@@ -27,4 +27,4 @@ As part of enforcing macro node functional boundaries, we need to update templat
 Update `.foundry/docs/schema.md` to explicitly require an Integration/E2E Story for all new Epics.
 
 ## Acceptance Criteria
-- [ ] Add the following Orchestrator Safeguard to `.foundry/docs/schema.md` under "7. System Invariants": "When breaking down Epics, generative personas must ensure every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`), even for documentation-focused Epics. An EPIC cannot be COMPLETED without it."
+- [x] Add the following Orchestrator Safeguard to `.foundry/docs/schema.md` under "7. System Invariants": "When breaking down Epics, generative personas must ensure every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`), even for documentation-focused Epics. An EPIC cannot be COMPLETED without it."
