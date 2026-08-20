@@ -13,7 +13,6 @@
     "functions/_middleware.ts",
     "functions/api/saves/index.ts",
     "functions/api/saves/[id].ts",
-    "vitest.workspace.ts"
   ],
   "rules": {
     "files": "warn",
