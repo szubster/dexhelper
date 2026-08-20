@@ -2,12 +2,12 @@
 id: research-436-441-data-splitting-e2e-failures
 type: RESEARCH
 title: Investigate UI Handling of Missing Encounter/Location Data
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-20'
 updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14628778509875551832'
 pr_number: null
 parent: task-428-436-refactor-core-data-generation
 tags:
