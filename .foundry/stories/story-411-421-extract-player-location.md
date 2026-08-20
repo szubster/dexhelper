@@ -2,13 +2,13 @@
 id: story-411-421-extract-player-location
 type: STORY
 title: Extract Player's Location and Upcoming Trainer
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-13'
 updated_at: '2026-08-20'
 depends_on:
   - story-411-420-extract-player-team
-jules_session_id: null
+jules_session_id: '10542094785411192754'
 pr_number: null
 parent: epic-340-411-gen3-ai-data-extraction
 tags:
