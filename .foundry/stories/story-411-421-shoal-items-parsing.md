@@ -2,12 +2,12 @@
 id: story-411-421-shoal-items-parsing
 type: STORY
 title: Parse Items Pocket for Shoal Items
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-13'
-updated_at: '2026-08-18'
+updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '16701170636896311407'
+jules_session_id: null
 pr_number: null
 parent: epic-340-411-shoal-cave-data-extraction
 tags:

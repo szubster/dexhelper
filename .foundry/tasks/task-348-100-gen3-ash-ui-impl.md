@@ -2,10 +2,10 @@
 id: task-348-100-gen3-ash-ui-impl
 type: TASK
 title: 'Task: Implement Gen 3 Volcanic Ash UI Integration'
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-29'
-updated_at: '2026-08-17'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 3
-rejection_reason: 'isGen3Save is a stub returning false which fails to parse the save entirely during e2e. Fix isGen3Save before e2e can proceed.'
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

@@ -2,13 +2,13 @@
 id: story-139-298-gen2-roamer-status-and-standardization
 type: STORY
 title: Determine Roamer Status and Standardize Output
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-11'
-updated_at: '2026-08-18'
+updated_at: '2026-08-20'
 depends_on:
   - story-139-297-gen2-roamer-core-extraction
-jules_session_id: '17634280939308366740'
+jules_session_id: null
 pr_number: null
 parent: epic-043-139-gen2-roamer-data-extraction
 tags: []

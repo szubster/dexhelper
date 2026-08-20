@@ -2,10 +2,10 @@
 id: task-257-378-progression-timeline-ui-retry-impl
 type: TASK
 title: Progression Timeline UI Retry
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-01'
-updated_at: '2026-08-01'
+updated_at: '2026-08-20'
 depends_on:
   - research-257-377-investigate-progression-timeline-failure
 jules_session_id: null

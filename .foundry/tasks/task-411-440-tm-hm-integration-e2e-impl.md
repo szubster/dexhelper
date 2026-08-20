@@ -2,10 +2,10 @@
 id: task-411-440-tm-hm-integration-e2e-impl
 type: TASK
 title: Implementation of TM/HM Integration E2E Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-18'
-updated_at: '2026-08-18'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null

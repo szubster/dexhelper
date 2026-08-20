@@ -2,12 +2,12 @@
 id: epic-038-061-mirage-island-save-parsing
 type: EPIC
 title: Parse Daily Mirage Island Value
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-08'
-updated_at: '2026-08-19'
+updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '14136404990765198027'
+jules_session_id: null
 pr_number: null
 parent: prd-068-038-mirage-island-data-extraction
 tags:

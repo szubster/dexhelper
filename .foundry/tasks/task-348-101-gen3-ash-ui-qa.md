@@ -2,13 +2,13 @@
 id: task-348-101-gen3-ash-ui-qa
 type: TASK
 title: 'Task: QA E2E Testing for Gen 3 Volcanic Ash UI'
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-07-29'
-updated_at: '2026-08-18'
+updated_at: '2026-08-20'
 depends_on:
   - task-348-100-gen3-ash-ui-impl
-jules_session_id: '2676216209078357664'
+jules_session_id: null
 pr_number: null
 parent: story-268-348-gen3-ash-integration
 tags:
@@ -18,7 +18,7 @@ tags:
   - e2e
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 

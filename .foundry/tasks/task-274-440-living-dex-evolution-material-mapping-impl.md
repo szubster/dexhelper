@@ -2,10 +2,10 @@
 id: task-274-440-living-dex-evolution-material-mapping-impl
 type: TASK
 title: Living Dex Evolution Material Mapping Implementation
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-18'
-updated_at: '2026-08-18'
+updated_at: '2026-08-20'
 depends_on:
   - task-274-439-living-dex-evolution-duplicate-logic-impl
 jules_session_id: null

@@ -2,15 +2,15 @@
 id: story-401-411-tm-hm-integration-e2e
 type: STORY
 title: Integration and E2E Verification for TM/HM Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-18'
+updated_at: '2026-08-20'
 depends_on:
   - story-401-408-gen1-tm-hm-parsing
   - story-401-409-gen2-tm-hm-parsing
   - story-401-410-gen3-tm-hm-parsing
-jules_session_id: '18016227121956281195'
+jules_session_id: null
 pr_number: null
 parent: epic-110-401-tm-hm-save-parsing-v2
 tags:

@@ -2,7 +2,7 @@
 id: task-363-440-update-parsers-impl
 type: TASK
 title: Update Parsers Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-20'
 updated_at: '2026-08-20'

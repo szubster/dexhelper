@@ -2,10 +2,10 @@
 id: story-404-409-gen3-event-inventory-extraction
 type: STORY
 title: Gen 3 Event Inventory Items Extraction
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-14'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,7 +31,7 @@ Implement the extraction of key event items from the player's Bag in Gen 3 save 
 
 ## Acceptance Criteria
 - [x] Break down into TASK nodes for inventory extraction and testing.
-- [ ] task-409-418-gen3-event-inventory-extraction-parser-impl
-- [ ] task-409-419-gen3-event-inventory-extraction-parser-qa
-- [ ] task-409-420-gen3-event-inventory-extraction-ui-impl
-- [ ] task-409-421-gen3-event-inventory-extraction-ui-qa
+- [x] task-409-418-gen3-event-inventory-extraction-parser-impl
+- [x] task-409-419-gen3-event-inventory-extraction-parser-qa
+- [x] task-409-420-gen3-event-inventory-extraction-ui-impl
+- [x] task-409-421-gen3-event-inventory-extraction-ui-qa

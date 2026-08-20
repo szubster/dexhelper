@@ -2,12 +2,12 @@
 id: story-417-422-implement-semantic-evaluator-engine
 type: STORY
 title: Implement Semantic Evaluator Engine
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-14'
-updated_at: '2026-08-18'
+updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '2656849608160803410'
+jules_session_id: null
 pr_number: null
 parent: epic-343-417-semantic-evaluator-core
 tags:

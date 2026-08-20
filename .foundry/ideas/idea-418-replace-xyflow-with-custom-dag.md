@@ -1,11 +1,11 @@
 ---
 id: idea-418-replace-xyflow-with-custom-dag
 type: IDEA
-title: "Replace @xyflow/react with a lightweight directory tree visualization"
-status: PENDING
+title: Replace @xyflow/react with a lightweight directory tree visualization
+status: READY
 owner_persona: product_manager
-created_at: "2026-08-19"
-updated_at: "2026-08-19"
+created_at: '2026-08-19'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 parent: null
@@ -16,8 +16,8 @@ tags:
   - architecture
   - ui-ux
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Idea: Replace @xyflow/react with a lightweight directory tree visualization

@@ -2,10 +2,10 @@
 id: story-118-287-highlight-high-value-calls-ui
 type: STORY
 title: Highlight High Value Calls UI
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-07'
-updated_at: '2026-08-17'
+updated_at: '2026-08-20'
 depends_on:
   - story-118-286-filter-swarm-item-calls
 jules_session_id: null
@@ -30,7 +30,7 @@ Create the UI components to highlight swarm and item-giving Pokegear callers.
 - Visually differentiate high-value calls from standard rematches.
 
 ## Acceptance Criteria
-- [ ] Implement UI elements for high-value calls
-- [ ] task-287-415-tactical-caller-component-impl
-- [ ] task-287-416-active-callers-dashboard-integration
-- [ ] task-287-417-highlight-high-value-calls-ui-qa
+- [x] Implement UI elements for high-value calls
+- [x] task-287-415-tactical-caller-component-impl
+- [x] task-287-416-active-callers-dashboard-integration
+- [x] task-287-417-highlight-high-value-calls-ui-qa

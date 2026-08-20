@@ -2,10 +2,10 @@
 id: epic-092-116-gen3-ev-data-extraction
 type: EPIC
 title: Epic - Gen 3 EV Data Extraction
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-30'
-updated_at: '2026-07-02'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - endgame
   - competitive
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
 
@@ -38,6 +38,6 @@ This epic covers the backend/data layer requirements of the Gen 3 EV Training Da
 - [ ] Save engine successfully extracts EV data for party and PC Pokémon in Gen 3.
 - [ ] Extraction logic handles all Generation 3 games (Ruby, Sapphire, Emerald, FireRed, LeafGreen).
 - [ ] The parsing implementation strictly uses the `DataView` API.
-- [ ] story-116-249-gen3-ev-interface-definition
-- [ ] story-116-250-gen3-ev-parsing-logic
-- [ ] story-116-251-gen3-ev-integration
+- [x] story-116-249-gen3-ev-interface-definition
+- [x] story-116-250-gen3-ev-parsing-logic
+- [x] story-116-251-gen3-ev-integration

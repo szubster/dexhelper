@@ -2,13 +2,13 @@
 id: story-411-419-schema-resource-locking-e2e
 type: STORY
 title: Schema Resource Locking E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-11'
-updated_at: '2026-08-18'
+updated_at: '2026-08-20'
 depends_on:
   - story-411-418-schema-resource-locking
-jules_session_id: '6962000337477181842'
+jules_session_id: null
 pr_number: null
 parent: epic-340-411-schema-resource-locking
 tags:

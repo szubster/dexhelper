@@ -2,13 +2,13 @@
 id: task-287-417-highlight-high-value-calls-ui-qa
 type: TASK
 title: QA - Highlight High Value Calls UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-10'
 updated_at: '2026-08-20'
 depends_on:
   - task-287-416-active-callers-dashboard-integration
-jules_session_id: '3613146287156999078'
+jules_session_id: null
 pr_number: null
 parent: story-118-287-highlight-high-value-calls-ui
 tags:
