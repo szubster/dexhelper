@@ -28,5 +28,5 @@ notes: ''
 Write the E2E test suite utilizing the configured `fast-check` environment to fuzz the state machine operations.
 
 ## Acceptance Criteria
-- [ ] E2E fuzzing tests for DAG operations are fully written and passing.
-- [ ] Tests validate state machine invariants under arbitrary sequences.
+- [x] E2E fuzzing tests for DAG operations are fully written and passing.
+- [x] Tests validate state machine invariants under arbitrary sequences.
