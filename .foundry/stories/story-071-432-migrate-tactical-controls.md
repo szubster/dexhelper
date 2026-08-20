@@ -36,3 +36,7 @@ Refactor `TacticalButton.tsx`, `TacticalInput.tsx`, and `TacticalSelect.tsx` to 
 - [ ] `TacticalButton`, `TacticalInput`, and `TacticalSelect` use the new utility classes instead of inline classes where applicable.
 - [ ] No visual regressions in the affected components.
 - [ ] Components pass `pnpm run lint` and `pnpm test`.
+
+- [ ] task-432-447-migrate-button-input
+- [ ] task-432-448-migrate-select
+- [ ] task-432-449-qa-controls
