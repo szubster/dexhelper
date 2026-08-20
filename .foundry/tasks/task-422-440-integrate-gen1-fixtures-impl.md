@@ -28,5 +28,5 @@ Integrate the sourced Gen 1 save files (`red.sav`, `blue.sav`, `blue-complete.sa
 Note: The implementation is actually already completed in `src/engine/saveParser/parsers/saveFixtures.test.ts`. This task exists to formally execute the Empty PR Policy to satisfy DAG requirements.
 
 ## Acceptance Criteria
-- [ ] Update test configurations to utilize the new Gen 1 fixtures.
-- [ ] Ensure relevant test cases successfully parse and validate the data from these fixtures.
+- [x] Update test configurations to utilize the new Gen 1 fixtures.
+- [x] Ensure relevant test cases successfully parse and validate the data from these fixtures.
