@@ -30,3 +30,5 @@ Expose the extracted Match Call data correctly to the `SaveData` schema to be co
 ## Acceptance Criteria
 - [ ] Integrate Match Call state into the SaveData schema
 - [ ] Expose the correctly typed Match Call data for UI consumption
+- [ ] task-127-440-gen3-match-call-schema-integration-impl
+- [ ] task-127-441-gen3-match-call-schema-integration-qa
