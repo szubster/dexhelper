@@ -2,13 +2,12 @@
 id: story-412-431-r2-conflict-resolution-prompt-components
 type: STORY
 title: R2 Conflict Resolution Prompt Components
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-18'
-updated_at: '2026-08-18'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: epic-340-412-r2-conflict-resolution-ui-prompt
 tags:
@@ -16,8 +15,9 @@ tags:
   - ux
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Story: R2 Conflict Resolution Prompt Components

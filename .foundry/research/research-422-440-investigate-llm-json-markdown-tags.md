@@ -2,7 +2,7 @@
 id: research-422-440-investigate-llm-json-markdown-tags
 type: RESEARCH
 title: Investigate LLM JSON Markdown Tags Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-08-18'
 updated_at: '2026-08-20'
@@ -12,8 +12,8 @@ pr_number: null
 parent: story-417-422-implement-semantic-evaluator-engine
 tags: []
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

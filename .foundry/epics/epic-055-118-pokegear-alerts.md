@@ -2,10 +2,10 @@
 id: epic-055-118-pokegear-alerts
 type: EPIC
 title: Pokegear Swarm & Item Alerts
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-30'
-updated_at: '2026-07-07'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
 # Epic: Pokegear Swarm & Item Alerts
@@ -30,7 +30,7 @@ Implement specific UI alerts and filtering for high-value Pokegear calls (swarms
 - Differentiate these special calls from standard rematch calls to allow players to focus their efforts.
 
 ## Acceptance Criteria
-- [ ] Implement filtering for swarm and item-giving calls
-- [ ] Create distinct UI alerts for high-value calls
-- [ ] story-118-286-filter-swarm-item-calls
-- [ ] story-118-287-highlight-high-value-calls-ui
+- [x] Implement filtering for swarm and item-giving calls
+- [x] Create distinct UI alerts for high-value calls
+- [x] story-118-286-filter-swarm-item-calls
+- [x] story-118-287-highlight-high-value-calls-ui

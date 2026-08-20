@@ -2,10 +2,10 @@
 id: epic-343-423-wasm-emulator-integration
 type: EPIC
 title: WASM Emulator Integration
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-08-15'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -25,6 +25,6 @@ Integrate mGBA or binjgb via WASM to provide an embedded Game Boy emulator. Hand
 
 ## Acceptance Criteria
 - [x] Story Owner: Break down this EPIC into STORY nodes. Ensure a final STORY is dedicated exclusively to Integration and E2E Verification.
-- [ ] story-423-424-wasm-emulator-ui-and-rom-loader
-- [ ] story-423-425-wasm-emulator-core-integration
-- [ ] story-423-426-wasm-emulator-integration-e2e
+- [x] story-423-424-wasm-emulator-ui-and-rom-loader
+- [x] story-423-425-wasm-emulator-core-integration
+- [x] story-423-426-wasm-emulator-integration-e2e

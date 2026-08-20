@@ -2,10 +2,10 @@
 id: epic-121-404-gen3-e-reader-event-data-extraction
 type: EPIC
 title: Gen 3 E-Reader Event Data Extraction
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-06'
-updated_at: '2026-08-12'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -33,9 +33,9 @@ This Epic handles the extraction of specific event flags and inventory data from
 ## Acceptance Criteria
 - [x] Break down into STORY nodes for extraction logic and data structuring.
 - [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] story-404-408-gen3-event-flags-extraction
-- [ ] story-404-409-gen3-event-inventory-extraction
-- [ ] story-404-410-gen3-e-reader-data-e2e
+- [x] story-404-408-gen3-event-flags-extraction
+- [x] story-404-409-gen3-event-inventory-extraction
+- [x] story-404-410-gen3-e-reader-data-e2e
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

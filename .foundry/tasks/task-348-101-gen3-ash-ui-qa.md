@@ -2,7 +2,7 @@
 id: task-348-101-gen3-ash-ui-qa
 type: TASK
 title: 'Task: QA E2E Testing for Gen 3 Volcanic Ash UI'
-status: FAILED
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-07-29'
 updated_at: '2026-08-20'
@@ -17,8 +17,8 @@ tags:
   - qa
   - e2e
 research_references: []
-rejection_count: 2
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 ---
 
