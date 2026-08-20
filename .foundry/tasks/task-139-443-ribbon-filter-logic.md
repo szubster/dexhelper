@@ -2,12 +2,12 @@
 id: task-139-443-ribbon-filter-logic
 type: TASK
 title: Implement Ribbon Filtering and Sorting Logic
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-19'
 updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '18228244582917583255'
+jules_session_id: null
 pr_number: null
 parent: story-066-139-ribbon-filtering-sorting
 tags:
