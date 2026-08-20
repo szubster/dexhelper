@@ -2,12 +2,12 @@
 id: task-138-440-master-rank-tracking-impl
 type: TASK
 title: Implement Master Rank Tracking UI
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-19'
-updated_at: '2026-08-19'
+updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8789985912051160747'
 pr_number: null
 parent: story-066-138-master-rank-tracking
 tags:
