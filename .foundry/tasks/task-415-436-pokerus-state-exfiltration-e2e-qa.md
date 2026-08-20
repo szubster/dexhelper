@@ -27,4 +27,4 @@ notes: ''
 This task is to verify that the E2E test for Pokerus data extraction works correctly and covers the necessary requirements.
 
 ## Acceptance Criteria
-- [ ] Verify the E2E test runs successfully and validates the Pokerus display in the UI.
+- [x] Verify the E2E test runs successfully and validates the Pokerus display in the UI.
