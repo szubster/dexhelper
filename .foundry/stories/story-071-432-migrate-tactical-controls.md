@@ -1,13 +1,13 @@
 ---
 id: story-071-432-migrate-tactical-controls
 type: STORY
-title: Migrate TacticalButton, TacticalInput, TacticalSelect to Utility Classes
-status: READY
+title: 'Migrate TacticalButton, TacticalInput, TacticalSelect to Utility Classes'
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-08-19'
+updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '7125355397537957084'
+jules_session_id: '11459508123407499932'
 pr_number: null
 parent: epic-071-124-migrate-core-tactical-components-v2
 tags:
