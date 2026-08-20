@@ -190,6 +190,16 @@ export const TM_POCKET_SIZE_RS = 256;
 export const TM_POCKET_SIZE_EMERALD = 256;
 export const TM_POCKET_SIZE_FRLG = 232;
 
+export const ITEMS_POCKET_OFFSET_RS = 0x0560;
+export const ITEMS_POCKET_OFFSET_EMERALD = 0x0560;
+export const ITEMS_POCKET_OFFSET_FRLG = 0x0310;
+export const ITEMS_POCKET_SIZE_RS = 80;
+export const ITEMS_POCKET_SIZE_EMERALD = 120;
+export const ITEMS_POCKET_SIZE_FRLG = 168;
+
+export const ITEM_SHOAL_SALT = 0x02b;
+export const ITEM_SHOAL_SHELL = 0x02c;
+
 export const ITEM_INDEX_OFFSET = 0x00;
 export const ITEM_QUANTITY_OFFSET = 0x02;
 export const ITEM_ENTRY_SIZE = 4;
@@ -1562,6 +1572,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): import(
 
     const { trainerId, secretId } = parseGen3TrainerId(view, section0Offset);
     const securityKey = parseGen3SecurityKey(view, section0Offset, _forcedVersion || 'ruby');
+    const gen3ShoalItems = parseGen3ShoalItems(view, section1Offset, _forcedVersion || 'ruby', securityKey);
     const gen3TMHMs = parseGen3TMHMs(view, section1Offset, _forcedVersion || 'ruby', securityKey);
 
     const gen3TMEventFlags = parseGen3TMEventFlags(view, section1Offset, _forcedVersion || 'ruby');
@@ -1698,6 +1709,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): import(
       roamingLegendaries,
       gen3VolcanicAsh,
       gen3EventItems,
+      gen3ShoalItems,
       gen3TMHMs,
       gen3TMEventFlags,
       ...(gen3Pokeblocks ? { gen3Pokeblocks } : {}),
@@ -1997,6 +2009,68 @@ export function parseGen3SecurityKey(view: DataView, section0Offset: number, gam
  * @param securityKey - The 32-bit security key extracted from Section 0.
  * @returns An array of TM/HM items mapped to their corresponding moves.
  */
+/**
+ * Parses the Items pocket from the Gen 3 save file to extract Shoal Salt and Shoal Shells counts.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @param gameVersion - The detected game version.
+ * @param securityKey - The 32-bit security key extracted from Section 0.
+ * @returns An object containing the counts of shells and salt.
+ */
+export function parseGen3ShoalItems(
+  view: DataView,
+  saveBlock1Offset: number,
+  gameVersion: GameVersion,
+  securityKey: number,
+): { shells: number; salt: number } {
+  let offset = saveBlock1Offset;
+  let size = 0;
+
+  if (gameVersion === 'emerald') {
+    offset += ITEMS_POCKET_OFFSET_EMERALD;
+    size = ITEMS_POCKET_SIZE_EMERALD;
+  } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
+    offset += ITEMS_POCKET_OFFSET_FRLG;
+    size = ITEMS_POCKET_SIZE_FRLG;
+  } else {
+    offset += ITEMS_POCKET_OFFSET_RS;
+    size = ITEMS_POCKET_SIZE_RS;
+  }
+
+  try {
+    const shoalItems = { shells: 0, salt: 0 };
+    const numItems = size / ITEM_ENTRY_SIZE;
+
+    // In Gen 3, item quantity is masked with the lower 16 bits of the security key
+    const mask = securityKey & LOWER_16_BIT_MASK;
+
+    for (let i = 0; i < numItems; i++) {
+      const itemOffset = offset + i * ITEM_ENTRY_SIZE;
+      const itemId = view.getUint16(itemOffset + ITEM_INDEX_OFFSET, true);
+      const maskedQuantity = view.getUint16(itemOffset + ITEM_QUANTITY_OFFSET, true);
+
+      // 0 indicates an empty slot
+      if (itemId === 0) continue;
+
+      const quantity = maskedQuantity ^ mask;
+
+      if (itemId === ITEM_SHOAL_SHELL) {
+        shoalItems.shells = quantity;
+      } else if (itemId === ITEM_SHOAL_SALT) {
+        shoalItems.salt = quantity;
+      }
+    }
+
+    return shoalItems;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
 export function parseGen3TMHMs(
   view: DataView,
   saveBlock1Offset: number,
