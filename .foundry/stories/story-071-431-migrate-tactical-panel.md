@@ -36,3 +36,4 @@ Refactor `TacticalPanel.tsx`, `TacticalCard.tsx`, and `TacticalBadge.tsx` to uti
 - [ ] `TacticalPanel`, `TacticalCard`, and `TacticalBadge` use the new utility classes instead of inline classes where applicable.
 - [ ] No visual regressions in the affected components.
 - [ ] Components pass `pnpm run lint` and `pnpm test`.
+- [ ] task-431-447-migrate-tactical-components
