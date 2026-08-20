@@ -26,6 +26,6 @@ notes: ''
 This task builds upon the duplicate detection logic to identify if any missing Living Dex slots (ghosts) can be filled by evolving an available duplicate pre-evolution.
 
 ## Acceptance Criteria
-- [ ] Implement logic to cross-reference the list of missing Living Dex slots with the list of available duplicates.
-- [ ] Use evolution metadata to determine if an available duplicate can evolve into any of the missing Pokemon.
-- [ ] Return a structure linking the missing species ID to the duplicate pre-evolution species ID.
+- [x] Implement logic to cross-reference the list of missing Living Dex slots with the list of available duplicates.
+- [x] Use evolution metadata to determine if an available duplicate can evolve into any of the missing Pokemon.
+- [x] Return a structure linking the missing species ID to the duplicate pre-evolution species ID.
