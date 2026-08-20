@@ -2,7 +2,7 @@
 id: story-417-422-integrate-gen1-fixtures
 type: STORY
 title: 'Story: Integrate Gen 1 Save File Fixtures'
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-14'
 updated_at: '2026-08-20'
@@ -26,6 +26,6 @@ notes: ''
 Integrate the sourced Gen 1 save files (`red.sav`, `blue.sav`, `blue-complete.sav`, `blue-evolve.sav`, `yellow.sav`, `yellow-2026-03-30.sav`) into the test suite.
 
 ## Acceptance Criteria
-- [ ] Update test configurations to utilize the new Gen 1 fixtures.
-- [ ] Ensure relevant test cases successfully parse and validate the data from these fixtures.
-- [ ] task-422-440-integrate-gen1-fixtures-impl
+- [x] Update test configurations to utilize the new Gen 1 fixtures.
+- [x] Ensure relevant test cases successfully parse and validate the data from these fixtures.
+- [x] task-422-440-integrate-gen1-fixtures-impl

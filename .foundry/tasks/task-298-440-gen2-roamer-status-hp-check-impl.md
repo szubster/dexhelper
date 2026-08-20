@@ -2,12 +2,12 @@
 id: task-298-440-gen2-roamer-status-hp-check-impl
 type: TASK
 title: Update Gen 2 Roamer Status Check to Include HP
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-18'
 updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '18132436912921752968'
+jules_session_id: null
 pr_number: null
 parent: story-139-298-gen2-roamer-status-and-standardization
 tags:
