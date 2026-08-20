@@ -32,7 +32,7 @@ We are implementing Master Rank tracking elements for the `GlobalRibbonChecklist
 - Add browser integration tests ensuring the components render Master Rank badges accurately.
 
 ## 3. Acceptance Criteria
-- [ ] Logic for Master Rank extraction from ribbons is integrated.
-- [ ] `GlobalRibbonChecklistDashboard` displays visual Master Rank badges correctly.
-- [ ] UI components pass tactical style compliance.
-- [ ] Browser component tests verify the new elements render without failure.
+- [x] Logic for Master Rank extraction from ribbons is integrated.
+- [x] `GlobalRibbonChecklistDashboard` displays visual Master Rank badges correctly.
+- [x] UI components pass tactical style compliance.
+- [x] Browser component tests verify the new elements render without failure.

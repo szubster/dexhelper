@@ -37,7 +37,7 @@ describe('GlobalRibbonChecklistDashboard', () => {
     await expect.element(page.getByText('NO POKEMON WITH RIBBONS FOUND')).toBeInTheDocument();
   });
 
-  it('renders list of pokemon with ribbons', async () => {
+  it('renders list of pokemon with ribbons and tracking indicators', async () => {
     vi.mocked(useStore).mockImplementation((selector) => {
       const state = {
         saveData: {
@@ -49,6 +49,12 @@ describe('GlobalRibbonChecklistDashboard', () => {
               nickname: 'PIKACHU',
               ribbons: { cool: 1, beauty: 0, cute: 2, smart: 0, tough: 0 },
             },
+            {
+              speciesId: 4,
+              level: 20,
+              nickname: 'CHARMANDER',
+              ribbons: { cool: 4, beauty: 4, cute: 4, smart: 4, tough: 4 },
+            },
           ],
           pcDetails: [],
         } as unknown as SaveData,
@@ -59,8 +65,19 @@ describe('GlobalRibbonChecklistDashboard', () => {
 
     await render(<GlobalRibbonChecklistDashboard />);
     await expect.element(page.getByText('GLOBAL RIBBON CHECKLIST')).toBeInTheDocument();
+    await expect.element(page.getByText('MASTER RANK TRACKING')).toBeInTheDocument();
     await expect.element(page.getByText('PIKACHU (Lv 10)')).toBeInTheDocument();
-    await expect.element(page.getByText('Cool', { exact: true })).toBeInTheDocument();
-    await expect.element(page.getByText('Cute', { exact: true })).toBeInTheDocument();
+
+    // Test that the master rank trackers are rendered correctly
+    await expect.element(page.getByTitle('Cool Contest Master Rank Tracker')).toBeVisible();
+    await expect.element(page.getByTitle('Beauty Contest Master Rank Tracker')).toBeVisible();
+    await expect.element(page.getByTitle('Cute Contest Master Rank Tracker')).toBeVisible();
+    await expect.element(page.getByTitle('Smart Contest Master Rank Tracker')).toBeVisible();
+    await expect.element(page.getByTitle('Tough Contest Master Rank Tracker')).toBeVisible();
+
+    // The trackers should have text matching their keys
+    const trackers = page.getByTitle(/Contest Master Rank Tracker/);
+    const elements = trackers.all();
+    expect(elements.length).toBe(5);
   });
 });
