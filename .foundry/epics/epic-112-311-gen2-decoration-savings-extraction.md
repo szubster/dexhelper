@@ -2,10 +2,10 @@
 id: epic-112-311-gen2-decoration-savings-extraction
 type: EPIC
 title: Gen 2 Decoration & Savings Save Data Extraction
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-07-16'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
 
@@ -32,4 +32,4 @@ This Epic covers the extraction of data related to unlocked room decorations and
 
 ## Acceptance Criteria
 - [x] Break down into Stories
-- [ ] story-311-322-gen2-room-decoration-parsing
+- [x] story-311-322-gen2-room-decoration-parsing
