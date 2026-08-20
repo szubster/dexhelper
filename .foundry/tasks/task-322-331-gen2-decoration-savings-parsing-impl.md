@@ -36,14 +36,11 @@ Implement the parser extraction for Gen 2 room decorations (bed, carpet, plant, 
 - If you cannot complete this task (e.g. due to missing offsets you choose not to research, or permanent failure), you MUST update the YAML frontmatter to `status: FAILED` or `status: CANCELLED` with a `rejection_reason`.
 
 ## Acceptance Criteria
-- [ ] Implement parsing for Gen 2 room decorations.
-- [ ] Implement parsing for Mom's bank savings.
-- [ ] Expose data via the DexHelper Gen 2 core API.
-- [ ] Use module-level constants for all memory offsets and avoid inline magic numbers.
-- [ ] Write unit tests verifying the parsing logic.
+- [x] Implement parsing for Gen 2 room decorations.
+- [x] Implement parsing for Mom's bank savings.
+- [x] Expose data via the DexHelper Gen 2 core API.
+- [x] Use module-level constants for all memory offsets and avoid inline magic numbers.
+- [x] Write unit tests verifying the parsing logic.
 
 ## Research Dependency
 - [x] .foundry/research/research-331-335-gen2-decoration-savings-offsets.md
-
-### QA Rejection Note
-Rejected because the coder did not implement any of the parsing logic. No offsets or extraction code found in the saveParser for Gen 2 room decorations or Mom's bank savings.

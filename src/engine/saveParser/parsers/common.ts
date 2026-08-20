@@ -338,6 +338,10 @@ export interface Gen2SaveData extends BaseSaveData {
   daycare?: PokemonInstance[];
   /** Gen 2 specific: Indicates if an Egg is currently waiting to be picked up from the Daycare. */
   daycareHasEgg?: boolean;
+  /** Gen 2 specific: Mom's bank account savings data. */
+  gen2MomsSavings?: { money: number; savingActive: boolean };
+  /** Gen 2 specific: The player's active and unlocked room decorations. */
+  gen2RoomDecorations?: { active: number[]; unlocked: boolean[] };
 }
 
 export interface Gen3SaveData extends BaseSaveData {

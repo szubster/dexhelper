@@ -669,5 +669,71 @@ describe('gen2 parsers', () => {
 
       expect(() => parseGen2(view, false)).toThrow('The save file is corrupted or incomplete.');
     });
+
+    it('should extract Moms savings correctly for GS', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+
+      // Setup minimal valid save data for GS
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 1, 0xff);
+      view.setUint8(0x288a + 7, 1);
+
+      const johtoBadgesOffset = 0x23e4;
+      const momsMoneyOffset = johtoBadgesOffset - 0x06;
+      const momSavingMoneyOffset = johtoBadgesOffset - 0x03;
+
+      // Set Moms money to 1,234,567 (0x12D687)
+      view.setUint8(momsMoneyOffset, 0x12);
+      view.setUint8(momsMoneyOffset + 1, 0xd6);
+      view.setUint8(momsMoneyOffset + 2, 0x87);
+
+      // Set saving active (bit 7)
+      view.setUint8(momSavingMoneyOffset, 0b10000000);
+
+      const result = parseGen2(view);
+      expect(result.gen2MomsSavings?.money).toBe(1234567);
+      expect(result.gen2MomsSavings?.savingActive).toBe(true);
+    });
+
+    it('should extract room decorations correctly for Crystal', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+
+      // Setup minimal valid save data for Crystal
+      view.setUint8(0x2865, 1);
+      view.setUint8(0x2866, 1);
+      view.setUint8(0x2866 + 1, 0xff);
+      view.setUint8(0x2865 + 7, 1);
+      view.setUint8(0x288a, 7); // force crystal
+
+      const johtoBadgesOffset = 0x23e5;
+      const activeDecoOffset = johtoBadgesOffset + 0x3b8;
+
+      // Set active decorations
+      view.setUint8(activeDecoOffset, 2); // deco bed
+      view.setUint8(activeDecoOffset + 1, 3); // deco carpet
+
+      // Set unlocked decorations in event flags
+      // EVENT_DECO_BED_1 = 676. Byte offset: 0x54, bit offset: 4
+      const eventFlagsOffset = 0x2600;
+      // Unlock 1st (bit 4), 2nd (bit 5), and 6th (bit 1 of next byte)
+      view.setUint8(eventFlagsOffset + 0x54, 0b00110000);
+      view.setUint8(eventFlagsOffset + 0x55, 0b00000010);
+
+      const result = parseGen2(view, true);
+      expect(result.gen2RoomDecorations?.active[0]).toBe(2);
+      expect(result.gen2RoomDecorations?.active[1]).toBe(3);
+      expect(result.gen2RoomDecorations?.active.length).toBe(8);
+
+      expect(result.gen2RoomDecorations?.unlocked[0]).toBe(true);
+      expect(result.gen2RoomDecorations?.unlocked[1]).toBe(true);
+      expect(result.gen2RoomDecorations?.unlocked[2]).toBe(false);
+      expect(result.gen2RoomDecorations?.unlocked[3]).toBe(false);
+      expect(result.gen2RoomDecorations?.unlocked[4]).toBe(false);
+      expect(result.gen2RoomDecorations?.unlocked[5]).toBe(true);
+      expect(result.gen2RoomDecorations?.unlocked.length).toBe(46);
+    });
   });
 });
