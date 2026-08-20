@@ -2,12 +2,12 @@
 id: task-421-440-parse-items-pocket-for-shoal-items-impl
 type: TASK
 title: Implement Gen 3 Items Pocket Parsing for Shoal Items
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-13'
-updated_at: '2026-08-13'
+updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5755881930705388978'
 pr_number: null
 parent: story-411-421-shoal-items-parsing
 tags:
