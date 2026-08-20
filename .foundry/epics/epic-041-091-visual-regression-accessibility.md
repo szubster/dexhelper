@@ -2,10 +2,10 @@
 id: epic-041-091-visual-regression-accessibility
 type: EPIC
 title: Visual Regression and Accessibility Checks
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-15'
-updated_at: '2026-06-15'
+updated_at: '2026-08-20'
 depends_on:
   - epic-041-066-global-ribbon-checklist-dashboard
 jules_session_id: null
@@ -19,7 +19,9 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  epic-041-066-global-ribbon-checklist-dashboard
 notes: ''
 ---
 # Epic: Visual Regression and Accessibility Checks

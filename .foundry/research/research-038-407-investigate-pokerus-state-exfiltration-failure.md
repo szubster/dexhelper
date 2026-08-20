@@ -2,10 +2,10 @@
 id: research-038-407-investigate-pokerus-state-exfiltration-failure
 type: RESEARCH
 title: Investigate Pokerus State Exfiltration Failure
-status: PENDING
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-10'
-updated_at: '2026-08-14'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -28,4 +28,4 @@ The `epic-038-061-pokerus-state-exfiltration` implementation failed permanently 
 - [x] Read the failure logs and related node journals to determine the root cause of the failure.
 - [x] Document the findings and propose a technical solution or workaround.
 - [x] Create subsequent implementation nodes (e.g. ADR or TASKS) required to correctly exfiltrate Pokerus state based on the research.
-- [ ] story-407-415-pokerus-state-exfiltration-e2e
+- [x] story-407-415-pokerus-state-exfiltration-e2e

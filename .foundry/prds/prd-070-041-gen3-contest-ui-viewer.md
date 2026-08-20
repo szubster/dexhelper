@@ -2,10 +2,10 @@
 id: prd-070-041-gen3-contest-ui-viewer
 type: PRD
 title: Gen 3 Contest Condition and Ribbon Viewer UI
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-06-08'
-updated_at: '2026-06-16'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: '3197885195207899979'
 pr_number: null
