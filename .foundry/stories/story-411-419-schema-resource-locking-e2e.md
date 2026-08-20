@@ -31,4 +31,6 @@ Verify the `locks` field schema changes via unit and integration tests.
 - Update relevant orchestrator/schema test files (e2e or unit) to ensure the `locks` array is validated properly (e.g. `schema.test.ts` or related testing artifacts in `.github/scripts/`).
 
 ## Acceptance Criteria
-- [ ] Tech Lead breaks down this STORY into TASK nodes for test verification.
+- [x] Tech Lead breaks down this STORY into TASK nodes for test verification.
+- [ ] task-419-440-implement-locks-e2e-tests
+- [ ] task-419-441-schema-locks-e2e-qa
