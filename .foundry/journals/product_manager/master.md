@@ -54,7 +54,6 @@ I've drafted the PRD for Automated Location Tracking and Checklist Sync. The goa
 ## Architectural Pattern: Late-Binding
 I noted in the PRD that an ADR should be created by the Architect specifically addressing the background memory polling pattern (e.g. Web Workers) to prevent the main thread from blocking. I've left the exact event flag array mapping architecture open for the Epic Planner and Architect to negotiate in downstream nodes.
 
-
 ---
 
 Anomaly: The target downstream PRD `prd-115-115-remove-obsolete-orphaned-node-manual-cancellation` already existed prior to this session.

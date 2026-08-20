@@ -49,7 +49,6 @@ Epic `epic-117-334-define-zod-schema` is correctly verified. All of its children
 ## Lessons
 Empty PR submissions for parent nodes (e.g., Epics) where children are completed just need standard checklist compliance, but running orchestrator unit tests (`cd .github/scripts && npx vitest run`) locally serves as a great confidence check.
 
-
 ---
 
 - Verified the removal of the obsolete 'Orphaned QA Task Cancellation Rule' from documentation (`core_policies.md`).

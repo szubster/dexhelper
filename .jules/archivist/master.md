@@ -7,7 +7,6 @@
 - **Cleanups execution constraints**: I must ensure that any temporary scripts I use to assist with finding and replacing string patterns are removed and do not leak into the commit history.
 - **Journal Organization**: Cleaned up repetitive, contradictory logs in `.jules/infras.md` and `.jules/sweeper.md`.
 
-
 ---
 
 - **Date:** $(date +%Y-%m-%d)
@@ -25,3 +24,8 @@
 - **Date:** $(date +%Y-%m-%d)
 - **Domain:** Main Project (DexHelper)
 - **Learning:** Wrote a script to perform bulk knowledge hygiene, stripping out low-value operational statements across agent logs to save token counts in the knowledge base, combining the unique file per journal entries into `master.md` to prevent journal bloat. Ensure temporary scratchpad scripts (like Python parsers) are deleted from the repo before committing to prevent leaking scripts into the commit history.
+
+# Archivist Journal
+
+- **Date:** 2026-08-18
+- **Domain:** Main Project (DexHelper)

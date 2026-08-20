@@ -34,7 +34,6 @@ Improve AI readability by refactoring `extractPlayerTools` to use clear item/mov
 * **Top-level constants provide semantic mapping:** Extracting these to named constants (`GEN1_EMPTY_SLOT`, `COMMON_EMPTY_SLOT`, etc.) immediately clarifies their purpose and limits.
 * **Refactoring Strategy:** Using Node `.js` scripts is significantly safer and more precise than standard bash `sed` or `grep` tools for manipulating large TypeScript parsing files.
 
-
 ## Refactoring Goal
 Improve AI readability by refactoring magic numbers for Pokémon data offsets in Gen 1 parsing logic to use clear top-level constants.
 

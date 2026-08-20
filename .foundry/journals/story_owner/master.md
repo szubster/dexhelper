@@ -51,7 +51,6 @@ In session 11236954308959706417 I created the STORIES to break down Epic 340-411
 
 When encountering a parent macro node that has pending child nodes located in active directories (like `.foundry/stories/`), even if their internal YAML status is `COMPLETED`, they are treated as pending by the Orchestrator. Therefore, their checkboxes must NOT be checked in the parent node's markdown body.
 
-
 ## Context
 Breaking down epic `epic-117-335-integrate-zod-orchestrator` into story nodes as a story_owner.
 
@@ -86,7 +85,6 @@ Instead, I MUST strictly use appending (>>) to add the new task list items and t
 
 Decomposed epic-340-411-schema-resource-locking into story-411-418-schema-resource-locking and story-411-419-schema-resource-locking-e2e.
 
-
 ---
 
 ## Constraints Encountered
@@ -98,7 +96,6 @@ Decomposed epic-340-411-schema-resource-locking into story-411-418-schema-resour
 In future planning for schema updates, ensure we always explicitly generate E2E validation stories.
 
 - Created story nodes for extracting Gen 3 AI data: active team, location, opponent data, and e2e verification. Appended unchecked tasks to the parent epic-340-411-gen3-ai-data-extraction.
-
 
 # Anomaly Detection: Pre-existing Save Files
 The target artifacts (save files such as `red.sav`, `blue-evolve.sav`, `silver.sav`, `crystal-evolve.sav`, and `emerald.sav`) for Epic `epic-343-417-test-fixtures-sourcing` were found to already exist in `tests/fixtures/` prior to the session.
@@ -112,7 +109,6 @@ When writing STORY nodes dynamically, always list the existing files in the dire
 ## 2026-08-16: E2E Requirement for Epics
 Learned that Epics must always have a final STORY dedicated exclusively to Integration and E2E Verification to avoid rejection from the orchestrator.
 
-
 Date: 2026-08-17
 Persona: Story Owner
 Task: `epic-337-400-data-splitting`
@@ -123,6 +119,5 @@ Successfully broke down Epic "Data Splitting by Game Generation" (`epic-337-400-
 - `story-400-430-data-splitting-integration-e2e`: Integration and E2E verification to ensure the application works correctly with the split data bundles.
 
 The target Epic was updated with the generated child nodes and we submitted an Empty PR as per the empty PR policy, without checking off the epic's own overarching acceptance criteria (to allow the orchestrator to correctly demote it to PENDING).
-
 
 Enforced the Orchestrator Safeguard (E2E/Integration Requirement) for EPIC nodes by adding an E2E STORY to `epic-071-123-define-tailwind-v4-utilities-v2.md`, as it was missing a dedicated E2E verification story to satisfy hierarchical completion.

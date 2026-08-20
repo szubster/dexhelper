@@ -29,11 +29,14 @@
 - **Tooling configuration context**: Discovered that the `.bundlemonrc.json` configuration was reporting uncompressed chunk sizes. While gzip sizes are useful for tracking network transfer, tracking uncompressed bundle sizes is a more accurate proxy for JavaScript VM parse, compile, and execution time constraints on lower-end devices. Therefore, we should keep `.bundlemonrc.json` configured with `"defaultCompression": "none"`.
 - **Vite Build Output Analysis**: When analyzing Vite's build logs or JSON files like `.bundlemonrc.json`, standard bash tools like `cat` may truncate output. Always use targeted extraction tools like `jq` (e.g. `jq '.files' .bundlemonrc.json`) or `grep` combined with `tail` (e.g. `grep -E 'dist/' build.log | tail -n 20`) to fetch complete, untruncated arrays or lists before making assumptions about paths or sizes.
 
-
 ---
 
 ## Critical Learnings
 - Upgraded infrastructure tooling versions: @biomejs/biome to 2.5.8, oxlint to 1.78.0, and knip to 6.32.2 to keep the ecosystem current.
+
+## Critical Learnings
+- **Tooling configuration context**: Discovered that Knip was running as part of the `pnpm lint` command but the `--reporter github-actions` was only defined in `.github/workflows/ci.yml`. More critically, Knip wasn't hooked into `lefthook.yml` pre-commits, meaning unused exports or dependencies could easily be committed by a local developer and only flagged once they hit GitHub Actions CI.
+- **Action Taken**: Added `knip` to `lefthook.yml` under `pre-commit` hook (in parallel) to enforce unused export validation before code can be committed locally. Explicitly added `--no-exit-code` so developers receive warnings locally without being totally blocked from making local WIP commits, which balances local DX with codebase hygiene.
 
 ## Critical Learnings
 - **Tooling configuration context**: Discovered that Knip was running as part of the `pnpm lint` command but the `--reporter github-actions` was only defined in `.github/workflows/ci.yml`. More critically, Knip wasn't hooked into `lefthook.yml` pre-commits, meaning unused exports or dependencies could easily be committed by a local developer and only flagged once they hit GitHub Actions CI.
