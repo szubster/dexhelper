@@ -31,6 +31,6 @@ Implement the core utility functions or hooks required to filter a list of Poké
 - Write unit tests for these utility functions to verify correct output for different inputs.
 
 ## 3. Acceptance Criteria
-- [ ] Filtering logic functions correctly.
-- [ ] Sorting logic functions correctly.
-- [ ] Comprehensive unit tests for logic functions are provided.
+- [x] Filtering logic functions correctly.
+- [x] Sorting logic functions correctly.
+- [x] Comprehensive unit tests for logic functions are provided.
