@@ -3,6 +3,7 @@
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
 | [epic-008-018-session-dispatch-bypass](.foundry/epics/epic-008-018-session-dispatch-bypass.md) | EPIC | Session Dispatch Bypass and Fulfillment | story_owner | [1586567066610752784](https://jules.google.com/session/1586567066610752784) |
+| [epic-043-139-gen2-roamer-data-extraction](.foundry/epics/epic-043-139-gen2-roamer-data-extraction.md) | EPIC | Gen 2 Roamer Data Extraction | story_owner | [7884394981274745848](https://jules.google.com/session/7884394981274745848) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
