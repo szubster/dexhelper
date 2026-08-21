@@ -2,14 +2,14 @@
 id: task-432-449-qa-controls
 type: TASK
 title: QA Verification - Tactical Controls Refactor
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-08-20'
 updated_at: '2026-08-21'
 depends_on:
   - task-432-447-migrate-button-input
   - task-432-448-migrate-select
-jules_session_id: '8320327163102933073'
+jules_session_id: null
 pr_number: null
 parent: story-071-432-migrate-tactical-controls
 tags:
@@ -17,7 +17,7 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 

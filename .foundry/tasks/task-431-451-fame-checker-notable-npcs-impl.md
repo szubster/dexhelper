@@ -2,13 +2,13 @@
 id: task-431-451-fame-checker-notable-npcs-impl
 type: TASK
 title: Investigate Fame Checker Event Flags for Notable NPCs
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-21'
 updated_at: '2026-08-21'
 depends_on: []
 parent: story-331-431-conduct-fame-checker-research
-jules_session_id: '10136414405440154509'
+jules_session_id: null
 rejection_reason: ''
 ---
 

@@ -2,12 +2,12 @@
 id: task-433-447-migrate-segmented-controls-impl
 type: TASK
 title: Implement Migration for Segmented Controls
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-20'
 updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: '14978398235368870773'
+jules_session_id: null
 pr_number: null
 parent: story-071-433-migrate-tactical-segmented
 tags:
