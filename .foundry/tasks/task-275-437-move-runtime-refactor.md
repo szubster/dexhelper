@@ -8,7 +8,7 @@ created_at: '2026-08-17'
 updated_at: '2026-08-21'
 depends_on:
   - task-275-436-move-db-schema-qa
-jules_session_id: '13504292960884610987'
+jules_session_id: '17807045828884773990'
 pr_number: null
 parent: story-086-275-move-runtime-integration
 tags:

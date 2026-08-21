@@ -18,8 +18,10 @@ Identify and execute ONE refactoring opportunity to make the codebase easier to 
 - Verify that changes do not alter existing business logic or break functionality.
 - Ensure any new structures or patterns align with existing project conventions unless explicitly upgrading them.
 
-**Ask first:**
-- Nothing — just submit the PR. Rejection is expected and acceptable.
+**Autonomous Execution & Communication:**
+- NEVER ask the user questions, request permission, or ask whether to open a PR.
+- Submit PRs autonomously. PRs are the sole communication channel.
+- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
 
 **Never:**
 - Add new product features or change existing business rules.

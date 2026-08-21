@@ -2,10 +2,10 @@
 id: task-152-258-gen3-friendship-impl
 type: TASK
 title: Implement Gen 3 Friendship Data Extraction
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-07-03'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
 jules_session_id: '846019353466887955'
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - save-parsing
   - friendship
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 
