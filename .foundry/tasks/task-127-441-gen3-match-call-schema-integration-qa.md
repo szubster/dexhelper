@@ -2,10 +2,10 @@
 id: task-127-441-gen3-match-call-schema-integration-qa
 type: TASK
 title: QA for Gen 3 Match Call Schema Integration
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-19'
-updated_at: '2026-08-19'
+updated_at: '2026-08-21'
 depends_on:
   - task-127-440-gen3-match-call-schema-integration-impl
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-420-429-narrative-extraction-qa
 type: TASK
 title: QA Narrative Progression Flag Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-14'
-updated_at: '2026-08-14'
+updated_at: '2026-08-21'
 depends_on:
   - task-420-426-gen1-narrative-extraction
   - task-420-427-gen2-narrative-extraction
