@@ -5,9 +5,9 @@ title: Implement Persona-Specific Journal Directories
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-16'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: '16370787750310410326'
+jules_session_id: '17899931358171482951'
 pr_number: null
 parent: story-401-408-persona-specific-journal-directories
 tags:

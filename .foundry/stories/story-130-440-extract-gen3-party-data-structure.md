@@ -2,12 +2,12 @@
 id: story-130-440-extract-gen3-party-data-structure
 type: STORY
 title: Extract Gen 3 Party Data Structure
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-19'
 updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: '12344823908593084527'
+jules_session_id: null
 pr_number: null
 parent: epic-097-130-gen3-data-structure-extraction
 tags:
@@ -36,3 +36,7 @@ This story should implement the foundational Gen 3 Pokémon extraction and decry
 ## Technical Details
 - Follow `src/engine/saveParser/parsers/gen3.ts` constraints.
 - Do not implement specific stat/attribute extraction (like Pokérus) yet, this story is strictly about scaffolding the 100-byte data block structure and managing decryption.
+
+## Acceptance Criteria
+- [ ] task-440-450-gen3-pokemon-extraction-impl
+- [ ] task-440-451-gen3-pokemon-extraction-qa

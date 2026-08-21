@@ -2,12 +2,12 @@
 id: research-421-448-gen3-player-location-offsets
 type: RESEARCH
 title: Determine Gen 3 Player Location Offsets
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-20'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: '18190258414570238674'
+jules_session_id: null
 pr_number: null
 parent: story-411-421-extract-player-location
 tags:
@@ -35,5 +35,5 @@ Acquire exact save file offsets, memory layouts, and data structures required to
 - Update the relevant knowledge base files in `.foundry/docs/knowledge_base/` with the findings.
 
 ## Acceptance Criteria
-- [ ] Research complete: Exact memory offsets and data structures for player location are identified.
-- [ ] Knowledge base is updated with the findings.
+- [x] Research complete: Exact memory offsets and data structures for player location are identified.
+- [x] Knowledge base is updated with the findings.

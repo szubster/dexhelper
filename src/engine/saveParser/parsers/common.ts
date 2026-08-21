@@ -63,6 +63,9 @@ export interface PokemonInstance {
   stats?: { hp: number; atk: number; def: number; spd: number; spatk: number; spdef: number };
   dvs?: { hp: number; atk: number; def: number; spd: number; spc: number };
   statExp?: { hp: number; atk: number; def: number; spd: number; spc: number };
+  evs?:
+    | { hp: number; attack: number; defense: number; speed: number; specialAttack: number; specialDefense: number }
+    | undefined;
   caughtData?:
     | {
         time: 'Morning' | 'Day' | 'Night' | 'Unknown';
@@ -405,6 +408,14 @@ export interface Gen3SaveData extends BaseSaveData {
 }
 
 export type SaveData = Gen1SaveData | Gen2SaveData | Gen3SaveData;
+
+export function isGen2Save(saveData: SaveData): saveData is Gen2SaveData {
+  return saveData.generation === 2;
+}
+
+export function isGen3Save(saveData: SaveData): saveData is Gen3SaveData {
+  return saveData.generation === 3;
+}
 
 // Removed byte helper as DataView provides getUint8 natively.
 

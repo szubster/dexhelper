@@ -5,9 +5,9 @@ title: Gen3 Spinda Extraction Implementation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-01'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: '7423148095267915863'
+jules_session_id: '11512466539759959399'
 pr_number: null
 parent: story-345-349-gen3-spinda-extraction-core
 tags:

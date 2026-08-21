@@ -5,10 +5,10 @@ title: Refactor Runtime to use Dynamic Move Data
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-17'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on:
   - task-275-436-move-db-schema-qa
-jules_session_id: '6314738141103660658'
+jules_session_id: '17807045828884773990'
 pr_number: null
 parent: story-086-275-move-runtime-integration
 tags:

@@ -15,6 +15,3 @@ The QA agent validates TASK implementation against specifications. Your responsi
 ## Journal
 
 Your private journal is `.foundry/journals/qa/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.foundry/journals/qa/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
-
-### Handling Rejections
-If you reject an implementation or validation fails (transient error), you MUST follow the **Triggering Transient Rejections** protocol defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

@@ -2,13 +2,13 @@
 id: story-070-431-integrate-dag-context-with-views
 type: STORY
 title: Integrate DagContext with Views
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on:
   - story-070-245-implement-dag-provider-state-management
-jules_session_id: '12313043367230008462'
+jules_session_id: null
 pr_number: null
 parent: epic-045-070-implement-dag-context
 tags:
@@ -31,4 +31,6 @@ This story ensures that the DAG views (like React Flow GraphView) are correctly 
 - Ensure no view is managing its own isolated DAG fetching logic anymore.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [x] task-431-447-integrate-dag-context-with-views-impl
+- [x] task-431-448-integrate-dag-context-with-views-qa

@@ -2,12 +2,12 @@
 id: task-431-447-migrate-tactical-components
 type: TASK
 title: 'Migrate TacticalPanel, TacticalCard, TacticalBadge to Utility Classes'
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-20'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: '11865806002143543364'
+jules_session_id: null
 pr_number: null
 parent: story-071-431-migrate-tactical-panel
 tags:
@@ -43,7 +43,7 @@ Refactor `src/components/TacticalPanel.tsx`, `src/components/TacticalCard.tsx`, 
    - No separate QA task is generated for this simple styling refactor. The Coder is responsible for self-verification.
 
 ## Acceptance Criteria
-- [ ] `TacticalPanel` utilizes `tactical-panel` and correctly merges variant styles.
-- [ ] `TacticalCard` utilizes `tactical-card` and correctly merges variant styles.
-- [ ] `TacticalBadge` utilizes `tactical-badge` and correctly merges variant styles.
-- [ ] All components pass type-checking (`pnpm run type-check` if applicable), linting (`pnpm run lint`), and tests (`pnpm test`).
+- [x] `TacticalPanel` utilizes `tactical-panel` and correctly merges variant styles.
+- [x] `TacticalCard` utilizes `tactical-card` and correctly merges variant styles.
+- [x] `TacticalBadge` utilizes `tactical-badge` and correctly merges variant styles.
+- [x] All components pass type-checking (`pnpm run type-check` if applicable), linting (`pnpm run lint`), and tests (`pnpm test`).

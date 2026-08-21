@@ -15,7 +15,7 @@ export const TacticalButton = React.forwardRef<HTMLButtonElement, TacticalButton
       <button
         ref={ref}
         className={cn(
-          'group tactical-text focus-visible:tactical-focus relative inline-flex shrink-0 items-center justify-center gap-3 overflow-hidden rounded-none border border-dashed font-black transition-all disabled:cursor-not-allowed disabled:opacity-50',
+          'tactical-button group relative inline-flex shrink-0 items-center justify-center gap-3 overflow-hidden font-black',
           {
             // Variants
             'border-white/20 bg-zinc-900/50 text-zinc-500 hover:border-white/40 hover:bg-zinc-800/80 hover:text-white focus-visible:ring-[var(--theme-primary)]':

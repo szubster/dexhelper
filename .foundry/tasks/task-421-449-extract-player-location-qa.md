@@ -5,7 +5,7 @@ title: QA Gen 3 Player Location Extraction
 status: PENDING
 owner_persona: qa
 created_at: '2026-08-20'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on:
   - task-421-447-extract-player-location-impl
 jules_session_id: null
@@ -15,7 +15,7 @@ tags:
   - gen3
   - ai
   - save-engine
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
@@ -36,3 +36,9 @@ As part of the Gen 3 AI data extraction, an implementation has been made to extr
 - [ ] Verification confirms the location maps correctly to the next major trainer.
 - [ ] Verification confirms Section 13 guidelines are strictly followed.
 - [ ] Verification confirms unit tests are adequate and pass.
+
+### QA Failure
+The implementation task `task-421-447-extract-player-location-impl` was rejected because it violates Section 13 ("Save File Parsing & Extraction Guidelines") of `.foundry/docs/schema.md`.
+Specifically:
+1. It uses inline magic numbers (e.g., `8` in `mapGroup << 8`) instead of module-level constants.
+2. It lacks a `try/catch` block for `RangeError` when accessing the `DataView`, and instead relies on manual bounds checking which is explicitly forbidden by Section 13 (it requires throwing a specific error message).
