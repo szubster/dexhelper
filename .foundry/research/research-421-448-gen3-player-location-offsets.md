@@ -2,12 +2,12 @@
 id: research-421-448-gen3-player-location-offsets
 type: RESEARCH
 title: Determine Gen 3 Player Location Offsets
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-20'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: '18190258414570238674'
+jules_session_id: null
 pr_number: null
 parent: story-411-421-extract-player-location
 tags:

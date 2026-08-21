@@ -2,7 +2,7 @@
 id: task-433-447-migrate-segmented-controls-impl
 type: TASK
 title: Implement Migration for Segmented Controls
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-20'
 updated_at: '2026-08-21'
@@ -14,8 +14,8 @@ tags:
   - styling
   - refactor
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
