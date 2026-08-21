@@ -1,12 +1,12 @@
 import 'fake-indexeddb/auto';
 import { describe, expect, it } from 'vitest';
-import { initHistoryDb, writeSaveState } from './historyDb';
+import { getMostRecentSave, getPreviousSave, initHistoryDb, writeSaveState } from './historyDb';
 
 describe('SaveHistoryDB', () => {
   it('should initialize the database with correct name and version', async () => {
     const db = await initHistoryDb();
     expect(db.name).toBe('SaveHistoryDB');
-    expect(db.version).toBe(1);
+    expect(db.version).toBe(2);
     db.close();
   });
 
@@ -48,6 +48,57 @@ describe('SaveHistoryDB', () => {
       const invalidMetadata = { badField: () => {} };
 
       await expect(writeSaveState(id, saveData, invalidMetadata)).rejects.toThrow('could not be cloned');
+    });
+  });
+
+  describe('getMostRecentSave', () => {
+    it('should return null if no saves exist for the playthrough', async () => {
+      const result = await getMostRecentSave('non-existent-pt');
+      expect(result).toBeNull();
+    });
+
+    it('should return the most recent save state for a playthrough', async () => {
+      const ptId = 'pt-1';
+      await writeSaveState('save-1', new Uint8Array([1]), { playthroughId: ptId, timestamp: 100 });
+      await writeSaveState('save-2', new Uint8Array([2]), { playthroughId: ptId, timestamp: 300 });
+      await writeSaveState('save-3', new Uint8Array([3]), { playthroughId: ptId, timestamp: 200 });
+      await writeSaveState('save-4', new Uint8Array([4]), { playthroughId: 'pt-2', timestamp: 400 });
+
+      const result = await getMostRecentSave(ptId);
+
+      expect(result).not.toBeNull();
+      expect(result?.saveData).toEqual(new Uint8Array([2]));
+      expect(result?.metadata).toEqual({ playthroughId: ptId, timestamp: 300 });
+    });
+  });
+
+  describe('getPreviousSave', () => {
+    it('should return null if the save ID does not exist', async () => {
+      const result = await getPreviousSave('non-existent-save');
+      expect(result).toBeNull();
+    });
+
+    it('should return null if the current save has no previous save in the same playthrough', async () => {
+      const ptId = 'pt-3';
+      await writeSaveState('save-5', new Uint8Array([5]), { playthroughId: ptId, timestamp: 100 });
+
+      const result = await getPreviousSave('save-5');
+      expect(result).toBeNull();
+    });
+
+    it('should return the immediately preceding save state for the same playthrough', async () => {
+      const ptId = 'pt-4';
+      await writeSaveState('save-6', new Uint8Array([6]), { playthroughId: ptId, timestamp: 100 });
+      await writeSaveState('save-7', new Uint8Array([7]), { playthroughId: ptId, timestamp: 300 });
+      await writeSaveState('save-8', new Uint8Array([8]), { playthroughId: ptId, timestamp: 200 });
+      await writeSaveState('save-9', new Uint8Array([9]), { playthroughId: 'pt-other', timestamp: 250 });
+
+      // Previous save to timestamp 300 should be the one with timestamp 200
+      const result = await getPreviousSave('save-7');
+
+      expect(result).not.toBeNull();
+      expect(result?.saveData).toEqual(new Uint8Array([8]));
+      expect(result?.metadata).toEqual({ playthroughId: ptId, timestamp: 200 });
     });
   });
 });
