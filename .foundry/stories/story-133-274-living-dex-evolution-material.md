@@ -2,10 +2,10 @@
 id: story-133-274-living-dex-evolution-material
 type: STORY
 title: Living Dex Evolution Material Detection
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on:
   - story-133-273-living-dex-pc-mapping
 jules_session_id: null
@@ -26,10 +26,10 @@ notes: ''
 This story implements the logic to detect raw materials for evolution to fill missing slots. For example, recognizing that the player has a duplicate Bulbasaur that can be evolved to fill a missing Ivysaur slot.
 
 ## Acceptance Criteria
-- [ ] Implement logic to detect raw materials for evolution to fill missing slots.
+- [x] Implement logic to detect raw materials for evolution to fill missing slots.
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
-- [ ] task-274-439-living-dex-evolution-duplicate-logic-impl
-- [ ] task-274-440-living-dex-evolution-material-mapping-impl
-- [ ] task-274-441-living-dex-evolution-material-qa
+- [x] task-274-439-living-dex-evolution-duplicate-logic-impl
+- [x] task-274-440-living-dex-evolution-material-mapping-impl
+- [x] task-274-441-living-dex-evolution-material-qa

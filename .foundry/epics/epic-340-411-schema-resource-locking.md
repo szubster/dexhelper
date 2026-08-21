@@ -2,10 +2,10 @@
 id: epic-340-411-schema-resource-locking
 type: EPIC
 title: Schema Update for Orchestrator Resource Locking
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-11'
-updated_at: '2026-08-12'
+updated_at: '2026-08-21'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,5 +31,5 @@ This EPIC covers the schema updates required to introduce the new `locks` field 
 ## Acceptance Criteria
 - [x] Story Owner completes EPIC decomposition.
 - [x] Story Owner generates a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] story-411-418-schema-resource-locking
-- [ ] story-411-419-schema-resource-locking-e2e
+- [x] story-411-418-schema-resource-locking
+- [x] story-411-419-schema-resource-locking-e2e
