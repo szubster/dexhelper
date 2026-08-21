@@ -30,5 +30,5 @@ QA the state variables extraction logic.
 Review the implementation of Gen 3 game state variables and bank offset extraction. Verify that the coder strictly adhered to Section 13 of `.foundry/docs/schema.md` by using relative offsets instead of absolute hardcoded offsets. Ensure that all memory offsets and calculation limits are defined as reusable module-level constants and that no magic numbers are present within parsing functions. Verify the presence of passing unit tests.
 
 ## Acceptance Criteria
-- [ ] Verified relative offsets are used instead of absolute ones
-- [ ] Verified no magic numbers are present in the extraction logic
+- [x] Verified relative offsets are used instead of absolute ones
+- [x] Verified no magic numbers are present in the extraction logic
