@@ -2,13 +2,13 @@
 id: task-431-448-save-state-write-api-qa
 type: TASK
 title: QA Save State Write API
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-20'
 updated_at: '2026-08-21'
 depends_on:
   - task-431-447-save-state-write-api-impl
-jules_session_id: null
+jules_session_id: '12442519052596300292'
 pr_number: null
 parent: story-398-431-save-state-write-api
 tags:
