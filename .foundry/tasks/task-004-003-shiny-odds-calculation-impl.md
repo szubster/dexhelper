@@ -32,5 +32,5 @@ If the inherited Defense DV is 10 and Special DV is 10, the offspring has a 1/64
 Your implementation should use the DV inheritance function to determine the exact shiny odds fraction (e.g. 1/64 or 1/8192) of an offspring from a given pair of parent Pokémon.
 
 ## Acceptance Criteria
-- [ ] Implement the Gen 2 shiny odds statistical calculation logic.
-- [ ] Add unit tests verifying the calculation correctly returns 1/64 for shiny carriers and 1/8192 for non-carriers.
+- [x] Implement the Gen 2 shiny odds statistical calculation logic.
+- [x] Add unit tests verifying the calculation correctly returns 1/64 for shiny carriers and 1/8192 for non-carriers.
