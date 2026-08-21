@@ -27,10 +27,14 @@ export function LocationSuggestions() {
   useEffect(() => {
     const locs = locations || [];
     if (!searchTerm || searchTerm.length < 2 || selectedLocationId) {
+      // oxlint-disable-next-line react/set-state-in-effect
       setSuggestions([]);
+      // oxlint-disable-next-line react/set-state-in-effect
       setIsOpen(false);
       return;
     }
+
+    let isCancelled = false;
 
     const timeoutId = setTimeout(async () => {
       const term = searchTerm.toLowerCase();
@@ -49,11 +53,16 @@ export function LocationSuggestions() {
       const indexes = await pokeDB.getInverseIndexBulk(filtered.map((l) => l.id));
       const filteredWithCounts = filtered.map((l, i) => ({ ...l, count: indexes[i]?.length || 0 }));
 
-      setSuggestions(filteredWithCounts);
-      setIsOpen(filteredWithCounts.length > 0);
+      if (!isCancelled) {
+        setSuggestions(filteredWithCounts);
+        setIsOpen(filteredWithCounts.length > 0);
+      }
     }, 250);
 
-    return () => clearTimeout(timeoutId);
+    return () => {
+      isCancelled = true;
+      clearTimeout(timeoutId);
+    };
   }, [searchTerm, selectedLocationId, locations]);
 
   const selectedLocationName = useMemo(() => {
