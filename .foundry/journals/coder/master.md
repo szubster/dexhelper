@@ -121,3 +121,92 @@ Refactoring `SaveData` into discriminated unions.
 - Updated core parser functions (`parseGen1`, `parseGen2`, `parseGen3`) to return specific generation types.
 - Fixed downstream consumers (tests, components, generators) to correctly handle the new narrowed types using `'property' in saveData` checks and TypeScript casting.
 - Verified compilation and tests pass successfully.
+
+
+# Coder Journal Entry - 8789985912051160747
+
+## Observations & Lessons Learned
+
+- **Integration Testing of Component Renders:** When creating component tests checking for dynamically generated elements in a list, tests using `.getByText()` might fail if they expect a single element but multiple ones render (e.g. `getByText('Cool', { exact: true })`). When this happens, we must switch to `.all()` or distinct roles/titles.
+- **Handling of Boolean Tracking:** For Master Rank conditions, checking properties directly (e.g., `p.ribbons.cool === 4`) on `pokemon.ribbons` and updating a boolean track structure per category works effectively and avoids allocating numerous arrays across hot paths when iterating through large pcDetails arrays.
+
+
+
+# Coder Session 3640935315816398710
+
+## Learnings
+- In Playwright tests, `evaluate` to manipulate IndexedDB and add a test save object relies on the structure of the database. When mocking Gen 3 tests, specifically use an `emerald.sav` binary and look at `test-utils.ts` for how it is fed into `initializeWithSave`.
+- Since the task only required testing the rendered `TID` and `SID` logic in E2E, utilizing the `tests/fixtures/emerald.sav` provided a solid baseline.
+- `RngTidSidDisplay` correctly surfaces Gen 3's Secret ID (SID).
+
+
+
+## Memory from Task task-419-440-fuzzing-test-suite-impl
+
+When implementing E2E fuzzing tests for the orchestrator, ensure you pass node IDs, rather than file paths, to the `depends_on` array of the dynamically generated nodes. The DAG orchestrator specifically requires valid Node IDs to evaluate graph dependencies; passing file paths (like `.foundry/tasks/task-X.md`) will either fail Zod validation schema or cause the node links to be unresolvable, failing the execution state invariants testing.
+
+Furthermore, ensure you test the underlying invariant logic directly, rather than just asserting that the orchestrator executes without throwing (e.g. `expect(() => main()).not.toThrow()`).
+
+
+
+# Session: 18132436912921752968\n\n- Fixed Gen 2 Roamer active status detection to explicitly verify HP > 0 in addition to checking valid map groups, resolving issue where defeated/caught roamers were incorrectly flagged as active.
+
+
+
+## 2026-08-20 - Gen 2 Breeding DV Inheritance
+
+- Implemented `determineInheritedDVs` function in `src/engine/breeding/inheritance.ts`.
+- It takes two parents and returns an object indicating which parent's DVs are inherited for each possible offspring gender.
+- Discovered and satisfied the `verbatimModuleSyntax` TypeScript constraint by explicitly marking type imports as `import type { ... }` in newly created files (preventing TS1484 errors).
+- Cleaned up temp scripts and resolved `lint` and `test` check failures prior to submitting the final PR.
+
+
+
+# Coder Session 2084945727380104278
+
+- In Playwright E2E tests, avoid using `page.evaluate()` to manually walk the DOM or trigger events (e.g., `.click()`). Instead, use Playwright's built-in locators (e.g., `page.locator()`, `page.getByText()`) for robust and maintainable tests, as direct DOM evaluation is considered an unmaintainable anti-pattern.
+
+
+
+# Coder Journal - Session 10284060282706513264
+
+## fast-check and vitest integration
+
+When configuring `fast-check` using `@fast-check/vitest`, it requires configuring the number of test runs to balance execution speed and comprehensiveness. `fc.configureGlobal()` should be used in `src/node-setup.ts`. For continuous integration environments (`process.env.CI`), run a large suite (e.g. 1000) but default to a smaller batch (e.g. 100) locally.
+
+**Important:** When writing the configuration object for `fc.configureGlobal()`, be aware of Biome rules (specifically `lint/complexity/useLiteralKeys`). When explicitly mapping a process.env property using bracket notation (`process.env['CI']`), the rule will attempt to incorrectly optimize it into a dot-notation call, which often triggers typescript warnings or false negatives. Use `// biome-ignore lint/complexity/useLiteralKeys:` inline to ignore the error.
+
+Additionally, to ensure properties evaluation doesn't erroneously timeout under the vitest runner, map `test.testTimeout` in `vitest.config.ts` to `30000`.
+
+## Workspace Package Installation
+
+When explicitly running `pnpm add` or `pnpm install` in the project root to install new modules required for the testing environment (e.g., `fast-check`), append the `-w` or `--workspace-root` flag (e.g., `pnpm add -D fast-check @fast-check/vitest -w`). Failing to do so triggers `[ERR_PNPM_ADDING_TO_ROOT]`.
+
+
+
+# Coder Session: 2026-08-19-19-25-57
+
+**Task**: Implement Gen 2 Room Decoration & Bank Parsing (`task-322-331-gen2-decoration-savings-parsing-impl`)
+
+**Learnings**:
+- Implemented parsing for Mom's savings and active/unlocked room decorations in Gen 2 (GS/Crystal).
+- Discovered and addressed QA rejection by utilizing the documented relative offsets (`MOMS_MONEY_OFFSET_RELATIVE`, `ACTIVE_DECO_OFFSET_RELATIVE_CRYSTAL`, etc.) instead of static absolute offsets, enforcing ADR 028 and `gen2_decoration_savings_offsets.md`.
+- Wrote robust tests to verify correct parsing of bytes and bit masks for the 46 unlocked room decoration event flags.
+- Removed `### QA Rejection Note` to cleanly close the resurrected implementation loop.
+
+
+
+# Session 10513976597641079832 - Implement RNG TID SID E2E
+
+**Objective**: Write end-to-end tests for the RNG TID and SID Display UI to ensure it displays correctly and copy-to-clipboard functionality works.
+
+**Execution**:
+- Discovered that the UI component for the TID/SID display (`RngTidSidDisplay.tsx`) formats the output internally. It pads the TID/SID to 5 characters but the raw numbers passed could be parsed.
+- For Playwright, tests asserting clipboard content must request permissions (`clipboard-read`, `clipboard-write`) from the context.
+- Implemented test to parse the displayed string instead of relying on the raw value matching the padded display to be robust against string comparisons, and converted it to base-10 integers.
+- Encountered a timeout failure with the `playwright install` where the binary was missing. Solved it by running `pnpm exec playwright install`.
+- Successfully validated test against three device profiles (Mobile, FullHD, 1440p) using `xvfb-run pnpm test:e2e tests/e2e/dashboard/rng_tid_sid.spec.ts`.
+- `biome` linter caught import sorting issue. Fixed via `pnpm check:fix`.
+
+**Learnings**:
+- To automatically fix code formatting errors flagged by Biome (e.g., after `pnpm lint` fails), use the command `pnpm check:fix`.

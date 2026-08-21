@@ -33,3 +33,13 @@ Identified multiple React components that frequently re-render with large data s
 
 Session completed successfully. Optimized the Vite build by adding a saveParserCommon chunk, eliminating the +6KB overhead duplication between saveParserGenX chunks and clarifying the 49KB Rollup chunk-drop in the GlobalRibbonChecklistDashboard.
 Learned that Vite and Rollup automatically handle chunk splitting for dynamic imports. Removed hardcoded manual chunks from vite.config.ts and confirmed correct splitting without duplication.
+
+
+# Session: 2026-08-19-00-28-50
+Persona: Bolt
+
+Explored the application for performance optimization opportunities. Analysis of the bundle build (`pnpm run build --mode analysis`) revealed that the `@xyflow/react` dependency is the largest chunk after React itself, contributing ~176 kB (57 kB gzipped) to the initial bundle.
+
+Given the read-only, statically laid out nature of our DAG visualization (which already uses `dagre` for layouting), this heavy dependency is overkill and introduces unnecessary DOM and memory bloat.
+
+Based on feedback, the 2D canvas of nodes is also hard to parse for users trying to understand specific task hierarchies. I created an `IDEA` node (`idea-418-replace-xyflow-with-custom-dag`) proposing a custom, lightweight directory tree visualization using nested standard React/Tailwind lists to replace `@xyflow/react` and remove the `dagre` dependency entirely. This follows a similar successful optimization previously applied to `BattleFrontierDashboard`.

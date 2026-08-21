@@ -164,3 +164,64 @@ The `parseBikeRequirements`, `hasMachBikeRequirement`, and `hasAcroBikeRequireme
 Verified task-275-435-move-db-schema-inflation.
 - **Moves Integration**: Verified the `moves` data is properly fetched from `pokedata.msgpack`, inflated (including defaults like `acc: 100`), and stored in the IndexedDB `moves` object store (`PokeDB`).
 - **Inflation**: Confirmed that omitted properties default back correctly during the database populating phase (`syncData`).
+
+
+# QA Persona Journal
+## Session ID: 5586949025564325789
+## Date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+### Task: task-099-158-gen3-extract-pokemon-pids-qa
+
+- The QA task required ensuring that Gen 3 Pokemon PID extraction correctly used `DataView`, handled out of bounds errors using `RangeError`, and was fully tested.
+- I verified that `parseGen3Party` and `parseGen3PCBoxes` correctly implemented these requirements using the `DataView` API. I wrote a suite of Vitest tests located at `src/engine/saveParser/parsers/gen3_pokemon_pids.test.ts` to assert against Party extraction, PC Box extraction, and the graceful error catching behavior when provided with smaller (out of bounds) buffers.
+- Remember: `pnpm check:fix` fixes biome formatting and `pnpm lint` catches unused imports and vars (if any).
+- Checked off task acceptance criteria and preparing for PR submission.
+
+
+
+# QA Journal Entry - Session 16272564245202199728
+
+## Context
+Validating `task-351-385-nuzlocke-death-tracking-e2e-qa` which depends on the implementation task `task-351-384-nuzlocke-death-tracking-e2e-impl`.
+
+## Findings
+The target implementation task claims to have implemented E2E tests for the Nuzlocke death tracking logic. However, review of the test file `tests/e2e/nuzlocke_death_tracking.spec.ts` reveals that the coder explicitly skipped validating the UI rendering for dead Pokemon (the `isDead` prop, causing opacity and grayscale visual effects). The coder left a comment stating they were skipping it to avoid "fighting Playwright locator syntax for the specific layout of storage grids."
+
+This is a direct violation of the acceptance criteria to adequately cover identifying Pokemon as dead. UI tests must verify the actual UI effects, not just assume the internal state works.
+
+## Action Taken
+- Rejected the implementation task `task-351-384-nuzlocke-death-tracking-e2e-impl`.
+- Set its status to `FAILED`.
+- Incremented its `rejection_count`.
+- Added a `rejection_reason` explaining the missing UI validation.
+- Triggered the Resurrection Loop by appending a rejection note to my own QA task without checking off any acceptance criteria.
+
+
+
+# Session 13723927411961996050
+
+## Overview
+Verified fixes for Gen 3 Safari Zone State Parsing task which had previously failed.
+
+## Architectural Notes
+- `parseGen3PCBuffer` in `src/engine/saveParser/parsers/gen3.ts` previously used inline magic numbers `2000` and `3968`. Extracted them into exported constants `PC_BOX_SECTION_13_SIZE` and `PC_BOX_SECTION_5_TO_12_SIZE` respectively.
+- Ensured `RangeError` from out-of-bounds `DataView` reads inside `parseGen3PCBuffer` and `parseGen3` are caught and re-thrown correctly as `"The save file is corrupted or incomplete."`.
+- Confirmed `parseGen3PCBoxes` does not contain inline magic numbers for move offsets (they were updated in a previous commit, and now use constants correctly).
+- The task is completely compliant and has been moved towards completion.
+
+
+
+# QA Journal Entry - 8258906576326799697
+
+## Context
+Reviewed `task-257-374-progression-timeline-ui-qa`. The task had been cancelled and replaced by `task-257-379-progression-timeline-ui-retry-qa` after a previous failure (due to duplicate components and lack of history integration).
+
+## Action
+Since the implementation task was completed and the target files were already finished in a previous run (as part of the retry task), I executed the **Cancelled/Replaced Tasks (Graceful Exit)** rule. I explicitly checked the Acceptance Criteria checkbox (`- [x] Verify the Progression Timeline UI implementation.`) and prepared an Empty PR.
+
+## Learnings
+- **Empty PR Rule for Orphaned/Cancelled Nodes:** When a target task is replaced or cancelled, the QA persona must still satisfy ADR 007 by explicitly checking off its own acceptance criteria checkbox and submitting an Empty PR to allow the node to gracefully exit the DAG. Leaving it unchecked prevents the orchestrator from completing it.
+
+
+
+When adding steps to a Github Actions workflow file (`ci.yml`), ensure you properly `cd` into the workspace where the tests run and supply dependencies, for example running `cd .github/scripts && pnpm install --frozen-lockfile && npx vitest run`.
