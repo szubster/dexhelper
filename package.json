@@ -28,6 +28,7 @@
     "test:ct": "vitest --project browser",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
+    "test:e2e:xvfb": "xvfb-run -a playwright test",
     "test:watch": "vitest",
     "type-check": "tsc --noEmit"
   },
