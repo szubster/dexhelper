@@ -27,5 +27,5 @@ notes: ''
 This task implements integration tests to verify the WASM memory buffer hook implemented in task-435-447-wasm-memory-hook-impl behaves correctly when integrated with the broader emulator architecture.
 
 ## Acceptance Criteria
-- [ ] Write integration tests verifying the WASM memory hook operates correctly within the emulator context.
-- [ ] Confirm no performance degradation occurs under continuous extraction load.
+- [x] Write integration tests verifying the WASM memory hook operates correctly within the emulator context.
+- [x] Confirm no performance degradation occurs under continuous extraction load.
