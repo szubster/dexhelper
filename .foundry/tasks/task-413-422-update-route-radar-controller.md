@@ -2,11 +2,12 @@
 id: task-413-422-update-route-radar-controller
 type: TASK
 title: Update RouteRadarHeatmap to Support Bike Requirements
-status: READY
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-14'
 updated_at: '2026-08-21'
-depends_on: []
+depends_on:
+  - research-422-449-investigate-map-requirements-integration
 jules_session_id: null
 pr_number: null
 parent: story-406-413-bike-requirement-heatmap
@@ -14,8 +15,8 @@ tags:
   - gen3
   - map
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Suspended pending research to determine where bike requirement map data should be accessed from.'
 notes: ''
 ---
 
@@ -31,3 +32,4 @@ Update `RouteRadarHeatmap` interface in `src/engine/radar/RouteRadarController.t
 - [ ] coder: Update `RouteRadarHeatmap` interface to include bike requirement flags.
 - [ ] coder: Update `calculateHeatmap` in `RouteRadarController` to accurately populate these bike requirements.
 - [ ] coder: Write tests for `RouteRadarController` ensuring the new bike data is correctly aggregated.
+- [ ] research-422-449-investigate-map-requirements-integration
