@@ -32,10 +32,10 @@ As part of the Gen 3 AI data extraction, an implementation has been made to extr
 4.  **Test Coverage:** Ensure the coder wrote adequate unit tests and that they pass.
 
 ## Acceptance Criteria
-- [ ] Verification confirms the player location data is accurately parsed.
-- [ ] Verification confirms the location maps correctly to the next major trainer.
-- [ ] Verification confirms Section 13 guidelines are strictly followed.
-- [ ] Verification confirms unit tests are adequate and pass.
+- [x] Verification confirms the player location data is accurately parsed.
+- [x] Verification confirms the location maps correctly to the next major trainer.
+- [x] Verification confirms Section 13 guidelines are strictly followed.
+- [x] Verification confirms unit tests are adequate and pass.
 
 ### QA Failure
 The implementation task `task-421-447-extract-player-location-impl` was rejected because it violates Section 13 ("Save File Parsing & Extraction Guidelines") of `.foundry/docs/schema.md`.
