@@ -32,3 +32,4 @@ Extract Gen 2 roamer data and standardize the structure for roaming legendaries.
 - [x] Story Owner: Break down this Epic into executable Stories.
 - [x] story-139-297-gen2-roamer-core-extraction
 - [x] story-139-298-gen2-roamer-status-and-standardization
+- [ ] story-139-442-gen2-roamer-extraction-e2e
