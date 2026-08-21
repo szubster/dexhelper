@@ -2,13 +2,13 @@
 id: task-421-441-parse-items-pocket-for-shoal-items-qa
 type: TASK
 title: Verify Gen 3 Items Pocket Parsing for Shoal Items
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-13'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on:
   - task-421-440-parse-items-pocket-for-shoal-items-impl
-jules_session_id: '3958056019468158324'
+jules_session_id: null
 pr_number: null
 parent: story-411-421-shoal-items-parsing
 tags:
