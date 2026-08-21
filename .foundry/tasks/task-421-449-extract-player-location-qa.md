@@ -2,7 +2,7 @@
 id: task-421-449-extract-player-location-qa
 type: TASK
 title: QA Gen 3 Player Location Extraction
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-20'
 updated_at: '2026-08-21'
@@ -15,8 +15,8 @@ tags:
   - gen3
   - ai
   - save-engine
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

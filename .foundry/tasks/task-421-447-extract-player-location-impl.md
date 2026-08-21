@@ -2,7 +2,7 @@
 id: task-421-447-extract-player-location-impl
 type: TASK
 title: Implement Gen 3 Player Location Extraction
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-20'
 updated_at: '2026-08-21'
@@ -15,8 +15,8 @@ tags:
   - gen3
   - ai
   - save-engine
-rejection_count: 1
-rejection_reason: 'Section 13 violation: The implementation uses magic numbers (e.g. `(mapGroup << 8) | mapNum`) and lacks a try/catch block for RangeError as required by Section 13 in .foundry/docs/schema.md.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
