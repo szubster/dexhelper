@@ -2,13 +2,13 @@
 id: task-421-447-extract-player-location-impl
 type: TASK
 title: Implement Gen 3 Player Location Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-20'
 updated_at: '2026-08-21'
 depends_on:
   - research-421-448-gen3-player-location-offsets
-jules_session_id: null
+jules_session_id: '13064740652593067713'
 pr_number: null
 parent: story-411-421-extract-player-location
 tags:
