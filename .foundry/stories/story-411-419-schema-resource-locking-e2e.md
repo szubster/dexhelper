@@ -2,10 +2,10 @@
 id: story-411-419-schema-resource-locking-e2e
 type: STORY
 title: Schema Resource Locking E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-11'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on:
   - story-411-418-schema-resource-locking
 jules_session_id: null
@@ -32,5 +32,5 @@ Verify the `locks` field schema changes via unit and integration tests.
 
 ## Acceptance Criteria
 - [x] Tech Lead breaks down this STORY into TASK nodes for test verification.
-- [ ] task-419-440-implement-locks-e2e-tests
-- [ ] task-419-441-schema-locks-e2e-qa
+- [x] task-419-440-implement-locks-e2e-tests
+- [x] task-419-441-schema-locks-e2e-qa

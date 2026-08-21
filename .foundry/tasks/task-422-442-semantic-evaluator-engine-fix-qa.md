@@ -2,13 +2,13 @@
 id: task-422-442-semantic-evaluator-engine-fix-qa
 type: TASK
 title: QA Semantic Evaluator Engine JSON Parsing Fix
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-18'
 updated_at: '2026-08-21'
 depends_on:
   - task-422-441-semantic-evaluator-engine-fix
-jules_session_id: '16134898645708978122'
+jules_session_id: null
 pr_number: null
 parent: story-417-422-implement-semantic-evaluator-engine
 tags: []
