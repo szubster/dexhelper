@@ -2,10 +2,10 @@
 id: story-398-432-save-state-read-api
 type: STORY
 title: Implement Save State Read API
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-20'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on:
   - story-398-431-save-state-write-api
 jules_session_id: null
