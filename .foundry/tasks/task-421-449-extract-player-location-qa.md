@@ -2,13 +2,13 @@
 id: task-421-449-extract-player-location-qa
 type: TASK
 title: QA Gen 3 Player Location Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-20'
 updated_at: '2026-08-21'
 depends_on:
   - task-421-447-extract-player-location-impl
-jules_session_id: '13976091118816559819'
+jules_session_id: null
 pr_number: null
 parent: story-411-421-extract-player-location
 tags:

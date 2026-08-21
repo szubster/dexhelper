@@ -2,7 +2,7 @@
 id: story-411-421-extract-player-location
 type: STORY
 title: Extract Player's Location and Upcoming Trainer
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-13'
 updated_at: '2026-08-21'
@@ -32,6 +32,6 @@ Parse the player's current location from Gen 3 save files and identify the neare
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into actionable TASK nodes
-- [ ] task-421-447-extract-player-location-impl
-- [ ] research-421-448-gen3-player-location-offsets
-- [ ] task-421-449-extract-player-location-qa
+- [x] task-421-447-extract-player-location-impl
+- [x] research-421-448-gen3-player-location-offsets
+- [x] task-421-449-extract-player-location-qa
