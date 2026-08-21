@@ -41,8 +41,8 @@ Implement logic to extract actual Hall of Fame records from Generation 2 (Gold, 
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Memory offsets and data structures for Gen 2 Hall of Fame records are correctly identified and used.
-- [ ] Logic implemented to extract Pokémon species, levels, and player names from the records.
-- [ ] Parsing logic integrates with the existing engine and uses the `DataView` API.
-- [ ] All constants are defined at the module level without inline magic numbers.
-- [ ] Tests are written/updated to verify the extraction logic.
+- [x] Memory offsets and data structures for Gen 2 Hall of Fame records are correctly identified and used.
+- [x] Logic implemented to extract Pokémon species, levels, and player names from the records.
+- [x] Parsing logic integrates with the existing engine and uses the `DataView` API.
+- [x] All constants are defined at the module level without inline magic numbers.
+- [x] Tests are written/updated to verify the extraction logic.
