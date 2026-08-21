@@ -1,0 +1,6 @@
+# Coder Journal Entry - task-140-440-ribbon-dashboard-virtualization-impl
+
+## Observations & Lessons Learned
+
+- **@tanstack/react-virtual styling requirements**: When implementing DOM virtualization utilizing `useVirtualizer`, the rendered rows must be positioned absolutely, with a `height` matching the `virtualRow.size` and shifted vertically via `transform: translateY(${virtualRow.start}px)`. Additionally, providing `ref={virtualizer.measureElement}` and `data-index={virtualRow.index}` on the rendered element is crucial if you need the library to dynamically measure the size of the elements instead of relying on a hard-coded static `estimateSize` height, which can fail or cause overlap if UI contents wrap across multiple lines on smaller viewports.
+- **Empty PR Checkbox Policy**: Always ensure that when marking a markdown task as completed by executing its criteria, you physically change `- [ ]` to `- [x]` in the task's markdown body before submitting the PR to comply with ADR 007 completeness requirements and avoid QA rejection.
