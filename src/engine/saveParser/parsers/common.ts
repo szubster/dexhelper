@@ -226,6 +226,10 @@ export interface Gen3BattleFrontierSymbols {
   pyramid: { silver: boolean; gold: boolean };
 }
 
+export interface Gen3Spinda {
+  personalityValue: number;
+}
+
 export interface BaseSaveData {
   /** A set of Pokémon species IDs that have been caught (O(1) lookup). */
   owned: Set<number>;
@@ -374,6 +378,8 @@ export interface Gen3SaveData extends BaseSaveData {
   gen3BattleFrontierWinStreaks?: Gen3BattleFrontierWinStreaks;
   /** Gen 3 specific: Battle Frontier symbols */
   gen3BattleFrontierSymbols?: Gen3BattleFrontierSymbols;
+  /** Gen 3 specific: Extracted Spinda data */
+  gen3Spindas?: Gen3Spinda[];
   /** Gen 3 specific: Battle Points (BP) balance */
   gen3TotalBattlePoints?: number;
   gen3BattlePoints?: number;

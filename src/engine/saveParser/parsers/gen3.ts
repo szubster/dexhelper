@@ -319,6 +319,8 @@ export const SUBSTRUCTURE_ORDER = [
 export const EMERALD_MOVE_TUTOR_BYTE_1_OFFSET = 0x36;
 export const EMERALD_MOVE_TUTOR_BYTE_2_OFFSET = 0x37;
 
+export const SPECIES_SPINDA = 327;
+
 export const FRLG_MOVE_TUTOR_BYTE_1_OFFSET = 0x58;
 export const FRLG_MOVE_TUTOR_BYTE_2_OFFSET = 0x59;
 export const FRLG_MOVE_TUTOR_BYTE_3_OFFSET = 0x5b;
@@ -836,6 +838,23 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
   }
 
   return { pc, pcDetails };
+}
+
+/**
+ * Extracts Spinda personality values from parsed party and PC data.
+ */
+export function extractGen3Spindas(
+  partyDetails: import('./common').PokemonInstance[],
+  pcDetails: import('./common').PokemonInstance[]
+): import('./common').Gen3Spinda[] {
+  const spindas: import('./common').Gen3Spinda[] = [];
+  const allPokemon = [...partyDetails, ...pcDetails];
+  for (const pokemon of allPokemon) {
+    if (pokemon.speciesId === SPECIES_SPINDA && pokemon.personalityValue !== undefined) {
+      spindas.push({ personalityValue: pokemon.personalityValue });
+    }
+  }
+  return spindas;
 }
 
 /**
@@ -1699,6 +1718,8 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): import(
 
     const { party, partyDetails } = parseGen3Party(view, section1Offset, _forcedVersion || 'ruby');
 
+    const gen3Spindas = extractGen3Spindas(partyDetails, pcDetails);
+
     // Dummy scaffold values for now until fully implemented
     const result: import('./common').Gen3SaveData = {
       generation: 3,
@@ -1722,6 +1743,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): import(
 
       ...(gen3StaticEncounters ? { gen3StaticEncounters } : {}),
       gen3BerryPatches,
+      gen3Spindas,
       gen3SecretBases,
       hiddenItemFlags,
       mirageIslandValue,
