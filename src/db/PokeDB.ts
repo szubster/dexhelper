@@ -2,6 +2,7 @@ import { type IDBPDatabase, openDB, unwrap } from 'idb';
 import { Unpackr } from 'msgpackr';
 import { objectValues } from '../utils/object';
 import {
+  type BerryMetadata,
   type CompactChainLink,
   DB_CONFIG,
   type ItemMetadata,
@@ -101,6 +102,7 @@ export const getDB = () => {
           [DB_CONFIG.STORES.METADATA]: 'key',
           [DB_CONFIG.STORES.ITEMS]: 'id',
           [DB_CONFIG.STORES.MOVES]: 'id',
+          [DB_CONFIG.STORES.BERRIES]: 'id',
         };
 
         // Always delete existing stores to ensure keyPaths are applied correctly
@@ -182,6 +184,7 @@ const syncData = async () => {
         DB_CONFIG.STORES.LOCATIONS,
         DB_CONFIG.STORES.ITEMS,
         DB_CONFIG.STORES.MOVES,
+        DB_CONFIG.STORES.BERRIES,
         DB_CONFIG.STORES.METADATA,
       ],
       'readwrite',
@@ -193,6 +196,7 @@ const syncData = async () => {
     const lStore = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
     const iStore = tx.objectStore(DB_CONFIG.STORES.ITEMS);
     const mvStore = tx.objectStore(DB_CONFIG.STORES.MOVES);
+    const bStore = tx.objectStore(DB_CONFIG.STORES.BERRIES);
     const mStore = tx.objectStore(DB_CONFIG.STORES.METADATA);
 
     // Clear old data
@@ -202,6 +206,7 @@ const syncData = async () => {
       lStore.clear(),
       iStore.clear(),
       mvStore.clear(),
+      bStore.clear(),
       mStore.clear(),
     ]);
 
@@ -256,6 +261,9 @@ const syncData = async () => {
     emit(4, 5, 'Items');
     for (const item of data.items || []) {
       void iStore.put(item);
+    }
+    for (const berry of data.berries || []) {
+      void bStore.put(berry);
     }
 
     emit(5, 5, 'Moves');
@@ -334,6 +342,15 @@ export const pokeDB = {
     await pokeDB.ready();
     if (id === undefined || id === null || Number.isNaN(id)) return undefined;
     return (await getDB()).get(DB_CONFIG.STORES.ITEMS, id);
+  },
+
+  /**
+   * Fetches a single Berry's metadata by its ID.
+   */
+  getBerry: async (id: number): Promise<BerryMetadata | undefined> => {
+    await pokeDB.ready();
+    if (id === undefined || id === null || Number.isNaN(id)) return undefined;
+    return (await getDB()).get(DB_CONFIG.STORES.BERRIES, id);
   },
 
   /**
