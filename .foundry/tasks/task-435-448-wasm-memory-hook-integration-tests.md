@@ -2,13 +2,13 @@
 id: task-435-448-wasm-memory-hook-integration-tests
 type: TASK
 title: WASM Memory Buffer Hook Integration Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-20'
 updated_at: '2026-08-21'
 depends_on:
   - task-435-447-wasm-memory-hook-impl
-jules_session_id: '4216624549949003553'
+jules_session_id: null
 pr_number: null
 parent: story-424-435-wasm-memory-buffer-hook
 tags:

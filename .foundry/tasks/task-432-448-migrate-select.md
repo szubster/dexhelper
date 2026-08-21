@@ -2,12 +2,12 @@
 id: task-432-448-migrate-select
 type: TASK
 title: Extract tactical-select utility and refactor TacticalSelect
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-20'
 updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: '9353881917392776989'
+jules_session_id: null
 pr_number: null
 parent: story-071-432-migrate-tactical-controls
 tags:

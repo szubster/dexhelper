@@ -2,7 +2,7 @@
 id: task-432-449-qa-controls
 type: TASK
 title: QA Verification - Tactical Controls Refactor
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-20'
 updated_at: '2026-08-21'
