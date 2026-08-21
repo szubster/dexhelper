@@ -28,5 +28,5 @@ notes: ''
 Verify the E2E test implementation for the `locks` property schema validation.
 
 ## Acceptance Criteria
-- [ ] QA verifies the integration/e2e tests properly validate the `locks` field using fixtures.
-- [ ] QA verifies the tests pass.
+- [x] QA verifies the integration/e2e tests properly validate the `locks` field using fixtures.
+- [x] QA verifies the tests pass.
