@@ -29,7 +29,7 @@ notes: ''
 The coder has implemented logic to extract Shoal Salt and Shoal Shells from the Gen 3 save file Items pocket. This QA task ensures the implementation is correct, matches the required offsets, and properly unmasks quantities using the security key.
 
 ## Acceptance Criteria
-- [ ] Verify `parseGen3ShoalItems` correctly references the constants defined for offsets and sizes per game version.
-- [ ] Verify unit tests have been added and pass, demonstrating that Shoal Salt and Shoal Shell quantities are correctly unmasked using `securityKey & LOWER_16_BIT_MASK`.
-- [ ] Verify `SaveData` interface is updated accurately.
-- [ ] Verify RangeError exceptions throw the exact text "The save file is corrupted or incomplete."
+- [x] Verify `parseGen3ShoalItems` correctly references the constants defined for offsets and sizes per game version.
+- [x] Verify unit tests have been added and pass, demonstrating that Shoal Salt and Shoal Shell quantities are correctly unmasked using `securityKey & LOWER_16_BIT_MASK`.
+- [x] Verify `SaveData` interface is updated accurately.
+- [x] Verify RangeError exceptions throw the exact text "The save file is corrupted or incomplete."
