@@ -2,12 +2,11 @@
 id: task-241-440-daycare-gen3-parsing-impl
 type: TASK
 title: Implement Gen 3 Daycare Data Parsing
-status: FAILED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-19'
 updated_at: '2026-08-21'
-depends_on:
-  - research-440-449-gen3-daycare-offsets
+depends_on: []
 jules_session_id: '15508722855891593455'
 pr_number: null
 parent: story-105-241-daycare-gen3-parsing
@@ -16,8 +15,8 @@ tags:
   - breeding
   - parsing
 research_references: []
-rejection_count: 1
-rejection_reason: 'Suspended pending research on exact Gen 3 Daycare memory offsets and data structures.'
+rejection_count: 0
+rejection_reason: ''
 notes: ''
 ---
 # Task: Implement Gen 3 Daycare Data Parsing
@@ -38,4 +37,3 @@ We need to extract Gen 3 daycare information. This task is for implementing the 
 ## Acceptance Criteria
 - [ ] Implement Gen 3 Daycare data parsing.
 - [ ] Write unit tests for Daycare data extraction.
-- [ ] research-440-449-gen3-daycare-offsets

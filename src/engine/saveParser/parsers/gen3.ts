@@ -681,6 +681,7 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
 
       const growthSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfG * SUBSTRUCTURE_SIZE;
       const attacksSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfA * SUBSTRUCTURE_SIZE;
+      const evSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + permutation.indexOf('E') * SUBSTRUCTURE_SIZE;
 
       const encryptedSpecies = view.getUint16(growthSubstructureOffset + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
       const encryptedItem = view.getUint16(growthSubstructureOffset + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
@@ -727,6 +728,7 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
           spatk: view.getUint16(offset + GEN3_PARTY_SPATK_OFFSET, true),
           spdef: view.getUint16(offset + GEN3_PARTY_SPDEF_OFFSET, true),
         },
+        evs: parseGen3EVs(view, evSubstructureOffset),
       });
     }
   } catch (error) {
@@ -780,6 +782,7 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
 
         const growthSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfG * SUBSTRUCTURE_SIZE;
         const attacksSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfA * SUBSTRUCTURE_SIZE;
+        const evSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + permutation.indexOf('E') * SUBSTRUCTURE_SIZE;
 
         const encryptedSpecies = pcBufferView.getUint16(
           growthSubstructureOffset + GEN3_POKEMON_SPECIES_OFFSET_IN_G,
@@ -822,6 +825,7 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
           personalityValue: pv,
           storageLocation: `Box ${box + 1}`,
           slot,
+          evs: parseGen3EVs(pcBufferView, evSubstructureOffset),
         };
 
         pc.push(speciesId);
