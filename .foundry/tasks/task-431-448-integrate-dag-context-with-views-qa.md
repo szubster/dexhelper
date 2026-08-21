@@ -39,7 +39,7 @@ This task is to QA verify the implementation of `task-431-447-integrate-dag-cont
    - Run tests to confirm they are passing.
 
 ## Acceptance Criteria
-- [ ] Verify `DagProvider` fetches and manages `nodes` and `edges` state correctly.
-- [ ] Verify `DagDashboard` successfully consumes data from `DagContext`.
-- [ ] Verify there is no isolated fetching logic left in view components.
-- [ ] Verify tests for the integration are complete and passing.
+- [x] Verify `DagProvider` fetches and manages `nodes` and `edges` state correctly.
+- [x] Verify `DagDashboard` successfully consumes data from `DagContext`.
+- [x] Verify there is no isolated fetching logic left in view components.
+- [x] Verify tests for the integration are complete and passing.
