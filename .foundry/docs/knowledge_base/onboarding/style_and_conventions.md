@@ -10,7 +10,7 @@
 
 ## Testing Standards
 
-Following the project's `.agents/rules/testing_rules.md`:
+Following the project's `.agents/rules/testing_rules.md` and `.foundry/docs/knowledge_base/agents/core_policies.md`:
 - **New Features**: Must include appropriate tests (Unit or E2E). We prioritize an **E2E-First Strategy** for all UI-facing features.
 - **Initialization**: All E2E tests must use `initializeWithSave(page)` from `tests/e2e/test-utils.ts` to ensure the application is correctly hydrated with a save file fixture.
 - **Bug Fixes**: Write a test to reproduce the bug *before* fixing it (Test-First Approach).

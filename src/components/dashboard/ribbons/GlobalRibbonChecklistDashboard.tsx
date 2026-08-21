@@ -2,6 +2,7 @@ import type React from 'react';
 import { useMemo } from 'react';
 import { RibbonFilterProvider } from '../../../contexts/RibbonFilterContext';
 import { useStore } from '../../../store';
+import { cn } from '../../../utils/cn';
 import {
   type ContestConditionType,
   ContestRibbonBadge,
@@ -26,6 +27,21 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
       const r = p.ribbons;
       return r.cool > 0 || r.beauty > 0 || r.cute > 0 || r.smart > 0 || r.tough > 0;
     });
+  }, [saveData]);
+
+  const masterRanks = useMemo(() => {
+    const status = { cool: false, beauty: false, cute: false, smart: false, tough: false };
+    if (saveData?.generation !== 3) return status;
+    const allPokemon = [...saveData.partyDetails, ...saveData.pcDetails];
+    for (const p of allPokemon) {
+      if (!p.ribbons) continue;
+      if (p.ribbons.cool === 4) status.cool = true;
+      if (p.ribbons.beauty === 4) status.beauty = true;
+      if (p.ribbons.cute === 4) status.cute = true;
+      if (p.ribbons.smart === 4) status.smart = true;
+      if (p.ribbons.tough === 4) status.tough = true;
+    }
+    return status;
   }, [saveData]);
 
   if (saveData?.generation !== 3) {
@@ -64,6 +80,29 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
           <span className="tactical-text z-10 text-xs text-zinc-400">
             MODE: {isLivingDex ? 'LIVING DEX' : 'STANDARD'}
           </span>
+        </div>
+
+        <div className="flex flex-col gap-2 border-zinc-800 border-b border-dashed pb-4">
+          <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">MASTER RANK TRACKING</span>
+          <div className="flex gap-2">
+            {(['cool', 'beauty', 'cute', 'smart', 'tough'] as const).map((key) => {
+              const isMaster = masterRanks[key];
+              return (
+                <div
+                  key={key}
+                  className={cn(
+                    'flex items-center justify-center rounded-none border border-dashed px-3 py-1 font-mono text-xs uppercase transition-colors',
+                    isMaster
+                      ? 'border-purple-500/50 bg-purple-950/20 text-purple-400'
+                      : 'border-zinc-800 bg-zinc-950 text-zinc-600',
+                  )}
+                  title={`${conditionMap[key]} Contest Master Rank Tracker`}
+                >
+                  {key}
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         <div className="flex max-h-[500px] flex-col gap-2 overflow-y-auto">

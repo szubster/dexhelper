@@ -2,10 +2,10 @@
 id: epic-103-133-living-dex-data-engine
 type: EPIC
 title: Living Dex Data Engine & Mapping
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-04'
-updated_at: '2026-07-05'
+updated_at: '2026-08-21'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,7 +14,7 @@ tags:
   - feature
   - living-dex
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
@@ -25,12 +25,12 @@ notes: ''
 This epic covers the backend/data layer requirements of the Living Dex Tracker PRD. It involves creating logic to determine "ghosts" (missing Pokémon in the Dex) and map out duplicate or evolution path Pokémon from the existing PC boxes.
 
 ## Acceptance Criteria
-- [ ] Determine how to track missing Pokémon in the regional/national Pokédex.
-- [ ] Implement data mapping to identify existing Pokémon and their PC Box/Slot locations.
-- [ ] Implement logic to detect raw materials for evolution to fill missing slots.
-- [ ] story-133-272-living-dex-ghost-tracker
-- [ ] story-133-273-living-dex-pc-mapping
-- [ ] story-133-274-living-dex-evolution-material
+- [x] Determine how to track missing Pokémon in the regional/national Pokédex.
+- [x] Implement data mapping to identify existing Pokémon and their PC Box/Slot locations.
+- [x] Implement logic to detect raw materials for evolution to fill missing slots.
+- [x] story-133-272-living-dex-ghost-tracker
+- [x] story-133-273-living-dex-pc-mapping
+- [x] story-133-274-living-dex-evolution-material
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

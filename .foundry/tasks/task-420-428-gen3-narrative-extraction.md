@@ -5,9 +5,9 @@ title: Implement Gen 3 Narrative Progression Flag Extraction
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-14'
-updated_at: '2026-08-19'
+updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '6649643815617570968'
+jules_session_id: '1942354124259222836'
 pr_number: null
 parent: story-411-420-narrative-progression-flags
 tags:

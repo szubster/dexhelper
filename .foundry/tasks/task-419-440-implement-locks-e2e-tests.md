@@ -2,12 +2,12 @@
 id: task-419-440-implement-locks-e2e-tests
 type: TASK
 title: Implement locks property Schema E2E verification
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-18'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: '3777065535689022260'
+jules_session_id: null
 pr_number: null
 parent: story-411-419-schema-resource-locking-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
@@ -32,6 +32,6 @@ Verify the `locks` field schema changes via integration and e2e tests.
 - Example: `task-003-locks-valid.md` with `locks: ["lock1"]` and verify the test passes.
 
 ## Acceptance Criteria
-- [ ] Added `locks` field e2e verification in `.github/scripts/schema-fixtures.test.ts` or related testing artifacts.
-- [ ] Created fixture files if necessary.
-- [ ] Tests run successfully without regressions.
+- [x] Added `locks` field e2e verification in `.github/scripts/schema-fixtures.test.ts` or related testing artifacts.
+- [x] Created fixture files if necessary.
+- [x] Tests run successfully without regressions.

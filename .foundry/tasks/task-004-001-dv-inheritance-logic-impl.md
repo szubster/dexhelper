@@ -2,12 +2,12 @@
 id: task-004-001-dv-inheritance-logic-impl
 type: TASK
 title: Gen 2 DV Inheritance Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-19'
 updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '8774648169264453623'
+jules_session_id: null
 pr_number: null
 parent: story-309-004-shiny-odds-computation
 tags:
@@ -32,5 +32,5 @@ This task should focus solely on writing a function that determines which parent
 The function should take the two parents, evaluate their genders/egg groups to determine the source of inherited DVs, and return the DVs that the offspring will inherit.
 
 ## Acceptance Criteria
-- [ ] Implement a function to determine the inherited DVs for Gen 2 breeding in a file under `src/engine/breeding`.
-- [ ] Add unit tests covering various combinations (e.g., Male/Female, Ditto/Male, Ditto/Female, Ditto/Genderless).
+- [x] Implement a function to determine the inherited DVs for Gen 2 breeding in a file under `src/engine/breeding`.
+- [x] Add unit tests covering various combinations (e.g., Male/Female, Ditto/Male, Ditto/Female, Ditto/Genderless).

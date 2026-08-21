@@ -2,19 +2,19 @@
 id: task-428-436-refactor-core-data-generation
 type: TASK
 title: Refactor Core Data Generation Script
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: $(date -I)
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: '16728829477920208882'
+jules_session_id: null
 pr_number: null
 parent: story-400-428-extract-core-data
 tags:
   - performance
   - architecture
   - bundles
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---
@@ -30,5 +30,8 @@ The generation-specific data extraction will be handled in separate tasks. For n
 The Vite plugin needs to be updated to output the new filename and use the updated generation logic.
 
 ## Acceptance Criteria
-- [ ] `scripts/generate-pokedata.ts` modified to generate `pokedata-core.msgpack` containing only core data (pokemon metadata, moves, items).
-- [ ] `vite-plugins/pokedata-plugin.ts` updated to build and output `pokedata-core.msgpack`.
+- [x] `scripts/generate-pokedata.ts` modified to generate `pokedata-core.msgpack` containing only core data (pokemon metadata, moves, items).
+- [x] `vite-plugins/pokedata-plugin.ts` updated to build and output `pokedata-core.msgpack`.
+- [x] Update `src/engine/assistant/suggestionEngine.ts` and `src/db/DexDataLoader.ts` to gracefully handle missing/empty encounter or location data instead of throwing errors.
+- [x] Update UI components (like `src/components/LocationSuggestions.tsx` and `src/components/AssistantPanel.tsx`) to show loading or empty states when location/encounter data is missing.
+- [x] research-436-441-data-splitting-e2e-failures

@@ -1,5 +1,16 @@
 # Core Agent Policies
 
+## Autonomous Communication & No-Ask Policy
+**CRITICAL DIRECTIVE FOR ALL AGENTS & JULES:** You must **NEVER** ask the user for permission, input, feedback, or clarification during execution in chat, unless explicitly requested in the initial prompt.
+
+1. **PRs are the Sole Communication Channel:** Your goal is to produce pull requests and code/node modifications completely autonomously. Do NOT ask the user whether a PR should be opened or submitted, or whether changes are acceptable in chat. PRs themselves are the formal channel for review and feedback.
+2. **Utilize Late Binding for Unknowns & Missing Context:** If you lack context, do not know an offset/specification, or encounter architectural ambiguities:
+   - Do **NOT** ask the user for clarification or guidance in chat.
+   - Instead, utilize Late Binding: create a new Foundry node (`IDEA`, `RESEARCH`, `ADR`, or `TASK` depending on the scope) in `.foundry/`.
+   - Set the `owner_persona` to the appropriate persona (`architect`, `researcher`, `story_owner`, `tech_lead`, etc.) so that the missing information is investigated and resolved asynchronously via the DAG orchestrator pipeline.
+   - Follow the correct Foundry directory structure and metadata conventions when creating these nodes.
+3. **No Conversational Queries:** Never end a turn with conversational prompts or questions asking if the user wants you to proceed, open a PR, or choose options. Execute the best decision autonomously and submit the PR.
+
 ## Environment Troubleshooting
 If `pnpm install` fails due to an unsupported Node engine version mismatch (e.g., `wanted: {"node":">=24.0.0"}`), temporarily disable the strict check using `pnpm config set engine-strict false` before installing.
 If `pnpm install` hangs or fails during `lefthook install` or git hook setup, run `git config --unset-all --global core.hooksPath` before retrying the installation.

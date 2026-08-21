@@ -2,10 +2,10 @@
 id: story-311-322-gen2-room-decoration-parsing
 type: STORY
 title: Gen 2 Room Decoration & Bank Parsing
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-15'
-updated_at: '2026-08-19'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -32,5 +32,5 @@ Implement the parser extraction for Gen 2 room decorations (bed, carpet, plant, 
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-322-331-gen2-decoration-savings-parsing-impl
-- [ ] task-322-332-gen2-decoration-savings-parsing-qa
+- [x] task-322-331-gen2-decoration-savings-parsing-impl
+- [x] task-322-332-gen2-decoration-savings-parsing-qa

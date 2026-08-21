@@ -29,3 +29,8 @@
 
 - **Date:** 2026-08-18
 - **Domain:** Main Project (DexHelper)
+
+
+- **Date:** $(date +%Y-%m-%d)
+- **Domain:** Main Project (DexHelper)
+- **Learning:** Aggregated valuable learnings from session-unique files into master logs for each persona and explicitly purged transient status logs (e.g., 'System failure detected', 'Executed Empty PR Policy', 'Artifact Anomaly') to prevent directory bloat and context window rot. Wrote Python script to parse markdown sections to only remove sections containing transient lines to ensure we retain the master headers.

@@ -2,12 +2,12 @@
 id: task-139-443-ribbon-filter-logic
 type: TASK
 title: Implement Ribbon Filtering and Sorting Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-19'
 updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '4536213270510328559'
+jules_session_id: null
 pr_number: null
 parent: story-066-139-ribbon-filtering-sorting
 tags:
@@ -31,6 +31,6 @@ Implement the core utility functions or hooks required to filter a list of Poké
 - Write unit tests for these utility functions to verify correct output for different inputs.
 
 ## 3. Acceptance Criteria
-- [ ] Filtering logic functions correctly.
-- [ ] Sorting logic functions correctly.
-- [ ] Comprehensive unit tests for logic functions are provided.
+- [x] Filtering logic functions correctly.
+- [x] Sorting logic functions correctly.
+- [x] Comprehensive unit tests for logic functions are provided.

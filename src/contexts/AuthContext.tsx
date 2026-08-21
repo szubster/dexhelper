@@ -1,4 +1,4 @@
-import { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
+import { createContext, type ReactNode, useContext, useState } from 'react';
 import { redirectPage } from '../utils/window';
 
 export const AUTH_LOGGED_IN_INDICATOR = 'isLoggedIn';
@@ -16,14 +16,9 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-
-  useEffect(() => {
-    const storedState = localStorage.getItem(AUTH_LOGGED_IN_INDICATOR);
-    if (storedState === 'true') {
-      setIsLoggedIn(true);
-    }
-  }, []);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => {
+    return localStorage.getItem(AUTH_LOGGED_IN_INDICATOR) === 'true';
+  });
 
   const login = () => {
     localStorage.setItem(AUTH_LOGGED_IN_INDICATOR, 'true');

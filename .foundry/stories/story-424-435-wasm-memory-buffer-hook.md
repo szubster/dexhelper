@@ -2,13 +2,13 @@
 id: story-424-435-wasm-memory-buffer-hook
 type: STORY
 title: WASM Memory Buffer Hook
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-14'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on:
   - epic-343-423-wasm-emulator-integration
-jules_session_id: '1091628059903205384'
+jules_session_id: null
 pr_number: null
 parent: epic-343-424-live-memory-reading
 tags:
@@ -26,4 +26,6 @@ notes: ''
 As part of the Built-in Emulator Integration PRD (prd-137-343-built-in-emulator) and Live Memory Reading Epic (epic-343-424-live-memory-reading), we need to establish a direct channel to read WASM memory buffers in real-time. This story focuses on the foundational layer: safely hooking into the WASM instance to extract raw memory buffers continuously during emulator execution without causing performance degradation.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down this STORY into TASK nodes, separating the memory hooking logic from integration tests.
+- [x] Tech Lead: Break down this STORY into TASK nodes, separating the memory hooking logic from integration tests.
+- [x] task-435-447-wasm-memory-hook-impl
+- [x] task-435-448-wasm-memory-hook-integration-tests

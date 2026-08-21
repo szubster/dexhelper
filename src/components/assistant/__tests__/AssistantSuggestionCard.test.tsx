@@ -237,6 +237,36 @@ describe('AssistantSuggestionCard', () => {
     await expect.element(page.getByText(/P: 99/)).toBeVisible();
   });
 
+  it('renders time of day icons when enc.time is provided', async () => {
+    const suggestion: Suggestion = {
+      id: 'test-time',
+      priority: 10,
+      category: 'Catch',
+      title: 'Catch a time mon',
+      description: 'Time check.',
+      pokemonIds: [7],
+      encounterInfo: {
+        7: [
+          { areaId: 0, method: 'walk', chance: 100, minLevel: 5, maxLevel: 5, time: 7 }, // Morning | Day | Night
+        ],
+      },
+    };
+
+    await renderWithProviders(
+      <AssistantSuggestionCard
+        suggestion={suggestion}
+        style={defaultStyle}
+        showDebug={false}
+        saveData={mockSaveData}
+        getPokemonName={mockGetPokemonName}
+      />,
+    );
+
+    await expect.element(page.getByTitle('Morning')).toBeVisible();
+    await expect.element(page.getByTitle('Day')).toBeVisible();
+    await expect.element(page.getByTitle('Night')).toBeVisible();
+  });
+
   it('renders multiple encounters properly evaluating max chance', async () => {
     const suggestion: Suggestion = {
       id: 'test-6',

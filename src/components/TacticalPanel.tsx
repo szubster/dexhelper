@@ -16,7 +16,7 @@ export const TacticalPanel = React.forwardRef<HTMLDivElement, TacticalPanelProps
       <div
         ref={ref}
         className={cn(
-          'group relative overflow-hidden rounded-none border border-dashed transition-all duration-300',
+          'tactical-panel group relative',
           {
             'border-emerald-500/30 bg-emerald-500/5 hover:border-emerald-500/50 hover:bg-emerald-500/10':
               variant === 'emerald',

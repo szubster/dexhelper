@@ -75,8 +75,7 @@ test('applies ADR 008 aesthetic classes (rounded-none, border-dashed, font-mono)
   const { container } = await render(<ContestRecommendationPanel recommendations={recommendations} />);
 
   const panel = container.firstElementChild as HTMLElement;
-  expect(panel.className).toContain('rounded-none');
-  expect(panel.className).toContain('border-dashed');
+  expect(panel.className).toContain('tactical-panel');
 
   const recommendationContainer = container.querySelector('.bg-black\\/40');
   expect(recommendationContainer?.className).toContain('rounded-none');

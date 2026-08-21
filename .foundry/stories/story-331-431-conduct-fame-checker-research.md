@@ -2,10 +2,10 @@
 id: story-331-431-conduct-fame-checker-research
 type: STORY
 title: Conduct Fame Checker Research
-status: READY
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,5 +31,7 @@ As part of the effort to extract Fame Checker progress from Pokémon FireRed and
 This story entails identifying the specific event flags that correlate with the Fame Checker entries (e.g., Oak, Daisy, Bill) in the Gen 3 save structure.
 
 ## Acceptance Criteria
-- [ ] Investigate FireRed/LeafGreen save file memory layouts for Fame Checker event flags.
-- [ ] Document the mappings between in-game entries and event flags in a markdown document.
+- [x] Investigate FireRed/LeafGreen save file memory layouts for Fame Checker event flags.
+- [x] Document the mappings between in-game entries and event flags in a markdown document.
+- [x] task-431-450-fame-checker-gym-leaders-impl
+- [x] task-431-451-fame-checker-notable-npcs-impl

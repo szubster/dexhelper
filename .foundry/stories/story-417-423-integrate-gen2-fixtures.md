@@ -2,7 +2,7 @@
 id: story-417-423-integrate-gen2-fixtures
 type: STORY
 title: 'Story: Integrate Gen 2 Save File Fixtures'
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-14'
 updated_at: '2026-08-20'
@@ -26,6 +26,6 @@ notes: ''
 Integrate the sourced Gen 2 save files (`gold.sav`, `silver.sav`, `crystal.sav`, `crystal-evolve.sav`) into the test suite.
 
 ## Acceptance Criteria
-- [ ] task-423-440-integrate-gen2-fixtures-impl
-- [ ] Update test configurations to utilize the new Gen 2 fixtures.
-- [ ] Ensure relevant test cases successfully parse and validate the data from these fixtures.
+- [x] task-423-440-integrate-gen2-fixtures-impl
+- [x] Update test configurations to utilize the new Gen 2 fixtures.
+- [x] Ensure relevant test cases successfully parse and validate the data from these fixtures.

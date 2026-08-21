@@ -2,10 +2,10 @@
 id: task-419-441-schema-locks-e2e-qa
 type: TASK
 title: QA Schema Resource Locking E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-18'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on:
   - task-419-440-implement-locks-e2e-tests
 jules_session_id: null
@@ -28,5 +28,5 @@ notes: ''
 Verify the E2E test implementation for the `locks` property schema validation.
 
 ## Acceptance Criteria
-- [ ] QA verifies the integration/e2e tests properly validate the `locks` field using fixtures.
-- [ ] QA verifies the tests pass.
+- [x] QA verifies the integration/e2e tests properly validate the `locks` field using fixtures.
+- [x] QA verifies the tests pass.

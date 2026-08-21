@@ -2,7 +2,7 @@
 id: story-139-298-gen2-roamer-status-and-standardization
 type: STORY
 title: Determine Roamer Status and Standardize Output
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-11'
 updated_at: '2026-08-20'
@@ -29,7 +29,7 @@ Apply logic to determine if each Gen 2 roamer is currently active, and map the d
 - Format the active roamers and their parsed `Species`, `Level`, and map coordinates to match the standardized structure in `common.ts`.
 
 ## Acceptance Criteria
-- [ ] Determine roamer activity based on `MapGroup != 0xFF` and `HP > 0`.
-- [ ] Standardize the parsed data and add it to `saveData.roamingLegendaries`.
+- [x] Determine roamer activity based on `MapGroup != 0xFF` and `HP > 0`.
+- [x] Standardize the parsed data and add it to `saveData.roamingLegendaries`.
 - [x] Break down this Story into Tasks.
-- [ ] task-298-440-gen2-roamer-status-hp-check-impl
+- [x] task-298-440-gen2-roamer-status-hp-check-impl

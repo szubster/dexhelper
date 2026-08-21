@@ -185,3 +185,24 @@
   Resolving BLOCKED nodes caused by circular dependencies currently requires manual intervention. This idea proposes introducing an automated graph healing sub-routine (utilizing the mechanic persona) to run a topological sort, diagnose the failure, and have an LLM automatically fix the `depends_on` relationships via a patch PR, pushing the system closer to full autonomy.
 - **Strategic Balance:**
   In the preceding session, IDEA-155 was proposed for DexHelper (Gen 3 Trick House Tracker). To strictly maintain the 50/50 strategic balance between product features and system improvements, this session pivots back to proposing an internal pipeline improvement for the Foundry Orchestrator.
+
+
+# Visionary Journal - Session 2613598016517721698
+
+## Session Overview
+- Date: 2026-08-19
+- Task: Proposed IDEA node `idea-157-pnpm-workspaces-architecture` for modular pnpm workspace monorepo migration.
+
+## Critical Learnings & Strategic Insights
+- The repository currently uses a semi-flat workspace structure which limits isolation and domain segregation as the codebase grows.
+- Refined the 6-phase incremental migration strategy to explicitly partition `apps/*`, `packages/*`, and `tools/*`:
+  - `apps/web`: Main Vite frontend shell.
+  - `apps/functions`: Cloudflare Pages / Workers API handlers.
+  - `packages/core`: Pure domain logic, save parsers (Gen 1-3), and data models (zero DOM dependencies).
+  - `packages/ui`: Shared React component library and visual hooks.
+  - `packages/config`: Shared TS and lint configurations.
+  - `tools/pokedata-extractor`: Scripts extracting/compiling PokeAPI data into compressed `pokedata.msgpack` artifacts.
+  - `tools/vite-plugins`: Custom Vite plugins (`pokedata-plugin.ts`, `foundry-plugin.ts`).
+  - `tools/foundry`: Foundry system orchestrator, DAG engine, heartbeat, and schema tools.
+- Emphasized technical guardrails (preventing frontend UI code in core packages, isolating data pipeline tools from runtime bundles, and insulating backend functions from browser dependencies).
+- Outlined explicit instructions for pnpm capabilities (`pnpm --filter`, catalogs, `workspace:*`) and Cloudflare Pages build configuration adjustments.

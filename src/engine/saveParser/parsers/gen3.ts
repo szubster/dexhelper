@@ -190,6 +190,16 @@ export const TM_POCKET_SIZE_RS = 256;
 export const TM_POCKET_SIZE_EMERALD = 256;
 export const TM_POCKET_SIZE_FRLG = 232;
 
+export const ITEMS_POCKET_OFFSET_RS = 0x0560;
+export const ITEMS_POCKET_OFFSET_EMERALD = 0x0560;
+export const ITEMS_POCKET_OFFSET_FRLG = 0x0310;
+export const ITEMS_POCKET_SIZE_RS = 80;
+export const ITEMS_POCKET_SIZE_EMERALD = 120;
+export const ITEMS_POCKET_SIZE_FRLG = 168;
+
+export const ITEM_SHOAL_SALT = 0x02b;
+export const ITEM_SHOAL_SHELL = 0x02c;
+
 export const ITEM_INDEX_OFFSET = 0x00;
 export const ITEM_QUANTITY_OFFSET = 0x02;
 export const ITEM_ENTRY_SIZE = 4;
@@ -266,6 +276,47 @@ export const GEN3_POKEMON_MOVE_3_OFFSET = 0x04;
 export const GEN3_POKEMON_MOVE_4_OFFSET = 0x06;
 export const UPPER_16_BIT_SHIFT = 16;
 export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
+
+export function extractGen3PokemonData(view: DataView, offset: number) {
+  const pv = view.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
+  const otId = view.getUint32(offset + GEN3_POKEMON_OT_ID_OFFSET, true);
+
+  if (pv === 0 && otId === 0) return null;
+
+  const decryptionKey = pv ^ otId;
+  const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
+  const permutation = SUBSTRUCTURE_ORDER[permutationIndex];
+  if (!permutation) {
+    throw new Error('The save file is corrupted or incomplete.');
+  }
+
+  const buffer = new ArrayBuffer(48);
+  const decryptedData = new DataView(buffer);
+
+  for (let i = 0; i < 4; i++) {
+    const char = permutation[i];
+    const canonicalIndex = 'GAEM'.indexOf(char as string);
+    if (canonicalIndex === -1) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    const encryptedOffset = offset + GEN3_POKEMON_DATA_OFFSET + i * SUBSTRUCTURE_SIZE;
+    const decryptedOffset = canonicalIndex * SUBSTRUCTURE_SIZE;
+
+    // Read 3 32-bit integers, decrypt, and write
+    for (let j = 0; j < 3; j++) {
+      const encryptedValue = view.getUint32(encryptedOffset + j * 4, true);
+      const decryptedValue = (encryptedValue ^ decryptionKey) >>> 0;
+      decryptedData.setUint32(decryptedOffset + j * 4, decryptedValue, true);
+    }
+  }
+
+  return {
+    pv,
+    otId,
+    decryptionKey,
+    decryptedData,
+  };
+}
 
 export const GEN3_CONTEST_WINNERS_SECTION_ID = 3;
 export const GEN3_CONTEST_WINNERS_RELATIVE_OFFSET = 0x10;
@@ -653,50 +704,20 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
 
       const offset = listOffset + i * GEN3_POKEMON_STRUCT_SIZE;
 
-      const pv = view.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
-      const otId = view.getUint32(offset + GEN3_POKEMON_OT_ID_OFFSET, true);
+      const extractedData = extractGen3PokemonData(view, offset);
+      if (!extractedData) continue;
+      const { pv, otId, decryptedData } = extractedData;
 
-      // If both PV and OTID are 0, it's an empty slot.
-      if (pv === 0 && otId === 0) continue;
+      // In the decrypted GAEM buffer, G is at offset 0, A is at offset 12
+      const speciesId = decryptedData.getUint16(0 + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
+      const item = decryptedData.getUint16(0 + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
 
-      const decryptionKey = pv ^ otId;
-      const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
-      const permutation = SUBSTRUCTURE_ORDER[permutationIndex];
-      if (!permutation) {
-        throw new Error('The save file is corrupted or incomplete.');
-      }
+      const move1 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
+      const move2 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET, true);
+      const move3 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_3_OFFSET, true);
+      const move4 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET, true);
 
-      const indexOfG = permutation.indexOf('G');
-      const indexOfA = permutation.indexOf('A');
-
-      const growthSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfG * SUBSTRUCTURE_SIZE;
-      const attacksSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfA * SUBSTRUCTURE_SIZE;
-
-      const encryptedSpecies = view.getUint16(growthSubstructureOffset + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
-      const encryptedItem = view.getUint16(growthSubstructureOffset + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
-      const speciesId = encryptedSpecies ^ (decryptionKey & LOWER_16_BIT_MASK);
-      const item = encryptedItem ^ (decryptionKey >>> UPPER_16_BIT_SHIFT);
-
-      const encryptedMove1 = view.getUint16(attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
-      const encryptedMove2 = view.getUint16(
-        attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET,
-        true,
-      );
-      const encryptedMove3 = view.getUint16(
-        attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_3_OFFSET,
-        true,
-      );
-      const encryptedMove4 = view.getUint16(
-        attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET,
-        true,
-      );
-
-      const moves = [
-        encryptedMove1 ^ (decryptionKey & LOWER_16_BIT_MASK),
-        encryptedMove2 ^ (decryptionKey >>> UPPER_16_BIT_SHIFT),
-        encryptedMove3 ^ (decryptionKey & LOWER_16_BIT_MASK),
-        encryptedMove4 ^ (decryptionKey >>> UPPER_16_BIT_SHIFT),
-      ].filter((m) => m > 0);
+      const moves = [move1, move2, move3, move4].filter((m) => m > 0);
 
       party.push(speciesId);
       partyDetails.push({
@@ -717,6 +738,7 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
           spatk: view.getUint16(offset + GEN3_PARTY_SPATK_OFFSET, true),
           spdef: view.getUint16(offset + GEN3_PARTY_SPDEF_OFFSET, true),
         },
+        evs: parseGen3EVs(decryptedData, 2 * SUBSTRUCTURE_SIZE),
       });
     }
   } catch (error) {
@@ -752,53 +774,20 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
         const pokemonIndex = box * PC_BOX_CAPACITY + slot;
         const offset = PC_BOX_POKEMON_LIST_OFFSET + pokemonIndex * GEN3_PC_POKEMON_STRUCT_SIZE;
 
-        const pv = pcBufferView.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
-        const otId = pcBufferView.getUint32(offset + GEN3_POKEMON_OT_ID_OFFSET, true);
+        const extractedData = extractGen3PokemonData(pcBufferView, offset);
+        if (!extractedData) continue;
+        const { pv, otId, decryptedData } = extractedData;
 
-        // If both PV and OTID are 0, it's an empty slot.
-        if (pv === 0 && otId === 0) continue;
+        // In the decrypted GAEM buffer, G is at offset 0, A is at offset 12
+        const speciesId = decryptedData.getUint16(0 + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
+        const item = decryptedData.getUint16(0 + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
 
-        const decryptionKey = pv ^ otId;
-        const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
-        const permutation = SUBSTRUCTURE_ORDER[permutationIndex];
-        if (!permutation) {
-          throw new Error('The save file is corrupted or incomplete.');
-        }
+        const move1 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
+        const move2 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET, true);
+        const move3 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_3_OFFSET, true);
+        const move4 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET, true);
 
-        const indexOfG = permutation.indexOf('G');
-        const indexOfA = permutation.indexOf('A');
-
-        const growthSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfG * SUBSTRUCTURE_SIZE;
-        const attacksSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfA * SUBSTRUCTURE_SIZE;
-
-        const encryptedSpecies = pcBufferView.getUint16(
-          growthSubstructureOffset + GEN3_POKEMON_SPECIES_OFFSET_IN_G,
-          true,
-        );
-        const encryptedItem = pcBufferView.getUint16(growthSubstructureOffset + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
-        const speciesId = encryptedSpecies ^ (decryptionKey & LOWER_16_BIT_MASK);
-        const item = encryptedItem ^ (decryptionKey >>> UPPER_16_BIT_SHIFT);
-
-        const encryptedMove1 = pcBufferView.getUint16(attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
-        const encryptedMove2 = pcBufferView.getUint16(
-          attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET,
-          true,
-        );
-        const encryptedMove3 = pcBufferView.getUint16(
-          attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_3_OFFSET,
-          true,
-        );
-        const encryptedMove4 = pcBufferView.getUint16(
-          attacksSubstructureOffset + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET,
-          true,
-        );
-
-        const moves = [
-          encryptedMove1 ^ (decryptionKey & LOWER_16_BIT_MASK),
-          encryptedMove2 ^ (decryptionKey >>> UPPER_16_BIT_SHIFT),
-          encryptedMove3 ^ (decryptionKey & LOWER_16_BIT_MASK),
-          encryptedMove4 ^ (decryptionKey >>> UPPER_16_BIT_SHIFT),
-        ].filter((m) => m > 0);
+        const moves = [move1, move2, move3, move4].filter((m) => m > 0);
 
         const isShiny = false; // We can skip full shiny calculation for PC boxes for now unless requested
 
@@ -812,6 +801,7 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
           personalityValue: pv,
           storageLocation: `Box ${box + 1}`,
           slot,
+          evs: parseGen3EVs(decryptedData, 2 * SUBSTRUCTURE_SIZE),
         };
 
         pc.push(speciesId);
@@ -1584,6 +1574,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): import(
 
     const { trainerId, secretId } = parseGen3TrainerId(view, section0Offset);
     const securityKey = parseGen3SecurityKey(view, section0Offset, _forcedVersion || 'ruby');
+    const gen3ShoalItems = parseGen3ShoalItems(view, section1Offset, _forcedVersion || 'ruby', securityKey);
     const gen3TMHMs = parseGen3TMHMs(view, section1Offset, _forcedVersion || 'ruby', securityKey);
 
     const gen3TMEventFlags = parseGen3TMEventFlags(view, section1Offset, _forcedVersion || 'ruby');
@@ -1720,6 +1711,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): import(
       roamingLegendaries,
       gen3VolcanicAsh,
       gen3EventItems,
+      gen3ShoalItems,
       gen3TMHMs,
       gen3TMEventFlags,
       ...(gen3Pokeblocks ? { gen3Pokeblocks } : {}),
@@ -2019,6 +2011,68 @@ export function parseGen3SecurityKey(view: DataView, section0Offset: number, gam
  * @param securityKey - The 32-bit security key extracted from Section 0.
  * @returns An array of TM/HM items mapped to their corresponding moves.
  */
+/**
+ * Parses the Items pocket from the Gen 3 save file to extract Shoal Salt and Shoal Shells counts.
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
+ * @param gameVersion - The detected game version.
+ * @param securityKey - The 32-bit security key extracted from Section 0.
+ * @returns An object containing the counts of shells and salt.
+ */
+export function parseGen3ShoalItems(
+  view: DataView,
+  saveBlock1Offset: number,
+  gameVersion: GameVersion,
+  securityKey: number,
+): { shells: number; salt: number } {
+  let offset = saveBlock1Offset;
+  let size = 0;
+
+  if (gameVersion === 'emerald') {
+    offset += ITEMS_POCKET_OFFSET_EMERALD;
+    size = ITEMS_POCKET_SIZE_EMERALD;
+  } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
+    offset += ITEMS_POCKET_OFFSET_FRLG;
+    size = ITEMS_POCKET_SIZE_FRLG;
+  } else {
+    offset += ITEMS_POCKET_OFFSET_RS;
+    size = ITEMS_POCKET_SIZE_RS;
+  }
+
+  try {
+    const shoalItems = { shells: 0, salt: 0 };
+    const numItems = size / ITEM_ENTRY_SIZE;
+
+    // In Gen 3, item quantity is masked with the lower 16 bits of the security key
+    const mask = securityKey & LOWER_16_BIT_MASK;
+
+    for (let i = 0; i < numItems; i++) {
+      const itemOffset = offset + i * ITEM_ENTRY_SIZE;
+      const itemId = view.getUint16(itemOffset + ITEM_INDEX_OFFSET, true);
+      const maskedQuantity = view.getUint16(itemOffset + ITEM_QUANTITY_OFFSET, true);
+
+      // 0 indicates an empty slot
+      if (itemId === 0) continue;
+
+      const quantity = maskedQuantity ^ mask;
+
+      if (itemId === ITEM_SHOAL_SHELL) {
+        shoalItems.shells = quantity;
+      } else if (itemId === ITEM_SHOAL_SALT) {
+        shoalItems.salt = quantity;
+      }
+    }
+
+    return shoalItems;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
 export function parseGen3TMHMs(
   view: DataView,
   saveBlock1Offset: number,

@@ -1,5 +1,14 @@
 import { describe, expect, test, vi } from 'vitest';
-import { checkShiny, checkShinyGene, decodeGen12String, parseDVs, parsePokerus } from './common';
+import {
+  checkShiny,
+  checkShinyGene,
+  decodeGen12String,
+  isGen2Save,
+  isGen3Save,
+  parseDVs,
+  parsePokerus,
+  type SaveData,
+} from './common';
 
 describe('common parsers', () => {
   describe('decodeGen12String', () => {
@@ -226,6 +235,22 @@ describe('common parsers', () => {
         strain: 5,
         daysRemaining: 10,
       });
+    });
+  });
+
+  describe('type guards', () => {
+    test('isGen2Save correctly identifies Gen 2 save data', () => {
+      const gen2Save = { generation: 2 } as SaveData;
+      const gen3Save = { generation: 3 } as SaveData;
+      expect(isGen2Save(gen2Save)).toBe(true);
+      expect(isGen2Save(gen3Save)).toBe(false);
+    });
+
+    test('isGen3Save correctly identifies Gen 3 save data', () => {
+      const gen2Save = { generation: 2 } as SaveData;
+      const gen3Save = { generation: 3 } as SaveData;
+      expect(isGen3Save(gen3Save)).toBe(true);
+      expect(isGen3Save(gen2Save)).toBe(false);
     });
   });
 });

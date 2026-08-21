@@ -28,7 +28,7 @@ import * as fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
-import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, logToJournal } from './dag-utils.ts';
+import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, logToJournal, updateActiveSessionsTable } from './dag-utils.ts';
 import { NodeFrontmatterSchema, type NodeFrontmatter } from './schema.ts';
 
 // gray-matter is CJS; import via require() for clean ESM interop.
@@ -158,7 +158,8 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
 
   const parseResult = NodeFrontmatterSchema.safeParse(fm);
   if (!parseResult.success) {
-    warn(`Schema validation failed in: ${repoPath} — skipping. Errors: ${parseResult.error.message}`);
+    const detailedErrors = parseResult.error.issues.map(issue => `\`${issue.path.join('.')}\`: ${issue.message}`).join('; ');
+    warn(`Schema validation failed in: ${repoPath} — skipping. Errors: ${detailedErrors}`);
     return null;
   }
 
@@ -1426,6 +1427,13 @@ function main(): void {
   // This is the ONLY line written to stdout. The GitHub Actions matrix step
   // captures this exact output via: matrix=$(node ... | tail -1)
   console.log(JSON.stringify(readyNodes));
+
+  // ── Update ACTIVE_SESSIONS.md markdown table ──────────────────────────────
+  try {
+    updateActiveSessionsTable(repoRoot);
+  } catch (err) {
+    warn(`Failed to update ACTIVE_SESSIONS.md: ${String(err)}`);
+  }
 
   // ── Phase 8: EXIT ──────────────────────────────────────────────────────────
   if ((hasUnresolvableDeps || hasWarnings) && isStrict()) {

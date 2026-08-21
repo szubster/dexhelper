@@ -56,3 +56,10 @@ Date: 2026-08-16 00:45:00
 
 # TPM Session 2026-08-18-00-46-22
 During this session, I resolved several minor DAG orchestrator deadlocks where node paths (e.g. `.foundry/epics/epic-336-349-multi-save-infrastructure.md`) were incorrectly used in the `depends_on` array instead of their pure node IDs (`epic-336-349-multi-save-infrastructure`). This violation of the DAG ID strictness rule prevents the orchestrator from properly resolving dependencies. I updated multiple files in the `.foundry/archive/tasks/`, `.foundry/epics/`, and `.foundry/prds/` directories to use strict node IDs. Future nodes should enforce strict Node IDs without file paths or extensions.
+
+
+# TPM Run Log: 16747268697032179285
+
+- `research-425-421-wasm-emulator-options.md` moved to `.foundry/archive/research/research-425-421-wasm-emulator-options.md`
+
+No inline markdown references needed to be updated as the trace confirmed there were none.

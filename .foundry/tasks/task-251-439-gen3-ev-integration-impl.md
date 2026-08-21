@@ -2,12 +2,12 @@
 id: task-251-439-gen3-ev-integration-impl
 type: TASK
 title: Task - Gen 3 EV Integration Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-02'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: '15310769947239813102'
+jules_session_id: null
 pr_number: null
 parent: story-116-251-gen3-ev-integration
 tags:
@@ -33,6 +33,6 @@ The Gen 3 EV parsing logic has been defined in `parseGen3EVs`. It now needs to b
 - Note: `RangeError` is handled internally by `parseGen3EVs` which throws a generic corruption error.
 
 ## 4. Acceptance Criteria
-- [ ] `PokemonInstance` interface has `evs` property.
-- [ ] `parseGen3Party` extracts EVs using `parseGen3EVs` and assigns it to `PokemonInstance`.
-- [ ] `parseGen3PCBoxes` extracts EVs using `parseGen3EVs` and assigns it to `PokemonInstance`.
+- [x] `PokemonInstance` interface has `evs` property.
+- [x] `parseGen3Party` extracts EVs using `parseGen3EVs` and assigns it to `PokemonInstance`.
+- [x] `parseGen3PCBoxes` extracts EVs using `parseGen3EVs` and assigns it to `PokemonInstance`.

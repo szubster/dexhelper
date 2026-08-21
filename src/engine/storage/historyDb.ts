@@ -30,3 +30,22 @@ export const initHistoryDb = async (): Promise<IDBPDatabase<SaveHistoryDBSchema>
     },
   });
 };
+
+export const writeSaveState = async (
+  id: string,
+  saveData: Uint8Array,
+  metadata: Record<string, unknown>,
+): Promise<void> => {
+  try {
+    const db = await initHistoryDb();
+    const tx = db.transaction(['saves', 'metadata'], 'readwrite');
+
+    const savesStore = tx.objectStore('saves');
+    const metadataStore = tx.objectStore('metadata');
+
+    await Promise.all([savesStore.put(saveData, id), metadataStore.put(metadata, id), tx.done]);
+  } catch (error) {
+    console.error('Failed to write save state:', error);
+    throw error;
+  }
+};

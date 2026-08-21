@@ -102,10 +102,10 @@ jobs:
       - name: Commit Promotions
         run: |
           set -o pipefail
-          # Check for READY state changes promoted by the orchestrator
-          if [[ -n $(git status --porcelain .foundry) ]]; then
-            git add .foundry
-            git commit -m "Foundry: Promote unblocked nodes to READY" 2>&1 | tee -a commit-promotions.log
+          # Check for READY state changes promoted by the orchestrator and ACTIVE_SESSIONS.md updates
+          if [[ -n $(git status --porcelain .foundry ACTIVE_SESSIONS.md) ]]; then
+            git add .foundry ACTIVE_SESSIONS.md
+            git commit -m "Foundry: Promote unblocked nodes to READY and update ACTIVE_SESSIONS.md" 2>&1 | tee -a commit-promotions.log
             git pull --rebase origin main 2>&1 | tee -a commit-promotions.log
             git push origin main 2>&1 | tee -a commit-promotions.log
           else
@@ -270,7 +270,7 @@ jobs:
           NODE_ID: ${{ matrix.node.id }}
         run: |
           set -o pipefail
-          git add "$NODE_REPO_PATH"
+          git add "$NODE_REPO_PATH" ACTIVE_SESSIONS.md
           git commit -m "Foundry: Transition $NODE_ID -> ACTIVE [$SESSION_ID]" 2>&1 | tee -a commit.log
           git pull --rebase origin main 2>&1 | tee -a commit.log
           git push origin main 2>&1 | tee -a commit.log

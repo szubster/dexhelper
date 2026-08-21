@@ -44,3 +44,15 @@ Add documentation to a complex engine module (`encounterTools.ts`) focusing on t
 # Session Learnings
 
 - **Gen 3 Save Detection Stub**: `isGen3Save` in `src/engine/saveParser/utils/detection.ts` is explicitly stubbed to return `false` because Gen 3 save files use a complex A/B flash bank system with multiple checksums per sector. This requires scanning for signatures across sections, which is handled in a structural fallback path in `index.ts` rather than a contiguous block heuristic. I documented this with JSDoc.
+
+
+# Scribe Journal
+
+- **Module Documented:** `src/engine/saveParser/parsers/gen3.ts`
+- **Why this module:** The Generation 3 save parser handles complex A/B flash memory architecture and encrypted substructures. However, key orchestration functions like `parseGen3`, `parseGen3PCBuffer`, `parseGen3Party`, and `parseGen3PCBoxes` lacked clear JSDoc explanations for their parameters (like `section1Offset` or `pcBufferView`) and architectural context.
+- **Summary of Additions:** Added JSDoc comments explaining the A/B bank flash memory check and sector concatenation to `parseGen3`, `parseGen3PCBuffer`, `parseGen3Party`, and `parseGen3PCBoxes`. Emphasized why certain parameters exist, rather than just restating the logic.
+
+
+
+## Scribe Journal - Heatmap Density Logic
+Documented the architectural reason why `RouteRadarController` uses a `Set` to collect unique `areaId`s per suggestion. Without it, Pokémon with multiple sub-encounters on the same map would distort the heatmap density.
