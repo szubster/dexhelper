@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { Fish, Target, Trees, Waves } from 'lucide-react';
+import { Fish, Moon, Sun, Sunrise, Target, Trees, Waves } from 'lucide-react';
 import type { EncounterDetail } from '../../engine/assistant/strategies/types';
 import type { SaveData } from '../../engine/saveParser/index';
 import { getGenerationConfig } from '../../utils/generationConfig';
@@ -90,6 +90,25 @@ export function CatchMethodSection({
                       <span className="max-w-[80px] truncate text-center text-[8px] text-zinc-500 uppercase">
                         {areaNames[enc.areaId]}
                       </span>
+                    )}
+                    {enc.time !== undefined && (
+                      <div className="mt-1 flex items-center gap-0.5">
+                        {(enc.time & 1) === 1 && (
+                          <span title="Morning">
+                            <Sunrise size={10} className="text-amber-400" aria-label="Morning" />
+                          </span>
+                        )}
+                        {(enc.time & 2) === 2 && (
+                          <span title="Day">
+                            <Sun size={10} className="text-amber-300" aria-label="Day" />
+                          </span>
+                        )}
+                        {(enc.time & 4) === 4 && (
+                          <span title="Night">
+                            <Moon size={10} className="text-indigo-400" aria-label="Night" />
+                          </span>
+                        )}
+                      </div>
                     )}
                   </div>
                 </div>
