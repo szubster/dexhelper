@@ -25,5 +25,5 @@ notes: ''
 Update `gen1.ts`, `gen2.ts`, and `gen3.ts` parsers to return correctly narrowed types, and ensure all existing parser tests pass without regressions.
 
 ## Acceptance Criteria
-- [ ] Update `gen1.ts`, `gen2.ts`, and `gen3.ts` to return the narrowed `SaveData` type.
-- [ ] Ensure all existing parser tests pass without regressions.
+- [x] Update `gen1.ts`, `gen2.ts`, and `gen3.ts` to return the narrowed `SaveData` type.
+- [x] Ensure all existing parser tests pass without regressions.

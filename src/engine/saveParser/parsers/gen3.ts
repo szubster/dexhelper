@@ -42,8 +42,10 @@ import type {
   Gen3MoveTutors,
   Gen3Ribbons,
   Gen3RoamerData,
+  Gen3SaveData,
   Gen3SecretBase,
   Gen3TVShow,
+  PokemonInstance,
 } from './common';
 
 const SIGNATURE = 0x08012025;
@@ -678,9 +680,9 @@ export function parseGen3PCBuffer(view: DataView): Uint8Array {
  * @param gameVersion - The specific Gen 3 game version ('ruby', 'sapphire', 'emerald', 'firered', 'leafgreen').
  * @returns An object containing the simple array of species IDs (`party`) and detailed instances (`partyDetails`).
  */
-export function parseGen3Party(view: DataView, section1Offset: number, gameVersion: import('./common').GameVersion) {
+export function parseGen3Party(view: DataView, section1Offset: number, gameVersion: GameVersion) {
   const party: number[] = [];
-  const partyDetails: import('./common').PokemonInstance[] = [];
+  const partyDetails: PokemonInstance[] = [];
 
   try {
     const countOffset =
@@ -767,7 +769,7 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
  */
 export function parseGen3PCBoxes(pcBufferView: DataView) {
   const pc: number[] = [];
-  const pcDetails: import('./common').PokemonInstance[] = [];
+  const pcDetails: PokemonInstance[] = [];
 
   try {
     for (let box = 0; box < PC_BOX_COUNT; box++) {
@@ -792,7 +794,7 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
 
         const isShiny = false; // We can skip full shiny calculation for PC boxes for now unless requested
 
-        const p: import('./common').PokemonInstance = {
+        const p: PokemonInstance = {
           hash: `${pv}-${otId}`,
           speciesId,
           level: 1, // PC pokemon don't have level in the 80 bytes, it's generated on withdrawal.
@@ -1415,7 +1417,7 @@ export function parseGen3ContestMaster(view: DataView, section3Offset: number): 
  * @returns The structured Gen3SaveData object containing all parsed player progress.
  * @throws RangeError if the file bounds are exceeded during the initial block scan.
  */
-export function parseGen3(view: DataView, _forcedVersion?: GameVersion): import('./common').Gen3SaveData {
+export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3SaveData {
   try {
     let section2Offset: number;
     try {
@@ -1660,7 +1662,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): import(
     };
 
     let pc: number[] = [];
-    let pcDetails: import('./common').PokemonInstance[] = [];
+    let pcDetails: PokemonInstance[] = [];
     let currentBoxCount = 0;
 
     try {
@@ -1683,7 +1685,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): import(
     const { party, partyDetails } = parseGen3Party(view, section1Offset, _forcedVersion || 'ruby');
 
     // Dummy scaffold values for now until fully implemented
-    const result: import('./common').Gen3SaveData = {
+    const result: Gen3SaveData = {
       generation: 3,
       owned,
       seen,

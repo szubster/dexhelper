@@ -24,7 +24,7 @@ import {
   parseGen1StaticEncounters,
   parseGen1TMFlags,
 } from '../utils/gen1EventFlags';
-import type { GameVersion, PokemonInstance } from './common';
+import type { GameVersion, Gen1SaveData, PokemonInstance } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs } from './common';
 
 function isValidMapId(id: string): id is keyof typeof gen1MapLocations {
@@ -767,7 +767,7 @@ function parsePCBoxes(
  * @param forcedVersion - An optional version override (e.g., 'yellow', 'red') to bypass heuristic detection. Useful for modified ROM saves.
  * @returns The fully constructed SaveData object mapping binary offsets to structured JSON for the frontend.
  */
-export function parseGen1(view: DataView, forcedVersion?: GameVersion): import('./common').Gen1SaveData {
+export function parseGen1(view: DataView, forcedVersion?: GameVersion): Gen1SaveData {
   let trainerName = '';
   let partyCount = 0;
   const quickParty: { speciesId: number; otName: string }[] = [];
