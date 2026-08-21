@@ -121,3 +121,36 @@ Successfully broke down Epic "Data Splitting by Game Generation" (`epic-337-400-
 The target Epic was updated with the generated child nodes and we submitted an Empty PR as per the empty PR policy, without checking off the epic's own overarching acceptance criteria (to allow the orchestrator to correctly demote it to PENDING).
 
 Enforced the Orchestrator Safeguard (E2E/Integration Requirement) for EPIC nodes by adding an E2E STORY to `epic-071-123-define-tailwind-v4-utilities-v2.md`, as it was missing a dedicated E2E verification story to satisfy hierarchical completion.
+
+
+# Session 7125355397537957084
+
+- Decomposed epic `epic-071-124-migrate-core-tactical-components-v2` into multiple granular tasks to migrate different sets of components sequentially.
+- This adheres to the rules for granular task breakdown to avoid monolithic nodes, ensuring components like `TacticalPanel`, `TacticalButton`, and `TacticalSegmentedControl` are migrated carefully in separate steps, followed by an integration/e2e testing step.
+
+
+
+# Session 8601309936583911484
+
+## Story Owner Reflection
+When breaking down Gen 3 epic `epic-097-130-gen3-data-structure-extraction` for the party data structure extraction, we must decouple the core parsing (handling the decryption and 100-byte block extraction) from the downstream feature (like Pokerus extraction).
+
+By actively applying the Orchestrator Safeguard (E2E/Integration Requirement), I ensured the parsing logic story `story-130-440-extract-gen3-party-data-structure` is followed by an explicitly dependent E2E verification story `story-130-441-gen3-data-extraction-e2e`. This ensures the foundation is robust across all 5 Gen 3 games before we attempt specific attribute exfiltration.
+
+
+
+# Session 5608732619010995946
+
+* Correction regarding Late-Binding Orchestrator Demotion Compliance: When generating child tasks, the parent node's overarching/general functional Acceptance Criteria should remain unchecked IF it encompasses the whole feature. BUT if there are specific checklist items assigned to your persona (e.g., `- [x] Story Owner: Break this Epic down into Stories.`), YOU MUST check those off, because appending the child nodes as unchecked tasks (`- [ ] child-node`) is what prevents the parent from prematurely progressing to the VERIFYING state, not leaving your own specific checkboxes unchecked.
+
+
+
+# Session 9840091124892751109
+
+## Objective
+Late-binding a missing Integration and E2E verification STORY node for EPIC `epic-035-048-smart-radar-data-unification`.
+
+## Discoveries & Actions
+- Investigated `epic-035-048-smart-radar-data-unification.md` and realized that it lacked an explicit `integration`/`e2e` tagged STORY node as mandated by the Orchestrator Safeguard.
+- Created `story-048-431-smart-radar-integration-e2e` node for the `tech_lead` persona.
+- Using an empty PR submission to push the appended `e2e` story dependency back to the orchestrator.

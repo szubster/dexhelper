@@ -45,3 +45,18 @@
 **Outcome:** Merged
 **Why:** The previous centered radar loop felt too playful and generic ("game UI" rather than "industrial hardware"). Real hardware diagnostics are usually text-heavy, left-aligned, and provide concrete (even if simulated) error states rather than continuous searching animations.
 **Pattern:** Avoid centered, floating "widget" components. When indicating no data, use error-like diagnostic layouts with monospace code traces.
+
+
+## 2026-08-19 - [Accepted] - 🖼️ Canvas: Redesign PokemonCatchProbability
+**What:** Redesigned the `PokemonCatchProbability` component to utilize a digital capacity gauge for HP and a hardware toggle array with diagnostic LEDs for target status, adding a visual scanning 'CALC...' effect when probability recomputes.
+**Outcome:** Accepted -> wait for review
+**Why:** The previous `PokemonCatchProbability` design used standard UI toggle segments. To push the tactical snooping aesthetic, a capacity gauge with color-coded hazard zones and custom LED indicators are more diegetic to the hardware interface.
+**Pattern:** For data adjustment inputs, lean towards digital gauges with multi-color segmented thresholds (green -> amber -> red) and hardware-like toggles with inset LED indicators instead of flat segmented controls.
+
+
+
+## 2025-03-01 - [Accepted] - 🖼️ Canvas: Hardware Console AppHeader Redesign
+**What:** Redesigned the `AppHeader` from a standard top navigation bar into a heavy, industrial "Hardware Console". Enclosed the logo and system status in thick LCD-styled blocks with diegetic power LEDs. Converted the top navigation tabs into chunky, interlocking mechanical switches that look physically toggled when active. Added thick hazard stripes to the top rim.
+**Outcome:** Accepted -> wait for review
+**Why:** The previous header was functional but lacked physical depth and felt too much like a standard web navbar. The project's aesthetic (tactical/snooping) benefits from interfaces that feel like heavy, real-world hardware consoles.
+**Pattern:** Treat primary navigation as physical hardware controls (levers, toggle switches, heavy buttons) rather than flat text tabs. Wrap top-level layout components in heavy, dashed structural frames to simulate screen bezels and control panels.

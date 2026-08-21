@@ -85,3 +85,27 @@ When investigating Gen 3 decompilation code (e.g., `pokeemerald`, `pokefirered`)
 Because the C source code doesn't explicitly state the exact byte size of these nested structures in comments, it's necessary to manually calculate the sizes using the struct definitions (e.g., tracking `u8`, `u16`, `u32`, and bitfields, plus array lengths) or write a quick calculation script.
 
 **Key Learning:** When writing temporary Node.js scripts in the workspace (which uses `"type": "module"` in `package.json`), use the `.cjs` extension if the script uses CommonJS syntax (like `require()`) to avoid ES module ReferenceErrors. This ensures temporary investigative tools run smoothly.
+
+
+# Session 15275065586819407345
+
+- Learned that LLMs may wrap output in markdown code blocks, even when `responseMimeType` is set to `application/json` (e.g., ````json`). It is necessary to strip these tags explicitly using regex or similar before running `JSON.parse`. Trimming whitespace before performing this check handles edge cases.
+- It is important to clean up all temporary scripts, outputs, and patch backup files from the workspace prior to code review or submission to adhere to the strict `Scratchpad Cleanup Enforcement` policy.
+
+
+
+# Session 5492350295619108211
+
+**Task:** research-363-440-investigate-trade-extraction-e2e-failure
+
+Investigated the root cause of the previous E2E test failures (`task-363-415-trade-extraction-e2e-impl`) targeting Gen 3 save file fixtures.
+The tests failed because `isGen3Save` in `src/engine/saveParser/utils/detection.ts` is implemented as a stub returning `false`. This causes `parseSaveFile` to immediately throw an error rather than attempting to load Gen 3 saves, rendering the UI logic untestable since the entire state engine fails to initialize.
+
+**Learnings:**
+- If Playwright E2E tests fail to run or complain about missing browser binaries, run `pnpm exec playwright install` to automatically download the required dependencies before executing the test suite.
+
+
+
+# Session 18001398838651776536
+- Discovered that using `ctx.waitUntil()` is a critical architectural constraint when integrating Google Drive Webhooks with Cloudflare Workers due to strict CPU limits.
+- Established that webhooks are vastly superior to polling for the "live tracker" use case because Cloudflare's 1-minute Cron limit and Drive API quotas make polling impractical.
