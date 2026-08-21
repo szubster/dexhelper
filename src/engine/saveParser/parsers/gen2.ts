@@ -24,7 +24,7 @@ import gen2Landmarks from '../../data/gen2/landmarks.json';
 import gen2MapLocations from '../../data/gen2/mapLocations.json';
 import { GEN2_VERSION_EXCLUSIVES } from '../../exclusives/gen2Exclusives';
 import { parseGen2NarrativeFlags } from '../utils/gen2EventFlags';
-import type { GameVersion, PokemonInstance } from './common';
+import type { GameVersion, Gen2SaveData, PokemonInstance } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs, parsePokerus } from './common';
 
 const POKEMON_OFFSET_SPECIES_ID = 0;
@@ -823,7 +823,7 @@ function parseRoamingLegendaries(view: DataView, isCrystal: boolean) {
  * @param forceCrystal - Forces the parser to use `_CRYSTAL` memory offsets, overriding the heuristic `PARTY_COUNT` detection check.
  * @returns The extracted save state mapped to the universal `SaveData` schema.
  */
-export function parseGen2(view: DataView, forceCrystal = false): import('./common').Gen2SaveData {
+export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
   let isCrystal = forceCrystal;
   if (!isCrystal) {
     const gsPartyCount = view.getUint8(PARTY_COUNT_OFFSET_GS);
