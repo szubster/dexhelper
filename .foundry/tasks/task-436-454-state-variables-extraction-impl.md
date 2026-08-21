@@ -30,5 +30,5 @@ Extract key game state variables and bank offsets using relative offsets.
 Implement the extraction logic for Gen 3 key game state variables (such as event flags) and bank offsets from the live memory mapping layer. You MUST strictly adhere to Section 13 of `.foundry/docs/schema.md`. Use relative offsets calculated from the resolved section offset to support the A/B bank flash memory architecture. Explicitly define all memory offsets, lengths, bit locations, shifts, and limits as reusable module-level constants. Do not use magic numbers directly in parsing functions. Add unit tests.
 
 ## Acceptance Criteria
-- [ ] Extracted key state variables using relative offsets
-- [ ] Avoided using magic numbers as per Section 13 guidelines
+- [x] Extracted key state variables using relative offsets
+- [x] Avoided using magic numbers as per Section 13 guidelines
