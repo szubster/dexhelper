@@ -727,6 +727,7 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
           spatk: view.getUint16(offset + GEN3_PARTY_SPATK_OFFSET, true),
           spdef: view.getUint16(offset + GEN3_PARTY_SPDEF_OFFSET, true),
         },
+        evs: parseGen3EVs(view, growthSubstructureOffset),
       });
     }
   } catch (error) {
@@ -822,6 +823,7 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
           personalityValue: pv,
           storageLocation: `Box ${box + 1}`,
           slot,
+          evs: parseGen3EVs(pcBufferView, growthSubstructureOffset),
         };
 
         pc.push(speciesId);
