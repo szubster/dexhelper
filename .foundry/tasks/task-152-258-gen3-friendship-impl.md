@@ -40,8 +40,8 @@ Friendship is located at offset 4 of the **Growth (G)** substructure. The order 
 *   If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Create constants for all memory offsets (e.g., Growth substructure offset, Friendship offset within Growth, etc.).
-- [ ] Implement utility/logic to determine the `PV % 24` permutation.
-- [ ] Implement logic to extract the Friendship byte from the Data block using the `DataView` API.
-- [ ] Integrate or prepare the logic for Party and PC Box parsing.
-- [ ] Write unit tests verifying Friendship extraction works for various `PV % 24` permutations.
+- [x] Create constants for all memory offsets (e.g., Growth substructure offset, Friendship offset within Growth, etc.).
+- [x] Implement utility/logic to determine the `PV % 24` permutation.
+- [x] Implement logic to extract the Friendship byte from the Data block using the `DataView` API.
+- [x] Integrate or prepare the logic for Party and PC Box parsing.
+- [x] Write unit tests verifying Friendship extraction works for various `PV % 24` permutations.

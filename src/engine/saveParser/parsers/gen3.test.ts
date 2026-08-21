@@ -17,6 +17,7 @@ import {
   parseGen3ConditionStats,
   parseGen3ContestMaster,
   parseGen3EggSteps,
+  parseGen3PokemonFriendship,
   parseGen3EmeraldMoveTutors,
   parseGen3EVs,
   parseGen3FRLGMoveTutors,
@@ -606,6 +607,118 @@ describe('parseGen3MixRecords', () => {
     const view = new DataView(buffer);
 
     expect(() => parseGen3MixRecords(view, 0)).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
+
+describe('parseGen3PokemonFriendship', () => {
+  it('should test various PV % 24 permutations properly integrating with parseGen3Party', () => {
+    // Tests that friendship extraction correctly integrates with PV permutations in parseGen3Party
+    const buffer = new ArrayBuffer(2000); // large enough
+    const view = new DataView(buffer);
+    const section1Offset = 0;
+
+    // FRLG party size
+    view.setUint8(0x0034, 1);
+
+    const listOffset = 0x0038;
+
+    // Set PV = 1. Permutation = 1 -> 'GAME'
+    // G = 0, A = 1, M = 2, E = 3
+    // M index = 2
+    // G index = 0
+    view.setUint32(listOffset + 0, 1, true); // PV
+    view.setUint32(listOffset + 4, 1, true); // OT
+
+    const decryptionKey = 1 ^ 1; // 0
+
+    const indexOfG = 0;
+    const indexOfM = 2;
+
+    const gOffset = listOffset + 32 + indexOfG * 12;
+    const mOffset = listOffset + 32 + indexOfM * 12;
+
+    // Not an egg
+    view.setUint32(mOffset + 4, 0, true);
+
+    // Set friendship
+    view.setUint8(gOffset + 4, 255);
+
+    const result = parseGen3Party(view, section1Offset, 'firered');
+    expect(result.partyDetails[0]?.friendship).toBe(255);
+  });
+
+  it('should test another PV % 24 permutation', () => {
+    const buffer = new ArrayBuffer(2000);
+    const view = new DataView(buffer);
+    const section1Offset = 0;
+
+    view.setUint8(0x0034, 1);
+    const listOffset = 0x0038;
+
+    // Set PV = 21. Permutation = 21 -> 'MAEG'
+    // M = 0, A = 1, E = 2, G = 3
+    view.setUint32(listOffset + 0, 21, true); // PV
+    view.setUint32(listOffset + 4, 21, true); // OT
+
+    const indexOfM = 0;
+    const indexOfG = 3;
+
+    const gOffset = listOffset + 32 + indexOfG * 12;
+    const mOffset = listOffset + 32 + indexOfM * 12;
+
+    // Not an egg
+    view.setUint32(mOffset + 4, 0, true);
+    // Set friendship
+    view.setUint8(gOffset + 4, 150);
+
+    const result = parseGen3Party(view, section1Offset, 'firered');
+    expect(result.partyDetails[0]?.friendship).toBe(150);
+  });
+
+
+  it('should return undefined if the Pokémon is an egg', () => {
+    const buffer = new ArrayBuffer(100);
+    const view = new DataView(buffer);
+    const miscSubstructureOffset = 0;
+    const growthSubstructureOffset = 50;
+
+    // Set "Is Egg" bit flag to 1 (bit 30)
+    view.setUint32(miscSubstructureOffset + 4, 0x40000000, true);
+    // Set friendship to 120 (should be ignored)
+    view.setUint8(growthSubstructureOffset + 4, 120);
+
+    const result = parseGen3PokemonFriendship(view, miscSubstructureOffset, growthSubstructureOffset);
+    expect(result).toBeUndefined();
+  });
+
+  it('should extract the friendship value if the Pokémon is not an egg', () => {
+    const buffer = new ArrayBuffer(100);
+    const view = new DataView(buffer);
+    const miscSubstructureOffset = 0;
+    const growthSubstructureOffset = 50;
+
+    // Set "Is Egg" bit flag to 0 (bit 30)
+    view.setUint32(miscSubstructureOffset + 4, 0, true);
+    // Set friendship to 120
+    view.setUint8(growthSubstructureOffset + 4, 120);
+
+    const result = parseGen3PokemonFriendship(view, miscSubstructureOffset, growthSubstructureOffset);
+    expect(result).toBe(120);
+  });
+
+  it('should explicitly catch RangeError and throw corrupted file error on out-of-bounds reads', () => {
+    // Buffer too small for reading the friendship at growthSubstructureOffset + 4
+    const buffer = new ArrayBuffer(50);
+    const view = new DataView(buffer);
+    const miscSubstructureOffset = 0;
+    const growthSubstructureOffset = 50;
+
+    // We can read IV/Egg/Ability here since misc is at 0 and +4 is within 50 bytes.
+    view.setUint32(miscSubstructureOffset + 4, 0, true);
+
+    expect(() => parseGen3PokemonFriendship(view, miscSubstructureOffset, growthSubstructureOffset)).toThrowError(
+      'The save file is corrupted or incomplete.',
+    );
   });
 });
 

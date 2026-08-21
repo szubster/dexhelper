@@ -660,9 +660,11 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
 
       const indexOfG = permutation.indexOf('G');
       const indexOfA = permutation.indexOf('A');
+      const indexOfM = permutation.indexOf('M');
 
       const growthSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfG * SUBSTRUCTURE_SIZE;
       const attacksSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfA * SUBSTRUCTURE_SIZE;
+      const miscSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfM * SUBSTRUCTURE_SIZE;
 
       const encryptedSpecies = view.getUint16(growthSubstructureOffset + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
       const encryptedItem = view.getUint16(growthSubstructureOffset + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
@@ -697,6 +699,8 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
         isShiny: false, // We'll implement shiny calculation separately
         item: item > 0 ? item : undefined,
         moves,
+        eggSteps: parseGen3EggSteps(view, miscSubstructureOffset, growthSubstructureOffset) ?? undefined,
+        friendship: parseGen3PokemonFriendship(view, miscSubstructureOffset, growthSubstructureOffset),
         personalityValue: pv,
         storageLocation: 'Party',
         hash: `${pv}-${otId}`,
@@ -746,9 +750,11 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
 
         const indexOfG = permutation.indexOf('G');
         const indexOfA = permutation.indexOf('A');
+        const indexOfM = permutation.indexOf('M');
 
         const growthSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfG * SUBSTRUCTURE_SIZE;
         const attacksSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfA * SUBSTRUCTURE_SIZE;
+        const miscSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfM * SUBSTRUCTURE_SIZE;
 
         const encryptedSpecies = pcBufferView.getUint16(
           growthSubstructureOffset + GEN3_POKEMON_SPECIES_OFFSET_IN_G,
@@ -788,6 +794,8 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
           isShiny,
           item: item > 0 ? item : undefined,
           moves,
+          eggSteps: parseGen3EggSteps(pcBufferView, miscSubstructureOffset, growthSubstructureOffset) ?? undefined,
+          friendship: parseGen3PokemonFriendship(pcBufferView, miscSubstructureOffset, growthSubstructureOffset),
           personalityValue: pv,
           storageLocation: `Box ${box + 1}`,
           slot,
@@ -890,6 +898,42 @@ export function parseGen3PokemonPVAndIVs(view: DataView, offset: number) {
  * @returns The exact remaining steps to hatch, or null if the Pokémon is not an egg.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
+
+/**
+ * Parses the Gen 3 Friendship (Happiness) value for a Pokémon.
+ *
+ * In Gen 3, the friendship value is located at offset 4 within the Growth (G) substructure.
+ * However, if the Pokémon is an egg (determined by the "Is Egg" bit in the Miscellaneous (M)
+ * substructure), this byte is repurposed to store the remaining Egg Cycles.
+ *
+ * @param view - The raw save file DataView.
+ * @param miscSubstructureOffset - The resolved memory offset to the Miscellaneous (M) substructure.
+ * @param growthSubstructureOffset - The resolved memory offset to the Growth (G) substructure.
+ * @returns The friendship value, or undefined if the Pokémon is an egg.
+ * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
+ */
+export function parseGen3PokemonFriendship(
+  view: DataView,
+  miscSubstructureOffset: number,
+  growthSubstructureOffset: number,
+): number | undefined {
+  try {
+    const ivEggAbility = view.getUint32(miscSubstructureOffset + MISC_IV_EGG_ABILITY_OFFSET, true);
+    const isEgg = (ivEggAbility >> IS_EGG_BIT_SHIFT) & 1;
+
+    if (isEgg) {
+      return undefined;
+    }
+
+    return view.getUint8(growthSubstructureOffset + GROWTH_FRIENDSHIP_OFFSET);
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
 export function parseGen3EggSteps(
   view: DataView,
   miscSubstructureOffset: number,
