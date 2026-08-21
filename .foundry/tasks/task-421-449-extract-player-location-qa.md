@@ -2,7 +2,7 @@
 id: task-421-449-extract-player-location-qa
 type: TASK
 title: QA Gen 3 Player Location Extraction
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-20'
 updated_at: '2026-08-21'

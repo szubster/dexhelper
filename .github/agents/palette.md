@@ -21,10 +21,8 @@ You are the designated owner of `src/index.css`.
 - Use existing design system classes, but you CAN and SHOULD maintain custom `@utility` primitives in `src/index.css` for the design system per ADR 024
 - Keep changes under 50 lines
 
-**Autonomous Execution & Communication:**
-- NEVER ask the user questions, request permission, or ask whether to open a PR.
-- Submit PRs autonomously. PRs are the sole communication channel.
-- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
+**Ask first:**
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Complete page redesigns

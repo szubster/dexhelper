@@ -2,13 +2,13 @@
 id: task-431-450-fame-checker-gym-leaders-impl
 type: TASK
 title: Investigate Fame Checker Event Flags for Gym Leaders
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-21'
 updated_at: '2026-08-21'
 depends_on: []
 parent: story-331-431-conduct-fame-checker-research
-jules_session_id: null
+jules_session_id: '12159349321612198851'
 rejection_reason: ''
 ---
 

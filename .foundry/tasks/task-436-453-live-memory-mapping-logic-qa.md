@@ -2,7 +2,7 @@
 id: task-436-453-live-memory-mapping-logic-qa
 type: TASK
 title: QA Live Memory Mapping Logic
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-21'
 updated_at: '2026-08-21'

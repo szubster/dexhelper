@@ -2,12 +2,12 @@
 id: task-440-450-gen3-pokemon-extraction-impl
 type: TASK
 title: Implement Gen 3 Pokemon Extraction Function
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-21'
 updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16382548701555405571'
 pr_number: null
 parent: story-130-440-extract-gen3-party-data-structure
 tags:

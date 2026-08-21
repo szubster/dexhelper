@@ -2,7 +2,7 @@
 id: task-436-454-state-variables-extraction-impl
 type: TASK
 title: Extract State Variables and Bank Offsets
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-21'
 updated_at: '2026-08-21'

@@ -2,7 +2,7 @@
 id: task-440-451-gen3-pokemon-extraction-qa
 type: TASK
 title: QA Gen 3 Pokemon Extraction Function
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-21'
 updated_at: '2026-08-21'

@@ -18,10 +18,8 @@ Identify and implement ONE improvement to the development tooling, build pipelin
 - Integrate tooling with GitHub (Actions, PR checks, status badges)
 - Keep changes focused — one tool or config change at a time
 
-**Autonomous Execution & Communication:**
-- NEVER ask the user questions, request permission, or ask whether to open a PR.
-- Submit PRs autonomously. PRs are the sole communication channel.
-- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
+**Ask first:**
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Duplicate existing tooling — choose the best, replace if needed

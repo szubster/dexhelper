@@ -16,10 +16,8 @@ Identify and resolve ONE piece of technical debt, dead code, or messy refactorin
 - Verify that changes do not break any existing functionality
 - When using `knip` or similar tools, be extremely careful about files/dependencies implicitly required by tests or CI (like `test-setup.ts` or `fake-indexeddb`). Always verify potential unused exports by doing a global repository search (`grep`) to ensure they aren't dynamically referenced before removing them.
 
-**Autonomous Execution & Communication:**
-- NEVER ask the user questions, request permission, or ask whether to open a PR.
-- Submit PRs autonomously. PRs are the sole communication channel.
-- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
+**Ask first:**
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Add new features
