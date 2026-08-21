@@ -34,6 +34,21 @@ export const GEN2_BOSS_EVENT_FLAGS: Record<string, number> = {
 const BITS_PER_BYTE_SHIFT = 3;
 const BIT_INDEX_MASK = 7;
 
+/**
+ * Evaluates the Gen 2 narrative event flags to determine which bosses and rivals have been defeated.
+ *
+ * **Architecture Note:**
+ * Gen 2 narrative flags are stored as bits packed into a byte array. This function decodes those
+ * bits using predefined flag indices. It's important to note that while "true" generally means the flag is set,
+ * for some Gen 2 rival events (e.g. EVENT_RIVAL_CHERRYGROVE_CITY), the flag being set actually indicates
+ * they are NO LONGER present because you have defeated them.
+ *
+ * @param eventFlags - The raw byte array containing the parsed event flags section of the save file.
+ * @returns A dictionary mapping the narrative event key to a boolean indicating if it has been completed (true = defeated).
+ * @example
+ * const narrativeFlags = parseGen2NarrativeFlags(saveData.eventFlags);
+ * if (narrativeFlags['EVENT_BEAT_FALKNER']) { console.log('Falkner has been defeated!'); }
+ */
 export function parseGen2NarrativeFlags(eventFlags: Uint8Array): Record<string, boolean> {
   const flags: Record<string, boolean> = {};
   for (const [key, flag] of Object.entries(GEN2_BOSS_EVENT_FLAGS)) {
@@ -49,6 +64,18 @@ export function parseGen2NarrativeFlags(eventFlags: Uint8Array): Record<string, 
   return flags;
 }
 
+/**
+ * Determines the next immediate boss or major narrative event the player should encounter.
+ *
+ * It iterates sequentially through the standard storyline order of Gen 2 until it finds the
+ * first event flag that evaluates to false (not completed/defeated).
+ *
+ * @param defeatedBosses - A dictionary of boolean flags mapping event keys to completion status, typically the output of `parseGen2NarrativeFlags`.
+ * @returns The key of the next upcoming boss event, or null if all listed narrative events are completed.
+ * @example
+ * const nextBoss = getUpcomingGen2Boss(narrativeFlags);
+ * if (nextBoss === 'EVENT_BEAT_WHITNEY') { console.log('Prepare for Miltank!'); }
+ */
 export function getUpcomingGen2Boss(defeatedBosses: Record<string, boolean>): string | null {
   const narrativeOrder = [
     'EVENT_RIVAL_CHERRYGROVE_CITY',
