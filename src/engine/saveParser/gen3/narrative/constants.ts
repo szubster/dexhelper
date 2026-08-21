@@ -1,0 +1,28 @@
+// Gen 3 Narrative / Boss Flag Constants
+
+// Game-specific offset for `flags` array in SaveBlock1
+export const RSE_FLAGS_OFFSET_E = 0x1270;
+export const RSE_FLAGS_OFFSET_RS = 0x1220;
+export const FRLG_FLAGS_OFFSET = 0x0ee0;
+
+// RSE (Ruby, Sapphire, Emerald) System Flags
+export const RSE_SYSTEM_FLAGS_START = 0x860;
+export const RSE_FLAG_BADGE01_GET = RSE_SYSTEM_FLAGS_START + 0x7;
+export const RSE_FLAG_BADGE02_GET = RSE_SYSTEM_FLAGS_START + 0x8;
+export const RSE_FLAG_BADGE03_GET = RSE_SYSTEM_FLAGS_START + 0x9;
+export const RSE_FLAG_BADGE04_GET = RSE_SYSTEM_FLAGS_START + 0xa;
+export const RSE_FLAG_BADGE05_GET = RSE_SYSTEM_FLAGS_START + 0xb;
+export const RSE_FLAG_BADGE06_GET = RSE_SYSTEM_FLAGS_START + 0xc;
+export const RSE_FLAG_BADGE07_GET = RSE_SYSTEM_FLAGS_START + 0xd;
+export const RSE_FLAG_BADGE08_GET = RSE_SYSTEM_FLAGS_START + 0xe;
+
+// FRLG (FireRed, LeafGreen) System Flags
+export const FRLG_SYS_FLAGS_START = 0x800;
+export const FRLG_FLAG_BADGE01_GET = FRLG_SYS_FLAGS_START + 0x20;
+export const FRLG_FLAG_BADGE02_GET = FRLG_SYS_FLAGS_START + 0x21;
+export const FRLG_FLAG_BADGE03_GET = FRLG_SYS_FLAGS_START + 0x22;
+export const FRLG_FLAG_BADGE04_GET = FRLG_SYS_FLAGS_START + 0x23;
+export const FRLG_FLAG_BADGE05_GET = FRLG_SYS_FLAGS_START + 0x24;
+export const FRLG_FLAG_BADGE06_GET = FRLG_SYS_FLAGS_START + 0x25;
+export const FRLG_FLAG_BADGE07_GET = FRLG_SYS_FLAGS_START + 0x26;
+export const FRLG_FLAG_BADGE08_GET = FRLG_SYS_FLAGS_START + 0x27;

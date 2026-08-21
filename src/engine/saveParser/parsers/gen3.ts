@@ -29,6 +29,7 @@ import {
   parseGen3TotalBattlePoints,
 } from '../gen3/battleFrontier/parser';
 import { parseGen3EventItems } from '../gen3/inventory/parser';
+import { parseGen3NarrativeFlags } from '../gen3/narrative/parser';
 import { parseGen3Pokeblocks } from '../gen3/pokeblock/parser';
 import { parseGen3TrainerDefeatFlags, parseGen3TrainerRematchFlags } from '../gen3/trainerFlags/parser';
 import { parseTrickHouse } from '../gen3/trickHouse/parser';
@@ -1476,6 +1477,8 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): import(
     const gen3VolcanicAsh = parseGen3VolcanicAsh(view, section1Offset, _forcedVersion || 'ruby');
     const gen3EventItems = parseGen3EventItems(view, section1Offset, _forcedVersion || 'ruby');
 
+    const narrative = parseGen3NarrativeFlags(view, section1Offset, _forcedVersion || 'ruby');
+
     const roamingLegendaries = [];
     try {
       const roamer = parseGen3Roamer(view, section1Offset, _forcedVersion || 'ruby');
@@ -1709,7 +1712,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): import(
       partyDetails,
       pcDetails,
       gameVersion: _forcedVersion || 'ruby',
-      badges: 0,
+      badges: narrative.badges,
       trainerName: '',
       trainerId,
       secretId,
@@ -1737,6 +1740,8 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): import(
       ...(gen3Pokeblocks ? { gen3Pokeblocks } : {}),
       gen3TrickHouse: parseTrickHouse(view, section1Offset),
       ...(gen3MatchCall ? { gen3MatchCall } : {}),
+      gen3NarrativeFlags: narrative.flags,
+      gen3UpcomingBoss: narrative.upcomingBoss,
       gen3TrainerCard,
     };
     if (gen3FeebasSeed !== undefined) {
