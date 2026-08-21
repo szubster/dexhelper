@@ -1,5 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { todayISO, buildReverseDependencyGraph, getOrphanedNodes } from './dag-utils';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
+import * as os from 'node:os';
+import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, updateActiveSessionsTable } from './dag-utils';
 
 describe('dag-utils', () => {
   it('todayISO format', () => {
@@ -82,5 +85,61 @@ describe('dag-utils', () => {
     expect(orphaned.has('c')).toBe(true);
     expect(orphaned.has('d')).toBe(true);
     expect(orphaned.size).toBe(4); // Ensure it didn't infinite loop and found all 4
+  });
+
+  describe('updateActiveSessionsTable', () => {
+    it('creates ACTIVE_SESSIONS.md with no active sessions when .foundry has no active nodes', () => {
+      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'active-table-test-'));
+      const foundryDir = path.join(tmpDir, '.foundry', 'tasks');
+      fs.mkdirSync(foundryDir, { recursive: true });
+
+      fs.writeFileSync(
+        path.join(foundryDir, 'task-001.md'),
+        '---\nid: task-001\ntype: TASK\ntitle: Ready Task\nstatus: READY\nowner_persona: coder\n---\nBody content',
+        'utf-8'
+      );
+
+      updateActiveSessionsTable(tmpDir);
+
+      const activeSessionsFile = path.join(tmpDir, 'ACTIVE_SESSIONS.md');
+      expect(fs.existsSync(activeSessionsFile)).toBe(true);
+
+      const content = fs.readFileSync(activeSessionsFile, 'utf-8');
+      expect(content).toContain('# Active Jules Sessions');
+      expect(content).toContain('*No active Jules sessions at this time.*');
+
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    });
+
+    it('creates ACTIVE_SESSIONS.md table with active nodes formatted correctly', () => {
+      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'active-table-test-'));
+      const tasksDir = path.join(tmpDir, '.foundry', 'tasks');
+      fs.mkdirSync(tasksDir, { recursive: true });
+
+      fs.writeFileSync(
+        path.join(tasksDir, 'task-001.md'),
+        '---\nid: task-001\ntype: TASK\ntitle: Active Coder Task\nstatus: ACTIVE\nowner_persona: coder\njules_session_id: "sessions/10384429029607810899"\n---\nBody content',
+        'utf-8'
+      );
+
+      fs.writeFileSync(
+        path.join(tasksDir, 'task-002.md'),
+        '---\nid: task-002\ntype: TASK\ntitle: Active Human Task\nstatus: ACTIVE\nowner_persona: human\njules_session_id: null\n---\nBody content',
+        'utf-8'
+      );
+
+      updateActiveSessionsTable(tmpDir);
+
+      const activeSessionsFile = path.join(tmpDir, 'ACTIVE_SESSIONS.md');
+      expect(fs.existsSync(activeSessionsFile)).toBe(true);
+
+      const content = fs.readFileSync(activeSessionsFile, 'utf-8');
+      expect(content).toContain('# Active Jules Sessions');
+      expect(content).toContain('| Node ID | Type | Title | Persona | Session Link |');
+      expect(content).toContain('| [task-001](.foundry/tasks/task-001.md) | TASK | Active Coder Task | coder | [10384429029607810899](https://jules.google.com/session/10384429029607810899) |');
+      expect(content).toContain('| [task-002](.foundry/tasks/task-002.md) | TASK | Active Human Task | human | - |');
+
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    });
   });
 });
