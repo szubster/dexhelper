@@ -2,12 +2,12 @@
 id: story-071-433-migrate-tactical-segmented
 type: STORY
 title: Migrate TacticalSegmentedControl and TacticalMultiSelectControl
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-19'
 updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15085167676510588776'
 pr_number: null
 parent: epic-071-124-migrate-core-tactical-components-v2
 tags:
