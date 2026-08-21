@@ -2,13 +2,13 @@
 id: task-431-448-integrate-dag-context-with-views-qa
 type: TASK
 title: Integrate DagContext with Views QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-20'
 updated_at: '2026-08-21'
 depends_on:
   - task-431-447-integrate-dag-context-with-views-impl
-jules_session_id: '7622075943873415016'
+jules_session_id: null
 pr_number: null
 parent: story-070-431-integrate-dag-context-with-views
 tags:
