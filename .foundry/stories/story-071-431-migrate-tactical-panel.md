@@ -2,10 +2,10 @@
 id: story-071-431-migrate-tactical-panel
 type: STORY
 title: 'Migrate TacticalPanel, TacticalCard, TacticalBadge to Utility Classes'
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -33,7 +33,7 @@ Refactor `TacticalPanel.tsx`, `TacticalCard.tsx`, and `TacticalBadge.tsx` to uti
 3. **No Visual Regressions**: Ensure that the migration accurately preserves the pre-existing visual appearance.
 
 ## Acceptance Criteria
-- [ ] `TacticalPanel`, `TacticalCard`, and `TacticalBadge` use the new utility classes instead of inline classes where applicable.
-- [ ] No visual regressions in the affected components.
-- [ ] Components pass `pnpm run lint` and `pnpm test`.
-- [ ] task-431-447-migrate-tactical-components
+- [x] `TacticalPanel`, `TacticalCard`, and `TacticalBadge` use the new utility classes instead of inline classes where applicable.
+- [x] No visual regressions in the affected components.
+- [x] Components pass `pnpm run lint` and `pnpm test`.
+- [x] task-431-447-migrate-tactical-components

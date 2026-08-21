@@ -2,10 +2,10 @@
 id: task-432-449-qa-controls
 type: TASK
 title: QA Verification - Tactical Controls Refactor
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-20'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on:
   - task-432-447-migrate-button-input
   - task-432-448-migrate-select
