@@ -109,8 +109,8 @@ export function TacticalSegmentedControl<T extends string | number | readonly st
               disabled={item.disabled}
               data-testid={item.testId}
               className={cn(
-                'tactical-text focus-visible:tactical-focus flex-1 rounded-none px-2 py-3 font-black text-[10px] transition-all disabled:cursor-not-allowed disabled:opacity-50',
-                !isLast && 'border-zinc-800 border-r border-dashed',
+                'tactical-badge flex-1 border-0 px-2 py-3',
+                !isLast && 'border-r border-r-zinc-800 border-dashed',
                 isActive ? activeClass : inactiveClass,
                 buttonBaseClassName,
                 item.className,
