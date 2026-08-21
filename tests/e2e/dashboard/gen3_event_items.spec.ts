@@ -14,10 +14,18 @@ test.describe('Gen 3 Event Items Dashboard', () => {
     await expect(page.getByText('EVENT ITEMS')).toBeHidden();
   });
 
-  test.skip('should show Gen 3 Event Items Dashboard for Gen 3 saves', async () => {
-    // TODO: Implement once a reliable Gen 3 fixture with Event Items is available.
-    // await initializeWithSave(page, 'tests/fixtures/emerald.sav');
-    // await page.getByRole('link', { name: /SYS\.DASH/i }).click();
-    // await expect(page.getByText('EVENT ITEMS')).toBeVisible();
+  test('should show Gen 3 Event Items Dashboard for Gen 3 saves', async ({ page, isMobile }) => {
+    await clearStorage(page);
+    await initializeWithSave(page, 'tests/fixtures/emerald.sav');
+
+    if (!isMobile) {
+      await expect(page.getByRole('link', { name: /SYS\.DASH/i })).toBeVisible();
+    } else {
+      await expect(page.getByRole('link', { name: /DASH/i })).toBeVisible();
+    }
+
+    await page.goto('./dashboard');
+    await waitForSync(page);
+    await expect(page.getByText('EVENT ITEMS')).toBeVisible();
   });
 });

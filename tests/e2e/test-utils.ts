@@ -57,7 +57,7 @@ export async function initializeWithSave(
     await waitForSync(page);
   }
 
-  await expect(page.getByText(/TRNR/i).first()).toBeVisible({ timeout: 20000 });
+  await expect(page.locator('header').getByText(/TRNR/i).first()).toBeVisible({ timeout: 20000 });
   await expect(page.getByTestId('pokedex-card').first()).toBeVisible({ timeout: 30000 });
 }
 

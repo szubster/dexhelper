@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { initializeWithSave } from '../test-utils';
+import { clearStorage, initializeWithSave, waitForSync } from '../test-utils';
 
 test.describe('Gen 3 Static Encounters Dashboard', () => {
   test('should not show Gen 3 Static Encounters Dashboard link for Gen 1/2 saves', async ({ page }) => {
@@ -10,10 +10,18 @@ test.describe('Gen 3 Static Encounters Dashboard', () => {
     await expect(page.getByRole('link', { name: /SYS\.DASH/i })).toBeHidden();
   });
 
-  test.skip('should show Gen 3 Static Encounters Dashboard for Gen 3 saves', async () => {
-    // TODO: Implement once a Gen 3 fixture is available.
-    // await initializeWithSave(page, 'tests/fixtures/emerald.sav');
-    // await page.getByRole('link', { name: /SYS\.DASH/i }).click();
-    // await expect(page.getByText('STATIC ENCOUNTERS DB')).toBeVisible();
+  test('should show Gen 3 Static Encounters Dashboard for Gen 3 saves', async ({ page, isMobile }) => {
+    await clearStorage(page);
+    await initializeWithSave(page, 'tests/fixtures/emerald.sav');
+
+    if (!isMobile) {
+      await expect(page.getByRole('link', { name: /SYS\.DASH/i })).toBeVisible();
+    } else {
+      await expect(page.getByRole('link', { name: /DASH/i })).toBeVisible();
+    }
+
+    await page.goto('./dashboard');
+    await waitForSync(page);
+    await expect(page.getByText('STATIC ENCOUNTERS DB')).toBeVisible();
   });
 });
