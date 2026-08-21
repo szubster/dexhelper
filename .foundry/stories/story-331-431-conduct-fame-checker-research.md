@@ -33,3 +33,5 @@ This story entails identifying the specific event flags that correlate with the 
 ## Acceptance Criteria
 - [ ] Investigate FireRed/LeafGreen save file memory layouts for Fame Checker event flags.
 - [ ] Document the mappings between in-game entries and event flags in a markdown document.
+- [ ] task-431-450-fame-checker-gym-leaders-impl
+- [ ] task-431-451-fame-checker-notable-npcs-impl
