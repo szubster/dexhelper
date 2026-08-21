@@ -5,9 +5,9 @@ title: Implement Gen 3 Berry Tracker MsgPack Serialization
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-06-16T00:00:00.000Z'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: '3932624382612310592'
+jules_session_id: '16721342954040428922'
 pr_number: null
 parent: story-055-096-gen3-berry-msgpack-integration
 tags:

@@ -13,7 +13,7 @@ import * as fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
-import { todayISO } from './dag-utils.ts';
+import { todayISO, updateActiveSessionsTable } from './dag-utils.ts';
 
 const require = createRequire(import.meta.url);
 const matter = require('gray-matter') as typeof import('gray-matter');
@@ -68,6 +68,13 @@ export function transitionNodeToActive(repoPath: string, sessionId: string, repo
   // 4. Persistence
   fs.writeFileSync(filePath, newContent, 'utf-8');
   info(`Successfully transitioned ${repoPath} to ACTIVE (session: ${sessionId})`);
+
+  // 5. Update ACTIVE_SESSIONS.md Markdown Table
+  try {
+    updateActiveSessionsTable(repoRoot);
+  } catch (err) {
+    error(`Failed to update ACTIVE_SESSIONS.md: ${String(err)}`);
+  }
 }
 
 async function main() {

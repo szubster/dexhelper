@@ -2,7 +2,7 @@
 id: task-433-447-migrate-segmented-controls-impl
 type: TASK
 title: Implement Migration for Segmented Controls
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-20'
 updated_at: '2026-08-21'
@@ -39,7 +39,7 @@ Modify the following components:
 - Specifically check for the usage of `tactical-button`, `tactical-badge`, or creating specialized combinations if necessary, though it should largely map well to existing `tactical-*` classes. It seems that the existing inline classes should map nicely to the new standard tactical utilities.
 
 ## Acceptance Criteria
-- [ ] `TacticalSegmentedControl` is updated to use new `@utility` classes.
-- [ ] `TacticalMultiSelectControl` is updated to use new `@utility` classes.
-- [ ] Active and inactive styles work as expected.
-- [ ] Tests and lints pass (`pnpm run lint` and `pnpm test`).
+- [x] `TacticalSegmentedControl` is updated to use new `@utility` classes.
+- [x] `TacticalMultiSelectControl` is updated to use new `@utility` classes.
+- [x] Active and inactive styles work as expected.
+- [x] Tests and lints pass (`pnpm run lint` and `pnpm test`).

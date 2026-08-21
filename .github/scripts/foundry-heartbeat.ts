@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
 import matter from 'gray-matter';
 import { discoverNodeFiles, parseNodeFile } from './foundry-orchestrator.ts';
-import { todayISO } from './dag-utils.ts';
+import { todayISO, updateActiveSessionsTable } from './dag-utils.ts';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 
@@ -553,6 +553,13 @@ export async function main() {
 
   // --- Pass 3: Remote Branch Cleanup ---
   await cleanupRemoteBranches(repoRoot, repoFullName, githubToken);
+
+  // --- Pass 4: Update ACTIVE_SESSIONS.md Markdown Table ---
+  try {
+    updateActiveSessionsTable(repoRoot);
+  } catch (err) {
+    warn(`Failed to update ACTIVE_SESSIONS.md: ${String(err)}`);
+  }
 }
 
 if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith('foundry-heartbeat.ts')) {

@@ -5,9 +5,9 @@ title: Implementation of TM/HM Integration E2E Tests
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-18'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: '7369046587486849322'
+jules_session_id: '10180101405561274182'
 pr_number: null
 parent: story-401-411-tm-hm-integration-e2e
 tags:

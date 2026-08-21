@@ -2,7 +2,7 @@
 id: task-431-448-integrate-dag-context-with-views-qa
 type: TASK
 title: Integrate DagContext with Views QA
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-20'
 updated_at: '2026-08-21'
@@ -39,7 +39,7 @@ This task is to QA verify the implementation of `task-431-447-integrate-dag-cont
    - Run tests to confirm they are passing.
 
 ## Acceptance Criteria
-- [ ] Verify `DagProvider` fetches and manages `nodes` and `edges` state correctly.
-- [ ] Verify `DagDashboard` successfully consumes data from `DagContext`.
-- [ ] Verify there is no isolated fetching logic left in view components.
-- [ ] Verify tests for the integration are complete and passing.
+- [x] Verify `DagProvider` fetches and manages `nodes` and `edges` state correctly.
+- [x] Verify `DagDashboard` successfully consumes data from `DagContext`.
+- [x] Verify there is no isolated fetching logic left in view components.
+- [x] Verify tests for the integration are complete and passing.
