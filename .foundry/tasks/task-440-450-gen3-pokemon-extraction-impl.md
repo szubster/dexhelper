@@ -40,6 +40,6 @@ In `src/engine/saveParser/parsers/gen3.ts`:
 -   Only refactor `parseGen3Party` in this task to minimize scope as the story states "Extract Gen 3 Party Data Structure", however, doing so for `parseGen3PCBoxes` is highly recommended to prevent duplicate logic.
 
 ## Acceptance Criteria
-- [ ] `extractGen3PokemonData` is implemented and exports a decrypted 48-byte buffer.
-- [ ] `parseGen3Party` correctly uses `extractGen3PokemonData`.
-- [ ] Appropriate unit tests are added or updated.
+- [x] `extractGen3PokemonData` is implemented and exports a decrypted 48-byte buffer.
+- [x] `parseGen3Party` correctly uses `extractGen3PokemonData`.
+- [x] Appropriate unit tests are added or updated.
