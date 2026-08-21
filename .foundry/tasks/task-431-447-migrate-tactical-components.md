@@ -43,7 +43,7 @@ Refactor `src/components/TacticalPanel.tsx`, `src/components/TacticalCard.tsx`, 
    - No separate QA task is generated for this simple styling refactor. The Coder is responsible for self-verification.
 
 ## Acceptance Criteria
-- [ ] `TacticalPanel` utilizes `tactical-panel` and correctly merges variant styles.
-- [ ] `TacticalCard` utilizes `tactical-card` and correctly merges variant styles.
-- [ ] `TacticalBadge` utilizes `tactical-badge` and correctly merges variant styles.
-- [ ] All components pass type-checking (`pnpm run type-check` if applicable), linting (`pnpm run lint`), and tests (`pnpm test`).
+- [x] `TacticalPanel` utilizes `tactical-panel` and correctly merges variant styles.
+- [x] `TacticalCard` utilizes `tactical-card` and correctly merges variant styles.
+- [x] `TacticalBadge` utilizes `tactical-badge` and correctly merges variant styles.
+- [x] All components pass type-checking (`pnpm run type-check` if applicable), linting (`pnpm run lint`), and tests (`pnpm test`).

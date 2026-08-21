@@ -12,7 +12,7 @@ export const TacticalBadge = React.forwardRef<HTMLSpanElement, TacticalBadgeProp
       <span
         ref={ref}
         className={cn(
-          'inline-flex items-center justify-center rounded-none border border-dashed px-2 py-1 font-black text-[8px] uppercase tracking-widest',
+          'tactical-badge inline-flex flex-row px-2 py-1 text-[8px]',
           {
             'border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)]':
               variant === 'primary',
