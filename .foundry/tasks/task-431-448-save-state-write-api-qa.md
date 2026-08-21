@@ -28,6 +28,6 @@ notes: ''
 QA the implementation of `writeSaveState` inside `src/engine/storage/historyDb.ts` to ensure it successfully saves states and their metadata, and that transaction error handling works as intended.
 
 ## Acceptance Criteria
-- [ ] Verify `writeSaveState(id, saveData, metadata)` correctly handles concurrent saves and properly utilizes IDB transactions.
-- [ ] Verify that errors throw correctly when failing to store data into either `saves` or `metadata`.
-- [ ] Validate unit tests cover normal operation and failure cases.
+- [x] Verify `writeSaveState(id, saveData, metadata)` correctly handles concurrent saves and properly utilizes IDB transactions.
+- [x] Verify that errors throw correctly when failing to store data into either `saves` or `metadata`.
+- [x] Validate unit tests cover normal operation and failure cases.
