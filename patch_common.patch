@@ -1,0 +1,17 @@
+--- src/engine/saveParser/parsers/common.ts
++++ src/engine/saveParser/parsers/common.ts
+@@ -406,6 +406,14 @@
+
+ export type SaveData = Gen1SaveData | Gen2SaveData | Gen3SaveData;
+
++export function isGen2Save(saveData: SaveData): saveData is Gen2SaveData {
++  return saveData.generation === 2;
++}
++
++export function isGen3Save(saveData: SaveData): saveData is Gen3SaveData {
++  return saveData.generation === 3;
++}
++
+ // Removed byte helper as DataView provides getUint8 natively.
+
+ const GEN12_CHAR_MAP: Record<number, string> = {
