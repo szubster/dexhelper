@@ -2,12 +2,12 @@
 id: task-432-447-migrate-button-input
 type: TASK
 title: Refactor TacticalButton and TacticalInput to use @utility classes
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-20'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9503176929399258675'
 pr_number: null
 parent: story-071-432-migrate-tactical-controls
 tags:
