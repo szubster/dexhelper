@@ -36,7 +36,12 @@ When a bug or regression is reported:
 - **E2E Tests**: [Playwright](https://playwright.dev/). Use `initializeWithSave(page)` from `tests/e2e/test-utils.ts` to hydrate the app state.
 - **Test Commands**: 
   - Unit tests: `pnpm test`
-  - E2E tests: `pnpm test:e2e`
+  - E2E tests: `pnpm test:e2e` or `pnpm test:e2e:xvfb` (or running target spec files like `pnpm test:e2e tests/e2e/home.spec.ts`)
+
+## 8. Deferring E2E Test Failures to GitHub CI
+- E2E tests running in the local agent sandbox environment (Jules) can occasionally time out or fail due to Xvfb or headless browser environment quirks.
+- If E2E tests encounter environment, Xvfb, or browser launcher issues in the Jules environment, **do not spend time trying to fix local sandbox environment issues**.
+- Defer E2E test execution to GitHub CI, where Playwright E2E tests run stably and reliably. Any test failures in CI will notify the agent automatically.
 
 ## 6. Real Game Saves for Testing
 - **Use Real Saves**: Leverage real game saves in `tests/fixtures`.

@@ -20,8 +20,10 @@ Generate ONE high-quality, actionable `IDEA` node for either the main project or
 - Assign the `owner_persona` of the new node to `product_manager`.
 - Clearly articulate the problem and the proposed solution.
 
-**Ask first:**
-- Nothing — just submit the PR. Rejection is expected and acceptable.
+**Autonomous Execution & Communication:**
+- NEVER ask the user questions, request permission, or ask whether to open a PR.
+- Submit PRs autonomously. PRs are the sole communication channel.
+- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
 
 **Never:**
 - Create downstream tracking nodes (Epics, Stories, Tasks) or write implementation code.

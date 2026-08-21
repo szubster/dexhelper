@@ -2,13 +2,13 @@
 id: task-421-447-extract-player-location-impl
 type: TASK
 title: Implement Gen 3 Player Location Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-20'
 updated_at: '2026-08-21'
 depends_on:
   - research-421-448-gen3-player-location-offsets
-jules_session_id: '17292214932134909323'
+jules_session_id: null
 pr_number: null
 parent: story-411-421-extract-player-location
 tags:
@@ -36,7 +36,7 @@ As part of the Gen 3 AI data extraction (Epic 340-411), we need to extract the p
 4.  **Testing:** Add unit tests to ensure the location parsing and trainer mapping work correctly.
 
 ## Acceptance Criteria
-- [ ] Extraction logic correctly reads the player location data from a Gen 3 save.
-- [ ] Extracted location correctly maps to the next major trainer.
-- [ ] Section 13 guidelines are strictly followed.
-- [ ] Unit tests cover location parsing and trainer mapping.
+- [x] Extraction logic correctly reads the player location data from a Gen 3 save.
+- [x] Extracted location correctly maps to the next major trainer.
+- [x] Section 13 guidelines are strictly followed.
+- [x] Unit tests cover location parsing and trainer mapping.

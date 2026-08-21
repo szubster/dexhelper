@@ -62,7 +62,13 @@ export interface PokemonInstance {
   currentHp?: number | undefined;
   stats?: { hp: number; atk: number; def: number; spd: number; spatk: number; spdef: number };
   dvs?: { hp: number; atk: number; def: number; spd: number; spc: number };
+  ivs?: { hp: number; atk: number; def: number; spd: number; spatk: number; spdef: number };
+  nature?: number;
+  hiddenPower?: { type: string; power: number };
   statExp?: { hp: number; atk: number; def: number; spd: number; spc: number };
+  evs?:
+    | { hp: number; attack: number; defense: number; speed: number; specialAttack: number; specialDefense: number }
+    | undefined;
   caughtData?:
     | {
         time: 'Morning' | 'Day' | 'Night' | 'Unknown';
@@ -394,6 +400,10 @@ export interface Gen3SaveData extends BaseSaveData {
   gen3TMHMs?: { itemId: number; quantity: number; moveId: number }[];
   /** Gen 3 specific: TM event flags for one-time TM collection */
   gen3TMEventFlags?: Record<string, boolean>;
+  /** Gen 3 specific: Story progression narrative flags */
+  gen3NarrativeFlags?: Record<string, boolean>;
+  /** Gen 3 specific: Upcoming major narrative boss based on progression */
+  gen3UpcomingBoss?: string;
   /** Gen 3 specific: Static encounters completion flags */
   gen3StaticEncounters?: Gen3StaticEncounters;
   /** Gen 3 specific: Standard trainer defeat flags */

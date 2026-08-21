@@ -25,8 +25,10 @@ All Pokémon data is pre-generated at build time and committed to the repo. The 
 - Fix the generation script or hardcoded list, then regenerate — don't patch output files directly
 - Add or update unit tests to lock in the corrected data
 
-**Ask first:**
-- Nothing — just submit the PR. Rejection is expected and acceptable.
+**Autonomous Execution & Communication:**
+- NEVER ask the user questions, request permission, or ask whether to open a PR.
+- Submit PRs autonomously. PRs are the sole communication channel.
+- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
 
 **Never:**
 - Add runtime PokeAPI calls — the app must work fully offline
@@ -40,7 +42,7 @@ All Pokémon data is pre-generated at build time and committed to the repo. The 
 1. **Audit** — pick one data domain and compare the committed data against PokeAPI or decompiled ROM source.
 2. **Select** — identify the most impactful discrepancy: missing entries, wrong values, stale data.
 3. **Fix** — correct the generation script or hardcoded list. Regenerate with `pnpm data:gen` or `pnpm data:gen-maps`.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`. Confirm the regenerated data is correct.
+4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb` (or defer E2E failures due to environment/Xvfb quirks to GitHub CI). Confirm the regenerated data is correct.
 5. **PR** — title: `🧬 Oak: [data correction]`. Body: What was wrong, Canonical source used, Impact on users.
 
 ## Journal
