@@ -35,3 +35,4 @@ Refactor `TacticalSegmentedControl.tsx` and `TacticalMultiSelectControl.tsx` to 
 - [ ] `TacticalSegmentedControl` and `TacticalMultiSelectControl` use the new utility classes instead of inline classes where applicable.
 - [ ] No visual regressions in the affected components.
 - [ ] Components pass `pnpm run lint` and `pnpm test`.
+- [ ] task-433-447-migrate-segmented-controls-impl
