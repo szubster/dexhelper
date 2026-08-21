@@ -2,12 +2,12 @@
 id: story-331-431-conduct-fame-checker-research
 type: STORY
 title: Conduct Fame Checker Research
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4064298945010374882'
 pr_number: null
 parent: epic-115-331-gen3-fame-checker-research
 tags:
