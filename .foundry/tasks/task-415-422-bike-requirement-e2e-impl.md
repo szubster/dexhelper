@@ -2,13 +2,14 @@
 id: task-415-422-bike-requirement-e2e-impl
 type: TASK
 title: E2E Verification for Bike Requirement Route Mapping - Implementation
-status: READY
+status: FAILED
 owner_persona: coder
 parent: story-406-415-bike-requirement-e2e
-depends_on: []
+depends_on:
+  - research-415-423-bike-requirement-e2e-research
 created_at: '2026-08-13'
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Suspended pending research: Gen 3 emerald.sav fixture does not surface missing encounters for Safari Zone bike areas.'
 jules_session_id: null
 updated_at: '2026-08-20'
 ---
