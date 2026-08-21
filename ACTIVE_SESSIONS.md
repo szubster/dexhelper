@@ -16,3 +16,4 @@
 | [task-421-449-extract-player-location-qa](.foundry/tasks/task-421-449-extract-player-location-qa.md) | TASK | QA Gen 3 Player Location Extraction | qa | [13976091118816559819](https://jules.google.com/session/13976091118816559819) |
 | [task-424-440-integrate-gen3-fixtures-impl](.foundry/tasks/task-424-440-integrate-gen3-fixtures-impl.md) | TASK | Integrate Gen 3 Save File Fixtures (Impl) | coder | [6245840979410780541](https://jules.google.com/session/6245840979410780541) |
 | [task-428-437-update-data-loading-logic](.foundry/tasks/task-428-437-update-data-loading-logic.md) | TASK | Update Data Loading Logic for Core Bundle | coder | [4759718733010943672](https://jules.google.com/session/4759718733010943672) |
+| [task-432-458-save-state-read-api-impl](.foundry/tasks/task-432-458-save-state-read-api-impl.md) | TASK | Implement Save State Read API | coder | [14241099893984990082](https://jules.google.com/session/14241099893984990082) |

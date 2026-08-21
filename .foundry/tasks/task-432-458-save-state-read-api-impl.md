@@ -2,12 +2,12 @@
 id: task-432-458-save-state-read-api-impl
 type: TASK
 title: Implement Save State Read API
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-20'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14241099893984990082'
 pr_number: null
 parent: story-398-432-save-state-read-api
 tags:
