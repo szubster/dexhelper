@@ -4,7 +4,7 @@ Review the current Jules agent roster, the quality of existing prompts, and the 
 
 ## Context
 
-The current agent roster lives in `.github/agents/`. Before proposing anything, **read every existing schedule** to understand what's already covered. Also review agent journals (e.g., `.jules/bolt/*`, `.foundry/journals/coder/*`) to assess whether their prompts are producing good results based on their recorded successes and failures.
+The current agent roster lives in `.github/agents/`. Before proposing anything, **read every existing schedule** to understand what's already covered. Also review agent journals (e.g., `.jules/bolt/*`, `.foundry/journals/coder/*`, `.foundry/journals/agile_coach/*`) to assess whether their prompts are producing good results based on their recorded successes and failures.
 
 ## Focus Areas
 
