@@ -33,6 +33,6 @@ The Gen 3 EV parsing logic has been defined in `parseGen3EVs`. It now needs to b
 - Note: `RangeError` is handled internally by `parseGen3EVs` which throws a generic corruption error.
 
 ## 4. Acceptance Criteria
-- [ ] `PokemonInstance` interface has `evs` property.
-- [ ] `parseGen3Party` extracts EVs using `parseGen3EVs` and assigns it to `PokemonInstance`.
-- [ ] `parseGen3PCBoxes` extracts EVs using `parseGen3EVs` and assigns it to `PokemonInstance`.
+- [x] `PokemonInstance` interface has `evs` property.
+- [x] `parseGen3Party` extracts EVs using `parseGen3EVs` and assigns it to `PokemonInstance`.
+- [x] `parseGen3PCBoxes` extracts EVs using `parseGen3EVs` and assigns it to `PokemonInstance`.
