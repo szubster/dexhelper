@@ -26,6 +26,6 @@ notes: ''
 This QA task verifies the implementation of the logic detecting raw materials for evolution to fill missing living dex slots.
 
 ## Acceptance Criteria
-- [ ] Verify that tests check if a missing evolution is properly identified as obtainable if there is a duplicate base Pokemon.
-- [ ] Verify that tests confirm no false positives occur if a duplicate is not available (only single instances).
-- [ ] Review implementation to ensure O(N) efficiencies are maintained when scanning party and PC arrays.
+- [x] Verify that tests check if a missing evolution is properly identified as obtainable if there is a duplicate base Pokemon.
+- [x] Verify that tests confirm no false positives occur if a duplicate is not available (only single instances).
+- [x] Review implementation to ensure O(N) efficiencies are maintained when scanning party and PC arrays.
