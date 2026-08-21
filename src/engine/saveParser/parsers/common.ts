@@ -62,6 +62,9 @@ export interface PokemonInstance {
   currentHp?: number | undefined;
   stats?: { hp: number; atk: number; def: number; spd: number; spatk: number; spdef: number };
   dvs?: { hp: number; atk: number; def: number; spd: number; spc: number };
+  ivs?: { hp: number; atk: number; def: number; spd: number; spatk: number; spdef: number };
+  nature?: number;
+  hiddenPower?: { type: string; power: number };
   statExp?: { hp: number; atk: number; def: number; spd: number; spc: number };
   evs?:
     | { hp: number; attack: number; defense: number; speed: number; specialAttack: number; specialDefense: number }
