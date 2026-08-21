@@ -34,6 +34,6 @@ The DataView parser for Match Call (`Gen3MatchCall`) was already implemented in 
 - Make sure to update tests in `src/engine/assistant/strategies/utils/matchCall.test.ts` if needed, although it seems to already use the mock data matching the current schema definition.
 
 ## Acceptance Criteria
-- [ ] Integrate Match Call state into the SaveData schema. (This is arguably already done since `gen3MatchCall` is in `Gen3SaveData`, but make sure everything is properly exposed/exported if anything is missing).
-- [ ] Ensure that `Gen3MatchCall` interface is exported correctly from `src/engine/gen3/matchCall/parser.ts`.
-- [ ] Write any necessary integration tests if not already covered.
+- [x] Integrate Match Call state into the SaveData schema. (This is arguably already done since `gen3MatchCall` is in `Gen3SaveData`, but make sure everything is properly exposed/exported if anything is missing).
+- [x] Ensure that `Gen3MatchCall` interface is exported correctly from `src/engine/gen3/matchCall/parser.ts`.
+- [x] Write any necessary integration tests if not already covered.
