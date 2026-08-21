@@ -2,7 +2,7 @@
 id: task-420-429-narrative-extraction-qa
 type: TASK
 title: QA Narrative Progression Flag Extraction
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-14'
 updated_at: '2026-08-21'
@@ -10,7 +10,7 @@ depends_on:
   - task-420-426-gen1-narrative-extraction
   - task-420-427-gen2-narrative-extraction
   - task-420-428-gen3-narrative-extraction
-jules_session_id: null
+jules_session_id: '1941199982952814662'
 pr_number: null
 parent: story-411-420-narrative-progression-flags
 tags:
