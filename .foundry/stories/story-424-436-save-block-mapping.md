@@ -2,13 +2,13 @@
 id: story-424-436-save-block-mapping
 type: STORY
 title: Save Block Mapping
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-14'
 updated_at: '2026-08-21'
 depends_on:
   - story-424-435-wasm-memory-buffer-hook
-jules_session_id: null
+jules_session_id: '3513220893424262054'
 pr_number: null
 parent: epic-343-424-live-memory-reading
 tags:

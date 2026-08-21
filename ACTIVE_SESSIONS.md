@@ -6,6 +6,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [story-424-436-save-block-mapping](.foundry/stories/story-424-436-save-block-mapping.md) | STORY | Save Block Mapping | tech_lead | [3513220893424262054](https://jules.google.com/session/3513220893424262054) |
 | [task-031-048-implement-deadlock-tests](.foundry/tasks/task-031-048-implement-deadlock-tests.md) | TASK | Implement Deadlock Prevention Mechanism Unit Tests | coder | [4640549639143018851](https://jules.google.com/session/4640549639143018851) |
 | [task-275-437-move-runtime-refactor](.foundry/tasks/task-275-437-move-runtime-refactor.md) | TASK | Refactor Runtime to use Dynamic Move Data | coder | [17807045828884773990](https://jules.google.com/session/17807045828884773990) |
 | [task-279-304-gen3-ignore-emulator-trailing-bytes-impl](.foundry/tasks/task-279-304-gen3-ignore-emulator-trailing-bytes-impl.md) | TASK | Implement Graceful Ignorance of Emulator Trailing Bytes in Gen 3 Save Files | coder | [251233554756171661](https://jules.google.com/session/251233554756171661) |
