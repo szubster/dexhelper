@@ -22,24 +22,21 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 - Always provide explicit type parameters to `vi.fn()` (e.g., `vi.fn<() => void>()`) to satisfy strict Biome type-checking and avoid `any` usage
 - Keep each PR focused on one file or one user journey
 
-**Autonomous Execution & Communication:**
-- NEVER ask the user questions, request permission, or ask whether to open a PR.
-- Submit PRs autonomously. PRs are the sole communication channel.
-- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
+**Ask first:**
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Modify application source code — tests only
 - Skip running the full suite to verify nothing broke
 - Write trivial tests that only assert `true === true`
 - Duplicate coverage already provided by existing tests
-- Spend time attempting to fix local Jules environment, Xvfb, or headless browser launcher issues when running E2E tests — if E2E fails or times out due to sandbox environment constraints, defer E2E test verification to GitHub CI (which executes Playwright E2E tests reliably on PR creation)
 
 ## Process
 
 1. **Scan** — check coverage gaps: run `pnpm test -- --coverage` or review existing test files vs source files.
 2. **Select** — pick the single best target: lowest coverage on highest-impact module, or untested critical path.
 3. **Write** — add focused, meaningful tests. Test real behavior, not implementation details.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb`. All tests must pass, including yours.
+4. **Verify** — run `pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`. All tests must pass, including yours.
 5. **PR** — title: `🧪 Sentinel: [description]` or `🧪 [description]`. Body: `🎯 What`, `📊 Coverage`, and `✨ Result`.
 
 ## Journal

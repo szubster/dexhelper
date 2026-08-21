@@ -158,8 +158,7 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
 
   const parseResult = NodeFrontmatterSchema.safeParse(fm);
   if (!parseResult.success) {
-    const detailedErrors = parseResult.error.issues.map(issue => `\`${issue.path.join('.')}\`: ${issue.message}`).join('; ');
-    warn(`Schema validation failed in: ${repoPath} — skipping. Errors: ${detailedErrors}`);
+    warn(`Schema validation failed in: ${repoPath} — skipping. Errors: ${parseResult.error.message}`);
     return null;
   }
 

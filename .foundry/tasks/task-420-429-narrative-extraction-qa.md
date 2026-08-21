@@ -2,10 +2,10 @@
 id: task-420-429-narrative-extraction-qa
 type: TASK
 title: QA Narrative Progression Flag Extraction
-status: COMPLETED
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-14'
-updated_at: '2026-08-21'
+updated_at: '2026-08-14'
 depends_on:
   - task-420-426-gen1-narrative-extraction
   - task-420-427-gen2-narrative-extraction
@@ -31,6 +31,6 @@ Verify the implementation of narrative/story progression flag extraction for Gen
 Ensure that the correct event flags are being read and parsed, and the correct upcoming major bosses are determined for each generation.
 
 ## Acceptance Criteria
-- [x] Verify Gen 1 narrative progression flags and upcoming bosses are correctly extracted.
-- [x] Verify Gen 2 narrative progression flags and upcoming bosses are correctly extracted.
-- [x] Verify Gen 3 narrative progression flags and upcoming bosses are correctly extracted.
+- [ ] Verify Gen 1 narrative progression flags and upcoming bosses are correctly extracted.
+- [ ] Verify Gen 2 narrative progression flags and upcoming bosses are correctly extracted.
+- [ ] Verify Gen 3 narrative progression flags and upcoming bosses are correctly extracted.

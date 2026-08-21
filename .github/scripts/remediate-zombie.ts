@@ -37,8 +37,7 @@ export function remediateZombieNode(repoRoot: string, relativeFilePath: string, 
 
     const parseResult = NodeFrontmatterSchema.safeParse(parsed.data);
     if (!parseResult.success) {
-      const detailedErrors = parseResult.error.issues.map(issue => `\`${issue.path.join('.')}\`: ${issue.message}`).join('; ');
-      console.warn(`Malformed schema in: ${fullPath}. Errors: ${detailedErrors}`);
+      console.warn(`Malformed schema in: ${fullPath}`);
       return false;
     }
 

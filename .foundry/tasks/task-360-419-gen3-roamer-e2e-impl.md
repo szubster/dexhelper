@@ -2,13 +2,13 @@
 id: task-360-419-gen3-roamer-e2e-impl
 type: TASK
 title: Impl Gen 3 Roamer E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-11'
 updated_at: '2026-08-21'
 depends_on:
   - task-360-418-gen3-roamer-ui-impl
-jules_session_id: null
+jules_session_id: '576993813756421083'
 pr_number: null
 parent: story-397-360-gen3-roamer-integration-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - roamer
   - e2e
 research_references: []
-rejection_count: 1
+rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---

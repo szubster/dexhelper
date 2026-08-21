@@ -2,10 +2,10 @@
 id: task-363-441-update-parsers-qa
 type: TASK
 title: Update Parsers QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-20'
-updated_at: '2026-08-21'
+updated_at: '2026-08-20'
 depends_on:
   - task-363-440-update-parsers-impl
 jules_session_id: null

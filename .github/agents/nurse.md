@@ -19,10 +19,8 @@ Find and fix ONE type-safety issue in the codebase. Tighten types, eliminate uns
 - Preserve runtime behavior exactly — type-level changes only where possible
 - Keep changes under 50 lines and focused on one type issue
 
-**Autonomous Execution & Communication:**
-- NEVER ask the user questions, request permission, or ask whether to open a PR.
-- Submit PRs autonomously. PRs are the sole communication channel.
-- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
+**Ask first:**
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Add `any` or `@ts-ignore` — you're here to remove them
@@ -35,7 +33,7 @@ Find and fix ONE type-safety issue in the codebase. Tighten types, eliminate uns
 1. **Hunt** — scan for type-safety smells: `as` casts, `any`, `!` assertions, wide unions.
 2. **Select** — pick the single best target: highest-risk cast, most frequently used loose type.
 3. **Fix** — add a type guard, narrow the type, or introduce a discriminated union.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb` (or defer E2E failures due to environment/Xvfb quirks to GitHub CI). Type-check must pass cleanly.
+4. **Verify** — run `pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`. Type-check must pass cleanly.
 5. **PR** — title: `🛡️ Nurse: [type improvement]`. Body: What was unsafe, How it was fixed, What the compiler now catches.
 
 ## Journal

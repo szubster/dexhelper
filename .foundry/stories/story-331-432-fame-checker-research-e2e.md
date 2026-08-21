@@ -2,10 +2,10 @@
 id: story-331-432-fame-checker-research-e2e
 type: STORY
 title: Fame Checker Research E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-08-21'
+updated_at: '2026-08-19'
 depends_on:
   - story-331-431-conduct-fame-checker-research
 jules_session_id: null

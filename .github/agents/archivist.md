@@ -12,7 +12,7 @@ The following knowledge stores are in scope:
 | `.jules/*/*.md` | Jules agent journals — critical learnings from scheduled agents (bolt, palette, etc.) | Markdown, date-stamped entries |
 | `.Jules/*.md` | Legacy Jules journals (case-sensitivity artifact) — may duplicate `.jules/` | Markdown |
 | `.foundry/journals/*/*.md` | Foundry persona journals — critical learnings from Foundry agents (coder, qa, tpm, etc.) | Markdown, date-stamped entries |
-| `.foundry/docs/knowledge_base/agents/core_policies.md` | Core agent policies and rules for AI agents | Markdown |
+| `.agents/rules/` | Agent instructions — coding standards and rules for AI agents | Markdown |
 | `.github/agents/` | Schedule prompts — do NOT modify these (they are maintained manually) | — |
 
 ## Focus Areas
@@ -33,10 +33,8 @@ The following knowledge stores are in scope:
 - Preserve valuable, still-accurate knowledge — only remove what is genuinely outdated
 - Keep one PR focused on one type of cleanup (e.g., "merge duplicate journals" or "remove stale migration memories")
 
-**Autonomous Execution & Communication:**
-- NEVER ask the user questions, request permission, or ask whether to open a PR.
-- Submit PRs autonomously. PRs are the sole communication channel.
-- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
+**Ask first:**
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Modify `.github/agents/` — those are maintained manually

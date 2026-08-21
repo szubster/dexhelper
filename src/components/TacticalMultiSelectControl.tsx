@@ -67,8 +67,8 @@ export function TacticalMultiSelectControl<T extends string | number | readonly 
               title={item.ariaLabel || (typeof item.label === 'string' ? `${item.label} filter` : undefined)}
               aria-label={item.ariaLabel || (typeof item.label === 'string' ? `${item.label} filter` : undefined)}
               className={cn(
-                'tactical-badge flex-1 border-0 px-2 py-3',
-                !isLast && 'border-r border-r-zinc-800 border-dashed',
+                'tactical-text focus-visible:tactical-focus flex-1 rounded-none px-2 py-3 font-black text-[10px] transition-all disabled:cursor-not-allowed disabled:opacity-50',
+                !isLast && 'border-zinc-800 border-r border-dashed',
                 isActive ? activeClass : inactiveClass,
                 buttonBaseClassName,
                 item.className,

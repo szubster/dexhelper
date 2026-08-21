@@ -2,7 +2,7 @@
 id: story-071-433-migrate-tactical-segmented
 type: STORY
 title: Migrate TacticalSegmentedControl and TacticalMultiSelectControl
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-19'
 updated_at: '2026-08-21'
@@ -32,7 +32,7 @@ Refactor `TacticalSegmentedControl.tsx` and `TacticalMultiSelectControl.tsx` to 
 3. **No Visual Regressions**: Ensure that the migration accurately preserves the pre-existing visual appearance.
 
 ## Acceptance Criteria
-- [x] `TacticalSegmentedControl` and `TacticalMultiSelectControl` use the new utility classes instead of inline classes where applicable.
-- [x] No visual regressions in the affected components.
-- [x] Components pass `pnpm run lint` and `pnpm test`.
-- [x] task-433-447-migrate-segmented-controls-impl
+- [ ] `TacticalSegmentedControl` and `TacticalMultiSelectControl` use the new utility classes instead of inline classes where applicable.
+- [ ] No visual regressions in the affected components.
+- [ ] Components pass `pnpm run lint` and `pnpm test`.
+- [ ] task-433-447-migrate-segmented-controls-impl

@@ -27,9 +27,6 @@ export default defineConfig({
     video: 'retain-on-failure',
     // Automatically take a screenshot precisely at the moment a test fails (different from visual regression test)
     screenshot: 'only-on-failure',
-    launchOptions: {
-      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu'],
-    },
   },
   projects: [
     {

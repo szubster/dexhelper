@@ -18,10 +18,8 @@ Identify and implement ONE React refactoring opportunity by extracting a reusabl
 - Ensure the extracted component is typed correctly with TypeScript.
 - Verify that changes do not break any existing functionality.
 
-**Autonomous Execution & Communication:**
-- NEVER ask the user questions, request permission, or ask whether to open a PR.
-- Submit PRs autonomously. PRs are the sole communication channel.
-- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
+**Ask first:**
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Change the visual design or UX of the application.
@@ -32,7 +30,7 @@ Identify and implement ONE React refactoring opportunity by extracting a reusabl
 1. **Analyze** — Scan the codebase for repeated JSX or standard HTML elements that could be extracted.
 2. **Design** — Define the interface (props) for the new component.
 3. **Refactor** — Create the new component in `src/components/` and replace existing instances.
-4. **Verify** — Run `pnpm lint`, `pnpm test`, and `pnpm test:e2e:xvfb` (or defer E2E failures due to environment/Xvfb quirks to GitHub CI).
+4. **Verify** — Run `pnpm lint`, `pnpm test`, and `xvfb-run pnpm test:e2e`.
 5. **PR** — Title: `🧱 Mason: [component name] extraction`. Body: `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result`.
 
 ## Journal

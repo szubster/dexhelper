@@ -16,10 +16,8 @@ Identify and resolve ONE piece of technical debt, dead code, or messy refactorin
 - Verify that changes do not break any existing functionality
 - When using `knip` or similar tools, be extremely careful about files/dependencies implicitly required by tests or CI (like `test-setup.ts` or `fake-indexeddb`). Always verify potential unused exports by doing a global repository search (`grep`) to ensure they aren't dynamically referenced before removing them.
 
-**Autonomous Execution & Communication:**
-- NEVER ask the user questions, request permission, or ask whether to open a PR.
-- Submit PRs autonomously. PRs are the sole communication channel.
-- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
+**Ask first:**
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Add new features
@@ -31,7 +29,7 @@ Identify and resolve ONE piece of technical debt, dead code, or messy refactorin
 1. **Scan** — look for dead code, or messy logic. Consider using `pnpm knip` to find unused exports and types, verifying implicit usage with `grep`.
 2. **Select** — pick the most actionable tech debt.
 3. **Clean** — perform the refactor or deletion.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb` (or defer E2E failures due to environment/Xvfb quirks to GitHub CI).
+4. **Verify** — run `pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`.
 5. **PR** — title: `🧹 [description]`. Body: `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result`.
 
 ## Journal

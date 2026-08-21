@@ -24,7 +24,6 @@
  * - `locations.jsonl`
  * - `moves.jsonl`
  * - `items.jsonl`
- * - `berries.jsonl`
  * - `metadata.json` (tracking the upstream commit SHA for caching/invalidation).
  *
  * These artifacts are shipped with the application and loaded into IndexedDB by the client.
@@ -772,41 +771,6 @@ for (let i = 1; i <= MAX_ITEM_ID; i++) {
   items.push(item);
 }
 
-console.log('\nProcessing Berries...');
-const berries: any[] = [];
-for (let i = 1; i <= 64; i++) {
-  const bDataPath = path.join(dataPath, `berry/${i}/index.json`);
-  const bData = readJson(bDataPath);
-  if (!bData) continue;
-
-  const firmnessId = bData.firmness ? parseInt(bData.firmness.url.split('/').filter(Boolean).pop() || '0', 10) : 0;
-  const itemId = bData.item ? parseInt(bData.item.url.split('/').filter(Boolean).pop() || '0', 10) : 0;
-
-  const flavors: any = {
-    spicy: 0, dry: 0, sweet: 0, bitter: 0, sour: 0
-  };
-  if (bData.flavors) {
-    for (const f of bData.flavors) {
-      if (f.flavor && flavors[f.flavor.name] !== undefined) {
-        flavors[f.flavor.name] = f.potency;
-      }
-    }
-  }
-
-  berries.push({
-    id: bData.id,
-    name: bData.name,
-    item_id: itemId,
-    growth_time: bData.growth_time,
-    max_harvest: bData.max_harvest,
-    size: bData.size,
-    smoothness: bData.smoothness,
-    soil_dryness: bData.soil_dryness,
-    firmness: firmnessId,
-    flavors
-  });
-}
-
 
 /**
  * Recursively strips nulls, undefined values, default states, and empty arrays from an object.
@@ -1024,7 +988,6 @@ writeJsonl(path.join(OUTPUT_DIR, 'encounters.jsonl'), Array.from(pokemonEncounte
 writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()).map(compact).sort((a, b) => a.id - b.id));
 writeJsonl(path.join(OUTPUT_DIR, 'moves.jsonl'), moves.map(compact));
 writeJsonl(path.join(OUTPUT_DIR, 'items.jsonl'), items.map(compact));
-writeJsonl(path.join(OUTPUT_DIR, 'berries.jsonl'), berries.map(compact));
 
   fs.writeFileSync(path.join(OUTPUT_DIR, 'metadata.json'), JSON.stringify({
     sourceSha: upstreamSha,

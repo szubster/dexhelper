@@ -2,10 +2,10 @@
 id: story-411-421-shoal-items-parsing
 type: STORY
 title: Parse Items Pocket for Shoal Items
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-13'
-updated_at: '2026-08-21'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -41,9 +41,9 @@ Note: The RTC extraction requirement from the parent Epic has been cancelled per
     *   RangeError must be handled properly during parsing with the `DataView` API.
 
 ## Acceptance Criteria
-- [x] Create constants for Items pocket offsets, item entry size, and Shoal item IDs.
-- [x] Implement a function to extract the Shoal items counts.
-- [x] Call the function in `parseGen3` and add the result to the returned `SaveData`.
+- [ ] Create constants for Items pocket offsets, item entry size, and Shoal item IDs.
+- [ ] Implement a function to extract the Shoal items counts.
+- [ ] Call the function in `parseGen3` and add the result to the returned `SaveData`.
 - [x] Break down into Tasks
-- [x] task-421-440-parse-items-pocket-for-shoal-items-impl
-- [x] task-421-441-parse-items-pocket-for-shoal-items-qa
+- [ ] task-421-440-parse-items-pocket-for-shoal-items-impl
+- [ ] task-421-441-parse-items-pocket-for-shoal-items-qa

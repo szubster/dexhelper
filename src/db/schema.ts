@@ -7,14 +7,13 @@ import type { DBSchema } from 'idb';
 
 export const DB_CONFIG = {
   NAME: 'PokeDB',
-  VERSION: 12,
+  VERSION: 11,
   STORES: {
     POKEMON: 'pokemon',
     ENCOUNTERS: 'encounters',
     LOCATIONS: 'locations',
     ITEMS: 'items',
     MOVES: 'moves',
-    BERRIES: 'berries',
     METADATA: 'metadata',
   },
 } as const;
@@ -259,25 +258,6 @@ export interface ItemMetadata {
   gen3_id?: number | undefined;
 }
 
-export interface BerryMetadata {
-  id: number;
-  name: string;
-  item_id: number;
-  growth_time: number;
-  max_harvest: number;
-  size: number;
-  smoothness: number;
-  soil_dryness: number;
-  firmness: number;
-  flavors: {
-    spicy: number;
-    dry: number;
-    sweet: number;
-    bitter: number;
-    sour: number;
-  };
-}
-
 export interface HiddenItemData {
   flagOffset: number;
   flagBit: number;
@@ -292,7 +272,6 @@ export interface PokeDataExport {
   loc: UnifiedLocation[];
   items: ItemMetadata[];
   moves: MoveMetadata[];
-  berries: BerryMetadata[];
   hash: string;
   sourceSha?: string;
 }
@@ -313,10 +292,6 @@ export interface PokeDBSchema extends DBSchema {
   [DB_CONFIG.STORES.MOVES]: {
     key: number;
     value: MoveMetadata;
-  };
-  [DB_CONFIG.STORES.BERRIES]: {
-    key: number;
-    value: BerryMetadata;
   };
   [DB_CONFIG.STORES.LOCATIONS]: {
     key: number;

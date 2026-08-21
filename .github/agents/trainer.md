@@ -18,10 +18,8 @@ Identify and implement ONE improvement to the assistant — the core feature tha
 - Respect the user's settings (Pokédex completion vs. Living Dex mode)
 - Keep changes focused — one algorithm or UI improvement at a time
 
-**Autonomous Execution & Communication:**
-- NEVER ask the user questions, request permission, or ask whether to open a PR.
-- Submit PRs autonomously. PRs are the sole communication channel.
-- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
+**Ask first:**
+- Nothing — just submit the PR. Rejection is expected and acceptable.
 
 **Never:**
 - Make runtime calls to PokeAPI — the app must work fully offline
@@ -34,7 +32,7 @@ Identify and implement ONE improvement to the assistant — the core feature tha
 1. **Analyze** — review current assistant logic, recommendations, and UI for gaps or inaccuracies.
 2. **Select** — pick the single best opportunity: clearest user value, low regression risk.
 3. **Implement** — integrate cleanly, test against real save fixtures from `tests/fixtures`.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb` (or defer E2E failures due to environment/Xvfb quirks to GitHub CI). Validate with at least one real save file.
+4. **Verify** — run `pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`. Validate with at least one real save file.
 5. **PR** — title: `🧠 Trainer: [improvement]`. Body: What, Why, Impact on recommendation quality, Test coverage.
 
 ## Journal

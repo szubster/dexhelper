@@ -2,10 +2,10 @@
 id: epic-043-139-gen2-roamer-data-extraction
 type: EPIC
 title: Gen 2 Roamer Data Extraction
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-06'
-updated_at: '2026-08-21'
+updated_at: '2026-08-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -32,4 +32,3 @@ Extract Gen 2 roamer data and standardize the structure for roaming legendaries.
 - [x] Story Owner: Break down this Epic into executable Stories.
 - [x] story-139-297-gen2-roamer-core-extraction
 - [x] story-139-298-gen2-roamer-status-and-standardization
-- [ ] story-139-442-gen2-roamer-extraction-e2e

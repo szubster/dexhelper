@@ -22,7 +22,6 @@ describe('extractPlayerLocation', () => {
       warpId: 0,
       x: 12,
       y: 15,
-      nearestTrainer: { name: 'Rival 1', type: 'Mixed', levelCap: 5 },
     });
   });
 
@@ -46,7 +45,6 @@ describe('extractPlayerLocation', () => {
       warpId: 2,
       x: 5,
       y: 8,
-      nearestTrainer: { name: 'Rival 1', type: 'Mixed', levelCap: 5 },
     });
   });
 
@@ -67,7 +65,6 @@ describe('extractPlayerLocation', () => {
     expect(location.mapNum).toBe(3);
     expect(location.x).toBe(100);
     expect(location.y).toBe(200);
-    expect(location.nearestTrainer).toBeNull();
   });
 
   it('throws RangeError if save block offset is out of bounds', () => {

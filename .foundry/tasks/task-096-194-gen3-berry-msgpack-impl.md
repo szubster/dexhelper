@@ -30,9 +30,9 @@ Implement the MsgPack serialization for Gen 3 berry patch data using `msgpackr` 
 The parent story specifies that the extracted berry data must be serialized using `msgpackr`, integrated with the PokeData storage generation pipeline, and exposed through the runtime API. Ensure that full, readable property names are used in the application data model as per ADR 015.
 
 ## Acceptance Criteria
-- [x] Serialize the extracted berry data using `msgpackr`.
-- [x] Integrate serialized data with PokeData storage generation pipeline.
-- [x] Expose through runtime API.
+- [ ] Serialize the extracted berry data using `msgpackr`.
+- [ ] Integrate serialized data with PokeData storage generation pipeline.
+- [ ] Expose through runtime API.
 
 ## Technical Contract Reminders for Coder:
 - **Resumption Policy**: If you are resuming a failed node, explicitly read the `rejection_reason` in the frontmatter and the QA/Auditor journal to address previous failures.
