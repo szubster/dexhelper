@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import type React from 'react';
+import React from 'react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render } from 'vitest-browser-react';
 import * as suggestionEngineModule from '../../engine/assistant/suggestionEngine';
@@ -40,7 +40,10 @@ const wrapper = ({ children }: { children: React.ReactNode }) => (
 
 let hookResult: ReturnType<typeof useAssistant> | null = null;
 const TestComponent = ({ saveData, isLivingDex }: { saveData: SaveData | null; isLivingDex: boolean }) => {
-  hookResult = useAssistant(saveData, isLivingDex);
+  const result = useAssistant(saveData, isLivingDex);
+  React.useEffect(() => {
+    hookResult = result;
+  }, [result]);
   return <div data-testid="test-comp" />;
 };
 

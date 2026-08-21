@@ -125,6 +125,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
   // Set active category initially or if it disappears
   React.useEffect(() => {
     if (orderedCategories.length > 0 && (!activeCategory || !orderedCategories.includes(activeCategory))) {
+      // oxlint-disable-next-line react/set-state-in-effect
       setActiveCategory(orderedCategories[0] || null);
     }
   }, [orderedCategories, activeCategory]);

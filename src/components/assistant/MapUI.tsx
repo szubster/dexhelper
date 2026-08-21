@@ -11,7 +11,7 @@ interface MapUIProps {
 export function MapUI({ heatmap, areaNames }: MapUIProps) {
   const areasWithSuggestions = useMemo(() => {
     return Object.entries(heatmap)
-      .filter(([_, density]) => density > 0)
+      .filter((entry) => entry[1] > 0)
       .map(([areaId, density]) => ({
         areaId: Number(areaId),
         density,

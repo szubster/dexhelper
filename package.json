@@ -78,7 +78,7 @@
     "lefthook": "^2.1.10",
     "lightningcss": "^1.33.0",
     "madge": "^8.0.0",
-    "oxlint": "^1.78.0",
+    "oxlint": "^1.79.0",
     "oxlint-tsgolint": "^7.0.2001",
     "playwright": "^1.62.1",
     "rollup-plugin-visualizer": "^7.1.1",

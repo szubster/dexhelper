@@ -47,11 +47,18 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: we want to trigger recalculate effect when input changes
   useEffect(() => {
+    let isCancelled = false;
+    // oxlint-disable-next-line react/set-state-in-effect
     setIsCalculating(true);
     const timeout = setTimeout(() => {
-      setIsCalculating(false);
+      if (!isCancelled) {
+        setIsCalculating(false);
+      }
     }, 400);
-    return () => clearTimeout(timeout);
+    return () => {
+      isCancelled = true;
+      clearTimeout(timeout);
+    };
   }, [hpPercent, status]);
 
   return (
