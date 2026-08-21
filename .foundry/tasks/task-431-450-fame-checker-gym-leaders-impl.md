@@ -21,4 +21,4 @@ As part of the effort to extract Fame Checker progress from Pokémon FireRed and
 Investigate FireRed/LeafGreen save file memory layouts for Fame Checker event flags specifically for Gym Leaders.
 
 ## Acceptance Criteria
-- [ ] Create a markdown document mapping in-game entries to event flags for Gym Leaders within `.foundry/docs/knowledge_base/gen3_fame_checker_gym_leaders.md`.
+- [x] Create a markdown document mapping in-game entries to event flags for Gym Leaders within `.foundry/docs/knowledge_base/gen3_fame_checker_gym_leaders.md`.

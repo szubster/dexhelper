@@ -36,7 +36,7 @@ As part of the Gen 3 AI data extraction (Epic 340-411), we need to extract the p
 4.  **Testing:** Add unit tests to ensure the location parsing and trainer mapping work correctly.
 
 ## Acceptance Criteria
-- [ ] Extraction logic correctly reads the player location data from a Gen 3 save.
-- [ ] Extracted location correctly maps to the next major trainer.
-- [ ] Section 13 guidelines are strictly followed.
-- [ ] Unit tests cover location parsing and trainer mapping.
+- [x] Extraction logic correctly reads the player location data from a Gen 3 save.
+- [x] Extracted location correctly maps to the next major trainer.
+- [x] Section 13 guidelines are strictly followed.
+- [x] Unit tests cover location parsing and trainer mapping.

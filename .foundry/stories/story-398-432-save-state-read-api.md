@@ -31,3 +31,5 @@ Implement the read API to retrieve the most recent save state for a playthrough,
 - [ ] Implement a function to retrieve the previous state relative to a given save state ID (for diffing purposes).
 - [ ] Ensure queries effectively utilize the indexes in the `SaveHistoryDB` schema.
 - [ ] Write unit tests for the read API.
+- [ ] task-432-458-save-state-read-api-impl
+- [ ] task-432-459-save-state-read-api-qa

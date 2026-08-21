@@ -18,8 +18,10 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 - Write simple tests to validate non-trivial security fixes.
 - If testing is too complex, provide a detailed rationale in the PR description.
 
-**Ask first:**
-- Nothing — just submit the PR. Rejection is expected and acceptable.
+**Autonomous Execution & Communication:**
+- NEVER ask the user questions, request permission, or ask whether to open a PR.
+- Submit PRs autonomously. PRs are the sole communication channel.
+- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
 
 **Never:**
 - Ignore CWE-209 guidelines; always redact raw error objects in logs.
