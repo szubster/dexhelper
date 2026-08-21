@@ -1,5 +1,6 @@
+import { useVirtualizer } from '@tanstack/react-virtual';
 import type React from 'react';
-import { useMemo } from 'react';
+import { useMemo, useRef } from 'react';
 import { RibbonFilterProvider } from '../../../contexts/RibbonFilterContext';
 import { useStore } from '../../../store';
 import { cn } from '../../../utils/cn';
@@ -44,18 +45,6 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
     return status;
   }, [saveData]);
 
-  if (saveData?.generation !== 3) {
-    return null;
-  }
-
-  if (pokemonList.length === 0) {
-    return (
-      <TacticalPanel className="mt-6 p-4 text-center">
-        <span className="tactical-text text-zinc-500">NO POKEMON WITH RIBBONS FOUND</span>
-      </TacticalPanel>
-    );
-  }
-
   const rankMap: Record<number, ContestRibbonRank> = {
     1: 'Normal',
     2: 'Super',
@@ -70,6 +59,27 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
     smart: 'Smart',
     tough: 'Tough',
   };
+
+  const parentRef = useRef<HTMLDivElement>(null);
+
+  const rowVirtualizer = useVirtualizer({
+    count: pokemonList.length,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => 53, // Base height, dynamic resizing handles wraps
+    overscan: 5,
+  });
+
+  if (saveData?.generation !== 3) {
+    return null;
+  }
+
+  if (pokemonList.length === 0) {
+    return (
+      <TacticalPanel className="mt-6 p-4 text-center">
+        <span className="tactical-text text-zinc-500">NO POKEMON WITH RIBBONS FOUND</span>
+      </TacticalPanel>
+    );
+  }
 
   return (
     <div className="mt-6 flex flex-col gap-6">
@@ -105,26 +115,49 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex max-h-[500px] flex-col gap-2 overflow-y-auto">
-          {pokemonList.map((pokemon, i) => (
-            <div
-              key={`${pokemon.speciesId}-${pokemon.slot || i}`}
-              className="flex items-center justify-between border-zinc-800 border-b border-dashed p-2"
-            >
-              <span className="font-mono text-sm text-white">
-                {pokemon.nickname || `Species ${pokemon.speciesId}`} (Lv {pokemon.level})
-              </span>
-              <div className="flex flex-wrap justify-end gap-2">
-                {pokemon.ribbons &&
-                  // ⚡ Bolt: Replaced objectEntries().map() with a static array literal to eliminate runtime Object iteration and intermediate tuple allocations.
-                  (['cool', 'beauty', 'cute', 'smart', 'tough'] as const).map((key) => {
-                    const rank = pokemon.ribbons?.[key] ?? 0;
-                    if (rank === 0 || rankMap[rank] === undefined) return null;
-                    return <ContestRibbonBadge key={key} type={conditionMap[key]} rank={rankMap[rank]} />;
-                  })}
-              </div>
-            </div>
-          ))}
+        <div ref={parentRef} className="flex max-h-[500px] flex-col overflow-y-auto">
+          <div
+            style={{
+              height: `${rowVirtualizer.getTotalSize()}px`,
+              width: '100%',
+              position: 'relative',
+            }}
+          >
+            {rowVirtualizer.getVirtualItems().map((virtualRow) => {
+              const pokemon = pokemonList[virtualRow.index];
+              if (!pokemon) return null;
+
+              return (
+                <div
+                  key={`${pokemon.speciesId}-${pokemon.slot || virtualRow.index}`}
+                  ref={rowVirtualizer.measureElement}
+                  data-index={virtualRow.index}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    transform: `translateY(${virtualRow.start}px)`,
+                  }}
+                >
+                  <div className="mb-2 flex items-center justify-between border-zinc-800 border-b border-dashed p-2">
+                    <span className="font-mono text-sm text-white">
+                      {pokemon.nickname || `Species ${pokemon.speciesId}`} (Lv {pokemon.level})
+                    </span>
+                    <div className="flex flex-wrap justify-end gap-2">
+                      {pokemon.ribbons &&
+                        // ⚡ Bolt: Replaced objectEntries().map() with a static array literal to eliminate runtime Object iteration and intermediate tuple allocations.
+                        (['cool', 'beauty', 'cute', 'smart', 'tough'] as const).map((key) => {
+                          const rank = pokemon.ribbons?.[key] ?? 0;
+                          if (rank === 0 || rankMap[rank] === undefined) return null;
+                          return <ContestRibbonBadge key={key} type={conditionMap[key]} rank={rankMap[rank]} />;
+                        })}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </TacticalPanel>
     </div>
