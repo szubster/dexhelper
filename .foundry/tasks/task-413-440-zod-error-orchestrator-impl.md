@@ -2,12 +2,12 @@
 id: task-413-440-zod-error-orchestrator-impl
 type: TASK
 title: Update Orchestrator Zod Error Messages
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-20'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18384671372361143941'
 parent: story-335-413-zod-validation-error-handling
 tags:
   - foundry

@@ -2,13 +2,13 @@
 id: story-415-415-fuzzer-dag-generation
 type: STORY
 title: Orchestrator Fuzzer - DAG Generation
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-12'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on:
   - epic-341-414-orchestrator-fuzzer-core
-jules_session_id: '8090077806989627022'
+jules_session_id: null
 pr_number: null
 parent: epic-341-415-orchestrator-fuzzer-simulation
 tags:
