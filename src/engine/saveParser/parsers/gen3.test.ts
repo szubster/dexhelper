@@ -2244,3 +2244,53 @@ describe('parseGen3ContestMaster', () => {
     expect(() => parseGen3ContestMaster(view, section3Offset)).toThrow('The save file is corrupted or incomplete.');
   });
 });
+
+describe('parseGen3 (Match Call integration)', () => {
+  const initMockSectionsLocal = (view: DataView) => {
+    // Basic setup for 3 sections needed for match call
+    view.setUint32(0 + 4088, 0x08012025, true);
+    view.setUint16(0 + 4084, 0, true);
+    view.setUint32(0 + 4092, 1, true);
+
+    view.setUint32(4096 + 4088, 0x08012025, true);
+    view.setUint16(4096 + 4084, 1, true);
+    view.setUint32(4096 + 4092, 1, true);
+
+    view.setUint32(8192 + 4088, 0x08012025, true);
+    view.setUint16(8192 + 4084, 2, true);
+    view.setUint32(8192 + 4092, 1, true);
+  };
+
+  it('should successfully attach Match Call data to SaveData for emerald', () => {
+    const buffer = new ArrayBuffer(57344);
+    const view = new DataView(buffer);
+    initMockSectionsLocal(view);
+
+    const section1Offset = 4096;
+    const section2Offset = 8192;
+
+    view.setUint8(section2Offset + 0x0315, 1 << 7);
+    view.setUint8(section2Offset + 0x031b, 0x50);
+    view.setUint8(section1Offset + 0x09ca, 2);
+    view.setUint8(section1Offset + 0x09ca + 1, 5);
+
+    const result = parseGen3(view, 'emerald');
+
+    expect(result.gen3MatchCall).toBeDefined();
+    expect(result.gen3MatchCall?.hasMatchCall).toBe(true);
+    expect(result.gen3MatchCall?.registeredTrainers[0]).toBe(true);
+    expect(result.gen3MatchCall?.registeredTrainers[1]).toBe(false);
+    expect(result.gen3MatchCall?.registeredTrainers[2]).toBe(true);
+    expect(result.gen3MatchCall?.rematchStates[0]).toBe(2);
+    expect(result.gen3MatchCall?.rematchStates[1]).toBe(5);
+  });
+
+  it('should be undefined for non-emerald games', () => {
+    const buffer = new ArrayBuffer(57344);
+    const view = new DataView(buffer);
+    initMockSectionsLocal(view);
+
+    const result = parseGen3(view, 'ruby');
+    expect(result.gen3MatchCall).toBeUndefined();
+  });
+});
