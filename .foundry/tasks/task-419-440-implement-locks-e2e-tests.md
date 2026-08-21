@@ -2,12 +2,12 @@
 id: task-419-440-implement-locks-e2e-tests
 type: TASK
 title: Implement locks property Schema E2E verification
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-18'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: '2989254222463846383'
+jules_session_id: null
 pr_number: null
 parent: story-411-419-schema-resource-locking-e2e
 tags:

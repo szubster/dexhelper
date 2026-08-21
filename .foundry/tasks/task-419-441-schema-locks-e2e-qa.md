@@ -2,10 +2,10 @@
 id: task-419-441-schema-locks-e2e-qa
 type: TASK
 title: QA Schema Resource Locking E2E Verification
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-18'
-updated_at: '2026-08-20'
+updated_at: '2026-08-21'
 depends_on:
   - task-419-440-implement-locks-e2e-tests
 jules_session_id: null
