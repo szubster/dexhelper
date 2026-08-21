@@ -40,7 +40,7 @@ This task is to implement the requirements of `story-070-431-integrate-dag-conte
    - Make sure no view has duplicated fetching logic.
 
 ## Acceptance Criteria
-- [ ] `DagProvider` fetches and manages `nodes` and `edges` state.
-- [ ] `DagDashboard` correctly consumes data from `DagContext` and displays it.
-- [ ] No isolated fetching logic remains in individual view components.
-- [ ] Tests for `DagProvider` and `DagDashboard` are updated and passing.
+- [x] `DagProvider` fetches and manages `nodes` and `edges` state.
+- [x] `DagDashboard` correctly consumes data from `DagContext` and displays it.
+- [x] No isolated fetching logic remains in individual view components.
+- [x] Tests for `DagProvider` and `DagDashboard` are updated and passing.
