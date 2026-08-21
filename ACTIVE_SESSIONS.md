@@ -6,6 +6,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [story-398-432-save-state-read-api](.foundry/stories/story-398-432-save-state-read-api.md) | STORY | Implement Save State Read API | tech_lead | [13812897166714116703](https://jules.google.com/session/13812897166714116703) |
 | [story-412-431-r2-conflict-resolution-prompt-components](.foundry/stories/story-412-431-r2-conflict-resolution-prompt-components.md) | STORY | R2 Conflict Resolution Prompt Components | tech_lead | [992424903011710998](https://jules.google.com/session/992424903011710998) |
 | [story-415-415-fuzzer-dag-generation](.foundry/stories/story-415-415-fuzzer-dag-generation.md) | STORY | Orchestrator Fuzzer - DAG Generation | tech_lead | [8090077806989627022](https://jules.google.com/session/8090077806989627022) |
 | [task-031-048-implement-deadlock-tests](.foundry/tasks/task-031-048-implement-deadlock-tests.md) | TASK | Implement Deadlock Prevention Mechanism Unit Tests | coder | [4640549639143018851](https://jules.google.com/session/4640549639143018851) |

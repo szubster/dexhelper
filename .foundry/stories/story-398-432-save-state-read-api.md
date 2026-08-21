@@ -2,13 +2,13 @@
 id: story-398-432-save-state-read-api
 type: STORY
 title: Implement Save State Read API
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-20'
 updated_at: '2026-08-21'
 depends_on:
   - story-398-431-save-state-write-api
-jules_session_id: null
+jules_session_id: '13812897166714116703'
 pr_number: null
 parent: epic-099-398-save-state-read-write-api-retry
 tags:
