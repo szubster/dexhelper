@@ -34,7 +34,7 @@ Extract the base styles for `TacticalSelect` into a new `@utility tactical-selec
    - In `TacticalSelect.tsx`, replace those inline classes with the newly created `tactical-select` class.
 
 ## Acceptance Criteria
-- [ ] `@utility tactical-select` is defined in `src/index.css`.
-- [ ] `TacticalSelect.tsx` uses the `tactical-select` utility class.
-- [ ] No visual regressions in `TacticalSelect`.
-- [ ] Components pass `pnpm run lint` and `pnpm test`.
+- [x] `@utility tactical-select` is defined in `src/index.css`.
+- [x] `TacticalSelect.tsx` uses the `tactical-select` utility class.
+- [x] No visual regressions in `TacticalSelect`.
+- [x] Components pass `pnpm run lint` and `pnpm test`.
