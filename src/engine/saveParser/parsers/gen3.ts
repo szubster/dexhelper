@@ -871,6 +871,78 @@ export function parseGen3EVs(view: DataView, offset: number) {
   }
 }
 
+/**
+ * Calculates the exact Hidden Power type and base power based on Gen 3 IV mechanics.
+ */
+export function calculateGen3HiddenPower(
+  hp: number,
+  atk: number,
+  def: number,
+  spd: number,
+  spatk: number,
+  spdef: number,
+) {
+  const hpBit = hp % 2;
+  const atkBit = atk % 2;
+  const defBit = def % 2;
+  const spdBit = spd % 2;
+  const spatkBit = spatk % 2;
+  const spdefBit = spdef % 2;
+
+  const typeBits = hpBit | (atkBit << 1) | (defBit << 2) | (spdBit << 3) | (spatkBit << 4) | (spdefBit << 5);
+  const typeIndex = Math.floor((typeBits * 15) / 63);
+
+  const hpPowerBit = (hp >> 1) % 2;
+  const atkPowerBit = (atk >> 1) % 2;
+  const defPowerBit = (def >> 1) % 2;
+  const spdPowerBit = (spd >> 1) % 2;
+  const spatkPowerBit = (spatk >> 1) % 2;
+  const spdefPowerBit = (spdef >> 1) % 2;
+
+  const powerBits =
+    hpPowerBit |
+    (atkPowerBit << 1) |
+    (defPowerBit << 2) |
+    (spdPowerBit << 3) |
+    (spatkPowerBit << 4) |
+    (spdefPowerBit << 5);
+  const power = Math.floor((powerBits * 40) / 63) + 30;
+
+  const TYPES = [
+    'Fighting',
+    'Flying',
+    'Poison',
+    'Ground',
+    'Rock',
+    'Bug',
+    'Ghost',
+    'Steel',
+    'Fire',
+    'Water',
+    'Grass',
+    'Electric',
+    'Psychic',
+    'Ice',
+    'Dragon',
+    'Dark',
+  ];
+
+  return { type: TYPES[typeIndex] as string, power };
+}
+
+/**
+ * Calculates whether a Gen 3 Pokémon is Shiny based on its Personality Value (PV) and the Original Trainer ID block.
+ */
+export function calculateGen3Shiny(pv: number, otId: number) {
+  const pvHigh = pv >>> 16;
+  const pvLow = pv & 0xffff;
+  const otIdHigh = otId >>> 16;
+  const otIdLow = otId & 0xffff;
+
+  const shinyValue = pvHigh ^ pvLow ^ otIdHigh ^ otIdLow;
+  return shinyValue < 8;
+}
+
 export function parseGen3PokemonPVAndIVs(view: DataView, offset: number) {
   try {
     const pv = view.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
