@@ -30,5 +30,5 @@ QA the live memory mapping layer implementation.
 Review the implementation of the live memory mapping layer for the raw WASM memory buffer. Verify that the coder strictly adhered to ADR 010 by exclusively using the native `DataView` API and handling out-of-bounds reads with `RangeError` propagating gracefully. Ensure that comprehensive unit tests were added.
 
 ## Acceptance Criteria
-- [ ] Verified DataView API usage for mapping logic
-- [ ] Verified unit tests cover the new mapping layer
+- [x] Verified DataView API usage for mapping logic
+- [x] Verified unit tests cover the new mapping layer
