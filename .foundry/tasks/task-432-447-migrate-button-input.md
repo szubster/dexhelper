@@ -34,7 +34,7 @@ Refactor `TacticalButton.tsx` and `TacticalInput.tsx` to use the pre-defined `@u
    - In `TacticalInput.tsx`, replace inline base classes with `tactical-input`. Ensure it doesn't break the layout. `tactical-input` has `rounded-none border border-white/20 border-dashed bg-zinc-900/50 py-4 font-black font-mono text-white text-xs uppercase tracking-[0.2em] outline-none transition-all placeholder:text-zinc-400 focus-visible:tactical-focus focus:border-[var(--theme-primary)] focus:bg-zinc-900/80 disabled:opacity-50 disabled:cursor-not-allowed;`.
 
 ## Acceptance Criteria
-- [ ] `TacticalButton` uses the `tactical-button` utility class.
-- [ ] `TacticalInput` uses the `tactical-input` utility class.
-- [ ] Variant and sizing logic for `TacticalButton` is preserved and works correctly with the new utility class.
-- [ ] Components pass `pnpm run lint` and `pnpm test`.
+- [x] `TacticalButton` uses the `tactical-button` utility class.
+- [x] `TacticalInput` uses the `tactical-input` utility class.
+- [x] Variant and sizing logic for `TacticalButton` is preserved and works correctly with the new utility class.
+- [x] Components pass `pnpm run lint` and `pnpm test`.
