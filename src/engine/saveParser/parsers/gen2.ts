@@ -254,6 +254,14 @@ const BANK_2_BOX_13_OFFSET = 0x7586;
 const BANK_2_BOX_14_OFFSET = 0x79d4;
 
 const HALL_OF_FAME_OFFSET_RELATIVE_TO_JOHTO_BADGES = 0xa8;
+const HALL_OF_FAME_OFFSET_RELATIVE = 0xf74;
+const GEN2_HOF_MAX_RECORDS = 30;
+const GEN2_HOF_POKEMON_COUNT = 6;
+const GEN2_HOF_RECORD_LENGTH = 0x62;
+const GEN2_HOF_POKEMON_LENGTH = 0x10;
+const GEN2_HOF_POKEMON_OFFSET_LEVEL = 5;
+const GEN2_HOF_POKEMON_OFFSET_NICKNAME = 6;
+
 const UNOWN_FORM_DEF_SHIFT = 4;
 const UNOWN_FORM_SPD_SHIFT = 2;
 const UNOWN_FORM_MOD = 28;
@@ -755,6 +763,55 @@ function parseInventory(view: DataView, isCrystal: boolean) {
  * @param isCrystal - True if the save is Crystal.
  * @returns An object detailing each roaming beast's location and the global roaming map tracking variables.
  */
+function parseGen2HallOfFameRecords(
+  view: DataView,
+  hallOfFameOffset: number,
+  hallOfFameCount: number,
+  trainerName: string,
+) {
+  const records: {
+    playerName: string;
+    pokemon: { speciesId: number; level: number; nickname: string }[];
+  }[] = [];
+
+  const maxRecords = Math.min(hallOfFameCount, GEN2_HOF_MAX_RECORDS);
+
+  try {
+    for (let recordIndex = 0; recordIndex < maxRecords; recordIndex++) {
+      const pokemon: { speciesId: number; level: number; nickname: string }[] = [];
+
+      for (let pokemonIndex = 0; pokemonIndex < GEN2_HOF_POKEMON_COUNT; pokemonIndex++) {
+        // Skip WinCount byte (1 byte)
+        const offset =
+          hallOfFameOffset + recordIndex * GEN2_HOF_RECORD_LENGTH + 1 + pokemonIndex * GEN2_HOF_POKEMON_LENGTH;
+        const speciesId = view.getUint8(offset);
+
+        // 0x00 or 0xFF usually means empty slot or terminator
+        if (speciesId === 0x00 || speciesId === 0xff) {
+          continue;
+        }
+
+        const level = view.getUint8(offset + GEN2_HOF_POKEMON_OFFSET_LEVEL);
+        const nickname = decodeGen12String(view, offset + GEN2_HOF_POKEMON_OFFSET_NICKNAME, 10);
+
+        pokemon.push({ speciesId, level, nickname });
+      }
+
+      records.push({
+        playerName: trainerName,
+        pokemon,
+      });
+    }
+  } catch (e) {
+    if (e instanceof RangeError) {
+      return records;
+    }
+    throw e;
+  }
+
+  return records;
+}
+
 function parseRoamingLegendaries(view: DataView, isCrystal: boolean) {
   const legendaries: {
     speciesId: number;
@@ -909,6 +966,9 @@ export function parseGen2(view: DataView, forceCrystal = false): import('./commo
   const hallOfFameOffset = johtoBadgesOffset + HALL_OF_FAME_OFFSET_RELATIVE_TO_JOHTO_BADGES;
   const hallOfFameCount = view.getUint8(hallOfFameOffset);
 
+  const hallOfFameRecordsOffset = johtoBadgesOffset + HALL_OF_FAME_OFFSET_RELATIVE;
+  const hallOfFameRecords = parseGen2HallOfFameRecords(view, hallOfFameRecordsOffset, hallOfFameCount, trainerName);
+
   const {
     legendaries: roamingLegendaries,
     curMapGroup: roamerCurMapGroup,
@@ -1048,6 +1108,7 @@ export function parseGen2(view: DataView, forceCrystal = false): import('./commo
     daycareHasEgg,
     currentBoxCount: 0,
     hallOfFameCount,
+    hallOfFameRecords,
     roamingLegendaries,
     roamerCurMapGroup,
     roamerCurMapId,
