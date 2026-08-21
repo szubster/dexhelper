@@ -31,3 +31,5 @@ Update `RouteRadarController` or related mapping components to consume the newly
 - [x] tech_lead: Break down this Story into Tasks.
 - [ ] task-413-422-update-route-radar-controller
 - [ ] task-413-423-route-radar-controller-qa
+
+- [ ] research-413-458-bike-requirements-data-location

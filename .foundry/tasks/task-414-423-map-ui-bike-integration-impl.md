@@ -2,12 +2,13 @@
 id: task-414-423-map-ui-bike-integration-impl
 type: TASK
 title: Integrate Bike Badges into Map UI
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-13'
 updated_at: '2026-08-21'
 depends_on:
   - task-414-422-bike-badge-component-impl
+  - research-413-458-bike-requirements-data-location
 jules_session_id: '6138510518711341216'
 pr_number: null
 parent: story-406-414-bike-requirement-ui-badges
@@ -15,8 +16,8 @@ tags:
   - ui
   - map
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Suspended pending research on where bike requirement data is stored'
 notes: ''
 ---
 

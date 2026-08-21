@@ -2,11 +2,12 @@
 id: task-413-422-update-route-radar-controller
 type: TASK
 title: Update RouteRadarHeatmap to Support Bike Requirements
-status: READY
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-14'
 updated_at: '2026-08-21'
-depends_on: []
+depends_on:
+  - research-413-458-bike-requirements-data-location
 jules_session_id: null
 pr_number: null
 parent: story-406-413-bike-requirement-heatmap
@@ -14,8 +15,8 @@ tags:
   - gen3
   - map
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Suspended pending research on where bike requirement data is stored'
 notes: ''
 ---
 
