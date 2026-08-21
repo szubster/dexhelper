@@ -2,10 +2,10 @@
 id: task-150-213-gen2-hof-records-extraction-qa
 type: TASK
 title: QA Gen 2 Hall of Fame Records Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-06-21'
-updated_at: '2026-06-21'
+updated_at: '2026-08-21'
 depends_on:
   - task-150-212-gen2-hof-records-extraction-impl
 jules_session_id: null

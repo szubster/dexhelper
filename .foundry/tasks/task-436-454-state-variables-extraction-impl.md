@@ -2,13 +2,13 @@
 id: task-436-454-state-variables-extraction-impl
 type: TASK
 title: Extract State Variables and Bank Offsets
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-21'
 updated_at: '2026-08-21'
 depends_on:
   - task-436-452-live-memory-mapping-logic-impl
-jules_session_id: '2348855960350872464'
+jules_session_id: null
 pr_number: null
 parent: story-424-436-save-block-mapping
 tags:
@@ -17,7 +17,7 @@ tags:
   - parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 

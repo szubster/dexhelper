@@ -2,10 +2,10 @@
 id: task-246-437-gen3-box-parsing-qa
 type: TASK
 title: QA Gen 3 Box Parsing and Grouping
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-17'
-updated_at: '2026-08-17'
+updated_at: '2026-08-21'
 depends_on:
   - task-246-436-gen3-box-parsing-aggregation
 jules_session_id: null
