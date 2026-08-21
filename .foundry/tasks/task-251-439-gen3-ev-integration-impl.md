@@ -2,12 +2,12 @@
 id: task-251-439-gen3-ev-integration-impl
 type: TASK
 title: Task - Gen 3 EV Integration Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-02'
 updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3866091753891609991'
 pr_number: null
 parent: story-116-251-gen3-ev-integration
 tags:
