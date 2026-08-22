@@ -38,7 +38,7 @@ Verify the DAG node and dependency generators for the fuzzing framework.
 6. Ensure adequate test coverage exists for all edge cases.
 
 ## Acceptance Criteria
-- [ ] Node generator creates valid nodes according to schema.
-- [ ] Dependency generator successfully forms acyclic graphs.
-- [ ] Configurable properties (depth, width) work as expected.
-- [ ] No circular dependencies can be generated.
+- [x] Node generator creates valid nodes according to schema.
+- [x] Dependency generator successfully forms acyclic graphs.
+- [x] Configurable properties (depth, width) work as expected.
+- [x] No circular dependencies can be generated.
