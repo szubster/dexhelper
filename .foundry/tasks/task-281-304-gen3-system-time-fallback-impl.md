@@ -39,6 +39,6 @@ Because this involves core state that may be referenced across multiple componen
 - When drafting blueprints for save file parsing, explicitly require that all memory offsets, lengths, bit locations, and shifts must be defined as reusable constants at the module level, forbidding inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Implement a React Context for managing application time state with a system time fallback.
-- [ ] Update the save parsing engine to safely ignore trailing RTC bytes in `.sav` files.
-- [ ] Ensure the context exposes methods for future UI overrides.
+- [x] Implement a React Context for managing application time state with a system time fallback.
+- [x] Update the save parsing engine to safely ignore trailing RTC bytes in `.sav` files.
+- [x] Ensure the context exposes methods for future UI overrides.
