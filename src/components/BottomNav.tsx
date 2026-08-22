@@ -18,46 +18,38 @@ export function BottomNav() {
   const isDag = location.pathname === '/dag';
   const isFrontier = location.pathname === '/dashboard';
 
-  const activeIndex = isDex ? 0 : isStorage ? 1 : isAssistant ? 2 : isDag ? 3 : isFrontier ? 4 : -1;
-
   return (
-    <nav className="fixed right-0 bottom-0 left-0 z-50 border-[var(--theme-primary)]/50 border-t-[4px] border-dashed bg-zinc-950 pb-[env(safe-area-inset-bottom,0px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.9)] sm:hidden">
-      {/* Hazard stripes lip */}
+    <nav className="fixed right-0 bottom-0 left-0 z-50 border-zinc-900 border-t-[8px] border-b-[8px] bg-zinc-950 pb-[env(safe-area-inset-bottom,0px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.9)] sm:hidden">
+      {/* Hazard stripes rim on the top bezel */}
       <div
-        className="absolute top-0 right-0 left-0 h-1.5 opacity-20"
+        className="absolute -top-[8px] right-0 left-0 h-[8px] opacity-30"
         style={{
           backgroundImage:
             'repeating-linear-gradient(45deg, var(--theme-primary) 25%, transparent 25%, transparent 50%, var(--theme-primary) 50%, var(--theme-primary) 75%, transparent 75%, transparent)',
-          backgroundSize: '10px 10px',
+          backgroundSize: '16px 16px',
         }}
       />
-      {/* Hardware top lip */}
-      <div className="absolute top-1.5 right-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+      {/* Heavy metallic top bezel edge */}
+      <div className="absolute -top-[8px] right-0 left-0 h-[2px] bg-white/20 shadow-[0_1px_2px_rgba(0,0,0,0.8)]" />
+      <div className="absolute -top-[1px] right-0 left-0 h-[1px] bg-black" />
+
+      {/* Mounting Screws in the top bezel */}
+      <div className="absolute -top-[6px] left-4 flex h-[4px] w-[4px] items-center justify-center rounded-full border border-black bg-zinc-800 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+        <div className="h-[1px] w-[3px] rotate-45 bg-black" />
+      </div>
+      <div className="absolute -top-[6px] right-4 flex h-[4px] w-[4px] items-center justify-center rounded-full border border-black bg-zinc-800 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+        <div className="h-[1px] w-[3px] -rotate-12 bg-black" />
+      </div>
 
       {/* Telemetry decoration */}
       <TelemetryDecoration
-        label="TERMINAL_LINK_ACTIVE"
-        className="-top-[21px] left-4 rounded-none border-t border-b-0 bg-zinc-950 text-[10px] text-[var(--theme-primary)]"
+        label="SYS.CONTROL_ARRAY"
+        className="-top-[24px] left-2 rounded-none border-zinc-900 border-t-2 border-r-2 border-b-0 border-l-2 bg-zinc-950 px-2 py-0.5 text-[9px] text-[var(--theme-primary)] shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)]"
         dotClassName="text-[var(--theme-primary)]"
       />
 
-      <div className="relative flex h-[72px] w-full items-stretch gap-0 rounded-none border-zinc-800 border-t-[2px] bg-zinc-900 shadow-[inset_0_4px_20px_rgba(0,0,0,0.8)]">
-        {/* Active Indicator Hardware Frame */}
-        {activeIndex !== -1 && (
-          <div
-            className="pointer-events-none absolute z-20 h-full w-[16.666%] transition-transform duration-300 ease-[cubic-bezier(0.2,1,0.2,1)]"
-            style={{ transform: `translateX(calc(${activeIndex * 100}%))` }}
-          >
-            {/* Top illuminated bracket */}
-            <div className="absolute top-0 right-0 left-0 h-[3px] bg-[var(--theme-primary)] drop-shadow-[0_0_8px_var(--theme-primary)]" />
-            {/* Sliding Bracket Corners */}
-            <div className="absolute -top-1 -left-1 h-3 w-3 border-[var(--theme-primary)] border-t-[4px] border-l-[4px] drop-shadow-[0_0_5px_var(--theme-primary)]" />
-            <div className="absolute -top-1 -right-1 h-3 w-3 border-[var(--theme-primary)] border-t-[4px] border-r-[4px] drop-shadow-[0_0_5px_var(--theme-primary)]" />
-            <div className="absolute -bottom-1 -left-1 h-3 w-3 border-[var(--theme-primary)] border-b-[4px] border-l-[4px] drop-shadow-[0_0_5px_var(--theme-primary)]" />
-            <div className="absolute -right-1 -bottom-1 h-3 w-3 border-[var(--theme-primary)] border-r-[4px] border-b-[4px] drop-shadow-[0_0_5px_var(--theme-primary)]" />
-          </div>
-        )}
-
+      {/* Hardware Panel Enclosure */}
+      <div className="relative mx-1 mt-1 mb-1 flex h-[76px] items-stretch gap-1 rounded-none border-2 border-zinc-900 bg-zinc-900/50 p-1 shadow-[inset_0_4px_20px_rgba(0,0,0,0.8)]">
         <div className="h-full flex-1">
           <NavButton to="/" ariaLabel="Pokedex" label="DEX" activeLabel="DEX" icon={LayoutGrid} isActive={isDex} />
         </div>
@@ -110,6 +102,9 @@ export function BottomNav() {
           />
         </div>
       </div>
+
+      {/* Bottom Bezel Edge Detail */}
+      <div className="absolute right-0 -bottom-[8px] left-0 h-[8px] border-black border-t-2 bg-zinc-900 shadow-[inset_0_-2px_4px_rgba(0,0,0,0.5)]" />
     </nav>
   );
 }
