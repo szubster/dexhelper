@@ -38,6 +38,10 @@ describe('GlobalRibbonChecklistDashboard', () => {
   });
 
   it('renders list of pokemon with ribbons and tracking indicators', async () => {
+    // Override window offset height for virtualization to render items
+    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { configurable: true, value: 500 });
+    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { configurable: true, value: 500 });
+
     vi.mocked(useStore).mockImplementation((selector) => {
       const state = {
         saveData: {
