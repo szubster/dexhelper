@@ -139,7 +139,7 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
                     width: '100%',
                     transform: `translateY(${virtualRow.start}px)`,
                   }}
-                  className="flex items-center justify-between border-zinc-800 border-b border-dashed p-2 mb-2"
+                  className="mb-2 flex items-center justify-between border-zinc-800 border-b border-dashed p-2"
                 >
                   <span className="font-mono text-sm text-white">
                     {pokemon.nickname || `Species ${pokemon.speciesId}`} (Lv {pokemon.level})
