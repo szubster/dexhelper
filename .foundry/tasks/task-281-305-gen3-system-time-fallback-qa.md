@@ -36,6 +36,6 @@ Your task is to verify this implementation.
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Verify the React Context provides correct system time fallback.
-- [ ] Verify the React Context exposes override methods correctly.
-- [ ] Verify the save parser no longer throws size mismatch errors on `.sav` files with appended trailing RTC bytes (e.g. 44/48 bytes from VBA-M).
+- [x] Verify the React Context provides correct system time fallback.
+- [x] Verify the React Context exposes override methods correctly.
+- [x] Verify the save parser no longer throws size mismatch errors on `.sav` files with appended trailing RTC bytes (e.g. 44/48 bytes from VBA-M).
