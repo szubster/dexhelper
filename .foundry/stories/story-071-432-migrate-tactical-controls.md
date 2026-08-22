@@ -2,10 +2,10 @@
 id: story-071-432-migrate-tactical-controls
 type: STORY
 title: 'Migrate TacticalButton, TacticalInput, TacticalSelect to Utility Classes'
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-08-21'
+updated_at: '2026-08-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -33,10 +33,10 @@ Refactor `TacticalButton.tsx`, `TacticalInput.tsx`, and `TacticalSelect.tsx` to 
 3. **No Visual Regressions**: Ensure that the migration accurately preserves the pre-existing visual appearance.
 
 ## Acceptance Criteria
-- [ ] `TacticalButton`, `TacticalInput`, and `TacticalSelect` use the new utility classes instead of inline classes where applicable.
-- [ ] No visual regressions in the affected components.
-- [ ] Components pass `pnpm run lint` and `pnpm test`.
+- [x] `TacticalButton`, `TacticalInput`, and `TacticalSelect` use the new utility classes instead of inline classes where applicable.
+- [x] No visual regressions in the affected components.
+- [x] Components pass `pnpm run lint` and `pnpm test`.
 
-- [ ] task-432-447-migrate-button-input
-- [ ] task-432-448-migrate-select
-- [ ] task-432-449-qa-controls
+- [x] task-432-447-migrate-button-input
+- [x] task-432-448-migrate-select
+- [x] task-432-449-qa-controls
