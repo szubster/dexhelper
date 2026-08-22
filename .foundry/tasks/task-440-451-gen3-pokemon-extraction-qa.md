@@ -33,7 +33,7 @@ Verify the implementation of `extractGen3PokemonData` and the refactoring of `pa
 5. Verify that all existing tests pass (`pnpm test`).
 
 ## Acceptance Criteria
-- [ ] Code review is complete and the implementation meets the requirements.
-- [ ] `extractGen3PokemonData` is implemented correctly.
-- [ ] `parseGen3Party` is refactored to use `extractGen3PokemonData`.
-- [ ] Unit tests are present and passing.
+- [x] Code review is complete and the implementation meets the requirements.
+- [x] `extractGen3PokemonData` is implemented correctly.
+- [x] `parseGen3Party` is refactored to use `extractGen3PokemonData`.
+- [x] Unit tests are present and passing.
