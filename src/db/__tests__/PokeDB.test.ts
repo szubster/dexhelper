@@ -482,6 +482,88 @@ describe('PokeDB', () => {
       expect(all[0]?.n).toBe('Bulbasaur');
     });
 
+    it('getBerry returns berry data', async () => {
+      const mockData = {
+        items: [],
+        berries: [
+          {
+            id: 1,
+            name: 'cheri',
+            item_id: 126,
+            growth_time: 3,
+            max_harvest: 5,
+            size: 20,
+            smoothness: 25,
+            soil_dryness: 15,
+            firmness: 2,
+            flavors: { spicy: 10, dry: 0, sweet: 0, bitter: 0, sour: 0 },
+          },
+        ],
+        hash: 'new-hash',
+        poke: [],
+        enc: [],
+        loc: [],
+      };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        arrayBuffer: async () => pack(mockData),
+      } as unknown as Response);
+      await pokeDB.sync();
+
+      const b = await pokeDB.getBerry(1);
+      expect(b?.name).toBe('cheri');
+    });
+
+    it('getBerry returns undefined for invalid id', async () => {
+      expect(await pokeDB.getBerry(NaN)).toBeUndefined();
+    });
+
+    it('getAllBerries returns all berries', async () => {
+      const mockData = {
+        items: [],
+        berries: [
+          {
+            id: 1,
+            name: 'cheri',
+            item_id: 126,
+            growth_time: 3,
+            max_harvest: 5,
+            size: 20,
+            smoothness: 25,
+            soil_dryness: 15,
+            firmness: 2,
+            flavors: { spicy: 10, dry: 0, sweet: 0, bitter: 0, sour: 0 },
+          },
+          {
+            id: 2,
+            name: 'chesto',
+            item_id: 127,
+            growth_time: 3,
+            max_harvest: 5,
+            size: 80,
+            smoothness: 25,
+            soil_dryness: 15,
+            firmness: 5,
+            flavors: { spicy: 0, dry: 10, sweet: 0, bitter: 0, sour: 0 },
+          },
+        ],
+        hash: 'new-hash',
+        poke: [],
+        enc: [],
+        loc: [],
+      };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        arrayBuffer: async () => pack(mockData),
+      } as unknown as Response);
+      await pokeDB.sync();
+
+      const all = await pokeDB.getAllBerries();
+      expect(all).toHaveLength(2);
+      expect(all[0]?.name).toBe('cheri');
+      expect(all[1]?.name).toBe('chesto');
+    });
+
     it('getEncounters returns undefined for invalid id', async () => {
       expect(await pokeDB.getEncounters(NaN)).toBeUndefined();
     });
