@@ -31,5 +31,5 @@ With `moves` data now available dynamically in PokeDB, we need to replace the ol
 2. Update the client runtime to fetch and utilize the dynamic PokeDB move data for accurate PP limit calculations.
 
 ## Acceptance Criteria
-- [ ] Hardcoded move tables are removed.
-- [ ] Runtime switches to utilize dynamic PokeDB move data.
+- [x] Hardcoded move tables are removed.
+- [x] Runtime switches to utilize dynamic PokeDB move data.
