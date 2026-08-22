@@ -2,10 +2,10 @@
 id: story-070-150-parse-gen2-hof-records
 type: STORY
 title: Parse Gen 2 Hall of Fame Records Data
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-18'
-updated_at: '2026-06-22'
+updated_at: '2026-08-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,5 +36,5 @@ Implement logic to extract actual Hall of Fame records from Generation 2 (Gold, 
 
 ## Acceptance Criteria
 - [x] Create tasks to implement parsing for Gen 2 Hall of Fame records data.
-- [ ] .foundry/tasks/task-150-212-gen2-hof-records-extraction-impl.md
-- [ ] .foundry/tasks/task-150-213-gen2-hof-records-extraction-qa.md
+- [x] .foundry/tasks/task-150-212-gen2-hof-records-extraction-impl.md
+- [x] .foundry/tasks/task-150-213-gen2-hof-records-extraction-qa.md

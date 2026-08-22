@@ -2,10 +2,10 @@
 id: story-130-441-gen3-data-extraction-e2e
 type: STORY
 title: Gen 3 Data Extraction E2E Validation
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-08-19'
+updated_at: '2026-08-22'
 depends_on:
   - story-130-440-extract-gen3-party-data-structure
 jules_session_id: null
