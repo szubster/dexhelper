@@ -2,7 +2,7 @@
 id: epic-054-108-box-analyzer-save-parsing
 type: EPIC
 title: Box Analyzer Save Parsing
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-28'
 updated_at: '2026-08-22'
@@ -15,8 +15,8 @@ tags:
   - backend
   - save-parsing
 research_references: []
-rejection_count: 0
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

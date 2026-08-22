@@ -2,12 +2,12 @@
 id: research-437-440-hydration-logic-core-bundle
 type: RESEARCH
 title: Investigate Hydration Logic for Core Bundle Structure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: 2026-08-21T00:00:00.000Z
 updated_at: '2026-08-22'
 depends_on: []
-jules_session_id: '14961088573646025492'
+jules_session_id: null
 pr_number: null
 parent: task-428-437-update-data-loading-logic
 tags:
