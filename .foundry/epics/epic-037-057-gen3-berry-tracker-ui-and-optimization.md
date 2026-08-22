@@ -1,11 +1,11 @@
 ---
 id: epic-037-057-gen3-berry-tracker-ui-and-optimization
 type: EPIC
-title: "Gen 3 Berry Tracker UI and Optimization Engine"
-status: PENDING
-owner_persona: "story_owner"
-created_at: "2026-06-03"
-updated_at: "2026-06-03"
+title: Gen 3 Berry Tracker UI and Optimization Engine
+status: CANCELLED
+owner_persona: story_owner
+created_at: '2026-06-03'
+updated_at: '2026-08-22'
 depends_on:
   - epic-037-056-gen3-berry-tracker-map-integration
 jules_session_id: null
@@ -19,8 +19,10 @@ tags:
   - optimization
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  epic-037-055-gen3-berry-tracker-data-extraction
+notes: ''
 ---
 
 # Epic: Gen 3 Berry Tracker UI and Optimization Engine

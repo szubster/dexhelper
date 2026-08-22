@@ -2,7 +2,7 @@
 id: epic-037-055-gen3-berry-tracker-data-extraction
 type: EPIC
 title: Gen 3 Berry Tracker Data Extraction
-status: FAILED
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-03'
 updated_at: '2026-08-22'
@@ -16,8 +16,8 @@ tags:
   - berries
   - engine
 research_references: []
-rejection_count: 2
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 
