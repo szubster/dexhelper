@@ -23,7 +23,7 @@ Implement an E2E test suite in `tests/e2e/bike_requirement.spec.ts` using Playwr
 The tests should load Gen 3 mock data (representing maps with Acro and Mach bike requirements), navigate to the map UI, verify that `hoenn-safari-zone-nwmach-bike-area` and `hoenn-safari-zone-neacro-bike-area` are displayed correctly based on the mock data, and confirm the heatmap data integration. Use the `initializeWithSave` utility to set up the test state and ensure the open: 'never' reporter config in Playwright is adhered to.
 
 ## Acceptance Criteria
-- [ ] Create `tests/e2e/bike_requirement.spec.ts`.
-- [ ] E2E tests successfully load Gen 3 save state via `initializeWithSave`.
-- [ ] E2E tests verify the presence of Mach and Acro bike area nodes/badges on the UI.
-- [ ] Playwright E2E tests pass headlessly (`xvfb-run -a pnpm test:e2e tests/e2e/bike_requirement.spec.ts`).
+- [x] Create `tests/e2e/bike_requirement.spec.ts`.
+- [x] E2E tests successfully load Gen 3 save state via `initializeWithSave`.
+- [x] E2E tests verify the presence of Mach and Acro bike area nodes/badges on the UI.
+- [x] Playwright E2E tests pass headlessly (`xvfb-run -a pnpm test:e2e tests/e2e/bike_requirement.spec.ts`).
