@@ -29,5 +29,5 @@ Write an E2E test in `.github/scripts/foundry-orchestrator.test.ts` to verify th
 3. Assert that the nodes residing in the `archive/` directory are entirely omitted from the orchestrator output, while un-archived, ready nodes are present.
 
 ## Acceptance Criteria
-- [ ] Add an E2E test suite or a new test case in `.github/scripts/foundry-orchestrator.test.ts` that specifically validates the skip logic for the `archive/` directory.
-- [ ] Ensure the tests pass locally.
+- [x] Add an E2E test suite or a new test case in `.github/scripts/foundry-orchestrator.test.ts` that specifically validates the skip logic for the `archive/` directory.
+- [x] Ensure the tests pass locally.
