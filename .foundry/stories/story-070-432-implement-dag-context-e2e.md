@@ -30,4 +30,7 @@ This story provides E2E verification to ensure the newly implemented DagContext 
 - Write E2E tests validating that the DagProvider is fetching data correctly and that views (e.g., React Flow) are able to render nodes and edges correctly using this shared context.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-432-469-setup-dag-e2e-fixtures
+- [ ] task-432-470-implement-dag-provider-e2e-tests
+- [ ] task-432-471-qa-dag-context-e2e-tests
