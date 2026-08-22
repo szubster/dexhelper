@@ -7,6 +7,7 @@
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [task-241-440-daycare-gen3-parsing-impl](.foundry/tasks/task-241-440-daycare-gen3-parsing-impl.md) | TASK | Implement Gen 3 Daycare Data Parsing | coder | [13770895514140074260](https://jules.google.com/session/13770895514140074260) |
+| [task-275-438-move-runtime-qa](.foundry/tasks/task-275-438-move-runtime-qa.md) | TASK | QA - Refactor Runtime for Dynamic Move Data | qa | [2414681506327601626](https://jules.google.com/session/2414681506327601626) |
 | [task-279-304-gen3-ignore-emulator-trailing-bytes-impl](.foundry/tasks/task-279-304-gen3-ignore-emulator-trailing-bytes-impl.md) | TASK | Implement Graceful Ignorance of Emulator Trailing Bytes in Gen 3 Save Files | coder | [251233554756171661](https://jules.google.com/session/251233554756171661) |
 | [task-349-380-gen3-spinda-extraction-impl](.foundry/tasks/task-349-380-gen3-spinda-extraction-impl.md) | TASK | Gen3 Spinda Extraction Implementation | coder | [7670875087198249659](https://jules.google.com/session/7670875087198249659) |
 | [task-351-384-nuzlocke-death-tracking-e2e-impl](.foundry/tasks/task-351-384-nuzlocke-death-tracking-e2e-impl.md) | TASK | Nuzlocke Death Tracking E2E Tests Implementation | coder | [2234410791053868095](https://jules.google.com/session/2234410791053868095) |
