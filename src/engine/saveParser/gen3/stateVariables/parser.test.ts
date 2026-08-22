@@ -2,14 +2,55 @@ import { describe, expect, it } from 'vitest';
 import {
   BANK_A_START,
   BANK_B_START,
+  EMERALD_VARS_OFFSET,
   EVENT_FLAGS_OFFSET,
+  RS_VARS_OFFSET,
   SAVE_INDEX_OFFSET,
   SECTION_ID_OFFSET,
   SECTION_SIZE,
   SIGNATURE_OFFSET,
   SIGNATURE_VALUE,
+  VARIABLE_SIZE,
+  VARS_START,
 } from './constants';
-import { extractEventFlag, extractLatestSectionOffset } from './parser';
+import { extractEventFlag, extractGameVariable, extractLatestSectionOffset } from './parser';
+
+describe('extractGameVariable', () => {
+  it('should extract game variable correctly for Emerald', () => {
+    const buffer = new ArrayBuffer(10000);
+    const view = new DataView(buffer);
+    const saveBlock1Offset = 0;
+    const variableId = 0x4048; // Ash gather count
+    const expectedValue = 1337;
+
+    const byteOffset = saveBlock1Offset + EMERALD_VARS_OFFSET + (variableId - VARS_START) * VARIABLE_SIZE;
+    view.setUint16(byteOffset, expectedValue, true);
+
+    expect(extractGameVariable(view, saveBlock1Offset, variableId, true)).toBe(expectedValue);
+  });
+
+  it('should extract game variable correctly for Ruby/Sapphire', () => {
+    const buffer = new ArrayBuffer(10000);
+    const view = new DataView(buffer);
+    const saveBlock1Offset = 0;
+    const variableId = 0x4048; // Ash gather count
+    const expectedValue = 42;
+
+    const byteOffset = saveBlock1Offset + RS_VARS_OFFSET + (variableId - VARS_START) * VARIABLE_SIZE;
+    view.setUint16(byteOffset, expectedValue, true);
+
+    expect(extractGameVariable(view, saveBlock1Offset, variableId, false)).toBe(expectedValue);
+  });
+
+  it('should throw Error for out of bounds access', () => {
+    const buffer = new ArrayBuffer(10);
+    const view = new DataView(buffer);
+
+    expect(() => {
+      extractGameVariable(view, 0, 0x4048, true);
+    }).toThrowError('The save file is corrupted or incomplete.');
+  });
+});
 
 describe('extractEventFlag', () => {
   it('should extract flag correctly using relative offset', () => {
