@@ -2,7 +2,7 @@
 id: task-403-420-playwright-e2e-impl
 type: TASK
 title: Implement Playwright E2E Tests for DV/IV Extraction
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-11'
 updated_at: '2026-08-22'
@@ -18,8 +18,8 @@ tags:
   - testing
   - playwright
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>24h)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
