@@ -2,10 +2,10 @@
 id: story-397-405-gen3-mixed-record-npc-data
 type: STORY
 title: Extract Gen 3 Mixed Record NPC Data
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-04'
-updated_at: '2026-08-11'
+updated_at: '2026-08-22'
 depends_on:
   - story-397-404-gen3-secret-base-parsing-core
 jules_session_id: null
