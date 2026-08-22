@@ -36,6 +36,10 @@ As part of the Gen 3 Move Tutor Save Parsing Epic, we need to ensure that the pa
 3. Validate that parsing failures/corrupted states reflect gracefully in simulated UI environments.
 
 ## Acceptance Criteria
+- [x] Break down into Tasks
+- [ ] task-413-466-gen3-move-tutor-extraction-vitest-impl
+- [ ] task-413-467-gen3-move-tutor-ui-playwright-impl
+- [ ] task-413-468-gen3-move-tutor-e2e-qa
 - [ ] End-to-end integration tests are implemented for Move Tutor parsing.
 - [ ] Tests successfully pass against mocked or simulated Gen 3 save states.
 - [ ] UI gracefully handles extraction failures (e.g., malformed save file).
