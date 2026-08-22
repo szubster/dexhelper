@@ -34,4 +34,9 @@ Implement logic within the fuzzing framework to generate randomized directed acy
 4. Integrate the DAG generation logic with the fuzzer framework introduced in `epic-341-414-orchestrator-fuzzer-core`.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-415-460-fuzzer-dag-node-generator-impl
+- [ ] task-415-461-fuzzer-dag-dependency-generator-impl
+- [ ] task-415-462-fuzzer-dag-generation-qa
+- [ ] task-415-463-fuzzer-dag-framework-integration-impl
+- [ ] task-415-464-fuzzer-dag-framework-integration-qa
