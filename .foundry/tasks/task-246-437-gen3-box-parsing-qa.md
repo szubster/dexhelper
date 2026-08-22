@@ -32,8 +32,8 @@ Verify the Gen 3 PC Box parsing and aggregation implementations.
 This task verifies the work done in the binary extraction and stats aggregation tasks.
 
 ## Acceptance Criteria
-- [ ] Verify that Gen 3 PC box binary data is extracted securely using the `DataView` API.
-- [ ] Confirm no inline magic numbers were used for offsets/shifts (ADR 028 compliance).
-- [ ] Validate the accuracy of IVs, Natures, Hidden Power, and Shininess calculations.
-- [ ] Verify that the final data is correctly grouped by species ID and excludes Party Pokémon.
-- [ ] Ensure robust unit test coverage.
+- [x] Verify that Gen 3 PC box binary data is extracted securely using the `DataView` API.
+- [x] Confirm no inline magic numbers were used for offsets/shifts (ADR 028 compliance).
+- [x] Validate the accuracy of IVs, Natures, Hidden Power, and Shininess calculations.
+- [x] Verify that the final data is correctly grouped by species ID and excludes Party Pokémon.
+- [x] Ensure robust unit test coverage.
