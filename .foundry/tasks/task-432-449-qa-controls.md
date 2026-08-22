@@ -37,6 +37,6 @@ Verify that the refactoring of `TacticalButton`, `TacticalInput`, and `TacticalS
    - Verify that the new `@utility` classes are correctly applied in the DOM.
 
 ## Acceptance Criteria
-- [ ] No visual regressions are present in `TacticalButton`, `TacticalInput`, or `TacticalSelect`.
-- [ ] All variants and states (hover, focus, disabled) work as expected.
-- [ ] Verification passes `pnpm lint` and `pnpm test`.
+- [x] No visual regressions are present in `TacticalButton`, `TacticalInput`, or `TacticalSelect`.
+- [x] All variants and states (hover, focus, disabled) work as expected.
+- [x] Verification passes `pnpm lint` and `pnpm test`.
