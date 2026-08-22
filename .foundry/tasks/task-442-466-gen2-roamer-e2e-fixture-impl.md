@@ -29,5 +29,5 @@ Generate or prepare the test fixture save files required to verify Gen 2 roamer 
 Provide the necessary Gen 2 (Gold/Silver/Crystal) save file fixtures containing both active roaming Pokémon (Raikou, Entei, Suicune) and inactive/caught roamers with different map coordinates and levels. Ensure these fixtures are properly loaded and referenced for E2E Playwright tests.
 
 ## Acceptance Criteria
-- [ ] Gen 2 save fixtures with roamer data are added to the E2E test data.
-- [ ] Fixture loading mechanism is prepared for the E2E tests.
+- [x] Gen 2 save fixtures with roamer data are added to the E2E test data.
+- [x] Fixture loading mechanism is prepared for the E2E tests.
