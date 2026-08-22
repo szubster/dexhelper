@@ -2,12 +2,12 @@
 id: task-442-466-gen2-roamer-e2e-fixture-impl
 type: TASK
 title: Gen 2 Roamer E2E Fixtures Generation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-22'
 updated_at: '2026-08-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12274649145441894129'
 pr_number: null
 parent: story-139-442-gen2-roamer-extraction-e2e
 tags:

@@ -28,3 +28,4 @@
 | [task-428-438-extract-core-data-qa](.foundry/tasks/task-428-438-extract-core-data-qa.md) | TASK | Verify Core Data Extraction | qa | [1384619213212102049](https://jules.google.com/session/1384619213212102049) |
 | [task-431-461-conflict-resolution-state-impl](.foundry/tasks/task-431-461-conflict-resolution-state-impl.md) | TASK | Implement R2 Conflict Resolution State and Logic | coder | [3415417140166548491](https://jules.google.com/session/3415417140166548491) |
 | [task-436-456-parser-integration-impl](.foundry/tasks/task-436-456-parser-integration-impl.md) | TASK | Integrate Mapped Blocks with Gen3 Parsers | coder | [17197711251184454225](https://jules.google.com/session/17197711251184454225) |
+| [task-442-466-gen2-roamer-e2e-fixture-impl](.foundry/tasks/task-442-466-gen2-roamer-e2e-fixture-impl.md) | TASK | Gen 2 Roamer E2E Fixtures Generation | coder | [12274649145441894129](https://jules.google.com/session/12274649145441894129) |
