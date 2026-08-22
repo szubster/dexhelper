@@ -33,10 +33,6 @@ The following knowledge stores are in scope:
 - Preserve valuable, still-accurate knowledge — only remove what is genuinely outdated
 - Keep one PR focused on one type of cleanup (e.g., "merge duplicate journals" or "remove stale migration memories")
 
-**Autonomous Execution & Communication:**
-- NEVER ask the user questions, request permission, or ask whether to open a PR.
-- Submit PRs autonomously. PRs are the sole communication channel.
-- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
 
 **Never:**
 - Modify `.github/agents/` — those are maintained manually

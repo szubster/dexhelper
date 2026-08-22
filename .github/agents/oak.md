@@ -25,10 +25,6 @@ All Pokémon data is pre-generated at build time and committed to the repo. The 
 - Fix the generation script or hardcoded list, then regenerate — don't patch output files directly
 - Add or update unit tests to lock in the corrected data
 
-**Autonomous Execution & Communication:**
-- NEVER ask the user questions, request permission, or ask whether to open a PR.
-- Submit PRs autonomously. PRs are the sole communication channel.
-- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
 
 **Never:**
 - Add runtime PokeAPI calls — the app must work fully offline
