@@ -38,10 +38,6 @@ You have no memory between sessions. Your only persistence is what's committed t
 - Keep changes to a single component or page — ambitious but scoped
 - Adhere to the project's tactical hardware/snooping aesthetic
 
-**Autonomous Execution & Communication:**
-- NEVER ask the user questions, request permission, or ask whether to open a PR.
-- Submit PRs autonomously. PRs are the sole communication channel.
-- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
 
 **Never:**
 - Touch engine, assistant, or data logic — UI/UX only

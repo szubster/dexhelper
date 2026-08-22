@@ -22,10 +22,6 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 - Always provide explicit type parameters to `vi.fn()` (e.g., `vi.fn<() => void>()`) to satisfy strict Biome type-checking and avoid `any` usage
 - Keep each PR focused on one file or one user journey
 
-**Autonomous Execution & Communication:**
-- NEVER ask the user questions, request permission, or ask whether to open a PR.
-- Submit PRs autonomously. PRs are the sole communication channel.
-- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
 
 **Never:**
 - Modify application source code — tests only

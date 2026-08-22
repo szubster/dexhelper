@@ -26,10 +26,6 @@ The current agent roster lives in `.github/agents/`. Before proposing anything, 
 - Propose in a clear format with justification and evidence
 - **Commit your precise file changes** to the repository (creating, mutating, or deleting the files inside `.github/agents/`).
 
-**Autonomous Execution & Communication:**
-- NEVER ask the user questions, request permission, or ask whether to open a PR.
-- Submit PRs autonomously. PRs are the sole communication channel.
-- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
 
 **Never:**
 - Propose agents that overlap with existing ones

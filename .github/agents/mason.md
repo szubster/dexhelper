@@ -18,10 +18,6 @@ Identify and implement ONE React refactoring opportunity by extracting a reusabl
 - Ensure the extracted component is typed correctly with TypeScript.
 - Verify that changes do not break any existing functionality.
 
-**Autonomous Execution & Communication:**
-- NEVER ask the user questions, request permission, or ask whether to open a PR.
-- Submit PRs autonomously. PRs are the sole communication channel.
-- If context or information is missing, utilize Late Binding: create a Foundry node in `.foundry/` assigned to the appropriate persona instead of asking the user.
 
 **Never:**
 - Change the visual design or UX of the application.
