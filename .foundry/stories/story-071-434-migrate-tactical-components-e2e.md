@@ -37,3 +37,8 @@ Perform full E2E and visual regression verification for all core tactical UI com
 - [ ] Tests successfully cover and verify the styling and functionality of migrated components.
 - [ ] Ensure that E2E integration tests correctly navigate and interact with the elements.
 - [ ] Components pass `pnpm run lint`, `pnpm test`, and `xvfb-run pnpm test:e2e`.
+- [x] Break down into Tasks
+- [ ] task-434-469-tactical-component-tests-basic-impl
+- [ ] task-434-470-tactical-component-tests-complex-impl
+- [ ] task-434-471-tactical-e2e-integration-tests-impl
+- [ ] task-434-472-tactical-components-testing-qa
