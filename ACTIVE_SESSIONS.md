@@ -7,6 +7,7 @@
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [story-411-421-active-party-extraction](.foundry/stories/story-411-421-active-party-extraction.md) | STORY | Extract Active Party data and synchronize it with the matchup context. | tech_lead | [7728338109873981556](https://jules.google.com/session/7728338109873981556) |
+| [story-411-422-extract-opponent-data](.foundry/stories/story-411-422-extract-opponent-data.md) | STORY | Extract Opponent Data and AI Script | tech_lead | [18227471868900251751](https://jules.google.com/session/18227471868900251751) |
 | [story-415-415-fuzzer-dag-generation](.foundry/stories/story-415-415-fuzzer-dag-generation.md) | STORY | Orchestrator Fuzzer - DAG Generation | tech_lead | [9824862271858986782](https://jules.google.com/session/9824862271858986782) |
 | [task-031-048-implement-deadlock-tests](.foundry/tasks/task-031-048-implement-deadlock-tests.md) | TASK | Implement Deadlock Prevention Mechanism Unit Tests | coder | [4640549639143018851](https://jules.google.com/session/4640549639143018851) |
 | [task-096-195-gen3-berry-msgpack-qa](.foundry/tasks/task-096-195-gen3-berry-msgpack-qa.md) | TASK | QA Gen 3 Berry Tracker MsgPack Serialization | qa | [16150822926542573175](https://jules.google.com/session/16150822926542573175) |

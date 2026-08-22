@@ -2,13 +2,13 @@
 id: story-411-422-extract-opponent-data
 type: STORY
 title: Extract Opponent Data and AI Script
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-13'
 updated_at: '2026-08-22'
 depends_on:
   - story-411-421-extract-player-location
-jules_session_id: null
+jules_session_id: '18227471868900251751'
 pr_number: null
 parent: epic-340-411-gen3-ai-data-extraction
 tags:
