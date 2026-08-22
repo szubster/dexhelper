@@ -2,12 +2,12 @@
 id: task-356-396-pokegear-predictor-e2e-impl
 type: TASK
 title: Implement Pokegear Predictor E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-04'
-updated_at: '2026-08-20'
+updated_at: '2026-08-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10854977449625619945'
 pr_number: null
 parent: story-117-356-pokegear-predictor-e2e
 tags:
