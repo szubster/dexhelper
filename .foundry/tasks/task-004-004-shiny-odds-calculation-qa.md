@@ -35,5 +35,5 @@ Ensure the implementation correctly:
 Run the tests written by the coder and review the source code for correctness. Add additional QA tests if necessary.
 
 ## Acceptance Criteria
-- [ ] Verify the shiny odds statistical logic correctness.
-- [ ] Ensure relevant mathematical and logical edge cases are covered by tests.
+- [x] Verify the shiny odds statistical logic correctness.
+- [x] Ensure relevant mathematical and logical edge cases are covered by tests.
