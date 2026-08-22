@@ -2,13 +2,13 @@
 id: story-331-432-fame-checker-research-e2e
 type: STORY
 title: Fame Checker Research E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-08-21'
+updated_at: '2026-08-22'
 depends_on:
   - story-331-431-conduct-fame-checker-research
-jules_session_id: null
+jules_session_id: '18316907888941273073'
 pr_number: null
 parent: epic-115-331-gen3-fame-checker-research
 tags:
