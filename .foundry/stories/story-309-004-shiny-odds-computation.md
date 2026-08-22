@@ -2,10 +2,10 @@
 id: story-309-004-shiny-odds-computation
 type: STORY
 title: Gen 2 Shiny Odds Computation
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-08-20'
+updated_at: '2026-08-22'
 depends_on:
   - story-309-001-gender-calculation-engine
   - story-309-002-dv-overlap-constraint
@@ -35,7 +35,7 @@ Implement logic to calculate the shiny odds of offspring in Generation 2.
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break this STORY down into actionable TASK nodes for the engineering team.
-- [ ] task-004-001-dv-inheritance-logic-impl
-- [ ] task-004-002-dv-inheritance-logic-qa
-- [ ] task-004-003-shiny-odds-calculation-impl
-- [ ] task-004-004-shiny-odds-calculation-qa
+- [x] task-004-001-dv-inheritance-logic-impl
+- [x] task-004-002-dv-inheritance-logic-qa
+- [x] task-004-003-shiny-odds-calculation-impl
+- [x] task-004-004-shiny-odds-calculation-qa
