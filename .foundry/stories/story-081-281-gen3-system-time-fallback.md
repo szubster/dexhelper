@@ -2,10 +2,10 @@
 id: story-081-281-gen3-system-time-fallback
 type: STORY
 title: Implement Gen 3 System Time Fallback
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-07-11'
+updated_at: '2026-08-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -25,6 +25,6 @@ notes: ''
 Based on ADR 025 and the findings from `research-081-144-gen3-rtc-strategy`, extracting Real-Time Clock (RTC) values directly from Gen 3 `.sav` files is unreliable. This story covers the implementation of the RTC-Independent Fallback Strategy by defaulting to the host device's current system time for time-based events in Gen 3.
 
 ## Acceptance Criteria
-- [ ] task-281-304-gen3-system-time-fallback-impl
-- [ ] task-281-305-gen3-system-time-fallback-qa
-- [ ] Implement System Time Fallback for Gen 3 time-gated events.
+- [x] task-281-304-gen3-system-time-fallback-impl
+- [x] task-281-305-gen3-system-time-fallback-qa
+- [x] Implement System Time Fallback for Gen 3 time-gated events.

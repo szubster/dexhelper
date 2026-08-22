@@ -2,7 +2,7 @@
 id: story-268-348-gen3-ash-integration
 type: STORY
 title: 'Story: Gen 3 Volcanic Ash Integration & View'
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-29'
 updated_at: '2026-08-22'

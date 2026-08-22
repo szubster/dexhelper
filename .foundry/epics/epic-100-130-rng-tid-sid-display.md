@@ -2,10 +2,10 @@
 id: epic-100-130-rng-tid-sid-display
 type: EPIC
 title: RNG TID and SID Display UI
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-02'
-updated_at: '2026-08-01'
+updated_at: '2026-08-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -33,7 +33,7 @@ Provide UI elements to clearly display both the Trainer ID (TID) and Secret ID (
 - [x] research-130-332-rng-tid-sid-integration-failure
 - [x] story-130-333-rng-tid-sid-integration-retry
 
-- [ ] story-130-349-rng-tid-sid-e2e
+- [x] story-130-349-rng-tid-sid-e2e
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

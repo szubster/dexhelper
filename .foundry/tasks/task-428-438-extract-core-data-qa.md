@@ -2,7 +2,7 @@
 id: task-428-438-extract-core-data-qa
 type: TASK
 title: Verify Core Data Extraction
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: $(date -I)
 updated_at: '2026-08-22'
@@ -15,8 +15,8 @@ tags:
   - qa
   - testing
   - bundles
-rejection_count: 0
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
