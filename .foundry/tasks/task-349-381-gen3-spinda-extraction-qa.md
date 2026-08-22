@@ -1,11 +1,11 @@
 ---
 id: task-349-381-gen3-spinda-extraction-qa
 type: TASK
-title: "QA: Gen3 Spinda Extraction"
-status: PENDING
-owner_persona: "qa"
-created_at: "2026-08-01"
-updated_at: "2026-08-01"
+title: 'QA: Gen3 Spinda Extraction'
+status: READY
+owner_persona: qa
+created_at: '2026-08-01'
+updated_at: '2026-08-22'
 depends_on:
   - task-349-380-gen3-spinda-extraction-impl
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # QA: Gen3 Spinda Extraction

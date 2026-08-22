@@ -2,13 +2,13 @@
 id: task-275-438-move-runtime-qa
 type: TASK
 title: QA - Refactor Runtime for Dynamic Move Data
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-17'
 updated_at: '2026-08-22'
 depends_on:
   - task-275-437-move-runtime-refactor
-jules_session_id: '2414681506327601626'
+jules_session_id: null
 pr_number: null
 parent: story-086-275-move-runtime-integration
 tags:

@@ -2,10 +2,10 @@
 id: story-086-275-move-runtime-integration
 type: STORY
 title: Move Data Runtime Integration
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-08-17'
+updated_at: '2026-08-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -29,14 +29,14 @@ The `moves.jsonl` data has been successfully generated via `scripts/generate-pok
 3. Replace manual/hardcoded tables for move data in the application runtime, enabling accurate PP limit calculations dynamically.
 
 ## Acceptance Criteria
-- [ ] Integrate the parsed `moves` dataset into the client database schema and sync process.
-- [ ] Implement inflation logic in the client runtime to restore omitted default values for move data.
-- [ ] Remove hardcoded manual move data tables and switch the runtime to utilize the dynamic PokeDB data.
+- [x] Integrate the parsed `moves` dataset into the client database schema and sync process.
+- [x] Implement inflation logic in the client runtime to restore omitted default values for move data.
+- [x] Remove hardcoded manual move data tables and switch the runtime to utilize the dynamic PokeDB data.
 
 ## Implementation Tasks
-- [ ] task-275-435-move-db-schema-inflation
-- [ ] task-275-436-move-db-schema-qa
-- [ ] task-275-437-move-runtime-refactor
-- [ ] task-275-438-move-runtime-qa
+- [x] task-275-435-move-db-schema-inflation
+- [x] task-275-436-move-db-schema-qa
+- [x] task-275-437-move-runtime-refactor
+- [x] task-275-438-move-runtime-qa
 
 - [x] Break down into Tasks
