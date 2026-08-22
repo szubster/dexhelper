@@ -8,7 +8,6 @@ export interface SemanticEvaluationResult {
 export async function evaluateSemanticCondition(
   condition: string,
   prompt: string,
-  // biome-ignore lint/complexity/useLiteralKeys: needed for types
   apiKey: string = process.env['GEMINI_API_KEY'] || '',
 ): Promise<SemanticEvaluationResult> {
   if (!apiKey) {

@@ -442,9 +442,7 @@ function parseGen2PokemonInstance(
  * @returns 'gold', 'silver', or 'unknown'.
  */
 function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): GameVersion {
-  // biome-ignore lint/complexity/useLiteralKeys: TypeScript requires bracket notation for index signatures
   const goldExclusives = GEN2_VERSION_EXCLUSIVES['gold'] || [];
-  // biome-ignore lint/complexity/useLiteralKeys: TypeScript requires bracket notation for index signatures
   const silverExclusives = GEN2_VERSION_EXCLUSIVES['silver'] || [];
 
   let goldScore = 0;

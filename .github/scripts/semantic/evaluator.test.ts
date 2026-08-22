@@ -95,13 +95,11 @@ describe('evaluateSemanticCondition', () => {
     // Only run this test if explicitly requested via env var to prevent exhausting API limits in CI
     vi.unstubAllEnvs();
 
-    // biome-ignore lint/complexity/useLiteralKeys: needed for types
     const runIntegration = process.env['RUN_LLM_INTEGRATION_TESTS'] === 'true';
     if (!runIntegration) {
       return; // Skip test to preserve quota
     }
 
-    // biome-ignore lint/complexity/useLiteralKeys: needed for types
     const realKey = process.env['GEMINI_API_KEY'];
     if (!realKey) {
       throw new Error('RUN_LLM_INTEGRATION_TESTS is true, but GEMINI_API_KEY is missing.');

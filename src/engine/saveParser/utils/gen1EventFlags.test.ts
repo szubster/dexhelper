@@ -21,7 +21,6 @@ describe('parseGen1NarrativeFlags', () => {
   it('should parse specific claimed narrative flags correctly', () => {
     const eventFlags = new Uint8Array(0x118);
 
-    // biome-ignore lint/complexity/useLiteralKeys: required for typescript indexing rule
     const brockFlag = GEN1_BOSS_EVENT_FLAGS['EVENT_BEAT_BROCK'];
     if (brockFlag !== undefined) {
       const byteIndex = brockFlag >> 3;
@@ -31,9 +30,7 @@ describe('parseGen1NarrativeFlags', () => {
     }
 
     const claimed = parseGen1NarrativeFlags(eventFlags);
-    // biome-ignore lint/complexity/useLiteralKeys: required for typescript indexing rule
     expect(claimed['EVENT_BEAT_BROCK']).toBe(true);
-    // biome-ignore lint/complexity/useLiteralKeys: required for typescript indexing rule
     expect(claimed['EVENT_BEAT_MISTY']).toBe(false);
   });
 });
