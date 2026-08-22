@@ -56,8 +56,65 @@ export const generateDagNodesArbitrary = (options?: { minNodes?: number; maxNode
   });
 };
 
+export interface DagConfig {
+  maxDepth?: number;
+  maxWidth?: number;
+}
+
+export const generateDependenciesArbitrary = (nodes: any[], config?: DagConfig): fc.Arbitrary<any[]> => {
+  if (nodes.length === 0) return fc.constant([]);
+
+  const depth = config?.maxDepth ?? nodes.length;
+  const width = config?.maxWidth ?? nodes.length;
+
+  return fc.array(fc.integer({ min: 0, max: depth - 1 }), { minLength: nodes.length, maxLength: nodes.length }).chain(layerAssignments => {
+    let currentLayers = [...layerAssignments];
+    const layerCounts = Array.from({ length: depth }).fill(0) as number[];
+
+    for (let i = 0; i < currentLayers.length; i++) {
+      let l = currentLayers[i];
+      if (layerCounts[l] >= width) {
+        let found = false;
+        for (let j = 0; j < depth; j++) {
+          if (layerCounts[j] < width) {
+            currentLayers[i] = j;
+            layerCounts[j]++;
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          layerCounts[l]++;
+        }
+      } else {
+        layerCounts[l]++;
+      }
+    }
+
+    const nodesWithLayers = nodes.map((node, i) => ({ ...node, _layer: currentLayers[i] }));
+    nodesWithLayers.sort((a, b) => a._layer - b._layer);
+
+    const nodeArbs = nodesWithLayers.map((node, index) => {
+      const allowedDependencies = nodesWithLayers.filter((n, j) => j < index && n._layer < node._layer).map(n => n.id);
+
+      const dependsOnArbitrary = fc.subarray(allowedDependencies);
+      return dependsOnArbitrary.map(deps => {
+        const { _layer, ...rest } = node;
+        return {
+          ...rest,
+          depends_on: deps
+        };
+      });
+    });
+
+    if (nodeArbs.length === 0) return fc.constant([]);
+    return fc.tuple(...nodeArbs);
+  });
+};
+
 export const fuzzingUtils = {
   validNodeFrontmatter,
   generateDagNodesArbitrary,
+  generateDependenciesArbitrary,
   basicFuzzer: () => fc.assert(fc.property(fc.integer(), (n) => typeof n === 'number'))
 };

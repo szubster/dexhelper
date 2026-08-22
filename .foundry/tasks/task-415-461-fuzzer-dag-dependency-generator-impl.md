@@ -39,7 +39,7 @@ Implement logic within the fuzzing framework to generate randomized dependencies
 5. Ensure the generated dependencies are correctly mapped to the `depends_on` array of each node.
 
 ## Acceptance Criteria
-- [ ] Logic for generating randomized dependencies is implemented.
-- [ ] Generator supports configurable DAG depth and width properties.
-- [ ] Generated graphs are strictly validated to be acyclic.
-- [ ] Code is properly tested to ensure generating dependencies functions as expected without errors.
+- [x] Logic for generating randomized dependencies is implemented.
+- [x] Generator supports configurable DAG depth and width properties.
+- [x] Generated graphs are strictly validated to be acyclic.
+- [x] Code is properly tested to ensure generating dependencies functions as expected without errors.
