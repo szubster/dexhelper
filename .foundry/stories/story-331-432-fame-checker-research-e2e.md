@@ -34,4 +34,5 @@ As part of the effort to extract Fame Checker progress from Pokémon FireRed and
 This story covers the end-to-end verification of the research documentation gathered in `story-331-431-conduct-fame-checker-research`.
 
 ## Acceptance Criteria
-- [ ] Task to verify the research documentation has been created and covers all Fame Checker entries.
+- [x] Task to verify the research documentation has been created and covers all Fame Checker entries.
+- [ ] task-432-469-fame-checker-research-e2e-qa
