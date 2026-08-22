@@ -354,6 +354,14 @@ export const pokeDB = {
   },
 
   /**
+   * Fetches all berry metadata.
+   */
+  getAllBerries: async (): Promise<BerryMetadata[]> => {
+    await pokeDB.ready();
+    return (await getDB()).getAll(DB_CONFIG.STORES.BERRIES);
+  },
+
+  /**
    * Fetches a single Move's metadata by its ID.
    */
   getMove: async (id: number): Promise<MoveMetadata | undefined> => {

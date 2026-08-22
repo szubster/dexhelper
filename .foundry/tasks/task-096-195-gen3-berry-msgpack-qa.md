@@ -28,10 +28,10 @@ notes: ''
 Verify the implementation of Gen 3 Berry Tracker MsgPack Serialization (`task-096-194-gen3-berry-msgpack-impl`).
 
 ## Verification Criteria
-- [ ] Verify that the extracted berry data is properly serialized using `msgpackr`.
-- [ ] Verify the serialized data is integrated with the PokeData storage generation pipeline.
-- [ ] Verify the data is exposed correctly through the runtime API.
-- [ ] Ensure full, readable property names are maintained according to ADR 015.
+- [x] Verify that the extracted berry data is properly serialized using `msgpackr`.
+- [x] Verify the serialized data is integrated with the PokeData storage generation pipeline.
+- [x] Verify the data is exposed correctly through the runtime API.
+- [x] Ensure full, readable property names are maintained according to ADR 015.
 
 ## Technical Contract Reminders for QA:
 - **Resumption Policy**: If you are resuming a failed node, explicitly read the `rejection_reason` in the frontmatter and the Auditor journal to address previous failures.
