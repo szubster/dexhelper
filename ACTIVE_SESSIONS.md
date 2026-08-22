@@ -7,6 +7,7 @@
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [story-139-442-gen2-roamer-extraction-e2e](.foundry/stories/story-139-442-gen2-roamer-extraction-e2e.md) | STORY | Gen 2 Roamer Extraction E2E Verification | tech_lead | [6871557539632054590](https://jules.google.com/session/6871557539632054590) |
+| [story-268-348-gen3-ash-integration](.foundry/stories/story-268-348-gen3-ash-integration.md) | STORY | Story: Gen 3 Volcanic Ash Integration & View | tech_lead | [17085959322745439211](https://jules.google.com/session/17085959322745439211) |
 | [task-031-048-implement-deadlock-tests](.foundry/tasks/task-031-048-implement-deadlock-tests.md) | TASK | Implement Deadlock Prevention Mechanism Unit Tests | coder | [4640549639143018851](https://jules.google.com/session/4640549639143018851) |
 | [task-241-440-daycare-gen3-parsing-impl](.foundry/tasks/task-241-440-daycare-gen3-parsing-impl.md) | TASK | Implement Gen 3 Daycare Data Parsing | coder | [13770895514140074260](https://jules.google.com/session/13770895514140074260) |
 | [task-275-437-move-runtime-refactor](.foundry/tasks/task-275-437-move-runtime-refactor.md) | TASK | Refactor Runtime to use Dynamic Move Data | coder | [17807045828884773990](https://jules.google.com/session/17807045828884773990) |

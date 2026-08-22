@@ -2,13 +2,13 @@
 id: story-268-348-gen3-ash-integration
 type: STORY
 title: 'Story: Gen 3 Volcanic Ash Integration & View'
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-29'
-updated_at: '2026-08-20'
+updated_at: '2026-08-22'
 depends_on:
   - story-268-331-gen3-ash-dataview-extraction-relative
-jules_session_id: null
+jules_session_id: '17085959322745439211'
 pr_number: null
 parent: epic-054-268-gen3-ash-save-parsing
 tags:
