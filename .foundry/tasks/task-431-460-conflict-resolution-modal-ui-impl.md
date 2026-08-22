@@ -33,6 +33,6 @@ Create the React UI component for the Conflict Resolution Modal (e.g. `src/compo
 - It must accept `onKeepLocal` and `onPullRemote` callback functions.
 
 ## Acceptance Criteria
-- [ ] Create `ConflictResolutionModal` component following the tactical UI aesthetic.
-- [ ] Component accepts and correctly displays local and remote save metadata.
-- [ ] Component invokes `onKeepLocal` and `onPullRemote` callbacks upon user selection.
+- [x] Create `ConflictResolutionModal` component following the tactical UI aesthetic.
+- [x] Component accepts and correctly displays local and remote save metadata.
+- [x] Component invokes `onKeepLocal` and `onPullRemote` callbacks upon user selection.
