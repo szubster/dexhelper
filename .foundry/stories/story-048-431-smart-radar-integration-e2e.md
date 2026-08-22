@@ -37,3 +37,7 @@ Write comprehensive E2E tests validating that the `RouteRadarController` correct
 - [ ] Create E2E test files for Smart Radar data unification.
 - [ ] Write tests verifying the heatmap overlay rendering based on data.
 - [ ] Ensure tests successfully hydrate app state using test utilities.
+- [x] Break down into Tasks
+- [ ] task-431-469-smart-radar-test-utilities-impl
+- [ ] task-431-470-smart-radar-e2e-rendering-impl
+- [ ] task-431-471-smart-radar-e2e-qa
