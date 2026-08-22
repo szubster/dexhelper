@@ -15,8 +15,8 @@
     "functions/api/saves/[id].ts",
     "src/engine/saveParser/utils/index.ts",
     "src/engine/saveParser/gen3/mixedRecords/constants.ts",
-    "src/engine/saveParser/gen3/trainerFlags/parser.ts",
-    "src/engine/saveParser/parsers/gen3.ts"
+
+
   ],
   "rules": {
     "files": "warn",

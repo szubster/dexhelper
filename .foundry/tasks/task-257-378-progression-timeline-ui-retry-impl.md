@@ -32,4 +32,4 @@ Retry implementing the timeline or visualization showing the progression of a sp
 - Address the issues identified in `research-257-377-investigate-progression-timeline-failure`.
 
 ## Acceptance Criteria
-- [ ] Implement the Progression Timeline UI Retry.
+- [x] Implement the Progression Timeline UI Retry.
