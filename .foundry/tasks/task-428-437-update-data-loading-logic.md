@@ -2,7 +2,7 @@
 id: task-428-437-update-data-loading-logic
 type: TASK
 title: Update Data Loading Logic for Core Bundle
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: $(date -I)
 updated_at: '2026-08-21'
@@ -15,8 +15,8 @@ tags:
   - performance
   - architecture
   - bundles
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Suspended pending research into the structure of pokedata-core.msgpack'
 notes: ''
 ---
 
@@ -31,3 +31,6 @@ This task involves updating the client-side data loading logic (`src/db/PokeDB.t
 ## Acceptance Criteria
 - [ ] `src/db/PokeDB.ts` updated to fetch and parse `pokedata-core.msgpack`.
 - [ ] IndexedDB hydration logic adjusted to work correctly with the core bundle data structure.
+
+
+- [ ] research-437-440-hydration-logic-core-bundle
