@@ -33,5 +33,5 @@ Verify the implementation of `MatchupContext` ensuring it correctly manages stat
 - Ensure no `@testing-library/*` imports are used; verification must rely on `vitest-browser-react`.
 
 ## Acceptance Criteria
-- [ ] Code review passes for the context and provider implementation.
-- [ ] Unit tests thoroughly validate all context actions and state derivations.
+- [x] Code review passes for the context and provider implementation.
+- [x] Unit tests thoroughly validate all context actions and state derivations.
