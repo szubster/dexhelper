@@ -1,5 +1,11 @@
 // Gen 3 State Variables and Bank Constants
 
+// Game variables constants
+export const VARS_START = 0x4000;
+export const EMERALD_VARS_OFFSET = 0x139c;
+export const RS_VARS_OFFSET = 0x1340;
+export const VARIABLE_SIZE = 2; // Each variable is a u16 (2 bytes)
+
 // Event flags array offset in SaveBlock1
 export const EVENT_FLAGS_OFFSET = 0x02f0;
 

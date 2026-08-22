@@ -2,16 +2,51 @@ import {
   BANK_A_START,
   BANK_B_START,
   BIT_MASK,
+  EMERALD_VARS_OFFSET,
   EVENT_FLAGS_OFFSET,
   FLAG_BIT_MASK,
   FLAG_BYTE_SHIFT,
   NUM_SECTIONS,
+  RS_VARS_OFFSET,
   SAVE_INDEX_OFFSET,
   SECTION_ID_OFFSET,
   SECTION_SIZE,
   SIGNATURE_OFFSET,
   SIGNATURE_VALUE,
+  VARIABLE_SIZE,
+  VARS_START,
 } from './constants';
+
+/**
+ * Extracts a specific game variable (u16) from the save file using relative offsets.
+ *
+ * @param view The raw save file DataView.
+ * @param saveBlock1Offset The resolved memory offset to the active SaveBlock1.
+ * @param variableId The internal ID of the game variable (e.g., 0x4048).
+ * @param isEmerald True if the game is Emerald, false for Ruby/Sapphire.
+ * @returns The value of the game variable as a number.
+ * @throws Error if the read is out of bounds.
+ */
+export function extractGameVariable(
+  view: DataView,
+  saveBlock1Offset: number,
+  variableId: number,
+  isEmerald: boolean,
+): number {
+  try {
+    const varsOffset = isEmerald ? EMERALD_VARS_OFFSET : RS_VARS_OFFSET;
+    const baseOffset = saveBlock1Offset + varsOffset;
+    const variableIndex = variableId - VARS_START;
+    const byteOffset = baseOffset + variableIndex * VARIABLE_SIZE;
+
+    return view.getUint16(byteOffset, true);
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
 
 /**
  * Extracts a specific event flag from the save file using relative offsets.
