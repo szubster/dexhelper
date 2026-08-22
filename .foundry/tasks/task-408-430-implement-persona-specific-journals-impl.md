@@ -2,12 +2,12 @@
 id: task-408-430-implement-persona-specific-journals-impl
 type: TASK
 title: Implement Persona-Specific Journal Directories
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-16'
-updated_at: '2026-08-21'
+updated_at: '2026-08-22'
 depends_on: []
-jules_session_id: '17899931358171482951'
+jules_session_id: null
 pr_number: null
 parent: story-401-408-persona-specific-journal-directories
 tags:
@@ -15,7 +15,7 @@ tags:
   - journals
   - workflow
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>24h)'
 notes: ''
 locks: []
 ---

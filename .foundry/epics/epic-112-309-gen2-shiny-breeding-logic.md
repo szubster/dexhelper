@@ -2,7 +2,7 @@
 id: epic-112-309-gen2-shiny-breeding-logic
 type: EPIC
 title: Gen 2 Shiny Breeding DV Compatibility & Odds Engine
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-12'
 updated_at: '2026-08-22'
@@ -17,8 +17,8 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/development/gen2_breeding_dv_overlap.md
   - .foundry/docs/knowledge_base/engine/gen2-breeding.md
-rejection_count: 0
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

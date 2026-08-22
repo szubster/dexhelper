@@ -2,7 +2,7 @@
 id: epic-048-083-gen3-match-call-save-parsing
 type: EPIC
 title: 'Epic: Gen 3 Match Call Save Parsing'
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-13'
 updated_at: '2026-08-22'
@@ -16,8 +16,8 @@ tags:
   - tracking
   - save-parsing
 research_references: []
-rejection_count: 0
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
