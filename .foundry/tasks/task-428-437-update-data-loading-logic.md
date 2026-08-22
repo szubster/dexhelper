@@ -2,7 +2,7 @@
 id: task-428-437-update-data-loading-logic
 type: TASK
 title: Update Data Loading Logic for Core Bundle
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: $(date -I)
 updated_at: '2026-08-22'
@@ -15,8 +15,8 @@ tags:
   - performance
   - architecture
   - bundles
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: 'Code in PokeDB.ts and pokedata-plugin.ts still references pokedata.msgpack instead of pokedata-core.msgpack'
 notes: ''
 ---
 
