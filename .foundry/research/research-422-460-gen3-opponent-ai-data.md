@@ -34,5 +34,5 @@ Acquire exact offsets, structures, and mapping rules to identify the opponent's 
 - Update the knowledge base in `.foundry/docs/knowledge_base/` with the findings.
 
 ## Acceptance Criteria
-- [ ] Research complete: Mechanism for identifying opponent's team and AI script is documented.
-- [ ] Knowledge base is updated with the findings.
+- [x] Research complete: Mechanism for identifying opponent's team and AI script is documented.
+- [x] Knowledge base is updated with the findings.
