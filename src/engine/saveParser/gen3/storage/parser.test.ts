@@ -76,6 +76,7 @@ describe('Gen 3 Storage Stats Parsing', () => {
       vi.spyOn(gen3Module, 'parseGen3PCBoxes').mockReturnValue({
         pc: [25, 25, 1],
         pcDetails: mockPcDetails as unknown as import('../../parsers/common').PokemonInstance[],
+        gen3Spindas: [],
       });
 
       // We need to mock parseGen3PokemonPVAndIVs because it reads directly from DataView
@@ -118,6 +119,7 @@ describe('Gen 3 Storage Stats Parsing', () => {
     it('handles corrupted save file range error gracefully', () => {
       vi.spyOn(gen3Module, 'parseGen3PCBoxes').mockReturnValue({
         pc: [],
+        gen3Spindas: [],
         pcDetails: [
           {
             hash: '123-456',
