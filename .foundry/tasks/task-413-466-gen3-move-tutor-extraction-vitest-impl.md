@@ -2,12 +2,12 @@
 id: task-413-466-gen3-move-tutor-extraction-vitest-impl
 type: TASK
 title: Gen 3 Move Tutor Extraction Vitest Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-22'
 updated_at: '2026-08-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6633081650547725086'
 pr_number: null
 parent: story-406-413-gen3-move-tutor-parsing-e2e
 tags:
