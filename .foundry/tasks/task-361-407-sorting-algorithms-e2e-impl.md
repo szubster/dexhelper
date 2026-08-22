@@ -2,13 +2,13 @@
 id: task-361-407-sorting-algorithms-e2e-impl
 type: TASK
 title: E2E Verification for PC Box Sorting Algorithms - Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 parent: story-136-361-sorting-algorithms-e2e
 depends_on: []
 created_at: '2026-08-08'
-updated_at: '2026-08-20'
-jules_session_id: null
+updated_at: '2026-08-22'
+jules_session_id: '3154982363929587755'
 rejection_reason: ''
 rejection_count: 1
 ---
