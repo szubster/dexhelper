@@ -2,10 +2,10 @@
 id: story-108-246-gen3-box-parsing
 type: STORY
 title: Gen 3 Box Parsing and Grouping
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-29'
-updated_at: '2026-08-17'
+updated_at: '2026-08-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -38,6 +38,6 @@ Implement the backend data grouping and aggregation logic to parse PC box data f
 - [x] Verify that Party Pokémon are successfully excluded from the extracted data.
 - [x] Ensure all required stats (IVs, Natures, Hidden Power, Shininess) are calculated correctly for each Pokémon.
 - [x] research-246-244-gen3-box-parsing
-- [ ] task-246-435-gen3-box-parsing-extraction
-- [ ] task-246-436-gen3-box-parsing-aggregation
-- [ ] task-246-437-gen3-box-parsing-qa
+- [x] task-246-435-gen3-box-parsing-extraction
+- [x] task-246-436-gen3-box-parsing-aggregation
+- [x] task-246-437-gen3-box-parsing-qa

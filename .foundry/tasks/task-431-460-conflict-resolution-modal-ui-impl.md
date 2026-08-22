@@ -2,13 +2,12 @@
 id: task-431-460-conflict-resolution-modal-ui-impl
 type: TASK
 title: Implement R2 Conflict Resolution Modal UI Component
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-22'
 updated_at: '2026-08-22'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-412-431-r2-conflict-resolution-prompt-components
 tags:
@@ -18,6 +17,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Task: Implement R2 Conflict Resolution Modal UI Component

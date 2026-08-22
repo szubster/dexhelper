@@ -2,13 +2,12 @@
 id: task-415-460-fuzzer-dag-node-generator-impl
 type: TASK
 title: Fuzzer DAG Node Generator Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-22'
 updated_at: '2026-08-22'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-415-415-fuzzer-dag-generation
 tags:
@@ -21,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Fuzzer DAG Node Generator Implementation

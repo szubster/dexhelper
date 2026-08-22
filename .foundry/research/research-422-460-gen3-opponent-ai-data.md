@@ -2,7 +2,7 @@
 id: research-422-460-gen3-opponent-ai-data
 type: RESEARCH
 title: Determine Gen 3 AI Script and Opponent Team Data
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-08-22'
 updated_at: '2026-08-22'
@@ -15,7 +15,7 @@ tags:
   - ai
   - save-engine
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
 notes: ''
 ---
 

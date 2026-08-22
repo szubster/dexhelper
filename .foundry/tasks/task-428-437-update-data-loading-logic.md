@@ -2,21 +2,21 @@
 id: task-428-437-update-data-loading-logic
 type: TASK
 title: Update Data Loading Logic for Core Bundle
-status: FAILED
+status: PENDING
 owner_persona: coder
 created_at: $(date -I)
-updated_at: '2026-08-21'
+updated_at: '2026-08-22'
 depends_on:
   - task-428-436-refactor-core-data-generation
-jules_session_id: '4759718733010943672'
+jules_session_id: null
 pr_number: null
 parent: story-400-428-extract-core-data
 tags:
   - performance
   - architecture
   - bundles
-rejection_count: 1
-rejection_reason: 'Suspended pending research into the structure of pokedata-core.msgpack'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

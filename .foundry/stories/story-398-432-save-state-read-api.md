@@ -2,10 +2,10 @@
 id: story-398-432-save-state-read-api
 type: STORY
 title: Implement Save State Read API
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-20'
-updated_at: '2026-08-21'
+updated_at: '2026-08-22'
 depends_on:
   - story-398-431-save-state-write-api
 jules_session_id: null
@@ -27,9 +27,9 @@ notes: ''
 Implement the read API to retrieve the most recent save state for a playthrough, as well as the previous state relative to a given state for diffing purposes. This fulfills the second and third acceptance criteria of `epic-099-398-save-state-read-write-api-retry`.
 
 ## Acceptance Criteria
-- [ ] Implement a function to retrieve the most recent save state for a specified playthrough ID.
-- [ ] Implement a function to retrieve the previous state relative to a given save state ID (for diffing purposes).
-- [ ] Ensure queries effectively utilize the indexes in the `SaveHistoryDB` schema.
-- [ ] Write unit tests for the read API.
-- [ ] task-432-458-save-state-read-api-impl
-- [ ] task-432-459-save-state-read-api-qa
+- [x] Implement a function to retrieve the most recent save state for a specified playthrough ID.
+- [x] Implement a function to retrieve the previous state relative to a given save state ID (for diffing purposes).
+- [x] Ensure queries effectively utilize the indexes in the `SaveHistoryDB` schema.
+- [x] Write unit tests for the read API.
+- [x] task-432-458-save-state-read-api-impl
+- [x] task-432-459-save-state-read-api-qa

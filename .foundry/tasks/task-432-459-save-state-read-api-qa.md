@@ -2,13 +2,13 @@
 id: task-432-459-save-state-read-api-qa
 type: TASK
 title: QA for Save State Read API
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-20'
 updated_at: '2026-08-22'
 depends_on:
   - task-432-458-save-state-read-api-impl
-jules_session_id: '9126197197196807562'
+jules_session_id: null
 pr_number: null
 parent: story-398-432-save-state-read-api
 tags:
