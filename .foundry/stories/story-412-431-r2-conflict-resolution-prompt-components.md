@@ -33,3 +33,6 @@ Implement the UI prompt allowing users to choose which save file to keep when a 
 ## Acceptance Criteria
 - [ ] Implement the UI prompt component.
 - [ ] Story transitions to `COMPLETED` when its child `TASK`s complete.
+- [ ] task-431-460-conflict-resolution-modal-ui-impl
+- [ ] task-431-461-conflict-resolution-state-impl
+- [ ] task-431-462-conflict-resolution-prompt-qa
