@@ -35,6 +35,6 @@ Implement logic within the fuzzing framework to generate randomized Directed Acy
 4. Integrate using `fast-check` for randomization capabilities.
 
 ## Acceptance Criteria
-- [ ] Logic for generating randomized node structures is implemented.
-- [ ] Nodes are compliant with the orchestrator DAG schema.
-- [ ] Code is properly tested to ensure generating nodes functions as expected without errors.
+- [x] Logic for generating randomized node structures is implemented.
+- [x] Nodes are compliant with the orchestrator DAG schema.
+- [x] Code is properly tested to ensure generating nodes functions as expected without errors.
