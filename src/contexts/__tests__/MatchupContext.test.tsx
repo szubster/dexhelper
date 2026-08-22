@@ -9,6 +9,7 @@ describe('MatchupContext', () => {
     const TestComponent = () => {
       let error: Error | null = null;
       try {
+        // biome-ignore lint/correctness/useHookAtTopLevel: Intentional for testing error throwing
         useMatchup();
       } catch (e) {
         error = e as Error;
