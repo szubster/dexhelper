@@ -2,18 +2,18 @@
 id: task-031-048-implement-deadlock-tests
 type: TASK
 title: Implement Deadlock Prevention Mechanism Unit Tests
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-04-27'
-updated_at: '2026-04-27'
+updated_at: '2026-08-22'
 depends_on: []
-jules_session_id: '4640549639143018851'
+jules_session_id: null
 parent: story-009-031-deadlock-prevention-tests
 tags:
   - v2-architecture
   - lifecycle
   - atomic-handoffs
-rejection_reason: ''
+rejection_reason: Session timed out (>24h)
 ---
 
 # Implement Deadlock Prevention Mechanism Unit Tests

@@ -375,7 +375,7 @@ async function findPRForSession(
     if (res.ok) {
       const data = await res.json() as any;
       sessionStatus = data.state || null;
-      updateTime = data.updateTime;
+      updateTime = data.updateTime || data.createTime;
       
       let prUrl;
       if (Array.isArray(data.outputs)) {
@@ -522,19 +522,24 @@ export async function main() {
     // B. Terminal State check (Zombie detection)
     if (!isHuman) {
       if (sessionStatus && TERMINAL_STATES.includes(sessionStatus)) {
-        info(`Session ${sessionId} (Status: ${sessionStatus}) terminated without PR. Transitioning to READY without penalty.`);
-        await transitionNodeToReadyWithoutPenalty(node, repoRoot, `Session terminated with state: ${sessionStatus}`);
+        info(`Session ${sessionId} (Status: ${sessionStatus}) terminated without PR. Transitioning to FAILED.`);
+        await transitionNodeToFailed(node, repoRoot, `Session terminated with state: ${sessionStatus}`);
       } else if (sessionStatus === 'NOT_FOUND') {
         info(`Session ${sessionId} NOT_FOUND without PR. Failing.`);
         await transitionNodeToFailed(node, repoRoot, `Session terminated with state: NOT_FOUND`);
-      } else if (updateTime) {
-        const lastUpdate = new Date(updateTime).getTime();
-        const now = Date.now();
-        const hoursElapsed = (now - lastUpdate) / (1000 * 60 * 60);
+      } else {
+        const lastUpdateStr = updateTime || node.frontmatter.updated_at || node.frontmatter.created_at;
+        if (lastUpdateStr) {
+          const lastUpdate = new Date(lastUpdateStr).getTime();
+          if (!isNaN(lastUpdate)) {
+            const now = Date.now();
+            const hoursElapsed = (now - lastUpdate) / (1000 * 60 * 60);
 
-        if (hoursElapsed > 24) {
-          info(`Session ${sessionId} has been IN_PROGRESS for >24h. Assuming dead. Transitioning to READY without penalty.`);
-          await transitionNodeToReadyWithoutPenalty(node, repoRoot, 'Session timed out (>24h)');
+            if (hoursElapsed > 24) {
+              info(`Session ${sessionId} (or node ${node.repoPath}) older than 24h (${hoursElapsed.toFixed(1)}h). Transitioning to FAILED.`);
+              await transitionNodeToFailed(node, repoRoot, 'Session timed out (>24h)');
+            }
+          }
         }
       }
     }
