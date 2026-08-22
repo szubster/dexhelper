@@ -39,6 +39,6 @@ The `GlobalRibbonChecklistDashboard` is experiencing rendering lag with large da
 4. Update/run component integration tests in `GlobalRibbonChecklistDashboard.test.tsx` ensuring it works correctly.
 
 ## 4. Acceptance Criteria
-- [ ] Virtualization using `@tanstack/react-virtual` is integrated in `GlobalRibbonChecklistDashboard`.
-- [ ] Large dataset rendering no longer blocks the main thread.
-- [ ] Component integration tests for the dashboard pass.
+- [x] Virtualization using `@tanstack/react-virtual` is integrated in `GlobalRibbonChecklistDashboard`.
+- [x] Large dataset rendering no longer blocks the main thread.
+- [x] Component integration tests for the dashboard pass.

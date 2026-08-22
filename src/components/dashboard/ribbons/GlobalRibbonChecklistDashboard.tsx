@@ -1,5 +1,6 @@
+import { useVirtualizer } from '@tanstack/react-virtual';
 import type React from 'react';
-import { useMemo } from 'react';
+import { useMemo, useRef } from 'react';
 import { RibbonFilterProvider } from '../../../contexts/RibbonFilterContext';
 import { useStore } from '../../../store';
 import { cn } from '../../../utils/cn';
@@ -43,6 +44,15 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
     }
     return status;
   }, [saveData]);
+
+  const parentRef = useRef<HTMLDivElement>(null);
+
+  const virtualizer = useVirtualizer({
+    count: pokemonList.length,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => 60, // Increased slightly to account for flex-wrap or spacing
+    overscan: 5,
+  });
 
   if (saveData?.generation !== 3) {
     return null;
@@ -105,26 +115,48 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex max-h-[500px] flex-col gap-2 overflow-y-auto">
-          {pokemonList.map((pokemon, i) => (
-            <div
-              key={`${pokemon.speciesId}-${pokemon.slot || i}`}
-              className="flex items-center justify-between border-zinc-800 border-b border-dashed p-2"
-            >
-              <span className="font-mono text-sm text-white">
-                {pokemon.nickname || `Species ${pokemon.speciesId}`} (Lv {pokemon.level})
-              </span>
-              <div className="flex flex-wrap justify-end gap-2">
-                {pokemon.ribbons &&
-                  // ⚡ Bolt: Replaced objectEntries().map() with a static array literal to eliminate runtime Object iteration and intermediate tuple allocations.
-                  (['cool', 'beauty', 'cute', 'smart', 'tough'] as const).map((key) => {
-                    const rank = pokemon.ribbons?.[key] ?? 0;
-                    if (rank === 0 || rankMap[rank] === undefined) return null;
-                    return <ContestRibbonBadge key={key} type={conditionMap[key]} rank={rankMap[rank]} />;
-                  })}
-              </div>
-            </div>
-          ))}
+        <div ref={parentRef} className="max-h-[500px] overflow-y-auto">
+          <div
+            style={{
+              height: `${virtualizer.getTotalSize()}px`,
+              width: '100%',
+              position: 'relative',
+            }}
+          >
+            {virtualizer.getVirtualItems().map((virtualRow) => {
+              const pokemon = pokemonList[virtualRow.index];
+              if (!pokemon) return null;
+
+              return (
+                <div
+                  key={virtualRow.key}
+                  ref={virtualizer.measureElement}
+                  data-index={virtualRow.index}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    transform: `translateY(${virtualRow.start}px)`,
+                  }}
+                  className="flex items-center justify-between border-zinc-800 border-b border-dashed p-2 mb-2"
+                >
+                  <span className="font-mono text-sm text-white">
+                    {pokemon.nickname || `Species ${pokemon.speciesId}`} (Lv {pokemon.level})
+                  </span>
+                  <div className="flex flex-wrap justify-end gap-2">
+                    {pokemon.ribbons &&
+                      // ⚡ Bolt: Replaced objectEntries().map() with a static array literal to eliminate runtime Object iteration and intermediate tuple allocations.
+                      (['cool', 'beauty', 'cute', 'smart', 'tough'] as const).map((key) => {
+                        const rank = pokemon.ribbons?.[key] ?? 0;
+                        if (rank === 0 || rankMap[rank] === undefined) return null;
+                        return <ContestRibbonBadge key={key} type={conditionMap[key]} rank={rankMap[rank]} />;
+                      })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </TacticalPanel>
     </div>
