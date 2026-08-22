@@ -5,11 +5,8 @@ describe('Gen 2 Narrative Progression Flags', () => {
   it('should parse specific claimed narrative flags correctly', () => {
     const eventFlags = new Uint8Array(256);
 
-    // biome-ignore lint/complexity/useLiteralKeys: required for typescript indexing rule
     const falknerFlag = GEN2_BOSS_EVENT_FLAGS['EVENT_BEAT_FALKNER'] as number;
-    // biome-ignore lint/complexity/useLiteralKeys: required for typescript indexing rule
     const mortyFlag = GEN2_BOSS_EVENT_FLAGS['EVENT_BEAT_MORTY'] as number;
-    // biome-ignore lint/complexity/useLiteralKeys: required for typescript indexing rule
     const blueFlag = GEN2_BOSS_EVENT_FLAGS['EVENT_BEAT_BLUE'] as number;
 
     const falknerByte = falknerFlag >> 3;
@@ -26,16 +23,11 @@ describe('Gen 2 Narrative Progression Flags', () => {
     }
 
     const flags = parseGen2NarrativeFlags(eventFlags);
-    // biome-ignore lint/complexity/useLiteralKeys: required for typescript indexing rule
     expect(flags['EVENT_BEAT_FALKNER']).toBe(true);
-    // biome-ignore lint/complexity/useLiteralKeys: required for typescript indexing rule
     expect(flags['EVENT_BEAT_MORTY']).toBe(true);
-    // biome-ignore lint/complexity/useLiteralKeys: required for typescript indexing rule
     expect(flags['EVENT_BEAT_BLUE']).toBe(true);
 
-    // biome-ignore lint/complexity/useLiteralKeys: required for typescript indexing rule
     expect(flags['EVENT_BEAT_BUGSY']).toBe(false);
-    // biome-ignore lint/complexity/useLiteralKeys: required for typescript indexing rule
     expect(flags['EVENT_BEAT_CHAMPION_LANCE']).toBe(false);
   });
 

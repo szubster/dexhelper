@@ -87,9 +87,7 @@ export const getPreviousSave = async (
       return null;
     }
 
-    // biome-ignore lint/complexity/useLiteralKeys: TypeScript requires bracket notation for index signatures
     const playthroughId = currentSaveMetadata['playthroughId'] as string;
-    // biome-ignore lint/complexity/useLiteralKeys: TypeScript requires bracket notation for index signatures
     const timestamp = currentSaveMetadata['timestamp'] as number;
 
     if (!playthroughId || typeof timestamp !== 'number') {
