@@ -27,5 +27,5 @@ locks: []
 Verify hardcoded move tables are removed and dynamic data drives PP calculations.
 
 ## Acceptance Criteria
-- [ ] Verify hardcoded move tables are no longer used.
-- [ ] Verify dynamic PokeDB data powers PP calculations correctly.
+- [x] Verify hardcoded move tables are no longer used.
+- [x] Verify dynamic PokeDB data powers PP calculations correctly.
