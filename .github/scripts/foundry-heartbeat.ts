@@ -23,7 +23,15 @@ function info(msg: string): void {
   process.stderr.write(`[heartbeat] INFO  ${msg}\n`);
 }
 
-const TERMINAL_STATES = ['FAILED', 'COMPLETED'];
+const ACTIVE_SESSION_STATES = [
+  'STATE_UNSPECIFIED',
+  'QUEUED',
+  'PLANNING',
+  'AWAITING_PLAN_APPROVAL',
+  'AWAITING_USER_FEEDBACK',
+  'IN_PROGRESS',
+  'PAUSED'
+];
 
 /** Normalizes a file path reference to remove any /archive/ segment for comparison */
 function resolvePath(ref: string | null | undefined): string | null {
@@ -519,9 +527,9 @@ export async function main() {
       }
     }
 
-    // B. Terminal State check (Zombie detection)
+    // B. Non-active / Terminal State check (Zombie detection)
     if (!isHuman) {
-      if (sessionStatus && TERMINAL_STATES.includes(sessionStatus)) {
+      if (sessionStatus && !ACTIVE_SESSION_STATES.includes(sessionStatus)) {
         info(`Session ${sessionId} (Status: ${sessionStatus}) terminated without PR. Transitioning to FAILED.`);
         await transitionNodeToFailed(node, repoRoot, `Session terminated with state: ${sessionStatus}`);
       } else if (sessionStatus === 'NOT_FOUND') {

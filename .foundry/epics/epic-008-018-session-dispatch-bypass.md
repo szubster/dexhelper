@@ -2,16 +2,16 @@
 id: epic-008-018-session-dispatch-bypass
 type: EPIC
 title: "Session Dispatch Bypass and Fulfillment"
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: "2026-04-29"
-updated_at: "2026-04-29"
+updated_at: "2026-08-22"
 depends_on: []
-jules_session_id: "1586567066610752784"
+jules_session_id: null
 parent: prd-010-008-idempotent-node-generation
 tags: ["orchestrator", "generation", "efficiency"]
 rejection_count: 1
-rejection_reason: ""
+rejection_reason: "Session timed out (>24h)"
 notes: ""
 ---
 # Epic: Session Dispatch Bypass and Fulfillment

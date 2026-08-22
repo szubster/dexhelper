@@ -475,41 +475,43 @@ describe('Foundry Heartbeat', () => {
     expect(fs.writeFileSync).not.toHaveBeenCalled();
   });
 
-  it('should transition a node to FAILED if its Jules session is in a terminal state without a PR', async () => {
-    const mockNode = {
-      filePath: '/mock/repo/.foundry/tasks/task-1.md',
-      repoPath: '.foundry/tasks/task-1.md',
-      frontmatter: {
-        id: 'task-1',
-        type: 'TASK',
-        status: 'ACTIVE',
-        jules_session_id: 'session-123'
-      },
-      rawContent: '---\nstatus: ACTIVE\njules_session_id: "session-123"\nupdated_at: "2023-01-01"\n---\nBody'
-    };
+  it('should transition a node to FAILED if its Jules session is in a non-active state (e.g. FAILED, EXPIRED, CANCELLED) without a PR', async () => {
+    for (const nonActiveState of ['FAILED', 'EXPIRED', 'CANCELLED', 'SUCCEEDED']) {
+      vi.clearAllMocks();
+      const mockNode = {
+        filePath: '/mock/repo/.foundry/tasks/task-1.md',
+        repoPath: '.foundry/tasks/task-1.md',
+        frontmatter: {
+          id: 'task-1',
+          type: 'TASK',
+          status: 'ACTIVE',
+          jules_session_id: 'session-123'
+        },
+        rawContent: '---\nstatus: ACTIVE\njules_session_id: "session-123"\nupdated_at: "2023-01-01"\n---\nBody'
+      };
 
-    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
-    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-1.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
 
-    // Mock API response
-    globalFetch.mockResolvedValue({
-ok: true,
-      status: 200,
-      json: async () => ({ state: 'FAILED' })
-    } as unknown as Response);
+      globalFetch.mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => ({ state: nonActiveState })
+      } as unknown as Response);
 
-    await main();
+      await main();
 
-    expect(globalFetch).toHaveBeenCalledWith(
-      'https://jules.googleapis.com/v1alpha/sessions/session-123',
-      expect.objectContaining({ headers: { 'X-Goog-Api-Key': 'mock-api-key' } })
-    );
+      expect(globalFetch).toHaveBeenCalledWith(
+        'https://jules.googleapis.com/v1alpha/sessions/session-123',
+        expect.objectContaining({ headers: { 'X-Goog-Api-Key': 'mock-api-key' } })
+      );
 
-    expect(fs.writeFileSync).toHaveBeenCalled();
-    const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
-    expect(writeCall[0]).toBe(mockNode.filePath);
-    expect(writeCall[1]).toContain('status: FAILED');
-    expect(writeCall[1]).toContain('jules_session_id: null');
+      expect(fs.writeFileSync).toHaveBeenCalled();
+      const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+      expect(writeCall[0]).toBe(mockNode.filePath);
+      expect(writeCall[1]).toContain('status: FAILED');
+      expect(writeCall[1]).toContain('jules_session_id: null');
+    }
   });
 
   it('should transition a node to FAILED if its Jules session is NOT_FOUND (404)', async () => {
