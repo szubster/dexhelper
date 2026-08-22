@@ -2,13 +2,13 @@
 id: task-096-195-gen3-berry-msgpack-qa
 type: TASK
 title: QA Gen 3 Berry Tracker MsgPack Serialization
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-06-16T00:00:00.000Z'
-updated_at: '2026-08-21'
+updated_at: '2026-08-22'
 depends_on:
   - task-096-194-gen3-berry-msgpack-impl
-jules_session_id: null
+jules_session_id: '16150822926542573175'
 pr_number: null
 parent: story-055-096-gen3-berry-msgpack-integration
 tags:
