@@ -27,7 +27,7 @@ notes: ''
 We need to QA the read APIs implemented in `task-432-458-save-state-read-api-impl` to make sure `getMostRecentSave(playthroughId: string)` and `getPreviousSave(saveId: string)` are functioning correctly and that `src/engine/storage/historyDb.ts` uses indexes properly.
 
 ## Acceptance Criteria
-- [ ] Verify that `getMostRecentSave` returns the most recent save state for a specified playthrough ID based on timestamp.
-- [ ] Verify that `getPreviousSave` correctly fetches the previous state relative to a given save state ID for diffing purposes.
-- [ ] Verify that queries effectively utilize indexes.
-- [ ] Ensure full test coverage is added in `src/engine/storage/historyDb.test.ts`.
+- [x] Verify that `getMostRecentSave` returns the most recent save state for a specified playthrough ID based on timestamp.
+- [x] Verify that `getPreviousSave` correctly fetches the previous state relative to a given save state ID for diffing purposes.
+- [x] Verify that queries effectively utilize indexes.
+- [x] Ensure full test coverage is added in `src/engine/storage/historyDb.test.ts`.

@@ -57,6 +57,13 @@ describe('SaveHistoryDB', () => {
       expect(result).toBeNull();
     });
 
+    it('should propagate errors if querying fails', async () => {
+      // @ts-expect-error - testing invalid input
+      await expect(getMostRecentSave(Symbol('bad-id'))).rejects.toThrow(
+        'Data provided to an operation does not meet requirements',
+      );
+    });
+
     it('should return the most recent save state for a playthrough', async () => {
       const ptId = 'pt-1';
       await writeSaveState('save-1', new Uint8Array([1]), { playthroughId: ptId, timestamp: 100 });
@@ -76,6 +83,24 @@ describe('SaveHistoryDB', () => {
     it('should return null if the save ID does not exist', async () => {
       const result = await getPreviousSave('non-existent-save');
       expect(result).toBeNull();
+    });
+
+    it('should return null if the playthroughId or timestamp is missing in metadata', async () => {
+      await writeSaveState('save-bad-metadata', new Uint8Array([1]), { timestamp: 100 });
+      let result = await getPreviousSave('save-bad-metadata');
+      expect(result).toBeNull();
+
+      await writeSaveState('save-bad-metadata-2', new Uint8Array([1]), { playthroughId: 'pt-5' });
+      result = await getPreviousSave('save-bad-metadata-2');
+      expect(result).toBeNull();
+    });
+
+    it('should propagate errors if querying fails', async () => {
+      // Write valid data, but call getPreviousSave with invalid saveId type
+      // @ts-expect-error - testing invalid input
+      await expect(getPreviousSave(Symbol('bad-id'))).rejects.toThrow(
+        'Data provided to an operation does not meet requirements',
+      );
     });
 
     it('should return null if the current save has no previous save in the same playthrough', async () => {
