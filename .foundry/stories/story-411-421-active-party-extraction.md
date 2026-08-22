@@ -26,3 +26,10 @@ notes: ''
 ## Acceptance Criteria
 - [ ] Extract Active Party data.
 - [ ] Synchronize extracted data with the matchup context.
+- [x] Break down into Tasks
+- [ ] task-421-460-matchup-context-state-layer-impl
+- [ ] task-421-461-matchup-context-state-layer-qa
+- [ ] task-421-462-gen1-active-party-matchup-integration-impl
+- [ ] task-421-463-gen2-active-party-matchup-integration-impl
+- [ ] task-421-464-gen3-active-party-matchup-integration-impl
+- [ ] task-421-465-active-party-matchup-integration-qa
