@@ -36,6 +36,6 @@ Integrate the newly generated DAG structures into the broader orchestrator fuzze
 4. Ensure the fuzzing framework can reliably consume and evaluate the randomized DAG inputs.
 
 ## Acceptance Criteria
-- [ ] DAG generation logic is integrated into the fuzzing framework.
-- [ ] The orchestrator state machine is fuzzed using randomized DAGs.
-- [ ] Integration passes all existing test and fuzzing pipelines.
+- [x] DAG generation logic is integrated into the fuzzing framework.
+- [x] The orchestrator state machine is fuzzed using randomized DAGs.
+- [x] Integration passes all existing test and fuzzing pipelines.
