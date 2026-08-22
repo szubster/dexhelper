@@ -28,4 +28,7 @@ Verify the Gen 2 roamer extraction logic end-to-end to ensure it accurately extr
 Ensure Gen 2 roamer data extraction end-to-end is verified by testing for Raikou, Entei, Suicune data extraction, including inactive/caught roamers, and map coordinates/levels.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down this Story into an E2E verification Task.
+- [x] Tech Lead: Break down this Story into an E2E verification Task.
+- [ ] task-442-466-gen2-roamer-e2e-fixture-impl
+- [ ] task-442-467-gen2-roamer-e2e-tests-impl
+- [ ] task-442-468-gen2-roamer-e2e-qa
