@@ -29,6 +29,6 @@ notes: ''
 Verify the extracted Match Call data correctly conforms to the `SaveData` schema and is properly integrated.
 
 ## Acceptance Criteria
-- [ ] Verify that the `Gen3MatchCall` is correctly added to `Gen3SaveData`.
-- [ ] Confirm no regressions are introduced (e.g. by running `pnpm test`).
-- [ ] Verify that `Gen3MatchCall` interface is exported correctly from `src/engine/gen3/matchCall/parser.ts`.
+- [x] Verify that the `Gen3MatchCall` is correctly added to `Gen3SaveData`.
+- [x] Confirm no regressions are introduced (e.g. by running `pnpm test`).
+- [x] Verify that `Gen3MatchCall` interface is exported correctly from `src/engine/gen3/matchCall/parser.ts`.
