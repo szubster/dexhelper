@@ -34,6 +34,6 @@ Establish the `MatchupContext` in React to manage the state for the Active Party
 - Expose a custom hook (`useMatchup`) for consuming the context.
 
 ## Acceptance Criteria
-- [ ] Implement `MatchupContext`, `MatchupProvider`, and `useMatchup`.
-- [ ] Ensure the context structure supports storing `partyDetails` and upcoming boss identifiers.
-- [ ] Add unit tests using `vitest-browser-react` validating state initialization and dispatch actions.
+- [x] Implement `MatchupContext`, `MatchupProvider`, and `useMatchup`.
+- [x] Ensure the context structure supports storing `partyDetails` and upcoming boss identifiers.
+- [x] Add unit tests using `vitest-browser-react` validating state initialization and dispatch actions.
