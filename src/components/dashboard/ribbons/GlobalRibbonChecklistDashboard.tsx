@@ -47,6 +47,7 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
 
   const parentRef = useRef<HTMLDivElement>(null);
 
+  // eslint-disable-next-line react/incompatible-library
   const virtualizer = useVirtualizer({
     count: pokemonList.length,
     getScrollElement: () => parentRef.current,
