@@ -2,7 +2,7 @@
 id: task-421-463-gen2-active-party-matchup-integration-impl
 type: TASK
 title: Integrate Gen 2 Active Party into MatchupContext
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-21'
 updated_at: '2026-08-22'

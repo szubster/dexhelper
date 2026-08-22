@@ -2,12 +2,12 @@
 id: research-422-460-gen3-opponent-ai-data
 type: RESEARCH
 title: Determine Gen 3 AI Script and Opponent Team Data
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-22'
 updated_at: '2026-08-22'
 depends_on: []
-jules_session_id: '7024160321706164810'
+jules_session_id: null
 pr_number: null
 parent: story-411-422-extract-opponent-data
 tags:

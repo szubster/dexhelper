@@ -2,7 +2,7 @@
 id: story-411-422-extract-opponent-data
 type: STORY
 title: Extract Opponent Data and AI Script
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-13'
 updated_at: '2026-08-22'
@@ -31,4 +31,4 @@ Extract or identify the opponent's team and the AI level/script assigned to the 
 - Ensure extraction logic correctly identifies scripts based on trainer data.
 
 ## Acceptance Criteria
-- [ ] research-422-460-gen3-opponent-ai-data
+- [x] research-422-460-gen3-opponent-ai-data

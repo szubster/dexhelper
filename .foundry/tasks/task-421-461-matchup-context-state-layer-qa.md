@@ -2,7 +2,7 @@
 id: task-421-461-matchup-context-state-layer-qa
 type: TASK
 title: Verify MatchupContext State Layer
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-21'
 updated_at: '2026-08-22'

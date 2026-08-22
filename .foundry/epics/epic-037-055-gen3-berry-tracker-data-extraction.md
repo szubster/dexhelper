@@ -2,10 +2,10 @@
 id: epic-037-055-gen3-berry-tracker-data-extraction
 type: EPIC
 title: Gen 3 Berry Tracker Data Extraction
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-03'
-updated_at: '2026-06-09'
+updated_at: '2026-08-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,7 +17,7 @@ tags:
   - engine
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
 
@@ -34,11 +34,11 @@ As mandated by ADR 010 (`010-gen3-data-parsing.md`), all data parsing must stric
 *   **Serialization:** Integrate the parsed berry data with the PokeData storage generation pipeline, outputting via MsgPack format.
 
 ## Acceptance Criteria
-- [ ] Implement `DataView`-based parsing logic for Gen 3 berry patch data.
-- [ ] Handle bounds checking gracefully (e.g., throwing and catching `RangeError` on out-of-bounds reads).
-- [ ] Extract map location, berry ID, growth stage, and time metadata.
-- [ ] Serialize the extracted data using `msgpackr` and integrate with the runtime data API.
+- [x] Implement `DataView`-based parsing logic for Gen 3 berry patch data.
+- [x] Handle bounds checking gracefully (e.g., throwing and catching `RangeError` on out-of-bounds reads).
+- [x] Extract map location, berry ID, growth stage, and time metadata.
+- [x] Serialize the extracted data using `msgpackr` and integrate with the runtime data API.
 
 ### Generated Stories
-- [ ] .foundry/archive/stories/story-055-095-gen3-berry-data-parsing.md
-- [ ] .foundry/stories/story-055-096-gen3-berry-msgpack-integration.md
+- [x] .foundry/archive/stories/story-055-095-gen3-berry-data-parsing.md
+- [x] .foundry/stories/story-055-096-gen3-berry-msgpack-integration.md
