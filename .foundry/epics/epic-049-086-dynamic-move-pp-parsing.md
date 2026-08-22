@@ -41,3 +41,5 @@ Currently, data such as move PPs are either manually maintained or fetched ad-ho
 - [x] story-086-130-move-jsonl-compaction
 
 - [x] story-086-275-move-runtime-integration
+- [x] Break down into Stories
+- [ ] story-086-469-dynamic-move-pp-parsing-e2e
