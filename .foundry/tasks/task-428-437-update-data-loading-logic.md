@@ -8,7 +8,6 @@ created_at: $(date -I)
 updated_at: '2026-08-21'
 depends_on:
   - task-428-436-refactor-core-data-generation
-  - research-437-440-hydration-logic-core-bundle
 jules_session_id: '4759718733010943672'
 pr_number: null
 parent: story-400-428-extract-core-data
