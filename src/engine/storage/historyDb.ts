@@ -45,7 +45,7 @@ export const writeSaveState = async (
 
     await Promise.all([savesStore.put(saveData, id), metadataStore.put(metadata, id), tx.done]);
   } catch (error) {
-    console.error('Failed to write save state:', error);
+    console.error('Failed to write save state', error instanceof Error ? error.message : 'Unknown error');
     throw error;
   }
 };
