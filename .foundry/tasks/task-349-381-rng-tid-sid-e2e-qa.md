@@ -33,7 +33,7 @@ Verify the end-to-end tests written for the RNG TID and SID Display UI to ensure
 - Run the E2E tests using `xvfb-run pnpm test:e2e` and ensure they pass.
 
 ## Acceptance Criteria
-- [ ] QA: Verify E2E test accurately checks the correct display of RNG TID in the Trainer dashboard.
-- [ ] QA: Verify E2E test accurately checks the correct display of RNG SID in the Trainer dashboard.
-- [ ] QA: Verify E2E test accurately checks the functionality of the copy-to-clipboard buttons for TID and SID.
-- [ ] QA: Run E2E tests and ensure they pass without flakiness.
+- [x] QA: Verify E2E test accurately checks the correct display of RNG TID in the Trainer dashboard.
+- [x] QA: Verify E2E test accurately checks the correct display of RNG SID in the Trainer dashboard.
+- [x] QA: Verify E2E test accurately checks the functionality of the copy-to-clipboard buttons for TID and SID.
+- [x] QA: Run E2E tests and ensure they pass without flakiness.
