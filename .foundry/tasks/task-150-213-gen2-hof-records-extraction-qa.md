@@ -40,7 +40,7 @@ Verify the implementation for extracting actual Hall of Fame records from Genera
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] Memory offsets and data structures are correctly identified and used.
-- [ ] Logic implemented to extract Pokémon species, levels, and player names from the records using `DataView`.
-- [ ] All constants are defined at the module level without inline magic numbers.
-- [ ] Test coverage exists and passes.
+- [x] Memory offsets and data structures are correctly identified and used.
+- [x] Logic implemented to extract Pokémon species, levels, and player names from the records using `DataView`.
+- [x] All constants are defined at the module level without inline magic numbers.
+- [x] Test coverage exists and passes.
