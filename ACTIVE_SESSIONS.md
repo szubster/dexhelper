@@ -21,4 +21,5 @@
 | [task-424-440-integrate-gen3-fixtures-impl](.foundry/tasks/task-424-440-integrate-gen3-fixtures-impl.md) | TASK | Integrate Gen 3 Save File Fixtures (Impl) | coder | [6245840979410780541](https://jules.google.com/session/6245840979410780541) |
 | [task-428-437-update-data-loading-logic](.foundry/tasks/task-428-437-update-data-loading-logic.md) | TASK | Update Data Loading Logic for Core Bundle | coder | [4759718733010943672](https://jules.google.com/session/4759718733010943672) |
 | [task-432-449-qa-controls](.foundry/tasks/task-432-449-qa-controls.md) | TASK | QA Verification - Tactical Controls Refactor | qa | [5735048665609541816](https://jules.google.com/session/5735048665609541816) |
+| [task-432-459-save-state-read-api-qa](.foundry/tasks/task-432-459-save-state-read-api-qa.md) | TASK | QA for Save State Read API | qa | [9126197197196807562](https://jules.google.com/session/9126197197196807562) |
 | [task-436-456-parser-integration-impl](.foundry/tasks/task-436-456-parser-integration-impl.md) | TASK | Integrate Mapped Blocks with Gen3 Parsers | coder | [17197711251184454225](https://jules.google.com/session/17197711251184454225) |
