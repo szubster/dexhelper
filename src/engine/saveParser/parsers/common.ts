@@ -116,6 +116,10 @@ export interface Gen3TrainerCard {
   hasContestMaster: boolean;
 }
 
+export interface Gen3Spinda {
+  pid: number;
+}
+
 export interface Gen3TVShow {
   kind: number;
   active: boolean;
@@ -412,6 +416,8 @@ export interface Gen3SaveData extends BaseSaveData {
   gen3TrainerRematchFlags?: number[];
   /** Gen 3 specific: Trainer Card Upgrade conditions */
   gen3TrainerCard?: Gen3TrainerCard;
+  /** Gen 3 specific: Extracted Spinda Pokémon */
+  gen3Spindas?: Gen3Spinda[];
 }
 
 export type SaveData = Gen1SaveData | Gen2SaveData | Gen3SaveData;

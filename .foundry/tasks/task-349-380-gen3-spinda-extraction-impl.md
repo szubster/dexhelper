@@ -26,9 +26,9 @@ notes: ''
 Implement parsing logic to identify Spinda Pokémon in both PC Box and Party datasets for Generation 3 save files. The core requirement is to extract the 32-bit PID for each identified Spinda, and map this to a specific data structure.
 
 ## Acceptance Criteria
-- [ ] Implement parsing logic to identify Spinda Pokémon in both PC Box and Party datasets.
-- [ ] Extract the 32-bit PID for each identified Spinda.
-- [ ] Define the interface/data structure to store the extracted Spinda info for the UI layer.
+- [x] Implement parsing logic to identify Spinda Pokémon in both PC Box and Party datasets.
+- [x] Extract the 32-bit PID for each identified Spinda.
+- [x] Define the interface/data structure to store the extracted Spinda info for the UI layer.
 
 ## Critical Guidelines
 You MUST strictly adhere to all guidelines defined in **Section 13 ("Save File Parsing & Extraction Guidelines")** of `.foundry/docs/schema.md`. Specifically:

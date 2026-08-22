@@ -44,6 +44,7 @@ import type {
   Gen3RoamerData,
   Gen3SaveData,
   Gen3SecretBase,
+  Gen3Spinda,
   Gen3TVShow,
   PokemonInstance,
 } from './common';
@@ -277,6 +278,7 @@ export const GEN3_POKEMON_MOVES_OFFSET_IN_A = 0x00;
 export const GEN3_POKEMON_MOVE_2_OFFSET = 0x02;
 export const GEN3_POKEMON_MOVE_3_OFFSET = 0x04;
 export const GEN3_POKEMON_MOVE_4_OFFSET = 0x06;
+export const GEN3_SPINDA_SPECIES_ID = 327;
 export const UPPER_16_BIT_SHIFT = 16;
 export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
 
@@ -683,6 +685,7 @@ export function parseGen3PCBuffer(view: DataView): Uint8Array {
 export function parseGen3Party(view: DataView, section1Offset: number, gameVersion: GameVersion) {
   const party: number[] = [];
   const partyDetails: PokemonInstance[] = [];
+  const gen3Spindas: Gen3Spinda[] = [];
 
   try {
     const countOffset =
@@ -723,6 +726,11 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
       const moves = [move1, move2, move3, move4].filter((m) => m > 0);
 
       party.push(speciesId);
+
+      if (speciesId === GEN3_SPINDA_SPECIES_ID) {
+        gen3Spindas.push({ pid: pv });
+      }
+
       partyDetails.push({
         speciesId,
         level: view.getUint8(offset + GEN3_PARTY_LEVEL_OFFSET),
@@ -751,7 +759,7 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
     throw error;
   }
 
-  return { party, partyDetails };
+  return { party, partyDetails, gen3Spindas };
 }
 
 /**
@@ -770,6 +778,7 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
 export function parseGen3PCBoxes(pcBufferView: DataView) {
   const pc: number[] = [];
   const pcDetails: PokemonInstance[] = [];
+  const gen3Spindas: Gen3Spinda[] = [];
 
   try {
     for (let box = 0; box < PC_BOX_COUNT; box++) {
@@ -791,6 +800,10 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
         const move4 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET, true);
 
         const moves = [move1, move2, move3, move4].filter((m) => m > 0);
+
+        if (speciesId === GEN3_SPINDA_SPECIES_ID) {
+          gen3Spindas.push({ pid: pv });
+        }
 
         const isShiny = false; // We can skip full shiny calculation for PC boxes for now unless requested
 
@@ -818,7 +831,7 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
     throw error;
   }
 
-  return { pc, pcDetails };
+  return { pc, pcDetails, gen3Spindas };
 }
 
 /**
@@ -1736,6 +1749,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     let pc: number[] = [];
     let pcDetails: PokemonInstance[] = [];
     let currentBoxCount = 0;
+    let pcSpindas: Gen3Spinda[] = [];
 
     try {
       const pcBuffer = parseGen3PCBuffer(view);
@@ -1744,6 +1758,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       const boxesResult = parseGen3PCBoxes(pcBufferView);
       pc = boxesResult.pc;
       pcDetails = boxesResult.pcDetails;
+      pcSpindas = boxesResult.gen3Spindas || [];
     } catch (error) {
       if (
         error instanceof RangeError ||
@@ -1754,7 +1769,13 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       // Ignored, PC data might be missing or corrupt
     }
 
-    const { party, partyDetails } = parseGen3Party(view, section1Offset, _forcedVersion || 'ruby');
+    const {
+      party,
+      partyDetails,
+      gen3Spindas: partySpindas,
+    } = parseGen3Party(view, section1Offset, _forcedVersion || 'ruby');
+
+    const allSpindas = [...(partySpindas || []), ...pcSpindas];
 
     // Dummy scaffold values for now until fully implemented
     const result: Gen3SaveData = {
@@ -1826,6 +1847,11 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     if (gen3TrainerRematchFlags !== undefined) {
       result.gen3TrainerRematchFlags = gen3TrainerRematchFlags;
     }
+
+    if (allSpindas.length > 0) {
+      result.gen3Spindas = allSpindas;
+    }
+
     return result;
   } catch (error) {
     if (error instanceof RangeError) {
