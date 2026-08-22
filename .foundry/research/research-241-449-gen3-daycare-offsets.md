@@ -2,10 +2,10 @@
 id: research-241-449-gen3-daycare-offsets
 type: RESEARCH
 title: Investigate Gen 3 Daycare Memory Offsets
-status: PENDING
+status: CANCELLED
 owner_persona: researcher
-created_at: "2026-08-22"
-updated_at: "2026-08-22"
+created_at: '2026-08-22'
+updated_at: '2026-08-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - offsets
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: Cancelled due to cascading cancellation from parent
+notes: ''
 ---
 
 # Investigate Gen 3 Daycare Memory Offsets

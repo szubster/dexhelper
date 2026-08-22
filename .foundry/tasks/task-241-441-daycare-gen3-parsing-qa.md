@@ -2,10 +2,10 @@
 id: task-241-441-daycare-gen3-parsing-qa
 type: TASK
 title: QA Gen 3 Daycare Data Parsing
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-19'
-updated_at: '2026-08-19'
+updated_at: '2026-08-22'
 depends_on:
   - task-241-440-daycare-gen3-parsing-impl
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-241-440-daycare-gen3-parsing-impl
 notes: ''
 ---
 # Task: QA Gen 3 Daycare Data Parsing
