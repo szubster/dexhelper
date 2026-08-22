@@ -2,10 +2,10 @@
 id: task-436-456-parser-integration-impl
 type: TASK
 title: Integrate Mapped Blocks with Gen3 Parsers
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-21'
-updated_at: '2026-08-21'
+updated_at: '2026-08-22'
 depends_on:
   - task-436-454-state-variables-extraction-impl
 jules_session_id: null
