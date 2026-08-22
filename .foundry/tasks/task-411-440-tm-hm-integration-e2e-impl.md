@@ -2,12 +2,12 @@
 id: task-411-440-tm-hm-integration-e2e-impl
 type: TASK
 title: Implementation of TM/HM Integration E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-18'
-updated_at: '2026-08-21'
+updated_at: '2026-08-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '348104166672971660'
 pr_number: null
 parent: story-401-411-tm-hm-integration-e2e
 tags:
