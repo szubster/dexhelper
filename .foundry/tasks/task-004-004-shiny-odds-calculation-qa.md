@@ -2,13 +2,13 @@
 id: task-004-004-shiny-odds-calculation-qa
 type: TASK
 title: QA Gen 2 Shiny Odds Calculation
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-19'
-updated_at: '2026-08-21'
+updated_at: '2026-08-22'
 depends_on:
   - task-004-003-shiny-odds-calculation-impl
-jules_session_id: null
+jules_session_id: '4382179744222484117'
 pr_number: null
 parent: story-309-004-shiny-odds-computation
 tags:
