@@ -2,13 +2,13 @@
 id: task-440-451-gen3-pokemon-extraction-qa
 type: TASK
 title: QA Gen 3 Pokemon Extraction Function
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-21'
-updated_at: '2026-08-21'
+updated_at: '2026-08-22'
 depends_on:
   - task-440-450-gen3-pokemon-extraction-impl
-jules_session_id: null
+jules_session_id: '13609024505575227130'
 pr_number: null
 parent: story-130-440-extract-gen3-party-data-structure
 tags:

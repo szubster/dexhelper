@@ -23,3 +23,4 @@
 | [task-432-449-qa-controls](.foundry/tasks/task-432-449-qa-controls.md) | TASK | QA Verification - Tactical Controls Refactor | qa | [5735048665609541816](https://jules.google.com/session/5735048665609541816) |
 | [task-432-459-save-state-read-api-qa](.foundry/tasks/task-432-459-save-state-read-api-qa.md) | TASK | QA for Save State Read API | qa | [9126197197196807562](https://jules.google.com/session/9126197197196807562) |
 | [task-436-456-parser-integration-impl](.foundry/tasks/task-436-456-parser-integration-impl.md) | TASK | Integrate Mapped Blocks with Gen3 Parsers | coder | [17197711251184454225](https://jules.google.com/session/17197711251184454225) |
+| [task-440-451-gen3-pokemon-extraction-qa](.foundry/tasks/task-440-451-gen3-pokemon-extraction-qa.md) | TASK | QA Gen 3 Pokemon Extraction Function | qa | [13609024505575227130](https://jules.google.com/session/13609024505575227130) |
