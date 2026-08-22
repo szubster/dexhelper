@@ -35,5 +35,5 @@ Ensure the implementation correctly:
 Run the tests written by the coder and review the source code for correctness. Add additional QA tests if necessary.
 
 ## Acceptance Criteria
-- [ ] Verify the DV inheritance function correctness.
-- [ ] Ensure all relevant breeding scenarios are covered by tests.
+- [x] Verify the DV inheritance function correctness.
+- [x] Ensure all relevant breeding scenarios are covered by tests.
