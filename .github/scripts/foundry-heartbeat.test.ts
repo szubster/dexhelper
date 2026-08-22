@@ -475,7 +475,7 @@ describe('Foundry Heartbeat', () => {
     expect(fs.writeFileSync).not.toHaveBeenCalled();
   });
 
-  it('should transition a node to READY without penalty if its Jules session is in a terminal state without a PR', async () => {
+  it('should transition a node to FAILED if its Jules session is in a terminal state without a PR', async () => {
     const mockNode = {
       filePath: '/mock/repo/.foundry/tasks/task-1.md',
       repoPath: '.foundry/tasks/task-1.md',
@@ -508,7 +508,7 @@ ok: true,
     expect(fs.writeFileSync).toHaveBeenCalled();
     const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
     expect(writeCall[0]).toBe(mockNode.filePath);
-    expect(writeCall[1]).toContain('status: READY');
+    expect(writeCall[1]).toContain('status: FAILED');
     expect(writeCall[1]).toContain('jules_session_id: null');
   });
 
@@ -540,7 +540,7 @@ ok: false,
   });
 
 
-  it('should transition a node to READY without penalty if its Jules session has been IN_PROGRESS for >24h', async () => {
+  it('should transition a node to FAILED if its Jules session has been IN_PROGRESS for >24h', async () => {
     const mockNode = {
       filePath: '/mock/repo/.foundry/tasks/task-stuck.md',
       repoPath: '.foundry/tasks/task-stuck.md',
@@ -567,7 +567,69 @@ ok: false,
 
     expect(fs.writeFileSync).toHaveBeenCalledWith(
       '/mock/repo/.foundry/tasks/task-stuck.md',
-      expect.stringContaining('status: READY'),
+      expect.stringContaining('status: FAILED'),
+      'utf-8'
+    );
+  });
+
+  it('should transition a node to FAILED if createTime is >24h ago when updateTime is missing', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-createtime.md',
+      repoPath: '.foundry/tasks/task-createtime.md',
+      frontmatter: {
+        id: 'task-createtime',
+        status: 'ACTIVE',
+        jules_session_id: 'session-createtime'
+      },
+      rawContent: '---\nstatus: ACTIVE\njules_session_id: "session-createtime"\nupdated_at: "2023-01-01"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-createtime.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    const pastDate = new Date(Date.now() - 30 * 60 * 60 * 1000).toISOString();
+    globalFetch.mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ state: 'IN_PROGRESS', createTime: pastDate })
+    } as unknown as Response);
+
+    await main();
+
+    expect(fs.writeFileSync).toHaveBeenCalledWith(
+      '/mock/repo/.foundry/tasks/task-createtime.md',
+      expect.stringContaining('status: FAILED'),
+      'utf-8'
+    );
+  });
+
+  it('should transition a node to FAILED using node frontmatter updated_at when API yields no timestamps', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-frontmatter.md',
+      repoPath: '.foundry/tasks/task-frontmatter.md',
+      frontmatter: {
+        id: 'task-frontmatter',
+        status: 'ACTIVE',
+        jules_session_id: 'session-frontmatter',
+        updated_at: new Date(Date.now() - 48 * 60 * 60 * 1000).toISOString()
+      },
+      rawContent: '---\nstatus: ACTIVE\njules_session_id: "session-frontmatter"\nupdated_at: "2023-01-01"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-frontmatter.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    globalFetch.mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ state: 'IN_PROGRESS' })
+    } as unknown as Response);
+
+    await main();
+
+    expect(fs.writeFileSync).toHaveBeenCalledWith(
+      '/mock/repo/.foundry/tasks/task-frontmatter.md',
+      expect.stringContaining('status: FAILED'),
       'utf-8'
     );
   });
