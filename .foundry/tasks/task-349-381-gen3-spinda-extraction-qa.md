@@ -2,13 +2,13 @@
 id: task-349-381-gen3-spinda-extraction-qa
 type: TASK
 title: 'QA: Gen3 Spinda Extraction'
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-01'
 updated_at: '2026-08-22'
 depends_on:
   - task-349-380-gen3-spinda-extraction-impl
-jules_session_id: null
+jules_session_id: '6449077964267489385'
 pr_number: null
 parent: story-345-349-gen3-spinda-extraction-core
 tags:
