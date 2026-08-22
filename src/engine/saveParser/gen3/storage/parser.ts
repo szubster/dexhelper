@@ -2,6 +2,10 @@ import type { PokemonInstance } from '../../parsers/common';
 import {
   calculateGen3HiddenPower,
   calculateGen3Shiny,
+  GEN3_PC_POKEMON_STRUCT_SIZE,
+  GEN3_POKEMON_OT_ID_OFFSET,
+  PC_BOX_CAPACITY,
+  PC_BOX_POKEMON_LIST_OFFSET,
   parseGen3PCBoxes,
   parseGen3PokemonPVAndIVs,
 } from '../../parsers/gen3';
@@ -22,17 +26,17 @@ export function parseGen3PCBoxesWithStats(pcBufferView: DataView): Record<number
   for (const pokemon of pcDetails) {
     if (pokemon.personalityValue !== undefined && pokemon.slot !== undefined && pokemon.storageLocation) {
       // The offset within the PC buffer for this specific pokemon:
-      // We parse the exact offset using Box and Slot math since PC_BOX_POKEMON_LIST_OFFSET = 4 and GEN3_PC_POKEMON_STRUCT_SIZE = 80
+      // We parse the exact offset using Box and Slot math
       // location is "Box N" where N is 1-indexed.
       const boxIndex = parseInt(pokemon.storageLocation.split(' ')[1] as string, 10) - 1;
-      const pokemonIndex = boxIndex * 30 + pokemon.slot; // 30 is PC_BOX_CAPACITY
-      const offset = 4 + pokemonIndex * 80; // 4 is PC_BOX_POKEMON_LIST_OFFSET, 80 is GEN3_PC_POKEMON_STRUCT_SIZE
+      const pokemonIndex = boxIndex * PC_BOX_CAPACITY + pokemon.slot;
+      const offset = PC_BOX_POKEMON_LIST_OFFSET + pokemonIndex * GEN3_PC_POKEMON_STRUCT_SIZE;
 
       try {
         const ivs = parseGen3PokemonPVAndIVs(pcBufferView, offset);
 
-        // Re-read OT ID to check for shininess, it's at offset + 4 (GEN3_POKEMON_OT_ID_OFFSET)
-        const otId = pcBufferView.getUint32(offset + 4, true);
+        // Re-read OT ID to check for shininess
+        const otId = pcBufferView.getUint32(offset + GEN3_POKEMON_OT_ID_OFFSET, true);
 
         pokemon.dvs = {
           hp: ivs.hp,
