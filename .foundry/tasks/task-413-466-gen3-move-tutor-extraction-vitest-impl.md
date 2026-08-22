@@ -33,5 +33,5 @@ Implement Vitest integration tests for the Gen 3 Move Tutor extraction pipeline.
 4. Test that extraction logic handles parsing failures and corrupted states gracefully (e.g., throwing descriptive errors or returning safe default objects based on parsing architecture).
 
 ## Acceptance Criteria
-- [ ] Vitest tests verify successful parsing for Emerald and FireRed/LeafGreen.
-- [ ] Vitest tests handle parsing failures/corrupted states gracefully.
+- [x] Vitest tests verify successful parsing for Emerald and FireRed/LeafGreen.
+- [x] Vitest tests handle parsing failures/corrupted states gracefully.
