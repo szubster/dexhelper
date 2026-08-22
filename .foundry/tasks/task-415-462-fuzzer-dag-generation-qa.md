@@ -2,14 +2,13 @@
 id: task-415-462-fuzzer-dag-generation-qa
 type: TASK
 title: Fuzzer DAG Generation QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-22'
 updated_at: '2026-08-22'
 depends_on:
   - task-415-461-fuzzer-dag-dependency-generator-impl
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-415-415-fuzzer-dag-generation
 tags:
@@ -22,6 +21,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Fuzzer DAG Generation QA

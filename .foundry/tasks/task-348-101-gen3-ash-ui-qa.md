@@ -5,7 +5,7 @@ title: 'Task: QA E2E Testing for Gen 3 Volcanic Ash UI'
 status: CANCELLED
 owner_persona: qa
 created_at: '2026-07-29'
-updated_at: '2026-08-20'
+updated_at: '2026-08-22'
 depends_on:
   - task-348-100-gen3-ash-ui-impl
 jules_session_id: null
@@ -18,7 +18,7 @@ tags:
   - e2e
 research_references: []
 rejection_count: 3
-rejection_reason: Max rejection count reached
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

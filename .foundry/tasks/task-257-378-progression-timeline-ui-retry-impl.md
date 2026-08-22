@@ -2,13 +2,13 @@
 id: task-257-378-progression-timeline-ui-retry-impl
 type: TASK
 title: Progression Timeline UI Retry
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-01'
 updated_at: '2026-08-22'
 depends_on:
   - research-257-377-investigate-progression-timeline-failure
-jules_session_id: '1910611104758870936'
+jules_session_id: null
 pr_number: null
 parent: story-036-257-concurrent-game-management
 tags:

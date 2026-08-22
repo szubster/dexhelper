@@ -2,10 +2,10 @@
 id: story-406-415-bike-requirement-e2e
 type: STORY
 title: E2E Verification for Bike Requirement Route Mapping
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-14'
+updated_at: '2026-08-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,4 +31,4 @@ Implement end-to-end integration tests using Playwright to ensure that the bike 
 
 ## Acceptance Criteria
 - [x] tech_lead: Break down this Story into Tasks.
-- [ ] task-415-422-bike-requirement-e2e-impl
+- [x] task-415-422-bike-requirement-e2e-impl

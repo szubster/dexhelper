@@ -2,12 +2,12 @@
 id: task-424-440-integrate-gen3-fixtures-impl
 type: TASK
 title: Integrate Gen 3 Save File Fixtures (Impl)
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-19'
-updated_at: '2026-08-20'
+updated_at: '2026-08-22'
 depends_on: []
-jules_session_id: '6245840979410780541'
+jules_session_id: null
 pr_number: null
 parent: story-417-424-integrate-gen3-fixtures
 tags:
@@ -15,7 +15,7 @@ tags:
   - fixtures
   - gen3
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

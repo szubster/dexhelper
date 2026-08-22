@@ -2,10 +2,10 @@
 id: story-130-349-rng-tid-sid-e2e
 type: STORY
 title: RNG TID and SID Display UI E2E Tests
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-01'
-updated_at: '2026-08-01'
+updated_at: '2026-08-22'
 depends_on:
   - story-130-333-rng-tid-sid-integration-retry
 jules_session_id: null
@@ -27,8 +27,8 @@ Write end-to-end tests for the RNG TID and SID Display UI to ensure it is functi
 
 ## Acceptance Criteria
 - [x] Tech Lead: Generate actionable Tasks.
-- [ ] task-349-380-rng-tid-sid-e2e-impl
-- [ ] task-349-381-rng-tid-sid-e2e-qa
+- [x] task-349-380-rng-tid-sid-e2e-impl
+- [x] task-349-381-rng-tid-sid-e2e-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
