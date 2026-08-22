@@ -2,10 +2,10 @@
 id: story-398-433-save-state-read-write-api-e2e
 type: STORY
 title: Save State Read/Write API E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-20'
-updated_at: '2026-08-20'
+updated_at: '2026-08-22'
 depends_on:
   - story-398-432-save-state-read-api
 jules_session_id: null

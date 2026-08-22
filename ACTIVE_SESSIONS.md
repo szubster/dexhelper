@@ -7,7 +7,6 @@
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [research-437-440-hydration-logic-core-bundle](.foundry/research/research-437-440-hydration-logic-core-bundle.md) | RESEARCH | Investigate Hydration Logic for Core Bundle Structure | researcher | [14961088573646025492](https://jules.google.com/session/14961088573646025492) |
-| [story-411-421-active-party-extraction](.foundry/stories/story-411-421-active-party-extraction.md) | STORY | Extract Active Party data and synchronize it with the matchup context. | tech_lead | [7728338109873981556](https://jules.google.com/session/7728338109873981556) |
 | [task-031-048-implement-deadlock-tests](.foundry/tasks/task-031-048-implement-deadlock-tests.md) | TASK | Implement Deadlock Prevention Mechanism Unit Tests | coder | [4640549639143018851](https://jules.google.com/session/4640549639143018851) |
 | [task-096-195-gen3-berry-msgpack-qa](.foundry/tasks/task-096-195-gen3-berry-msgpack-qa.md) | TASK | QA Gen 3 Berry Tracker MsgPack Serialization | qa | [16150822926542573175](https://jules.google.com/session/16150822926542573175) |
 | [task-241-440-daycare-gen3-parsing-impl](.foundry/tasks/task-241-440-daycare-gen3-parsing-impl.md) | TASK | Implement Gen 3 Daycare Data Parsing | coder | [13770895514140074260](https://jules.google.com/session/13770895514140074260) |

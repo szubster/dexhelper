@@ -2,10 +2,10 @@
 id: epic-054-108-box-analyzer-save-parsing
 type: EPIC
 title: Box Analyzer Save Parsing
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-28'
-updated_at: '2026-06-30'
+updated_at: '2026-08-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - save-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
 
@@ -36,9 +36,9 @@ Implement the backend data grouping and aggregation logic to parse PC box data f
 - Existing save file parsing infrastructure for Gen 2 and Gen 3.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 2 PC box parsing and species grouping.
-- [ ] Implement Gen 3 PC box parsing and species grouping.
-- [ ] Verify that Party Pokémon are successfully excluded from the extracted data.
-- [ ] Ensure all required stats (DVs/IVs, Natures, Hidden Power, Shininess) are calculated correctly for each Pokémon.
+- [x] Implement Gen 2 PC box parsing and species grouping.
+- [x] Implement Gen 3 PC box parsing and species grouping.
+- [x] Verify that Party Pokémon are successfully excluded from the extracted data.
+- [x] Ensure all required stats (DVs/IVs, Natures, Hidden Power, Shininess) are calculated correctly for each Pokémon.
 - [x] .foundry/archive/stories/story-108-245-gen2-box-parsing.md
-- [ ] .foundry/stories/story-108-246-gen3-box-parsing.md
+- [x] .foundry/stories/story-108-246-gen3-box-parsing.md

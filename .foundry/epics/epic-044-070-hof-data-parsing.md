@@ -2,7 +2,7 @@
 id: epic-044-070-hof-data-parsing
 type: EPIC
 title: Parse Gen 1 and Gen 2 Hall of Fame Data
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-08-22'
@@ -15,8 +15,8 @@ tags:
   - parsing
   - hall-of-fame
 research_references: []
-rejection_count: 0
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 # Parse Gen 1 and Gen 2 Hall of Fame Data
