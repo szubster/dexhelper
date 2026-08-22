@@ -2,13 +2,13 @@
 id: task-004-002-dv-inheritance-logic-qa
 type: TASK
 title: QA Gen 2 DV Inheritance Logic
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-19'
-updated_at: '2026-08-20'
+updated_at: '2026-08-22'
 depends_on:
   - task-004-001-dv-inheritance-logic-impl
-jules_session_id: null
+jules_session_id: '5662196820848387304'
 pr_number: null
 parent: story-309-004-shiny-odds-computation
 tags:
