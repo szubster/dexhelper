@@ -2,13 +2,13 @@
 id: task-421-461-matchup-context-state-layer-qa
 type: TASK
 title: Verify MatchupContext State Layer
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-21'
 updated_at: '2026-08-22'
 depends_on:
   - task-421-460-matchup-context-state-layer-impl
-jules_session_id: null
+jules_session_id: '11994756529556494106'
 pr_number: null
 parent: story-411-421-active-party-extraction
 tags:
