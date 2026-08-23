@@ -68,4 +68,24 @@ describe('ConflictResolutionModal', () => {
     await page.getByText('Pull Remote').click();
     expect(handlePullRemote).toHaveBeenCalledOnce();
   });
+
+  it('applies ADR 008 aesthetic classes (rounded-none, border-dashed, font-mono)', async () => {
+    await render(
+      <ConflictResolutionModal
+        isOpen={true}
+        localMetadata={localMetadata}
+        remoteMetadata={remoteMetadata}
+        onKeepLocal={vi.fn<() => void>()}
+        onPullRemote={vi.fn<() => void>()}
+      />,
+    );
+
+    const modalContainer = page.getByText('Save File Conflict').element().closest('.tactical-panel');
+    // TacticalPanel uses the tactical-panel utility which includes rounded-none and border-dashed in Tailwind v4
+    expect(modalContainer?.className).toContain('tactical-panel');
+
+    // The text content should be wrapped in font-mono
+    const textContent = page.getByText('A conflict has been detected').element().parentElement;
+    expect(textContent?.className).toContain('font-mono');
+  });
 });

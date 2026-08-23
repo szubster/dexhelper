@@ -2,7 +2,7 @@
 id: research-241-462-gen3-daycare-offsets-investigation
 type: RESEARCH
 title: Investigate Gen 3 Daycare Memory Offsets
-status: READY
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-23'
 updated_at: '2026-08-23'
@@ -40,4 +40,4 @@ According to `pokeemerald` decompilation:
 - Create a new document `.foundry/docs/knowledge_base/dexhelper/gen3_daycare_offsets.md` detailing these findings.
 
 ## Acceptance Criteria
-- [ ] Document Gen 3 Daycare offsets for RS, E, and FRLG in a new knowledge base markdown file `.foundry/docs/knowledge_base/dexhelper/gen3_daycare_offsets.md`.
+- [x] Document Gen 3 Daycare offsets for RS, E, and FRLG in a new knowledge base markdown file `.foundry/docs/knowledge_base/dexhelper/gen3_daycare_offsets.md`.

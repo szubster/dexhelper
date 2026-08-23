@@ -137,6 +137,21 @@ interface AppStore {
    */
   filtersSet: () => Set<FilterType>;
 
+  // Conflict Resolution State
+  /** State for managing R2 sync conflicts */
+  conflictState: {
+    isOpen: boolean;
+    localMetadata: { timestamp: number; gameTime?: string };
+    remoteMetadata: { timestamp: number; gameTime?: string };
+    localBuffer: Uint8Array;
+    remoteBuffer: Uint8Array;
+    saveId: string;
+  } | null;
+  /** Sets the conflict state and opens the modal */
+  setConflictState: (state: AppStore['conflictState']) => void;
+  /** Resolves the active conflict by choosing either local or remote data */
+  resolveConflict: (decision: 'keep_local' | 'pull_remote') => Promise<void>;
+
   // Actions
   /**
    * Rehydrates `saveData` from IndexedDB asynchronously.
@@ -201,6 +216,59 @@ export const useStore = create<AppStore>()(
       setSelectedLocationId: (id) => set({ selectedLocationId: id }),
       setIsSettingsOpen: (v) => set({ isSettingsOpen: v }),
       setIsVersionModalOpen: (v) => set({ isVersionModalOpen: v }),
+
+      // Conflict Resolution
+      conflictState: null,
+      setConflictState: (state) => set({ conflictState: state }),
+      resolveConflict: async (decision) => {
+        const state = get().conflictState;
+        if (!state) return;
+
+        try {
+          if (decision === 'pull_remote') {
+            const data = await parseSaveFile(state.remoteBuffer.buffer, get().manualVersion || undefined);
+            get().setSaveData(data);
+
+            if (data.gameVersion === 'unknown') {
+              get().setIsVersionModalOpen(true);
+            } else {
+              get().setManualVersion(null);
+            }
+
+            await saveDB.putSave('last_save_file', state.remoteBuffer);
+          } else {
+            // Keep local
+            let buffer: Uint8Array;
+            if (state.localBuffer.buffer instanceof ArrayBuffer) {
+              buffer = new Uint8Array(
+                state.localBuffer.buffer.slice(
+                  state.localBuffer.byteOffset,
+                  state.localBuffer.byteOffset + state.localBuffer.byteLength,
+                ),
+              );
+            } else {
+              buffer = new Uint8Array(state.localBuffer);
+            }
+
+            const data = await parseSaveFile(buffer.buffer as ArrayBuffer, get().manualVersion || undefined);
+            get().setSaveData(data);
+
+            if (data.gameVersion === 'unknown') {
+              get().setIsVersionModalOpen(true);
+            } else {
+              get().setManualVersion(null);
+            }
+
+            await r2Client.putSave(state.saveId, buffer as Uint8Array<ArrayBuffer>, state.localMetadata.timestamp);
+            await saveDB.putSave('last_save_file', state.localBuffer);
+          }
+        } catch {
+          console.error('System: failed to resolve conflict');
+          get().setError('Failed to resolve sync conflict.');
+        } finally {
+          set({ conflictState: null });
+        }
+      },
 
       // Derived
       filtersSet: () => new Set(get().filters),

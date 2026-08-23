@@ -1,20 +1,15 @@
 import { describe, it, expect } from 'vitest';
 import fc from 'fast-check';
 import { buildReverseDependencyGraph, getOrphanedNodes } from './dag-utils';
+import { fuzzingUtils } from './fuzzing-utils';
 
-const pathsArbitrary = fc.uniqueArray(fc.stringMatching(/^[a-z0-9-]+$/), { minLength: 1, maxLength: 20 });
-
-const graphArbitrary = pathsArbitrary.chain((paths) => {
-  return fc.array(
-    fc.record({
-      repoPath: fc.constantFrom(...paths),
-      frontmatter: fc.record({
-        // Depends on either another node in the graph, or a dummy external path
-        depends_on: fc.array(fc.constantFrom(...paths, 'external-dep'), { maxLength: 5 })
-      })
-    }),
-    { maxLength: 20 }
-  );
+const graphArbitrary = fuzzingUtils.generateDagNodesArbitrary({ minNodes: 1, maxNodes: 20 }).chain(nodes => {
+  return fuzzingUtils.generateDependenciesArbitrary(nodes, { maxDepth: 5, maxWidth: 5 });
+}).map(nodes => {
+  return nodes.map(node => ({
+    repoPath: node.id,
+    frontmatter: node
+  }));
 });
 
 describe('DAG evaluation fuzzing properties', () => {

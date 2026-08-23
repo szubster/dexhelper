@@ -9,6 +9,7 @@ vi.mock('./utils/r2/client', () => ({
   r2Client: {
     listSaves: vi.fn<() => Promise<{ id: string; lastModified?: number }[]>>(),
     getSave: vi.fn<(id: string) => Promise<{ data: Uint8Array; lastModified?: number } | undefined>>(),
+    putSave: vi.fn<(id: string, data: Uint8Array, lastModified?: number) => Promise<void>>(),
   },
 }));
 
@@ -183,6 +184,59 @@ describe('Zustand Store', () => {
       expect(useStore.getState().saveData).toEqual(mockSaveData);
 
       vi.unstubAllGlobals();
+    });
+
+    it('should resolve conflict by keeping local', async () => {
+      const state = useStore.getState();
+      const mockLocalBuffer = new Uint8Array([1, 2, 3]);
+      state.setConflictState({
+        isOpen: true,
+        localMetadata: { timestamp: 1000 },
+        remoteMetadata: { timestamp: 2000 },
+        localBuffer: mockLocalBuffer,
+        remoteBuffer: new Uint8Array([4, 5, 6]),
+        saveId: 'save-1',
+      });
+
+      const mockSaveData = { trainerName: 'LOCAL_RESOLVED', generation: 1, gameVersion: 'red' };
+      vi.mocked(parseSaveFile).mockReturnValue(mockSaveData as unknown as ReturnType<typeof parseSaveFile>);
+      const putSaveSpy = vi.spyOn(saveDB, 'putSave').mockResolvedValue(undefined);
+      vi.spyOn(r2Client, 'putSave').mockResolvedValue();
+
+      await useStore.getState().resolveConflict('keep_local');
+
+      expect(parseSaveFile).toHaveBeenCalledWith(expect.any(ArrayBuffer), undefined);
+      expect(r2Client.putSave).toHaveBeenCalledWith('save-1', mockLocalBuffer, 1000);
+      expect(putSaveSpy).toHaveBeenCalledWith('last_save_file', mockLocalBuffer);
+      expect(useStore.getState().saveData).toEqual(mockSaveData);
+      expect(useStore.getState().conflictState).toBeNull();
+    });
+
+    it('should resolve conflict by pulling remote', async () => {
+      const state = useStore.getState();
+      const mockRemoteBuffer = new Uint8Array([4, 5, 6]);
+      state.setConflictState({
+        isOpen: true,
+        localMetadata: { timestamp: 1000 },
+        remoteMetadata: { timestamp: 2000 },
+        localBuffer: new Uint8Array([1, 2, 3]),
+        remoteBuffer: mockRemoteBuffer,
+        saveId: 'save-1',
+      });
+
+      const mockSaveData = { trainerName: 'REMOTE_RESOLVED', generation: 1, gameVersion: 'red' };
+      vi.mocked(parseSaveFile).mockReturnValue(mockSaveData as unknown as ReturnType<typeof parseSaveFile>);
+      const putSaveSpy = vi.spyOn(saveDB, 'putSave').mockResolvedValue(undefined);
+      const putSaveMock = vi.spyOn(r2Client, 'putSave').mockResolvedValue();
+      putSaveMock.mockClear();
+
+      await useStore.getState().resolveConflict('pull_remote');
+
+      expect(parseSaveFile).toHaveBeenCalledWith(expect.any(ArrayBuffer), undefined);
+      expect(r2Client.putSave).not.toHaveBeenCalled();
+      expect(putSaveSpy).toHaveBeenCalledWith('last_save_file', mockRemoteBuffer);
+      expect(useStore.getState().saveData).toEqual(mockSaveData);
+      expect(useStore.getState().conflictState).toBeNull();
     });
 
     it('should fallback to local DB if R2 fails', async () => {

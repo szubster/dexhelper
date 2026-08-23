@@ -190,7 +190,11 @@ describe('AppLayout file upload', () => {
       </QueryClientProvider>,
     );
 
-    const file = new File(['mock save content'], 'save.sav', { type: 'application/octet-stream' });
+    // Create a file whose timestamp (Date.now()) is newer than the default mock or undefined lastModified from cloud
+    const file = new File(['mock save content'], 'save.sav', {
+      type: 'application/octet-stream',
+      lastModified: Date.now() + 10000,
+    });
 
     await expect.element(page.getByText('[ UPLOAD.SYS ]')).toBeInTheDocument();
 
@@ -255,7 +259,10 @@ describe('AppLayout file upload', () => {
       </QueryClientProvider>,
     );
 
-    const file = new File(['mock save content'], 'save.sav', { type: 'application/octet-stream' });
+    const file = new File(['mock save content'], 'save.sav', {
+      type: 'application/octet-stream',
+      lastModified: Date.now(),
+    });
 
     await expect.element(page.getByText('[ UPLOAD.SYS ]')).toBeInTheDocument();
 

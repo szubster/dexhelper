@@ -5,7 +5,7 @@ title: Save State Read/Write API (Retry)
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-04'
-updated_at: '2026-08-20'
+updated_at: '2026-08-23'
 depends_on:
   - epic-099-397-indexeddb-schema-design-retry
 jules_session_id: null

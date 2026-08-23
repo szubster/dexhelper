@@ -2,13 +2,13 @@
 id: task-431-461-conflict-resolution-state-impl
 type: TASK
 title: Implement R2 Conflict Resolution State and Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-22'
 updated_at: '2026-08-23'
 depends_on:
   - task-431-460-conflict-resolution-modal-ui-impl
-jules_session_id: '10138916235250406772'
+jules_session_id: null
 pr_number: null
 parent: story-412-431-r2-conflict-resolution-prompt-components
 tags:
@@ -35,7 +35,7 @@ Update `useFileSyncController.ts` and the application store (if necessary) to ma
 - Integrate the `ConflictResolutionModal` into the main application layout or header.
 
 ## Acceptance Criteria
-- [ ] State management is implemented for tracking sync conflicts and modal visibility.
-- [ ] `useFileSyncController` correctly intercepts conflicting sync operations.
-- [ ] User decisions from the modal accurately trigger the correct cloud operation (push or pull).
-- [ ] The modal is integrated into the application view hierarchy.
+- [x] State management is implemented for tracking sync conflicts and modal visibility.
+- [x] `useFileSyncController` correctly intercepts conflicting sync operations.
+- [x] User decisions from the modal accurately trigger the correct cloud operation (push or pull).
+- [x] The modal is integrated into the application view hierarchy.
