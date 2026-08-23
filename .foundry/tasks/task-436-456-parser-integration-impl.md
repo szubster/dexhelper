@@ -2,7 +2,7 @@
 id: task-436-456-parser-integration-impl
 type: TASK
 title: Integrate Mapped Blocks with Gen3 Parsers
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-21'
 updated_at: '2026-08-23'
@@ -16,8 +16,8 @@ tags:
   - memory
   - parsing
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>24h)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
