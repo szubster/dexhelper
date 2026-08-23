@@ -95,7 +95,7 @@ vi.doMock('node:url', async (importOriginal) => {
       type: "STORY",
       title: "Story No E2E",
       status: "COMPLETED",
-      owner_persona: "story_owner",
+      owner_persona: "tech_lead",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       depends_on: [],
@@ -129,7 +129,7 @@ vi.doMock('node:url', async (importOriginal) => {
       type: "STORY",
       title: "Story E2E",
       status: "COMPLETED",
-      owner_persona: "story_owner",
+      owner_persona: "tech_lead",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       depends_on: [],
@@ -1268,7 +1268,7 @@ vi.doMock('node:url', async (importOriginal) => {
       type: "STORY",
       title: "Story 1",
       status: "PENDING",
-      owner_persona: "story_owner",
+      owner_persona: "tech_lead",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       depends_on: [],
@@ -2837,6 +2837,13 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     const output = stderrSpy.mock.calls.map(call => call[0] as string).join('');
     expect(output).toContain("Hierarchical deadlock detected: Parent 'idea-001'");
     expect(output).toContain("has unchecked/incomplete child 'story-001'");
+
+    const ideaContent = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), 'utf-8');
+    const storyContent = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-001.md'), 'utf-8');
+    expect(ideaContent).toContain("status: FAILED");
+    expect(ideaContent).toContain("rejection_reason: Hierarchical deadlock detected");
+    expect(storyContent).toContain("status: FAILED");
+    expect(storyContent).toContain("rejection_reason: Hierarchical deadlock detected");
   });
 
   test('Strict Mode: sets process.exitCode = 1 and logs GitHub Actions warning workflow command when DAG resolution warning occurs', () => {
