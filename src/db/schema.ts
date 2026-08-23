@@ -7,7 +7,7 @@ import type { DBSchema } from 'idb';
 
 export const DB_CONFIG = {
   NAME: 'PokeDB',
-  VERSION: 12,
+  VERSION: 13,
   STORES: {
     POKEMON: 'pokemon',
     ENCOUNTERS: 'encounters',
@@ -15,6 +15,7 @@ export const DB_CONFIG = {
     ITEMS: 'items',
     MOVES: 'moves',
     BERRIES: 'berries',
+    MATCH_CALLS: 'match_calls',
     METADATA: 'metadata',
   },
 } as const;
@@ -286,6 +287,20 @@ export interface HiddenItemData {
   isAcquired?: boolean;
 }
 
+export interface MatchCallTier {
+  tier: number;
+  trainerId: string;
+  partyName: string;
+  evYield: { hp: number; atk: number; def: number; spatk: number; spdef: number; spd: number };
+}
+
+export interface MatchCallMetadata {
+  id: string; // e.g., REMATCH_ROSE
+  name: string;
+  map: string;
+  tiers: MatchCallTier[];
+}
+
 export interface PokeDataExport {
   poke: PokemonMetadata[];
   enc: LocationAreaEncounters[];
@@ -293,6 +308,7 @@ export interface PokeDataExport {
   items: ItemMetadata[];
   moves: MoveMetadata[];
   berries: BerryMetadata[];
+  matchCalls?: MatchCallMetadata[];
   hash: string;
   sourceSha?: string;
 }
@@ -317,6 +333,10 @@ export interface PokeDBSchema extends DBSchema {
   [DB_CONFIG.STORES.BERRIES]: {
     key: number;
     value: BerryMetadata;
+  };
+  [DB_CONFIG.STORES.MATCH_CALLS]: {
+    key: string;
+    value: MatchCallMetadata;
   };
   [DB_CONFIG.STORES.LOCATIONS]: {
     key: number;
