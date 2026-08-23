@@ -2,12 +2,12 @@
 id: task-340-474-gen3-safari-zone-pc-box-impl
 type: TASK
 title: Gen 3 Safari Zone PC Box Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13569777573410216650'
 pr_number: null
 parent: story-324-340-gen3-safari-zone-save-state
 tags:
