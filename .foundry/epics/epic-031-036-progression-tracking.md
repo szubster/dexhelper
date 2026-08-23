@@ -2,7 +2,7 @@
 id: epic-031-036-progression-tracking
 type: EPIC
 title: Progression Tracking & Multiple Saves
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-20'
 updated_at: '2026-08-23'
@@ -13,8 +13,8 @@ parent: prd-055-031-future-progression-trading
 tags:
   - backend
   - progression
-rejection_count: 0
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 # Epic: Progression Tracking & Multiple Saves

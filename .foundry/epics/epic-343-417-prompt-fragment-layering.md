@@ -2,12 +2,12 @@
 id: epic-343-417-prompt-fragment-layering
 type: EPIC
 title: Implement Prompt Fragment Layering System
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-14'
 updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '17551346587247009328'
+jules_session_id: null
 pr_number: null
 parent: prd-137-343-decouple-persona-prompts
 tags:

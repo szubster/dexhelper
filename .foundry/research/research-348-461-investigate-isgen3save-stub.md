@@ -2,12 +2,12 @@
 id: research-348-461-investigate-isgen3save-stub
 type: RESEARCH
 title: 'Research: Investigate isGen3Save Stub Failure'
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-22T10:49:07Z'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '17957715633786075962'
+jules_session_id: null
 pr_number: null
 parent: story-268-348-gen3-ash-integration
 tags:

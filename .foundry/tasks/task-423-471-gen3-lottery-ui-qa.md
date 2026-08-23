@@ -2,10 +2,10 @@
 id: task-423-471-gen3-lottery-ui-qa
 type: TASK
 title: Gen3 Lottery UI QA Verification
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-22'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on:
   - task-423-470-gen3-lottery-ui-component-impl
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-431-470-smart-radar-e2e-rendering-impl
 type: TASK
 title: Smart Radar E2E Map Overlay Rendering Implementation
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on:
   - task-431-469-smart-radar-test-utilities-impl
 jules_session_id: null

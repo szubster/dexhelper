@@ -2,13 +2,13 @@
 id: task-428-438-extract-core-data-qa
 type: TASK
 title: Verify Core Data Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: $(date -I)
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on:
   - task-428-437-update-data-loading-logic
-jules_session_id: '1384619213212102049'
+jules_session_id: null
 pr_number: null
 parent: story-400-428-extract-core-data
 tags:
