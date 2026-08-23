@@ -3,7 +3,7 @@ import { mockDagData } from '../test-utils';
 
 test.describe('DagProvider Data Fetching', () => {
   test('successfully fetches and renders mock DAG data', async ({ page }) => {
-    await page.unrouteAll();
+    await page.unrouteAll({ behavior: 'ignoreErrors' });
     await mockDagData(page);
     await page.goto('dag'); // Try relative to baseURL (will be /dexhelper/dag instead of /dag which resolves to /dag at root)
 
@@ -28,10 +28,10 @@ test.describe('DagProvider Data Fetching', () => {
   test('handles failed data fetch gracefully', async ({ page }) => {
     // We must call unroute if it was routed before, but a new test context shouldn't need it.
     // However, to be safe, we route it explicitly.
-    await page.unrouteAll();
+    await page.unrouteAll({ behavior: 'ignoreErrors' });
 
     // Intercept with 500 error
-    await page.route('**/data/foundry.json', async (route) => {
+    await page.route(/.*\/data\/foundry\.json/, async (route) => {
       await route.fulfill({
         status: 500,
         contentType: 'application/json',
