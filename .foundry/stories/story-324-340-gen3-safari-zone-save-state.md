@@ -2,13 +2,13 @@
 id: story-324-340-gen3-safari-zone-save-state
 type: STORY
 title: Gen 3 Safari Zone Save State Integration
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-22'
-updated_at: '2026-08-20'
+updated_at: '2026-08-23'
 depends_on:
   - story-324-322-safari-zone-static-tables
-jules_session_id: null
+jules_session_id: '12692966219826732183'
 pr_number: null
 parent: epic-113-324-safari-zone-data-integration
 tags:
