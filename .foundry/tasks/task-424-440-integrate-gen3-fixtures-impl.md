@@ -2,12 +2,12 @@
 id: task-424-440-integrate-gen3-fixtures-impl
 type: TASK
 title: Integrate Gen 3 Save File Fixtures (Impl)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-19'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '4445568377333993481'
+jules_session_id: null
 pr_number: null
 parent: story-417-424-integrate-gen3-fixtures
 tags:
@@ -16,7 +16,7 @@ tags:
   - gen3
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>24h)'
 notes: ''
 ---
 

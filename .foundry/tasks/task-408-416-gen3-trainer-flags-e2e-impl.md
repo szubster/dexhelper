@@ -2,13 +2,13 @@
 id: task-408-416-gen3-trainer-flags-e2e-impl
 type: TASK
 title: Implement Gen 3 Trainer Flags E2E Tests
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-10'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on:
   - task-408-415-gen3-trainer-flags-integration-impl
-jules_session_id: '8932393829788103199'
+jules_session_id: null
 pr_number: null
 parent: story-307-408-gen3-trainer-flags-extraction-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - gen3
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>24h)'
 notes: ''
 ---
 

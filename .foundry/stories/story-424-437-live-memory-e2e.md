@@ -2,10 +2,10 @@
 id: story-424-437-live-memory-e2e
 type: STORY
 title: Live Memory Integration and E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-14'
-updated_at: '2026-08-14'
+updated_at: '2026-08-23'
 depends_on:
   - story-424-436-save-block-mapping
 jules_session_id: null

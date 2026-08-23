@@ -2,10 +2,10 @@
 id: story-417-424-integrate-gen3-fixtures
 type: STORY
 title: 'Story: Integrate Gen 3 Save File Fixtures'
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-14'
-updated_at: '2026-08-20'
+updated_at: '2026-08-23'
 depends_on: []
 jules_session_id: null
 pr_number: null
