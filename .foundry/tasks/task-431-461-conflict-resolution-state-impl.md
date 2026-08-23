@@ -35,7 +35,7 @@ Update `useFileSyncController.ts` and the application store (if necessary) to ma
 - Integrate the `ConflictResolutionModal` into the main application layout or header.
 
 ## Acceptance Criteria
-- [ ] State management is implemented for tracking sync conflicts and modal visibility.
-- [ ] `useFileSyncController` correctly intercepts conflicting sync operations.
-- [ ] User decisions from the modal accurately trigger the correct cloud operation (push or pull).
-- [ ] The modal is integrated into the application view hierarchy.
+- [x] State management is implemented for tracking sync conflicts and modal visibility.
+- [x] `useFileSyncController` correctly intercepts conflicting sync operations.
+- [x] User decisions from the modal accurately trigger the correct cloud operation (push or pull).
+- [x] The modal is integrated into the application view hierarchy.
