@@ -36,4 +36,7 @@ This Epic focuses on designing and implementing the foundational system for prom
 ## Acceptance Criteria
 - [ ] Develop the prompt fragment composition engine.
 - [ ] Define the schema for prompt fragment definition files.
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [ ] story-417-443-prompt-fragment-schema
+- [ ] story-417-444-prompt-fragment-composition-engine
+- [ ] story-417-445-prompt-fragment-layering-e2e
