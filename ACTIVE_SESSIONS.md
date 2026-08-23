@@ -13,6 +13,7 @@
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [research-136-329-gen1-checklist-ui-failure](.foundry/research/research-136-329-gen1-checklist-ui-failure.md) | RESEARCH | Investigate Gen 1 Checklist UI Failure | researcher | [3008014524824171175](https://jules.google.com/session/3008014524824171175) |
+| [research-466-467-gen2-roamer-fixtures](.foundry/research/research-466-467-gen2-roamer-fixtures.md) | RESEARCH | Investigate Real-World Gen 2 Roamer Save Fixtures | researcher | [3176136743482522530](https://jules.google.com/session/3176136743482522530) |
 | [story-061-100-mirage-island-cross-reference](.foundry/stories/story-061-100-mirage-island-cross-reference.md) | STORY | Cross-reference Mirage Island Random Value | tech_lead | [13920598563542772420](https://jules.google.com/session/13920598563542772420) |
 | [story-084-126-match-call-msgpack](.foundry/stories/story-084-126-match-call-msgpack.md) | STORY | Story: Gen 3 Match Call MsgPack Integration | tech_lead | [4385553307054441560](https://jules.google.com/session/4385553307054441560) |
 | [story-086-469-dynamic-move-pp-parsing-e2e](.foundry/stories/story-086-469-dynamic-move-pp-parsing-e2e.md) | STORY | Dynamic Generation of Moves PP PokeData E2E Verification | tech_lead | [2816478913270714735](https://jules.google.com/session/2816478913270714735) |
