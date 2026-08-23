@@ -2,13 +2,13 @@
 id: story-411-422-shoal-items-e2e
 type: STORY
 title: E2E Integration Verification for Shoal Items
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-13'
-updated_at: '2026-08-21'
+updated_at: '2026-08-23'
 depends_on:
   - story-411-421-shoal-items-parsing
-jules_session_id: '1809259624386391484'
+jules_session_id: '8043998126392018448'
 pr_number: null
 parent: epic-340-411-shoal-cave-data-extraction
 tags:
