@@ -57,6 +57,7 @@ describe('checkSessionLiveliness', () => {
         'QUEUED',
         'PLANNING',
         'AWAITING_PLAN_APPROVAL',
+        'AWAITING_USER_FEEDBACK',
         'IN_PROGRESS',
         'PAUSED'
     ];
@@ -77,8 +78,7 @@ describe('checkSessionLiveliness', () => {
 
     const terminatedStates = [
         'FAILED',
-        'COMPLETED',
-        'AWAITING_USER_FEEDBACK'
+        'COMPLETED'
     ];
 
     for (const state of terminatedStates) {

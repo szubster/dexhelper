@@ -28,6 +28,7 @@ export async function checkSessionLiveliness(sessionId: string, julesKey: string
       'QUEUED',
       'PLANNING',
       'AWAITING_PLAN_APPROVAL',
+      'AWAITING_USER_FEEDBACK',
       'IN_PROGRESS',
       'PAUSED'
     ];

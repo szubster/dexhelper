@@ -28,6 +28,7 @@ const ACTIVE_SESSION_STATES = [
   'QUEUED',
   'PLANNING',
   'AWAITING_PLAN_APPROVAL',
+  'AWAITING_USER_FEEDBACK',
   'IN_PROGRESS',
   'PAUSED'
 ];
@@ -367,9 +368,10 @@ export async function findPRForSession(
   githubToken: string,
   julesKey: string,
   sessionId: string
-): Promise<{ pr: any; sessionStatus: string | null; updateTime?: string }> {
+): Promise<{ pr: any; sessionStatus: string | null; updateTime?: string; createTime?: string }> {
   let sessionStatus: string | null = null;
   let updateTime: string | undefined;
+  let createTime: string | undefined;
 
   let prData: any = null;
 
@@ -382,6 +384,7 @@ export async function findPRForSession(
     if (res.ok) {
       const data = await res.json() as any;
       sessionStatus = data.state || null;
+      createTime = data.createTime;
       updateTime = data.updateTime || data.createTime;
       
       let prUrl;
@@ -410,7 +413,7 @@ export async function findPRForSession(
     process.stderr.write(`[heartbeat] Jules API error: ${String(err)}\n`);
   }
 
-  if (prData) return { pr: prData, sessionStatus, updateTime };
+  if (prData) return { pr: prData, sessionStatus, updateTime, createTime };
 
   // 2. Fallback to GitHub Search API (Index-dependent)
   try {
@@ -436,7 +439,7 @@ export async function findPRForSession(
     }
   } catch { /* ignore list error */ }
 
-  return { pr: null, sessionStatus, updateTime };
+  return { pr: null, sessionStatus, updateTime, createTime };
 }
 
 export async function main() {
@@ -477,7 +480,8 @@ export async function main() {
 
     let pr: any = null;
     let sessionStatus: string | null = null;
-  let updateTime: string | undefined;
+    let updateTime: string | undefined;
+    let createTime: string | undefined;
 
     if (isHuman) {
       const prNumber = node.frontmatter.pr_number;
@@ -499,6 +503,7 @@ export async function main() {
       pr = res.pr;
       sessionStatus = res.sessionStatus;
       updateTime = res.updateTime;
+      createTime = res.createTime;
     }
 
     if (pr) {
@@ -535,16 +540,16 @@ export async function main() {
         info(`Session ${sessionId} NOT_FOUND without PR. Failing.`);
         await transitionNodeToFailed(node, repoRoot, `Session terminated with state: NOT_FOUND`);
       } else {
-        const lastUpdateStr = updateTime || node.frontmatter.updated_at || node.frontmatter.created_at;
-        if (lastUpdateStr) {
-          const lastUpdate = new Date(lastUpdateStr).getTime();
-          if (!isNaN(lastUpdate)) {
+        const creationTimeStr = createTime || node.frontmatter.created_at || updateTime || node.frontmatter.updated_at;
+        if (creationTimeStr) {
+          const creationTime = new Date(creationTimeStr).getTime();
+          if (!isNaN(creationTime)) {
             const now = Date.now();
-            const hoursElapsed = (now - lastUpdate) / (1000 * 60 * 60);
+            const hoursElapsed = (now - creationTime) / (1000 * 60 * 60);
 
-            if (hoursElapsed > 24) {
-              info(`Session ${sessionId} (or node ${node.repoPath}) older than 24h (${hoursElapsed.toFixed(1)}h). Transitioning to FAILED.`);
-              await transitionNodeToFailed(node, repoRoot, 'Session timed out (>24h)');
+            if (hoursElapsed > 168) { // 7 days (7 * 24 = 168 hours)
+              info(`Session ${sessionId} (or node ${node.repoPath}) created >7 days ago (${hoursElapsed.toFixed(1)}h) without PR. Transitioning to FAILED.`);
+              await transitionNodeToFailed(node, repoRoot, 'Session timed out (>7 days without PR)');
             }
           }
         }
