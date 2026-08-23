@@ -2,12 +2,12 @@
 id: story-094-152-gen3-friendship-extraction
 type: STORY
 title: Gen 3 Friendship Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-19'
-updated_at: '2026-08-21'
+updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7359202857173996162'
 pr_number: null
 parent: epic-051-094-friendship-data-extraction
 tags:
