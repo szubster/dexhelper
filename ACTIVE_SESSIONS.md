@@ -8,6 +8,7 @@
 | [epic-049-086-dynamic-move-pp-parsing](.foundry/epics/epic-049-086-dynamic-move-pp-parsing.md) | EPIC | Dynamic Generation of Moves PP PokeData | story_owner | [8584362831011482686](https://jules.google.com/session/8584362831011482686) |
 | [epic-054-108-box-analyzer-save-parsing](.foundry/epics/epic-054-108-box-analyzer-save-parsing.md) | EPIC | Box Analyzer Save Parsing | story_owner | [24108712817236519](https://jules.google.com/session/24108712817236519) |
 | [epic-103-133-living-dex-data-engine](.foundry/epics/epic-103-133-living-dex-data-engine.md) | EPIC | Living Dex Data Engine & Mapping | story_owner | [5255979265278452845](https://jules.google.com/session/5255979265278452845) |
+| [epic-112-311-gen2-decoration-savings-extraction](.foundry/epics/epic-112-311-gen2-decoration-savings-extraction.md) | EPIC | Gen 2 Decoration & Savings Save Data Extraction | story_owner | [14975556046693340691](https://jules.google.com/session/14975556046693340691) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
