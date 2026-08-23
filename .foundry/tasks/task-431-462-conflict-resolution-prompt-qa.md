@@ -2,14 +2,13 @@
 id: task-431-462-conflict-resolution-prompt-qa
 type: TASK
 title: QA R2 Conflict Resolution Prompt
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-22'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on:
   - task-431-461-conflict-resolution-state-impl
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-412-431-r2-conflict-resolution-prompt-components
 tags:
@@ -19,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Task: QA R2 Conflict Resolution Prompt

@@ -2,7 +2,7 @@
 id: story-307-408-gen3-trainer-flags-extraction-e2e
 type: STORY
 title: Gen 3 Trainer Flags Extraction E2E
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-08'
 updated_at: '2026-08-23'
