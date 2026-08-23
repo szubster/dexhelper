@@ -30,7 +30,7 @@ A new UI prompt and state logic has been implemented for handling Cloudflare R2 
 Verify the R2 Conflict Resolution Prompt functionality and design.
 
 ## Acceptance Criteria
-- [ ] Verify the `ConflictResolutionModal` follows the Tactical UI Aesthetic.
-- [ ] Verify the modal correctly displays when a conflict occurs.
-- [ ] Verify "Keep Local" correctly pushes the local save to the remote and closes the modal.
-- [ ] Verify "Pull Remote" correctly pulls the remote save, updates local state, and closes the modal.
+- [x] Verify the `ConflictResolutionModal` follows the Tactical UI Aesthetic.
+- [x] Verify the modal correctly displays when a conflict occurs.
+- [x] Verify "Keep Local" correctly pushes the local save to the remote and closes the modal.
+- [x] Verify "Pull Remote" correctly pulls the remote save, updates local state, and closes the modal.
