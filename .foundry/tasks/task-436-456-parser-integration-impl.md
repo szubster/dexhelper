@@ -30,5 +30,5 @@ Integrate the live memory mappings with existing standard Gen3 save block parser
 Develop the logic to route the continuous memory blocks and extracted state variables into the existing standard save block parsing architecture. As mandated by `.foundry/archive/docs/adrs/010-gen3-data-parsing.md`, you must maintain legacy interface compatibility (e.g. Gen 1 and Gen 2). Do not alter or break backward compatibility of the legacy parsing interfaces while adding Gen3 routing. Ensure unit tests are comprehensive and pass.
 
 ## Acceptance Criteria
-- [ ] Routed mapped blocks through existing Gen3 parsers
-- [ ] Maintained legacy interface compatibility
+- [x] Routed mapped blocks through existing Gen3 parsers
+- [x] Maintained legacy interface compatibility
