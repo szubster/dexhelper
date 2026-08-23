@@ -20,3 +20,14 @@ Added unit tests for the Gen 3 Battle Frontier save parser (`src/engine/savePars
 - Testing React Hooks in this project with browser mode (`pnpm test:ct` or browser option in vitest) works beautifully with `vitest-browser-react` and `renderHook`, but requires awaiting state stability (`vi.waitFor`) as it triggers a `QueryClient` update asynchronously. `result.current` is accessed on the object directly if wrapping as a custom dummy test component instead of just calling the bare hook, or directly accessing variables on state change. Wait, with `vitest-browser-react`, `renderHook` does not provide `.result.current`, so an internal wrapper component using the hook and logging it out to a local pointer (`hookResult = useAssistant(...)`) works reliably.
 
 **Result:** Improved `src/hooks/useAssistant.ts` test coverage from 0% to 96%.
+
+# 2024-05-15 Sentinel Session
+
+## Execution
+- Analyzed codebase for test coverage gaps prioritizing `src/engine`.
+- Discovered `src/engine/saveParser/gen3/narrative/parser.ts` had low branch (~52%) and statement (~65%) coverage.
+- Wrote tests in `src/engine/saveParser/gen3/narrative/parser.test.ts` filling the gaps specifically around badge accumulation leading to "upcoming bosses" for all variants of Gen 3 (FRLG, RSE) and the unknown variants.
+
+## Learnings
+- **Vitest Mocking Typing:** When mocking functions with Vitest, always provide explicit type parameters to `vi.fn()` (e.g., `vi.fn<() => void>()`) to satisfy the strict Biome type-checker and avoid `any` usage.
+- **IndexedDB Sync:** In Playwright E2E tests, always call `await waitForSync(page)` after navigation to ensure IndexedDB synchronization completes.

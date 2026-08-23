@@ -109,3 +109,18 @@ The tests failed because `isGen3Save` in `src/engine/saveParser/utils/detection.
 # Session 18001398838651776536
 - Discovered that using `ctx.waitUntil()` is a critical architectural constraint when integrating Google Drive Webhooks with Cloudflare Workers due to strict CPU limits.
 - Established that webhooks are vastly superior to polling for the "live tracker" use case because Cloudflare's 1-minute Cron limit and Drive API quotas make polling impractical.
+
+# Research Journal Entry: Gen 3 Trainer Data Structures
+
+Investigated the `Trainer` and `TrainerMon` (party) struct sizes and layouts in Gen 3 games (Ruby/Sapphire/Emerald/FireRed/LeafGreen) by analyzing the decompiled `pokeemerald` repository.
+
+**Key Learnings & Architectural Constraints:**
+- The `Trainer` struct has a size of 40 bytes (`0x28`), containing a bitfield `partyFlags` at offset `0x00` that dictates the size and structure of the subsequent `TrainerMon` items in the `party` array (offset `0x24`).
+- `aiFlags` is a 32-bit field at offset `0x1C`. Each bit corresponds to an AI script to run.
+- There are four variants of `TrainerMon` (Pokémon in an opponent's party), controlled by `partyFlags`:
+  - `0x00`: Default Moves, No Items (6 bytes).
+  - `0x01`: Custom Moves, No Items (14 bytes).
+  - `0x02`: Default Moves, With Items (8 bytes).
+  - `0x03`: Custom Moves, With Items (16 bytes).
+
+These structures are fixed in ROM and mapped by the trainer IDs, so parsing upcoming opponent teams requires reading the `Trainer` struct based on an ID, evaluating the `partyFlags`, and iterating the pointer over the appropriate `TrainerMon` variant.

@@ -23,3 +23,21 @@ During this session, I replaced `Math.random()` with `globalThis.crypto.getRando
 I also learned that `window.crypto.getRandomValues()` should be used when purely client-side rendering, but if the component is used in Server-Side Rendering (SSR) environments, `globalThis.crypto.getRandomValues` is a safer cross-environment alternative as `window` might be undefined on the server.
 I fixed the CodeQL warning by using a bitwise AND mask instead of the modulo operator.
 I also fixed the typescript error by using `(randomValues[i] || 0)` instead of `randomValues[i]!`.
+
+
+# Shield Journal Entry: Resolving CWE-209 Raw Error Logging
+
+## Context
+During a routine security scan, we observed that `console.error` was logging raw error objects, which could potentially expose sensitive stack traces, paths, or application internals to an attacker who gains access to the client logs (CWE-209 - Generation of Error Message Containing Sensitive Information).
+
+## Discovery
+The vulnerability was identified in `src/engine/storage/historyDb.ts` within the `writeSaveState` function. The code read:
+`console.error('Failed to write save state:', error);`
+
+## Solution
+Instead of logging the entire raw error object, we updated the code to extract only the error message if the caught error is an instance of `Error`, falling back to a generic message otherwise. The patched code reads:
+`console.error('Failed to write save state', error instanceof Error ? error.message : 'Unknown error');`
+
+## Key Learnings
+1. **Always sanitize errors in logs:** Prevent the leakage of raw error objects since they may leak internal file paths, module structures, or environment variables.
+2. **Handle non-Error exceptions:** When catching errors in TypeScript/JavaScript, the error might not always be an instance of the `Error` object. Therefore, a generic fallback like `'Unknown error'` ensures the logging system behaves predictably.

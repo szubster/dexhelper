@@ -61,3 +61,16 @@
 **Outcome:** Merged
 **Why:** The `changelogger.md` schedule was completely missing the standard "Journal" section and its associated directives. Because of this omission, the Changelogger agent lacked strict instructions on where to save its private journal (`.foundry/journals/changelogger/`) and an explicit requirement to adhere to the core journaling policies defined in `.foundry/docs/knowledge_base/agents/core_policies.md`. The journal section is standard across all other agent prompts and is necessary for long term learning and debugging.
 **Pattern:** Ensure all agent prompts contain the required "Journal" section specifying the correct journal location and mandating adherence to the `core_policies.md` rules to maintain consistency across the agent roster.
+
+
+## 2026-08-21 - [Accepted] - Prompt Consolidation: Remove Redundant Handling Rejections Section
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The rules for triggering transient rejections are already centralized in `core_policies.md`, which is automatically appended to all agent prompts by the orchestrator. Explicitly reiterating that QA should follow the "Triggering Transient Rejections" protocol in `qa.md` is redundant and wastes context window tokens.
+**Pattern:** Remove explicitly referenced sections to `core_policies.md` from agent prompts if the orchestrator automatically appends `core_policies.md` to them.
+
+## 2026-08-22 - [Accepted] - Prompt improvement - Clean up redundant context initialization in Agile Coach schedule
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The rules for mandatory context initialization (reading `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/archive/docs/adrs/`) were consolidated into `core_policies.md` on 2026-08-01. The orchestrator automatically appends `.foundry/docs/knowledge_base/agents/core_policies.md` to every agent prompt via the `compiled_prompt` field. However, `.github/agents/agile_coach.md` still contained redundant `Core Directives`, `Workflow` steps, and `Core Policies` sections explicitly instructing the persona to review this documentation manually. This wastes context window space and creates inconsistency.
+**Pattern:** Regularly scrub agent schedules to remove directives that are already enforced globally in `.foundry/docs/knowledge_base/agents/core_policies.md`.
