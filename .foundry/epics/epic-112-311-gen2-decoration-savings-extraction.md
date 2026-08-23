@@ -33,3 +33,4 @@ This Epic covers the extraction of data related to unlocked room decorations and
 ## Acceptance Criteria
 - [x] Break down into Stories
 - [x] story-311-322-gen2-room-decoration-parsing
+- [ ] story-311-443-gen2-decoration-savings-e2e
