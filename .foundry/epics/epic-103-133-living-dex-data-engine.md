@@ -31,6 +31,7 @@ This epic covers the backend/data layer requirements of the Living Dex Tracker P
 - [x] story-133-272-living-dex-ghost-tracker
 - [x] story-133-273-living-dex-pc-mapping
 - [x] story-133-274-living-dex-evolution-material
+- [ ] story-133-443-living-dex-data-engine-e2e
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
