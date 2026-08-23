@@ -2,12 +2,12 @@
 id: story-084-126-match-call-msgpack
 type: STORY
 title: 'Story: Gen 3 Match Call MsgPack Integration'
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-13'
-updated_at: '2026-08-20'
+updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4385553307054441560'
 pr_number: null
 parent: epic-048-084-gen3-match-call-static-data
 tags:
