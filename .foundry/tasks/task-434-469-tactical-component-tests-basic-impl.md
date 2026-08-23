@@ -2,12 +2,12 @@
 id: task-434-469-tactical-component-tests-basic-impl
 type: TASK
 title: Implement Component Tests for Basic Tactical Components
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4289257225343884642'
 pr_number: null
 parent: story-071-434-migrate-tactical-components-e2e
 tags:
