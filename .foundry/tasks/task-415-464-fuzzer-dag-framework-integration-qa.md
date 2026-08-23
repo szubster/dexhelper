@@ -2,13 +2,13 @@
 id: task-415-464-fuzzer-dag-framework-integration-qa
 type: TASK
 title: Fuzzer DAG Framework Integration QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-22'
 updated_at: '2026-08-23'
 depends_on:
   - task-415-463-fuzzer-dag-framework-integration-impl
-jules_session_id: null
+jules_session_id: '17804424079054421485'
 pr_number: null
 parent: story-415-415-fuzzer-dag-generation
 tags:
