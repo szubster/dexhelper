@@ -206,3 +206,10 @@
   - `tools/foundry`: Foundry system orchestrator, DAG engine, heartbeat, and schema tools.
 - Emphasized technical guardrails (preventing frontend UI code in core packages, isolating data pipeline tools from runtime bundles, and insulating backend functions from browser dependencies).
 - Outlined explicit instructions for pnpm capabilities (`pnpm --filter`, catalogs, `workspace:*`) and Cloudflare Pages build configuration adjustments.
+- **Active Session/Timestamp:** 2026-08-20
+- **Domain:** Main Project (DexHelper)
+- **Proposed Idea:** Game Corner Casino Optimizer and Tracker (IDEA-430)
+- **Rationale & Concept:**
+  Across Generation 1 (Celadon City), Generation 2 (Goldenrod and Celadon), and Generation 3 (Mauville City), the Game Corner (Casino) is a central hub for acquiring rare, exclusive Pokémon (like Porygon or Dratini) and extremely powerful, vital TMs. These prizes require thousands of coins. Players often struggle because they don't know exactly how many coins they need, which slots yield the best payouts, or how many hidden coins remain on the casino floor. In Gen 3, the Game Corner also has hidden mechanics (e.g., "hot" slots). The "Game Corner Optimizer" dashboard will parse the player's Coin Case balance, provide a checklist of prizes, calculate exact coin deficits, and display a radar for hidden coins dropped by NPCs.
+- **Strategic Balance:**
+  In the preceding session, IDEA-418 was proposed for Foundry System/Architecture (Replace @xyflow/react with a lightweight directory tree visualization). To strictly maintain the 50/50 strategic balance between product features and system improvements, this session pivots back to proposing a direct user-facing feature for DexHelper (Game Corner Optimizer).
