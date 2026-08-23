@@ -2,13 +2,13 @@
 id: story-114-415-egg-move-inventory-cross-reference-e2e
 type: STORY
 title: Egg Move Inventory Cross-Reference E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-11'
-updated_at: '2026-08-21'
+updated_at: '2026-08-23'
 depends_on:
   - story-114-414-egg-move-inventory-missing-links
-jules_session_id: null
+jules_session_id: '9882062774829953412'
 pr_number: null
 parent: epic-055-114-egg-move-inventory-cross-reference
 tags:
