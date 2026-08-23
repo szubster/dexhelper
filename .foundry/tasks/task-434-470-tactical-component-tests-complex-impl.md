@@ -32,6 +32,6 @@ Write comprehensive component tests using `vitest-browser-react` for complex/con
 4. Assert that the specific tactical utility classes (from ADR 024 / ADR 008, specifically sharp edges and correct panel styling) are applied correctly.
 
 ## Acceptance Criteria
-- [ ] Component test suite covers `TacticalCard`, `TacticalPanel`, `TacticalSegmentedControl`, and `TacticalMultiSelectControl`.
-- [ ] Tests verify interactivity, nested rendering, and presence of tactical utility classes.
-- [ ] `pnpm test` passes without regressions.
+- [x] Component test suite covers `TacticalCard`, `TacticalPanel`, `TacticalSegmentedControl`, and `TacticalMultiSelectControl`.
+- [x] Tests verify interactivity, nested rendering, and presence of tactical utility classes.
+- [x] `pnpm test` passes without regressions.
