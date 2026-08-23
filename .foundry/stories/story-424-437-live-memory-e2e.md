@@ -2,13 +2,13 @@
 id: story-424-437-live-memory-e2e
 type: STORY
 title: Live Memory Integration and E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-14'
 updated_at: '2026-08-23'
 depends_on:
   - story-424-436-save-block-mapping
-jules_session_id: null
+jules_session_id: '16977110610231301634'
 pr_number: null
 parent: epic-343-424-live-memory-reading
 tags:
