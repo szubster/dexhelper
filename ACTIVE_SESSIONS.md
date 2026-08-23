@@ -12,6 +12,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [research-136-329-gen1-checklist-ui-failure](.foundry/research/research-136-329-gen1-checklist-ui-failure.md) | RESEARCH | Investigate Gen 1 Checklist UI Failure | researcher | [3008014524824171175](https://jules.google.com/session/3008014524824171175) |
 | [research-348-461-investigate-isgen3save-stub](.foundry/research/research-348-461-investigate-isgen3save-stub.md) | RESEARCH | Research: Investigate isGen3Save Stub Failure | researcher | [17957715633786075962](https://jules.google.com/session/17957715633786075962) |
 | [story-048-431-smart-radar-integration-e2e](.foundry/stories/story-048-431-smart-radar-integration-e2e.md) | STORY | Smart Radar Data Unification Integration and E2E | tech_lead | [6040634617349778825](https://jules.google.com/session/6040634617349778825) |
 | [story-061-100-mirage-island-cross-reference](.foundry/stories/story-061-100-mirage-island-cross-reference.md) | STORY | Cross-reference Mirage Island Random Value | tech_lead | [13920598563542772420](https://jules.google.com/session/13920598563542772420) |
