@@ -36,6 +36,6 @@ Verify the integration of the randomized DAG generator into the orchestrator fuz
 4. Confirm no hardcoded tests were improperly broken or removed without adequate dynamic replacement.
 
 ## Acceptance Criteria
-- [ ] Integration successfully provides randomized DAGs to fuzz tests.
-- [ ] Fuzz tests execute properly without generation-related failures.
-- [ ] Orchestrator is successfully stressed by the new randomized DAGs.
+- [x] Integration successfully provides randomized DAGs to fuzz tests.
+- [x] Fuzz tests execute properly without generation-related failures.
+- [x] Orchestrator is successfully stressed by the new randomized DAGs.
