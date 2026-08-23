@@ -22,7 +22,7 @@ describe('SaveHistoryDB', () => {
     it('should successfully write save data and metadata', async () => {
       const id = 'test-id';
       const saveData = new Uint8Array([1, 2, 3]);
-      const metadata = { name: 'Test Save', timestamp: 12345 };
+      const metadata = { playthroughId: 'pt-test', timestamp: 12345, name: 'Test Save' };
 
       await writeSaveState(id, saveData, metadata);
 
@@ -45,7 +45,7 @@ describe('SaveHistoryDB', () => {
       const saveData = new Uint8Array([1, 2, 3]);
 
       // Functions are not clonable by IndexedDB
-      const invalidMetadata = { badField: () => {} };
+      const invalidMetadata = { playthroughId: 'pt-error', timestamp: 100, badField: () => {} };
 
       await expect(writeSaveState(id, saveData, invalidMetadata)).rejects.toThrow('could not be cloned');
     });
@@ -86,10 +86,12 @@ describe('SaveHistoryDB', () => {
     });
 
     it('should return null if the playthroughId or timestamp is missing in metadata', async () => {
+      // @ts-expect-error Testing missing playthroughId
       await writeSaveState('save-bad-metadata', new Uint8Array([1]), { timestamp: 100 });
       let result = await getPreviousSave('save-bad-metadata');
       expect(result).toBeNull();
 
+      // @ts-expect-error Testing missing timestamp
       await writeSaveState('save-bad-metadata-2', new Uint8Array([1]), { playthroughId: 'pt-5' });
       result = await getPreviousSave('save-bad-metadata-2');
       expect(result).toBeNull();
