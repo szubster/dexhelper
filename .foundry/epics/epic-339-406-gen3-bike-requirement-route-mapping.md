@@ -2,10 +2,10 @@
 id: epic-339-406-gen3-bike-requirement-route-mapping
 type: EPIC
 title: Route Pre-computation & Mapping
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-08'
-updated_at: '2026-08-12'
+updated_at: '2026-08-23'
 depends_on: []
 jules_session_id: null
 pr_number: null

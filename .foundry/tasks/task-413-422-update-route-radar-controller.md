@@ -2,7 +2,7 @@
 id: task-413-422-update-route-radar-controller
 type: TASK
 title: Update RouteRadarHeatmap to Support Bike Requirements
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-14'
 updated_at: '2026-08-23'
@@ -14,8 +14,8 @@ tags:
   - gen3
   - map
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>24h)'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

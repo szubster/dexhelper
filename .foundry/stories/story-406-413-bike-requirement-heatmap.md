@@ -2,12 +2,12 @@
 id: story-406-413-bike-requirement-heatmap
 type: STORY
 title: Expose Bike Requirements Through Heatmap Data Structure
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-08-10'
 updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '8469476004475753381'
+jules_session_id: null
 pr_number: null
 parent: epic-339-406-gen3-bike-requirement-route-mapping
 tags:
@@ -15,7 +15,7 @@ tags:
   - map
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 ---
 
