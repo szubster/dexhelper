@@ -523,6 +523,44 @@ describe('PokeDB', () => {
       expect(await pokeDB.getBerry(NaN)).toBeUndefined();
     });
 
+    it('getAllMatchCalls returns all match calls', async () => {
+      const mockData = {
+        berries: [],
+        moves: [],
+
+        items: [],
+        matchCalls: [
+          {
+            id: 'REMATCH_ROSE',
+            name: 'ROSE',
+            map: 'MAP_ROUTE118',
+            tiers: []
+          },
+          {
+            id: 'REMATCH_ANDRES',
+            name: 'ANDRES',
+            map: 'MAP_ROUTE105',
+            tiers: []
+          },
+        ],
+        hash: 'test-hash-mc',
+        poke: [],
+        enc: [],
+        loc: [],
+      };
+
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        arrayBuffer: async () => pack(mockData),
+      } as unknown as Response);
+      await pokeDB.sync();
+
+      const all = await pokeDB.getAllMatchCalls();
+      expect(all).toHaveLength(2);
+      expect(all[0]?.name).toBe('ANDRES');
+      expect(all[1]?.name).toBe('ROSE');
+    });
+
     it('getAllBerries returns all berries', async () => {
       const mockData = {
         items: [],
