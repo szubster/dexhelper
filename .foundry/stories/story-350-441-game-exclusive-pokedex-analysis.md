@@ -1,0 +1,31 @@
+---
+id: story-350-441-game-exclusive-pokedex-analysis
+type: STORY
+title: Game Exclusive Pokedex Analysis
+status: READY
+owner_persona: tech_lead
+created_at: '2026-08-20'
+updated_at: '2026-08-20'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: epic-336-350-cross-save-synergy-analysis
+tags:
+  - backend
+  - assistant
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Story: Game Exclusive Pokedex Analysis
+
+## Context
+As part of the Cross-Save Synergy Analysis Engine, we need to analyze game-exclusives and Pokédex completion progress in each save file.
+
+## Requirements
+- Map out game exclusives across the loaded save files.
+- Analyze Pokédex progress to highlight high-value trades.
+
+## Acceptance Criteria
+- [ ] Tech Lead: Break down into implementation tasks.
