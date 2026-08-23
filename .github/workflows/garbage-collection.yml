@@ -1,9 +1,12 @@
 name: Foundry Zombie Garbage Collection
 
 on:
-  schedule:
-    - cron: '0 */6 * * *'
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Run in dry-run mode without modifying files'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -33,7 +36,7 @@ jobs:
 
       - name: Run Garbage Collector
         working-directory: .github/scripts
-        run: pnpm run gc
+        run: pnpm run gc ${{ inputs.dry_run == true && '--dry-run' || '' }}
         env:
           JULES_API_KEY: ${{ secrets.JULES_API_KEY }}
 

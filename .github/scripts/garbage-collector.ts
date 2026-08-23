@@ -23,11 +23,14 @@ export async function main() {
     process.exit(0);
   }
 
+  const dryRun = process.argv.includes('--dry-run');
+  const dryTag = dryRun ? '[DRY-RUN] ' : '';
+
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
   const repoRoot = path.resolve(__dirname, '..', '..');
 
   // Sweep for active nodes
-  const activeNodePaths = sweepActiveNodes(repoRoot);
+  const activeNodePaths = sweepActiveNodes(repoRoot, dryRun);
 
   for (const relativePath of activeNodePaths) {
     const fullPath = path.join(repoRoot, relativePath);
@@ -44,8 +47,8 @@ export async function main() {
       const sessionId = data.jules_session_id;
 
       if (!sessionId) {
-        console.info(`[GC] Remediating node ${relativePath}: Missing jules_session_id`);
-        remediateZombieNode(repoRoot, relativePath, 'Zombie node detected: Missing jules_session_id in ACTIVE state');
+        console.info(`[GC] ${dryTag}Remediating node ${relativePath}: Missing jules_session_id`);
+        remediateZombieNode(repoRoot, relativePath, 'Zombie node detected: Missing jules_session_id in ACTIVE state', dryRun);
         continue;
       }
 
@@ -53,8 +56,8 @@ export async function main() {
       const liveliness = await checkSessionLiveliness(sessionId, julesKey);
 
       if (liveliness === 'TERMINATED') {
-        console.info(`[GC] Remediating node ${relativePath}: Session ${sessionId} is TERMINATED`);
-        remediateZombieNode(repoRoot, relativePath, `Zombie node detected: Session ${sessionId} is TERMINATED`);
+        console.info(`[GC] ${dryTag}Remediating node ${relativePath}: Session ${sessionId} is TERMINATED`);
+        remediateZombieNode(repoRoot, relativePath, `Zombie node detected: Session ${sessionId} is TERMINATED`, dryRun);
       }
     } catch (err) {
       console.error(`[GC] Error processing node ${relativePath}:`, err);

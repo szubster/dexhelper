@@ -75,8 +75,32 @@ owner_persona: coder
     expect(remediateZombieModule.remediateZombieNode).toHaveBeenCalledWith(
       expect.any(String),
       tmpNodePath,
-      'Zombie node detected: Missing jules_session_id in ACTIVE state'
+      'Zombie node detected: Missing jules_session_id in ACTIVE state',
+      false
     );
+  });
+
+  it('passes dryRun=true to remediateZombieNode when --dry-run flag is present', async () => {
+    process.argv.push('--dry-run');
+    const tmpNodePath = createTestNode(`---
+id: task-no-session-dry
+status: ACTIVE
+owner_persona: coder
+---`);
+
+    vi.spyOn(sweepActiveNodesModule, 'sweepActiveNodes').mockReturnValue([tmpNodePath]);
+
+    await main();
+
+    expect(remediateZombieModule.remediateZombieNode).toHaveBeenCalledWith(
+      expect.any(String),
+      tmpNodePath,
+      'Zombie node detected: Missing jules_session_id in ACTIVE state',
+      true
+    );
+    expect(console.info).toHaveBeenCalledWith(`[GC] [DRY-RUN] Remediating node ${tmpNodePath}: Missing jules_session_id`);
+
+    process.argv.pop();
   });
 
   it('skips nodes with human persona', async () => {
@@ -111,7 +135,8 @@ jules_session_id: sess-terminated
     expect(remediateZombieModule.remediateZombieNode).toHaveBeenCalledWith(
       expect.any(String),
       tmpNodePath,
-      'Zombie node detected: Session sess-terminated is TERMINATED'
+      'Zombie node detected: Session sess-terminated is TERMINATED',
+      false
     );
     expect(console.info).toHaveBeenCalledWith(`[GC] Remediating node ${tmpNodePath}: Session sess-terminated is TERMINATED`);
   });

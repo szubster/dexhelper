@@ -6,7 +6,7 @@ import { NodeFrontmatterSchema } from './schema.ts';
 const _require = createRequire(import.meta.url);
 const matter = _require('gray-matter') as typeof import('gray-matter');
 
-export function sweepActiveNodes(repoRoot: string): string[] {
+export function sweepActiveNodes(repoRoot: string, dryRun: boolean = false): string[] {
   const foundryDir = path.join(repoRoot, '.foundry');
   if (!fs.existsSync(foundryDir)) {
     return [];
@@ -53,7 +53,7 @@ export function sweepActiveNodes(repoRoot: string): string[] {
       if (status === 'ACTIVE') {
         const relativePath = path.relative(repoRoot, fp);
         activeNodes.push(relativePath);
-      } else if (status === 'COMPLETED' || status === 'CANCELLED') {
+      } else if ((status === 'COMPLETED' || status === 'CANCELLED') && !dryRun) {
         // Move file to archive preserving structure
         // e.g. .foundry/tasks/task.md -> .foundry/archive/tasks/task.md
         const relativeToFoundry = path.relative(foundryDir, fp);

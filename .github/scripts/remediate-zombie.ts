@@ -16,7 +16,12 @@ const matter = _require('gray-matter') as typeof import('gray-matter');
  * @param rejectionReason - The reason for transitioning to FAILED (defaults to 'Zombie node detected').
  * @returns boolean - true if successful, false otherwise.
  */
-export function remediateZombieNode(repoRoot: string, relativeFilePath: string, rejectionReason: string = 'Zombie node detected'): boolean {
+export function remediateZombieNode(
+  repoRoot: string,
+  relativeFilePath: string,
+  rejectionReason: string = 'Zombie node detected',
+  dryRun: boolean = false
+): boolean {
   const fullPath = path.join(repoRoot, relativeFilePath);
 
   try {
@@ -54,7 +59,9 @@ export function remediateZombieNode(repoRoot: string, relativeFilePath: string, 
     };
 
     const newContent = matter.stringify(parsed.content, newData);
-    fs.writeFileSync(fullPath, newContent, 'utf-8');
+    if (!dryRun) {
+      fs.writeFileSync(fullPath, newContent, 'utf-8');
+    }
 
     return true;
   } catch (error) {
