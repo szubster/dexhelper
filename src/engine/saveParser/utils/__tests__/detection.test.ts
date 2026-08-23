@@ -153,8 +153,21 @@ describe('Save File Detection', () => {
   });
 
   describe('isGen3Save', () => {
-    it('returns false for stubbed implementation', () => {
-      const buffer = new ArrayBuffer(10);
+    it('returns true if a valid signature is found', () => {
+      // 128KB buffer to accommodate all blocks and sections without throwing RangeError naturally during scan
+      const buffer = new ArrayBuffer(131072);
+      const view = new DataView(buffer);
+
+      // Set valid signature in Block A, Section 0
+      const GEN3_SIGNATURE = 0x08012025;
+      const GEN3_SIGNATURE_OFFSET = 0x0ff8;
+      view.setUint32(GEN3_SIGNATURE_OFFSET, GEN3_SIGNATURE, true);
+
+      expect(isGen3Save(view)).toBe(true);
+    });
+
+    it('returns false if no valid signature is found', () => {
+      const buffer = new ArrayBuffer(131072);
       const view = new DataView(buffer);
       expect(isGen3Save(view)).toBe(false);
     });
@@ -167,8 +180,8 @@ describe('Save File Detection', () => {
 
     it('throws non RangeError', () => {
       const view = {
-        byteLength: 1,
-        getUint8: () => {
+        byteLength: 10,
+        getUint32: () => {
           throw new Error('Some error');
         },
       } as unknown as DataView;
