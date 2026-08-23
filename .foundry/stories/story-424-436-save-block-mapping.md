@@ -2,7 +2,7 @@
 id: story-424-436-save-block-mapping
 type: STORY
 title: Save Block Mapping
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-14'
 updated_at: '2026-08-23'
@@ -27,9 +27,9 @@ Following the establishment of a real-time raw WASM memory buffer channel (story
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down this STORY into TASK nodes, ensuring discrete tasks for the mapping logic, state variables extraction, and integration with existing parsers.
-- [ ] task-436-452-live-memory-mapping-logic-impl
-- [ ] task-436-453-live-memory-mapping-logic-qa
-- [ ] task-436-454-state-variables-extraction-impl
-- [ ] task-436-455-state-variables-extraction-qa
-- [ ] task-436-456-parser-integration-impl
-- [ ] task-436-457-parser-integration-qa
+- [x] task-436-452-live-memory-mapping-logic-impl
+- [x] task-436-453-live-memory-mapping-logic-qa
+- [x] task-436-454-state-variables-extraction-impl
+- [x] task-436-455-state-variables-extraction-qa
+- [x] task-436-456-parser-integration-impl
+- [x] task-436-457-parser-integration-qa
