@@ -252,8 +252,14 @@ jobs:
               exit 1
             fi
             
+            session_url="https://jules.google.com/session/$session_id"
             echo "SESSION_ID=$session_id" >> "$GITHUB_ENV"
+            echo "SESSION_URL=$session_url" >> "$GITHUB_ENV"
+            echo "session_id=$session_id" >> "$GITHUB_OUTPUT"
+            echo "session_url=$session_url" >> "$GITHUB_OUTPUT"
             echo "Successfully spawned Jules session: $session_id"
+            echo "Jules Session URL: $session_url"
+            echo "### 🤖 Jules Session: $session_url" >> "$GITHUB_STEP_SUMMARY"
           } 2>&1 | tee invoke-agent.log
 
       - name: Transition node to ACTIVE
@@ -287,7 +293,11 @@ jobs:
           {
             echo "The Foundry Engine failed during the execution phase for \`$NODE_ID\`."
             echo ""
-            echo "**Jules Session ID:** \`${SESSION_ID:-Not generated or failed to capture}\`"
+            if [[ -n "$SESSION_ID" && "$SESSION_ID" != "null" ]]; then
+              echo "**Jules Session URL:** [https://jules.google.com/session/$SESSION_ID](https://jules.google.com/session/$SESSION_ID)"
+            else
+              echo "**Jules Session ID:** \`Not generated or failed to capture\`"
+            fi
             echo "**Run Details:** [View Action Run]($RUN_URL)"
             echo ""
             
