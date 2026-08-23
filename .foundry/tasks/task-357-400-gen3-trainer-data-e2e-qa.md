@@ -2,13 +2,13 @@
 id: task-357-400-gen3-trainer-data-e2e-qa
 type: TASK
 title: Verify Gen 3 Trainer Data E2E/Integration Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-01'
 updated_at: '2026-08-23'
 depends_on:
   - task-357-399-gen3-trainer-data-e2e-impl
-jules_session_id: '2607944739209529164'
+jules_session_id: null
 pr_number: null
 parent: story-346-357-gen3-trainer-data-e2e
 tags:

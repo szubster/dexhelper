@@ -2,13 +2,13 @@
 id: task-257-379-progression-timeline-ui-retry-qa
 type: TASK
 title: QA Progression Timeline UI Retry
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-01'
 updated_at: '2026-08-23'
 depends_on:
   - task-257-378-progression-timeline-ui-retry-impl
-jules_session_id: '5989386856726848339'
+jules_session_id: null
 pr_number: null
 parent: story-036-257-concurrent-game-management
 tags:
