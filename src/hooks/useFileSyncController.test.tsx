@@ -207,9 +207,10 @@ describe('useFileSyncController', () => {
     expect(r2Client.putSave).toHaveBeenCalledWith('existing-save-id', expect.any(Uint8Array), 1000);
   });
 
-  it('should pull from R2 when remote is newer than local (pull-wins)', async () => {
+  it('should detect conflict when remote is newer than local', async () => {
     const { AUTH_LOGGED_IN_INDICATOR } = await import('../contexts/AuthContext');
     const { r2Client } = await import('../utils/r2/client');
+    const { useStore } = await import('../store');
     const { saveDB } = await import('../db/SaveDB');
 
     localStorage.setItem(AUTH_LOGGED_IN_INDICATOR, 'true');
@@ -245,7 +246,18 @@ describe('useFileSyncController', () => {
     expect(r2Client.listSaves).toHaveBeenCalled();
     expect(r2Client.getSave).toHaveBeenCalledWith('save-1');
     expect(r2Client.putSave).not.toHaveBeenCalled();
-    expect(saveDB.putSave).toHaveBeenCalledWith('last_save_file', new Uint8Array([1, 2, 3]));
+
+    // Check that conflict state is set in the store
+    const conflictState = useStore.getState().conflictState;
+    expect(conflictState).not.toBeNull();
+    expect(conflictState?.isOpen).toBe(true);
+    expect(conflictState?.localMetadata.timestamp).toBe(1000);
+    expect(conflictState?.remoteMetadata.timestamp).toBe(2000);
+    expect(conflictState?.saveId).toBe('save-1');
+    expect(conflictState?.remoteBuffer).toEqual(new Uint8Array([1, 2, 3]));
+
+    // Check that local save was NOT overwritten yet
+    expect(saveDB.putSave).not.toHaveBeenCalledWith('last_save_file', new Uint8Array([1, 2, 3]));
   });
 
   it('should push to R2 when local is newer than remote', async () => {
