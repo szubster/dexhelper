@@ -27,5 +27,8 @@ Implement the logic to extract the Friendship (Happiness) value for Gen 3 Pokém
 - [ ] Implement Gen 3 PC parsing to extract Friendship.
 - [ ] Ensure `DataView` API is used for rigorous bounds checking (ADR 010).
 - [ ] Update Gen 3 unit tests to verify the extracted Friendship value.
-- [ ] task-152-258-gen3-friendship-impl
-- [ ] task-152-259-gen3-friendship-qa
+- [x] task-152-258-gen3-friendship-impl
+- [x] task-152-259-gen3-friendship-qa
+- [ ] research-152-469-investigate-gen3-friendship-failure
+- [ ] task-152-470-gen3-friendship-impl-v2
+- [ ] task-152-471-gen3-friendship-qa-v2
