@@ -36,5 +36,5 @@ The logic to extract the daily lottery winning number and to compare it against 
 - Expose the calculated prize tier based on the matching logic.
 
 ## Acceptance Criteria
-- [ ] Implement the React state layer for the lottery.
-- [ ] Write component tests using `vitest-browser-react` to ensure state is correctly initialized and exposed.
+- [x] Implement the React state layer for the lottery.
+- [x] Write component tests using `vitest-browser-react` to ensure state is correctly initialized and exposed.
