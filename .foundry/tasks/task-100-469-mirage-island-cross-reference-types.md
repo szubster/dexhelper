@@ -28,4 +28,4 @@ As defined in Story `story-061-100-mirage-island-cross-reference`, the Gen 3 sav
 Update `src/engine/saveParser/parsers/common.ts` to add `isMirageIslandKey?: boolean;` to the `PokemonInstance` interface.
 
 ## Acceptance Criteria
-- [ ] Add `isMirageIslandKey?: boolean;` to `PokemonInstance` interface in `common.ts`.
+- [x] Add `isMirageIslandKey?: boolean;` to `PokemonInstance` interface in `common.ts`.
