@@ -29,5 +29,5 @@ Setup Gen 3 save file fixtures containing required data.
 Generate or integrate a mock Gen 3 save file with a known player team, location, mapped upcoming trainer, and known opponent data. Ensure the fixture can be successfully loaded and represents a valid game state for AI Data extraction E2E tests.
 
 ## Acceptance Criteria
-- [ ] Gen 3 save file fixtures are created/integrated.
-- [ ] The fixtures contain valid known data for player team, location, trainer mapping, and opponent data.
+- [x] Gen 3 save file fixtures are created/integrated.
+- [x] The fixtures contain valid known data for player team, location, trainer mapping, and opponent data.
