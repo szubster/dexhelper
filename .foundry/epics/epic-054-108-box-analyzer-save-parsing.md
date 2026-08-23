@@ -40,5 +40,6 @@ Implement the backend data grouping and aggregation logic to parse PC box data f
 - [x] Implement Gen 3 PC box parsing and species grouping.
 - [x] Verify that Party Pokémon are successfully excluded from the extracted data.
 - [x] Ensure all required stats (DVs/IVs, Natures, Hidden Power, Shininess) are calculated correctly for each Pokémon.
-- [x] .foundry/archive/stories/story-108-245-gen2-box-parsing.md
-- [x] .foundry/stories/story-108-246-gen3-box-parsing.md
+- [x] story-108-245-gen2-box-parsing
+- [x] story-108-246-gen3-box-parsing
+- [ ] story-108-443-box-analyzer-save-parsing-e2e
