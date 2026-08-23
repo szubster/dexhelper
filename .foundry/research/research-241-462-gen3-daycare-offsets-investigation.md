@@ -2,12 +2,12 @@
 id: research-241-462-gen3-daycare-offsets-investigation
 type: RESEARCH
 title: Investigate Gen 3 Daycare Memory Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-23'
 updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6153539240770177593'
 pr_number: null
 parent: story-105-241-daycare-gen3-parsing
 tags:

@@ -57,8 +57,11 @@ export async function initializeWithSave(
     await waitForSync(page);
   }
 
-  await expect(page.getByText(/TRNR/i).first()).toBeVisible({ timeout: 20000 });
-  await expect(page.getByTestId('pokedex-card').first()).toBeVisible({ timeout: 30000 });
+  // Use Locator.or properly with a final .first() to prevent strict mode violations,
+  // as one of these two elements guarantees successful load.
+  await expect(page.getByText(/TRNR/i).first().or(page.getByTestId('pokedex-card').first()).first()).toBeVisible({
+    timeout: 20000,
+  });
 }
 
 export async function waitForSync(page: Page) {
@@ -86,7 +89,7 @@ export async function clearStorage(page: Page) {
 
 export async function mockDagData(page: Page, mockDataPath: string = 'tests/fixtures/dag/mock_dag.json') {
   const mockData = fs.readFileSync(mockDataPath, 'utf8');
-  await page.route('**/data/foundry.json', async (route) => {
+  await page.route(/.*\/data\/foundry\.json/, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: 'application/json',

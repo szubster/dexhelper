@@ -25,6 +25,7 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
     const items = readJsonl(path.join(sourceDir, 'items.jsonl'));
     const moves = readJsonl(path.join(sourceDir, 'moves.jsonl'));
     const berries = readJsonl(path.join(sourceDir, 'berries.jsonl'));
+    const matchCalls = readJsonl(path.join(sourceDir, 'gen3_match_call.jsonl'));
     const metadataPath = path.join(sourceDir, 'metadata.json');
     const metadata = fs.existsSync(metadataPath) ? JSON.parse(fs.readFileSync(metadataPath, 'utf-8')) : {};
 
@@ -35,6 +36,7 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
       items: items,
       moves: moves,
       berries: berries,
+      matchCalls: matchCalls,
       sourceSha: metadata.sourceSha,
     };
 
