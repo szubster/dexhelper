@@ -2,12 +2,12 @@
 id: epic-142-417-automated-adr-compliance-linter
 type: EPIC
 title: Automated ADR Compliance Linter Script
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2025-01-01T00:00:00.000Z'
 updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '13806017638855668589'
+jules_session_id: null
 pr_number: null
 parent: prd-142-342-automated-adr-compliance-linter
 tags:

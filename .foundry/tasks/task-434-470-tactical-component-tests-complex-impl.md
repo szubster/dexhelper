@@ -2,12 +2,12 @@
 id: task-434-470-tactical-component-tests-complex-impl
 type: TASK
 title: Implement Component Tests for Complex Tactical Components
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-22'
 updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '17853129950049403514'
+jules_session_id: null
 pr_number: null
 parent: story-071-434-migrate-tactical-components-e2e
 tags:

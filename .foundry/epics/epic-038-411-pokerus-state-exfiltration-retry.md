@@ -2,13 +2,13 @@
 id: epic-038-411-pokerus-state-exfiltration-retry
 type: EPIC
 title: Pokerus State Exfiltration Epic (Retry)
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-10'
 updated_at: '2026-08-23'
 depends_on:
   - research-038-407-investigate-pokerus-state-exfiltration-failure
-jules_session_id: '3539446164586323681'
+jules_session_id: null
 pr_number: null
 parent: prd-069-038-pokerus-tracker
 tags:

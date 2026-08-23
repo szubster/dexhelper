@@ -2,13 +2,13 @@
 id: story-400-429-gen-specific-extensions
 type: STORY
 title: Generate Gen-Specific Extensions
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-17'
 updated_at: '2026-08-23'
 depends_on:
   - story-400-428-extract-core-data
-jules_session_id: '1146914870791207850'
+jules_session_id: null
 pr_number: null
 parent: epic-337-400-data-splitting
 tags:

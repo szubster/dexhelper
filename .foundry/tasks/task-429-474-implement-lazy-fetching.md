@@ -2,7 +2,7 @@
 id: task-429-474-implement-lazy-fetching
 type: TASK
 title: Implement Lazy Fetching of Gen-Specific Bundles
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-08-23'

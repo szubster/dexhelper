@@ -2,7 +2,7 @@
 id: task-429-475-gen-specific-bundles-qa
 type: TASK
 title: QA Gen-Specific Bundles and Lazy Loading
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-23'
 updated_at: '2026-08-23'

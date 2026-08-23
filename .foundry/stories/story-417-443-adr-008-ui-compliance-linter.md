@@ -2,7 +2,7 @@
 id: story-417-443-adr-008-ui-compliance-linter
 type: STORY
 title: Enforce ADR 008 UI Constraints via Linter
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-23T00:00:00.000Z'
 updated_at: '2026-08-23'
