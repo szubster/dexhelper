@@ -2,13 +2,13 @@
 id: story-061-100-mirage-island-cross-reference
 type: STORY
 title: Cross-reference Mirage Island Random Value
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-09'
-updated_at: '2026-08-20'
+updated_at: '2026-08-23'
 depends_on:
   - story-061-099-extract-pokemon-pids
-jules_session_id: null
+jules_session_id: '13920598563542772420'
 pr_number: null
 parent: epic-038-061-mirage-island-engine
 tags:
