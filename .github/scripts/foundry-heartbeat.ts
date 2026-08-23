@@ -363,7 +363,7 @@ export async function transitionNodeToReadyWithoutPenalty(node: any, repoRoot: s
 }
 
 /** Robust discovery: Jules Session -> GitHub Search -> GitHub List */
-async function findPRForSession(
+export async function findPRForSession(
   repoFullName: string,
   githubToken: string,
   julesKey: string,

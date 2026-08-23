@@ -5,10 +5,14 @@ import { main } from './garbage-collector.ts';
 import * as sweepActiveNodesModule from './sweep-active-nodes.ts';
 import * as sessionApiModule from './session-api.ts';
 import * as remediateZombieModule from './remediate-zombie.ts';
+import * as heartbeatModule from './foundry-heartbeat.ts';
 
 vi.mock('./sweep-active-nodes.ts');
 vi.mock('./session-api.ts');
 vi.mock('./remediate-zombie.ts');
+vi.mock('./foundry-heartbeat.ts', () => ({
+  findPRForSession: vi.fn()
+}));
 
 describe('garbage-collector', () => {
   let originalEnv: NodeJS.ProcessEnv;
@@ -94,7 +98,7 @@ owner_persona: human
     expect(remediateZombieModule.remediateZombieNode).not.toHaveBeenCalled();
   });
 
-  it('remediates nodes if session is TERMINATED', async () => {
+  it('remediates nodes if session is TERMINATED and no PR exists', async () => {
     const tmpNodePath = createTestNode(`---
 id: task-terminated
 status: ACTIVE
@@ -113,6 +117,30 @@ jules_session_id: sess-terminated
       tmpNodePath,
       'Zombie node detected: Session sess-terminated is TERMINATED / inactive'
     );
+  });
+
+  it('skips nodes if session is TERMINATED but has an open PR', async () => {
+    process.env.GITHUB_TOKEN = 'test-token';
+    const tmpNodePath = createTestNode(`---
+id: task-open-pr
+status: ACTIVE
+owner_persona: coder
+jules_session_id: sess-open-pr
+---`);
+
+    vi.spyOn(sweepActiveNodesModule, 'sweepActiveNodes').mockReturnValue([tmpNodePath]);
+    vi.spyOn(sessionApiModule, 'checkSessionLiveliness').mockResolvedValue('TERMINATED');
+    vi.spyOn(heartbeatModule, 'findPRForSession').mockResolvedValue({
+      pr: { number: 42, state: 'open' },
+      sessionStatus: 'TERMINATED'
+    });
+
+    await main();
+
+    expect(sessionApiModule.checkSessionLiveliness).toHaveBeenCalledWith('sess-open-pr', 'test-key');
+    expect(heartbeatModule.findPRForSession).toHaveBeenCalledWith(expect.any(String), 'test-token', 'test-key', 'sess-open-pr');
+    expect(remediateZombieModule.remediateZombieNode).not.toHaveBeenCalled();
+    expect(console.info).toHaveBeenCalledWith(`[GC] Skipping node ${tmpNodePath}: Session sess-open-pr is TERMINATED but has open PR #42 (heartbeat will process)`);
   });
 
   it('skips remediation in dry-run mode when session is TERMINATED', async () => {

@@ -12,6 +12,7 @@ import { createRequire } from 'node:module';
 import { sweepActiveNodes } from './sweep-active-nodes.ts';
 import { checkSessionLiveliness } from './session-api.ts';
 import { remediateZombieNode } from './remediate-zombie.ts';
+import { findPRForSession } from './foundry-heartbeat.ts';
 
 const require = createRequire(import.meta.url);
 const matter = require('gray-matter') as typeof import('gray-matter');
@@ -21,6 +22,9 @@ export async function main() {
   const dryTag = isDryRun ? '[DRY-RUN] ' : '';
 
   const julesKey = process.env.JULES_API_KEY;
+  const githubToken = process.env.GITHUB_TOKEN;
+  const repoFullName = process.env.GITHUB_REPOSITORY || 'szubster/dexhelper';
+
   if (!julesKey) {
     console.warn('Missing JULES_API_KEY. Cannot verify session liveliness.');
     process.exit(0);
@@ -58,6 +62,19 @@ export async function main() {
       const liveliness = await checkSessionLiveliness(sessionId, julesKey);
 
       if (liveliness === 'TERMINATED') {
+        // If GitHub token is available, check if an open PR exists for this session
+        if (githubToken) {
+          try {
+            const { pr } = await findPRForSession(repoFullName, githubToken, julesKey, sessionId);
+            if (pr && pr.state === 'open') {
+              console.info(`[GC] Skipping node ${relativePath}: Session ${sessionId} is TERMINATED but has open PR #${pr.number} (heartbeat will process)`);
+              continue;
+            }
+          } catch (err) {
+            console.warn(`[GC] Error checking PR for session ${sessionId}:`, err);
+          }
+        }
+
         console.info(`[GC] ${dryTag}Remediating node ${relativePath}: Session ${sessionId} is TERMINATED / inactive`);
         if (!isDryRun) {
           remediateZombieNode(repoRoot, relativePath, `Zombie node detected: Session ${sessionId} is TERMINATED / inactive`);
