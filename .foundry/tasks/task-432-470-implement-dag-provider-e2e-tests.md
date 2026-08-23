@@ -33,6 +33,6 @@ We need to ensure that `DagProvider` works correctly end-to-end when integrated 
 - Add a test to simulate a failed data fetch (e.g., intercepting the route to return a 500 error) and verify that the application handles the error gracefully without crashing.
 
 ## Acceptance Criteria
-- [ ] Playwright E2E tests are implemented for `DagProvider` data fetching.
-- [ ] Tests verify successful data fetching and state population using mock fixtures.
-- [ ] Tests verify graceful error handling when the data fetch fails.
+- [x] Playwright E2E tests are implemented for `DagProvider` data fetching.
+- [x] Tests verify successful data fetching and state population using mock fixtures.
+- [x] Tests verify graceful error handling when the data fetch fails.
