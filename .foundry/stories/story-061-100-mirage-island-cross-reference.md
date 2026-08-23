@@ -30,6 +30,10 @@ Identify any "Mirage Island Key" Pokémon and add this information, along with t
 Ensure robust unit tests are written to verify the extraction and matching logic.
 
 ## Acceptance Criteria
-- [ ] Create/Update TASK nodes to cross-reference the daily value with PIDs.
-- [ ] Create/Update TASK nodes to include Mirage Island data in the parsed application data (`SaveData` / `PokemonInstance`).
-- [ ] Create/Update TASK nodes to implement unit tests verifying the logic.
+- [x] Create/Update TASK nodes to cross-reference the daily value with PIDs.
+- [x] Create/Update TASK nodes to include Mirage Island data in the parsed application data (`SaveData` / `PokemonInstance`).
+- [x] Create/Update TASK nodes to implement unit tests verifying the logic.
+- [ ] task-100-469-mirage-island-cross-reference-types
+- [ ] task-100-470-mirage-island-cross-reference-logic
+- [ ] task-100-471-mirage-island-cross-reference-tests
+- [ ] task-100-472-mirage-island-cross-reference-qa
