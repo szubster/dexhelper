@@ -2,12 +2,12 @@
 id: epic-038-061-gen2-event-flag-parsing
 type: EPIC
 title: Gen 2 Event Flag Parsing Engine
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-07'
-updated_at: '2026-08-20'
+updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16987269163286498303'
 pr_number: null
 parent: prd-069-038-gen2-daily-events
 tags:

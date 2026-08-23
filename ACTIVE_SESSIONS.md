@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [epic-038-061-gen2-event-flag-parsing](.foundry/epics/epic-038-061-gen2-event-flag-parsing.md) | EPIC | Gen 2 Event Flag Parsing Engine | story_owner | [16987269163286498303](https://jules.google.com/session/16987269163286498303) |
 | [epic-049-086-dynamic-move-pp-parsing](.foundry/epics/epic-049-086-dynamic-move-pp-parsing.md) | EPIC | Dynamic Generation of Moves PP PokeData | story_owner | [8584362831011482686](https://jules.google.com/session/8584362831011482686) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
