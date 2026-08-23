@@ -10,6 +10,7 @@ import { r2Client } from '../utils/r2/client';
 import { reloadPage } from '../utils/window';
 import { AppHeader } from './AppHeader';
 import { BottomNav } from './BottomNav';
+import { ConflictResolutionModal } from './ConflictResolutionModal';
 import { GlobalError } from './GlobalError';
 import { RetroBackground } from './RetroBackground';
 import { SettingsModal } from './SettingsModal';
@@ -35,6 +36,9 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
   const setManualVersion = useStore((s) => s.setManualVersion);
   const setIsSettingsOpen = useStore((s) => s.setIsSettingsOpen);
   const setIsVersionModalOpen = useStore((s) => s.setIsVersionModalOpen);
+  const conflictState = useStore((s) => s.conflictState);
+  const resolveConflict = useStore((s) => s.resolveConflict);
+  const setConflictState = useStore((s) => s.setConflictState);
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -47,6 +51,37 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           throw new Error('Failed to read file as ArrayBuffer');
         }
         const buffer = e.target.result;
+
+        let cloudSave = null;
+        let cloudSaveInfo = null;
+        let saveId = 'save-1';
+
+        if (localStorage.getItem(AUTH_LOGGED_IN_INDICATOR) === 'true') {
+          try {
+            const saves = await r2Client.listSaves();
+            saveId = saves.length > 0 && saves[0] ? saves[0].id : 'save-1';
+            cloudSaveInfo = saves.find((s) => s.id === saveId);
+
+            if (cloudSaveInfo?.lastModified && file.lastModified < cloudSaveInfo.lastModified) {
+              cloudSave = await r2Client.getSave(saveId).catch(() => null);
+            }
+          } catch {
+            console.warn('System: list saves from cloud failed');
+          }
+        }
+
+        if (cloudSave && cloudSaveInfo?.lastModified) {
+          setConflictState({
+            isOpen: true,
+            localMetadata: { timestamp: file.lastModified },
+            remoteMetadata: { timestamp: cloudSaveInfo.lastModified },
+            localBuffer: new Uint8Array(buffer),
+            remoteBuffer: cloudSave.data,
+            saveId,
+          });
+          return;
+        }
+
         const data = await parseSaveFile(buffer, manualVersion || undefined);
         setSaveData(data);
         setError(null);
@@ -63,15 +98,9 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
         if (localStorage.getItem(AUTH_LOGGED_IN_INDICATOR) === 'true') {
           try {
-            const saves = await r2Client.listSaves();
-            const saveId = saves.length > 0 && saves[0] ? saves[0].id : 'save-1';
-            try {
-              await r2Client.putSave(saveId, new Uint8Array(buffer), file.lastModified);
-            } catch {
-              console.warn('System: push to cloud failed');
-            }
+            await r2Client.putSave(saveId, new Uint8Array(buffer), file.lastModified);
           } catch {
-            console.warn('System: list saves from cloud failed');
+            console.warn('System: push to cloud failed');
           }
         }
       } catch {
@@ -142,6 +171,15 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         <BottomNav />
         <SettingsModal />
         <VersionModal />
+        {conflictState && (
+          <ConflictResolutionModal
+            isOpen={conflictState.isOpen}
+            localMetadata={conflictState.localMetadata}
+            remoteMetadata={conflictState.remoteMetadata}
+            onKeepLocal={() => resolveConflict('keep_local')}
+            onPullRemote={() => resolveConflict('pull_remote')}
+          />
+        )}
 
         <RetroBackground saveData={saveData} />
       </div>
