@@ -475,6 +475,42 @@ describe('Foundry Heartbeat', () => {
     expect(fs.writeFileSync).not.toHaveBeenCalled();
   });
 
+  it('should transition a node to FAILED if its Jules session is in AWAITING_USER_FEEDBACK without a PR', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-awaiting.md',
+      repoPath: '.foundry/tasks/task-awaiting.md',
+      frontmatter: {
+        id: 'task-awaiting',
+        type: 'TASK',
+        status: 'ACTIVE',
+        jules_session_id: 'session-awaiting'
+      },
+      rawContent: '---\nstatus: ACTIVE\njules_session_id: "session-awaiting"\nupdated_at: "2023-01-01"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-awaiting.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    globalFetch.mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ state: 'AWAITING_USER_FEEDBACK' })
+    } as unknown as Response);
+
+    await main();
+
+    expect(globalFetch).toHaveBeenCalledWith(
+      'https://jules.googleapis.com/v1alpha/sessions/session-awaiting',
+      expect.objectContaining({ headers: { 'X-Goog-Api-Key': 'mock-api-key' } })
+    );
+
+    expect(fs.writeFileSync).toHaveBeenCalled();
+    const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+    expect(writeCall[0]).toBe(mockNode.filePath);
+    expect(writeCall[1]).toContain('status: FAILED');
+    expect(writeCall[1]).toContain('rejection_reason: \'Session terminated with state: AWAITING_USER_FEEDBACK\'');
+  });
+
   it('should transition a node to FAILED if its Jules session is in a non-active state (e.g. FAILED, EXPIRED, CANCELLED) without a PR', async () => {
     for (const nonActiveState of ['FAILED', 'EXPIRED', 'CANCELLED', 'SUCCEEDED']) {
       vi.clearAllMocks();
