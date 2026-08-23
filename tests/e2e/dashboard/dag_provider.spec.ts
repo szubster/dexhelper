@@ -5,7 +5,7 @@ test.describe('DagProvider Data Fetching', () => {
   test('successfully fetches and renders mock DAG data', async ({ page }) => {
     await page.unrouteAll({ behavior: 'ignoreErrors' });
     await mockDagData(page);
-    await page.goto('dag'); // Try relative to baseURL (will be /dexhelper/dag instead of /dag which resolves to /dag at root)
+    await page.goto('dag');
 
     // Wait for the DAG loading state to resolve
     await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden();
@@ -31,10 +31,13 @@ test.describe('DagProvider Data Fetching', () => {
     await page.unrouteAll({ behavior: 'ignoreErrors' });
 
     // Intercept with 500 error
-    await page.route(/.*\/data\/foundry\.json/, async (route) => {
+    await page.route('**/data/foundry.json*', async (route) => {
       await route.fulfill({
         status: 500,
         contentType: 'application/json',
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate',
+        },
         body: JSON.stringify({ error: 'Internal Server Error' }),
       });
     });
