@@ -35,3 +35,9 @@ This story is dedicated to the integration and E2E verification of the extractio
 - Implement E2E tests validating the Gen 3 data block structure extraction against standard Gen 3 saves (Ruby, Sapphire, Emerald, FireRed, LeafGreen).
 - Verify the use of `initializeWithSave` in Playwright tests.
 - Ensure the extraction reliably locates and reads the 100-byte boundaries.
+
+## Acceptance Criteria
+- [x] Break down into Tasks
+- [ ] task-441-469-gen3-data-extraction-e2e-rse-impl
+- [ ] task-441-471-gen3-data-extraction-e2e-frlg-impl
+- [ ] task-441-470-gen3-data-extraction-e2e-qa
