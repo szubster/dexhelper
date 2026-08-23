@@ -227,7 +227,8 @@ describe('Zustand Store', () => {
       const mockSaveData = { trainerName: 'REMOTE_RESOLVED', generation: 1, gameVersion: 'red' };
       vi.mocked(parseSaveFile).mockReturnValue(mockSaveData as unknown as ReturnType<typeof parseSaveFile>);
       const putSaveSpy = vi.spyOn(saveDB, 'putSave').mockResolvedValue(undefined);
-      vi.spyOn(r2Client, 'putSave').mockResolvedValue();
+      const putSaveMock = vi.spyOn(r2Client, 'putSave').mockResolvedValue();
+      putSaveMock.mockClear();
 
       await useStore.getState().resolveConflict('pull_remote');
 
