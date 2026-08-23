@@ -86,7 +86,7 @@ export async function clearStorage(page: Page) {
 
 export async function mockDagData(page: Page, mockDataPath: string = 'tests/fixtures/dag/mock_dag.json') {
   const mockData = fs.readFileSync(mockDataPath, 'utf8');
-  await page.route('**/data/foundry.json', async (route) => {
+  await page.route(/.*\/data\/foundry\.json/, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: 'application/json',
