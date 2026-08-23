@@ -2,7 +2,7 @@
 id: epic-044-070-hof-data-parsing
 type: EPIC
 title: Parse Gen 1 and Gen 2 Hall of Fame Data
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-08-23'

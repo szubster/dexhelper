@@ -2,7 +2,7 @@
 id: epic-112-311-gen2-decoration-savings-extraction
 type: EPIC
 title: Gen 2 Decoration & Savings Save Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-14'
 updated_at: '2026-08-23'

@@ -3,10 +3,8 @@
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
 | [epic-038-411-pokerus-state-exfiltration-retry](.foundry/epics/epic-038-411-pokerus-state-exfiltration-retry.md) | EPIC | Pokerus State Exfiltration Epic (Retry) | story_owner | [3539446164586323681](https://jules.google.com/session/3539446164586323681) |
-| [epic-044-070-hof-data-parsing](.foundry/epics/epic-044-070-hof-data-parsing.md) | EPIC | Parse Gen 1 and Gen 2 Hall of Fame Data | story_owner | [5420085334335838251](https://jules.google.com/session/5420085334335838251) |
 | [epic-054-108-box-analyzer-save-parsing](.foundry/epics/epic-054-108-box-analyzer-save-parsing.md) | EPIC | Box Analyzer Save Parsing | story_owner | [24108712817236519](https://jules.google.com/session/24108712817236519) |
 | [epic-103-133-living-dex-data-engine](.foundry/epics/epic-103-133-living-dex-data-engine.md) | EPIC | Living Dex Data Engine & Mapping | story_owner | [5255979265278452845](https://jules.google.com/session/5255979265278452845) |
-| [epic-112-311-gen2-decoration-savings-extraction](.foundry/epics/epic-112-311-gen2-decoration-savings-extraction.md) | EPIC | Gen 2 Decoration & Savings Save Data Extraction | story_owner | [14975556046693340691](https://jules.google.com/session/14975556046693340691) |
 | [epic-142-417-automated-adr-compliance-linter](.foundry/epics/epic-142-417-automated-adr-compliance-linter.md) | EPIC | Automated ADR Compliance Linter Script | story_owner | [13806017638855668589](https://jules.google.com/session/13806017638855668589) |
 | [epic-344-420-save-editor-cli-core](.foundry/epics/epic-344-420-save-editor-cli-core.md) | EPIC | Save Editor CLI Core Framework | story_owner | [8918402175480503239](https://jules.google.com/session/8918402175480503239) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
@@ -17,7 +15,6 @@
 | [story-061-100-mirage-island-cross-reference](.foundry/stories/story-061-100-mirage-island-cross-reference.md) | STORY | Cross-reference Mirage Island Random Value | tech_lead | [13920598563542772420](https://jules.google.com/session/13920598563542772420) |
 | [story-084-126-match-call-msgpack](.foundry/stories/story-084-126-match-call-msgpack.md) | STORY | Story: Gen 3 Match Call MsgPack Integration | tech_lead | [4385553307054441560](https://jules.google.com/session/4385553307054441560) |
 | [story-086-469-dynamic-move-pp-parsing-e2e](.foundry/stories/story-086-469-dynamic-move-pp-parsing-e2e.md) | STORY | Dynamic Generation of Moves PP PokeData E2E Verification | tech_lead | [2816478913270714735](https://jules.google.com/session/2816478913270714735) |
-| [story-094-152-gen3-friendship-extraction](.foundry/stories/story-094-152-gen3-friendship-extraction.md) | STORY | Gen 3 Friendship Data Extraction | tech_lead | [7359202857173996162](https://jules.google.com/session/7359202857173996162) |
 | [story-105-241-daycare-gen3-parsing](.foundry/stories/story-105-241-daycare-gen3-parsing.md) | STORY | Parse Gen 3 Daycare Data | tech_lead | [8999642637880874262](https://jules.google.com/session/8999642637880874262) |
 | [story-114-415-egg-move-inventory-cross-reference-e2e](.foundry/stories/story-114-415-egg-move-inventory-cross-reference-e2e.md) | STORY | Egg Move Inventory Cross-Reference E2E Verification | tech_lead | [9882062774829953412](https://jules.google.com/session/9882062774829953412) |
 | [story-130-441-gen3-data-extraction-e2e](.foundry/stories/story-130-441-gen3-data-extraction-e2e.md) | STORY | Gen 3 Data Extraction E2E Validation | tech_lead | [11015973882876533445](https://jules.google.com/session/11015973882876533445) |

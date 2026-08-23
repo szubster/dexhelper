@@ -2,10 +2,10 @@
 id: epic-339-405-orchestrator-archive-bypass
 type: EPIC
 title: Orchestrator Archive Bypass
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-07'
-updated_at: '2026-08-08'
+updated_at: '2026-08-23'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -32,10 +32,10 @@ Update the `foundry-orchestrator.ts` script to ignore the `.foundry/archive/` di
 2. Ensure this exclusion logic covers both `.foundry/archive/stories/` and `.foundry/archive/tasks/`.
 
 ## Acceptance Criteria
-- [ ] Implement bypass logic in the orchestrator discovery phase.
+- [x] Implement bypass logic in the orchestrator discovery phase.
 - [x] Delegate the generation of the E2E STORY to the `story_owner`.
-- [ ] story-405-408-orchestrator-archive-bypass-implementation
-- [ ] story-405-409-orchestrator-archive-bypass-e2e
+- [x] story-405-408-orchestrator-archive-bypass-implementation
+- [x] story-405-409-orchestrator-archive-bypass-e2e
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

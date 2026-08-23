@@ -106,7 +106,18 @@ jobs:
           if [[ -n $(git status --porcelain .foundry ACTIVE_SESSIONS.md) ]]; then
             git add .foundry ACTIVE_SESSIONS.md
             git commit -m "Foundry: Promote unblocked nodes to READY and update ACTIVE_SESSIONS.md" 2>&1 | tee -a commit-promotions.log
-            git pull --rebase origin main 2>&1 | tee -a commit-promotions.log
+            git pull --rebase origin main 2>&1 | tee -a commit-promotions.log || {
+              echo "Rebase conflict detected during promotions. Retrying orchestrator on updated origin/main..."
+              git rebase --abort || true
+              git fetch origin main
+              git reset --hard origin/main
+              node --strip-types .github/scripts/foundry-orchestrator.ts --strict
+              git add .foundry ACTIVE_SESSIONS.md
+              if [[ -n $(git status --porcelain .foundry ACTIVE_SESSIONS.md) ]]; then
+                git commit -m "Foundry: Promote unblocked nodes to READY and update ACTIVE_SESSIONS.md"
+                git pull --rebase origin main
+              fi
+            }
             git push origin main 2>&1 | tee -a commit-promotions.log
           else
             echo "No state changes to persist."
@@ -278,7 +289,16 @@ jobs:
           set -o pipefail
           git add "$NODE_REPO_PATH" ACTIVE_SESSIONS.md
           git commit -m "Foundry: Transition $NODE_ID -> ACTIVE [$SESSION_ID]" 2>&1 | tee -a commit.log
-          git pull --rebase origin main 2>&1 | tee -a commit.log
+          git pull --rebase origin main 2>&1 | tee -a commit.log || {
+            echo "Rebase conflict detected during ACTIVE transition. Retrying on updated origin/main..."
+            git rebase --abort || true
+            git fetch origin main
+            git reset --hard origin/main
+            node --strip-types .github/scripts/foundry-active.ts "$NODE_REPO_PATH" "$SESSION_ID"
+            git add "$NODE_REPO_PATH" ACTIVE_SESSIONS.md
+            git commit -m "Foundry: Transition $NODE_ID -> ACTIVE [$SESSION_ID]"
+            git pull --rebase origin main
+          }
           git push origin main 2>&1 | tee -a commit.log
 
       - name: Report Execution Failure

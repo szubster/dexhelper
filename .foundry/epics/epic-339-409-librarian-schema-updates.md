@@ -2,10 +2,10 @@
 id: epic-339-409-librarian-schema-updates
 type: EPIC
 title: Schema Updates for Librarian Persona
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-08'
-updated_at: '2026-08-12'
+updated_at: '2026-08-23'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,5 +30,5 @@ This epic covers updating `.foundry/docs/schema.md` to formally define the `libr
 ## Acceptance Criteria
 - [x] Generate stories for updating the schema documentation.
 - [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
-- [ ] story-409-412-add-librarian-persona-schema
-- [ ] story-409-413-librarian-schema-e2e
+- [x] story-409-412-add-librarian-persona-schema
+- [x] story-409-413-librarian-schema-e2e
