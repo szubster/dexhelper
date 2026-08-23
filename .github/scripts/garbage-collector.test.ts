@@ -94,7 +94,7 @@ owner_persona: human
     expect(remediateZombieModule.remediateZombieNode).not.toHaveBeenCalled();
   });
 
-  it('does not remediate nodes if session is TERMINATED', async () => {
+  it('remediates nodes if session is TERMINATED', async () => {
     const tmpNodePath = createTestNode(`---
 id: task-terminated
 status: ACTIVE
@@ -108,8 +108,12 @@ jules_session_id: sess-terminated
     await main();
 
     expect(sessionApiModule.checkSessionLiveliness).toHaveBeenCalledWith('sess-terminated', 'test-key');
-    expect(remediateZombieModule.remediateZombieNode).not.toHaveBeenCalled();
-    expect(console.info).toHaveBeenCalledWith(`[GC] Skipping node ${tmpNodePath}: Session sess-terminated is TERMINATED (heartbeat will resolve)`);
+    expect(remediateZombieModule.remediateZombieNode).toHaveBeenCalledWith(
+      expect.any(String),
+      tmpNodePath,
+      'Zombie node detected: Session sess-terminated is TERMINATED'
+    );
+    expect(console.info).toHaveBeenCalledWith(`[GC] Remediating node ${tmpNodePath}: Session sess-terminated is TERMINATED`);
   });
 
   it('does not remediate nodes if session is ACTIVE', async () => {
