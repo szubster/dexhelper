@@ -2,12 +2,12 @@
 id: idea-417-407-more-save-files
 type: IDEA
 title: 'Idea: Source additional save files for testing'
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-14'
-updated_at: '2026-08-15'
+updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12819718521616405725'
 pr_number: null
 parent: epic-343-417-test-fixtures-sourcing
 tags:
