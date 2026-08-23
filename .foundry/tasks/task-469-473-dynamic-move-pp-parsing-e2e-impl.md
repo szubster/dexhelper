@@ -2,13 +2,13 @@
 id: task-469-473-dynamic-move-pp-parsing-e2e-impl
 type: TASK
 title: Implement E2E Verification for Dynamic Move PP Parsing
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-08-23'
 depends_on:
   - story-086-275-move-runtime-integration
-jules_session_id: null
+jules_session_id: '17646465594101035339'
 pr_number: null
 parent: story-086-469-dynamic-move-pp-parsing-e2e
 tags:
