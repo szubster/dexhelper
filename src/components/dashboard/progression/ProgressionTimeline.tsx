@@ -59,7 +59,7 @@ export const ProgressionTimeline: React.FC = () => {
           setEvents(newEvents);
         }
       } catch (error) {
-        console.error('Failed to fetch progression history:', error);
+        console.error('Failed to fetch progression history:', error instanceof Error ? error.message : 'Unknown error');
       } finally {
         if (mounted) {
           setIsLoading(false);

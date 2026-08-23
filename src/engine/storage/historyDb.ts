@@ -76,7 +76,7 @@ export const getMostRecentSave = async (
     }
     return null;
   } catch (error) {
-    console.error('Failed to get most recent save:', error);
+    console.error('Failed to get most recent save:', error instanceof Error ? error.message : 'Unknown error');
     throw error;
   }
 };
@@ -120,7 +120,7 @@ export const getPreviousSave = async (
     }
     return null;
   } catch (error) {
-    console.error('Failed to get previous save:', error);
+    console.error('Failed to get previous save:', error instanceof Error ? error.message : 'Unknown error');
     throw error;
   }
 };
