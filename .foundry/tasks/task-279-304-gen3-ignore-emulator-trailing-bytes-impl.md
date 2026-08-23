@@ -2,12 +2,12 @@
 id: task-279-304-gen3-ignore-emulator-trailing-bytes-impl
 type: TASK
 title: Implement Graceful Ignorance of Emulator Trailing Bytes in Gen 3 Save Files
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-07-06'
-updated_at: '2026-08-20'
+updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '251233554756171661'
+jules_session_id: null
 pr_number: null
 parent: story-081-279-gen3-ignore-emulator-trailing-bytes
 tags:
@@ -16,7 +16,7 @@ tags:
   - rtc
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>24h)'
 notes: ''
 ---
 

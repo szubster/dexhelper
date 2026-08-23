@@ -2,12 +2,12 @@
 id: research-466-467-gen2-roamer-fixtures
 type: RESEARCH
 title: Investigate Real-World Gen 2 Roamer Save Fixtures
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-22'
 updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '3176136743482522530'
+jules_session_id: null
 pr_number: null
 parent: task-442-466-gen2-roamer-e2e-fixture-impl
 tags:

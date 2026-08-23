@@ -2,7 +2,7 @@
 id: story-133-443-living-dex-data-engine-e2e
 type: STORY
 title: Living Dex Data Engine E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-23'
 updated_at: '2026-08-23'
