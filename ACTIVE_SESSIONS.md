@@ -4,6 +4,7 @@
 | --- | --- | --- | --- | --- |
 | [epic-038-061-gen2-event-flag-parsing](.foundry/epics/epic-038-061-gen2-event-flag-parsing.md) | EPIC | Gen 2 Event Flag Parsing Engine | story_owner | [16987269163286498303](https://jules.google.com/session/16987269163286498303) |
 | [epic-038-061-mirage-island-save-parsing](.foundry/epics/epic-038-061-mirage-island-save-parsing.md) | EPIC | Parse Daily Mirage Island Value | story_owner | [9963179904921726110](https://jules.google.com/session/9963179904921726110) |
+| [epic-044-070-hof-data-parsing](.foundry/epics/epic-044-070-hof-data-parsing.md) | EPIC | Parse Gen 1 and Gen 2 Hall of Fame Data | story_owner | [5420085334335838251](https://jules.google.com/session/5420085334335838251) |
 | [epic-049-086-dynamic-move-pp-parsing](.foundry/epics/epic-049-086-dynamic-move-pp-parsing.md) | EPIC | Dynamic Generation of Moves PP PokeData | story_owner | [8584362831011482686](https://jules.google.com/session/8584362831011482686) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
