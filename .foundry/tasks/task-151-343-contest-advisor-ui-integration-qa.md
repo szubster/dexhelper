@@ -28,6 +28,6 @@ notes: ''
 Verify that the `ContestRecommendationPanel` has been correctly integrated into the `PokemonDetails` view for Gen 3 Pokemon.
 
 ## Acceptance Criteria
-- [ ] Ensure `ContestRecommendationPanel` is rendered in `PokemonDetails` view only for `saveData?.generation === 3`.
-- [ ] Ensure it correctly receives `recommendations` and `sheen` values.
-- [ ] Verify that UI matches tactical theme constraints (no rounded edges).
+- [x] Ensure `ContestRecommendationPanel` is rendered in `PokemonDetails` view only for `saveData?.generation === 3`.
+- [x] Ensure it correctly receives `recommendations` and `sheen` values.
+- [x] Verify that UI matches tactical theme constraints (no rounded edges).
