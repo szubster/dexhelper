@@ -32,5 +32,8 @@ Develop a static analysis linter script (`scripts/verify-adr-compliance.ts`) usi
 2.  **Enforce ADR 013 (Component State):** Ensure React context is used for lifting state to share between the Kanban Board and React Flow visualizations in relevant dashboard views.
 
 ## Acceptance Criteria
-- [ ] Break down this epic into stories.
-- [ ] Ensure a final STORY is generated that is dedicated exclusively to Integration and E2E Verification.
+- [x] Break down this epic into stories.
+- [x] Ensure a final STORY is generated that is dedicated exclusively to Integration and E2E Verification.
+- [ ] story-417-443-adr-008-ui-compliance-linter
+- [ ] story-417-444-adr-013-state-compliance-linter
+- [ ] story-417-445-linter-integration-e2e
