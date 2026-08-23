@@ -2,13 +2,13 @@
 id: task-421-463-gen2-active-party-matchup-integration-impl
 type: TASK
 title: Integrate Gen 2 Active Party into MatchupContext
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-21'
 updated_at: '2026-08-23'
 depends_on:
   - task-421-460-matchup-context-state-layer-impl
-jules_session_id: null
+jules_session_id: '15770075034599315901'
 pr_number: null
 parent: story-411-421-active-party-extraction
 tags:
