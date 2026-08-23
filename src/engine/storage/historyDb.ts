@@ -1,5 +1,13 @@
 import { type DBSchema, type IDBPDatabase, openDB } from 'idb';
 
+export interface SaveMetadata {
+  playthroughId: string;
+  timestamp: number;
+  type?: string;
+  description?: string;
+  [key: string]: unknown;
+}
+
 export interface SaveHistoryDBSchema extends DBSchema {
   saves: {
     key: string;
@@ -7,7 +15,7 @@ export interface SaveHistoryDBSchema extends DBSchema {
   };
   metadata: {
     key: string;
-    value: Record<string, unknown>;
+    value: SaveMetadata;
     indexes: {
       'by-playthrough-timestamp': [string, number];
     };
@@ -45,7 +53,7 @@ export const initHistoryDb = async (): Promise<IDBPDatabase<SaveHistoryDBSchema>
 
 export const getMostRecentSave = async (
   playthroughId: string,
-): Promise<{ saveData: Uint8Array; metadata: Record<string, unknown> } | null> => {
+): Promise<{ saveData: Uint8Array; metadata: SaveMetadata } | null> => {
   try {
     const db = await initHistoryDb();
     const tx = db.transaction(['saves', 'metadata'], 'readonly');
@@ -75,7 +83,7 @@ export const getMostRecentSave = async (
 
 export const getPreviousSave = async (
   saveId: string,
-): Promise<{ saveData: Uint8Array; metadata: Record<string, unknown> } | null> => {
+): Promise<{ saveData: Uint8Array; metadata: SaveMetadata } | null> => {
   try {
     const db = await initHistoryDb();
     const tx = db.transaction(['saves', 'metadata'], 'readonly');
@@ -87,8 +95,8 @@ export const getPreviousSave = async (
       return null;
     }
 
-    const playthroughId = currentSaveMetadata['playthroughId'] as string;
-    const timestamp = currentSaveMetadata['timestamp'] as number;
+    const playthroughId = currentSaveMetadata.playthroughId;
+    const timestamp = currentSaveMetadata.timestamp;
 
     if (!playthroughId || typeof timestamp !== 'number') {
       return null;
@@ -117,11 +125,7 @@ export const getPreviousSave = async (
   }
 };
 
-export const writeSaveState = async (
-  id: string,
-  saveData: Uint8Array,
-  metadata: Record<string, unknown>,
-): Promise<void> => {
+export const writeSaveState = async (id: string, saveData: Uint8Array, metadata: SaveMetadata): Promise<void> => {
   try {
     const db = await initHistoryDb();
     const tx = db.transaction(['saves', 'metadata'], 'readwrite');
