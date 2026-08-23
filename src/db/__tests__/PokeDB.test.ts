@@ -534,13 +534,13 @@ describe('PokeDB', () => {
             id: 'REMATCH_ROSE',
             name: 'ROSE',
             map: 'MAP_ROUTE118',
-            tiers: []
+            tiers: [],
           },
           {
             id: 'REMATCH_ANDRES',
             name: 'ANDRES',
             map: 'MAP_ROUTE105',
-            tiers: []
+            tiers: [],
           },
         ],
         hash: 'test-hash-mc',
