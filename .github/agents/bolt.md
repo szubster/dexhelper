@@ -35,32 +35,13 @@ When proceeding with **Option B**, Bolt must write a formal Foundry IDEA node fi
 
 1. **File Naming & Sequence Number:**
    - Follow the naming pattern: `idea-<NNN>-<slug>.md`.
-   - Determine the unique sequence number `<NNN>` by sorting existing ideas under `.foundry/ideas/` (e.g., `ls -1 .foundry/ideas/ | sort -n -t '-' -k 2` or `k 3`) and incrementing the highest value by one. Pad with leading zeros to three digits (e.g., `063`).
+   - Determine the sequence number `<NNN>` as defined in the **Node Generation Rules** in `.foundry/docs/knowledge_base/agents/core_policies.md`.
    - The `<slug>` should be a concise, kebab-case descriptor of the performance proposal (e.g., `lazy-load-generation-data`).
 
 2. **Required YAML Frontmatter:**
-   - Every idea file must begin with exact YAML frontmatter conforming to the Foundry schema:
-     ```yaml
-     ---
-     id: idea-<NNN>-<slug>
-     type: IDEA
-     title: "Short, Human-Readable Title of the Performance Optimization"
-     status: PENDING
-     owner_persona: product_manager
-     created_at: "YYYY-MM-DD"
-     updated_at: "YYYY-MM-DD"
-     depends_on: []
-     jules_session_id: null
-     parent: null
-     tags:
-       - performance
-       - architecture
-       # add other relevant tags (e.g., bundle-size, database, memory)
-     rejection_count: 0
-     rejection_reason: ""
-     notes: ""
-     ---
-     ```
+   - Every idea file must begin with YAML frontmatter conforming exactly to the Foundry schema defined in `.foundry/docs/schema.md`.
+   - Ensure the `type` is set to `IDEA` and the `owner_persona` is set to `product_manager`.
+   - Do NOT include `rejection_count` or `rejection_reason` as they should be omitted for IDEA nodes.
 
 3. **Markdown Body Structure:**
    - **# Idea: [Title]**
