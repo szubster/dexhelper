@@ -2,7 +2,7 @@
 id: task-442-466-gen2-roamer-e2e-fixture-impl
 type: TASK
 title: Gen 2 Roamer E2E Fixtures Generation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-22'
 updated_at: '2026-08-22'
@@ -14,8 +14,8 @@ tags:
   - e2e
   - gen2
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Suspended via Late Binding to source real-world test fixtures (comment ID: 5385381368)'
 notes: ''
 locks: []
 ---
@@ -31,3 +31,4 @@ Provide the necessary Gen 2 (Gold/Silver/Crystal) save file fixtures containing 
 ## Acceptance Criteria
 - [ ] Gen 2 save fixtures with roamer data are added to the E2E test data.
 - [ ] Fixture loading mechanism is prepared for the E2E tests.
+- [ ] research-466-467-gen2-roamer-fixtures
