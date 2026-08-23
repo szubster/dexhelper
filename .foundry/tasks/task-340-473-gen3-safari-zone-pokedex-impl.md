@@ -34,7 +34,7 @@ Implement parsing logic to extract Pokédex state from Gen 3 save files to deter
 - **Corrupted Saves**: You MUST catch `RangeError` from out-of-bounds `DataView` reads and throw a new error with the exact message: "The save file is corrupted or incomplete."
 
 ## Acceptance Criteria
-- [ ] Implement Pokédex data extraction.
-- [ ] All memory offsets are defined as module-level constants.
-- [ ] Relative offsets are used with resolved section offsets.
-- [ ] RangeError is caught and re-thrown with the correct message.
+- [x] Implement Pokédex data extraction.
+- [x] All memory offsets are defined as module-level constants.
+- [x] Relative offsets are used with resolved section offsets.
+- [x] RangeError is caught and re-thrown with the correct message.
