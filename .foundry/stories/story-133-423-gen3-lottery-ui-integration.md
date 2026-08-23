@@ -31,4 +31,7 @@ Integrate the lottery matching logic into the UI.
 - Display the corresponding prize tier.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-423-469-gen3-lottery-state-impl
+- [ ] task-423-470-gen3-lottery-ui-component-impl
+- [ ] task-423-471-gen3-lottery-ui-qa
