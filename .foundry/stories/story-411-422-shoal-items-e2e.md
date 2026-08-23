@@ -35,4 +35,5 @@ This story focuses on verifying that the Shoal Items (Shoal Salt and Shoal Shell
 ## Acceptance Criteria
 - [ ] Implement Playwright E2E tests for Shoal items parsing.
 - [ ] Ensure tests cover loading a mock/fixture save file with Shoal items.
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-422-469-shoal-items-e2e-impl
