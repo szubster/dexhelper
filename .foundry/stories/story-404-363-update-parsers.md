@@ -2,10 +2,10 @@
 id: story-404-363-update-parsers
 type: STORY
 title: Update Generation-Specific Parsers and Tests
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-07'
-updated_at: '2026-08-20'
+updated_at: '2026-08-23'
 depends_on:
   - story-404-362-refactor-savedata-type
 jules_session_id: null
