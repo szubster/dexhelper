@@ -31,7 +31,7 @@ describe('checkSessionLiveliness', () => {
         expect(stderrWriteSpy).not.toHaveBeenCalled();
     });
 
-    test('returns TERMINATED on HTTP non-ok status (e.g. 500)', async () => {
+    test('returns UNKNOWN on HTTP non-ok status (e.g. 500)', async () => {
         // @ts-ignore
         global.fetch = vi.fn<any>(() => Promise.resolve({
             status: 500,
@@ -39,16 +39,16 @@ describe('checkSessionLiveliness', () => {
         }));
 
         const result = await checkSessionLiveliness(MOCK_SESSION_ID, MOCK_JULES_KEY);
-        expect(result).toBe('TERMINATED');
+        expect(result).toBe('UNKNOWN');
         expect(stderrWriteSpy).toHaveBeenCalledWith('[session-api] Jules API error: received status 500\n');
     });
 
-    test('returns TERMINATED on network fetch error', async () => {
+    test('returns UNKNOWN on network fetch error', async () => {
         // @ts-ignore
         global.fetch = vi.fn<any>(() => Promise.reject(new Error('Network failure')));
 
         const result = await checkSessionLiveliness(MOCK_SESSION_ID, MOCK_JULES_KEY);
-        expect(result).toBe('TERMINATED');
+        expect(result).toBe('UNKNOWN');
         expect(stderrWriteSpy).toHaveBeenCalledWith('[session-api] Jules API fetch error: Error: Network failure\n');
     });
 
@@ -57,7 +57,6 @@ describe('checkSessionLiveliness', () => {
         'QUEUED',
         'PLANNING',
         'AWAITING_PLAN_APPROVAL',
-        'AWAITING_USER_FEEDBACK',
         'IN_PROGRESS',
         'PAUSED'
     ];
@@ -78,7 +77,8 @@ describe('checkSessionLiveliness', () => {
 
     const terminatedStates = [
         'FAILED',
-        'COMPLETED'
+        'COMPLETED',
+        'AWAITING_USER_FEEDBACK'
     ];
 
     for (const state of terminatedStates) {

@@ -17,7 +17,7 @@ export async function checkSessionLiveliness(sessionId: string, julesKey: string
 
     if (!res.ok) {
       process.stderr.write(`[session-api] Jules API error: received status ${res.status}\n`);
-      return 'TERMINATED';
+      return 'UNKNOWN';
     }
 
     const data = await res.json() as any;
@@ -28,7 +28,6 @@ export async function checkSessionLiveliness(sessionId: string, julesKey: string
       'QUEUED',
       'PLANNING',
       'AWAITING_PLAN_APPROVAL',
-      'AWAITING_USER_FEEDBACK',
       'IN_PROGRESS',
       'PAUSED'
     ];
@@ -45,6 +44,6 @@ export async function checkSessionLiveliness(sessionId: string, julesKey: string
     return 'TERMINATED';
   } catch (err) {
     process.stderr.write(`[session-api] Jules API fetch error: ${String(err)}\n`);
-    return 'TERMINATED';
+    return 'UNKNOWN';
   }
 }

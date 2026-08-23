@@ -17,6 +17,9 @@ const require = createRequire(import.meta.url);
 const matter = require('gray-matter') as typeof import('gray-matter');
 
 export async function main() {
+  const isDryRun = process.argv.includes('--dry-run');
+  const dryTag = isDryRun ? '[DRY-RUN] ' : '';
+
   const julesKey = process.env.JULES_API_KEY;
   if (!julesKey) {
     console.warn('Missing JULES_API_KEY. Cannot verify session liveliness.');
@@ -26,8 +29,8 @@ export async function main() {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
   const repoRoot = path.resolve(__dirname, '..', '..');
 
-  // Sweep for active nodes
-  const activeNodePaths = sweepActiveNodes(repoRoot);
+  // Sweep for active nodes without moving completed nodes to archive
+  const activeNodePaths = sweepActiveNodes(repoRoot, { archive: false });
 
   for (const relativePath of activeNodePaths) {
     const fullPath = path.join(repoRoot, relativePath);
@@ -44,8 +47,10 @@ export async function main() {
       const sessionId = data.jules_session_id;
 
       if (!sessionId) {
-        console.info(`[GC] Remediating node ${relativePath}: Missing jules_session_id`);
-        remediateZombieNode(repoRoot, relativePath, 'Zombie node detected: Missing jules_session_id in ACTIVE state');
+        console.info(`[GC] ${dryTag}Remediating node ${relativePath}: Missing jules_session_id`);
+        if (!isDryRun) {
+          remediateZombieNode(repoRoot, relativePath, 'Zombie node detected: Missing jules_session_id in ACTIVE state');
+        }
         continue;
       }
 
@@ -53,7 +58,12 @@ export async function main() {
       const liveliness = await checkSessionLiveliness(sessionId, julesKey);
 
       if (liveliness === 'TERMINATED') {
-        console.info(`[GC] Skipping node ${relativePath}: Session ${sessionId} is TERMINATED (heartbeat will resolve)`);
+        console.info(`[GC] ${dryTag}Remediating node ${relativePath}: Session ${sessionId} is TERMINATED / inactive`);
+        if (!isDryRun) {
+          remediateZombieNode(repoRoot, relativePath, `Zombie node detected: Session ${sessionId} is TERMINATED / inactive`);
+        }
+      } else if (liveliness === 'UNKNOWN') {
+        console.warn(`[GC] Skipping node ${relativePath}: Unable to determine session liveliness for ${sessionId} (API error)`);
       }
     } catch (err) {
       console.error(`[GC] Error processing node ${relativePath}:`, err);

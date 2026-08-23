@@ -94,7 +94,7 @@ owner_persona: human
     expect(remediateZombieModule.remediateZombieNode).not.toHaveBeenCalled();
   });
 
-  it('does not remediate nodes if session is TERMINATED', async () => {
+  it('remediates nodes if session is TERMINATED', async () => {
     const tmpNodePath = createTestNode(`---
 id: task-terminated
 status: ACTIVE
@@ -108,8 +108,50 @@ jules_session_id: sess-terminated
     await main();
 
     expect(sessionApiModule.checkSessionLiveliness).toHaveBeenCalledWith('sess-terminated', 'test-key');
+    expect(remediateZombieModule.remediateZombieNode).toHaveBeenCalledWith(
+      expect.any(String),
+      tmpNodePath,
+      'Zombie node detected: Session sess-terminated is TERMINATED / inactive'
+    );
+  });
+
+  it('skips remediation in dry-run mode when session is TERMINATED', async () => {
+    process.argv.push('--dry-run');
+    const tmpNodePath = createTestNode(`---
+id: task-terminated-dry
+status: ACTIVE
+owner_persona: coder
+jules_session_id: sess-terminated-dry
+---`);
+
+    vi.spyOn(sweepActiveNodesModule, 'sweepActiveNodes').mockReturnValue([tmpNodePath]);
+    vi.spyOn(sessionApiModule, 'checkSessionLiveliness').mockResolvedValue('TERMINATED');
+
+    await main();
+
+    expect(sessionApiModule.checkSessionLiveliness).toHaveBeenCalledWith('sess-terminated-dry', 'test-key');
     expect(remediateZombieModule.remediateZombieNode).not.toHaveBeenCalled();
-    expect(console.info).toHaveBeenCalledWith(`[GC] Skipping node ${tmpNodePath}: Session sess-terminated is TERMINATED (heartbeat will resolve)`);
+    expect(console.info).toHaveBeenCalledWith(`[GC] [DRY-RUN] Remediating node ${tmpNodePath}: Session sess-terminated-dry is TERMINATED / inactive`);
+
+    process.argv.pop();
+  });
+
+  it('skips nodes if session liveliness is UNKNOWN', async () => {
+    const tmpNodePath = createTestNode(`---
+id: task-unknown
+status: ACTIVE
+owner_persona: coder
+jules_session_id: sess-unknown
+---`);
+
+    vi.spyOn(sweepActiveNodesModule, 'sweepActiveNodes').mockReturnValue([tmpNodePath]);
+    vi.spyOn(sessionApiModule, 'checkSessionLiveliness').mockResolvedValue('UNKNOWN');
+
+    await main();
+
+    expect(sessionApiModule.checkSessionLiveliness).toHaveBeenCalledWith('sess-unknown', 'test-key');
+    expect(remediateZombieModule.remediateZombieNode).not.toHaveBeenCalled();
+    expect(console.warn).toHaveBeenCalledWith(`[GC] Skipping node ${tmpNodePath}: Unable to determine session liveliness for sess-unknown (API error)`);
   });
 
   it('does not remediate nodes if session is ACTIVE', async () => {
