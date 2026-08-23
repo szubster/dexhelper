@@ -2,7 +2,7 @@
 id: task-360-419-gen3-roamer-e2e-impl
 type: TASK
 title: Impl Gen 3 Roamer E2E Tests
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-11'
 updated_at: '2026-08-23'
@@ -16,8 +16,8 @@ tags:
   - roamer
   - e2e
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>24h)'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
