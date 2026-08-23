@@ -35,3 +35,4 @@ As defined in PRD `prd-068-038-mirage-island-data-extraction`, we need to implem
 - [x] Story Owner: Generate child stories to implement the save file parsing logic and integrate it into the parser engine.
 - [x] story-061-098-locate-mirage-island-data
 - [x] story-061-099-implement-mirage-island-parser
+- [ ] story-061-443-mirage-island-save-parsing-e2e
