@@ -9,6 +9,7 @@ vi.mock('./utils/r2/client', () => ({
   r2Client: {
     listSaves: vi.fn<() => Promise<{ id: string; lastModified?: number }[]>>(),
     getSave: vi.fn<(id: string) => Promise<{ data: Uint8Array; lastModified?: number } | undefined>>(),
+    putSave: vi.fn<(id: string, data: Uint8Array, lastModified?: number) => Promise<void>>(),
   },
 }));
 
@@ -200,12 +201,12 @@ describe('Zustand Store', () => {
       const mockSaveData = { trainerName: 'LOCAL_RESOLVED', generation: 1, gameVersion: 'red' };
       vi.mocked(parseSaveFile).mockReturnValue(mockSaveData as unknown as ReturnType<typeof parseSaveFile>);
       const putSaveSpy = vi.spyOn(saveDB, 'putSave').mockResolvedValue(undefined);
-      const putSaveR2Spy = vi.spyOn(r2Client, 'putSave').mockResolvedValue(undefined);
+      vi.spyOn(r2Client, 'putSave').mockResolvedValue();
 
       await useStore.getState().resolveConflict('keep_local');
 
       expect(parseSaveFile).toHaveBeenCalledWith(expect.any(ArrayBuffer), undefined);
-      expect(putSaveR2Spy).toHaveBeenCalledWith('save-1', mockLocalBuffer, 1000);
+      expect(r2Client.putSave).toHaveBeenCalledWith('save-1', mockLocalBuffer, 1000);
       expect(putSaveSpy).toHaveBeenCalledWith('last_save_file', mockLocalBuffer);
       expect(useStore.getState().saveData).toEqual(mockSaveData);
       expect(useStore.getState().conflictState).toBeNull();
@@ -226,12 +227,12 @@ describe('Zustand Store', () => {
       const mockSaveData = { trainerName: 'REMOTE_RESOLVED', generation: 1, gameVersion: 'red' };
       vi.mocked(parseSaveFile).mockReturnValue(mockSaveData as unknown as ReturnType<typeof parseSaveFile>);
       const putSaveSpy = vi.spyOn(saveDB, 'putSave').mockResolvedValue(undefined);
-      const putSaveR2Spy = vi.spyOn(r2Client, 'putSave').mockResolvedValue(undefined);
+      vi.spyOn(r2Client, 'putSave').mockResolvedValue();
 
       await useStore.getState().resolveConflict('pull_remote');
 
       expect(parseSaveFile).toHaveBeenCalledWith(expect.any(ArrayBuffer), undefined);
-      expect(putSaveR2Spy).not.toHaveBeenCalled();
+      expect(r2Client.putSave).not.toHaveBeenCalled();
       expect(putSaveSpy).toHaveBeenCalledWith('last_save_file', mockRemoteBuffer);
       expect(useStore.getState().saveData).toEqual(mockSaveData);
       expect(useStore.getState().conflictState).toBeNull();
