@@ -4,14 +4,61 @@ import { render } from 'vitest-browser-react';
 import { TacticalSegmentedControl } from '../TacticalSegmentedControl';
 
 describe('TacticalSegmentedControl', () => {
-  it('renders correctly', async () => {
+  it('renders correctly and applies tactical classes', async () => {
     const items = [
       { id: '1', label: 'One' },
       { id: '2', label: 'Two' },
     ];
-    await render(<TacticalSegmentedControl items={items} selectedValue="1" onValueChange={() => {}} />);
-    await expect.element(page.getByText('One')).toBeInTheDocument();
+    await render(
+      <TacticalSegmentedControl items={items} selectedValue="1" onValueChange={() => {}} ariaLabel="Test Group" />,
+    );
+
+    const group = page.getByRole('radiogroup', { name: 'Test Group' });
+    await expect.element(group).toBeInTheDocument();
+    await expect.element(group).toHaveClass('border-dashed');
+
+    const firstItem = page.getByText('One');
+    await expect.element(firstItem).toBeInTheDocument();
+    await expect.element(page.getByRole('radio', { name: 'One' })).toHaveClass('tactical-badge');
+
     await expect.element(page.getByText('Two')).toBeInTheDocument();
+    await expect.element(page.getByRole('radio', { name: 'Two' })).toHaveClass('tactical-badge');
+  });
+
+  it('handles interactions and updates state', async () => {
+    const items = [
+      { id: '1', label: 'One' },
+      { id: '2', label: 'Two' },
+    ];
+    let selected = '1';
+    const onValueChange = (val: string) => {
+      selected = val;
+    };
+
+    const rendered = await render(
+      <TacticalSegmentedControl
+        items={items}
+        selectedValue={selected}
+        onValueChange={onValueChange}
+        ariaLabel="Test Group"
+      />,
+    );
+
+    const secondButton = page.getByRole('radio', { name: 'Two' });
+    await secondButton.click();
+
+    expect(selected).toBe('2');
+
+    // Rerender to verify class changes upon selection update
+    await rendered.rerender(
+      <TacticalSegmentedControl
+        items={items}
+        selectedValue={selected}
+        onValueChange={onValueChange}
+        ariaLabel="Test Group"
+      />,
+    );
+    await expect.element(secondButton).toHaveAttribute('aria-checked', 'true');
   });
 
   it('handles keyboard navigation', async () => {
