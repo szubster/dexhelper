@@ -28,4 +28,6 @@ Read the specific byte flags for Pokerus for every Pokemon in the party and PC f
 
 ## Acceptance Criteria
 - [ ] Extract pokerus data
-- [ ] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification.
+- [ ] story-411-443-extract-pokerus-data
+- [ ] story-411-444-pokerus-integration-e2e
