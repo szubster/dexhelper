@@ -2,13 +2,13 @@
 id: task-431-462-conflict-resolution-prompt-qa
 type: TASK
 title: QA R2 Conflict Resolution Prompt
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-22'
 updated_at: '2026-08-23'
 depends_on:
   - task-431-461-conflict-resolution-state-impl
-jules_session_id: '4738114570838886230'
+jules_session_id: null
 pr_number: null
 parent: story-412-431-r2-conflict-resolution-prompt-components
 tags:

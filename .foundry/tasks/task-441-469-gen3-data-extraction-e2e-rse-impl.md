@@ -2,12 +2,12 @@
 id: task-441-469-gen3-data-extraction-e2e-rse-impl
 type: TASK
 title: Implement Gen 3 RSE Data Extraction E2E Validation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-22'
 updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '210369803831747826'
+jules_session_id: null
 pr_number: null
 parent: story-130-441-gen3-data-extraction-e2e
 tags:

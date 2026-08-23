@@ -2,7 +2,7 @@
 id: task-340-475-gen3-safari-zone-encounters-impl
 type: TASK
 title: Gen 3 Safari Zone Encounters Calculation
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-08-23'

@@ -2,7 +2,7 @@
 id: task-100-472-mirage-island-cross-reference-qa
 type: TASK
 title: Cross-reference Mirage Island Random Value QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-23'
 updated_at: '2026-08-23'

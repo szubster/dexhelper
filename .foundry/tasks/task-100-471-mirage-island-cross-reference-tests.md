@@ -2,7 +2,7 @@
 id: task-100-471-mirage-island-cross-reference-tests
 type: TASK
 title: Cross-reference Mirage Island Random Value Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-08-23'

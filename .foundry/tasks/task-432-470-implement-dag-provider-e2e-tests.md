@@ -2,13 +2,13 @@
 id: task-432-470-implement-dag-provider-e2e-tests
 type: TASK
 title: Implement DagProvider E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-22'
 updated_at: '2026-08-23'
 depends_on:
   - task-432-469-setup-dag-e2e-fixtures
-jules_session_id: '15017364843190835050'
+jules_session_id: null
 pr_number: null
 parent: story-070-432-implement-dag-context-e2e
 tags:
