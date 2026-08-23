@@ -2,12 +2,12 @@
 id: task-423-469-gen3-ai-data-e2e-fixtures-impl
 type: TASK
 title: Setup Gen 3 AI Data E2E Fixtures
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-22'
 updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12111868665127434527'
 pr_number: null
 parent: story-411-423-gen3-ai-data-extraction-e2e
 tags:
