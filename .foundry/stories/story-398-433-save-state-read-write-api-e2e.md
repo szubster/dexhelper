@@ -2,7 +2,7 @@
 id: story-398-433-save-state-read-write-api-e2e
 type: STORY
 title: Save State Read/Write API E2E Verification
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-20'
 updated_at: '2026-08-23'
@@ -17,8 +17,8 @@ tags:
   - history
   - e2e
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>24h)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

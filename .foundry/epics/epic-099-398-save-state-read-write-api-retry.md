@@ -2,7 +2,7 @@
 id: epic-099-398-save-state-read-write-api-retry
 type: EPIC
 title: Save State Read/Write API (Retry)
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-04'
 updated_at: '2026-08-23'
