@@ -1,7 +1,7 @@
 ---
 id: idea-419-scheduled-agents-dashboard
 type: IDEA
-title: Scheduled Agents Dashboard and Issue-Based Dispatch
+title: Scheduled Agents Dashboard and Execution Tracking Options
 status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-23'
@@ -15,14 +15,14 @@ tags:
   - foundry
   - scheduled-agents
   - dashboard
-  - github-issues
+  - zero-inbox
 research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
 ---
 
-# Idea: Scheduled Agents Dashboard and Issue-Based Dispatch Options
+# Idea: Scheduled Agents Dashboard and Execution Tracking Options
 
 ## 1. Context & Problem Statement
 The Foundry relies heavily on scheduled autonomous agents (e.g. `tpm`, `agile_coach`, `sweeper`, `shield`, `nurse`, `sentinel`, `visionary`, `strategist`, etc.) running on automated cron schedules defined in `.github/workflows/schedule-*.yml`.
@@ -32,52 +32,37 @@ Currently, while active DAG task executions are monitored and formatted into `AC
 2. There is no persistent Markdown dashboard or centralized tracking page recording recent scheduled agent execution history, outputs, or session links (e.g. last 5 Jules session links per agent).
 3. Finding past session links for scheduled runs requires digging through GitHub Actions run histories.
 
-Furthermore, the system currently employs GitHub Issues for error handling (e.g., self-healing DAG warnings and orchestrator execution failures tagged with `jules` label). Exploring whether scheduled agent dispatches should also migrate to GitHub Issue creation presents an architectural alternative worth analyzing.
+### Key Operational Constraint: Zero-Inbox Issue Policy
+The project maintainer actively maintains a strict **zero-inbox policy** on GitHub Issues, closing issues promptly as work is completed. Therefore, generating recurring GitHub Issues for routine scheduled agent runs is non-viable as it would pollute the issue tracker and disrupt the zero-inbox workflow.
 
 ---
 
 ## 2. Options & Architecture Exploration
 
-### Option A: Scheduled Agents Markdown Dashboard (`SCHEDULED_SESSIONS.md`)
-Maintain a dedicated Markdown dashboard in the root directory (or integrated into `ACTIVE_SESSIONS.md`) updated automatically upon every scheduled workflow run.
+### Option A (Recommended): Scheduled Agents Markdown Dashboard (`SCHEDULED_SESSIONS.md`)
+Maintain a dedicated Markdown dashboard in the root directory (or as a table in `ACTIVE_SESSIONS.md`) updated automatically upon every scheduled workflow run.
 - **Mechanism:**
-  - Update `.github/workflows/foundry-scheduled-agent.yml` with a step that invokes a script (e.g. `scripts/update-scheduled-dashboard.ts`).
-  - Maintain a JSON/Markdown state file tracking the last $N$ (e.g., 5) execution session URLs, timestamps, personas, and completion statuses.
-  - Render a clean Markdown table summarizing each agent persona's recent activity and direct links to their Jules session logs.
+  - Update `.github/workflows/foundry-scheduled-agent.yml` with a post-dispatch step that invokes a lightweight dashboard updater script (e.g. `scripts/update-scheduled-dashboard.ts`).
+  - Store a JSON history buffer (e.g. `.foundry/data/scheduled_sessions_history.json`) keeping the last 5 session URLs, timestamps, personas, and outcome status for each persona.
+  - Render a clean Markdown table (`SCHEDULED_SESSIONS.md`) summarizing each agent persona's recent runs with direct links to their Jules session logs.
 - **Pros:**
-  - Lightweight, fast, non-intrusive.
-  - Keeps repository-as-database pattern intact.
-  - Direct parity with `ACTIVE_SESSIONS.md`.
+  - Keeps the repository clean and respects the zero-inbox GitHub Issue policy.
+  - Aligns cleanly with the existing repository-as-database architecture and `ACTIVE_SESSIONS.md` pattern.
+  - Provides instant visibility into the last 5 session URLs for all scheduled personas.
 - **Cons:**
-  - Git commit collisions if multiple cron schedules run concurrently (requires rebase/retry logic or centralized workflow execution).
+  - Potential git commit collision during push if two cron schedules finish simultaneously (can be resolved with `git pull --rebase` re-try logic in the workflow step, identical to `foundry-engine.yml`).
 
 ---
 
-### Option B: Migration to GitHub Issue-Based Scheduled Dispatch
-Instead of direct Jules API invocation in cron workflows, scheduled jobs create a GitHub Issue tagged with the `jules` label (or dedicated agent label like `jules:tpm`).
-- **Mechanism:**
-  - Cron workflow runs `gh issue create --title "Scheduled Agent Run: tpm" --body "..." --label "jules,scheduled"`.
-  - Issue creation triggers an issue-reaction workflow or orchestrator pickup that dispatches Jules session.
-  - Jules interacts with or references the GitHub Issue, providing native discussion threads, session link embeddings, and automatic issue closure upon completion.
-- **Pros:**
-  - Native GitHub tracking and searchability for all scheduled agent runs.
-  - Integrates seamlessly with existing self-healing issue workflows (`foundry-engine.yml` issue creation).
-  - Easy human oversight and commentary on agent runs.
-  - Eliminates git commit conflicts on workflow run start since issue creation uses GitHub API.
-- **Cons:**
-  - Higher GitHub API issue noise/volume over time.
-  - Requires issue lifecycle cleanup / retention policies (e.g., auto-closing or archiving old scheduled agent issues).
-
----
-
-### Option C: Hybrid Approach (Issue Creation + Automated Dashboard Summary)
-Combine Option A and Option B:
-- Scheduled agent cron workflows create a tracking GitHub Issue for each run.
-- The workflow updates a master `SCHEDULED_AGENTS.md` dashboard containing links to the last 5 GitHub Issues & Jules Sessions for each persona.
+### Option B (Evaluated & Disqualified): Migration to GitHub Issue-Based Scheduled Dispatch
+Creating a GitHub Issue tagged with `jules` for each routine scheduled run was evaluated.
+- **Evaluation & Rejection Reason:**
+  - Violates the maintainer's strict zero-inbox issue policy.
+  - High volume of routine cron runs would create constant issue noise.
+  - Disqualified in favor of Markdown-based tracking (Option A).
 
 ---
 
 ## 3. Next Steps & Acceptance Criteria
 - [x] Product Manager: Draft this IDEA node to initiate the feature proposal.
-- [ ] Product Manager: Research trade-offs between Issue creation rate limits vs Markdown commit conflicts.
-- [ ] Product Manager: Draft PRD detailing chosen path (Markdown Dashboard vs GitHub Issue Dispatch vs Hybrid), schema changes, and workflow modifications.
+- [ ] Product Manager: Convert this IDEA into a PRD detailing `SCHEDULED_SESSIONS.md` format, history JSON retention schema, and `foundry-scheduled-agent.yml` update steps.
