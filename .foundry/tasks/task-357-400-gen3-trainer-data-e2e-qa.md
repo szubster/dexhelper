@@ -31,4 +31,4 @@ Verify the E2E and integration testing for the Gen 3 Trainer Data Extraction log
 - Verify E2E/integration tests to ensure reliability and correct rendering of the TID and SID.
 
 ## Acceptance Criteria
-- [ ] QA: Verify E2E and integration tests.
+- [x] QA: Verify E2E and integration tests.
