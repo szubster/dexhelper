@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-06-19'
 updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '7359202857173996162'
+jules_session_id: null
 pr_number: null
 parent: epic-051-094-friendship-data-extraction
 tags:

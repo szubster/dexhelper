@@ -2,10 +2,10 @@
 id: story-117-356-pokegear-predictor-e2e
 type: STORY
 title: Pokegear Predictor E2E Tests
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-04'
-updated_at: '2026-08-05'
+updated_at: '2026-08-23'
 depends_on: []
 jules_session_id: null
 pr_number: null

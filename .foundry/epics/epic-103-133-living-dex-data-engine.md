@@ -2,12 +2,12 @@
 id: epic-103-133-living-dex-data-engine
 type: EPIC
 title: Living Dex Data Engine & Mapping
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-04'
 updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '5255979265278452845'
+jules_session_id: null
 pr_number: null
 parent: prd-056-103-living-dex-tracker
 tags:
@@ -31,6 +31,7 @@ This epic covers the backend/data layer requirements of the Living Dex Tracker P
 - [x] story-133-272-living-dex-ghost-tracker
 - [x] story-133-273-living-dex-pc-mapping
 - [x] story-133-274-living-dex-evolution-material
+- [ ] story-133-443-living-dex-data-engine-e2e
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

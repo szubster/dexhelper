@@ -7,7 +7,7 @@ owner_persona: story_owner
 created_at: '2026-07-14'
 updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '14975556046693340691'
+jules_session_id: null
 pr_number: null
 parent: prd-109-112-gen2-room-decoration-tracker
 tags:

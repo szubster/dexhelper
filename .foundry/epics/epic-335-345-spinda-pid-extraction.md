@@ -2,7 +2,7 @@
 id: epic-335-345-spinda-pid-extraction
 type: EPIC
 title: Gen 3 Spinda PID Extraction
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-26'
 updated_at: '2026-08-23'
@@ -15,10 +15,8 @@ tags:
   - spinda
   - data-extraction
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 
