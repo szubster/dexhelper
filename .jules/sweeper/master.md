@@ -9,3 +9,6 @@ When modifying, updating, or maintaining agent persona files, it is vital to fir
 
 ## Unused Exports & Knip
 When resolving unused exports found via tools like `knip`, be extremely careful about variables implicitly required by unit tests. Before removing an export, explicitly verify its usage by executing a global search (e.g. `grep`) across the repository, especially within test files. Only remove the `export` keyword if it's strictly used internally within the same module and nowhere else. Unused barrel files, like `src/engine/index.ts` which was entirely unused and caught by `knip`, can be safely deleted. Obsolete configs in tools like `knip.json`'s ignore list should also be cleaned up to prevent configuration hints and warnings from the tool.
+
+
+# Sweeper Session\n\n## Actions\nDeleted unused barrel file `src/contexts/index.ts` which only exported `RibbonFilterContext`.\n\n## Learnings\nAlways verify dead code with tools like `knip` and `grep` before deletion. When deleting a barrel file, ensure that any other module relying on it is refactored.

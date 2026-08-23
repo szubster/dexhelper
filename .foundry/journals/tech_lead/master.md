@@ -206,3 +206,25 @@ Date: 2026-08-18
 Artifact Anomaly for Macro Nodes: If a generative persona (like Tech Lead) discovers that a parent node's (e.g., STORY) target artifacts are already fully implemented, they must NOT check off the parent's overarching acceptance criteria to execute the Empty PR Policy directly. Instead, they must still draft a formal child node (e.g., a TASK for the coder) and append it as an unchecked checkbox (`- [ ] <node_id>`) to the parent's markdown body, allowing the downstream persona to gracefully execute the Empty PR Policy on the child node.
 
 When checking off overarching story checkboxes, still ensure the downstream task is appended correctly.
+
+# Learned about proper DAG linkages and groundedness
+
+When drafting tasks, it's critical to avoid using file paths with extensions in the `depends_on` frontmatter, as it will break the DAG Orchestrator. Always use the exact Node ID (e.g., `task-440-450-gen3-pokemon-extraction-impl`).
+
+Additionally, when adding tasks to a parent node, ensure you add the `## Acceptance Criteria` heading if it doesn't already exist, and don't mistakenly use file paths here either.
+
+Finally, never reference variables or objects like `SUBSTRUCTURE_ORDER` in your execution plan unless you have actively discovered them in the current session. Groundedness checks will fail your plan.
+
+# Tech Lead Journal: 7125355397537957084
+
+## Intelligent Verification Protocol Application
+When drafting implementation tasks for `story-071-433-migrate-tactical-segmented` (migrating `TacticalSegmentedControl` and `TacticalMultiSelectControl` to utilize the new `@utility` classes), I have decided to omit a separate QA task.
+
+**Reasoning:**
+- This is a straightforward CSS class replacement refactoring with a very low risk of introducing regressions that wouldn't be caught by the existing lint and test suites.
+- The `coder` persona will self-verify the visual appearance and ensure that the functional state mapping remains intact. This aligns with the Intelligent Verification Protocol guidelines for simple/low-risk changes, reducing unnecessary friction and QA backlog bloat.
+
+- Execution Plan Formatting Rule: Execution plans must consist solely of single, actionable, flat instructions. The use of nested bullet points or sub-steps is strictly forbidden and will result in rejection.
+- Execution Plan Completeness Rule: When modifying files (including checking markdown checkboxes for Empty PRs), the required verification commands (`pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`) must be placed in the plan *after* all file modifications are complete, serving as the final explicit verification stage immediately before the pre-commit step.
+- Execution Plan Verification Rule: Execution plans that involve creating new files or modifying existing ones must explicitly include a verification step (e.g., using `read_file`) immediately following the modification step to confirm the changes were written correctly. Plans missing this exact specificity will be rejected.
+- Execution Plan Specificity Rule: Execution plans must not contain conversational monologue (e.g., 'Wait, since...'), raw code blocks, or vague instructions (e.g., 'Add tests'). Steps must be concrete, detailing the exact files and functions being implemented or tested, to avoid REVISION_REQUIRED rejections.

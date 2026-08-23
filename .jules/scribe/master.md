@@ -56,3 +56,12 @@ Add documentation to a complex engine module (`encounterTools.ts`) focusing on t
 
 ## Scribe Journal - Heatmap Density Logic
 Documented the architectural reason why `RouteRadarController` uses a `Set` to collect unique `areaId`s per suggestion. Without it, Pokémon with multiple sub-encounters on the same map would distort the heatmap density.
+
+# Scribe Journal
+
+- **Module Documented:** `src/engine/mapGraph/` (`gen1Graph.ts` and `gen2Graph.ts`)
+- **Why this module:** The routing engine uses a fallback mechanism when evaluating player distance to wild encounters. Saffron City and Goldenrod City are hardcoded as universal fallbacks. The JSDoc lacked architectural explanation as to *why* these cities are used (i.e., they are centrally located hubs connecting multiple routes, necessary to prevent UI crashes if a player saves in an unmapped indoor location).
+- **Summary of Additions:** Added JSDoc blocks to `getDistanceToMap` explaining the structural topology rationale for the fallback cities, and included `@example` blocks as explicitly requested by the constraint checklist.
+
+## Session Learnings
+- **Pre-commit constraint compliance:** Ensure *all* specific tags requested in the instructions (e.g., `@example`) are included during the first pass. Skipping them leads to code review nitpicks.
