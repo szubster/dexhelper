@@ -2,13 +2,13 @@
 id: task-431-461-conflict-resolution-state-impl
 type: TASK
 title: Implement R2 Conflict Resolution State and Logic
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on:
   - task-431-460-conflict-resolution-modal-ui-impl
-jules_session_id: '3415417140166548491'
+jules_session_id: null
 pr_number: null
 parent: story-412-431-r2-conflict-resolution-prompt-components
 tags:
@@ -16,7 +16,7 @@ tags:
   - ux
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>24h)'
 notes: ''
 locks: []
 ---

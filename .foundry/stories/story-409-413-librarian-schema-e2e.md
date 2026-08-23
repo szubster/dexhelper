@@ -2,10 +2,10 @@
 id: story-409-413-librarian-schema-e2e
 type: STORY
 title: Librarian Schema Updates E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-20'
+updated_at: '2026-08-23'
 depends_on:
   - story-409-412-add-librarian-persona-schema
 jules_session_id: null
@@ -29,6 +29,6 @@ notes: ''
 This story is dedicated exclusively to Integration and E2E Verification for the schema updates defining the `librarian` persona, satisfying the orchestrator safeguard.
 
 ## Acceptance Criteria
-- [ ] Verify the `librarian` persona is properly integrated in the schema documentation.
+- [x] Verify the `librarian` persona is properly integrated in the schema documentation.
 - [x] Create QA/integration testing TASKS to verify the changes.
-- [ ] task-413-440-verify-librarian-schema-e2e
+- [x] task-413-440-verify-librarian-schema-e2e

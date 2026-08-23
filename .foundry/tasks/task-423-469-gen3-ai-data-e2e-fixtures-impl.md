@@ -2,7 +2,7 @@
 id: task-423-469-gen3-ai-data-e2e-fixtures-impl
 type: TASK
 title: Setup Gen 3 AI Data E2E Fixtures
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-22'
 updated_at: '2026-08-23'
@@ -15,8 +15,8 @@ tags:
   - ai
   - save-engine
   - e2e
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

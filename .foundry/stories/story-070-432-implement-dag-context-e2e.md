@@ -2,13 +2,13 @@
 id: story-070-432-implement-dag-context-e2e
 type: STORY
 title: E2E Verification for DagContext Provider Integration
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on:
   - story-070-431-integrate-dag-context-with-views
-jules_session_id: '16525840987736772926'
+jules_session_id: null
 pr_number: null
 parent: epic-045-070-implement-dag-context
 tags:

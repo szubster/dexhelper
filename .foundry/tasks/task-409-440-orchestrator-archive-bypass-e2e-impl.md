@@ -2,12 +2,12 @@
 id: task-409-440-orchestrator-archive-bypass-e2e-impl
 type: TASK
 title: Implement Orchestrator Archive Bypass E2E Verification
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-20'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '4979322748811404169'
+jules_session_id: null
 pr_number: null
 parent: story-405-409-orchestrator-archive-bypass-e2e
 tags:

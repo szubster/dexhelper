@@ -2,7 +2,7 @@
 id: task-423-471-gen3-ai-data-e2e-mapping-tests-impl
 type: TASK
 title: Write Playwright E2E Tests for Gen 3 AI Script Mapping
-status: FAILED
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-22'
 updated_at: '2026-08-23'
@@ -16,8 +16,8 @@ tags:
   - ai
   - save-engine
   - e2e
-rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

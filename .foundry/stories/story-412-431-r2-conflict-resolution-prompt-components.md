@@ -2,10 +2,10 @@
 id: story-412-431-r2-conflict-resolution-prompt-components
 type: STORY
 title: R2 Conflict Resolution Prompt Components
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-18'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on: []
 jules_session_id: null
 pr_number: null

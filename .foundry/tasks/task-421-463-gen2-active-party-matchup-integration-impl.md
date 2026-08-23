@@ -2,7 +2,7 @@
 id: task-421-463-gen2-active-party-matchup-integration-impl
 type: TASK
 title: Integrate Gen 2 Active Party into MatchupContext
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-21'
 updated_at: '2026-08-23'
@@ -15,8 +15,8 @@ tags:
   - gen2
   - integration
   - react
-rejection_count: 0
-rejection_reason: Session timed out (>24h)
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

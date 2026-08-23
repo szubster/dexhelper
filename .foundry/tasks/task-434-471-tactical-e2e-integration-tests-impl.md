@@ -2,10 +2,10 @@
 id: task-434-471-tactical-e2e-integration-tests-impl
 type: TASK
 title: Implement Playwright E2E Integration Tests for Tactical Components
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on:
   - task-434-469-tactical-component-tests-basic-impl
   - task-434-470-tactical-component-tests-complex-impl

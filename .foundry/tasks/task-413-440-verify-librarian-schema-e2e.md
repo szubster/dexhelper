@@ -2,12 +2,12 @@
 id: task-413-440-verify-librarian-schema-e2e
 type: TASK
 title: Verify Librarian Schema Updates E2E
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-20'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '15818361053978287133'
+jules_session_id: null
 pr_number: null
 parent: story-409-413-librarian-schema-e2e
 tags:

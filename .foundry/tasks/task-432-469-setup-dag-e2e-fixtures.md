@@ -2,10 +2,10 @@
 id: task-432-469-setup-dag-e2e-fixtures
 type: TASK
 title: Setup DagContext E2E Fixtures
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on: []
 jules_session_id: null
 pr_number: null
