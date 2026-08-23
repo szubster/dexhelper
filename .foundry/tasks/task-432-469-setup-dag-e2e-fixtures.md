@@ -30,6 +30,6 @@ To properly E2E test the `DagContext` and its provider, we need reliable Playwri
 - Ensure the fixture can be easily reused across multiple E2E test files for the DAG dashboard.
 
 ## Acceptance Criteria
-- [ ] A mock `ParsedNode[]` payload is defined for E2E tests.
-- [ ] A Playwright network intercept/fixture is implemented to return this mock data when the DAG fetch is made.
-- [ ] The mock data includes nodes with relationships that can be rendered into a graph.
+- [x] A mock `ParsedNode[]` payload is defined for E2E tests.
+- [x] A Playwright network intercept/fixture is implemented to return this mock data when the DAG fetch is made.
+- [x] The mock data includes nodes with relationships that can be rendered into a graph.
