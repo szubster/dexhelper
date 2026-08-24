@@ -353,6 +353,30 @@ export interface Gen2SaveData extends BaseSaveData {
   gen2MomsSavings?: { money: number; savingActive: boolean };
   /** Gen 2 specific: The player's active and unlocked room decorations. */
   gen2RoomDecorations?: { active: number[]; unlocked: boolean[] };
+  /** Gen 2 specific: States for daily and weekly time-gated events. */
+  gen2DailyEvents?: {
+    mysteryGift: boolean;
+    bugCatchingContest: boolean;
+    haircutBrothers: {
+      older: boolean;
+      younger: boolean;
+    };
+    fridayLapras: boolean;
+    weekdaySiblings: {
+      monica: boolean;
+      tuscany: boolean;
+      wesley: boolean;
+      arthur: boolean;
+      frieda: boolean;
+      santos: boolean;
+      sunny: boolean;
+    };
+    buenasPassword: {
+      offeredNumberNoBlueCard: boolean;
+      offeredNumber: boolean;
+      metBuena: boolean;
+    };
+  };
 }
 
 export interface Gen3SaveData extends BaseSaveData {
