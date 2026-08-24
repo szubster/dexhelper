@@ -1797,6 +1797,17 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
 
     const allSpindas = [...(partySpindas || []), ...pcSpindas];
 
+    for (const pokemon of partyDetails) {
+      if (pokemon.personalityValue !== undefined) {
+        pokemon.isMirageIslandKey = (pokemon.personalityValue & 0xffff) === mirageIslandValue;
+      }
+    }
+    for (const pokemon of pcDetails) {
+      if (pokemon.personalityValue !== undefined) {
+        pokemon.isMirageIslandKey = (pokemon.personalityValue & 0xffff) === mirageIslandValue;
+      }
+    }
+
     // Dummy scaffold values for now until fully implemented
     const result: Gen3SaveData = {
       generation: 3,
