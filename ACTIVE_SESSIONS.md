@@ -5,6 +5,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [story-428-470-identify-public-saves](.foundry/stories/story-428-470-identify-public-saves.md) | STORY | Identify and Download Public Saves | tech_lead | [10053560704069993136](https://jules.google.com/session/10053560704069993136) |
 | [task-241-469-daycare-gen3-parsing-impl](.foundry/tasks/task-241-469-daycare-gen3-parsing-impl.md) | TASK | Implement Gen 3 Daycare Data Parsing | coder | [9017398991973943758](https://jules.google.com/session/9017398991973943758) |
 | [task-279-304-gen3-ignore-emulator-trailing-bytes-impl](.foundry/tasks/task-279-304-gen3-ignore-emulator-trailing-bytes-impl.md) | TASK | Implement Graceful Ignorance of Emulator Trailing Bytes in Gen 3 Save Files | coder | [5813061145877316408](https://jules.google.com/session/5813061145877316408) |
 | [task-348-462-gen3-ash-ui-impl](.foundry/tasks/task-348-462-gen3-ash-ui-impl.md) | TASK | Task: Implement Gen 3 Volcanic Ash UI Integration | coder | [2446653758458105448](https://jules.google.com/session/2446653758458105448) |
