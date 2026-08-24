@@ -32,5 +32,6 @@ Verify the R2 Conflict Resolution UI Prompt behaves correctly under conflict sit
 - Must test presentation of conflict metadata.
 
 ## Acceptance Criteria
-- [ ] Implement E2E verification tasks.
+- [x] Implement E2E verification tasks.
 - [ ] Story transitions to `COMPLETED` when its child `TASK`s complete.
+- [ ] task-432-484-r2-conflict-resolution-prompt-e2e-impl
