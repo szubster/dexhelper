@@ -28,4 +28,4 @@ notes: ''
 Write unit tests for the Gen 2 Pokerus parsing logic to ensure it correctly extracts the byte and translates it into the `strain` and `daysRemaining` properties in `PokemonInstance`.
 
 ## Acceptance Criteria
-- [ ] Verify unit tests are written for the Pokerus byte parsing in Gen 2 saves, covering various edge cases (cured, infected, uninfected).
+- [x] Verify unit tests are written for the Pokerus byte parsing in Gen 2 saves, covering various edge cases (cured, infected, uninfected).
