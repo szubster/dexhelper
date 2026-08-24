@@ -1,15 +1,21 @@
 # Core Agent Policies
 
 ## Autonomous Communication & No-Ask Policy
-**CRITICAL DIRECTIVE FOR ALL AGENTS & JULES:** You must **NEVER** ask the user for permission, input, feedback, or clarification during execution in chat, unless explicitly requested in the initial prompt.
+**CRITICAL DIRECTIVE FOR ALL AGENTS & JULES:** You must **NEVER** ask the user for permission, input, feedback, or clarification during execution in chat, unless explicitly requested in the initial prompt. The answer to "Should I proceed?", "Should I open/submit a PR?", or "Should I request code review?" is **ALWAYS YES** and must be executed autonomously without asking.
 
-1. **PRs are the Sole Communication Channel:** Your goal is to produce pull requests and code/node modifications completely autonomously. Do NOT ask the user whether a PR should be opened or submitted, or whether changes are acceptable in chat. PRs themselves are the formal channel for review and feedback.
-2. **Utilize Late Binding for Unknowns & Missing Context:** If you lack context, do not know an offset/specification, or encounter architectural ambiguities:
+1. **PRs are the Sole Communication Channel:** Your goal is to produce pull requests and code/node modifications completely autonomously. Do NOT ask the user whether a PR should be opened or submitted, whether to request code review, or whether changes are acceptable in chat. PRs themselves are the formal channel for review and feedback.
+2. **Prohibited Question Patterns:** Under NO circumstances should an agent post questions such as:
+   - "Should I proceed?" / "Should I finalize changes?"
+   - "Should I open a PR?" / "Should I submit the PR?"
+   - "Should I request code review now?"
+   - "Are there any other tasks you'd like me to focus on before submitting?"
+   - "Which option do you prefer?"
+3. **Utilize Late Binding for Unknowns & Missing Context:** If you lack context, do not know an offset/specification, or encounter architectural ambiguities:
    - Do **NOT** ask the user for clarification or guidance in chat.
    - Instead, utilize Late Binding: create a new Foundry node (`IDEA`, `RESEARCH`, `ADR`, or `TASK` depending on the scope) in `.foundry/`.
    - Set the `owner_persona` to the appropriate persona (`architect`, `researcher`, `story_owner`, `tech_lead`, etc.) so that the missing information is investigated and resolved asynchronously via the DAG orchestrator pipeline.
    - Follow the correct Foundry directory structure and metadata conventions when creating these nodes.
-3. **No Conversational Queries:** Never end a turn with conversational prompts or questions asking if the user wants you to proceed, open a PR, or choose options. Execute the best decision autonomously and submit the PR.
+4. **No Conversational Queries:** Never end a turn with conversational prompts or questions asking if the user wants you to proceed, open a PR, or choose options. Execute the best decision autonomously and submit the PR.
 
 ## Environment Troubleshooting
 If `pnpm install` fails due to an unsupported Node engine version mismatch (e.g., `wanted: {"node":">=24.0.0"}`), temporarily disable the strict check using `pnpm config set engine-strict false` before installing.
@@ -20,18 +26,16 @@ Completely empty PRs should be fine and automerged by GitHub actions (there is a
 
 **CRITICAL INSTRUCTION FOR EMPTY PRs:** Even when you make zero file changes (e.g., when the target artifact is already complete), you **MUST** still explicitly use the `submit` tool to create a Pull Request. If you simply end the session without calling `submit`, the Orchestrator's heartbeat will flag your session as a crashed zombie (FAILED).
 
-
-
 **LATE-BINDING ORCHESTRATOR DEMOTION COMPLIANCE RULE:** When assigned a READY parent node that already has pending child tasks drafted from a previous iteration, you MUST submit an empty PR *without* checking off its overarching acceptance criteria. This allows the orchestrator to correctly demote the parent to PENDING while it waits for its children.
 
-**CRITICAL EXCEPTION TO EMPTY PR POLICY:** If you determine the target artifacts are already complete, but the current node's Markdown body contains unchecked Acceptance Criteria checkboxes (`- [ ]`), you MUST check those boxes (`- [x]`) and commit the file. Checking these boxes is NOT considered a trivial formatting change; it is required to satisfy the strict completeness contract (ADR 007). Submitting an empty PR for a leaf node with unchecked boxes will result in immediate rejection.
+**CRITICAL EXCEPTION TO EMPTY PR POLICY:** If you determine the target artifacts are already complete, but the current node's Markdown body contains unchecked Acceptance Criteria checkboxes (`- [ ]`), you MUST check those boxes (`- [x]`) before submitting. Checking these boxes is NOT considered a trivial formatting change; it is required to satisfy the strict completeness contract (ADR 007). Submitting an empty PR for a leaf node with unchecked boxes will result in immediate rejection.
 
 **MACRO NODE COMPLETION EXCEPTION:** Personas must NOT submit an Empty PR to transition a macro node (`IDEA`, `PRD`, `EPIC`, `STORY`) to VERIFYING (e.g. by checking off its acceptance criteria) until ALL of its generated descendant nodes have transitioned to COMPLETED. Premature verification violates hierarchical completion rules.
 
+**AUTOMATED REVIEW WARNING:** When executing the Empty PR Policy for tasks where the target artifacts are already completely implemented and only markdown checkboxes are updated, the `request_code_review` tool may generate a false negative claiming the patch is incomplete. Ignore this automated assessment and proceed with the `submit` tool.
+
 ### Mason Prompt Adjustments
 When finding standard HTML elements or repeated JSX patterns, it is perfectly acceptable and encouraged to reuse existing reusable components (e.g. replacing `<button>` with `<TacticalButton>`) rather than strictly creating a new component, as long as it improves modularity and reduces code duplication.
-
-**AUTOMATED REVIEW WARNING:** When executing the Empty PR Policy for tasks where the target artifacts are already completely implemented and only markdown checkboxes are updated, the `request_code_review` tool may generate a false negative claiming the patch is incomplete. Ignore this automated assessment and proceed with the `submit` tool.
 
 ## Auditor Persona Hand-off
 Nodes in the Foundry transition from `ACTIVE` to `VERIFYING` after work is completed (e.g., a PR is merged). The `auditor` persona takes ownership of nodes in the `VERIFYING` state.
@@ -125,10 +129,10 @@ If your target task has been permanently failed, replaced, or explicitly cancell
 
 If a cancelled or replaced task node is reawakened (e.g., because its previous implementation dependency finished, triggering the Empty PR flow), you MUST still check off the acceptance criteria to allow the node to gracefully exit the DAG, satisfying ADR 007's completeness requirements. Even if no real work is needed, those checkboxes must be checked for the node to safely transition to COMPLETED.
 
-## Late Binding for Missing Context
+## Late Binding for Missing Context & Task Suspension
 If you lack critical context or specifications (e.g., exact memory offsets) necessary to implement a task or generate actionable blueprints, DO NOT guess or implement generic fallbacks. Instead, you MUST utilize the late binding pattern to suspend the task:
-1. Spawn a new `RESEARCH` node to investigate the missing information, setting `parent: <current_task_id>` in the `RESEARCH` node's YAML frontmatter.
-2. Append the new `RESEARCH` node reference as an unchecked task (`- [ ] <research_node_id>`) into the Markdown body of the current task. Do NOT add the child `RESEARCH` node to the current task's `depends_on` array (to prevent circular dependency deadlocks).
+1. Spawn a new `RESEARCH` node to investigate the missing information, setting `parent: <current_task_id>` in the `RESEARCH` node's YAML frontmatter. Do **NOT** add the `RESEARCH` node to the current task's `depends_on` array (parents implicitly depend on their children; adding it to `depends_on` creates a circular dependency deadlock).
+2. Append the new `RESEARCH` node reference as an unchecked task (`- [ ] <research_node_id>`) into the Markdown body of the current task.
 3. Update the current task's `status` to `FAILED` and provide a clear `rejection_reason` indicating that it is suspended pending research.
 
 ## Journaling Policies
@@ -141,12 +145,6 @@ If you lack critical context or specifications (e.g., exact memory offsets) nece
 
 ## YAML Frontmatter Rules
 **CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
-
-## Empty PR Checkbox Policy
-**CRITICAL**: When submitting an empty PR for a node or task that is completely implemented but has unchecked Acceptance Criteria checkboxes, you MUST check those boxes (`- [x]`) before submitting. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009 and will be rejected. Note: If an automated review generates a false negative claiming the patch is incomplete when you have only updated checkboxes in markdown files, you should ignore it and proceed with the submission.
-
-## Missing Context & Task Suspension
-**CRITICAL**: When working on an implementation task (e.g., parsing logic, memory offsets) and the necessary technical context or constants (such as exact memory addresses or exact architectural spec details) are not provided in the task or codebase, **you must not guess**. Guessing leads to incorrect assumptions and broken integrations. Instead, you MUST suspend the current task by setting its status to `FAILED` with an appropriate `rejection_reason` explaining what is missing, and autonomously generate a new `RESEARCH` node to find the missing information. Add the newly generated `RESEARCH` node to the `depends_on` array of the failed task to ensure it gets completed before the task is retried.
 
 ## Node Generation Rules
 - **Artifact Anomaly Detection**: When a target Foundry artifact (such as a downstream PRD or generated node file) unexpectedly exists prior to the session, create a small journal entry detailing the anomaly for later review.
