@@ -89,6 +89,36 @@ export async function clearStorage(page: Page) {
 
 export async function mockDagData(page: Page, mockDataPath: string = 'tests/fixtures/dag/mock_dag.json') {
   const mockData = fs.readFileSync(mockDataPath, 'utf8');
+
+  // We use evaluateOnNewDocument (addInitScript) to mock the global window.fetch function because Vite's
+  // preview server or Service Workers in CI might bypass Playwright's `page.route`.
+  await page.addInitScript((mockDataString) => {
+    const originalFetch = window.fetch;
+    window.fetch = async (input, init) => {
+      let url = '';
+      if (typeof input === 'string') {
+        url = input;
+      } else if (input instanceof URL) {
+        url = input.toString();
+      } else if (input && typeof input === 'object' && 'url' in input) {
+        url = input.url;
+      }
+
+      if (url.includes('foundry.json')) {
+        return new Response(mockDataString, {
+          status: 200,
+          headers: {
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-store, no-cache, must-revalidate',
+          },
+        });
+      }
+
+      return originalFetch(input, init);
+    };
+  }, mockData);
+
+  // Fallback Playwright route intercept
   await page.route('**/data/foundry.json*', async (route) => {
     await route.fulfill({
       status: 200,
