@@ -65,7 +65,7 @@ export const getMostRecentSave = async (
     const cursor = await index.openCursor(range, 'prev');
 
     if (cursor) {
-      const saveId = cursor.primaryKey as string;
+      const saveId = String(cursor.primaryKey);
       const metadata = cursor.value;
       const savesStore = tx.objectStore('saves');
       const saveData = await savesStore.get(saveId);
@@ -109,7 +109,7 @@ export const getPreviousSave = async (
     const cursor = await index.openCursor(range, 'prev');
 
     if (cursor) {
-      const prevSaveId = cursor.primaryKey as string;
+      const prevSaveId = String(cursor.primaryKey);
       const prevMetadata = cursor.value;
       const savesStore = tx.objectStore('saves');
       const prevSaveData = await savesStore.get(prevSaveId);
