@@ -93,6 +93,7 @@ export async function mockDagData(page: Page, mockDataPath: string = 'tests/fixt
     await route.fulfill({
       status: 200,
       contentType: 'application/json',
+      headers: { 'Cache-Control': 'no-store, no-cache, must-revalidate' },
       body: mockData,
     });
   });
