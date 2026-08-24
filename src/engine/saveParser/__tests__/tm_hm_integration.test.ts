@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { parseSaveFile } from '../index';
-import type { Gen1SaveData, Gen2SaveData, Gen3SaveData } from '../parsers/common';
+import type { Gen1SaveData, Gen2SaveData } from '../parsers/common';
 import { parseGen3 } from '../parsers/gen3';
 
 describe('TM/HM Integration Validation', () => {
