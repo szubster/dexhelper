@@ -28,7 +28,7 @@ notes: ''
 Verify that the `PromptFragment` schema, validation utility, and initial foundational fragments have been implemented correctly and meet all acceptance criteria.
 
 ## Scope
-- Verify the `PromptFragment` TypeScript interfaces and Zod schema.
+- Verify the `PromptFragment` TypeScript interfaces and Markdown Frontmatter schema.
 - Verify the validation utility logic and error reporting.
 - Verify the 3 standard foundational fragments.
 - Ensure unit tests pass and provide adequate coverage.
