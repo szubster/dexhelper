@@ -46,6 +46,6 @@ test.describe('Pokerus State Exfiltration', () => {
     await expect(badge).toContainText('1'); // The strain we set
 
     // Verify the duration/status is correctly displayed alongside it
-    await expect(page.getByText('DAYS_REMAINING: 10')).toBeVisible();
+    await expect(page.getByText('[10D]')).toBeVisible();
   });
 });
