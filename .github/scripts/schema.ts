@@ -91,25 +91,8 @@ export function validatePromptFragment(data: unknown): PromptFragment {
 export function parseMarkdownFragment(content: string): PromptFragment {
   const { data, content: body } = matter(content);
 
-  let context = '';
-  let rules: string[] = [];
-
-  const contextMatch = body.match(/# Context\n([\s\S]*?)(?=# Rules|$)/);
-  if (contextMatch) {
-    context = contextMatch[1].trim();
-  }
-
-  const rulesMatch = body.match(/# Rules\n([\s\S]*?)$/);
-  if (rulesMatch) {
-    const rulesText = rulesMatch[1].trim();
-    rules = rulesText.split('\n')
-      .map(line => line.replace(/^-\s*/, '').trim())
-      .filter(line => line.length > 0);
-  }
-
   return validatePromptFragment({
     ...data,
-    context: context || undefined,
-    rules: rules.length > 0 ? rules : undefined,
+    context: body.trim() || undefined,
   });
 }

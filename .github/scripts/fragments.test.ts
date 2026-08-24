@@ -12,18 +12,18 @@ describe('Prompt Fragments Markdown', () => {
     const raw = fs.readFileSync(path.resolve(__dirname, '../agents/fragments/coder-role.md'), 'utf8');
     const parsed = parseMarkdownFragment(raw);
     expect(parsed.id).toBe('coder-role');
-    expect(parsed.rules).toContain('Write tests.');
+    expect(parsed.context).toContain('Write tests.');
   });
   it('validates react-tailwind-stack.md', () => {
     const raw = fs.readFileSync(path.resolve(__dirname, '../agents/fragments/react-tailwind-stack.md'), 'utf8');
     const parsed = parseMarkdownFragment(raw);
     expect(parsed.id).toBe('react-tailwind-stack');
-    expect(parsed.rules).toContain('Follow tactical hardware aesthetic.');
+    expect(parsed.context).toContain('Follow tactical hardware aesthetic.');
   });
   it('validates typescript-rules.md', () => {
     const raw = fs.readFileSync(path.resolve(__dirname, '../agents/fragments/typescript-rules.md'), 'utf8');
     const parsed = parseMarkdownFragment(raw);
     expect(parsed.id).toBe('typescript-rules');
-    expect(parsed.rules).toContain('Avoid any type.');
+    expect(parsed.context).toContain('Avoid any type.');
   });
 });
