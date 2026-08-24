@@ -35,6 +35,6 @@ Implement unit tests using `vitest` for the `scripts/verify-adr-compliance.ts` s
 - Run tests using the `vitest` framework.
 
 ## Acceptance Criteria
-- [ ] Implement unit tests for detecting forbidden classes.
-- [ ] Implement unit tests for allowing compliant classes.
-- [ ] Tests must pass successfully using `vitest run`.
+- [x] Implement unit tests for detecting forbidden classes.
+- [x] Implement unit tests for allowing compliant classes.
+- [x] Tests must pass successfully using `vitest run`.

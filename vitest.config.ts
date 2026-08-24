@@ -24,7 +24,7 @@ export default defineConfig(async (configEnv) => {
           extends: true,
           test: {
             name: 'node',
-            include: ['src/**/*.test.ts', 'src/**/*.test.tsx'],
+            include: ['src/**/*.test.ts', 'src/**/*.test.tsx', 'scripts/**/*.test.ts'],
             exclude: ['src/components/**/*.test.tsx', 'src/hooks/**/*.test.tsx', 'src/contexts/**/*.test.tsx', 'tests/e2e/**/*', 'src/features/**/*.test.tsx'],
             setupFiles: ['./src/node-setup.ts'],
             environment: 'node',
