@@ -74,3 +74,9 @@
 **Outcome:** Merged
 **Why:** The rules for mandatory context initialization (reading `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/archive/docs/adrs/`) were consolidated into `core_policies.md` on 2026-08-01. The orchestrator automatically appends `.foundry/docs/knowledge_base/agents/core_policies.md` to every agent prompt via the `compiled_prompt` field. However, `.github/agents/agile_coach.md` still contained redundant `Core Directives`, `Workflow` steps, and `Core Policies` sections explicitly instructing the persona to review this documentation manually. This wastes context window space and creates inconsistency.
 **Pattern:** Regularly scrub agent schedules to remove directives that are already enforced globally in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+
+## 2026-08-24 - [Accepted] - Prompt improvement - Centralize Node Generation Directives
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `tech_lead.md` schedule contained several specific directives for defining tasks ("Avoid the Two-Tasks-Max Anti-pattern", "Map Dependencies", "Define Clear Contracts") which should apply globally to all generative personas (PM, Epic Planner, Story Owner, Tech Lead). Moved these rules into `core_policies.md` under "Node Generation Rules" and simplified `tech_lead.md` to point to the central decomposition guidelines. This centralizes node decomposition best practices and reduces prompt bloat.
+**Pattern:** Extract generative and decomposition directives from specific agent schedules and generalize them in `core_policies.md` to ensure a consistent standard across all agents that create nodes.
