@@ -89,6 +89,22 @@ export async function clearStorage(page: Page) {
 
 export async function mockDagData(page: Page, mockDataPath: string = 'tests/fixtures/dag/mock_dag.json') {
   const mockData = fs.readFileSync(mockDataPath, 'utf8');
+
+  // Also add init script to mock fetch directly because service workers/Vite can bypass page.route
+  await page.addInitScript((mockDataJson) => {
+    const originalFetch = window.fetch;
+    window.fetch = async (...args) => {
+      const url = typeof args[0] === 'string' ? args[0] : (args[0] as Request).url;
+      if (url.includes('/data/foundry.json')) {
+        return new Response(mockDataJson, {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      return originalFetch(...args);
+    };
+  }, mockData);
+
   await page.route('**/data/foundry.json*', async (route) => {
     await route.fulfill({
       status: 200,

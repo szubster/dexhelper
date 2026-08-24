@@ -30,6 +30,20 @@ test.describe('DagProvider Data Fetching', () => {
     // However, to be safe, we route it explicitly.
     await page.unrouteAll({ behavior: 'ignoreErrors' });
 
+    await page.addInitScript(() => {
+      const originalFetch = window.fetch;
+      window.fetch = async (...args) => {
+        const url = typeof args[0] === 'string' ? args[0] : (args[0] as Request).url;
+        if (url.includes('/data/foundry.json')) {
+          return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' }
+          });
+        }
+        return originalFetch(...args);
+      };
+    });
+
     // Intercept with 500 error
     await page.route('**/data/foundry.json*', async (route) => {
       await route.fulfill({
