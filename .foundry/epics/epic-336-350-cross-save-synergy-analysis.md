@@ -22,10 +22,10 @@ notes: ''
 # Epic: Cross-Save Synergy Analysis Engine
 
 ## Context
-Building on the multi-save infrastructure, this Epic introduces the assistant capabilities to evaluate multiple loaded save files and identify optimal trade opportunities across them.
+Building on the multi-save infrastructure, this Epic introduces the suggestion engine capabilities to evaluate multiple loaded save files and identify optimal trade opportunities across them.
 
 ## Requirements
-- The Assistant must evaluate the loaded saves and identify optimal trade opportunities.
+- The Assistant suggestion engine must evaluate the loaded saves and identify optimal trade opportunities.
 - It must account for game-exclusives and Pokédex completion progress in each save file.
 
 ## Acceptance Criteria
