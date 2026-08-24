@@ -31,5 +31,5 @@ As part of the Cross-Save Synergy Analysis Engine, we need to analyze Pokédex p
 - Return a structured representation of the gaps and overlaps in Pokédex completion between the provided saves.
 
 ## Acceptance Criteria
-- [ ] Logic implemented to calculate missing vs owned Pokédex entries between multiple save files.
-- [ ] Unit tests verify correct diffing of `seen`/`owned` sets.
+- [x] Logic implemented to calculate missing vs owned Pokédex entries between multiple save files.
+- [x] Unit tests verify correct diffing of `seen`/`owned` sets.
