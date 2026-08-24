@@ -2,13 +2,13 @@
 id: task-443-479-prompt-fragment-initial-fragments
 type: TASK
 title: Create Initial Standard Prompt Fragments
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2025-01-24'
 updated_at: '2026-08-24'
 depends_on:
   - task-443-478-prompt-fragment-validation
-jules_session_id: '5125906029367021702'
+jules_session_id: null
 pr_number: null
 parent: story-417-443-prompt-fragment-schema
 tags:

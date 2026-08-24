@@ -2,7 +2,7 @@
 id: research-396-470-pokegear-dashboard-integration
 type: RESEARCH
 title: Investigate Pokegear Dashboard Integration
-status: READY
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-08-24'
 updated_at: '2026-08-24'
@@ -16,7 +16,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 # Research: Investigate Pokegear Dashboard Integration

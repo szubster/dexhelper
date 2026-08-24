@@ -2,13 +2,13 @@
 id: task-443-478-gen2-daily-event-mapping-logic
 type: TASK
 title: Implement extraction logic for Gen 2 Daily and Weekly Events
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-08-24'
 depends_on:
   - task-443-477-gen2-daily-event-mapping-types
-jules_session_id: '8843190485004157911'
+jules_session_id: null
 pr_number: null
 parent: story-061-443-gen2-daily-event-mapping
 tags:
