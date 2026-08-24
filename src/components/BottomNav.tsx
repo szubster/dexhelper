@@ -34,10 +34,10 @@ export function BottomNav() {
       <div className="absolute -top-[1px] right-0 left-0 h-[1px] bg-black" />
 
       {/* Mounting Screws in the top bezel */}
-      <div className="absolute -top-[6px] left-4 flex h-[4px] w-[4px] items-center justify-center rounded-full border border-black bg-zinc-800 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+      <div className="absolute -top-[6px] left-4 flex h-[4px] w-[4px] items-center justify-center rounded-none border border-black bg-zinc-800 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
         <div className="h-[1px] w-[3px] rotate-45 bg-black" />
       </div>
-      <div className="absolute -top-[6px] right-4 flex h-[4px] w-[4px] items-center justify-center rounded-full border border-black bg-zinc-800 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+      <div className="absolute -top-[6px] right-4 flex h-[4px] w-[4px] items-center justify-center rounded-none border border-black bg-zinc-800 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
         <div className="h-[1px] w-[3px] -rotate-12 bg-black" />
       </div>
 

@@ -74,7 +74,7 @@ export function TacticalCallerCard({ contact, type, details, probability }: Tact
           </div>
           <div className="flex items-center gap-2">
             <div
-              className={`h-2 w-2 rounded-full ${isCoolingDown ? 'bg-amber-500/50' : 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]'}`}
+              className={`h-2 w-2 rounded-none ${isCoolingDown ? 'bg-amber-500/50' : 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]'}`}
             />
           </div>
         </div>

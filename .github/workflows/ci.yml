@@ -44,6 +44,8 @@ jobs:
         run: pnpm lint:circular
       - name: Package JSON Sort Check
         run: pnpm lint:package-json
+      - name: ADR 008 Compliance Check
+        run: pnpm lint:adr
 
   test:
     runs-on: ubuntu-latest

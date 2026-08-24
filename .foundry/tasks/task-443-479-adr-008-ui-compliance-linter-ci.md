@@ -34,6 +34,6 @@ Integrate the `scripts/verify-adr-compliance.ts` script into the project's tooli
 - Add the check to the CI workflow (`.github/workflows/ci.yml`) under the `lint` job.
 
 ## Acceptance Criteria
-- [ ] Add the execution script to `package.json`.
-- [ ] Include the script execution in the main `lint` command in `package.json`.
-- [ ] Add the execution step to `.github/workflows/ci.yml` in the `lint` job.
+- [x] Add the execution script to `package.json`.
+- [x] Include the script execution in the main `lint` command in `package.json`.
+- [x] Add the execution step to `.github/workflows/ci.yml` in the `lint` job.

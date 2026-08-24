@@ -200,9 +200,9 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
               <div className="relative flex items-stretch gap-4 bg-zinc-900/50 p-3">
                 {/* Rack Handle */}
                 <div className="flex w-4 shrink-0 flex-col justify-between border-zinc-700/50 border-r border-dashed pr-2">
-                  <div className="h-2 w-2 rounded-full border border-zinc-600 bg-zinc-800 shadow-inner" />
-                  <div className="my-2 w-1.5 flex-1 rounded-sm bg-gradient-to-b from-zinc-700 via-zinc-600 to-zinc-700 shadow-[inset_1px_0_2px_rgba(255,255,255,0.2)]" />
-                  <div className="h-2 w-2 rounded-full border border-zinc-600 bg-zinc-800 shadow-inner" />
+                  <div className="h-2 w-2 rounded-none border border-zinc-600 bg-zinc-800 shadow-inner" />
+                  <div className="my-2 w-1.5 flex-1 rounded-none bg-gradient-to-b from-zinc-700 via-zinc-600 to-zinc-700 shadow-[inset_1px_0_2px_rgba(255,255,255,0.2)]" />
+                  <div className="h-2 w-2 rounded-none border border-zinc-600 bg-zinc-800 shadow-inner" />
                 </div>
 
                 {/* Main Content Area */}
