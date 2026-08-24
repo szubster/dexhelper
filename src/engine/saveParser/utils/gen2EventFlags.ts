@@ -117,3 +117,85 @@ export function getUpcomingGen2Boss(defeatedBosses: Record<string, boolean>): st
   }
   return null;
 }
+
+const DAILY_EVENT_MYSTERY_GIFT_BYTE = 226;
+const DAILY_EVENT_MYSTERY_GIFT_BIT = 1;
+
+const BUG_CATCHING_CONTEST_START_ID = 1814;
+const BUG_CATCHING_CONTEST_END_ID = 1833;
+
+const HAIRCUT_OLDER_BYTE = 234;
+const HAIRCUT_OLDER_BIT = 4;
+const HAIRCUT_YOUNGER_BYTE = 234;
+const HAIRCUT_YOUNGER_BIT = 5;
+
+const WEEKLY_LAPRAS_BYTE = 236;
+const WEEKLY_LAPRAS_BIT = 0;
+
+const SIBLING_MONICA_BYTE = 235;
+const SIBLING_MONICA_BIT = 6;
+const SIBLING_TUSCANY_BYTE = 235;
+const SIBLING_TUSCANY_BIT = 1;
+const SIBLING_WESLEY_BYTE = 235;
+const SIBLING_WESLEY_BIT = 4;
+const SIBLING_ARTHUR_BYTE = 235;
+const SIBLING_ARTHUR_BIT = 2;
+const SIBLING_FRIEDA_BYTE = 235;
+const SIBLING_FRIEDA_BIT = 0;
+const SIBLING_SANTOS_BYTE = 235;
+const SIBLING_SANTOS_BIT = 5;
+const SIBLING_SUNNY_BYTE = 235;
+const SIBLING_SUNNY_BIT = 3;
+
+const BUENA_NO_BLUE_CARD_BYTE = 83;
+const BUENA_NO_BLUE_CARD_BIT = 6;
+const BUENA_OFFERED_NUMBER_BYTE = 103;
+const BUENA_OFFERED_NUMBER_BIT = 4;
+const BUENA_MET_BYTE = 103;
+const BUENA_MET_BIT = 5;
+
+/**
+ * Extracts Gen 2 Daily and Weekly Event Flags.
+ *
+ * @param eventFlags - The raw byte array containing the parsed event flags section of the save file.
+ * @returns An object detailing the status of various daily and weekly events.
+ */
+export function parseGen2DailyEvents(eventFlags: Uint8Array) {
+  const getFlag = (byteIndex: number, bitIndex: number) => {
+    return eventFlags[byteIndex] !== undefined && (eventFlags[byteIndex] & (1 << bitIndex)) !== 0;
+  };
+
+  let bugCatchingContest = false;
+  for (let id = BUG_CATCHING_CONTEST_START_ID; id <= BUG_CATCHING_CONTEST_END_ID; id++) {
+    const byteIndex = id >> BITS_PER_BYTE_SHIFT;
+    const bitIndex = id & BIT_INDEX_MASK;
+    if (getFlag(byteIndex, bitIndex)) {
+      bugCatchingContest = true;
+      break;
+    }
+  }
+
+  return {
+    mysteryGift: getFlag(DAILY_EVENT_MYSTERY_GIFT_BYTE, DAILY_EVENT_MYSTERY_GIFT_BIT),
+    bugCatchingContest,
+    haircutBrothers: {
+      older: getFlag(HAIRCUT_OLDER_BYTE, HAIRCUT_OLDER_BIT),
+      younger: getFlag(HAIRCUT_YOUNGER_BYTE, HAIRCUT_YOUNGER_BIT),
+    },
+    fridayLapras: getFlag(WEEKLY_LAPRAS_BYTE, WEEKLY_LAPRAS_BIT),
+    weekdaySiblings: {
+      monica: getFlag(SIBLING_MONICA_BYTE, SIBLING_MONICA_BIT),
+      tuscany: getFlag(SIBLING_TUSCANY_BYTE, SIBLING_TUSCANY_BIT),
+      wesley: getFlag(SIBLING_WESLEY_BYTE, SIBLING_WESLEY_BIT),
+      arthur: getFlag(SIBLING_ARTHUR_BYTE, SIBLING_ARTHUR_BIT),
+      frieda: getFlag(SIBLING_FRIEDA_BYTE, SIBLING_FRIEDA_BIT),
+      santos: getFlag(SIBLING_SANTOS_BYTE, SIBLING_SANTOS_BIT),
+      sunny: getFlag(SIBLING_SUNNY_BYTE, SIBLING_SUNNY_BIT),
+    },
+    buenasPassword: {
+      offeredNumberNoBlueCard: getFlag(BUENA_NO_BLUE_CARD_BYTE, BUENA_NO_BLUE_CARD_BIT),
+      offeredNumber: getFlag(BUENA_OFFERED_NUMBER_BYTE, BUENA_OFFERED_NUMBER_BIT),
+      metBuena: getFlag(BUENA_MET_BYTE, BUENA_MET_BIT),
+    },
+  };
+}
