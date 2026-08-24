@@ -34,7 +34,7 @@ Verify that the `PromptFragment` schema, validation utility, and initial foundat
 - Ensure unit tests pass and provide adequate coverage.
 
 ## Acceptance Criteria
-- [ ] Verify that the TypeScript schema for prompt fragments is correctly defined.
-- [ ] Verify that the validation utility handles invalid fragments correctly.
-- [ ] Verify that the 3 standard fragments are correctly defined and pass validation.
-- [ ] Verify that unit tests for the schema and validation logic are comprehensive and passing.
+- [x] Verify that the TypeScript schema for prompt fragments is correctly defined.
+- [x] Verify that the validation utility handles invalid fragments correctly.
+- [x] Verify that the 3 standard fragments are correctly defined and pass validation.
+- [x] Verify that unit tests for the schema and validation logic are comprehensive and passing.
