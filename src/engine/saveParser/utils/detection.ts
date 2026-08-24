@@ -82,7 +82,21 @@ export function isGen3Save(view: DataView): boolean {
     if (view.byteLength > 0) {
       view.getUint8(0);
     }
-    return false; // Stub implementation
+
+    if (view.byteLength > 0x0ff8) {
+      const signature = view.getUint32(0x0ff8, true);
+      if (signature === 0x08012025) {
+        return true;
+      }
+    }
+
+    if (view.byteLength > 0xe000 + 0x0ff8) {
+      const signatureB = view.getUint32(0xe000 + 0x0ff8, true);
+      if (signatureB === 0x08012025) {
+        return true;
+      }
+    }
+    return false;
   } catch (error) {
     if (error instanceof RangeError) {
       return false;
