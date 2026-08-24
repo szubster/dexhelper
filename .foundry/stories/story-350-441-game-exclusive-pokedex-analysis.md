@@ -28,4 +28,8 @@ As part of the Cross-Save Synergy Analysis Engine, we need to analyze game-exclu
 - Analyze Pokédex progress to highlight high-value trades.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into implementation tasks.
+- [x] Tech Lead: Break down into implementation tasks.
+- [ ] task-441-477-game-exclusive-mapping-logic
+- [ ] task-441-478-pokedex-progress-analyzer
+- [ ] task-441-479-high-value-trade-identification
+- [ ] task-441-480-game-exclusive-analysis-qa
