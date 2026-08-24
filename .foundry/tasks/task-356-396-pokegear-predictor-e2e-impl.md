@@ -2,7 +2,7 @@
 id: task-356-396-pokegear-predictor-e2e-impl
 type: TASK
 title: Implement Pokegear Predictor E2E Tests
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-04'
 updated_at: '2026-08-24'
@@ -14,8 +14,8 @@ tags:
   - e2e
   - gen2
 research_references: []
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 2
+rejection_reason: 'ActiveCallersDashboard is not integrated into src/routes/dashboard.tsx, missing contacts and timerState props'
 notes: ''
 ---
 # Task: Implement Pokegear Predictor E2E Tests
@@ -30,3 +30,4 @@ Implement end-to-end tests for the Pokegear call predictor engine and UI to sati
 ## Acceptance Criteria
 - [ ] Implement E2E test suite for Pokegear Predictor engine
 - [ ] Implement E2E test suite for Pokegear Predictor UI
+- [ ] research-396-470-pokegear-dashboard-integration
