@@ -34,4 +34,7 @@ Simulate node state transitions across the full lifecycle and inject failures, s
 4. Ensure the orchestrator's state machine logic gracefully handles these transitions and anomalies.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-416-481-fuzzer-state-transition-simulator-impl
+- [ ] task-416-482-fuzzer-fault-injection-impl
+- [ ] task-416-483-fuzzer-state-simulation-qa
