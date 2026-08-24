@@ -30,4 +30,4 @@ Write unit tests for the Gen 2 daily/weekly event mapping logic.
 Write tests in `src/engine/saveParser/utils/gen2EventFlags.test.ts` to verify the extraction of flags for Friday Lapras, Bug Catching Contest, Haircut Brothers, Daily Mystery Gift, Buena's Password, and Weekday Siblings. Ensure the tests mock `eventFlags` byte arrays correctly mimicking the exact bits outlined in `.foundry/docs/knowledge_base/gen2_event_flags_offsets.md`.
 
 ## Acceptance Criteria
-- [ ] Add unit tests verifying correct and incorrect flag extraction for all targeted daily and weekly events using mocked `eventFlags`.
+- [x] Add unit tests verifying correct and incorrect flag extraction for all targeted daily and weekly events using mocked `eventFlags`.
