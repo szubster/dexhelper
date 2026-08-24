@@ -31,11 +31,14 @@ test.describe('DagProvider Data Fetching', () => {
     await page.unrouteAll({ behavior: 'ignoreErrors' });
 
     // Intercept with 500 error
-    await page.route(/.*\/data\/foundry\.json/, async (route) => {
+    await page.route('**/data/foundry.json*', async (route) => {
       await route.fulfill({
         status: 500,
         contentType: 'application/json',
         body: JSON.stringify({ error: 'Internal Server Error' }),
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate',
+        },
       });
     });
 
