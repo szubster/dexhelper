@@ -1768,6 +1768,18 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       gen3Spindas: partySpindas,
     } = parseGen3Party(view, section1Offset, _forcedVersion || 'ruby');
 
+    for (const p of partyDetails) {
+      if (p.personalityValue !== undefined) {
+        p.isMirageIslandKey = (p.personalityValue & 0xffff) === mirageIslandValue;
+      }
+    }
+
+    for (const p of pcDetails) {
+      if (p.personalityValue !== undefined) {
+        p.isMirageIslandKey = (p.personalityValue & 0xffff) === mirageIslandValue;
+      }
+    }
+
     const allSpindas = [...(partySpindas || []), ...pcSpindas];
 
     // Dummy scaffold values for now until fully implemented

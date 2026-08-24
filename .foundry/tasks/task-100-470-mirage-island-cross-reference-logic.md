@@ -31,5 +31,5 @@ Modify `src/engine/saveParser/parsers/gen3.ts` to cross-reference the daily Mira
 - Update `parseGen3` to iterate over `partyDetails` and `pcDetails` and set `isMirageIslandKey: ((pokemon.personalityValue & 0xFFFF) === mirageIslandValue)` if `pokemon.personalityValue` is defined.
 
 ## Acceptance Criteria
-- [ ] Implement logic in `parseGen3` to correctly extract the `mirageIslandValue` in sequence so that it is available when processing `partyDetails` and `pcDetails`.
-- [ ] Implement logic in `parseGen3` to set `isMirageIslandKey` for party and PC Pokémon when their PID's lower 16 bits match the `mirageIslandValue`.
+- [x] Implement logic in `parseGen3` to correctly extract the `mirageIslandValue` in sequence so that it is available when processing `partyDetails` and `pcDetails`.
+- [x] Implement logic in `parseGen3` to set `isMirageIslandKey` for party and PC Pokémon when their PID's lower 16 bits match the `mirageIslandValue`.
