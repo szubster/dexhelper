@@ -2,15 +2,17 @@
 id: task-361-408-sorting-algorithms-e2e-qa
 type: TASK
 title: E2E Verification for PC Box Sorting Algorithms - QA
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-08'
-updated_at: '2026-08-09'
+updated_at: '2026-08-24'
 depends_on:
   - task-361-407-sorting-algorithms-e2e-impl
 jules_session_id: '10654294140655719595'
 parent: story-136-361-sorting-algorithms-e2e
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-361-407-sorting-algorithms-e2e-impl
 ---
 
 # Task: E2E Verification for PC Box Sorting Algorithms - QA

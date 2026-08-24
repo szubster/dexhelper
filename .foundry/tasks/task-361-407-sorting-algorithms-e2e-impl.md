@@ -2,7 +2,7 @@
 id: task-361-407-sorting-algorithms-e2e-impl
 type: TASK
 title: E2E Verification for PC Box Sorting Algorithms - Implementation
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-08'
 updated_at: '2026-08-24'
@@ -10,7 +10,7 @@ depends_on: []
 jules_session_id: '3958189168282060270'
 parent: story-136-361-sorting-algorithms-e2e
 rejection_count: 3
-rejection_reason: 'UI components to trigger sorting algorithms do not exist in the frontend yet.'
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 ---
 
 # Task: E2E Verification for PC Box Sorting Algorithms - Implementation

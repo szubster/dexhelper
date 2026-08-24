@@ -2,7 +2,7 @@
 id: research-407-468-sorting-ui-implementation
 type: RESEARCH
 title: Investigate and Blueprint UI for PC Box Sorting
-status: READY
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-08-24'
 updated_at: '2026-08-24'
@@ -10,7 +10,7 @@ depends_on: []
 jules_session_id: null
 parent: task-361-407-sorting-algorithms-e2e-impl
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 
