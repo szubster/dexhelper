@@ -31,6 +31,6 @@ Set up the test scaffolding for the semantic evaluator E2E tests.
 Create the initial test file and basic setup required to test the semantic evaluator engine (`src/engine/semantic/evaluator.ts`) in an E2E context. Ensure the environment is correctly configured to use `GEMINI_API_KEY` and the `RUN_LLM_INTEGRATION_TESTS` flag.
 
 ## Acceptance Criteria
-- [ ] Create the test file structure.
-- [ ] Implement setup and teardown logic.
-- [ ] Ensure test environment handles API keys correctly.
+- [x] Create the test file structure.
+- [x] Implement setup and teardown logic.
+- [x] Ensure test environment handles API keys correctly.
