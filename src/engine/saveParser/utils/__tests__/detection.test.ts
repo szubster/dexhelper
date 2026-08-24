@@ -167,8 +167,9 @@ describe('Save File Detection', () => {
 
     it('throws non RangeError', () => {
       const view = {
-        byteLength: 1,
-        getUint8: () => {
+        byteLength: 0x0ff8 + 1,
+        getUint8: () => 0,
+        getUint32: () => {
           throw new Error('Some error');
         },
       } as unknown as DataView;
