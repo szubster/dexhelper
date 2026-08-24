@@ -23,12 +23,12 @@ notes: ''
 # QA Verification for Synergy Evaluator
 
 ## Context
-The synergy evaluator features need to be verified to ensure the generated prompts are correct and the assistant provides accurate and useful trade recommendations.
+The synergy evaluator features need to be verified to ensure the generated data payloads are correct and the suggestion engine provides accurate and useful trade recommendations.
 
 ## Requirements
-- Verify that the prompt builder correctly aggregates data from multiple mock save states.
-- Verify that the assistant responds appropriately with actionable trade recommendations based on the provided prompt.
+- Verify that the data generator correctly aggregates data from multiple mock save states.
+- Verify that the suggestion engine responds appropriately with actionable trade recommendations based on the provided payload.
 
 ## Acceptance Criteria
-- [ ] Verify the prompt builder output with multiple test scenarios.
+- [ ] Verify the data generator output with multiple test scenarios.
 - [ ] Verify the assistant integration and response handling.

@@ -32,7 +32,7 @@ Introduce a "Multi-Save Mode" in DexHelper that allows users to analyze two or m
 ## Requirements
 
 1. **Cross-Save Synergy Analysis:**
-    - The AI Assistant must evaluate the loaded saves and identify optimal trade opportunities.
+    - The Assistant suggestion engine must evaluate the loaded saves and identify optimal trade opportunities.
     - For example, "Save A needs a Vulpix (exclusive to Blue). Save B has 3 spare Vulpix in Box 2. You should trade."
     - It must take into account game-exclusives and pokedex completion progress in each save file.
 

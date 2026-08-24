@@ -28,7 +28,7 @@ This idea directly expands upon the "Pokémon Trading (Inter-Save)" future featu
 
 ## Proposal
 Introduce a "Multi-Save Mode" in DexHelper that allows users to analyze two or more save files simultaneously.
-- **Cross-Save Synergy Analysis:** The AI Assistant will evaluate the loaded saves and identify optimal trade opportunities. For example, "Save A needs a Vulpix (exclusive to Blue). Save B has 3 spare Vulpix in Box 2. You should trade."
+- **Cross-Save Synergy Analysis:** The Assistant suggestion engine will evaluate the loaded saves and identify optimal trade opportunities. For example, "Save A needs a Vulpix (exclusive to Blue). Save B has 3 spare Vulpix in Box 2. You should trade."
 - **Trade Evolution Tracking:** Automatically flag Pokémon that are ready to evolve via trade if moved between the loaded saves.
 - **Consolidated Pokédex View:** Provide a unified view showing combined Pokédex progress across all loaded files.
 
