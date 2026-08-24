@@ -53,6 +53,7 @@ export function useFileSyncController() {
   const manualVersion = useStore((s) => s.manualVersion);
   const setManualVersion = useStore((s) => s.setManualVersion);
   const setIsVersionModalOpen = useStore((s) => s.setIsVersionModalOpen);
+  const setConflictState = useStore((s) => s.setConflictState);
 
   /**
    * Reads and parses the file buffer, updating the global Zustand store.
@@ -83,27 +84,28 @@ export function useFileSyncController() {
             const cloudSaveInfo = saves.find((s) => s.id === saveId);
 
             if (cloudSaveInfo?.lastModified && file.lastModified < cloudSaveInfo.lastModified) {
-              // Cloud is newer, we should pull instead of pushing local (Conflict Resolution: pull-wins if newer)
+              // Cloud is newer, trigger conflict resolution
               let cloudSave = null;
               try {
                 cloudSave = await r2Client.getSave(saveId);
               } catch {
                 console.warn('System: pull from cloud failed');
               }
+
               if (cloudSave) {
-                const cloudData = await parseSaveFile(cloudSave.data.buffer, manualVersion || undefined);
-                setSaveData(cloudData);
+                setConflictState({
+                  isOpen: true,
+                  localMetadata: { timestamp: file.lastModified },
+                  remoteMetadata: { timestamp: cloudSaveInfo.lastModified },
+                  localBuffer: new Uint8Array(buffer),
+                  remoteBuffer: cloudSave.data,
+                  saveId,
+                });
 
-                if (cloudData.gameVersion === 'unknown') {
-                  setIsVersionModalOpen(true);
-                } else {
-                  setManualVersion(null);
-                }
-
-                await saveDB.putSave('last_save_file', cloudSave.data);
+                // Keep the live status since polling should still continue
                 setStatus('live');
                 setErrorMsg(null);
-                return; // Abort pushing local
+                return; // Abort pushing local until conflict is resolved
               }
             }
 
@@ -129,7 +131,7 @@ export function useFileSyncController() {
         setErrorMsg('Failed to parse live save file.');
       }
     },
-    [manualVersion, setSaveData, setIsVersionModalOpen, setManualVersion],
+    [manualVersion, setSaveData, setIsVersionModalOpen, setManualVersion, setConflictState],
   );
 
   /**

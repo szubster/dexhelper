@@ -1,0 +1,35 @@
+[
+  {
+    "filePath": ".foundry/ideas/idea-001.md",
+    "data": {
+      "id": "idea-001",
+      "type": "IDEA",
+      "status": "COMPLETED",
+      "owner_persona": "product_manager",
+      "depends_on": [],
+      "rejection_count": 0
+    }
+  },
+  {
+    "filePath": ".foundry/prds/prd-001-001.md",
+    "data": {
+      "id": "prd-001-001",
+      "type": "PRD",
+      "status": "ACTIVE",
+      "owner_persona": "epic_planner",
+      "depends_on": ["idea-001"],
+      "rejection_count": 0
+    }
+  },
+  {
+    "filePath": ".foundry/tasks/task-001-001-001.md",
+    "data": {
+      "id": "task-001-001-001",
+      "type": "TASK",
+      "status": "PENDING",
+      "owner_persona": "coder",
+      "depends_on": ["prd-001-001"],
+      "rejection_count": 0
+    }
+  }
+]

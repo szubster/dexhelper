@@ -2,12 +2,12 @@
 id: idea-417-407-more-save-files
 type: IDEA
 title: 'Idea: Source additional save files for testing'
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-14'
 updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '12819718521616405725'
+jules_session_id: null
 pr_number: null
 parent: epic-343-417-test-fixtures-sourcing
 tags:
@@ -26,3 +26,4 @@ As requested in PR comments on Epic 417, we need to find more save files beyond 
 
 ## Acceptance Criteria
 - [ ] Source additional save files for testing.
+- [ ] prd-407-345-source-more-save-files

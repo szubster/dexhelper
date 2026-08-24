@@ -7,6 +7,7 @@ import {
   DB_CONFIG,
   type ItemMetadata,
   type LocationAreaEncounters,
+  type MatchCallMetadata,
   type MoveMetadata,
   type PokeDataExport,
   type PokeDBSchema,
@@ -99,6 +100,7 @@ export const getDB = () => {
           [DB_CONFIG.STORES.POKEMON]: 'id',
           [DB_CONFIG.STORES.ENCOUNTERS]: 'pid',
           [DB_CONFIG.STORES.LOCATIONS]: 'id',
+          [DB_CONFIG.STORES.MATCH_CALLS]: 'id',
           [DB_CONFIG.STORES.METADATA]: 'key',
           [DB_CONFIG.STORES.ITEMS]: 'id',
           [DB_CONFIG.STORES.MOVES]: 'id',
@@ -185,6 +187,7 @@ const syncData = async () => {
         DB_CONFIG.STORES.ITEMS,
         DB_CONFIG.STORES.MOVES,
         DB_CONFIG.STORES.BERRIES,
+        DB_CONFIG.STORES.MATCH_CALLS,
         DB_CONFIG.STORES.METADATA,
       ],
       'readwrite',
@@ -197,6 +200,7 @@ const syncData = async () => {
     const iStore = tx.objectStore(DB_CONFIG.STORES.ITEMS);
     const mvStore = tx.objectStore(DB_CONFIG.STORES.MOVES);
     const bStore = tx.objectStore(DB_CONFIG.STORES.BERRIES);
+    const mcStore = tx.objectStore(DB_CONFIG.STORES.MATCH_CALLS);
     const mStore = tx.objectStore(DB_CONFIG.STORES.METADATA);
 
     // Clear old data
@@ -207,10 +211,11 @@ const syncData = async () => {
       iStore.clear(),
       mvStore.clear(),
       bStore.clear(),
+      mcStore.clear(),
       mStore.clear(),
     ]);
 
-    emit(1, 5, 'Pokemon');
+    emit(1, 7, 'Pokemon');
     const inflateChain = (links: CompactChainLink[] | undefined): CompactChainLink[] => {
       return (links || []).map((l) => ({
         ...l,
@@ -236,7 +241,7 @@ const syncData = async () => {
       });
     }
 
-    emit(2, 5, 'Encounters');
+    emit(2, 7, 'Encounters');
     for (const e of data.enc) {
       const inflatedEnc = e.enc.map((enc) => ({
         ...enc,
@@ -249,7 +254,7 @@ const syncData = async () => {
       void eStore.put({ pid: e.pid, enc: inflatedEnc });
     }
 
-    emit(3, 5, 'Locations');
+    emit(3, 7, 'Locations');
     for (const l of data.loc) {
       void lStore.put({
         ...DEFAULT_LOCATION,
@@ -258,15 +263,23 @@ const syncData = async () => {
       });
     }
 
-    emit(4, 5, 'Items');
+    emit(4, 7, 'Items');
     for (const item of data.items || []) {
       void iStore.put(item);
     }
+    emit(6, 7, 'Berries');
     for (const berry of data.berries || []) {
       void bStore.put(berry);
     }
 
-    emit(5, 5, 'Moves');
+    if (data.matchCalls) {
+      emit(7, 7, 'Match Calls');
+      for (const mc of data.matchCalls) {
+        void mcStore.put(mc);
+      }
+    }
+
+    emit(5, 7, 'Moves');
     for (const move of data.moves || []) {
       void mvStore.put({
         ...DEFAULT_MOVE_METADATA,
@@ -359,6 +372,14 @@ export const pokeDB = {
   getAllBerries: async (): Promise<BerryMetadata[]> => {
     await pokeDB.ready();
     return (await getDB()).getAll(DB_CONFIG.STORES.BERRIES);
+  },
+
+  /**
+   * Fetches all match call metadata.
+   */
+  getAllMatchCalls: async (): Promise<MatchCallMetadata[]> => {
+    await pokeDB.ready();
+    return (await getDB()).getAll(DB_CONFIG.STORES.MATCH_CALLS);
   },
 
   /**

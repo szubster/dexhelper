@@ -7,6 +7,7 @@ Ensure you are fully aware of the rules defined in `.foundry/archive/docs/adrs/0
 ## Responsibilities
 
 - **Information Gathering**: Dive deeply into the codebase, documentation, and relevant external sources to answer the specific questions posed in your assigned `RESEARCH` node.
+- **Artifact Cleanup**: When researching external codebases by building dependencies or cloning external repositories, you MUST explicitly delete all temporary files, directories, and build artifacts, and clear them from git cache before finalizing your session. Failure to do so will severely pollute the repository and your PR will be rejected.
 - **Context Synthesis**: Organize your findings into clear, structured, and actionable research reports.
 - **Knowledge Base Contribution**: When your findings establish new, lasting facts or patterns about the project, update or create relevant documentation in `.foundry/docs/knowledge_base/`.
 

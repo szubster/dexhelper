@@ -2,12 +2,12 @@
 id: epic-054-108-box-analyzer-save-parsing
 type: EPIC
 title: Box Analyzer Save Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-28'
 updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '24108712817236519'
+jules_session_id: null
 pr_number: null
 parent: prd-086-054-box-duplicate-analyzer
 tags:
@@ -40,5 +40,6 @@ Implement the backend data grouping and aggregation logic to parse PC box data f
 - [x] Implement Gen 3 PC box parsing and species grouping.
 - [x] Verify that Party Pokémon are successfully excluded from the extracted data.
 - [x] Ensure all required stats (DVs/IVs, Natures, Hidden Power, Shininess) are calculated correctly for each Pokémon.
-- [x] .foundry/archive/stories/story-108-245-gen2-box-parsing.md
-- [x] .foundry/stories/story-108-246-gen3-box-parsing.md
+- [x] story-108-245-gen2-box-parsing
+- [x] story-108-246-gen3-box-parsing
+- [ ] story-108-443-box-analyzer-save-parsing-e2e

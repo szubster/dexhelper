@@ -2,17 +2,19 @@
 id: task-081-131-preserve-enum-optimizations-qa
 type: TASK
 title: QA Preserve Enum Optimizations
-status: PENDING
+status: CANCELLED
 owner_persona: qa
-created_at: "2026-05-22"
-updated_at: "2026-05-22"
+created_at: '2026-05-22'
+updated_at: '2026-08-23'
 depends_on:
   - task-081-130-preserve-enum-optimizations-impl
 jules_session_id: null
 parent: story-042-081-preserve-enum-optimizations
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-081-130-preserve-enum-optimizations-impl
+notes: ''
 ---
 
 # Task: QA Preserve Enum Optimizations

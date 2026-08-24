@@ -54,6 +54,7 @@ export interface PokemonInstance {
   level: number;
   isShiny: boolean;
   isShinyCarrier?: boolean;
+  isMirageIslandKey?: boolean;
   item?: number | undefined;
   moves: number[];
   eggSteps?: number | undefined;

@@ -2,10 +2,10 @@
 id: story-417-424-integrate-gen3-fixtures
 type: STORY
 title: 'Story: Integrate Gen 3 Save File Fixtures'
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-14'
-updated_at: '2026-08-20'
+updated_at: '2026-08-24'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -26,7 +26,7 @@ notes: ''
 Integrate the sourced Gen 3 save files (`emerald.sav`) into the test suite.
 
 ## Acceptance Criteria
-- [ ] Update test configurations to utilize the new Gen 3 fixtures.
-- [ ] Ensure relevant test cases successfully parse and validate the data from these fixtures.
-- [ ] task-424-440-integrate-gen3-fixtures-impl
-- [ ] task-424-441-integrate-gen3-fixtures-qa
+- [x] Update test configurations to utilize the new Gen 3 fixtures.
+- [x] Ensure relevant test cases successfully parse and validate the data from these fixtures.
+- [x] task-424-440-integrate-gen3-fixtures-impl
+- [x] task-424-441-integrate-gen3-fixtures-qa

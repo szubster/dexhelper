@@ -2,14 +2,13 @@
 id: story-412-432-r2-conflict-resolution-prompt-e2e
 type: STORY
 title: R2 Conflict Resolution Prompt E2E
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-18'
-updated_at: '2026-08-18'
+updated_at: '2026-08-23'
 depends_on:
   - story-412-431-r2-conflict-resolution-prompt-components
 jules_session_id: null
-locks: []
 pr_number: null
 parent: epic-340-412-r2-conflict-resolution-ui-prompt
 tags:
@@ -17,8 +16,9 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Story: R2 Conflict Resolution Prompt E2E

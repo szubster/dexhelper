@@ -2,12 +2,12 @@
 id: epic-142-417-automated-adr-compliance-linter
 type: EPIC
 title: Automated ADR Compliance Linter Script
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2025-01-01T00:00:00.000Z'
 updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '13806017638855668589'
+jules_session_id: null
 pr_number: null
 parent: prd-142-342-automated-adr-compliance-linter
 tags:
@@ -32,5 +32,8 @@ Develop a static analysis linter script (`scripts/verify-adr-compliance.ts`) usi
 2.  **Enforce ADR 013 (Component State):** Ensure React context is used for lifting state to share between the Kanban Board and React Flow visualizations in relevant dashboard views.
 
 ## Acceptance Criteria
-- [ ] Break down this epic into stories.
-- [ ] Ensure a final STORY is generated that is dedicated exclusively to Integration and E2E Verification.
+- [x] Break down this epic into stories.
+- [x] Ensure a final STORY is generated that is dedicated exclusively to Integration and E2E Verification.
+- [ ] story-417-443-adr-008-ui-compliance-linter
+- [ ] story-417-444-adr-013-state-compliance-linter
+- [ ] story-417-445-linter-integration-e2e

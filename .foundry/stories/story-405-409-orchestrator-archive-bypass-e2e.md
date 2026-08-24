@@ -2,10 +2,10 @@
 id: story-405-409-orchestrator-archive-bypass-e2e
 type: STORY
 title: Orchestrator Archive Bypass E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-20'
+updated_at: '2026-08-23'
 depends_on:
   - story-405-408-orchestrator-archive-bypass-implementation
 jules_session_id: null
@@ -25,4 +25,4 @@ Verify the archive bypass implementation works correctly in the context of the o
 
 ## Acceptance Criteria
 - [x] Verify that the orchestrator skips `archive/` directories when discovering nodes.
-- [ ] task-409-440-orchestrator-archive-bypass-e2e-impl
+- [x] task-409-440-orchestrator-archive-bypass-e2e-impl

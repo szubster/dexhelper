@@ -282,6 +282,26 @@ export const GEN3_SPINDA_SPECIES_ID = 327;
 export const UPPER_16_BIT_SHIFT = 16;
 export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
 
+/**
+ * Extracts and decrypts a Gen 3 Pokémon's 48-byte data block.
+ *
+ * ## Encryption Algorithm
+ * Gen 3 introduced a rudimentary encryption scheme to deter basic RAM editing.
+ * The 100-byte Pokémon structure has a 48-byte encrypted core consisting of 4 blocks:
+ * Growth (G), Attacks (A), Effort/Condition (E), and Miscellaneous (M), each 12 bytes.
+ *
+ * 1. **Decryption Key:** The 32-bit key is derived by XORing the Pokémon's
+ *    Personality Value (PV) and Original Trainer ID (OTID).
+ * 2. **Block Permutation:** The physical order of the GAEM blocks on disk is scrambled
+ *    into one of 24 possible permutations, determined by `PV % 24`.
+ * 3. **Decryption:** The blocks are read in 32-bit chunks, XORed against the key,
+ *    and mapped into a standardized GAEM contiguous block in memory.
+ *
+ * @param view - The DataView of the raw save buffer.
+ * @param offset - The absolute memory offset where the 100-byte Pokémon struct begins.
+ * @returns An object containing the decrypted GAEM buffer, PV, OTID, and key, or null if the slot is empty.
+ * @throws Error if the block permutation is invalid or the data is heavily corrupted.
+ */
 export function extractGen3PokemonData(view: DataView, offset: number) {
   const pv = view.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
   const otId = view.getUint32(offset + GEN3_POKEMON_OT_ID_OFFSET, true);

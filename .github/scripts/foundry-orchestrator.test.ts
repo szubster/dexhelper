@@ -3209,4 +3209,45 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
 
     consoleSpy.mockRestore();
   });
+
+  test('Archive Bypass: orchestrator skips archive/ directories during discovery', () => {
+    // Create an active node
+    createValidTestNode(tmpDir, '.foundry/tasks/task-active.md', {
+      id: "task-active",
+      type: "TASK",
+      title: "Active Task",
+      status: "READY",
+      owner_persona: "coder",
+      created_at: "2026-08-20",
+      updated_at: "2026-08-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    // Create an archived node
+    createValidTestNode(tmpDir, '.foundry/archive/tasks/task-archived.md', {
+      id: "task-archived",
+      type: "TASK",
+      title: "Archived Task",
+      status: "READY",
+      owner_persona: "coder",
+      created_at: "2026-08-20",
+      updated_at: "2026-08-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    main();
+
+    // Verify matrix output contains active task but not archived task
+    const lastCall = consoleSpy.mock.calls[consoleSpy.mock.calls.length - 1][0];
+    const readyNodes = JSON.parse(lastCall);
+
+    expect(readyNodes.some((n: any) => n.id === 'task-active')).toBe(true);
+    expect(readyNodes.some((n: any) => n.id === 'task-archived')).toBe(false);
+
+    consoleSpy.mockRestore();
+  });
 });
