@@ -35,6 +35,6 @@ Create the initial foundational prompt fragments as a baseline, using the schema
 - Validate these fragments using the newly created validation utility (this could be as part of a build script or a test verifying they are well-formed).
 
 ## Acceptance Criteria
-- [ ] Create at least 3 standard foundational prompt fragments matching the `PromptFragment` schema.
-- [ ] Include "Generic Coder Role", "React/Tailwind Tech Stack", and "TypeScript specific rules".
-- [ ] Create a test that loads and successfully validates these baseline fragments.
+- [x] Create at least 3 standard foundational prompt fragments matching the `PromptFragment` schema.
+- [x] Include "Generic Coder Role", "React/Tailwind Tech Stack", and "TypeScript specific rules".
+- [x] Create a test that loads and successfully validates these baseline fragments.

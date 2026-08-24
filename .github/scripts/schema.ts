@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import matter from 'gray-matter';
 
 export const NodeTypeEnum = z.enum([
   'IDEA',
@@ -85,4 +86,13 @@ export function validatePromptFragment(data: unknown): PromptFragment {
     throw new Error(`Invalid prompt fragment: ${errorMessages}`);
   }
   return result.data;
+}
+
+export function parseMarkdownFragment(content: string): PromptFragment {
+  const { data, content: body } = matter(content);
+
+  return validatePromptFragment({
+    ...data,
+    context: body.trim() || undefined,
+  });
 }
