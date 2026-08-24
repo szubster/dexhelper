@@ -28,5 +28,9 @@ As defined in PRD 407-345, the test suite needs to be robust against various gam
 Identify, source, and integrate additional game save files covering multiple generations and progress states into the `tests/fixtures/` directory to expand test coverage.
 
 ## Acceptance Criteria
-- [ ] Break down this epic into stories.
-- [ ] Ensure a final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [x] Break down this epic into stories.
+- [x] Ensure a final STORY dedicated exclusively to Integration and E2E Verification is generated.
+
+- [ ] story-428-470-identify-public-saves
+- [ ] story-428-471-verify-and-integrate-saves
+- [ ] story-428-472-e2e-verification
