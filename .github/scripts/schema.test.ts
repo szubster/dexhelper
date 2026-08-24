@@ -1,5 +1,42 @@
 import { describe, it, expect } from 'vitest';
-import { NodeFrontmatterSchema, PromptFragmentSchema } from './schema.ts';
+import { NodeFrontmatterSchema, PromptFragmentSchema, validatePromptFragment } from './schema.ts';
+
+describe('validatePromptFragment', () => {
+  it('validates a correct prompt fragment successfully', () => {
+    const fragment = {
+      id: "role-coder",
+      role: "coder",
+      context: "context here",
+      rules: ["rule 1", "rule 2"],
+      precedence: 1,
+    };
+    const result = validatePromptFragment(fragment);
+    expect(result).toEqual(fragment);
+  });
+
+  it('validates a minimal prompt fragment successfully', () => {
+    const fragment = {
+      id: "base-fragment",
+    };
+    const result = validatePromptFragment(fragment);
+    expect(result).toEqual(fragment);
+  });
+
+  it('throws a detailed error if id is missing', () => {
+    const fragment = {
+      role: "coder",
+    };
+    expect(() => validatePromptFragment(fragment)).toThrow('Invalid prompt fragment: id: Invalid input: expected string, received undefined');
+  });
+
+  it('throws a detailed error for invalid types', () => {
+    const fragment = {
+      id: 123,
+      rules: "not-an-array",
+    };
+    expect(() => validatePromptFragment(fragment)).toThrow('Invalid prompt fragment: id: Invalid input: expected string, received number, rules: Invalid input: expected array, received string');
+  });
+});
 
 describe('PromptFragmentSchema', () => {
   it('validates a correct prompt fragment', () => {
