@@ -33,6 +33,6 @@ As part of the effort to extract Fame Checker progress from Pokémon FireRed and
 Verify that all 16 Fame Checker indices are accounted for, and memory offsets are correct across the research docs (`gen3_fame_checker_gym_leaders.md` and `gen3_fame_checker_notable_npcs.md`).
 
 ## Acceptance Criteria
-- [ ] Verify gen3_fame_checker_gym_leaders.md covers all gym leader indices correctly
-- [ ] Verify gen3_fame_checker_notable_npcs.md covers all notable NPC indices correctly
-- [ ] Ensure no indices between 0 and 15 are missing or unaccounted for
+- [x] Verify gen3_fame_checker_gym_leaders.md covers all gym leader indices correctly
+- [x] Verify gen3_fame_checker_notable_npcs.md covers all notable NPC indices correctly
+- [x] Ensure no indices between 0 and 15 are missing or unaccounted for
