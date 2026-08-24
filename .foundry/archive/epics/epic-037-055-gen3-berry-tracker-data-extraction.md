@@ -41,4 +41,4 @@ As mandated by ADR 010 (`010-gen3-data-parsing.md`), all data parsing must stric
 
 ### Generated Stories
 - [x] .foundry/archive/stories/story-055-095-gen3-berry-data-parsing.md
-- [x] .foundry/stories/story-055-096-gen3-berry-msgpack-integration.md
+- [x] .foundry/archive/stories/story-055-096-gen3-berry-msgpack-integration.md
