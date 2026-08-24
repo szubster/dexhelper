@@ -31,4 +31,4 @@ Calculate missing Safari Zone encounters based on static encounter tables and ex
 - Use extracted Pokédex and PC Box state to calculate missing Safari Zone encounters based on static encounter tables.
 
 ## Acceptance Criteria
-- [ ] Implement Safari Zone missing encounters calculation.
+- [x] Implement Safari Zone missing encounters calculation.
