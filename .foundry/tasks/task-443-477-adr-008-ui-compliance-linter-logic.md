@@ -34,6 +34,6 @@ Implement the core AST parsing logic in `scripts/verify-adr-compliance.ts` to de
 - Ensure `rounded-none`, `border-dashed`, and `font-mono` are used where appropriate (though for a linter, checking for forbidden classes is the priority).
 
 ## Acceptance Criteria
-- [ ] Implement AST parsing logic to extract class names from files.
-- [ ] Implement logic to detect forbidden classes according to ADR 008.
-- [ ] The script must exit with a non-zero status code if violations are found, and print the violations (file path, line number, offending class) to the console.
+- [x] Implement AST parsing logic to extract class names from files.
+- [x] Implement logic to detect forbidden classes according to ADR 008.
+- [x] The script must exit with a non-zero status code if violations are found, and print the violations (file path, line number, offending class) to the console.
