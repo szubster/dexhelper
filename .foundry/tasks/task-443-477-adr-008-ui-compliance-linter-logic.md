@@ -2,12 +2,12 @@
 id: task-443-477-adr-008-ui-compliance-linter-logic
 type: TASK
 title: Implement ADR 008 Linter Core Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-24'
 updated_at: '2026-08-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6229146159531901492'
 pr_number: null
 parent: story-417-443-adr-008-ui-compliance-linter
 tags:
