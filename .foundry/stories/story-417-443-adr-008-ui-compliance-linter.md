@@ -32,4 +32,8 @@ Create a static analysis script (`scripts/verify-adr-compliance.ts`) that specif
 - Ensure the script is lightweight and easy to integrate into the existing CI pipeline.
 
 ## Acceptance Criteria
-- [ ] Break down this story into actionable engineering tasks.
+- [x] Break down this story into actionable engineering tasks.
+- [ ] task-443-477-adr-008-ui-compliance-linter-logic
+- [ ] task-443-478-adr-008-ui-compliance-linter-tests
+- [ ] task-443-479-adr-008-ui-compliance-linter-ci
+- [ ] task-443-480-adr-008-ui-compliance-linter-qa
