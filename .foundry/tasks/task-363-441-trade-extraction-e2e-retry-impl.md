@@ -2,13 +2,13 @@
 id: task-363-441-trade-extraction-e2e-retry-impl
 type: TASK
 title: NPC Trade Extraction Integration & E2E Implementation (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-20'
-updated_at: '2026-08-23'
+updated_at: '2026-08-24'
 depends_on:
   - research-363-440-investigate-trade-extraction-e2e-failure
-jules_session_id: null
+jules_session_id: '7107176133375552537'
 pr_number: null
 parent: story-349-363-trade-extraction-e2e
 tags:

@@ -124,3 +124,18 @@ Investigated the `Trainer` and `TrainerMon` (party) struct sizes and layouts in 
   - `0x03`: Custom Moves, With Items (16 bytes).
 
 These structures are fixed in ROM and mapped by the trainer IDs, so parsing upcoming opponent teams requires reading the `Trainer` struct based on an ID, evaluating the `partyFlags`, and iterating the pointer over the appropriate `TrainerMon` variant.
+
+
+---
+
+## Aggregated from 3176136743482522530.md
+
+# Researcher Journal Entry - Session 3176136743482522530
+
+## Researching Gen 2 Roamer Save Fixtures
+
+During the research for `research-466-467-gen2-roamer-fixtures`, I found that locating exact save states online for Gen 2 games (Gold/Silver/Crystal) with active Burned Tower roamers is quite difficult.
+
+**Lesson Learned:** Instead of relying on manual hex editing of specific offsets—which can perpetuate incorrect assumptions about the game engine's behavior—it is much better to generate "real-world" saves.
+
+The most reliable approach is to use a save editing tool like PKHeX to flip the necessary event flags (e.g., releasing the legendary beasts), and then run the modified save in a highly accurate emulator like BGB or mGBA. By simply interacting with the game normally (e.g., walking through grass or traversing routes), the game engine naturally populates the roamer data structures (map coordinates, levels, and statuses) in the SRAM via its internal RNG. Saving natively from the emulator captures this true state, providing a robust fixture for E2E testing without the risks of manual hex manipulation.
