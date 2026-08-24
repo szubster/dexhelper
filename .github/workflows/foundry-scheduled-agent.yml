@@ -34,6 +34,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Invoke Jules Agent
+        id: invoke-jules
         env:
           JULES_API_KEY: ${{ secrets.JULES_API_KEY }}
           PERSONA: ${{ inputs.persona }}
@@ -108,8 +109,14 @@ jobs:
             session_id=$(echo "$response" | jq -r '.id // empty')
 
             if [[ -n "$session_id" && "$session_id" != "null" ]]; then
+              session_url="https://jules.google.com/session/$session_id"
               echo "Successfully spawned Jules session: $session_id"
+              echo "Jules Session URL: $session_url"
               echo "SESSION_ID=$session_id" >> "$GITHUB_ENV"
+              echo "SESSION_URL=$session_url" >> "$GITHUB_ENV"
+              echo "session_id=$session_id" >> "$GITHUB_OUTPUT"
+              echo "session_url=$session_url" >> "$GITHUB_OUTPUT"
+              echo "### 🤖 Jules Session: $session_url" >> "$GITHUB_STEP_SUMMARY"
               exit 0
             fi
 

@@ -5,17 +5,17 @@ title: Integrate Gen 1 Active Party into MatchupContext
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-21'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on:
   - task-421-460-matchup-context-state-layer-impl
-jules_session_id: '11974859322690718517'
+jules_session_id: '16055223052226471063'
 pr_number: null
 parent: story-411-421-active-party-extraction
 tags:
   - gen1
   - integration
   - react
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

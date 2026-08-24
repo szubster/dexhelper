@@ -5,16 +5,16 @@ title: Update RouteRadarHeatmap to Support Bike Requirements
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-14'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on: []
-jules_session_id: '7454420847994002025'
+jules_session_id: '4588738584423163827'
 pr_number: null
 parent: story-406-413-bike-requirement-heatmap
 tags:
   - gen3
   - map
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---

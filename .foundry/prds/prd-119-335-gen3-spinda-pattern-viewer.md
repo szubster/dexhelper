@@ -5,7 +5,7 @@ title: Gen 3 Spinda Pattern Viewer
 status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-20'
-updated_at: '2026-07-26'
+updated_at: '2026-08-23'
 depends_on: []
 jules_session_id: null
 pr_number: null

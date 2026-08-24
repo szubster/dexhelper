@@ -2,10 +2,10 @@
 id: epic-031-036-progression-tracking
 type: EPIC
 title: Progression Tracking & Multiple Saves
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-20'
-updated_at: '2026-07-03'
+updated_at: '2026-08-23'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -13,7 +13,7 @@ parent: prd-055-031-future-progression-trading
 tags:
   - backend
   - progression
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
@@ -30,6 +30,6 @@ As part of Phase 2 of the Cloudflare Sync backend, we need to support storing an
 
 ## Acceptance Criteria
 - [x] Story Owner: Break this Epic down into Stories.
-- [ ] story-036-255-progression-save-model
-- [ ] story-036-256-progression-sync-logic
-- [ ] story-036-257-concurrent-game-management
+- [x] story-036-255-progression-save-model
+- [x] story-036-256-progression-sync-logic
+- [x] story-036-257-concurrent-game-management

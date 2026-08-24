@@ -5,7 +5,7 @@ title: Egg Move Inventory Cross-Reference E2E Verification
 status: READY
 owner_persona: tech_lead
 created_at: '2026-08-11'
-updated_at: '2026-08-21'
+updated_at: '2026-08-23'
 depends_on:
   - story-114-414-egg-move-inventory-missing-links
 jules_session_id: null

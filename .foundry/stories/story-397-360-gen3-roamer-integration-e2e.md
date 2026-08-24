@@ -5,7 +5,7 @@ title: Gen 3 Roamer Integration and E2E Verification
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-08-12'
+updated_at: '2026-08-23'
 depends_on:
   - story-397-359-gen3-roamer-unit-tests
 jules_session_id: null

@@ -5,7 +5,7 @@ title: Gen 3 Trainer Flags Extraction E2E
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-12'
+updated_at: '2026-08-23'
 depends_on:
   - story-307-319-gen3-trainer-flags-extraction
 jules_session_id: null

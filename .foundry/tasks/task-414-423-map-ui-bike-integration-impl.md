@@ -5,17 +5,17 @@ title: Integrate Bike Badges into Map UI
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-13'
-updated_at: '2026-08-21'
+updated_at: '2026-08-23'
 depends_on:
   - task-414-422-bike-badge-component-impl
-jules_session_id: '12960450965307555880'
+jules_session_id: '2942548666399307643'
 pr_number: null
 parent: story-406-414-bike-requirement-ui-badges
 tags:
   - ui
   - map
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---

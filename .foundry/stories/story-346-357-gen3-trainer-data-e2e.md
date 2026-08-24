@@ -2,10 +2,10 @@
 id: story-346-357-gen3-trainer-data-e2e
 type: STORY
 title: Gen 3 Trainer Data Extraction E2E/Integration
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-01'
-updated_at: '2026-08-08'
+updated_at: '2026-08-23'
 depends_on:
   - story-346-356-gen3-trainer-data-extraction-core
 jules_session_id: null
@@ -33,5 +33,5 @@ Implement E2E and integration testing for the Gen 3 Trainer Data Extraction logi
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down E2E and Integration test requirements into `TASK` nodes.
-- [ ] task-357-399-gen3-trainer-data-e2e-impl
-- [ ] task-357-400-gen3-trainer-data-e2e-qa
+- [x] task-357-399-gen3-trainer-data-e2e-impl
+- [x] task-357-400-gen3-trainer-data-e2e-qa

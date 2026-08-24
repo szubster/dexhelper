@@ -56,3 +56,33 @@ Add documentation to a complex engine module (`encounterTools.ts`) focusing on t
 
 ## Scribe Journal - Heatmap Density Logic
 Documented the architectural reason why `RouteRadarController` uses a `Set` to collect unique `areaId`s per suggestion. Without it, Pokémon with multiple sub-encounters on the same map would distort the heatmap density.
+
+# Scribe Journal
+
+- **Module Documented:** `src/engine/mapGraph/` (`gen1Graph.ts` and `gen2Graph.ts`)
+- **Why this module:** The routing engine uses a fallback mechanism when evaluating player distance to wild encounters. Saffron City and Goldenrod City are hardcoded as universal fallbacks. The JSDoc lacked architectural explanation as to *why* these cities are used (i.e., they are centrally located hubs connecting multiple routes, necessary to prevent UI crashes if a player saves in an unmapped indoor location).
+- **Summary of Additions:** Added JSDoc blocks to `getDistanceToMap` explaining the structural topology rationale for the fallback cities, and included `@example` blocks as explicitly requested by the constraint checklist.
+
+## Session Learnings
+- **Pre-commit constraint compliance:** Ensure *all* specific tags requested in the instructions (e.g., `@example`) are included during the first pass. Skipping them leads to code review nitpicks.
+
+
+---
+
+## Aggregated from 2026-08-23-02-07-43.md
+
+# Scribe Session Journal
+
+## Task Goal
+The user requested to pick ONE module and improve its documentation (JSDoc, inline comments, or architecture docs). Focus areas included engine modules with complex domain logic, exported hooks/utilities, the Zustand store, data pipeline scripts, or README improvements.
+
+## Action Taken
+1. **Scanned & Selected**: Identified `src/engine/saveParser/parsers/gen3.ts` as a high-complexity module dealing with binary offsets, A/B flash banks, and encryption. Specifically, the `extractGen3PokemonData` function was missing JSDoc explaining the Gen 3 data encryption algorithm (PV XOR OTID, GAEM blocks, and 24 permutations).
+2. **Documented**: Used `replace_with_git_merge_diff` to add comprehensive JSDoc to `extractGen3PokemonData` explaining the decryption process, which is non-obvious and relies on modulus math and hardcoded bitwise operations.
+3. **Verified**: Ran `pnpm lint` and `pnpm test` successfully (after installing `playwright chromium` binaries).
+4. **Committed**: Checked the diff and passed code review.
+
+## Critical Learnings
+- **Gen 3 Encryption Algorithm**: The 100-byte structure has a 48-byte encrypted core consisting of G (Growth), A (Attacks), E (Effort/Condition), and M (Miscellaneous) blocks. The key is `PV ^ OTID`, and the order is scrambled based on `PV % 24`.
+- **Scribe Constraints**: Attempting to document multiple files violates the strict "ONE module" requirement.
+- **Testing Constraints**: Playwright binaries must be installed (`pnpm exec playwright install chromium`) before running `pnpm test` if it hasn't been done in the environment yet.

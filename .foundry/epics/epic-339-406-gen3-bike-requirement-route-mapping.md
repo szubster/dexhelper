@@ -5,7 +5,7 @@ title: Route Pre-computation & Mapping
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-08'
-updated_at: '2026-08-12'
+updated_at: '2026-08-23'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -5,11 +5,11 @@ title: Preserve Enum Optimizations with Verbose Keys in Generation Pipeline (Ret
 status: READY
 owner_persona: coder
 created_at: '2026-05-29'
-updated_at: '2026-08-15'
+updated_at: '2026-08-24'
 depends_on: []
 jules_session_id: null
 parent: story-042-081-preserve-enum-optimizations
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: Replacement for permanently failed task-081-130.
 ---

@@ -2,10 +2,10 @@
 id: epic-042-065-gen3-contest-advisor-ui
 type: EPIC
 title: Gen 3 Contest Advisor UI
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-09'
-updated_at: '2026-06-19'
+updated_at: '2026-08-23'
 depends_on: []
 jules_session_id: null
 pr_number: null

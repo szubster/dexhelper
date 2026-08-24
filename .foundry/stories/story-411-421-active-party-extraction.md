@@ -5,7 +5,7 @@ title: Extract Active Party data and synchronize it with the matchup context.
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-11T00:00:00.000Z'
-updated_at: '2026-08-22'
+updated_at: '2026-08-23'
 depends_on:
   - story-411-420-narrative-progression-flags
 jules_session_id: null

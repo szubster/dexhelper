@@ -47,9 +47,9 @@ export const ProgressionTimeline: React.FC = () => {
 
           newEvents.push({
             id: iterCursor.primaryKey as string,
-            type: (metadata['type'] as string) || 'SAVE',
-            description: (metadata['description'] as string) || 'Game saved.',
-            timestamp: (metadata['timestamp'] as number) || Date.now(),
+            type: metadata.type || 'SAVE',
+            description: metadata.description || 'Game saved.',
+            timestamp: metadata.timestamp || Date.now(),
           });
 
           iterCursor = await iterCursor.continue();
@@ -59,7 +59,7 @@ export const ProgressionTimeline: React.FC = () => {
           setEvents(newEvents);
         }
       } catch (error) {
-        console.error('Failed to fetch progression history:', error);
+        console.error('Failed to fetch progression history:', error instanceof Error ? error.message : 'Unknown error');
       } finally {
         if (mounted) {
           setIsLoading(false);

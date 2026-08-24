@@ -5,10 +5,10 @@ title: Impl Gen 3 Roamer E2E Tests
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-11'
-updated_at: '2026-08-21'
+updated_at: '2026-08-23'
 depends_on:
   - task-360-418-gen3-roamer-ui-impl
-jules_session_id: '14718857046945497380'
+jules_session_id: '8649457615851110436'
 pr_number: null
 parent: story-397-360-gen3-roamer-integration-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - roamer
   - e2e
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---

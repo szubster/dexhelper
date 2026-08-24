@@ -5,7 +5,7 @@ title: 'Story: Gen 3 Match Call MsgPack Integration'
 status: READY
 owner_persona: tech_lead
 created_at: '2026-06-13'
-updated_at: '2026-08-20'
+updated_at: '2026-08-23'
 depends_on: []
 jules_session_id: null
 pr_number: null

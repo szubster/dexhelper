@@ -2,10 +2,10 @@
 id: prd-070-042-gen3-contest-optimization-advisor
 type: PRD
 title: Gen 3 Contest Optimization Advisor
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-06-08'
-updated_at: '2026-06-09'
+updated_at: '2026-08-23'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -47,5 +47,5 @@ Beyond simply displaying Contest statistics and Ribbons, DexHelper aims to provi
 - [ ] Write unit tests verifying the recommendation logic produces expected outcomes for various Nature/Stat combinations.
 
 ### Breakdown Tasks
-- [ ] epic-042-064-gen3-contest-advisor-algorithm
-- [ ] epic-042-065-gen3-contest-advisor-ui
+- [x] epic-042-064-gen3-contest-advisor-algorithm
+- [x] epic-042-065-gen3-contest-advisor-ui
