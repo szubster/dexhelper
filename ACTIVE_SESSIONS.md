@@ -3,6 +3,7 @@
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
 | [epic-344-420-save-editor-cli-core](.foundry/epics/epic-344-420-save-editor-cli-core.md) | EPIC | Save Editor CLI Core Framework | story_owner | [8918402175480503239](https://jules.google.com/session/8918402175480503239) |
+| [epic-345-428-source-additional-save-files](.foundry/epics/epic-345-428-source-additional-save-files.md) | EPIC | Source Additional Save Files for Testing | story_owner | [11049694401532854241](https://jules.google.com/session/11049694401532854241) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
