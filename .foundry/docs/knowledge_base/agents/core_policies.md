@@ -121,7 +121,7 @@ If a cancelled or replaced task node is reawakened (e.g., because its previous i
 
 ## Late Binding for Missing Context & Task Suspension
 If you lack critical context or specifications (e.g., exact memory offsets) necessary to implement a task or generate actionable blueprints, DO NOT guess or implement generic fallbacks. Instead, you MUST utilize the late binding pattern to suspend the task:
-1. Spawn a new `RESEARCH` node to investigate the missing information, setting `parent: <current_task_id>` in the `RESEARCH` node's YAML frontmatter. Add the newly generated `RESEARCH` node to the `depends_on` array of the failed task so it is unblocked once research completes.
+1. Spawn a new `RESEARCH` node to investigate the missing information, setting `parent: <current_task_id>` in the `RESEARCH` node's YAML frontmatter. Do **NOT** add the `RESEARCH` node to the current task's `depends_on` array (parents implicitly depend on their children; adding it to `depends_on` creates a circular dependency deadlock).
 2. Append the new `RESEARCH` node reference as an unchecked task (`- [ ] <research_node_id>`) into the Markdown body of the current task.
 3. Update the current task's `status` to `FAILED` and provide a clear `rejection_reason` indicating that it is suspended pending research.
 
