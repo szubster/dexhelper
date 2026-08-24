@@ -2,15 +2,15 @@
 id: task-361-407-sorting-algorithms-e2e-impl
 type: TASK
 title: E2E Verification for PC Box Sorting Algorithms - Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-08'
 updated_at: '2026-08-24'
 depends_on: []
 jules_session_id: '3958189168282060270'
 parent: story-136-361-sorting-algorithms-e2e
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: 'UI components to trigger sorting algorithms do not exist in the frontend yet.'
 ---
 
 # Task: E2E Verification for PC Box Sorting Algorithms - Implementation
@@ -31,3 +31,5 @@ As part of the Orchestrator Safeguard, this task is dedicated to implementing th
 - [ ] Tests cover sorting by DexNumber, Level, Type, and Alpha.
 - [ ] Tests successfully pass using datasets containing Gen 1, Gen 2, and Gen 3 pokemon.
 - [ ] E2E tests are stable and do not flake.
+
+- [ ] research-407-468-sorting-ui-implementation
