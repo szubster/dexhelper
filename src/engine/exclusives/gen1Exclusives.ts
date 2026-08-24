@@ -1,4 +1,4 @@
-const GEN1_VERSION_EXCLUSIVES: Record<string, number[]> = {
+export const GEN1_VERSION_EXCLUSIVES: Record<string, number[]> = {
   red: [
     27,
     28, // Sandshrew, Sandslash

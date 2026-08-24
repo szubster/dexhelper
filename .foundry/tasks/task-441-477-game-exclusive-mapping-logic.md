@@ -29,5 +29,5 @@ As part of the Cross-Save Synergy Analysis Engine, we need to map out game exclu
 - The logic should use `SaveData.gameVersion` to query offline database/metadata to determine which Pokémon are exclusively available in that specific game version.
 
 ## Acceptance Criteria
-- [ ] Logic implemented to extract game exclusives based on `SaveData.gameVersion`.
-- [ ] Unit tests verify the accurate retrieval of game exclusives for different versions.
+- [x] Logic implemented to extract game exclusives based on `SaveData.gameVersion`.
+- [x] Unit tests verify the accurate retrieval of game exclusives for different versions.
