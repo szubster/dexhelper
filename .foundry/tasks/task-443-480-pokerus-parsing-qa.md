@@ -2,13 +2,13 @@
 id: task-443-480-pokerus-parsing-qa
 type: TASK
 title: QA Pokerus Parsing
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-23'
 updated_at: '2026-08-24'
 depends_on:
   - task-443-479-pokerus-parsing-tests
-jules_session_id: null
+jules_session_id: '12332525711286593734'
 pr_number: null
 parent: story-411-443-extract-pokerus-data
 tags:
