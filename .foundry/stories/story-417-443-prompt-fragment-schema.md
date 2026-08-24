@@ -34,4 +34,9 @@ This story focuses on defining the standard schema and format for prompt fragmen
 - [ ] Define TypeScript schema for prompt fragments.
 - [ ] Implement a validation utility for prompt fragments.
 - [ ] Create at least 3 standard foundational prompt fragments.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+
+- [ ] task-443-477-prompt-fragment-schema-types
+- [ ] task-443-478-prompt-fragment-validation
+- [ ] task-443-479-prompt-fragment-initial-fragments
+- [ ] task-443-480-prompt-fragment-schema-qa
