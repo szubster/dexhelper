@@ -33,6 +33,6 @@ Design and define the TypeScript interfaces and types for prompt fragments, as w
 - Add unit tests for the schema parsing.
 
 ## Acceptance Criteria
-- [ ] Define the `PromptFragment` Zod schema and TypeScript interface.
-- [ ] Add unit tests for schema validation (both valid and invalid fragments).
-- [ ] Ensure `precedence`, `role`, `context`, and `rules` fields are well-defined.
+- [x] Define the `PromptFragment` Zod schema and TypeScript interface.
+- [x] Add unit tests for schema validation (both valid and invalid fragments).
+- [x] Ensure `precedence`, `role`, `context`, and `rules` fields are well-defined.
