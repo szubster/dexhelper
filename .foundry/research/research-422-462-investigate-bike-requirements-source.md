@@ -2,10 +2,10 @@
 id: research-422-462-investigate-bike-requirements-source
 type: RESEARCH
 title: Investigate Bike Requirements Source for RouteRadarHeatmap
-status: READY
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-08-23'
-updated_at: '2026-08-23'
+updated_at: '2026-08-24'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - radar
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

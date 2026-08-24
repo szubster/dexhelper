@@ -2,7 +2,7 @@
 id: story-094-152-gen3-friendship-extraction
 type: STORY
 title: Gen 3 Friendship Data Extraction
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-19'
 updated_at: '2026-08-24'

@@ -2,7 +2,7 @@
 id: task-405-416-gen3-mixed-record-parser-impl
 type: TASK
 title: Implement Gen 3 Mixed Record Parser
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-10'
 updated_at: '2026-08-24'
@@ -17,8 +17,8 @@ tags:
   - mixed-records
   - parser
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

@@ -2,11 +2,12 @@
 id: task-413-423-route-radar-controller-qa
 type: TASK
 title: QA - RouteRadarController Bike Requirements
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-14'
-updated_at: '2026-08-14'
-depends_on: [task-413-422-update-route-radar-controller]
+updated_at: '2026-08-24'
+depends_on:
+  - task-413-422-update-route-radar-controller
 jules_session_id: null
 pr_number: null
 parent: story-406-413-bike-requirement-heatmap
@@ -15,7 +16,9 @@ tags:
   - map
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-413-422-update-route-radar-controller
 notes: ''
 ---
 

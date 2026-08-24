@@ -1,11 +1,11 @@
 ---
 id: task-403-421-e2e-integration-qa
 type: TASK
-title: "QA Verification for Integration and E2E Tests of DV/IV Extraction"
-status: PENDING
+title: QA Verification for Integration and E2E Tests of DV/IV Extraction
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-08-24'
 depends_on:
   - task-403-420-playwright-e2e-impl
 jules_session_id: null
@@ -19,7 +19,9 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-403-420-playwright-e2e-impl
 notes: ''
 ---
 

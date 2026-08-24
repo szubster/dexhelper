@@ -2,7 +2,7 @@
 id: task-403-420-playwright-e2e-impl
 type: TASK
 title: Implement Playwright E2E Tests for DV/IV Extraction
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-11'
 updated_at: '2026-08-24'
@@ -19,7 +19,7 @@ tags:
   - playwright
 research_references: []
 rejection_count: 3
-rejection_reason: 'Task is suspended pending UI integration. PokemonCaughtDetails does not currently render DVs or IVs.'
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

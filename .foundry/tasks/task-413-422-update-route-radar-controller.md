@@ -2,10 +2,10 @@
 id: task-413-422-update-route-radar-controller
 type: TASK
 title: Update RouteRadarHeatmap to Support Bike Requirements
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-14'
-updated_at: '2026-08-23'
+updated_at: '2026-08-24'
 depends_on: []
 jules_session_id: '4588738584423163827'
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - gen3
   - map
 research_references: []
-rejection_count: 2
-rejection_reason: 'Suspended pending research on where to source bike requirements or map metatiles from in calculateHeatmap.'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 
