@@ -32,5 +32,5 @@ This task is to QA verify that the Playwright E2E tests for `DagProvider` and `D
 - Ensure no test flakiness is introduced.
 
 ## Acceptance Criteria
-- [ ] The E2E tests for `DagContext` are verified to pass.
-- [ ] Both success and failure state tests are confirmed to be robust.
+- [x] The E2E tests for `DagContext` are verified to pass.
+- [x] Both success and failure state tests are confirmed to be robust.
