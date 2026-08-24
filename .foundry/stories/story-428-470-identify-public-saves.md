@@ -29,4 +29,9 @@ As part of Epic 428 to source additional save files, the first step is to locate
 2. Download a diverse set of save files.
 
 ## Acceptance Criteria
-- [ ] Break down this story into tasks.
+- [x] Break down this story into tasks.
+
+- [ ] task-470-485-source-gen1-gen2-saves
+- [ ] task-470-486-source-gen3-saves
+- [ ] task-470-487-catalog-integrate-saves
+- [ ] task-470-488-qa-public-saves
