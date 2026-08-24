@@ -517,6 +517,52 @@ describe('gen2 parsers', () => {
     });
   });
 
+  describe('parseGen2 - Pokerus', () => {
+    it('should correctly parse an uninfected Pokemon', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+
+      // Set Pokerus to 0
+      view.setUint8(0x288b + 7 + 28, 0);
+
+      const data = parseGen2(view, false);
+      expect(data.partyDetails[0]?.pokerus).toBeUndefined();
+    });
+
+    it('should correctly parse an infected Pokemon', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+
+      // Set Pokerus: strain 5, days 10 (0x5A)
+      view.setUint8(0x288b + 7 + 28, 0x5a);
+
+      const data = parseGen2(view, false);
+      expect(data.partyDetails[0]?.pokerus).toBeDefined();
+      expect(data.partyDetails[0]?.pokerus).toEqual({ strain: 5, daysRemaining: 10 });
+    });
+
+    it('should correctly parse a cured Pokemon', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+
+      // Set Pokerus: strain 1, days 0 (0x10) - cured
+      view.setUint8(0x288b + 7 + 28, 0x10);
+
+      const data = parseGen2(view, false);
+      expect(data.partyDetails[0]?.pokerus).toBeDefined();
+      expect(data.partyDetails[0]?.pokerus).toEqual({ strain: 1, daysRemaining: 0 });
+    });
+  });
+
   describe('parseGen2 - Unown Forms', () => {
     it('should correctly parse Unown Form A', () => {
       const buffer = new ArrayBuffer(32768);
