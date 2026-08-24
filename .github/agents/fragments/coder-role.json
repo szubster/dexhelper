@@ -1,0 +1,1 @@
+{ "id": "coder-role", "role": "coder", "context": "Generic context for a coder persona.", "rules": ["Write tests.", "Do not break existing features."], "precedence": 10 }

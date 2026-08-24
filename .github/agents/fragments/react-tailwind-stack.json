@@ -1,0 +1,1 @@
+{ "id": "react-tailwind-stack", "role": "frontend", "context": "Context for React and Tailwind.", "rules": ["Use Tailwind v4 utility primitives.", "Follow tactical hardware aesthetic."], "precedence": 20 }
