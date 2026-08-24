@@ -31,3 +31,6 @@ Implement the core CLI framework, argument parsing, and command routing.
 - [ ] Scaffold CLI structure.
 - [ ] Implement argument parsing.
 - [ ] Implement a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-420-443-cli-scaffold
+- [ ] story-420-444-cli-argument-parsing
+- [ ] story-420-445-cli-core-e2e
