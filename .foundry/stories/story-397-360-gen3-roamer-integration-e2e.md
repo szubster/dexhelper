@@ -33,5 +33,8 @@ Generate Integration and E2E Verification to ensure proper system-wide rendering
 - [x] Tech Lead: Break this Story down into actionable Tasks.
 
 - [ ] task-360-418-gen3-roamer-ui-impl
-- [ ] task-360-419-gen3-roamer-e2e-impl
-- [ ] task-360-420-gen3-roamer-ui-and-e2e-qa
+- [x] task-360-419-gen3-roamer-e2e-impl
+- [x] task-360-420-gen3-roamer-ui-and-e2e-qa
+- [ ] research-360-484-gen3-roamer-e2e-failure
+- [ ] task-360-485-gen3-roamer-e2e-impl-v2
+- [ ] task-360-486-gen3-roamer-ui-and-e2e-qa-v2
