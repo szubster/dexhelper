@@ -23,7 +23,7 @@
 import gen2Landmarks from '../../data/gen2/landmarks.json';
 import gen2MapLocations from '../../data/gen2/mapLocations.json';
 import { GEN2_VERSION_EXCLUSIVES } from '../../exclusives/gen2Exclusives';
-import { parseGen2NarrativeFlags } from '../utils/gen2EventFlags';
+import { parseGen2DailyEvents, parseGen2NarrativeFlags } from '../utils/gen2EventFlags';
 import type { GameVersion, Gen2SaveData, PokemonInstance } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs, parsePokerus } from './common';
 
@@ -1126,5 +1126,6 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
       lugia: (((eventFlags[EVENT_FLAG_LUGIA_BYTE] ?? 0) >> EVENT_FLAG_LUGIA_BIT) & 1) === 1,
     },
     gen2NarrativeFlags: parseGen2NarrativeFlags(eventFlags),
+    gen2DailyEvents: parseGen2DailyEvents(eventFlags),
   };
 }
