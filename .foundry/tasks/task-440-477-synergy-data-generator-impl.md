@@ -28,5 +28,5 @@ To support cross-save synergy evaluation, we need a data generator that structur
 - Format the aggregated state into a structured data payload that highlights potential trade opportunities.
 
 ## Acceptance Criteria
-- [ ] Implement the data generator utility.
-- [ ] Write unit tests for the data generator logic.
+- [x] Implement the data generator utility.
+- [x] Write unit tests for the data generator logic.
