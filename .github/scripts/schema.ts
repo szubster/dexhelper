@@ -74,3 +74,15 @@ export const PromptFragmentSchema = z.object({
 });
 
 export type PromptFragment = z.infer<typeof PromptFragmentSchema>;
+
+export function validatePromptFragment(data: unknown): PromptFragment {
+  const result = PromptFragmentSchema.safeParse(data);
+  if (!result.success) {
+    const errorMessages = result.error.issues.map((issue) => {
+      const path = issue.path.join('.');
+      return path ? `${path}: ${issue.message}` : issue.message;
+    }).join(', ');
+    throw new Error(`Invalid prompt fragment: ${errorMessages}`);
+  }
+  return result.data;
+}

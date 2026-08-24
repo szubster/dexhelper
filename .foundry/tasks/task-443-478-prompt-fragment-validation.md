@@ -33,6 +33,6 @@ Implement a validation utility function to ensure that a given set of data adher
 - Add unit tests verifying that the validation utility handles both successful validations and various failure modes correctly.
 
 ## Acceptance Criteria
-- [ ] Implement the validation utility function for prompt fragments.
-- [ ] Include detailed error handling/reporting for invalid fragments.
-- [ ] Add comprehensive unit tests for the validation utility.
+- [x] Implement the validation utility function for prompt fragments.
+- [x] Include detailed error handling/reporting for invalid fragments.
+- [x] Add comprehensive unit tests for the validation utility.
