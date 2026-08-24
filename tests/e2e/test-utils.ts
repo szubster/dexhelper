@@ -119,6 +119,9 @@ export async function mockDagData(page: Page, mockDataPath: string = 'tests/fixt
       status: 200,
       contentType: 'application/json',
       body: mockData,
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate',
+      },
     });
   });
 }
