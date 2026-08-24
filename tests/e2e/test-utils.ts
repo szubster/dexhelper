@@ -120,9 +120,6 @@ export async function mockDagData(page: Page, mockDataPath: string = 'tests/fixt
       contentType: 'application/json',
       headers: { 'Cache-Control': 'no-store, no-cache, must-revalidate' },
       body: mockData,
-      headers: {
-        'Cache-Control': 'no-store, no-cache, must-revalidate',
-      },
     });
   });
 }

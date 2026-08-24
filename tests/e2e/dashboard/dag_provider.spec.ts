@@ -60,9 +60,6 @@ test.describe('DagProvider Data Fetching', () => {
         contentType: 'application/json',
         headers: { 'Cache-Control': 'no-store, no-cache, must-revalidate' },
         body: JSON.stringify({ error: 'Internal Server Error' }),
-        headers: {
-          'Cache-Control': 'no-store, no-cache, must-revalidate',
-        },
       });
     });
 
