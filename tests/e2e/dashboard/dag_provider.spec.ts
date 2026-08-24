@@ -35,6 +35,7 @@ test.describe('DagProvider Data Fetching', () => {
       await route.fulfill({
         status: 500,
         contentType: 'application/json',
+        headers: { 'Cache-Control': 'no-store, no-cache, must-revalidate' },
         body: JSON.stringify({ error: 'Internal Server Error' }),
       });
     });
