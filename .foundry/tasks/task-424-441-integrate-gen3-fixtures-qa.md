@@ -27,5 +27,5 @@ notes: ''
 Verify the integration of the sourced Gen 3 save files (`emerald.sav`) into the test suite, as per the parent story.
 
 ## Acceptance Criteria
-- [ ] Ensure all tests pass with the new fixtures.
-- [ ] Verify that the tests adequately cover parsing and validation logic for Gen 3.
+- [x] Ensure all tests pass with the new fixtures.
+- [x] Verify that the tests adequately cover parsing and validation logic for Gen 3.
