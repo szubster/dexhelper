@@ -31,13 +31,18 @@ test.describe('DagProvider Data Fetching', () => {
     await page.unrouteAll({ behavior: 'ignoreErrors' });
 
     // Intercept with 500 error
-    await page.route(/.*\/data\/foundry\.json/, async (route) => {
-      await route.fulfill({
-        status: 500,
-        contentType: 'application/json',
-        body: JSON.stringify({ error: 'Internal Server Error' }),
-      });
-    });
+    await page.addInitScript(`
+      const originalFetch = window.fetch;
+      window.fetch = async (...args) => {
+        if (args[0].includes('data/foundry.json')) {
+          return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' }
+          });
+        }
+        return originalFetch(...args);
+      };
+    `);
 
     await page.goto('dag');
 
