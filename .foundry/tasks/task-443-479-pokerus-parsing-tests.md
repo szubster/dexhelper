@@ -2,7 +2,7 @@
 id: task-443-479-pokerus-parsing-tests
 type: TASK
 title: Pokerus Parsing Unit Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-08-24'
