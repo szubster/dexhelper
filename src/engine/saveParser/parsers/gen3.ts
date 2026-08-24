@@ -31,6 +31,7 @@ import {
 import { parseGen3EventItems } from '../gen3/inventory/parser';
 import { parseGen3NarrativeFlags } from '../gen3/narrative/parser';
 import { parseGen3Pokeblocks } from '../gen3/pokeblock/parser';
+import { parseGen3Pokedex } from '../gen3/pokedex/parser';
 import { parseGen3TrainerDefeatFlags, parseGen3TrainerRematchFlags } from '../gen3/trainerFlags/parser';
 import { parseTrickHouse } from '../gen3/trickHouse/parser';
 import type {
@@ -453,12 +454,6 @@ export const GEN3_GAME_STATS_OFFSET_RS = 0x1540;
 export const GEN3_GAME_STATS_OFFSET_FRLG = 0x1200;
 export const GAME_STAT_ENTERED_HOF_ID = 10;
 export const BYTES_PER_GAME_STAT = 4;
-export const BITS_PER_BYTE = 8;
-
-export const GEN3_POKEDEX_OFFSET = 0x18;
-export const GEN3_POKEDEX_OWNED_OFFSET = 0x10;
-export const GEN3_POKEDEX_SEEN_OFFSET = 0x44;
-export const NATIONAL_DEX_MAX = 386;
 
 /**
  * Maps National Dex IDs to their inclusion in the Regional Hoenn Pokédex.
@@ -1708,29 +1703,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       throw error;
     }
 
-    const owned = new Set<number>();
-    const seen = new Set<number>();
-    const pokedexOwnedOffset = section0Offset + GEN3_POKEDEX_OFFSET + GEN3_POKEDEX_OWNED_OFFSET;
-    const pokedexSeenOffset = section0Offset + GEN3_POKEDEX_OFFSET + GEN3_POKEDEX_SEEN_OFFSET;
-
-    try {
-      // In Gen 3, the National Dex goes up to 386.
-      for (let dexId = 1; dexId <= NATIONAL_DEX_MAX; dexId++) {
-        // Internal flags are 0-indexed where index 0 is Bulbasaur (Dex ID 1)
-        const bitIndex = dexId - 1;
-        const byteIdx = Math.floor(bitIndex / BITS_PER_BYTE);
-        const bitPos = bitIndex % BITS_PER_BYTE;
-        const oByte = view.getUint8(pokedexOwnedOffset + byteIdx);
-        const sByte = view.getUint8(pokedexSeenOffset + byteIdx);
-        if ((oByte & (1 << bitPos)) !== 0) owned.add(dexId);
-        if ((sByte & (1 << bitPos)) !== 0) seen.add(dexId);
-      }
-    } catch (error) {
-      if (error instanceof RangeError) {
-        throw new Error('The save file is corrupted or incomplete.');
-      }
-      throw error;
-    }
+    const { seen, owned } = parseGen3Pokedex(view, section0Offset);
 
     let hoennDexCount = 0;
     for (const id of owned) {
