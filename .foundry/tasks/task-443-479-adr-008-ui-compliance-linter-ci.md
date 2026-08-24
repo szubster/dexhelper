@@ -2,7 +2,7 @@
 id: task-443-479-adr-008-ui-compliance-linter-ci
 type: TASK
 title: Integrate ADR 008 Linter into CI
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-24'
 updated_at: '2026-08-24'

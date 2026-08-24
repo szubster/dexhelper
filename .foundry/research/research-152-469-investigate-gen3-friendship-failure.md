@@ -2,12 +2,12 @@
 id: research-152-469-investigate-gen3-friendship-failure
 type: RESEARCH
 title: Investigate Gen 3 Friendship Implementation Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-23'
-updated_at: '2026-08-23'
+updated_at: '2026-08-24'
 depends_on: []
-jules_session_id: '1696532414063918288'
+jules_session_id: null
 pr_number: null
 parent: story-094-152-gen3-friendship-extraction
 tags:

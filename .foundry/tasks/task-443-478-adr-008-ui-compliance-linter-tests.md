@@ -2,7 +2,7 @@
 id: task-443-478-adr-008-ui-compliance-linter-tests
 type: TASK
 title: Implement Unit Tests for ADR 008 Linter
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-24'
 updated_at: '2026-08-24'

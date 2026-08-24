@@ -2,7 +2,7 @@
 id: task-443-480-adr-008-ui-compliance-linter-qa
 type: TASK
 title: QA Verify ADR 008 Linter
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-24'
 updated_at: '2026-08-24'

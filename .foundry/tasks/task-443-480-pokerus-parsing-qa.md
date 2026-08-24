@@ -2,10 +2,10 @@
 id: task-443-480-pokerus-parsing-qa
 type: TASK
 title: QA Pokerus Parsing
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-23'
-updated_at: '2026-08-23'
+updated_at: '2026-08-24'
 depends_on:
   - task-443-479-pokerus-parsing-tests
 jules_session_id: null

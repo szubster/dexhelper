@@ -2,14 +2,14 @@
 id: task-340-475-gen3-safari-zone-encounters-impl
 type: TASK
 title: Gen 3 Safari Zone Encounters Calculation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-08-24'
 depends_on:
   - task-340-473-gen3-safari-zone-pokedex-impl
   - task-340-474-gen3-safari-zone-pc-box-impl
-jules_session_id: '9200554664862530817'
+jules_session_id: null
 pr_number: null
 parent: story-324-340-gen3-safari-zone-save-state
 tags:

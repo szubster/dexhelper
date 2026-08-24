@@ -2,7 +2,7 @@
 id: task-441-480-game-exclusive-analysis-qa
 type: TASK
 title: Game Exclusive Analysis QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-24'
 updated_at: '2026-08-24'

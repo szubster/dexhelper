@@ -2,13 +2,13 @@
 id: task-348-462-gen3-ash-ui-impl
 type: TASK
 title: 'Task: Implement Gen 3 Volcanic Ash UI Integration'
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-22T10:49:07Z'
 updated_at: '2026-08-24'
 depends_on:
   - research-348-461-investigate-isgen3save-stub
-jules_session_id: '14464092243658980557'
+jules_session_id: null
 pr_number: null
 parent: story-268-348-gen3-ash-integration
 tags:
@@ -16,7 +16,7 @@ tags:
   - ash
   - ui
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---

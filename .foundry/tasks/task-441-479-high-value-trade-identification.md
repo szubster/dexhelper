@@ -2,7 +2,7 @@
 id: task-441-479-high-value-trade-identification
 type: TASK
 title: High Value Trade Identification
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-24'
 updated_at: '2026-08-24'
