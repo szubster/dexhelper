@@ -28,4 +28,7 @@ As part of the Cross-Save Synergy Analysis Engine, we need to prompt the assista
 - Ensure the assistant can evaluate and output trade synergy recommendations.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into implementation tasks.
+- [x] Tech Lead: Break down into implementation tasks.
+- [ ] task-440-477-synergy-prompt-builder-impl
+- [ ] task-440-478-synergy-assistant-integration-impl
+- [ ] task-440-479-synergy-evaluator-qa
