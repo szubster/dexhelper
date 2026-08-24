@@ -3,6 +3,7 @@ import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
 import React, { Suspense, useEffect } from 'react';
 import { AppLayout } from '../components/AppLayout';
 import { SyncProgress } from '../components/SyncProgress';
+import { MatchupProvider } from '../contexts/MatchupContext';
 import { pokeDB } from '../db/PokeDB';
 import { useStore } from '../store';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
@@ -49,13 +50,15 @@ function RootComponent() {
   }, [loadSaveFromStorage]);
 
   return (
-    <AppLayout>
-      <Outlet />
-      <Suspense>
-        <SyncProgress />
-        <TanStackRouterDevtools />
-        <ReactQueryDevtools />
-      </Suspense>
-    </AppLayout>
+    <MatchupProvider>
+      <AppLayout>
+        <Outlet />
+        <Suspense>
+          <SyncProgress />
+          <TanStackRouterDevtools />
+          <ReactQueryDevtools />
+        </Suspense>
+      </AppLayout>
+    </MatchupProvider>
   );
 }

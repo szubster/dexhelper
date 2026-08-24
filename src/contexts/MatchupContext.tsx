@@ -1,5 +1,6 @@
-import { createContext, type ReactNode, useContext, useState } from 'react';
+import { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
 import type { PokemonInstance } from '../engine/saveParser/parsers/common';
+import { useStore } from '../store';
 
 interface MatchupContextType {
   partyDetails: PokemonInstance[];
@@ -17,6 +18,15 @@ interface MatchupProviderProps {
 export const MatchupProvider = ({ children }: MatchupProviderProps) => {
   const [partyDetails, setPartyDetails] = useState<PokemonInstance[]>([]);
   const [upcomingBoss, setUpcomingBoss] = useState<string | null>(null);
+
+  const saveData = useStore((s) => s.saveData);
+
+  useEffect(() => {
+    if (saveData?.generation === 1) {
+      // oxlint-disable-next-line react/set-state-in-effect
+      setPartyDetails(saveData.partyDetails || []);
+    }
+  }, [saveData]);
 
   return (
     <MatchupContext.Provider value={{ partyDetails, setPartyDetails, upcomingBoss, setUpcomingBoss }}>
