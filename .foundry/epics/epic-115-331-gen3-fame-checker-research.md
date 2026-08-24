@@ -2,10 +2,10 @@
 id: epic-115-331-gen3-fame-checker-research
 type: EPIC
 title: Gen 3 Fame Checker Event Flag Research
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-17'
-updated_at: '2026-08-20'
+updated_at: '2026-08-24'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -38,5 +38,5 @@ Before we can extract this data, we need to know exactly which bits or event fla
 - Produce documentation detailing the findings.
 
 ## Acceptance Criteria
-- [ ] story-331-431-conduct-fame-checker-research
-- [ ] story-331-432-fame-checker-research-e2e
+- [x] story-331-431-conduct-fame-checker-research
+- [x] story-331-432-fame-checker-research-e2e

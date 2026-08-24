@@ -2,10 +2,10 @@
 id: task-424-441-integrate-gen3-fixtures-qa
 type: TASK
 title: Integrate Gen 3 Save File Fixtures (QA)
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-19'
-updated_at: '2026-08-23'
+updated_at: '2026-08-24'
 depends_on:
   - task-424-440-integrate-gen3-fixtures-impl
 jules_session_id: null
@@ -27,5 +27,5 @@ notes: ''
 Verify the integration of the sourced Gen 3 save files (`emerald.sav`) into the test suite, as per the parent story.
 
 ## Acceptance Criteria
-- [ ] Ensure all tests pass with the new fixtures.
-- [ ] Verify that the tests adequately cover parsing and validation logic for Gen 3.
+- [x] Ensure all tests pass with the new fixtures.
+- [x] Verify that the tests adequately cover parsing and validation logic for Gen 3.

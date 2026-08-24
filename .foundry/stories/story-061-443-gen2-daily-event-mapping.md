@@ -2,12 +2,12 @@
 id: story-061-443-gen2-daily-event-mapping
 type: STORY
 title: Map Gen 2 Daily and Weekly Event Offsets
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-08-23'
+updated_at: '2026-08-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6362205814203957560'
 pr_number: null
 parent: epic-038-061-gen2-event-flag-parsing
 tags:
