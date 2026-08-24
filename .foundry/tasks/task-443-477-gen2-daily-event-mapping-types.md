@@ -35,4 +35,4 @@ Add a new `gen2DailyEvents` property to the `Gen2SaveData` interface in `src/eng
 - Weekday Siblings (IDs 1886, 1881, 1884, 1882, 1880, 1885, 1883)
 
 ## Acceptance Criteria
-- [ ] Add `gen2DailyEvents` to `Gen2SaveData` interface in `common.ts` with types for the specified daily and weekly events.
+- [x] Add `gen2DailyEvents` to `Gen2SaveData` interface in `common.ts` with types for the specified daily and weekly events.
