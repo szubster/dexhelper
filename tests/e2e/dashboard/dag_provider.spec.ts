@@ -32,15 +32,24 @@ test.describe('DagProvider Data Fetching', () => {
 
     await page.addInitScript(() => {
       const originalFetch = window.fetch;
-      window.fetch = async (...args) => {
-        const url = typeof args[0] === 'string' ? args[0] : (args[0] as Request).url;
-        if (url.includes('/data/foundry.json')) {
+      window.fetch = async (input, init) => {
+        let url = '';
+        if (typeof input === 'string') {
+          url = input;
+        } else if (input instanceof URL) {
+          url = input.toString();
+        } else if (input && typeof input === 'object' && 'url' in input) {
+          url = input.url;
+        }
+
+        if (url.includes('foundry.json')) {
           return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' },
           });
         }
-        return originalFetch(...args);
+
+        return originalFetch(input, init);
       };
     });
 
