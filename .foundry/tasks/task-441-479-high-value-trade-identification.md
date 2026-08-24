@@ -31,5 +31,5 @@ As part of the Cross-Save Synergy Analysis Engine, we need to generate high-valu
 - The recommendations should highlight trades that resolve version exclusivity bottlenecks or significant Pokédex gaps.
 
 ## Acceptance Criteria
-- [ ] Logic implemented to identify and prioritize high-value cross-save trade recommendations.
-- [ ] Unit tests verify that trade recommendations are accurate and appropriately prioritized based on game exclusives and Pokédex gaps.
+- [x] Logic implemented to identify and prioritize high-value cross-save trade recommendations.
+- [x] Unit tests verify that trade recommendations are accurate and appropriately prioritized based on game exclusives and Pokédex gaps.

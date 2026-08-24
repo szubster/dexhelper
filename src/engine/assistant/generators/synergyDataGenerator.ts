@@ -1,9 +1,12 @@
+import { getGameExclusives } from '../../exclusives/index';
 import type { SaveData } from '../../saveParser/index';
 
 export interface SynergyTradeOpportunity {
   sourceSaveId: string;
   targetSaveId: string;
   pokemonId: number;
+  priority: number;
+  isExclusive: boolean;
 }
 
 export interface SynergyDataPayload {
@@ -21,6 +24,15 @@ export function generateSynergyData(saves: Record<string, SaveData>): SynergyDat
   const opportunities: SynergyTradeOpportunity[] = [];
   const saveIds = Object.keys(saves);
 
+  // Precompute game exclusives for each save to avoid redundant work in nested loop
+  const targetExclusivesMap: Record<string, number[]> = {};
+  for (const id of saveIds) {
+    const save = saves[id];
+    if (save) {
+      targetExclusivesMap[id] = getGameExclusives(save).missing;
+    }
+  }
+
   for (let i = 0; i < saveIds.length; i++) {
     const sourceSaveId = saveIds[i] as string;
     const sourceSave = saves[sourceSaveId];
@@ -33,17 +45,24 @@ export function generateSynergyData(saves: Record<string, SaveData>): SynergyDat
       const targetSave = saves[targetSaveId];
       if (!targetSave) continue;
 
+      const missingExclusives = targetExclusivesMap[targetSaveId] || [];
+
       for (const pokemonId of sourceSave.owned) {
         if (!targetSave.owned.has(pokemonId)) {
+          const isExclusive = missingExclusives.includes(pokemonId);
           opportunities.push({
             sourceSaveId,
             targetSaveId,
             pokemonId,
+            priority: isExclusive ? 100 : 50,
+            isExclusive,
           });
         }
       }
     }
   }
+
+  opportunities.sort((a, b) => b.priority - a.priority);
 
   return { opportunities };
 }
