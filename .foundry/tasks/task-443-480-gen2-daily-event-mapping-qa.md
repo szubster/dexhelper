@@ -2,7 +2,7 @@
 id: task-443-480-gen2-daily-event-mapping-qa
 type: TASK
 title: Verify correctness of the Gen 2 daily/weekly event mapping
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-23'
 updated_at: '2026-08-24'

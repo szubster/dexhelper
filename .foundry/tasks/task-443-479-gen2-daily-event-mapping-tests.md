@@ -2,13 +2,13 @@
 id: task-443-479-gen2-daily-event-mapping-tests
 type: TASK
 title: Write unit tests for the Gen 2 daily/weekly event mapping logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-08-24'
 depends_on:
   - task-443-478-gen2-daily-event-mapping-logic
-jules_session_id: '8511138591823715287'
+jules_session_id: null
 pr_number: null
 parent: story-061-443-gen2-daily-event-mapping
 tags:

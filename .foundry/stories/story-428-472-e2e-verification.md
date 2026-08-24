@@ -2,7 +2,7 @@
 id: story-428-472-e2e-verification
 type: STORY
 title: E2E and Integration Verification of New Fixtures
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-24'
 updated_at: '2026-08-24'

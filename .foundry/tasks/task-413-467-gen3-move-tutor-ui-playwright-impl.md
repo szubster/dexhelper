@@ -2,13 +2,13 @@
 id: task-413-467-gen3-move-tutor-ui-playwright-impl
 type: TASK
 title: Gen 3 Move Tutor UI Playwright Tests
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-08-23'
+updated_at: '2026-08-24'
 depends_on:
   - task-413-466-gen3-move-tutor-extraction-vitest-impl
-jules_session_id: '15910296294120291248'
+jules_session_id: null
 pr_number: null
 parent: story-406-413-gen3-move-tutor-parsing-e2e
 tags:
@@ -19,7 +19,7 @@ tags:
   - move-tutor
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 ---
 

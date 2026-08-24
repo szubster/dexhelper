@@ -2,13 +2,13 @@
 id: task-152-470-gen3-friendship-impl-v2
 type: TASK
 title: Implement Gen 3 Friendship Data Extraction (v2)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-08-24'
 depends_on:
   - research-152-469-investigate-gen3-friendship-failure
-jules_session_id: '6890645793047666729'
+jules_session_id: null
 pr_number: null
 parent: story-094-152-gen3-friendship-extraction
 tags:
@@ -17,7 +17,7 @@ tags:
   - friendship
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 
