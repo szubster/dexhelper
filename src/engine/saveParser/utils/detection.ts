@@ -64,25 +64,43 @@ export function isGen2Save(view: DataView, crystal: boolean): boolean {
   }
 }
 
+const GEN3_SIGNATURE = 0x08012025;
+const GEN3_SIGNATURE_OFFSET = 0x0ff8;
+const GEN3_SAVE_BLOCK_A = 0x0000;
+const GEN3_SAVE_BLOCK_B = 0xe000;
+const GEN3_NUM_SECTIONS = 14;
+const GEN3_SECTION_SIZE = 4096;
+
 /**
- * Stubs the detection for Generation 3 save files.
+ * Heuristically determines if the provided DataView represents a Generation 3 save file.
  *
- * **Architecture Note:**
- * Generation 3 uses a complex A/B flash bank system with multiple checksums per sector,
- * so its initial detection heavily relies on a structural fallback path in `index.ts`
- * (scanning for signatures across sections) rather than a simple contiguous block heuristic here.
- * As a result, this function is currently stubbed to prevent false positives and will always
- * return false unless a RangeError occurs during bounds checking.
+ * It checks both Save Block A (0x0000) and Save Block B (0xe000) for at least one
+ * valid section containing the expected signature (0x08012025) at the correct offset.
  *
  * @param view - The raw save file DataView.
- * @returns Always returns false.
+ * @returns True if the file matches the expected Generation 3 structural signatures.
  */
 export function isGen3Save(view: DataView): boolean {
   try {
-    if (view.byteLength > 0) {
-      view.getUint8(0);
-    }
-    return false; // Stub implementation
+    let validSections = 0;
+
+    const checkBank = (baseOffset: number) => {
+      for (let i = 0; i < GEN3_NUM_SECTIONS; i++) {
+        const offset = baseOffset + i * GEN3_SECTION_SIZE;
+        // bounds check
+        if (offset + GEN3_SIGNATURE_OFFSET + 4 <= view.byteLength) {
+          const signature = view.getUint32(offset + GEN3_SIGNATURE_OFFSET, true);
+          if (signature === GEN3_SIGNATURE) {
+            validSections++;
+          }
+        }
+      }
+    };
+
+    checkBank(GEN3_SAVE_BLOCK_A);
+    checkBank(GEN3_SAVE_BLOCK_B);
+
+    return validSections > 0;
   } catch (error) {
     if (error instanceof RangeError) {
       return false;

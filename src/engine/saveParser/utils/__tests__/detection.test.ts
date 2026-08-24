@@ -153,13 +153,28 @@ describe('Save File Detection', () => {
   });
 
   describe('isGen3Save', () => {
-    it('returns false for stubbed implementation', () => {
-      const buffer = new ArrayBuffer(10);
+    it('returns true when finding the magic signature in a valid block section', () => {
+      // 128KB minimum buffer size as required for full block scanning
+      const buffer = new ArrayBuffer(131072);
       const view = new DataView(buffer);
+
+      // Inject signature 0x08012025 at first section offset 0x0ff8
+      view.setUint32(0x0ff8, 0x08012025, true);
+
+      expect(isGen3Save(view)).toBe(true);
+    });
+
+    it('returns false when the magic signature is missing', () => {
+      const buffer = new ArrayBuffer(131072);
+      const view = new DataView(buffer);
+
+      // Deliberately wrong signature
+      view.setUint32(0x0ff8, 0x00000000, true);
+
       expect(isGen3Save(view)).toBe(false);
     });
 
-    it('handles RangeError gracefully', () => {
+    it('handles RangeError gracefully for empty buffers', () => {
       const buffer = new ArrayBuffer(0); // Empty buffer causes RangeError
       const view = new DataView(buffer);
       expect(isGen3Save(view)).toBe(false);
@@ -167,8 +182,8 @@ describe('Save File Detection', () => {
 
     it('throws non RangeError', () => {
       const view = {
-        byteLength: 1,
-        getUint8: () => {
+        byteLength: 131072, // Mock byteLength
+        getUint32: () => {
           throw new Error('Some error');
         },
       } as unknown as DataView;
