@@ -17,7 +17,7 @@ export async function checkSessionLiveliness(sessionId: string, julesKey: string
 
     if (!res.ok) {
       process.stderr.write(`[session-api] Jules API error: received status ${res.status}\n`);
-      return 'TERMINATED';
+      return 'UNKNOWN';
     }
 
     const data = await res.json() as any;
@@ -45,6 +45,40 @@ export async function checkSessionLiveliness(sessionId: string, julesKey: string
     return 'TERMINATED';
   } catch (err) {
     process.stderr.write(`[session-api] Jules API fetch error: ${String(err)}\n`);
-    return 'TERMINATED';
+    return 'UNKNOWN';
+  }
+}
+
+export interface SessionActivity {
+  id?: string;
+  name?: string;
+  createTime?: string;
+  originator?: string;
+  agentMessaged?: {
+    agentMessage?: string;
+  };
+  userMessaged?: {
+    userMessage?: string;
+  };
+  planGenerated?: Record<string, unknown>;
+  [key: string]: unknown;
+}
+
+export async function getSessionActivities(sessionId: string, julesKey: string): Promise<SessionActivity[]> {
+  try {
+    const res = await fetch(`https://jules.googleapis.com/v1alpha/sessions/${sessionId}/activities?pageSize=100`, {
+      headers: { 'X-Goog-Api-Key': julesKey }
+    });
+
+    if (!res.ok) {
+      process.stderr.write(`[session-api] Jules API getSessionActivities error: status ${res.status}\n`);
+      return [];
+    }
+
+    const data = await res.json() as { activities?: SessionActivity[] };
+    return data.activities || [];
+  } catch (err) {
+    process.stderr.write(`[session-api] Jules API getSessionActivities error: ${String(err)}\n`);
+    return [];
   }
 }

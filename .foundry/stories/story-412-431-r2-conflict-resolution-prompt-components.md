@@ -2,7 +2,7 @@
 id: story-412-431-r2-conflict-resolution-prompt-components
 type: STORY
 title: R2 Conflict Resolution Prompt Components
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-18'
 updated_at: '2026-08-23'
@@ -31,8 +31,8 @@ Implement the UI prompt allowing users to choose which save file to keep when a 
 - Follow the Tactical UI Aesthetic (e.g., `rounded-none`, `border-dashed`, monospaced fonts).
 
 ## Acceptance Criteria
-- [ ] Implement the UI prompt component.
-- [ ] Story transitions to `COMPLETED` when its child `TASK`s complete.
-- [ ] task-431-460-conflict-resolution-modal-ui-impl
-- [ ] task-431-461-conflict-resolution-state-impl
-- [ ] task-431-462-conflict-resolution-prompt-qa
+- [x] Implement the UI prompt component.
+- [x] Story transitions to `COMPLETED` when its child `TASK`s complete.
+- [x] task-431-460-conflict-resolution-modal-ui-impl
+- [x] task-431-461-conflict-resolution-state-impl
+- [x] task-431-462-conflict-resolution-prompt-qa

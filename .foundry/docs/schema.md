@@ -177,8 +177,8 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 > Journals live under `.foundry/journals/`. Beyond that, **structure is entirely up to each persona.**
 
 A persona may use:
-- A single file: `journals/coder.md`
-- A subdirectory: `journals/coder/frontend.md` + `journals/coder/backend.md`
+- A single file: `journals/coder/<session_id>.md`
+- A subdirectory: `journals/coder/frontend/<session_id>.md` + `journals/coder/backend/<session_id>.md`
 - Dated entries, topic-based files, or any other structure that serves their learning needs.
 
 The `tpm` persona is responsible for archiving stale journal content. The only invariant is that journal files **do not use YAML frontmatter** — they are plain Markdown and are not parsed by the orchestrator.

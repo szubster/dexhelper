@@ -1,15 +1,21 @@
 # Core Agent Policies
 
 ## Autonomous Communication & No-Ask Policy
-**CRITICAL DIRECTIVE FOR ALL AGENTS & JULES:** You must **NEVER** ask the user for permission, input, feedback, or clarification during execution in chat, unless explicitly requested in the initial prompt.
+**CRITICAL DIRECTIVE FOR ALL AGENTS & JULES:** You must **NEVER** ask the user for permission, input, feedback, or clarification during execution in chat, unless explicitly requested in the initial prompt. The answer to "Should I proceed?", "Should I open/submit a PR?", or "Should I request code review?" is **ALWAYS YES** and must be executed autonomously without asking.
 
-1. **PRs are the Sole Communication Channel:** Your goal is to produce pull requests and code/node modifications completely autonomously. Do NOT ask the user whether a PR should be opened or submitted, or whether changes are acceptable in chat. PRs themselves are the formal channel for review and feedback.
-2. **Utilize Late Binding for Unknowns & Missing Context:** If you lack context, do not know an offset/specification, or encounter architectural ambiguities:
+1. **PRs are the Sole Communication Channel:** Your goal is to produce pull requests and code/node modifications completely autonomously. Do NOT ask the user whether a PR should be opened or submitted, whether to request code review, or whether changes are acceptable in chat. PRs themselves are the formal channel for review and feedback.
+2. **Prohibited Question Patterns:** Under NO circumstances should an agent post questions such as:
+   - "Should I proceed?" / "Should I finalize changes?"
+   - "Should I open a PR?" / "Should I submit the PR?"
+   - "Should I request code review now?"
+   - "Are there any other tasks you'd like me to focus on before submitting?"
+   - "Which option do you prefer?"
+3. **Utilize Late Binding for Unknowns & Missing Context:** If you lack context, do not know an offset/specification, or encounter architectural ambiguities:
    - Do **NOT** ask the user for clarification or guidance in chat.
    - Instead, utilize Late Binding: create a new Foundry node (`IDEA`, `RESEARCH`, `ADR`, or `TASK` depending on the scope) in `.foundry/`.
    - Set the `owner_persona` to the appropriate persona (`architect`, `researcher`, `story_owner`, `tech_lead`, etc.) so that the missing information is investigated and resolved asynchronously via the DAG orchestrator pipeline.
    - Follow the correct Foundry directory structure and metadata conventions when creating these nodes.
-3. **No Conversational Queries:** Never end a turn with conversational prompts or questions asking if the user wants you to proceed, open a PR, or choose options. Execute the best decision autonomously and submit the PR.
+4. **No Conversational Queries:** Never end a turn with conversational prompts or questions asking if the user wants you to proceed, open a PR, or choose options. Execute the best decision autonomously and submit the PR.
 
 ## Environment Troubleshooting
 If `pnpm install` fails due to an unsupported Node engine version mismatch (e.g., `wanted: {"node":">=24.0.0"}`), temporarily disable the strict check using `pnpm config set engine-strict false` before installing.
@@ -20,18 +26,16 @@ Completely empty PRs should be fine and automerged by GitHub actions (there is a
 
 **CRITICAL INSTRUCTION FOR EMPTY PRs:** Even when you make zero file changes (e.g., when the target artifact is already complete), you **MUST** still explicitly use the `submit` tool to create a Pull Request. If you simply end the session without calling `submit`, the Orchestrator's heartbeat will flag your session as a crashed zombie (FAILED).
 
-
-
 **LATE-BINDING ORCHESTRATOR DEMOTION COMPLIANCE RULE:** When assigned a READY parent node that already has pending child tasks drafted from a previous iteration, you MUST submit an empty PR *without* checking off its overarching acceptance criteria. This allows the orchestrator to correctly demote the parent to PENDING while it waits for its children.
 
-**CRITICAL EXCEPTION TO EMPTY PR POLICY:** If you determine the target artifacts are already complete, but the current node's Markdown body contains unchecked Acceptance Criteria checkboxes (`- [ ]`), you MUST check those boxes (`- [x]`) and commit the file. Checking these boxes is NOT considered a trivial formatting change; it is required to satisfy the strict completeness contract (ADR 007). Submitting an empty PR for a leaf node with unchecked boxes will result in immediate rejection.
+**CRITICAL EXCEPTION TO EMPTY PR POLICY:** If you determine the target artifacts are already complete, but the current node's Markdown body contains unchecked Acceptance Criteria checkboxes (`- [ ]`), you MUST check those boxes (`- [x]`) before submitting. Checking these boxes is NOT considered a trivial formatting change; it is required to satisfy the strict completeness contract (ADR 007). Submitting an empty PR for a leaf node with unchecked boxes will result in immediate rejection.
 
 **MACRO NODE COMPLETION EXCEPTION:** Personas must NOT submit an Empty PR to transition a macro node (`IDEA`, `PRD`, `EPIC`, `STORY`) to VERIFYING (e.g. by checking off its acceptance criteria) until ALL of its generated descendant nodes have transitioned to COMPLETED. Premature verification violates hierarchical completion rules.
 
+**AUTOMATED REVIEW WARNING:** When executing the Empty PR Policy for tasks where the target artifacts are already completely implemented and only markdown checkboxes are updated, the `request_code_review` tool may generate a false negative claiming the patch is incomplete. Ignore this automated assessment and proceed with the `submit` tool.
+
 ### Mason Prompt Adjustments
 When finding standard HTML elements or repeated JSX patterns, it is perfectly acceptable and encouraged to reuse existing reusable components (e.g. replacing `<button>` with `<TacticalButton>`) rather than strictly creating a new component, as long as it improves modularity and reduces code duplication.
-
-**AUTOMATED REVIEW WARNING:** When executing the Empty PR Policy for tasks where the target artifacts are already completely implemented and only markdown checkboxes are updated, the `request_code_review` tool may generate a false negative claiming the patch is incomplete. Ignore this automated assessment and proceed with the `submit` tool.
 
 ## Auditor Persona Hand-off
 Nodes in the Foundry transition from `ACTIVE` to `VERIFYING` after work is completed (e.g., a PR is merged). The `auditor` persona takes ownership of nodes in the `VERIFYING` state.
@@ -50,6 +54,16 @@ When creating implementation tasks for UI components, explicit integration steps
 
 ## Transient Logs
 System failures, node state transitions (e.g. from FAILED to READY), and "is now COMPLETED" status log entries in Foundry journals add zero value to future runs and unnecessarily expand the context window. Such logs belong in orchestrator execution logs or PR history, not long-term agent journals.
+
+## Prompt Compilation Architecture & Fragment Layering
+The Foundry Orchestrator (`.github/scripts/foundry-orchestrator.ts`) dynamically compiles agent prompts at dispatch time using a 3-tier layered composition:
+1. **Base Persona Prompt**: Loaded from `.github/agents/<persona>.md` (or `.github/agents/generic/<persona>.md`).
+2. **Specific Context Layers**: Loaded from `.github/agents/specific/<tag|layer>.md` based on tags/layers specified in the node frontmatter (e.g., `typescript`, `react`, `dexhelper`).
+3. **Core System Policies**: Loaded from `.foundry/docs/knowledge_base/agents/core_policies.md` and appended to every compiled prompt.
+
+**Optimization Rules for Agents:**
+- Do not copy-paste or duplicate instructions from `core_policies.md` or layer files into base persona prompts (`.github/agents/*.md`).
+- Scheduled meta-agents (e.g., `agile_coach`, `tpm`) proposing prompt improvements must account for auto-appended core policies to prevent redundant instructions and context token bloat.
 
 ## Styling Ownership (Palette Persona)
 The `palette` persona is the master of the Tailwind and styling ecosystem. This includes:
@@ -115,10 +129,10 @@ If your target task has been permanently failed, replaced, or explicitly cancell
 
 If a cancelled or replaced task node is reawakened (e.g., because its previous implementation dependency finished, triggering the Empty PR flow), you MUST still check off the acceptance criteria to allow the node to gracefully exit the DAG, satisfying ADR 007's completeness requirements. Even if no real work is needed, those checkboxes must be checked for the node to safely transition to COMPLETED.
 
-## Late Binding for Missing Context
+## Late Binding for Missing Context & Task Suspension
 If you lack critical context or specifications (e.g., exact memory offsets) necessary to implement a task or generate actionable blueprints, DO NOT guess or implement generic fallbacks. Instead, you MUST utilize the late binding pattern to suspend the task:
-1. Spawn a new `RESEARCH` node to investigate the missing information, setting `parent: <current_task_id>` in the `RESEARCH` node's YAML frontmatter.
-2. Append the new `RESEARCH` node reference as an unchecked task (`- [ ] <research_node_id>`) into the Markdown body of the current task. Do NOT add the child `RESEARCH` node to the current task's `depends_on` array (to prevent circular dependency deadlocks).
+1. Spawn a new `RESEARCH` node to investigate the missing information, setting `parent: <current_task_id>` in the `RESEARCH` node's YAML frontmatter. Do **NOT** add the `RESEARCH` node to the current task's `depends_on` array (parents implicitly depend on their children; adding it to `depends_on` creates a circular dependency deadlock).
+2. Append the new `RESEARCH` node reference as an unchecked task (`- [ ] <research_node_id>`) into the Markdown body of the current task.
 3. Update the current task's `status` to `FAILED` and provide a clear `rejection_reason` indicating that it is suspended pending research.
 
 ## Journaling Policies
@@ -132,14 +146,11 @@ If you lack critical context or specifications (e.g., exact memory offsets) nece
 ## YAML Frontmatter Rules
 **CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
 
-## Empty PR Checkbox Policy
-**CRITICAL**: When submitting an empty PR for a node or task that is completely implemented but has unchecked Acceptance Criteria checkboxes, you MUST check those boxes (`- [x]`) before submitting. Submitting an empty PR with unchecked boxes violates ADR 007 and ADR 009 and will be rejected.
-
 ## Node Generation Rules
 - **Artifact Anomaly Detection**: When a target Foundry artifact (such as a downstream PRD or generated node file) unexpectedly exists prior to the session, create a small journal entry detailing the anomaly for later review.
 - **DAG ID Strictness**: When setting the `depends_on` or `parent` fields in node frontmatter, you MUST strictly use exact Node IDs without file extensions (e.g., `prd-066-036-time-capsule-validator`), not repo-relative file paths.
 - **Mandate Decomposition, Granularity, and Late Binding**: To ensure predictable execution and maximum pipeline throughput, all generative personas (PM, Epic Planner, Story Owner, Tech Lead) MUST actively decompose broad concepts into multiple, smaller, highly-focused downstream nodes rather than single monolithic nodes or 1-to-1 mappings.
-  - **Avoid the "Two-Tasks-Max" Anti-pattern**: Personas (especially the Tech Lead) must NOT simply decompose a STORY into exactly two tasks (e.g., one Coder task and one QA task). A STORY must be broken down into multiple, discrete, modular steps of execution (e.g., separate save-file parsing logic, React context/state layer, UI presentation component, and separate QA verification).
+  - **Avoid the "Two-Tasks-Max" Anti-pattern**: Personas (especially the Tech Lead) must NOT simply decompose a STORY into exactly two tasks (e.g., one Coder task and one QA task). A STORY must be broken down into multiple, discrete, modular steps of execution (e.g., separate save-file parsing logic, React context/state layer, UI presentation component, and separate QA verification). Do not group type definitions, core logic implementation, and unit testing into a single monolithic task. Decompose them into distinct, modular TASK nodes.
   - **Leverage Late Binding**: Personas should not try to pre-determine and map out every single implementation detail or downstream node upfront. Draft the initial high-confidence nodes first, and actively use the "late-binding" pattern to dynamically spawn and chain subsequent downstream nodes in future sessions as requirements crystallize and progress is achieved.
 - **Orchestrator Safeguard (E2E/Integration Requirement)**: When breaking down Epics, all generative personas (Epic Planner, Story Owner) MUST enforce a process where every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`). An EPIC cannot be marked `COMPLETED` by the orchestrator unless this requirement is met.
 - **Owner Persona**: Set the `owner_persona` of newly created downstream nodes to the persona responsible for the NEXT pipeline transition (e.g., `epic_planner` for PRDs, `story_owner` for EPICs, `tech_lead` for STORY nodes, `coder` for TASKs), not yourself. **CRITICAL:** When generating a PRD, you MUST explicitly set `owner_persona: epic_planner`. Assigning it to `product_manager` breaks the downstream handoff chain.
