@@ -2,12 +2,12 @@
 id: task-443-477-gen2-daily-event-mapping-types
 type: TASK
 title: Extend Gen2SaveData for Gen 2 Daily and Weekly Events
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-23'
-updated_at: '2026-08-23'
+updated_at: '2026-08-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4074480562967157086'
 pr_number: null
 parent: story-061-443-gen2-daily-event-mapping
 tags:
