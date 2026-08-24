@@ -29,3 +29,7 @@ Utilize offsets documented in `research-061-245-gen2-daily-event-offsets` to map
 
 ## Acceptance Criteria
 - [ ] Correctly extract and map time-gated event flags from the raw event block.
+- [ ] task-443-477-gen2-daily-event-mapping-types
+- [ ] task-443-478-gen2-daily-event-mapping-logic
+- [ ] task-443-479-gen2-daily-event-mapping-tests
+- [ ] task-443-480-gen2-daily-event-mapping-qa
