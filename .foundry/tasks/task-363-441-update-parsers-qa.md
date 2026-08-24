@@ -2,7 +2,7 @@
 id: task-363-441-update-parsers-qa
 type: TASK
 title: Update Parsers QA
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-08-20'
 updated_at: '2026-08-23'
@@ -15,8 +15,8 @@ tags:
   - savedata
   - typescript
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>24h)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

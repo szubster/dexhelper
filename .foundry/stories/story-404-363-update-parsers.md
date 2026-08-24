@@ -2,7 +2,7 @@
 id: story-404-363-update-parsers
 type: STORY
 title: Update Generation-Specific Parsers and Tests
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-07'
 updated_at: '2026-08-23'

@@ -2,7 +2,7 @@
 id: story-058-412-feebas-parsing-e2e
 type: STORY
 title: Feebas Parsing E2E Integration
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-11'
 updated_at: '2026-08-23'

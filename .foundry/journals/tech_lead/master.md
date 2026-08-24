@@ -228,3 +228,41 @@ When drafting implementation tasks for `story-071-433-migrate-tactical-segmented
 - Execution Plan Completeness Rule: When modifying files (including checking markdown checkboxes for Empty PRs), the required verification commands (`pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`) must be placed in the plan *after* all file modifications are complete, serving as the final explicit verification stage immediately before the pre-commit step.
 - Execution Plan Verification Rule: Execution plans that involve creating new files or modifying existing ones must explicitly include a verification step (e.g., using `read_file`) immediately following the modification step to confirm the changes were written correctly. Plans missing this exact specificity will be rejected.
 - Execution Plan Specificity Rule: Execution plans must not contain conversational monologue (e.g., 'Wait, since...'), raw code blocks, or vague instructions (e.g., 'Add tests'). Steps must be concrete, detailing the exact files and functions being implemented or tested, to avoid REVISION_REQUIRED rejections.
+
+
+---
+
+## Aggregated from 1146914870791207850.md
+
+# Tech Lead Journal: Session 1146914870791207850
+
+## Breakdown of `story-400-429-gen-specific-extensions`
+
+Successfully decomposed the story into three discrete tasks:
+
+1. **`task-429-473-generate-gen-specific-bundles` (Coder)**: Modifies the core generation script and Vite plugin to physically output `pokedata-gen1.msgpack`, `pokedata-gen2.msgpack`, and `pokedata-gen3.msgpack`.
+2. **`task-429-474-implement-lazy-fetching` (Coder)**: Implements the lazy fetching mechanism in `PokeDB` (and potentially `DexDataLoader`) to download and sync the generation-specific bundles on demand. Depends on the generation task.
+3. **`task-429-475-gen-specific-bundles-qa` (QA)**: Validates both the generation output and the lazy loading behavior in the client. Depends on the lazy-fetching task.
+
+### Learnings / Architectural Notes
+- The separation of data generation and lazy loading is crucial here to prevent deadlocks and allow for independent verification. We must ensure the generation script works before attempting to write the lazy loading logic that consumes its output.
+- `DexDataLoader` batches requests, and its interaction with the new lazy loading mechanism in `PokeDB` needs to be carefully monitored during QA to ensure we don't introduce N+1 fetching problems for the `.msgpack` files themselves.
+
+
+---
+
+## Aggregated from 8999642637880874262.md
+
+# Tech Lead Session Journal: 8999642637880874262
+
+Date: 2026-08-23
+
+## Impossible Loop Resolution: Gen 3 Daycare Parsing
+
+- **Trigger:** Woken up to handle the permanent failure of `task-241-440-daycare-gen3-parsing-impl` and the cascading failure of `task-241-441-daycare-gen3-parsing-qa`.
+- **Root Cause:** The implementation task was failing because the exact memory offsets for the Gen 3 Daycare struct within `SaveBlock1` were not documented in the project's knowledge base. A previous research task to find this information (`research-241-449-gen3-daycare-offsets.md`) was cancelled due to the failure of the parent task, causing a deadlock.
+- **Action Taken:**
+  1. Recreated the research task as `research-241-462-gen3-daycare-offsets-investigation.md` to investigate and document the missing offsets for RS, E, and FRLG.
+  2. Created new implementation (`task-241-469-daycare-gen3-parsing-impl.md`) and QA (`task-241-470-daycare-gen3-parsing-qa.md`) tasks, with the implementation task explicitly depending on the new research task.
+  3. Checked off the permanently failed tasks in the parent story (`story-105-241-daycare-gen3-parsing`) to allow it to eventually transition to completed, and appended the new nodes as unchecked items.
+- **Learning/Rule Adaptation:** When a task fails due to missing foundational knowledge or offsets, it is crucial to ensure that any spawned research tasks are properly linked and completed before retrying the implementation. The orchestration pipeline must allow research to conclude so the implementer has the necessary context.
