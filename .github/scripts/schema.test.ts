@@ -1,5 +1,32 @@
 import { describe, it, expect } from 'vitest';
-import { NodeFrontmatterSchema } from './schema.ts';
+import { NodeFrontmatterSchema, PromptFragmentSchema } from './schema.ts';
+
+describe('PromptFragmentSchema', () => {
+  it('validates a correct prompt fragment', () => {
+    const fragment = {
+      id: "role-coder",
+      role: "coder",
+      context: "context here",
+      rules: ["rule 1", "rule 2"],
+      precedence: 1,
+    };
+    expect(() => PromptFragmentSchema.parse(fragment)).not.toThrow();
+  });
+
+  it('validates a minimal prompt fragment', () => {
+    const fragment = {
+      id: "base-fragment",
+    };
+    expect(() => PromptFragmentSchema.parse(fragment)).not.toThrow();
+  });
+
+  it('fails if id is missing', () => {
+    const fragment = {
+      role: "coder",
+    };
+    expect(() => PromptFragmentSchema.parse(fragment)).toThrow(Error);
+  });
+});
 
 describe('NodeFrontmatterSchema', () => {
   it('validates a correct full node', () => {

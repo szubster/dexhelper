@@ -64,3 +64,13 @@ export const NodeFrontmatterSchema = z.object({
 });
 
 export type NodeFrontmatter = z.infer<typeof NodeFrontmatterSchema>;
+
+export const PromptFragmentSchema = z.object({
+  id: z.string(),
+  role: z.string().optional(),
+  context: z.string().optional(),
+  rules: z.array(z.string()).optional(),
+  precedence: z.number().int().optional(),
+});
+
+export type PromptFragment = z.infer<typeof PromptFragmentSchema>;
