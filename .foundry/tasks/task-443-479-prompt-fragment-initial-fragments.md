@@ -2,7 +2,7 @@
 id: task-443-479-prompt-fragment-initial-fragments
 type: TASK
 title: Create Initial Standard Prompt Fragments
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2025-01-24'
 updated_at: '2026-08-24'
