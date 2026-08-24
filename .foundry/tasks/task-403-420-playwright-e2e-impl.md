@@ -2,7 +2,7 @@
 id: task-403-420-playwright-e2e-impl
 type: TASK
 title: Implement Playwright E2E Tests for DV/IV Extraction
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-11'
 updated_at: '2026-08-24'
@@ -18,8 +18,8 @@ tags:
   - testing
   - playwright
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: 'Task is suspended pending UI integration. PokemonCaughtDetails does not currently render DVs or IVs.'
 notes: ''
 ---
 
@@ -39,3 +39,5 @@ As part of `story-112-403-integration-e2e`, we need to write E2E tests using Pla
 - [ ] Playwright tests simulating save file uploads are written.
 - [ ] Tests assert UI visibility of Gen 2 DVs and Gen 3 IVs/PVs.
 - [ ] Tests execute successfully via `xvfb-run pnpm test:e2e`.
+
+- [ ] task-420-484-dv-iv-ui-integration-impl
