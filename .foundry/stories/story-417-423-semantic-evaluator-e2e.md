@@ -28,4 +28,8 @@ notes: ''
 Perform end-to-end testing of the semantic evaluator utility. Create test cases that use the engine to evaluate agent prompt outputs, ensuring both positive matches (correct semantic intent) and negative matches (missing rules or incorrect intent) behave as expected.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-423-469-semantic-evaluator-e2e-scaffold
+- [ ] task-423-470-semantic-evaluator-e2e-positive
+- [ ] task-423-471-semantic-evaluator-e2e-negative
+- [ ] task-423-472-semantic-evaluator-e2e-qa
