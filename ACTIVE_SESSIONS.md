@@ -6,6 +6,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [prd-407-345-source-more-save-files](.foundry/prds/prd-407-345-source-more-save-files.md) | PRD | PRD: Source additional save files for testing | epic_planner | [10301106898987016346](https://jules.google.com/session/10301106898987016346) |
 | [story-350-440-synergy-evaluator-assistant-prompting](.foundry/stories/story-350-440-synergy-evaluator-assistant-prompting.md) | STORY | Synergy Evaluator Assistant Prompting | tech_lead | [1780521060341442730](https://jules.google.com/session/1780521060341442730) |
 | [story-415-416-fuzzer-state-simulation](.foundry/stories/story-415-416-fuzzer-state-simulation.md) | STORY | Orchestrator Fuzzer - State Transitions & Fault Injection | tech_lead | [2836853305037481495](https://jules.google.com/session/2836853305037481495) |
 | [story-417-423-semantic-evaluator-e2e](.foundry/stories/story-417-423-semantic-evaluator-e2e.md) | STORY | Semantic Evaluator Integration and E2E Verification | tech_lead | [16316143281884651195](https://jules.google.com/session/16316143281884651195) |

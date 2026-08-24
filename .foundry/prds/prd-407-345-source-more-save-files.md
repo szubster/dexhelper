@@ -2,12 +2,12 @@
 id: prd-407-345-source-more-save-files
 type: PRD
 title: 'PRD: Source additional save files for testing'
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-08-15'
-updated_at: '2026-08-23'
+updated_at: '2026-08-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10301106898987016346'
 pr_number: null
 parent: idea-417-407-more-save-files
 tags:
