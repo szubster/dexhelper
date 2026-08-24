@@ -2,10 +2,10 @@
 id: task-408-417-gen3-trainer-flags-testing-qa
 type: TASK
 title: QA Gen 3 Trainer Flags Tests
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-10'
-updated_at: '2026-08-12'
+updated_at: '2026-08-24'
 depends_on:
   - task-408-416-gen3-trainer-flags-e2e-impl
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - gen3
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-408-416-gen3-trainer-flags-e2e-impl
 notes: ''
 ---
 

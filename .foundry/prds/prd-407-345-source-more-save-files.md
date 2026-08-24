@@ -2,7 +2,7 @@
 id: prd-407-345-source-more-save-files
 type: PRD
 title: 'PRD: Source additional save files for testing'
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-15'
 updated_at: '2026-08-24'

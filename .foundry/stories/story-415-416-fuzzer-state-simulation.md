@@ -2,13 +2,13 @@
 id: story-415-416-fuzzer-state-simulation
 type: STORY
 title: Orchestrator Fuzzer - State Transitions & Fault Injection
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-12'
 updated_at: '2026-08-24'
 depends_on:
   - story-415-415-fuzzer-dag-generation
-jules_session_id: '2836853305037481495'
+jules_session_id: null
 pr_number: null
 parent: epic-341-415-orchestrator-fuzzer-simulation
 tags:

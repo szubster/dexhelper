@@ -2,7 +2,7 @@
 id: task-416-482-fuzzer-fault-injection-impl
 type: TASK
 title: Orchestrator Fuzzer - Fault Injection Impl
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-24'
 updated_at: '2026-08-24'

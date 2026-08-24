@@ -2,7 +2,7 @@
 id: task-360-419-gen3-roamer-e2e-impl
 type: TASK
 title: Impl Gen 3 Roamer E2E Tests
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-11'
 updated_at: '2026-08-24'
@@ -16,8 +16,8 @@ tags:
   - roamer
   - e2e
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 
