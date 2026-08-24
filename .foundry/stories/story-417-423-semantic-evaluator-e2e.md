@@ -2,13 +2,13 @@
 id: story-417-423-semantic-evaluator-e2e
 type: STORY
 title: Semantic Evaluator Integration and E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-14'
-updated_at: '2026-08-23'
+updated_at: '2026-08-24'
 depends_on:
   - story-417-422-implement-semantic-evaluator-engine
-jules_session_id: '16316143281884651195'
+jules_session_id: null
 pr_number: null
 parent: epic-343-417-semantic-evaluator-core
 tags:

@@ -2,12 +2,12 @@
 id: task-440-477-synergy-data-generator-impl
 type: TASK
 title: Synergy Data Generator Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-20'
 updated_at: '2026-08-24'
 depends_on: []
-jules_session_id: '17281024065889327802'
+jules_session_id: null
 pr_number: null
 parent: story-350-440-synergy-evaluator-assistant-prompting
 tags:

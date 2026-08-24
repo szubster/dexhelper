@@ -2,13 +2,12 @@
 id: task-423-469-semantic-evaluator-e2e-scaffold
 type: TASK
 title: Scaffold Semantic Evaluator E2E Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-23'
-updated_at: '2026-08-23'
+updated_at: '2026-08-24'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-417-423-semantic-evaluator-e2e
 tags:
@@ -20,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Scaffold Semantic Evaluator E2E Tests
