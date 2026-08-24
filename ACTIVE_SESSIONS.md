@@ -7,6 +7,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [story-397-360-gen3-roamer-integration-e2e](.foundry/stories/story-397-360-gen3-roamer-integration-e2e.md) | STORY | Gen 3 Roamer Integration and E2E Verification | tech_lead | [16469752862724685765](https://jules.google.com/session/16469752862724685765) |
 | [story-417-423-semantic-evaluator-e2e](.foundry/stories/story-417-423-semantic-evaluator-e2e.md) | STORY | Semantic Evaluator Integration and E2E Verification | tech_lead | [16316143281884651195](https://jules.google.com/session/16316143281884651195) |
 | [task-152-470-gen3-friendship-impl-v2](.foundry/tasks/task-152-470-gen3-friendship-impl-v2.md) | TASK | Implement Gen 3 Friendship Data Extraction (v2) | coder | [6890645793047666729](https://jules.google.com/session/6890645793047666729) |
 | [task-241-469-daycare-gen3-parsing-impl](.foundry/tasks/task-241-469-daycare-gen3-parsing-impl.md) | TASK | Implement Gen 3 Daycare Data Parsing | coder | [9017398991973943758](https://jules.google.com/session/9017398991973943758) |
