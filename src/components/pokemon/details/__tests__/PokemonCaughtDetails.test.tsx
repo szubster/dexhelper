@@ -43,7 +43,7 @@ describe('PokemonCaughtDetails', () => {
     const carrierPokemon = { ...mockPokemon, isShinyCarrier: true };
     await render(<PokemonCaughtDetails yourPokemon={[carrierPokemon]} />);
 
-    await expect.element(page.getByText('CARRIER ANOMALY')).toBeInTheDocument();
+    await expect.element(page.getByText('SYS.CARRIER_DETECTED')).toBeInTheDocument();
   });
 
   it('renders correctly', async () => {
@@ -58,8 +58,8 @@ describe('PokemonCaughtDetails', () => {
 
     await render(<PokemonCaughtDetails yourPokemon={[mockPokemon]} />);
 
-    await expect.element(page.getByText('LV.5')).toBeInTheDocument();
-    await expect.element(page.getByText('Party')).toBeInTheDocument();
+    await expect.element(page.getByText('05')).toBeInTheDocument();
+    await expect.element(page.getByText('PARTY')).toBeInTheDocument();
   });
 
   it('renders Gen 2 specific info and Time Capsule validation', async () => {
@@ -194,7 +194,7 @@ describe('PokemonCaughtDetails', () => {
 
     await render(<PokemonCaughtDetails yourPokemon={[pokemonWithPokerus]} />);
 
-    await expect.element(page.getByText('[ POKERUS_STRAIN ]')).toBeInTheDocument();
+    await expect.element(page.getByText('POKERUS_STRAIN')).toBeInTheDocument();
     await expect.element(page.getByText('[PKRS STRN: 3]', { exact: true })).toBeInTheDocument();
   });
 });
