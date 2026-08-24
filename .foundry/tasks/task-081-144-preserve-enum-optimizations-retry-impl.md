@@ -2,15 +2,15 @@
 id: task-081-144-preserve-enum-optimizations-retry-impl
 type: TASK
 title: Preserve Enum Optimizations with Verbose Keys in Generation Pipeline (Retry)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-05-29'
-updated_at: '2026-08-23'
+updated_at: '2026-08-24'
 depends_on: []
-jules_session_id: '2493699443032940820'
+jules_session_id: null
 parent: story-042-081-preserve-enum-optimizations
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
 notes: Replacement for permanently failed task-081-130.
 ---
 # Task: Preserve Enum Optimizations with Verbose Keys in Generation Pipeline (Retry)
