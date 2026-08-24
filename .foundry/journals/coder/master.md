@@ -303,3 +303,29 @@ Checked off acceptance criteria checkboxes for the DAG.
 - When generating files inside a Node ESM project context with `node -e` or standalone scripts that rely on CommonJS syntax (like `require('fs')`), remember to name the scratchpad with `.cjs` rather than `.js` to avoid `require is not defined in ES module scope` compilation errors.
 - Do not forget to invoke Xvfb for e2e tests correctly with the `-a` argument, and background processes using output redirection.
 - `xvfb-run -a pnpm test:e2e > e2e_output.log 2>&1 &` is the standardized method, remembering to `sleep` and explicitly fetch status via `tail`.
+
+
+---
+
+## Aggregated from 210369803831747826.md
+
+# Session 210369803831747826
+
+## Playwright Locator Pattern (OR condition)
+When waiting for one of two potential elements to load (e.g. either the `[ TRNR ]` label OR a Pokédex card), do not use `Promise.any` with `expect`, and do not wrap `expect` inside a `try...catch` block.
+Use `locator.or()` to correctly wait for either without producing strict-mode violations or failing the background poll. If dealing with multiple potential matches per locator, append `.first()` both before and after the `.or()` to satisfy strict mode.
+Example:
+```typescript
+await expect(
+  page.getByText(/TRNR/i).first().or(page.getByTestId('pokedex-card').first()).first()
+).toBeVisible({ timeout: 20000 });
+```
+
+
+---
+
+## Aggregated from 2026-08-23-18-54-58.md
+
+# Playwright isMobile Context
+
+When writing or maintaining E2E tests for navigation elements, always consider that layout and labeling may change based on screen size. The `isMobile` fixture in Playwright should be used to conditionally adjust locators (e.g., targeting `DASH` instead of `SYS.DASH`).

@@ -317,3 +317,14 @@ Two common issues occurred:
 2. **RangeError Handling:** The coder attempted to manually check array bounds rather than using a standard `try/catch` block for `RangeError` from the `DataView` API and throwing the specific required error message ("The save file is corrupted or incomplete.").
 
 We need to enforce these strict parsing guidelines for Gen 3 data extraction to ensure maintainability and prevent silent failures.
+
+
+---
+
+## Aggregated from 17804424079054421485.md
+
+# Session 17804424079054421485 (QA)
+
+## Learnings
+* **DAG Integration QA:** Successfully verified the implementation of `fuzzingUtils` into the orchestrator `dag-evaluation-fuzz.test.ts`. Fast-check `.chain()` and `.map()` were properly utilized to bridge the data structures.
+* **Orchestrator Fuzzing:** The integration functions seamlessly, allowing `buildReverseDependencyGraph` and `getOrphanedNodes` to be fuzz-tested using randomized but structurally valid DAGs.
