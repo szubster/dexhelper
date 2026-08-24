@@ -2,12 +2,12 @@
 id: task-443-477-pokerus-type-definitions
 type: TASK
 title: Pokerus Type Definitions
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-23'
-updated_at: '2026-08-23'
+updated_at: '2026-08-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11509546541565091601'
 pr_number: null
 parent: story-411-443-extract-pokerus-data
 tags:
