@@ -1,1 +1,0 @@
-{ "id": "typescript-rules", "context": "Context for TypeScript.", "rules": ["Use strict typing.", "Avoid any type."], "precedence": 30 }
