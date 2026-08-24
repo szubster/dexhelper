@@ -2,7 +2,7 @@
 id: task-413-422-update-route-radar-controller
 type: TASK
 title: Update RouteRadarHeatmap to Support Bike Requirements
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-14'
 updated_at: '2026-08-23'
@@ -15,7 +15,7 @@ tags:
   - map
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Suspended pending research on where to source bike requirements or map metatiles from in calculateHeatmap.'
 notes: ''
 ---
 
@@ -26,6 +26,8 @@ As part of the Route Pre-computation & Mapping Epic, we need to expose the parse
 
 ## Proposal
 Update `RouteRadarHeatmap` interface in `src/engine/radar/RouteRadarController.ts` to include bike requirement data (e.g. `machBike: boolean`, `acroBike: boolean` or similar structure based on the map parser). Update `calculateHeatmap` to parse and include this information from the suggestions/game map definition.
+
+- [ ] research-422-462-investigate-bike-requirements-source
 
 ## Acceptance Criteria
 - [ ] coder: Update `RouteRadarHeatmap` interface to include bike requirement flags.
