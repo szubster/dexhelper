@@ -27,4 +27,8 @@ notes: ''
 Read the specific byte flags for Pokerus for every Pokemon in the party and PC from the Gen 2 sav files, based on the findings from the research node `research-038-407-investigate-pokerus-state-exfiltration-failure`.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-443-477-pokerus-type-definitions
+- [ ] task-443-478-pokerus-parser-logic
+- [ ] task-443-479-pokerus-parsing-tests
+- [ ] task-443-480-pokerus-parsing-qa
