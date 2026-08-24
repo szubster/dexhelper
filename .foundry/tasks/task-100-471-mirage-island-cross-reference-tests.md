@@ -2,13 +2,13 @@
 id: task-100-471-mirage-island-cross-reference-tests
 type: TASK
 title: Cross-reference Mirage Island Random Value Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-08-24'
 depends_on:
   - task-100-470-mirage-island-cross-reference-logic
-jules_session_id: null
+jules_session_id: '18247480668062531763'
 pr_number: null
 parent: story-061-100-mirage-island-cross-reference
 tags:
