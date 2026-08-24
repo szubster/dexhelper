@@ -30,4 +30,4 @@ The Pokerus byte is an 8-bit integer:
 - The lower 4 bits (bits 0-3) represent the days remaining.
 
 ## Acceptance Criteria
-- [ ] Verify `PokemonInstance.pokerus` type in `src/engine/saveParser/parsers/common.ts` correctly reflects the structured object (`strain: number; daysRemaining: number`).
+- [x] Verify `PokemonInstance.pokerus` type in `src/engine/saveParser/parsers/common.ts` correctly reflects the structured object (`strain: number; daysRemaining: number`).
