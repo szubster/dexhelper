@@ -2,7 +2,7 @@
 id: story-417-443-prompt-fragment-schema
 type: STORY
 title: Define Prompt Fragment Schema
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-23'
 updated_at: '2026-08-24'
@@ -31,12 +31,12 @@ This story focuses on defining the standard schema and format for prompt fragmen
 - Create initial foundational fragments (e.g., Generic Coder Role, React/Tailwind Tech Stack, TypeScript specific rules).
 
 ## Acceptance Criteria
-- [ ] Define TypeScript schema for prompt fragments.
-- [ ] Implement a validation utility for prompt fragments.
-- [ ] Create at least 3 standard foundational prompt fragments.
+- [x] Define TypeScript schema for prompt fragments.
+- [x] Implement a validation utility for prompt fragments.
+- [x] Create at least 3 standard foundational prompt fragments.
 - [x] Break down into Tasks.
 
-- [ ] task-443-477-prompt-fragment-schema-types
-- [ ] task-443-478-prompt-fragment-validation
-- [ ] task-443-479-prompt-fragment-initial-fragments
-- [ ] task-443-480-prompt-fragment-schema-qa
+- [x] task-443-477-prompt-fragment-schema-types
+- [x] task-443-478-prompt-fragment-validation
+- [x] task-443-479-prompt-fragment-initial-fragments
+- [x] task-443-480-prompt-fragment-schema-qa

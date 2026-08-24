@@ -2,13 +2,13 @@
 id: task-443-480-prompt-fragment-schema-qa
 type: TASK
 title: QA Verification for Prompt Fragment Schema and Validation
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2025-01-24'
 updated_at: '2026-08-24'
 depends_on:
   - task-443-479-prompt-fragment-initial-fragments
-jules_session_id: '7922442583021296689'
+jules_session_id: null
 pr_number: null
 parent: story-417-443-prompt-fragment-schema
 tags:
