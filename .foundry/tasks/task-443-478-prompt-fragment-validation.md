@@ -2,7 +2,7 @@
 id: task-443-478-prompt-fragment-validation
 type: TASK
 title: Implement Prompt Fragment Validation Utility
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2025-01-24'
 updated_at: '2026-08-24'

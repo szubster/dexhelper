@@ -2,7 +2,7 @@
 id: task-443-478-pokerus-parser-logic
 type: TASK
 title: Implement Pokerus Parsing Logic
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-08-24'

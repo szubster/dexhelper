@@ -2,12 +2,12 @@
 id: task-443-477-prompt-fragment-schema-types
 type: TASK
 title: Define Prompt Fragment TypeScript Interfaces and Zod Schema
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2025-01-24'
 updated_at: '2026-08-24'
 depends_on: []
-jules_session_id: '7816477235634239151'
+jules_session_id: null
 pr_number: null
 parent: story-417-443-prompt-fragment-schema
 tags:
