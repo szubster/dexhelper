@@ -28,5 +28,5 @@ As defined in Story `story-061-100-mirage-island-cross-reference`, the Gen 3 sav
 Write robust unit tests in `src/engine/saveParser/parsers/gen3.test.ts` to verify the extraction and matching logic implemented in `parseGen3`.
 
 ## Acceptance Criteria
-- [ ] Add unit tests in `gen3.test.ts` to verify that `isMirageIslandKey` is correctly set to `true` for Pokémon whose PID's lower 16 bits match the `mirageIslandValue`.
-- [ ] Add unit tests in `gen3.test.ts` to verify that `isMirageIslandKey` is correctly set to `false` (or `undefined`) for Pokémon whose PID's lower 16 bits do NOT match the `mirageIslandValue`.
+- [x] Add unit tests in `gen3.test.ts` to verify that `isMirageIslandKey` is correctly set to `true` for Pokémon whose PID's lower 16 bits match the `mirageIslandValue`.
+- [x] Add unit tests in `gen3.test.ts` to verify that `isMirageIslandKey` is correctly set to `false` (or `undefined`) for Pokémon whose PID's lower 16 bits do NOT match the `mirageIslandValue`.
