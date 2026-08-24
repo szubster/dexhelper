@@ -37,7 +37,7 @@ test.describe('DagProvider Data Fetching', () => {
         if (url.includes('/data/foundry.json')) {
           return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
             status: 500,
-            headers: { 'Content-Type': 'application/json' }
+            headers: { 'Content-Type': 'application/json' },
           });
         }
         return originalFetch(...args);

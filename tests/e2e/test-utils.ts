@@ -98,7 +98,7 @@ export async function mockDagData(page: Page, mockDataPath: string = 'tests/fixt
       if (url.includes('/data/foundry.json')) {
         return new Response(mockDataJson, {
           status: 200,
-          headers: { 'Content-Type': 'application/json' }
+          headers: { 'Content-Type': 'application/json' },
         });
       }
       return originalFetch(...args);
