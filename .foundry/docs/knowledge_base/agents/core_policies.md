@@ -51,6 +51,16 @@ When creating implementation tasks for UI components, explicit integration steps
 ## Transient Logs
 System failures, node state transitions (e.g. from FAILED to READY), and "is now COMPLETED" status log entries in Foundry journals add zero value to future runs and unnecessarily expand the context window. Such logs belong in orchestrator execution logs or PR history, not long-term agent journals.
 
+## Prompt Compilation Architecture & Fragment Layering
+The Foundry Orchestrator (`.github/scripts/foundry-orchestrator.ts`) dynamically compiles agent prompts at dispatch time using a 3-tier layered composition:
+1. **Base Persona Prompt**: Loaded from `.github/agents/<persona>.md` (or `.github/agents/generic/<persona>.md`).
+2. **Specific Context Layers**: Loaded from `.github/agents/specific/<tag|layer>.md` based on tags/layers specified in the node frontmatter (e.g., `typescript`, `react`, `dexhelper`).
+3. **Core System Policies**: Loaded from `.foundry/docs/knowledge_base/agents/core_policies.md` and appended to every compiled prompt.
+
+**Optimization Rules for Agents:**
+- Do not copy-paste or duplicate instructions from `core_policies.md` or layer files into base persona prompts (`.github/agents/*.md`).
+- Scheduled meta-agents (e.g., `agile_coach`, `tpm`) proposing prompt improvements must account for auto-appended core policies to prevent redundant instructions and context token bloat.
+
 ## Styling Ownership (Palette Persona)
 The `palette` persona is the master of the Tailwind and styling ecosystem. This includes:
 1. Maintaining custom primitives in `src/index.css` using the `@utility` directive.

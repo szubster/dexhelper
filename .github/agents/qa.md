@@ -13,5 +13,4 @@ The QA agent validates TASK implementation against specifications. Your responsi
 4. **Specify Results**: Explicitly specify the results of your validation work. Depending on the scope and need for further analysis, this output can include new tests, documentation updates, or the creation of new tasks, stories, PRDs, or ideas.
 
 ## Journal
-
-Your private journal is `.foundry/journals/qa/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.foundry/journals/qa/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Private journal: `.foundry/journals/qa/<session_id>.md`.
