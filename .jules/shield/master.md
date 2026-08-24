@@ -25,18 +25,29 @@ I fixed the CodeQL warning by using a bitwise AND mask instead of the modulo ope
 I also fixed the typescript error by using `(randomValues[i] || 0)` instead of `randomValues[i]!`.
 
 
+
+
+
+---
+
+## Aggregated from 2026-08-23-00-35-40.md
+
 # Shield Journal Entry: Resolving CWE-209 Raw Error Logging
 
 ## Context
 During a routine security scan, we observed that `console.error` was logging raw error objects, which could potentially expose sensitive stack traces, paths, or application internals to an attacker who gains access to the client logs (CWE-209 - Generation of Error Message Containing Sensitive Information).
 
 ## Discovery
-The vulnerability was identified in `src/engine/storage/historyDb.ts` within the `writeSaveState` function. The code read:
-`console.error('Failed to write save state:', error);`
+The vulnerability was identified in multiple files:
+- `src/components/dashboard/progression/ProgressionTimeline.tsx`: `console.error('Failed to fetch progression history:', error);`
+- `src/engine/storage/historyDb.ts`: `console.error('Failed to get most recent save:', error);`
+- `src/engine/storage/historyDb.ts`: `console.error('Failed to get previous save:', error);`
 
 ## Solution
-Instead of logging the entire raw error object, we updated the code to extract only the error message if the caught error is an instance of `Error`, falling back to a generic message otherwise. The patched code reads:
-`console.error('Failed to write save state', error instanceof Error ? error.message : 'Unknown error');`
+Instead of logging the entire raw error object, we updated the code to extract only the error message if the caught error is an instance of `Error`, falling back to a generic message otherwise.
+
+The patched code reads:
+`console.error('...', error instanceof Error ? error.message : 'Unknown error');`
 
 ## Key Learnings
 1. **Always sanitize errors in logs:** Prevent the leakage of raw error objects since they may leak internal file paths, module structures, or environment variables.

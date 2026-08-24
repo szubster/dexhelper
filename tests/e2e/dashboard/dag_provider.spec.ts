@@ -30,13 +30,39 @@ test.describe('DagProvider Data Fetching', () => {
     // However, to be safe, we route it explicitly.
     await page.unrouteAll({ behavior: 'ignoreErrors' });
 
+    await page.addInitScript(() => {
+      const originalFetch = window.fetch;
+      window.fetch = async (input, init) => {
+        let url = '';
+        if (typeof input === 'string') {
+          url = input;
+        } else if (input instanceof URL) {
+          url = input.toString();
+        } else if (input && typeof input === 'object' && 'url' in input) {
+          url = input.url;
+        }
+
+        if (url.includes('foundry.json')) {
+          return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' },
+          });
+        }
+
+        return originalFetch(input, init);
+      };
+    });
+
     // Intercept with 500 error
-    await page.route(/.*\/data\/foundry\.json/, async (route) => {
+    await page.route('**/data/foundry.json*', async (route) => {
       await route.fulfill({
         status: 500,
         contentType: 'application/json',
         headers: { 'Cache-Control': 'no-store, no-cache, must-revalidate' },
         body: JSON.stringify({ error: 'Internal Server Error' }),
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate',
+        },
       });
     });
 

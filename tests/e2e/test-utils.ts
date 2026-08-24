@@ -89,12 +89,40 @@ export async function clearStorage(page: Page) {
 
 export async function mockDagData(page: Page, mockDataPath: string = 'tests/fixtures/dag/mock_dag.json') {
   const mockData = fs.readFileSync(mockDataPath, 'utf8');
+
+  await page.addInitScript((mockDataString) => {
+    const originalFetch = window.fetch;
+    window.fetch = async (input, init) => {
+      let url = '';
+      if (typeof input === 'string') {
+        url = input;
+      } else if (input instanceof URL) {
+        url = input.toString();
+      } else if (input && typeof input === 'object' && 'url' in input) {
+        url = input.url;
+      }
+
+      if (url.includes('foundry.json')) {
+        return new Response(mockDataString, {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+
+      return originalFetch(input, init);
+    };
+  }, mockData);
+
+  // Keep page.route as a fallback for some environments
   await page.route(/.*\/data\/foundry\.json/, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: 'application/json',
       headers: { 'Cache-Control': 'no-store, no-cache, must-revalidate' },
       body: mockData,
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate',
+      },
     });
   });
 }
