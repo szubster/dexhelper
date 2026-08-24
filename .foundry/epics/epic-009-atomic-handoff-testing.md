@@ -2,10 +2,10 @@
 id: epic-009-atomic-handoff-testing
 type: EPIC
 title: 'Epic: Atomic Handoff Testing Expansion'
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-04-22'
-updated_at: '2026-07-19'
+updated_at: '2026-08-24'
 depends_on: []
 jules_session_id: null
 parent: prd-001-v2-lifecycle
@@ -13,8 +13,8 @@ tags:
   - v2-architecture
   - lifecycle
   - atomic-handoffs
-rejection_reason: ''
 rejection_count: 1
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 ---
 
 # Epic: Atomic Handoff Testing Expansion

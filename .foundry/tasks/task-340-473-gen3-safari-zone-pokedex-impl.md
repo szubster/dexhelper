@@ -2,12 +2,12 @@
 id: task-340-473-gen3-safari-zone-pokedex-impl
 type: TASK
 title: Gen 3 Safari Zone Pokedex Data Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-23'
-updated_at: '2026-08-23'
+updated_at: '2026-08-24'
 depends_on: []
-jules_session_id: '14663529970541315552'
+jules_session_id: null
 pr_number: null
 parent: story-324-340-gen3-safari-zone-save-state
 tags:

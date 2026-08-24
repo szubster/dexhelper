@@ -2,10 +2,10 @@
 id: epic-045-070-implement-dag-context
 type: EPIC
 title: Implement DagContext and Provider for DAG Data
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-08-20'
+updated_at: '2026-08-24'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,5 +36,5 @@ As per ADR 013 and ADR 017, the core DAG data state must be lifted into a shared
 - [x] .foundry/archive/stories/story-070-108-create-dag-context-interfaces.md
 - [x] .foundry/archive/stories/story-070-109-implement-dag-provider.md
 - [x] .foundry/archive/stories/story-070-245-implement-dag-provider-state-management.md
-- [ ] story-070-431-integrate-dag-context-with-views
-- [ ] story-070-432-implement-dag-context-e2e
+- [x] story-070-431-integrate-dag-context-with-views
+- [x] story-070-432-implement-dag-context-e2e

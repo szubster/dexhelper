@@ -2,12 +2,12 @@
 id: task-408-430-implement-persona-specific-journals-impl
 type: TASK
 title: Implement Persona-Specific Journal Directories
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-16'
-updated_at: '2026-08-22'
+updated_at: '2026-08-24'
 depends_on: []
-jules_session_id: '7374262611773311508'
+jules_session_id: null
 pr_number: null
 parent: story-401-408-persona-specific-journal-directories
 tags:
