@@ -2294,3 +2294,44 @@ describe('parseGen3 (Match Call integration)', () => {
     expect(result.gen3MatchCall).toBeUndefined();
   });
 });
+
+describe('parseGen3 (Mirage Island Cross-Reference Integration)', () => {
+  const setupSaveFile = (pv: number, mirageIslandValue: number) => {
+    const buffer = new ArrayBuffer(0x1bfff);
+    const view = new DataView(buffer);
+
+    for (let i = 0; i <= 13; i++) {
+      view.setUint16(i * 4096 + 4084, i, true);
+      view.setUint32(i * 4096 + 4088, 0x08012025, true);
+      view.setUint32(i * 4096 + 4092, 1, true);
+    }
+
+    // Set Mirage Island Value (Emerald)
+    view.setUint16(2 * 4096 + 0x0464, mirageIslandValue, true);
+
+    // Write PC Box Data
+    view.setUint32(5 * 4096 + 0, 0, true); // Current Box = 1 (Index 0)
+
+    const offset = 5 * 4096 + 4; // Box 1, Slot 1
+    const otId = 0x87654321;
+    view.setUint32(offset + 0, pv, true);
+    view.setUint32(offset + 4, otId, true);
+
+    const decryptionKey = pv ^ otId;
+    const speciesId = 25; // Pikachu
+    const encryptedSpecies = speciesId ^ (decryptionKey & 0xffff);
+    view.setUint16(offset + 32 + 0, encryptedSpecies, true);
+
+    return parseGen3(view, 'emerald');
+  };
+
+  it('should set isMirageIslandKey to true when lower 16 bits of PID match mirageIslandValue', () => {
+    const saveData = setupSaveFile(0x12345678, 0x5678);
+    expect(saveData.pcDetails[0]?.isMirageIslandKey).toBe(true);
+  });
+
+  it('should set isMirageIslandKey to false when lower 16 bits of PID do not match mirageIslandValue', () => {
+    const saveData = setupSaveFile(0x12345678, 0x9999);
+    expect(saveData.pcDetails[0]?.isMirageIslandKey).toBe(false);
+  });
+});
