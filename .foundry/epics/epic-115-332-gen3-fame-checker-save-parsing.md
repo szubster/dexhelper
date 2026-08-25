@@ -38,3 +38,7 @@ Following the research into Fame Checker event flags (`epic-115-331-gen3-fame-ch
 - Ensure explicit handling for FireRed/LeafGreen specific structures compared to Ruby/Sapphire/Emerald where applicable.
 - Adhere strictly to the "Dynamic Save Block Extraction Guidelines" (ADR 028), using module-level constants for offsets and avoiding inline magic numbers.
 - Ensure the data structure conforms to the `PokeData` application naming schema where necessary.
+
+## Acceptance Criteria
+- [ ] story-332-473-gen3-fame-checker-parsing-logic
+- [ ] story-332-474-gen3-fame-checker-save-parsing-e2e
