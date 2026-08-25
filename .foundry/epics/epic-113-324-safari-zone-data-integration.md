@@ -2,12 +2,12 @@
 id: epic-113-324-safari-zone-data-integration
 type: EPIC
 title: Gen 1 & Gen 3 Safari Zone Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-14'
 updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11917385802654546658'
 pr_number: null
 parent: prd-111-113-safari-zone-tracker
 tags:
