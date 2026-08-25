@@ -31,4 +31,4 @@ Research and define necessary adjustments and exceptions to ADR 008 regarding ro
 - Define a proposal for exceptions to ADR 008.
 
 ## Acceptance Criteria
-- [ ] Document findings and proposed exceptions.
+- [x] Document findings and proposed exceptions.
