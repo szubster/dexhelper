@@ -5,6 +5,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [story-112-403-integration-e2e](.foundry/stories/story-112-403-integration-e2e.md) | STORY | Integration and E2E Verification | tech_lead | [14721316135092739592](https://jules.google.com/session/14721316135092739592) |
 | [story-397-405-gen3-mixed-record-npc-data](.foundry/stories/story-397-405-gen3-mixed-record-npc-data.md) | STORY | Extract Gen 3 Mixed Record NPC Data | tech_lead | [11799575988080333040](https://jules.google.com/session/11799575988080333040) |
 | [story-417-444-prompt-fragment-composition-engine](.foundry/stories/story-417-444-prompt-fragment-composition-engine.md) | STORY | Develop Prompt Fragment Composition Engine | tech_lead | [783063289718919723](https://jules.google.com/session/783063289718919723) |
 | [story-420-443-cli-scaffold](.foundry/stories/story-420-443-cli-scaffold.md) | STORY | CLI Scaffold | tech_lead | [1551306826786576546](https://jules.google.com/session/1551306826786576546) |
