@@ -20,12 +20,7 @@ test.describe('Living Dex Ghost Tracking E2E Validation', () => {
     await expect(page.getByText(/Wild Encounters/i)).toBeVisible({ timeout: 15000 });
 
     // Now Turn on Living Dex
-    const settingsBtn = page.getByTestId('settings-button');
-    if (await settingsBtn.isVisible()) {
-      await settingsBtn.click();
-    } else {
-      await page.goto('settings');
-    }
+    await page.getByRole('button', { name: 'System Settings' }).click();
 
     await expect(page.getByText('SYS.CONFIG').first()).toBeVisible();
 
