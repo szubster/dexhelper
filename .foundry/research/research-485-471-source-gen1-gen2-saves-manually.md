@@ -2,7 +2,7 @@
 id: research-485-471-source-gen1-gen2-saves-manually
 type: RESEARCH
 title: Manually Source Public Gen 1 and Gen 2 Saves
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-08-25'
 updated_at: '2026-08-25'
@@ -14,8 +14,8 @@ tags:
   - fixtures
   - data-sourcing
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---
