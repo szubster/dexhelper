@@ -2,13 +2,13 @@
 id: task-444-486-prompt-fragment-composition-tests
 type: TASK
 title: Implement Prompt Fragment Composition Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-08-25'
 depends_on:
   - task-444-485-prompt-fragment-composition-core
-jules_session_id: null
+jules_session_id: '15881981110187109317'
 pr_number: null
 parent: story-417-444-prompt-fragment-composition-engine
 tags:
