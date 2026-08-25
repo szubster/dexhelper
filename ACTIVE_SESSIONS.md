@@ -6,6 +6,7 @@
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [story-061-443-mirage-island-save-parsing-e2e](.foundry/stories/story-061-443-mirage-island-save-parsing-e2e.md) | STORY | E2E Verification of Mirage Island Save Parsing | tech_lead | [16301238762793531910](https://jules.google.com/session/16301238762793531910) |
+| [story-061-444-gen2-event-flag-parsing-e2e](.foundry/stories/story-061-444-gen2-event-flag-parsing-e2e.md) | STORY | E2E Verification of Gen 2 Event Flag Parsing | tech_lead | [13234462057972803329](https://jules.google.com/session/13234462057972803329) |
 | [story-112-403-integration-e2e](.foundry/stories/story-112-403-integration-e2e.md) | STORY | Integration and E2E Verification | tech_lead | [14721316135092739592](https://jules.google.com/session/14721316135092739592) |
 | [story-397-360-gen3-roamer-integration-e2e](.foundry/stories/story-397-360-gen3-roamer-integration-e2e.md) | STORY | Gen 3 Roamer Integration and E2E Verification | tech_lead | [13006675669632454865](https://jules.google.com/session/13006675669632454865) |
 | [story-397-405-gen3-mixed-record-npc-data](.foundry/stories/story-397-405-gen3-mixed-record-npc-data.md) | STORY | Extract Gen 3 Mixed Record NPC Data | tech_lead | [11799575988080333040](https://jules.google.com/session/11799575988080333040) |

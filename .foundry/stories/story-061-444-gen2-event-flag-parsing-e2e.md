@@ -2,13 +2,13 @@
 id: story-061-444-gen2-event-flag-parsing-e2e
 type: STORY
 title: E2E Verification of Gen 2 Event Flag Parsing
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-23'
 updated_at: '2026-08-25'
 depends_on:
   - story-061-443-gen2-daily-event-mapping
-jules_session_id: null
+jules_session_id: '13234462057972803329'
 pr_number: null
 parent: epic-038-061-gen2-event-flag-parsing
 tags:
