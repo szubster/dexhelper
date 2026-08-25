@@ -2,7 +2,7 @@
 id: adr-479-032-adr-008-exceptions
 type: ADR
 title: Finalize Exceptions to ADR 008 Tactical Aesthetic
-status: PENDING
+status: READY
 owner_persona: architect
 created_at: '2026-08-24'
 updated_at: '2026-08-25'

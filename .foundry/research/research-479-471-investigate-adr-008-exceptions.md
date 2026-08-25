@@ -2,12 +2,12 @@
 id: research-479-471-investigate-adr-008-exceptions
 type: RESEARCH
 title: Investigate Exceptions to ADR 008 Tactical Aesthetic
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-24'
 updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: '5307845780164485226'
+jules_session_id: null
 pr_number: null
 parent: task-443-479-adr-008-ui-compliance-linter-ci
 tags:
