@@ -32,5 +32,5 @@ Implement positive test cases for the semantic evaluator E2E tests.
 Write test cases that evaluate agent prompt outputs where the semantic intent matches the expected rules. These tests should verify that the `evaluateSemanticCondition` correctly identifies equivalent conditions.
 
 ## Acceptance Criteria
-- [ ] Implement E2E test cases for positive semantic matches.
-- [ ] Ensure all new E2E tests pass successfully.
+- [x] Implement E2E test cases for positive semantic matches.
+- [x] Ensure all new E2E tests pass successfully.
