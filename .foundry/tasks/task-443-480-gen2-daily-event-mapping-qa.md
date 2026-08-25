@@ -30,4 +30,4 @@ Verify correctness of the Gen 2 daily/weekly event mapping.
 Review the implemented logic in `src/engine/saveParser/utils/gen2EventFlags.ts` against `.foundry/docs/knowledge_base/gen2_event_flags_offsets.md`. Ensure that bits are correctly offset from bytes, and that boolean mapping appropriately reflects the completion states of the time-gated events. Review that tests provide adequate coverage.
 
 ## Acceptance Criteria
-- [ ] Verify event bits are offset correctly and tests cover the mapping matrix.
+- [x] Verify event bits are offset correctly and tests cover the mapping matrix.
