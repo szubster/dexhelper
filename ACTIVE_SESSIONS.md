@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [adr-479-032-adr-008-exceptions](.foundry/docs/adrs/adr-479-032-adr-008-exceptions.md) | ADR | Finalize Exceptions to ADR 008 Tactical Aesthetic | architect | [979894472929923814](https://jules.google.com/session/979894472929923814) |
 | [epic-038-061-mirage-island-engine](.foundry/epics/epic-038-061-mirage-island-engine.md) | EPIC | Gen 3 Mirage Island Predictor Engine Updates | story_owner | [3394631145333600318](https://jules.google.com/session/3394631145333600318) |
 | [epic-045-071-refactor-data-parsing-layer](.foundry/epics/epic-045-071-refactor-data-parsing-layer.md) | EPIC | Refactor Data Parsing Layer for rejection_count | story_owner | [6109557166780918192](https://jules.google.com/session/6109557166780918192) |
 | [epic-046-078-shared-dag-context-foundation](.foundry/epics/epic-046-078-shared-dag-context-foundation.md) | EPIC | Shared DagContext Foundation | story_owner | [7323376139356763112](https://jules.google.com/session/7323376139356763112) |
