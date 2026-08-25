@@ -38,4 +38,16 @@ test.describe('Semantic Evaluator API Key Rules', () => {
     expect(process.env['GEMINI_API_KEY']).toBeDefined();
     expect(process.env['GEMINI_API_KEY']?.length).toBeGreaterThan(0);
   });
+
+  test('should return false for negative semantic matches', async () => {
+    const condition = 'Ask for name';
+    const prompt = 'What is your favorite color?';
+    const key = process.env['GEMINI_API_KEY'];
+    if (key) {
+      const result = await evaluateSemanticCondition(condition, prompt, key);
+      expect(result.isEquivalent).toBe(false);
+    } else {
+      test.skip();
+    }
+  });
 });
