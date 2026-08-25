@@ -35,4 +35,7 @@ This story focuses on implementing the core logic to combine and layer prompt fr
 - [ ] Implement the core prompt fragment composition logic.
 - [ ] Implement precedence and override resolution.
 - [ ] Add unit tests for the composition engine.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-444-485-prompt-fragment-composition-core
+- [ ] task-444-486-prompt-fragment-composition-tests
+- [ ] task-444-487-prompt-fragment-composition-qa
