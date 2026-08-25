@@ -31,6 +31,6 @@ Implement the core prompt fragment composition engine in `.github/scripts/fragme
 - Combine contexts and rules.
 
 ## Acceptance Criteria
-- [ ] Implement `composePromptFragments` in `.github/scripts/fragments.ts`.
-- [ ] Precedence rules correctly sort fragments descending.
-- [ ] Context and rules are properly concatenated.
+- [x] Implement `composePromptFragments` in `.github/scripts/fragments.ts`.
+- [x] Precedence rules correctly sort fragments descending.
+- [x] Context and rules are properly concatenated.
