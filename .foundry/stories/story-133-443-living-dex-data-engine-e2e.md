@@ -30,3 +30,7 @@ This story serves as the final integration and E2E verification step for the Liv
 - [ ] Create E2E tests for PC mapping integration.
 - [ ] Create E2E tests for evolution material detection logic.
 - [ ] Ensure all tests pass.
+- [ ] task-443-489-living-dex-e2e-ghost-tracking-impl
+- [ ] task-443-490-living-dex-e2e-pc-mapping-impl
+- [ ] task-443-491-living-dex-e2e-evolution-impl
+- [ ] task-443-492-living-dex-e2e-qa
