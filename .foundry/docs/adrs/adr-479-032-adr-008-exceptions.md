@@ -31,4 +31,11 @@ Finalize and formalize the adjustments and exceptions to ADR 008 based on the re
 - Formalize exceptions into an updated ADR document or logic.
 
 ## Acceptance Criteria
-- [ ] Finalize exceptions and update documentation/logic.
+- [x] Finalize exceptions and update documentation/logic.
+
+## Decision
+We allow an exception to ADR 008 to explicitly allow the `rounded-full` utility class only for the following specific use cases:
+1. Physical hardware screws and mount points.
+2. Radar/sonar pings, targeting rings, and circular reticles.
+3. Small LED-style status indicator dots.
+This has been updated in the custom linter and the core agent policies.
