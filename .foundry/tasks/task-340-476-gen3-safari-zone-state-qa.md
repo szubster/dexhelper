@@ -35,7 +35,7 @@ Verify the Safari Zone state extraction and missing encounters calculation logic
 - **Strict Architecture Check**: Ensure out-of-bounds `DataView` reads throwing `RangeError` are caught and re-thrown with the message "The save file is corrupted or incomplete."
 
 ## Acceptance Criteria
-- [ ] Pokédex data extraction logic is verified.
-- [ ] PC Box data extraction logic is verified.
-- [ ] Encounter calculation is verified.
-- [ ] Architectural directives (constants, relative offsets, RangeError handling) are explicitly verified in the implementations.
+- [x] Pokédex data extraction logic is verified.
+- [x] PC Box data extraction logic is verified.
+- [x] Encounter calculation is verified.
+- [x] Architectural directives (constants, relative offsets, RangeError handling) are explicitly verified in the implementations.
