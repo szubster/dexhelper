@@ -31,4 +31,4 @@ Finalize and formalize the adjustments and exceptions to ADR 008 based on the re
 - Formalize exceptions into an updated ADR document or logic.
 
 ## Acceptance Criteria
-- [ ] Finalize exceptions and update documentation/logic.
+- [x] Finalize exceptions and update documentation/logic.

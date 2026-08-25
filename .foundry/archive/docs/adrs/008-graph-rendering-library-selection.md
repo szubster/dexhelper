@@ -30,6 +30,8 @@ Accepted
 We are building a DAG Dashboard Visualization & UI for the Foundry nodes. We need a graph rendering library capable of displaying the node states and dependencies with moderate node counts.
 A primary constraint is the UI must adhere strictly to our 'tactical hardware/snooping' aesthetic. This means sharp edges (`rounded-none`), dashed borders (`border-dashed`), and monospaced telemetry fonts, avoiding generic visual patterns like soft shadows or rounded corners.
 
+*Exception:* The `rounded-full` utility class is explicitly allowed exclusively for physical hardware screws/mount points, targeting rings/crosshairs/radar pings, and small LED-style status indicator dots, as these specifically enhance the tactical hardware aesthetic. General rounded corners for structural UI elements remain strictly forbidden.
+
 We evaluated three popular graph rendering libraries:
 1. **Mermaid.js**: Excellent for simple, text-based graph definition. However, it offers limited flexibility for highly custom styling (specifically enforcing our strict tailwind-driven aesthetic) and lacks advanced native interactivity features (like custom node filtering or click-to-highlight dependency chains) without significant workarounds.
 2. **Cytoscape.js**: Highly performant and feature-rich, capable of handling very large graphs. However, it operates on a canvas/WebGL level, making it difficult to integrate directly with our React component hierarchy and use our existing Tailwind CSS utility classes natively.
