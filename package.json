@@ -48,7 +48,6 @@
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "tailwind-merge": "^3.6.0",
-    "tsx": "^4.23.12",
     "zustand": "^5.0.15"
   },
   "devDependencies": {
