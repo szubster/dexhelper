@@ -4,8 +4,7 @@
   "ignoreDependencies": [
     "wrangler",
     "@cloudflare/pages-plugin-cloudflare-access",
-    "@cloudflare/workers-types",
-    "ts-morph"
+    "@cloudflare/workers-types"
   ],
   "ignore": [
     "src/test-setup.ts",
@@ -15,8 +14,7 @@
     "functions/api/saves/index.ts",
     "functions/api/saves/[id].ts",
     "src/engine/saveParser/utils/index.ts",
-    "src/engine/saveParser/gen3/mixedRecords/constants.ts",
-    "scripts/verify-adr-compliance.ts"
+    "src/engine/saveParser/gen3/mixedRecords/constants.ts"
   ],
   "rules": {
     "files": "warn",
