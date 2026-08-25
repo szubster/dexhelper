@@ -2,7 +2,7 @@
 id: story-133-473-gen3-ribbon-constants
 type: STORY
 title: Define Gen 3 Ribbon Constants
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-25'
 updated_at: '2026-08-25'

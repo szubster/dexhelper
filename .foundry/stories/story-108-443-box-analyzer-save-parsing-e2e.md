@@ -2,14 +2,14 @@
 id: story-108-443-box-analyzer-save-parsing-e2e
 type: STORY
 title: Box Analyzer Save Parsing E2E Verification
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-23'
 updated_at: '2026-08-25'
 depends_on:
   - story-108-245-gen2-box-parsing
   - story-108-246-gen3-box-parsing
-jules_session_id: '9148743465366252982'
+jules_session_id: null
 pr_number: null
 parent: epic-054-108-box-analyzer-save-parsing
 tags:

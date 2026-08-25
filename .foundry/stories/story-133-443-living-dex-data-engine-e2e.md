@@ -2,12 +2,12 @@
 id: story-133-443-living-dex-data-engine-e2e
 type: STORY
 title: Living Dex Data Engine E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23'
 updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: '3255621109229661103'
+jules_session_id: null
 pr_number: null
 parent: epic-103-133-living-dex-data-engine
 tags:

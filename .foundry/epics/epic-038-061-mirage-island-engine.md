@@ -2,12 +2,12 @@
 id: epic-038-061-mirage-island-engine
 type: EPIC
 title: Gen 3 Mirage Island Predictor Engine Updates
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-08'
 updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: '3394631145333600318'
+jules_session_id: null
 pr_number: null
 parent: prd-069-038-mirage-island-predictor
 tags:
@@ -15,9 +15,9 @@ tags:
   - mirage-island
   - rng
 research_references: []
+rejection_count: 1
 rejection_reason: ''
 notes: ''
-rejection_count: 1
 ---
 
 # Gen 3 Mirage Island Predictor Engine Updates

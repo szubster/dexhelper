@@ -2,7 +2,7 @@
 id: task-443-492-living-dex-e2e-qa
 type: TASK
 title: QA Living Dex E2E Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-08-25'

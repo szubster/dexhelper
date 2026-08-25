@@ -2,11 +2,12 @@
 id: task-136-490-permanent-failure-flow-ui-impl
 type: TASK
 title: Implement Permanent Failure Flow UI
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-08-25'
-depends_on: ['task-136-489-permanent-failure-state-selectors-impl']
+depends_on:
+  - task-136-489-permanent-failure-state-selectors-impl
 jules_session_id: null
 pr_number: null
 parent: story-047-136-permanent-failure-dashboard-ui

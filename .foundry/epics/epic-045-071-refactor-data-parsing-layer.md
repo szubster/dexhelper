@@ -2,13 +2,13 @@
 id: epic-045-071-refactor-data-parsing-layer
 type: EPIC
 title: Refactor Data Parsing Layer for rejection_count
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-08-25'
 depends_on:
   - epic-045-070-implement-dag-context
-jules_session_id: '6109557166780918192'
+jules_session_id: null
 pr_number: null
 parent: prd-073-045-refactor-dag-dashboard-context
 tags:

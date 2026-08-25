@@ -2,7 +2,7 @@
 id: task-444-489-gen2-event-flag-parsing-e2e-impl
 type: TASK
 title: Implement E2E tests for Gen 2 Event Flag parsing
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-08-25'

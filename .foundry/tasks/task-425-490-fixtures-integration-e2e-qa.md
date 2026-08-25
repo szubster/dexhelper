@@ -2,7 +2,7 @@
 id: task-425-490-fixtures-integration-e2e-qa
 type: TASK
 title: 'Task: QA for Fixture Integration E2E Tests'
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-08-25'

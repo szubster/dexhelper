@@ -2,10 +2,10 @@
 id: epic-040-065-gen3-contest-data-integration
 type: EPIC
 title: Gen 3 Contest Data Integration & Validation
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-09'
-updated_at: '2026-06-16'
+updated_at: '2026-08-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,6 +36,6 @@ As derived from PRD `prd-070-040-gen3-contest-data-parsing`, this Epic handles i
 - [ ] Confirm all existing Gen 1 and Gen 2 save parsing tests pass without modification.
 - [ ] Write integration tests confirming the parsing engine successfully processes full Gen 3 save files and maps contest data correctly.
 
-- [ ] .foundry/archive/stories/story-065-141-gen3-contest-error-handling.md
-- [ ] .foundry/archive/stories/story-065-142-gen3-contest-data-mapping.md
-- [ ] .foundry/stories/story-065-143-gen3-contest-integration-tests.md
+- [x] .foundry/archive/stories/story-065-141-gen3-contest-error-handling.md
+- [x] .foundry/archive/stories/story-065-142-gen3-contest-data-mapping.md
+- [x] .foundry/stories/story-065-143-gen3-contest-integration-tests.md

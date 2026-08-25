@@ -2,7 +2,7 @@
 id: task-143-489-gen3-contest-integration-tests-impl
 type: TASK
 title: Gen 3 Contest Integration Tests Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-08-25'

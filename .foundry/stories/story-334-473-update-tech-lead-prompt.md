@@ -2,7 +2,7 @@
 id: story-334-473-update-tech-lead-prompt
 type: STORY
 title: Update Tech Lead Prompt
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-25'
 updated_at: '2026-08-25'

@@ -2,12 +2,12 @@
 id: epic-048-083-gen3-match-call-save-parsing
 type: EPIC
 title: 'Epic: Gen 3 Match Call Save Parsing'
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-13'
 updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: '2730498803023250746'
+jules_session_id: null
 pr_number: null
 parent: prd-077-048-gen3-match-call-tracker
 tags:

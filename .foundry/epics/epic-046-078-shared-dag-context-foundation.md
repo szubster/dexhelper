@@ -2,12 +2,12 @@
 id: epic-046-078-shared-dag-context-foundation
 type: EPIC
 title: Shared DagContext Foundation
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-11'
 updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: '7323376139356763112'
+jules_session_id: null
 pr_number: null
 parent: prd-074-046-dag-context-architecture
 tags:

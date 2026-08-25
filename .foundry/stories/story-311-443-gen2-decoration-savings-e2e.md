@@ -2,13 +2,13 @@
 id: story-311-443-gen2-decoration-savings-e2e
 type: STORY
 title: Gen 2 Decoration & Savings E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23'
 updated_at: '2026-08-25'
 depends_on:
   - story-311-322-gen2-room-decoration-parsing
-jules_session_id: '3616903756051081592'
+jules_session_id: null
 pr_number: null
 parent: epic-112-311-gen2-decoration-savings-extraction
 tags:

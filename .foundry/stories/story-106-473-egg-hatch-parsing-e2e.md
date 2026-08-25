@@ -2,7 +2,7 @@
 id: story-106-473-egg-hatch-parsing-e2e
 type: STORY
 title: Egg Hatch Parsing E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-25'
 updated_at: '2026-08-25'

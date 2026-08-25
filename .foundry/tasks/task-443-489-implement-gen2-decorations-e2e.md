@@ -2,13 +2,12 @@
 id: task-443-489-implement-gen2-decorations-e2e
 type: TASK
 title: Implement Gen 2 Decorations E2E Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-08-25'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-311-443-gen2-decoration-savings-e2e
 tags:
@@ -19,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Implement Gen 2 Decorations E2E Tests
