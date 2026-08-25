@@ -2,10 +2,10 @@
 id: story-130-441-gen3-data-extraction-e2e
 type: STORY
 title: Gen 3 Data Extraction E2E Validation
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-08-23'
+updated_at: '2026-08-25'
 depends_on:
   - story-130-440-extract-gen3-party-data-structure
 jules_session_id: null
@@ -38,6 +38,6 @@ This story is dedicated to the integration and E2E verification of the extractio
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-441-469-gen3-data-extraction-e2e-rse-impl
-- [ ] task-441-471-gen3-data-extraction-e2e-frlg-impl
-- [ ] task-441-470-gen3-data-extraction-e2e-qa
+- [x] task-441-469-gen3-data-extraction-e2e-rse-impl
+- [x] task-441-471-gen3-data-extraction-e2e-frlg-impl
+- [x] task-441-470-gen3-data-extraction-e2e-qa

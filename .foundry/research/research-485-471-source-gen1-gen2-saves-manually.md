@@ -2,19 +2,19 @@
 id: research-485-471-source-gen1-gen2-saves-manually
 type: RESEARCH
 title: Manually Source Public Gen 1 and Gen 2 Saves
-status: ACTIVE
+status: READY
 owner_persona: researcher
 created_at: '2026-08-25'
 updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: '17257926755293305304'
+jules_session_id: null
 pr_number: null
 parent: task-470-485-source-gen1-gen2-saves
 tags:
   - fixtures
   - data-sourcing
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
