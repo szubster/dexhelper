@@ -30,4 +30,7 @@ As per ADR 017, the Permanent Failure Dashboard requires access to the \`rejecti
 - Ensure the \`rejection_count\` is passed along with the rest of the node data to the \`DagContext\`.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-071-473-extract-rejection-count
+- [ ] story-071-474-pass-rejection-count-context
+- [ ] story-071-475-refactor-parsing-e2e
