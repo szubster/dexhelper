@@ -59,6 +59,6 @@ describe('TacticalCard', () => {
     const card = page.getByTestId('storage-cyan-card');
     await expect.element(card).toHaveClass('bg-cyan-900/10');
     // For storage variants, tactical-card adds specific interaction classes
-    await expect.element(card).toHaveClass('hover:scale-100');
+    await expect.element(card).toHaveClass('enabled:hover:scale-100');
   });
 });

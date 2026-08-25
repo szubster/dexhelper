@@ -2,16 +2,16 @@
 id: story-070-443-hof-data-parsing-e2e
 type: STORY
 title: Integration and E2E Verification for Gen 1 and Gen 2 Hall of Fame Data
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-08-23'
+updated_at: '2026-08-25'
 depends_on:
   - story-070-111-parse-gen1-hof-data
   - story-070-112-parse-gen2-hof-data
   - story-070-149-parse-gen1-hof-records
   - story-070-150-parse-gen2-hof-records
-jules_session_id: null
+jules_session_id: '12794861498690469905'
 pr_number: null
 parent: epic-044-070-hof-data-parsing
 tags:

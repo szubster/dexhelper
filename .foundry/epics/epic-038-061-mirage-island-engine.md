@@ -2,10 +2,10 @@
 id: epic-038-061-mirage-island-engine
 type: EPIC
 title: Gen 3 Mirage Island Predictor Engine Updates
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-08'
-updated_at: '2026-06-09'
+updated_at: '2026-08-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,9 @@ tags:
   - mirage-island
   - rng
 research_references: []
-notes: ''
 rejection_reason: ''
+notes: ''
+rejection_count: 1
 ---
 
 # Gen 3 Mirage Island Predictor Engine Updates
@@ -31,13 +32,13 @@ Use the `DataView` API to parse the daily Mirage Island random 2-byte value from
 The parsed application data must include the current Mirage Island value and identify any "Mirage Island Key" Pokémon across the active party and all PC storage boxes.
 
 ## Acceptance Criteria
-- [ ] Parse daily Mirage Island random value from Gen 3 save.
-- [ ] Parse all Pokémon PIDs from active party and PC boxes.
-- [ ] Cross-reference the random value with Pokémon PIDs.
-- [ ] Add Mirage Island value and matches to parsed application data.
-- [ ] Write unit tests verifying extraction logic and PID matching.
+- [x] Parse daily Mirage Island random value from Gen 3 save.
+- [x] Parse all Pokémon PIDs from active party and PC boxes.
+- [x] Cross-reference the random value with Pokémon PIDs.
+- [x] Add Mirage Island value and matches to parsed application data.
+- [x] Write unit tests verifying extraction logic and PID matching.
 
 ### Implementation Stories
-- [ ] .foundry/archive/stories/story-061-098-parse-mirage-island-value.md
-- [ ] .foundry/stories/story-061-099-extract-pokemon-pids.md
-- [ ] .foundry/stories/story-061-100-mirage-island-cross-reference.md
+- [x] .foundry/archive/stories/story-061-098-parse-mirage-island-value.md
+- [x] .foundry/stories/story-061-099-extract-pokemon-pids.md
+- [x] .foundry/stories/story-061-100-mirage-island-cross-reference.md

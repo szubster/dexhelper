@@ -128,6 +128,12 @@ const POKEMON_NAME_LENGTH = 11;
 const POKEMON_OFFSET_OT_NAME = POKEMON_DATA_BLOCK_SIZE;
 const POKEMON_OFFSET_NICKNAME = POKEMON_DATA_BLOCK_SIZE + POKEMON_NAME_LENGTH;
 const POKEMON_OFFSET_CURRENT_HP = 34;
+const BOX_SPECIES_LIST_OFFSET = 1;
+const BOX_DATA_BLOCK_OFFSET = 22;
+const ITEM_LIST_OFFSET = 1;
+const ITEM_RECORD_SIZE = 2;
+const ITEM_QUANTITY_OFFSET = 1;
+
 const NPC_TRADE_FLAGS_OFFSET_CRYSTAL = 0x24eb;
 const NPC_TRADE_FLAGS_OFFSET_GS = 0x250f;
 const GEN2_NPC_TRADE_COUNT = 7;
@@ -623,11 +629,11 @@ function parsePCBoxes(
     const count = view.getUint8(offset);
     if (count > 20) continue;
     for (let j = 0; j < count; j++) {
-      const id = view.getUint8(offset + 1 + j);
+      const id = view.getUint8(offset + BOX_SPECIES_LIST_OFFSET + j);
       if (id > 0 && id <= 251) pc.push(id);
     }
 
-    const boxDataOffset = offset + 22;
+    const boxDataOffset = offset + BOX_DATA_BLOCK_OFFSET;
     for (let j = 0; j < count; j++) {
       const pOff = boxDataOffset + j * POKEMON_DATA_BLOCK_SIZE;
       const p = parseGen2PokemonInstance(view, pOff, isCrystal, `Box ${i + 1}`, j + 1);
@@ -714,9 +720,9 @@ function parseInventory(view: DataView, isCrystal: boolean) {
     const itemsCount = view.getUint8(itemsPocket);
     if (itemsCount > 0 && itemsCount <= 20) {
       for (let i = 0; i < itemsCount; i++) {
-        const offset = itemsPocket + 1 + i * 2;
+        const offset = itemsPocket + ITEM_LIST_OFFSET + i * ITEM_RECORD_SIZE;
         const id = view.getUint8(offset);
-        const quantity = view.getUint8(offset + 1);
+        const quantity = view.getUint8(offset + ITEM_QUANTITY_OFFSET);
         inventory.push({ id, quantity });
       }
     }
@@ -735,9 +741,9 @@ function parseInventory(view: DataView, isCrystal: boolean) {
     const ballsCount = view.getUint8(ballsPocket);
     if (ballsCount > 0 && ballsCount <= 12) {
       for (let i = 0; i < ballsCount; i++) {
-        const offset = ballsPocket + 1 + i * 2;
+        const offset = ballsPocket + ITEM_LIST_OFFSET + i * ITEM_RECORD_SIZE;
         const id = view.getUint8(offset);
-        const quantity = view.getUint8(offset + 1);
+        const quantity = view.getUint8(offset + ITEM_QUANTITY_OFFSET);
         inventory.push({ id, quantity });
       }
     }
@@ -955,9 +961,9 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
   const pcItemsCount = view.getUint8(pcItemsPocket);
   if (pcItemsCount > 0 && pcItemsCount <= 50) {
     for (let i = 0; i < pcItemsCount; i++) {
-      const offset = pcItemsPocket + 1 + i * 2;
+      const offset = pcItemsPocket + ITEM_LIST_OFFSET + i * ITEM_RECORD_SIZE;
       const id = view.getUint8(offset);
-      const quantity = view.getUint8(offset + 1);
+      const quantity = view.getUint8(offset + ITEM_QUANTITY_OFFSET);
       pcItems.push({ id, quantity });
     }
   }

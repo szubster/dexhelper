@@ -2,10 +2,10 @@
 id: task-100-472-mirage-island-cross-reference-qa
 type: TASK
 title: Cross-reference Mirage Island Random Value QA
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-23'
-updated_at: '2026-08-24'
+updated_at: '2026-08-25'
 depends_on:
   - task-100-471-mirage-island-cross-reference-tests
 jules_session_id: null
@@ -29,6 +29,6 @@ Verify that the `mirageIslandValue` is properly extracted and cross-referenced w
 Verify that unit tests are implemented and pass.
 
 ## Acceptance Criteria
-- [ ] Verify `isMirageIslandKey` is present and correctly typed on `PokemonInstance` in `common.ts`.
-- [ ] Verify `parseGen3` sets `isMirageIslandKey` to `true` for Pokémon whose PID lower 16 bits match `mirageIslandValue`, and `false`/`undefined` otherwise.
-- [ ] Verify unit tests effectively cover this extraction and matching logic.
+- [x] Verify `isMirageIslandKey` is present and correctly typed on `PokemonInstance` in `common.ts`.
+- [x] Verify `parseGen3` sets `isMirageIslandKey` to `true` for Pokémon whose PID lower 16 bits match `mirageIslandValue`, and `false`/`undefined` otherwise.
+- [x] Verify unit tests effectively cover this extraction and matching logic.

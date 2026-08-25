@@ -2,13 +2,13 @@
 id: task-423-471-semantic-evaluator-e2e-negative
 type: TASK
 title: Implement Semantic Evaluator E2E Negative Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-23'
-updated_at: '2026-08-24'
+updated_at: '2026-08-25'
 depends_on:
   - task-423-469-semantic-evaluator-e2e-scaffold
-jules_session_id: null
+jules_session_id: '9559557554931757408'
 pr_number: null
 parent: story-417-423-semantic-evaluator-e2e
 tags:

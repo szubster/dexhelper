@@ -66,3 +66,11 @@
 **Outcome:** Accepted -> wait for review
 **Why:** The previous bottom nav had some tactical elements (hazard stripes, sliding active bracket) but lacked the physical depth established in the `AppHeader` redesign. This change unifies the primary navigation bars as heavy, rigid hardware consoles.
 **Pattern:** Treat all primary navigation as physical hardware controls (chunky keys, LED indicators) rather than flat UI elements. Enclose major layout regions in thick, dashed or metallic structural frames with diegetic details like screws or wiring.
+
+
+<!-- Merged from 2024-05-18-pokemon-caught-details-redesign.md -->
+## 2024-05-18 - [Accepted] - 🖼️ Canvas: Biometric Analysis Terminal (PokemonCaughtDetails Redesigned)
+**What:** Fundamentally overhauled the `PokemonCaughtDetails.tsx` component, transforming it from standard generic UI panels into a dense, tactical "Biometric Analysis Terminal". Integrated heavy dashed borders, `LcdGrid`, `HoverScanner`, decorative telemetry bars, and LED-styled status indicators for shiny and pokerus.
+**Outcome:** Merged
+**Why:** The bold UI perfectly aligned with the project's snooping/tactical hardware aesthetic guidelines discovered in the journals.
+**Pattern:** Ensure heavy use of mono fonts, `border-dashed`, hardware brackets, diagnostic text labels, and tight tracking.

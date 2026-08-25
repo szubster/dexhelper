@@ -2,10 +2,10 @@
 id: task-441-470-gen3-data-extraction-e2e-qa
 type: TASK
 title: QA Gen 3 Data Extraction E2E Validation
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-22'
-updated_at: '2026-08-22'
+updated_at: '2026-08-25'
 depends_on:
   - task-441-469-gen3-data-extraction-e2e-rse-impl
   - task-441-471-gen3-data-extraction-e2e-frlg-impl
