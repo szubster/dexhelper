@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [adr-479-032-adr-008-exceptions](.foundry/docs/adrs/adr-479-032-adr-008-exceptions.md) | ADR | Finalize Exceptions to ADR 008 Tactical Aesthetic | architect | [2516259550963043840](https://jules.google.com/session/2516259550963043840) |
 | [epic-113-324-safari-zone-data-integration](.foundry/epics/epic-113-324-safari-zone-data-integration.md) | EPIC | Gen 1 & Gen 3 Safari Zone Data Extraction | story_owner | [11917385802654546658](https://jules.google.com/session/11917385802654546658) |
 | [epic-115-332-gen3-fame-checker-save-parsing](.foundry/epics/epic-115-332-gen3-fame-checker-save-parsing.md) | EPIC | Gen 3 Fame Checker Save Parsing | story_owner | [9222715477025088345](https://jules.google.com/session/9222715477025088345) |
 | [epic-116-335-gen3-wallpaper-phrase-generation-engine](.foundry/epics/epic-116-335-gen3-wallpaper-phrase-generation-engine.md) | EPIC | Gen 3 Wallpaper Phrase Generation Engine | story_owner | [3064708840409245364](https://jules.google.com/session/3064708840409245364) |
