@@ -32,5 +32,5 @@ Implement negative test cases for the semantic evaluator E2E tests.
 Write test cases that evaluate agent prompt outputs where the semantic intent does not match the expected rules (e.g., missing rules or incorrect intent). These tests should verify that the `evaluateSemanticCondition` correctly identifies non-equivalent conditions.
 
 ## Acceptance Criteria
-- [ ] Implement E2E test cases for negative semantic matches.
-- [ ] Ensure all new E2E tests pass successfully.
+- [x] Implement E2E test cases for negative semantic matches.
+- [x] Ensure all new E2E tests pass successfully.
