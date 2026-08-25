@@ -43,3 +43,4 @@ Learned that the e2e test takes a long time and times out, skipping per memory.
 ## Learnings
 - **Accessibility & Screen Readers:** This simple change prevents screen readers from redundantly announcing "left bracket" and "right bracket" hundreds of times across data-heavy views (e.g. details pages).
 - **Design System Consistency:** Centralizing the brackets inside `DataLabel.tsx` strictly enforces the visual design system. Developers no longer have to manually remember to add brackets around `<DataLabel>TEXT</DataLabel>`, eliminating the risk of inconsistent UI states across different views.
+## Learnings\n- Tailwind Interactive States: To prevent hover and active styles from triggering on disabled elements, use the `enabled:` modifier (e.g., `enabled:hover:scale-[1.02]`, `enabled:active:scale-95`) rather than standard `hover:` or `active:` prefixes.
