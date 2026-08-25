@@ -35,5 +35,8 @@ Implement parsing logic for Contest stats located in the EVs & Condition (E) sub
 - Ensure all new memory offsets and bit locations are defined as reusable constants at the module level, avoiding inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Break down epic into stories for implementing extraction logic for Contest stats from the 'E' substructure.
-- [ ] Break down epic into stories for writing unit tests to verify Condition data extraction.
+- [x] Break down epic into stories for implementing extraction logic for Contest stats from the 'E' substructure.
+- [x] Break down epic into stories for writing unit tests to verify Condition data extraction.
+- [ ] story-134-473-gen3-condition-stats-extraction-impl
+- [ ] story-134-474-gen3-condition-stats-extraction-tests
+- [ ] story-134-475-gen3-condition-stats-extraction-e2e
