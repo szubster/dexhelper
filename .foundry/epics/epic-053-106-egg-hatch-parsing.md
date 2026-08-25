@@ -37,3 +37,4 @@ Implement offline save parsing to calculate exact steps remaining for Eggs.
 - [x] Break down into Stories.
 - [x] .foundry/archive/stories/story-106-158-gen2-egg-hatch-parsing.md
 - [x] .foundry/stories/story-106-159-gen3-egg-hatch-parsing.md
+- [ ] story-106-473-egg-hatch-parsing-e2e
