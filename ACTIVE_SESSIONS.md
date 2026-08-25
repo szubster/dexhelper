@@ -6,6 +6,7 @@
 | [epic-038-061-mirage-island-engine](.foundry/epics/epic-038-061-mirage-island-engine.md) | EPIC | Gen 3 Mirage Island Predictor Engine Updates | story_owner | [3394631145333600318](https://jules.google.com/session/3394631145333600318) |
 | [epic-045-071-refactor-data-parsing-layer](.foundry/epics/epic-045-071-refactor-data-parsing-layer.md) | EPIC | Refactor Data Parsing Layer for rejection_count | story_owner | [6109557166780918192](https://jules.google.com/session/6109557166780918192) |
 | [epic-046-078-shared-dag-context-foundation](.foundry/epics/epic-046-078-shared-dag-context-foundation.md) | EPIC | Shared DagContext Foundation | story_owner | [7323376139356763112](https://jules.google.com/session/7323376139356763112) |
+| [epic-048-083-gen3-match-call-save-parsing](.foundry/epics/epic-048-083-gen3-match-call-save-parsing.md) | EPIC | Epic: Gen 3 Match Call Save Parsing | story_owner | [2730498803023250746](https://jules.google.com/session/2730498803023250746) |
 | [epic-335-345-spinda-pid-extraction](.foundry/epics/epic-335-345-spinda-pid-extraction.md) | EPIC | Gen 3 Spinda PID Extraction | story_owner | [14236080514105615638](https://jules.google.com/session/14236080514105615638) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
