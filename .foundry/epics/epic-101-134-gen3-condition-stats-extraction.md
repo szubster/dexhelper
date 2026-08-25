@@ -2,12 +2,12 @@
 id: epic-101-134-gen3-condition-stats-extraction
 type: EPIC
 title: Gen 3 Contest Condition Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-02'
-updated_at: '2026-08-14'
+updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '817977023026880855'
 pr_number: null
 parent: prd-093-101-gen3-ribbon-data-extraction
 tags:
