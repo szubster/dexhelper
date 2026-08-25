@@ -2,7 +2,7 @@
 id: story-324-340-gen3-safari-zone-save-state
 type: STORY
 title: Gen 3 Safari Zone Save State Integration
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-22'
 updated_at: '2026-08-25'
