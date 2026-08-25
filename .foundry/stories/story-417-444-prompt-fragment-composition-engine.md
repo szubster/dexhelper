@@ -2,7 +2,7 @@
 id: story-417-444-prompt-fragment-composition-engine
 type: STORY
 title: Develop Prompt Fragment Composition Engine
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23'
 updated_at: '2026-08-25'

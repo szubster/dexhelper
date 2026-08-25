@@ -2,7 +2,7 @@
 id: task-444-487-prompt-fragment-composition-qa
 type: TASK
 title: QA Prompt Fragment Composition Engine
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-08-25'

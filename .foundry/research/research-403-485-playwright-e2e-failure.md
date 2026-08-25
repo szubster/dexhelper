@@ -2,7 +2,7 @@
 id: research-403-485-playwright-e2e-failure
 type: RESEARCH
 title: Investigate Playwright E2E Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-08-25'
 updated_at: '2026-08-25'

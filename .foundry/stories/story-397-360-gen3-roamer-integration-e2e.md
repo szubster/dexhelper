@@ -2,7 +2,7 @@
 id: story-397-360-gen3-roamer-integration-e2e
 type: STORY
 title: Gen 3 Roamer Integration and E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-25'

@@ -2,7 +2,7 @@
 id: research-413-493-investigate-bike-requirements-source
 type: RESEARCH
 title: Investigate Bike Requirements Source for RouteRadarHeatmap
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-08-25'
 updated_at: '2026-08-25'

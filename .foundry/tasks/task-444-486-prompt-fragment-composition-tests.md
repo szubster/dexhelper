@@ -2,7 +2,7 @@
 id: task-444-486-prompt-fragment-composition-tests
 type: TASK
 title: Implement Prompt Fragment Composition Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-08-25'
