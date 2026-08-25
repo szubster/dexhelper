@@ -2,7 +2,7 @@
 id: epic-038-061-mirage-island-engine
 type: EPIC
 title: Gen 3 Mirage Island Predictor Engine Updates
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-08'
 updated_at: '2026-08-25'
@@ -15,8 +15,9 @@ tags:
   - mirage-island
   - rng
 research_references: []
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_reason: ''
 notes: ''
+rejection_count: 1
 ---
 
 # Gen 3 Mirage Island Predictor Engine Updates
