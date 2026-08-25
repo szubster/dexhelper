@@ -5,6 +5,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [research-485-471-source-gen1-gen2-saves-manually](.foundry/research/research-485-471-source-gen1-gen2-saves-manually.md) | RESEARCH | Manually Source Public Gen 1 and Gen 2 Saves | researcher | [17257926755293305304](https://jules.google.com/session/17257926755293305304) |
 | [story-061-443-mirage-island-save-parsing-e2e](.foundry/stories/story-061-443-mirage-island-save-parsing-e2e.md) | STORY | E2E Verification of Mirage Island Save Parsing | tech_lead | [16301238762793531910](https://jules.google.com/session/16301238762793531910) |
 | [story-061-444-gen2-event-flag-parsing-e2e](.foundry/stories/story-061-444-gen2-event-flag-parsing-e2e.md) | STORY | E2E Verification of Gen 2 Event Flag Parsing | tech_lead | [13234462057972803329](https://jules.google.com/session/13234462057972803329) |
 | [story-070-443-hof-data-parsing-e2e](.foundry/stories/story-070-443-hof-data-parsing-e2e.md) | STORY | Integration and E2E Verification for Gen 1 and Gen 2 Hall of Fame Data | tech_lead | [12794861498690469905](https://jules.google.com/session/12794861498690469905) |
