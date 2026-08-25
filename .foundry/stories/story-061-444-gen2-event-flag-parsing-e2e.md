@@ -31,4 +31,7 @@ E2E verification of Gen 2 Event Flag parsing.
 Write E2E tests validating that mapped daily/weekly events appear in the dynamic checklist UI.
 
 ## Acceptance Criteria
+- [x] Break down into Tasks
 - [ ] E2E tests pass for Gen 2 daily/weekly event extraction and display.
+- [ ] task-444-489-gen2-event-flag-parsing-e2e-impl
+- [ ] task-444-490-gen2-event-flag-parsing-e2e-qa
