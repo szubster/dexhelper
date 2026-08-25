@@ -6,6 +6,7 @@
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [story-397-405-gen3-mixed-record-npc-data](.foundry/stories/story-397-405-gen3-mixed-record-npc-data.md) | STORY | Extract Gen 3 Mixed Record NPC Data | tech_lead | [11799575988080333040](https://jules.google.com/session/11799575988080333040) |
+| [story-417-444-prompt-fragment-composition-engine](.foundry/stories/story-417-444-prompt-fragment-composition-engine.md) | STORY | Develop Prompt Fragment Composition Engine | tech_lead | [783063289718919723](https://jules.google.com/session/783063289718919723) |
 | [story-420-443-cli-scaffold](.foundry/stories/story-420-443-cli-scaffold.md) | STORY | CLI Scaffold | tech_lead | [1551306826786576546](https://jules.google.com/session/1551306826786576546) |
 | [story-428-470-identify-public-saves](.foundry/stories/story-428-470-identify-public-saves.md) | STORY | Identify and Download Public Saves | tech_lead | [10053560704069993136](https://jules.google.com/session/10053560704069993136) |
 | [task-241-469-daycare-gen3-parsing-impl](.foundry/tasks/task-241-469-daycare-gen3-parsing-impl.md) | TASK | Implement Gen 3 Daycare Data Parsing | coder | [9017398991973943758](https://jules.google.com/session/9017398991973943758) |
