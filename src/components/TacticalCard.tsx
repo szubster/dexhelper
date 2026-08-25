@@ -74,7 +74,7 @@ export const TacticalCard = React.memo(
           className={cn(
             'group focus-visible:tactical-focus relative w-full cursor-pointer text-left disabled:cursor-not-allowed disabled:opacity-50',
             isStorageVariant
-              ? 'tactical-card items-center p-5 duration-200 hover:-translate-y-1 hover:scale-100 active:scale-95'
+              ? 'tactical-card items-center p-5 duration-200 enabled:active:scale-95 enabled:hover:-translate-y-1 enabled:hover:scale-100'
               : 'tactical-card',
             variantClasses,
             className,
