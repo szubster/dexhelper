@@ -30,6 +30,6 @@ As part of the Cross-Save Synergy Analysis Engine, we need to verify the correct
 - Verify that high-value trade recommendations are accurate and appropriately prioritize resolving version exclusivity and Pokédex gaps.
 
 ## Acceptance Criteria
-- [ ] QA verifies the correctness of the game-exclusive mapping logic.
-- [ ] QA verifies the correctness of the Pokédex progress analysis logic.
-- [ ] QA verifies the accuracy and prioritization of the high-value trade recommendations.
+- [x] QA verifies the correctness of the game-exclusive mapping logic.
+- [x] QA verifies the correctness of the Pokédex progress analysis logic.
+- [x] QA verifies the accuracy and prioritization of the high-value trade recommendations.
