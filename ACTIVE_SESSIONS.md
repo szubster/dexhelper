@@ -37,3 +37,4 @@
 | [task-443-480-pokerus-parsing-qa](.foundry/tasks/task-443-480-pokerus-parsing-qa.md) | TASK | QA Pokerus Parsing | qa | [12332525711286593734](https://jules.google.com/session/12332525711286593734) |
 | [task-469-473-dynamic-move-pp-parsing-e2e-impl](.foundry/tasks/task-469-473-dynamic-move-pp-parsing-e2e-impl.md) | TASK | Implement E2E Verification for Dynamic Move PP Parsing | coder | [17646465594101035339](https://jules.google.com/session/17646465594101035339) |
 | [task-470-485-source-gen1-gen2-saves](.foundry/tasks/task-470-485-source-gen1-gen2-saves.md) | TASK | Source Public Gen 1 and Gen 2 Saves | coder | [5083890571541139326](https://jules.google.com/session/5083890571541139326) |
+| [task-470-486-source-gen3-saves](.foundry/tasks/task-470-486-source-gen3-saves.md) | TASK | Source Public Gen 3 Saves | coder | [8652038639924128668](https://jules.google.com/session/8652038639924128668) |

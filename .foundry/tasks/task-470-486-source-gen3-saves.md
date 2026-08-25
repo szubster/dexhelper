@@ -2,12 +2,12 @@
 id: task-470-486-source-gen3-saves
 type: TASK
 title: Source Public Gen 3 Saves
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-24'
 updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8652038639924128668'
 pr_number: null
 parent: story-428-470-identify-public-saves
 tags:
