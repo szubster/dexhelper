@@ -42,3 +42,6 @@ This epic covers the extraction of PokéNav Match Call data from Gen 3 Pokémon 
 - [x] story-083-125-gen3-match-call-memory-offset-discovery
 - [x] story-083-126-gen3-match-call-dataview-implementation
 - [x] story-083-127-gen3-match-call-schema-integration
+
+## Acceptance Criteria
+- [ ] story-083-473-gen3-match-call-e2e-verification
