@@ -2,12 +2,12 @@
 id: story-428-470-identify-public-saves
 type: STORY
 title: Identify and Download Public Saves
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-24'
-updated_at: '2026-08-24'
+updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: '10053560704069993136'
+jules_session_id: null
 pr_number: null
 parent: epic-345-428-source-additional-save-files
 tags:

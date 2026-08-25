@@ -2,13 +2,14 @@
 id: idea-086-fix-gen3save-mock
 type: IDEA
 title: Fix isGen3Save heuristic mock for E2E tests
-status: PENDING
+status: READY
 owner_persona: product_manager
-created_at: 2026-08-25
-updated_at: 2026-08-25
+created_at: '2026-08-25T00:00:00.000Z'
+updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: "4605878215416607215"
+jules_session_id: '4605878215416607215'
 locks: []
+rejection_reason: ''
 ---
 
 ## Context

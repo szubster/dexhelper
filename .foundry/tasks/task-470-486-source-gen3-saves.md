@@ -1,14 +1,13 @@
 ---
 id: task-470-486-source-gen3-saves
 type: TASK
-title: "Source Public Gen 3 Saves"
-status: PENDING
+title: Source Public Gen 3 Saves
+status: READY
 owner_persona: coder
-created_at: "2026-08-24"
-updated_at: "2026-08-24"
+created_at: '2026-08-24'
+updated_at: '2026-08-25'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-428-470-identify-public-saves
 tags:
@@ -16,8 +15,9 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 # Source Public Gen 3 Saves
 
