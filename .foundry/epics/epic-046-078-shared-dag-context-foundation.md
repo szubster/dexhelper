@@ -32,3 +32,4 @@ As required by PRD `prd-074-046-dag-context-architecture`, we need to extract th
 - [x] story-078-118-refactor-parser-for-rejection-count
 - [x] story-078-119-implement-dag-context-provider
 - [x] story-078-120-integrate-dag-context-with-views
+- [ ] story-078-473-dag-context-e2e-verification
