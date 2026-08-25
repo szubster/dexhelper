@@ -30,6 +30,14 @@ The RouteRadarHeatmap interface and calculateHeatmap function in RouteRadarContr
 2. Identify how calculateHeatmap can access this information efficiently.
 3. Recommend structural changes to schema or interfaces to facilitate this.
 
+## Research Findings
+1. **Source of Metatiles:** The `metatiles` array should not be fetched at runtime. The raw data resides in `map.bin` and `metatile_attributes.bin` in the `pret/pokeemerald` repository, which can be parsed offline.
+2. **Data Sourcing & Access:** Bike requirements (`requiresMachBike` and `requiresAcroBike`) should be pre-calculated during the offline ETL generation phase (`scripts/gen3-fetch-locations.ts` and `scripts/generate-pokedata.ts`) using the existing `parseBikeRequirements` logic, and baked directly into the `UnifiedLocation` database schema (e.g., as boolean flags `mb` and `ab`).
+3. **Actionable Steps for Coder:**
+    - Update `src/db/schema.ts` to add optional `mb` (Mach Bike) and `ab` (Acro Bike) boolean properties to the `UnifiedLocation` interface.
+    - Update the ETL scripts to extract and inject these flags into the location data during the build process.
+    - Update `suggestionEngine` to read these flags from `allLocations` and attach them to the `Suggestion` objects (e.g., inside `encounterInfo`), or have `RouteRadarController` query `PokeDB` directly by `areaId` to retrieve the flags when building the heatmap.
+
 ## Acceptance Criteria
-- [ ] researcher: Determine how and where bike requirements should be stored and accessed.
-- [ ] researcher: Provide actionable steps for the coder to implement the data sourcing for RouteRadarController.
+- [x] researcher: Determine how and where bike requirements should be stored and accessed.
+- [x] researcher: Provide actionable steps for the coder to implement the data sourcing for RouteRadarController.
