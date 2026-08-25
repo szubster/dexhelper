@@ -41,3 +41,7 @@
 ## Critical Learnings
 - **Tooling configuration context**: Discovered that Knip was running as part of the `pnpm lint` command but the `--reporter github-actions` was only defined in `.github/workflows/ci.yml`. More critically, Knip wasn't hooked into `lefthook.yml` pre-commits, meaning unused exports or dependencies could easily be committed by a local developer and only flagged once they hit GitHub Actions CI.
 - **Action Taken**: Added `knip` to `lefthook.yml` under `pre-commit` hook (in parallel) to enforce unused export validation before code can be committed locally. Explicitly added `--no-exit-code` so developers receive warnings locally without being totally blocked from making local WIP commits, which balances local DX with codebase hygiene.
+
+## Critical Learnings
+- **Tooling ecosystem alignment**: Upgraded `vitest`, `@vitest/browser`, `@vitest/coverage-v8`, `vite`, and `@vitejs/plugin-react` to their latest minor/patch versions (`4.1.11` and `8.2.2`). This fixes a bug where running browser-based component tests (`pnpm test:ct`) would fail because `@vitest/browser` and `vitest` versions were mismatched, preventing Playwright from launching properly.
+- **Dead-code analysis maintenance**: Removed outdated `ignore` configuration lines from `knip.json` (for the deleted file `scripts/verify-adr-compliance.ts` and the removed `ts-morph` dependency) which caused `pnpm knip` to throw configuration hint errors. This ensures the linting pipeline runs smoothly.
