@@ -36,6 +36,6 @@ As part of `story-112-403-integration-e2e`, we need to write E2E tests using Pla
    - Ensure these tests run correctly within the CI suite framework.
 
 ## Acceptance Criteria
-- [ ] Playwright tests simulating save file uploads are written.
-- [ ] Tests assert UI visibility of Gen 2 DVs and Gen 3 IVs/PVs.
-- [ ] Tests execute successfully via `xvfb-run -a pnpm test:e2e`.
+- [x] Playwright tests simulating save file uploads are written.
+- [x] Tests assert UI visibility of Gen 2 DVs and Gen 3 IVs/PVs.
+- [x] Tests execute successfully via `xvfb-run -a pnpm test:e2e`.
