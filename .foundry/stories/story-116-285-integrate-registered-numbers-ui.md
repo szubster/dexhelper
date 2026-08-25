@@ -28,3 +28,6 @@ Integrate the parsed registered numbers data with the dashboard UI, displaying t
 
 ## Acceptance Criteria
 - [ ] Render the current status of each registered NPC on the dashboard.
+- [ ] task-285-489-integrate-registered-numbers-ui-data
+- [ ] task-285-490-integrate-registered-numbers-ui-render
+- [ ] task-285-491-integrate-registered-numbers-ui-qa
