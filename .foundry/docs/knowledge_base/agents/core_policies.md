@@ -185,3 +185,6 @@ When modifying or verifying central systems like the DAG Orchestrator (`.github/
 - **Architectural Scaffolding & Shared State**: If a Story involves complex shared state or architectural patterns (such as those mandated by ADR 013 and ADR 017), blueprints MUST provide explicit scaffolding instructions (e.g., explicitly instructing the coder to define the React Context layer first before implementing the UI components).
 - **Architectural Compliance & Enforcement**: When a QA agent rejects a task for missing architectural requirements, the coder MUST comprehensively implement the missing architectural layer (no faking fixes). QA agents MUST strictly enforce architectural patterns mandated by ADRs and explicitly document persistent failures.
 - **Vitest Mocks**: Vitest requires explicit generic typing on `vi.fn()` mocks (e.g. `vi.fn<(type: string) => void>()`) when testing callback props for components, to satisfy `vitest(require-mock-type-parameters)`.
+
+## Playwright E2E Best Practices
+- Always use the `-a` flag with `xvfb-run` (e.g., `xvfb-run -a pnpm test:e2e`) during headless execution to bypass lock issues.

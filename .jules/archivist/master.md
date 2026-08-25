@@ -27,9 +27,6 @@
 
 # Archivist Journal
 
-- **Date:** 2026-08-18
-- **Domain:** Main Project (DexHelper)
-
 
 - **Date:** $(date +%Y-%m-%d)
 - **Domain:** Main Project (DexHelper)
@@ -38,3 +35,17 @@
 - **Date:** $(date +%Y-%m-%d)
 - **Domain:** Main Project (DexHelper)
 - **Learning:** Wrote a script to perform bulk knowledge hygiene, combining unique session files into `master.md` to prevent journal bloat. When attempting to purge transient logs using Python string matching, ensure you don't over-delete critical systemic rules. A safer approach for initial bulk cleanup is to prioritize aggregation first to fix directory structure before attempting complex regex stripping on the markdown bodies.
+
+
+<!-- Merged from 2026-08-24-01-13-40.md -->
+# Archivist Session Journal
+
+## Action Taken
+1. **Aggregated**: Safely aggregated session-unique files into `master.md` within their respective directories. Implemented strict whitespace-normalized substring checks to prevent appending content that already exists in the master logs.
+2. **Purged**: Cleaned transient logs ('System failure detected', 'Executed Empty PR Policy', 'Artifact Anomaly') by precisely matching exact line contents. This prevents the accidental deletion of critical systemic rules that happen to reference those keywords in their documentation.
+3. **Verified Legacy Directories**: Verified that `.Jules` does not exist in the working directory.
+4. **Cleaned Up**: Removed the original session-unique files after aggregation to keep directories clean.
+
+## Critical Learnings
+- **Duplication Avoidance**: Always normalize whitespace when checking if a session's text already exists in the `master.md` file before appending it. A previous bug blindly appended duplicates because it didn't check effectively.
+- **Log Purging Danger**: Broad string-matching for purge operations (e.g., searching for any line with "Artifact Anomaly") is destructive and inadvertently deletes architectural policies or core rules. Log purging must be extremely precise (e.g., exact line equality for "- Artifact Anomaly") to distinguish between a transient status log and a documented rule.

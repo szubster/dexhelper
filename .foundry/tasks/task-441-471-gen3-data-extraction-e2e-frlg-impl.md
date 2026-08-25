@@ -2,12 +2,12 @@
 id: task-441-471-gen3-data-extraction-e2e-frlg-impl
 type: TASK
 title: Implement Gen 3 FRLG Data Extraction E2E Validation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-22'
 updated_at: '2026-08-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11831669477290920476'
 pr_number: null
 parent: story-130-441-gen3-data-extraction-e2e
 tags:

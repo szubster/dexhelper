@@ -2,13 +2,13 @@
 id: story-417-444-prompt-fragment-composition-engine
 type: STORY
 title: Develop Prompt Fragment Composition Engine
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-08-24'
+updated_at: '2026-08-25'
 depends_on:
   - story-417-443-prompt-fragment-schema
-jules_session_id: null
+jules_session_id: '783063289718919723'
 pr_number: null
 parent: epic-343-417-prompt-fragment-layering
 tags:

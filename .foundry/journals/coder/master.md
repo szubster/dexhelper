@@ -329,3 +329,14 @@ await expect(
 # Playwright isMobile Context
 
 When writing or maintaining E2E tests for navigation elements, always consider that layout and labeling may change based on screen size. The `isMobile` fixture in Playwright should be used to conditionally adjust locators (e.g., targeting `DASH` instead of `SYS.DASH`).
+
+
+<!-- Merged from 2026-08-23-00-00-00.md -->
+# 2026-08-23 Session
+
+Encountered missing context when trying to update `calculateHeatmap` with map bike requirements (`requiresMachBike`, `requiresAcroBike`). The map data (`UnifiedLocation`) currently doesn't store `metatiles` directly, so `parseBikeRequirements` cannot be run natively on the fly without either modifying the database schema to include metatiles/bike flags directly in `UnifiedLocation` or passing extra context to `RouteRadarController`. Used the Late Binding pattern to spawn `research-422-462-investigate-bike-requirements-source.md` and marked the current task as `FAILED` pending research.
+
+<!-- Merged from 14546170527063435753.md -->
+# Session 14546170527063435753
+Task task-031-048-implement-deadlock-tests passed all verification. Unit tests for deadlock prevention (circular dependencies and hierarchical deadlocks) were verified and tests passing was confirmed via pnpm test and within .github/scripts/.
+Also fixed invalid STORY mapping tests (owner_persona) inside foundry-orchestrator.test.ts to comply with Phase 4.8 mappings.
