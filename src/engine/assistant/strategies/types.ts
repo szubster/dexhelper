@@ -16,6 +16,8 @@ export interface EncounterDetail {
   maxLevel?: number | undefined;
   areaId: number;
   time?: number | undefined;
+  requiresMachBike?: boolean;
+  requiresAcroBike?: boolean;
 }
 
 /**

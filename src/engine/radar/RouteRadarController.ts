@@ -2,10 +2,14 @@ import type { Suggestion } from '../assistant/strategies/types';
 
 /**
  * Output structure for the Smart Route Radar.
- * Maps an areaId (formerly areaId) to a density score.
+ * Maps an areaId (formerly areaId) to a heatmap data object.
  */
 export interface RouteRadarHeatmap {
-  [areaId: number]: number;
+  [areaId: number]: {
+    density: number;
+    requiresMachBike: boolean;
+    requiresAcroBike: boolean;
+  };
 }
 
 /**
@@ -35,6 +39,7 @@ export class RouteRadarController {
     for (const suggestion of suggestions) {
       if (suggestion.category === 'Catch' && suggestion.encounterInfo) {
         const uniqueAreaIds = new Set<number>();
+        const areaBikeReqs = new Map<number, { mach: boolean; acro: boolean }>();
 
         // Iterate through all map IDs (keys) and extract areaIds (areaId) from the encounter details
         for (const mapId in suggestion.encounterInfo) {
@@ -42,13 +47,28 @@ export class RouteRadarController {
           if (encounters) {
             for (const encounter of encounters) {
               uniqueAreaIds.add(encounter.areaId);
+
+              let reqs = areaBikeReqs.get(encounter.areaId);
+              if (!reqs) {
+                reqs = { mach: false, acro: false };
+                areaBikeReqs.set(encounter.areaId, reqs);
+              }
+              if (encounter.requiresMachBike) reqs.mach = true;
+              if (encounter.requiresAcroBike) reqs.acro = true;
             }
           }
         }
 
         // Increment the density score for each unique areaId found for this suggestion
         for (const areaId of uniqueAreaIds) {
-          heatmap[areaId] = (heatmap[areaId] || 0) + 1;
+          if (!heatmap[areaId]) {
+            heatmap[areaId] = { density: 0, requiresMachBike: false, requiresAcroBike: false };
+          }
+          heatmap[areaId].density += 1;
+
+          const reqs = areaBikeReqs.get(areaId);
+          if (reqs?.mach) heatmap[areaId].requiresMachBike = true;
+          if (reqs?.acro) heatmap[areaId].requiresAcroBike = true;
         }
       }
     }
