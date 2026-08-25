@@ -29,4 +29,6 @@ This story represents the final end-to-end integration verification for the egg 
 ## Acceptance Criteria
 - [ ] Write E2E tests validating the full workflow from reading a save file, running the pathfinding engine, cross-referencing against the loaded inventory, and identifying missing links.
 - [ ] Ensure all tests pass reliably in the CI environment.
-- [ ] Tech Lead: Draft TASK nodes to execute this story.
+- [x] Tech Lead: Draft TASK nodes to execute this story.
+- [ ] task-415-489-egg-move-inventory-cross-reference-e2e-impl
+- [ ] task-415-490-egg-move-inventory-cross-reference-e2e-qa
