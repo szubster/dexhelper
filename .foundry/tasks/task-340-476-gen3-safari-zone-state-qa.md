@@ -2,13 +2,13 @@
 id: task-340-476-gen3-safari-zone-state-qa
 type: TASK
 title: Gen 3 Safari Zone State QA
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-08-23'
 updated_at: '2026-08-25'
 depends_on:
   - task-340-475-gen3-safari-zone-encounters-impl
-jules_session_id: '2081405090784003134'
+jules_session_id: null
 pr_number: null
 parent: story-324-340-gen3-safari-zone-save-state
 tags:
@@ -17,7 +17,7 @@ tags:
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 ---
 

@@ -2,7 +2,7 @@
 id: research-405-471-investigate-mixed-record-parser-failure
 type: RESEARCH
 title: Investigate Mixed Record Parser Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-08-25'
 updated_at: '2026-08-25'

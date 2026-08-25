@@ -2,10 +2,10 @@
 id: story-061-100-mirage-island-cross-reference
 type: STORY
 title: Cross-reference Mirage Island Random Value
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-09'
-updated_at: '2026-08-23'
+updated_at: '2026-08-25'
 depends_on:
   - story-061-099-extract-pokemon-pids
 jules_session_id: null
@@ -33,7 +33,7 @@ Ensure robust unit tests are written to verify the extraction and matching logic
 - [x] Create/Update TASK nodes to cross-reference the daily value with PIDs.
 - [x] Create/Update TASK nodes to include Mirage Island data in the parsed application data (`SaveData` / `PokemonInstance`).
 - [x] Create/Update TASK nodes to implement unit tests verifying the logic.
-- [ ] task-100-469-mirage-island-cross-reference-types
-- [ ] task-100-470-mirage-island-cross-reference-logic
-- [ ] task-100-471-mirage-island-cross-reference-tests
-- [ ] task-100-472-mirage-island-cross-reference-qa
+- [x] task-100-469-mirage-island-cross-reference-types
+- [x] task-100-470-mirage-island-cross-reference-logic
+- [x] task-100-471-mirage-island-cross-reference-tests
+- [x] task-100-472-mirage-island-cross-reference-qa
