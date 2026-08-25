@@ -5,7 +5,6 @@
     "wrangler",
     "@cloudflare/pages-plugin-cloudflare-access",
     "@cloudflare/workers-types",
-    "ts-morph"
   ],
   "ignore": [
     "src/test-setup.ts",
@@ -16,7 +15,6 @@
     "functions/api/saves/[id].ts",
     "src/engine/saveParser/utils/index.ts",
     "src/engine/saveParser/gen3/mixedRecords/constants.ts",
-    "scripts/verify-adr-compliance.ts"
   ],
   "rules": {
     "files": "warn",
