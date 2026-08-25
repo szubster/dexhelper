@@ -2,13 +2,13 @@
 id: task-363-441-update-parsers-qa
 type: TASK
 title: Update Parsers QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-20'
-updated_at: '2026-08-23'
+updated_at: '2026-08-25'
 depends_on:
   - task-363-440-update-parsers-impl
-jules_session_id: null
+jules_session_id: '17077230465889279562'
 pr_number: null
 parent: story-404-363-update-parsers
 tags:
