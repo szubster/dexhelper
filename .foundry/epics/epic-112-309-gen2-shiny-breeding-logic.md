@@ -55,3 +55,4 @@ This Epic involves creating the core logic engine required to calculate Pokémon
 - [x] story-309-002-dv-overlap-constraint
 - [x] story-309-003-egg-group-validation
 - [x] story-309-004-shiny-odds-computation
+- [ ] story-309-473-shiny-breeding-logic-e2e
