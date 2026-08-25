@@ -684,7 +684,7 @@ export function parseGen3PCBuffer(view: DataView): Uint8Array {
 }
 
 /**
- * Parses the player's active party from a Generation 3 save file.
+ * Parses the player's active party Pokémon from SaveBlock1.
  *
  * @remarks
  * **Architecture Note:**
@@ -692,10 +692,15 @@ export function parseGen3PCBuffer(view: DataView): Uint8Array {
  * The memory offsets for the party count and list differ between Ruby/Sapphire/Emerald
  * and FireRed/LeafGreen, so the function uses `gameVersion` to dynamically resolve them.
  *
- * @param view - The raw save file DataView.
- * @param section1Offset - The absolute memory offset to the start of the most recent Section 1 block.
- * @param gameVersion - The specific Gen 3 game version ('ruby', 'sapphire', 'emerald', 'firered', 'leafgreen').
- * @returns An object containing the simple array of species IDs (`party`) and detailed instances (`partyDetails`).
+ * It extracts the total count of Pokémon in the party based on version-specific offsets,
+ * then iterates and decrypts each Pokémon's 100-byte structure. It correctly handles
+ * Eggs (masking their species ID to avoid spoiling the hatch) and populates
+ * the detailed `partyDetails` array with stats, IVs, moves, and condition values.
+ *
+ * @param view - The raw binary data of the .sav file.
+ * @param section1Offset - The absolute memory offset of the latest SaveBlock1 sector (Section 1).
+ * @param gameVersion - The detected or forced version of the Gen 3 game (used to determine party count offset).
+ * @returns An object containing a simple array of species IDs (`party`), detailed data (`partyDetails`), and Spinda pattern data (`gen3Spindas`).
  */
 export function parseGen3Party(view: DataView, section1Offset: number, gameVersion: GameVersion) {
   const party: number[] = [];
@@ -778,7 +783,7 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
 }
 
 /**
- * Parses the PC Boxes to extract all stored Pokemon.
+ * Parses the Pokémon stored in the PC Storage System from a contiguous, stitched buffer.
  *
  * @remarks
  * **Architecture Note:**
@@ -786,8 +791,12 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
  * Before this function is called, those scattered sections must be concatenated into
  * a single contiguous buffer (`pcBufferView`).
  *
- * @param pcBufferView - A DataView of the reconstructed PC Buffer.
- * @returns An object containing the simple array of species IDs (`pc`) and the detailed `pcDetails`.
+ * Iterates through all 14 boxes, decrypting and extracting the 80-byte PC structure
+ * for each stored Pokémon (which lacks the 20-byte battle stats block appended to party Pokémon).
+ * Also maps Spinda spots based on Personality Value.
+ *
+ * @param pcBufferView - A DataView over the pre-stitched, contiguous 33,920 byte PC storage buffer (extracted from sections 5-13).
+ * @returns An object containing a simple array of species IDs (`pc`), detailed metadata (`pcDetails`), and parsed Spinda spots (`gen3Spindas`).
  * @throws Error - "The save file is corrupted or incomplete." on invalid data.
  */
 export function parseGen3PCBoxes(pcBufferView: DataView) {
