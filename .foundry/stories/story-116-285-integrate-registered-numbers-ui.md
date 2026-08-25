@@ -2,14 +2,14 @@
 id: story-116-285-integrate-registered-numbers-ui
 type: STORY
 title: Integrate Registered Numbers UI
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-07'
-updated_at: '2026-08-17'
+updated_at: '2026-08-25'
 depends_on:
   - story-116-283-parse-registered-numbers
   - story-116-284-active-callers-dashboard-ui
-jules_session_id: null
+jules_session_id: '3054621218539538072'
 pr_number: null
 parent: epic-055-116-pokegear-active-callers
 tags:
