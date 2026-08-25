@@ -2,7 +2,7 @@
 id: task-423-472-semantic-evaluator-e2e-qa
 type: TASK
 title: Semantic Evaluator E2E QA Verification
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-23'
 updated_at: '2026-08-23'
