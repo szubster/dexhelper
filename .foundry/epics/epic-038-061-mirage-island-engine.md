@@ -42,3 +42,4 @@ The parsed application data must include the current Mirage Island value and ide
 - [x] .foundry/archive/stories/story-061-098-parse-mirage-island-value.md
 - [x] .foundry/stories/story-061-099-extract-pokemon-pids.md
 - [x] .foundry/stories/story-061-100-mirage-island-cross-reference.md
+- [ ] story-061-473-mirage-island-engine-e2e
