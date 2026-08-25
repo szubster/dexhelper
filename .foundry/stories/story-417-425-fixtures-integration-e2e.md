@@ -32,3 +32,5 @@ Perform E2E verification to ensure the newly integrated save files (Gens 1, 2, a
 ## Acceptance Criteria
 - [ ] Write and execute E2E tests covering the integration of the new fixtures.
 - [ ] Ensure all E2E pipelines pass cleanly.
+- [ ] task-425-489-fixtures-integration-e2e-impl
+- [ ] task-425-490-fixtures-integration-e2e-qa
