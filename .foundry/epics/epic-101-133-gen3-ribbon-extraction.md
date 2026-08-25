@@ -2,12 +2,12 @@
 id: epic-101-133-gen3-ribbon-extraction
 type: EPIC
 title: Gen 3 Ribbon Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-02'
-updated_at: '2026-08-14'
+updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4689222801746657795'
 pr_number: null
 parent: prd-093-101-gen3-ribbon-data-extraction
 tags:
