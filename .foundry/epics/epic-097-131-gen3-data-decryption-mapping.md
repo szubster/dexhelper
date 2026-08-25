@@ -30,3 +30,9 @@ Implement decryption and mapping logic for the 48-byte encrypted Data block extr
 1. Calculate the decryption key using `PV XOR OT ID`.
 2. Decrypt the 48-byte Data block using the calculated key.
 3. Resolve the substructure order using `PV % 24` to correctly map the Growth (G), Attacks (A), EVs & Condition (E), and Miscellaneous (M) components.
+
+## Acceptance Criteria
+- [x] Break down into Tasks
+- [ ] story-131-473-gen3-data-decryption-engine
+- [ ] story-131-474-gen3-substructure-mapping
+- [ ] story-131-475-gen3-decryption-mapping-e2e
