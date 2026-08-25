@@ -2,12 +2,12 @@
 id: research-413-493-investigate-bike-requirements-source
 type: RESEARCH
 title: Investigate Bike Requirements Source for RouteRadarHeatmap
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-25'
 updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: '4421475680146254951'
+jules_session_id: null
 pr_number: null
 parent: story-406-413-bike-requirement-heatmap
 tags:

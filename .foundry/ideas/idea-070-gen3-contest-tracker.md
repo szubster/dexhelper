@@ -2,10 +2,10 @@
 id: idea-070-gen3-contest-tracker
 type: IDEA
 title: Gen 3 Contest Stat and Ribbon Tracker
-status: PENDING
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-06-06'
-updated_at: '2026-06-09'
+updated_at: '2026-08-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,6 +36,6 @@ This caters directly to the hardcore completionist community, transforming an op
 
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD to define the data structures needed for parsing Contest stats and Ribbons from Gen 3 save formats.
-- [ ] .foundry/prds/prd-070-040-gen3-contest-data-parsing.md
-- [ ] .foundry/prds/prd-070-041-gen3-contest-ui-viewer.md
-- [ ] .foundry/prds/prd-070-042-gen3-contest-optimization-advisor.md
+- [x] .foundry/prds/prd-070-040-gen3-contest-data-parsing.md
+- [x] .foundry/prds/prd-070-041-gen3-contest-ui-viewer.md
+- [x] .foundry/prds/prd-070-042-gen3-contest-optimization-advisor.md

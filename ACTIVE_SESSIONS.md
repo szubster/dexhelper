@@ -2,7 +2,6 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
-| [adr-479-032-adr-008-exceptions](.foundry/docs/adrs/adr-479-032-adr-008-exceptions.md) | ADR | Finalize Exceptions to ADR 008 Tactical Aesthetic | architect | [979894472929923814](https://jules.google.com/session/979894472929923814) |
 | [epic-113-324-safari-zone-data-integration](.foundry/epics/epic-113-324-safari-zone-data-integration.md) | EPIC | Gen 1 & Gen 3 Safari Zone Data Extraction | story_owner | [11917385802654546658](https://jules.google.com/session/11917385802654546658) |
 | [epic-115-332-gen3-fame-checker-save-parsing](.foundry/epics/epic-115-332-gen3-fame-checker-save-parsing.md) | EPIC | Gen 3 Fame Checker Save Parsing | story_owner | [9222715477025088345](https://jules.google.com/session/9222715477025088345) |
 | [epic-116-335-gen3-wallpaper-phrase-generation-engine](.foundry/epics/epic-116-335-gen3-wallpaper-phrase-generation-engine.md) | EPIC | Gen 3 Wallpaper Phrase Generation Engine | story_owner | [3064708840409245364](https://jules.google.com/session/3064708840409245364) |
@@ -11,10 +10,7 @@
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [research-360-471-investigate-gen3-roamer-e2e-failure](.foundry/research/research-360-471-investigate-gen3-roamer-e2e-failure.md) | RESEARCH | Investigate Gen 3 Roamer E2E Test Failure | researcher | [9528661489058889863](https://jules.google.com/session/9528661489058889863) |
-| [research-403-485-playwright-e2e-failure](.foundry/research/research-403-485-playwright-e2e-failure.md) | RESEARCH | Investigate Playwright E2E Failure | researcher | [1297730363603914930](https://jules.google.com/session/1297730363603914930) |
 | [research-405-471-investigate-mixed-record-parser-failure](.foundry/research/research-405-471-investigate-mixed-record-parser-failure.md) | RESEARCH | Investigate Mixed Record Parser Failure | researcher | [18022819836563758032](https://jules.google.com/session/18022819836563758032) |
-| [research-413-493-investigate-bike-requirements-source](.foundry/research/research-413-493-investigate-bike-requirements-source.md) | RESEARCH | Investigate Bike Requirements Source for RouteRadarHeatmap | researcher | [4421475680146254951](https://jules.google.com/session/4421475680146254951) |
-| [research-485-471-source-gen1-gen2-saves-manually](.foundry/research/research-485-471-source-gen1-gen2-saves-manually.md) | RESEARCH | Manually Source Public Gen 1 and Gen 2 Saves | researcher | [14011429772651701081](https://jules.google.com/session/14011429772651701081) |
 | [story-084-126-match-call-msgpack](.foundry/stories/story-084-126-match-call-msgpack.md) | STORY | Story: Gen 3 Match Call MsgPack Integration | tech_lead | [3148001966579214244](https://jules.google.com/session/3148001966579214244) |
 | [story-116-285-integrate-registered-numbers-ui](.foundry/stories/story-116-285-integrate-registered-numbers-ui.md) | STORY | Integrate Registered Numbers UI | tech_lead | [3054621218539538072](https://jules.google.com/session/3054621218539538072) |
 | [story-136-330-gen1-checklist-ui-retry](.foundry/stories/story-136-330-gen1-checklist-ui-retry.md) | STORY | Gen 1 Checklist UI (Retry) | tech_lead | [7910042249988754173](https://jules.google.com/session/7910042249988754173) |
@@ -47,5 +43,4 @@
 | [task-440-478-synergy-assistant-integration-impl](.foundry/tasks/task-440-478-synergy-assistant-integration-impl.md) | TASK | Synergy Assistant Integration Implementation | coder | [7006710044664080631](https://jules.google.com/session/7006710044664080631) |
 | [task-442-467-gen2-roamer-e2e-tests-impl](.foundry/tasks/task-442-467-gen2-roamer-e2e-tests-impl.md) | TASK | Gen 2 Roamer E2E Tests Implementation | coder | [318505979788366828](https://jules.google.com/session/318505979788366828) |
 | [task-443-480-pokerus-parsing-qa](.foundry/tasks/task-443-480-pokerus-parsing-qa.md) | TASK | QA Pokerus Parsing | qa | [12332525711286593734](https://jules.google.com/session/12332525711286593734) |
-| [task-444-485-prompt-fragment-composition-core](.foundry/tasks/task-444-485-prompt-fragment-composition-core.md) | TASK | Implement Prompt Fragment Composition Logic | coder | [10477875160319615407](https://jules.google.com/session/10477875160319615407) |
 | [task-469-473-dynamic-move-pp-parsing-e2e-impl](.foundry/tasks/task-469-473-dynamic-move-pp-parsing-e2e-impl.md) | TASK | Implement E2E Verification for Dynamic Move PP Parsing | coder | [17646465594101035339](https://jules.google.com/session/17646465594101035339) |

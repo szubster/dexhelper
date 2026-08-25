@@ -2,12 +2,12 @@
 id: research-403-485-playwright-e2e-failure
 type: RESEARCH
 title: Investigate Playwright E2E Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-25'
 updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: '1297730363603914930'
+jules_session_id: null
 pr_number: null
 parent: story-112-403-integration-e2e
 tags:

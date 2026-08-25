@@ -2,7 +2,7 @@
 id: task-413-489-bike-requirements-types
 type: TASK
 title: Define Bike Requirement Types for Route Radar
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-08-25'

@@ -2,7 +2,7 @@
 id: story-108-443-box-analyzer-save-parsing-e2e
 type: STORY
 title: Box Analyzer Save Parsing E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23'
 updated_at: '2026-08-25'

@@ -2,12 +2,12 @@
 id: research-485-471-source-gen1-gen2-saves-manually
 type: RESEARCH
 title: Manually Source Public Gen 1 and Gen 2 Saves
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-08-25'
 updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: '14011429772651701081'
+jules_session_id: null
 pr_number: null
 parent: task-470-485-source-gen1-gen2-saves
 tags:
@@ -15,7 +15,7 @@ tags:
   - data-sourcing
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
 notes: ''
 locks: []
 ---
