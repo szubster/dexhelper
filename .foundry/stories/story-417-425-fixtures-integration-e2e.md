@@ -2,15 +2,15 @@
 id: story-417-425-fixtures-integration-e2e
 type: STORY
 title: 'Story: E2E Verification for Save File Fixtures Integration'
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-14'
-updated_at: '2026-08-24'
+updated_at: '2026-08-25'
 depends_on:
   - story-417-422-integrate-gen1-fixtures
   - story-417-423-integrate-gen2-fixtures
   - story-417-424-integrate-gen3-fixtures
-jules_session_id: null
+jules_session_id: '15761567047725361695'
 pr_number: null
 parent: epic-343-417-test-fixtures-sourcing
 tags:
