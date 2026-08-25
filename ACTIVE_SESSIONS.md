@@ -11,6 +11,7 @@
 | [epic-097-131-gen3-data-decryption-mapping](.foundry/epics/epic-097-131-gen3-data-decryption-mapping.md) | EPIC | Gen 3 Data Decryption and Mapping | story_owner | [10799869228160475117](https://jules.google.com/session/10799869228160475117) |
 | [epic-101-133-gen3-ribbon-extraction](.foundry/epics/epic-101-133-gen3-ribbon-extraction.md) | EPIC | Gen 3 Ribbon Data Extraction | story_owner | [4689222801746657795](https://jules.google.com/session/4689222801746657795) |
 | [epic-101-134-gen3-condition-stats-extraction](.foundry/epics/epic-101-134-gen3-condition-stats-extraction.md) | EPIC | Gen 3 Contest Condition Data Extraction | story_owner | [817977023026880855](https://jules.google.com/session/817977023026880855) |
+| [epic-112-309-gen2-shiny-breeding-logic](.foundry/epics/epic-112-309-gen2-shiny-breeding-logic.md) | EPIC | Gen 2 Shiny Breeding DV Compatibility & Odds Engine | story_owner | [4367237428628093633](https://jules.google.com/session/4367237428628093633) |
 | [epic-335-345-spinda-pid-extraction](.foundry/epics/epic-335-345-spinda-pid-extraction.md) | EPIC | Gen 3 Spinda PID Extraction | story_owner | [14236080514105615638](https://jules.google.com/session/14236080514105615638) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
