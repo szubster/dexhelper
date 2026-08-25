@@ -14,6 +14,7 @@
 | [epic-112-309-gen2-shiny-breeding-logic](.foundry/epics/epic-112-309-gen2-shiny-breeding-logic.md) | EPIC | Gen 2 Shiny Breeding DV Compatibility & Odds Engine | story_owner | [4367237428628093633](https://jules.google.com/session/4367237428628093633) |
 | [epic-113-324-safari-zone-data-integration](.foundry/epics/epic-113-324-safari-zone-data-integration.md) | EPIC | Gen 1 & Gen 3 Safari Zone Data Extraction | story_owner | [11917385802654546658](https://jules.google.com/session/11917385802654546658) |
 | [epic-115-332-gen3-fame-checker-save-parsing](.foundry/epics/epic-115-332-gen3-fame-checker-save-parsing.md) | EPIC | Gen 3 Fame Checker Save Parsing | story_owner | [9222715477025088345](https://jules.google.com/session/9222715477025088345) |
+| [epic-116-335-gen3-wallpaper-phrase-generation-engine](.foundry/epics/epic-116-335-gen3-wallpaper-phrase-generation-engine.md) | EPIC | Gen 3 Wallpaper Phrase Generation Engine | story_owner | [3064708840409245364](https://jules.google.com/session/3064708840409245364) |
 | [epic-335-345-spinda-pid-extraction](.foundry/epics/epic-335-345-spinda-pid-extraction.md) | EPIC | Gen 3 Spinda PID Extraction | story_owner | [14236080514105615638](https://jules.google.com/session/14236080514105615638) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
