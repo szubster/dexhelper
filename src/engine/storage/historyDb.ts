@@ -139,3 +139,13 @@ export const writeSaveState = async (id: string, saveData: Uint8Array, metadata:
     throw error;
   }
 };
+
+// Expose API for E2E testing
+if (typeof window !== 'undefined' && (import.meta.env.DEV || import.meta.env.MODE === 'test')) {
+  // @ts-expect-error E2E testing hook
+  window.__historyDbAPI = {
+    writeSaveState,
+    getMostRecentSave,
+    getPreviousSave,
+  };
+}
