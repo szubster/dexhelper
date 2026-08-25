@@ -30,4 +30,6 @@ Derived from `epic-040-065-gen3-contest-data-integration`, this story is respons
 - Ensure tests verify both successful parsing and correct extraction mapping for contest stats.
 
 ## 3. Acceptance Criteria
-- [ ] Write integration tests confirming the parsing engine successfully processes full Gen 3 save files and maps contest data correctly.
+- [x] Write integration tests confirming the parsing engine successfully processes full Gen 3 save files and maps contest data correctly.
+- [ ] task-143-489-gen3-contest-integration-tests-impl
+- [ ] task-143-490-gen3-contest-integration-tests-qa
