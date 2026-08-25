@@ -32,3 +32,6 @@ Perform E2E verification of the Save State Read/Write APIs, testing the storage 
 - [ ] Verify that a series of save files can be written successfully into the mock IndexedDB environment.
 - [ ] Verify that the most recent save state can be accurately read.
 - [ ] Verify that a previous save state relative to a given save can be accurately read for diffing purposes.
+
+- [ ] task-433-489-save-state-read-write-api-e2e-impl
+- [ ] task-433-490-save-state-read-write-api-e2e-qa
