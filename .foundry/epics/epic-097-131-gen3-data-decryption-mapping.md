@@ -2,10 +2,10 @@
 id: epic-097-131-gen3-data-decryption-mapping
 type: EPIC
 title: Gen 3 Data Decryption and Mapping
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-01'
-updated_at: '2026-07-01'
+updated_at: '2026-08-25'
 depends_on:
   - epic-097-130-gen3-data-structure-extraction
 jules_session_id: null
