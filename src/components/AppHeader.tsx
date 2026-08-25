@@ -71,8 +71,8 @@ export function AppHeader({
                 </span>
                 <div className="flex items-center gap-2">
                   <div className="relative flex items-center justify-center">
-                    <div className="absolute h-4 w-4 animate-ping rounded-none bg-[var(--theme-primary)]/40" />
-                    <div className="relative h-2 w-2 rounded-none bg-[var(--theme-primary)] shadow-[0_0_8px_var(--theme-primary)]" />
+                    <div className="absolute h-4 w-4 animate-ping rounded-full bg-[var(--theme-primary)]/40" />
+                    <div className="relative h-2 w-2 rounded-full bg-[var(--theme-primary)] shadow-[0_0_8px_var(--theme-primary)]" />
                   </div>
                   <span className="font-black font-mono text-[9px] text-[var(--theme-primary)] tracking-widest">
                     SYS.PWR

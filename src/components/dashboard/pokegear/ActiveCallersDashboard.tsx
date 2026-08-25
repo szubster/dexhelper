@@ -38,8 +38,8 @@ export function ActiveCallersDashboard({ contacts, timerState }: ActiveCallersDa
           <div className="z-10 flex flex-col items-center justify-center rounded-none border-2 border-zinc-800 border-dashed bg-black/40 p-12">
             <div className="relative mb-4 flex h-16 w-16 items-center justify-center">
               <CornerCrosshairs className="h-2 w-2 border-zinc-600/50" thickness={2} />
-              <div className="absolute h-8 w-8 animate-ping rounded-none border border-zinc-700 opacity-20"></div>
-              <div className="absolute h-16 w-16 animate-[spin_4s_linear_infinite] rounded-none border-zinc-600 border-t border-r opacity-30"></div>
+              <div className="absolute h-8 w-8 animate-ping rounded-full border border-zinc-700 opacity-20"></div>
+              <div className="absolute h-16 w-16 animate-[spin_4s_linear_infinite] rounded-full border-zinc-600 border-t border-r opacity-30"></div>
             </div>
             <span className="tactical-text text-zinc-500">[ SEARCHING_FOR_SIGNALS... ]</span>
           </div>

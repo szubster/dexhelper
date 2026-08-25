@@ -134,16 +134,16 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         <div className="tactical-text absolute right-6 bottom-2 font-black text-[8px] text-zinc-700">POWER: ONLINE</div>
 
         {/* Physical Screws */}
-        <div className="absolute top-2 left-2 flex h-2 w-2 items-center justify-center rounded-none border border-zinc-800 bg-zinc-900 shadow-[inset_0_1px_1px_rgba(0,0,0,1)]">
+        <div className="absolute top-2 left-2 flex h-2 w-2 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 shadow-[inset_0_1px_1px_rgba(0,0,0,1)]">
           <div className="h-[1px] w-full rotate-45 bg-zinc-800" />
         </div>
-        <div className="absolute top-2 right-2 flex h-2 w-2 items-center justify-center rounded-none border border-zinc-800 bg-zinc-900 shadow-[inset_0_1px_1px_rgba(0,0,0,1)]">
+        <div className="absolute top-2 right-2 flex h-2 w-2 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 shadow-[inset_0_1px_1px_rgba(0,0,0,1)]">
           <div className="h-[1px] w-full rotate-12 bg-zinc-800" />
         </div>
-        <div className="absolute bottom-2 left-2 flex h-2 w-2 items-center justify-center rounded-none border border-zinc-800 bg-zinc-900 shadow-[inset_0_1px_1px_rgba(0,0,0,1)]">
+        <div className="absolute bottom-2 left-2 flex h-2 w-2 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 shadow-[inset_0_1px_1px_rgba(0,0,0,1)]">
           <div className="h-[1px] w-full -rotate-45 bg-zinc-800" />
         </div>
-        <div className="absolute right-2 bottom-2 flex h-2 w-2 items-center justify-center rounded-none border border-zinc-800 bg-zinc-900 shadow-[inset_0_1px_1px_rgba(0,0,0,1)]">
+        <div className="absolute right-2 bottom-2 flex h-2 w-2 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 shadow-[inset_0_1px_1px_rgba(0,0,0,1)]">
           <div className="h-[1px] w-full -rotate-12 bg-zinc-800" />
         </div>
 

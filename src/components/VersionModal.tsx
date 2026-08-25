@@ -42,8 +42,8 @@ export function VersionModal() {
           <div className="flex flex-1 flex-col items-center justify-center text-center">
             <div className="relative mb-6 flex h-20 w-20 items-center justify-center border border-amber-500/50 border-dashed bg-amber-500/10 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
               <CornerCrosshairs className="h-2 w-2 border-amber-500" />
-              <div className="absolute inset-0 scale-75 animate-[spin_3s_linear_infinite] rounded-none border border-amber-500/20 opacity-50" />
-              <div className="absolute inset-0 scale-50 animate-[ping_2s_ease-out_infinite] rounded-none border border-amber-500/40" />
+              <div className="absolute inset-0 scale-75 animate-[spin_3s_linear_infinite] rounded-full border border-amber-500/20 opacity-50" />
+              <div className="absolute inset-0 scale-50 animate-[ping_2s_ease-out_infinite] rounded-full border border-amber-500/40" />
               <ServerCrash className="relative z-10 text-amber-500" size={32} />
             </div>
 

@@ -145,7 +145,7 @@ export function SyncProgress() {
                 </div>
               ) : (
                 <>
-                  <div className="absolute inset-0 scale-75 animate-ping rounded-none border border-blue-500/20 opacity-20" />
+                  <div className="absolute inset-0 scale-75 animate-ping rounded-full border border-blue-500/20 opacity-20" />
                   <div className="relative z-10 flex h-20 w-20 items-center justify-center border border-blue-500/30 bg-blue-500/10 shadow-[0_0_20px_rgba(59,130,246,0.2)]">
                     <Database className="text-blue-400" size={32} />
                   </div>
