@@ -2,12 +2,12 @@
 id: epic-335-345-spinda-pid-extraction
 type: EPIC
 title: Gen 3 Spinda PID Extraction
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-26'
-updated_at: '2026-08-23'
+updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14236080514105615638'
 pr_number: null
 parent: prd-119-335-gen3-spinda-pattern-viewer
 tags:
