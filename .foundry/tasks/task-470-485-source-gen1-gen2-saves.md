@@ -31,4 +31,4 @@ We need to expand our test fixture library by sourcing real-world `.sav` files f
 ## Acceptance Criteria
 - [ ] At least 3 different Gen 1 save files are downloaded.
 - [ ] At least 3 different Gen 2 save files are downloaded.
-- [ ] research-485-471-source-gen1-gen2-saves-manually
+- [x] research-485-471-source-gen1-gen2-saves-manually

@@ -31,6 +31,6 @@ Automated scripts failed to source valid binary save files for Gen 1 and Gen 2 g
 4. Make them available for integration.
 
 ## Acceptance Criteria
-- [ ] At least 3 different Gen 1 save files are successfully sourced and added to the project.
-- [ ] At least 3 different Gen 2 save files are successfully sourced and added to the project.
-- [ ] A README is included documenting the origins of all the files.
+- [x] At least 3 different Gen 1 save files are successfully sourced and added to the project.
+- [x] At least 3 different Gen 2 save files are successfully sourced and added to the project.
+- [x] A README is included documenting the origins of all the files.
