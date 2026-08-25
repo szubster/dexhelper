@@ -2,10 +2,10 @@
 id: story-404-363-update-parsers
 type: STORY
 title: Update Generation-Specific Parsers and Tests
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-07'
-updated_at: '2026-08-23'
+updated_at: '2026-08-25'
 depends_on:
   - story-404-362-refactor-savedata-type
 jules_session_id: null
@@ -28,5 +28,5 @@ Update `gen1.ts`, `gen2.ts`, and `gen3.ts` parsers to return correctly narrowed 
 ## Acceptance Criteria
 - [x] Create task for coder to update parsers and tests.
 - [x] Create task for qa to verify parser tests and type narrowing.
-- [ ] task-363-440-update-parsers-impl
-- [ ] task-363-441-update-parsers-qa
+- [x] task-363-440-update-parsers-impl
+- [x] task-363-441-update-parsers-qa
