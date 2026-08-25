@@ -2,12 +2,12 @@
 id: story-065-143-gen3-contest-integration-tests
 type: STORY
 title: Gen 3 Contest Integration Tests
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-16'
-updated_at: '2026-08-14'
+updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10088150751904229926'
 pr_number: null
 parent: epic-040-065-gen3-contest-data-integration
 tags:
