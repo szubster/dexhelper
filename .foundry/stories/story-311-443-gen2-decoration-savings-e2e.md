@@ -33,4 +33,7 @@ This story handles the end-to-end (E2E) verification for the Gen 2 decoration an
 - Provide end-to-end integration tests confirming accurate presentation.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-443-489-implement-gen2-decorations-e2e
+- [ ] task-443-490-implement-gen2-savings-e2e
+- [ ] task-443-491-qa-gen2-decoration-savings-e2e
