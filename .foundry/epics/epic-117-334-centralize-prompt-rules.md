@@ -33,3 +33,6 @@ This epic fulfills the primary objective of `prd-118-117-centralize-prompt-remin
 ## 3. High-Level Acceptance Criteria
 - [ ] `tech_lead.md` is updated to remove the requirement to append reminder blocks to tasks.
 - [ ] Centralized instructions for failure handling and Empty PR submission are verified/added to `core_policies.md`, `coder.md`, and `qa.md`.
+- [ ] story-334-473-update-tech-lead-prompt
+- [ ] story-334-474-centralize-failure-handling-instructions
+- [ ] story-334-475-prompt-rules-integration-e2e
