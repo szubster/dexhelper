@@ -223,3 +223,10 @@ An Epic cannot be marked `COMPLETED` by the orchestrator unless an explicit STOR
   - story-350-441-game-exclusive-pokedex-analysis
   - story-350-442-cross-save-synergy-e2e
 - **Notes**: Complied with Demotion Compliance Rule, leaving parent checkboxes unchecked so orchestrator can demote parent. Added E2E specific story for integration requirement.
+
+
+<!-- Merged from 2026-08-23-08-53-26.md -->
+# Story Owner Journal
+
+## DAG ID Strictness
+- **Learning**: When generating child stories and setting their dependencies via the `depends_on` YAML array, do not include the file path or `.md` extension (e.g., `- .foundry/stories/story-420-443-cli-scaffold.md`). The orchestrator strictly expects the bare Node ID (e.g., `- story-420-443-cli-scaffold`) to parse the dependency graph correctly. Using paths will cause the orchestrator to fail its validation steps.
