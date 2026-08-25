@@ -34,5 +34,5 @@ QA verification of the new Gen 3 Data Extraction E2E tests.
 3. Check for false positives by purposefully breaking parsing logic and verifying tests fail.
 
 ## Acceptance Criteria
-- [ ] QA has verified E2E tests pass and accurately reflect requirements.
-- [ ] QA confirms test architecture is compliant.
+- [x] QA has verified E2E tests pass and accurately reflect requirements.
+- [x] QA confirms test architecture is compliant.
