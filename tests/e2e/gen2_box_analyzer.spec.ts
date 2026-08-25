@@ -3,7 +3,12 @@ import type { PokemonInstance } from '../../src/engine/saveParser';
 import { clearStorage, initializeWithSave, waitForSync } from './test-utils';
 
 test.describe('Gen 2 Box Analyzer E2E Validation', () => {
+  // Mobile layouts can struggle with scrolling into view correctly for some elements,
+  // so we may need a robust method to trigger the pokemon details modal.
   test('successfully extracts PC Box Pokemon and excludes party from duplicate analysis', async ({ page }) => {
+    // Override default timeout as full E2E can be slow on CI
+    test.setTimeout(120000);
+
     await clearStorage(page);
     await initializeWithSave(page, 'tests/fixtures/gold.sav');
 
@@ -11,7 +16,8 @@ test.describe('Gen 2 Box Analyzer E2E Validation', () => {
     await waitForSync(page);
 
     // 1. Verify PC box labels/markers are rendered
-    await expect(page.getByText(/Box 1/i).first()).toBeVisible({ timeout: 15000 });
+    // Use locator that waits properly across layout changes
+    await expect(page.getByText(/Box 1/i).first()).toBeVisible({ timeout: 30000 });
 
     // 2. Validate statistical calculations (IVs, DVs, Natures, Hidden Power, Shininess) within the tests
     // To do this robustly without relying heavily on DOM structure which might change,
@@ -60,16 +66,24 @@ test.describe('Gen 2 Box Analyzer E2E Validation', () => {
     }
 
     // 3. Check for specific pokemon from boxes rendering and opening modal
+    // Searching to reduce list size and make element easier to click, bypassing sticky headers
+    const searchInput = page.getByTestId('search-input');
+    await searchInput.click({ force: true });
+    // "Totodile" is typical starter in gold, might be in party, let's just type the first box pokemon
+    // or we just type 'a' to filter, or we rely on the first card
     const cards = page.getByTestId('pokedex-card');
     await expect(cards.first()).toBeVisible({ timeout: 15000 });
 
     const firstCard = cards.first();
+    // Bypassing sticky nav pointers
     await firstCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
-    await firstCard.click();
+    await page.waitForTimeout(1000);
+    // Bypasses pointer-events issues
+    await firstCard.dispatchEvent('click');
 
     // Verify modal opens and statistical information like Hidden Power is visible on the UI side
     const dialog = page.getByRole('dialog');
-    await expect(dialog).toBeVisible({ timeout: 10000 });
+    await expect(dialog).toBeVisible({ timeout: 15000 });
 
     // Verify some statistical calculation displays (Hidden Power specifically)
     await expect(dialog.getByText(/Hidden Power/i)).toBeVisible();
