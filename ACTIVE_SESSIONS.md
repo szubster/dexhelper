@@ -36,3 +36,4 @@
 | [task-443-479-adr-008-ui-compliance-linter-ci](.foundry/tasks/task-443-479-adr-008-ui-compliance-linter-ci.md) | TASK | Integrate ADR 008 Linter into CI | coder | [12517898575036887766](https://jules.google.com/session/12517898575036887766) |
 | [task-443-480-pokerus-parsing-qa](.foundry/tasks/task-443-480-pokerus-parsing-qa.md) | TASK | QA Pokerus Parsing | qa | [12332525711286593734](https://jules.google.com/session/12332525711286593734) |
 | [task-469-473-dynamic-move-pp-parsing-e2e-impl](.foundry/tasks/task-469-473-dynamic-move-pp-parsing-e2e-impl.md) | TASK | Implement E2E Verification for Dynamic Move PP Parsing | coder | [17646465594101035339](https://jules.google.com/session/17646465594101035339) |
+| [task-470-485-source-gen1-gen2-saves](.foundry/tasks/task-470-485-source-gen1-gen2-saves.md) | TASK | Source Public Gen 1 and Gen 2 Saves | coder | [5083890571541139326](https://jules.google.com/session/5083890571541139326) |
