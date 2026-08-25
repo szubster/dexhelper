@@ -32,6 +32,6 @@ Implement comprehensive unit tests for the prompt fragment composition engine.
 - Add tests for correct concatenation of rules and contexts.
 
 ## Acceptance Criteria
-- [ ] Unit tests for `composePromptFragments` added to `.github/scripts/fragments.test.ts`.
-- [ ] Edge cases (e.g., missing precedence, empty lists) are covered.
-- [ ] Tests pass via Vitest.
+- [x] Unit tests for `composePromptFragments` added to `.github/scripts/fragments.test.ts`.
+- [x] Edge cases (e.g., missing precedence, empty lists) are covered.
+- [x] Tests pass via Vitest.

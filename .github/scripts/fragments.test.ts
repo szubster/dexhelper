@@ -68,4 +68,25 @@ describe('composePromptFragments', () => {
     expect(result).toContain('Rule B1\nRule A1\nRule A2');
   });
 
+  it('handles empty fragments list', () => {
+    const fragments: PromptFragment[] = [];
+    const result = composePromptFragments(fragments);
+    expect(result).toBe('');
+  });
+
+  it('handles fragments with missing fields', () => {
+    const fragments: PromptFragment[] = [
+      { id: '1', role: 'Role A.' },
+      { id: '2', rules: ['Rule B1'] },
+      { id: '3', context: 'Context C.' },
+    ];
+    const result = composePromptFragments(fragments);
+    // Role A (from 1)
+    // Context C (from 3)
+    // Rule B1 (from 2)
+    // No explicit sorting, so order of roles, context, rules blocks applies
+    // roles first, then contexts, then rules.
+    expect(result).toBe('Role A.\n\nContext C.\n\nRule B1');
+  });
+
 });
