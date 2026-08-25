@@ -2,20 +2,20 @@
 id: task-470-485-source-gen1-gen2-saves
 type: TASK
 title: Source Public Gen 1 and Gen 2 Saves
-status: FAILED
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-24'
 updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: '5083890571541139326'
+jules_session_id: null
 pr_number: null
 parent: story-428-470-identify-public-saves
 tags:
   - testing
   - fixtures
 research_references: []
-rejection_count: 1
-rejection_reason: 'Automated sourcing of valid binary saves failed and requires manual extraction, as random bytes fail parser requirements.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---
