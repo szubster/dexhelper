@@ -2,12 +2,12 @@
 id: epic-053-106-egg-hatch-parsing
 type: EPIC
 title: Egg Hatch Tracker Data Extraction Engine
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-22'
-updated_at: '2026-08-17'
+updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7330086858632950908'
 pr_number: null
 parent: prd-083-053-daycare-egg-tracker
 tags:
