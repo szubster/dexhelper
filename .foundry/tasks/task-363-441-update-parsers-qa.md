@@ -26,5 +26,5 @@ notes: ''
 Verify parser tests and type narrowing for the updated `gen1.ts`, `gen2.ts`, and `gen3.ts` parsers.
 
 ## Acceptance Criteria
-- [ ] Verify that `gen1.ts`, `gen2.ts`, and `gen3.ts` return the correctly narrowed `SaveData` type.
-- [ ] Verify that all parser tests pass without regressions.
+- [x] Verify that `gen1.ts`, `gen2.ts`, and `gen3.ts` return the correctly narrowed `SaveData` type.
+- [x] Verify that all parser tests pass without regressions.
