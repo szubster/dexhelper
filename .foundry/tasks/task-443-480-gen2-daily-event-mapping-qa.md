@@ -2,13 +2,13 @@
 id: task-443-480-gen2-daily-event-mapping-qa
 type: TASK
 title: Verify correctness of the Gen 2 daily/weekly event mapping
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-23'
 updated_at: '2026-08-25'
 depends_on:
   - task-443-479-gen2-daily-event-mapping-tests
-jules_session_id: '9757209009654844353'
+jules_session_id: null
 pr_number: null
 parent: story-061-443-gen2-daily-event-mapping
 tags:
