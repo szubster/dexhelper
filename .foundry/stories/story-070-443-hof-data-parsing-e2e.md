@@ -34,3 +34,6 @@ This story ensures that the backend logic to parse and extract Hall of Fame reco
 - [ ] Write integration tests for Gen 1 Hall of Fame data extraction.
 - [ ] Write integration tests for Gen 2 Hall of Fame data extraction.
 - [ ] Run complete E2E test suite to verify overall functionality.
+- [ ] task-443-489-gen1-hof-e2e-impl
+- [ ] task-443-490-gen2-hof-e2e-impl
+- [ ] task-443-491-hof-e2e-qa
