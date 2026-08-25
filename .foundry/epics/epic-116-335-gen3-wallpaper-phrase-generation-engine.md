@@ -36,4 +36,6 @@ In Generation 3 games, a player can unlock up to 16 unique PC box wallpapers by 
 *   No strict downstream code dependencies, but requires the extracted `trainerId` from the parsed save data to function correctly when integrated.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this EPIC down into actionable STORY nodes.
+- [x] Story Owner: Break this EPIC down into actionable STORY nodes.
+- [ ] story-335-473-gen3-wallpaper-phrase-generator
+- [ ] story-335-474-gen3-wallpaper-phrase-generator-e2e
