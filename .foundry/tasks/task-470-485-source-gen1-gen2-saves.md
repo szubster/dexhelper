@@ -2,7 +2,7 @@
 id: task-470-485-source-gen1-gen2-saves
 type: TASK
 title: Source Public Gen 1 and Gen 2 Saves
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-24'
 updated_at: '2026-08-25'
@@ -14,8 +14,8 @@ tags:
   - testing
   - fixtures
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Automated sourcing of valid binary saves failed and requires manual extraction, as random bytes fail parser requirements.'
 notes: ''
 locks: []
 ---
@@ -31,3 +31,4 @@ We need to expand our test fixture library by sourcing real-world `.sav` files f
 ## Acceptance Criteria
 - [ ] At least 3 different Gen 1 save files are downloaded.
 - [ ] At least 3 different Gen 2 save files are downloaded.
+- [ ] research-485-471-source-gen1-gen2-saves-manually
