@@ -2,13 +2,13 @@
 id: story-398-433-save-state-read-write-api-e2e
 type: STORY
 title: Save State Read/Write API E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-20'
-updated_at: '2026-08-23'
+updated_at: '2026-08-25'
 depends_on:
   - story-398-432-save-state-read-api
-jules_session_id: null
+jules_session_id: '14915145008239885033'
 pr_number: null
 parent: epic-099-398-save-state-read-write-api-retry
 tags:
