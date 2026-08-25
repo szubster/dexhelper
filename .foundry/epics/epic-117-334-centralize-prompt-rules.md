@@ -2,12 +2,12 @@
 id: epic-117-334-centralize-prompt-rules
 type: EPIC
 title: Centralize Coder and QA Prompt Rules
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-19'
-updated_at: '2026-08-14'
+updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5329767741544408648'
 pr_number: null
 parent: prd-118-117-centralize-prompt-reminders
 tags:
