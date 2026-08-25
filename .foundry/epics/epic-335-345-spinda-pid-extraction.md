@@ -30,3 +30,4 @@ This Epic focuses on parsing the Gen 3 save file to extract all owned Spinda Pok
 - [x] Extract the 32-bit PID for each identified Spinda.
 - [x] Create a clean data structure or store to pass the extracted Spinda data to the UI and Rendering layers.
 - [x] story-345-349-gen3-spinda-extraction-core
+- [ ] story-345-473-spinda-extraction-e2e
