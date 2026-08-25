@@ -2,13 +2,13 @@
 id: story-397-360-gen3-roamer-integration-e2e
 type: STORY
 title: Gen 3 Roamer Integration and E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-08-24'
+updated_at: '2026-08-25'
 depends_on:
   - story-397-359-gen3-roamer-unit-tests
-jules_session_id: null
+jules_session_id: '13006675669632454865'
 pr_number: null
 parent: epic-044-397-gen3-roamer-core-extraction-v5
 tags:
