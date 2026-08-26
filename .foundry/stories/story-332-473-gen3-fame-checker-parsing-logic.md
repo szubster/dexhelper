@@ -35,3 +35,5 @@ This story entails integrating the event flag offsets discovered during the rese
 - [ ] Ensure explicit handling for FireRed/LeafGreen specific structures compared to Ruby/Sapphire/Emerald where applicable.
 - [ ] Integrate `parseGen3FameChecker` into the Gen 3 save parser.
 - [ ] Write unit tests for the parsing logic.
+- [ ] task-473-493-gen3-fame-checker-impl
+- [ ] task-473-494-gen3-fame-checker-qa
