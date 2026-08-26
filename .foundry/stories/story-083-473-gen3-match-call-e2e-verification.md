@@ -2,13 +2,13 @@
 id: story-083-473-gen3-match-call-e2e-verification
 type: STORY
 title: Gen 3 Match Call E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-26'
 depends_on:
   - story-083-127-gen3-match-call-schema-integration
-jules_session_id: null
+jules_session_id: '907086452839081057'
 pr_number: null
 parent: epic-048-083-gen3-match-call-save-parsing
 tags:
