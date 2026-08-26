@@ -23,6 +23,10 @@ rejection_reason: ''
 As outlined in the PRD (`prd-119-118-gen2-unown-dex-tracker`), the first step to building the Unown Dex tracker is to parse the relevant data from the Gen 2 save file. We need to extract the caught Unown forms from the Unown Dex save block data, as well as the event flags for the four Ruins of Alph sliding puzzles (Kabuto, Aerodactyl, Ho-Oh, Omanyte).
 
 ## Acceptance Criteria
+- [x] Break down into Tasks
 - [ ] Implement parsing logic to extract the caught Unown forms from Gen 2 save data.
 - [ ] Implement parsing logic to extract the event flags for the four Ruins of Alph puzzles (Kabuto, Aerodactyl, Ho-Oh, Omanyte).
 - [ ] Ensure unit tests are added to verify correct parsing of both Unown Dex data and event flags.
+- [ ] story-338-477-gen2-unown-dex-parsing
+- [ ] story-338-478-gen2-ruins-of-alph-puzzle-flags
+- [ ] story-338-479-gen2-unown-dex-e2e
