@@ -2,10 +2,10 @@
 id: story-070-443-hof-data-parsing-e2e
 type: STORY
 title: Integration and E2E Verification for Gen 1 and Gen 2 Hall of Fame Data
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-08-25'
+updated_at: '2026-08-26'
 depends_on:
   - story-070-111-parse-gen1-hof-data
   - story-070-112-parse-gen2-hof-data
