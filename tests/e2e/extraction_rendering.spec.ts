@@ -35,10 +35,10 @@ test.describe('DV/IV/PV Extraction Rendering', () => {
 
     const searchInput = page.getByTestId('search-input');
     await searchInput.click({ force: true });
-    await searchInput.fill('Torchic');
+    await searchInput.fill('Aggron');
 
     await page.waitForTimeout(3000);
-    const pCard = page.locator('[data-testid="pokedex-card"][data-pokemon-id="255"]');
+    const pCard = page.locator('[data-testid="pokedex-card"][data-pokemon-id="306"]');
     await pCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
     await page.waitForTimeout(500);
     await expect(pCard).toBeVisible({ timeout: 10000 });
