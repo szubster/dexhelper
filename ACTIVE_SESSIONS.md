@@ -8,6 +8,7 @@
 | [epic-116-335-gen3-wallpaper-phrase-generation-engine](.foundry/epics/epic-116-335-gen3-wallpaper-phrase-generation-engine.md) | EPIC | Gen 3 Wallpaper Phrase Generation Engine | story_owner | [3064708840409245364](https://jules.google.com/session/3064708840409245364) |
 | [epic-116-336-gen3-wallpaper-app-state-tracking](.foundry/epics/epic-116-336-gen3-wallpaper-app-state-tracking.md) | EPIC | Gen 3 Wallpaper App State Tracking | story_owner | [4869820587410010596](https://jules.google.com/session/4869820587410010596) |
 | [epic-118-338-gen2-unown-dex-data-extraction](.foundry/epics/epic-118-338-gen2-unown-dex-data-extraction.md) | EPIC | Gen 2 Unown Dex Data Extraction | story_owner | [9631422059218650108](https://jules.google.com/session/9631422059218650108) |
+| [epic-121-345-gen3-mystery-gift-data-extraction](.foundry/epics/epic-121-345-gen3-mystery-gift-data-extraction.md) | EPIC | Gen 3 Mystery Gift Data Extraction | story_owner | [11277121843102391947](https://jules.google.com/session/11277121843102391947) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
