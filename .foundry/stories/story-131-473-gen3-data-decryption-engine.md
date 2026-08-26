@@ -2,13 +2,13 @@
 id: story-131-473-gen3-data-decryption-engine
 type: STORY
 title: Gen 3 Data Decryption Engine
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-26'
 depends_on:
   - epic-097-130-gen3-data-structure-extraction
-jules_session_id: null
+jules_session_id: '8805279093421757777'
 pr_number: null
 parent: epic-097-131-gen3-data-decryption-mapping
 tags:
