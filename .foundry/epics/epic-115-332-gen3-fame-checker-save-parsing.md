@@ -2,13 +2,13 @@
 id: epic-115-332-gen3-fame-checker-save-parsing
 type: EPIC
 title: Gen 3 Fame Checker Save Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-17'
-updated_at: '2026-08-25'
+updated_at: '2026-08-26'
 depends_on:
   - epic-115-331-gen3-fame-checker-research
-jules_session_id: '9222715477025088345'
+jules_session_id: null
 pr_number: null
 parent: prd-115-115-gen3-fame-checker-assistant
 tags:

@@ -2,13 +2,13 @@
 id: epic-340-412-orchestrator-parallel-execution
 type: EPIC
 title: Orchestrator Parallel Variant Execution
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-11'
 updated_at: '2026-08-26'
 depends_on:
   - epic-340-411-experiment-schema-updates
-jules_session_id: '1739538804922084368'
+jules_session_id: null
 pr_number: null
 parent: prd-135-340-automated-agent-ab-testing-framework
 tags:

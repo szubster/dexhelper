@@ -2,12 +2,12 @@
 id: epic-340-420-background-fetching
 type: EPIC
 title: Implement background fetching and preloading
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-13'
 updated_at: '2026-08-26'
 depends_on: []
-jules_session_id: '16167507660473159796'
+jules_session_id: null
 parent: prd-136-340-split-bundles-and-data
 tags:
   - performance
