@@ -27,4 +27,8 @@ notes: ''
 Perform end-to-end verification and integration testing for the egg hatch tracker data extraction engine to ensure save parsing logic correctly calculates step counts.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+
+- [ ] task-473-493-gen2-egg-hatch-e2e-impl
+- [ ] task-473-494-gen3-egg-hatch-e2e-impl
+- [ ] task-473-495-egg-hatch-e2e-qa
