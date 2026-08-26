@@ -2,12 +2,12 @@
 id: task-477-493-msgpack-prefetch-logic-impl
 type: TASK
 title: Implement background prefetching logic for msgpack files
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-08-26'
 depends_on: []
-jules_session_id: '2516259550963043840'
+jules_session_id: '5691713631386830'
 pr_number: null
 parent: story-420-477-implement-msgpack-prefetching
 tags: []
