@@ -27,5 +27,8 @@ Split the large static Pokedex payload into core and extension bundles, loading 
 - Refactor `src/db/PokeDB.ts` synchronization logic to support multi-part synchronization when specific generations are required.
 
 ## Acceptance Criteria
-- [ ] Break down this epic into stories.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Break down this epic into stories.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-419-477-pokedata-plugin-refactor
+- [ ] story-419-478-pokedb-sync-refactor
+- [ ] story-419-479-data-splitting-e2e
