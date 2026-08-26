@@ -2,13 +2,13 @@
 id: task-433-489-save-state-read-write-api-e2e-impl
 type: TASK
 title: Implement Save State Read/Write API E2E
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-08-26'
 depends_on:
   - story-398-432-save-state-read-api
-jules_session_id: null
+jules_session_id: '1816015557901646555'
 pr_number: null
 parent: story-398-433-save-state-read-write-api-e2e
 tags:
