@@ -8,9 +8,13 @@ test.describe('Gen 2 Hall of Fame Data Parsing E2E', () => {
     await clearStorage(page);
     await initializeWithSave(page, 'tests/fixtures/crystal.sav');
 
+    // Make sure we wait sufficiently for parsing logic
+    await page.waitForTimeout(2000);
     await waitForSync(page);
 
-    const saveData = await page.evaluate(() => {
+    const saveData = await page.evaluate(async () => {
+      // Ensure state evaluation wait for next tick just in case
+      await new Promise((resolve) => setTimeout(resolve, 500));
       // biome-ignore lint/suspicious/noExplicitAny: testing hook
       const globalWindow = window as any;
       if (globalWindow.__store) {
