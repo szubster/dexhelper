@@ -143,4 +143,31 @@ describe('prefetchMsgpack', () => {
 
     global.document = originalDocument;
   });
+
+  it('should default to / if import.meta.env.BASE_URL is undefined', () => {
+      // Mock import.meta.env.BASE_URL
+      vi.stubEnv('BASE_URL', '');
+      const appendedLinks: MockLink[] = [];
+      const querySelectorMock = vi.fn<(selector: string) => Element | null>().mockReturnValue(null);
+      const createElementMock = vi.fn<(tagName: string) => HTMLElement>().mockImplementation((tag: string) => {
+        if (tag === 'link') return {} as HTMLElement;
+        return {} as HTMLElement;
+      });
+
+      global.document = {
+        head: {
+          querySelector: querySelectorMock,
+          appendChild: vi.fn<(node: Node) => Node>().mockImplementation((el: Node) => {
+            appendedLinks.push(el as unknown as MockLink);
+            return el;
+          }),
+        },
+        createElement: createElementMock,
+      } as unknown as Document;
+
+      prefetchMsgpack();
+
+      const hrefs = appendedLinks.map((l) => l.href);
+      expect(hrefs).toContain('/data/pokedata-gen1.msgpack');
+  });
 });
