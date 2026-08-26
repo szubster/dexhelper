@@ -29,4 +29,7 @@ We need to extract the 32-bit Ribbon and Obedience bitfield for each Pokémon fr
 Define reusable constants for Ribbon bitmask offsets and lengths.
 
 ## Acceptance Criteria
-- [ ] Break down story into tasks for defining reusable constants for Ribbon bitmask offsets and lengths.
+- [x] Break down story into tasks for defining reusable constants for Ribbon bitmask offsets and lengths.
+- [ ] task-473-493-define-ribbon-constants
+- [ ] task-473-494-ribbon-constants-tests
+- [ ] task-473-495-qa-ribbon-constants
