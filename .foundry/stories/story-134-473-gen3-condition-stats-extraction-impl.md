@@ -2,12 +2,12 @@
 id: story-134-473-gen3-condition-stats-extraction-impl
 type: STORY
 title: Implement Gen 3 Contest Condition Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-26'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8762556071915033310'
 pr_number: null
 parent: epic-101-134-gen3-condition-stats-extraction
 tags:
