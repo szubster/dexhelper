@@ -13,6 +13,7 @@
 | [epic-338-404-kurt-apricorn-data-engine](.foundry/epics/epic-338-404-kurt-apricorn-data-engine.md) | EPIC | Gen 2 Kurt Apricorn Data Parsing Engine | story_owner | [8382786666497741185](https://jules.google.com/session/8382786666497741185) |
 | [epic-340-412-orchestrator-parallel-execution](.foundry/epics/epic-340-412-orchestrator-parallel-execution.md) | EPIC | Orchestrator Parallel Variant Execution | story_owner | [1739538804922084368](https://jules.google.com/session/1739538804922084368) |
 | [epic-340-412-orchestrator-resource-locking](.foundry/epics/epic-340-412-orchestrator-resource-locking.md) | EPIC | Orchestrator Logic for Resource Locking | story_owner | [1428006663748828254](https://jules.google.com/session/1428006663748828254) |
+| [epic-340-417-engine-code-splitting](.foundry/epics/epic-340-417-engine-code-splitting.md) | EPIC | Implement generation-specific code splitting for the engine | story_owner | [16986453588371903066](https://jules.google.com/session/16986453588371903066) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
