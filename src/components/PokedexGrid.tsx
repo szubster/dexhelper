@@ -73,21 +73,34 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
       const inParty = partySet.has(pokemon.id);
       const inPC = pcSet.has(pokemon.id);
       const hasInStorage = inParty || inPC;
+      const isOwnedInDex = saveData.owned.has(pokemon.id);
 
-      if (filtersSet.has('secured') && hasInStorage) {
+      const isOwned = isLivingDex ? hasInStorage : isOwnedInDex || hasInStorage;
+
+      if (filtersSet.has('secured') && isOwned) {
         result.push(pokemon);
         continue;
       }
-      if (filtersSet.has('missing') && !hasInStorage) {
+      if (filtersSet.has('missing') && !isOwned) {
         result.push(pokemon);
         continue;
       }
-      if (filtersSet.has('dex-only') && saveData.owned.has(pokemon.id) && !hasInStorage) {
+      if (filtersSet.has('dex-only') && isOwnedInDex && !hasInStorage) {
         result.push(pokemon);
       }
     }
     return result;
-  }, [pokemonList, displayLimit, deferredSearchTerm, saveData, filtersSet, partySet, pcSet, locationPokemonIds]);
+  }, [
+    pokemonList,
+    displayLimit,
+    deferredSearchTerm,
+    saveData,
+    filtersSet,
+    partySet,
+    pcSet,
+    locationPokemonIds,
+    isLivingDex,
+  ]);
 
   const shinySpeciesIds = useMemo(() => {
     const set = new Set<number>();

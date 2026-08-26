@@ -21,11 +21,11 @@ test.describe('Living Dex PC Mapping', () => {
     await page.waitForTimeout(500);
 
     await page.getByTestId('filter-missing').click();
-    await expect(page.locator('[data-pokemon-id="1"]')).toBeVisible();
-    await expect(page.locator('[data-pokemon-id="25"]')).not.toBeVisible();
+    await expect(page.locator('[data-pokemon-id="1"]').first()).toBeVisible();
+    await expect(page.locator('[data-pokemon-id="25"]').first()).not.toBeVisible();
 
     await page.getByTestId('filter-secured').click();
-    await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
-    await expect(page.locator('[data-pokemon-id="1"]')).not.toBeVisible();
+    await expect(page.locator('[data-pokemon-id="25"]').first()).toBeVisible();
+    await expect(page.locator('[data-pokemon-id="1"]').first()).not.toBeVisible();
   });
 });
