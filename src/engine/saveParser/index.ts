@@ -1,12 +1,30 @@
 import type { GameVersion, PokemonInstance, SaveData } from './parsers/common';
 import { isGen1Save, isGen2Save, isGen3Save } from './utils/detection';
 
+/**
+ * The memory offset where the Gen 1 save data block begins for checksum calculation.
+ */
 const GEN1_CHECKSUM_DATA_START = 0x2598;
+/**
+ * The memory offset where the Gen 1 save data block ends for checksum calculation.
+ */
 const GEN1_CHECKSUM_DATA_END = 0x3522;
+/**
+ * The memory offset where the Gen 1 save checksum byte is stored.
+ */
 const GEN1_CHECKSUM_OFFSET = 0x3523;
 
+/**
+ * The memory offset where the Gen 2 save data block begins for checksum calculation.
+ */
 const GEN2_CHECKSUM_DATA_START = 0x2009;
+/**
+ * The memory offset where the Gen 2 save data block ends for checksum calculation.
+ */
 const GEN2_CHECKSUM_DATA_END = 0x2d0c;
+/**
+ * The memory offset where the Gen 2 save checksum (16-bit little-endian) is stored.
+ */
 const GEN2_CHECKSUM_OFFSET = 0x2d0d;
 
 export type { GameVersion, PokemonInstance, SaveData };
@@ -28,6 +46,11 @@ export type { GameVersion, PokemonInstance, SaveData };
  * @param forcedVersion - An optional version override provided by the user to force specific parsing logic (e.g., forcing Yellow, Crystal, or Emerald).
  * @returns The structured SaveData object representing the player's progress and Pokémon.
  * @throws An Error if the file size is invalid or if no known Generation structure could be matched.
+ *
+ * @example
+ * const buffer = await file.arrayBuffer();
+ * const saveData = await parseSaveFile(buffer);
+ * console.log(saveData.trainerName);
  */
 // ⚡ Bolt: Use dynamic imports for generation-specific parsers to reduce the initial bundle size.
 export async function parseSaveFile(buffer: ArrayBufferLike, forcedVersion?: GameVersion): Promise<SaveData> {
@@ -41,7 +64,7 @@ export async function parseSaveFile(buffer: ArrayBufferLike, forcedVersion?: Gam
     // Gen 1 Checksum
     // Gen 1 calculates its checksum by iterating over the main save data block (0x2598 to 0x3522),
     // subtracting each byte's value from an initial value of 255 (0xFF).
-    // The result is stored at 0x3523.
+    // The result is stored at 0x3523. We verify this checksum to determine if the save is valid.
     let gen1Sum = 255;
     for (let i = GEN1_CHECKSUM_DATA_START; i <= GEN1_CHECKSUM_DATA_END; i++) {
       gen1Sum -= view.getUint8(i);
@@ -74,6 +97,9 @@ export async function parseSaveFile(buffer: ArrayBufferLike, forcedVersion?: Gam
       // the save payload without recalculating and updating the checksum byte at the end of the block.
       // If we strictly relied on checksums, these files would be permanently unreadable.
       // Instead, we use structural signatures (`isGen1Save`, `isGen2Save`, `isGen3Save`) to identify them.
+      //
+      // This fallback checks internal memory offsets (like party counts and string terminators)
+      // rather than mathematical checksums.
       if (isGen1Save(view)) {
         const { parseGen1 } = await import('./parsers/gen1');
         return parseGen1(view, forcedVersion);
