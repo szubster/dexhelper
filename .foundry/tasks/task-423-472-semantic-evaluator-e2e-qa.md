@@ -2,14 +2,14 @@
 id: task-423-472-semantic-evaluator-e2e-qa
 type: TASK
 title: Semantic Evaluator E2E QA Verification
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-23'
 updated_at: '2026-08-26'
 depends_on:
   - task-423-470-semantic-evaluator-e2e-positive
   - task-423-471-semantic-evaluator-e2e-negative
-jules_session_id: '3379611002888755407'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: story-417-423-semantic-evaluator-e2e
