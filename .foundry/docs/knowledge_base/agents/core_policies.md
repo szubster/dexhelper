@@ -188,3 +188,6 @@ When modifying or verifying central systems like the DAG Orchestrator (`.github/
 
 ## Playwright E2E Best Practices
 - Always use the `-a` flag with `xvfb-run` (e.g., `xvfb-run -a pnpm test:e2e`) during headless execution to bypass lock issues.
+- **Target Specific Files**: When running Playwright E2E tests locally to verify code changes, execute only the affected test files (e.g., `xvfb-run -a pnpm test:e2e tests/e2e/home.spec.ts`) to avoid triggering the 400-second bash session timeout.
+- **No Binary Installation**: Do NOT attempt to install Playwright browser binaries (e.g., `pnpm exec playwright install`) in the sandbox environment, as the download will likely exceed the bash session timeout and crash the run. Defer E2E verification to GitHub CI instead.
+- **Vite Cache Clearing**: When intentionally modifying application source code via bash, clear the Vite cache (`rm -rf node_modules/.vite`) before rerunning the tests to ensure the local Playwright webServer serves the latest code.
