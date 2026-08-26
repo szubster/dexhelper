@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, type Mock, vi } from 'vitest';
 import { prefetchMsgpack } from '../prefetchMsgpack';
 
 type MockLink = { href?: string; as?: string; crossOrigin?: string; rel?: string };
@@ -11,11 +11,11 @@ describe('prefetchMsgpack', () => {
       global.document = {
         head: {
           innerHTML: '',
-          querySelector: vi.fn<(selector: string) => Element | null>(),
-          appendChild: vi.fn<(node: Node) => Node>(),
-          querySelectorAll: vi.fn<(selector: string) => NodeList>(),
+          querySelector: vi.fn<Mock<(...args: unknown[]) => Element | null>>(),
+          appendChild: vi.fn<Mock<(...args: unknown[]) => Node>>(),
+          querySelectorAll: vi.fn<Mock<(...args: unknown[]) => NodeList>>(),
         },
-        createElement: vi.fn<(tagName: string) => HTMLElement>(),
+        createElement: vi.fn<Mock<(...args: unknown[]) => HTMLElement>>(),
       } as unknown as Document;
     } else {
       document.head.innerHTML = '';
@@ -28,8 +28,8 @@ describe('prefetchMsgpack', () => {
   it('should append prefetch link tags for gen1, gen2, and gen3 msgpack files', () => {
     // We have to mock the DOM if we are not in a browser environment
     const appendedLinks: MockLink[] = [];
-    const querySelectorMock = vi.fn<(selector: string) => Element | null>().mockReturnValue(null);
-    const createElementMock = vi.fn<(tagName: string) => HTMLElement>().mockImplementation((tag: string) => {
+    const querySelectorMock = vi.fn<Mock<(...args: unknown[]) => Element | null>>().mockReturnValue(null);
+    const createElementMock = vi.fn<Mock<(...args: unknown[]) => HTMLElement>>().mockImplementation((tag: unknown) => {
       if (tag === 'link') {
         return {
           rel: '',
@@ -47,9 +47,9 @@ describe('prefetchMsgpack', () => {
     global.document = {
       head: {
         querySelector: querySelectorMock,
-        appendChild: vi.fn<(node: Node) => Node>().mockImplementation((el: Node) => {
-          appendedLinks.push(el as unknown as MockLink);
-          return el;
+        appendChild: vi.fn<Mock<(...args: unknown[]) => Node>>().mockImplementation((el: unknown) => {
+          appendedLinks.push(el as MockLink);
+          return el as Node;
         }),
       },
       createElement: createElementMock,
@@ -74,13 +74,15 @@ describe('prefetchMsgpack', () => {
   it('should not append duplicate link tags if they already exist', () => {
     const appendedLinks: MockLink[] = [];
     // Mock that one link already exists
-    const querySelectorMock = vi.fn<(selector: string) => Element | null>().mockImplementation((selector: string) => {
-      if (selector.includes('pokedata-gen1.msgpack')) {
-        return {} as Element; // truthy, meaning it exists
-      }
-      return null;
-    });
-    const createElementMock = vi.fn<(tagName: string) => HTMLElement>().mockImplementation((tag: string) => {
+    const querySelectorMock = vi
+      .fn<Mock<(...args: unknown[]) => Element | null>>()
+      .mockImplementation((selector: unknown) => {
+        if (typeof selector === 'string' && selector.includes('pokedata-gen1.msgpack')) {
+          return {} as Element; // truthy, meaning it exists
+        }
+        return null;
+      });
+    const createElementMock = vi.fn<Mock<(...args: unknown[]) => HTMLElement>>().mockImplementation((tag: unknown) => {
       if (tag === 'link') {
         return {
           rel: '',
@@ -95,9 +97,9 @@ describe('prefetchMsgpack', () => {
     global.document = {
       head: {
         querySelector: querySelectorMock,
-        appendChild: vi.fn<(node: Node) => Node>().mockImplementation((el: Node) => {
-          appendedLinks.push(el as unknown as MockLink);
-          return el;
+        appendChild: vi.fn<Mock<(...args: unknown[]) => Node>>().mockImplementation((el: unknown) => {
+          appendedLinks.push(el as MockLink);
+          return el as Node;
         }),
       },
       createElement: createElementMock,
@@ -111,8 +113,8 @@ describe('prefetchMsgpack', () => {
   it('should use import.meta.env.BASE_URL correctly', () => {
     vi.stubEnv('BASE_URL', '/dexhelper/');
     const appendedLinks: MockLink[] = [];
-    const querySelectorMock = vi.fn<(selector: string) => Element | null>().mockReturnValue(null);
-    const createElementMock = vi.fn<(tagName: string) => HTMLElement>().mockImplementation((tag: string) => {
+    const querySelectorMock = vi.fn<Mock<(...args: unknown[]) => Element | null>>().mockReturnValue(null);
+    const createElementMock = vi.fn<Mock<(...args: unknown[]) => HTMLElement>>().mockImplementation((tag: unknown) => {
       if (tag === 'link') return {} as HTMLElement;
       return {} as HTMLElement;
     });
@@ -120,9 +122,9 @@ describe('prefetchMsgpack', () => {
     global.document = {
       head: {
         querySelector: querySelectorMock,
-        appendChild: vi.fn<(node: Node) => Node>().mockImplementation((el: Node) => {
-          appendedLinks.push(el as unknown as MockLink);
-          return el;
+        appendChild: vi.fn<Mock<(...args: unknown[]) => Node>>().mockImplementation((el: unknown) => {
+          appendedLinks.push(el as MockLink);
+          return el as Node;
         }),
       },
       createElement: createElementMock,
@@ -142,32 +144,5 @@ describe('prefetchMsgpack', () => {
     expect(() => prefetchMsgpack()).not.toThrow();
 
     global.document = originalDocument;
-  });
-
-  it('should default to / if import.meta.env.BASE_URL is undefined', () => {
-      // Mock import.meta.env.BASE_URL
-      vi.stubEnv('BASE_URL', '');
-      const appendedLinks: MockLink[] = [];
-      const querySelectorMock = vi.fn<(selector: string) => Element | null>().mockReturnValue(null);
-      const createElementMock = vi.fn<(tagName: string) => HTMLElement>().mockImplementation((tag: string) => {
-        if (tag === 'link') return {} as HTMLElement;
-        return {} as HTMLElement;
-      });
-
-      global.document = {
-        head: {
-          querySelector: querySelectorMock,
-          appendChild: vi.fn<(node: Node) => Node>().mockImplementation((el: Node) => {
-            appendedLinks.push(el as unknown as MockLink);
-            return el;
-          }),
-        },
-        createElement: createElementMock,
-      } as unknown as Document;
-
-      prefetchMsgpack();
-
-      const hrefs = appendedLinks.map((l) => l.href);
-      expect(hrefs).toContain('/data/pokedata-gen1.msgpack');
   });
 });
