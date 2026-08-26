@@ -6,6 +6,7 @@ status: PENDING
 owner_persona: researcher
 created_at: '2026-08-26'
 updated_at: '2026-08-26'
+depends_on: []
 jules_session_id: '3958189168282060270'
 parent: story-136-361-sorting-algorithms-e2e
 ---
