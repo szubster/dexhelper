@@ -2,7 +2,7 @@
 id: epic-340-412-orchestrator-parallel-execution
 type: EPIC
 title: Orchestrator Parallel Variant Execution
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-11'
 updated_at: '2026-08-26'
