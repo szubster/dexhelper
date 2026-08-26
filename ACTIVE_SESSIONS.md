@@ -3,6 +3,7 @@
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
 | [adr-479-032-adr-008-exceptions](.foundry/docs/adrs/adr-479-032-adr-008-exceptions.md) | ADR | Finalize Exceptions to ADR 008 Tactical Aesthetic | architect | [2516259550963043840](https://jules.google.com/session/2516259550963043840) |
+| [epic-057-420-bash-timeout-wrapper-retry](.foundry/epics/epic-057-420-bash-timeout-wrapper-retry.md) | EPIC | Timeout Wrapper for Bash Sessions (Retry) | story_owner | [3744091394802980108](https://jules.google.com/session/3744091394802980108) |
 | [epic-114-400-gen3-pokeblock-case-parsing-retry](.foundry/epics/epic-114-400-gen3-pokeblock-case-parsing-retry.md) | EPIC | Gen 3 Pokéblock Case Data Parsing | epic_planner | [5424688107404290185](https://jules.google.com/session/5424688107404290185) |
 | [epic-116-335-gen3-wallpaper-phrase-generation-engine](.foundry/epics/epic-116-335-gen3-wallpaper-phrase-generation-engine.md) | EPIC | Gen 3 Wallpaper Phrase Generation Engine | story_owner | [3064708840409245364](https://jules.google.com/session/3064708840409245364) |
 | [epic-116-336-gen3-wallpaper-app-state-tracking](.foundry/epics/epic-116-336-gen3-wallpaper-app-state-tracking.md) | EPIC | Gen 3 Wallpaper App State Tracking | story_owner | [4869820587410010596](https://jules.google.com/session/4869820587410010596) |
