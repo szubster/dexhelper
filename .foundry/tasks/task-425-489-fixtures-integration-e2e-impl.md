@@ -27,6 +27,6 @@ notes: ''
 Implement comprehensive Playwright E2E tests to verify that the newly integrated Gen 1, 2, and 3 save file fixtures load correctly within the application lifecycle without regressions.
 
 ## Acceptance Criteria
-- [ ] Create or update Playwright test files in `tests/e2e/` to utilize the new Gen 1, Gen 2, and Gen 3 fixtures.
-- [ ] Ensure that E2E tests cover loading, parsing, and verifying core state changes when these fixtures are used.
-- [ ] Verify that `pnpm test:e2e` passes successfully locally with the new tests.
+- [x] Create or update Playwright test files in `tests/e2e/` to utilize the new Gen 1, Gen 2, and Gen 3 fixtures.
+- [x] Ensure that E2E tests cover loading, parsing, and verifying core state changes when these fixtures are used.
+- [x] Verify that `pnpm test:e2e` passes successfully locally with the new tests.
