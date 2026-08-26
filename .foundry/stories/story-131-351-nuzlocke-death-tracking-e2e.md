@@ -31,5 +31,8 @@ Implement End-to-End tests to verify the automated death tracking logic and Grav
 
 ## Acceptance Criteria
 - [x] Breakdown into Tasks
-- [ ] task-351-384-nuzlocke-death-tracking-e2e-impl
-- [ ] task-351-385-nuzlocke-death-tracking-e2e-qa
+- [x] task-351-384-nuzlocke-death-tracking-e2e-impl
+- [x] task-351-385-nuzlocke-death-tracking-e2e-qa
+- [ ] research-351-494-investigate-nuzlocke-death-ui-locators
+- [ ] task-351-495-nuzlocke-death-tracking-e2e-impl-retry
+- [ ] task-351-496-nuzlocke-death-tracking-e2e-qa-retry
