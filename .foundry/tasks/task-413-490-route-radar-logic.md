@@ -29,5 +29,5 @@ The RouteRadarController must be updated to aggregate bike requirement data into
 Modify calculateHeatmap in RouteRadarController.ts to construct the new RouteRadarHeatmap object structure and accurately populate the requiresMachBike and requiresAcroBike properties based on the injected data.
 
 ## Acceptance Criteria
-- [ ] coder: Implement the logic to populate bike requirements in calculateHeatmap.
-- [ ] coder: Add unit tests to verify the aggregated heatmap structure includes the correct bike flags.
+- [x] coder: Implement the logic to populate bike requirements in calculateHeatmap.
+- [x] coder: Add unit tests to verify the aggregated heatmap structure includes the correct bike flags.
