@@ -30,4 +30,7 @@ We need to prefetch generation-specific msgpack files in the background to impro
 - Ensure the prefetching does not block the main thread.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-477-493-msgpack-prefetch-logic-impl
+- [ ] task-477-494-msgpack-prefetch-state-layer-impl
+- [ ] task-477-495-msgpack-prefetch-qa
