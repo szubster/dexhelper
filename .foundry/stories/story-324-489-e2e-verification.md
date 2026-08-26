@@ -33,4 +33,8 @@ This story covers the end-to-end integration and verification of the Gen 1 and G
 - Verify integration between the data layer and static tables.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-489-493-gen1-safari-zone-e2e-impl
+- [ ] task-489-494-gen1-safari-zone-e2e-qa
+- [ ] task-489-495-gen3-safari-zone-e2e-impl
+- [ ] task-489-496-gen3-safari-zone-e2e-qa
