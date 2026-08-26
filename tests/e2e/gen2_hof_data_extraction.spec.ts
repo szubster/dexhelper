@@ -13,12 +13,17 @@ test.describe('Gen 2 Hall of Fame Data Parsing E2E', () => {
     await waitForSync(page);
 
     const saveData = await page.evaluate(async () => {
-      // Ensure state evaluation wait for next tick just in case
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      // biome-ignore lint/suspicious/noExplicitAny: testing hook
-      const globalWindow = window as any;
-      if (globalWindow.__store) {
-        return globalWindow.__store().saveData;
+      // Poll a few times until __store is available and saveData is populated
+      for (let i = 0; i < 20; i++) {
+        // biome-ignore lint/suspicious/noExplicitAny: testing hook
+        const globalWindow = window as any;
+        if (globalWindow.__store) {
+          const state = globalWindow.__store();
+          if (state?.saveData) {
+            return state.saveData;
+          }
+        }
+        await new Promise((resolve) => setTimeout(resolve, 500));
       }
       return null;
     });
