@@ -26,5 +26,5 @@ notes: ''
 Implement E2E tests for the Living Dex Data Engine's evolution material detection logic.
 
 ## Acceptance Criteria
-- [ ] Create E2E tests for evolution material detection.
-- [ ] Ensure the tests pass.
+- [x] Create E2E tests for evolution material detection.
+- [x] Ensure the tests pass.
