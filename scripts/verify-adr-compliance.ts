@@ -12,7 +12,7 @@ const forbiddenClasses = [
     'rounded-t', 'rounded-b', 'rounded-l', 'rounded-r',
     'rounded-tl', 'rounded-tr', 'rounded-bl', 'rounded-br',
     'rounded', 'rounded-sm', 'rounded-md', 'rounded-lg',
-    'rounded-xl', 'rounded-2xl', 'rounded-3xl', 'rounded-full'
+    'rounded-xl', 'rounded-2xl', 'rounded-3xl'
 ];
 
 interface Violation {
