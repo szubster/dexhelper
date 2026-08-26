@@ -2,7 +2,7 @@
 id: prd-146-001-foundry-system-statistics
 type: PRD
 title: Foundry System Statistics Reporting and Backfilling PRD
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-11'
 updated_at: '2026-08-26'
