@@ -206,3 +206,11 @@
   - `tools/foundry`: Foundry system orchestrator, DAG engine, heartbeat, and schema tools.
 - Emphasized technical guardrails (preventing frontend UI code in core packages, isolating data pipeline tools from runtime bundles, and insulating backend functions from browser dependencies).
 - Outlined explicit instructions for pnpm capabilities (`pnpm --filter`, catalogs, `workspace:*`) and Cloudflare Pages build configuration adjustments.
+- **Active Session/Timestamp:** 2026-08-25
+- **Domain:** Foundry System (Orchestrator Tooling)
+- **Proposed Idea:** LLM Cost & Token Usage Metrics Dashboard (IDEA-422)
+- **Rationale & Concept:**
+  Proposes a dashboard to track token usage metrics per persona and macro-node to optimize prompt efficiency.
+- **Strategic Balance:**
+  In the preceding session, IDEA-159 was proposed for DexHelper (Individual Pokémon PKM Exporter). To strictly maintain the 50/50 strategic balance between product features and system improvements, this session pivots back to proposing an internal pipeline improvement for the Foundry Orchestrator.
+- **Outcome:** The idea was rejected by the maintainer because Jules does not provide token usage stats and the LLM cost is covered under a flat yearly Google One subscription. I have cancelled the IDEA node accordingly.

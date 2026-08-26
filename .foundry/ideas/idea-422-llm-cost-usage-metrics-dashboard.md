@@ -2,7 +2,7 @@
 id: idea-422-llm-cost-usage-metrics-dashboard
 type: IDEA
 title: LLM Cost & Token Usage Metrics Dashboard
-status: PENDING
+status: CANCELLED
 author: visionary
 owner_persona: product_manager
 created_at: '2026-08-25'
@@ -14,8 +14,8 @@ tags:
   - foundry
   - metrics
   - cost
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'CEO decision: Jules API does not provide token usage stats and the LLM cost is covered under a flat yearly Google One subscription, rendering this feature unnecessary.'
 notes: ''
 ---
 
