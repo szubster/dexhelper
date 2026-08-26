@@ -12,6 +12,9 @@ test.describe('Gen 2 Hall of Fame Data Parsing E2E', () => {
     await page.waitForTimeout(2000);
     await waitForSync(page);
 
+    // Explicitly wait for the store to be populated via locator to ensure reactivity is done
+    await expect(page.locator('header').getByText(/TRNR/i).first()).toBeVisible({ timeout: 15000 });
+
     const saveData = await page.evaluate(async () => {
       // Poll a few times until __store is available and saveData is populated
       for (let i = 0; i < 20; i++) {
