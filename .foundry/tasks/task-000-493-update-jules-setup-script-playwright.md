@@ -19,7 +19,7 @@ The Agile Coach identified that agents attempting to run local Playwright E2E te
 
 ## Requirements
 - Modify the system/Jules environment setup script to explicitly install Playwright browsers and dependencies globally for the sandbox image.
-- Ensure the command `pnpm exec playwright install --with-deps chromium` is executed during image generation to pre-bake the binaries.
+- Ensure the universal command `npx playwright install --with-deps chromium` is executed during image generation to pre-bake the binaries, as this must run before the repository is cloned.
 
 ## Acceptance Criteria
-- [ ] Setup script updated to include the Playwright installation command.
+- [x] Setup script updated to include the Playwright installation command (completed manually by CEO).
