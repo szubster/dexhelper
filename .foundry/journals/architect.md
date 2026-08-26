@@ -19,3 +19,7 @@ When utilizing advanced serializers with object structure deduplication (like `m
 **Context:** Implemented an ADR for rendering the Feebas tile locations in Gen 3 (Ruby, Sapphire, Emerald).
 **Learning:** Separating the complex mathematics (LCG PRNG logic) used to calculate the 6 tiles based on the save file seed from the React UI representation is critical. This enforces testability and allows the `PokemonLocations` component to simply render an array of coordinates without knowing about memory offsets or game-specific PRNG nuances.
 **Impact:** Re-affirmed our commitment to a pure decoupled state/UI model, particularly necessary for the incredibly esoteric logic of Gen 3 hidden mechanics.
+
+
+- ADR 032 is accepted to use a multi-emulator architecture (`binjgb` for Gen 1/2, `mGBA` for Gen 3).
+- Updated `.foundry/docs/schema.md` to document the global data contract for emulator integration and WASM memory extraction for `.sav` data as required by the Architect persona guidelines.
