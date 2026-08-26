@@ -1,6 +1,8 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { prefetchMsgpack } from '../prefetchMsgpack';
 
+type MockLink = { href?: string; as?: string; crossOrigin?: string; rel?: string };
+
 describe('prefetchMsgpack', () => {
   beforeEach(() => {
     // Clear document head before each test
@@ -25,7 +27,7 @@ describe('prefetchMsgpack', () => {
 
   it('should append prefetch link tags for gen1, gen2, and gen3 msgpack files', () => {
     // We have to mock the DOM if we are not in a browser environment
-    const appendedLinks: Record<string, unknown>[] = [];
+    const appendedLinks: MockLink[] = [];
     const querySelectorMock = vi.fn().mockReturnValue(null);
     const createElementMock = vi.fn().mockImplementation((tag) => {
       if (tag === 'link') {
@@ -69,7 +71,7 @@ describe('prefetchMsgpack', () => {
   });
 
   it('should not append duplicate link tags if they already exist', () => {
-    const appendedLinks: Record<string, unknown>[] = [];
+    const appendedLinks: MockLink[] = [];
     // Mock that one link already exists
     const querySelectorMock = vi.fn().mockImplementation((selector) => {
       if (selector.includes('pokedata-gen1.msgpack')) {
@@ -106,7 +108,7 @@ describe('prefetchMsgpack', () => {
 
   it('should use import.meta.env.BASE_URL correctly', () => {
     vi.stubEnv('BASE_URL', '/dexhelper/');
-    const appendedLinks: Record<string, unknown>[] = [];
+    const appendedLinks: MockLink[] = [];
     const querySelectorMock = vi.fn().mockReturnValue(null);
     const createElementMock = vi.fn().mockImplementation((tag) => {
       if (tag === 'link') return {};
@@ -127,5 +129,15 @@ describe('prefetchMsgpack', () => {
 
     const hrefs = appendedLinks.map((l) => l.href);
     expect(hrefs).toContain('/dexhelper/data/pokedata-gen1.msgpack');
+  });
+
+  it('should return early if document is undefined', () => {
+    const originalDocument = global.document;
+    // @ts-expect-error Mocking missing document for test coverage
+    delete global.document;
+
+    expect(() => prefetchMsgpack()).not.toThrow();
+
+    global.document = originalDocument;
   });
 });
