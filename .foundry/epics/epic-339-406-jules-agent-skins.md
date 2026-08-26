@@ -30,5 +30,7 @@ Introduce matched narrative Gen 1 skins for developer-facing personas defined un
 - Update persona templates and context injections to utilize these skins consistently.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Generate STORY node(s) for updating Jules persona definitions and templates.
-- [ ] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Story Owner: Generate STORY node(s) for updating Jules persona definitions and templates.
+- [x] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-406-490-update-jules-persona-definitions
+- [ ] story-406-491-jules-agent-skins-e2e-verification
