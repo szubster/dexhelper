@@ -37,3 +37,4 @@ This Epic covers the backend and data extraction logic necessary to power the Sa
 - [x] story-324-322-safari-zone-static-tables
 - [x] story-324-339-gen1-safari-zone-save-state
 - [x] story-324-340-gen3-safari-zone-save-state
+- [ ] story-324-489-e2e-verification
