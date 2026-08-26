@@ -35,6 +35,6 @@ The `researcher` persona is currently investigating the feasibility of Google Dr
 Author an Architecture Decision Record (ADR) that definitively selects the appropriate path based on the research findings, system constraints, and long-term maintainability.
 
 ## Acceptance Criteria
-- [ ] Review the findings in the completed `research-336-400-cloudflare-drive-webhooks` node.
-- [ ] Author a new ADR in `.foundry/docs/adrs/` documenting the decision.
-- [ ] Update this task as complete.
+- [x] Review the findings in the completed `research-336-400-cloudflare-drive-webhooks` node.
+- [x] Author a new ADR in `.foundry/docs/adrs/` documenting the decision.
+- [x] Update this task as complete.
