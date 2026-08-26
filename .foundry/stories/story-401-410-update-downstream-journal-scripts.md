@@ -26,5 +26,8 @@ notes: ''
 Update any downstream nodes and scripts that reference journals to account for the new conflict-less storage pattern and persona-specific subdirectories.
 
 ## Acceptance Criteria
-- [ ] Identify all scripts referencing old journal paths.
-- [ ] Update paths and logic to use the new subdirectory structure.
+- [x] Identify all scripts referencing old journal paths.
+- [x] Update paths and logic to use the new subdirectory structure.
+
+- [ ] task-410-493-update-journal-paths-impl
+- [ ] task-410-494-update-journal-paths-qa
