@@ -26,4 +26,7 @@ notes: ''
 Create the UI component for the Gen 1 static encounter checklist, mapping the parsed event flags to visual states. This is a retry of the permanently failed `story-136-295-gen1-checklist-ui` task.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-330-489-gen1-checklist-ui-impl
+- [ ] task-330-490-gen1-checklist-ui-tests
+- [ ] task-330-491-gen1-checklist-ui-qa
