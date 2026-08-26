@@ -30,4 +30,8 @@ Modify the Foundry orchestrator (`.github/scripts/foundry-orchestrator.ts`) to d
 3. Handle concurrency without DAG deadlocks or violating the single-owner invariant.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down into Stories. Ensure that a final STORY dedicated exclusively to Integration and E2E Verification is generated and appropriately tagged with `e2e` or `integration`.
+- [x] Story Owner: Break down into Stories. Ensure that a final STORY dedicated exclusively to Integration and E2E Verification is generated and appropriately tagged with `e2e` or `integration`.
+- [ ] story-412-477-detect-experiment-metadata
+- [ ] story-412-478-node-cloning-logic
+- [ ] story-412-479-dag-concurrency-management
+- [ ] story-412-480-orchestrator-parallel-execution-e2e
