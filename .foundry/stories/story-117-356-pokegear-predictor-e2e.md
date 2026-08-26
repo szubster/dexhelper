@@ -31,5 +31,9 @@ Implement end-to-end tests for the Pokegear call predictor engine and UI to sati
 ## Acceptance Criteria
 - [x] Implement E2E test suite for Pokegear Predictor
 - [x] Ensure all E2E tests pass
-- [ ] task-356-396-pokegear-predictor-e2e-impl
-- [ ] task-356-397-pokegear-predictor-e2e-qa
+- [x] task-356-396-pokegear-predictor-e2e-impl
+- [x] task-356-397-pokegear-predictor-e2e-qa
+- [ ] research-356-494-pokegear-predictor-e2e-failure
+- [ ] task-356-495-pokegear-predictor-engine-e2e-impl
+- [ ] task-356-496-pokegear-predictor-ui-e2e-impl
+- [ ] task-356-497-pokegear-predictor-e2e-qa
