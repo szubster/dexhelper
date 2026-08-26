@@ -33,5 +33,9 @@ Verify the Gen 3 Trainer Flags Extraction implementation through end-to-end inte
 ## Acceptance Criteria
 - [x] Create Tech Lead Task Blueprints
 - [ ] task-408-415-gen3-trainer-flags-integration-impl
-- [ ] task-408-416-gen3-trainer-flags-e2e-impl
-- [ ] task-408-417-gen3-trainer-flags-testing-qa
+- [x] task-408-416-gen3-trainer-flags-e2e-impl
+- [x] task-408-417-gen3-trainer-flags-testing-qa
+
+- [ ] research-408-493-investigate-gen3-trainer-flags-e2e-failure
+- [ ] task-408-494-gen3-trainer-flags-e2e-retry-impl
+- [ ] task-408-495-gen3-trainer-flags-testing-retry-qa
