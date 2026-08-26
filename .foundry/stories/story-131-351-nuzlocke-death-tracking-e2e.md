@@ -2,12 +2,12 @@
 id: story-131-351-nuzlocke-death-tracking-e2e
 type: STORY
 title: Nuzlocke Death Tracking E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-01'
-updated_at: '2026-08-22'
+updated_at: '2026-08-26'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10187778370695267904'
 pr_number: null
 parent: epic-097-131-nuzlocke-death-tracking
 tags:
