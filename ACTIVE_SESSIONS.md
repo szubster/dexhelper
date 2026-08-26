@@ -15,6 +15,7 @@
 | [epic-340-412-orchestrator-resource-locking](.foundry/epics/epic-340-412-orchestrator-resource-locking.md) | EPIC | Orchestrator Logic for Resource Locking | story_owner | [1428006663748828254](https://jules.google.com/session/1428006663748828254) |
 | [epic-340-417-engine-code-splitting](.foundry/epics/epic-340-417-engine-code-splitting.md) | EPIC | Implement generation-specific code splitting for the engine | story_owner | [16986453588371903066](https://jules.google.com/session/16986453588371903066) |
 | [epic-340-418-ui-component-splitting](.foundry/epics/epic-340-418-ui-component-splitting.md) | EPIC | Implement React.lazy code splitting for UI components | story_owner | [17405548278915932173](https://jules.google.com/session/17405548278915932173) |
+| [epic-340-419-data-splitting](.foundry/epics/epic-340-419-data-splitting.md) | EPIC | Implement static Pokedex data splitting | story_owner | [6706478323854200827](https://jules.google.com/session/6706478323854200827) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
