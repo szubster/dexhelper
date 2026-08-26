@@ -29,5 +29,8 @@ As defined in PRD `prd-121-338-gen2-kurt-apricorn-tracker`, we need to track Kur
 - Extract the timestamp or active day flag for when the crafting was initiated.
 
 ## Acceptance Criteria
-- [ ] story_owner: Break this EPIC down into actionable STORY nodes.
-- [ ] story_owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] story_owner: Break this EPIC down into actionable STORY nodes.
+- [x] story_owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-404-477-kurt-apricorn-offset-and-constants
+- [ ] story-404-478-kurt-apricorn-parsing-logic
+- [ ] story-404-479-kurt-apricorn-e2e-verification
