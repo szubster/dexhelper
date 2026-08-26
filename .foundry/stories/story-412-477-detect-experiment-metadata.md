@@ -29,4 +29,6 @@ Update the orchestrator's node parsing logic to detect and validate experiment v
 3. Expose parsed metadata to the dispatch engine.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-477-496-parse-experiment-metadata
+- [ ] task-477-497-expose-experiment-metadata
