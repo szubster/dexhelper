@@ -9,7 +9,7 @@ test.describe('Gen 2 Daily/Weekly Events', () => {
     await page.goto('./dashboard');
     await waitForSync(page);
 
-    await expect(page.locator('text=DAILY / WEEKLY EVENTS')).toBeVisible();
+    await expect(page.getByText('DAILY / WEEKLY EVENTS')).toBeVisible();
 
     await expect(page.getByText('FRIDAY LAPRAS')).toBeVisible();
     await expect(page.getByText('BUG CATCHING CONTEST')).toBeVisible();
