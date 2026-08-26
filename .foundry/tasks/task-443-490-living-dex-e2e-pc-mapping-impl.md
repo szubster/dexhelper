@@ -26,5 +26,5 @@ notes: ''
 Implement E2E tests for the Living Dex Data Engine's PC mapping integration.
 
 ## Acceptance Criteria
-- [ ] Create E2E tests for PC mapping.
-- [ ] Ensure the tests pass.
+- [x] Create E2E tests for PC mapping.
+- [x] Ensure the tests pass.
