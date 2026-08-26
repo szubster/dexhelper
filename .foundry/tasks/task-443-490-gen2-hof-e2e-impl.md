@@ -2,12 +2,12 @@
 id: task-443-490-gen2-hof-e2e-impl
 type: TASK
 title: Gen 2 Hall of Fame Data Parsing E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-26'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3235375191170898702'
 pr_number: null
 parent: story-070-443-hof-data-parsing-e2e
 tags:
