@@ -20,5 +20,5 @@ Update frontmatter parsing to extract experiment metadata.
 - Validate against `NodeFrontmatterSchema`.
 
 ## Acceptance Criteria
-- [ ] Add `experiment_variants` to Zod schema in `schema.ts`.
-- [ ] Add parsing logic to gray-matter extraction in `foundry-orchestrator.ts`.
+- [x] Add `experiment_variants` to Zod schema in `schema.ts`.
+- [x] Add parsing logic to gray-matter extraction in `foundry-orchestrator.ts`.
