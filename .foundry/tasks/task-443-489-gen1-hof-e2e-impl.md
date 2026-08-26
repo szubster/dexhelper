@@ -2,7 +2,7 @@
 id: task-443-489-gen1-hof-e2e-impl
 type: TASK
 title: Gen 1 Hall of Fame Data Parsing E2E Tests
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-08-26'
@@ -16,8 +16,8 @@ tags:
   - hall-of-fame
   - playwright
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
