@@ -32,5 +32,7 @@ Update the DAG UI dashboard to reflect the new gamified statuses and persona ski
 - Ensure consistent theming across all dashboard components.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Generate STORY node(s) for updating dashboard UI components with new gamified elements.
-- [ ] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Story Owner: Generate STORY node(s) for updating dashboard UI components with new gamified elements.
+- [x] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-407-490-gamified-dashboard-components
+- [ ] story-407-491-gamified-dashboard-e2e
