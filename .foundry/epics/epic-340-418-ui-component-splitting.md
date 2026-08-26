@@ -25,5 +25,8 @@ Components exclusively used for specific generations should not be bundled in th
 - Utilize `React.lazy` for UI components that are only relevant to specific generations (e.g. Gen 3 RTC, Contests).
 
 ## Acceptance Criteria
-- [ ] Break down this epic into stories.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Break down this epic into stories.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-418-477-lazy-load-gen3-components
+- [ ] story-418-478-lazy-load-gen2-components
+- [ ] story-418-479-lazy-load-e2e-verification
