@@ -2,7 +2,6 @@
 type: TASK
 id: task-000-493-update-jules-setup-script-playwright
 title: Update Jules Setup Script with Playwright Dependencies
-parent: none
 depends_on: []
 status: PENDING
 owner_persona: coder
