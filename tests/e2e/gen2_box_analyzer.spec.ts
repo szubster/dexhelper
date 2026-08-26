@@ -45,12 +45,12 @@ test.describe('Gen 2 Box Analyzer E2E Validation', () => {
     expect(dbData.length).toBeGreaterThan(0);
 
     // Test that the parsing actually created DVs and Hidden Power values (Gen 2 specifics)
-    // Find at least one parsed pokemon instance that came from the save
+    // In Gen 2, DVs are stored under `dvs` property, not `ivs` (IVs are Gen 3+).
     // Sometimes `isShiny` might be false, so just check it's defined, don't check for true.
-    const parsedInstance = dbData.find((p) => p.ivs !== undefined);
+    const parsedInstance = dbData.find((p) => p.dvs !== undefined);
     expect(parsedInstance).toBeDefined();
-    expect(parsedInstance?.ivs).toBeDefined();
-    expect(parsedInstance?.ivs?.hp).toBeGreaterThanOrEqual(0); // Should be 0-15 for DVs
+    expect(parsedInstance?.dvs).toBeDefined();
+    expect(parsedInstance?.dvs?.hp).toBeGreaterThanOrEqual(0); // Should be 0-15 for DVs
     expect(parsedInstance?.hiddenPower).toBeDefined();
 
     // Ensure that party pokemon are excluded from duplicate analysis (Box vs Party check)
