@@ -2,13 +2,13 @@
 id: task-413-490-route-radar-logic
 type: TASK
 title: Implement Bike Requirement Logic in RouteRadarController
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-08-26'
 depends_on:
   - task-413-489-bike-requirements-types
-jules_session_id: null
+jules_session_id: '3954184046653508542'
 pr_number: null
 parent: story-406-413-bike-requirement-heatmap
 tags:
