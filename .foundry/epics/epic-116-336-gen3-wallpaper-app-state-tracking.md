@@ -36,4 +36,6 @@ The Custom Wallpaper Checklist dashboard will display 16 generated phrases. Sinc
 *   Relies on the global application state management architecture.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this EPIC down into actionable STORY nodes.
+- [x] Story Owner: Break this EPIC down into actionable STORY nodes.
+- [ ] story-116-473-gen3-wallpaper-app-state-tracking-impl
+- [ ] story-116-474-gen3-wallpaper-app-state-tracking-e2e
