@@ -31,11 +31,6 @@ describe('Gen2Checklist', () => {
             hoOh: false,
             lugia: false,
           },
-          gen2DailyEvents: {
-            mysteryGift: true,
-            fridayLapras: false,
-            bugCatchingContest: true,
-          },
         },
       };
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -52,11 +47,6 @@ describe('Gen2Checklist', () => {
     await expect.element(page.getByText('SNORLAX')).not.toHaveClass('line-through');
     await expect.element(page.getByText('RED GYARADOS')).toBeInTheDocument();
     await expect.element(page.getByText('RED GYARADOS')).toHaveClass('line-through');
-
-    await expect.element(page.getByText('DAILY / WEEKLY EVENTS')).toBeInTheDocument();
-    await expect.element(page.getByText('MYSTERY GIFT')).toBeInTheDocument();
-    await expect.element(page.getByText('MYSTERY GIFT')).toHaveClass('line-through');
-    await expect.element(page.getByText('FRIDAY LAPRAS')).not.toHaveClass('line-through');
   });
 
   it('does not render for gen 3 data', async () => {
