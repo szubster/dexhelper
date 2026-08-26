@@ -2,19 +2,19 @@
 id: story-412-477-detect-experiment-metadata
 type: STORY
 title: Detect Experiment Metadata in Orchestrator
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-08-26'
 updated_at: '2026-08-26'
 depends_on: []
-jules_session_id: '12625801585310859196'
+jules_session_id: null
 pr_number: null
 parent: epic-340-412-orchestrator-parallel-execution
 tags:
   - orchestrator
   - parsing
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 ---
 
