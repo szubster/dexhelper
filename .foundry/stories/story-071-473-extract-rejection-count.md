@@ -24,4 +24,7 @@ notes: ''
 To support the Permanent Failure Dashboard (ADR 017), the DAG data parsing layer must extract the `rejection_count` field from the YAML frontmatter of `.foundry` markdown files.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-473-493-extract-rejection-count-impl
+- [ ] task-473-494-extract-rejection-count-tests
+- [ ] task-473-495-extract-rejection-count-qa
