@@ -33,4 +33,6 @@ This story covers the end-to-end integration and verification of the Gen 3 Match
 - Verify that the extracted data conforms to the SaveData schema.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-473-493-gen3-match-call-e2e-impl
+- [ ] task-473-494-gen3-match-call-e2e-qa
