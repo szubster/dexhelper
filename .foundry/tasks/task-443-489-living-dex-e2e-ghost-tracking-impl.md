@@ -26,5 +26,5 @@ notes: ''
 Implement E2E tests for the Living Dex Data Engine's ghost tracking logic.
 
 ## Acceptance Criteria
-- [ ] Create E2E tests for ghost tracking.
-- [ ] Ensure the tests pass.
+- [x] Create E2E tests for ghost tracking.
+- [x] Ensure the tests pass.
