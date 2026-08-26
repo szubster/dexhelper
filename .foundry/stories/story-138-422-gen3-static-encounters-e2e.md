@@ -26,4 +26,6 @@ notes: ''
 Implement End-to-End verification to ensure that Gen 3 Static Encounters parsing and UI components work together seamlessly.
 
 ## Acceptance Criteria
-- [ ] Create task for writing E2E tests for Gen 3 Static Encounters.
+- [x] Create task for writing E2E tests for Gen 3 Static Encounters.
+- [ ] task-422-496-gen3-static-encounters-e2e-impl
+- [ ] task-422-497-gen3-static-encounters-e2e-qa
