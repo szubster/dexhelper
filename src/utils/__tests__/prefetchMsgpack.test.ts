@@ -14,7 +14,7 @@ describe('prefetchMsgpack', () => {
           querySelectorAll: vi.fn(),
         },
         createElement: vi.fn(),
-      } as any;
+      } as unknown as Document;
     } else {
       document.head.innerHTML = '';
     }
@@ -25,7 +25,7 @@ describe('prefetchMsgpack', () => {
 
   it('should append prefetch link tags for gen1, gen2, and gen3 msgpack files', () => {
     // We have to mock the DOM if we are not in a browser environment
-    const appendedLinks: any[] = [];
+    const appendedLinks: Record<string, unknown>[] = [];
     const querySelectorMock = vi.fn().mockReturnValue(null);
     const createElementMock = vi.fn().mockImplementation((tag) => {
       if (tag === 'link') {
@@ -35,7 +35,7 @@ describe('prefetchMsgpack', () => {
           as: '',
           crossOrigin: '',
           getAttribute(name: string) {
-            return (this as any)[name];
+            return (this as Record<string, unknown>)[name];
           },
         };
       }
@@ -50,7 +50,7 @@ describe('prefetchMsgpack', () => {
         }),
       },
       createElement: createElementMock,
-    } as any;
+    } as unknown as Document;
 
     prefetchMsgpack();
 
@@ -69,7 +69,7 @@ describe('prefetchMsgpack', () => {
   });
 
   it('should not append duplicate link tags if they already exist', () => {
-    const appendedLinks: any[] = [];
+    const appendedLinks: Record<string, unknown>[] = [];
     // Mock that one link already exists
     const querySelectorMock = vi.fn().mockImplementation((selector) => {
       if (selector.includes('pokedata-gen1.msgpack')) {
@@ -97,7 +97,7 @@ describe('prefetchMsgpack', () => {
         }),
       },
       createElement: createElementMock,
-    } as any;
+    } as unknown as Document;
 
     prefetchMsgpack();
 
@@ -106,7 +106,7 @@ describe('prefetchMsgpack', () => {
 
   it('should use import.meta.env.BASE_URL correctly', () => {
     vi.stubEnv('BASE_URL', '/dexhelper/');
-    const appendedLinks: any[] = [];
+    const appendedLinks: Record<string, unknown>[] = [];
     const querySelectorMock = vi.fn().mockReturnValue(null);
     const createElementMock = vi.fn().mockImplementation((tag) => {
       if (tag === 'link') return {};
@@ -121,7 +121,7 @@ describe('prefetchMsgpack', () => {
         }),
       },
       createElement: createElementMock,
-    } as any;
+    } as unknown as Document;
 
     prefetchMsgpack();
 
