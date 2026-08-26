@@ -46,8 +46,8 @@ describe('RouteRadarController', () => {
 
       const heatmap = controller.calculateHeatmap([catchSuggestion]);
       expect(heatmap).toEqual({
-        10: 1,
-        20: 1,
+        10: { density: 1, requiresMachBike: false, requiresAcroBike: false },
+        20: { density: 1, requiresMachBike: false, requiresAcroBike: false },
       });
     });
 
@@ -70,7 +70,7 @@ describe('RouteRadarController', () => {
 
       const heatmap = controller.calculateHeatmap([catchSuggestion]);
       // Density score should only increment once for areaId 10
-      expect(heatmap).toEqual({ 10: 1 });
+      expect(heatmap).toEqual({ 10: { density: 1, requiresMachBike: false, requiresAcroBike: false } });
     });
 
     it('should correctly sum density scores for multiple CatchSuggestions on the same area', () => {
@@ -99,7 +99,31 @@ describe('RouteRadarController', () => {
 
       const heatmap = controller.calculateHeatmap([suggestion1, suggestion2]);
       // Both suggestions can be found in area 10, so density should be 2
-      expect(heatmap).toEqual({ 10: 2 });
+      expect(heatmap).toEqual({ 10: { density: 2, requiresMachBike: false, requiresAcroBike: false } });
+    });
+
+    it('should correctly aggregate bike requirements for an area', () => {
+      const controller = new RouteRadarController();
+      const catchSuggestion: CatchSuggestion = {
+        id: '4',
+        title: 'Catch Bagon',
+        description: 'Wild encounter',
+        priority: 1,
+        category: 'Catch',
+        encounterInfo: {
+          1: [
+            { chance: 10, method: 'surf', minLevel: 20, areaId: 10 },
+            { chance: 20, method: 'walk', minLevel: 25, areaId: 10, requiresMachBike: true },
+          ],
+          2: [{ chance: 30, method: 'walk', minLevel: 25, areaId: 20, requiresAcroBike: true }],
+        },
+      };
+
+      const heatmap = controller.calculateHeatmap([catchSuggestion]);
+      expect(heatmap).toEqual({
+        10: { density: 1, requiresMachBike: true, requiresAcroBike: false },
+        20: { density: 1, requiresMachBike: false, requiresAcroBike: true },
+      });
     });
 
     it('should handle CatchSuggestion without encounterInfo gracefully', () => {

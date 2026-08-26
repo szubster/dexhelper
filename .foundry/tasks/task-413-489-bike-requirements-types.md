@@ -29,5 +29,5 @@ We need to expose bike requirements in the Route Radar heatmap. The database (Un
 Update the types in src/engine/assistant/strategies/types.ts and src/engine/radar/RouteRadarController.ts to include requiresMachBike and requiresAcroBike.
 
 ## Acceptance Criteria
-- [ ] coder: Update RouteRadarHeatmap to store an object with density, requiresMachBike, and requiresAcroBike instead of a plain number.
-- [ ] coder: Extend Suggestion or EncounterDetail to optionally include bike requirements.
+- [x] coder: Update RouteRadarHeatmap to store an object with density, requiresMachBike, and requiresAcroBike instead of a plain number.
+- [x] coder: Extend Suggestion or EncounterDetail to optionally include bike requirements.

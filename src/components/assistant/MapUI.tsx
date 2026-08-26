@@ -11,10 +11,10 @@ interface MapUIProps {
 export function MapUI({ heatmap, areaNames }: MapUIProps) {
   const areasWithSuggestions = useMemo(() => {
     return Object.entries(heatmap)
-      .filter((entry) => entry[1] > 0)
-      .map(([areaId, density]) => ({
+      .filter((entry) => entry[1].density > 0)
+      .map(([areaId, data]) => ({
         areaId: Number(areaId),
-        density,
+        density: data.density,
       }))
       .sort((a, b) => b.density - a.density);
   }, [heatmap]);
