@@ -31,3 +31,6 @@ Integrate the dataset into the IndexedDB persistence layer (`PokeDB.ts`) for qui
 ## Acceptance Criteria
 - [ ] Export match call dataset to MsgPack format.
 - [ ] Integrate into `PokeDB.ts` for runtime hydration.
+- [ ] task-126-489-match-call-msgpack-export
+- [ ] task-126-490-match-call-msgpack-hydration
+- [ ] task-126-491-match-call-msgpack-qa
