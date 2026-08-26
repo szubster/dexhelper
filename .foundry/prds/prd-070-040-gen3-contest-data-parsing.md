@@ -2,10 +2,10 @@
 id: prd-070-040-gen3-contest-data-parsing
 type: PRD
 title: Gen 3 Contest Data Parsing
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-06-08'
-updated_at: '2026-06-09'
+updated_at: '2026-08-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -51,5 +51,5 @@ As part of the Gen 3 Contest Stat and Ribbon Tracker feature, DexHelper needs th
 - [ ] New unit tests confirm accurate extraction of contest data from known Gen 3 save file fixtures.
 
 ### Epic Breakdown
-- [ ] `epic-040-064-gen3-contest-data-extraction`
-- [ ] `epic-040-065-gen3-contest-data-integration`
+- [x] `epic-040-064-gen3-contest-data-extraction`
+- [x] `epic-040-065-gen3-contest-data-integration`

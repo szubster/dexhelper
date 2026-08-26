@@ -2,10 +2,10 @@
 id: epic-101-133-gen3-ribbon-extraction
 type: EPIC
 title: Gen 3 Ribbon Data Extraction
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-02'
-updated_at: '2026-08-14'
+updated_at: '2026-08-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -35,6 +35,10 @@ Implement parsing logic for the 32-bit Ribbon and Obedience bitfield located in 
 - Ensure all new memory offsets and bit locations are defined as reusable constants at the module level, avoiding inline magic numbers.
 
 ## Acceptance Criteria
-- [ ] Break down epic into stories for defining reusable constants for Ribbon bitmask offsets and lengths.
-- [ ] Break down epic into stories for implementing extraction logic for the 32-bit Ribbon bitfield from the 'M' substructure.
-- [ ] Break down epic into stories for writing unit tests to verify Ribbon data extraction.
+- [x] Break down epic into stories for defining reusable constants for Ribbon bitmask offsets and lengths.
+- [x] Break down epic into stories for implementing extraction logic for the 32-bit Ribbon bitfield from the 'M' substructure.
+- [x] Break down epic into stories for writing unit tests to verify Ribbon data extraction.
+- [ ] story-133-473-gen3-ribbon-constants
+- [ ] story-133-474-gen3-ribbon-extraction-logic
+- [ ] story-133-475-gen3-ribbon-unit-tests
+- [ ] story-133-476-gen3-ribbon-e2e-verification

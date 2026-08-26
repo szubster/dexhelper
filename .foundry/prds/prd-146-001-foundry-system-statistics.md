@@ -5,7 +5,7 @@ title: Foundry System Statistics Reporting and Backfilling PRD
 status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-11'
-updated_at: '2026-08-14'
+updated_at: '2026-08-26'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,7 +2,7 @@
 id: story-406-413-bike-requirement-heatmap
 type: STORY
 title: Expose Bike Requirements Through Heatmap Data Structure
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-10'
 updated_at: '2026-08-25'
@@ -29,5 +29,10 @@ Update `RouteRadarController` or related mapping components to consume the newly
 
 ## Acceptance Criteria
 - [x] tech_lead: Break down this Story into Tasks.
-- [ ] task-413-422-update-route-radar-controller
-- [ ] task-413-423-route-radar-controller-qa
+- [x] task-413-422-update-route-radar-controller
+- [x] task-413-423-route-radar-controller-qa
+- [ ] task-413-489-bike-requirements-types
+- [ ] task-413-490-route-radar-logic
+- [ ] task-413-491-route-radar-ui
+- [ ] task-413-492-route-radar-qa
+- [ ] research-413-493-investigate-bike-requirements-source

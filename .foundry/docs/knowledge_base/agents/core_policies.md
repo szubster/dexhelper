@@ -1,9 +1,9 @@
 # Core Agent Policies
 
 ## Autonomous Communication & No-Ask Policy
-**CRITICAL DIRECTIVE FOR ALL AGENTS & JULES:** You must **NEVER** ask the user for permission, input, feedback, or clarification during execution in chat, unless explicitly requested in the initial prompt. The answer to "Should I proceed?", "Should I open/submit a PR?", or "Should I request code review?" is **ALWAYS YES** and must be executed autonomously without asking.
+**CRITICAL DIRECTIVE FOR ALL AGENTS & JULES:** You must **NEVER** ask the user for permission, input, feedback, or clarification during execution in chat, unless explicitly requested in the initial prompt. The answer to "Should I proceed?", "Should I open/submit a PR?", "Should I proceed with opening the PR?", or "Should I request code review?" is **ALWAYS YES** and must be executed autonomously without asking.
 
-1. **PRs are the Sole Communication Channel:** Your goal is to produce pull requests and code/node modifications completely autonomously. Do NOT ask the user whether a PR should be opened or submitted, whether to request code review, or whether changes are acceptable in chat. PRs themselves are the formal channel for review and feedback.
+1. **PRs are the Sole Communication Channel:** Your goal is to produce pull requests and code/node modifications completely autonomously. Always open and submit PRs immediately when work or demotion steps are ready. Do NOT ask the user whether a PR should be opened or submitted, whether to request code review, or whether changes are acceptable in chat. PRs themselves are the formal channel for review and feedback.
 2. **Prohibited Question Patterns:** Under NO circumstances should an agent post questions such as:
    - "Should I proceed?" / "Should I finalize changes?"
    - "Should I open a PR?" / "Should I submit the PR?"
@@ -188,3 +188,6 @@ When modifying or verifying central systems like the DAG Orchestrator (`.github/
 
 ## Playwright E2E Best Practices
 - Always use the `-a` flag with `xvfb-run` (e.g., `xvfb-run -a pnpm test:e2e`) during headless execution to bypass lock issues.
+- **Target Specific Files**: When running Playwright E2E tests locally to verify code changes, execute only the affected test files (e.g., `xvfb-run -a pnpm test:e2e tests/e2e/home.spec.ts`) to avoid triggering the 400-second bash session timeout.
+- **No Binary Installation**: Assume Playwright browser binaries are pre-installed in the environment. Do NOT run `pnpm exec playwright install` yourself during a session.
+- **Vite Cache Clearing**: When intentionally modifying application source code via bash, clear the Vite cache (`rm -rf node_modules/.vite`) before rerunning the tests to ensure the local Playwright webServer serves the latest code.

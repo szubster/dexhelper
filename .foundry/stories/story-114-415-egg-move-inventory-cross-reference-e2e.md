@@ -2,10 +2,10 @@
 id: story-114-415-egg-move-inventory-cross-reference-e2e
 type: STORY
 title: Egg Move Inventory Cross-Reference E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-11'
-updated_at: '2026-08-23'
+updated_at: '2026-08-25'
 depends_on:
   - story-114-414-egg-move-inventory-missing-links
 jules_session_id: null
@@ -29,4 +29,6 @@ This story represents the final end-to-end integration verification for the egg 
 ## Acceptance Criteria
 - [ ] Write E2E tests validating the full workflow from reading a save file, running the pathfinding engine, cross-referencing against the loaded inventory, and identifying missing links.
 - [ ] Ensure all tests pass reliably in the CI environment.
-- [ ] Tech Lead: Draft TASK nodes to execute this story.
+- [x] Tech Lead: Draft TASK nodes to execute this story.
+- [ ] task-415-489-egg-move-inventory-cross-reference-e2e-impl
+- [ ] task-415-490-egg-move-inventory-cross-reference-e2e-qa

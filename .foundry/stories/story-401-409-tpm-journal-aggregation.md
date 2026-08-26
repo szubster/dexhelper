@@ -1,14 +1,14 @@
 ---
 id: story-401-409-tpm-journal-aggregation
 type: STORY
-title: "Update TPM Persona Journal Aggregation"
-status: PENDING
-owner_persona: "tech_lead"
-created_at: "2026-08-08"
-updated_at: "2026-08-08"
+title: Update TPM Persona Journal Aggregation
+status: ACTIVE
+owner_persona: tech_lead
+created_at: '2026-08-08'
+updated_at: '2026-08-26'
 depends_on:
   - story-401-408-persona-specific-journal-directories
-jules_session_id: "5799943991093245774"
+jules_session_id: '3716868774242011755'
 pr_number: null
 parent: epic-335-401-implement-conflictless-journals-retry
 tags:
@@ -16,8 +16,8 @@ tags:
   - journals
   - tpm
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Update TPM Persona Journal Aggregation

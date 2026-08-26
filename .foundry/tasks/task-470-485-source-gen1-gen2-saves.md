@@ -2,19 +2,19 @@
 id: task-470-485-source-gen1-gen2-saves
 type: TASK
 title: Source Public Gen 1 and Gen 2 Saves
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-24'
 updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: '5083890571541139326'
+jules_session_id: null
 pr_number: null
 parent: story-428-470-identify-public-saves
 tags:
   - testing
   - fixtures
 research_references: []
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
@@ -31,3 +31,4 @@ We need to expand our test fixture library by sourcing real-world `.sav` files f
 ## Acceptance Criteria
 - [ ] At least 3 different Gen 1 save files are downloaded.
 - [ ] At least 3 different Gen 2 save files are downloaded.
+- [ ] research-485-471-source-gen1-gen2-saves-manually

@@ -2,10 +2,10 @@
 id: epic-343-418-agent-test-migration
 type: EPIC
 title: Agent Test Migration to Semantic Validation
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-08-14'
+updated_at: '2026-08-26'
 depends_on:
   - epic-343-417-semantic-evaluator-core
 jules_session_id: null

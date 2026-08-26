@@ -2,10 +2,10 @@
 id: story-108-443-box-analyzer-save-parsing-e2e
 type: STORY
 title: Box Analyzer Save Parsing E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-08-23'
+updated_at: '2026-08-25'
 depends_on:
   - story-108-245-gen2-box-parsing
   - story-108-246-gen3-box-parsing
@@ -39,3 +39,7 @@ Verify the integration of the Generation 2 and Generation 3 PC Box parsing and g
 - [ ] End-to-end tests successfully cover Gen 2 Box parsing.
 - [ ] End-to-end tests successfully cover Gen 3 Box parsing.
 - [ ] Ensure that integration functionality is confirmed.
+
+- [ ] task-443-489-box-analyzer-gen2-e2e-impl
+- [ ] task-443-490-box-analyzer-gen3-e2e-impl
+- [ ] task-443-491-box-analyzer-e2e-qa

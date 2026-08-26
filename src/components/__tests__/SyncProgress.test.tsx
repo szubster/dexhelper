@@ -62,8 +62,9 @@ describe('SyncProgress', () => {
 
     await sleep(100);
 
-    await expect.element(page.getByText('PROCESSING: Downloading Data')).toBeInTheDocument();
-    await expect.element(page.getByText('50%')).toBeInTheDocument();
+    await expect.element(page.getByText('OP: Downloading Data')).toBeInTheDocument();
+    const fiftyPercentElements = page.getByText('50%');
+    await expect.element(fiftyPercentElements.first()).toBeInTheDocument();
   });
 
   it('transitions to complete state when progress reaches 100%', async () => {
@@ -82,9 +83,8 @@ describe('SyncProgress', () => {
 
     await sleep(100);
 
-    await expect.element(page.getByText('[ DATABASE_PRIMED ]')).toBeInTheDocument();
-    await expect.element(page.getByText('HANDSHAKE VERIFIED')).toBeInTheDocument();
-    await expect.element(page.getByText('100%')).toBeInTheDocument();
+    await expect.element(page.getByText('[ LINK_ESTABLISHED ]')).toBeInTheDocument();
+    await expect.element(page.getByText('HANDSHAKE VERIFIED // SECURED')).toBeInTheDocument();
   });
 
   it('ignores invalid event details gracefully', async () => {
@@ -105,6 +105,6 @@ describe('SyncProgress', () => {
     await sleep(100);
 
     // Should still be in the initial state since the event was ignored
-    await expect.element(page.getByText('PROCESSING: WAITING')).toBeInTheDocument();
+    await expect.element(page.getByText('OP: AWAITING_SIGNAL')).toBeInTheDocument();
   });
 });

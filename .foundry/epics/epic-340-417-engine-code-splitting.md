@@ -2,12 +2,12 @@
 id: epic-340-417-engine-code-splitting
 type: EPIC
 title: Implement generation-specific code splitting for the engine
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-13'
-updated_at: '2026-08-15'
+updated_at: '2026-08-26'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16986453588371903066'
 parent: prd-136-340-split-bundles-and-data
 tags:
   - performance

@@ -2,10 +2,10 @@
 id: epic-117-334-centralize-prompt-rules
 type: EPIC
 title: Centralize Coder and QA Prompt Rules
-status: READY
-owner_persona: story_owner
+status: PENDING
+owner_persona: auditor
 created_at: '2026-07-19'
-updated_at: '2026-08-14'
+updated_at: '2026-08-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -33,3 +33,6 @@ This epic fulfills the primary objective of `prd-118-117-centralize-prompt-remin
 ## 3. High-Level Acceptance Criteria
 - [ ] `tech_lead.md` is updated to remove the requirement to append reminder blocks to tasks.
 - [ ] Centralized instructions for failure handling and Empty PR submission are verified/added to `core_policies.md`, `coder.md`, and `qa.md`.
+- [ ] story-334-473-update-tech-lead-prompt
+- [ ] story-334-474-centralize-failure-handling-instructions
+- [ ] story-334-475-prompt-rules-integration-e2e

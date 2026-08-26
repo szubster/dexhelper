@@ -2,7 +2,7 @@
 id: story-112-403-integration-e2e
 type: STORY
 title: Integration and E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-25'
@@ -33,5 +33,8 @@ This story ensures that the backend logic to parse and extract hidden values fro
 - [ ] Run complete E2E test suite to verify overall functionality.
 - [ ] task-403-418-gen2-dv-integration-impl
 - [ ] task-403-419-gen3-iv-pv-integration-impl
-- [ ] task-403-420-playwright-e2e-impl
-- [ ] task-403-421-e2e-integration-qa
+- [x] task-403-420-playwright-e2e-impl
+- [x] task-403-421-e2e-integration-qa
+- [ ] research-403-485-playwright-e2e-failure
+- [ ] task-403-486-playwright-e2e-retry-impl
+- [ ] task-403-487-playwright-e2e-retry-qa

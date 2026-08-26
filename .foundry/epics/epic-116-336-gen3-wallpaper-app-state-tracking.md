@@ -2,12 +2,12 @@
 id: epic-116-336-gen3-wallpaper-app-state-tracking
 type: EPIC
 title: Gen 3 Wallpaper App State Tracking
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-19'
-updated_at: '2026-08-14'
+updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4869820587410010596'
 parent: prd-116-049-gen3-pc-box-wallpaper-customizer
 tags:
   - gen3
@@ -36,4 +36,6 @@ The Custom Wallpaper Checklist dashboard will display 16 generated phrases. Sinc
 *   Relies on the global application state management architecture.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this EPIC down into actionable STORY nodes.
+- [x] Story Owner: Break this EPIC down into actionable STORY nodes.
+- [ ] story-116-473-gen3-wallpaper-app-state-tracking-impl
+- [ ] story-116-474-gen3-wallpaper-app-state-tracking-e2e

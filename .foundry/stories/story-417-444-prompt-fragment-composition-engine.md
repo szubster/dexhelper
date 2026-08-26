@@ -2,7 +2,7 @@
 id: story-417-444-prompt-fragment-composition-engine
 type: STORY
 title: Develop Prompt Fragment Composition Engine
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23'
 updated_at: '2026-08-25'
@@ -35,4 +35,7 @@ This story focuses on implementing the core logic to combine and layer prompt fr
 - [ ] Implement the core prompt fragment composition logic.
 - [ ] Implement precedence and override resolution.
 - [ ] Add unit tests for the composition engine.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-444-485-prompt-fragment-composition-core
+- [ ] task-444-486-prompt-fragment-composition-tests
+- [ ] task-444-487-prompt-fragment-composition-qa

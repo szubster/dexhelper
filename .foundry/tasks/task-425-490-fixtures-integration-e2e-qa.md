@@ -1,0 +1,33 @@
+---
+id: task-425-490-fixtures-integration-e2e-qa
+type: TASK
+title: 'Task: QA for Fixture Integration E2E Tests'
+status: PENDING
+owner_persona: qa
+created_at: '2026-08-25'
+updated_at: '2026-08-25'
+depends_on:
+  - task-425-489-fixtures-integration-e2e-impl
+jules_session_id: null
+pr_number: null
+parent: story-417-425-fixtures-integration-e2e
+tags:
+  - testing
+  - e2e
+  - qa
+  - fixtures
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Task: QA for Fixture Integration E2E Tests
+
+## Context
+Verify the E2E test implementation for Gen 1, 2, and 3 save file fixtures to ensure they correctly test the application lifecycle and prevent regressions.
+
+## Acceptance Criteria
+- [ ] Review the updated E2E tests in `tests/e2e/` for comprehensive coverage of the new fixtures.
+- [ ] Run `xvfb-run -a pnpm test:e2e` and confirm all tests pass successfully.
+- [ ] Confirm no regressions or flakiness are introduced into the CI pipeline.

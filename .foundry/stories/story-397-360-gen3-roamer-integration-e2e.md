@@ -2,7 +2,7 @@
 id: story-397-360-gen3-roamer-integration-e2e
 type: STORY
 title: Gen 3 Roamer Integration and E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-05'
 updated_at: '2026-08-25'
@@ -32,6 +32,9 @@ Generate Integration and E2E Verification to ensure proper system-wide rendering
 - [ ] E2E tests for the roamer rendering across different game versions (R/S, E, FR/LG).
 - [x] Tech Lead: Break this Story down into actionable Tasks.
 
-- [ ] task-360-418-gen3-roamer-ui-impl
-- [ ] task-360-419-gen3-roamer-e2e-impl
-- [ ] task-360-420-gen3-roamer-ui-and-e2e-qa
+- [x] task-360-418-gen3-roamer-ui-impl
+- [x] task-360-419-gen3-roamer-e2e-impl
+- [x] task-360-420-gen3-roamer-ui-and-e2e-qa
+- [ ] research-360-471-investigate-gen3-roamer-e2e-failure
+- [ ] task-360-489-gen3-roamer-e2e-impl-v2
+- [ ] task-360-490-gen3-roamer-ui-and-e2e-qa-v2

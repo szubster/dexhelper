@@ -5,9 +5,9 @@ title: Gen 3 Trainer Card Parsing E2E Implementation
 status: FAILED
 owner_persona: coder
 created_at: '2026-08-20'
-updated_at: '2026-08-23'
+updated_at: '2026-08-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1151106507275635810'
 pr_number: null
 parent: story-400-359-gen3-trainer-card-parsing-e2e
 tags:

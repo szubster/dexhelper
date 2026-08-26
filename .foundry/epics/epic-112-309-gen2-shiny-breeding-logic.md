@@ -2,10 +2,10 @@
 id: epic-112-309-gen2-shiny-breeding-logic
 type: EPIC
 title: Gen 2 Shiny Breeding DV Compatibility & Odds Engine
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-12'
-updated_at: '2026-08-22'
+updated_at: '2026-08-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -55,3 +55,4 @@ This Epic involves creating the core logic engine required to calculate Pokémon
 - [x] story-309-002-dv-overlap-constraint
 - [x] story-309-003-egg-group-validation
 - [x] story-309-004-shiny-odds-computation
+- [ ] story-309-473-shiny-breeding-logic-e2e

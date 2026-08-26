@@ -2,10 +2,10 @@
 id: story-133-443-living-dex-data-engine-e2e
 type: STORY
 title: Living Dex Data Engine E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-08-23'
+updated_at: '2026-08-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,3 +30,7 @@ This story serves as the final integration and E2E verification step for the Liv
 - [ ] Create E2E tests for PC mapping integration.
 - [ ] Create E2E tests for evolution material detection logic.
 - [ ] Ensure all tests pass.
+- [ ] task-443-489-living-dex-e2e-ghost-tracking-impl
+- [ ] task-443-490-living-dex-e2e-pc-mapping-impl
+- [ ] task-443-491-living-dex-e2e-evolution-impl
+- [ ] task-443-492-living-dex-e2e-qa

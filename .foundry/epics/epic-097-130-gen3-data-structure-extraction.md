@@ -2,10 +2,10 @@
 id: epic-097-130-gen3-data-structure-extraction
 type: EPIC
 title: Gen 3 Data Structure Extraction
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-01'
-updated_at: '2026-08-20'
+updated_at: '2026-08-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,5 +31,5 @@ Implement functionality to extract the raw 100-byte Pokémon data structure for 
 3. Handle gracefully and properly parse across Ruby, Sapphire, Emerald, FireRed, LeafGreen.
 
 ## Acceptance Criteria
-- [ ] story-130-440-extract-gen3-party-data-structure
-- [ ] story-130-441-gen3-data-extraction-e2e
+- [x] story-130-440-extract-gen3-party-data-structure
+- [x] story-130-441-gen3-data-extraction-e2e

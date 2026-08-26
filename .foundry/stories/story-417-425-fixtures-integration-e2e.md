@@ -2,10 +2,10 @@
 id: story-417-425-fixtures-integration-e2e
 type: STORY
 title: 'Story: E2E Verification for Save File Fixtures Integration'
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-14'
-updated_at: '2026-08-24'
+updated_at: '2026-08-25'
 depends_on:
   - story-417-422-integrate-gen1-fixtures
   - story-417-423-integrate-gen2-fixtures
@@ -32,3 +32,5 @@ Perform E2E verification to ensure the newly integrated save files (Gens 1, 2, a
 ## Acceptance Criteria
 - [ ] Write and execute E2E tests covering the integration of the new fixtures.
 - [ ] Ensure all E2E pipelines pass cleanly.
+- [ ] task-425-489-fixtures-integration-e2e-impl
+- [ ] task-425-490-fixtures-integration-e2e-qa

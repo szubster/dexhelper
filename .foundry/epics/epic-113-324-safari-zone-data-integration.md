@@ -5,7 +5,7 @@ title: Gen 1 & Gen 3 Safari Zone Data Extraction
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-07-24'
+updated_at: '2026-08-26'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - gen1
   - gen3
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
@@ -34,6 +34,7 @@ This Epic covers the backend and data extraction logic necessary to power the Sa
 ## Acceptance Criteria
 - [x] Create STORY nodes for Gen 1 and Gen 3 save state integration for Safari Zone encounters.
 - [x] Create STORY nodes for compiling the static encounter tables for Safari Zones.
-- [ ] story-324-322-safari-zone-static-tables
-- [ ] story-324-339-gen1-safari-zone-save-state
-- [ ] story-324-340-gen3-safari-zone-save-state
+- [x] story-324-322-safari-zone-static-tables
+- [x] story-324-339-gen1-safari-zone-save-state
+- [x] story-324-340-gen3-safari-zone-save-state
+- [ ] story-324-489-e2e-verification

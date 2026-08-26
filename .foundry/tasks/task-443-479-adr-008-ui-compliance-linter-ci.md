@@ -2,13 +2,13 @@
 id: task-443-479-adr-008-ui-compliance-linter-ci
 type: TASK
 title: Integrate ADR 008 Linter into CI
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-24'
-updated_at: '2026-08-24'
+updated_at: '2026-08-25'
 depends_on:
   - task-443-478-adr-008-ui-compliance-linter-tests
-jules_session_id: '12517898575036887766'
+jules_session_id: null
 pr_number: null
 parent: story-417-443-adr-008-ui-compliance-linter
 tags:
@@ -18,7 +18,7 @@ tags:
   - adr
   - ci
 research_references: []
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---
@@ -37,3 +37,5 @@ Integrate the `scripts/verify-adr-compliance.ts` script into the project's tooli
 - [ ] Add the execution script to `package.json`.
 - [ ] Include the script execution in the main `lint` command in `package.json`.
 - [ ] Add the execution step to `.github/workflows/ci.yml` in the `lint` job.
+- [ ] research-479-471-investigate-adr-008-exceptions
+- [ ] adr-479-032-adr-008-exceptions

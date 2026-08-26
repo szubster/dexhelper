@@ -2,10 +2,10 @@
 id: story-070-443-hof-data-parsing-e2e
 type: STORY
 title: Integration and E2E Verification for Gen 1 and Gen 2 Hall of Fame Data
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-08-23'
+updated_at: '2026-08-26'
 depends_on:
   - story-070-111-parse-gen1-hof-data
   - story-070-112-parse-gen2-hof-data
@@ -34,3 +34,6 @@ This story ensures that the backend logic to parse and extract Hall of Fame reco
 - [ ] Write integration tests for Gen 1 Hall of Fame data extraction.
 - [ ] Write integration tests for Gen 2 Hall of Fame data extraction.
 - [ ] Run complete E2E test suite to verify overall functionality.
+- [ ] task-443-489-gen1-hof-e2e-impl
+- [ ] task-443-490-gen2-hof-e2e-impl
+- [ ] task-443-491-hof-e2e-qa
