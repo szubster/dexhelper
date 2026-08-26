@@ -2,12 +2,12 @@
 id: story-133-473-gen3-ribbon-constants
 type: STORY
 title: Define Gen 3 Ribbon Constants
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-26'
 depends_on: []
-jules_session_id: '17941262451131729307'
+jules_session_id: null
 pr_number: null
 parent: epic-101-133-gen3-ribbon-extraction
 tags:

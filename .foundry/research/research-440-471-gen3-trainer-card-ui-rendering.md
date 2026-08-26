@@ -2,16 +2,16 @@
 id: research-440-471-gen3-trainer-card-ui-rendering
 type: RESEARCH
 title: Investigate UI Rendering for Gen 3 Trainer Card Upgrades
-status: ACTIVE
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-26'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: task-359-440-gen3-trainer-card-parsing-e2e-impl
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
 ---
 

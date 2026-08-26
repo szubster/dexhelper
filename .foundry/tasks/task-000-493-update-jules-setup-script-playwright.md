@@ -1,15 +1,15 @@
 ---
-type: TASK
 id: task-000-493-update-jules-setup-script-playwright
+type: TASK
 title: Update Jules Setup Script with Playwright Dependencies
-depends_on: []
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-26T02:00:00Z'
-updated_at: '2026-08-26T02:00:00Z'
-jules_session_id: 'agile_coach_session'
+updated_at: '2026-08-26'
+depends_on: []
+jules_session_id: agile_coach_session
 rejection_count: 0
-rejection_reason: ""
+rejection_reason: ''
 ---
 
 # Update Jules Setup Script with Playwright Dependencies

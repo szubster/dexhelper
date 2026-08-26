@@ -2,12 +2,12 @@
 id: task-136-489-permanent-failure-state-selectors-impl
 type: TASK
 title: Implement Permanent Failure State Selectors
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-26'
 depends_on: []
-jules_session_id: '14515920951439317342'
+jules_session_id: null
 pr_number: null
 parent: story-047-136-permanent-failure-dashboard-ui
 tags:

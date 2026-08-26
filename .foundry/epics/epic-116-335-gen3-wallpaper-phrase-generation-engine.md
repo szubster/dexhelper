@@ -2,12 +2,12 @@
 id: epic-116-335-gen3-wallpaper-phrase-generation-engine
 type: EPIC
 title: Gen 3 Wallpaper Phrase Generation Engine
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-19'
-updated_at: '2026-08-25'
+updated_at: '2026-08-26'
 depends_on: []
-jules_session_id: '3064708840409245364'
+jules_session_id: null
 parent: prd-116-049-gen3-pc-box-wallpaper-customizer
 tags:
   - gen3
