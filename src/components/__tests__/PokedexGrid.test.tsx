@@ -124,10 +124,10 @@ describe('PokedexGrid', () => {
     const router = createMockRouter(<PokedexGrid pokemonList={mockList} />);
     await render(<RouterProvider router={router} />);
 
-    // IDs 1 and 2 are in party/pc (secured)
+    // IDs 1 and 2 are in party/pc (secured) and ID 3 is in owned set (secured)
     await expect.element(page.getByText('Pokemon1', { exact: true })).toBeInTheDocument();
     await expect.element(page.getByText('Pokemon2', { exact: true })).toBeInTheDocument();
-    await expect.element(page.getByText('Pokemon3', { exact: true })).not.toBeInTheDocument();
+    await expect.element(page.getByText('Pokemon3', { exact: true })).toBeInTheDocument();
   });
 
   test('filters by missing filter', async () => {
@@ -146,9 +146,9 @@ describe('PokedexGrid', () => {
     const router = createMockRouter(<PokedexGrid pokemonList={mockList} />);
     await render(<RouterProvider router={router} />);
 
-    // IDs 3, 4, 5 are missing (not in party/pc)
+    // IDs 4, 5 are missing (not in party/pc and not owned)
     await expect.element(page.getByText('Pokemon1', { exact: true })).not.toBeInTheDocument();
-    await expect.element(page.getByText('Pokemon3', { exact: true })).toBeInTheDocument();
+    await expect.element(page.getByText('Pokemon3', { exact: true })).not.toBeInTheDocument();
     await expect.element(page.getByText('Pokemon4', { exact: true })).toBeInTheDocument();
   });
 
