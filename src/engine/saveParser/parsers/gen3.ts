@@ -122,12 +122,6 @@ const RIBBON_CUTE_SHIFT = 6;
 const RIBBON_SMART_SHIFT = 9;
 const RIBBON_TOUGH_SHIFT = 12;
 
-export const GEN3_PARTY_SIZE_OFFSET_RSE = 0x0234;
-export const GEN3_PARTY_SIZE_OFFSET_FRLG = 0x0034;
-export const GEN3_PARTY_LIST_OFFSET_RSE = 0x0238;
-export const GEN3_PARTY_LIST_OFFSET_FRLG = 0x0038;
-export const GEN3_PARTY_MAX_SIZE = 6;
-export const GEN3_PARTY_STATUS_OFFSET = 0x50;
 export const GEN3_PARTY_LEVEL_OFFSET = 0x54;
 export const GEN3_PARTY_HP_OFFSET = 0x56;
 export const GEN3_PARTY_MAX_HP_OFFSET = 0x58;
@@ -266,8 +260,6 @@ export const SUBSTRUCTURE_SIZE = 12;
 export const PC_BOX_BUFFER_SIZE = 33744;
 export const PC_BOX_CURRENT_BOX_OFFSET = 0x0000;
 export const PC_BOX_POKEMON_LIST_OFFSET = 0x0004;
-export const PC_BOX_NAMES_OFFSET = 0x8344;
-export const PC_BOX_WALLPAPERS_OFFSET = 0x83c2;
 export const PC_BOX_COUNT = 14;
 export const PC_BOX_CAPACITY = 30;
 export const PC_BOX_SECTION_5_TO_12_SIZE = 3968;
@@ -280,7 +272,6 @@ export const GEN3_POKEMON_MOVE_2_OFFSET = 0x02;
 export const GEN3_POKEMON_MOVE_3_OFFSET = 0x04;
 export const GEN3_POKEMON_MOVE_4_OFFSET = 0x06;
 export const GEN3_SPINDA_SPECIES_ID = 327;
-export const UPPER_16_BIT_SHIFT = 16;
 export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
 
 /**
@@ -344,7 +335,6 @@ export function extractGen3PokemonData(view: DataView, offset: number) {
   };
 }
 
-export const GEN3_CONTEST_WINNERS_SECTION_ID = 3;
 export const GEN3_CONTEST_WINNERS_RELATIVE_OFFSET = 0x10;
 export const MUSEUM_CONTEST_WINNERS_START = 8;
 export const MUSEUM_CONTEST_WINNERS_COUNT = 5;

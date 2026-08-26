@@ -10,7 +10,6 @@ export const RSE_FLAGS_OFFSET_RS = 0x1220;
 export const FRLG_FLAGS_OFFSET = 0x0ee0;
 
 // Logical ID start inside flags array
-export const TRAINER_FLAGS_START = 0x500;
 // Since flags start at 0x500 and 1 flag = 1 bit (8 per byte):
 export const TRAINER_FLAGS_BYTE_OFFSET = 0xa0; // (160)
 
