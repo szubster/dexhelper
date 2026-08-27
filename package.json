@@ -44,7 +44,7 @@
     "dataloader": "^2.2.3",
     "idb": "^8.0.3",
     "lucide-react": "^1.34.0",
-    "msgpackr": "^2.0.5",
+    "msgpackr": "^2.0.6",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "tailwind-merge": "^3.6.0",
