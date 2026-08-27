@@ -31,5 +31,5 @@ Verify the implementation and tests of the prompt fragment composition engine.
 - Verify test coverage in `.github/scripts/fragments.test.ts`.
 
 ## Acceptance Criteria
-- [ ] Code review passes for `.github/scripts/fragments.ts`.
-- [ ] Test coverage is adequate and all tests pass.
+- [x] Code review passes for `.github/scripts/fragments.ts`.
+- [x] Test coverage is adequate and all tests pass.
