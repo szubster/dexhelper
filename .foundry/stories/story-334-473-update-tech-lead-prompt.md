@@ -33,3 +33,4 @@ This story is part of `epic-117-334-centralize-prompt-rules`. The objective is t
 ## 3. Acceptance Criteria
 - [ ] The `tech_lead.md` file is successfully modified.
 - [ ] No instructions about appending `### REMINDER FOR CODER` or `### REMINDER FOR QA` blocks remain in `tech_lead.md`.
+- [ ] task-473-493-update-tech-lead-prompt
