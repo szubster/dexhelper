@@ -187,6 +187,8 @@ When modifying or verifying central systems like the DAG Orchestrator (`.github/
 - **Vitest Mocks**: Vitest requires explicit generic typing on `vi.fn()` mocks (e.g. `vi.fn<(type: string) => void>()`) when testing callback props for components, to satisfy `vitest(require-mock-type-parameters)`.
 
 ## Playwright E2E Best Practices
+- **Strict Mode OR conditions**: When waiting for one of two potential elements to load, do not use `Promise.any` with `expect`, and do not wrap `expect` inside a `try...catch` block. Use `locator.or()` to correctly wait for either. To satisfy strict mode, append `.first()` both before and after the `.or()` (e.g. `expect(page.locator('.a').first().or(page.locator('.b').first()).first())`).
+- **isMobile Context**: When writing or maintaining E2E tests for navigation elements, always consider that layout and labeling may change based on screen size. The `isMobile` fixture in Playwright should be used to conditionally adjust locators.
 - Always use the `-a` flag with `xvfb-run` (e.g., `xvfb-run -a pnpm test:e2e`) during headless execution to bypass lock issues.
 - **Target Specific Files**: When running Playwright E2E tests locally to verify code changes, execute only the affected test files (e.g., `xvfb-run -a pnpm test:e2e tests/e2e/home.spec.ts`) to avoid triggering the 400-second bash session timeout.
 - **No Binary Installation**: Assume Playwright browser binaries are pre-installed in the environment. Do NOT run `pnpm exec playwright install` yourself during a session.
