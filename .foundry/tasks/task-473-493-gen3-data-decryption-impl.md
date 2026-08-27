@@ -2,12 +2,12 @@
 id: task-473-493-gen3-data-decryption-impl
 type: TASK
 title: Implement Gen 3 Data Decryption Engine
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-08-27'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1041097315171710228'
 pr_number: null
 parent: story-131-473-gen3-data-decryption-engine
 tags:
