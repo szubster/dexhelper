@@ -2,12 +2,12 @@
 id: task-126-489-match-call-msgpack-export
 type: TASK
 title: Match Call MsgPack Export via Vite Plugin
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-26'
+updated_at: '2026-08-27'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9197149119701753432'
 pr_number: null
 parent: story-084-126-match-call-msgpack
 tags:
