@@ -28,6 +28,6 @@ locks: []
 We need to ensure that the backend logic to parse and extract Hall of Fame records from Gen 2 save files integrates seamlessly with the rest of the application and functions correctly from end to end using Playwright.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for Gen 2 Hall of Fame data extraction.
-- [ ] E2E tests must verify that the parsed Hall of Fame data correctly reflects the state encoded in the Gen 2 `.sav` file.
-- [ ] Ensure that `initializeWithSave(page)` is used and `await waitForSync(page)` is called after navigation.
+- [x] Implement Playwright E2E tests for Gen 2 Hall of Fame data extraction.
+- [x] E2E tests must verify that the parsed Hall of Fame data correctly reflects the state encoded in the Gen 2 `.sav` file.
+- [x] Ensure that `initializeWithSave(page)` is used and `await waitForSync(page)` is called after navigation.
