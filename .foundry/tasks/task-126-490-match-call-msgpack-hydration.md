@@ -2,10 +2,10 @@
 id: task-126-490-match-call-msgpack-hydration
 type: TASK
 title: Match Call IndexedDB Hydration
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-27'
 depends_on:
   - task-126-489-match-call-msgpack-export
 jules_session_id: null
