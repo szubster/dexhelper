@@ -26,5 +26,5 @@ notes: ''
 Modify the `vite-plugins/pokedata-plugin.ts` to include the `gen3_match_call.jsonl` data inside the `msgpackr` bundling process, exporting it as part of the unified MsgPack binary format.
 
 ## Acceptance Criteria
-- [ ] Parse `gen3_match_call.jsonl` in the `pokedata-plugin.ts`.
-- [ ] Add the parsed data to the unified PokeData export object to be bundled with msgpack.
+- [x] Parse `gen3_match_call.jsonl` in the `pokedata-plugin.ts`.
+- [x] Add the parsed data to the unified PokeData export object to be bundled with msgpack.
