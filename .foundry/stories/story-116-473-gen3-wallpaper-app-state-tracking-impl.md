@@ -2,12 +2,12 @@
 id: story-116-473-gen3-wallpaper-app-state-tracking-impl
 type: STORY
 title: Implement Gen 3 Wallpaper App State Tracking
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-20'
-updated_at: '2026-08-26'
+updated_at: '2026-08-27'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11837106501657612616'
 parent: epic-116-336-gen3-wallpaper-app-state-tracking
 tags:
   - gen3
