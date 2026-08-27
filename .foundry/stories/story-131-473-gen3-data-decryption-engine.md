@@ -36,3 +36,6 @@ Implement the core logic to calculate the decryption key and decrypt the 48-byte
 - [ ] Implement logic to decrypt the data block.
 - [ ] Add unit tests verifying the decryption.
 - [ ] Adhere to schema constraints: Use relative offsets, avoid magic numbers, use module-level constants, and catch RangeError.
+- [ ] task-473-493-gen3-data-decryption-impl
+- [ ] task-473-494-gen3-data-decryption-tests
+- [ ] task-473-495-gen3-data-decryption-qa
