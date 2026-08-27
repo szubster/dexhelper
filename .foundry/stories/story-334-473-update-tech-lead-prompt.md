@@ -2,12 +2,12 @@
 id: story-334-473-update-tech-lead-prompt
 type: STORY
 title: Update Tech Lead Prompt
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-26'
+updated_at: '2026-08-27'
 depends_on: []
-jules_session_id: '7491370668965552608'
+jules_session_id: null
 pr_number: null
 parent: epic-117-334-centralize-prompt-rules
 tags:

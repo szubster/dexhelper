@@ -2,10 +2,10 @@
 id: task-444-490-gen2-event-flag-parsing-e2e-qa
 type: TASK
 title: Verify E2E tests for Gen 2 Event Flag parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-27'
 depends_on:
   - task-444-489-gen2-event-flag-parsing-e2e-impl
 jules_session_id: null

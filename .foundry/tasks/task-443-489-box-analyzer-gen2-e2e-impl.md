@@ -2,12 +2,12 @@
 id: task-443-489-box-analyzer-gen2-e2e-impl
 type: TASK
 title: Implement Gen 2 Box Analyzer E2E Tests
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-27'
 depends_on: []
-jules_session_id: '3501864239880853032'
+jules_session_id: null
 pr_number: null
 parent: story-108-443-box-analyzer-save-parsing-e2e
 tags:
@@ -15,7 +15,7 @@ tags:
   - save-parsing
   - gen2
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
