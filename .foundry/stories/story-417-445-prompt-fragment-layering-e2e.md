@@ -2,13 +2,13 @@
 id: story-417-445-prompt-fragment-layering-e2e
 type: STORY
 title: E2E Verification of Prompt Fragment Layering
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-23'
 updated_at: '2026-08-27'
 depends_on:
   - story-417-444-prompt-fragment-composition-engine
-jules_session_id: null
+jules_session_id: '648172305240892011'
 pr_number: null
 parent: epic-343-417-prompt-fragment-layering
 tags:
