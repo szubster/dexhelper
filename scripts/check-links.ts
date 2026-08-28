@@ -151,7 +151,7 @@ function checkLinks() {
       }
 
     } catch (e) {
-      console.error(`Error processing file ${file}:`, e);
+      console.error(`Error processing file ${file}:`, e instanceof Error ? e.message : String(e));
       hasErrors = true;
     }
   }

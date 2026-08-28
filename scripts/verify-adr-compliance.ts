@@ -101,7 +101,7 @@ function main() {
                 });
             }
         } catch (e) {
-            console.error(`Error parsing ${filePath}:`, e);
+            console.error(`Error parsing ${filePath}:`, e instanceof Error ? e.message : String(e));
         }
     });
 
