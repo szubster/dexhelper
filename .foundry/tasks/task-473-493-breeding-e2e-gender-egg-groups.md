@@ -2,12 +2,12 @@
 id: task-473-493-breeding-e2e-gender-egg-groups
 type: TASK
 title: Implement Gen 2 E2E Tests for Gender and Egg Groups
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-08-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4672316300781960075'
 pr_number: null
 parent: story-309-473-shiny-breeding-logic-e2e
 tags:
