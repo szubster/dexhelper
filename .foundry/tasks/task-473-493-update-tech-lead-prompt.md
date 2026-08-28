@@ -2,12 +2,12 @@
 id: task-473-493-update-tech-lead-prompt
 type: TASK
 title: Update Tech Lead Prompt
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-08-28'
 depends_on: []
-jules_session_id: '43843524552931356'
+jules_session_id: null
 pr_number: null
 parent: story-334-473-update-tech-lead-prompt
 tags:

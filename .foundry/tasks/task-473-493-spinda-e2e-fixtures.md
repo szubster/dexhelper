@@ -2,12 +2,12 @@
 id: task-473-493-spinda-e2e-fixtures
 type: TASK
 title: Gen 3 Spinda E2E Verification - Save Fixtures
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-08-28'
 depends_on: []
-jules_session_id: '6107753131943135370'
+jules_session_id: null
 pr_number: null
 parent: story-345-473-spinda-extraction-e2e
 tags:
