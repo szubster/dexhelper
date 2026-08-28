@@ -31,5 +31,5 @@ This task implements `story-334-473-update-tech-lead-prompt`. The objective is t
 - The prompt should still instruct the Tech Lead to draft technical blueprints and define clear contracts.
 
 ## 3. Acceptance Criteria
-- [ ] The `tech_lead.md` file is successfully modified.
-- [ ] No instructions about appending `### REMINDER FOR CODER` or `### REMINDER FOR QA` blocks remain in `tech_lead.md`.
+- [x] The `tech_lead.md` file is successfully modified.
+- [x] No instructions about appending `### REMINDER FOR CODER` or `### REMINDER FOR QA` blocks remain in `tech_lead.md`.
