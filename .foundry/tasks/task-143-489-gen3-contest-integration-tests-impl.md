@@ -33,4 +33,4 @@ This task implements integration tests in the save parser suite that validate fu
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 3. Acceptance Criteria
-- [ ] Implement Gen 3 Contest Integration Tests.
+- [x] Implement Gen 3 Contest Integration Tests.
