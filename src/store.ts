@@ -101,13 +101,25 @@ interface AppStore {
    * @param f - Array of filters to set as active.
    */
   setFilters: (f: FilterType[]) => void;
-  /** Sets the manual game version override. */
+  /**
+   * Sets the manual game version override.
+   * @param v - The game version to force, or null to rely on auto-detection.
+   */
   setManualVersion: (v: GameVersion | null) => void;
-  /** Sets the living dex tracking preference. */
+  /**
+   * Sets the living dex tracking preference.
+   * @param v - Whether living dex tracking is enabled.
+   */
   setIsLivingDex: (v: boolean) => void;
-  /** Sets the global visual Pokéball preference. */
+  /**
+   * Sets the global visual Pokéball preference.
+   * @param v - The Pokéball visual style to use globally.
+   */
   setGlobalPokeball: (v: PokeballType) => void;
-  /** Sets the Nuzlocke graveyard box. */
+  /**
+   * Sets the Nuzlocke graveyard box.
+   * @param box - The name/identifier of the PC box designated as the graveyard, or null.
+   */
   setNuzlockeGraveyardBox: (box: string | null) => void;
 
   // Transient UI state (not persisted)
@@ -119,13 +131,25 @@ interface AppStore {
   isSettingsOpen: boolean;
   /** Toggles the manual version selection modal. */
   isVersionModalOpen: boolean;
-  /** Updates the active search query. */
+  /**
+   * Updates the active search query.
+   * @param v - The search term to filter Pokémon by.
+   */
   setSearchTerm: (v: string) => void;
-  /** Updates the currently selected map location ID. */
+  /**
+   * Updates the currently selected map location ID.
+   * @param id - The location ID to select, or null to clear the selection.
+   */
   setSelectedLocationId: (id: number | null) => void;
-  /** Updates the settings modal visibility. */
+  /**
+   * Updates the settings modal visibility.
+   * @param v - Whether the settings modal should be open.
+   */
   setIsSettingsOpen: (v: boolean) => void;
-  /** Updates the manual version modal visibility. */
+  /**
+   * Updates the manual version modal visibility.
+   * @param v - Whether the manual version modal should be open.
+   */
   setIsVersionModalOpen: (v: boolean) => void;
 
   // Derived helpers
@@ -147,9 +171,16 @@ interface AppStore {
     remoteBuffer: Uint8Array;
     saveId: string;
   } | null;
-  /** Sets the conflict state and opens the modal */
+  /**
+   * Sets the conflict state and opens the modal.
+   * @param state - The conflict state object or null to clear it.
+   */
   setConflictState: (state: AppStore['conflictState']) => void;
-  /** Resolves the active conflict by choosing either local or remote data */
+  /**
+   * Resolves the active conflict by choosing either local or remote data.
+   * @param decision - Which save data to keep ('keep_local' or 'pull_remote').
+   * @returns A promise that resolves when the conflict is resolved.
+   */
   resolveConflict: (decision: 'keep_local' | 'pull_remote') => Promise<void>;
 
   // Actions

@@ -14,7 +14,7 @@ import { getGenerationConfig } from '../utils/generationConfig';
  * @param saveData - The parsed save data of the current game.
  * @param isLivingDex - If true, evaluates "owned" based on physical storage (PC/Party) instead of Pokédex flags.
  * @param manualVersion - An optional version override if heuristics detected the wrong game.
- * @returns An object containing the generated suggestions, loading state, and area name mappings.
+ * @returns An object containing the generated suggestions, debug info, loading state, area name mappings, and heatmap data.
  *
  * @example
  * const { suggestions, isLoading } = useAssistant(saveData, false, 'red');
