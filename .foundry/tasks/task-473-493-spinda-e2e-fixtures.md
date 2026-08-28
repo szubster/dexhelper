@@ -26,6 +26,6 @@ notes: ''
 Prepare realistic Gen 3 save file fixtures that contain Spinda in both the PC boxes and the active party. These fixtures are required for the E2E extraction tests to ensure PID values can be accurately verified.
 
 ## Acceptance Criteria
-- [ ] Source or generate a valid Gen 3 save file containing Spinda in the active party.
-- [ ] Source or generate a valid Gen 3 save file containing Spinda in the PC boxes.
-- [ ] Place these fixture files in the appropriate E2E test data directory.
+- [x] Source or generate a valid Gen 3 save file containing Spinda in the active party.
+- [x] Source or generate a valid Gen 3 save file containing Spinda in the PC boxes.
+- [x] Place these fixture files in the appropriate E2E test data directory.
