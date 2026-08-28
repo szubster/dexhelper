@@ -32,4 +32,4 @@ Verify that the implemented E2E tests for Gen 2 Event Flag parsing are comprehen
 Review the Playwright test file created in `task-444-489-gen2-event-flag-parsing-e2e-impl`. Ensure it covers all specified daily/weekly events, uses correct assertions, and properly waits for app state synchronization.
 
 ## Acceptance Criteria
-- [ ] E2E tests are verified to provide adequate coverage and correctness for Gen 2 daily/weekly events.
+- [x] E2E tests are verified to provide adequate coverage and correctness for Gen 2 daily/weekly events.
