@@ -968,3 +968,16 @@ Permanent failure on Gen 3 Roamer E2E tests (task 419) triggered the Impossible 
 
 
 - Properly set up explicitly linked depends_on paths when spawning replacement tasks to avoid DAG deadlocks and race conditions.
+
+
+<!-- Merged from 12887234632296617073.md -->
+# Session 12887234632296617073
+
+Successfully broke down story-071-473-extract-rejection-count into three separate tasks (impl, tests, and qa) to avoid the Two-Tasks-Max Anti-pattern as required by generative persona constraints.
+
+
+<!-- Merged from 7491370668965552608.md -->
+# Tech Lead Journal Entry
+**Session ID:** 7491370668965552608
+
+While decomposing `story-334-473-update-tech-lead-prompt` to remove the `### REMINDER FOR CODER` and `### REMINDER FOR QA` directives from `.github/agents/tech_lead.md`, I discovered that the target artifact already lacks these instructions. The modifications appear to have been made prior to this session or they never existed in the current version of the file. I have proceeded to draft the TASK node (`task-473-493-update-tech-lead-prompt`) for the Coder to verify and formally complete the implementation as per the Macro Node Decomposition Override rule.
