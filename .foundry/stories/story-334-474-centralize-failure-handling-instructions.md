@@ -2,13 +2,13 @@
 id: story-334-474-centralize-failure-handling-instructions
 type: STORY
 title: Centralize Failure Handling Instructions
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-25'
 updated_at: '2026-08-28'
 depends_on:
   - story-334-473-update-tech-lead-prompt
-jules_session_id: null
+jules_session_id: '6824297089265951511'
 pr_number: null
 parent: epic-117-334-centralize-prompt-rules
 tags:
