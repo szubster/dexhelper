@@ -35,8 +35,8 @@ Following the research into Fame Checker event flags, we need to implement the a
 - Write unit tests in `src/engine/gen3/fameChecker/parser.test.ts`.
 
 ## Acceptance Criteria
-- [ ] `Gen3FameCheckerData` type is defined.
-- [ ] `parseGen3FameChecker` function is implemented and correctly applies bitwise operations.
-- [ ] Data is correctly extracted from the `0x3A54` offset array.
-- [ ] Unit tests verify correct extraction of `pickState` and individual text flags from raw `u16` values.
-- [ ] Integrated into `Gen3SaveData` and `parseGen3`.
+- [x] `Gen3FameCheckerData` type is defined.
+- [x] `parseGen3FameChecker` function is implemented and correctly applies bitwise operations.
+- [x] Data is correctly extracted from the `0x3A54` offset array.
+- [x] Unit tests verify correct extraction of `pickState` and individual text flags from raw `u16` values.
+- [x] Integrated into `Gen3SaveData` and `parseGen3`.
