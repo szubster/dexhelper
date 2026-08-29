@@ -3,6 +3,7 @@
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
 | [epic-031-036-progression-tracking](.foundry/epics/epic-031-036-progression-tracking.md) | EPIC | Progression Tracking & Multiple Saves | story_owner | [12485559948712211362](https://jules.google.com/session/12485559948712211362) |
+| [epic-055-118-pokegear-alerts](.foundry/epics/epic-055-118-pokegear-alerts.md) | EPIC | Pokegear Swarm & Item Alerts | story_owner | [14192525614982829883](https://jules.google.com/session/14192525614982829883) |
 | [epic-057-420-bash-timeout-wrapper-retry](.foundry/epics/epic-057-420-bash-timeout-wrapper-retry.md) | EPIC | Timeout Wrapper for Bash Sessions (Retry) | story_owner | [3744091394802980108](https://jules.google.com/session/3744091394802980108) |
 | [epic-114-400-gen3-pokeblock-case-parsing-retry](.foundry/epics/epic-114-400-gen3-pokeblock-case-parsing-retry.md) | EPIC | Gen 3 Pokéblock Case Data Parsing | epic_planner | [5424688107404290185](https://jules.google.com/session/5424688107404290185) |
 | [epic-118-338-gen2-unown-dex-data-extraction](.foundry/epics/epic-118-338-gen2-unown-dex-data-extraction.md) | EPIC | Gen 2 Unown Dex Data Extraction | story_owner | [9631422059218650108](https://jules.google.com/session/9631422059218650108) |
