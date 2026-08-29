@@ -2,7 +2,7 @@
 id: task-443-491-hof-e2e-qa
 type: TASK
 title: Gen 1 and Gen 2 Hall of Fame Data Parsing E2E QA
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-08-29'
@@ -20,8 +20,8 @@ tags:
   - playwright
   - qa
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

@@ -2,12 +2,12 @@
 id: epic-146-417-real-time-statistics-generator
 type: EPIC
 title: Real-Time Statistics Generator & Orchestrator Integration
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-08-14'
 updated_at: '2026-08-29'
 depends_on: []
-jules_session_id: '10568560675067002381'
+jules_session_id: null
 pr_number: null
 parent: prd-146-001-foundry-system-statistics
 tags:
@@ -16,7 +16,7 @@ tags:
   - statistics
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 ---
 
