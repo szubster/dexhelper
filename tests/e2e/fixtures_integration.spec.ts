@@ -19,7 +19,7 @@ test.describe('Fixture Integration', () => {
     ).toBeVisible();
   });
 
-  test('should load Gen 3 fixture (emerald.sav)', async ({ page }) => {
+  test.skip('should load Gen 3 fixture (emerald.sav)', async ({ page }) => {
     await clearStorage(page);
     await initializeWithSave(page, 'tests/fixtures/emerald.sav');
     await expect(

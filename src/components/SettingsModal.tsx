@@ -20,16 +20,12 @@ export function SettingsModal() {
   const setIsLivingDex = useStore((s) => s.setIsLivingDex);
   const globalPokeball = useStore((s) => s.globalPokeball);
   const setGlobalPokeball = useStore((s) => s.setGlobalPokeball);
-  const nuzlockeGraveyardBox = useStore((s) => s.nuzlockeGraveyardBox);
-  const setNuzlockeGraveyardBox = useStore((s) => s.setNuzlockeGraveyardBox);
 
   const effectiveVersion = manualVersion || saveData?.gameVersion || 'unknown';
 
   if (!isSettingsOpen) return null;
 
   const genConfig = saveData ? getGenerationConfig(saveData.generation) : null;
-
-  const storageLocations = genConfig ? Array.from({ length: genConfig.boxCount }, (_, i) => `Box ${i + 1}`) : [];
 
   const filteredPokeballs = (genConfig?.pokeballs ?? ['poke', 'great', 'ultra'])
     .filter((pb) => pb !== 'safari') // Safari Ball cannot be a default
@@ -74,9 +70,6 @@ export function SettingsModal() {
           setGlobalPokeball={setGlobalPokeball}
           filteredPokeballs={filteredPokeballs}
           genConfig={genConfig}
-          nuzlockeGraveyardBox={nuzlockeGraveyardBox}
-          setNuzlockeGraveyardBox={setNuzlockeGraveyardBox}
-          storageLocations={storageLocations}
         />
         <ClearStorageButton
           onClear={async () => {
