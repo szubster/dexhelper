@@ -13,10 +13,10 @@ test.describe('Nuzlocke Death Tracking', () => {
     const modalHeading = page.getByText(/SYS\.CONFIG/i).first();
     await expect(modalHeading).toBeVisible();
 
-    const noneBtn = page.getByText(/\[ NONE \]/i).first();
+    const noneBtn = page.getByRole('radio', { name: /\[ NONE \]/i }).first();
     await expect(noneBtn).toBeVisible();
 
-    const box1Btn = page.getByText(/\[ Box 1 \]/i).first();
+    const box1Btn = page.getByRole('radio', { name: /\[ Box 1 \]/i }).first();
     await box1Btn.click();
 
     const closeBtn = page.getByRole('button', { name: /Close/i });

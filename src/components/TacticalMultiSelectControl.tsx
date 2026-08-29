@@ -33,8 +33,8 @@ export function TacticalMultiSelectControl<T extends string | number | readonly 
   legendLabel,
   containerClassName,
   buttonBaseClassName,
-  defaultActiveClassName = 'bg-[var(--theme-primary)]/20 text-[var(--theme-primary)] shadow-[inset_0_0_10px_rgba(var(--theme-primary-rgb),0.3)]',
-  defaultInactiveClassName = 'bg-zinc-950/50 text-zinc-600 hover:bg-zinc-900 hover:text-zinc-400',
+  defaultActiveClassName = 'bg-zinc-950 shadow-[inset_0_4px_8px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.02)] text-[var(--theme-primary)] translate-y-[2px] border-t-zinc-950 border-b-zinc-800',
+  defaultInactiveClassName = 'bg-zinc-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.4)] text-zinc-400 hover:bg-zinc-700 hover:text-zinc-300 border-t-zinc-700 border-b-zinc-950',
   renderPrefixItem,
 }: TacticalMultiSelectControlProps<T>) {
   return (
@@ -47,37 +47,48 @@ export function TacticalMultiSelectControl<T extends string | number | readonly 
       )}
       {!legendLabel && ariaLabel && <legend className="sr-only">{ariaLabel}</legend>}
 
-      <div className="flex flex-wrap border border-zinc-800 border-dashed sm:flex-nowrap">
-        {renderPrefixItem?.()}
-        {items.map((item, idx) => {
-          const isLast = idx === items.length - 1;
-          const isActive = selectedValues.has(item.id);
+      <div className="relative border border-zinc-700 bg-zinc-900 p-2 shadow-[inset_0_0_15px_rgba(0,0,0,0.8),0_2px_4px_rgba(0,0,0,0.5)]">
+        {/* Hardware structural screws */}
+        <div className="absolute top-1 left-1 h-1 w-1 rounded-full bg-zinc-950/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" />
+        <div className="absolute top-1 right-1 h-1 w-1 rounded-full bg-zinc-950/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" />
+        <div className="absolute bottom-1 left-1 h-1 w-1 rounded-full bg-zinc-950/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" />
+        <div className="absolute right-1 bottom-1 h-1 w-1 rounded-full bg-zinc-950/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" />
 
-          const activeClass = item.activeClassName ?? defaultActiveClassName;
-          const inactiveClass = item.inactiveClassName ?? defaultInactiveClassName;
+        <div className="relative z-10 flex flex-wrap gap-1.5 sm:flex-nowrap">
+          {renderPrefixItem?.()}
+          {items.map((item) => {
+            const isActive = selectedValues.has(item.id);
 
-          return (
-            <button
-              key={String(item.id)}
-              type="button"
-              aria-pressed={isActive}
-              onClick={() => onValueToggle(item.id)}
-              disabled={item.disabled}
-              data-testid={item.testId}
-              title={item.ariaLabel || (typeof item.label === 'string' ? `${item.label} filter` : undefined)}
-              aria-label={item.ariaLabel || (typeof item.label === 'string' ? `${item.label} filter` : undefined)}
-              className={cn(
-                'tactical-badge flex-1 border-0 px-2 py-3',
-                !isLast && 'border-r border-r-zinc-800 border-dashed',
-                isActive ? activeClass : inactiveClass,
-                buttonBaseClassName,
-                item.className,
-              )}
-            >
-              {item.label}
-            </button>
-          );
-        })}
+            const activeClass = item.activeClassName ?? defaultActiveClassName;
+            const inactiveClass = item.inactiveClassName ?? defaultInactiveClassName;
+
+            return (
+              <button
+                key={String(item.id)}
+                type="button"
+                aria-pressed={isActive}
+                onClick={() => onValueToggle(item.id)}
+                disabled={item.disabled}
+                data-testid={item.testId}
+                title={item.ariaLabel || (typeof item.label === 'string' ? `${item.label} filter` : undefined)}
+                aria-label={item.ariaLabel || (typeof item.label === 'string' ? `${item.label} filter` : undefined)}
+                className={cn(
+                  'tactical-badge flex-1 border border-zinc-950 px-2 py-2.5 transition-all duration-75',
+                  isActive ? activeClass : inactiveClass,
+                  buttonBaseClassName,
+                  item.className,
+                )}
+              >
+                <div className="flex items-center justify-center gap-1.5">
+                  {isActive && (
+                    <div className="h-1.5 w-1.5 rounded-full bg-[var(--theme-primary)] shadow-[0_0_5px_var(--theme-primary)]" />
+                  )}
+                  {item.label}
+                </div>
+              </button>
+            );
+          })}
+        </div>
       </div>
     </fieldset>
   );
