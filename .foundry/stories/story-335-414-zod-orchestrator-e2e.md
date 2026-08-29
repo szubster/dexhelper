@@ -25,4 +25,7 @@ rejection_reason: ''
 This story is dedicated to E2E verification for the Zod validation integration within the Foundry Orchestrator. We need to verify that node promotion is correct, error scenarios output well-formed messages, and malformed files are appropriately rejected without breaking the orchestration loop.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-414-493-zod-orchestrator-fixtures
+- [ ] task-414-494-zod-orchestrator-e2e-impl
+- [ ] task-414-495-zod-orchestrator-e2e-qa
