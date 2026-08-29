@@ -47,7 +47,9 @@ export function NavButton({ to, isActive, onClick, icon: Icon, label, activeLabe
             isActive ? 'text-[var(--theme-primary)]' : 'text-zinc-500 group-hover:text-zinc-400',
           )}
         >
-          [ {isActive ? activeLabel : label} ]
+          <span aria-hidden="true">[ </span>
+          {isActive ? activeLabel : label}
+          <span aria-hidden="true"> ]</span>
         </span>
       </div>
     </div>
