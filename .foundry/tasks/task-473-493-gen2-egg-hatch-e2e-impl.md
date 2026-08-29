@@ -2,12 +2,12 @@
 id: task-473-493-gen2-egg-hatch-e2e-impl
 type: TASK
 title: Gen 2 Egg Hatch E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-08-29'
 depends_on: []
-jules_session_id: '11491954469742843932'
+jules_session_id: '10856894901975364713'
 pr_number: null
 parent: story-106-473-egg-hatch-parsing-e2e
 tags:
