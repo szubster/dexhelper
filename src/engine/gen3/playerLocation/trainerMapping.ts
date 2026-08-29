@@ -5,7 +5,7 @@ export interface UpcomingTrainer {
 }
 
 // Basic map ID to Gym mapping.
-// Based on typical Nuzlocke/speedrun progression.
+// Based on typical speedrun progression.
 export const GYM_MAPS: Record<number, UpcomingTrainer> = {
   2819: { name: 'Roxanne', type: 'Rock', levelCap: 15 },
   771: { name: 'Brawly', type: 'Fighting', levelCap: 19 },

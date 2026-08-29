@@ -199,7 +199,7 @@
 - **Domain:** Main Project (DexHelper)
 - **Proposed Idea:** Gen 3 Trainer AI Move Predictor (IDEA-136)
 - **Rationale & Concept:**
-  Proposes a tool for DexHelper that predicts enemy trainer moves by simulating Generation 3 AI behavior scripts against the player's active party. Targeting hardcore challenge runners and Nuzlockers.
+  Proposes a tool for DexHelper that predicts enemy trainer moves by simulating Generation 3 AI behavior scripts against the player's active party. Targeting hardcore challenge runners.
 - **Strategic Balance:**
   Pivoting back to the DexHelper product domain after previously proposing a Foundry System idea (Automated Agent A/B Testing Framework, IDEA-135) to maintain the required 50/50 balance.
 
