@@ -32,5 +32,8 @@ As per the Orchestrator Safeguard, this story ensures that all sorting strategie
 ## Acceptance Criteria
 - [x] Break down this story into a task to implement E2E tests for PC Box Sorting Algorithms.
 - [x] Break down this story into a task to QA the E2E tests for PC Box Sorting Algorithms.
-- [ ] task-361-407-sorting-algorithms-e2e-impl
-- [ ] task-361-408-sorting-algorithms-e2e-qa
+- [x] task-361-407-sorting-algorithms-e2e-impl
+- [x] task-361-408-sorting-algorithms-e2e-qa
+- [ ] research-361-494-sorting-algorithms-e2e-root-cause
+- [ ] task-361-495-sorting-algorithms-e2e-impl-retry
+- [ ] task-361-496-sorting-algorithms-e2e-qa-retry
