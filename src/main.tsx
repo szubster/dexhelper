@@ -9,23 +9,8 @@ import { queryClient } from './queryClient';
 import { routeTree } from './routeTree.gen';
 import './index.css';
 
-import { prefetchMsgpack } from './utils/prefetchMsgpack';
-
 // Initialize and sync PokeData
-pokeDB
-  .sync()
-  .then(() => {
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(() => {
-        prefetchMsgpack();
-      });
-    } else {
-      setTimeout(() => {
-        prefetchMsgpack();
-      }, 1000);
-    }
-  })
-  .catch(() => console.error('System: sync failed'));
+pokeDB.sync().catch(() => console.error('System: sync failed'));
 
 const router = createRouter({
   routeTree,
