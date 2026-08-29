@@ -5,13 +5,23 @@ import { MapUI } from '../MapUI';
 
 describe('MapUI', () => {
   it('should not render anything if heatmap is empty or has only 0 density', async () => {
-    await render(<MapUI heatmap={{ 1: 0, 2: 0 }} />);
+    await render(
+      <MapUI
+        heatmap={{
+          1: { density: 0, requiresMachBike: false, requiresAcroBike: false },
+          2: { density: 0, requiresMachBike: false, requiresAcroBike: false },
+        }}
+      />,
+    );
     // When returning null, the DOM element won't have the elements we look for.
     await expect.element(page.getByText(/Active Route Radar/i)).not.toBeInTheDocument();
   });
 
   it('should render route radar correctly when there is heatmap data', async () => {
-    const heatmap = { 10: 2, 20: 5 };
+    const heatmap = {
+      10: { density: 2, requiresMachBike: false, requiresAcroBike: false },
+      20: { density: 5, requiresMachBike: false, requiresAcroBike: false },
+    };
     const areaNames = { 10: 'Route 1', 20: 'Route 2' };
 
     await render(<MapUI heatmap={heatmap} areaNames={areaNames} />);
@@ -30,7 +40,7 @@ describe('MapUI', () => {
   });
 
   it('should default to generic area name if areaNames is not provided', async () => {
-    const heatmap = { 99: 1 };
+    const heatmap = { 99: { density: 1, requiresMachBike: false, requiresAcroBike: false } };
 
     await render(<MapUI heatmap={heatmap} />);
 

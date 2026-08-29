@@ -2,10 +2,10 @@
 id: task-336-401-architect-drive-sync-adr
 type: TASK
 title: 'Author ADR: Server-Side Integration vs. Android Companion App for Drive Sync'
-status: READY
+status: COMPLETED
 owner_persona: architect
 created_at: '2026-08-05'
-updated_at: '2026-08-20'
+updated_at: '2026-08-29'
 depends_on:
   - research-336-400-cloudflare-drive-webhooks
 jules_session_id: null
@@ -35,6 +35,6 @@ The `researcher` persona is currently investigating the feasibility of Google Dr
 Author an Architecture Decision Record (ADR) that definitively selects the appropriate path based on the research findings, system constraints, and long-term maintainability.
 
 ## Acceptance Criteria
-- [ ] Review the findings in the completed `research-336-400-cloudflare-drive-webhooks` node.
-- [ ] Author a new ADR in `.foundry/docs/adrs/` documenting the decision.
-- [ ] Update this task as complete.
+- [x] Review the findings in the completed `research-336-400-cloudflare-drive-webhooks` node.
+- [x] Author a new ADR in `.foundry/docs/adrs/` documenting the decision.
+- [x] Update this task as complete.

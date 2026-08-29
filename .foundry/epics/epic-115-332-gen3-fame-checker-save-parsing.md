@@ -2,13 +2,13 @@
 id: epic-115-332-gen3-fame-checker-save-parsing
 type: EPIC
 title: Gen 3 Fame Checker Save Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-17'
-updated_at: '2026-08-25'
+updated_at: '2026-08-26'
 depends_on:
   - epic-115-331-gen3-fame-checker-research
-jules_session_id: '9222715477025088345'
+jules_session_id: null
 pr_number: null
 parent: prd-115-115-gen3-fame-checker-assistant
 tags:
@@ -38,3 +38,7 @@ Following the research into Fame Checker event flags (`epic-115-331-gen3-fame-ch
 - Ensure explicit handling for FireRed/LeafGreen specific structures compared to Ruby/Sapphire/Emerald where applicable.
 - Adhere strictly to the "Dynamic Save Block Extraction Guidelines" (ADR 028), using module-level constants for offsets and avoiding inline magic numbers.
 - Ensure the data structure conforms to the `PokeData` application naming schema where necessary.
+
+## Acceptance Criteria
+- [ ] story-332-473-gen3-fame-checker-parsing-logic
+- [ ] story-332-474-gen3-fame-checker-save-parsing-e2e

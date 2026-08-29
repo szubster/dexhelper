@@ -2,13 +2,13 @@
 id: epic-339-407-gamified-dashboard-ui
 type: EPIC
 title: Gamified DAG Dashboard UI
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2024-05-18'
-updated_at: '2026-08-15'
+updated_at: '2026-08-26'
 depends_on:
   - epic-339-405-schema-role-mapping
-jules_session_id: null
+jules_session_id: '12068839889704577207'
 pr_number: null
 parent: prd-122-339-pokemon-themed-foundry-personas
 tags:

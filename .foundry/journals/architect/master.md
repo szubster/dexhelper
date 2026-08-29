@@ -1,2 +1,0 @@
-- ADR 032 is accepted to use a multi-emulator architecture (`binjgb` for Gen 1/2, `mGBA` for Gen 3).
-- Updated `.foundry/docs/schema.md` to document the global data contract for emulator integration and WASM memory extraction for `.sav` data as required by the Architect persona guidelines.

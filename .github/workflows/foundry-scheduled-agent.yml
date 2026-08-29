@@ -28,6 +28,20 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          run_install: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Configure Git
         run: |
           git config --global user.name "github-actions[bot]"
@@ -43,12 +57,16 @@ jobs:
           persona="$PERSONA"
           agent_file=".github/agents/${persona}.md"
 
-          if [[ ! -f "$agent_file" ]]; then
-            echo "::error::Agent file $agent_file not found."
-            exit 1
-          fi
+          agent_context=$(node --experimental-strip-types .github/scripts/foundry-orchestrator.ts --compile-scheduled "$persona")
 
-          agent_context=$(cat "$agent_file")
+          if [[ -z "$agent_context" ]]; then
+            if [[ -f "$agent_file" ]]; then
+              agent_context=$(cat "$agent_file")
+            else
+              echo "::error::Agent file $agent_file not found and prompt compilation failed."
+              exit 1
+            fi
+          fi
 
           # Construct the prompt JSON
           prompt_json=$(jq -n \
@@ -58,7 +76,7 @@ jobs:
             --arg schema_url "https://github.com/$GITHUB_REPO/blob/main/.foundry/docs/schema.md" \
             --arg title "Scheduled Agent: $persona" \
             '{
-              "prompt": "\($agent_context)\n\n\($empty_state)\n\n### SCHEMA\n\($schema_url)",
+              "prompt": "\($agent_context)\n\n\($empty_state)\n\n### CRITICAL RULE\n1. AUTONOMOUS NO-ASK POLICY: Never ask conversational questions, ask for permission to proceed, or ask whether to open/submit a PR or request code review in chat. Execute all decisions autonomously and call submit immediately when work or demotion steps are ready.\n\n### SCHEMA\n\($schema_url)",
               "sourceContext": {
                 "source": "sources/github/\($repo)",
                 "githubRepoContext": {

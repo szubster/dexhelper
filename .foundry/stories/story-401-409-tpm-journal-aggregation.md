@@ -2,13 +2,13 @@
 id: story-401-409-tpm-journal-aggregation
 type: STORY
 title: Update TPM Persona Journal Aggregation
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-25'
+updated_at: '2026-08-29'
 depends_on:
   - story-401-408-persona-specific-journal-directories
-jules_session_id: '5799943991093245774'
+jules_session_id: null
 pr_number: null
 parent: epic-335-401-implement-conflictless-journals-retry
 tags:
@@ -28,3 +28,6 @@ Update the TPM persona responsibilities and associated scripts to properly aggre
 ## Acceptance Criteria
 - [ ] Implement aggregation logic for the TPM persona to process files from persona subdirectories.
 - [ ] Ensure aggregated data is correctly archived.
+- [ ] task-409-493-tpm-journal-aggregation-script-impl
+- [ ] task-409-494-tpm-journal-aggregation-script-tests
+- [ ] task-409-495-tpm-journal-aggregation-qa

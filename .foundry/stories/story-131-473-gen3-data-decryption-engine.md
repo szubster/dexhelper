@@ -2,13 +2,13 @@
 id: story-131-473-gen3-data-decryption-engine
 type: STORY
 title: Gen 3 Data Decryption Engine
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-26'
+updated_at: '2026-08-27'
 depends_on:
   - epic-097-130-gen3-data-structure-extraction
-jules_session_id: '8805279093421757777'
+jules_session_id: null
 pr_number: null
 parent: epic-097-131-gen3-data-decryption-mapping
 tags:
@@ -36,3 +36,6 @@ Implement the core logic to calculate the decryption key and decrypt the 48-byte
 - [ ] Implement logic to decrypt the data block.
 - [ ] Add unit tests verifying the decryption.
 - [ ] Adhere to schema constraints: Use relative offsets, avoid magic numbers, use module-level constants, and catch RangeError.
+- [ ] task-473-493-gen3-data-decryption-impl
+- [ ] task-473-494-gen3-data-decryption-tests
+- [ ] task-473-495-gen3-data-decryption-qa

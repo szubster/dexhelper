@@ -2,13 +2,13 @@
 id: story-129-421-verify-schema-documentation-e2e
 type: STORY
 title: Verify Schema Documentation Updates (E2E)
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-13'
-updated_at: '2026-08-20'
+updated_at: '2026-08-26'
 depends_on:
   - story-129-420-update-schema-e2e-rule
-jules_session_id: null
+jules_session_id: '5579335474028031804'
 pr_number: null
 parent: epic-057-129-schema-documentation-updates
 tags:

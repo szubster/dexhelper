@@ -8,12 +8,7 @@ test.describe('Nuzlocke Death Tracking', () => {
   });
 
   test('Party Pokemon at 0 HP is detected and displays dead style', async ({ page }) => {
-    const settingsBtn = page.getByTestId('settings-button');
-    if (await settingsBtn.isVisible()) {
-      await settingsBtn.click();
-    } else {
-      await page.getByRole('button', { name: /System Settings|SYS\.SETTINGS/i }).click();
-    }
+    await page.getByRole('button', { name: 'System Settings' }).click();
 
     const modalHeading = page.getByText(/SYS\.CONFIG/i).first();
     await expect(modalHeading).toBeVisible();
@@ -28,11 +23,7 @@ test.describe('Nuzlocke Death Tracking', () => {
     await closeBtn.click();
     await page.waitForTimeout(500);
 
-    if (await settingsBtn.isVisible()) {
-      await settingsBtn.click();
-    } else {
-      await page.getByRole('button', { name: /System Settings|SYS\.SETTINGS/i }).click();
-    }
+    await page.getByRole('button', { name: 'System Settings' }).click();
 
     await expect(box1Btn).toHaveClass(/border-red-500/);
     await expect(noneBtn).toBeVisible();

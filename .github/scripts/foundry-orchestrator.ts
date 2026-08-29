@@ -62,8 +62,15 @@ const MAX_REJECTION_THRESHOLD = 3; // Hardcoded fallback for isolated test envir
 const isDryRun = (): boolean => process.argv.includes('--dry-run');
 const isStrict = (): boolean => process.argv.includes('--strict');
 
-const COMPILE_ARG_INDEX = process.argv.indexOf('--compile');
-const COMPILE_PATH = COMPILE_ARG_INDEX !== -1 ? process.argv[COMPILE_ARG_INDEX + 1] : null;
+const getCompilePath = (): string | null => {
+  const idx = process.argv.indexOf('--compile');
+  return idx !== -1 ? process.argv[idx + 1] : null;
+};
+
+const getCompileScheduledPersona = (): string | null => {
+  const idx = process.argv.indexOf('--compile-scheduled');
+  return idx !== -1 ? process.argv[idx + 1] : null;
+};
 
 // ─── Logging (all diagnostic output → stderr; only the matrix JSON → stdout) ─
 
@@ -358,6 +365,36 @@ function compilePromptForNode(node: ParsedNode, repoRoot: string): string {
   return combined;
 }
 
+function compileScheduledPrompt(persona: string, repoRoot: string): string {
+  let basePrompt = '';
+  const genericPath = path.join(repoRoot, '.github', 'agents', 'generic', `${persona}.md`);
+  const fallbackPath = path.join(repoRoot, '.github', 'agents', `${persona}.md`);
+
+  if (fs.existsSync(genericPath)) {
+    basePrompt = fs.readFileSync(genericPath, 'utf-8');
+  } else if (fs.existsSync(fallbackPath)) {
+    basePrompt = fs.readFileSync(fallbackPath, 'utf-8');
+  } else {
+    warn(`Scheduled agent persona prompt not found for: ${persona}`);
+    return '';
+  }
+
+  let combined = basePrompt;
+
+  const corePoliciesPath = path.join(repoRoot, '.foundry', 'docs', 'knowledge_base', 'agents', 'core_policies.md');
+  const corePrinciplesPath = path.join(repoRoot, '.foundry', 'docs', 'knowledge_base', 'agents', 'core_principles.md');
+
+  if (fs.existsSync(corePoliciesPath)) {
+    const corePoliciesContent = fs.readFileSync(corePoliciesPath, 'utf-8');
+    combined += `\n\n### CORE SYSTEM POLICIES\n${corePoliciesContent}`;
+  } else if (fs.existsSync(corePrinciplesPath)) {
+    const corePrinciplesContent = fs.readFileSync(corePrinciplesPath, 'utf-8');
+    combined += `\n\n### CORE SYSTEM POLICIES\n${corePrinciplesContent}`;
+  }
+
+  return combined;
+}
+
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
@@ -366,11 +403,23 @@ function main(): void {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
   const repoRoot = process.env.VITEST ? process.cwd() : path.resolve(__dirname, '..', '..');
 
-  if (COMPILE_PATH) {
-    const fullPath = path.resolve(repoRoot, COMPILE_PATH);
+  const compileScheduledPersona = getCompileScheduledPersona();
+  if (compileScheduledPersona) {
+    const compiled = compileScheduledPrompt(compileScheduledPersona, repoRoot);
+    if (!compiled) {
+      process.exitCode = 1;
+      return;
+    }
+    process.stdout.write(compiled);
+    return;
+  }
+
+  const compilePath = getCompilePath();
+  if (compilePath) {
+    const fullPath = path.resolve(repoRoot, compilePath);
     const node = parseNodeFile(fullPath, repoRoot);
     if (!node) {
-      warn(`Could not parse node at compile path: ${COMPILE_PATH}`);
+      warn(`Could not parse node at compile path: ${compilePath}`);
       process.exitCode = 1;
       return;
     }
@@ -1447,4 +1496,4 @@ if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith
   main();
 }
 
-export { discoverNodeFiles, parseNodeFile, promoteNodeStatus, main };
+export { discoverNodeFiles, parseNodeFile, promoteNodeStatus, compileScheduledPrompt, compilePromptForNode, main };

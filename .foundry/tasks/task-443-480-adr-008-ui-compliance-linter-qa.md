@@ -2,13 +2,13 @@
 id: task-443-480-adr-008-ui-compliance-linter-qa
 type: TASK
 title: QA Verify ADR 008 Linter
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-24'
-updated_at: '2026-08-24'
+updated_at: '2026-08-27'
 depends_on:
   - task-443-479-adr-008-ui-compliance-linter-ci
-jules_session_id: null
+jules_session_id: '8597009886056992722'
 pr_number: null
 parent: story-417-443-adr-008-ui-compliance-linter
 tags:

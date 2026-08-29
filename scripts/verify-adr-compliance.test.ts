@@ -34,12 +34,12 @@ describe('verify-adr-compliance', () => {
     it('should identify forbidden classes in template literals', () => {
         const filePath = path.join(tempDir, 'template.tsx');
         fs.writeFileSync(filePath, `
-            const className = \`rounded-lg \${"var"} rounded-full\`;
+            const className = \`rounded-lg \${"var"} rounded-xl\`;
         `);
         const violations = findViolationsInFile(filePath);
         expect(violations).toHaveLength(2);
         expect((violations[0] || {}).class).toBe('rounded-lg');
-        expect((violations[1] || {}).class).toBe('rounded-full');
+        expect((violations[1] || {}).class).toBe('rounded-xl');
     });
 
     it('should pass compliant classes without errors', () => {

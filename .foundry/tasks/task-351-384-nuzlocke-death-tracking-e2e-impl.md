@@ -5,7 +5,7 @@ title: Nuzlocke Death Tracking E2E Tests Implementation
 status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-01'
-updated_at: '2026-08-22'
+updated_at: '2026-08-29'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - nuzlocke
   - verification
 rejection_count: 3
-rejection_reason: Max rejection count reached
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

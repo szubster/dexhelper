@@ -161,6 +161,12 @@ interface AppStore {
   loadSaveFromStorage: () => Promise<void>;
 }
 
+// Expose store state for E2E testing
+if (typeof window !== 'undefined' && (import.meta.env.DEV || import.meta.env.MODE === 'test')) {
+  // biome-ignore lint/suspicious/noExplicitAny: testing hook
+  (window as any).__store = () => useStore.getState();
+}
+
 // ─── Store ───────────────────────────────────────────────────────────
 /**
  * React hook exposing the global application store.

@@ -6,12 +6,7 @@ test.describe('Advanced Settings Persistence', () => {
     await initializeWithSave(page);
 
     // Open settings modal
-    const settingsBtn = page.getByTestId('settings-button');
-    if (await settingsBtn.isVisible()) {
-      await settingsBtn.click();
-    } else {
-      await page.getByRole('button', { name: 'System Settings' }).click();
-    }
+    await page.getByRole('button', { name: 'System Settings' }).click();
 
     // Verify settings modal is open
     await expect(page.getByText('SYS.CONFIG').first()).toBeVisible();
@@ -36,11 +31,7 @@ test.describe('Advanced Settings Persistence', () => {
     await waitForSync(page);
 
     // Re-open settings
-    if (await settingsBtn.isVisible()) {
-      await settingsBtn.click();
-    } else {
-      await page.getByRole('button', { name: 'System Settings' }).click();
-    }
+    await page.getByRole('button', { name: 'System Settings' }).click();
     await expect(page.getByText('SYS.CONFIG').first()).toBeVisible();
 
     // Verify persistence via checked state of the radio buttons

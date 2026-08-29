@@ -2,10 +2,10 @@
 id: task-413-490-route-radar-logic
 type: TASK
 title: Implement Bike Requirement Logic in RouteRadarController
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-27'
 depends_on:
   - task-413-489-bike-requirements-types
 jules_session_id: null
@@ -29,5 +29,5 @@ The RouteRadarController must be updated to aggregate bike requirement data into
 Modify calculateHeatmap in RouteRadarController.ts to construct the new RouteRadarHeatmap object structure and accurately populate the requiresMachBike and requiresAcroBike properties based on the injected data.
 
 ## Acceptance Criteria
-- [ ] coder: Implement the logic to populate bike requirements in calculateHeatmap.
-- [ ] coder: Add unit tests to verify the aggregated heatmap structure includes the correct bike flags.
+- [x] coder: Implement the logic to populate bike requirements in calculateHeatmap.
+- [x] coder: Add unit tests to verify the aggregated heatmap structure includes the correct bike flags.
