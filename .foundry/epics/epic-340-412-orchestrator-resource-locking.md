@@ -33,5 +33,8 @@ This EPIC covers the implementation of the core orchestrator logic (`.github/scr
 - Ensure deadlocks are prevented and locks are released appropriately when a node transitions from `ACTIVE` to `COMPLETED` or `FAILED`.
 
 ## Acceptance Criteria
-- [ ] Story Owner completes EPIC decomposition.
-- [ ] Story Owner generates a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner completes EPIC decomposition.
+- [ ] story-412-477-parse-locks-orchestrator
+- [ ] story-412-478-implement-resolve-phase-locking
+- [x] Story Owner generates a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-412-479-orchestrator-locking-e2e-verification
