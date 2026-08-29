@@ -2,12 +2,12 @@
 id: story-400-477-gen3-pokeblock-constants-types
 type: STORY
 title: Define Gen 3 Pokéblock Case Constants and Types
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-14'
 updated_at: '2026-08-29'
 depends_on: []
-jules_session_id: '2513819693854721323'
+jules_session_id: '8690503497960044382'
 pr_number: null
 parent: epic-114-400-gen3-pokeblock-case-parsing-retry
 tags:
