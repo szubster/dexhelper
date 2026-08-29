@@ -2,12 +2,12 @@
 id: research-489-494-investigate-gen3-trainer-name
 type: RESEARCH
 title: 'Research: Investigate Gen 3 Trainer Name Offset and String Encoding'
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-26'
 updated_at: '2026-08-29'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14340663186714134282'
 pr_number: null
 parent: task-425-489-fixtures-integration-e2e-impl
 tags:
