@@ -27,4 +27,8 @@ notes: ''
 Final integration and E2E verification of the SaveData type refactoring across all supported generations.
 
 ## Acceptance Criteria
-- [ ] Create task for E2E verification.
+- [x] Create task for E2E verification.
+- [ ] task-364-493-savedata-e2e-gen1
+- [ ] task-364-494-savedata-e2e-gen2
+- [ ] task-364-495-savedata-e2e-gen3
+- [ ] task-364-496-savedata-e2e-qa
