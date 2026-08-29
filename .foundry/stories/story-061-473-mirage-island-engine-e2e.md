@@ -30,4 +30,5 @@ To satisfy the orchestrator's E2E requirement for epic-038-061-mirage-island-eng
 Create a QA task to execute end-to-end tests verifying the cross-referencing of the parsed daily Mirage Island value with the Pokémon PIDs from active party and PC boxes.
 
 ## Acceptance Criteria
-- [ ] Create a QA task specifically verifying the end-to-end extraction and PID matching for Mirage Island.
+- [x] Create a QA task specifically verifying the end-to-end extraction and PID matching for Mirage Island.
+- [ ] task-473-493-mirage-island-e2e-qa
