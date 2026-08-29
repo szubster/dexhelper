@@ -2,12 +2,12 @@
 id: research-351-494-investigate-nuzlocke-death-ui-locators
 type: RESEARCH
 title: Investigate Nuzlocke Death UI Locators
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-22'
-updated_at: '2026-08-22'
+updated_at: '2026-08-29'
 depends_on: []
-jules_session_id: '2026-08-22-12-00-00'
+jules_session_id: '4035147898849928532'
 pr_number: null
 parent: story-131-351-nuzlocke-death-tracking-e2e
 tags:
