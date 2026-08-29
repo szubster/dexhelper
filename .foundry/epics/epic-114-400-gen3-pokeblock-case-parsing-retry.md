@@ -31,3 +31,6 @@ As defined in `prd-113-114-gen3-pokeblock-stats-viewer`, we need to extract exac
 - [ ] Implement robust save parsing logic to extract Pokéblock data (flavors and feel).
 - [ ] Write unit tests verifying parsing correctness against known good save blocks.
 - [ ] Expose parsed data through clear TypeScript interfaces.
+- [ ] story-400-477-gen3-pokeblock-constants-types
+- [ ] story-400-478-gen3-pokeblock-parsing-logic
+- [ ] story-400-479-gen3-pokeblock-parsing-e2e
