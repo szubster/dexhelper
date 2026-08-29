@@ -2,13 +2,13 @@
 id: task-336-401-architect-drive-sync-adr
 type: TASK
 title: 'Author ADR: Server-Side Integration vs. Android Companion App for Drive Sync'
-status: ACTIVE
+status: COMPLETED
 owner_persona: architect
 created_at: '2026-08-05'
-updated_at: '2026-08-26'
+updated_at: '2026-08-29'
 depends_on:
   - research-336-400-cloudflare-drive-webhooks
-jules_session_id: '8590343740877881693'
+jules_session_id: null
 pr_number: null
 parent: prd-062-336-drive-cloudflare-sync
 tags:

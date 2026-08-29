@@ -2,10 +2,10 @@
 id: story-417-477-save-parser-code-splitting
 type: STORY
 title: Split save parser logic by generation
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-08-29'
 depends_on: []
 jules_session_id: '16986453588371903066'
 parent: epic-340-417-engine-code-splitting

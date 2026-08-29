@@ -2,12 +2,12 @@
 id: epic-340-419-data-splitting
 type: EPIC
 title: Implement static Pokedex data splitting
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-13'
-updated_at: '2026-08-26'
+updated_at: '2026-08-29'
 depends_on: []
-jules_session_id: '6706478323854200827'
+jules_session_id: null
 parent: prd-136-340-split-bundles-and-data
 tags:
   - performance

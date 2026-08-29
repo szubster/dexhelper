@@ -2,13 +2,13 @@
 id: story-078-473-dag-context-e2e-verification
 type: STORY
 title: DagContext E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-26'
+updated_at: '2026-08-29'
 depends_on:
   - story-078-120-integrate-dag-context-with-views
-jules_session_id: '10187544007312756513'
+jules_session_id: null
 pr_number: null
 parent: epic-046-078-shared-dag-context-foundation
 tags:

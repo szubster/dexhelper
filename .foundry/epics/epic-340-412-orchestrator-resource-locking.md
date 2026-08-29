@@ -2,13 +2,13 @@
 id: epic-340-412-orchestrator-resource-locking
 type: EPIC
 title: Orchestrator Logic for Resource Locking
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-11'
-updated_at: '2026-08-26'
+updated_at: '2026-08-29'
 depends_on:
   - epic-340-411-schema-resource-locking
-jules_session_id: '1428006663748828254'
+jules_session_id: null
 pr_number: null
 parent: prd-131-340-orchestrator-resource-locking-mutex
 tags:

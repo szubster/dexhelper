@@ -2,10 +2,10 @@
 id: task-473-494-gen3-fame-checker-qa
 type: TASK
 title: QA Gen 3 Fame Checker Parser Implementation
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-29'
 depends_on:
   - task-473-493-gen3-fame-checker-impl
 jules_session_id: '12814961437781022023'

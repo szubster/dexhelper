@@ -2,12 +2,12 @@
 id: story-332-473-gen3-fame-checker-parsing-logic
 type: STORY
 title: Gen 3 Fame Checker Parsing Logic
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-26'
+updated_at: '2026-08-29'
 depends_on: []
-jules_session_id: '7222771690718259329'
+jules_session_id: null
 pr_number: null
 parent: epic-115-332-gen3-fame-checker-save-parsing
 tags:

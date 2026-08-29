@@ -1,11 +1,11 @@
 ---
 id: task-410-493-update-journal-paths-impl
 type: TASK
-title: "Update Scripts Referencing Journal Paths"
-status: PENDING
-owner_persona: "coder"
-created_at: "2026-08-08"
-updated_at: "2026-08-08"
+title: Update Scripts Referencing Journal Paths
+status: READY
+owner_persona: coder
+created_at: '2026-08-08'
+updated_at: '2026-08-29'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - foundry
   - scripts
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Update Scripts Referencing Journal Paths

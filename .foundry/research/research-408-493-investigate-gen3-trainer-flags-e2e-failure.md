@@ -2,10 +2,10 @@
 id: research-408-493-investigate-gen3-trainer-flags-e2e-failure
 type: RESEARCH
 title: Investigate Gen 3 Trainer Flags E2E Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-08-29'
 depends_on: []
 jules_session_id: '18191178818735950489'
 pr_number: null

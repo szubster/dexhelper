@@ -2,10 +2,10 @@
 id: story-419-477-pokedata-plugin-refactor
 type: STORY
 title: Refactor pokedata plugin to emit multiple bundles
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-08-29'
 depends_on: []
 jules_session_id: '6706478323854200827'
 pr_number: null

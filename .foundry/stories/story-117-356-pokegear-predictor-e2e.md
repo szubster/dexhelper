@@ -2,12 +2,12 @@
 id: story-117-356-pokegear-predictor-e2e
 type: STORY
 title: Pokegear Predictor E2E Tests
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-04'
-updated_at: '2026-08-26'
+updated_at: '2026-08-29'
 depends_on: []
-jules_session_id: '6758476850313934638'
+jules_session_id: null
 pr_number: null
 parent: epic-055-117-pokegear-predictor
 tags:
