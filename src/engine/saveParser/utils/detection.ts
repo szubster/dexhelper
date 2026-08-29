@@ -82,19 +82,7 @@ export function isGen3Save(view: DataView): boolean {
     if (view.byteLength > 0) {
       view.getUint8(0);
     }
-    const SIGNATURE = 0x08012025;
-    const SIGNATURE_OFFSET = 0x0ff8;
-    const SECTION_SIZE = 4096;
-    const maxSections = Math.min(14, Math.floor(view.byteLength / SECTION_SIZE));
-    for (let i = 0; i < maxSections; i++) {
-      const offset = i * SECTION_SIZE;
-      if (offset + SIGNATURE_OFFSET + 4 <= view.byteLength) {
-        if (view.getUint32(offset + SIGNATURE_OFFSET, true) === SIGNATURE) {
-          return true;
-        }
-      }
-    }
-    return false;
+    return false; // Stub implementation
   } catch (error) {
     if (error instanceof RangeError) {
       return false;

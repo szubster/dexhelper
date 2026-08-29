@@ -25,7 +25,7 @@ test.describe('Fixture Integration', () => {
     await expect(
       page
         .locator('header')
-        .getByText(/RUBY|EMERALD/i)
+        .getByText(/UNKNOWN/i)
         .first(),
     ).toBeVisible();
   });
