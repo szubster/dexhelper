@@ -28,3 +28,6 @@ Update the TPM persona responsibilities and associated scripts to properly aggre
 ## Acceptance Criteria
 - [ ] Implement aggregation logic for the TPM persona to process files from persona subdirectories.
 - [ ] Ensure aggregated data is correctly archived.
+- [ ] task-409-493-tpm-journal-aggregation-script-impl
+- [ ] task-409-494-tpm-journal-aggregation-script-tests
+- [ ] task-409-495-tpm-journal-aggregation-qa
