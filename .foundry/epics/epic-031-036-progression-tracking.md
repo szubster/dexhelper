@@ -33,3 +33,4 @@ As part of Phase 2 of the Cloudflare Sync backend, we need to support storing an
 - [x] story-036-255-progression-save-model
 - [x] story-036-256-progression-sync-logic
 - [x] story-036-257-concurrent-game-management
+- [ ] story-036-490-progression-e2e-verification
