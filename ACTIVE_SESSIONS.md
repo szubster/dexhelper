@@ -81,3 +81,4 @@
 | [task-473-494-spinda-e2e-tests](.foundry/tasks/task-473-494-spinda-e2e-tests.md) | TASK | Gen 3 Spinda E2E Verification - Test Implementation | coder | [13767555785470333231](https://jules.google.com/session/13767555785470333231) |
 | [task-477-493-msgpack-prefetch-logic-impl](.foundry/tasks/task-477-493-msgpack-prefetch-logic-impl.md) | TASK | Implement background prefetching logic for msgpack files | coder | [5691713631386830](https://jules.google.com/session/5691713631386830) |
 | [task-477-497-expose-experiment-metadata](.foundry/tasks/task-477-497-expose-experiment-metadata.md) | TASK | Expose Experiment Metadata | coder | [16331270680685252311](https://jules.google.com/session/16331270680685252311) |
+| [task-489-493-gen1-safari-zone-e2e-impl](.foundry/tasks/task-489-493-gen1-safari-zone-e2e-impl.md) | TASK | Gen 1 Safari Zone E2E Tests Implementation | coder | [4265841284060537498](https://jules.google.com/session/4265841284060537498) |
