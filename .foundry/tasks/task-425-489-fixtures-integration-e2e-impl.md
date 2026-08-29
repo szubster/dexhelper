@@ -2,7 +2,7 @@
 id: task-425-489-fixtures-integration-e2e-impl
 type: TASK
 title: 'Task: Implement E2E Tests for Fixture Integration'
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-08-26'
@@ -16,8 +16,8 @@ tags:
   - playwright
   - fixtures
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Suspended pending research on Gen 3 trainerName extraction offset and encoding (research-489-494-investigate-gen3-trainer-name).'
 notes: ''
 ---
 
@@ -30,3 +30,4 @@ Implement comprehensive Playwright E2E tests to verify that the newly integrated
 - [ ] Create or update Playwright test files in `tests/e2e/` to utilize the new Gen 1, Gen 2, and Gen 3 fixtures.
 - [ ] Ensure that E2E tests cover loading, parsing, and verifying core state changes when these fixtures are used.
 - [ ] Verify that `pnpm test:e2e` passes successfully locally with the new tests.
+- [ ] research-489-494-investigate-gen3-trainer-name
