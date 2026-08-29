@@ -108,28 +108,6 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
       });
     },
 
-    transformIndexHtml(_html, ctx) {
-      if (ctx.server) return;
-      const basePath = import.meta.env?.BASE_URL || '/dexhelper/';
-      return [
-        {
-          tag: 'link',
-          attrs: { rel: 'prefetch', href: `${basePath}data/pokedata-gen1.msgpack`, as: 'fetch', crossorigin: 'anonymous' },
-          injectTo: 'head',
-        },
-        {
-          tag: 'link',
-          attrs: { rel: 'prefetch', href: `${basePath}data/pokedata-gen2.msgpack`, as: 'fetch', crossorigin: 'anonymous' },
-          injectTo: 'head',
-        },
-        {
-          tag: 'link',
-          attrs: { rel: 'prefetch', href: `${basePath}data/pokedata-gen3.msgpack`, as: 'fetch', crossorigin: 'anonymous' },
-          injectTo: 'head',
-        }
-      ];
-    },
-
     // During build, emit the files as assets
     generateBundle() {
       const data = cachedData || generateData();
