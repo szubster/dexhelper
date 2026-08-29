@@ -2,14 +2,14 @@
 id: task-443-491-hof-e2e-qa
 type: TASK
 title: Gen 1 and Gen 2 Hall of Fame Data Parsing E2E QA
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-28'
+updated_at: '2026-08-29'
 depends_on:
   - task-443-489-gen1-hof-e2e-impl
   - task-443-490-gen2-hof-e2e-impl
-jules_session_id: '13889383270537901074'
+jules_session_id: null
 pr_number: null
 parent: story-070-443-hof-data-parsing-e2e
 tags:
@@ -21,7 +21,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---
