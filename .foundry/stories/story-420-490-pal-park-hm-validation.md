@@ -2,10 +2,10 @@
 id: story-420-490-pal-park-hm-validation
 type: STORY
 title: Pal Park HM Validation Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-08-29'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - migration
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Story: Pal Park HM Validation Logic

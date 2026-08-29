@@ -2,12 +2,12 @@
 id: task-425-489-fixtures-integration-e2e-impl
 type: TASK
 title: 'Task: Implement E2E Tests for Fixture Integration'
-status: FAILED
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-26'
+updated_at: '2026-08-29'
 depends_on: []
-jules_session_id: '6716107712091100900'
+jules_session_id: null
 pr_number: null
 parent: story-417-425-fixtures-integration-e2e
 tags:
@@ -16,8 +16,8 @@ tags:
   - playwright
   - fixtures
 research_references: []
-rejection_count: 1
-rejection_reason: 'Suspended pending research on Gen 3 trainerName extraction offset and encoding (research-489-494-investigate-gen3-trainer-name).'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
