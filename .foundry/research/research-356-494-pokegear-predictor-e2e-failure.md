@@ -2,12 +2,12 @@
 id: research-356-494-pokegear-predictor-e2e-failure
 type: RESEARCH
 title: Investigate Pokegear Predictor E2E Failure Root Cause
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-26'
 updated_at: '2026-08-29'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7517120830488274219'
 pr_number: null
 parent: story-117-356-pokegear-predictor-e2e
 tags:
