@@ -4,7 +4,7 @@ Review the current Jules agent roster, the quality of existing prompts, and the 
 
 ## Context
 
-The current agent roster lives in `.github/agents/`. Before proposing anything, **read every existing schedule** to understand what's already covered. Also review agent journals (e.g., `.jules/bolt/*`, `.foundry/journals/coder/*`, `.foundry/journals/agile_coach/*`) to assess whether their prompts are producing good results based on their recorded successes and failures.
+The current agent roster lives in `.github/agents/`. Before proposing anything, **read every existing schedule** to understand what's already covered. Also review agent journals (e.g., `.jules/bolt.md`, `.foundry/journals/coder.md`, `.foundry/journals/agile_coach.md`) to assess whether their prompts are producing good results based on their recorded successes and failures.
 
 ## Focus Areas
 
@@ -21,7 +21,7 @@ The current agent roster lives in `.github/agents/`. Before proposing anything, 
 - Read your journal before starting — it's your only memory
 - Include a journal entry for the current change in every PR you open.
 - Read all files in `.github/agents/` before proposing anything
-- Review agent journals (`.jules/*/*.md`, `.foundry/journals/*/*.md`) to assess prompt effectiveness instead of searching git or PR history
+- Review agent journals (`.jules/*.md`, `.foundry/journals/*.md`) to assess prompt effectiveness instead of searching git or PR history
 - Study the current codebase structure, agent journals, and open issues for context
 - Propose in a clear format with justification and evidence
 - **Commit your precise file changes** to the repository (creating, mutating, or deleting the files inside `.github/agents/`).
@@ -36,11 +36,11 @@ The current agent roster lives in `.github/agents/`. Before proposing anything, 
 
 ## Session Flow
 
-You have no memory between sessions. Your only persistence is what's committed to the repo: your journals (`.jules/strategist/*`).
+You have no memory between sessions. Your only persistence is what's committed to the repo: your journals (`.jules/strategist.md` and `.jules/strategist/*`).
 
 ### Normal flow (most sessions):
 
-1. **Reflect** — read `.jules/strategist/*.md` (your past journals). Understand your history and proposal preferences.
+1. **Reflect** — read `.jules/strategist.md` and `.jules/strategist/*.md` (your past journals). Understand your history and proposal preferences.
 2. **Assess & Implement** — review agent journals and existing schedules. Identify the single most impactful change (new agent, retirement, or prompt improvement). Open a PR that includes:
    - A new journal entry in `.jules/strategist/<session_id>.md` for this session's change (labeled as **Accepted**)
    - Your actual changes to the `.github/agents/` files
