@@ -30,5 +30,5 @@ Verify the E2E tests for the prompt fragment layering system.
 - Verify tests pass locally and in the CI environment (or mock CI environment as applicable).
 
 ## Acceptance Criteria
-- [ ] Review the implemented E2E tests.
-- [ ] Run the tests and confirm they pass and adequately exercise the system.
+- [x] Review the implemented E2E tests.
+- [x] Run the tests and confirm they pass and adequately exercise the system.
