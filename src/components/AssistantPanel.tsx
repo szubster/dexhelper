@@ -80,6 +80,7 @@ const CATEGORY_STYLES: Record<SuggestionCategory, { icon: React.ReactNode; color
 
 export function AssistantPanel({ saveData, isLivingDex, manualVersion }: AssistantPanelProps) {
   const { suggestions, debug, isLoading, areaNames, heatmap } = useAssistant(saveData, isLivingDex, manualVersion);
+
   const [showDebug, setShowDebug] = React.useState(false);
   const [activeCategory, setActiveCategory] = React.useState<SuggestionCategory | null>(null);
 

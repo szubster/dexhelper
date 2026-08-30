@@ -125,6 +125,22 @@ export function AssistantSuggestionCard({
             </p>
           </div>
 
+          {s.category !== 'Catch' && s.missingLinks && s.missingLinks.length > 0 && (
+            <div className="mt-2 flex flex-col gap-1.5">
+              {s.missingLinks.map((link) => (
+                <div
+                  key={link.speciesId}
+                  className="flex w-max items-center gap-1.5 border border-red-500/30 border-dashed bg-red-500/10 px-2 py-1"
+                >
+                  <span className="tactical-text font-black text-[9px] text-red-400">
+                    [ MISSING LINK: {getPokemonName(link.speciesId)} (
+                    {link.reason === 'absent' ? 'NOT OWNED' : 'NO MALE'}) ]
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+
           {s.warning && (
             <div className="mt-2 flex w-max items-center gap-1.5 border border-amber-500/30 border-dashed bg-amber-500/10 px-2 py-1">
               <span className="tactical-text font-black text-[9px] text-amber-400">[ WARNING: {s.warning} ]</span>

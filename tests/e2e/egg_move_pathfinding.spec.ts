@@ -2,11 +2,44 @@ import { expect, test } from '@playwright/test';
 import { initializeWithSave } from './test-utils';
 
 test.describe('Egg Move Pathfinding Engine', () => {
-  test('surfaces valid breeding chains for egg moves in Assistant', async ({ page, isMobile }) => {
-    // 1. Initialize with Gold save (Gen 2 supports breeding)
+  test('surfaces valid breeding chains for egg moves in Assistant and displays missing links', async ({
+    page,
+    isMobile,
+  }) => {
+    // We use page.route to intercept the fetch call for assistant data metadata.
+    // This allows the actual pathfinding engine to run locally on the client using the real
+    // save file, but with modified metadata that forces a missing link scenario.
+    // We use actual Pokemon IDs to avoid rendering errors.
+    await page.route(/.*\/assistant\.json/, async (route) => {
+      const response = await route.fetch();
+      const json = await response.json();
+
+      if (json.pokemonMetadata) {
+        // Gold save inherently owns Pidgey (16). It does not own Lapras (131).
+        // Let's create an artificial breeding chain for Pikachu (25) where
+        // Pidgey (16) knows the move, passes to Lapras (131) [absent], passes to Pikachu (25) [target].
+        // This guarantees an 'absent' missing link.
+        json.pokemonMetadata[25] = {
+          ...json.pokemonMetadata[25],
+          em: {
+            // Fake move 9999 is passed from 16 -> 131 -> 25
+            9999: [16, 131, 25],
+          },
+        };
+      }
+
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(json),
+        headers: {
+          'Cache-Control': 'no-store',
+        },
+      });
+    });
+
     await initializeWithSave(page, 'tests/fixtures/gold.sav');
 
-    // 2. Navigate to Assistant page
     if (isMobile) {
       const assistantLink = page.getByRole('link', { name: 'Assistant' });
       await expect(assistantLink).toBeVisible();
@@ -17,15 +50,18 @@ test.describe('Egg Move Pathfinding Engine', () => {
       await assistantLink.click();
     }
 
-    // 3. Verify page content
     await expect(page.getByText(/AI Assistant/i)).toBeVisible();
 
-    // 4. Wait for suggestion cards to load
     const cards = page.locator('[data-testid="assistant-suggestion-card"]');
     await expect(cards.first()).toBeVisible({ timeout: 15000 });
 
-    // 5. Ensure that the E2E test passes if suggestion cards load.
-    const count = await cards.count();
-    expect(count).toBeGreaterThan(0);
+    const breedCards = cards.filter({ hasText: /Breed/i });
+    expect(await breedCards.count()).toBeGreaterThan(0);
+
+    const missingLinkCard = cards.filter({ hasText: /MISSING LINK/i }).first();
+    await expect(missingLinkCard).toBeVisible({ timeout: 15000 });
+
+    const cardText = await missingLinkCard.textContent();
+    expect(cardText).toContain('NOT OWNED');
   });
 });

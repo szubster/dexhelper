@@ -26,6 +26,6 @@ notes: ''
 This task is part of the final end-to-end integration verification for the egg move inventory cross-reference epic. We need to validate the full workflow from reading a save file, running the pathfinding engine, cross-referencing against the loaded inventory, and identifying missing links.
 
 ## Acceptance Criteria
-- [ ] Write E2E tests validating the full workflow from reading a save file, running the pathfinding engine, cross-referencing against the loaded inventory, and identifying missing links.
-- [ ] Verify that E2E tests pass locally using Playwright.
-- [ ] Ensure that no existing E2E tests are broken by these additions.
+- [x] Write E2E tests validating the full workflow from reading a save file, running the pathfinding engine, cross-referencing against the loaded inventory, and identifying missing links.
+- [x] Verify that E2E tests pass locally using Playwright.
+- [x] Ensure that no existing E2E tests are broken by these additions.
