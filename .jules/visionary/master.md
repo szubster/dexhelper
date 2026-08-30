@@ -208,8 +208,9 @@
 - Outlined explicit instructions for pnpm capabilities (`pnpm --filter`, catalogs, `workspace:*`) and Cloudflare Pages build configuration adjustments.
 - **Active Session/Timestamp:** 2026-08-20
 - **Domain:** Main Project (DexHelper)
-- **Proposed Idea:** Game Corner Casino Optimizer and Tracker (IDEA-430)
+- **Proposed Idea:** Gen 2 Unown Dex Tracker (IDEA-119)
 - **Rationale & Concept:**
-  Across Generation 1 (Celadon City), Generation 2 (Goldenrod and Celadon), and Generation 3 (Mauville City), the Game Corner (Casino) is a central hub for acquiring rare, exclusive Pokémon (like Porygon or Dratini) and extremely powerful, vital TMs. These prizes require thousands of coins. Players often struggle because they don't know exactly how many coins they need, which slots yield the best payouts, or how many hidden coins remain on the casino floor. In Gen 3, the Game Corner also has hidden mechanics (e.g., "hot" slots). The "Game Corner Optimizer" dashboard will parse the player's Coin Case balance, provide a checklist of prizes, calculate exact coin deficits, and display a radar for hidden coins dropped by NPCs.
+  In Generation 2 (Gold, Silver, Crystal), catching all 26 Unown forms is a major side quest in the Ruins of Alph that unlocks Pokédex upgrades. However, the game only shows which shapes you've caught *after* you open the specific Unown Dex UI, and it doesn't give hints on which puzzle chambers you still need to complete to spawn the missing letters.
+  The Unown Dex Tracker would parse the caught Unown flags and the completed slide puzzle flags to display exactly which forms the player is missing, and explicitly point them to which of the 4 ruins chambers they need to visit to find them.
 - **Strategic Balance:**
-  In the preceding session, IDEA-418 was proposed for Foundry System/Architecture (Replace @xyflow/react with a lightweight directory tree visualization). To strictly maintain the 50/50 strategic balance between product features and system improvements, this session pivots back to proposing a direct user-facing feature for DexHelper (Game Corner Optimizer).
+  In the preceding session, IDEA-418 was proposed for Foundry System/Architecture (Replace @xyflow/react with a lightweight directory tree visualization). To strictly maintain the 50/50 strategic balance between product features and system improvements, this session pivots back to proposing a direct user-facing feature for DexHelper (Gen 2 Unown Dex Tracker).
