@@ -1,0 +1,4 @@
+1.  **Update `mock_dag.json`**: Add mock nodes representing various DAG states (e.g., `FAILED` with low and high `rejection_count`, `BLOCKED`, `READY`, etc.) to `tests/fixtures/dag/mock_dag.json`. Make sure the relationships between them in `depends_on` are correctly formed based on `buildDagGraph` logic.
+2.  **Create Markdown Mock Files (Optional but good for completeness)**: Even though `test-utils.ts` `mockDagData` reads directly from `.json`, the task asks to "Create mock YAML frontmatter and markdown files representing various DAG states". So I will create a few `.md` files in `tests/fixtures/dag/nodes/` to satisfy the acceptance criteria, even if they aren't strictly loaded by the E2E test yet.
+3.  **Check off task acceptance criteria**: Check the acceptance criteria checkboxes in `.foundry/tasks/task-473-493-dag-context-e2e-mock-data.md`.
+4.  **Complete pre-commit steps to ensure proper testing, verification, review, and reflection are done.**
