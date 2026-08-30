@@ -24,5 +24,5 @@ notes: ''
 The journal files are now stored inside persona-specific directories (e.g. `.foundry/journals/coder/YYYY-MM-DD.md`) instead of flat files like `.foundry/journals/coder.md`. We need to update any scripts and nodes referencing the old structure.
 
 ## Acceptance Criteria
-- [ ] Identify all scripts (such as GitHub Actions or internal node parsers) referencing old journal paths.
-- [ ] Update paths and logic to use the new subdirectory structure.
+- [x] Identify all scripts (such as GitHub Actions or internal node parsers) referencing old journal paths.
+- [x] Update paths and logic to use the new subdirectory structure.
