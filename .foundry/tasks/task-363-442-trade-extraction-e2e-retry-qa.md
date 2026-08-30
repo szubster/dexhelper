@@ -2,10 +2,10 @@
 id: task-363-442-trade-extraction-e2e-retry-qa
 type: TASK
 title: NPC Trade Extraction Integration & E2E QA (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-20'
-updated_at: '2026-08-20'
+updated_at: '2026-08-30'
 depends_on:
   - task-363-441-trade-extraction-e2e-retry-impl
 jules_session_id: null
@@ -19,7 +19,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-363-441-trade-extraction-e2e-retry-impl
 notes: ''
 ---
 

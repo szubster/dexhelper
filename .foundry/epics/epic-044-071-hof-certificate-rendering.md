@@ -2,10 +2,10 @@
 id: epic-044-071-hof-certificate-rendering
 type: EPIC
 title: Hall of Fame Certificate Generation
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-06-10'
+updated_at: '2026-08-30'
 depends_on:
   - epic-044-070-hof-data-parsing
 jules_session_id: null
