@@ -31,5 +31,5 @@ Hook the parsed Gen 2 save data output into the `MatchupContext` so that the Act
 - Write unit tests verifying that uploading or providing a Gen 2 save updates the context appropriately.
 
 ## Acceptance Criteria
-- [ ] Gen 2 save data correctly populates the `MatchupContext` party state.
-- [ ] Unit tests pass for the integration using `vitest-browser-react`.
+- [x] Gen 2 save data correctly populates the `MatchupContext` party state.
+- [x] Unit tests pass for the integration using `vitest-browser-react`.

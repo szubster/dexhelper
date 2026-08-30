@@ -22,7 +22,7 @@ export const MatchupProvider = ({ children }: MatchupProviderProps) => {
   const saveData = useStore((s) => s.saveData);
 
   useEffect(() => {
-    if (saveData?.generation === 1) {
+    if (saveData?.generation === 1 || saveData?.generation === 2) {
       // oxlint-disable-next-line react/set-state-in-effect
       setPartyDetails(saveData.partyDetails || []);
     }

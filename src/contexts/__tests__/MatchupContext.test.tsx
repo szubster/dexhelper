@@ -99,8 +99,8 @@ describe('MatchupContext', () => {
     expect(currentPartyDetails).toEqual([{ speciesId: 25 }]);
   });
 
-  test('updates party details from Gen 1 save data', async () => {
-    const mockPartyDetails: PokemonInstance[] = [{ speciesId: 1 }] as unknown as PokemonInstance[];
+  test('updates party details from Gen 1 and Gen 2 save data', async () => {
+    const mockPartyDetailsGen1: PokemonInstance[] = [{ speciesId: 1 }] as unknown as PokemonInstance[];
 
     let currentPartyDetails: PokemonInstance[] = [];
 
@@ -129,16 +129,16 @@ describe('MatchupContext', () => {
     useStore.setState({
       saveData: {
         generation: 1,
-        partyDetails: mockPartyDetails,
+        partyDetails: mockPartyDetailsGen1,
       } as unknown as Gen1SaveData,
     });
 
     // Wait for the context to update
     await vi.waitFor(() => {
-      expect(currentPartyDetails).toEqual(mockPartyDetails);
+      expect(currentPartyDetails).toEqual(mockPartyDetailsGen1);
     });
 
-    // Simulate store update with Gen 2 save data (should not update party details)
+    // Simulate store update with Gen 2 save data (should update party details)
     const mockPartyDetailsGen2: PokemonInstance[] = [{ speciesId: 2 }] as unknown as PokemonInstance[];
     useStore.setState({
       saveData: {
@@ -147,9 +147,23 @@ describe('MatchupContext', () => {
       } as unknown as Gen1SaveData, // Use any or assertion since it's just a mock
     });
 
+    // The state should update to Gen 2 party details
+    await vi.waitFor(() => {
+      expect(currentPartyDetails).toEqual(mockPartyDetailsGen2);
+    });
+
+    // Simulate store update with Gen 3 save data (should not update party details)
+    const mockPartyDetailsGen3: PokemonInstance[] = [{ speciesId: 3 }] as unknown as PokemonInstance[];
+    useStore.setState({
+      saveData: {
+        generation: 3,
+        partyDetails: mockPartyDetailsGen3,
+      } as unknown as Gen1SaveData,
+    });
+
     // The state should remain the same as the previous valid update
     await vi.waitFor(() => {
-      expect(currentPartyDetails).toEqual(mockPartyDetails);
+      expect(currentPartyDetails).toEqual(mockPartyDetailsGen2);
     });
   });
 });
