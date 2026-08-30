@@ -28,6 +28,11 @@ During E2E testing of the `emerald.sav` fixture integration, the tests failed to
 In Generation 3, string encoding and memory layout differ from Gen 1/2. We need to determine the correct offset for the OT Name in `SaveBlock1` and figure out how to decode it.
 
 ## Acceptance Criteria
-- [ ] Determine the memory offset for the player's Trainer Name in Gen 3 SaveBlock1.
-- [ ] Determine the character encoding system used for Gen 3 strings.
-- [ ] Define the technical approach required to implement `decodeGen3String` (or similar) and integrate it into the `parseGen3` function to accurately extract `trainerName`.
+- [x] Determine the memory offset for the player's Trainer Name in Gen 3 SaveBlock1.
+- [x] Determine the character encoding system used for Gen 3 strings.
+- [x] Define the technical approach required to implement `decodeGen3String` (or similar) and integrate it into the `parseGen3` function to accurately extract `trainerName`.
+
+## Research Findings
+- **Offset:** The player's Trainer Name is stored in `SaveBlock2` (not `SaveBlock1`), specifically at the very beginning of the struct (offset `0x00`).
+- **Encoding:** Generation 3 uses a custom character encoding scheme that differs from Generation 1/2.
+- **Approach:** Created a `GEN3_CHAR_MAP` mapping Gen 3 hexadecimal character values to their UTF-8 string equivalents in `src/engine/saveParser/parsers/common.ts`, and implemented a `decodeGen3String` function to read strings using this map. Updated `parseGen3` to use `section2Offset` (the offset for `SaveBlock2`) and extract the trainer name from offset `0x00` using `decodeGen3String` with a max length of 7 characters.
