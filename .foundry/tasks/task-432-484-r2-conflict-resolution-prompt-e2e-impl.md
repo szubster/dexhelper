@@ -38,6 +38,6 @@ A conflict resolution UI (`ConflictResolutionModal`) has been implemented to han
 6. Test the "Pull Remote" functionality: clicking the corresponding button should trigger the remote resolution path and dismiss the modal.
 
 ## Acceptance Criteria
-- [ ] Add an E2E test verifying the Conflict Resolution Prompt appears and metadata is presented.
-- [ ] Add an E2E test verifying the "Keep Local" choice successfully resolves the conflict.
-- [ ] Add an E2E test verifying the "Pull Remote" choice successfully resolves the conflict.
+- [x] Add an E2E test verifying the Conflict Resolution Prompt appears and metadata is presented.
+- [x] Add an E2E test verifying the "Keep Local" choice successfully resolves the conflict.
+- [x] Add an E2E test verifying the "Pull Remote" choice successfully resolves the conflict.
