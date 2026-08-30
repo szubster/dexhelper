@@ -1,30 +1,31 @@
 ---
 id: task-359-440-gen3-trainer-card-parsing-e2e-impl
 type: TASK
-title: Gen 3 Trainer Card Parsing E2E Implementation
-status: CANCELLED
+title: Gen 3 Trainer Card E2E Implementation
+status: READY
 owner_persona: coder
-created_at: '2026-08-20'
-updated_at: '2026-08-26'
+created_at: '2026-08-05'
+updated_at: '2026-08-27'
 depends_on: []
-jules_session_id: '1151106507275635810'
+jules_session_id: null
 pr_number: null
 parent: story-400-359-gen3-trainer-card-parsing-e2e
 tags:
   - e2e
   - integration
   - gen3
-rejection_count: 3
-rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
+research_references: []
+rejection_count: 0
+rejection_reason: ''
 notes: ''
 ---
 
-# Gen 3 Trainer Card Parsing E2E Implementation
+# Task: Gen 3 Trainer Card E2E Implementation
 
-## Context
-Write Playwright E2E tests for the Gen 3 Trainer Card upgrade data parsing logic. This ensures that the Trainer Card progress criteria are fully extracted and integrated.
+## Description
+Write Playwright E2E tests to verify that Gen 3 Trainer Card data (including upgrades like Hall of Fame debut, link battles, trades, etc.) is correctly parsed from save files and displayed in the Trainer Card UI component.
 
 ## Acceptance Criteria
-- [ ] Add Playwright E2E tests to verify that Hall of Fame, Hoenn Pokédex, National Pokédex, Contest Master Rank, and Battle Frontier data is properly extracted from a save file.
-- [ ] Run `pnpm test:e2e` to ensure the new tests pass.
-- [ ] research-440-471-gen3-trainer-card-ui-rendering
+- [ ] Create `tests/e2e/trainer-card.spec.ts`.
+- [ ] Add tests that load a Gen 3 save file fixture containing Trainer Card data.
+- [ ] Verify that the Trainer Card UI correctly renders the parsed data (e.g., playtime, Hall of Fame debut time, link battles won/lost, Pokémon trades).

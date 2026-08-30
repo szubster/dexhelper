@@ -1,0 +1,542 @@
+$ playwright test
+[WebServer] $ vite --port=3000 --host=0.0.0.0
+
+
+Running 184 tests using 2 workers
+
+[1/184] [setup] › tests/e2e/setup.spec.ts:10:1 › initialize and save state
+[2/184] [Desktop FullHD] › tests/e2e/assistant.spec.ts:32:3 › Assistant Page › should show local catch suggestions if applicable
+[3/184] [Desktop FullHD] › tests/e2e/assistant.spec.ts:5:3 › Assistant Page › should show wild encounter suggestions
+[4/184] [Desktop FullHD] › tests/e2e/bash_timeout.spec.ts:8:3 › Bash Timeout Wrapper E2E › should execute a non-blocking command successfully
+[Desktop FullHD] › tests/e2e/bash_timeout.spec.ts:8:3 › Bash Timeout Wrapper E2E › should execute a non-blocking command successfully
+
+
+[5/184] [Desktop FullHD] › tests/e2e/bash_timeout.spec.ts:14:3 › Bash Timeout Wrapper E2E › should block known blocking commands before execution via static analysis
+[6/184] [Desktop FullHD] › tests/e2e/bash_timeout.spec.ts:33:3 › Bash Timeout Wrapper E2E › should terminate a blocking command and return exit code 124
+[7/184] [Desktop FullHD] › tests/e2e/bike_requirement.spec.ts:10:3 › Bike Requirement Route Mapping E2E › verifies bike areas are shown in Smart Route Radar for Emerald save
+[8/184] [Desktop FullHD] › tests/e2e/core_data_extraction.spec.ts:5:3 › Core Data Extraction Validation E2E › core IndexedDB stores (pokemon, moves, items) should be populated correctly from pokedata-core.msgpack
+[9/184] [Desktop FullHD] › tests/e2e/dashboard/dag_provider.spec.ts:5:3 › DagProvider Data Fetching › successfully fetches and renders mock DAG data
+[10/184] [Desktop FullHD] › tests/e2e/dashboard/dag_provider.spec.ts:28:3 › DagProvider Data Fetching › handles failed data fetch gracefully
+[11/184] [Desktop FullHD] › tests/e2e/dashboard/gen2_npc_trades.spec.ts:5:3 › Gen 2 NPC Trades › should display correctly for Gold save
+[12/184] [Desktop FullHD] › tests/e2e/dashboard/gen3_event_items.spec.ts:5:3 › Gen 3 Event Items Dashboard › should not show Gen 3 Event Items Dashboard for Gen 1/2 saves
+[13/184] [Desktop FullHD] › tests/e2e/dashboard/gen3_event_items.spec.ts:17:8 › Gen 3 Event Items Dashboard › should show Gen 3 Event Items Dashboard for Gen 3 saves
+[14/184] [Desktop FullHD] › tests/e2e/dashboard/gen3_npc_trades.spec.ts:5:3 › Gen 3 NPC Trades › should display correctly for RSE save
+[15/184] [Desktop FullHD] › tests/e2e/dashboard/gen3_static_encounters.spec.ts:5:3 › Gen 3 Static Encounters Dashboard › should not show Gen 3 Static Encounters Dashboard link for Gen 1/2 saves
+[16/184] [Desktop FullHD] › tests/e2e/dashboard/gen3_static_encounters.spec.ts:13:8 › Gen 3 Static Encounters Dashboard › should show Gen 3 Static Encounters Dashboard for Gen 3 saves
+[17/184] [Desktop FullHD] › tests/e2e/dashboard/global_ribbons.spec.ts:5:3 › Global Ribbon Dashboard › should not show Global Ribbon Dashboard link for Gen 1/2 saves
+[18/184] [Desktop FullHD] › tests/e2e/dashboard/global_ribbons.spec.ts:11:8 › Global Ribbon Dashboard › should show Global Ribbon Checklist for Gen 3 saves
+[19/184] [Desktop FullHD] › tests/e2e/dashboard/permanent_failures.spec.ts:7:3 › Permanent Failures Dashboard Filter › correctly filters and highlights permanent failures
+[20/184] [Desktop FullHD] › tests/e2e/dashboard/rng_tid_sid.spec.ts:5:3 › RNG TID and SID Display UI › should display TID and SID and copy to clipboard
+[21/184] [Desktop FullHD] › tests/e2e/dynamic_items_integration.spec.ts:5:3 › Dynamic Item List Parsing E2E › items object store should be populated after initialization
+[22/184] [Desktop FullHD] › tests/e2e/egg_move_pathfinding.spec.ts:5:3 › Egg Move Pathfinding Engine › surfaces valid breeding chains for egg moves in Assistant
+[23/184] [Desktop FullHD] › tests/e2e/emulator_integration.spec.ts:6:3 › Emulator UI Integration › should render Emulator UI heading
+[24/184] [Desktop FullHD] › tests/e2e/emulator_integration.spec.ts:11:3 › Emulator UI Integration › should display drop-zone and file input elements
+[25/184] [Desktop FullHD] › tests/e2e/emulator_integration.spec.ts:17:3 › Emulator UI Integration › should upload a ROM file and display success message
+[26/184] [Desktop FullHD] › tests/e2e/filtering_logic.spec.ts:10:3 › Filtering Logic › should filter by name successfully
+[27/184] [Desktop FullHD] › tests/e2e/filtering_logic.spec.ts:21:3 › Filtering Logic › should filter by Secured (Owned) status
+[28/184] [Desktop FullHD] › tests/e2e/filtering_logic.spec.ts:32:3 › Filtering Logic › should filter by Missing status
+[29/184] [Desktop FullHD] › tests/e2e/gen1_hof_data_extraction.spec.ts:5:3 › Gen 1 Hall of Fame Data Extraction Validation E2E › hallOfFameCount and hallOfFameRecords should be populated correctly from Gen 1 save
+[30/184] [Desktop FullHD] › tests/e2e/gen2_static_encounters.spec.ts:5:3 › Gen 2 Static Encounters › should display correctly for Gold save
+[31/184] [Desktop FullHD] › tests/e2e/gen2_static_encounters.spec.ts:25:3 › Gen 2 Static Encounters › should display correctly for Crystal save
+[32/184] [Desktop FullHD] › tests/e2e/gen3_frlg_data_extraction.spec.ts:5:3 › Gen 3 FRLG Data Extraction E2E Validation › successfully extracts party Pokemon data from firered.sav
+[33/184] [Desktop FullHD] › tests/e2e/gen3_rse_data_extraction.spec.ts:5:3 › Gen 3 RSE Data Extraction E2E Validation › successfully extracts party Pokemon data from emerald.sav
+[34/184] [Desktop FullHD] › tests/e2e/gen3_trainer_data.spec.ts:10:3 › Gen 3 Trainer Data Extraction E2E › verifies TID and SID are rendered correctly for Gen 3
+[35/184] [Desktop FullHD] › tests/e2e/home.spec.ts:4:3 › Dexhelper App › should load the main page
+[36/184] [Desktop FullHD] › tests/e2e/indexeddb-schema.spec.ts:4:1 › IndexedDB schema has the correct history stores and metadata
+[37/184] [Desktop FullHD] › tests/e2e/librarian_schema.spec.ts:6:3 › Librarian Schema Verification › verifies librarian persona exists in schema.md
+[38/184] [Desktop FullHD] › tests/e2e/living_dex_ghost_tracking.spec.ts:5:3 › Living Dex Ghost Tracking E2E Validation › ghost tracker evaluates missing Living Dex physical pokemon
+[39/184] [Desktop FullHD] › tests/e2e/multi_save_algorithms.spec.ts:26:3 › Multi-Save Comparison Algorithms E2E › should correctly compare saves
+[40/184] [Desktop FullHD] › tests/e2e/multi_save_algorithms.spec.ts:36:3 › Multi-Save Comparison Algorithms E2E › should find trade possibilities across multiple saves
+[41/184] [Desktop FullHD] › tests/e2e/multi_save_integration.spec.ts:6:3 › Multi-Save Architecture Integration › should allow switching between multiple saves and retain state
+[42/184] [Desktop FullHD] › tests/e2e/nuzlocke_death_tracking.spec.ts:10:3 › Nuzlocke Death Tracking › Party Pokemon at 0 HP is detected and displays dead style
+[Desktop FullHD] › tests/e2e/multi_save_integration.spec.ts:6:3 › Multi-Save Architecture Integration › should allow switching between multiple saves and retain state
+Saves in SaveHistoryDB: 0
+
+[43/184] [Desktop FullHD] › tests/e2e/orphaned_qa_rule.spec.ts:6:3 › Orphaned QA Rule Documentation › should not contain any mention of the Orphaned QA Task Cancellation Rule
+[Desktop FullHD] › tests/e2e/orphaned_qa_rule.spec.ts:6:3 › Orphaned QA Rule Documentation › should not contain any mention of the Orphaned QA Task Cancellation Rule
+
+
+[44/184] [Desktop FullHD] › tests/e2e/pokemon-details.spec.ts:7:3 › Pokemon Details Modal › should display detailed information for a Pokemon
+[45/184] [Desktop FullHD] › tests/e2e/pokemon-details.spec.ts:41:3 › Pokemon Details Modal › should show correct locations for the version
+[46/184] [Desktop FullHD] › tests/e2e/pokerus.spec.ts:9:3 › Pokerus State Exfiltration › displays pokerus badge for infected pokemon
+[47/184] [Desktop FullHD] › tests/e2e/r2_sync.spec.ts:7:3 › Cloudflare R2 Offline-First Save Syncing › should pull save file from R2 on successful login
+[48/184] [Desktop FullHD] › tests/e2e/r2_sync.spec.ts:51:3 › Cloudflare R2 Offline-First Save Syncing › should push save file changes to R2
+[49/184] [Desktop FullHD] › tests/e2e/r2_sync.spec.ts:93:3 › Cloudflare R2 Offline-First Save Syncing › should fallback to local storage when offline or API fails
+[50/184] [Desktop FullHD] › tests/e2e/r2_sync.spec.ts:154:3 › Cloudflare R2 Offline-First Save Syncing › should resolve conflicts preferring newer remote state
+[51/184] [Desktop FullHD] › tests/e2e/save_management.spec.ts:6:3 › Save Management › should upload a save file and persist it on reload
+[52/184] [Desktop FullHD] › tests/e2e/save_management.spec.ts:40:3 › Save Management › should display an error when uploading an invalid save file
+[53/184] [Desktop FullHD] › tests/e2e/semantic_evaluator.spec.ts:21:3 › Semantic Evaluator API Key Rules › should return true for semantically equivalent condition matching positive rules
+[54/184] [Desktop FullHD] › tests/e2e/semantic_evaluator.spec.ts:28:3 › Semantic Evaluator API Key Rules › should return true for semantically equivalent condition with different wording
+[55/184] [Desktop FullHD] › tests/e2e/semantic_evaluator.spec.ts:35:3 › Semantic Evaluator API Key Rules › should execute live API integration tests with valid API key
+[56/184] [Desktop FullHD] › tests/e2e/semantic_evaluator.spec.ts:42:3 › Semantic Evaluator API Key Rules › should return false for negative semantic matches
+[57/184] [Desktop FullHD] › tests/e2e/settings_advanced.spec.ts:5:3 › Advanced Settings Persistence › should persist Game Version, Ball Style, and Nuzlocke Graveyard across reloads
+[58/184] [Desktop FullHD] › tests/e2e/settings.spec.ts:5:3 › Settings › should open settings and toggle living dex mode and persist across reload
+[59/184] [Desktop FullHD] › tests/e2e/setup.spec.ts:10:1 › initialize and save state
+[60/184] [Desktop FullHD] › tests/e2e/tactical-utilities.spec.ts:9:3 › Tactical Utilities E2E › verifies all tactical primitives are applied correctly
+[61/184] [Desktop FullHD] › tests/e2e/version_selection.spec.ts:5:3 › Version Selection › should allow selecting a version manually and update UI
+[62/184] [Desktop FullHD] › tests/e2e/version_selection.spec.ts:26:3 › Version Selection › should persist version selection across reloads
+[63/184] [Desktop 1440p] › tests/e2e/assistant.spec.ts:5:3 › Assistant Page › should show wild encounter suggestions
+[64/184] [Desktop 1440p] › tests/e2e/assistant.spec.ts:32:3 › Assistant Page › should show local catch suggestions if applicable
+[65/184] [Desktop 1440p] › tests/e2e/bash_timeout.spec.ts:8:3 › Bash Timeout Wrapper E2E › should execute a non-blocking command successfully
+[Desktop 1440p] › tests/e2e/bash_timeout.spec.ts:8:3 › Bash Timeout Wrapper E2E › should execute a non-blocking command successfully
+
+
+[66/184] [Desktop 1440p] › tests/e2e/bash_timeout.spec.ts:14:3 › Bash Timeout Wrapper E2E › should block known blocking commands before execution via static analysis
+[67/184] [Desktop 1440p] › tests/e2e/bash_timeout.spec.ts:33:3 › Bash Timeout Wrapper E2E › should terminate a blocking command and return exit code 124
+[68/184] [Desktop 1440p] › tests/e2e/bike_requirement.spec.ts:10:3 › Bike Requirement Route Mapping E2E › verifies bike areas are shown in Smart Route Radar for Emerald save
+[69/184] [Desktop 1440p] › tests/e2e/core_data_extraction.spec.ts:5:3 › Core Data Extraction Validation E2E › core IndexedDB stores (pokemon, moves, items) should be populated correctly from pokedata-core.msgpack
+[70/184] [Desktop 1440p] › tests/e2e/dashboard/dag_provider.spec.ts:5:3 › DagProvider Data Fetching › successfully fetches and renders mock DAG data
+[71/184] [Desktop 1440p] › tests/e2e/dashboard/dag_provider.spec.ts:28:3 › DagProvider Data Fetching › handles failed data fetch gracefully
+[72/184] [Desktop 1440p] › tests/e2e/dashboard/gen2_npc_trades.spec.ts:5:3 › Gen 2 NPC Trades › should display correctly for Gold save
+[73/184] [Desktop 1440p] › tests/e2e/dashboard/gen3_event_items.spec.ts:5:3 › Gen 3 Event Items Dashboard › should not show Gen 3 Event Items Dashboard for Gen 1/2 saves
+[74/184] [Desktop 1440p] › tests/e2e/dashboard/gen3_event_items.spec.ts:17:8 › Gen 3 Event Items Dashboard › should show Gen 3 Event Items Dashboard for Gen 3 saves
+[75/184] [Desktop 1440p] › tests/e2e/dashboard/gen3_npc_trades.spec.ts:5:3 › Gen 3 NPC Trades › should display correctly for RSE save
+[76/184] [Desktop 1440p] › tests/e2e/dashboard/gen3_static_encounters.spec.ts:5:3 › Gen 3 Static Encounters Dashboard › should not show Gen 3 Static Encounters Dashboard link for Gen 1/2 saves
+[77/184] [Desktop 1440p] › tests/e2e/dashboard/gen3_static_encounters.spec.ts:13:8 › Gen 3 Static Encounters Dashboard › should show Gen 3 Static Encounters Dashboard for Gen 3 saves
+[78/184] [Desktop 1440p] › tests/e2e/dashboard/global_ribbons.spec.ts:5:3 › Global Ribbon Dashboard › should not show Global Ribbon Dashboard link for Gen 1/2 saves
+[79/184] [Desktop 1440p] › tests/e2e/dashboard/global_ribbons.spec.ts:11:8 › Global Ribbon Dashboard › should show Global Ribbon Checklist for Gen 3 saves
+[80/184] [Desktop 1440p] › tests/e2e/dashboard/permanent_failures.spec.ts:7:3 › Permanent Failures Dashboard Filter › correctly filters and highlights permanent failures
+[81/184] [Desktop 1440p] › tests/e2e/dashboard/rng_tid_sid.spec.ts:5:3 › RNG TID and SID Display UI › should display TID and SID and copy to clipboard
+[82/184] [Desktop 1440p] › tests/e2e/dynamic_items_integration.spec.ts:5:3 › Dynamic Item List Parsing E2E › items object store should be populated after initialization
+[83/184] [Desktop 1440p] › tests/e2e/egg_move_pathfinding.spec.ts:5:3 › Egg Move Pathfinding Engine › surfaces valid breeding chains for egg moves in Assistant
+  1) [Desktop 1440p] › tests/e2e/dashboard/rng_tid_sid.spec.ts:5:3 › RNG TID and SID Display UI › should display TID and SID and copy to clipboard
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('TID', { exact: true })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByText('TID', { exact: true })
+
+
+      16 |     // Verify TID is visible
+      17 |     const tidElement = page.getByText('TID', { exact: true });
+    > 18 |     await expect(tidElement).toBeVisible();
+         |                              ^
+      19 |
+      20 |     // Verify SID is visible
+      21 |     const sidElement = page.getByText('SID', { exact: true });
+        at /app/tests/e2e/dashboard/rng_tid_sid.spec.ts:18:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/dashboard-rng_tid_sid-RNG--98ddc-d-SID-and-copy-to-clipboard-Desktop-1440p/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/dashboard-rng_tid_sid-RNG--98ddc-d-SID-and-copy-to-clipboard-Desktop-1440p/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/dashboard-rng_tid_sid-RNG--98ddc-d-SID-and-copy-to-clipboard-Desktop-1440p/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/dashboard-rng_tid_sid-RNG--98ddc-d-SID-and-copy-to-clipboard-Desktop-1440p/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/dashboard-rng_tid_sid-RNG--98ddc-d-SID-and-copy-to-clipboard-Desktop-1440p/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[84/184] [Desktop 1440p] › tests/e2e/emulator_integration.spec.ts:6:3 › Emulator UI Integration › should render Emulator UI heading
+[85/184] [Desktop 1440p] › tests/e2e/emulator_integration.spec.ts:11:3 › Emulator UI Integration › should display drop-zone and file input elements
+[86/184] [Desktop 1440p] › tests/e2e/emulator_integration.spec.ts:17:3 › Emulator UI Integration › should upload a ROM file and display success message
+[87/184] [Desktop 1440p] › tests/e2e/filtering_logic.spec.ts:10:3 › Filtering Logic › should filter by name successfully
+[88/184] [Desktop 1440p] › tests/e2e/filtering_logic.spec.ts:21:3 › Filtering Logic › should filter by Secured (Owned) status
+[89/184] [Desktop 1440p] › tests/e2e/filtering_logic.spec.ts:32:3 › Filtering Logic › should filter by Missing status
+[90/184] [Desktop 1440p] › tests/e2e/gen1_hof_data_extraction.spec.ts:5:3 › Gen 1 Hall of Fame Data Extraction Validation E2E › hallOfFameCount and hallOfFameRecords should be populated correctly from Gen 1 save
+[91/184] [Desktop 1440p] › tests/e2e/gen2_static_encounters.spec.ts:5:3 › Gen 2 Static Encounters › should display correctly for Gold save
+[92/184] [Desktop 1440p] › tests/e2e/gen2_static_encounters.spec.ts:25:3 › Gen 2 Static Encounters › should display correctly for Crystal save
+[93/184] [Desktop 1440p] › tests/e2e/gen3_frlg_data_extraction.spec.ts:5:3 › Gen 3 FRLG Data Extraction E2E Validation › successfully extracts party Pokemon data from firered.sav
+[94/184] [Desktop 1440p] › tests/e2e/gen3_rse_data_extraction.spec.ts:5:3 › Gen 3 RSE Data Extraction E2E Validation › successfully extracts party Pokemon data from emerald.sav
+[95/184] [Desktop 1440p] › tests/e2e/gen3_trainer_data.spec.ts:10:3 › Gen 3 Trainer Data Extraction E2E › verifies TID and SID are rendered correctly for Gen 3
+  2) [Desktop 1440p] › tests/e2e/gen3_rse_data_extraction.spec.ts:5:3 › Gen 3 RSE Data Extraction E2E Validation › successfully extracts party Pokemon data from emerald.sav
+
+    Error: page.evaluate: Execution context was destroyed, most likely because of a navigation
+
+       at test-utils.ts:26
+
+      24 |     const saveArray = Array.from(fileBuffer);
+      25 |
+    > 26 |     await page.evaluate(
+         |                ^
+      27 |       async ({ saveArray }) => {
+      28 |         // IndexedDB injection
+      29 |         const SAVE_DB_NAME = 'SaveDB';
+        at initializeWithSave (/app/tests/e2e/test-utils.ts:26:16)
+        at /app/tests/e2e/gen3_rse_data_extraction.spec.ts:9:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gen3_rse_data_extraction-G-07d33-kemon-data-from-emerald-sav-Desktop-1440p/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/gen3_rse_data_extraction-G-07d33-kemon-data-from-emerald-sav-Desktop-1440p/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gen3_rse_data_extraction-G-07d33-kemon-data-from-emerald-sav-Desktop-1440p/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/gen3_rse_data_extraction-G-07d33-kemon-data-from-emerald-sav-Desktop-1440p/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/gen3_rse_data_extraction-G-07d33-kemon-data-from-emerald-sav-Desktop-1440p/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[96/184] [Desktop 1440p] › tests/e2e/home.spec.ts:4:3 › Dexhelper App › should load the main page
+[97/184] [Desktop 1440p] › tests/e2e/indexeddb-schema.spec.ts:4:1 › IndexedDB schema has the correct history stores and metadata
+[98/184] [Desktop 1440p] › tests/e2e/librarian_schema.spec.ts:6:3 › Librarian Schema Verification › verifies librarian persona exists in schema.md
+[99/184] [Desktop 1440p] › tests/e2e/living_dex_ghost_tracking.spec.ts:5:3 › Living Dex Ghost Tracking E2E Validation › ghost tracker evaluates missing Living Dex physical pokemon
+[100/184] [Desktop 1440p] › tests/e2e/multi_save_algorithms.spec.ts:26:3 › Multi-Save Comparison Algorithms E2E › should correctly compare saves
+[101/184] [Desktop 1440p] › tests/e2e/multi_save_algorithms.spec.ts:36:3 › Multi-Save Comparison Algorithms E2E › should find trade possibilities across multiple saves
+[102/184] [Desktop 1440p] › tests/e2e/multi_save_integration.spec.ts:6:3 › Multi-Save Architecture Integration › should allow switching between multiple saves and retain state
+[103/184] [Desktop 1440p] › tests/e2e/nuzlocke_death_tracking.spec.ts:10:3 › Nuzlocke Death Tracking › Party Pokemon at 0 HP is detected and displays dead style
+[Desktop 1440p] › tests/e2e/multi_save_integration.spec.ts:6:3 › Multi-Save Architecture Integration › should allow switching between multiple saves and retain state
+Saves in SaveHistoryDB: 0
+
+[104/184] [Desktop 1440p] › tests/e2e/orphaned_qa_rule.spec.ts:6:3 › Orphaned QA Rule Documentation › should not contain any mention of the Orphaned QA Task Cancellation Rule
+[Desktop 1440p] › tests/e2e/orphaned_qa_rule.spec.ts:6:3 › Orphaned QA Rule Documentation › should not contain any mention of the Orphaned QA Task Cancellation Rule
+
+
+[105/184] [Desktop 1440p] › tests/e2e/pokemon-details.spec.ts:7:3 › Pokemon Details Modal › should display detailed information for a Pokemon
+[106/184] [Desktop 1440p] › tests/e2e/pokemon-details.spec.ts:41:3 › Pokemon Details Modal › should show correct locations for the version
+[107/184] [Desktop 1440p] › tests/e2e/pokerus.spec.ts:9:3 › Pokerus State Exfiltration › displays pokerus badge for infected pokemon
+[108/184] [Desktop 1440p] › tests/e2e/r2_sync.spec.ts:7:3 › Cloudflare R2 Offline-First Save Syncing › should pull save file from R2 on successful login
+[109/184] [Desktop 1440p] › tests/e2e/r2_sync.spec.ts:51:3 › Cloudflare R2 Offline-First Save Syncing › should push save file changes to R2
+[110/184] [Desktop 1440p] › tests/e2e/r2_sync.spec.ts:93:3 › Cloudflare R2 Offline-First Save Syncing › should fallback to local storage when offline or API fails
+[111/184] [Desktop 1440p] › tests/e2e/r2_sync.spec.ts:154:3 › Cloudflare R2 Offline-First Save Syncing › should resolve conflicts preferring newer remote state
+[112/184] [Desktop 1440p] › tests/e2e/save_management.spec.ts:6:3 › Save Management › should upload a save file and persist it on reload
+[113/184] [Desktop 1440p] › tests/e2e/save_management.spec.ts:40:3 › Save Management › should display an error when uploading an invalid save file
+[114/184] [Desktop 1440p] › tests/e2e/semantic_evaluator.spec.ts:21:3 › Semantic Evaluator API Key Rules › should return true for semantically equivalent condition matching positive rules
+[115/184] [Desktop 1440p] › tests/e2e/semantic_evaluator.spec.ts:28:3 › Semantic Evaluator API Key Rules › should return true for semantically equivalent condition with different wording
+[116/184] [Desktop 1440p] › tests/e2e/semantic_evaluator.spec.ts:35:3 › Semantic Evaluator API Key Rules › should execute live API integration tests with valid API key
+[117/184] [Desktop 1440p] › tests/e2e/semantic_evaluator.spec.ts:42:3 › Semantic Evaluator API Key Rules › should return false for negative semantic matches
+[118/184] [Desktop 1440p] › tests/e2e/settings_advanced.spec.ts:5:3 › Advanced Settings Persistence › should persist Game Version, Ball Style, and Nuzlocke Graveyard across reloads
+[119/184] [Desktop 1440p] › tests/e2e/settings.spec.ts:5:3 › Settings › should open settings and toggle living dex mode and persist across reload
+[120/184] [Desktop 1440p] › tests/e2e/setup.spec.ts:10:1 › initialize and save state
+[121/184] [Desktop 1440p] › tests/e2e/tactical-utilities.spec.ts:9:3 › Tactical Utilities E2E › verifies all tactical primitives are applied correctly
+[122/184] [Desktop 1440p] › tests/e2e/version_selection.spec.ts:5:3 › Version Selection › should allow selecting a version manually and update UI
+[123/184] [Desktop 1440p] › tests/e2e/version_selection.spec.ts:26:3 › Version Selection › should persist version selection across reloads
+[124/184] [Mobile Pixel 9] › tests/e2e/assistant.spec.ts:5:3 › Assistant Page › should show wild encounter suggestions
+[125/184] [Mobile Pixel 9] › tests/e2e/assistant.spec.ts:32:3 › Assistant Page › should show local catch suggestions if applicable
+[126/184] [Mobile Pixel 9] › tests/e2e/bash_timeout.spec.ts:8:3 › Bash Timeout Wrapper E2E › should execute a non-blocking command successfully
+[Mobile Pixel 9] › tests/e2e/bash_timeout.spec.ts:8:3 › Bash Timeout Wrapper E2E › should execute a non-blocking command successfully
+
+
+[127/184] [Mobile Pixel 9] › tests/e2e/bash_timeout.spec.ts:14:3 › Bash Timeout Wrapper E2E › should block known blocking commands before execution via static analysis
+[128/184] [Mobile Pixel 9] › tests/e2e/bash_timeout.spec.ts:33:3 › Bash Timeout Wrapper E2E › should terminate a blocking command and return exit code 124
+[129/184] [Mobile Pixel 9] › tests/e2e/bike_requirement.spec.ts:10:3 › Bike Requirement Route Mapping E2E › verifies bike areas are shown in Smart Route Radar for Emerald save
+[130/184] [Mobile Pixel 9] › tests/e2e/core_data_extraction.spec.ts:5:3 › Core Data Extraction Validation E2E › core IndexedDB stores (pokemon, moves, items) should be populated correctly from pokedata-core.msgpack
+[131/184] [Mobile Pixel 9] › tests/e2e/dashboard/dag_provider.spec.ts:5:3 › DagProvider Data Fetching › successfully fetches and renders mock DAG data
+[132/184] [Mobile Pixel 9] › tests/e2e/dashboard/dag_provider.spec.ts:28:3 › DagProvider Data Fetching › handles failed data fetch gracefully
+[133/184] [Mobile Pixel 9] › tests/e2e/dashboard/gen2_npc_trades.spec.ts:5:3 › Gen 2 NPC Trades › should display correctly for Gold save
+[134/184] [Mobile Pixel 9] › tests/e2e/dashboard/gen3_event_items.spec.ts:5:3 › Gen 3 Event Items Dashboard › should not show Gen 3 Event Items Dashboard for Gen 1/2 saves
+[135/184] [Mobile Pixel 9] › tests/e2e/dashboard/gen3_event_items.spec.ts:17:8 › Gen 3 Event Items Dashboard › should show Gen 3 Event Items Dashboard for Gen 3 saves
+[136/184] [Mobile Pixel 9] › tests/e2e/dashboard/gen3_npc_trades.spec.ts:5:3 › Gen 3 NPC Trades › should display correctly for RSE save
+[137/184] [Mobile Pixel 9] › tests/e2e/dashboard/gen3_static_encounters.spec.ts:5:3 › Gen 3 Static Encounters Dashboard › should not show Gen 3 Static Encounters Dashboard link for Gen 1/2 saves
+[138/184] [Mobile Pixel 9] › tests/e2e/dashboard/gen3_static_encounters.spec.ts:13:8 › Gen 3 Static Encounters Dashboard › should show Gen 3 Static Encounters Dashboard for Gen 3 saves
+[139/184] [Mobile Pixel 9] › tests/e2e/dashboard/global_ribbons.spec.ts:5:3 › Global Ribbon Dashboard › should not show Global Ribbon Dashboard link for Gen 1/2 saves
+[140/184] [Mobile Pixel 9] › tests/e2e/dashboard/global_ribbons.spec.ts:11:8 › Global Ribbon Dashboard › should show Global Ribbon Checklist for Gen 3 saves
+[141/184] [Mobile Pixel 9] › tests/e2e/dashboard/permanent_failures.spec.ts:7:3 › Permanent Failures Dashboard Filter › correctly filters and highlights permanent failures
+[142/184] [Mobile Pixel 9] › tests/e2e/dashboard/rng_tid_sid.spec.ts:5:3 › RNG TID and SID Display UI › should display TID and SID and copy to clipboard
+[143/184] [Mobile Pixel 9] › tests/e2e/dynamic_items_integration.spec.ts:5:3 › Dynamic Item List Parsing E2E › items object store should be populated after initialization
+[144/184] [Mobile Pixel 9] › tests/e2e/egg_move_pathfinding.spec.ts:5:3 › Egg Move Pathfinding Engine › surfaces valid breeding chains for egg moves in Assistant
+[145/184] [Mobile Pixel 9] › tests/e2e/emulator_integration.spec.ts:6:3 › Emulator UI Integration › should render Emulator UI heading
+[146/184] [Mobile Pixel 9] › tests/e2e/emulator_integration.spec.ts:11:3 › Emulator UI Integration › should display drop-zone and file input elements
+[147/184] [Mobile Pixel 9] › tests/e2e/emulator_integration.spec.ts:17:3 › Emulator UI Integration › should upload a ROM file and display success message
+[148/184] [Mobile Pixel 9] › tests/e2e/filtering_logic.spec.ts:10:3 › Filtering Logic › should filter by name successfully
+[149/184] [Mobile Pixel 9] › tests/e2e/filtering_logic.spec.ts:21:3 › Filtering Logic › should filter by Secured (Owned) status
+[150/184] [Mobile Pixel 9] › tests/e2e/filtering_logic.spec.ts:32:3 › Filtering Logic › should filter by Missing status
+[151/184] [Mobile Pixel 9] › tests/e2e/gen1_hof_data_extraction.spec.ts:5:3 › Gen 1 Hall of Fame Data Extraction Validation E2E › hallOfFameCount and hallOfFameRecords should be populated correctly from Gen 1 save
+[152/184] [Mobile Pixel 9] › tests/e2e/gen2_static_encounters.spec.ts:5:3 › Gen 2 Static Encounters › should display correctly for Gold save
+[153/184] [Mobile Pixel 9] › tests/e2e/gen2_static_encounters.spec.ts:25:3 › Gen 2 Static Encounters › should display correctly for Crystal save
+[154/184] [Mobile Pixel 9] › tests/e2e/gen3_frlg_data_extraction.spec.ts:5:3 › Gen 3 FRLG Data Extraction E2E Validation › successfully extracts party Pokemon data from firered.sav
+[155/184] [Mobile Pixel 9] › tests/e2e/gen3_rse_data_extraction.spec.ts:5:3 › Gen 3 RSE Data Extraction E2E Validation › successfully extracts party Pokemon data from emerald.sav
+  3) [Mobile Pixel 9] › tests/e2e/gen3_frlg_data_extraction.spec.ts:5:3 › Gen 3 FRLG Data Extraction E2E Validation › successfully extracts party Pokemon data from firered.sav
+
+    Error: page.evaluate: Execution context was destroyed, most likely because of a navigation
+
+       at test-utils.ts:26
+
+      24 |     const saveArray = Array.from(fileBuffer);
+      25 |
+    > 26 |     await page.evaluate(
+         |                ^
+      27 |       async ({ saveArray }) => {
+      28 |         // IndexedDB injection
+      29 |         const SAVE_DB_NAME = 'SaveDB';
+        at initializeWithSave (/app/tests/e2e/test-utils.ts:26:16)
+        at /app/tests/e2e/gen3_frlg_data_extraction.spec.ts:9:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gen3_frlg_data_extraction--10649-kemon-data-from-firered-sav-Mobile-Pixel-9/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/gen3_frlg_data_extraction--10649-kemon-data-from-firered-sav-Mobile-Pixel-9/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gen3_frlg_data_extraction--10649-kemon-data-from-firered-sav-Mobile-Pixel-9/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/gen3_frlg_data_extraction--10649-kemon-data-from-firered-sav-Mobile-Pixel-9/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/gen3_frlg_data_extraction--10649-kemon-data-from-firered-sav-Mobile-Pixel-9/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[156/184] [Mobile Pixel 9] › tests/e2e/gen3_trainer_data.spec.ts:10:3 › Gen 3 Trainer Data Extraction E2E › verifies TID and SID are rendered correctly for Gen 3
+  4) [Mobile Pixel 9] › tests/e2e/gen3_rse_data_extraction.spec.ts:5:3 › Gen 3 RSE Data Extraction E2E Validation › successfully extracts party Pokemon data from emerald.sav
+
+    Error: page.goto: net::ERR_ABORTED at http://localhost:3000/dexhelper/
+    Call log:
+      - navigating to "http://localhost:3000/dexhelper/", waiting until "load"
+
+
+       at test-utils.ts:8
+
+       6 |   savePathOrData: string | Uint8Array = 'tests/fixtures/yellow.sav',
+       7 | ) {
+    >  8 |   await page.goto('.');
+         |              ^
+       9 |
+      10 |   await expect(page.locator('header')).toBeVisible({ timeout: 15000 });
+      11 |   await waitForSync(page);
+        at initializeWithSave (/app/tests/e2e/test-utils.ts:8:14)
+        at /app/tests/e2e/gen3_rse_data_extraction.spec.ts:9:11
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gen3_rse_data_extraction-G-07d33-kemon-data-from-emerald-sav-Mobile-Pixel-9/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/gen3_rse_data_extraction-G-07d33-kemon-data-from-emerald-sav-Mobile-Pixel-9/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gen3_rse_data_extraction-G-07d33-kemon-data-from-emerald-sav-Mobile-Pixel-9/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/gen3_rse_data_extraction-G-07d33-kemon-data-from-emerald-sav-Mobile-Pixel-9/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/gen3_rse_data_extraction-G-07d33-kemon-data-from-emerald-sav-Mobile-Pixel-9/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[157/184] [Mobile Pixel 9] › tests/e2e/home.spec.ts:4:3 › Dexhelper App › should load the main page
+[158/184] [Mobile Pixel 9] › tests/e2e/indexeddb-schema.spec.ts:4:1 › IndexedDB schema has the correct history stores and metadata
+[159/184] [Mobile Pixel 9] › tests/e2e/librarian_schema.spec.ts:6:3 › Librarian Schema Verification › verifies librarian persona exists in schema.md
+[160/184] [Mobile Pixel 9] › tests/e2e/living_dex_ghost_tracking.spec.ts:5:3 › Living Dex Ghost Tracking E2E Validation › ghost tracker evaluates missing Living Dex physical pokemon
+[161/184] [Mobile Pixel 9] › tests/e2e/multi_save_algorithms.spec.ts:26:3 › Multi-Save Comparison Algorithms E2E › should correctly compare saves
+[162/184] [Mobile Pixel 9] › tests/e2e/multi_save_algorithms.spec.ts:36:3 › Multi-Save Comparison Algorithms E2E › should find trade possibilities across multiple saves
+[163/184] [Mobile Pixel 9] › tests/e2e/multi_save_integration.spec.ts:6:3 › Multi-Save Architecture Integration › should allow switching between multiple saves and retain state
+  5) [Mobile Pixel 9] › tests/e2e/living_dex_ghost_tracking.spec.ts:5:3 › Living Dex Ghost Tracking E2E Validation › ghost tracker evaluates missing Living Dex physical pokemon
+
+    Error: page.evaluate: Execution context was destroyed, most likely because of a navigation
+
+       at test-utils.ts:26
+
+      24 |     const saveArray = Array.from(fileBuffer);
+      25 |
+    > 26 |     await page.evaluate(
+         |                ^
+      27 |       async ({ saveArray }) => {
+      28 |         // IndexedDB injection
+      29 |         const SAVE_DB_NAME = 'SaveDB';
+        at initializeWithSave (/app/tests/e2e/test-utils.ts:26:16)
+        at /app/tests/e2e/living_dex_ghost_tracking.spec.ts:7:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/living_dex_ghost_tracking--d5a99-Living-Dex-physical-pokemon-Mobile-Pixel-9/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/living_dex_ghost_tracking--d5a99-Living-Dex-physical-pokemon-Mobile-Pixel-9/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/living_dex_ghost_tracking--d5a99-Living-Dex-physical-pokemon-Mobile-Pixel-9/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/living_dex_ghost_tracking--d5a99-Living-Dex-physical-pokemon-Mobile-Pixel-9/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/living_dex_ghost_tracking--d5a99-Living-Dex-physical-pokemon-Mobile-Pixel-9/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[164/184] [Mobile Pixel 9] › tests/e2e/nuzlocke_death_tracking.spec.ts:10:3 › Nuzlocke Death Tracking › Party Pokemon at 0 HP is detected and displays dead style
+  6) [Mobile Pixel 9] › tests/e2e/multi_save_integration.spec.ts:6:3 › Multi-Save Architecture Integration › should allow switching between multiple saves and retain state
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('header').getByText(/YELLOW/i).first()
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for locator('header').getByText(/YELLOW/i).first()
+        - waiting for "http://localhost:3000/dexhelper/" navigation to finish...
+        - navigated to "http://localhost:3000/dexhelper/"
+
+
+      19 |         .getByText(/YELLOW/i)
+      20 |         .first(),
+    > 21 |     ).toBeVisible();
+         |       ^
+      22 |     await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
+      23 |
+      24 |     const fileInput2 = page.locator('input[type="file"]').first();
+        at /app/tests/e2e/multi_save_integration.spec.ts:21:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/multi_save_integration-Mul-cdd55-iple-saves-and-retain-state-Mobile-Pixel-9/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/multi_save_integration-Mul-cdd55-iple-saves-and-retain-state-Mobile-Pixel-9/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/multi_save_integration-Mul-cdd55-iple-saves-and-retain-state-Mobile-Pixel-9/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/multi_save_integration-Mul-cdd55-iple-saves-and-retain-state-Mobile-Pixel-9/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/multi_save_integration-Mul-cdd55-iple-saves-and-retain-state-Mobile-Pixel-9/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[165/184] [Mobile Pixel 9] › tests/e2e/orphaned_qa_rule.spec.ts:6:3 › Orphaned QA Rule Documentation › should not contain any mention of the Orphaned QA Task Cancellation Rule
+[Mobile Pixel 9] › tests/e2e/orphaned_qa_rule.spec.ts:6:3 › Orphaned QA Rule Documentation › should not contain any mention of the Orphaned QA Task Cancellation Rule
+
+
+[166/184] [Mobile Pixel 9] › tests/e2e/pokemon-details.spec.ts:7:3 › Pokemon Details Modal › should display detailed information for a Pokemon
+[167/184] [Mobile Pixel 9] › tests/e2e/pokemon-details.spec.ts:41:3 › Pokemon Details Modal › should show correct locations for the version
+[168/184] [Mobile Pixel 9] › tests/e2e/pokerus.spec.ts:9:3 › Pokerus State Exfiltration › displays pokerus badge for infected pokemon
+[169/184] [Mobile Pixel 9] › tests/e2e/r2_sync.spec.ts:7:3 › Cloudflare R2 Offline-First Save Syncing › should pull save file from R2 on successful login
+[170/184] [Mobile Pixel 9] › tests/e2e/r2_sync.spec.ts:51:3 › Cloudflare R2 Offline-First Save Syncing › should push save file changes to R2
+[171/184] [Mobile Pixel 9] › tests/e2e/r2_sync.spec.ts:93:3 › Cloudflare R2 Offline-First Save Syncing › should fallback to local storage when offline or API fails
+[172/184] [Mobile Pixel 9] › tests/e2e/r2_sync.spec.ts:154:3 › Cloudflare R2 Offline-First Save Syncing › should resolve conflicts preferring newer remote state
+[173/184] [Mobile Pixel 9] › tests/e2e/save_management.spec.ts:6:3 › Save Management › should upload a save file and persist it on reload
+[174/184] [Mobile Pixel 9] › tests/e2e/save_management.spec.ts:40:3 › Save Management › should display an error when uploading an invalid save file
+[175/184] [Mobile Pixel 9] › tests/e2e/semantic_evaluator.spec.ts:21:3 › Semantic Evaluator API Key Rules › should return true for semantically equivalent condition matching positive rules
+[176/184] [Mobile Pixel 9] › tests/e2e/semantic_evaluator.spec.ts:28:3 › Semantic Evaluator API Key Rules › should return true for semantically equivalent condition with different wording
+[177/184] [Mobile Pixel 9] › tests/e2e/semantic_evaluator.spec.ts:35:3 › Semantic Evaluator API Key Rules › should execute live API integration tests with valid API key
+[178/184] [Mobile Pixel 9] › tests/e2e/semantic_evaluator.spec.ts:42:3 › Semantic Evaluator API Key Rules › should return false for negative semantic matches
+[179/184] [Mobile Pixel 9] › tests/e2e/settings_advanced.spec.ts:5:3 › Advanced Settings Persistence › should persist Game Version, Ball Style, and Nuzlocke Graveyard across reloads
+[180/184] [Mobile Pixel 9] › tests/e2e/settings.spec.ts:5:3 › Settings › should open settings and toggle living dex mode and persist across reload
+[181/184] [Mobile Pixel 9] › tests/e2e/setup.spec.ts:10:1 › initialize and save state
+[182/184] [Mobile Pixel 9] › tests/e2e/tactical-utilities.spec.ts:9:3 › Tactical Utilities E2E › verifies all tactical primitives are applied correctly
+  7) [Mobile Pixel 9] › tests/e2e/settings.spec.ts:5:3 › Settings › should open settings and toggle living dex mode and persist across reload
+
+    Error: expect(locator).toHaveClass(expected) failed
+
+    Locator: getByText('[ LIVING DEX ]')
+    Expected pattern: /bg-emerald-500/
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveClass" with timeout 10000ms
+      - waiting for getByText('[ LIVING DEX ]')
+        - waiting for "http://localhost:3000/dexhelper/" navigation to finish...
+        - navigated to "http://localhost:3000/dexhelper/"
+
+
+      23 |     await expect(page.getByText('SYS.CONFIG').first()).toBeVisible();
+      24 |
+    > 25 |     await expect(page.getByText('[ LIVING DEX ]')).toHaveClass(/bg-emerald-500/);
+         |                                                    ^
+      26 |   });
+      27 | });
+      28 |
+        at /app/tests/e2e/settings.spec.ts:25:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/settings-Settings-should-o-79274-e-and-persist-across-reload-Mobile-Pixel-9/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/settings-Settings-should-o-79274-e-and-persist-across-reload-Mobile-Pixel-9/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/settings-Settings-should-o-79274-e-and-persist-across-reload-Mobile-Pixel-9/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/settings-Settings-should-o-79274-e-and-persist-across-reload-Mobile-Pixel-9/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/settings-Settings-should-o-79274-e-and-persist-across-reload-Mobile-Pixel-9/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[183/184] [Mobile Pixel 9] › tests/e2e/version_selection.spec.ts:5:3 › Version Selection › should allow selecting a version manually and update UI
+[184/184] [Mobile Pixel 9] › tests/e2e/version_selection.spec.ts:26:3 › Version Selection › should persist version selection across reloads
+  8) [Mobile Pixel 9] › tests/e2e/version_selection.spec.ts:5:3 › Version Selection › should allow selecting a version manually and update UI
+
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: /Select Red version/i })
+        - locator resolved to <button type="button" aria-label="Select Red version" class="group focus-visible:tactical-focus relative flex flex-col border border-zinc-800 border-dashed bg-zinc-950 p-4 transition-all hover:scale-[1.02] hover:border-amber-500/50 hover:bg-amber-950/20 active:scale-95">…</button>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - waiting for "http://localhost:3000/dexhelper/" navigation to finish...
+        - navigated to "http://localhost:3000/dexhelper/"
+
+
+      13 |
+      14 |     // 2. Select Red in the modal
+    > 15 |     await page.getByRole('button', { name: /Select Red version/i }).click();
+         |                                                                     ^
+      16 |
+      17 |     // 3. Check if the version indicator updated
+      18 |     await expect(page.getByText(/RED/i).first()).toBeVisible();
+        at /app/tests/e2e/version_selection.spec.ts:15:69
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/version_selection-Version--af0b0-sion-manually-and-update-UI-Mobile-Pixel-9/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/version_selection-Version--af0b0-sion-manually-and-update-UI-Mobile-Pixel-9/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/version_selection-Version--af0b0-sion-manually-and-update-UI-Mobile-Pixel-9/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/version_selection-Version--af0b0-sion-manually-and-update-UI-Mobile-Pixel-9/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/version_selection-Version--af0b0-sion-manually-and-update-UI-Mobile-Pixel-9/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  8 failed
+    [Desktop 1440p] › tests/e2e/dashboard/rng_tid_sid.spec.ts:5:3 › RNG TID and SID Display UI › should display TID and SID and copy to clipboard
+    [Desktop 1440p] › tests/e2e/gen3_rse_data_extraction.spec.ts:5:3 › Gen 3 RSE Data Extraction E2E Validation › successfully extracts party Pokemon data from emerald.sav
+    [Mobile Pixel 9] › tests/e2e/gen3_frlg_data_extraction.spec.ts:5:3 › Gen 3 FRLG Data Extraction E2E Validation › successfully extracts party Pokemon data from firered.sav
+    [Mobile Pixel 9] › tests/e2e/gen3_rse_data_extraction.spec.ts:5:3 › Gen 3 RSE Data Extraction E2E Validation › successfully extracts party Pokemon data from emerald.sav
+    [Mobile Pixel 9] › tests/e2e/living_dex_ghost_tracking.spec.ts:5:3 › Living Dex Ghost Tracking E2E Validation › ghost tracker evaluates missing Living Dex physical pokemon
+    [Mobile Pixel 9] › tests/e2e/multi_save_integration.spec.ts:6:3 › Multi-Save Architecture Integration › should allow switching between multiple saves and retain state
+    [Mobile Pixel 9] › tests/e2e/settings.spec.ts:5:3 › Settings › should open settings and toggle living dex mode and persist across reload
+    [Mobile Pixel 9] › tests/e2e/version_selection.spec.ts:5:3 › Version Selection › should allow selecting a version manually and update UI
+  21 skipped
+  155 passed (18.5m)
+[ELIFECYCLE] Command failed with exit code 1.
