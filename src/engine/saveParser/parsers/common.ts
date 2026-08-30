@@ -316,6 +316,12 @@ export interface BaseSaveData {
   roamerCurMapId?: number;
 }
 
+export interface Gen3DaycareData {
+  mons: PokemonInstance[];
+  offspringPersonality?: number;
+  stepCounter?: number;
+}
+
 export interface Gen1SaveData extends BaseSaveData {
   /** The generation of the parsed save file. */
   generation: 1;
@@ -447,6 +453,8 @@ export interface Gen3SaveData extends BaseSaveData {
   gen3TrainerCard?: Gen3TrainerCard;
   /** Gen 3 specific: Extracted Spinda Pokémon */
   gen3Spindas?: Gen3Spinda[];
+  /** Gen 3 specific: Daycare state */
+  gen3Daycare?: Gen3DaycareData;
 }
 
 export type SaveData = Gen1SaveData | Gen2SaveData | Gen3SaveData;
