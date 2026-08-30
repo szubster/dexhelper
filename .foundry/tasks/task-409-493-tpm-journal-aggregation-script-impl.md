@@ -25,5 +25,5 @@ Implement a script to aggregate timestamped journal files across persona subdire
 
 ## Acceptance Criteria
 - [x] Create `.github/scripts/aggregate-journals.ts` to aggregate timestamped `.md` files in `.foundry/journals/` and `.jules/` into `master.md` within their respective persona directories.
-- [x] Ensure the script moves the processed individual files into `.foundry/archive/journals/<persona>/` (or `.foundry/archive/jules/<persona>/`).
+- [x] Ensure the script deletes the processed individual files.
 - [x] Update `.github/agents/tpm.md` to instruct the TPM persona to execute `npx tsx .github/scripts/aggregate-journals.ts` during its hourly run.
