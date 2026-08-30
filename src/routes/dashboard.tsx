@@ -54,6 +54,12 @@ const Gen2NpcTrades = React.lazy(() =>
   import('../components/dashboard/trades/Gen2NpcTrades').then((m) => ({ default: m.Gen2NpcTrades })),
 );
 
+const Gen1Checklist = React.lazy(() =>
+  import('../components/dashboard/checklist/Gen1Checklist').then((m) => ({
+    default: m.Gen1Checklist,
+  })),
+);
+
 const Gen2Checklist = React.lazy(() =>
   import('../components/dashboard/checklist/Gen2Checklist').then((m) => ({
     default: m.Gen2Checklist,
@@ -67,7 +73,7 @@ export const Route = createFileRoute('/dashboard')({
 function DashboardPage() {
   const saveData = useStore((s) => s.saveData);
 
-  if (saveData?.generation !== 3 && saveData?.generation !== 2) {
+  if (saveData?.generation !== 3 && saveData?.generation !== 2 && saveData?.generation !== 1) {
     return <EmptyState icon={<ShieldAlert size={24} />} label="BATTLE FRONTIER UNAVAILABLE" />;
   }
 
@@ -86,7 +92,7 @@ function DashboardPage() {
           </>
         ) : (
           <>
-            <Gen2Checklist />
+            {saveData.generation === 1 ? <Gen1Checklist /> : <Gen2Checklist />}
             <Gen2NpcTrades />
             <ShinyCarrierBreedingDashboard />
           </>

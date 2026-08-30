@@ -16,9 +16,9 @@ describe('DashboardPage', () => {
 
   const Component = Route.options.component;
 
-  it('renders unavailable state for gen 1', async () => {
+  it('renders unavailable state for gen 4', async () => {
     useStore.setState({
-      saveData: { generation: 1 } as SaveData,
+      saveData: { generation: 4 } as unknown as SaveData,
     });
 
     await render(<QueryClientProvider client={queryClient}>{Component ? <Component /> : null}</QueryClientProvider>);
@@ -44,5 +44,15 @@ describe('DashboardPage', () => {
     await render(<QueryClientProvider client={queryClient}>{Component ? <Component /> : null}</QueryClientProvider>);
 
     await expect.element(page.getByText(/SHINY CARRIER/i).first()).toBeVisible();
+  });
+
+  it('renders Gen 1 dashboard', async () => {
+    useStore.setState({
+      saveData: { generation: 1, partyDetails: [], pcDetails: [] } as unknown as SaveData,
+    });
+
+    await render(<QueryClientProvider client={queryClient}>{Component ? <Component /> : null}</QueryClientProvider>);
+
+    await expect.element(page.getByText(/STATIC ENCOUNTERS/i).first()).toBeVisible();
   });
 });
