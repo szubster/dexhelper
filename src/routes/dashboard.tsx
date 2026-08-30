@@ -54,6 +54,12 @@ const Gen2NpcTrades = React.lazy(() =>
   import('../components/dashboard/trades/Gen2NpcTrades').then((m) => ({ default: m.Gen2NpcTrades })),
 );
 
+const ActiveCallersDashboard = React.lazy(() =>
+  import('../components/dashboard/pokegear/ActiveCallersDashboard').then((m) => ({
+    default: m.ActiveCallersDashboard,
+  })),
+);
+
 const Gen2Checklist = React.lazy(() =>
   import('../components/dashboard/checklist/Gen2Checklist').then((m) => ({
     default: m.Gen2Checklist,
@@ -87,6 +93,10 @@ function DashboardPage() {
         ) : (
           <>
             <Gen2Checklist />
+            <ActiveCallersDashboard
+              contacts={saveData.gen2PokegearPhone?.highValueContacts || []}
+              timerState={{ delayMinsRemaining: 0, timeCyclesSinceLastCall: 5 }}
+            />
             <Gen2NpcTrades />
             <ShinyCarrierBreedingDashboard />
           </>
