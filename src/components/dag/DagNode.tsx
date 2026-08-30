@@ -1,4 +1,5 @@
 import { Handle, Position } from '@xyflow/react';
+import { AlertTriangle } from 'lucide-react';
 import React from 'react';
 import { cn } from '../../utils/cn';
 import { CornerCrosshairs } from '../CornerCrosshairs';
@@ -21,6 +22,7 @@ export const DagNode = React.memo(function DagNode({ data }: { data: DagNodeData
   let statusColor = 'text-zinc-500';
   let dotColor = 'text-zinc-500';
   let bgClass = 'bg-zinc-900/50';
+  let isPermanentFailure = false;
 
   switch (data.status) {
     case 'COMPLETED':
@@ -40,6 +42,7 @@ export const DagNode = React.memo(function DagNode({ data }: { data: DagNodeData
       dotColor = 'text-red-500';
       bgClass = 'bg-red-950/20 border-red-500/50';
       if (data.status === 'FAILED' && data.rejection_count >= maxRejectionThreshold) {
+        isPermanentFailure = true;
         bgClass = 'bg-red-900/40 border-red-500 border-2 brightness-125';
       }
       break;
@@ -86,7 +89,14 @@ export const DagNode = React.memo(function DagNode({ data }: { data: DagNodeData
           <span className={cn('font-bold', statusColor)}>{data.status}</span>
         </div>
 
-        <div className="break-words font-bold text-white text-xs">{data.label}</div>
+        <div className="flex items-start justify-between gap-2">
+          <div className="break-words font-bold text-white text-xs">{data.label}</div>
+          {isPermanentFailure && (
+            <div className="flex shrink-0 items-center text-red-500" title="Permanent Failure">
+              <AlertTriangle size={14} />
+            </div>
+          )}
+        </div>
       </div>
 
       <Handle type="source" position={Position.Bottom} className="!bg-zinc-500 !w-2 !h-2 !rounded-none !border-0" />

@@ -36,4 +36,6 @@ This story is dedicated to the Integration and E2E verification of the prompt fr
 ## Acceptance Criteria
 - [ ] Implement E2E integration tests for the prompt fragment layering system.
 - [ ] Verify that precedence and baseline fragments combine correctly.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-445-498-prompt-fragment-layering-e2e-tests
+- [ ] task-445-499-prompt-fragment-layering-e2e-qa

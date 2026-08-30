@@ -1,0 +1,31 @@
+---
+id: task-422-496-gen3-static-encounters-e2e-impl
+type: TASK
+title: Implement Gen 3 Static Encounters E2E Tests
+status: READY
+owner_persona: coder
+created_at: '2026-08-26'
+updated_at: '2026-08-26'
+depends_on: []
+jules_session_id: '14323259908437325530'
+pr_number: null
+parent: story-138-422-gen3-static-encounters-e2e
+tags:
+  - gen3
+  - e2e
+  - integration
+research_references:
+  - .foundry/docs/knowledge_base/gen3_static_encounters/gen3_static_encounter_offsets.md
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Implement Gen 3 Static Encounters E2E Tests
+
+Implement Playwright End-to-End tests to verify the Gen 3 Static Encounters extraction and UI rendering.
+
+## Acceptance Criteria
+- [ ] Implement E2E tests for gen3 static encounters.
+- [ ] Tests verify that the static encounters are accurately extracted and rendered on the dashboard or corresponding UI based on the save file data.
+- [ ] Ensure testing commands use headless testing flags as defined by best practices.

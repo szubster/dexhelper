@@ -2,10 +2,10 @@
 id: task-473-493-update-tech-lead-prompt
 type: TASK
 title: Update Tech Lead Prompt
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-26'
-updated_at: '2026-08-27'
+updated_at: '2026-08-28'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,5 +31,5 @@ This task implements `story-334-473-update-tech-lead-prompt`. The objective is t
 - The prompt should still instruct the Tech Lead to draft technical blueprints and define clear contracts.
 
 ## 3. Acceptance Criteria
-- [ ] The `tech_lead.md` file is successfully modified.
-- [ ] No instructions about appending `### REMINDER FOR CODER` or `### REMINDER FOR QA` blocks remain in `tech_lead.md`.
+- [x] The `tech_lead.md` file is successfully modified.
+- [x] No instructions about appending `### REMINDER FOR CODER` or `### REMINDER FOR QA` blocks remain in `tech_lead.md`.

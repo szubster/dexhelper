@@ -2,12 +2,12 @@
 id: epic-338-404-kurt-apricorn-data-engine
 type: EPIC
 title: Gen 2 Kurt Apricorn Data Parsing Engine
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-06'
-updated_at: '2026-08-26'
+updated_at: '2026-08-29'
 depends_on: []
-jules_session_id: '8382786666497741185'
+jules_session_id: null
 pr_number: null
 parent: prd-121-338-gen2-kurt-apricorn-tracker
 tags:
@@ -29,5 +29,8 @@ As defined in PRD `prd-121-338-gen2-kurt-apricorn-tracker`, we need to track Kur
 - Extract the timestamp or active day flag for when the crafting was initiated.
 
 ## Acceptance Criteria
-- [ ] story_owner: Break this EPIC down into actionable STORY nodes.
-- [ ] story_owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] story_owner: Break this EPIC down into actionable STORY nodes.
+- [x] story_owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-404-477-kurt-apricorn-offset-and-constants
+- [ ] story-404-478-kurt-apricorn-parsing-logic
+- [ ] story-404-479-kurt-apricorn-e2e-verification
