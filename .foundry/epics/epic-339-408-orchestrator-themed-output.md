@@ -2,13 +2,13 @@
 id: epic-339-408-orchestrator-themed-output
 type: EPIC
 title: Orchestrator Themed Output Updates
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2024-05-18'
-updated_at: '2026-08-15'
+updated_at: '2026-08-29'
 depends_on:
   - epic-339-405-schema-role-mapping
-jules_session_id: null
+jules_session_id: '6868417879164900300'
 pr_number: null
 parent: prd-122-339-pokemon-themed-foundry-personas
 tags:

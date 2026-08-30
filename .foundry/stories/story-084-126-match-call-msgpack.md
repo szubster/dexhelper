@@ -2,12 +2,12 @@
 id: story-084-126-match-call-msgpack
 type: STORY
 title: 'Story: Gen 3 Match Call MsgPack Integration'
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-13'
-updated_at: '2026-08-25'
+updated_at: '2026-08-26'
 depends_on: []
-jules_session_id: '3148001966579214244'
+jules_session_id: null
 pr_number: null
 parent: epic-048-084-gen3-match-call-static-data
 tags:
@@ -31,3 +31,6 @@ Integrate the dataset into the IndexedDB persistence layer (`PokeDB.ts`) for qui
 ## Acceptance Criteria
 - [ ] Export match call dataset to MsgPack format.
 - [ ] Integrate into `PokeDB.ts` for runtime hydration.
+- [ ] task-126-489-match-call-msgpack-export
+- [ ] task-126-490-match-call-msgpack-hydration
+- [ ] task-126-491-match-call-msgpack-qa

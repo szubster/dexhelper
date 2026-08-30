@@ -49,6 +49,14 @@ export function useDagContext() {
   return context;
 }
 
+export function usePermanentlyFailedNodes() {
+  const { nodes, maxRejectionThreshold } = useDagContext();
+  return useMemo(
+    () => nodes.filter((node) => node.data.status === 'FAILED' && node.data.rejection_count >= maxRejectionThreshold),
+    [nodes, maxRejectionThreshold],
+  );
+}
+
 const dagreGraph = new dagre.graphlib.Graph();
 dagreGraph.setDefaultEdgeLabel(() => ({}));
 

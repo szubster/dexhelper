@@ -2,12 +2,12 @@
 id: task-136-489-permanent-failure-state-selectors-impl
 type: TASK
 title: Implement Permanent Failure State Selectors
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-26'
 depends_on: []
-jules_session_id: '14515920951439317342'
+jules_session_id: null
 pr_number: null
 parent: story-047-136-permanent-failure-dashboard-ui
 tags:
@@ -29,6 +29,6 @@ Implement logic within the DAG context to identify nodes that have permanently f
 As defined in ADR 017, we need to extract and expose the `rejection_count` frontmatter field and broadcast it via the shared React Context.
 
 ## Acceptance Criteria
-- [ ] Expose `rejection_count` in the DAG node data model.
-- [ ] Implement a selector or hook to filter and return a list of permanently failed nodes from the shared context.
-- [ ] Write unit tests to verify the selector logic correctly identifies failed nodes based on the threshold.
+- [x] Expose `rejection_count` in the DAG node data model.
+- [x] Implement a selector or hook to filter and return a list of permanently failed nodes from the shared context.
+- [x] Write unit tests to verify the selector logic correctly identifies failed nodes based on the threshold.

@@ -130,7 +130,6 @@ const StorageCard = React.memo(
 
 export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
   const saveData = useStore((s) => s.saveData);
-  const nuzlockeGraveyardBox = useStore((s) => s.nuzlockeGraveyardBox);
   const navigate = useNavigate();
   const handleNavigate = React.useCallback(
     (id: number) => {
@@ -201,7 +200,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                 {/* Rack Handle */}
                 <div className="flex w-4 shrink-0 flex-col justify-between border-zinc-700/50 border-r border-dashed pr-2">
                   <div className="h-2 w-2 rounded-full border border-zinc-600 bg-zinc-800 shadow-inner" />
-                  <div className="my-2 w-1.5 flex-1 rounded-sm bg-gradient-to-b from-zinc-700 via-zinc-600 to-zinc-700 shadow-[inset_1px_0_2px_rgba(255,255,255,0.2)]" />
+                  <div className="my-2 w-1.5 flex-1 rounded-none bg-gradient-to-b from-zinc-700 via-zinc-600 to-zinc-700 shadow-[inset_1px_0_2px_rgba(255,255,255,0.2)]" />
                   <div className="h-2 w-2 rounded-full border border-zinc-600 bg-zinc-800 shadow-inner" />
                 </div>
 
@@ -239,7 +238,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                       />
                       {/* Error / Dead LED */}
                       <div
-                        className={`h-2 w-2 rounded-none border ${location === nuzlockeGraveyardBox || pokemonInLocation.some((p) => location === 'Party' && p.p.currentHp === 0) ? 'animate-[pulse_0.5s_ease-in-out_infinite] border-red-500 bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
+                        className={`h-2 w-2 rounded-none border ${pokemonInLocation.some((p) => location === 'Party' && p.p.currentHp === 0) ? 'animate-[pulse_0.5s_ease-in-out_infinite] border-red-500 bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
                         title="System Error / Quarantine"
                       />
                     </div>
@@ -266,7 +265,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                       location={location}
                       generation={saveData?.generation ?? 1}
                       onNavigate={handleNavigate}
-                      isDead={location === nuzlockeGraveyardBox || (location === 'Party' && p.currentHp === 0)}
+                      isDead={location === 'Party' && p.currentHp === 0}
                       timeCapsuleValidation={
                         saveData?.generation === 2 ? getTimeCapsuleValidation(p.speciesId, p.moves) : undefined
                       }

@@ -3137,6 +3137,27 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     logSpy.mockRestore();
   });
 
+  test('Prompt Compilation: compiles scheduled prompt with generic/fallback prompt and core policies', () => {
+    fs.mkdirSync(path.join(tmpDir, '.github/agents'), { recursive: true });
+    fs.mkdirSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents'), { recursive: true });
+
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/tpm.md'), 'TPM_SCHEDULED_PROMPT_CONTENT');
+    fs.writeFileSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents/core_policies.md'), 'CORE_POLICIES_SCHEDULED_CONTENT');
+
+    const stdoutSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+    process.argv.push('--compile-scheduled', 'tpm');
+    main();
+    process.argv.splice(process.argv.indexOf('--compile-scheduled'), 2);
+
+    expect(stdoutSpy).toHaveBeenCalled();
+    const compiledOutput = stdoutSpy.mock.calls[0][0] as string;
+    expect(compiledOutput).toContain('TPM_SCHEDULED_PROMPT_CONTENT');
+    expect(compiledOutput).toContain('CORE_POLICIES_SCHEDULED_CONTENT');
+
+    stdoutSpy.mockRestore();
+  });
+
   test('Regression: Downstream ADR referencing research node ID in body while depending on it does not deadlock research node', () => {
     fs.mkdirSync(path.join(foundryDir, 'research'), { recursive: true });
     fs.mkdirSync(path.join(foundryDir, 'docs/adrs'), { recursive: true });

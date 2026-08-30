@@ -5,7 +5,7 @@ title: Timeout Wrapper for Bash Sessions (Retry)
 status: READY
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-08-23'
+updated_at: '2026-08-29'
 depends_on:
   - research-057-417-investigate-bash-timeout-failure
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - resilience
 research_references:
   - research-057-417-investigate-bash-timeout-failure
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
