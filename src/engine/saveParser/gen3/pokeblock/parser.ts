@@ -1,19 +1,18 @@
 import type { GameVersion } from '../../parsers/common';
-import type { Gen3Pokeblock } from './types';
-
-// Constants defined in .foundry/docs/knowledge_base/gen3_pokeblock_offsets.md
-const POKEBLOCK_ARRAY_OFFSET_EMERALD = 0x0848;
-const POKEBLOCK_ARRAY_OFFSET_RS = 0x07f8;
-const POKEBLOCK_STRUCT_SIZE = 8;
-const POKEBLOCKS_COUNT = 40;
-
-const COLOR_OFFSET = 0;
-const SPICY_OFFSET = 1;
-const DRY_OFFSET = 2;
-const SWEET_OFFSET = 3;
-const BITTER_OFFSET = 4;
-const SOUR_OFFSET = 5;
-const FEEL_OFFSET = 6;
+import {
+  BITTER_OFFSET,
+  COLOR_OFFSET,
+  DRY_OFFSET,
+  FEEL_OFFSET,
+  POKEBLOCK_ARRAY_OFFSET_EMERALD,
+  POKEBLOCK_ARRAY_OFFSET_RS,
+  POKEBLOCK_STRUCT_SIZE,
+  POKEBLOCKS_COUNT,
+  SOUR_OFFSET,
+  SPICY_OFFSET,
+  SWEET_OFFSET,
+} from './constants';
+import type { Gen3Pokeblock, PokeblockColor } from './types';
 
 export function parseGen3Pokeblocks(
   view: DataView,
@@ -35,7 +34,7 @@ export function parseGen3Pokeblocks(
       // If color is 0 (None), we skip or we can include it. Let's include it only if it's non-zero.
       if (color !== 0) {
         pokeblocks.push({
-          color,
+          color: color as PokeblockColor,
           spicy: view.getUint8(blockOffset + SPICY_OFFSET),
           dry: view.getUint8(blockOffset + DRY_OFFSET),
           sweet: view.getUint8(blockOffset + SWEET_OFFSET),

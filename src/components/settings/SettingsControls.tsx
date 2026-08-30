@@ -1,4 +1,4 @@
-import { Archive, CircleDot, Settings2, Skull } from 'lucide-react';
+import { Archive, CircleDot, Settings2 } from 'lucide-react';
 import type { GameVersion, PokeballType } from '../../store';
 import type { GenerationConfig } from '../../utils/generationConfig';
 import { getGenerationConfig } from '../../utils/generationConfig';
@@ -14,9 +14,6 @@ interface SettingsControlsProps {
   setGlobalPokeball: (v: PokeballType) => void;
   filteredPokeballs: { value: PokeballType; label: string }[];
   genConfig: GenerationConfig | null;
-  nuzlockeGraveyardBox: string | null;
-  setNuzlockeGraveyardBox: (v: string | null) => void;
-  storageLocations: string[];
 }
 
 export function SettingsControls({
@@ -28,9 +25,6 @@ export function SettingsControls({
   setGlobalPokeball,
   filteredPokeballs,
   genConfig,
-  nuzlockeGraveyardBox,
-  setNuzlockeGraveyardBox,
-  storageLocations,
 }: SettingsControlsProps) {
   const versions: { id: GameVersion | 'unknown'; label: string }[] = [
     { id: 'unknown', label: 'AUTO' },
@@ -121,29 +115,6 @@ export function SettingsControls({
               </>
             ),
           }))}
-        />
-      </SettingsRow>
-
-      <SettingsRow
-        icon={<Skull size={18} className="text-red-500" />}
-        iconColorClass="border-red-500/20 bg-red-500/10"
-        label="Graveyard"
-      >
-        <TacticalSegmentedControl<string>
-          ariaLabel="Select Nuzlocke Graveyard Box"
-          containerClassName="[&>div]:grid [&>div]:grid-cols-3 [&>div]:sm:grid-cols-4 [&>div]:gap-2 [&>div]:border-none [&>button]:border"
-          buttonBaseClassName="!border-dashed !border focus-visible:ring-red-500 px-2 py-2 text-[8px]"
-          defaultActiveClassName="border-red-500 bg-red-500/20 text-red-400 shadow-[0_0_10px_rgba(239,68,68,0.3)]"
-          defaultInactiveClassName="border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300"
-          selectedValue={nuzlockeGraveyardBox || ''}
-          onValueChange={(val) => setNuzlockeGraveyardBox(val === '' ? null : val)}
-          items={[
-            { id: '', label: '[ NONE ]' },
-            ...storageLocations.map((loc) => ({
-              id: loc,
-              label: `[ ${loc.toUpperCase()} ]`,
-            })),
-          ]}
         />
       </SettingsRow>
     </div>

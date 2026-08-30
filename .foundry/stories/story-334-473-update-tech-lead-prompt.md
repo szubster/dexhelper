@@ -2,12 +2,12 @@
 id: story-334-473-update-tech-lead-prompt
 type: STORY
 title: Update Tech Lead Prompt
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-26'
+updated_at: '2026-08-27'
 depends_on: []
-jules_session_id: '7491370668965552608'
+jules_session_id: null
 pr_number: null
 parent: epic-117-334-centralize-prompt-rules
 tags:
@@ -33,3 +33,4 @@ This story is part of `epic-117-334-centralize-prompt-rules`. The objective is t
 ## 3. Acceptance Criteria
 - [ ] The `tech_lead.md` file is successfully modified.
 - [ ] No instructions about appending `### REMINDER FOR CODER` or `### REMINDER FOR QA` blocks remain in `tech_lead.md`.
+- [ ] task-473-493-update-tech-lead-prompt

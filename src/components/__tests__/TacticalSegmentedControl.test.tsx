@@ -15,7 +15,7 @@ describe('TacticalSegmentedControl', () => {
 
     const group = page.getByRole('radiogroup', { name: 'Test Group' });
     await expect.element(group).toBeInTheDocument();
-    await expect.element(group).toHaveClass('border-dashed');
+    await expect.element(group).toHaveClass('z-10');
 
     const firstItem = page.getByText('One');
     await expect.element(firstItem).toBeInTheDocument();

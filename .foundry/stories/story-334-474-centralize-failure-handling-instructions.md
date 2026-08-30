@@ -2,10 +2,10 @@
 id: story-334-474-centralize-failure-handling-instructions
 type: STORY
 title: Centralize Failure Handling Instructions
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-30'
 depends_on:
   - story-334-473-update-tech-lead-prompt
 jules_session_id: null
@@ -34,3 +34,4 @@ This story is part of `epic-117-334-centralize-prompt-rules`. Since the Tech Lea
 ## 3. Acceptance Criteria
 - [ ] Centralized instructions for failure handling and Empty PR submission are verified in `core_policies.md`.
 - [ ] Any duplicate or contradictory reminders across `coder.md` and `qa.md` are removed or properly aligned.
+- [ ] task-474-498-verify-and-deduplicate-failure-instructions

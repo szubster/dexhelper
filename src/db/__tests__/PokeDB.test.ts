@@ -51,6 +51,9 @@ describe('PokeDB', () => {
         DB_CONFIG.STORES.ENCOUNTERS,
         DB_CONFIG.STORES.LOCATIONS,
         DB_CONFIG.STORES.ITEMS,
+        DB_CONFIG.STORES.BERRIES,
+        DB_CONFIG.STORES.MOVES,
+        DB_CONFIG.STORES.MATCH_CALLS,
         DB_CONFIG.STORES.METADATA,
       ].map((s) => tx.objectStore(s).clear()),
     );
@@ -137,6 +140,9 @@ describe('PokeDB', () => {
       DB_CONFIG.STORES.ENCOUNTERS,
       DB_CONFIG.STORES.LOCATIONS,
       DB_CONFIG.STORES.ITEMS,
+      DB_CONFIG.STORES.MOVES,
+      DB_CONFIG.STORES.BERRIES,
+      DB_CONFIG.STORES.MATCH_CALLS,
       DB_CONFIG.STORES.METADATA,
     ];
     expect(transactionSpy).not.toHaveBeenCalledWith(allStoreNames, 'readwrite');

@@ -57,6 +57,7 @@ import {
  * is determined by `PV % 24`.
  */
 
+import { type Gen3FameCheckerData, parseGen3FameChecker } from '../../gen3/fameChecker/parser';
 import { extractFeebasSeed } from '../../gen3/feebas';
 import { parseGen3MatchCall } from '../../gen3/matchCall/parser';
 import { parseSecretBaseRecord } from '../../gen3/secretBase/parser';
@@ -88,6 +89,7 @@ import type {
   Gen3TVShow,
   PokemonInstance,
 } from './common';
+import { decodeGen3String } from './common';
 
 const SIGNATURE = 0x08012025;
 const SIGNATURE_OFFSET = 0x0ff8;
@@ -153,6 +155,7 @@ const CONDITION_CUTE_OFFSET = 0x08;
 const CONDITION_SMART_OFFSET = 0x09;
 const CONDITION_TOUGH_OFFSET = 0x0a;
 const CONDITION_SHEEN_OFFSET = 0x0b;
+export const RIBBONS_OFFSET_IN_M = 0x08;
 
 const RIBBON_RANK_MASK = 0x07;
 const RIBBON_COOL_SHIFT = 0;
@@ -224,7 +227,7 @@ const POKE_NEWS_COUNTDOWN_OFFSET = 0x02;
 const MISC_IV_EGG_ABILITY_OFFSET = 0x04;
 export const MET_LOCATION_OFFSET_IN_M = 1;
 const IS_EGG_BIT_SHIFT = 30;
-const GROWTH_FRIENDSHIP_OFFSET = 0x04;
+export const GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G = 0x04;
 const EGG_CYCLE_STEPS = 256;
 
 export const TM_POCKET_OFFSET_RS = 0x0640;
@@ -738,6 +741,7 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
       // In the decrypted GAEM buffer, G is at offset 0, A is at offset 12
       const speciesId = decryptedData.getUint16(0 + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
       const item = decryptedData.getUint16(0 + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
+      const friendship = decryptedData.getUint8(0 + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
 
       const move1 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
       const move2 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET, true);
@@ -758,6 +762,7 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
         isShiny: false, // We'll implement shiny calculation separately
         item: item > 0 ? item : undefined,
         moves,
+        friendship,
         personalityValue: pv,
         storageLocation: 'Party',
         hash: `${pv}-${otId}`,
@@ -771,6 +776,8 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
           spdef: view.getUint16(offset + GEN3_PARTY_SPDEF_OFFSET, true),
         },
         evs: parseGen3EVs(decryptedData, 2 * SUBSTRUCTURE_SIZE),
+        condition: parseGen3ConditionStats(decryptedData, 2 * SUBSTRUCTURE_SIZE),
+        ribbons: parseGen3Ribbons(decryptedData, 3 * SUBSTRUCTURE_SIZE + RIBBONS_OFFSET_IN_M),
       });
     }
   } catch (error) {
@@ -818,6 +825,7 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
         // In the decrypted GAEM buffer, G is at offset 0, A is at offset 12
         const speciesId = decryptedData.getUint16(0 + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
         const item = decryptedData.getUint16(0 + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
+        const friendship = decryptedData.getUint8(0 + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
 
         const move1 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
         const move2 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET, true);
@@ -839,10 +847,13 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
           isShiny,
           item: item > 0 ? item : undefined,
           moves,
+          friendship,
           personalityValue: pv,
           storageLocation: `Box ${box + 1}`,
           slot,
           evs: parseGen3EVs(decryptedData, 2 * SUBSTRUCTURE_SIZE),
+          condition: parseGen3ConditionStats(decryptedData, 2 * SUBSTRUCTURE_SIZE),
+          ribbons: parseGen3Ribbons(decryptedData, 3 * SUBSTRUCTURE_SIZE + RIBBONS_OFFSET_IN_M),
         };
 
         pc.push(speciesId);
@@ -1027,7 +1038,7 @@ export function parseGen3EggSteps(
       return null;
     }
 
-    const eggCycles = view.getUint8(growthSubstructureOffset + GROWTH_FRIENDSHIP_OFFSET);
+    const eggCycles = view.getUint8(growthSubstructureOffset + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
     return eggCycles * EGG_CYCLE_STEPS;
   } catch (error) {
     if (error instanceof RangeError) {
@@ -1607,6 +1618,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     let gen3BattlePoints: number | undefined;
     let gen3MoveTutors: Gen3MoveTutors | undefined;
     let gen3NPCTrades: Record<string, boolean> | undefined;
+    let gen3FameChecker: Gen3FameCheckerData[] | undefined;
 
     if (_forcedVersion === 'emerald') {
       try {
@@ -1633,6 +1645,11 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       }
       try {
         gen3NPCTrades = parseGen3FRLGNPCTrades(view, section1Offset);
+      } catch {
+        // Ignored
+      }
+      try {
+        gen3FameChecker = parseGen3FameChecker(view, section1Offset);
       } catch {
         // Ignored
       }
@@ -1803,7 +1820,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       pcDetails,
       gameVersion: _forcedVersion || 'ruby',
       badges: narrative.badges,
-      trainerName: '',
+      trainerName: decodeGen3String(view, section2Offset + 0x00, 7),
       trainerId,
       secretId,
       currentMapId: 0,
@@ -1861,6 +1878,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     }
     if (gen3TrainerRematchFlags !== undefined) {
       result.gen3TrainerRematchFlags = gen3TrainerRematchFlags;
+    }
+    if (gen3FameChecker !== undefined) {
+      result.gen3FameChecker = gen3FameChecker;
     }
 
     if (allSpindas.length > 0) {

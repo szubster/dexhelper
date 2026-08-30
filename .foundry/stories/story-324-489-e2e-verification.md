@@ -2,13 +2,13 @@
 id: story-324-489-e2e-verification
 type: STORY
 title: Safari Zone Save State Integration E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-26'
+updated_at: '2026-08-29'
 depends_on:
   - story-324-340-gen3-safari-zone-save-state
-jules_session_id: '11628918476713394581'
+jules_session_id: null
 pr_number: null
 parent: epic-113-324-safari-zone-data-integration
 tags:
@@ -33,4 +33,8 @@ This story covers the end-to-end integration and verification of the Gen 1 and G
 - Verify integration between the data layer and static tables.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-489-493-gen1-safari-zone-e2e-impl
+- [ ] task-489-494-gen1-safari-zone-e2e-qa
+- [ ] task-489-495-gen3-safari-zone-e2e-impl
+- [ ] task-489-496-gen3-safari-zone-e2e-qa

@@ -26,6 +26,7 @@ import { GEN2_VERSION_EXCLUSIVES } from '../../exclusives/gen2Exclusives';
 import { parseGen2DailyEvents, parseGen2NarrativeFlags } from '../utils/gen2EventFlags';
 import type { GameVersion, Gen2SaveData, PokemonInstance } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs, parsePokerus } from './common';
+import { parseGen2PokegearData } from './gen2/phone/parser';
 
 const POKEMON_OFFSET_SPECIES_ID = 0;
 const POKEMON_OFFSET_ITEM = 1;
@@ -594,7 +595,7 @@ function parsePCBoxes(
   const pc: number[] = [];
   for (let i = 0; i < currentBoxCount; i++) {
     const id = view.getUint8(offsets.currentBoxSpecies + i);
-    if (id > 0 && id <= 251) pc.push(id);
+    if (id > 0 && (id <= 251 || id === GEN2_EGG_SPECIES_ID)) pc.push(id);
   }
 
   const pcDetails: PokemonInstance[] = [];
@@ -630,7 +631,7 @@ function parsePCBoxes(
     if (count > 20) continue;
     for (let j = 0; j < count; j++) {
       const id = view.getUint8(offset + BOX_SPECIES_LIST_OFFSET + j);
-      if (id > 0 && id <= 251) pc.push(id);
+      if (id > 0 && (id <= 251 || id === GEN2_EGG_SPECIES_ID)) pc.push(id);
     }
 
     const boxDataOffset = offset + BOX_DATA_BLOCK_OFFSET;
@@ -1133,5 +1134,6 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
     },
     gen2NarrativeFlags: parseGen2NarrativeFlags(eventFlags),
     gen2DailyEvents: parseGen2DailyEvents(eventFlags),
+    gen2PokegearPhone: parseGen2PokegearData(view, isCrystal),
   };
 }

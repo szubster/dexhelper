@@ -1,4 +1,5 @@
 import type { Gen3StaticEncounters } from '../../gen3/staticEncounters';
+import type { PokegearPhoneData } from './gen2/phone/parser';
 
 /**
  * @module common
@@ -333,6 +334,8 @@ export interface Gen2SaveData extends BaseSaveData {
   gen2NarrativeFlags?: Record<string, boolean>;
   /** Gen 2 specific: The Map Group ID used alongside currentMapId to uniquely identify a location. */
   mapGroup?: number;
+  /** Gen 2 specific: Pokegear Phone data including contacts and special caller flags. */
+  gen2PokegearPhone?: PokegearPhoneData;
   /** Gen 2 specific: The number of Johto gym badges obtained. */
   johtoBadges?: number;
   /** Gen 2 specific: The number of Kanto gym badges obtained. */
@@ -385,6 +388,7 @@ export interface Gen3SaveData extends BaseSaveData {
   gen3Pokeblocks?: import('../gen3/pokeblock/types').Gen3Pokeblock[];
   gen3TrickHouse?: import('./../gen3/trickHouse/parser').Gen3TrickHouse;
   gen3MatchCall?: import('../../gen3/matchCall/parser').Gen3MatchCall;
+  gen3FameChecker?: import('../../gen3/fameChecker/parser').Gen3FameCheckerData[];
   /** In-game NPC trade status flags mapped by their flag name for Gen 3 games. */
   gen3NPCTrades?: Record<string, boolean>;
   /** Gen 3 specific: Calculated valid Feebas tile locations. */
@@ -569,6 +573,125 @@ export function decodeGen12String(view: DataView, offset: number, maxLength: num
 
     if (charCode === 0x50 || charCode === 0x00 || charCode === COMMON_EMPTY_SLOT) break;
     result += GEN12_CHAR_MAP[charCode] ?? '?';
+  }
+  return result.trim();
+}
+
+export const GEN3_CHAR_MAP: Record<number, string> = {
+  0x00: ' ',
+  0x01: 'À',
+  0x02: 'Á',
+  0x03: 'Â',
+  0x04: 'Ç',
+  0x05: 'È',
+  0x06: 'É',
+  0x07: 'Ê',
+  0x08: 'Ë',
+  0x09: 'Ì',
+  0x0b: 'Î',
+  0x0c: 'Ï',
+  0x0d: 'Ò',
+  0x0e: 'Ó',
+  0x0f: 'Ô',
+  0x10: 'Œ',
+  0x11: 'Ù',
+  0x12: 'Ú',
+  0x13: 'Û',
+  0x14: 'Ñ',
+  0x15: 'ß',
+  0x16: 'à',
+  0x17: 'á',
+  0x19: 'ç',
+  0x1a: 'è',
+  0x1b: 'é',
+  0x1c: 'ê',
+  0x1d: 'ë',
+  0x1e: 'ì',
+  0x20: 'î',
+  0x21: 'ï',
+  0x22: 'ò',
+  0x23: 'ó',
+  0x24: 'ô',
+  0x25: 'œ',
+  0x26: 'ù',
+  0x27: 'ú',
+  0x28: 'û',
+  0x29: 'ñ',
+  0x2a: 'º',
+  0x2b: 'ª',
+  0x2c: 'ᵉ',
+  0x2d: '&',
+  0x2e: '+',
+  0x51: '¿',
+  0x52: '¡',
+  0x53: 'P',
+  0x54: 'K',
+  0x55: 'M',
+  0x56: 'N',
+  0x57: 'P',
+  0x58: 'O',
+  0x59: 'K',
+  0x5a: 'é',
+  0x5b: '%',
+  0x5c: '(',
+  0x5d: ')',
+  0x68: 'â',
+  0x6f: 'í',
+  0x79: 'Up',
+  0x7a: 'Down',
+  0x7b: 'Left',
+  0x7c: 'Right',
+  0xab: '!',
+  0xac: '?',
+  0xad: '.',
+  0xae: '-',
+  0xaf: '・',
+  0xb0: '...',
+  0xb1: '“',
+  0xb2: '”',
+  0xb3: '‘',
+  0xb4: '’',
+  0xb5: '♂',
+  0xb6: '♀',
+  0xb7: '$',
+  0xb8: ',',
+  0xb9: '*',
+  0xba: '/',
+  0xff: '',
+};
+
+/**
+ * Decodes a Generation 3 string from a binary block.
+ *
+ * @param view - The DataView of the save file.
+ * @param offset - The memory offset where the string begins.
+ * @param maxLength - The maximum number of bytes to read (defaults to 7 for trainer names).
+ * @returns The decoded, human-readable UTF-8 string.
+ */
+export function decodeGen3String(view: DataView, offset: number, maxLength: number = 7): string {
+  let result = '';
+  for (let i = 0; i < maxLength; i++) {
+    let charCode: number;
+    try {
+      charCode = view.getUint8(offset + i);
+    } catch (e) {
+      if (e instanceof RangeError) break;
+      throw e;
+    }
+
+    if (charCode === 0xff) break;
+
+    if (GEN3_CHAR_MAP[charCode] !== undefined) {
+      result += GEN3_CHAR_MAP[charCode];
+    } else if (charCode >= 0xa1 && charCode <= 0xaa) {
+      result += String.fromCharCode(charCode - 0xa1 + 48); // '0' is 48
+    } else if (charCode >= 0xbb && charCode <= 0xd4) {
+      result += String.fromCharCode(charCode - 0xbb + 65); // 'A' is 65
+    } else if (charCode >= 0xd5 && charCode <= 0xee) {
+      result += String.fromCharCode(charCode - 0xd5 + 97); // 'a' is 97
+    } else {
+      result += '?';
+    }
   }
   return result.trim();
 }

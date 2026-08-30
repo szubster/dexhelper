@@ -104,13 +104,42 @@ const gen2Config: GenerationConfig = {
   boxWarningThreshold: 19,
 };
 
+// ─── Gen 3 Config ────────────────────────────────────────────────────
+
+const gen3Config: GenerationConfig = {
+  id: 3,
+  label: 'Gen III',
+  shortLabel: 'III',
+  maxDex: 386,
+  versions: [
+    { id: 'ruby', label: 'Ruby', themeClass: 'theme-ruby', dotColor: 'bg-red-600' },
+    { id: 'sapphire', label: 'Sapphire', themeClass: 'theme-sapphire', dotColor: 'bg-blue-600' },
+    { id: 'emerald', label: 'Emerald', themeClass: 'theme-emerald', dotColor: 'bg-emerald-500' },
+    { id: 'firered', label: 'FireRed', themeClass: 'theme-firered', dotColor: 'bg-orange-600' },
+    { id: 'leafgreen', label: 'LeafGreen', themeClass: 'theme-leafgreen', dotColor: 'bg-green-600' },
+  ],
+  defaultVersion: 'emerald',
+  spriteUrl: (id, isShiny) =>
+    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/${isShiny ? 'shiny/' : ''}${id}.png`,
+  fallbackSpriteUrl: (id) =>
+    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
+  pokeballs: ['poke', 'great', 'ultra', 'safari', 'heavy', 'lure', 'fast', 'friend', 'moon', 'love', 'level'],
+  rodIds: { OLD: 57, GOOD: 58, SUPER: 60 },
+  hasHiddenPower: true,
+  hasUnifiedSpecial: false,
+  hasBreeding: true,
+  boxCount: 14,
+  boxCapacity: 30,
+  boxWarningThreshold: 29,
+};
+
 // ─── Registry ────────────────────────────────────────────────────────
 
 /** All registered generation configs, keyed by generation number */
 export const GENERATION_CONFIGS: Record<number, GenerationConfig> = {
   1: gen1Config,
   2: gen2Config,
-  // Future: 3: gen3Config, 4: gen4Config, etc.
+  3: gen3Config,
 };
 
 /** Get the config for a generation */

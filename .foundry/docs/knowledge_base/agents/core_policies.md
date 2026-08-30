@@ -5,6 +5,8 @@
 
 1. **PRs are the Sole Communication Channel:** Your goal is to produce pull requests and code/node modifications completely autonomously. Always open and submit PRs immediately when work or demotion steps are ready. Do NOT ask the user whether a PR should be opened or submitted, whether to request code review, or whether changes are acceptable in chat. PRs themselves are the formal channel for review and feedback.
 2. **Prohibited Question Patterns:** Under NO circumstances should an agent post questions such as:
+   - "Before I create my final execution plan..., do you have any specific requirements or adjustments I should keep in mind?"
+   - "Do you have any specific requirements or adjustments before I proceed?"
    - "Should I proceed?" / "Should I finalize changes?"
    - "Should I open a PR?" / "Should I submit the PR?"
    - "Should I request code review now?"

@@ -2,13 +2,13 @@
 id: task-126-490-match-call-msgpack-hydration
 type: TASK
 title: Match Call IndexedDB Hydration
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-27'
+updated_at: '2026-08-30'
 depends_on:
   - task-126-489-match-call-msgpack-export
-jules_session_id: '12835637188505679869'
+jules_session_id: null
 pr_number: null
 parent: story-084-126-match-call-msgpack
 tags:
@@ -27,5 +27,5 @@ notes: ''
 Integrate the exported Match Call MsgPack data into the `PokeDB.ts` persistence layer for quick runtime hydration. Ensure the data gets properly saved in the IndexedDB stores and retrieved efficiently.
 
 ## Acceptance Criteria
-- [ ] Read the match calls dataset from the unpacked MsgPack bundle.
-- [ ] Sync the data into the IndexedDB using the defined stores.
+- [x] Read the match calls dataset from the unpacked MsgPack bundle.
+- [x] Sync the data into the IndexedDB using the defined stores.

@@ -55,7 +55,7 @@ export function isGen2Save(view: DataView, crystal: boolean): boolean {
     if (view.getUint8(speciesOffset + partyCount) !== 0xff) return false;
     for (let i = 0; i < partyCount; i++) {
       const id = view.getUint8(speciesOffset + i);
-      if (id === 0 || id > 251) return false;
+      if (id === 0 || (id > 251 && id !== 253)) return false;
     }
     return true;
   } catch (e) {
@@ -79,10 +79,19 @@ export function isGen2Save(view: DataView, crystal: boolean): boolean {
  */
 export function isGen3Save(view: DataView): boolean {
   try {
-    if (view.byteLength > 0) {
-      view.getUint8(0);
+    if (view.byteLength < 0x10000) return false;
+    // Gen 3 save files contain 14 sectors per slot (Slot 1: sectors 0-13, Slot 2: sectors 14-27)
+    // Sector size is 0x1000 (4096) bytes. Footer contains magic 0x08012025 at offset 0x0FF8
+    let validSectors = 0;
+    const numSectors = Math.min(28, Math.floor(view.byteLength / 0x1000));
+    for (let i = 0; i < numSectors; i++) {
+      const footerOffset = i * 0x1000 + 0x0ff8;
+      const signature = view.getUint32(footerOffset, true);
+      if (signature === 0x08012025) {
+        validSectors++;
+      }
     }
-    return false; // Stub implementation
+    return validSectors >= 7;
   } catch (error) {
     if (error instanceof RangeError) {
       return false;

@@ -20,44 +20,12 @@ describe('SettingsControls', () => {
         setGlobalPokeball={setGlobalPokeball}
         filteredPokeballs={[{ value: 'poke', label: 'Poke Ball' }]}
         genConfig={null}
-        nuzlockeGraveyardBox={null}
-        setNuzlockeGraveyardBox={vi.fn<(v: string | null) => void>()}
-        storageLocations={['Box 1', 'Box 2']}
       />,
     );
 
     await expect.element(page.getByRole('group', { name: 'Game Version' })).toBeInTheDocument();
     await expect.element(page.getByRole('group', { name: 'Living Dex Mode' })).toBeInTheDocument();
     await expect.element(page.getByRole('group', { name: 'Ball Style' })).toBeInTheDocument();
-  });
-
-  it('handles graveyard box change', async () => {
-    const setManualVersion = vi.fn<(v: GameVersion | null) => void>();
-    const setIsLivingDex = vi.fn<(v: boolean) => void>();
-    const setGlobalPokeball = vi.fn<(v: PokeballType) => void>();
-    const setNuzlockeGraveyardBox = vi.fn<(v: string | null) => void>();
-
-    await render(
-      <SettingsControls
-        effectiveVersion="unknown"
-        setManualVersion={setManualVersion}
-        isLivingDex={false}
-        setIsLivingDex={setIsLivingDex}
-        globalPokeball="poke"
-        setGlobalPokeball={setGlobalPokeball}
-        filteredPokeballs={[{ value: 'poke', label: 'Poke Ball' }]}
-        genConfig={null}
-        nuzlockeGraveyardBox={null}
-        setNuzlockeGraveyardBox={setNuzlockeGraveyardBox}
-        storageLocations={['Box 1', 'Box 2']}
-      />,
-    );
-
-    await page.getByText('[ BOX 1 ]').click();
-    expect(setNuzlockeGraveyardBox).toHaveBeenCalledWith('Box 1');
-
-    await page.getByText('[ NONE ]').click();
-    expect(setNuzlockeGraveyardBox).toHaveBeenCalledWith(null);
   });
 
   it('handles version change', async () => {
@@ -91,9 +59,6 @@ describe('SettingsControls', () => {
           fallbackSpriteUrl: () => '',
           versions: [{ id: 'red', label: 'Red', dotColor: 'bg-red-500', themeClass: 'theme-red' }],
         }}
-        nuzlockeGraveyardBox={null}
-        setNuzlockeGraveyardBox={vi.fn<(v: string | null) => void>()}
-        storageLocations={['Box 1', 'Box 2']}
       />,
     );
 
@@ -119,9 +84,6 @@ describe('SettingsControls', () => {
         setGlobalPokeball={setGlobalPokeball}
         filteredPokeballs={[{ value: 'poke', label: 'Poke Ball' }]}
         genConfig={null}
-        nuzlockeGraveyardBox={null}
-        setNuzlockeGraveyardBox={vi.fn<(v: string | null) => void>()}
-        storageLocations={['Box 1', 'Box 2']}
       />,
     );
 
@@ -154,9 +116,6 @@ describe('SettingsControls', () => {
           { value: 'love', label: 'Love Ball' },
         ]}
         genConfig={null}
-        nuzlockeGraveyardBox={null}
-        setNuzlockeGraveyardBox={vi.fn<(v: string | null) => void>()}
-        storageLocations={['Box 1', 'Box 2']}
       />,
     );
 
