@@ -67,10 +67,19 @@ import {
   parseGen3BattlePoints,
   parseGen3TotalBattlePoints,
 } from '../gen3/battleFrontier/parser';
+import {
+  CONDITION_BEAUTY_OFFSET,
+  CONDITION_COOL_OFFSET,
+  CONDITION_CUTE_OFFSET,
+  CONDITION_SHEEN_OFFSET,
+  CONDITION_SMART_OFFSET,
+  CONDITION_TOUGH_OFFSET,
+} from '../gen3/conditionStats/constants';
 import { parseGen3EventItems } from '../gen3/inventory/parser';
 import { parseGen3NarrativeFlags } from '../gen3/narrative/parser';
 import { parseGen3Pokeblocks } from '../gen3/pokeblock/parser';
 import { parseGen3Pokedex } from '../gen3/pokedex/parser';
+import { SUBSTRUCTURE_ORDER } from '../gen3/pokemon/constants';
 import { parseGen3TrainerDefeatFlags, parseGen3TrainerRematchFlags } from '../gen3/trainerFlags/parser';
 import { parseTrickHouse } from '../gen3/trickHouse/parser';
 import type {
@@ -146,13 +155,6 @@ const ROAMER_BEAUTY_OFFSET = 0x0f;
 const ROAMER_CUTE_OFFSET = 0x10;
 const ROAMER_SMART_OFFSET = 0x11;
 const ROAMER_TOUGH_OFFSET = 0x12;
-
-const CONDITION_COOL_OFFSET = 0x06;
-const CONDITION_BEAUTY_OFFSET = 0x07;
-const CONDITION_CUTE_OFFSET = 0x08;
-const CONDITION_SMART_OFFSET = 0x09;
-const CONDITION_TOUGH_OFFSET = 0x0a;
-const CONDITION_SHEEN_OFFSET = 0x0b;
 
 const RIBBON_RANK_MASK = 0x07;
 const RIBBON_COOL_SHIFT = 0;
@@ -357,32 +359,6 @@ export const CONTEST_WINNER_SPECIES_OFFSET = 0x08;
  * The permutation index is determined by `PV % 24`.
  * The four blocks are: Growth (G), Attacks (A), EVs/Condition (E), and Miscellaneous (M).
  */
-export const SUBSTRUCTURE_ORDER = [
-  'GAEM',
-  'GAME',
-  'GEAM',
-  'GEMA',
-  'GMAE',
-  'GMEA',
-  'AGEM',
-  'AGME',
-  'AEGM',
-  'AEMG',
-  'AMGE',
-  'AMEG',
-  'EGAM',
-  'EGMA',
-  'EAGM',
-  'EAMG',
-  'EMGA',
-  'EMAG',
-  'MGAE',
-  'MGEA',
-  'MAGE',
-  'MAEG',
-  'MEGA',
-  'MEAG',
-];
 
 export const EMERALD_MOVE_TUTOR_BYTE_1_OFFSET = 0x36;
 export const EMERALD_MOVE_TUTOR_BYTE_2_OFFSET = 0x37;

@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest';
+import { SUBSTRUCTURE_ORDER } from '../gen3/pokemon/constants';
 import {
   extractGen3PokemonData,
   GEN3_POKEMON_DATA_OFFSET,
   GEN3_POKEMON_OT_ID_OFFSET,
   GEN3_POKEMON_PV_OFFSET,
   NUM_SUBSTRUCTURE_PERMUTATIONS,
-  SUBSTRUCTURE_ORDER,
   SUBSTRUCTURE_SIZE,
 } from './gen3';
 
