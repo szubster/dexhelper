@@ -156,27 +156,18 @@ const CONDITION_CUTE_OFFSET = 0x08;
 const CONDITION_SMART_OFFSET = 0x09;
 const CONDITION_TOUGH_OFFSET = 0x0a;
 const CONDITION_SHEEN_OFFSET = 0x0b;
-export const RIBBONS_OFFSET_IN_M = 0x08;
 
-const RIBBON_RANK_MASK = 0x07;
-const RIBBON_COOL_SHIFT = 0;
-const RIBBON_BEAUTY_SHIFT = 3;
-const RIBBON_CUTE_SHIFT = 6;
-const RIBBON_SMART_SHIFT = 9;
-const RIBBON_TOUGH_SHIFT = 12;
-export const RIBBON_CHAMPION_BIT = 15;
-export const RIBBON_WINNING_BIT = 16;
-export const RIBBON_VICTORY_BIT = 17;
-export const RIBBON_ARTIST_BIT = 18;
-export const RIBBON_EFFORT_BIT = 19;
-export const RIBBON_BATTLE_CHAMPION_BIT = 20;
-export const RIBBON_REGIONAL_CHAMPION_BIT = 21;
-export const RIBBON_NATIONAL_CHAMPION_BIT = 22;
-export const RIBBON_COUNTRY_BIT = 23;
-export const RIBBON_NATIONAL_BIT = 24;
-export const RIBBON_EARTH_BIT = 25;
-export const RIBBON_WORLD_BIT = 26;
-export const OBEDIENCE_FLAG_BIT = 31;
+export * from '../gen3/ribbons/constants';
+
+import {
+  RIBBON_BEAUTY_SHIFT,
+  RIBBON_COOL_SHIFT,
+  RIBBON_CUTE_SHIFT,
+  RIBBON_RANK_MASK,
+  RIBBON_SMART_SHIFT,
+  RIBBON_TOUGH_SHIFT,
+  RIBBONS_OFFSET_IN_M,
+} from '../gen3/ribbons/constants';
 
 export const GEN3_PARTY_SIZE_OFFSET_RSE = 0x0234;
 export const GEN3_PARTY_SIZE_OFFSET_FRLG = 0x0034;

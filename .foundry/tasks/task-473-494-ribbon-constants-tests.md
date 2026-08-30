@@ -27,4 +27,4 @@ notes: ''
 Write unit tests for the Gen 3 Ribbon Constants to ensure they match expected sizes and masks.
 
 ## Acceptance Criteria
-- [ ] Add unit tests verifying the correctness of Ribbon and Obedience bitmask offsets and lengths.
+- [x] Add unit tests verifying the correctness of Ribbon and Obedience bitmask offsets and lengths.
