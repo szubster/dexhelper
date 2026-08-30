@@ -152,4 +152,44 @@ describe('MatchupContext', () => {
       expect(currentPartyDetails).toEqual(mockPartyDetails);
     });
   });
+
+  test('updates party details from Gen 3 save data', async () => {
+    const mockPartyDetailsGen3: PokemonInstance[] = [{ speciesId: 252 }] as unknown as PokemonInstance[];
+
+    let currentPartyDetails: PokemonInstance[] = [];
+
+    const TestComponent = () => {
+      const context = useMatchup();
+
+      useEffect(() => {
+        currentPartyDetails = context.partyDetails;
+      }, [context]);
+
+      return <div>Test Gen 3</div>;
+    };
+
+    const screen = render(
+      <MatchupProvider>
+        <TestComponent />
+      </MatchupProvider>,
+    );
+
+    await expect.element((await screen).getByText('Test Gen 3')).toBeVisible();
+
+    // Verify initial state
+    expect(currentPartyDetails).toEqual([]);
+
+    // Simulate store update with Gen 3 save data
+    useStore.setState({
+      saveData: {
+        generation: 3,
+        partyDetails: mockPartyDetailsGen3,
+      } as unknown as Gen1SaveData,
+    });
+
+    // Wait for the context to update
+    await vi.waitFor(() => {
+      expect(currentPartyDetails).toEqual(mockPartyDetailsGen3);
+    });
+  });
 });
