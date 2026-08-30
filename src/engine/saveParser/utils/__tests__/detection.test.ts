@@ -153,22 +153,44 @@ describe('Save File Detection', () => {
   });
 
   describe('isGen3Save', () => {
-    it('returns false for stubbed implementation', () => {
-      const buffer = new ArrayBuffer(10);
+    it('returns true for a valid Gen 3 save with at least 7 valid sector signatures', () => {
+      const buffer = new ArrayBuffer(0x20000);
+      const view = new DataView(buffer);
+      for (let i = 0; i < 7; i++) {
+        view.setUint32(i * 0x1000 + 0x0ff8, 0x08012025, true);
+      }
+      expect(isGen3Save(view)).toBe(true);
+    });
+
+    it('returns false if there are fewer than 7 valid sectors', () => {
+      const buffer = new ArrayBuffer(0x20000);
+      const view = new DataView(buffer);
+      for (let i = 0; i < 6; i++) {
+        view.setUint32(i * 0x1000 + 0x0ff8, 0x08012025, true);
+      }
+      expect(isGen3Save(view)).toBe(false);
+    });
+
+    it('returns false for buffers smaller than 0x10000 bytes', () => {
+      const buffer = new ArrayBuffer(0x8000);
       const view = new DataView(buffer);
       expect(isGen3Save(view)).toBe(false);
     });
 
     it('handles RangeError gracefully', () => {
-      const buffer = new ArrayBuffer(0); // Empty buffer causes RangeError
-      const view = new DataView(buffer);
+      const view = {
+        byteLength: 0x20000,
+        getUint32: () => {
+          throw new RangeError('Out of bounds');
+        },
+      } as unknown as DataView;
       expect(isGen3Save(view)).toBe(false);
     });
 
     it('throws non RangeError', () => {
       const view = {
-        byteLength: 1,
-        getUint8: () => {
+        byteLength: 0x20000,
+        getUint32: () => {
           throw new Error('Some error');
         },
       } as unknown as DataView;

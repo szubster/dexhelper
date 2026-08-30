@@ -1,10 +1,12 @@
 import { expect, test } from '@playwright/test';
-import { initializeWithSave } from '../test-utils';
+import { clearStorage, initializeWithSave } from '../test-utils';
 
 test.describe('RNG TID and SID Display UI', () => {
   test('should display TID and SID and copy to clipboard', async ({ page, context }) => {
     // Grant clipboard permissions for testing copy to clipboard
     await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+
+    await clearStorage(page);
 
     // Initialize with emerald save file to ensure SID is present
     await initializeWithSave(page, 'tests/fixtures/emerald.sav');
