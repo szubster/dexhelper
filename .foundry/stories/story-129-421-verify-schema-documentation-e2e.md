@@ -29,4 +29,7 @@ Verify the schema updates and ensure no documentation builds or validations are 
 
 ## Acceptance Criteria
 - [ ] Verify `.foundry/docs/schema.md` has the Orchestrator Safeguard E2E requirement documented correctly.
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-421-496-verify-schema-documentation-script-coder
+- [ ] task-421-497-verify-schema-documentation-ci-coder
+- [ ] task-421-498-verify-schema-documentation-qa
