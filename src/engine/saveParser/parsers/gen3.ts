@@ -308,44 +308,51 @@ export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
  * @throws Error if the block permutation is invalid or the data is heavily corrupted.
  */
 export function extractGen3PokemonData(view: DataView, offset: number) {
-  const pv = view.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
-  const otId = view.getUint32(offset + GEN3_POKEMON_OT_ID_OFFSET, true);
+  try {
+    const pv = view.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
+    const otId = view.getUint32(offset + GEN3_POKEMON_OT_ID_OFFSET, true);
 
-  if (pv === 0 && otId === 0) return null;
+    if (pv === 0 && otId === 0) return null;
 
-  const decryptionKey = pv ^ otId;
-  const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
-  const permutation = SUBSTRUCTURE_ORDER[permutationIndex];
-  if (!permutation) {
-    throw new Error('The save file is corrupted or incomplete.');
-  }
-
-  const buffer = new ArrayBuffer(48);
-  const decryptedData = new DataView(buffer);
-
-  for (let i = 0; i < 4; i++) {
-    const char = permutation[i];
-    const canonicalIndex = 'GAEM'.indexOf(char as string);
-    if (canonicalIndex === -1) {
+    const decryptionKey = pv ^ otId;
+    const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
+    const permutation = SUBSTRUCTURE_ORDER[permutationIndex];
+    if (!permutation) {
       throw new Error('The save file is corrupted or incomplete.');
     }
-    const encryptedOffset = offset + GEN3_POKEMON_DATA_OFFSET + i * SUBSTRUCTURE_SIZE;
-    const decryptedOffset = canonicalIndex * SUBSTRUCTURE_SIZE;
 
-    // Read 3 32-bit integers, decrypt, and write
-    for (let j = 0; j < 3; j++) {
-      const encryptedValue = view.getUint32(encryptedOffset + j * 4, true);
-      const decryptedValue = (encryptedValue ^ decryptionKey) >>> 0;
-      decryptedData.setUint32(decryptedOffset + j * 4, decryptedValue, true);
+    const buffer = new ArrayBuffer(48);
+    const decryptedData = new DataView(buffer);
+
+    for (let i = 0; i < 4; i++) {
+      const char = permutation[i];
+      const canonicalIndex = 'GAEM'.indexOf(char as string);
+      if (canonicalIndex === -1) {
+        throw new Error('The save file is corrupted or incomplete.');
+      }
+      const encryptedOffset = offset + GEN3_POKEMON_DATA_OFFSET + i * SUBSTRUCTURE_SIZE;
+      const decryptedOffset = canonicalIndex * SUBSTRUCTURE_SIZE;
+
+      // Read 3 32-bit integers, decrypt, and write
+      for (let j = 0; j < 3; j++) {
+        const encryptedValue = view.getUint32(encryptedOffset + j * 4, true);
+        const decryptedValue = (encryptedValue ^ decryptionKey) >>> 0;
+        decryptedData.setUint32(decryptedOffset + j * 4, decryptedValue, true);
+      }
     }
-  }
 
-  return {
-    pv,
-    otId,
-    decryptionKey,
-    decryptedData,
-  };
+    return {
+      pv,
+      otId,
+      decryptionKey,
+      decryptedData,
+    };
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
 }
 
 export const GEN3_CONTEST_WINNERS_SECTION_ID = 3;

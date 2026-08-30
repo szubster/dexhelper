@@ -30,6 +30,6 @@ Implement the core logic to calculate the decryption key and decrypt the 48-byte
 - Write the logic to decrypt the 48-byte Data block.
 
 ## Acceptance Criteria
-- [ ] Implement logic to calculate the decryption key.
-- [ ] Implement logic to decrypt the data block.
-- [ ] Adhere to schema constraints: Use relative offsets, avoid magic numbers, use module-level constants, and catch RangeError.
+- [x] Implement logic to calculate the decryption key.
+- [x] Implement logic to decrypt the data block.
+- [x] Adhere to schema constraints: Use relative offsets, avoid magic numbers, use module-level constants, and catch RangeError.
