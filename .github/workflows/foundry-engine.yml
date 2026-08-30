@@ -2,7 +2,12 @@ name: The Foundry Engine
 
 on:
   schedule:
-    - cron: '0 * * * *' # Hourly sync
+    - cron: '*/15 * * * *' # Every 15 minutes
+  push:
+    branches:
+      - main
+    paths:
+      - '.foundry/**'
   workflow_dispatch:
 
 concurrency:
@@ -196,6 +201,17 @@ jobs:
         run: |
           set -o pipefail
           {
+            # Check if 15 sessions have already been successfully scheduled in this run
+            git fetch origin main || true
+            scheduled_count=$(git log origin/main --grep="run: ${{ github.run_id }}" --oneline | wc -l || echo "0")
+            echo "Successfully scheduled sessions in this run so far: $scheduled_count"
+            if [[ "$scheduled_count" -ge 15 ]]; then
+              echo "::notice::Max limit of 15 scheduled sessions reached for run ${{ github.run_id }}. Skipping remaining task $NODE_ID."
+              echo "SESSION_SCHEDULED=false" >> "$GITHUB_ENV"
+              echo "SKIP_FAILURE_ISSUE=true" >> "$GITHUB_ENV"
+              exit 0
+            fi
+
             # 1. Capture task content for the prompt
             task_content=$(cat "$NODE_REPO_PATH")
             
@@ -252,18 +268,22 @@ jobs:
             
             error_status=$(echo "$response" | jq -r '.error.status // empty')
             if [[ "$error_status" == "FAILED_PRECONDITION" ]]; then
-              echo "::warning::Jules session failed due to quota/precondition (FAILED_PRECONDITION). Skipping issue creation."
+              echo "::warning::Jules session failed due to quota/precondition (FAILED_PRECONDITION). Skipping task $NODE_ID."
+              echo "SESSION_SCHEDULED=false" >> "$GITHUB_ENV"
               echo "SKIP_FAILURE_ISSUE=true" >> "$GITHUB_ENV"
-              exit 1
+              exit 0
             fi
 
             if [[ -z "$session_id" || "$session_id" == "null" ]]; then
-              echo "::error::Failed to capture Jules session ID"
+              echo "::warning::Failed to capture Jules session ID for $NODE_ID. Ignoring failure and moving to next task."
               echo "Response: $response"
-              exit 1
+              echo "SESSION_SCHEDULED=false" >> "$GITHUB_ENV"
+              echo "SKIP_FAILURE_ISSUE=true" >> "$GITHUB_ENV"
+              exit 0
             fi
             
             session_url="https://jules.google.com/session/$session_id"
+            echo "SESSION_SCHEDULED=true" >> "$GITHUB_ENV"
             echo "SESSION_ID=$session_id" >> "$GITHUB_ENV"
             echo "SESSION_URL=$session_url" >> "$GITHUB_ENV"
             echo "session_id=$session_id" >> "$GITHUB_OUTPUT"
@@ -271,9 +291,13 @@ jobs:
             echo "Successfully spawned Jules session: $session_id"
             echo "Jules Session URL: $session_url"
             echo "### 🤖 Jules Session: $session_url" >> "$GITHUB_STEP_SUMMARY"
+
+            echo "Sleeping for 3 minutes (180 seconds) after successful session dispatch..."
+            sleep 180
           } 2>&1 | tee invoke-agent.log
 
       - name: Transition node to ACTIVE
+        if: env.SESSION_SCHEDULED == 'true'
         env:
           NODE_REPO_PATH: ${{ matrix.node.repo_path }}
         run: |
@@ -282,13 +306,14 @@ jobs:
           node --strip-types .github/scripts/foundry-active.ts "$NODE_REPO_PATH" "$SESSION_ID" 2>&1 | tee active-transition.log
 
       - name: Commit State Change
+        if: env.SESSION_SCHEDULED == 'true'
         env:
           NODE_REPO_PATH: ${{ matrix.node.repo_path }}
           NODE_ID: ${{ matrix.node.id }}
         run: |
           set -o pipefail
           git add "$NODE_REPO_PATH" ACTIVE_SESSIONS.md
-          git commit -m "Foundry: Transition $NODE_ID -> ACTIVE [$SESSION_ID]" 2>&1 | tee -a commit.log
+          git commit -m "Foundry: Transition $NODE_ID -> ACTIVE [$SESSION_ID] (run: ${{ github.run_id }})" 2>&1 | tee -a commit.log
           git pull --rebase origin main 2>&1 | tee -a commit.log || {
             echo "Rebase conflict detected during ACTIVE transition. Retrying on updated origin/main..."
             git rebase --abort || true
@@ -296,7 +321,7 @@ jobs:
             git reset --hard origin/main
             node --strip-types .github/scripts/foundry-active.ts "$NODE_REPO_PATH" "$SESSION_ID"
             git add "$NODE_REPO_PATH" ACTIVE_SESSIONS.md
-            git commit -m "Foundry: Transition $NODE_ID -> ACTIVE [$SESSION_ID]"
+            git commit -m "Foundry: Transition $NODE_ID -> ACTIVE [$SESSION_ID] (run: ${{ github.run_id }})"
             git pull --rebase origin main
           }
           git push origin main 2>&1 | tee -a commit.log
