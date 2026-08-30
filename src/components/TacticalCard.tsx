@@ -1,6 +1,5 @@
 import React from 'react';
 import { cn } from '../utils/cn';
-import { CornerCrosshairs } from './CornerCrosshairs';
 
 interface TacticalCardProps {
   children: React.ReactNode;
@@ -31,35 +30,55 @@ export const TacticalCard = React.memo(
       ref,
     ) => {
       let variantClasses = '';
+      let highlightClasses = '';
 
       switch (variant) {
         case 'emerald':
-          variantClasses = 'border-emerald-500/50 bg-emerald-950/20 hover:border-emerald-400 hover:bg-emerald-900/30';
+          variantClasses =
+            'bg-emerald-950/20 shadow-[inset_0_0_15px_rgba(16,185,129,0.05),0_4px_0_rgba(0,0,0,0.8)] enabled:hover:bg-emerald-900/30';
+          highlightClasses = 'bg-emerald-500/20 shadow-[0_0_8px_rgba(16,185,129,0.5)]';
           break;
         case 'amber':
-          variantClasses = 'border-amber-500/50 bg-amber-950/20 hover:border-amber-400 hover:bg-amber-900/30';
+          variantClasses =
+            'bg-amber-950/20 shadow-[inset_0_0_15px_rgba(245,158,11,0.05),0_4px_0_rgba(0,0,0,0.8)] enabled:hover:bg-amber-900/30';
+          highlightClasses = 'bg-amber-500/20 shadow-[0_0_8px_rgba(245,158,11,0.5)]';
           break;
         case 'default':
-          variantClasses = 'border-white/20 bg-zinc-900/50 hover:border-white/40 hover:bg-zinc-800/80';
+          variantClasses =
+            'bg-zinc-900/80 shadow-[inset_0_0_15px_rgba(0,0,0,0.5),0_4px_0_rgba(0,0,0,0.8)] enabled:hover:bg-zinc-800';
+          highlightClasses = 'bg-cyan-500/20 shadow-[0_0_8px_rgba(34,211,238,0.5)]';
           break;
         case 'storage-cyan':
-          variantClasses = 'bg-cyan-900/10 border-cyan-500/50 border-dashed hover:bg-cyan-900/20';
+          variantClasses =
+            'bg-cyan-900/20 shadow-[inset_0_0_10px_rgba(34,211,238,0.05),0_3px_0_rgba(0,0,0,0.8)] enabled:hover:bg-cyan-900/30';
+          highlightClasses = 'bg-cyan-500/30 shadow-[0_0_5px_rgba(34,211,238,0.4)]';
           break;
         case 'storage-amber':
-          variantClasses = 'bg-amber-900/10 border-amber-500/30 hover:bg-amber-900/20';
+          variantClasses =
+            'bg-amber-900/20 shadow-[inset_0_0_10px_rgba(245,158,11,0.05),0_3px_0_rgba(0,0,0,0.8)] enabled:hover:bg-amber-900/30';
+          highlightClasses = 'bg-amber-500/30 shadow-[0_0_5px_rgba(245,158,11,0.4)]';
           break;
         case 'storage-red':
-          variantClasses = 'bg-red-900/10 border-red-900/30 hover:bg-red-900/20';
+          variantClasses =
+            'bg-red-900/20 shadow-[inset_0_0_10px_rgba(239,68,68,0.05),0_3px_0_rgba(0,0,0,0.8)] enabled:hover:bg-red-900/30';
+          highlightClasses = 'bg-red-500/30 shadow-[0_0_5px_rgba(239,68,68,0.4)]';
           break;
         case 'storage-emerald':
-          variantClasses = 'bg-emerald-900/10 border-emerald-900/30 hover:bg-emerald-900/20';
+          variantClasses =
+            'bg-emerald-900/20 shadow-[inset_0_0_10px_rgba(16,185,129,0.05),0_3px_0_rgba(0,0,0,0.8)] enabled:hover:bg-emerald-900/30';
+          highlightClasses = 'bg-emerald-500/30 shadow-[0_0_5px_rgba(16,185,129,0.4)]';
           break;
         case 'storage-default':
-          variantClasses = 'bg-zinc-900 border-zinc-800 hover:border-zinc-700 shadow-sm';
+          variantClasses =
+            'bg-zinc-900/80 shadow-[inset_0_0_10px_rgba(0,0,0,0.2),0_3px_0_rgba(0,0,0,0.8)] enabled:hover:bg-zinc-800';
+          highlightClasses = 'bg-white/10';
           break;
       }
 
       const isStorageVariant = variant.startsWith('storage-');
+      const depressionDistance = isStorageVariant
+        ? 'enabled:active:translate-y-[3px] enabled:active:shadow-[inset_0_0_10px_rgba(0,0,0,0.2),0_0px_0_rgba(0,0,0,0.8)]'
+        : 'enabled:active:translate-y-[4px] enabled:active:shadow-[inset_0_0_15px_rgba(0,0,0,0.5),0_0px_0_rgba(0,0,0,0.8)]';
 
       return (
         <button
@@ -73,19 +92,29 @@ export const TacticalCard = React.memo(
           disabled={disabled}
           className={cn(
             'group focus-visible:tactical-focus relative w-full cursor-pointer text-left disabled:cursor-not-allowed disabled:opacity-50',
-            isStorageVariant
-              ? 'tactical-card items-center p-5 duration-200 enabled:active:scale-95 enabled:hover:-translate-y-1 enabled:hover:scale-100'
-              : 'tactical-card',
+            'border-2 border-t-white/10 border-r-black/80 border-b-black/80 border-l-white/10',
+            'transition-all duration-100 ease-in-out',
+            depressionDistance,
+            isStorageVariant ? 'tactical-card items-center p-3' : 'tactical-card',
             variantClasses,
             className,
           )}
           style={style}
         >
-          {/* Corner Crosshairs */}
-          <CornerCrosshairs
-            thickness={2}
-            className="h-2 w-2 border-white/40 transition-colors group-hover:border-[var(--theme-primary)] group-focus-visible:border-[var(--theme-primary)]"
+          {/* Mechanical Hardware Screws */}
+          <div className="absolute top-1 left-1 h-1.5 w-1.5 rounded-full bg-black/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" />
+          <div className="absolute top-1 right-1 h-1.5 w-1.5 rounded-full bg-black/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" />
+          <div className="absolute bottom-1 left-1 h-1.5 w-1.5 rounded-full bg-black/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" />
+          <div className="absolute right-1 bottom-1 h-1.5 w-1.5 rounded-full bg-black/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" />
+
+          {/* Activity Status Indicator */}
+          <div
+            className={cn(
+              'absolute top-1.5 left-1/2 h-0.5 w-8 -translate-x-1/2 opacity-0 transition-opacity duration-200 group-hover:opacity-100',
+              highlightClasses,
+            )}
           />
+
           {children}
         </button>
       );

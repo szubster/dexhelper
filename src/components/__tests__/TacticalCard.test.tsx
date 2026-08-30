@@ -47,7 +47,7 @@ describe('TacticalCard', () => {
       </TacticalCard>,
     );
     const card = page.getByTestId('emerald-card');
-    await expect.element(card).toHaveClass('border-emerald-500/50');
+    await expect.element(card).toHaveClass('bg-emerald-950/20');
   });
 
   it('renders storage-cyan variant classes and checks scale/translate classes', async () => {
@@ -57,8 +57,6 @@ describe('TacticalCard', () => {
       </TacticalCard>,
     );
     const card = page.getByTestId('storage-cyan-card');
-    await expect.element(card).toHaveClass('bg-cyan-900/10');
-    // For storage variants, tactical-card adds specific interaction classes
-    await expect.element(card).toHaveClass('enabled:hover:scale-100');
+    await expect.element(card).toHaveClass('bg-cyan-900/20');
   });
 });
