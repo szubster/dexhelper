@@ -34,5 +34,5 @@ Implement Playwright E2E tests for the Gen 3 Move Tutor UI representation.
 3. Test graceful UI handling when extraction fails (e.g., displaying an error message or empty state instead of crashing).
 
 ## Acceptance Criteria
-- [ ] Playwright E2E tests verify the Move Tutor UI rendering.
-- [ ] Playwright tests verify UI graceful failure handling when parsing fails.
+- [x] Playwright E2E tests verify the Move Tutor UI rendering.
+- [x] Playwright tests verify UI graceful failure handling when parsing fails.
