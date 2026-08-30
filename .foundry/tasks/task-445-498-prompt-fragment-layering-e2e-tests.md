@@ -30,6 +30,6 @@ Write comprehensive Playwright E2E tests for the prompt fragment layering system
 - Ensure the E2E flow validates the entire prompt fragment lifecycle.
 
 ## Acceptance Criteria
-- [ ] Implement E2E integration tests for the prompt fragment layering system.
-- [ ] Verify that precedence and baseline fragments combine correctly in tests.
-- [ ] Verify error handling and resolution mechanics are tested.
+- [x] Implement E2E integration tests for the prompt fragment layering system.
+- [x] Verify that precedence and baseline fragments combine correctly in tests.
+- [x] Verify error handling and resolution mechanics are tested.
