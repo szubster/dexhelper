@@ -26,6 +26,8 @@ notes: ''
 To support parsing the Gen 3 Pokéblock Case, we need to define the exact memory offsets, constant lengths, and TypeScript interfaces that represent the parsed data.
 
 ## Acceptance Criteria
-- [ ] Define memory offsets for Pokéblock case.
-- [ ] Define the TypeScript interface for a parsed Pokéblock.
-- [ ] Break down into Tasks.
+- [x] Define memory offsets for Pokéblock case.
+- [x] Define the TypeScript interface for a parsed Pokéblock.
+- [x] Break down into Tasks.
+- [ ] task-477-498-gen3-pokeblock-constants
+- [ ] task-477-499-gen3-pokeblock-constants-qa
