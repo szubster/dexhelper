@@ -27,5 +27,6 @@ notes: ''
 Verify the complete end-to-end extraction and integration of the Gen 3 Trainer Card upgrade data parsing logic.
 
 ## Acceptance Criteria
-- [ ] Write integration/E2E tests to verify Trainer Card upgrade data is properly extracted and exposed.
+- [x] Write integration/E2E tests to verify Trainer Card upgrade data is properly extracted and exposed.
 - [ ] task-359-440-gen3-trainer-card-parsing-e2e-impl
+- [ ] task-359-441-gen3-trainer-card-parsing-e2e-qa
