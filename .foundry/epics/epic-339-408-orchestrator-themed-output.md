@@ -30,5 +30,7 @@ Update the Foundry Orchestrator script to output themed messages and emoji badge
 - Inject Pokemon Gen 1 themed emoji badges into GitHub Action summaries based on status and persona.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Generate STORY node(s) for modifying the orchestrator script to include themed outputs.
-- [ ] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Story Owner: Generate STORY node(s) for modifying the orchestrator script to include themed outputs.
+- [x] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-408-490-orchestrator-themed-output-impl
+- [ ] story-408-491-orchestrator-themed-output-e2e
