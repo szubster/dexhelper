@@ -2,7 +2,7 @@ name: The Foundry Engine
 
 on:
   schedule:
-    - cron: '*/15 * * * *' # Every 15 minutes
+    - cron: '0 * * * *' # Hourly sync
   push:
     branches:
       - main
@@ -199,6 +199,7 @@ jobs:
           GITHUB_REPO: ${{ github.repository }}
           NODE_ID: ${{ matrix.node.id }}
         run: |
+          # shellcheck disable=SC2129
           set -o pipefail
           {
             # Check if 15 sessions have already been successfully scheduled in this run
