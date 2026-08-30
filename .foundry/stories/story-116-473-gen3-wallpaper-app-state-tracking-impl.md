@@ -29,4 +29,8 @@ Implement a persistence mechanism within the global Zustand store to track which
 *   Add unit tests in `src/store.test.ts` to verify the state management logic and ensure the toggle function correctly updates the specific trainer's data.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into tasks.
+- [x] Tech Lead: Break down into tasks.
+- [ ] task-473-498-define-wallpaper-state-slice-impl
+- [ ] task-473-499-configure-wallpaper-state-persistence-impl
+- [ ] task-473-500-wallpaper-state-unit-tests-impl
+- [ ] task-473-501-wallpaper-state-tracking-qa
