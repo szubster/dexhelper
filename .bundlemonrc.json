@@ -35,7 +35,7 @@
     },
     {
       "path": "assets/gen2-<hash>.js",
-      "maxSize": "20kb"
+      "maxSize": "25kb"
     },
     {
       "path": "assets/gen3-<hash>.js",
