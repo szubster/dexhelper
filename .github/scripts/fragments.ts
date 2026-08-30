@@ -1,4 +1,4 @@
-import { PromptFragment } from './schema.ts';
+import type { PromptFragment } from './schema.ts';
 
 export function composePromptFragments(fragments: PromptFragment[]): string {
   // Sort fragments by precedence descending, default to 0
