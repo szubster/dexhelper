@@ -28,6 +28,7 @@ import {
   parseGen3BattlePoints,
   parseGen3TotalBattlePoints,
 } from '../gen3/battleFrontier/parser';
+import { parseGen3Daycare } from '../gen3/daycare/parser';
 import { parseGen3EventItems } from '../gen3/inventory/parser';
 import { parseGen3NarrativeFlags } from '../gen3/narrative/parser';
 import { parseGen3Pokeblocks } from '../gen3/pokeblock/parser';
@@ -1563,6 +1564,12 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     const gen3ActiveSwarm = parseGen3ActiveSwarm(view, section1Offset + TV_SHOWS_OFFSET);
     const gen3VolcanicAsh = parseGen3VolcanicAsh(view, section1Offset, _forcedVersion || 'ruby');
     const gen3EventItems = parseGen3EventItems(view, section1Offset, _forcedVersion || 'ruby');
+    let gen3Daycare: import('./common').Gen3DaycareData | undefined;
+    try {
+      gen3Daycare = parseGen3Daycare(view, section1Offset, _forcedVersion || 'ruby');
+    } catch {
+      // ignore error
+    }
 
     const narrative = parseGen3NarrativeFlags(view, section1Offset, _forcedVersion || 'ruby');
 
@@ -1839,6 +1846,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       gen3UpcomingBoss: narrative.upcomingBoss,
       gen3TrainerCard,
     };
+    if (gen3Daycare) {
+      result.gen3Daycare = gen3Daycare;
+    }
     if (gen3FeebasSeed !== undefined) {
       result.gen3FeebasSeed = gen3FeebasSeed;
     }
