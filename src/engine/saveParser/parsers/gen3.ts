@@ -57,6 +57,7 @@ import {
  * is determined by `PV % 24`.
  */
 
+import { type Gen3FameCheckerData, parseGen3FameChecker } from '../../gen3/fameChecker/parser';
 import { extractFeebasSeed } from '../../gen3/feebas';
 import { parseGen3MatchCall } from '../../gen3/matchCall/parser';
 import { parseSecretBaseRecord } from '../../gen3/secretBase/parser';
@@ -1607,6 +1608,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     let gen3BattlePoints: number | undefined;
     let gen3MoveTutors: Gen3MoveTutors | undefined;
     let gen3NPCTrades: Record<string, boolean> | undefined;
+    let gen3FameChecker: Gen3FameCheckerData[] | undefined;
 
     if (_forcedVersion === 'emerald') {
       try {
@@ -1633,6 +1635,11 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       }
       try {
         gen3NPCTrades = parseGen3FRLGNPCTrades(view, section1Offset);
+      } catch {
+        // Ignored
+      }
+      try {
+        gen3FameChecker = parseGen3FameChecker(view, section1Offset);
       } catch {
         // Ignored
       }
@@ -1861,6 +1868,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     }
     if (gen3TrainerRematchFlags !== undefined) {
       result.gen3TrainerRematchFlags = gen3TrainerRematchFlags;
+    }
+    if (gen3FameChecker !== undefined) {
+      result.gen3FameChecker = gen3FameChecker;
     }
 
     if (allSpindas.length > 0) {
