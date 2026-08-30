@@ -2,13 +2,13 @@
 id: task-473-494-ribbon-constants-tests
 type: TASK
 title: Define Gen 3 Ribbon Constants Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-08-30'
 depends_on:
   - task-473-493-define-ribbon-constants
-jules_session_id: null
+jules_session_id: '2163118226237999362'
 pr_number: null
 parent: story-133-473-gen3-ribbon-constants
 tags:
