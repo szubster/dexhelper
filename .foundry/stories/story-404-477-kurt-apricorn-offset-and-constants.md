@@ -2,7 +2,7 @@
 id: story-404-477-kurt-apricorn-offset-and-constants
 type: STORY
 title: Kurt Apricorn Offset and Constants
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-08-26'
 updated_at: '2026-08-30'
@@ -13,8 +13,8 @@ parent: epic-338-404-kurt-apricorn-data-engine
 tags:
   - gen2
   - items
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Suspended pending research to determine the exact memory offsets for Kurt Apricorn crafting state.'
 notes: ''
 ---
 # Kurt Apricorn Offset and Constants
@@ -29,3 +29,4 @@ As part of epic-338-404-kurt-apricorn-data-engine, we need to determine and defi
 
 ## Acceptance Criteria
 - [ ] tech_lead: Break this STORY down into actionable TASK nodes.
+- [ ] research-404-495-kurt-apricorn-offsets
