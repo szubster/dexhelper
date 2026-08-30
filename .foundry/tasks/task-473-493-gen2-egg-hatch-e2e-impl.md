@@ -25,5 +25,5 @@ notes: ''
 Implement Playwright E2E tests to verify the Gen 2 egg hatch tracker data extraction engine.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for Gen 2 egg hatch data parsing.
-- [ ] Verify test correctness via Playwright.
+- [x] Implement E2E tests for Gen 2 egg hatch data parsing.
+- [x] Verify test correctness via Playwright.

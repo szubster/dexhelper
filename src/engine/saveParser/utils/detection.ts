@@ -55,7 +55,7 @@ export function isGen2Save(view: DataView, crystal: boolean): boolean {
     if (view.getUint8(speciesOffset + partyCount) !== 0xff) return false;
     for (let i = 0; i < partyCount; i++) {
       const id = view.getUint8(speciesOffset + i);
-      if (id === 0 || id > 251) return false;
+      if (id === 0 || (id > 251 && id !== 253)) return false;
     }
     return true;
   } catch (e) {
