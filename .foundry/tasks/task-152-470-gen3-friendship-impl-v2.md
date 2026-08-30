@@ -2,10 +2,10 @@
 id: task-152-470-gen3-friendship-impl-v2
 type: TASK
 title: Implement Gen 3 Friendship Data Extraction (v2)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-23'
-updated_at: '2026-08-25'
+updated_at: '2026-08-24'
 depends_on:
   - research-152-469-investigate-gen3-friendship-failure
 jules_session_id: '1590934103816804168'
@@ -16,8 +16,8 @@ tags:
   - save-parsing
   - friendship
 research_references: []
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 2
+rejection_reason: 'I am unable to correctly craft the 48-byte XOR encrypted mock buffer for unit testing, causing expected values to mismatch. Appended a research node for mock generation.'
 notes: ''
 ---
 
@@ -48,3 +48,5 @@ This is the second attempt after the initial task (task-152-258) was cancelled. 
 - [ ] Implement logic to extract the Friendship byte from the Data block using the `DataView` API.
 - [ ] Integrate or prepare the logic for Party and PC Box parsing.
 - [ ] Write unit tests verifying Friendship extraction works for various `PV % 24` permutations.
+
+- [ ] research-470-471-gen3-mock-encryption-generator
