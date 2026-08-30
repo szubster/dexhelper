@@ -2,12 +2,12 @@
 id: task-473-498-gen3-wallpaper-phrase-generator-impl
 type: TASK
 title: Implement Gen 3 Wallpaper Phrase Generator
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-27'
 updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6364905679912756238'
 parent: story-335-473-gen3-wallpaper-phrase-generator
 tags:
   - gen3
