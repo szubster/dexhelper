@@ -79,10 +79,17 @@ export function isGen2Save(view: DataView, crystal: boolean): boolean {
  */
 export function isGen3Save(view: DataView): boolean {
   try {
-    if (view.byteLength > 0) {
-      view.getUint8(0);
+    if (view.byteLength < 0x8000) return false;
+    const SIGNATURE = 0x08012025;
+    const SIGNATURE_OFFSET = 0x0ff8;
+    const SECTION_SIZE = 4096;
+    for (let i = 0; i < 14; i++) {
+      const offset = i * SECTION_SIZE + SIGNATURE_OFFSET;
+      if (offset + 4 <= view.byteLength && view.getUint32(offset, true) === SIGNATURE) {
+        return true;
+      }
     }
-    return false; // Stub implementation
+    return false;
   } catch (error) {
     if (error instanceof RangeError) {
       return false;

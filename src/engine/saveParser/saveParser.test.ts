@@ -163,6 +163,20 @@ describe('saveParser - Pokémon Gen 2 Inventory', () => {
   });
 });
 
+describe('saveParser - Pokémon Gen 3 Validation', () => {
+  const emeraldSavPath = join(__dirname, '../../../tests/fixtures/emerald.sav');
+  const getBuffer = () => {
+    const buffer = readFileSync(emeraldSavPath);
+    return buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
+  };
+
+  it('should correctly detect and parse emerald.sav', async () => {
+    const data = await parseSaveFile(getBuffer());
+    expect(data.generation).toBe(3);
+    expect('secretId' in data && data.secretId).toBeDefined();
+  });
+});
+
 describe('decodeGen12String', () => {
   it('should decode a simple string correctly', () => {
     const u8 = new Uint8Array([0x80, 0x92, 0x87, 0x50]); // "ASH@"
