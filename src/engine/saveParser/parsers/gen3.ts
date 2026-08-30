@@ -89,6 +89,7 @@ import type {
   Gen3TVShow,
   PokemonInstance,
 } from './common';
+import { decodeGen3String } from './common';
 
 const SIGNATURE = 0x08012025;
 const SIGNATURE_OFFSET = 0x0ff8;
@@ -1815,7 +1816,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       pcDetails,
       gameVersion: _forcedVersion || 'ruby',
       badges: narrative.badges,
-      trainerName: '',
+      trainerName: decodeGen3String(view, section2Offset + 0x00, 7),
       trainerId,
       secretId,
       currentMapId: 0,
