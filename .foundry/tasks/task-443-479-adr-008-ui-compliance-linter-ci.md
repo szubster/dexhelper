@@ -2,7 +2,7 @@
 id: task-443-479-adr-008-ui-compliance-linter-ci
 type: TASK
 title: Integrate ADR 008 Linter into CI
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-24'
 updated_at: '2026-08-26'
@@ -18,8 +18,8 @@ tags:
   - adr
   - ci
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: 'The lint:adr script is not present in package.json and the ci.yml workflow is not updated.'
 notes: ''
 ---
 
@@ -39,3 +39,6 @@ Integrate the `scripts/verify-adr-compliance.ts` script into the project's tooli
 - [x] Add the execution step to `.github/workflows/ci.yml` in the `lint` job.
 - [x] research-479-471-investigate-adr-008-exceptions
 - [x] adr-479-032-adr-008-exceptions
+
+### Auditor Rejection
+The lint:adr script is missing from package.json and not integrated into the lint command or CI workflow.
