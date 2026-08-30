@@ -1,16 +1,15 @@
 ---
 id: task-470-487-catalog-integrate-saves
 type: TASK
-title: "Catalog and Integrate Public Saves"
-status: PENDING
+title: Catalog and Integrate Public Saves
+status: READY
 owner_persona: coder
-created_at: "2026-08-24"
-updated_at: "2026-08-24"
+created_at: '2026-08-24'
+updated_at: '2026-08-30'
 depends_on:
   - task-470-485-source-gen1-gen2-saves
   - task-470-486-source-gen3-saves
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-428-470-identify-public-saves
 tags:
@@ -18,8 +17,9 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 # Catalog and Integrate Public Saves
 

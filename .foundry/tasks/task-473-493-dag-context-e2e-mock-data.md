@@ -2,7 +2,7 @@
 id: task-473-493-dag-context-e2e-mock-data
 type: TASK
 title: DagContext E2E Mock Data Generation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-08-30'
@@ -13,8 +13,8 @@ parent: story-078-473-dag-context-e2e-verification
 tags:
   - e2e
   - testing
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

@@ -2,12 +2,12 @@
 id: task-470-485-source-gen1-gen2-saves
 type: TASK
 title: Source Public Gen 1 and Gen 2 Saves
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-24'
 updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '11916206982554282976'
+jules_session_id: null
 pr_number: null
 parent: story-428-470-identify-public-saves
 tags:

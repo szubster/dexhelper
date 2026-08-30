@@ -2,7 +2,7 @@
 id: story-133-423-gen3-lottery-ui-integration
 type: STORY
 title: Gen3 Lottery UI Integration
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-14'
 updated_at: '2026-08-30'

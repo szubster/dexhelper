@@ -2,10 +2,10 @@
 id: epic-340-412-r2-conflict-resolution-ui-prompt
 type: EPIC
 title: Cloudflare R2 Conflict Resolution UI Prompt
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2025-01-08'
-updated_at: '2026-08-20'
+updated_at: '2026-08-30'
 depends_on:
   - epic-340-411-r2-conflict-resolution-core
 jules_session_id: null
@@ -31,5 +31,5 @@ Implement the UI prompt allowing users to choose which save file to keep.
 ## Acceptance Criteria
 - [x] Story Owner: Generate STORY node(s) for the conflict resolution UI prompt components.
 - [x] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
-- [ ] story-412-431-r2-conflict-resolution-prompt-components
-- [ ] story-412-432-r2-conflict-resolution-prompt-e2e
+- [x] story-412-431-r2-conflict-resolution-prompt-components
+- [x] story-412-432-r2-conflict-resolution-prompt-e2e

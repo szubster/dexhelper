@@ -2,12 +2,12 @@
 id: task-489-495-gen3-safari-zone-e2e-impl
 type: TASK
 title: Gen 3 Safari Zone E2E Tests Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-29'
+updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '11372110717163541850'
+jules_session_id: null
 pr_number: null
 parent: story-324-489-e2e-verification
 tags:

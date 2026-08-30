@@ -2,10 +2,10 @@
 id: story-412-478-node-cloning-logic
 type: STORY
 title: Dynamic Node Cloning and Prompt Adaptation
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-08-30'
 depends_on:
   - story-412-477-detect-experiment-metadata
 jules_session_id: null

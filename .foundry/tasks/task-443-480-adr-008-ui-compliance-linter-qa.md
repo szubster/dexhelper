@@ -2,7 +2,7 @@
 id: task-443-480-adr-008-ui-compliance-linter-qa
 type: TASK
 title: QA Verify ADR 008 Linter
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-08-24'
 updated_at: '2026-08-30'
@@ -18,8 +18,8 @@ tags:
   - adr
   - qa
 research_references: []
-rejection_count: 0
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

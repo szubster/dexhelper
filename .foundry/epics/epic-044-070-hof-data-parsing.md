@@ -2,10 +2,10 @@
 id: epic-044-070-hof-data-parsing
 type: EPIC
 title: Parse Gen 1 and Gen 2 Hall of Fame Data
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-08-23'
+updated_at: '2026-08-30'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -25,10 +25,10 @@ notes: ''
 This epic covers the implementation details for extracting Hall of Fame data from Generation 1 and Generation 2 save files. This includes properly reading the offset in Gen 2 (0xA8 from Johto badges).
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
 
 - [x] story-070-111-parse-gen1-hof-data
 - [x] story-070-112-parse-gen2-hof-data
 - [x] story-070-149-parse-gen1-hof-records
 - [x] story-070-150-parse-gen2-hof-records
-- [ ] story-070-443-hof-data-parsing-e2e
+- [x] story-070-443-hof-data-parsing-e2e

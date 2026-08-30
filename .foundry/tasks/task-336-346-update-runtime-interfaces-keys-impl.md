@@ -2,7 +2,7 @@
 id: task-336-346-update-runtime-interfaces-keys-impl
 type: TASK
 title: Update Runtime Interfaces to Verbose Keys Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-07-26'
 updated_at: '2026-08-30'
@@ -14,8 +14,8 @@ tags:
   - feature
   - architecture
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
