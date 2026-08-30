@@ -2,10 +2,10 @@
 id: task-414-424-bike-badge-ui-qa
 type: TASK
 title: QA Bike Requirement Badges
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-13'
-updated_at: '2026-08-13'
+updated_at: '2026-08-30'
 depends_on:
   - task-414-423-map-ui-bike-integration-impl
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-414-423-map-ui-bike-integration-impl
 notes: ''
 ---
 

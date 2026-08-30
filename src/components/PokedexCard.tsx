@@ -110,11 +110,11 @@ export const PokedexCard = React.memo(function PokedexCard({
         <div className="absolute right-1 bottom-1 h-2 w-2 border-cyan-400/0 border-r border-b transition-colors duration-300 group-hover/card:border-cyan-400/80 group-focus-visible/card:border-cyan-400/80" />
       </div>
 
-      <div className="relative z-10 flex h-full w-full flex-row">
-        {/* Sprite Container - Left Side */}
+      <div className="relative z-10 flex h-full w-full flex-col">
+        {/* Sprite Container - Top Side */}
         <div
           className={cn(
-            'relative flex aspect-square h-24 w-24 shrink-0 items-center justify-center overflow-hidden border-r border-dashed bg-black/40 transition-colors group-hover/card:bg-black/60',
+            'relative flex aspect-square w-full shrink-0 items-center justify-center overflow-hidden border-b border-dashed bg-black/40 transition-all duration-500 group-hover/card:bg-black/60',
             variant === 'emerald'
               ? 'border-emerald-900'
               : variant === 'amber'
@@ -124,6 +124,10 @@ export const PokedexCard = React.memo(function PokedexCard({
         >
           {/* Enhanced LCD Grid Background */}
           <LcdGrid className="opacity-[0.05] transition-opacity group-hover/card:opacity-[0.1]" />
+          <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent to-black/80" />
+          <div className="pointer-events-none absolute right-0 -bottom-4 left-0 select-none text-center font-black font-sans text-[150px] text-white/10 italic leading-none tracking-tighter mix-blend-overlay">
+            {pokemon.id.toString().padStart(3, '0')}
+          </div>
 
           {/* Glitch Overlay on Hover */}
           <div className="pointer-events-none absolute inset-0 z-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(34,211,238,0.05)_2px,rgba(34,211,238,0.05)_4px)] opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
@@ -151,7 +155,7 @@ export const PokedexCard = React.memo(function PokedexCard({
             isShiny={isShiny}
             alt={pokemon.name}
             className={cn(
-              'z-10 h-[80%] w-[80%] object-contain transition-all duration-500',
+              'z-10 h-[60%] w-[60%] object-contain transition-all duration-500',
               isUnseen
                 ? 'opacity-10 brightness-0'
                 : isSeenNotOwned
@@ -164,7 +168,7 @@ export const PokedexCard = React.memo(function PokedexCard({
           <ScanlineOverlay opacityClass="opacity-20 group-hover/card:opacity-40" />
         </div>
 
-        {/* Data Container - Right Side */}
+        {/* Data Container - Bottom Side */}
         <div className="relative flex flex-1 flex-col justify-between overflow-hidden">
           {/* Data stream overlay on right side on hover */}
           <div className="pointer-events-none absolute inset-0 z-0 flex flex-col justify-end p-2 opacity-0 transition-opacity duration-300 group-hover/card:opacity-5">
@@ -202,7 +206,7 @@ export const PokedexCard = React.memo(function PokedexCard({
             <div className="flex items-baseline gap-2">
               <h3
                 className={cn(
-                  'truncate font-bold font-mono text-sm uppercase tracking-tight',
+                  'truncate font-bold font-mono text-lg uppercase tracking-tight',
                   isUnseen ? 'text-zinc-700' : isShiny ? 'text-amber-400' : 'text-white',
                 )}
               >

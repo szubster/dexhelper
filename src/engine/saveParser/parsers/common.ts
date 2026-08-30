@@ -1,4 +1,5 @@
 import type { Gen3StaticEncounters } from '../../gen3/staticEncounters';
+import type { PokegearPhoneData } from './gen2/phone/parser';
 
 /**
  * @module common
@@ -333,6 +334,8 @@ export interface Gen2SaveData extends BaseSaveData {
   gen2NarrativeFlags?: Record<string, boolean>;
   /** Gen 2 specific: The Map Group ID used alongside currentMapId to uniquely identify a location. */
   mapGroup?: number;
+  /** Gen 2 specific: Pokegear Phone data including contacts and special caller flags. */
+  gen2PokegearPhone?: PokegearPhoneData;
   /** Gen 2 specific: The number of Johto gym badges obtained. */
   johtoBadges?: number;
   /** Gen 2 specific: The number of Kanto gym badges obtained. */
@@ -385,6 +388,7 @@ export interface Gen3SaveData extends BaseSaveData {
   gen3Pokeblocks?: import('../gen3/pokeblock/types').Gen3Pokeblock[];
   gen3TrickHouse?: import('./../gen3/trickHouse/parser').Gen3TrickHouse;
   gen3MatchCall?: import('../../gen3/matchCall/parser').Gen3MatchCall;
+  gen3FameChecker?: import('../../gen3/fameChecker/parser').Gen3FameCheckerData[];
   /** In-game NPC trade status flags mapped by their flag name for Gen 3 games. */
   gen3NPCTrades?: Record<string, boolean>;
   /** Gen 3 specific: Calculated valid Feebas tile locations. */

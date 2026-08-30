@@ -2,13 +2,13 @@
 id: story-417-445-prompt-fragment-layering-e2e
 type: STORY
 title: E2E Verification of Prompt Fragment Layering
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-08-27'
+updated_at: '2026-08-30'
 depends_on:
   - story-417-444-prompt-fragment-composition-engine
-jules_session_id: '648172305240892011'
+jules_session_id: null
 pr_number: null
 parent: epic-343-417-prompt-fragment-layering
 tags:
@@ -36,4 +36,6 @@ This story is dedicated to the Integration and E2E verification of the prompt fr
 ## Acceptance Criteria
 - [ ] Implement E2E integration tests for the prompt fragment layering system.
 - [ ] Verify that precedence and baseline fragments combine correctly.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-445-498-prompt-fragment-layering-e2e-tests
+- [ ] task-445-499-prompt-fragment-layering-e2e-qa

@@ -2,12 +2,12 @@
 id: story-404-477-kurt-apricorn-offset-and-constants
 type: STORY
 title: Kurt Apricorn Offset and Constants
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-29'
+updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '8382786666497741185'
+jules_session_id: '8702146344913207409'
 pr_number: null
 parent: epic-338-404-kurt-apricorn-data-engine
 tags:

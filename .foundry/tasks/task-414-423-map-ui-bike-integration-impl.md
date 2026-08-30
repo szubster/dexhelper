@@ -2,21 +2,21 @@
 id: task-414-423-map-ui-bike-integration-impl
 type: TASK
 title: Integrate Bike Badges into Map UI
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-13'
-updated_at: '2026-08-23'
+updated_at: '2026-08-30'
 depends_on:
   - task-414-422-bike-badge-component-impl
-jules_session_id: '2942548666399307643'
+jules_session_id: null
 pr_number: null
 parent: story-406-414-bike-requirement-ui-badges
 tags:
   - ui
   - map
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

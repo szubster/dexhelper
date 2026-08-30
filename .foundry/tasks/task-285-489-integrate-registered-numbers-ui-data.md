@@ -2,12 +2,12 @@
 id: task-285-489-integrate-registered-numbers-ui-data
 type: TASK
 title: Integrate PokegearPhoneData into Gen2SaveData Schema
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-07'
-updated_at: '2026-08-27'
+updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '297217558567621074'
+jules_session_id: null
 pr_number: null
 parent: story-116-285-integrate-registered-numbers-ui
 tags:
@@ -25,7 +25,7 @@ notes: ''
 Update the `SaveData` schema to include the parsed Pokegear Phone data and wire up the parser in the extraction process for Gen 2 saves.
 
 ## Acceptance Criteria
-- [ ] Import `PokegearPhoneData` from `./gen2/phone/parser` in `src/engine/saveParser/parsers/common.ts`.
-- [ ] Add `gen2PokegearPhone?: PokegearPhoneData;` to the `Gen2SaveData` interface in `src/engine/saveParser/parsers/common.ts`.
-- [ ] Import `parseGen2PokegearData` from `./gen2/phone/parser` in `src/engine/saveParser/parsers/gen2.ts`.
-- [ ] Call `parseGen2PokegearData(view, isCrystal)` and include its return value as `gen2PokegearPhone` in the object returned by `parseGen2` in `src/engine/saveParser/parsers/gen2.ts`.
+- [x] Import `PokegearPhoneData` from `./gen2/phone/parser` in `src/engine/saveParser/parsers/common.ts`.
+- [x] Add `gen2PokegearPhone?: PokegearPhoneData;` to the `Gen2SaveData` interface in `src/engine/saveParser/parsers/common.ts`.
+- [x] Import `parseGen2PokegearData` from `./gen2/phone/parser` in `src/engine/saveParser/parsers/gen2.ts`.
+- [x] Call `parseGen2PokegearData(view, isCrystal)` and include its return value as `gen2PokegearPhone` in the object returned by `parseGen2` in `src/engine/saveParser/parsers/gen2.ts`.
