@@ -32,7 +32,7 @@ locks: []
 Validate the Playwright E2E tests for Gen 1 and Gen 2 Hall of Fame data extraction.
 
 ## Acceptance Criteria
-- [ ] Review the implementation of `task-443-489-gen1-hof-e2e-impl`.
-- [ ] Review the implementation of `task-443-490-gen2-hof-e2e-impl`.
-- [ ] Ensure the tests use `initializeWithSave(page)` and `await waitForSync(page)`.
-- [ ] Execute `xvfb-run -a pnpm test:e2e` in a headless environment and ensure all tests pass without errors.
+- [x] Review the implementation of `task-443-489-gen1-hof-e2e-impl`.
+- [x] Review the implementation of `task-443-490-gen2-hof-e2e-impl`.
+- [x] Ensure the tests use `initializeWithSave(page)` and `await waitForSync(page)`.
+- [x] Execute `xvfb-run -a pnpm test:e2e` in a headless environment and ensure all tests pass without errors.
