@@ -60,6 +60,12 @@ const Gen2Checklist = React.lazy(() =>
   })),
 );
 
+const Gen2RoomDecorations = React.lazy(() =>
+  import('../components/dashboard/room-decorations/Gen2RoomDecorations').then((m) => ({
+    default: m.Gen2RoomDecorations,
+  })),
+);
+
 export const Route = createFileRoute('/dashboard')({
   component: DashboardPage,
 });
@@ -88,6 +94,7 @@ function DashboardPage() {
           <>
             <Gen2Checklist />
             <Gen2NpcTrades />
+            <Gen2RoomDecorations saveData={saveData} />
             <ShinyCarrierBreedingDashboard />
           </>
         )}

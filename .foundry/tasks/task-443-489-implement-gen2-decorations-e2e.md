@@ -32,4 +32,4 @@ Implement Playwright E2E tests for Gen 2 room decorations (bed, carpet, plant, p
 - Call `await waitForSync(page)` after navigation to ensure IndexedDB syncs complete.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 2 decorations E2E tests
+- [x] Implement Gen 2 decorations E2E tests
