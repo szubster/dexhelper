@@ -70,3 +70,5 @@
 ## Critical Learnings
 - **Tooling ecosystem alignment**: Upgraded `vitest`, `@vitest/browser`, `@vitest/coverage-v8`, `vite`, and `@vitejs/plugin-react` to their latest minor/patch versions (`4.1.11` and `8.2.2`). This fixes a bug where running browser-based component tests (`pnpm test:ct`) would fail because `@vitest/browser` and `vitest` versions were mismatched, preventing Playwright from launching properly.
 - **Dead-code analysis maintenance**: Removed outdated `ignore` configuration lines from `knip.json` (for the deleted file `scripts/verify-adr-compliance.ts` and the removed `ts-morph` dependency) which caused `pnpm knip` to throw configuration hint errors. This ensures the linting pipeline runs smoothly.
+## Critical Learnings
+- **Tooling configuration context:** Replaced `madge` with `dpdm` for circular dependency analysis because `dpdm` is faster and more focused on resolving circular dependencies properly without relying on external non-TS tooling. Updated `package.json` script `lint:circular` to use `dpdm --circular --no-warning --no-tree src/main.tsx`.

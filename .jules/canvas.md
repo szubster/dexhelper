@@ -132,3 +132,8 @@
 **Outcome:** Accepted -> wait for review
 **Why:** The previous sync modal felt too generic ("radar spinning"). By treating data synchronization as a physical, hardware-level uplink—complete with diagnostic logs, raw hex tracing, and physical status LEDs—it fully embraces the "tactical hardware" and "snooping" aesthetic defined in ADR 008.
 **Pattern:** For data loading/syncing screens, avoid generic spinners or progress bars. Instead, use massive, rigid hardware consoles featuring digital gauges, raw telemetry streams, and discrete LED memory banks to emphasize data density and physical hardware mechanics.
+## 2026-08-27 - [Accepted] - Redesign Tactical Controls
+**What:** Replaced flat segmented controls and multi-select filters with heavy, structural mechanical switches featuring inset shadows, simulated physical depression (translate-y), and exposed structural screws.
+**Outcome:** Accepted
+**Why:** The previous flat design lacked the tactile, diegetic 'hardware' feel necessary for a snooping terminal. The mechanical buttons improve user interaction feedback and align with the heavy industrial aesthetic.
+**Pattern:** Use pronounced inset shadows, active translation (e.g. `translate-y-px`), and thick, dashed-border bezels to simulate tactile, mechanical controls.
