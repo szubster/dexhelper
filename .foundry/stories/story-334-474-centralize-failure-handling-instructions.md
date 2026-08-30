@@ -34,3 +34,4 @@ This story is part of `epic-117-334-centralize-prompt-rules`. Since the Tech Lea
 ## 3. Acceptance Criteria
 - [ ] Centralized instructions for failure handling and Empty PR submission are verified in `core_policies.md`.
 - [ ] Any duplicate or contradictory reminders across `coder.md` and `qa.md` are removed or properly aligned.
+- [ ] task-474-498-verify-and-deduplicate-failure-instructions

@@ -19,7 +19,6 @@ describe('SettingsModal', () => {
       manualVersion: null,
       isLivingDex: false,
       globalPokeball: 'poke',
-      nuzlockeGraveyardBox: null,
     });
   });
 

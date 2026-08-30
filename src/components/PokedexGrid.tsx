@@ -109,7 +109,9 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
     return (
       <TacticalPanel className="fade-in mx-1 mt-4 flex animate-in flex-col items-center justify-center p-12 text-center duration-500">
         <SearchX className="mb-4 text-zinc-600" size={48} />
-        <h3 className="font-bold font-mono text-lg text-zinc-400 uppercase tracking-wide">[ SYS.QUERY_FAILED ]</h3>
+        <h3 className="font-bold font-mono text-lg text-zinc-400 uppercase tracking-wide">
+          <span aria-hidden="true">[ </span>SYS.QUERY_FAILED<span aria-hidden="true"> ]</span>
+        </h3>
         <p className="mt-2 max-w-sm font-medium font-mono text-sm text-zinc-600">
           No matches found in database. Adjust search parameters or clear active filters.
         </p>

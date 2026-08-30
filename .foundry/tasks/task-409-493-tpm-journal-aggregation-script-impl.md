@@ -2,12 +2,12 @@
 id: task-409-493-tpm-journal-aggregation-script-impl
 type: TASK
 title: Implement TPM Journal Aggregation Script
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-08-29'
 depends_on: []
-jules_session_id: '5799943991093245774'
+jules_session_id: '9619700995765181701'
 pr_number: null
 parent: story-401-409-tpm-journal-aggregation
 tags:

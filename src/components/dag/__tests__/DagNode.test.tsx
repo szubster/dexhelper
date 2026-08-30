@@ -196,4 +196,5 @@ test('DagNode applies permanent failure styles when rejection_count >= MAX_REJEC
   const node = page.getByTestId('dag-node');
   await expect.element(node).toHaveClass('border-red-500');
   await expect.element(node).toHaveClass('border-2');
+  await expect.element(page.getByTitle('Permanent Failure')).toBeInTheDocument();
 });

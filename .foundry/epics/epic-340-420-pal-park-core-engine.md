@@ -2,12 +2,12 @@
 id: epic-340-420-pal-park-core-engine
 type: EPIC
 title: Pal Park Migration Core Engine
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-08-26'
+updated_at: '2026-08-29'
 depends_on: []
-jules_session_id: '3814152722039716442'
+jules_session_id: null
 pr_number: null
 parent: prd-132-340-gen3-pal-park-migration-planner
 tags:
@@ -32,5 +32,9 @@ Implement the core logic and data structures for the Pal Park Migration Planner,
 - Locate physical Box and Slot data for the flagged Pokémon.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into detailed STORY nodes.
-- [ ] Orchestrator Safeguard: You MUST enforce a process where every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Break this Epic down into detailed STORY nodes.
+- [ ] story-420-490-pal-park-hm-validation
+- [ ] story-420-491-pal-park-item-identification
+- [ ] story-420-492-pal-park-batch-generation
+- [ ] story-420-493-pal-park-core-e2e
+- [x] Orchestrator Safeguard: You MUST enforce a process where every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification.

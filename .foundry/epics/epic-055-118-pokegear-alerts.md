@@ -34,3 +34,4 @@ Implement specific UI alerts and filtering for high-value Pokegear calls (swarms
 - [x] Create distinct UI alerts for high-value calls
 - [x] story-118-286-filter-swarm-item-calls
 - [x] story-118-287-highlight-high-value-calls-ui
+- [ ] story-118-490-pokegear-alerts-e2e

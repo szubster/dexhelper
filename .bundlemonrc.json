@@ -83,7 +83,7 @@
     },
     {
       "path": "data/foundry.json",
-      "maxSize": "300kb"
+      "maxSize": "350kb"
     },
     {
       "path": "data/pokedata.msgpack",

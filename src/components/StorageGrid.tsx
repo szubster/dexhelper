@@ -130,7 +130,6 @@ const StorageCard = React.memo(
 
 export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
   const saveData = useStore((s) => s.saveData);
-  const nuzlockeGraveyardBox = useStore((s) => s.nuzlockeGraveyardBox);
   const navigate = useNavigate();
   const handleNavigate = React.useCallback(
     (id: number) => {
@@ -239,7 +238,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                       />
                       {/* Error / Dead LED */}
                       <div
-                        className={`h-2 w-2 rounded-none border ${location === nuzlockeGraveyardBox || pokemonInLocation.some((p) => location === 'Party' && p.p.currentHp === 0) ? 'animate-[pulse_0.5s_ease-in-out_infinite] border-red-500 bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
+                        className={`h-2 w-2 rounded-none border ${pokemonInLocation.some((p) => location === 'Party' && p.p.currentHp === 0) ? 'animate-[pulse_0.5s_ease-in-out_infinite] border-red-500 bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
                         title="System Error / Quarantine"
                       />
                     </div>
@@ -266,7 +265,7 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
                       location={location}
                       generation={saveData?.generation ?? 1}
                       onNavigate={handleNavigate}
-                      isDead={location === nuzlockeGraveyardBox || (location === 'Party' && p.currentHp === 0)}
+                      isDead={location === 'Party' && p.currentHp === 0}
                       timeCapsuleValidation={
                         saveData?.generation === 2 ? getTimeCapsuleValidation(p.speciesId, p.moves) : undefined
                       }

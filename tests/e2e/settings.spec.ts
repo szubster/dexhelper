@@ -9,7 +9,7 @@ test.describe('Settings', () => {
 
     await expect(page.getByText('SYS.CONFIG').first()).toBeVisible();
 
-    const livingDexBtn = page.getByText('[ LIVING DEX ]');
+    const livingDexBtn = page.getByRole('radio', { name: '[ LIVING DEX ]' });
     await livingDexBtn.click();
 
     await page.getByRole('button', { name: 'Close settings' }).click();
@@ -22,6 +22,6 @@ test.describe('Settings', () => {
     await page.getByRole('button', { name: 'System Settings' }).click();
     await expect(page.getByText('SYS.CONFIG').first()).toBeVisible();
 
-    await expect(page.getByText('[ LIVING DEX ]')).toHaveClass(/bg-emerald-500/);
+    await expect(page.getByRole('radio', { name: '[ LIVING DEX ]' })).toHaveClass(/bg-emerald-500/);
   });
 });
