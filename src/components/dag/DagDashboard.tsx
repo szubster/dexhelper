@@ -46,11 +46,7 @@ export function DagDashboard() {
   const [activeStatuses, setActiveStatuses] = useState<Set<string>>(
     new Set(['PENDING', 'READY', 'ACTIVE', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED']),
   );
-
-  // Get URL search parameters to check for permanent_failures_only
-  const [showPermanentFailures, setShowPermanentFailures] = useState(
-    new URLSearchParams(window.location.search).has('permanent_failures_only'),
-  );
+  const [showPermanentFailures, setShowPermanentFailures] = useState(false);
 
   const handleTypeToggle = (type: string) => {
     setActiveTypes((prev) => {

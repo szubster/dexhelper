@@ -89,6 +89,8 @@ interface AppStore {
   isLivingDex: boolean;
   /** Global visual preference for which Pokéball to use in the UI. */
   globalPokeball: PokeballType;
+  /** Designated PC box for dead Pokemon in Nuzlocke mode. */
+  nuzlockeGraveyardBox: string | null;
   /**
    * Toggles a specific UI filter type in the `filters` array.
    * @param f - The filter type to toggle.
@@ -105,6 +107,8 @@ interface AppStore {
   setIsLivingDex: (v: boolean) => void;
   /** Sets the global visual Pokéball preference. */
   setGlobalPokeball: (v: PokeballType) => void;
+  /** Sets the Nuzlocke graveyard box. */
+  setNuzlockeGraveyardBox: (box: string | null) => void;
 
   // Transient UI state (not persisted)
   /** Current search query for filtering Pokémon lists. */
@@ -193,6 +197,7 @@ export const useStore = create<AppStore>()(
       manualVersion: null,
       isLivingDex: false,
       globalPokeball: 'poke',
+      nuzlockeGraveyardBox: null,
 
       toggleFilter: (f) => {
         const current = get().filters;
@@ -206,6 +211,7 @@ export const useStore = create<AppStore>()(
       setManualVersion: (v) => set({ manualVersion: v }),
       setIsLivingDex: (v) => set({ isLivingDex: v }),
       setGlobalPokeball: (v) => set({ globalPokeball: v }),
+      setNuzlockeGraveyardBox: (v) => set({ nuzlockeGraveyardBox: v }),
 
       // Transient UI
       searchTerm: '',
@@ -321,6 +327,7 @@ export const useStore = create<AppStore>()(
         manualVersion: state.manualVersion,
         isLivingDex: state.isLivingDex,
         globalPokeball: state.globalPokeball,
+        nuzlockeGraveyardBox: state.nuzlockeGraveyardBox,
       }),
     },
   ),

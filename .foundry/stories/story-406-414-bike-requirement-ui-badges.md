@@ -2,10 +2,10 @@
 id: story-406-414-bike-requirement-ui-badges
 type: STORY
 title: Implement UI Badges for Bike Requirements
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-30'
+updated_at: '2026-08-23'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -108,31 +108,6 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
       });
     },
 
-
-    transformIndexHtml(_html, ctx) {
-      // Don't inject prefetch in dev since the files are generated on the fly via middleware
-      if (ctx.server) return;
-      // Get base from resolved Vite config
-      const basePath = '/dexhelper/';
-      return [
-        {
-          tag: 'link',
-          attrs: { rel: 'prefetch', href: `${basePath}data/pokedata-gen1.msgpack`, as: 'fetch', crossorigin: 'anonymous' },
-          injectTo: 'head',
-        },
-        {
-          tag: 'link',
-          attrs: { rel: 'prefetch', href: `${basePath}data/pokedata-gen2.msgpack`, as: 'fetch', crossorigin: 'anonymous' },
-          injectTo: 'head',
-        },
-        {
-          tag: 'link',
-          attrs: { rel: 'prefetch', href: `${basePath}data/pokedata-gen3.msgpack`, as: 'fetch', crossorigin: 'anonymous' },
-          injectTo: 'head',
-        }
-      ];
-    },
-
     // During build, emit the files as assets
     generateBundle() {
       const data = cachedData || generateData();

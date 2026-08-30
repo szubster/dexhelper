@@ -25,7 +25,7 @@ notes: ''
 Update the `SaveData` schema to include the parsed Pokegear Phone data and wire up the parser in the extraction process for Gen 2 saves.
 
 ## Acceptance Criteria
-- [x] Import `PokegearPhoneData` from `./gen2/phone/parser` in `src/engine/saveParser/parsers/common.ts`.
-- [x] Add `gen2PokegearPhone?: PokegearPhoneData;` to the `Gen2SaveData` interface in `src/engine/saveParser/parsers/common.ts`.
-- [x] Import `parseGen2PokegearData` from `./gen2/phone/parser` in `src/engine/saveParser/parsers/gen2.ts`.
-- [x] Call `parseGen2PokegearData(view, isCrystal)` and include its return value as `gen2PokegearPhone` in the object returned by `parseGen2` in `src/engine/saveParser/parsers/gen2.ts`.
+- [ ] Import `PokegearPhoneData` from `./gen2/phone/parser` in `src/engine/saveParser/parsers/common.ts`.
+- [ ] Add `gen2PokegearPhone?: PokegearPhoneData;` to the `Gen2SaveData` interface in `src/engine/saveParser/parsers/common.ts`.
+- [ ] Import `parseGen2PokegearData` from `./gen2/phone/parser` in `src/engine/saveParser/parsers/gen2.ts`.
+- [ ] Call `parseGen2PokegearData(view, isCrystal)` and include its return value as `gen2PokegearPhone` in the object returned by `parseGen2` in `src/engine/saveParser/parsers/gen2.ts`.

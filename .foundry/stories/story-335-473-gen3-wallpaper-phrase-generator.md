@@ -33,6 +33,4 @@ In Generation 3 games, players can unlock 16 unique PC box wallpapers by giving 
 *   Include unit tests using Vitest to verify generation against known `trainerId` / phrase pairs.
 
 ## Acceptance Criteria
-- [x] Tech Lead: Draft TASK blueprints for the implementation and testing of the phrase generator.
-- [ ] task-473-498-gen3-wallpaper-phrase-generator-impl
-- [ ] task-473-499-gen3-wallpaper-phrase-generator-qa
+- [ ] Tech Lead: Draft TASK blueprints for the implementation and testing of the phrase generator.

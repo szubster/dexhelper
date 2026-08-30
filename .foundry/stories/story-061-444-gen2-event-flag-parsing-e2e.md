@@ -2,10 +2,10 @@
 id: story-061-444-gen2-event-flag-parsing-e2e
 type: STORY
 title: E2E Verification of Gen 2 Event Flag Parsing
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-08-29'
+updated_at: '2026-08-25'
 depends_on:
   - story-061-443-gen2-daily-event-mapping
 jules_session_id: null
@@ -32,6 +32,6 @@ Write E2E tests validating that mapped daily/weekly events appear in the dynamic
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [x] E2E tests pass for Gen 2 daily/weekly event extraction and display.
-- [x] task-444-489-gen2-event-flag-parsing-e2e-impl
-- [x] task-444-490-gen2-event-flag-parsing-e2e-qa
+- [ ] E2E tests pass for Gen 2 daily/weekly event extraction and display.
+- [ ] task-444-489-gen2-event-flag-parsing-e2e-impl
+- [ ] task-444-490-gen2-event-flag-parsing-e2e-qa

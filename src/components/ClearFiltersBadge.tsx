@@ -28,7 +28,7 @@ export function ClearFiltersBadge({ isActive, onClick }: ClearFiltersBadgeProps)
           isActive ? 'bg-[var(--theme-primary)] shadow-[0_0_5px_var(--theme-primary)]' : 'bg-zinc-800',
         )}
       />
-      <span aria-hidden="true">[ </span>ALL<span aria-hidden="true"> ]</span>
+      [ ALL ]
     </TacticalButton>
   );
 }

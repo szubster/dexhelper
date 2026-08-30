@@ -1,7 +1,7 @@
 ---
 id: idea-423-gen3-pokeblock-blender-assistant
 type: IDEA
-title: Idea: Gen 3 Pokéblock Blender Assistant
+title: "Idea: Gen 3 Pokéblock Blender Assistant"
 status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-28'

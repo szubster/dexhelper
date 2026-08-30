@@ -5,7 +5,7 @@ title: Real-Time Statistics Generator & Orchestrator Integration
 status: READY
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-08-29'
+updated_at: '2026-08-26'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - metrics
   - statistics
 research_references: []
-rejection_count: 2
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

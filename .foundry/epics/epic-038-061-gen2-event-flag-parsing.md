@@ -2,10 +2,10 @@
 id: epic-038-061-gen2-event-flag-parsing
 type: EPIC
 title: Gen 2 Event Flag Parsing Engine
-status: COMPLETED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-07'
-updated_at: '2026-08-29'
+updated_at: '2026-08-23'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -25,13 +25,13 @@ notes: ''
 Develop the core save file parsing engine to extract specific time-gated event flags from Generation 2 save files. This is the foundational data layer required to power the dynamic event checklist. Note: We must NOT depend on RTC data from the save file itself, as it is emulator-dependent and incompatible with raw cartridge dumps.
 
 ## Acceptance Criteria
-- [x] Parse event flags indicating completion of daily/weekly events.
-- [x] Expose this data cleanly to the frontend UI components.
+- [ ] Parse event flags indicating completion of daily/weekly events.
+- [ ] Expose this data cleanly to the frontend UI components.
 
 
 ### Implementation Tasks
 - [x] story-061-095-gen2-event-flag-extraction
 - [x] story-061-096-gen2-event-data-layer
 - [x] research-061-245-gen2-daily-event-offsets
-- [x] story-061-443-gen2-daily-event-mapping
-- [x] story-061-444-gen2-event-flag-parsing-e2e
+- [ ] story-061-443-gen2-daily-event-mapping
+- [ ] story-061-444-gen2-event-flag-parsing-e2e

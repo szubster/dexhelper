@@ -26,7 +26,6 @@ import { GEN2_VERSION_EXCLUSIVES } from '../../exclusives/gen2Exclusives';
 import { parseGen2DailyEvents, parseGen2NarrativeFlags } from '../utils/gen2EventFlags';
 import type { GameVersion, Gen2SaveData, PokemonInstance } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs, parsePokerus } from './common';
-import { parseGen2PokegearData } from './gen2/phone/parser';
 
 const POKEMON_OFFSET_SPECIES_ID = 0;
 const POKEMON_OFFSET_ITEM = 1;
@@ -1134,6 +1133,5 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
     },
     gen2NarrativeFlags: parseGen2NarrativeFlags(eventFlags),
     gen2DailyEvents: parseGen2DailyEvents(eventFlags),
-    gen2PokegearPhone: parseGen2PokegearData(view, isCrystal),
   };
 }

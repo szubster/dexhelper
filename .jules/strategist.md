@@ -130,10 +130,3 @@
 **Outcome:** Merged
 **Why:** The instructions for "Autonomous Execution" and "E2E Testing Scope" in the "Directives" section of `.github/agents/story_owner.md` were redundant because they are already centrally defined and enforced for all agents in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 **Pattern:** Scrub agent schedules to remove directives that are already centralized globally in `core_policies.md` to reduce prompt bloat.
-
-<!-- Merged from 2026-08-26-02-00-00.md -->
-## 2026-08-26 - [Accepted] - Prompt improvement: Standardize Journal sections for Coder, PM, and QA
-**Type:** Prompt improvement
-**Outcome:** Merged
-**Why:** The schedules for `coder`, `product_manager`, and `qa` were missing the standard journal instructions, lacking a requirement to adhere to the core journaling policies defined in `core_policies.md`. This was leading to non-compliant journaling behavior for these personas. Adding the standard paragraph ensures all agent prompts are consistent.
-**Pattern:** Ensure all agent prompts contain the required 'Journal' section specifying the correct journal location and mandating adherence to the `core_policies.md` rules to maintain consistency across the agent roster.

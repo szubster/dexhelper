@@ -2,12 +2,12 @@
 id: story-332-473-gen3-fame-checker-parsing-logic
 type: STORY
 title: Gen 3 Fame Checker Parsing Logic
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-29'
+updated_at: '2026-08-26'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7222771690718259329'
 pr_number: null
 parent: epic-115-332-gen3-fame-checker-save-parsing
 tags:
@@ -35,5 +35,3 @@ This story entails integrating the event flag offsets discovered during the rese
 - [ ] Ensure explicit handling for FireRed/LeafGreen specific structures compared to Ruby/Sapphire/Emerald where applicable.
 - [ ] Integrate `parseGen3FameChecker` into the Gen 3 save parser.
 - [ ] Write unit tests for the parsing logic.
-- [ ] task-473-493-gen3-fame-checker-impl
-- [ ] task-473-494-gen3-fame-checker-qa

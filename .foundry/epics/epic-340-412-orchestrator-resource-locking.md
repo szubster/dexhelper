@@ -2,13 +2,13 @@
 id: epic-340-412-orchestrator-resource-locking
 type: EPIC
 title: Orchestrator Logic for Resource Locking
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-11'
-updated_at: '2026-08-29'
+updated_at: '2026-08-26'
 depends_on:
   - epic-340-411-schema-resource-locking
-jules_session_id: null
+jules_session_id: '1428006663748828254'
 pr_number: null
 parent: prd-131-340-orchestrator-resource-locking-mutex
 tags:
@@ -33,8 +33,5 @@ This EPIC covers the implementation of the core orchestrator logic (`.github/scr
 - Ensure deadlocks are prevented and locks are released appropriately when a node transitions from `ACTIVE` to `COMPLETED` or `FAILED`.
 
 ## Acceptance Criteria
-- [x] Story Owner completes EPIC decomposition.
-- [ ] story-412-477-parse-locks-orchestrator
-- [ ] story-412-478-implement-resolve-phase-locking
-- [x] Story Owner generates a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] story-412-479-orchestrator-locking-e2e-verification
+- [ ] Story Owner completes EPIC decomposition.
+- [ ] Story Owner generates a final STORY dedicated exclusively to Integration and E2E Verification.

@@ -2,12 +2,12 @@
 id: epic-114-400-gen3-pokeblock-case-parsing-retry
 type: EPIC
 title: Gen 3 Pokéblock Case Data Parsing
-status: PENDING
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-08-05'
-updated_at: '2026-08-29'
+updated_at: '2026-08-26'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5424688107404290185'
 pr_number: null
 parent: prd-113-114-gen3-pokeblock-stats-viewer
 tags:
@@ -31,6 +31,3 @@ As defined in `prd-113-114-gen3-pokeblock-stats-viewer`, we need to extract exac
 - [ ] Implement robust save parsing logic to extract Pokéblock data (flavors and feel).
 - [ ] Write unit tests verifying parsing correctness against known good save blocks.
 - [ ] Expose parsed data through clear TypeScript interfaces.
-- [ ] story-400-477-gen3-pokeblock-constants-types
-- [ ] story-400-478-gen3-pokeblock-parsing-logic
-- [ ] story-400-479-gen3-pokeblock-parsing-e2e

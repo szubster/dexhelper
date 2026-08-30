@@ -32,6 +32,6 @@ Write E2E tests for the Gen 2 Box Analyzer save parsing functionality.
 - Verify statistical calculations (IVs, DVs, Natures, Hidden Power, Shininess) within the tests.
 
 ## Acceptance Criteria
-- [x] E2E tests for Gen 2 Box parsing are written and pass locally.
-- [x] Party Pokemon exclusion is tested and verified.
-- [x] Statistical calculations are tested and verified.
+- [ ] E2E tests for Gen 2 Box parsing are written and pass locally.
+- [ ] Party Pokemon exclusion is tested and verified.
+- [ ] Statistical calculations are tested and verified.

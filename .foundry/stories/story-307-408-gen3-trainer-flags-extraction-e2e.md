@@ -2,13 +2,13 @@
 id: story-307-408-gen3-trainer-flags-extraction-e2e
 type: STORY
 title: Gen 3 Trainer Flags Extraction E2E
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-29'
+updated_at: '2026-08-26'
 depends_on:
   - story-307-319-gen3-trainer-flags-extraction
-jules_session_id: null
+jules_session_id: '18191178818735950489'
 pr_number: null
 parent: epic-109-307-missed-trainer-data-extraction-gen3
 tags:
@@ -33,9 +33,5 @@ Verify the Gen 3 Trainer Flags Extraction implementation through end-to-end inte
 ## Acceptance Criteria
 - [x] Create Tech Lead Task Blueprints
 - [ ] task-408-415-gen3-trainer-flags-integration-impl
-- [x] task-408-416-gen3-trainer-flags-e2e-impl
-- [x] task-408-417-gen3-trainer-flags-testing-qa
-
-- [ ] research-408-493-investigate-gen3-trainer-flags-e2e-failure
-- [ ] task-408-494-gen3-trainer-flags-e2e-retry-impl
-- [ ] task-408-495-gen3-trainer-flags-testing-retry-qa
+- [ ] task-408-416-gen3-trainer-flags-e2e-impl
+- [ ] task-408-417-gen3-trainer-flags-testing-qa

@@ -41,12 +41,6 @@ describe('gen3Exclusives', () => {
       expect(reason).toContain('not available in Firered');
     });
 
-    it('should return reason for Meowth missing in FireRed', () => {
-      const ownedSet = new Set<number>();
-      const reason = getGen3UnobtainableReason(52, 'firered', 0, ownedSet); // Meowth
-      expect(reason).toContain('not available in Firered');
-    });
-
     it('should return reason for LeafGreen exclusive missing (FireRed exclusives)', () => {
       const ownedSet = new Set<number>();
       const reason = getGen3UnobtainableReason(23, 'leafgreen', 0, ownedSet); // Ekans

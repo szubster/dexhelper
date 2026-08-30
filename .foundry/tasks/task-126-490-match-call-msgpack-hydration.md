@@ -27,5 +27,5 @@ notes: ''
 Integrate the exported Match Call MsgPack data into the `PokeDB.ts` persistence layer for quick runtime hydration. Ensure the data gets properly saved in the IndexedDB stores and retrieved efficiently.
 
 ## Acceptance Criteria
-- [x] Read the match calls dataset from the unpacked MsgPack bundle.
-- [x] Sync the data into the IndexedDB using the defined stores.
+- [ ] Read the match calls dataset from the unpacked MsgPack bundle.
+- [ ] Sync the data into the IndexedDB using the defined stores.

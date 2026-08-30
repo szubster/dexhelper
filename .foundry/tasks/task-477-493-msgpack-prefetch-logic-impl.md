@@ -27,5 +27,5 @@ We need to prefetch generation-specific msgpack files in the background to impro
 - Ensure the prefetching does not block the main thread.
 
 ## Acceptance Criteria
-- [x] Implement prefetching logic.
-- [x] Write unit tests for prefetching logic.
+- [ ] Implement prefetching logic.
+- [ ] Write unit tests for prefetching logic.

@@ -18,7 +18,7 @@ export function GlobalError({ error }: GlobalErrorProps) {
       <AlertTriangle size={24} className="relative z-10 flex-shrink-0" />
       <div className="relative z-10 flex flex-col">
         <span className="font-black font-mono text-[10px] text-red-400 uppercase tracking-tighter">
-          <span aria-hidden="true">[ </span>SYSTEM.ERROR<span aria-hidden="true"> ]</span>
+          [ SYSTEM.ERROR ]
         </span>
         <span className="font-medium font-mono text-sm">{error}</span>
       </div>

@@ -65,6 +65,11 @@ describe('Zustand Store', () => {
   });
 
   describe('Settings state', () => {
+    it('should set nuzlocke graveyard box', () => {
+      useStore.getState().setNuzlockeGraveyardBox('Box 14');
+      expect(useStore.getState().nuzlockeGraveyardBox).toBe('Box 14');
+    });
+
     it('should toggle filters', () => {
       useStore.getState().toggleFilter('secured');
       expect(useStore.getState().filters).toContain('secured');
