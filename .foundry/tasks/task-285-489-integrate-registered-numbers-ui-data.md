@@ -2,12 +2,12 @@
 id: task-285-489-integrate-registered-numbers-ui-data
 type: TASK
 title: Integrate PokegearPhoneData into Gen2SaveData Schema
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-07'
-updated_at: '2026-08-27'
+updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '297217558567621074'
+jules_session_id: null
 pr_number: null
 parent: story-116-285-integrate-registered-numbers-ui
 tags:

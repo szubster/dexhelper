@@ -2,10 +2,10 @@
 id: story-036-490-progression-e2e-verification
 type: STORY
 title: Progression Tracking Integration E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-29'
-updated_at: '2026-08-29'
+updated_at: '2026-08-30'
 depends_on:
   - story-036-255-progression-save-model
   - story-036-256-progression-sync-logic
