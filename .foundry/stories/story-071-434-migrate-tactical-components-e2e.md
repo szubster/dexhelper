@@ -2,10 +2,10 @@
 id: story-071-434-migrate-tactical-components-e2e
 type: STORY
 title: E2E Verification for Migrated Tactical Components V2
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-08-23'
+updated_at: '2026-08-30'
 depends_on:
   - story-071-431-migrate-tactical-panel
   - story-071-432-migrate-tactical-controls

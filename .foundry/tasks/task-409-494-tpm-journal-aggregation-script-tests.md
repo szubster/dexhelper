@@ -2,10 +2,10 @@
 id: task-409-494-tpm-journal-aggregation-script-tests
 type: TASK
 title: Implement Tests for TPM Journal Aggregation Script
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-08-30'
 depends_on:
   - task-409-493-tpm-journal-aggregation-script-impl
 jules_session_id: '5799943991093245774'

@@ -2,12 +2,12 @@
 id: research-361-494-sorting-algorithms-e2e-root-cause
 type: RESEARCH
 title: Investigate Root Cause of E2E Sorting Algorithms Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-26'
-updated_at: '2026-08-29'
+updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '6075063573413416979'
+jules_session_id: null
 parent: story-136-361-sorting-algorithms-e2e
 rejection_reason: ''
 ---

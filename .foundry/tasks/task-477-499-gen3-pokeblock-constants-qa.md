@@ -2,10 +2,10 @@
 id: task-477-499-gen3-pokeblock-constants-qa
 type: TASK
 title: QA Gen 3 Pokéblock Constants and Types
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-29'
-updated_at: '2026-08-29'
+updated_at: '2026-08-30'
 depends_on:
   - task-477-498-gen3-pokeblock-constants
 jules_session_id: '8690503497960044382'

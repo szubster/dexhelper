@@ -2,10 +2,10 @@
 id: story-048-431-smart-radar-integration-e2e
 type: STORY
 title: Smart Radar Data Unification Integration and E2E
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-08-23'
+updated_at: '2026-08-30'
 depends_on:
   - story-048-088-create-route-radar-controller
   - story-048-089-route-radar-density-aggregation

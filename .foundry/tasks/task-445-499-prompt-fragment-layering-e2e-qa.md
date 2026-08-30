@@ -2,10 +2,10 @@
 id: task-445-499-prompt-fragment-layering-e2e-qa
 type: TASK
 title: QA - Prompt Fragment Layering E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-27'
-updated_at: '2026-08-27'
+updated_at: '2026-08-30'
 depends_on:
   - task-445-498-prompt-fragment-layering-e2e-tests
 jules_session_id: null
@@ -16,6 +16,7 @@ tags:
   - prompts
   - e2e
   - integration
+rejection_reason: ''
 ---
 
 # QA - Prompt Fragment Layering E2E Tests

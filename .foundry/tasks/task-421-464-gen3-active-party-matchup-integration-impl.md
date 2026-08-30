@@ -2,13 +2,13 @@
 id: task-421-464-gen3-active-party-matchup-integration-impl
 type: TASK
 title: Integrate Gen 3 Active Party into MatchupContext
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-21'
-updated_at: '2026-08-23'
+updated_at: '2026-08-30'
 depends_on:
   - task-421-460-matchup-context-state-layer-impl
-jules_session_id: '17037518531869894836'
+jules_session_id: null
 pr_number: null
 parent: story-411-421-active-party-extraction
 tags:
@@ -16,7 +16,7 @@ tags:
   - integration
   - react
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: Session timed out (>7 days without PR)
 notes: ''
 ---
 

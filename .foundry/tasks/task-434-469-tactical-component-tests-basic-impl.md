@@ -2,12 +2,12 @@
 id: task-434-469-tactical-component-tests-basic-impl
 type: TASK
 title: Implement Component Tests for Basic Tactical Components
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-08-23'
+updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '4289257225343884642'
+jules_session_id: null
 pr_number: null
 parent: story-071-434-migrate-tactical-components-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - vitest
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
 ---
 

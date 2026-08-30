@@ -2,13 +2,13 @@
 id: task-442-467-gen2-roamer-e2e-tests-impl
 type: TASK
 title: Gen 2 Roamer E2E Tests Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-08-23'
+updated_at: '2026-08-30'
 depends_on:
   - task-442-466-gen2-roamer-e2e-fixture-impl
-jules_session_id: '318505979788366828'
+jules_session_id: null
 pr_number: null
 parent: story-139-442-gen2-roamer-extraction-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - gen2
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
 locks: []
 ---
