@@ -8,29 +8,41 @@ import type { PokemonInstance } from '../parsers/common';
  * to perform a full O(N^2) comparison on every render cycle.
  */
 export interface BoxDiffResult {
+  /** Pokémon present in the target state but missing from the current state. */
   additions: PokemonInstance[];
+  /** Pokémon present in the current state but missing from the target state. */
   removals: PokemonInstance[];
+  /** Pokémon that exist in both states but occupy different box/slot coordinates. */
   relocations: {
+    /** The Pokémon instance being relocated (reference to the target state object). */
     pokemon: PokemonInstance;
+    /** The zero-indexed source PC box number, or -1 if originating outside the PC (e.g., party). */
     sourceBox: number;
+    /** The zero-indexed slot number within the source box, or -1 if N/A. */
     sourceSlot: number;
+    /** The zero-indexed target PC box number, or -1 if moved outside the PC. */
     targetBox: number;
+    /** The zero-indexed slot number within the target box, or -1 if N/A. */
     targetSlot: number;
   }[];
 }
 
 /**
- * Computes a delta (additions, removals, relocations) between two arrays of Pokémon.
+ * Computes an O(N) delta (additions, removals, relocations) between two arrays of Pokémon.
  *
- * This function relies on a deterministic hashing strategy to track Pokémon across
- * sync cycles. Because early generations lack unique identifiers (UUIDs or PIDs),
- * the engine constructs a synthetic hash using relatively immutable traits (Species ID, DVs, Level, Nickname)
- * to reliably identify if a Pokémon was moved to a new box or slot, rather than being
- * released and replaced by a coincidentally identical spawn.
+ * **Architecture Note: Deterministic Hashing**
+ * Generations 1 and 2 lack unique internal identifiers (like Gen 3's Personality Values or modern UUIDs).
+ * To determine if a Pokémon was moved to a new box (versus being released and replaced by an identical spawn),
+ * this function compares synthetic hashes. These hashes are constructed during the save parsing phase
+ * using relatively immutable traits (Species ID, DVs/IVs, Level, and Nickname).
+ *
+ * While hash collisions are theoretically possible (e.g., catching two identical Magikarp at the same level),
+ * they are statistically rare enough that the deterministic approach successfully powers the conflict resolution
+ * and UI diff engines without requiring deeply nested N^2 property comparisons.
  *
  * @param current - The current/previous state of the player's Pokémon instances.
  * @param target - The incoming/new state of the player's Pokémon instances.
- * @returns An object containing arrays of additions, removals, and detailed relocation tracking.
+ * @returns A structured `BoxDiffResult` containing arrays of additions, removals, and detailed relocation metadata.
  *
  * @example
  * const diff = calculateBoxDiff(oldPcBoxes, newPcBoxes);

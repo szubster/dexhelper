@@ -2,20 +2,32 @@ import type { PokemonInstance } from '../parsers/common';
 import type { BoxDiffResult } from './boxDiff';
 
 /**
- * Represents the type of manual action required in the PC.
+ * Represents the type of manual action required in the PC storage system.
+ * - `MOVE`: Moves a Pokémon from one slot to an empty slot.
+ * - `SWAP`: Swaps the positions of two Pokémon in a single action.
+ * - `DEPOSIT`: Moves a newly acquired Pokémon into the PC.
+ * - `WITHDRAW`: Removes a Pokémon from the PC.
  */
 export type MoveOperationType = 'MOVE' | 'SWAP' | 'DEPOSIT' | 'WITHDRAW';
 
 /**
  * A discrete step in a sequence of PC box operations.
- * For DEPOSIT/WITHDRAW operations, or when utilizing temporary holding space (like the Party),
- * a value of `-1` is used for the relevant box and slot fields.
+ *
+ * For operations that lack a definitive source or target within the PC itself
+ * (e.g., DEPOSIT from the Party, WITHDRAW to the Party, or when utilizing temporary
+ * holding space to break movement cycles), a value of `-1` is used for the relevant
+ * box and slot fields.
  */
 export interface MoveOperation {
+  /** The specific type of PC action to perform. */
   type: MoveOperationType;
+  /** The zero-indexed source box number, or -1 if originating outside the PC. */
   sourceBox: number;
+  /** The zero-indexed slot number within the source box, or -1 if N/A. */
   sourceSlot: number;
+  /** The zero-indexed target box number, or -1 if moving outside the PC. */
   targetBox: number;
+  /** The zero-indexed slot number within the target box, or -1 if N/A. */
   targetSlot: number;
 }
 
@@ -27,12 +39,24 @@ function extractBoxSlot(p: PokemonInstance): { box: number; slot: number } {
 }
 
 /**
- * Translates a BoxDiffResult into a sequential list of minimal, actionable manual user
+ * Translates a `BoxDiffResult` into a sequential list of minimal, actionable manual user
  * operations required to transition the PC layout from the current state to the target state.
  *
- * It models the relocations as a directed graph where nodes are PC slots. To prevent overwriting
- * Pokémon, the algorithm resolves acyclic paths backwards (leaves to roots) and breaks cycles
- * by utilizing temporary holding spaces.
+ * **Architecture Note: Graph Traversal & Cycle Resolution**
+ * Relocations are modeled as a directed graph where nodes are PC slots and edges are movements.
+ * To guarantee that a Pokémon is never overwritten during the manual operation sequence:
+ *
+ * 1. **Phase 1 (Withdrawals)**: All `WITHDRAW` operations are processed first to maximize
+ *    available empty slots, actively reducing collision risks.
+ * 2. **Phase 2 (Acyclic Paths)**: Acyclic paths are resolved backwards (leaves to roots).
+ *    Moving the tail node first guarantees the slot is vacated before its predecessor attempts
+ *    to move into it.
+ * 3. **Phase 3 (Cycles)**: If a movement cycle exists:
+ *    - Length 2 cycles are resolved using the native `SWAP` mechanic.
+ *    - Length 3+ cycles are resolved by moving the first element into a temporary buffer
+ *      (e.g., the Party, represented by index `-1`), resolving the remaining path backwards,
+ *      and finally moving the buffered element to its final destination.
+ * 4. **Phase 4 (Deposits)**: All `DEPOSIT` operations are processed last to fill the newly arranged empty slots.
  *
  * @param diff - The computed differences containing additions, removals, and relocations.
  * @returns An array of sequential move operations to execute.
