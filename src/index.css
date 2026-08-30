@@ -192,7 +192,7 @@ body {
 }
 
 @utility tactical-card {
-  @apply flex flex-col rounded-none bg-zinc-950 p-4 font-mono;
+  @apply flex flex-col rounded-none border border-dashed bg-zinc-950 p-4 font-mono;
 }
 
 @utility tactical-input {
