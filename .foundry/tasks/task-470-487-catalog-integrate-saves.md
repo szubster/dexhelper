@@ -33,5 +33,5 @@ After sourcing public save files for Generations 1, 2, and 3, they need to be pr
 4. Document the characteristics of each new save file in a markdown or JSON registry within the fixtures directory if one exists, or add a README.
 
 ## Acceptance Criteria
-- [ ] Save files are correctly formatted and placed in `tests/fixtures/`.
-- [ ] A manifest or README is updated/created to describe the state and purpose of each new fixture.
+- [x] Save files are correctly formatted and placed in `tests/fixtures/`.
+- [x] A manifest or README is updated/created to describe the state and purpose of each new fixture.
