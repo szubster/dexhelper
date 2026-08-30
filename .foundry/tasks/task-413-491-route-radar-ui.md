@@ -2,13 +2,13 @@
 id: task-413-491-route-radar-ui
 type: TASK
 title: Update MapUI to Display Bike Requirements
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-27'
+updated_at: '2026-08-30'
 depends_on:
   - task-413-490-route-radar-logic
-jules_session_id: '7765314993264792413'
+jules_session_id: null
 pr_number: null
 parent: story-406-413-bike-requirement-heatmap
 tags:

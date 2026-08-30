@@ -2,20 +2,20 @@
 id: task-473-494-gen3-egg-hatch-e2e-impl
 type: TASK
 title: Gen 3 Egg Hatch E2E Tests
-status: FAILED
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-29'
+updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '15853662144300635196'
+jules_session_id: null
 pr_number: null
 parent: story-106-473-egg-hatch-parsing-e2e
 tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 1
-rejection_reason: 'Late binding: suspended pending research for Gen 3 egg hatch fixture'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

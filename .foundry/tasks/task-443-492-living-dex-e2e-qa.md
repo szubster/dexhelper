@@ -2,10 +2,10 @@
 id: task-443-492-living-dex-e2e-qa
 type: TASK
 title: QA Living Dex E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-30'
 depends_on:
   - task-443-489-living-dex-e2e-ghost-tracking-impl
   - task-443-490-living-dex-e2e-pc-mapping-impl

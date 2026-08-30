@@ -1,11 +1,11 @@
 ---
 id: task-410-494-update-journal-paths-qa
 type: TASK
-title: "QA: Verify Updated Scripts Referencing Journal Paths"
-status: PENDING
-owner_persona: "qa"
-created_at: "2026-08-08"
-updated_at: "2026-08-08"
+title: 'QA: Verify Updated Scripts Referencing Journal Paths'
+status: READY
+owner_persona: qa
+created_at: '2026-08-08'
+updated_at: '2026-08-30'
 depends_on:
   - task-410-493-update-journal-paths-impl
 jules_session_id: null
@@ -15,8 +15,8 @@ tags:
   - foundry
   - scripts
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # QA: Verify Updated Scripts Referencing Journal Paths

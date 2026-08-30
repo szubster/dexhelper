@@ -2,12 +2,12 @@
 id: task-443-490-living-dex-e2e-pc-mapping-impl
 type: TASK
 title: Implement PC Mapping E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-28'
+updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '1529700560564731322'
+jules_session_id: null
 pr_number: null
 parent: story-133-443-living-dex-data-engine-e2e
 tags:

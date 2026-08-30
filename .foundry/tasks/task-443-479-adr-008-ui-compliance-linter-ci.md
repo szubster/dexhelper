@@ -2,10 +2,10 @@
 id: task-443-479-adr-008-ui-compliance-linter-ci
 type: TASK
 title: Integrate ADR 008 Linter into CI
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-24'
-updated_at: '2026-08-26'
+updated_at: '2026-08-30'
 depends_on:
   - task-443-478-adr-008-ui-compliance-linter-tests
 jules_session_id: null
@@ -19,7 +19,7 @@ tags:
   - ci
 research_references: []
 rejection_count: 3
-rejection_reason: 'The lint:adr script is not present in package.json and the ci.yml workflow is not updated.'
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

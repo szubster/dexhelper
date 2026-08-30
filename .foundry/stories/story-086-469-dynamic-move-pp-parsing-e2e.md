@@ -2,7 +2,7 @@
 id: story-086-469-dynamic-move-pp-parsing-e2e
 type: STORY
 title: Dynamic Generation of Moves PP PokeData E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-22'
 updated_at: '2026-08-30'

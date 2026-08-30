@@ -2,10 +2,10 @@
 id: task-443-491-box-analyzer-e2e-qa
 type: TASK
 title: QA Gen 2 & Gen 3 Box Analyzer E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-30'
 depends_on:
   - task-443-489-box-analyzer-gen2-e2e-impl
   - task-443-490-box-analyzer-gen3-e2e-impl

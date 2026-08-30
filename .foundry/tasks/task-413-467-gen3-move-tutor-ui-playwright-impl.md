@@ -2,13 +2,13 @@
 id: task-413-467-gen3-move-tutor-ui-playwright-impl
 type: TASK
 title: Gen 3 Move Tutor UI Playwright Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-08-24'
+updated_at: '2026-08-30'
 depends_on:
   - task-413-466-gen3-move-tutor-extraction-vitest-impl
-jules_session_id: '11590917076774254659'
+jules_session_id: null
 pr_number: null
 parent: story-406-413-gen3-move-tutor-parsing-e2e
 tags:

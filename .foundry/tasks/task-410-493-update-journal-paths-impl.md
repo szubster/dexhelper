@@ -2,12 +2,12 @@
 id: task-410-493-update-journal-paths-impl
 type: TASK
 title: Update Scripts Referencing Journal Paths
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-08'
-updated_at: '2026-08-29'
+updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '6387206081646990546'
+jules_session_id: null
 pr_number: null
 parent: story-401-410-update-downstream-journal-scripts
 tags:

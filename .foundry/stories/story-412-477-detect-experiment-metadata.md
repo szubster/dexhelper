@@ -2,10 +2,10 @@
 id: story-412-477-detect-experiment-metadata
 type: STORY
 title: Detect Experiment Metadata in Orchestrator
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-27'
+updated_at: '2026-08-30'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,5 +30,5 @@ Update the orchestrator's node parsing logic to detect and validate experiment v
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-477-496-parse-experiment-metadata
-- [ ] task-477-497-expose-experiment-metadata
+- [x] task-477-496-parse-experiment-metadata
+- [x] task-477-497-expose-experiment-metadata

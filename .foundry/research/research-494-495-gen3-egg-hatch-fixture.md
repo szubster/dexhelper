@@ -2,7 +2,7 @@
 id: research-494-495-gen3-egg-hatch-fixture
 type: RESEARCH
 title: Gen 3 Egg Hatch Fixture
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-08-30'
 updated_at: '2026-08-30'

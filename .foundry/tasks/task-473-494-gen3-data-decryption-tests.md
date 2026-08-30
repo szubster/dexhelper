@@ -2,10 +2,10 @@
 id: task-473-494-gen3-data-decryption-tests
 type: TASK
 title: Tests for Gen 3 Data Decryption Engine
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-08-30'
 depends_on:
   - task-473-493-gen3-data-decryption-impl
 jules_session_id: null

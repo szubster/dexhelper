@@ -2,10 +2,10 @@
 id: story-071-473-extract-rejection-count
 type: STORY
 title: Extract Rejection Count in DAG Parsing
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-27'
+updated_at: '2026-08-30'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,20 +2,20 @@
 id: task-473-494-extract-rejection-count-tests
 type: TASK
 title: Unit Tests for rejection_count Extraction
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-26'
-updated_at: '2026-08-28'
+updated_at: '2026-08-30'
 depends_on:
   - task-473-493-extract-rejection-count-impl
-jules_session_id: '9296880757693271919'
+jules_session_id: null
 pr_number: null
 parent: story-071-473-extract-rejection-count
 tags:
   - data
   - dashboard
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 ---
 
