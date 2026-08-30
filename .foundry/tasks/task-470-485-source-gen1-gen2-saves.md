@@ -29,6 +29,6 @@ We need to expand our test fixture library by sourcing real-world `.sav` files f
 2. Save these files temporarily for integration in a subsequent task.
 
 ## Acceptance Criteria
-- [ ] At least 3 different Gen 1 save files are downloaded.
-- [ ] At least 3 different Gen 2 save files are downloaded.
-- [ ] research-485-471-source-gen1-gen2-saves-manually
+- [x] At least 3 different Gen 1 save files are downloaded.
+- [x] At least 3 different Gen 2 save files are downloaded.
+- [x] research-485-471-source-gen1-gen2-saves-manually
