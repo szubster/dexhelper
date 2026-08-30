@@ -23,5 +23,5 @@ Expose parsed experiment metadata to the dispatch engine.
 - Update `ParsedNode` interface and usage.
 
 ## Acceptance Criteria
-- [ ] Update `ParsedNode` to correctly hold the validated frontmatter including experiments.
-- [ ] Ensure the generated JSON output matrix includes the experiment variants.
+- [x] Update `ParsedNode` to correctly hold the validated frontmatter including experiments.
+- [x] Ensure the generated JSON output matrix includes the experiment variants.

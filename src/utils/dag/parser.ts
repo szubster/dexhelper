@@ -7,6 +7,7 @@ export interface FoundryNodeData {
   owner_persona: string;
   depends_on: string[];
   rejection_count: number;
+  experiment_variants?: string[] | undefined;
 }
 
 export function parseFoundryNode(rawContent: string): FoundryNodeData | null {
@@ -35,6 +36,7 @@ export function parseFoundryNode(rawContent: string): FoundryNodeData | null {
       owner_persona: data['owner_persona'],
       depends_on: data['depends_on'],
       rejection_count,
+      experiment_variants: Array.isArray(data['experiment_variants']) ? data['experiment_variants'] : undefined,
     };
   } catch {
     // If gray-matter fails to parse, return null
