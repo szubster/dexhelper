@@ -32,4 +32,4 @@ Implement Playwright E2E tests validating Safari Zone encounter extraction for G
 - Ensure integration between the data layer and static tables works properly.
 
 ## Acceptance Criteria
-- [ ] Gen 1 Playwright E2E tests are implemented and pass successfully.
+- [x] Gen 1 Playwright E2E tests are implemented and pass successfully.
