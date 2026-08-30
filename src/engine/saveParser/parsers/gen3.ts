@@ -227,7 +227,7 @@ const POKE_NEWS_COUNTDOWN_OFFSET = 0x02;
 const MISC_IV_EGG_ABILITY_OFFSET = 0x04;
 export const MET_LOCATION_OFFSET_IN_M = 1;
 const IS_EGG_BIT_SHIFT = 30;
-const GROWTH_FRIENDSHIP_OFFSET = 0x04;
+export const GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G = 0x04;
 const EGG_CYCLE_STEPS = 256;
 
 export const TM_POCKET_OFFSET_RS = 0x0640;
@@ -741,6 +741,7 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
       // In the decrypted GAEM buffer, G is at offset 0, A is at offset 12
       const speciesId = decryptedData.getUint16(0 + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
       const item = decryptedData.getUint16(0 + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
+      const friendship = decryptedData.getUint8(0 + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
 
       const move1 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
       const move2 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET, true);
@@ -761,6 +762,7 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
         isShiny: false, // We'll implement shiny calculation separately
         item: item > 0 ? item : undefined,
         moves,
+        friendship,
         personalityValue: pv,
         storageLocation: 'Party',
         hash: `${pv}-${otId}`,
@@ -823,6 +825,7 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
         // In the decrypted GAEM buffer, G is at offset 0, A is at offset 12
         const speciesId = decryptedData.getUint16(0 + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
         const item = decryptedData.getUint16(0 + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
+        const friendship = decryptedData.getUint8(0 + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
 
         const move1 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
         const move2 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET, true);
@@ -844,6 +847,7 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
           isShiny,
           item: item > 0 ? item : undefined,
           moves,
+          friendship,
           personalityValue: pv,
           storageLocation: `Box ${box + 1}`,
           slot,
@@ -1034,7 +1038,7 @@ export function parseGen3EggSteps(
       return null;
     }
 
-    const eggCycles = view.getUint8(growthSubstructureOffset + GROWTH_FRIENDSHIP_OFFSET);
+    const eggCycles = view.getUint8(growthSubstructureOffset + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
     return eggCycles * EGG_CYCLE_STEPS;
   } catch (error) {
     if (error instanceof RangeError) {
