@@ -26,5 +26,5 @@ notes: ''
 Implement reusable constants for Gen 3 Ribbon and Obedience bitfield bitmask offsets and lengths in src/engine/saveParser/parsers/gen3.ts.
 
 ## Acceptance Criteria
-- [ ] Define the 32-bit Ribbon and Obedience constants in src/engine/saveParser/parsers/gen3.ts.
-- [ ] Ensure constants are at module level and avoid magic numbers.
+- [x] Define the 32-bit Ribbon and Obedience constants in src/engine/saveParser/parsers/gen3.ts.
+- [x] Ensure constants are at module level and avoid magic numbers.
