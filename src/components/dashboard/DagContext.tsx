@@ -17,6 +17,7 @@ export interface DagNodeData extends Record<string, unknown> {
   owner_persona: string;
   depends_on: string[];
   rejection_count: number;
+  experiment_variants?: string[] | undefined;
   label?: string;
   isHighlighted?: boolean;
   isDimmed?: boolean;
@@ -138,6 +139,7 @@ export function DagProvider({ children }: { children: ReactNode }) {
               typeof node.data.depends_on === 'object' && Array.isArray(node.data.depends_on)
                 ? node.data.depends_on
                 : [],
+            experiment_variants: node.data.experiment_variants,
           },
           position: { x: 0, y: 0 }, // Initial position, layout will overwrite
         }));

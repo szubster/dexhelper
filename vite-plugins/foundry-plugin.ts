@@ -10,6 +10,7 @@ interface FoundryNodeData {
   owner_persona: string;
   depends_on: string[];
   rejection_count: number;
+  experiment_variants?: string[] | undefined;
 }
 
 export interface ParsedNode {
@@ -56,6 +57,7 @@ export function foundryPlugin(): Plugin {
                 owner_persona: data['owner_persona'],
                 depends_on: data['depends_on'],
                 rejection_count: typeof data['rejection_count'] === 'number' ? data['rejection_count'] : 0,
+                experiment_variants: Array.isArray(data['experiment_variants']) ? data['experiment_variants'] : undefined,
               },
             });
           }
