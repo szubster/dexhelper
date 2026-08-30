@@ -14,8 +14,15 @@ describe('getGenerationConfig', () => {
     expect(config.id).toBe(2);
   });
 
-  it('should throw an error for an unknown generation (e.g. Gen 3)', () => {
-    expect(() => getGenerationConfig(3)).toThrow('Unknown generation: 3');
+  it('should return the correct configuration for an existing generation (Gen 3)', () => {
+    const config = getGenerationConfig(3);
+    expect(config.id).toBe(3);
+    expect(config.label).toBe('Gen III');
+    expect(config.maxDex).toBe(386);
+  });
+
+  it('should throw an error for an unknown generation (e.g. Gen 4)', () => {
+    expect(() => getGenerationConfig(4)).toThrow('Unknown generation: 4');
   });
 
   it('should throw an error for generation 0', () => {

@@ -102,7 +102,7 @@ describe('parseGen3EVs', () => {
 });
 
 describe('gen3 parser scaffolding', () => {
-  it('isGen3Save should return false normally', () => {
+  it('isGen3Save should return false for small buffers', () => {
     const buffer = new ArrayBuffer(8);
     const view = new DataView(buffer);
     expect(isGen3Save(view)).toBe(false);
@@ -265,19 +265,19 @@ describe('gen3 parser scaffolding', () => {
   });
 
   it('isGen3Save should catch RangeError and return false', () => {
-    const buffer = new ArrayBuffer(8);
+    const buffer = new ArrayBuffer(0x20000);
     const view = new DataView(buffer);
 
-    // Mock getUint8 to throw RangeError
-    const originalGetUint8 = view.getUint8.bind(view);
-    view.getUint8 = () => {
+    // Mock getUint32 to throw RangeError
+    const originalGetUint32 = view.getUint32.bind(view);
+    view.getUint32 = () => {
       throw new RangeError('Out of bounds');
     };
 
     expect(isGen3Save(view)).toBe(false);
 
     // Restore
-    view.getUint8 = originalGetUint8;
+    view.getUint32 = originalGetUint32;
   });
 
   it('parseGen3 should catch RangeError when parsing berry patches and throw corrupted error', () => {
