@@ -68,6 +68,14 @@ import {
   parseGen3BattlePoints,
   parseGen3TotalBattlePoints,
 } from '../gen3/battleFrontier/parser';
+import {
+  CONDITION_BEAUTY_OFFSET,
+  CONDITION_COOL_OFFSET,
+  CONDITION_CUTE_OFFSET,
+  CONDITION_SHEEN_OFFSET,
+  CONDITION_SMART_OFFSET,
+  CONDITION_TOUGH_OFFSET,
+} from '../gen3/conditionStats/constants';
 import { parseGen3Daycare } from '../gen3/daycare/parser';
 import { parseGen3EventItems } from '../gen3/inventory/parser';
 import { parseGen3NarrativeFlags } from '../gen3/narrative/parser';
@@ -150,12 +158,6 @@ const ROAMER_CUTE_OFFSET = 0x10;
 const ROAMER_SMART_OFFSET = 0x11;
 const ROAMER_TOUGH_OFFSET = 0x12;
 
-const CONDITION_COOL_OFFSET = 0x06;
-const CONDITION_BEAUTY_OFFSET = 0x07;
-const CONDITION_CUTE_OFFSET = 0x08;
-const CONDITION_SMART_OFFSET = 0x09;
-const CONDITION_TOUGH_OFFSET = 0x0a;
-const CONDITION_SHEEN_OFFSET = 0x0b;
 export const RIBBONS_OFFSET_IN_M = 0x08;
 
 const RIBBON_RANK_MASK = 0x07;
