@@ -51,4 +51,4 @@ I identified that the "Orchestrator Safeguard (E2E/Integration Requirement)" was
 - Added explicit Playwright E2E Best Practices (timeout avoidance, Vite cache clearing, assuming pre-installed binaries) to core policies based on friction observed in Coder/Tech Lead journals and CEO feedback.
 - Consolidated redundancy by removing duplicated ADR 008 and Vitest mock constraints from react.md.
 - Standardized the Journaling Policies reference in coder.md and qa.md.
-- Created `task-000-493-update-jules-setup-script-playwright` to provide the CEO with the exact Playwright installation command (`npx playwright install --with-deps chromium`) needed to update the Jules setup script.
+- Created `.foundry/archive/tasks/task-000-493-update-jules-setup-script-playwright.md` to provide the CEO with the exact Playwright installation command (`npx playwright install --with-deps chromium`) needed to update the Jules setup script.
