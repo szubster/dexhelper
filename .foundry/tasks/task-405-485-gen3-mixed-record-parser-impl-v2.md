@@ -2,10 +2,10 @@
 id: task-405-485-gen3-mixed-record-parser-impl-v2
 type: TASK
 title: Implement Gen 3 Mixed Record Parser v2
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-30'
 depends_on:
   - research-405-471-investigate-mixed-record-parser-failure
 jules_session_id: null

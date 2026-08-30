@@ -2,7 +2,7 @@
 id: story-139-442-gen2-roamer-extraction-e2e
 type: STORY
 title: Gen 2 Roamer Extraction E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-21'
 updated_at: '2026-08-30'

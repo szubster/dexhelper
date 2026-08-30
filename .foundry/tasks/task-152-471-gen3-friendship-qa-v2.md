@@ -2,10 +2,10 @@
 id: task-152-471-gen3-friendship-qa-v2
 type: TASK
 title: QA Gen 3 Friendship Data Extraction (v2)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-23'
-updated_at: '2026-08-23'
+updated_at: '2026-08-30'
 depends_on:
   - task-152-470-gen3-friendship-impl-v2
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-152-470-gen3-friendship-impl-v2
 notes: ''
 ---
 

@@ -2,12 +2,12 @@
 id: task-477-498-gen3-pokeblock-constants
 type: TASK
 title: Implement Gen 3 Pokéblock Constants and Types
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-29'
 updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '7159529242794975272'
+jules_session_id: null
 pr_number: null
 parent: story-400-477-gen3-pokeblock-constants-types
 tags:

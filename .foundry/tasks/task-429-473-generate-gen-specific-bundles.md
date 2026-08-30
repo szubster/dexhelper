@@ -2,12 +2,12 @@
 id: task-429-473-generate-gen-specific-bundles
 type: TASK
 title: Generate Gen-Specific Bundles
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-23'
-updated_at: '2026-08-23'
+updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '1300348464815347291'
+jules_session_id: null
 pr_number: null
 parent: story-400-429-gen-specific-extensions
 tags:
@@ -15,7 +15,7 @@ tags:
   - architecture
   - bundles
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
 ---
 

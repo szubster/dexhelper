@@ -2,19 +2,19 @@
 id: story-404-477-kurt-apricorn-offset-and-constants
 type: STORY
 title: Kurt Apricorn Offset and Constants
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
 updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '8702146344913207409'
+jules_session_id: null
 pr_number: null
 parent: epic-338-404-kurt-apricorn-data-engine
 tags:
   - gen2
   - items
-rejection_count: 1
-rejection_reason: 'Suspended pending research to determine the exact memory offsets for Kurt Apricorn crafting state.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 # Kurt Apricorn Offset and Constants

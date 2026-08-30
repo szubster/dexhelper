@@ -2,19 +2,19 @@
 id: task-473-498-gen3-wallpaper-phrase-generator-impl
 type: TASK
 title: Implement Gen 3 Wallpaper Phrase Generator
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-27'
 updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '11283241383775798432'
+jules_session_id: null
 parent: story-335-473-gen3-wallpaper-phrase-generator
 tags:
   - gen3
   - customization
   - algorithm
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 ---
 
 # Implement Gen 3 Wallpaper Phrase Generator

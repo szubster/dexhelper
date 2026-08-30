@@ -2,12 +2,12 @@
 id: research-405-471-investigate-mixed-record-parser-failure
 type: RESEARCH
 title: Investigate Mixed Record Parser Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '18022819836563758032'
+jules_session_id: null
 pr_number: null
 parent: story-397-405-gen3-mixed-record-npc-data
 tags:

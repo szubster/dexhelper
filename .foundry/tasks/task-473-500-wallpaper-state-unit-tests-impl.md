@@ -2,15 +2,16 @@
 id: task-473-500-wallpaper-state-unit-tests-impl
 type: TASK
 title: Write Unit Tests for Gen 3 Wallpaper State Tracking
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-27'
-updated_at: '2026-08-27'
+updated_at: '2026-08-30'
 depends_on:
   - task-473-498-define-wallpaper-state-slice-impl
   - task-473-499-configure-wallpaper-state-persistence-impl
 jules_session_id: '11837106501657612616'
 parent: story-116-473-gen3-wallpaper-app-state-tracking-impl
+rejection_reason: ''
 ---
 
 # Write Unit Tests for Gen 3 Wallpaper State Tracking

@@ -2,7 +2,7 @@
 id: story-335-473-gen3-wallpaper-phrase-generator
 type: STORY
 title: Gen 3 Wallpaper Phrase Generator Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-25'
 updated_at: '2026-08-30'

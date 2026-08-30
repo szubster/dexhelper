@@ -2,7 +2,7 @@
 id: research-404-495-kurt-apricorn-offsets
 type: RESEARCH
 title: Investigate Kurt Apricorn Crafting Offsets
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-08-30'
 updated_at: '2026-08-30'

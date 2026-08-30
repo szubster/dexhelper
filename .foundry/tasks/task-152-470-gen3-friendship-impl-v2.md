@@ -2,10 +2,10 @@
 id: task-152-470-gen3-friendship-impl-v2
 type: TASK
 title: Implement Gen 3 Friendship Data Extraction (v2)
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-23'
-updated_at: '2026-08-24'
+updated_at: '2026-08-30'
 depends_on:
   - research-152-469-investigate-gen3-friendship-failure
 jules_session_id: '1590934103816804168'
@@ -16,8 +16,8 @@ tags:
   - save-parsing
   - friendship
 research_references: []
-rejection_count: 2
-rejection_reason: 'I am unable to correctly craft the 48-byte XOR encrypted mock buffer for unit testing, causing expected values to mismatch. Appended a research node for mock generation.'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

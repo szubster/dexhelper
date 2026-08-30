@@ -2,10 +2,10 @@
 id: task-470-485-source-gen1-gen2-saves
 type: TASK
 title: Source Public Gen 1 and Gen 2 Saves
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-24'
-updated_at: '2026-08-25'
+updated_at: '2026-08-30'
 depends_on: []
 jules_session_id: null
 pr_number: null

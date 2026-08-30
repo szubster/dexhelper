@@ -2,12 +2,12 @@
 id: research-485-471-source-gen1-gen2-saves-manually
 type: RESEARCH
 title: Manually Source Public Gen 1 and Gen 2 Saves
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '3091389664480911988'
+jules_session_id: null
 pr_number: null
 parent: task-470-485-source-gen1-gen2-saves
 tags:
@@ -15,7 +15,7 @@ tags:
   - data-sourcing
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 locks: []
 ---
