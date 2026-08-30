@@ -35,7 +35,7 @@ The Coder has implemented the Gen 3 Fame Checker parser. As the QA persona, veri
 - Run `pnpm lint` and `pnpm test` to ensure there are no errors.
 
 ## Acceptance Criteria
-- [ ] Parser correctly handles the 16-element array of bitfields.
-- [ ] Bitwise logic for `pickState` and the 6 `flavorTextFlags` is correct.
-- [ ] Unit tests adequately cover different values and bit flags.
-- [ ] Code passes linting and testing.
+- [x] Parser correctly handles the 16-element array of bitfields.
+- [x] Bitwise logic for `pickState` and the 6 `flavorTextFlags` is correct.
+- [x] Unit tests adequately cover different values and bit flags.
+- [x] Code passes linting and testing.
