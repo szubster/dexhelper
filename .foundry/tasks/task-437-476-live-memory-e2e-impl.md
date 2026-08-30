@@ -30,5 +30,5 @@ Implement automated E2E and integration tests for WASM memory hooking.
 - Verify memory is successfully mapped to standard save block parsers continuously.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for WASM memory hooking.
-- [ ] Verify continuous memory mapping to save block parsers.
+- [x] Implement Playwright E2E tests for WASM memory hooking.
+- [x] Verify continuous memory mapping to save block parsers.
