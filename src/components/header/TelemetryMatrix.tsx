@@ -40,13 +40,13 @@ export function TelemetryMatrix({ saveData, progressPercentage }: TelemetryMatri
           />
         </div>
       </div>
-      {('secretId' in saveData ? (saveData.secretId ?? 0) : 0) !== undefined && (
+      {'secretId' in saveData && typeof saveData.secretId === 'number' && (
         <>
           <VerticalDivider className="h-8" />
           <div className="flex h-full items-center justify-center pl-4">
             <RngTidSidDisplay
               tid={saveData.trainerId}
-              sid={'secretId' in saveData ? (saveData.secretId ?? 0) : 0}
+              sid={saveData.secretId}
               className="!p-0 h-full border-none bg-transparent"
             />
           </div>
