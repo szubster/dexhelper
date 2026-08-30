@@ -1,0 +1,20 @@
+--- src/engine/saveParser/parsers/gen2.ts
++++ src/engine/saveParser/parsers/gen2.ts
+@@ -594,7 +594,7 @@
+   const pc: number[] = [];
+   for (let i = 0; i < currentBoxCount; i++) {
+     const id = view.getUint8(offsets.currentBoxSpecies + i);
+-    if (id > 0 && id <= 251) pc.push(id);
++    if (id > 0 && (id <= 251 || id === GEN2_EGG_SPECIES_ID)) pc.push(id);
+   }
+
+   const pcDetails: PokemonInstance[] = [];
+@@ -630,7 +630,7 @@
+     if (count > 20) continue;
+     for (let j = 0; j < count; j++) {
+       const id = view.getUint8(offset + BOX_SPECIES_LIST_OFFSET + j);
+-      if (id > 0 && id <= 251) pc.push(id);
++      if (id > 0 && (id <= 251 || id === GEN2_EGG_SPECIES_ID)) pc.push(id);
+     }
+
+     const boxDataOffset = offset + BOX_DATA_BLOCK_OFFSET;
