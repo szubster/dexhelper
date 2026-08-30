@@ -47,4 +47,5 @@ Players often accidentally or deliberately skip trainers during their initial ro
 - [ ] .foundry/archive/epics/epic-109-306-missed-trainer-data-extraction-gen1-gen2.md
 - [ ] .foundry/epics/epic-109-307-missed-trainer-data-extraction-gen3.md
 - [ ] .foundry/archive/epics/epic-109-308-missed-trainer-radar-ui.md
+- [ ] epic-109-498-missed-trainer-ui-gen3
 - [x] Break down into Epics

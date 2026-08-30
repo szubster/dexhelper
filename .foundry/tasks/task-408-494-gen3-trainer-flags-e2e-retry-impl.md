@@ -8,6 +8,7 @@ created_at: '2026-08-26'
 updated_at: '2026-08-26'
 depends_on:
   - research-408-493-investigate-gen3-trainer-flags-e2e-failure
+  - epic-109-498-missed-trainer-ui-gen3
 jules_session_id: '18191178818735950489'
 pr_number: null
 parent: story-307-408-gen3-trainer-flags-extraction-e2e
