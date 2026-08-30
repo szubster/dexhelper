@@ -32,6 +32,6 @@ To parse the Pokéblock case from Gen 3 save files, we need to define the exact 
 5. Ensure these types are appropriately exported and documented.
 
 ## Acceptance Criteria
-- [ ] Constants for Pokéblock memory offsets and sizes are implemented.
-- [ ] TypeScript interfaces for `Pokeblock` and `PokeblockColor` enum are implemented.
-- [ ] Variables map exactly to the known structure.
+- [x] Constants for Pokéblock memory offsets and sizes are implemented.
+- [x] TypeScript interfaces for `Pokeblock` and `PokeblockColor` enum are implemented.
+- [x] Variables map exactly to the known structure.
