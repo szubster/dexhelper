@@ -148,12 +148,12 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* Global CRT Curvature & Vignette Overlay */}
-        <div className="pointer-events-none absolute inset-[24px] z-50 rounded-[4px] shadow-[inset_0_0_150px_rgba(0,0,0,0.9)]" />
-        <div className="pointer-events-none absolute inset-[24px] z-50 rounded-[4px] border border-white/5" />
+        <div className="pointer-events-none absolute inset-[24px] z-50 rounded-none shadow-[inset_0_0_150px_rgba(0,0,0,0.9)]" />
+        <div className="pointer-events-none absolute inset-[24px] z-50 rounded-none border border-white/5" />
       </div>
 
       {/* Screen Area */}
-      <div className="custom-scrollbar absolute inset-[24px] overflow-y-auto overflow-x-hidden rounded-[4px] bg-zinc-950 pb-24 lg:pb-0">
+      <div className="custom-scrollbar absolute inset-[24px] overflow-y-auto overflow-x-hidden rounded-none bg-zinc-950 pb-24 lg:pb-0">
         <div className="relative z-10 mx-auto flex min-h-full flex-col">
           <AppHeader
             saveData={saveData}
