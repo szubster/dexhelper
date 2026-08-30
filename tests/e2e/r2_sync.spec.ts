@@ -238,4 +238,71 @@ test.describe('Cloudflare R2 Offline-First Save Syncing', () => {
         .first(),
     ).toBeVisible({ timeout: 10000 });
   });
+
+  test.describe('Conflict Resolution Modal', () => {
+    test('should display conflict modal and resolve by keeping local', async ({ page }) => {
+      const yellowPath = path.join('tests', 'fixtures', 'yellow.sav');
+      const yellowBuffer = fs.readFileSync(yellowPath);
+      await clearStorage(page);
+      await page.goto('.');
+      await waitForSync(page);
+      await page.evaluate(async (buffer) => {
+        const store = window.useStore.getState();
+        store.setConflictState({
+          isOpen: true,
+          localMetadata: { timestamp: 1600000000000, gameTime: '10:00' },
+          remoteMetadata: { timestamp: 1700000000000, gameTime: '15:00' },
+          localBuffer: new Uint8Array(buffer),
+          remoteBuffer: new Uint8Array(buffer),
+          saveId: 'save-1',
+        });
+      }, Array.from(yellowBuffer));
+
+      await expect(page.getByText('Save File Conflict')).toBeVisible();
+      await expect(page.getByRole('heading', { name: 'Local Save' })).toBeVisible();
+      await expect(page.getByRole('heading', { name: 'Cloud Save' })).toBeVisible();
+      await expect(page.getByText('10:00')).toBeVisible();
+      await expect(page.getByText('15:00')).toBeVisible();
+
+      await page.getByRole('button', { name: 'Keep Local' }).click();
+      await expect(page.getByText('Save File Conflict')).toBeHidden();
+      await expect(
+        page
+          .locator('header')
+          .getByText(/YELLOW/i)
+          .first(),
+      ).toBeVisible({ timeout: 10000 });
+    });
+
+    test('should display conflict modal and resolve by pulling remote', async ({ page }) => {
+      const yellowPath = path.join('tests', 'fixtures', 'yellow.sav');
+      const yellowBuffer = fs.readFileSync(yellowPath);
+      await clearStorage(page);
+      await page.goto('.');
+      await waitForSync(page);
+      await page.evaluate(async (buffer) => {
+        const store = window.useStore.getState();
+        store.setConflictState({
+          isOpen: true,
+          localMetadata: { timestamp: 1600000000000, gameTime: '10:00' },
+          remoteMetadata: { timestamp: 1700000000000, gameTime: '15:00' },
+          localBuffer: new Uint8Array(buffer),
+          remoteBuffer: new Uint8Array(buffer),
+          saveId: 'save-1',
+        });
+      }, Array.from(yellowBuffer));
+
+      await expect(page.getByText('10:00')).toBeVisible();
+      await expect(page.getByText('15:00')).toBeVisible();
+
+      await page.getByRole('button', { name: 'Pull Remote' }).click();
+      await expect(page.getByText('Save File Conflict')).toBeHidden();
+      await expect(
+        page
+          .locator('header')
+          .getByText(/YELLOW/i)
+          .first(),
+      ).toBeVisible({ timeout: 10000 });
+    });
+  });
 });

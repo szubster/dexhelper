@@ -8,6 +8,18 @@ import { pokeDB } from './db/PokeDB';
 import { queryClient } from './queryClient';
 import { routeTree } from './routeTree.gen';
 import './index.css';
+import { useStore } from './store';
+
+declare global {
+  interface Window {
+    useStore: typeof useStore;
+  }
+}
+
+// Expose store to window for E2E testing
+if (import.meta.env.MODE === 'development' || import.meta.env.MODE === 'test') {
+  window.useStore = useStore;
+}
 
 // Initialize and sync PokeData
 pokeDB.sync().catch(() => console.error('System: sync failed'));
