@@ -30,4 +30,4 @@ Investigate how to integrate Gen 3 Party and PC Box parsing into `parseGen3` so 
 The Gen 3 Contest Data Mapping task requires mapping contest stats and ribbons to `PokemonInstance` objects in `parseGen3`. However, the Party and PC Box parsing logic is currently stubbed out (returning `[]`). This research node should determine how to properly integrate the pending party/pc extraction logic (once the memory offsets are known from the Gen 3 memory offsets research) into the main parser.
 
 ## Acceptance Criteria
-- [ ] Document the integration strategy for iterating through Gen 3 Party and PC Box Pokémon within `parseGen3`.
+- [x] Document the integration strategy for iterating through Gen 3 Party and PC Box Pokémon within `parseGen3`.

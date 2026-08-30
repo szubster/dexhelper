@@ -154,6 +154,7 @@ const CONDITION_CUTE_OFFSET = 0x08;
 const CONDITION_SMART_OFFSET = 0x09;
 const CONDITION_TOUGH_OFFSET = 0x0a;
 const CONDITION_SHEEN_OFFSET = 0x0b;
+export const RIBBONS_OFFSET_IN_M = 0x08;
 
 const RIBBON_RANK_MASK = 0x07;
 const RIBBON_COOL_SHIFT = 0;
@@ -772,6 +773,8 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
           spdef: view.getUint16(offset + GEN3_PARTY_SPDEF_OFFSET, true),
         },
         evs: parseGen3EVs(decryptedData, 2 * SUBSTRUCTURE_SIZE),
+        condition: parseGen3ConditionStats(decryptedData, 2 * SUBSTRUCTURE_SIZE),
+        ribbons: parseGen3Ribbons(decryptedData, 3 * SUBSTRUCTURE_SIZE + RIBBONS_OFFSET_IN_M),
       });
     }
   } catch (error) {
@@ -844,6 +847,8 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
           storageLocation: `Box ${box + 1}`,
           slot,
           evs: parseGen3EVs(decryptedData, 2 * SUBSTRUCTURE_SIZE),
+          condition: parseGen3ConditionStats(decryptedData, 2 * SUBSTRUCTURE_SIZE),
+          ribbons: parseGen3Ribbons(decryptedData, 3 * SUBSTRUCTURE_SIZE + RIBBONS_OFFSET_IN_M),
         };
 
         pc.push(speciesId);
