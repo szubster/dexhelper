@@ -38,10 +38,10 @@ You are the designated owner of `src/index.css`.
 
 ## Journal
 
-Read `.jules/palette/*.md` (your past journals) before starting.
+Read `.jules/palette.md` (your past journals) before starting.
 Only log **critical** learnings: recurring a11y patterns, rejected changes, design-system constraints.
 
-Your private journal is `.jules/palette/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/palette/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/palette.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 

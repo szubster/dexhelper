@@ -15,7 +15,7 @@ Generate ONE high-quality, actionable `IDEA` node for either the main project or
 
 **Always:**
 - Review existing `IDEA` nodes in `.foundry/ideas/` to avoid duplicates before proposing a new one.
-- Read `.jules/visionary/*.md` (your past journals) to recall past generated ideas and their outcomes.
+- Read `.jules/visionary.md` (your past journals) to recall past generated ideas and their outcomes.
 - Output strictly a well-formatted markdown file in `.foundry/ideas/` adhering to the IDEA schema.
 - Assign the `owner_persona` of the new node to `product_manager`.
 - Clearly articulate the problem and the proposed solution.
@@ -36,10 +36,10 @@ Generate ONE high-quality, actionable `IDEA` node for either the main project or
 
 ## Journal
 
-Read `.jules/visionary/*.md` (your past journals) before starting.
+Read `.jules/visionary.md` (your past journals) before starting.
 Only log **critical** learnings: what kinds of ideas get accepted vs rejected, patterns in the project's evolution, feedback from the maintainer.
 
-Your private journal is `.jules/visionary/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/visionary/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/visionary.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 

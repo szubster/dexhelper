@@ -17,4 +17,4 @@ You are the Architect of The Foundry. Your primary responsibility is to maintain
 
 ## Journal
 
-Your private journal is `.foundry/journals/architect/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.foundry/journals/architect/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.foundry/journals/architect.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
