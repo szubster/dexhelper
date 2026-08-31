@@ -30,6 +30,6 @@ Write E2E tests for player, location, trainer, and opponent extraction.
 Write Playwright E2E test cases simulating uploading the Gen 3 mock fixture. Assert that the player's active team, location, nearest trainer, and opponent data are correctly extracted and rendered on the UI according to the system specifications.
 
 ## Acceptance Criteria
-- [ ] Playwright E2E tests are written for player, location, trainer, and opponent extraction.
-- [ ] Tests simulate save file upload and assert correct UI rendering of the extracted data.
-- [ ] Tests execute successfully via `xvfb-run pnpm test:e2e`.
+- [x] Playwright E2E tests are written for player, location, trainer, and opponent extraction.
+- [x] Tests simulate save file upload and assert correct UI rendering of the extracted data.
+- [x] Tests execute successfully via `xvfb-run pnpm test:e2e`.
