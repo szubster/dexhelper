@@ -4,6 +4,7 @@
 | --- | --- | --- | --- | --- |
 | [epic-044-071-hof-certificate-rendering](.foundry/epics/epic-044-071-hof-certificate-rendering.md) | EPIC | Hall of Fame Certificate Generation | story_owner | [2155902724617133981](https://jules.google.com/session/2155902724617133981) |
 | [epic-057-420-bash-timeout-wrapper-retry](.foundry/epics/epic-057-420-bash-timeout-wrapper-retry.md) | EPIC | Timeout Wrapper for Bash Sessions (Retry) | story_owner | [17412882890756007006](https://jules.google.com/session/17412882890756007006) |
+| [epic-107-344-update-dashboard-rejection-count](.foundry/epics/epic-107-344-update-dashboard-rejection-count.md) | EPIC | Update UI Views with Lifted Constant | story_owner | [15535767980731463478](https://jules.google.com/session/15535767980731463478) |
 | [epic-343-425-reactive-ui-updates](.foundry/epics/epic-343-425-reactive-ui-updates.md) | EPIC | Reactive UI Updates | story_owner | [10398295121444200675](https://jules.google.com/session/10398295121444200675) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
