@@ -42,9 +42,10 @@ async function aggregateJournals(baseDir: string, archiveBaseDir: string) {
       const separator = `\n\n---\n\n`;
       await fs.appendFile(masterFilePath, `${separator}${content}`);
 
-      // Delete the processed file
-      await fs.unlink(filePath);
-      console.log(`Aggregated and deleted: ${filePath}`);
+      // Archive the processed file
+      const archiveFilePath = path.join(archivePersonaDir, file);
+      await fs.rename(filePath, archiveFilePath);
+      console.log(`Aggregated and archived: ${filePath} -> ${archiveFilePath}`);
     }
   }
 }

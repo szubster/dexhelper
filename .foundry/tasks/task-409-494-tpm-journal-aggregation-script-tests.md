@@ -26,5 +26,5 @@ notes: ''
 Implement unit tests for the TPM journal aggregation script to ensure correct aggregation and archiving behavior.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for `.github/scripts/aggregate-journals.ts` covering aggregation functionality.
-- [ ] Write unit tests to verify the archiving of processed original `.md` files into correct archive locations.
+- [x] Write unit tests for `.github/scripts/aggregate-journals.ts` covering aggregation functionality.
+- [x] Write unit tests to verify the archiving of processed original `.md` files into correct archive locations.
