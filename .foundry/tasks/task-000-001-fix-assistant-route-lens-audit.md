@@ -1,0 +1,24 @@
+---
+id: task-000-001-fix-assistant-route-lens-audit
+type: TASK
+depends_on: []
+parent: null
+owner_persona: tech_lead
+title: Fix Missing /assistant Route
+status: READY
+created_at: 2026-08-31T04:10:00Z
+updated_at: 2026-08-31T04:10:00Z
+jules_session_id: dummy_session
+rejection_count: 0
+rejection_reason: ""
+---
+
+# Fix Missing `/assistant` Route
+
+## Context
+During a visual QA audit by the `lens` agent, it was discovered that the `/assistant` route is missing or broken. When navigating to `/assistant`, the application displays a generic error page, or indicates that the server is configured with a public base URL of `/dexhelper/` and suggests `/dexhelper/assistant`, but the routing appears to fail.
+
+## Acceptance Criteria
+- [ ] Investigate the routing configuration for the `/assistant` endpoint.
+- [ ] Fix the routing issue so the assistant view loads correctly.
+- [ ] Add or update E2E tests to verify the assistant route is accessible.
