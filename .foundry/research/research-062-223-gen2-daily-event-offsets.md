@@ -28,5 +28,5 @@ During the audit of `epic-038-061-gen2-event-flag-parsing`, it was confirmed tha
 Identify and document the precise bit offsets and memory locations for Gen 2 time-gated daily and weekly events.
 
 ## Tasks
-- [ ] Investigate the exact bit flags in `wEventFlags` (or other RAM locations) that track the completion of daily/weekly events.
-- [ ] Document these offsets for consumption by the UI data layer.
+- [x] Investigate the exact bit flags in `wEventFlags` (or other RAM locations) that track the completion of daily/weekly events.
+- [x] Document these offsets for consumption by the UI data layer.
