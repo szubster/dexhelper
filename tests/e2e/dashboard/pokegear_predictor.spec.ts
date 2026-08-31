@@ -29,4 +29,48 @@ test.describe('Pokegear Predictor Engine & UI', () => {
 
     expect(hasAnyContact || hasSearching).toBeTruthy();
   });
+
+  test('should expose and successfully evaluate Pokegear predictor engine logic via window', async ({ page }) => {
+    // Navigate to any page to ensure app is loaded and window is populated
+    await page.goto('./dashboard');
+
+    // Evaluate the engine logic exposed on window
+    const engineTestResults = await page.evaluate(() => {
+      if (!window.checkPhoneCall || !window.chooseRandomCaller) {
+        throw new Error('Predictor engine functions not exposed on window');
+      }
+
+      const timerStateNoDelay = { delayMinsRemaining: 0, timeCyclesSinceLastCall: 5 };
+      const timerStateDelay = { delayMinsRemaining: 10, timeCyclesSinceLastCall: 0 };
+
+      const noDelayWillCall = window.checkPhoneCall(timerStateNoDelay, 0); // masked < 64 (true)
+      const noDelayWontCall = window.checkPhoneCall(timerStateNoDelay, 64); // masked >= 64 (false)
+      const delayWontCall = window.checkPhoneCall(timerStateDelay, 0); // delay > 0 (false)
+
+      const contacts = [
+        { id: 1, name: 'Mom' },
+        { id: 2, name: 'Prof. Elm' },
+      ];
+      const caller1 = window.chooseRandomCaller(contacts, 0); // 0 % 2 = 0 (Mom)
+      const caller2 = window.chooseRandomCaller(contacts, 1); // 1 % 2 = 1 (Prof. Elm)
+      const noCaller = window.chooseRandomCaller([], 0);
+
+      return {
+        noDelayWillCall,
+        noDelayWontCall,
+        delayWontCall,
+        caller1Id: caller1?.id,
+        caller2Id: caller2?.id,
+        noCallerIsNull: noCaller === null,
+      };
+    });
+
+    expect(engineTestResults.noDelayWillCall).toBe(true);
+    expect(engineTestResults.noDelayWontCall).toBe(false);
+    expect(engineTestResults.delayWontCall).toBe(false);
+
+    expect(engineTestResults.caller1Id).toBe(1);
+    expect(engineTestResults.caller2Id).toBe(2);
+    expect(engineTestResults.noCallerIsNull).toBe(true);
+  });
 });
