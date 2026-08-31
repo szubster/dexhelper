@@ -44,4 +44,5 @@ Establish a formal signaling mechanism and promotion workflow across Foundry and
 
 ## Next Steps / Acceptance Criteria
 - [x] Product Manager: Draft this IDEA node to initiate work on WIP/Draft artifact signaling and promotion for Foundry and DexHelper.
-- [ ] Product Manager: Convert this IDEA into a PRD detailing schema updates, documentation standards, code feature flag rules, and promotion workflows for WIP artifacts.
+- [x] Product Manager: Convert this IDEA into a PRD detailing schema updates, documentation standards, code feature flag rules, and promotion workflows for WIP artifacts.
+- [ ] prd-151-346-wip-draft-signaling
