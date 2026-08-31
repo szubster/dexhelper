@@ -26,5 +26,7 @@ notes: ''
 Migrate existing tests that verify agent process rules (e.g., in `.github/agents/*.md`) from brittle exact string matching to the new semantic validation utility, ensuring resilience against prompt refactoring.
 
 ## Acceptance Criteria
-- [ ] Break down this Epic into Stories.
-- [ ] Ensure a final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [x] Break down this Epic into Stories.
+- [x] Ensure a final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [ ] story-418-494-agent-test-migration-core
+- [ ] story-418-495-agent-test-migration-e2e
