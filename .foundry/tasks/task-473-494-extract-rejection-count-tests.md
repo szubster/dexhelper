@@ -25,5 +25,5 @@ notes: ''
 Ensure the `rejection_count` extraction logic is fully tested and robust against missing or malformed data.
 
 ## Acceptance Criteria
-- [ ] Add unit tests in `src/utils/dag/parser.test.ts` to verify successful `rejection_count` extraction.
-- [ ] Add unit tests to verify the fallback behavior when `rejection_count` is omitted.
+- [x] Add unit tests in `src/utils/dag/parser.test.ts` to verify successful `rejection_count` extraction.
+- [x] Add unit tests to verify the fallback behavior when `rejection_count` is omitted.
