@@ -2,12 +2,12 @@
 id: task-477-502-pokedata-plugin-refactor-impl
 type: TASK
 title: Refactor pokedata plugin to emit multiple bundles logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-30'
-updated_at: '2026-08-30'
+updated_at: '2026-08-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4046395032642001090'
 pr_number: null
 parent: story-419-477-pokedata-plugin-refactor
 tags:
