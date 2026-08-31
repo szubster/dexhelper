@@ -34,5 +34,5 @@ Pal Park Migration Planner requires highlighting high-value held items (like Mas
 - Define constants for high-value items (`PAL_PARK_HIGH_VALUE_ITEMS`) in `src/engine/palPark/itemIdentification.ts`. These constants should be Gen 3 item IDs (refer to `PokeDB` or external references for Gen 3 item IDs). Example: Leftovers, Master Ball, various Berries.
 
 ## Acceptance Criteria
-- [ ] Implement `PAL_PARK_HIGH_VALUE_ITEMS` constants array.
-- [ ] Export the constants explicitly.
+- [x] Implement `PAL_PARK_HIGH_VALUE_ITEMS` constants array.
+- [x] Export the constants explicitly.
