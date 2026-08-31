@@ -31,9 +31,6 @@ This directory contains all save fixtures used for parsing and integration testi
 - **gold-tid-65525.sav** (Version: gold)
   - Original: `./tests/fixtures/saves/gen2/Pokemon Gold - TID 65525.sav`
 
-- **crystal-bxtj-0.sav** (Version: crystal)
-  - Original: `./tests/fixtures/saves/gen2/PM_CRYSTAL_BXTJ-0.sav`
-
 - **silver-ue-c.sav** (Version: silver)
   - Original: `./tests/fixtures/saves/gen2/Pokemon - Silver Version (UE) [C][!].sav`
 
