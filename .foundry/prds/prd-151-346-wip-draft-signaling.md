@@ -2,7 +2,7 @@
 id: prd-151-346-wip-draft-signaling
 type: PRD
 title: Work-in-Progress and Draft Artifact Signaling
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-08-31'
 updated_at: '2026-08-31'
@@ -18,6 +18,7 @@ tags:
   - documentation
   - wip
 research_references: []
+rejection_reason: ''
 ---
 
 # PRD: Work-in-Progress and Draft Artifact Signaling across Foundry and DexHelper

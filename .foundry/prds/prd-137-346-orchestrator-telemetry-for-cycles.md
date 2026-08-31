@@ -2,7 +2,7 @@
 id: prd-137-346-orchestrator-telemetry-for-cycles
 type: PRD
 title: Orchestrator Telemetry For Cycles
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-08-31'
 updated_at: '2026-08-31'

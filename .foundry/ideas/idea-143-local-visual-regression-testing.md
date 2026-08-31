@@ -2,12 +2,12 @@
 id: idea-143-local-visual-regression-testing
 type: IDEA
 title: Local Visual Regression Testing & Component Diffing
-status: ACTIVE
+status: PENDING
 owner_persona: canvas
 created_at: '2026-08-09'
 updated_at: '2026-08-31'
 depends_on: []
-jules_session_id: '2863942919019181420'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
