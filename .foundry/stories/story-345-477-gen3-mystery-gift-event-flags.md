@@ -2,7 +2,7 @@
 id: story-345-477-gen3-mystery-gift-event-flags
 type: STORY
 title: Gen 3 Mystery Gift Event Flags Extraction
-status: READY
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-08-26'
 updated_at: '2026-08-29'
@@ -16,8 +16,8 @@ tags:
   - mystery-gift
   - data-extraction
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Suspended pending research for exact event flag bit indices/offsets.'
 notes: ''
 ---
 
@@ -29,3 +29,4 @@ This story focuses on extracting the active event flags associated with Mystery 
 ## Acceptance Criteria
 - [ ] Extract active event flags associated with Mystery Gift.
 - [ ] Tech Lead: Break down this Story into manageable Tasks.
+- [ ] research-477-506-gen3-mystery-gift-event-flag-offsets
