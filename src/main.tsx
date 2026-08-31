@@ -8,22 +8,17 @@ import { pokeDB } from './db/PokeDB';
 import { queryClient } from './queryClient';
 import { routeTree } from './routeTree.gen';
 import './index.css';
-import { checkPhoneCall, chooseRandomCaller } from './engine/saveParser/parsers/gen2/phone/predictor';
 import { useStore } from './store';
 
 declare global {
   interface Window {
     useStore: typeof useStore;
-    checkPhoneCall: typeof checkPhoneCall;
-    chooseRandomCaller: typeof chooseRandomCaller;
   }
 }
 
 // Expose store to window for E2E testing
 if (import.meta.env.MODE === 'development' || import.meta.env.MODE === 'test') {
   window.useStore = useStore;
-  window.checkPhoneCall = checkPhoneCall;
-  window.chooseRandomCaller = chooseRandomCaller;
 }
 
 // Initialize and sync PokeData
