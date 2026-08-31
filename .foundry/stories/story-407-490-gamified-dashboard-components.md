@@ -2,12 +2,12 @@
 id: story-407-490-gamified-dashboard-components
 type: STORY
 title: Gamified Dashboard UI Components
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-08-31'
 depends_on: []
-jules_session_id: '12068839889704577207'
+jules_session_id: '9553745048822593468'
 pr_number: null
 parent: epic-339-407-gamified-dashboard-ui
 tags:
