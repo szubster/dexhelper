@@ -10,6 +10,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [research-062-223-gen2-daily-event-offsets](.foundry/research/research-062-223-gen2-daily-event-offsets.md) | RESEARCH | Investigate Gen 2 Daily and Weekly Event Offsets | researcher | [4540446449863576493](https://jules.google.com/session/4540446449863576493) |
 | [research-360-471-investigate-gen3-roamer-e2e-failure](.foundry/research/research-360-471-investigate-gen3-roamer-e2e-failure.md) | RESEARCH | Investigate Gen 3 Roamer E2E Test Failure | researcher | [9528661489058889863](https://jules.google.com/session/9528661489058889863) |
 | [story-338-477-gen2-unown-dex-parsing](.foundry/stories/story-338-477-gen2-unown-dex-parsing.md) | STORY | Parse Gen 2 Caught Unown Forms | tech_lead | [11726065761516329135](https://jules.google.com/session/11726065761516329135) |
 | [story-338-478-gen2-ruins-of-alph-puzzle-flags](.foundry/stories/story-338-478-gen2-ruins-of-alph-puzzle-flags.md) | STORY | Parse Gen 2 Ruins of Alph Puzzle Flags | tech_lead | [16133492314478480356](https://jules.google.com/session/16133492314478480356) |
