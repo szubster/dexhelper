@@ -28,6 +28,6 @@ notes: ''
 Following the research into the failure of the initial implementation, this task implements the parsing logic to extract Gen 3 Mixed Record NPC Data.
 
 ## Acceptance Criteria
-- [ ] Implement a parsing function using the defined constants and the `DataView` API based on the research findings.
-- [ ] Ensure strict adherence to Section 13 of `.foundry/docs/schema.md` (no magic numbers, relative offsets, RangeError handling).
-- [ ] Write unit tests demonstrating correct extraction.
+- [x] Implement a parsing function using the defined constants and the `DataView` API based on the research findings.
+- [x] Ensure strict adherence to Section 13 of `.foundry/docs/schema.md` (no magic numbers, relative offsets, RangeError handling).
+- [x] Write unit tests demonstrating correct extraction.
