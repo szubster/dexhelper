@@ -2,13 +2,13 @@
 id: task-445-499-prompt-fragment-layering-e2e-qa
 type: TASK
 title: QA - Prompt Fragment Layering E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-27'
-updated_at: '2026-08-30'
+updated_at: '2026-08-31'
 depends_on:
   - task-445-498-prompt-fragment-layering-e2e-tests
-jules_session_id: '15675901633822636179'
+jules_session_id: null
 parent: story-417-445-prompt-fragment-layering-e2e
 tags:
   - foundry
