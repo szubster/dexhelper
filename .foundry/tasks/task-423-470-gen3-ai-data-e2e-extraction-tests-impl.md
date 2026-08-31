@@ -2,13 +2,13 @@
 id: task-423-470-gen3-ai-data-e2e-extraction-tests-impl
 type: TASK
 title: Write Playwright E2E Tests for Gen 3 AI Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-08-30'
+updated_at: '2026-08-31'
 depends_on:
   - task-423-469-gen3-ai-data-e2e-fixtures-impl
-jules_session_id: null
+jules_session_id: '9069885854250470953'
 pr_number: null
 parent: story-411-423-gen3-ai-data-extraction-e2e
 tags:
