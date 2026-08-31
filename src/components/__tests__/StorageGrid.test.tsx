@@ -333,8 +333,8 @@ test('renders TimeCapsuleValidation tags when moves are empty array', async () =
               isShiny: false,
               hash: '',
               otName: 'RED',
-              moves: []
-            }
+              moves: [],
+            },
           ],
           pcDetails: [],
         },
