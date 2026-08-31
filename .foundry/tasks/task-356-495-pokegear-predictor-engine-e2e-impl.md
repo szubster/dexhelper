@@ -31,4 +31,4 @@ Implement end-to-end tests for the Pokegear call predictor engine to satisfy the
 - Ensure all tests pass.
 
 ## Acceptance Criteria
-- [ ] Implement E2E test suite for Pokegear Predictor engine
+- [x] Implement E2E test suite for Pokegear Predictor engine
