@@ -5,12 +5,9 @@ import { NavButton } from './NavButton';
 import { TelemetryDecoration } from './TelemetryDecoration';
 
 export function BottomNav() {
-  const saveData = useStore((s) => s.saveData);
   const setIsSettingsOpen = useStore((s) => s.setIsSettingsOpen);
   const isSettingsOpen = useStore((s) => s.isSettingsOpen);
   const location = useLocation();
-
-  if (!saveData) return null;
 
   const isDex = location.pathname === '/' || location.pathname.startsWith('/pokemon');
   const isStorage = location.pathname === '/storage';
