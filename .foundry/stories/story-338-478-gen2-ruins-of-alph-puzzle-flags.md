@@ -23,6 +23,9 @@ rejection_reason: ''
 To accurately track Unown progress, we need to know which sliding puzzles the player has completed in the Ruins of Alph (Kabuto, Aerodactyl, Ho-Oh, Omanyte). These puzzle completions unlock more Unown forms.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
 - [ ] Implement parsing logic to extract the event flags for the four Ruins of Alph puzzles.
 - [ ] Ensure unit tests are added to verify correct parsing of event flags.
+- [ ] task-478-506-gen2-ruins-of-alph-constants
+- [ ] task-478-507-gen2-ruins-of-alph-parsing-logic
+- [ ] task-478-508-gen2-ruins-of-alph-qa
