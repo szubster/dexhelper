@@ -2,12 +2,12 @@
 id: task-477-502-save-parser-lazy-loading-impl
 type: TASK
 title: Implement lazy loading for generation-specific save parsers
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-29'
 updated_at: '2026-08-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8334147141131137844'
 pr_number: null
 parent: story-417-477-save-parser-code-splitting
 tags:
