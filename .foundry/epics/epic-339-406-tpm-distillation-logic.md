@@ -2,13 +2,13 @@
 id: epic-339-406-tpm-distillation-logic
 type: EPIC
 title: TPM Distillation and Archival Logic
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-07'
-updated_at: '2026-08-23'
+updated_at: '2026-08-31'
 depends_on:
   - epic-339-405-orchestrator-archive-bypass
-jules_session_id: null
+jules_session_id: '9641389618674614283'
 pr_number: null
 parent: prd-129-339-epic-level-distillation-archival
 tags:
