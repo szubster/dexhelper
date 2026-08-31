@@ -17,7 +17,10 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 1
-rejection_reason: 'Japanese Crystal saves use different memory offsets (e.g. 0x281a for party) and our engine does not support them yet. Please implement JP Gen 2 offset support or remove the fixture.'
+rejection_reason: >-
+  [ACKNOWLEDGED] Japanese Crystal saves use different memory offsets (e.g.
+  0x281a for party) and our engine does not support them yet. Please implement
+  JP Gen 2 offset support or remove the fixture.
 notes: ''
 locks: []
 ---
