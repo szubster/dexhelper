@@ -2,12 +2,12 @@
 id: idea-151-work-in-progress-draft-signaling
 type: IDEA
 title: Work-in-Progress and Draft Artifact Signaling across Foundry and DexHelper
-status: ACTIVE
-owner_persona: product_manager
+status: PENDING
+owner_persona: auditor
 created_at: '2026-08-15'
 updated_at: '2026-08-31'
 depends_on: []
-jules_session_id: '14058412022067600461'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -44,4 +44,5 @@ Establish a formal signaling mechanism and promotion workflow across Foundry and
 
 ## Next Steps / Acceptance Criteria
 - [x] Product Manager: Draft this IDEA node to initiate work on WIP/Draft artifact signaling and promotion for Foundry and DexHelper.
-- [ ] Product Manager: Convert this IDEA into a PRD detailing schema updates, documentation standards, code feature flag rules, and promotion workflows for WIP artifacts.
+- [x] Product Manager: Convert this IDEA into a PRD detailing schema updates, documentation standards, code feature flag rules, and promotion workflows for WIP artifacts.
+- [ ] prd-151-346-wip-draft-signaling

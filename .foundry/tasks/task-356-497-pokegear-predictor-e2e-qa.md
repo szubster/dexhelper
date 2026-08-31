@@ -2,10 +2,10 @@
 id: task-356-497-pokegear-predictor-e2e-qa
 type: TASK
 title: QA Pokegear Predictor E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-08-31'
 depends_on:
   - task-356-495-pokegear-predictor-engine-e2e-impl
   - task-356-496-pokegear-predictor-ui-e2e-impl

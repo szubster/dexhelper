@@ -2,7 +2,7 @@
 id: task-348-462-gen3-ash-ui-impl
 type: TASK
 title: 'Task: Implement Gen 3 Volcanic Ash UI Integration'
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-22T10:49:07Z'
 updated_at: '2026-08-31'
@@ -16,8 +16,8 @@ tags:
   - ash
   - ui
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 
