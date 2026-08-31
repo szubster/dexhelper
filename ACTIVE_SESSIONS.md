@@ -8,6 +8,7 @@
 | [epic-121-405-gen3-e-reader-event-dashboard-ui](.foundry/epics/epic-121-405-gen3-e-reader-event-dashboard-ui.md) | EPIC | Gen 3 E-Reader Event Dashboard UI | story_owner | [11522196081407239670](https://jules.google.com/session/11522196081407239670) |
 | [epic-339-406-tpm-distillation-logic](.foundry/epics/epic-339-406-tpm-distillation-logic.md) | EPIC | TPM Distillation and Archival Logic | story_owner | [9641389618674614283](https://jules.google.com/session/9641389618674614283) |
 | [epic-343-418-agent-test-migration](.foundry/epics/epic-343-418-agent-test-migration.md) | EPIC | Agent Test Migration to Semantic Validation | story_owner | [12113325506310725835](https://jules.google.com/session/12113325506310725835) |
+| [idea-000-137-orchestrator-telemetry-for-cycles](.foundry/ideas/idea-000-137-orchestrator-telemetry-for-cycles.md) | IDEA | Orchestrator Telemetry For Cycles | product_manager | [17576795163650305783](https://jules.google.com/session/17576795163650305783) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
