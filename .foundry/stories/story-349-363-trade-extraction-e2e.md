@@ -33,5 +33,8 @@ Verify the end-to-end integration of NPC trade flag extraction for Generation 2 
 - [x] task-363-415-trade-extraction-e2e-impl
 - [x] task-363-416-trade-extraction-e2e-qa
 - [ ] research-363-440-investigate-trade-extraction-e2e-failure
-- [ ] task-363-441-trade-extraction-e2e-retry-impl
-- [ ] task-363-442-trade-extraction-e2e-retry-qa
+- [x] task-363-441-trade-extraction-e2e-retry-impl
+- [x] task-363-442-trade-extraction-e2e-retry-qa
+- [ ] research-363-506-investigate-trade-extraction-e2e-failure-2
+- [ ] task-363-507-trade-extraction-e2e-retry-impl-2
+- [ ] task-363-508-trade-extraction-e2e-retry-qa-2
