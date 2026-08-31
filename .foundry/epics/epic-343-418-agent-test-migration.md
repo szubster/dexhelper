@@ -2,13 +2,13 @@
 id: epic-343-418-agent-test-migration
 type: EPIC
 title: Agent Test Migration to Semantic Validation
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-14'
 updated_at: '2026-08-31'
 depends_on:
   - epic-343-417-semantic-evaluator-core
-jules_session_id: '12113325506310725835'
+jules_session_id: null
 pr_number: null
 parent: prd-145-343-semantic-prompt-validation
 tags:

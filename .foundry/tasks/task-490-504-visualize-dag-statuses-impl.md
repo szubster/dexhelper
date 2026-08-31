@@ -1,8 +1,8 @@
 ---
 id: task-490-504-visualize-dag-statuses-impl
 type: TASK
-title: "Visualize DAG Statuses Implementation"
-status: PENDING
+title: Visualize DAG Statuses Implementation
+status: READY
 owner_persona: coder
 created_at: '2026-08-31'
 updated_at: '2026-08-31'

@@ -2,7 +2,7 @@
 id: task-414-503-bike-badge-ui-qa
 type: TASK
 title: QA Bike Requirement Badges UI Integration
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-31'
 updated_at: '2026-08-31'
@@ -17,7 +17,7 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: 'Replaces cancelled task-414-424-bike-badge-ui-qa'
+notes: Replaces cancelled task-414-424-bike-badge-ui-qa
 ---
 
 # QA Bike Requirement Badges UI Integration

@@ -2,7 +2,7 @@
 id: task-414-502-map-ui-bike-integration-impl
 type: TASK
 title: Integrate Bike Badges into Map UI Implementation
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-31'
 updated_at: '2026-08-31'
@@ -19,7 +19,7 @@ research_references:
   - research-413-493-investigate-bike-requirements-source
 rejection_count: 0
 rejection_reason: ''
-notes: 'Replaces cancelled task-414-423-map-ui-bike-integration-impl'
+notes: Replaces cancelled task-414-423-map-ui-bike-integration-impl
 ---
 
 # Integrate Bike Badges into Map UI Implementation

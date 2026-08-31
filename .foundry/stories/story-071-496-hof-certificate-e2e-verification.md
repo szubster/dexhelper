@@ -2,10 +2,10 @@
 id: story-071-496-hof-certificate-e2e-verification
 type: STORY
 title: Integration and E2E Verification for Hall of Fame Certificates
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-30'
-updated_at: '2026-08-30'
+updated_at: '2026-08-31'
 depends_on:
   - story-071-495-hof-certificate-export-logic
 jules_session_id: '12814961437781022023'

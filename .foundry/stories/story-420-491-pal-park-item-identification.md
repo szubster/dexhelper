@@ -2,12 +2,12 @@
 id: story-420-491-pal-park-item-identification
 type: STORY
 title: Pal Park Item Identification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
 updated_at: '2026-08-31'
 depends_on: []
-jules_session_id: '11560975439053083240'
+jules_session_id: null
 pr_number: null
 parent: epic-340-420-pal-park-core-engine
 tags:

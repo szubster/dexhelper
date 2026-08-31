@@ -2,13 +2,13 @@
 id: task-348-462-gen3-ash-ui-impl
 type: TASK
 title: 'Task: Implement Gen 3 Volcanic Ash UI Integration'
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-22T10:49:07Z'
-updated_at: '2026-08-24'
+updated_at: '2026-08-31'
 depends_on:
   - research-348-461-investigate-isgen3save-stub
-jules_session_id: '2446653758458105448'
+jules_session_id: null
 pr_number: null
 parent: story-268-348-gen3-ash-integration
 tags:
@@ -17,7 +17,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
 ---
 
