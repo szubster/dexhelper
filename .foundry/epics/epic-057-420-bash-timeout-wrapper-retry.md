@@ -31,4 +31,6 @@ Agent sessions executing long-running or blocking bash commands (like `tail -f`)
 Implement a mechanism that wraps any `run_in_bash_session` execution and interrupts it if it runs over a specific threshold (e.g., 30 seconds), returning a clear, user-facing error message describing why it was stopped. Ensure a final STORY dedicated exclusively to Integration and E2E Verification is generated.
 
 ## Acceptance Criteria
-- [ ] Break down this epic into stories.
+- [x] Break down this epic into stories.
+- [ ] story-420-495-bash-timeout-wrapper-retry-impl
+- [ ] story-420-494-bash-timeout-wrapper-retry-e2e
