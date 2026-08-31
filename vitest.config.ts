@@ -40,7 +40,12 @@ export default defineConfig(async (configEnv) => {
             browser: {
               enabled: true,
               provider: playwright(),
-              instances: [{ browser: 'chromium' }],
+              instances: [
+                {
+                  browser: 'chromium',
+                  viewport: { width: 640, height: 800 },
+                },
+              ],
               headless: true,
             },
             globals: true,

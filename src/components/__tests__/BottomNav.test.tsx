@@ -75,4 +75,15 @@ describe('BottomNav', () => {
     await expect.element(getByText('ASST')).toBeInTheDocument();
     await expect.element(getByText('MENU')).toBeInTheDocument();
   });
+
+  it('should be visible on small (sm) target screens', async () => {
+    const { getByRole } = await render(
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>,
+    );
+
+    const nav = getByRole('navigation');
+    await expect.element(nav).toBeVisible();
+  });
 });
