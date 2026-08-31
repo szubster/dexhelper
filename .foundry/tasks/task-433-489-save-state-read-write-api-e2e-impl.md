@@ -28,7 +28,7 @@ notes: ''
 We need to create E2E tests for the Save State Read/Write APIs to verify their behavior in a realistic browser environment, testing the storage and retrieval flows.
 
 ## Acceptance Criteria
-- [ ] Create an E2E test suite file (e.g. `tests/e2e/save-state-read-write.spec.ts`) for testing the Save State Read/Write APIs against IndexedDB.
-- [ ] Verify that a series of save files can be written successfully into the mock IndexedDB environment using the API.
-- [ ] Verify that the most recent save state can be accurately read.
-- [ ] Verify that a previous save state relative to a given save can be accurately read for diffing purposes.
+- [x] Create an E2E test suite file (e.g. `tests/e2e/save-state-read-write.spec.ts`) for testing the Save State Read/Write APIs against IndexedDB.
+- [x] Verify that a series of save files can be written successfully into the mock IndexedDB environment using the API.
+- [x] Verify that the most recent save state can be accurately read.
+- [x] Verify that a previous save state relative to a given save can be accurately read for diffing purposes.

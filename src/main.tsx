@@ -8,17 +8,25 @@ import { pokeDB } from './db/PokeDB';
 import { queryClient } from './queryClient';
 import { routeTree } from './routeTree.gen';
 import './index.css';
+
+import { getMostRecentSave, getPreviousSave, writeSaveState } from './engine/storage/historyDb';
 import { useStore } from './store';
 
 declare global {
   interface Window {
     useStore: typeof useStore;
+    writeSaveState: typeof writeSaveState;
+    getMostRecentSave: typeof getMostRecentSave;
+    getPreviousSave: typeof getPreviousSave;
   }
 }
 
-// Expose store to window for E2E testing
+// Expose store and API to window for E2E testing
 if (import.meta.env.MODE === 'development' || import.meta.env.MODE === 'test') {
   window.useStore = useStore;
+  window.writeSaveState = writeSaveState;
+  window.getMostRecentSave = getMostRecentSave;
+  window.getPreviousSave = getPreviousSave;
 }
 
 // Initialize and sync PokeData
