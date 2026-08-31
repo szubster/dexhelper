@@ -31,4 +31,7 @@ Implement validation logic to check if flagged Gen 3 Pokémon possess any moves 
 - Implement a validator function that takes a Pokemon's move IDs and returns a boolean indicating if it contains any HM moves.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+
+- [ ] task-490-506-pal-park-hm-validator-impl
+- [ ] task-490-507-pal-park-hm-validator-qa
