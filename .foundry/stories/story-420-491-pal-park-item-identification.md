@@ -31,4 +31,8 @@ Identify held items on the flagged Pokémon, specifically highlighting valuable 
 - Implement logic to map the `heldItemId` to the item name and highlight it if it's considered high-value.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-491-502-pal-park-item-constants-impl
+- [ ] task-491-503-pal-park-item-logic-impl
+- [ ] task-491-504-pal-park-item-ui-impl
+- [ ] task-491-505-pal-park-item-identification-qa
