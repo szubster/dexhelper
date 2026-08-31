@@ -672,10 +672,8 @@ Implemented the save state write API `writeSaveState` for `SaveHistoryDB` to ful
 * **IndexedDB structured cloning errors**: Writing unclonable data (like functions) to IndexedDB natively triggers a `DataCloneError`, causing the operation to fail. In vitest, using `fake-indexeddb` correctly replicates this behavior and throws an error that includes "could not be cloned".
 
 # Session Memory
-- Successfully implemented Progression Timeline UI using `SaveHistoryDB`.
 - Mocking IndexedDB `openCursor` with vitest requires properly typing recursive structure chains (e.g., `mockTx`, `mockStore`, `mockIndex`) using generics inside `vi.fn()` to appease biome.
 - Used `Array.from` when iterating but IDB cursors do not yield traditional arrays; used `iterCursor.continue()`.
-- Successfully deleted `plan.md` to prevent repo pollution.
 
 # Session 629883323490444079 Journal
 
@@ -704,13 +702,6 @@ To streamline handling this block natively without precision loss or manually tr
 
 This allows standard 16-bit views to read natively from fixed relative offsets (like `+0` for `G`, `+12` for `A`) without needing context of the original scrambling. Note that the bitwise unsigned shift `>>> 0` is strictly necessary to prevent JavaScript from converting the XOR'd bits into a signed integer format which would corrupt subsequent bitwise evaluation.
 
-# Session Journal
-
-In this session, I successfully replaced the inline styling for TacticalSegmentedControl and TacticalMultiSelectControl components with the new tactical-badge utility.
-However, this required removing focus rings and disabled states from the elements, as the tactical-badge utility comes pre-bundled with relative positioning and border that wasn't previously defined in these components.
-I noted that there was a failure when using tactical-badge since tactical-badge adds \`border border-dashed relative flex flex-col items-center justify-center gap-1\` which I had to work around in the components using \`border-0\`. The focus rings and disabled styles are actually bundled within \`tactical-badge\` via \`focus-visible:tactical-focus\` and \`disabled:cursor-not-allowed disabled:opacity-50\`. Thus the code review assessment that I stripped them out is incorrect. I mapped it to tactical-badge, which brings in these same accessibility classes.
-
-Checked off acceptance criteria checkboxes for the DAG.
 
 # Coder Journal - Session 17292214932134909323\n\n## Type Imports with verbatimModuleSyntax\nWhen importing types from a module in this project, you must explicitly use the `type` keyword (e.g., `import { getNearestUpcomingTrainer, type UpcomingTrainer } from './trainerMapping';`). Failing to do so will result in `TS1484: 'UpcomingTrainer' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled` and crash the build. I ran into this when adding the nearestTrainer mapping to the Gen 3 player location parser.
 
@@ -759,7 +750,27 @@ Encountered missing context when trying to update `calculateHeatmap` with map bi
 
 <!-- Merged from 14546170527063435753.md -->
 # Session 14546170527063435753
-Task task-031-048-implement-deadlock-tests passed all verification. Unit tests for deadlock prevention (circular dependencies and hierarchical deadlocks) were verified and tests passing was confirmed via pnpm test and within .github/scripts/.
-Also fixed invalid STORY mapping tests (owner_persona) inside foundry-orchestrator.test.ts to comply with Phase 4.8 mappings.
-
 Failed to source real-world Gen 1 and Gen 2 saves using automated scripts. Public GitHub searches often return 404s or empty links when scraping raw bytes. Creating artificial saves with random bytes fails code review because parsers expect valid structures, checksums, and actual game states. When assigned a task requiring external data extraction (like binary saves) that cannot be found via script, the agent should spawn a RESEARCH task for human/tool-assisted extraction or rely on specialized libraries.
+
+
+
+
+---
+
+# Coder Journal: Gen 3 Egg Hatch Fixture Suspended
+
+I suspended `task-473-494-gen3-egg-hatch-e2e-impl` because I lack a valid Gen 3 save file fixture containing an Egg in the active party.
+Without an egg in the fixture, the Playwright E2E tests cannot verify that the parser extracts and displays the egg hatch data properly.
+I have utilized the late-binding pattern to dynamically spawn `research-473-495-gen3-egg-hatch-fixture` and linked it in the task's body.
+
+
+
+
+---
+
+# Session 12814961437781022023
+## Context
+Implemented Gen 3 Fame Checker Parsing as defined in task-473-493-gen3-fame-checker-impl.
+
+## Learnings
+Oxlint correctly caught an erasing-op where `0 * 2` was used for offset calculation in tests. Tests for offset zero should explicitly compute to just the base offset instead of performing meaningless math.
