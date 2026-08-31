@@ -981,3 +981,17 @@ Successfully broke down story-071-473-extract-rejection-count into three separat
 **Session ID:** 7491370668965552608
 
 While decomposing `story-334-473-update-tech-lead-prompt` to remove the `### REMINDER FOR CODER` and `### REMINDER FOR QA` directives from `.github/agents/tech_lead.md`, I discovered that the target artifact already lacks these instructions. The modifications appear to have been made prior to this session or they never existed in the current version of the file. I have proceeded to draft the TASK node (`task-473-493-update-tech-lead-prompt`) for the Coder to verify and formally complete the implementation as per the Macro Node Decomposition Override rule.
+
+
+
+
+---
+
+# Late Binding for Kurt Apricorn Offsets
+
+While working on `story-404-477-kurt-apricorn-offset-and-constants`, I found that determining the exact save file memory offsets for `wKurtApricornCount` and `wKurtApricornItems` was difficult because they are defined inside a `SECTION UNION "Miscellaneous WRAM 1", WRAMX` block in the pokecrystal source. Without the compiled symbol file (`pokecrystal.sym`) or a clear SRAM mapping in this specific union block, I couldn't confidently define the offsets for the blueprint.
+
+To resolve this, I utilized the Late Binding pattern to suspend the current task:
+1. Created a new research node `research-404-495-kurt-apricorn-offsets` with `parent: story-404-477-kurt-apricorn-offset-and-constants`.
+2. Appended the new research node as an unchecked task in the Markdown body of `story-404-477-kurt-apricorn-offset-and-constants`.
+3. Updated the status of `story-404-477-kurt-apricorn-offset-and-constants` to `FAILED` with a `rejection_reason` indicating it is suspended pending research.

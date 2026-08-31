@@ -137,3 +137,14 @@
 **Outcome:** Accepted
 **Why:** The previous flat design lacked the tactile, diegetic 'hardware' feel necessary for a snooping terminal. The mechanical buttons improve user interaction feedback and align with the heavy industrial aesthetic.
 **Pattern:** Use pronounced inset shadows, active translation (e.g. `translate-y-px`), and thick, dashed-border bezels to simulate tactile, mechanical controls.
+
+
+
+
+---
+
+## 2025-01-01 - Accepted - 🖼️ Canvas: Ambitious PokedexCard Matrix Redesign
+**What:** Transformed the PokedexCard layout from a horizontal row to a bold, vertical tactical card (flex-col). Increased the sprite size significantly, added a massive, faded, italicized background Pokémon ID to enhance the tactical matrix aesthetic, and introduced new targeting ring animations on hover.
+**Outcome:** Accepted
+**Why:** Submitted as part of Canvas session for bold UI redesigns to transform component layouts and visual treatments.
+**Pattern:** Matrix grids, large faded numerical identifiers, vertical stacking for visual focus and tactical appeal.

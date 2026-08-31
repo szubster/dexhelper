@@ -592,3 +592,11 @@ An Epic cannot be marked `COMPLETED` by the orchestrator unless an explicit STOR
 
 ## DAG ID Strictness
 - **Learning**: When generating child stories and setting their dependencies via the `depends_on` YAML array, do not include the file path or `.md` extension (e.g., `- .foundry/stories/story-420-443-cli-scaffold.md`). The orchestrator strictly expects the bare Node ID (e.g., `- story-420-443-cli-scaffold`) to parse the dependency graph correctly. Using paths will cause the orchestrator to fail its validation steps.
+
+
+
+---
+
+# 2026-08-29 - Orchestrator Safeguard E2E Verification Requirement
+
+When breaking down Epics, the Orchestrator Safeguard explicitly mandates that an EPIC cannot be marked COMPLETED unless a final STORY dedicated exclusively to Integration and E2E Verification is generated. In this session for epic-031-036-progression-tracking, I noticed that all of the actual implementation stories were completed, but the epic was still missing the E2E verification story. I created `story-036-490-progression-e2e-verification` to satisfy this requirement and ensure the orchestrator can eventually complete the epic once the verification is done.
