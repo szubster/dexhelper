@@ -132,3 +132,216 @@ test('renders carrier anomaly LED correctly', async () => {
   const led = container.querySelector('.border-cyan-400.border-dashed');
   expect(led).toBeInTheDocument();
 });
+
+test('renders shiny anomaly LED correctly', async () => {
+  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
+    (selector: unknown) =>
+      (selector as (state: unknown) => unknown)({
+        saveData: {
+          generation: 1,
+          partyDetails: [],
+          pcDetails: [
+            {
+              speciesId: 4,
+              storageLocation: 'Box 1',
+              level: 10,
+              isShiny: true,
+              hash: '',
+              otName: 'BLUE',
+            },
+          ],
+        },
+      }),
+  );
+
+  const { container } = await render(<StorageGrid pokemonList={[{ id: 4, name: 'Charmander' }]} />);
+
+  const led = container.querySelector('.border-amber-400');
+  expect(led).toBeInTheDocument();
+});
+
+test('renders error LED correctly for fainted party pokemon', async () => {
+  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
+    (selector: unknown) =>
+      (selector as (state: unknown) => unknown)({
+        saveData: {
+          generation: 1,
+          partyDetails: [
+            {
+              speciesId: 1,
+              storageLocation: 'Party',
+              level: 5,
+              isShiny: false,
+              hash: '',
+              otName: 'RED',
+              currentHp: 0, // Fainted
+            },
+          ],
+          pcDetails: [],
+        },
+      }),
+  );
+
+  const { container } = await render(<StorageGrid pokemonList={[{ id: 1, name: 'Bulbasaur' }]} />);
+
+  const led = container.querySelector('.border-red-500');
+  expect(led).toBeInTheDocument();
+
+  // also verify it renders the dead Skull icon
+  const skull = container.querySelector('.text-red-500\\/50');
+  expect(skull).toBeInTheDocument();
+});
+
+test('renders dead LED correctly for fainted box pokemon (should not render dead led)', async () => {
+  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
+    (selector: unknown) =>
+      (selector as (state: unknown) => unknown)({
+        saveData: {
+          generation: 1,
+          partyDetails: [],
+          pcDetails: [
+            {
+              speciesId: 1,
+              storageLocation: 'Box 1',
+              level: 5,
+              isShiny: false,
+              hash: '',
+              otName: 'RED',
+              currentHp: 0, // Fainted in box - shouldn't trigger error LED
+            },
+          ],
+        },
+      }),
+  );
+
+  const { container } = await render(<StorageGrid pokemonList={[{ id: 1, name: 'Bulbasaur' }]} />);
+
+  const errorLed = container.querySelector('.border-red-500.shadow-\\[0_0_8px_rgba\\(239\\,68\\,68\\,0\\.8\\)\\]');
+  expect(errorLed).not.toBeInTheDocument();
+});
+
+test('renders time capsule validation tags correctly', async () => {
+  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
+    (selector: unknown) =>
+      (selector as (state: unknown) => unknown)({
+        saveData: {
+          generation: 2,
+          partyDetails: [
+            {
+              speciesId: 1, // Gen 1 (Bulbasaur)
+              storageLocation: 'Party',
+              level: 5,
+              isShiny: false,
+              hash: '',
+              otName: 'RED',
+              moves: [1, 2, 3, 4],
+            },
+            {
+              speciesId: 152, // Gen 2 (Chikorita) - invalid
+              storageLocation: 'Party',
+              level: 5,
+              isShiny: false,
+              hash: '',
+              otName: 'RED',
+              moves: [1, 2, 3, 4],
+            },
+          ],
+          pcDetails: [],
+        },
+      }),
+  );
+
+  await render(
+    <StorageGrid
+      pokemonList={[
+        { id: 1, name: 'Bulbasaur' },
+        { id: 152, name: 'Chikorita' },
+      ]}
+    />,
+  );
+
+  await expect.element(page.getByText('[ READY ]')).toBeInTheDocument();
+  await expect.element(page.getByText('[ ERR ]')).toBeInTheDocument();
+});
+
+test('renders time capsule validation tags correctly when empty array', async () => {
+  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
+    (selector: unknown) =>
+      (selector as (state: unknown) => unknown)({
+        saveData: {
+          generation: 2,
+          partyDetails: [
+            {
+              speciesId: 1,
+              storageLocation: 'Party',
+              level: 5,
+              isShiny: false,
+              hash: '',
+              otName: 'RED',
+              moves: [],
+            },
+          ],
+          pcDetails: [],
+        },
+      }),
+  );
+
+  await render(<StorageGrid pokemonList={[{ id: 1, name: 'Bulbasaur' }]} />);
+
+  await expect.element(page.getByText('[ READY ]')).toBeInTheDocument();
+});
+
+test('renders dead LED correctly for dead party pokemon', async () => {
+  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
+    (selector: unknown) =>
+      (selector as (state: unknown) => unknown)({
+        saveData: {
+          generation: 1,
+          partyDetails: [
+            {
+              speciesId: 1,
+              storageLocation: 'Party',
+              level: 5,
+              isShiny: false,
+              hash: '',
+              otName: 'RED',
+              currentHp: 0,
+            },
+          ],
+          pcDetails: [],
+        },
+      }),
+  );
+
+  const { container } = await render(<StorageGrid pokemonList={[{ id: 1, name: 'Bulbasaur' }]} />);
+
+  const deadLed = container.querySelector('.border-red-500');
+  expect(deadLed).toBeInTheDocument();
+});
+
+test('renders TimeCapsuleValidation tags when moves are empty array', async () => {
+  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
+    (selector: unknown) =>
+      (selector as (state: unknown) => unknown)({
+        saveData: {
+          generation: 2,
+          partyDetails: [
+            {
+              speciesId: 1, // Gen 1 (Bulbasaur)
+              storageLocation: 'Party',
+              level: 5,
+              isShiny: false,
+              hash: '',
+              otName: 'RED',
+              moves: [],
+            },
+          ],
+          pcDetails: [],
+        },
+      }),
+  );
+
+  await render(<StorageGrid pokemonList={[{ id: 1, name: 'Bulbasaur' }]} />);
+
+  await expect.element(page.getByText('[ READY ]')).toBeInTheDocument();
+});
