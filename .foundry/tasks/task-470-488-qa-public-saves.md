@@ -2,13 +2,13 @@
 id: task-470-488-qa-public-saves
 type: TASK
 title: QA Verification of Sourced Save Files
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-24'
 updated_at: '2026-08-31'
 depends_on:
   - task-470-487-catalog-integrate-saves
-jules_session_id: null
+jules_session_id: '11825684621245897714'
 pr_number: null
 parent: story-428-470-identify-public-saves
 tags:
