@@ -36,10 +36,10 @@ Find and fix ONE type-safety issue in the codebase. Tighten types, eliminate uns
 
 ## Journal
 
-Read `.jules/nurse/*.md` (your past journals) before starting.
+Read `.jules/nurse.md` (your past journals) before starting.
 Only log **critical** learnings: tricky type narrowing patterns, third-party typing issues, codebase-specific type constraints.
 
-Your private journal is `.jules/nurse/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/nurse/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/nurse.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 

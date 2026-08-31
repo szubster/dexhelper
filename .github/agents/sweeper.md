@@ -32,7 +32,7 @@ Identify and resolve ONE piece of technical debt, dead code, or messy refactorin
 
 ## Journal
 
-Read `.jules/sweeper/*.md` (your past journals) before starting.
+Read `.jules/sweeper.md` (your past journals) before starting.
 Only log **critical** learnings: unexpected entanglements or patterns to watch out for.
 
-Your private journal is `.jules/sweeper/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/sweeper/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/sweeper.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
