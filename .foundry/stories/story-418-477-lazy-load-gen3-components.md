@@ -22,4 +22,6 @@ notes: ''
 Gen 3 specific components such as Contest Condition Stats, Ribbons, and Dashboards should be lazy loaded so they are not bundled into the main initial payload.
 
 ## Acceptance Criteria
-- [ ] Break down this story into tasks for identifying and implementing React.lazy on Gen 3 components.
+- [x] Break down this story into tasks for identifying and implementing React.lazy on Gen 3 components.
+- [ ] task-477-506-lazy-load-gen3-details-impl
+- [ ] task-477-507-lazy-load-gen3-details-qa
