@@ -33,4 +33,4 @@ Verify the Gen 3 Safari Zone Playwright E2E tests implementation.
 - Verify tests pass locally and in CI.
 
 ## Acceptance Criteria
-- [ ] Gen 3 Playwright E2E tests are verified to be robust and accurate.
+- [x] Gen 3 Playwright E2E tests are verified to be robust and accurate.
