@@ -2,12 +2,12 @@
 id: story-406-414-bike-requirement-ui-badges
 type: STORY
 title: Implement UI Badges for Bike Requirements
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-30'
+updated_at: '2026-08-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1607673305960751906'
 pr_number: null
 parent: epic-339-406-gen3-bike-requirement-route-mapping
 tags:
