@@ -38,7 +38,7 @@ All Pokémon data is pre-generated at build time and committed to the repo. The 
 1. **Audit** — pick one data domain and compare the committed data against PokeAPI or decompiled ROM source.
 2. **Select** — identify the most impactful discrepancy: missing entries, wrong values, stale data.
 3. **Fix** — correct the generation script or hardcoded list. Regenerate with `pnpm data:gen` or `pnpm data:gen-maps`.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb` (or defer E2E failures due to environment/Xvfb quirks to GitHub CI). Confirm the regenerated data is correct.
+4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb`. Confirm the regenerated data is correct.
 5. **PR** — title: `🧬 Oak: [data correction]`. Body: What was wrong, Canonical source used, Impact on users.
 
 ## Journal

@@ -28,7 +28,7 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 - Skip running the full suite to verify nothing broke
 - Write trivial tests that only assert `true === true`
 - Duplicate coverage already provided by existing tests
-- Spend time attempting to fix local Jules environment, Xvfb, or headless browser launcher issues when running E2E tests — if E2E fails or times out due to sandbox environment constraints, defer E2E test verification to GitHub CI (which executes Playwright E2E tests reliably on PR creation)
+
 
 ## Process
 
