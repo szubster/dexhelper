@@ -1,11 +1,16 @@
 ---
+id: task-000-001-fix-assistant-route-lens-audit
 type: TASK
 depends_on: []
-parent:
+parent: null
 owner_persona: tech_lead
 title: Fix Missing /assistant Route
 status: READY
+created_at: 2026-08-31T04:10:00Z
+updated_at: 2026-08-31T04:10:00Z
+jules_session_id: dummy_session
 rejection_count: 0
+rejection_reason: ""
 ---
 
 # Fix Missing `/assistant` Route
