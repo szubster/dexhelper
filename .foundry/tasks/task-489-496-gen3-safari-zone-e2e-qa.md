@@ -2,13 +2,13 @@
 id: task-489-496-gen3-safari-zone-e2e-qa
 type: TASK
 title: Gen 3 Safari Zone E2E Tests QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-30'
+updated_at: '2026-08-31'
 depends_on:
   - task-489-495-gen3-safari-zone-e2e-impl
-jules_session_id: null
+jules_session_id: '6271222530514829682'
 pr_number: null
 parent: story-324-489-e2e-verification
 tags:
