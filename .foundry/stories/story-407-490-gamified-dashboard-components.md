@@ -26,5 +26,10 @@ notes: ''
 Break down the UI updates for the gamified DAG Dashboard into actionable tasks.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks to render themed persona names and visual icons/badges in the DAG UI dashboard.
-- [ ] Tech Lead: Break down into Tasks to update UI components to visualize standard DAG statuses using Gen 1 progression mechanics.
+- [x] Tech Lead: Break down into Tasks to render themed persona names and visual icons/badges in the DAG UI dashboard.
+- [x] Tech Lead: Break down into Tasks to update UI components to visualize standard DAG statuses using Gen 1 progression mechanics.
+
+- [ ] task-490-502-render-persona-badges-impl
+- [ ] task-490-503-render-persona-badges-qa
+- [ ] task-490-504-visualize-dag-statuses-impl
+- [ ] task-490-505-visualize-dag-statuses-qa
