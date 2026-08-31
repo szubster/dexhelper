@@ -26,4 +26,7 @@ notes: ''
 This epic implements the generation of visually appealing Hall of Fame Certificates, transforming the parsed Hall of Fame data into shareable Canvas or SVG images.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-071-494-hof-certificate-hidden-component
+- [ ] story-071-495-hof-certificate-export-logic
+- [ ] story-071-496-hof-certificate-e2e-verification
