@@ -2,12 +2,12 @@
 id: task-473-493-gen3-condition-stats-constants
 type: TASK
 title: Define Gen 3 Contest Condition Stats Constants
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-30'
+updated_at: '2026-08-31'
 depends_on: []
-jules_session_id: '3826814635182624433'
+jules_session_id: null
 pr_number: null
 parent: story-134-473-gen3-condition-stats-extraction-impl
 tags:

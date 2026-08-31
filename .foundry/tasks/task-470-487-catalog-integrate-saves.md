@@ -2,7 +2,7 @@
 id: task-470-487-catalog-integrate-saves
 type: TASK
 title: Catalog and Integrate Public Saves
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-24'
 updated_at: '2026-08-31'
@@ -16,11 +16,8 @@ tags:
   - testing
   - fixtures
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Japanese Crystal saves use different memory offsets (e.g.
-  0x281a for party) and our engine does not support them yet. Please implement
-  JP Gen 2 offset support or remove the fixture.
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

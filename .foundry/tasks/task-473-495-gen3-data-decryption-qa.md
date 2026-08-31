@@ -2,10 +2,10 @@
 id: task-473-495-gen3-data-decryption-qa
 type: TASK
 title: QA Gen 3 Data Decryption Engine
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-08-31'
 depends_on:
   - task-473-493-gen3-data-decryption-impl
   - task-473-494-gen3-data-decryption-tests

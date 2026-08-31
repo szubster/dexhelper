@@ -2,10 +2,10 @@
 id: epic-103-134-living-dex-grid-ui
 type: EPIC
 title: Living Dex Numerical Grid & Box Overlay UI
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-04'
-updated_at: '2026-07-04'
+updated_at: '2026-08-31'
 depends_on:
   - epic-103-133-living-dex-data-engine
 jules_session_id: null

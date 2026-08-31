@@ -2,10 +2,10 @@
 id: task-421-464-gen3-active-party-matchup-integration-impl
 type: TASK
 title: Integrate Gen 3 Active Party into MatchupContext
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-21'
-updated_at: '2026-08-30'
+updated_at: '2026-08-31'
 depends_on:
   - task-421-460-matchup-context-state-layer-impl
 jules_session_id: '6001284076015774702'
@@ -15,8 +15,8 @@ tags:
   - gen3
   - integration
   - react
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 
