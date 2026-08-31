@@ -2,13 +2,13 @@
 id: task-442-467-gen2-roamer-e2e-tests-impl
 type: TASK
 title: Gen 2 Roamer E2E Tests Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-08-30'
+updated_at: '2026-08-31'
 depends_on:
   - task-442-466-gen2-roamer-e2e-fixture-impl
-jules_session_id: null
+jules_session_id: '16358902543741955479'
 pr_number: null
 parent: story-139-442-gen2-roamer-extraction-e2e
 tags:
