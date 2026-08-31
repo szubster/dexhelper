@@ -22,4 +22,6 @@ notes: ''
 To improve performance, generation-specific logic should be separated and lazily loaded in `src/engine/saveParser/index.ts`.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-477-502-save-parser-lazy-loading-impl
+- [ ] task-477-503-save-parser-lazy-loading-qa
