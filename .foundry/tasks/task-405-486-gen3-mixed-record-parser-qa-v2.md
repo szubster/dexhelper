@@ -2,13 +2,13 @@
 id: task-405-486-gen3-mixed-record-parser-qa-v2
 type: TASK
 title: QA Gen 3 Mixed Record Parser v2
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-08-31'
 depends_on:
   - task-405-485-gen3-mixed-record-parser-impl-v2
-jules_session_id: null
+jules_session_id: '8493469430248042755'
 pr_number: null
 parent: story-397-405-gen3-mixed-record-npc-data
 tags:
