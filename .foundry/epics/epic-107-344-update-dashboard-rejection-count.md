@@ -34,4 +34,6 @@ With the threshold for permanent failures extracted to the React Context, the UI
 3. Update any other related test files to use the shared constant.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-344-494-dashboard-rejection-count
+- [ ] story-344-495-dashboard-rejection-count-e2e
