@@ -32,5 +32,8 @@ Implement UI badges (e.g., `[Requires Mach Bike]` or `[Requires Acro Bike]`) on 
 - [x] tech_lead: Break down this Story into Tasks.
 
 - [ ] task-414-422-bike-badge-component-impl
-- [ ] task-414-423-map-ui-bike-integration-impl
-- [ ] task-414-424-bike-badge-ui-qa
+- [x] task-414-423-map-ui-bike-integration-impl
+- [x] task-414-424-bike-badge-ui-qa
+- [ ] task-414-502-map-ui-bike-integration-impl
+- [ ] task-414-503-bike-badge-ui-qa
+- [ ] research-414-504-bike-badges-integration-failure
