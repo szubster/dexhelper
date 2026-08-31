@@ -90,6 +90,12 @@ interface AppStore {
   /** Global visual preference for which Pokéball to use in the UI. */
   globalPokeball: PokeballType;
   /**
+   * Tracks unlocked custom PC Box wallpapers across saves for Gen 3.
+   * State is keyed by the save file's `trainerId`.
+   * Structure: Record<trainerId, Record<wallpaperIndex, boolean>>
+   */
+  unlockedWallpapers: Record<number, Record<number, boolean>>;
+  /**
    * Toggles a specific UI filter type in the `filters` array.
    * @param f - The filter type to toggle.
    */
@@ -105,6 +111,12 @@ interface AppStore {
   setIsLivingDex: (v: boolean) => void;
   /** Sets the global visual Pokéball preference. */
   setGlobalPokeball: (v: PokeballType) => void;
+  /**
+   * Toggles whether a specific wallpaper is unlocked for a given trainer ID.
+   * @param trainerId - The current save file's trainer ID.
+   * @param wallpaperId - The index of the wallpaper to toggle (0-15).
+   */
+  toggleWallpaperUnlocked: (trainerId: number, wallpaperId: number) => void;
 
   // Transient UI state (not persisted)
   /** Current search query for filtering Pokémon lists. */
@@ -193,6 +205,7 @@ export const useStore = create<AppStore>()(
       manualVersion: null,
       isLivingDex: false,
       globalPokeball: 'poke',
+      unlockedWallpapers: {},
 
       toggleFilter: (f) => {
         const current = get().filters;
@@ -206,6 +219,21 @@ export const useStore = create<AppStore>()(
       setManualVersion: (v) => set({ manualVersion: v }),
       setIsLivingDex: (v) => set({ isLivingDex: v }),
       setGlobalPokeball: (v) => set({ globalPokeball: v }),
+
+      toggleWallpaperUnlocked: (trainerId, wallpaperId) => {
+        set((state) => {
+          const currentTrainerWallpapers = state.unlockedWallpapers[trainerId] || {};
+          return {
+            unlockedWallpapers: {
+              ...state.unlockedWallpapers,
+              [trainerId]: {
+                ...currentTrainerWallpapers,
+                [wallpaperId]: !currentTrainerWallpapers[wallpaperId],
+              },
+            },
+          };
+        });
+      },
 
       // Transient UI
       searchTerm: '',
@@ -321,6 +349,7 @@ export const useStore = create<AppStore>()(
         manualVersion: state.manualVersion,
         isLivingDex: state.isLivingDex,
         globalPokeball: state.globalPokeball,
+        unlockedWallpapers: state.unlockedWallpapers,
       }),
     },
   ),
