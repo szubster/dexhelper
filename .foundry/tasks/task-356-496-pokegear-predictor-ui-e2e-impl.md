@@ -30,4 +30,4 @@ Implement end-to-end tests for the Pokegear call predictor UI to satisfy the Orc
 - Ensure all UI tests pass.
 
 ## Acceptance Criteria
-- [ ] Implement E2E test suite for Pokegear Predictor UI
+- [x] Implement E2E test suite for Pokegear Predictor UI
