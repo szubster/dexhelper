@@ -2,12 +2,12 @@
 id: story-418-478-lazy-load-gen2-components
 type: STORY
 title: Implement React.lazy for Gen 2 Components
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-29'
+updated_at: '2026-08-31'
 depends_on: []
-jules_session_id: '17405548278915932173'
+jules_session_id: '16112659726880082367'
 parent: epic-340-418-ui-component-splitting
 tags:
   - performance
