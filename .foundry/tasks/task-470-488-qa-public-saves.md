@@ -32,3 +32,6 @@ We need to ensure that the newly sourced public save files load correctly within
 ## Acceptance Criteria
 - [ ] All new `.sav` files load without parsing errors.
 - [ ] The save states are confirmed to be diverse and match their documented descriptions.
+
+### QA Failure Note
+Verification failed on `crystal-bxtj-0.sav` due to unsupported Japanese Crystal offsets. Triggering transient rejection on `task-470-487-catalog-integrate-saves`.
