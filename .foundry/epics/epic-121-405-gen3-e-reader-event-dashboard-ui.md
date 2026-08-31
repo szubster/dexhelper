@@ -32,5 +32,8 @@ This Epic focuses on the frontend presentation of the Gen 3 E-Reader and Mystery
 - Provide visual feedback for whether an event was successfully verified in the save file.
 
 ## Acceptance Criteria
-- [ ] Break down into STORY nodes for dashboard components, state management, and visual checklist rendering.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Break down into STORY nodes for dashboard components, state management, and visual checklist rendering.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-405-497-gen3-e-reader-dashboard-state
+- [ ] story-405-498-gen3-e-reader-dashboard-components
+- [ ] story-405-499-gen3-e-reader-dashboard-e2e
