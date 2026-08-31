@@ -29,4 +29,5 @@ Update the orchestrator script to parse and validate the new `locks` field from 
 - Ensure `locks` is an array of strings. Default to an empty array if missing.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-477-506-update-schema-locks-impl
