@@ -32,6 +32,6 @@ Define the module-level constants for the Gen 3 Contest Condition stats to avoid
 - Data section starts at 0x20 in the 100-byte structure.
 
 ## Acceptance Criteria
-- [ ] Create or update the relevant Gen 3 constants file to include the substructure order lookup table permutations if not already present.
-- [ ] Define reusable constants for the EVs & Condition (E) substructure relative offsets for Coolness, Beauty, Cuteness, Smartness, Toughness, and Feel.
-- [ ] Define the sizes for each stat as constants.
+- [x] Create or update the relevant Gen 3 constants file to include the substructure order lookup table permutations if not already present.
+- [x] Define reusable constants for the EVs & Condition (E) substructure relative offsets for Coolness, Beauty, Cuteness, Smartness, Toughness, and Feel.
+- [x] Define the sizes for each stat as constants.
