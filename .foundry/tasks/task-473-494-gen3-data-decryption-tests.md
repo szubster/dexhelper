@@ -26,5 +26,5 @@ notes: ''
 Implement unit tests for the Gen 3 Data Decryption Engine.
 
 ## Acceptance Criteria
-- [ ] Add unit tests verifying the decryption.
-- [ ] Verify that logic successfully calculates decryption keys and decrypts blocks.
+- [x] Add unit tests verifying the decryption.
+- [x] Verify that logic successfully calculates decryption keys and decrypts blocks.
