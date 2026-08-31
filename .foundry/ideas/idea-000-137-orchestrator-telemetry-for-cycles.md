@@ -27,3 +27,6 @@ During the completion of `epic-334-338-circular-dependency-detection`, we succes
 
 ## Proposal
 Implement telemetry metrics in the `foundry-orchestrator.ts` script to count and record instances where the cycle detection fails a node.
+
+## Acceptance Criteria
+- [ ] prd-137-346-orchestrator-telemetry-for-cycles
