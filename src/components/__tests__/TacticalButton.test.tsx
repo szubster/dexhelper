@@ -1,12 +1,27 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import { TacticalButton } from '../TacticalButton';
 
 describe('TacticalButton', () => {
-  it('renders correctly', async () => {
+  it('renders correctly with tactical utility classes', async () => {
     await render(<TacticalButton>Test Button</TacticalButton>);
-    await expect.element(page.getByText('Test Button')).toBeInTheDocument();
+    const button = page.getByRole('button', { name: 'Test Button' });
+    await expect.element(button).toBeInTheDocument();
+    await expect.element(button).toHaveClass('tactical-button');
+
+    // Get class list to test utility composition indirectly if vitest-browser-react can't resolve @utility expansions natively yet
+    const el = button.element() as HTMLButtonElement;
+    const classes = el.className;
+    expect(classes).toContain('tactical-button');
+  });
+
+  it('handles onClick event', async () => {
+    const handleClick = vi.fn<() => void>();
+    await render(<TacticalButton onClick={handleClick}>Click Me</TacticalButton>);
+    const button = page.getByRole('button', { name: 'Click Me' });
+    await button.click();
+    expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
   it('renders primary variant', async () => {
