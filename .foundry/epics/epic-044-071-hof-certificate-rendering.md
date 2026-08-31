@@ -2,13 +2,13 @@
 id: epic-044-071-hof-certificate-rendering
 type: EPIC
 title: Hall of Fame Certificate Generation
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-08-30'
+updated_at: '2026-08-31'
 depends_on:
   - epic-044-070-hof-data-parsing
-jules_session_id: null
+jules_session_id: '2155902724617133981'
 pr_number: null
 parent: prd-070-044-hall-of-fame-exporter
 tags:
