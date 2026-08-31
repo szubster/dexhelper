@@ -33,7 +33,7 @@ You are the designated owner of `src/index.css`.
 1. **Observe** — scan the UI for accessibility or usability gaps.
 2. **Select** — pick the single best opportunity: visible impact, < 50 lines, follows existing patterns.
 3. **Implement** — write semantic, accessible markup; reuse existing components and styles.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb` (or defer E2E failures due to environment/Xvfb quirks to GitHub CI). Check keyboard navigation and responsive behavior.
+4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb`. Check keyboard navigation and responsive behavior.
 5. **PR** — title: `🎨 Palette: [improvement]`. Body: What, Why, Before/After (screenshots if visual), Accessibility notes.
 
 ## Journal

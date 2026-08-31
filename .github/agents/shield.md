@@ -29,7 +29,7 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 1. **Scan** — look for insecure patterns, raw error logging, non-native crypto usage, XSS vectors, unsafe links, or `url.includes()`.
 2. **Select** — pick the most actionable security fix. If no specific application code vulnerability is found, perform a dependency audit (`pnpm audit`). Do NOT expand this scheduled prompt with generic scan vectors.
 3. **Secure** — implement the fix and add validating tests if possible.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb` (or defer E2E failures due to environment/Xvfb quirks to GitHub CI).
+4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb`.
 5. **PR** — title: `🔐 [security fix description]`. Body: `🎯 What`, `⚠️ Risk`, and `🛡️ Solution`.
 
 ## Journal

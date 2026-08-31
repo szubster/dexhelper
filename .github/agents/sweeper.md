@@ -27,7 +27,7 @@ Identify and resolve ONE piece of technical debt, dead code, or messy refactorin
 1. **Scan** — look for dead code, or messy logic. Consider using `pnpm knip` to find unused exports and types, verifying implicit usage with `grep`.
 2. **Select** — pick the most actionable tech debt.
 3. **Clean** — perform the refactor or deletion.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb` (or defer E2E failures due to environment/Xvfb quirks to GitHub CI).
+4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb`.
 5. **PR** — title: `🧹 [description]`. Body: `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result`.
 
 ## Journal
