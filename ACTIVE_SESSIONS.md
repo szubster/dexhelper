@@ -7,6 +7,7 @@
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [research-360-471-investigate-gen3-roamer-e2e-failure](.foundry/research/research-360-471-investigate-gen3-roamer-e2e-failure.md) | RESEARCH | Investigate Gen 3 Roamer E2E Test Failure | researcher | [9528661489058889863](https://jules.google.com/session/9528661489058889863) |
+| [research-404-495-kurt-apricorn-offsets](.foundry/research/research-404-495-kurt-apricorn-offsets.md) | RESEARCH | Investigate Kurt Apricorn Crafting Offsets | researcher | [6748242795130251399](https://jules.google.com/session/6748242795130251399) |
 | [story-417-477-save-parser-code-splitting](.foundry/stories/story-417-477-save-parser-code-splitting.md) | STORY | Split save parser logic by generation | tech_lead | [9465717035443161810](https://jules.google.com/session/9465717035443161810) |
 | [story-419-477-pokedata-plugin-refactor](.foundry/stories/story-419-477-pokedata-plugin-refactor.md) | STORY | Refactor pokedata plugin to emit multiple bundles | tech_lead | [5412354883755069025](https://jules.google.com/session/5412354883755069025) |
 | [story-420-443-cli-scaffold](.foundry/stories/story-420-443-cli-scaffold.md) | STORY | CLI Scaffold | tech_lead | [1551306826786576546](https://jules.google.com/session/1551306826786576546) |
