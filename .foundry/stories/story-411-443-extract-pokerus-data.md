@@ -2,10 +2,10 @@
 id: story-411-443-extract-pokerus-data
 type: STORY
 title: Extract Pokerus Data
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-08-24'
+updated_at: '2026-08-31'
 depends_on: []
 jules_session_id: null
 pr_number: null

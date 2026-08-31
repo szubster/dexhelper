@@ -14,7 +14,10 @@ tags:
   - implementation
   - resilience
 rejection_count: 0
-rejection_reason: 'Redundant task. The bash timeout wrapper is already fully implemented as an instructional policy in core_policies.md and cannot be wrapped programmatically.'
+rejection_reason: >-
+  [ACKNOWLEDGED] Redundant task. The bash timeout wrapper is already fully
+  implemented as an instructional policy in core_policies.md and cannot be
+  wrapped programmatically.
 notes: ''
 ---
 

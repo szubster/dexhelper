@@ -2,13 +2,13 @@
 id: task-443-480-pokerus-parsing-qa
 type: TASK
 title: QA Pokerus Parsing
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-08-23'
-updated_at: '2026-08-24'
+updated_at: '2026-08-31'
 depends_on:
   - task-443-479-pokerus-parsing-tests
-jules_session_id: '12332525711286593734'
+jules_session_id: null
 pr_number: null
 parent: story-411-443-extract-pokerus-data
 tags:
@@ -18,7 +18,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
 ---
 
