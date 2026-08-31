@@ -43,8 +43,8 @@ describe('DashboardPage', () => {
         partyDetails: [],
         pcDetails: [],
         gen2PokegearPhone: {
-          highValueContacts: []
-        }
+          highValueContacts: [],
+        },
       } as unknown as SaveData,
     });
 
