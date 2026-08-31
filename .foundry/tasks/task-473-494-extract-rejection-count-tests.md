@@ -2,13 +2,13 @@
 id: task-473-494-extract-rejection-count-tests
 type: TASK
 title: Unit Tests for rejection_count Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-26'
-updated_at: '2026-08-30'
+updated_at: '2026-08-31'
 depends_on:
   - task-473-493-extract-rejection-count-impl
-jules_session_id: null
+jules_session_id: '8623258126893621163'
 pr_number: null
 parent: story-071-473-extract-rejection-count
 tags:
