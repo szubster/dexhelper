@@ -2,10 +2,10 @@
 id: epic-343-417-prompt-fragment-layering
 type: EPIC
 title: Implement Prompt Fragment Layering System
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-08-23'
+updated_at: '2026-08-31'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -34,9 +34,9 @@ This Epic focuses on designing and implementing the foundational system for prom
 - No dependencies. This is the foundational epic for the decoupling effort.
 
 ## Acceptance Criteria
-- [ ] Develop the prompt fragment composition engine.
-- [ ] Define the schema for prompt fragment definition files.
+- [x] Develop the prompt fragment composition engine.
+- [x] Define the schema for prompt fragment definition files.
 - [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
-- [ ] story-417-443-prompt-fragment-schema
-- [ ] story-417-444-prompt-fragment-composition-engine
-- [ ] story-417-445-prompt-fragment-layering-e2e
+- [x] story-417-443-prompt-fragment-schema
+- [x] story-417-444-prompt-fragment-composition-engine
+- [x] story-417-445-prompt-fragment-layering-e2e
