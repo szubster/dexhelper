@@ -29,7 +29,7 @@ notes: ''
 Verify all E2E tests for ghost tracking, PC mapping, and evolution material detection are robust and properly cover edge cases.
 
 ## Acceptance Criteria
-- [ ] Verify ghost tracking E2E tests.
-- [ ] Verify PC mapping E2E tests.
-- [ ] Verify evolution material detection E2E tests.
-- [ ] Ensure test coverage and pass rates are sufficient.
+- [x] Verify ghost tracking E2E tests.
+- [x] Verify PC mapping E2E tests.
+- [x] Verify evolution material detection E2E tests.
+- [x] Ensure test coverage and pass rates are sufficient.
