@@ -1,3 +1,7 @@
+
+
+---
+
 # TacticalLed Component Extraction
 
 Identified a recurring pattern for decorative "Data Pipe / LED" indicators used heavily across components like `TacticalNode` and `LocationRow`. These elements consisted of a left-aligned dashed border "pipe" and an overlapping, pulsating square "LED", manually implemented with complex Tailwind classes and switch statements for variants.
