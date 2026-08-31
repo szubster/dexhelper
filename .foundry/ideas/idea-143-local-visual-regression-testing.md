@@ -37,4 +37,5 @@ Leverage our existing Playwright testing ecosystem, which runs locally and in Gi
 - **Robustness**: Ensures the interactive canvas rendering and critical dashboards remain pixel-perfect and regression-free.
 
 ## Acceptance Criteria
-- [ ] Canvas: Draft a PRD defining the local visual regression setup, screenshot strategies for the canvas, and artifact upload workflows for CI.
+- [ ] prd-143-346-local-visual-regression-testing
+- [x] Canvas: Draft a PRD defining the local visual regression setup, screenshot strategies for the canvas, and artifact upload workflows for CI.
