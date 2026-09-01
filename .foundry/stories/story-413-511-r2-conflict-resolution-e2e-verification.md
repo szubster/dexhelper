@@ -27,4 +27,5 @@ Implement Integration and E2E verification for the R2 conflict resolution flow.
 - Enforce the E2E verification dedicated exclusively to Integration and E2E Verification.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-511-512-r2-conflict-resolution-e2e-impl
