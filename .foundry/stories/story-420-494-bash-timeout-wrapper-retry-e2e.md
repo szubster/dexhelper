@@ -2,12 +2,12 @@
 id: story-420-494-bash-timeout-wrapper-retry-e2e
 type: STORY
 title: Bash Timeout Wrapper (Retry) - E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-29'
-updated_at: '2026-08-29'
+updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14265383727811303279'
 pr_number: null
 parent: epic-057-420-bash-timeout-wrapper-retry
 tags:
