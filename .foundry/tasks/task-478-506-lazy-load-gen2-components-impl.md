@@ -22,6 +22,6 @@ rejection_reason: ''
 Gen 2 specific components such as Pokegear Caller UI elements should be lazy loaded to reduce bundle size and improve load times.
 
 ## Acceptance Criteria
-- [ ] Identify all Gen 2 specific components.
-- [ ] Update `src/routes/dashboard.tsx` or other relevant files to lazy-load these components using `React.lazy`.
-- [ ] Ensure components are wrapped in a `Suspense` boundary (if they are not already within one).
+- [x] Identify all Gen 2 specific components.
+- [x] Update `src/routes/dashboard.tsx` or other relevant files to lazy-load these components using `React.lazy`.
+- [x] Ensure components are wrapped in a `Suspense` boundary (if they are not already within one).
