@@ -28,6 +28,6 @@ To support parsing Ruins of Alph puzzle flags for Gen 2 saves, we need to define
 - Do not use magic numbers for offsets or bit masking in the parser logic.
 
 ## Acceptance Criteria
-- [ ] Define types for Ruins of Alph puzzle completion state.
-- [ ] Define memory offset constants and bit masks for the puzzle flags in the correct file.
-- [ ] No magic numbers are used.
+- [x] Define types for Ruins of Alph puzzle completion state.
+- [x] Define memory offset constants and bit masks for the puzzle flags in the correct file.
+- [x] No magic numbers are used.
