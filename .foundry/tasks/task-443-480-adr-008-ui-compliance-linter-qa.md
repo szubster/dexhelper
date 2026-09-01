@@ -36,11 +36,11 @@ Verify the `scripts/verify-adr-compliance.ts` correctly detects ADR 008 violatio
 - Verify the CI workflow file is updated to execute the lint check.
 
 ## Acceptance Criteria
-- [ ] Verify unit tests pass and cover forbidden and compliant classes.
-- [ ] Verify script correctly fails on a test file with violations.
-- [ ] Verify script correctly passes on a test file with no violations.
-- [ ] Verify `package.json` integration.
-- [ ] Verify `.github/workflows/ci.yml` integration.
+- [x] Verify unit tests pass and cover forbidden and compliant classes.
+- [x] Verify script correctly fails on a test file with violations.
+- [x] Verify script correctly passes on a test file with no violations.
+- [x] Verify `package.json` integration.
+- [x] Verify `.github/workflows/ci.yml` integration.
 
 ### Execution Notes
 Target task `task-443-479-adr-008-ui-compliance-linter-ci` was verified to be missing the `lint:adr` command in `package.json` and in the CI workflow. Triggered a transient rejection on the target task.
