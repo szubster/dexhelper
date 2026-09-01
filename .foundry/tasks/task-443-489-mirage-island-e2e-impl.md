@@ -2,7 +2,7 @@
 id: task-443-489-mirage-island-e2e-impl
 type: TASK
 title: Implement E2E Test for Mirage Island Save Parsing
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-08-25'
@@ -16,8 +16,8 @@ tags:
   - mirage-island
   - e2e
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Missing implementation artifact: tests/e2e/mirage_island_extraction.spec.ts does not exist'
 notes: ''
 locks: []
 ---
@@ -35,3 +35,7 @@ We need to ensure that the Mirage Island save parsing works end-to-end when a Ge
 
 ## Acceptance Criteria
 - [ ] Implement Playwright E2E test for Mirage Island extraction.
+
+
+### Auditor Rejection
+QA Verification failed because the expected implementation artifact `tests/e2e/mirage_island_extraction.spec.ts` was not found in the file system. The coder must create this file and implement the required Playwright tests according to the acceptance criteria before resubmitting.
