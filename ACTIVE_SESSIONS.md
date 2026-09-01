@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [epic-008-018-session-dispatch-bypass](.foundry/epics/epic-008-018-session-dispatch-bypass.md) | EPIC | Session Dispatch Bypass and Fulfillment | story_owner | [4211910550391037410](https://jules.google.com/session/4211910550391037410) |
 | [epic-009-atomic-handoff-testing](.foundry/epics/epic-009-atomic-handoff-testing.md) | EPIC | Epic: Atomic Handoff Testing Expansion | story_owner | [3467569818731256987](https://jules.google.com/session/3467569818731256987) |
 | [epic-097-130-schema-verifying-state-update](.foundry/epics/epic-097-130-schema-verifying-state-update.md) | EPIC | Update schema.md regarding VERIFYING state | story_owner | [3933958792319413576](https://jules.google.com/session/3933958792319413576) |
 | [epic-339-410-librarian-github-scripts-implementation](.foundry/epics/epic-339-410-librarian-github-scripts-implementation.md) | EPIC | GitHub Scripts for Librarian Persona | story_owner | [15773092713563462558](https://jules.google.com/session/15773092713563462558) |
