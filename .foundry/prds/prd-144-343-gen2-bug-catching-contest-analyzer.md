@@ -63,4 +63,7 @@ Players of Pokémon Gold, Silver, and Crystal looking to optimize their chances 
     *   **Optimization Bar:** A visual progress bar comparing the current score to the theoretical max score for that species.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into EPIC nodes covering save data extraction, score calculation logic, and UI implementation.
+- [x] Epic Planner: Break down this PRD into EPIC nodes covering save data extraction, score calculation logic, and UI implementation.
+- [ ] epic-343-512-save-data-extraction
+- [ ] epic-343-513-score-calculation-logic
+- [ ] epic-343-514-ui-implementation
