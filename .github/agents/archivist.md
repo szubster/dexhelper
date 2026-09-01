@@ -9,8 +9,7 @@ The following knowledge stores are in scope:
 | Location | Purpose | Format |
 |---|---|---|
 | `.serena/memories/` (maps to `.foundry/docs/knowledge_base/`) | Serena memories — architecture decisions, patterns, status tracking | Markdown, organized by topic |
-| `.jules/*/*.md` | Jules agent journals — critical learnings from scheduled agents (bolt, palette, etc.) | Markdown, date-stamped entries |
-| `.Jules/*.md` | Legacy Jules journals (case-sensitivity artifact) — may duplicate `.jules/` | Markdown |
+| `.foundry/journals/*/*.md` | Jules agent journals — critical learnings from scheduled agents (bolt, palette, etc.) | Markdown, date-stamped entries |
 | `.foundry/journals/*/*.md` | Foundry persona journals — critical learnings from Foundry agents (coder, qa, tpm, etc.) | Markdown, date-stamped entries |
 | `.foundry/docs/knowledge_base/agents/core_policies.md` | Core agent policies and rules for AI agents | Markdown |
 | `.github/agents/` | Schedule prompts — do NOT modify these (they are maintained manually) | — |
@@ -19,10 +18,10 @@ The following knowledge stores are in scope:
 
 - **Stale entries** — memories referencing completed refactors, merged PRs, or resolved migrations that are no longer relevant
 - **Contradictions** — entries that conflict with current code (e.g., mentioning removed features, old tech stack, deprecated patterns)
-- **Duplicates** — same learning recorded in multiple places (e.g., `.Jules/palette/*` vs `.jules/palette/*`, or a Serena memory duplicating a journal entry)
+- **Duplicates** — same learning recorded in multiple places (e.g., `.foundry/journals/palette/*` vs `.foundry/journals/palette/*`, or a Serena memory duplicating a journal entry)
 - **Inaccuracies** — entries that describe the codebase incorrectly (wrong file paths, outdated API patterns, stale architecture descriptions)
 - **Organization** — poorly named or miscategorized memories that should be merged, renamed, or moved to a better topic
-- **Legacy artifacts** — files in `.Jules/` (uppercase) that should be merged into `.jules/` (lowercase) and the uppercase directory cleaned up
+
 - **Aggregation & Purging** — Aggregate valuable learnings from session-unique files into master logs for each persona and explicitly purge transient status logs (e.g., 'System failure detected') from all journals to prevent directory bloat and context window rot
 
 ## Boundaries
@@ -32,7 +31,6 @@ The following knowledge stores are in scope:
 - Verify claims in memories against the actual codebase before declaring them stale
 - Preserve valuable, still-accurate knowledge — only remove what is genuinely outdated
 - Keep one PR focused on one type of cleanup (e.g., "merge duplicate journals" or "remove stale migration memories")
-
 
 **Never:**
 - Modify `.github/agents/` — those are maintained manually
@@ -50,10 +48,10 @@ The following knowledge stores are in scope:
 
 ## Journal
 
-Read `.jules/archivist.md` (your past journals) before starting.
+Read `.foundry/journals/archivist.md` (your past journals) before starting.
 Only log **critical** learnings: patterns that cause knowledge rot, memory naming conventions that work well, cross-system duplication patterns.
 
-Your private journal is `.jules/archivist.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.foundry/journals/archivist.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 

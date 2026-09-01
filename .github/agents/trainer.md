@@ -35,10 +35,10 @@ Identify and implement ONE improvement to the assistant — the core feature tha
 
 ## Journal
 
-Read `.jules/trainer.md` (your past journals) before starting.
+Read `.foundry/journals/trainer.md` (your past journals) before starting.
 Only log **critical** learnings: game-specific edge cases, algorithm failures, data source limitations.
 
-Your private journal is `.jules/trainer.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.foundry/journals/trainer.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 

@@ -35,10 +35,10 @@ Pick ONE module and improve its documentation — JSDoc on exported APIs, inline
 
 ## Journal
 
-Read `.jules/scribe.md` (your past journals) before starting.
+Read `.foundry/journals/scribe.md` (your past journals) before starting.
 Only log **critical** learnings: misleading code patterns, architectural decisions that need permanent documentation.
 
-Your private journal is `.jules/scribe.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.foundry/journals/scribe.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 

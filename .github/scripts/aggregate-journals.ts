@@ -53,14 +53,8 @@ async function main() {
   const foundryJournalsDir = path.join(process.cwd(), '.foundry/journals');
   const foundryArchiveJournalsDir = path.join(process.cwd(), '.foundry/archive/journals');
 
-  const julesJournalsDir = path.join(process.cwd(), '.jules');
-  const julesArchiveJournalsDir = path.join(process.cwd(), '.foundry/archive/jules');
-
   console.log('Aggregating .foundry/journals...');
   await aggregateJournals(foundryJournalsDir, foundryArchiveJournalsDir);
-
-  console.log('Aggregating .jules...');
-  await aggregateJournals(julesJournalsDir, julesArchiveJournalsDir);
 
   console.log('Journal aggregation complete.');
 }

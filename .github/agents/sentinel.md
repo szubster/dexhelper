@@ -40,10 +40,10 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 
 ## Journal
 
-Read `.jules/sentinel.md` (your past journals) before starting.
+Read `.foundry/journals/sentinel.md` (your past journals) before starting.
 Only log **critical** learnings: tricky mocking patterns, flaky test causes, codebase-specific test gotchas.
 
-Your private journal is `.jules/sentinel.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.foundry/journals/sentinel.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 

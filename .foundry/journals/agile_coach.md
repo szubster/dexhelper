@@ -59,3 +59,10 @@ I identified that the "Orchestrator Safeguard (E2E/Integration Requirement)" was
 ## Process Improvements & Prompt Updates
 1. Consolidate Redundancy: Removed the duplicated `(or defer E2E failures due to environment/Xvfb quirks to GitHub CI)` rule from 11 persona prompts (`bolt.md`, `infras.md`, `mason.md`, `nurse.md`, `oak.md`, `palette.md`, `sculptor.md`, `sentinel.md`, `shield.md`, `sweeper.md`, `trainer.md`). This constraint should be a general E2E execution policy rather than hardcoded in each agent's local verification step, cleaning up prompt rot.
 2. Created a new IDEA node (`idea-487-refactor-rejection-count-schema.md`) to suggest explicitly disallowing `rejection_count` and `rejection_reason` for IDEA nodes in the Orchestrator's `schema.ts`, addressing the friction of having to explicitly state this in agent prompts (like `bolt.md`).
+
+## 2024-XX-XX
+- **Observed issue:** Persona prompts in `.github/agents/*.md` were pointing to `.jules/<persona>.md` instead of `.foundry/journals/<persona>.md`, leading to scattered context and memory fragmentation.
+- **Action taken:** Replaced all occurrences of `.jules/` with `.foundry/journals/` in `.github/agents/*.md`, including legacy uppercase `.Jules/`.
+- **Action taken:** Merged and moved all remaining journals from `.jules/` to `.foundry/journals/`.
+- **Action taken:** Deleted `.jules/` directory.
+- **Rule adjustment:** We must strictly adhere to the `Agent Prompt Journaling Paths` policy stating that write instructions (e.g. `Your private journal is...`, `A new journal entry in...`) must point to `.foundry/journals/<persona>.md` instead of `.jules/<persona>.md`.

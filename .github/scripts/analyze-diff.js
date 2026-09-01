@@ -18,7 +18,7 @@ function analyzeDiff(diffText) {
       if (match) {
         // If file is deleted, b/ is the filename. If created, b/ is the filename.
         const filename = match[2];
-        if (filename.startsWith('.foundry/journals/') || filename.startsWith('.jules/')) {
+        if (filename.startsWith('.foundry/journals/') ) {
           currentFileIsJournal = true;
           // Note: Just because we saw a journal file in diff header, doesn't mean it has changes yet, but if it has changes we'll process them below. However, for empty file creations, git diff might have NO +/- lines.
           hasValidChanges = true;
