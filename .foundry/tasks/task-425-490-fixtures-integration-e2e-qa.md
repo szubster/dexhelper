@@ -28,6 +28,6 @@ notes: ''
 Verify the E2E test implementation for Gen 1, 2, and 3 save file fixtures to ensure they correctly test the application lifecycle and prevent regressions.
 
 ## Acceptance Criteria
-- [ ] Review the updated E2E tests in `tests/e2e/` for comprehensive coverage of the new fixtures.
-- [ ] Run `xvfb-run -a pnpm test:e2e` and confirm all tests pass successfully.
-- [ ] Confirm no regressions or flakiness are introduced into the CI pipeline.
+- [x] Review the updated E2E tests in `tests/e2e/` for comprehensive coverage of the new fixtures.
+- [x] Run `xvfb-run -a pnpm test:e2e` and confirm all tests pass successfully.
+- [x] Confirm no regressions or flakiness are introduced into the CI pipeline.
