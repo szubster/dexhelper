@@ -841,3 +841,13 @@ We need to enforce these strict parsing guidelines for Gen 3 data extraction to 
 
 Verified the `gen1.ts`, `gen2.ts`, and `gen3.ts` parsers using Vitest type checks and standard execution.
 `parseGen1`, `parseGen2`, and `parseGen3` successfully return `Gen1SaveData`, `Gen2SaveData`, and `Gen3SaveData` instead of a generic `SaveData` union without throwing any regressions.
+
+
+# QA Verification Failure for Japanese Crystal
+
+The current task is to verify that all the new `.sav` files in `tests/fixtures/` load without parsing errors.
+However, I encountered a failure with `crystal-bxtj-0.sav`, which is a Japanese copy of Pokémon Crystal.
+
+Japanese games have different memory offsets compared to international releases, particularly the party count and party species offsets (`0x281a` instead of `0x2865` for JP Crystal). Our parser currently strictly relies on Western offsets.
+
+As a QA agent, my responsibility is to validate the task and fail it since the implementation is missing architectural requirements (handling Japanese offsets). I will update the target task (`task-470-487-catalog-integrate-saves`) with a transient rejection to alert the coder to this issue.

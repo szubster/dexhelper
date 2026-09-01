@@ -52,3 +52,10 @@ I identified that the "Orchestrator Safeguard (E2E/Integration Requirement)" was
 - Consolidated redundancy by removing duplicated ADR 008 and Vitest mock constraints from react.md.
 - Standardized the Journaling Policies reference in coder.md and qa.md.
 - Created `.foundry/archive/tasks/task-000-493-update-jules-setup-script-playwright.md` to provide the CEO with the exact Playwright installation command (`npx playwright install --with-deps chromium`) needed to update the Jules setup script.
+
+
+# Agile Coach Journal - 1270286429906620454
+
+## Process Improvements & Prompt Updates
+1. Consolidate Redundancy: Removed the duplicated `(or defer E2E failures due to environment/Xvfb quirks to GitHub CI)` rule from 11 persona prompts (`bolt.md`, `infras.md`, `mason.md`, `nurse.md`, `oak.md`, `palette.md`, `sculptor.md`, `sentinel.md`, `shield.md`, `sweeper.md`, `trainer.md`). This constraint should be a general E2E execution policy rather than hardcoded in each agent's local verification step, cleaning up prompt rot.
+2. Created a new IDEA node (`idea-487-refactor-rejection-count-schema.md`) to suggest explicitly disallowing `rejection_count` and `rejection_reason` for IDEA nodes in the Orchestrator's `schema.ts`, addressing the friction of having to explicitly state this in agent prompts (like `bolt.md`).
