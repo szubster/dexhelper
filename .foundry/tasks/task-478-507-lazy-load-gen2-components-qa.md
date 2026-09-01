@@ -2,7 +2,7 @@
 id: task-478-507-lazy-load-gen2-components-qa
 type: TASK
 title: QA - Lazy Load Gen 2 Components
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-31'
 updated_at: '2026-09-01'
@@ -16,6 +16,7 @@ tags:
   - ui
 rejection_count: 0
 rejection_reason: ''
+locks: []
 ---
 # TASK: QA - Lazy Load Gen 2 Components
 
