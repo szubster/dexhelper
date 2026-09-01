@@ -2,12 +2,12 @@
 id: research-477-506-gen3-mystery-gift-event-flag-offsets
 type: RESEARCH
 title: Gen 3 Mystery Gift Event Flag Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-31'
 updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12238734344594433133'
 pr_number: null
 parent: story-345-477-gen3-mystery-gift-event-flags
 tags:
