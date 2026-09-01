@@ -36,5 +36,5 @@ Using the defined constants, create the core utility function that the UI will u
 - Ensure the function returns the necessary information for the UI to render the highlight.
 
 ## Acceptance Criteria
-- [ ] Implement `identifyHighValueHeldItem` logic.
-- [ ] Write unit tests for the item identification logic.
+- [x] Implement `identifyHighValueHeldItem` logic.
+- [x] Write unit tests for the item identification logic.
