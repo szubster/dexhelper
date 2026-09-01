@@ -22,4 +22,6 @@ notes: ''
 Gen 2 specific components such as Pokegear Caller UI elements should be lazy loaded.
 
 ## Acceptance Criteria
-- [ ] Break down this story into tasks for identifying and implementing React.lazy on Gen 2 components.
+- [x] Break down this story into tasks for identifying and implementing React.lazy on Gen 2 components.
+- [ ] task-478-506-lazy-load-gen2-components-impl
+- [ ] task-478-507-lazy-load-gen2-components-qa
