@@ -2,13 +2,13 @@
 id: story-417-478-assistant-code-splitting
 type: STORY
 title: Split assistant logic by generation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-26'
 updated_at: '2026-09-01'
 depends_on:
   - story-417-477-save-parser-code-splitting
-jules_session_id: '16986453588371903066'
+jules_session_id: '15125668669663031860'
 parent: epic-340-417-engine-code-splitting
 tags:
   - performance
