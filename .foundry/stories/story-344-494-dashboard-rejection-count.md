@@ -31,4 +31,7 @@ Refactor `DagDashboard.tsx`, `DagNode.tsx`, and their corresponding test files t
 4. Eliminate all direct imports of `MAX_REJECTION_THRESHOLD` from these files.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-494-512-refactor-dashboard-ui
+- [ ] task-494-513-refactor-dashboard-tests
+- [ ] task-494-514-qa-verify-dashboard
