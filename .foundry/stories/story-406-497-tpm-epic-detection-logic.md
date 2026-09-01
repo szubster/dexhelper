@@ -2,12 +2,12 @@
 id: story-406-497-tpm-epic-detection-logic
 type: STORY
 title: TPM EPIC Detection Logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-31'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2128522198984124086'
 pr_number: null
 parent: epic-339-406-tpm-distillation-logic
 tags:
