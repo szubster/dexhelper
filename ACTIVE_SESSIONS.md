@@ -9,6 +9,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [prd-067-037-gen3-berry-tracker](.foundry/prds/prd-067-037-gen3-berry-tracker.md) | PRD | Gen 3 Berry Farming Tracker | epic_planner | [1691514318447933644](https://jules.google.com/session/1691514318447933644) |
 | [research-145-001-component-variant-libraries](.foundry/research/research-145-001-component-variant-libraries.md) | RESEARCH | Research Component Variant Libraries | researcher | [10374986917255625107](https://jules.google.com/session/10374986917255625107) |
 | [research-348-506-investigate-ui-impl-failure](.foundry/research/research-348-506-investigate-ui-impl-failure.md) | RESEARCH | Research: Investigate Gen 3 Ash UI Impl Failure | researcher | [8211738774303292007](https://jules.google.com/session/8211738774303292007) |
 | [research-360-471-investigate-gen3-roamer-e2e-failure](.foundry/research/research-360-471-investigate-gen3-roamer-e2e-failure.md) | RESEARCH | Investigate Gen 3 Roamer E2E Test Failure | researcher | [9528661489058889863](https://jules.google.com/session/9528661489058889863) |
