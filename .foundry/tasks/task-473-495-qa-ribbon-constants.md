@@ -27,5 +27,5 @@ notes: ''
 Verify the Gen 3 Ribbon constants implementation and unit tests against .foundry/docs/schema.md Section 13 constraints.
 
 ## Acceptance Criteria
-- [ ] Verify constants are defined at the module level in src/engine/saveParser/parsers/gen3.ts and no magic numbers are used.
-- [ ] Verify unit tests pass and adequately cover the new constants.
+- [x] Verify constants are defined at the module level in src/engine/saveParser/parsers/gen3.ts and no magic numbers are used.
+- [x] Verify unit tests pass and adequately cover the new constants.
