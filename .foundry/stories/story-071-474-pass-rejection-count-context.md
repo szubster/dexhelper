@@ -27,4 +27,7 @@ locks: []
 Once extracted, the `rejection_count` must be passed along with the rest of the node data to the `DagContext` so it can be consumed by the UI components.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-474-512-pass-rejection-count-impl
+- [ ] task-474-513-pass-rejection-count-tests
+- [ ] task-474-514-pass-rejection-count-qa
