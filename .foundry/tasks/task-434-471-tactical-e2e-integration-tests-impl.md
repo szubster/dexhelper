@@ -33,6 +33,6 @@ Write/update Playwright E2E tests to verify that the refactored tactical compone
 3. Ensure the tactical UI looks cohesive and maintains the sharp, monospaced aesthetic described in ADR 008.
 
 ## Acceptance Criteria
-- [ ] Playwright E2E tests are implemented and successfully cover the tactical components in integration.
-- [ ] Elements can be navigated and interacted with successfully using Playwright.
-- [ ] `xvfb-run pnpm test:e2e` passes without regressions on the test suite.
+- [x] Playwright E2E tests are implemented and successfully cover the tactical components in integration.
+- [x] Elements can be navigated and interacted with successfully using Playwright.
+- [x] `xvfb-run pnpm test:e2e` passes without regressions on the test suite.
