@@ -36,4 +36,6 @@ This Epic handles the remediation logic (state transitions) specifically updatin
 - [ ] Ensure robust unit test coverage for the remediation functionality.
 
 ## Next Steps
-- [ ] Break down into Stories.
+- [x] Break down into Stories.
+- [ ] story-330-514-remediation-state-transition-logic
+- [ ] story-330-515-remediation-logic-e2e
