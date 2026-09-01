@@ -28,4 +28,5 @@ Implement Integration and E2E verification for the R2 conflict resolution flow.
 - Enforce the E2E verification dedicated exclusively to Integration and E2E Verification.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-413-511-r2-conflict-resolution-e2e-verification
