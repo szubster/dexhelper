@@ -26,5 +26,5 @@ locks: []
 This research node was created to find the exact bit indices and memory offsets for the Mystery Gift event flags (such as the Aurora Ticket and MysticTicket) in Generation 3 save files. The base offset for event flags in `SaveBlock1` is `0x1270`, but the specific bits to check for these events are unknown.
 
 ## Acceptance Criteria
-- [ ] Investigate and determine the exact event flag bit indices/offsets for Gen 3 Mystery Gift flags (e.g. Aurora Ticket, MysticTicket).
-- [ ] Document the findings in a knowledge base document in `.foundry/docs/knowledge_base/`.
+- [x] Investigate and determine the exact event flag bit indices/offsets for Gen 3 Mystery Gift flags (e.g. Aurora Ticket, MysticTicket).
+- [x] Document the findings in a knowledge base document in `.foundry/docs/knowledge_base/`.
