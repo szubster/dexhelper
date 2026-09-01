@@ -28,5 +28,5 @@ notes: ''
 Verify the overall implementation of Pokerus byte parsing in Gen 2 saves. The byte must be properly parsed to expose the specific strain of the virus and the days remaining.
 
 ## Acceptance Criteria
-- [ ] Verify `PokemonInstance.pokerus` correctly reflects the strain and days remaining.
-- [ ] Verify the Gen 2 Pokemon parser correctly extracts the byte at offset 28 and parses it using `parsePokerus` from `common.ts`.
+- [x] Verify `PokemonInstance.pokerus` correctly reflects the strain and days remaining.
+- [x] Verify the Gen 2 Pokemon parser correctly extracts the byte at offset 28 and parses it using `parsePokerus` from `common.ts`.
