@@ -27,5 +27,5 @@ Implement a state simulator capable of moving randomly generated graphs through 
 2. Simulate valid state transitions including READY, ACTIVE, PENDING, VERIFYING, COMPLETED, FAILED, CANCELLED.
 3. Write unit tests for state transition logic.
 ## Acceptance Criteria
-- [ ] Simulator implemented.
-- [ ] Unit tests pass.
+- [x] Simulator implemented.
+- [x] Unit tests pass.
