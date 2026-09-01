@@ -22,5 +22,5 @@ rejection_reason: ''
 Implement Playwright E2E tests to verify that the application properly parses and displays save data for Gen 3 following the recent SaveData type refactoring.
 
 ## Acceptance Criteria
-- [ ] Add or update E2E tests to test Gen 3 save data parsing and rendering.
-- [ ] Verify test suite passes successfully.
+- [x] Add or update E2E tests to test Gen 3 save data parsing and rendering.
+- [x] Verify test suite passes successfully.
