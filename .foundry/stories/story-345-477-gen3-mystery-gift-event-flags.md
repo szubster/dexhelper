@@ -2,13 +2,13 @@
 id: story-345-477-gen3-mystery-gift-event-flags
 type: STORY
 title: Gen 3 Mystery Gift Event Flags Extraction
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on:
   - story-345-354-gen3-wonder-card-extraction
-jules_session_id: '4489600989227197375'
+jules_session_id: null
 pr_number: null
 parent: epic-121-345-gen3-mystery-gift-data-extraction
 tags:
@@ -16,8 +16,8 @@ tags:
   - mystery-gift
   - data-extraction
 research_references: []
-rejection_count: 1
-rejection_reason: 'Suspended pending research for exact event flag bit indices/offsets.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 

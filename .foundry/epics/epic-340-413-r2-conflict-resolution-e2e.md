@@ -2,13 +2,13 @@
 id: epic-340-413-r2-conflict-resolution-e2e
 type: EPIC
 title: Cloudflare R2 Conflict Resolution E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2025-01-08'
 updated_at: '2026-09-01'
 depends_on:
   - epic-340-412-r2-conflict-resolution-ui-prompt
-jules_session_id: '16542630934027996803'
+jules_session_id: null
 pr_number: null
 parent: prd-401-340-r2-conflict-resolution-ui
 tags:

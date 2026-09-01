@@ -2,10 +2,10 @@
 id: task-478-507-orchestrator-cloning-logic
 type: TASK
 title: Implement DAG Node Cloning Logic
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-30'
-updated_at: '2026-08-30'
+updated_at: '2026-09-01'
 depends_on:
   - task-478-506-orchestrator-cloning-types
 jules_session_id: null

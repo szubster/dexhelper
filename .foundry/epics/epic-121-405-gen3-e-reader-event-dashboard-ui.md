@@ -2,13 +2,13 @@
 id: epic-121-405-gen3-e-reader-event-dashboard-ui
 type: EPIC
 title: Gen 3 E-Reader Event Dashboard UI
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-06'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on:
   - epic-121-404-gen3-e-reader-event-data-extraction
-jules_session_id: '11522196081407239670'
+jules_session_id: null
 pr_number: null
 parent: prd-121-gen3-e-reader-event-tracker
 tags:

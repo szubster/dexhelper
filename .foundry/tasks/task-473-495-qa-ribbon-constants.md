@@ -2,10 +2,10 @@
 id: task-473-495-qa-ribbon-constants
 type: TASK
 title: QA Gen 3 Ribbon Constants
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-09-01'
 depends_on:
   - task-473-494-ribbon-constants-tests
 jules_session_id: null

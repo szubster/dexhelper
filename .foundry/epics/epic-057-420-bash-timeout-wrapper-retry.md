@@ -2,10 +2,10 @@
 id: epic-057-420-bash-timeout-wrapper-retry
 type: EPIC
 title: Timeout Wrapper for Bash Sessions (Retry)
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on:
   - research-057-417-investigate-bash-timeout-failure
 jules_session_id: null
@@ -32,5 +32,5 @@ Implement a mechanism that wraps any `run_in_bash_session` execution and interru
 
 ## Acceptance Criteria
 - [x] Break down this epic into stories.
-- [ ] story-420-495-bash-timeout-wrapper-retry-impl
-- [ ] story-420-494-bash-timeout-wrapper-retry-e2e
+- [x] story-420-495-bash-timeout-wrapper-retry-impl
+- [x] story-420-494-bash-timeout-wrapper-retry-e2e

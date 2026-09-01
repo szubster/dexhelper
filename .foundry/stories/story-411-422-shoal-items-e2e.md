@@ -2,10 +2,10 @@
 id: story-411-422-shoal-items-e2e
 type: STORY
 title: E2E Integration Verification for Shoal Items
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-13'
-updated_at: '2026-08-23'
+updated_at: '2026-09-01'
 depends_on:
   - story-411-421-shoal-items-parsing
 jules_session_id: null

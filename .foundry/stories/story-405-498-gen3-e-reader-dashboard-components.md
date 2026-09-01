@@ -2,10 +2,10 @@
 id: story-405-498-gen3-e-reader-dashboard-components
 type: STORY
 title: Gen 3 E-Reader Dashboard Components
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-31'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on:
   - story-405-497-gen3-e-reader-dashboard-state
 jules_session_id: null
