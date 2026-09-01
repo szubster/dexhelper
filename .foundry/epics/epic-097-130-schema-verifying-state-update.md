@@ -25,4 +25,6 @@ notes: ''
 This epic implements the required changes from `prd-097-096-schema-verifying-state-fix`. We need to update Invariant 7 in `schema.md` to reflect that `VERIFYING` and `COMPLETED` nodes are read-only for implementing personas, as established by ADR 014.
 
 ## Acceptance Criteria
-- [ ] Story created to update `schema.md` System Invariant 7.
+- [x] Story created to update `schema.md` System Invariant 7.
+- [ ] story-130-512-schema-verifying-state-update
+- [ ] story-130-513-schema-verifying-state-update-e2e
