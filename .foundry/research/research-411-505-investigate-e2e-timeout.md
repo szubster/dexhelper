@@ -27,6 +27,9 @@ locks: []
 The implementation task `task-411-440-tm-hm-integration-e2e-impl` failed permanently due to a session timeout (>7 days without PR). We need to investigate the root cause of this failure. It could be due to a complex test setup, environmental issues, or a misunderstanding of the requirements.
 
 ## Acceptance Criteria
-- [ ] Determine the root cause of the timeout for `task-411-440-tm-hm-integration-e2e-impl`.
-- [ ] Document the findings in the task markdown body.
-- [ ] Identify if there are any architectural blockers preventing the E2E tests from running or completing successfully.
+- [x] Determine the root cause of the timeout for `task-411-440-tm-hm-integration-e2e-impl`.
+- [x] Document the findings in the task markdown body.
+- [x] Identify if there are any architectural blockers preventing the E2E tests from running or completing successfully.
+### Findings
+The root cause of the timeout for task-411-440-tm-hm-integration-e2e-impl is that running the full Playwright E2E test suite locally using xvfb-run pnpm test:e2e takes over 400 seconds, causing the bash session to time out.
+There are no architectural blockers preventing the E2E tests from running or completing successfully. The issue is purely a bash session timeout. Future E2E implementations should explicitly target their specific test files (e.g., xvfb-run -a pnpm test:e2e tests/e2e/file.spec.ts) rather than running the full suite.
