@@ -3,6 +3,7 @@
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
 | [epic-008-018-session-dispatch-bypass](.foundry/epics/epic-008-018-session-dispatch-bypass.md) | EPIC | Session Dispatch Bypass and Fulfillment | story_owner | [4211910550391037410](https://jules.google.com/session/4211910550391037410) |
+| [epic-050-330-zombie-node-remediation-logic](.foundry/epics/epic-050-330-zombie-node-remediation-logic.md) | EPIC | Zombie Node Remediation Logic V2 | story_owner | [17013391110119932012](https://jules.google.com/session/17013391110119932012) |
 | [epic-339-410-librarian-github-scripts-implementation](.foundry/epics/epic-339-410-librarian-github-scripts-implementation.md) | EPIC | GitHub Scripts for Librarian Persona | story_owner | [15773092713563462558](https://jules.google.com/session/15773092713563462558) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
