@@ -14,7 +14,8 @@
     "functions/api/saves/index.ts",
     "functions/api/saves/[id].ts",
     "src/engine/saveParser/utils/index.ts",
-    "src/engine/saveParser/gen3/mixedRecords/constants.ts",
+    ".github/scripts/aggregate-journals.ts",
+    "src/engine/saveParser/gen3/pokeblock/index.ts",
   ],
   "rules": {
     "files": "warn",
