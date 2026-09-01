@@ -28,6 +28,6 @@ locks: []
 The generation-specific logic in the save parser engine (`src/engine/saveParser/index.ts`) has been refactored to use dynamic imports for improved performance (ADR 029). We need to verify that this implementation works correctly without regressions.
 
 ## Acceptance Criteria
-- [ ] Verify that Gen 1, Gen 2, and Gen 3 save files still parse correctly.
-- [ ] Confirm that `parseSaveFile` properly resolves dynamic imports (`await import(...)`) dynamically during runtime.
-- [ ] Ensure that structural fallback detection (when checksums are broken) still functions and correctly dispatches to the lazily loaded parsers.
+- [x] Verify that Gen 1, Gen 2, and Gen 3 save files still parse correctly.
+- [x] Confirm that `parseSaveFile` properly resolves dynamic imports (`await import(...)`) dynamically during runtime.
+- [x] Ensure that structural fallback detection (when checksums are broken) still functions and correctly dispatches to the lazily loaded parsers.
