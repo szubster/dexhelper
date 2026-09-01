@@ -31,4 +31,7 @@ We need to extract the 32-bit Ribbon and Obedience bitfield for each Pokémon fr
 Implement extraction logic for the 32-bit Ribbon bitfield from the 'M' substructure.
 
 ## Acceptance Criteria
-- [ ] Break down story into tasks for implementing extraction logic for the 32-bit Ribbon bitfield from the 'M' substructure.
+- [x] Break down story into tasks for implementing extraction logic for the 32-bit Ribbon bitfield from the 'M' substructure.
+- [ ] task-474-514-update-gen3-ribbons-interface
+- [ ] task-474-515-update-parse-gen3-ribbons
+- [ ] task-474-516-qa-gen3-ribbons
