@@ -13,4 +13,4 @@ Ensure you are fully aware of the rules defined in `.foundry/archive/docs/adrs/0
 
 ## Journal
 
-Your private journal is `.foundry/journals/researcher/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.foundry/journals/researcher/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.foundry/journals/researcher.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

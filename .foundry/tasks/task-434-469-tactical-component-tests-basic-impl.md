@@ -2,12 +2,12 @@
 id: task-434-469-tactical-component-tests-basic-impl
 type: TASK
 title: Implement Component Tests for Basic Tactical Components
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: '15601620726100055447'
+jules_session_id: null
 pr_number: null
 parent: story-071-434-migrate-tactical-components-e2e
 tags:
@@ -32,6 +32,6 @@ Write comprehensive component tests using `vitest-browser-react` for basic core 
 4. Assert that the specific tactical utility classes (from ADR 024 / ADR 008, e.g., sharp edges, monospaced fonts, specific border treatments) are applied correctly to the root elements.
 
 ## Acceptance Criteria
-- [ ] Component test suite covers `TacticalButton`, `TacticalInput`, `TacticalSelect`, and `TacticalBadge`.
-- [ ] Tests verify both interactivity and presence of proper tactical utility classes.
-- [ ] `pnpm test` passes without regressions for these components.
+- [x] Component test suite covers `TacticalButton`, `TacticalInput`, `TacticalSelect`, and `TacticalBadge`.
+- [x] Tests verify both interactivity and presence of proper tactical utility classes.
+- [x] `pnpm test` passes without regressions for these components.

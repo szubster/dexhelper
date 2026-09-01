@@ -62,7 +62,7 @@ export const NodeFrontmatterSchema = z.object({
   rejection_reason: z.string().optional(),
   notes: z.string().optional(),
   experiment_variants: z.array(z.string()).optional(),
-  locks: z.array(z.string()).optional(),
+  locks: z.array(z.string()).default([]),
 });
 
 export type NodeFrontmatter = z.infer<typeof NodeFrontmatterSchema>;

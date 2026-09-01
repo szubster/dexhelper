@@ -38,7 +38,14 @@ describe('DashboardPage', () => {
 
   it('renders Gen 2 dashboard', async () => {
     useStore.setState({
-      saveData: { generation: 2, partyDetails: [], pcDetails: [] } as unknown as SaveData,
+      saveData: {
+        generation: 2,
+        partyDetails: [],
+        pcDetails: [],
+        gen2PokegearPhone: {
+          highValueContacts: [],
+        },
+      } as unknown as SaveData,
     });
 
     await render(<QueryClientProvider client={queryClient}>{Component ? <Component /> : null}</QueryClientProvider>);

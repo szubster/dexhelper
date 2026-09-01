@@ -55,4 +55,22 @@ describe('Zod Schema E2E Test Fixtures (Markdown Files)', () => {
     const { data } = matter(file);
     expect(() => NodeFrontmatterSchema.parse(data)).toThrowError(/invalid_type/);
   });
+
+  it('validates a correct PRD file', () => {
+    const file = fs.readFileSync(path.join(fixturesDir, 'prd-001-valid.md'), 'utf-8');
+    const { data } = matter(file);
+    expect(() => NodeFrontmatterSchema.parse(data)).not.toThrow();
+  });
+
+  it('validates a correct STORY file', () => {
+    const file = fs.readFileSync(path.join(fixturesDir, 'story-001-valid.md'), 'utf-8');
+    const { data } = matter(file);
+    expect(() => NodeFrontmatterSchema.parse(data)).not.toThrow();
+  });
+
+  it('fails validation for TASK with missing fields', () => {
+    const file = fs.readFileSync(path.join(fixturesDir, 'missing-fields-001-invalid.md'), 'utf-8');
+    const { data } = matter(file);
+    expect(() => NodeFrontmatterSchema.parse(data)).toThrowError(/invalid_type/);
+  });
 });

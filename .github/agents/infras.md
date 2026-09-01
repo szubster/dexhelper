@@ -29,15 +29,15 @@ Identify and implement ONE improvement to the development tooling, build pipelin
 1. **Audit** — review current tooling, configs, and CI for gaps or staleness.
 2. **Select** — pick the single best opportunity: clear DX improvement, low integration risk.
 3. **Implement** — integrate cleanly, document any new config or setup.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb` (or defer E2E failures due to environment/Xvfb quirks to GitHub CI). Confirm the pipeline still works end-to-end.
+4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb`. Confirm the pipeline still works end-to-end.
 5. **PR** — title: `🛠️ Infras: [improvement]`. Body: What, Why, Impact on DX/CI, Setup notes.
 
 ## Journal
 
-Read `.jules/infras/*.md` (your past journals) before starting.
+Read `.jules/infras.md` (your past journals) before starting.
 Only log **critical** learnings: tool integration gotchas, rejected tooling decisions, CI-specific constraints.
 
-Your private journal is `.jules/infras/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/infras/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/infras.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 

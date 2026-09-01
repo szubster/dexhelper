@@ -2,13 +2,13 @@
 id: story-345-477-gen3-mystery-gift-event-flags
 type: STORY
 title: Gen 3 Mystery Gift Event Flags Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on:
   - story-345-354-gen3-wonder-card-extraction
-jules_session_id: '4489600989227197375'
+jules_session_id: null
 pr_number: null
 parent: epic-121-345-gen3-mystery-gift-data-extraction
 tags:
@@ -16,7 +16,7 @@ tags:
   - mystery-gift
   - data-extraction
 research_references: []
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 ---
@@ -29,3 +29,4 @@ This story focuses on extracting the active event flags associated with Mystery 
 ## Acceptance Criteria
 - [ ] Extract active event flags associated with Mystery Gift.
 - [ ] Tech Lead: Break down this Story into manageable Tasks.
+- [ ] research-477-506-gen3-mystery-gift-event-flag-offsets
