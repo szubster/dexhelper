@@ -2,10 +2,10 @@
 id: task-405-485-gen3-mixed-record-parser-impl-v2
 type: TASK
 title: Implement Gen 3 Mixed Record Parser v2
-status: FAILED
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on:
   - research-405-471-investigate-mixed-record-parser-failure
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - mixed-records
   - parser
 research_references: []
-rejection_count: 1
-rejection_reason: 'Implementation violated Section 13 guidelines by using inline magic numbers (0 and 0xffffffff) for personality checks in parser.ts and test file.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
@@ -28,6 +28,6 @@ notes: ''
 Following the research into the failure of the initial implementation, this task implements the parsing logic to extract Gen 3 Mixed Record NPC Data.
 
 ## Acceptance Criteria
-- [ ] Implement a parsing function using the defined constants and the `DataView` API based on the research findings.
-- [ ] Ensure strict adherence to Section 13 of `.foundry/docs/schema.md` (no magic numbers, relative offsets, RangeError handling).
-- [ ] Write unit tests demonstrating correct extraction.
+- [x] Implement a parsing function using the defined constants and the `DataView` API based on the research findings.
+- [x] Ensure strict adherence to Section 13 of `.foundry/docs/schema.md` (no magic numbers, relative offsets, RangeError handling).
+- [x] Write unit tests demonstrating correct extraction.

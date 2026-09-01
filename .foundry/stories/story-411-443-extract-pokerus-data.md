@@ -2,10 +2,10 @@
 id: story-411-443-extract-pokerus-data
 type: STORY
 title: Extract Pokerus Data
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -28,7 +28,7 @@ Read the specific byte flags for Pokerus for every Pokemon in the party and PC f
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-443-477-pokerus-type-definitions
-- [ ] task-443-478-pokerus-parser-logic
-- [ ] task-443-479-pokerus-parsing-tests
-- [ ] task-443-480-pokerus-parsing-qa
+- [x] task-443-477-pokerus-type-definitions
+- [x] task-443-478-pokerus-parser-logic
+- [x] task-443-479-pokerus-parsing-tests
+- [x] task-443-480-pokerus-parsing-qa

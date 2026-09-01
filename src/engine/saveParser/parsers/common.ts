@@ -333,6 +333,13 @@ export interface Gen1SaveData extends BaseSaveData {
   gen1NarrativeFlags?: Record<string, boolean>;
 }
 
+export interface RuinsOfAlphPuzzles {
+  kabuto: boolean;
+  aerodactyl: boolean;
+  hoOh: boolean;
+  omanyte: boolean;
+}
+
 export interface Gen2SaveData extends BaseSaveData {
   /** The generation of the parsed save file. */
   generation: 2;
@@ -360,6 +367,8 @@ export interface Gen2SaveData extends BaseSaveData {
   daycareHasEgg?: boolean;
   /** Gen 2 specific: Mom's bank account savings data. */
   gen2MomsSavings?: { money: number; savingActive: boolean };
+  /** Gen 2 specific: Ruins of Alph puzzle completion status. */
+  gen2RuinsOfAlphPuzzles?: RuinsOfAlphPuzzles;
   /** Gen 2 specific: The player's active and unlocked room decorations. */
   gen2RoomDecorations?: { active: number[]; unlocked: boolean[] };
   /** Gen 2 specific: States for daily and weekly time-gated events. */

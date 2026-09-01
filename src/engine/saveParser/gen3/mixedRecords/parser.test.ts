@@ -45,7 +45,7 @@ describe('parseGen3MixedRecordNPC', () => {
       partyBaseOffset +
         Constants.MIXED_RECORD_POKEMON_PERSONALITY_OFFSET +
         1 * Constants.MIXED_RECORD_POKEMON_PERSONALITY_SIZE,
-      0,
+      Constants.MIXED_RECORD_EMPTY_PERSONALITY_0,
       true,
     );
 
@@ -54,7 +54,7 @@ describe('parseGen3MixedRecordNPC', () => {
       partyBaseOffset +
         Constants.MIXED_RECORD_POKEMON_PERSONALITY_OFFSET +
         2 * Constants.MIXED_RECORD_POKEMON_PERSONALITY_SIZE,
-      0xffffffff,
+      Constants.MIXED_RECORD_EMPTY_PERSONALITY_FF,
       true,
     );
 

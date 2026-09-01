@@ -2,10 +2,10 @@
 id: epic-009-atomic-handoff-testing
 type: EPIC
 title: 'Epic: Atomic Handoff Testing Expansion'
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-04-22'
-updated_at: '2026-08-24'
+updated_at: '2026-09-01'
 depends_on: []
 jules_session_id: null
 parent: prd-001-v2-lifecycle
@@ -34,3 +34,4 @@ This Epic ensures that the orchestrator refactors and schema updates are heavily
 - `.foundry/archive/stories/story-009-030-single-persona-dag-tests.md`
 - `.foundry/stories/story-009-031-deadlock-prevention-tests.md`
 - `.foundry/archive/stories/story-009-032-lifecycle-integration-tests.md`
+- [ ] story-009-033-atomic-handoff-testing-e2e

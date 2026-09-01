@@ -2,12 +2,12 @@
 id: story-412-477-parse-locks-orchestrator
 type: STORY
 title: Parse locks field in Orchestrator
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: '15001416117309324550'
+jules_session_id: null
 pr_number: null
 parent: epic-340-412-orchestrator-resource-locking
 tags:
@@ -29,4 +29,5 @@ Update the orchestrator script to parse and validate the new `locks` field from 
 - Ensure `locks` is an array of strings. Default to an empty array if missing.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-477-506-update-schema-locks-impl

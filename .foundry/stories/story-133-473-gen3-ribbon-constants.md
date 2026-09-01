@@ -2,10 +2,10 @@
 id: story-133-473-gen3-ribbon-constants
 type: STORY
 title: Define Gen 3 Ribbon Constants
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-26'
+updated_at: '2026-09-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Define Gen 3 Ribbon Constants
@@ -30,6 +31,6 @@ Define reusable constants for Ribbon bitmask offsets and lengths.
 
 ## Acceptance Criteria
 - [x] Break down story into tasks for defining reusable constants for Ribbon bitmask offsets and lengths.
-- [ ] task-473-493-define-ribbon-constants
-- [ ] task-473-494-ribbon-constants-tests
-- [ ] task-473-495-qa-ribbon-constants
+- [x] task-473-493-define-ribbon-constants
+- [x] task-473-494-ribbon-constants-tests
+- [x] task-473-495-qa-ribbon-constants

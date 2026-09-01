@@ -302,3 +302,14 @@ When decomposing a PRD into Epics, it is critical to explicitly enforce the "E2E
 
 ## Learnings
 - **Orchestrator Safeguard (E2E Requirement)**: When replacing permanently failed epics or creating new ones, it is critical to explicitly document the requirement for a final STORY dedicated exclusively to Integration and E2E Verification. If this is not done, the epic will fail to transition to COMPLETED when the orchestrator's safeguard checks the child stories.
+
+## Context
+Investigated the permanent failure of `epic-037-055-gen3-berry-tracker-data-extraction`, which had caused its dependent downstream Epics to be cancelled (The Impossible Loop).
+
+To resolve this and resurrect the feature, I:
+1. Created a new RESEARCH node (`research-037-512-investigate-gen3-berry-extraction-failure`) to investigate the root cause of the previous failure.
+2. Created a new set of retry Epics (`epic-037-513-gen3-berry-tracker-data-extraction-retry`, `epic-037-514-gen3-berry-tracker-map-integration-retry`, `epic-037-515-gen3-berry-tracker-ui-and-optimization-retry`).
+3. Explicitly wired the first retry Epic to depend on the RESEARCH node's completion, enabling the "late-binding" resolution pattern for failure recovery.
+4. Checked off the cancelled child Epics in the parent `prd-067-037-gen3-berry-tracker` body to allow proper DAG progress.
+
+All new Epics strictly enforce the Orchestrator safeguard requirement to generate an E2E STORY for verification.

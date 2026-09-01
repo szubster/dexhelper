@@ -2,13 +2,13 @@
 id: task-285-490-integrate-registered-numbers-ui-render
 type: TASK
 title: Render ActiveCallersDashboard in Gen 2 Dashboard
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-07'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on:
   - task-285-489-integrate-registered-numbers-ui-data
-jules_session_id: '3571431877773604546'
+jules_session_id: null
 pr_number: null
 parent: story-116-285-integrate-registered-numbers-ui
 tags:

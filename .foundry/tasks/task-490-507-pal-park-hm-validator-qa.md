@@ -2,10 +2,10 @@
 id: task-490-507-pal-park-hm-validator-qa
 type: TASK
 title: QA Gen 3 HM Move Validation Logic
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-29'
-updated_at: '2026-08-29'
+updated_at: '2026-09-01'
 depends_on:
   - task-490-506-pal-park-hm-validator-impl
 jules_session_id: null
