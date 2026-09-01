@@ -26,5 +26,5 @@ Add unit tests in `src/store.test.ts` to verify the state management logic and e
 * Verify the initial state and persistence (if applicable in unit tests).
 
 ## Acceptance Criteria
-- [ ] Write unit tests in `src/store.test.ts` covering the new state slice and toggle logic.
-- [ ] Tests must pass.
+- [x] Write unit tests in `src/store.test.ts` covering the new state slice and toggle logic.
+- [x] Tests must pass.
