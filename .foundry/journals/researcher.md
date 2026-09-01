@@ -281,3 +281,5 @@ The \`Gen2SaveData\` schema in \`src/engine/saveParser/parsers/common.ts\` is mi
 
 **Learnings:**
 - Always ensure that newly created extraction functions are actually hooked into the main parser (like \`parseGen2\`) and that their extracted data types are added to the common schemas (like \`Gen2SaveData\`) before writing E2E tests for the UI. UI components can't display data that isn't provided to them by the state store.
+## Gen 3 Egg Hatch Fixture
+- **Key Learning**: When generating Gen 3 test fixtures programmatically (e.g., flipping bit flags like `isEgg` in the Pokémon data substructure), it is critical to correctly recompute both the individual Pokémon's 16-bit structural checksum (after decrypting the data) AND the overarching save block's checksum. Failing to recompute these checksums will result in the save file being rejected by the parser as corrupted.

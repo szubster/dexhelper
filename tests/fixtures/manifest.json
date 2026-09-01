@@ -99,6 +99,11 @@
       "filename": "emerald-vithuang.sav",
       "version": "emerald",
       "original_source": "./tests/fixtures/saves/gen3/emerald_vithuang.sav"
+    },
+    {
+      "filename": "emerald-egg-fixture.sav",
+      "version": "emerald",
+      "original_source": "./tests/fixtures/saves/gen3/emerald_egg_fixture.sav"
     }
   ]
 }
