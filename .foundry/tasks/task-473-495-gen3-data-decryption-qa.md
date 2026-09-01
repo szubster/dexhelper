@@ -27,7 +27,7 @@ notes: ''
 Verify the core logic to calculate the decryption key and decrypt the 48-byte Data block of the Gen 3 Pokemon structure.
 
 ## Acceptance Criteria
-- [ ] Verify logic to calculate the decryption key.
-- [ ] Verify logic to decrypt the data block.
-- [ ] Verify unit tests verifying the decryption.
-- [ ] Adhere to schema constraints: Use relative offsets, avoid magic numbers, use module-level constants, and catch RangeError.
+- [x] Verify logic to calculate the decryption key.
+- [x] Verify logic to decrypt the data block.
+- [x] Verify unit tests verifying the decryption.
+- [x] Adhere to schema constraints: Use relative offsets, avoid magic numbers, use module-level constants, and catch RangeError.
