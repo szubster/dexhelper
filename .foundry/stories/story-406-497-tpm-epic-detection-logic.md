@@ -30,3 +30,7 @@ Implement logic to detect completed EPICs and trigger distillation.
 ## Acceptance Criteria
 - [ ] Implement detection logic for completed EPICs.
 - [ ] Ensure unit tests verify detection logic.
+
+- [ ] task-497-511-implement-tpm-epic-detection
+- [ ] task-497-512-qa-tpm-epic-detection
+- [ ] task-497-513-test-tpm-epic-detection
