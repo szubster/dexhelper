@@ -5,6 +5,7 @@ import { cn } from '../../utils/cn';
 import { CornerCrosshairs } from '../CornerCrosshairs';
 import { useDagContext } from '../dashboard/DagContext';
 import { TelemetryDecoration } from '../TelemetryDecoration';
+import { PersonaBadge } from './PersonaBadge';
 
 export type DagNodeData = Record<string, unknown> & {
   type: string;
@@ -84,9 +85,9 @@ export const DagNode = React.memo(function DagNode({ data }: { data: DagNodeData
       />
 
       <div className="mt-1 flex flex-col gap-1">
-        <div className="flex items-center justify-between text-[10px] text-zinc-400 uppercase tracking-widest">
-          <span>{data.owner_persona}</span>
-          <span className={cn('font-bold', statusColor)}>{data.status}</span>
+        <div className="flex items-center justify-between gap-2">
+          <PersonaBadge persona={data.owner_persona} className="mr-auto" />
+          <span className={cn('font-bold text-[10px] uppercase tracking-widest', statusColor)}>{data.status}</span>
         </div>
 
         <div className="flex items-start justify-between gap-2">
