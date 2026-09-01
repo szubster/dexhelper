@@ -30,4 +30,9 @@ Implement logic to clone nodes for different variants and adjust prompts accordi
 3. Inject variant-specific context into prompts.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-478-506-orchestrator-cloning-types
+- [ ] task-478-507-orchestrator-cloning-logic
+- [ ] task-478-508-orchestrator-prompt-adaptation
+- [ ] task-478-509-orchestrator-cloning-tests
+- [ ] task-478-510-orchestrator-cloning-qa
