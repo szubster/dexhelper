@@ -28,4 +28,4 @@ Update the developer-facing `oak` persona template to utilize its narrative Gen 
 - The narrative context should make it clear that the agent acts as Professor Oak.
 
 ## Acceptance Criteria
-- [ ] Coder: Update the `oak` persona markdown file(s) to adopt the Professor Oak skin.
+- [x] Coder: Update the `oak` persona markdown file(s) to adopt the Professor Oak skin.
