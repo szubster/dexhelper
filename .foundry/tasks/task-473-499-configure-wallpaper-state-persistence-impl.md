@@ -22,4 +22,4 @@ Ensure the unlocked wallpapers state persists across application reloads by upda
 * Update the `partialize` configuration in the `persist` middleware in `src/store.ts` to include the new unlocked wallpapers record so that it persists across application reloads.
 
 ## Acceptance Criteria
-- [ ] Update the `partialize` configuration in `src/store.ts` to include the wallpaper state.
+- [x] Update the `partialize` configuration in `src/store.ts` to include the wallpaper state.
