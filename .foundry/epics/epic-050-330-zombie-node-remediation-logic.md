@@ -2,10 +2,10 @@
 id: epic-050-330-zombie-node-remediation-logic
 type: EPIC
 title: Zombie Node Remediation Logic V2
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-17'
-updated_at: '2026-09-01'
+updated_at: '2026-08-14'
 depends_on:
   - research-050-329-investigate-zombie-gc-failure
 jules_session_id: null
@@ -36,6 +36,4 @@ This Epic handles the remediation logic (state transitions) specifically updatin
 - [ ] Ensure robust unit test coverage for the remediation functionality.
 
 ## Next Steps
-- [x] Break down into Stories.
-- [ ] story-330-514-remediation-state-transition-logic
-- [ ] story-330-515-remediation-logic-e2e
+- [ ] Break down into Stories.

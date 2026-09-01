@@ -2,12 +2,12 @@
 id: task-490-506-pal-park-hm-validator-impl
 type: TASK
 title: Implement Gen 3 HM Move Validation Logic
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-29'
-updated_at: '2026-09-01'
+updated_at: '2026-08-29'
 depends_on: []
-jules_session_id: '4215876317856582385'
+jules_session_id: null
 pr_number: null
 parent: story-420-490-pal-park-hm-validation
 tags:
@@ -41,6 +41,6 @@ As part of the Pal Park migration engine (Gen 3 to Gen 4), we need a validator t
 - Write corresponding unit tests (in `.test.ts`) validating positive (contains HM), negative (no HMs), and edge cases (empty move list, duplicate moves).
 
 ## Acceptance Criteria
-- [x] Implement `GEN3_HM_MOVES` constant containing all 8 Gen 3 HM move IDs.
-- [x] Implement `hasGen3HMMoves` function returning a boolean.
-- [x] Unit tests correctly verify the logic for positive and negative cases.
+- [ ] Implement `GEN3_HM_MOVES` constant containing all 8 Gen 3 HM move IDs.
+- [ ] Implement `hasGen3HMMoves` function returning a boolean.
+- [ ] Unit tests correctly verify the logic for positive and negative cases.

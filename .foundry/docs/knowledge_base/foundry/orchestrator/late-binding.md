@@ -62,5 +62,3 @@ When a persona (e.g. `tech_lead` or `story_owner`) processes a macro node:
 1. **Never list child nodes in a parent's `depends_on` array.**
 2. **Always append generated child references as unchecked checkboxes (`- [ ]`) in the parent's Acceptance Criteria section.**
 3. **Child nodes must include `parent: <parent_id>` in YAML frontmatter.**
-4. **Do NOT set parent status to `FAILED` when using late binding.** Nodes remain active, append the spawned node reference as an unchecked task (`- [ ] <spawned_node_id>`) in the markdown body, leave frontmatter as `status: ACTIVE` or `READY`, and submit a PR via the `submit` tool. Heartbeat will automatically demote the node to `PENDING` upon PR merge.
-5. **Encourage Creative Spawning of Upstream Nodes:** Late binding is not restricted to standard decomposition or `RESEARCH` nodes. Agents are encouraged to spawn upstream/mid-stream nodes (`IDEA`, `ADR`, `PRD`, `EPIC`, `RESEARCH`, `TASK`) based on discoveries.

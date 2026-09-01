@@ -2,12 +2,12 @@
 id: task-478-506-gen2-ruins-of-alph-constants
 type: TASK
 title: Define Gen 2 Ruins of Alph Puzzle Constants
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-31'
-updated_at: '2026-09-01'
+updated_at: '2026-08-31'
 depends_on: []
-jules_session_id: '12362003827257120207'
+jules_session_id: null
 parent: story-338-478-gen2-ruins-of-alph-puzzle-flags
 tags:
   - feature
@@ -28,6 +28,6 @@ To support parsing Ruins of Alph puzzle flags for Gen 2 saves, we need to define
 - Do not use magic numbers for offsets or bit masking in the parser logic.
 
 ## Acceptance Criteria
-- [x] Define types for Ruins of Alph puzzle completion state.
-- [x] Define memory offset constants and bit masks for the puzzle flags in the correct file.
-- [x] No magic numbers are used.
+- [ ] Define types for Ruins of Alph puzzle completion state.
+- [ ] Define memory offset constants and bit masks for the puzzle flags in the correct file.
+- [ ] No magic numbers are used.

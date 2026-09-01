@@ -2,12 +2,12 @@
 id: task-490-506-update-oak-persona-skin-impl
 type: TASK
 title: Update Oak Persona to Narrative Skin
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-09-01'
 updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: '16609716490776559759'
+jules_session_id: null
 pr_number: null
 parent: story-406-490-update-jules-persona-definitions
 tags:
@@ -28,4 +28,4 @@ Update the developer-facing `oak` persona template to utilize its narrative Gen 
 - The narrative context should make it clear that the agent acts as Professor Oak.
 
 ## Acceptance Criteria
-- [x] Coder: Update the `oak` persona markdown file(s) to adopt the Professor Oak skin.
+- [ ] Coder: Update the `oak` persona markdown file(s) to adopt the Professor Oak skin.

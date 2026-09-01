@@ -2,10 +2,10 @@
 id: story-400-477-gen3-pokeblock-constants-types
 type: STORY
 title: Define Gen 3 Pokéblock Case Constants and Types
-status: COMPLETED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-09-01'
+updated_at: '2026-08-30'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -29,5 +29,5 @@ To support parsing the Gen 3 Pokéblock Case, we need to define the exact memory
 - [x] Define memory offsets for Pokéblock case.
 - [x] Define the TypeScript interface for a parsed Pokéblock.
 - [x] Break down into Tasks.
-- [x] task-477-498-gen3-pokeblock-constants
-- [x] task-477-499-gen3-pokeblock-constants-qa
+- [ ] task-477-498-gen3-pokeblock-constants
+- [ ] task-477-499-gen3-pokeblock-constants-qa

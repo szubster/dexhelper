@@ -5,7 +5,7 @@ title: E2E Integration Verification for Shoal Items
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-13'
-updated_at: '2026-09-01'
+updated_at: '2026-08-23'
 depends_on:
   - story-411-421-shoal-items-parsing
 jules_session_id: null
@@ -20,7 +20,6 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Story: E2E Integration Verification for Shoal Items

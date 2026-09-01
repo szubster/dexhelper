@@ -22,10 +22,7 @@ export function parseGen3MixedRecordNPC(view: DataView, offset: number): Gen3Mix
         p * Constants.MIXED_RECORD_POKEMON_PERSONALITY_SIZE;
       const personality = view.getUint32(personalityOffset, true);
 
-      if (
-        personality === Constants.MIXED_RECORD_EMPTY_PERSONALITY_0 ||
-        personality === Constants.MIXED_RECORD_EMPTY_PERSONALITY_FF
-      ) {
+      if (personality === 0 || personality === 0xffffffff) {
         continue;
       }
 

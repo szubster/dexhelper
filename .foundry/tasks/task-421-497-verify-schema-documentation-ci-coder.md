@@ -2,10 +2,10 @@
 id: task-421-497-verify-schema-documentation-ci-coder
 type: TASK
 title: Verify Schema Documentation CI Coder
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-26'
-updated_at: '2026-09-01'
+updated_at: '2026-08-26'
 depends_on:
   - task-421-496-verify-schema-documentation-script-coder
 jules_session_id: '3516674530186811251'
@@ -15,7 +15,6 @@ tags: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Verify Schema Documentation CI Coder

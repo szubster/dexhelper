@@ -2,13 +2,13 @@
 id: epic-121-405-gen3-e-reader-event-dashboard-ui
 type: EPIC
 title: Gen 3 E-Reader Event Dashboard UI
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-06'
-updated_at: '2026-09-01'
+updated_at: '2026-08-31'
 depends_on:
   - epic-121-404-gen3-e-reader-event-data-extraction
-jules_session_id: null
+jules_session_id: '11522196081407239670'
 pr_number: null
 parent: prd-121-gen3-e-reader-event-tracker
 tags:
@@ -32,8 +32,5 @@ This Epic focuses on the frontend presentation of the Gen 3 E-Reader and Mystery
 - Provide visual feedback for whether an event was successfully verified in the save file.
 
 ## Acceptance Criteria
-- [x] Break down into STORY nodes for dashboard components, state management, and visual checklist rendering.
-- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] story-405-497-gen3-e-reader-dashboard-state
-- [ ] story-405-498-gen3-e-reader-dashboard-components
-- [ ] story-405-499-gen3-e-reader-dashboard-e2e
+- [ ] Break down into STORY nodes for dashboard components, state management, and visual checklist rendering.
+- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification.

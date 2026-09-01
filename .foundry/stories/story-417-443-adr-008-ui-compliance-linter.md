@@ -2,10 +2,10 @@
 id: story-417-443-adr-008-ui-compliance-linter
 type: STORY
 title: Enforce ADR 008 UI Constraints via Linter
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23T00:00:00.000Z'
-updated_at: '2026-09-01'
+updated_at: '2026-08-30'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -33,7 +33,7 @@ Create a static analysis script (`scripts/verify-adr-compliance.ts`) that specif
 
 ## Acceptance Criteria
 - [x] Break down this story into actionable engineering tasks.
-- [x] task-443-477-adr-008-ui-compliance-linter-logic
-- [x] task-443-478-adr-008-ui-compliance-linter-tests
-- [x] task-443-479-adr-008-ui-compliance-linter-ci
-- [x] task-443-480-adr-008-ui-compliance-linter-qa
+- [ ] task-443-477-adr-008-ui-compliance-linter-logic
+- [ ] task-443-478-adr-008-ui-compliance-linter-tests
+- [ ] task-443-479-adr-008-ui-compliance-linter-ci
+- [ ] task-443-480-adr-008-ui-compliance-linter-qa

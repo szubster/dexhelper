@@ -132,19 +132,11 @@ If your target task has been permanently failed, replaced, or explicitly cancell
 
 If a cancelled or replaced task node is reawakened (e.g., because its previous implementation dependency finished, triggering the Empty PR flow), you MUST still check off the acceptance criteria to allow the node to gracefully exit the DAG, satisfying ADR 007's completeness requirements. Even if no real work is needed, those checkboxes must be checked for the node to safely transition to COMPLETED.
 
-## Late Binding & Dynamic Node Spawning
-If you lack critical context or specifications (e.g., exact memory offsets), uncover architectural ambiguities, or identify valuable follow-up features/refactorings, DO NOT guess, implement generic fallbacks, or set your task's status to `FAILED`.
-
-Instead, active nodes MUST utilize Late Binding to spawn appropriate child or upstream/downstream nodes without failing the task:
-1. **Node Selection & Creativity:** Be creative with spawning appropriate node types according to the discovery:
-   - `IDEA`: When discovering new feature opportunities, UX enhancements, or product possibilities.
-   - `ADR`: When discovering architectural trade-offs, schema decisions, or design pattern questions (assign to `architect`).
-   - `PRD` / `EPIC`: When discovering broader product requirements or multi-step capabilities.
-   - `RESEARCH`: When discovering missing domain facts, constants, or memory offsets (assign to `researcher`).
-   - `TASK` / `STORY`: When decomposing execution into modular, focused steps.
-2. **Parent Linkage:** Set `parent: <current_node_id>` in the newly spawned node's YAML frontmatter. Do **NOT** add the new node to the current node's `depends_on` array (parents implicitly wait for children; adding it to `depends_on` creates circular dependency deadlocks).
-3. **Markdown Body Reference:** Append the newly spawned node reference as an unchecked checkbox (`- [ ] <spawned_node_id>`) into the `## Acceptance Criteria` section of the current node's Markdown body.
-4. **Clean Demotion via Submit:** Do NOT set your node's `status` to `FAILED`. Leave the frontmatter intact (`status: ACTIVE` or `READY`), leave the appended child checkbox unchecked, and use the `submit` tool to open a PR. On merge, the Orchestrator's heartbeat will automatically transition the parent node to `PENDING` (Late-Binding Wait State) to wait for the spawned node to complete.
+## Late Binding for Missing Context & Task Suspension
+If you lack critical context or specifications (e.g., exact memory offsets) necessary to implement a task or generate actionable blueprints, DO NOT guess or implement generic fallbacks. Instead, you MUST utilize the late binding pattern to suspend the task:
+1. Spawn a new `RESEARCH` node to investigate the missing information, setting `parent: <current_task_id>` in the `RESEARCH` node's YAML frontmatter. Do **NOT** add the `RESEARCH` node to the current task's `depends_on` array (parents implicitly depend on their children; adding it to `depends_on` creates a circular dependency deadlock).
+2. Append the new `RESEARCH` node reference as an unchecked task (`- [ ] <research_node_id>`) into the Markdown body of the current task.
+3. Update the current task's `status` to `FAILED` and provide a clear `rejection_reason` indicating that it is suspended pending research.
 
 ## Journaling Policies
 **CRITICAL:** Your private journal (whether in `.jules/` or `.foundry/journals/`) is your **only private memory** across sessions.

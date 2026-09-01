@@ -2,7 +2,7 @@
 id: task-414-493-zod-orchestrator-fixtures
 type: TASK
 title: Create E2E Test Fixtures for Zod Validation
-status: COMPLETED
+status: READY
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-09-01'
@@ -23,5 +23,5 @@ rejection_reason: ''
 Create a comprehensive set of test fixtures in `.foundry/fixtures/` representing various states: valid nodes, malformed YAML frontmatter, missing required fields, and correct node promotion states for testing the orchestrator.
 
 ## Acceptance Criteria
-- [x] Create valid node fixtures for testing promotion.
-- [x] Create malformed fixtures to test error scenarios and rejection.
+- [ ] Create valid node fixtures for testing promotion.
+- [ ] Create malformed fixtures to test error scenarios and rejection.

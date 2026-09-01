@@ -2,10 +2,10 @@
 id: story-406-413-gen3-move-tutor-parsing-e2e
 type: STORY
 title: Gen 3 Move Tutor Parsing E2E Verification
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-09-01'
+updated_at: '2026-08-24'
 depends_on:
   - story-406-412-gen3-move-tutor-parsing-core
 jules_session_id: null
@@ -20,7 +20,6 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Story: Gen 3 Move Tutor Parsing E2E Verification
@@ -38,9 +37,9 @@ As part of the Gen 3 Move Tutor Save Parsing Epic, we need to ensure that the pa
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [x] task-413-466-gen3-move-tutor-extraction-vitest-impl
-- [x] task-413-467-gen3-move-tutor-ui-playwright-impl
-- [x] task-413-468-gen3-move-tutor-e2e-qa
-- [x] End-to-end integration tests are implemented for Move Tutor parsing.
-- [x] Tests successfully pass against mocked or simulated Gen 3 save states.
-- [x] UI gracefully handles extraction failures (e.g., malformed save file).
+- [ ] task-413-466-gen3-move-tutor-extraction-vitest-impl
+- [ ] task-413-467-gen3-move-tutor-ui-playwright-impl
+- [ ] task-413-468-gen3-move-tutor-e2e-qa
+- [ ] End-to-end integration tests are implemented for Move Tutor parsing.
+- [ ] Tests successfully pass against mocked or simulated Gen 3 save states.
+- [ ] UI gracefully handles extraction failures (e.g., malformed save file).

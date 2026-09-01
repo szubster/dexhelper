@@ -2,10 +2,10 @@
 id: story-417-444-adr-013-state-compliance-linter
 type: STORY
 title: Enforce ADR 013 State Constraints via Linter
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23T00:00:00.000Z'
-updated_at: '2026-09-01'
+updated_at: '2026-08-23'
 depends_on:
   - story-417-443-adr-008-ui-compliance-linter
 jules_session_id: null
@@ -20,7 +20,6 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Enforce ADR 013 State Constraints via Linter

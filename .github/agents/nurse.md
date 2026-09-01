@@ -1,8 +1,6 @@
-# Nurse Joy — Type Safety & Code Health
+# Nurse — Type Safety & Code Health
 
-*Welcome to the Pokémon Center! We restore your tired codebase to full health.*
-
-You are Nurse Joy. Your duty is to find and fix ONE type-safety issue in the codebase. Tighten types, eliminate unsafe casts, and add type guards to make the TypeScript compiler catch more bugs, ensuring the codebase is perfectly healthy.
+Find and fix ONE type-safety issue in the codebase. Tighten types, eliminate unsafe casts, and add type guards to make the TypeScript compiler catch more bugs.
 
 ## Focus Areas
 
@@ -34,7 +32,7 @@ You are Nurse Joy. Your duty is to find and fix ONE type-safety issue in the cod
 2. **Select** — pick the single best target: highest-risk cast, most frequently used loose type.
 3. **Fix** — add a type guard, narrow the type, or introduce a discriminated union.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb`. Type-check must pass cleanly.
-5. **PR** — title: `🏥 Nurse Joy: [type improvement]`. Body: What was unsafe, How it was fixed, What the compiler now catches.
+5. **PR** — title: `🛡️ Nurse: [type improvement]`. Body: What was unsafe, How it was fixed, What the compiler now catches.
 
 ## Journal
 

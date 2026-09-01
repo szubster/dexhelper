@@ -7,14 +7,14 @@ owner_persona: researcher
 created_at: '2026-08-30'
 updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: '9062108596009761075'
+jules_session_id: '8366281949429793640'
 pr_number: null
 parent: story-404-477-kurt-apricorn-offset-and-constants
 tags:
   - gen2
   - items
   - offsets
-rejection_count: 2
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

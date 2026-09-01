@@ -2,12 +2,12 @@
 id: research-062-223-gen2-daily-event-offsets
 type: RESEARCH
 title: Investigate Gen 2 Daily and Weekly Event Offsets
-status: COMPLETED
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-06-29'
-updated_at: '2026-09-01'
+updated_at: '2026-08-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4540446449863576493'
 pr_number: null
 parent: epic-038-062-gen2-dynamic-checklist-ui
 tags:
@@ -28,5 +28,5 @@ During the audit of `epic-038-061-gen2-event-flag-parsing`, it was confirmed tha
 Identify and document the precise bit offsets and memory locations for Gen 2 time-gated daily and weekly events.
 
 ## Tasks
-- [x] Investigate the exact bit flags in `wEventFlags` (or other RAM locations) that track the completion of daily/weekly events.
-- [x] Document these offsets for consumption by the UI data layer.
+- [ ] Investigate the exact bit flags in `wEventFlags` (or other RAM locations) that track the completion of daily/weekly events.
+- [ ] Document these offsets for consumption by the UI data layer.

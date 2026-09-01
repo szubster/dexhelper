@@ -2,12 +2,12 @@
 id: task-490-507-update-nurse-persona-skin-impl
 type: TASK
 title: Update Nurse Persona to Narrative Skin
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-09-01'
 updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: '3479803479971000399'
+jules_session_id: null
 pr_number: null
 parent: story-406-490-update-jules-persona-definitions
 tags:
@@ -28,4 +28,4 @@ Update the developer-facing `nurse` persona template to utilize its narrative Ge
 - The narrative context should make it clear that the agent acts as Nurse Joy.
 
 ## Acceptance Criteria
-- [x] Coder: Update the `nurse` persona markdown file(s) to adopt the Nurse Joy skin.
+- [ ] Coder: Update the `nurse` persona markdown file(s) to adopt the Nurse Joy skin.

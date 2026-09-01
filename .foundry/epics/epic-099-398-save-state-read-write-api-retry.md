@@ -2,10 +2,10 @@
 id: epic-099-398-save-state-read-write-api-retry
 type: EPIC
 title: Save State Read/Write API (Retry)
-status: COMPLETED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-04'
-updated_at: '2026-09-01'
+updated_at: '2026-08-23'
 depends_on:
   - epic-099-397-indexeddb-schema-design-retry
 jules_session_id: null
@@ -19,7 +19,6 @@ research_references: []
 rejection_count: 1
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Epic: Save State Read/Write API (Retry)
@@ -28,10 +27,10 @@ locks: []
 Implement the core read and write APIs to store new save states and retrieve them, ordered by time. This is a retry of the cancelled epic-099-131-save-state-read-write-api.
 
 ## Acceptance Criteria
-- [x] Implement write API to store a new save state file along with its metadata (timestamp, playthrough ID).
-- [x] Implement read API to retrieve the most recent save state for a playthrough.
-- [x] Implement read API to retrieve the *previous* state relative to a given state for diffing purposes.
+- [ ] Implement write API to store a new save state file along with its metadata (timestamp, playthrough ID).
+- [ ] Implement read API to retrieve the most recent save state for a playthrough.
+- [ ] Implement read API to retrieve the *previous* state relative to a given state for diffing purposes.
 - [x] Create a final STORY dedicated exclusively to Integration and E2E Verification.
-- [x] story-398-431-save-state-write-api
-- [x] story-398-432-save-state-read-api
-- [x] story-398-433-save-state-read-write-api-e2e
+- [ ] story-398-431-save-state-write-api
+- [ ] story-398-432-save-state-read-api
+- [ ] story-398-433-save-state-read-write-api-e2e

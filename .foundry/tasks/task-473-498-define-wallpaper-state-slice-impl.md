@@ -2,12 +2,12 @@
 id: task-473-498-define-wallpaper-state-slice-impl
 type: TASK
 title: Define Gen 3 Wallpaper State Slice and Toggle Logic
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-27'
-updated_at: '2026-09-01'
+updated_at: '2026-08-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8251558123920377316'
 parent: story-116-473-gen3-wallpaper-app-state-tracking-impl
 rejection_reason: ''
 ---

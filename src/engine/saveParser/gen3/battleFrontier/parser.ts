@@ -54,12 +54,6 @@ export const BATTLE_POINTS_OFFSET = 0x1504;
  * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
  * @returns An object containing the extracted symbols for all 7 facilities.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
- *
- * @example
- * const symbols = parseGen3BattleFrontierSymbols(view, 0x1000);
- * if (symbols.tower.gold) {
- *   console.log('Got the Gold Symbol from the Battle Tower!');
- * }
  */
 export function parseGen3BattleFrontierSymbols(view: DataView, saveBlock1Offset: number): Gen3BattleFrontierSymbols {
   try {
@@ -108,11 +102,8 @@ export function parseGen3BattleFrontierSymbols(view: DataView, saveBlock1Offset:
  * @param saveBlock2Offset - The resolved memory offset to the active SaveBlock2.
  * @returns The battle points balance.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
- *
- * @example
- * const bp = parseGen3BattlePoints(view, 0x2000);
- * console.log(`Current BP: ${bp}`);
  */
+
 export function parseGen3BattlePoints(view: DataView, saveBlock2Offset: number): number {
   try {
     return view.getUint16(saveBlock2Offset + BATTLE_POINTS_OFFSET, true);
@@ -131,10 +122,6 @@ export function parseGen3BattlePoints(view: DataView, saveBlock2Offset: number):
  * @param saveBlock2Offset - The resolved memory offset to the active SaveBlock2.
  * @returns The total battle points accumulated.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
- *
- * @example
- * const totalBp = parseGen3TotalBattlePoints(view, 0x2000);
- * console.log(`Total Lifetime BP: ${totalBp}`);
  */
 export function parseGen3TotalBattlePoints(view: DataView, saveBlock2Offset: number): number {
   try {
@@ -154,10 +141,6 @@ export function parseGen3TotalBattlePoints(view: DataView, saveBlock2Offset: num
  * @param saveBlock2Offset - The resolved memory offset to the active SaveBlock2.
  * @returns An object containing the extracted win streaks and records for all 7 facilities.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
- *
- * @example
- * const streaks = parseGen3BattleFrontierWinStreaks(view, 0x2000);
- * console.log(`Tower Record: ${streaks.tower.record}`);
  */
 export function parseGen3BattleFrontierWinStreaks(
   view: DataView,

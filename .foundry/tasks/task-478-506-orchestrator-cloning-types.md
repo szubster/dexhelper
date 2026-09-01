@@ -2,10 +2,10 @@
 id: task-478-506-orchestrator-cloning-types
 type: TASK
 title: Define Types for Node Cloning and Prompt Variants
-status: COMPLETED
+status: READY
 owner_persona: coder
 created_at: '2026-08-30'
-updated_at: '2026-09-01'
+updated_at: '2026-08-30'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -29,5 +29,5 @@ Define the necessary TypeScript types and interfaces for the new node cloning an
 3. Update existing orchestrator DAG models to support these new types if necessary.
 
 ## Acceptance Criteria
-- [x] Create interfaces/types for variant and cloned node metadata.
-- [x] Export definitions properly to avoid TS6133 unused export warnings.
+- [ ] Create interfaces/types for variant and cloned node metadata.
+- [ ] Export definitions properly to avoid TS6133 unused export warnings.

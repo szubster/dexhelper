@@ -62,7 +62,7 @@ export const NodeFrontmatterSchema = z.object({
   rejection_reason: z.string().optional(),
   notes: z.string().optional(),
   experiment_variants: z.array(z.string()).optional(),
-  locks: z.array(z.string()).default([]),
+  locks: z.array(z.string()).optional(),
 });
 
 export type NodeFrontmatter = z.infer<typeof NodeFrontmatterSchema>;
@@ -96,19 +96,4 @@ export function parseMarkdownFragment(content: string): PromptFragment {
     ...data,
     context: body.trim() || undefined,
   });
-}
-export interface VariantConfiguration {
-  id: string;
-  description?: string;
-}
-
-export interface ClonedNodeMetadata {
-  original_node_id: string;
-  variant_id?: string;
-}
-
-export interface InjectedPromptContext {
-  base_prompt?: string;
-  variants?: VariantConfiguration[];
-  cloned_from?: ClonedNodeMetadata;
 }

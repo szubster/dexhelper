@@ -2,13 +2,13 @@
 id: epic-339-410-librarian-github-scripts-implementation
 type: EPIC
 title: GitHub Scripts for Librarian Persona
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-08'
-updated_at: '2026-09-01'
+updated_at: '2026-08-23'
 depends_on:
   - epic-339-409-librarian-schema-updates
-jules_session_id: '15773092713563462558'
+jules_session_id: null
 pr_number: null
 parent: prd-124-339-librarian-persona-context-optimizer
 tags:
@@ -29,11 +29,7 @@ This epic covers implementing the scripts needed by the librarian persona to ing
 - Schema updates defining the librarian persona.
 
 ## Acceptance Criteria
-- [x] Generate stories for creating ingestion and synthesis scripts.
-- [x] Generate stories for documentation update scripts.
-- [x] Generate stories for garbage collection scripts.
-- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
-- [ ] story-410-512-librarian-ingestion-synthesis-script
-- [ ] story-410-513-librarian-doc-update-script
-- [ ] story-410-514-librarian-garbage-collection-script
-- [ ] story-410-515-librarian-scripts-integration-e2e
+- [ ] Generate stories for creating ingestion and synthesis scripts.
+- [ ] Generate stories for documentation update scripts.
+- [ ] Generate stories for garbage collection scripts.
+- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).

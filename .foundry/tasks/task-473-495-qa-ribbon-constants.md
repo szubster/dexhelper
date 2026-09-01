@@ -2,10 +2,10 @@
 id: task-473-495-qa-ribbon-constants
 type: TASK
 title: QA Gen 3 Ribbon Constants
-status: COMPLETED
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-09-01'
+updated_at: '2026-08-25'
 depends_on:
   - task-473-494-ribbon-constants-tests
 jules_session_id: null
@@ -27,5 +27,5 @@ notes: ''
 Verify the Gen 3 Ribbon constants implementation and unit tests against .foundry/docs/schema.md Section 13 constraints.
 
 ## Acceptance Criteria
-- [x] Verify constants are defined at the module level in src/engine/saveParser/parsers/gen3.ts and no magic numbers are used.
-- [x] Verify unit tests pass and adequately cover the new constants.
+- [ ] Verify constants are defined at the module level in src/engine/saveParser/parsers/gen3.ts and no magic numbers are used.
+- [ ] Verify unit tests pass and adequately cover the new constants.

@@ -2,12 +2,12 @@
 id: task-473-493-mirage-island-e2e-qa
 type: TASK
 title: QA Verification for Mirage Island E2E
-status: FAILED
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-26'
 updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5593981294664490242'
 pr_number: null
 parent: story-061-473-mirage-island-engine-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_reason: ''
 notes: ''
 locks: []
 ---
@@ -33,7 +33,3 @@ Execute end-to-end tests (via Playwright) verifying the cross-referencing of the
 - [ ] Execute E2E tests verifying Mirage Island value extraction from save files.
 - [ ] Execute E2E tests verifying the PID matching logic against party and PC boxes.
 - [ ] Ensure the tests pass.
-
-
-### QA Notes
-QA verification failed because the implementation task (task-443-489-mirage-island-e2e-impl) did not produce the required artifact: `tests/e2e/mirage_island_extraction.spec.ts`. The task has been marked as FAILED for resurrection. The acceptance criteria checkboxes remain unchecked until the artifact is present and passes verification.

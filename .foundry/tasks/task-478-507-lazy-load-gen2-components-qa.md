@@ -5,18 +5,17 @@ title: QA - Lazy Load Gen 2 Components
 status: READY
 owner_persona: qa
 created_at: '2026-08-31'
-updated_at: '2026-09-01'
+updated_at: '2026-08-31'
 depends_on:
   - task-478-506-lazy-load-gen2-components-impl
-jules_session_id: '17405548278915932173'
 parent: story-418-478-lazy-load-gen2-components
 tags:
   - qa
   - performance
   - ui
+jules_session_id: '17405548278915932173'
 rejection_count: 0
 rejection_reason: ''
-locks: []
 ---
 # TASK: QA - Lazy Load Gen 2 Components
 

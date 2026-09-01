@@ -2,10 +2,10 @@
 id: story-420-494-bash-timeout-wrapper-retry-e2e
 type: STORY
 title: Bash Timeout Wrapper (Retry) - E2E Verification
-status: COMPLETED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-29'
-updated_at: '2026-09-01'
+updated_at: '2026-08-29'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -27,4 +27,4 @@ The bash timeout wrapper is already fully implemented as a strict instructional 
 Since the target artifacts are already complete, perform an empty PR demotion to gracefully exit the DAG.
 
 ## Acceptance Criteria
-- [x] Break down into Tasks
+- [ ] Break down into Tasks

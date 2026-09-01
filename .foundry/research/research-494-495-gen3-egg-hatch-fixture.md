@@ -6,9 +6,9 @@ status: FAILED
 rejection_reason: 'Suspended pending investigation of pkhex ES module compatibility to avoid manual hex editing.'
 owner_persona: researcher
 created_at: '2026-08-30'
-updated_at: '2026-09-01'
+updated_at: '2026-08-30'
 depends_on: []
-jules_session_id: '16313294965950967369'
+jules_session_id: null
 pr_number: null
 parent: task-473-494-gen3-egg-hatch-e2e-impl
 tags:
