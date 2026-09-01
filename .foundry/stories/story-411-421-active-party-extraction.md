@@ -31,5 +31,8 @@ notes: ''
 - [ ] task-421-461-matchup-context-state-layer-qa
 - [ ] task-421-462-gen1-active-party-matchup-integration-impl
 - [ ] task-421-463-gen2-active-party-matchup-integration-impl
-- [ ] task-421-464-gen3-active-party-matchup-integration-impl
-- [ ] task-421-465-active-party-matchup-integration-qa
+- [x] task-421-464-gen3-active-party-matchup-integration-impl
+- [x] task-421-465-active-party-matchup-integration-qa
+- [ ] research-421-506-gen3-active-party-matchup-failure
+- [ ] task-421-507-gen3-active-party-matchup-integration-impl
+- [ ] task-421-508-active-party-matchup-integration-qa
