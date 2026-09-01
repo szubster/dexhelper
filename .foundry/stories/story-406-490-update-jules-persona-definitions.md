@@ -30,4 +30,8 @@ Update the developer-facing persona templates under `.jules/` to utilize their r
 - Ensure the context injections for these personas utilize the skins.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks to update the relevant `.jules/` markdown files.
+- [x] Tech Lead: Break down into Tasks to update the relevant `.jules/` markdown files.
+- [ ] task-490-506-update-oak-persona-skin-impl
+- [ ] task-490-507-update-nurse-persona-skin-impl
+- [ ] task-490-508-identify-update-other-gen1-personas-impl
+- [ ] task-490-509-persona-skins-qa
