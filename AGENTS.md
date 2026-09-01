@@ -20,7 +20,7 @@ Under NO circumstances should an agent post conversational questions or prompts 
 1. **Fully Autonomous Operation:** Formulate plans, make technical decisions, implement code and node updates, run tests, and submit PRs or complete tasks without prompting the user for confirmation or waiting for interactive input.
 2. **Non-Interference with Interactive Systems:** Do not intervene, pause, or interrupt interactive development workflows (e.g. with Anti-Gravity or developer sessions) with conversational queries or approval requests.
 3. **PRs as Communication Channels:** Pull requests and node modifications are the formal channel for review. Open and submit PRs immediately when work is ready.
-4. **Late Binding for Missing Context:** If context, specifications, or offsets are missing or ambiguous, do NOT ask the user. Instead, use Late Binding by creating a Foundry node (`IDEA`, `RESEARCH`, `ADR`, or `TASK`) in `.foundry/` with the appropriate `owner_persona` or make reasonable autonomous technical decisions.
+4. **Late Binding & Dynamic Spawning:** If context, specifications, or offsets are missing or ambiguous, or if you discover broader product ideas or architectural questions, do NOT ask the user and do NOT set your task status to `FAILED`. Instead, use Late Binding to spawn appropriate child or upstream nodes (`IDEA`, `ADR`, `RESEARCH`, `PRD`, `EPIC`, `TASK`) in `.foundry/` with the appropriate `owner_persona`, append the spawned node reference as an unchecked checkbox (`- [ ] <node_id>`) in your markdown body, and submit a PR using the `submit` tool.
 
 ## 2. Codebase & Testing Standards
 - **Testing Requirements:** Every feature or bug fix must be accompanied by appropriate unit or E2E tests.
