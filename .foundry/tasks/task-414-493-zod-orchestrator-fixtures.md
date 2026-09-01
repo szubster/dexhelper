@@ -2,12 +2,12 @@
 id: task-414-493-zod-orchestrator-fixtures
 type: TASK
 title: Create E2E Test Fixtures for Zod Validation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14648187231391457974'
 parent: story-335-414-zod-orchestrator-e2e
 tags:
   - e2e
