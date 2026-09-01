@@ -70,3 +70,4 @@
 | [task-490-507-update-nurse-persona-skin-impl](.foundry/tasks/task-490-507-update-nurse-persona-skin-impl.md) | TASK | Update Nurse Persona to Narrative Skin | coder | [3479803479971000399](https://jules.google.com/session/3479803479971000399) |
 | [task-491-503-pal-park-item-logic-impl](.foundry/tasks/task-491-503-pal-park-item-logic-impl.md) | TASK | Pal Park Item Identification Logic | coder | [16437001079228838117](https://jules.google.com/session/16437001079228838117) |
 | [task-494-506-emulator-state-management-impl](.foundry/tasks/task-494-506-emulator-state-management-impl.md) | TASK | Emulator State Management Implementation | coder | [14724310010392373308](https://jules.google.com/session/14724310010392373308) |
+| [task-497-511-implement-tpm-epic-detection](.foundry/tasks/task-497-511-implement-tpm-epic-detection.md) | TASK | Implement TPM EPIC Detection Logic | coder | [9383026496364829400](https://jules.google.com/session/9383026496364829400) |
