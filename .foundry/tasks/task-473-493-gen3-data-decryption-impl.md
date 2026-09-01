@@ -2,7 +2,7 @@
 id: task-473-493-gen3-data-decryption-impl
 type: TASK
 title: Implement Gen 3 Data Decryption Engine
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-08-30'
@@ -14,8 +14,8 @@ tags:
   - gen3
   - save-engine
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Uses magic numbers (48, 4, 3) in extractGen3PokemonData instead of constants'
 notes: ''
 ---
 
@@ -30,6 +30,9 @@ Implement the core logic to calculate the decryption key and decrypt the 48-byte
 - Write the logic to decrypt the 48-byte Data block.
 
 ## Acceptance Criteria
-- [x] Implement logic to calculate the decryption key.
-- [x] Implement logic to decrypt the data block.
-- [x] Adhere to schema constraints: Use relative offsets, avoid magic numbers, use module-level constants, and catch RangeError.
+- [ ] Implement logic to calculate the decryption key.
+- [ ] Implement logic to decrypt the data block.
+- [ ] Adhere to schema constraints: Use relative offsets, avoid magic numbers, use module-level constants, and catch RangeError.
+
+### Auditor Rejection
+Transient rejection triggered. The implementation in `src/engine/saveParser/parsers/gen3.ts` contains inline magic numbers (e.g., `48`, `4`, `3`) within `extractGen3PokemonData`. According to Section 13 of the schema guidelines, all magic numbers must be extracted to module-level constants.
