@@ -27,6 +27,6 @@ notes: ''
 Integrate the `ActiveCallersDashboard` component into the Gen 2 dashboard view, passing it the extracted registered numbers and a static initial timer state.
 
 ## Acceptance Criteria
-- [ ] Lazy load `ActiveCallersDashboard` from `../components/dashboard/pokegear/ActiveCallersDashboard` in `src/routes/dashboard.tsx`.
-- [ ] In `src/routes/dashboard.tsx`, when `saveData.generation === 2`, check if `saveData.gen2PokegearPhone?.highValueContacts` exists.
-- [ ] If it exists, render `<ActiveCallersDashboard contacts={saveData.gen2PokegearPhone.highValueContacts} timerState={{ delayMinsRemaining: 0, timeCyclesSinceLastCall: 0 }} />`.
+- [x] Lazy load `ActiveCallersDashboard` from `../components/dashboard/pokegear/ActiveCallersDashboard` in `src/routes/dashboard.tsx`.
+- [x] In `src/routes/dashboard.tsx`, when `saveData.generation === 2`, check if `saveData.gen2PokegearPhone?.highValueContacts` exists.
+- [x] If it exists, render `<ActiveCallersDashboard contacts={saveData.gen2PokegearPhone.highValueContacts} timerState={{ delayMinsRemaining: 0, timeCyclesSinceLastCall: 0 }} />`.
