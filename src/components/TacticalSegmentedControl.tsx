@@ -1,6 +1,7 @@
 import type React from 'react';
 import { useRef } from 'react';
 import { cn } from '../utils/cn';
+import { HardwareScrews } from './HardwareScrews';
 
 interface SegmentedControlItem<T extends string | number | readonly string[]> {
   id: T;
@@ -80,11 +81,7 @@ export function TacticalSegmentedControl<T extends string | number | readonly st
       {!legendLabel && ariaLabel && <legend className="sr-only">{ariaLabel}</legend>}
 
       <div className="relative border border-zinc-700 bg-zinc-900 p-2 shadow-[inset_0_0_15px_rgba(0,0,0,0.8),0_2px_4px_rgba(0,0,0,0.5)]">
-        {/* Hardware structural screws */}
-        <div className="absolute top-1 left-1 h-1 w-1 rounded-full bg-zinc-950/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" />
-        <div className="absolute top-1 right-1 h-1 w-1 rounded-full bg-zinc-950/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" />
-        <div className="absolute bottom-1 left-1 h-1 w-1 rounded-full bg-zinc-950/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" />
-        <div className="absolute right-1 bottom-1 h-1 w-1 rounded-full bg-zinc-950/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" />
+        <HardwareScrews />
 
         <div
           ref={containerRef}
