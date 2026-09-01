@@ -2,13 +2,13 @@
 id: task-361-495-sorting-algorithms-e2e-impl-retry
 type: TASK
 title: E2E Verification for PC Box Sorting Algorithms - Implementation (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-09-01'
 depends_on:
   - research-361-494-sorting-algorithms-e2e-root-cause
-jules_session_id: null
+jules_session_id: '14093112398092914669'
 parent: story-136-361-sorting-algorithms-e2e
 rejection_reason: ''
 rejection_count: 1
