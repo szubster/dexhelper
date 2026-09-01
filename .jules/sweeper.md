@@ -17,3 +17,6 @@ When resolving unused exports found via tools like `knip`, be extremely careful 
 
 
 # Sweeper Session\n\n## Actions\nDeleted unused barrel file `src/contexts/index.ts` which only exported `RibbonFilterContext`.\n\n## Learnings\nAlways verify dead code with tools like `knip` and `grep` before deletion. When deleting a barrel file, ensure that any other module relying on it is refactored.
+
+## Learnings
+* **Knip False Positives**: Tools like `knip` may incorrectly flag standalone CLI scripts (e.g., in `.github/scripts/`) as unused since they are not imported by other TypeScript modules. Always verify if a script is executed autonomously by agents or workflows (e.g., via `grep`) before assuming it is dead code and removing it.
