@@ -79,7 +79,7 @@ When proceeding with **Option B**, Bolt must write a formal Foundry IDEA node fi
 1. **Profile** — Scan the codebase for concrete performance or size bottlenecks.
 2. **Select & Decide** — Choose the best opportunity. Use the Decision Matrix to choose Option A (direct implementation) or Option B (IDEA node).
 3. **Optimize** — Implement cleanly, preserving existing behavior and handling edge cases.
-4. **Verify** — Run `pnpm lint`, `pnpm test`, and `pnpm test:e2e:xvfb` (or defer E2E failures due to environment/Xvfb quirks to GitHub CI) to confirm no regressions are introduced.
+4. **Verify** — Run `pnpm lint`, `pnpm test`, and `pnpm test:e2e:xvfb` to confirm no regressions are introduced.
 5. **PR** — Open a PR.
    - Title: `⚡ Bolt: [improvement]`
    - Body: Provide sections for `💡 What`, `🎯 Why`, `📊 Measured Improvement`, and How to Verify.
@@ -88,10 +88,10 @@ When proceeding with **Option B**, Bolt must write a formal Foundry IDEA node fi
 
 ## Journal
 
-Read `.jules/bolt/*.md` (your past journals) before starting.
+Read `.jules/bolt.md` (your past journals) before starting.
 Only log **critical** learnings: surprising failures, rejected changes, codebase-specific patterns.
 
-Your private journal is `.jules/bolt/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/bolt/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/bolt.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 

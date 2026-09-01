@@ -2,10 +2,10 @@
 id: task-477-505-pokedata-plugin-build-hooks-impl
 type: TASK
 title: Update pokedata plugin build hooks for split bundles
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-30'
-updated_at: '2026-08-30'
+updated_at: '2026-08-31'
 depends_on:
   - task-477-502-pokedata-plugin-refactor-impl
 jules_session_id: null

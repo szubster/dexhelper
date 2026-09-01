@@ -29,12 +29,12 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 1. **Scan** — look for insecure patterns, raw error logging, non-native crypto usage, XSS vectors, unsafe links, or `url.includes()`.
 2. **Select** — pick the most actionable security fix. If no specific application code vulnerability is found, perform a dependency audit (`pnpm audit`). Do NOT expand this scheduled prompt with generic scan vectors.
 3. **Secure** — implement the fix and add validating tests if possible.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb` (or defer E2E failures due to environment/Xvfb quirks to GitHub CI).
+4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb`.
 5. **PR** — title: `🔐 [security fix description]`. Body: `🎯 What`, `⚠️ Risk`, and `🛡️ Solution`.
 
 ## Journal
 
-Read `.jules/shield/*.md` (your past journals) before starting.
+Read `.jules/shield.md` (your past journals) before starting.
 Only log **critical** learnings: recurring vulnerability patterns or complex security rationales.
 
-Your private journal is `.jules/shield/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/shield/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/shield.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

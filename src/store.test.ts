@@ -104,6 +104,29 @@ describe('Zustand Store', () => {
       useStore.getState().setGlobalPokeball('ultra');
       expect(useStore.getState().globalPokeball).toBe('ultra');
     });
+
+    it('should toggle unlocked wallpapers', () => {
+      const trainerId = 12345;
+
+      expect(useStore.getState().unlockedWallpapers[trainerId]).toBeUndefined();
+
+      // Toggle on
+      useStore.getState().toggleWallpaperUnlocked(trainerId, 0);
+      expect(useStore.getState().unlockedWallpapers[trainerId]?.[0]).toBe(true);
+
+      // Toggle off
+      useStore.getState().toggleWallpaperUnlocked(trainerId, 0);
+      expect(useStore.getState().unlockedWallpapers[trainerId]?.[0]).toBe(false);
+
+      // Multiple wallpapers and trainers
+      const anotherTrainerId = 54321;
+      useStore.getState().toggleWallpaperUnlocked(trainerId, 5);
+      useStore.getState().toggleWallpaperUnlocked(anotherTrainerId, 5);
+
+      expect(useStore.getState().unlockedWallpapers[trainerId]?.[5]).toBe(true);
+      expect(useStore.getState().unlockedWallpapers[anotherTrainerId]?.[5]).toBe(true);
+      expect(useStore.getState().unlockedWallpapers[trainerId]?.[0]).toBe(false);
+    });
   });
 
   describe('filtersSet helper', () => {

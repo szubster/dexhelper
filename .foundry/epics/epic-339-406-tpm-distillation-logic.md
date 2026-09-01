@@ -2,10 +2,10 @@
 id: epic-339-406-tpm-distillation-logic
 type: EPIC
 title: TPM Distillation and Archival Logic
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-07'
-updated_at: '2026-08-23'
+updated_at: '2026-08-31'
 depends_on:
   - epic-339-405-orchestrator-archive-bypass
 jules_session_id: null
@@ -35,7 +35,11 @@ Implement logic that the TPM persona will execute to synthesize child node learn
 4. Processed child nodes must be moved from `.foundry/stories/` and `.foundry/tasks/` to `.foundry/archive/stories/` and `.foundry/archive/tasks/`.
 
 ## Acceptance Criteria
-- [ ] Implement logic to detect completed EPICs and trigger distillation.
-- [ ] Implement text aggregation and synthesis to create the Changelog & Learnings summary.
-- [ ] Implement file system operations to append to the EPIC and move child files to `.foundry/archive/`.
-- [ ] Delegate the generation of the E2E STORY to the `story_owner`.
+- [x] Implement logic to detect completed EPICs and trigger distillation.
+- [x] Implement text aggregation and synthesis to create the Changelog & Learnings summary.
+- [x] Implement file system operations to append to the EPIC and move child files to `.foundry/archive/`.
+- [x] Delegate the generation of the E2E STORY to the `story_owner`.
+
+- [ ] story-406-497-tpm-epic-detection-logic
+- [ ] story-406-498-tpm-aggregation-and-archival
+- [ ] story-406-499-tpm-distillation-e2e

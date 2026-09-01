@@ -2,10 +2,10 @@
 id: task-421-465-active-party-matchup-integration-qa
 type: TASK
 title: Verify Active Party Integration into MatchupContext
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-21'
-updated_at: '2026-08-22'
+updated_at: '2026-08-31'
 depends_on:
   - task-421-462-gen1-active-party-matchup-integration-impl
   - task-421-463-gen2-active-party-matchup-integration-impl
@@ -18,7 +18,9 @@ tags:
   - integration
   - e2e
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-421-464-gen3-active-party-matchup-integration-impl
 notes: ''
 ---
 

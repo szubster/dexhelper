@@ -61,13 +61,16 @@ export type PokeballType =
 interface AppStore {
   // Save data
   /**
-   * The heavy, transient parsed save state.
+   * The heavy, transient parsed save state cache, keyed by save ID.
    * This is intentionally excluded from localStorage persistence (via `partialize`)
    * to prevent bloating the storage quota and stale state bugs.
    */
   saves: Record<string, SaveData>;
+  /** The currently active save ID, or null if no save is loaded. */
   activeSaveId: string | null;
+  /** The currently active parsed save data, or null if no save is loaded. */
   saveData: SaveData | null;
+  /** A global error message string, or null if there is no error. */
   error: string | null;
   /**
    * Updates the in-memory save data state.
@@ -90,6 +93,12 @@ interface AppStore {
   /** Global visual preference for which Pokéball to use in the UI. */
   globalPokeball: PokeballType;
   /**
+   * Tracks unlocked custom PC Box wallpapers across saves for Gen 3.
+   * State is keyed by the save file's `trainerId`.
+   * Structure: Record<trainerId, Record<wallpaperIndex, boolean>>
+   */
+  unlockedWallpapers: Record<number, Record<number, boolean>>;
+  /**
    * Toggles a specific UI filter type in the `filters` array.
    * @param f - The filter type to toggle.
    */
@@ -105,6 +114,12 @@ interface AppStore {
   setIsLivingDex: (v: boolean) => void;
   /** Sets the global visual Pokéball preference. */
   setGlobalPokeball: (v: PokeballType) => void;
+  /**
+   * Toggles whether a specific wallpaper is unlocked for a given trainer ID.
+   * @param trainerId - The current save file's trainer ID.
+   * @param wallpaperId - The index of the wallpaper to toggle (0-15).
+   */
+  toggleWallpaperUnlocked: (trainerId: number, wallpaperId: number) => void;
 
   // Transient UI state (not persisted)
   /** Current search query for filtering Pokémon lists. */
@@ -115,13 +130,25 @@ interface AppStore {
   isSettingsOpen: boolean;
   /** Toggles the manual version selection modal. */
   isVersionModalOpen: boolean;
-  /** Updates the active search query. */
+  /**
+   * Updates the active search query.
+   * @param v - The search query string.
+   */
   setSearchTerm: (v: string) => void;
-  /** Updates the currently selected map location ID. */
+  /**
+   * Updates the currently selected map location ID.
+   * @param id - The ID of the map location, or null to clear the selection.
+   */
   setSelectedLocationId: (id: number | null) => void;
-  /** Updates the settings modal visibility. */
+  /**
+   * Updates the settings modal visibility.
+   * @param v - True to open the settings modal, false to close it.
+   */
   setIsSettingsOpen: (v: boolean) => void;
-  /** Updates the manual version modal visibility. */
+  /**
+   * Updates the manual version modal visibility.
+   * @param v - True to open the manual version modal, false to close it.
+   */
   setIsVersionModalOpen: (v: boolean) => void;
 
   // Derived helpers
@@ -134,7 +161,7 @@ interface AppStore {
   filtersSet: () => Set<FilterType>;
 
   // Conflict Resolution State
-  /** State for managing R2 sync conflicts */
+  /** State for managing R2 sync conflicts. Null when there is no conflict. */
   conflictState: {
     isOpen: boolean;
     localMetadata: { timestamp: number; gameTime?: string };
@@ -143,9 +170,16 @@ interface AppStore {
     remoteBuffer: Uint8Array;
     saveId: string;
   } | null;
-  /** Sets the conflict state and opens the modal */
+  /**
+   * Sets the conflict state and opens the conflict resolution modal.
+   * @param state - The new conflict state, or null to clear it.
+   */
   setConflictState: (state: AppStore['conflictState']) => void;
-  /** Resolves the active conflict by choosing either local or remote data */
+  /**
+   * Resolves the active sync conflict by choosing either local or remote data.
+   * @param decision - 'keep_local' to overwrite remote with local, 'pull_remote' to overwrite local with remote.
+   * @returns A Promise that resolves when the conflict has been resolved.
+   */
   resolveConflict: (decision: 'keep_local' | 'pull_remote') => Promise<void>;
 
   // Actions
@@ -193,6 +227,7 @@ export const useStore = create<AppStore>()(
       manualVersion: null,
       isLivingDex: false,
       globalPokeball: 'poke',
+      unlockedWallpapers: {},
 
       toggleFilter: (f) => {
         const current = get().filters;
@@ -206,6 +241,21 @@ export const useStore = create<AppStore>()(
       setManualVersion: (v) => set({ manualVersion: v }),
       setIsLivingDex: (v) => set({ isLivingDex: v }),
       setGlobalPokeball: (v) => set({ globalPokeball: v }),
+
+      toggleWallpaperUnlocked: (trainerId, wallpaperId) => {
+        set((state) => {
+          const currentTrainerWallpapers = state.unlockedWallpapers[trainerId] || {};
+          return {
+            unlockedWallpapers: {
+              ...state.unlockedWallpapers,
+              [trainerId]: {
+                ...currentTrainerWallpapers,
+                [wallpaperId]: !currentTrainerWallpapers[wallpaperId],
+              },
+            },
+          };
+        });
+      },
 
       // Transient UI
       searchTerm: '',
@@ -321,6 +371,7 @@ export const useStore = create<AppStore>()(
         manualVersion: state.manualVersion,
         isLivingDex: state.isLivingDex,
         globalPokeball: state.globalPokeball,
+        unlockedWallpapers: state.unlockedWallpapers,
       }),
     },
   ),

@@ -50,10 +50,10 @@ The following knowledge stores are in scope:
 
 ## Journal
 
-Read `.jules/archivist/*.md` (your past journals) before starting.
+Read `.jules/archivist.md` (your past journals) before starting.
 Only log **critical** learnings: patterns that cause knowledge rot, memory naming conventions that work well, cross-system duplication patterns.
 
-Your private journal is `.jules/archivist/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/archivist/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/archivist.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 

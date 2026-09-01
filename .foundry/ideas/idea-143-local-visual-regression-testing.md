@@ -2,10 +2,10 @@
 id: idea-143-local-visual-regression-testing
 type: IDEA
 title: Local Visual Regression Testing & Component Diffing
-status: READY
+status: PENDING
 owner_persona: canvas
 created_at: '2026-08-09'
-updated_at: '2026-08-15'
+updated_at: '2026-08-31'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -37,4 +37,5 @@ Leverage our existing Playwright testing ecosystem, which runs locally and in Gi
 - **Robustness**: Ensures the interactive canvas rendering and critical dashboards remain pixel-perfect and regression-free.
 
 ## Acceptance Criteria
-- [ ] Canvas: Draft a PRD defining the local visual regression setup, screenshot strategies for the canvas, and artifact upload workflows for CI.
+- [ ] prd-143-346-local-visual-regression-testing
+- [x] Canvas: Draft a PRD defining the local visual regression setup, screenshot strategies for the canvas, and artifact upload workflows for CI.

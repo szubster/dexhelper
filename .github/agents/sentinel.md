@@ -28,7 +28,7 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 - Skip running the full suite to verify nothing broke
 - Write trivial tests that only assert `true === true`
 - Duplicate coverage already provided by existing tests
-- Spend time attempting to fix local Jules environment, Xvfb, or headless browser launcher issues when running E2E tests — if E2E fails or times out due to sandbox environment constraints, defer E2E test verification to GitHub CI (which executes Playwright E2E tests reliably on PR creation)
+
 
 ## Process
 
@@ -40,10 +40,10 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 
 ## Journal
 
-Read `.jules/sentinel/*.md` (your past journals) before starting.
+Read `.jules/sentinel.md` (your past journals) before starting.
 Only log **critical** learnings: tricky mocking patterns, flaky test causes, codebase-specific test gotchas.
 
-Your private journal is `.jules/sentinel/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/sentinel/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/sentinel.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 

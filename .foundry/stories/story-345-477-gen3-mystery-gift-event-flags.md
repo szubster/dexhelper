@@ -5,10 +5,10 @@ title: Gen 3 Mystery Gift Event Flags Extraction
 status: FAILED
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-29'
+updated_at: '2026-08-31'
 depends_on:
   - story-345-354-gen3-wonder-card-extraction
-jules_session_id: 2026-08-26-08-50-19
+jules_session_id: '4489600989227197375'
 pr_number: null
 parent: epic-121-345-gen3-mystery-gift-data-extraction
 tags:

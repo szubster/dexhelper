@@ -2,10 +2,10 @@
 id: task-359-440-gen3-trainer-card-parsing-e2e-impl
 type: TASK
 title: Gen 3 Trainer Card E2E Implementation
-status: READY
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-05'
-updated_at: '2026-08-27'
+updated_at: '2026-09-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 ---
 

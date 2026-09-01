@@ -2,14 +2,14 @@
 id: story-349-363-trade-extraction-e2e
 type: STORY
 title: NPC Trade Extraction Integration & E2E
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-06'
-updated_at: '2026-08-30'
+updated_at: '2026-08-31'
 depends_on:
   - story-349-361-gen2-trade-extraction
   - story-349-362-gen3-trade-extraction
-jules_session_id: null
+jules_session_id: '11713032732613174019'
 pr_number: null
 parent: epic-056-349-in-game-trade-data-extraction-v2
 tags:

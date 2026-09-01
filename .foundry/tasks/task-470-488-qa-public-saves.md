@@ -2,7 +2,7 @@
 id: task-470-488-qa-public-saves
 type: TASK
 title: QA Verification of Sourced Save Files
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-24'
 updated_at: '2026-08-31'

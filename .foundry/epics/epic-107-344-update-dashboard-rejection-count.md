@@ -2,13 +2,13 @@
 id: epic-107-344-update-dashboard-rejection-count
 type: EPIC
 title: Update UI Views with Lifted Constant
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-22'
 updated_at: '2026-08-31'
 depends_on:
   - epic-107-343-lift-rejection-count-state
-jules_session_id: '15535767980731463478'
+jules_session_id: null
 pr_number: null
 parent: prd-085-107-lift-rejection-count-state
 tags:
@@ -34,4 +34,6 @@ With the threshold for permanent failures extracted to the React Context, the UI
 3. Update any other related test files to use the shared constant.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-344-494-dashboard-rejection-count
+- [ ] story-344-495-dashboard-rejection-count-e2e

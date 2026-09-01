@@ -2,12 +2,12 @@
 id: task-411-440-tm-hm-integration-e2e-impl
 type: TASK
 title: Implementation of TM/HM Integration E2E Tests
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-18'
-updated_at: '2026-08-24'
+updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: '1288983178066355725'
+jules_session_id: null
 pr_number: null
 parent: story-401-411-tm-hm-integration-e2e
 tags:
@@ -15,8 +15,8 @@ tags:
   - integration
   - testing
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 ---
 

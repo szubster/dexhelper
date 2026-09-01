@@ -46,11 +46,6 @@
       "original_source": "./tests/fixtures/saves/gen2/Pokemon Gold - TID 65525.sav"
     },
     {
-      "filename": "crystal-bxtj-0.sav",
-      "version": "crystal",
-      "original_source": "./tests/fixtures/saves/gen2/PM_CRYSTAL_BXTJ-0.sav"
-    },
-    {
       "filename": "silver-ue-c.sav",
       "version": "silver",
       "original_source": "./tests/fixtures/saves/gen2/Pokemon - Silver Version (UE) [C][!].sav"

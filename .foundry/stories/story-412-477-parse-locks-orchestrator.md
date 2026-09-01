@@ -2,12 +2,12 @@
 id: story-412-477-parse-locks-orchestrator
 type: STORY
 title: Parse locks field in Orchestrator
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-29'
+updated_at: '2026-08-31'
 depends_on: []
-jules_session_id: '1428006663748828254'
+jules_session_id: '15001416117309324550'
 pr_number: null
 parent: epic-340-412-orchestrator-resource-locking
 tags:

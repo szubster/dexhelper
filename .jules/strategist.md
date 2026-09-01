@@ -147,3 +147,9 @@
 **Outcome:** Merged
 **Why:** The instructions in `strategist.md` told the agent to read directories like `.jules/*/*.md` and `.foundry/journals/*/*.md`. However, since the Archivist persona aggregates session logs into singular markdown files per persona (e.g., `.jules/bolt.md`, `.foundry/journals/coder.md`), the Strategist was unable to read the files effectively and failed during journal review phases.
 **Pattern:** Ensure file path instructions in prompts reflect the actual repository structure, especially taking into account Archivist aggregations.
+
+## 2024-08-31 - Accepted - Align Write Paths with Aggregated Journal Paths
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** While the read paths were updated in a previous PR to read aggregated `.jules/<persona>.md` files, the write paths were left pointing to the old directory structure (`.jules/<persona>/<session_id>.md`). This broke the memory system because agents were saving session logs into directories they no longer read on subsequent runs, rendering their long-term memory useless.
+**Pattern:** When modifying the journaling read paths (e.g. from a wildcard directory to a single file), you MUST also align the write instructions so agents persist their entries into the same aggregated file they read from, preserving the learning loop.

@@ -1,5 +1,5 @@
-import { page } from '@vitest/browser/context';
 import { describe, expect, it, vi } from 'vitest';
+import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import { ConflictResolutionModal } from '../ConflictResolutionModal';
 

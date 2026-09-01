@@ -995,3 +995,19 @@ To resolve this, I utilized the Late Binding pattern to suspend the current task
 1. Created a new research node `research-404-495-kurt-apricorn-offsets` with `parent: story-404-477-kurt-apricorn-offset-and-constants`.
 2. Appended the new research node as an unchecked task in the Markdown body of `story-404-477-kurt-apricorn-offset-and-constants`.
 3. Updated the status of `story-404-477-kurt-apricorn-offset-and-constants` to `FAILED` with a `rejection_reason` indicating it is suspended pending research.
+
+
+# Tech Lead Journal: Pal Park Item Identification
+
+- Ensured tasks were appropriately decomposed into constants, logic, UI, and QA to avoid the "Two-Tasks-Max" anti-pattern.
+- UI task appropriately references ADR 008 constraints.
+- Used Parent-Linked ID Schema strictly (`<type>-<parent_NNN>-<NNN>-<slug>`), with NNN corresponding to `491` from the parent story.
+- Task dependencies were specified sequentially but without `.md` extensions for strict DAG orchestration compliance.
+
+
+# Tech Lead Journal: Bash Timeout Wrapper Retry Abort
+
+- The story `story-420-495-bash-timeout-wrapper-retry-impl.md` was permanently aborted because its parent epic, `epic-057-420-bash-timeout-wrapper-retry`, is redundant.
+- Research (`research-057-417-investigate-bash-timeout-failure`) confirmed that the bash timeout wrapper requirement is already successfully implemented as an instructional policy in `core_policies.md`.
+- It's architecturally impossible to implement a direct code wrapper for `run_in_bash_session` from within the repo, as it's an external platform tool. Thus, programmatic wrappers are infeasible and must be enforced via system rules, which has already been accomplished.
+- The task was gracefully exited by setting its status to CANCELLED and providing the rejection reason, preventing an infinite resurrection loop without falsely validating its acceptance criteria.

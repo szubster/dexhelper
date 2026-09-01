@@ -2,10 +2,10 @@
 id: epic-343-418-orchestrator-integration
 type: EPIC
 title: Orchestrator Integration for Prompt Resolution
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-08-14'
+updated_at: '2026-08-31'
 depends_on:
   - epic-343-417-prompt-fragment-layering
 jules_session_id: null

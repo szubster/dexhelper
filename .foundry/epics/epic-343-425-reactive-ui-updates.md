@@ -2,10 +2,10 @@
 id: epic-343-425-reactive-ui-updates
 type: EPIC
 title: Reactive UI Updates
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-08-30'
+updated_at: '2026-08-31'
 depends_on:
   - epic-343-424-live-memory-reading
 jules_session_id: '10398295121444200675'

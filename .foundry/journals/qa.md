@@ -1,3 +1,19 @@
+
+# QA Session Journal
+
+Task ID: task-405-486-gen3-mixed-record-parser-qa-v2
+Target Task: task-405-485-gen3-mixed-record-parser-impl-v2
+
+## QA Results: FAILED
+The implementation of the Gen 3 Mixed Record Parser correctly extracted the data and handled RangeErrors. However, it violated the strict Section 13 guidelines ("Save File Parsing & Extraction Guidelines" in schema.md).
+
+Specifically, there was a magic number violation in `src/engine/saveParser/gen3/mixedRecords/parser.ts`:
+`if (personality === 0 || personality === 0xffffffff)`
+
+The values `0` and `0xffffffff` must be defined as module-level constants (e.g., `MIXED_RECORD_EMPTY_PERSONALITY_0` and `MIXED_RECORD_EMPTY_PERSONALITY_F`), as the use of inline magic numbers is strictly forbidden. The test file also contained similar magic number usage.
+
+I updated `task-405-485-gen3-mixed-record-parser-impl-v2.md` to FAILED, updated its `rejection_count` and `rejection_reason`. Left QA task acceptance criteria unchecked and documented the failure in the markdown body.
+
 # QA Journal
 - Verified Gen 3 FRLG Move Tutor parsing implementation in `src/engine/saveParser/parsers/gen3.ts`
 - Verified tests in `src/engine/saveParser/parsers/gen3.test.ts`
@@ -841,3 +857,13 @@ We need to enforce these strict parsing guidelines for Gen 3 data extraction to 
 
 Verified the `gen1.ts`, `gen2.ts`, and `gen3.ts` parsers using Vitest type checks and standard execution.
 `parseGen1`, `parseGen2`, and `parseGen3` successfully return `Gen1SaveData`, `Gen2SaveData`, and `Gen3SaveData` instead of a generic `SaveData` union without throwing any regressions.
+
+
+# QA Verification Failure for Japanese Crystal
+
+The current task is to verify that all the new `.sav` files in `tests/fixtures/` load without parsing errors.
+However, I encountered a failure with `crystal-bxtj-0.sav`, which is a Japanese copy of Pokémon Crystal.
+
+Japanese games have different memory offsets compared to international releases, particularly the party count and party species offsets (`0x281a` instead of `0x2865` for JP Crystal). Our parser currently strictly relies on Western offsets.
+
+As a QA agent, my responsibility is to validate the task and fail it since the implementation is missing architectural requirements (handling Japanese offsets). I will update the target task (`task-470-487-catalog-integrate-saves`) with a transient rejection to alert the coder to this issue.

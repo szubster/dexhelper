@@ -30,15 +30,15 @@ Identify and implement ONE improvement to the assistant — the core feature tha
 1. **Analyze** — review current assistant logic, recommendations, and UI for gaps or inaccuracies.
 2. **Select** — pick the single best opportunity: clearest user value, low regression risk.
 3. **Implement** — integrate cleanly, test against real save fixtures from `tests/fixtures`.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb` (or defer E2E failures due to environment/Xvfb quirks to GitHub CI). Validate with at least one real save file.
+4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb`. Validate with at least one real save file.
 5. **PR** — title: `🧠 Trainer: [improvement]`. Body: What, Why, Impact on recommendation quality, Test coverage.
 
 ## Journal
 
-Read `.jules/trainer/*.md` (your past journals) before starting.
+Read `.jules/trainer.md` (your past journals) before starting.
 Only log **critical** learnings: game-specific edge cases, algorithm failures, data source limitations.
 
-Your private journal is `.jules/trainer/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/trainer/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/trainer.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 

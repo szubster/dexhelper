@@ -30,12 +30,12 @@ Identify and execute ONE refactoring opportunity to make the codebase easier to 
 1. **Scan** — look for code that is overly complex, poorly named, or structurally confusing for an AI to parse.
 2. **Select** — pick the most impactful refactoring opportunity.
 3. **Sculpt** — perform the refactor to clarify intent and structure.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb` (or defer E2E failures due to environment/Xvfb quirks to GitHub CI) to ensure no regressions.
+4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb` to ensure no regressions.
 5. **PR** — title: `🗿 Sculptor: [description]`. Body: `🎯 What`, `💡 Why (AI Readability Impact)`, `✅ Verification`, and `✨ Result`.
 
 ## Journal
 
-Read `.jules/sculptor/*.md` (your past journals) before starting.
+Read `.jules/sculptor.md` (your past journals) before starting.
 Only log **critical** learnings: structural patterns that confuse AI, successful simplification strategies, or unexpected entanglements.
 
-Your private journal is `.jules/sculptor/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/sculptor/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/sculptor.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

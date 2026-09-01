@@ -29,13 +29,17 @@ describe('BottomNav', () => {
     useStore.getState().setSaveData(null);
   });
 
-  it('should not render without save data', async () => {
-    const { container } = await render(
+  it('should render tactical nav items even without save data', async () => {
+    const { getByText } = await render(
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
       </QueryClientProvider>,
     );
-    expect(container.innerHTML).toBe('');
+
+    await expect.element(getByText('DEX')).toBeInTheDocument();
+    await expect.element(getByText('STRG')).toBeInTheDocument();
+    await expect.element(getByText('ASST')).toBeInTheDocument();
+    await expect.element(getByText('MENU')).toBeInTheDocument();
   });
 
   it('should render tactical nav items when save data is present', async () => {
@@ -70,5 +74,16 @@ describe('BottomNav', () => {
     await expect.element(getByText('STRG')).toBeInTheDocument();
     await expect.element(getByText('ASST')).toBeInTheDocument();
     await expect.element(getByText('MENU')).toBeInTheDocument();
+  });
+
+  it('should be visible on small (sm) target screens', async () => {
+    const { getByRole } = await render(
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>,
+    );
+
+    const nav = getByRole('navigation');
+    await expect.element(nav).toBeVisible();
   });
 });

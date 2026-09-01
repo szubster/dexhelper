@@ -2,12 +2,12 @@
 id: research-062-223-gen2-daily-event-offsets
 type: RESEARCH
 title: Investigate Gen 2 Daily and Weekly Event Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-06-29'
-updated_at: '2026-08-29'
+updated_at: '2026-08-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4540446449863576493'
 pr_number: null
 parent: epic-038-062-gen2-dynamic-checklist-ui
 tags:
