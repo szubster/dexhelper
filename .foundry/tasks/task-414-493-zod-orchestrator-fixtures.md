@@ -2,19 +2,19 @@
 id: task-414-493-zod-orchestrator-fixtures
 type: TASK
 title: Create E2E Test Fixtures for Zod Validation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-26'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: '17412540035889357590'
+jules_session_id: null
 parent: story-335-414-zod-orchestrator-e2e
 tags:
   - e2e
   - fixtures
   - orchestrator
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 ---
 
 # Create E2E Test Fixtures for Zod Validation

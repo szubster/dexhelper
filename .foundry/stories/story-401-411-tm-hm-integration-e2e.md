@@ -2,10 +2,10 @@
 id: story-401-411-tm-hm-integration-e2e
 type: STORY
 title: Integration and E2E Verification for TM/HM Parsing
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-23'
+updated_at: '2026-09-01'
 depends_on:
   - story-401-408-gen1-tm-hm-parsing
   - story-401-409-gen2-tm-hm-parsing

@@ -2,10 +2,10 @@
 id: task-473-495-extract-rejection-count-qa
 type: TASK
 title: QA rejection_count Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-09-01'
 depends_on:
   - task-473-494-extract-rejection-count-tests
 jules_session_id: null
