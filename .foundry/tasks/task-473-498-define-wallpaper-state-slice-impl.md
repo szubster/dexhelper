@@ -23,5 +23,5 @@ Define the state slice in the global store (`src/store.ts`) for tracking unlocke
 * Implement a state update function `toggleWallpaperUnlocked(trainerId: number, wallpaperId: number)` to allow the UI to modify the state.
 
 ## Acceptance Criteria
-- [ ] Implement the state slice in `src/store.ts`.
-- [ ] Implement the `toggleWallpaperUnlocked` function in `src/store.ts`.
+- [x] Implement the state slice in `src/store.ts`.
+- [x] Implement the `toggleWallpaperUnlocked` function in `src/store.ts`.
