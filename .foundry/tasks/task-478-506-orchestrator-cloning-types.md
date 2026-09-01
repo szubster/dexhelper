@@ -29,5 +29,5 @@ Define the necessary TypeScript types and interfaces for the new node cloning an
 3. Update existing orchestrator DAG models to support these new types if necessary.
 
 ## Acceptance Criteria
-- [ ] Create interfaces/types for variant and cloned node metadata.
-- [ ] Export definitions properly to avoid TS6133 unused export warnings.
+- [x] Create interfaces/types for variant and cloned node metadata.
+- [x] Export definitions properly to avoid TS6133 unused export warnings.

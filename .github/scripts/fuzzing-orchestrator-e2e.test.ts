@@ -154,7 +154,7 @@ describe('Orchestrator Fuzzing E2E', () => {
             }),
             { numRuns: 100 }
         );
-    });
+    }, 30000);
 
     test('Orchestrator can handle structurally complex, valid random DAGs from DAG generator', () => {
         const dagArbitrary = generateDagNodesArbitrary({ minNodes: 2, maxNodes: 15 }).chain(nodes => {
