@@ -2,14 +2,14 @@
 id: task-473-495-gen3-data-decryption-qa
 type: TASK
 title: QA Gen 3 Data Decryption Engine
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-26'
 updated_at: '2026-09-01'
 depends_on:
   - task-473-493-gen3-data-decryption-impl
   - task-473-494-gen3-data-decryption-tests
-jules_session_id: null
+jules_session_id: '14879299996380410300'
 pr_number: null
 parent: story-131-473-gen3-data-decryption-engine
 tags:
