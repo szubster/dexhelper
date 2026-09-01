@@ -32,6 +32,6 @@ Ensure the implemented Gen 3 Pokéblock constants and types are correct and conf
 4. Verify the `PokeblockColor` enum matches the values `0` through `14`.
 
 ## Acceptance Criteria
-- [ ] Constants match the defined offsets.
-- [ ] Types are correctly exported.
-- [ ] Enums are correctly defined.
+- [x] Constants match the defined offsets.
+- [x] Types are correctly exported.
+- [x] Enums are correctly defined.
