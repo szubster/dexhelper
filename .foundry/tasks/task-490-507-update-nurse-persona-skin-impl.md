@@ -28,4 +28,4 @@ Update the developer-facing `nurse` persona template to utilize its narrative Ge
 - The narrative context should make it clear that the agent acts as Nurse Joy.
 
 ## Acceptance Criteria
-- [ ] Coder: Update the `nurse` persona markdown file(s) to adopt the Nurse Joy skin.
+- [x] Coder: Update the `nurse` persona markdown file(s) to adopt the Nurse Joy skin.
