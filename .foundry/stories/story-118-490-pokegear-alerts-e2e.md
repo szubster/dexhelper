@@ -31,3 +31,4 @@ Implement End-to-End verification tests for the Pokegear Swarm & Item Alerts.
 
 ## Acceptance Criteria
 - [ ] Implement E2E tests for high-value Pokegear calls
+- [ ] task-490-506-pokegear-alerts-e2e-impl
