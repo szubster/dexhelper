@@ -41,6 +41,6 @@ As part of the Pal Park migration engine (Gen 3 to Gen 4), we need a validator t
 - Write corresponding unit tests (in `.test.ts`) validating positive (contains HM), negative (no HMs), and edge cases (empty move list, duplicate moves).
 
 ## Acceptance Criteria
-- [ ] Implement `GEN3_HM_MOVES` constant containing all 8 Gen 3 HM move IDs.
-- [ ] Implement `hasGen3HMMoves` function returning a boolean.
-- [ ] Unit tests correctly verify the logic for positive and negative cases.
+- [x] Implement `GEN3_HM_MOVES` constant containing all 8 Gen 3 HM move IDs.
+- [x] Implement `hasGen3HMMoves` function returning a boolean.
+- [x] Unit tests correctly verify the logic for positive and negative cases.
