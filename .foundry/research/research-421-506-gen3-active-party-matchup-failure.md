@@ -2,12 +2,12 @@
 id: research-421-506-gen3-active-party-matchup-failure
 type: RESEARCH
 title: Investigate Gen 3 Active Party Matchup Integration Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-01'
 updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1394888087037226053'
 pr_number: null
 parent: story-411-421-active-party-extraction
 tags:
