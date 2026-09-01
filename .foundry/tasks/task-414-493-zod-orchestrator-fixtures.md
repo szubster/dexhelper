@@ -23,5 +23,5 @@ rejection_reason: ''
 Create a comprehensive set of test fixtures in `.foundry/fixtures/` representing various states: valid nodes, malformed YAML frontmatter, missing required fields, and correct node promotion states for testing the orchestrator.
 
 ## Acceptance Criteria
-- [ ] Create valid node fixtures for testing promotion.
-- [ ] Create malformed fixtures to test error scenarios and rejection.
+- [x] Create valid node fixtures for testing promotion.
+- [x] Create malformed fixtures to test error scenarios and rejection.
