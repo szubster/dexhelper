@@ -2,12 +2,12 @@
 id: task-422-496-gen3-static-encounters-e2e-impl
 type: TASK
 title: Implement Gen 3 Static Encounters E2E Tests
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: '1009208007479516695'
+jules_session_id: null
 pr_number: null
 parent: story-138-422-gen3-static-encounters-e2e
 tags:
@@ -18,8 +18,9 @@ research_references:
   - >-
     .foundry/docs/knowledge_base/gen3_static_encounters/gen3_static_encounter_offsets.md
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
+locks: []
 ---
 
 # Implement Gen 3 Static Encounters E2E Tests

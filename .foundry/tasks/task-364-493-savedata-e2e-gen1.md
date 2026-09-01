@@ -2,18 +2,19 @@
 id: task-364-493-savedata-e2e-gen1
 type: TASK
 title: SaveData E2E Verification - Gen 1
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: '10997738698009267234'
+jules_session_id: null
 parent: story-404-364-savedata-e2e-verification
 tags:
   - savedata
   - e2e
   - gen1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+locks: []
 ---
 
 # SaveData E2E Verification - Gen 1

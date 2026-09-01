@@ -2,19 +2,19 @@
 id: task-490-507-update-nurse-persona-skin-impl
 type: TASK
 title: Update Nurse Persona to Narrative Skin
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-01'
 updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: '3479803479971000399'
+jules_session_id: null
 pr_number: null
 parent: story-406-490-update-jules-persona-definitions
 tags:
   - personas
   - gamification
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 ---
 

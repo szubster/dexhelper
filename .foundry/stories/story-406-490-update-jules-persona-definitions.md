@@ -2,7 +2,7 @@
 id: story-406-490-update-jules-persona-definitions
 type: STORY
 title: Update Jules Persona Definitions to Narrative Skins
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
 updated_at: '2026-09-01'
@@ -16,6 +16,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Update Jules Persona Definitions to Narrative Skins

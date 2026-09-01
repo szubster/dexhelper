@@ -2,7 +2,7 @@
 id: task-473-493-mirage-island-e2e-qa
 type: TASK
 title: QA Verification for Mirage Island E2E
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-08-26'
 updated_at: '2026-09-01'
@@ -15,8 +15,8 @@ tags:
   - mirage-island
   - e2e
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

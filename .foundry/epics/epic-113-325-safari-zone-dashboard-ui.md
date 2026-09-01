@@ -2,10 +2,10 @@
 id: epic-113-325-safari-zone-dashboard-ui
 type: EPIC
 title: Safari Zone Tracking Dashboard UI
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-07-14'
+updated_at: '2026-09-01'
 depends_on:
   - epic-113-324-safari-zone-data-integration
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Safari Zone Tracking Dashboard UI

@@ -2,19 +2,20 @@
 id: task-478-506-gen2-ruins-of-alph-constants
 type: TASK
 title: Define Gen 2 Ruins of Alph Puzzle Constants
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-31'
 updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: '12362003827257120207'
+jules_session_id: null
 parent: story-338-478-gen2-ruins-of-alph-puzzle-flags
 tags:
   - feature
   - gen2
   - unown
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+locks: []
 ---
 
 # Define Gen 2 Ruins of Alph Puzzle Constants

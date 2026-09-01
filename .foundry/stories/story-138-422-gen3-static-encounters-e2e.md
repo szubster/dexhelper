@@ -2,10 +2,10 @@
 id: story-138-422-gen3-static-encounters-e2e
 type: STORY
 title: Gen 3 Static Encounters E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-14'
-updated_at: '2026-08-29'
+updated_at: '2026-09-01'
 depends_on:
   - story-138-295-gen3-static-encounters-ui
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Gen 3 Static Encounters E2E Verification

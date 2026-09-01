@@ -2,7 +2,7 @@
 id: story-345-477-gen3-mystery-gift-event-flags
 type: STORY
 title: Gen 3 Mystery Gift Event Flags Extraction
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
 updated_at: '2026-09-01'
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 2
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Gen 3 Mystery Gift Event Flags Extraction

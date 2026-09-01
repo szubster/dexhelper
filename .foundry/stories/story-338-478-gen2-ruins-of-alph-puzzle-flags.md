@@ -2,7 +2,7 @@
 id: story-338-478-gen2-ruins-of-alph-puzzle-flags
 type: STORY
 title: Parse Gen 2 Ruins of Alph Puzzle Flags
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
 updated_at: '2026-09-01'
@@ -15,6 +15,7 @@ tags:
   - unown
 rejection_count: 0
 rejection_reason: ''
+locks: []
 ---
 
 # Parse Gen 2 Ruins of Alph Puzzle Flags

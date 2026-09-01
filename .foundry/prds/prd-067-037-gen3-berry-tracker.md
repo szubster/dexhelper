@@ -2,12 +2,12 @@
 id: prd-067-037-gen3-berry-tracker
 type: PRD
 title: Gen 3 Berry Farming Tracker
-status: ACTIVE
-owner_persona: epic_planner
+status: VERIFYING
+owner_persona: auditor
 created_at: '2026-06-01'
 updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: '1691514318447933644'
+jules_session_id: null
 pr_number: null
 parent: idea-067-gen3-berry-tracker
 tags:
