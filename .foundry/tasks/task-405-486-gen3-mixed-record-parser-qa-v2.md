@@ -5,10 +5,10 @@ title: QA Gen 3 Mixed Record Parser v2
 status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on:
   - task-405-485-gen3-mixed-record-parser-impl-v2
-jules_session_id: '8493469430248042755'
+jules_session_id: '6574504405422029276'
 pr_number: null
 parent: story-397-405-gen3-mixed-record-npc-data
 tags:
@@ -17,9 +17,10 @@ tags:
   - gen3
   - mixed-records
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # TASK: QA Gen 3 Mixed Record Parser v2

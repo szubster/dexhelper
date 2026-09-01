@@ -2,12 +2,12 @@
 id: idea-157-gen2-headbutt-tree-predictor
 type: IDEA
 title: Gen 2 Headbutt Tree Predictor
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-20'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: '18377215624981067150'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -16,9 +16,10 @@ tags:
   - gen2
   - tracker
 research_references: []
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Idea: Gen 2 Headbutt Tree Predictor
@@ -43,3 +44,4 @@ This transforms a notoriously frustrating, opaque grind into a highly targeted, 
 ## Next Steps / Acceptance Criteria
 - [x] Product Manager: Draft this IDEA node to initiate the feature request.
 - [ ] Product Manager: Convert this IDEA into a PRD detailing the Headbutt coordinate math and the integration with the existing map UI.
+- [ ] research-157-505-gen2-headbutt-math

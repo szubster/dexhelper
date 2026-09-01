@@ -170,10 +170,15 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
     return null;
   }
 
+  const frontmatter = parseResult.data;
+  if (!frontmatter.locks) {
+    frontmatter.locks = [];
+  }
+
   return {
     filePath,
     repoPath,
-    frontmatter: parseResult.data,
+    frontmatter,
     rawContent,
     body: parsed.content,
   };

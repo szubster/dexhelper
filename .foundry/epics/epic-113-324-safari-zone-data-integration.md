@@ -2,10 +2,10 @@
 id: epic-113-324-safari-zone-data-integration
 type: EPIC
 title: Gen 1 & Gen 3 Safari Zone Data Extraction
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-08-26'
+updated_at: '2026-09-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Gen 1 & Gen 3 Safari Zone Data Extraction
@@ -37,4 +38,4 @@ This Epic covers the backend and data extraction logic necessary to power the Sa
 - [x] story-324-322-safari-zone-static-tables
 - [x] story-324-339-gen1-safari-zone-save-state
 - [x] story-324-340-gen3-safari-zone-save-state
-- [ ] story-324-489-e2e-verification
+- [x] story-324-489-e2e-verification

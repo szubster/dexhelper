@@ -2,13 +2,13 @@
 id: epic-339-410-librarian-github-scripts-implementation
 type: EPIC
 title: GitHub Scripts for Librarian Persona
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-08'
-updated_at: '2026-08-23'
+updated_at: '2026-09-01'
 depends_on:
   - epic-339-409-librarian-schema-updates
-jules_session_id: null
+jules_session_id: '15773092713563462558'
 pr_number: null
 parent: prd-124-339-librarian-persona-context-optimizer
 tags:

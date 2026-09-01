@@ -2,10 +2,10 @@
 id: task-478-510-orchestrator-cloning-qa
 type: TASK
 title: QA - Dynamic Node Cloning and Prompt Adaptation
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-30'
-updated_at: '2026-08-30'
+updated_at: '2026-09-01'
 depends_on:
   - task-478-509-orchestrator-cloning-tests
 jules_session_id: null

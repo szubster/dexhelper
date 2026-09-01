@@ -5,7 +5,7 @@ title: Extract Gen 3 Mixed Record NPC Data
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-04'
-updated_at: '2026-08-25'
+updated_at: '2026-09-01'
 depends_on:
   - story-397-404-gen3-secret-base-parsing-core
 jules_session_id: null
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # STORY: Extract Gen 3 Mixed Record NPC Data
