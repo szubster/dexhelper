@@ -150,6 +150,9 @@ importers:
       oxlint-tsgolint:
         specifier: ^7.0.2001
         version: 7.0.2001
+      pkhex:
+        specifier: ^26.1.22
+        version: 26.1.22
       playwright:
         specifier: ^1.62.1
         version: 1.62.1
@@ -3981,6 +3984,10 @@ packages:
   picomatch@4.0.7:
     resolution: {integrity: sha512-qcJu88Q2IWqJsDD529JKMdwGm/dvInW4HvQnRwiH9JtihJvzGOscDtHE3x1pBKeUOTysQ8kVmLnJ2kJu7yhcGA==}
     engines: {node: '>=12'}
+
+  pkhex@26.1.22:
+    resolution: {integrity: sha512-xOs8tzBAr40QAajU9BgxUunEhbwhvxIxP1TUoH7Wi3QccfcoFyVO2pmyOHIWkmcpDhrse9RdX78nOi52YnCNXg==}
+    engines: {node: '>=18.0.0'}
 
   playwright-core@1.62.1:
     resolution: {integrity: sha512-wPYSwEBJY9GHraISXqyqtx0na0LpO3XEX7jNDhntbex7tzUS7kLnZsOlFruFJB4Hi/rhDMjXGqHewDZ68nYZVw==}
@@ -8419,6 +8426,8 @@ snapshots:
   picomatch@4.0.5: {}
 
   picomatch@4.0.7: {}
+
+  pkhex@26.1.22: {}
 
   playwright-core@1.62.1: {}
 

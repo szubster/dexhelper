@@ -281,8 +281,3 @@ The \`Gen2SaveData\` schema in \`src/engine/saveParser/parsers/common.ts\` is mi
 
 **Learnings:**
 - Always ensure that newly created extraction functions are actually hooked into the main parser (like \`parseGen2\`) and that their extracted data types are added to the common schemas (like \`Gen2SaveData\`) before writing E2E tests for the UI. UI components can't display data that isn't provided to them by the state store.
-
-
-
-## Gen 3 Egg Hatch Fixture
-- **Key Learning**: When tasked with acquiring Gen 3 test fixtures, manual hex-editing is strictly forbidden by the maintainer to prevent enforcing false beliefs about the game engine's behavior. Save files must either be sourced online (from communities like projectpokemon) or generated using accurate emulation. If no fixture can be found online and external editing tools (like pkhex) fail to run in the current environment, the node must be permanently aborted to preserve architectural integrity.

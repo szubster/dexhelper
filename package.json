@@ -82,6 +82,7 @@
     "lightningcss": "^1.33.0",
     "oxlint": "^1.80.0",
     "oxlint-tsgolint": "^7.0.2001",
+    "pkhex": "^26.1.22",
     "playwright": "^1.62.1",
     "rollup-plugin-visualizer": "^7.1.1",
     "sort-package-json": "^4.0.0",

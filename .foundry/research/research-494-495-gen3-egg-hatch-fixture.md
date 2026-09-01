@@ -2,8 +2,8 @@
 id: research-494-495-gen3-egg-hatch-fixture
 type: RESEARCH
 title: Gen 3 Egg Hatch Fixture
-status: CANCELLED
-rejection_reason: 'Cannot source a valid Gen 3 save fixture with an egg online, and manual hex editing is strictly forbidden. Unable to proceed.'
+status: FAILED
+rejection_reason: 'Suspended pending investigation of pkhex ES module compatibility to avoid manual hex editing.'
 owner_persona: researcher
 created_at: '2026-08-30'
 updated_at: '2026-08-30'
@@ -15,7 +15,7 @@ tags:
   - e2e
   - fixture
 research_references: []
-rejection_count: 0
+rejection_count: 1
 notes: ''
 ---
 
@@ -31,10 +31,7 @@ Without a valid fixture, the E2E test cannot verify that the parser correctly ex
 Acquire or generate a valid Gen 3 save file (`.sav`) that contains at least one Egg in the player's active party, and commit it to `tests/fixtures/saves/gen3/`.
 Then, document its location and provide instructions on how to use it for the E2E test.
 
-## Result
-
-Task cancelled. Searched extensively across GitHub (projectpokemon, EventsGallery, Bl1ndBeholder) and could not find a readily available Gen 3 `.sav` file with a Pokémon egg in the party. Additionally, the Node-based `pkhex` wrapper is broken in ES modules, preventing programmatic save editing using official game-correct tooling. Since manual hex-editing of fixtures is strictly forbidden by project maintainers to prevent enforcing false beliefs, this fixture cannot be acquired.
-
+- [ ] research-494-505-pkhex-esmodule-wrapper
 - [ ] Acquire or generate a valid Gen 3 save file (`.sav`) that contains at least one Egg in the player's active party
 - [ ] Commit it to `tests/fixtures/saves/gen3/`
 - [ ] Document its location and provide instructions on how to use it for the E2E test
