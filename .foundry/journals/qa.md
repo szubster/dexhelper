@@ -1,3 +1,19 @@
+
+# QA Session Journal
+
+Task ID: task-405-486-gen3-mixed-record-parser-qa-v2
+Target Task: task-405-485-gen3-mixed-record-parser-impl-v2
+
+## QA Results: FAILED
+The implementation of the Gen 3 Mixed Record Parser correctly extracted the data and handled RangeErrors. However, it violated the strict Section 13 guidelines ("Save File Parsing & Extraction Guidelines" in schema.md).
+
+Specifically, there was a magic number violation in `src/engine/saveParser/gen3/mixedRecords/parser.ts`:
+`if (personality === 0 || personality === 0xffffffff)`
+
+The values `0` and `0xffffffff` must be defined as module-level constants (e.g., `MIXED_RECORD_EMPTY_PERSONALITY_0` and `MIXED_RECORD_EMPTY_PERSONALITY_F`), as the use of inline magic numbers is strictly forbidden. The test file also contained similar magic number usage.
+
+I updated `task-405-485-gen3-mixed-record-parser-impl-v2.md` to FAILED, updated its `rejection_count` and `rejection_reason`. Left QA task acceptance criteria unchecked and documented the failure in the markdown body.
+
 # QA Journal
 - Verified Gen 3 FRLG Move Tutor parsing implementation in `src/engine/saveParser/parsers/gen3.ts`
 - Verified tests in `src/engine/saveParser/parsers/gen3.test.ts`
