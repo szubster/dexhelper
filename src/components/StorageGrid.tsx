@@ -12,7 +12,6 @@ import { PokerusBadge } from './PokerusBadge';
 import { PokemonSprite } from './pokemon/PokemonSprite';
 import { ScanlineOverlay } from './ScanlineOverlay';
 import { ShinyBadge } from './ShinyBadge';
-import { TacticalBadge } from './TacticalBadge';
 import { TacticalCard } from './TacticalCard';
 import { TacticalPanel } from './TacticalPanel';
 
@@ -56,11 +55,32 @@ const StorageCard = React.memo(
         title={`View details for ${pokemon.name} in ${location}`}
         onClick={handleClick}
         variant={variant}
-        className="!p-0 min-h-16"
+        className="!p-0 group/card relative min-h-24 overflow-hidden shadow-[0_5px_15px_rgba(0,0,0,0.5)]"
       >
-        <div className="group/card relative flex h-full w-full flex-col">
-          {/* Sprite Container - Top Side */}
-          <div className="relative flex aspect-square w-full shrink-0 items-center justify-center overflow-hidden border-zinc-800 border-b border-dashed bg-black/40 transition-colors duration-500 group-hover:bg-black/60">
+        {/* Physical hardware drive base */}
+        <div className="pointer-events-none absolute inset-0 border border-zinc-800 bg-zinc-900" />
+
+        {/* Drive Grip/Handle (Left side) */}
+        <div className="pointer-events-none absolute top-0 bottom-0 left-0 z-10 flex w-3 flex-col items-center justify-around border-zinc-800 border-r bg-zinc-950 py-2">
+          <div className="h-1 w-1 rounded-full bg-zinc-800 shadow-[inset_0_1px_1px_rgba(0,0,0,1)]" />
+          <div className="h-8 w-1 rounded-none bg-zinc-800 shadow-[inset_1px_0_2px_rgba(0,0,0,1)]" />
+          <div className="h-1 w-1 rounded-full bg-zinc-800 shadow-[inset_0_1px_1px_rgba(0,0,0,1)]" />
+        </div>
+
+        {/* Structural Corner Screws */}
+        <div className="absolute top-1 right-1 z-10 flex h-1.5 w-1.5 items-center justify-center rounded-full bg-black shadow-[0_0_1px_rgba(255,255,255,0.2)]">
+          <div className="h-px w-full rotate-45 bg-zinc-800" />
+        </div>
+        <div className="absolute right-1 bottom-1 z-10 flex h-1.5 w-1.5 items-center justify-center rounded-full bg-black shadow-[0_0_1px_rgba(255,255,255,0.2)]">
+          <div className="h-px w-full -rotate-45 bg-zinc-800" />
+        </div>
+
+        <div className="relative flex h-full w-full flex-col pl-3">
+          {/* Sprite Container - Top Side (Physical window) */}
+          <div className="relative flex w-full flex-1 shrink-0 items-center justify-center overflow-hidden border-zinc-950 border-b-2 bg-black/60 transition-colors duration-500 group-hover/card:bg-black/80">
+            {/* Inner window shadow */}
+            <div className="pointer-events-none absolute inset-0 z-20 shadow-[inset_0_5px_10px_rgba(0,0,0,0.8)]" />
+
             {/* Target overlay */}
             <div className="pointer-events-none absolute inset-0 z-20 border-[1px] border-cyan-400/0 transition-colors duration-300 group-hover/card:border-cyan-400/30">
               <div className="absolute top-1 left-1 h-2 w-2 border-cyan-400/0 border-t border-l transition-colors duration-300 group-hover/card:border-cyan-400/80" />
@@ -69,7 +89,7 @@ const StorageCard = React.memo(
               <div className="absolute right-1 bottom-1 h-2 w-2 border-cyan-400/0 border-r border-b transition-colors duration-300 group-hover/card:border-cyan-400/80" />
             </div>
 
-            <LcdGrid className="opacity-[0.05]" />
+            <LcdGrid className="opacity-[0.08]" />
             <HoverScanner />
 
             {/* Massive Faded ID Background */}
@@ -79,16 +99,12 @@ const StorageCard = React.memo(
               </span>
             </div>
 
-            {/* Matrix Targeting Ring (Appears on Hover) */}
-            <div className="absolute inset-2 rounded-full border border-cyan-500/0 opacity-0 transition-all duration-500 group-hover/card:animate-[spin_4s_linear_infinite] group-hover/card:border-cyan-500/30 group-hover/card:opacity-100" />
-            <div className="absolute inset-4 rounded-full border border-cyan-400/0 border-dashed opacity-0 transition-all duration-500 group-hover/card:animate-[spin_3s_linear_infinite_reverse] group-hover/card:border-cyan-400/20 group-hover/card:opacity-100" />
-
             <PokemonSprite
               pokemonId={pokemon.id}
               generation={generation}
               isShiny={p.isShiny}
               alt={pokemon.name}
-              className={`z-10 h-[60%] w-[60%] object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-transform duration-500 group-hover/card:scale-110 group-hover/card:drop-shadow-[0_0_20px_rgba(34,211,238,0.3)] ${isDead ? 'opacity-50 grayscale' : ''}`}
+              className={`z-10 h-[70%] w-[70%] object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-transform duration-500 group-hover/card:scale-110 group-hover/card:drop-shadow-[0_0_20px_rgba(34,211,238,0.3)] ${isDead ? 'opacity-50 grayscale' : ''}`}
             />
             {isDead && (
               <Skull
@@ -100,31 +116,40 @@ const StorageCard = React.memo(
             {/* Extra intense scanline on hover */}
             <ScanlineOverlay opacityClass="opacity-20 group-hover/card:opacity-40" />
 
-            <div className="absolute top-1 right-1 z-30">
+            {/* Hardware LEDs for statuses */}
+            <div className="absolute top-1 right-2 z-30 flex flex-col gap-1">
               {p.pokerus && p.pokerus.strain > 0 && <PokerusBadge strain={p.pokerus.strain} />}
               <ShinyBadge isShiny={p.isShiny || false} isShinyCarrier={p.isShinyCarrier || false} size="sm" />
             </div>
           </div>
 
-          {/* Data Container - Bottom Side */}
-          <div className="relative flex flex-1 flex-col justify-between overflow-hidden p-2">
-            {/* Data stream overlay on hover */}
-            <div className="pointer-events-none absolute inset-0 z-0 flex flex-col justify-end p-1 opacity-0 transition-opacity duration-300 group-hover/card:opacity-[0.03]">
-              <div className="break-all font-mono text-[6px] text-cyan-400 leading-tight">
-                {'0123456789ABCDEF'.repeat(10)}
-              </div>
+          {/* Data Container - Physical Sticker Label */}
+          <div className="relative m-1.5 mb-1 overflow-hidden rounded-none border border-white/20 bg-zinc-200 p-1.5 shadow-[inset_0_0_5px_rgba(0,0,0,0.1)]">
+            {/* Fake barcode */}
+            <div className="pointer-events-none absolute top-0 right-1 flex h-full w-4 flex-col justify-between py-1 opacity-30">
+              <div className="h-px w-full bg-black" />
+              <div className="h-0.5 w-full bg-black" />
+              <div className="h-px w-full bg-black" />
+              <div className="h-1 w-full bg-black" />
+              <div className="h-0.5 w-full bg-black" />
+              <div className="h-px w-full bg-black" />
             </div>
 
-            <div className="relative z-10 flex flex-col gap-1">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[8px] text-zinc-500 uppercase tracking-widest sm:text-[10px]">
+            {/* Sticker dirt/texture */}
+            <div className="pointer-events-none absolute inset-0 z-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSJub25lIi8+CjxwYXRoIGQ9Ik0wIDBMMSAxTTAgMkwxIDNNMiAyTDMgM00yIDBMMyAxIiBzdHJva2U9InJnYmEoMCwwLDAsMC4wNSkiLz4KPC9zdmc+')] opacity-50" />
+
+            <div className="relative z-10 flex flex-col gap-0">
+              <div className="flex items-center justify-between pr-4">
+                <span className="font-bold font-mono text-[8px] text-zinc-800 uppercase tracking-widest sm:text-[9px]">
                   LV.{p.level.toString().padStart(3, '0')}
                 </span>
                 {p.otName && (
-                  <span className="truncate font-mono text-[8px] text-zinc-600 sm:text-[10px]">[{p.otName}]</span>
+                  <span className="truncate font-bold font-mono text-[7px] text-zinc-600 sm:text-[8px]">
+                    OT:{p.otName}
+                  </span>
                 )}
               </div>
-              <h3 className="truncate font-bold font-mono text-sm text-white uppercase tracking-tight sm:text-base">
+              <h3 className="mt-0.5 truncate font-black font-mono text-black text-sm uppercase leading-none tracking-tight sm:text-base">
                 {pokemon.name}
               </h3>
             </div>
@@ -132,20 +157,16 @@ const StorageCard = React.memo(
             {timeCapsuleValidation && (
               <div className="mt-1 flex justify-end">
                 {timeCapsuleValidation.isEligible ? (
-                  <TacticalBadge
-                    variant="emerald"
-                    className="rounded-none px-1.5 py-0.5 font-mono text-[8px] leading-none sm:text-[10px]"
-                  >
+                  <span className="rounded-none border border-emerald-500/50 bg-emerald-500/20 px-1 py-px font-bold font-mono text-[8px] text-emerald-900 leading-none sm:text-[9px]">
                     [ READY ]
-                  </TacticalBadge>
+                  </span>
                 ) : (
-                  <TacticalBadge
-                    variant="red"
-                    className="rounded-none px-1.5 py-0.5 font-mono text-[8px] leading-none sm:text-[10px]"
+                  <span
+                    className="rounded-none border border-red-500/50 bg-red-500/20 px-1 py-px font-bold font-mono text-[8px] text-red-900 leading-none sm:text-[9px]"
                     title={timeCapsuleValidation.reason}
                   >
                     [ ERR ]
-                  </TacticalBadge>
+                  </span>
                 )}
               </div>
             )}

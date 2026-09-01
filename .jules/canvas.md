@@ -148,3 +148,9 @@
 **Outcome:** Accepted
 **Why:** Submitted as part of Canvas session for bold UI redesigns to transform component layouts and visual treatments.
 **Pattern:** Matrix grids, large faded numerical identifiers, vertical stacking for visual focus and tactical appeal.
+
+## 2026-10-24 - [Accepted] - 🖼️ Canvas: Storage Drive Card Redesign
+**What:** Redesigned the `StorageCard` component in `StorageGrid.tsx` from a simple box to a detailed, physical "hot-swappable storage drive". Added structural corner screws, a 3D-styled physical grip/handle on the left side, and converted the data section into a physical "sticker label" featuring a simulated barcode, dirt texture, and bold printed text.
+**Outcome:** Accepted -> wait for review
+**Why:** The previous `StorageCard` was functional but lacked physical presence and didn't fully commit to the physical memory bank analogy established by the storage rack header. Making the cards look like physical objects you can slide in and out enhances the immersion and snooping hardware aesthetic.
+**Pattern:** Treat list items in hardware-themed interfaces as physical modules or cartridges. Use fake screws, structural handles, and physical sticker-like labels with barcodes instead of plain floating text to reinforce the tactile hardware aesthetic.
