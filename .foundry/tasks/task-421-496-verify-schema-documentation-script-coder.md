@@ -22,4 +22,4 @@ notes: ''
 Write a script to verify that .foundry/docs/schema.md has the Orchestrator Safeguard E2E requirement documented correctly.
 
 ## Acceptance Criteria
-- [ ] Implement a script to verify .foundry/docs/schema.md has the E2E rule.
+- [x] Implement a script to verify .foundry/docs/schema.md has the E2E rule.
