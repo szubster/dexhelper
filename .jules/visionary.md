@@ -351,3 +351,12 @@
   The project already possesses an interactive React Flow DAG visualizer at `/dag`. However, managing pipeline velocity at scale requires more than just structural topology; it requires observability into node health (e.g., resurrection loops, high rejection counts). This idea proposes a "Health Heatmap" overlay for the existing DAG visualizer to proactively highlight problematic nodes, aiding the TPM and Agile Coach.
 - **Strategic Balance:**
   In the previous session, we proposed IDEA-155 (Gen 3 Trick House Tracker) for the main DexHelper product domain. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a Foundry Orchestrator tooling improvement.
+
+- **Active Session/Timestamp:** 2026-09-01 (Session 13251298276630983260)
+- **Domain:** Main Project (DexHelper)
+- **Proposed Idea:** Gen 3 Cycling Road Time Trial Analyzer (IDEA-489)
+- **Rationale & Concept:**
+  In Generation 3 (Ruby, Sapphire, Emerald), the Seaside Cycling Road (Route 110) features a hidden mini-game where the player's time and number of collisions are recorded. Hardcore players try to optimize their route, but comparing times requires physically traveling to the gatehouse in-game. This idea extracts the hidden `SaveBlock1` variables to surface this data in a dedicated widget.
+- **Strategic Balance:**
+  In the preceding session, IDEA-487 was proposed for the Foundry System (Refactor Rejection Count Schema). To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to proposing a direct user-facing feature for DexHelper (Cycling Road Time Trial Analyzer).
+  Note: An earlier idea for a Nuzlocke Tracker Dashboard (IDEA-488) was proposed but strictly rejected by the maintainer, who stated: "I never want Nothing related to nuzlocke." Nuzlocke features are permanently banned.
