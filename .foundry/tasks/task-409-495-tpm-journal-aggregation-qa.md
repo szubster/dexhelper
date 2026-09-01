@@ -27,6 +27,6 @@ notes: ''
 Verify the implementation and testing of the TPM journal aggregation script and persona updates based on .github/agents/tpm.md.
 
 ## Acceptance Criteria
-- [ ] Review `.github/scripts/aggregate-journals.ts` to ensure it correctly aggregates and archives timestamped `.md` files into `master.md`.
-- [ ] Ensure unit tests pass and cover the aggregation and archiving logic comprehensively.
-- [ ] Verify that `.github/agents/tpm.md` instructs the TPM persona to run the aggregation script.
+- [x] Review `.github/scripts/aggregate-journals.ts` to ensure it correctly aggregates and archives timestamped `.md` files into `master.md`.
+- [x] Ensure unit tests pass and cover the aggregation and archiving logic comprehensively.
+- [x] Verify that `.github/agents/tpm.md` instructs the TPM persona to run the aggregation script.
