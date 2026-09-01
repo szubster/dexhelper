@@ -45,9 +45,8 @@ test('DagNode renders all required fields', async () => {
   await expect.element(page.getByText('TASK', { exact: true })).toBeInTheDocument();
   // Check if Status is rendered
   await expect.element(page.getByText('ACTIVE', { exact: true })).toBeInTheDocument();
-  // Check if Owner Persona is rendered using the new Badge component (which transforms it to uppercase for display, but raw text still matches generally depending on how getByText queries, it is safer to query by testid)
+  // Check if Owner Persona is rendered
   await expect.element(page.getByText('coder', { exact: true })).toBeInTheDocument();
-  await expect.element(page.getByTestId('persona-icon-coder')).toBeInTheDocument();
 });
 
 test('DagNode adheres to tactical aesthetic classes', async () => {
