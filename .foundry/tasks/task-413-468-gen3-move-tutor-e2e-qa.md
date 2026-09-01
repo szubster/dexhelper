@@ -33,5 +33,5 @@ QA verification of the Gen 3 Move Tutor parsing tests.
 2. Check for false positives by purposefully breaking parsing logic and verifying tests fail.
 
 ## Acceptance Criteria
-- [ ] QA has verified Vitest and Playwright E2E tests pass and accurately reflect requirements.
-- [ ] QA confirms test architecture is compliant.
+- [x] QA has verified Vitest and Playwright E2E tests pass and accurately reflect requirements.
+- [x] QA confirms test architecture is compliant.
