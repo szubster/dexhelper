@@ -2,12 +2,12 @@
 id: story-413-511-r2-conflict-resolution-e2e-verification
 type: STORY
 title: Cloudflare R2 Conflict Resolution E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-01'
 updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1219871910546260359'
 pr_number: null
 parent: epic-340-413-r2-conflict-resolution-e2e
 tags:
