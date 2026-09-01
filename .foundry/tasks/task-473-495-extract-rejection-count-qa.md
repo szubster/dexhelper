@@ -25,5 +25,5 @@ notes: ''
 Verify the implementation of `rejection_count` extraction and ensure tests pass.
 
 ## Acceptance Criteria
-- [ ] Review code changes in `src/utils/dag/parser.ts` to confirm `rejection_count` is handled correctly.
-- [ ] Verify that `pnpm test` passes for the parser.
+- [x] Review code changes in `src/utils/dag/parser.ts` to confirm `rejection_count` is handled correctly.
+- [x] Verify that `pnpm test` passes for the parser.
