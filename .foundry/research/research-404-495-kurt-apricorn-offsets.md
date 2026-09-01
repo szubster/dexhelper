@@ -2,12 +2,12 @@
 id: research-404-495-kurt-apricorn-offsets
 type: RESEARCH
 title: Investigate Kurt Apricorn Crafting Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-30'
 updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9062108596009761075'
 pr_number: null
 parent: story-404-477-kurt-apricorn-offset-and-constants
 tags:
