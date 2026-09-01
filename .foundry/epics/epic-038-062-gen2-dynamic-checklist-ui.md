@@ -2,7 +2,7 @@
 id: epic-038-062-gen2-dynamic-checklist-ui
 type: EPIC
 title: Gen 2 Dynamic Checklist UI
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-07'
 updated_at: '2026-09-01'
@@ -15,8 +15,8 @@ tags:
   - gen2
   - frontend
   - ui
-rejection_count: 0
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 

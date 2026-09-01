@@ -2,14 +2,14 @@
 id: task-413-468-gen3-move-tutor-e2e-qa
 type: TASK
 title: QA Gen 3 Move Tutor Parsing Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-22'
 updated_at: '2026-09-01'
 depends_on:
   - task-413-466-gen3-move-tutor-extraction-vitest-impl
   - task-413-467-gen3-move-tutor-ui-playwright-impl
-jules_session_id: '14722849335764973544'
+jules_session_id: null
 pr_number: null
 parent: story-406-413-gen3-move-tutor-parsing-e2e
 tags:

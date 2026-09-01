@@ -2,7 +2,7 @@
 id: task-348-507-gen3-ash-ui-impl
 type: TASK
 title: 'Task: Implement Gen 3 Volcanic Ash UI Integration'
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-01'
 updated_at: '2026-09-01'
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Task: Implement Gen 3 Volcanic Ash UI Integration

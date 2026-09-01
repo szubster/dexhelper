@@ -2,10 +2,10 @@
 id: story-071-474-pass-rejection-count-context
 type: STORY
 title: Pass Rejection Count to DagContext
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-09-01'
 depends_on:
   - story-071-473-extract-rejection-count
 jules_session_id: null
@@ -16,8 +16,9 @@ tags:
   - dashboard
   - context
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Pass Rejection Count to DagContext

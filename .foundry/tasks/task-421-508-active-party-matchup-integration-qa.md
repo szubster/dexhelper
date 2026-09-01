@@ -2,7 +2,7 @@
 id: task-421-508-active-party-matchup-integration-qa
 type: TASK
 title: Verify Active Party Integration into MatchupContext
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-01'
 updated_at: '2026-09-01'
@@ -20,6 +20,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Verify Active Party Integration into MatchupContext

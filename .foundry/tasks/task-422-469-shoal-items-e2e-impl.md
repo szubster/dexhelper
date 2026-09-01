@@ -2,7 +2,7 @@
 id: task-422-469-shoal-items-e2e-impl
 type: TASK
 title: Implement Playwright E2E tests for Shoal Items Extraction
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-09-01'
@@ -16,8 +16,8 @@ tags:
   - e2e
   - playwright
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

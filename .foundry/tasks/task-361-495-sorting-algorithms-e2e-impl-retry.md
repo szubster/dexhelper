@@ -2,7 +2,7 @@
 id: task-361-495-sorting-algorithms-e2e-impl-retry
 type: TASK
 title: E2E Verification for PC Box Sorting Algorithms - Implementation (Retry)
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-09-01'
@@ -10,7 +10,8 @@ depends_on:
   - research-361-494-sorting-algorithms-e2e-root-cause
 jules_session_id: null
 parent: story-136-361-sorting-algorithms-e2e
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_reason: ''
+rejection_count: 1
 ---
 
 # Task: E2E Verification for PC Box Sorting Algorithms - Implementation (Retry)

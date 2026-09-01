@@ -2,10 +2,10 @@
 id: task-363-508-trade-extraction-e2e-retry-qa-2
 type: TASK
 title: NPC Trade Extraction Integration & E2E QA (Retry 2)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-31'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on:
   - task-363-507-trade-extraction-e2e-retry-impl-2
 jules_session_id: null
@@ -21,6 +21,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Task: NPC Trade Extraction Integration & E2E QA (Retry 2)

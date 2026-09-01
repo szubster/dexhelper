@@ -2,7 +2,7 @@
 id: task-348-508-gen3-ash-ui-qa
 type: TASK
 title: 'Task: QA E2E Testing for Gen 3 Volcanic Ash UI'
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-01'
 updated_at: '2026-09-01'
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Task: QA E2E Testing for Gen 3 Volcanic Ash UI

@@ -2,10 +2,10 @@
 id: task-416-482-fuzzer-fault-injection-impl
 type: TASK
 title: Orchestrator Fuzzer - Fault Injection Impl
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-24'
-updated_at: '2026-08-24'
+updated_at: '2026-09-01'
 depends_on:
   - task-416-481-fuzzer-state-transition-simulator-impl
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Orchestrator Fuzzer - Fault Injection Impl
 ## Objective

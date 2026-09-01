@@ -2,7 +2,7 @@
 id: task-412-440-feebas-parsing-e2e-impl
 type: TASK
 title: Feebas Parsing E2E Integration Impl
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-20'
 updated_at: '2026-09-01'
@@ -14,8 +14,8 @@ tags:
   - gen3
   - backend
   - e2e
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 ---
 
