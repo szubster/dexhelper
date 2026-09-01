@@ -3,6 +3,7 @@
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
 | [epic-097-130-schema-verifying-state-update](.foundry/epics/epic-097-130-schema-verifying-state-update.md) | EPIC | Update schema.md regarding VERIFYING state | story_owner | [3933958792319413576](https://jules.google.com/session/3933958792319413576) |
+| [epic-339-410-librarian-github-scripts-implementation](.foundry/epics/epic-339-410-librarian-github-scripts-implementation.md) | EPIC | GitHub Scripts for Librarian Persona | story_owner | [15773092713563462558](https://jules.google.com/session/15773092713563462558) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
