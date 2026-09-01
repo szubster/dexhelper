@@ -6,9 +6,22 @@ import { render } from 'vitest-browser-react';
 import { TacticalInput } from '../TacticalInput';
 
 describe('TacticalInput', () => {
-  it('renders correctly', async () => {
+  it('renders correctly with tactical utility classes', async () => {
     await render(<TacticalInput placeholder="Test Input" />);
-    await expect.element(page.getByPlaceholder('Test Input')).toBeInTheDocument();
+    const input = page.getByPlaceholder('Test Input');
+    await expect.element(input).toBeInTheDocument();
+    await expect.element(input).toHaveClass('tactical-input');
+    const el = input.element() as HTMLInputElement;
+    const classes = el.className;
+    expect(classes).toContain('tactical-input');
+  });
+
+  it('handles onChange event', async () => {
+    const handleChange = vi.fn<() => void>();
+    await render(<TacticalInput placeholder="Test Input" onChange={handleChange} />);
+    const input = page.getByPlaceholder('Test Input');
+    await input.fill('new value');
+    expect(handleChange).toHaveBeenCalled();
   });
 
   it('renders with label', async () => {

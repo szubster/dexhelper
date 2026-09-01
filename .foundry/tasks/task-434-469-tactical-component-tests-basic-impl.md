@@ -32,6 +32,6 @@ Write comprehensive component tests using `vitest-browser-react` for basic core 
 4. Assert that the specific tactical utility classes (from ADR 024 / ADR 008, e.g., sharp edges, monospaced fonts, specific border treatments) are applied correctly to the root elements.
 
 ## Acceptance Criteria
-- [ ] Component test suite covers `TacticalButton`, `TacticalInput`, `TacticalSelect`, and `TacticalBadge`.
-- [ ] Tests verify both interactivity and presence of proper tactical utility classes.
-- [ ] `pnpm test` passes without regressions for these components.
+- [x] Component test suite covers `TacticalButton`, `TacticalInput`, `TacticalSelect`, and `TacticalBadge`.
+- [x] Tests verify both interactivity and presence of proper tactical utility classes.
+- [x] `pnpm test` passes without regressions for these components.
