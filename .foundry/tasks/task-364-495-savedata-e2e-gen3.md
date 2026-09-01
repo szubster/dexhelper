@@ -2,12 +2,12 @@
 id: task-364-495-savedata-e2e-gen3
 type: TASK
 title: SaveData E2E Verification - Gen 3
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: '12850714170829401881'
+jules_session_id: null
 parent: story-404-364-savedata-e2e-verification
 tags:
   - savedata

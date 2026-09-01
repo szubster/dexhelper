@@ -2,7 +2,7 @@
 id: task-405-486-gen3-mixed-record-parser-qa-v2
 type: TASK
 title: QA Gen 3 Mixed Record Parser v2
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-09-01'

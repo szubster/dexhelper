@@ -2,7 +2,7 @@
 id: task-497-511-implement-tpm-epic-detection
 type: TASK
 title: Implement TPM EPIC Detection Logic
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-01'
 updated_at: '2026-09-01'
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Implement TPM EPIC Detection Logic

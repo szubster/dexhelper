@@ -2,12 +2,12 @@
 id: epic-097-130-schema-verifying-state-update
 type: EPIC
 title: Update schema.md regarding VERIFYING state
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-03'
 updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: '3933958792319413576'
+jules_session_id: null
 pr_number: null
 parent: prd-097-096-schema-verifying-state-fix
 tags:

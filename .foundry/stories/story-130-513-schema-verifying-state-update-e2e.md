@@ -2,11 +2,12 @@
 id: story-130-513-schema-verifying-state-update-e2e
 type: STORY
 title: Verify schema.md regarding VERIFYING state E2E
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-01'
 updated_at: '2026-09-01'
-depends_on: ['story-130-512-schema-verifying-state-update']
+depends_on:
+  - story-130-512-schema-verifying-state-update
 jules_session_id: null
 pr_number: null
 parent: epic-097-130-schema-verifying-state-update
@@ -18,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Verify schema.md regarding VERIFYING state E2E
