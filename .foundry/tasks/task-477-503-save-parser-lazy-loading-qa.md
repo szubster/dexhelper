@@ -2,13 +2,13 @@
 id: task-477-503-save-parser-lazy-loading-qa
 type: TASK
 title: QA lazy loading for generation-specific save parsers
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-29'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on:
   - task-477-502-save-parser-lazy-loading-impl
-jules_session_id: null
+jules_session_id: '14621244353027254962'
 pr_number: null
 parent: story-417-477-save-parser-code-splitting
 tags:
