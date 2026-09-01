@@ -29,7 +29,11 @@ This epic covers implementing the scripts needed by the librarian persona to ing
 - Schema updates defining the librarian persona.
 
 ## Acceptance Criteria
-- [ ] Generate stories for creating ingestion and synthesis scripts.
-- [ ] Generate stories for documentation update scripts.
-- [ ] Generate stories for garbage collection scripts.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Generate stories for creating ingestion and synthesis scripts.
+- [x] Generate stories for documentation update scripts.
+- [x] Generate stories for garbage collection scripts.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-410-512-librarian-ingestion-synthesis-script
+- [ ] story-410-513-librarian-doc-update-script
+- [ ] story-410-514-librarian-garbage-collection-script
+- [ ] story-410-515-librarian-scripts-integration-e2e
