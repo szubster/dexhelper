@@ -2,7 +2,7 @@
 id: task-490-508-identify-update-other-gen1-personas-impl
 type: TASK
 title: Identify and Update Other Gen 1 Persona Skins
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-01'
 updated_at: '2026-09-01'

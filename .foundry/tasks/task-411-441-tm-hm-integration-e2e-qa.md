@@ -2,10 +2,10 @@
 id: task-411-441-tm-hm-integration-e2e-qa
 type: TASK
 title: QA of TM/HM Integration E2E Tests
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-18'
-updated_at: '2026-08-18'
+updated_at: '2026-09-01'
 depends_on:
   - task-411-440-tm-hm-integration-e2e-impl
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-411-440-tm-hm-integration-e2e-impl
 notes: ''
 ---
 
