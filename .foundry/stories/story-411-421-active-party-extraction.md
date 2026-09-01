@@ -2,13 +2,13 @@
 id: story-411-421-active-party-extraction
 type: STORY
 title: Extract Active Party data and synchronize it with the matchup context.
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-11T00:00:00.000Z'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on:
   - story-411-420-narrative-progression-flags
-jules_session_id: null
+jules_session_id: '3936026589824497275'
 pr_number: null
 parent: epic-340-411-save-data-extraction
 tags:

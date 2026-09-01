@@ -2,7 +2,7 @@
 id: story-415-416-fuzzer-state-simulation
 type: STORY
 title: Orchestrator Fuzzer - State Transitions & Fault Injection
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-12'
 updated_at: '2026-08-31'

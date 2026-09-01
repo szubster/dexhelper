@@ -160,12 +160,12 @@ const ROAMER_TOUGH_OFFSET = 0x12;
 
 export const RIBBONS_OFFSET_IN_M = 0x08;
 
-const RIBBON_RANK_MASK = 0x07;
-const RIBBON_COOL_SHIFT = 0;
-const RIBBON_BEAUTY_SHIFT = 3;
-const RIBBON_CUTE_SHIFT = 6;
-const RIBBON_SMART_SHIFT = 9;
-const RIBBON_TOUGH_SHIFT = 12;
+export const RIBBON_RANK_MASK = 0x07;
+export const RIBBON_COOL_SHIFT = 0;
+export const RIBBON_BEAUTY_SHIFT = 3;
+export const RIBBON_CUTE_SHIFT = 6;
+export const RIBBON_SMART_SHIFT = 9;
+export const RIBBON_TOUGH_SHIFT = 12;
 export const RIBBON_CHAMPION_BIT = 15;
 export const RIBBON_WINNING_BIT = 16;
 export const RIBBON_VICTORY_BIT = 17;

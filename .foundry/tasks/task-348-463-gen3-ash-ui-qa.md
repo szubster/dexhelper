@@ -2,10 +2,10 @@
 id: task-348-463-gen3-ash-ui-qa
 type: TASK
 title: 'Task: QA E2E Testing for Gen 3 Volcanic Ash UI'
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-22T10:49:07Z'
-updated_at: '2026-08-22'
+updated_at: '2026-08-31'
 depends_on:
   - task-348-462-gen3-ash-ui-impl
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-348-462-gen3-ash-ui-impl
 notes: ''
 ---
 

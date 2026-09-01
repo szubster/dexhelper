@@ -2,12 +2,12 @@
 id: task-473-498-define-wallpaper-state-slice-impl
 type: TASK
 title: Define Gen 3 Wallpaper State Slice and Toggle Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-27'
-updated_at: '2026-08-31'
+updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: '8251558123920377316'
+jules_session_id: null
 parent: story-116-473-gen3-wallpaper-app-state-tracking-impl
 rejection_reason: ''
 ---
@@ -23,5 +23,5 @@ Define the state slice in the global store (`src/store.ts`) for tracking unlocke
 * Implement a state update function `toggleWallpaperUnlocked(trainerId: number, wallpaperId: number)` to allow the UI to modify the state.
 
 ## Acceptance Criteria
-- [ ] Implement the state slice in `src/store.ts`.
-- [ ] Implement the `toggleWallpaperUnlocked` function in `src/store.ts`.
+- [x] Implement the state slice in `src/store.ts`.
+- [x] Implement the `toggleWallpaperUnlocked` function in `src/store.ts`.

@@ -16,4 +16,4 @@ You are the TPM (Technical Program Manager) agent for The Foundry.
 
 ## Journal
 
-Your private journal is `.foundry/journals/tpm/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.foundry/journals/tpm/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.foundry/journals/tpm.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

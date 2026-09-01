@@ -5,12 +5,9 @@ import { NavButton } from './NavButton';
 import { TelemetryDecoration } from './TelemetryDecoration';
 
 export function BottomNav() {
-  const saveData = useStore((s) => s.saveData);
   const setIsSettingsOpen = useStore((s) => s.setIsSettingsOpen);
   const isSettingsOpen = useStore((s) => s.isSettingsOpen);
   const location = useLocation();
-
-  if (!saveData) return null;
 
   const isDex = location.pathname === '/' || location.pathname.startsWith('/pokemon');
   const isStorage = location.pathname === '/storage';
@@ -19,7 +16,7 @@ export function BottomNav() {
   const isFrontier = location.pathname === '/dashboard';
 
   return (
-    <nav className="fixed right-0 bottom-0 left-0 z-50 border-zinc-900 border-t-[8px] border-b-[8px] bg-zinc-950 pb-[env(safe-area-inset-bottom,0px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.9)] sm:hidden">
+    <nav className="fixed right-0 bottom-0 left-0 z-50 border-zinc-900 border-t-[8px] border-b-[8px] bg-zinc-950 pb-[env(safe-area-inset-bottom,0px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.9)] lg:hidden">
       {/* Hazard stripes rim on the top bezel */}
       <div
         className="absolute -top-[8px] right-0 left-0 h-[8px] opacity-30"

@@ -226,3 +226,10 @@ Created a centralized `TacticalLed` component to abstract this visual structure.
 - **Flexibility:** Accepts a `position` prop (e.g., `top-1/2` or `top-3`) and a `pipe` boolean to accommodate slight variations across different consumer contexts.
 
 Removed redundant dead code (like the `ledOuter` and `ledInner` styles from `TacticalNode`'s local styles object) after abstracting them into the new component.
+
+## HardwareScrews Extraction
+- **What**: Extracted a repeated JSX pattern of four absolute-positioned `.h-1.w-1.rounded-full` elements that visually act as "hardware structural screws" on tactical components.
+- **Why**: Reduced duplication across `TacticalSegmentedControl` and `TacticalMultiSelectControl`.
+- **Key Learnings**:
+  - The extraction allows a single component `<HardwareScrews />` to render all four decorative elements.
+  - Since Vite uses the modern JSX transform (`react/jsx-runtime`), we can export the `HardwareScrews` component as a React Fragment `<>...</>` without needing an explicit `import React` in the extracted component.

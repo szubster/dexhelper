@@ -9,6 +9,7 @@ import {
   FRLG_MOVE_TUTOR_BYTE_3_OFFSET,
   FRLG_MOVE_TUTOR_BYTE_4_OFFSET,
   GEN3_EVENT_FLAGS_OFFSET,
+  OBEDIENCE_FLAG_BIT,
   parseGen3,
   parseGen3ActiveSwarm,
   parseGen3BattleFrontierSymbols,
@@ -35,6 +36,25 @@ import {
   parseGen3TotalBattlePoints,
   parseGen3TrainerId,
   parseGen3VolcanicAsh,
+  RIBBON_ARTIST_BIT,
+  RIBBON_BATTLE_CHAMPION_BIT,
+  RIBBON_BEAUTY_SHIFT,
+  RIBBON_CHAMPION_BIT,
+  RIBBON_COOL_SHIFT,
+  RIBBON_COUNTRY_BIT,
+  RIBBON_CUTE_SHIFT,
+  RIBBON_EARTH_BIT,
+  RIBBON_EFFORT_BIT,
+  RIBBON_NATIONAL_BIT,
+  RIBBON_NATIONAL_CHAMPION_BIT,
+  RIBBON_RANK_MASK,
+  RIBBON_REGIONAL_CHAMPION_BIT,
+  RIBBON_SMART_SHIFT,
+  RIBBON_TOUGH_SHIFT,
+  RIBBON_VICTORY_BIT,
+  RIBBON_WINNING_BIT,
+  RIBBON_WORLD_BIT,
+  RIBBONS_OFFSET_IN_M,
 } from './gen3';
 
 describe('parseGen3TMHMs', () => {
@@ -2333,5 +2353,32 @@ describe('parseGen3 (Mirage Island Cross-Reference Integration)', () => {
   it('should set isMirageIslandKey to false when lower 16 bits of PID do not match mirageIslandValue', () => {
     const saveData = setupSaveFile(0x12345678, 0x9999);
     expect(saveData.pcDetails[0]?.isMirageIslandKey).toBe(false);
+  });
+});
+
+describe('Gen 3 Ribbon and Obedience Constants', () => {
+  it('should have correct bit constants defined', () => {
+    expect(RIBBON_CHAMPION_BIT).toBe(15);
+    expect(RIBBON_WINNING_BIT).toBe(16);
+    expect(RIBBON_VICTORY_BIT).toBe(17);
+    expect(RIBBON_ARTIST_BIT).toBe(18);
+    expect(RIBBON_EFFORT_BIT).toBe(19);
+    expect(RIBBON_BATTLE_CHAMPION_BIT).toBe(20);
+    expect(RIBBON_REGIONAL_CHAMPION_BIT).toBe(21);
+    expect(RIBBON_NATIONAL_CHAMPION_BIT).toBe(22);
+    expect(RIBBON_COUNTRY_BIT).toBe(23);
+    expect(RIBBON_NATIONAL_BIT).toBe(24);
+    expect(RIBBON_EARTH_BIT).toBe(25);
+    expect(RIBBON_WORLD_BIT).toBe(26);
+    expect(OBEDIENCE_FLAG_BIT).toBe(31);
+  });
+  it('should have correct bit constants and shifts defined for contest ribbons', () => {
+    expect(RIBBONS_OFFSET_IN_M).toBe(0x08);
+    expect(RIBBON_RANK_MASK).toBe(0x07); // 3 bits mask
+    expect(RIBBON_COOL_SHIFT).toBe(0);
+    expect(RIBBON_BEAUTY_SHIFT).toBe(3);
+    expect(RIBBON_CUTE_SHIFT).toBe(6);
+    expect(RIBBON_SMART_SHIFT).toBe(9);
+    expect(RIBBON_TOUGH_SHIFT).toBe(12);
   });
 });

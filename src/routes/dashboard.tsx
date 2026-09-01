@@ -93,10 +93,12 @@ function DashboardPage() {
         ) : (
           <>
             <Gen2Checklist />
-            <ActiveCallersDashboard
-              contacts={saveData.gen2PokegearPhone?.highValueContacts || []}
-              timerState={{ delayMinsRemaining: 0, timeCyclesSinceLastCall: 5 }}
-            />
+            {saveData.gen2PokegearPhone?.highValueContacts && (
+              <ActiveCallersDashboard
+                contacts={saveData.gen2PokegearPhone.highValueContacts}
+                timerState={{ delayMinsRemaining: 0, timeCyclesSinceLastCall: 0 }}
+              />
+            )}
             <Gen2NpcTrades />
             <ShinyCarrierBreedingDashboard />
           </>

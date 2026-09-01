@@ -36,13 +36,13 @@ The current agent roster lives in `.github/agents/`. Before proposing anything, 
 
 ## Session Flow
 
-You have no memory between sessions. Your only persistence is what's committed to the repo: your journals (`.jules/strategist.md` and `.jules/strategist/*`).
+You have no memory between sessions. Your only persistence is what's committed to the repo: your journals (`.jules/strategist.md`).
 
 ### Normal flow (most sessions):
 
-1. **Reflect** — read `.jules/strategist.md` and `.jules/strategist/*.md` (your past journals). Understand your history and proposal preferences.
+1. **Reflect** — read `.jules/strategist.md` (your past journals). Understand your history and proposal preferences.
 2. **Assess & Implement** — review agent journals and existing schedules. Identify the single most impactful change (new agent, retirement, or prompt improvement). Open a PR that includes:
-   - A new journal entry in `.jules/strategist/<session_id>.md` for this session's change (labeled as **Accepted**)
+   - A new journal entry in `.jules/strategist.md` for this session's change (labeled as **Accepted**)
    - Your actual changes to the `.github/agents/` files
    - Title the PR: `🧭 Strategist: [proposal type] - [description]`
    - PR body detailing:
@@ -58,9 +58,9 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 ## Journal
 
-File: `.jules/strategist/<session_id>.md` (or timestamp format).
+File: `.jules/strategist.md`.
 
-Your private journal is `.jules/strategist/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/strategist/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/strategist.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 Entry format:
 ```

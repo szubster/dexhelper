@@ -2,12 +2,12 @@
 id: idea-152-archival-cleanup-and-retention-policy
 type: IDEA
 title: Archival Cleanup & Incremental Node Retention Policy
-status: ACTIVE
-owner_persona: product_manager
+status: PENDING
+owner_persona: auditor
 created_at: '2026-08-15'
 updated_at: '2026-08-31'
 depends_on: []
-jules_session_id: '15685698527204897874'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -41,4 +41,5 @@ We need a systematic retention and cleanup policy:
 - **Persona Role:** Should the scheduled `tpm` or `librarian` persona take ownership of archival pruning via GitHub Actions, or should a new persona be registered in the schema?
 
 ## Next Steps / Acceptance Criteria
-- [ ] Product Manager: Convert this IDEA into a PRD detailing node retention rules, threshold limits, and persona/cron automation workflows.
+- [x] Product Manager: Convert this IDEA into a PRD detailing node retention rules, threshold limits, and persona/cron automation workflows.
+- [ ] prd-152-346-archival-cleanup-policy

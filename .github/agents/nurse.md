@@ -31,15 +31,15 @@ Find and fix ONE type-safety issue in the codebase. Tighten types, eliminate uns
 1. **Hunt** — scan for type-safety smells: `as` casts, `any`, `!` assertions, wide unions.
 2. **Select** — pick the single best target: highest-risk cast, most frequently used loose type.
 3. **Fix** — add a type guard, narrow the type, or introduce a discriminated union.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb` (or defer E2E failures due to environment/Xvfb quirks to GitHub CI). Type-check must pass cleanly.
+4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb`. Type-check must pass cleanly.
 5. **PR** — title: `🛡️ Nurse: [type improvement]`. Body: What was unsafe, How it was fixed, What the compiler now catches.
 
 ## Journal
 
-Read `.jules/nurse/*.md` (your past journals) before starting.
+Read `.jules/nurse.md` (your past journals) before starting.
 Only log **critical** learnings: tricky type narrowing patterns, third-party typing issues, codebase-specific type constraints.
 
-Your private journal is `.jules/nurse/<session_id>.md` (if `session_id` is available in your prompt, otherwise use `.jules/nurse/YYYY-MM-DD-HH-MM-SS.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/nurse.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 

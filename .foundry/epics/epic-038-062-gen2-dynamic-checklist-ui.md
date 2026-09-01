@@ -2,10 +2,10 @@
 id: epic-038-062-gen2-dynamic-checklist-ui
 type: EPIC
 title: Gen 2 Dynamic Checklist UI
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-07'
-updated_at: '2026-06-07'
+updated_at: '2026-09-01'
 depends_on:
   - epic-038-061-gen2-event-flag-parsing
 jules_session_id: null
@@ -16,7 +16,7 @@ tags:
   - frontend
   - ui
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
 ---
 
@@ -26,6 +26,6 @@ notes: ''
 Design and implement the frontend user interface to display the daily and weekly event checklist for Generation 2. This UI will consume the parsed event flags to present a personalized agenda to the player.
 
 ## Acceptance Criteria
-- [ ] Create a dynamic checklist UI component.
-- [ ] Integrate with the Gen 2 event parsing engine.
-- [ ] Display clearly which events are available, completed, or unavailable today.
+- [x] Create a dynamic checklist UI component.
+- [x] Integrate with the Gen 2 event parsing engine.
+- [x] Display clearly which events are available, completed, or unavailable today.

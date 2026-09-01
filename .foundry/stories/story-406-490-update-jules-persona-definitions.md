@@ -1,11 +1,11 @@
 ---
 id: story-406-490-update-jules-persona-definitions
 type: STORY
-title: "Update Jules Persona Definitions to Narrative Skins"
-status: READY
+title: Update Jules Persona Definitions to Narrative Skins
+status: PENDING
 owner_persona: tech_lead
-created_at: "2026-08-26"
-updated_at: "2026-08-26"
+created_at: '2026-08-26'
+updated_at: '2026-09-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - personas
   - gamification
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Update Jules Persona Definitions to Narrative Skins
@@ -30,4 +30,8 @@ Update the developer-facing persona templates under `.jules/` to utilize their r
 - Ensure the context injections for these personas utilize the skins.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks to update the relevant `.jules/` markdown files.
+- [x] Tech Lead: Break down into Tasks to update the relevant `.jules/` markdown files.
+- [ ] task-490-506-update-oak-persona-skin-impl
+- [ ] task-490-507-update-nurse-persona-skin-impl
+- [ ] task-490-508-identify-update-other-gen1-personas-impl
+- [ ] task-490-509-persona-skins-qa
