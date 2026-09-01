@@ -1,11 +1,11 @@
 ---
 id: story-330-515-remediation-logic-e2e
 type: STORY
-title: "Zombie Node Remediation Logic E2E"
-status: READY
+title: Zombie Node Remediation Logic E2E
+status: PENDING
 owner_persona: tech_lead
-created_at: "2026-09-01"
-updated_at: "2026-09-01"
+created_at: '2026-09-01'
+updated_at: '2026-09-01'
 depends_on:
   - story-330-514-remediation-state-transition-logic
 jules_session_id: null
@@ -18,8 +18,9 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Zombie Node Remediation Logic E2E

@@ -2,7 +2,7 @@
 id: research-411-505-investigate-e2e-timeout
 type: RESEARCH
 title: Investigate TM/HM Integration E2E Timeout
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-09-01'
 updated_at: '2026-09-01'
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Investigate TM/HM Integration E2E Timeout

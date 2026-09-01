@@ -2,7 +2,7 @@
 id: story-401-411-tm-hm-integration-e2e
 type: STORY
 title: Integration and E2E Verification for TM/HM Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-08'
 updated_at: '2026-09-01'
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Integration and E2E Verification for TM/HM Parsing

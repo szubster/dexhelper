@@ -2,13 +2,13 @@
 id: epic-050-330-zombie-node-remediation-logic
 type: EPIC
 title: Zombie Node Remediation Logic V2
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-17'
 updated_at: '2026-09-01'
 depends_on:
   - research-050-329-investigate-zombie-gc-failure
-jules_session_id: '17013391110119932012'
+jules_session_id: null
 pr_number: null
 parent: prd-079-050-foundry-zombie-node-cleanup
 tags:
