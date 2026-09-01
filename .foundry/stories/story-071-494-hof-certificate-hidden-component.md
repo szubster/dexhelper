@@ -27,4 +27,7 @@ notes: ''
 Design and implement the hidden React component that will serve as the template for the Hall of Fame Certificate. This component must visually represent the parsed Hall of Fame data, including the player's name, Pokémon species, and levels. It should follow the tactical hardware aesthetic guidelines.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-494-511-hof-certificate-hidden-component-impl
+- [ ] task-494-513-hof-certificate-hidden-component-tests
+- [ ] task-494-512-hof-certificate-hidden-component-qa
