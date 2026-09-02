@@ -2,7 +2,7 @@
 id: task-490-507-pal-park-hm-validator-qa
 type: TASK
 title: QA Gen 3 HM Move Validation Logic
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-08-29'
 updated_at: '2026-09-02'
@@ -16,8 +16,8 @@ tags:
   - gen3
   - pal-park
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

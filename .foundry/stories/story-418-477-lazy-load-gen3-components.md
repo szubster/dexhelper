@@ -2,10 +2,10 @@
 id: story-418-477-lazy-load-gen3-components
 type: STORY
 title: Implement React.lazy for Gen 3 Components
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
 jules_session_id: null
 parent: epic-340-418-ui-component-splitting
@@ -15,6 +15,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # STORY: Implement React.lazy for Gen 3 Components
 
@@ -23,5 +24,5 @@ Gen 3 specific components such as Contest Condition Stats, Ribbons, and Dashboar
 
 ## Acceptance Criteria
 - [x] Break down this story into tasks for identifying and implementing React.lazy on Gen 3 components.
-- [ ] task-477-506-lazy-load-gen3-details-impl
-- [ ] task-477-507-lazy-load-gen3-details-qa
+- [x] task-477-506-lazy-load-gen3-details-impl
+- [x] task-477-507-lazy-load-gen3-details-qa

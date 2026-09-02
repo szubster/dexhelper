@@ -2,14 +2,13 @@
 id: task-417-522-fuzzer-simulation-tests-impl
 type: TASK
 title: Fuzzer Simulation E2E Tests Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-09-02'
 depends_on:
   - task-417-521-fuzzer-simulation-harness-impl
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-415-417-fuzzer-simulation-e2e
 tags:
@@ -20,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Fuzzer Simulation E2E Tests Implementation
