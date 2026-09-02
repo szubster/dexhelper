@@ -26,7 +26,7 @@ test.describe('Pokemon Details Modal', () => {
     await expect(page.getByText('Pikachu', { exact: true }).nth(0)).toBeVisible();
 
     // 5. Verify Collection Status
-    await expect(page.getByText('SECURED', { exact: true })).toBeVisible();
+    await expect(page.getByText(/Status: Secured/i)).toBeVisible();
 
     // 6. Verify Evolution Section
     await expect(page.getByText(/FORWARD EVOLUTION MATRIX/i)).toBeVisible();

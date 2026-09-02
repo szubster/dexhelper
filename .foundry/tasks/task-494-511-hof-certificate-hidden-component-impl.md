@@ -30,13 +30,10 @@ notes: ''
 Implement the hidden React component that will serve as the template for the Hall of Fame Certificate. This component must visually represent the parsed Hall of Fame data and be ready for client-side rendering with `html-to-image` as specified in ADR 022. The component needs to adhere to the tactical hardware aesthetic guidelines (ADR 008) including specific exceptions.
 
 ## Acceptance Criteria
-- [x] Implement `HiddenCertificate` React component.
-- [x] Ensure the component visually represents the parsed Hall of Fame data (player name, Pokémon species, levels).
-- [x] Ensure the component is mountable but hidden from standard user view.
-- [x] Ensure styling adheres to ADR 008 (tactical hardware aesthetic, sharp edges `rounded-none`, dashed borders, monospaced fonts).
-- [x] Implement allowed exceptions for `rounded-full` (physical screws/hardware mounts, radar pings/reticles, LED status dots).
-- [x] Implement robust loading logic to guarantee custom fonts are fully loaded before rendering to avoid inconsistent image generation.
-- [x] Integrate component into application view hierarchy to prevent it from becoming orphaned code.
-
-### SCHEMA
-https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
+- [ ] Implement `HiddenCertificate` React component.
+- [ ] Ensure the component visually represents the parsed Hall of Fame data (player name, Pokémon species, levels).
+- [ ] Ensure the component is mountable but hidden from standard user view.
+- [ ] Ensure styling adheres to ADR 008 (tactical hardware aesthetic, sharp edges `rounded-none`, dashed borders, monospaced fonts).
+- [ ] Implement allowed exceptions for `rounded-full` (physical screws/hardware mounts, radar pings/reticles, LED status dots).
+- [ ] Implement robust loading logic to guarantee custom fonts are fully loaded before rendering to avoid inconsistent image generation.
+- [ ] Integrate component into application view hierarchy to prevent it from becoming orphaned code.

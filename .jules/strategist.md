@@ -153,8 +153,3 @@
 **Outcome:** Merged
 **Why:** While the read paths were updated in a previous PR to read aggregated `.jules/<persona>.md` files, the write paths were left pointing to the old directory structure (`.jules/<persona>/<session_id>.md`). This broke the memory system because agents were saving session logs into directories they no longer read on subsequent runs, rendering their long-term memory useless.
 **Pattern:** When modifying the journaling read paths (e.g. from a wildcard directory to a single file), you MUST also align the write instructions so agents persist their entries into the same aggregated file they read from, preserving the learning loop.
-## 2026-09-02 - [Accepted] - Prompt Consolidation: Centralize Late Binding Rules
-**Type:** Prompt improvement
-**Outcome:** Merged
-**Why:** The rules for dynamically spawning nodes via late binding were duplicated across multiple persona prompts (`coder.md`, `tech_lead.md`, `story_owner.md`, `product_manager.md`), creating a maintenance burden and wasting context window tokens. Since these rules are already globally defined in `.foundry/docs/knowledge_base/agents/core_policies.md` under "Late Binding & Dynamic Node Spawning", explicitly repeating them in individual schedules is redundant and invites drift.
-**Pattern:** Consolidate redundant execution patterns from agent prompts into centralized core documents (like `core_policies.md`) to enforce a single source of truth and reduce prompt size.

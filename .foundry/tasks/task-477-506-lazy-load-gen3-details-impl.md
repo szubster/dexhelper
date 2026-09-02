@@ -36,6 +36,6 @@ Gen 3 specific components such as `ContestConditionStats`, `ContestRecommendatio
 - Ensure that the lazy loading doesn't negatively impact the user experience (provide appropriate fallback UI if necessary).
 
 ## Acceptance Criteria
-- [x] Refactor the specified components to use `React.lazy` in `src/components/pokemon/details/PokemonCaughtDetails.tsx`.
-- [x] Wrap the components with `<Suspense>` providing a fallback.
-- [x] Verify that Vitest component tests and E2E tests still pass.
+- [ ] Refactor the specified components to use `React.lazy` in `src/components/pokemon/details/PokemonCaughtDetails.tsx`.
+- [ ] Wrap the components with `<Suspense>` providing a fallback.
+- [ ] Verify that Vitest component tests and E2E tests still pass.

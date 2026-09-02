@@ -36,7 +36,4 @@ Verify the end-to-end functionality of DAG generation and state simulation withi
 3. Validate that generated tests properly resolve to either complete success or complete failure, asserting on deadlock detection.
 
 ## Acceptance Criteria
-- [ ] task-417-521-fuzzer-simulation-harness-impl
-- [ ] task-417-522-fuzzer-simulation-tests-impl
-- [ ] task-417-523-fuzzer-simulation-qa
-- [x] Break down into Tasks.
+- [ ] Break down into Tasks.

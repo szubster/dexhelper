@@ -12,7 +12,6 @@ import { AppHeader } from './AppHeader';
 import { BottomNav } from './BottomNav';
 import { ConflictResolutionModal } from './ConflictResolutionModal';
 import { GlobalError } from './GlobalError';
-import { HiddenCertificate } from './hof/HiddenCertificate';
 import { RetroBackground } from './RetroBackground';
 import { SettingsModal } from './SettingsModal';
 import { VersionModal } from './VersionModal';
@@ -181,12 +180,6 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             onPullRemote={() => resolveConflict('pull_remote')}
           />
         )}
-
-        {saveData?.hallOfFameRecords &&
-          saveData.hallOfFameRecords.length > 0 &&
-          saveData.hallOfFameRecords[0] !== undefined && (
-            <HiddenCertificate record={saveData.hallOfFameRecords[0]} gameVersion={effectiveVersion} />
-          )}
 
         <RetroBackground saveData={saveData} />
       </div>
