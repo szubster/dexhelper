@@ -6,6 +6,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [idea-112-gen3-split-variable-extraction-strategy](.foundry/ideas/idea-112-gen3-split-variable-extraction-strategy.md) | IDEA | Gen3 Split Variable Extraction Strategy | product_manager | [11329131039207857953](https://jules.google.com/session/11329131039207857953) |
 | [idea-158-dataview-composite-wrapper](.foundry/ideas/idea-158-dataview-composite-wrapper.md) | IDEA | DataView Composite Wrapper & Save Parser Abstraction | product_manager | [1000174922466916997](https://jules.google.com/session/1000174922466916997) |
 | [idea-159-individual-pokemon-pkm-exporter](.foundry/ideas/idea-159-individual-pokemon-pkm-exporter.md) | IDEA | Individual Pokémon PKM/PK3 Exporter | product_manager | [2737253413834812250](https://jules.google.com/session/2737253413834812250) |
 | [idea-418-replace-xyflow-with-custom-dag](.foundry/ideas/idea-418-replace-xyflow-with-custom-dag.md) | IDEA | Replace @xyflow/react with a lightweight directory tree visualization | product_manager | [2694376615582384230](https://jules.google.com/session/2694376615582384230) |

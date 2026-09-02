@@ -2,12 +2,12 @@
 id: idea-112-gen3-split-variable-extraction-strategy
 type: IDEA
 title: Gen3 Split Variable Extraction Strategy
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-11'
-updated_at: '2026-08-14'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11329131039207857953'
 pr_number: null
 parent: null
 tags:
