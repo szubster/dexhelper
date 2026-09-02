@@ -72,4 +72,6 @@ The mapping is as follows:
 This eliminates the need for tedious backtracking to the Weather Institute, streamlining the post-game legendary hunt for Kyogre and Groudon. It perfectly aligns with DexHelper's vision as a premium companion app that exposes hidden or tedious game states to the player in a clean UI.
 
 ## Acceptance Criteria
-- [ ] Break down this PRD into Epics.
+- [x] Break down this PRD into Epics.
+- [ ] epic-343-517-gen3-weather-anomaly-data
+- [ ] epic-343-518-gen3-weather-anomaly-ui
