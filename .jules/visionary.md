@@ -351,3 +351,11 @@
   The project already possesses an interactive React Flow DAG visualizer at `/dag`. However, managing pipeline velocity at scale requires more than just structural topology; it requires observability into node health (e.g., resurrection loops, high rejection counts). This idea proposes a "Health Heatmap" overlay for the existing DAG visualizer to proactively highlight problematic nodes, aiding the TPM and Agile Coach.
 - **Strategic Balance:**
   In the previous session, we proposed IDEA-155 (Gen 3 Trick House Tracker) for the main DexHelper product domain. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a Foundry Orchestrator tooling improvement.
+
+- **Active Session/Timestamp:** 2026-09-02
+- **Domain:** Main Project (DexHelper)
+- **Proposed Idea:** Gen 3 VS Seeker Charge & Trainer Re-match Tracker (IDEA-516)
+- **Rationale & Concept:**
+  Proposes a feature to track the VS Seeker step charge and identify which trainers/routes are ready for rematches in FireRed/LeafGreen. This removes the guesswork from EV training and money farming.
+- **Strategic Balance:**
+  In the preceding session, IDEA-487 was proposed for the Foundry System (Refactoring Rejection Count Schema). To strictly maintain the required 50/50 strategic balance between product features and system improvements, this session pivots back to proposing a direct user-facing feature for DexHelper (VS Seeker Tracker).
