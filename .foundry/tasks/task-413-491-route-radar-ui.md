@@ -2,7 +2,7 @@
 id: task-413-491-route-radar-ui
 type: TASK
 title: Update MapUI to Display Bike Requirements
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-08-30'
@@ -15,8 +15,8 @@ tags:
   - gen3
   - map
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'MapUI does not visually indicate Mach Bike or Acro Bike requirements.'
 notes: ''
 ---
 
@@ -29,6 +29,6 @@ The MapUI needs to visually indicate if a route requires a Mach Bike or Acro Bik
 Update MapUI.tsx to consume the new RouteRadarHeatmap object structure. Adhering to ADR 008 (tactical hardware aesthetic), add visual indicators (e.g., sharp-edged badges) for bike requirements.
 
 ## Acceptance Criteria
-- [x] coder: Update MapUI.tsx to read density and bike flags correctly.
-- [x] coder: Add tactical visual indicators for Mach Bike and Acro Bike requirements.
-- [x] coder: Update relevant tests for MapUI if any exist.
+- [ ] coder: Update MapUI.tsx to read density and bike flags correctly.
+- [ ] coder: Add tactical visual indicators for Mach Bike and Acro Bike requirements.
+- [ ] coder: Update relevant tests for MapUI if any exist.
