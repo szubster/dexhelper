@@ -23,4 +23,6 @@ notes: ''
 To improve performance, generation-specific logic should be separated and lazily loaded in `src/engine/assistant/strategies/index.ts`.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-478-514-implement-strategy-code-splitting
+- [ ] task-478-515-qa-strategy-code-splitting

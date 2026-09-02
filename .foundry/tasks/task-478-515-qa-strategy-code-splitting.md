@@ -1,0 +1,29 @@
+---
+id: task-478-515-qa-strategy-code-splitting
+type: TASK
+title: "QA Verification: Assistant Strategy Lazy Loading"
+status: PENDING
+owner_persona: qa
+created_at: '2026-09-01'
+updated_at: '2026-09-01'
+depends_on:
+  - task-478-514-implement-strategy-code-splitting
+jules_session_id: null
+locks: []
+pr_number: null
+parent: story-417-478-assistant-code-splitting
+tags:
+  - qa
+rejection_count: 0
+rejection_reason: ""
+notes: ""
+---
+
+# QA Verification: Assistant Strategy Lazy Loading
+
+## Description
+Verify that the Assistant Strategy logic has been successfully split to use dynamic imports.
+
+## Acceptance Criteria
+- [ ] Confirm `getStrategy` in `src/engine/assistant/strategies/index.ts` dynamically imports strategies based on generation.
+- [ ] All unit tests pass and no regressions are introduced.
