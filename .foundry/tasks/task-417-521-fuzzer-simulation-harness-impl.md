@@ -27,4 +27,4 @@ locks: []
 Scaffold the integration test harness for the orchestrator fuzzer, combining DAG generation and state simulator modules.
 
 ## Acceptance Criteria
-- [ ] Implement the integration test harness combining DAG generation and state transition simulation.
+- [x] Implement the integration test harness combining DAG generation and state transition simulation.
