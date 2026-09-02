@@ -25,6 +25,6 @@ locks: []
 Verify the E2E verification test suite for the Zod validation integration within the Foundry Orchestrator. Ensure the tests comprehensively cover valid promotion, error output formatting, and graceful rejection of malformed files.
 
 ## Acceptance Criteria
-- [ ] Verify test coverage for correct node promotion.
-- [ ] Verify error scenarios assert well-formed error messages.
-- [ ] Verify that malformed files are gracefully handled in tests.
+- [x] Verify test coverage for correct node promotion.
+- [x] Verify error scenarios assert well-formed error messages.
+- [x] Verify that malformed files are gracefully handled in tests.
