@@ -54,10 +54,6 @@
       "maxSize": "200kb"
     },
     {
-      "path": "assets/icons-<hash>.js",
-      "maxSize": "15kb"
-    },
-    {
       "path": "assets/index-<hash>.js",
       "maxSize": "250kb"
     },
@@ -70,12 +66,12 @@
       "maxSize": "200kb"
     },
     {
-      "path": "assets/*-<hash>.js",
-      "maxSize": "10kb"
+      "path": "assets/index-<hash>.css",
+      "maxSize": "225kb"
     },
     {
-      "path": "assets/style-<hash>.css",
-      "maxSize": "225kb"
+      "path": "assets/*-<hash>.css",
+      "maxSize": "50kb"
     },
     {
       "path": "assets/*-<hash>.js",
