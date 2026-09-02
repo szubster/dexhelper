@@ -29,5 +29,5 @@ Implement fault injection including session timeouts, crashes, and rejections wi
 2. Support session timeouts, node rejections, and test max rejection behavior.
 3. Ensure orchestrator state machine gracefully handles transitions and anomalies.
 ## Acceptance Criteria
-- [ ] Fault injection implemented.
-- [ ] Unit tests pass.
+- [x] Fault injection implemented.
+- [x] Unit tests pass.
