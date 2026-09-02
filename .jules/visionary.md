@@ -354,8 +354,8 @@
 
 - **Active Session/Timestamp:** 2026-09-02
 - **Domain:** Main Project (DexHelper)
-- **Proposed Idea:** Gen 3 VS Seeker Charge & Trainer Re-match Tracker (IDEA-516)
+- **Proposed Idea:** Gen 3 Pokédex Completion & Missed Achievement Tracker (IDEA-516)
 - **Rationale & Concept:**
-  Proposes a feature to track the VS Seeker step charge and identify which trainers/routes are ready for rematches in FireRed/LeafGreen. This removes the guesswork from EV training and money farming.
+  Proposes a feature to track Pokédex completion gaps and missed major achievements/items in Gen 3 games, specifically catering to players preparing to migrate to the next generation rather than farming the current one.
 - **Strategic Balance:**
-  In the preceding session, IDEA-487 was proposed for the Foundry System (Refactoring Rejection Count Schema). To strictly maintain the required 50/50 strategic balance between product features and system improvements, this session pivots back to proposing a direct user-facing feature for DexHelper (VS Seeker Tracker).
+  In the preceding session, IDEA-487 was proposed for the Foundry System (Refactoring Rejection Count Schema). To strictly maintain the required 50/50 strategic balance between product features and system improvements, this session pivots back to proposing a direct user-facing feature for DexHelper (Completion Tracker).
