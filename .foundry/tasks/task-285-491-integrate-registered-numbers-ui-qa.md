@@ -27,6 +27,6 @@ notes: ''
 Verify that the `ActiveCallersDashboard` component is correctly integrated into the Gen 2 dashboard and the parsed registered numbers data is properly passed and rendered.
 
 ## Acceptance Criteria
-- [ ] Verify that the `gen2PokegearPhone` field is present in the extracted Gen 2 save data.
-- [ ] Verify that the `ActiveCallersDashboard` correctly displays the parsed phone contacts.
-- [ ] Verify that tests for `src/routes/dashboard.tsx` pass successfully.
+- [x] Verify that the `gen2PokegearPhone` field is present in the extracted Gen 2 save data.
+- [x] Verify that the `ActiveCallersDashboard` correctly displays the parsed phone contacts.
+- [x] Verify that tests for `src/routes/dashboard.tsx` pass successfully.
