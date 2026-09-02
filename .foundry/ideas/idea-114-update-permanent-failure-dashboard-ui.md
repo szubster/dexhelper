@@ -26,3 +26,6 @@ Previously, the Permanent Failure Dashboard UI (`src/components/dag/DagDashboard
 
 ## Proposed Solution
 Update the filtering logic in the DAG UI components to include nodes that are `status === 'CANCELLED'` and have `rejection_count >= 3` (or check for the specific `rejection_reason`) so they are correctly highlighted as permanent failures.
+
+## Acceptance Criteria
+- [ ] prd-114-516-update-permanent-failure-dashboard-ui
