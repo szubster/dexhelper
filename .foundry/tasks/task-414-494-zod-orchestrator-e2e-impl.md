@@ -24,7 +24,7 @@ rejection_reason: ''
 Write E2E tests that execute the Foundry Orchestrator against the created fixtures. Verify that valid nodes are correctly promoted, malformed files are appropriately rejected, error scenarios output well-formed and actionable messages, and the orchestration loop does not break upon encountering malformed files.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests using the orchestrator with test fixtures.
-- [ ] Assert that node promotion operates correctly with Zod.
-- [ ] Assert that error scenarios log well-formed, actionable messages.
-- [ ] Assert that malformed files are rejected without breaking the orchestration loop.
+- [x] Implement E2E tests using the orchestrator with test fixtures.
+- [x] Assert that node promotion operates correctly with Zod.
+- [x] Assert that error scenarios log well-formed, actionable messages.
+- [x] Assert that malformed files are rejected without breaking the orchestration loop.
