@@ -36,6 +36,6 @@ The Coder has refactored `ContestConditionStats`, `ContestRecommendationPanel`, 
 - Ensure there are no regressions or layout shifts.
 
 ## Acceptance Criteria
-- [ ] Manual or automated verification that `React.lazy` was correctly implemented for the Gen 3 components.
-- [ ] Confirm no regressions exist for rendering Gen 3 save data details.
-- [ ] All unit and E2E tests are passing.
+- [x] Manual or automated verification that `React.lazy` was correctly implemented for the Gen 3 components.
+- [x] Confirm no regressions exist for rendering Gen 3 save data details.
+- [x] All unit and E2E tests are passing.
