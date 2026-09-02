@@ -2,12 +2,12 @@
 id: prd-144-343-gen2-bug-catching-contest-analyzer
 type: PRD
 title: Gen 2 Bug-Catching Contest Score Analyzer
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-10'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '16757402452832297467'
+jules_session_id: null
 pr_number: null
 parent: idea-144-gen2-bug-catching-contest-analyzer
 tags:
@@ -63,4 +63,7 @@ Players of Pokémon Gold, Silver, and Crystal looking to optimize their chances 
     *   **Optimization Bar:** A visual progress bar comparing the current score to the theoretical max score for that species.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into EPIC nodes covering save data extraction, score calculation logic, and UI implementation.
+- [x] Epic Planner: Break down this PRD into EPIC nodes covering save data extraction, score calculation logic, and UI implementation.
+- [ ] epic-343-512-save-data-extraction
+- [ ] epic-343-513-score-calculation-logic
+- [ ] epic-343-514-ui-implementation

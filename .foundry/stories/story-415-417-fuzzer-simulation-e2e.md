@@ -2,13 +2,13 @@
 id: story-415-417-fuzzer-simulation-e2e
 type: STORY
 title: Orchestrator Fuzzer - Simulation E2E & Integration
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-12'
-updated_at: '2026-08-12'
+updated_at: '2026-09-02'
 depends_on:
   - story-415-416-fuzzer-state-simulation
-jules_session_id: null
+jules_session_id: '18059825777585957372'
 pr_number: null
 parent: epic-341-415-orchestrator-fuzzer-simulation
 tags:
@@ -22,6 +22,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Orchestrator Fuzzer - Simulation E2E & Integration

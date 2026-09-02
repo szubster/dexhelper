@@ -2,10 +2,10 @@
 id: task-363-507-trade-extraction-e2e-retry-impl-2
 type: TASK
 title: NPC Trade Extraction Integration & E2E Implementation (Retry 2)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-31'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on:
   - research-363-506-investigate-trade-extraction-e2e-failure-2
 jules_session_id: null

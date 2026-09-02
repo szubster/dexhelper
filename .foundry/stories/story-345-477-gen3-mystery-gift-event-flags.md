@@ -2,7 +2,7 @@
 id: story-345-477-gen3-mystery-gift-event-flags
 type: STORY
 title: Gen 3 Mystery Gift Event Flags Extraction
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-26'
 updated_at: '2026-09-02'
@@ -28,6 +28,6 @@ locks: []
 This story focuses on extracting the active event flags associated with Mystery Gift (e.g., Aurora Ticket, MysticTicket) from Gen 3 save files. This is a critical next step after the Wonder Card extraction to fully realize the Epic.
 
 ## Acceptance Criteria
-- [ ] Extract active event flags associated with Mystery Gift.
-- [ ] Tech Lead: Break down this Story into manageable Tasks.
-- [ ] research-477-506-gen3-mystery-gift-event-flag-offsets
+- [x] Extract active event flags associated with Mystery Gift.
+- [x] Tech Lead: Break down this Story into manageable Tasks.
+- [x] research-477-506-gen3-mystery-gift-event-flag-offsets

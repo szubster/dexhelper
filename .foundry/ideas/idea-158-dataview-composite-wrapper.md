@@ -2,12 +2,12 @@
 id: idea-158-dataview-composite-wrapper
 type: IDEA
 title: DataView Composite Wrapper & Save Parser Abstraction
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-20'
 updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '1000174922466916997'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -51,5 +51,6 @@ In the future, decoupling parsers from raw `DataView` through an abstract reader
    - Progressively refactor existing save parsers (`src/engine/saveParser/parsers/*`) to use the wrapper.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this IDEA into a PRD specifying the interface design, generation-specific extension requirements, and parser migration roadmap.
+- [x] Product Manager: Convert this IDEA into a PRD specifying the interface design, generation-specific extension requirements, and parser migration roadmap.
+- [ ] prd-158-516-dataview-composite-wrapper
 - [ ] Tech Lead: Define implementation tasks for creating the `SaveDataReader` composite wrapper, generation mixins, unit tests, and refactoring existing parsers.

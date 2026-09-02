@@ -2,12 +2,12 @@
 id: idea-419-scheduled-agents-dashboard
 type: IDEA
 title: Scheduled Agents Dispatch via GitHub Issues and Execution Tracking
-status: ACTIVE
-owner_persona: product_manager
+status: PENDING
+owner_persona: auditor
 created_at: '2026-08-23'
 updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '13856132980409545644'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -56,4 +56,5 @@ Maintain a static Markdown dashboard in the root directory listing past executio
 
 ## 3. Next Steps & Acceptance Criteria
 - [x] Product Manager: Draft this IDEA node outlining the GitHub Issue-based dispatch for scheduled agents.
-- [ ] Product Manager: Convert this IDEA into a PRD specifying workflow changes in `.github/workflows/schedule-*.yml` and `.github/workflows/foundry-scheduled-agent.yml` (e.g., issue creation, label handling, and `Closes #<issue_number>` prompt injection).
+- [x] Product Manager: Convert this IDEA into a PRD specifying workflow changes in `.github/workflows/schedule-*.yml` and `.github/workflows/foundry-scheduled-agent.yml` (e.g., issue creation, label handling, and `Closes #<issue_number>` prompt injection).
+- [ ] prd-419-516-scheduled-agents-dashboard

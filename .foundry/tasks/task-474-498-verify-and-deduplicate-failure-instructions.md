@@ -2,12 +2,12 @@
 id: task-474-498-verify-and-deduplicate-failure-instructions
 type: TASK
 title: Verify and Deduplicate Failure Handling Instructions
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3726242106208559677'
 pr_number: null
 parent: story-334-474-centralize-failure-handling-instructions
 tags:

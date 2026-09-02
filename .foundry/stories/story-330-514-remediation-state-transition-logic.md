@@ -1,13 +1,13 @@
 ---
 id: story-330-514-remediation-state-transition-logic
 type: STORY
-title: "Zombie Node Remediation State Transition Logic"
-status: READY
+title: Zombie Node Remediation State Transition Logic
+status: ACTIVE
 owner_persona: tech_lead
-created_at: "2026-09-01"
-updated_at: "2026-09-01"
+created_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1473785307225406585'
 pr_number: null
 parent: epic-050-330-zombie-node-remediation-logic
 tags:
@@ -16,8 +16,8 @@ tags:
   - maintenance
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Zombie Node Remediation State Transition Logic

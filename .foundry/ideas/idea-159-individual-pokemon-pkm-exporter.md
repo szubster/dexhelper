@@ -2,12 +2,12 @@
 id: idea-159-individual-pokemon-pkm-exporter
 type: IDEA
 title: Individual Pokémon PKM/PK3 Exporter
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-20'
 updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '2737253413834812250'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -36,4 +36,7 @@ Implement an "Export Pokémon" feature within the DexHelper Party and PC Box vie
 This significantly improves the utility of DexHelper for the hardcore community. It bridges the gap between DexHelper (a read-only dashboard) and the wider ecosystem of Pokémon save editing/backup tools, allowing players to archive their beloved "Hall of Fame" or shiny Pokémon securely and easily directly from their browser.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD.
+- [x] Product Manager: Convert this idea into a PRD.
+
+## Acceptance Criteria
+- [ ] prd-159-516-individual-pokemon-pkm-exporter

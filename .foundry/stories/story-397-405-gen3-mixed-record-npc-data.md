@@ -2,10 +2,10 @@
 id: story-397-405-gen3-mixed-record-npc-data
 type: STORY
 title: Extract Gen 3 Mixed Record NPC Data
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-04'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on:
   - story-397-404-gen3-secret-base-parsing-core
 jules_session_id: null
@@ -34,9 +34,9 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer Epic, we need to extrac
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into actionable TASK nodes (Coder/QA as needed).
-- [ ] task-405-415-gen3-mixed-record-types-impl
+- [x] task-405-415-gen3-mixed-record-types-impl
 - [x] task-405-416-gen3-mixed-record-parser-impl
 - [x] task-405-417-gen3-mixed-record-parser-qa
-- [ ] research-405-471-investigate-mixed-record-parser-failure
-- [ ] task-405-485-gen3-mixed-record-parser-impl-v2
-- [ ] task-405-486-gen3-mixed-record-parser-qa-v2
+- [x] research-405-471-investigate-mixed-record-parser-failure
+- [x] task-405-485-gen3-mixed-record-parser-impl-v2
+- [x] task-405-486-gen3-mixed-record-parser-qa-v2
