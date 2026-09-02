@@ -2,10 +2,10 @@
 id: task-411-506-tm-hm-integration-e2e-impl
 type: TASK
 title: Implementation of TM/HM Integration E2E Tests (Retry)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on:
   - research-411-505-investigate-e2e-timeout
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Implementation of TM/HM Integration E2E Tests (Retry)

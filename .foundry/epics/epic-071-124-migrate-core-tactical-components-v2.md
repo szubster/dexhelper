@@ -2,10 +2,10 @@
 id: epic-071-124-migrate-core-tactical-components-v2
 type: EPIC
 title: Migrate Core Tactical Components V2
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-08-20'
+updated_at: '2026-09-02'
 depends_on:
   - epic-071-123-define-tailwind-v4-utilities-v2
 jules_session_id: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Migrate Core Tactical Components V2
@@ -40,10 +41,10 @@ Refactor the fundamental tactical UI components within the `src/components/` dir
 4. **Clean up Specificity and Overrides**: Ensure that any component-specific overrides (like changing padding or colors via props) still function correctly alongside the new base utility classes.
 
 ## Acceptance Criteria
-- [ ] Core tactical components are updated to use the new `tactical-*` utilities.
-- [ ] Component aesthetics remain strictly consistent with the tactical hardware style (no visual regressions).
-- [ ] Components pass `pnpm run lint` and `pnpm test`.
-- [ ] story-071-431-migrate-tactical-panel
-- [ ] story-071-432-migrate-tactical-controls
-- [ ] story-071-433-migrate-tactical-segmented
-- [ ] story-071-434-migrate-tactical-components-e2e
+- [x] Core tactical components are updated to use the new `tactical-*` utilities.
+- [x] Component aesthetics remain strictly consistent with the tactical hardware style (no visual regressions).
+- [x] Components pass `pnpm run lint` and `pnpm test`.
+- [x] story-071-431-migrate-tactical-panel
+- [x] story-071-432-migrate-tactical-controls
+- [x] story-071-433-migrate-tactical-segmented
+- [x] story-071-434-migrate-tactical-components-e2e

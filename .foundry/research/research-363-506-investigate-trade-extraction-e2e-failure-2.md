@@ -2,12 +2,12 @@
 id: research-363-506-investigate-trade-extraction-e2e-failure-2
 type: RESEARCH
 title: Investigate NPC Trade Extraction E2E Implementation Failure (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-31'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '3676616203087772247'
+jules_session_id: null
 pr_number: null
 parent: story-349-363-trade-extraction-e2e
 tags:

@@ -2,12 +2,12 @@
 id: research-411-505-investigate-e2e-timeout
 type: RESEARCH
 title: Investigate TM/HM Integration E2E Timeout
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '15429089225837807112'
+jules_session_id: null
 pr_number: null
 parent: story-401-411-tm-hm-integration-e2e
 tags:

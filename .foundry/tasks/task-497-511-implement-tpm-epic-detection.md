@@ -2,12 +2,12 @@
 id: task-497-511-implement-tpm-epic-detection
 type: TASK
 title: Implement TPM EPIC Detection Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '9383026496364829400'
+jules_session_id: null
 pr_number: null
 parent: story-406-497-tpm-epic-detection-logic
 tags:

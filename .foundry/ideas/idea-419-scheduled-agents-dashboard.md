@@ -2,12 +2,12 @@
 id: idea-419-scheduled-agents-dashboard
 type: IDEA
 title: Scheduled Agents Dispatch via GitHub Issues and Execution Tracking
-status: ACTIVE
-owner_persona: product_manager
+status: PENDING
+owner_persona: auditor
 created_at: '2026-08-23'
 updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '13856132980409545644'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

@@ -2,10 +2,10 @@
 id: story-018-514-idempotent-bypass-e2e-verification
 type: STORY
 title: Idempotent Bypass E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on:
   - story-018-513-orchestrator-test-updates
 jules_session_id: null
@@ -16,6 +16,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Story: Idempotent Bypass E2E Verification
 
