@@ -4,6 +4,7 @@
 | --- | --- | --- | --- | --- |
 | [epic-038-062-gen2-dynamic-checklist-ui](.foundry/epics/epic-038-062-gen2-dynamic-checklist-ui.md) | EPIC | Gen 2 Dynamic Checklist UI | story_owner | [2727989013344166680](https://jules.google.com/session/2727989013344166680) |
 | [epic-055-407-gen3-move-tutor-compatibility](.foundry/epics/epic-055-407-gen3-move-tutor-compatibility.md) | EPIC | Gen 3 Move Tutor Compatibility Cross-Referencing | story_owner | [3365283661500978645](https://jules.google.com/session/3365283661500978645) |
+| [epic-343-418-orchestrator-integration](.foundry/epics/epic-343-418-orchestrator-integration.md) | EPIC | Orchestrator Integration for Prompt Resolution | story_owner | [5004524145362010491](https://jules.google.com/session/5004524145362010491) |
 | [epic-343-512-save-data-extraction](.foundry/epics/epic-343-512-save-data-extraction.md) | EPIC | Gen 2 Bug-Catching Contest Save Data Extraction | story_owner | [17556338358544055378](https://jules.google.com/session/17556338358544055378) |
 | [epic-421-426-binjgb-integration](.foundry/epics/epic-421-426-binjgb-integration.md) | EPIC | Implement binjgb WASM Emulator Integration for Gen 1 & 2 | epic_planner | [5559109384774389637](https://jules.google.com/session/5559109384774389637) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
