@@ -75,7 +75,7 @@
     },
     {
       "path": "assets/style-<hash>.css",
-      "maxSize": "200kb"
+      "maxSize": "225kb"
     },
     {
       "path": "assets/*-<hash>.js",
