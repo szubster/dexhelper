@@ -31,5 +31,5 @@ This task implements `story-334-474-centralize-failure-handling-instructions`. S
 - Remove any duplicate or contradictory reminders regarding failure management, transient/permanent failures, and Empty PR Checkbox policies from `coder.md` and `qa.md`.
 
 ## 3. Acceptance Criteria
-- [ ] Explicit, centralized documentation for failure handling and Empty PR submission is verified in `core_policies.md`.
-- [ ] Duplicate or contradictory reminders are removed from `coder.md` and `qa.md`.
+- [x] Explicit, centralized documentation for failure handling and Empty PR submission is verified in `core_policies.md`.
+- [x] Duplicate or contradictory reminders are removed from `coder.md` and `qa.md`.
