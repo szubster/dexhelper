@@ -54,4 +54,7 @@ Establish a formal signaling mechanism and promotion workflow to explicitly mark
 - Agents must be instructed to **not** take downstream dependencies on artifacts marked as `DRAFT` or `WIP` until they are formally promoted.
 
 ## 4. Acceptance Criteria
-- [ ] epic-151-346-wip-signaling
+- [ ] epic-346-517-wip-documentation
+- [ ] epic-346-518-wip-code-signaling
+- [ ] epic-346-519-wip-artifact-promotion
+- [ ] epic-346-520-wip-orchestrator-awareness
