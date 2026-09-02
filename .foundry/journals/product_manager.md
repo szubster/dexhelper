@@ -88,3 +88,18 @@ Draft PRD for `idea-147-gen3-weather-anomaly-tracker`
 - **ES Modules in Scratchpads**: The project uses `"type": "module"`. When creating temporary Node.js scratchpad scripts, `require()` will fail. Always use `import` or the `.cjs` extension.
 - **E2E Test Timeouts**: The full Playwright E2E test suite takes >400s and will time out the bash session. Always explicitly target specific E2E tests (e.g., `tests/e2e/home.spec.ts`) after ensuring `playwright install` has been run.
 - **Bash Curl Failures vs External Sources**: When pulling exact offset/variable definitions from external sources like `pret/pokeemerald`, standard `curl | grep` can sometimes fail or truncate. Downloading the file locally and then running `grep` with context flags (`-A`, `-B`) is more reliable.
+
+
+# Product Manager Journal Entry
+
+Date: 2026-08-31
+
+## Utilizing Late Binding for Undefined Mathematical Constants
+While attempting to draft a PRD for the "Gen 2 Headbutt Tree Predictor" (idea-157-gen2-headbutt-tree-predictor), I discovered that the specific mathematical algorithm involving the Trainer ID and tree coordinates was missing from the knowledge base and online sources.
+
+Following the Late-Binding for Missing Context & Task Suspension protocol:
+1. I spawned a new RESEARCH node (`research-157-505-gen2-headbutt-math`) to investigate the missing Gen 2 headbutt math.
+2. I suspended the current IDEA node by setting `status: FAILED` and adding a note regarding the suspension.
+3. I appended the new RESEARCH node reference as an unchecked task (`- [ ] research-157-505-gen2-headbutt-math`) into the Markdown body of the current task.
+
+**Lesson Learned**: Do not try to guess or implement generic fallbacks when specific game mechanics or offsets are unknown. Actively suspend the task and utilize the late-binding pattern to delegate research. This ensures accuracy and adherence to proper architecture before proceeding to the PRD phase. Also, remember that IDEA nodes must not have `rejection_count` or `rejection_reason` in their frontmatter.

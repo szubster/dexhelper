@@ -774,3 +774,14 @@ Implemented Gen 3 Fame Checker Parsing as defined in task-473-493-gen3-fame-chec
 
 ## Learnings
 Oxlint correctly caught an erasing-op where `0 * 2` was used for offset calculation in tests. Tests for offset zero should explicitly compute to just the base offset instead of performing meaningless math.
+
+
+# Memory Journal
+
+When testing `<select>` element interactivity with `vitest-browser-react` using `playwright` locators, if you need to simulate an `onChange` event in a React component, playwright's `selectOption()` might not be exposed directly through the vitest wrapper, and `fill()` might throw an error. A reliable workaround is to cast the element to `HTMLSelectElement`, update its value directly, and dispatch a native `change` event with `{ bubbles: true }` so React's synthetic event system catches it:
+```typescript
+const select = page.getByTestId('select');
+const el = select.element() as HTMLSelectElement;
+el.value = '2';
+el.dispatchEvent(new Event('change', { bubbles: true }));
+```
