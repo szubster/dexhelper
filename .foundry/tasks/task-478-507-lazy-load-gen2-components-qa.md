@@ -24,6 +24,6 @@ locks: []
 Gen 2 specific components such as Pokegear Caller UI elements should be lazy loaded. This task is to verify that they are correctly lazy loaded.
 
 ## Acceptance Criteria
-- [ ] Verify that the relevant Gen 2 components are lazy loaded.
-- [ ] Verify that they are rendered correctly and within a `Suspense` boundary.
-- [ ] Ensure no regressions have occurred on the Gen 2 UI dashboard views.
+- [x] Verify that the relevant Gen 2 components are lazy loaded.
+- [x] Verify that they are rendered correctly and within a `Suspense` boundary.
+- [x] Ensure no regressions have occurred on the Gen 2 UI dashboard views.
