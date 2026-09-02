@@ -34,4 +34,5 @@ Evaluate whether the failure-handling and Empty PR Checkbox policy rules can be 
 - More focused Coder and QA persona prompts.
 
 ## Acceptance Criteria
-- [ ] Determine if failure handling rules can be removed from Coder/QA prompts.
+- [x] Determine if failure handling rules can be removed from Coder/QA prompts.
+- [ ] prd-118-517-centralize-prompt-reminders-cleanup
