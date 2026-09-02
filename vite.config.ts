@@ -89,7 +89,6 @@ export default defineConfig(() => {
       target,
       chunkSizeWarningLimit: 1000,
       cssMinify: 'lightningcss' as const,
-      cssCodeSplit: false,
       assetsInlineLimit: 102400, // Inline assets up to 100KB
       sourcemap: process.env['ANALYZE'] === 'true',
       reportCompressedSize: true,
@@ -104,9 +103,6 @@ export default defineConfig(() => {
             }
             if (id.includes('node_modules/@tanstack/react-query/')) {
               return 'query';
-            }
-            if (id.includes('node_modules/lucide-react/')) {
-              return 'icons';
             }
             if (id.includes('node_modules/@xyflow/')) {
               return 'xyflow';
