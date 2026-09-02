@@ -2,13 +2,13 @@
 id: task-477-507-lazy-load-gen3-details-qa
 type: TASK
 title: QA Lazy Load Gen 3 Details Components
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-31'
 updated_at: '2026-09-02'
 depends_on:
   - task-477-506-lazy-load-gen3-details-impl
-jules_session_id: null
+jules_session_id: '10190629104920773436'
 pr_number: null
 parent: story-418-477-lazy-load-gen3-components
 tags:
