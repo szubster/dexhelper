@@ -29,4 +29,6 @@ locks: []
 The goal of this story is to implement the scripts for updating the knowledge base documentation with the extracted rules.
 
 ## Acceptance Criteria
-- [ ] Generate TASK nodes to implement knowledge base updates based on extracted rules.
+- [ ] task-513-522-qa-librarian-doc-update-script
+- [ ] task-513-521-implement-librarian-doc-update-script
+- [x] Generate TASK nodes to implement knowledge base updates based on extracted rules.
