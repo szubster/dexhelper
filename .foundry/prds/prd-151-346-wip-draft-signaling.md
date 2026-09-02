@@ -2,12 +2,12 @@
 id: prd-151-346-wip-draft-signaling
 type: PRD
 title: Work-in-Progress and Draft Artifact Signaling
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-08-31'
-updated_at: '2026-08-31'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18349447856418113021'
 pr_number: null
 parent: idea-151-work-in-progress-draft-signaling
 tags:
