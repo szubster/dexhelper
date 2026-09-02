@@ -7,6 +7,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [idea-104-refactor-existing-parsers-adr-028](.foundry/ideas/idea-104-refactor-existing-parsers-adr-028.md) | IDEA | Refactor Existing Parsers for ADR 028 | product_manager | [8411415346931148576](https://jules.google.com/session/8411415346931148576) |
 | [idea-112-gen3-split-variable-extraction-strategy](.foundry/ideas/idea-112-gen3-split-variable-extraction-strategy.md) | IDEA | Gen3 Split Variable Extraction Strategy | product_manager | [11329131039207857953](https://jules.google.com/session/11329131039207857953) |
 | [idea-114-update-permanent-failure-dashboard-ui](.foundry/ideas/idea-114-update-permanent-failure-dashboard-ui.md) | IDEA | Update Permanent Failure Dashboard UI for Cancelled Nodes | product_manager | [6786512173454853939](https://jules.google.com/session/6786512173454853939) |
 | [idea-158-dataview-composite-wrapper](.foundry/ideas/idea-158-dataview-composite-wrapper.md) | IDEA | DataView Composite Wrapper & Save Parser Abstraction | product_manager | [1000174922466916997](https://jules.google.com/session/1000174922466916997) |

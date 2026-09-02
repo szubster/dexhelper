@@ -2,12 +2,12 @@
 id: idea-104-refactor-existing-parsers-adr-028
 type: IDEA
 title: Refactor Existing Parsers for ADR 028
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-07-06'
-updated_at: '2026-08-14'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8411415346931148576'
 pr_number: null
 parent: null
 tags:
