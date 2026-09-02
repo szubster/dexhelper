@@ -54,10 +54,6 @@
       "maxSize": "200kb"
     },
     {
-      "path": "assets/icons-<hash>.js",
-      "maxSize": "15kb"
-    },
-    {
       "path": "assets/index-<hash>.js",
       "maxSize": "250kb"
     },
@@ -74,8 +70,12 @@
       "maxSize": "10kb"
     },
     {
-      "path": "assets/style-<hash>.css",
-      "maxSize": "200kb"
+      "path": "assets/index-<hash>.css",
+      "maxSize": "250kb"
+    },
+    {
+      "path": "assets/xyflow-<hash>.css",
+      "maxSize": "50kb"
     },
     {
       "path": "assets/*-<hash>.js",
