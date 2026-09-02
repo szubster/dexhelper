@@ -2,12 +2,12 @@
 id: research-411-511-investigate-tm-hm-e2e-failure
 type: RESEARCH
 title: Investigate TM/HM Integration E2E Tests Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '10876183630864121021'
+jules_session_id: '7924772625464995392'
 pr_number: null
 parent: story-401-411-tm-hm-integration-e2e
 tags:
