@@ -56,4 +56,5 @@ Maintain a static Markdown dashboard in the root directory listing past executio
 
 ## 3. Next Steps & Acceptance Criteria
 - [x] Product Manager: Draft this IDEA node outlining the GitHub Issue-based dispatch for scheduled agents.
-- [ ] Product Manager: Convert this IDEA into a PRD specifying workflow changes in `.github/workflows/schedule-*.yml` and `.github/workflows/foundry-scheduled-agent.yml` (e.g., issue creation, label handling, and `Closes #<issue_number>` prompt injection).
+- [x] Product Manager: Convert this IDEA into a PRD specifying workflow changes in `.github/workflows/schedule-*.yml` and `.github/workflows/foundry-scheduled-agent.yml` (e.g., issue creation, label handling, and `Closes #<issue_number>` prompt injection).
+- [ ] prd-419-516-scheduled-agents-dashboard
