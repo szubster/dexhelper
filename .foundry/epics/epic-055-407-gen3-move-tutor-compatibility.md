@@ -33,5 +33,7 @@ Implement logic to cross-reference available tutor moves with Pokémon in the pl
 - Leverage the existing `PokeData` MsgPack architecture (ADR 015) for compatibility data.
 
 ## Acceptance Criteria
+- [ ] story-407-522-gen3-move-tutor-cross-referencing
+- [ ] story-407-523-gen3-move-tutor-integration-e2e
 - [ ] Cross-referencing logic correctly relies on the MsgPack `PokeData` system.
-- [ ] A final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [x] A final STORY dedicated exclusively to Integration and E2E Verification is generated.
