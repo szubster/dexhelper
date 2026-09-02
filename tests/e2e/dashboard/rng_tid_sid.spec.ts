@@ -35,7 +35,7 @@ test.describe('RNG TID and SID Display UI', () => {
     const sidValue = parseInt(sidValueStr || '0', 10);
 
     // Click the copy button
-    const copyButton = page.getByTitle('Copy TID/SID');
+    const copyButton = page.getByRole('button', { name: 'Copy TID and SID to clipboard' });
     await expect(copyButton).toBeVisible();
     await copyButton.click();
 
