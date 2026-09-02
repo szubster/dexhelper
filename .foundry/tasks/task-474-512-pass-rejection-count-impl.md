@@ -2,12 +2,12 @@
 id: task-474-512-pass-rejection-count-impl
 type: TASK
 title: Update DagContext to Handle rejection_count
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3273462721145008476'
 pr_number: null
 parent: story-071-474-pass-rejection-count-context
 tags:
