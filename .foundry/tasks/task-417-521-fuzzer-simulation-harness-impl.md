@@ -2,13 +2,12 @@
 id: task-417-521-fuzzer-simulation-harness-impl
 type: TASK
 title: Fuzzer Simulation Harness Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-09-02'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-415-417-fuzzer-simulation-e2e
 tags:
@@ -19,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Fuzzer Simulation Harness Implementation

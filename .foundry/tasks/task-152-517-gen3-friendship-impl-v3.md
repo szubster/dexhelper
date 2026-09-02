@@ -2,7 +2,7 @@
 id: task-152-517-gen3-friendship-impl-v3
 type: TASK
 title: Implement Gen 3 Friendship Data Extraction (v3)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-09-02'
@@ -18,6 +18,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Implement Gen 3 Friendship Data Extraction (v3)

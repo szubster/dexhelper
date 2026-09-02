@@ -2,12 +2,12 @@
 id: task-494-511-hof-certificate-hidden-component-impl
 type: TASK
 title: Hall of Fame Certificate Hidden Component Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-01'
 updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '11738233320061986788'
+jules_session_id: null
 pr_number: null
 parent: story-071-494-hof-certificate-hidden-component
 tags:

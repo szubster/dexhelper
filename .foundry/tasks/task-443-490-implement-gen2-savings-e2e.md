@@ -2,7 +2,7 @@
 id: task-443-490-implement-gen2-savings-e2e
 type: TASK
 title: Implement Gen 2 Savings E2E Tests
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-09-02'
@@ -15,8 +15,8 @@ tags:
   - e2e
   - playwright
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

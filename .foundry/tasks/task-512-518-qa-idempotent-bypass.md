@@ -2,7 +2,7 @@
 id: task-512-518-qa-idempotent-bypass
 type: TASK
 title: QA Idempotent Orchestrator Bypass
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-02'
 updated_at: '2026-09-02'
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # QA Idempotent Orchestrator Bypass

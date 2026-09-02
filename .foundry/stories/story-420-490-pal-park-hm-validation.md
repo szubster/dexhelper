@@ -2,7 +2,7 @@
 id: story-420-490-pal-park-hm-validation
 type: STORY
 title: Pal Park HM Validation Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
 updated_at: '2026-09-02'

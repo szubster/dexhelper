@@ -2,7 +2,7 @@
 id: task-474-514-pass-rejection-count-qa
 type: TASK
 title: QA Verification for rejection_count in DagContext
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-01'
 updated_at: '2026-09-02'

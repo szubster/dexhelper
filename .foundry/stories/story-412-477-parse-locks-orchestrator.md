@@ -2,10 +2,10 @@
 id: story-412-477-parse-locks-orchestrator
 type: STORY
 title: Parse locks field in Orchestrator
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
 jules_session_id: null
 pr_number: null

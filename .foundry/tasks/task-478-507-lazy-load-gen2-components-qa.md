@@ -2,13 +2,13 @@
 id: task-478-507-lazy-load-gen2-components-qa
 type: TASK
 title: QA - Lazy Load Gen 2 Components
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-31'
 updated_at: '2026-09-02'
 depends_on:
   - task-478-506-lazy-load-gen2-components-impl
-jules_session_id: '13711197032206214159'
+jules_session_id: null
 parent: story-418-478-lazy-load-gen2-components
 tags:
   - qa

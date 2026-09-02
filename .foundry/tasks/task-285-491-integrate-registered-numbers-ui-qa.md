@@ -2,13 +2,13 @@
 id: task-285-491-integrate-registered-numbers-ui-qa
 type: TASK
 title: QA Integrate Registered Numbers UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-07'
 updated_at: '2026-09-02'
 depends_on:
   - task-285-490-integrate-registered-numbers-ui-render
-jules_session_id: '9256036399575957978'
+jules_session_id: null
 pr_number: null
 parent: story-116-285-integrate-registered-numbers-ui
 tags:

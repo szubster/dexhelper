@@ -2,12 +2,12 @@
 id: task-477-506-lazy-load-gen3-details-impl
 type: TASK
 title: Lazy Load Gen 3 Details Components
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-31'
 updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '9125358161886208106'
+jules_session_id: null
 pr_number: null
 parent: story-418-477-lazy-load-gen3-components
 tags:

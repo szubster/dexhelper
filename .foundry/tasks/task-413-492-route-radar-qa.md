@@ -2,13 +2,13 @@
 id: task-413-492-route-radar-qa
 type: TASK
 title: QA - Bike Requirement Heatmap Flow
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-09-02'
 depends_on:
   - task-413-491-route-radar-ui
-jules_session_id: '2974498533478942367'
+jules_session_id: null
 pr_number: null
 parent: story-406-413-bike-requirement-heatmap
 tags:
@@ -16,8 +16,9 @@ tags:
   - map
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
+locks: []
 ---
 
 # QA - Bike Requirement Heatmap Flow

@@ -2,7 +2,7 @@
 id: task-152-518-gen3-friendship-qa-v3
 type: TASK
 title: QA Gen 3 Friendship Data Extraction (v3)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-02'
 updated_at: '2026-09-02'
@@ -19,6 +19,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # QA Gen 3 Friendship Data Extraction (v3)
