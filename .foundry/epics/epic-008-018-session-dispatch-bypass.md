@@ -30,3 +30,6 @@ Update the orchestrator to bypass Jules session dispatch for nodes whose targets
 ## Acceptance Criteria
 - [ ] Jules session dispatch is bypassed when valid target nodes exist.
 - [ ] Parent node generation sub-task is automatically fulfilled without agent wake-up.
+- [ ] story-018-512-idempotent-orchestrator-bypass
+- [ ] story-018-513-orchestrator-test-updates
+- [ ] story-018-514-idempotent-bypass-e2e-verification
