@@ -2,13 +2,13 @@
 id: task-416-483-fuzzer-state-simulation-qa
 type: TASK
 title: Orchestrator Fuzzer - State Simulation QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-24'
 updated_at: '2026-09-02'
 depends_on:
   - task-416-482-fuzzer-fault-injection-impl
-jules_session_id: null
+jules_session_id: '11356213488135975683'
 pr_number: null
 parent: story-415-416-fuzzer-state-simulation
 tags:
