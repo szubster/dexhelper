@@ -29,4 +29,7 @@ locks: []
 The goal of this story is to implement the scripts for cleaning up old, processed agent journals via garbage collection.
 
 ## Acceptance Criteria
-- [ ] Generate TASK nodes to implement garbage collection of processed journal entries.
+- [ ] task-514-523-librarian-gc-script-qa
+- [ ] task-514-522-librarian-gc-script-tests
+- [ ] task-514-521-librarian-gc-script-impl
+- [x] Generate TASK nodes to implement garbage collection of processed journal entries.
