@@ -2,12 +2,12 @@
 id: idea-159-individual-pokemon-pkm-exporter
 type: IDEA
 title: Individual Pokémon PKM/PK3 Exporter
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-20'
-updated_at: '2026-08-25'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2737253413834812250'
 pr_number: null
 parent: null
 tags:
