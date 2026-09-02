@@ -55,4 +55,6 @@ To prevent excessive git churn, merge conflicts, and performance spikes, the pru
 - The `foundry-orchestrator.ts` or a new dedicated script will implement the chunking logic and file deletion.
 
 ## Acceptance Criteria
-- [ ] epic-152-429-implement-archival-cleanup-policy
+- [x] Break down into EPICs
+- [ ] epic-346-517-archival-cleanup-core-engine
+- [ ] epic-346-518-archival-cleanup-automation
