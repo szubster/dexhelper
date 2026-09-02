@@ -26,6 +26,6 @@ locks: []
 Refactor `DagDashboard.tsx` and `DagNode.tsx` to use the `maxRejectionThreshold` from `useDagContext()` instead of importing the constant directly.
 
 ## Acceptance Criteria
-- [ ] Update `DagDashboard.tsx` to use `maxRejectionThreshold` from `useDagContext()` for filtering permanent failures.
-- [ ] Update `DagNode.tsx` to use `maxRejectionThreshold` from `useDagContext()` for determining permanent failure styles.
-- [ ] Eliminate all direct imports of `MAX_REJECTION_THRESHOLD` from `DagDashboard.tsx` and `DagNode.tsx`.
+- [x] Update `DagDashboard.tsx` to use `maxRejectionThreshold` from `useDagContext()` for filtering permanent failures.
+- [x] Update `DagNode.tsx` to use `maxRejectionThreshold` from `useDagContext()` for determining permanent failure styles.
+- [x] Eliminate all direct imports of `MAX_REJECTION_THRESHOLD` from `DagDashboard.tsx` and `DagNode.tsx`.

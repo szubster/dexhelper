@@ -1,7 +1,7 @@
 import { expect, test, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { MAX_REJECTION_THRESHOLD } from '../../../utils/constants';
+
 import { DagProvider } from '../../dashboard/DagContext';
 import { DagDashboard, getMiniMapNodeColor } from '../DagDashboard';
 
@@ -389,7 +389,7 @@ test('getMiniMapNodeColor returns correct color based on status', () => {
       {
         id: '1',
         position: { x: 0, y: 0 },
-        data: { rejection_count: MAX_REJECTION_THRESHOLD, status: 'FAILED', type: 'TASK', owner_persona: 'human' },
+        data: { rejection_count: 3, status: 'FAILED', type: 'TASK', owner_persona: 'human' },
       },
       3,
     ),
@@ -409,7 +409,7 @@ test('DagDashboard toggles permanent failures', async () => {
           owner_persona: 'human',
           label: 'node',
           title: 'Node 1',
-          rejection_count: MAX_REJECTION_THRESHOLD, // Permanent failure
+          rejection_count: 3, // Permanent failure
           depends_on: [],
         },
       },
