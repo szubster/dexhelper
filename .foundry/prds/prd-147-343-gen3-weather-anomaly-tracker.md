@@ -2,12 +2,12 @@
 id: prd-147-343-gen3-weather-anomaly-tracker
 type: PRD
 title: Gen 3 Weather Anomaly Tracker (Groudon & Kyogre)
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-08-14'
-updated_at: '2026-08-15'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9174375570432835861'
 pr_number: null
 parent: idea-147-gen3-weather-anomaly-tracker
 tags:
