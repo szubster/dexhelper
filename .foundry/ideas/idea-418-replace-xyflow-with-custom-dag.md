@@ -49,4 +49,6 @@ Replace `@xyflow/react` entirely with a lightweight, standard DOM-based director
 - **Simpler Dependency Tree:** Reducing third-party lock-in and the need to parse large external CSS files (`@xyflow/react/dist/style.css`).
 
 ## Next Steps
-- [ ] prd-418-replace-xyflow-with-custom-dag
+
+## Acceptance Criteria
+- [ ] prd-418-516-replace-xyflow-with-custom-dag
