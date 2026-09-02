@@ -281,3 +281,4 @@ The \`Gen2SaveData\` schema in \`src/engine/saveParser/parsers/common.ts\` is mi
 
 **Learnings:**
 - Always ensure that newly created extraction functions are actually hooked into the main parser (like \`parseGen2\`) and that their extracted data types are added to the common schemas (like \`Gen2SaveData\`) before writing E2E tests for the UI. UI components can't display data that isn't provided to them by the state store.
+- Added findings and completed the research node `research-411-511-investigate-tm-hm-e2e-failure` showing that the e2e test timeout was due to running the full test suite instead of a specific file.
