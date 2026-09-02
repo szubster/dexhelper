@@ -35,4 +35,4 @@ Implement a utility function or script logic that can identify `COMPLETED` EPIC 
 
 
 ## Acceptance Criteria
-- [ ] Implement the detection function for completed EPIC nodes.
+ - [x] Implement the detection function for completed EPIC nodes.
