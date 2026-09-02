@@ -2,12 +2,12 @@
 id: task-443-490-implement-gen2-savings-e2e
 type: TASK
 title: Implement Gen 2 Savings E2E Tests
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-26'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '7454751167739964202'
+jules_session_id: null
 pr_number: null
 parent: story-311-443-gen2-decoration-savings-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - playwright
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
 locks: []
 ---
