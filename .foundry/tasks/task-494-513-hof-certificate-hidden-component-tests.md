@@ -30,7 +30,7 @@ locks: []
 Write unit tests for the Hall of Fame Certificate Hidden Component to ensure robust client-side rendering.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for component rendering using `vitest-browser-react`.
-- [ ] Verify the component accurately renders the provided Hall of Fame data props.
-- [ ] Verify the robust font loading logic operates as expected during the component lifecycle.
-- [ ] Ensure all tests pass.
+- [x] Write unit tests for component rendering using `vitest-browser-react`.
+- [x] Verify the component accurately renders the provided Hall of Fame data props.
+- [x] Verify the robust font loading logic operates as expected during the component lifecycle.
+- [x] Ensure all tests pass.
