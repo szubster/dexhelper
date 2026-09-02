@@ -28,4 +28,6 @@ locks: []
 This story is dedicated exclusively to Integration and E2E Verification of the Pokerus State Exfiltration.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-444-517-pokerus-e2e-impl
+- [ ] task-444-518-pokerus-e2e-qa
