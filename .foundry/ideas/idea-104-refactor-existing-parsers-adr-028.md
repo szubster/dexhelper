@@ -27,3 +27,6 @@ Refactor existing save parsing logic across all generations to comply with the n
 
 ## Context
 During the completion of `epic-053-103-relative-offsets-adr`, we established ADR 028 because tooling limitations prevented us from building a custom linter rule to enforce this pattern. Since we must rely on manual enforcement and code review, we need to proactively address the technical debt in legacy parsers to align them with this new architectural constraint.
+
+## Acceptance Criteria
+- [ ] prd-104-517-refactor-existing-parsers-adr-028
