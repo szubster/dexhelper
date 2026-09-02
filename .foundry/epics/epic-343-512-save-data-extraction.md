@@ -27,5 +27,8 @@ locks: []
 This epic focuses on parsing the Gen 2 save state to extract the currently caught Bug-Catching Contest Pokémon data. It involves reading hidden stats such as DVs, Level, HP, and held items.
 
 ## Acceptance Criteria
-- [ ] Generate stories to extract Bug-Catching Contest Pokémon data from Gen 2 save files.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-512-521-gen2-bug-catching-contest-core-data
+- [ ] story-512-522-gen2-bug-catching-contest-dvs
+- [ ] story-512-523-gen2-bug-catching-contest-e2e
+- [x] Generate stories to extract Bug-Catching Contest Pokémon data from Gen 2 save files.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
