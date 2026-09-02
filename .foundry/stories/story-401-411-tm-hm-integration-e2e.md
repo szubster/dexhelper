@@ -32,6 +32,9 @@ Verify the full TM/HM integration across Gen 1, Gen 2, and Gen 3 save files usin
 - [x] Break down into multiple TASK nodes for implementation and QA.
 - [x] task-411-440-tm-hm-integration-e2e-impl
 - [x] task-411-441-tm-hm-integration-e2e-qa
+- [ ] research-411-511-investigate-tm-hm-e2e-failure
+- [ ] task-411-512-tm-hm-integration-e2e-impl-v2
+- [ ] task-411-513-tm-hm-integration-e2e-qa-v2
 - [ ] research-411-505-investigate-e2e-timeout
 - [ ] task-411-506-tm-hm-integration-e2e-impl
 - [ ] task-411-507-tm-hm-integration-e2e-qa
