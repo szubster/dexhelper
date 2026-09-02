@@ -2,12 +2,12 @@
 id: idea-152-deterministic-dag-tree-archival
 type: IDEA
 title: Deterministic DAG Tree Archival in Orchestrator
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-15T20:00:00.000Z'
-updated_at: '2026-08-15'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7949861361331780169'
 pr_number: null
 parent: null
 tags:
