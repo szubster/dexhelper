@@ -30,4 +30,4 @@ Implement Integration and E2E verification for the R2 conflict resolution flow.
 - Verify that the tests run correctly against the application.
 
 ## Acceptance Criteria
-- [ ] Implement E2E verification tests for R2 conflict resolution.
+- [x] Implement E2E verification tests for R2 conflict resolution.
