@@ -867,3 +867,8 @@ However, I encountered a failure with `crystal-bxtj-0.sav`, which is a Japanese 
 Japanese games have different memory offsets compared to international releases, particularly the party count and party species offsets (`0x281a` instead of `0x2865` for JP Crystal). Our parser currently strictly relies on Western offsets.
 
 As a QA agent, my responsibility is to validate the task and fail it since the implementation is missing architectural requirements (handling Japanese offsets). I will update the target task (`task-470-487-catalog-integrate-saves`) with a transient rejection to alert the coder to this issue.
+
+# QA Journal Entry - Session task-413-492-route-radar-qa
+
+## Rejection: task-413-491-route-radar-ui
+The coder task claimed to update MapUI.tsx to visually indicate bike requirements, but the code does not render the BikeBadge or any visual indicator for requiresMachBike or requiresAcroBike. Triggering a transient rejection.
