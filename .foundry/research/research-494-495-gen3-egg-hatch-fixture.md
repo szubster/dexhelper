@@ -2,12 +2,12 @@
 id: research-494-495-gen3-egg-hatch-fixture
 type: RESEARCH
 title: Gen 3 Egg Hatch Fixture
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-30'
 updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16494759172619392878'
 pr_number: null
 parent: task-473-494-gen3-egg-hatch-e2e-impl
 tags:
