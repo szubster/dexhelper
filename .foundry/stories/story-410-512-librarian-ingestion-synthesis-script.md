@@ -29,5 +29,8 @@ locks: []
 The goal of this story is to implement the scripts needed by the librarian persona to ingest agent journals and synthesize/extract systemic rules.
 
 ## Acceptance Criteria
-- [ ] Generate TASK nodes to implement journal ingestion.
-- [ ] Generate TASK nodes to implement rules extraction.
+- [ ] task-512-517-librarian-ingestion-script
+- [ ] task-512-518-librarian-synthesis-script
+- [ ] task-512-519-librarian-scripts-qa
+- [x] Generate TASK nodes to implement journal ingestion.
+- [x] Generate TASK nodes to implement rules extraction.
