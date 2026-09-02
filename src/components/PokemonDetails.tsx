@@ -222,76 +222,116 @@ export function PokemonDetails({
     >
       <ScanlineOverlay />
 
-      {/* Top Header / Target Lock Section */}
-      <div className="relative flex shrink-0 flex-col items-center border-[var(--theme-primary)]/20 border-b bg-gradient-to-b from-[var(--theme-primary)]/10 to-transparent p-4 sm:flex-row sm:items-stretch sm:justify-start sm:p-6 lg:p-8">
+      {/* Top Header / Target Lock Section - Hardware Diagnostic Console */}
+      <div className="relative flex shrink-0 flex-col items-center border-[var(--theme-primary)]/30 border-b-2 bg-zinc-950 p-4 sm:flex-row sm:items-stretch sm:justify-start sm:p-6 lg:p-8">
+        {/* Deep Hardware Background */}
+        <div className="absolute inset-0 z-0 bg-[var(--theme-primary)]/5">
+          <LcdGrid className="opacity-[0.03]" />
+          <ScanlineOverlay opacityClass="opacity-10" />
+        </div>
+
+        {/* Heavy Mechanical Brackets */}
+        <div className="pointer-events-none absolute inset-0 z-10 border-[4px] border-[var(--theme-primary)]/10 border-dashed" />
+
         {/* Hardware hazard stripe lip */}
         <div
-          className="absolute top-0 right-0 left-0 h-1 opacity-20"
+          className="absolute top-0 right-0 left-0 z-20 h-2 opacity-30"
           style={{
             backgroundImage:
               'repeating-linear-gradient(45deg, var(--theme-primary) 25%, transparent 25%, transparent 50%, var(--theme-primary) 50%, var(--theme-primary) 75%, transparent 75%, transparent)',
-            backgroundSize: '10px 10px',
+            backgroundSize: '16px 16px',
           }}
         />
 
-        <div className="flex w-full flex-col items-center gap-6 sm:flex-row sm:gap-8">
+        <div className="relative z-30 flex w-full flex-col items-center gap-6 sm:flex-row sm:gap-8">
           <div className="group relative shrink-0">
-            <div className="zoom-in-50 fade-in relative flex h-32 w-32 animate-in items-center justify-center overflow-hidden rounded-none border border-[var(--theme-primary)]/40 border-dashed bg-black/60 fill-mode-both shadow-[0_0_30px_rgba(0,0,0,0.8)] transition-colors delay-100 duration-500 group-hover:border-[var(--theme-primary)] group-hover:bg-black/80">
-              <LcdGrid className="opacity-10" color="var(--theme-primary)" />
+            {/* Enlarged Sprite Container with Matrix Targeting */}
+            <div className="zoom-in-50 fade-in group/target relative flex h-40 w-40 animate-in items-center justify-center overflow-hidden rounded-none border-2 border-[var(--theme-primary)]/40 bg-black/80 fill-mode-both shadow-[0_0_40px_rgba(0,0,0,0.9)] transition-all delay-100 duration-500 hover:border-[var(--theme-primary)] hover:bg-black/90 sm:h-48 sm:w-48">
+              <LcdGrid className="opacity-15" color="var(--theme-primary)" />
               <HoverScanner />
+
+              {/* Matrix Targeting Rings */}
+              <div className="absolute inset-4 rounded-full border border-[var(--theme-primary)]/10 transition-all duration-700 group-hover/target:animate-[spin_4s_linear_infinite] group-hover/target:border-[var(--theme-primary)]/40 group-hover/target:shadow-[0_0_15px_rgba(var(--theme-primary-rgb),0.3)]" />
+              <div className="absolute inset-8 rounded-full border border-[var(--theme-primary)]/10 border-dashed transition-all duration-500 group-hover/target:animate-[spin_3s_linear_infinite_reverse] group-hover/target:border-[var(--theme-primary)]/30 group-hover/target:shadow-[0_0_10px_rgba(var(--theme-primary-rgb),0.2)]" />
+
+              {/* Glitch Overlay on Hover */}
+              <div className="pointer-events-none absolute inset-0 z-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(var(--theme-primary-rgb),0.05)_2px,rgba(var(--theme-primary-rgb),0.05)_4px)] opacity-0 transition-opacity duration-300 group-hover/target:opacity-100" />
+
               <PokemonSprite
                 pokemonId={pokemonId}
                 generation={saveData?.generation ?? 1}
                 isShiny={isShiny}
                 alt={pokemonName}
-                className="relative z-10 h-24 w-24 object-contain drop-shadow-[0_0_15px_rgba(var(--theme-primary-rgb),0.4)] transition-transform duration-500 group-hover:scale-110"
+                className="relative z-10 h-[65%] w-[65%] object-contain drop-shadow-[0_0_20px_rgba(var(--theme-primary-rgb),0.5)] transition-transform duration-500 group-hover/target:scale-110 group-hover/target:drop-shadow-[0_0_30px_rgba(var(--theme-primary-rgb),0.8)]"
               />
               <CornerCrosshairs
                 thickness={2}
-                className="h-3 w-3 border-[var(--theme-primary)]/60 transition-colors group-hover:border-[var(--theme-primary)]"
+                className="h-4 w-4 border-[var(--theme-primary)]/50 transition-colors group-hover/target:border-[var(--theme-primary)]"
               />
             </div>
 
-            <ShinyBadge isShiny={isShiny} isShinyCarrier={isShinyCarrier} size="md" />
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2">
+              <ShinyBadge isShiny={isShiny} isShinyCarrier={isShinyCarrier} size="md" />
+            </div>
           </div>
 
           <div className="flex w-full flex-col justify-center text-center sm:text-left">
             <div className="slide-in-from-bottom-4 fade-in flex animate-in flex-col fill-mode-both delay-200 duration-500">
-              <div className="mb-2 flex items-center justify-center gap-2 sm:justify-start">
-                <span className="font-black font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-[0.4em]">
-                  [ SUBJECT_ID: {pokemonId.toString().padStart(3, '0')} ]
-                </span>
-                <div className="hidden h-[1px] flex-1 bg-gradient-to-r from-[var(--theme-primary)]/50 to-transparent sm:block" />
+              <div className="mb-1 flex items-center justify-between pr-24">
+                <div className="flex items-center gap-2">
+                  <span className="font-black font-mono text-[11px] text-[var(--theme-primary)]/70 uppercase tracking-[0.5em]">
+                    [ SUBJECT_ID: {pokemonId.toString().padStart(3, '0')} ]
+                  </span>
+                  <div className="hidden h-[2px] w-12 bg-gradient-to-r from-[var(--theme-primary)]/50 to-transparent sm:block" />
+                </div>
+
+                {/* Simulated LED Status Indicator */}
+                <div className="hidden items-center gap-2 sm:flex">
+                  <div
+                    className={cn(
+                      'h-2 w-2 rounded-none shadow-[0_0_8px]',
+                      yourPokemon.length > 0 ? 'bg-emerald-500 shadow-emerald-500/80' : 'bg-red-500 shadow-red-500/80',
+                    )}
+                  />
+                  <span className="font-mono text-[8px] text-zinc-500">SYS.LINK</span>
+                </div>
               </div>
 
-              <h2 className="mb-4 break-words break-all font-black font-display text-4xl text-white uppercase leading-none tracking-widest drop-shadow-[0_0_10px_rgba(255,255,255,0.2)] sm:break-normal sm:text-4xl lg:text-5xl">
+              <h2 className="mb-2 break-words break-all font-black font-display text-5xl text-white uppercase leading-none tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] sm:break-normal sm:text-6xl lg:text-7xl">
                 {pokemonName}
               </h2>
+
+              {/* Raw Telemetry Data Trace */}
+              <div className="mb-6 hidden font-mono text-[9px] text-[var(--theme-primary)]/40 tracking-widest sm:block">
+                {'> '}TRACE: 0x{(pokemonId * 255).toString(16).toUpperCase().padStart(4, '0')} | FLG:{' '}
+                {yourPokemon.length > 0 ? '1' : '0'} | GEN: {saveData?.generation ?? 'N/A'}
+              </div>
+
               <div className="flex flex-wrap justify-center gap-3 sm:justify-start">
                 {stadiumReward && (
-                  <div className="tactical-text flex w-fit items-center gap-2 rounded-none border border-blue-500/50 border-dashed bg-blue-500/10 px-3 py-1.5 text-[10px] text-blue-400 backdrop-blur-md">
-                    <Monitor size={12} /> Stadium Reward
+                  <div className="flex items-center gap-2 border-[2px] border-blue-500/50 border-dashed bg-blue-950/40 px-4 py-2 font-black font-mono text-[10px] text-blue-400 uppercase tracking-widest shadow-[inset_0_0_10px_rgba(59,130,246,0.2)]">
+                    <Monitor size={14} className="text-blue-500" /> STADIUM_REWARD
                   </div>
                 )}
 
                 {saveData && (
                   <div
                     className={cn(
-                      'flex w-fit items-center gap-2 rounded-none border border-dashed px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] backdrop-blur-md',
+                      'flex items-center gap-2 border-[2px] border-dashed px-4 py-2 font-black font-mono text-[10px] uppercase tracking-[0.2em] shadow-[inset_0_0_10px_rgba(0,0,0,0.5)] transition-colors',
                       yourPokemon.length > 0
-                        ? 'border-emerald-500/50 bg-emerald-500/10 text-emerald-400'
-                        : 'border-red-500/50 bg-red-500/10 text-red-500',
+                        ? 'border-emerald-500/60 bg-emerald-950/40 text-emerald-400'
+                        : 'border-red-500/60 bg-red-950/40 text-red-500',
                     )}
                   >
                     {yourPokemon.length > 0 ? (
                       <>
-                        <CheckCircle2 size={12} className="animate-pulse" />
-                        Status: Secured
+                        <CheckCircle2 size={14} className="animate-[pulse_2s_ease-in-out_infinite] text-emerald-500" />
+                        SECURED
                       </>
                     ) : (
                       <>
-                        <AlertCircle size={12} />
-                        Status: Unsecured
+                        <AlertCircle size={14} className="text-red-500" />
+                        UNSECURED
                       </>
                     )}
                   </div>
