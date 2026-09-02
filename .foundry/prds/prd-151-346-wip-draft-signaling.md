@@ -2,10 +2,10 @@
 id: prd-151-346-wip-draft-signaling
 type: PRD
 title: Work-in-Progress and Draft Artifact Signaling
-status: READY
-owner_persona: epic_planner
+status: PENDING
+owner_persona: auditor
 created_at: '2026-08-31'
-updated_at: '2026-08-31'
+updated_at: '2026-09-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -19,6 +19,7 @@ tags:
   - wip
 research_references: []
 rejection_reason: ''
+locks: []
 ---
 
 # PRD: Work-in-Progress and Draft Artifact Signaling across Foundry and DexHelper
@@ -54,4 +55,7 @@ Establish a formal signaling mechanism and promotion workflow to explicitly mark
 - Agents must be instructed to **not** take downstream dependencies on artifacts marked as `DRAFT` or `WIP` until they are formally promoted.
 
 ## 4. Acceptance Criteria
-- [ ] epic-151-346-wip-signaling
+- [ ] epic-346-517-wip-documentation
+- [ ] epic-346-518-wip-code-signaling
+- [ ] epic-346-519-wip-artifact-promotion
+- [ ] epic-346-520-wip-orchestrator-awareness

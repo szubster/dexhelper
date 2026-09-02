@@ -2,10 +2,10 @@
 id: prd-401-340-r2-conflict-resolution-ui
 type: PRD
 title: Cloudflare R2 Conflict Resolution UI
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-08-08'
-updated_at: '2026-08-12'
+updated_at: '2026-09-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # PRD: Cloudflare R2 Conflict Resolution UI
 
@@ -31,9 +32,9 @@ Provide users with a UI prompt when a save conflict is detected during Cloudflar
 - Future-proof for potential diffing/merging functionality.
 
 ## Acceptance Criteria
-- [ ] epic-340-411-r2-conflict-resolution-core
-- [ ] epic-340-412-r2-conflict-resolution-ui-prompt
-- [ ] epic-340-413-r2-conflict-resolution-e2e
+- [x] epic-340-411-r2-conflict-resolution-core
+- [x] epic-340-412-r2-conflict-resolution-ui-prompt
+- [x] epic-340-413-r2-conflict-resolution-e2e
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

@@ -2,10 +2,10 @@
 id: task-497-513-test-tpm-epic-detection
 type: TASK
 title: Unit Test TPM EPIC Detection Logic
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on:
   - task-497-511-implement-tpm-epic-detection
 jules_session_id: null
@@ -19,6 +19,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Unit Test TPM EPIC Detection Logic

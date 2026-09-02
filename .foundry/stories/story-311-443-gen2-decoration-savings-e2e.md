@@ -2,10 +2,10 @@
 id: story-311-443-gen2-decoration-savings-e2e
 type: STORY
 title: Gen 2 Decoration & Savings E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-08-25'
+updated_at: '2026-09-02'
 depends_on:
   - story-311-322-gen2-room-decoration-parsing
 jules_session_id: null
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Story: Gen 2 Decoration & Savings E2E Verification

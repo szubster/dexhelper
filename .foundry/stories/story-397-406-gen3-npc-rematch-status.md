@@ -2,10 +2,10 @@
 id: story-397-406-gen3-npc-rematch-status
 type: STORY
 title: Track Gen 3 NPC Rematch Status
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-04'
-updated_at: '2026-08-08'
+updated_at: '2026-09-02'
 depends_on:
   - story-397-405-gen3-mixed-record-npc-data
 jules_session_id: null
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # STORY: Track Gen 3 NPC Rematch Status

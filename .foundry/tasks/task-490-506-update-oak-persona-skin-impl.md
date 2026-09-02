@@ -2,7 +2,7 @@
 id: task-490-506-update-oak-persona-skin-impl
 type: TASK
 title: Update Oak Persona to Narrative Skin
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-01'
 updated_at: '2026-09-02'
