@@ -25,6 +25,6 @@ notes: ''
 As part of the Reactive UI Context and State story, this task focuses on implementing the underlying state management logic that consumes the live memory streams from the WASM emulator and parsed save data. This layer should be optimized for frequent updates to avoid unnecessary re-renders.
 
 ## Acceptance Criteria
-- [ ] Implement the core state management logic (e.g. Zustand store) to hold and efficiently update emulator state.
-- [ ] Ensure the state can receive and apply updates from the WASM emulator live memory stream.
-- [ ] Write unit tests for the state management logic.
+- [x] Implement the core state management logic (e.g. Zustand store) to hold and efficiently update emulator state.
+- [x] Ensure the state can receive and apply updates from the WASM emulator live memory stream.
+- [x] Write unit tests for the state management logic.
