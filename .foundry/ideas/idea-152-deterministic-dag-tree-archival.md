@@ -36,4 +36,4 @@ Move tree-level archival logic into the DAG orchestrator (or a deterministic aut
 Automating DAG tree archival in the orchestrator guarantees strict adherence to the whole-tree terminal state rule, removes reliance on agent prompts for filesystem moves, prevents context loss, and keeps the active `.foundry/` directory clean.
 
 ## Acceptance Criteria
-- [ ] prd-152-deterministic-dag-tree-archival
+- [ ] prd-152-517-deterministic-dag-tree-archival
