@@ -33,5 +33,5 @@ This task implements `story-071-474-pass-rejection-count-context`. Following the
 - Ensure tests verify that `node.data.rejection_count` correctly exists in the nodes returned by `useDagContext()` and matches the provided mocked data.
 
 ## 3. Acceptance Criteria
-- [ ] Unit tests are written to verify `rejection_count` state mapping in `DagProvider`.
-- [ ] Tests pass cleanly with `pnpm test`.
+- [x] Unit tests are written to verify `rejection_count` state mapping in `DagProvider`.
+- [x] Tests pass cleanly with `pnpm test`.
