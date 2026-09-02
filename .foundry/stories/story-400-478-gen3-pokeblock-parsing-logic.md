@@ -32,4 +32,8 @@ With the constants and types defined, we need to implement the actual parsing lo
 - [ ] Implement parsing function that reads the 8-byte structure for each of the 40 Pokéblocks.
 - [ ] Map the byte fields correctly to their respective flavors and feel.
 - [ ] Write unit tests verifying parsing correctness against known good save blocks.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+
+- [ ] task-478-515-impl-pokeblock-parser
+- [ ] task-478-516-test-pokeblock-parser
+- [ ] task-478-517-qa-pokeblock-parser
