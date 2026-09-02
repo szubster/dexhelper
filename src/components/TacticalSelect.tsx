@@ -10,10 +10,10 @@ export const TacticalSelect = React.forwardRef<HTMLSelectElement, TacticalSelect
   ({ className, containerClassName, children, ...props }, ref) => {
     return (
       <div className={cn('relative w-full', containerClassName)}>
-        <select ref={ref} className={cn('tactical-select', className)} {...props}>
+        <select ref={ref} className={cn('tactical-select peer', className)} {...props}>
           {children}
         </select>
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-zinc-500">
+        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-zinc-500 peer-disabled:opacity-50">
           <ChevronDown size={14} />
         </div>
       </div>
