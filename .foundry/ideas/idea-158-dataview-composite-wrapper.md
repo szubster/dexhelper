@@ -51,5 +51,6 @@ In the future, decoupling parsers from raw `DataView` through an abstract reader
    - Progressively refactor existing save parsers (`src/engine/saveParser/parsers/*`) to use the wrapper.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this IDEA into a PRD specifying the interface design, generation-specific extension requirements, and parser migration roadmap.
+- [x] Product Manager: Convert this IDEA into a PRD specifying the interface design, generation-specific extension requirements, and parser migration roadmap.
+- [ ] prd-158-516-dataview-composite-wrapper
 - [ ] Tech Lead: Define implementation tasks for creating the `SaveDataReader` composite wrapper, generation mixins, unit tests, and refactoring existing parsers.
