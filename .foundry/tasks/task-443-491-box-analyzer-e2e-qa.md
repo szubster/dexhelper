@@ -2,14 +2,14 @@
 id: task-443-491-box-analyzer-e2e-qa
 type: TASK
 title: QA Gen 2 & Gen 3 Box Analyzer E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-30'
+updated_at: '2026-09-02'
 depends_on:
   - task-443-489-box-analyzer-gen2-e2e-impl
   - task-443-490-box-analyzer-gen3-e2e-impl
-jules_session_id: null
+jules_session_id: '1655687937428158710'
 pr_number: null
 parent: story-108-443-box-analyzer-save-parsing-e2e
 tags:
