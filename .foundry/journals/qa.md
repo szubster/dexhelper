@@ -152,7 +152,6 @@ Zod schema verified. Matches schema.md constraints and is exported.
 # QA Journal Entry - E2E Safeguard on Epics
 Date: 2026-07-25
 Task: task-269-335-e2e-safeguard-qa
-Status: SUCCESS
 
 ## Validation Notes
 - Verified E2E enforcement logic in `foundry-orchestrator.ts`.
@@ -346,7 +345,6 @@ ADR 028 mandates that all memory offsets, lengths, bit locations, and shifts mus
 # QA Journal - E2E Safeguard Verification
 Date: 2026-07-26
 Task: task-269-347-e2e-safeguard-qa
-Status: COMPLETED
 
 ## Summary
 Verified the E2E safeguard implementation in `foundry-orchestrator.ts` and `foundry-heartbeat.ts`. Confirmed logic prevents EPIC nodes from completing if they lack a child STORY tagged with 'e2e' or 'integration'.
@@ -867,3 +865,14 @@ However, I encountered a failure with `crystal-bxtj-0.sav`, which is a Japanese 
 Japanese games have different memory offsets compared to international releases, particularly the party count and party species offsets (`0x281a` instead of `0x2865` for JP Crystal). Our parser currently strictly relies on Western offsets.
 
 As a QA agent, my responsibility is to validate the task and fail it since the implementation is missing architectural requirements (handling Japanese offsets). I will update the target task (`task-470-487-catalog-integrate-saves`) with a transient rejection to alert the coder to this issue.
+
+
+**Date:** $(date +"%Y-%m-%d")
+**Target Task:** task-443-489-mirage-island-e2e-impl
+**QA Task:** task-473-493-mirage-island-e2e-qa
+
+## Details
+During QA verification, the required implementation artifact (`tests/e2e/mirage_island_extraction.spec.ts`) for the Mirage Island E2E tests was not found.
+
+## Action Taken
+The implementation task `task-443-489-mirage-island-e2e-impl` has been marked as `FAILED` to trigger a transient rejection and allow the coder to properly implement the required tests in a subsequent session. The acceptance criteria for the QA task remain unchecked.
