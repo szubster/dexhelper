@@ -2,10 +2,10 @@
 id: story-071-494-hof-certificate-hidden-component
 type: STORY
 title: Hall of Fame Certificate Hidden Component
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-30'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
 jules_session_id: null
 pr_number: null

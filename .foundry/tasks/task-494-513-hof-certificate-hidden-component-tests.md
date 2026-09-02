@@ -2,10 +2,10 @@
 id: task-494-513-hof-certificate-hidden-component-tests
 type: TASK
 title: Hall of Fame Certificate Hidden Component Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on:
   - task-494-511-hof-certificate-hidden-component-impl
 jules_session_id: '12814961437781022023'
@@ -21,6 +21,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Hall of Fame Certificate Hidden Component Tests

@@ -2,10 +2,10 @@
 id: epic-037-515-gen3-berry-tracker-ui-and-optimization-retry
 type: EPIC
 title: Gen 3 Berry Tracker UI and Optimization Engine (Retry)
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on:
   - epic-037-514-gen3-berry-tracker-map-integration-retry
 jules_session_id: null
@@ -21,6 +21,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Gen 3 Berry Tracker UI and Optimization Engine (Retry)

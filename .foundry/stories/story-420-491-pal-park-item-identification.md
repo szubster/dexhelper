@@ -2,10 +2,10 @@
 id: story-420-491-pal-park-item-identification
 type: STORY
 title: Pal Park Item Identification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
 jules_session_id: null
 pr_number: null

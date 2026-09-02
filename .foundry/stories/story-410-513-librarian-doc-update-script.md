@@ -2,13 +2,12 @@
 id: story-410-513-librarian-doc-update-script
 type: STORY
 title: Librarian Documentation Update Script
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: epic-339-410-librarian-github-scripts-implementation
 tags:
@@ -17,10 +16,11 @@ tags:
   - optimization
   - librarian
 research_references: []
-experiment_variants: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+experiment_variants: []
+locks: []
 ---
 
 # Librarian Documentation Update Script

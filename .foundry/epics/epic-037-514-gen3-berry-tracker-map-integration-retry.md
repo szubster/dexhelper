@@ -2,10 +2,10 @@
 id: epic-037-514-gen3-berry-tracker-map-integration-retry
 type: EPIC
 title: Gen 3 Berry Tracker Map Integration (Retry)
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on:
   - epic-037-513-gen3-berry-tracker-data-extraction-retry
 jules_session_id: null
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Gen 3 Berry Tracker Map Integration (Retry)

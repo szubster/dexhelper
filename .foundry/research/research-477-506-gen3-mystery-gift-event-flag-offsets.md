@@ -2,10 +2,10 @@
 id: research-477-506-gen3-mystery-gift-event-flag-offsets
 type: RESEARCH
 title: Gen 3 Mystery Gift Event Flag Offsets
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-08-31'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - gen3
   - mystery-gift
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
