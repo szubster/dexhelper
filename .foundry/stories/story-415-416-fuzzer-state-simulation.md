@@ -2,10 +2,10 @@
 id: story-415-416-fuzzer-state-simulation
 type: STORY
 title: Orchestrator Fuzzer - State Transitions & Fault Injection
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-12'
-updated_at: '2026-08-31'
+updated_at: '2026-09-02'
 depends_on:
   - story-415-415-fuzzer-dag-generation
 jules_session_id: null
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Orchestrator Fuzzer - State Transitions & Fault Injection
@@ -35,6 +36,6 @@ Simulate node state transitions across the full lifecycle and inject failures, s
 
 ## Acceptance Criteria
 - [x] Break down into Tasks.
-- [ ] task-416-481-fuzzer-state-transition-simulator-impl
-- [ ] task-416-482-fuzzer-fault-injection-impl
-- [ ] task-416-483-fuzzer-state-simulation-qa
+- [x] task-416-481-fuzzer-state-transition-simulator-impl
+- [x] task-416-482-fuzzer-fault-injection-impl
+- [x] task-416-483-fuzzer-state-simulation-qa
