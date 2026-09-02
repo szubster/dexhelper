@@ -31,7 +31,7 @@ export interface ProgressNodeData extends Record<string, unknown> {
 // ⚡ Bolt: Wrapped in React.memo to eliminate unnecessary re-renders.
 const ProgressNode = React.memo(({ data }: { data: ProgressNodeData }) => {
   return (
-    <div className="flex w-[180px] flex-col gap-0 border-2 border-zinc-700 border-dashed bg-black/80 font-mono text-white">
+    <div className="flex w-45 flex-col gap-0 border-2 border-zinc-700 border-dashed bg-black/80 font-mono text-white">
       <div className="border-zinc-700 border-b border-dashed bg-black/40 p-2 text-center font-black text-[10px] text-zinc-400 uppercase">
         {data.label}
       </div>

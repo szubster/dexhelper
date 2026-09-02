@@ -72,7 +72,7 @@ export function SystemControls({
             hasCrosshairs={true}
             title="Resume Live Sync"
             aria-label="Resume Live Sync"
-            className="w-[140px] justify-start p-1.5"
+            className="w-35 justify-start p-1.5"
           >
             <Activity size={16} className="text-amber-500" />
             <span className="font-mono text-[9px] text-amber-500 uppercase tracking-wider">RESUME SYNC</span>
@@ -86,7 +86,7 @@ export function SystemControls({
             title="Live Auto-Sync"
             aria-label="Live Auto-Sync"
             className={cn(
-              'w-[140px] justify-start p-1.5',
+              'w-35 justify-start p-1.5',
               syncStatus === 'live' ? 'border-emerald-500/50 bg-emerald-500/10 text-emerald-500' : '',
               syncStatus === 'error' ? 'border-red-500/50 bg-red-500/10 text-red-500' : '',
             )}

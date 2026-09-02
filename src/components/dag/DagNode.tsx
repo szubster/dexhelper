@@ -70,7 +70,7 @@ export const DagNode = React.memo(function DagNode({ data }: { data: DagNodeData
     <div
       data-testid="dag-node"
       className={cn(
-        'relative min-w-[200px] max-w-[300px] rounded-none border border-dashed p-3 font-mono transition-all',
+        'relative min-w-50 max-w-75 rounded-none border border-dashed p-3 font-mono transition-all',
         bgClass,
       )}
     >
