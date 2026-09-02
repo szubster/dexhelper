@@ -2,7 +2,7 @@
 id: task-474-513-pass-rejection-count-tests
 type: TASK
 title: Write Unit Tests for rejection_count in DagContext
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-01'
 updated_at: '2026-09-02'
