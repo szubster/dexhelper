@@ -64,8 +64,8 @@ importers:
         specifier: ^2.5.11
         version: 2.5.11
       '@cloudflare/workers-types':
-        specifier: ^5.20260829.1
-        version: 5.20260829.1
+        specifier: ^5.20260901.1
+        version: 5.20260901.1
       '@codecov/vite-plugin':
         specifier: ^2.0.1
         version: 2.0.1(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(yaml@2.9.0))
@@ -182,7 +182,7 @@ importers:
         version: 2.2.0(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(vitest@4.1.11)
       wrangler:
         specifier: ^4.127.1
-        version: 4.127.1(@cloudflare/workers-types@5.20260829.1)
+        version: 4.127.1(@cloudflare/workers-types@5.20260901.1)
 
   .github/scripts:
     dependencies:
@@ -847,8 +847,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@cloudflare/workers-types@5.20260829.1':
-    resolution: {integrity: sha512-SsH4G9+JePvrBmz+b5Dl67LQ9w2/ycoIpAPcAkfg2aEs2SEisQHk7/AY0TymSXEBbDbWgcBqoLe4hNcuY3CxWA==}
+  '@cloudflare/workers-types@5.20260901.1':
+    resolution: {integrity: sha512-m1rNbR3UYC1pgaEyXkSlwLFLDB11QziYUlY0z/nqjwuYtg5dw9zBrgDudoSfYM6ebbPDKU81ogBQAzLp6h1y4w==}
 
   '@codecov/bundler-plugin-core@2.0.1':
     resolution: {integrity: sha512-TkdKn/rEwZQ723M7DDUmHe5r0IJa23rUT4TAx5jXmg12wGZGAHGWWU7LKeQsYCsKdLMxK7bLaGk9M++4wSRD5w==}
@@ -5660,7 +5660,7 @@ snapshots:
   '@cloudflare/workerd-windows-64@1.20260828.1':
     optional: true
 
-  '@cloudflare/workers-types@5.20260829.1': {}
+  '@cloudflare/workers-types@5.20260901.1': {}
 
   '@codecov/bundler-plugin-core@2.0.1':
     dependencies:
@@ -5901,7 +5901,7 @@ snapshots:
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.5
+      '@jridgewell/sourcemap-codec': 1.6.0
       '@jridgewell/trace-mapping': 0.3.31
 
   '@jridgewell/remapping@2.3.5':
@@ -5923,7 +5923,7 @@ snapshots:
   '@jridgewell/trace-mapping@0.3.31':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
-      '@jridgewell/sourcemap-codec': 1.5.5
+      '@jridgewell/sourcemap-codec': 1.6.0
 
   '@jridgewell/trace-mapping@0.3.9':
     dependencies:
@@ -9314,7 +9314,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20260828.1
       '@cloudflare/workerd-windows-64': 1.20260828.1
 
-  wrangler@4.127.1(@cloudflare/workers-types@5.20260829.1):
+  wrangler@4.127.1(@cloudflare/workers-types@5.20260901.1):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.0
       '@cloudflare/unenv-preset': 2.16.1(unenv@2.0.0-rc.24)(workerd@1.20260828.1)
@@ -9325,7 +9325,7 @@ snapshots:
       unenv: 2.0.0-rc.24
       workerd: 1.20260828.1
     optionalDependencies:
-      '@cloudflare/workers-types': 5.20260829.1
+      '@cloudflare/workers-types': 5.20260901.1
       fsevents: 2.3.3
     transitivePeerDependencies:
       - bufferutil
