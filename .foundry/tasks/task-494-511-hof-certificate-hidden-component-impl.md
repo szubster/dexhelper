@@ -2,12 +2,12 @@
 id: task-494-511-hof-certificate-hidden-component-impl
 type: TASK
 title: Hall of Fame Certificate Hidden Component Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '12814961437781022023'
+jules_session_id: '11738233320061986788'
 pr_number: null
 parent: story-071-494-hof-certificate-hidden-component
 tags:
@@ -16,9 +16,9 @@ tags:
   - rendering
   - react
 research_references:
-  - '.foundry/archive/docs/adrs/adr-044-022-hof-certificate-generation.md'
-  - '.foundry/archive/docs/adrs/008-graph-rendering-library-selection.md'
-  - '.foundry/docs/knowledge_base/ui/adr-008-exceptions-proposal.md'
+  - .foundry/archive/docs/adrs/adr-044-022-hof-certificate-generation.md
+  - .foundry/archive/docs/adrs/008-graph-rendering-library-selection.md
+  - .foundry/docs/knowledge_base/ui/adr-008-exceptions-proposal.md
 rejection_count: 0
 rejection_reason: ''
 notes: ''
