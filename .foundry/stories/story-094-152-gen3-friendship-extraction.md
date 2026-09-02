@@ -29,6 +29,10 @@ Implement the logic to extract the Friendship (Happiness) value for Gen 3 Pokém
 - [ ] Update Gen 3 unit tests to verify the extracted Friendship value.
 - [x] task-152-258-gen3-friendship-impl
 - [x] task-152-259-gen3-friendship-qa
-- [ ] research-152-469-investigate-gen3-friendship-failure
-- [ ] task-152-470-gen3-friendship-impl-v2
-- [ ] task-152-471-gen3-friendship-qa-v2
+- [x] research-152-469-investigate-gen3-friendship-failure
+- [x] task-152-470-gen3-friendship-impl-v2
+- [x] task-152-471-gen3-friendship-qa-v2
+
+- [ ] research-152-516-investigate-task-470-failure
+- [ ] task-152-517-gen3-friendship-impl-v3
+- [ ] task-152-518-gen3-friendship-qa-v3
