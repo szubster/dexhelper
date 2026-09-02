@@ -34,5 +34,5 @@ Verify the completeness, robustness, and architectural adherence of the Vitest c
 4. If failures occur, reject the implementations and ensure the coder corrects them.
 
 ## Acceptance Criteria
-- [ ] Tests are verified to be robust and adequately check component functionality and aesthetic requirements.
-- [ ] Global verification commands (`pnpm lint`, `pnpm test`, and `xvfb-run -a pnpm test:e2e`) pass on the branch without errors.
+- [x] Tests are verified to be robust and adequately check component functionality and aesthetic requirements.
+- [x] Global verification commands (`pnpm lint`, `pnpm test`, and `xvfb-run -a pnpm test:e2e`) pass on the branch without errors.
