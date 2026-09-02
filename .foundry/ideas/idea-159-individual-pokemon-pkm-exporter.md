@@ -36,4 +36,7 @@ Implement an "Export Pokémon" feature within the DexHelper Party and PC Box vie
 This significantly improves the utility of DexHelper for the hardcore community. It bridges the gap between DexHelper (a read-only dashboard) and the wider ecosystem of Pokémon save editing/backup tools, allowing players to archive their beloved "Hall of Fame" or shiny Pokémon securely and easily directly from their browser.
 
 ## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD.
+- [x] Product Manager: Convert this idea into a PRD.
+
+## Acceptance Criteria
+- [ ] prd-159-516-individual-pokemon-pkm-exporter
