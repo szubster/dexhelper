@@ -2,12 +2,12 @@
 id: idea-158-dataview-composite-wrapper
 type: IDEA
 title: DataView Composite Wrapper & Save Parser Abstraction
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-20'
-updated_at: '2026-08-20'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1000174922466916997'
 pr_number: null
 parent: null
 tags:
