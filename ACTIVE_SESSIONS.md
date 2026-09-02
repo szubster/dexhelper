@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [epic-038-062-gen2-dynamic-checklist-ui](.foundry/epics/epic-038-062-gen2-dynamic-checklist-ui.md) | EPIC | Gen 2 Dynamic Checklist UI | story_owner | [2727989013344166680](https://jules.google.com/session/2727989013344166680) |
 | [epic-421-426-binjgb-integration](.foundry/epics/epic-421-426-binjgb-integration.md) | EPIC | Implement binjgb WASM Emulator Integration for Gen 1 & 2 | epic_planner | [5559109384774389637](https://jules.google.com/session/5559109384774389637) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
