@@ -1,6 +1,6 @@
 import { Activity, Upload } from 'lucide-react';
 import type React from 'react';
-import { CornerCrosshairs } from '../CornerCrosshairs';
+import { TacticalButton } from '../TacticalButton';
 import { TacticalFileInput } from '../TacticalFileInput';
 
 interface OfflineControlsProps {
@@ -11,27 +11,29 @@ interface OfflineControlsProps {
 export function OfflineControls({ requestSync, handleFileUpload }: OfflineControlsProps) {
   return (
     <div className="flex flex-col gap-4 sm:flex-row">
-      <button
-        type="button"
+      <TacticalButton
         aria-label="Upload Save File"
         onClick={() => document.getElementById('init-save-input')?.click()}
-        className="group slide-in-from-bottom-2 fade-in tactical-text focus-visible:tactical-focus relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black text-[11px] text-[var(--theme-primary)] transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 active:scale-95 sm:w-auto"
+        variant="primary"
+        size="lg"
+        hasCrosshairs={true}
+        className="group slide-in-from-bottom-2 fade-in w-full animate-in gap-4 border-dashed px-10 sm:w-auto"
       >
-        <CornerCrosshairs className="h-2 w-2 border-current" />
         <Upload size={20} />[ UPLOAD.SYS ]
-      </button>
+      </TacticalButton>
       <TacticalFileInput id="init-save-input" aria-label="Initialize Pokedex" onChange={handleFileUpload} />
 
       {typeof window !== 'undefined' && 'showOpenFilePicker' in window && (
-        <button
-          type="button"
+        <TacticalButton
           aria-label="Start Live Sync"
           onClick={requestSync}
-          className="group slide-in-from-bottom-2 fade-in tactical-text focus-visible:tactical-focus relative inline-flex w-full animate-in cursor-pointer items-center justify-center gap-4 rounded-none border border-[var(--theme-primary)]/50 border-dashed bg-[var(--theme-primary)]/10 px-10 py-4 font-black text-[11px] text-[var(--theme-primary)] transition-all duration-300 hover:bg-[var(--theme-primary)] hover:text-zinc-950 active:scale-95 sm:w-auto"
+          variant="primary"
+          size="lg"
+          hasCrosshairs={true}
+          className="group slide-in-from-bottom-2 fade-in w-full animate-in gap-4 border-dashed px-10 sm:w-auto"
         >
-          <CornerCrosshairs className="h-2 w-2 border-current" />
           <Activity size={20} />[ LIVE_SYNC.SYS ]
-        </button>
+        </TacticalButton>
       )}
     </div>
   );

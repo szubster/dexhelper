@@ -1,5 +1,6 @@
 import { Check, Copy } from 'lucide-react';
 import { useState } from 'react';
+import { TacticalIconButton } from './TacticalIconButton';
 
 export interface RngTidSidDisplayProps {
   tid: number;
@@ -37,15 +38,14 @@ export function RngTidSidDisplay({ tid, sid, className = '' }: RngTidSidDisplayP
           </div>
         </div>
 
-        <button
+        <TacticalIconButton
           type="button"
           onClick={handleCopy}
-          className="tactical-icon-button"
           title="Copy TID/SID"
           aria-label="Copy TID and SID to clipboard"
         >
           {copied ? <Check className="h-4 w-4 text-green-400" /> : <Copy className="h-4 w-4" />}
-        </button>
+        </TacticalIconButton>
       </div>
     </div>
   );
