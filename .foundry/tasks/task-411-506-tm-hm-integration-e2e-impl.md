@@ -34,7 +34,7 @@ Write end-to-end (E2E) tests using Playwright to verify the TM/HM integration ac
 4.  **Research Integration:** Incorporate fixes for the issues discovered during the research phase that caused previous timeouts.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for Gen 1 TM/HM extraction.
-- [ ] Implement Playwright E2E tests for Gen 2 TM/HM extraction.
-- [ ] Implement Playwright E2E tests for Gen 3 TM/HM extraction.
-- [ ] Ensure all tests pass successfully in the CI environment (using `xvfb-run`).
+- [x] Implement Playwright E2E tests for Gen 1 TM/HM extraction.
+- [x] Implement Playwright E2E tests for Gen 2 TM/HM extraction.
+- [x] Implement Playwright E2E tests for Gen 3 TM/HM extraction.
+- [x] Ensure all tests pass successfully in the CI environment (using `xvfb-run`).
