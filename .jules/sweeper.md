@@ -20,3 +20,6 @@ When resolving unused exports found via tools like `knip`, be extremely careful 
 
 ## Learnings
 * **Knip False Positives**: Tools like `knip` may incorrectly flag standalone CLI scripts (e.g., in `.github/scripts/`) as unused since they are not imported by other TypeScript modules. Always verify if a script is executed autonomously by agents or workflows (e.g., via `grep`) before assuming it is dead code and removing it.
+
+## Learnings
+* **Knip Dead Code Elimination & Configuration**: When using `knip` to identify dead code, always verify potential unused exports via a global repository search (`grep`) before deletion, as files or dependencies may be implicitly required by test runners or CI (e.g., `test-setup.ts`). Additionally, obsolete or unnecessary file references in `knip.json` `ignore` blocks can cause knip errors; remove them from the configuration rather than deleting the underlying files.
