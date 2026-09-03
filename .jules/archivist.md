@@ -1,4 +1,4 @@
-# Archivist Session Journal
+# Archivist (Agatha) Session Journal
 
 ## Action Taken
 1. **Aggregated**: Safely aggregated session-unique files into `master.md` within their respective directories. Implemented strict whitespace-normalized substring checks to prevent appending content that already exists in the master logs.

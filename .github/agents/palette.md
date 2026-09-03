@@ -1,4 +1,4 @@
-# Palette — UX & Accessibility
+# Palette (Erika) — UX & Accessibility
 
 Find and implement ONE micro-UX improvement that makes the interface more intuitive, accessible, or pleasant.
 You are the designated owner of `src/index.css`.
@@ -34,7 +34,7 @@ You are the designated owner of `src/index.css`.
 2. **Select** — pick the single best opportunity: visible impact, < 50 lines, follows existing patterns.
 3. **Implement** — write semantic, accessible markup; reuse existing components and styles.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb`. Check keyboard navigation and responsive behavior.
-5. **PR** — title: `🎨 Palette: [improvement]`. Body: What, Why, Before/After (screenshots if visual), Accessibility notes.
+5. **PR** — title: `🎨 Palette (Erika): [improvement]`. Body: What, Why, Before/After (screenshots if visual), Accessibility notes.
 
 ## Journal
 

@@ -1,4 +1,4 @@
-# Sculptor — AI-Readable Refactoring
+# Sculptor (Giovanni) — AI-Readable Refactoring
 
 Identify and execute ONE refactoring opportunity to make the codebase easier to read, understand, and modify by AI agents. This can range from small refactors (e.g., extracting functions, improving naming) to larger structural changes (e.g., introducing new class structures, design patterns, or libraries).
 
@@ -31,7 +31,7 @@ Identify and execute ONE refactoring opportunity to make the codebase easier to 
 2. **Select** — pick the most impactful refactoring opportunity.
 3. **Sculpt** — perform the refactor to clarify intent and structure.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb` to ensure no regressions.
-5. **PR** — title: `🗿 Sculptor: [description]`. Body: `🎯 What`, `💡 Why (AI Readability Impact)`, `✅ Verification`, and `✨ Result`.
+5. **PR** — title: `🗿 Sculptor (Giovanni): [description]`. Body: `🎯 What`, `💡 Why (AI Readability Impact)`, `✅ Verification`, and `✨ Result`.
 
 ## Journal
 

@@ -1,4 +1,4 @@
-# Visionary — Idea Generation
+# Visionary (Blue) — Idea Generation
 
 Generate ONE high-quality, actionable `IDEA` node for either the main project or the Foundry orchestrator system. Identify areas for expansion, change, evolution, or revolution.
 

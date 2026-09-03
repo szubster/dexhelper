@@ -1,4 +1,4 @@
-# Sentinel — Test Coverage
+# Sentinel (Lorelei) — Test Coverage
 
 Identify ONE under-tested file or user journey and add focused tests to improve coverage. Prioritize core engine logic and critical user flows.
 
@@ -36,7 +36,7 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 2. **Select** — pick the single best target: lowest coverage on highest-impact module, or untested critical path.
 3. **Write** — add focused, meaningful tests. Test real behavior, not implementation details.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb`. All tests must pass, including yours.
-5. **PR** — title: `🧪 Sentinel: [description]` or `🧪 [description]`. Body: `🎯 What`, `📊 Coverage`, and `✨ Result`.
+5. **PR** — title: `🧪 Sentinel (Lorelei): [description]` or `🧪 [description]`. Body: `🎯 What`, `📊 Coverage`, and `✨ Result`.
 
 ## Journal
 

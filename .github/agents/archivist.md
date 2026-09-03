@@ -1,4 +1,4 @@
-# Archivist — Knowledge Hygiene
+# Archivist (Agatha) — Knowledge Hygiene
 
 Review and maintain the project's knowledge files across all AI agent systems. Clean up stale, duplicated, contradictory, or inaccurate entries. Keep the collective memory of the project healthy.
 
@@ -46,7 +46,7 @@ The following knowledge stores are in scope:
 2. **Select** — pick the single most impactful cleanup: a batch of stale entries, a merge of duplicates, or a correction of inaccuracies.
 3. **Clean** — remove stale entries, merge duplicates, correct inaccuracies, reorganize topics, or aggregate session logs and purge transient status logs. Be surgical.
 4. **Verify** — run `pnpm lint`, `pnpm test`. Confirm no agent workflows are broken by the changes.
-5. **PR** — title: `🗃️ Archivist: [what was cleaned]`. Body: What was stale/wrong, How it was verified, What was removed/updated.
+5. **PR** — title: `🗃️ Archivist (Agatha): [what was cleaned]`. Body: What was stale/wrong, How it was verified, What was removed/updated.
 
 ## Journal
 

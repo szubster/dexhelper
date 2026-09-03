@@ -1,13 +1,13 @@
-# Scribe Journal - Gen 3 JSDoc
+# Scribe (Brock) Journal - Gen 3 JSDoc
 
 When creating JSDoc for complex binary parsing logic, ensure you document the 'why' and the specific bitwise math. Bitwise operations like `(flag >> FLAG_BYTE_SHIFT)` and `(flag & FLAG_BIT_MASK)` are non-obvious to standard UI developers and warrant explicit inline comments. Also, when extracting boolean states from a dense event flags block (e.g. Move Tutors), document the multi-byte block structure used to fetch the data.
 
-# Scribe Memory
+# Scribe (Brock) Memory
 
 - When adding JSDoc comments to complex parsing domains (like `src/engine/saveParser/parsers/gen3.ts`), it is crucial to explain the architectural 'why' behind the logic, such as the A/B bank flash memory architecture in Generation 3, which alternates between 56KB banks to prevent data corruption.
 - While adding inline comments is helpful, providing a more comprehensive update by also including JSDoc annotations on exported APIs makes the documentation effort much more complete and valuable.
 
-# Scribe Session Log
+# Scribe (Brock) Session Log
 
 - Observation: When analyzing memory operations in Gen 2, it is critical to note that version detection (Gold/Silver vs Crystal) dictates all base offsets. Instead of static offset maps, the codebase heavily utilizes ternary operations predicated on the `isCrystal` boolean. Inventory parsing also features dynamic length-prefixed lists rather than fixed structs.
 - Rule: Ensure architectural documentation does not hallucinate hex offsets or complex structures (e.g., roaming legendaries) if they are not definitively proven in the `run_in_bash_session` output. Strict adherence to grounded facts is required.
@@ -15,11 +15,11 @@ When creating JSDoc for complex binary parsing logic, ensure you document the 'w
 ## Session: journal
 Journal entry: Failed the first code review due to missing 'meaningful documentation gap'. The reviewer correctly observed that adding a type to a JSDoc block in a TypeScript codebase is redundant. For the next iteration, I should document a highly complex logic block that is currently lacking inline comments, such as the detectVersionAndOffsets heuristic in gen1.ts, or the memory offset logic in gen3.ts to actually provide value to future developers reading the code.
 
-# Scribe Memory
+# Scribe (Brock) Memory
 
 - When adding JSDoc comments to complex parsing domains (like `src/engine/saveParser/parsers/gen3.ts`), focus on explaining the architectural 'why' (e.g., A/B bank flash memory architecture, Swarms altering encounter tables) rather than just restating what the function arguments are.
 
-# Scribe Memory
+# Scribe (Brock) Memory
 
 - When adding JSDoc comments to complex parsing domains (like `src/engine/saveParser/parsers/gen3.ts`), it is crucial to explain the architectural 'why' behind the logic, such as the A/B bank flash memory architecture in Generation 3, which alternates between 56KB banks to prevent data corruption.
 - When documenting bitwise operations (like event flag extraction for NPC trades or Move Tutors), clearly outline the math used to locate the byte offset (`flag >> 3`) and the bit index (`flag & 7`) so future developers understand the binary structure being parsed.
@@ -74,7 +74,7 @@ Add documentation to a complex engine module (`encounterTools.ts`) focusing on t
 - **Gen 3 Save Detection Stub**: `isGen3Save` in `src/engine/saveParser/utils/detection.ts` is explicitly stubbed to return `false` because Gen 3 save files use a complex A/B flash bank system with multiple checksums per sector. This requires scanning for signatures across sections, which is handled in a structural fallback path in `index.ts` rather than a contiguous block heuristic. I documented this with JSDoc.
 
 
-# Scribe Journal
+# Scribe (Brock) Journal
 
 - **Module Documented:** `src/engine/saveParser/parsers/gen3.ts`
 - **Why this module:** The Generation 3 save parser handles complex A/B flash memory architecture and encrypted substructures. However, key orchestration functions like `parseGen3`, `parseGen3PCBuffer`, `parseGen3Party`, and `parseGen3PCBoxes` lacked clear JSDoc explanations for their parameters (like `section1Offset` or `pcBufferView`) and architectural context.
@@ -82,10 +82,10 @@ Add documentation to a complex engine module (`encounterTools.ts`) focusing on t
 
 
 
-## Scribe Journal - Heatmap Density Logic
+## Scribe (Brock) Journal - Heatmap Density Logic
 Documented the architectural reason why `RouteRadarController` uses a `Set` to collect unique `areaId`s per suggestion. Without it, Pokémon with multiple sub-encounters on the same map would distort the heatmap density.
 
-# Scribe Journal
+# Scribe (Brock) Journal
 
 - **Module Documented:** `src/engine/mapGraph/` (`gen1Graph.ts` and `gen2Graph.ts`)
 - **Why this module:** The routing engine uses a fallback mechanism when evaluating player distance to wild encounters. Saffron City and Goldenrod City are hardcoded as universal fallbacks. The JSDoc lacked architectural explanation as to *why* these cities are used (i.e., they are centrally located hubs connecting multiple routes, necessary to prevent UI crashes if a player saves in an unmapped indoor location).
@@ -99,7 +99,7 @@ Documented the architectural reason why `RouteRadarController` uses a `Set` to c
 
 ## Aggregated from 2026-08-23-02-07-43.md
 
-# Scribe Session Journal
+# Scribe (Brock) Session Journal
 
 ## Task Goal
 The user requested to pick ONE module and improve its documentation (JSDoc, inline comments, or architecture docs). Focus areas included engine modules with complex domain logic, exported hooks/utilities, the Zustand store, data pipeline scripts, or README improvements.
@@ -117,7 +117,7 @@ The user requested to pick ONE module and improve its documentation (JSDoc, inli
 
 
 <!-- Merged from 2026-08-26-02-26-03.md -->
-# Scribe Session: 2026-08-26-02-26-03
+# Scribe (Brock) Session: 2026-08-26-02-26-03
 
 ## Focus
 `src/engine/saveParser/index.ts`

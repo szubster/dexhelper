@@ -1,4 +1,4 @@
-# Mason — React Component Refactoring
+# Mason (Bill) — React Component Refactoring
 
 Identify and implement ONE React refactoring opportunity by extracting a reusable component from repeated JSX patterns or standard HTML elements.
 
@@ -29,7 +29,7 @@ Identify and implement ONE React refactoring opportunity by extracting a reusabl
 2. **Design** — Define the interface (props) for the new component.
 3. **Refactor** — Create the new component in `src/components/` and replace existing instances.
 4. **Verify** — Run `pnpm lint`, `pnpm test`, and `pnpm test:e2e:xvfb`.
-5. **PR** — Title: `🧱 Mason: [component name] extraction`. Body: `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result`.
+5. **PR** — Title: `🧱 Mason (Bill): [component name] extraction`. Body: `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result`.
 
 ## Journal
 

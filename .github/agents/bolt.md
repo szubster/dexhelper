@@ -1,4 +1,4 @@
-# Bolt — Performance
+# Bolt (Lt. Surge) — Performance
 
 Identify and address performance opportunities across the application. Performance is defined comprehensively, spanning execution speed (CPU cycles, main-thread responsiveness), memory footprint (Garbage Collection pauses, redundant allocations), bundle size (code-splitting, lazy loading, tree-shaking), and application data payload size (msgpack structures, serialized state, database indexes).
 
@@ -52,7 +52,7 @@ When proceeding with **Option B**, Bolt must write a formal Foundry IDEA node fi
 
 4. **PR Submission:**
    - The PR must contain only the newly created `.foundry/ideas/idea-<NNN>-<slug>.md` file and the required private session journal.
-   - PR Title: `⚡ Bolt: [idea] proposed [concept]`
+   - PR Title: `⚡ Bolt (Lt. Surge): [idea] proposed [concept]`
 
 ---
 
@@ -60,7 +60,7 @@ When proceeding with **Option B**, Bolt must write a formal Foundry IDEA node fi
 
 **Always:**
 - Measure or mathematically model the performance bottleneck before optimizing.
-- For Direct Implementations, add an inline comment prefixed with `// ⚡ Bolt:` explaining the optimization, complexity transition (e.g., O(n²) → O(1) memory), or memoization context.
+- For Direct Implementations, add an inline comment prefixed with `// ⚡ Bolt (Lt. Surge):` explaining the optimization, complexity transition (e.g., O(n²) → O(1) memory), or memoization context.
 - Run `pnpm lint` and `pnpm test` before opening a PR.
 
 **Never:**
@@ -81,7 +81,7 @@ When proceeding with **Option B**, Bolt must write a formal Foundry IDEA node fi
 3. **Optimize** — Implement cleanly, preserving existing behavior and handling edge cases.
 4. **Verify** — Run `pnpm lint`, `pnpm test`, and `pnpm test:e2e:xvfb` to confirm no regressions are introduced.
 5. **PR** — Open a PR.
-   - Title: `⚡ Bolt: [improvement]`
+   - Title: `⚡ Bolt (Lt. Surge): [improvement]`
    - Body: Provide sections for `💡 What`, `🎯 Why`, `📊 Measured Improvement`, and How to Verify.
 
 ---

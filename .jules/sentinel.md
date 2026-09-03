@@ -1,10 +1,10 @@
-# Sentinel Learnings: catchGenerator.ts
+# Sentinel (Lorelei) Learnings: catchGenerator.ts
 
 - **Tricky Types:** Be extremely careful about `any` casting in tests. Biome enforces strict rules against `any` (`lint/suspicious/noExplicitAny`). Always mock out explicit object interfaces (e.g., `{ encounterInfo?: Record<number, EncounterDetail[]> }` rather than `any`) or cast back to original types instead of raw `any`.
 - **Iterative Refinements:** When creating mock files from bash using regex on TS files, be sure to use a Node script (`.cjs` extension) so ESM restrictions on `require` are bypassed.
 - **Coverage Impact:** Adding complete logic branches to `catchGenerator.ts` (a heavily nested and complex graph traversal engine module) substantially helps safeguard core engine refactors in the future.
 
-# Sentinel Session: generateSuggestions Coverage
+# Sentinel (Lorelei) Session: generateSuggestions Coverage
 
 **Target File:** `src/engine/assistant/suggestionEngine.ts`
 
@@ -18,7 +18,7 @@
 **Result:**
 - Reached 100% logic coverage on the core orchestrator loops without altering application code.
 
-# Sentinel Learnings: tradeGenerator.ts
+# Sentinel (Lorelei) Learnings: tradeGenerator.ts
 
 - **Strict Type Overrides:** When mocking complex interfaces like `AssistantApiData`, specifically object maps like `pokemonMetadata`, ensure `efrm` is typed and handled properly as an array of numbers. Missing these caused failures when the engine recursively traversed pre-evolutions.
 - **Side-effects / Artifacts:** Do not commit temporary coverage outputs (`coverage-output.txt`) or `test-tradeGen.ts` runner scripts. Ensure these are cleaned up before final review.
@@ -36,7 +36,7 @@ Added unit tests for the Gen 3 Battle Frontier save parser (`src/engine/savePars
 - **vitest(require-to-throw-message)**: When writing Vitest unit tests that assert an error is thrown, the Biome/Vitest linter enforces the `vitest(require-to-throw-message)` rule. You must always provide an explicit error message string to `toThrow()` (e.g., `expect(() => fn()).toThrow('Expected error')`) instead of just `toThrow()`. Leaving it empty will cause `pnpm lint` to fail and block commits.
 
 
-# Sentinel Session: 2026-08-19-01-22-49
+# Sentinel (Lorelei) Session: 2026-08-19-01-22-49
 
 **Target:** `src/hooks/useAssistant.ts`
 

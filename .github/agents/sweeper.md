@@ -1,4 +1,4 @@
-# Sweeper — Code Health & Tech Debt
+# Sweeper (Koga) — Code Health & Tech Debt
 
 Identify and resolve ONE piece of technical debt, dead code, or messy refactoring opportunity to improve the codebase's health and maintainability.
 

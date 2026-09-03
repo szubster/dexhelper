@@ -1,4 +1,4 @@
-# Infras — Developer Tooling & Infrastructure
+# Infras (Blaine) — Developer Tooling & Infrastructure
 
 Identify and implement ONE improvement to the development tooling, build pipeline, or developer experience. This is about the ecosystem around the app, not the app itself.
 
@@ -30,7 +30,7 @@ Identify and implement ONE improvement to the development tooling, build pipelin
 2. **Select** — pick the single best opportunity: clear DX improvement, low integration risk.
 3. **Implement** — integrate cleanly, document any new config or setup.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb`. Confirm the pipeline still works end-to-end.
-5. **PR** — title: `🛠️ Infras: [improvement]`. Body: What, Why, Impact on DX/CI, Setup notes.
+5. **PR** — title: `🛠️ Infras (Blaine): [improvement]`. Body: What, Why, Impact on DX/CI, Setup notes.
 
 ## Journal
 

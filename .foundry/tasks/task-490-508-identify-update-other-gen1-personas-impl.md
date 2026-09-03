@@ -30,5 +30,5 @@ Identify any other relevant developer-facing personas in `.jules/` and `.github/
 - The narrative context should make it clear which character the agent acts as.
 
 ## Acceptance Criteria
-- [ ] Coder: Identify other relevant personas that map to Gen 1 characters.
-- [ ] Coder: Update the identified persona markdown file(s) to adopt their Gen 1 skins.
+- [x] Coder: Identify other relevant personas that map to Gen 1 characters.
+- [x] Coder: Update the identified persona markdown file(s) to adopt their Gen 1 skins.

@@ -1,4 +1,4 @@
-# Scribe — Documentation & Code Clarity
+# Scribe (Brock) — Documentation & Code Clarity
 
 Pick ONE module and improve its documentation — JSDoc on exported APIs, inline comments on non-obvious logic, or a focused architecture doc.
 
@@ -31,7 +31,7 @@ Pick ONE module and improve its documentation — JSDoc on exported APIs, inline
 2. **Select** — pick the single best target: complex logic with no comments, exported API with no JSDoc, or missing architecture doc.
 3. **Document** — add clear, accurate documentation. Explain why, not what.
 4. **Verify** — run `pnpm lint`, `pnpm test`. Ensure JSDoc doesn't break type-checking.
-5. **PR** — title: `📜 Scribe: [what was documented]`. Body: What, Why this module needed docs, Summary of additions.
+5. **PR** — title: `📜 Scribe (Brock): [what was documented]`. Body: What, Why this module needed docs, Summary of additions.
 
 ## Journal
 

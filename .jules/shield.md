@@ -5,7 +5,7 @@ Replaced an insecure `Math.random()` call in `src/components/RetroBackground.tsx
 **Pattern:** Even if pseudo-random generation is only used for UI/visual effects (like scrolling hex data streams), SAST tools will routinely flag `Math.random()` as a high-severity CWE-338 (Use of Cryptographically Weak PRNG) violation.
 **Policy Update:** Always default to `window.crypto.getRandomValues` in the browser or `node:crypto` in Node environments, regardless of the security context of the generated value, to maintain zero-warning compliance.
 
-# Shield Security Journal - brace-expansion Vulnerability
+# Shield (Bruno) Security Journal - brace-expansion Vulnerability
 
 **Vulnerability:**
 A high-severity DoS vulnerability via unbounded expansion length (GHSA-mh99-v99m-4gvg) was discovered in `brace-expansion < 2.1.3`.
@@ -52,7 +52,7 @@ I also fixed the typescript error by using `(randomValues[i] || 0)` instead of `
 
 ## Aggregated from 2026-08-23-00-35-40.md
 
-# Shield Journal Entry: Resolving CWE-209 Raw Error Logging
+# Shield (Bruno) Journal Entry: Resolving CWE-209 Raw Error Logging
 
 ## Context
 During a routine security scan, we observed that `console.error` was logging raw error objects, which could potentially expose sensitive stack traces, paths, or application internals to an attacker who gains access to the client logs (CWE-209 - Generation of Error Message Containing Sensitive Information).

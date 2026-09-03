@@ -1,4 +1,4 @@
-# Shield — Security & Cryptography
+# Shield (Bruno) — Security & Cryptography
 
 Identify and resolve ONE security vulnerability or cryptographic misuse to improve the safety and integrity of the application.
 

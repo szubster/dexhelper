@@ -1,4 +1,4 @@
-# Trainer — Assistant Feature
+# Trainer (Red) — Assistant Feature
 
 Identify and implement ONE improvement to the assistant — the core feature that guides users toward completing their Pokédex or Living Dex.
 
@@ -31,7 +31,7 @@ Identify and implement ONE improvement to the assistant — the core feature tha
 2. **Select** — pick the single best opportunity: clearest user value, low regression risk.
 3. **Implement** — integrate cleanly, test against real save fixtures from `tests/fixtures`.
 4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb`. Validate with at least one real save file.
-5. **PR** — title: `🧠 Trainer: [improvement]`. Body: What, Why, Impact on recommendation quality, Test coverage.
+5. **PR** — title: `🧠 Trainer (Red): [improvement]`. Body: What, Why, Impact on recommendation quality, Test coverage.
 
 ## Journal
 
