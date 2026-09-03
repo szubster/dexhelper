@@ -32,5 +32,5 @@ Update the `NodeFrontmatterSchema` so that the `locks` field explicitly defaults
 - Run tests in `.github/scripts` using `pnpm install && npx vitest run` to verify that `schema.test.ts` and `foundry-orchestrator.test.ts` pass without errors.
 
 ## Acceptance Criteria
-- [ ] Schema `locks` field defaults to `[]`.
-- [ ] Orchestrator tests pass successfully.
+- [x] Schema `locks` field defaults to `[]`.
+- [x] Orchestrator tests pass successfully.
