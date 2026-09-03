@@ -7,6 +7,8 @@ owner_persona: tech_lead
 created_at: '2026-09-03'
 updated_at: '2026-09-03'
 depends_on: []
+jules_session_id: null
+pr_number: null
 parent: epic-517-522-gen2-parser-refactor-adr-028
 tags:
   - architecture
