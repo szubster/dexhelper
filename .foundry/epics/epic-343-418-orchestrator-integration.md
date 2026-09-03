@@ -37,4 +37,7 @@ This Epic addresses updating the Foundry Orchestrator to integrate the new promp
 ## Acceptance Criteria
 - [ ] Orchestrator dynamically resolves and constructs composite prompts based on node context.
 - [ ] Fallback mechanisms are implemented for missing prompt layers.
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [ ] story-418-518-orchestrator-integration-e2e
+- [ ] story-418-517-orchestrator-fallback-mechanisms
+- [ ] story-418-516-orchestrator-prompt-resolution
