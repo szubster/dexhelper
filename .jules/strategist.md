@@ -158,3 +158,8 @@
 **Outcome:** Merged
 **Why:** The rules for dynamically spawning nodes via late binding were duplicated across multiple persona prompts (`coder.md`, `tech_lead.md`, `story_owner.md`, `product_manager.md`), creating a maintenance burden and wasting context window tokens. Since these rules are already globally defined in `.foundry/docs/knowledge_base/agents/core_policies.md` under "Late Binding & Dynamic Node Spawning", explicitly repeating them in individual schedules is redundant and invites drift.
 **Pattern:** Consolidate redundant execution patterns from agent prompts into centralized core documents (like `core_policies.md`) to enforce a single source of truth and reduce prompt size.
+## 2026-09-03 - [Accepted] - Prompt improvement - Remove redundant Late Binding rules from Architect
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The rules for dynamically spawning nodes via late binding were already centralized in `core_policies.md` under "Late Binding & Dynamic Node Spawning". Explicitly repeating them in `.github/agents/architect.md` is redundant and invites drift, as they were already cleaned up in other agent prompts on 2026-09-02.
+**Pattern:** Consolidate redundant execution patterns from agent prompts into centralized core documents (like `core_policies.md`) to enforce a single source of truth and reduce prompt size.
