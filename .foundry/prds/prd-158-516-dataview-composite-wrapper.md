@@ -42,4 +42,7 @@ The new abstraction should exist within `src/engine/saveParser/` as a core archi
 The interface must maintain strict adherence to existing save memory offset constants and support easy test mocking.
 
 ## 4. Acceptance Criteria
-- [ ] Epic Planner: Decompose this PRD into Epics (e.g., Core Wrapper implementation, Gen 3 Extender, Parser Refactoring).
+- [ ] epic-158-521-core-dataview-wrapper
+- [ ] epic-158-522-gen3-dataview-extender
+- [ ] epic-158-523-parser-refactoring-roadmap
+- [x] Epic Planner: Decompose this PRD into Epics (e.g., Core Wrapper implementation, Gen 3 Extender, Parser Refactoring).
