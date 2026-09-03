@@ -13,7 +13,9 @@ test.describe('Gen 2 Moms Savings E2E', () => {
 
     await expect(page.getByText('BANK OF MOM').first()).toBeVisible();
     await expect(page.getByText('CURRENT BALANCE').first()).toBeVisible();
-    await expect(page.getByText('SAVING ACTIVE').first().or(page.getByText('SAVING INACTIVE').first()).first()).toBeVisible();
+    await expect(
+      page.getByText('SAVING ACTIVE').first().or(page.getByText('SAVING INACTIVE').first()).first(),
+    ).toBeVisible();
   });
 
   test('should display Moms savings correctly for Silver save', async ({ page }) => {
@@ -23,7 +25,9 @@ test.describe('Gen 2 Moms Savings E2E', () => {
 
     await expect(page.getByText('BANK OF MOM').first()).toBeVisible();
     await expect(page.getByText('CURRENT BALANCE').first()).toBeVisible();
-    await expect(page.getByText('SAVING ACTIVE').first().or(page.getByText('SAVING INACTIVE').first()).first()).toBeVisible();
+    await expect(
+      page.getByText('SAVING ACTIVE').first().or(page.getByText('SAVING INACTIVE').first()).first(),
+    ).toBeVisible();
   });
 
   test('should display Moms savings correctly for Crystal save', async ({ page }) => {
@@ -33,6 +37,8 @@ test.describe('Gen 2 Moms Savings E2E', () => {
 
     await expect(page.getByText('BANK OF MOM').first()).toBeVisible();
     await expect(page.getByText('CURRENT BALANCE').first()).toBeVisible();
-    await expect(page.getByText('SAVING ACTIVE').first().or(page.getByText('SAVING INACTIVE').first()).first()).toBeVisible();
+    await expect(
+      page.getByText('SAVING ACTIVE').first().or(page.getByText('SAVING INACTIVE').first()).first(),
+    ).toBeVisible();
   });
 });
