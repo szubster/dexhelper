@@ -32,4 +32,7 @@ Verify the Gen 3 Wallpaper App State Tracking functionality via E2E tests, speci
 *   The tests must use headless mode and rely on GitHub CI for validation, following standard Playwright E2E constraints.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into tasks.
+- [x] Tech Lead: Break down into tasks.
+- [ ] task-474-528-gen3-wallpaper-e2e-suite-setup
+- [ ] task-474-529-gen3-wallpaper-e2e-interaction-impl
+- [ ] task-474-530-gen3-wallpaper-e2e-qa
