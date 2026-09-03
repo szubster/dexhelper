@@ -26,7 +26,7 @@ Verify the implementation of the Gen 3 Wallpaper state tracking in the global Zu
 * Review unit tests for adequate coverage.
 
 ## Acceptance Criteria
-- [ ] Review the implementation in `src/store.ts`.
-- [ ] Review the unit tests in `src/store.test.ts`.
-- [ ] Confirm all tests pass.
-- [ ] Manually verify state persistence across reloads (if possible/applicable).
+- [x] Review the implementation in `src/store.ts`.
+- [x] Review the unit tests in `src/store.test.ts`.
+- [x] Confirm all tests pass.
+- [x] Manually verify state persistence across reloads (if possible/applicable).
