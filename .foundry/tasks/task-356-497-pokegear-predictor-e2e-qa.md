@@ -30,5 +30,5 @@ Verify end-to-end tests for the Pokegear call predictor engine and UI.
 - Review and verify the E2E tests verify the UI accurately displays predicted probabilities.
 
 ## Acceptance Criteria
-- [ ] Verify E2E test suite for Pokegear Predictor engine
-- [ ] Verify E2E test suite for Pokegear Predictor UI
+- [x] Verify E2E test suite for Pokegear Predictor engine
+- [x] Verify E2E test suite for Pokegear Predictor UI
