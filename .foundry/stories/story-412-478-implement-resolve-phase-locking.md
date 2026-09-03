@@ -2,13 +2,13 @@
 id: story-412-478-implement-resolve-phase-locking
 type: STORY
 title: Implement RESOLVE phase locking logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-26'
 updated_at: '2026-09-03'
 depends_on:
   - story-412-477-parse-locks-orchestrator
-jules_session_id: '1428006663748828254'
+jules_session_id: '9870080905029609163'
 pr_number: null
 parent: epic-340-412-orchestrator-resource-locking
 tags:
