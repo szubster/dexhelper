@@ -2,12 +2,12 @@
 id: idea-156-foundry-node-status-health-heatmap
 type: IDEA
 title: Foundry DAG Node Health Heatmap Visualizer
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-18'
-updated_at: '2026-08-30'
+updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13999006795464345770'
 pr_number: null
 parent: null
 tags:
