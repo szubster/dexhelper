@@ -2,13 +2,13 @@
 id: task-494-514-qa-verify-dashboard
 type: TASK
 title: QA Verification - Refactor Dashboard UI to consume Context Rejection Threshold
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-01'
 updated_at: '2026-09-03'
 depends_on:
   - task-494-513-refactor-dashboard-tests
-jules_session_id: null
+jules_session_id: '6782707708980178601'
 pr_number: null
 parent: story-344-494-dashboard-rejection-count
 tags:
