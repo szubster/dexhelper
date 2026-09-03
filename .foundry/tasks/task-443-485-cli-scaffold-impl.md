@@ -6,7 +6,8 @@ status: PENDING
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-08-25'
-depends_on: []
+depends_on:
+  - idea-157-pnpm-workspaces-architecture
 jules_session_id: null
 locks: []
 pr_number: null
