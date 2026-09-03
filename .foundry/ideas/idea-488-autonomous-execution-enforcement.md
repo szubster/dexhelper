@@ -30,3 +30,8 @@ Implement an automated monitoring system or git hook that scans session transcri
 
 ## Acceptance Criteria
 - [ ] prd-488-519-autonomous-execution-enforcement
+
+## Research Considerations
+- Investigate the available Jules API endpoints to determine if this monitoring can be done programmatically within the orchestrator.
+- Evaluate if leveraging the `AWAITING_USER_FEEDBACK` state in the orchestrator is a viable alternative or complement to immediate rejection.
+- Consider exposing nodes/sessions stuck in this state on the `active_sessions.md` dashboard so users can easily identify and unblock them simultaneously.
