@@ -36,4 +36,4 @@ Write comprehensive unit tests for the TPM EPIC detection utility function.
 - The tests must verify negative cases: ignoring nodes that are not `type: EPIC`, and ignoring EPICs that are not `status: COMPLETED`.
 
 ## Acceptance Criteria
-- [ ] Implement unit tests covering positive and negative cases for the detection logic.
+- [x] Implement unit tests covering positive and negative cases for the detection logic.
