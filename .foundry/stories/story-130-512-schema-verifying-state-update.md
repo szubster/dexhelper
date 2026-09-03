@@ -2,12 +2,12 @@
 id: story-130-512-schema-verifying-state-update
 type: STORY
 title: Update schema.md regarding VERIFYING state
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8794000014968073417'
 pr_number: null
 parent: epic-097-130-schema-verifying-state-update
 tags:
