@@ -2,12 +2,12 @@
 id: story-417-521-statistics-e2e
 type: STORY
 title: Real-Time Statistics Generation E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
 updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18407795844890230966'
 pr_number: null
 parent: epic-146-417-real-time-statistics-generator
 tags:
