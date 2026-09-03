@@ -2,13 +2,13 @@
 id: task-142-250-gen3-contest-data-mapping-qa
 type: TASK
 title: QA Gen 3 Contest Data Mapping
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-07-02'
 updated_at: '2026-09-03'
 depends_on:
   - task-142-249-gen3-contest-data-mapping-impl
-jules_session_id: null
+jules_session_id: '2743421244913460291'
 pr_number: null
 parent: story-065-142-gen3-contest-data-mapping
 tags:
