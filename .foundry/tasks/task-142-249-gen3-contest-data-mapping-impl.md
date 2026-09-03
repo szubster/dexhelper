@@ -37,5 +37,5 @@ This task implements the logic for mapping extracted Gen 3 contest data (`Gen3Co
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 3. Acceptance Criteria
-- [ ] Update `PokemonInstance` interface to include `condition` and `ribbons` fields.
-- [ ] Implement mapping in `parseGen3` to correctly assign contest stats and ribbons to `PokemonInstance` objects.
+- [x] Update `PokemonInstance` interface to include `condition` and `ribbons` fields.
+- [x] Implement mapping in `parseGen3` to correctly assign contest stats and ribbons to `PokemonInstance` objects.
