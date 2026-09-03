@@ -6,7 +6,8 @@ status: READY
 owner_persona: epic_planner
 created_at: "2026-09-02"
 updated_at: "2026-09-02"
-depends_on: []
+depends_on:
+  - .foundry/ideas/idea-158-dataview-composite-wrapper.md
 jules_session_id: null
 pr_number: null
 parent: idea-112-gen3-split-variable-extraction-strategy
