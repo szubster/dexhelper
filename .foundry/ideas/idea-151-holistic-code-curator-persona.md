@@ -4,12 +4,12 @@ type: IDEA
 title: >-
   Holistic Code Curator Persona: Architectural Refactoring & Historical
   Backtracking
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-15'
-updated_at: '2026-08-15'
+updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3861611648220778830'
 pr_number: null
 parent: null
 tags:
