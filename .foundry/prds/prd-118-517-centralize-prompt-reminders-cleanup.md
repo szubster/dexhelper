@@ -2,12 +2,12 @@
 id: prd-118-517-centralize-prompt-reminders-cleanup
 type: PRD
 title: Clean up Coder and QA Persona Prompts
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-02'
 updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: '3307717559662829484'
+jules_session_id: null
 parent: idea-118-centralize-prompt-reminders-complete
 tags:
   - foundry

@@ -2,7 +2,7 @@
 id: prd-151-518-holistic-code-curator-persona
 type: PRD
 title: Holistic Code Curator Persona
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-09-03'
 updated_at: '2026-09-03'
@@ -18,6 +18,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Holistic Code Curator Persona: Architectural Refactoring & Historical Backtracking

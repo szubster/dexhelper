@@ -2,12 +2,12 @@
 id: prd-104-517-refactor-existing-parsers-adr-028
 type: PRD
 title: Refactor Existing Parsers for ADR 028
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-02'
 updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: '3819859849405847921'
+jules_session_id: null
 pr_number: null
 parent: idea-104-refactor-existing-parsers-adr-028
 tags:

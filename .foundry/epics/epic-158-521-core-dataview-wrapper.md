@@ -2,7 +2,7 @@
 id: epic-158-521-core-dataview-wrapper
 type: EPIC
 title: Core DataView Wrapper Implementation
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-03'
 updated_at: '2026-09-03'
@@ -17,6 +17,7 @@ tags:
   - abstraction
 research_references: []
 rejection_reason: ''
+locks: []
 ---
 
 # Epic: Core DataView Wrapper Implementation

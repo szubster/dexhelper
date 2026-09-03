@@ -2,7 +2,7 @@
 id: prd-148-518-priority-based-dispatch-queue
 type: PRD
 title: Priority-Based Dispatch Queue for Orchestrator
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-09-03'
 updated_at: '2026-09-03'
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # PRD: Priority-Based Dispatch Queue for Orchestrator

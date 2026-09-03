@@ -2,7 +2,7 @@
 id: epic-517-521-gen1-parser-refactor-adr-028
 type: EPIC
 title: Refactor Gen 1 Parsers for ADR 028
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-03'
 updated_at: '2026-09-03'
@@ -16,7 +16,8 @@ tags:
   - offset-mapping
   - gen1
 research_references: []
-rejection_reason: ""
+rejection_reason: ''
+locks: []
 ---
 
 # EPIC: Refactor Gen 1 Parsers for ADR 028

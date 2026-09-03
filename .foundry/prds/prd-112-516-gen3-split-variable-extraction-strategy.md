@@ -1,11 +1,11 @@
 ---
 id: prd-112-516-gen3-split-variable-extraction-strategy
 type: PRD
-title: "Gen3 Split Variable Extraction Strategy"
-status: READY
+title: Gen3 Split Variable Extraction Strategy
+status: PENDING
 owner_persona: epic_planner
-created_at: "2026-09-02"
-updated_at: "2026-09-02"
+created_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on:
   - .foundry/ideas/idea-158-dataview-composite-wrapper.md
 jules_session_id: null
@@ -15,8 +15,9 @@ tags:
   - gen3
   - architecture
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # PRD: Gen3 Split Variable Extraction Strategy
