@@ -35,4 +35,5 @@ We need a standardized architectural strategy or utility to extract these split 
 2. Consider adding a generic helper utility for reading split 32-bit variables.
 
 ## Acceptance Criteria
-- [ ] Transition this Idea into a PRD.
+- [x] Transition this Idea into a PRD.
+- [ ] prd-112-516-gen3-split-variable-extraction-strategy
