@@ -2,12 +2,12 @@
 id: prd-158-516-dataview-composite-wrapper
 type: PRD
 title: DataView Composite Wrapper & Save Parser Abstraction
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14082192345413846544'
 pr_number: null
 parent: idea-158-dataview-composite-wrapper
 tags:
