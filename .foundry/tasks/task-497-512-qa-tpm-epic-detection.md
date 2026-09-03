@@ -34,5 +34,5 @@ Verify the implementation of the TPM EPIC detection logic and ensure all unit te
 - Ensure code follows Foundry conventions and doesn't introduce regressions.
 
 ## Acceptance Criteria
-- [ ] Verify the implementation of the detection function.
-- [ ] Run and verify unit tests for the detection logic.
+- [x] Verify the implementation of the detection function.
+- [x] Run and verify unit tests for the detection logic.
