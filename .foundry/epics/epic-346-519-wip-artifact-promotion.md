@@ -25,4 +25,8 @@ This epic focuses on defining and automating procedural mechanisms for promoting
 - [ ] Automate markdown banner removal on promotion
 - [ ] Update DRAFT frontmatter to STABLE during promotion
 - [ ] Remove feature flags/graduate code upon promotion
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+- [ ] story-519-520-automate-banner-removal
+- [ ] story-519-521-update-frontmatter-promotion
+- [ ] story-519-522-graduate-code-feature-flags
+- [ ] story-519-523-artifact-promotion-e2e
