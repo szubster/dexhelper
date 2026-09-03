@@ -28,4 +28,7 @@ Implement real-time memory synchronization with DexHelper Save DB to extract sav
 ## Acceptance Criteria
 - [ ] Implement Javascript bindings to extract `saveStateBuffer` from `binjgb`.
 - [ ] Implement real-time synchronization with DexHelper Save DB.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-518-528-binjgb-bindings-impl
+- [ ] task-518-529-binjgb-memory-sync-impl
+- [ ] task-518-530-binjgb-memory-sync-qa
