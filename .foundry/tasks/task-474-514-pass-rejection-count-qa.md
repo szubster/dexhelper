@@ -33,5 +33,5 @@ This task implements `story-071-474-pass-rejection-count-context`. The `rejectio
 - Verify unit tests were written and run successfully.
 
 ## 3. Acceptance Criteria
-- [ ] Verify `rejection_count` is mapped correctly in `DagProvider`.
-- [ ] Verify unit tests pass and test the mapping correctly.
+- [x] Verify `rejection_count` is mapped correctly in `DagProvider`.
+- [x] Verify unit tests pass and test the mapping correctly.
