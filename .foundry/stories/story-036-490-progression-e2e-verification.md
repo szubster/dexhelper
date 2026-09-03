@@ -34,4 +34,7 @@ As mandated by the Orchestrator Safeguard (E2E/Integration Requirement), every E
 - Ensure the UI correctly reflects active playthrough context swaps.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into Tasks to implement and execute the E2E verification suite for progression tracking.
+- [x] Tech Lead: Break this Story down into Tasks to implement and execute the E2E verification suite for progression tracking.
+- [ ] task-490-524-progression-sync-e2e-impl
+- [ ] task-490-525-progression-switcher-e2e-impl
+- [ ] task-490-526-progression-e2e-qa
