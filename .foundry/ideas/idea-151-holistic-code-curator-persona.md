@@ -110,7 +110,8 @@ To ensure that newly added features or refactorings do not break older ideas—i
 ---
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this idea into a PRD (`prd-151-holistic-code-curator-persona`).
+- [ ] prd-151-518-holistic-code-curator-persona
+- [x] Product Manager: Convert this idea into a PRD (`prd-151-holistic-code-curator-persona`).
 - [ ] Architect: Update `.foundry/docs/schema.md` to register `curator` in the `owner_persona` enum and define Persian (#053) mapping.
 - [ ] Tech Lead: Update `.github/scripts/foundry-orchestrator.ts` to support the post-implementation Curator trigger and re-verification loop.
 - [ ] Coder: Create default journal directory `.foundry/journals/curator/` and base instructions.
