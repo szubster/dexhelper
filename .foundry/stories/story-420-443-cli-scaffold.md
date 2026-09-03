@@ -29,5 +29,7 @@ To manipulate saves which will be needed in future for multi-save support and pr
 Scaffold the base CLI tool, establishing the entrypoint and basic command routing structure.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
 - [ ] Implement base CLI scaffold and entrypoint.
+- [ ] task-443-485-cli-scaffold-impl
+- [ ] task-443-486-cli-scaffold-qa
