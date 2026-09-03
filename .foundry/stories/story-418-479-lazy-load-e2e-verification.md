@@ -26,4 +26,7 @@ locks: []
 Verify that lazy loading Gen 2 and Gen 3 components has not broken the UI and that elements still render correctly in their respective generations.
 
 ## Acceptance Criteria
-- [ ] Break down into E2E testing and verification tasks.
+- [x] Break down into E2E testing and verification tasks.
+- [ ] task-479-528-e2e-lazy-load-gen2-impl
+- [ ] task-479-529-e2e-lazy-load-gen3-impl
+- [ ] task-479-530-e2e-lazy-load-qa
