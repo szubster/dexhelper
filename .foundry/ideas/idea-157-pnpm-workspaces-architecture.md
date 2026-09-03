@@ -84,5 +84,6 @@ When migrating to `apps/web` or nested workspace packages:
 - **Functions Directory:** Point Cloudflare Pages Functions path to `apps/functions/functions` or `apps/functions` depending on CF Pages monorepo settings.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this IDEA into a PRD detailing the incremental migration phases, workspace boundaries, and Cloudflare Pages configuration instructions.
+- [x] Product Manager: Convert this IDEA into a PRD detailing the incremental migration phases, workspace boundaries, and Cloudflare Pages configuration instructions.
+- [ ] prd-157-519-pnpm-workspaces-architecture
 - [ ] Tech Lead: Break down the architectural refactoring into isolated TASK nodes per phase.
