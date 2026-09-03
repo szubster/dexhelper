@@ -57,6 +57,9 @@ Crucially, this process must operate continuously: whenever an agent or develope
 ---
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this IDEA into a comprehensive PRD detailing tech stack audit criteria, benchmarking requirements, and ADR guidelines.
-- [ ] Architect: Conduct initial tech stack audit focusing on TypeScript generators, async iterators, and TS 7.x type-stripping compatibility across save parsers, drafting `adr-154-typescript-generators-and-modern-features`.
-- [ ] Tech Lead: Define template and guidelines for agents to dynamically spawn research and ADR child nodes during continuous development sessions.
+- [ ] task-154-525-tech-lead-dynamic-node-spawning-guidelines
+- [ ] task-154-524-architect-tech-stack-audit
+- [ ] prd-154-518-ecosystem-modernization
+- [x] Product Manager: Convert this IDEA into a comprehensive PRD detailing tech stack audit criteria, benchmarking requirements, and ADR guidelines.
+- [x] Architect: Conduct initial tech stack audit focusing on TypeScript generators, async iterators, and TS 7.x type-stripping compatibility across save parsers, drafting `adr-154-typescript-generators-and-modern-features`.
+- [x] Tech Lead: Define template and guidelines for agents to dynamically spawn research and ADR child nodes during continuous development sessions.
