@@ -2,10 +2,10 @@
 id: story-417-478-assistant-code-splitting
 type: STORY
 title: Split assistant logic by generation
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on:
   - story-417-477-save-parser-code-splitting
 jules_session_id: null
@@ -16,6 +16,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Split assistant logic by generation
 
@@ -24,5 +25,5 @@ To improve performance, generation-specific logic should be separated and lazily
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-478-514-implement-strategy-code-splitting
-- [ ] task-478-515-qa-strategy-code-splitting
+- [x] task-478-514-implement-strategy-code-splitting
+- [x] task-478-515-qa-strategy-code-splitting

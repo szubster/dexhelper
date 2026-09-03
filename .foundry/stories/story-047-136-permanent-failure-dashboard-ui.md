@@ -2,10 +2,10 @@
 id: story-047-136-permanent-failure-dashboard-ui
 type: STORY
 title: Implement Permanent Failure Dashboard UI
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-15'
-updated_at: '2026-08-25'
+updated_at: '2026-09-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Implement Permanent Failure Dashboard UI
 

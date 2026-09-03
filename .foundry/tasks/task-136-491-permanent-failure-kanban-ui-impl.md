@@ -2,13 +2,13 @@
 id: task-136-491-permanent-failure-kanban-ui-impl
 type: TASK
 title: Implement Permanent Failure Kanban UI
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-27'
+updated_at: '2026-09-03'
 depends_on:
   - task-136-489-permanent-failure-state-selectors-impl
-jules_session_id: '10164861099928403890'
+jules_session_id: null
 pr_number: null
 parent: story-047-136-permanent-failure-dashboard-ui
 tags:
@@ -18,8 +18,9 @@ tags:
   - kanban
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
+locks: []
 ---
 # Implement Permanent Failure Kanban UI
 

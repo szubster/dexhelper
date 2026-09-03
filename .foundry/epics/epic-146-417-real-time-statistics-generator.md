@@ -2,12 +2,12 @@
 id: epic-146-417-real-time-statistics-generator
 type: EPIC
 title: Real-Time Statistics Generator & Orchestrator Integration
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-14'
 updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: '9781704663363640058'
+jules_session_id: null
 pr_number: null
 parent: prd-146-001-foundry-system-statistics
 tags:

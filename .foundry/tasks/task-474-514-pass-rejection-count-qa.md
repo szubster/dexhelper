@@ -2,13 +2,13 @@
 id: task-474-514-pass-rejection-count-qa
 type: TASK
 title: QA Verification for rejection_count in DagContext
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-01'
 updated_at: '2026-09-03'
 depends_on:
   - task-474-513-pass-rejection-count-tests
-jules_session_id: '4831090993244504493'
+jules_session_id: null
 pr_number: null
 parent: story-071-474-pass-rejection-count-context
 tags:

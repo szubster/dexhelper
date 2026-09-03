@@ -2,12 +2,12 @@
 id: task-154-525-tech-lead-dynamic-node-spawning-guidelines
 type: TASK
 title: Define template and guidelines for dynamic node spawning
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
 updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: '6761696222301349597'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: idea-154-ecosystem-modernization-and-generators
