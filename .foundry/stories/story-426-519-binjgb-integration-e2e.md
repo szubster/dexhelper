@@ -2,10 +2,10 @@
 id: story-426-519-binjgb-integration-e2e
 type: STORY
 title: E2E Verification for binjgb Integration
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on:
   - story-426-517-binjgb-wasm-wrapper
   - story-426-518-binjgb-memory-sync
@@ -22,6 +22,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # E2E Verification for binjgb Integration

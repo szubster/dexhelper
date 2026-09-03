@@ -2,13 +2,13 @@
 id: task-415-490-egg-move-inventory-cross-reference-e2e-qa
 type: TASK
 title: Egg Move Inventory Cross-Reference E2E Verification QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-09-03'
 depends_on:
   - task-415-489-egg-move-inventory-cross-reference-e2e-impl
-jules_session_id: '2604901018154444302'
+jules_session_id: null
 pr_number: null
 parent: story-114-415-egg-move-inventory-cross-reference-e2e
 tags:

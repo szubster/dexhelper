@@ -2,12 +2,12 @@
 id: task-477-506-update-schema-locks-impl
 type: TASK
 title: Update schema to default locks to an empty array
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-31'
 updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: '9087517217697452926'
+jules_session_id: null
 pr_number: null
 parent: story-412-477-parse-locks-orchestrator
 tags:
