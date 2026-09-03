@@ -27,4 +27,7 @@ locks: []
 - Ensure the root `package.json` is correctly set up for the monorepo workspace.
 
 ## Acceptance Criteria
-- [ ] Break this story down into tasks for creating and configuring the workspace files.
+- [ ] task-522-528-create-pnpm-workspace-yaml
+- [ ] task-522-529-update-root-package-json
+- [ ] task-522-530-workspace-config-qa
+- [x] Break this story down into tasks for creating and configuring the workspace files.
