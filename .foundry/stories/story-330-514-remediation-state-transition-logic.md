@@ -28,4 +28,7 @@ Implement the core logic to identify zombie nodes (nodes stuck in the `ACTIVE` s
 ## Acceptance Criteria
 - [ ] Implement state transition logic to modify `status` to `FAILED` in the markdown files safely.
 - [ ] Ensure robust unit test coverage for the remediation functionality.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-514-526-remediation-state-transition-logic-impl
+- [ ] task-514-527-remediation-state-transition-logic-tests
+- [ ] task-514-528-remediation-state-transition-logic-qa
