@@ -38,4 +38,5 @@ Introduce a priority-based scheduling mechanism into the orchestrator.
 This enhancement will allow Product Managers and TPMs to steer the multi-agent pipeline efficiently, ensuring that blockers and critical path features are dispatched before exploratory or low-priority tasks. It optimizes the operational cost and lead time of high-value features.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a PRD outlining the exact changes required to `schema.md` and `foundry-orchestrator.ts`.
+- [ ] prd-148-518-priority-based-dispatch-queue
+- [x] Product Manager: Draft a PRD outlining the exact changes required to `schema.md` and `foundry-orchestrator.ts`.
