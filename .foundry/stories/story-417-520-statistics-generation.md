@@ -31,4 +31,8 @@ Implement the statistics generation module that aggregates real-time metrics for
 4. **Integration**: Tie the script to `.github/scripts/foundry-orchestrator.ts` or the `foundry-heartbeat.yml` workflow.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into Tasks for Implementation and PR Metrics.
+- [x] Break down this Story into Tasks for Implementation and PR Metrics.
+- [ ] task-520-528-statistics-node-aggregation-impl
+- [ ] task-520-529-statistics-pr-metrics-impl
+- [ ] task-520-530-statistics-report-integration-impl
+- [ ] task-520-531-statistics-generation-qa
