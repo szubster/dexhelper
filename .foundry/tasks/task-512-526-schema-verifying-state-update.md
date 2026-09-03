@@ -34,4 +34,4 @@ This task implements the required documentation changes to `schema.md` to reflec
     `7. **VERIFYING and COMPLETED nodes are read-only for implementing personas.** Once a PR is merged...`
 
 ## Acceptance Criteria
-- [ ] Invariant 7 in `.foundry/docs/schema.md` correctly states that `VERIFYING` and `COMPLETED` nodes are read-only for implementing personas.
+- [x] Invariant 7 in `.foundry/docs/schema.md` correctly states that `VERIFYING` and `COMPLETED` nodes are read-only for implementing personas.
