@@ -25,6 +25,6 @@ locks: []
 Refactor `src/engine/assistant/strategies/index.ts` to lazily load generation-specific strategies using dynamic imports.
 
 ## Acceptance Criteria
-- [ ] `getStrategy` is an async function that uses `await import()` for generation strategies.
-- [ ] `suggestionEngine.ts` is updated to await `getStrategy`.
-- [ ] `pnpm lint` and `pnpm test` pass successfully.
+- [x] `getStrategy` is an async function that uses `await import()` for generation strategies.
+- [x] `suggestionEngine.ts` is updated to await `getStrategy`.
+- [x] `pnpm lint` and `pnpm test` pass successfully.
