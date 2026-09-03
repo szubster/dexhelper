@@ -94,7 +94,7 @@
       "maxSize": "50kb"
     },
     {
-      "path": "**/*",
+      "path": "**/*.@(js|css|html|png|msgpack|webmanifest|json|hash|txt)",
       "maxSize": "300kb"
     }
   ],
