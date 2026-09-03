@@ -32,4 +32,4 @@ TypeScript generators (`function*`), async generators, explicit resource managem
 3. Draft `adr-154-typescript-generators-and-modern-features` outlining the strategic adoption of generator-based lazy evaluation and explicit resource management.
 
 ## Acceptance Criteria
-- [ ] Draft `adr-154-typescript-generators-and-modern-features` and verify its compliance with the overarching ecosystem modernization goals.
+- [x] Draft `adr-154-typescript-generators-and-modern-features` and verify its compliance with the overarching ecosystem modernization goals.
