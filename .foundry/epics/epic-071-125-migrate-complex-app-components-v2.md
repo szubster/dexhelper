@@ -39,3 +39,5 @@ Refactor higher-level, complex application components and views to leverage the 
 ## Acceptance Criteria
 - [ ] High-level components and views are updated to use semantic `@utility` classes where appropriate.
 - [ ] The tactical hardware aesthetic is maintained without visual regressions.
+- [ ] story-125-519-refactor-complex-dashboard
+- [ ] story-125-520-refactor-complex-dashboard-e2e
