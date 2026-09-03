@@ -2,13 +2,13 @@
 id: task-422-497-gen3-static-encounters-e2e-qa
 type: TASK
 title: QA Gen 3 Static Encounters E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-26'
-updated_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on:
   - task-422-496-gen3-static-encounters-e2e-impl
-jules_session_id: '14323259908437325530'
+jules_session_id: '18293202696316295612'
 pr_number: null
 parent: story-138-422-gen3-static-encounters-e2e
 tags:
