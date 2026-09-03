@@ -26,6 +26,9 @@ This story implements the required changes from `epic-097-130-schema-verifying-s
 
 ## Acceptance Criteria
 - [ ] Invariant 7 in `.foundry/docs/schema.md` is updated to clarify that `VERIFYING` and `COMPLETED` nodes are read-only for implementing personas.
+- [x] Break down into Tasks
+- [ ] task-512-526-schema-verifying-state-update
+- [ ] task-512-527-schema-verifying-state-update-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
