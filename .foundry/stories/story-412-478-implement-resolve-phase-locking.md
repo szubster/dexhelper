@@ -33,4 +33,7 @@ Implement lock aggregation and evaluation in the RESOLVE phase of the orchestrat
 - Prevent deadlocks.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-478-528-aggregate-active-locks
+- [ ] task-478-529-evaluate-locks-for-pending-nodes
+- [ ] task-478-530-resolve-phase-locking-qa
