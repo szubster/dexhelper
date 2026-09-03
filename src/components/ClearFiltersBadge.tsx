@@ -16,7 +16,7 @@ export function ClearFiltersBadge({ isActive, onClick }: ClearFiltersBadgeProps)
       variant="sidebar"
       hasCrosshairs={true}
       className={cn(
-        'h-10 min-w-[80px] border-r-0 xl:min-w-[100px]',
+        'h-10 min-w-20 border-r-0 xl:min-w-25',
         isActive
           ? '!border-[var(--theme-primary)] bg-[var(--theme-primary)]/20 text-[var(--theme-primary)] shadow-[inset_0_0_15px_rgba(var(--theme-primary-rgb),0.2)]'
           : '',

@@ -14,7 +14,7 @@ import { foundryPlugin } from './vite-plugins/foundry-plugin.ts';
 
 export default defineConfig(() => {
   const sourceDir = path.resolve(import.meta.dirname, 'data/db');
-  const target = 'chrome130';
+  const target = 'esnext';
 
   return {
     base: process.env['CF_PAGES'] === 'true' ? '/' : '/dexhelper/',
@@ -82,7 +82,7 @@ export default defineConfig(() => {
     css: {
       transformer: 'lightningcss' as const,
       lightningcss: {
-        targets: browserslistToTargets(browserslist(`chrome >= ${target.replace('chrome', '')}`)),
+        targets: browserslistToTargets(browserslist('last 1 Chrome version')),
       },
     },
     build: {

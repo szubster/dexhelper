@@ -24,7 +24,7 @@ export function TelemetryMatrix({ saveData, progressPercentage }: TelemetryMatri
 
       <VerticalDivider className="h-8" />
 
-      <div className="flex min-w-[100px] flex-col justify-center px-4">
+      <div className="flex min-w-25 flex-col justify-center px-4">
         <InlineDataPoint
           label="L-DEX"
           value={`${Math.floor(progressPercentage)}%`}
