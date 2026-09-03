@@ -27,8 +27,8 @@ locks: []
 Verify that `DagDashboard.tsx` and `DagNode.tsx`, along with their respective tests, have been refactored correctly to use `maxRejectionThreshold` from `useDagContext()`.
 
 ## Acceptance Criteria
-- [ ] Verify that `DagDashboard.tsx` uses `maxRejectionThreshold` from context and does not import `MAX_REJECTION_THRESHOLD` directly.
-- [ ] Verify that `DagNode.tsx` uses `maxRejectionThreshold` from context and does not import `MAX_REJECTION_THRESHOLD` directly.
-- [ ] Verify that `DagDashboard.test.tsx` correctly mocks or passes the context threshold and does not import `MAX_REJECTION_THRESHOLD`.
-- [ ] Verify that `DagNode.test.tsx` correctly mocks or passes the context threshold and does not import `MAX_REJECTION_THRESHOLD`.
-- [ ] Ensure all unit tests pass correctly (`pnpm test`).
+- [x] Verify that `DagDashboard.tsx` uses `maxRejectionThreshold` from context and does not import `MAX_REJECTION_THRESHOLD` directly.
+- [x] Verify that `DagNode.tsx` uses `maxRejectionThreshold` from context and does not import `MAX_REJECTION_THRESHOLD` directly.
+- [x] Verify that `DagDashboard.test.tsx` correctly mocks or passes the context threshold and does not import `MAX_REJECTION_THRESHOLD`.
+- [x] Verify that `DagNode.test.tsx` correctly mocks or passes the context threshold and does not import `MAX_REJECTION_THRESHOLD`.
+- [x] Ensure all unit tests pass correctly (`pnpm test`).
