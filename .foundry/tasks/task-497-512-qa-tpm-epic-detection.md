@@ -2,10 +2,10 @@
 id: task-497-512-qa-tpm-epic-detection
 type: TASK
 title: QA TPM EPIC Detection Logic
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-03'
 depends_on:
   - task-497-513-test-tpm-epic-detection
 jules_session_id: null
@@ -19,6 +19,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # QA TPM EPIC Detection Logic

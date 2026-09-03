@@ -2,7 +2,7 @@
 id: story-047-136-permanent-failure-dashboard-ui
 type: STORY
 title: Implement Permanent Failure Dashboard UI
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-15'
 updated_at: '2026-09-03'
