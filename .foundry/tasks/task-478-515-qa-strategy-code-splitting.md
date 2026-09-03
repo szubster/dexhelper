@@ -25,5 +25,5 @@ locks: []
 Verify that the Assistant Strategy logic has been successfully split to use dynamic imports.
 
 ## Acceptance Criteria
-- [ ] Confirm `getStrategy` in `src/engine/assistant/strategies/index.ts` dynamically imports strategies based on generation.
-- [ ] All unit tests pass and no regressions are introduced.
+- [x] Confirm `getStrategy` in `src/engine/assistant/strategies/index.ts` dynamically imports strategies based on generation.
+- [x] All unit tests pass and no regressions are introduced.
