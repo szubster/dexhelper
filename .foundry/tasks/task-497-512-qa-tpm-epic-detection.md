@@ -2,13 +2,13 @@
 id: task-497-512-qa-tpm-epic-detection
 type: TASK
 title: QA TPM EPIC Detection Logic
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-01'
 updated_at: '2026-09-03'
 depends_on:
   - task-497-513-test-tpm-epic-detection
-jules_session_id: null
+jules_session_id: '2904338605215007079'
 pr_number: null
 parent: story-406-497-tpm-epic-detection-logic
 tags:
