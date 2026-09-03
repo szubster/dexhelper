@@ -30,10 +30,13 @@ Once zombie nodes are detected and the state transition logic is in place, the G
 This Epic handles the decision and implementation of whether this GC process runs synchronously within the main orchestrator script or as an independent scheduled script. The implementation must incorporate findings from the prerequisite research node.
 
 ## Acceptance Criteria
-- [ ] Review research findings from `research-050-329-investigate-zombie-gc-failure`.
-- [ ] Determine the integration approach (standalone script vs. direct orchestrator integration).
+- [x] Review research findings from `research-050-329-investigate-zombie-gc-failure`.
+- [x] Determine the integration approach (standalone script vs. direct orchestrator integration).
 - [ ] Implement the integration pattern accurately utilizing the detection engine and remediation logic.
 - [ ] Ensure that remediated nodes (`FAILED` state) are correctly processed by the existing resurrection loop on the subsequent cycle.
 
 ## Next Steps
-- [ ] Break down into Stories.
+- [x] Break down into Stories.
+- [ ] story-331-520-zombie-node-gc-integration-logic
+- [ ] story-331-521-zombie-node-gc-integration-tests
+- [ ] story-331-522-zombie-node-gc-integration-e2e
