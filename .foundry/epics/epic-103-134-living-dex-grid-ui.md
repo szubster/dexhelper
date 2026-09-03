@@ -32,3 +32,7 @@ This epic covers the visual representation of the Living Dex. We need a grid vie
 - [ ] Overlay the current PC box and Party state onto the grid.
 - [ ] Visually highlight "ghosts" (missing slots).
 - [ ] Adhere to tactical hardware/snooping aesthetic (ADR 008).
+- [ ] story-134-522-living-dex-numerical-grid
+- [ ] story-134-523-living-dex-state-overlay
+- [ ] story-134-524-living-dex-ghosts-and-styling
+- [ ] story-134-525-living-dex-integration-e2e
