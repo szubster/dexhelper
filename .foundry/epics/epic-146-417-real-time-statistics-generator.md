@@ -33,4 +33,6 @@ Implement a real-time statistics generation module that runs at the end of each 
 5. **Orchestrator Integration**: Integrate this module into `.github/scripts/foundry-orchestrator.ts` or `.github/workflows/foundry-heartbeat.yml` to trigger after each run and auto-commit if there are changes.
 
 ## Acceptance Criteria
-- [ ] Break down this Epic into Stories, ensuring the final STORY is dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Break down this Epic into Stories, ensuring the final STORY is dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-417-520-statistics-generation
+- [ ] story-417-521-statistics-e2e
