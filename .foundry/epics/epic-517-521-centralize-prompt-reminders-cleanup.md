@@ -2,12 +2,12 @@
 id: epic-517-521-centralize-prompt-reminders-cleanup
 type: EPIC
 title: Clean up Coder and QA Persona Prompts
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-03'
 updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15245148245370045516'
 pr_number: null
 parent: prd-118-517-centralize-prompt-reminders-cleanup
 tags:
