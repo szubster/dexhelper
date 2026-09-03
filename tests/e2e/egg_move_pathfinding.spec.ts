@@ -18,7 +18,7 @@ test.describe('Egg Move Pathfinding Engine', () => {
     }
 
     // 3. Verify page content
-    await expect(page.getByText(/AI Assistant/i)).toBeVisible();
+    await expect(page.getByText(/TACTICAL OPERATIONS AI/i)).toBeVisible();
 
     // 4. Wait for suggestion cards to load
     const cards = page.locator('[data-testid="assistant-suggestion-card"]');

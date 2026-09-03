@@ -19,7 +19,7 @@ test.describe('Living Dex Evolution Material Mapping E2E', () => {
     }
 
     // 3. Verify page content
-    await expect(page.getByText(/AI Assistant/i)).toBeVisible();
+    await expect(page.getByText(/TACTICAL OPERATIONS AI/i)).toBeVisible();
 
     // 4. Wait for suggestion cards to load
     const cards = page.locator('[data-testid="assistant-suggestion-card"]');

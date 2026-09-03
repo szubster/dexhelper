@@ -18,7 +18,7 @@ test.describe('Assistant Page', () => {
     }
 
     // 3. Verify page content
-    await expect(page.getByText(/AI Assistant/i)).toBeVisible();
+    await expect(page.getByText(/TACTICAL OPERATIONS AI/i)).toBeVisible();
 
     // 4. Check for Wild Encounters category
     await expect(page.getByText(/Wild Encounters/i)).toBeVisible({ timeout: 15000 });

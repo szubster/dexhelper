@@ -29,7 +29,7 @@ test.describe('Gen 3 AI Data Extraction E2E', () => {
       await assistantLink.click();
     }
 
-    await expect(page.getByText(/AI Assistant/i)).toBeVisible();
+    await expect(page.getByText(/TACTICAL OPERATIONS AI/i)).toBeVisible();
 
     // 5. Verify Location Data Extraction
     // Check that 'Wild Encounters' suggestions load, which relies on location data
