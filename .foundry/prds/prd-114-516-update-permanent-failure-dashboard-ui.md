@@ -2,12 +2,12 @@
 id: prd-114-516-update-permanent-failure-dashboard-ui
 type: PRD
 title: Update Permanent Failure Dashboard UI for Cancelled Nodes
-status: ACTIVE
+status: FAILED
 owner_persona: epic_planner
 created_at: '2026-09-02'
 updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: '13273874034936532871'
+jules_session_id: null
 pr_number: null
 parent: idea-114-update-permanent-failure-dashboard-ui
 tags:
@@ -15,8 +15,9 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
+locks: []
 ---
 
 # PRD: Update Permanent Failure Dashboard UI for Cancelled Nodes
