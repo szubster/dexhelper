@@ -2,13 +2,13 @@
 id: task-473-501-wallpaper-state-tracking-qa
 type: TASK
 title: QA - Gen 3 Wallpaper State Tracking
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-27'
 updated_at: '2026-09-03'
 depends_on:
   - task-473-500-wallpaper-state-unit-tests-impl
-jules_session_id: '4506704929931564529'
+jules_session_id: null
 parent: story-116-473-gen3-wallpaper-app-state-tracking-impl
 locks: []
 rejection_reason: ''

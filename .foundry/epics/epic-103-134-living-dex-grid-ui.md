@@ -2,13 +2,13 @@
 id: epic-103-134-living-dex-grid-ui
 type: EPIC
 title: Living Dex Numerical Grid & Box Overlay UI
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-07-04'
 updated_at: '2026-09-03'
 depends_on:
   - epic-103-133-living-dex-data-engine
-jules_session_id: '14837662809033594521'
+jules_session_id: null
 pr_number: null
 parent: prd-056-103-living-dex-tracker
 tags:
@@ -17,8 +17,9 @@ tags:
   - living-dex
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
+locks: []
 ---
 
 # Epic: Living Dex Numerical Grid & Box Overlay UI

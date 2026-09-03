@@ -2,10 +2,10 @@
 id: story-412-478-implement-resolve-phase-locking
 type: STORY
 title: Implement RESOLVE phase locking logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-09-03'
 depends_on:
   - story-412-477-parse-locks-orchestrator
 jules_session_id: '1428006663748828254'

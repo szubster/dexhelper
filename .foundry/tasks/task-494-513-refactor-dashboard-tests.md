@@ -2,10 +2,10 @@
 id: task-494-513-refactor-dashboard-tests
 type: TASK
 title: Refactor Dashboard UI tests to mock Context Rejection Threshold
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-03'
 depends_on:
   - task-494-512-refactor-dashboard-ui
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Refactor Dashboard UI tests to mock Context Rejection Threshold

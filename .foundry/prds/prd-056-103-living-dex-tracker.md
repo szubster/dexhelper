@@ -2,10 +2,10 @@
 id: prd-056-103-living-dex-tracker
 type: PRD
 title: Specialized "Living Dex" Organization Tracker UI
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-07-03'
-updated_at: '2026-07-05'
+updated_at: '2026-09-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # PRD: Specialized "Living Dex" Organization Tracker UI
