@@ -26,5 +26,5 @@ rejection_reason: ''
 Verify that the Playwright E2E tests for Gen 1, Gen 2, and Gen 3 save data properly cover the SaveData type refactoring and assert correctly on the UI.
 
 ## Acceptance Criteria
-- [ ] Run the full E2E test suite and verify it passes.
-- [ ] Verify the tests correctly assert against the required criteria and are not faked.
+ - [x] Run the full E2E test suite and verify it passes.
+ - [x] Verify the tests correctly assert against the required criteria and are not faked.
