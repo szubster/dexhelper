@@ -82,7 +82,7 @@ export default defineConfig(() => {
     css: {
       transformer: 'lightningcss' as const,
       lightningcss: {
-        targets: browserslistToTargets(browserslist('chrome >= 151')),
+        targets: browserslistToTargets(browserslist('last 1 Chrome version')),
       },
     },
     build: {
