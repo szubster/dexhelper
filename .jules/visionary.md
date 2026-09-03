@@ -352,6 +352,13 @@
 - **Strategic Balance:**
   In the previous session, we proposed IDEA-155 (Gen 3 Trick House Tracker) for the main DexHelper product domain. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a Foundry Orchestrator tooling improvement.
 
+- **Active Session/Timestamp:** 2026-09-02
+- **Domain:** Main Project (DexHelper)
+- **Proposed Idea:** Gen 3 Pokédex Completion & Missed Achievement Tracker (IDEA-516)
+- **Rationale & Concept:**
+  Proposes a feature to track Pokédex completion gaps and missed major achievements/items in Gen 3 games, specifically catering to players preparing to migrate to the next generation rather than farming the current one.
+- **Strategic Balance:**
+  In the preceding session, IDEA-487 was proposed for the Foundry System (Refactoring Rejection Count Schema). To strictly maintain the required 50/50 strategic balance between product features and system improvements, this session pivots back to proposing a direct user-facing feature for DexHelper (Completion Tracker).
 - **Active Session/Timestamp:** 2026-09-03
 - **Domain:** Main Project (DexHelper)
 - **Proposed Idea:** Hardcore Nuzlocke Level Cap Tracker (IDEA-488)
