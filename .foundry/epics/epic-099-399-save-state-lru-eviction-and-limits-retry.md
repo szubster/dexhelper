@@ -31,4 +31,8 @@ Implement mechanisms to handle storage limits gracefully, including maximum numb
 - [ ] Define and implement the maximum number of save states allowed per playthrough.
 - [ ] Implement LRU (Least Recently Used) eviction logic to remove older states when limits are reached.
 - [ ] Ensure the storage engine handles quota exceeded errors gracefully.
-- [ ] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-399-520-save-state-limits
+- [ ] story-399-521-save-state-lru-eviction
+- [ ] story-399-522-save-state-quota-handling
+- [ ] story-399-523-save-state-limits-e2e
