@@ -2,7 +2,7 @@
 id: idea-488-nuzlocke-level-cap-tracker
 type: IDEA
 title: Hardcore Nuzlocke Level Cap Tracker
-status: READY
+status: CANCELLED
 owner_persona: product_manager
 created_at: '2026-09-03'
 updated_at: '2026-09-03'
@@ -15,7 +15,7 @@ tags:
   - nuzlocke
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Maintainer explicitly rejected: No nuzlocke. Ever.'
 notes: ''
 ---
 

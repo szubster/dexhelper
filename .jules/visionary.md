@@ -359,3 +359,11 @@
   Hardcore Nuzlocke rules strictly forbid leveling past the next Gym Leader's ace Pokémon. By parsing current gym badges, DexHelper can determine the current level cap and warn players if their active party members are close to exceeding it.
 - **Strategic Balance:**
   The last several ideas leaned heavily into Foundry Orchestrator improvements and technical debt. To restore the required 50/50 balance, this session pivots back to a high-value, player-facing feature for DexHelper.
+
+- **Active Session/Timestamp:** 2026-09-03
+- **Domain:** Main Project (DexHelper)
+- **Proposed Idea:** Hardcore Nuzlocke Level Cap Tracker (IDEA-488) - REJECTED
+- **Rationale & Concept:**
+  Proposed a level cap tracker for Nuzlockes based on gym badges.
+- **Outcome/Feedback:**
+  The maintainer explicitly rejected the idea with the comment: "No nuzlocke. Ever." This indicates a strict constraint against implementing any Nuzlocke-specific features in DexHelper. Future ideas must strictly avoid anything related to Nuzlockes.
