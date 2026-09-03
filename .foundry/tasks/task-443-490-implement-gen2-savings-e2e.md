@@ -32,4 +32,4 @@ Implement Playwright E2E tests for Mom's bank savings extraction in Gen 2 to ens
 - Call `await waitForSync(page)` after navigation to ensure IndexedDB syncs complete.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 2 Mom's savings E2E tests
+- [x] Implement Gen 2 Mom's savings E2E tests
