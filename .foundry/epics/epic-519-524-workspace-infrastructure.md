@@ -30,5 +30,9 @@ This epic focuses on setting up the foundational monorepo infrastructure.
 - Set up global `package.json` and base `tsconfig.json` in `packages/config`.
 
 ## Acceptance Criteria
-- [ ] Break this epic down into stories for configuring the workspace and linting rules.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+- [x] Break this epic down into stories for configuring the workspace and linting rules.
+- [ ] story-524-522-configure-workspace
+- [ ] story-524-523-configure-global-packages
+- [ ] story-524-524-architectural-linting
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+- [ ] story-524-525-workspace-infrastructure-e2e
