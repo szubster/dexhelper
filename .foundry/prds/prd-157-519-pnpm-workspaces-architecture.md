@@ -82,4 +82,10 @@ Deployment configurations must be carefully updated to accommodate the monorepo 
 - **Functions Directory:** Update the path to point to `apps/functions` or `apps/functions/functions` depending on the exact target directory configuration.
 
 ## 6. Acceptance Criteria
-- [ ] Epic Planner: Create an EPIC to break down this PRD into discrete stories representing the migration phases.
+- [x] Epic Planner: Create an EPIC to break down this PRD into discrete stories representing the migration phases.
+- [ ] epic-519-524-workspace-infrastructure
+- [ ] epic-519-525-extract-build-tooling
+- [ ] epic-519-526-extract-core-domain
+- [ ] epic-519-527-extract-ui-components
+- [ ] epic-519-528-isolate-backend-frontend
+- [ ] epic-519-529-cicd-configuration
