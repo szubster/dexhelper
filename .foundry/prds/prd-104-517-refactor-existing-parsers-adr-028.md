@@ -30,4 +30,7 @@ During the completion of `epic-053-103-relative-offsets-adr`, ADR 028 was establ
 Refactor existing save parsing code across all generations (Gen 1, Gen 2, Gen 3) to strictly comply with ADR 028. Remove all inline magic numbers used for memory offsets, lengths, bit locations, and shifts in dynamic save block extraction, and replace them with explicitly defined module-level constants.
 
 ## Acceptance Criteria
-- [ ] Break down this PRD into Epics.
+- [x] Break down this PRD into Epics.
+- [ ] epic-517-521-gen1-parser-refactor-adr-028
+- [ ] epic-517-522-gen2-parser-refactor-adr-028
+- [ ] epic-517-523-gen3-parser-refactor-adr-028
