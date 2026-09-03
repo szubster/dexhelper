@@ -1,0 +1,31 @@
+---
+id: story-426-518-binjgb-memory-sync
+type: STORY
+title: Implement Real-time Memory Synchronization for binjgb
+status: READY
+owner_persona: tech_lead
+created_at: '2026-09-02'
+updated_at: '2026-09-02'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: epic-421-426-binjgb-integration
+tags:
+  - wasm
+  - emulator
+  - gen1
+  - gen2
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Implement Real-time Memory Synchronization for binjgb
+
+Implement real-time memory synchronization with DexHelper Save DB to extract save state (`saveStateBuffer`) and directly access the emulator's memory space via Javascript bindings for real-time suggestions.
+
+## Acceptance Criteria
+- [ ] Implement Javascript bindings to extract `saveStateBuffer` from `binjgb`.
+- [ ] Implement real-time synchronization with DexHelper Save DB.
+- [ ] Break down into Tasks.

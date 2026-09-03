@@ -28,5 +28,8 @@ Integrate `binjgb` via WASM to provide an embedded Game Boy emulator for Gen 1 a
 Extract the save state (`saveStateBuffer`) and directly access the emulator's memory space via Javascript bindings to synchronize with the parsing engine for real-time suggestions.
 
 ## Acceptance Criteria
-- [ ] Create Story breakdown to implement binjgb WASM module wrapper and React component.
-- [ ] Create Story breakdown to implement real-time memory synchronization with DexHelper Save DB for Gen 1 & 2.
+- [x] Create Story breakdown to implement binjgb WASM module wrapper and React component.
+- [x] Create Story breakdown to implement real-time memory synchronization with DexHelper Save DB for Gen 1 & 2.
+- [ ] story-426-517-binjgb-wasm-wrapper
+- [ ] story-426-518-binjgb-memory-sync
+- [ ] story-426-519-binjgb-integration-e2e
