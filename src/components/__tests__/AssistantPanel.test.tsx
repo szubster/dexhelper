@@ -82,7 +82,7 @@ describe('AssistantPanel', () => {
 
     await renderWithProviders(<AssistantPanel saveData={mockSaveData} isLivingDex={false} manualVersion={null} />);
 
-    await expect.element(page.getByText('AI Assistant')).toBeVisible();
+    await expect.element(page.getByText('TACTICAL OPERATIONS AI')).toBeVisible();
   });
 
   it('renders empty state', async () => {
@@ -96,7 +96,7 @@ describe('AssistantPanel', () => {
 
     await renderWithProviders(<AssistantPanel saveData={mockSaveData} isLivingDex={false} manualVersion={null} />);
 
-    await expect.element(page.getByText(/YOU'RE ALL CAUGHT UP/)).toBeVisible();
+    await expect.element(page.getByText(/SYS.NOMINAL/)).toBeVisible();
   });
 
   it('renders suggestions and can toggle debug view', async () => {
@@ -138,7 +138,7 @@ describe('AssistantPanel', () => {
     await expect.element(page.getByText(/TRADE REQUIRED/)).toBeVisible();
     await expect.element(page.getByText(/Trade for Machamp/)).toBeVisible();
 
-    const debugBtn = page.getByRole('button', { name: /Toggle Debug Mode/i });
+    const debugBtn = page.getByRole('button', { name: /Toggle Diagnostic Feed/i });
     await userEvent.click(debugBtn);
 
     await expect.element(page.getByText(/SYS.DIAGNOSTICS/)).toBeVisible();

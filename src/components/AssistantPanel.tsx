@@ -11,6 +11,8 @@ import { AssistantSuggestionCard } from './assistant/AssistantSuggestionCard';
 import { MapUI } from './assistant/MapUI';
 import { CornerCrosshairs } from './CornerCrosshairs';
 import { EdgeLabel } from './EdgeLabel';
+import { LcdGrid } from './LcdGrid';
+import { ScanlineOverlay } from './ScanlineOverlay';
 import { TacticalIconButton } from './TacticalIconButton';
 
 interface AssistantPanelProps {
@@ -32,7 +34,6 @@ const CATEGORY_ORDER: Record<SuggestionCategory, number> = {
   Progress: 4,
   Event: 5,
   Utility: 6,
-
   Breed: 7,
 };
 
@@ -133,33 +134,38 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
 
   return (
     <div className="flex-1 space-y-6">
-      <div className="relative flex flex-col justify-between gap-4 border border-zinc-800/80 bg-zinc-900/50 p-6 sm:flex-row sm:items-center">
-        <CornerCrosshairs thickness={2} className="h-2 w-2 border-white/20" />
-        <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-emerald-500/50 via-amber-500/50 to-purple-500/50" />
-        <EdgeLabel className="pointer-events-none -top-2.5 left-4 text-[var(--theme-primary)]">SYS.ASST</EdgeLabel>
+      <div className="relative flex flex-col justify-between gap-4 border-2 border-zinc-700 border-dashed bg-zinc-950 p-6 shadow-[inset_0_0_30px_rgba(0,0,0,0.8)] sm:flex-row sm:items-center">
+        <LcdGrid className="opacity-[0.03]" />
+        <ScanlineOverlay opacityClass="opacity-10" />
+        <CornerCrosshairs thickness={2} className="h-2 w-2 border-[var(--theme-primary)]/50" />
+        <div className="absolute top-0 left-0 h-[3px] w-full bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(var(--theme-primary-rgb),0.5)_10px,rgba(var(--theme-primary-rgb),0.5)_20px)]" />
+        <EdgeLabel className="pointer-events-none -top-2.5 left-4 bg-zinc-950 px-2 font-mono text-[var(--theme-primary)] tracking-[0.2em]">
+          [ SYS.ASST_MODULE ]
+        </EdgeLabel>
 
-        <div className="flex flex-col gap-1">
+        <div className="relative z-10 flex flex-col gap-1">
           <div className="flex items-center gap-3">
             <h2 className="flex items-center gap-3 font-black font-display text-2xl text-white uppercase tracking-tight">
-              <Sparkles className="text-[var(--theme-primary)]" size={24} />
-              AI Assistant
+              <Sparkles className="animate-[pulse_2s_ease-in-out_infinite] text-[var(--theme-primary)]" size={24} />
+              TACTICAL OPERATIONS AI
             </h2>
             <TacticalIconButton
               onClick={() => setShowDebug(!showDebug)}
               className={
                 showDebug
-                  ? 'border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)]'
+                  ? 'border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[0_0_10px_rgba(var(--theme-primary-rgb),0.3)]'
                   : ''
               }
               aria-pressed={showDebug}
-              title="Toggle Debug Mode"
-              aria-label="Toggle Debug Mode"
+              title="Toggle Diagnostic Feed"
+              aria-label="Toggle Diagnostic Feed"
             >
               <Bug size={18} />
             </TacticalIconButton>
           </div>
-          <p className="tactical-text mt-1 text-[10px] text-zinc-500">
-            [ SMART SUGGESTIONS GENERATED FROM SAVE TELEMETRY ]
+          <p className="mt-1 flex items-center gap-2 font-mono text-[10px] text-[var(--theme-primary)]/70 uppercase tracking-widest">
+            <span className="h-1.5 w-1.5 animate-ping rounded-none bg-[var(--theme-primary)]" />
+            LIVE TELEMETRY SYNCED. STANDING BY.
           </p>
         </div>
       </div>
@@ -170,26 +176,37 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
           role="status"
           aria-live="polite"
         >
-          <span className="sr-only">Loading suggestions...</span>
+          <span className="sr-only">CALCULATING VECTORS...</span>
         </div>
       ) : suggestions.length === 0 ? (
-        <div className="relative flex flex-col items-center justify-center border border-zinc-800/50 bg-zinc-900/50 p-12 text-center">
-          <CornerCrosshairs thickness={2} className="h-2 w-2 border-white/20" />
-          <Sparkles className="mb-4 text-zinc-700" size={48} />
-          <h3 className="font-bold font-mono text-lg text-zinc-400 uppercase tracking-wide">
-            [ YOU'RE ALL CAUGHT UP! ]
-          </h3>
-          <p className="mt-2 max-w-sm font-medium font-mono text-xs text-zinc-600">
-            NO NEW SUGGESTIONS AT THE MOMENT. KEEP EXPLORING TO DISCOVER MORE POKÉMON!
-          </p>
+        <div className="relative flex flex-col items-start border border-zinc-800/80 border-l-4 border-l-emerald-500 bg-zinc-950 p-8 shadow-[inset_0_0_20px_rgba(0,0,0,1)]">
+          <CornerCrosshairs thickness={2} className="h-2 w-2 border-emerald-500/50" />
+          <div className="mb-6 flex items-center gap-3">
+            <div className="h-3 w-3 animate-pulse rounded-none bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.8)]" />
+            <h3 className="font-black font-mono text-emerald-400 text-xl uppercase tracking-widest">SYS.NOMINAL</h3>
+          </div>
+          <div className="space-y-2 border-zinc-800 border-l border-dashed pl-4 font-mono text-xs text-zinc-400 uppercase leading-relaxed tracking-wider">
+            <p>&gt; ALL TARGETS ELIMINATED OR ACQUIRED.</p>
+            <p>&gt; NO OUTSTANDING DIRECTIVES DETECTED IN CURRENT QUADRANT.</p>
+            <p className="text-zinc-600">&gt; AWAITING FURTHER EXPLORATION PARAMETERS...</p>
+          </div>
         </div>
       ) : (
         <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
-          {/* Operations Sidebar */}
-          <div className="flex w-full shrink-0 flex-col gap-6 lg:w-64">
-            <div className="relative w-full border border-zinc-800 border-dashed bg-black/40 p-2">
-              <EdgeLabel className="-top-2.5 left-4 text-[var(--theme-primary)]">OPS.MATRIX</EdgeLabel>
-              <div className="flex flex-col gap-1">
+          {/* Operations Sidebar - Mechanical Switchboard */}
+          <div className="flex w-full shrink-0 flex-col gap-6 lg:w-[280px]">
+            <div className="relative w-full border border-zinc-700 bg-zinc-900 p-3 shadow-[inset_0_0_15px_rgba(0,0,0,0.8),0_4px_6px_rgba(0,0,0,0.5)]">
+              {/* Fake hardware mounting screws */}
+              <div className="absolute top-1.5 left-1.5 h-1.5 w-1.5 rounded-full border border-zinc-800 bg-zinc-700" />
+              <div className="absolute top-1.5 right-1.5 h-1.5 w-1.5 rounded-full border border-zinc-800 bg-zinc-700" />
+              <div className="absolute bottom-1.5 left-1.5 h-1.5 w-1.5 rounded-full border border-zinc-800 bg-zinc-700" />
+              <div className="absolute right-1.5 bottom-1.5 h-1.5 w-1.5 rounded-full border border-zinc-800 bg-zinc-700" />
+
+              <EdgeLabel className="-top-2 left-4 bg-zinc-900 px-2 font-mono text-zinc-500 tracking-widest">
+                [ PATCH_PANEL ]
+              </EdgeLabel>
+
+              <div className="mt-2 flex flex-col gap-2">
                 {orderedCategories.map((category) => {
                   const items = groupedSuggestions[category] || [];
                   const catStyle = CATEGORY_STYLES[category] ?? CATEGORY_STYLES.Utility;
@@ -200,27 +217,30 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                       key={category}
                       type="button"
                       onClick={() => setActiveCategory(category)}
-                      className={`focus-visible:tactical-focus group relative flex items-center justify-between border border-dashed px-4 py-3 transition-all duration-300 ${
+                      className={`group focus-visible:tactical-focus relative flex w-full items-center justify-between border px-4 py-3.5 transition-all duration-75 ${
                         isActive
-                          ? `border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[inset_4px_0_0_var(--theme-primary)]`
-                          : 'border-zinc-800/50 bg-transparent text-zinc-500 hover:border-zinc-700 hover:bg-zinc-900/50 hover:text-zinc-300'
+                          ? 'translate-y-[2px] border-t-zinc-950 border-r-zinc-950 border-b-zinc-800 border-l-4 border-l-[var(--theme-primary)] bg-zinc-950 shadow-[inset_0_4px_8px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.02)]'
+                          : 'border-x-zinc-800 border-t-zinc-700 border-b-zinc-950 bg-zinc-800 text-zinc-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.4)] hover:bg-zinc-700 hover:text-zinc-300'
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <div
-                          className={`${isActive ? catStyle.color.replace('border-', 'text-') : 'text-zinc-600 group-hover:text-zinc-400'}`}
-                        >
-                          {catStyle.icon}
+                        {/* Hardware LED Status Indicator */}
+                        <div className="flex h-4 w-4 items-center justify-center border border-black bg-black p-0.5 shadow-[inset_0_1px_3px_rgba(0,0,0,1)]">
+                          <div
+                            className={`h-full w-full rounded-none transition-colors duration-200 ${isActive ? `${catStyle.color.replace('border-', 'bg-').replace('text-', 'bg-')} shadow-[0_0_8px_currentColor]` : 'bg-zinc-800'}`}
+                          />
                         </div>
-                        <span className="font-black font-mono text-[11px] uppercase tracking-wider">
+                        <span
+                          className={`font-black font-mono text-[11px] uppercase tracking-widest ${isActive ? 'text-white' : 'text-zinc-400 group-hover:text-zinc-200'}`}
+                        >
                           {category === 'Catch' ? 'ENCOUNTERS' : category === 'Trade' ? 'TRADES' : category}
                         </span>
                       </div>
                       <div
-                        className={`flex h-5 items-center justify-center border border-dashed px-2 font-mono text-[10px] ${
+                        className={`flex h-6 min-w-[28px] items-center justify-center border font-bold font-mono text-[10px] ${
                           isActive
-                            ? 'border-[var(--theme-primary)]/40 bg-[var(--theme-primary)]/20 text-[var(--theme-primary)]'
-                            : 'border-zinc-800 bg-zinc-950 text-zinc-600 group-hover:border-zinc-700 group-hover:text-zinc-400'
+                            ? `${catStyle.color.replace('border-', 'text-')} border-current border-dashed bg-black`
+                            : 'border-zinc-900 bg-zinc-950 text-zinc-500 shadow-inner'
                         }`}
                       >
                         {items.length}
@@ -237,27 +257,46 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
           <div className="min-h-[500px] flex-1">
             {activeCategory && groupedSuggestions[activeCategory] && (
               <div className="fade-in animate-in space-y-6 duration-500">
-                {/* Active Category Header */}
-                <div className="relative flex items-center border border-zinc-800 border-dashed bg-zinc-900/40 p-4">
-                  <div className="absolute top-0 bottom-0 left-0 w-1 bg-gradient-to-b from-[var(--theme-primary)]/80 to-[var(--theme-primary)]/10" />
-                  <EdgeLabel className="-top-2.5 left-4 text-[var(--theme-primary)]">ACTIVE.OP</EdgeLabel>
-                  <div className="flex items-center gap-4">
-                    <div
-                      className={`${CATEGORY_STYLES[activeCategory]?.bg} ${CATEGORY_STYLES[activeCategory]?.color.replace('border-', 'text-')} p-2`}
-                    >
+                {/* Active Category CRT Header */}
+                <div className="relative flex items-center overflow-hidden border border-zinc-700 border-dashed bg-black p-5 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+                  <LcdGrid className="opacity-10" color="currentColor" />
+                  <ScanlineOverlay opacityClass="opacity-20" />
+                  <div
+                    className="absolute top-0 right-0 h-16 w-16 opacity-10 mix-blend-screen blur-xl"
+                    style={{
+                      backgroundColor:
+                        CATEGORY_STYLES[activeCategory]?.color.split(' ')[0]?.replace('border-', '') || 'white',
+                    }}
+                  />
+
+                  <div
+                    className="absolute top-0 bottom-0 left-0 w-2 bg-[repeating-linear-gradient(45deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)_5px,transparent_5px,transparent_10px)]"
+                    style={{ backgroundColor: 'currentColor' }}
+                  />
+                  <EdgeLabel className="-top-2 left-6 bg-black px-2 font-mono text-zinc-400 tracking-widest">
+                    [ DIAGNOSTIC_STREAM ]
+                  </EdgeLabel>
+
+                  <div
+                    className={`relative z-10 ml-4 flex items-center gap-5 ${CATEGORY_STYLES[activeCategory]?.color.replace('border-', 'text-')}`}
+                  >
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center border-2 border-current border-dashed bg-current/10 shadow-[inset_0_0_15px_rgba(0,0,0,0.5)]">
                       {CATEGORY_STYLES[activeCategory]?.icon}
                     </div>
-                    <div>
-                      <h3 className="font-black font-display text-white text-xl uppercase tracking-wider">
+                    <div className="flex flex-col gap-1">
+                      <h3 className="font-black font-display text-2xl text-white uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                         {activeCategory === 'Catch'
                           ? 'WILD ENCOUNTERS'
                           : activeCategory === 'Trade'
                             ? 'TRADE REQUIRED'
                             : activeCategory}
                       </h3>
-                      <p className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
-                        [ {groupedSuggestions[activeCategory]?.length || 0} TARGETS IDENTIFIED ]
-                      </p>
+                      <div className="flex items-center gap-3">
+                        <p className="border border-current/30 bg-current/20 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest">
+                          {groupedSuggestions[activeCategory]?.length || 0} TARGETS IDENTIFIED
+                        </p>
+                        <span className="animate-pulse font-mono text-[9px] opacity-70">STATUS: ACTIVE</span>
+                      </div>
                     </div>
                   </div>
                 </div>
