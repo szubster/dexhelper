@@ -28,6 +28,6 @@ locks: []
 This task verifies the implementation of the Egg Move Inventory Cross-Reference E2E tests.
 
 ## Acceptance Criteria
-- [ ] Run the E2E tests and ensure they reliably pass in a CI-like environment.
-- [ ] Code review the new Playwright E2E tests to ensure they cover the full workflow from reading a save file to identifying missing links.
-- [ ] Validate that proper test structure and standard utilities were used.
+- [x] Run the E2E tests and ensure they reliably pass in a CI-like environment.
+- [x] Code review the new Playwright E2E tests to ensure they cover the full workflow from reading a save file to identifying missing links.
+- [x] Validate that proper test structure and standard utilities were used.
