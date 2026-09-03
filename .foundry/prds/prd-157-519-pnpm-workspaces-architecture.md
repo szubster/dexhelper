@@ -2,12 +2,12 @@
 id: prd-157-519-pnpm-workspaces-architecture
 type: PRD
 title: Step-by-Step Monorepo Architectural Migration to pnpm Workspaces
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2025-02-14'
 updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '989944999012130477'
 pr_number: null
 parent: idea-157-pnpm-workspaces-architecture
 tags:
