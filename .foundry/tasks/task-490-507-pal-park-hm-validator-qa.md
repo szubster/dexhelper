@@ -34,6 +34,6 @@ Verify the implementation of the `hasGen3HMMoves` validator for Pal Park migrati
 - Ensure the code follows project standards (no any types, correct module location, exported constants).
 
 ## Acceptance Criteria
-- [ ] Code properly exports the HM moves constant and validation function.
-- [ ] Unit tests cover all branches and edge cases.
-- [ ] Linting and type-checking pass cleanly.
+- [x] Code properly exports the HM moves constant and validation function.
+- [x] Unit tests cover all branches and edge cases.
+- [x] Linting and type-checking pass cleanly.
