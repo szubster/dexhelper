@@ -2,13 +2,13 @@
 id: epic-054-109-box-analyzer-matrix-ui
 type: EPIC
 title: Box Analyzer Comparison Matrix UI
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-28'
 updated_at: '2026-09-03'
 depends_on:
   - epic-054-108-box-analyzer-save-parsing
-jules_session_id: null
+jules_session_id: '18211778083094221864'
 pr_number: null
 parent: prd-086-054-box-duplicate-analyzer
 tags:

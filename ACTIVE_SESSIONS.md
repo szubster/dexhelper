@@ -3,6 +3,7 @@
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
 | [epic-038-062-gen2-dynamic-checklist-ui](.foundry/epics/epic-038-062-gen2-dynamic-checklist-ui.md) | EPIC | Gen 2 Dynamic Checklist UI | story_owner | [2727989013344166680](https://jules.google.com/session/2727989013344166680) |
+| [epic-054-109-box-analyzer-matrix-ui](.foundry/epics/epic-054-109-box-analyzer-matrix-ui.md) | EPIC | Box Analyzer Comparison Matrix UI | story_owner | [18211778083094221864](https://jules.google.com/session/18211778083094221864) |
 | [epic-055-407-gen3-move-tutor-compatibility](.foundry/epics/epic-055-407-gen3-move-tutor-compatibility.md) | EPIC | Gen 3 Move Tutor Compatibility Cross-Referencing | story_owner | [3365283661500978645](https://jules.google.com/session/3365283661500978645) |
 | [epic-071-125-migrate-complex-app-components-v2](.foundry/epics/epic-071-125-migrate-complex-app-components-v2.md) | EPIC | Migrate Complex App Components V2 | story_owner | [12861060129650014348](https://jules.google.com/session/12861060129650014348) |
 | [epic-343-512-save-data-extraction](.foundry/epics/epic-343-512-save-data-extraction.md) | EPIC | Gen 2 Bug-Catching Contest Save Data Extraction | story_owner | [17556338358544055378](https://jules.google.com/session/17556338358544055378) |
