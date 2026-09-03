@@ -27,5 +27,5 @@ locks: []
 Verify the implementation of End-to-End tests for Gen 3 Static Encounters.
 
 ## Acceptance Criteria
-- [ ] Verify that E2E tests covers the required Gen 3 games and their static encounters logic.
-- [ ] Ensure all E2E tests pass reliably in a headless environment.
+- [x] Verify that E2E tests covers the required Gen 3 games and their static encounters logic.
+- [x] Ensure all E2E tests pass reliably in a headless environment.
