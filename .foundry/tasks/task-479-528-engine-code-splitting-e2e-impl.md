@@ -2,6 +2,7 @@
 id: task-479-528-engine-code-splitting-e2e-impl
 type: TASK
 title: Implement E2E Tests for Engine Code Splitting
+jules_session_id: '16986453588371903066'
 status: PENDING
 owner_persona: coder
 created_at: '2026-09-03'

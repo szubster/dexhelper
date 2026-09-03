@@ -2,6 +2,7 @@
 id: task-479-529-engine-code-splitting-e2e-qa
 type: TASK
 title: QA E2E Tests for Engine Code Splitting
+jules_session_id: '16986453588371903066'
 status: PENDING
 owner_persona: qa
 created_at: '2026-09-03'
