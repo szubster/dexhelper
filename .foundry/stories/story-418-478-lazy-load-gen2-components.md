@@ -2,10 +2,10 @@
 id: story-418-478-lazy-load-gen2-components
 type: STORY
 title: Implement React.lazy for Gen 2 Components
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
 jules_session_id: null
 parent: epic-340-418-ui-component-splitting
@@ -15,6 +15,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # STORY: Implement React.lazy for Gen 2 Components
 
@@ -23,5 +24,5 @@ Gen 2 specific components such as Pokegear Caller UI elements should be lazy loa
 
 ## Acceptance Criteria
 - [x] Break down this story into tasks for identifying and implementing React.lazy on Gen 2 components.
-- [ ] task-478-506-lazy-load-gen2-components-impl
-- [ ] task-478-507-lazy-load-gen2-components-qa
+- [x] task-478-506-lazy-load-gen2-components-impl
+- [x] task-478-507-lazy-load-gen2-components-qa

@@ -2,13 +2,13 @@
 id: task-142-249-gen3-contest-data-mapping-impl
 type: TASK
 title: Implement Gen 3 Contest Data Mapping
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-07-02'
-updated_at: '2026-08-30'
+updated_at: '2026-09-03'
 depends_on:
   - research-249-384-gen3-party-box-integration
-jules_session_id: null
+jules_session_id: '1955903214610179734'
 pr_number: null
 parent: story-065-142-gen3-contest-data-mapping
 tags:
@@ -37,5 +37,5 @@ This task implements the logic for mapping extracted Gen 3 contest data (`Gen3Co
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 3. Acceptance Criteria
-- [ ] Update `PokemonInstance` interface to include `condition` and `ribbons` fields.
-- [ ] Implement mapping in `parseGen3` to correctly assign contest stats and ribbons to `PokemonInstance` objects.
+- [x] Update `PokemonInstance` interface to include `condition` and `ribbons` fields.
+- [x] Implement mapping in `parseGen3` to correctly assign contest stats and ribbons to `PokemonInstance` objects.

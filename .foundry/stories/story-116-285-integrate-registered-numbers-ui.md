@@ -2,10 +2,10 @@
 id: story-116-285-integrate-registered-numbers-ui
 type: STORY
 title: Integrate Registered Numbers UI
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-07'
-updated_at: '2026-08-26'
+updated_at: '2026-09-02'
 depends_on:
   - story-116-283-parse-registered-numbers
   - story-116-284-active-callers-dashboard-ui
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Story: Integrate Registered Numbers UI
@@ -27,7 +28,7 @@ notes: ''
 Integrate the parsed registered numbers data with the dashboard UI, displaying the current status of each registered NPC.
 
 ## Acceptance Criteria
-- [ ] Render the current status of each registered NPC on the dashboard.
-- [ ] task-285-489-integrate-registered-numbers-ui-data
-- [ ] task-285-490-integrate-registered-numbers-ui-render
-- [ ] task-285-491-integrate-registered-numbers-ui-qa
+- [x] Render the current status of each registered NPC on the dashboard.
+- [x] task-285-489-integrate-registered-numbers-ui-data
+- [x] task-285-490-integrate-registered-numbers-ui-render
+- [x] task-285-491-integrate-registered-numbers-ui-qa

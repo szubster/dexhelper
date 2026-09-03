@@ -2,13 +2,13 @@
 id: story-345-478-gen3-mystery-gift-e2e-verification
 type: STORY
 title: Gen 3 Mystery Gift Extraction E2E Verification
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-09-02'
 depends_on:
   - story-345-477-gen3-mystery-gift-event-flags
-jules_session_id: '2026-08-26-08-50-19'
+jules_session_id: '13004580788288098515'
 pr_number: null
 parent: epic-121-345-gen3-mystery-gift-data-extraction
 tags:
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Gen 3 Mystery Gift Extraction E2E Verification

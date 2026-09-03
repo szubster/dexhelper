@@ -2,10 +2,10 @@
 id: prd-116-117-zod-schema-validation-orchestrator
 type: PRD
 title: Implement Zod for Strict Node Schema Validation in Foundry Orchestrator
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-07-17'
-updated_at: '2026-08-03'
+updated_at: '2026-09-03'
 depends_on: []
 jules_session_id: null
 parent: idea-116-zod-schema-validation-orchestrator
@@ -14,6 +14,7 @@ tags:
   - orchestrator
   - architecture
 rejection_reason: ''
+locks: []
 ---
 
 # Implement Zod for Strict Node Schema Validation in Foundry Orchestrator
@@ -30,5 +31,5 @@ This PRD outlines the adoption of Zod for parsing and validating `.foundry/**/*.
 
 ## Acceptance Criteria
 - [x] Break down into Epics
-- [ ] epic-117-334-define-zod-schema
-- [ ] epic-117-335-integrate-zod-orchestrator
+- [x] epic-117-334-define-zod-schema
+- [x] epic-117-335-integrate-zod-orchestrator

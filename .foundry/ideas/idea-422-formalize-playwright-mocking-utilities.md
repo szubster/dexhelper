@@ -2,12 +2,12 @@
 id: idea-422-formalize-playwright-mocking-utilities
 type: IDEA
 title: Formalize Playwright Mocking Utilities and Testing Style Guide
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-27T00:00:00Z'
 updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '10786949370265007178'
+jules_session_id: null
 pr_number: null
 parent: null
 rejection_count: 0
@@ -34,4 +34,5 @@ We need to formalize a set of Playwright Mocking Utilities and establish a defin
 - Reduces the cognitive load on the `coder` persona, leading to fewer test-related rejections by `qa`.
 
 ## Acceptance Criteria
-- [ ] Create a PRD for the Playwright Mocking Utilities and Style Guide.
+- [x] Create a PRD for the Playwright Mocking Utilities and Style Guide.
+- [ ] prd-422-347-playwright-mocking-utilities

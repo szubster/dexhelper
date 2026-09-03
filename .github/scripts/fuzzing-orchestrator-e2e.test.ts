@@ -92,13 +92,24 @@ describe('Orchestrator Fuzzing E2E', () => {
         );
     });
 
-    test('Orchestrator state transition simulator applies lifecycle transitions across multiple ticks', () => {
+    test('Orchestrator state transition simulator applies lifecycle transitions and fault injection across multiple ticks', () => {
         const dagArbitrary = generateDagNodesArbitrary({ minNodes: 2, maxNodes: 15 }).chain(nodes => {
             return generateDependenciesArbitrary(nodes, { maxDepth: 5, maxWidth: 5 });
         });
 
+        const faultArbitrary = fc.array(
+            fc.array(
+                fc.record({
+                    nodeIndex: fc.integer({ min: 0, max: 14 }),
+                    faultType: fc.constantFrom('TIMEOUT', 'REJECTION', 'MAX_REJECTION', 'NONE')
+                }),
+                { maxLength: 3 }
+            ),
+            { minLength: 5, maxLength: 5 }
+        );
+
         fc.assert(
-            fc.property(dagArbitrary, (nodes) => {
+            fc.property(dagArbitrary, faultArbitrary, (nodes, faultsPerTick) => {
                 fs.rmSync(tmpDir, { recursive: true, force: true });
                 fs.mkdirSync(tmpDir, { recursive: true });
 
@@ -120,8 +131,46 @@ describe('Orchestrator Fuzzing E2E', () => {
 
                 let errorThrown = false;
                 try {
-                    // Simulate 5 orchestrator ticks
+                    // Simulate 5 orchestrator ticks with fault injection
+                    const typePluralMap: Record<string, string> = {
+                        'IDEA': 'ideas',
+                        'PRD': 'prds',
+                        'EPIC': 'epics',
+                        'STORY': 'stories',
+                        'TASK': 'tasks',
+                        'RESEARCH': 'research',
+                        'ADR': 'adrs',
+                        'EXPERIMENT': 'experiments'
+                    };
+
                     for (let i = 0; i < 5; i++) {
+                        const faults = faultsPerTick[i];
+                        for (const fault of faults) {
+                            if (fault.faultType === 'NONE') continue;
+                            const targetNode = nodes[fault.nodeIndex % nodes.length];
+                            const typePlural = typePluralMap[targetNode.type];
+                            const nodeFile = path.join(tmpDir, `.foundry/${typePlural}/${targetNode.id}.md`);
+
+                            if (fs.existsSync(nodeFile)) {
+                                let fileContent = fs.readFileSync(nodeFile, 'utf-8');
+                                if (fault.faultType === 'TIMEOUT') {
+                                    fileContent = fileContent.replace(/^status:.*$/m, 'status: ACTIVE');
+                                    fileContent = fileContent.replace(/^jules_session_id:.*$/m, 'jules_session_id: "dummy-session-123"');
+                                } else if (fault.faultType === 'REJECTION') {
+                                    fileContent = fileContent.replace(/^status:.*$/m, 'status: FAILED');
+                                    fileContent = fileContent.replace(/^rejection_reason:.*$/m, 'rejection_reason: "Injected fault"');
+                                    const currentRejCountMatch = fileContent.match(/^rejection_count:\s*(\d+)$/m);
+                                    const currentCount = currentRejCountMatch ? parseInt(currentRejCountMatch[1], 10) : 0;
+                                    fileContent = fileContent.replace(/^rejection_count:.*$/m, `rejection_count: ${currentCount + 1}`);
+                                } else if (fault.faultType === 'MAX_REJECTION') {
+                                    fileContent = fileContent.replace(/^status:.*$/m, 'status: FAILED');
+                                    fileContent = fileContent.replace(/^rejection_reason:.*$/m, 'rejection_reason: "Max injected fault"');
+                                    fileContent = fileContent.replace(/^rejection_count:.*$/m, 'rejection_count: 3');
+                                }
+                                fs.writeFileSync(nodeFile, fileContent, 'utf-8');
+                            }
+                        }
+
                         main();
                     }
                 } catch (e) {

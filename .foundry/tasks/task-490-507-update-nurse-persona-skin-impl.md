@@ -2,7 +2,7 @@
 id: task-490-507-update-nurse-persona-skin-impl
 type: TASK
 title: Update Nurse Persona to Narrative Skin
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-01'
 updated_at: '2026-09-02'

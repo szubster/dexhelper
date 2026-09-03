@@ -614,7 +614,6 @@ Adherence to ADRs:
 ## Actions Taken
 - Read `.foundry/docs/knowledge_base/agents/core_policies.md` to refresh initialization rules and constraints.
 - Reviewed the target STORY node `story-338-338-update-downstream-references`.
-- The child node `task-338-388-update-journal-references` has been implemented (`status: COMPLETED`).
 - The STORY node's YAML frontmatter will not be modified to avoid Orchestrator rejection.
 - Checked off `- [x] task-338-388-update-journal-references` in `.foundry/stories/story-338-338-update-downstream-references.md`.
 
@@ -1011,3 +1010,6 @@ To resolve this, I utilized the Late Binding pattern to suspend the current task
 - Research (`research-057-417-investigate-bash-timeout-failure`) confirmed that the bash timeout wrapper requirement is already successfully implemented as an instructional policy in `core_policies.md`.
 - It's architecturally impossible to implement a direct code wrapper for `run_in_bash_session` from within the repo, as it's an external platform tool. Thus, programmatic wrappers are infeasible and must be enforced via system rules, which has already been accomplished.
 - The task was gracefully exited by setting its status to CANCELLED and providing the rejection reason, preventing an infinite resurrection loop without falsely validating its acceptance criteria.
+
+
+- Artifact Anomaly: Gen 2 components (ActiveCallersDashboard, Gen2Checklist, Gen2NpcTrades) are already lazy-loaded in src/routes/dashboard.tsx.

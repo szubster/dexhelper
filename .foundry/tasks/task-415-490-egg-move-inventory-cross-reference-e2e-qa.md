@@ -2,10 +2,10 @@
 id: task-415-490-egg-move-inventory-cross-reference-e2e-qa
 type: TASK
 title: Egg Move Inventory Cross-Reference E2E Verification QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-09-02'
 depends_on:
   - task-415-489-egg-move-inventory-cross-reference-e2e-impl
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Task: Egg Move Inventory Cross-Reference E2E Verification QA

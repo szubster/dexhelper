@@ -5,7 +5,7 @@ title: Expose Bike Requirements Through Heatmap Data Structure
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-10'
-updated_at: '2026-08-25'
+updated_at: '2026-09-02'
 depends_on: []
 jules_session_id: '3948674596086442666'
 pr_number: null
@@ -17,6 +17,7 @@ research_references: []
 rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Expose Bike Requirements Through Heatmap Data Structure

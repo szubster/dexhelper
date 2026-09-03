@@ -5,16 +5,16 @@ title: Update schema to default locks to an empty array
 status: READY
 owner_persona: coder
 created_at: '2026-08-31'
-updated_at: '2026-08-31'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '1428006663748828254'
+jules_session_id: null
 pr_number: null
 parent: story-412-477-parse-locks-orchestrator
 tags:
   - orchestrator
   - schema
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

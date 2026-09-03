@@ -4,12 +4,12 @@ type: IDEA
 title: >-
   Holistic Code Curator Persona: Architectural Refactoring & Historical
   Backtracking
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-15'
-updated_at: '2026-08-15'
+updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3861611648220778830'
 pr_number: null
 parent: null
 tags:
@@ -110,7 +110,8 @@ To ensure that newly added features or refactorings do not break older ideas—i
 ---
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this idea into a PRD (`prd-151-holistic-code-curator-persona`).
+- [ ] prd-151-518-holistic-code-curator-persona
+- [x] Product Manager: Convert this idea into a PRD (`prd-151-holistic-code-curator-persona`).
 - [ ] Architect: Update `.foundry/docs/schema.md` to register `curator` in the `owner_persona` enum and define Persian (#053) mapping.
 - [ ] Tech Lead: Update `.github/scripts/foundry-orchestrator.ts` to support the post-implementation Curator trigger and re-verification loop.
 - [ ] Coder: Create default journal directory `.foundry/journals/curator/` and base instructions.

@@ -2,7 +2,7 @@
 id: task-364-493-savedata-e2e-gen1
 type: TASK
 title: SaveData E2E Verification - Gen 1
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-09-02'

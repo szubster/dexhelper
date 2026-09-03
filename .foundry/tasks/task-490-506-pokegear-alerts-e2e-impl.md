@@ -2,12 +2,12 @@
 id: task-490-506-pokegear-alerts-e2e-impl
 type: TASK
 title: Implement Pokegear Alerts E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13432442836361980735'
 pr_number: null
 parent: story-118-490-pokegear-alerts-e2e
 tags:

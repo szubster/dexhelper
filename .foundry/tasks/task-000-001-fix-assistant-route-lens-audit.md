@@ -5,12 +5,12 @@ depends_on: []
 parent: null
 owner_persona: tech_lead
 title: Fix Missing /assistant Route
-status: READY
-created_at: 2026-08-31T04:10:00Z
-updated_at: 2026-08-31T04:10:00Z
-jules_session_id: dummy_session
+status: ACTIVE
+created_at: 2026-08-31T04:10:00.000Z
+updated_at: '2026-09-02'
+jules_session_id: '3851993122326044032'
 rejection_count: 0
-rejection_reason: ""
+rejection_reason: ''
 ---
 
 # Fix Missing `/assistant` Route

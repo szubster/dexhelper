@@ -2,12 +2,12 @@
 id: prd-152-346-archival-cleanup-policy
 type: PRD
 title: Archival Cleanup & Incremental Node Retention Policy
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-08-15'
-updated_at: '2026-08-15'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: session-test
+jules_session_id: '14414041258054390713'
 pr_number: null
 parent: idea-152-archival-cleanup-and-retention-policy
 tags:

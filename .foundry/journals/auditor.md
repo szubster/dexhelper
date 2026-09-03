@@ -23,7 +23,7 @@ Verified `epic-057-348-bash-static-analysis-linter-retry`. All tasks (`task-356-
 - Verified `epic-030-039-cloudflare-r2-save-sync`.
 - The implementation successfully utilized Cloudflare R2 with push/pull logic and graceful degradation as originally intended.
 - **Learnings/Tech Debt:** The offline conflict resolution strategy implemented in `story-039-265` uses a timestamp-based "last-write-wins" approach. This is adequate for basic files but dangerous for game save states where hours of offline progression could be silently overwritten.
-- **Action Taken:** Spawned `idea-039-401-r2-conflict-resolution-ui` to explore building a user-facing prompt to let the user manually choose which save to keep when a conflict is detected, preventing silent data loss.
+- **Action Taken:** Spawned `.foundry/archive/ideas/idea-039-401-r2-conflict-resolution-ui` to explore building a user-facing prompt to let the user manually choose which save to keep when a conflict is detected, preventing silent data loss.
 
 ## Learnings
 The epic for the bash timeout wrapper has been successfully completed. The implementation relying on instructional policies combined with the bash script wrapper and proper E2E tests have been verified to function correctly. This confirms that relying on the `timeout` command and communicating exit code 124 effectively manages long-running blocking commands.

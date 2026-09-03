@@ -2,7 +2,7 @@
 id: task-490-506-pal-park-hm-validator-impl
 type: TASK
 title: Implement Gen 3 HM Move Validation Logic
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-29'
 updated_at: '2026-09-02'

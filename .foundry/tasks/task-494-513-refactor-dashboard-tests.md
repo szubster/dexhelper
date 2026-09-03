@@ -27,6 +27,6 @@ notes: ''
 Refactor the tests for `DagDashboard.tsx` and `DagNode.tsx` to correctly mock or pass the context threshold, eliminating direct imports of `MAX_REJECTION_THRESHOLD`.
 
 ## Acceptance Criteria
-- [ ] Update `DagDashboard.test.tsx` to correctly mock or pass `maxRejectionThreshold` in context.
-- [ ] Update `DagNode.test.tsx` to correctly mock or pass `maxRejectionThreshold` in context.
-- [ ] Eliminate all direct imports of `MAX_REJECTION_THRESHOLD` from `DagDashboard.test.tsx` and `DagNode.test.tsx`.
+- [x] Update `DagDashboard.test.tsx` to correctly mock or pass `maxRejectionThreshold` in context.
+- [x] Update `DagNode.test.tsx` to correctly mock or pass `maxRejectionThreshold` in context.
+- [x] Eliminate all direct imports of `MAX_REJECTION_THRESHOLD` from `DagDashboard.test.tsx` and `DagNode.test.tsx`.

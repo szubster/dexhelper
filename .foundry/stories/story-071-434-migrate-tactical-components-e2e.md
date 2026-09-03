@@ -2,10 +2,10 @@
 id: story-071-434-migrate-tactical-components-e2e
 type: STORY
 title: E2E Verification for Migrated Tactical Components V2
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-08-30'
+updated_at: '2026-09-02'
 depends_on:
   - story-071-431-migrate-tactical-panel
   - story-071-432-migrate-tactical-controls
@@ -21,6 +21,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Story: E2E Verification for Migrated Tactical Components V2
@@ -34,11 +35,11 @@ Perform full E2E and visual regression verification for all core tactical UI com
 3. **Integration**: Ensure they behave correctly within the context of the application where they are used.
 
 ## Acceptance Criteria
-- [ ] Tests successfully cover and verify the styling and functionality of migrated components.
-- [ ] Ensure that E2E integration tests correctly navigate and interact with the elements.
-- [ ] Components pass `pnpm run lint`, `pnpm test`, and `xvfb-run pnpm test:e2e`.
+- [x] Tests successfully cover and verify the styling and functionality of migrated components.
+- [x] Ensure that E2E integration tests correctly navigate and interact with the elements.
+- [x] Components pass `pnpm run lint`, `pnpm test`, and `xvfb-run pnpm test:e2e`.
 - [x] Break down into Tasks
-- [ ] task-434-469-tactical-component-tests-basic-impl
-- [ ] task-434-470-tactical-component-tests-complex-impl
-- [ ] task-434-471-tactical-e2e-integration-tests-impl
-- [ ] task-434-472-tactical-components-testing-qa
+- [x] task-434-469-tactical-component-tests-basic-impl
+- [x] task-434-470-tactical-component-tests-complex-impl
+- [x] task-434-471-tactical-e2e-integration-tests-impl
+- [x] task-434-472-tactical-components-testing-qa
