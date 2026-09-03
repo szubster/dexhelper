@@ -10,6 +10,7 @@
 | [epic-517-521-centralize-prompt-reminders-cleanup](.foundry/epics/epic-517-521-centralize-prompt-reminders-cleanup.md) | EPIC | Clean up Coder and QA Persona Prompts | story_owner | [15245148245370045516](https://jules.google.com/session/15245148245370045516) |
 | [epic-517-521-gen1-parser-refactor-adr-028](.foundry/epics/epic-517-521-gen1-parser-refactor-adr-028.md) | EPIC | Refactor Gen 1 Parsers for ADR 028 | story_owner | [14443477347319342375](https://jules.google.com/session/14443477347319342375) |
 | [epic-517-522-gen2-parser-refactor-adr-028](.foundry/epics/epic-517-522-gen2-parser-refactor-adr-028.md) | EPIC | Refactor Gen 2 Parsers for ADR 028 | story_owner | [5258103045503465360](https://jules.google.com/session/5258103045503465360) |
+| [epic-517-523-gen3-parser-refactor-adr-028](.foundry/epics/epic-517-523-gen3-parser-refactor-adr-028.md) | EPIC | Refactor Gen 3 Parsers for ADR 028 | story_owner | [1941470002480057626](https://jules.google.com/session/1941470002480057626) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
