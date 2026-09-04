@@ -2,12 +2,12 @@
 id: story-345-473-spinda-extraction-e2e
 type: STORY
 title: Gen 3 Spinda Extraction E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-25'
 updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6653226923593905777'
 pr_number: null
 parent: epic-335-345-spinda-pid-extraction
 tags:
