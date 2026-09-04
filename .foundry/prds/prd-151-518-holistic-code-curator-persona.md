@@ -2,12 +2,12 @@
 id: prd-151-518-holistic-code-curator-persona
 type: PRD
 title: Holistic Code Curator Persona
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-03'
 updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: '11391048108076223272'
+jules_session_id: null
 parent: idea-151-holistic-code-curator-persona
 tags:
   - foundry
