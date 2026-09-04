@@ -31,6 +31,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [idea-086-fix-gen3save-mock](.foundry/ideas/idea-086-fix-gen3save-mock.md) | IDEA | Fix isGen3Save heuristic mock for E2E tests | product_manager | [17902487051917676769](https://jules.google.com/session/17902487051917676769) |
 | [idea-149-reevaluate-acceptance-criteria](.foundry/ideas/idea-149-reevaluate-acceptance-criteria.md) | IDEA | Re-evaluate Acceptance Criteria Structure and Usage in Foundry | product_manager | [14179023403772435165](https://jules.google.com/session/14179023403772435165) |
 | [idea-152-deterministic-dag-tree-archival](.foundry/ideas/idea-152-deterministic-dag-tree-archival.md) | IDEA | Deterministic DAG Tree Archival in Orchestrator | product_manager | [7949861361331780169](https://jules.google.com/session/7949861361331780169) |
 | [idea-155-gen3-trick-house-tracker](.foundry/ideas/idea-155-gen3-trick-house-tracker.md) | IDEA | Gen 3 Trick House Tracker Dashboard | product_manager | [13459690091314135888](https://jules.google.com/session/13459690091314135888) |
