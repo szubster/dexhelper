@@ -16,4 +16,5 @@ rejection_reason: ''
 The `isGen3Save` heuristic currently mocks returning `false`, causing E2E tests on Gen 3 to require a bypass mechanism. This technical debt needs to be addressed.
 
 ## Acceptance Criteria
-- [ ] Break down into PRD
+- [x] Break down into PRD
+- [ ] prd-086-520-fix-gen3save-mock
