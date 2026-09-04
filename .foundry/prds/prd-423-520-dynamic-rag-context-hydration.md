@@ -2,12 +2,12 @@
 id: prd-423-520-dynamic-rag-context-hydration
 type: PRD
 title: PRD for Dynamic RAG-Based Context Hydration for Agent Prompts
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-08-29'
 updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16117873519757152707'
 parent: idea-423-dynamic-rag-context-hydration
 tags:
   - foundry
