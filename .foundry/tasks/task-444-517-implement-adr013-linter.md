@@ -5,10 +5,10 @@ depends_on: []
 parent: story-417-444-adr-013-state-compliance-linter
 owner_persona: coder
 title: Implement ADR 013 State Compliance Linter
-status: READY
+status: ACTIVE
 created_at: 2026-09-02T00:00:00.000Z
-updated_at: '2026-09-02'
-jules_session_id: null
+updated_at: '2026-09-04'
+jules_session_id: '8455075329628552908'
 rejection_count: 0
 rejection_reason: ''
 ---
