@@ -35,3 +35,6 @@ Nodes that reach the max rejection count of 3 are now automatically transitioned
 ## Scope
 - src/components/dag/DagDashboard.tsx
 - src/components/dag/DagNode.tsx
+
+## Acceptance Criteria
+- [ ] epic-516-530-update-permanent-failure-dashboard-ui
