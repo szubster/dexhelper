@@ -29,3 +29,6 @@ Design and implement the frontend user interface to display the daily and weekly
 - [x] Create a dynamic checklist UI component.
 - [x] Integrate with the Gen 2 event parsing engine.
 - [x] Display clearly which events are available, completed, or unavailable today.
+- [ ] story-062-521-gen2-checklist-ui-core
+- [ ] story-062-522-gen2-checklist-integration
+- [ ] story-062-523-gen2-checklist-e2e
