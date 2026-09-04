@@ -55,5 +55,6 @@ Additionally, `@xyflow/react` is designed for editable node graphs, which leads 
 ## Acceptance Criteria
 - [ ] Time To Interactive is significantly reduced due to the removal of `@xyflow/react` and `dagre`.
 - [ ] The DAG is displayed as a nested, DOM-based directory tree instead of a 2D canvas.
+- [ ] epic-516-530-replace-xyflow-core
 - [ ] Node branches can be expanded and collapsed, and 'Expand All' / 'Collapse All' controls are functional.
 - [ ] The UI adheres to the tactical hardware aesthetic (sharp edges, dashed borders, monospaced fonts).
