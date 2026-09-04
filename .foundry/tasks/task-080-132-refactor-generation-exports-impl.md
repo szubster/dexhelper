@@ -2,10 +2,10 @@
 id: task-080-132-refactor-generation-exports-impl
 type: TASK
 title: Refactor Data Generation Pipeline to Verbose Keys - Implementation
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-05-22'
-updated_at: '2026-09-03'
+updated_at: '2026-09-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -13,9 +13,10 @@ parent: story-042-080-refactor-generation-exports
 tags:
   - data-pipeline
 research_references: []
-rejection_count: 2
-rejection_reason: 'Session terminated with state: COMPLETED'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
+locks: []
 ---
 
 # Task: Refactor Data Generation Pipeline to Verbose Keys - Implementation
