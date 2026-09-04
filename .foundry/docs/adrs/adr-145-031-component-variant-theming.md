@@ -28,7 +28,7 @@ locks: []
 # ADR 031: Unified Component Variants and Theming
 
 ## Status
-Proposed (Pending Selection)
+Accepted (Path A)
 
 ---
 
@@ -93,3 +93,11 @@ Selecting a path will define the long-term design system structure for DexHelper
 - **Developer Experience (DX):** Path A provides the most robust type checking, ensuring developer-side changes do not silently break.
 - **Performance:** Paths A, B, and C all offer exceptional performance because they avoid React Context or heavy runtime CSS generation, relying instead on native CSS rendering.
 - **Maintenance:** Path A provides the best local file cohesion while keeping global overrides cleanly separated inside the global stylesheet.
+
+## Decision
+We have selected **Path A: Class Variance Authority (CVA) + CSS Custom Variables**.
+
+### Rationale
+- **Type Safety & DX:** The CVA library provides excellent TypeScript integration, allowing components to enforce strictly-typed variant props in JSX. This prevents silent runtime errors when developers misspell or misuse a theme prop.
+- **Performance:** Path A keeps our React bundle performant since CSS custom variables handle the multi-theme color swapping natively at the browser level. There is zero JS overhead per element for theme updates, avoiding large re-renders on dense pages (e.g. 400+ list items).
+- **Maintenance:** Path A naturally pairs local React component variants (such as `size` or `intent`) near the component definition, while mapping theme colors cleanly to standard CSS tokens inside `src/index.css`.
