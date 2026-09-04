@@ -161,3 +161,9 @@
 **Outcome:** Accepted
 **Why:** Submitted as part of Canvas session for bold UI redesigns to transform component layouts and visual treatments in the tactical styling aesthetic.
 **Pattern:** Use thick structural frames, diegetic LED indicators, and dense raw data logs for modal headers to align with the hardware diagnostic theme.
+
+## 2026-10-27 - [Accepted] - 🖼️ Canvas: Redesign GlobalError as critical hardware fault diagnostic
+**What:** Redesigned the `GlobalError` component from a simple alert bar into a massive, full-width critical system failure diagnostic frame. Added thick dashed borders, warning hazard stripes, a large pulsing AlertTriangle, and a simulated "core dump" hex trace block.
+**Outcome:** Accepted -> wait for review
+**Why:** The previous error state was a simple red tactical panel, which felt too generic for a serious system failure (like failing to parse a save file). This update aligns critical errors with the heavy, high-stakes tactical snooping aesthetic.
+**Pattern:** For critical application errors, use large, screen-dominating hardware diagnostic frames with hazard stripes, large warning icons, and simulated hex/binary core dumps instead of simple alert banners.
