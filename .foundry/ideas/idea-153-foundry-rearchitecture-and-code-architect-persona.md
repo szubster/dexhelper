@@ -55,6 +55,7 @@ Furthermore, code quality and extensibility require continuous proactive explora
 ---
 
 ## Acceptance Criteria
-- [ ] Product Manager: Breakdown this idea into a detailed PRD (`prd-153-foundry-rearchitecture-and-code-architect-persona`).
+- [x] Product Manager: Breakdown this idea into a detailed PRD (`prd-153-foundry-rearchitecture-and-code-architect-persona`).
+- [ ] prd-153-521-foundry-rearchitecture-and-code-architect-persona
 - [ ] Architect: Draft ADRs detailing state machine (XState) and DAG graph library options for `.github/scripts/`.
 - [ ] Tech Lead: Define schema updates in `.github/scripts/schema.ts` and workflow configuration in `.github/workflows/schedule-code-architect.yml` for the new weekly Code Architect persona.
