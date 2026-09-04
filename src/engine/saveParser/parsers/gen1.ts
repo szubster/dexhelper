@@ -70,6 +70,8 @@ import {
 
 const PARTY_MONS_HEADER_LENGTH = 7;
 const PARTY_MON_DATA_LENGTH = 44;
+const ITEM_RECORD_SIZE = 2;
+const ITEM_LIST_OFFSET = 1;
 const PARTY_OT_NAME_LENGTH = 11;
 
 const POKEMON_OFFSET_CURRENT_HP = 1;
@@ -822,13 +824,13 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): Gen1Save
 
     const itemCount = view.getUint8(INVENTORY_OFFSET + offsetShift);
     for (let i = 0; i < itemCount; i++) {
-      const itemOffset = INVENTORY_OFFSET + 1 + offsetShift + i * 2;
+      const itemOffset = INVENTORY_OFFSET + ITEM_LIST_OFFSET + offsetShift + i * ITEM_RECORD_SIZE;
       inventory.push({ id: view.getUint8(itemOffset), quantity: view.getUint8(itemOffset + 1) });
     }
 
     const pcItemCount = view.getUint8(PC_ITEMS_OFFSET + offsetShift);
     for (let i = 0; i < Math.min(pcItemCount, PC_MAX_ITEMS); i++) {
-      const itemOffset = PC_ITEMS_OFFSET + 1 + offsetShift + i * 2;
+      const itemOffset = PC_ITEMS_OFFSET + ITEM_LIST_OFFSET + offsetShift + i * ITEM_RECORD_SIZE;
       pcItems.push({ id: view.getUint8(itemOffset), quantity: view.getUint8(itemOffset + 1) });
     }
 
