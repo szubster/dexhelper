@@ -1,4 +1,5 @@
 import type { SaveData } from '../engine/saveParser';
+import { CornerCrosshairs } from './CornerCrosshairs';
 import { ScanlineOverlay } from './ScanlineOverlay';
 
 interface RetroBackgroundProps {
@@ -44,10 +45,7 @@ export function RetroBackground(_props: RetroBackgroundProps) {
           <div className="h-full w-[1px] border-white border-l border-dashed bg-white" />
           <div className="absolute h-[1px] w-full border-white border-t border-dashed bg-white" />
           {/* Corner brackets */}
-          <div className="absolute top-0 left-0 h-4 w-4 border-white border-t-2 border-l-2" />
-          <div className="absolute top-0 right-0 h-4 w-4 border-white border-t-2 border-r-2" />
-          <div className="absolute bottom-0 left-0 h-4 w-4 border-white border-b-2 border-l-2" />
-          <div className="absolute right-0 bottom-0 h-4 w-4 border-white border-r-2 border-b-2" />
+          <CornerCrosshairs className="h-4 w-4 border-white" thickness={2} />
         </div>
 
         {/* Vertical/Horizontal Structural Beams (dashed) */}

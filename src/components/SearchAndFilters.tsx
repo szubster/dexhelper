@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { FILTER_TYPES, type FilterType, useStore } from '../store';
 import { cn } from '../utils/cn';
 import { ClearFiltersBadge } from './ClearFiltersBadge';
+import { CornerCrosshairs } from './CornerCrosshairs';
 import { EdgeLabel } from './EdgeLabel';
 import { FilterBadge } from './FilterBadge';
 import { HoverScanner } from './HoverScanner';
@@ -76,10 +77,7 @@ export function SearchAndFilters() {
           {/* Left Pane: Target Acquisition Array */}
           <div className="group relative flex-1 overflow-hidden border border-cyan-500/30 border-dashed bg-cyan-950/10 p-5 shadow-[inset_0_0_30px_rgba(6,182,212,0.03)] transition-colors hover:bg-cyan-950/20">
             {/* Tactical Corners */}
-            <div className="absolute top-0 left-0 h-3 w-3 border-cyan-500/60 border-t-2 border-l-2" />
-            <div className="absolute top-0 right-0 h-3 w-3 border-cyan-500/60 border-t-2 border-r-2" />
-            <div className="absolute bottom-0 left-0 h-3 w-3 border-cyan-500/60 border-b-2 border-l-2" />
-            <div className="absolute right-0 bottom-0 h-3 w-3 border-cyan-500/60 border-r-2 border-b-2" />
+            <CornerCrosshairs className="h-3 w-3 border-cyan-500/60" thickness={2} />
 
             {/* Background Hex Stream */}
             <div className="pointer-events-none absolute inset-0 z-0 flex flex-col justify-end p-2 opacity-10">
