@@ -38,4 +38,7 @@ Currently, scheduled autonomous agents run out-of-band directly from `.github/wo
 - It must inject a prompt instruction for the agent to append `Closes #<issue_number>` to its PR body so the issue automatically closes on merge.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into EPIC(s) for modifying the GitHub workflows.
+- [x] Epic Planner: Break this PRD down into EPIC(s) for modifying the GitHub workflows.
+- [ ] epic-516-530-adapt-foundry-scheduled-agent
+- [ ] epic-516-531-modify-scheduled-workflows
+- [ ] epic-516-532-e2e-verification
