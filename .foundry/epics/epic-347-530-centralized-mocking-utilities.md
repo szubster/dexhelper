@@ -1,13 +1,13 @@
 ---
 id: epic-347-530-centralized-mocking-utilities
 type: EPIC
-title: "Centralized Playwright Mocking Utilities"
-status: READY
+title: Centralized Playwright Mocking Utilities
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-04'
 updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3235059060383941140'
 pr_number: null
 parent: prd-422-347-playwright-mocking-utilities
 tags:
@@ -16,8 +16,8 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # EPIC: Centralized Playwright Mocking Utilities
