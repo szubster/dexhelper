@@ -153,7 +153,13 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
                       (['cool', 'beauty', 'cute', 'smart', 'tough'] as const).map((key) => {
                         const rank = pokemon.ribbons?.[key] ?? 0;
                         if (rank === 0 || rankMap[rank] === undefined) return null;
-                        return <ContestRibbonBadge key={key} type={conditionMap[key]!} rank={rankMap[rank]} />;
+                        return (
+                          <ContestRibbonBadge
+                            key={key}
+                            type={conditionMap[key] as NonNullable<(typeof conditionMap)[typeof key]>}
+                            rank={rankMap[rank]}
+                          />
+                        );
                       })}
                   </div>
                 </div>
