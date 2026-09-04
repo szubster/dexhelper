@@ -4,12 +4,12 @@ type: IDEA
 title: >-
   Foundry Rearchitecture: State Machine/Graph Libraries & Scheduled Code
   Architect Persona
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-15'
-updated_at: '2026-08-15'
+updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10151702352441312432'
 pr_number: null
 parent: null
 tags:
