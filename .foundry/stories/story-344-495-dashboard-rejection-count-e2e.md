@@ -32,4 +32,6 @@ Verify that the `DagDashboard` UI correctly consumes the `MAX_REJECTION_THRESHOL
 - Update any specific E2E test files that mock or assert the threshold value to reflect the Context-injected behavior.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-495-528-dashboard-rejection-count-e2e
+- [ ] task-495-529-qa-dashboard-rejection-count-e2e
