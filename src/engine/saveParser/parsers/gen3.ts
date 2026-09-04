@@ -917,7 +917,7 @@ export function parseGen3EVs(view: DataView, offset: number) {
     const specialAttack = view.getUint8(offset + EV_SPATK_OFFSET);
     const specialDefense = view.getUint8(offset + EV_SPDEF_OFFSET);
 
-    return { hp, attack, defense, speed, specialAttack, specialDefense };
+    return { hp, atk: attack, def: defense, spa: specialAttack, spd: specialDefense, spe: speed };
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');

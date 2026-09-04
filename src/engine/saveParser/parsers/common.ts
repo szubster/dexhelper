@@ -68,9 +68,7 @@ export interface PokemonInstance {
   nature?: number;
   hiddenPower?: { type: string; power: number };
   statExp?: { hp: number; atk: number; def: number; spd: number; spc: number };
-  evs?:
-    | { hp: number; attack: number; defense: number; speed: number; specialAttack: number; specialDefense: number }
-    | undefined;
+  evs?: { hp: number; atk: number; def: number; spa: number; spd: number; spe: number } | undefined;
   caughtData?:
     | {
         time: 'Morning' | 'Day' | 'Night' | 'Unknown';
