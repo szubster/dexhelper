@@ -73,4 +73,4 @@ Entry format:
 
 ---
 
-If the current session results in a rejection, convert to journal-only to persist the learning. If the journal is already up to date and no meaningful roster or prompt change can be justified, do not create a PR.
+If the current session results in a rejection, convert to journal-only to persist the learning.

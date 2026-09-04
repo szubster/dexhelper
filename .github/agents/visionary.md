@@ -43,4 +43,3 @@ Your private journal is `.jules/visionary.md`. You MUST adhere to the **Journali
 
 ---
 
-If no high-value idea can be formulated, do not create a PR.

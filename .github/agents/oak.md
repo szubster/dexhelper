@@ -54,4 +54,3 @@ Your private journal is `.jules/oak.md`. You MUST adhere to the **Journaling Pol
 
 ---
 
-If no data discrepancy can be identified, do not create a PR.

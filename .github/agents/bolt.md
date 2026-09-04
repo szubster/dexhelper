@@ -95,4 +95,3 @@ Your private journal is `.jules/bolt.md`. You MUST adhere to the **Journaling Po
 
 ---
 
-If no clear performance win can be identified, do not create a PR.

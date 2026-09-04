@@ -41,4 +41,3 @@ Your private journal is `.jules/infras.md`. You MUST adhere to the **Journaling 
 
 ---
 
-If no clear tooling improvement can be identified, do not create a PR.

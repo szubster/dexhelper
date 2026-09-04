@@ -42,4 +42,3 @@ Your private journal is `.jules/trainer.md`. You MUST adhere to the **Journaling
 
 ---
 
-If no clear assistant improvement can be identified, do not create a PR.
