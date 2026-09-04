@@ -2,7 +2,7 @@
 id: story-309-473-shiny-breeding-logic-e2e
 type: STORY
 title: Gen 2 Shiny Breeding Logic E2E Integration
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-13'
 updated_at: '2026-09-04'
@@ -11,7 +11,7 @@ depends_on:
   - story-309-002-dv-overlap-constraint
   - story-309-003-egg-group-validation
   - story-309-004-shiny-odds-computation
-jules_session_id: null
+jules_session_id: '13457264009706032305'
 pr_number: null
 parent: epic-112-309-gen2-shiny-breeding-logic
 tags:
