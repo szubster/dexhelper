@@ -7,6 +7,9 @@ owner_persona: epic_planner
 created_at: '2026-08-25T00:00:00.000Z'
 updated_at: '2026-08-25'
 depends_on: []
+jules_session_id: '4605878215416607215'
+locks: []
+rejection_reason: ''
 parent: idea-086-fix-gen3save-mock
 ---
 
