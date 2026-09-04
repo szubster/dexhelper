@@ -29,3 +29,8 @@ When fixing Assistant Logic related to branching vs linear evolutions, ensure th
 
 # Learnings
 - **Mutually Exclusive Logic & Yellow Exception:** When improving inference for mutually exclusive one-time choices (like the Gen 1 Starter choice), we must explicitly exclude Pokémon Yellow from this check. In Yellow, the player receives Pikachu as their starter, but can subsequently obtain all three original Kanto starters (Bulbasaur, Charmander, and Squirtle) through in-game NPC gifts. Applying strict exclusivity logic globally would incorrectly lock these valid acquisition paths for Yellow players.
+
+- Focus: Fixed bug in catchGenerator where STATIC_GIFT_DATA_GEN3 was missing
+
+# Learnings
+- **Static Gift Data:** Gen 3 static gift data (STATIC_GIFT_DATA_GEN3) must be explicitly imported and used when evaluating Gen 3 saves in `catchGenerator.ts`, otherwise it silently falls back to Gen 1 static gift data, breaking Gen 3 'Catch' suggestions for Pokémon obtained as static gifts (like Castform or Beldum) if they were already owned.
