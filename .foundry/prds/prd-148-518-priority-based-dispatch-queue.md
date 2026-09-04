@@ -36,4 +36,6 @@ Currently, the Foundry Orchestrator transitions nodes from `PENDING` to `READY` 
    - Allow downstream Epics, Stories, and Tasks generated from an Epic to inherit the `priority` field if specified on the parent.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into EPIC nodes that address schema updates and orchestrator logic updates respectively.
+- [x] Epic Planner: Break down this PRD into EPIC nodes that address schema updates and orchestrator logic updates respectively.
+- [ ] epic-518-530-priority-schema-updates
+- [ ] epic-518-531-priority-orchestrator-dispatch
