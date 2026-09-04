@@ -2,12 +2,12 @@
 id: epic-518-530-curator-persona-implementation
 type: EPIC
 title: Implement Curator Persona
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-04'
 updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12528314716431271723'
 parent: prd-151-518-holistic-code-curator-persona
 tags:
   - foundry
