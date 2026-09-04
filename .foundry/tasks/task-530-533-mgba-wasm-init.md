@@ -1,13 +1,13 @@
 ---
 id: task-530-533-mgba-wasm-init
 type: TASK
-title: "Implement mGBA WASM initialization, configuration, and error handling"
-status: READY
+title: 'Implement mGBA WASM initialization, configuration, and error handling'
+status: ACTIVE
 owner_persona: coder
-created_at: "2026-09-04"
-updated_at: "2026-09-04"
+created_at: '2026-09-04'
+updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3174775861387280542'
 locks: []
 pr_number: null
 parent: story-427-530-mgba-wasm-wrapper
@@ -18,8 +18,8 @@ tags:
   - mgba
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Implement mGBA WASM initialization, configuration, and error handling
