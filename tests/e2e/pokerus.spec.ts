@@ -12,33 +12,7 @@ test.describe('Pokerus State Exfiltration', () => {
     // Wait for CYNDAQUIL to appear
     await expect(page.getByText('CYNDAQUIL', { exact: false }).first()).toBeVisible({ timeout: 15000 });
 
-    // Open details using keyboard navigation on the first focusable element inside the pokemon list
-    await page.keyboard.press('Tab'); // Need to tab to it or just click the heading's parent
-
-    // Evaluate and click the closest clickable wrapper
-    await page.evaluate(() => {
-      const textNode = Array.from(document.querySelectorAll('*')).find(
-        (e) => e.textContent === 'CYNDAQUIL' || e.textContent === 'Cyndaquil',
-      );
-      if (textNode) {
-        let parent: HTMLElement | null = textNode as HTMLElement;
-        while (
-          parent &&
-          parent.tagName !== 'BUTTON' &&
-          parent.tagName !== 'A' &&
-          !('onclick' in parent && parent.onclick !== null)
-        ) {
-          if (parent.tagName === 'BODY') {
-            parent = textNode as HTMLElement;
-            break;
-          }
-          parent = parent.parentElement;
-        }
-        if (parent) {
-          parent.click();
-        }
-      }
-    });
+    await page.locator('button', { hasText: /CYNDAQUIL/i }).first().click();
 
     // The details dialog or panel should have the badge.
     const badge = page.locator('.tactical-badge', { hasText: 'PKRS STRN' }).first();
@@ -47,5 +21,23 @@ test.describe('Pokerus State Exfiltration', () => {
 
     // Verify the duration/status is correctly displayed alongside it
     await expect(page.getByText('[10D]')).toBeVisible();
+  });
+
+  test('displays pokerus badge for PC pokemon', async ({ page }) => {
+    // 148 is Dragonair, which has pokerus in this save
+    await initializeWithSave(page, 'tests/fixtures/gold-tid-15051.sav');
+
+    // Wait for the PC list to render
+    await expect(page.getByText('DRAGONAIR', { exact: false }).first()).toBeVisible({ timeout: 15000 });
+
+    await page.locator('button', { hasText: /DRAGONAIR/i }).first().click();
+
+    // The details dialog or panel should have the badge.
+    const badge = page.locator('.tactical-badge', { hasText: 'PKRS STRN' }).first();
+    await expect(badge).toBeVisible();
+    await expect(badge).toContainText('10'); // The strain we set
+
+    // Verify the duration/status is correctly displayed alongside it
+    await expect(page.getByText('[15D]')).toBeVisible();
   });
 });
