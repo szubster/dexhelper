@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [adr-145-031-component-variant-theming](.foundry/docs/adrs/adr-145-031-component-variant-theming.md) | ADR | ADR: Unified Component Variants and Theming | architect | [1269760152544835588](https://jules.google.com/session/1269760152544835588) |
 | [epic-038-062-gen2-dynamic-checklist-ui](.foundry/epics/epic-038-062-gen2-dynamic-checklist-ui.md) | EPIC | Gen 2 Dynamic Checklist UI | story_owner | [2727989013344166680](https://jules.google.com/session/2727989013344166680) |
 | [epic-050-331-zombie-node-gc-integration](.foundry/epics/epic-050-331-zombie-node-gc-integration.md) | EPIC | Zombie Node GC Integration V2 | story_owner | [3874515365654255924](https://jules.google.com/session/3874515365654255924) |
 | [epic-054-109-box-analyzer-matrix-ui](.foundry/epics/epic-054-109-box-analyzer-matrix-ui.md) | EPIC | Box Analyzer Comparison Matrix UI | story_owner | [18211778083094221864](https://jules.google.com/session/18211778083094221864) |
