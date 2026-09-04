@@ -2,13 +2,13 @@
 id: task-403-486-playwright-e2e-retry-impl
 type: TASK
 title: Retry Playwright E2E Tests for DV/IV Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-09-04'
 depends_on:
   - research-403-485-playwright-e2e-failure
-jules_session_id: null
+jules_session_id: '9903883542566944917'
 pr_number: null
 parent: story-112-403-integration-e2e
 tags:
