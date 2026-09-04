@@ -9,6 +9,10 @@ updated_at: '2026-09-04'
 depends_on:
   - story-513-537-gen3-berry-serialization-and-api
 parent: epic-037-513-gen3-berry-tracker-data-extraction-retry
+jules_session_id: null
+pr_number: null
+rejection_count: 0
+rejection_reason: ""
 tags:
   - gen3
   - integration
