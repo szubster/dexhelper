@@ -2,12 +2,12 @@
 id: prd-149-520-reevaluate-acceptance-criteria
 type: PRD
 title: Re-evaluate Acceptance Criteria Structure and Usage in Foundry
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-09-04'
 updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10502994563607865723'
 pr_number: null
 parent: idea-149-reevaluate-acceptance-criteria
 tags:
