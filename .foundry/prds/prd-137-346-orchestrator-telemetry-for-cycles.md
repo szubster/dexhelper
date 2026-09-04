@@ -29,3 +29,6 @@ During the completion of epic-334-338-circular-dependency-detection, logic was i
 1. Implement telemetry tracking for cycle detection failures in `.github/scripts/foundry-orchestrator.ts`.
 2. Ensure the telemetry tracking does not interfere with or degrade the primary function of the orchestrator.
 3. Record instances where the cycle detection fails a node so it can be effectively measured.
+
+## Acceptance Criteria
+- [ ] epic-346-530-orchestrator-telemetry-metrics
