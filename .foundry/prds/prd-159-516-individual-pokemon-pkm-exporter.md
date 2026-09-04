@@ -29,4 +29,6 @@ Implement an Export Pokémon feature within the DexHelper Party and PC Box views
 4. Trigger a browser download with the correct file name and extension.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into Epics.
+- [x] Epic Planner: Break down this PRD into Epics.
+- [ ] epic-516-530-pkm-data-extraction-generation
+- [ ] epic-516-531-pkm-export-ui-integration
