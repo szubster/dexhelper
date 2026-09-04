@@ -31,4 +31,6 @@ Simultaneously, `qa` nodes are catching repeated violations of testing standards
 - Reduces the cognitive load on the `coder` persona, leading to fewer test-related rejections by `qa`.
 
 ## Acceptance Criteria
-- [ ] Create an Epic to track the implementation of these mocking utilities and style guide.
+- [x] Create an Epic to track the implementation of these mocking utilities and style guide.
+- [ ] epic-347-530-centralized-mocking-utilities
+- [ ] epic-347-531-testing-style-guide
