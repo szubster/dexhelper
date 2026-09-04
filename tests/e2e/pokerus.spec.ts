@@ -12,7 +12,10 @@ test.describe('Pokerus State Exfiltration', () => {
     // Wait for CYNDAQUIL to appear
     await expect(page.getByText('CYNDAQUIL', { exact: false }).first()).toBeVisible({ timeout: 15000 });
 
-    await page.locator('button', { hasText: /CYNDAQUIL/i }).first().click();
+    await page
+      .locator('button', { hasText: /CYNDAQUIL/i })
+      .first()
+      .click();
 
     // The details dialog or panel should have the badge.
     const badge = page.locator('.tactical-badge', { hasText: 'PKRS STRN' }).first();
@@ -30,7 +33,10 @@ test.describe('Pokerus State Exfiltration', () => {
     // Wait for the PC list to render
     await expect(page.getByText('DRAGONAIR', { exact: false }).first()).toBeVisible({ timeout: 15000 });
 
-    await page.locator('button', { hasText: /DRAGONAIR/i }).first().click();
+    await page
+      .locator('button', { hasText: /DRAGONAIR/i })
+      .first()
+      .click();
 
     // The details dialog or panel should have the badge.
     const badge = page.locator('.tactical-badge', { hasText: 'PKRS STRN' }).first();
