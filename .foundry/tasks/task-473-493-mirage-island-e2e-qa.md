@@ -2,12 +2,12 @@
 id: task-473-493-mirage-island-e2e-qa
 type: TASK
 title: QA Verification for Mirage Island E2E
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-26'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11592500166858119220'
 pr_number: null
 parent: story-061-473-mirage-island-engine-e2e
 tags:

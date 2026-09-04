@@ -233,3 +233,10 @@ Removed redundant dead code (like the `ledOuter` and `ledInner` styles from `Tac
 - **Key Learnings**:
   - The extraction allows a single component `<HardwareScrews />` to render all four decorative elements.
   - Since Vite uses the modern JSX transform (`react/jsx-runtime`), we can export the `HardwareScrews` component as a React Fragment `<>...</>` without needing an explicit `import React` in the extracted component.
+
+## CornerCrosshairs Refactoring
+- **What**: Replaced instances of `<div className="absolute top-0 left-0 h-4 w-4 border-white border-t-2 border-l-2" />` (and similar structures for all four corners) with the reusable `<CornerCrosshairs className="h-4 w-4 border-white" thickness={2} />`.
+- **Why**: Standardizes the usage of the tactical corner brackets overlay and ensures it's consistent across the application. Reduces repetitive code in `RetroBackground.tsx`, `SearchAndFilters.tsx`, and `PokemonCaughtDetails.tsx`.
+- **Key Learnings**:
+  - The `CornerCrosshairs` component encapsulates the `absolute top-0 left-0` (and other corners) positioning logic along with the `border-t-2 border-l-2` style borders.
+  - Using a single `CornerCrosshairs` component cleans up four distinct div tags used previously into a single component call, which handles displaying all four corners by default unless restricted by a `corners` array.

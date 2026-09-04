@@ -2,7 +2,7 @@
 id: task-422-496-gen3-static-encounters-e2e-impl
 type: TASK
 title: Implement Gen 3 Static Encounters E2E Tests
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-09-02'

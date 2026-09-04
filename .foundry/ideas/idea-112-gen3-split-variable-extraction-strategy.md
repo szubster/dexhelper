@@ -2,12 +2,12 @@
 id: idea-112-gen3-split-variable-extraction-strategy
 type: IDEA
 title: Gen3 Split Variable Extraction Strategy
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-07-11'
-updated_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: '11329131039207857953'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -35,4 +35,5 @@ We need a standardized architectural strategy or utility to extract these split 
 2. Consider adding a generic helper utility for reading split 32-bit variables.
 
 ## Acceptance Criteria
-- [ ] Transition this Idea into a PRD.
+- [x] Transition this Idea into a PRD.
+- [ ] prd-112-516-gen3-split-variable-extraction-strategy

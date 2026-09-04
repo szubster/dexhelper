@@ -2,10 +2,10 @@
 id: task-474-512-pass-rejection-count-impl
 type: TASK
 title: Update DagContext to Handle rejection_count
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,5 +30,5 @@ This task implements `story-071-474-pass-rejection-count-context`. The `rejectio
 - Ensure the `loadData` function in `src/components/dashboard/DagContext.tsx` maps `node.data.rejection_count` when creating `initialNodes` for React Flow. It should default to `0` if not present.
 
 ## 3. Acceptance Criteria
-- [ ] `DagNodeData` interface in `DagContext.tsx` explicitly includes `rejection_count: number;`.
-- [ ] The node mapping logic in `DagProvider` correctly sets `rejection_count: node.data.rejection_count ?? 0`.
+- [x] `DagNodeData` interface in `DagContext.tsx` explicitly includes `rejection_count: number;`.
+- [x] The node mapping logic in `DagProvider` correctly sets `rejection_count: node.data.rejection_count ?? 0`.

@@ -47,4 +47,3 @@ Your private journal is `.jules/sentinel.md`. You MUST adhere to the **Journalin
 
 ---
 
-If no meaningful coverage gap can be identified, do not create a PR.

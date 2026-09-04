@@ -32,7 +32,7 @@ This allows us to transition from a retrospective checker to a real-time copilot
 2. **Memory Maps over Binary Files:** Reading WRAM/IRAM allows us to hook into events as they occur (such as wild encounter state shifts) rather than polling a filesystem timestamp every 3 seconds, significantly reducing the I/O load on the browser.
 3. **Reactive UI Loop:** This design decouples the heavy UI calculations from the emulator thread, ensuring zero-latency play with highly granular overlay indicators.
 
-Drafted PRD for Cloudflare R2 conflict resolution UI (prd-401-340-r2-conflict-resolution-ui) based on idea-039-401-r2-conflict-resolution-ui. Appended the generated downstream PRD as an unchecked task in the IDEA node's acceptance criteria.
+Drafted PRD for Cloudflare R2 conflict resolution UI (.foundry/archive/prds/prd-401-340-r2-conflict-resolution-ui) based on .foundry/archive/ideas/idea-039-401-r2-conflict-resolution-ui. Appended the generated downstream PRD as an unchecked task in the IDEA node's acceptance criteria.
 
 ## Reflection on Mutex Implementation
 To safely execute multiple agent threads and prevent merge conflicts across the repo (e.g. index files), the DAG orchestrator will require a resource locking mechanism. By preventing parallel writes to the same paths based on schema metadata, this change solidifies our transition towards safe concurrency.

@@ -866,6 +866,10 @@ Japanese games have different memory offsets compared to international releases,
 
 As a QA agent, my responsibility is to validate the task and fail it since the implementation is missing architectural requirements (handling Japanese offsets). I will update the target task (`task-470-487-catalog-integrate-saves`) with a transient rejection to alert the coder to this issue.
 
+# QA Journal Entry - Session task-413-492-route-radar-qa
+
+## Rejection: task-413-491-route-radar-ui
+The coder task claimed to update MapUI.tsx to visually indicate bike requirements, but the code does not render the BikeBadge or any visual indicator for requiresMachBike or requiresAcroBike. Triggering a transient rejection.
 
 **Date:** $(date +"%Y-%m-%d")
 **Target Task:** task-443-489-mirage-island-e2e-impl

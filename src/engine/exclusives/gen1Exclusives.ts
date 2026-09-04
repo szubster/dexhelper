@@ -83,6 +83,32 @@ export function getUnobtainableReason(
     }
 
     // Also, if you picked the OTHER choice, you can't get this one.
+    // In Yellow, all three starters are obtainable, so they are not mutually exclusive choices.
+    const allStarters = [1, 4, 7];
+    if (
+      gameVersion !== 'yellow' &&
+      allStarters.includes(base) &&
+      !ownedSet.has(base) &&
+      !evos.some((e) => ownedSet.has(e))
+    ) {
+      // We do not own this starter line. Did we pick a different one?
+      const otherBases = allStarters.filter((b) => b !== base);
+      let ownOtherStarter = false;
+      for (let i = 0; i < otherBases.length; i++) {
+        const ob = otherBases[i];
+        if (
+          ob !== undefined &&
+          (ownedSet.has(ob) || (ob === 1 ? [2, 3] : ob === 4 ? [5, 6] : [8, 9]).some((e) => ownedSet.has(e)))
+        ) {
+          ownOtherStarter = true;
+          break;
+        }
+      }
+      if (ownOtherStarter && (pokemonId === base || evos.includes(pokemonId))) {
+        return `You chose the other Starter Pokémon. Must trade for this one.`;
+      }
+    }
+
     // For hitmons: If evaluating 106, and you own 107 but not 106, it's locked.
     // Actually, fossils and hitmons are mutually exclusive choices.
     return null;

@@ -2,13 +2,13 @@
 id: epic-071-125-migrate-complex-app-components-v2
 type: EPIC
 title: Migrate Complex App Components V2
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-07-07'
+updated_at: '2026-09-03'
 depends_on:
   - epic-071-124-migrate-core-tactical-components-v2
-jules_session_id: null
+jules_session_id: '12861060129650014348'
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
 tags:
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Migrate Complex App Components V2

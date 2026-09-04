@@ -2,12 +2,12 @@
 id: story-344-494-dashboard-rejection-count
 type: STORY
 title: Refactor Dashboard UI to consume Context Rejection Threshold
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-31'
-updated_at: '2026-09-02'
+updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4023920263332063648'
 pr_number: null
 parent: epic-107-344-update-dashboard-rejection-count
 tags:
@@ -33,6 +33,6 @@ Refactor `DagDashboard.tsx`, `DagNode.tsx`, and their corresponding test files t
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-494-512-refactor-dashboard-ui
-- [ ] task-494-513-refactor-dashboard-tests
-- [ ] task-494-514-qa-verify-dashboard
+- [x] task-494-512-refactor-dashboard-ui
+- [x] task-494-513-refactor-dashboard-tests
+- [x] task-494-514-qa-verify-dashboard

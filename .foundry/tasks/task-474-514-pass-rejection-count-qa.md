@@ -2,10 +2,10 @@
 id: task-474-514-pass-rejection-count-qa
 type: TASK
 title: QA Verification for rejection_count in DagContext
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-01'
-updated_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on:
   - task-474-513-pass-rejection-count-tests
 jules_session_id: null
@@ -33,5 +33,5 @@ This task implements `story-071-474-pass-rejection-count-context`. The `rejectio
 - Verify unit tests were written and run successfully.
 
 ## 3. Acceptance Criteria
-- [ ] Verify `rejection_count` is mapped correctly in `DagProvider`.
-- [ ] Verify unit tests pass and test the mapping correctly.
+- [x] Verify `rejection_count` is mapped correctly in `DagProvider`.
+- [x] Verify unit tests pass and test the mapping correctly.

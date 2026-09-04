@@ -2,10 +2,10 @@
 id: prd-118-517-centralize-prompt-reminders-cleanup
 type: PRD
 title: Clean up Coder and QA Persona Prompts
-status: READY
+status: PENDING
 owner_persona: epic_planner
-created_at: "2026-09-02"
-updated_at: "2026-09-02"
+created_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on: []
 jules_session_id: null
 parent: idea-118-centralize-prompt-reminders-complete
@@ -13,6 +13,7 @@ tags:
   - foundry
   - agents
   - prompts
+rejection_reason: ''
 ---
 
 # Clean up Coder and QA Persona Prompts
@@ -26,5 +27,6 @@ The Coder and QA persona prompts currently contain redundant information about L
 - The base persona prompts must rely entirely on `core_policies.md` for these cross-cutting system rules.
 
 ## Acceptance Criteria
-- [ ] Create an EPIC to manage the removal of redundant policies from Coder and QA prompts.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+- [ ] epic-517-521-centralize-prompt-reminders-cleanup
+- [x] Create an EPIC to manage the removal of redundant policies from Coder and QA prompts.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification

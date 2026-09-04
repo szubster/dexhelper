@@ -11,6 +11,7 @@ import { AssistantSuggestionCard } from './assistant/AssistantSuggestionCard';
 import { MapUI } from './assistant/MapUI';
 import { CornerCrosshairs } from './CornerCrosshairs';
 import { EdgeLabel } from './EdgeLabel';
+import { TacticalIconButton } from './TacticalIconButton';
 
 interface AssistantPanelProps {
   saveData: SaveData;
@@ -143,16 +144,19 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
               <Sparkles className="text-[var(--theme-primary)]" size={24} />
               AI Assistant
             </h2>
-            <button
-              type="button"
+            <TacticalIconButton
               onClick={() => setShowDebug(!showDebug)}
-              className={`focus-visible:tactical-focus border border-dashed p-2 transition-all ${showDebug ? 'border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)]' : 'border-zinc-700 bg-zinc-800 text-zinc-500 hover:text-zinc-300'}`}
+              className={
+                showDebug
+                  ? 'border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)]'
+                  : ''
+              }
               aria-pressed={showDebug}
               title="Toggle Debug Mode"
               aria-label="Toggle Debug Mode"
             >
               <Bug size={18} />
-            </button>
+            </TacticalIconButton>
           </div>
           <p className="tactical-text mt-1 text-[10px] text-zinc-500">
             [ SMART SUGGESTIONS GENERATED FROM SAVE TELEMETRY ]

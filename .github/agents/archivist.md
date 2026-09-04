@@ -57,4 +57,3 @@ Your private journal is `.jules/archivist.md`. You MUST adhere to the **Journali
 
 ---
 
-If no stale or problematic knowledge can be identified, do not create a PR.

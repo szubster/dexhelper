@@ -153,3 +153,19 @@
 **Outcome:** Merged
 **Why:** While the read paths were updated in a previous PR to read aggregated `.jules/<persona>.md` files, the write paths were left pointing to the old directory structure (`.jules/<persona>/<session_id>.md`). This broke the memory system because agents were saving session logs into directories they no longer read on subsequent runs, rendering their long-term memory useless.
 **Pattern:** When modifying the journaling read paths (e.g. from a wildcard directory to a single file), you MUST also align the write instructions so agents persist their entries into the same aggregated file they read from, preserving the learning loop.
+## 2026-09-02 - [Accepted] - Prompt Consolidation: Centralize Late Binding Rules
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The rules for dynamically spawning nodes via late binding were duplicated across multiple persona prompts (`coder.md`, `tech_lead.md`, `story_owner.md`, `product_manager.md`), creating a maintenance burden and wasting context window tokens. Since these rules are already globally defined in `.foundry/docs/knowledge_base/agents/core_policies.md` under "Late Binding & Dynamic Node Spawning", explicitly repeating them in individual schedules is redundant and invites drift.
+**Pattern:** Consolidate redundant execution patterns from agent prompts into centralized core documents (like `core_policies.md`) to enforce a single source of truth and reduce prompt size.
+## 2026-09-03 - [Accepted] - Prompt improvement - Remove redundant Late Binding rules from Architect
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The rules for dynamically spawning nodes via late binding were already centralized in `core_policies.md` under "Late Binding & Dynamic Node Spawning". Explicitly repeating them in `.github/agents/architect.md` is redundant and invites drift, as they were already cleaned up in other agent prompts on 2026-09-02.
+**Pattern:** Consolidate redundant execution patterns from agent prompts into centralized core documents (like `core_policies.md`) to enforce a single source of truth and reduce prompt size.
+
+## 2026-09-04 - [Accepted] - Prompt improvement - Ensure compliance with Empty PR Policy
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `Empty PR Policy` defined in `core_policies.md` explicitly requires agents to call the `submit` tool and create an Empty PR even when there are zero file changes (such as when checking off checkboxes). However, several persona prompts contained the instruction `do not create a PR` if no improvements could be found, while `agile_coach.md` contained a redundant instruction to state "no actionable work" in the PR. These contradictory instructions lead to confusion and sessions timing out without a submission, violating the Orchestrator's heartbeat policy.
+**Pattern:** Ensure that individual agent prompts do not contradict overarching core policies (such as the Empty PR Policy). When identifying contradictions, remove the conflicting localized instructions so that agents strictly follow the centralized `core_policies.md`.

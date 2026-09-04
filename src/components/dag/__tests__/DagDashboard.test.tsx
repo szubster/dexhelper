@@ -1,7 +1,7 @@
 import { expect, test, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { MAX_REJECTION_THRESHOLD } from '../../../utils/constants';
+
 import { DagProvider } from '../../dashboard/DagContext';
 import { DagDashboard, getMiniMapNodeColor } from '../DagDashboard';
 
@@ -307,65 +307,92 @@ test('DagDashboard catches and logs fetch errors securely', async () => {
 
 test('getMiniMapNodeColor returns correct color based on status', () => {
   expect(
-    getMiniMapNodeColor({
-      id: '1',
-      position: { x: 0, y: 0 },
-      data: { rejection_count: 0, status: 'COMPLETED', type: 'TASK', owner_persona: 'human' },
-    }),
+    getMiniMapNodeColor(
+      {
+        id: '1',
+        position: { x: 0, y: 0 },
+        data: { rejection_count: 0, status: 'COMPLETED', type: 'TASK', owner_persona: 'human' },
+      },
+      3,
+    ),
   ).toBe('#10b981');
   expect(
-    getMiniMapNodeColor({
-      id: '1',
-      position: { x: 0, y: 0 },
-      data: { rejection_count: 0, status: 'ACTIVE', type: 'TASK', owner_persona: 'human' },
-    }),
+    getMiniMapNodeColor(
+      {
+        id: '1',
+        position: { x: 0, y: 0 },
+        data: { rejection_count: 0, status: 'ACTIVE', type: 'TASK', owner_persona: 'human' },
+      },
+      3,
+    ),
   ).toBe('#ef4444');
   expect(
-    getMiniMapNodeColor({
-      id: '1',
-      position: { x: 0, y: 0 },
-      data: { rejection_count: 0, status: 'IN_PROGRESS', type: 'TASK', owner_persona: 'human' },
-    }),
+    getMiniMapNodeColor(
+      {
+        id: '1',
+        position: { x: 0, y: 0 },
+        data: { rejection_count: 0, status: 'IN_PROGRESS', type: 'TASK', owner_persona: 'human' },
+      },
+      3,
+    ),
   ).toBe('#ef4444');
   expect(
-    getMiniMapNodeColor({
-      id: '1',
-      position: { x: 0, y: 0 },
-      data: { rejection_count: 0, status: 'FAILED', type: 'TASK', owner_persona: 'human' },
-    }),
+    getMiniMapNodeColor(
+      {
+        id: '1',
+        position: { x: 0, y: 0 },
+        data: { rejection_count: 0, status: 'FAILED', type: 'TASK', owner_persona: 'human' },
+      },
+      3,
+    ),
   ).toBe('#ef4444');
   expect(
-    getMiniMapNodeColor({
-      id: '1',
-      position: { x: 0, y: 0 },
-      data: { rejection_count: 0, status: 'BLOCKED', type: 'TASK', owner_persona: 'human' },
-    }),
+    getMiniMapNodeColor(
+      {
+        id: '1',
+        position: { x: 0, y: 0 },
+        data: { rejection_count: 0, status: 'BLOCKED', type: 'TASK', owner_persona: 'human' },
+      },
+      3,
+    ),
   ).toBe('#ef4444');
   expect(
-    getMiniMapNodeColor({
-      id: '1',
-      position: { x: 0, y: 0 },
-      data: { rejection_count: 0, status: 'READY', type: 'TASK', owner_persona: 'human' },
-    }),
+    getMiniMapNodeColor(
+      {
+        id: '1',
+        position: { x: 0, y: 0 },
+        data: { rejection_count: 0, status: 'READY', type: 'TASK', owner_persona: 'human' },
+      },
+      3,
+    ),
   ).toBe('#f59e0b');
   expect(
-    getMiniMapNodeColor({
-      id: '1',
-      position: { x: 0, y: 0 },
-      data: { rejection_count: 0, status: 'UNKNOWN' },
-    } as unknown as import('@xyflow/react').Node<import('../DagNode').DagNodeData>),
+    getMiniMapNodeColor(
+      {
+        id: '1',
+        position: { x: 0, y: 0 },
+        data: { rejection_count: 0, status: 'UNKNOWN' },
+      } as unknown as import('@xyflow/react').Node<import('../DagNode').DagNodeData>,
+      3,
+    ),
   ).toBe('#52525b');
   expect(
-    getMiniMapNodeColor({ id: '1', position: { x: 0, y: 0 }, data: {} } as unknown as import('@xyflow/react').Node<
-      import('../DagNode').DagNodeData
-    >),
+    getMiniMapNodeColor(
+      { id: '1', position: { x: 0, y: 0 }, data: {} } as unknown as import('@xyflow/react').Node<
+        import('../DagNode').DagNodeData
+      >,
+      3,
+    ),
   ).toBe('#52525b');
   expect(
-    getMiniMapNodeColor({
-      id: '1',
-      position: { x: 0, y: 0 },
-      data: { rejection_count: MAX_REJECTION_THRESHOLD, status: 'FAILED', type: 'TASK', owner_persona: 'human' },
-    }),
+    getMiniMapNodeColor(
+      {
+        id: '1',
+        position: { x: 0, y: 0 },
+        data: { rejection_count: 3, status: 'FAILED', type: 'TASK', owner_persona: 'human' },
+      },
+      3,
+    ),
   ).toBe('#dc2626');
 });
 
@@ -382,7 +409,7 @@ test('DagDashboard toggles permanent failures', async () => {
           owner_persona: 'human',
           label: 'node',
           title: 'Node 1',
-          rejection_count: MAX_REJECTION_THRESHOLD, // Permanent failure
+          rejection_count: 3, // Permanent failure
           depends_on: [],
         },
       },

@@ -14,7 +14,7 @@ import { foundryPlugin } from './vite-plugins/foundry-plugin.ts';
 
 export default defineConfig(() => {
   const sourceDir = path.resolve(import.meta.dirname, 'data/db');
-  const target = 'chrome130';
+  const target = 'esnext';
 
   return {
     base: process.env['CF_PAGES'] === 'true' ? '/' : '/dexhelper/',
@@ -82,14 +82,13 @@ export default defineConfig(() => {
     css: {
       transformer: 'lightningcss' as const,
       lightningcss: {
-        targets: browserslistToTargets(browserslist(`chrome >= ${target.replace('chrome', '')}`)),
+        targets: browserslistToTargets(browserslist('last 1 Chrome version')),
       },
     },
     build: {
       target,
       chunkSizeWarningLimit: 1000,
       cssMinify: 'lightningcss' as const,
-      cssCodeSplit: false,
       assetsInlineLimit: 102400, // Inline assets up to 100KB
       sourcemap: process.env['ANALYZE'] === 'true',
       reportCompressedSize: true,
@@ -104,9 +103,6 @@ export default defineConfig(() => {
             }
             if (id.includes('node_modules/@tanstack/react-query/')) {
               return 'query';
-            }
-            if (id.includes('node_modules/lucide-react/')) {
-              return 'icons';
             }
             if (id.includes('node_modules/@xyflow/')) {
               return 'xyflow';

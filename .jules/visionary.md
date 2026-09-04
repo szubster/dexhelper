@@ -351,3 +351,26 @@
   The project already possesses an interactive React Flow DAG visualizer at `/dag`. However, managing pipeline velocity at scale requires more than just structural topology; it requires observability into node health (e.g., resurrection loops, high rejection counts). This idea proposes a "Health Heatmap" overlay for the existing DAG visualizer to proactively highlight problematic nodes, aiding the TPM and Agile Coach.
 - **Strategic Balance:**
   In the previous session, we proposed IDEA-155 (Gen 3 Trick House Tracker) for the main DexHelper product domain. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a Foundry Orchestrator tooling improvement.
+
+- **Active Session/Timestamp:** 2026-09-02
+- **Domain:** Main Project (DexHelper)
+- **Proposed Idea:** Gen 3 Pokédex Completion & Missed Achievement Tracker (IDEA-516)
+- **Rationale & Concept:**
+  Proposes a feature to track Pokédex completion gaps and missed major achievements/items in Gen 3 games, specifically catering to players preparing to migrate to the next generation rather than farming the current one.
+- **Strategic Balance:**
+  In the preceding session, IDEA-487 was proposed for the Foundry System (Refactoring Rejection Count Schema). To strictly maintain the required 50/50 strategic balance between product features and system improvements, this session pivots back to proposing a direct user-facing feature for DexHelper (Completion Tracker).
+- **Active Session/Timestamp:** 2026-09-03
+- **Domain:** Main Project (DexHelper)
+- **Proposed Idea:** Hardcore Nuzlocke Level Cap Tracker (IDEA-488)
+- **Rationale & Concept:**
+  Hardcore Nuzlocke rules strictly forbid leveling past the next Gym Leader's ace Pokémon. By parsing current gym badges, DexHelper can determine the current level cap and warn players if their active party members are close to exceeding it.
+- **Strategic Balance:**
+  The last several ideas leaned heavily into Foundry Orchestrator improvements and technical debt. To restore the required 50/50 balance, this session pivots back to a high-value, player-facing feature for DexHelper.
+
+- **Active Session/Timestamp:** 2026-09-03
+- **Domain:** Main Project (DexHelper)
+- **Proposed Idea:** Hardcore Nuzlocke Level Cap Tracker (IDEA-488) - REJECTED
+- **Rationale & Concept:**
+  Proposed a level cap tracker for Nuzlockes based on gym badges.
+- **Outcome/Feedback:**
+  The maintainer explicitly rejected the idea with the comment: "No nuzlocke. Ever." This indicates a strict constraint against implementing any Nuzlocke-specific features in DexHelper. Future ideas must strictly avoid anything related to Nuzlockes.

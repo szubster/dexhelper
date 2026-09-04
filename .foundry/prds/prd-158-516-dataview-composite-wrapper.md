@@ -2,10 +2,10 @@
 id: prd-158-516-dataview-composite-wrapper
 type: PRD
 title: DataView Composite Wrapper & Save Parser Abstraction
-status: READY
-owner_persona: epic_planner
+status: PENDING
+owner_persona: auditor
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -20,6 +20,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # PRD: DataView Composite Wrapper & Save Parser Abstraction
@@ -42,4 +43,7 @@ The new abstraction should exist within `src/engine/saveParser/` as a core archi
 The interface must maintain strict adherence to existing save memory offset constants and support easy test mocking.
 
 ## 4. Acceptance Criteria
-- [ ] Epic Planner: Decompose this PRD into Epics (e.g., Core Wrapper implementation, Gen 3 Extender, Parser Refactoring).
+- [ ] epic-158-521-core-dataview-wrapper
+- [ ] epic-158-522-gen3-dataview-extender
+- [ ] epic-158-523-parser-refactoring-roadmap
+- [x] Epic Planner: Decompose this PRD into Epics (e.g., Core Wrapper implementation, Gen 3 Extender, Parser Refactoring).

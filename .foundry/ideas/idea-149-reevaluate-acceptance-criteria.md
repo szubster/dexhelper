@@ -2,12 +2,12 @@
 id: idea-149-reevaluate-acceptance-criteria
 type: IDEA
 title: Re-evaluate Acceptance Criteria Structure and Usage in Foundry
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-14'
-updated_at: '2026-08-14'
+updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14179023403772435165'
 pr_number: null
 parent: null
 tags:
@@ -53,4 +53,5 @@ This idea initiates a comprehensive evaluation of Acceptance Criteria across the
 
 ## Next Steps / Acceptance Criteria
 - [x] Product Manager: Draft this IDEA node to initiate research and ADR re-evaluation for Foundry Acceptance Criteria.
-- [ ] Product Manager: Convert this IDEA into a PRD mandating research and ADR creation.
+- [x] Product Manager: Convert this IDEA into a PRD mandating research and ADR creation.
+- [ ] prd-149-520-reevaluate-acceptance-criteria
