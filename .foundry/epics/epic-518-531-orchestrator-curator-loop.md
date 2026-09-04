@@ -30,5 +30,8 @@ Update the DAG Orchestrator to integrate the post-implementation Curator trigger
 - Add test coverage for the orchestrator curator loop.
 
 ## Acceptance Criteria
-- [ ] Create STORY for orchestrator trigger logic updates
-- [ ] Create STORY for IDEA re-verification stage implementation
+- [x] Create STORY for orchestrator trigger logic updates
+- [ ] story-531-533-orchestrator-trigger-logic-updates
+- [x] Create STORY for IDEA re-verification stage implementation
+- [ ] story-531-534-idea-reverification-stage
+- [ ] story-531-535-orchestrator-curator-loop-e2e
