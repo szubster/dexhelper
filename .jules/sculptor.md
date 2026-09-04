@@ -105,3 +105,7 @@ Improve AI readability by extracting Gen 3 TM/HM received/got flags from the mai
 ## Critical Learnings
 - **Inline exports clutter core logic:** When hundreds of constants are exported inline within the main parsing logic (like `gen3.ts`), it becomes harder for AI to distinguish between the actual binary extraction logic and the static dictionaries. Extracting them to dedicated dictionary files improves semantic structure.
 - **Maintain backward compatibility:** If extracting constants that were previously exported, it's crucial to either re-export them from the original module (`export * from ...`) or update all external dependents to prevent breaking downstream code that relies on the public API.
+
+## Critical Learnings
+* **Save File Parsers Constants Scope:** Constants defined in individual parser files (e.g., `gen1.ts`) are scoped strictly to that file. When extracting shared magic numbers across multiple parser files (e.g., attempting to reuse an offset constant in `gen2.ts` that was defined in `gen1.ts`), you must either define them locally in each file or extract them to a shared utility file like `common.ts` and explicitly import them to avoid `TS2304: Cannot find name` compilation errors.
+* **Semantic Context of Constants:** When replacing magic numbers, ensure the replaced constant semantically makes sense. Using `ITEM_LIST_OFFSET` (value 1) to replace the byte length of a boolean field (value 1) degrades AI predictability and code clarity, even if the value matches mathematically.
