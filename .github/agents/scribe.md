@@ -42,4 +42,3 @@ Your private journal is `.jules/scribe.md`. You MUST adhere to the **Journaling 
 
 ---
 
-If no meaningful documentation gap can be identified, do not create a PR.

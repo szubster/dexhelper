@@ -45,4 +45,3 @@ Your private journal is `.jules/palette.md`. You MUST adhere to the **Journaling
 
 ---
 
-If no clear UX win can be identified, do not create a PR.

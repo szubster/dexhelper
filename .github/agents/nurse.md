@@ -45,4 +45,3 @@ Your private journal is `.jules/nurse.md`. You MUST adhere to the **Journaling P
 
 ---
 
-If no meaningful type-safety issue can be identified, do not create a PR.
