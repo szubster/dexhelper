@@ -33,5 +33,7 @@ This story is the final step of `epic-117-334-centralize-prompt-rules`. It ensur
 - Verify that the central system tests for the DAG Orchestrator (`.github/scripts/foundry-orchestrator.ts`) still pass by running `cd .github/scripts && pnpm install && npx vitest`.
 
 ## 3. Acceptance Criteria
+- [ ] task-475-536-verify-core-tests
+- [ ] task-475-537-verify-orchestrator-tests
 - [ ] All linting, unit testing, and E2E testing commands successfully execute and pass.
 - [ ] The orchestrator's specific test suite (`cd .github/scripts && npx vitest`) executes and passes.
