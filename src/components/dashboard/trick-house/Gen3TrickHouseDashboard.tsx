@@ -19,7 +19,6 @@ export const Gen3TrickHouseDashboard = React.memo(({ saveData }: Gen3TrickHouseD
     return null;
   }
 
-  // Calculate puzzles completed based on levels and entrance states etc, though we just display raw for now or format nicely
   return (
     <TacticalPanel className="mt-4 flex flex-col border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
       <TelemetryDecoration label="SYS.TRICK_HOUSE" className="-top-[17px] left-[-1px]" />
@@ -33,7 +32,7 @@ export const Gen3TrickHouseDashboard = React.memo(({ saveData }: Gen3TrickHouseD
       </div>
       <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
         {Object.entries(trickHouse.puzzles).map(([key, val]) => (
-          <DataPoint key={key} label={key.toUpperCase()} value={val} />
+          <DataPoint key={key} label={key.toUpperCase()} value={String(val)} />
         ))}
       </div>
     </TacticalPanel>
