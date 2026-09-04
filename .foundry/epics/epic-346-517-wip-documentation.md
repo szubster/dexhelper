@@ -26,3 +26,7 @@ This epic focuses on introducing a formal signaling mechanism for Work-in-Progre
 - [ ] Implement DRAFT and WIP frontmatter support in schema
 - [ ] Implement standard markdown banner for WIP documentation
 - [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+
+- [ ] story-517-526-schema-wip-support
+- [ ] story-517-527-markdown-banner
+- [ ] story-517-528-wip-documentation-e2e
