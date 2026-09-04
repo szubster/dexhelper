@@ -53,4 +53,5 @@ This idea initiates a comprehensive evaluation of Acceptance Criteria across the
 
 ## Next Steps / Acceptance Criteria
 - [x] Product Manager: Draft this IDEA node to initiate research and ADR re-evaluation for Foundry Acceptance Criteria.
-- [ ] Product Manager: Convert this IDEA into a PRD mandating research and ADR creation.
+- [x] Product Manager: Convert this IDEA into a PRD mandating research and ADR creation.
+- [ ] prd-149-520-reevaluate-acceptance-criteria
