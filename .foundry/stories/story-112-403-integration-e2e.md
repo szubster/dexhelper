@@ -36,6 +36,9 @@ This story ensures that the backend logic to parse and extract hidden values fro
 - [ ] task-403-419-gen3-iv-pv-integration-impl
 - [x] task-403-420-playwright-e2e-impl
 - [x] task-403-421-e2e-integration-qa
-- [ ] research-403-485-playwright-e2e-failure
-- [ ] task-403-486-playwright-e2e-retry-impl
-- [ ] task-403-487-playwright-e2e-retry-qa
+- [x] research-403-485-playwright-e2e-failure
+- [x] task-403-486-playwright-e2e-retry-impl
+- [x] task-403-487-playwright-e2e-retry-qa
+- [ ] research-403-534-investigate-playwright-timeout
+- [ ] task-403-535-playwright-e2e-retry-impl-v2
+- [ ] task-403-536-playwright-e2e-retry-qa-v2
