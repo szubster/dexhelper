@@ -2,18 +2,18 @@
 id: story-531-533-orchestrator-trigger-logic-updates
 type: STORY
 title: Orchestrator Curator Trigger Logic Updates
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-04'
 updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: '13711749791933827144'
+jules_session_id: null
 parent: epic-518-531-orchestrator-curator-loop
 tags:
   - orchestrator
   - curator
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---
