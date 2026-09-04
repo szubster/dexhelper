@@ -2,12 +2,12 @@
 id: prd-422-347-playwright-mocking-utilities
 type: PRD
 title: Formalize Playwright Mocking Utilities and Testing Style Guide
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-02'
 updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: '6756589480971249112'
+jules_session_id: null
 pr_number: null
 parent: idea-422-formalize-playwright-mocking-utilities
 rejection_count: 0

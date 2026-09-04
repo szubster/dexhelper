@@ -2,12 +2,12 @@
 id: research-037-512-investigate-gen3-berry-extraction-failure
 type: RESEARCH
 title: Investigate Gen 3 Berry Extraction Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-01'
-updated_at: '2026-09-02'
+updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: '11570258279275178263'
+jules_session_id: null
 pr_number: null
 parent: prd-067-037-gen3-berry-tracker
 tags:

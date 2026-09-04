@@ -2,13 +2,13 @@
 id: story-411-444-pokerus-integration-e2e
 type: STORY
 title: Pokerus Integration E2E
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-09-02'
+updated_at: '2026-09-04'
 depends_on:
   - story-411-443-extract-pokerus-data
-jules_session_id: '4148271014656095173'
+jules_session_id: null
 pr_number: null
 parent: epic-038-411-pokerus-state-exfiltration-retry
 tags:

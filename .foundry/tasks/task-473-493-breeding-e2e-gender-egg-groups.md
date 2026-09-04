@@ -2,7 +2,7 @@
 id: task-473-493-breeding-e2e-gender-egg-groups
 type: TASK
 title: Implement Gen 2 E2E Tests for Gender and Egg Groups
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-09-04'
@@ -18,8 +18,8 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/engine/gen2-breeding.md
   - .foundry/docs/knowledge_base/development/gen2_breeding_dv_overlap.md
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

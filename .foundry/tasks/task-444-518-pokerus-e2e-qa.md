@@ -2,10 +2,10 @@
 id: task-444-518-pokerus-e2e-qa
 type: TASK
 title: Pokerus Integration E2E QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-04'
 depends_on:
   - task-444-517-pokerus-e2e-impl
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Task: Pokerus Integration E2E QA

@@ -2,12 +2,12 @@
 id: prd-418-516-replace-xyflow-with-custom-dag
 type: PRD
 title: Replace @xyflow/react with a lightweight directory tree visualization
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-02'
 updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: '18369899982785107259'
+jules_session_id: null
 parent: idea-418-replace-xyflow-with-custom-dag
 tags:
   - performance

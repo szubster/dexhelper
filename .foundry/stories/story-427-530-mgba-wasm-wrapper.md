@@ -2,12 +2,12 @@
 id: story-427-530-mgba-wasm-wrapper
 type: STORY
 title: Implement mGBA WASM Module Wrapper and React Component
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-17'
 updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: '1328320342750059280'
+jules_session_id: null
 pr_number: null
 parent: epic-421-427-mgba-integration
 tags:

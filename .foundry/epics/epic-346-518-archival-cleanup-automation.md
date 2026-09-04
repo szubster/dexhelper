@@ -1,11 +1,11 @@
 ---
 id: epic-346-518-archival-cleanup-automation
 type: EPIC
-title: "Archival Cleanup Automation"
-status: READY
-owner_persona: "story_owner"
-created_at: "2026-09-02"
-updated_at: "2026-09-02"
+title: Archival Cleanup Automation
+status: PENDING
+owner_persona: story_owner
+created_at: '2026-09-02'
+updated_at: '2026-09-04'
 depends_on:
   - epic-346-517-archival-cleanup-core-engine
 jules_session_id: null
@@ -17,8 +17,9 @@ tags:
   - automation
   - persona
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Archival Cleanup Automation
