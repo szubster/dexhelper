@@ -45,4 +45,5 @@ This tool transforms a frustrating RNG grind into a structured, trackable goal, 
 
 ## Next Steps / Acceptance Criteria
 - [x] Product Manager: Draft this IDEA node to initiate the feature request for the Wild Held Item Hunting Assistant.
-- [ ] Product Manager: Convert this IDEA into a PRD detailing the user flows and technical requirements.
+- [x] Product Manager: Convert this IDEA into a PRD detailing the user flows and technical requirements.
+- [ ] prd-150-521-wild-held-item-hunting-assistant
