@@ -34,4 +34,6 @@ Extend the static analysis script (`scripts/verify-adr-compliance.ts`) created i
 - Flag direct local state management where context is mandated by ADR 013.
 
 ## Acceptance Criteria
-- [ ] Break down this story into actionable engineering tasks.
+- [x] Break down this story into actionable engineering tasks.
+- [ ] task-444-517-implement-adr013-linter
+- [ ] task-444-518-qa-adr013-linter
