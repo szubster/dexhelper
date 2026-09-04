@@ -45,4 +45,6 @@ This PRD mandates a comprehensive evaluation of Acceptance Criteria across the F
 - Define necessary updates for `.foundry/docs/schema.md` and `.github/scripts/foundry-orchestrator.ts`.
 
 ## Acceptance Criteria
-- [ ] epic_planner: Break down this PRD into EPIC(s) focusing on the research and ADR phases.
+- [x] epic_planner: Break down this PRD into EPIC(s) focusing on the research and ADR phases.
+- [ ] epic-520-534-acceptance-criteria-research
+- [ ] epic-520-535-acceptance-criteria-adr
