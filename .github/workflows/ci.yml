@@ -108,7 +108,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Audit Dependencies
-        run: pnpm audit --prod --ignore GHSA-rmmr-r34h-pfm5
+        run: pnpm audit --prod --ignore-registry-errors --ignore GHSA-rmmr-r34h-pfm5
 
   foundry:
     runs-on: ubuntu-latest
