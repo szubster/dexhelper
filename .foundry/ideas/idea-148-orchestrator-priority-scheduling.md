@@ -39,4 +39,5 @@ Introduce a **Priority Scheduling Engine** into the orchestrator:
 This enhancement transitions the autonomous software factory from naive parallel execution to focused, strategic delivery. It prioritizes critical path tasks, minimizes git merge conflicts, and ensures that the most important features are delivered end-to-end first, while still maximizing Jules agent utilization.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a comprehensive PRD detailing the schema changes and priority scheduling algorithm.
+- [x] Product Manager: Draft a comprehensive PRD detailing the schema changes and priority scheduling algorithm.
+- [ ] prd-148-521-orchestrator-priority-scheduling
