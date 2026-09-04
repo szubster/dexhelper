@@ -1,21 +1,21 @@
 ---
-id: idea-516-gen3-pokedex-completion-tracker
-type: IDEA
+id: prd-516-520-gen3-pokedex-completion-tracker
+type: PRD
 title: Gen 3 Pokédex Completion & Missed Achievement Tracker
 status: READY
-owner_persona: product_manager
-created_at: '2026-09-02'
-updated_at: '2026-09-02'
+owner_persona: epic_planner
+created_at: '2026-09-04'
+updated_at: '2026-09-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: null
+parent: idea-516-gen3-pokedex-completion-tracker
 tags:
   - dexhelper
 research_references: []
 ---
 
-# Idea: Gen 3 Pokédex Completion & Missed Achievement Tracker
+# PRD: Gen 3 Pokédex Completion & Missed Achievement Tracker
 
 ## Context
 In Generation 3 (FireRed, LeafGreen, Emerald), completing the Pokédex and earning all possible achievements (like Trainer Card stars, obtaining rare items, and triggering specific in-game events) is a massive undertaking. Players focused on progression rather than endless farming often want to know exactly what they are missing before they migrate their team to the next generation (Gen 4).
@@ -33,5 +33,4 @@ We can create a "Generation Transition Checklist" dashboard that shows:
 -   Shifts focus from repetitive farming (like EV training or contest ribbons) to macro-level completion goals.
 
 ## Acceptance Criteria
-- [ ] prd-516-520-gen3-pokedex-completion-tracker
-- [x] Product Manager: Draft PRD.
+- [ ] epic_planner: Break down into Epics.
