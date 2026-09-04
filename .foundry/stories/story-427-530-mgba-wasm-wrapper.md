@@ -31,3 +31,6 @@ Create a wrapper around the mGBA WASM module and a React component to handle run
 - [ ] Implement mGBA WASM initialization and configuration.
 - [ ] Create a React component to host the emulator canvas and controls.
 - [ ] Implement robust error handling for emulator initialization failures.
+- [ ] task-530-533-mgba-wasm-init
+- [ ] task-530-534-mgba-react-component
+- [ ] task-530-535-mgba-integration-qa
