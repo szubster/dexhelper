@@ -41,3 +41,7 @@ Develop the frontend "Duplicate Analyzer" view within DexHelper, featuring a tab
 - [ ] Render all specified stat columns accurately.
 - [ ] Implement visual highlighting for optimal stats.
 - [ ] Ensure the UI adheres to the established design guidelines (ADR 024).
+- [ ] story-109-520-box-analyzer-view-layout
+- [ ] story-109-521-box-analyzer-matrix-component
+- [ ] story-109-522-box-analyzer-highlighting-logic
+- [ ] story-109-523-box-analyzer-matrix-e2e
