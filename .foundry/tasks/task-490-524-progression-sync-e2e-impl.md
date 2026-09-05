@@ -34,5 +34,5 @@ Implement Playwright end-to-end tests to verify progression sync logic, includin
 - Verify the multiple save database schema handles these interactions seamlessly.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for offline save progression and sync logic.
-- [ ] Tests must run successfully against the local webserver.
+- [x] Implement Playwright E2E tests for offline save progression and sync logic.
+- [x] Tests must run successfully against the local webserver.
