@@ -161,3 +161,9 @@
 **Outcome:** Accepted
 **Why:** Submitted as part of Canvas session for bold UI redesigns to transform component layouts and visual treatments in the tactical styling aesthetic.
 **Pattern:** Use thick structural frames, diegetic LED indicators, and dense raw data logs for modal headers to align with the hardware diagnostic theme.
+
+## 2026-09-04 - [Accepted] - 🖼️ Canvas: Hardware Configuration Terminal (Settings Redesign)
+**What:** Redesigned the `SettingsModal` and its subcomponents (`SettingsRow`, `SettingsLegend`, `ClearStorageButton`) into a "Hardware Configuration Terminal". Replaced the simple modal wrapper with a thick bezel featuring `HardwareScrews`, hazard stripes, and an LCD grid background. Redesigned rows into mechanical parameter modules with inset shadows and diagnostic LEDs for the legend.
+**Outcome:** Accepted -> wait for review
+**Why:** The previous settings screen was a flat modal that lacked depth and immersion. Transforming it into a physical configuration console aligns perfectly with the tactical, heavy-hardware aesthetic established by `AppHeader` and `BottomNav`.
+**Pattern:** Settings and configuration views shouldn't look like flat web forms. Treat them as heavy physical terminals: use inset shadows for parameter rows, diagnostic LEDs for legends, and severe warning treatments (hazard stripes, glowing reds) for destructive actions like data purge.

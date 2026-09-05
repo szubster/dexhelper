@@ -37,7 +37,7 @@ describe('SettingsModal', () => {
     await render(<SettingsModal />);
 
     await expect.element(page.getByRole('heading', { name: 'SYS.CONFIG' })).toBeInTheDocument();
-    await expect.element(page.getByText('Configure your experience')).toBeInTheDocument();
+    await expect.element(page.getByText('Hardware Configuration Terminal')).toBeInTheDocument();
   });
 
   it('should close when the close button is clicked', async () => {
@@ -62,11 +62,11 @@ describe('SettingsModal', () => {
     await render(<SettingsModal />);
 
     // Click SYS.PURGE to open confirmation
-    const purgeButton = page.getByText(/SYS\.PURGE/);
+    const purgeButton = page.getByText(/INITIATE_FORMAT/);
     await purgeButton.click();
 
     // Click CONFIRM.PURGE
-    const confirmButton = page.getByText(/CONFIRM\.PURGE/);
+    const confirmButton = page.getByText(/CONFIRM\.FORMAT/);
     await confirmButton.click();
 
     // eslint-disable-next-line @typescript-eslint/unbound-method

@@ -8,16 +8,16 @@ describe('ClearStorageButton', () => {
     const onClear = vi.fn<() => void>();
     await render(<ClearStorageButton onClear={onClear} />);
 
-    await expect.element(page.getByText(/SYS.PURGE/)).toBeInTheDocument();
+    await expect.element(page.getByText(/INITIATE_FORMAT/)).toBeInTheDocument();
   });
 
   it('shows confirmation state when clicked', async () => {
     const onClear = vi.fn<() => void>();
     await render(<ClearStorageButton onClear={onClear} />);
 
-    await page.getByText(/SYS.PURGE/).click();
+    await page.getByText(/INITIATE_FORMAT/).click();
 
-    await expect.element(page.getByText(/CONFIRM.PURGE/)).toBeInTheDocument();
+    await expect.element(page.getByText(/CONFIRM.FORMAT/)).toBeInTheDocument();
     await expect.element(page.getByText(/ABORT/)).toBeInTheDocument();
   });
 
@@ -25,8 +25,8 @@ describe('ClearStorageButton', () => {
     const onClear = vi.fn<() => void>();
     await render(<ClearStorageButton onClear={onClear} />);
 
-    await page.getByText(/SYS.PURGE/).click();
-    await page.getByText(/CONFIRM.PURGE/).click();
+    await page.getByText(/INITIATE_FORMAT/).click();
+    await page.getByText(/CONFIRM.FORMAT/).click();
 
     expect(onClear).toHaveBeenCalledTimes(1);
   });
@@ -35,9 +35,9 @@ describe('ClearStorageButton', () => {
     const onClear = vi.fn<() => void>();
     await render(<ClearStorageButton onClear={onClear} />);
 
-    await page.getByText(/SYS.PURGE/).click();
+    await page.getByText(/INITIATE_FORMAT/).click();
     await page.getByText(/ABORT/).click();
 
-    await expect.element(page.getByText(/SYS.PURGE/)).toBeInTheDocument();
+    await expect.element(page.getByText(/INITIATE_FORMAT/)).toBeInTheDocument();
   });
 });
