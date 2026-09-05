@@ -1,18 +1,14 @@
 import React from 'react';
-import { isGen3Save, type SaveData } from '../../../engine/saveParser/parsers/common';
+import type { Gen3SaveData } from '../../../engine/saveParser/parsers/common';
 import { DataPoint } from '../../DataPoint';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 
 export interface Gen3TrickHouseDashboardProps {
-  saveData: SaveData;
+  saveData: Gen3SaveData;
 }
 
 export const Gen3TrickHouseDashboard = React.memo(({ saveData }: Gen3TrickHouseDashboardProps) => {
-  if (!isGen3Save(saveData)) {
-    return null;
-  }
-
   const trickHouse = saveData.gen3TrickHouse;
 
   if (!trickHouse) {
