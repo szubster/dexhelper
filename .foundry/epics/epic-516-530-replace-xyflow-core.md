@@ -2,12 +2,12 @@
 id: epic-516-530-replace-xyflow-core
 type: EPIC
 title: Replace xyflow with a lightweight DAG tree component
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1347619888582818783'
 parent: prd-418-516-replace-xyflow-with-custom-dag
 tags:
   - performance
