@@ -24,4 +24,6 @@ locks: []
 Register the `curator` persona in `.foundry/docs/schema.md` within the `owner_persona` Enum to act as the Guardian of Code Quality. It should map to Persian (#053) and Kadabra (#064).
 
 ## Acceptance Criteria
-- [ ] Update `.foundry/docs/schema.md` to include the `curator` persona
+- [ ] task-533-536-schema-curator-coder
+- [ ] task-533-537-schema-curator-qa
+- [x] Update `.foundry/docs/schema.md` to include the `curator` persona
