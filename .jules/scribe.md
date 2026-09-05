@@ -135,3 +135,19 @@ The user requested to pick ONE module and improve its documentation (JSDoc, inli
 ### Gen 3 Checksum Architecture
 * **Observation:** Gen 3 save files are not verified via a single contiguous block checksum in `parseSaveFile` like Gen 1 or 2.
 * **Resolution:** Gen 3 uses a complex A/B flash bank system with multiple checksums per sector. Therefore, its initial detection heavily relies on the structural fallback path (scanning for signatures across sections) rather than the primary checksum block.Scribe constraints: Avoid adding redundant JSDoc comments that simply restate logic. Focus purely on architectural 'why' (e.g., explaining why Feebas seeds use LCG or why map spot IDs require translation to 2D coordinates for UI heatmaps) to satisfy strict Scribe documentation policies.
+
+# Scribe Session Journal
+
+## Task Goal
+Improve documentation (JSDoc) for a single complex module, explaining the architectural "why" rather than the "what".
+
+## Action Taken
+1. Identified `src/engine/saveParser/gen3/daycare/parser.ts` as a complex module handling Daycare data across multiple Gen 3 sub-versions (RS, Emerald, FRLG).
+2. Added JSDoc to `parseGen3Daycare` explaining the structural differences in memory layouts between the game versions (e.g., mail struct expansions affecting offsets).
+3. Added JSDoc to `extractGen3PokemonData` explaining the PV XOR OTID decryption algorithm and the 48-byte GAEM substructure permutations.
+4. Passed `pnpm lint` and `pnpm test`.
+
+## Critical Learnings
+- **Gen 3 Substructure Architecture:** The 100-byte Pokémon data structure contains a 48-byte encrypted block, which is scrambled into one of 24 permutations based on `PV % 24`.
+- **Version Differences in Daycare:** Ruby/Sapphire uses an 80-byte block per Pokémon, while Emerald and FireRed/LeafGreen use 140-byte blocks due to structural expansions.
+- **Playwright Binaries in Headless CI:** When running Vitest browser tests locally, if the Playwright binaries are missing, run `pnpm exec playwright install chromium`.
