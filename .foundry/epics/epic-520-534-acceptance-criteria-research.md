@@ -1,13 +1,13 @@
 ---
 id: epic-520-534-acceptance-criteria-research
 type: EPIC
-title: "Research Phase: Acceptance Criteria Usage"
-status: READY
-owner_persona: "story_owner"
-created_at: "2026-09-04"
-updated_at: '2026-09-04'
+title: 'Research Phase: Acceptance Criteria Usage'
+status: ACTIVE
+owner_persona: story_owner
+created_at: '2026-09-04'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17641458150879217254'
 locks: []
 pr_number: null
 parent: prd-149-520-reevaluate-acceptance-criteria
@@ -17,8 +17,8 @@ tags:
   - research
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Epic: Research Phase: Acceptance Criteria Usage
