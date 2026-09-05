@@ -2,13 +2,13 @@
 id: task-490-503-render-persona-badges-qa
 type: TASK
 title: Render Persona Badges QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-31'
 updated_at: '2026-09-05'
 depends_on:
   - task-490-502-render-persona-badges-impl
-jules_session_id: null
+jules_session_id: '9400567206624152205'
 pr_number: null
 parent: story-407-490-gamified-dashboard-components
 tags:
