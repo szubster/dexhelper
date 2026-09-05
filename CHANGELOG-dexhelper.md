@@ -20,3 +20,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.2.0] - 2026-08-16
 ### Added
 - Implemented core application layout including save file upload, header navigation, and a mobile-friendly bottom navigation.
+
+[0.3.0]: https://github.com/szubster/dexhelper/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/szubster/dexhelper/releases/tag/v0.2.0
