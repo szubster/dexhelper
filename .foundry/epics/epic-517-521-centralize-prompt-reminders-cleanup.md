@@ -27,5 +27,7 @@ locks: []
 This epic focuses on removing redundant information about Late Binding and failure handling from the .github/agents/coder.md and .github/agents/qa.md files. This information is already covered in core_policies.md, so removing it reduces prompt bloat and adheres to optimization rules.
 
 ## Acceptance Criteria
-- [ ] Generate STORY nodes to remove redundant Late Binding and failure handling policies from Coder and QA prompts.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Generate STORY nodes to remove redundant Late Binding and failure handling policies from Coder and QA prompts.
+- [ ] story-521-520-prompt-cleanup-tasks
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-521-521-integration-e2e
