@@ -2,10 +2,10 @@
 id: task-473-495-egg-hatch-e2e-qa
 type: TASK
 title: QA Egg Hatch E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-09-05'
 depends_on:
   - task-473-493-gen2-egg-hatch-e2e-impl
   - task-473-494-gen3-egg-hatch-e2e-impl
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Task: QA Egg Hatch E2E Tests

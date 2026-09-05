@@ -2,12 +2,12 @@
 id: task-498-526-tpm-aggregation-logic
 type: TASK
 title: TPM Aggregation Logic Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11200887012477677612'
 pr_number: null
 parent: story-406-498-tpm-aggregation-and-archival
 tags:

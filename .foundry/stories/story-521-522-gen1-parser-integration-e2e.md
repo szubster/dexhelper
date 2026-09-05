@@ -2,10 +2,10 @@
 id: story-521-522-gen1-parser-integration-e2e
 type: STORY
 title: Gen 1 Parser Refactor Integration and E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on:
   - story-521-520-gen1-parser-refactor-core
   - story-521-521-gen1-utils-refactor

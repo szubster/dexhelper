@@ -2,12 +2,12 @@
 id: task-490-502-render-persona-badges-impl
 type: TASK
 title: Render Persona Badges Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-31'
 updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14942912935004622149'
 pr_number: null
 parent: story-407-490-gamified-dashboard-components
 tags:
