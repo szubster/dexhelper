@@ -26,6 +26,6 @@ Register the `curator` persona in `.foundry/docs/schema.md` within the `owner_pe
 This task comes from `story-530-533-schema-curator-persona`. The schema document (`.foundry/docs/schema.md`) needs to be updated.
 
 ## Acceptance Criteria
-- [ ] Add `curator` persona to the Owner Persona Enum table in `.foundry/docs/schema.md`.
-- [ ] The description must describe it as the "Guardian of Code Quality".
-- [ ] It must map to Persian (#053) and Kadabra (#064).
+- [x] Add `curator` persona to the Owner Persona Enum table in `.foundry/docs/schema.md`.
+- [x] The description must describe it as the "Guardian of Code Quality".
+- [x] It must map to Persian (#053) and Kadabra (#064).
