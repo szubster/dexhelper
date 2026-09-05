@@ -29,6 +29,10 @@ Implement text aggregation and file system operations to append to the EPIC and 
 - Processed child nodes must be moved from `.foundry/stories/` and `.foundry/tasks/` to `.foundry/archive/stories/` and `.foundry/archive/tasks/`.
 
 ## Acceptance Criteria
+- [ ] task-498-526-tpm-aggregation-logic
+- [ ] task-498-527-tpm-archival-fs
+- [ ] task-498-528-tpm-aggregation-tests
+- [ ] task-498-529-tpm-aggregation-qa
 - [ ] Implement text aggregation and synthesis to create the Changelog & Learnings summary.
 - [ ] Implement file system operations to append to the EPIC.
 - [ ] Implement file system operations to move child files to `.foundry/archive/`.
