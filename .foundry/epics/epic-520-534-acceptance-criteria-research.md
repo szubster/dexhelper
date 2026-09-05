@@ -33,5 +33,8 @@ Currently, Acceptance Criteria in Foundry are implemented as freeform Markdown t
 - Generate a `RESEARCH` node to carry out this audit and evaluation.
 
 ## Acceptance Criteria
-- [ ] story_owner: Break down this Epic into STORY nodes, including the creation of the required `RESEARCH` node.
-- [ ] story_owner: Ensure this Epic generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] story_owner: Break down this Epic into STORY nodes, including the creation of the required `RESEARCH` node.
+- [x] story_owner: Ensure this Epic generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] research-534-517-audit-acceptance-criteria
+- [ ] story-534-536-propose-acceptance-criteria-alternatives
+- [ ] story-534-537-acceptance-criteria-integration-e2e
