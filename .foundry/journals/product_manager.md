@@ -103,3 +103,6 @@ Following the Late-Binding for Missing Context & Task Suspension protocol:
 3. I appended the new RESEARCH node reference as an unchecked task (`- [ ] research-157-505-gen2-headbutt-math`) into the Markdown body of the current task.
 
 **Lesson Learned**: Do not try to guess or implement generic fallbacks when specific game mechanics or offsets are unknown. Actively suspend the task and utilize the late-binding pattern to delegate research. This ensures accuracy and adherence to proper architecture before proceeding to the PRD phase. Also, remember that IDEA nodes must not have `rejection_count` or `rejection_reason` in their frontmatter.
+
+
+---

@@ -420,8 +420,6 @@ Task task-257-373-progression-timeline-ui-impl was FAILED.
 ## Architectural Lessons
 Found duplicate components for ProgressionTimeline. One at `src/components/dashboard/progression/ProgressionTimeline.tsx` and another at `src/components/timeline/ProgressionTimeline.tsx`. The developer also left placeholders and didn't implement the true SaveHistory integration yet. Future QA validations should explicitly check for duplicate components and verify data integrations.
 
----
-
 # QA Session Journal
 
 Session ID: 4628964964798248082
@@ -459,13 +457,9 @@ Target implementation rejected. `task-337-367-zod-schema-integration-impl.md` wa
 
 Successfully completed the QA task for Nuzlocke Route Violations. Ensure strict adherence to the negative constraints regarding YAML frontmatter updates when acting as QA.
 
----
-
 # QA Session 12335444189339326262
 
 Rejected task `task-295-338-gen3-static-encounters-ui-impl` because the implementation failed to integrate the new component into the main dashboard (`src/routes/dashboard.tsx`).
-
----
 
 # QA Session: task-262-376-aggregate-first-catch-qa
 
@@ -478,8 +472,6 @@ Rejected task `task-295-338-gen3-static-encounters-ui-impl` because the implemen
 - Confirmed unit tests in `src/engine/nuzlocke/tracker.test.ts` thoroughly cover the new logic and edge cases.
 - Execution matches the specifications and does not violate any core architecture or save file parsing constraints.
 - Implementation passes standard verification checks (`pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`).
-
----
 
 # QA Session 15284529042228902330
 
@@ -497,8 +489,6 @@ Rejected task `task-295-338-gen3-static-encounters-ui-impl` because the implemen
 - Approved the implementation.
 - Marked all acceptance criteria in `task-334-387-cross-gen-sorting-adapters-qa.md` as checked.
 - No modifications made to YAML frontmatter, adhering to strict empty PR policy for transitioning task nodes.
-
----
 
 # QA Session: 14863696901989894627
 
@@ -870,6 +860,19 @@ As a QA agent, my responsibility is to validate the task and fail it since the i
 
 ## Rejection: task-413-491-route-radar-ui
 The coder task claimed to update MapUI.tsx to visually indicate bike requirements, but the code does not render the BikeBadge or any visual indicator for requiresMachBike or requiresAcroBike. Triggering a transient rejection.
+
+**Date:** $(date +"%Y-%m-%d")
+**Target Task:** task-443-489-mirage-island-e2e-impl
+**QA Task:** task-473-493-mirage-island-e2e-qa
+
+## Details
+During QA verification, the required implementation artifact (`tests/e2e/mirage_island_extraction.spec.ts`) for the Mirage Island E2E tests was not found.
+
+## Action Taken
+The implementation task `task-443-489-mirage-island-e2e-impl` has been marked as `FAILED` to trigger a transient rejection and allow the coder to properly implement the required tests in a subsequent session. The acceptance criteria for the QA task remain unchecked.
+
+
+# Transient Failure: Missing Implementation Artifact
 
 **Date:** $(date +"%Y-%m-%d")
 **Target Task:** task-443-489-mirage-island-e2e-impl

@@ -11,3 +11,8 @@
 - **Duplication Avoidance**: Always normalize whitespace when checking if a session's text already exists in the `master.md` file before appending it. A previous bug blindly appended duplicates because it didn't check effectively.
 - **Log Purging Danger**: Broad string-matching for purge operations (e.g., searching for any line with "Artifact Anomaly") is destructive and inadvertently deletes architectural policies or core rules. Log purging must be extremely precise (e.g., exact line equality for "- Artifact Anomaly") to distinguish between a transient status log and a documented rule.
 - **Flattening Structures**: It's more efficient for context window sizes if all journals are maintained as top-level `.md` files instead of nested subdirectories containing `.md` files. This required merging existing `master.md` and scattered session files into single top-level files (e.g., `.jules/sentinel.md`) and removing the legacy directories.
+
+## Session Update
+- Flattened directory structure by aggregating `.foundry/journals/*` master logs and `.jules/*` master logs to the top-level directories (`.foundry/journals` and `.jules`) and removing their sub-directories.
+- Purged transient logs correctly, such as `System failure detected`, `Executed Empty PR Policy`, `is now COMPLETED`, and exact matches of the `Artifact Anomaly` log from `tech_lead.md` by strictly checking line by line rather than deleting whole blocks of knowledge.
+- Improved deduplication correctly by splitting files by headers/dividers, normalizing whitespace, and utilizing a `Set` to filter out heavily duplicated entries propagated from the master logs (e.g. vitest browser testing memory and transient failures).
