@@ -24,5 +24,7 @@ locks: []
 This epic focuses on incorporating the Tech Lead's guidelines for agents to dynamically spawn RESEARCH and ADR nodes during continuous development when underutilized features are discovered.
 
 ## Acceptance Criteria
-- [ ] Decompose this epic into Stories to implement and document dynamic node spawning guidelines.
-- [ ] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Decompose this epic into Stories to implement and document dynamic node spawning guidelines.
+- [x] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-539-544-implement-dynamic-node-spawning
+- [ ] story-539-545-dynamic-discovery-e2e
