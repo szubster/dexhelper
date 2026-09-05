@@ -2,12 +2,12 @@
 id: task-514-526-remediation-state-transition-logic-impl
 type: TASK
 title: Implement Remediation State Transition Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9369237786729708912'
 pr_number: null
 parent: story-330-514-remediation-state-transition-logic
 tags:
