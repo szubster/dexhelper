@@ -24,4 +24,7 @@ locks: []
 This story implements the late-binding workflow guidelines for dynamic node spawning.
 
 ## Acceptance Criteria
-- [ ] Break down tasks to implement late-binding workflow as described in .foundry/docs/knowledge_base/agents/dynamic_node_spawning.md
+- [x] Break down tasks to implement late-binding workflow as described in .foundry/docs/knowledge_base/agents/dynamic_node_spawning.md
+- [ ] task-544-549-dynamic-node-spawning-heartbeat
+- [ ] task-544-551-dynamic-node-spawning-heartbeat-tests
+- [ ] task-544-550-dynamic-node-spawning-qa
