@@ -2,12 +2,12 @@
 id: story-530-536-dagtree-ui-logic
 type: STORY
 title: Implement DagTree UI logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-05'
 updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2591668212821569410'
 pr_number: null
 parent: epic-516-530-replace-xyflow-core
 tags:
