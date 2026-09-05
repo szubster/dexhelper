@@ -2,13 +2,13 @@
 id: task-143-490-gen3-contest-integration-tests-qa
 type: TASK
 title: Gen 3 Contest Integration Tests QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-09-05'
 depends_on:
   - task-143-489-gen3-contest-integration-tests-impl
-jules_session_id: null
+jules_session_id: '15717886158327723888'
 pr_number: null
 parent: story-065-143-gen3-contest-integration-tests
 tags:
