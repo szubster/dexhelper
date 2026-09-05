@@ -30,7 +30,11 @@ Implement a lightweight, DOM-based directory tree visualization for the Foundry 
 3. Apply tactical hardware aesthetics (sharp edges, dashed borders, monospaced font) following ADR 008.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks to implement `DagTree` UI logic.
+- [x] Break down into Tasks to implement `DagTree` UI logic.
 - [ ] Implement `DagTree` UI component.
 - [ ] Apply ADR 008 styling to the component.
 - [ ] Implement expand/collapse functionality.
+- [ ] task-536-538-dagtree-context-state-impl
+- [ ] task-536-539-dagtree-item-component-impl
+- [ ] task-536-540-dagtree-layout-component-impl
+- [ ] task-536-541-dagtree-ui-logic-qa
