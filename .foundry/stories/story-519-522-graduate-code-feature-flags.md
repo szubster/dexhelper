@@ -2,10 +2,10 @@
 id: story-519-522-graduate-code-feature-flags
 type: STORY
 title: Remove Feature Flags and Graduate Code
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: null
 pr_number: null

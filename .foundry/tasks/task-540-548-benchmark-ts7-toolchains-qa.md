@@ -2,7 +2,7 @@
 id: task-540-548-benchmark-ts7-toolchains-qa
 type: TASK
 title: QA Benchmark TS 7.x Toolchains
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-05'
 updated_at: '2026-09-05'

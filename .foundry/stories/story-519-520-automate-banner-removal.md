@@ -2,10 +2,10 @@
 id: story-519-520-automate-banner-removal
 type: STORY
 title: Automate Markdown Banner Removal
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: null
 pr_number: null

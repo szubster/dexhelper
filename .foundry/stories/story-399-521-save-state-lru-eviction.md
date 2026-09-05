@@ -2,10 +2,10 @@
 id: story-399-521-save-state-lru-eviction
 type: STORY
 title: Implement LRU eviction logic for save states
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on:
   - story-399-520-save-state-limits
 jules_session_id: null
@@ -15,6 +15,8 @@ tags:
   - storage
   - indexeddb
   - history
+locks: []
+rejection_reason: ''
 ---
 
 # Story: Implement LRU eviction logic for save states

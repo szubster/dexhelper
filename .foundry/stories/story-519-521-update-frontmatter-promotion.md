@@ -2,10 +2,10 @@
 id: story-519-521-update-frontmatter-promotion
 type: STORY
 title: Update DRAFT Frontmatter to STABLE
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: null
 pr_number: null

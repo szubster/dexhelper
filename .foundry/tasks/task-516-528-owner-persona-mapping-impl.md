@@ -2,10 +2,10 @@
 id: task-516-528-owner-persona-mapping-impl
 type: TASK
 title: Implement Base Prompt Mapping Logic
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: null
 pr_number: null

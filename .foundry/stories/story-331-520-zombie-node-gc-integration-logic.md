@@ -2,10 +2,10 @@
 id: story-331-520-zombie-node-gc-integration-logic
 type: STORY
 title: Zombie Node GC Direct Integration Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Zombie Node GC Direct Integration Logic

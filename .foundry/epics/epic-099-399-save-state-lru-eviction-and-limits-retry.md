@@ -2,13 +2,13 @@
 id: epic-099-399-save-state-lru-eviction-and-limits-retry
 type: EPIC
 title: Save State Storage Limits and LRU Eviction (Retry)
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-04'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on:
   - epic-099-398-save-state-read-write-api-retry
-jules_session_id: '2655225334709018474'
+jules_session_id: null
 pr_number: null
 parent: prd-066-099-save-state-history-storage
 tags:

@@ -2,10 +2,10 @@
 id: story-109-522-box-analyzer-highlighting-logic
 type: STORY
 title: Box Analyzer Stat Highlighting Logic
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-28'
-updated_at: '2026-06-28'
+updated_at: '2026-09-05'
 depends_on:
   - story-109-521-box-analyzer-matrix-component
 jules_session_id: null

@@ -2,12 +2,12 @@
 id: task-512-526-schema-verifying-state-update
 type: TASK
 title: Implement VERIFYING state schema update
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '3653602194144836961'
+jules_session_id: null
 pr_number: null
 parent: story-130-512-schema-verifying-state-update
 tags:
