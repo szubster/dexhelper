@@ -25,3 +25,6 @@ This epic focuses on updating Foundry's orchestrator and persona context prompts
 - [ ] Update persona prompts to recognize draft ADRs and WIP code
 - [ ] Restrict agents from taking downstream dependencies on DRAFT/WIP artifacts
 - [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+- [ ] story-520-520-update-persona-prompts
+- [ ] story-520-521-restrict-downstream-dependencies
+- [ ] story-520-522-wip-awareness-e2e
