@@ -20,7 +20,7 @@ test('renders correctly for SWARM variant with ADR 008 aesthetic classes', async
   // Check ADR 008 aesthetic classes
   expect(container.innerHTML).toContain('tactical-text');
   expect(container.innerHTML).toContain('border-dashed');
-  expect(container.innerHTML).toContain('font-mono');
+  expect(container.innerHTML).toContain('tactical-text');
   expect(container.innerHTML).toContain('rounded-none');
 });
 

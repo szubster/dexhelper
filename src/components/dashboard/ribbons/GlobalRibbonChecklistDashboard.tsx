@@ -96,7 +96,7 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
         </div>
 
         <div className="flex flex-col gap-2 border-zinc-800 border-b border-dashed pb-4">
-          <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">MASTER RANK TRACKING</span>
+          <span className="tactical-text text-[10px] text-zinc-500">MASTER RANK TRACKING</span>
           <div className="flex gap-2">
             {(['cool', 'beauty', 'cute', 'smart', 'tough'] as const).map((key) => {
               const isMaster = masterRanks[key];
@@ -104,7 +104,7 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
                 <div
                   key={key}
                   className={cn(
-                    'flex items-center justify-center rounded-none border border-dashed px-3 py-1 font-mono text-xs uppercase transition-colors',
+                    'tactical-panel tactical-text flex items-center justify-center border px-3 py-1 text-xs transition-colors',
                     isMaster
                       ? 'border-purple-500/50 bg-purple-950/20 text-purple-400'
                       : 'border-zinc-800 bg-zinc-950 text-zinc-600',
@@ -144,7 +144,7 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
                   }}
                   className="mb-2 flex items-center justify-between border-zinc-800 border-b border-dashed p-2"
                 >
-                  <span className="font-mono text-sm text-white">
+                  <span className="tactical-text text-sm text-white">
                     {pokemon.nickname || `Species ${pokemon.speciesId}`} (Lv {pokemon.level})
                   </span>
                   <div className="flex flex-wrap justify-end gap-2">

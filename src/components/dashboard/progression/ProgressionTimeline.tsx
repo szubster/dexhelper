@@ -77,22 +77,24 @@ export const ProgressionTimeline: React.FC = () => {
   if (!activePlaythrough) {
     return (
       <TacticalPanel className="p-4 text-center">
-        <span className="tactical-text font-mono text-zinc-500">NO ACTIVE PLAYTHROUGH FOUND</span>
+        <span className="tactical-text text-zinc-500">NO ACTIVE PLAYTHROUGH FOUND</span>
       </TacticalPanel>
     );
   }
 
   return (
-    <TacticalPanel className="flex flex-col gap-4 rounded-none border-zinc-700 border-dashed p-4">
+    <TacticalPanel className="tactical-panel flex flex-col gap-4 border-zinc-700 p-4">
       <div className="mb-2 border-zinc-700 border-b border-dashed pb-2">
-        <h3 className="font-black font-mono text-lg text-white uppercase">
+        <h3 className="tactical-text font-black text-lg text-white uppercase">
           PROGRESSION TIMELINE: {activePlaythrough.name}
         </h3>
-        <p className="font-mono text-xs text-zinc-500">SYS.VERSION: {activePlaythrough.gameVersion.toUpperCase()}</p>
+        <p className="tactical-text text-xs text-zinc-500">
+          SYS.VERSION: {activePlaythrough.gameVersion.toUpperCase()}
+        </p>
       </div>
 
       <div className="flex flex-col gap-2">
-        <div className="flex items-start gap-4 font-mono">
+        <div className="tactical-text flex items-start gap-4">
           <div className="w-24 text-xs text-zinc-400">INIT</div>
           <div className="flex-1 border-zinc-700 border-l border-dashed pl-4 text-sm text-zinc-300">
             Adventure started.
@@ -100,7 +102,7 @@ export const ProgressionTimeline: React.FC = () => {
         </div>
 
         {isLoading ? (
-          <div className="flex items-start gap-4 font-mono">
+          <div className="tactical-text flex items-start gap-4">
             <div className="w-24 text-xs text-zinc-400">SYS.WAIT</div>
             <div className="flex-1 animate-pulse border-zinc-700 border-l border-dashed pl-4 text-sm text-zinc-300">
               Fetching history...
@@ -108,8 +110,8 @@ export const ProgressionTimeline: React.FC = () => {
           </div>
         ) : (
           events.map((event) => (
-            <div key={event.id} className="flex items-start gap-4 font-mono">
-              <div className="w-24 text-xs text-zinc-400 uppercase">{event.type.substring(0, 8)}</div>
+            <div key={event.id} className="tactical-text flex items-start gap-4">
+              <div className="tactical-text w-24 text-xs text-zinc-400">{event.type.substring(0, 8)}</div>
               <div className="flex-1 border-zinc-700 border-l border-dashed pl-4 text-sm text-zinc-300">
                 {event.description}
               </div>

@@ -113,7 +113,7 @@ export const ShinyCarrierBreedingDashboard: React.FC = () => {
         </div>
 
         {breedingPairs.length === 0 ? (
-          <div className="rounded-none border-2 border-zinc-800 border-dashed bg-black/40 p-8 text-center">
+          <div className="tactical-panel border-2 border-zinc-800 bg-black/40 p-8 text-center">
             <span className="tactical-text text-zinc-500">NO SHINY CARRIER BREEDING PAIRS AVAILABLE</span>
           </div>
         ) : (
@@ -125,9 +125,9 @@ export const ShinyCarrierBreedingDashboard: React.FC = () => {
               return (
                 <div
                   key={`pair-${pA.id}-${pB.id}`}
-                  className="relative flex flex-col gap-2 rounded-none border-2 border-zinc-700 border-dashed bg-black/60 p-3 font-mono text-xs transition-colors hover:border-zinc-500"
+                  className="tactical-panel relative flex flex-col gap-2 border-2 border-zinc-700 bg-black/60 p-3 text-xs hover:border-zinc-500"
                 >
-                  <div className="absolute top-0 right-0 rounded-none border-zinc-700 border-b-2 border-l-2 border-dashed bg-zinc-900/80 px-2 py-1 text-[10px] text-zinc-400">
+                  <div className="tactical-panel absolute top-0 right-0 border-zinc-700 border-b-2 border-l-2 bg-zinc-900/80 px-2 py-1 text-[10px] text-zinc-400">
                     SCORE: {pair.score}
                   </div>
 

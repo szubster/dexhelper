@@ -32,4 +32,4 @@ Refactor components in `src/components/dashboard/` to use the new Tailwind v4 `@
 - Maintain the tactical hardware aesthetic.
 
 ## Acceptance Criteria
-- [ ] Components in `src/components/dashboard/` are updated to use semantic `@utility` classes.
+- [x] Components in `src/components/dashboard/` are updated to use semantic `@utility` classes.
