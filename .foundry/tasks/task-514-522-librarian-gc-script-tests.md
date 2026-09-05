@@ -2,10 +2,10 @@
 id: task-514-522-librarian-gc-script-tests
 type: TASK
 title: Tests for Librarian Garbage Collection Script
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on:
   - task-514-521-librarian-gc-script-impl
 jules_session_id: null
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Tests for Librarian Garbage Collection Script

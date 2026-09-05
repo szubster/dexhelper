@@ -2,10 +2,10 @@
 id: task-411-507-tm-hm-integration-e2e-qa
 type: TASK
 title: QA of TM/HM Integration E2E Tests (Retry)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-05'
 depends_on:
   - task-411-506-tm-hm-integration-e2e-impl
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # QA of TM/HM Integration E2E Tests (Retry)

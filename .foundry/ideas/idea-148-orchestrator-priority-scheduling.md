@@ -2,12 +2,12 @@
 id: idea-148-orchestrator-priority-scheduling
 type: IDEA
 title: Foundry Orchestrator DAG Priority Scheduling
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-13'
-updated_at: '2026-09-04'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '7614936305548505962'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

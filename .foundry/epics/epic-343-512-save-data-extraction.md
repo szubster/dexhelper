@@ -2,12 +2,12 @@
 id: epic-343-512-save-data-extraction
 type: EPIC
 title: Gen 2 Bug-Catching Contest Save Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-01'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '17556338358544055378'
+jules_session_id: null
 pr_number: null
 parent: prd-144-343-gen2-bug-catching-contest-analyzer
 tags:

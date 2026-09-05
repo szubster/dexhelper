@@ -2,12 +2,12 @@
 id: prd-148-518-priority-based-dispatch-queue
 type: PRD
 title: Priority-Based Dispatch Queue for Orchestrator
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-03'
-updated_at: '2026-09-04'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '2408789177542211134'
+jules_session_id: null
 pr_number: null
 parent: idea-148-priority-based-dispatch-queue
 tags:

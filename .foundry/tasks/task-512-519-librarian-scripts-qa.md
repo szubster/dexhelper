@@ -2,10 +2,10 @@
 id: task-512-519-librarian-scripts-qa
 type: TASK
 title: QA Librarian Scripts
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on:
   - task-512-517-librarian-ingestion-script
   - task-512-518-librarian-synthesis-script
@@ -21,6 +21,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # QA Librarian Scripts

@@ -2,12 +2,12 @@
 id: story-405-497-gen3-e-reader-dashboard-state
 type: STORY
 title: Gen 3 E-Reader Dashboard State Management
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-31'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '1230047266677643422'
+jules_session_id: null
 pr_number: null
 parent: epic-121-405-gen3-e-reader-event-dashboard-ui
 tags:
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Gen 3 E-Reader Dashboard State Management

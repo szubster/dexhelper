@@ -2,12 +2,12 @@
 id: story-410-513-librarian-doc-update-script
 type: STORY
 title: Librarian Documentation Update Script
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-01'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '14970250720182897926'
+jules_session_id: null
 pr_number: null
 parent: epic-339-410-librarian-github-scripts-implementation
 tags:
