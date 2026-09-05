@@ -23,6 +23,7 @@
 | [epic-346-520-wip-orchestrator-awareness](.foundry/epics/epic-346-520-wip-orchestrator-awareness.md) | EPIC | Orchestrator & Agent Awareness | story_owner | [5262405496809753714](https://jules.google.com/session/5262405496809753714) |
 | [epic-347-530-centralized-mocking-utilities](.foundry/epics/epic-347-530-centralized-mocking-utilities.md) | EPIC | Centralized Playwright Mocking Utilities | story_owner | [3235059060383941140](https://jules.google.com/session/3235059060383941140) |
 | [epic-347-531-testing-style-guide](.foundry/epics/epic-347-531-testing-style-guide.md) | EPIC | Playwright Testing Style Guide | story_owner | [268975019598329217](https://jules.google.com/session/268975019598329217) |
+| [epic-518-537-generator-architecture](.foundry/epics/epic-518-537-generator-architecture.md) | EPIC | Generator Architecture Implementation Plan | story_owner | [8633448144149627947](https://jules.google.com/session/8633448144149627947) |
 | [epic-518-539-dynamic-discovery](.foundry/epics/epic-518-539-dynamic-discovery.md) | EPIC | Dynamic Discovery & Spawning Workflow | story_owner | [14655875085233538808](https://jules.google.com/session/14655875085233538808) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
