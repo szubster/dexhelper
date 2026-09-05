@@ -2,12 +2,12 @@
 id: epic-158-521-core-dataview-wrapper
 type: EPIC
 title: Core DataView Wrapper Implementation
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-03'
 updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: '15968776808363004781'
+jules_session_id: null
 pr_number: null
 parent: prd-158-516-dataview-composite-wrapper
 tags:

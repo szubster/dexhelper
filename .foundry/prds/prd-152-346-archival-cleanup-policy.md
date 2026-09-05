@@ -2,12 +2,12 @@
 id: prd-152-346-archival-cleanup-policy
 type: PRD
 title: Archival Cleanup & Incremental Node Retention Policy
-status: PENDING
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-08-15'
-updated_at: '2026-09-04'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14414041258054390713'
 pr_number: null
 parent: idea-152-archival-cleanup-and-retention-policy
 tags:
@@ -55,6 +55,4 @@ To prevent excessive git churn, merge conflicts, and performance spikes, the pru
 - The `foundry-orchestrator.ts` or a new dedicated script will implement the chunking logic and file deletion.
 
 ## Acceptance Criteria
-- [x] Break down into EPICs
-- [ ] epic-346-517-archival-cleanup-core-engine
-- [ ] epic-346-518-archival-cleanup-automation
+- [ ] epic-152-429-implement-archival-cleanup-policy

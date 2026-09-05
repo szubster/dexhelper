@@ -2,10 +2,10 @@
 id: epic-106-138-gen3-static-encounters
 type: EPIC
 title: Gen 3 Static Encounters
-status: COMPLETED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-06'
-updated_at: '2026-09-03'
+updated_at: '2026-08-15'
 depends_on: []
 jules_session_id: '9283076652365802687'
 pr_number: null
@@ -17,7 +17,6 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Gen 3 Static Encounters
@@ -29,7 +28,7 @@ Break down the Gen 3 static encounter checklist into stories.
 - [x] Create story for Gen 3 checklist UI
 - [x] story-138-294-gen3-static-encounters-parsing
 - [x] story-138-295-gen3-static-encounters-ui
-- [x] story-138-422-gen3-static-encounters-e2e
+- [ ] story-138-422-gen3-static-encounters-e2e
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

@@ -2,12 +2,12 @@
 id: idea-156-automated-graph-healing
 type: IDEA
 title: Automated Graph Healing for BLOCKED Nodes
-status: ACTIVE
+status: READY
 owner_persona: product_manager
 created_at: '2026-08-19'
-updated_at: '2026-09-05'
+updated_at: '2026-08-19'
 depends_on: []
-jules_session_id: '4886904670993063990'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

@@ -213,46 +213,8 @@ describe('StandardSorters', () => {
     };
 
     const p1_noRibbons = createWithRibbons(1); // 5 missing
-    const p2_someRibbons = createWithRibbons(2, {
-      cool: 1,
-      beauty: 4,
-      cute: 2,
-      smart: 4,
-      tough: 0,
-      champion: false,
-      winning: false,
-      victory: false,
-      artist: false,
-      effort: false,
-      battleChampion: false,
-      regionalChampion: false,
-      nationalChampion: false,
-      country: false,
-      national: false,
-      earth: false,
-      world: false,
-      obedience: false,
-    }); // 3 missing
-    const p3_allMaster = createWithRibbons(3, {
-      cool: 4,
-      beauty: 4,
-      cute: 4,
-      smart: 4,
-      tough: 4,
-      champion: false,
-      winning: false,
-      victory: false,
-      artist: false,
-      effort: false,
-      battleChampion: false,
-      regionalChampion: false,
-      nationalChampion: false,
-      country: false,
-      national: false,
-      earth: false,
-      world: false,
-      obedience: false,
-    }); // 0 missing
+    const p2_someRibbons = createWithRibbons(2, { cool: 1, beauty: 4, cute: 2, smart: 4, tough: 0 }); // 3 missing
+    const p3_allMaster = createWithRibbons(3, { cool: 4, beauty: 4, cute: 4, smart: 4, tough: 4 }); // 0 missing
 
     it('sorts descending by default (most missing first)', () => {
       const sorter = new MissingRibbonSorter(); // default is desc
@@ -272,26 +234,7 @@ describe('StandardSorters', () => {
 
     it('handles equal missing counts', () => {
       const sorter = new MissingRibbonSorter();
-      const p4_someRibbons = createWithRibbons(4, {
-        cool: 0,
-        beauty: 4,
-        cute: 0,
-        smart: 4,
-        tough: 0,
-        champion: false,
-        winning: false,
-        victory: false,
-        artist: false,
-        effort: false,
-        battleChampion: false,
-        regionalChampion: false,
-        nationalChampion: false,
-        country: false,
-        national: false,
-        earth: false,
-        world: false,
-        obedience: false,
-      }); // 3 missing
+      const p4_someRibbons = createWithRibbons(4, { cool: 0, beauty: 4, cute: 0, smart: 4, tough: 0 }); // 3 missing
       expect(sorter.sort(p2_someRibbons, p4_someRibbons)).toBe(0);
     });
   });

@@ -2,13 +2,13 @@
 id: story-417-444-adr-013-state-compliance-linter
 type: STORY
 title: Enforce ADR 013 State Constraints via Linter
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-23T00:00:00.000Z'
-updated_at: '2026-09-04'
+updated_at: '2026-09-02'
 depends_on:
   - story-417-443-adr-008-ui-compliance-linter
-jules_session_id: null
+jules_session_id: '16940420003027273311'
 pr_number: null
 parent: epic-142-417-automated-adr-compliance-linter
 tags:
@@ -34,6 +34,4 @@ Extend the static analysis script (`scripts/verify-adr-compliance.ts`) created i
 - Flag direct local state management where context is mandated by ADR 013.
 
 ## Acceptance Criteria
-- [x] Break down this story into actionable engineering tasks.
-- [ ] task-444-517-implement-adr013-linter
-- [ ] task-444-518-qa-adr013-linter
+- [ ] Break down this story into actionable engineering tasks.

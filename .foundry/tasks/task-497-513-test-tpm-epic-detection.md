@@ -2,10 +2,10 @@
 id: task-497-513-test-tpm-epic-detection
 type: TASK
 title: Unit Test TPM EPIC Detection Logic
-status: COMPLETED
+status: READY
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-03'
+updated_at: '2026-09-02'
 depends_on:
   - task-497-511-implement-tpm-epic-detection
 jules_session_id: null
@@ -36,4 +36,4 @@ Write comprehensive unit tests for the TPM EPIC detection utility function.
 - The tests must verify negative cases: ignoring nodes that are not `type: EPIC`, and ignoring EPICs that are not `status: COMPLETED`.
 
 ## Acceptance Criteria
-- [x] Implement unit tests covering positive and negative cases for the detection logic.
+- [ ] Implement unit tests covering positive and negative cases for the detection logic.

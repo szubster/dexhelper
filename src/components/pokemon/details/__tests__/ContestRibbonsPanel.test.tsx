@@ -12,19 +12,6 @@ describe('ContestRibbonsPanel', () => {
       cute: 3, // Hyper
       smart: 4, // Master
       tough: 0, // None
-      champion: false,
-      winning: false,
-      victory: false,
-      artist: false,
-      effort: false,
-      battleChampion: false,
-      regionalChampion: false,
-      nationalChampion: false,
-      country: false,
-      national: false,
-      earth: false,
-      world: false,
-      obedience: false,
     };
 
     await render(<ContestRibbonsPanel ribbons={ribbons} />);
@@ -56,19 +43,6 @@ describe('ContestRibbonsPanel', () => {
       cute: 0,
       smart: 0,
       tough: 0,
-      champion: false,
-      winning: false,
-      victory: false,
-      artist: false,
-      effort: false,
-      battleChampion: false,
-      regionalChampion: false,
-      nationalChampion: false,
-      country: false,
-      national: false,
-      earth: false,
-      world: false,
-      obedience: false,
     };
 
     const result = await render(<ContestRibbonsPanel ribbons={ribbons} />);

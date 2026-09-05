@@ -2,7 +2,7 @@
 id: task-154-524-architect-tech-stack-audit
 type: TASK
 title: Conduct initial tech stack audit focusing on TypeScript generators and TS 7.x
-status: COMPLETED
+status: READY
 owner_persona: architect
 created_at: '2026-09-03'
 updated_at: '2026-09-03'
@@ -32,4 +32,4 @@ TypeScript generators (`function*`), async generators, explicit resource managem
 3. Draft `adr-154-typescript-generators-and-modern-features` outlining the strategic adoption of generator-based lazy evaluation and explicit resource management.
 
 ## Acceptance Criteria
-- [x] Draft `adr-154-typescript-generators-and-modern-features` and verify its compliance with the overarching ecosystem modernization goals.
+- [ ] Draft `adr-154-typescript-generators-and-modern-features` and verify its compliance with the overarching ecosystem modernization goals.

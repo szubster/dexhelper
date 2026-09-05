@@ -2,13 +2,13 @@
 id: task-422-497-gen3-static-encounters-e2e-qa
 type: TASK
 title: QA Gen 3 Static Encounters E2E Tests
-status: COMPLETED
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-26'
 updated_at: '2026-09-03'
 depends_on:
   - task-422-496-gen3-static-encounters-e2e-impl
-jules_session_id: null
+jules_session_id: '18293202696316295612'
 pr_number: null
 parent: story-138-422-gen3-static-encounters-e2e
 tags:
@@ -27,5 +27,5 @@ locks: []
 Verify the implementation of End-to-End tests for Gen 3 Static Encounters.
 
 ## Acceptance Criteria
-- [x] Verify that E2E tests covers the required Gen 3 games and their static encounters logic.
-- [x] Ensure all E2E tests pass reliably in a headless environment.
+- [ ] Verify that E2E tests covers the required Gen 3 games and their static encounters logic.
+- [ ] Ensure all E2E tests pass reliably in a headless environment.

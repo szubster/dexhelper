@@ -2,13 +2,13 @@
 id: story-071-475-refactor-parsing-e2e
 type: STORY
 title: E2E Verification for Parsing Refactor
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-09-03'
+updated_at: '2026-08-25'
 depends_on:
   - story-071-474-pass-rejection-count-context
-jules_session_id: '10062684054867421475'
+jules_session_id: null
 pr_number: null
 parent: epic-045-071-refactor-data-parsing-layer
 tags:
@@ -17,9 +17,8 @@ tags:
   - e2e
   - integration
 rejection_count: 0
-rejection_reason: ''
-notes: ''
-locks: []
+rejection_reason: ""
+notes: ""
 ---
 
 # E2E Verification for Parsing Refactor

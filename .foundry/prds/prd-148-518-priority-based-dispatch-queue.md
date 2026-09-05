@@ -2,10 +2,10 @@
 id: prd-148-518-priority-based-dispatch-queue
 type: PRD
 title: Priority-Based Dispatch Queue for Orchestrator
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-09-03'
-updated_at: '2026-09-05'
+updated_at: '2026-09-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -34,12 +34,6 @@ Currently, the Foundry Orchestrator transitions nodes from `PENDING` to `READY` 
    - In the sorting logic, sort READY nodes first by `priority` descending, then by `critical_weight` descending, and lastly by `created_at` or `id`.
 3. **Priority Inheritance**:
    - Allow downstream Epics, Stories, and Tasks generated from an Epic to inherit the `priority` field if specified on the parent.
-4. **Retroactive Population & Prompts**:
-   - Determine if existing nodes in the Foundry should be populated with priorities.
-   - Update agent prompts to be aware of and utilize priorities.
 
 ## Acceptance Criteria
-- [x] Epic Planner: Break down this PRD into EPIC nodes that address schema updates and orchestrator logic updates respectively.
-- [ ] epic-518-530-priority-schema-updates
-- [ ] epic-518-531-priority-orchestrator-dispatch
-- [ ] epic-518-532-priority-population-and-prompts
+- [ ] Epic Planner: Break down this PRD into EPIC nodes that address schema updates and orchestrator logic updates respectively.

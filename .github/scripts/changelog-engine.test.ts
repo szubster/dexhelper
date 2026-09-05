@@ -94,7 +94,7 @@ describe('changelog-engine', () => {
 
   describe('classifyCommit', () => {
     it('skips empty commits', () => {
-      const res = classifyCommit({ sha: '111', message: 'test', date: '2026-05-01', files: [] });
+      const res = classifyCommit({ sha: '111', message: 'test', files: [] });
       expect(res.action).toBe('skip');
       expect(res.reason).toContain('Empty commit');
     });
@@ -103,7 +103,6 @@ describe('changelog-engine', () => {
       const res = classifyCommit({
         sha: '222',
         message: 'Foundry: Transition task-001 -> ACTIVE',
-        date: '2026-05-01',
         files: ['.foundry/tasks/task-001.md']
       });
       expect(res.action).toBe('skip');
@@ -114,7 +113,6 @@ describe('changelog-engine', () => {
       const res = classifyCommit({
         sha: '333',
         message: 'feat(task-001): implement feature',
-        date: '2026-05-01',
         files: ['.foundry/tasks/task-001.md', '.foundry/stories/story-001.md']
       });
       expect(res.action).toBe('skip');
@@ -125,7 +123,6 @@ describe('changelog-engine', () => {
       const res = classifyCommit({
         sha: '444',
         message: 'chore: update lockfile',
-        date: '2026-05-01',
         files: ['pnpm-lock.yaml', 'biome.jsonc']
       });
       expect(res.action).toBe('skip');
@@ -136,7 +133,6 @@ describe('changelog-engine', () => {
       const res = classifyCommit({
         sha: '555',
         message: 'feat: complete Gen 3 save parser idea',
-        date: '2026-05-01',
         files: ['.foundry/ideas/idea-056-living-dex-tracker.md']
       });
       expect(res.action).toBe('dispatch');
@@ -148,7 +144,6 @@ describe('changelog-engine', () => {
       const res = classifyCommit({
         sha: '666',
         message: 'feat: orchestrator telemetry improvement',
-        date: '2026-05-01',
         files: ['.foundry/ideas/idea-000-137-orchestrator-telemetry-for-cycles.md']
       });
       expect(res.action).toBe('dispatch');
@@ -159,7 +154,6 @@ describe('changelog-engine', () => {
       const res = classifyCommit({
         sha: '777',
         message: 'fix(saveParser): resolve offset parsing bug',
-        date: '2026-05-01',
         files: ['src/engine/saveParser/gen3.ts']
       });
       expect(res.action).toBe('dispatch');
@@ -170,7 +164,6 @@ describe('changelog-engine', () => {
       const res = classifyCommit({
         sha: '888',
         message: 'refactor: optimize orchestrator dependency resolution',
-        date: '2026-05-01',
         files: ['.github/scripts/foundry-orchestrator.ts']
       });
       expect(res.action).toBe('dispatch');
@@ -179,11 +172,10 @@ describe('changelog-engine', () => {
   });
 
   describe('task node updates & continuous node creation', () => {
-    it('updates task node status to READY and injects commit details, date, previous commit SHA, and diff instructions', () => {
+    it('updates task node status to READY and injects commit details', () => {
       const commitDetails = {
         sha: 'abcdef1234567890',
         message: 'feat(ui): add new party analyzer widget',
-        date: '2026-08-15',
         files: ['src/components/PartyAnalyzer.tsx']
       };
       const classification = {
@@ -192,7 +184,7 @@ describe('changelog-engine', () => {
         domain: 'dexhelper' as const
       };
 
-      updateTaskNodeForCommit(commitDetails, classification, testTaskPath, '1234567890abcdef');
+      updateTaskNodeForCommit(commitDetails, classification, testTaskPath);
 
       expect(fs.existsSync(testTaskPath)).toBe(true);
       const raw = fs.readFileSync(testTaskPath, 'utf8');
@@ -201,9 +193,6 @@ describe('changelog-engine', () => {
       expect(parsed.data.status).toBe('READY');
       expect(parsed.data.owner_persona).toBe('changelogger');
       expect(parsed.content).toContain('abcdef1234567890');
-      expect(parsed.content).toContain('1234567890abcdef');
-      expect(parsed.content).toContain('2026-08-15');
-      expect(parsed.content).toContain('diff link comparing previous release commit SHA to new release commit SHA');
       expect(parsed.content).toContain('feat(ui): add new party analyzer widget');
     });
 

@@ -5,10 +5,10 @@ title: Retry Playwright E2E Tests for DV/IV Extraction
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-09-04'
+updated_at: '2026-08-28'
 depends_on:
   - research-403-485-playwright-e2e-failure
-jules_session_id: '9903883542566944917'
+jules_session_id: '10132950957847969613'
 pr_number: null
 parent: story-112-403-integration-e2e
 tags:
@@ -17,10 +17,9 @@ tags:
   - testing
   - playwright
 research_references: []
-rejection_count: 2
+rejection_count: 1
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Retry Playwright E2E Tests for DV/IV Extraction

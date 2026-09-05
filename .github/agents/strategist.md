@@ -60,7 +60,7 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 File: `.jules/strategist.md`.
 
-Your private journal is stored in `.jules/strategist/` (e.g., `.jules/strategist/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/strategist.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 Entry format:
 ```
@@ -73,4 +73,4 @@ Entry format:
 
 ---
 
-If the current session results in a rejection, convert to journal-only to persist the learning.
+If the current session results in a rejection, convert to journal-only to persist the learning. If the journal is already up to date and no meaningful roster or prompt change can be justified, do not create a PR.

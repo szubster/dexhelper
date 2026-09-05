@@ -2,13 +2,14 @@
 id: task-474-515-update-parse-gen3-ribbons
 type: TASK
 title: Update parseGen3Ribbons Function
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-05'
+updated_at: '2026-09-01'
 depends_on:
   - task-474-514-update-gen3-ribbons-interface
-jules_session_id: '5256487735647380655'
+jules_session_id: null
+locks: []
 pr_number: null
 parent: story-133-474-gen3-ribbon-extraction-logic
 tags:
@@ -19,7 +20,6 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Update parseGen3Ribbons Function

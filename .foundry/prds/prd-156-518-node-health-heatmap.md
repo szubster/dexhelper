@@ -2,12 +2,12 @@
 id: prd-156-518-node-health-heatmap
 type: PRD
 title: Foundry DAG Node Health Heatmap Visualizer
-status: ACTIVE
+status: READY
 owner_persona: epic_planner
 created_at: '2026-09-03'
-updated_at: '2026-09-04'
+updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: '13015163590750433173'
+jules_session_id: null
 parent: idea-156-foundry-node-status-health-heatmap
 tags:
   - foundry

@@ -2,10 +2,10 @@
 id: idea-423-dynamic-rag-context-hydration
 type: IDEA
 title: Dynamic RAG-Based Context Hydration for Agent Prompts
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-08-29'
-updated_at: '2026-09-04'
+updated_at: '2026-08-29'
 depends_on: []
 jules_session_id: null
 parent: null
@@ -39,7 +39,6 @@ By implementing a local semantic search or fast keyword-matching system (e.g., T
 4. **Core Invariants Preservation:** A minimal, non-negotiable subset of systemic rules (e.g., the No-Ask Policy, Empty PR Policy, Bash Timeout rules) remains statically appended to guarantee safety bounds are never bypassed.
 
 ## Acceptance Criteria
-- [x] Product Manager: Draft a PRD defining the exact tools, libraries (e.g., `flexsearch`), and integration points for the indexing phase within `.github/scripts/foundry-orchestrator.ts`.
+- [ ] Product Manager: Draft a PRD defining the exact tools, libraries (e.g., `flexsearch`), and integration points for the indexing phase within `.github/scripts/foundry-orchestrator.ts`.
 - [ ] Architect: Create an ADR evaluating the performance impact and latency of local indexing vs static file reading for the GitHub Actions environment.
 - [ ] Epic Planner: Generate an EPIC to implement the indexing and dynamic retrieval logic within the orchestrator pipeline.
-- [ ] prd-423-520-dynamic-rag-context-hydration

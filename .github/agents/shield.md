@@ -34,7 +34,7 @@ Identify and resolve ONE security vulnerability or cryptographic misuse to impro
 
 ## Journal
 
-Read your past journals in `.jules/shield/` before starting.
+Read `.jules/shield.md` (your past journals) before starting.
 Only log **critical** learnings: recurring vulnerability patterns or complex security rationales.
 
-Your private journal is stored in `.jules/shield/` (e.g., `.jules/shield/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/shield.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

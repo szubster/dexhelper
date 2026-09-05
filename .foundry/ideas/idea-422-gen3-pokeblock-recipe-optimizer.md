@@ -39,6 +39,5 @@ This feature transforms an opaque, unforgiving, and permanently destructive game
 ## Strategic Balance
 In the previous session, IDEA-421 (Automated Markdown Schema Validation) was proposed for the Foundry System infrastructure. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a high-value product feature for DexHelper.
 
-## Acceptance Criteria
-- [x] Product Manager: Convert this idea into a PRD detailing the required Gen 3 berry blending formulas and Nature modifiers.
-- [ ] prd-422-518-gen3-pokeblock-recipe-optimizer
+## Next Steps
+- [ ] Product Manager: Convert this idea into a PRD detailing the required Gen 3 berry blending formulas and Nature modifiers.

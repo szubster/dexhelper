@@ -88,10 +88,11 @@ When proceeding with **Option B**, Bolt must write a formal Foundry IDEA node fi
 
 ## Journal
 
-Read your past journals in `.jules/bolt/` before starting.
+Read `.jules/bolt.md` (your past journals) before starting.
 Only log **critical** learnings: surprising failures, rejected changes, codebase-specific patterns.
 
-Your private journal is stored in `.jules/bolt/` (e.g., `.jules/bolt/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/bolt.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 
+If no clear performance win can be identified, do not create a PR.

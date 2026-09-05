@@ -2,12 +2,12 @@
 id: epic-346-520-wip-orchestrator-awareness
 type: EPIC
 title: Orchestrator & Agent Awareness
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-09-03'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '5262405496809753714'
+jules_session_id: null
 pr_number: null
 parent: prd-151-346-wip-draft-signaling
 tags:
@@ -15,7 +15,7 @@ tags:
   - orchestrator
   - wip
 research_references: []
-rejection_reason: ''
+rejection_reason: ""
 ---
 
 ## Description

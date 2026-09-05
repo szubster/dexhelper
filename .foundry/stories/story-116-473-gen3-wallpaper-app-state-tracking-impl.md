@@ -2,10 +2,10 @@
 id: story-116-473-gen3-wallpaper-app-state-tracking-impl
 type: STORY
 title: Implement Gen 3 Wallpaper App State Tracking
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-20'
-updated_at: '2026-09-03'
+updated_at: '2026-08-30'
 depends_on: []
 jules_session_id: null
 parent: epic-116-336-gen3-wallpaper-app-state-tracking
@@ -15,7 +15,6 @@ tags:
   - state
 rejection_count: 0
 rejection_reason: ''
-locks: []
 ---
 
 # Implement Gen 3 Wallpaper App State Tracking
@@ -31,7 +30,7 @@ Implement a persistence mechanism within the global Zustand store to track which
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into tasks.
-- [x] task-473-498-define-wallpaper-state-slice-impl
-- [x] task-473-499-configure-wallpaper-state-persistence-impl
-- [x] task-473-500-wallpaper-state-unit-tests-impl
-- [x] task-473-501-wallpaper-state-tracking-qa
+- [ ] task-473-498-define-wallpaper-state-slice-impl
+- [ ] task-473-499-configure-wallpaper-state-persistence-impl
+- [ ] task-473-500-wallpaper-state-unit-tests-impl
+- [ ] task-473-501-wallpaper-state-tracking-qa

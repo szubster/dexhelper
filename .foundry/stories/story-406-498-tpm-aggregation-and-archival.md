@@ -2,12 +2,12 @@
 id: story-406-498-tpm-aggregation-and-archival
 type: STORY
 title: TPM Aggregation and Archival File System Operations
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-31'
-updated_at: '2026-09-03'
+updated_at: '2026-08-31'
 depends_on: []
-jules_session_id: '17998798996293398364'
+jules_session_id: null
 pr_number: null
 parent: epic-339-406-tpm-distillation-logic
 tags:

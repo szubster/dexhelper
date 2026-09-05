@@ -28,6 +28,6 @@ notes: ""
 Perform integration and end-to-end verification of the new conflict-less storage pattern for agent journals, including the creation in persona-specific directories, TPM aggregation, and downstream script execution.
 
 ## Acceptance Criteria
-- [x] Verify journal files are created correctly in subdirectories without conflicts.
-- [x] Verify TPM aggregation functions correctly with the new structure.
-- [x] Verify downstream scripts run without errors using the new paths.
+- [ ] Verify journal files are created correctly in subdirectories without conflicts.
+- [ ] Verify TPM aggregation functions correctly with the new structure.
+- [ ] Verify downstream scripts run without errors using the new paths.

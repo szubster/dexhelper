@@ -2,6 +2,8 @@ packages:
   - "."
   - ".github/scripts"
 
+legacyPeerDeps: true
+
 minimumReleaseAgeExclude:
   - "@oxlint-tsgolint/*"
   - "oxlint-tsgolint"

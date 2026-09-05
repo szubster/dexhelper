@@ -36,6 +36,5 @@ We can build a dedicated "Trick House Tracker" component in DexHelper. It will p
 - **Completionism:** Helps players ensure they haven't missed the final Tent/Rare Candy rewards.
 
 ## Acceptance Criteria
-- [ ] prd-155-524-trick-house-tracker
-- [x] Product Manager: Convert this IDEA into a PRD detailing the UI layout for the Trick House Tracker and mapping the puzzle levels to the required HMs.
+- [ ] Product Manager: Convert this IDEA into a PRD detailing the UI layout for the Trick House Tracker and mapping the puzzle levels to the required HMs.
 - [ ] Tech Lead: Define the technical tasks to extract the variables from `SaveBlock1` using the `DataView` API as per ADR 010.

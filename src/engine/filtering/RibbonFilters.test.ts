@@ -17,66 +17,9 @@ describe('RibbonFilters', () => {
   };
 
   const p1_noRibbons = createPokemon(1);
-  const p2_someRibbons = createPokemon(2, {
-    cool: 1,
-    beauty: 4,
-    cute: 2,
-    smart: 4,
-    tough: 0,
-    champion: false,
-    winning: false,
-    victory: false,
-    artist: false,
-    effort: false,
-    battleChampion: false,
-    regionalChampion: false,
-    nationalChampion: false,
-    country: false,
-    national: false,
-    earth: false,
-    world: false,
-    obedience: false,
-  });
-  const p3_allMaster = createPokemon(3, {
-    cool: 4,
-    beauty: 4,
-    cute: 4,
-    smart: 4,
-    tough: 4,
-    champion: false,
-    winning: false,
-    victory: false,
-    artist: false,
-    effort: false,
-    battleChampion: false,
-    regionalChampion: false,
-    nationalChampion: false,
-    country: false,
-    national: false,
-    earth: false,
-    world: false,
-    obedience: false,
-  });
-  const p4_allSuper = createPokemon(4, {
-    cool: 2,
-    beauty: 2,
-    cute: 2,
-    smart: 2,
-    tough: 2,
-    champion: false,
-    winning: false,
-    victory: false,
-    artist: false,
-    effort: false,
-    battleChampion: false,
-    regionalChampion: false,
-    nationalChampion: false,
-    country: false,
-    national: false,
-    earth: false,
-    world: false,
-    obedience: false,
-  });
+  const p2_someRibbons = createPokemon(2, { cool: 1, beauty: 4, cute: 2, smart: 4, tough: 0 });
+  const p3_allMaster = createPokemon(3, { cool: 4, beauty: 4, cute: 4, smart: 4, tough: 4 });
+  const p4_allSuper = createPokemon(4, { cool: 2, beauty: 2, cute: 2, smart: 2, tough: 2 });
 
   describe('getMissingRibbonCount', () => {
     it('returns 5 when ribbons are undefined (default target 4)', () => {

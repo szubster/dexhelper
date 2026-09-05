@@ -23,4 +23,4 @@ Your purpose is to perform daily visual inspections of the DexHelper frontend ac
 
 ## Journal
 
-Your private journal is stored in `.foundry/journals/lens/` (e.g., `.foundry/journals/lens/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.foundry/journals/lens.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

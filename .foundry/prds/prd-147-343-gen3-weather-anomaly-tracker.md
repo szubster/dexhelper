@@ -2,12 +2,12 @@
 id: prd-147-343-gen3-weather-anomaly-tracker
 type: PRD
 title: Gen 3 Weather Anomaly Tracker (Groudon & Kyogre)
-status: PENDING
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-08-14'
-updated_at: '2026-09-04'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9174375570432835861'
 pr_number: null
 parent: idea-147-gen3-weather-anomaly-tracker
 tags:
@@ -72,6 +72,4 @@ The mapping is as follows:
 This eliminates the need for tedious backtracking to the Weather Institute, streamlining the post-game legendary hunt for Kyogre and Groudon. It perfectly aligns with DexHelper's vision as a premium companion app that exposes hidden or tedious game states to the player in a clean UI.
 
 ## Acceptance Criteria
-- [x] Break down this PRD into Epics.
-- [ ] epic-343-517-gen3-weather-anomaly-data
-- [ ] epic-343-518-gen3-weather-anomaly-ui
+- [ ] Break down this PRD into Epics.

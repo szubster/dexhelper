@@ -39,20 +39,6 @@ describe('MapUI', () => {
     await expect.element(page.getByText('[5]')).toBeVisible();
   });
 
-  it('should render tactical visual indicators for bike requirements', async () => {
-    const heatmap = {
-      30: { density: 1, requiresMachBike: true, requiresAcroBike: false },
-      40: { density: 1, requiresMachBike: false, requiresAcroBike: true },
-      50: { density: 1, requiresMachBike: true, requiresAcroBike: true },
-    };
-
-    await render(<MapUI heatmap={heatmap} />);
-
-    // Mach and Acro elements should be visible
-    await expect.element(page.getByText('Mach').first()).toBeVisible();
-    await expect.element(page.getByText('Acro').first()).toBeVisible();
-  });
-
   it('should default to generic area name if areaNames is not provided', async () => {
     const heatmap = { 99: { density: 1, requiresMachBike: false, requiresAcroBike: false } };
 

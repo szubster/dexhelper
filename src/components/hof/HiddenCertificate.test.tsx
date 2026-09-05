@@ -46,29 +46,4 @@ describe('HiddenCertificate Component', () => {
     await expect.element(page.getByText('Lvl 5', { exact: true })).toBeInTheDocument();
     await expect.element(page.getByText('#1')).toBeInTheDocument();
   });
-
-  it('should not render full certificate while fonts are loading, but render them when loaded', async () => {
-    let resolveFonts: () => void = () => {};
-    const fontsPromise = new Promise<void>((resolve) => {
-      resolveFonts = resolve;
-    });
-
-    if (document.fonts) {
-      Object.defineProperty(document.fonts, 'ready', {
-        value: fontsPromise,
-        configurable: true,
-      });
-    }
-
-    void render(<HiddenCertificate record={mockRecord} gameVersion="emerald" />);
-
-    // Check that HALL OF FAME text is not rendered yet
-    await expect.element(page.getByText('HALL OF FAME')).not.toBeInTheDocument();
-
-    // Resolve the fonts promise
-    resolveFonts();
-
-    // Now the full certificate should be rendered
-    await expect.element(page.getByText('HALL OF FAME')).toBeInTheDocument();
-  });
 });

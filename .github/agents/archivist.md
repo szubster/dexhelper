@@ -50,10 +50,11 @@ The following knowledge stores are in scope:
 
 ## Journal
 
-Read your past journals in `.jules/archivist/` before starting.
+Read `.jules/archivist.md` (your past journals) before starting.
 Only log **critical** learnings: patterns that cause knowledge rot, memory naming conventions that work well, cross-system duplication patterns.
 
-Your private journal is stored in `.jules/archivist/` (e.g., `.jules/archivist/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.jules/archivist.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 
+If no stale or problematic knowledge can be identified, do not create a PR.

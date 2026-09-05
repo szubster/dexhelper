@@ -113,31 +113,6 @@ describe('parseGen3EVs', () => {
     });
   });
 
-  it('should extract boolean ribbons and obedience flag correctly', () => {
-    const buffer = new ArrayBuffer(8);
-    const view = new DataView(buffer);
-
-    // Set bit 15 (champion), bit 16 (winning), bit 20 (battleChampion), bit 31 (obedience)
-    // 0000 0000 0000 0001 1000 0000 0000 0000
-    // 1 << 15 = 0x00008000
-    // 1 << 16 = 0x00010000
-    // 1 << 20 = 0x00100000
-    // 1 << 31 = 0x80000000 (signed, so 0x80000000 >>> 0)
-
-    // bitfield = 0x80118000
-    view.setUint32(2, 0x80118000, true);
-
-    const result = parseGen3Ribbons(view, 2);
-
-    expect(result.champion).toBe(true);
-    expect(result.winning).toBe(true);
-    expect(result.battleChampion).toBe(true);
-    expect(result.obedience).toBe(true);
-
-    expect(result.victory).toBe(false);
-    expect(result.earth).toBe(false);
-  });
-
   it('should throw "The save file is corrupted or incomplete." on RangeError', () => {
     const buffer = new ArrayBuffer(2); // Too small
     const view = new DataView(buffer);
@@ -602,19 +577,6 @@ describe('parseGen3Ribbons', () => {
       cute: 3,
       smart: 4,
       tough: 0,
-      champion: false,
-      winning: false,
-      victory: false,
-      artist: false,
-      effort: false,
-      battleChampion: false,
-      regionalChampion: false,
-      nationalChampion: false,
-      country: false,
-      national: false,
-      earth: false,
-      world: false,
-      obedience: false,
     });
   });
 

@@ -2,10 +2,10 @@
 id: prd-151-518-holistic-code-curator-persona
 type: PRD
 title: Holistic Code Curator Persona
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-09-03'
-updated_at: '2026-09-04'
+updated_at: '2026-09-03'
 depends_on: []
 jules_session_id: null
 parent: idea-151-holistic-code-curator-persona
@@ -59,10 +59,6 @@ The "curator" persona acts as the Guardian of Code Quality (mapped to Gen 1 Pers
 - The Curator must maintain base instructions detailing its responsibilities, limitations (no direct code changes), and its node spawning procedures.
 
 ## Acceptance Criteria
-- [x] Create EPIC nodes for the implementation of the Curator Persona.
-- [x] Create EPIC nodes for updating the Orchestrator with the Curator Loop and Re-Verification Stage.
-- [x] Create EPIC nodes for implementing the Historical Backtracking mechanisms.
-- [ ] epic-518-530-curator-persona-implementation
-- [ ] epic-518-531-orchestrator-curator-loop
-- [ ] epic-518-532-historical-backtracking
-- [ ] epic-518-533-curator-e2e-integration
+- [ ] Create EPIC nodes for the implementation of the Curator Persona.
+- [ ] Create EPIC nodes for updating the Orchestrator with the Curator Loop and Re-Verification Stage.
+- [ ] Create EPIC nodes for implementing the Historical Backtracking mechanisms.

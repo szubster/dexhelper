@@ -2,13 +2,13 @@
 id: epic-050-331-zombie-node-gc-integration
 type: EPIC
 title: Zombie Node GC Integration V2
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-17'
-updated_at: '2026-09-03'
+updated_at: '2026-08-14'
 depends_on:
   - research-050-329-investigate-zombie-gc-failure
-jules_session_id: '3874515365654255924'
+jules_session_id: null
 pr_number: null
 parent: prd-079-050-foundry-zombie-node-cleanup
 tags:

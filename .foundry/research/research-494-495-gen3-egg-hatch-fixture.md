@@ -30,21 +30,3 @@ Without a valid fixture, the E2E test cannot verify that the parser correctly ex
 ## Objective
 Acquire or generate a valid Gen 3 save file (`.sav`) that contains at least one Egg in the player's active party, and commit it to `tests/fixtures/saves/gen3/`.
 Then, document its location and provide instructions on how to use it for the E2E test.
-
-### SCHEMA
-https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
-
-## Findings
-
-I used `arktosmos-pkmn-sav-editor` to modify the existing `emerald_vithuang.sav` file.
-I set the `isEgg` bit to `true` and `friendship` to `15` on the second Pokémon in the party, and successfully flashed it to a new save file named `emerald_egg_fixture.sav` while properly recalculating the block checksums.
-
-The file is committed to the repository at:
-`tests/fixtures/saves/gen3/emerald_egg_fixture.sav`
-
-### Instructions for the E2E Test
-
-The E2E test can load the save file at `tests/fixtures/saves/gen3/emerald_egg_fixture.sav`.
-When using the extraction engine on this save:
-- The second Pokémon in the active party is an Egg.
-- It will have 15 egg cycles (`friendship` = 15).

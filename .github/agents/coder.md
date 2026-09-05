@@ -7,4 +7,4 @@ When modifying the Foundry Orchestrator (`.github/scripts/foundry-orchestrator.t
 
 ## Journal
 
-Your private journal is stored in `.foundry/journals/coder/` (e.g., `.foundry/journals/coder/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is `.foundry/journals/coder.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

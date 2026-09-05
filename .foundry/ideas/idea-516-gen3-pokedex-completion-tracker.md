@@ -2,18 +2,17 @@
 id: idea-516-gen3-pokedex-completion-tracker
 type: IDEA
 title: Gen 3 Pokédex Completion & Missed Achievement Tracker
-status: ACTIVE
+status: READY
 owner_persona: product_manager
 created_at: '2026-09-02'
-updated_at: '2026-09-04'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '3429531381623050495'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
   - dexhelper
 research_references: []
-rejection_reason: ''
 ---
 
 # Idea: Gen 3 Pokédex Completion & Missed Achievement Tracker

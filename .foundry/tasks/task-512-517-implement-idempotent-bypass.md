@@ -2,12 +2,12 @@
 id: task-512-517-implement-idempotent-bypass
 type: TASK
 title: Implement Idempotent Orchestrator Bypass
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-03'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '4601475631090670622'
+jules_session_id: null
 pr_number: null
 parent: story-018-512-idempotent-orchestrator-bypass
 tags:

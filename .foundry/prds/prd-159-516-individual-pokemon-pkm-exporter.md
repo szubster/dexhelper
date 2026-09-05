@@ -2,12 +2,12 @@
 id: prd-159-516-individual-pokemon-pkm-exporter
 type: PRD
 title: Individual Pokémon PKM/PK3 Exporter
-status: ACTIVE
+status: READY
 owner_persona: epic_planner
 created_at: '2026-09-02'
-updated_at: '2026-09-04'
+updated_at: '2026-09-02'
 depends_on: []
-jules_session_id: '8415511988634348130'
+jules_session_id: null
 parent: idea-159-individual-pokemon-pkm-exporter
 tags:
   - feature
@@ -15,7 +15,6 @@ tags:
   - gen2
   - gen3
   - export
-rejection_reason: ''
 ---
 
 # PRD: Individual Pokémon PKM/PK3 Exporter

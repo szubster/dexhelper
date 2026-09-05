@@ -2,13 +2,13 @@
 id: task-411-506-tm-hm-integration-e2e-impl
 type: TASK
 title: Implementation of TM/HM Integration E2E Tests (Retry)
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-05'
+updated_at: '2026-09-02'
 depends_on:
   - research-411-505-investigate-e2e-timeout
-jules_session_id: null
+jules_session_id: '12152373011373908241'
 pr_number: null
 parent: story-401-411-tm-hm-integration-e2e
 tags:
@@ -34,7 +34,7 @@ Write end-to-end (E2E) tests using Playwright to verify the TM/HM integration ac
 4.  **Research Integration:** Incorporate fixes for the issues discovered during the research phase that caused previous timeouts.
 
 ## Acceptance Criteria
-- [x] Implement Playwright E2E tests for Gen 1 TM/HM extraction.
-- [x] Implement Playwright E2E tests for Gen 2 TM/HM extraction.
-- [x] Implement Playwright E2E tests for Gen 3 TM/HM extraction.
-- [x] Ensure all tests pass successfully in the CI environment (using `xvfb-run`).
+- [ ] Implement Playwright E2E tests for Gen 1 TM/HM extraction.
+- [ ] Implement Playwright E2E tests for Gen 2 TM/HM extraction.
+- [ ] Implement Playwright E2E tests for Gen 3 TM/HM extraction.
+- [ ] Ensure all tests pass successfully in the CI environment (using `xvfb-run`).

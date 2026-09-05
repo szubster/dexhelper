@@ -2,12 +2,12 @@
 id: story-418-516-orchestrator-prompt-resolution
 type: STORY
 title: Orchestrator Prompt Resolution Logic
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-02'
 updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: '898579983370846154'
+jules_session_id: null
 pr_number: null
 parent: epic-343-418-orchestrator-integration
 tags:
