@@ -2,12 +2,12 @@
 id: story-512-521-gen2-bug-catching-contest-core-data
 type: STORY
 title: Gen 2 Bug-Catching Contest Core Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11076327570214870592'
 pr_number: null
 parent: epic-343-512-save-data-extraction
 tags:
