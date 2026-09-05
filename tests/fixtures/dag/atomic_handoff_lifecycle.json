@@ -1,0 +1,57 @@
+[
+  {
+    "filePath": ".foundry/ideas/idea-001-atomic.md",
+    "data": {
+      "id": "idea-001-atomic",
+      "type": "IDEA",
+      "status": "COMPLETED",
+      "owner_persona": "product_manager",
+      "depends_on": [],
+      "rejection_count": 0
+    }
+  },
+  {
+    "filePath": ".foundry/prds/prd-001-002-atomic.md",
+    "data": {
+      "id": "prd-001-002-atomic",
+      "type": "PRD",
+      "status": "COMPLETED",
+      "owner_persona": "epic_planner",
+      "depends_on": ["idea-001-atomic"],
+      "rejection_count": 0
+    }
+  },
+  {
+    "filePath": ".foundry/epics/epic-002-003-atomic.md",
+    "data": {
+      "id": "epic-002-003-atomic",
+      "type": "EPIC",
+      "status": "COMPLETED",
+      "owner_persona": "story_owner",
+      "depends_on": ["prd-001-002-atomic"],
+      "rejection_count": 0
+    }
+  },
+  {
+    "filePath": ".foundry/stories/story-003-004-atomic.md",
+    "data": {
+      "id": "story-003-004-atomic",
+      "type": "STORY",
+      "status": "COMPLETED",
+      "owner_persona": "tech_lead",
+      "depends_on": ["epic-002-003-atomic"],
+      "rejection_count": 0
+    }
+  },
+  {
+    "filePath": ".foundry/tasks/task-004-005-atomic.md",
+    "data": {
+      "id": "task-004-005-atomic",
+      "type": "TASK",
+      "status": "ACTIVE",
+      "owner_persona": "coder",
+      "depends_on": ["story-003-004-atomic"],
+      "rejection_count": 0
+    }
+  }
+]
