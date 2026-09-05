@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-09-05
+### Added
+- Initialized project structure and core components including React setup, Vite configuration, PokeAPI interaction, and AI integration.
+
 ## [0.3.0] - 2026-09-03
 ### Added
 - Initialized project structure, foundational files, React components, Vite configuration, and core dependencies.
