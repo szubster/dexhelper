@@ -2,10 +2,10 @@
 id: story-138-422-gen3-static-encounters-e2e
 type: STORY
 title: Gen 3 Static Encounters E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-14'
-updated_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on:
   - story-138-295-gen3-static-encounters-ui
 jules_session_id: null
@@ -28,5 +28,5 @@ Implement End-to-End verification to ensure that Gen 3 Static Encounters parsing
 
 ## Acceptance Criteria
 - [x] Create task for writing E2E tests for Gen 3 Static Encounters.
-- [ ] task-422-496-gen3-static-encounters-e2e-impl
-- [ ] task-422-497-gen3-static-encounters-e2e-qa
+- [x] task-422-496-gen3-static-encounters-e2e-impl
+- [x] task-422-497-gen3-static-encounters-e2e-qa

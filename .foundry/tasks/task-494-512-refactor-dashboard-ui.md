@@ -2,12 +2,12 @@
 id: task-494-512-refactor-dashboard-ui
 type: TASK
 title: Refactor Dashboard UI components to use Context Rejection Threshold
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-01'
 updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: '16760365745615102643'
+jules_session_id: null
 pr_number: null
 parent: story-344-494-dashboard-rejection-count
 tags:

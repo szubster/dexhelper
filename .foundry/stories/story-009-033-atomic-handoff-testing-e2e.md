@@ -22,3 +22,5 @@ Perform E2E verification for the atomic handoff testing expansion.
 
 ## Acceptance Criteria
 - [ ] Integration tests simulate a full lifecycle using atomic files.
+- [ ] task-033-526-atomic-handoff-testing-e2e-impl
+- [ ] task-033-527-atomic-handoff-testing-e2e-qa

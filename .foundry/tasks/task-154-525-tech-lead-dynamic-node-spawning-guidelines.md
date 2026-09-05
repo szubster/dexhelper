@@ -2,7 +2,7 @@
 id: task-154-525-tech-lead-dynamic-node-spawning-guidelines
 type: TASK
 title: Define template and guidelines for dynamic node spawning
-status: READY
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
 updated_at: '2026-09-03'
@@ -30,4 +30,4 @@ To maintain a state-of-the-art codebase, we need an active, continuous mechanism
 2. Create standardized templates and examples demonstrating how agents should utilize late-binding to spawn downstream work nodes.
 
 ## Acceptance Criteria
-- [ ] Document the dynamic node spawning guidelines and templates in a centralized location.
+- [x] Document the dynamic node spawning guidelines and templates in a centralized location.

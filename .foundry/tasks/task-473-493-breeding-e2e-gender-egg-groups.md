@@ -5,9 +5,9 @@ title: Implement Gen 2 E2E Tests for Gender and Egg Groups
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-26'
-updated_at: '2026-08-28'
+updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: '4672316300781960075'
+jules_session_id: '10932373668221969953'
 pr_number: null
 parent: story-309-473-shiny-breeding-logic-e2e
 tags:
@@ -18,9 +18,10 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/engine/gen2-breeding.md
   - .foundry/docs/knowledge_base/development/gen2_breeding_dv_overlap.md
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Implement Gen 2 E2E Tests for Gender and Egg Groups

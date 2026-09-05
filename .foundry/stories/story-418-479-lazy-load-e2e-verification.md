@@ -2,14 +2,14 @@
 id: story-418-479-lazy-load-e2e-verification
 type: STORY
 title: E2E Verification for UI Component Splitting
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-25'
 updated_at: '2026-09-03'
 depends_on:
   - story-418-477-lazy-load-gen3-components
   - story-418-478-lazy-load-gen2-components
-jules_session_id: '17405548278915932173'
+jules_session_id: '1170453057402626656'
 parent: epic-340-418-ui-component-splitting
 tags:
   - performance

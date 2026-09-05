@@ -2,12 +2,12 @@
 id: idea-157-pnpm-workspaces-architecture
 type: IDEA
 title: Step-by-Step Monorepo Architectural Migration to pnpm Workspaces
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-19'
 updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: '8833268239473052736'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -84,5 +84,6 @@ When migrating to `apps/web` or nested workspace packages:
 - **Functions Directory:** Point Cloudflare Pages Functions path to `apps/functions/functions` or `apps/functions` depending on CF Pages monorepo settings.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this IDEA into a PRD detailing the incremental migration phases, workspace boundaries, and Cloudflare Pages configuration instructions.
+- [x] Product Manager: Convert this IDEA into a PRD detailing the incremental migration phases, workspace boundaries, and Cloudflare Pages configuration instructions.
+- [ ] prd-157-519-pnpm-workspaces-architecture
 - [ ] Tech Lead: Break down the architectural refactoring into isolated TASK nodes per phase.

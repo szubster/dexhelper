@@ -2,13 +2,13 @@
 id: epic-038-062-gen2-dynamic-checklist-ui
 type: EPIC
 title: Gen 2 Dynamic Checklist UI
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-07'
-updated_at: '2026-09-02'
+updated_at: '2026-09-04'
 depends_on:
   - epic-038-061-gen2-event-flag-parsing
-jules_session_id: '2727989013344166680'
+jules_session_id: null
 pr_number: null
 parent: prd-069-038-gen2-daily-events
 tags:
@@ -29,3 +29,6 @@ Design and implement the frontend user interface to display the daily and weekly
 - [x] Create a dynamic checklist UI component.
 - [x] Integrate with the Gen 2 event parsing engine.
 - [x] Display clearly which events are available, completed, or unavailable today.
+- [ ] story-062-521-gen2-checklist-ui-core
+- [ ] story-062-522-gen2-checklist-integration
+- [ ] story-062-523-gen2-checklist-e2e

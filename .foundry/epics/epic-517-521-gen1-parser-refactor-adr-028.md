@@ -2,12 +2,12 @@
 id: epic-517-521-gen1-parser-refactor-adr-028
 type: EPIC
 title: Refactor Gen 1 Parsers for ADR 028
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-03'
 updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14443477347319342375'
 pr_number: null
 parent: prd-104-517-refactor-existing-parsers-adr-028
 tags:

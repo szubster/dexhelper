@@ -1,18 +1,18 @@
 ---
 id: prd-422-347-playwright-mocking-utilities
 type: PRD
-title: "Formalize Playwright Mocking Utilities and Testing Style Guide"
-status: READY
+title: Formalize Playwright Mocking Utilities and Testing Style Guide
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: idea-422-formalize-playwright-mocking-utilities
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Formalize Playwright Mocking Utilities and Testing Style Guide
@@ -31,4 +31,6 @@ Simultaneously, `qa` nodes are catching repeated violations of testing standards
 - Reduces the cognitive load on the `coder` persona, leading to fewer test-related rejections by `qa`.
 
 ## Acceptance Criteria
-- [ ] Create an Epic to track the implementation of these mocking utilities and style guide.
+- [x] Create an Epic to track the implementation of these mocking utilities and style guide.
+- [ ] epic-347-530-centralized-mocking-utilities
+- [ ] epic-347-531-testing-style-guide

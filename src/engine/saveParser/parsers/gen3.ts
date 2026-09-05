@@ -928,6 +928,23 @@ export function parseGen3EVs(view: DataView, offset: number) {
 
 /**
  * Calculates the exact Hidden Power type and base power based on Gen 3 IV mechanics.
+ *
+ * @remarks
+ * In Generation 3, Hidden Power is calculated using the least significant bits (LSB) of a Pokémon's 6 IVs.
+ * The type is determined by the parity (even/odd) of the IVs.
+ * The base power ranges from 30 to 70 and is determined by the second least significant bit of the IVs.
+ *
+ * @param hp - The Pokémon's HP IV (0-31).
+ * @param atk - The Pokémon's Attack IV (0-31).
+ * @param def - The Pokémon's Defense IV (0-31).
+ * @param spd - The Pokémon's Speed IV (0-31).
+ * @param spatk - The Pokémon's Special Attack IV (0-31).
+ * @param spdef - The Pokémon's Special Defense IV (0-31).
+ * @returns An object containing the computed Hidden Power `type` and base `power`.
+ *
+ * @example
+ * const hp = calculateGen3HiddenPower(31, 31, 31, 31, 31, 31);
+ * // returns { type: 'Dark', power: 70 }
  */
 export function calculateGen3HiddenPower(
   hp: number,
@@ -987,6 +1004,19 @@ export function calculateGen3HiddenPower(
 
 /**
  * Calculates whether a Gen 3 Pokémon is Shiny based on its Personality Value (PV) and the Original Trainer ID block.
+ *
+ * @remarks
+ * A Pokémon is determined to be shiny if the bitwise XOR of the upper 16 bits of its PV,
+ * the lower 16 bits of its PV, the Trainer ID (lower 16 bits of OT block), and the
+ * Secret ID (upper 16 bits of OT block) results in a value less than 8.
+ * This gives a base shiny rate of 8 / 65536, or exactly 1 in 8192.
+ *
+ * @param pv - The 32-bit Personality Value.
+ * @param otId - The 32-bit Original Trainer ID block (containing both Trainer ID and Secret ID).
+ * @returns `true` if the Pokémon is shiny, `false` otherwise.
+ *
+ * @example
+ * const isShiny = calculateGen3Shiny(0x12345678, 0x9ABCDEF0);
  */
 export function calculateGen3Shiny(pv: number, otId: number) {
   const pvHigh = pv >>> 16;
@@ -998,6 +1028,24 @@ export function calculateGen3Shiny(pv: number, otId: number) {
   return shinyValue < 8;
 }
 
+/**
+ * Extracts the Personality Value (PV) and Individual Values (IVs) for a Gen 3 Pokémon.
+ *
+ * @remarks
+ * In Gen 3, a Pokémon's core data is stored in a 48-byte encrypted substructure block.
+ * To extract the IVs:
+ * 1. Read the 32-bit Personality Value (PV) and 32-bit Original Trainer ID (OTID).
+ * 2. Calculate the decryption key: `PV ^ OTID`.
+ * 3. Determine the substructure permutation (e.g., GAEM vs MGEA) by calculating `PV % 24`.
+ * 4. Locate the Miscellaneous (M) substructure based on the permutation index.
+ * 5. Read the encrypted 32-bit IV bitfield from the M substructure and XOR it with the decryption key.
+ * 6. Unpack the six 5-bit IV values (HP, Attack, Defense, Speed, Sp. Atk, Sp. Def) from the decrypted integer.
+ *
+ * @param view - The DataView of the raw save buffer or PC buffer.
+ * @param offset - The memory offset where the 100-byte Pokémon structure begins.
+ * @returns An object containing the unpacked IVs and the original PV.
+ * @throws {Error} If the block permutation is invalid or the data is heavily corrupted ("The save file is corrupted or incomplete.").
+ */
 export function parseGen3PokemonPVAndIVs(view: DataView, offset: number) {
   try {
     const pv = view.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
@@ -1980,7 +2028,40 @@ export function parseGen3Ribbons(view: DataView, offset: number): Gen3Ribbons {
     const smart = (bitfield >> RIBBON_SMART_SHIFT) & RIBBON_RANK_MASK;
     const tough = (bitfield >> RIBBON_TOUGH_SHIFT) & RIBBON_RANK_MASK;
 
-    return { cool, beauty, cute, smart, tough };
+    const champion = (bitfield & (1 << RIBBON_CHAMPION_BIT)) !== 0;
+    const winning = (bitfield & (1 << RIBBON_WINNING_BIT)) !== 0;
+    const victory = (bitfield & (1 << RIBBON_VICTORY_BIT)) !== 0;
+    const artist = (bitfield & (1 << RIBBON_ARTIST_BIT)) !== 0;
+    const effort = (bitfield & (1 << RIBBON_EFFORT_BIT)) !== 0;
+    const battleChampion = (bitfield & (1 << RIBBON_BATTLE_CHAMPION_BIT)) !== 0;
+    const regionalChampion = (bitfield & (1 << RIBBON_REGIONAL_CHAMPION_BIT)) !== 0;
+    const nationalChampion = (bitfield & (1 << RIBBON_NATIONAL_CHAMPION_BIT)) !== 0;
+    const country = (bitfield & (1 << RIBBON_COUNTRY_BIT)) !== 0;
+    const national = (bitfield & (1 << RIBBON_NATIONAL_BIT)) !== 0;
+    const earth = (bitfield & (1 << RIBBON_EARTH_BIT)) !== 0;
+    const world = (bitfield & (1 << RIBBON_WORLD_BIT)) !== 0;
+    const obedience = (bitfield & (1 << OBEDIENCE_FLAG_BIT)) !== 0;
+
+    return {
+      cool,
+      beauty,
+      cute,
+      smart,
+      tough,
+      champion,
+      winning,
+      victory,
+      artist,
+      effort,
+      battleChampion,
+      regionalChampion,
+      nationalChampion,
+      country,
+      national,
+      earth,
+      world,
+      obedience,
+    };
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');

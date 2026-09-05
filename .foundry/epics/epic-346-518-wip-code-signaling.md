@@ -2,12 +2,12 @@
 id: epic-346-518-wip-code-signaling
 type: EPIC
 title: WIP Code & Namespacing Guidelines
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15389097081223057972'
 pr_number: null
 parent: prd-151-346-wip-draft-signaling
 tags:
@@ -15,7 +15,7 @@ tags:
   - dexhelper
   - wip
 research_references: []
-rejection_reason: ""
+rejection_reason: ''
 ---
 
 ## Description

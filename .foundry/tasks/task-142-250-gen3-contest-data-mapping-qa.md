@@ -2,7 +2,7 @@
 id: task-142-250-gen3-contest-data-mapping-qa
 type: TASK
 title: QA Gen 3 Contest Data Mapping
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-07-02'
 updated_at: '2026-09-03'
@@ -36,5 +36,5 @@ This task verifies that the mapping of Gen 3 contest data to the `PokemonInstanc
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 3. Acceptance Criteria
-- [ ] Verify Gen 3 contest data is successfully parsed and attached to `PokemonInstance` structures in unit and/or integration tests.
-- [ ] Verify that Gen 1 and Gen 2 test suites continue to pass without issues.
+- [x] Verify Gen 3 contest data is successfully parsed and attached to `PokemonInstance` structures in unit and/or integration tests.
+- [x] Verify that Gen 1 and Gen 2 test suites continue to pass without issues.

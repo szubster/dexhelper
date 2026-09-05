@@ -2,10 +2,10 @@
 id: story-071-474-pass-rejection-count-context
 type: STORY
 title: Pass Rejection Count to DagContext
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on:
   - story-071-473-extract-rejection-count
 jules_session_id: null
@@ -28,6 +28,6 @@ Once extracted, the `rejection_count` must be passed along with the rest of the 
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-474-512-pass-rejection-count-impl
-- [ ] task-474-513-pass-rejection-count-tests
-- [ ] task-474-514-pass-rejection-count-qa
+- [x] task-474-512-pass-rejection-count-impl
+- [x] task-474-513-pass-rejection-count-tests
+- [x] task-474-514-pass-rejection-count-qa

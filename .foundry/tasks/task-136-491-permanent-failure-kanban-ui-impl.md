@@ -5,10 +5,10 @@ title: Implement Permanent Failure Kanban UI
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-27'
+updated_at: '2026-09-03'
 depends_on:
   - task-136-489-permanent-failure-state-selectors-impl
-jules_session_id: '10164861099928403890'
+jules_session_id: '15333023246627202673'
 pr_number: null
 parent: story-047-136-permanent-failure-dashboard-ui
 tags:
@@ -17,9 +17,10 @@ tags:
   - dashboard
   - kanban
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Implement Permanent Failure Kanban UI
 
