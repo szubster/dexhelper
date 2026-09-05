@@ -2,7 +2,7 @@
 id: story-536-543-integration-e2e-verification
 type: STORY
 title: Integration and E2E Verification
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-05'
 updated_at: '2026-09-05'
@@ -17,8 +17,8 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
