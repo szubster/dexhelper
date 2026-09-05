@@ -32,7 +32,13 @@ Group entries under Keep a Changelog headings:
 - `### Removed`
 - `### Security`
 
-Keep bullet points concise and focused on value delivered. Do not modify task frontmatter except as permitted by system rules.
+Keep bullet points concise and focused on value delivered.
+**Important Formatting Rules:**
+- Add a link to the commit SHA at the end of the entry (e.g., `([ee3b870c](https://github.com/szubster/dexhelper/commit/ee3b870c4cb8a7e415a12b76986046b2175b2c5c))`).
+- When backfilling or analyzing old commits, extract the exact commit date from the git history or the task context, do NOT use the current date (today).
+- When a new version is created, consider adding a comparison link to the previous version (e.g., `[0.4.0]: https://github.com/szubster/dexhelper/compare/v0.3.0...v0.4.0`) at the bottom of the changelog.
+
+Do not modify task frontmatter except as permitted by system rules.
 
 ## Journal
 

@@ -7,9 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.4.0] - 2026-09-05
+## [0.4.0] - 2026-09-04
 ### Added
-- Initialized project structure and core components including React setup, Vite configuration, PokeAPI interaction, and AI integration.
+- Initialized project structure and core components including React setup, Vite configuration, PokeAPI interaction, and AI integration. ([ee3b870c](https://github.com/szubster/dexhelper/commit/ee3b870c4cb8a7e415a12b76986046b2175b2c5c))
+
+[0.4.0]: https://github.com/szubster/dexhelper/compare/v0.3.0...v0.4.0
 
 ## [0.3.0] - 2026-09-03
 ### Added
