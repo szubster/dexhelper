@@ -2,14 +2,14 @@
 id: task-473-495-egg-hatch-e2e-qa
 type: TASK
 title: QA Egg Hatch E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-09-05'
 depends_on:
   - task-473-493-gen2-egg-hatch-e2e-impl
   - task-473-494-gen3-egg-hatch-e2e-impl
-jules_session_id: '7801570427347363349'
+jules_session_id: null
 pr_number: null
 parent: story-106-473-egg-hatch-parsing-e2e
 tags:

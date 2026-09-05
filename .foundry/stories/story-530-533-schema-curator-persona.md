@@ -2,7 +2,7 @@
 id: story-530-533-schema-curator-persona
 type: STORY
 title: Update schema.md with Curator persona
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-04'
 updated_at: '2026-09-05'
@@ -24,6 +24,6 @@ locks: []
 Register the `curator` persona in `.foundry/docs/schema.md` within the `owner_persona` Enum to act as the Guardian of Code Quality. It should map to Persian (#053) and Kadabra (#064).
 
 ## Acceptance Criteria
-- [ ] task-533-536-schema-curator-coder
-- [ ] task-533-537-schema-curator-qa
+- [x] task-533-536-schema-curator-coder
+- [x] task-533-537-schema-curator-qa
 - [x] Update `.foundry/docs/schema.md` to include the `curator` persona
