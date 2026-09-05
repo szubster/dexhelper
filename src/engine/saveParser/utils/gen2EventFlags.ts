@@ -199,12 +199,3 @@ export function parseGen2DailyEvents(eventFlags: Uint8Array) {
     },
   };
 }
-
-export const RUINS_OF_ALPH_HO_OH_BYTE = 40;
-export const RUINS_OF_ALPH_HO_OH_BIT = 7;
-export const RUINS_OF_ALPH_KABUTO_BYTE = 41;
-export const RUINS_OF_ALPH_KABUTO_BIT = 0;
-export const RUINS_OF_ALPH_OMANYTE_BYTE = 41;
-export const RUINS_OF_ALPH_OMANYTE_BIT = 1;
-export const RUINS_OF_ALPH_AERODACTYL_BYTE = 41;
-export const RUINS_OF_ALPH_AERODACTYL_BIT = 2;
