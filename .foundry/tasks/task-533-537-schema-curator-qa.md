@@ -2,13 +2,13 @@
 id: task-533-537-schema-curator-qa
 type: TASK
 title: QA - Update schema.md with Curator persona
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-05'
 updated_at: '2026-09-05'
 depends_on:
   - task-533-536-schema-curator-coder
-jules_session_id: null
+jules_session_id: '4456597722895638062'
 parent: story-530-533-schema-curator-persona
 tags:
   - foundry
