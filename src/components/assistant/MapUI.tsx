@@ -1,6 +1,7 @@
 import { MapPin } from 'lucide-react';
 import { useMemo } from 'react';
 import type { RouteRadarHeatmap } from '../../engine/radar/RouteRadarController';
+import { BikeBadge } from '../BikeBadge';
 import { EdgeLabel } from '../EdgeLabel';
 
 interface MapUIProps {
@@ -44,16 +45,8 @@ export function MapUI({ heatmap, areaNames }: MapUIProps) {
               <div className="flex items-center gap-2">
                 {(requiresMachBike || requiresAcroBike) && (
                   <div className="flex gap-1">
-                    {requiresMachBike && (
-                      <span className="flex items-center justify-center rounded-none border border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 px-1 py-0.5 font-mono text-[8px] text-[var(--theme-primary)] uppercase leading-none">
-                        Mach
-                      </span>
-                    )}
-                    {requiresAcroBike && (
-                      <span className="flex items-center justify-center rounded-none border border-emerald-500/50 bg-emerald-500/10 px-1 py-0.5 font-mono text-[8px] text-emerald-400 uppercase leading-none">
-                        Acro
-                      </span>
-                    )}
+                    {requiresMachBike && <BikeBadge type="mach" className="px-1 py-0.5 text-[8px] leading-none" />}
+                    {requiresAcroBike && <BikeBadge type="acro" className="px-1 py-0.5 text-[8px] leading-none" />}
                   </div>
                 )}
                 <div className="flex h-2 w-12 overflow-hidden rounded-none border border-zinc-700 bg-zinc-800">
