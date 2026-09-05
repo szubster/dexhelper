@@ -34,3 +34,6 @@ Implement a lightweight, DOM-based directory tree visualization for the Foundry 
 - [ ] Implement `DagTree` UI logic.
 - [ ] Implement dependencies and Vite configuration cleanup.
 - [ ] Implement E2E testing layer for verification.
+- [ ] story-530-536-dagtree-ui-logic
+- [ ] story-530-537-xyflow-cleanup
+- [ ] story-530-538-dagtree-e2e-verification
