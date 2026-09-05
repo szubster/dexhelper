@@ -28,6 +28,6 @@ locks: []
 Verify the E2E tests for both Gen 2 and Gen 3 egg hatch tracker data extraction engines. Ensure tests are robust and properly cover edge cases.
 
 ## Acceptance Criteria
-- [ ] Verify Gen 2 E2E tests for egg hatching.
-- [ ] Verify Gen 3 E2E tests for egg hatching.
-- [ ] Confirm no regressions.
+- [x] Verify Gen 2 E2E tests for egg hatching.
+- [x] Verify Gen 3 E2E tests for egg hatching.
+- [x] Confirm no regressions.
