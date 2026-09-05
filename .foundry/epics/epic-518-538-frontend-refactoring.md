@@ -24,6 +24,9 @@ locks: []
 This epic drives the adoption of React 19 concurrent features (such as `useTransition`), TanStack Query optimizations, and Vitest browser mode testing within the frontend ecosystem.
 
 ## Acceptance Criteria
-- [ ] Decompose this epic into Stories for React 19 concurrent features adoption.
-- [ ] Decompose this epic into Stories for TanStack Query optimizations and Vitest browser mode testing.
-- [ ] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Decompose this epic into Stories for React 19 concurrent features adoption.
+- [x] Decompose this epic into Stories for TanStack Query optimizations and Vitest browser mode testing.
+- [x] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-538-546-react-19-concurrent-features
+- [ ] story-538-547-tanstack-query-and-vitest
+- [ ] story-538-548-frontend-refactoring-e2e
