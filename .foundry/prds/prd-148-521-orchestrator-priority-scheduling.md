@@ -42,6 +42,11 @@ This PRD outlines the requirements for implementing a **Priority Scheduling Engi
 ### Propagation Guidelines
 1. Node templates should be updated to include `priority: 50` by default.
 2. Parent nodes (like Epics) generating children should explicitly set elevated priority levels for child nodes on the critical path, allowing them to jump the queue.
+3. **Priority Value Examples:**
+   - **Backlog / Low Priority:** `10` to `20` (e.g., deferred changelog updates).
+   - **Standard / Default:** `50` (Standard tasks).
+   - **High / Critical Path:** `100` to `200` (e.g., core feature implementation).
+   - **Absolute Maximum / Override:** `999` (Use this to override all other tasks in the queue to force immediate execution).
 
 ## Acceptance Criteria
 - [ ] Epic Planner: Break this PRD down into a comprehensive EPIC covering the schema update and orchestrator implementation.
