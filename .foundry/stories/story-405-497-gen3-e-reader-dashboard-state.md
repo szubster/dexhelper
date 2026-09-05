@@ -2,7 +2,7 @@
 id: story-405-497-gen3-e-reader-dashboard-state
 type: STORY
 title: Gen 3 E-Reader Dashboard State Management
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-31'
 updated_at: '2026-09-05'

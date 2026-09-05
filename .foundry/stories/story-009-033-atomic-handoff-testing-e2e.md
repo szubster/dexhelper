@@ -2,12 +2,12 @@
 id: story-009-033-atomic-handoff-testing-e2e
 type: STORY
 title: 'Story: Atomic Handoff Testing Expansion E2E Verification'
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2024-11-20'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '294527938290141212'
+jules_session_id: null
 parent: epic-009-atomic-handoff-testing
 tags:
   - e2e

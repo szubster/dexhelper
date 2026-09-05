@@ -2,10 +2,10 @@
 id: task-514-527-remediation-state-transition-logic-tests
 type: TASK
 title: Unit Test Remediation State Transition Logic
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on:
   - task-514-526-remediation-state-transition-logic-impl
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Unit Test Remediation State Transition Logic

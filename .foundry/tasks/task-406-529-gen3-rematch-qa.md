@@ -2,10 +2,10 @@
 id: task-406-529-gen3-rematch-qa
 type: TASK
 title: QA Gen 3 NPC Rematch Status Implementation
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on:
   - task-406-528-gen3-rematch-e2e-impl
 jules_session_id: null

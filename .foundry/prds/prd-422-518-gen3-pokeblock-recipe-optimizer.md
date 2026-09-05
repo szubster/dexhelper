@@ -2,10 +2,10 @@
 id: prd-422-518-gen3-pokeblock-recipe-optimizer
 type: PRD
 title: Gen 3 Pokéblock Recipe Optimizer for Contest Conditions
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: null
 parent: idea-422-gen3-pokeblock-recipe-optimizer
@@ -16,6 +16,7 @@ tags:
   - optimization
 rejection_count: 0
 rejection_reason: ''
+locks: []
 ---
 
 # Gen 3 Pokéblock Recipe Optimizer for Contest Conditions

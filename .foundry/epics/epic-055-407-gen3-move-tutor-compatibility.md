@@ -2,13 +2,13 @@
 id: epic-055-407-gen3-move-tutor-compatibility
 type: EPIC
 title: Gen 3 Move Tutor Compatibility Cross-Referencing
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-08'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on:
   - epic-055-406-gen3-move-tutor-save-parsing
-jules_session_id: '3365283661500978645'
+jules_session_id: null
 pr_number: null
 parent: prd-094-055-move-tutor-tracker
 tags:

@@ -1,13 +1,13 @@
 ---
 id: idea-422-gen3-pokeblock-recipe-optimizer
 type: IDEA
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 title: Gen 3 Pokéblock Recipe Optimizer for Contest Conditions
 created_at: '2026-08-25'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '16787157399427834954'
+jules_session_id: null
 parent: null
 tags:
   - dexhelper

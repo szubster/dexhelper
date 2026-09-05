@@ -2,12 +2,12 @@
 id: idea-155-gen3-trick-house-tracker
 type: IDEA
 title: Gen 3 Trick House Tracker Dashboard
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-16'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '13459690091314135888'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

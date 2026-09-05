@@ -2,10 +2,10 @@
 id: task-494-512-hof-certificate-hidden-component-qa
 type: TASK
 title: Hall of Fame Certificate Hidden Component QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-01'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on:
   - task-494-511-hof-certificate-hidden-component-impl
   - task-494-513-hof-certificate-hidden-component-tests

@@ -2,10 +2,10 @@
 id: task-497-521-gen3-mystery-gift-state
 type: TASK
 title: Define Gen 3 Mystery Gift State Interface
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Task: Define Gen 3 Mystery Gift State Interface

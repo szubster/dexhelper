@@ -2,10 +2,10 @@
 id: task-406-530-gen3-rematch-integration-e2e-impl
 type: TASK
 title: Integration and E2E Verification for Gen 3 Rematch
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on:
   - task-406-528-gen3-rematch-e2e-impl
   - task-406-529-gen3-rematch-qa

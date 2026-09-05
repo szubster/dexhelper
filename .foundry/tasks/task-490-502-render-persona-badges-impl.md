@@ -2,7 +2,7 @@
 id: task-490-502-render-persona-badges-impl
 type: TASK
 title: Render Persona Badges Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-31'
 updated_at: '2026-09-05'
@@ -15,8 +15,8 @@ tags:
   - ux
   - ui
   - gamification
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---
