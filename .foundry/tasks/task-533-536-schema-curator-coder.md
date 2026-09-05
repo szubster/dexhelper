@@ -2,12 +2,12 @@
 id: task-533-536-schema-curator-coder
 type: TASK
 title: Update schema.md with Curator persona
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-05'
 updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '9687584932545273167'
+jules_session_id: null
 parent: story-530-533-schema-curator-persona
 tags:
   - foundry

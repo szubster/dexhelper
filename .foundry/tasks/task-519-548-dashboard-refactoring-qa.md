@@ -2,10 +2,10 @@
 id: task-519-548-dashboard-refactoring-qa
 type: TASK
 title: QA Verification for Dashboard Refactoring
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-03T13:29:59.884Z'
-updated_at: '2026-09-03T13:29:59.884Z'
+updated_at: '2026-09-05'
 depends_on:
   - task-519-546-dashboard-layouts-coder
   - task-519-547-trackers-radars-coder

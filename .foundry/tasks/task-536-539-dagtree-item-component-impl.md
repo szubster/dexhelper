@@ -2,7 +2,7 @@
 id: task-536-539-dagtree-item-component-impl
 type: TASK
 title: Implement DagTree Item Component
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-05'
 updated_at: '2026-09-05'

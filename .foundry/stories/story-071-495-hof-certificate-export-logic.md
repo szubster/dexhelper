@@ -2,10 +2,10 @@
 id: story-071-495-hof-certificate-export-logic
 type: STORY
 title: Hall of Fame Certificate Export Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-30'
-updated_at: '2026-08-31'
+updated_at: '2026-09-05'
 depends_on:
   - story-071-494-hof-certificate-hidden-component
 jules_session_id: '12814961437781022023'
@@ -21,6 +21,7 @@ research_references:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Hall of Fame Certificate Export Logic

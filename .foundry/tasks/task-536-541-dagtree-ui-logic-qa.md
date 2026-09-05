@@ -2,7 +2,7 @@
 id: task-536-541-dagtree-ui-logic-qa
 type: TASK
 title: QA DagTree UI Logic
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-05'
 updated_at: '2026-09-05'

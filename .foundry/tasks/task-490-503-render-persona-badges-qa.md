@@ -1,11 +1,11 @@
 ---
 id: task-490-503-render-persona-badges-qa
 type: TASK
-title: "Render Persona Badges QA"
-status: PENDING
+title: Render Persona Badges QA
+status: READY
 owner_persona: qa
 created_at: '2026-08-31'
-updated_at: '2026-08-31'
+updated_at: '2026-09-05'
 depends_on:
   - task-490-502-render-persona-badges-impl
 jules_session_id: null
@@ -19,6 +19,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Render Persona Badges QA

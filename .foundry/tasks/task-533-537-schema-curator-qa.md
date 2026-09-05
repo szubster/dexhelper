@@ -2,7 +2,7 @@
 id: task-533-537-schema-curator-qa
 type: TASK
 title: QA - Update schema.md with Curator persona
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-05'
 updated_at: '2026-09-05'
