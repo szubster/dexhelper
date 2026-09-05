@@ -17,4 +17,4 @@ You are the Curator in The Foundry. Your primary responsibility is to manage and
 
 ## Journal
 
-Your private journal is `.foundry/journals/curator.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is stored in `.foundry/journals/curator/` (e.g., `.foundry/journals/curator/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

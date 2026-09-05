@@ -33,8 +33,8 @@ To resolve frequent git merge conflicts on `.foundry/journals/*.md` files, we wi
 
 ## Acceptance Criteria
 - [x] epic-120-338-implement-conflictless-journals
-- [ ] research-335-400-investigate-conflictless-journals-failure
-- [ ] epic-335-401-implement-conflictless-journals-retry
+- [x] research-335-400-investigate-conflictless-journals-failure
+- [x] epic-335-401-implement-conflictless-journals-retry
 
 ### Auditor Rejection
 The PRD verification failed because the original implementation Epic reached its max rejection count. A research node and a replacement epic have been spawned. A macro node MUST NOT be verified until its functional requirements are fully implemented and its child tasks are COMPLETED.
