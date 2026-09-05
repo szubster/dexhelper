@@ -23,7 +23,7 @@
 import gen2Landmarks from '../../data/gen2/landmarks.json';
 import gen2MapLocations from '../../data/gen2/mapLocations.json';
 import { GEN2_VERSION_EXCLUSIVES } from '../../exclusives/gen2Exclusives';
-import { parseGen2DailyEvents, parseGen2NarrativeFlags } from '../utils/gen2EventFlags';
+import { parseGen2DailyEvents, parseGen2NarrativeFlags, parseGen2RuinsOfAlphPuzzles } from '../utils/gen2EventFlags';
 import type { GameVersion, Gen2SaveData, PokemonInstance } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs, parsePokerus } from './common';
 import { parseGen2PokegearData } from './gen2/phone/parser';
@@ -1100,6 +1100,16 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
     throw error;
   }
 
+  let gen2RuinsOfAlphPuzzles: ReturnType<typeof parseGen2RuinsOfAlphPuzzles> | undefined;
+  try {
+    gen2RuinsOfAlphPuzzles = parseGen2RuinsOfAlphPuzzles(eventFlags);
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+
   return {
     generation: 2,
     owned,
@@ -1141,6 +1151,7 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
       hoOh: (((eventFlags[EVENT_FLAG_HO_OH_BYTE] ?? 0) >> EVENT_FLAG_HO_OH_BIT) & 1) === 1,
       lugia: (((eventFlags[EVENT_FLAG_LUGIA_BYTE] ?? 0) >> EVENT_FLAG_LUGIA_BIT) & 1) === 1,
     },
+    gen2RuinsOfAlphPuzzles,
     gen2NarrativeFlags: parseGen2NarrativeFlags(eventFlags),
     gen2DailyEvents: parseGen2DailyEvents(eventFlags),
     gen2PokegearPhone: parseGen2PokegearData(view, isCrystal),

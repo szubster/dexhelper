@@ -4,6 +4,7 @@ import {
   getUpcomingGen2Boss,
   parseGen2DailyEvents,
   parseGen2NarrativeFlags,
+  parseGen2RuinsOfAlphPuzzles,
 } from './gen2EventFlags';
 
 describe('Gen 2 Narrative Progression Flags', () => {
@@ -157,5 +158,40 @@ describe('Gen 2 Daily and Weekly Event Flags', () => {
     expect(flags.buenasPassword.offeredNumberNoBlueCard).toBe(false);
     expect(flags.buenasPassword.offeredNumber).toBe(false);
     expect(flags.buenasPassword.metBuena).toBe(false);
+  });
+});
+
+describe('Gen 2 Ruins of Alph Puzzle Flags', () => {
+  it('should return false for all puzzles if eventFlags are zero', () => {
+    const eventFlags = new Uint8Array(50);
+    const result = parseGen2RuinsOfAlphPuzzles(eventFlags);
+    expect(result.hoOh).toBe(false);
+    expect(result.kabuto).toBe(false);
+    expect(result.omanyte).toBe(false);
+    expect(result.aerodactyl).toBe(false);
+  });
+
+  it('should return true for set puzzle flags', () => {
+    const eventFlags = new Uint8Array(50);
+    // RUINS_OF_ALPH_HO_OH_BYTE = 40, BIT = 7
+    eventFlags[40] = (eventFlags[40] ?? 0) | (1 << 7);
+    // RUINS_OF_ALPH_KABUTO_BYTE = 41, BIT = 0
+    eventFlags[41] = (eventFlags[41] ?? 0) | (1 << 0);
+    // RUINS_OF_ALPH_OMANYTE_BYTE = 41, BIT = 1
+    eventFlags[41] = (eventFlags[41] ?? 0) | (1 << 1);
+    // RUINS_OF_ALPH_AERODACTYL_BYTE = 41, BIT = 2
+    eventFlags[41] = (eventFlags[41] ?? 0) | (1 << 2);
+
+    const result = parseGen2RuinsOfAlphPuzzles(eventFlags);
+    expect(result.hoOh).toBe(true);
+    expect(result.kabuto).toBe(true);
+    expect(result.omanyte).toBe(true);
+    expect(result.aerodactyl).toBe(true);
+  });
+
+  it('should throw RangeError for out of bounds read', () => {
+    const eventFlags = new Uint8Array(40); // Max byte accessed is 41
+    expect(() => parseGen2RuinsOfAlphPuzzles(eventFlags)).toThrow(RangeError);
+    expect(() => parseGen2RuinsOfAlphPuzzles(eventFlags)).toThrow('The save file is corrupted or incomplete.');
   });
 });
