@@ -10,7 +10,7 @@ depends_on: []
 jules_session_id: null
 pr_number: null
 parent: null
-rejection_reason: null
+rejection_reason: ""
 ---
 
 # Idea: Lazy Load Pokedex Grid Items and Virtualization
