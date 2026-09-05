@@ -27,3 +27,7 @@ Implement logic in `.github/scripts/foundry-orchestrator.ts` to trigger the `cur
 - Identify the exact condition that warrants triggering the `curator` persona (e.g., when a feature is considered fully "implemented" but before final archival/verification).
 - Update the DAG processing rules to recognize this state and enqueue `curator` execution.
 - Implement tests ensuring the trigger logic accurately fires under the specified conditions.
+
+## Acceptance Criteria
+- [ ] task-533-536-orchestrator-curator-trigger-logic-impl
+- [ ] task-533-537-orchestrator-curator-trigger-logic-qa
