@@ -39,4 +39,5 @@ The Trick House is a recurring side-quest in Generation 3 games (Ruby, Sapphire,
    - Adhere to UI aesthetic constraints (tactical hardware, sharp edges, monospaced fonts).
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Create an EPIC detailing the implementation of the Trick House Tracker, including save parsing logic and UI component development.
+- [x] Epic Planner: Create an EPIC detailing the implementation of the Trick House Tracker, including save parsing logic and UI component development.
+- [ ] epic-524-540-trick-house-tracker
