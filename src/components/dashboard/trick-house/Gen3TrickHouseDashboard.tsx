@@ -1,5 +1,5 @@
 import React from 'react';
-import type { SaveData } from '../../../engine/saveParser/parsers/common';
+import { isGen3Save, type SaveData } from '../../../engine/saveParser/parsers/common';
 import { DataPoint } from '../../DataPoint';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
@@ -9,7 +9,7 @@ export interface Gen3TrickHouseDashboardProps {
 }
 
 export const Gen3TrickHouseDashboard = React.memo(({ saveData }: Gen3TrickHouseDashboardProps) => {
-  if (saveData.generation !== 3) {
+  if (!isGen3Save(saveData)) {
     return null;
   }
 
