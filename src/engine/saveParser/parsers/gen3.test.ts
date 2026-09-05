@@ -575,6 +575,36 @@ describe('parseGen3 mirageIslandValue', () => {
 });
 
 describe('parseGen3Ribbons', () => {
+  it('should extract the remaining ribbon flags and the obedience flag correctly', () => {
+    const buffer = new ArrayBuffer(8);
+    const view = new DataView(buffer);
+
+    // Set bitfield to have various ribbon flags as well as obedience flag set
+    // champion (15), winning (16), victory (17), artist (18), effort (19), battleChampion (20)
+    // regionalChampion (21), nationalChampion (22), country (23), national (24), earth (25), world (26)
+    // obedience (31)
+
+    // We can just set all bits to 1, or specifically the top 17 bits.
+    // 0xFFFF8000
+    view.setUint32(2, 0xffff8000, true);
+
+    const result = parseGen3Ribbons(view, 2);
+
+    expect(result.champion).toBe(true);
+    expect(result.winning).toBe(true);
+    expect(result.victory).toBe(true);
+    expect(result.artist).toBe(true);
+    expect(result.effort).toBe(true);
+    expect(result.battleChampion).toBe(true);
+    expect(result.regionalChampion).toBe(true);
+    expect(result.nationalChampion).toBe(true);
+    expect(result.country).toBe(true);
+    expect(result.national).toBe(true);
+    expect(result.earth).toBe(true);
+    expect(result.world).toBe(true);
+    expect(result.obedience).toBe(true);
+  });
+
   it('should extract the contest ribbon ranks correctly', () => {
     const buffer = new ArrayBuffer(8);
     const view = new DataView(buffer);
