@@ -25,5 +25,5 @@ locks: []
 Verify the creation of the `curator` persona base prompt and journal directory to ensure it matches the requirements and structure.
 
 ## Acceptance Criteria
-- [ ] Verify `.foundry/journals/curator/.gitkeep` exists.
-- [ ] Verify `.github/agents/curator.md` exists and contains instructions for the Curator to review schema, spawn nodes, and not make code changes.
+- [x] Verify `.foundry/journals/curator/.gitkeep` exists.
+- [x] Verify `.github/agents/curator.md` exists and contains instructions for the Curator to review schema, spawn nodes, and not make code changes.
