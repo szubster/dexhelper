@@ -1,7 +1,7 @@
 ---
 id: task-520-552-feature-flags-qa
 type: TASK
-title: QA: Feature Flags Implementation
+title: 'QA: Feature Flags Implementation'
 status: READY
 owner_persona: qa
 created_at: '2026-09-05'
