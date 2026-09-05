@@ -2,10 +2,10 @@
 id: task-533-537-schema-curator-qa
 type: TASK
 title: QA - Update schema.md with Curator persona
-status: READY
+status: PENDING
 owner_persona: qa
-created_at: "2026-09-05"
-updated_at: "2026-09-05"
+created_at: '2026-09-05'
+updated_at: '2026-09-05'
 depends_on:
   - task-533-536-schema-curator-coder
 jules_session_id: null
@@ -14,8 +14,9 @@ tags:
   - foundry
   - personas
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # QA - Update schema.md with Curator persona

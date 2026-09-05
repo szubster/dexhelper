@@ -2,7 +2,7 @@
 id: task-143-490-gen3-contest-integration-tests-qa
 type: TASK
 title: Gen 3 Contest Integration Tests QA
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-09-05'
@@ -17,8 +17,8 @@ tags:
   - contests
   - qa
 research_references: []
-rejection_count: 0
-rejection_reason: Session timed out (>7 days without PR)
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 ---
 # TASK: Gen 3 Contest Integration Tests QA

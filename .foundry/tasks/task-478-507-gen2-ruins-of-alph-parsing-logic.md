@@ -2,7 +2,7 @@
 id: task-478-507-gen2-ruins-of-alph-parsing-logic
 type: TASK
 title: Implement Gen 2 Ruins of Alph Parsing Logic
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-31'
 updated_at: '2026-09-05'
@@ -14,8 +14,8 @@ tags:
   - feature
   - gen2
   - unown
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 1
+rejection_reason: ''
 locks: []
 ---
 

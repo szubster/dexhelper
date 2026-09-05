@@ -2,12 +2,12 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: ACTIVE
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '7279622196500626364'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: null
@@ -15,7 +15,7 @@ tags:
   - changelog
   - backfill
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: >-
   Re-opened dynamically by changelog-engine.ts for each commit during repository

@@ -2,12 +2,12 @@
 id: story-530-533-schema-curator-persona
 type: STORY
 title: Update schema.md with Curator persona
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-04'
 updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '12673838932234937688'
+jules_session_id: null
 parent: epic-518-530-curator-persona-implementation
 tags:
   - foundry
