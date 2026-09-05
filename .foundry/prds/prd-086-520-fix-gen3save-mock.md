@@ -2,12 +2,12 @@
 id: prd-086-520-fix-gen3save-mock
 type: PRD
 title: Fix isGen3Save heuristic mock for E2E tests
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-08-25T00:00:00.000Z'
-updated_at: '2026-08-25'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '4605878215416607215'
+jules_session_id: '11152065474206196591'
 locks: []
 rejection_reason: ''
 parent: idea-086-fix-gen3save-mock
