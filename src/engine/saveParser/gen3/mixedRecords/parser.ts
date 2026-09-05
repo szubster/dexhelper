@@ -4,6 +4,9 @@ import type { Gen3MixedRecordNPC, Gen3MixedRecordNPCPokemon } from './types';
 
 export function parseGen3MixedRecordNPC(view: DataView, offset: number): Gen3MixedRecordNPC {
   try {
+    const flags = view.getUint8(offset + Constants.MIXED_RECORD_NPC_FLAGS_OFFSET);
+    const battledOwnerToday = (flags & Constants.MIXED_RECORD_NPC_BATTLED_TODAY_MASK) !== 0;
+
     const trainerName = decodeGen3String(
       view,
       offset + Constants.MIXED_RECORD_NPC_TRAINER_NAME_OFFSET,
@@ -78,6 +81,7 @@ export function parseGen3MixedRecordNPC(view: DataView, offset: number): Gen3Mix
       trainerName,
       trainerGender,
       trainerId,
+      battledOwnerToday,
       party,
     };
   } catch (error) {
