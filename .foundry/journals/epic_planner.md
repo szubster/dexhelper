@@ -313,3 +313,10 @@ To resolve this and resurrect the feature, I:
 4. Checked off the cancelled child Epics in the parent `prd-067-037-gen3-berry-tracker` body to allow proper DAG progress.
 
 All new Epics strictly enforce the Orchestrator safeguard requirement to generate an E2E STORY for verification.
+
+## Ecosystem Modernization Decomposition
+When transforming PRDs into Epics, I ensure that each distinct requirement translates into a well-defined EPIC to allow parallelization and granular tracking. I also mandate a final STORY for Integration and E2E Verification in each epic to satisfy orchestrator completion criteria.
+
+### Learnings
+- **Decomposition**: Always decompose PRDs into multiple Epics rather than mapping 1-to-1 to avoid monolithic execution bottlenecks.
+- **Verification Rule**: Ensuring the 'Integration and E2E Verification' rule (ADR compliance) is explicitly included in the epic's Acceptance Criteria.

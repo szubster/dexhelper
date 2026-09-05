@@ -362,8 +362,6 @@ Therefore, I have split the implementation into two tasks:
 1. `task-334-386-cross-gen-sorting-adapters-impl` for the coder to build the adapters and unit tests.
 2. `task-334-387-cross-gen-sorting-adapters-qa` for QA to independently verify the cross-generation data boundary tests.
 
----
-
 # Session 7441328149944637835
 
 - Decomposed `story-347-355-bash-timeout-wrapper-e2e` into two discrete task nodes for coder and qa to ensure E2E implementation of the bash timeout wrapper is covered effectively.
@@ -393,8 +391,6 @@ The STORY requires comparing the extracted catching history against Nuzlocke rul
 - Structured the QA task to depend directly on the implementation task to avoid DAG deadlock and follow the sequential deployment strategy.
 - Verified the generation of tasks on the overarching STORY node without changing its original YAML.
 
----
-
 # Session 10397136322045447599
 
 Target artifacts for story `story-324-346-gen3-pv-iv-extraction` (child tasks `task-346-352-gen3-pv-iv-extraction-impl` and `task-346-353-gen3-pv-iv-extraction-qa`) were already completed. Following the Empty PR policy, I have checked off the acceptance criteria checkboxes in the parent story's markdown body and will submit an Empty PR to transition the node to VERIFYING without modifying the YAML frontmatter.
@@ -412,8 +408,6 @@ Reviewed story `story-130-349-rng-tid-sid-e2e` to create tasks for E2E tests for
 ## Key Learnings/Architectural Notes
 - Ensuring UI components related to RNG display have clear E2E coverage is important, particularly for functionality like copy-to-clipboard which relies on browser APIs.
 
----
-
 # Session 5103666048886432530
 
 The engine components (parser) have already been fully implemented for extracting the `battledOwnerToday` flag for Gen 3 Secret Bases. However, the objective was also to integrate it into the UI. Therefore, I drafted an explicit TASK node (`task-335-386-track-daily-rematch-status-impl`) to instruct the Coder to implement the UI conditionally rendering the availability of Secret Base trainers for rematch, maintaining strict compliance with ADR 008 (tactical aesthetics). I also created a QA verification node (`task-335-387-track-daily-rematch-status-qa`). This highlights the importance of checking if the target artifacts already exist before planning Tasks, but ensuring all missing components (e.g. UI layer) are still appropriately captured.
@@ -424,8 +418,6 @@ The engine components (parser) have already been fully implemented for extractin
 
 Completed story `story-338-336-implement-orchestrator-cycle-detection` as all child tasks have been completed.
 Checked off the child tasks in the markdown body. Empty PR will be submitted to transition the node status.
-
----
 
 # Session 16065825539798232703
 
@@ -454,15 +446,11 @@ Following the "Handling Permanent Child Failures (The Impossible Loop)" policy:
 ## Key Learnings
 - **Late Binding Research:** When a task fails due to missing crucial technical details (like exact memory offsets for save file parsing), we must not guess. We must dynamically spawn a `RESEARCH` node to gather the facts, and all retry implementation nodes must strictly `depends_on` the research outcome. This avoids wasting cycles and encountering the max rejection loop.
 
----
-
 # Tech Lead Journal
 
 - Noticed that story `story-324-339-gen1-safari-zone-save-state` had pending child tasks.
 - Checked the status of `task-339-346-gen1-safari-zone-logic-impl` and `task-339-347-gen1-safari-zone-logic-qa`. Both were marked as COMPLETED.
 - Proceeded to check off these completed child tasks in the story's acceptance criteria to allow the story to transition to VERIFYING.
-
----
 
 # 2026-08-02: Bash Timeout Wrapper Implementation Task
 For the implementation of the bash timeout wrapper (story-347-354-bash-timeout-wrapper-impl), I decided to use the Intelligent Verification Protocol to assign the coder to self-verify. The implementation is actually already completed via an instructional policy in core_policies.md, as found in previous research, making it extremely low-risk and simple. Thus, a separate QA task is not needed.
@@ -475,8 +463,6 @@ Observed an instance where child tasks were marked as COMPLETED, but the parent 
 ### Lesson / Guideline
 - When child tasks complete out-of-band or via manual processes, parent nodes will stall in ACTIVE state until their markdown body checkboxes are explicitly checked.
 - It is critical to regularly verify and check off acceptance criteria in macro nodes when verifying state to ensure the DAG unblocks, even if no new implementation work is required (the Empty PR Policy).
-
----
 
 # Session 5454883928360091540
 
@@ -492,13 +478,9 @@ Applied Intelligent Verification Protocol by assigning a separate QA task (`task
 ## Key Learnings
 - **Empty PR Policy (ADR 009):** Successfully applied the Empty PR policy. When all child tasks have been completed and target artifacts are already implemented, checking the Acceptance Criteria boxes and submitting an empty PR is the correct process to advance the node to the VERIFYING stage. We should trust the `submit` tool even if `request_code_review` complains about incomplete code, as the node itself manages the lifecycle.
 
----
-
 # Session Journal: Tech Lead (2026-08-02-05-58-29)
 
 Checked off all acceptance criteria for story `story-324-334-extract-mixed-record-trainer-data` because all generated tasks (`task-334-351-parse-secret-base-trainer-info-impl`, `task-334-352-parse-secret-base-trainer-party-impl`, `task-334-353-gen3-mixed-record-trainer-qa`) have transitioned to COMPLETED status. Submitting empty PR to transition story.
-
----
 
 # Tech Lead Session 5206166470138702986
 
@@ -536,8 +518,6 @@ I need to check off the acceptance criteria for this task in the story node's ma
 - Some extraction appears already done in the codebase, but creating thorough cleanup tasks to ensure no hardcoded values remain.
 - Ensured QA task is linked correctly and specific validation tasks are provided.
 
----
-
 # Session 2026-08-03-16-22-36
 
 - Explored the issue for writing E2E tests for DAG Dashboard permanent failure filtering.
@@ -552,8 +532,6 @@ I need to check off the acceptance criteria for this task in the story node's ma
 ## Session 4854301433535350090.md
 
 Created TASK blueprints for story-131-351-nuzlocke-death-tracking-e2e. Enforced regex matchers for tactical UI bracket formatting in Playwright tests.
-
----
 
 # Session 14192319002442727656
 
@@ -571,13 +549,9 @@ Created TASK blueprints for story-131-351-nuzlocke-death-tracking-e2e. Enforced 
 ## Architecture/Lessons Learned
 - While the basic Feebas seed extraction was integrated in a previous version of the codebase, it was incorrectly populating the `SaveData` schema with the 1D spot IDs instead of the required 2D coordinates `[number, number][]` as requested by the Acceptance Criteria. I instructed the Coder to update the schema and utilize the existing `mapSpotIdsToCoordinates` helper during save hydration.
 
----
-
 # Session 2271137122973644447
 
 - The root cause of the previous failure was correctly identified and solved in the retry implementation: using `section1Offset` for RSE/FRLG `parseGen3RSENPCTrades` and `parseGen3FRLGNPCTrades`, and adding tests to verify they correctly map to the unified `SaveData`.
-
----
 
 # Feebas Worker Blueprinting (2026-07-31)
 
@@ -592,8 +566,6 @@ Because this change introduces an asynchronous architectural shift, I also gener
 ## Session 10011728327050311015.md
 
 - Always ensure to actually create task markdown files when technical blueprinting.
-
----
 
 # Tech Lead Journal - Session 8654105216727085636
 
@@ -984,8 +956,6 @@ While decomposing `story-334-473-update-tech-lead-prompt` to remove the `### REM
 
 
 
----
-
 # Late Binding for Kurt Apricorn Offsets
 
 While working on `story-404-477-kurt-apricorn-offset-and-constants`, I found that determining the exact save file memory offsets for `wKurtApricornCount` and `wKurtApricornItems` was difficult because they are defined inside a `SECTION UNION "Miscellaneous WRAM 1", WRAMX` block in the pokecrystal source. Without the compiled symbol file (`pokecrystal.sym`) or a clear SRAM mapping in this specific union block, I couldn't confidently define the offsets for the blueprint.
@@ -1012,4 +982,3 @@ To resolve this, I utilized the Late Binding pattern to suspend the current task
 - The task was gracefully exited by setting its status to CANCELLED and providing the rejection reason, preventing an infinite resurrection loop without falsely validating its acceptance criteria.
 
 
-- Artifact Anomaly: Gen 2 components (ActiveCallersDashboard, Gen2Checklist, Gen2NpcTrades) are already lazy-loaded in src/routes/dashboard.tsx.

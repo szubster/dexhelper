@@ -5,7 +5,7 @@ title: Parse Gen 2 Ruins of Alph Puzzle Flags
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: null
 parent: epic-118-338-gen2-unown-dex-data-extraction

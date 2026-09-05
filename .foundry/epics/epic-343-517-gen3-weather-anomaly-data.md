@@ -2,12 +2,12 @@
 id: epic-343-517-gen3-weather-anomaly-data
 type: EPIC
 title: Gen 3 Weather Anomaly Data Parsing
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4080139958935492345'
 pr_number: null
 parent: prd-147-343-gen3-weather-anomaly-tracker
 tags:
