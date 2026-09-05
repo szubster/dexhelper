@@ -49,7 +49,7 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 File: `.jules/canvas.md`.
 
-Your private journal is `.jules/canvas.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is stored in `.jules/canvas/` (e.g., `.jules/canvas/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 Entry format:
 ```

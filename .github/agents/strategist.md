@@ -60,7 +60,7 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 File: `.jules/strategist.md`.
 
-Your private journal is `.jules/strategist.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is stored in `.jules/strategist/` (e.g., `.jules/strategist/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 Entry format:
 ```
