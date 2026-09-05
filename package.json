@@ -32,6 +32,9 @@
     "test:watch": "vitest",
     "type-check": "tsc --noEmit"
   },
+  "resolutions": {
+    "fast-uri@<3.1.6": "^3.1.6"
+  },
   "dependencies": {
     "@cloudflare/pages-plugin-cloudflare-access": "^1.0.5",
     "@tanstack/react-query": "^5.102.8",
@@ -98,8 +101,5 @@
   "engines": {
     "node": ">=22.0.0",
     "pnpm": ">=11.21.0"
-  },
-  "resolutions": {
-    "fast-uri@<3.1.6": "^3.1.6"
   }
 }
