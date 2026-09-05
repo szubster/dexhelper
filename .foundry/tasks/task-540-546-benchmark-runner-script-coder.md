@@ -21,9 +21,10 @@ locks: []
 # Implement Benchmark Runner Script
 
 ## Description
-Develop a benchmark runner script that measures the compilation and execution time of a set of TypeScript files using ts-node, swc, and esbuild.
+Develop a benchmark runner script that measures the compilation and execution time of a set of TypeScript files using ts-node, swc, esbuild, oxc, and Node.js native strip-typing. The script should also measure dependency installation time or count to favor lack of dependencies.
 
 ## Acceptance Criteria
 - [ ] Implement the script to execute benchmark runs.
 - [ ] Record start and end times for each toolchain.
-- [ ] Output a report of execution times.
+- [ ] Record dependency overhead for each toolchain.
+- [ ] Output a report of execution times and dependency overhead.

@@ -21,7 +21,7 @@ locks: []
 # Benchmark TS 7.x Toolchain Options
 
 ## Description
-This story entails benchmarking various TypeScript 7.x toolchains (e.g., ts-node, swc, esbuild) to evaluate performance, compatibility, and maintainability for the project's ecosystem modernization.
+This story entails benchmarking various TypeScript 7.x toolchains (e.g., ts-node, swc, esbuild, oxc, and Node.js native strip-typing) to evaluate performance, compatibility, and maintainability (including measuring dependency footprint) for the project's ecosystem modernization.
 
 ## Acceptance Criteria
 - [x] Decompose into implementation tasks for toolchain benchmarking.

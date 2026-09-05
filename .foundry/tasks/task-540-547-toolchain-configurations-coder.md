@@ -21,8 +21,8 @@ locks: []
 # Set up Toolchain Configurations and Payloads
 
 ## Description
-Create specific test configurations and dummy TypeScript payloads required for testing ts-node, swc, and esbuild to accurately simulate real-world usage during benchmarking.
+Create specific test configurations and dummy TypeScript payloads required for testing ts-node, swc, esbuild, oxc, and Node.js native strip-typing to accurately simulate real-world usage during benchmarking.
 
 ## Acceptance Criteria
 - [ ] Create dummy TypeScript files with varied complexity.
-- [ ] Set up configurations for ts-node, swc, and esbuild.
+- [ ] Set up configurations for ts-node, swc, esbuild, oxc, and Node.js native strip-typing.

@@ -23,8 +23,8 @@ locks: []
 # QA Benchmark TS 7.x Toolchains
 
 ## Description
-Verify the benchmark runner and toolchain configurations accurately measure performance differences between ts-node, swc, and esbuild.
+Verify the benchmark runner and toolchain configurations accurately measure performance differences and dependency overhead between ts-node, swc, esbuild, oxc, and Node.js native strip-typing.
 
 ## Acceptance Criteria
 - [ ] Verify the configurations are correct.
-- [ ] Run the benchmark script and ensure results are accurate.
+- [ ] Run the benchmark script and ensure results (timing and dependency metrics) are accurate.
