@@ -24,4 +24,7 @@ This epic focuses on enforcing WIP code guards within the DexHelper and Foundry 
 ## Acceptance Criteria
 - [ ] Enforce feature flags for experimental code
 - [ ] Enforce src/experimental namespace guidelines
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+- [ ] story-518-520-enforce-feature-flags
+- [ ] story-518-521-experimental-namespace
+- [ ] story-518-522-wip-signaling-e2e
