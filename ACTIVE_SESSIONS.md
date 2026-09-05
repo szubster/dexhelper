@@ -27,6 +27,7 @@
 | [epic-518-532-historical-backtracking](.foundry/epics/epic-518-532-historical-backtracking.md) | EPIC | Curator Historical Backtracking System | story_owner | [10828691216156990658](https://jules.google.com/session/10828691216156990658) |
 | [epic-518-537-generator-architecture](.foundry/epics/epic-518-537-generator-architecture.md) | EPIC | Generator Architecture Implementation Plan | story_owner | [8633448144149627947](https://jules.google.com/session/8633448144149627947) |
 | [epic-518-538-frontend-refactoring](.foundry/epics/epic-518-538-frontend-refactoring.md) | EPIC | Frontend Ecosystem Refactoring | story_owner | [8278491381784234976](https://jules.google.com/session/8278491381784234976) |
+| [epic-520-536-remove-gen3save-mock](.foundry/epics/epic-520-536-remove-gen3save-mock.md) | EPIC | Remove isGen3Save mock and fix heuristic | story_owner | [1349508265782360154](https://jules.google.com/session/1349508265782360154) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
