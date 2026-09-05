@@ -12,6 +12,10 @@ export function parseGen3MixedRecordNPC(view: DataView, offset: number): Gen3Mix
     const trainerGender = view.getUint8(offset + Constants.MIXED_RECORD_NPC_TRAINER_GENDER_OFFSET);
     const trainerId = view.getUint32(offset + Constants.MIXED_RECORD_NPC_TRAINER_ID_OFFSET, true);
 
+    const flags = view.getUint8(offset + Constants.MIXED_RECORD_NPC_FLAGS_OFFSET);
+    const battledOwnerToday =
+      (flags & Constants.MIXED_RECORD_NPC_BATTLED_OWNER_TODAY_MASK) !== Constants.MIXED_RECORD_NPC_FLAG_FALSE;
+
     const party: Gen3MixedRecordNPCPokemon[] = [];
     const partyBaseOffset = offset + Constants.MIXED_RECORD_NPC_PARTY_OFFSET;
 
@@ -78,6 +82,7 @@ export function parseGen3MixedRecordNPC(view: DataView, offset: number): Gen3Mix
       trainerName,
       trainerGender,
       trainerId,
+      battledOwnerToday,
       party,
     };
   } catch (error) {

@@ -1,6 +1,10 @@
 // Mix Record offsets per Section 13 guidelines (module-level constants, no magic numbers)
 export const MIXED_RECORD_NPC_LENGTH = 160;
 
+export const MIXED_RECORD_NPC_FLAGS_OFFSET = 0x01;
+export const MIXED_RECORD_NPC_BATTLED_OWNER_TODAY_MASK = 1 << 5;
+export const MIXED_RECORD_NPC_FLAG_FALSE = 0;
+
 export const MIXED_RECORD_NPC_TRAINER_NAME_OFFSET = 0x02;
 export const MIXED_RECORD_NPC_TRAINER_NAME_LENGTH = 7;
 
