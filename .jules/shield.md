@@ -72,3 +72,14 @@ The patched code reads:
 ## Key Learnings
 1. **Always sanitize errors in logs:** Prevent the leakage of raw error objects since they may leak internal file paths, module structures, or environment variables.
 2. **Handle non-Error exceptions:** When catching errors in TypeScript/JavaScript, the error might not always be an instance of the `Error` object. Therefore, a generic fallback like `'Unknown error'` ensures the logging system behaves predictably.
+
+# Shield Journal Entry: Resolving Dependency Vulnerabilities via pnpm
+
+**Vulnerability:**
+A high-severity ReDoS / URL host confusion vulnerability was flagged by `pnpm audit` in `fast-uri` < 3.1.6.
+
+**Action Taken:**
+Used the standard `"resolutions"` field in the root `package.json` to force `fast-uri@<3.1.6` to resolve to `^3.1.6`, which safely bumps it to `3.1.7` across all transitive dependencies (like `ajv`) and generates an updated `pnpm-lock.yaml`.
+
+**Key Learnings:**
+1. **Pnpm Overrides Configuration:** In newer versions of pnpm (v9+), the `pnpm.overrides` field inside `package.json` is ignored, and using the `overrides:` block inside `pnpm-workspace.yaml` can be unidiomatic or unsupported depending on CI setup. The standard `"resolutions"` field inside the root `package.json` is the officially recognized and safest cross-package-manager way to apply dependency overrides.
