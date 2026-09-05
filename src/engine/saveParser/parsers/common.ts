@@ -477,6 +477,7 @@ export interface Gen3SaveData extends BaseSaveData {
   gen3Spindas?: Gen3Spinda[];
   /** Gen 3 specific: Daycare state */
   gen3Daycare?: Gen3DaycareData;
+  gen3LotteryNumber?: number;
 }
 
 export type SaveData = Gen1SaveData | Gen2SaveData | Gen3SaveData;

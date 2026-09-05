@@ -33,3 +33,8 @@ When working with IndexedDB and `idb` types, you can type the `value` of an obje
 
 ## Why it's critical
 It tightens type safety for data loaded from IndexedDB, a common source of implicit `any` and `as` casts in front-end codebases.
+
+# Session Details
+- **Issue:** Removed unsafe `as Gen3SaveData & { gen3LotteryNumber?: number }` cast in `src/contexts/LotteryContext.tsx`.
+- **Solution:** Added `gen3LotteryNumber?: number;` directly to the `Gen3SaveData` interface in `src/engine/saveParser/parsers/common.ts`. Then replaced the manual type coercion with the explicit `isGen3Save()` type guard in `LotteryContext.tsx`.
+- **Learn:** When a downstream component requires accessing optional dynamic properties (like extracted lottery numbers) that logically belong to a specific save generation, it is safer to define those optional properties directly on the generation's base interface (`Gen3SaveData`) and use standard discriminated union type guards (`isGen3Save`) rather than relying on on-the-fly intersection types and `as` casts.
