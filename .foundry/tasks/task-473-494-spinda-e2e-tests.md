@@ -2,13 +2,13 @@
 id: task-473-494-spinda-e2e-tests
 type: TASK
 title: Gen 3 Spinda E2E Verification - Test Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-09-05'
 depends_on:
   - task-473-493-spinda-e2e-fixtures
-jules_session_id: null
+jules_session_id: '16299256346207075288'
 pr_number: null
 parent: story-345-473-spinda-extraction-e2e
 tags:
