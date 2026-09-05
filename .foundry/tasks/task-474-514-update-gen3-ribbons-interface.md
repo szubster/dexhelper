@@ -27,4 +27,4 @@ locks: []
 Update the `Gen3Ribbons` interface in `src/engine/saveParser/parsers/common.ts` to include boolean ribbons and the obedience flag.
 
 ## Acceptance Criteria
-- [ ] Add boolean properties for `champion`, `winning`, `victory`, `artist`, `effort`, `battleChampion`, `regionalChampion`, `nationalChampion`, `country`, `national`, `earth`, `world`, and `obedience`.
+- [x] Add boolean properties for `champion`, `winning`, `victory`, `artist`, `effort`, `battleChampion`, `regionalChampion`, `nationalChampion`, `country`, `national`, `earth`, `world`, and `obedience`.

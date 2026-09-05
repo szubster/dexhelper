@@ -39,6 +39,19 @@ export interface Gen3Ribbons {
   cute: number;
   smart: number;
   tough: number;
+  champion: boolean;
+  winning: boolean;
+  victory: boolean;
+  artist: boolean;
+  effort: boolean;
+  battleChampion: boolean;
+  regionalChampion: boolean;
+  nationalChampion: boolean;
+  country: boolean;
+  national: boolean;
+  earth: boolean;
+  world: boolean;
+  obedience: boolean;
 }
 
 export interface Gen3ConditionStats {

@@ -1980,7 +1980,40 @@ export function parseGen3Ribbons(view: DataView, offset: number): Gen3Ribbons {
     const smart = (bitfield >> RIBBON_SMART_SHIFT) & RIBBON_RANK_MASK;
     const tough = (bitfield >> RIBBON_TOUGH_SHIFT) & RIBBON_RANK_MASK;
 
-    return { cool, beauty, cute, smart, tough };
+    const champion = (bitfield & (1 << RIBBON_CHAMPION_BIT)) !== 0;
+    const winning = (bitfield & (1 << RIBBON_WINNING_BIT)) !== 0;
+    const victory = (bitfield & (1 << RIBBON_VICTORY_BIT)) !== 0;
+    const artist = (bitfield & (1 << RIBBON_ARTIST_BIT)) !== 0;
+    const effort = (bitfield & (1 << RIBBON_EFFORT_BIT)) !== 0;
+    const battleChampion = (bitfield & (1 << RIBBON_BATTLE_CHAMPION_BIT)) !== 0;
+    const regionalChampion = (bitfield & (1 << RIBBON_REGIONAL_CHAMPION_BIT)) !== 0;
+    const nationalChampion = (bitfield & (1 << RIBBON_NATIONAL_CHAMPION_BIT)) !== 0;
+    const country = (bitfield & (1 << RIBBON_COUNTRY_BIT)) !== 0;
+    const national = (bitfield & (1 << RIBBON_NATIONAL_BIT)) !== 0;
+    const earth = (bitfield & (1 << RIBBON_EARTH_BIT)) !== 0;
+    const world = (bitfield & (1 << RIBBON_WORLD_BIT)) !== 0;
+    const obedience = (bitfield & (1 << OBEDIENCE_FLAG_BIT)) !== 0;
+
+    return {
+      cool,
+      beauty,
+      cute,
+      smart,
+      tough,
+      champion,
+      winning,
+      victory,
+      artist,
+      effort,
+      battleChampion,
+      regionalChampion,
+      nationalChampion,
+      country,
+      national,
+      earth,
+      world,
+      obedience,
+    };
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');
