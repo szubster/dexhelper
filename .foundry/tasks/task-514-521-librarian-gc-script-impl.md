@@ -2,12 +2,12 @@
 id: task-514-521-librarian-gc-script-impl
 type: TASK
 title: Implement Librarian Garbage Collection Script
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4952716843902735103'
 pr_number: null
 parent: story-410-514-librarian-garbage-collection-script
 tags:
