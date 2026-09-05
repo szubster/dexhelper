@@ -31,11 +31,11 @@ locks: []
 Perform QA verification for the Hall of Fame Certificate Hidden Component implementation.
 
 ## Acceptance Criteria
-- [ ] Verify `HiddenCertificate` React component is implemented.
-- [ ] Verify the component visually represents the parsed Hall of Fame data (player name, Pokémon species, levels).
-- [ ] Verify the component is mountable but hidden from standard user view.
-- [ ] Verify styling adheres strictly to ADR 008 (tactical hardware aesthetic, sharp edges `rounded-none`, dashed borders, monospaced fonts).
-- [ ] Verify allowed exceptions for `rounded-full` (physical screws/hardware mounts, radar pings/reticles, LED status dots) are correctly applied.
-- [ ] Verify robust loading logic guarantees custom fonts are fully loaded before rendering.
-- [ ] Verify unit tests for component rendering using `vitest-browser-react` are passing.
-- [ ] Verify the component is integrated into the application view hierarchy.
+- [x] Verify `HiddenCertificate` React component is implemented.
+- [x] Verify the component visually represents the parsed Hall of Fame data (player name, Pokémon species, levels).
+- [x] Verify the component is mountable but hidden from standard user view.
+- [x] Verify styling adheres strictly to ADR 008 (tactical hardware aesthetic, sharp edges `rounded-none`, dashed borders, monospaced fonts).
+- [x] Verify allowed exceptions for `rounded-full` (physical screws/hardware mounts, radar pings/reticles, LED status dots) are correctly applied.
+- [x] Verify robust loading logic guarantees custom fonts are fully loaded before rendering.
+- [x] Verify unit tests for component rendering using `vitest-browser-react` are passing.
+- [x] Verify the component is integrated into the application view hierarchy.
