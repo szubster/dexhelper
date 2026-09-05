@@ -4,6 +4,7 @@
 | --- | --- | --- | --- | --- |
 | [adr-145-031-component-variant-theming](.foundry/docs/adrs/adr-145-031-component-variant-theming.md) | ADR | ADR: Unified Component Variants and Theming | architect | [1269760152544835588](https://jules.google.com/session/1269760152544835588) |
 | [epic-037-513-gen3-berry-tracker-data-extraction-retry](.foundry/epics/epic-037-513-gen3-berry-tracker-data-extraction-retry.md) | EPIC | Gen 3 Berry Tracker Data Extraction (Retry) | story_owner | [2207205937950131080](https://jules.google.com/session/2207205937950131080) |
+| [epic-038-062-mirage-island-ui](.foundry/epics/epic-038-062-mirage-island-ui.md) | EPIC | Gen 3 Mirage Island Predictor UI Updates | story_owner | [1959226129588382487](https://jules.google.com/session/1959226129588382487) |
 | [epic-050-331-zombie-node-gc-integration](.foundry/epics/epic-050-331-zombie-node-gc-integration.md) | EPIC | Zombie Node GC Integration V2 | story_owner | [3874515365654255924](https://jules.google.com/session/3874515365654255924) |
 | [epic-054-109-box-analyzer-matrix-ui](.foundry/epics/epic-054-109-box-analyzer-matrix-ui.md) | EPIC | Box Analyzer Comparison Matrix UI | story_owner | [18211778083094221864](https://jules.google.com/session/18211778083094221864) |
 | [epic-055-115-egg-move-pathfinder-ui](.foundry/epics/epic-055-115-egg-move-pathfinder-ui.md) | EPIC | Smart Egg Move Pathfinder UI | story_owner | [3113055435309340302](https://jules.google.com/session/3113055435309340302) |
