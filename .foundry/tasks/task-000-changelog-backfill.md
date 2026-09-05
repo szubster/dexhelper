@@ -2,7 +2,7 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-09-05'
@@ -28,7 +28,7 @@ Target commit details injected by `changelog-engine.ts`:
 - **Commit SHA:** `ee3b870c4cb8a7e415a12b76986046b2175b2c5c`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `minor` (from `0.2.0` -> `0.3.0`)
+- **Suggested SemVer Bump:** `minor` (from `0.3.0` -> `0.4.0`)
 
 ## Commit Message
 ```text
@@ -60,5 +60,5 @@ Sets up the foundational files and structure for the Retro Save Reader applicati
 
 ## Evaluation Instructions
 As Changelogger, inspect the commit changes above.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.3.0] - 2026-09-03` in `CHANGELOG-dexhelper.md`, and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.4.0] - 2026-09-05` in `CHANGELOG-dexhelper.md`, and update `README.md` if necessary.
 If no entry or documentation update is necessary, submit an Empty PR.
