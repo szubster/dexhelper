@@ -26,5 +26,8 @@ locks: []
 Following ADR 028, all inline magic numbers used for memory offsets, lengths, bit locations, and shifts in dynamic save block extraction must be replaced with explicitly defined module-level constants. This epic focuses on refactoring the existing save parsing logic for Generation 2 games.
 
 ## Acceptance Criteria
-- [ ] Decompose this Epic into actionable Story nodes for Gen 2.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Decompose this Epic into actionable Story nodes for Gen 2.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-522-520-gen2-constants-extraction
+- [ ] story-522-521-gen2-parser-refactor-impl
+- [ ] story-522-522-gen2-parser-refactor-e2e
