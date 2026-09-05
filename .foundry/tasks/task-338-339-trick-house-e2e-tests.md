@@ -37,5 +37,5 @@ Write Playwright E2E/integration tests for end-to-end verification of Gen 3 Tric
 - The task is testing-focused, so no separate QA task is required (self-verification applies).
 
 ## Acceptance Criteria
-- [ ] Playwright E2E tests for Trick House state extraction and display are implemented and passing.
-- [ ] End-to-end flow with actual save file data is verified.
+- [x] Playwright E2E tests for Trick House state extraction and display are implemented and passing.
+- [x] End-to-end flow with actual save file data is verified.
