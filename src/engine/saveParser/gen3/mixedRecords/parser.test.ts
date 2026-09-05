@@ -58,11 +58,15 @@ describe('parseGen3MixedRecordNPC', () => {
       true,
     );
 
+    // Set battledOwnerToday bit (bit 5) in flags byte at offset 0x01
+    view.setUint8(Constants.MIXED_RECORD_NPC_FLAGS_OFFSET, Constants.MIXED_RECORD_NPC_BATTLED_TODAY_MASK);
+
     const npc = parseGen3MixedRecordNPC(view, 0);
 
     expect(npc.trainerName).toBe('TEST');
     expect(npc.trainerGender).toBe(1);
     expect(npc.trainerId).toBe(12345678);
+    expect(npc.battledOwnerToday).toBe(true);
 
     expect(npc.party).toHaveLength(1);
     expect(npc.party[0]?.personality).toBe(0x12345678);
@@ -72,6 +76,16 @@ describe('parseGen3MixedRecordNPC', () => {
     expect(npc.party[0]?.moves).toEqual([84, 0, 0, 0]);
     expect(npc.party[0]?.hpEV).toBe(5);
     expect(npc.party[0]?.atkEV).toBe(5);
+  });
+
+  it('should correctly parse battledOwnerToday as false when bit 5 is not set', () => {
+    const buffer = new ArrayBuffer(Constants.MIXED_RECORD_NPC_LENGTH);
+    const view = new DataView(buffer);
+
+    view.setUint8(Constants.MIXED_RECORD_NPC_FLAGS_OFFSET, 0x00);
+
+    const npc = parseGen3MixedRecordNPC(view, 0);
+    expect(npc.battledOwnerToday).toBe(false);
   });
 
   it('should throw "The save file is corrupted or incomplete." on RangeError', () => {
