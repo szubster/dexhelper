@@ -2,10 +2,10 @@
 id: epic-518-531-orchestrator-curator-loop
 type: EPIC
 title: Orchestrator Curator Loop and Re-Verification
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: null
 parent: prd-151-518-holistic-code-curator-persona

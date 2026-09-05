@@ -2,12 +2,12 @@
 id: story-418-494-agent-test-migration-core
 type: STORY
 title: Core Agent Test Migration to Semantic Validation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-31'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '13853693162027096335'
+jules_session_id: null
 pr_number: null
 parent: epic-343-418-agent-test-migration
 tags:

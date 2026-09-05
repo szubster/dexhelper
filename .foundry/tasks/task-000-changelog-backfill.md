@@ -2,12 +2,12 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: ACTIVE
+status: COMPLETED
 owner_persona: changelogger
 created_at: '2026-04-20'
-updated_at: '2026-09-04'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '1733173384366180125'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: null

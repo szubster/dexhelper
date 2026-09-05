@@ -2,12 +2,12 @@
 id: task-474-514-update-gen3-ribbons-interface
 type: TASK
 title: Update Gen3Ribbons Interface
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '946699995619208189'
+jules_session_id: null
 pr_number: null
 parent: story-133-474-gen3-ribbon-extraction-logic
 tags:
