@@ -2,13 +2,13 @@
 id: story-071-495-hof-certificate-export-logic
 type: STORY
 title: Hall of Fame Certificate Export Logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-30'
 updated_at: '2026-09-05'
 depends_on:
   - story-071-494-hof-certificate-hidden-component
-jules_session_id: '12814961437781022023'
+jules_session_id: '15532941295256324396'
 pr_number: null
 parent: epic-044-071-hof-certificate-rendering
 tags:
