@@ -24,5 +24,5 @@ locks: []
 The Foundry requires a new `curator` persona to manage and review schema nodes. This task creates the base prompt definition for the Curator and sets up its journal directory.
 
 ## Acceptance Criteria
-- [ ] Create `.foundry/journals/curator/` directory with a `.gitkeep` file.
-- [ ] Create `.github/agents/curator.md` with base instructions for the `curator` persona. The instructions must detail responsibilities, node spawning procedures, and constrain the Curator from making direct code changes.
+- [x] Create `.foundry/journals/curator/` directory with a `.gitkeep` file.
+- [x] Create `.github/agents/curator.md` with base instructions for the `curator` persona. The instructions must detail responsibilities, node spawning procedures, and constrain the Curator from making direct code changes.
