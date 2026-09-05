@@ -2,12 +2,12 @@
 id: story-518-520-enforce-feature-flags
 type: STORY
 title: Enforce Feature Flags for Experimental Code
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
 updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8075408753098327029'
 pr_number: null
 parent: epic-346-518-wip-code-signaling
 tags:
