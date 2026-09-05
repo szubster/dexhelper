@@ -21,5 +21,7 @@ The `isGen3Save` heuristic is currently mocked in tests (e.g. returning `false` 
 - Ensure the `isGen3Save` heuristic runs successfully and correctly identifies Gen 3 saves without bypassing.
 
 ## Acceptance Criteria
-- [ ] Break down this Epic into STORY nodes.
-- [ ] Ensure this Epic generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Break down this Epic into STORY nodes.
+- [x] Ensure this Epic generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-536-550-remove-mock-and-fix-heuristic
+- [ ] story-536-551-integration-e2e-verification
