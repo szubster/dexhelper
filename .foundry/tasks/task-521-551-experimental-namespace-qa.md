@@ -4,9 +4,15 @@ type: TASK
 title: QA src/experimental Namespace Enforcement
 status: READY
 owner_persona: qa
-parent: story-518-521-experimental-namespace
+created_at: '2026-09-05'
+updated_at: '2026-09-05'
 depends_on:
   - task-521-550-experimental-namespace-impl
+jules_session_id: null
+pr_number: null
+parent: story-518-521-experimental-namespace
+rejection_count: 0
+rejection_reason: ''
 ---
 # QA src/experimental Namespace Enforcement
 

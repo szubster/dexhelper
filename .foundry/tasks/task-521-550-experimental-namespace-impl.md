@@ -4,8 +4,14 @@ type: TASK
 title: Implement src/experimental Namespace Linting and Documentation
 status: READY
 owner_persona: coder
-parent: story-518-521-experimental-namespace
+created_at: '2026-09-05'
+updated_at: '2026-09-05'
 depends_on: []
+jules_session_id: null
+pr_number: null
+parent: story-518-521-experimental-namespace
+rejection_count: 0
+rejection_reason: ''
 ---
 # Implement src/experimental Namespace Linting and Documentation
 
