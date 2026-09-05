@@ -31,4 +31,9 @@ This story focuses on establishing the state management necessary to surface E-R
 - Follow existing state management patterns for save file extraction.
 
 ## Acceptance Criteria
-- [ ] Create TASK nodes for implementing the data fetching/state binding and corresponding unit tests.
+- [ ] task-497-523-gen3-mystery-gift-parser
+- [ ] task-497-524-gen3-mystery-gift-parser-tests
+- [ ] task-497-525-gen3-mystery-gift-parser-qa
+- [ ] task-497-521-gen3-mystery-gift-state
+- [ ] task-497-522-gen3-mystery-gift-state-qa
+- [x] Create TASK nodes for implementing the data fetching/state binding and corresponding unit tests.
