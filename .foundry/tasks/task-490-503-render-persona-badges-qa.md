@@ -28,5 +28,5 @@ locks: []
 Verify the implementation of themed persona names and visual icons/badges in the DAG UI dashboard.
 
 ## Acceptance Criteria
-- [ ] QA: Verify the UI components correctly display persona badges and icons.
-- [ ] QA: Verify the badges are correctly integrated and visible in the DAG UI dashboard.
+- [x] QA: Verify the UI components correctly display persona badges and icons.
+- [x] QA: Verify the badges are correctly integrated and visible in the DAG UI dashboard.
