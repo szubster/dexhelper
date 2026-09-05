@@ -31,4 +31,8 @@ Implement the logic in `.github/scripts/foundry-orchestrator.ts` to dynamically 
 - [ ] Implement mapping from `owner_persona` to the base prompt fragment.
 - [ ] Implement mapping from `tags` to specific context prompt fragments.
 - [ ] Construct the composite prompt by combining the base prompt, context layers, and core policies.
-- [ ] Decompose into actionable TASK nodes.
+- [x] Decompose into actionable TASK nodes.
+- [ ] task-516-528-owner-persona-mapping-impl
+- [ ] task-516-529-context-tags-mapping-impl
+- [ ] task-516-530-prompt-resolution-tests
+- [ ] task-516-531-prompt-resolution-qa
