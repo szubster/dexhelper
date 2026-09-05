@@ -28,6 +28,6 @@ Verify the changes made in `.foundry/docs/schema.md` to register the `curator` p
 This task verifies the work done in `task-533-536-schema-curator-coder`.
 
 ## Acceptance Criteria
-- [ ] Verify `curator` persona is added to the Owner Persona Enum table in `.foundry/docs/schema.md`.
-- [ ] Verify the description matches "Guardian of Code Quality".
-- [ ] Verify the mapping is to Persian (#053) and Kadabra (#064).
+- [x] Verify `curator` persona is added to the Owner Persona Enum table in `.foundry/docs/schema.md`.
+- [x] Verify the description matches "Guardian of Code Quality".
+- [x] Verify the mapping is to Persian (#053) and Kadabra (#064).
