@@ -25,4 +25,6 @@ notes: ''
 Migrate existing core test suites that verify agent process rules (e.g., in `.github/agents/*.md`) from brittle exact string matching to the new semantic validation utility, ensuring resilience against prompt refactoring.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into Tasks.
+- [x] Break down this Story into Tasks.
+- [ ] task-494-472-migrate-core-test-semantic-validation-impl
+- [ ] task-494-473-migrate-core-test-semantic-validation-qa
