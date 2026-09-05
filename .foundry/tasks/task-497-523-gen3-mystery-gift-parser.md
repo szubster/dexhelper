@@ -2,13 +2,13 @@
 id: task-497-523-gen3-mystery-gift-parser
 type: TASK
 title: Implement Gen 3 Mystery Gift Data Parser
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-09-05'
 depends_on:
   - task-497-521-gen3-mystery-gift-state
-jules_session_id: null
+jules_session_id: '4627333662324985401'
 pr_number: null
 parent: story-405-497-gen3-e-reader-dashboard-state
 tags:
