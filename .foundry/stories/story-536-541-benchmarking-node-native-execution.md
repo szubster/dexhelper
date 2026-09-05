@@ -13,7 +13,7 @@ parent: epic-518-536-tech-stack-audit
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
 notes: ''
 locks: []
 ---

@@ -2,7 +2,7 @@
 id: epic-518-536-tech-stack-audit
 type: EPIC
 title: Tech Stack Audit & Benchmarking
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-05'
 updated_at: '2026-09-05'
