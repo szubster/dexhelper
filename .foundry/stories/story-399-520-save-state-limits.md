@@ -22,4 +22,8 @@ tags:
 Define and implement the maximum number of save states allowed per playthrough in the storage engine.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-520-549-save-limit-constants-coder
+- [ ] task-520-550-save-limit-utility-coder
+- [ ] task-520-551-save-limit-enforcement-coder
+- [ ] task-520-552-save-limit-qa
