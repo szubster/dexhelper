@@ -40,5 +40,5 @@ Currently, archival relies on non-deterministic LLM agent execution (e.g., TPM p
 
 ### 3. Markdown Link Resolution (Deterministic Updates)
 - Before or during archival, the orchestrator MUST scan all active nodes (`.foundry/**/*.md` excluding journals/docs).
-- If an active node contains an inline markdown link to a node that is being archived, the orchestrator MUST automatically update that link to point to the new location. Links must use the strict Node ID schema without file extensions (e.g. `[title](prd-152-517-deterministic-dag-tree-archival)`). If legacy path-based links are found during scanning, they must be upgraded to the ID-only format.
+- If an active node contains an inline markdown link to a node that is being archived, the orchestrator MUST verify that the link uses the strict, location-agnostic Node ID schema without file extensions or titles (e.g., just `prd-152-517-deterministic-dag-tree-archival`). If legacy path-based or title-wrapped markdown links (e.g., `[title](path)`) are found during scanning, they must be upgraded to this raw ID-only format. Because Node IDs are location-agnostic, no file paths need to be updated during the archival move.
 - This ensures active context is never broken by dead links.
