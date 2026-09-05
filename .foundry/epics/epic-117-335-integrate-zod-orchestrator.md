@@ -2,10 +2,10 @@
 id: epic-117-335-integrate-zod-orchestrator
 type: EPIC
 title: Integrate Zod Validation into Foundry Orchestrator
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-18'
-updated_at: '2026-08-12'
+updated_at: '2026-09-03'
 depends_on:
   - epic-117-334-define-zod-schema
 jules_session_id: null
@@ -15,6 +15,7 @@ tags:
   - orchestrator
   - integration
 rejection_reason: ''
+locks: []
 ---
 
 # Integrate Zod Validation into Foundry Orchestrator
@@ -24,6 +25,6 @@ This epic focuses on replacing the manual YAML frontmatter validation logic in `
 
 ## Acceptance Criteria
 - [x] Break down into Stories
-- [ ] story-335-412-integrate-zod-schema
-- [ ] story-335-413-zod-validation-error-handling
-- [ ] story-335-414-zod-orchestrator-e2e
+- [x] story-335-412-integrate-zod-schema
+- [x] story-335-413-zod-validation-error-handling
+- [x] story-335-414-zod-orchestrator-e2e

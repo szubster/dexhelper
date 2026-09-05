@@ -2,10 +2,10 @@
 id: story-412-477-parse-locks-orchestrator
 type: STORY
 title: Parse locks field in Orchestrator
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,4 +30,4 @@ Update the orchestrator script to parse and validate the new `locks` field from 
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-477-506-update-schema-locks-impl
+- [x] task-477-506-update-schema-locks-impl

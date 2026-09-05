@@ -28,7 +28,7 @@ Implement End-to-End verification tests for the Pokegear Swarm & Item Alerts.
 We need to ensure the Playwright suite comprehensively tests the UI filtering and alerts for high-value Pokegear calls in Gen 2 saves.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for high-value Pokegear calls (swarm and item-giving)
+- [x] Implement Playwright E2E tests for high-value Pokegear calls (swarm and item-giving)
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

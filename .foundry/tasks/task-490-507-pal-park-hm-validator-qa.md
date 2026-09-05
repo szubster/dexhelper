@@ -2,10 +2,10 @@
 id: task-490-507-pal-park-hm-validator-qa
 type: TASK
 title: QA Gen 3 HM Move Validation Logic
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-29'
-updated_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on:
   - task-490-506-pal-park-hm-validator-impl
 jules_session_id: null
@@ -34,6 +34,6 @@ Verify the implementation of the `hasGen3HMMoves` validator for Pal Park migrati
 - Ensure the code follows project standards (no any types, correct module location, exported constants).
 
 ## Acceptance Criteria
-- [ ] Code properly exports the HM moves constant and validation function.
-- [ ] Unit tests cover all branches and edge cases.
-- [ ] Linting and type-checking pass cleanly.
+- [x] Code properly exports the HM moves constant and validation function.
+- [x] Unit tests cover all branches and edge cases.
+- [x] Linting and type-checking pass cleanly.

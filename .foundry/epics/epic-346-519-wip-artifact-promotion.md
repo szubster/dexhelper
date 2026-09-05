@@ -2,12 +2,12 @@
 id: epic-346-519-wip-artifact-promotion
 type: EPIC
 title: Artifact Promotion Workflow
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5595820857226702543'
 pr_number: null
 parent: prd-151-346-wip-draft-signaling
 tags:
@@ -15,7 +15,7 @@ tags:
   - adr
   - wip
 research_references: []
-rejection_reason: ""
+rejection_reason: ''
 ---
 
 ## Description

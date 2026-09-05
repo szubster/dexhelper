@@ -2,10 +2,10 @@
 id: idea-156-foundry-node-status-health-heatmap
 type: IDEA
 title: Foundry DAG Node Health Heatmap Visualizer
-status: READY
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-18'
-updated_at: '2026-08-30'
+updated_at: '2026-09-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -33,4 +33,5 @@ We propose augmenting the existing `/dag` dashboard (or creating a dedicated sub
 - **Enhanced Observability:** Leverages the existing `@xyflow/react` infrastructure in `src/components/dag` to add a data-dense analytical layer on top of the standard structural view.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this IDEA into a PRD detailing the specific metrics that will drive the heatmap calculation and the UI controls required to toggle the heatmap overlay on the existing React Flow DAG.
+- [x] Product Manager: Convert this IDEA into a PRD detailing the specific metrics that will drive the heatmap calculation and the UI controls required to toggle the heatmap overlay on the existing React Flow DAG.
+- [ ] prd-156-518-node-health-heatmap

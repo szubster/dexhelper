@@ -2,10 +2,10 @@
 id: prd-418-516-replace-xyflow-with-custom-dag
 type: PRD
 title: Replace @xyflow/react with a lightweight directory tree visualization
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-04'
 depends_on: []
 jules_session_id: null
 parent: idea-418-replace-xyflow-with-custom-dag
@@ -55,5 +55,6 @@ Additionally, `@xyflow/react` is designed for editable node graphs, which leads 
 ## Acceptance Criteria
 - [ ] Time To Interactive is significantly reduced due to the removal of `@xyflow/react` and `dagre`.
 - [ ] The DAG is displayed as a nested, DOM-based directory tree instead of a 2D canvas.
+- [ ] epic-516-530-replace-xyflow-core
 - [ ] Node branches can be expanded and collapsed, and 'Expand All' / 'Collapse All' controls are functional.
 - [ ] The UI adheres to the tactical hardware aesthetic (sharp edges, dashed borders, monospaced fonts).

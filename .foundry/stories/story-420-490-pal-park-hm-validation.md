@@ -2,10 +2,10 @@
 id: story-420-490-pal-park-hm-validation
 type: STORY
 title: Pal Park HM Validation Logic
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -34,5 +34,5 @@ Implement validation logic to check if flagged Gen 3 Pokémon possess any moves 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks.
 
-- [ ] task-490-506-pal-park-hm-validator-impl
-- [ ] task-490-507-pal-park-hm-validator-qa
+- [x] task-490-506-pal-park-hm-validator-impl
+- [x] task-490-507-pal-park-hm-validator-qa

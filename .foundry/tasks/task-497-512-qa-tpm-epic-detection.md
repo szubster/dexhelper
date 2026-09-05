@@ -2,10 +2,10 @@
 id: task-497-512-qa-tpm-epic-detection
 type: TASK
 title: QA TPM EPIC Detection Logic
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-04'
 depends_on:
   - task-497-513-test-tpm-epic-detection
 jules_session_id: null
@@ -19,6 +19,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # QA TPM EPIC Detection Logic
@@ -33,5 +34,5 @@ Verify the implementation of the TPM EPIC detection logic and ensure all unit te
 - Ensure code follows Foundry conventions and doesn't introduce regressions.
 
 ## Acceptance Criteria
-- [ ] Verify the implementation of the detection function.
-- [ ] Run and verify unit tests for the detection logic.
+- [x] Verify the implementation of the detection function.
+- [x] Run and verify unit tests for the detection logic.

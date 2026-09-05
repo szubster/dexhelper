@@ -2,13 +2,13 @@
 id: epic-100-131-rng-explainer-section
 type: EPIC
 title: RNG Tool Explainer Integration
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-02'
-updated_at: '2026-08-22'
+updated_at: '2026-09-03'
 depends_on:
   - epic-100-130-rng-tid-sid-display
-jules_session_id: null
+jules_session_id: '3090491063397946877'
 pr_number: null
 parent: prd-082-100-rng-calculator-integration
 tags:

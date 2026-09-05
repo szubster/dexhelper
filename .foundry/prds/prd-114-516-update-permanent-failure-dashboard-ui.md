@@ -5,18 +5,19 @@ title: Update Permanent Failure Dashboard UI for Cancelled Nodes
 status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-09-02'
-updated_at: '2026-09-03'
+updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: '13273874034936532871'
+jules_session_id: '1890615126053409955'
 pr_number: null
 parent: idea-114-update-permanent-failure-dashboard-ui
 tags:
   - foundry
   - ui
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # PRD: Update Permanent Failure Dashboard UI for Cancelled Nodes

@@ -2,12 +2,12 @@
 id: idea-148-priority-based-dispatch-queue
 type: IDEA
 title: Priority-Based Dispatch Queue for Orchestrator
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-14'
 updated_at: '2026-09-03'
 depends_on: []
-jules_session_id: '7152446436725615922'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -38,4 +38,5 @@ Introduce a priority-based scheduling mechanism into the orchestrator.
 This enhancement will allow Product Managers and TPMs to steer the multi-agent pipeline efficiently, ensuring that blockers and critical path features are dispatched before exploratory or low-priority tasks. It optimizes the operational cost and lead time of high-value features.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a PRD outlining the exact changes required to `schema.md` and `foundry-orchestrator.ts`.
+- [ ] prd-148-518-priority-based-dispatch-queue
+- [x] Product Manager: Draft a PRD outlining the exact changes required to `schema.md` and `foundry-orchestrator.ts`.

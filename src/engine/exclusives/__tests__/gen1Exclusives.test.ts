@@ -26,6 +26,41 @@ describe('gen1Exclusives', () => {
       });
     });
 
+    describe('Starter Choices', () => {
+      it('should lock unchosen starters', () => {
+        const ownedSet = new Set([1]); // Own Bulbasaur
+        const reasonCharmander = getUnobtainableReason(4, 'red', 1, ownedSet);
+        const reasonCharmeleon = getUnobtainableReason(5, 'red', 1, ownedSet);
+        const reasonCharizard = getUnobtainableReason(6, 'red', 1, ownedSet);
+        expect(reasonCharmander).toContain('other Starter Pokémon');
+        expect(reasonCharmeleon).toContain('other Starter Pokémon');
+        expect(reasonCharizard).toContain('other Starter Pokémon');
+
+        const reasonSquirtle = getUnobtainableReason(7, 'red', 1, ownedSet);
+        expect(reasonSquirtle).toContain('other Starter Pokémon');
+      });
+
+      it('should lock unchosen starters even if we only own evolved forms of the chosen starter', () => {
+        const ownedSet = new Set([3]); // Own Venusaur
+        const reasonCharmander = getUnobtainableReason(4, 'red', 1, ownedSet);
+        expect(reasonCharmander).toContain('other Starter Pokémon');
+      });
+
+      it('should NOT lock starters if no starter is owned (early game)', () => {
+        const ownedSet = new Set([19]); // Own Rattata
+        const reasonCharmander = getUnobtainableReason(4, 'red', 1, ownedSet);
+        expect(reasonCharmander).toBeNull();
+      });
+
+      it('should NOT lock starters in Yellow, since all three are obtainable via NPCs', () => {
+        const ownedSet = new Set([1, 3]); // Own Bulbasaur and Venusaur
+        const reasonCharmander = getUnobtainableReason(4, 'yellow', 1, ownedSet);
+        const reasonSquirtle = getUnobtainableReason(7, 'yellow', 1, ownedSet);
+        expect(reasonCharmander).toBeNull();
+        expect(reasonSquirtle).toBeNull();
+      });
+    });
+
     describe('Missed pre-evolutions (Starters/Eevee)', () => {
       it('should lock Bulbasaur (1) if Ivysaur (2) is owned but Bulbasaur is not', () => {
         const ownedSet = new Set([2]); // Own Ivysaur

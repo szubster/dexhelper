@@ -2,10 +2,10 @@
 id: epic-055-117-pokegear-predictor
 type: EPIC
 title: Pokegear Call Probability & Predictor Engine
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-30'
-updated_at: '2026-08-04'
+updated_at: '2026-09-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Epic: Pokegear Call Probability & Predictor Engine
 
@@ -30,9 +31,9 @@ Implement the logic to predict Pokegear call probability based on Gen 2 save fil
 - Display these probability values or indicators on the Active Callers Dashboard.
 
 ## Acceptance Criteria
-- [ ] Implement predictor logic based on RNG mechanics
-- [ ] Display call probabilities on the UI
+- [x] Implement predictor logic based on RNG mechanics
+- [x] Display call probabilities on the UI
 
-- [ ] story-117-283-pokegear-predictor-engine
-- [ ] story-117-284-pokegear-predictor-ui
-- [ ] story-117-356-pokegear-predictor-e2e
+- [x] story-117-283-pokegear-predictor-engine
+- [x] story-117-284-pokegear-predictor-ui
+- [x] story-117-356-pokegear-predictor-e2e

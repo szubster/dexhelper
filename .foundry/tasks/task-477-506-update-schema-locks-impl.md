@@ -2,10 +2,10 @@
 id: task-477-506-update-schema-locks-impl
 type: TASK
 title: Update schema to default locks to an empty array
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-31'
-updated_at: '2026-09-02'
+updated_at: '2026-09-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -32,5 +32,5 @@ Update the `NodeFrontmatterSchema` so that the `locks` field explicitly defaults
 - Run tests in `.github/scripts` using `pnpm install && npx vitest run` to verify that `schema.test.ts` and `foundry-orchestrator.test.ts` pass without errors.
 
 ## Acceptance Criteria
-- [ ] Schema `locks` field defaults to `[]`.
-- [ ] Orchestrator tests pass successfully.
+- [x] Schema `locks` field defaults to `[]`.
+- [x] Orchestrator tests pass successfully.

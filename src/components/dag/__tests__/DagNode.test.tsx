@@ -2,12 +2,12 @@ import { ReactFlow } from '@xyflow/react';
 import { expect, test, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { MAX_REJECTION_THRESHOLD } from '../../../utils/constants';
+
 import { DagNode } from '../DagNode';
 
 vi.mock('../../dashboard/DagContext', () => ({
   useDagContext: vi.fn<() => { maxRejectionThreshold: number }>(() => ({
-    maxRejectionThreshold: MAX_REJECTION_THRESHOLD,
+    maxRejectionThreshold: 3,
   })),
 }));
 
@@ -169,14 +169,14 @@ test('DagNode applies styles for other statuses', async () => {
   await expect.element(page.getByText('PENDING', { exact: true })).toBeInTheDocument();
 });
 
-test('DagNode applies permanent failure styles when rejection_count >= MAX_REJECTION_THRESHOLD', async () => {
+test('DagNode applies permanent failure styles when rejection_count >= 3', async () => {
   const data = {
     id: 'test-task-001',
     label: 'test-task-001',
     type: 'TASK',
     owner_persona: 'coder',
     status: 'FAILED',
-    rejection_count: MAX_REJECTION_THRESHOLD,
+    rejection_count: 3,
   };
 
   const nodes = [

@@ -2,12 +2,12 @@
 id: story-410-514-librarian-garbage-collection-script
 type: STORY
 title: Librarian Garbage Collection Script
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-01'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '1440736488825298138'
+jules_session_id: null
 pr_number: null
 parent: epic-339-410-librarian-github-scripts-implementation
 tags:
@@ -29,4 +29,7 @@ locks: []
 The goal of this story is to implement the scripts for cleaning up old, processed agent journals via garbage collection.
 
 ## Acceptance Criteria
-- [ ] Generate TASK nodes to implement garbage collection of processed journal entries.
+- [ ] task-514-523-librarian-gc-script-qa
+- [ ] task-514-522-librarian-gc-script-tests
+- [ ] task-514-521-librarian-gc-script-impl
+- [x] Generate TASK nodes to implement garbage collection of processed journal entries.
