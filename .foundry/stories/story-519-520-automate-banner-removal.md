@@ -2,12 +2,12 @@
 id: story-519-520-automate-banner-removal
 type: STORY
 title: Automate Markdown Banner Removal
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
 updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11106324563508621525'
 pr_number: null
 parent: epic-346-519-wip-artifact-promotion
 tags:
