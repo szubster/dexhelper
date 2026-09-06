@@ -2,13 +2,13 @@
 id: task-534-537-create-curator-prompt-qa
 type: TASK
 title: QA - Verify Curator Agent Base Prompt and Journal
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-04'
-updated_at: '2026-09-05'
+updated_at: '2026-09-06'
 depends_on:
   - task-534-536-create-curator-prompt-and-journal
-jules_session_id: '11992808775116801575'
+jules_session_id: null
 parent: story-530-534-curator-agent-base
 tags:
   - foundry
