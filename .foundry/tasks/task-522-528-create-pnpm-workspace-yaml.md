@@ -26,5 +26,5 @@ locks: []
 - Create and configure `pnpm-workspace.yaml` defining the monorepo structure.
 
 ## Acceptance Criteria
-- [ ] Create `pnpm-workspace.yaml` at the root.
-- [ ] Configure `packages` to include `apps/*`, `packages/*`, and `tools/*`.
+- [x] Create `pnpm-workspace.yaml` at the root.
+- [x] Configure `packages` to include `apps/*`, `packages/*`, and `tools/*`.
