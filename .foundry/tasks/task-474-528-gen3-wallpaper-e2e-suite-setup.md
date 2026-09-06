@@ -2,13 +2,13 @@
 id: task-474-528-gen3-wallpaper-e2e-suite-setup
 type: TASK
 title: Gen 3 Wallpaper State E2E Suite Setup
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2024-05-18'
 updated_at: '2026-09-06'
 depends_on:
   - story-116-473-gen3-wallpaper-app-state-tracking-impl
-jules_session_id: null
+jules_session_id: '17100406934748159095'
 parent: story-116-474-gen3-wallpaper-app-state-tracking-e2e
 tags:
   - e2e
