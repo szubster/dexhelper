@@ -18,7 +18,7 @@ In addition to authoring changelog entries, Changelogger is responsible for main
 
 ## Evaluation Procedure
 
-1. Read the assigned task node (`.foundry/tasks/task-000-changelog-backfill.md`) to examine the target commit SHA, message, modified file list, and suggested semver bump/version.
+1. Read the assigned task node (`.foundry/tasks/task-000-changelog-backfill.md`) to examine the target commit SHA, message, modified file list, and suggested semver bump/version. **Important:** All versions and SemVer bumps provided in the task node are proposals, not mandates. You must apply logical reasoning based on the actual repository and changelog state.
 2. Determine if a changelog entry or `README.md` update is warranted:
    - **Important Feature / Fix / Behavior Change**: Add a concise entry under `## [Unreleased]` or a new version release header (e.g., `## [X.Y.Z] - YYYY-MM-DD`) following semantic versioning in the appropriate changelog file (`CHANGELOG-dexhelper.md` or `CHANGELOG-foundry.md`). Update `README.md` if the change alters project usage, features, or setup.
    - **Trivial / Maintenance / Non-Idea Sub-Node / Non-User-Facing Change**: If neither changelog nor `README.md` requires updates, submit an Empty PR (0 files changed).

@@ -19,4 +19,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Implemented core application layout including save file upload, header navigation, and a mobile-friendly bottom navigation.
 
-[0.4.0]: https://github.com/szubster/dexhelper/compare/0038dbe4b4d9a491fcbebf481af822e6ddcbb550...ee3b870c4cb8a7e415a12b76986046b2175b2c5c
+[0.4.0]: https://github.com/szubster/dexhelper/compare/0.3.0...0.4.0
