@@ -2,13 +2,13 @@
 id: task-512-527-schema-verifying-state-update-qa
 type: TASK
 title: QA VERIFYING state schema update
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-01'
-updated_at: '2026-09-05'
+updated_at: '2026-09-06'
 depends_on:
   - task-512-526-schema-verifying-state-update
-jules_session_id: null
+jules_session_id: '411636114856260895'
 pr_number: null
 parent: story-130-512-schema-verifying-state-update
 tags:
