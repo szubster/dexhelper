@@ -34,6 +34,6 @@ Verify that the `Gen3MysteryGift` interface has been correctly defined and integ
 4. Execute `pnpm type-check` or `pnpm lint` to ensure no typing or linting regressions were introduced.
 
 ## Acceptance Criteria
-- [ ] Interface `Gen3MysteryGift` exists and has the appropriate boolean flags.
-- [ ] `Gen3SaveData` correctly references `gen3MysteryGift`.
-- [ ] No TypeScript or linting errors are present across the workspace.
+- [x] Interface `Gen3MysteryGift` exists and has the appropriate boolean flags.
+- [x] `Gen3SaveData` correctly references `gen3MysteryGift`.
+- [x] No TypeScript or linting errors are present across the workspace.
