@@ -31,7 +31,7 @@ However, the exact math involving the TID and the internal X/Y coordinates of th
 2. **Identify Coordinate Mapping**: Document how the internal map X/Y coordinates map to the specific trees in the Johto region.
 
 ## Next Steps / Acceptance Criteria
-- [ ] Investigate the mathematical algorithm for Gen 2 Headbutt trees and document the logic.
-- [ ] Determine how to map internal X/Y coordinates to tree locations.
-- [ ] Document the findings in a new file in the knowledge base (e.g., `.foundry/docs/knowledge_base/engine/gen2-headbutt-math.md`).
-- [ ] Complete the research node.
+- [x] Investigate the mathematical algorithm for Gen 2 Headbutt trees and document the logic.
+- [x] Determine how to map internal X/Y coordinates to tree locations.
+- [x] Document the findings in a new file in the knowledge base (e.g., `.foundry/docs/knowledge_base/engine/gen2-headbutt-math.md`).
+- [x] Complete the research node.
