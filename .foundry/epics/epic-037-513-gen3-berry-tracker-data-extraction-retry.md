@@ -40,4 +40,7 @@ The core objective is to parse the state of all berry patches from the save file
 - [ ] Handle bounds checking gracefully (e.g., throwing and catching `RangeError` on out-of-bounds reads).
 - [ ] Extract map location, berry ID, growth stage, and time metadata.
 - [ ] Serialize the extracted data using `msgpackr` and integrate with the runtime data API.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-513-536-gen3-berry-dataview-parsing
+- [ ] story-513-537-gen3-berry-serialization-and-api
+- [ ] story-513-538-gen3-berry-tracker-integration-e2e
