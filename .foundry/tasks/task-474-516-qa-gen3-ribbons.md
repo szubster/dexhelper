@@ -2,13 +2,13 @@
 id: task-474-516-qa-gen3-ribbons
 type: TASK
 title: QA Gen 3 Ribbon Extraction
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-01'
 updated_at: '2026-09-06'
 depends_on:
   - task-474-515-update-parse-gen3-ribbons
-jules_session_id: null
+jules_session_id: '14600630670943512707'
 pr_number: null
 parent: story-133-474-gen3-ribbon-extraction-logic
 tags:
