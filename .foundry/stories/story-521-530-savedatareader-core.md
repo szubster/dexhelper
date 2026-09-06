@@ -32,4 +32,8 @@ This story covers the implementation of the `ISaveDataReader` interface and the 
 - [ ] Implement `SaveDataReader` base class wrapping a `DataView`.
 - [ ] Ensure strict bounds checking and throw `RangeError` on out-of-bounds access.
 - [ ] Implement core reading methods (e.g., `getUint8`, `getUint16`, `getUint32`, etc.).
-- [ ] Break down this Story into Tasks for the Tech Lead to assign.
+- [x] Break down this Story into Tasks for the Tech Lead to assign.
+- [ ] task-530-549-isavedatareader-interface-impl
+- [ ] task-530-550-savedatareader-core-impl
+- [ ] task-530-551-savedatareader-bounds-tests
+- [ ] task-530-552-savedatareader-qa
