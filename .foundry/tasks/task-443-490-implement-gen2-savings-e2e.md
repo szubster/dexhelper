@@ -2,12 +2,12 @@
 id: task-443-490-implement-gen2-savings-e2e
 type: TASK
 title: Implement Gen 2 Savings E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '14813687047567888753'
+jules_session_id: null
 pr_number: null
 parent: story-311-443-gen2-decoration-savings-e2e
 tags:
@@ -32,4 +32,4 @@ Implement Playwright E2E tests for Mom's bank savings extraction in Gen 2 to ens
 - Call `await waitForSync(page)` after navigation to ensure IndexedDB syncs complete.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 2 Mom's savings E2E tests
+- [x] Implement Gen 2 Mom's savings E2E tests

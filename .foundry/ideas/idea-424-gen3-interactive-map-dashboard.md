@@ -2,12 +2,12 @@
 id: idea-424-gen3-interactive-map-dashboard
 type: IDEA
 title: Gen 3 Interactive Map Dashboard
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2025-01-24'
-updated_at: '2026-09-03'
+updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4541615055602984995'
 pr_number: null
 parent: null
 tags:

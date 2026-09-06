@@ -2,13 +2,13 @@
 id: task-143-490-gen3-contest-integration-tests-qa
 type: TASK
 title: Gen 3 Contest Integration Tests QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-29'
+updated_at: '2026-09-05'
 depends_on:
   - task-143-489-gen3-contest-integration-tests-impl
-jules_session_id: '2381129276279589626'
+jules_session_id: null
 pr_number: null
 parent: story-065-143-gen3-contest-integration-tests
 tags:
@@ -17,7 +17,7 @@ tags:
   - contests
   - qa
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---
@@ -34,4 +34,4 @@ This task verifies that the Gen 3 contest integration tests successfully validat
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## 3. Acceptance Criteria
-- [ ] Verify Gen 3 contest integration tests run successfully and provide adequate coverage.
+- [x] Verify Gen 3 contest integration tests run successfully and provide adequate coverage.

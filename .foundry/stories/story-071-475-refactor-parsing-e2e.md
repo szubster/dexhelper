@@ -28,4 +28,7 @@ locks: []
 Verify that the complete data flow works correctly through E2E tests, ensuring the Permanent Failure Dashboard will receive accurate data.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-475-528-parsing-refactor-e2e-mock-data
+- [ ] task-475-529-parsing-refactor-e2e-tests-impl
+- [ ] task-475-530-parsing-refactor-e2e-qa

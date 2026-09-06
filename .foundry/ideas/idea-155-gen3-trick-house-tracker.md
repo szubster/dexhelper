@@ -2,12 +2,12 @@
 id: idea-155-gen3-trick-house-tracker
 type: IDEA
 title: Gen 3 Trick House Tracker Dashboard
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-16'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '13459690091314135888'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -36,5 +36,6 @@ We can build a dedicated "Trick House Tracker" component in DexHelper. It will p
 - **Completionism:** Helps players ensure they haven't missed the final Tent/Rare Candy rewards.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this IDEA into a PRD detailing the UI layout for the Trick House Tracker and mapping the puzzle levels to the required HMs.
+- [ ] prd-155-524-trick-house-tracker
+- [x] Product Manager: Convert this IDEA into a PRD detailing the UI layout for the Trick House Tracker and mapping the puzzle levels to the required HMs.
 - [ ] Tech Lead: Define the technical tasks to extract the variables from `SaveBlock1` using the `DataView` API as per ADR 010.

@@ -2,15 +2,15 @@
 id: story-036-490-progression-e2e-verification
 type: STORY
 title: Progression Tracking Integration E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-29'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on:
   - story-036-255-progression-save-model
   - story-036-256-progression-sync-logic
   - story-036-257-concurrent-game-management
-jules_session_id: '12506523574887943590'
+jules_session_id: null
 pr_number: null
 parent: epic-031-036-progression-tracking
 tags:
@@ -34,4 +34,7 @@ As mandated by the Orchestrator Safeguard (E2E/Integration Requirement), every E
 - Ensure the UI correctly reflects active playthrough context swaps.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into Tasks to implement and execute the E2E verification suite for progression tracking.
+- [x] Tech Lead: Break this Story down into Tasks to implement and execute the E2E verification suite for progression tracking.
+- [ ] task-490-524-progression-sync-e2e-impl
+- [ ] task-490-525-progression-switcher-e2e-impl
+- [ ] task-490-526-progression-e2e-qa
