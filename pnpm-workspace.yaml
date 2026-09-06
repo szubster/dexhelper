@@ -19,3 +19,6 @@ allowBuilds:
 auditConfig:
   ignoreGhsas:
     - GHSA-rmmr-r34h-pfm5
+
+overrides:
+  fast-uri: ^3.1.6
