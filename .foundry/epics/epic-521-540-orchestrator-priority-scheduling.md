@@ -26,5 +26,8 @@ We are introducing a Priority Scheduling Engine in the Foundry DAG Orchestrator 
 - Update node templates to include `priority: 50` by default.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Create a STORY to update the NodeFrontmatterSchema and schema documentation for the priority field.
-- [ ] Story Owner: Create a STORY to update the Node discovery and dispatch logic in foundry-orchestrator.ts to parse and sort by priority.
+- [x] Story Owner: Create a STORY to update the NodeFrontmatterSchema and schema documentation for the priority field.
+- [x] Story Owner: Create a STORY to update the Node discovery and dispatch logic in foundry-orchestrator.ts to parse and sort by priority.
+- [ ] story-540-550-priority-field-schema
+- [ ] story-540-551-priority-engine-dispatch
+- [ ] story-540-552-priority-scheduling-e2e
