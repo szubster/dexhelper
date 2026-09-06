@@ -35,3 +35,6 @@ Enforce the "Autonomous No-Ask Policy" by automatically detecting and rejecting 
 - [ ] Implement detection logic (e.g., git hook, orchestrator check, or GitHub Action) for prohibited phrases.
 - [ ] Define a list of trigger phrases based on core policies.
 - [ ] Implement the rejection mechanism (e.g., failing a CI check or blocking a commit) when a violation is detected.
+- [ ] epic-519-534-enforce-autonomous-policy-git-hook
+- [ ] epic-519-535-enforce-autonomous-policy-ci
+- [ ] epic-519-536-enforce-autonomous-policy-e2e
