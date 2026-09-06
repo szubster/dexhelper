@@ -2,7 +2,7 @@
 id: task-513-549-schema-verifying-positive-checks-impl
 type: TASK
 title: Add positive pattern checks for VERIFYING state
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-06'
 updated_at: '2026-09-06'

@@ -2,10 +2,10 @@
 id: story-116-526-pokegear-active-callers-e2e
 type: STORY
 title: Pokegear Active Callers E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-06'
 depends_on:
   - story-116-285-integrate-registered-numbers-ui
 jules_session_id: null

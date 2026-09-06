@@ -2,12 +2,12 @@
 id: epic-521-540-orchestrator-priority-scheduling
 type: EPIC
 title: Orchestrator Priority Scheduling Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-13T00:00:00.000Z'
 updated_at: '2026-09-06'
 depends_on: []
-jules_session_id: '2810251901647177952'
+jules_session_id: null
 pr_number: null
 parent: prd-148-521-orchestrator-priority-scheduling
 rejection_count: 0

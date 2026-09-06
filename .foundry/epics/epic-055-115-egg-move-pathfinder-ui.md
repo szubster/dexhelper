@@ -2,14 +2,14 @@
 id: epic-055-115-egg-move-pathfinder-ui
 type: EPIC
 title: Smart Egg Move Pathfinder UI
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-30'
-updated_at: '2026-09-03'
+updated_at: '2026-09-06'
 depends_on:
   - epic-055-113-egg-move-pathfinding-engine
   - epic-055-114-egg-move-inventory-cross-reference
-jules_session_id: '3113055435309340302'
+jules_session_id: null
 pr_number: null
 parent: prd-091-055-smart-egg-move-path-finder
 tags:

@@ -2,10 +2,10 @@
 id: task-522-528-create-pnpm-workspace-yaml
 type: TASK
 title: Create pnpm-workspace.yaml
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-06'
 depends_on: []
 jules_session_id: null
 pr_number: null

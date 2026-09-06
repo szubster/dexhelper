@@ -2,10 +2,10 @@
 id: research-136-530-investigate-kanban-ui-timeout
 type: RESEARCH
 title: Investigate Kanban UI Timeout
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-06'
 depends_on: []
 jules_session_id: null
 pr_number: null

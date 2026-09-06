@@ -2,10 +2,10 @@
 id: task-517-528-binjgb-wasm-logic-impl
 type: TASK
 title: Implement binjgb WASM Core Logic Wrapper
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-06'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Implement binjgb WASM Core Logic Wrapper
