@@ -26,5 +26,5 @@ locks: []
 - Update the root `package.json` to properly support the monorepo workspace.
 
 ## Acceptance Criteria
-- [ ] Ensure `private: true` is set in the root `package.json`.
-- [ ] Validate any existing root dependencies or scripts are appropriate for the workspace root.
+- [x] Ensure `private: true` is set in the root `package.json`.
+- [x] Validate any existing root dependencies or scripts are appropriate for the workspace root.
