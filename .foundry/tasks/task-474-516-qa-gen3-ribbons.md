@@ -28,6 +28,6 @@ locks: []
 Verify the Gen 3 Ribbon extraction implementation.
 
 ## Acceptance Criteria
-- [ ] Verify that `Gen3Ribbons` interface has all required properties.
-- [ ] Verify that `parseGen3Ribbons` extracts all required properties accurately without using magic numbers.
-- [ ] Verify that unit tests cover the newly added fields.
+- [x] Verify that `Gen3Ribbons` interface has all required properties.
+- [x] Verify that `parseGen3Ribbons` extracts all required properties accurately without using magic numbers.
+- [x] Verify that unit tests cover the newly added fields.
