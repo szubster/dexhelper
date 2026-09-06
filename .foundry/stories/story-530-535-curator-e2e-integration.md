@@ -29,3 +29,6 @@ Verify the E2E integration of the \`curator\` persona within the Foundry system,
 
 ## Acceptance Criteria
 - [ ] Implement E2E verification for the Curator persona
+- [ ] task-535-549-curator-fixture-coder
+- [ ] task-535-550-curator-e2e-coder
+- [ ] task-535-551-curator-e2e-qa
