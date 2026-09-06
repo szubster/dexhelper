@@ -322,7 +322,14 @@ export async function generateSuggestions(
     }
   }
   const uniqueSuggestions = Array.from(uniqueMap.values());
-  uniqueSuggestions.sort((a, b) => b.priority - a.priority);
+  uniqueSuggestions.sort((a, b) => {
+    if (b.priority !== a.priority) {
+      return b.priority - a.priority;
+    }
+    const idA = a.pokemonId ?? (a.pokemonIds && a.pokemonIds.length > 0 ? Math.min(...a.pokemonIds) : 9999);
+    const idB = b.pokemonId ?? (b.pokemonIds && b.pokemonIds.length > 0 ? Math.min(...b.pokemonIds) : 9999);
+    return idA - idB;
+  });
 
   strategy.postProcessSuggestions?.(uniqueSuggestions);
 
