@@ -32,6 +32,10 @@ Following the ADR decision (dependent on `task-336-401-architect-drive-sync-adr`
 Provide seamless auto-sync for Android emulator users.
 
 ## Acceptance Criteria
-- [ ] Read the ADR output from `task-336-401-architect-drive-sync-adr`.
-- [ ] Generate detailed STORY nodes for the implementation based on the chosen path.
-- [ ] Enforce the orchestrator safeguard by generating a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Read the ADR output from `task-336-401-architect-drive-sync-adr`.
+- [x] Generate detailed STORY nodes for the implementation based on the chosen path.
+- [ ] story-402-526-cloudflare-worker-setup
+- [ ] story-402-527-drive-webhook-registration
+- [ ] story-402-528-save-file-sync-logic
+- [x] Enforce the orchestrator safeguard by generating a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-402-529-drive-sync-e2e
