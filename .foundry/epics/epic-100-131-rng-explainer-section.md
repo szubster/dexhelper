@@ -28,4 +28,6 @@ Provide a brief, user-friendly explainer section within the RNG calculator UI th
 ## Acceptance Criteria
 - [ ] Provide a brief text explainer in the UI on how to use TID/SID values with external RNG tools.
 - [ ] Ensure the explanation is accessible and easy to understand for users new to RNG manipulation.
-- [ ] Story Owner: Convert this Epic into actionable Stories.
+- [x] Story Owner: Convert this Epic into actionable Stories.
+- [ ] story-131-526-rng-explainer-ui-component
+- [ ] story-131-527-rng-explainer-e2e-verification
