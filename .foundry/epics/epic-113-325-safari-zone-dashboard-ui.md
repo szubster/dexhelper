@@ -35,6 +35,10 @@ This Epic focuses on building the frontend components for the Safari Zone Tracki
 - Apply tactical UI CSS utilities for styling.
 
 ## Acceptance Criteria
-- [ ] Create STORY nodes for the main layout and route integration.
-- [ ] Create STORY nodes for the Area Highlighting and Target Selection components.
-- [ ] Create STORY nodes for the Bounty Board panel.
+- [x] Create STORY nodes for the main layout and route integration.
+- [ ] story-325-526-safari-zone-layout-and-route
+- [x] Create STORY nodes for the Area Highlighting and Target Selection components.
+- [ ] story-325-527-safari-zone-area-highlighting
+- [x] Create STORY nodes for the Bounty Board panel.
+- [ ] story-325-528-safari-zone-bounty-board
+- [ ] story-325-529-safari-zone-dashboard-e2e
