@@ -24,4 +24,6 @@ locks: []
 Ensure that the dynamic imports for save parsing and assistant strategies work correctly in E2E environments without introducing regressions.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-479-528-engine-code-splitting-e2e-impl
+- [ ] task-479-529-engine-code-splitting-e2e-qa
