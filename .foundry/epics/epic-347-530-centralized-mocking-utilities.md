@@ -29,5 +29,7 @@ The `coder` and `qa` personas face friction mocking complex native browser APIs 
 Build a dedicated utility module (\`tests/e2e/mock-utils.ts\`) exposing \`mockFilePicker\`, \`mockFileSystemAccess\`, and \`mockOfflineState\`.
 
 ## Acceptance Criteria
-- [ ] Implement central mocking utility functions.
-- [ ] Implement a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-530-536-mocking-utility-functions
+- [x] Implement central mocking utility functions.
+- [ ] story-530-537-mocking-utilities-e2e
+- [x] Implement a final STORY dedicated exclusively to Integration and E2E Verification.
