@@ -1,7 +1,15 @@
 ---
-owner_persona: product_manager
-status: ACTIVE
 id: idea-517-automated-magic-number-linter
+type: IDEA
+title: Automated Magic Number Linter for Save Parsing
+status: ACTIVE
+owner_persona: product_manager
+created_at: 2026-09-06
+updated_at: 2026-09-06
+depends_on: []
+jules_session_id: null
+parent: null
+rejection_reason: null
 ---
 # IDEA: Automated Magic Number Linter for Save Parsing
 
