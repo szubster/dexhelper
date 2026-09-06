@@ -2,12 +2,12 @@
 id: task-520-528-statistics-node-aggregation-impl
 type: TASK
 title: Implement Node State Aggregation Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-03'
 updated_at: '2026-09-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2587247238581274722'
 pr_number: null
 parent: story-417-520-statistics-generation
 tags:
