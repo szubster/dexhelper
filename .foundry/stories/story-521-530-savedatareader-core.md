@@ -2,10 +2,10 @@
 id: story-521-530-savedatareader-core
 type: STORY
 title: Core SaveDataReader Base Implementation
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-06'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Story: Core SaveDataReader Base Implementation

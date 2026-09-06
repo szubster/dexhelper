@@ -2,10 +2,10 @@
 id: task-478-528-aggregate-active-locks
 type: TASK
 title: Aggregate active locks in RESOLVE phase
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-06'
 depends_on: []
 jules_session_id: null
 pr_number: null
