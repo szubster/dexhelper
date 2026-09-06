@@ -12,10 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initialized project structure and core components for the Retro Save Reader application including React components, Vite configuration, and core dependencies.
 
-## [0.3.0] - 2026-09-03
+## [0.3.0]
 ### Added
 - Initialized project structure, foundational files, React components, Vite configuration, and core dependencies.
 
-## [0.2.0] - 2026-08-16
+## [0.2.0]
 ### Added
 - Implemented core application layout including save file upload, header navigation, and a mobile-friendly bottom navigation.
