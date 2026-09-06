@@ -2,12 +2,12 @@
 id: story-524-522-configure-workspace
 type: STORY
 title: Configure pnpm Workspace
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
 updated_at: '2026-09-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14947444354644881053'
 pr_number: null
 parent: epic-519-524-workspace-infrastructure
 tags:
