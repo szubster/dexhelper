@@ -27,4 +27,8 @@ Create the procedural mechanism to automatically transition YAML frontmatter sta
 
 ## Acceptance Criteria
 - [ ] Implement a script or process to update YAML frontmatter status fields.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-521-549-promote-frontmatter-core-logic-impl
+- [ ] task-521-550-promote-frontmatter-script-impl
+- [ ] task-521-551-promote-frontmatter-tests
+- [ ] task-521-552-promote-frontmatter-qa
