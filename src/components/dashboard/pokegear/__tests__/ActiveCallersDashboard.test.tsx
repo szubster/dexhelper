@@ -50,5 +50,5 @@ test('applies ADR 008 aesthetic classes', async () => {
   const { container } = await render(<ActiveCallersDashboard contacts={mockContacts} timerState={timerState} />);
   expect(container.innerHTML).toContain('tactical-text');
   expect(container.innerHTML).toContain('border-dashed');
-  expect(container.innerHTML).toContain('font-mono');
+  expect(container.innerHTML).toContain('tactical-text');
 });

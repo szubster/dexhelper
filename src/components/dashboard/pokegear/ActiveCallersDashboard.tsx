@@ -27,7 +27,7 @@ export function ActiveCallersDashboard({ contacts, timerState }: ActiveCallersDa
           <div className="z-10 flex items-center gap-2">
             <span className="tactical-text text-[10px] text-zinc-500">[ FREQUENCY_STATUS ]</span>
             <span
-              className={`font-black text-xs tracking-widest ${isCoolingDown ? 'animate-pulse text-amber-500' : 'text-emerald-500'}`}
+              className={`tactical-text font-black text-xs ${isCoolingDown ? 'animate-pulse text-amber-500' : 'text-emerald-500'}`}
             >
               {isCoolingDown ? 'COOLING_DOWN' : 'ACTIVE'}
             </span>
@@ -35,7 +35,7 @@ export function ActiveCallersDashboard({ contacts, timerState }: ActiveCallersDa
         </div>
 
         {contacts.length === 0 ? (
-          <div className="z-10 flex flex-col items-center justify-center rounded-none border-2 border-zinc-800 border-dashed bg-black/40 p-12">
+          <div className="tactical-panel z-10 flex flex-col items-center justify-center border-2 border-zinc-800 bg-black/40 p-12">
             <div className="relative mb-4 flex h-16 w-16 items-center justify-center">
               <CornerCrosshairs className="h-2 w-2 border-zinc-600/50" thickness={2} />
               <div className="absolute h-8 w-8 animate-ping rounded-full border border-zinc-700 opacity-20"></div>
