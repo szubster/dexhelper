@@ -1,13 +1,13 @@
 ---
 id: epic-346-517-archival-cleanup-core-engine
 type: EPIC
-title: "Archival Cleanup Core Engine"
-status: READY
-owner_persona: "story_owner"
-created_at: "2026-09-02"
-updated_at: "2026-09-02"
+title: Archival Cleanup Core Engine
+status: ACTIVE
+owner_persona: story_owner
+created_at: '2026-09-02'
+updated_at: '2026-09-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6258638720632667719'
 pr_number: null
 parent: prd-152-346-archival-cleanup-policy
 tags:
@@ -16,8 +16,8 @@ tags:
   - retention
   - garbage-collection
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Archival Cleanup Core Engine
