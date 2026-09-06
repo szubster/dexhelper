@@ -35,5 +35,5 @@ Update Phase 4.5 in `.github/scripts/foundry-orchestrator.ts` to intelligently a
 - If all tasks are checked, it should bypass dispatch and auto-fulfill (promoting to COMPLETED).
 
 ## Acceptance Criteria
-- [ ] Phase 4.5 automatically checks off non-node checkboxes.
-- [ ] Nodes with only non-node checkboxes are auto-fulfilled and bypass dispatch.
+- [x] Phase 4.5 automatically checks off non-node checkboxes.
+- [x] Nodes with only non-node checkboxes are auto-fulfilled and bypass dispatch.
