@@ -27,6 +27,6 @@ notes: ''
 Create the core JavaScript/TypeScript wrapper for the mGBA WASM module. This module should handle loading the WASM binary, initializing the emulator, and robust error handling for initialization failures.
 
 ## Acceptance Criteria
-- [ ] Implement mGBA WASM loading and initialization logic.
-- [ ] Add configuration setup for the emulator.
-- [ ] Implement robust error handling for WASM load or emulator init failures.
+- [x] Implement mGBA WASM loading and initialization logic.
+- [x] Add configuration setup for the emulator.
+- [x] Implement robust error handling for WASM load or emulator init failures.
