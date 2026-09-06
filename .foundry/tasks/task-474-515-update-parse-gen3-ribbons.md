@@ -28,5 +28,5 @@ locks: []
 Update the `parseGen3Ribbons` function in `src/engine/saveParser/parsers/gen3.ts` to extract the remaining ribbon flags and the obedience flag.
 
 ## Acceptance Criteria
-- [ ] Update `parseGen3Ribbons` to use the defined constants (e.g., `RIBBON_CHAMPION_BIT`, `OBEDIENCE_FLAG_BIT`) to extract boolean flags from the bitfield.
-- [ ] Update unit tests for `parseGen3Ribbons` in `src/engine/saveParser/parsers/gen3.test.ts` to cover the extraction of the new flags.
+- [x] Update `parseGen3Ribbons` to use the defined constants (e.g., `RIBBON_CHAMPION_BIT`, `OBEDIENCE_FLAG_BIT`) to extract boolean flags from the bitfield.
+- [x] Update unit tests for `parseGen3Ribbons` in `src/engine/saveParser/parsers/gen3.test.ts` to cover the extraction of the new flags.
