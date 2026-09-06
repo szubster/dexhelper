@@ -26,5 +26,8 @@ locks: []
 As part of ADR 028, we need to eliminate inline magic numbers in our save parsing logic. The Gen 1 core parser (`src/engine/saveParser/parsers/gen1.ts`) contains various inline offsets, shifts, and bit masks used for extraction. These must be replaced with explicitly defined module-level constants.
 
 ## Acceptance Criteria
-- [ ] Decompose this Story into actionable Task nodes for refactoring `gen1.ts`.
+- [x] Decompose this Story into actionable Task nodes for refactoring `gen1.ts`.
 - [ ] Ensure all inline memory offsets, lengths, bit locations, and shifts in the core Gen 1 parser are extracted to constants.
+- [ ] task-520-549-gen1-parser-constants-impl
+- [ ] task-520-550-gen1-parser-refactor-impl
+- [ ] task-520-551-gen1-parser-refactor-qa
