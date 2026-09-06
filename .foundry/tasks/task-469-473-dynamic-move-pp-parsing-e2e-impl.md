@@ -2,21 +2,22 @@
 id: task-469-473-dynamic-move-pp-parsing-e2e-impl
 type: TASK
 title: Implement E2E Verification for Dynamic Move PP Parsing
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-23'
-updated_at: '2026-08-30'
+updated_at: '2026-09-06'
 depends_on:
   - story-086-275-move-runtime-integration
-jules_session_id: '7160979307520839755'
+jules_session_id: null
 pr_number: null
 parent: story-086-469-dynamic-move-pp-parsing-e2e
 tags:
   - e2e
   - integration
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
+locks: []
 ---
 
 # Implement E2E Verification for Dynamic Move PP Parsing
