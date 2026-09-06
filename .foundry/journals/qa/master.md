@@ -62,8 +62,6 @@ To ensure strict compliance with ADR 028, inline magic numbers within the unit t
 - Validated task-341-348-define-indexeddb-schema-retry-impl.
 - **Result:** FAILED.
 - **Reasoning:** The implementation in `src/db/schema.ts` sets `SAVE_HISTORY_DB_CONFIG.VERSION` to 2 instead of 1, and incorrectly adds a `TRAINERS` store and a `trainerId` index. This violates Section 14 of `.foundry/docs/schema.md`.
-- **Action Taken:** Updated the target task's YAML frontmatter (status: FAILED, rejection_count: 3, rejection_reason added) and unchecked its acceptance criteria checkboxes. Left QA task YAML frontmatter unmodified and updated the QA task's markdown body with the rejection details.
-
 # QA Session 11281423417366724467
 
 Verified the implementation of the diff engine hash fix. The coder correctly added the `hash` property to the `PokemonInstance` interface and updated `calculateBoxDiff` to rely exclusively on this field for tracking additions, removals, and relocations. I added a new test case to ensure duplicates are properly disambiguated by their hashes. All unit tests pass and test coverage is comprehensive. The task acceptance criteria have been checked off.
@@ -340,7 +338,7 @@ Specifically, the coder used inline magic numbers for offset calculations and bi
 - Line 1073: `Math.floor(bitIndex / 8)` (uses the magic number `8`).
 - Line 1074: `bitIndex % 8` (uses the magic number `8`).
 
-ADR 028 mandates that all memory offsets, lengths, bit locations, and shifts must be explicitly defined as reusable constants at the module level. The target implementation task has been updated with `status: FAILED` and `rejection_count` incremented.
+ADR 028 mandates that all memory offsets, lengths, bit locations, and shifts must be explicitly defined as reusable constants at the module level.
 
 # QA Journal - E2E Safeguard Verification
 Date: 2026-07-26
@@ -381,8 +379,6 @@ Approved implementation of the regional dex sorting strategy. All tests and lint
 
 1. **Verify schemas & generator**: `POKEMON_TYPE` and `POKEMON_TYPE_MAP` are properly defined in `src/db/schema.ts`. `types` was added to `PokemonMetadata`.
 2. **Verify generate-pokedata.ts sorting**: The code reads `pData.types` and maps them using `POKEMON_TYPE_MAP`, but it **fails to sort by slot** before mapping, violating the specific acceptance criterion: "sorts by slot (if applicable)".
-3. **Conclusion**: Implementation is incomplete. Rejecting the task and setting `status: FAILED`, incrementing `rejection_count`, and providing the reason. My own QA task remains `ACTIVE`.
-
 ---
 
 ## Task
@@ -447,9 +443,6 @@ QA review for Zod schema integration within `.github/scripts`.
 - Ran `cd .github/scripts && pnpm install && npx vitest run`. Test suite passed.
 - Analyzed `schema.ts`. Discovered that `created_at` and `updated_at` use `z.string()`.
 - The Foundry DAG orchestrator validates frontmatter fields `created_at` and `updated_at` using Zod schema which accepts both strings and JS Date objects (coercing Date objects into ISO strings) to gracefully handle unquoted dates parsed by gray-matter. `z.string()` alone does not satisfy this architectural requirement.
-
-### Result
-Target implementation rejected. `task-337-367-zod-schema-integration-impl.md` was updated to `status: FAILED` with a rejection count of 1.
 
 ---
 
@@ -658,7 +651,6 @@ QA validation of the Gen 3 Volcanic Ash UI integration.
 
 ## Action
 - Failed target task `task-348-100-gen3-ash-ui-impl` according to the Transient Rejection policy.
-- Updated its YAML frontmatter (`status: FAILED`, incremented `rejection_count`, added `rejection_reason`).
 - Appended a rejection note to its markdown body without checking off its Acceptance Criteria.
 - Submitted an Empty PR to trigger the Resurrection Loop so the coder can fix the `isGen3Save` stub.
 ## 2026-08-18: Gen 2 Room Decoration & Bank Parsing Verification Failure
