@@ -2,10 +2,10 @@
 id: prd-154-518-ecosystem-modernization
 type: PRD
 title: Bleeding-Edge Ecosystem Modernization and Tech Stack Audit
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on:
   - task-154-524-architect-tech-stack-audit
   - task-154-525-tech-lead-dynamic-node-spawning-guidelines
@@ -30,4 +30,8 @@ The JavaScript and TypeScript ecosystems are undergoing rapid shifts with featur
 4. **Dynamic Discovery & Spawning Workflow:** Incorporate the Tech Lead's guidelines for agents to dynamically spawn RESEARCH and ADR nodes during continuous development when underutilized features are discovered.
 
 ## Acceptance Criteria
-- [ ] Create an Epic to track the execution of the ecosystem modernization and generator architecture refactoring.
+- [x] Create an Epic to track the execution of the ecosystem modernization and generator architecture refactoring.
+- [ ] epic-518-536-tech-stack-audit
+- [ ] epic-518-537-generator-architecture
+- [ ] epic-518-538-frontend-refactoring
+- [ ] epic-518-539-dynamic-discovery

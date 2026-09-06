@@ -2,13 +2,13 @@
 id: epic-336-402-implement-cloudflare-drive-sync
 type: EPIC
 title: Implement Google Drive and Cloudflare Server-Side Sync
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-05'
-updated_at: '2026-08-29'
+updated_at: '2026-09-04'
 depends_on:
   - task-336-401-architect-drive-sync-adr
-jules_session_id: null
+jules_session_id: '5200869854494744643'
 pr_number: null
 parent: prd-062-336-drive-cloudflare-sync
 tags:

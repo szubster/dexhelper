@@ -2,21 +2,22 @@
 id: task-512-517-implement-idempotent-bypass
 type: TASK
 title: Implement Idempotent Orchestrator Bypass
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-03'
+updated_at: '2026-09-06'
 depends_on: []
-jules_session_id: '4601475631090670622'
+jules_session_id: null
 pr_number: null
 parent: story-018-512-idempotent-orchestrator-bypass
 tags:
   - orchestrator
   - typescript
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Implement Idempotent Orchestrator Bypass
@@ -34,5 +35,5 @@ Update Phase 4.5 in `.github/scripts/foundry-orchestrator.ts` to intelligently a
 - If all tasks are checked, it should bypass dispatch and auto-fulfill (promoting to COMPLETED).
 
 ## Acceptance Criteria
-- [ ] Phase 4.5 automatically checks off non-node checkboxes.
-- [ ] Nodes with only non-node checkboxes are auto-fulfilled and bypass dispatch.
+- [x] Phase 4.5 automatically checks off non-node checkboxes.
+- [x] Nodes with only non-node checkboxes are auto-fulfilled and bypass dispatch.

@@ -14,3 +14,5 @@ This directory contains real-world Gen 3 `.sav` files used for parsing and integ
 *Note: Some of the original save files (e.g. from VitHuang/PokemonBoxSaveEditor) were exactly 64KB (65536 bytes) or 56KB (57344 bytes) and were padded to exactly 128KB (131072 bytes) with zeroes to match standard GameBoy Advance emulator requirements.*
 - `emerald_spinda_party_fixture.sav`: A modified Pokémon Emerald save file containing a Spinda in the active party.
 - `emerald_spinda_pc_fixture.sav`: A modified Pokémon Emerald save file containing a Spinda in the first PC box.
+
+- `emerald_egg_fixture.sav`: A modified Pokémon Emerald save file containing an Egg in the active party.

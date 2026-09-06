@@ -1,13 +1,13 @@
 ---
 id: idea-422-gen3-pokeblock-recipe-optimizer
 type: IDEA
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 title: Gen 3 Pokéblock Recipe Optimizer for Contest Conditions
 created_at: '2026-08-25'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '16787157399427834954'
+jules_session_id: null
 parent: null
 tags:
   - dexhelper
@@ -39,5 +39,6 @@ This feature transforms an opaque, unforgiving, and permanently destructive game
 ## Strategic Balance
 In the previous session, IDEA-421 (Automated Markdown Schema Validation) was proposed for the Foundry System infrastructure. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a high-value product feature for DexHelper.
 
-## Next Steps
-- [ ] Product Manager: Convert this idea into a PRD detailing the required Gen 3 berry blending formulas and Nature modifiers.
+## Acceptance Criteria
+- [x] Product Manager: Convert this idea into a PRD detailing the required Gen 3 berry blending formulas and Nature modifiers.
+- [ ] prd-422-518-gen3-pokeblock-recipe-optimizer

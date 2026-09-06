@@ -2,13 +2,13 @@
 id: story-131-474-gen3-substructure-mapping
 type: STORY
 title: Gen 3 Substructure Mapping
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-09-03'
+updated_at: '2026-09-06'
 depends_on:
   - story-131-473-gen3-data-decryption-engine
-jules_session_id: '6663484965554662997'
+jules_session_id: null
 pr_number: null
 parent: epic-097-131-gen3-data-decryption-mapping
 tags:
@@ -37,3 +37,6 @@ Implement the logic to resolve the substructure order within the decrypted 48-by
 - [ ] Expose an API to retrieve specific substructure blocks.
 - [ ] Add unit tests verifying correct mapping for different PV values.
 - [ ] Adhere to schema constraints: Use relative offsets, avoid magic numbers, use module-level constants, and catch RangeError.
+- [ ] task-474-528-gen3-substructure-api-impl
+- [ ] task-474-529-gen3-substructure-api-tests
+- [ ] task-474-530-gen3-substructure-api-qa

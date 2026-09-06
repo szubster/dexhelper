@@ -29,5 +29,5 @@ Update any downstream nodes and scripts that reference journals to account for t
 - [x] Identify all scripts referencing old journal paths.
 - [x] Update paths and logic to use the new subdirectory structure.
 
-- [ ] task-410-493-update-journal-paths-impl
-- [ ] task-410-494-update-journal-paths-qa
+- [x] task-410-493-update-journal-paths-impl
+- [x] task-410-494-update-journal-paths-qa
