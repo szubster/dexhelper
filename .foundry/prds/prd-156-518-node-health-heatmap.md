@@ -44,5 +44,8 @@ The heatmap color intensity will be driven by the following node telemetry field
 - Use the existing global store or DAG fetch mechanisms to retrieve node metadata (ensuring fields like `rejection_count` are available in the payload).
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into EPIC nodes covering the DAG data layer changes, React Flow UI components, and the telemetry calculations.
-- [ ] Create an overarching E2E testing EPIC to verify the heatmap toggle and visualization logic.
+- [x] Epic Planner: Break this PRD down into EPIC nodes covering the DAG data layer changes, React Flow UI components, and the telemetry calculations.
+- [x] Create an overarching E2E testing EPIC to verify the heatmap toggle and visualization logic.
+- [ ] epic-518-534-heatmap-telemetry-data
+- [ ] epic-518-535-heatmap-ui-components
+- [ ] epic-518-536-heatmap-e2e-testing
