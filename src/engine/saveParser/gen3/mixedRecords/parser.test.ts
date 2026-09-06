@@ -26,6 +26,9 @@ describe('parseGen3MixedRecordNPC', () => {
     view.setUint8(Constants.MIXED_RECORD_NPC_TRAINER_GENDER_OFFSET, 1);
     view.setUint32(Constants.MIXED_RECORD_NPC_TRAINER_ID_OFFSET, 12345678, true);
 
+    // Set flags to indicate battledOwnerToday is true
+    view.setUint8(Constants.MIXED_RECORD_NPC_FLAGS_OFFSET, Constants.MIXED_RECORD_NPC_BATTLED_OWNER_TODAY_MASK);
+
     const partyBaseOffset = Constants.MIXED_RECORD_NPC_PARTY_OFFSET;
 
     // Pokemon 0 (multiplying by 0 evaluates to 0, which is flagged by oxlint, so omitting 0 multiplications)
@@ -63,6 +66,7 @@ describe('parseGen3MixedRecordNPC', () => {
     expect(npc.trainerName).toBe('TEST');
     expect(npc.trainerGender).toBe(1);
     expect(npc.trainerId).toBe(12345678);
+    expect(npc.battledOwnerToday).toBe(true);
 
     expect(npc.party).toHaveLength(1);
     expect(npc.party[0]?.personality).toBe(0x12345678);
