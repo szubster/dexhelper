@@ -7,6 +7,10 @@ owner_persona: qa
 parent: story-522-520-gen2-constants-extraction
 depends_on:
   - task-520-550-refactor-gen2-parser-impl
+created_at: '2026-09-06'
+updated_at: '2026-09-06'
+jules_session_id: null
+rejection_reason: ''
 ---
 # TASK: QA - Gen 2 Constants Extraction
 

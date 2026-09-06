@@ -7,6 +7,10 @@ owner_persona: coder
 parent: story-522-520-gen2-constants-extraction
 depends_on:
   - task-520-549-define-gen2-constants-impl
+created_at: '2026-09-06'
+updated_at: '2026-09-06'
+jules_session_id: null
+rejection_reason: ''
 ---
 # TASK: Refactor Gen 2 Parser to use Constants
 

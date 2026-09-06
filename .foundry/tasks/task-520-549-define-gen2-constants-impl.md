@@ -6,6 +6,10 @@ status: READY
 owner_persona: coder
 parent: story-522-520-gen2-constants-extraction
 depends_on: []
+created_at: '2026-09-06'
+updated_at: '2026-09-06'
+jules_session_id: null
+rejection_reason: ''
 ---
 # TASK: Define Gen 2 Constants Module
 
