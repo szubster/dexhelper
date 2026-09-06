@@ -30,5 +30,7 @@ As defined in PRD `prd-148-518-priority-based-dispatch-queue`, we need to introd
 - Update `.foundry/docs/schema.md` to document this new field with a default of 0.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down into tasks/stories to implement schema updates.
-- [ ] A final STORY is created exclusively for Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Story Owner: Break down into tasks/stories to implement schema updates.
+- [x] A final STORY is created exclusively for Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-530-550-implement-schema-priority
+- [ ] story-530-551-integration-e2e-verification
