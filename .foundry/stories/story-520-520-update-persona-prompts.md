@@ -1,13 +1,13 @@
 ---
 id: story-520-520-update-persona-prompts
 type: STORY
-title: "Update Persona Prompts for WIP Awareness"
-status: READY
+title: Update Persona Prompts for WIP Awareness
+status: ACTIVE
 owner_persona: tech_lead
-created_at: "2026-09-03"
-updated_at: "2026-09-03"
+created_at: '2026-09-03'
+updated_at: '2026-09-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13926997108200381725'
 locks: []
 pr_number: null
 parent: epic-346-520-wip-orchestrator-awareness
@@ -18,8 +18,8 @@ tags:
 research_references: []
 experiment_variants: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Update Persona Prompts for WIP Awareness
