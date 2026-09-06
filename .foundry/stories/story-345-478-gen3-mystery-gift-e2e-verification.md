@@ -30,4 +30,7 @@ This story is dedicated exclusively to the Integration and E2E Verification of t
 
 ## Acceptance Criteria
 - [ ] Write and pass E2E tests verifying Wonder Card and Event Flag extraction from Gen 3 saves.
-- [ ] Tech Lead: Break down this Story into manageable Tasks.
+- [x] Tech Lead: Break down this Story into manageable Tasks.
+- [ ] task-478-517-setup-mystery-gift-e2e-fixtures
+- [ ] task-478-518-impl-mystery-gift-e2e-tests
+- [ ] task-478-519-qa-mystery-gift-e2e
