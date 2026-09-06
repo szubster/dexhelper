@@ -29,5 +29,5 @@ Implement file system operations for appending the summary to the EPIC and movin
 - Use `fs` operations to move processed child nodes (STORY and TASK) from `.foundry/stories/` and `.foundry/tasks/` to `.foundry/archive/stories/` and `.foundry/archive/tasks/`.
 
 ## Acceptance Criteria
-- [ ] Implement file system operations to append to the EPIC.
-- [ ] Implement file system operations to move child files to `.foundry/archive/`.
+- [x] Implement file system operations to append to the EPIC.
+- [x] Implement file system operations to move child files to `.foundry/archive/`.

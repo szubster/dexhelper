@@ -600,3 +600,11 @@ An Epic cannot be marked `COMPLETED` by the orchestrator unless an explicit STOR
 # 2026-08-29 - Orchestrator Safeguard E2E Verification Requirement
 
 When breaking down Epics, the Orchestrator Safeguard explicitly mandates that an EPIC cannot be marked COMPLETED unless a final STORY dedicated exclusively to Integration and E2E Verification is generated. In this session for epic-031-036-progression-tracking, I noticed that all of the actual implementation stories were completed, but the epic was still missing the E2E verification story. I created `story-036-490-progression-e2e-verification` to satisfy this requirement and ensure the orchestrator can eventually complete the epic once the verification is done.
+
+
+---
+
+# 2026-09-05
+
+-   **Lesson Learned:** When defining `depends_on` relationships between newly spawned sibling STORY nodes in the Foundry DAG, strictly use exact Node IDs (e.g., `story-530-536-dagtree-ui-logic`). Do not use repo-relative markdown file paths (e.g., `.foundry/stories/...`), as this violates schema strictness and causes the orchestrator to fail dependency resolution for these specific node linkages, leaving them stranded.
+-   **Lesson Learned:** Journal entries must strictly capture structural lessons, architectural constraints, or recurring failures that provide long-term value, as per the Journaling Policies. Simple logbook entries detailing task execution steps ('I created these three files') are explicitly prohibited and should not be written to memory.
