@@ -28,5 +28,7 @@ Repeated violations of testing standards are caught by `qa` nodes, and `locator.
 Create a style guide in `.foundry/docs/knowledge_base/testing/playwright_style_guide.md` covering `locator.or()` strict mode, `isMobile` context handling, and usage of the new mock utilities.
 
 ## Acceptance Criteria
-- [ ] Write the Playwright testing style guide.
-- [ ] Implement a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Write the Playwright testing style guide.
+- [x] Implement a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-531-536-write-playwright-style-guide
+- [ ] story-531-537-testing-style-guide-e2e
