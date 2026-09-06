@@ -26,5 +26,8 @@ locks: []
 In accordance with ADR 028, inline magic numbers must be replaced with module-level constants. The utility functions for Generation 1 (`src/engine/saveParser/utils/gen1EventFlags.ts` and similar) contain inline magic numbers for bitwise operations and offsets that must be refactored.
 
 ## Acceptance Criteria
-- [ ] Decompose this Story into actionable Task nodes for refactoring Gen 1 utilities.
+- [x] Decompose this Story into actionable Task nodes for refactoring Gen 1 utilities.
 - [ ] Ensure all inline magic numbers in `gen1EventFlags.ts` and other Gen 1 utilities are extracted to module-level constants.
+- [ ] task-521-549-refactor-gen1-impl
+- [ ] task-521-550-refactor-gen1-tests
+- [ ] task-521-551-gen1-magic-number-qa
