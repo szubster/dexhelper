@@ -25,4 +25,8 @@ locks: []
 This story handles the E2E verification for dynamic node spawning.
 
 ## Acceptance Criteria
-- [ ] Break down tasks to test and verify dynamic node spawning via end-to-end integration
+- [x] Break down tasks to test and verify dynamic node spawning via end-to-end integration
+- [ ] task-545-549-dynamic-spawning-e2e-fixtures
+- [ ] task-545-550-dynamic-spawning-e2e-research-adr
+- [ ] task-545-551-dynamic-spawning-e2e-idea-late-binding
+- [ ] task-545-552-dynamic-spawning-e2e-qa
