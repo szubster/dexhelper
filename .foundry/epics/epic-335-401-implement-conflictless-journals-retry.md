@@ -26,11 +26,11 @@ notes: ''
 To resolve frequent git merge conflicts on `.foundry/journals/*.md` files, this Epic will transition the system to a conflict-less storage pattern for agent journals, incorporating findings from the previous failed attempt.
 
 ## Acceptance Criteria
-- [ ] Implement timestamped or session-unique markdown files for journals.
-- [ ] Ensure storage is in persona-specific subdirectories (e.g. `.foundry/journals/coder/`).
-- [ ] Update the TPM persona responsibilities to aggregate and archive these individual files appropriately.
-- [ ] Update downstream nodes and scripts that reference journals.
-- [ ] story-401-408-persona-specific-journal-directories
-- [ ] story-401-409-tpm-journal-aggregation
-- [ ] story-401-410-update-downstream-journal-scripts
-- [ ] story-401-411-conflictless-journals-e2e-verification
+- [x] Implement timestamped or session-unique markdown files for journals.
+- [x] Ensure storage is in persona-specific subdirectories (e.g. `.foundry/journals/coder/`).
+- [x] Update the TPM persona responsibilities to aggregate and archive these individual files appropriately.
+- [x] Update downstream nodes and scripts that reference journals.
+- [x] story-401-408-persona-specific-journal-directories
+- [x] story-401-409-tpm-journal-aggregation
+- [x] story-401-410-update-downstream-journal-scripts
+- [x] story-401-411-conflictless-journals-e2e-verification

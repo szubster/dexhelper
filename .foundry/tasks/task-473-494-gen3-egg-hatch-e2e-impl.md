@@ -2,10 +2,10 @@
 id: task-473-494-gen3-egg-hatch-e2e-impl
 type: TASK
 title: Gen 3 Egg Hatch E2E Tests
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-30'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,6 +17,7 @@ research_references: []
 rejection_count: 2
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Task: Gen 3 Egg Hatch E2E Tests
@@ -25,7 +26,7 @@ notes: ''
 Implement Playwright E2E tests to verify the Gen 3 egg hatch tracker data extraction engine.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for Gen 3 egg hatch data parsing.
-- [ ] Verify test correctness via Playwright.
+- [x] Implement E2E tests for Gen 3 egg hatch data parsing.
+- [x] Verify test correctness via Playwright.
 
-- [ ] research-494-495-gen3-egg-hatch-fixture
+- [x] research-494-495-gen3-egg-hatch-fixture

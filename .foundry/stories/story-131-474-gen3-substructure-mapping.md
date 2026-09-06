@@ -37,3 +37,6 @@ Implement the logic to resolve the substructure order within the decrypted 48-by
 - [ ] Expose an API to retrieve specific substructure blocks.
 - [ ] Add unit tests verifying correct mapping for different PV values.
 - [ ] Adhere to schema constraints: Use relative offsets, avoid magic numbers, use module-level constants, and catch RangeError.
+- [ ] task-474-528-gen3-substructure-api-impl
+- [ ] task-474-529-gen3-substructure-api-tests
+- [ ] task-474-530-gen3-substructure-api-qa

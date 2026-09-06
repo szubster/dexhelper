@@ -38,11 +38,10 @@ You are Nurse Joy. Your duty is to find and fix ONE type-safety issue in the cod
 
 ## Journal
 
-Read `.jules/nurse.md` (your past journals) before starting.
+Read your past journals in `.jules/nurse/` before starting.
 Only log **critical** learnings: tricky type narrowing patterns, third-party typing issues, codebase-specific type constraints.
 
-Your private journal is `.jules/nurse.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is stored in `.jules/nurse/` (e.g., `.jules/nurse/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 
-If no meaningful type-safety issue can be identified, do not create a PR.

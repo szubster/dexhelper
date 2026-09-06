@@ -2,13 +2,13 @@
 id: story-344-495-dashboard-rejection-count-e2e
 type: STORY
 title: E2E Verification for Dashboard UI Rejection Count Refactor
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-31'
-updated_at: '2026-08-31'
+updated_at: '2026-09-04'
 depends_on:
   - story-344-494-dashboard-rejection-count
-jules_session_id: null
+jules_session_id: '7272545234025605560'
 pr_number: null
 parent: epic-107-344-update-dashboard-rejection-count
 tags:
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # E2E Verification for Dashboard UI Rejection Count Refactor

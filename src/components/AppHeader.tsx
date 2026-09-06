@@ -9,6 +9,7 @@ import { OfflineControls } from './header/OfflineControls';
 import { SystemControls } from './header/SystemControls';
 import { TelemetryMatrix } from './header/TelemetryMatrix';
 import { NavigationTab } from './NavigationTab';
+import { ScanlineOverlay } from './ScanlineOverlay';
 
 interface AppHeaderProps {
   saveData: SaveData | null;
@@ -45,7 +46,7 @@ export function AppHeader({
       />
       {/* Top hardware lip & scanline background */}
       <div className="absolute top-2 right-0 left-0 h-[2px] bg-[var(--theme-primary)]/60" />
-      <div className="pointer-events-none absolute top-0 right-0 bottom-0 left-0 bg-[url('/scanlines.png')] opacity-20 mix-blend-overlay" />
+      <ScanlineOverlay opacityClass="opacity-20" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[var(--theme-primary)]/10 to-transparent" />
 
       {/* Raw text watermark */}

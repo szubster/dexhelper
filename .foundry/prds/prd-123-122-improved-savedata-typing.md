@@ -2,10 +2,10 @@
 id: prd-123-122-improved-savedata-typing
 type: PRD
 title: Improved SaveData Typing with Discriminated Generation Unions
-status: PENDING
+status: COMPLETED
 owner_persona: auditor
 created_at: '2026-08-05'
-updated_at: '2026-08-07'
+updated_at: '2026-09-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Product Requirements Document: Improved SaveData Typing with Discriminated Generation Unions
@@ -49,4 +50,4 @@ This project aims to refactor the `SaveData` type into a Discriminated Union bas
 - Maintain backward compatibility in terms of runtime data shape.
 - Ensure no runtime overhead is introduced by type definitions.
 
-- [ ] epic-122-404-refactor-savedata-typing
+- [x] epic-122-404-refactor-savedata-typing

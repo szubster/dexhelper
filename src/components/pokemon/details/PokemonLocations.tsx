@@ -18,6 +18,7 @@ import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schem
 import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
 import { isValidStaticGameVersion, staticEncounters } from '../../../engine/data/shared/staticData';
 import { DataLabel } from '../../DataLabel';
+import { ScanlineOverlay } from '../../ScanlineOverlay';
 import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalNode } from '../../TacticalNode';
@@ -118,7 +119,7 @@ export function PokemonLocations({
                   key={`static-${i}`}
                   className="group relative overflow-hidden border border-red-500/30 border-dashed bg-red-950/20 p-4"
                 >
-                  <div className="pointer-events-none absolute inset-0 bg-[url('/scanlines.png')] opacity-10 mix-blend-overlay" />
+                  <ScanlineOverlay opacityClass="opacity-10" />
                   <TelemetryDecoration label="STATIC_ENCOUNTER" className="top-0 left-4 text-red-500/50" />
 
                   <LocationRow
