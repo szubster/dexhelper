@@ -21,6 +21,50 @@ interface Violation {
     class: string;
 }
 
+export function checkAdr013ComplianceInFile(filePath: string): Violation[] {
+    const violations: Violation[] = [];
+    const project = new Project();
+
+    // Skip the Context provider itself as it's allowed to have state
+    if (filePath.endsWith('DagContext.tsx')) {
+        return violations;
+    }
+
+    const sourceFile = project.addSourceFileAtPath(filePath);
+
+    // Check imports for useState
+    const imports = sourceFile.getDescendantsOfKind(SyntaxKind.ImportDeclaration);
+    imports.forEach(imp => {
+        const namedImports = imp.getImportClause()?.getNamedBindings();
+        if (namedImports && namedImports.getKind() === SyntaxKind.NamedImports) {
+            (namedImports as import('ts-morph').NamedImports).getElements().forEach(element => {
+                if (element.getName() === 'useState') {
+                    violations.push({
+                        file: filePath,
+                        line: imp.getStartLineNumber(),
+                        class: 'useState (Import) - ADR 013 Violation: Use shared React Context instead of local state'
+                    });
+                }
+            });
+        }
+    });
+
+    // Check hooks for useState
+    const callExpressions = sourceFile.getDescendantsOfKind(SyntaxKind.CallExpression);
+    callExpressions.forEach(callExpr => {
+        const expr = callExpr.getExpression();
+        if (expr.getKind() === SyntaxKind.Identifier && expr.getText() === 'useState') {
+            violations.push({
+                file: filePath,
+                line: callExpr.getStartLineNumber(),
+                class: 'useState (Hook) - ADR 013 Violation: Use shared React Context instead of local state'
+            });
+        }
+    });
+
+    return violations;
+}
+
 export function findViolationsInFile(filePath: string): Violation[] {
     const violations: Violation[] = [];
     const project = new Project();
@@ -86,18 +130,24 @@ function main() {
     let hasViolations = false;
     let totalFiles = 0;
 
-    console.log('Verifying ADR 008 Compliance...');
+    console.log('Verifying ADR Compliance...');
 
     walkDir(srcDir, (filePath) => {
         totalFiles++;
         try {
             const violations = findViolationsInFile(filePath);
+            const adr013Violations = filePath.includes('components/dashboard/')
+                ? checkAdr013ComplianceInFile(filePath)
+                : [];
 
-            if (violations.length > 0) {
+            const allViolations = [...violations, ...adr013Violations];
+
+            if (allViolations.length > 0) {
                 hasViolations = true;
-                violations.forEach(v => {
+                allViolations.forEach(v => {
                     const relativePath = path.relative(rootDir, v.file);
-                    console.error(`Violation: Forbidden class '${v.class}' found in ${relativePath}:${v.line}`);
+                    const errorType = v.class.includes('ADR 013 Violation') ? v.class : `Forbidden class '${v.class}'`;
+                    console.error(`Violation: ${errorType} found in ${relativePath}:${v.line}`);
                 });
             }
         } catch (e) {
@@ -108,10 +158,10 @@ function main() {
     console.log(`Scanned ${totalFiles} files.`);
 
     if (hasViolations) {
-        console.error('ADR 008 Compliance check failed.');
+        console.error('Compliance checks failed.');
         process.exit(1);
     } else {
-        console.log('ADR 008 Compliance check passed.');
+        console.log('Compliance checks passed.');
     }
 }
 
