@@ -97,18 +97,4 @@ export function parseMarkdownFragment(content: string): PromptFragment {
     context: body.trim() || undefined,
   });
 }
-export interface VariantConfiguration {
-  id: string;
-  description?: string;
-}
 
-export interface ClonedNodeMetadata {
-  original_node_id: string;
-  variant_id?: string;
-}
-
-export interface InjectedPromptContext {
-  base_prompt?: string;
-  variants?: VariantConfiguration[];
-  cloned_from?: ClonedNodeMetadata;
-}
