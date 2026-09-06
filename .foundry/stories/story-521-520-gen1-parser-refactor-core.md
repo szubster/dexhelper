@@ -2,12 +2,12 @@
 id: story-521-520-gen1-parser-refactor-core
 type: STORY
 title: Refactor Gen 1 Core Parser Magic Numbers
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16452059404243216778'
 pr_number: null
 parent: epic-517-521-gen1-parser-refactor-adr-028
 tags:
