@@ -30,4 +30,8 @@ Develop the selection interface for the Smart Egg Move Pathfinder, allowing user
 - [ ] Implement a selection interface for the desired Egg Move.
 - [ ] Filter available Egg Moves based on the selected Pokémon.
 - [ ] Adhere to the tactical hardware aesthetic (ADR 008, 024).
-- [ ] Tech Lead: Break down into actionable TASKs.
+- [x] Tech Lead: Break down into actionable TASKs.
+- [ ] task-526-553-pathfinder-selection-state-impl
+- [ ] task-526-554-pathfinder-selection-components-impl
+- [ ] task-526-555-pathfinder-selection-tests-impl
+- [ ] task-526-556-pathfinder-selection-qa
