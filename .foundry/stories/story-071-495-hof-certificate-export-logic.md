@@ -30,4 +30,8 @@ locks: []
 Implement the export functionality to render the hidden Hall of Fame Certificate component into a high-resolution Canvas or SVG image using the `html-to-image` library. Ensure that custom font loading is explicitly handled for consistent rendering across different clients, as specified in ADR 022.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-495-549-hof-export-font-utility
+- [ ] task-495-550-hof-export-image-renderer
+- [ ] task-495-551-hof-export-download-ui
+- [ ] task-495-552-hof-export-logic-qa
