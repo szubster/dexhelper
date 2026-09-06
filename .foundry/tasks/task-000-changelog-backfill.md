@@ -2,7 +2,7 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-09-06'
@@ -30,7 +30,7 @@ Target commit details injected by `changelog-engine.ts`:
 - **Commit Date:** `2026-03-15`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `minor` (from `0.3.0` -> `0.4.0`)
+- **Suggested SemVer Bump:** `minor` (from `0.4.0` -> `0.5.0`)
 
 ## Commit Message
 ```text
@@ -62,6 +62,6 @@ Sets up the foundational files and structure for the Retro Save Reader applicati
 
 ## Evaluation Instructions
 As Changelogger, inspect the commit changes above.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.4.0] - 2026-03-15` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.3.0...0.4.0`](https://github.com/${repo}/compare/0038dbe...ee3b870)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.5.0] - 2026-03-15` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.4.0...0.5.0`](https://github.com/${repo}/compare/0038dbe...ee3b870)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
