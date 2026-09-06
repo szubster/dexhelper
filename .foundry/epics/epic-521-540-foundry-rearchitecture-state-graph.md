@@ -1,7 +1,7 @@
 ---
 id: epic-521-540-foundry-rearchitecture-state-graph
 type: EPIC
-title: Epic: Foundry Rearchitecture - State Machine and Graph Libraries
+title: "Epic: Foundry Rearchitecture - State Machine and Graph Libraries"
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-06'

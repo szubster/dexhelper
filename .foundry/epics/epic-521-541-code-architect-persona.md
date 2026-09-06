@@ -1,7 +1,7 @@
 ---
 id: epic-521-541-code-architect-persona
 type: EPIC
-title: Epic: Scheduled Weekly Persona - Code Architect (architect_visionary)
+title: "Epic: Scheduled Weekly Persona - Code Architect (architect_visionary)"
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-06'
