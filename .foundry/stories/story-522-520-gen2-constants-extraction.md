@@ -2,12 +2,12 @@
 id: story-522-520-gen2-constants-extraction
 type: STORY
 title: Extract Gen 2 Parser Constants
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-05'
+updated_at: '2026-09-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8291374722208975202'
 pr_number: null
 parent: epic-517-522-gen2-parser-refactor-adr-028
 tags:
