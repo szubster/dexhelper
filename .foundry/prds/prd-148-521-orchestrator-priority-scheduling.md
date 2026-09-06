@@ -2,12 +2,12 @@
 id: prd-148-521-orchestrator-priority-scheduling
 type: PRD
 title: PRD for Foundry Orchestrator DAG Priority Scheduling
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
-created_at: 2026-08-13
-updated_at: 2026-08-13
+created_at: 2026-08-13T00:00:00.000Z
+updated_at: '2026-09-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13748949924447370051'
 locks: []
 pr_number: null
 parent: idea-148-orchestrator-priority-scheduling
@@ -18,8 +18,8 @@ tags:
   - optimization
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # PRD: Foundry Orchestrator DAG Priority Scheduling
