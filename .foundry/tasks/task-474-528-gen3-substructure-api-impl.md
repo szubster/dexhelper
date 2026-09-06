@@ -2,12 +2,12 @@
 id: task-474-528-gen3-substructure-api-impl
 type: TASK
 title: Implement Gen 3 Substructure Resolution API
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-09-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13967949556162539403'
 pr_number: null
 parent: story-131-474-gen3-substructure-mapping
 tags:
