@@ -49,4 +49,6 @@ This PRD outlines the requirements for implementing a **Priority Scheduling Engi
    - **Absolute Maximum / Override:** `999` (Use this to override all other tasks in the queue to force immediate execution).
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into a comprehensive EPIC covering the schema update and orchestrator implementation.
+- [x] Epic Planner: Break this PRD down into a comprehensive EPIC covering the schema update and orchestrator implementation.
+- [ ] epic-521-540-orchestrator-priority-scheduling
+- [ ] epic-521-541-orchestrator-priority-scheduling-e2e
