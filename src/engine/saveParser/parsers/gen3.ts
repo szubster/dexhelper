@@ -383,6 +383,47 @@ export const CONTEST_WINNER_SPECIES_OFFSET = 0x08;
  * The permutation index is determined by `PV % 24`.
  * The four blocks are: Growth (G), Attacks (A), EVs/Condition (E), and Miscellaneous (M).
  */
+export type Gen3SubstructureId = 'G' | 'A' | 'E' | 'M';
+
+export function resolveGen3SubstructureOffset(pv: number, substructureId: Gen3SubstructureId): number {
+  try {
+    const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
+    const permutation = SUBSTRUCTURE_ORDER[permutationIndex];
+    if (!permutation) {
+      throw new RangeError('Invalid PV permutation');
+    }
+
+    const index = permutation.indexOf(substructureId);
+    if (index === -1) {
+      throw new RangeError('Substructure not found in permutation');
+    }
+
+    return index * SUBSTRUCTURE_SIZE;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+export function getGen3DecryptedSubstructure(pv: number, decryptedData: DataView, substructureId: Gen3SubstructureId): DataView {
+  try {
+    const relativeOffset = resolveGen3SubstructureOffset(pv, substructureId);
+
+    return new DataView(
+      decryptedData.buffer,
+      decryptedData.byteOffset + relativeOffset,
+      SUBSTRUCTURE_SIZE,
+    );
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
 export const SUBSTRUCTURE_ORDER = [
   'GAEM',
   'GAME',
@@ -1052,15 +1093,10 @@ export function parseGen3PokemonPVAndIVs(view: DataView, offset: number) {
     const otId = view.getUint32(offset + GEN3_POKEMON_OT_ID_OFFSET, true);
 
     const decryptionKey = pv ^ otId;
-    const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
-    const permutation = SUBSTRUCTURE_ORDER[permutationIndex];
-    if (!permutation) {
-      throw new Error('The save file is corrupted or incomplete.');
-    }
-    const indexOfM = permutation.indexOf('M');
 
-    // The Miscellaneous (M) substructure starts at offset + 32 + (indexOfM * 12)
-    const miscSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + indexOfM * SUBSTRUCTURE_SIZE;
+    const miscSubstructureRelativeOffset = resolveGen3SubstructureOffset(pv, 'M');
+    // The Miscellaneous (M) substructure starts at offset + 32 + relativeOffset
+    const miscSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + miscSubstructureRelativeOffset;
 
     // The IVs are located at offset 4 within the M substructure. This corresponds to the second 32-bit word.
     const encryptedIVs = view.getUint32(miscSubstructureOffset + MISC_IVS_OFFSET, true);
