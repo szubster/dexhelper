@@ -32,4 +32,4 @@ This task verifies that the documentation changes to `schema.md` correctly refle
 2.  Verify that Invariant 7 under "System Invariants" correctly states that `VERIFYING` and `COMPLETED` nodes are read-only for implementing personas.
 
 ## Acceptance Criteria
-- [ ] Invariant 7 in `.foundry/docs/schema.md` is verified to be updated correctly.
+- [x] Invariant 7 in `.foundry/docs/schema.md` is verified to be updated correctly.
