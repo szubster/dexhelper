@@ -27,7 +27,7 @@ locks: []
 Implement the core logic wrapper for the `binjgb` WASM module. This includes initializing the WASM module, loading ROMs, and exposing basic emulator control methods (start, pause, reset).
 
 ## Acceptance Criteria
-- [ ] Implement the WASM module initialization and loading logic.
-- [ ] Define the TypeScript types for the `binjgb` module and instance.
-- [ ] Expose an API for executing the emulator and passing ROM buffer data.
-- [ ] Write unit tests for the core logic wrapper.
+- [x] Implement the WASM module initialization and loading logic.
+- [x] Define the TypeScript types for the `binjgb` module and instance.
+- [x] Expose an API for executing the emulator and passing ROM buffer data.
+- [x] Write unit tests for the core logic wrapper.
