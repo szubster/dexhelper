@@ -2225,6 +2225,27 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(result).toContain('owner_persona: architect');
   });
 
+
+  test('Mapping Validation: allows librarian to own TASK nodes', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-librarian.md', {
+      id: "task-librarian",
+      type: "TASK",
+      title: "Librarian Task",
+      status: "PENDING",
+      owner_persona: "librarian",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-librarian.md'), 'utf-8');
+    expect(result).toContain('status: READY');
+    expect(result).toContain('owner_persona: librarian');
+  });
+
   test('VERIFYING state: collected with auditor persona and acts as hierarchical block', () => {
     createValidTestNode(tmpDir, '.foundry/tasks/task-verifying.md', {
       id: "task-verifying",
