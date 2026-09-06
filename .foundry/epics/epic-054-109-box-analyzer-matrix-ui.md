@@ -2,7 +2,7 @@
 id: epic-054-109-box-analyzer-matrix-ui
 type: EPIC
 title: Box Analyzer Comparison Matrix UI
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-28'
 updated_at: '2026-09-06'

@@ -2,10 +2,10 @@
 id: story-530-535-curator-e2e-integration
 type: STORY
 title: Curator Persona E2E Integration
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-06'
 depends_on:
   - story-530-533-schema-curator-persona
   - story-530-534-curator-agent-base

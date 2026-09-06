@@ -2,7 +2,7 @@
 id: story-109-520-box-analyzer-view-layout
 type: STORY
 title: Box Analyzer View and Layout
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-28'
 updated_at: '2026-09-06'
@@ -14,8 +14,8 @@ tags:
   - feature
   - ui
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
