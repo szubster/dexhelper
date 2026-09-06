@@ -34,6 +34,41 @@ We need to investigate the Ruby/Sapphire save file structure to determine:
 - Whether the logic developed for Emerald's Battle Tower can be adapted, or if a completely separate parser block is needed.
 
 ## Acceptance Criteria
-- [ ] Investigate the Ruby/Sapphire memory map for Battle Tower data.
-- [ ] Document the precise memory offsets and structures in this file.
-- [ ] Determine how to extract this data using `DataView` natively.
+- [x] Investigate the Ruby/Sapphire memory map for Battle Tower data.
+- [x] Document the precise memory offsets and structures in this file.
+- [x] Determine how to extract this data using `DataView` natively.
+
+### Research Findings
+
+After investigating the `pret/pokeruby` decompilation, I can confirm that Pokémon Ruby and Sapphire **do** store Battle Tower win streaks and records in `SaveBlock2`, but the structure and offsets are completely different from Emerald's `BattleFrontier` struct.
+
+In Ruby and Sapphire:
+- The Battle Tower data is stored in the `BattleTowerData` struct.
+- This struct begins at offset `0x00A8` within `SaveBlock2` (`struct SaveBlock2` definition in `include/global.h`).
+- The win streaks are divided into Level 50 (`levelType = 0`) and Level 100 (`levelType = 1`).
+
+The key fields and their absolute offsets within `SaveBlock2` are:
+
+| Field | Offset in `BattleTowerData` | Absolute Offset in `SaveBlock2` | Type |
+|---|---|---|---|
+| `recordWinStreaks[2]` | `0x04B8` | `0x0560` | `u16[2]` (4 bytes) |
+| `totalBattleTowerWins` | `0x04C8` | `0x0570` | `u16` (2 bytes) |
+| `bestBattleTowerWinStreak` | `0x04CA` | `0x0572` | `u16` (2 bytes) |
+| `currentWinStreaks[2]` | `0x04CC` | `0x0574` | `u16[2]` (4 bytes) |
+
+**Notes on Data Types:**
+- `recordWinStreaks[0]` (Level 50): `SaveBlock2 + 0x0560` (`u16`)
+- `recordWinStreaks[1]` (Level 100): `SaveBlock2 + 0x0562` (`u16`)
+- `currentWinStreaks[0]` (Level 50): `SaveBlock2 + 0x0574` (`u16`)
+- `currentWinStreaks[1]` (Level 100): `SaveBlock2 + 0x0576` (`u16`)
+
+**Extraction using `DataView`:**
+To extract this data, a new parser block specifically for Ruby/Sapphire is needed. The Emerald logic cannot be directly adapted because Emerald's `BattleFrontier` struct (at `0x064C` in `SaveBlock2`) handles all 7 facilities and tracks streaks by Battle Mode and Level Mode in multi-dimensional arrays, whereas Ruby/Sapphire only has the Battle Tower with Level 50 and Level 100 modes.
+
+Example extraction logic for Ruby/Sapphire:
+```typescript
+const recordLv50 = view.getUint16(section2Offset + 0x0560, true);
+const recordLv100 = view.getUint16(section2Offset + 0x0562, true);
+const currentLv50 = view.getUint16(section2Offset + 0x0574, true);
+const currentLv100 = view.getUint16(section2Offset + 0x0576, true);
+```
