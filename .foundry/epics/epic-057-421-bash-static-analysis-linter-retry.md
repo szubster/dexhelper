@@ -31,4 +31,7 @@ Agent sessions executing long-running or blocking bash commands (like `tail -f`)
 Implement a static analysis linter that optionally analyzes commands before execution to proactively block known infinite-blocking commands like `tail -f`. Ensure a final STORY dedicated exclusively to Integration and E2E Verification is generated.
 
 ## Acceptance Criteria
-- [ ] Break down this epic into stories.
+- [x] Break down this epic into stories.
+- [ ] story-421-526-bash-static-analysis-linter-impl
+- [ ] story-421-527-bash-static-analysis-linter-integration
+- [ ] story-421-528-bash-static-analysis-linter-e2e
