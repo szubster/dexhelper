@@ -24,6 +24,6 @@ locks: []
 Write E2E tests using Playwright to ensure that Gen 2 components are properly lazy-loaded without breaking the UI and render correctly in their respective generations.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for Gen 2 lazy-loaded components.
-- [ ] Ensure tests verify proper loading states and successful rendering.
-- [ ] Use `locator.or()` for strict mode waiting where necessary.
+- [x] Implement Playwright E2E tests for Gen 2 lazy-loaded components.
+- [x] Ensure tests verify proper loading states and successful rendering.
+- [x] Use `locator.or()` for strict mode waiting where necessary.
