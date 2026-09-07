@@ -28,4 +28,7 @@ locks: []
 - Configure workspace-wide tooling settings.
 
 ## Acceptance Criteria
-- [ ] Break this story down into tasks for configuring global packages and tsconfig.
+- [x] Break this story down into tasks for configuring global packages and tsconfig.
+- [ ] task-523-553-scaffold-config-package
+- [ ] task-523-554-scaffold-tsconfig-base
+- [ ] task-523-555-workspace-config-qa
