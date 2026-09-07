@@ -28,5 +28,9 @@ locks: []
 This story addresses the refactoring of core Gen 3 save parsers to comply with ADR 028. Currently, inline magic numbers are used for memory offsets, lengths, bit locations, and shifts in dynamic save block extraction. These must be replaced with explicitly defined module-level constants to improve readability, maintainability, and consistency. Additionally, relative offsets must be implemented using the resolved section offset to support the A/B bank flash memory architecture properly.
 
 ## Acceptance Criteria
-- [ ] Decompose this Story into actionable Task nodes for the core Gen 3 parser refactoring.
-- [ ] Ensure Tasks address defining module-level constants and implementing relative offsets for core extraction functions.
+- [x] Decompose this Story into actionable Task nodes for the core Gen 3 parser refactoring.
+- [x] Ensure Tasks address defining module-level constants and implementing relative offsets for core extraction functions.
+- [ ] task-520-538-refactor-gen3-pokemon-data-parsers
+- [ ] task-520-539-refactor-gen3-world-event-parsers
+- [ ] task-520-540-refactor-gen3-items-and-trades-parsers
+- [ ] task-520-541-refactor-gen3-parsers-qa
