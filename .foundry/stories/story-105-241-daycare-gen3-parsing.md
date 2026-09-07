@@ -2,10 +2,10 @@
 id: story-105-241-daycare-gen3-parsing
 type: STORY
 title: Parse Gen 3 Daycare Data
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-28'
-updated_at: '2026-08-30'
+updated_at: '2026-09-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,6 +17,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Story: Parse Gen 3 Daycare Data
 

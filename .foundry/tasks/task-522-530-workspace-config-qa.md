@@ -2,10 +2,10 @@
 id: task-522-530-workspace-config-qa
 type: TASK
 title: QA Workspace Configuration
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-07'
 depends_on:
   - task-522-528-create-pnpm-workspace-yaml
   - task-522-529-update-root-package-json
