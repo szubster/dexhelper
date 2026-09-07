@@ -2,10 +2,10 @@
 id: story-334-475-prompt-rules-integration-e2e
 type: STORY
 title: Prompt Rules Integration and E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on:
   - story-334-474-centralize-failure-handling-instructions
 jules_session_id: '13567594762323729953'

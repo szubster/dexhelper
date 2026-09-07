@@ -2,7 +2,7 @@
 id: story-551-556-orchestrator-link-resolution-implementation
 type: STORY
 title: Orchestrator Link Resolution Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
 updated_at: '2026-09-07'
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Orchestrator Link Resolution Implementation

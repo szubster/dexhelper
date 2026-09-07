@@ -1,12 +1,11 @@
 ---
 id: idea-420-task-breakdown-anti-patterns
 type: IDEA
-status: ACTIVE
-owner_persona: product_manager
-author: agile_coach
 title: Enforce Specific Task Breakdown Anti-Patterns for Tech Leads
+status: PENDING
+owner_persona: product_manager
 created_at: '2026-08-24'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
 jules_session_id: '16654180681336822316'
 parent: null
@@ -14,6 +13,7 @@ tags: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 ## Summary

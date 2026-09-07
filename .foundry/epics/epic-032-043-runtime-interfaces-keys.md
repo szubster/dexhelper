@@ -2,7 +2,7 @@
 id: epic-032-043-runtime-interfaces-keys
 type: EPIC
 title: Update Runtime Interfaces to Verbose Keys
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-05-21'
 updated_at: '2026-09-07'
