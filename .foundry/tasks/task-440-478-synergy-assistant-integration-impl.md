@@ -2,21 +2,22 @@
 id: task-440-478-synergy-assistant-integration-impl
 type: TASK
 title: Synergy Assistant Integration Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-20'
-updated_at: '2026-08-31'
+updated_at: '2026-09-07'
 depends_on:
   - task-440-477-synergy-data-generator-impl
-jules_session_id: '17354143978958080789'
+jules_session_id: null
 pr_number: null
 parent: story-350-440-synergy-evaluator-assistant-prompting
 tags:
   - backend
   - assistant
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
+locks: []
 ---
 
 # Synergy Assistant Integration Implementation

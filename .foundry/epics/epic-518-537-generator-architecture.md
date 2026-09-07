@@ -2,12 +2,12 @@
 id: epic-518-537-generator-architecture
 type: EPIC
 title: Generator Architecture Implementation Plan
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '8633448144149627947'
+jules_session_id: null
 pr_number: null
 parent: prd-154-518-ecosystem-modernization
 tags: []

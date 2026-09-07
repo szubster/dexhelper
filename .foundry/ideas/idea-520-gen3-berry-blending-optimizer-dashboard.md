@@ -2,10 +2,10 @@
 id: idea-520-gen3-berry-blending-optimizer-dashboard
 type: IDEA
 title: Gen 3 Berry Blending Optimizer Dashboard
-status: ACTIVE
-owner_persona: product_manager
+status: BLOCKED
+owner_persona: tpm
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,8 @@ tags:
   - gen3
   - contests
 research_references: []
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
+locks: []
 ---
 
 # Idea: Gen 3 Berry Blending Optimizer Dashboard

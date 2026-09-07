@@ -2,10 +2,10 @@
 id: task-478-508-gen2-ruins-of-alph-qa
 type: TASK
 title: QA Gen 2 Ruins of Alph Puzzle Parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-31'
-updated_at: '2026-09-01'
+updated_at: '2026-09-07'
 depends_on:
   - task-478-507-gen2-ruins-of-alph-parsing-logic
 jules_session_id: null
@@ -16,6 +16,7 @@ tags:
   - unown
 rejection_count: 0
 rejection_reason: ''
+locks: []
 ---
 
 # QA Gen 2 Ruins of Alph Puzzle Parsing

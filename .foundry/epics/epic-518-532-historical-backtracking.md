@@ -2,12 +2,12 @@
 id: epic-518-532-historical-backtracking
 type: EPIC
 title: Curator Historical Backtracking System
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '10828691216156990658'
+jules_session_id: null
 parent: prd-151-518-holistic-code-curator-persona
 tags:
   - architecture

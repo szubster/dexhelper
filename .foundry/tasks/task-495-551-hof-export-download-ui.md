@@ -2,10 +2,10 @@
 id: task-495-551-hof-export-download-ui
 type: TASK
 title: Hall of Fame Export Download UI and Hookup
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on:
   - task-495-550-hof-export-image-renderer
 jules_session_id: null

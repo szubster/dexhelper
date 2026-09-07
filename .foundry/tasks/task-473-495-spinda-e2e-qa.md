@@ -1,11 +1,11 @@
 ---
 id: task-473-495-spinda-e2e-qa
 type: TASK
-title: "Gen 3 Spinda E2E Verification - QA"
-status: PENDING
-owner_persona: "qa"
-created_at: "2026-08-25"
-updated_at: "2026-08-25"
+title: Gen 3 Spinda E2E Verification - QA
+status: READY
+owner_persona: qa
+created_at: '2026-08-25'
+updated_at: '2026-09-07'
 depends_on:
   - task-473-494-spinda-e2e-tests
 jules_session_id: null
@@ -18,8 +18,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Gen 3 Spinda E2E Verification - QA

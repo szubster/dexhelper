@@ -2,12 +2,12 @@
 id: epic-518-538-frontend-refactoring
 type: EPIC
 title: Frontend Ecosystem Refactoring
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '8278491381784234976'
+jules_session_id: null
 pr_number: null
 parent: prd-154-518-ecosystem-modernization
 tags: []

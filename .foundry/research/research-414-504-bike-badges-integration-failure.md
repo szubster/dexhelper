@@ -2,7 +2,7 @@
 id: research-414-504-bike-badges-integration-failure
 type: RESEARCH
 title: Investigate Bike Badges UI Integration Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-08-31'
 updated_at: '2026-09-07'
@@ -14,8 +14,8 @@ tags:
   - ui
   - map
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: Created due to permanent failure of task-414-423-map-ui-bike-integration-impl
 locks: []
 ---

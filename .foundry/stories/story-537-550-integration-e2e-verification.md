@@ -2,10 +2,10 @@
 id: story-537-550-integration-e2e-verification
 type: STORY
 title: Integration and E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on:
   - story-537-546-generator-save-file-parsers
   - story-537-547-generator-binary-chunk-streams

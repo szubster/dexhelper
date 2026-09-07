@@ -2,10 +2,10 @@
 id: task-495-550-hof-export-image-renderer
 type: TASK
 title: Hall of Fame Export Image Renderer Logic
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on:
   - task-495-549-hof-export-font-utility
 jules_session_id: null

@@ -2,12 +2,12 @@
 id: story-539-545-dynamic-discovery-e2e
 type: STORY
 title: Dynamic Node Spawning Integration E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '14708030401756771175'
+jules_session_id: null
 pr_number: null
 parent: epic-518-539-dynamic-discovery
 tags:

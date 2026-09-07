@@ -2,12 +2,12 @@
 id: task-512-517-librarian-ingestion-script
 type: TASK
 title: Librarian Journal Ingestion Script
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '3097803180683779116'
+jules_session_id: null
 pr_number: null
 parent: story-410-512-librarian-ingestion-synthesis-script
 tags:

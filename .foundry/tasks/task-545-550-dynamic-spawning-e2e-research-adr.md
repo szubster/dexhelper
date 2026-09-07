@@ -2,16 +2,17 @@
 id: task-545-550-dynamic-spawning-e2e-research-adr
 type: TASK
 title: Implement E2E Tests for RESEARCH and ADR Dynamic Spawning
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on:
   - task-545-549-dynamic-spawning-e2e-fixtures
 jules_session_id: null
 pr_number: null
 parent: story-539-545-dynamic-discovery-e2e
-tags: [e2e]
+tags:
+  - e2e
 research_references: []
 rejection_count: 0
 rejection_reason: ''

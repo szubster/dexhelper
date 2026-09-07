@@ -2,10 +2,10 @@
 id: task-520-541-refactor-gen3-parsers-qa
 type: TASK
 title: QA Refactored Gen 3 Parsers
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on:
   - task-520-538-refactor-gen3-pokemon-data-parsers
   - task-520-539-refactor-gen3-world-event-parsers
