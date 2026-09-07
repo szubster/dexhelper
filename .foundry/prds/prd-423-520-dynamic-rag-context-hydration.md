@@ -37,4 +37,5 @@ The goal is to use `flexsearch` to index documents within `.foundry/docs/` and `
 - **Cost Efficiency:** Token consumption per agent session must be visibly reduced.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Generate an EPIC to implement the indexing and dynamic retrieval logic within the orchestrator pipeline.
+- [x] Epic Planner: Generate an EPIC to implement the indexing and dynamic retrieval logic within the orchestrator pipeline.
+- [ ] epic-520-534-dynamic-rag-context-hydration
