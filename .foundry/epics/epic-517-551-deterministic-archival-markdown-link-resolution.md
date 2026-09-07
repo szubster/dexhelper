@@ -26,6 +26,8 @@ Update the DAG orchestrator to scan all active nodes and rewrite legacy markdown
 
 ## Acceptance Criteria
 - [ ] Scan all active `.foundry/**/*.md` nodes (excluding journals/docs)
+- [ ] story-551-556-orchestrator-link-resolution-implementation
 - [ ] Upgrade legacy path-based markdown links of archived nodes to strict Node ID schema
 - [ ] Ensure location-agnostic raw ID format prevents active context breakage
 - [ ] Generate E2E verification story
+- [ ] story-551-557-integration-e2e-verification
