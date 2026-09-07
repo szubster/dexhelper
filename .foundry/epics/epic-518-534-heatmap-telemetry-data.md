@@ -1,13 +1,13 @@
 ---
 id: epic-518-534-heatmap-telemetry-data
 type: EPIC
-title: "Heatmap Telemetry Data Extraction"
-status: READY
-owner_persona: "story_owner"
-created_at: "2026-09-04"
-updated_at: "2026-09-04"
+title: Heatmap Telemetry Data Extraction
+status: ACTIVE
+owner_persona: story_owner
+created_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6917901181533644302'
 parent: prd-156-518-node-health-heatmap
 tags:
   - foundry
@@ -15,8 +15,8 @@ tags:
   - UI
   - tooling
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Heatmap Telemetry Data Extraction
