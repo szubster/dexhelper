@@ -28,5 +28,5 @@ locks: []
 - Verify that the pnpm workspace configuration meets the requirements.
 
 ## Acceptance Criteria
-- [ ] Verify `pnpm-workspace.yaml` includes the required patterns (`apps/*`, `packages/*`, `tools/*`).
-- [ ] Verify root `package.json` is set to private.
+- [x] Verify `pnpm-workspace.yaml` includes the required patterns (`apps/*`, `packages/*`, `tools/*`).
+- [x] Verify root `package.json` is set to private.
