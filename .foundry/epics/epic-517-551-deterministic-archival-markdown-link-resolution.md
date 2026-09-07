@@ -2,12 +2,12 @@
 id: epic-517-551-deterministic-archival-markdown-link-resolution
 type: EPIC
 title: Markdown Link Resolution for Archival
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17649293488013713527'
 pr_number: null
 parent: prd-152-517-deterministic-dag-tree-archival
 tags:
