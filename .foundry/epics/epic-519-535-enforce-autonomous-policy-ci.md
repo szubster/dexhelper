@@ -23,12 +23,12 @@ notes: ""
 While the Git hook (epic-519-534) provides fast feedback, we need a robust CI check to ensure violations of the "Autonomous No-Ask Policy" do not slip through if the hook is bypassed or if PR descriptions are modified post-commit.
 
 ## Scope
-1.  **CI Action**: Create or update a GitHub Action workflow to scan Pull Request descriptions and titles for prohibited phrases ("should I", "do you want me to", "is there anything else", "before I proceed", "should I open a PR"). Note that scanning git history is explicitly out of scope, we only focus on the PR title and description artifacts.
+1.  **CI Action**: Create or update a GitHub Action workflow to scan Pull Request descriptions, titles, and the commit history of the PR for prohibited phrases ("should I", "do you want me to", "is there anything else", "before I proceed", "should I open a PR").
 2.  **Orchestrator Fallback**: Ensure the orchestrator or CI correctly fails the build, marking the node as FAILED or flagging the PR, if these phrases are detected, forcing the agent into a resurrection loop or correction.
 
 ## Out of Scope
-- Checking commit histories within the CI action (the Git hook handles commits; this focuses on PR bodies). Scanning historical commits for these questions is out of scope.
+- Advanced LLM-based intent analysis; simple regex/phrase matching is sufficient for now.
 
 ## Acceptance Criteria
-- [ ] Implement a GitHub Action to scan PR descriptions and titles for trigger phrases.
+- [ ] Implement a GitHub Action to scan PR descriptions, titles, and commit history for trigger phrases.
 - [ ] Ensure the action fails the build and provides clear feedback on violation.
