@@ -29,5 +29,5 @@ Implement the logic to extract the Friendship (Happiness) value for Gen 3 Pokém
 **CRITICAL INSTRUCTION:** Do NOT manually implement `PV % 24` permutation logic. The `extractGen3PokemonData` utility already decrypts and reorganizes the 48-byte Data block into a canonical `GAEM` format. You must simply use the canonical buffer and extract the Friendship byte at a fixed relative offset `0x04` within the Growth (G) substructure (which is always at offset `0` in the canonical buffer).
 
 ## Acceptance Criteria
-- [ ] Implement utility/logic to extract friendship using canonical GAEM buffer
-- [ ] Write unit tests verifying Friendship extraction
+- [x] Implement utility/logic to extract friendship using canonical GAEM buffer
+- [x] Write unit tests verifying Friendship extraction
