@@ -23,6 +23,6 @@ locks: []
 To ensure the performance optimizations of dynamic imports do not break functionality, we need explicit Playwright E2E tests. The tests must verify that the save parsers and assistant strategies load correctly on-demand in a real browser environment without introducing regressions or unhandled lazy loading states.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests verifying save parser dynamic imports.
-- [ ] Implement Playwright E2E tests verifying assistant strategy dynamic imports.
-- [ ] Ensure no regressions are introduced in E2E environments.
+- [x] Implement Playwright E2E tests verifying save parser dynamic imports.
+- [x] Implement Playwright E2E tests verifying assistant strategy dynamic imports.
+- [x] Ensure no regressions are introduced in E2E environments.
