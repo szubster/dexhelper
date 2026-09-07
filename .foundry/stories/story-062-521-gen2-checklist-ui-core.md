@@ -25,5 +25,8 @@ notes: ''
 Implement the core UI components for the Gen 2 checklist to display the daily and weekly event checklist.
 
 ## Acceptance Criteria
+- [ ] task-521-536-gen2-checklist-layout-impl
+- [ ] task-521-537-gen2-checklist-items-impl
+- [ ] task-521-538-gen2-checklist-ui-qa
 - [ ] Implement checklist layout and design.
 - [ ] Create individual item components.
