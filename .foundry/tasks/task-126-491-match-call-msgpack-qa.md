@@ -2,13 +2,13 @@
 id: task-126-491-match-call-msgpack-qa
 type: TASK
 title: Match Call MsgPack QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-09-07'
 depends_on:
   - task-126-490-match-call-msgpack-hydration
-jules_session_id: null
+jules_session_id: '13392097809970279915'
 pr_number: null
 parent: story-084-126-match-call-msgpack
 tags:
