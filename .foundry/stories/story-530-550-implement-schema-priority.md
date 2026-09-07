@@ -2,12 +2,12 @@
 id: story-530-550-implement-schema-priority
 type: STORY
 title: Implement Schema Priority Field
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-05'
 updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '11654412334561503582'
+jules_session_id: null
 pr_number: null
 parent: epic-518-530-priority-schema-updates
 tags:
@@ -15,7 +15,7 @@ tags:
   - schema
   - types
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---

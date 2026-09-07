@@ -2,7 +2,7 @@
 id: task-470-487-catalog-integrate-saves
 type: TASK
 title: Catalog and Integrate Public Saves
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-24'
 updated_at: '2026-09-07'
@@ -16,8 +16,8 @@ tags:
   - testing
   - fixtures
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

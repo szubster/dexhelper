@@ -2,7 +2,7 @@
 id: epic-118-338-gen2-unown-dex-data-extraction
 type: EPIC
 title: Gen 2 Unown Dex Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-20'
 updated_at: '2026-09-07'

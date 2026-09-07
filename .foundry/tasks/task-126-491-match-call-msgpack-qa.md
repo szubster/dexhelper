@@ -2,7 +2,7 @@
 id: task-126-491-match-call-msgpack-qa
 type: TASK
 title: Match Call MsgPack QA
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-09-07'
@@ -16,8 +16,8 @@ tags:
   - feature
   - gen3
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
