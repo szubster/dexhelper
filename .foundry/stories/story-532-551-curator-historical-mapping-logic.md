@@ -32,3 +32,8 @@ Implement the logic that allows the holistic code curator to read and process th
 - [ ] Create tasks to update curator logic
 - [ ] Create tasks to test historical mapping ingestion
 - [ ] Create tasks to test dynamic remediation node spawning
+- [ ] task-551-562-update-curator-prompt-logic
+- [ ] task-551-563-qa-update-curator-prompt-logic
+- [ ] task-551-564-test-curator-historical-mapping-ingestion
+- [ ] task-551-565-test-curator-dynamic-remediation-spawning
+- [ ] task-551-566-qa-test-curator-historical-mapping
