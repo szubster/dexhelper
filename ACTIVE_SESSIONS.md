@@ -14,6 +14,7 @@
 | [epic-518-536-heatmap-e2e-testing](.foundry/epics/epic-518-536-heatmap-e2e-testing.md) | EPIC | Heatmap Integration & E2E Testing | story_owner | [10654288668688142776](https://jules.google.com/session/10654288668688142776) |
 | [epic-518-537-generator-architecture](.foundry/epics/epic-518-537-generator-architecture.md) | EPIC | Generator Architecture Implementation Plan | story_owner | [8633448144149627947](https://jules.google.com/session/8633448144149627947) |
 | [epic-518-538-frontend-refactoring](.foundry/epics/epic-518-538-frontend-refactoring.md) | EPIC | Frontend Ecosystem Refactoring | story_owner | [8278491381784234976](https://jules.google.com/session/8278491381784234976) |
+| [epic-520-534-dynamic-rag-context-hydration](.foundry/epics/epic-520-534-dynamic-rag-context-hydration.md) | EPIC | Implement Dynamic RAG-Based Context Hydration for Agent Prompts | story_owner | [18316452930099379239](https://jules.google.com/session/18316452930099379239) |
 | [epic-520-536-remove-gen3save-mock](.foundry/epics/epic-520-536-remove-gen3save-mock.md) | EPIC | Remove isGen3Save mock and fix heuristic | story_owner | [1349508265782360154](https://jules.google.com/session/1349508265782360154) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
