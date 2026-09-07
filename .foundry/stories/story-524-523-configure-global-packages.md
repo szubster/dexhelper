@@ -2,13 +2,13 @@
 id: story-524-523-configure-global-packages
 type: STORY
 title: Configure Global Packages
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
 updated_at: '2026-09-07'
 depends_on:
   - story-524-522-configure-workspace
-jules_session_id: null
+jules_session_id: '7415972497794772177'
 pr_number: null
 parent: epic-519-524-workspace-infrastructure
 tags:
