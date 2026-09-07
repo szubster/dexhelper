@@ -2,12 +2,12 @@
 id: task-431-469-smart-radar-test-utilities-impl
 type: TASK
 title: Smart Radar Test Utilities Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-22'
 updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4193762203326185418'
 pr_number: null
 parent: story-048-431-smart-radar-integration-e2e
 tags:
