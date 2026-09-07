@@ -27,9 +27,7 @@ locks: []
 Verify the full flow of exposing bike requirements in the Route Radar heatmap.
 
 ## Acceptance Criteria
-- [ ] qa: Verify the type definitions and controller logic handle bike requirements correctly.
-- [ ] qa: Verify MapUI correctly and aesthetically displays the bike requirements according to ADR 008.
-- [ ] qa: Verify tests cover all edge cases.
+- [x] qa: Verify the type definitions and controller logic handle bike requirements correctly.
+- [x] qa: Verify MapUI correctly and aesthetically displays the bike requirements according to ADR 008.
+- [x] qa: Verify tests cover all edge cases.
 
-### Auditor Rejection
-MapUI.tsx is missing visual indicators for Mach Bike and Acro Bike requirements.
