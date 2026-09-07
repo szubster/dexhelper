@@ -28,3 +28,7 @@ Update the DAG orchestrator to scan all active nodes and rewrite legacy markdown
 - [ ] Implement active node scanning
 - [ ] Upgrade legacy path-based markdown links
 - [ ] Ensure location-agnostic raw ID format
+- [ ] task-556-558-link-resolution-scanner-impl
+- [ ] task-556-559-markdown-link-rewriter-impl
+- [ ] task-556-560-orchestrator-link-integration-impl
+- [ ] task-556-561-orchestrator-link-resolution-qa
