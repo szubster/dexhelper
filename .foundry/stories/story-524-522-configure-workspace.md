@@ -2,10 +2,10 @@
 id: story-524-522-configure-workspace
 type: STORY
 title: Configure pnpm Workspace
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-06'
+updated_at: '2026-09-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -27,7 +27,7 @@ locks: []
 - Ensure the root `package.json` is correctly set up for the monorepo workspace.
 
 ## Acceptance Criteria
-- [ ] task-522-528-create-pnpm-workspace-yaml
-- [ ] task-522-529-update-root-package-json
-- [ ] task-522-530-workspace-config-qa
+- [x] task-522-528-create-pnpm-workspace-yaml
+- [x] task-522-529-update-root-package-json
+- [x] task-522-530-workspace-config-qa
 - [x] Break this story down into tasks for creating and configuring the workspace files.

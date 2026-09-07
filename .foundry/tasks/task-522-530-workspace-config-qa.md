@@ -2,14 +2,14 @@
 id: task-522-530-workspace-config-qa
 type: TASK
 title: QA Workspace Configuration
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-03'
 updated_at: '2026-09-07'
 depends_on:
   - task-522-528-create-pnpm-workspace-yaml
   - task-522-529-update-root-package-json
-jules_session_id: '6043197865157159568'
+jules_session_id: null
 pr_number: null
 parent: story-524-522-configure-workspace
 tags:
