@@ -26,6 +26,6 @@ notes: ''
 Implement or expand the E2E test verifying that Pokerus data from both the party and PC is successfully extracted and surfaced in the application.
 
 ## Acceptance Criteria
-- [ ] Expand or create an E2E test verifying Pokerus data for party Pokémon.
-- [ ] Expand or create an E2E test verifying Pokerus data for PC Pokémon.
-- [ ] Ensure tests cover the exfiltration requirements.
+- [x] Expand or create an E2E test verifying Pokerus data for party Pokémon.
+- [x] Expand or create an E2E test verifying Pokerus data for PC Pokémon.
+- [x] Ensure tests cover the exfiltration requirements.
