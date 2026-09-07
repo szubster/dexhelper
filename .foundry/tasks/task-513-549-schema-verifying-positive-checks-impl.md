@@ -26,4 +26,4 @@ locks: []
 This task updates the `scripts/verify-schema-documentation.ts` script to include positive pattern checks for the newly added VERIFYING state in `schema.md`.
 
 ## Acceptance Criteria
-- [ ] The verify-schema-documentation.ts script includes the positive pattern for Invariant 7.
+- [x] The verify-schema-documentation.ts script includes the positive pattern for Invariant 7.
