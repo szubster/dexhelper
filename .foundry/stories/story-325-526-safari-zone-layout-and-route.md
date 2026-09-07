@@ -27,4 +27,7 @@ locks: []
 Implement the main layout and route integration for the Safari Zone Tracking Dashboard, serving as the foundation for the visual representation and bounty board components.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-526-553-safari-zone-route-scaffolding-impl
+- [ ] task-526-554-safari-zone-layout-components-impl
+- [ ] task-526-555-safari-zone-layout-qa
