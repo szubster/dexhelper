@@ -14,4 +14,6 @@ locks: []
 ---
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Create TASK nodes to update NodeFrontmatterSchema in schema.ts, document priority in schema.md, and update new node templates.
+- [x] Tech Lead: Create TASK nodes to update NodeFrontmatterSchema in schema.ts, document priority in schema.md, and update new node templates.
+- [ ] task-540-556-update-node-frontmatter-schema
+- [ ] task-540-557-update-schema-docs-templates

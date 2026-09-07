@@ -1,0 +1,20 @@
+---
+id: task-540-556-update-node-frontmatter-schema
+type: TASK
+title: Update NodeFrontmatterSchema in schema.ts
+status: READY
+owner_persona: coder
+created_at: '2026-09-07'
+updated_at: '2026-09-07'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: story-540-550-priority-field-schema
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+locks: []
+---
+
+## Acceptance Criteria
+- [ ] Add an optional integer `priority` field to the `NodeFrontmatterSchema` in `.github/scripts/schema.ts`.
