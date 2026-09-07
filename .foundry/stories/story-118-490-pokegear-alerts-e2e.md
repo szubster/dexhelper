@@ -2,10 +2,10 @@
 id: story-118-490-pokegear-alerts-e2e
 type: STORY
 title: Pokegear Alerts E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-29'
-updated_at: '2026-09-01'
+updated_at: '2026-09-05'
 depends_on:
   - story-118-286-filter-swarm-item-calls
   - story-118-287-highlight-high-value-calls-ui
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Story: Pokegear Alerts E2E Verification
 
@@ -30,5 +31,5 @@ Implement End-to-End verification tests for the Pokegear Swarm & Item Alerts.
 - Ensure the Playwright suite comprehensively tests the UI filtering and alerts for high-value Pokegear calls in Gen 2 saves.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for high-value Pokegear calls
-- [ ] task-490-506-pokegear-alerts-e2e-impl
+- [x] Implement E2E tests for high-value Pokegear calls
+- [x] task-490-506-pokegear-alerts-e2e-impl

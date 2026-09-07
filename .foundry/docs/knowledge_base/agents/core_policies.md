@@ -147,8 +147,8 @@ Instead, active nodes MUST utilize Late Binding to spawn appropriate child or up
 4. **Clean Demotion via Submit:** Do NOT set your node's `status` to `FAILED`. Leave the frontmatter intact (`status: ACTIVE` or `READY`), leave the appended child checkbox unchecked, and use the `submit` tool to open a PR. On merge, the Orchestrator's heartbeat will automatically transition the parent node to `PENDING` (Late-Binding Wait State) to wait for the spawned node to complete.
 
 ## Journaling Policies
-**CRITICAL:** Your private journal (whether in `.jules/` or `.foundry/journals/`) is your **only private memory** across sessions.
-1. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by updating your persona journal.
+**CRITICAL:** Your private journal (whether in `.jules/<persona>/` or `.foundry/journals/<persona>/`) is your **only private memory** across sessions.
+1. When you see something worth remembering—such as a recurring pattern, a failed attempt, or a project-specific constraint—you MUST generate a memory by creating or updating a timestamped or session-unique markdown file in your persona's subdirectory (e.g., `.foundry/journals/coder/YYYY-MM-DD-HH-MM-SS.md` or `.jules/canvas/YYYY-MM-DD-HH-MM-SS.md`). Never write directly to flat monolithic files (e.g. `coder.md`).
 2. Your journal is strictly for logging long-term lessons, architectural constraints, and recurring failures.
 3. Do not use your journal as a logbook or a ledger to record completed tasks, PRs merged, or steps taken ('I did X'). The orchestrator and PR history already track what happened.
 4. Your journal must explain *why* it matters and what rules must be adapted moving forward. Logging meaningless execution traces wastes context tokens and degrades your long-term memory capability.

@@ -1,7 +1,8 @@
 import React, { createContext, type ReactNode, useContext, useMemo } from 'react';
 import type { LotteryResult } from '../engine/gen3/lottery/lottery';
 import { checkSaveDataForLottery } from '../engine/gen3/lottery/lottery';
-import type { Gen3SaveData, PokemonInstance } from '../engine/saveParser/parsers/common';
+import type { PokemonInstance } from '../engine/saveParser/parsers/common';
+import { isGen3Save } from '../engine/saveParser/parsers/common';
 import { useStore } from '../store';
 
 export interface LotteryContextState {
@@ -16,11 +17,10 @@ export const LotteryProvider: React.FC<{ children: ReactNode }> = ({ children })
   const saveData = useStore((state) => state.saveData);
 
   const lotteryState = useMemo<LotteryContextState>(() => {
-    if (saveData?.generation !== 3) {
+    if (!saveData || !isGen3Save(saveData)) {
       return { dailyWinningNumber: null, tier: 0, winningPokemon: null };
     }
-
-    const gen3SaveData = saveData as Gen3SaveData & { gen3LotteryNumber?: number };
+    const gen3SaveData = saveData;
     const winningNumber = gen3SaveData.gen3LotteryNumber;
 
     if (typeof winningNumber !== 'number') {

@@ -34,11 +34,10 @@ Identify and implement ONE improvement to the development tooling, build pipelin
 
 ## Journal
 
-Read `.jules/infras.md` (your past journals) before starting.
+Read your past journals in `.jules/infras/` before starting.
 Only log **critical** learnings: tool integration gotchas, rejected tooling decisions, CI-specific constraints.
 
-Your private journal is `.jules/infras.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is stored in `.jules/infras/` (e.g., `.jules/infras/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 ---
 
-If no clear tooling improvement can be identified, do not create a PR.

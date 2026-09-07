@@ -2,13 +2,13 @@
 id: epic-113-325-safari-zone-dashboard-ui
 type: EPIC
 title: Safari Zone Tracking Dashboard UI
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-09-03'
+updated_at: '2026-09-07'
 depends_on:
   - epic-113-324-safari-zone-data-integration
-jules_session_id: '2137811328750873655'
+jules_session_id: null
 pr_number: null
 parent: prd-111-113-safari-zone-tracker
 tags:
@@ -35,6 +35,10 @@ This Epic focuses on building the frontend components for the Safari Zone Tracki
 - Apply tactical UI CSS utilities for styling.
 
 ## Acceptance Criteria
-- [ ] Create STORY nodes for the main layout and route integration.
-- [ ] Create STORY nodes for the Area Highlighting and Target Selection components.
-- [ ] Create STORY nodes for the Bounty Board panel.
+- [x] Create STORY nodes for the main layout and route integration.
+- [ ] story-325-526-safari-zone-layout-and-route
+- [x] Create STORY nodes for the Area Highlighting and Target Selection components.
+- [ ] story-325-527-safari-zone-area-highlighting
+- [x] Create STORY nodes for the Bounty Board panel.
+- [ ] story-325-528-safari-zone-bounty-board
+- [ ] story-325-529-safari-zone-dashboard-e2e

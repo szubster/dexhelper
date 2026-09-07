@@ -2,12 +2,12 @@
 id: idea-422-gen3-fossil-revival-tracker
 type: IDEA
 title: Gen 3 Fossil Revival Tracker
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-27'
-updated_at: '2026-08-27'
+updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9955161458299285562'
 parent: null
 tags:
   - dexhelper

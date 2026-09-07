@@ -2,10 +2,10 @@
 id: epic-517-523-gen3-parser-refactor-adr-028
 type: EPIC
 title: Refactor Gen 3 Parsers for ADR 028
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: '1941470002480057626'
 pr_number: null
@@ -26,5 +26,8 @@ locks: []
 Following ADR 028, all inline magic numbers used for memory offsets, lengths, bit locations, and shifts in dynamic save block extraction must be replaced with explicitly defined module-level constants. This epic focuses on refactoring the existing save parsing logic for Generation 3 games, ensuring that relative offsets are properly implemented as mandated by ADR 028.
 
 ## Acceptance Criteria
-- [ ] Decompose this Epic into actionable Story nodes for Gen 3.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Decompose this Epic into actionable Story nodes for Gen 3.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-523-520-gen3-parsers-refactor-core
+- [ ] story-523-521-gen3-parsers-refactor-modules
+- [ ] story-523-522-gen3-parsers-refactor-e2e

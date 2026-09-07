@@ -5,7 +5,7 @@ title: Gen 3 Spinda Extraction E2E Verification
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-28'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Gen 3 Spinda Extraction E2E Verification

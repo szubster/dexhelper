@@ -2,12 +2,12 @@
 id: idea-487-refactor-rejection-count-schema
 type: IDEA
 title: Refactor IDEA Node Schema to Disallow Rejection Count and Reason
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-08-31'
-updated_at: '2026-09-01'
+updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: '1270286429906620454'
+jules_session_id: '7688355690923380942'
 pr_number: null
 parent: null
 tags: []

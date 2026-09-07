@@ -5,9 +5,9 @@ title: Implement Gen 2 Decorations E2E Tests
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-30'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '10977736811686028909'
+jules_session_id: '8542103052880498478'
 pr_number: null
 parent: story-311-443-gen2-decoration-savings-e2e
 tags:
@@ -15,7 +15,7 @@ tags:
   - e2e
   - playwright
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

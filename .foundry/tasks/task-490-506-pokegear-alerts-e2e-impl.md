@@ -2,12 +2,12 @@
 id: task-490-506-pokegear-alerts-e2e-impl
 type: TASK
 title: Implement Pokegear Alerts E2E Verification
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '13432442836361980735'
+jules_session_id: null
 pr_number: null
 parent: story-118-490-pokegear-alerts-e2e
 tags:
@@ -28,7 +28,7 @@ Implement End-to-End verification tests for the Pokegear Swarm & Item Alerts.
 We need to ensure the Playwright suite comprehensively tests the UI filtering and alerts for high-value Pokegear calls in Gen 2 saves.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for high-value Pokegear calls (swarm and item-giving)
+- [x] Implement Playwright E2E tests for high-value Pokegear calls (swarm and item-giving)
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

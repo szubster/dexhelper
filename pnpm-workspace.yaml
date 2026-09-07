@@ -1,8 +1,9 @@
 packages:
   - "."
+  - "apps/*"
+  - "packages/*"
+  - "tools/*"
   - ".github/scripts"
-
-legacyPeerDeps: true
 
 minimumReleaseAgeExclude:
   - "@oxlint-tsgolint/*"

@@ -1,14 +1,14 @@
 ---
 id: idea-421-automated-schema-linting
 type: IDEA
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 author: agile_coach
 title: Implement Automated Markdown Schema Validation via Biome or Custom CLI
 created_at: '2026-08-24'
-updated_at: '2026-08-24'
+updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5268093877274959550'
 parent: null
 tags: []
 rejection_count: 0

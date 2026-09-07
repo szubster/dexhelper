@@ -12,4 +12,4 @@ Produce clean, well-structured markdown files for each Epic, ensuring they align
 
 ## Journal
 
-Your private journal is `.foundry/journals/epic_planner.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is stored in `.foundry/journals/epic_planner/` (e.g., `.foundry/journals/epic_planner/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

@@ -2,12 +2,12 @@
 id: story-426-518-binjgb-memory-sync
 type: STORY
 title: Implement Real-time Memory Synchronization for binjgb
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '15661679190937744303'
+jules_session_id: null
 pr_number: null
 parent: epic-421-426-binjgb-integration
 tags:
@@ -28,4 +28,7 @@ Implement real-time memory synchronization with DexHelper Save DB to extract sav
 ## Acceptance Criteria
 - [ ] Implement Javascript bindings to extract `saveStateBuffer` from `binjgb`.
 - [ ] Implement real-time synchronization with DexHelper Save DB.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-518-528-binjgb-bindings-impl
+- [ ] task-518-529-binjgb-memory-sync-impl
+- [ ] task-518-530-binjgb-memory-sync-qa

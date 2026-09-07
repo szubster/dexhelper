@@ -6,6 +6,7 @@ import { getNature } from '../../../engine/gen3/nature';
 import type { PokemonInstance } from '../../../engine/saveParser/index';
 import { useStore } from '../../../store';
 import { getTimeCapsuleValidation } from '../../../utils/timeCapsule';
+import { CornerCrosshairs } from '../../CornerCrosshairs';
 import { HoverScanner } from '../../HoverScanner';
 import { LcdGrid } from '../../LcdGrid';
 import { PokerusBadge } from '../../PokerusBadge';
@@ -58,10 +59,7 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
               <HoverScanner />
 
               {/* Hardware Mounting Brackets */}
-              <div className="absolute top-0 left-0 h-2 w-2 border-white/20 border-t-2 border-l-2" />
-              <div className="absolute top-0 right-0 h-2 w-2 border-white/20 border-t-2 border-r-2" />
-              <div className="absolute bottom-0 left-0 h-2 w-2 border-white/20 border-b-2 border-l-2" />
-              <div className="absolute right-0 bottom-0 h-2 w-2 border-white/20 border-r-2 border-b-2" />
+              <CornerCrosshairs className="h-2 w-2 border-white/20" thickness={2} />
 
               <div
                 className={`flex items-center justify-between border-b border-dashed ${themeBorder} ${themeBg} px-4 py-2`}

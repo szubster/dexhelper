@@ -2,10 +2,10 @@
 id: idea-123-improved-savedata-typing
 type: IDEA
 title: Improve SaveData Typing with Discriminated Generation Unions
-status: PENDING
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-07-26'
-updated_at: '2026-08-05'
+updated_at: '2026-09-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Idea: Improve SaveData Typing with Discriminated Generation Unions
@@ -130,7 +131,7 @@ export type SaveData = Gen1SaveData | Gen2SaveData | Gen3SaveData;
 
 ## Acceptance Criteria
 - [x] Product Manager: Convert this idea into a PRD to define the expected structure and design.
-- [ ] prd-123-122-improved-savedata-typing
-- [ ] Architect: Design and draft an ADR (Architecture Decision Record) detailing the typed schema, and map out downstream consumer components that will benefit from this type narrowing.
-- [ ] Coder: Refactor the `SaveData` union type in `src/engine/saveParser/parsers/common.ts` and ensure all parser modules (`gen1.ts`, `gen2.ts`, `gen3.ts`) return their respective narrowed types properly.
-- [ ] QA: Run all existing parser tests to ensure no regressions occur and verify type-narrowing works seamlessly.
+- [x] prd-123-122-improved-savedata-typing
+- [x] Architect: Design and draft an ADR (Architecture Decision Record) detailing the typed schema, and map out downstream consumer components that will benefit from this type narrowing.
+- [x] Coder: Refactor the `SaveData` union type in `src/engine/saveParser/parsers/common.ts` and ensure all parser modules (`gen1.ts`, `gen2.ts`, `gen3.ts`) return their respective narrowed types properly.
+- [x] QA: Run all existing parser tests to ensure no regressions occur and verify type-narrowing works seamlessly.

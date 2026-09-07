@@ -2,12 +2,12 @@
 id: prd-137-346-orchestrator-telemetry-for-cycles
 type: PRD
 title: Orchestrator Telemetry For Cycles
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-31'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '10755803973718176622'
+jules_session_id: null
 pr_number: null
 parent: idea-000-137-orchestrator-telemetry-for-cycles
 tags:
@@ -29,3 +29,6 @@ During the completion of epic-334-338-circular-dependency-detection, logic was i
 1. Implement telemetry tracking for cycle detection failures in `.github/scripts/foundry-orchestrator.ts`.
 2. Ensure the telemetry tracking does not interfere with or degrade the primary function of the orchestrator.
 3. Record instances where the cycle detection fails a node so it can be effectively measured.
+
+## Acceptance Criteria
+- [ ] epic-346-530-orchestrator-telemetry-metrics

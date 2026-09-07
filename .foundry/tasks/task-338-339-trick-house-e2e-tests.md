@@ -2,12 +2,12 @@
 id: task-338-339-trick-house-e2e-tests
 type: TASK
 title: Implement Trick House E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-25'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '12471315369329370376'
+jules_session_id: null
 pr_number: null
 parent: story-338-339-trick-house-e2e-integration
 tags:
@@ -37,5 +37,5 @@ Write Playwright E2E/integration tests for end-to-end verification of Gen 3 Tric
 - The task is testing-focused, so no separate QA task is required (self-verification applies).
 
 ## Acceptance Criteria
-- [ ] Playwright E2E tests for Trick House state extraction and display are implemented and passing.
-- [ ] End-to-end flow with actual save file data is verified.
+- [x] Playwright E2E tests for Trick House state extraction and display are implemented and passing.
+- [x] End-to-end flow with actual save file data is verified.

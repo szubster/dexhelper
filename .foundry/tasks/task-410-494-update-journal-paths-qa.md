@@ -25,5 +25,5 @@ notes: ''
 Verify that the scripts and references updated in `task-410-493-update-journal-paths-impl` correctly handle the new persona-specific subdirectory structure.
 
 ## Acceptance Criteria
-- [ ] Verify that there are no remaining broken references to the old journal paths in the codebase.
-- [ ] Run scripts (e.g., `validate-foundry-schema.ts`) to ensure they do not error due to path mismatches.
+- [x] Verify that there are no remaining broken references to the old journal paths in the codebase.
+- [x] Run scripts (e.g., `validate-foundry-schema.ts`) to ensure they do not error due to path mismatches.

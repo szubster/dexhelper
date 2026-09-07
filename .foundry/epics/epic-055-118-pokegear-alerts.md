@@ -2,10 +2,10 @@
 id: epic-055-118-pokegear-alerts
 type: EPIC
 title: Pokegear Swarm & Item Alerts
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-30'
-updated_at: '2026-08-30'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Epic: Pokegear Swarm & Item Alerts
 
@@ -34,4 +35,4 @@ Implement specific UI alerts and filtering for high-value Pokegear calls (swarms
 - [x] Create distinct UI alerts for high-value calls
 - [x] story-118-286-filter-swarm-item-calls
 - [x] story-118-287-highlight-high-value-calls-ui
-- [ ] story-118-490-pokegear-alerts-e2e
+- [x] story-118-490-pokegear-alerts-e2e

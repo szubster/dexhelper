@@ -2,12 +2,12 @@
 id: research-078-150-rs-battle-tower-data
 type: RESEARCH
 title: Ruby/Sapphire Battle Tower Data Investigation
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-07-03'
-updated_at: '2026-08-14'
+updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7968889869267778353'
 pr_number: null
 parent: null
 tags:

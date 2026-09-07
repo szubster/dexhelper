@@ -72,18 +72,20 @@ export function getCommitList(branch: string = 'main'): string[] {
 export interface CommitDetails {
   sha: string;
   message: string;
+  date: string;
   files: string[];
 }
 
 export function getCommitDetails(sha: string): CommitDetails {
   try {
     const message = execSync(`git log -1 --format=%B ${sha}`, { encoding: 'utf8' }).trim();
+    const date = execSync(`git log -1 --format=%cs ${sha}`, { encoding: 'utf8' }).trim();
     const filesRaw = execSync(`git diff-tree --no-commit-id --name-only -r ${sha}`, { encoding: 'utf8' });
     const files = filesRaw.trim().split('\n').filter(Boolean);
-    return { sha, message, files };
+    return { sha, message, date, files };
   } catch (err) {
     process.stderr.write(`[changelog-engine] Error getting details for ${sha}: ${String(err)}\n`);
-    return { sha, message: '', files: [] };
+    return { sha, message: '', date: new Date().toISOString().split('T')[0]!, files: [] };
   }
 }
 
@@ -256,9 +258,11 @@ export function bumpVersion(currentVersion: string, bump: 'major' | 'minor' | 'p
 export function updateTaskNodeForCommit(
   commitDetails: CommitDetails,
   classification: CommitClassification,
-  taskPath: string = TASK_NODE_PATH
+  taskPath: string = TASK_NODE_PATH,
+  previousCommitSha: string | null = null
 ): void {
   const today = new Date().toISOString().split('T')[0]!;
+  const commitDate = commitDetails.date || today;
 
   let rawContent = '';
   if (fs.existsSync(taskPath)) {
@@ -282,11 +286,17 @@ export function updateTaskNodeForCommit(
   parsed.data.updated_at = today;
   parsed.data.owner_persona = 'changelogger';
 
+  const diffLinkExample = previousCommitSha
+    ? `[\`${latestVersion}...${nextVersion}\`](https://github.com/\${repo}/compare/${previousCommitSha.slice(0, 7)}...${commitDetails.sha.slice(0, 7)})`
+    : `[\`${commitDetails.sha.slice(0, 7)}\`](https://github.com/\${repo}/commit/${commitDetails.sha})`;
+
   const body = `# Changelog Backfill Commit Evaluation
 
 Target commit details injected by \`changelog-engine.ts\`:
 
 - **Commit SHA:** \`${commitDetails.sha}\`
+- **Previous Commit SHA:** ${previousCommitSha ? `\`${previousCommitSha}\`` : 'N/A'}
+- **Commit Date:** \`${commitDate}\`
 - **Classification Reason:** ${classification.reason}
 - **Recommended Domain:** ${domain}
 - **Suggested SemVer Bump:** \`${bumpType}\` (from \`${latestVersion}\` -> \`${nextVersion}\`)
@@ -301,7 +311,8 @@ ${commitDetails.files.map((f) => `- \`${f}\``).join('\n')}
 
 ## Evaluation Instructions
 As Changelogger, inspect the commit changes above.
-If a changelog entry or \`README.md\` update is warranted, create a PR adding a concise bullet point under \`## [Unreleased]\` or new release header \`## [${nextVersion}] - ${today}\` in \`${changelogFilename}\`, and update \`README.md\` if necessary.
+If a changelog entry or \`README.md\` update is warranted, create a PR adding a concise bullet point under \`## [Unreleased]\` or new release header \`## [${nextVersion}] - ${commitDate}\` in \`${changelogFilename}\` with diff link comparing previous release commit SHA to new release commit SHA (e.g. ${diffLinkExample}), and update \`README.md\` if necessary.
+If Keep a Changelog link references exist at the bottom of \`${changelogFilename}\`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
 `;
 
@@ -415,7 +426,8 @@ export async function runChangelogEngine(): Promise<void> {
     process.stdout.write(`[changelog-engine] Evaluating commit ${sha.slice(0, 7)}: ${classification.reason}\n`);
 
     // Re-open task node as READY for this commit
-    updateTaskNodeForCommit(details, classification);
+    const prevSha = state.last_processed_commit;
+    updateTaskNodeForCommit(details, classification, TASK_NODE_PATH, prevSha);
 
     state.status = 'pending_jules';
     saveState(state);

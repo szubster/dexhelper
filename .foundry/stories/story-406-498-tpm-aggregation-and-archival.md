@@ -2,10 +2,10 @@
 id: story-406-498-tpm-aggregation-and-archival
 type: STORY
 title: TPM Aggregation and Archival File System Operations
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-31'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: '17998798996293398364'
 pr_number: null
@@ -16,6 +16,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # TPM Aggregation and Archival File System Operations
@@ -29,6 +30,10 @@ Implement text aggregation and file system operations to append to the EPIC and 
 - Processed child nodes must be moved from `.foundry/stories/` and `.foundry/tasks/` to `.foundry/archive/stories/` and `.foundry/archive/tasks/`.
 
 ## Acceptance Criteria
+- [ ] task-498-526-tpm-aggregation-logic
+- [ ] task-498-527-tpm-archival-fs
+- [ ] task-498-528-tpm-aggregation-tests
+- [ ] task-498-529-tpm-aggregation-qa
 - [ ] Implement text aggregation and synthesis to create the Changelog & Learnings summary.
 - [ ] Implement file system operations to append to the EPIC.
 - [ ] Implement file system operations to move child files to `.foundry/archive/`.
