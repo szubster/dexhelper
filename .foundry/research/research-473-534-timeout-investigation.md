@@ -2,12 +2,12 @@
 id: research-473-534-timeout-investigation
 type: RESEARCH
 title: Investigate E2E Timeout Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12601311478727742728'
 pr_number: null
 parent: story-309-473-shiny-breeding-logic-e2e
 tags:
