@@ -29,5 +29,8 @@ Implement the historical backtracking mechanisms to allow the curator to cross-r
 - Ensure the curator can spawn remediation nodes linked to legacy ideas.
 
 ## Acceptance Criteria
-- [ ] Create STORY for creating the idea dependency matrix architecture
-- [ ] Create STORY for curator logic to process historical idea mappings
+- [x] Create STORY for creating the idea dependency matrix architecture
+- [x] Create STORY for curator logic to process historical idea mappings
+- [ ] story-532-550-idea-dependency-matrix-architecture
+- [ ] story-532-551-curator-historical-mapping-logic
+- [ ] story-532-552-curator-integration-e2e-verification
