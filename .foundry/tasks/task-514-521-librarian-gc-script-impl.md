@@ -27,6 +27,6 @@ notes: ''
 Implement the script to perform garbage collection on stale or processed agent journals as part of the librarian persona's responsibilities.
 
 ## Acceptance Criteria
-- [ ] Implement `sweep-journals.ts` (or similar script name) in `.github/scripts/` to handle deletion/archiving of old `.jules/*/*.md` and `.foundry/journals/*.md` files.
-- [ ] Define the logic to determine which journals are eligible for garbage collection (e.g., older than a certain timestamp, or explicitly marked as processed).
-- [ ] Ensure the script runs reliably and handles file system operations safely without deleting active, un-processed files.
+- [x] Implement `sweep-journals.ts` (or similar script name) in `.github/scripts/` to handle deletion/archiving of old `.jules/*/*.md` and `.foundry/journals/*.md` files.
+- [x] Define the logic to determine which journals are eligible for garbage collection (e.g., older than a certain timestamp, or explicitly marked as processed).
+- [x] Ensure the script runs reliably and handles file system operations safely without deleting active, un-processed files.
