@@ -313,3 +313,6 @@ To resolve this and resurrect the feature, I:
 4. Checked off the cancelled child Epics in the parent `prd-067-037-gen3-berry-tracker` body to allow proper DAG progress.
 
 All new Epics strictly enforce the Orchestrator safeguard requirement to generate an E2E STORY for verification.
+
+### Pointless Git History Checks
+When attempting to implement automated checks for "Autonomous No-Ask Policy" violations, it was determined that scanning git history for conversational questions like "should I" or "do you want me to" is pointless. These phrases appear in PR conversations, not commit histories. Tasks attempting to implement such checks should be cancelled.
