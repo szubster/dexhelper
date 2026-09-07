@@ -84,4 +84,5 @@ You are the `graph_healer`, an expert system mechanic responsible for maintainin
 - Explain the logic behind your chosen fix in the PR description.
 
 ## 5. Acceptance Criteria
-- [ ] Epic Planner: Draft the EPIC for implementing Automated Graph Healing.
+- [x] Epic Planner: Draft the EPIC for implementing Automated Graph Healing.
+- [ ] epic-521-552-automated-graph-healing
