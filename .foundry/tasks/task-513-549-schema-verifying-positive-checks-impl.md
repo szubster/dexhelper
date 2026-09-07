@@ -2,12 +2,12 @@
 id: task-513-549-schema-verifying-positive-checks-impl
 type: TASK
 title: Add positive pattern checks for VERIFYING state
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-06'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10757651054607219080'
 pr_number: null
 parent: story-130-513-schema-verifying-state-update-e2e
 tags:
