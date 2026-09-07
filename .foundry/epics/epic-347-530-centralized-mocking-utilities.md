@@ -2,12 +2,12 @@
 id: epic-347-530-centralized-mocking-utilities
 type: EPIC
 title: Centralized Playwright Mocking Utilities
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '3235059060383941140'
+jules_session_id: null
 pr_number: null
 parent: prd-422-347-playwright-mocking-utilities
 tags:

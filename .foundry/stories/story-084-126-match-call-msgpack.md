@@ -2,10 +2,10 @@
 id: story-084-126-match-call-msgpack
 type: STORY
 title: 'Story: Gen 3 Match Call MsgPack Integration'
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-13'
-updated_at: '2026-08-26'
+updated_at: '2026-09-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Story: Gen 3 Match Call MsgPack Integration
 

@@ -2,12 +2,12 @@
 id: prd-419-516-scheduled-agents-dashboard
 type: PRD
 title: GitHub Issue-Based Scheduled Agent Dispatch
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-02'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '8639224663139455483'
+jules_session_id: null
 pr_number: null
 parent: idea-419-scheduled-agents-dashboard
 tags:

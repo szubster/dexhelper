@@ -2,10 +2,10 @@
 id: story-401-410-update-downstream-journal-scripts
 type: STORY
 title: Update Downstream Nodes and Scripts for Journals
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-08-29'
+updated_at: '2026-09-07'
 depends_on:
   - story-401-408-persona-specific-journal-directories
 jules_session_id: null
@@ -18,6 +18,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Update Downstream Nodes and Scripts for Journals

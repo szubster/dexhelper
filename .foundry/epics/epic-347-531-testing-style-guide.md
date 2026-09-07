@@ -2,12 +2,12 @@
 id: epic-347-531-testing-style-guide
 type: EPIC
 title: Playwright Testing Style Guide
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '268975019598329217'
+jules_session_id: null
 pr_number: null
 parent: prd-422-347-playwright-mocking-utilities
 tags:

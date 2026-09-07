@@ -2,13 +2,13 @@
 id: task-126-491-match-call-msgpack-qa
 type: TASK
 title: Match Call MsgPack QA
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-31'
+updated_at: '2026-09-07'
 depends_on:
   - task-126-490-match-call-msgpack-hydration
-jules_session_id: '251707453485202552'
+jules_session_id: null
 pr_number: null
 parent: story-084-126-match-call-msgpack
 tags:
@@ -17,8 +17,9 @@ tags:
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
+locks: []
 ---
 
 # Match Call MsgPack QA

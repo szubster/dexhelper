@@ -2,20 +2,21 @@
 id: task-477-502-pokedata-plugin-refactor-impl
 type: TASK
 title: Refactor pokedata plugin to emit multiple bundles logic
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-30'
-updated_at: '2026-08-31'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '4046395032642001090'
+jules_session_id: null
 pr_number: null
 parent: story-419-477-pokedata-plugin-refactor
 tags:
   - performance
   - bundles
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
+locks: []
 ---
 
 # Task: Refactor pokedata plugin to emit multiple bundles logic

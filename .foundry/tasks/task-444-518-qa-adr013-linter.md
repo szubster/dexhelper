@@ -2,10 +2,10 @@
 id: task-444-518-qa-adr013-linter
 type: TASK
 title: QA ADR 013 State Compliance Linter
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-02T00:00:00.000Z'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on:
   - task-444-517-implement-adr013-linter
 jules_session_id: null

@@ -2,12 +2,12 @@
 id: prd-152-517-deterministic-dag-tree-archival
 type: PRD
 title: Deterministic DAG Tree Archival in Orchestrator
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-02'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '3198254559298352620'
+jules_session_id: null
 pr_number: null
 parent: idea-152-deterministic-dag-tree-archival
 tags:

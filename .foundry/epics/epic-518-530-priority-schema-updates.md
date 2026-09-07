@@ -2,12 +2,12 @@
 id: epic-518-530-priority-schema-updates
 type: EPIC
 title: Implement Priority Field in Schema
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '15228761321302375862'
+jules_session_id: null
 pr_number: null
 parent: prd-148-518-priority-based-dispatch-queue
 tags:
