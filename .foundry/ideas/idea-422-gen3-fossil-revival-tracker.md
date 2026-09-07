@@ -42,4 +42,5 @@ Introduce a "Fossil Revival Tracker" component within the DexHelper dashboard fo
 - **Improved UX:** Removes the need for players to travel to the revival locations just to check the status.
 
 ## 4. Next Steps & Acceptance Criteria
-- [ ] Product Manager: Draft a PRD outlining the Fossil Revival Tracker UI and the specific data extraction requirements for RSE and FRLG.
+- [x] Product Manager: Draft a PRD outlining the Fossil Revival Tracker UI and the specific data extraction requirements for RSE and FRLG.
+- [ ] prd-422-520-gen3-fossil-revival-tracker
