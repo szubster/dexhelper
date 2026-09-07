@@ -29,5 +29,8 @@ Design and implement the initial structure and scripts for maintaining a lightwe
 - Ensure the matrix maps overlapping domain boundaries between implemented and archived Ideas.
 
 ## Acceptance Criteria
-- [ ] Create tasks to design the matrix format
-- [ ] Create tasks to implement the update mechanism
+- [x] Create tasks to design the matrix format
+- [x] Create tasks to implement the update mechanism
+- [ ] task-550-562-design-idea-matrix-schema
+- [ ] task-550-563-implement-idea-matrix-updater
+- [ ] task-550-564-qa-idea-matrix-architecture
