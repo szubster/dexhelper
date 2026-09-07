@@ -27,6 +27,6 @@ notes: ''
 Implement the core script for updating the knowledge base documentation with the extracted rules.
 
 ## Acceptance Criteria
-- [ ] Implement the core documentation update script logic.
-- [ ] Write unit tests to verify correct update operations.
-- [ ] Verify the script properly updates files under `.foundry/docs/knowledge_base`.
+- [x] Implement the core documentation update script logic.
+- [x] Write unit tests to verify correct update operations.
+- [x] Verify the script properly updates files under `.foundry/docs/knowledge_base`.
