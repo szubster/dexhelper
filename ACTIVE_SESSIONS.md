@@ -4,6 +4,7 @@
 | --- | --- | --- | --- | --- |
 | [epic-037-513-gen3-berry-tracker-data-extraction-retry](.foundry/epics/epic-037-513-gen3-berry-tracker-data-extraction-retry.md) | EPIC | Gen 3 Berry Tracker Data Extraction (Retry) | story_owner | [2207205937950131080](https://jules.google.com/session/2207205937950131080) |
 | [epic-038-062-mirage-island-ui](.foundry/epics/epic-038-062-mirage-island-ui.md) | EPIC | Gen 3 Mirage Island Predictor UI Updates | story_owner | [1959226129588382487](https://jules.google.com/session/1959226129588382487) |
+| [epic-118-338-gen2-unown-dex-data-extraction](.foundry/epics/epic-118-338-gen2-unown-dex-data-extraction.md) | EPIC | Gen 2 Unown Dex Data Extraction | story_owner | [4362905026504794719](https://jules.google.com/session/4362905026504794719) |
 | [epic-343-517-gen3-weather-anomaly-data](.foundry/epics/epic-343-517-gen3-weather-anomaly-data.md) | EPIC | Gen 3 Weather Anomaly Data Parsing | story_owner | [4080139958935492345](https://jules.google.com/session/4080139958935492345) |
 | [epic-346-517-archival-cleanup-core-engine](.foundry/epics/epic-346-517-archival-cleanup-core-engine.md) | EPIC | Archival Cleanup Core Engine | story_owner | [6258638720632667719](https://jules.google.com/session/6258638720632667719) |
 | [epic-518-532-historical-backtracking](.foundry/epics/epic-518-532-historical-backtracking.md) | EPIC | Curator Historical Backtracking System | story_owner | [10828691216156990658](https://jules.google.com/session/10828691216156990658) |
