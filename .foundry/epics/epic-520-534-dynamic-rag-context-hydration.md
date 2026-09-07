@@ -34,5 +34,9 @@ This Epic will be broken down into the following stories:
 4. **Integration & E2E Verification:** Verify that the RAG pipeline operates efficiently and safely without breaking existing orchestration pipelines.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Generate STORY nodes mapping to the high-level breakdown.
-- [ ] Story Owner: Ensure a final STORY is dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Generate STORY nodes mapping to the high-level breakdown.
+- [x] Story Owner: Ensure a final STORY is dedicated exclusively to Integration and E2E Verification.
+- [ ] story-534-558-rag-tooling-and-indexing
+- [ ] story-534-559-rag-dynamic-querying-retrieval
+- [ ] story-534-560-rag-retrieval-injection-invariants
+- [ ] story-534-561-rag-integration-e2e-verification
