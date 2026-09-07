@@ -1,13 +1,16 @@
-/**
- * @vitest-environment happy-dom
- */
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { MGBAWasmWrapper } from '../MGBAWasmWrapper';
 import type { MGBAFactory, MGBAWasmModule } from '../types';
 
 describe('MGBAWasmWrapper', () => {
+  beforeEach(() => {
+    // Mocking global window for testing without a DOM environment
+    (globalThis as unknown as { window: unknown }).window = {};
+  });
+
   afterEach(() => {
-    delete window.mgba;
+    // Clean up
+    delete (globalThis as unknown as { window?: unknown }).window;
   });
 
   it('should initialize successfully with wasmBinary', async () => {
