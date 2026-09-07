@@ -16,4 +16,4 @@ parent: story-530-535-curator-e2e-integration
 # Create fixture for curator persona
 
 ## Acceptance Criteria
-- [ ] Create a valid markdown fixture `.foundry/fixtures/task-004-curator-valid.md` using the `curator` owner_persona
+- [x] Create a valid markdown fixture `.foundry/fixtures/task-004-curator-valid.md` using the `curator` owner_persona
