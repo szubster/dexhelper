@@ -1,0 +1,2 @@
+# Researcher Journal Entry
+The root cause of the previous session timeout (>7 days) during the implementation of Gen 2 Shiny Breeding E2E tests was running the full Playwright E2E test suite instead of targeting a specific file. The full suite takes over 400 seconds, which exceeds the bash session timeout. When verifying E2E test changes, agents must explicitly target the affected test files (e.g., `xvfb-run -a pnpm test:e2e tests/e2e/file.spec.ts`) instead of running the entire suite, as documented in the Coder persona journal.
