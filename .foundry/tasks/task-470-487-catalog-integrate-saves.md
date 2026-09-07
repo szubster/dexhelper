@@ -2,7 +2,7 @@
 id: task-470-487-catalog-integrate-saves
 type: TASK
 title: Catalog and Integrate Public Saves
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-24'
 updated_at: '2026-09-07'
