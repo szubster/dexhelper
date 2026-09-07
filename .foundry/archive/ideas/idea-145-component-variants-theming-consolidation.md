@@ -49,6 +49,6 @@ Rather than committing to a single library immediately, the investigation will p
 - [x] Draft an Architecture Decision Record (ADR) presenting multiple architecture paths.
 
 ### Downstream Graph Nodes
-- [x] `.foundry/research/research-145-001-component-variant-libraries.md`
-- [x] `.foundry/research/research-145-002-component-theming-mechanisms.md`
+- [x] `.foundry/archive/research/research-145-001-component-variant-libraries.md`
+- [x] `.foundry/archive/research/research-145-002-component-theming-mechanisms.md`
 - [x] `.foundry/docs/adrs/adr-145-031-component-variant-theming.md`
