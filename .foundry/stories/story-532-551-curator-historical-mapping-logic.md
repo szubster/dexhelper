@@ -29,9 +29,9 @@ Implement the logic that allows the holistic code curator to read and process th
 - Provide the curator with the ability to dynamically spawn remediation nodes (e.g., RESEARCH or TASK) linked to legacy ideas.
 
 ## Acceptance Criteria
-- [ ] Create tasks to update curator logic
-- [ ] Create tasks to test historical mapping ingestion
-- [ ] Create tasks to test dynamic remediation node spawning
+- [x] Create tasks to update curator logic
+- [x] Create tasks to test historical mapping ingestion
+- [x] Create tasks to test dynamic remediation node spawning
 - [ ] task-551-562-update-curator-prompt-logic
 - [ ] task-551-563-qa-update-curator-prompt-logic
 - [ ] task-551-564-test-curator-historical-mapping-ingestion
