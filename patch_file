@@ -1,9 +1,0 @@
---- .foundry/tasks/task-475-537-verify-orchestrator-tests.md
-+++ .foundry/tasks/task-475-537-verify-orchestrator-tests.md
-@@ -31,4 +31,4 @@
- - Execute the orchestrator test suite (`npx vitest`).
- - If any test fails (e.g., prompt parsing issues due to the recent additions), investigate and fix the orchestrator script or the prompt files to ensure compliance.
-
- ## Acceptance Criteria
--- [ ] The orchestrator test suite (`cd .github/scripts && npx vitest`) successfully executes and passes.
-+- [x] The orchestrator test suite (`cd .github/scripts && npx vitest`) successfully executes and passes.
