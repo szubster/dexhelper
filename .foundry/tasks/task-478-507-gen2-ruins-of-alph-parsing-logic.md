@@ -32,7 +32,7 @@ With the constants and types defined for the Ruins of Alph puzzles, we need to i
 - Add unit tests to verify the correct parsing of these event flags.
 
 ## Acceptance Criteria
-- [ ] Implement parsing logic to extract Kabuto, Aerodactyl, Ho-Oh, and Omanyte puzzle completion flags.
-- [ ] Ensure `RangeError` is handled correctly.
-- [ ] Explicitly map bit offsets using defined constants.
-- [ ] Write unit tests verifying the puzzle parsing logic.
+- [x] Implement parsing logic to extract Kabuto, Aerodactyl, Ho-Oh, and Omanyte puzzle completion flags.
+- [x] Ensure `RangeError` is handled correctly.
+- [x] Explicitly map bit offsets using defined constants.
+- [x] Write unit tests verifying the puzzle parsing logic.
