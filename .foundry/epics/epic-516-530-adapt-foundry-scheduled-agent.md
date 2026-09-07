@@ -4,8 +4,8 @@ type: EPIC
 title: "Adapt foundry-scheduled-agent for Issue Triggers"
 status: READY
 owner_persona: story_owner
-created_at: "2026-09-04"
-updated_at: "2026-09-04"
+created_at: "2026-09-07"
+updated_at: "2026-09-07"
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -29,7 +29,6 @@ Currently, `foundry-scheduled-agent.yml` is triggered directly via `workflow_cal
 - Modify `foundry-scheduled-agent.yml` triggers to run on `issues` with `types: [opened]`.
 - Verify the issue has the `jules` label and its title matches the `Scheduled Agent: <persona>` pattern.
 - Extract the persona from the issue title and pass it to the orchestrator for prompt compilation.
-- Inject a prompt instruction for the agent to append `Closes #<issue_number>` to its PR body so the issue automatically closes on merge.
 
 ## Acceptance Criteria
 - [ ] Story Owner: Break down into STORY node(s) for implementation.
