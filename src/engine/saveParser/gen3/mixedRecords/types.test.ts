@@ -22,6 +22,7 @@ describe('Gen 3 Mixed Records Types & Constants', () => {
       trainerName: 'Ash',
       trainerGender: 0,
       trainerId: 12345,
+      battledOwnerToday: false,
       party: [validPokemon],
     };
 
@@ -32,5 +33,7 @@ describe('Gen 3 Mixed Records Types & Constants', () => {
   it('should verify constants exist', () => {
     expect(Constants.MIXED_RECORD_NPC_PARTY_COUNT).toBe(6);
     expect(Constants.MIXED_RECORD_POKEMON_MOVES_COUNT).toBe(4);
+    expect(Constants.MIXED_RECORD_NPC_FLAGS_OFFSET).toBe(0x01);
+    expect(Constants.MIXED_RECORD_NPC_BATTLED_TODAY_MASK).toBe(0x20);
   });
 });
