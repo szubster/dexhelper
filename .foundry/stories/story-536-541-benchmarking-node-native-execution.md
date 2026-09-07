@@ -24,4 +24,8 @@ locks: []
 This story outlines the work required to evaluate Node.js native execution capabilities, determining performance characteristics and potential improvements compared to existing solutions for ecosystem modernization.
 
 ## Acceptance Criteria
-- [ ] Decompose into implementation tasks for benchmarking Node.js native execution.
+- [x] Decompose into implementation tasks for benchmarking Node.js native execution.
+- [ ] task-541-546-benchmark-node-native-harness
+- [ ] task-541-547-benchmark-node-native-runner
+- [ ] task-541-548-benchmark-node-native-reporter
+- [ ] task-541-549-benchmark-node-native-qa
