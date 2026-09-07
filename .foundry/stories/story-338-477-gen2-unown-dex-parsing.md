@@ -5,16 +5,17 @@ title: Parse Gen 2 Caught Unown Forms
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-31'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '11726065761516329135'
+jules_session_id: '454271459031084927'
 parent: epic-118-338-gen2-unown-dex-data-extraction
 tags:
   - feature
   - gen2
   - unown
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
+locks: []
 ---
 
 # Parse Gen 2 Caught Unown Forms

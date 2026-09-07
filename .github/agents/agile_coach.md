@@ -26,5 +26,5 @@ You are the Agile Coach of The Foundry. You run on a daily or weekly schedule as
 
 ## Journal
 
-Your private journal is `.foundry/journals/agile_coach.md`. You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is stored in `.foundry/journals/agile_coach/` (e.g., `.foundry/journals/agile_coach/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 

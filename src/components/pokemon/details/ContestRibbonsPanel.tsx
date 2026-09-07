@@ -1,6 +1,5 @@
 import { ShieldCheck } from 'lucide-react';
 import type { Gen3Ribbons } from '../../../engine/saveParser/parsers/common';
-import { objectEntries } from '../../../utils/object';
 import { type ContestConditionType, ContestRibbonBadge, type ContestRibbonRank } from './ContestRibbonBadge';
 
 interface ContestRibbonsPanelProps {
@@ -14,7 +13,7 @@ const rankMap: Record<number, ContestRibbonRank> = {
   4: 'Master',
 };
 
-const conditionMap: Record<keyof Gen3Ribbons, ContestConditionType> = {
+const conditionMap: Partial<Record<keyof Gen3Ribbons, ContestConditionType>> = {
   cool: 'Cool',
   beauty: 'Beauty',
   cute: 'Cute',
@@ -23,7 +22,8 @@ const conditionMap: Record<keyof Gen3Ribbons, ContestConditionType> = {
 };
 
 export function ContestRibbonsPanel({ ribbons }: ContestRibbonsPanelProps) {
-  const hasRibbons = Object.values(ribbons).some((rank) => rank > 0);
+  const contestRibbons = [ribbons.cool, ribbons.beauty, ribbons.cute, ribbons.smart, ribbons.tough];
+  const hasRibbons = contestRibbons.some((rank) => rank > 0);
 
   if (!hasRibbons) {
     return null;
@@ -37,10 +37,12 @@ export function ContestRibbonsPanel({ ribbons }: ContestRibbonsPanelProps) {
         </span>
       </div>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
-        {objectEntries(ribbons).map(([key, rank]) => {
-          if (rank === 0 || !rankMap[rank]) return null;
+        {Object.entries(ribbons).map(([key, rank]) => {
+          if (typeof rank !== 'number' || rank === 0 || !rankMap[rank]) return null;
+          const conditionType = conditionMap[key as keyof Gen3Ribbons];
+          if (!conditionType) return null;
 
-          return <ContestRibbonBadge key={key} type={conditionMap[key]} rank={rankMap[rank]} />;
+          return <ContestRibbonBadge key={key} type={conditionType} rank={rankMap[rank]} />;
         })}
       </div>
     </div>

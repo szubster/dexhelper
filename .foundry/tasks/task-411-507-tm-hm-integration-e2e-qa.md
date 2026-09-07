@@ -2,10 +2,10 @@
 id: task-411-507-tm-hm-integration-e2e-qa
 type: TASK
 title: QA of TM/HM Integration E2E Tests (Retry)
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-05'
 depends_on:
   - task-411-506-tm-hm-integration-e2e-impl
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # QA of TM/HM Integration E2E Tests (Retry)
@@ -33,6 +34,6 @@ Review and verify the implementation of the TM/HM integration end-to-end tests t
 4.  Confirm that the tests validate extraction, event flags, and inventory generation.
 
 ## Acceptance Criteria
-- [ ] Verify test coverage for Gen 1, Gen 2, and Gen 3.
-- [ ] Verify test suite runs successfully.
-- [ ] Verify adherence to testing library constraints.
+- [x] Verify test coverage for Gen 1, Gen 2, and Gen 3.
+- [x] Verify test suite runs successfully.
+- [x] Verify adherence to testing library constraints.

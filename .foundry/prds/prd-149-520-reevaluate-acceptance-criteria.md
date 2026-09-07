@@ -2,12 +2,12 @@
 id: prd-149-520-reevaluate-acceptance-criteria
 type: PRD
 title: Re-evaluate Acceptance Criteria Structure and Usage in Foundry
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '10502994563607865723'
+jules_session_id: null
 pr_number: null
 parent: idea-149-reevaluate-acceptance-criteria
 tags:
@@ -45,4 +45,6 @@ This PRD mandates a comprehensive evaluation of Acceptance Criteria across the F
 - Define necessary updates for `.foundry/docs/schema.md` and `.github/scripts/foundry-orchestrator.ts`.
 
 ## Acceptance Criteria
-- [ ] epic_planner: Break down this PRD into EPIC(s) focusing on the research and ADR phases.
+- [x] epic_planner: Break down this PRD into EPIC(s) focusing on the research and ADR phases.
+- [ ] epic-520-534-acceptance-criteria-research
+- [ ] epic-520-535-acceptance-criteria-adr

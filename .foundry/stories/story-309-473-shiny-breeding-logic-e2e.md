@@ -35,6 +35,10 @@ This story is dedicated exclusively to Integration and E2E Verification for the 
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break this STORY down into actionable TASK nodes for the engineering team.
-- [ ] task-473-493-breeding-e2e-gender-egg-groups
-- [ ] task-473-494-breeding-e2e-dv-shiny-odds
-- [ ] task-473-495-breeding-e2e-qa
+- [x] task-473-493-breeding-e2e-gender-egg-groups
+- [ ] research-473-534-timeout-investigation
+- [ ] task-473-535-breeding-e2e-gender-egg-groups
+- [x] task-473-494-breeding-e2e-dv-shiny-odds
+- [ ] task-473-536-breeding-e2e-dv-shiny-odds
+- [x] task-473-495-breeding-e2e-qa
+- [ ] task-473-537-breeding-e2e-qa

@@ -2,10 +2,10 @@
 id: epic-071-125-migrate-complex-app-components-v2
 type: EPIC
 title: Migrate Complex App Components V2
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on:
   - epic-071-124-migrate-core-tactical-components-v2
 jules_session_id: '12861060129650014348'
@@ -39,3 +39,5 @@ Refactor higher-level, complex application components and views to leverage the 
 ## Acceptance Criteria
 - [ ] High-level components and views are updated to use semantic `@utility` classes where appropriate.
 - [ ] The tactical hardware aesthetic is maintained without visual regressions.
+- [ ] story-125-519-refactor-complex-dashboard
+- [ ] story-125-520-refactor-complex-dashboard-e2e

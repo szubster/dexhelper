@@ -2,10 +2,10 @@
 id: epic-516-530-replace-xyflow-core
 type: EPIC
 title: Replace xyflow with a lightweight DAG tree component
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: null
 parent: prd-418-516-replace-xyflow-with-custom-dag
@@ -34,3 +34,6 @@ Implement a lightweight, DOM-based directory tree visualization for the Foundry 
 - [ ] Implement `DagTree` UI logic.
 - [ ] Implement dependencies and Vite configuration cleanup.
 - [ ] Implement E2E testing layer for verification.
+- [ ] story-530-536-dagtree-ui-logic
+- [ ] story-530-537-xyflow-cleanup
+- [ ] story-530-538-dagtree-e2e-verification

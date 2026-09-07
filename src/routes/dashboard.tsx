@@ -22,6 +22,12 @@ const Gen3SecretBaseDashboard = React.lazy(() =>
   })),
 );
 
+const Gen3TrickHouseDashboard = React.lazy(() =>
+  import('../components/dashboard/trick-house/Gen3TrickHouseDashboard').then((m) => ({
+    default: m.Gen3TrickHouseDashboard,
+  })),
+);
+
 const Gen3NpcTrades = React.lazy(() =>
   import('../components/dashboard/trades/Gen3NpcTrades').then((m) => ({ default: m.Gen3NpcTrades })),
 );
@@ -52,6 +58,10 @@ const GlobalRibbonChecklistDashboard = React.lazy(() =>
 
 const Gen2NpcTrades = React.lazy(() =>
   import('../components/dashboard/trades/Gen2NpcTrades').then((m) => ({ default: m.Gen2NpcTrades })),
+);
+
+const Gen2SavingsDashboard = React.lazy(() =>
+  import('../components/dashboard/savings/Gen2SavingsDashboard').then((m) => ({ default: m.Gen2SavingsDashboard })),
 );
 
 const ActiveCallersDashboard = React.lazy(() =>
@@ -88,11 +98,13 @@ function DashboardPage() {
             <Gen3SecretBaseDashboard saveData={saveData} />
             <Gen3EventItemsDashboard saveData={saveData} />
             <Gen3StaticEncountersDashboard saveData={saveData} />
+            <Gen3TrickHouseDashboard saveData={saveData} />
             <Gen3NpcTrades />
           </>
         ) : (
           <>
             <Gen2Checklist />
+            <Gen2SavingsDashboard />
             {saveData.gen2PokegearPhone?.highValueContacts && (
               <ActiveCallersDashboard
                 contacts={saveData.gen2PokegearPhone.highValueContacts}

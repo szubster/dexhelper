@@ -39,6 +39,19 @@ export interface Gen3Ribbons {
   cute: number;
   smart: number;
   tough: number;
+  champion: boolean;
+  winning: boolean;
+  victory: boolean;
+  artist: boolean;
+  effort: boolean;
+  battleChampion: boolean;
+  regionalChampion: boolean;
+  nationalChampion: boolean;
+  country: boolean;
+  national: boolean;
+  earth: boolean;
+  world: boolean;
+  obedience: boolean;
 }
 
 export interface Gen3ConditionStats {
@@ -116,6 +129,17 @@ export interface Gen3TrainerCard {
   hasNationalDex: boolean;
   hasBattleFrontier: boolean;
   hasContestMaster: boolean;
+}
+
+export interface Gen3MysteryGift {
+  hasAuroraTicket: boolean;
+  hasMysticTicket: boolean;
+  hasEonTicket: boolean;
+  hasOldSeaMap: boolean;
+  isSouthernIslandEnabled: boolean;
+  isBirthIslandEnabled: boolean;
+  isNavelRockEnabled: boolean;
+  isFarawayIslandEnabled: boolean;
 }
 
 export interface Gen3Spinda {
@@ -464,6 +488,9 @@ export interface Gen3SaveData extends BaseSaveData {
   gen3Spindas?: Gen3Spinda[];
   /** Gen 3 specific: Daycare state */
   gen3Daycare?: Gen3DaycareData;
+  gen3LotteryNumber?: number;
+  /** Gen 3 specific: Mystery Gift event item and location state */
+  gen3MysteryGift?: Gen3MysteryGift;
 }
 
 export type SaveData = Gen1SaveData | Gen2SaveData | Gen3SaveData;

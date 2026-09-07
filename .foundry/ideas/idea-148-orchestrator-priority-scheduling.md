@@ -2,10 +2,10 @@
 id: idea-148-orchestrator-priority-scheduling
 type: IDEA
 title: Foundry Orchestrator DAG Priority Scheduling
-status: READY
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-08-13'
-updated_at: '2026-08-13'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -39,4 +39,5 @@ Introduce a **Priority Scheduling Engine** into the orchestrator:
 This enhancement transitions the autonomous software factory from naive parallel execution to focused, strategic delivery. It prioritizes critical path tasks, minimizes git merge conflicts, and ensures that the most important features are delivered end-to-end first, while still maximizing Jules agent utilization.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a comprehensive PRD detailing the schema changes and priority scheduling algorithm.
+- [x] Product Manager: Draft a comprehensive PRD detailing the schema changes and priority scheduling algorithm.
+- [ ] prd-148-521-orchestrator-priority-scheduling

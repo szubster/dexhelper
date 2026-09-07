@@ -93,7 +93,10 @@ export function appendContinuousChangelogEntry(node: any, repoRoot: string): voi
 
   try {
     let content = fs.readFileSync(changelogPath, 'utf8');
-    const entry = `- ${title}\n`;
+    const prNumber = node.frontmatter?.pr_number;
+    const repoFullName = process.env.GITHUB_REPOSITORY || 'szubster/dexhelper';
+    const linkSuffix = prNumber ? ` ([#${prNumber}](https://github.com/${repoFullName}/pull/${prNumber}))` : '';
+    const entry = `- ${title}${linkSuffix}\n`;
 
     if (content.includes(title)) {
       return;

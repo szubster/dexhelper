@@ -2,12 +2,12 @@
 id: task-478-506-gen2-ruins-of-alph-constants
 type: TASK
 title: Define Gen 2 Ruins of Alph Puzzle Constants
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-31'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '14547134645635734612'
+jules_session_id: null
 parent: story-338-478-gen2-ruins-of-alph-puzzle-flags
 tags:
   - feature

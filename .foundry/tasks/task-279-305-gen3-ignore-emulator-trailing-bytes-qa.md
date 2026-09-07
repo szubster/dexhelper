@@ -2,10 +2,10 @@
 id: task-279-305-gen3-ignore-emulator-trailing-bytes-qa
 type: TASK
 title: QA Gen 3 Graceful Ignorance of Emulator Trailing Bytes
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-07-06'
-updated_at: '2026-07-06'
+updated_at: '2026-09-07'
 depends_on:
   - task-279-304-gen3-ignore-emulator-trailing-bytes-impl
 jules_session_id: null
@@ -17,8 +17,11 @@ tags:
   - rtc
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-279-304-gen3-ignore-emulator-trailing-bytes-impl
 notes: ''
+locks: []
 ---
 
 # Task: QA Gen 3 Graceful Ignorance of Emulator Trailing Bytes

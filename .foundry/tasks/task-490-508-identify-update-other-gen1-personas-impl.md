@@ -5,15 +5,15 @@ title: Identify and Update Other Gen 1 Persona Skins
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-03'
+updated_at: '2026-09-06'
 depends_on: []
-jules_session_id: '10940609878319995854'
+jules_session_id: '2615063335716765641'
 pr_number: null
 parent: story-406-490-update-jules-persona-definitions
 tags:
   - personas
   - gamification
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

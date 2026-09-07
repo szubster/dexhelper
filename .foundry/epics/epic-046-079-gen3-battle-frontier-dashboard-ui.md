@@ -2,10 +2,10 @@
 id: epic-046-079-gen3-battle-frontier-dashboard-ui
 type: EPIC
 title: Gen 3 Battle Frontier Dashboard UI
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-11'
-updated_at: '2026-07-07'
+updated_at: '2026-09-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,11 @@ tags:
   - endgame
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
+  E2E/integration story
 notes: ''
+locks: []
 ---
 
 # Epic: Gen 3 Battle Frontier Dashboard UI

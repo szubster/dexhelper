@@ -2,12 +2,12 @@
 id: epic-346-520-wip-orchestrator-awareness
 type: EPIC
 title: Orchestrator & Agent Awareness
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '5262405496809753714'
+jules_session_id: null
 pr_number: null
 parent: prd-151-346-wip-draft-signaling
 tags:
@@ -25,3 +25,6 @@ This epic focuses on updating Foundry's orchestrator and persona context prompts
 - [ ] Update persona prompts to recognize draft ADRs and WIP code
 - [ ] Restrict agents from taking downstream dependencies on DRAFT/WIP artifacts
 - [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+- [ ] story-520-520-update-persona-prompts
+- [ ] story-520-521-restrict-downstream-dependencies
+- [ ] story-520-522-wip-awareness-e2e

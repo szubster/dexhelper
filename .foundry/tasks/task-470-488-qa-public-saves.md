@@ -2,10 +2,10 @@
 id: task-470-488-qa-public-saves
 type: TASK
 title: QA Verification of Sourced Save Files
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-24'
-updated_at: '2026-08-31'
+updated_at: '2026-09-07'
 depends_on:
   - task-470-487-catalog-integrate-saves
 jules_session_id: '11825684621245897714'
@@ -16,7 +16,9 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-470-487-catalog-integrate-saves
 notes: ''
 locks: []
 ---
