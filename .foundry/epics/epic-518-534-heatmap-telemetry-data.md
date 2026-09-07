@@ -25,4 +25,6 @@ notes: ""
 Extract and structure node telemetry data (e.g. rejection counts, wait times) for heatmap usage.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into Story nodes.
+- [x] Story Owner: Break this Epic down into Story nodes.
+- [ ] story-534-558-telemetry-data-extraction-impl
+- [ ] story-534-559-telemetry-data-extraction-e2e
