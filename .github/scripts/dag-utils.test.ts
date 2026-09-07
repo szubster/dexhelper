@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as os from 'node:os';
-import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, updateActiveSessionsTable } from './dag-utils';
+import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, updateActiveSessionsTable, scanActiveNodes } from './dag-utils';
 
 describe('dag-utils', () => {
   it('todayISO format', () => {
@@ -85,6 +85,45 @@ describe('dag-utils', () => {
     expect(orphaned.has('c')).toBe(true);
     expect(orphaned.has('d')).toBe(true);
     expect(orphaned.size).toBe(4); // Ensure it didn't infinite loop and found all 4
+  });
+
+  describe('scanActiveNodes', () => {
+    it('returns an empty array when there are no active nodes', () => {
+      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'scan-active-nodes-test-'));
+      const foundryDir = path.join(tmpDir, '.foundry', 'tasks');
+      fs.mkdirSync(foundryDir, { recursive: true });
+
+      fs.writeFileSync(
+        path.join(foundryDir, 'task-001.md'),
+        '---\nid: task-001\ntype: TASK\ntitle: Ready Task\nstatus: READY\nowner_persona: coder\n---\nBody content',
+        'utf-8'
+      );
+
+      const result = scanActiveNodes(tmpDir);
+      expect(result).toEqual([]);
+
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    });
+
+    it('returns information about active nodes', () => {
+      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'scan-active-nodes-test-'));
+      const tasksDir = path.join(tmpDir, '.foundry', 'tasks');
+      fs.mkdirSync(tasksDir, { recursive: true });
+
+      fs.writeFileSync(
+        path.join(tasksDir, 'task-001.md'),
+        '---\nid: task-001\ntype: TASK\ntitle: Active Coder Task\nstatus: ACTIVE\nowner_persona: coder\njules_session_id: "sessions/10384429029607810899"\n---\nBody content',
+        'utf-8'
+      );
+
+      const result = scanActiveNodes(tmpDir);
+      expect(result.length).toBe(1);
+      expect(result[0].id).toBe('task-001');
+      expect(result[0].title).toBe('Active Coder Task');
+      expect(result[0].sessionId).toBe('10384429029607810899');
+
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    });
   });
 
   describe('updateActiveSessionsTable', () => {

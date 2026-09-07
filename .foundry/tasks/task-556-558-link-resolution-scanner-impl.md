@@ -18,4 +18,4 @@ priority: 50
 ---
 
 ## Acceptance Criteria
-- [ ] Implement active node scanning logic in orchestrator utilities
+- [x] Implement active node scanning logic in orchestrator utilities
