@@ -2,10 +2,10 @@
 id: epic-346-530-orchestrator-telemetry-metrics
 type: EPIC
 title: Orchestrator Telemetry Metrics
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Orchestrator Telemetry Metrics

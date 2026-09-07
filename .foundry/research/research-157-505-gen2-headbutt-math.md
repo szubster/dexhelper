@@ -2,12 +2,12 @@
 id: research-157-505-gen2-headbutt-math
 type: RESEARCH
 title: Investigate Gen 2 Headbutt Tree Math & Coordinates
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-31'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '1664417050561286506'
+jules_session_id: null
 pr_number: null
 parent: idea-157-gen2-headbutt-tree-predictor
 tags:

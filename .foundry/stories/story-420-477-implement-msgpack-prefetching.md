@@ -2,10 +2,10 @@
 id: story-420-477-implement-msgpack-prefetching
 type: STORY
 title: Implement background prefetching for generation-specific msgpack files
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-06'
+updated_at: '2026-09-07'
 depends_on: []
 jules_session_id: null
 pr_number: null

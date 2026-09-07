@@ -2,12 +2,12 @@
 id: epic-346-517-wip-documentation
 type: EPIC
 title: WIP Documentation & Metadata Updates
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '7373502911598377061'
+jules_session_id: null
 pr_number: null
 parent: prd-151-346-wip-draft-signaling
 tags:

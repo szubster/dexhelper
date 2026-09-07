@@ -2,14 +2,14 @@
 id: adr-145-031-component-variant-theming
 type: ADR
 title: 'ADR: Unified Component Variants and Theming'
-status: ACTIVE
+status: COMPLETED
 owner_persona: architect
 created_at: '2026-08-11'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on:
   - research-145-001-component-variant-libraries
   - research-145-002-component-theming-mechanisms
-jules_session_id: '1269760152544835588'
+jules_session_id: null
 pr_number: null
 parent: idea-145-component-variants-theming-consolidation
 tags:

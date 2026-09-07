@@ -2,10 +2,10 @@
 id: task-443-489-implement-gen2-decorations-e2e
 type: TASK
 title: Implement Gen 2 Decorations E2E Tests
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-09-06'
+updated_at: '2026-09-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - e2e
   - playwright
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

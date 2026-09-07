@@ -2,12 +2,12 @@
 id: task-522-529-update-root-package-json
 type: TASK
 title: Update Root package.json for Monorepo
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-06'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '9417029417979168061'
+jules_session_id: null
 pr_number: null
 parent: story-524-522-configure-workspace
 tags:
