@@ -20,16 +20,17 @@ notes: ""
 # EPIC: Enforce Autonomous Execution Policy via Git Hook
 
 ## Context
-As defined in `prd-488-519-autonomous-execution-enforcement`, we need to implement a mechanism to detect and block agents from committing changes that violate the "Autonomous No-Ask Policy". Agents should never ask for permission or feedback via PR descriptions or commit messages.
+As defined in `prd-488-519-autonomous-execution-enforcement`, we need to implement a mechanism to detect and block agents from committing changes that violate the "Autonomous No-Ask Policy". Agents should never ask for permission or feedback via PR descriptions or commit messages. The PRD explicitly out-of-scoped LLM-based analysis in favor of simple phrase matching.
 
 ## Scope
-1.  **Git Hook Implementation**: Implement a client-side Git Hook (e.g., `commit-msg` or `prepare-commit-msg`) using Lefthook to scan commit messages and PR-related files for prohibited conversational phrases ("should I", "do you want me to", "is there anything else", "before I proceed", "should I open a PR").
+1.  **Git Hook Implementation**: Implement a client-side Git Hook (e.g., `commit-msg` or `prepare-commit-msg`) using Lefthook to scan commit messages and PR-related files for prohibited conversational phrases ("should I", "do you want me to", "is there anything else", "before I proceed", "should I open a PR"). Note that checking git history is explicitly out of scope, we only check the current commit/PR artifacts.
 2.  **Lefthook Integration**: Integrate this new check into the existing `lefthook.yml` configuration so it is executed automatically on `pre-commit` or `commit-msg`.
 3.  **Documentation/Reporting**: Ensure the hook provides a clear error message guiding the agent back to autonomous behavior when a violation is detected.
 
 ## Out of Scope
 - Advanced LLM-based intent analysis; simple regex/phrase matching is sufficient for now.
 - Checking live session chat logs (we will focus on the commit/PR artifacts).
+- Scanning or verifying past git history for these questions. The check should only apply to new commits/PRs.
 
 ## Acceptance Criteria
 - [ ] Implement a node script to perform phrase matching against commit messages.
