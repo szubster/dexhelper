@@ -39,3 +39,5 @@ Must adhere strictly to the "tactical hardware/snooping" aesthetic (`rounded-non
 - [ ] Add tracker view or notification for Mirage Island status.
 - [ ] Display matching Pokémon information (name, PC Box).
 - [ ] Apply "tactical hardware/snooping" aesthetic constraints (`rounded-none`, dashed borders, monospace fonts).
+- [ ] story-062-546-implement-mirage-island-tracker
+- [ ] story-062-547-mirage-island-ui-integration-e2e
