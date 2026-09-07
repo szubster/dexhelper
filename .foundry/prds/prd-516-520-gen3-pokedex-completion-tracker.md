@@ -33,4 +33,7 @@ We can create a "Generation Transition Checklist" dashboard that shows:
 -   Shifts focus from repetitive farming (like EV training or contest ribbons) to macro-level completion goals.
 
 ## Acceptance Criteria
-- [ ] epic_planner: Break down into Epics.
+- [x] epic_planner: Break down into Epics.
+- [ ] epic-520-552-gen3-pokedex-gaps-tracker
+- [ ] epic-520-553-gen3-missed-milestones-tracker
+- [ ] epic-520-554-gen3-transition-dashboard
