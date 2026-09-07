@@ -2,12 +2,12 @@
 id: story-536-541-benchmarking-node-native-execution
 type: STORY
 title: Benchmark Node.js Native Execution
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-05'
 updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12553657619862819660'
 pr_number: null
 parent: epic-518-536-tech-stack-audit
 tags: []

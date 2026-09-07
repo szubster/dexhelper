@@ -5,7 +5,7 @@ title: Gen 2 Decoration & Savings E2E Verification
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-09-02'
+updated_at: '2026-09-07'
 depends_on:
   - story-311-322-gen2-room-decoration-parsing
 jules_session_id: null

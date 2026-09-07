@@ -2,10 +2,10 @@
 id: story-125-519-refactor-complex-dashboard
 type: STORY
 title: Refactor Complex Dashboard Components
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03T13:29:59.884Z'
-updated_at: '2026-09-03T13:29:59.884Z'
+updated_at: '2026-09-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -43,4 +43,8 @@ As part of the Tailwind v4 migration, we need to apply the new \`@utility\` clas
 ## Acceptance Criteria
 - [ ] Complex dashboard and specialized tracker components are updated to use semantic \`@utility\` classes.
 - [ ] No visual regressions in tactical hardware aesthetic.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+- [ ] task-519-546-dashboard-layouts-coder
+- [ ] task-519-547-trackers-radars-coder
+- [ ] task-519-548-dashboard-refactoring-qa
+- [ ] story-519-549-dashboard-refactoring-e2e

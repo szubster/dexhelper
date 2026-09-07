@@ -2,12 +2,12 @@
 id: task-512-518-librarian-synthesis-script
 type: TASK
 title: Librarian Journal Synthesis Script
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '151169153594058206'
 pr_number: null
 parent: story-410-512-librarian-ingestion-synthesis-script
 tags:

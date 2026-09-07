@@ -39,4 +39,5 @@ This pushes the autonomous factory closer to true self-healing, minimizing human
 
 ## Next Steps / Acceptance Criteria
 - [x] Product Manager: Draft this IDEA node to initiate the feature request.
-- [ ] Product Manager: Convert this IDEA into a PRD outlining the exact topological sort algorithms and the prompts required for the graph healing LLM.
+- [x] Product Manager: Convert this IDEA into a PRD outlining the exact topological sort algorithms and the prompts required for the graph healing LLM.
+- [ ] prd-156-521-automated-graph-healing

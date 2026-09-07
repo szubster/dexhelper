@@ -2,10 +2,10 @@
 id: epic-518-530-priority-schema-updates
 type: EPIC
 title: Implement Priority Field in Schema
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,5 +30,7 @@ As defined in PRD `prd-148-518-priority-based-dispatch-queue`, we need to introd
 - Update `.foundry/docs/schema.md` to document this new field with a default of 0.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down into tasks/stories to implement schema updates.
-- [ ] A final STORY is created exclusively for Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Story Owner: Break down into tasks/stories to implement schema updates.
+- [x] A final STORY is created exclusively for Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-530-550-implement-schema-priority
+- [ ] story-530-551-integration-e2e-verification

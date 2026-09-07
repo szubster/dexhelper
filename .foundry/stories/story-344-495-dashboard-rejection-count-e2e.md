@@ -2,13 +2,13 @@
 id: story-344-495-dashboard-rejection-count-e2e
 type: STORY
 title: E2E Verification for Dashboard UI Rejection Count Refactor
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-31'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on:
   - story-344-494-dashboard-rejection-count
-jules_session_id: '7272545234025605560'
+jules_session_id: null
 pr_number: null
 parent: epic-107-344-update-dashboard-rejection-count
 tags:
@@ -32,4 +32,6 @@ Verify that the `DagDashboard` UI correctly consumes the `MAX_REJECTION_THRESHOL
 - Update any specific E2E test files that mock or assert the threshold value to reflect the Context-injected behavior.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-495-528-dashboard-rejection-count-e2e
+- [ ] task-495-529-qa-dashboard-rejection-count-e2e

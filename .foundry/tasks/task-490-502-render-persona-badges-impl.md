@@ -2,7 +2,7 @@
 id: task-490-502-render-persona-badges-impl
 type: TASK
 title: Render Persona Badges Implementation
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-31'
 updated_at: '2026-09-05'

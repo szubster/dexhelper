@@ -2,10 +2,10 @@
 id: idea-145-component-variants-theming-consolidation
 type: IDEA
 title: Component Variants and Theming Consolidation
-status: PENDING
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-09-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Idea: Component Variants and Theming Consolidation
@@ -43,11 +44,11 @@ The research will investigate:
 Rather than committing to a single library immediately, the investigation will present multiple well-reasoned architectural options in the graph, backed by extensive research, to allow decision-makers to choose the most sustainable path forward.
 
 ## Acceptance Criteria
-- [ ] Create deep-dive research evaluating component-variant management libraries.
-- [ ] Create deep-dive research evaluating dynamic multi-theming delivery mechanisms.
-- [ ] Draft an Architecture Decision Record (ADR) presenting multiple architecture paths.
+- [x] Create deep-dive research evaluating component-variant management libraries.
+- [x] Create deep-dive research evaluating dynamic multi-theming delivery mechanisms.
+- [x] Draft an Architecture Decision Record (ADR) presenting multiple architecture paths.
 
 ### Downstream Graph Nodes
-- [ ] `.foundry/research/research-145-001-component-variant-libraries.md`
-- [ ] `.foundry/research/research-145-002-component-theming-mechanisms.md`
-- [ ] `.foundry/docs/adrs/adr-145-031-component-variant-theming.md`
+- [x] `.foundry/research/research-145-001-component-variant-libraries.md`
+- [x] `.foundry/research/research-145-002-component-theming-mechanisms.md`
+- [x] `.foundry/docs/adrs/adr-145-031-component-variant-theming.md`

@@ -2,12 +2,12 @@
 id: prd-155-524-trick-house-tracker
 type: PRD
 title: Gen 3 Trick House Tracker Dashboard PRD
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17008172474215663957'
 pr_number: null
 parent: idea-155-gen3-trick-house-tracker
 tags:

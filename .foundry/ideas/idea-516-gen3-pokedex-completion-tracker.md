@@ -2,12 +2,12 @@
 id: idea-516-gen3-pokedex-completion-tracker
 type: IDEA
 title: Gen 3 Pokédex Completion & Missed Achievement Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-02'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '3429531381623050495'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -34,4 +34,5 @@ We can create a "Generation Transition Checklist" dashboard that shows:
 -   Shifts focus from repetitive farming (like EV training or contest ribbons) to macro-level completion goals.
 
 ## Acceptance Criteria
-- [ ] prd-516-517-gen3-pokedex-completion-tracker
+- [ ] prd-516-520-gen3-pokedex-completion-tracker
+- [x] Product Manager: Draft PRD.

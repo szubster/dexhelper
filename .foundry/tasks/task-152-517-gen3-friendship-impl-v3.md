@@ -2,13 +2,13 @@
 id: task-152-517-gen3-friendship-impl-v3
 type: TASK
 title: Implement Gen 3 Friendship Data Extraction (v3)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-09-05'
 depends_on:
   - research-152-516-investigate-task-470-failure
-jules_session_id: null
+jules_session_id: '13963033886694167759'
 pr_number: null
 parent: story-094-152-gen3-friendship-extraction
 tags:

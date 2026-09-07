@@ -2,12 +2,12 @@
 id: prd-114-516-update-permanent-failure-dashboard-ui
 type: PRD
 title: Update Permanent Failure Dashboard UI for Cancelled Nodes
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-02'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '1890615126053409955'
+jules_session_id: null
 pr_number: null
 parent: idea-114-update-permanent-failure-dashboard-ui
 tags:
@@ -35,3 +35,6 @@ Nodes that reach the max rejection count of 3 are now automatically transitioned
 ## Scope
 - src/components/dag/DagDashboard.tsx
 - src/components/dag/DagNode.tsx
+
+## Acceptance Criteria
+- [ ] epic-516-530-update-permanent-failure-dashboard-ui

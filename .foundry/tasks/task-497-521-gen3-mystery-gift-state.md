@@ -2,12 +2,12 @@
 id: task-497-521-gen3-mystery-gift-state
 type: TASK
 title: Define Gen 3 Mystery Gift State Interface
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '8128660153176616669'
+jules_session_id: null
 pr_number: null
 parent: story-405-497-gen3-e-reader-dashboard-state
 tags:
@@ -36,6 +36,6 @@ Define the state structures and data types for the Gen 3 Mystery Gift and E-Read
 - Read `.foundry/docs/knowledge_base/gen3_mystery_gift_event_flags.md` for context on what properties to define.
 
 ## Acceptance Criteria
-- [ ] `Gen3MysteryGift` interface is defined in `src/engine/saveParser/parsers/common.ts`.
-- [ ] `Gen3SaveData` interface is updated to include the `gen3MysteryGift` property.
-- [ ] The build (e.g. `pnpm type-check`) completes without errors.
+- [x] `Gen3MysteryGift` interface is defined in `src/engine/saveParser/parsers/common.ts`.
+- [x] `Gen3SaveData` interface is updated to include the `gen3MysteryGift` property.
+- [x] The build (e.g. `pnpm type-check`) completes without errors.

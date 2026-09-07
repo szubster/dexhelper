@@ -33,5 +33,8 @@ The Permanent Failure Dashboard will consume the same shared raw parsed DAG data
 - [x] Break down into Tasks
 - [ ] task-136-489-permanent-failure-state-selectors-impl
 - [ ] task-136-490-permanent-failure-flow-ui-impl
-- [ ] task-136-491-permanent-failure-kanban-ui-impl
-- [ ] task-136-492-permanent-failure-dashboard-qa
+- [x] task-136-491-permanent-failure-kanban-ui-impl
+- [x] task-136-492-permanent-failure-dashboard-qa
+- [ ] research-136-530-investigate-kanban-ui-timeout
+- [ ] task-136-531-permanent-failure-kanban-ui-impl-v2
+- [ ] task-136-532-permanent-failure-dashboard-qa-v2

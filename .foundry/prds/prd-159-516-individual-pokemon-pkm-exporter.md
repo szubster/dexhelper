@@ -2,12 +2,12 @@
 id: prd-159-516-individual-pokemon-pkm-exporter
 type: PRD
 title: Individual Pokémon PKM/PK3 Exporter
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-02'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '8415511988634348130'
+jules_session_id: null
 parent: idea-159-individual-pokemon-pkm-exporter
 tags:
   - feature
@@ -30,4 +30,6 @@ Implement an Export Pokémon feature within the DexHelper Party and PC Box views
 4. Trigger a browser download with the correct file name and extension.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into Epics.
+- [x] Epic Planner: Break down this PRD into Epics.
+- [ ] epic-516-530-pkm-data-extraction-generation
+- [ ] epic-516-531-pkm-export-ui-integration

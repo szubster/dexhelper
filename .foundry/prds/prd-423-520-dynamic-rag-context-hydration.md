@@ -2,12 +2,12 @@
 id: prd-423-520-dynamic-rag-context-hydration
 type: PRD
 title: PRD for Dynamic RAG-Based Context Hydration for Agent Prompts
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-29'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '16117873519757152707'
+jules_session_id: null
 parent: idea-423-dynamic-rag-context-hydration
 tags:
   - foundry
@@ -37,4 +37,5 @@ The goal is to use `flexsearch` to index documents within `.foundry/docs/` and `
 - **Cost Efficiency:** Token consumption per agent session must be visibly reduced.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Generate an EPIC to implement the indexing and dynamic retrieval logic within the orchestrator pipeline.
+- [x] Epic Planner: Generate an EPIC to implement the indexing and dynamic retrieval logic within the orchestrator pipeline.
+- [ ] epic-520-534-dynamic-rag-context-hydration

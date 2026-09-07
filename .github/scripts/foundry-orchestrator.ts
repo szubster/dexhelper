@@ -1289,11 +1289,35 @@ function main(): void {
       }
     }
 
-    const acceptanceCriteriaMatch = node.body.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
-    const acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
-    const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(acceptanceCriteriaText);
+    let acceptanceCriteriaMatch = node.body.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
+    let acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
+    let hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(acceptanceCriteriaText);
 
     if (shouldBypass) {
+      if (hasUncheckedTasks) {
+        info(`Idempotent check: Artifacts for ${node.repoPath} exist. Auto-checking non-node tasks...`);
+        const updatedBody = node.body.replace(/(## Acceptance Criteria\s*[\s\S]*?)(?:\n## |$)/, (match) => {
+          return match.replace(/^(\s*-\s*\[)\s(\]\s(?:(?!\]\((?:\.\/)?\.foundry\/(?:ideas|prds|epics|stories|tasks)\/[^)]+\.md\)).)*)$/gm, '$1x$2');
+        });
+
+        if (updatedBody !== node.body) {
+          node.body = updatedBody;
+          const newContent = matter.stringify(node.body, node.frontmatter);
+          node.rawContent = newContent;
+          if (!isDryRun()) {
+            try {
+              fs.writeFileSync(node.filePath, newContent, 'utf-8');
+              info(`Auto-checked non-node acceptance criteria for idempotent node: ${node.repoPath}`);
+            } catch (e) {
+              warn(`Failed to write auto-checked idempotent file ${node.repoPath}: ${String(e)}`);
+            }
+          }
+          acceptanceCriteriaMatch = node.body.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
+          acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
+          hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(acceptanceCriteriaText);
+        }
+      }
+
       if (hasUncheckedTasks) {
         info(`Idempotent check: Artifacts for ${node.repoPath} already exist, but node still has unchecked tasks. Promoting to READY.`);
         finalEligible.push(node);

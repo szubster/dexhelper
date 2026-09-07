@@ -28,7 +28,7 @@ locks: []
 Implement Playwright E2E tests for Spinda PID extraction, utilizing the realistic Gen 3 save file fixtures. The tests must verify that 32-bit PIDs are successfully extracted and mapped to the UI data structure.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests utilizing the Spinda save file fixtures.
-- [ ] Verify that Spindas in the PC boxes and the active party are correctly identified by the UI/engine.
-- [ ] Assert that the 32-bit PIDs are successfully extracted and correctly mapped to the UI data structure.
-- [ ] Ensure assertions are genuine and interact with the authentically exposed app APIs or UI (no faking tests).
+- [x] Implement Playwright E2E tests utilizing the Spinda save file fixtures.
+- [x] Verify that Spindas in the PC boxes and the active party are correctly identified by the UI/engine.
+- [x] Assert that the 32-bit PIDs are successfully extracted and correctly mapped to the UI data structure.
+- [x] Ensure assertions are genuine and interact with the authentically exposed app APIs or UI (no faking tests).
