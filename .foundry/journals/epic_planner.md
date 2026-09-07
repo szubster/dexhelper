@@ -313,4 +313,3 @@ To resolve this and resurrect the feature, I:
 4. Checked off the cancelled child Epics in the parent `prd-067-037-gen3-berry-tracker` body to allow proper DAG progress.
 
 All new Epics strictly enforce the Orchestrator safeguard requirement to generate an E2E STORY for verification.
-
