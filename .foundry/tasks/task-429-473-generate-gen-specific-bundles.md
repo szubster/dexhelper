@@ -2,12 +2,12 @@
 id: task-429-473-generate-gen-specific-bundles
 type: TASK
 title: Generate Gen-Specific Bundles
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11689483600199299488'
 pr_number: null
 parent: story-400-429-gen-specific-extensions
 tags:
