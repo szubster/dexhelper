@@ -24,5 +24,10 @@ locks: []
 This epic covers the strategic refactoring required to implement `function*` and `async function*` protocols for save file parsers, binary chunk streams, tree traversals, and pagination engines, eliminating intermediate O(N) array allocations.
 
 ## Acceptance Criteria
-- [ ] Decompose this epic into Stories for implementing generator protocols across save file parsers, binary chunk streams, tree traversals, and pagination engines.
-- [ ] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Decompose this epic into Stories for implementing generator protocols across save file parsers, binary chunk streams, tree traversals, and pagination engines.
+- [x] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-537-546-generator-save-file-parsers
+- [ ] story-537-547-generator-binary-chunk-streams
+- [ ] story-537-548-generator-tree-traversals
+- [ ] story-537-549-generator-pagination-engines
+- [ ] story-537-550-integration-e2e-verification
