@@ -31,5 +31,5 @@ This task fulfills the requirement of `story-334-475-prompt-rules-integration-e2
 - If any test fails, investigate and fix the underlying prompt rules or code before marking this task as complete.
 
 ## Acceptance Criteria
-- [ ] `pnpm lint` and `pnpm test` successfully execute and pass.
-- [ ] `xvfb-run -a pnpm test:e2e` successfully executes and passes.
+- [x] `pnpm lint` and `pnpm test` successfully execute and pass.
+- [x] `xvfb-run -a pnpm test:e2e` successfully executes and passes.
