@@ -2,12 +2,12 @@
 id: task-406-526-gen3-rematch-parser-impl
 type: TASK
 title: Implement Gen 3 NPC Rematch Status Parser
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-03'
 updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '4891305581002848128'
+jules_session_id: null
 pr_number: null
 parent: story-397-406-gen3-npc-rematch-status
 tags:

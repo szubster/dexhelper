@@ -2,10 +2,10 @@
 id: task-411-513-tm-hm-integration-e2e-qa-v2
 type: TASK
 title: QA of TM/HM Integration E2E Tests V2
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-01'
-updated_at: '2026-09-02'
+updated_at: '2026-09-07'
 depends_on:
   - task-411-512-tm-hm-integration-e2e-impl-v2
 jules_session_id: '10876183630864121021'

@@ -2,10 +2,10 @@
 id: epic-048-084-gen3-match-call-static-data
 type: EPIC
 title: 'Epic: Gen 3 Match Call Static Data Generation'
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-09-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,9 @@ tags:
   - data-generation
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
+locks: []
 ---
 
 # Epic: Gen 3 Match Call Static Data Generation
@@ -39,5 +40,5 @@ This epic focuses on building the static dataset necessary to enrich the raw Mat
 
 ## Next Steps
 - [x] Story Owner: Break this Epic down into actionable Stories (e.g., ETL Scripting, EV Calculation Logic, MsgPack Integration).
-- [ ] story-084-125-match-call-etl
-- [ ] story-084-126-match-call-msgpack
+- [x] story-084-125-match-call-etl
+- [x] story-084-126-match-call-msgpack
