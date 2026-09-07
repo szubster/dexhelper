@@ -22,6 +22,7 @@ describe('Gen 3 Mixed Records Types & Constants', () => {
       trainerName: 'Ash',
       trainerGender: 0,
       trainerId: 12345,
+      battledOwnerToday: false,
       party: [validPokemon],
     };
 
