@@ -29,5 +29,5 @@ locks: []
 Implement a utility function to ensure that custom fonts are properly preloaded and embedded before the certificate rendering occurs. This satisfies the constraint in ADR 022 to handle custom font loading for consistent rendering across different clients.
 
 ## Acceptance Criteria
-- [ ] Implement a utility function to manage and preload custom fonts.
-- [ ] Write unit tests for the font loading utility.
+- [x] Implement a utility function to manage and preload custom fonts.
+- [x] Write unit tests for the font loading utility.
