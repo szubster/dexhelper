@@ -27,4 +27,4 @@ locks: []
 Investigate the root cause of the previous session timeout (>7 days) during the implementation of Gen 2 Shiny Breeding E2E tests, to prevent recurrence.
 
 ## Acceptance Criteria
-- [ ] Document findings regarding the timeout cause.
+- [x] Document findings regarding the timeout cause.
