@@ -32,4 +32,6 @@ The current scheduled agent workflows (`schedule-*.yml`) call the `foundry-sched
 - The command format: `gh issue create --title "Scheduled Agent: <persona>" --body "$COMPILED_PROMPT" --label "jules"`.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down into STORY node(s) for implementation.
+- [x] Story Owner: Break down into STORY node(s) for implementation.
+- [ ] story-531-558-modify-scheduled-workflows-impl
+- [ ] story-531-559-modify-scheduled-workflows-e2e
