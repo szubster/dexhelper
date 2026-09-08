@@ -2,12 +2,12 @@
 id: epic-516-531-modify-scheduled-workflows
 type: EPIC
 title: Modify Scheduled Workflows for Issue Dispatch
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-07'
 updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: '5465006218144283932'
+jules_session_id: null
 pr_number: null
 parent: prd-419-516-scheduled-agents-dashboard
 tags:

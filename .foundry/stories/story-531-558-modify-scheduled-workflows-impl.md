@@ -1,11 +1,11 @@
 ---
 id: story-531-558-modify-scheduled-workflows-impl
 type: STORY
-title: "Implement Issue Dispatch for Scheduled Workflows"
-status: PENDING
+title: Implement Issue Dispatch for Scheduled Workflows
+status: READY
 owner_persona: tech_lead
-created_at: "2026-09-08"
-updated_at: "2026-09-08"
+created_at: '2026-09-08'
+updated_at: '2026-09-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,9 @@ tags:
   - github-issues
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Implement Issue Dispatch for Scheduled Workflows

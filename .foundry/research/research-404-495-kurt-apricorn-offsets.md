@@ -2,7 +2,7 @@
 id: research-404-495-kurt-apricorn-offsets
 type: RESEARCH
 title: Investigate Kurt Apricorn Crafting Offsets
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-08-30'
 updated_at: '2026-09-08'
@@ -14,8 +14,8 @@ tags:
   - gen2
   - items
   - offsets
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 ---

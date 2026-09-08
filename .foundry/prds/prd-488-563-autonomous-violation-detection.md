@@ -2,11 +2,12 @@
 id: prd-488-563-autonomous-violation-detection
 type: PRD
 title: Automated Detection of Autonomous Execution Violations
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-09-08'
 updated_at: '2026-09-08'
-depends_on: ['research-488-562-autonomous-violation-detection']
+depends_on:
+  - research-488-562-autonomous-violation-detection
 jules_session_id: null
 pr_number: null
 parent: idea-488-autonomous-execution-enforcement

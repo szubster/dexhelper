@@ -2,10 +2,10 @@
 id: epic-110-402-tm-hm-compatibility-logic-v2
 type: EPIC
 title: TM/HM Compatibility Engine V2
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-05'
-updated_at: '2026-08-05'
+updated_at: '2026-09-08'
 depends_on:
   - epic-110-401-tm-hm-save-parsing-v2
 jules_session_id: null
@@ -16,6 +16,8 @@ tags:
   - logic
 research_references: []
 notes: ''
+locks: []
+rejection_reason: ''
 ---
 
 # TM/HM Compatibility Engine V2
