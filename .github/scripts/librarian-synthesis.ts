@@ -1,13 +1,12 @@
-import { GoogleGenAI } from '@google/genai';
 import * as fs from 'node:fs';
+import { dispatchJulesSession } from './session-api.ts';
 
 export async function synthesizeRules(journalsText: string): Promise<string> {
-    const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-    if (!GEMINI_API_KEY) {
-        throw new Error('GEMINI_API_KEY is required to synthesize rules.');
+    const JULES_API_KEY = process.env.JULES_API_KEY;
+    if (!JULES_API_KEY) {
+        throw new Error('JULES_API_KEY is required to synthesize rules.');
     }
-
-    const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
+    const GITHUB_REPO = process.env.GITHUB_REPO || 'szubster/dexhelper';
 
     const prompt = `
 You are the Librarian persona in The Foundry. Your job is to extract systemic rules and lessons from the following agent journals.
@@ -16,15 +15,14 @@ Journals:
 ${journalsText}
 
 Extract actionable, systemic rules. Return them in a clear Markdown format, summarizing the key lessons that should be applied moving forward. Do not include logbook-style entries, focus purely on structural lessons, architectural constraints, and recurring failures.
+
+Please use write_file or submit to provide the output.
 `;
 
     try {
-        const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
-            contents: prompt,
-        });
-
-        return response.text || "No rules extracted.";
+        const sessionId = await dispatchJulesSession(prompt, JULES_API_KEY, GITHUB_REPO);
+        console.log(`Dispatched Jules session: ${sessionId}`);
+        return "Rules synthesis dispatched to Jules.";
     } catch (error) {
         console.error("Error synthesizing rules:", error);
         throw error;
