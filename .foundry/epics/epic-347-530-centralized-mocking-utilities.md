@@ -2,12 +2,12 @@
 id: epic-347-530-centralized-mocking-utilities
 type: EPIC
 title: Centralized Playwright Mocking Utilities
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '3235059060383941140'
+jules_session_id: null
 pr_number: null
 parent: prd-422-347-playwright-mocking-utilities
 tags:
@@ -29,5 +29,7 @@ The `coder` and `qa` personas face friction mocking complex native browser APIs 
 Build a dedicated utility module (\`tests/e2e/mock-utils.ts\`) exposing \`mockFilePicker\`, \`mockFileSystemAccess\`, and \`mockOfflineState\`.
 
 ## Acceptance Criteria
-- [ ] Implement central mocking utility functions.
-- [ ] Implement a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-530-536-mocking-utility-functions
+- [x] Implement central mocking utility functions.
+- [ ] story-530-537-mocking-utilities-e2e
+- [x] Implement a final STORY dedicated exclusively to Integration and E2E Verification.

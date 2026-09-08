@@ -1,15 +1,16 @@
 ---
 id: epic-520-536-remove-gen3save-mock
 type: EPIC
-title: "Remove isGen3Save mock and fix heuristic"
-status: READY
-owner_persona: "story_owner"
-created_at: "2026-09-05"
-updated_at: "2026-09-05"
+title: Remove isGen3Save mock and fix heuristic
+status: ACTIVE
+owner_persona: story_owner
+created_at: '2026-09-05'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1349508265782360154'
 locks: []
 parent: prd-086-520-fix-gen3save-mock
+rejection_reason: ''
 ---
 
 ## Context

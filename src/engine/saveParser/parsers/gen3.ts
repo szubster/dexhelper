@@ -342,7 +342,10 @@ export function extractGen3PokemonData(view: DataView, offset: number) {
 
     for (let i = 0; i < 4; i++) {
       const char = permutation[i];
-      const canonicalIndex = 'GAEM'.indexOf(char as string);
+      if (typeof char !== 'string') {
+        throw new Error('The save file is corrupted or incomplete.');
+      }
+      const canonicalIndex = 'GAEM'.indexOf(char);
       if (canonicalIndex === -1) {
         throw new Error('The save file is corrupted or incomplete.');
       }

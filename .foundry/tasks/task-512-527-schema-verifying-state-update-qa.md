@@ -2,10 +2,10 @@
 id: task-512-527-schema-verifying-state-update-qa
 type: TASK
 title: QA VERIFYING state schema update
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-06'
 depends_on:
   - task-512-526-schema-verifying-state-update
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # QA VERIFYING state schema update
@@ -31,4 +32,4 @@ This task verifies that the documentation changes to `schema.md` correctly refle
 2.  Verify that Invariant 7 under "System Invariants" correctly states that `VERIFYING` and `COMPLETED` nodes are read-only for implementing personas.
 
 ## Acceptance Criteria
-- [ ] Invariant 7 in `.foundry/docs/schema.md` is verified to be updated correctly.
+- [x] Invariant 7 in `.foundry/docs/schema.md` is verified to be updated correctly.

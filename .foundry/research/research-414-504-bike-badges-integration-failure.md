@@ -5,18 +5,19 @@ title: Investigate Bike Badges UI Integration Failure
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-31'
-updated_at: '2026-08-31'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '4980430358732582815'
+jules_session_id: '14272342586846515623'
 pr_number: null
 parent: story-406-414-bike-requirement-ui-badges
 tags:
   - ui
   - map
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: Created due to permanent failure of task-414-423-map-ui-bike-integration-impl
+locks: []
 ---
 
 # Investigate Bike Badges UI Integration Failure

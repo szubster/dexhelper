@@ -2,10 +2,10 @@
 id: story-530-534-curator-agent-base
 type: STORY
 title: Create Curator Agent Base Prompt and Journal
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-05'
+updated_at: '2026-09-06'
 depends_on: []
 jules_session_id: null
 parent: epic-518-530-curator-persona-implementation
@@ -28,5 +28,5 @@ Implement base instructions detailing responsibilities and node spawning procedu
 - [x] Create `.foundry/journals/curator/` directory with a `.gitkeep` or initial markdown
 - [x] Create `.github/agents/curator.md` with base instructions
 
-- [ ] task-534-536-create-curator-prompt-and-journal
-- [ ] task-534-537-create-curator-prompt-qa
+- [x] task-534-536-create-curator-prompt-and-journal
+- [x] task-534-537-create-curator-prompt-qa

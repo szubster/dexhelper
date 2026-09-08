@@ -131,6 +131,17 @@ export interface Gen3TrainerCard {
   hasContestMaster: boolean;
 }
 
+export interface Gen3MysteryGift {
+  hasAuroraTicket: boolean;
+  hasMysticTicket: boolean;
+  hasEonTicket: boolean;
+  hasOldSeaMap: boolean;
+  isSouthernIslandEnabled: boolean;
+  isBirthIslandEnabled: boolean;
+  isNavelRockEnabled: boolean;
+  isFarawayIslandEnabled: boolean;
+}
+
 export interface Gen3Spinda {
   pid: number;
 }
@@ -478,6 +489,8 @@ export interface Gen3SaveData extends BaseSaveData {
   /** Gen 3 specific: Daycare state */
   gen3Daycare?: Gen3DaycareData;
   gen3LotteryNumber?: number;
+  /** Gen 3 specific: Mystery Gift event item and location state */
+  gen3MysteryGift?: Gen3MysteryGift;
 }
 
 export type SaveData = Gen1SaveData | Gen2SaveData | Gen3SaveData;

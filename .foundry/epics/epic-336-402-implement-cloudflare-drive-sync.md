@@ -2,13 +2,13 @@
 id: epic-336-402-implement-cloudflare-drive-sync
 type: EPIC
 title: Implement Google Drive and Cloudflare Server-Side Sync
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-05'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on:
   - task-336-401-architect-drive-sync-adr
-jules_session_id: '5200869854494744643'
+jules_session_id: null
 pr_number: null
 parent: prd-062-336-drive-cloudflare-sync
 tags:
@@ -32,6 +32,10 @@ Following the ADR decision (dependent on `task-336-401-architect-drive-sync-adr`
 Provide seamless auto-sync for Android emulator users.
 
 ## Acceptance Criteria
-- [ ] Read the ADR output from `task-336-401-architect-drive-sync-adr`.
-- [ ] Generate detailed STORY nodes for the implementation based on the chosen path.
-- [ ] Enforce the orchestrator safeguard by generating a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Read the ADR output from `task-336-401-architect-drive-sync-adr`.
+- [x] Generate detailed STORY nodes for the implementation based on the chosen path.
+- [ ] story-402-526-cloudflare-worker-setup
+- [ ] story-402-527-drive-webhook-registration
+- [ ] story-402-528-save-file-sync-logic
+- [x] Enforce the orchestrator safeguard by generating a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-402-529-drive-sync-e2e

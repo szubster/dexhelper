@@ -2,13 +2,13 @@
 id: task-241-469-daycare-gen3-parsing-impl
 type: TASK
 title: Implement Gen 3 Daycare Data Parsing
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-23'
-updated_at: '2026-08-31'
+updated_at: '2026-09-07'
 depends_on:
   - research-241-462-gen3-daycare-offsets-investigation
-jules_session_id: '140953088135957797'
+jules_session_id: null
 pr_number: null
 parent: story-105-241-daycare-gen3-parsing
 tags:
@@ -16,9 +16,10 @@ tags:
   - breeding
   - parsing
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Task: Implement Gen 3 Daycare Data Parsing

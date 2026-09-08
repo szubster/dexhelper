@@ -2,22 +2,22 @@
 id: task-470-487-catalog-integrate-saves
 type: TASK
 title: Catalog and Integrate Public Saves
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-24'
-updated_at: '2026-08-31'
+updated_at: '2026-09-07'
 depends_on:
   - task-470-485-source-gen1-gen2-saves
   - task-470-486-source-gen3-saves
-jules_session_id: '15288839696263518361'
+jules_session_id: null
 pr_number: null
 parent: story-428-470-identify-public-saves
 tags:
   - testing
   - fixtures
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

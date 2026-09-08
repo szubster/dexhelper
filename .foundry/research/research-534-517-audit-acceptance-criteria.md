@@ -1,13 +1,13 @@
 ---
 id: research-534-517-audit-acceptance-criteria
 type: RESEARCH
-title: "Audit Acceptance Criteria Usage"
-status: READY
-owner_persona: "researcher"
-created_at: "2026-09-04"
-updated_at: "2026-09-04"
+title: Audit Acceptance Criteria Usage
+status: ACTIVE
+owner_persona: researcher
+created_at: '2026-09-04'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1065969208029131205'
 locks: []
 pr_number: null
 parent: epic-520-534-acceptance-criteria-research
@@ -17,8 +17,8 @@ tags:
   - research
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Research: Audit Acceptance Criteria Usage

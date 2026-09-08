@@ -2,12 +2,12 @@
 id: idea-156-automated-graph-healing
 type: IDEA
 title: Automated Graph Healing for BLOCKED Nodes
-status: ACTIVE
-owner_persona: product_manager
+status: PENDING
+owner_persona: auditor
 created_at: '2026-08-19'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '4886904670993063990'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Idea: Automated Graph Healing for BLOCKED Nodes
@@ -39,4 +40,5 @@ This pushes the autonomous factory closer to true self-healing, minimizing human
 
 ## Next Steps / Acceptance Criteria
 - [x] Product Manager: Draft this IDEA node to initiate the feature request.
-- [ ] Product Manager: Convert this IDEA into a PRD outlining the exact topological sort algorithms and the prompts required for the graph healing LLM.
+- [x] Product Manager: Convert this IDEA into a PRD outlining the exact topological sort algorithms and the prompts required for the graph healing LLM.
+- [ ] prd-156-521-automated-graph-healing

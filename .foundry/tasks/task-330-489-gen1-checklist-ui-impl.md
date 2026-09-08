@@ -2,12 +2,12 @@
 id: task-330-489-gen1-checklist-ui-impl
 type: TASK
 title: Implement Gen 1 Checklist UI
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-09-01'
+updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: '17863208614182670240'
+jules_session_id: null
 pr_number: null
 parent: story-136-330-gen1-checklist-ui-retry
 tags:
@@ -16,9 +16,10 @@ tags:
   - ui
 research_references:
   - research-136-329-gen1-checklist-ui-failure
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Implement Gen 1 Checklist UI

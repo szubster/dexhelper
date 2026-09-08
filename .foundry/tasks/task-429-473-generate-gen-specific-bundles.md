@@ -5,18 +5,19 @@ title: Generate Gen-Specific Bundles
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-23'
-updated_at: '2026-08-30'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '10886990152247126364'
+jules_session_id: '11689483600199299488'
 pr_number: null
 parent: story-400-429-gen-specific-extensions
 tags:
   - performance
   - architecture
   - bundles
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Task: Generate Gen-Specific Bundles

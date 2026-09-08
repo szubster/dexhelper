@@ -2,16 +2,17 @@
 id: story-042-081-preserve-enum-optimizations
 type: STORY
 title: Preserve Enum-to-Number Optimizations in Generation Pipeline
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-21'
-updated_at: '2026-08-30'
+updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: '12814961437781022023'
+jules_session_id: '10631440297764566511'
 parent: epic-032-042-generation-pipeline-keys
 rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Story: Preserve Enum-to-Number Optimizations in Generation Pipeline

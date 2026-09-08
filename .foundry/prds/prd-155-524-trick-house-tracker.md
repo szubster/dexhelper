@@ -2,12 +2,12 @@
 id: prd-155-524-trick-house-tracker
 type: PRD
 title: Gen 3 Trick House Tracker Dashboard PRD
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-03'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '17008172474215663957'
+jules_session_id: null
 pr_number: null
 parent: idea-155-gen3-trick-house-tracker
 tags:
@@ -39,4 +39,5 @@ The Trick House is a recurring side-quest in Generation 3 games (Ruby, Sapphire,
    - Adhere to UI aesthetic constraints (tactical hardware, sharp edges, monospaced fonts).
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Create an EPIC detailing the implementation of the Trick House Tracker, including save parsing logic and UI component development.
+- [x] Epic Planner: Create an EPIC detailing the implementation of the Trick House Tracker, including save parsing logic and UI component development.
+- [ ] epic-524-540-trick-house-tracker
