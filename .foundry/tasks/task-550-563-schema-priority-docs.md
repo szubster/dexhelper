@@ -2,12 +2,12 @@
 id: task-550-563-schema-priority-docs
 type: TASK
 title: Update Schema Documentation for Priority Field
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-08'
 updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11650067224196115710'
 pr_number: null
 parent: story-530-550-implement-schema-priority
 tags:
