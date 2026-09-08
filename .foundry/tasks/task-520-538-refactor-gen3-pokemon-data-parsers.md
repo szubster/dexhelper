@@ -26,5 +26,5 @@ locks: []
 Refactor Gen 3 Pokemon data parsers to comply with ADR 028 by replacing inline magic numbers with explicitly defined module-level constants and implementing relative offsets.
 
 ## Acceptance Criteria
-- [ ] Extract magic numbers into module-level constants for parseGen3PCBuffer, parseGen3Party, parseGen3PCBoxes, parseGen3EVs, parseGen3PokemonPVAndIVs, parseGen3EggSteps, parseGen3ConditionStats, parseGen3PersonalityValue, and parseGen3Ribbons functions
-- [ ] Implement relative offsets using the resolved section offset for these functions
+- [x] Extract magic numbers into module-level constants for parseGen3PCBuffer, parseGen3Party, parseGen3PCBoxes, parseGen3EVs, parseGen3PokemonPVAndIVs, parseGen3EggSteps, parseGen3ConditionStats, parseGen3PersonalityValue, and parseGen3Ribbons functions
+- [x] Implement relative offsets using the resolved section offset for these functions
