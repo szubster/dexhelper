@@ -1,0 +1,25 @@
+[
+  {
+    "filePath": ".foundry/tasks/task-200.md",
+    "data": {
+      "id": "task-200",
+      "type": "TASK",
+      "status": "PENDING",
+      "owner_persona": "coder",
+      "depends_on": [],
+      "rejection_count": 0
+    }
+  },
+  {
+    "filePath": ".foundry/ideas/idea-200-001.md",
+    "data": {
+      "id": "idea-200-001",
+      "type": "IDEA",
+      "status": "ACTIVE",
+      "owner_persona": "product_manager",
+      "parent": "task-200",
+      "depends_on": [],
+      "rejection_count": 0
+    }
+  }
+]
