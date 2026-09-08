@@ -12,6 +12,7 @@
 | [epic-518-536-heatmap-e2e-testing](.foundry/epics/epic-518-536-heatmap-e2e-testing.md) | EPIC | Heatmap Integration & E2E Testing | story_owner | [10654288668688142776](https://jules.google.com/session/10654288668688142776) |
 | [epic-520-534-dynamic-rag-context-hydration](.foundry/epics/epic-520-534-dynamic-rag-context-hydration.md) | EPIC | Implement Dynamic RAG-Based Context Hydration for Agent Prompts | story_owner | [18316452930099379239](https://jules.google.com/session/18316452930099379239) |
 | [epic-520-536-remove-gen3save-mock](.foundry/epics/epic-520-536-remove-gen3save-mock.md) | EPIC | Remove isGen3Save mock and fix heuristic | story_owner | [1349508265782360154](https://jules.google.com/session/1349508265782360154) |
+| [epic-524-540-trick-house-tracker](.foundry/epics/epic-524-540-trick-house-tracker.md) | EPIC | Gen 3 Trick House Tracker Dashboard | story_owner | [14277147870723565749](https://jules.google.com/session/14277147870723565749) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
