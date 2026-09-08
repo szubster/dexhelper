@@ -64,13 +64,13 @@ A direct search reveals over 50 failed tasks in the archive containing the `reje
 *   **Pros:** Eliminates the Resurrection Loop failure mode entirely.
 *   **Cons:** Fundamentally breaks the concept of "the agent asserting it did the work." It turns AC into a meaningless hurdle rather than a verification tool.
 
-**Alternative D: Dedicated Section Validation with Strict Markdown Automation**
-*   **Concept:** Keep the AC in Markdown, but standardize the section. Enhance the `run_in_bash_session` or agent tools with a specific `check_acceptance_criteria` function, ensuring they don't have to manually format string replacements via `replace_with_git_merge_diff`.
-*   **Pros:** Retains rich text. Maintains the strict assertions of ADR 007. Reduces agent formatting errors.
-*   **Cons:** Requires updating agent tooling and context prompts.
+**Alternative D: Strict Formatting Enforcement via Prompts and CI Automation**
+*   **Concept:** Keep the AC in Markdown, but standardize the section. Since we cannot modify the agent's core harness or available tools (e.g., `run_in_bash_session`), we must rely on injecting strict instructions into `agents.md` or core system memory to enforce usage of existing tools (like `replace_with_git_merge_diff`) for checking boxes. Additionally, we could introduce a pre-commit git hook or CI check that formats the checkboxes to prevent regex parsing failures.
+*   **Pros:** Retains rich text. Maintains the strict assertions of ADR 007. Uses existing, controllable infrastructure (prompts, memory, CI).
+*   **Cons:** Does not eliminate the manual friction for the agent, relying purely on prompting which can still occasionally fail.
 
 ### Conclusion & Recommendation
-The failures stem primarily from agent friction in manually updating text files to change `- [ ]` to `- [x]`, rather than a conceptual flaw in using checkboxes. I recommend **Alternative D**: retaining the current Markdown approach but improving the tooling for agents to check off criteria easily, while perhaps relaxing the requirement for purely exploratory RESEARCH nodes if they do not spawn children.
+The failures stem primarily from agent friction in manually updating text files to change `- [ ]` to `- [x]`, rather than a conceptual flaw in using checkboxes. Given the architectural constraints that we cannot introduce custom tool functions to the agent harness, I recommend a hybrid approach. We should pursue **Alternative B** (relaxing the requirement for pure leaf nodes like RESEARCH or QA that don't spawn children, as their PR merge is binary completion), combined with **Alternative D** (using core system memory and `agents.md` to strictly enforce the formatting and checking process for parent nodes that still require it).
 
 ## Acceptance Criteria
 - [x] researcher: Complete the audit of the current usage of Acceptance Criteria across all Foundry node types.
