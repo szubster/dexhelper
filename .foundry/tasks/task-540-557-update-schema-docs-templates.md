@@ -2,12 +2,12 @@
 id: task-540-557-update-schema-docs-templates
 type: TASK
 title: Document priority in schema.md and update new node templates
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-07'
 updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: '2401905048758777454'
+jules_session_id: null
 pr_number: null
 parent: story-540-550-priority-field-schema
 rejection_count: 0

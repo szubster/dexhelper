@@ -2,10 +2,10 @@
 id: task-521-551-gen1-magic-number-qa
 type: TASK
 title: QA Verification for Gen 1 Magic Numbers
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-08'
 depends_on:
   - task-521-549-refactor-gen1-impl
   - task-521-550-refactor-gen1-tests

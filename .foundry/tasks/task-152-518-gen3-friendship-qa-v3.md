@@ -2,13 +2,13 @@
 id: task-152-518-gen3-friendship-qa-v3
 type: TASK
 title: QA Gen 3 Friendship Data Extraction (v3)
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-02'
 updated_at: '2026-09-08'
 depends_on:
   - task-152-517-gen3-friendship-impl-v3
-jules_session_id: '2412751610338461155'
+jules_session_id: null
 pr_number: null
 parent: story-094-152-gen3-friendship-extraction
 tags:

@@ -2,12 +2,12 @@
 id: research-534-517-audit-acceptance-criteria
 type: RESEARCH
 title: Audit Acceptance Criteria Usage
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-04'
-updated_at: '2026-09-05'
+updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: '1065969208029131205'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: epic-520-534-acceptance-criteria-research
