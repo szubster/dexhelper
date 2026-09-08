@@ -27,7 +27,7 @@ locks: []
 Create the UI component for the Gen 1 static encounter checklist, mapping the parsed event flags to visual states.
 
 ## Acceptance Criteria
-- [ ] Implement the UI component for the Gen 1 static encounter checklist.
-- [ ] Map parsed Gen 1 event flags to visual checklist states.
-- [ ] Strictly adhere to ADR 008 and ADR 024 aesthetics.
-- [ ] Integrate the component into the Gen 1 tracker layout or routing hierarchy.
+- [x] Implement the UI component for the Gen 1 static encounter checklist.
+- [x] Map parsed Gen 1 event flags to visual checklist states.
+- [x] Strictly adhere to ADR 008 and ADR 024 aesthetics.
+- [x] Integrate the component into the Gen 1 tracker layout or routing hierarchy.
