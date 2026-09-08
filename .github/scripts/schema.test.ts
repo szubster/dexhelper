@@ -83,7 +83,8 @@ describe('NodeFrontmatterSchema', () => {
       research_references: [],
       rejection_count: 0,
       rejection_reason: "",
-      notes: ""
+      notes: "",
+      priority: 1
     };
     expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
   });

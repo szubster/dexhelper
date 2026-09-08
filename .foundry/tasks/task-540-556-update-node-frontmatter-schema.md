@@ -17,4 +17,4 @@ locks: []
 ---
 
 ## Acceptance Criteria
-- [ ] Add an optional integer `priority` field to the `NodeFrontmatterSchema` in `.github/scripts/schema.ts`.
+- [x] Add an optional integer `priority` field to the `NodeFrontmatterSchema` in `.github/scripts/schema.ts`.
