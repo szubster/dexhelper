@@ -2,13 +2,13 @@
 id: task-411-513-tm-hm-integration-e2e-qa-v2
 type: TASK
 title: QA of TM/HM Integration E2E Tests V2
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-01'
 updated_at: '2026-09-08'
 depends_on:
   - task-411-512-tm-hm-integration-e2e-impl-v2
-jules_session_id: '4795745498316905281'
+jules_session_id: null
 pr_number: null
 parent: story-401-411-tm-hm-integration-e2e
 tags:

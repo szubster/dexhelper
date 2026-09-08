@@ -2,20 +2,20 @@
 id: task-478-508-gen2-ruins-of-alph-qa
 type: TASK
 title: QA Gen 2 Ruins of Alph Puzzle Parsing
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-08-31'
 updated_at: '2026-09-08'
 depends_on:
   - task-478-507-gen2-ruins-of-alph-parsing-logic
-jules_session_id: '3410836001803865713'
+jules_session_id: null
 parent: story-338-478-gen2-ruins-of-alph-puzzle-flags
 tags:
   - feature
   - gen2
   - unown
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
 locks: []
 ---
 

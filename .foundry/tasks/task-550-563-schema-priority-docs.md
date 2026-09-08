@@ -2,7 +2,7 @@
 id: task-550-563-schema-priority-docs
 type: TASK
 title: Update Schema Documentation for Priority Field
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-08'
 updated_at: '2026-09-08'

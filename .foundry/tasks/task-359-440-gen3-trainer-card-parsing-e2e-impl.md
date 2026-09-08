@@ -2,12 +2,12 @@
 id: task-359-440-gen3-trainer-card-parsing-e2e-impl
 type: TASK
 title: Gen 3 Trainer Card E2E Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-05'
-updated_at: '2026-09-01'
+updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: '4764716505448135370'
+jules_session_id: null
 pr_number: null
 parent: story-400-359-gen3-trainer-card-parsing-e2e
 tags:
@@ -16,8 +16,9 @@ tags:
   - gen3
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
+locks: []
 ---
 
 # Task: Gen 3 Trainer Card E2E Implementation

@@ -2,7 +2,7 @@
 id: task-550-562-schema-priority-impl
 type: TASK
 title: Implement Priority Field in Schema
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-08'
 updated_at: '2026-09-08'

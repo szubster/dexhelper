@@ -2,7 +2,7 @@
 id: task-330-489-gen1-checklist-ui-impl
 type: TASK
 title: Implement Gen 1 Checklist UI
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-09-08'
@@ -16,8 +16,8 @@ tags:
   - ui
 research_references:
   - research-136-329-gen1-checklist-ui-failure
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---
