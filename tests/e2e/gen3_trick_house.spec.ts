@@ -9,7 +9,7 @@ test.describe('Gen 3 Trick House E2E', () => {
     await page.goto('./dashboard');
     await waitForSync(page);
 
-    const panel = page.locator('text=TRICK HOUSE');
+    const panel = page.locator('.tactical-panel').filter({ hasText: 'TRICK HOUSE' });
     await expect(panel).toBeVisible();
     await expect(panel).toContainText('TRICK HOUSE');
 
