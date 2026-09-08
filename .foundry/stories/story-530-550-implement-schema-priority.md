@@ -26,5 +26,7 @@ locks: []
 Decompose the implementation of the priority field into distinct tasks. The new optional field needs to be added to the Zod schema in `.github/scripts/schema.ts` and also properly documented in `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Decompose into tasks for implementing the Zod schema changes and tests.
-- [ ] Decompose into tasks for updating the schema documentation.
+- [x] Decompose into tasks for implementing the Zod schema changes and tests.
+- [x] Decompose into tasks for updating the schema documentation.
+- [ ] task-550-562-schema-priority-impl
+- [ ] task-550-563-schema-priority-docs
