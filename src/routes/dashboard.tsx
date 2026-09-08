@@ -44,6 +44,12 @@ const Gen3StaticEncountersDashboard = React.lazy(() =>
   })),
 );
 
+const Gen3LotteryDashboard = React.lazy(() =>
+  import('../components/dashboard/lottery/Gen3LotteryDashboard').then((m) => ({
+    default: m.Gen3LotteryDashboard,
+  })),
+);
+
 const Gen3EventItemsDashboard = React.lazy(() =>
   import('../components/dashboard/inventory/Gen3EventItemsDashboard').then((m) => ({
     default: m.Gen3EventItemsDashboard,
@@ -96,6 +102,8 @@ function DashboardPage() {
             <BattleFrontierDashboard saveData={saveData} />
             <GlobalRibbonChecklistDashboard />
             <Gen3SecretBaseDashboard saveData={saveData} />
+            <Gen3LotteryDashboard />
+
             <Gen3EventItemsDashboard saveData={saveData} />
             <Gen3StaticEncountersDashboard saveData={saveData} />
             <Gen3TrickHouseDashboard saveData={saveData} />

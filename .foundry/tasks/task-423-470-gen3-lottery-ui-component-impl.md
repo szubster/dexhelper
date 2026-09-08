@@ -34,6 +34,6 @@ Implement a UI component that displays the Gen3 lottery information to the user.
 - Integrate the component into the appropriate view hierarchy (e.g., Dashboard or Save Details).
 
 ## Acceptance Criteria
-- [ ] Implement the UI components.
-- [ ] Ensure components adhere strictly to ADR 008.
-- [ ] Write component tests using `vitest-browser-react` to verify rendering logic and state integration.
+- [x] Implement the UI components.
+- [x] Ensure components adhere strictly to ADR 008.
+- [x] Write component tests using `vitest-browser-react` to verify rendering logic and state integration.
