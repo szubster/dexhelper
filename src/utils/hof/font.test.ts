@@ -1,59 +1,44 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { preloadFonts } from './font';
 
+vi.mock('@fontsource/outfit/100.css', () => ({}));
+vi.mock('@fontsource/outfit/200.css', () => ({}));
+vi.mock('@fontsource/outfit/300.css', () => ({}));
+vi.mock('@fontsource/outfit/400.css', () => ({}));
+vi.mock('@fontsource/outfit/500.css', () => ({}));
+vi.mock('@fontsource/outfit/600.css', () => ({}));
+vi.mock('@fontsource/outfit/700.css', () => ({}));
+vi.mock('@fontsource/outfit/800.css', () => ({}));
+vi.mock('@fontsource/outfit/900.css', () => ({}));
+vi.mock('@fontsource/jetbrains-mono/100.css', () => ({}));
+vi.mock('@fontsource/jetbrains-mono/200.css', () => ({}));
+vi.mock('@fontsource/jetbrains-mono/300.css', () => ({}));
+vi.mock('@fontsource/jetbrains-mono/400.css', () => ({}));
+vi.mock('@fontsource/jetbrains-mono/500.css', () => ({}));
+vi.mock('@fontsource/jetbrains-mono/600.css', () => ({}));
+vi.mock('@fontsource/jetbrains-mono/700.css', () => ({}));
+vi.mock('@fontsource/jetbrains-mono/800.css', () => ({}));
+vi.mock('@fontsource/press-start-2p', () => ({}));
+
 describe('preloadFonts', () => {
   let originalFonts: unknown;
-  let styleElements: HTMLStyleElement[] = [];
 
   beforeEach(() => {
     if (typeof document !== 'undefined') {
       originalFonts = document.fonts;
-      vi.stubGlobal(
-        'fetch',
-        vi.fn().mockImplementation((url: string) => {
-          if (url.includes('css2')) {
-            return Promise.resolve({
-              ok: true,
-              text: () =>
-                Promise.resolve("@font-face { font-family: 'Test'; src: url(https://example.com/font.woff2); }"),
-            });
-          }
-          if (url.includes('example.com/font.woff2')) {
-            return Promise.resolve({
-              ok: true,
-              blob: () => Promise.resolve(new Blob(['test font data'], { type: 'font/woff2' })),
-            });
-          }
-          return Promise.resolve({ ok: false });
-        }),
-      );
-
-      const origAppendChild = document.head.appendChild.bind(document.head);
-      vi.spyOn(document.head, 'appendChild').mockImplementation((node) => {
-        if (node instanceof HTMLStyleElement) {
-          styleElements.push(node);
-        }
-        return origAppendChild(node);
-      });
     }
   });
 
   afterEach(() => {
-    vi.restoreAllMocks();
     if (typeof document !== 'undefined') {
       Object.defineProperty(document, 'fonts', {
         value: originalFonts,
         configurable: true,
       });
-      // Cleanup styles
-      for (const el of styleElements) {
-        el.remove();
-      }
-      styleElements = [];
     }
   });
 
-  it('should wait for document.fonts.ready and embed styles if available', async () => {
+  it('should lazy load fonts and wait for document.fonts.ready', async () => {
     if (typeof document === 'undefined') return;
 
     let resolved = false;
@@ -73,10 +58,6 @@ describe('preloadFonts', () => {
     expect(resolved).toBe(false);
     await promise;
     expect(resolved).toBe(true);
-
-    const injectedStyle = document.getElementById('embedded-hof-fonts');
-    expect(injectedStyle).toBeDefined();
-    expect(injectedStyle?.textContent).toContain('data:font/woff2;base64,');
   });
 
   it('should resolve immediately if document.fonts is undefined', async () => {
