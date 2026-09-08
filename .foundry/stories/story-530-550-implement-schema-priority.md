@@ -2,12 +2,12 @@
 id: story-530-550-implement-schema-priority
 type: STORY
 title: Implement Schema Priority Field
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-07'
+updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7041635210017438870'
 pr_number: null
 parent: epic-518-530-priority-schema-updates
 tags:
