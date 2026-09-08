@@ -29,5 +29,5 @@ While some decoupling has been implemented using `useDeferredValue` for searches
 - Smoother scrolling experience on mobile and low-end devices.
 - Less memory usage, avoiding Garbage Collection pauses when navigating away from the Pokedex grid.
 
-## Next Steps
-- [ ] prd-517-lazy-load-pokedex-pokemon-list
+## Acceptance Criteria
+- [ ] prd-517-564-lazy-load-pokedex-pokemon-list
