@@ -33,4 +33,8 @@ Currently, Acceptance Criteria in Foundry are implemented as freeform Markdown t
 - Create an ADR or update `schema.md` to document the new architecture.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into TASK nodes to implement the new architecture.
+- [x] tech_lead: Break down this Story into TASK nodes to implement the new architecture.
+- [ ] task-536-564-schema-leaf-nodes-update
+- [ ] task-536-565-core-policies-parent-nodes-update
+- [ ] task-536-566-ci-checkbox-formatter-script
+- [ ] task-536-567-acceptance-criteria-alternatives-qa
