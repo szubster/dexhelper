@@ -30,4 +30,5 @@ Agent sessions executing long-running or blocking bash commands (like \`tail -f\
 Implement the core logic for the static analysis linter to analyze bash commands before execution and block infinite-blocking commands.
 
 ## Acceptance Criteria
-- [ ] Break down this story into tasks.
+- [x] Break down this story into tasks.
+- [ ] task-526-562-bash-static-analysis-linter-impl
