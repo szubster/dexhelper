@@ -37,4 +37,5 @@ Leverage DexHelper's real-time clock integration and save file parsing to build 
 This transforms a highly missable, time-restricted mechanic into an easily trackable daily goal. It encourages daily engagement, helps players optimize their progression by guaranteeing they don't miss out on rare items, and perfectly complements existing daily event trackers (like IDEA-069) by adding real-time, time-of-day awareness.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a PRD to define the exact Blue Card memory offsets and daily completion event flags needed from the Crystal save structure.
+- [x] Product Manager: Draft a PRD to define the exact Blue Card memory offsets and daily completion event flags needed from the Crystal save structure.
+- [ ] prd-517-564-gen2-radio-password-tracker
