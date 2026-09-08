@@ -2,12 +2,12 @@
 id: research-488-562-autonomous-violation-detection
 type: RESEARCH
 title: Investigate Mechanisms for Detecting Autonomous Execution Violations
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-08'
 updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '899176256937140530'
 pr_number: null
 parent: idea-488-autonomous-execution-enforcement
 tags: []
