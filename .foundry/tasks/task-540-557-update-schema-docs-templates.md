@@ -17,5 +17,5 @@ locks: []
 ---
 
 ## Acceptance Criteria
-- [ ] Update `.foundry/docs/schema.md` to document the new `priority` field with a default of `50`.
-- [ ] Update the New Node Template in `.foundry/docs/schema.md` to include `priority: 50`.
+- [x] Update `.foundry/docs/schema.md` to document the new `priority` field with a default of `50`.
+- [x] Update the New Node Template in `.foundry/docs/schema.md` to include `priority: 50`.
