@@ -2,13 +2,13 @@
 id: task-410-494-update-journal-paths-qa
 type: TASK
 title: 'QA: Verify Updated Scripts Referencing Journal Paths'
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-08'
-updated_at: '2026-09-07'
+updated_at: '2026-09-08'
 depends_on:
   - task-410-493-update-journal-paths-impl
-jules_session_id: null
+jules_session_id: '17091245715561647703'
 pr_number: null
 parent: story-401-410-update-downstream-journal-scripts
 tags:
