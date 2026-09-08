@@ -37,7 +37,7 @@ export function VersionModal() {
 
         {/* Left Pane: Diagnostic Readout */}
         <div className="relative flex w-full flex-col border-amber-500/30 border-b border-dashed bg-black/60 p-6 sm:w-1/3 sm:border-r sm:border-b-0 sm:p-8">
-          <EdgeLabel className="-top-2 left-4 bg-amber-950 px-2 text-amber-500">[ DIAGNOSTIC_READOUT ]</EdgeLabel>
+          <EdgeLabel className="-top-2 left-4 bg-amber-950 px-2 text-amber-500">DIAGNOSTIC_READOUT</EdgeLabel>
 
           <div className="flex flex-1 flex-col items-center justify-center text-center">
             <div className="relative mb-6 flex h-20 w-20 items-center justify-center border border-amber-500/50 border-dashed bg-amber-500/10 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
@@ -65,7 +65,7 @@ export function VersionModal() {
 
         {/* Right Pane: Arbitration Matrix */}
         <div className="relative flex w-full flex-col bg-black/40 p-6 sm:w-2/3 sm:p-8">
-          <EdgeLabel className="-top-2 left-4 bg-zinc-950 px-2 text-zinc-500">[ ARBITRATION_MATRIX ]</EdgeLabel>
+          <EdgeLabel className="-top-2 left-4 bg-zinc-950 px-2 text-zinc-500">ARBITRATION_MATRIX</EdgeLabel>
 
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {versions.map((v) => (

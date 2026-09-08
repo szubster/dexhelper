@@ -85,7 +85,7 @@ export function SearchAndFilters() {
             </div>
 
             <EdgeLabel className="-top-2 left-5 bg-zinc-950 px-2 text-cyan-400 tracking-[0.2em]">
-              [ TARGET_ACQUISITION_ARRAY ]
+              TARGET_ACQUISITION_ARRAY
             </EdgeLabel>
 
             <div className="relative z-10 mt-3 flex items-center gap-5">
@@ -154,7 +154,7 @@ export function SearchAndFilters() {
           {/* Right Pane: Filter Parameters - Hardware Switches */}
           <div className="relative flex-1 border border-zinc-700 border-dashed bg-black/80 p-5 xl:max-w-[40%]">
             <EdgeLabel className="-top-2 left-5 bg-zinc-950 px-2 text-zinc-400 tracking-[0.2em]">
-              [ PARAMETER_ROUTING ]
+              PARAMETER_ROUTING
             </EdgeLabel>
 
             <div className="absolute top-3 right-3 flex items-center gap-1.5 opacity-50">
