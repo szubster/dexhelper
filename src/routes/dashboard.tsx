@@ -4,6 +4,7 @@ import React, { Suspense } from 'react';
 import { EmptyState } from '../components/EmptyState';
 
 import { useStore } from '../store';
+import { LotteryProvider } from '../contexts/LotteryContext';
 
 // ⚡ Bolt: Lazy load generation-specific dashboards to reduce initial bundle size
 const BattleFrontierDashboard = React.lazy(() =>
@@ -102,7 +103,14 @@ function DashboardPage() {
             <BattleFrontierDashboard saveData={saveData} />
             <GlobalRibbonChecklistDashboard />
             <Gen3SecretBaseDashboard saveData={saveData} />
-            <Gen3LotteryDashboard />
+            <Suspense fallback={<div className="tactical-skeleton h-32" />}>
+            </Suspense>
+
+
+
+
+
+            <Suspense fallback={<div className="tactical-skeleton h-32" />}><LotteryProvider><Gen3LotteryDashboard /></LotteryProvider></Suspense>
 
             <Gen3EventItemsDashboard saveData={saveData} />
             <Gen3StaticEncountersDashboard saveData={saveData} />

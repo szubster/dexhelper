@@ -6,7 +6,7 @@ import type { PokemonInstance } from '../../../../engine/saveParser/parsers/comm
 import { Gen3LotteryDashboard } from '../Gen3LotteryDashboard';
 
 vi.mock('../../../../contexts/LotteryContext', () => ({
-  useLottery: vi.fn<() => LotteryContextState>(),
+  useLottery: vi.fn<() => LotteryContextState | undefined>(),
 }));
 
 describe('Gen3LotteryDashboard', () => {
@@ -32,7 +32,7 @@ describe('Gen3LotteryDashboard', () => {
 
     await expect.element(page.getByText('LOTTERY STATUS')).toBeInTheDocument();
     await expect.element(page.getByText('12345')).toBeInTheDocument();
-    await expect.element(page.getByText('3')).toBeInTheDocument();
+    await expect.element(page.getByText('3', { exact: true })).toBeInTheDocument();
     await expect.element(page.getByText('BULBA')).toBeInTheDocument();
   });
 

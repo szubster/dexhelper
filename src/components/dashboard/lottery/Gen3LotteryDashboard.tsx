@@ -10,7 +10,8 @@ export const Gen3LotteryDashboard: React.FC = () => {
   }
 
   return (
-    <TacticalPanel title="LOTTERY STATUS">
+    <TacticalPanel>
+      <span className="tactical-text z-10 mb-4 font-black text-lg text-white">LOTTERY STATUS</span>
       <div className="flex flex-col gap-4 font-mono">
         <div className="flex justify-between border-tactical-gray/30 border-b border-dashed pb-2">
           <span className="text-tactical-gray">WINNING NUMBER</span>
