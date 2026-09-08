@@ -1,8 +1,11 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
-import { PokedexGrid } from '../components/PokedexGrid';
+import React, { Suspense } from 'react';
 import { SearchAndFilters } from '../components/SearchAndFilters';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
+
+// ⚡ Bolt: Lazy load PokedexGrid to reduce initial JS payload size
+const PokedexGrid = React.lazy(() => import('../components/PokedexGrid').then((m) => ({ default: m.PokedexGrid })));
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -14,7 +17,9 @@ function Index() {
   return (
     <>
       <SearchAndFilters />
-      <PokedexGrid pokemonList={pokemonList} />
+      <Suspense fallback={<div className="tactical-skeleton h-32" />}>
+        <PokedexGrid pokemonList={pokemonList} />
+      </Suspense>
     </>
   );
 }

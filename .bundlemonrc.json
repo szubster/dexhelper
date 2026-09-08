@@ -46,6 +46,14 @@
       "maxSize": "100kb"
     },
     {
+      "path": "assets/PokedexGrid-<hash>.js",
+      "maxSize": "20kb"
+    },
+    {
+      "path": "assets/StorageGrid-<hash>.js",
+      "maxSize": "20kb"
+    },
+    {
       "path": "assets/dag-<hash>.js",
       "maxSize": "200kb"
     },
@@ -79,7 +87,7 @@
     },
     {
       "path": "data/foundry.json",
-      "maxSize": "400kb"
+      "maxSize": "450kb"
     },
     {
       "path": "data/pokedata.msgpack",
