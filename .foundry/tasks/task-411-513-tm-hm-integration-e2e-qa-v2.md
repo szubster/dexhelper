@@ -34,6 +34,6 @@ Review and verify the implementation of the TM/HM integration end-to-end tests t
 4.  Confirm that the tests validate extraction, event flags, and inventory generation.
 
 ## Acceptance Criteria
-- [ ] Verify test coverage for Gen 1, Gen 2, and Gen 3.
-- [ ] Verify test suite runs successfully.
-- [ ] Verify adherence to testing library constraints.
+- [x] Verify test coverage for Gen 1, Gen 2, and Gen 3.
+- [x] Verify test suite runs successfully.
+- [x] Verify adherence to testing library constraints.
