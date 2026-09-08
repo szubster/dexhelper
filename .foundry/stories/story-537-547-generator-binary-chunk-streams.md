@@ -30,3 +30,5 @@ This story covers the implementation of generator protocols for binary chunk str
 
 ## Acceptance Criteria
 - [ ] Implement `function*` and `async function*` protocols for binary chunk streams.
+- [ ] task-547-564-binary-chunk-stream-impl
+- [ ] task-547-565-binary-chunk-stream-test
