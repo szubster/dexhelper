@@ -2,13 +2,13 @@
 id: task-423-470-gen3-lottery-ui-component-impl
 type: TASK
 title: Gen3 Lottery UI Component Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-09-01'
+updated_at: '2026-09-08'
 depends_on:
   - task-423-469-gen3-lottery-state-impl
-jules_session_id: '10033646992167964797'
+jules_session_id: null
 pr_number: null
 parent: story-133-423-gen3-lottery-ui-integration
 tags:
@@ -16,8 +16,9 @@ tags:
   - gen3
   - ui
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
+locks: []
 ---
 
 # Gen3 Lottery UI Component Implementation

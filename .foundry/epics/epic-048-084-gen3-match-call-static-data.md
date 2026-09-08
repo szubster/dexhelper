@@ -2,10 +2,10 @@
 id: epic-048-084-gen3-match-call-static-data
 type: EPIC
 title: 'Epic: Gen 3 Match Call Static Data Generation'
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-13'
-updated_at: '2026-09-07'
+updated_at: '2026-09-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - tracking
   - data-generation
 research_references: []
-rejection_count: 0
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
