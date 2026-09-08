@@ -982,25 +982,3 @@ To resolve this, I utilized the Late Binding pattern to suspend the current task
 - The task was gracefully exited by setting its status to CANCELLED and providing the rejection reason, preventing an infinite resurrection loop without falsely validating its acceptance criteria.
 
 
-
-
----
-
-# Session 17480000000000000000
-
-## Action Taken
-- Decomposed `story-536-541-benchmarking-node-native-execution` into granular implementation and QA tasks.
-
-## Learnings
-- **Decomposition Granularity:** When decomposing a STORY into TASK nodes, it is critical to avoid the "Two-Tasks-Max" anti-pattern (e.g., just one implementation task and one QA task). A STORY must be broken down into discrete, modular execution steps. For example, a benchmarking story should be split into `harness` setup, `runner` logic, and `reporter` implementation before the final `qa` task.
-- **DAG State Configuration:** New TASK nodes with no dependencies (`depends_on: []`) must be initialized with `status: READY` to allow the DAG Orchestrator to immediately dispatch them. Initializing them as `PENDING` will cause a deadlock.
-
-
----
-
-# Tech Lead Journal: Node Granularity Policy Strictness
-
-- When decomposing nodes in Foundry, the "Two-Tasks-Max Anti-pattern" explicitly requires breaking apart core logic implementation and unit testing into distinct, independent TASK nodes.
-- Combining implementation and testing into a single monolithic task violates architectural policies.
-- Always initialize independent, unblocked start nodes with `READY` status, not `PENDING`, to ensure immediate orchestrator pick-up without waiting for the next heartbeat cycle.
-- Private journals must not be used as execution logbooks ("I did X"). They must strictly record long-term lessons, architectural constraints, and recurring failures (the "why", not the "what").
