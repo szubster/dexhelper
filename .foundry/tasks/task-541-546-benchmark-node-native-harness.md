@@ -24,6 +24,9 @@ locks: []
 Establish the foundational benchmarking harness, including test runner configuration, types, and setup/teardown logic required for executing Node.js native performance tests.
 
 ## Acceptance Criteria
-- [ ] Implement the core benchmark harness configuration.
-- [ ] Define the necessary TypeScript types/interfaces for benchmark results.
-- [ ] Ensure the harness can execute a basic hello-world benchmark.
+- [x] Implement the core benchmark harness configuration.
+- [x] Define the necessary TypeScript types/interfaces for benchmark results.
+- [x] Ensure the harness can execute a basic hello-world benchmark.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
