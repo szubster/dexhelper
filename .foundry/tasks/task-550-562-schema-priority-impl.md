@@ -2,12 +2,12 @@
 id: task-550-562-schema-priority-impl
 type: TASK
 title: Implement Priority Field in Schema
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-08'
 updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5444461382610776773'
 pr_number: null
 parent: story-530-550-implement-schema-priority
 tags:
