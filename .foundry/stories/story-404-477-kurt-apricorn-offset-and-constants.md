@@ -29,5 +29,8 @@ As part of epic-338-404-kurt-apricorn-data-engine, we need to determine and defi
 - Ensure no magic numbers are used inline, satisfying Section 13 guidelines.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break this STORY down into actionable TASK nodes.
-- [ ] research-404-495-kurt-apricorn-offsets
+- [x] tech_lead: Break this STORY down into actionable TASK nodes.
+- [x] research-404-495-kurt-apricorn-offsets
+- [ ] research-477-564-investigate-apricorn-offsets-failure
+- [ ] task-477-565-define-apricorn-constants
+- [ ] task-477-566-test-apricorn-constants
