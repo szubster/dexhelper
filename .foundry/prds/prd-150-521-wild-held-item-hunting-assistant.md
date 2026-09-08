@@ -50,4 +50,9 @@ To provide a Wild Held Item Hunting Assistant for DexHelper that aids players in
 - **Data Naming Schema:** Ensure MsgPack (`msgpackr`) with `useRecords: true` is used and adherence to the PokeData Property Naming Schema.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into Epics.
+- [x] Epic Planner: Break down this PRD into Epics.
+- [ ] epic-521-552-wild-item-data-engine
+- [ ] epic-521-553-thief-covet-team-optimizer
+- [ ] epic-521-554-hunting-progress-tracker
+- [ ] epic-521-555-wild-item-hunting-ui
+- [ ] epic-521-556-wild-item-e2e-verification
