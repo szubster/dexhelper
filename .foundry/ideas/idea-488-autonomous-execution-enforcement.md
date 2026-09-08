@@ -30,7 +30,9 @@ Implement an automated monitoring system or git hook that scans session transcri
 - Improves overall pipeline throughput and agent autonomy.
 
 ## Acceptance Criteria
-- [ ] prd-488-519-autonomous-execution-enforcement
+- [x] prd-488-519-autonomous-execution-enforcement
+- [ ] research-488-562-autonomous-violation-detection
+- [ ] prd-488-563-autonomous-violation-detection
 
 ## Research Considerations
 - Investigate the available Jules API endpoints to determine if this monitoring can be done programmatically within the orchestrator.
