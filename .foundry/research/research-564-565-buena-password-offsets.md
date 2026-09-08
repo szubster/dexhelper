@@ -1,4 +1,9 @@
 ---
+created_at: '2026-09-08'
+updated_at: '2026-09-08'
+depends_on: []
+jules_session_id: null
+rejection_reason: ''
 id: research-564-565-buena-password-offsets
 type: RESEARCH
 title: Buena's Password Save Data Offsets
