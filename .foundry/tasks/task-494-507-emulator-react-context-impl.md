@@ -2,7 +2,7 @@
 id: task-494-507-emulator-react-context-impl
 type: TASK
 title: Emulator React Context and Hooks Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-31'
 updated_at: '2026-09-09'
@@ -15,8 +15,8 @@ tags:
   - ui
   - emulator
   - state
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

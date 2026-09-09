@@ -2,10 +2,10 @@
 id: task-520-551-zombie-node-gc-qa
 type: TASK
 title: Zombie Node GC QA Verification
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-06'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on:
   - task-520-549-zombie-node-detection-impl
   - task-520-550-zombie-node-remediation-impl

@@ -2,12 +2,12 @@
 id: task-544-549-dynamic-node-spawning-heartbeat
 type: TASK
 title: Update foundry-heartbeat for Dynamic Node Spawning
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-05'
 updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '8633274184063403813'
+jules_session_id: null
 pr_number: null
 parent: story-539-544-implement-dynamic-node-spawning
 tags: []
