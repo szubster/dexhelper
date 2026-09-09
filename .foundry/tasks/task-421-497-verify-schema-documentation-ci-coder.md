@@ -2,7 +2,7 @@
 id: task-421-497-verify-schema-documentation-ci-coder
 type: TASK
 title: Verify Schema Documentation CI Coder
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-09-09'
@@ -12,8 +12,8 @@ jules_session_id: null
 pr_number: null
 parent: story-129-421-verify-schema-documentation-e2e
 tags: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
