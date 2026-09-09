@@ -22,4 +22,7 @@ The `isGen3Save` heuristic in `src/engine/saveParser/utils/detection.ts` current
 - Ensure tests still pass.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-550-567-fix-gen3-heuristic-impl
+- [ ] task-550-568-remove-gen3-mock
+- [ ] task-550-569-qa-gen3-heuristic
