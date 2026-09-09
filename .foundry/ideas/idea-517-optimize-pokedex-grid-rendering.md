@@ -2,12 +2,12 @@
 id: idea-517-optimize-pokedex-grid-rendering
 type: IDEA
 title: Optimize Pokedex and Storage Grids with Virtualization
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2025-07-27'
 updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16507947521072273187'
 pr_number: null
 parent: null
 tags:
