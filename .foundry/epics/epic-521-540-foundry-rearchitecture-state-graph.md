@@ -31,4 +31,7 @@ This Epic covers the requirements for rearchitecting the Foundry orchestrator an
 - [ ] Research and evaluate graph processing libraries (e.g., Graphology) for DAG operations, topological sorting, and cycle detection.
 - [ ] Document the selected patterns, libraries, and benchmark results in a formal Architecture Decision Record (ADR).
 - [ ] Ensure that all findings and decisions meet the PRD requirements for the new engine abstraction.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with e2e or integration).
+- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with e2e or integration).
+- [ ] story-540-560-evaluate-state-and-graph-libraries
+- [ ] story-540-561-implement-orchestrator-state-graph-engine
+- [ ] story-540-562-orchestrator-engine-e2e-verification
