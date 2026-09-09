@@ -105,3 +105,15 @@ Improve AI readability by extracting Gen 3 TM/HM received/got flags from the mai
 ## Critical Learnings
 - **Inline exports clutter core logic:** When hundreds of constants are exported inline within the main parsing logic (like `gen3.ts`), it becomes harder for AI to distinguish between the actual binary extraction logic and the static dictionaries. Extracting them to dedicated dictionary files improves semantic structure.
 - **Maintain backward compatibility:** If extracting constants that were previously exported, it's crucial to either re-export them from the original module (`export * from ...`) or update all external dependents to prevent breaking downstream code that relies on the public API.
+
+<!-- Merged from 025-npc-trade-flags.md -->
+## Refactoring Goal
+Improve AI readability by extracting Gen 3 NPC trade flags from the main `parsers/gen3.ts` file into a dedicated `gen3/npcTrades/constants.ts` file.
+
+## Actions Taken
+- Extracted 13 `FLAG_` constants relating to NPC trades from `src/engine/saveParser/parsers/gen3.ts` into a new `src/engine/saveParser/gen3/npcTrades/constants.ts` file.
+- Updated `src/engine/saveParser/parsers/gen3.ts` to import these constants.
+
+## Critical Learnings
+- **Inline exports clutter core logic:** Similar to TM/HM flags, when domain-specific constants (like trade flags) are scattered inline within the main parsing logic, it becomes harder for AI to distinguish between the actual binary extraction logic and the static dictionaries. Extracting them to dedicated dictionary files improves semantic structure and modularity.
+- **Refactoring Strategy:** Writing custom scripts to migrate constants and their references proved safer than manual string replacement across large files.
