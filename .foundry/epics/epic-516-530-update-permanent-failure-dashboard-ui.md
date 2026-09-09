@@ -33,7 +33,9 @@ Update the DAG UI components to include nodes that are `CANCELLED` with a reject
 - [ ] Nodes with `status: CANCELLED` and `rejection_count >= 3` are visible in the Permanent Failure Dashboard.
 - [ ] Nodes with `status: CANCELLED` and `rejection_count >= 3` are highlighted correctly (e.g., using the same red styling as FAILED nodes with high rejection counts) in `DagNode.tsx` and `DagDashboard.tsx`.
 - [ ] The filter panel or data selection logic properly includes these nodes.
-- [ ] An E2E/Integration test STORY is created to verify the Permanent Failure Dashboard correctly displays CANCELLED nodes.
+- [x] An E2E/Integration test STORY is created to verify the Permanent Failure Dashboard correctly displays CANCELLED nodes.
+- [ ] story-530-560-update-dag-ui-components
+- [ ] story-530-561-e2e-verify-cancelled-nodes
 
 ## Implementation Details
 1. Modify the `DagDashboard.tsx` and `DagNode.tsx` components to account for the new `CANCELLED` status when identifying permanently failed nodes.
