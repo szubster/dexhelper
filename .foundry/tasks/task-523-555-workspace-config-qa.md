@@ -28,5 +28,5 @@ locks: []
 - Verify the configuration package and tsconfig base setup.
 
 ## Acceptance Criteria
-- [ ] Verify packages/config/package.json contains name "@dexhelper/config" and "private": true.
-- [ ] Verify packages/config/tsconfig.base.json contains "verbatimModuleSyntax": true and "strict": true in compilerOptions.
+- [x] Verify packages/config/package.json contains name "@dexhelper/config" and "private": true.
+- [x] Verify packages/config/tsconfig.base.json contains "verbatimModuleSyntax": true and "strict": true in compilerOptions.
