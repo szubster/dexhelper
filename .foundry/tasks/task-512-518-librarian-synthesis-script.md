@@ -33,3 +33,4 @@ The librarian persona needs a script to synthesize and extract systemic rules fr
 - [ ] Implement a Github script that synthesizes systemic rules from ingested journal data.
 - [ ] Output the extracted rules in a clear format.
 - [ ] Ensure the script is documented and tested.
+- [ ] adr-518-550-librarian-agent-architecture
