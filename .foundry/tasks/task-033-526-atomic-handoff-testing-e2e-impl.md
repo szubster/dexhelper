@@ -21,4 +21,4 @@ rejection_reason: ''
 Implement the E2E Playwright tests to verify the atomic handoff lifecycle.
 
 ## Acceptance Criteria
-- [ ] Write integration tests simulating a full lifecycle using atomic files.
+- [x] Write integration tests simulating a full lifecycle using atomic files.
