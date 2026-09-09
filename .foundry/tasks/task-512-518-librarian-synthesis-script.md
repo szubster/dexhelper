@@ -2,12 +2,12 @@
 id: task-512-518-librarian-synthesis-script
 type: TASK
 title: Librarian Journal Synthesis Script
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-05'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '151169153594058206'
+jules_session_id: null
 pr_number: null
 parent: story-410-512-librarian-ingestion-synthesis-script
 tags:
@@ -17,8 +17,9 @@ tags:
   - librarian
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
+locks: []
 ---
 
 # Librarian Journal Synthesis Script

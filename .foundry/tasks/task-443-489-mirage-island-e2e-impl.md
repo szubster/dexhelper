@@ -2,7 +2,7 @@
 id: task-443-489-mirage-island-e2e-impl
 type: TASK
 title: Implement E2E Test for Mirage Island Save Parsing
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-09-09'
@@ -16,8 +16,8 @@ tags:
   - mirage-island
   - e2e
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

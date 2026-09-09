@@ -2,13 +2,13 @@
 id: task-444-518-pokerus-e2e-qa
 type: TASK
 title: Pokerus Integration E2E QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-02'
 updated_at: '2026-09-09'
 depends_on:
   - task-444-517-pokerus-e2e-impl
-jules_session_id: '2791474817543902357'
+jules_session_id: null
 pr_number: null
 parent: story-411-444-pokerus-integration-e2e
 tags:

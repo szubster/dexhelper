@@ -2,10 +2,10 @@
 id: task-520-552-feature-flags-qa
 type: TASK
 title: 'QA: Feature Flags Implementation'
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-09'
 depends_on:
   - task-520-551-feature-flags-ui-impl
 jules_session_id: null

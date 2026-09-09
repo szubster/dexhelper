@@ -2,12 +2,12 @@
 id: task-521-549-refactor-gen1-impl
 type: TASK
 title: Refactor Gen 1 Event Flags Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-05'
 updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '17452226315673254676'
+jules_session_id: null
 pr_number: null
 parent: story-521-521-gen1-utils-refactor
 tags:

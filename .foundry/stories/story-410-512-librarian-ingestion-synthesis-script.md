@@ -2,10 +2,10 @@
 id: story-410-512-librarian-ingestion-synthesis-script
 type: STORY
 title: Librarian Ingestion and Synthesis Script
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-01'
-updated_at: '2026-09-05'
+updated_at: '2026-09-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
