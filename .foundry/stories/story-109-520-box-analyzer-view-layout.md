@@ -34,4 +34,7 @@ Create the main routing and structural layout for the Duplicate Analyzer view in
 - [ ] Create the main view component.
 - [ ] Set up routing to the new view.
 - [ ] Ensure layout follows ADR 024 (tactical aesthetic).
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-520-549-box-analyzer-route-config
+- [ ] task-520-550-box-analyzer-view-component
+- [ ] task-520-551-box-analyzer-layout-qa
