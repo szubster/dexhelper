@@ -2,12 +2,12 @@
 id: prd-419-516-scheduled-agents-dashboard
 type: PRD
 title: GitHub Issue-Based Scheduled Agent Dispatch
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-02'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '8639224663139455483'
+jules_session_id: null
 pr_number: null
 parent: idea-419-scheduled-agents-dashboard
 tags:
@@ -32,10 +32,12 @@ Currently, scheduled autonomous agents run out-of-band directly from `.github/wo
 - The existing cron triggers will be retained.
 
 ### 2. Adaptation of `foundry-scheduled-agent.yml`
-- It should trigger on `issues` with `types: [opened]`.
-- It must verify the issue has the `jules` label and its title matches the `Scheduled Agent: <persona>` pattern.
-- The workflow should extract the persona from the issue title and pass it to the orchestrator for prompt compilation.
-- It must inject a prompt instruction for the agent to append `Closes #<issue_number>` to its PR body so the issue automatically closes on merge.
+- ~~It should trigger on `issues` with `types: [opened]`.~~ (Obsolete: Jules handles this natively via its issue listener)
+- ~~It must verify the issue has the `jules` label and its title matches the `Scheduled Agent: <persona>` pattern.~~ (Obsolete: Handled natively)
+- ~~The workflow should extract the persona from the issue title and pass it to the orchestrator for prompt compilation.~~ (Obsolete: Full prompt will be injected directly into the issue body by the callers in step 1)
+- ~~It must inject a prompt instruction for the agent to append `Closes #<issue_number>` to its PR body so the issue automatically closes on merge.~~ (Obsolete: Handled natively by Jules' system prompt)
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into EPIC(s) for modifying the GitHub workflows.
+- [x] Epic Planner: Break this PRD down into EPIC(s) for modifying the GitHub workflows.
+- [ ] epic-516-531-modify-scheduled-workflows
+- [ ] epic-516-532-e2e-verification

@@ -2,13 +2,13 @@
 id: story-412-478-implement-resolve-phase-locking
 type: STORY
 title: Implement RESOLVE phase locking logic
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-03'
+updated_at: '2026-09-06'
 depends_on:
   - story-412-477-parse-locks-orchestrator
-jules_session_id: '9870080905029609163'
+jules_session_id: null
 pr_number: null
 parent: epic-340-412-orchestrator-resource-locking
 tags:
@@ -33,4 +33,7 @@ Implement lock aggregation and evaluation in the RESOLVE phase of the orchestrat
 - Prevent deadlocks.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-478-528-aggregate-active-locks
+- [ ] task-478-529-evaluate-locks-for-pending-nodes
+- [ ] task-478-530-resolve-phase-locking-qa

@@ -2,12 +2,12 @@
 id: story-417-520-statistics-generation
 type: STORY
 title: Real-Time Statistics Generation Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-06'
 depends_on: []
-jules_session_id: '11315654009503379443'
+jules_session_id: null
 pr_number: null
 parent: epic-146-417-real-time-statistics-generator
 tags:
@@ -31,4 +31,8 @@ Implement the statistics generation module that aggregates real-time metrics for
 4. **Integration**: Tie the script to `.github/scripts/foundry-orchestrator.ts` or the `foundry-heartbeat.yml` workflow.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into Tasks for Implementation and PR Metrics.
+- [x] Break down this Story into Tasks for Implementation and PR Metrics.
+- [ ] task-520-528-statistics-node-aggregation-impl
+- [ ] task-520-529-statistics-pr-metrics-impl
+- [ ] task-520-530-statistics-report-integration-impl
+- [ ] task-520-531-statistics-generation-qa

@@ -2,12 +2,12 @@
 id: idea-150-wild-held-item-hunting-assistant
 type: IDEA
 title: Wild Held Item Hunting Assistant
-status: ACTIVE
-owner_persona: product_manager
+status: PENDING
+owner_persona: auditor
 created_at: '2026-08-15'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '14194771349769566527'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Idea: Wild Held Item Hunting Assistant
@@ -45,4 +46,5 @@ This tool transforms a frustrating RNG grind into a structured, trackable goal, 
 
 ## Next Steps / Acceptance Criteria
 - [x] Product Manager: Draft this IDEA node to initiate the feature request for the Wild Held Item Hunting Assistant.
-- [ ] Product Manager: Convert this IDEA into a PRD detailing the user flows and technical requirements.
+- [x] Product Manager: Convert this IDEA into a PRD detailing the user flows and technical requirements.
+- [ ] prd-150-521-wild-held-item-hunting-assistant

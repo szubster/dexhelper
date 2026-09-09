@@ -5,17 +5,17 @@ title: Gen 2 Roamer E2E Tests Implementation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-08-31'
+updated_at: '2026-09-07'
 depends_on:
   - task-442-466-gen2-roamer-e2e-fixture-impl
-jules_session_id: '16358902543741955479'
+jules_session_id: '11914125739812040976'
 pr_number: null
 parent: story-139-442-gen2-roamer-extraction-e2e
 tags:
   - e2e
   - gen2
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

@@ -2,10 +2,10 @@
 id: prd-148-521-orchestrator-priority-scheduling
 type: PRD
 title: PRD for Foundry Orchestrator DAG Priority Scheduling
-status: READY
+status: PENDING
 owner_persona: epic_planner
-created_at: 2026-08-13
-updated_at: 2026-08-13
+created_at: 2026-08-13T00:00:00.000Z
+updated_at: '2026-09-06'
 depends_on: []
 jules_session_id: null
 locks: []
@@ -18,8 +18,8 @@ tags:
   - optimization
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # PRD: Foundry Orchestrator DAG Priority Scheduling
@@ -49,4 +49,6 @@ This PRD outlines the requirements for implementing a **Priority Scheduling Engi
    - **Absolute Maximum / Override:** `999` (Use this to override all other tasks in the queue to force immediate execution).
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into a comprehensive EPIC covering the schema update and orchestrator implementation.
+- [x] Epic Planner: Break this PRD down into a comprehensive EPIC covering the schema update and orchestrator implementation.
+- [ ] epic-521-540-orchestrator-priority-scheduling
+- [ ] epic-521-541-orchestrator-priority-scheduling-e2e

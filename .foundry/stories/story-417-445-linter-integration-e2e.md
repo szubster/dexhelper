@@ -2,10 +2,10 @@
 id: story-417-445-linter-integration-e2e
 type: STORY
 title: Integration and E2E Verification of ADR Compliance Linter
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-23T00:00:00.000Z'
-updated_at: '2026-08-23'
+updated_at: '2026-09-08'
 depends_on:
   - story-417-444-adr-013-state-compliance-linter
 jules_session_id: null
@@ -22,6 +22,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Integration and E2E Verification of ADR Compliance Linter

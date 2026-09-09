@@ -2,14 +2,13 @@
 id: task-490-525-progression-switcher-e2e-impl
 type: TASK
 title: Progression UI Context Switcher E2E Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-08'
 depends_on:
   - task-490-524-progression-sync-e2e-impl
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-036-490-progression-e2e-verification
 tags:
@@ -21,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Progression UI Context Switcher E2E Tests

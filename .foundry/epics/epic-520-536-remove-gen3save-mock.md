@@ -2,12 +2,12 @@
 id: epic-520-536-remove-gen3save-mock
 type: EPIC
 title: Remove isGen3Save mock and fix heuristic
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '1349508265782360154'
+jules_session_id: null
 locks: []
 parent: prd-086-520-fix-gen3save-mock
 rejection_reason: ''
@@ -22,5 +22,7 @@ The `isGen3Save` heuristic is currently mocked in tests (e.g. returning `false` 
 - Ensure the `isGen3Save` heuristic runs successfully and correctly identifies Gen 3 saves without bypassing.
 
 ## Acceptance Criteria
-- [ ] Break down this Epic into STORY nodes.
-- [ ] Ensure this Epic generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Break down this Epic into STORY nodes.
+- [x] Ensure this Epic generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-536-550-remove-mock-and-fix-heuristic
+- [ ] story-536-551-integration-e2e-verification

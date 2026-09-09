@@ -2,12 +2,12 @@
 id: epic-046-079-gen3-battle-frontier-dashboard-ui
 type: EPIC
 title: Gen 3 Battle Frontier Dashboard UI
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-11'
-updated_at: '2026-07-07'
+updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14484693374801811050'
 pr_number: null
 parent: prd-074-046-gen3-battle-frontier-tracker
 tags:
@@ -15,9 +15,10 @@ tags:
   - gen3
   - endgame
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Gen 3 Battle Frontier Dashboard UI

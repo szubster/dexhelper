@@ -2,12 +2,12 @@
 id: task-512-517-librarian-ingestion-script
 type: TASK
 title: Librarian Journal Ingestion Script
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '3097803180683779116'
+jules_session_id: null
 pr_number: null
 parent: story-410-512-librarian-ingestion-synthesis-script
 tags:
@@ -30,6 +30,6 @@ Create the journal ingestion script for the Librarian persona.
 The librarian persona needs a script to ingest agent journals to prepare them for rule synthesis and extraction. This script should collect `.md` files from `.foundry/journals/` for processing.
 
 ## Acceptance Criteria
-- [ ] Implement a Github script that reads all journal files from `.foundry/journals/`.
-- [ ] The script should output a combined or structured data format containing the journal contents, ready for synthesis.
-- [ ] Ensure the script is documented and tested.
+- [x] Implement a Github script that reads all journal files from `.foundry/journals/`.
+- [x] The script should output a combined or structured data format containing the journal contents, ready for synthesis.
+- [x] Ensure the script is documented and tested.

@@ -29,4 +29,7 @@ Implement the core integration logic for zombie node garbage collection directly
 ## Acceptance Criteria
 - [ ] Write integration logic directly into the orchestrator.
 - [ ] Ensure proper handling of node transitions.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-520-549-zombie-node-detection-impl
+- [ ] task-520-550-zombie-node-remediation-impl
+- [ ] task-520-551-zombie-node-gc-qa

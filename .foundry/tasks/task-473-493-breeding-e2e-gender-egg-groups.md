@@ -2,12 +2,12 @@
 id: task-473-493-breeding-e2e-gender-egg-groups
 type: TASK
 title: Implement Gen 2 E2E Tests for Gender and Egg Groups
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-26'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '10932373668221969953'
+jules_session_id: null
 pr_number: null
 parent: story-309-473-shiny-breeding-logic-e2e
 tags:
@@ -30,6 +30,6 @@ locks: []
 Implement Playwright E2E tests for the Gen 2 Shiny Breeding engine specifically targeting gender calculation and egg group validation logic within the UI.
 
 ## Acceptance Criteria
-- [ ] Write Playwright E2E tests covering gender calculation UI workflows.
-- [ ] Write Playwright E2E tests covering egg group validation rendering.
-- [ ] Ensure tests do not duplicate logic inside page.evaluate().
+- [x] Write Playwright E2E tests covering gender calculation UI workflows.
+- [x] Write Playwright E2E tests covering egg group validation rendering.
+- [x] Ensure tests do not duplicate logic inside page.evaluate().

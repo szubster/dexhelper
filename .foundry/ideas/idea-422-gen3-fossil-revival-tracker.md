@@ -2,12 +2,12 @@
 id: idea-422-gen3-fossil-revival-tracker
 type: IDEA
 title: Gen 3 Fossil Revival Tracker
-status: ACTIVE
-owner_persona: product_manager
+status: PENDING
+owner_persona: auditor
 created_at: '2026-08-27'
-updated_at: '2026-09-04'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '9955161458299285562'
+jules_session_id: null
 parent: null
 tags:
   - dexhelper
@@ -16,6 +16,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Idea: Gen 3 Fossil Revival Tracker
@@ -42,4 +43,5 @@ Introduce a "Fossil Revival Tracker" component within the DexHelper dashboard fo
 - **Improved UX:** Removes the need for players to travel to the revival locations just to check the status.
 
 ## 4. Next Steps & Acceptance Criteria
-- [ ] Product Manager: Draft a PRD outlining the Fossil Revival Tracker UI and the specific data extraction requirements for RSE and FRLG.
+- [x] Product Manager: Draft a PRD outlining the Fossil Revival Tracker UI and the specific data extraction requirements for RSE and FRLG.
+- [ ] prd-422-520-gen3-fossil-revival-tracker
