@@ -2,13 +2,13 @@
 id: story-133-475-gen3-ribbon-unit-tests
 type: STORY
 title: Write Gen 3 Ribbon Unit Tests
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on:
   - story-133-474-gen3-ribbon-extraction-logic
-jules_session_id: '4490497599707448398'
+jules_session_id: null
 pr_number: null
 parent: epic-101-133-gen3-ribbon-extraction
 tags:

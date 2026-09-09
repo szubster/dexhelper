@@ -2,12 +2,12 @@
 id: story-519-521-update-frontmatter-promotion
 type: STORY
 title: Update DRAFT Frontmatter to STABLE
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '6191937769074749484'
+jules_session_id: null
 pr_number: null
 parent: epic-346-519-wip-artifact-promotion
 tags:

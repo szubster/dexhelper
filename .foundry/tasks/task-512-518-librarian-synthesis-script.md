@@ -17,7 +17,9 @@ tags:
   - librarian
 research_references: []
 rejection_count: 1
-rejection_reason: 'Obsolete due to PR comment requesting a scheduled agent instead of a script.'
+rejection_reason: >-
+  [ACKNOWLEDGED] Obsolete due to PR comment requesting a scheduled agent instead
+  of a script.
 notes: ''
 locks: []
 ---

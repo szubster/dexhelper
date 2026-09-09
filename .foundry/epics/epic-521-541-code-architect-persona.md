@@ -1,11 +1,11 @@
 ---
 id: epic-521-541-code-architect-persona
 type: EPIC
-title: "Epic: Scheduled Weekly Persona - Code Architect (architect_visionary)"
-status: PENDING
+title: 'Epic: Scheduled Weekly Persona - Code Architect (architect_visionary)'
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-06'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,9 @@ tags:
   - foundry
   - personas
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Epic: Scheduled Weekly Persona - Code Architect (architect_visionary)

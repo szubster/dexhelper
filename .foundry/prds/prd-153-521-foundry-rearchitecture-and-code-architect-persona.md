@@ -4,12 +4,12 @@ type: PRD
 title: >-
   PRD: Foundry Rearchitecture - State Machine/Graph Libraries & Scheduled Code
   Architect Persona
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-04'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '17437175947743572753'
+jules_session_id: null
 pr_number: null
 parent: idea-153-foundry-rearchitecture-and-code-architect-persona
 tags:

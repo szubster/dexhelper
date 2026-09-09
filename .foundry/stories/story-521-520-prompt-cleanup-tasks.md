@@ -2,12 +2,12 @@
 id: story-521-520-prompt-cleanup-tasks
 type: STORY
 title: Clean up Coder and QA Persona Prompts Tasks
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '15779456277784991839'
+jules_session_id: null
 pr_number: null
 parent: epic-517-521-centralize-prompt-reminders-cleanup
 tags:

@@ -2,10 +2,10 @@
 id: task-522-552-feature-flag-tooling-qa
 type: TASK
 title: QA Feature Flag Removal Tooling
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-09'
 depends_on:
   - task-522-551-feature-flag-tooling-tests
 jules_session_id: null

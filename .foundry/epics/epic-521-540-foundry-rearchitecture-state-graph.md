@@ -1,11 +1,11 @@
 ---
 id: epic-521-540-foundry-rearchitecture-state-graph
 type: EPIC
-title: "Epic: Foundry Rearchitecture - State Machine and Graph Libraries"
-status: PENDING
+title: 'Epic: Foundry Rearchitecture - State Machine and Graph Libraries'
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-06'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,9 @@ tags:
   - state-machine
   - dag
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Epic: Foundry Rearchitecture - State Machine and Graph Libraries
