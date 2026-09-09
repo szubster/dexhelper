@@ -26,7 +26,7 @@ locks: []
 Implement a React Context or Zustand slice managing the selected target Pokémon and desired Egg Move, including filtering logic for available Egg Moves based on the selected Pokémon.
 
 ## Acceptance Criteria
-- [ ] Implement state container for selected target Pokémon.
-- [ ] Implement state container for selected Egg Move.
-- [ ] Implement filtering logic that derives available Egg Moves based on the selected target Pokémon.
-- [ ] Export hooks to access this state.
+- [x] Implement state container for selected target Pokémon.
+- [x] Implement state container for selected Egg Move.
+- [x] Implement filtering logic that derives available Egg Moves based on the selected target Pokémon.
+- [x] Export hooks to access this state.
