@@ -20,3 +20,6 @@ locks: []
 ---
 # PRD: Automated Detection of Autonomous Execution Violations
 Design a system to enforce the Autonomous No-Ask Policy, utilizing the findings from the research phase to detect and reject non-autonomous sessions.
+
+## Acceptance Criteria
+- [ ] epic-563-564-implement-heartbeat-violation-detection
