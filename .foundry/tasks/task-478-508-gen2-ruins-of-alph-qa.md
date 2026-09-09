@@ -2,13 +2,13 @@
 id: task-478-508-gen2-ruins-of-alph-qa
 type: TASK
 title: QA Gen 2 Ruins of Alph Puzzle Parsing
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-31'
-updated_at: '2026-09-08'
+updated_at: '2026-09-09'
 depends_on:
   - task-478-507-gen2-ruins-of-alph-parsing-logic
-jules_session_id: null
+jules_session_id: '5148609704769279239'
 parent: story-338-478-gen2-ruins-of-alph-puzzle-flags
 tags:
   - feature
