@@ -30,3 +30,6 @@ As part of the Living Dex Grid UI Epic, we need to implement the base visual rep
 - [ ] Render a grid containing cells for all Pokémon in the national dex.
 - [ ] Each cell displays the Pokémon's national dex number.
 - [ ] Ensure the component is ready to accept state overlays (PC box / Party).
+- [ ] task-522-553-living-dex-grid-ui-impl
+- [ ] task-522-554-living-dex-grid-tests-impl
+- [ ] task-522-555-living-dex-grid-qa
