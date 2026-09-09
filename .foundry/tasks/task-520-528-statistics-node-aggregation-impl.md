@@ -34,6 +34,6 @@ Implement the logic to aggregate node states from `.foundry/` to generate statis
 5. Export this aggregation logic for use in the main report generation.
 
 ## Acceptance Criteria
-- [ ] Node state aggregation logic implemented and tested.
-- [ ] Correctly scans both active and archived `.foundry/` nodes.
-- [ ] Parses frontmatter and correctly calculates counts by type and status.
+- [x] Node state aggregation logic implemented and tested.
+- [x] Correctly scans both active and archived `.foundry/` nodes.
+- [x] Parses frontmatter and correctly calculates counts by type and status.

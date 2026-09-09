@@ -33,4 +33,7 @@ Develop the core pruning logic for the Archival Cleanup & Incremental Node Reten
 ## Acceptance Criteria
 - [ ] Implement node age determination and filtering logic.
 - [ ] Implement chunking limit (max 50 deletions) based on oldest eligible files.
-- [ ] Ensure EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Ensure EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-517-550-implement-node-age-filtering
+- [ ] story-517-551-implement-deletion-chunking
+- [ ] story-517-552-archival-cleanup-core-e2e

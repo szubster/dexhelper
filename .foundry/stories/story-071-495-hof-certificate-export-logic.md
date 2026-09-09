@@ -2,13 +2,13 @@
 id: story-071-495-hof-certificate-export-logic
 type: STORY
 title: Hall of Fame Certificate Export Logic
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-30'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on:
   - story-071-494-hof-certificate-hidden-component
-jules_session_id: '15532941295256324396'
+jules_session_id: null
 pr_number: null
 parent: epic-044-071-hof-certificate-rendering
 tags:
@@ -30,4 +30,8 @@ locks: []
 Implement the export functionality to render the hidden Hall of Fame Certificate component into a high-resolution Canvas or SVG image using the `html-to-image` library. Ensure that custom font loading is explicitly handled for consistent rendering across different clients, as specified in ADR 022.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-495-549-hof-export-font-utility
+- [ ] task-495-550-hof-export-image-renderer
+- [ ] task-495-551-hof-export-download-ui
+- [ ] task-495-552-hof-export-logic-qa

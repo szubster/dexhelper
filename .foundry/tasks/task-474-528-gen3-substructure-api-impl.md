@@ -28,6 +28,6 @@ Implement the logic to resolve the substructure order within the decrypted 48-by
 The 48-byte block consists of four 12-byte substructures: Growth (G), Attacks (A), EVs & Condition (E), and Miscellaneous (M). Their order varies per Pokémon and is determined by `PV % 24`. While some core mapping logic exists, a clean, modular API needs to be exposed for easy substructure retrieval.
 
 ## Acceptance Criteria
-- [ ] Implement or extract the logic to calculate the order of these substructures using the formula `PV % 24`.
-- [ ] Expose an API (e.g., functions) to easily retrieve specific 12-byte substructure blocks (G, A, E, M) from a decrypted block.
-- [ ] Adhere to schema constraints: Use relative offsets, avoid magic numbers, use module-level constants, and catch RangeError.
+- [x] Implement or extract the logic to calculate the order of these substructures using the formula `PV % 24`.
+- [x] Expose an API (e.g., functions) to easily retrieve specific 12-byte substructure blocks (G, A, E, M) from a decrypted block.
+- [x] Adhere to schema constraints: Use relative offsets, avoid magic numbers, use module-level constants, and catch RangeError.

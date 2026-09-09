@@ -41,6 +41,7 @@ export const OwnerPersonaEnum = z.enum([
   'canvas',
   'changelogger',
   'lens',
+  'librarian',
 ]);
 
 export const NodeFrontmatterSchema = z.object({
@@ -63,6 +64,7 @@ export const NodeFrontmatterSchema = z.object({
   notes: z.string().optional(),
   experiment_variants: z.array(z.string()).optional(),
   locks: z.array(z.string()).default([]),
+  priority: z.number().int().optional(),
 });
 
 export type NodeFrontmatter = z.infer<typeof NodeFrontmatterSchema>;

@@ -2,13 +2,13 @@
 id: story-524-523-configure-global-packages
 type: STORY
 title: Configure Global Packages
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
 updated_at: '2026-09-07'
 depends_on:
   - story-524-522-configure-workspace
-jules_session_id: '7415972497794772177'
+jules_session_id: null
 pr_number: null
 parent: epic-519-524-workspace-infrastructure
 tags:
@@ -28,4 +28,7 @@ locks: []
 - Configure workspace-wide tooling settings.
 
 ## Acceptance Criteria
-- [ ] Break this story down into tasks for configuring global packages and tsconfig.
+- [x] Break this story down into tasks for configuring global packages and tsconfig.
+- [ ] task-523-553-scaffold-config-package
+- [ ] task-523-554-scaffold-tsconfig-base
+- [ ] task-523-555-workspace-config-qa

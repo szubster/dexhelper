@@ -17,5 +17,6 @@ export interface Gen3MixedRecordNPC {
   trainerName: string;
   trainerGender: number;
   trainerId: number;
+  battledOwnerToday: boolean;
   party: Gen3MixedRecordNPCPokemon[];
 }

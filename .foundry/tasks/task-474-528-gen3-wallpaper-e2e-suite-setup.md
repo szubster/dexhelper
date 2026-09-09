@@ -29,5 +29,5 @@ Set up the Playwright E2E test structure and load the required Gen 3 save fixtur
 *   Implement the setup to load a Gen 3 save file fixture.
 
 ## Acceptance Criteria
-- [ ] Create `tests/e2e/wallpaper-state.spec.ts`.
-- [ ] Load the Gen 3 save fixture in a `beforeEach` or initial test step.
+- [x] Create `tests/e2e/wallpaper-state.spec.ts`.
+- [x] Load the Gen 3 save fixture in a `beforeEach` or initial test step.

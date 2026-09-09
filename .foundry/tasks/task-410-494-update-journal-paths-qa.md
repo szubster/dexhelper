@@ -2,10 +2,10 @@
 id: task-410-494-update-journal-paths-qa
 type: TASK
 title: 'QA: Verify Updated Scripts Referencing Journal Paths'
-status: FAILED
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-08'
-updated_at: '2026-09-07'
+updated_at: '2026-09-08'
 depends_on:
   - task-410-493-update-journal-paths-impl
 jules_session_id: null
@@ -14,8 +14,8 @@ parent: story-401-410-update-downstream-journal-scripts
 tags:
   - foundry
   - scripts
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

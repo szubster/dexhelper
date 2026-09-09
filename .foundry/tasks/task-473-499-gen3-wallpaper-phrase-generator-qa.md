@@ -2,10 +2,10 @@
 id: task-473-499-gen3-wallpaper-phrase-generator-qa
 type: TASK
 title: QA Gen 3 Wallpaper Phrase Generator
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-27'
-updated_at: '2026-08-27'
+updated_at: '2026-09-08'
 depends_on:
   - task-473-498-gen3-wallpaper-phrase-generator-impl
 jules_session_id: '15196085943706007987'
@@ -15,7 +15,10 @@ tags:
   - customization
   - algorithm
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-473-498-gen3-wallpaper-phrase-generator-impl
+locks: []
 ---
 
 # QA Gen 3 Wallpaper Phrase Generator

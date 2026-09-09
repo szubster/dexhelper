@@ -2,7 +2,7 @@
 id: story-084-126-match-call-msgpack
 type: STORY
 title: 'Story: Gen 3 Match Call MsgPack Integration'
-status: READY
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-13'
 updated_at: '2026-09-07'
@@ -30,8 +30,8 @@ Export the static match call dataset using the highly-compacted MsgPack serializ
 Integrate the dataset into the IndexedDB persistence layer (`PokeDB.ts`) for quick runtime hydration.
 
 ## Acceptance Criteria
-- [ ] Export match call dataset to MsgPack format.
-- [ ] Integrate into `PokeDB.ts` for runtime hydration.
-- [ ] task-126-489-match-call-msgpack-export
-- [ ] task-126-490-match-call-msgpack-hydration
-- [ ] task-126-491-match-call-msgpack-qa
+- [x] Export match call dataset to MsgPack format.
+- [x] Integrate into `PokeDB.ts` for runtime hydration.
+- [x] task-126-489-match-call-msgpack-export
+- [x] task-126-490-match-call-msgpack-hydration
+- [x] task-126-491-match-call-msgpack-qa

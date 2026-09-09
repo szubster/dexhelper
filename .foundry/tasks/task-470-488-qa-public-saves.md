@@ -5,7 +5,7 @@ title: QA Verification of Sourced Save Files
 status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-24'
-updated_at: '2026-08-31'
+updated_at: '2026-09-07'
 depends_on:
   - task-470-487-catalog-integrate-saves
 jules_session_id: '11825684621245897714'
