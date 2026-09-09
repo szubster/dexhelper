@@ -312,8 +312,8 @@ export const useStore = create<AppStore>()(
             await r2Client.putSave(state.saveId, buffer as Uint8Array<ArrayBuffer>, state.localMetadata.timestamp);
             await saveDB.putSave('last_save_file', state.localBuffer);
           }
-        } catch {
-          console.error('System: failed to resolve conflict');
+        } catch (err) {
+          console.error('System: failed to resolve conflict:', err instanceof Error ? err.message : 'Unknown error');
           get().setError('Failed to resolve sync conflict.');
         } finally {
           set({ conflictState: null });
@@ -358,8 +358,8 @@ export const useStore = create<AppStore>()(
             const data = await parseSaveFile(buffer.buffer, manualVersion || undefined);
             get().setSaveData(data);
           }
-        } catch {
-          console.error('System: load failed');
+        } catch (err) {
+          console.error('System: load failed:', err instanceof Error ? err.message : 'Unknown error');
         }
       },
     }),

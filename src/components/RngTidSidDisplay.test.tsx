@@ -62,7 +62,7 @@ describe('RngTidSidDisplay', () => {
 
     await userEvent.click(copyButton);
     expect(writeTextMock).toHaveBeenCalledWith('TID: 123, SID: 4567');
-    expect(consoleSpy).toHaveBeenCalledWith('Failed to copy to clipboard');
+    expect(consoleSpy).toHaveBeenCalledWith('Failed to copy to clipboard:', 'Clipboard error');
 
     consoleSpy.mockRestore();
   });

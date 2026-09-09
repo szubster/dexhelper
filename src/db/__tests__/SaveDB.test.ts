@@ -58,7 +58,7 @@ describe('SaveDB fallback operation', () => {
     const retrievedAfterDelete = await saveDB.getSave('fallback1');
     expect(retrievedAfterDelete).toBeUndefined();
 
-    expect(console.error).toHaveBeenCalledWith('System: sync failed');
+    expect(console.error).toHaveBeenCalledWith('System: sync failed:', 'IndexedDB not available');
     expect(console.error).toHaveBeenCalledTimes(4);
   });
 });

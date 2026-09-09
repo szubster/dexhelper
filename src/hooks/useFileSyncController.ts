@@ -125,8 +125,8 @@ export function useFileSyncController() {
 
         setStatus('live');
         setErrorMsg(null);
-      } catch {
-        console.error('Failed to parse live save file.');
+      } catch (err) {
+        console.error('Failed to parse live save file:', err instanceof Error ? err.message : 'Unknown error');
         setStatus('error');
         setErrorMsg('Failed to parse live save file.');
       }
@@ -170,7 +170,7 @@ export function useFileSyncController() {
       lastModifiedRef.current = file.lastModified;
       await processFile(file);
     } catch (err) {
-      console.error('User cancelled or error');
+      console.error('User cancelled or error:', err instanceof Error ? err.message : 'Unknown error');
       // Don't set error status if user just cancelled
       if (err instanceof Error && err.name !== 'AbortError') {
         setStatus('error');
@@ -205,8 +205,8 @@ export function useFileSyncController() {
             setStatus('disconnected');
           }
         }
-      } catch {
-        console.error('Failed to restore handle');
+      } catch (err) {
+        console.error('Failed to restore handle:', err instanceof Error ? err.message : 'Unknown error');
       }
     }
     void restoreHandle();
@@ -238,8 +238,8 @@ export function useFileSyncController() {
           await processFile(file);
         }
       }
-    } catch {
-      console.error('Failed to resume sync');
+    } catch (err) {
+      console.error('Failed to resume sync:', err instanceof Error ? err.message : 'Unknown error');
       setStatus('error');
     }
   }, [processFile]);
@@ -267,8 +267,8 @@ export function useFileSyncController() {
           lastModifiedRef.current = file.lastModified;
           await processFile(file);
         }
-      } catch {
-        console.error('Polling error');
+      } catch (err) {
+        console.error('Polling error:', err instanceof Error ? err.message : 'Unknown error');
         // We might have lost permission or file was deleted
         setStatus('disconnected');
       }

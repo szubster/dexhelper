@@ -43,7 +43,7 @@ export function SyncProgress() {
           setShouldRender(true);
         }
       })
-      .catch(() => console.error('System: sync failed'));
+      .catch((err) => console.error('System: sync failed:', err instanceof Error ? err.message : 'Unknown error'));
 
     const handleProgress = (event: Event) => {
       if (!(event instanceof CustomEvent)) return;

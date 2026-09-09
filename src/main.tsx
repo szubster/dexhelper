@@ -30,7 +30,9 @@ if (import.meta.env.MODE === 'development' || import.meta.env.MODE === 'test') {
 }
 
 // Initialize and sync PokeData
-pokeDB.sync().catch(() => console.error('System: sync failed'));
+pokeDB
+  .sync()
+  .catch((err) => console.error('System: sync failed:', err instanceof Error ? err.message : 'Unknown error'));
 
 const router = createRouter({
   routeTree,

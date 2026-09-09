@@ -95,7 +95,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
         await saveDB
           .putSave('last_save_file', new Uint8Array(buffer))
-          .catch(() => console.error('System: sync failed'));
+          .catch((err) => console.error('System: sync failed:', err instanceof Error ? err.message : 'Unknown error'));
 
         if (localStorage.getItem(AUTH_LOGGED_IN_INDICATOR) === 'true') {
           try {

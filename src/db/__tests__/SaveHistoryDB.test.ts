@@ -98,6 +98,6 @@ describe('SaveHistoryDB fallback operation', () => {
     const retrievedIndexAfterDelete = await saveHistoryDB.getIndex('fallbackIndex');
     expect(retrievedIndexAfterDelete).toBeUndefined();
 
-    expect(console.error).toHaveBeenCalledWith('System: sync failed');
+    expect(console.error).toHaveBeenCalledWith('System: sync failed:', 'IndexedDB not available');
   });
 });

@@ -41,8 +41,8 @@ export const saveDB = {
     try {
       const db = await getDB();
       return await db.get('handles', id);
-    } catch {
-      console.error('System: sync failed');
+    } catch (err) {
+      console.error('System: sync failed:', err instanceof Error ? err.message : 'Unknown error');
       return undefined;
     }
   },
@@ -51,8 +51,8 @@ export const saveDB = {
     try {
       const db = await getDB();
       await db.put('handles', handle, id);
-    } catch {
-      console.error('System: sync failed');
+    } catch (err) {
+      console.error('System: sync failed:', err instanceof Error ? err.message : 'Unknown error');
     }
   },
 
@@ -60,8 +60,8 @@ export const saveDB = {
     try {
       const db = await getDB();
       return await db.get(STORE_NAME, id);
-    } catch {
-      console.error('System: sync failed');
+    } catch (err) {
+      console.error('System: sync failed:', err instanceof Error ? err.message : 'Unknown error');
       return fallbackStorage.get(id);
     }
   },
@@ -70,8 +70,8 @@ export const saveDB = {
     try {
       const db = await getDB();
       await db.put(STORE_NAME, data, id);
-    } catch {
-      console.error('System: sync failed');
+    } catch (err) {
+      console.error('System: sync failed:', err instanceof Error ? err.message : 'Unknown error');
       fallbackStorage.set(id, data);
     }
   },
@@ -80,8 +80,8 @@ export const saveDB = {
     try {
       const db = await getDB();
       await db.delete(STORE_NAME, id);
-    } catch {
-      console.error('System: sync failed');
+    } catch (err) {
+      console.error('System: sync failed:', err instanceof Error ? err.message : 'Unknown error');
       fallbackStorage.delete(id);
     }
   },

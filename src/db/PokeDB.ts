@@ -290,7 +290,7 @@ const syncData = async () => {
     await mStore.put({ key: 'hash', value: data.hash });
     await tx.done;
   } catch (err) {
-    console.error('System: sync failed');
+    console.error('System: sync failed:', err instanceof Error ? err.message : 'Unknown error');
     throw err;
   }
 };

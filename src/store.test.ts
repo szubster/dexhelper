@@ -342,7 +342,7 @@ describe('Zustand Store', () => {
 
       await useStore.getState().resolveConflict('pull_remote');
 
-      expect(consoleErrorSpy).toHaveBeenCalledWith('System: failed to resolve conflict');
+      expect(consoleErrorSpy).toHaveBeenCalledWith('System: failed to resolve conflict:', 'Parse error');
       expect(useStore.getState().error).toBe('Failed to resolve sync conflict.');
       expect(useStore.getState().conflictState).toBeNull();
 
@@ -495,7 +495,7 @@ describe('Zustand Store', () => {
 
       await useStore.getState().loadSaveFromStorage();
 
-      expect(mockConsoleError).toHaveBeenCalledWith('System: load failed');
+      expect(mockConsoleError).toHaveBeenCalledWith('System: load failed:', 'localStorage is not defined');
     });
 
     it('should ignore loadSaveFromStorage if getSave returns undefined', async () => {
