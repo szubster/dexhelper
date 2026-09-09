@@ -24,5 +24,5 @@ locks: []
 # Implement Banner Removal Utility
 
 ## Acceptance Criteria
-- [ ] Implement a utility function to strip the warning banner.
-- [ ] Write unit tests for the utility.
+- [x] Implement a utility function to strip the warning banner.
+- [x] Write unit tests for the utility.
