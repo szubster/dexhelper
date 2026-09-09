@@ -2,13 +2,13 @@
 id: task-363-507-trade-extraction-e2e-retry-impl-2
 type: TASK
 title: NPC Trade Extraction Integration & E2E Implementation (Retry 2)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-31'
-updated_at: '2026-09-02'
+updated_at: '2026-09-09'
 depends_on:
   - research-363-506-investigate-trade-extraction-e2e-failure-2
-jules_session_id: '7414868863168681027'
+jules_session_id: null
 pr_number: null
 parent: story-349-363-trade-extraction-e2e
 tags:
@@ -18,7 +18,7 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
 locks: []
 ---
