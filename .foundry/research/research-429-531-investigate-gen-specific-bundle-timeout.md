@@ -2,10 +2,10 @@
 id: research-429-531-investigate-gen-specific-bundle-timeout
 type: RESEARCH
 title: Investigate Gen-Specific Bundle Task Timeout
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-09-06'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on: []
 jules_session_id: null
 pr_number: null

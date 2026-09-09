@@ -2,10 +2,10 @@
 id: task-526-554-pokegear-alerts-e2e-coder
 type: TASK
 title: Implement Pokegear Alerts E2E Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on: []
 jules_session_id: null
 parent: story-116-526-pokegear-active-callers-e2e
