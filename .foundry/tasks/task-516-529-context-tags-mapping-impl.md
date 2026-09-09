@@ -29,7 +29,7 @@ locks: []
 Implement the logic to dynamically map `tags` and `layers` to specific prompt context fragments and construct the final composite prompt, appending the core policies.
 
 ## Acceptance Criteria
-- [ ] Parse `tags` and `layers` from the node frontmatter.
-- [ ] Load corresponding specific context fragments from `.github/agents/specific/`.
-- [ ] Combine the base prompt, specific context layers, and the core system policies (`core_policies.md` or `core_principles.md`).
-- [ ] Return the fully constructed composite prompt string.
+- [x] Parse `tags` and `layers` from the node frontmatter.
+- [x] Load corresponding specific context fragments from `.github/agents/specific/`.
+- [x] Combine the base prompt, specific context layers, and the core system policies (`core_policies.md` or `core_principles.md`).
+- [x] Return the fully constructed composite prompt string.
