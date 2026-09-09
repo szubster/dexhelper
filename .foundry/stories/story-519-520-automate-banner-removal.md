@@ -27,4 +27,7 @@ Implement automation mechanisms to strip markdown WIP/draft warning banners from
 
 ## Acceptance Criteria
 - [ ] Create automation scripts or GitHub Actions to detect and remove markdown warning banners.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-520-549-impl-banner-removal-util
+- [ ] task-520-550-impl-banner-removal-cli
+- [ ] task-520-551-qa-banner-removal-automation
