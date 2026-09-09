@@ -407,15 +407,15 @@ export function resolveGen3SubstructureOffset(pv: number, substructureId: Gen3Su
   }
 }
 
-export function getGen3DecryptedSubstructure(pv: number, decryptedData: DataView, substructureId: Gen3SubstructureId): DataView {
+export function getGen3DecryptedSubstructure(
+  pv: number,
+  decryptedData: DataView,
+  substructureId: Gen3SubstructureId,
+): DataView {
   try {
     const relativeOffset = resolveGen3SubstructureOffset(pv, substructureId);
 
-    return new DataView(
-      decryptedData.buffer,
-      decryptedData.byteOffset + relativeOffset,
-      SUBSTRUCTURE_SIZE,
-    );
+    return new DataView(decryptedData.buffer, decryptedData.byteOffset + relativeOffset, SUBSTRUCTURE_SIZE);
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');
