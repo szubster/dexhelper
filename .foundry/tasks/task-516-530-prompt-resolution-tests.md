@@ -30,6 +30,6 @@ locks: []
 Write Vitest unit tests for the prompt resolution logic implemented in `.github/scripts/foundry-orchestrator.ts` to ensure prompts are compiled and combined correctly.
 
 ## Acceptance Criteria
-- [ ] Write unit tests verifying base prompt resolution for valid and missing personas.
-- [ ] Write unit tests verifying context tag resolution and layer deduplication.
-- [ ] Write unit tests verifying that core system policies are appended properly.
+- [x] Write unit tests verifying base prompt resolution for valid and missing personas.
+- [x] Write unit tests verifying context tag resolution and layer deduplication.
+- [x] Write unit tests verifying that core system policies are appended properly.
