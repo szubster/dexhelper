@@ -27,4 +27,4 @@ locks: []
 This task updates the `scripts/verify-schema-documentation.ts` script to include negative/forbidden pattern checks regarding the VERIFYING state to prevent conflicting documentation.
 
 ## Acceptance Criteria
-- [ ] The verify-schema-documentation.ts script checks for forbidden patterns regarding VERIFYING state.
+- [x] The verify-schema-documentation.ts script checks for forbidden patterns regarding VERIFYING state.
