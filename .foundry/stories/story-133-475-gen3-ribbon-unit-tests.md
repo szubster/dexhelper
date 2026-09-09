@@ -31,4 +31,7 @@ We need to extract the 32-bit Ribbon and Obedience bitfield for each Pokémon fr
 Write unit tests to verify Ribbon data extraction.
 
 ## Acceptance Criteria
-- [ ] Break down story into tasks for writing unit tests to verify Ribbon data extraction.
+- [x] Break down story into tasks for writing unit tests to verify Ribbon data extraction.
+- [ ] task-475-549-gen3-ribbon-unit-tests-general
+- [ ] task-475-550-gen3-ribbon-unit-tests-contest
+- [ ] task-475-551-gen3-ribbon-unit-tests-edge-cases
