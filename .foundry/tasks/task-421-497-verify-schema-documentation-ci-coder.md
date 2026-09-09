@@ -24,4 +24,4 @@ locks: []
 Integrate the verification script into CI.
 
 ## Acceptance Criteria
-- [ ] CI runs the verification script to verify .foundry/docs/schema.md has the E2E rule.
+- [x] CI runs the verification script to verify .foundry/docs/schema.md has the E2E rule.
