@@ -27,4 +27,4 @@ locks: []
 In accordance with ADR 028, inline magic numbers must be replaced with module-level constants. `src/engine/saveParser/utils/gen1EventFlags.ts` has bitwise operations that must use explicit constants.
 
 ## Acceptance Criteria
-- [ ] Replace inline magic numbers in bitwise operations in gen1EventFlags.ts with constants
+- [x] Replace inline magic numbers in bitwise operations in gen1EventFlags.ts with constants
