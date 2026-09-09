@@ -27,5 +27,5 @@ locks: []
 Create mock `.foundry` markdown nodes with various `rejection_count` frontmatter values to be used as fixtures in the E2E verification of the parsing refactor.
 
 ## Acceptance Criteria
-- [ ] Create mock task nodes with `rejection_count: 0`, `rejection_count: 1`, and `rejection_count: >1`
-- [ ] Ensure the mock data is accessible to the Playwright E2E tests
+- [x] Create mock task nodes with `rejection_count: 0`, `rejection_count: 1`, and `rejection_count: >1`
+- [x] Ensure the mock data is accessible to the Playwright E2E tests
