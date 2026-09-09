@@ -2,10 +2,10 @@
 id: epic-051-094-friendship-data-extraction
 type: EPIC
 title: Friendship Data Extraction (Gen 2 & 3)
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-16'
-updated_at: '2026-09-08'
+updated_at: '2026-09-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - gen2
   - gen3
   - save-parsing
-rejection_count: 0
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

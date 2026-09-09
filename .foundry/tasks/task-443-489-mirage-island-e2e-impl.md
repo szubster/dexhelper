@@ -2,12 +2,12 @@
 id: task-443-489-mirage-island-e2e-impl
 type: TASK
 title: Implement E2E Test for Mirage Island Save Parsing
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-23'
-updated_at: '2026-09-01'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '55125133315489874'
+jules_session_id: null
 pr_number: null
 parent: story-061-443-mirage-island-save-parsing-e2e
 tags:
@@ -17,7 +17,7 @@ tags:
   - e2e
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
 locks: []
 ---
