@@ -28,5 +28,5 @@ locks: []
 Verify that the Pokerus E2E implementation properly covers the Pokerus state exfiltration logic for both the party and PC.
 
 ## Acceptance Criteria
-- [ ] Review `tests/e2e/pokerus.spec.ts` for completeness.
-- [ ] Run the E2E tests and ensure they pass.
+- [x] Review `tests/e2e/pokerus.spec.ts` for completeness.
+- [x] Run the E2E tests and ensure they pass.
