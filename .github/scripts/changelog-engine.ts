@@ -397,8 +397,9 @@ export async function runChangelogEngine(
         const taskSha = taskShaMatch[1];
         const commits = getCommitList();
         const taskIdx = commits.findIndex((c) => c === taskSha || c.startsWith(taskSha));
-        const stateIdx = state.last_processed_commit
-          ? commits.findIndex((c) => c === state.last_processed_commit || c.startsWith(state.last_processed_commit))
+        const lastCommit = state.last_processed_commit;
+        const stateIdx = lastCommit
+          ? commits.findIndex((c) => c === lastCommit || c.startsWith(lastCommit))
           : -1;
 
         if (taskIdx > stateIdx) {
