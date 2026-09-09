@@ -28,5 +28,5 @@ locks: []
 This task implements Playwright E2E tests to verify that a Gen 3 save file containing Shoal items (Shoal Salt and Shoal Shells) is correctly loaded and parsed, ensuring the data is accurately extracted and accessible by downstream systems or components.
 
 ## Acceptance Criteria
-- [ ] Create or update Playwright E2E tests to cover loading a mock/fixture Gen 3 save file containing Shoal items.
-- [ ] Ensure the tests verify that the extracted Shoal item counts (Shoal Salt and Shoal Shells) are correct and accurately retrieved.
+- [x] Create or update Playwright E2E tests to cover loading a mock/fixture Gen 3 save file containing Shoal items.
+- [x] Ensure the tests verify that the extracted Shoal item counts (Shoal Salt and Shoal Shells) are correct and accurately retrieved.
