@@ -27,3 +27,4 @@ This story acts as a final safeguard to verify that the newly added `priority` f
 
 ## Acceptance Criteria
 - [ ] Ensure end-to-end integration flows around schema validation are verified.
+- [ ] task-551-564-verify-priority-schema-e2e
