@@ -24,5 +24,5 @@ locks: []
 Create specific test configurations and dummy TypeScript payloads required for testing ts-node, swc, esbuild, oxc, and Node.js native strip-typing to accurately simulate real-world usage during benchmarking.
 
 ## Acceptance Criteria
-- [ ] Create dummy TypeScript files with varied complexity.
-- [ ] Set up configurations for ts-node, swc, esbuild, oxc, and Node.js native strip-typing.
+- [x] Create dummy TypeScript files with varied complexity.
+- [x] Set up configurations for ts-node, swc, esbuild, oxc, and Node.js native strip-typing.
