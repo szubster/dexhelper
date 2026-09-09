@@ -30,3 +30,7 @@ This story covers the implementation of generator protocols for pagination engin
 
 ## Acceptance Criteria
 - [ ] Implement `function*` and `async function*` protocols for pagination engines.
+- [ ] task-549-564-generator-pagination-types
+- [ ] task-549-565-generator-pagination-sync-impl
+- [ ] task-549-566-generator-pagination-async-impl
+- [ ] task-549-567-generator-pagination-qa
