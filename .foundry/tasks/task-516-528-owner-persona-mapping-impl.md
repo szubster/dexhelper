@@ -29,6 +29,6 @@ Implement the logic to map `owner_persona` to the appropriate base prompt fragme
 The logic should load the correct generic or specific persona prompt file from `.github/agents/`.
 
 ## Acceptance Criteria
-- [ ] Implement `owner_persona` extraction from the node frontmatter (defaulting to `auditor` if status is `VERIFYING`).
-- [ ] Implement logic to load `.github/agents/generic/${ownerPersona}.md` or fallback to `.github/agents/${ownerPersona}.md`.
-- [ ] Handle cases where the persona prompt does not exist gracefully.
+- [x] Implement `owner_persona` extraction from the node frontmatter (defaulting to `auditor` if status is `VERIFYING`).
+- [x] Implement logic to load `.github/agents/generic/${ownerPersona}.md` or fallback to `.github/agents/${ownerPersona}.md`.
+- [x] Handle cases where the persona prompt does not exist gracefully.
