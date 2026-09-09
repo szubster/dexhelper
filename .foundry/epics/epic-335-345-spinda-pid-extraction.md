@@ -2,10 +2,10 @@
 id: epic-335-345-spinda-pid-extraction
 type: EPIC
 title: Gen 3 Spinda PID Extraction
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-26'
-updated_at: '2026-08-25'
+updated_at: '2026-09-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Gen 3 Spinda PID Extraction
@@ -30,4 +31,4 @@ This Epic focuses on parsing the Gen 3 save file to extract all owned Spinda Pok
 - [x] Extract the 32-bit PID for each identified Spinda.
 - [x] Create a clean data structure or store to pass the extracted Spinda data to the UI and Rendering layers.
 - [x] story-345-349-gen3-spinda-extraction-core
-- [ ] story-345-473-spinda-extraction-e2e
+- [x] story-345-473-spinda-extraction-e2e

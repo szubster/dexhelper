@@ -2,10 +2,10 @@
 id: story-345-473-spinda-extraction-e2e
 type: STORY
 title: Gen 3 Spinda Extraction E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-09-05'
+updated_at: '2026-09-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -27,10 +27,10 @@ locks: []
 E2E verification for the Spinda PID extraction logic, ensuring that Gen 3 saves containing Spinda are correctly parsed and that the data structure is available to the UI.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for Spinda PID extraction using realistic Gen 3 save files.
-- [ ] Verify that Spindas in the PC boxes and the active party are correctly identified.
-- [ ] Verify that the 32-bit PIDs are successfully extracted and mapped to the UI data structure.
+- [x] Implement E2E tests for Spinda PID extraction using realistic Gen 3 save files.
+- [x] Verify that Spindas in the PC boxes and the active party are correctly identified.
+- [x] Verify that the 32-bit PIDs are successfully extracted and mapped to the UI data structure.
 
-- [ ] task-473-493-spinda-e2e-fixtures
-- [ ] task-473-494-spinda-e2e-tests
-- [ ] task-473-495-spinda-e2e-qa
+- [x] task-473-493-spinda-e2e-fixtures
+- [x] task-473-494-spinda-e2e-tests
+- [x] task-473-495-spinda-e2e-qa

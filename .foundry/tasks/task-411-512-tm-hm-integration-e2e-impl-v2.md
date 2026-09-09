@@ -2,7 +2,7 @@
 id: task-411-512-tm-hm-integration-e2e-impl-v2
 type: TASK
 title: Implementation of TM/HM Integration E2E Tests V2
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-01'
 updated_at: '2026-09-07'
@@ -34,7 +34,7 @@ Write end-to-end (E2E) tests using Playwright to verify the TM/HM integration ac
 4.  **Failure Resolution:** Implement solutions derived from `research-411-511-investigate-tm-hm-e2e-failure` to prevent the issues encountered in previous attempts.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for Gen 1 TM/HM extraction.
-- [ ] Implement Playwright E2E tests for Gen 2 TM/HM extraction.
-- [ ] Implement Playwright E2E tests for Gen 3 TM/HM extraction.
-- [ ] Ensure all tests pass successfully in the CI environment (using `xvfb-run`).
+- [x] Implement Playwright E2E tests for Gen 1 TM/HM extraction.
+- [x] Implement Playwright E2E tests for Gen 2 TM/HM extraction.
+- [x] Implement Playwright E2E tests for Gen 3 TM/HM extraction.
+- [x] Ensure all tests pass successfully in the CI environment (using `xvfb-run`).
