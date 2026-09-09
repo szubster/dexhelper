@@ -42,4 +42,6 @@ This PRD outlines the requirements for rearchitecting the Foundry orchestrator a
 - **Schema Integration:** The persona must be formally defined within the Foundry schema configuration (`.github/scripts/schema.ts`).
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into detailed EPIC nodes covering the orchestrator rearchitecture and the introduction of the Code Architect persona.
+- [x] Epic Planner: Break down this PRD into detailed EPIC nodes covering the orchestrator rearchitecture and the introduction of the Code Architect persona.
+- [ ] epic-521-540-foundry-rearchitecture-state-graph
+- [ ] epic-521-541-code-architect-persona

@@ -25,4 +25,7 @@ rejection_reason: ''
 Per ADR 028, inline magic numbers for memory offsets, lengths, and bit locations must be replaced with explicitly defined module-level constants. The Gen 2 parser currently contains many of these at the top of the file.
 
 ## Acceptance Criteria
-- [ ] Decompose this Story into actionable Tasks to extract inline constants into a reusable module-level file.
+- [x] Decompose this Story into actionable Tasks to extract inline constants into a reusable module-level file.
+- [ ] task-520-549-define-gen2-constants-impl
+- [ ] task-520-550-refactor-gen2-parser-impl
+- [ ] task-520-551-gen2-constants-qa

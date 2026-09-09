@@ -2,12 +2,12 @@
 id: task-521-550-refactor-gen1-tests
 type: TASK
 title: Refactor Gen 1 Event Flags Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8060667092110239297'
 pr_number: null
 parent: story-521-521-gen1-utils-refactor
 tags:
