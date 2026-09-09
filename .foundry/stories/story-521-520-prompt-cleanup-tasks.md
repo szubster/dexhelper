@@ -27,4 +27,6 @@ locks: []
 Remove redundant Late Binding and failure handling policies from the \`.github/agents/coder.md\` and \`.github/agents/qa.md\` files. This information is already covered in \`core_policies.md\`, so removing it reduces prompt bloat and adheres to optimization rules.
 
 ## Acceptance Criteria
-- [ ] Create TASK nodes for coder and qa prompt cleanup.
+- [x] Create TASK nodes for coder and qa prompt cleanup.
+- [ ] task-520-549-coder-prompt-cleanup-coder
+- [ ] task-520-550-qa-prompt-cleanup-qa
