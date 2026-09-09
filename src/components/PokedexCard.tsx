@@ -10,6 +10,7 @@ import { PokemonSprite } from './pokemon/PokemonSprite';
 import { PokemonStatusBadge } from './pokemon/PokemonStatusBadge';
 import { ScanlineOverlay } from './ScanlineOverlay';
 import { TacticalCard } from './TacticalCard';
+import { TargetLockOverlay } from './TargetLockOverlay';
 
 interface PokedexCardProps {
   pokemon: PokemonListItem;
@@ -103,12 +104,7 @@ export const PokedexCard = React.memo(function PokedexCard({
       )}
     >
       {/* Decorative Target Lock overlay on hover */}
-      <div className="pointer-events-none absolute inset-0 z-20 border-[1px] border-cyan-400/0 transition-colors duration-300 group-hover/card:border-cyan-400/30 group-focus-visible/card:border-cyan-400/30">
-        <div className="absolute top-1 left-1 h-2 w-2 border-cyan-400/0 border-t border-l transition-colors duration-300 group-hover/card:border-cyan-400/80 group-focus-visible/card:border-cyan-400/80" />
-        <div className="absolute top-1 right-1 h-2 w-2 border-cyan-400/0 border-t border-r transition-colors duration-300 group-hover/card:border-cyan-400/80 group-focus-visible/card:border-cyan-400/80" />
-        <div className="absolute bottom-1 left-1 h-2 w-2 border-cyan-400/0 border-b border-l transition-colors duration-300 group-hover/card:border-cyan-400/80 group-focus-visible/card:border-cyan-400/80" />
-        <div className="absolute right-1 bottom-1 h-2 w-2 border-cyan-400/0 border-r border-b transition-colors duration-300 group-hover/card:border-cyan-400/80 group-focus-visible/card:border-cyan-400/80" />
-      </div>
+      <TargetLockOverlay />
 
       <div className="relative z-10 flex h-full w-full flex-col">
         {/* Sprite Container - Top Side */}
