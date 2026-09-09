@@ -109,8 +109,3 @@ export interface ClonedNodeMetadata {
   variant_id?: string;
 }
 
-export interface InjectedPromptContext {
-  base_prompt?: string;
-  variants?: VariantConfiguration[];
-  cloned_from?: ClonedNodeMetadata;
-}
