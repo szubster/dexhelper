@@ -45,5 +45,6 @@ Create a **Pokéblock Recipe Optimizer** that reads the player's save file (Part
 
 
 ## Acceptance Criteria
-- [ ] Create an EPIC to manage the implementation of the Pokéblock Recipe Optimizer.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+- [ ] epic-518-540-gen3-pokeblock-recipe-optimizer
+- [x] Create an EPIC to manage the implementation of the Pokéblock Recipe Optimizer.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification
