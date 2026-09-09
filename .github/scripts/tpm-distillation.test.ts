@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { getCompletedEpics, getChildNodesForEpic, generateChangelogAndLearnings } from './tpm-distillation.ts';
+import { getCompletedEpics, getChildNodesForEpic, generateChangelogAndLearnings, appendToEpic, moveChildFilesToArchive } from './tpm-distillation.ts';
 
 const tmpDir = path.join(__dirname, 'tmp-tpm-distillation');
 
@@ -106,5 +106,29 @@ describe('TPM Distillation', () => {
       expect(changelog).toContain('- **[task-2]** Child Task 2 (COMPLETED)');
       expect(changelog).toContain('- **story-1:** Story note');
       expect(changelog).toContain('- **task-1:** Task note');
+  });
+
+  it('should append to epic', () => {
+      const epics = getCompletedEpics(tmpDir);
+      const epic = epics[0];
+      const changelog = '\n## Changelog & Learnings\n\nTest';
+      appendToEpic(epic, changelog, tmpDir);
+
+      const content = fs.readFileSync(path.join(tmpDir, epic.repoPath), 'utf-8');
+      expect(content).toContain('## Changelog & Learnings');
+      expect(content).toContain('Test');
+  });
+
+  it('should move child files to archive', () => {
+      const children = getChildNodesForEpic(tmpDir, 'epic-1');
+      moveChildFilesToArchive(children, tmpDir);
+
+      expect(fs.existsSync(path.join(tmpDir, '.foundry', 'archive', 'stories', 'story-1.md'))).toBe(true);
+      expect(fs.existsSync(path.join(tmpDir, '.foundry', 'archive', 'tasks', 'task-1.md'))).toBe(true);
+      expect(fs.existsSync(path.join(tmpDir, '.foundry', 'archive', 'tasks', 'task-2.md'))).toBe(true);
+
+      expect(fs.existsSync(path.join(tmpDir, '.foundry', 'stories', 'story-1.md'))).toBe(false);
+      expect(fs.existsSync(path.join(tmpDir, '.foundry', 'tasks', 'task-1.md'))).toBe(false);
+      expect(fs.existsSync(path.join(tmpDir, '.foundry', 'tasks', 'task-2.md'))).toBe(false);
   });
 });

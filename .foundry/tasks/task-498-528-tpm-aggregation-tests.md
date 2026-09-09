@@ -29,4 +29,4 @@ Write unit tests covering the text aggregation and file system operations implem
 - Ensure coverage for text formatting, appending to the EPIC, and file movement logic.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for the aggregation and file operations.
+- [x] Write unit tests for the aggregation and file operations.

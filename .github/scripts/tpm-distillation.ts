@@ -104,6 +104,38 @@ export function getChildNodesForEpic(repoRoot: string, epicId: string): ChildNod
   return childNodes;
 }
 
+export function appendToEpic(epic: EpicNode, changelog: string, repoRoot: string): void {
+  const fullPath = path.join(repoRoot, epic.repoPath);
+  if (fs.existsSync(fullPath)) {
+      fs.appendFileSync(fullPath, changelog);
+  }
+}
+
+export function moveChildFilesToArchive(childNodes: ChildNode[], repoRoot: string): void {
+  for (const child of childNodes) {
+      const sourcePath = path.join(repoRoot, child.repoPath);
+      if (fs.existsSync(sourcePath)) {
+          // Normalizes slashes just in case
+          const normalizedRepoPath = child.repoPath.replace(/\\/g, '/');
+          const dir = path.dirname(normalizedRepoPath);
+          const baseName = path.basename(normalizedRepoPath);
+
+          let targetDir = '';
+          if (dir === '.foundry/stories') {
+              targetDir = path.join(repoRoot, '.foundry', 'archive', 'stories');
+          } else if (dir === '.foundry/tasks') {
+              targetDir = path.join(repoRoot, '.foundry', 'archive', 'tasks');
+          }
+
+          if (targetDir) {
+              fs.mkdirSync(targetDir, { recursive: true });
+              const targetPath = path.join(targetDir, baseName);
+              fs.renameSync(sourcePath, targetPath);
+          }
+      }
+  }
+}
+
 export function generateChangelogAndLearnings(childNodes: ChildNode[]): string {
   let changelog = '\n## Changelog & Learnings\n\n### Child Node Outcomes\n';
 

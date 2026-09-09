@@ -29,7 +29,7 @@ Verify the end-to-end functionality of TPM distillation logic.
 - Run tests and verify the script can process completed EPIC nodes without errors and correctly manage the file system.
 
 ## Acceptance Criteria
-- [ ] Verify text aggregation and synthesis logic for the summary.
-- [ ] Verify file system operations append correctly to the EPIC.
-- [ ] Verify file system operations move child files correctly.
-- [ ] Ensure unit tests are comprehensive and pass.
+- [x] Verify text aggregation and synthesis logic for the summary.
+- [x] Verify file system operations append correctly to the EPIC.
+- [x] Verify file system operations move child files correctly.
+- [x] Ensure unit tests are comprehensive and pass.
