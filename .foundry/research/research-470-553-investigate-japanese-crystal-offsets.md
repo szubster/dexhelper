@@ -31,5 +31,8 @@ Task `task-470-487-catalog-integrate-saves` failed due to a timeout/max rejectio
 2. Determine how to implement detection fallbacks or whether the fixture should be replaced.
 
 ## Acceptance Criteria
-- [ ] Offsets for Japanese Crystal are documented.
-- [ ] Recommendation is made on how to handle the Japanese Crystal save parsing or replacement.
+- [x] Offsets for Japanese Crystal are documented.
+- [x] Recommendation is made on how to handle the Japanese Crystal save parsing or replacement.
+
+## Findings
+See [Japanese Crystal Offsets](.foundry/docs/knowledge_base/save_engine/japanese_crystal_offsets.md) for full details.
