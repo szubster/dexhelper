@@ -31,7 +31,7 @@ QA needs to verify the implementation of the Ruins of Alph puzzle event flag par
 - Run `pnpm lint && pnpm test` to ensure tests are passing and correctly cover the new logic.
 
 ## Acceptance Criteria
-- [ ] Verify no magic numbers are used in parsing.
-- [ ] Verify `RangeError` handling is present.
-- [ ] Verify bitwise mappings are explicitly defined.
-- [ ] Verify unit tests pass and adequately cover the logic.
+- [x] Verify no magic numbers are used in parsing.
+- [x] Verify `RangeError` handling is present.
+- [x] Verify bitwise mappings are explicitly defined.
+- [x] Verify unit tests pass and adequately cover the logic.
