@@ -26,4 +26,6 @@ locks: []
 Establish and enforce guidelines for using the `src/experimental/` namespace. Draft code should be isolated within this directory. Set up linting rules to prevent code in `src/` from depending on files in `src/experimental/`. Create a documentation section explaining this boundary.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-521-550-experimental-namespace-impl
+- [ ] task-521-551-experimental-namespace-qa
