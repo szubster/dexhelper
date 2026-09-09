@@ -26,9 +26,9 @@ locks: []
 As part of the Living Dex Grid UI Epic, we need to implement the visual components for the numerical grid view of all Pokémon in the Pokédex.
 
 ## Acceptance Criteria
-- [ ] Create a LivingDexGrid component and a LivingDexCell component.
-- [ ] The grid must render exactly 386 cells (up to Gen 3 NATIONAL_DEX_MAX).
-- [ ] Each cell must display the Pokémon's national dex number.
-- [ ] The components must be structured to accept state overlays (PC box / Party state) via props.
-- [ ] Adhere to the tactical hardware aesthetic (ADR 008): explicitly use sharp edges (rounded-none), dashed borders (border-dashed), and monospaced telemetry fonts (font-mono). Do not use any rounded corners.
-- [ ] Component integration: The component must be integrated into the application's view hierarchy.
+- [x] Create a LivingDexGrid component and a LivingDexCell component.
+- [x] The grid must render exactly 386 cells (up to Gen 3 NATIONAL_DEX_MAX).
+- [x] Each cell must display the Pokémon's national dex number.
+- [x] The components must be structured to accept state overlays (PC box / Party state) via props.
+- [x] Adhere to the tactical hardware aesthetic (ADR 008): explicitly use sharp edges (rounded-none), dashed borders (border-dashed), and monospaced telemetry fonts (font-mono). Do not use any rounded corners.
+- [x] Component integration: The component must be integrated into the application's view hierarchy.

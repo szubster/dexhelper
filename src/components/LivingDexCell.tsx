@@ -16,7 +16,7 @@ export const LivingDexCell = React.memo(function LivingDexCell({ id, inParty, in
   const isSecured = inParty || inPC;
 
   const handleClick = useCallback(() => {
-    void navigate({ to: '/pokemon/$pokemonId', params: { pokemonId: id.toString() } });
+    void navigate({ to: `/pokemon/${id}`, search: { from: '/' } });
   }, [id, navigate]);
 
   return (
