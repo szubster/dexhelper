@@ -19,5 +19,5 @@ rejection_reason: ''
 Establish linting rules to prevent code in `src/` from importing files in `src/experimental/`. Create a new document in `.foundry/docs/knowledge_base/` outlining the experimental namespace boundary and rules.
 
 ## Acceptance Criteria
-- [ ] Configure linting to block imports from `src/experimental/*` to outside directories.
-- [ ] Create documentation for the `src/experimental/` namespace guidelines.
+- [x] Configure linting to block imports from `src/experimental/*` to outside directories.
+- [x] Create documentation for the `src/experimental/` namespace guidelines.
