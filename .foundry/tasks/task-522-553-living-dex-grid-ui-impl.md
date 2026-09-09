@@ -32,3 +32,6 @@ As part of the Living Dex Grid UI Epic, we need to implement the visual componen
 - [x] The components must be structured to accept state overlays (PC box / Party state) via props.
 - [x] Adhere to the tactical hardware aesthetic (ADR 008): explicitly use sharp edges (rounded-none), dashed borders (border-dashed), and monospaced telemetry fonts (font-mono). Do not use any rounded corners.
 - [x] Component integration: The component must be integrated into the application's view hierarchy.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
