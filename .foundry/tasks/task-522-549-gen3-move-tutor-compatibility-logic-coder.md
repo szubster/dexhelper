@@ -2,12 +2,12 @@
 id: task-522-549-gen3-move-tutor-compatibility-logic-coder
 type: TASK
 title: Implement Gen 3 Move Tutor Logic Layer
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15239685743641189895'
 pr_number: null
 parent: story-407-522-gen3-move-tutor-cross-referencing
 tags:

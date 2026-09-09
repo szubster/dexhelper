@@ -1,16 +1,17 @@
 ---
 id: task-000-001-fix-assistant-route-lens-audit
 type: TASK
-depends_on: []
-parent: null
-owner_persona: tech_lead
 title: Fix Missing /assistant Route
-status: ACTIVE
-created_at: 2026-08-31T04:10:00.000Z
-updated_at: '2026-09-02'
-jules_session_id: '3851993122326044032'
+status: BLOCKED
+owner_persona: tpm
+created_at: '2026-08-31T04:10:00.000Z'
+updated_at: '2026-09-09'
+depends_on: []
+jules_session_id: null
+parent: null
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+locks: []
 ---
 
 # Fix Missing `/assistant` Route
