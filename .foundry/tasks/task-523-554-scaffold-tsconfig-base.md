@@ -28,4 +28,4 @@ locks: []
 - Create a shared base tsconfig.json in the config package.
 
 ## Acceptance Criteria
-- [ ] Create packages/config/tsconfig.base.json specifying "compilerOptions" including "strict": true, "esModuleInterop": true, "skipLibCheck": true, "forceConsistentCasingInFileNames": true, "verbatimModuleSyntax": true.
+- [x] Create packages/config/tsconfig.base.json specifying "compilerOptions" including "strict": true, "esModuleInterop": true, "skipLibCheck": true, "forceConsistentCasingInFileNames": true, "verbatimModuleSyntax": true.
