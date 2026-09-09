@@ -2,13 +2,13 @@
 id: task-516-529-context-tags-mapping-impl
 type: TASK
 title: Implement Context Tags Mapping & Composite Construction
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-03'
 updated_at: '2026-09-09'
 depends_on:
   - task-516-528-owner-persona-mapping-impl
-jules_session_id: '9637466868594744998'
+jules_session_id: null
 pr_number: null
 parent: story-418-516-orchestrator-prompt-resolution
 tags:

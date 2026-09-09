@@ -2,10 +2,10 @@
 id: task-516-530-prompt-resolution-tests
 type: TASK
 title: Write Tests for Prompt Resolution Logic
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-09'
 depends_on:
   - task-516-529-context-tags-mapping-impl
 jules_session_id: null

@@ -2,7 +2,7 @@
 id: task-512-518-librarian-synthesis-script
 type: TASK
 title: Librarian Journal Synthesis Script
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-09-09'
@@ -16,8 +16,8 @@ tags:
   - optimization
   - librarian
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
