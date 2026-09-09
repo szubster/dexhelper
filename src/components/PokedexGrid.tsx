@@ -1,6 +1,7 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
+import { useWindowVirtualizer } from '@tanstack/react-virtual';
 import { SearchX } from 'lucide-react';
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { pokeDB } from '../db/PokeDB';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
@@ -105,6 +106,40 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
     return set;
   }, [saveData]);
 
+  const [columns, setColumns] = useState(1);
+
+  useEffect(() => {
+    const updateColumns = () => {
+      const width = window.innerWidth;
+      if (width >= 1280)
+        setColumns(4); // xl
+      else if (width >= 1024)
+        setColumns(3); // lg
+      else if (width >= 640)
+        setColumns(2); // sm
+      else setColumns(1);
+    };
+    updateColumns();
+    window.addEventListener('resize', updateColumns);
+    return () => window.removeEventListener('resize', updateColumns);
+  }, []);
+
+  const rows = useMemo(() => {
+    const result = [];
+    for (let i = 0; i < finalPokemon.length; i += columns) {
+      result.push(finalPokemon.slice(i, i + columns));
+    }
+    return result;
+  }, [finalPokemon, columns]);
+
+  const listRef = useRef<HTMLDivElement>(null);
+
+  const virtualizer = useWindowVirtualizer({
+    count: rows.length,
+    estimateSize: () => 300,
+    overscan: 5,
+  });
+
   if (finalPokemon.length === 0) {
     return (
       <TacticalPanel className="fade-in mx-1 mt-4 flex animate-in flex-col items-center justify-center p-12 text-center duration-500">
@@ -151,19 +186,41 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 px-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {finalPokemon.map((pokemon, idx) => (
-          <PokedexCard
-            key={pokemon.id}
-            pokemon={pokemon}
-            idx={idx}
-            saveData={saveData}
-            isLivingDex={isLivingDex}
-            partySet={partySet}
-            pcSet={pcSet}
-            shinySpeciesIds={shinySpeciesIds}
-          />
-        ))}
+      <div ref={listRef} className="relative w-full" style={{ height: `${virtualizer.getTotalSize()}px` }}>
+        {virtualizer.getVirtualItems().map((virtualRow) => {
+          const rowPokemon = rows[virtualRow.index];
+          if (!rowPokemon) return null;
+
+          return (
+            <div
+              key={virtualRow.key}
+              data-index={virtualRow.index}
+              ref={virtualizer.measureElement}
+              className="absolute top-0 left-0 w-full"
+              style={{
+                transform: `translateY(${virtualRow.start}px)`,
+              }}
+            >
+              <div className="grid grid-cols-1 gap-4 px-1 pb-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {rowPokemon.map((pokemon, colIdx) => {
+                  const globalIdx = virtualRow.index * columns + colIdx;
+                  return (
+                    <PokedexCard
+                      key={pokemon.id}
+                      pokemon={pokemon}
+                      idx={globalIdx}
+                      saveData={saveData}
+                      isLivingDex={isLivingDex}
+                      partySet={partySet}
+                      pcSet={pcSet}
+                      shinySpeciesIds={shinySpeciesIds}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
