@@ -30,6 +30,7 @@ Create the rule synthesis and extraction script for the Librarian persona.
 The librarian persona needs a script to synthesize and extract systemic rules from the ingested agent journals.
 
 ## Acceptance Criteria
-- [x] Implement a Github script that synthesizes systemic rules from ingested journal data.
-- [x] Output the extracted rules in a clear format.
-- [x] Ensure the script is documented and tested.
+- [ ] Implement a Github script that synthesizes systemic rules from ingested journal data.
+- [ ] Output the extracted rules in a clear format.
+- [ ] Ensure the script is documented and tested.
+- [ ] adr-518-550-librarian-agent-architecture
