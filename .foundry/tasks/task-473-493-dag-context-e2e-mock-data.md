@@ -24,4 +24,4 @@ locks: []
 Generate mock DAG nodes and state files for E2E testing.
 
 ## Acceptance Criteria
-- [ ] Create mock YAML frontmatter and markdown files representing various DAG states.
+- [x] Create mock YAML frontmatter and markdown files representing various DAG states.
