@@ -23,6 +23,6 @@ locks: []
 # Box Analyzer Route Configuration
 
 ## Acceptance Criteria
-- [ ] Route is defined and accessible via navigation.
-- [ ] Scaffold component renders at the defined path.
-- [ ] Tests confirm route resolution.
+- [x] Route is defined and accessible via navigation.
+- [x] Scaffold component renders at the defined path.
+- [x] Tests confirm route resolution.
