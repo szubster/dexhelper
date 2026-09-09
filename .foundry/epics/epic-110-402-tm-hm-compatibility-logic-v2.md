@@ -31,5 +31,8 @@ This Epic focuses on the Compatibility Engine (Logic Layer) to determine which o
 - Further refine by identifying Pokémon that can learn the move but do not currently have a move of that type, highlighting strategic gaps.
 
 ## Acceptance Criteria
-- [ ] Break down into STORY nodes for compatibility matching and strategic gap identification.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Break down into STORY nodes for compatibility matching and strategic gap identification.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-402-560-tm-hm-compatibility-matching
+- [ ] story-402-561-tm-hm-strategic-gap-identification
+- [ ] story-402-562-tm-hm-compatibility-e2e
