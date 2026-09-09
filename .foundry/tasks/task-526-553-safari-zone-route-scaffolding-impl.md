@@ -2,12 +2,12 @@
 id: task-526-553-safari-zone-route-scaffolding-impl
 type: TASK
 title: Safari Zone Route Scaffolding
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2024-05-24'
-updated_at: '2024-05-24'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11063856247871311334'
 pr_number: null
 parent: story-325-526-safari-zone-layout-and-route
 tags: []
