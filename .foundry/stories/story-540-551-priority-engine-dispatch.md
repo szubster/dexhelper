@@ -15,4 +15,7 @@ locks: []
 ---
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Create TASK nodes to update the orchestrator dispatch logic to parse and sort nodes by priority in descending order.
+- [x] Tech Lead: Create TASK nodes to update the orchestrator dispatch logic to parse and sort nodes by priority in descending order.
+- [ ] task-551-564-update-orchestrator-priority-logic
+- [ ] task-551-565-update-orchestrator-priority-tests
+- [ ] task-551-566-qa-orchestrator-priority
