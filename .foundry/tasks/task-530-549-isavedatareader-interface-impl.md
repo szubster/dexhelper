@@ -24,5 +24,5 @@ locks: []
 This task focuses on defining the `ISaveDataReader` interface in `src/engine/saveParser/SaveDataReader.ts` to outline the core read operations required for save file parsing.
 
 ## Acceptance Criteria
-- [ ] Define the `ISaveDataReader` interface.
-- [ ] Include method signatures for core reading operations (e.g., `getUint8`, `getUint16`, `getUint32`).
+- [x] Define the `ISaveDataReader` interface.
+- [x] Include method signatures for core reading operations (e.g., `getUint8`, `getUint16`, `getUint32`).
