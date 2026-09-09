@@ -33,7 +33,7 @@ Implement the core rendering logic to convert the hidden Hall of Fame Certificat
 As specified in ADR 022, we are using the `html-to-image` library for client-side rendering of certificates to avoid server-side costs.
 
 ## Acceptance Criteria
-- [ ] Add `html-to-image` as a dependency if it's not already installed.
-- [ ] Implement the rendering function to convert the component to an image using `html-to-image`.
-- [ ] Incorporate the font loading utility (from task-495-549) to ensure custom fonts are applied correctly before rendering.
-- [ ] Write unit tests for the image renderer logic.
+- [x] Add `html-to-image` as a dependency if it's not already installed.
+- [x] Implement the rendering function to convert the component to an image using `html-to-image`.
+- [x] Incorporate the font loading utility (from task-495-549) to ensure custom fonts are applied correctly before rendering.
+- [x] Write unit tests for the image renderer logic.
