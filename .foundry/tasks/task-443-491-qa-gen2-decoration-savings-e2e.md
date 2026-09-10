@@ -34,4 +34,4 @@ Verify that the Gen 2 decoration and Mom's savings Playwright E2E tests have bee
 - Verify the specific E2E tests pass locally.
 
 ## Acceptance Criteria
-- [ ] E2E tests verified successfully
+- [x] E2E tests verified successfully
