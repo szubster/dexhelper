@@ -1,0 +1,238 @@
+// Gen 2 Constants
+
+export const GEN2_TM_EVENT_FLAGS: Record<number, number> = {
+  191: 10,
+  192: 92,
+  193: 206,
+  195: 75,
+  196: 209,
+  197: 211,
+  198: 72,
+  200: 85,
+  202: 119,
+  203: 59,
+  206: 14,
+  209: 208,
+  213: 13,
+  214: 15,
+  219: 215,
+  220: 12,
+  221: 8,
+  226: 86,
+  227: 114,
+  232: 212,
+  235: 11,
+  237: 113,
+  239: 9,
+  240: 80,
+};
+
+export const GEN2_TM_HM_MOVE_MAP: Record<number, number> = {
+  191: 223,
+  192: 29,
+  193: 174,
+  194: 205,
+  195: 46,
+  196: 92,
+  197: 192,
+  198: 249,
+  199: 143,
+  200: 237,
+  201: 241,
+  202: 230,
+  203: 173,
+  204: 59,
+  205: 63,
+  206: 196,
+  207: 182,
+  208: 240,
+  209: 202,
+  210: 203,
+  211: 218,
+  212: 76,
+  213: 231,
+  214: 225,
+  215: 87,
+  216: 89,
+  217: 216,
+  218: 91,
+  219: 94,
+  220: 247,
+  221: 189,
+  222: 104,
+  223: 8,
+  224: 207,
+  225: 214,
+  226: 188,
+  227: 201,
+  228: 126,
+  229: 129,
+  230: 111,
+  231: 9,
+  232: 138,
+  233: 17,
+  234: 156,
+  235: 213,
+  236: 168,
+  237: 211,
+  238: 7,
+  239: 210,
+  240: 171,
+  241: 15,
+  242: 19,
+  243: 57,
+  244: 70,
+  245: 148,
+  246: 250,
+  247: 127,
+};
+
+export const POKEMON_OFFSET_SPECIES_ID = 0;
+export const POKEMON_OFFSET_ITEM = 1;
+export const POKEMON_OFFSET_MOVES = 2;
+export const POKEMON_OFFSET_DVS = 21;
+export const POKEMON_OFFSET_FRIENDSHIP = 27;
+export const POKEMON_OFFSET_POKERUS = 28;
+export const POKEMON_OFFSET_CAUGHT_BYTE_1 = 29;
+export const POKEMON_OFFSET_CAUGHT_BYTE_2 = 30;
+export const POKEMON_OFFSET_LEVEL = 31;
+export const POKEMON_DATA_BLOCK_SIZE = 32;
+export const POKEMON_NAME_LENGTH = 11;
+export const POKEMON_OFFSET_OT_NAME = POKEMON_DATA_BLOCK_SIZE;
+export const POKEMON_OFFSET_NICKNAME = POKEMON_DATA_BLOCK_SIZE + POKEMON_NAME_LENGTH;
+export const POKEMON_OFFSET_CURRENT_HP = 34;
+export const BOX_SPECIES_LIST_OFFSET = 1;
+export const BOX_DATA_BLOCK_OFFSET = 22;
+export const ITEM_LIST_OFFSET = 1;
+export const ITEM_RECORD_SIZE = 2;
+export const ITEM_QUANTITY_OFFSET = 1;
+export const NPC_TRADE_FLAGS_OFFSET_CRYSTAL = 0x24eb;
+export const NPC_TRADE_FLAGS_OFFSET_GS = 0x250f;
+export const GEN2_NPC_TRADE_COUNT = 7;
+export const GEN2_EGG_SPECIES_ID = 253;
+export const GEN2_EGG_CYCLE_STEPS = 256;
+export const DAYCARE_SLOT_1_OFFSET_GS = 0x2850;
+export const DAYCARE_SLOT_2_OFFSET_GS = 0x2817;
+export const DAYCARE_EGG_FLAG_OFFSET_GS = 0x284f;
+export const DAYCARE_SLOT_1_OFFSET_CRYSTAL = 0x282c;
+export const DAYCARE_SLOT_2_OFFSET_CRYSTAL = 0x27f3;
+export const EVENT_FLAGS_OFFSET_CRYSTAL = 0x2600;
+export const EVENT_FLAGS_OFFSET_GS = 0x2624;
+export const DAYCARE_EGG_FLAG_OFFSET_CRYSTAL = 0x282b;
+export const DAYCARE_EGG_FLAG_MASK = 0x01;
+export const POKEDEX_OWNED_OFFSET_GS = 0x2a4c;
+export const POKEDEX_OWNED_OFFSET_CRYSTAL = 0x2a69;
+export const POKEDEX_SEEN_OFFSET_GS = 0x2a6c;
+export const POKEDEX_SEEN_OFFSET_CRYSTAL = 0x2a89;
+export const MOMS_MONEY_OFFSET_RELATIVE = -0x06;
+export const MOM_SAVING_MONEY_OFFSET_RELATIVE = -0x03;
+export const ACTIVE_DECO_OFFSET_RELATIVE_CRYSTAL = 0x3b8;
+export const ACTIVE_DECO_OFFSET_RELATIVE_GS = 0x3dd;
+export const ACTIVE_DECO_COUNT = 8;
+export const UNLOCKED_DECO_BYTE_OFFSET = 0x54;
+export const UNLOCKED_DECO_BIT_OFFSET = 4;
+export const UNLOCKED_DECO_COUNT = 46;
+export const CURRENT_BOX_NUM_OFFSET_GS = 0x2724;
+export const CURRENT_BOX_NUM_OFFSET_CRYSTAL = 0x2700;
+export const CURRENT_BOX_COUNT_OFFSET = 0x2d10;
+export const CURRENT_BOX_SPECIES_OFFSET = 0x2d11;
+export const TM_POCKET_OFFSET_GS = 0x23e7;
+export const TM_POCKET_OFFSET_CRYSTAL = 0x23c8;
+export const ITEMS_POCKET_OFFSET_GS = 0x2420;
+export const ITEMS_POCKET_OFFSET_CRYSTAL = 0x2402;
+export const KEY_ITEMS_POCKET_OFFSET_GS = 0x244a;
+export const KEY_ITEMS_POCKET_OFFSET_CRYSTAL = 0x242c;
+export const BALLS_POCKET_OFFSET_GS = 0x2465;
+export const BALLS_POCKET_OFFSET_CRYSTAL = 0x2447;
+export const PC_ITEMS_POCKET_OFFSET_GS = 0x247e;
+export const GEN2_TM_HM_COUNT = 57;
+export const GEN2_TM_BASE_ITEM_ID = 191;
+export const PC_ITEMS_POCKET_OFFSET_CRYSTAL = 0x2460;
+export const ROAMING_LEGENDARIES_OFFSET_GS = 0x28da;
+export const ROAMING_LEGENDARIES_OFFSET_CRYSTAL = 0x28b6;
+export const ROAMER_STRUCT_SIZE = 7;
+export const ROAMER_OFFSET_SPECIES = 0;
+export const ROAMER_OFFSET_LEVEL = 1;
+export const ROAMER_OFFSET_MAP_GROUP = 2;
+export const ROAMER_OFFSET_MAP_NUMBER = 3;
+export const ROAMER_OFFSET_HP = 4;
+export const ROAMER_OFFSET_DVS = 5;
+export const ROAMER_GLOBAL_OFFSET_MAP_NUMBER = 19;
+export const ROAMER_GLOBAL_OFFSET_MAP_GROUP = 20;
+export const ROAMER_COUNT = 3;
+export const ROAMER_INACTIVE_MAP_GROUP = 0xff;
+export const JOHTO_BADGES_OFFSET_GS = 0x23e4;
+export const JOHTO_BADGES_OFFSET_CRYSTAL = 0x23e5;
+export const KANTO_BADGES_OFFSET_GS = 0x23e5;
+export const KANTO_BADGES_OFFSET_CRYSTAL = 0x23e6;
+export const TRAINER_NAME_OFFSET = 0x200b;
+export const TRAINER_ID_OFFSET = 0x2009;
+export const MAP_BANK_OFFSET_GS = 0x25b3;
+export const MAP_BANK_OFFSET_CRYSTAL = 0x25c6;
+export const MAP_ID_OFFSET_GS = 0x25b4;
+export const MAP_ID_OFFSET_CRYSTAL = 0x25c7;
+export const EVENT_FLAGS_LENGTH = 0x100;
+export const EVENT_FLAGS_MAX_BITS = 2048;
+export const BITS_PER_BYTE = 8;
+export const BIT_MASK = 1;
+export const EVENT_FLAG_SUDOWOODO_BYTE = Math.floor(42 / BITS_PER_BYTE);
+export const EVENT_FLAG_SUDOWOODO_BIT = 42 % BITS_PER_BYTE;
+export const EVENT_FLAG_HO_OH_BYTE = Math.floor(791 / BITS_PER_BYTE);
+export const EVENT_FLAG_HO_OH_BIT = 791 % BITS_PER_BYTE;
+export const EVENT_FLAG_LUGIA_BYTE = Math.floor(792 / BITS_PER_BYTE);
+export const EVENT_FLAG_LUGIA_BIT = 792 % BITS_PER_BYTE;
+export const EVENT_FLAG_SNORLAX_BYTE = Math.floor(1872 / BITS_PER_BYTE);
+export const EVENT_FLAG_SNORLAX_BIT = 1872 % BITS_PER_BYTE;
+export const EVENT_FLAG_RED_GYARADOS_BYTE = Math.floor(1873 / BITS_PER_BYTE);
+export const EVENT_FLAG_RED_GYARADOS_BIT = 1873 % BITS_PER_BYTE;
+export const CAUGHT_TIME_MASK = 0xc0;
+export const CAUGHT_TIME_SHIFT = 6;
+export const CAUGHT_LEVEL_MASK = 0x3f;
+export const CAUGHT_TIME_MORNING = 1;
+export const CAUGHT_TIME_DAY = 2;
+export const CAUGHT_TIME_NIGHT = 3;
+export const CAUGHT_LOC_EVENT = 0x7e;
+export const CAUGHT_LOC_TRADED = 0x7f;
+export const GEN2_EMPTY_SLOT = 0xff;
+export const MAX_VALID_SPECIES_ID = 251;
+export const POKEMON_MOVE_COUNT = 4;
+export const UNOWN_SPECIES_ID = 201;
+export const UNOWN_DV_SHIFT = 1;
+export const UNOWN_DV_MASK = 0b11;
+export const UNOWN_FORM_ATK_SHIFT = 6;
+export const BANK_1_BOX_1_OFFSET = 0x4000;
+export const BANK_1_BOX_2_OFFSET = 0x444e;
+export const BANK_1_BOX_3_OFFSET = 0x489c;
+export const BANK_1_BOX_4_OFFSET = 0x4cea;
+export const BANK_1_BOX_5_OFFSET = 0x5138;
+export const BANK_1_BOX_6_OFFSET = 0x5586;
+export const BANK_1_BOX_7_OFFSET = 0x59d4;
+export const BANK_2_BOX_8_OFFSET = 0x6000;
+export const BANK_2_BOX_9_OFFSET = 0x644e;
+export const BANK_2_BOX_10_OFFSET = 0x689c;
+export const BANK_2_BOX_11_OFFSET = 0x6cea;
+export const BANK_2_BOX_12_OFFSET = 0x7138;
+export const BANK_2_BOX_13_OFFSET = 0x7586;
+export const BANK_2_BOX_14_OFFSET = 0x79d4;
+export const HALL_OF_FAME_OFFSET_RELATIVE_TO_JOHTO_BADGES = 0xa8;
+export const HALL_OF_FAME_OFFSET_RELATIVE = 0xf74;
+export const GEN2_HOF_MAX_RECORDS = 30;
+export const GEN2_HOF_POKEMON_COUNT = 6;
+export const GEN2_HOF_RECORD_LENGTH = 0x62;
+export const GEN2_HOF_POKEMON_LENGTH = 0x10;
+export const GEN2_HOF_POKEMON_OFFSET_LEVEL = 5;
+export const GEN2_HOF_POKEMON_OFFSET_NICKNAME = 6;
+export const UNOWN_FORM_DEF_SHIFT = 4;
+export const UNOWN_FORM_SPD_SHIFT = 2;
+export const UNOWN_FORM_MOD = 28;
+export const UNOWN_FORM_VALID_MAX = 26;
+export const UNOWN_FORM_ASCII_A = 65;
+
+export const EVENT_FLAG_SOLVED_HO_OH_PUZZLE_BYTE = Math.floor(839 / BITS_PER_BYTE);
+export const EVENT_FLAG_SOLVED_HO_OH_PUZZLE_BIT = 839 % BITS_PER_BYTE;
+export const EVENT_FLAG_SOLVED_KABUTO_PUZZLE_BYTE = Math.floor(840 / BITS_PER_BYTE);
+export const EVENT_FLAG_SOLVED_KABUTO_PUZZLE_BIT = 840 % BITS_PER_BYTE;
+export const EVENT_FLAG_SOLVED_OMANYTE_PUZZLE_BYTE = Math.floor(841 / BITS_PER_BYTE);
+export const EVENT_FLAG_SOLVED_OMANYTE_PUZZLE_BIT = 841 % BITS_PER_BYTE;
+export const EVENT_FLAG_SOLVED_AERODACTYL_PUZZLE_BYTE = Math.floor(842 / BITS_PER_BYTE);
+export const EVENT_FLAG_SOLVED_AERODACTYL_PUZZLE_BIT = 842 % BITS_PER_BYTE;

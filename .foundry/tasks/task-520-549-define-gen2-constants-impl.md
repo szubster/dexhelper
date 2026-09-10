@@ -17,6 +17,6 @@ rejection_reason: ''
 Extract constants from gen2.ts into gen2Constants.ts.
 
 ## Acceptance Criteria
-- [ ] Create `src/engine/saveParser/parsers/gen2Constants.ts`.
-- [ ] Extract all constants from `gen2.ts` into `gen2Constants.ts`.
-- [ ] Ensure all constants are exported.
+- [x] Create `src/engine/saveParser/parsers/gen2Constants.ts`.
+- [x] Extract all constants from `gen2.ts` into `gen2Constants.ts`.
+- [x] Ensure all constants are exported.

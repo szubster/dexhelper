@@ -17,6 +17,7 @@
     "functions/api/saves/[id].ts",
     "src/engine/saveParser/utils/index.ts",
     ".github/scripts/aggregate-journals.ts",
+    "src/engine/saveParser/parsers/gen2Constants.ts"
   ],
   "rules": {
     "files": "warn",
