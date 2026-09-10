@@ -34,4 +34,4 @@ Verify that the `tests/e2e/dashboard/permanent_failures.spec.ts` test correctly 
 3. Review the code to ensure the test correctly sets up the mocked threshold and evaluates the UI against that threshold.
 
 ## Acceptance Criteria
-- [ ] QA: Requirements are verified.
+- [x] QA: Requirements are verified.
