@@ -2,13 +2,13 @@
 id: task-495-529-qa-dashboard-rejection-count-e2e
 type: TASK
 title: QA Verification for Dashboard UI Rejection Count Refactor E2E
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-31'
 updated_at: '2026-09-10'
 depends_on:
   - task-495-528-dashboard-rejection-count-e2e
-jules_session_id: null
+jules_session_id: '1922384400113709318'
 pr_number: null
 parent: story-344-495-dashboard-rejection-count-e2e
 tags:
