@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [epic-038-412-pokerus-visual-tracker-retry](.foundry/epics/epic-038-412-pokerus-visual-tracker-retry.md) | EPIC | Pokerus Visual Tracker Epic (Retry) | story_owner | [6391711130027535684](https://jules.google.com/session/6391711130027535684) |
 | [epic-038-413-pokerus-spread-planner-retry](.foundry/epics/epic-038-413-pokerus-spread-planner-retry.md) | EPIC | Pokerus Spread Planner Epic (Retry) | story_owner | [16905401797185976033](https://jules.google.com/session/16905401797185976033) |
 | [epic-046-078-gen3-battle-frontier-data-extraction](.foundry/epics/epic-046-078-gen3-battle-frontier-data-extraction.md) | EPIC | Gen 3 Battle Frontier Data Extraction | story_owner | [9562732056147911685](https://jules.google.com/session/9562732056147911685) |
 | [epic-046-079-gen3-battle-frontier-dashboard-ui](.foundry/epics/epic-046-079-gen3-battle-frontier-dashboard-ui.md) | EPIC | Gen 3 Battle Frontier Dashboard UI | story_owner | [14484693374801811050](https://jules.google.com/session/14484693374801811050) |
