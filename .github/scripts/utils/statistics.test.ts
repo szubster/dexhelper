@@ -68,3 +68,51 @@ describe('statistics utility', () => {
     });
   });
 });
+
+import { execSync } from 'node:child_process';
+import { extractPRMetrics } from './statistics.js';
+
+vi.mock('node:child_process', () => ({
+  execSync: vi.fn<() => Buffer>(),
+}));
+
+describe('extractPRMetrics', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('should extract and parse PR metrics correctly', () => {
+    const mockOutput = JSON.stringify([
+      { state: 'OPEN' },
+      { state: 'MERGED' },
+      { state: 'CLOSED' },
+      { state: 'OPEN' },
+      { state: 'MERGED' },
+    ]);
+
+    vi.mocked(execSync).mockReturnValue(mockOutput as any);
+
+    const metrics = extractPRMetrics();
+
+    expect(execSync).toHaveBeenCalledWith('gh pr list --state all --json state', { encoding: 'utf-8' });
+    expect(metrics).toEqual({
+      totalPRs: 5,
+      openPRs: 2,
+      mergedPRs: 2,
+      closedPRs: 1,
+    });
+  });
+
+  it('should return null and log error if execSync fails', () => {
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.mocked(execSync).mockImplementation(() => {
+      throw new Error('Command failed');
+    });
+
+    const metrics = extractPRMetrics();
+
+    expect(metrics).toBeNull();
+    expect(consoleSpy).toHaveBeenCalled();
+    consoleSpy.mockRestore();
+  });
+});
