@@ -53,4 +53,7 @@ Transform the scattered Gen 3 geospatial data into a unified, visually engaging 
 - **Coordinate Mapping:** Creating the coordinate map manually might be tedious. Can we find existing data, or should a specific research task be created for it?
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into EPIC nodes, explicitly including an E2E verification STORY.
+- [x] Epic Planner: Break this PRD down into EPIC nodes, explicitly including an E2E verification STORY.
+- [ ] epic-424-552-gen3-map-core-ui
+- [ ] epic-424-553-gen3-map-data-engine
+- [ ] epic-424-554-gen3-map-overlays

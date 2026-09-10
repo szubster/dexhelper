@@ -5,10 +5,10 @@ title: Write Playwright E2E Tests for Gen 3 AI Script Mapping
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-09-01'
+updated_at: '2026-09-08'
 depends_on:
   - task-423-470-gen3-ai-data-e2e-extraction-tests-impl
-jules_session_id: '13421033811343521912'
+jules_session_id: '7664354833923374469'
 pr_number: null
 parent: story-411-423-gen3-ai-data-extraction-e2e
 tags:
@@ -16,9 +16,10 @@ tags:
   - ai
   - save-engine
   - e2e
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Write Playwright E2E Tests for Gen 3 AI Script Mapping

@@ -1915,6 +1915,8 @@ vi.doMock('node:url', async (importOriginal) => {
     createValidTestNode(tmpDir, '.foundry/adrs/adr-architect.md', { id: "adr-architect", type: "ADR", title: "Architect PRD", status: "PENDING", owner_persona: "architect", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/tasks/task-tech-lead.md', { id: "task-tech-lead", type: "TASK", title: "Tech Lead Task", status: "PENDING", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/tasks/task-architect.md', { id: "task-architect", type: "TASK", title: "Architect Task", status: "PENDING", owner_persona: "architect", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
+    createValidTestNode(tmpDir, '.foundry/prds/prd-valid.md', { id: "prd-valid", type: "PRD", title: "Valid PRD", status: "PENDING", owner_persona: "epic_planner", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
+    createValidTestNode(tmpDir, '.foundry/tasks/task-qa.md', { id: "task-qa", type: "TASK", title: "QA Task", status: "PENDING", owner_persona: "qa", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
 
     main();
 
@@ -1925,6 +1927,12 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(prdResult).toContain('status: FAILED');
     expect(prdResult).toContain('rejection_reason: Invalid owner_persona mapping');
     expect(prdResult).toContain('owner_persona: coder');
+
+    const prdValidResult = fs.readFileSync(path.join(tmpDir, '.foundry/prds/prd-valid.md'), 'utf-8');
+    expect(prdValidResult).toContain('status: READY');
+
+    const qaTaskResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-qa.md'), 'utf-8');
+    expect(qaTaskResult).toContain('status: READY');
 
     const humanResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-human.md'), 'utf-8');
     expect(humanResult).toContain('status: ACTIVE');

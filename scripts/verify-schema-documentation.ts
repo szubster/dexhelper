@@ -13,7 +13,9 @@ export function checkSchemaDocumentation(): boolean {
     const requiredPatterns = [
         "Orchestrator Safeguard (E2E/Integration Requirement)",
         "tagged with `e2e` or `integration`",
-        "An EPIC cannot be COMPLETED without it."
+        "An EPIC cannot be COMPLETED without it.",
+        "VERIFYING and COMPLETED nodes are read-only for implementing personas.",
+        "Once a PR is merged, the node transitions to `VERIFYING`."
     ];
 
     let allPatternsFound = true;

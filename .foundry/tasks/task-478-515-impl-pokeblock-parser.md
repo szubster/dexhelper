@@ -2,12 +2,12 @@
 id: task-478-515-impl-pokeblock-parser
 type: TASK
 title: Implement Gen 3 Pokeblock Parsing Logic
-status: ACTIVE
+status: READY
 owner_persona: coder
-created_at: 2026-09-02T00:00:00.000Z
-updated_at: '2026-09-02'
+created_at: '2026-09-02T00:00:00.000Z'
+updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: '15904737233964935146'
+jules_session_id: null
 parent: story-400-478-gen3-pokeblock-parsing-logic
 tags:
   - gen3
@@ -15,9 +15,10 @@ tags:
   - save-parsing
 research_references:
   - .foundry/docs/knowledge_base/gen3_pokeblock_offsets.md
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 ## Description

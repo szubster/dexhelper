@@ -28,5 +28,8 @@ This epic focuses on the backend data layer required to export individual Pokém
 - Provide a clear interface for the UI to request and receive this binary data.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into Stories.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Break down this Epic into Stories.
+- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-530-553-gen1-gen2-pkm-extraction
+- [ ] story-530-554-gen3-pk3-extraction
+- [ ] story-530-555-pkm-data-integration-e2e

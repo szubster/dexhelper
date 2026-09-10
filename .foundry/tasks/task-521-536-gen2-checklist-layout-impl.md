@@ -30,6 +30,6 @@ Implement the core UI layout component for the Gen 2 checklist to contain daily 
 - **Integration:** Write standard unit tests (`vitest-browser-react`).
 
 ## Acceptance Criteria
-- [ ] Implement checklist layout component (`src/components/gen2/ChecklistLayout.tsx` or similar).
-- [ ] Write Vitest component tests ensuring correct rendering and tactical styling.
-- [ ] Ensure Biome formatting is clean (`pnpm check:fix`).
+- [x] Implement checklist layout component (`src/components/gen2/ChecklistLayout.tsx` or similar).
+- [x] Write Vitest component tests ensuring correct rendering and tactical styling.
+- [x] Ensure Biome formatting is clean (`pnpm check:fix`).

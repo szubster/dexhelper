@@ -33,4 +33,4 @@ Update the `tests/e2e/dashboard/permanent_failures.spec.ts` test file to correct
 4. The test should still verify all the original behavior for filtering and highlighting nodes.
 
 ## Acceptance Criteria
-- [ ] Coder: Requirements are implemented.
+- [x] Coder: Requirements are implemented.
