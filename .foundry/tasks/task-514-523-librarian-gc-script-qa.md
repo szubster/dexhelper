@@ -2,13 +2,13 @@
 id: task-514-523-librarian-gc-script-qa
 type: TASK
 title: QA Librarian Garbage Collection Script
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-02'
 updated_at: '2026-09-10'
 depends_on:
   - task-514-522-librarian-gc-script-tests
-jules_session_id: null
+jules_session_id: '7209257083688263150'
 pr_number: null
 parent: story-410-514-librarian-garbage-collection-script
 tags:
