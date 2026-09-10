@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { UnifiedLocation } from '../../db/schema';
-import { getDistanceToMap } from './gen3Graph';
+import { getDistanceToMap, resolveOutdoorMapId } from './gen3Graph';
 
 const mockLocations: UnifiedLocation[] = [
   { id: 0, n: 'Littleroot Town', conn: [1], dist: { 0: 0, 1: 1, 2: 2 } },
@@ -69,6 +69,43 @@ describe('gen3Graph', () => {
       ];
       const result = getDistanceToMap(locationsWithoutDist, 0, 1);
       expect(result).toBeNull();
+    });
+  });
+
+  describe('resolveOutdoorMapId', () => {
+    it('correctly resolves a map ID with no prnt to itself', () => {
+      const result = resolveOutdoorMapId(mockLocations, 0);
+      expect(result).toBe(0);
+    });
+
+    it('correctly resolves a single-level indoor map to its outdoor hub', () => {
+      const result = resolveOutdoorMapId(mockLocations, 3);
+      expect(result).toBe(0);
+    });
+
+    it('correctly resolves a multi-level indoor map to its root outdoor hub', () => {
+      const result = resolveOutdoorMapId(mockLocations, 4);
+      expect(result).toBe(0);
+    });
+
+    it('correctly resolves a single-level indoor map to its outdoor hub in Kanto', () => {
+      const result = resolveOutdoorMapId(mockLocations, 44);
+      expect(result).toBe(42);
+    });
+
+    it('correctly resolves a multi-level indoor map to its root outdoor hub in Kanto', () => {
+      const result = resolveOutdoorMapId(mockLocations, 45);
+      expect(result).toBe(42);
+    });
+
+    it('handles circular prnt references gracefully', () => {
+      const circularLocations = [
+        ...mockLocations,
+        { id: 90, n: 'Loop A', prnt: 91, conn: [], dist: {} },
+        { id: 91, n: 'Loop B', prnt: 90, conn: [], dist: {} },
+      ];
+      const result = resolveOutdoorMapId(circularLocations, 90);
+      expect(result).toBe(90);
     });
   });
 });
