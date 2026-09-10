@@ -25,5 +25,5 @@ notes: ''
 Update `core_policies.md` to include explicit instructions regarding WIP state handling.
 
 ## Acceptance Criteria
-- [ ] Add explicit instructions regarding WIP state handling in core_policies.md.
-- [ ] Ensure the prompt clearly specifies how generative personas should interact with Draft ADRs and WIP code to prevent premature integration or misinterpretations.
+- [x] Add explicit instructions regarding WIP state handling in core_policies.md.
+- [x] Ensure the prompt clearly specifies how generative personas should interact with Draft ADRs and WIP code to prevent premature integration or misinterpretations.
