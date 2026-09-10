@@ -158,3 +158,4 @@
 | [task-545-549-dynamic-spawning-e2e-fixtures](.foundry/tasks/task-545-549-dynamic-spawning-e2e-fixtures.md) | TASK | Implement E2E Test Fixtures for Dynamic Spawning | coder | [3127180831471765322](https://jules.google.com/session/3127180831471765322) |
 | [task-550-562-design-idea-matrix-schema](.foundry/tasks/task-550-562-design-idea-matrix-schema.md) | TASK | Design Idea Matrix Schema | coder | [2513316943132529710](https://jules.google.com/session/2513316943132529710) |
 | [task-551-562-update-curator-prompt-logic](.foundry/tasks/task-551-562-update-curator-prompt-logic.md) | TASK | Update Curator Prompt Logic | coder | [2817688715424012477](https://jules.google.com/session/2817688715424012477) |
+| [task-556-559-markdown-link-rewriter-impl](.foundry/tasks/task-556-559-markdown-link-rewriter-impl.md) | TASK | Markdown Link Rewriter Implementation | coder | [8790319810596119205](https://jules.google.com/session/8790319810596119205) |
