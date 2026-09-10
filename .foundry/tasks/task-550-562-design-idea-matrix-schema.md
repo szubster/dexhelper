@@ -26,4 +26,4 @@ Define the schema and format for `.foundry/docs/architecture/idea_dependency_mat
 - Ensure the schema captures IDEA nodes, their dependencies, and domain boundaries.
 
 ## Acceptance Criteria
-- [ ] Schema document is created at `.foundry/docs/architecture/idea_dependency_matrix.md`.
+- [x] Schema document is created at `.foundry/docs/architecture/idea_dependency_matrix.md`.
