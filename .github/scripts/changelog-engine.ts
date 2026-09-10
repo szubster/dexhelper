@@ -390,6 +390,23 @@ export async function runChangelogEngine(
         process.stdout.write(`[changelog-engine] Backfill task is currently ${taskStatus}. Waiting for session completion.\n`);
         return;
       }
+
+      // If task was completed, check if task node body has a commit SHA ahead of state.last_processed_commit
+      const taskShaMatch = taskRaw.match(/- \*\*Commit SHA:\*\* `([a-f0-9]+)`/i);
+      if (taskShaMatch?.[1]) {
+        const taskSha = taskShaMatch[1];
+        const commits = getCommitList();
+        const taskIdx = commits.findIndex((c) => c === taskSha || c.startsWith(taskSha));
+        const lastCommit = state.last_processed_commit;
+        const stateIdx = lastCommit
+          ? commits.findIndex((c) => c === lastCommit || c.startsWith(lastCommit))
+          : -1;
+
+        if (taskIdx > stateIdx) {
+          state.last_processed_commit = taskSha;
+          saveState(state, statePath);
+        }
+      }
     } catch {
       // parse error
     }
