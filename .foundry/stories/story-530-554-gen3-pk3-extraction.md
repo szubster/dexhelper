@@ -22,4 +22,6 @@ rejection_reason: ''
 This story implements the data extraction logic for Gen 3 save files, specifically managing the substructure mapping and relative offsets to export individual Pokémon as standard `.pk3` files.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-554-567-gen3-pk3-extraction-impl
+- [ ] task-554-568-gen3-pk3-extraction-qa
