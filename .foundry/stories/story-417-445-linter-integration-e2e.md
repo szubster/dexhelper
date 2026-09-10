@@ -37,4 +37,7 @@ With the implementation of the ADR compliance linter scripts for UI constraints 
 - Integrate the script execution into the global `pnpm lint` flow or a dedicated `pnpm run verify-adr` step in the CI configuration.
 
 ## Acceptance Criteria
-- [ ] Break down this story into actionable engineering tasks.
+- [x] Break down this story into actionable engineering tasks.
+- [ ] task-445-567-impl-adr013-compliance-tests
+- [ ] task-445-568-impl-linter-script-integration
+- [ ] task-445-569-qa-adr-linter-integration
