@@ -2,13 +2,13 @@
 id: task-442-468-gen2-roamer-e2e-qa
 type: TASK
 title: Gen 2 Roamer Extraction E2E QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-22'
 updated_at: '2026-09-10'
 depends_on:
   - task-442-467-gen2-roamer-e2e-tests-impl
-jules_session_id: null
+jules_session_id: '7967086827282027766'
 pr_number: null
 parent: story-139-442-gen2-roamer-extraction-e2e
 tags:
