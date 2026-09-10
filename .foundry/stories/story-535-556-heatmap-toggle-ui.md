@@ -2,12 +2,12 @@
 id: story-535-556-heatmap-toggle-ui
 type: STORY
 title: Heatmap Toggle UI Control
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-07'
 updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7506664521273676602'
 parent: epic-518-535-heatmap-ui-components
 tags:
   - foundry
