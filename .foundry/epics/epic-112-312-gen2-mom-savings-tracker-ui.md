@@ -31,4 +31,6 @@ This Epic handles the user interface for tracking Mom's savings and the progress
 - Display the progression towards the next decoration threshold unlocked via Mom's savings.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-312-562-gen2-mom-savings-tracker-ui-core
+- [ ] story-312-563-gen2-mom-savings-tracker-ui-e2e
