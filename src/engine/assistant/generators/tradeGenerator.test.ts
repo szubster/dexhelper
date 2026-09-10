@@ -108,4 +108,63 @@ describe('tradeGenerator', () => {
     const machopSugg = suggestions.find((s) => s.pokemonId === 66);
     expect(machopSugg?.priority).toBe(85); // Because we own Drowzee
   });
+
+  it('should skip version exclusive if the player owns an evolved form that can be bred', () => {
+    const saveData = {
+      generation: 2,
+      badges: 16,
+      eventFlags: new Uint8Array(300),
+      npcTradeFlags: {},
+    } as unknown as SaveData;
+    const suggestions: import('../strategies/types').Suggestion[] = [];
+
+    // Player needs Meowth (52) which is a Gold exclusive. But they own Persian (53).
+    generateGiftAndTradeSuggestions(
+      [52],
+      saveData,
+      'gold',
+      new Set([53]),
+      {
+        pokemonMetadata: {
+          52: { eto: [{ id: 53, eto: [] }] }, // Meowth evolves into Persian
+        },
+      } as unknown as import('../suggestionEngineTypes').AssistantApiData,
+      new Map([[53, [{} as PokemonInstance]]]), // Physically own Persian
+      suggestions,
+      new Set([52]),
+    );
+
+    // Should NOT contain a trade suggestion for Meowth since it can be bred
+    const meowthSugg = suggestions.find((s) => s.pokemonId === 52);
+    expect(meowthSugg).toBeUndefined();
+  });
+
+  it('should skip version exclusive if the player owns an evolved form that can be bred (multi-stage)', () => {
+    const saveData = {
+      generation: 2,
+      badges: 16,
+      eventFlags: new Uint8Array(300),
+      npcTradeFlags: {},
+    } as unknown as SaveData;
+    const suggestions: import('../strategies/types').Suggestion[] = [];
+
+    generateGiftAndTradeSuggestions(
+      [1], // Bulbasaur is not a version exclusive, but we can mock it as an unobtainable one for coverage testing if we want, or use an actual 3-stage exclusive like Mareep in Gen 3 or something. Let's use 69 (Bellsprout) which evolves to Weepinbell(70) then Victreebel(71). Bellsprout is exclusive to Silver in Gen 1, FireRed in Gen 3.
+      saveData,
+      'gold', // Wait, Bellsprout is unobtainable in Gold.
+      new Set([71]), // Own Victreebel
+      {
+        pokemonMetadata: {
+          69: { eto: [{ id: 70, eto: [{ id: 71, eto: [] }] }] },
+        },
+      } as unknown as import('../suggestionEngineTypes').AssistantApiData,
+      new Map([[71, [{} as PokemonInstance]]]),
+      suggestions,
+      new Set([69]),
+    );
+
+    // Should NOT contain a trade suggestion for Bellsprout
+    const bellsproutSugg = suggestions.find((s) => s.pokemonId === 69);
+    expect(bellsproutSugg).toBeUndefined();
+  });
 });

@@ -2,12 +2,12 @@
 id: task-520-528-statistics-node-aggregation-impl
 type: TASK
 title: Implement Node State Aggregation Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '2587247238581274722'
+jules_session_id: null
 pr_number: null
 parent: story-417-520-statistics-generation
 tags:
@@ -34,6 +34,6 @@ Implement the logic to aggregate node states from `.foundry/` to generate statis
 5. Export this aggregation logic for use in the main report generation.
 
 ## Acceptance Criteria
-- [ ] Node state aggregation logic implemented and tested.
-- [ ] Correctly scans both active and archived `.foundry/` nodes.
-- [ ] Parses frontmatter and correctly calculates counts by type and status.
+- [x] Node state aggregation logic implemented and tested.
+- [x] Correctly scans both active and archived `.foundry/` nodes.
+- [x] Parses frontmatter and correctly calculates counts by type and status.
