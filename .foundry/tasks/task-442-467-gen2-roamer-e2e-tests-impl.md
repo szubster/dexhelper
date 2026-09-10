@@ -30,4 +30,4 @@ Write Playwright E2E tests to verify Gen 2 roamer data extraction end-to-end.
 Implement the E2E tests to parse the Gen 2 roamer data extraction, testing for Raikou, Entei, and Suicune data extraction, including inactive/caught roamers, and map coordinates/levels. Use the prepared fixture save files to test different scenarios and ensure it accurately extracts active roaming Pokémon and standardizes the structure.
 
 ## Acceptance Criteria
-- [ ] E2E tests verify Gen 2 roamer extraction logic for active/inactive roamers and map data.
+- [x] E2E tests verify Gen 2 roamer extraction logic for active/inactive roamers and map data.
