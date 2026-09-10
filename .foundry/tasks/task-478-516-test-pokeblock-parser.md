@@ -2,10 +2,10 @@
 id: task-478-516-test-pokeblock-parser
 type: TASK
 title: Write Unit Tests for Pokeblock Parser
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-02T00:00:00.000Z'
-updated_at: '2026-09-02'
+updated_at: '2026-09-10'
 depends_on:
   - task-478-515-impl-pokeblock-parser
 jules_session_id: null

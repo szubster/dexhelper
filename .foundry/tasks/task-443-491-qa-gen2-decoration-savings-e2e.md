@@ -2,14 +2,14 @@
 id: task-443-491-qa-gen2-decoration-savings-e2e
 type: TASK
 title: QA Gen 2 Decoration & Savings E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-09-10'
 depends_on:
   - task-443-489-implement-gen2-decorations-e2e
   - task-443-490-implement-gen2-savings-e2e
-jules_session_id: '9025156552517971560'
+jules_session_id: null
 pr_number: null
 parent: story-311-443-gen2-decoration-savings-e2e
 tags:

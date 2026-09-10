@@ -2,12 +2,12 @@
 id: story-532-550-idea-dependency-matrix-architecture
 type: STORY
 title: Create Idea Dependency Matrix Architecture
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: '8522173503617941516'
+jules_session_id: null
 parent: epic-518-532-historical-backtracking
 tags:
   - architecture

@@ -2,10 +2,10 @@
 id: task-498-528-tpm-aggregation-tests
 type: TASK
 title: TPM Aggregation and Archival Unit Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-10'
 depends_on:
   - task-498-527-tpm-archival-fs
 jules_session_id: null
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # TPM Aggregation and Archival Unit Tests

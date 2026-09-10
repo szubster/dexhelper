@@ -2,10 +2,10 @@
 id: task-551-562-update-curator-prompt-logic
 type: TASK
 title: Update Curator Prompt Logic
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on: []
 jules_session_id: null
 parent: story-532-551-curator-historical-mapping-logic
