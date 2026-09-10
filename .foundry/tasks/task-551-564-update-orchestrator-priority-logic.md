@@ -22,6 +22,6 @@ notes: ''
 # Update Orchestrator Dispatch Logic with Priority Sorting
 
 ## Acceptance Criteria
-- [ ] Implement priority-based sorting in `.github/scripts/foundry-orchestrator.ts`.
-- [ ] Update the sorting logic for `readyNodes` to evaluate `a.priority ?? 50` versus `b.priority ?? 50` as the first sorting condition, ordering higher priorities first (descending).
-- [ ] Verify that the `critical_weight` check remains as the secondary sorting condition if `priority` values are equal.
+- [x] Implement priority-based sorting in `.github/scripts/foundry-orchestrator.ts`.
+- [x] Update the sorting logic for `readyNodes` to evaluate `a.priority ?? 50` versus `b.priority ?? 50` as the first sorting condition, ordering higher priorities first (descending).
+- [x] Verify that the `critical_weight` check remains as the secondary sorting condition if `priority` values are equal.
