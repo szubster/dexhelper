@@ -31,4 +31,4 @@ Verify the implementation of Gen 2 roamer extraction logic E2E tests.
 Review and execute the E2E tests written for the Gen 2 roamer extraction logic to ensure they correctly verify active/inactive roamer state and map coordinates for Raikou, Entei, and Suicune. Ensure tests cover all edge cases.
 
 ## Acceptance Criteria
-- [ ] QA verifies the Gen 2 roamer extraction E2E tests are comprehensive and pass successfully.
+- [x] QA verifies the Gen 2 roamer extraction E2E tests are comprehensive and pass successfully.
