@@ -2,10 +2,10 @@
 id: epic-112-312-gen2-mom-savings-tracker-ui
 type: EPIC
 title: Gen 2 Mom's Savings Tracker UI
-status: PENDING
+status: READY
 owner_persona: story_owner
-created_at: "2026-07-14"
-updated_at: "2026-07-14"
+created_at: '2026-07-14'
+updated_at: '2026-09-10'
 depends_on:
   - epic-112-311-gen2-decoration-savings-extraction
 jules_session_id: null
@@ -16,8 +16,9 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Epic: Gen 2 Mom's Savings Tracker UI

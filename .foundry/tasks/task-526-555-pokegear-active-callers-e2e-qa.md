@@ -2,10 +2,10 @@
 id: task-526-555-pokegear-active-callers-e2e-qa
 type: TASK
 title: QA Pokegear Active Callers E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-06'
-updated_at: '2026-09-06'
+updated_at: '2026-09-10'
 depends_on:
   - task-526-553-pokegear-predictor-e2e-coder
   - task-526-554-pokegear-alerts-e2e-coder
