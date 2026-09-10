@@ -2,12 +2,12 @@
 id: epic-520-554-gen3-transition-dashboard
 type: EPIC
 title: Gen 3 Generation Transition Dashboard
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-07'
 updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8376527397815419907'
 pr_number: null
 parent: prd-516-520-gen3-pokedex-completion-tracker
 tags:
