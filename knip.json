@@ -10,6 +10,9 @@
   ],
   "ignore": [
     "src/test-setup.ts",
+    "src/contexts/binjgb/index.ts",
+    "src/hooks/useBinjgb.ts",
+
     ".github/scripts/extract-research.ts",
     "scripts/gen3-fetch-locations.ts",
     "functions/_middleware.ts",
