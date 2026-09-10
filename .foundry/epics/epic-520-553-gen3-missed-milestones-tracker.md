@@ -24,6 +24,9 @@ rejection_reason: ''
 This epic focuses on parsing the Gen 3 save file to identify major, non-repeatable achievements or valuable items the player has missed (e.g., missed TMs, Master Ball, Fame Checker side quests, etc.).
 
 ## Acceptance Criteria
-- [ ] Break down into Story nodes for parsing and UI.
+- [x] Break down into Story nodes for parsing and UI.
+- [ ] story-553-562-gen3-missed-items-parsing
+- [ ] story-553-563-gen3-missed-items-ui
 - [ ] Identify and verify missed milestones correctly.
-- [ ] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-553-564-gen3-missed-items-e2e
