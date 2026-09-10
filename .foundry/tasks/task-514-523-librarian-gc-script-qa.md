@@ -29,7 +29,7 @@ locks: []
 Verify the librarian garbage collection script functionality, ensuring it behaves correctly and safely.
 
 ## Acceptance Criteria
-- [ ] Verify that the implemented script correctly identifies and archives/deletes stale or processed agent journals based on the defined criteria.
-- [ ] Verify that active, un-processed journals and non-journal files are completely ignored by the script.
-- [ ] Verify that the provided unit and integration tests are robust and cover edge cases.
-- [ ] Verify execution time and resource usage are within acceptable limits for a background GitHub Action script.
+- [x] Verify that the implemented script correctly identifies and archives/deletes stale or processed agent journals based on the defined criteria.
+- [x] Verify that active, un-processed journals and non-journal files are completely ignored by the script.
+- [x] Verify that the provided unit and integration tests are robust and cover edge cases.
+- [x] Verify execution time and resource usage are within acceptable limits for a background GitHub Action script.
