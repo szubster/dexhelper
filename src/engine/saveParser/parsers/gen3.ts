@@ -293,6 +293,10 @@ export const PC_BOX_CAPACITY = 30;
 export const PC_BOX_SECTION_5_TO_12_SIZE = 3968;
 export const PC_BOX_SECTION_13_SIZE = 2000;
 export const GEN3_PC_POKEMON_STRUCT_SIZE = 80;
+export const DECRYPTED_BLOCK_G_OFFSET = 0;
+export const DECRYPTED_BLOCK_A_OFFSET = 12;
+export const DECRYPTED_BLOCK_E_OFFSET = 24;
+export const DECRYPTED_BLOCK_M_OFFSET = 36;
 export const GEN3_POKEMON_SPECIES_OFFSET_IN_G = 0x00;
 export const GEN3_POKEMON_ITEM_OFFSET_IN_G = 0x02;
 export const GEN3_POKEMON_MOVES_OFFSET_IN_A = 0x00;
@@ -806,14 +810,23 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
       const { pv, otId, decryptedData } = extractedData;
 
       // In the decrypted GAEM buffer, G is at offset 0, A is at offset 12
-      const speciesId = decryptedData.getUint16(0 + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
-      const item = decryptedData.getUint16(0 + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
-      const friendship = decryptedData.getUint8(0 + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
+      const speciesId = decryptedData.getUint16(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
+      const item = decryptedData.getUint16(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
+      const friendship = decryptedData.getUint8(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
 
-      const move1 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
-      const move2 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET, true);
-      const move3 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_3_OFFSET, true);
-      const move4 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET, true);
+      const move1 = decryptedData.getUint16(DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
+      const move2 = decryptedData.getUint16(
+        DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET,
+        true,
+      );
+      const move3 = decryptedData.getUint16(
+        DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_3_OFFSET,
+        true,
+      );
+      const move4 = decryptedData.getUint16(
+        DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET,
+        true,
+      );
 
       const moves = [move1, move2, move3, move4].filter((m) => m > 0);
 
@@ -890,14 +903,23 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
         const { pv, otId, decryptedData } = extractedData;
 
         // In the decrypted GAEM buffer, G is at offset 0, A is at offset 12
-        const speciesId = decryptedData.getUint16(0 + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
-        const item = decryptedData.getUint16(0 + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
-        const friendship = decryptedData.getUint8(0 + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
+        const speciesId = decryptedData.getUint16(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
+        const item = decryptedData.getUint16(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
+        const friendship = decryptedData.getUint8(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
 
-        const move1 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
-        const move2 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET, true);
-        const move3 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_3_OFFSET, true);
-        const move4 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET, true);
+        const move1 = decryptedData.getUint16(DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
+        const move2 = decryptedData.getUint16(
+          DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET,
+          true,
+        );
+        const move3 = decryptedData.getUint16(
+          DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_3_OFFSET,
+          true,
+        );
+        const move4 = decryptedData.getUint16(
+          DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET,
+          true,
+        );
 
         const moves = [move1, move2, move3, move4].filter((m) => m > 0);
 
