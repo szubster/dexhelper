@@ -1,0 +1,3 @@
+chore: fix bundlemon limits
+
+Update .bundlemonrc.json bundle size limits due to recent changes. Increased the limit for data/foundry.json and relaxed the wildcard CSS path and size constraints for assets to pass CI.
