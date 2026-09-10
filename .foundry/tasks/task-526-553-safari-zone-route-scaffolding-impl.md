@@ -24,5 +24,5 @@ locks: []
 Create the base TanStack Router route for the Safari Zone dashboard (`/safari-zone`).
 
 ## Acceptance Criteria
-- [ ] Implement the `/safari-zone` route in `src/routes/safari-zone.tsx` using TanStack router.
-- [ ] Ensure the route properly hooks into the main root layout.
+- [x] Implement the `/safari-zone` route in `src/routes/safari-zone.tsx` using TanStack router.
+- [x] Ensure the route properly hooks into the main root layout.
