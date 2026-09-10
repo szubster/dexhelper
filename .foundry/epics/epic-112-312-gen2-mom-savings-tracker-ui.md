@@ -2,13 +2,13 @@
 id: epic-112-312-gen2-mom-savings-tracker-ui
 type: EPIC
 title: Gen 2 Mom's Savings Tracker UI
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-14'
 updated_at: '2026-09-10'
 depends_on:
   - epic-112-311-gen2-decoration-savings-extraction
-jules_session_id: null
+jules_session_id: '5844226920188123508'
 pr_number: null
 parent: prd-109-112-gen2-room-decoration-tracker
 tags:
