@@ -29,6 +29,6 @@ locks: []
 Write comprehensive unit and integration tests for the librarian garbage collection script.
 
 ## Acceptance Criteria
-- [ ] Implement unit tests for the journal eligibility checking logic (mocking file stats/contents).
-- [ ] Implement integration tests for the sweep script, verifying correct deletion of mock stale files while preserving active ones.
-- [ ] Ensure edge cases like missing directories or permission errors are handled and tested.
+- [x] Implement unit tests for the journal eligibility checking logic (mocking file stats/contents).
+- [x] Implement integration tests for the sweep script, verifying correct deletion of mock stale files while preserving active ones.
+- [x] Ensure edge cases like missing directories or permission errors are handled and tested.
