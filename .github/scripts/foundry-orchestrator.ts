@@ -523,7 +523,7 @@ function main(): void {
 
   // 1. First pass: strictly populate nodeMap and idToPathMap (Already done above)
 
-  // 2. Second pass: evaluate explicit parents and markdown links
+// 2. Second pass: evaluate explicit parents and rewrite legacy markdown links
   for (const node of nodes) {
     let parentPath = node.frontmatter.parent;
     if (parentPath) {
@@ -546,18 +546,35 @@ function main(): void {
       childToParents.get(node.repoPath)!.add(parentPath);
     }
 
-    // Parse body for regex to find markdown links to children and raw node IDs
-    const linkRegex = /\]\((?:\.\/)?(\.foundry\/(?:ideas|prds|epics|stories|tasks|research)\/[^)]+\.md)\)/g;
+    // Rewrite legacy markdown links to node IDs
+    const rewriteRegex = /\[([^\]]+)\]\((?:\.\/)?\.foundry\/(?:ideas|prds|epics|stories|tasks|research|docs\/adrs)\/([^)]+)\.md\)/g;
+    let changed = false;
+    let newBody = node.body.replace(rewriteRegex, (match, linkText, nodeId) => {
+      changed = true;
+      return nodeId;
+    });
+
+    if (changed) {
+      node.body = newBody;
+      const matter = require('gray-matter');
+      const newContent = matter.stringify(node.body, node.frontmatter);
+      node.rawContent = newContent;
+      if (!isDryRun()) {
+        fs.writeFileSync(node.filePath, newContent, 'utf-8');
+      }
+      info(`${isDryRun() ? '[DRY-RUN] ' : ''}Rewrote legacy markdown links to node IDs in: ${node.repoPath}`);
+    }
+
+    // Parse body for regex to find raw node IDs
     const idRegex = /(?:idea|prd|epic|story|task|research|adr)-[a-zA-Z0-9_-]+/g;
     const body = node.body;
 
-    const linkMatches = [...body.matchAll(linkRegex)].map(m => m[1]);
     const idMatches = [...body.matchAll(idRegex)]
       .map(m => m[0])
       .map(id => resolveNodePath(id, true))
       .filter((path): path is string => !!path);
 
-    const matches = [...new Set([...linkMatches, ...idMatches])].map(m => resolveNodePath(m, true)).filter((m): m is string => !!m);
+    const matches = [...new Set(idMatches)].map(m => resolveNodePath(m, true)).filter((m): m is string => !!m);
 
     for (const match of matches) {
       // node.repoPath is the potential parent, match is the potential child
@@ -1080,9 +1097,12 @@ function main(): void {
 
     if (!blocked) {
       // Preflight check
-      const regex = /\.foundry\/(ideas|prds|epics|stories|tasks)\/[a-zA-Z0-9_-]+\.md/g;
+      const regexLegacy = /\.foundry\/(ideas|prds|epics|stories|tasks)\/[a-zA-Z0-9_-]+\.md/g;
+      const regexId = /(?:idea|prd|epic|story|task|research|adr)-[a-zA-Z0-9_-]+/g;
       const body = node.body;
-      const matches = [...new Set(body.match(regex) || [])];
+      const legacyMatches = body.match(regexLegacy) || [];
+      const idMatches = body.match(regexId) || [];
+      const matches = [...new Set([...legacyMatches, ...idMatches])];
 
       const parentPath = resolveNodePath(node.frontmatter.parent);
       const resolvedDeps = node.frontmatter.depends_on.map(d => resolveNodePath(d));
@@ -1266,8 +1286,9 @@ function main(): void {
     if (node.frontmatter.type !== 'TASK') {
       const body = node.body;
 
-      const linkRegex = /\]\((?:\.\/)?(\.foundry\/(?:ideas|prds|epics|stories|tasks)\/[^)]+\.md)\)/g;
-      const links = [...body.matchAll(linkRegex)].map(m => m[1]);
+      // Ensure we check for raw IDs for idempotent generation, not just markdown links
+      const idRegex = /(?:idea|prd|epic|story|task|research|adr)-[a-zA-Z0-9_-]+/g;
+      const links = [...body.matchAll(idRegex)].map(m => m[0]);
 
       if (links.length > 0) {
         const resolvedLinks = links.map(l => resolveNodePath(l)).filter((l): l is string => !!l);
@@ -1297,7 +1318,7 @@ function main(): void {
       if (hasUncheckedTasks) {
         info(`Idempotent check: Artifacts for ${node.repoPath} exist. Auto-checking non-node tasks...`);
         const updatedBody = node.body.replace(/(## Acceptance Criteria\s*[\s\S]*?)(?:\n## |$)/, (match) => {
-          return match.replace(/^(\s*-\s*\[)\s(\]\s(?:(?!\]\((?:\.\/)?\.foundry\/(?:ideas|prds|epics|stories|tasks)\/[^)]+\.md\)).)*)$/gm, '$1x$2');
+          return match.replace(/^(\s*-\s*\[)\s(\]\s(?:(?!(?:idea|prd|epic|story|task|research|adr)-[a-zA-Z0-9_-]+).)*)$/gm, '$1x$2');
         });
 
         if (updatedBody !== node.body) {
@@ -1324,9 +1345,11 @@ function main(): void {
       } else {
         if (node.frontmatter.type === 'EPIC') {
           // Check for E2E story in its generated links
-          const bodyLinks = [...node.body.matchAll(/\]\((?:\.\/)?(\.foundry\/(?:ideas|prds|epics|stories|tasks)\/[^)]+\.md)\)/g)].map(m => m[1]);
+          const idRegex = /(?:idea|prd|epic|story|task|research|adr)-[a-zA-Z0-9_-]+/g;
+          const bodyLinks = [...node.body.matchAll(idRegex)].map(m => m[0]);
           const e2eChildExists = bodyLinks.some(l => {
-            const childNode = nodeMap.get(l);
+            const resolvedLink = resolveNodePath(l);
+            const childNode = resolvedLink ? nodeMap.get(resolvedLink) : undefined;
             return childNode &&
                    childNode.frontmatter.type === 'STORY' &&
                    childNode.frontmatter.tags &&
