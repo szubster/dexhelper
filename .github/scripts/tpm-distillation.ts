@@ -137,3 +137,24 @@ export function generateChangelogAndLearnings(childNodes: ChildNode[]): string {
 
   return changelog;
 }
+
+
+export function appendSummaryToEpic(repoRoot: string, epic: EpicNode, summary: string): void {
+  const fullPath = path.join(repoRoot, epic.repoPath);
+  fs.appendFileSync(fullPath, '\n' + summary + '\n');
+}
+
+export function archiveChildNodes(repoRoot: string, childNodes: ChildNode[]): void {
+  const foundryDir = path.join(repoRoot, '.foundry');
+  for (const child of childNodes) {
+    const fullPath = path.join(repoRoot, child.repoPath);
+    if (!fs.existsSync(fullPath)) continue;
+
+    const relativeToFoundry = path.relative(foundryDir, fullPath);
+    const archivePath = path.join(foundryDir, 'archive', relativeToFoundry);
+    const archiveDir = path.dirname(archivePath);
+
+    fs.mkdirSync(archiveDir, { recursive: true });
+    fs.renameSync(fullPath, archivePath);
+  }
+}
