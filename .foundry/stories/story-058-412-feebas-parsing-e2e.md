@@ -29,4 +29,7 @@ Ensure the full Feebas seed extraction and calculation process functions correct
 - [ ] Create E2E tests for the Feebas backend parsing logic.
 - [ ] Verify that parsed save files reliably generate the correct Feebas tiles across multiple saves and cases.
 - [ ] Ensure that Feebas data cleanly integrates with the main application state and UI components rendering the coordinates.
-- [ ] task-412-440-feebas-parsing-e2e-impl
+- [x] task-412-440-feebas-parsing-e2e-impl
+- [ ] research-412-563-investigate-feebas-e2e-timeout
+- [ ] task-412-567-feebas-parsing-e2e-impl-v2
+- [ ] task-412-568-feebas-parsing-e2e-qa-v2
