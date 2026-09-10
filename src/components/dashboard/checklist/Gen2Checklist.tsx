@@ -1,6 +1,6 @@
 import type React from 'react';
 import { useStore } from '../../../store';
-import { TacticalChecklistItem } from '../../TacticalChecklistItem';
+import { ChecklistItem } from '../../gen2/ChecklistItem';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 
@@ -50,7 +50,7 @@ export const Gen2Checklist: React.FC = () => {
 
         <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {checklist.map((item) => (
-            <TacticalChecklistItem key={item.label} label={item.label} acquired={item.acquired === true} />
+            <ChecklistItem key={item.label} label={item.label} acquired={item.acquired === true} />
           ))}
         </div>
       </TacticalPanel>
@@ -63,7 +63,7 @@ export const Gen2Checklist: React.FC = () => {
 
         <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {dailyChecklist.map((item) => (
-            <TacticalChecklistItem key={item.label} label={item.label} acquired={item.acquired === true} />
+            <ChecklistItem key={item.label} label={item.label} acquired={item.acquired === true} />
           ))}
         </div>
       </TacticalPanel>

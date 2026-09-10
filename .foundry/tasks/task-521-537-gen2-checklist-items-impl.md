@@ -32,6 +32,6 @@ Implement the individual list item components for the Gen 2 checklist to display
 - **Integration:** Write standard unit tests using `vitest-browser-react`.
 
 ## Acceptance Criteria
-- [ ] Create individual checklist item component.
-- [ ] Implement toggle state visual indicators (e.g., checked vs unchecked aesthetic).
-- [ ] Write Vitest component tests for the items.
+- [x] Create individual checklist item component.
+- [x] Implement toggle state visual indicators (e.g., checked vs unchecked aesthetic).
+- [x] Write Vitest component tests for the items.
