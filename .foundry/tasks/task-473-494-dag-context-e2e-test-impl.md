@@ -25,4 +25,4 @@ locks: []
 Implement Playwright E2E tests for the DAG visualizer.
 
 ## Acceptance Criteria
-- [ ] Write Playwright tests verifying DagContext surfaces state variables like rejection_count in the UI.
+- [x] Write Playwright tests verifying DagContext surfaces state variables like rejection_count in the UI.
