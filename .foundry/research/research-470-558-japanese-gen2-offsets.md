@@ -26,4 +26,4 @@ A Gen 2 save file QA task failed due to the engine not supporting Japanese Cryst
 1. Document the necessary offset shifts and detection fallbacks for Japanese Gen 2 saves.
 
 ## Acceptance Criteria
-- [ ] Offsets and fallback logic are documented.
+- [x] Offsets and fallback logic are documented.
