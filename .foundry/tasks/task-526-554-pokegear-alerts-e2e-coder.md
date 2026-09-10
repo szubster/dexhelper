@@ -17,7 +17,7 @@ locks: []
 # Implement Pokegear Alerts E2E Tests
 
 ## Acceptance Criteria
-- [ ] Create or update `tests/e2e/dashboard/pokegear_alerts.spec.ts`.
-- [ ] Add a test verifying high-value caller cards after loading `tests/fixtures/crystal_pokegear.sav`.
-- [ ] Verify the SWARM and ITEM badges are visible for Ralph and Tully.
-- [ ] Verify specific Pokemon (Qwilfish) and item (Water Stone) details are visible on the cards.
+- [x] Create or update `tests/e2e/dashboard/pokegear_alerts.spec.ts`.
+- [x] Add a test verifying high-value caller cards after loading `tests/fixtures/crystal_pokegear.sav`.
+- [x] Verify the SWARM and ITEM badges are visible for Ralph and Tully.
+- [x] Verify specific Pokemon (Qwilfish) and item (Water Stone) details are visible on the cards.
