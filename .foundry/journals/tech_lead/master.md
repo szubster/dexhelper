@@ -996,3 +996,8 @@ To resolve this, I utilized the Late Binding pattern to suspend the current task
 - Combining implementation and testing into a single monolithic task violates architectural policies.
 - Always initialize independent, unblocked start nodes with `READY` status, not `PENDING`, to ensure immediate orchestrator pick-up without waiting for the next heartbeat cycle.
 - Private journals must not be used as execution logbooks ("I did X"). They must strictly record long-term lessons, architectural constraints, and recurring failures (the "why", not the "what").
+
+
+<!-- Merged from 2026-09-07-11-31-08.md -->
+# 2026-09-07
+Child tasks `task-470-487-catalog-integrate-saves` and `task-470-488-qa-public-saves` permanently failed due to max rejection limit. I spawned a research node `research-470-553-investigate-japanese-crystal-offsets` to investigate the root cause, and created replacement tasks `task-470-554-catalog-integrate-saves-replacement` and `task-470-555-qa-public-saves-replacement` relying on this research, following the Impossible Loop protocol.

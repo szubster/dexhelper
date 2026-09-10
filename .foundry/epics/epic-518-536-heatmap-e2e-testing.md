@@ -27,4 +27,5 @@ notes: ''
 Overarching E2E tests for the Heatmap Toggle and dynamic visual styling based on node metrics.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into Story nodes.
+- [x] Story Owner: Break this Epic down into Story nodes.
+- [ ] story-536-553-heatmap-e2e-impl

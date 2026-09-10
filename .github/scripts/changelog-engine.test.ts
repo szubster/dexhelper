@@ -308,5 +308,70 @@ rejection_reason: ''
       expect(taskParsed.data.status).toBe('READY');
       expect(taskParsed.content).toContain(commit2);
     });
+
+    it('syncs state.last_processed_commit from completed task node body if state is behind', async () => {
+      const commit1 = '75e6919a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e';
+      const commit2 = '86f7020b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f';
+      const commit3 = '97a8131c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a';
+
+      // Task node was completed for commit2, but state file was left behind at commit1
+      const taskContent = `---
+id: task-000-changelog-backfill
+type: TASK
+title: Changelog Backfill Commit Evaluation
+status: COMPLETED
+owner_persona: changelogger
+created_at: '2026-04-20'
+updated_at: '2026-04-20'
+depends_on: []
+jules_session_id: null
+rejection_count: 0
+rejection_reason: ''
+---
+# Changelog Backfill Commit Evaluation
+
+- **Commit SHA:** \`${commit2}\`
+`;
+      fs.writeFileSync(testTaskPath, taskContent, 'utf8');
+
+      // State file is behind at commit1
+      const initialStore: ChangelogState = {
+        mode: 'backfill',
+        last_processed_commit: commit1,
+        status: 'idle'
+      };
+      saveState(initialStore, testStatePath);
+
+      vi.spyOn(childProcess, 'execSync').mockImplementation((cmd: unknown) => {
+        const cmdStr = String(cmd);
+        if (cmdStr.includes('rev-list')) {
+          return `${commit1}\n${commit2}\n${commit3}\n`;
+        }
+        if (cmdStr.includes('format=%B')) {
+          return 'feat(app): third commit message';
+        }
+        if (cmdStr.includes('format=%cs')) {
+          return '2026-09-09';
+        }
+        if (cmdStr.includes('diff-tree')) {
+          return 'src/App.tsx\n';
+        }
+        return '';
+      });
+
+      vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+      await runChangelogEngine(testStatePath, testTaskPath);
+
+      // Should advance state past commit2 to commit3
+      const updatedState = loadState(testStatePath);
+      expect(updatedState.status).toBe('pending_jules');
+      expect(updatedState.last_processed_commit).toBe(commit3);
+
+      const taskRaw = fs.readFileSync(testTaskPath, 'utf8');
+      const taskParsed = matter(taskRaw);
+      expect(taskParsed.data.status).toBe('READY');
+      expect(taskParsed.content).toContain(commit3);
+    });
   });
 });

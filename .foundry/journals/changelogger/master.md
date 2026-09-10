@@ -1,3 +1,4 @@
+<!-- Merged from 2026-09-09-06-30-00.md -->
 # Artifact Anomaly: task-000-changelog-backfill
 
 The task specified the target commit `ee3b870c4cb8a7e415a12b76986046b2175b2c5c` for a backfill operation on `CHANGELOG-dexhelper.md`.
