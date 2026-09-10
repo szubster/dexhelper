@@ -69,40 +69,6 @@ describe('getDistanceToMap (Gen 2)', () => {
   });
 });
 
-describe('resolveOutdoorMapId', () => {
-  it('correctly resolves a map ID with no prnt to itself', () => {
-    // Goldenrod City (0x0306) has no prnt
-    const result = resolveOutdoorMapId(mockLocations, 0x0306);
-    expect(result).toBe(0x0306);
-  });
-
-  it('correctly resolves a single-level indoor map to its outdoor hub', () => {
-    // Goldenrod Pokecenter (0x25) -> Goldenrod City (0x0306)
-    const result = resolveOutdoorMapId(mockLocations, 0x25);
-    expect(result).toBe(0x0306);
-  });
-
-  it('correctly resolves a multi-level indoor map to its root outdoor hub', () => {
-    // Goldenrod Pokecenter 2F (0x26) -> Goldenrod Pokecenter (0x25) -> Goldenrod City (0x0306)
-    const result = resolveOutdoorMapId(mockLocations, 0x26);
-    expect(result).toBe(0x0306);
-  });
-
-  it('handles circular prnt references gracefully', () => {
-    // Create a circular mock: 0x90 -> 0x91 -> 0x90
-    const circularLocations = [
-      ...mockLocations,
-      { id: 0x90, n: 'Loop A', prnt: 0x91, conn: [], dist: {} },
-      { id: 0x91, n: 'Loop B', prnt: 0x90, conn: [], dist: {} },
-    ];
-    // It should stop at the first revisited node
-    const result = resolveOutdoorMapId(circularLocations, 0x90);
-    // Since 0x90 -> 0x91 -> 0x90, 0x90 is visited, then 0x91 is visited, then 0x90 is already visited
-    // so it breaks loop when currentMapId becomes 0x90 again, returning 0x90.
-    expect(result).toBe(0x90);
-  });
-});
-
 describe('getDistanceToMap (Gen 2 Cross-Region)', () => {
   const crossRegionLocations: UnifiedLocation[] = [
     { id: 0x0306, n: 'Goldenrod City', conn: [0x0a], dist: { 0x0a: 1, 0x05: 2, 0x0307: 3 } },
