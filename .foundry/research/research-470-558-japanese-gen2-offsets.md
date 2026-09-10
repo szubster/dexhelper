@@ -2,12 +2,12 @@
 id: research-470-558-japanese-gen2-offsets
 type: RESEARCH
 title: Investigate Japanese Gen 2 Save Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18084648947173977165'
 pr_number: null
 parent: story-428-470-identify-public-saves
 tags: []
