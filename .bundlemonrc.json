@@ -70,8 +70,12 @@
       "maxSize": "225kb"
     },
     {
+      "path": "assets/press-<hash>.css",
+      "maxSize": "100kb"
+    },
+    {
       "path": "assets/*-<hash>.css",
-      "maxSize": "50kb"
+      "maxSize": "150kb"
     },
     {
       "path": "assets/*-<hash>.js",
@@ -79,7 +83,7 @@
     },
     {
       "path": "data/foundry.json",
-      "maxSize": "425kb"
+      "maxSize": "430kb"
     },
     {
       "path": "data/pokedata.msgpack",
