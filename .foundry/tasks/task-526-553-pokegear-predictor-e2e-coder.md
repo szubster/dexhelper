@@ -17,7 +17,7 @@ locks: []
 # Implement Pokegear Predictor E2E Tests
 
 ## Acceptance Criteria
-- [ ] Create or update `tests/e2e/dashboard/pokegear_predictor.spec.ts`.
-- [ ] Add a test verifying the Active Callers Dashboard renders correctly after loading `tests/fixtures/crystal.sav`.
-- [ ] Ensure the 'ACTIVE CALLERS MATRIX' title is visible.
-- [ ] Ensure the correct frequency status 'ACTIVE' is rendered.
+- [x] Create or update `tests/e2e/dashboard/pokegear_predictor.spec.ts`.
+- [x] Add a test verifying the Active Callers Dashboard renders correctly after loading `tests/fixtures/crystal.sav`.
+- [x] Ensure the 'ACTIVE CALLERS MATRIX' title is visible.
+- [x] Ensure the correct frequency status 'ACTIVE' is rendered.
