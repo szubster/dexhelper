@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { UnifiedLocation } from '../../db/schema';
-import { getDistanceToMap, resolveOutdoorMapId } from './gen2Graph';
+import { getDistanceToMap } from './gen2Graph';
 
 const mockLocations: UnifiedLocation[] = [
   // Start locations (simulate Johto/Kanto structure)
