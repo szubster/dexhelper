@@ -2,12 +2,12 @@
 id: epic-520-553-gen3-missed-milestones-tracker
 type: EPIC
 title: Gen 3 Missed Milestones & Items Tracker
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-07'
 updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14883602708669163276'
 pr_number: null
 parent: prd-516-520-gen3-pokedex-completion-tracker
 tags:
