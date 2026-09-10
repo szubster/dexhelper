@@ -2,10 +2,10 @@
 id: task-521-537-gen2-checklist-items-impl
 type: TASK
 title: Gen 2 Checklist Item Components
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-10'
 depends_on:
   - task-521-536-gen2-checklist-layout-impl
 jules_session_id: null
@@ -18,6 +18,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Gen 2 Checklist Item Components

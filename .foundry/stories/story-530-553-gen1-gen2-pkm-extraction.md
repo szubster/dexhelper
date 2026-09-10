@@ -2,10 +2,10 @@
 id: story-530-553-gen1-gen2-pkm-extraction
 type: STORY
 title: Gen 1 & Gen 2 PKM Extraction
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on: []
 jules_session_id: null
 parent: epic-516-530-pkm-data-extraction-generation
@@ -13,6 +13,8 @@ tags:
   - data
   - gen1
   - gen2
+locks: []
+rejection_reason: ''
 ---
 
 # Story: Gen 1 & Gen 2 PKM Extraction

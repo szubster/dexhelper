@@ -2,12 +2,12 @@
 id: task-551-564-update-orchestrator-priority-logic
 type: TASK
 title: Update Orchestrator Dispatch Logic with Priority Sorting
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-09'
 updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: '16532000090070234670'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: story-540-551-priority-engine-dispatch

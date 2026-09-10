@@ -2,16 +2,18 @@
 id: story-530-554-gen3-pk3-extraction
 type: STORY
 title: Gen 3 PK3 Extraction
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on: []
 jules_session_id: null
 parent: epic-516-530-pkm-data-extraction-generation
 tags:
   - data
   - gen3
+locks: []
+rejection_reason: ''
 ---
 
 # Story: Gen 3 PK3 Extraction

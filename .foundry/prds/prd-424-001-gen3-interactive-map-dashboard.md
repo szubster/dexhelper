@@ -2,12 +2,12 @@
 id: prd-424-001-gen3-interactive-map-dashboard
 type: PRD
 title: Gen 3 Interactive Map Dashboard PRD
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-04'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: '9025192207458696499'
+jules_session_id: null
 pr_number: null
 parent: idea-424-gen3-interactive-map-dashboard
 tags:

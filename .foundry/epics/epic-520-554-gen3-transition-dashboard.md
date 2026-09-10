@@ -2,10 +2,10 @@
 id: epic-520-554-gen3-transition-dashboard
 type: EPIC
 title: Gen 3 Generation Transition Dashboard
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,6 +14,8 @@ tags:
   - dexhelper
   - gen3
 research_references: []
+locks: []
+rejection_reason: ''
 ---
 
 # Epic: Gen 3 Generation Transition Dashboard

@@ -2,12 +2,12 @@
 id: prd-516-520-gen3-pokedex-completion-tracker
 type: PRD
 title: Gen 3 Pokédex Completion & Missed Achievement Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-04'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: '10629523712108116842'
+jules_session_id: null
 pr_number: null
 parent: idea-516-gen3-pokedex-completion-tracker
 tags:

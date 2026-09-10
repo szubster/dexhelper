@@ -2,12 +2,12 @@
 id: epic-518-535-heatmap-ui-components
 type: EPIC
 title: Heatmap UI Components Integration
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: '10925126559811899733'
+jules_session_id: null
 parent: prd-156-518-node-health-heatmap
 tags:
   - foundry

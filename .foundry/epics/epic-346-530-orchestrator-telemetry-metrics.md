@@ -2,12 +2,12 @@
 id: epic-346-530-orchestrator-telemetry-metrics
 type: EPIC
 title: Orchestrator Telemetry Metrics
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: '13242594424334930709'
+jules_session_id: null
 pr_number: null
 parent: prd-137-346-orchestrator-telemetry-for-cycles
 tags:

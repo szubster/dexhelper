@@ -1,11 +1,11 @@
 ---
 id: story-535-556-heatmap-toggle-ui
 type: STORY
-title: "Heatmap Toggle UI Control"
-status: PENDING
-owner_persona: "tech_lead"
-created_at: "2026-09-07"
-updated_at: "2026-09-07"
+title: Heatmap Toggle UI Control
+status: READY
+owner_persona: tech_lead
+created_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on: []
 jules_session_id: null
 parent: epic-518-535-heatmap-ui-components
@@ -15,8 +15,9 @@ tags:
   - UI
   - tooling
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Heatmap Toggle UI Control

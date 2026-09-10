@@ -2,12 +2,12 @@
 id: task-495-528-dashboard-rejection-count-e2e
 type: TASK
 title: Update E2E test for Dashboard UI Rejection Count Refactor
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-31'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: '14202250548565255697'
+jules_session_id: null
 pr_number: null
 parent: story-344-495-dashboard-rejection-count-e2e
 tags:

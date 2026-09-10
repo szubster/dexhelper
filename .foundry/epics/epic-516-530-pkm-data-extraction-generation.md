@@ -2,12 +2,12 @@
 id: epic-516-530-pkm-data-extraction-generation
 type: EPIC
 title: PKM/PK3 Data Extraction and Generation
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: '3998219962947674604'
+jules_session_id: null
 parent: prd-159-516-individual-pokemon-pkm-exporter
 tags:
   - data

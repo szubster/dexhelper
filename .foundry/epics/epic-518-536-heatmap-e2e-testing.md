@@ -2,12 +2,12 @@
 id: epic-518-536-heatmap-e2e-testing
 type: EPIC
 title: Heatmap Integration & E2E Testing
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: '10654288668688142776'
+jules_session_id: null
 parent: prd-156-518-node-health-heatmap
 tags:
   - foundry

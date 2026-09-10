@@ -2,12 +2,12 @@
 id: task-521-536-gen2-checklist-layout-impl
 type: TASK
 title: Gen 2 Checklist Core Layout Component
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: '1295985150248144211'
+jules_session_id: null
 pr_number: null
 parent: story-062-521-gen2-checklist-ui-core
 tags:
