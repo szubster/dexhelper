@@ -2,12 +2,12 @@
 id: research-470-553-investigate-japanese-crystal-offsets
 type: RESEARCH
 title: Investigate Japanese Crystal Save Offsets
-status: PENDING
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17747645014488595709'
 pr_number: null
 parent: story-428-470-identify-public-saves
 tags:

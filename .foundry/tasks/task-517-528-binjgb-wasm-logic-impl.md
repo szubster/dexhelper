@@ -2,12 +2,12 @@
 id: task-517-528-binjgb-wasm-logic-impl
 type: TASK
 title: Implement binjgb WASM Core Logic Wrapper
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '9574857431103644835'
+jules_session_id: null
 pr_number: null
 parent: story-426-517-binjgb-wasm-wrapper
 tags:

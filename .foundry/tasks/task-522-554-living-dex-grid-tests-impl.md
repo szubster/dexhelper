@@ -2,10 +2,10 @@
 id: task-522-554-living-dex-grid-tests-impl
 type: TASK
 title: Implement Vitest Browser Tests for Living Dex Grid
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on:
   - task-522-553-living-dex-grid-ui-impl
 jules_session_id: null

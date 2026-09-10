@@ -1,17 +1,20 @@
 ---
 id: story-517-552-archival-cleanup-core-e2e
 type: STORY
-title: "Archival Cleanup Core E2E Verification"
-status: READY
-owner_persona: "tech_lead"
-created_at: "2026-09-06"
-updated_at: "2026-09-06"
-depends_on: ["story-517-550-implement-node-age-filtering", "story-517-551-implement-deletion-chunking"]
-parent: epic-346-517-archival-cleanup-core-engine
+title: Archival Cleanup Core E2E Verification
+status: PENDING
+owner_persona: tech_lead
+created_at: '2026-09-06'
+updated_at: '2026-09-09'
+depends_on:
+  - story-517-550-implement-node-age-filtering
+  - story-517-551-implement-deletion-chunking
 jules_session_id: null
-rejection_reason: ""
+parent: epic-346-517-archival-cleanup-core-engine
 tags:
   - e2e
+rejection_reason: ''
+locks: []
 ---
 
 # Archival Cleanup Core E2E Verification

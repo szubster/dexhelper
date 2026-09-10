@@ -2,10 +2,10 @@
 id: task-522-555-living-dex-grid-qa
 type: TASK
 title: QA Living Dex Grid Implementation
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-06'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on:
   - task-522-554-living-dex-grid-tests-impl
 jules_session_id: null

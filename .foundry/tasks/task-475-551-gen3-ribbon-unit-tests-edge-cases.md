@@ -2,10 +2,10 @@
 id: task-475-551-gen3-ribbon-unit-tests-edge-cases
 type: TASK
 title: Write Gen 3 Ribbon Unit Tests - Edge Cases
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on:
   - task-475-550-gen3-ribbon-unit-tests-contest
 jules_session_id: null

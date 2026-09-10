@@ -2,7 +2,7 @@
 id: epic-115-332-gen3-fame-checker-save-parsing
 type: EPIC
 title: Gen 3 Fame Checker Save Parsing
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-17'
 updated_at: '2026-09-09'

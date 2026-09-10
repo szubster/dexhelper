@@ -2,10 +2,10 @@
 id: task-474-529-gen3-substructure-api-tests
 type: TASK
 title: Tests for Gen 3 Substructure Resolution API
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-09-09'
 depends_on:
   - task-474-528-gen3-substructure-api-impl
 jules_session_id: null
