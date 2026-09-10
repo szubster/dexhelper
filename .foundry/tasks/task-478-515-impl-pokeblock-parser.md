@@ -25,7 +25,7 @@ locks: []
 Implement the core parsing function in the save engine to extract the 40 Pokeblocks from Gen 3 save data as referenced in .foundry/docs/knowledge_base/gen3_pokeblock_offsets.md.
 
 ## Acceptance Criteria
-- [ ] Implement parsing function that reads the 8-byte structure for each of the 40 Pokeblocks.
-- [ ] Map the byte fields correctly for color, spicy, dry, sweet, bitter, sour, and feel.
-- [ ] Handle relative offsets appropriately for Gen 3 save sections.
-- [ ] Adhere to Save File Parsing Guidelines by defining constants and avoiding magic numbers.
+- [x] Implement parsing function that reads the 8-byte structure for each of the 40 Pokeblocks.
+- [x] Map the byte fields correctly for color, spicy, dry, sweet, bitter, sour, and feel.
+- [x] Handle relative offsets appropriately for Gen 3 save sections.
+- [x] Adhere to Save File Parsing Guidelines by defining constants and avoiding magic numbers.
