@@ -2,7 +2,7 @@
 id: task-126-491-match-call-msgpack-qa
 type: TASK
 title: Match Call MsgPack QA
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-09-07'
@@ -28,6 +28,6 @@ locks: []
 Verify that the `gen3_match_call.jsonl` data is successfully bundled in the MsgPack export and hydrated correctly into `PokeDB` via unit tests or manual verification.
 
 ## Acceptance Criteria
-- [ ] Verify that the Match Call data is populated in the MsgPack export.
-- [ ] Verify that `PokeDB` sync method correctly stores Match Call data in IndexedDB.
-- [ ] Write integration or unit tests ensuring correct behavior.
+- [x] Verify that the Match Call data is populated in the MsgPack export.
+- [x] Verify that `PokeDB` sync method correctly stores Match Call data in IndexedDB.
+- [x] Write integration or unit tests ensuring correct behavior.

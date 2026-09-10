@@ -2,7 +2,7 @@
 id: epic-518-530-priority-schema-updates
 type: EPIC
 title: Implement Priority Field in Schema
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
 updated_at: '2026-09-07'

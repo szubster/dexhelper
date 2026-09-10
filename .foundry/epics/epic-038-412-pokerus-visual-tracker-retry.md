@@ -2,13 +2,13 @@
 id: epic-038-412-pokerus-visual-tracker-retry
 type: EPIC
 title: Pokerus Visual Tracker Epic (Retry)
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-10'
-updated_at: '2026-08-10'
+updated_at: '2026-09-10'
 depends_on:
   - epic-038-411-pokerus-state-exfiltration-retry
-jules_session_id: null
+jules_session_id: '6391711130027535684'
 pr_number: null
 parent: prd-069-038-pokerus-tracker
 tags:
@@ -17,7 +17,8 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: 'Retry of the cancelled epic-038-062-pokerus-visual-tracker'
+notes: Retry of the cancelled epic-038-062-pokerus-visual-tracker
+locks: []
 ---
 
 # Pokerus Visual Tracker Epic (Retry)

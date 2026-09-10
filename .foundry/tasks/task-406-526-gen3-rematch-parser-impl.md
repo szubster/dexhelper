@@ -2,12 +2,12 @@
 id: task-406-526-gen3-rematch-parser-impl
 type: TASK
 title: Implement Gen 3 NPC Rematch Status Parser
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '9740302373867786917'
+jules_session_id: null
 pr_number: null
 parent: story-397-406-gen3-npc-rematch-status
 tags:
@@ -17,7 +17,7 @@ tags:
   - rematch
   - parser
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -34,6 +34,6 @@ As part of tracking the daily rematch status for NPC trainers extracted from mix
 - Ensure strict adherence to Section 13 of `.foundry/docs/schema.md` (e.g., catching `RangeError`, using relative offsets).
 
 ## Acceptance Criteria
-- [ ] Implement module-level constants for the rematch status parsing.
-- [ ] Implement the extraction logic for NPC rematch status.
-- [ ] Write unit tests for the parsing logic.
+- [x] Implement module-level constants for the rematch status parsing.
+- [x] Implement the extraction logic for NPC rematch status.
+- [x] Write unit tests for the parsing logic.

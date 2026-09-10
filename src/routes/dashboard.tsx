@@ -56,6 +56,12 @@ const GlobalRibbonChecklistDashboard = React.lazy(() =>
   })),
 );
 
+const Gen2DecorationsDashboard = React.lazy(() =>
+  import('../components/dashboard/decorations/Gen2DecorationsDashboard').then((m) => ({
+    default: m.Gen2DecorationsDashboard,
+  })),
+);
+
 const Gen2NpcTrades = React.lazy(() =>
   import('../components/dashboard/trades/Gen2NpcTrades').then((m) => ({ default: m.Gen2NpcTrades })),
 );
@@ -105,6 +111,7 @@ function DashboardPage() {
           <>
             <Gen2Checklist />
             <Gen2SavingsDashboard />
+            <Gen2DecorationsDashboard saveData={saveData} />
             {saveData.gen2PokegearPhone?.highValueContacts && (
               <ActiveCallersDashboard
                 contacts={saveData.gen2PokegearPhone.highValueContacts}

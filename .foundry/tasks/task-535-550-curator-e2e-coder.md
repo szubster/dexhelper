@@ -2,10 +2,10 @@
 id: task-535-550-curator-e2e-coder
 type: TASK
 title: Implement E2E test logic for curator persona
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on:
   - task-535-549-curator-fixture-coder
 jules_session_id: null

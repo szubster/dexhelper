@@ -69,4 +69,78 @@ test.describe('Multi-Save Architecture Integration', () => {
 
     await expect(page.locator('#root')).toBeAttached();
   });
+
+  test('should allow offline saves to be synced when back online', async ({ page }) => {
+    await clearStorage(page);
+    await page.goto('.');
+
+    // Simulate login
+    await page.evaluate(() => {
+      localStorage.setItem('isLoggedIn', 'true');
+    });
+
+    // Simulate offline state (requests fail)
+    await page.route('/api/saves', async (route) => {
+      await route.fulfill({ status: 500 });
+    });
+
+    await page.reload();
+    await waitForSync(page);
+
+    await expect(page.getByText(/\[ UPLOAD\.SYS \]/i)).toBeVisible();
+
+    // Upload a save file while "offline"
+    const fileInput = page.locator('input[type="file"]').first();
+    await fileInput.setInputFiles(path.join('tests', 'fixtures', 'yellow.sav'));
+    await waitForSync(page);
+
+    await expect(
+      page
+        .locator('header')
+        .getByText(/YELLOW/i)
+        .first(),
+    ).toBeVisible();
+
+    // Now come back "online" and mock the API responses
+    await page.unroute('/api/saves');
+
+    // We need to trigger the initial listSaves check
+    await page.route('/api/saves', async (route) => {
+      if (route.request().method() === 'GET') {
+        // Return empty so it doesn't think the server has newer data than local
+        await route.fulfill({ json: [] });
+      } else {
+        await route.continue();
+      }
+    });
+
+    const putRequestPromise = page.waitForRequest(
+      (request) => request.url().includes('/api/saves/') && request.method() === 'PUT',
+    );
+
+    await page.route('/api/saves/*', async (route) => {
+      if (route.request().method() === 'PUT') {
+        await route.fulfill({ status: 200 });
+      } else if (route.request().method() === 'GET') {
+        await route.fulfill({ status: 404 });
+      } else {
+        await route.continue();
+      }
+    });
+
+    // Upload another save file to trigger the sync logic while online
+    const fileInput2 = page.locator('input[type="file"]').first();
+    await fileInput2.setInputFiles(path.join('tests', 'fixtures', 'crystal.sav'));
+    await waitForSync(page);
+
+    await expect(
+      page
+        .locator('header')
+        .getByText(/CRYSTAL/i)
+        .first(),
+    ).toBeVisible();
+
+    const request = await putRequestPromise;
+    expect(request.method()).toBe('PUT');
+  });
 });

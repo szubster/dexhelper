@@ -1,3 +1,4 @@
+import type { RuinsOfAlphPuzzles } from '../parsers/common';
 export const GEN2_BOSS_EVENT_FLAGS: Record<string, number> = {
   EVENT_RIVAL_CHERRYGROVE_CITY: 1726,
   EVENT_BEAT_FALKNER: 1213,
@@ -208,3 +209,19 @@ export const RUINS_OF_ALPH_OMANYTE_BYTE = 41;
 export const RUINS_OF_ALPH_OMANYTE_BIT = 1;
 export const RUINS_OF_ALPH_AERODACTYL_BYTE = 41;
 export const RUINS_OF_ALPH_AERODACTYL_BIT = 2;
+
+export function parseGen2RuinsOfAlphPuzzles(eventFlags: Uint8Array): RuinsOfAlphPuzzles {
+  const getFlag = (byteIndex: number, bitIndex: number) => {
+    if (byteIndex >= eventFlags.length || byteIndex < 0) {
+      throw new RangeError('The save file is corrupted or incomplete.');
+    }
+    return ((eventFlags[byteIndex] ?? 0) & (1 << bitIndex)) !== 0;
+  };
+
+  return {
+    hoOh: getFlag(RUINS_OF_ALPH_HO_OH_BYTE, RUINS_OF_ALPH_HO_OH_BIT),
+    kabuto: getFlag(RUINS_OF_ALPH_KABUTO_BYTE, RUINS_OF_ALPH_KABUTO_BIT),
+    omanyte: getFlag(RUINS_OF_ALPH_OMANYTE_BYTE, RUINS_OF_ALPH_OMANYTE_BIT),
+    aerodactyl: getFlag(RUINS_OF_ALPH_AERODACTYL_BYTE, RUINS_OF_ALPH_AERODACTYL_BIT),
+  };
+}
