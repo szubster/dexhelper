@@ -2,10 +2,10 @@
 id: story-401-411-tm-hm-integration-e2e
 type: STORY
 title: Integration and E2E Verification for TM/HM Parsing
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-08'
-updated_at: '2026-09-01'
+updated_at: '2026-09-08'
 depends_on:
   - story-401-408-gen1-tm-hm-parsing
   - story-401-409-gen2-tm-hm-parsing
@@ -32,9 +32,9 @@ Verify the full TM/HM integration across Gen 1, Gen 2, and Gen 3 save files usin
 - [x] Break down into multiple TASK nodes for implementation and QA.
 - [x] task-411-440-tm-hm-integration-e2e-impl
 - [x] task-411-441-tm-hm-integration-e2e-qa
-- [ ] research-411-511-investigate-tm-hm-e2e-failure
-- [ ] task-411-512-tm-hm-integration-e2e-impl-v2
-- [ ] task-411-513-tm-hm-integration-e2e-qa-v2
-- [ ] research-411-505-investigate-e2e-timeout
-- [ ] task-411-506-tm-hm-integration-e2e-impl
-- [ ] task-411-507-tm-hm-integration-e2e-qa
+- [x] research-411-511-investigate-tm-hm-e2e-failure
+- [x] task-411-512-tm-hm-integration-e2e-impl-v2
+- [x] task-411-513-tm-hm-integration-e2e-qa-v2
+- [x] research-411-505-investigate-e2e-timeout
+- [x] task-411-506-tm-hm-integration-e2e-impl
+- [x] task-411-507-tm-hm-integration-e2e-qa

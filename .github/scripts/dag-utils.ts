@@ -55,16 +55,18 @@ export function logToJournal(logPath: string, logEntry: string): void {
   fs.appendFileSync(logPath, entry, 'utf-8');
 }
 
-export function updateActiveSessionsTable(repoRoot: string): void {
+export interface ActiveNodeInfo {
+  id: string;
+  type: string;
+  title: string;
+  owner_persona: string;
+  repoPath: string;
+  sessionId: string | null;
+}
+
+export function scanActiveNodes(repoRoot: string): ActiveNodeInfo[] {
   const foundryDir = path.join(repoRoot, '.foundry');
-  const activeNodes: Array<{
-    id: string;
-    type: string;
-    title: string;
-    owner_persona: string;
-    repoPath: string;
-    sessionId: string | null;
-  }> = [];
+  const activeNodes: ActiveNodeInfo[] = [];
 
   function walk(current: string): void {
     let entries: fs.Dirent[];
@@ -118,8 +120,13 @@ export function updateActiveSessionsTable(repoRoot: string): void {
     walk(foundryDir);
   }
 
-  // Sort active nodes deterministically by type then ID
+  // Sort active nodes deterministically by ID
   activeNodes.sort((a, b) => a.id.localeCompare(b.id));
+  return activeNodes;
+}
+
+export function updateActiveSessionsTable(repoRoot: string): void {
+  const activeNodes = scanActiveNodes(repoRoot);
 
   let markdown = '# Active Jules Sessions\n\n';
 
