@@ -23,5 +23,5 @@ rejection_reason: ''
 Verify the atomic handoff testing E2E tests have been correctly implemented and pass.
 
 ## Acceptance Criteria
-- [ ] Verify the tests correctly simulate the atomic handoff lifecycle.
-- [ ] Run the tests and ensure they pass.
+- [x] Verify the tests correctly simulate the atomic handoff lifecycle.
+- [x] Run the tests and ensure they pass.
