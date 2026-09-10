@@ -2,12 +2,12 @@
 id: story-534-558-telemetry-data-extraction-impl
 type: STORY
 title: Implement Telemetry Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-04'
 updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6239756502110480366'
 pr_number: null
 parent: epic-518-534-heatmap-telemetry-data
 tags:
