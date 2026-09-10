@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-03-15
+### Added
+- Implement core Pokedex functionality with PokeAPI integration, PWA support, and updated dependencies.
+
 ## [0.6.0] - 2026-03-15
 ### Added
 - Set up GitHub Actions for CI and GitHub Pages deployment, and configure Vite base path.
@@ -30,3 +34,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.6.0]: https://github.com/szubster/dexhelper/compare/ee3b870c4cb8a7e415a12b76986046b2175b2c5c...ad5c67a2a94e052d27b2375415c79311baf2bfb7
 [0.5.0]: https://github.com/szubster/dexhelper/compare/0038dbe4b4d9a491fcbebf481af822e6ddcbb550...ee3b870c4cb8a7e415a12b76986046b2175b2c5c
 [0.4.0]: https://github.com/szubster/dexhelper/compare/0.3.0...0.4.0
+[0.7.0]: https://github.com/szubster/dexhelper/compare/ad5c67a2a94e052d27b2375415c79311baf2bfb7...5dc74ecb97f2ce7914bd98ab158ff1efbd351816
