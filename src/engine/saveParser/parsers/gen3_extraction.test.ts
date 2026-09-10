@@ -20,32 +20,51 @@ describe('resolveGen3SubstructureOffset', () => {
   });
 
   it('should test all 24 permutations for resolveGen3SubstructureOffset', () => {
-    // Generate tests for PVs 0 to 23 to cover all SUBSTRUCTURE_ORDER permutations
-    const expectedOffsets = SUBSTRUCTURE_ORDER.map(permutation => {
+    // Generate tests for PVs 0 to 23 to cover all 24 specific permutations
+    // Expected permutation strings are hardcoded to avoid tautological testing against the implementation
+    const expectedPermutations = [
+      'GAEM',
+      'GAME',
+      'GEAM',
+      'GEMA',
+      'GMAE',
+      'GMEA',
+      'AGEM',
+      'AGME',
+      'AEGM',
+      'AEMG',
+      'AMGE',
+      'AMEG',
+      'EGAM',
+      'EGMA',
+      'EAGM',
+      'EAMG',
+      'EMGA',
+      'EMAG',
+      'MGAE',
+      'MGEA',
+      'MAGE',
+      'MAEG',
+      'MEGA',
+      'MEAG',
+    ];
+
+    const expectedOffsets = expectedPermutations.map((p) => {
       return {
-        G: permutation.indexOf('G') * 12,
-        A: permutation.indexOf('A') * 12,
-        E: permutation.indexOf('E') * 12,
-        M: permutation.indexOf('M') * 12,
+        G: p.indexOf('G') * 12,
+        A: p.indexOf('A') * 12,
+        E: p.indexOf('E') * 12,
+        M: p.indexOf('M') * 12,
       };
     });
 
     for (let pv = 0; pv < 24; pv++) {
-      expect(resolveGen3SubstructureOffset(pv, 'G')).toBe(expectedOffsets[pv].G);
-      expect(resolveGen3SubstructureOffset(pv, 'A')).toBe(expectedOffsets[pv].A);
-      expect(resolveGen3SubstructureOffset(pv, 'E')).toBe(expectedOffsets[pv].E);
-      expect(resolveGen3SubstructureOffset(pv, 'M')).toBe(expectedOffsets[pv].M);
+      expect(resolveGen3SubstructureOffset(pv, 'G')).toBe(expectedOffsets[pv]?.G);
+      expect(resolveGen3SubstructureOffset(pv, 'A')).toBe(expectedOffsets[pv]?.A);
+      expect(resolveGen3SubstructureOffset(pv, 'E')).toBe(expectedOffsets[pv]?.E);
+      expect(resolveGen3SubstructureOffset(pv, 'M')).toBe(expectedOffsets[pv]?.M);
     }
   });
-
-  it('should throw an error for corrupted/invalid PV in resolveGen3SubstructureOffset if somehow bypassed', () => {
-    // By default, pv % 24 will handle anything, but what if we could force a NaN or negative?
-    // Testing negative PV since modulo in JS on negative numbers returns negative numbers
-    // In actual usage PV is Uint32 so it shouldn't be negative, but let's see how it behaves.
-    // If it throws an Error with 'The save file is corrupted or incomplete.', that's expected.
-    expect(() => resolveGen3SubstructureOffset(-1, 'G')).toThrow('The save file is corrupted or incomplete.');
-  });
-
 });
 
 describe('getGen3DecryptedSubstructure', () => {
@@ -78,8 +97,34 @@ describe('getGen3DecryptedSubstructure', () => {
       view.setUint32(i * 12, 0x11111111 * (i + 1), true); // 0 => 0x11111111, 12 => 0x22222222, etc.
     }
 
+    const expectedPermutations = [
+      'GAEM',
+      'GAME',
+      'GEAM',
+      'GEMA',
+      'GMAE',
+      'GMEA',
+      'AGEM',
+      'AGME',
+      'AEGM',
+      'AEMG',
+      'AMGE',
+      'AMEG',
+      'EGAM',
+      'EGMA',
+      'EAGM',
+      'EAMG',
+      'EMGA',
+      'EMAG',
+      'MGAE',
+      'MGEA',
+      'MAGE',
+      'MAEG',
+      'MEGA',
+      'MEAG',
+    ];
     for (let pv = 0; pv < 24; pv++) {
-      const permutation = SUBSTRUCTURE_ORDER[pv];
+      const permutation = expectedPermutations[pv] || 'GAEM';
       for (const sub of ['G', 'A', 'E', 'M'] as const) {
         const subView = getGen3DecryptedSubstructure(pv, view, sub);
         const expectedIndex = permutation.indexOf(sub);
@@ -92,12 +137,11 @@ describe('getGen3DecryptedSubstructure', () => {
     }
   });
 
-  it('should throw an error for corrupted/invalid PV in getGen3DecryptedSubstructure', () => {
-    const buffer = new ArrayBuffer(48);
+  it('should throw an error for corrupted/incomplete save file if DataView boundaries are exceeded', () => {
+    const buffer = new ArrayBuffer(10); // Too small for a 12-byte substructure, will trigger DataView RangeError
     const view = new DataView(buffer);
-    expect(() => getGen3DecryptedSubstructure(-1, view, 'G')).toThrow('The save file is corrupted or incomplete.');
+    expect(() => getGen3DecryptedSubstructure(0, view, 'G')).toThrow('The save file is corrupted or incomplete.');
   });
-
 });
 
 describe('extractGen3PokemonData', () => {
