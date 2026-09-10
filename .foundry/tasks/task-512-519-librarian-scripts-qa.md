@@ -30,5 +30,5 @@ locks: []
 QA the ingestion and synthesis scripts.
 
 ## Acceptance Criteria
-- [ ] Verify journal ingestion works as expected.
-- [ ] Verify rule extraction is correct.
+- [x] Verify journal ingestion works as expected.
+- [x] Verify rule extraction is correct.
