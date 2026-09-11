@@ -6,6 +6,7 @@ status: READY
 owner_persona: coder
 created_at: '2026-09-11'
 updated_at: '2026-09-11'
+jules_session_id: null
 depends_on:
   - task-556-001-heatmap-toggle-context
 parent: story-535-556-heatmap-toggle-ui
