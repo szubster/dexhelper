@@ -2,10 +2,10 @@
 id: story-334-475-prompt-rules-integration-e2e
 type: STORY
 title: Prompt Rules Integration and E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-09-07'
+updated_at: '2026-09-11'
 depends_on:
   - story-334-474-centralize-failure-handling-instructions
 jules_session_id: '13567594762323729953'
@@ -33,7 +33,7 @@ This story is the final step of `epic-117-334-centralize-prompt-rules`. It ensur
 - Verify that the central system tests for the DAG Orchestrator (`.github/scripts/foundry-orchestrator.ts`) still pass by running `cd .github/scripts && pnpm install && npx vitest`.
 
 ## 3. Acceptance Criteria
-- [ ] task-475-536-verify-core-tests
-- [ ] task-475-537-verify-orchestrator-tests
+- [x] task-475-536-verify-core-tests
+- [x] task-475-537-verify-orchestrator-tests
 - [ ] All linting, unit testing, and E2E testing commands successfully execute and pass.
 - [ ] The orchestrator's specific test suite (`cd .github/scripts && npx vitest`) executes and passes.

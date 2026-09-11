@@ -2,10 +2,10 @@
 id: task-512-519-librarian-scripts-qa
 type: TASK
 title: QA Librarian Scripts
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-02'
-updated_at: '2026-09-05'
+updated_at: '2026-09-10'
 depends_on:
   - task-512-517-librarian-ingestion-script
   - task-512-518-librarian-synthesis-script
@@ -30,5 +30,5 @@ locks: []
 QA the ingestion and synthesis scripts.
 
 ## Acceptance Criteria
-- [ ] Verify journal ingestion works as expected.
-- [ ] Verify rule extraction is correct.
+- [x] Verify journal ingestion works as expected.
+- [x] Verify rule extraction is correct.
