@@ -25,6 +25,6 @@ locks: []
 Verify the Playwright E2E tests implemented for engine code splitting adequately test the dynamic imports of save parsers and assistant strategies in a browser environment.
 
 ## Acceptance Criteria
-- [ ] Verify the implemented E2E tests successfully pass.
-- [ ] Ensure the tests accurately evaluate the dynamic loading behavior.
-- [ ] Check that no UI rendering regressions or unhandled promise states occur.
+- [x] Verify the implemented E2E tests successfully pass.
+- [x] Ensure the tests accurately evaluate the dynamic loading behavior.
+- [x] Check that no UI rendering regressions or unhandled promise states occur.
