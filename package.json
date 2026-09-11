@@ -80,7 +80,7 @@
     "dpdm": "^4.3.0",
     "fake-indexeddb": "^6.2.5",
     "fast-check": "^4.9.0",
-    "knip": "^6.34.0",
+    "knip": "^6.35.1",
     "lefthook": "^2.1.12",
     "lightningcss": "^1.33.0",
     "oxlint": "^1.81.0",
