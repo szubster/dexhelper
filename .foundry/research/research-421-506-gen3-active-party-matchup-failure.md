@@ -30,6 +30,13 @@ Determine the root cause of the repeated failures during the implementation of `
 - Identify the technical blockers, architectural violations, or missing context that led to the task reaching its max rejection count.
 - Document the findings in the journal and output a clear set of recommendations for the replacement implementation task.
 
+## Findings & Recommendations
+The root cause of the Gen 3 Active Party Matchup integration failure is that `src/contexts/MatchupContext.tsx` has a hardcoded `if` statement (`if (saveData?.generation === 1 || saveData?.generation === 2)`) that ignores Gen 3 save data. Additionally, the unit tests in `src/contexts/__tests__/MatchupContext.test.tsx` explicitly assert that Gen 3 data does NOT update the context, which means attempts to simply map the data will fail the test unless the test is also rewritten.
+
+**Recommendations for replacement task:**
+- Update `MatchupContext.tsx` to include `saveData?.generation === 3`.
+- Update `MatchupContext.test.tsx` to test Gen 3 save data updates correctly.
+
 ## Acceptance Criteria
-- [ ] Root cause of the Gen 3 Active Party Matchup integration failure is identified and documented.
-- [ ] Actionable recommendations for the replacement implementation task are provided.
+- [x] Root cause of the Gen 3 Active Party Matchup integration failure is identified and documented.
+- [x] Actionable recommendations for the replacement implementation task are provided.

@@ -32,6 +32,8 @@ This story covers the generation of generation-specific extension bundles (`poke
 ## Acceptance Criteria
 - [x] Task to update data generation scripts to output `pokedata-gen1.msgpack`, `pokedata-gen2.msgpack`, etc.
 - [x] Task to implement lazy fetching of generation-specific data upon save file detection
-- [ ] task-429-473-generate-gen-specific-bundles
+- [x] task-429-473-generate-gen-specific-bundles
 - [ ] task-429-474-implement-lazy-fetching
 - [ ] task-429-475-gen-specific-bundles-qa
+- [ ] research-429-531-investigate-gen-specific-bundle-timeout
+- [ ] task-429-553-generate-gen-specific-bundles

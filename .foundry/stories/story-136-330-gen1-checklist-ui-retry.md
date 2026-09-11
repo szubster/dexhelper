@@ -2,7 +2,7 @@
 id: story-136-330-gen1-checklist-ui-retry
 type: STORY
 title: Gen 1 Checklist UI (Retry)
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-17'
 updated_at: '2026-09-08'
@@ -16,8 +16,8 @@ tags:
   - feature
   - ui
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

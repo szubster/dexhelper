@@ -2,10 +2,10 @@
 id: story-139-442-gen2-roamer-extraction-e2e
 type: STORY
 title: Gen 2 Roamer Extraction E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-21'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on:
   - story-139-298-gen2-roamer-status-and-standardization
 jules_session_id: null
@@ -30,6 +30,6 @@ Ensure Gen 2 roamer data extraction end-to-end is verified by testing for Raikou
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down this Story into an E2E verification Task.
-- [ ] task-442-466-gen2-roamer-e2e-fixture-impl
-- [ ] task-442-467-gen2-roamer-e2e-tests-impl
-- [ ] task-442-468-gen2-roamer-e2e-qa
+- [x] task-442-466-gen2-roamer-e2e-fixture-impl
+- [x] task-442-467-gen2-roamer-e2e-tests-impl
+- [x] task-442-468-gen2-roamer-e2e-qa
