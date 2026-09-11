@@ -30,3 +30,7 @@ This story covers the implementation of generator protocols for tree traversals 
 
 ## Acceptance Criteria
 - [ ] Implement `function*` and `async function*` protocols for tree traversals.
+- [ ] task-548-564-generator-tree-traversal-types
+- [ ] task-548-565-generator-tree-traversal-logic
+- [ ] task-548-566-generator-tree-traversal-tests
+- [ ] task-548-567-generator-tree-traversal-qa
