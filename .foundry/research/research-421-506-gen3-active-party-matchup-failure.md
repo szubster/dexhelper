@@ -2,20 +2,20 @@
 id: research-421-506-gen3-active-party-matchup-failure
 type: RESEARCH
 title: Investigate Gen 3 Active Party Matchup Integration Failure
-status: FAILED
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-01'
 updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17432580219522741886'
 pr_number: null
 parent: story-411-421-active-party-extraction
 tags:
   - root-cause-analysis
   - gen3
   - integration
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

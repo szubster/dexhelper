@@ -1,3 +1,4 @@
+import childProcess from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
@@ -8,6 +9,7 @@ import {
   classifyCommit,
   determineSemverBump,
   generateContinuousMaintenanceIdeaNode,
+  getCommitDetails,
   getLatestVersion,
   loadState,
   runChangelogEngine,
@@ -178,13 +180,34 @@ describe('changelog-engine', () => {
     });
   });
 
+  describe('commit details & diff analysis', () => {
+    it('extracts commit details and diffStat correctly', () => {
+      vi.spyOn(childProcess, 'execSync').mockImplementation((cmd: unknown) => {
+        const cmdStr = String(cmd);
+        if (cmdStr.includes('format=%B')) return 'feat(engine): update parser\n\nDetailed body';
+        if (cmdStr.includes('format=%cs')) return '2026-09-10';
+        if (cmdStr.includes('diff-tree')) return 'src/engine/saveParser.ts\n';
+        if (cmdStr.includes('show --stat')) return '1 file changed, 10 insertions(+)\n src/engine/saveParser.ts | 10 ++++++++++';
+        return '';
+      });
+
+      const details = getCommitDetails('abcdef12345');
+      expect(details.sha).toBe('abcdef12345');
+      expect(details.message).toContain('feat(engine): update parser');
+      expect(details.date).toBe('2026-09-10');
+      expect(details.files).toEqual(['src/engine/saveParser.ts']);
+      expect(details.diffStat).toContain('1 file changed, 10 insertions(+)');
+    });
+  });
+
   describe('task node updates & continuous node creation', () => {
-    it('updates task node status to READY and injects commit details, date, previous commit SHA, and diff instructions', () => {
+    it('updates task node status to READY and injects commit details, date, previous commit SHA, diff summary, and diff instructions', () => {
       const commitDetails = {
         sha: 'abcdef1234567890',
         message: 'feat(ui): add new party analyzer widget',
         date: '2026-08-15',
-        files: ['src/components/PartyAnalyzer.tsx']
+        files: ['src/components/PartyAnalyzer.tsx'],
+        diffStat: '1 file changed, 25 insertions(+)'
       };
       const classification = {
         action: 'dispatch' as const,
@@ -203,6 +226,9 @@ describe('changelog-engine', () => {
       expect(parsed.content).toContain('abcdef1234567890');
       expect(parsed.content).toContain('1234567890abcdef');
       expect(parsed.content).toContain('2026-08-15');
+      expect(parsed.content).toContain('## Diff Summary');
+      expect(parsed.content).toContain('1 file changed, 25 insertions(+)');
+      expect(parsed.content).toContain('git show abcdef1234567890');
       expect(parsed.content).toContain('diff link comparing previous release commit SHA to new release commit SHA');
       expect(parsed.content).toContain('feat(ui): add new party analyzer widget');
     });
@@ -218,7 +244,6 @@ describe('changelog-engine', () => {
 
   describe('runChangelogEngine task guards', () => {
     it('exits early when task node status is READY, ACTIVE, or VERIFYING', async () => {
-      const taskPath = path.join(process.cwd(), '.foundry', 'tasks', 'task-000-changelog-backfill.md');
       const initialTaskContent = `---
 id: task-000-changelog-backfill
 type: TASK
@@ -234,20 +259,144 @@ rejection_reason: ''
 ---
 # Task
 `;
-      fs.writeFileSync(taskPath, initialTaskContent, 'utf8');
+      fs.writeFileSync(testTaskPath, initialTaskContent, 'utf8');
 
       const stdoutSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
 
-      await runChangelogEngine();
+      await runChangelogEngine(testStatePath, testTaskPath);
 
       expect(stdoutSpy).toHaveBeenCalledWith(
         expect.stringContaining('Backfill task is currently READY. Waiting for session completion.')
       );
+    });
 
-      // Clean up created task file
-      if (fs.existsSync(taskPath)) {
-        fs.unlinkSync(taskPath);
-      }
+    it('updates last_processed_commit on dispatch and progresses on subsequent cycles with full or short SHA', async () => {
+      const initialTaskContent = `---
+id: task-000-changelog-backfill
+type: TASK
+title: Changelog Backfill Commit Evaluation
+status: COMPLETED
+owner_persona: changelogger
+created_at: '2026-04-20'
+updated_at: '2026-04-20'
+depends_on: []
+jules_session_id: null
+rejection_count: 0
+rejection_reason: ''
+---
+# Task
+`;
+      fs.writeFileSync(testTaskPath, initialTaskContent, 'utf8');
+
+      const commit1 = '75e6919a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e';
+      const commit2 = '86f7020b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f';
+
+      // Mock execSync to return simulated git log outputs
+      vi.spyOn(childProcess, 'execSync').mockImplementation((cmd: unknown) => {
+        const cmdStr = String(cmd);
+        if (cmdStr.includes('rev-list')) {
+          return `${commit1}\n${commit2}\n`;
+        }
+        if (cmdStr.includes('format=%B')) {
+          return 'feat(app): new feature commit message';
+        }
+        if (cmdStr.includes('format=%cs')) {
+          return '2026-09-09';
+        }
+        if (cmdStr.includes('diff-tree')) {
+          return 'src/App.tsx\n';
+        }
+        return '';
+      });
+
+      // Save initial state pointing to short SHA prefix '75e6919' (matching commit1)
+      const initialStore: ChangelogState = {
+        mode: 'backfill',
+        last_processed_commit: '75e6919',
+        status: 'idle'
+      };
+      saveState(initialStore, testStatePath);
+
+      // Spy process.stdout to avoid clutter
+      vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+      await runChangelogEngine(testStatePath, testTaskPath);
+
+      // Read updated state: should have advanced to commit2 and set status to pending_jules
+      const updatedState = loadState(testStatePath);
+      expect(updatedState.status).toBe('pending_jules');
+      expect(updatedState.last_processed_commit).toBe(commit2);
+
+      // Ensure task node was re-opened to READY for commit2
+      const taskRaw = fs.readFileSync(testTaskPath, 'utf8');
+      const taskParsed = matter(taskRaw);
+      expect(taskParsed.data.status).toBe('READY');
+      expect(taskParsed.content).toContain(commit2);
+    });
+
+    it('syncs state.last_processed_commit from completed task node body if state is behind', async () => {
+      const commit1 = '75e6919a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e';
+      const commit2 = '86f7020b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f';
+      const commit3 = '97a8131c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a';
+
+      // Task node was completed for commit2, but state file was left behind at commit1
+      const taskContent = `---
+id: task-000-changelog-backfill
+type: TASK
+title: Changelog Backfill Commit Evaluation
+status: COMPLETED
+owner_persona: changelogger
+created_at: '2026-04-20'
+updated_at: '2026-04-20'
+depends_on: []
+jules_session_id: null
+rejection_count: 0
+rejection_reason: ''
+---
+# Changelog Backfill Commit Evaluation
+
+- **Commit SHA:** \`${commit2}\`
+`;
+      fs.writeFileSync(testTaskPath, taskContent, 'utf8');
+
+      // State file is behind at commit1
+      const initialStore: ChangelogState = {
+        mode: 'backfill',
+        last_processed_commit: commit1,
+        status: 'idle'
+      };
+      saveState(initialStore, testStatePath);
+
+      vi.spyOn(childProcess, 'execSync').mockImplementation((cmd: unknown) => {
+        const cmdStr = String(cmd);
+        if (cmdStr.includes('rev-list')) {
+          return `${commit1}\n${commit2}\n${commit3}\n`;
+        }
+        if (cmdStr.includes('format=%B')) {
+          return 'feat(app): third commit message';
+        }
+        if (cmdStr.includes('format=%cs')) {
+          return '2026-09-09';
+        }
+        if (cmdStr.includes('diff-tree')) {
+          return 'src/App.tsx\n';
+        }
+        return '';
+      });
+
+      vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+      await runChangelogEngine(testStatePath, testTaskPath);
+
+      // Should advance state past commit2 to commit3
+      const updatedState = loadState(testStatePath);
+      expect(updatedState.status).toBe('pending_jules');
+      expect(updatedState.last_processed_commit).toBe(commit3);
+
+      const taskRaw = fs.readFileSync(testTaskPath, 'utf8');
+      const taskParsed = matter(taskRaw);
+      expect(taskParsed.data.status).toBe('READY');
+      expect(taskParsed.content).toContain(commit3);
     });
   });
 });

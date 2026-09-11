@@ -47,4 +47,7 @@ The exact memory offsets, event flags, or variables tracking fossil states are c
 *   The UI must adhere to the tactical hardware aesthetic (ADR 008) with `rounded-none`, `border-dashed`, and `font-mono`.
 
 ## 4. Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into manageable Epics, including a dedicated Epic for memory offset research.
+- [x] Epic Planner: Break down this PRD into manageable Epics, including a dedicated Epic for memory offset research.
+- [ ] research-520-535-gen3-fossil-offsets
+- [ ] epic-520-552-gen3-fossil-memory-research
+- [ ] epic-520-553-gen3-fossil-tracker-implementation

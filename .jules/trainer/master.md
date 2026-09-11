@@ -29,3 +29,14 @@ When fixing Assistant Logic related to branching vs linear evolutions, ensure th
 
 # Learnings
 - **Mutually Exclusive Logic & Yellow Exception:** When improving inference for mutually exclusive one-time choices (like the Gen 1 Starter choice), we must explicitly exclude Pokémon Yellow from this check. In Yellow, the player receives Pikachu as their starter, but can subsequently obtain all three original Kanto starters (Bulbasaur, Charmander, and Squirtle) through in-game NPC gifts. Applying strict exclusivity logic globally would incorrectly lock these valid acquisition paths for Yellow players.
+
+
+<!-- Merged from 2026-09-07-04-08-57.md -->
+# Session Details
+- Date: $(date)
+- Focus: Prevent duplicate/redundant version exclusive trade suggestions when the Pokémon is already obtainable via breeding.
+
+# Learnings
+- **Recommendation Logic:** In Gen 2/3, if a player needs a version exclusive Pokémon (e.g., Meowth in Gold) and they already possess an evolved form (e.g., Persian), they can breed it. Previously, the `tradeGenerator.ts` would suggest "Must trade for Meowth" because it only checked `hasPhysicalPreEvo`. Now, we explicitly check `hasPhysicalPostEvoToBreed` by traversing the evolution tree forwards (`eto`) to see if the player physically owns an evolved form that can be bred down.
+- **Generator Interactions:** Because generators run sequentially and push to the same array without knowing about each other, `tradeGenerator` was creating an `exclusive-52` suggestion while `breedGenerator` was correctly creating a `breed-52` suggestion. Since the deduplication at the end groups by `id`, both were shown to the user (with conflicting advice). Adding a breeding verification directly in the trade logic resolves this.
+- **Save File Parsing:** By accessing `p?.eto` from `pokemonMetadata` and traversing it dynamically with a stack, we can safely discover all post-evolution branches without recursive function depth limits.
