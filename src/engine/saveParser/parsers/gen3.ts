@@ -337,6 +337,12 @@ export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
  * @param offset - The absolute memory offset where the 100-byte Pokémon struct begins.
  * @returns An object containing the decrypted GAEM buffer, PV, OTID, and key, or null if the slot is empty.
  * @throws Error if the block permutation is invalid or the data is heavily corrupted.
+ *
+ * @example
+ * const extractedData = extractGen3PokemonData(pcBufferView, offset);
+ * if (extractedData) {
+ *   const { pv, otId, decryptionKey, decryptedData } = extractedData;
+ * }
  */
 export function extractGen3PokemonData(view: DataView, offset: number) {
   try {
@@ -567,6 +573,9 @@ export const HOENN_DEX_NATIONAL_IDS = new Set<number>(HOENN_DEX_ORDER);
  * @param targetSectionId - The internal ID of the section to locate (e.g., 1 for SaveBlock1, 2 for SaveBlock2).
  * @returns The memory offset of the most recent section.
  * @throws Error if the section cannot be found or if neither bank contains a valid signature.
+ *
+ * @example
+ * const section1Offset = getLatestSectionOffset(view, 1);
  */
 function getLatestSectionOffset(view: DataView, targetSectionId: number): number {
   let saveIndexA = -1;
