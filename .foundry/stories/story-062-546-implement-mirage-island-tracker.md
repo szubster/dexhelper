@@ -30,4 +30,7 @@ This story covers the implementation of a dedicated tracker view or notification
 - Adhere to the "tactical hardware/snooping" aesthetic constraints ('rounded-none', dashed borders, monospace fonts) as outlined in ADR 008.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-546-564-mirage-island-data-selector
+- [ ] task-546-565-mirage-island-ui-component
+- [ ] task-546-566-mirage-island-tracker-qa
