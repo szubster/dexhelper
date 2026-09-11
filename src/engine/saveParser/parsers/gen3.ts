@@ -304,19 +304,23 @@ export const UPPER_16_BIT_SHIFT = 16;
 export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
 
 /**
- * Extracts and decrypts a Gen 3 Pokémon's 48-byte data block.
+ * Extracts and decrypts the 48-byte GAEM structure of a Gen 3 Pokémon.
  *
- * ## Encryption Algorithm
- * Gen 3 introduced a rudimentary encryption scheme to deter basic RAM editing.
- * The 100-byte Pokémon structure has a 48-byte encrypted core consisting of 4 blocks:
- * Growth (G), Attacks (A), Effort/Condition (E), and Miscellaneous (M), each 12 bytes.
+ * ## Architecture Overview
+ * A Gen 3 Pokémon's data structure is 100 bytes long, with a 48-byte core data block
+ * that is encrypted using a simple XOR cipher to deter casual tampering.
+ * The 48-byte block is divided into four 12-byte substructures:
+ * - Growth (G): Species, Item held, Experience, PP bonuses, Friendship.
+ * - Attacks (A): Move 1-4, PP 1-4.
+ * - EVs & Condition (E): Stat EVs, Contest conditions.
+ * - Miscellaneous (M): Pokerus, Origins, Ribbons.
  *
- * 1. **Decryption Key:** The 32-bit key is derived by XORing the Pokémon's
- *    Personality Value (PV) and Original Trainer ID (OTID).
- * 2. **Block Permutation:** The physical order of the GAEM blocks on disk is scrambled
- *    into one of 24 possible permutations, determined by `PV % 24`.
- * 3. **Decryption:** The blocks are read in 32-bit chunks, XORed against the key,
- *    and mapped into a standardized GAEM contiguous block in memory.
+ * The physical order of these four substructures varies per Pokémon and is determined
+ * by one of 24 permutations calculated as `Personality Value (PV) % 24`.
+ *
+ * This function locates the encrypted block, determines the permutation, and decrypts
+ * the data by XORing it with a `decryptionKey` derived from `PV ^ OT_ID`.
+ * It returns a normalized DataView where the substructures are always arranged as G-A-E-M.
  *
  * @param view - The DataView of the raw save buffer.
  * @param offset - The absolute memory offset where the 100-byte Pokémon struct begins.
@@ -388,6 +392,18 @@ export const CONTEST_WINNER_SPECIES_OFFSET = 0x08;
  */
 export type Gen3SubstructureId = 'G' | 'A' | 'E' | 'M';
 
+/**
+ * Resolves the relative memory offset of a specific 12-byte substructure (G, A, E, or M)
+ * within the 48-byte encrypted Data block based on the Pokémon's Personality Value (PV).
+ *
+ * The physical location of a substructure is dictated by one of 24 possible permutations
+ * (e.g., GAEM, AGEM, MGAE). The active permutation is calculated via `PV % 24`.
+ *
+ * @param pv - The Pokémon's 32-bit Personality Value.
+ * @param substructureId - The 1-character identifier of the target substructure ('G', 'A', 'E', or 'M').
+ * @returns The relative byte offset (0, 12, 24, or 36) of the requested substructure.
+ * @throws RangeError if the permutation index is invalid or the substructure cannot be found.
+ */
 export function resolveGen3SubstructureOffset(pv: number, substructureId: Gen3SubstructureId): number {
   try {
     const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
@@ -410,6 +426,20 @@ export function resolveGen3SubstructureOffset(pv: number, substructureId: Gen3Su
   }
 }
 
+/**
+ * Isolates a specific 12-byte substructure (Growth, Attacks, EVs, or Misc) from the
+ * fully decrypted 48-byte GAEM buffer.
+ *
+ * Instead of allocating new memory, this function creates a targeted 12-byte `DataView`
+ * slice over the existing decrypted `ArrayBuffer`, allowing downstream parsers (like Ribbon
+ * extraction) to operate on normalized relative offsets (0-11) regardless of the Pokémon's original permutation.
+ *
+ * @param pv - The Pokémon's 32-bit Personality Value.
+ * @param decryptedData - The DataView of the fully decrypted 48-byte GAEM buffer.
+ * @param substructureId - The 1-character identifier of the target substructure ('G', 'A', 'E', or 'M').
+ * @returns A 12-byte DataView scoped strictly to the requested substructure.
+ * @throws Error if the offset calculation exceeds buffer bounds.
+ */
 export function getGen3DecryptedSubstructure(
   pv: number,
   decryptedData: DataView,
