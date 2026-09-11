@@ -1,13 +1,13 @@
 ---
 id: prd-421-521-automated-schema-linting
 type: PRD
-title: "Automated Markdown Schema Validation via Biome or Custom CLI"
-status: READY
+title: Automated Markdown Schema Validation via Biome or Custom CLI
+status: ACTIVE
 owner_persona: epic_planner
-created_at: "2026-08-24"
-updated_at: "2026-08-24"
+created_at: '2026-08-24'
+updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3033941276633322154'
 parent: idea-421-automated-schema-linting
 tags:
   - foundry

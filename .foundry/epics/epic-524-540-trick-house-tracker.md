@@ -2,12 +2,12 @@
 id: epic-524-540-trick-house-tracker
 type: EPIC
 title: Gen 3 Trick House Tracker Dashboard
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-05'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: '14277147870723565749'
+jules_session_id: null
 pr_number: null
 parent: prd-155-524-trick-house-tracker
 tags:
@@ -45,5 +45,8 @@ The Trick House is a recurring side-quest in Generation 3 games (Ruby, Sapphire,
 - Integration and E2E Verification.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down into implementation stories for parsing and UI.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Story Owner: Break down into implementation stories for parsing and UI.
+- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-540-558-trick-house-save-parsing
+- [ ] story-540-559-trick-house-ui
+- [ ] story-540-560-trick-house-e2e

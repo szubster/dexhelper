@@ -2,13 +2,13 @@
 id: task-473-495-spinda-e2e-qa
 type: TASK
 title: Gen 3 Spinda E2E Verification - QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-09-08'
 depends_on:
   - task-473-494-spinda-e2e-tests
-jules_session_id: '9438986227383955055'
+jules_session_id: null
 pr_number: null
 parent: story-345-473-spinda-extraction-e2e
 tags:
