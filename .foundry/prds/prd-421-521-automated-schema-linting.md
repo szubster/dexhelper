@@ -56,3 +56,7 @@ The Foundry relies heavily on strict markdown file structures, primarily the YAM
 - [ ] Add the script to `lefthook.yml` under the `pre-commit` hook.
 - [ ] Ensure `pnpm lint:foundry` or similar command exists in `package.json` for manual execution.
 - [ ] Validate the script correctly fails on malformed files and passes on valid files.
+- [ ] epic-521-552-schema-linter-core-logic
+- [ ] epic-521-553-schema-linter-integration
+- [ ] epic-521-554-schema-linter-lefthook-integration
+- [ ] epic-521-555-schema-linter-frontmatter-logic
