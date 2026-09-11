@@ -2,12 +2,12 @@
 id: story-532-550-idea-dependency-matrix-architecture
 type: STORY
 title: Create Idea Dependency Matrix Architecture
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-10'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8522173503617941516'
 parent: epic-518-532-historical-backtracking
 tags:
   - architecture
@@ -29,8 +29,5 @@ Design and implement the initial structure and scripts for maintaining a lightwe
 - Ensure the matrix maps overlapping domain boundaries between implemented and archived Ideas.
 
 ## Acceptance Criteria
-- [x] Create tasks to design the matrix format
-- [x] Create tasks to implement the update mechanism
-- [ ] task-550-562-design-idea-matrix-schema
-- [ ] task-550-563-implement-idea-matrix-updater
-- [ ] task-550-564-qa-idea-matrix-architecture
+- [ ] Create tasks to design the matrix format
+- [ ] Create tasks to implement the update mechanism

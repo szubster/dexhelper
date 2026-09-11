@@ -2,10 +2,10 @@
 id: story-411-444-pokerus-integration-e2e
 type: STORY
 title: Pokerus Integration E2E
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-09-09'
+updated_at: '2026-09-04'
 depends_on:
   - story-411-443-extract-pokerus-data
 jules_session_id: null
@@ -29,5 +29,5 @@ This story is dedicated exclusively to Integration and E2E Verification of the P
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [x] task-444-517-pokerus-e2e-impl
-- [x] task-444-518-pokerus-e2e-qa
+- [ ] task-444-517-pokerus-e2e-impl
+- [ ] task-444-518-pokerus-e2e-qa

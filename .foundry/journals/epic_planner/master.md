@@ -320,7 +320,3 @@ When transforming PRDs into Epics, I ensure that each distinct requirement trans
 ### Learnings
 - **Decomposition**: Always decompose PRDs into multiple Epics rather than mapping 1-to-1 to avoid monolithic execution bottlenecks.
 - **Verification Rule**: Ensuring the 'Integration and E2E Verification' rule (ADR compliance) is explicitly included in the epic's Acceptance Criteria.
-
-# Gen 3 Save File Parsing Constraints
-
-When writing EPICS for parsing Gen 3 save files, it is crucial to pass and utilize the resolved section offset (e.g., `section1Offset`) for save block extraction to support the A/B bank flash memory architecture.

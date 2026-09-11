@@ -2,12 +2,12 @@
 id: story-519-521-update-frontmatter-promotion
 type: STORY
 title: Update DRAFT Frontmatter to STABLE
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-09'
+updated_at: '2026-09-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6191937769074749484'
 pr_number: null
 parent: epic-346-519-wip-artifact-promotion
 tags:
@@ -27,8 +27,4 @@ Create the procedural mechanism to automatically transition YAML frontmatter sta
 
 ## Acceptance Criteria
 - [ ] Implement a script or process to update YAML frontmatter status fields.
-- [x] Break down into Tasks.
-- [ ] task-521-549-promote-frontmatter-core-logic-impl
-- [ ] task-521-550-promote-frontmatter-script-impl
-- [ ] task-521-551-promote-frontmatter-tests
-- [ ] task-521-552-promote-frontmatter-qa
+- [ ] Break down into Tasks.

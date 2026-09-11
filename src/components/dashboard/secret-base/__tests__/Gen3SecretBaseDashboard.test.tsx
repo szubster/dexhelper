@@ -23,24 +23,16 @@ describe('Gen3SecretBaseDashboard', () => {
       gen3SecretBases: [
         { battledOwnerToday: false, trainerName: 'Ash' },
         { battledOwnerToday: true, trainerName: 'Misty' },
-        { battledOwnerToday: false, trainerName: 'Brock' },
-        { battledOwnerToday: false, trainerName: 'May' },
       ],
-      gen3TrainerRematchFlags: [0, 0, 1, 0],
     } as unknown as SaveData;
     void render(<Gen3SecretBaseDashboard saveData={saveData} />);
 
     await expect.element(page.getByText('SECRET BASE REMATCHES')).toBeInTheDocument();
 
     await expect.element(page.getByText('Ash')).toBeInTheDocument();
+    await expect.element(page.getByText('[ BATTLE AVAILABLE ]')).toBeInTheDocument();
+
     await expect.element(page.getByText('Misty')).toBeInTheDocument();
-    await expect.element(page.getByText('Brock')).toBeInTheDocument();
-    await expect.element(page.getByText('May')).toBeInTheDocument();
-
-    const availableElements = page.getByText('[ BATTLE AVAILABLE ]').elements();
-    await expect.poll(() => availableElements.length).toBe(2);
-
-    const battledElements = page.getByText('[ ALREADY BATTLED ]').elements();
-    await expect.poll(() => battledElements.length).toBe(2);
+    await expect.element(page.getByText('[ ALREADY BATTLED ]')).toBeInTheDocument();
   });
 });

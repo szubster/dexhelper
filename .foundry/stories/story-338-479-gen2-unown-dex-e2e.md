@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: "2026-08-26"
 updated_at: "2026-08-26"
 depends_on:
-  - story-338-557-gen2-unown-dex-parsing-retry
+  - story-338-477-gen2-unown-dex-parsing
   - story-338-478-gen2-ruins-of-alph-puzzle-flags
 jules_session_id: "9631422059218650108"
 parent: epic-118-338-gen2-unown-dex-data-extraction

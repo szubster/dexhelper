@@ -2,12 +2,12 @@
 id: prd-422-520-gen3-fossil-revival-tracker
 type: PRD
 title: Gen 3 Fossil Revival Tracker
-status: ACTIVE
+status: READY
 owner_persona: epic_planner
 created_at: '2026-09-04'
-updated_at: '2026-09-08'
+updated_at: '2026-09-04'
 depends_on: []
-jules_session_id: '12577732564592763335'
+jules_session_id: null
 parent: idea-422-gen3-fossil-revival-tracker
 tags:
   - dexhelper

@@ -1,6 +1,5 @@
 import type React from 'react';
 import { useEffect, useState } from 'react';
-import { preloadFonts } from '../../utils/hof/font';
 import { HardwareScrews } from '../HardwareScrews';
 
 export interface HallOfFameRecord {
@@ -21,7 +20,7 @@ export const HiddenCertificate: React.FC<HiddenCertificateProps> = ({ record, ga
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   useEffect(() => {
-    void preloadFonts().then(() => {
+    void document.fonts.ready.then(() => {
       setFontsLoaded(true);
     });
   }, []);

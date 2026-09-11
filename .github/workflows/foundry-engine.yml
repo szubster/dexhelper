@@ -118,19 +118,7 @@ jobs:
                 git pull --rebase origin main
               fi
             }
-            pushed=false
-            for i in {1..5}; do
-              if git pull --rebase origin main 2>&1 | tee -a commit-promotions.log && git push origin main 2>&1 | tee -a commit-promotions.log; then
-                pushed=true
-                break
-              fi
-              echo "Push failed, retrying ($i/5)..."
-              sleep 2
-            done
-            if [[ "$pushed" != "true" ]]; then
-              echo "Failed to push promotions after 5 attempts."
-              exit 1
-            fi
+            git push origin main 2>&1 | tee -a commit-promotions.log
           else
             echo "No state changes to persist."
           fi
@@ -341,19 +329,7 @@ jobs:
             git commit -m "Foundry: Transition $NODE_ID -> ACTIVE [$SESSION_ID] (run: ${{ github.run_id }})"
             git pull --rebase origin main
           }
-          pushed=false
-          for i in {1..5}; do
-            if git pull --rebase origin main 2>&1 | tee -a commit.log && git push origin main 2>&1 | tee -a commit.log; then
-              pushed=true
-              break
-            fi
-            echo "Push failed, retrying ($i/5)..."
-            sleep 2
-          done
-          if [[ "$pushed" != "true" ]]; then
-            echo "Failed to push state change after 5 attempts."
-            exit 1
-          fi
+          git push origin main 2>&1 | tee -a commit.log
 
       - name: Report Execution Failure
         if: failure() && env.SKIP_FAILURE_ISSUE != 'true'

@@ -2,13 +2,13 @@
 id: story-530-551-integration-e2e-verification
 type: STORY
 title: Integration and E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-09'
+updated_at: '2026-09-07'
 depends_on:
   - story-530-550-implement-schema-priority
-jules_session_id: '418178891305943909'
+jules_session_id: null
 pr_number: null
 parent: epic-518-530-priority-schema-updates
 tags:

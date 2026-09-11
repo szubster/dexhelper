@@ -79,9 +79,9 @@ export const ConcurrentGameProvider: React.FC<{ children: ReactNode }> = ({ chil
   };
 
   return (
-    <ConcurrentGameContext value={{ state, addPlaythrough, removePlaythrough, setActivePlaythrough }}>
+    <ConcurrentGameContext.Provider value={{ state, addPlaythrough, removePlaythrough, setActivePlaythrough }}>
       {children}
-    </ConcurrentGameContext>
+    </ConcurrentGameContext.Provider>
   );
 };
 

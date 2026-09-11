@@ -2,12 +2,12 @@
 id: task-521-536-gen2-checklist-layout-impl
 type: TASK
 title: Gen 2 Checklist Core Layout Component
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-09-10'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1295985150248144211'
 pr_number: null
 parent: story-062-521-gen2-checklist-ui-core
 tags:
@@ -30,6 +30,6 @@ Implement the core UI layout component for the Gen 2 checklist to contain daily 
 - **Integration:** Write standard unit tests (`vitest-browser-react`).
 
 ## Acceptance Criteria
-- [x] Implement checklist layout component (`src/components/gen2/ChecklistLayout.tsx` or similar).
-- [x] Write Vitest component tests ensuring correct rendering and tactical styling.
-- [x] Ensure Biome formatting is clean (`pnpm check:fix`).
+- [ ] Implement checklist layout component (`src/components/gen2/ChecklistLayout.tsx` or similar).
+- [ ] Write Vitest component tests ensuring correct rendering and tactical styling.
+- [ ] Ensure Biome formatting is clean (`pnpm check:fix`).

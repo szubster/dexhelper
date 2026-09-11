@@ -2,13 +2,13 @@
 id: story-061-443-mirage-island-save-parsing-e2e
 type: STORY
 title: E2E Verification of Mirage Island Save Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-09-09'
+updated_at: '2026-08-25'
 depends_on:
   - story-061-099-implement-mirage-island-parser
-jules_session_id: '13961426862563918191'
+jules_session_id: null
 pr_number: null
 parent: epic-038-061-mirage-island-save-parsing
 tags:
@@ -20,7 +20,6 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # E2E Verification of Mirage Island Save Parsing

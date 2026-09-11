@@ -2,12 +2,12 @@
 id: task-495-528-dashboard-rejection-count-e2e
 type: TASK
 title: Update E2E test for Dashboard UI Rejection Count Refactor
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-31'
-updated_at: '2026-09-10'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14202250548565255697'
 pr_number: null
 parent: story-344-495-dashboard-rejection-count-e2e
 tags:
@@ -33,4 +33,4 @@ Update the `tests/e2e/dashboard/permanent_failures.spec.ts` test file to correct
 4. The test should still verify all the original behavior for filtering and highlighting nodes.
 
 ## Acceptance Criteria
-- [x] Coder: Requirements are implemented.
+- [ ] Coder: Requirements are implemented.

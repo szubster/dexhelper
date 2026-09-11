@@ -36,7 +36,7 @@ export const Gen3RTCProvider: React.FC<{ children: ReactNode }> = ({ children })
     }
   };
 
-  return <Gen3RTCContext value={{ state, setOverride }}>{children}</Gen3RTCContext>;
+  return <Gen3RTCContext.Provider value={{ state, setOverride }}>{children}</Gen3RTCContext.Provider>;
 };
 
 export const useGen3RTC = () => {

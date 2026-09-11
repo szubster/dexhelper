@@ -2,12 +2,12 @@
 id: epic-516-530-update-permanent-failure-dashboard-ui
 type: EPIC
 title: Update Permanent Failure Dashboard UI for Cancelled Nodes
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-09'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '3184466445975576510'
+jules_session_id: null
 pr_number: null
 parent: prd-114-516-update-permanent-failure-dashboard-ui
 tags:

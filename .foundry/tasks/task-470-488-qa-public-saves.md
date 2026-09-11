@@ -16,7 +16,9 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Dependency task failed'
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-470-487-catalog-integrate-saves
 notes: ''
 locks: []
 ---

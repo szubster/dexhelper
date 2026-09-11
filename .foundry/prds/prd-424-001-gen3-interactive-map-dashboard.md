@@ -2,12 +2,12 @@
 id: prd-424-001-gen3-interactive-map-dashboard
 type: PRD
 title: Gen 3 Interactive Map Dashboard PRD
-status: PENDING
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-09-04'
-updated_at: '2026-09-10'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9025192207458696499'
 pr_number: null
 parent: idea-424-gen3-interactive-map-dashboard
 tags:
@@ -53,7 +53,4 @@ Transform the scattered Gen 3 geospatial data into a unified, visually engaging 
 - **Coordinate Mapping:** Creating the coordinate map manually might be tedious. Can we find existing data, or should a specific research task be created for it?
 
 ## Acceptance Criteria
-- [x] Epic Planner: Break this PRD down into EPIC nodes, explicitly including an E2E verification STORY.
-- [ ] epic-424-552-gen3-map-core-ui
-- [ ] epic-424-553-gen3-map-data-engine
-- [ ] epic-424-554-gen3-map-overlays
+- [ ] Epic Planner: Break this PRD down into EPIC nodes, explicitly including an E2E verification STORY.

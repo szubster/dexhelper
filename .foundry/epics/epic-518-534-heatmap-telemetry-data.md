@@ -2,12 +2,12 @@
 id: epic-518-534-heatmap-telemetry-data
 type: EPIC
 title: Heatmap Telemetry Data Extraction
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-10'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6917901181533644302'
 parent: prd-156-518-node-health-heatmap
 tags:
   - foundry
@@ -25,6 +25,4 @@ notes: ''
 Extract and structure node telemetry data (e.g. rejection counts, wait times) for heatmap usage.
 
 ## Acceptance Criteria
-- [x] Story Owner: Break this Epic down into Story nodes.
-- [ ] story-534-558-telemetry-data-extraction-impl
-- [ ] story-534-559-telemetry-data-extraction-e2e
+- [ ] Story Owner: Break this Epic down into Story nodes.

@@ -57,19 +57,8 @@ jobs:
           if [[ -n $(git status --porcelain .foundry) ]]; then
             git add .foundry
             git commit -m "Foundry: Re-open task-000-changelog-backfill for commit evaluation"
-            pushed=false
-            for i in {1..5}; do
-              if git pull --rebase origin main && git push origin main; then
-                pushed=true
-                break
-              fi
-              echo "Push failed, retrying ($i/5)..."
-              sleep 2
-            done
-            if [[ "$pushed" != "true" ]]; then
-              echo "Failed to push backfill task updates after 5 attempts."
-              exit 1
-            fi
+            git pull --rebase origin main
+            git push origin main
           else
             echo "No backfill task changes to commit."
           fi

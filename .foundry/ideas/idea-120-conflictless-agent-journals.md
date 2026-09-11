@@ -2,10 +2,10 @@
 id: idea-120-conflictless-agent-journals
 type: IDEA
 title: Research and Implement Conflict-less Agent Journals
-status: COMPLETED
+status: PENDING
 owner_persona: auditor
 created_at: '2026-07-20'
-updated_at: '2026-09-09'
+updated_at: '2026-07-21'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,7 +18,6 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Idea: Research and Implement Conflict-less Agent Journals

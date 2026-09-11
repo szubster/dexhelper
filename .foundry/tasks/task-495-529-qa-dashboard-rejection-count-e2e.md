@@ -2,10 +2,10 @@
 id: task-495-529-qa-dashboard-rejection-count-e2e
 type: TASK
 title: QA Verification for Dashboard UI Rejection Count Refactor E2E
-status: COMPLETED
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-31'
-updated_at: '2026-09-10'
+updated_at: '2026-08-31'
 depends_on:
   - task-495-528-dashboard-rejection-count-e2e
 jules_session_id: null
@@ -34,4 +34,4 @@ Verify that the `tests/e2e/dashboard/permanent_failures.spec.ts` test correctly 
 3. Review the code to ensure the test correctly sets up the mocked threshold and evaluates the UI against that threshold.
 
 ## Acceptance Criteria
-- [x] QA: Requirements are verified.
+- [ ] QA: Requirements are verified.

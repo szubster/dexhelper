@@ -2,12 +2,12 @@
 id: task-473-493-dag-context-e2e-mock-data
 type: TASK
 title: DagContext E2E Mock Data Generation
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-26'
-updated_at: '2026-09-09'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6833001211207735252'
 pr_number: null
 parent: story-078-473-dag-context-e2e-verification
 tags:
@@ -24,4 +24,4 @@ locks: []
 Generate mock DAG nodes and state files for E2E testing.
 
 ## Acceptance Criteria
-- [x] Create mock YAML frontmatter and markdown files representing various DAG states.
+- [ ] Create mock YAML frontmatter and markdown files representing various DAG states.

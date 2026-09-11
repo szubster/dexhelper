@@ -2,12 +2,12 @@
 id: story-081-279-gen3-ignore-emulator-trailing-bytes
 type: STORY
 title: Gracefully Ignore Emulator Trailing Bytes in Gen 3 Save Files
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-09-08'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '12441461888885194612'
+jules_session_id: '14750007124101511551'
 pr_number: null
 parent: epic-047-081-gen3-tv-swarm-data-extraction
 tags:

@@ -2,12 +2,12 @@
 id: prd-420-521-enforce-task-breakdown-anti-patterns
 type: PRD
 title: Encourage Modular Task Breakdowns for Tech Leads
-status: PENDING
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-09-04'
-updated_at: '2026-09-11'
+updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1238645081883961142'
 parent: idea-420-task-breakdown-anti-patterns
 tags: []
 notes: Generated from idea-420-task-breakdown-anti-patterns
@@ -26,4 +26,3 @@ The Tech Lead often falls into the trap of blindly splitting a story into exactl
 ## Acceptance Criteria
 - [ ] Implement `.foundry/docs/knowledge_base/agents/task_breakdown.md` policy.
 - [ ] Implement automated complexity validation for STORY to TASK breakdown that encourages, but does not strictly enforce, modularity.
-- [ ] epic-521-552-task-breakdown-anti-patterns

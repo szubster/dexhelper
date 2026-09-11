@@ -2,12 +2,12 @@
 id: story-115-526-pathfinder-selection-ui
 type: STORY
 title: Pathfinder Target Selection UI
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-30'
-updated_at: '2026-09-09'
+updated_at: '2026-09-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '774678350127698617'
 pr_number: null
 parent: epic-055-115-egg-move-pathfinder-ui
 tags:
@@ -30,8 +30,4 @@ Develop the selection interface for the Smart Egg Move Pathfinder, allowing user
 - [ ] Implement a selection interface for the desired Egg Move.
 - [ ] Filter available Egg Moves based on the selected Pokémon.
 - [ ] Adhere to the tactical hardware aesthetic (ADR 008, 024).
-- [x] Tech Lead: Break down into actionable TASKs.
-- [ ] task-526-553-pathfinder-selection-state-impl
-- [ ] task-526-554-pathfinder-selection-components-impl
-- [ ] task-526-555-pathfinder-selection-tests-impl
-- [ ] task-526-556-pathfinder-selection-qa
+- [ ] Tech Lead: Break down into actionable TASKs.

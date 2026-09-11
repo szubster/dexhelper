@@ -5,10 +5,10 @@ title: NPC Trade Extraction Integration & E2E Implementation (Retry 2)
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-31'
-updated_at: '2026-09-10'
+updated_at: '2026-09-02'
 depends_on:
   - research-363-506-investigate-trade-extraction-e2e-failure-2
-jules_session_id: '853037598396151446'
+jules_session_id: '7414868863168681027'
 pr_number: null
 parent: story-349-363-trade-extraction-e2e
 tags:
@@ -17,7 +17,7 @@ tags:
   - save-parsing
   - e2e
 research_references: []
-rejection_count: 1
+rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []

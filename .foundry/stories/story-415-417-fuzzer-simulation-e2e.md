@@ -5,7 +5,7 @@ title: Orchestrator Fuzzer - Simulation E2E & Integration
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-12'
-updated_at: '2026-09-10'
+updated_at: '2026-09-02'
 depends_on:
   - story-415-416-fuzzer-state-simulation
 jules_session_id: null

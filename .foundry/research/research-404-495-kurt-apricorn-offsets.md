@@ -2,22 +2,21 @@
 id: research-404-495-kurt-apricorn-offsets
 type: RESEARCH
 title: Investigate Kurt Apricorn Crafting Offsets
-status: CANCELLED
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-30'
-updated_at: '2026-09-08'
+updated_at: '2026-09-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9062108596009761075'
 pr_number: null
 parent: story-404-477-kurt-apricorn-offset-and-constants
 tags:
   - gen2
   - items
   - offsets
-rejection_count: 3
-rejection_reason: Max rejection count reached
+rejection_count: 2
+rejection_reason: ''
 notes: ''
-locks: []
 ---
 # Investigate Kurt Apricorn Crafting Offsets
 

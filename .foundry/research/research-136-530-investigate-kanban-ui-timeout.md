@@ -2,12 +2,12 @@
 id: research-136-530-investigate-kanban-ui-timeout
 type: RESEARCH
 title: Investigate Kanban UI Timeout
-status: ACTIVE
+status: READY
 owner_persona: researcher
 created_at: '2026-09-03'
-updated_at: '2026-09-08'
+updated_at: '2026-09-06'
 depends_on: []
-jules_session_id: '10638590635730396113'
+jules_session_id: null
 pr_number: null
 parent: story-047-136-permanent-failure-dashboard-ui
 tags:

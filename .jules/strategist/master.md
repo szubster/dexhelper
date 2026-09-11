@@ -169,17 +169,3 @@
 **Outcome:** Merged
 **Why:** The `Empty PR Policy` defined in `core_policies.md` explicitly requires agents to call the `submit` tool and create an Empty PR even when there are zero file changes (such as when checking off checkboxes). However, several persona prompts contained the instruction `do not create a PR` if no improvements could be found, while `agile_coach.md` contained a redundant instruction to state "no actionable work" in the PR. These contradictory instructions lead to confusion and sessions timing out without a submission, violating the Orchestrator's heartbeat policy.
 **Pattern:** Ensure that individual agent prompts do not contradict overarching core policies (such as the Empty PR Policy). When identifying contradictions, remove the conflicting localized instructions so that agents strictly follow the centralized `core_policies.md`.
-
-## 2026-09-07 - [Accepted] - Prompt improvement - Update Aggregated Journal Paths for Strategist
-**Type:** Prompt improvement
-**Outcome:** Merged
-**Why:** The instructions in `strategist.md` told the agent to read and persist to directories/files like `.jules/strategist.md`, `.jules/*.md` and `.foundry/journals/*.md`. However, since the Archivist persona aggregates session logs into singular markdown files per persona (e.g., `.jules/bolt/master.md`, `.foundry/journals/coder/master.md`), the Strategist was unable to read the files effectively and failed during journal review phases. Updating paths to point to `master.md` within persona directories fixes this. Furthermore, fixed the instruction to create timestamped journal files instead of writing directly to master.md to comply with core journaling policies.
-**Pattern:** Ensure file path instructions in prompts reflect the actual repository structure, especially taking into account Archivist aggregations.
-
-
-<!-- Merged from 2026-09-06-04-11-42.md -->
-## 2026-09-06 - [Rejected] - Retire agile_coach persona
-**Type:** Retirement
-**Outcome:** Rejected → journaled
-**Why:** The maintainer rejected the retirement of the `agile_coach` persona, noting that its previous retirement created a void that needed to be filled, and that it was a bad decision to retire it. This indicates that despite apparent overlap with `strategist`, `agile_coach` provides necessary value that cannot be fully absorbed.
-**Pattern:** Before retiring a meta-agent due to perceived redundancy, ensure its historical contributions and unique system role (such as analyzing journals and creating proactive process improvements based on friction) are truly redundant and not just superficially similar to another agent's responsibilities.

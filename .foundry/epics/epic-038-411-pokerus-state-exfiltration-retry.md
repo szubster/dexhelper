@@ -2,10 +2,10 @@
 id: epic-038-411-pokerus-state-exfiltration-retry
 type: EPIC
 title: Pokerus State Exfiltration Epic (Retry)
-status: COMPLETED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-10'
-updated_at: '2026-09-09'
+updated_at: '2026-08-23'
 depends_on:
   - research-038-407-investigate-pokerus-state-exfiltration-failure
 jules_session_id: null
@@ -19,7 +19,6 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: Retry of the cancelled epic-038-061-pokerus-state-exfiltration
-locks: []
 ---
 
 # Pokerus State Exfiltration Epic (Retry)
@@ -28,7 +27,7 @@ locks: []
 Read the specific byte flags for Pokerus for every Pokemon in the party and PC from the Gen 2 sav files. This retry depends on the successful investigation of the previous implementation failure.
 
 ## Acceptance Criteria
-- [x] Extract pokerus data
+- [ ] Extract pokerus data
 - [x] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification.
-- [x] story-411-443-extract-pokerus-data
-- [x] story-411-444-pokerus-integration-e2e
+- [ ] story-411-443-extract-pokerus-data
+- [ ] story-411-444-pokerus-integration-e2e

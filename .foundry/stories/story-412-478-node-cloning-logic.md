@@ -5,7 +5,7 @@ title: Dynamic Node Cloning and Prompt Adaptation
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-08'
+updated_at: '2026-09-01'
 depends_on:
   - story-412-477-detect-experiment-metadata
 jules_session_id: null
@@ -17,7 +17,6 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Story: Dynamic Node Cloning and Prompt Adaptation

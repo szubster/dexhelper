@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { MAX_REJECTION_THRESHOLD } from '../../../src/utils/constants';
 
 test.describe('Permanent Failures Dashboard Filter', () => {
   test.use({ storageState: { cookies: [], origins: [] } });
@@ -67,7 +68,7 @@ test.describe('Permanent Failures Dashboard Filter', () => {
 
         return originalFetch(input, init);
       };
-    }, 3);
+    }, MAX_REJECTION_THRESHOLD);
 
     // Also keep page.route just in case it works for some runtimes
     await page.route('**/*', async (route) => {
@@ -84,7 +85,7 @@ test.describe('Permanent Failures Dashboard Filter', () => {
                 type: 'TASK',
                 title: 'Permanent Failure Task',
                 status: 'FAILED',
-                rejection_count: 3,
+                rejection_count: MAX_REJECTION_THRESHOLD,
                 depends_on: [],
                 owner_persona: 'coder',
               },

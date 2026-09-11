@@ -83,8 +83,7 @@ describe('NodeFrontmatterSchema', () => {
       research_references: [],
       rejection_count: 0,
       rejection_reason: "",
-      notes: "",
-      priority: 1
+      notes: ""
     };
     expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
   });
@@ -225,22 +224,6 @@ describe('NodeFrontmatterSchema', () => {
       depends_on: [],
       jules_session_id: null,
       locks: ["lock1", "lock2"]
-    };
-    expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
-  });
-
-  it('validates a node with priority', () => {
-    const node = {
-      id: "task-002",
-      type: "TASK",
-      title: "New Task Priority",
-      status: "PENDING",
-      owner_persona: "coder",
-      created_at: "2026-08-14",
-      updated_at: "2026-08-14",
-      depends_on: [],
-      jules_session_id: null,
-      priority: 50
     };
     expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
   });

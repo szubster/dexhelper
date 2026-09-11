@@ -2,12 +2,12 @@
 id: task-556-558-link-resolution-scanner-impl
 type: TASK
 title: Link Resolution Scanner Implementation
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-10'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12787734711011574234'
 pr_number: null
 parent: story-551-556-orchestrator-link-resolution-implementation
 rejection_count: 0
@@ -18,4 +18,4 @@ priority: 50
 ---
 
 ## Acceptance Criteria
-- [x] Implement active node scanning logic in orchestrator utilities
+- [ ] Implement active node scanning logic in orchestrator utilities

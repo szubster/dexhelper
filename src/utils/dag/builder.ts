@@ -48,9 +48,6 @@ export function buildDagGraph(parsedNodes: ParsedNode[]): DagGraph {
       pathToIdMap.set(`./${node.filePath}`, id);
     }
 
-    // Also map the direct ID to support the DAG ID Strictness rule
-    pathToIdMap.set(id, id);
-
     nodes.push({
       id,
       data: {

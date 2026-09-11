@@ -22,9 +22,7 @@ export const Gen3SecretBaseDashboard: React.FC<Gen3SecretBaseDashboardProps> = (
 
       <div className="z-10 grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {saveData.gen3SecretBases.map((base, idx) => {
-          const isBattled =
-            base.battledOwnerToday ||
-            (saveData.gen3TrainerRematchFlags?.[idx] !== undefined && saveData.gen3TrainerRematchFlags[idx] > 0);
+          const isBattled = base.battledOwnerToday;
 
           return (
             <div

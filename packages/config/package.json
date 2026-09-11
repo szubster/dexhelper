@@ -1,8 +1,5 @@
 {
   "name": "@dexhelper/config",
   "private": true,
-  "devDependencies": {
-    "@tsconfig/strictest": "^2.0.8",
-    "@tsconfig/vite-react": "^8.1.1"
-  }
+  "dependencies": {}
 }

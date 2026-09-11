@@ -2,22 +2,22 @@
 id: task-473-494-dag-context-e2e-test-impl
 type: TASK
 title: DagContext E2E Test Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-26'
-updated_at: '2026-09-10'
+updated_at: '2026-08-26'
 depends_on:
   - task-473-493-dag-context-e2e-mock-data
-jules_session_id: '1513126372417145401'
+jules_session_id: null
+locks: []
 pr_number: null
 parent: story-078-473-dag-context-e2e-verification
 tags:
   - e2e
   - testing
 rejection_count: 0
-rejection_reason: ''
-notes: ''
-locks: []
+rejection_reason: ""
+notes: ""
 ---
 # DagContext E2E Test Implementation
 

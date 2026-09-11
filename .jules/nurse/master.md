@@ -38,7 +38,3 @@ It tightens type safety for data loaded from IndexedDB, a common source of impli
 - **Issue:** Removed unsafe `as Gen3SaveData & { gen3LotteryNumber?: number }` cast in `src/contexts/LotteryContext.tsx`.
 - **Solution:** Added `gen3LotteryNumber?: number;` directly to the `Gen3SaveData` interface in `src/engine/saveParser/parsers/common.ts`. Then replaced the manual type coercion with the explicit `isGen3Save()` type guard in `LotteryContext.tsx`.
 - **Learn:** When a downstream component requires accessing optional dynamic properties (like extracted lottery numbers) that logically belong to a specific save generation, it is safer to define those optional properties directly on the generation's base interface (`Gen3SaveData`) and use standard discriminated union type guards (`isGen3Save`) rather than relying on on-the-fly intersection types and `as` casts.
-
-# Nurse Joy Journal
-
-- **TypeScript strict null checks and `indexOf`**: When replacing `as string` casts (which implicitly handle `undefined` since `indexOf(undefined)` returns `-1`) with null coalescing (`??`), be very careful about `?? ''`. `String.prototype.indexOf('')` returns `0`, not `-1`. This can bypass validation logic that explicitly checks for `-1`. It's much safer to use a runtime type check like `typeof char !== 'string'` and `throw` explicitly, rather than trying to fall back to an empty string.

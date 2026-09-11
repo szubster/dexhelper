@@ -36,7 +36,7 @@ export const LotteryProvider: React.FC<{ children: ReactNode }> = ({ children })
     };
   }, [saveData]);
 
-  return <LotteryContext value={lotteryState}>{children}</LotteryContext>;
+  return <LotteryContext.Provider value={lotteryState}>{children}</LotteryContext.Provider>;
 };
 
 export const useLottery = (): LotteryContextState => {

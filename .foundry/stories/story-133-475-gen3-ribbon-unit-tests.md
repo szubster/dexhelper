@@ -2,13 +2,13 @@
 id: story-133-475-gen3-ribbon-unit-tests
 type: STORY
 title: Write Gen 3 Ribbon Unit Tests
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-09-09'
+updated_at: '2026-09-06'
 depends_on:
   - story-133-474-gen3-ribbon-extraction-logic
-jules_session_id: null
+jules_session_id: '4490497599707448398'
 pr_number: null
 parent: epic-101-133-gen3-ribbon-extraction
 tags:
@@ -31,7 +31,4 @@ We need to extract the 32-bit Ribbon and Obedience bitfield for each Pokémon fr
 Write unit tests to verify Ribbon data extraction.
 
 ## Acceptance Criteria
-- [x] Break down story into tasks for writing unit tests to verify Ribbon data extraction.
-- [ ] task-475-549-gen3-ribbon-unit-tests-general
-- [ ] task-475-550-gen3-ribbon-unit-tests-contest
-- [ ] task-475-551-gen3-ribbon-unit-tests-edge-cases
+- [ ] Break down story into tasks for writing unit tests to verify Ribbon data extraction.

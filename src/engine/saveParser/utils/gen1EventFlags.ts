@@ -1,9 +1,5 @@
 import { STATIC_GIFT_DATA } from '../../data/gen1/assistantData';
 
-export const BITS_PER_BYTE_SHIFT = 3;
-export const BIT_INDEX_MASK = 7;
-export const BIT_FLAG = 1;
-
 export const GEN1_TM_HM_TO_MOVE_ID: Record<number, number> = {
   196: 16,
   197: 20,
@@ -123,7 +119,7 @@ export function parseGen1NarrativeFlags(eventFlags: Uint8Array): Record<string, 
   for (const [key, flag] of Object.entries(GEN1_BOSS_EVENT_FLAGS)) {
     const byteIndex = flag >> BITS_PER_BYTE_SHIFT;
     const bitIndex = flag & BIT_INDEX_MASK;
-    flags[key] = eventFlags[byteIndex] !== undefined && (eventFlags[byteIndex] & (BIT_FLAG << bitIndex)) !== 0;
+    flags[key] = eventFlags[byteIndex] !== undefined && (eventFlags[byteIndex] & (1 << bitIndex)) !== 0;
   }
   return flags;
 }
@@ -163,10 +159,13 @@ export function parseGen1TMFlags(eventFlags: Uint8Array): Record<number, boolean
     const id = parseInt(idStr, 10);
     const byteIndex = flag >> BITS_PER_BYTE_SHIFT;
     const bitIndex = flag & BIT_INDEX_MASK;
-    flags[id] = eventFlags[byteIndex] !== undefined && (eventFlags[byteIndex] & (BIT_FLAG << bitIndex)) !== 0;
+    flags[id] = eventFlags[byteIndex] !== undefined && (eventFlags[byteIndex] & (1 << bitIndex)) !== 0;
   }
   return flags;
 }
+
+const BITS_PER_BYTE_SHIFT = 3;
+const BIT_INDEX_MASK = 7;
 
 /**
  * Evaluates which Gen 1 static encounters (gifts, trades, legendaries) have been claimed.
@@ -201,7 +200,7 @@ export function parseGen1StaticEncounters(eventFlags: Uint8Array): Record<number
     if (byte === undefined) {
       claimed[id] = false;
     } else {
-      claimed[id] = (byte & (BIT_FLAG << bitIndex)) !== 0;
+      claimed[id] = (byte & (1 << bitIndex)) !== 0;
     }
   }
 

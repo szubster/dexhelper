@@ -2,10 +2,10 @@
 id: task-540-557-update-schema-docs-templates
 type: TASK
 title: Document priority in schema.md and update new node templates
-status: COMPLETED
+status: READY
 owner_persona: coder
 created_at: '2026-09-07'
-updated_at: '2026-09-08'
+updated_at: '2026-09-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,5 +17,5 @@ locks: []
 ---
 
 ## Acceptance Criteria
-- [x] Update `.foundry/docs/schema.md` to document the new `priority` field with a default of `50`.
-- [x] Update the New Node Template in `.foundry/docs/schema.md` to include `priority: 50`.
+- [ ] Update `.foundry/docs/schema.md` to document the new `priority` field with a default of `50`.
+- [ ] Update the New Node Template in `.foundry/docs/schema.md` to include `priority: 50`.

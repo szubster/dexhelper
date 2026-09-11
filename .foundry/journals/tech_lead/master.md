@@ -655,6 +655,7 @@ Many constants for specific Gen 3 file parsing offsets are different per version
 # Session Log 2026-08-18-11-27-17
 
 ## Learnings
+Discovered a partial Artifact Anomaly when processing `story-139-298-gen2-roamer-status-and-standardization`. The standardized object formatting and property mapping to `saveData.roamingLegendaries` was already implemented previously in `src/engine/saveParser/parsers/gen2.ts`. However, the specific business logic for checking `HP > 0` was omitted. Drafted a highly specific single Task to address just this missing requirement to avoid duplicating the already completed formatting work.
 ## Context
 When processing `story-423-425-wasm-emulator-core-integration`, I discovered it was a generic WASM core integration story that has been superseded by a more specific multi-emulator architecture (binjgb for Gen1/2 and mGBA for Gen3) as defined in `adr-421-032-wasm-emulator-selection`, which spawned new epics `epic-421-426-binjgb-integration` and `epic-421-427-mgba-integration`.
 
@@ -775,6 +776,7 @@ Drafting technical blueprints for `story-066-140-ribbon-dashboard-performance`, 
 # Tech Lead Journal: 2026-08-18-22-24-04
 
 ## Learnings & Observations
+- **Artifact Anomaly Detection**: While breaking down `story-417-422-integrate-gen1-fixtures` into TASK nodes, I discovered that the target artifacts (tests using Gen 1 save fixtures like `blue.sav` and `yellow.sav`) are already fully implemented in `src/engine/saveParser/parsers/saveFixtures.test.ts`.
 - **System Action**: Per the Artifact Anomaly Detection rule, I am creating this journal entry to record the anomaly. I will draft a formal TASK node assigned to the `coder` so the system can gracefully execute the Empty PR Policy on it.
 
 
@@ -980,24 +982,3 @@ To resolve this, I utilized the Late Binding pattern to suspend the current task
 - The task was gracefully exited by setting its status to CANCELLED and providing the rejection reason, preventing an infinite resurrection loop without falsely validating its acceptance criteria.
 
 
-
-# Session 17480000000000000000
-
-## Action Taken
-- Decomposed `story-536-541-benchmarking-node-native-execution` into granular implementation and QA tasks.
-
-## Learnings
-- **Decomposition Granularity:** When decomposing a STORY into TASK nodes, it is critical to avoid the "Two-Tasks-Max" anti-pattern (e.g., just one implementation task and one QA task). A STORY must be broken down into discrete, modular execution steps. For example, a benchmarking story should be split into `harness` setup, `runner` logic, and `reporter` implementation before the final `qa` task.
-- **DAG State Configuration:** New TASK nodes with no dependencies (`depends_on: []`) must be initialized with `status: READY` to allow the DAG Orchestrator to immediately dispatch them. Initializing them as `PENDING` will cause a deadlock.
-
-# Tech Lead Journal: Node Granularity Policy Strictness
-
-- When decomposing nodes in Foundry, the "Two-Tasks-Max Anti-pattern" explicitly requires breaking apart core logic implementation and unit testing into distinct, independent TASK nodes.
-- Combining implementation and testing into a single monolithic task violates architectural policies.
-- Always initialize independent, unblocked start nodes with `READY` status, not `PENDING`, to ensure immediate orchestrator pick-up without waiting for the next heartbeat cycle.
-- Private journals must not be used as execution logbooks ("I did X"). They must strictly record long-term lessons, architectural constraints, and recurring failures (the "why", not the "what").
-
-
-<!-- Merged from 2026-09-07-11-31-08.md -->
-# 2026-09-07
-Child tasks `task-470-487-catalog-integrate-saves` and `task-470-488-qa-public-saves` permanently failed due to max rejection limit. I spawned a research node `research-470-553-investigate-japanese-crystal-offsets` to investigate the root cause, and created replacement tasks `task-470-554-catalog-integrate-saves-replacement` and `task-470-555-qa-public-saves-replacement` relying on this research, following the Impossible Loop protocol.

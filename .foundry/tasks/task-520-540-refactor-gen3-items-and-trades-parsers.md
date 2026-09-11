@@ -2,12 +2,12 @@
 id: task-520-540-refactor-gen3-items-and-trades-parsers
 type: TASK
 title: Refactor Gen 3 Items and Trades Parsers
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-08'
+updated_at: '2026-09-05'
 depends_on: []
-jules_session_id: '886793900530904462'
+jules_session_id: null
 pr_number: null
 parent: story-523-520-gen3-parsers-refactor-core
 tags:

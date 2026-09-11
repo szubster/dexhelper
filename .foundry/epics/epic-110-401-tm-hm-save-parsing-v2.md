@@ -2,10 +2,10 @@
 id: epic-110-401-tm-hm-save-parsing-v2
 type: EPIC
 title: Gen 1-3 TM/HM Save Parsing V2
-status: COMPLETED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-05'
-updated_at: '2026-09-08'
+updated_at: '2026-08-09'
 depends_on:
   - research-110-400-investigate-tm-hm-save-parsing-failure
 jules_session_id: null
@@ -19,9 +19,8 @@ tags:
   - save-parsing
 research_references:
   - .foundry/docs/knowledge_base/moveset-inventory-memory-offsets.md
-rejection_reason: ''
 notes: ''
-locks: []
+rejection_reason: ''
 ---
 
 # Gen 1-3 TM/HM Save Parsing V2
@@ -40,7 +39,7 @@ This Epic focuses on parsing the Item Bag structures for Generation 1, 2, and 3 
 ## Acceptance Criteria
 - [x] Break down into STORY nodes for Gen 1, Gen 2, and Gen 3 parsing.
 - [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
-- [x] story-401-408-gen1-tm-hm-parsing
-- [x] story-401-409-gen2-tm-hm-parsing
-- [x] story-401-410-gen3-tm-hm-parsing
-- [x] story-401-411-tm-hm-integration-e2e
+- [ ] story-401-408-gen1-tm-hm-parsing
+- [ ] story-401-409-gen2-tm-hm-parsing
+- [ ] story-401-410-gen3-tm-hm-parsing
+- [ ] story-401-411-tm-hm-integration-e2e

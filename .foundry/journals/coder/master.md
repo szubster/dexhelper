@@ -784,14 +784,3 @@ const el = select.element() as HTMLSelectElement;
 el.value = '2';
 el.dispatchEvent(new Event('change', { bubbles: true }));
 ```
-
-
-<!-- Merged from 2026-09-05-23-42-25.md -->
-# 2024-11-20
-- DAG ID Strictness Rule Enforcement in UI: The UI `src/utils/dag/builder.ts` was previously coded to expect repo-relative file paths in `depends_on` arrays for linking nodes. With the new DAG ID Strictness rule mandating exact bare Node IDs, `builder.ts` must map both the `filePath` and the bare `id` (`pathToIdMap.set(id, id)`) to correctly resolve UI edges without breaking backwards compatibility. Playwright E2E tests mocking DAG data must correctly supply bare Node IDs in their fixture `depends_on` arrays to accurately verify this behavior.
-
-
-<!-- Merged from 2026-09-08-20-02-27.md -->
-# Artifact Anomaly
-
-The `priority` field documentation was requested in task `task-550-563-schema-priority-docs`, but it already exists in `.foundry/docs/schema.md` with a slightly different wording (`priority: 50` instead of `priority: 0`). I am executing the Empty PR policy to formally complete the DAG node.

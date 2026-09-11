@@ -36,7 +36,7 @@ function ribbonFilterReducer(state: RibbonFilterState, action: RibbonFilterActio
 export function RibbonFilterProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(ribbonFilterReducer, initialState);
 
-  return <RibbonFilterContext value={{ state, dispatch }}>{children}</RibbonFilterContext>;
+  return <RibbonFilterContext.Provider value={{ state, dispatch }}>{children}</RibbonFilterContext.Provider>;
 }
 
 export function useRibbonFilter() {

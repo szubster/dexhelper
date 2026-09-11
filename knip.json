@@ -5,8 +5,6 @@
     "wrangler",
     "@cloudflare/pages-plugin-cloudflare-access",
     "@cloudflare/workers-types",
-    "@tsconfig/strictest",
-    "@tsconfig/vite-react"
   ],
   "ignore": [
     "src/test-setup.ts",

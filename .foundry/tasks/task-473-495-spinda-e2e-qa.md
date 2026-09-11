@@ -2,10 +2,10 @@
 id: task-473-495-spinda-e2e-qa
 type: TASK
 title: Gen 3 Spinda E2E Verification - QA
-status: COMPLETED
+status: READY
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-09-08'
+updated_at: '2026-09-07'
 depends_on:
   - task-473-494-spinda-e2e-tests
 jules_session_id: null
@@ -29,6 +29,6 @@ locks: []
 Quality assurance verification for the Gen 3 Spinda E2E extraction tests, ensuring they correctly validate the parsing of Spinda PIDs from realistic save files without any mocked or faked assertions.
 
 ## Acceptance Criteria
-- [x] Verify that the E2E test suite executes successfully locally or in CI without errors.
-- [x] Confirm that realistic Gen 3 save file fixtures are correctly utilized by the tests.
-- [x] Review the test assertions to ensure they are genuine and not faking test outcomes.
+- [ ] Verify that the E2E test suite executes successfully locally or in CI without errors.
+- [ ] Confirm that realistic Gen 3 save file fixtures are correctly utilized by the tests.
+- [ ] Review the test assertions to ensure they are genuine and not faking test outcomes.

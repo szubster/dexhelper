@@ -2,10 +2,10 @@
 id: epic-107-344-update-dashboard-rejection-count
 type: EPIC
 title: Update UI Views with Lifted Constant
-status: COMPLETED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-22'
-updated_at: '2026-09-10'
+updated_at: '2026-08-31'
 depends_on:
   - epic-107-343-lift-rejection-count-state
 jules_session_id: null
@@ -18,7 +18,6 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Update UI Views with Lifted Constant
@@ -36,5 +35,5 @@ With the threshold for permanent failures extracted to the React Context, the UI
 
 ## Acceptance Criteria
 - [x] Break down into Stories
-- [x] story-344-494-dashboard-rejection-count
-- [x] story-344-495-dashboard-rejection-count-e2e
+- [ ] story-344-494-dashboard-rejection-count
+- [ ] story-344-495-dashboard-rejection-count-e2e

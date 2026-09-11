@@ -2,13 +2,13 @@
 id: task-513-550-schema-verifying-negative-checks-impl
 type: TASK
 title: Add negative pattern checks for VERIFYING state
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-09'
+updated_at: '2026-09-06'
 depends_on:
   - task-513-549-schema-verifying-positive-checks-impl
-jules_session_id: '15451689125771979661'
+jules_session_id: null
 pr_number: null
 parent: story-130-513-schema-verifying-state-update-e2e
 tags:

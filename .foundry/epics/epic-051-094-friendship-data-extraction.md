@@ -2,10 +2,10 @@
 id: epic-051-094-friendship-data-extraction
 type: EPIC
 title: Friendship Data Extraction (Gen 2 & 3)
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-16'
-updated_at: '2026-09-09'
+updated_at: '2026-06-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,10 +14,9 @@ tags:
   - gen2
   - gen3
   - save-parsing
-rejection_count: 1
+rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Friendship Data Extraction (Gen 2 & 3)
@@ -32,12 +31,12 @@ Implement the core data extraction logic to read the Friendship (Happiness) valu
 *   Ensure rigorous bounds checking using the `DataView` API as mandated by ADR 010.
 
 ## Acceptance Criteria
-- [x] Gen 2 Party parsing extracts Friendship value.
-- [x] Gen 2 PC parsing extracts Friendship value.
-- [x] Gen 3 Party parsing extracts Friendship value (handling PV % 24 substructure permutation).
-- [x] Gen 3 PC parsing extracts Friendship value.
-- [x] Unit tests added/updated to verify Friendship extraction against known save fixtures.
+- [ ] Gen 2 Party parsing extracts Friendship value.
+- [ ] Gen 2 PC parsing extracts Friendship value.
+- [ ] Gen 3 Party parsing extracts Friendship value (handling PV % 24 substructure permutation).
+- [ ] Gen 3 PC parsing extracts Friendship value.
+- [ ] Unit tests added/updated to verify Friendship extraction against known save fixtures.
 
 - [x] Break down into Tasks
-- [x] story-094-151-gen2-friendship-extraction
-- [x] story-094-152-gen3-friendship-extraction
+- [ ] story-094-151-gen2-friendship-extraction
+- [ ] story-094-152-gen3-friendship-extraction

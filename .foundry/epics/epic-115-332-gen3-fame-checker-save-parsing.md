@@ -5,7 +5,7 @@ title: Gen 3 Fame Checker Save Parsing
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-17'
-updated_at: '2026-09-09'
+updated_at: '2026-08-26'
 depends_on:
   - epic-115-331-gen3-fame-checker-research
 jules_session_id: null
@@ -21,7 +21,6 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Gen 3 Fame Checker Save Parsing

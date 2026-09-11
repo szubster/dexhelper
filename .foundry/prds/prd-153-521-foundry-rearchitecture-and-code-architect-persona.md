@@ -4,12 +4,12 @@ type: PRD
 title: >-
   PRD: Foundry Rearchitecture - State Machine/Graph Libraries & Scheduled Code
   Architect Persona
-status: PENDING
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-09-04'
-updated_at: '2026-09-09'
+updated_at: '2026-09-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17437175947743572753'
 pr_number: null
 parent: idea-153-foundry-rearchitecture-and-code-architect-persona
 tags:
@@ -42,6 +42,4 @@ This PRD outlines the requirements for rearchitecting the Foundry orchestrator a
 - **Schema Integration:** The persona must be formally defined within the Foundry schema configuration (`.github/scripts/schema.ts`).
 
 ## Acceptance Criteria
-- [x] Epic Planner: Break down this PRD into detailed EPIC nodes covering the orchestrator rearchitecture and the introduction of the Code Architect persona.
-- [ ] epic-521-540-foundry-rearchitecture-state-graph
-- [ ] epic-521-541-code-architect-persona
+- [ ] Epic Planner: Break down this PRD into detailed EPIC nodes covering the orchestrator rearchitecture and the introduction of the Code Architect persona.

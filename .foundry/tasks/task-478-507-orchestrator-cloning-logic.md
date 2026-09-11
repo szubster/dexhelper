@@ -5,16 +5,16 @@ title: Implement DAG Node Cloning Logic
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-30'
-updated_at: '2026-09-08'
+updated_at: '2026-09-01'
 depends_on:
   - task-478-506-orchestrator-cloning-types
-jules_session_id: '16026338527100153743'
+jules_session_id: '1823478706609617314'
 pr_number: null
 parent: story-412-478-node-cloning-logic
 tags:
   - orchestrator
   - generation
-rejection_count: 1
+rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []

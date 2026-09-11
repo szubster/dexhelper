@@ -2,12 +2,12 @@
 id: task-475-537-verify-orchestrator-tests
 type: TASK
 title: Verify DAG Orchestrator Test Suite
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-11'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17427797413702316802'
 pr_number: null
 parent: story-334-475-prompt-rules-integration-e2e
 tags:
@@ -32,4 +32,4 @@ This task fulfills the requirement of `story-334-475-prompt-rules-integration-e2
 - If any test fails (e.g., prompt parsing issues due to the recent additions), investigate and fix the orchestrator script or the prompt files to ensure compliance.
 
 ## Acceptance Criteria
-- [x] The orchestrator test suite (`cd .github/scripts && npx vitest`) successfully executes and passes.
+- [ ] The orchestrator test suite (`cd .github/scripts && npx vitest`) successfully executes and passes.

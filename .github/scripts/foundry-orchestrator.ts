@@ -1480,21 +1480,14 @@ function main(): void {
       return item;
     })
     .sort((a, b) => {
-      // 1. Sort by Priority descending (highest priority first, defaulting to 50)
-      const priorityA = a.priority ?? 50;
-      const priorityB = b.priority ?? 50;
-      if (priorityA !== priorityB) {
-        return priorityB - priorityA;
-      }
-
-      // 2. Sort by Critical Path Weight descending (highest weight first)
+      // 1. Sort by Critical Path Weight descending (highest weight first)
       const weightA = a.critical_weight;
       const weightB = b.critical_weight;
       if (weightA !== weightB) {
         return weightB - weightA;
       }
 
-      // 3. Fallback: Sort by created_at ascending (oldest first)
+      // 2. Fallback: Sort by created_at ascending (oldest first)
       const dateA = new Date(a.created_at).getTime();
       const dateB = new Date(b.created_at).getTime();
 
@@ -1502,7 +1495,7 @@ function main(): void {
         return dateA - dateB;
       }
 
-      // 4. Fallback: sort by numeric id ascending
+      // 3. Fallback: sort by numeric id ascending
       return a.id.localeCompare(b.id, undefined, { numeric: true, sensitivity: 'base' });
     });
 
