@@ -955,13 +955,13 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
 export function parseGen3EVs(view: DataView, offset: number) {
   try {
     const hp = view.getUint8(offset + EV_HP_OFFSET);
-    const attack = view.getUint8(offset + EV_ATK_OFFSET);
-    const defense = view.getUint8(offset + EV_DEF_OFFSET);
-    const speed = view.getUint8(offset + EV_SPD_OFFSET);
-    const specialAttack = view.getUint8(offset + EV_SPATK_OFFSET);
-    const specialDefense = view.getUint8(offset + EV_SPDEF_OFFSET);
+    const atk = view.getUint8(offset + EV_ATK_OFFSET);
+    const def = view.getUint8(offset + EV_DEF_OFFSET);
+    const spe = view.getUint8(offset + EV_SPD_OFFSET);
+    const spa = view.getUint8(offset + EV_SPATK_OFFSET);
+    const spd = view.getUint8(offset + EV_SPDEF_OFFSET);
 
-    return { hp, attack, defense, speed, specialAttack, specialDefense };
+    return { hp, atk, def, spe, spa, spd };
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');

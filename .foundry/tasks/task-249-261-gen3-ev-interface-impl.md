@@ -33,7 +33,7 @@ To properly represent EV data extracted from Gen 3 save files, the `PokemonInsta
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] The `PokemonInstance` interface in `src/engine/saveParser/parsers/common.ts` has an optional `evs` property.
-- [ ] The `evs` property is an object containing `hp`, `atk`, `def`, `spa`, `spd`, and `spe` properties of type `number`.
-- [ ] The property is optional (`evs?: { ... } | undefined`) to maintain compatibility with other generations.
-- [ ] Coder has self-verified the changes and documented it in their journal, per the Intelligent Verification Protocol for simple tasks.
+- [x] The `PokemonInstance` interface in `src/engine/saveParser/parsers/common.ts` has an optional `evs` property.
+- [x] The `evs` property is an object containing `hp`, `atk`, `def`, `spa`, `spd`, and `spe` properties of type `number`.
+- [x] The property is optional (`evs?: { ... } | undefined`) to maintain compatibility with other generations.
+- [x] Coder has self-verified the changes and documented it in their journal, per the Intelligent Verification Protocol for simple tasks.
