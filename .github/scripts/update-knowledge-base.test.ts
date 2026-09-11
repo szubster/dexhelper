@@ -37,4 +37,19 @@ describe('updateKnowledgeBase', () => {
     expect(content).toContain('- New Test Rule');
     expect(content).toContain('- Old Rule');
   });
+
+  it('handles conflicting rules (duplicate descriptions)', () => {
+    fs.writeFileSync(fullPath, '# Core Policies\n\n## Librarian Extracted Rules\n- Existing Rule\n', 'utf-8');
+    const rules: ExtractedRule[] = [
+      { description: 'Existing Rule' },
+      { description: 'New Rule' }
+    ];
+    updateKnowledgeBase(testDir, rules, testFile);
+    const content = fs.readFileSync(fullPath, 'utf-8');
+    expect(content).toContain('- New Rule');
+
+    // It should not duplicate "Existing Rule"
+    const match = content.match(/- Existing Rule/g);
+    expect(match?.length).toBe(1);
+  });
 });
