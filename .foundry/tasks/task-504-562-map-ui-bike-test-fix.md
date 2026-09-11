@@ -29,5 +29,5 @@ The target integration artifacts for `BikeBadge` in `MapUI` currently exist in t
 Verify that the `BikeBadge` component is properly integrated into `MapUI.tsx` and tested in `MapUI.test.tsx`.
 
 ## Acceptance Criteria
-- [ ] Ensure `BikeBadge` is conditionally rendered in `MapUI.tsx`.
-- [ ] Tests pass successfully.
+- [x] Ensure `BikeBadge` is conditionally rendered in `MapUI.tsx`.
+- [x] Tests pass successfully.
