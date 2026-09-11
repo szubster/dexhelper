@@ -4,6 +4,7 @@
 | --- | --- | --- | --- | --- |
 | [epic-038-412-pokerus-visual-tracker-retry](.foundry/epics/epic-038-412-pokerus-visual-tracker-retry.md) | EPIC | Pokerus Visual Tracker Epic (Retry) | story_owner | [6391711130027535684](https://jules.google.com/session/6391711130027535684) |
 | [epic-038-413-pokerus-spread-planner-retry](.foundry/epics/epic-038-413-pokerus-spread-planner-retry.md) | EPIC | Pokerus Spread Planner Epic (Retry) | story_owner | [16905401797185976033](https://jules.google.com/session/16905401797185976033) |
+| [epic-043-140-gen2-roamer-map-translation](.foundry/epics/epic-043-140-gen2-roamer-map-translation.md) | EPIC | Gen 2 Roamer Map Translation | story_owner | [10675213921090777143](https://jules.google.com/session/10675213921090777143) |
 | [epic-046-078-gen3-battle-frontier-data-extraction](.foundry/epics/epic-046-078-gen3-battle-frontier-data-extraction.md) | EPIC | Gen 3 Battle Frontier Data Extraction | story_owner | [9562732056147911685](https://jules.google.com/session/9562732056147911685) |
 | [epic-046-079-gen3-battle-frontier-dashboard-ui](.foundry/epics/epic-046-079-gen3-battle-frontier-dashboard-ui.md) | EPIC | Gen 3 Battle Frontier Dashboard UI | story_owner | [14484693374801811050](https://jules.google.com/session/14484693374801811050) |
 | [epic-048-084-gen3-match-call-static-data](.foundry/epics/epic-048-084-gen3-match-call-static-data.md) | EPIC | Epic: Gen 3 Match Call Static Data Generation | story_owner | [14986316781921432034](https://jules.google.com/session/14986316781921432034) |
