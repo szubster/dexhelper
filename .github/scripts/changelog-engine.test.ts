@@ -9,6 +9,7 @@ import {
   classifyCommit,
   determineSemverBump,
   generateContinuousMaintenanceIdeaNode,
+  getCommitDetails,
   getLatestVersion,
   loadState,
   runChangelogEngine,
@@ -179,13 +180,34 @@ describe('changelog-engine', () => {
     });
   });
 
+  describe('commit details & diff analysis', () => {
+    it('extracts commit details and diffStat correctly', () => {
+      vi.spyOn(childProcess, 'execSync').mockImplementation((cmd: unknown) => {
+        const cmdStr = String(cmd);
+        if (cmdStr.includes('format=%B')) return 'feat(engine): update parser\n\nDetailed body';
+        if (cmdStr.includes('format=%cs')) return '2026-09-10';
+        if (cmdStr.includes('diff-tree')) return 'src/engine/saveParser.ts\n';
+        if (cmdStr.includes('show --stat')) return '1 file changed, 10 insertions(+)\n src/engine/saveParser.ts | 10 ++++++++++';
+        return '';
+      });
+
+      const details = getCommitDetails('abcdef12345');
+      expect(details.sha).toBe('abcdef12345');
+      expect(details.message).toContain('feat(engine): update parser');
+      expect(details.date).toBe('2026-09-10');
+      expect(details.files).toEqual(['src/engine/saveParser.ts']);
+      expect(details.diffStat).toContain('1 file changed, 10 insertions(+)');
+    });
+  });
+
   describe('task node updates & continuous node creation', () => {
-    it('updates task node status to READY and injects commit details, date, previous commit SHA, and diff instructions', () => {
+    it('updates task node status to READY and injects commit details, date, previous commit SHA, diff summary, and diff instructions', () => {
       const commitDetails = {
         sha: 'abcdef1234567890',
         message: 'feat(ui): add new party analyzer widget',
         date: '2026-08-15',
-        files: ['src/components/PartyAnalyzer.tsx']
+        files: ['src/components/PartyAnalyzer.tsx'],
+        diffStat: '1 file changed, 25 insertions(+)'
       };
       const classification = {
         action: 'dispatch' as const,
@@ -204,6 +226,9 @@ describe('changelog-engine', () => {
       expect(parsed.content).toContain('abcdef1234567890');
       expect(parsed.content).toContain('1234567890abcdef');
       expect(parsed.content).toContain('2026-08-15');
+      expect(parsed.content).toContain('## Diff Summary');
+      expect(parsed.content).toContain('1 file changed, 25 insertions(+)');
+      expect(parsed.content).toContain('git show abcdef1234567890');
       expect(parsed.content).toContain('diff link comparing previous release commit SHA to new release commit SHA');
       expect(parsed.content).toContain('feat(ui): add new party analyzer widget');
     });
