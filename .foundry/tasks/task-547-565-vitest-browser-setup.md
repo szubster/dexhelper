@@ -26,6 +26,6 @@ locks: []
 Configure Vitest for browser mode testing.
 
 ## Acceptance Criteria
-- [ ] Install necessary dependencies.
-- [ ] Configure `vitest.config.ts`.
-- [ ] Add basic test to confirm setup.
+- [x] Install necessary dependencies.
+- [x] Configure `vitest.config.ts`.
+- [x] Add basic test to confirm setup.
