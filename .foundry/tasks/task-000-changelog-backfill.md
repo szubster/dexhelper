@@ -2,7 +2,7 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-09-11'
@@ -26,32 +26,26 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `49dc139a6eeac048840a8a8f543822a94ccc8cb4`
-- **Previous Commit SHA:** `5dc74ecb97f2ce7914bd98ab158ff1efbd351816`
+- **Commit SHA:** `a8bd4639d4c7702841582f812eefe73421ec2bd5`
+- **Previous Commit SHA:** `94c083b36583c0b00531233b988d0840eb9d5f6e`
 - **Commit Date:** `2026-03-15`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `minor` (from `0.7.0` -> `0.8.0`)
+- **Suggested SemVer Bump:** `minor` (from `0.8.0` -> `0.9.0`)
 
 ## Commit Message
 ```text
-feat: Implement PWA functionality with a custom service worker and integrate React Query.
+feat: Implement initial Pokedex application with save file parsing and UI, removing unused dependencies.
 ```
 
 ## Modified Files
-- `index.html`
 - `package-lock.json`
 - `package.json`
-- `public/icon-192.png`
-- `public/icon-512.png`
-- `public/icon-96.png`
-- `public/manifest.json`
-- `public/sw.js`
-- `src/main.tsx`
-- `vite.config.ts`
+- `src/App.tsx`
+- `src/components/AIChat.tsx`
 
 ## Evaluation Instructions
 As Changelogger, inspect the commit changes above.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.8.0] - 2026-03-15` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.7.0...0.8.0`](https://github.com/${repo}/compare/5dc74ec...49dc139)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.9.0] - 2026-03-15` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.8.0...0.9.0`](https://github.com/${repo}/compare/94c083b...a8bd463)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
