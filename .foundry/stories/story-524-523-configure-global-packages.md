@@ -2,10 +2,10 @@
 id: story-524-523-configure-global-packages
 type: STORY
 title: Configure Global Packages
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-07'
+updated_at: '2026-09-09'
 depends_on:
   - story-524-522-configure-workspace
 jules_session_id: null
@@ -29,6 +29,6 @@ locks: []
 
 ## Acceptance Criteria
 - [x] Break this story down into tasks for configuring global packages and tsconfig.
-- [ ] task-523-553-scaffold-config-package
-- [ ] task-523-554-scaffold-tsconfig-base
-- [ ] task-523-555-workspace-config-qa
+- [x] task-523-553-scaffold-config-package
+- [x] task-523-554-scaffold-tsconfig-base
+- [x] task-523-555-workspace-config-qa
