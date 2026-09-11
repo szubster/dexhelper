@@ -2,13 +2,13 @@
 id: story-534-536-propose-acceptance-criteria-alternatives
 type: STORY
 title: Propose Acceptance Criteria Alternatives
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on:
   - research-534-517-audit-acceptance-criteria
-jules_session_id: '2516269691498682845'
+jules_session_id: null
 pr_number: null
 parent: epic-520-534-acceptance-criteria-research
 tags:

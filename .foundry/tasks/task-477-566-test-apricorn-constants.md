@@ -2,10 +2,10 @@
 id: task-477-566-test-apricorn-constants
 type: TASK
 title: Test Kurt Apricorn Constants and Extraction
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on:
   - task-477-565-define-apricorn-constants
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-421-507-gen3-active-party-matchup-integration-impl
 type: TASK
 title: Integrate Gen 3 Active Party into MatchupContext
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-11'
 depends_on:
   - task-421-460-matchup-context-state-layer-impl
   - research-421-506-gen3-active-party-matchup-failure

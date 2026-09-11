@@ -2,12 +2,12 @@
 id: idea-517-gen2-radio-password-tracker
 type: IDEA
 title: Gen 2 Buena's Password Tracker & Alert System
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-04'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: '2293656932934940830'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

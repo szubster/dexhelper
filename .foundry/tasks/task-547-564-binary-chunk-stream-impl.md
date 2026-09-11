@@ -2,10 +2,10 @@
 id: task-547-564-binary-chunk-stream-impl
 type: TASK
 title: Implement Binary Chunk Stream Generators
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,10 +2,10 @@
 id: task-359-440-gen3-trainer-card-parsing-e2e-impl
 type: TASK
 title: Gen 3 Trainer Card E2E Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-05'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on: []
 jules_session_id: '10598392317734124158'
 pr_number: null

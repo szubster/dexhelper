@@ -2,13 +2,12 @@
 id: epic-521-552-wild-item-data-engine
 type: EPIC
 title: Wild Item Data Engine
-status: PENDING
+status: READY
 owner_persona: story_owner
-created_at: "2026-08-15"
-updated_at: "2026-08-15"
+created_at: '2026-08-15'
+updated_at: '2026-09-11'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: prd-150-521-wild-held-item-hunting-assistant
 tags:
@@ -17,8 +16,9 @@ tags:
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Epic: Wild Item Data Engine
