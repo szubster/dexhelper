@@ -2,12 +2,12 @@
 id: task-547-562-tanstack-query-core-logic
 type: TASK
 title: TanStack Query Core Logic Optimization
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-08'
 updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3896207935752485152'
 pr_number: null
 parent: story-538-547-tanstack-query-and-vitest
 tags:
