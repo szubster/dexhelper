@@ -2,12 +2,12 @@
 id: task-546-564-gen3-parser-generators
 type: TASK
 title: Refactor Gen 3 Save Parsers to TypeScript Generators
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-05'
 updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5034205565967088742'
 pr_number: null
 parent: story-537-546-generator-save-file-parsers
 tags:
