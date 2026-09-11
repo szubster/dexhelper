@@ -26,4 +26,7 @@ locks: []
 Add a UI control (e.g., a toggle switch or button) to the `/dag` dashboard to enable/disable the Health Heatmap overlay.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into Task nodes.
+- [x] Tech Lead: Break this Story down into Task nodes.
+- [ ] task-556-001-heatmap-toggle-context
+- [ ] task-556-002-heatmap-toggle-ui
+- [ ] task-556-003-heatmap-qa
