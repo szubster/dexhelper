@@ -2,13 +2,12 @@
 id: task-536-562-gen3-berry-parsing-logic
 type: TASK
 title: Implement Gen 3 Berry Tracker DataView Parsing Logic
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-09-04"
-updated_at: "2026-09-04"
+created_at: '2026-09-04'
+updated_at: '2026-09-11'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-513-536-gen3-berry-dataview-parsing
 tags:
@@ -18,8 +17,9 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/gen3_berry_patch_offsets.md
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Implement Gen 3 Berry Tracker DataView Parsing Logic

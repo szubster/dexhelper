@@ -2,10 +2,10 @@
 id: task-526-562-bash-static-analysis-linter-impl
 type: TASK
 title: Implement Static Analysis Linter for Bash
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on: []
 jules_session_id: null
 pr_number: null

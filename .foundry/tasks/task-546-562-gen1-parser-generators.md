@@ -2,13 +2,12 @@
 id: task-546-562-gen1-parser-generators
 type: TASK
 title: Refactor Gen 1 Save Parsers to TypeScript Generators
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-11'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-537-546-generator-save-file-parsers
 tags:
@@ -19,8 +18,9 @@ tags:
   - performance
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Refactor Gen 1 Save Parsers to TypeScript Generators

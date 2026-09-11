@@ -2,13 +2,12 @@
 id: research-520-535-gen3-fossil-offsets
 type: RESEARCH
 title: Gen 3 Fossil Revival Offset Discovery
-status: PENDING
+status: READY
 owner_persona: researcher
-created_at: "2026-09-04"
-updated_at: "2026-09-04"
+created_at: '2026-09-04'
+updated_at: '2026-09-11'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: prd-422-520-gen3-fossil-revival-tracker
 tags:
@@ -16,8 +15,9 @@ tags:
   - research
   - dexhelper
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Gen 3 Fossil Revival Offset Discovery
