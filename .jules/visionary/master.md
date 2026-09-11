@@ -1,3 +1,14 @@
+<!-- Merged from 2026-09-11-visionary-session.md -->
+# Visionary Journal - $(date +%Y-%m-%d)
+
+## Session Overview
+- Task: Generate ONE high-quality, actionable `IDEA` node.
+
+## Critical Learnings & Strategic Insights
+- **Domain:** Main Project (DexHelper)
+- **Proposed Idea:** Gen 2 Ruins of Alph Puzzle Tracker (IDEA-521)
+- **Rationale & Concept:** Implements tracking for the four slide puzzles and secret chambers in the Gen 2 Ruins of Alph. These puzzles and secret rooms require specific HMs and items (Escape Rope, Flash, Water Stone, Ho-Oh in party) which players often forget. By reading event flags, the app can show which rooms are unlocked and hint at the remaining secret chambers.
+- **Strategic Balance:** In the previous session, IDEA-517 (Automated Orphan Node Garbage Collection) was proposed as a pipeline/orchestrator improvement. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a high-value product feature for DexHelper.
 # Visionary Journal
 
 - **Active Session ID:** 13048993490522208946
