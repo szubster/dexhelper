@@ -79,6 +79,21 @@ import {
 import { parseGen3Daycare } from '../gen3/daycare/parser';
 import { parseGen3EventItems } from '../gen3/inventory/parser';
 import { parseGen3NarrativeFlags } from '../gen3/narrative/parser';
+import {
+  FLAG_BATTLE_FRONTIER_TRADE_DONE,
+  FLAG_DID_CH_DING_TRADE,
+  FLAG_DID_ESPHERE_TRADE,
+  FLAG_DID_MARC_TRADE,
+  FLAG_DID_MIMIEN_TRADE,
+  FLAG_DID_MS_NIDO_TRADE,
+  FLAG_DID_NINA_TRADE,
+  FLAG_DID_SEELOR_TRADE,
+  FLAG_DID_TANGENY_TRADE,
+  FLAG_DID_ZYNX_TRADE,
+  FLAG_FORTREE_NPC_TRADE_COMPLETED,
+  FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED,
+  FLAG_RUSTBORO_NPC_TRADE_COMPLETED,
+} from '../gen3/npcTrades/constants';
 import { parseGen3Pokeblocks } from '../gen3/pokeblock/parser';
 import { parseGen3Pokedex } from '../gen3/pokedex/parser';
 import { parseGen3TrainerDefeatFlags, parseGen3TrainerRematchFlags } from '../gen3/trainerFlags/parser';
@@ -461,23 +476,6 @@ export const FRLG_MOVE_TUTOR_BYTE_1_OFFSET = 0x58;
 export const FRLG_MOVE_TUTOR_BYTE_2_OFFSET = 0x59;
 export const FRLG_MOVE_TUTOR_BYTE_3_OFFSET = 0x5b;
 export const FRLG_MOVE_TUTOR_BYTE_4_OFFSET = 0x5c;
-
-// NPC Trade Flags (RSE)
-const FLAG_RUSTBORO_NPC_TRADE_COMPLETED = 0x99;
-const FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED = 0x9a;
-const FLAG_FORTREE_NPC_TRADE_COMPLETED = 0x9b;
-const FLAG_BATTLE_FRONTIER_TRADE_DONE = 0x9c; // Emerald Only
-
-// NPC Trade Flags (FRLG)
-const FLAG_DID_MIMIEN_TRADE = 0x248;
-const FLAG_DID_ZYNX_TRADE = 0x24a;
-const FLAG_DID_MS_NIDO_TRADE = 0x24b;
-const FLAG_DID_CH_DING_TRADE = 0x24d;
-const FLAG_DID_NINA_TRADE = 0x251;
-const FLAG_DID_MARC_TRADE = 0x257;
-const FLAG_DID_ESPHERE_TRADE = 0x274;
-const FLAG_DID_TANGENY_TRADE = 0x275;
-const FLAG_DID_SEELOR_TRADE = 0x276;
 
 const FLAG_BYTE_SHIFT = 3;
 const FLAG_BIT_MASK = 7;
