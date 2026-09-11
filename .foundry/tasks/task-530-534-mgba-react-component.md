@@ -27,7 +27,7 @@ locks: []
 Build a React component that hosts the HTML5 canvas for the mGBA emulator. It should consume the initialization logic created in the previous task. Ensure it integrates properly into the application's view hierarchy.
 
 ## Acceptance Criteria
-- [ ] Create a React component with a canvas element for mGBA.
-- [ ] Integrate WASM initialization and configuration logic.
-- [ ] Add basic UI controls (e.g. pause, resume) as required by aesthetic guidelines (ADR 008).
-- [ ] Ensure the component is correctly rendered and integrated in the app hierarchy.
+- [x] Create a React component with a canvas element for mGBA.
+- [x] Integrate WASM initialization and configuration logic.
+- [x] Add basic UI controls (e.g. pause, resume) as required by aesthetic guidelines (ADR 008).
+- [x] Ensure the component is correctly rendered and integrated in the app hierarchy.
