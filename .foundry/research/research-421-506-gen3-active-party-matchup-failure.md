@@ -5,18 +5,19 @@ title: Investigate Gen 3 Active Party Matchup Integration Failure
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: '1394888087037226053'
+jules_session_id: '17432580219522741886'
 pr_number: null
 parent: story-411-421-active-party-extraction
 tags:
   - root-cause-analysis
   - gen3
   - integration
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Investigate Gen 3 Active Party Matchup Integration Failure

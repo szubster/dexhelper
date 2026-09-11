@@ -2,12 +2,12 @@
 id: idea-488-autonomous-execution-enforcement
 type: IDEA
 title: Implement Automated Detection of Autonomous Execution Violations
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-03'
 updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: '4084062707137488109'
+jules_session_id: null
 pr_number: null
 parent: null
 tags: []
@@ -30,7 +30,9 @@ Implement an automated monitoring system or git hook that scans session transcri
 - Improves overall pipeline throughput and agent autonomy.
 
 ## Acceptance Criteria
-- [ ] prd-488-519-autonomous-execution-enforcement
+- [x] prd-488-519-autonomous-execution-enforcement
+- [ ] research-488-562-autonomous-violation-detection
+- [ ] prd-488-563-autonomous-violation-detection
 
 ## Research Considerations
 - Investigate the available Jules API endpoints to determine if this monitoring can be done programmatically within the orchestrator.

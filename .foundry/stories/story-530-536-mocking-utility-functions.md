@@ -25,4 +25,5 @@ notes: ''
 The QA and coder personas need a centralized utility module (`tests/e2e/mock-utils.ts`) for Playwright to mock complex native browser APIs like `window.showOpenFilePicker`, `mockFileSystemAccess`, and `mockOfflineState`. This reduces boilerplate and flakiness.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-536-562-implement-mocking-utilities

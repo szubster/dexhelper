@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-08-23'
 updated_at: '2026-08-23'
 depends_on:
-  - task-429-473-generate-gen-specific-bundles
+  - task-429-553-generate-gen-specific-bundles
 jules_session_id: null
 pr_number: null
 parent: story-400-429-gen-specific-extensions
