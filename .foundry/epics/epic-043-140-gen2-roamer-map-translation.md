@@ -30,6 +30,9 @@ Translate the raw `mapGroup` and `mapId` bytes extracted from the Gen 2 save fil
 - Ensure the translation logic leverages existing `gen2Graph.ts` mapping structures or creates specific lookup tables if necessary.
 
 ## Acceptance Criteria
+- [ ] story-140-562-gen2-roamer-map-lookup-table
+- [ ] story-140-563-gen2-roamer-translation-logic
+- [ ] story-140-564-gen2-roamer-translation-integration
 - [ ] Gen 2 raw map coordinates for roamers are translated into human-readable route names.
 - [ ] Fallback logic is present if a map coordinate cannot be translated (e.g., "Unknown Location").
-- [ ] Story Owner: Break down this Epic into executable Stories.
+- [x] Story Owner: Break down this Epic into executable Stories.
