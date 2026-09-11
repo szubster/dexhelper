@@ -1,11 +1,11 @@
 ---
 id: task-536-562-playwright-style-guide-locator-or
 type: TASK
-title: "Document locator.or() Strict Mode"
-status: PENDING
+title: Document locator.or() Strict Mode
+status: READY
 owner_persona: coder
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-09-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,9 @@ tags:
   - documentation
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # TASK: Document locator.or() Strict Mode

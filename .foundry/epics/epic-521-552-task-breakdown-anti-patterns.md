@@ -1,16 +1,18 @@
 ---
 id: epic-521-552-task-breakdown-anti-patterns
 type: EPIC
-title: "Encourage Modular Task Breakdowns for Tech Leads"
-status: PENDING
-owner_persona: "story_owner"
-created_at: "2026-09-04"
-updated_at: "2026-09-04"
+title: Encourage Modular Task Breakdowns for Tech Leads
+status: READY
+owner_persona: story_owner
+created_at: '2026-09-04'
+updated_at: '2026-09-11'
 depends_on: []
 jules_session_id: null
 parent: prd-420-521-enforce-task-breakdown-anti-patterns
 tags: []
-notes: "Generated from prd-420-521-enforce-task-breakdown-anti-patterns"
+notes: Generated from prd-420-521-enforce-task-breakdown-anti-patterns
+locks: []
+rejection_reason: ''
 ---
 
 # EPIC: Encourage Modular Task Breakdowns for Tech Leads

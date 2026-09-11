@@ -2,10 +2,10 @@
 id: story-078-558-rs-battle-tower-data-parsing
 type: STORY
 title: Ruby/Sapphire Battle Tower Data Parsing
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-08'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on:
   - research-078-150-rs-battle-tower-data
 jules_session_id: null
@@ -20,6 +20,7 @@ research_references:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Ruby/Sapphire Battle Tower Data Parsing

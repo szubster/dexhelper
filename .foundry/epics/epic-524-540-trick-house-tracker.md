@@ -2,12 +2,12 @@
 id: epic-524-540-trick-house-tracker
 type: EPIC
 title: Gen 3 Trick House Tracker Dashboard
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-05'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: '14277147870723565749'
+jules_session_id: null
 pr_number: null
 parent: prd-155-524-trick-house-tracker
 tags:

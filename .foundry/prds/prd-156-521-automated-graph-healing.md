@@ -2,12 +2,12 @@
 id: prd-156-521-automated-graph-healing
 type: PRD
 title: PRD Automated Graph Healing for BLOCKED Nodes
-status: ACTIVE
-owner_persona: epic_planner
+status: PENDING
+owner_persona: auditor
 created_at: '2026-08-19'
-updated_at: '2026-09-07'
+updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: '2792124765040931390'
+jules_session_id: null
 pr_number: null
 parent: idea-156-automated-graph-healing
 tags:
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # PRD: Automated Graph Healing for BLOCKED Nodes
