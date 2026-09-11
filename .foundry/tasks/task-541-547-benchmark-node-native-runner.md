@@ -2,13 +2,13 @@
 id: task-541-547-benchmark-node-native-runner
 type: TASK
 title: Implement Node.js Native Execution Core Runner
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-05'
 updated_at: '2026-09-11'
 depends_on:
   - task-541-546-benchmark-node-native-harness
-jules_session_id: null
+jules_session_id: '10114977174156435074'
 pr_number: null
 parent: story-536-541-benchmarking-node-native-execution
 tags: []
