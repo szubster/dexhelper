@@ -2,12 +2,12 @@
 id: research-473-564-investigate-wallpaper-generator-failure
 type: RESEARCH
 title: Investigate Gen 3 Wallpaper Phrase Generator Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-08'
 updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4794597553903523285'
 parent: story-335-473-gen3-wallpaper-phrase-generator
 tags:
   - gen3
