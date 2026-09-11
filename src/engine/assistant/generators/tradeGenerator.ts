@@ -124,6 +124,22 @@ export function generateGiftAndTradeSuggestions(
       }
       if (hasPhysicalPreEvo) continue;
 
+      let hasPhysicalPostEvoToBreed = false;
+      if (saveData.generation >= 2 && p?.eto && p.eto.length > 0) {
+        const stack = [...p.eto];
+        while (stack.length > 0) {
+          const evo = stack.pop();
+          if (evo && instancesBySpecies.has(evo.id)) {
+            hasPhysicalPostEvoToBreed = true;
+            break;
+          }
+          if (evo?.eto && evo.eto.length > 0) {
+            stack.push(...evo.eto);
+          }
+        }
+      }
+      if (hasPhysicalPostEvoToBreed) continue;
+
       suggestions.push({
         id: `exclusive-${pid}`,
         category: 'Trade',

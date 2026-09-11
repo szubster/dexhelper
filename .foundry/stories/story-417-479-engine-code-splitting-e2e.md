@@ -2,10 +2,10 @@
 id: story-417-479-engine-code-splitting-e2e
 type: STORY
 title: Integration and E2E Verification for engine code splitting
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-06'
+updated_at: '2026-09-11'
 depends_on:
   - story-417-478-assistant-code-splitting
 jules_session_id: null
@@ -25,5 +25,5 @@ Ensure that the dynamic imports for save parsing and assistant strategies work c
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-479-528-engine-code-splitting-e2e-impl
-- [ ] task-479-529-engine-code-splitting-e2e-qa
+- [x] task-479-528-engine-code-splitting-e2e-impl
+- [x] task-479-529-engine-code-splitting-e2e-qa

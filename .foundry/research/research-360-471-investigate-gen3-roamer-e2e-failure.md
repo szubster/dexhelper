@@ -5,9 +5,9 @@ title: Investigate Gen 3 Roamer E2E Test Failure
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-08-25'
-updated_at: '2026-09-02'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '15814508078523443187'
+jules_session_id: '6214472823306408050'
 pr_number: null
 parent: story-397-360-gen3-roamer-integration-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - e2e
   - research
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

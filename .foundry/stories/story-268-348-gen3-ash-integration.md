@@ -5,7 +5,7 @@ title: 'Story: Gen 3 Volcanic Ash Integration & View'
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-29'
-updated_at: '2026-09-01'
+updated_at: '2026-09-08'
 depends_on:
   - story-268-331-gen3-ash-dataview-extraction-relative
 jules_session_id: null
@@ -20,6 +20,7 @@ research_references:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Story: Gen 3 Volcanic Ash Integration & View
