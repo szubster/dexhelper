@@ -34,4 +34,8 @@ Initialize the Cloudflare Worker project and implement Google Drive OAuth/Servic
 ## Acceptance Criteria
 - [ ] Initialize Cloudflare Worker.
 - [ ] Implement Google Drive API authentication.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-526-564-drive-auth-env-setup
+- [ ] task-526-565-drive-auth-worker-logic
+- [ ] task-526-566-drive-auth-tests
+- [ ] task-526-567-drive-auth-qa
