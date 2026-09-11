@@ -135,3 +135,7 @@ The user requested to pick ONE module and improve its documentation (JSDoc, inli
 ### Gen 3 Checksum Architecture
 * **Observation:** Gen 3 save files are not verified via a single contiguous block checksum in `parseSaveFile` like Gen 1 or 2.
 * **Resolution:** Gen 3 uses a complex A/B flash bank system with multiple checksums per sector. Therefore, its initial detection heavily relies on the structural fallback path (scanning for signatures across sections) rather than the primary checksum block.Scribe constraints: Avoid adding redundant JSDoc comments that simply restate logic. Focus purely on architectural 'why' (e.g., explaining why Feebas seeds use LCG or why map spot IDs require translation to 2D coordinates for UI heatmaps) to satisfy strict Scribe documentation policies.
+
+## Session: Documenting Gen 3 Pokemon Data Decryption
+- Observation: When using `replace_with_git_merge_diff`, it is absolutely critical that the search block exactly matches the text currently in the file. During this session, attempting to match `OTID` in a JSDoc string when the file actually contained `OT ID` caused the patch to fail.
+- Rule: Always copy the target search block verbatim (e.g. by using `sed` or `grep` to extract it first) before generating the git merge diff to avoid applying patch failures.
