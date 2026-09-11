@@ -37,6 +37,7 @@ import {
   FLAG_RECEIVED_TM_TORMENT,
   FLAG_RECEIVED_TM_WATER_PULSE,
 } from '../gen3/tmFlags/constants';
+
 /**
  * @module gen3Parser
  *
@@ -68,6 +69,7 @@ import {
   parseGen3BattlePoints,
   parseGen3TotalBattlePoints,
 } from '../gen3/battleFrontier/parser';
+import { parseGen3BerryTrees } from '../gen3/berry/parser';
 import {
   CONDITION_BEAUTY_OFFSET,
   CONDITION_COOL_OFFSET,
@@ -88,7 +90,6 @@ import type {
   Gen3ActiveSwarm,
   Gen3BattleFrontierSymbols,
   Gen3BattleFrontierWinStreaks,
-  Gen3BerryPatch,
   Gen3MoveTutors,
   Gen3Ribbons,
   Gen3RoamerData,
@@ -104,27 +105,15 @@ const SIGNATURE = 0x08012025;
 const SIGNATURE_OFFSET = 0x0ff8;
 const SECTION_ID_OFFSET = 0x0ff4;
 const SAVE_INDEX_OFFSET = 0x0ffc;
-const BERRY_STAGE_OFFSET = 0x01;
-const BERRY_MINUTES_OFFSET = 0x02;
-const BERRY_YIELD_OFFSET = 0x04;
-const BERRY_WATERED_OFFSET = 0x05;
 
 // Berry patches use bitwise flags to cram status data into single bytes.
 // Byte 1 stores the growth stage (bits 0-6) and whether growth has stopped (bit 7).
-const BERRY_STAGE_MASK = 0x7f;
-const BERRY_STOP_GROWTH_MASK = 0x80;
 // Byte 5 stores the watering history (bits 4-7) and the number of times it has regrown (bits 0-3).
-const BERRY_REGROWTH_MASK = 0x0f;
-const BERRY_WATERED_1_MASK = 0x10;
-const BERRY_WATERED_2_MASK = 0x20;
-const BERRY_WATERED_3_MASK = 0x40;
-const BERRY_WATERED_4_MASK = 0x80;
 const NIBBLE_MASK = 0x0f;
 
 const HIDDEN_ITEM_FLAGS_OFFSET = 0x3e;
 
 const SECTION_SIZE = 4096;
-const GEN3_BERRY_PATCH_OFFSET = 0x071c;
 const GEN3_FLAGS_SECTION2_OFFSET = 0x02f0;
 const MIRAGE_ISLAND_OFFSET_EMERALD = 0x0464;
 const MIRAGE_ISLAND_OFFSET_RS = 0x0408;
@@ -628,68 +617,6 @@ function getLatestSectionOffset(view: DataView, targetSectionId: number): number
  * @param view - The raw save file DataView.
  * @returns True if the structure looks like a valid Gen 3 save.
  */
-
-/**
- * Extracts the status and growth data of all 128 Berry Patches in Hoenn.
- *
- * **Binary Data Structure:**
- * Each berry patch is represented by an 8-byte structure starting at offset `0x071c` within SaveBlock1.
- * - `Byte 0`: Berry ID (which berry is planted).
- * - `Byte 1`: Growth stage (bits 0-6) and a flag indicating if growth has stopped (bit 7).
- * - `Bytes 2-3`: A 16-bit little-endian integer tracking minutes until the next growth stage.
- * - `Byte 4`: Berry yield (how many berries can be picked).
- * - `Byte 5`: A packed bitfield tracking watering history across the 4 growth stages,
- *             plus the number of times the patch has regrown without being picked (lower 4 bits).
- * - `Bytes 6-7`: Unused padding.
- *
- * @param view - The raw save file DataView.
- * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
- * @returns An array of parsed `Gen3BerryPatch` objects representing the state of all 128 patches.
- * @throws RangeError if the read goes out of bounds.
- */
-function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
-  const patches: Gen3BerryPatch[] = [];
-  const baseOffset = saveBlock1Offset + GEN3_BERRY_PATCH_OFFSET;
-
-  for (let i = 0; i < 128; i++) {
-    const offset = baseOffset + i * 8;
-    try {
-      const berryId = view.getUint8(offset);
-      const stageByte = view.getUint8(offset + BERRY_STAGE_OFFSET);
-      const stage = stageByte & BERRY_STAGE_MASK;
-      const stopGrowth = (stageByte & BERRY_STOP_GROWTH_MASK) !== 0;
-
-      const minutesUntilNextStage = view.getUint16(offset + BERRY_MINUTES_OFFSET, true);
-      const berryYield = view.getUint8(offset + BERRY_YIELD_OFFSET);
-
-      const wateredByte = view.getUint8(offset + BERRY_WATERED_OFFSET);
-      const regrowthCount = wateredByte & BERRY_REGROWTH_MASK;
-      const watered1 = (wateredByte & BERRY_WATERED_1_MASK) !== 0;
-      const watered2 = (wateredByte & BERRY_WATERED_2_MASK) !== 0;
-      const watered3 = (wateredByte & BERRY_WATERED_3_MASK) !== 0;
-      const watered4 = (wateredByte & BERRY_WATERED_4_MASK) !== 0;
-
-      patches.push({
-        berryId,
-        stage,
-        stopGrowth,
-        minutesUntilNextStage,
-        berryYield,
-        regrowthCount,
-        watered1,
-        watered2,
-        watered3,
-        watered4,
-      });
-    } catch (e) {
-      if (e instanceof RangeError) {
-        throw new RangeError('Out of bounds reading berry patches');
-      }
-      throw e;
-    }
-  }
-  return patches;
-}
 
 /**
  * Performs a structural check to verify if the binary data is a valid Generation 3 save.
@@ -1679,7 +1606,14 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       section3Offset = -1;
     }
 
-    const gen3BerryPatches = extractBerryPatches(view, section1Offset);
+    const gen3BerryPatches = parseGen3BerryTrees(view, section1Offset).map((t) => ({
+      ...t,
+      stopGrowth: !!t.stopGrowth,
+      watered1: !!t.watered1,
+      watered2: !!t.watered2,
+      watered3: !!t.watered3,
+      watered4: !!t.watered4,
+    }));
     const gen3SecretBases = parseGen3SecretBases(view, section1Offset, _forcedVersion || 'ruby');
     const gen3StaticEncounters = extractGen3StaticEncounterFlags(view, _forcedVersion || 'ruby', section1Offset);
 
