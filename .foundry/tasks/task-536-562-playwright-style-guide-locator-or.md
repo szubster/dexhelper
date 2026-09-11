@@ -2,12 +2,12 @@
 id: task-536-562-playwright-style-guide-locator-or
 type: TASK
 title: Document locator.or() Strict Mode
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-07'
 updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10530698656887357690'
 pr_number: null
 parent: story-531-536-write-playwright-style-guide
 tags:
