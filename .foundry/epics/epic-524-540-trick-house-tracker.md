@@ -45,5 +45,8 @@ The Trick House is a recurring side-quest in Generation 3 games (Ruby, Sapphire,
 - Integration and E2E Verification.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down into implementation stories for parsing and UI.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Story Owner: Break down into implementation stories for parsing and UI.
+- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-540-558-trick-house-save-parsing
+- [ ] story-540-559-trick-house-ui
+- [ ] story-540-560-trick-house-e2e
