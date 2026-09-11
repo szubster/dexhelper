@@ -24,8 +24,12 @@ tags:
 Implement robust DataView-based parsing logic for Gen 3 berry patch data, reading from SaveBlock1 at offset 0x169C. The array consists of 128 BerryTree structs (8 bytes each).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
 - [ ] Implement `DataView` parsing logic to iterate 128 times (8 bytes each) at offset 0x169C in SaveBlock1.
 - [ ] Add bounds checking (catch `RangeError`) to prevent silent failures on out-of-bounds reads.
 - [ ] Extract berry ID, growth stage (bits 0-6 at offset 0x01), stopGrowth flag (bit 7), minutesUntilNextStage, berryYield, and watered flags.
 - [ ] Map the berry tree array index to its hardcoded map location (e.g., route, city).
+
+- [ ] task-536-562-gen3-berry-parsing-logic
+- [ ] task-536-563-gen3-berry-map-location
+- [ ] task-536-564-gen3-berry-parsing-tests
