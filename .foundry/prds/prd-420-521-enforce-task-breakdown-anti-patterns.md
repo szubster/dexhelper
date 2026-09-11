@@ -26,3 +26,4 @@ The Tech Lead often falls into the trap of blindly splitting a story into exactl
 ## Acceptance Criteria
 - [ ] Implement `.foundry/docs/knowledge_base/agents/task_breakdown.md` policy.
 - [ ] Implement automated complexity validation for STORY to TASK breakdown that encourages, but does not strictly enforce, modularity.
+- [ ] epic-521-552-task-breakdown-anti-patterns
