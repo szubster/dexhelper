@@ -2,7 +2,7 @@
 id: research-414-504-bike-badges-integration-failure
 type: RESEARCH
 title: Investigate Bike Badges UI Integration Failure
-status: PENDING
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-08-31'
 updated_at: '2026-09-11'
@@ -33,4 +33,4 @@ The task `task-414-423-map-ui-bike-integration-impl` failed permanently. We need
 ## Acceptance Criteria
 - [x] Investigate the root cause of the previous integration failure.
 - [x] Provide clear, actionable technical instructions for the implementation task.
-- [ ] task-504-562-map-ui-bike-test-fix
+- [x] task-504-562-map-ui-bike-test-fix
