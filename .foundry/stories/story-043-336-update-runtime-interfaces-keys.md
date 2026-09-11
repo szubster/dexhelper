@@ -2,12 +2,12 @@
 id: story-043-336-update-runtime-interfaces-keys
 type: STORY
 title: Update Runtime Interfaces to Verbose Keys
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-21'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4511290988511264512'
 pr_number: null
 parent: epic-032-043-runtime-interfaces-keys
 tags:

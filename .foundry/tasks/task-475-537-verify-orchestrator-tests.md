@@ -2,12 +2,12 @@
 id: task-475-537-verify-orchestrator-tests
 type: TASK
 title: Verify DAG Orchestrator Test Suite
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17427797413702316802'
 pr_number: null
 parent: story-334-475-prompt-rules-integration-e2e
 tags:
