@@ -35,6 +35,6 @@ Integrate the newly created `BikeBadge` into the `MapUI` and `RouteRadarControll
 - Update `MapUI.test.tsx` to verify the badge renders conditionally when the heatmap indicates a bike requirement.
 
 ## Acceptance Criteria
-- [ ] `MapUI.tsx` conditionally renders `BikeBadge` based on `RouteRadarHeatmap` bike requirement properties.
-- [ ] UI integration respects the tactical hardware aesthetic.
-- [ ] Unit tests in `MapUI.test.tsx` are updated and passing.
+- [x] `MapUI.tsx` conditionally renders `BikeBadge` based on `RouteRadarHeatmap` bike requirement properties.
+- [x] UI integration respects the tactical hardware aesthetic.
+- [x] Unit tests in `MapUI.test.tsx` are updated and passing.
