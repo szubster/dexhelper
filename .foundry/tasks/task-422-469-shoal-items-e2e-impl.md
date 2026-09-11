@@ -5,9 +5,9 @@ title: Implement Playwright E2E tests for Shoal Items Extraction
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-23'
-updated_at: '2026-09-02'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '15043378312290334202'
+jules_session_id: '965971347584361174'
 pr_number: null
 parent: story-411-422-shoal-items-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - e2e
   - playwright
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

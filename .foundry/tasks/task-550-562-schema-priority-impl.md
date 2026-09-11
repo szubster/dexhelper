@@ -2,7 +2,7 @@
 id: task-550-562-schema-priority-impl
 type: TASK
 title: Implement Priority Field in Schema
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-08'
 updated_at: '2026-09-08'
@@ -26,6 +26,6 @@ locks: []
 Update the Zod schema in `.github/scripts/schema.ts` to include an optional `priority` field. The `priority` field should be an integer (`z.number().int().optional()`). Update the `NodeFrontmatter` type and write tests in `.github/scripts/schema.test.ts` to ensure valid schemas with or without `priority` are accepted.
 
 ## Acceptance Criteria
-- [ ] Add `priority: z.number().int().optional()` to `NodeFrontmatterSchema` in `.github/scripts/schema.ts`.
-- [ ] Ensure tests pass and add a new test case validating the `priority` field in `.github/scripts/schema.test.ts`.
-- [ ] Self-verification: run `cd .github/scripts && pnpm install && npx vitest schema.test.ts` to verify tests pass.
+- [x] Add `priority: z.number().int().optional()` to `NodeFrontmatterSchema` in `.github/scripts/schema.ts`.
+- [x] Ensure tests pass and add a new test case validating the `priority` field in `.github/scripts/schema.test.ts`.
+- [x] Self-verification: run `cd .github/scripts && pnpm install && npx vitest schema.test.ts` to verify tests pass.

@@ -2,10 +2,10 @@
 id: task-478-508-gen2-ruins-of-alph-qa
 type: TASK
 title: QA Gen 2 Ruins of Alph Puzzle Parsing
-status: FAILED
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-31'
-updated_at: '2026-09-08'
+updated_at: '2026-09-09'
 depends_on:
   - task-478-507-gen2-ruins-of-alph-parsing-logic
 jules_session_id: null
@@ -14,8 +14,8 @@ tags:
   - feature
   - gen2
   - unown
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
+rejection_count: 1
+rejection_reason: ''
 locks: []
 ---
 
@@ -31,7 +31,7 @@ QA needs to verify the implementation of the Ruins of Alph puzzle event flag par
 - Run `pnpm lint && pnpm test` to ensure tests are passing and correctly cover the new logic.
 
 ## Acceptance Criteria
-- [ ] Verify no magic numbers are used in parsing.
-- [ ] Verify `RangeError` handling is present.
-- [ ] Verify bitwise mappings are explicitly defined.
-- [ ] Verify unit tests pass and adequately cover the logic.
+- [x] Verify no magic numbers are used in parsing.
+- [x] Verify `RangeError` handling is present.
+- [x] Verify bitwise mappings are explicitly defined.
+- [x] Verify unit tests pass and adequately cover the logic.
