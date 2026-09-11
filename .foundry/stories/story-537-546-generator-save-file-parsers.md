@@ -2,12 +2,12 @@
 id: story-537-546-generator-save-file-parsers
 type: STORY
 title: Generator Implementation for Save File Parsers
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8014083339452944635'
 pr_number: null
 parent: epic-518-537-generator-architecture
 tags:

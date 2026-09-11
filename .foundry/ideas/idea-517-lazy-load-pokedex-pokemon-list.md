@@ -2,15 +2,15 @@
 id: idea-517-lazy-load-pokedex-pokemon-list
 type: IDEA
 title: Lazy Load Pokedex Grid Items and Virtualization
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15297187965198923360'
 pr_number: null
 parent: null
-rejection_reason: ""
+rejection_reason: ''
 ---
 
 # Idea: Lazy Load Pokedex Grid Items and Virtualization

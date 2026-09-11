@@ -2,12 +2,12 @@
 id: story-517-536-gen3-weather-anomaly-data-parsing
 type: STORY
 title: Gen 3 Weather Anomaly Data Parsing Implementation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17431468909542087257'
 pr_number: null
 parent: epic-343-517-gen3-weather-anomaly-data
 tags:
