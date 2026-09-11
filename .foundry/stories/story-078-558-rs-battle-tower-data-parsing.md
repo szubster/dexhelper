@@ -2,13 +2,13 @@
 id: story-078-558-rs-battle-tower-data-parsing
 type: STORY
 title: Ruby/Sapphire Battle Tower Data Parsing
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-08'
 updated_at: '2026-09-11'
 depends_on:
   - research-078-150-rs-battle-tower-data
-jules_session_id: null
+jules_session_id: '7184228237724110027'
 pr_number: null
 parent: epic-046-078-gen3-battle-frontier-data-extraction
 tags:
