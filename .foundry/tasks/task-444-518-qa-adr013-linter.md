@@ -2,13 +2,13 @@
 id: task-444-518-qa-adr013-linter
 type: TASK
 title: QA ADR 013 State Compliance Linter
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-02T00:00:00.000Z'
 updated_at: '2026-09-07'
 depends_on:
   - task-444-517-implement-adr013-linter
-jules_session_id: '7548963950369687611'
+jules_session_id: null
 parent: story-417-444-adr-013-state-compliance-linter
 rejection_count: 0
 rejection_reason: ''

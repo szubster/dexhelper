@@ -1,15 +1,15 @@
 ---
 id: story-401-411-conflictless-journals-e2e-verification
 type: STORY
-title: "Integration and E2E Verification for Conflict-less Journals"
-status: PENDING
-owner_persona: "tech_lead"
-created_at: "2026-08-08"
-updated_at: "2026-08-08"
+title: Integration and E2E Verification for Conflict-less Journals
+status: COMPLETED
+owner_persona: tech_lead
+created_at: '2026-08-08'
+updated_at: '2026-09-09'
 depends_on:
   - story-401-409-tpm-journal-aggregation
   - story-401-410-update-downstream-journal-scripts
-jules_session_id: "5799943991093245774"
+jules_session_id: '5799943991093245774'
 pr_number: null
 parent: epic-335-401-implement-conflictless-journals-retry
 tags:
@@ -18,8 +18,9 @@ tags:
   - e2e
   - integration
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Integration and E2E Verification for Conflict-less Journals

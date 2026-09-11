@@ -82,3 +82,28 @@ export async function getSessionActivities(sessionId: string, julesKey: string):
     return [];
   }
 }
+
+export async function dispatchJulesSession(prompt: string, julesKey: string, githubRepo: string): Promise<string> {
+    const res = await fetch("https://jules.googleapis.com/v1alpha/sessions", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-Goog-Api-Key": julesKey
+        },
+        body: JSON.stringify({
+            agentContext: prompt,
+            environment: {
+                github: {
+                    repository: githubRepo
+                }
+            }
+        })
+    });
+
+    if (!res.ok) {
+        throw new Error(`Failed to dispatch Jules session: ${res.status}`);
+    }
+
+    const data = await res.json() as any;
+    return data.id;
+}

@@ -5,9 +5,9 @@ title: Gen 3 Trainer Card E2E Implementation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-05'
-updated_at: '2026-09-01'
+updated_at: '2026-09-08'
 depends_on: []
-jules_session_id: '4764716505448135370'
+jules_session_id: '10598392317734124158'
 pr_number: null
 parent: story-400-359-gen3-trainer-card-parsing-e2e
 tags:
@@ -15,9 +15,10 @@ tags:
   - integration
   - gen3
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Task: Gen 3 Trainer Card E2E Implementation
