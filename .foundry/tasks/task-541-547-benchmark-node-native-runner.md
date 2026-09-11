@@ -25,5 +25,5 @@ locks: []
 Implement the core logic for running the specific Node.js native execution benchmarks against the application's critical paths, utilizing the harness established previously.
 
 ## Acceptance Criteria
-- [ ] Write benchmark tests for critical execution paths (e.g. data processing, serialization).
-- [ ] Ensure benchmarks capture execution time and memory usage metrics accurately.
+- [x] Write benchmark tests for critical execution paths (e.g. data processing, serialization).
+- [x] Ensure benchmarks capture execution time and memory usage metrics accurately.
