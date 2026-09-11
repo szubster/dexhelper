@@ -33,5 +33,6 @@ Create the `BattleFrontierDashboard` UI component. It must adhere to the "tactic
 - [x] Apply tactical styling (ADR 008, ADR 024).
 - [x] story-079-116-battle-frontier-dashboard-ui
 - [x] story-079-252-battle-frontier-brain-progress-visuals
+- [ ] story-079-560-battle-frontier-dashboard-e2e
 
 Follow-up: idea-106-rs-battle-tower-dashboard-support
