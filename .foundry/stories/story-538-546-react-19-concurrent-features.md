@@ -26,5 +26,8 @@ locks: []
 Implement React 19 concurrent features within the frontend ecosystem, including the adoption of useTransition to improve perceived performance during state updates.
 
 ## Acceptance Criteria
-- [ ] Decompose into tasks for implementing useTransition and other React 19 concurrent features.
-- [ ] Create QA validation tasks if necessary.
+- [x] Decompose into tasks for implementing useTransition and other React 19 concurrent features.
+- [x] Create QA validation tasks if necessary.
+- [ ] task-546-562-usetransition-search-filters
+- [ ] task-546-563-usetransition-dag-context
+- [ ] task-546-564-qa-react-19-concurrent-features

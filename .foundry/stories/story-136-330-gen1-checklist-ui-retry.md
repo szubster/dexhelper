@@ -5,7 +5,7 @@ title: Gen 1 Checklist UI (Retry)
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-17'
-updated_at: '2026-08-26'
+updated_at: '2026-09-08'
 depends_on:
   - research-136-329-gen1-checklist-ui-failure
 jules_session_id: null
@@ -16,9 +16,10 @@ tags:
   - feature
   - ui
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Gen 1 Checklist UI (Retry)
