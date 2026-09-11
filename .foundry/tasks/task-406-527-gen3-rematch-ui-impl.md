@@ -35,6 +35,6 @@ Following the implementation of the parsing logic for Gen 3 NPC rematch statuses
 - Integrate the UI component into the existing Secret Base or Mixed Record viewer hierarchy.
 
 ## Acceptance Criteria
-- [ ] Implement the UI components for displaying rematch status.
-- [ ] Style the components according to ADR 008.
-- [ ] Write unit tests using `vitest-browser-react` for the UI component.
+- [x] Implement the UI components for displaying rematch status.
+- [x] Style the components according to ADR 008.
+- [x] Write unit tests using `vitest-browser-react` for the UI component.

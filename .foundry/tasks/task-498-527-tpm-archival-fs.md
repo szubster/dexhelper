@@ -2,13 +2,13 @@
 id: task-498-527-tpm-archival-fs
 type: TASK
 title: TPM Archival File System Operations
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-07'
+updated_at: '2026-09-10'
 depends_on:
   - task-498-526-tpm-aggregation-logic
-jules_session_id: '2516352241434258357'
+jules_session_id: null
 pr_number: null
 parent: story-406-498-tpm-aggregation-and-archival
 tags:
@@ -30,5 +30,5 @@ Implement file system operations for appending the summary to the EPIC and movin
 - Use `fs` operations to move processed child nodes (STORY and TASK) from `.foundry/stories/` and `.foundry/tasks/` to `.foundry/archive/stories/` and `.foundry/archive/tasks/`.
 
 ## Acceptance Criteria
-- [ ] Implement file system operations to append to the EPIC.
-- [ ] Implement file system operations to move child files to `.foundry/archive/`.
+- [x] Implement file system operations to append to the EPIC.
+- [x] Implement file system operations to move child files to `.foundry/archive/`.

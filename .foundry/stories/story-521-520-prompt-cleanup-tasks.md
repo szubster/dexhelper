@@ -2,12 +2,12 @@
 id: story-521-520-prompt-cleanup-tasks
 type: STORY
 title: Clean up Coder and QA Persona Prompts Tasks
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '15779456277784991839'
+jules_session_id: null
 pr_number: null
 parent: epic-517-521-centralize-prompt-reminders-cleanup
 tags:
@@ -27,4 +27,6 @@ locks: []
 Remove redundant Late Binding and failure handling policies from the \`.github/agents/coder.md\` and \`.github/agents/qa.md\` files. This information is already covered in \`core_policies.md\`, so removing it reduces prompt bloat and adheres to optimization rules.
 
 ## Acceptance Criteria
-- [ ] Create TASK nodes for coder and qa prompt cleanup.
+- [x] Create TASK nodes for coder and qa prompt cleanup.
+- [ ] task-520-549-coder-prompt-cleanup-coder
+- [ ] task-520-550-qa-prompt-cleanup-qa

@@ -32,4 +32,4 @@ This task fulfills the requirement of `story-334-475-prompt-rules-integration-e2
 - If any test fails (e.g., prompt parsing issues due to the recent additions), investigate and fix the orchestrator script or the prompt files to ensure compliance.
 
 ## Acceptance Criteria
-- [ ] The orchestrator test suite (`cd .github/scripts && npx vitest`) successfully executes and passes.
+- [x] The orchestrator test suite (`cd .github/scripts && npx vitest`) successfully executes and passes.
