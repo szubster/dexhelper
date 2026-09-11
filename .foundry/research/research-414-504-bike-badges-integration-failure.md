@@ -31,5 +31,6 @@ The task `task-414-423-map-ui-bike-integration-impl` failed permanently. We need
 3. Outline a reliable technical approach for the Coder to implement this.
 
 ## Acceptance Criteria
-- [ ] Investigate the root cause of the previous integration failure.
-- [ ] Provide clear, actionable technical instructions for the implementation task.
+- [x] Investigate the root cause of the previous integration failure.
+- [x] Provide clear, actionable technical instructions for the implementation task.
+- [ ] task-504-562-map-ui-bike-test-fix

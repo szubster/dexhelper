@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { STATIC_GIFT_DATA } from '../../data/gen1/assistantData';
 import {
+  BIT_FLAG,
+  BIT_INDEX_MASK,
+  BITS_PER_BYTE_SHIFT,
   GEN1_BOSS_EVENT_FLAGS,
   GEN1_TM_EVENT_FLAGS,
   getUpcomingGen1Boss,
@@ -23,10 +26,10 @@ describe('parseGen1NarrativeFlags', () => {
 
     const brockFlag = GEN1_BOSS_EVENT_FLAGS['EVENT_BEAT_BROCK'];
     if (brockFlag !== undefined) {
-      const byteIndex = brockFlag >> 3;
-      const bitIndex = brockFlag & 7;
+      const byteIndex = brockFlag >> BITS_PER_BYTE_SHIFT;
+      const bitIndex = brockFlag & BIT_INDEX_MASK;
       const current = eventFlags[byteIndex];
-      if (current !== undefined) eventFlags[byteIndex] = current | (1 << bitIndex);
+      if (current !== undefined) eventFlags[byteIndex] = current | (BIT_FLAG << bitIndex);
     }
 
     const claimed = parseGen1NarrativeFlags(eventFlags);
@@ -96,7 +99,7 @@ describe('parseGen1StaticEncounters', () => {
 
     // Filter gifts that are out of bounds and check that they return false
     const outOfBoundsGifts = Object.entries(STATIC_GIFT_DATA).filter(
-      ([, gift]) => gift.eventFlag !== undefined && gift.eventFlag >> 3 >= 10,
+      ([, gift]) => gift.eventFlag !== undefined && gift.eventFlag >> BITS_PER_BYTE_SHIFT >= 10,
     );
 
     const outOfBoundsClaimed = outOfBoundsGifts.map(([idStr]) => claimed[parseInt(idStr, 10)]);
@@ -109,20 +112,20 @@ describe('parseGen1StaticEncounters', () => {
     const mewtwoGift = STATIC_GIFT_DATA[150];
     if (mewtwoGift?.eventFlag) {
       const flagId = mewtwoGift.eventFlag;
-      const byteIndex = flagId >> 3;
-      const bitIndex = flagId & 7;
+      const byteIndex = flagId >> BITS_PER_BYTE_SHIFT;
+      const bitIndex = flagId & BIT_INDEX_MASK;
       const current = eventFlags[byteIndex];
-      if (current !== undefined) eventFlags[byteIndex] = current | (1 << bitIndex);
+      if (current !== undefined) eventFlags[byteIndex] = current | (BIT_FLAG << bitIndex);
     }
 
     // Let's fake setting the Snorlax flag (id: 143)
     const snorlaxGift = STATIC_GIFT_DATA[143];
     if (snorlaxGift?.eventFlag) {
       const flagId = snorlaxGift.eventFlag;
-      const byteIndex = flagId >> 3;
-      const bitIndex = flagId & 7;
+      const byteIndex = flagId >> BITS_PER_BYTE_SHIFT;
+      const bitIndex = flagId & BIT_INDEX_MASK;
       const current = eventFlags[byteIndex];
-      if (current !== undefined) eventFlags[byteIndex] = current | (1 << bitIndex);
+      if (current !== undefined) eventFlags[byteIndex] = current | (BIT_FLAG << bitIndex);
     }
 
     const claimed = parseGen1StaticEncounters(eventFlags);
@@ -149,7 +152,9 @@ describe('parseGen1TMFlags', () => {
     const claimed = parseGen1TMFlags(eventFlags);
 
     // Filter gifts that are out of bounds and check that they return false
-    const outOfBoundsGifts = Object.entries(GEN1_TM_EVENT_FLAGS).filter(([, flag]) => flag >> 3 >= 10);
+    const outOfBoundsGifts = Object.entries(GEN1_TM_EVENT_FLAGS).filter(
+      ([, flag]) => flag >> BITS_PER_BYTE_SHIFT >= 10,
+    );
 
     const outOfBoundsClaimed = outOfBoundsGifts.map(([idStr]) => claimed[parseInt(idStr, 10)]);
     expect(outOfBoundsClaimed.every((val) => val === false)).toBe(true);
@@ -161,10 +166,10 @@ describe('parseGen1TMFlags', () => {
     // Fake setting the TM 206 flag (id: 206, flag: 0x258)
     const tm206Flag = GEN1_TM_EVENT_FLAGS[206];
     if (tm206Flag !== undefined) {
-      const byteIndex = tm206Flag >> 3;
-      const bitIndex = tm206Flag & 7;
+      const byteIndex = tm206Flag >> BITS_PER_BYTE_SHIFT;
+      const bitIndex = tm206Flag & BIT_INDEX_MASK;
       const current = eventFlags[byteIndex];
-      if (current !== undefined) eventFlags[byteIndex] = current | (1 << bitIndex);
+      if (current !== undefined) eventFlags[byteIndex] = current | (BIT_FLAG << bitIndex);
     }
 
     const claimed = parseGen1TMFlags(eventFlags);

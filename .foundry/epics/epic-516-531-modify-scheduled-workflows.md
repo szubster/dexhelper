@@ -1,11 +1,11 @@
 ---
 id: epic-516-531-modify-scheduled-workflows
 type: EPIC
-title: "Modify Scheduled Workflows for Issue Dispatch"
-status: READY
+title: Modify Scheduled Workflows for Issue Dispatch
+status: PENDING
 owner_persona: story_owner
-created_at: "2026-09-07"
-updated_at: "2026-09-07"
+created_at: '2026-09-07'
+updated_at: '2026-09-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - github-issues
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Modify Scheduled Workflows for Issue Dispatch
@@ -32,4 +32,6 @@ The current scheduled agent workflows (`schedule-*.yml`) call the `foundry-sched
 - The command format: `gh issue create --title "Scheduled Agent: <persona>" --body "$COMPILED_PROMPT" --label "jules"`.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down into STORY node(s) for implementation.
+- [x] Story Owner: Break down into STORY node(s) for implementation.
+- [ ] story-531-558-modify-scheduled-workflows-impl
+- [ ] story-531-559-modify-scheduled-workflows-e2e
