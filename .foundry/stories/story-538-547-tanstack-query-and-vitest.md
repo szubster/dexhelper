@@ -26,6 +26,12 @@ locks: []
 Refactor data fetching layers to optimize TanStack Query performance and migrate component testing to Vitest browser mode testing.
 
 ## Acceptance Criteria
-- [ ] Decompose into tasks for TanStack Query optimization.
-- [ ] Decompose into tasks for Vitest browser mode migration.
-- [ ] Create QA validation tasks if necessary.
+- [x] Decompose into tasks for TanStack Query optimization.
+- [x] Decompose into tasks for Vitest browser mode migration.
+- [x] Create QA validation tasks if necessary.
+- [ ] task-547-562-tanstack-query-core-logic
+- [ ] task-547-563-tanstack-query-ui-integration
+- [ ] task-547-564-tanstack-query-qa
+- [ ] task-547-565-vitest-browser-setup
+- [ ] task-547-566-vitest-browser-migration
+- [ ] task-547-567-vitest-browser-qa
