@@ -8,7 +8,7 @@
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
-import { execSync } from 'node:child_process';
+import childProcess from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
@@ -61,7 +61,7 @@ export function saveState(state: ChangelogState, statePath: string = STATE_FILE_
 
 export function getCommitList(branch: string = 'main'): string[] {
   try {
-    const output = execSync(`git rev-list --reverse ${branch}`, { encoding: 'utf8' });
+    const output = childProcess.execSync(`git rev-list --reverse ${branch}`, { encoding: 'utf8' });
     return output.trim().split('\n').filter(Boolean);
   } catch (err) {
     process.stderr.write(`[changelog-engine] Failed to get commit list for ${branch}: ${String(err)}\n`);
@@ -78,9 +78,9 @@ export interface CommitDetails {
 
 export function getCommitDetails(sha: string): CommitDetails {
   try {
-    const message = execSync(`git log -1 --format=%B ${sha}`, { encoding: 'utf8' }).trim();
-    const date = execSync(`git log -1 --format=%cs ${sha}`, { encoding: 'utf8' }).trim();
-    const filesRaw = execSync(`git diff-tree --no-commit-id --name-only -r ${sha}`, { encoding: 'utf8' });
+    const message = childProcess.execSync(`git log -1 --format=%B ${sha}`, { encoding: 'utf8' }).trim();
+    const date = childProcess.execSync(`git log -1 --format=%cs ${sha}`, { encoding: 'utf8' }).trim();
+    const filesRaw = childProcess.execSync(`git diff-tree --no-commit-id --name-only -r ${sha}`, { encoding: 'utf8' });
     const files = filesRaw.trim().split('\n').filter(Boolean);
     return { sha, message, date, files };
   } catch (err) {
@@ -367,8 +367,11 @@ Whenever an \`IDEA\` node is completed in the Foundry Engine (via \`foundry-hear
   process.stdout.write(`[changelog-engine] Created IDEA node: idea-000-changelog-continuous-maintenance.md\n`);
 }
 
-export async function runChangelogEngine(): Promise<void> {
-  const state = loadState();
+export async function runChangelogEngine(
+  statePath: string = STATE_FILE_PATH,
+  taskPath: string = TASK_NODE_PATH
+): Promise<void> {
+  const state = loadState(statePath);
 
   // If already in continuous mode, nothing to do here (foundry-heartbeat handles new ideas)
   if (state.mode === 'continuous') {
@@ -377,15 +380,32 @@ export async function runChangelogEngine(): Promise<void> {
   }
 
   // Check current status of the task node
-  if (fs.existsSync(TASK_NODE_PATH)) {
+  if (fs.existsSync(taskPath)) {
     try {
-      const taskRaw = fs.readFileSync(TASK_NODE_PATH, 'utf8');
+      const taskRaw = fs.readFileSync(taskPath, 'utf8');
       const taskParsed = matter(taskRaw);
       const taskStatus = taskParsed.data.status;
 
       if (taskStatus === 'READY' || taskStatus === 'ACTIVE' || taskStatus === 'VERIFYING') {
         process.stdout.write(`[changelog-engine] Backfill task is currently ${taskStatus}. Waiting for session completion.\n`);
         return;
+      }
+
+      // If task was completed, check if task node body has a commit SHA ahead of state.last_processed_commit
+      const taskShaMatch = taskRaw.match(/- \*\*Commit SHA:\*\* `([a-f0-9]+)`/i);
+      if (taskShaMatch?.[1]) {
+        const taskSha = taskShaMatch[1];
+        const commits = getCommitList();
+        const taskIdx = commits.findIndex((c) => c === taskSha || c.startsWith(taskSha));
+        const lastCommit = state.last_processed_commit;
+        const stateIdx = lastCommit
+          ? commits.findIndex((c) => c === lastCommit || c.startsWith(lastCommit))
+          : -1;
+
+        if (taskIdx > stateIdx) {
+          state.last_processed_commit = taskSha;
+          saveState(state, statePath);
+        }
       }
     } catch {
       // parse error
@@ -401,7 +421,10 @@ export async function runChangelogEngine(): Promise<void> {
 
   let startIndex = 0;
   if (state.last_processed_commit) {
-    const idx = commits.indexOf(state.last_processed_commit);
+    const target = state.last_processed_commit;
+    const idx = commits.findIndex(
+      (c) => c === target || c.startsWith(target)
+    );
     if (idx !== -1) {
       startIndex = idx + 1;
     }
@@ -419,7 +442,7 @@ export async function runChangelogEngine(): Promise<void> {
     if (classification.action === 'skip') {
       process.stdout.write(`[changelog-engine] Auto-skipping commit ${sha.slice(0, 7)}: ${classification.reason}\n`);
       state.last_processed_commit = sha;
-      saveState(state);
+      saveState(state, statePath);
       continue;
     }
 
@@ -427,10 +450,11 @@ export async function runChangelogEngine(): Promise<void> {
 
     // Re-open task node as READY for this commit
     const prevSha = state.last_processed_commit;
-    updateTaskNodeForCommit(details, classification, TASK_NODE_PATH, prevSha);
+    updateTaskNodeForCommit(details, classification, taskPath, prevSha);
 
+    state.last_processed_commit = sha;
     state.status = 'pending_jules';
-    saveState(state);
+    saveState(state, statePath);
 
     process.stdout.write(`[changelog-engine] Set task-000-changelog-backfill to READY for commit ${sha.slice(0, 7)}. Exiting cycle.\n`);
     return;
@@ -440,15 +464,15 @@ export async function runChangelogEngine(): Promise<void> {
   if (state.mode === 'backfill' && state.last_processed_commit === commits[commits.length - 1]) {
     state.mode = 'continuous';
     state.status = 'idle';
-    saveState(state);
+    saveState(state, statePath);
     generateContinuousMaintenanceIdeaNode();
 
     // Set backfill task node to COMPLETED
-    if (fs.existsSync(TASK_NODE_PATH)) {
-      const taskRaw = fs.readFileSync(TASK_NODE_PATH, 'utf8');
+    if (fs.existsSync(taskPath)) {
+      const taskRaw = fs.readFileSync(taskPath, 'utf8');
       const taskParsed = matter(taskRaw);
       taskParsed.data.status = 'COMPLETED';
-      fs.writeFileSync(TASK_NODE_PATH, matter.stringify(taskParsed.content, taskParsed.data), 'utf8');
+      fs.writeFileSync(taskPath, matter.stringify(taskParsed.content, taskParsed.data), 'utf8');
     }
 
     process.stdout.write('[changelog-engine] 🎉 History backfill complete! Switched mode to "continuous".\n');

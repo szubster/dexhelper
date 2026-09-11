@@ -2,13 +2,13 @@
 id: epic-038-413-pokerus-spread-planner-retry
 type: EPIC
 title: Pokerus Spread Planner Epic (Retry)
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-10'
-updated_at: '2026-08-10'
+updated_at: '2026-09-09'
 depends_on:
   - epic-038-411-pokerus-state-exfiltration-retry
-jules_session_id: null
+jules_session_id: '16905401797185976033'
 pr_number: null
 parent: prd-069-038-pokerus-tracker
 tags:
@@ -18,7 +18,8 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ''
-notes: 'Retry of the cancelled epic-038-063-pokerus-spread-planner'
+notes: Retry of the cancelled epic-038-063-pokerus-spread-planner
+locks: []
 ---
 
 # Pokerus Spread Planner Epic (Retry)

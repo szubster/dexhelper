@@ -2,14 +2,13 @@
 id: task-443-490-mirage-island-e2e-qa
 type: TASK
 title: QA E2E Test for Mirage Island Save Parsing
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-23'
-updated_at: '2026-08-23'
+updated_at: '2026-09-09'
 depends_on:
   - task-443-489-mirage-island-e2e-impl
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-061-443-mirage-island-save-parsing-e2e
 tags:
@@ -19,8 +18,11 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-443-489-mirage-island-e2e-impl
 notes: ''
+locks: []
 ---
 
 # QA E2E Test for Mirage Island Save Parsing
