@@ -2,7 +2,7 @@
 id: story-535-556-heatmap-toggle-ui
 type: STORY
 title: Heatmap Toggle UI Control
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-07'
 updated_at: '2026-09-11'
@@ -14,8 +14,8 @@ tags:
   - orchestrator
   - UI
   - tooling
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

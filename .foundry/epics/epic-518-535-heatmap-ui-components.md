@@ -2,7 +2,7 @@
 id: epic-518-535-heatmap-ui-components
 type: EPIC
 title: Heatmap UI Components Integration
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
 updated_at: '2026-09-11'
