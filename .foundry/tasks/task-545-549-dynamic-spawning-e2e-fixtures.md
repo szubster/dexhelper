@@ -25,4 +25,4 @@ locks: []
 This task implements the shared setup logic and fixtures needed to test dynamic node spawning scenarios end-to-end.
 
 ## Acceptance Criteria
-- [ ] Implement test fixtures for dynamic node spawning E2E tests
+- [x] Implement test fixtures for dynamic node spawning E2E tests
