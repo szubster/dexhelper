@@ -31,3 +31,7 @@ This story covers the implementation of generator protocols for save file parser
 ## Acceptance Criteria
 - [ ] Implement `function*` and `async function*` protocols for save file parsers.
 - [ ] Ensure all save parser code is compatible with Node.js native type stripping.
+- [ ] task-546-562-gen1-parser-generators
+- [ ] task-546-563-gen2-parser-generators
+- [ ] task-546-564-gen3-parser-generators
+- [ ] task-546-565-qa-generator-save-parsers
