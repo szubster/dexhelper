@@ -4,10 +4,43 @@ import {
   GEN3_POKEMON_DATA_OFFSET,
   GEN3_POKEMON_OT_ID_OFFSET,
   GEN3_POKEMON_PV_OFFSET,
+  getGen3DecryptedSubstructure,
   NUM_SUBSTRUCTURE_PERMUTATIONS,
+  resolveGen3SubstructureOffset,
   SUBSTRUCTURE_ORDER,
   SUBSTRUCTURE_SIZE,
 } from './gen3';
+
+describe('resolveGen3SubstructureOffset', () => {
+  it('should correctly resolve offsets based on PV', () => {
+    // PV = 0 => 0 % 24 = 0 => 'GAEM'. M is at index 3 => 3 * 12 = 36.
+    expect(resolveGen3SubstructureOffset(0, 'M')).toBe(36);
+    // PV = 1 => 1 % 24 = 1 => 'GAME'. M is at index 2 => 2 * 12 = 24.
+    expect(resolveGen3SubstructureOffset(1, 'M')).toBe(24);
+  });
+});
+
+describe('getGen3DecryptedSubstructure', () => {
+  it('should correctly slice a DataView for the G substructure', () => {
+    const buffer = new ArrayBuffer(48);
+    const view = new DataView(buffer);
+    view.setUint32(0, 0x11111111, true); // First word of G (PV 0 => G is at 0)
+    const gView = getGen3DecryptedSubstructure(0, view, 'G');
+    expect(gView.byteLength).toBe(12);
+    expect(gView.byteOffset).toBe(0);
+    expect(gView.getUint32(0, true)).toBe(0x11111111);
+  });
+
+  it('should correctly slice a DataView for the M substructure', () => {
+    const buffer = new ArrayBuffer(48);
+    const view = new DataView(buffer);
+    view.setUint32(36, 0x99999999, true); // First word of M (PV 0 => M is at 36)
+    const mView = getGen3DecryptedSubstructure(0, view, 'M');
+    expect(mView.byteLength).toBe(12);
+    expect(mView.byteOffset).toBe(36);
+    expect(mView.getUint32(0, true)).toBe(0x99999999);
+  });
+});
 
 describe('extractGen3PokemonData', () => {
   it('should return null if both PV and OTID are 0', () => {
