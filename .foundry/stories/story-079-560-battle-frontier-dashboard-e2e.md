@@ -2,12 +2,12 @@
 id: story-079-560-battle-frontier-dashboard-e2e
 type: STORY
 title: Battle Frontier Dashboard E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-08'
-updated_at: '2026-09-11'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8946569625944399245'
 pr_number: null
 parent: epic-046-079-gen3-battle-frontier-dashboard-ui
 tags:
