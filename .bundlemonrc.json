@@ -91,7 +91,7 @@
     },
     {
       "path": "workbox-<hash>.js",
-      "maxSize": "50kb"
+      "maxSize": "150kb"
     },
     {
       "path": "**/*.@(js|css|html|png|msgpack|webmanifest|json|hash|txt)",
