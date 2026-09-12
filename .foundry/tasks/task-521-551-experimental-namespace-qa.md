@@ -21,5 +21,5 @@ locks: []
 Verify that linting correctly prevents imports from `src/experimental/` in non-experimental code and that the documentation clearly explains the boundary.
 
 ## Acceptance Criteria
-- [ ] Verify linting rules block imports from `src/experimental/`.
-- [ ] Verify documentation exists and is accurate.
+- [x] Verify linting rules block imports from `src/experimental/`.
+- [x] Verify documentation exists and is accurate.
