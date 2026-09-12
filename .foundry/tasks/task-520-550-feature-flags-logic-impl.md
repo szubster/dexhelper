@@ -26,6 +26,6 @@ locks: []
 Implement the environment variable parsing and state management layer for the DexHelper feature flag system.
 
 ## Acceptance Criteria
-- [ ] Parse feature flags from environment variables
-- [ ] Create state/context layer for reading flags globally
-- [ ] Add unit tests for state logic
+- [x] Parse feature flags from environment variables
+- [x] Create state/context layer for reading flags globally
+- [x] Add unit tests for state logic

@@ -2,10 +2,10 @@
 id: idea-085-lift-rejection-count-state
 type: IDEA
 title: Lift rejection_count state to DagContext
-status: PENDING
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-07-04'
-updated_at: '2026-07-05'
+updated_at: '2026-09-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,6 +17,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: Created by Agile Coach to address orphaned requirements
+locks: []
 ---
 
 # Lift rejection_count state to DagContext
@@ -29,7 +30,7 @@ When reviewing the DAG Dashboard code, it was observed that the permanent failur
 2. Update `DagDashboard.tsx`, `DagNode.tsx`, and relevant test files to use this shared threshold instead of hardcoding `3`.
 
 ## Acceptance Criteria
-- [ ] prd-085-107-lift-rejection-count-state
+- [x] prd-085-107-lift-rejection-count-state
 - [x] DagDashboard and DagNode no longer hardcode the threshold for rejection_count.
 - [x] The threshold is properly lifted or shared.
 

@@ -2,7 +2,7 @@
 id: task-360-490-gen3-roamer-ui-and-e2e-qa-v2
 type: TASK
 title: QA Gen 3 Roamer E2E Tests (v2)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-08-25'
@@ -17,7 +17,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Cancelled due to permanent failure of dependency'
 notes: ''
 ---
 

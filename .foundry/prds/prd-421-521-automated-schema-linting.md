@@ -2,12 +2,12 @@
 id: prd-421-521-automated-schema-linting
 type: PRD
 title: Automated Markdown Schema Validation via Biome or Custom CLI
-status: ACTIVE
-owner_persona: epic_planner
+status: PENDING
+owner_persona: auditor
 created_at: '2026-08-24'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: '3033941276633322154'
+jules_session_id: null
 parent: idea-421-automated-schema-linting
 tags:
   - foundry
@@ -15,6 +15,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Automated Markdown Schema Validation via Biome or Custom CLI
@@ -56,3 +57,7 @@ The Foundry relies heavily on strict markdown file structures, primarily the YAM
 - [ ] Add the script to `lefthook.yml` under the `pre-commit` hook.
 - [ ] Ensure `pnpm lint:foundry` or similar command exists in `package.json` for manual execution.
 - [ ] Validate the script correctly fails on malformed files and passes on valid files.
+- [ ] epic-521-552-schema-linter-core-logic
+- [ ] epic-521-553-schema-linter-integration
+- [ ] epic-521-554-schema-linter-lefthook-integration
+- [ ] epic-521-555-schema-linter-frontmatter-logic

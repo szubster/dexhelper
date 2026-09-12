@@ -74,6 +74,7 @@ export interface CommitDetails {
   message: string;
   date: string;
   files: string[];
+  diffStat?: string;
 }
 
 export function getCommitDetails(sha: string): CommitDetails {
@@ -82,10 +83,16 @@ export function getCommitDetails(sha: string): CommitDetails {
     const date = childProcess.execSync(`git log -1 --format=%cs ${sha}`, { encoding: 'utf8' }).trim();
     const filesRaw = childProcess.execSync(`git diff-tree --no-commit-id --name-only -r ${sha}`, { encoding: 'utf8' });
     const files = filesRaw.trim().split('\n').filter(Boolean);
-    return { sha, message, date, files };
+    let diffStat = '';
+    try {
+      diffStat = childProcess.execSync(`git show --stat --oneline ${sha}`, { encoding: 'utf8' }).trim();
+    } catch {
+      diffStat = '';
+    }
+    return { sha, message, date, files, diffStat };
   } catch (err) {
     process.stderr.write(`[changelog-engine] Error getting details for ${sha}: ${String(err)}\n`);
-    return { sha, message: '', date: new Date().toISOString().split('T')[0]!, files: [] };
+    return { sha, message: '', date: new Date().toISOString().split('T')[0]!, files: [], diffStat: '' };
   }
 }
 
@@ -309,8 +316,14 @@ ${commitDetails.message}
 ## Modified Files
 ${commitDetails.files.map((f) => `- \`${f}\``).join('\n')}
 
+## Diff Summary
+\`\`\`text
+${commitDetails.diffStat || 'N/A'}
+\`\`\`
+
 ## Evaluation Instructions
-As Changelogger, inspect the commit changes above.
+As Changelogger, independently inspect the commit changes above by executing \`git show ${commitDetails.sha}\` (or \`git diff ${previousCommitSha || commitDetails.sha + '~1'}..${commitDetails.sha}\`) in bash to analyze the actual code diff.
+Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
 If a changelog entry or \`README.md\` update is warranted, create a PR adding a concise bullet point under \`## [Unreleased]\` or new release header \`## [${nextVersion}] - ${commitDate}\` in \`${changelogFilename}\` with diff link comparing previous release commit SHA to new release commit SHA (e.g. ${diffLinkExample}), and update \`README.md\` if necessary.
 If Keep a Changelog link references exist at the bottom of \`${changelogFilename}\`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
@@ -389,6 +402,23 @@ export async function runChangelogEngine(
       if (taskStatus === 'READY' || taskStatus === 'ACTIVE' || taskStatus === 'VERIFYING') {
         process.stdout.write(`[changelog-engine] Backfill task is currently ${taskStatus}. Waiting for session completion.\n`);
         return;
+      }
+
+      // If task was completed, check if task node body has a commit SHA ahead of state.last_processed_commit
+      const taskShaMatch = taskRaw.match(/- \*\*Commit SHA:\*\* `([a-f0-9]+)`/i);
+      if (taskShaMatch?.[1]) {
+        const taskSha = taskShaMatch[1];
+        const commits = getCommitList();
+        const taskIdx = commits.findIndex((c) => c === taskSha || c.startsWith(taskSha));
+        const lastCommit = state.last_processed_commit;
+        const stateIdx = lastCommit
+          ? commits.findIndex((c) => c === lastCommit || c.startsWith(lastCommit))
+          : -1;
+
+        if (taskIdx > stateIdx) {
+          state.last_processed_commit = taskSha;
+          saveState(state, statePath);
+        }
       }
     } catch {
       // parse error

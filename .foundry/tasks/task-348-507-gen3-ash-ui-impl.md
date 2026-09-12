@@ -2,13 +2,13 @@
 id: task-348-507-gen3-ash-ui-impl
 type: TASK
 title: 'Task: Implement Gen 3 Volcanic Ash UI Integration'
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-12'
 depends_on:
   - research-348-506-investigate-ui-impl-failure
-jules_session_id: null
+jules_session_id: '16048218815350518244'
 pr_number: null
 parent: story-268-348-gen3-ash-integration
 tags:
@@ -35,7 +35,7 @@ Integrate the \`gen3VolcanicAsh\` property into the frontend UI, displaying it i
 - Fix \`isGen3Save\` based on the output of \`research-348-461-investigate-isgen3save-stub\` and any new insights from \`research-348-506-investigate-ui-impl-failure\`.
 
 ## Acceptance Criteria
-- [ ] Implement the correct logic for \`isGen3Save\` based on research findings.
-- [ ] Add a \`DiagnosticCard\` in \`src/components/assistant/AssistantDebugView.tsx\` to display the Volcanic Ash count.
-- [ ] The card should conditionally render based on the presence of \`saveData.gen3VolcanicAsh\` and \`saveData.generation === 3\`.
-- [ ] Self-verify the implementation and document the results in the \`coder\` persona journal.
+- [x] Implement the correct logic for \`isGen3Save\` based on research findings.
+- [x] Add a \`DiagnosticCard\` in \`src/components/assistant/AssistantDebugView.tsx\` to display the Volcanic Ash count.
+- [x] The card should conditionally render based on the presence of \`saveData.gen3VolcanicAsh\` and \`saveData.generation === 3\`.
+- [x] Self-verify the implementation and document the results in the \`coder\` persona journal.
