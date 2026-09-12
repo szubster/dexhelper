@@ -35,11 +35,23 @@
           {
             "group": ["@testing-library/*", "@testing-library/react"],
             "message": "Do not use @testing-library. Use vitest-browser-react for component tests or @playwright/test for E2E tests."
+          },
+          {
+            "group": ["./experimental/*", "../experimental/*", "**/experimental/*", "src/experimental/*"],
+            "message": "Do not import from experimental."
           }
         ]
       }
     ]
   },
+  "overrides": [
+    {
+      "files": ["src/experimental/**/*"],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
   "env": {
     "builtin": true
   }
