@@ -1,10 +1,8 @@
 import type { PagesFunction } from '@cloudflare/workers-types';
 import cloudflareAccessPlugin from '@cloudflare/pages-plugin-cloudflare-access';
+import type { Env } from './types/env';
 
-interface Env {
-  CLOUDFLARE_ACCESS_DOMAIN?: string;
-  CLOUDFLARE_ACCESS_AUD?: string;
-}
+
 
 export const onRequest: PagesFunction<Env> = (context) => {
   const domain = (context.env.CLOUDFLARE_ACCESS_DOMAIN || 'https://szubster.cloudflareaccess.com') as `https://${string}.cloudflareaccess.com`;
