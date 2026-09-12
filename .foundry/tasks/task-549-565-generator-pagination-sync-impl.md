@@ -2,7 +2,7 @@
 id: task-549-565-generator-pagination-sync-impl
 type: TASK
 title: Implement Synchronous Generator Pagination
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-09'
 updated_at: '2026-09-12'

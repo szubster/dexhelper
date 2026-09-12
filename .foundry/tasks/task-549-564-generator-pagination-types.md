@@ -2,12 +2,12 @@
 id: task-549-564-generator-pagination-types
 type: TASK
 title: Define Types for Generator Pagination
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-09'
 updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: '12634220937390198721'
+jules_session_id: null
 pr_number: null
 parent: story-537-549-generator-pagination-engines
 tags:

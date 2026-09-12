@@ -2,7 +2,7 @@
 id: task-514-526-remediation-state-transition-logic-impl
 type: TASK
 title: Implement Remediation State Transition Logic
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-03'
 updated_at: '2026-09-12'
@@ -15,8 +15,8 @@ tags:
   - orchestrator
   - maintenance
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
