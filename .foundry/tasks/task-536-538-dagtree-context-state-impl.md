@@ -31,7 +31,7 @@ Create the React Context and state management layer to handle the expanded/colla
 4. Expose functions to "Expand All" and "Collapse All" nodes.
 
 ## Acceptance Criteria
-- [ ] Implement the DagTree Context provider.
-- [ ] Implement state management for expanded/collapsed nodes.
-- [ ] Implement functions to toggle, expand all, and collapse all nodes.
-- [ ] Write unit tests for the context and state logic.
+- [x] Implement the DagTree Context provider.
+- [x] Implement state management for expanded/collapsed nodes.
+- [x] Implement functions to toggle, expand all, and collapse all nodes.
+- [x] Write unit tests for the context and state logic.
