@@ -30,3 +30,6 @@ This story focuses on implementing the pure algorithm that takes a 32-bit Spinda
 - [ ] Implement a function to parse the 32-bit PID into 4 distinct bytes.
 - [ ] Implement the coordinate mapping logic to translate each byte into specific X and Y offsets for the four spots (top-left, top-right, bottom-left, bottom-right).
 - [ ] Add unit tests verifying the coordinate mapping matches known Gen 3 Spinda patterns.
+- [ ] task-560-568-spinda-spot-algorithm-impl
+- [ ] task-560-569-spinda-spot-algorithm-tests
+- [ ] task-560-570-spinda-spot-algorithm-qa
