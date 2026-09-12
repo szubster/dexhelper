@@ -32,4 +32,4 @@ Based on `research-534-517-audit-acceptance-criteria`, we are adopting Alternati
 - Emphasize that agents must correctly format these checkboxes to avoid regex parsing failures.
 
 ## Acceptance Criteria
-- [ ] coder: Update `.foundry/docs/knowledge_base/agents/core_policies.md` to enforce strict AC formatting for parent nodes.
+- [x] coder: Update `.foundry/docs/knowledge_base/agents/core_policies.md` to enforce strict AC formatting for parent nodes.
