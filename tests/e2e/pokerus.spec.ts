@@ -10,6 +10,7 @@ test.describe('Pokerus State Exfiltration', () => {
     await initializeWithSave(page, 'tests/fixtures/gold-pokerus.sav');
 
     // Wait for CYNDAQUIL to appear
+    await page.getByTestId('search-input').fill('CYNDAQUIL');
     await expect(page.getByText('CYNDAQUIL', { exact: false }).first()).toBeVisible({ timeout: 15000 });
 
     await page
@@ -31,6 +32,7 @@ test.describe('Pokerus State Exfiltration', () => {
     await initializeWithSave(page, 'tests/fixtures/gold-tid-15051.sav');
 
     // Wait for the PC list to render
+    await page.getByTestId('search-input').fill('DRAGONAIR');
     await expect(page.getByText('DRAGONAIR', { exact: false }).first()).toBeVisible({ timeout: 15000 });
 
     await page

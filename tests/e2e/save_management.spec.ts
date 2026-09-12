@@ -17,6 +17,7 @@ test.describe('Save Management', () => {
     await fileInput.setInputFiles(path.join('tests', 'fixtures', 'yellow.sav'));
 
     // 3. Verify Hydration: Pokedex grid should appear (Wait for Pikachu)
+    await page.getByTestId('search-input').fill('25');
     await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
 
     // 4. Verify Trainer Info in Header
@@ -33,6 +34,7 @@ test.describe('Save Management', () => {
     await waitForSync(page);
 
     // 6. Verify it's still hydrated (persisted in localStorage)
+    await page.getByTestId('search-input').fill('25');
     await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
     await expect(page.locator('header').getByText(/TRNR/i).first()).toBeVisible();
   });

@@ -13,8 +13,9 @@ test.describe('Spinda PID Extraction E2E Verification', () => {
     await waitForSync(page);
 
     // Verify a Spinda is found (ID 327 in Gen 3 National Dex)
+    await page.getByTestId('search-input').fill('327');
     const spindaCard = page.locator('[data-testid="pokedex-card"][data-pokemon-id="327"]').first();
-    await spindaCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
+
     await expect(spindaCard).toBeVisible({ timeout: 10000 });
 
     // Click the Spinda card to view details modal
@@ -38,8 +39,9 @@ test.describe('Spinda PID Extraction E2E Verification', () => {
     await waitForSync(page);
 
     // Verify a Spinda is found (ID 327 in Gen 3 National Dex)
+    await page.getByTestId('search-input').fill('327');
     const spindaCard = page.locator('[data-testid="pokedex-card"][data-pokemon-id="327"]').first();
-    await spindaCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
+
     await expect(spindaCard).toBeVisible({ timeout: 10000 });
 
     // Click the Spinda card to view details modal

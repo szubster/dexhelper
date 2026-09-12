@@ -45,6 +45,7 @@ test.describe('Cloudflare R2 Offline-First Save Syncing', () => {
         .getByText(/YELLOW/i)
         .first(),
     ).toBeVisible();
+    await page.getByTestId('search-input').fill('25');
     await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
   });
 
