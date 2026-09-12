@@ -2,10 +2,10 @@
 id: task-520-550-impl-banner-removal-cli
 type: TASK
 title: Implement Banner Removal CLI
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on:
   - task-520-549-impl-banner-removal-util
 jules_session_id: null

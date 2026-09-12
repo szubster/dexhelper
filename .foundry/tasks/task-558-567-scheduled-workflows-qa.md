@@ -2,10 +2,10 @@
 id: task-558-567-scheduled-workflows-qa
 type: TASK
 title: QA Verify Scheduled Workflows Issue Dispatch
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-08'
-updated_at: '2026-09-08'
+updated_at: '2026-09-12'
 depends_on:
   - task-558-564-scheduled-workflows-batch1-impl
   - task-558-565-scheduled-workflows-batch2-impl

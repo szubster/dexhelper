@@ -2,10 +2,10 @@
 id: story-521-521-gen1-utils-refactor
 type: STORY
 title: Refactor Gen 1 Utility Magic Numbers
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-08'
+updated_at: '2026-09-12'
 depends_on: []
 jules_session_id: null
 pr_number: null

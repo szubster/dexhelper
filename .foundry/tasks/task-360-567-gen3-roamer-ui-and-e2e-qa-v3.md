@@ -2,10 +2,10 @@
 id: task-360-567-gen3-roamer-ui-and-e2e-qa-v3
 type: TASK
 title: QA Gen 3 Roamer E2E Tests (v3)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-09'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on:
   - task-360-566-gen3-roamer-e2e-impl-v3
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # QA Gen 3 Roamer E2E Tests (v3)

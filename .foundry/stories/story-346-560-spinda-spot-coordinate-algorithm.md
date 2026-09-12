@@ -2,10 +2,10 @@
 id: story-346-560-spinda-spot-coordinate-algorithm
 type: STORY
 title: Spinda Spot Coordinate Algorithm
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-09'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
 jules_session_id: null
 pr_number: null

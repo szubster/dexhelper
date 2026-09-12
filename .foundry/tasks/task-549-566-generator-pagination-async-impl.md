@@ -2,10 +2,10 @@
 id: task-549-566-generator-pagination-async-impl
 type: TASK
 title: Implement Asynchronous Generator Pagination
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on:
   - task-549-564-generator-pagination-types
 jules_session_id: null

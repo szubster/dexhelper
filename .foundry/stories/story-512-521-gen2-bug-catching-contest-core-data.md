@@ -2,12 +2,12 @@
 id: story-512-521-gen2-bug-catching-contest-core-data
 type: STORY
 title: Gen 2 Bug-Catching Contest Core Data Extraction
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-05'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: '11076327570214870592'
+jules_session_id: null
 pr_number: null
 parent: epic-343-512-save-data-extraction
 tags:
@@ -16,8 +16,9 @@ tags:
   - save-extraction
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
+locks: []
 ---
 
 # Gen 2 Bug-Catching Contest Core Data Extraction

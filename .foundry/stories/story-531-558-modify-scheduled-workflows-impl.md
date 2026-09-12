@@ -2,12 +2,12 @@
 id: story-531-558-modify-scheduled-workflows-impl
 type: STORY
 title: Implement Issue Dispatch for Scheduled Workflows
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-08'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: '11398246396284201099'
+jules_session_id: null
 pr_number: null
 parent: epic-516-531-modify-scheduled-workflows
 tags:

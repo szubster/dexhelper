@@ -5,7 +5,7 @@ title: Impl Gen 3 Roamer E2E Tests (v2)
 status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-09-12'
 depends_on:
   - research-360-471-investigate-gen3-roamer-e2e-failure
 jules_session_id: null
@@ -17,8 +17,9 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: 'Cancelled due to permanent failure of dependency'
+rejection_reason: '[ACKNOWLEDGED] Cancelled due to permanent failure of dependency'
 notes: ''
+locks: []
 ---
 
 # Impl Gen 3 Roamer E2E Tests (v2)

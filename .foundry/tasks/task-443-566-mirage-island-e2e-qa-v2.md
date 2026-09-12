@@ -2,10 +2,10 @@
 id: task-443-566-mirage-island-e2e-qa-v2
 type: TASK
 title: QA E2E Test for Mirage Island Save Parsing V2
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2024-05-23'
-updated_at: '2024-05-23'
+updated_at: '2026-09-12'
 depends_on:
   - task-443-565-mirage-island-e2e-impl-v2
 jules_session_id: null

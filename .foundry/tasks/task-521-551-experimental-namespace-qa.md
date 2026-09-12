@@ -2,10 +2,10 @@
 id: task-521-551-experimental-namespace-qa
 type: TASK
 title: QA src/experimental Namespace Enforcement
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-05'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on:
   - task-521-550-experimental-namespace-impl
 jules_session_id: null

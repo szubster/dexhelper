@@ -2,12 +2,12 @@
 id: task-520-549-impl-banner-removal-util
 type: TASK
 title: Implement Banner Removal Utility
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: '974304609622909298'
+jules_session_id: null
 pr_number: null
 parent: story-519-520-automate-banner-removal
 tags:
