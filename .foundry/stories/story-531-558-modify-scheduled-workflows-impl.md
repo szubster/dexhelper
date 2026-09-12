@@ -40,3 +40,4 @@ As part of the EPIC to update the scheduled workflows to use GitHub Issues for d
 - [ ] task-558-565-scheduled-workflows-batch2-impl
 - [ ] task-558-566-scheduled-workflows-batch3-impl
 - [ ] task-558-567-scheduled-workflows-qa
+- [ ] adr-558-568-evaluate-scheduled-workflow-architecture
