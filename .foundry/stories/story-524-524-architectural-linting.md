@@ -28,4 +28,7 @@ locks: []
 - Ensure linting rules restrict forbidden imports (e.g., frontend code in backend).
 
 ## Acceptance Criteria
-- [ ] Break this story down into tasks for setting up dependency-cruiser and Oxlint rules.
+- [x] Break this story down into tasks for setting up dependency-cruiser and Oxlint rules.
+- [ ] task-524-567-setup-dependency-cruiser
+- [ ] task-524-568-setup-oxlint-rules
+- [ ] task-524-569-qa-architectural-linting
