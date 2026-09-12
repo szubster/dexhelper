@@ -19,6 +19,7 @@
 | [epic-521-540-foundry-rearchitecture-state-graph](.foundry/epics/epic-521-540-foundry-rearchitecture-state-graph.md) | EPIC | Epic: Foundry Rearchitecture - State Machine and Graph Libraries | story_owner | [11121497795872631593](https://jules.google.com/session/11121497795872631593) |
 | [epic-521-541-code-architect-persona](.foundry/epics/epic-521-541-code-architect-persona.md) | EPIC | Epic: Scheduled Weekly Persona - Code Architect (architect_visionary) | story_owner | [11299867110653956283](https://jules.google.com/session/11299867110653956283) |
 | [epic-521-552-task-breakdown-anti-patterns](.foundry/epics/epic-521-552-task-breakdown-anti-patterns.md) | EPIC | Encourage Modular Task Breakdowns for Tech Leads | story_owner | [11496431371171848350](https://jules.google.com/session/11496431371171848350) |
+| [epic-521-556-wild-item-e2e-verification](.foundry/epics/epic-521-556-wild-item-e2e-verification.md) | EPIC | Wild Item E2E Verification | story_owner | [12289585652266865090](https://jules.google.com/session/12289585652266865090) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
