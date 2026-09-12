@@ -32,4 +32,8 @@ This epic provides the foundational backend data logic for the Wild Held Item Hu
 - Expose this data for UI consumption, enabling users to see the best routes for hunting a target item.
 
 ## Acceptance Criteria
-- [ ] story_owner: Break down this Epic into Stories.
+- [x] story_owner: Break down this Epic into Stories.
+- [ ] story-552-562-gen2-wild-item-parsing
+- [ ] story-552-563-gen3-wild-item-parsing
+- [ ] story-552-564-wild-item-unified-data-layer
+- [ ] story-552-565-wild-item-e2e-verification
