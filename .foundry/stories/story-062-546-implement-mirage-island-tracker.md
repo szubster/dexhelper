@@ -2,12 +2,12 @@
 id: story-062-546-implement-mirage-island-tracker
 type: STORY
 title: Implement Mirage Island Tracker Component
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: '14553183441178847115'
+jules_session_id: null
 pr_number: null
 parent: epic-038-062-mirage-island-ui
 tags:
@@ -30,4 +30,7 @@ This story covers the implementation of a dedicated tracker view or notification
 - Adhere to the "tactical hardware/snooping" aesthetic constraints ('rounded-none', dashed borders, monospace fonts) as outlined in ADR 008.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-546-564-mirage-island-data-selector
+- [ ] task-546-565-mirage-island-ui-component
+- [ ] task-546-566-mirage-island-tracker-qa

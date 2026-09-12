@@ -35,4 +35,9 @@ As part of the EPIC to update the scheduled workflows to use GitHub Issues for d
 - The command format must be: `gh issue create --title "Scheduled Agent: <persona>" --body "$COMPILED_PROMPT" --label "jules"`.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into TASK nodes.
+- [x] Tech Lead: Break down into TASK nodes.
+- [ ] task-558-564-scheduled-workflows-batch1-impl
+- [ ] task-558-565-scheduled-workflows-batch2-impl
+- [ ] task-558-566-scheduled-workflows-batch3-impl
+- [ ] task-558-567-scheduled-workflows-qa
+- [ ] adr-558-568-evaluate-scheduled-workflow-architecture

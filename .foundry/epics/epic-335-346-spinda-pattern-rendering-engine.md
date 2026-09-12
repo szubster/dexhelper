@@ -31,3 +31,6 @@ This Epic focuses on creating a 2D canvas or layered SVG rendering engine capabl
 - [ ] Implement the algorithmic logic to map the 32-bit PID to coordinates for Spinda's 4 spots.
 - [ ] Implement a reusable UI component (Canvas or SVG) that takes the spot coordinates and renders them accurately on a base Spinda sprite.
 - [ ] Verify the pattern generation matches Gen 3 in-game mechanics.
+- [ ] story-346-560-spinda-spot-coordinate-algorithm
+- [ ] story-346-561-spinda-pattern-rendering-component
+- [ ] story-346-562-spinda-pattern-e2e-verification

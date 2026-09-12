@@ -27,6 +27,6 @@ Implement a robust feature flag system for DexHelper. This system will allow cod
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-520-550-feature-flags-logic-impl
+- [x] task-520-550-feature-flags-logic-impl
 - [ ] task-520-551-feature-flags-ui-impl
 - [ ] task-520-552-feature-flags-qa

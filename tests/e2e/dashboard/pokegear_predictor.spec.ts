@@ -19,7 +19,7 @@ test.describe('Pokegear Predictor Engine & UI', () => {
     await expect(matrixTitle).toBeVisible();
 
     // Ensure the state shows 'ACTIVE'
-    const statusText = page.getByText('ACTIVE', { exact: true });
+    const statusText = page.getByText('ACTIVE', { exact: true }).first();
     await expect(statusText).toBeVisible();
 
     // Note: The specific contacts might vary based on the crystal.sav file contents,

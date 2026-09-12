@@ -2,12 +2,12 @@
 id: prd-422-520-gen3-fossil-revival-tracker
 type: PRD
 title: Gen 3 Fossil Revival Tracker
-status: ACTIVE
-owner_persona: epic_planner
+status: PENDING
+owner_persona: auditor
 created_at: '2026-09-04'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: '12577732564592763335'
+jules_session_id: null
 parent: idea-422-gen3-fossil-revival-tracker
 tags:
   - dexhelper
@@ -16,6 +16,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # PRD: Gen 3 Fossil Revival Tracker
@@ -47,4 +48,7 @@ The exact memory offsets, event flags, or variables tracking fossil states are c
 *   The UI must adhere to the tactical hardware aesthetic (ADR 008) with `rounded-none`, `border-dashed`, and `font-mono`.
 
 ## 4. Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into manageable Epics, including a dedicated Epic for memory offset research.
+- [x] Epic Planner: Break down this PRD into manageable Epics, including a dedicated Epic for memory offset research.
+- [ ] research-520-535-gen3-fossil-offsets
+- [ ] epic-520-552-gen3-fossil-memory-research
+- [ ] epic-520-553-gen3-fossil-tracker-implementation

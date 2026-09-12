@@ -3166,6 +3166,177 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     logSpy.mockRestore();
   });
 
+
+  test('Prompt Compilation: resolves base prompt from generic folder before fallback folder', () => {
+    fs.mkdirSync(path.join(tmpDir, '.github/agents/generic'), { recursive: true });
+    fs.mkdirSync(path.join(tmpDir, '.github/agents'), { recursive: true });
+
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/generic/coder.md'), 'GENERIC_CODER_CONTENT');
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/coder.md'), 'FALLBACK_CODER_CONTENT');
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
+      id: "task-002",
+      type: "TASK",
+      title: "Task without layers",
+      status: "READY",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    process.argv.push('--include-prompt');
+    main();
+    process.argv.splice(process.argv.indexOf('--include-prompt'), 1);
+
+    expect(consoleSpy).toHaveBeenCalled();
+    const lastCall = consoleSpy.mock.calls[consoleSpy.mock.calls.length - 1][0];
+    const parsedOutput = JSON.parse(lastCall);
+
+    expect(parsedOutput).toHaveLength(1);
+    expect(parsedOutput[0].compiled_prompt).toContain('GENERIC_CODER_CONTENT');
+    expect(parsedOutput[0].compiled_prompt).not.toContain('FALLBACK_CODER_CONTENT');
+
+    consoleSpy.mockRestore();
+  });
+
+  test('Prompt Compilation: uses fallback base prompt if generic is missing', () => {
+    fs.mkdirSync(path.join(tmpDir, '.github/agents'), { recursive: true });
+
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/coder.md'), 'FALLBACK_CODER_CONTENT');
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
+      id: "task-002",
+      type: "TASK",
+      title: "Task without layers",
+      status: "READY",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    process.argv.push('--include-prompt');
+    main();
+    process.argv.splice(process.argv.indexOf('--include-prompt'), 1);
+
+    expect(consoleSpy).toHaveBeenCalled();
+    const lastCall = consoleSpy.mock.calls[consoleSpy.mock.calls.length - 1][0];
+    const parsedOutput = JSON.parse(lastCall);
+
+    expect(parsedOutput).toHaveLength(1);
+    expect(parsedOutput[0].compiled_prompt).toContain('FALLBACK_CODER_CONTENT');
+
+    consoleSpy.mockRestore();
+  });
+
+  test('Prompt Compilation: uses default prompt if persona file is entirely missing', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
+      id: "task-002",
+      type: "TASK",
+      title: "Task without layers",
+      status: "READY",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    process.argv.push('--include-prompt');
+    main();
+    process.argv.splice(process.argv.indexOf('--include-prompt'), 1);
+
+    expect(consoleSpy).toHaveBeenCalled();
+    const lastCall = consoleSpy.mock.calls[consoleSpy.mock.calls.length - 1][0];
+    const parsedOutput = JSON.parse(lastCall);
+
+    expect(parsedOutput).toHaveLength(1);
+    expect(parsedOutput[0].compiled_prompt).toContain('As the coder of The Foundry, your task is described in the provided node file.');
+
+    consoleSpy.mockRestore();
+  });
+
+  test('Prompt Compilation: deduplicates tags and layers ignoring case', () => {
+    fs.mkdirSync(path.join(tmpDir, '.github/agents/specific'), { recursive: true });
+
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/specific/typescript.md'), 'TYPESCRIPT_SPECIFIC_CONTENT');
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/specific/react.md'), 'REACT_SPECIFIC_CONTENT');
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
+      id: "task-002",
+      type: "TASK",
+      title: "Task with tags and layers",
+      status: "READY",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      tags: ["TypeScript", "react"],
+      layers: ["react", "TYPESCRIPT"],
+      jules_session_id: null,
+    });
+
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    process.argv.push('--include-prompt');
+    main();
+    process.argv.splice(process.argv.indexOf('--include-prompt'), 1);
+
+    expect(consoleSpy).toHaveBeenCalled();
+    const lastCall = consoleSpy.mock.calls[consoleSpy.mock.calls.length - 1][0];
+    const parsedOutput = JSON.parse(lastCall);
+
+    expect(parsedOutput).toHaveLength(1);
+    const matchesTS = parsedOutput[0].compiled_prompt.match(/TYPESCRIPT_SPECIFIC_CONTENT/g);
+    expect(matchesTS).toHaveLength(1);
+    const matchesReact = parsedOutput[0].compiled_prompt.match(/REACT_SPECIFIC_CONTENT/g);
+    expect(matchesReact).toHaveLength(1);
+
+    consoleSpy.mockRestore();
+  });
+
+  test('Prompt Compilation: appends core_principles.md if core_policies.md is missing', () => {
+    fs.mkdirSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents'), { recursive: true });
+
+    fs.writeFileSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents/core_principles.md'), 'CORE_PRINCIPLES_CONTENT');
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
+      id: "task-002",
+      type: "TASK",
+      title: "Task without layers",
+      status: "READY",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    process.argv.push('--include-prompt');
+    main();
+    process.argv.splice(process.argv.indexOf('--include-prompt'), 1);
+
+    expect(consoleSpy).toHaveBeenCalled();
+    const lastCall = consoleSpy.mock.calls[consoleSpy.mock.calls.length - 1][0];
+    const parsedOutput = JSON.parse(lastCall);
+
+    expect(parsedOutput).toHaveLength(1);
+    expect(parsedOutput[0].compiled_prompt).toContain('CORE_PRINCIPLES_CONTENT');
+
+    consoleSpy.mockRestore();
+  });
+
   test('Prompt Compilation: compiles scheduled prompt with generic/fallback prompt and core policies', () => {
     fs.mkdirSync(path.join(tmpDir, '.github/agents'), { recursive: true });
     fs.mkdirSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents'), { recursive: true });

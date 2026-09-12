@@ -13,7 +13,9 @@ export const EdgeLabel = React.forwardRef<HTMLDivElement, EdgeLabelProps>(({ cla
       className={cn('tactical-text absolute bg-zinc-950 px-1 text-[9px] text-zinc-500', className)}
       {...props}
     >
+      <span aria-hidden="true">[ </span>
       {children}
+      <span aria-hidden="true"> ]</span>
     </div>
   );
 });

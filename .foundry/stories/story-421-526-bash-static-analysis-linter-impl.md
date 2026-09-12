@@ -2,12 +2,12 @@
 id: story-421-526-bash-static-analysis-linter-impl
 type: STORY
 title: Implement Static Analysis Linter for Bash
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-04T05:51:36Z'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: '7614148007289161705'
+jules_session_id: null
 pr_number: null
 parent: epic-057-421-bash-static-analysis-linter-retry
 tags:
@@ -30,4 +30,5 @@ Agent sessions executing long-running or blocking bash commands (like \`tail -f\
 Implement the core logic for the static analysis linter to analyze bash commands before execution and block infinite-blocking commands.
 
 ## Acceptance Criteria
-- [ ] Break down this story into tasks.
+- [x] Break down this story into tasks.
+- [ ] task-526-562-bash-static-analysis-linter-impl
