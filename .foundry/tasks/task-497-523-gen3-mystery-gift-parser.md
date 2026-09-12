@@ -2,13 +2,13 @@
 id: task-497-523-gen3-mystery-gift-parser
 type: TASK
 title: Implement Gen 3 Mystery Gift Data Parser
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-05'
+updated_at: '2026-09-12'
 depends_on:
   - task-497-521-gen3-mystery-gift-state
-jules_session_id: '4627333662324985401'
+jules_session_id: null
 pr_number: null
 parent: story-405-497-gen3-e-reader-dashboard-state
 tags:
@@ -17,7 +17,7 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/gen3_mystery_gift_event_flags.md
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
 locks: []
 ---
