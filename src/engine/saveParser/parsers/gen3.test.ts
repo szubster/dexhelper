@@ -605,6 +605,46 @@ describe('parseGen3Ribbons', () => {
     expect(result.obedience).toBe(true);
   });
 
+  it('should extract the contest ribbon ranks correctly for various values', () => {
+    const buffer = new ArrayBuffer(8);
+    const view = new DataView(buffer);
+
+    // Let's create a bitfield:
+    // cool: 4 (100) -> bits 0-2 -> 4
+    // beauty: 3 (011) -> bits 3-5 -> 3 << 3 = 24
+    // cute: 2 (010) -> bits 6-8 -> 2 << 6 = 128
+    // smart: 1 (001) -> bits 9-11 -> 1 << 9 = 512
+    // tough: 0 (000) -> bits 12-14 -> 0
+    // Total value: 4 + 24 + 128 + 512 = 668 (0x029C)
+
+    view.setUint32(2, 668, true);
+
+    const result = parseGen3Ribbons(view, 2);
+
+    expect(result.cool).toBe(4);
+    expect(result.beauty).toBe(3);
+    expect(result.cute).toBe(2);
+    expect(result.smart).toBe(1);
+    expect(result.tough).toBe(0);
+
+    // Another case:
+    // cool: 0
+    // beauty: 1
+    // cute: 2
+    // smart: 3
+    // tough: 4
+    // Total: (1<<3) + (2<<6) + (3<<9) + (4<<12) = 8 + 128 + 1536 + 16384 = 18056 (0x4688)
+
+    view.setUint32(2, 18056, true);
+    const result2 = parseGen3Ribbons(view, 2);
+
+    expect(result2.cool).toBe(0);
+    expect(result2.beauty).toBe(1);
+    expect(result2.cute).toBe(2);
+    expect(result2.smart).toBe(3);
+    expect(result2.tough).toBe(4);
+  });
+
   it('should extract the contest ribbon ranks correctly', () => {
     const buffer = new ArrayBuffer(8);
     const view = new DataView(buffer);
