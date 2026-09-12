@@ -23,7 +23,6 @@
     "lint:package-json": "sort-package-json --check",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:bench": "node --experimental-strip-types tests/benchmarks/run-benchmarks.ts",
     "test:bundle": "bundlemon",
     "test:coverage": "vitest run --coverage",
     "test:ct": "vitest --project browser",
