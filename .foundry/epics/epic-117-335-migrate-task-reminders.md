@@ -36,3 +36,6 @@ This epic fulfills the optional cleanup objective of `prd-118-117-centralize-pro
 ## 3. High-Level Acceptance Criteria
 - [ ] A migration script or command is written and executed to remove `### REMINDER FOR CODER` and `### REMINDER FOR QA` blocks from existing `.foundry/tasks/`.
 - [ ] Active and pending TASK files are clean and no longer contain the redundant prompt rules.
+- [ ] story-335-563-develop-migration-script
+- [ ] story-335-564-execute-migration
+- [ ] story-335-565-migration-e2e-verification
