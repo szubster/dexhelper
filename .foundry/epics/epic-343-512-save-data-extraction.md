@@ -2,7 +2,7 @@
 id: epic-343-512-save-data-extraction
 type: EPIC
 title: Gen 2 Bug-Catching Contest Save Data Extraction
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-01'
 updated_at: '2026-09-12'

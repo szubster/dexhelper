@@ -2,12 +2,12 @@
 id: task-514-526-remediation-state-transition-logic-impl
 type: TASK
 title: Implement Remediation State Transition Logic
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-05'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: '9369237786729708912'
+jules_session_id: null
 pr_number: null
 parent: story-330-514-remediation-state-transition-logic
 tags:
@@ -16,8 +16,9 @@ tags:
   - maintenance
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
+locks: []
 ---
 
 # Implement Remediation State Transition Logic
