@@ -22,5 +22,6 @@ locks: []
 The Gen 3 Trainer Card upgrade data (Hall of Fame, Hoenn Pokédex, National Pokédex, Contest Master Rank, and Battle Frontier) is being successfully parsed and exists in the gen3TrainerCard object within SaveData. However, there is currently no UI component rendering this data, which prevents end-to-end (E2E) testing from verifying its extraction and integration in the browser. Investigate how and where this data should be rendered or exposed to the testing environment.
 
 ## Acceptance Criteria
-- [ ] Identify where Trainer Card upgrade data should be rendered in the UI or how it should be safely exposed for E2E testing without violating architectural constraints.
-- [ ] Create necessary downstream nodes (IDEA/TASK) to implement the UI or testing integration.
+- [x] Identify where Trainer Card upgrade data should be rendered in the UI or how it should be safely exposed for E2E testing without violating architectural constraints.
+- [x] Create necessary downstream nodes (IDEA/TASK) to implement the UI or testing integration.
+- [ ] task-564-565-gen3-trainer-card-e2e-tests
