@@ -2,12 +2,12 @@
 id: story-521-530-savedatareader-core
 type: STORY
 title: Core SaveDataReader Base Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-06'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '15278601138923148969'
+jules_session_id: null
 pr_number: null
 parent: epic-158-521-core-dataview-wrapper
 tags:
@@ -32,4 +32,8 @@ This story covers the implementation of the `ISaveDataReader` interface and the 
 - [ ] Implement `SaveDataReader` base class wrapping a `DataView`.
 - [ ] Ensure strict bounds checking and throw `RangeError` on out-of-bounds access.
 - [ ] Implement core reading methods (e.g., `getUint8`, `getUint16`, `getUint32`, etc.).
-- [ ] Break down this Story into Tasks for the Tech Lead to assign.
+- [x] Break down this Story into Tasks for the Tech Lead to assign.
+- [ ] task-530-549-isavedatareader-interface-impl
+- [ ] task-530-550-savedatareader-core-impl
+- [ ] task-530-551-savedatareader-bounds-tests
+- [ ] task-530-552-savedatareader-qa

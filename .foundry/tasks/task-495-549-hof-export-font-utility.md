@@ -2,12 +2,12 @@
 id: task-495-549-hof-export-font-utility
 type: TASK
 title: Hall of Fame Export Font Loading Utility
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-07'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '2298463832982582357'
+jules_session_id: null
 pr_number: null
 parent: story-071-495-hof-certificate-export-logic
 tags:
@@ -29,5 +29,5 @@ locks: []
 Implement a utility function to ensure that custom fonts are properly preloaded and embedded before the certificate rendering occurs. This satisfies the constraint in ADR 022 to handle custom font loading for consistent rendering across different clients.
 
 ## Acceptance Criteria
-- [ ] Implement a utility function to manage and preload custom fonts.
-- [ ] Write unit tests for the font loading utility.
+- [x] Implement a utility function to manage and preload custom fonts.
+- [x] Write unit tests for the font loading utility.

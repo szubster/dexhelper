@@ -1,7 +1,7 @@
 import { calculateGen2Gender, calculateGen3Gender } from '../../../utils/gender';
 import { getGenerationConfig } from '../../../utils/generationConfig';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
-import { isGen2Save } from '../../saveParser/parsers/common';
+import { isGen2Save, isGen3Save } from '../../saveParser/parsers/common';
 import type { Suggestion } from '../strategies/types';
 import type { AssistantApiData } from '../suggestionEngineTypes';
 
@@ -28,9 +28,15 @@ export function generateBreedingSuggestions(
   instancesBySpecies: Map<number, PokemonInstance[]>,
   suggestions: Suggestion[],
 ) {
-  // F. Breeding (Gen 2 Only)
+  // F. Breeding (Gen 2 & Gen 3)
   const genConfig = getGenerationConfig(saveData.generation);
   const gen2Data = isGen2Save(saveData) ? saveData : null;
+  const gen3Data = isGen3Save(saveData) ? saveData : null;
+
+  const daycareMons = gen2Data?.daycare || gen3Data?.gen3Daycare?.mons || [];
+  const daycareHasEgg =
+    gen2Data?.daycareHasEgg ||
+    (gen3Data?.gen3Daycare?.offspringPersonality !== 0 && gen3Data?.gen3Daycare?.offspringPersonality !== undefined);
 
   if (genConfig.hasBreeding) {
     // ⚡ Bolt: Replaced .forEach with for loop to avoid closure creation and function call overhead
@@ -51,10 +57,7 @@ export function generateBreedingSuggestions(
         const stack = [...(p.eto || [])];
         while (stack.length > 0) {
           const evo = stack.pop();
-          if (
-            evo &&
-            (instancesBySpecies.has(evo.id) || (gen2Data?.daycare?.some((d) => d.speciesId === evo.id) ?? false))
-          ) {
+          if (evo && (instancesBySpecies.has(evo.id) || daycareMons.some((d) => d.speciesId === evo.id))) {
             canBreed = true;
             evolutionIdToBreed = evo.id;
             break;
@@ -66,7 +69,7 @@ export function generateBreedingSuggestions(
       }
 
       if (canBreed && evolutionIdToBreed) {
-        const isInDaycare = gen2Data?.daycare?.some((d) => d.speciesId === evolutionIdToBreed) ?? false;
+        const isInDaycare = daycareMons.some((d) => d.speciesId === evolutionIdToBreed);
 
         let incenseText = '';
         if (targetId === 298) incenseText = ' holding a Sea Incense';
@@ -77,8 +80,8 @@ export function generateBreedingSuggestions(
         let title = `Breed: #${targetId}`;
 
         if (isInDaycare) {
-          if (gen2Data?.daycare && gen2Data.daycare.length === 2) {
-            if (gen2Data.daycareHasEgg) {
+          if (daycareMons.length === 2) {
+            if (daycareHasEgg) {
               title = `Egg Ready: #${targetId}!`;
               description = `Pick up your Egg from the Daycare!`;
               priority = 95;

@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     redirectPage('/cdn-cgi/access/logout');
   };
 
-  return <AuthContext.Provider value={{ isLoggedIn, login, logout }}>{children}</AuthContext.Provider>;
+  return <AuthContext value={{ isLoggedIn, login, logout }}>{children}</AuthContext>;
 };
 
 export const useAuth = (): AuthContextType => {

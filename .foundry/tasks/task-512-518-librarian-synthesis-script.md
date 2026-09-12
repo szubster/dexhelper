@@ -2,12 +2,12 @@
 id: task-512-518-librarian-synthesis-script
 type: TASK
 title: Librarian Journal Synthesis Script
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15223710073836904227'
 pr_number: null
 parent: story-410-512-librarian-ingestion-synthesis-script
 tags:
@@ -17,7 +17,9 @@ tags:
   - librarian
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Obsolete due to PR comment requesting a scheduled agent instead
+  of a script.
 notes: ''
 locks: []
 ---

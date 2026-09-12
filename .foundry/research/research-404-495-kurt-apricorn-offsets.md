@@ -5,7 +5,7 @@ title: Investigate Kurt Apricorn Crafting Offsets
 status: CANCELLED
 owner_persona: researcher
 created_at: '2026-08-30'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - items
   - offsets
 rejection_count: 3
-rejection_reason: Max rejection count reached
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

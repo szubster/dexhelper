@@ -56,6 +56,12 @@ const GlobalRibbonChecklistDashboard = React.lazy(() =>
   })),
 );
 
+const Gen2DecorationsDashboard = React.lazy(() =>
+  import('../components/dashboard/decorations/Gen2DecorationsDashboard').then((m) => ({
+    default: m.Gen2DecorationsDashboard,
+  })),
+);
+
 const Gen2NpcTrades = React.lazy(() =>
   import('../components/dashboard/trades/Gen2NpcTrades').then((m) => ({ default: m.Gen2NpcTrades })),
 );
@@ -67,6 +73,12 @@ const Gen2SavingsDashboard = React.lazy(() =>
 const ActiveCallersDashboard = React.lazy(() =>
   import('../components/dashboard/pokegear/ActiveCallersDashboard').then((m) => ({
     default: m.ActiveCallersDashboard,
+  })),
+);
+
+const Gen1Checklist = React.lazy(() =>
+  import('../components/dashboard/checklist/Gen1Checklist').then((m) => ({
+    default: m.Gen1Checklist,
   })),
 );
 
@@ -83,7 +95,7 @@ export const Route = createFileRoute('/dashboard')({
 function DashboardPage() {
   const saveData = useStore((s) => s.saveData);
 
-  if (saveData?.generation !== 3 && saveData?.generation !== 2) {
+  if (saveData?.generation !== 3 && saveData?.generation !== 2 && saveData?.generation !== 1) {
     return <EmptyState icon={<ShieldAlert size={24} />} label="BATTLE FRONTIER UNAVAILABLE" />;
   }
 
@@ -101,10 +113,11 @@ function DashboardPage() {
             <Gen3TrickHouseDashboard saveData={saveData} />
             <Gen3NpcTrades />
           </>
-        ) : (
+        ) : saveData.generation === 2 ? (
           <>
             <Gen2Checklist />
             <Gen2SavingsDashboard />
+            <Gen2DecorationsDashboard saveData={saveData} />
             {saveData.gen2PokegearPhone?.highValueContacts && (
               <ActiveCallersDashboard
                 contacts={saveData.gen2PokegearPhone.highValueContacts}
@@ -114,6 +127,8 @@ function DashboardPage() {
             <Gen2NpcTrades />
             <ShinyCarrierBreedingDashboard />
           </>
+        ) : (
+          <Gen1Checklist />
         )}
       </Suspense>
     </div>

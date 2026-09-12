@@ -2,10 +2,10 @@
 id: task-545-551-dynamic-spawning-e2e-idea-late-binding
 type: TASK
 title: Implement E2E Tests for IDEA Spawning and Late Binding
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-07'
+updated_at: '2026-09-11'
 depends_on:
   - task-545-549-dynamic-spawning-e2e-fixtures
 jules_session_id: null
