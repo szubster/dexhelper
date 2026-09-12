@@ -40,5 +40,5 @@ Specific changes:
 - **Memory Optimization:** Drastically reduces the number of DOM nodes held in memory, particularly important for mobile users or lower-end devices.
 - **Scalability:** Future-proofs the UI for Gen 4+ which require rendering upwards of 500 to 1000+ entries.
 
-## Next Steps
-- [ ] prd-517-549-optimize-pokedex-grid-rendering
+## Acceptance Criteria
+- [ ] prd-517-564-optimize-pokedex-grid-rendering
