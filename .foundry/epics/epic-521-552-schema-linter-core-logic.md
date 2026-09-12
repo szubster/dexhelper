@@ -28,3 +28,6 @@ locks: []
 ## Acceptance Criteria
 - [ ] Implement markdown checkbox syntax validation in `.foundry/scripts/lint-schema.ts`.
 - [ ] Implement section tracking to enforce checkbox placement under `## Acceptance Criteria`.
+- [ ] story-552-562-schema-linter-core-logic
+- [ ] story-552-563-schema-linter-section-tracking
+- [ ] story-552-564-schema-linter-checkbox-e2e
