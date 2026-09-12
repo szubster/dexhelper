@@ -1,14 +1,14 @@
 import * as htmlToImage from 'html-to-image';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import * as fontLoader from './font';
-import { renderCertificateToBlob, renderCertificateToDataUrl } from './renderer';
+import * as fontLoader from '../font';
+import { renderCertificateToBlob, renderCertificateToDataUrl } from '../renderer';
 
 vi.mock('html-to-image', () => ({
   toBlob: vi.fn<(...args: unknown[]) => Promise<Blob | null>>(),
   toPng: vi.fn<(...args: unknown[]) => Promise<string>>(),
 }));
 
-vi.mock('./font', () => ({
+vi.mock('../font', () => ({
   preloadFonts: vi.fn<() => Promise<void>>(),
 }));
 

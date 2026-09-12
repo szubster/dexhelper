@@ -1,7 +1,16 @@
 import fs from 'node:fs';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-vi.mock('node:fs');
+vi.mock('node:fs', () => ({
+  default: {
+    readFileSync: vi.fn(),
+    writeFileSync: vi.fn(),
+    existsSync: vi.fn(),
+  },
+  readFileSync: vi.fn(),
+  writeFileSync: vi.fn(),
+  existsSync: vi.fn(),
+}));
 
 describe('Gen 3 Match Call ETL', () => {
   beforeEach(() => {
