@@ -2058,7 +2058,7 @@ expect(fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), 'utf
       jules_session_id: null,
     }, `## Acceptance Criteria
 - [ ] Unchecked
-Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-completed.md)
+Target artifact: task-completed
 `);
 
     createValidTestNode(tmpDir, '.foundry/tasks/task-completed.md', {
@@ -2127,9 +2127,22 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
       parent: ".foundry/epics/epic-preflight-1.md",
       jules_session_id: null,
     });
+    createValidTestNode(tmpDir, '.foundry/stories/story-preflight-1-e2e.md', {
+      id: "story-preflight-1-e2e",
+      type: "STORY",
+      title: "Story E2E",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      tags: ["e2e"],
+      parent: ".foundry/epics/epic-preflight-1.md",
+      jules_session_id: null,
+    });
 
     const filePath = path.join(tmpDir, '.foundry/epics/epic-preflight-1.md');
-    fs.appendFileSync(filePath, '\nTarget artifact: [.foundry/stories/story-preflight-1.md](.foundry/stories/story-preflight-1.md)');
+    fs.appendFileSync(filePath, '\nTarget artifact: story-preflight-1\nTarget artifact: story-preflight-1-e2e');
 
     main();
 
@@ -2156,7 +2169,7 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     fs.writeFileSync(invalidStoryPath, `---\nid: story-preflight-2-invalid\nstatus: PENDING\n---\n\n# Title`, 'utf-8');
 
     const filePath = path.join(tmpDir, '.foundry/epics/epic-preflight-2.md');
-    fs.appendFileSync(filePath, '\nTarget artifact: [.foundry/stories/story-preflight-2-invalid.md](.foundry/stories/story-preflight-2-invalid.md)');
+    fs.appendFileSync(filePath, '\nTarget artifact: story-preflight-2-invalid');
 
     main();
 
