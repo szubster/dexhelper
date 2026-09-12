@@ -2,10 +2,10 @@
 id: adr-518-550-librarian-agent-architecture
 type: ADR
 title: Librarian Agent Architecture
-status: READY
+status: CANCELLED
 owner_persona: architect
 created_at: '2026-09-08'
-updated_at: '2026-09-08'
+updated_at: '2026-09-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,9 @@ tags:
   - librarian
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
+locks: []
 ---
 
 # Librarian Agent Architecture

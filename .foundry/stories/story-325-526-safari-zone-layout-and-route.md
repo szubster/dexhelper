@@ -2,12 +2,12 @@
 id: story-325-526-safari-zone-layout-and-route
 type: STORY
 title: Safari Zone Layout and Route Integration
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2024-05-24'
-updated_at: '2026-09-07'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '7311973390654736278'
+jules_session_id: null
 pr_number: null
 parent: epic-113-325-safari-zone-dashboard-ui
 tags:
@@ -27,4 +27,7 @@ locks: []
 Implement the main layout and route integration for the Safari Zone Tracking Dashboard, serving as the foundation for the visual representation and bounty board components.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-526-553-safari-zone-route-scaffolding-impl
+- [ ] task-526-554-safari-zone-layout-components-impl
+- [ ] task-526-555-safari-zone-layout-qa

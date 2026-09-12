@@ -2,10 +2,10 @@
 id: task-330-490-gen1-checklist-ui-tests
 type: TASK
 title: Unit Test Gen 1 Checklist UI
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-09-11'
 depends_on:
   - task-330-489-gen1-checklist-ui-impl
 jules_session_id: null
@@ -20,6 +20,7 @@ research_references:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Unit Test Gen 1 Checklist UI
