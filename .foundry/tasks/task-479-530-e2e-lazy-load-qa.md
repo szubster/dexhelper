@@ -25,6 +25,6 @@ locks: []
 Verify the implementation of E2E tests for Gen 2 and Gen 3 lazy-loaded components to ensure they properly test the component splitting and don't introduce regressions.
 
 ## Acceptance Criteria
-- [ ] Verify Gen 2 lazy load E2E tests pass reliably and test the correct behavior.
-- [ ] Verify Gen 3 lazy load E2E tests pass reliably and test the correct behavior.
-- [ ] Ensure tests comply with E2E best practices (e.g., Playwright `locator.or()` strict mode).
+- [x] Verify Gen 2 lazy load E2E tests pass reliably and test the correct behavior.
+- [x] Verify Gen 3 lazy load E2E tests pass reliably and test the correct behavior.
+- [x] Ensure tests comply with E2E best practices (e.g., Playwright `locator.or()` strict mode).
