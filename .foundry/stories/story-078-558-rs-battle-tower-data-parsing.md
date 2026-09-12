@@ -33,3 +33,7 @@ Implement the extraction of Battle Tower win streaks and records for Ruby/Sapphi
 - [ ] Implement data extraction for Level 50 and Level 100 max win records in Ruby/Sapphire.
 - [ ] Gracefully integrate this parsing logic alongside the existing Emerald Battle Frontier parser.
 - [ ] Ensure out-of-bounds reads are handled gracefully via `DataView`.
+
+- [ ] task-558-568-rs-battle-tower-data-parsing-impl
+- [ ] task-558-569-rs-battle-tower-data-parsing-qa
+- [ ] task-558-570-rs-battle-tower-integration
