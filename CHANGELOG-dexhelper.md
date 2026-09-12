@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.11.0] - 2026-03-15
+### Added
+- Enhance the Pokédex viewer with `framer-motion` animations for smoother transitions.
+- Update UI components to support seamless save file parsing and filtering.
+
 ## [0.10.0] - 2026-03-15
 ### Added
 - Enhance Pokemon details UI to display 'Evolves Into' information with direct navigation links.
@@ -55,3 +60,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.9.0]: https://github.com/szubster/dexhelper/compare/94c083b36583c0b00531233b988d0840eb9d5f6e...a8bd4639d4c7702841582f812eefe73421ec2bd5
 
 [0.10.0]: https://github.com/szubster/dexhelper/compare/a8bd4639d4c7702841582f812eefe73421ec2bd5...f392dbd8d5391441b784959b2fc7e5e2f5eade3f
+[0.11.0]: https://github.com/szubster/dexhelper/compare/f392dbd8d5391441b784959b2fc7e5e2f5eade3f...888f3b975ae80fa276832304042b924e60c6a156

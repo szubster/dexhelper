@@ -56,3 +56,6 @@ Synthesize the technical changes (functions added/modified, UI updates, bug fixe
 If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.11.0] - 2026-03-15` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.10.0...0.11.0`](https://github.com/${repo}/compare/f392dbd...888f3b9)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
+
+## Acceptance Criteria
+- [x] Changelog entry added or empty PR decided.
