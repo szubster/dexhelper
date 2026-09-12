@@ -1,5 +1,5 @@
 import { useLocation } from '@tanstack/react-router';
-import { Database, GitGraph, LayoutGrid, Settings2, Sparkles, Swords } from 'lucide-react';
+import { Database, GitGraph, LayoutGrid, Network, Settings2, Sparkles, Swords } from 'lucide-react';
 import { useStore } from '../store';
 import { NavButton } from './NavButton';
 import { TelemetryDecoration } from './TelemetryDecoration';
@@ -14,6 +14,7 @@ export function BottomNav() {
   const isAssistant = location.pathname === '/assistant';
   const isDag = location.pathname === '/dag';
   const isFrontier = location.pathname === '/dashboard';
+  const isAnalyzer = location.pathname === '/box-analyzer';
 
   return (
     <nav className="fixed right-0 bottom-0 left-0 z-50 border-zinc-900 border-t-[8px] border-b-[8px] bg-zinc-950 pb-[env(safe-area-inset-bottom,0px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.9)] lg:hidden">
@@ -49,6 +50,17 @@ export function BottomNav() {
       <div className="relative mx-1 mt-1 mb-1 flex h-[76px] items-stretch gap-1 rounded-none border-2 border-zinc-900 bg-zinc-900/50 p-1 shadow-[inset_0_4px_20px_rgba(0,0,0,0.8)]">
         <div className="h-full flex-1">
           <NavButton to="/" ariaLabel="Pokedex" label="DEX" activeLabel="DEX" icon={LayoutGrid} isActive={isDex} />
+        </div>
+
+        <div className="h-full flex-1">
+          <NavButton
+            to="/box-analyzer"
+            ariaLabel="Analyzer"
+            label="ANALYZER"
+            activeLabel="ANLZ"
+            icon={Network}
+            isActive={isAnalyzer}
+          />
         </div>
 
         <div className="h-full flex-1">

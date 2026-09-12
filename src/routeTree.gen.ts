@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AssistantRouteImport } from './routes/assistant'
+import { Route as BoxAnalyzerRouteImport } from './routes/box-analyzer'
 import { Route as DagRouteImport } from './routes/dag'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as EmulatorRouteImport } from './routes/emulator'
@@ -25,6 +26,11 @@ const IndexRoute = IndexRouteImport.update({
 const AssistantRoute = AssistantRouteImport.update({
   id: '/assistant',
   path: '/assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BoxAnalyzerRoute = BoxAnalyzerRouteImport.update({
+  id: '/box-analyzer',
+  path: '/box-analyzer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DagRoute = DagRouteImport.update({
@@ -56,6 +62,7 @@ const PokemonPokemonIdRoute = PokemonPokemonIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/assistant': typeof AssistantRoute
+  '/box-analyzer': typeof BoxAnalyzerRoute
   '/dag': typeof DagRoute
   '/dashboard': typeof DashboardRoute
   '/emulator': typeof EmulatorRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/assistant': typeof AssistantRoute
+  '/box-analyzer': typeof BoxAnalyzerRoute
   '/dag': typeof DagRoute
   '/dashboard': typeof DashboardRoute
   '/emulator': typeof EmulatorRoute
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/assistant': typeof AssistantRoute
+  '/box-analyzer': typeof BoxAnalyzerRoute
   '/dag': typeof DagRoute
   '/dashboard': typeof DashboardRoute
   '/emulator': typeof EmulatorRoute
@@ -86,6 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/assistant'
+    | '/box-analyzer'
     | '/dag'
     | '/dashboard'
     | '/emulator'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/assistant'
+    | '/box-analyzer'
     | '/dag'
     | '/dashboard'
     | '/emulator'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/assistant'
+    | '/box-analyzer'
     | '/dag'
     | '/dashboard'
     | '/emulator'
@@ -114,6 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AssistantRoute: typeof AssistantRoute
+  BoxAnalyzerRoute: typeof BoxAnalyzerRoute
   DagRoute: typeof DagRoute
   DashboardRoute: typeof DashboardRoute
   EmulatorRoute: typeof EmulatorRoute
@@ -135,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/assistant'
       fullPath: '/assistant'
       preLoaderRoute: typeof AssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/box-analyzer': {
+      id: '/box-analyzer'
+      path: '/box-analyzer'
+      fullPath: '/box-analyzer'
+      preLoaderRoute: typeof BoxAnalyzerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dag': {
@@ -178,6 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AssistantRoute: AssistantRoute,
+  BoxAnalyzerRoute: BoxAnalyzerRoute,
   DagRoute: DagRoute,
   DashboardRoute: DashboardRoute,
   EmulatorRoute: EmulatorRoute,
