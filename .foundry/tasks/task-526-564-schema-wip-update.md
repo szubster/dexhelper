@@ -28,6 +28,6 @@ notes: ''
 This task updates the core Foundry schema in `.foundry/docs/schema.md` to formally support `DRAFT` and `WIP` frontmatter statuses for documentation nodes.
 
 ## Acceptance Criteria
-- [ ] Add `DRAFT` and `WIP` to the list of allowed statuses in `.foundry/docs/schema.md` (sections 3.1 and 4.1).
-- [ ] Define the lifecycle transitions for these new statuses in `.foundry/docs/schema.md` (section 4.2).
-- [ ] Run core verification commands.
+- [x] Add `DRAFT` and `WIP` to the list of allowed statuses in `.foundry/docs/schema.md` (sections 3.1 and 4.1).
+- [x] Define the lifecycle transitions for these new statuses in `.foundry/docs/schema.md` (section 4.2).
+- [x] Run core verification commands.
