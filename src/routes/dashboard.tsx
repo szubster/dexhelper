@@ -50,6 +50,12 @@ const Gen3EventItemsDashboard = React.lazy(() =>
   })),
 );
 
+const Gen3TrainerCardDashboard = React.lazy(() =>
+  import('../components/dashboard/trainer-card/Gen3TrainerCardDashboard').then((m) => ({
+    default: m.Gen3TrainerCardDashboard,
+  })),
+);
+
 const GlobalRibbonChecklistDashboard = React.lazy(() =>
   import('../components/dashboard/ribbons/GlobalRibbonChecklistDashboard').then((m) => ({
     default: m.GlobalRibbonChecklistDashboard,
@@ -112,6 +118,7 @@ function DashboardPage() {
             <Gen3StaticEncountersDashboard saveData={saveData} />
             <Gen3TrickHouseDashboard saveData={saveData} />
             <Gen3NpcTrades />
+            <Gen3TrainerCardDashboard saveData={saveData} />
           </>
         ) : saveData.generation === 2 ? (
           <>
