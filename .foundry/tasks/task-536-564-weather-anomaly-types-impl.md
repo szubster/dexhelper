@@ -30,6 +30,6 @@ You MUST strictly follow Section 13 ("Save File Parsing & Extraction Guidelines"
 This is part of the larger effort to expand the Gen 3 save parsing engine to extract weather anomalies. This task establishes the foundation (types and constants) that the logic implementation will rely on.
 
 ## Acceptance Criteria
-- [ ] Define the TypeScript types and/or interfaces to represent the extracted weather anomaly data.
-- [ ] Define all necessary memory offsets, lengths, and the variable ID (`0x4037`) as explicit, reusable constants at the module level (e.g., in a `constants.ts` or `types.ts` file within a dedicated `weatherAnomaly` directory).
-- [ ] Ensure the implementation strictly follows the guidelines in Section 13 of `.foundry/docs/schema.md` (no inline magic numbers).
+- [x] Define the TypeScript types and/or interfaces to represent the extracted weather anomaly data.
+- [x] Define all necessary memory offsets, lengths, and the variable ID (`0x4037`) as explicit, reusable constants at the module level (e.g., in a `constants.ts` or `types.ts` file within a dedicated `weatherAnomaly` directory).
+- [x] Ensure the implementation strictly follows the guidelines in Section 13 of `.foundry/docs/schema.md` (no inline magic numbers).
