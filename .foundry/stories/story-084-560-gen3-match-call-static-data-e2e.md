@@ -30,3 +30,5 @@ Implement E2E testing to verify that the Gen 3 Match Call static dataset is succ
 
 ## Acceptance Criteria
 - [ ] Implement E2E tests for the Match Call static data generation pipeline.
+- [ ] task-560-568-gen3-match-call-static-data-e2e-coder
+- [ ] task-560-569-gen3-match-call-static-data-e2e-qa
