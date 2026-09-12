@@ -30,5 +30,5 @@ Agent sessions executing long-running or blocking bash commands (like \`tail -f\
 Implement the core logic for the static analysis linter to analyze bash commands before execution and block infinite-blocking commands. The logic must be implemented in the bash wrapper \`scripts/safe_bash.sh\` and correctly block the command if \`tail -f\` is detected, providing a user-friendly error message. Note that the implementation might already be present, but this task is needed to properly complete the story and progress the DAG.
 
 ## Acceptance Criteria
-- [ ] Implement the core logic for the bash static analysis linter to block infinite-blocking commands like \`tail -f\`.
-- [ ] Self-verify the implementation and ensure the script correctly outputs a user-friendly error.
+- [x] Implement the core logic for the bash static analysis linter to block infinite-blocking commands like \`tail -f\`.
+- [x] Self-verify the implementation and ensure the script correctly outputs a user-friendly error.
