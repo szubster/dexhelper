@@ -74,16 +74,30 @@ const getCompileScheduledPersona = (): string | null => {
 
 // ─── Logging (all diagnostic output → stderr; only the matrix JSON → stdout) ─
 
+const POKEMON_PHRASES = [
+  '[Pokedex]',
+  '[Oak]',
+  '[Bill]',
+  '[Team Rocket]',
+  '[Silph Co]',
+  '[Gym Leader]'
+];
+
+function getRandomPokemonPhrase(): string {
+  const randomIndex = Math.floor(Math.random() * POKEMON_PHRASES.length);
+  return POKEMON_PHRASES[randomIndex];
+}
+
 let hasWarnings = false;
 
 function warn(msg: string): void {
   hasWarnings = true;
-  process.stderr.write(`[orchestrator] WARN  ${msg}\n`);
+  process.stderr.write(`[orchestrator] ${getRandomPokemonPhrase()} WARN  ${msg}\n`);
   process.stderr.write(`::warning::[orchestrator] ${msg}\n`);
 }
 
 function info(msg: string): void {
-  process.stderr.write(`[orchestrator] INFO  ${msg}\n`);
+  process.stderr.write(`[orchestrator] ${getRandomPokemonPhrase()} INFO  ${msg}\n`);
 }
 
 // ─── Utilities ────────────────────────────────────────────────────────────────
