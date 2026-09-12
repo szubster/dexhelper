@@ -2,7 +2,7 @@
 id: task-494-472-migrate-core-test-semantic-validation-impl
 type: TASK
 title: Implement Core Agent Test Migration to Semantic Validation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-09-12'
@@ -14,9 +14,10 @@ tags:
   - testing
   - prompts
 research_references: []
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_reason: ''
 notes: ''
 locks: []
+rejection_count: 1
 ---
 
 # Task: Implement Core Agent Test Migration to Semantic Validation
