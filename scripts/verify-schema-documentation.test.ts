@@ -4,8 +4,8 @@ import { checkSchemaDocumentation } from './verify-schema-documentation.js';
 
 vi.mock('node:fs', () => {
     return {
-        readFileSync: vi.fn(),
-        existsSync: vi.fn()
+        readFileSync: vi.fn<(...args: unknown[]) => string | Buffer>(),
+        existsSync: vi.fn<(...args: unknown[]) => boolean>()
     };
 });
 

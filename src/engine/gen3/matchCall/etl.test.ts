@@ -3,13 +3,13 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 vi.mock('node:fs', () => ({
   default: {
-    readFileSync: vi.fn(),
-    writeFileSync: vi.fn(),
-    existsSync: vi.fn(),
+    readFileSync: vi.fn<(...args: unknown[]) => string | Buffer>(),
+    writeFileSync: vi.fn<(...args: unknown[]) => void>(),
+    existsSync: vi.fn<(...args: unknown[]) => boolean>(),
   },
-  readFileSync: vi.fn(),
-  writeFileSync: vi.fn(),
-  existsSync: vi.fn(),
+  readFileSync: vi.fn<(...args: unknown[]) => string | Buffer>(),
+  writeFileSync: vi.fn<(...args: unknown[]) => void>(),
+  existsSync: vi.fn<(...args: unknown[]) => boolean>(),
 }));
 
 describe('Gen 3 Match Call ETL', () => {
