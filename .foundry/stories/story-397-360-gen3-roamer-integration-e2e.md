@@ -5,7 +5,7 @@ title: Gen 3 Roamer Integration and E2E Verification
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on:
   - story-397-359-gen3-roamer-unit-tests
 jules_session_id: '14117753440197048908'
@@ -36,6 +36,9 @@ Generate Integration and E2E Verification to ensure proper system-wide rendering
 - [x] task-360-418-gen3-roamer-ui-impl
 - [x] task-360-419-gen3-roamer-e2e-impl
 - [x] task-360-420-gen3-roamer-ui-and-e2e-qa
-- [ ] research-360-471-investigate-gen3-roamer-e2e-failure
-- [ ] task-360-489-gen3-roamer-e2e-impl-v2
-- [ ] task-360-490-gen3-roamer-ui-and-e2e-qa-v2
+- [x] research-360-471-investigate-gen3-roamer-e2e-failure
+- [x] task-360-489-gen3-roamer-e2e-impl-v2
+- [x] task-360-490-gen3-roamer-ui-and-e2e-qa-v2
+- [ ] research-360-568-investigate-gen3-roamer-e2e-failure-v2
+- [ ] task-360-566-gen3-roamer-e2e-impl-v3
+- [ ] task-360-567-gen3-roamer-ui-and-e2e-qa-v3

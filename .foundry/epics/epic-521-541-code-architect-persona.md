@@ -2,12 +2,12 @@
 id: epic-521-541-code-architect-persona
 type: EPIC
 title: 'Epic: Scheduled Weekly Persona - Code Architect (architect_visionary)'
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-06'
 updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11299867110653956283'
 pr_number: null
 parent: prd-153-521-foundry-rearchitecture-and-code-architect-persona
 tags:

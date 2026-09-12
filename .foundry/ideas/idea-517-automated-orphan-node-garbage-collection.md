@@ -2,10 +2,10 @@
 id: idea-517-automated-orphan-node-garbage-collection
 type: IDEA
 title: Automated Orphan Node Garbage Collection
-status: ACTIVE
-owner_persona: product_manager
+status: BLOCKED
+owner_persona: tpm
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,8 @@ tags:
   - orchestrator
   - maintenance
 research_references: []
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
+locks: []
 ---
 
 # Idea: Automated Orphan Node Garbage Collection

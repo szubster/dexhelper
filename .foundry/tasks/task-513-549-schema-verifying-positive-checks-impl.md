@@ -2,12 +2,12 @@
 id: task-513-549-schema-verifying-positive-checks-impl
 type: TASK
 title: Add positive pattern checks for VERIFYING state
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-07'
+updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: '10757651054607219080'
+jules_session_id: null
 pr_number: null
 parent: story-130-513-schema-verifying-state-update-e2e
 tags:
@@ -26,4 +26,4 @@ locks: []
 This task updates the `scripts/verify-schema-documentation.ts` script to include positive pattern checks for the newly added VERIFYING state in `schema.md`.
 
 ## Acceptance Criteria
-- [ ] The verify-schema-documentation.ts script includes the positive pattern for Invariant 7.
+- [x] The verify-schema-documentation.ts script includes the positive pattern for Invariant 7.

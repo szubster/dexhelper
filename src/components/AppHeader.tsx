@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { Database, GitGraph, LayoutGrid, Sparkles, Swords } from 'lucide-react';
+import { Database, GitGraph, LayoutGrid, Network, Sparkles, Swords } from 'lucide-react';
 import React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { useFileSyncController } from '../hooks/useFileSyncController';
@@ -93,6 +93,7 @@ export function AppHeader({
             </div>
             <div className="flex border-2 border-zinc-800 border-dashed bg-zinc-950/80 shadow-2xl">
               <NavigationTab to="/" icon={<LayoutGrid size={14} />} label="SYS.DEX" />
+              <NavigationTab to="/box-analyzer" icon={<Network size={14} />} label="SYS.ANLZ" />
               <NavigationTab to="/storage" icon={<Database size={14} />} label="SYS.STRG" />
               <NavigationTab to="/assistant" icon={<Sparkles size={14} />} label="SYS.ASST" />
               <NavigationTab to="/dag" icon={<GitGraph size={14} />} label="SYS.DAG" />

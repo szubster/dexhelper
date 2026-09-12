@@ -3,10 +3,10 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { sweepJournals } from './sweep-journals.ts';
 
+// ESM mocking for fs is tricky in vitest, so we use vi.mock but carefully
 vi.mock('node:fs');
-vi.mock('node:fs/promises');
 
-describe('sweepJournals', () => {
+describe('sweepJournals mocked', () => {
   beforeEach(() => {
     vi.resetAllMocks();
   });
@@ -15,13 +15,13 @@ describe('sweepJournals', () => {
     const mockRepoRoot = '/mock/repo';
     const oldDate = new Date(Date.now() - 40 * 24 * 60 * 60 * 1000).getTime();
 
-    vi.spyOn(fs, 'existsSync').mockImplementation((p: any) => {
+    vi.mocked(fs.existsSync).mockImplementation((p: unknown) => {
       if (typeof p === 'string' && p.includes('journals')) return true;
       if (typeof p === 'string' && p.includes('.jules')) return true;
       return true;
     });
 
-    vi.spyOn(fs, 'readdirSync').mockImplementation(((dir: any, _options?: any) => {
+    vi.mocked(fs.readdirSync).mockImplementation(((dir: unknown, _options?: unknown) => {
       if (dir === path.join(mockRepoRoot, '.foundry', 'journals')) {
         return [
           { name: 'old-journal.md', isDirectory: () => false, isFile: () => true },
@@ -32,16 +32,16 @@ describe('sweepJournals', () => {
         return [];
       }
       return [];
-    }) as any);
+    }) as unknown as typeof fs.readdirSync);
 
-    vi.spyOn(fs, 'statSync').mockImplementation((p: any) => {
+    vi.mocked(fs.statSync).mockImplementation((p: unknown) => {
       if (typeof p === 'string' && p.endsWith('old-journal.md')) {
         return { mtimeMs: oldDate } as fs.Stats;
       }
       return { mtimeMs: Date.now() } as fs.Stats;
     });
 
-    vi.spyOn(fs, 'readFileSync').mockImplementation(() => '');
+    vi.mocked(fs.readFileSync).mockImplementation(() => '');
 
     const swept = sweepJournals(mockRepoRoot, { dryRun: true });
     expect(swept).toContain(path.join(mockRepoRoot, '.foundry', 'journals', 'old-journal.md'));
@@ -51,9 +51,9 @@ describe('sweepJournals', () => {
   it('sweeps files explicitly marked as processed in frontmatter', () => {
     const mockRepoRoot = '/mock/repo';
 
-    vi.spyOn(fs, 'existsSync').mockImplementation(() => true);
+    vi.mocked(fs.existsSync).mockImplementation(() => true);
 
-    vi.spyOn(fs, 'readdirSync').mockImplementation(((dir: any, _options?: any) => {
+    vi.mocked(fs.readdirSync).mockImplementation(((dir: unknown, _options?: unknown) => {
       if (dir === path.join(mockRepoRoot, '.foundry', 'journals')) {
         return [
           { name: 'processed-journal.md', isDirectory: () => false, isFile: () => true },
@@ -61,13 +61,13 @@ describe('sweepJournals', () => {
         ];
       }
       return [];
-    }) as any);
+    }) as unknown as typeof fs.readdirSync);
 
-    vi.spyOn(fs, 'statSync').mockImplementation(() => {
+    vi.mocked(fs.statSync).mockImplementation(() => {
       return { mtimeMs: Date.now() } as fs.Stats;
     });
 
-    vi.spyOn(fs, 'readFileSync').mockImplementation((p: any) => {
+    vi.mocked(fs.readFileSync).mockImplementation((p: unknown) => {
       if (typeof p === 'string' && p.endsWith('processed-journal.md')) {
         return '---\nprocessed: true\n---\nBody';
       }

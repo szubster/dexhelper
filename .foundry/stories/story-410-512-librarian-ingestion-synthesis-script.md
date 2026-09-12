@@ -2,10 +2,10 @@
 id: story-410-512-librarian-ingestion-synthesis-script
 type: STORY
 title: Librarian Ingestion and Synthesis Script
-status: READY
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-01'
-updated_at: '2026-09-09'
+updated_at: '2026-09-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -29,8 +29,8 @@ locks: []
 The goal of this story is to implement the scripts needed by the librarian persona to ingest agent journals and synthesize/extract systemic rules.
 
 ## Acceptance Criteria
-- [ ] task-512-517-librarian-ingestion-script
-- [ ] task-512-518-librarian-synthesis-script
-- [ ] task-512-519-librarian-scripts-qa
+- [x] task-512-517-librarian-ingestion-script
+- [x] task-512-518-librarian-synthesis-script
+- [x] task-512-519-librarian-scripts-qa
 - [x] Generate TASK nodes to implement journal ingestion.
 - [x] Generate TASK nodes to implement rules extraction.
