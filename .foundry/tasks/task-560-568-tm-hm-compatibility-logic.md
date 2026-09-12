@@ -1,16 +1,16 @@
 ---
-id: story-402-560-tm-hm-compatibility-matching
-type: STORY
-title: Compatibility Matching Logic
+id: task-560-568-tm-hm-compatibility-logic
+type: TASK
+title: Implement TM/HM Compatibility Matching Logic
 status: READY
-owner_persona: tech_lead
+owner_persona: coder
 created_at: '2025-02-14'
 updated_at: '2025-02-14'
 depends_on: []
 jules_session_id: null
 locks: []
 pr_number: null
-parent: epic-110-402-tm-hm-compatibility-logic-v2
+parent: story-402-560-tm-hm-compatibility-matching
 priority: 50
 tags:
   - feature
@@ -21,10 +21,10 @@ rejection_reason: ""
 notes: ""
 ---
 
-# Compatibility Matching Logic
+# Implement TM/HM Compatibility Matching Logic
 
 ## Overview
-This STORY implements the core logic layer for checking if Pokémon currently in the player's Party and PC Boxes can learn a selected TM/HM move.
+Implement the core logic layer for checking if Pokémon currently in the player's Party and PC Boxes can learn a selected TM/HM move.
 
 ## Requirements
 - Create a function/module that accepts a TM/HM item and a list of Pokémon entities.
@@ -33,7 +33,4 @@ This STORY implements the core logic layer for checking if Pokémon currently in
 - Return a filtered list of Pokémon capable of learning the move.
 
 ## Acceptance Criteria
-- [x] Break down into TASK nodes for implementing the matching logic and unit testing it.
-- [ ] task-560-568-tm-hm-compatibility-logic
-- [ ] task-560-569-tm-hm-compatibility-unit-tests
-- [ ] task-560-570-tm-hm-compatibility-qa
+- [ ] Implement the compatibility matching function/module as described.
