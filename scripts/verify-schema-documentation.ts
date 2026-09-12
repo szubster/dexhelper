@@ -18,6 +18,11 @@ export function checkSchemaDocumentation(): boolean {
         "Once a PR is merged, the node transitions to `VERIFYING`."
     ];
 
+    const forbiddenPatterns = [
+        "VERIFYING nodes are editable",
+        "implementing personas can modify VERIFYING nodes"
+    ];
+
     let allPatternsFound = true;
     for (const pattern of requiredPatterns) {
         if (!schemaContent.includes(pattern)) {
@@ -26,7 +31,15 @@ export function checkSchemaDocumentation(): boolean {
         }
     }
 
-    return allPatternsFound;
+    let noForbiddenPatterns = true;
+    for (const pattern of forbiddenPatterns) {
+        if (schemaContent.includes(pattern)) {
+            console.error(`Error: Found forbidden documentation pattern in schema.md: "${pattern}"`);
+            noForbiddenPatterns = false;
+        }
+    }
+
+    return allPatternsFound && noForbiddenPatterns;
 }
 
 function main() {
