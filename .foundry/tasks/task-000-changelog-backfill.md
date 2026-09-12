@@ -2,10 +2,10 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
-updated_at: '2026-09-11'
+updated_at: '2026-09-12'
 depends_on: []
 jules_session_id: null
 locks: []
@@ -26,35 +26,33 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `f392dbd8d5391441b784959b2fc7e5e2f5eade3f`
-- **Previous Commit SHA:** `a8bd4639d4c7702841582f812eefe73421ec2bd5`
+- **Commit SHA:** `888f3b975ae80fa276832304042b924e60c6a156`
+- **Previous Commit SHA:** `f392dbd8d5391441b784959b2fc7e5e2f5eade3f`
 - **Commit Date:** `2026-03-15`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `minor` (from `0.9.0` -> `0.10.0`)
+- **Suggested SemVer Bump:** `minor` (from `0.10.0` -> `0.11.0`)
 
 ## Commit Message
 ```text
-feat: Implement core save file parsing for Gen 1/2 Pokémon games and initial UI components for displaying save data.
+feat: Implement core Pokedex save file viewer with save file parsing, filtering, and UI.
 ```
 
 ## Modified Files
 - `src/App.tsx`
 - `src/components/PokemonDetails.tsx`
-- `src/utils/saveParser.ts`
 
 ## Diff Summary
 ```text
-f392dbd8d feat: Implement core save file parsing for Gen 1/2 Pokémon games and initial UI components for displaying save data.
- src/App.tsx                       | 163 ++++++++++++++++++++++++++++++--------
- src/components/PokemonDetails.tsx |  85 +++++++++++++++++++-
- src/utils/saveParser.ts           |  25 +++++-
- 3 files changed, 234 insertions(+), 39 deletions(-)
+888f3b975 feat: Implement core Pokedex save file viewer with save file parsing, filtering, and UI.
+ src/App.tsx                       | 103 ++++++++++++++++++++++++++------------
+ src/components/PokemonDetails.tsx |  80 ++++++++++++++++++++++-------
+ 2 files changed, 133 insertions(+), 50 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show f392dbd8d5391441b784959b2fc7e5e2f5eade3f` (or `git diff a8bd4639d4c7702841582f812eefe73421ec2bd5..f392dbd8d5391441b784959b2fc7e5e2f5eade3f`) in bash to analyze the actual code diff.
+As Changelogger, independently inspect the commit changes above by executing `git show 888f3b975ae80fa276832304042b924e60c6a156` (or `git diff f392dbd8d5391441b784959b2fc7e5e2f5eade3f..888f3b975ae80fa276832304042b924e60c6a156`) in bash to analyze the actual code diff.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.10.0] - 2026-03-15` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.9.0...0.10.0`](https://github.com/${repo}/compare/a8bd463...f392dbd)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.11.0] - 2026-03-15` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.10.0...0.11.0`](https://github.com/${repo}/compare/f392dbd...888f3b9)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
