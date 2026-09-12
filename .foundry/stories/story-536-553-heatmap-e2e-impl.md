@@ -24,4 +24,6 @@ locks: []
 This story entails writing Playwright E2E tests to verify the Heatmap Toggle and dynamic visual styling functionality, ensuring node metrics are correctly reflected in the UI.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks to implement E2E tests for the Heatmap.
+- [x] Tech Lead: Break down into Tasks to implement E2E tests for the Heatmap.
+- [ ] task-553-568-heatmap-e2e-coder
+- [ ] task-553-569-heatmap-e2e-qa
