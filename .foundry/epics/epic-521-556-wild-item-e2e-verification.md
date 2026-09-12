@@ -31,4 +31,7 @@ This epic ensures complete End-to-End coverage testing for the Wild Held Item Hu
 - Ensure end-to-end flow is fully verified.
 
 ## Acceptance Criteria
-- [ ] story_owner: Break down this Epic into Stories.
+- [x] story_owner: Break down this Epic into Stories.
+- [ ] story-556-562-e2e-tests-item-selection-route-display
+- [ ] story-556-563-e2e-tests-save-file-progress-tracking
+- [ ] story-556-564-e2e-tests-end-to-end-flow
