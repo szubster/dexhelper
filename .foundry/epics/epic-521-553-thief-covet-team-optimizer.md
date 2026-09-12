@@ -32,4 +32,7 @@ This epic implements the logic to scan the player's saved state to find optimal 
 - Flag Pokemon that know item-stealing moves for recommendation in the UI.
 
 ## Acceptance Criteria
-- [ ] story_owner: Break down this Epic into Stories.
+- [x] story_owner: Break down this Epic into Stories.
+- [ ] story-553-563-thief-covet-engine-logic
+- [ ] story-553-564-thief-covet-ui-integration
+- [ ] story-553-565-thief-covet-e2e
