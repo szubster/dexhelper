@@ -56,6 +56,10 @@ const GlobalRibbonChecklistDashboard = React.lazy(() =>
   })),
 );
 
+const RngCalculatorDashboard = React.lazy(() =>
+  import('../components/dashboard/rng/RngCalculatorDashboard').then((m) => ({ default: m.RngCalculatorDashboard })),
+);
+
 const Gen2DecorationsDashboard = React.lazy(() =>
   import('../components/dashboard/decorations/Gen2DecorationsDashboard').then((m) => ({
     default: m.Gen2DecorationsDashboard,
@@ -105,6 +109,7 @@ function DashboardPage() {
         {saveData.generation === 3 ? (
           <>
             <Gen3RoamerDossier saveData={saveData} />
+            <RngCalculatorDashboard />
             <BattleFrontierDashboard saveData={saveData} />
             <GlobalRibbonChecklistDashboard />
             <Gen3SecretBaseDashboard saveData={saveData} />
