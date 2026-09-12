@@ -20,6 +20,7 @@
 | [epic-521-541-code-architect-persona](.foundry/epics/epic-521-541-code-architect-persona.md) | EPIC | Epic: Scheduled Weekly Persona - Code Architect (architect_visionary) | story_owner | [11299867110653956283](https://jules.google.com/session/11299867110653956283) |
 | [epic-521-552-schema-linter-core-logic](.foundry/epics/epic-521-552-schema-linter-core-logic.md) | EPIC | Schema Linter Core Logic: Markdown Checkboxes | story_owner | [2550931953488891671](https://jules.google.com/session/2550931953488891671) |
 | [epic-521-552-task-breakdown-anti-patterns](.foundry/epics/epic-521-552-task-breakdown-anti-patterns.md) | EPIC | Encourage Modular Task Breakdowns for Tech Leads | story_owner | [11496431371171848350](https://jules.google.com/session/11496431371171848350) |
+| [epic-521-555-wild-item-hunting-ui](.foundry/epics/epic-521-555-wild-item-hunting-ui.md) | EPIC | Wild Item Hunting UI | story_owner | [17621003090438935929](https://jules.google.com/session/17621003090438935929) |
 | [epic-521-556-wild-item-e2e-verification](.foundry/epics/epic-521-556-wild-item-e2e-verification.md) | EPIC | Wild Item E2E Verification | story_owner | [12289585652266865090](https://jules.google.com/session/12289585652266865090) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
