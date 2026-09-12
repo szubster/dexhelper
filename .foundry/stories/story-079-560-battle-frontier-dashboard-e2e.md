@@ -27,4 +27,6 @@ locks: []
 Create and execute Playwright E2E tests to verify the integration of the Battle Frontier Dashboard UI, including facility cards, BP wallet display, and progress visuals.
 
 ## Acceptance Criteria
-- [ ] Translate into technical Tasks
+- [x] Translate into technical Tasks
+- [ ] task-560-568-battle-frontier-dashboard-e2e-coder
+- [ ] task-560-569-battle-frontier-dashboard-e2e-qa
