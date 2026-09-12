@@ -15,6 +15,7 @@ import { Route as BoxAnalyzerRouteImport } from './routes/box-analyzer'
 import { Route as DagRouteImport } from './routes/dag'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as EmulatorRouteImport } from './routes/emulator'
+import { Route as SafariZoneRouteImport } from './routes/safari-zone'
 import { Route as StorageRouteImport } from './routes/storage'
 import { Route as PokemonPokemonIdRouteImport } from './routes/pokemon.$pokemonId'
 
@@ -48,6 +49,11 @@ const EmulatorRoute = EmulatorRouteImport.update({
   path: '/emulator',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SafariZoneRoute = SafariZoneRouteImport.update({
+  id: '/safari-zone',
+  path: '/safari-zone',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StorageRoute = StorageRouteImport.update({
   id: '/storage',
   path: '/storage',
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/dag': typeof DagRoute
   '/dashboard': typeof DashboardRoute
   '/emulator': typeof EmulatorRoute
+  '/safari-zone': typeof SafariZoneRoute
   '/storage': typeof StorageRoute
   '/pokemon/$pokemonId': typeof PokemonPokemonIdRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/dag': typeof DagRoute
   '/dashboard': typeof DashboardRoute
   '/emulator': typeof EmulatorRoute
+  '/safari-zone': typeof SafariZoneRoute
   '/storage': typeof StorageRoute
   '/pokemon/$pokemonId': typeof PokemonPokemonIdRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/dag': typeof DagRoute
   '/dashboard': typeof DashboardRoute
   '/emulator': typeof EmulatorRoute
+  '/safari-zone': typeof SafariZoneRoute
   '/storage': typeof StorageRoute
   '/pokemon/$pokemonId': typeof PokemonPokemonIdRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/dag'
     | '/dashboard'
     | '/emulator'
+    | '/safari-zone'
     | '/storage'
     | '/pokemon/$pokemonId'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/dag'
     | '/dashboard'
     | '/emulator'
+    | '/safari-zone'
     | '/storage'
     | '/pokemon/$pokemonId'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/dag'
     | '/dashboard'
     | '/emulator'
+    | '/safari-zone'
     | '/storage'
     | '/pokemon/$pokemonId'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   DagRoute: typeof DagRoute
   DashboardRoute: typeof DashboardRoute
   EmulatorRoute: typeof EmulatorRoute
+  SafariZoneRoute: typeof SafariZoneRoute
   StorageRoute: typeof StorageRoute
   PokemonPokemonIdRoute: typeof PokemonPokemonIdRoute
 }
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EmulatorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/safari-zone': {
+      id: '/safari-zone'
+      path: '/safari-zone'
+      fullPath: '/safari-zone'
+      preLoaderRoute: typeof SafariZoneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/storage': {
       id: '/storage'
       path: '/storage'
@@ -202,6 +222,7 @@ const rootRouteChildren: RootRouteChildren = {
   DagRoute: DagRoute,
   DashboardRoute: DashboardRoute,
   EmulatorRoute: EmulatorRoute,
+  SafariZoneRoute: SafariZoneRoute,
   StorageRoute: StorageRoute,
   PokemonPokemonIdRoute: PokemonPokemonIdRoute,
 }
