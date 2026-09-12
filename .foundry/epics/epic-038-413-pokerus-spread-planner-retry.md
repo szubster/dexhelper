@@ -29,4 +29,6 @@ Create a dedicated tool to strategically plan Pokerus spread, suggesting party c
 
 ## Acceptance Criteria
 - [ ] Create spread planner tool
-- [ ] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification.
+- [ ] story-413-560-pokerus-spread-planner-ui
+- [ ] story-413-561-pokerus-spread-planner-e2e
