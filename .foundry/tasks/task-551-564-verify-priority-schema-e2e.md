@@ -2,12 +2,12 @@
 id: task-551-564-verify-priority-schema-e2e
 type: TASK
 title: Implement and Verify Priority Field Sorting
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2210995807331792472'
 pr_number: null
 parent: story-530-551-integration-e2e-verification
 tags:
