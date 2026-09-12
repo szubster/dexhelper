@@ -27,5 +27,5 @@ notes: ''
 As part of integrating Google Drive with our Cloudflare Workers (`story-402-526-cloudflare-worker-setup`), we need to set up the necessary environment bindings and secrets in our Wrangler configuration.
 
 ## Acceptance Criteria
-- [ ] Update `wrangler.json` (or `wrangler.toml`) to include bindings for Google Drive credentials.
-- [ ] Define TypeScript interfaces for these environment variables in the worker context.
+- [x] Update `wrangler.json` (or `wrangler.toml`) to include bindings for Google Drive credentials.
+- [x] Define TypeScript interfaces for these environment variables in the worker context.
