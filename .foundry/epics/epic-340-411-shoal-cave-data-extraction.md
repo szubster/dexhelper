@@ -2,10 +2,10 @@
 id: epic-340-411-shoal-cave-data-extraction
 type: EPIC
 title: Data Extraction Layer (RTC & Shoal Items)
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-11'
-updated_at: '2026-08-15'
+updated_at: '2026-09-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Data Extraction Layer (RTC & Shoal Items)
@@ -46,5 +47,5 @@ This epic focuses on the backend parsing logic for extracting necessary data fro
 - [x] Implement RTC data extraction logic complying with Section 13 guidelines. (Cancelled per ADR 025)
 - [x] Implement item pocket parsing for Shoal Shells and Shoal Salts.
 - [x] E2E / Integration Verification STORY must be drafted to integrate extracted data with dashboard and test it end-to-end.
-- [ ] story-411-421-shoal-items-parsing
-- [ ] story-411-422-shoal-items-e2e
+- [x] story-411-421-shoal-items-parsing
+- [x] story-411-422-shoal-items-e2e
