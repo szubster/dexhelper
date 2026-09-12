@@ -19,6 +19,6 @@ locks: []
 # QA Pokegear Active Callers E2E Tests
 
 ## Acceptance Criteria
-- [ ] Verify that `tests/e2e/dashboard/pokegear_predictor.spec.ts` correctly verifies the base predictor view with `crystal.sav`.
-- [ ] Verify that `tests/e2e/dashboard/pokegear_alerts.spec.ts` correctly verifies the high-value caller cards and badges with `crystal_pokegear.sav`.
-- [ ] Execute `xvfb-run -a pnpm test:e2e tests/e2e/dashboard/pokegear_alerts.spec.ts tests/e2e/dashboard/pokegear_predictor.spec.ts` and ensure it passes successfully.
+- [x] Verify that `tests/e2e/dashboard/pokegear_predictor.spec.ts` correctly verifies the base predictor view with `crystal.sav`.
+- [x] Verify that `tests/e2e/dashboard/pokegear_alerts.spec.ts` correctly verifies the high-value caller cards and badges with `crystal_pokegear.sav`.
+- [x] Execute `xvfb-run -a pnpm test:e2e tests/e2e/dashboard/pokegear_alerts.spec.ts tests/e2e/dashboard/pokegear_predictor.spec.ts` and ensure it passes successfully.
