@@ -17,4 +17,5 @@ rejection_reason: ''
 Based on QA rejections in the Coder journal, agents frequently violate Section 13 by using magic numbers (e.g. `8`) instead of constants like `BITS_PER_BYTE` when parsing Gen 3 save data. We should implement an ESLint or Biome rule that automatically flags and rejects these magic bitwise numbers during pre-commit to prevent manual review friction.
 
 ## Acceptance Criteria
-- [ ] Write PRD for Automated Magic Number Linter.
+- [x] Write PRD for Automated Magic Number Linter.
+- [ ] prd-517-564-automated-magic-number-linter
