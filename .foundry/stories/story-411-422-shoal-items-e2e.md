@@ -2,10 +2,10 @@
 id: story-411-422-shoal-items-e2e
 type: STORY
 title: E2E Integration Verification for Shoal Items
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-13'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on:
   - story-411-421-shoal-items-parsing
 jules_session_id: null
@@ -34,7 +34,7 @@ This story focuses on verifying that the Shoal Items (Shoal Salt and Shoal Shell
     *   The test must ensure that the Shoal item counts are accurately extracted and accessible by downstream systems or components (even if the UI isn't fully implemented yet, the data flow must be verified).
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for Shoal items parsing.
-- [ ] Ensure tests cover loading a mock/fixture save file with Shoal items.
+- [x] Implement Playwright E2E tests for Shoal items parsing.
+- [x] Ensure tests cover loading a mock/fixture save file with Shoal items.
 - [x] Break down into Tasks
-- [ ] task-422-469-shoal-items-e2e-impl
+- [x] task-422-469-shoal-items-e2e-impl

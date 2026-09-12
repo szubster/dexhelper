@@ -1,13 +1,13 @@
 ---
 id: task-521-549-promote-frontmatter-core-logic-impl
 type: TASK
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 parent: story-519-521-update-frontmatter-promotion
 title: Promote Frontmatter Core Logic
 created_at: '2026-09-06'
-updated_at: '2026-09-09'
-jules_session_id: '16907823923808376974'
+updated_at: '2026-09-12'
+jules_session_id: null
 rejection_reason: ''
 pr_number: null
 tags:

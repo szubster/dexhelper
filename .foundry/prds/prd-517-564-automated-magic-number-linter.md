@@ -2,14 +2,15 @@
 id: prd-517-564-automated-magic-number-linter
 type: PRD
 title: Automated Magic Number Linter
-status: READY
+status: PENDING
 owner_persona: epic_planner
-created_at: 2026-09-09
-updated_at: 2026-09-09
+created_at: '2026-09-09T00:00:00.000Z'
+updated_at: '2026-09-12'
 depends_on: []
 jules_session_id: null
 parent: idea-517-automated-magic-number-linter
-rejection_reason: ""
+rejection_reason: ''
+locks: []
 ---
 # PRD: Automated Magic Number Linter for Save Parsing
 

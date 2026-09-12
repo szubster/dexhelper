@@ -2,19 +2,19 @@
 id: task-536-538-dagtree-context-state-impl
 type: TASK
 title: Implement DagTree Context and State Layer
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: '12310937447134504179'
+jules_session_id: null
 pr_number: null
 parent: story-530-536-dagtree-ui-logic
 tags:
   - ui-ux
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
 locks: []
 ---

@@ -2,12 +2,12 @@
 id: task-422-469-shoal-items-e2e-impl
 type: TASK
 title: Implement Playwright E2E tests for Shoal Items Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-23'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: '965971347584361174'
+jules_session_id: null
 pr_number: null
 parent: story-411-422-shoal-items-e2e
 tags:

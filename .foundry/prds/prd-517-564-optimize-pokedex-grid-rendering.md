@@ -1,24 +1,25 @@
 ---
 id: prd-517-564-optimize-pokedex-grid-rendering
 type: PRD
-title: "PRD: Optimize Pokedex and Storage Grids with Virtualization"
-status: PENDING
+title: 'PRD: Optimize Pokedex and Storage Grids with Virtualization'
+status: READY
 owner_persona: epic_planner
 created_at: '2026-09-09'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: idea-517-optimize-pokedex-grid-rendering
-priority: 50
 tags:
   - performance
   - frontend
   - rendering
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # PRD: Optimize Pokedex and Storage Grids with Virtualization

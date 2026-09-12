@@ -2,10 +2,10 @@
 id: task-470-554-catalog-integrate-saves-replacement
 type: TASK
 title: Catalog and Integrate Public Saves (Replacement)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-09-12'
 depends_on:
   - research-470-553-investigate-japanese-crystal-offsets
 jules_session_id: null

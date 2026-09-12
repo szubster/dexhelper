@@ -2,7 +2,7 @@
 id: task-533-536-orchestrator-curator-trigger-logic-impl
 type: TASK
 title: Orchestrator Curator Trigger Logic Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-04'
 updated_at: '2026-09-12'
@@ -12,8 +12,8 @@ parent: story-531-533-orchestrator-trigger-logic-updates
 tags:
   - orchestrator
   - curator
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

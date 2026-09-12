@@ -2,10 +2,10 @@
 id: task-536-566-weather-anomaly-extraction-tests
 type: TASK
 title: Gen 3 Weather Anomaly Extraction Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-12'
 depends_on:
   - task-536-565-weather-anomaly-extraction-logic
 jules_session_id: null
@@ -18,6 +18,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Task: Gen 3 Weather Anomaly Extraction Tests

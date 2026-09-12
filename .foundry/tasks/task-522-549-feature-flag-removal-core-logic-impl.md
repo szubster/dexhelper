@@ -2,12 +2,12 @@
 id: task-522-549-feature-flag-removal-core-logic-impl
 type: TASK
 title: Implement Feature Flag Removal Core Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: '8282367755404650897'
+jules_session_id: null
 pr_number: null
 parent: story-519-522-graduate-code-feature-flags
 tags:

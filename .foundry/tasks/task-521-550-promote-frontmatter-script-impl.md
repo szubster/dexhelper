@@ -2,10 +2,10 @@
 id: task-521-550-promote-frontmatter-script-impl
 type: TASK
 title: Promote Frontmatter Script
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on:
   - task-521-549-promote-frontmatter-core-logic-impl
 jules_session_id: null

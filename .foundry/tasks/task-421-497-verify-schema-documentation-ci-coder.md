@@ -2,13 +2,13 @@
 id: task-421-497-verify-schema-documentation-ci-coder
 type: TASK
 title: Verify Schema Documentation CI Coder
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-26'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on:
   - task-421-496-verify-schema-documentation-script-coder
-jules_session_id: '3424147972126095283'
+jules_session_id: null
 pr_number: null
 parent: story-129-421-verify-schema-documentation-e2e
 tags: []

@@ -2,12 +2,12 @@
 id: epic-521-540-foundry-rearchitecture-state-graph
 type: EPIC
 title: 'Epic: Foundry Rearchitecture - State Machine and Graph Libraries'
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-06'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: '11121497795872631593'
+jules_session_id: null
 pr_number: null
 parent: prd-153-521-foundry-rearchitecture-and-code-architect-persona
 tags:
