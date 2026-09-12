@@ -49,8 +49,9 @@ describe('MapUI', () => {
     await render(<MapUI heatmap={heatmap} />);
 
     // Mach and Acro elements should be visible
-    await expect.element(page.getByText('Mach').first()).toBeVisible();
-    await expect.element(page.getByText('Acro').first()).toBeVisible();
+    await expect.element(page.getByText('MACH BIKE').first()).toBeVisible();
+    await expect.element(page.getByText('ACRO BIKE').first()).toBeVisible();
+    await expect.element(page.getByText('BOTH BIKES').first()).toBeVisible();
   });
 
   it('should default to generic area name if areaNames is not provided', async () => {

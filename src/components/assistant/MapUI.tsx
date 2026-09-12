@@ -45,8 +45,13 @@ export function MapUI({ heatmap, areaNames }: MapUIProps) {
               <div className="flex items-center gap-2">
                 {(requiresMachBike || requiresAcroBike) && (
                   <div className="flex gap-1">
-                    {requiresMachBike && <BikeBadge type="mach" className="px-1 py-0.5 text-[8px] leading-none" />}
-                    {requiresAcroBike && <BikeBadge type="acro" className="px-1 py-0.5 text-[8px] leading-none" />}
+                    {requiresMachBike && requiresAcroBike ? (
+                      <BikeBadge type="both" className="px-1 py-0.5 text-[8px] leading-none" />
+                    ) : requiresMachBike ? (
+                      <BikeBadge type="mach" className="px-1 py-0.5 text-[8px] leading-none" />
+                    ) : requiresAcroBike ? (
+                      <BikeBadge type="acro" className="px-1 py-0.5 text-[8px] leading-none" />
+                    ) : null}
                   </div>
                 )}
                 <div className="flex h-2 w-12 overflow-hidden rounded-none border border-zinc-700 bg-zinc-800">
