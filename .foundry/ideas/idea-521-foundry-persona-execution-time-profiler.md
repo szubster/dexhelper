@@ -2,12 +2,12 @@
 id: idea-521-foundry-persona-execution-time-profiler
 type: IDEA
 title: Foundry Persona Execution Time Profiler
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-09-09'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5656689342012814565'
 pr_number: null
 parent: null
 tags:
