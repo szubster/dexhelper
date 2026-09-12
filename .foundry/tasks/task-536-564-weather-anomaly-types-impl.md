@@ -2,12 +2,12 @@
 id: task-536-564-weather-anomaly-types-impl
 type: TASK
 title: Gen 3 Weather Anomaly Extraction Types & Constants
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12152602763462105095'
 pr_number: null
 parent: story-517-536-gen3-weather-anomaly-data-parsing
 tags:
