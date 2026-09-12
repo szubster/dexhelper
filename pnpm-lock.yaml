@@ -47,6 +47,9 @@ importers:
       dataloader:
         specifier: ^2.2.3
         version: 2.2.3
+      html-to-image:
+        specifier: ^1.11.13
+        version: 1.11.13
       idb:
         specifier: ^8.0.3
         version: 8.0.3
@@ -3277,6 +3280,9 @@ packages:
 
   html-escaper@2.0.2:
     resolution: {integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==}
+
+  html-to-image@1.11.13:
+    resolution: {integrity: sha512-cuOPoI7WApyhBElTTb9oqsawRvZ0rHhaHwghRLlTuffoD1B2aDemlCruLeZrUIIdvG7gs9xeELEPm6PhuASqrg==}
 
   https-proxy-agent@5.0.1:
     resolution: {integrity: sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==}
@@ -7650,6 +7656,8 @@ snapshots:
       function-bind: 1.1.2
 
   html-escaper@2.0.2: {}
+
+  html-to-image@1.11.13: {}
 
   https-proxy-agent@5.0.1(supports-color@10.2.2):
     dependencies:
