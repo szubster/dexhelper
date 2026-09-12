@@ -125,6 +125,9 @@ const GEN2_TM_HM_MOVE_MAP: Record<number, number> = {
   247: 127,
 };
 const POKEMON_DATA_BLOCK_SIZE = 32;
+const GEN2_PARTY_POKEMON_BLOCK_SIZE = 48;
+const GEN2_PARTY_SPECIES_LIST_LENGTH = 7;
+const GEN2_BOX_SPECIES_LIST_LENGTH = 21;
 const POKEMON_NAME_LENGTH = 11;
 const POKEMON_OFFSET_OT_NAME = POKEMON_DATA_BLOCK_SIZE;
 const POKEMON_OFFSET_NICKNAME = POKEMON_DATA_BLOCK_SIZE + POKEMON_NAME_LENGTH;
@@ -337,7 +340,7 @@ function parseCaughtData(view: DataView, offset: number) {
  * **Memory Structure Differences:**
  * - Party Pokémon use a 48-byte structure, which includes 16 additional bytes at the end for dynamic battle stats (e.g. current HP, max HP, attack, etc.).
  * - PC/Box Pokémon use a smaller 32-byte structure, as these battle stats are recalculated upon withdrawal.
- * - Unlike Gen 1, Daycare Pokémon store their Original Trainer (OT) name immediately adjacent to their data block (at `offset + 32`),
+ * - Unlike Gen 1, Daycare Pokémon store their Original Trainer (OT) name immediately adjacent to their data block (at `offset + POKEMON_DATA_BLOCK_SIZE`),
  *   whereas Party and Box instances store OT names in entirely separate string array blocks elsewhere in memory.
  *
  * **Architecture Note:**
@@ -550,7 +553,7 @@ function parsePokedex(view: DataView, offsets: { owned: number; seen: number }) 
  * **Memory Layout:**
  * - The party block begins with a 1-byte count of the current party size (max 6).
  * - This is immediately followed by a 7-byte array containing the species IDs of the party members (terminated by `0xFF`).
- * - Following the species array is the sequential block of 48-byte Pokémon data instances (`offset + 7`).
+ * - Following the species array is the sequential block of 48-byte Pokémon data instances (`offset + GEN2_PARTY_SPECIES_LIST_LENGTH`).
  *
  * @param view - The raw save file DataView.
  * @param offsets - Dynamic offsets containing the start address for `partyCount` and `partySpecies`.
@@ -566,9 +569,9 @@ function parseParty(view: DataView, offsets: { partyCount: number; partySpecies:
   }
 
   const partyDetails: PokemonInstance[] = [];
-  const partyDataOffset = offsets.partySpecies + 7; // After species list
+  const partyDataOffset = offsets.partySpecies + GEN2_PARTY_SPECIES_LIST_LENGTH; // After species list
   for (let i = 0; i < partyCount; i++) {
-    const offset = partyDataOffset + i * 48;
+    const offset = partyDataOffset + i * GEN2_PARTY_POKEMON_BLOCK_SIZE;
     const p = parseGen2PokemonInstance(view, offset, isCrystal, 'Party', i + 1);
     if (p) {
       partyDetails.push(p);
@@ -608,7 +611,7 @@ function parsePCBoxes(
   }
 
   const pcDetails: PokemonInstance[] = [];
-  const currentBoxDataOffset = offsets.currentBoxSpecies + 21; // After species list
+  const currentBoxDataOffset = offsets.currentBoxSpecies + GEN2_BOX_SPECIES_LIST_LENGTH; // After species list
   for (let i = 0; i < currentBoxCount; i++) {
     const offset = currentBoxDataOffset + i * POKEMON_DATA_BLOCK_SIZE;
     const p = parseGen2PokemonInstance(view, offset, isCrystal, `Box ${currentBoxNum + 1}`, i + 1);

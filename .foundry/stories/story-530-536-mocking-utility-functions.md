@@ -2,12 +2,12 @@
 id: story-530-536-mocking-utility-functions
 type: STORY
 title: Implement Central Mocking Utility Functions
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: '9592949022191228926'
+jules_session_id: null
 pr_number: null
 parent: epic-347-530-centralized-mocking-utilities
 tags:
@@ -25,4 +25,5 @@ notes: ''
 The QA and coder personas need a centralized utility module (`tests/e2e/mock-utils.ts`) for Playwright to mock complex native browser APIs like `window.showOpenFilePicker`, `mockFileSystemAccess`, and `mockOfflineState`. This reduces boilerplate and flakiness.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-536-562-implement-mocking-utilities

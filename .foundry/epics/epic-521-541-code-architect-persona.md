@@ -28,4 +28,6 @@ This Epic covers the introduction of the new scheduled persona, the Code Archite
 - [ ] Define the Code Architect (architect_visionary) persona and its core responsibilities (focusing on code quality, DX, performance, testability, and refactoring opportunities).
 - [ ] Create a GitHub Actions workflow (.github/workflows/schedule-code-architect.yml) to schedule the persona to run weekly.
 - [ ] Integrate the new architect_visionary persona formally into the Foundry schema configuration (.github/scripts/schema.ts), updating OwnerPersonaEnum.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with e2e or integration).
+- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with e2e or integration).
+- [ ] story-541-560-architect-visionary-persona-implementation
+- [ ] story-541-561-architect-visionary-persona-e2e

@@ -5,7 +5,7 @@ title: Zombie Node Remediation State Transition Logic
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-01'
-updated_at: '2026-09-05'
+updated_at: '2026-09-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Zombie Node Remediation State Transition Logic

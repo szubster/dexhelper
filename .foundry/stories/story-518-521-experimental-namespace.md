@@ -2,10 +2,10 @@
 id: story-518-521-experimental-namespace
 type: STORY
 title: Enforce src/experimental Namespace Guidelines
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -27,5 +27,5 @@ Establish and enforce guidelines for using the `src/experimental/` namespace. Dr
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-521-550-experimental-namespace-impl
-- [ ] task-521-551-experimental-namespace-qa
+- [x] task-521-550-experimental-namespace-impl
+- [x] task-521-551-experimental-namespace-qa

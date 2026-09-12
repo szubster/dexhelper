@@ -2,12 +2,12 @@
 id: prd-150-521-wild-held-item-hunting-assistant
 type: PRD
 title: PRD - Wild Held Item Hunting Assistant
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-15'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: '1659519625974821838'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: idea-150-wild-held-item-hunting-assistant
@@ -50,4 +50,9 @@ To provide a Wild Held Item Hunting Assistant for DexHelper that aids players in
 - **Data Naming Schema:** Ensure MsgPack (`msgpackr`) with `useRecords: true` is used and adherence to the PokeData Property Naming Schema.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into Epics.
+- [x] Epic Planner: Break down this PRD into Epics.
+- [ ] epic-521-552-wild-item-data-engine
+- [ ] epic-521-553-thief-covet-team-optimizer
+- [ ] epic-521-554-hunting-progress-tracker
+- [ ] epic-521-555-wild-item-hunting-ui
+- [ ] epic-521-556-wild-item-e2e-verification

@@ -24,4 +24,5 @@ This story involves updating the core Foundry schema in `.foundry/docs/schema.md
 ## Acceptance Criteria
 - [ ] Add `DRAFT` and `WIP` to the list of allowed statuses in `.foundry/docs/schema.md`
 - [ ] Define the lifecycle transitions for these new statuses
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-526-564-schema-wip-update

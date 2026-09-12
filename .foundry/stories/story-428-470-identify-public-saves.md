@@ -32,10 +32,10 @@ As part of Epic 428 to source additional save files, the first step is to locate
 ## Acceptance Criteria
 - [x] Break down this story into tasks.
 
-- [ ] task-470-485-source-gen1-gen2-saves
-- [ ] task-470-486-source-gen3-saves
+- [x] task-470-485-source-gen1-gen2-saves
+- [x] task-470-486-source-gen3-saves
 - [x] task-470-487-catalog-integrate-saves
 - [x] task-470-488-qa-public-saves
-- [ ] research-470-553-investigate-japanese-crystal-offsets
-- [ ] task-470-554-catalog-integrate-saves-replacement
-- [ ] task-470-555-qa-public-saves-replacement
+- [ ] research-470-558-japanese-gen2-offsets
+- [ ] task-470-559-catalog-integrate-saves
+- [ ] task-470-560-qa-public-saves

@@ -24,4 +24,4 @@ depends_on: []
 # Promote Frontmatter Core Logic
 
 ## Acceptance Criteria
-- [ ] Implement core string manipulation or YAML parsing logic to replace status.
+- [x] Implement core string manipulation or YAML parsing logic to replace status.

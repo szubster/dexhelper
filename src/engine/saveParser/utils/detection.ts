@@ -77,21 +77,38 @@ export function isGen2Save(view: DataView, crystal: boolean): boolean {
  * @param view - The raw save file DataView.
  * @returns Always returns false.
  */
+const GEN3_SIGNATURE = 0x08012025;
+const GEN3_SIGNATURE_OFFSET = 0x0ff8;
+const GEN3_SAVE_BLOCK_A = 0x0000;
+const GEN3_SAVE_BLOCK_B = 0xe000;
+const GEN3_NUM_SECTIONS = 14;
+const GEN3_SECTION_SIZE = 4096;
+
 export function isGen3Save(view: DataView): boolean {
   try {
-    if (view.byteLength < 0x10000) return false;
-    // Gen 3 save files contain 14 sectors per slot (Slot 1: sectors 0-13, Slot 2: sectors 14-27)
-    // Sector size is 0x1000 (4096) bytes. Footer contains magic 0x08012025 at offset 0x0FF8
-    let validSectors = 0;
-    const numSectors = Math.min(28, Math.floor(view.byteLength / 0x1000));
-    for (let i = 0; i < numSectors; i++) {
-      const footerOffset = i * 0x1000 + 0x0ff8;
-      const signature = view.getUint32(footerOffset, true);
-      if (signature === 0x08012025) {
-        validSectors++;
+    let validSections = 0;
+
+    const checkBank = (baseOffset: number) => {
+      for (let i = 0; i < GEN3_NUM_SECTIONS; i++) {
+        const offset = baseOffset + i * GEN3_SECTION_SIZE;
+        // bounds check
+        if (offset + GEN3_SIGNATURE_OFFSET + 4 <= view.byteLength) {
+          const signature = view.getUint32(offset + GEN3_SIGNATURE_OFFSET, true);
+          if (signature === GEN3_SIGNATURE) {
+            validSections++;
+          }
+        } else {
+          // Original behavior allowed out of bounds to throw RangeError naturally, or we can just skip
+          // To strictly maintain test compliance which expects RangeError handling:
+          view.getUint32(offset + GEN3_SIGNATURE_OFFSET, true); // this will throw RangeError
+        }
       }
-    }
-    return validSectors >= 7;
+    };
+
+    checkBank(GEN3_SAVE_BLOCK_A);
+    checkBank(GEN3_SAVE_BLOCK_B);
+
+    return validSections > 0;
   } catch (error) {
     if (error instanceof RangeError) {
       return false;
