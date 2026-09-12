@@ -2,14 +2,14 @@
 id: task-526-555-pokegear-active-callers-e2e-qa
 type: TASK
 title: QA Pokegear Active Callers E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-06'
 updated_at: '2026-09-12'
 depends_on:
   - task-526-553-pokegear-predictor-e2e-coder
   - task-526-554-pokegear-alerts-e2e-coder
-jules_session_id: '5669999349974848724'
+jules_session_id: null
 parent: story-116-526-pokegear-active-callers-e2e
 rejection_count: 0
 rejection_reason: ''
