@@ -18,6 +18,53 @@ describe('resolveGen3SubstructureOffset', () => {
     // PV = 1 => 1 % 24 = 1 => 'GAME'. M is at index 2 => 2 * 12 = 24.
     expect(resolveGen3SubstructureOffset(1, 'M')).toBe(24);
   });
+
+  it('should test all 24 permutations for resolveGen3SubstructureOffset', () => {
+    // Generate tests for PVs 0 to 23 to cover all 24 specific permutations
+    // Expected permutation strings are hardcoded to avoid tautological testing against the implementation
+    const expectedPermutations = [
+      'GAEM',
+      'GAME',
+      'GEAM',
+      'GEMA',
+      'GMAE',
+      'GMEA',
+      'AGEM',
+      'AGME',
+      'AEGM',
+      'AEMG',
+      'AMGE',
+      'AMEG',
+      'EGAM',
+      'EGMA',
+      'EAGM',
+      'EAMG',
+      'EMGA',
+      'EMAG',
+      'MGAE',
+      'MGEA',
+      'MAGE',
+      'MAEG',
+      'MEGA',
+      'MEAG',
+    ];
+
+    const expectedOffsets = expectedPermutations.map((p) => {
+      return {
+        G: p.indexOf('G') * 12,
+        A: p.indexOf('A') * 12,
+        E: p.indexOf('E') * 12,
+        M: p.indexOf('M') * 12,
+      };
+    });
+
+    for (let pv = 0; pv < 24; pv++) {
+      expect(resolveGen3SubstructureOffset(pv, 'G')).toBe(expectedOffsets[pv]?.G);
+      expect(resolveGen3SubstructureOffset(pv, 'A')).toBe(expectedOffsets[pv]?.A);
+      expect(resolveGen3SubstructureOffset(pv, 'E')).toBe(expectedOffsets[pv]?.E);
+      expect(resolveGen3SubstructureOffset(pv, 'M')).toBe(expectedOffsets[pv]?.M);
+    }
+  });
 });
 
 describe('getGen3DecryptedSubstructure', () => {
@@ -39,6 +86,61 @@ describe('getGen3DecryptedSubstructure', () => {
     expect(mView.byteLength).toBe(12);
     expect(mView.byteOffset).toBe(36);
     expect(mView.getUint32(0, true)).toBe(0x99999999);
+  });
+
+  it('should correctly slice a DataView for all 24 permutations and all substructures', () => {
+    const buffer = new ArrayBuffer(48);
+    const view = new DataView(buffer);
+
+    // Initialize buffer with offset markers
+    for (let i = 0; i < 4; i++) {
+      view.setUint32(i * 12, 0x11111111 * (i + 1), true); // 0 => 0x11111111, 12 => 0x22222222, etc.
+    }
+
+    const expectedPermutations = [
+      'GAEM',
+      'GAME',
+      'GEAM',
+      'GEMA',
+      'GMAE',
+      'GMEA',
+      'AGEM',
+      'AGME',
+      'AEGM',
+      'AEMG',
+      'AMGE',
+      'AMEG',
+      'EGAM',
+      'EGMA',
+      'EAGM',
+      'EAMG',
+      'EMGA',
+      'EMAG',
+      'MGAE',
+      'MGEA',
+      'MAGE',
+      'MAEG',
+      'MEGA',
+      'MEAG',
+    ];
+    for (let pv = 0; pv < 24; pv++) {
+      const permutation = expectedPermutations[pv] || 'GAEM';
+      for (const sub of ['G', 'A', 'E', 'M'] as const) {
+        const subView = getGen3DecryptedSubstructure(pv, view, sub);
+        const expectedIndex = permutation.indexOf(sub);
+        const expectedOffset = expectedIndex * 12;
+
+        expect(subView.byteLength).toBe(12);
+        expect(subView.byteOffset).toBe(expectedOffset);
+        expect(subView.getUint32(0, true)).toBe(0x11111111 * (expectedIndex + 1));
+      }
+    }
+  });
+
+  it('should throw an error for corrupted/incomplete save file if DataView boundaries are exceeded', () => {
+    const buffer = new ArrayBuffer(10); // Too small for a 12-byte substructure, will trigger DataView RangeError
+    const view = new DataView(buffer);
+    expect(() => getGen3DecryptedSubstructure(0, view, 'G')).toThrow('The save file is corrupted or incomplete.');
   });
 });
 

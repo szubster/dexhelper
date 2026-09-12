@@ -29,6 +29,6 @@ Write unit tests for the newly implemented Gen 3 Substructure Resolution API.
 A new API was created in `task-474-528-gen3-substructure-api-impl` to resolve and access the Growth, Attacks, EVs, and Misc substructures based on `PV % 24`. We need to verify this implementation against various known PV values to ensure accurate parsing.
 
 ## Acceptance Criteria
-- [ ] Add unit tests verifying correct mapping and offset calculations for different PV values representing all possible 24 permutations.
-- [ ] Assert that the returned substructure blocks match the expected offsets and sizes (12 bytes each).
-- [ ] Ensure any exception handling (like RangeError mapping) is covered.
+- [x] Add unit tests verifying correct mapping and offset calculations for different PV values representing all possible 24 permutations.
+- [x] Assert that the returned substructure blocks match the expected offsets and sizes (12 bytes each).
+- [x] Ensure any exception handling (like RangeError mapping) is covered.
