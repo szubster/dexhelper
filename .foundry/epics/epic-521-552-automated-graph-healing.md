@@ -28,5 +28,8 @@ locks: []
 Implement an Automated Graph Healing sub-routine to resolve `BLOCKED` node states in the Foundry DAG Orchestrator caused by circular dependencies or unresolvable node paths. This involves updating the orchestrator to output a BLOCKED Diagnosis artifact, creating a GitHub Action to trigger a `graph_healer` (or `mechanic`) agent, defining the agent's persona prompt, and adding comprehensive unit and E2E tests for the healing process.
 
 ## Acceptance Criteria
-- [ ] Break down this Epic into Stories.
-- [ ] Ensure a final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [x] Break down this Epic into Stories.
+- [x] Ensure a final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [ ] story-552-566-orchestrator-diagnosis-artifact
+- [ ] story-552-567-graph-healer-action-persona
+- [ ] story-552-568-graph-healing-e2e-verification
