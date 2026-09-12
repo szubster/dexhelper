@@ -34,5 +34,8 @@ As part of Epic `epic-038-061-mirage-island-save-parsing`, and to satisfy the or
 
 ## Acceptance Criteria
 - [x] Create a QA task specifically verifying the end-to-end parsing of the Mirage Island value from Gen 3 save files.
-- [ ] task-443-489-mirage-island-e2e-impl
-- [ ] task-443-490-mirage-island-e2e-qa
+- [x] task-443-489-mirage-island-e2e-impl
+- [x] task-443-490-mirage-island-e2e-qa
+- [ ] research-443-564-investigate-e2e-failure
+- [ ] task-443-565-mirage-island-e2e-impl-v2
+- [ ] task-443-566-mirage-island-e2e-qa-v2
