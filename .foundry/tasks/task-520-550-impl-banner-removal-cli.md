@@ -2,13 +2,13 @@
 id: task-520-550-impl-banner-removal-cli
 type: TASK
 title: Implement Banner Removal CLI
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-05'
 updated_at: '2026-09-12'
 depends_on:
   - task-520-549-impl-banner-removal-util
-jules_session_id: null
+jules_session_id: '8393923251181561097'
 pr_number: null
 parent: story-519-520-automate-banner-removal
 tags:
