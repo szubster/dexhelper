@@ -11,13 +11,13 @@ describe('EmptyState', () => {
   it('renders default variant', async () => {
     const { container } = await render(<EmptyState variant="default" label="Default State" />);
     await expect.element(container).toHaveTextContent('Default State');
-    await expect.element(container).toHaveTextContent('SYS_STATUS: NOMINAL');
+    await expect.element(container).toHaveTextContent('DATA_STREAM_EMPTY');
   });
 
   it('renders warning variant', async () => {
     const { container } = await render(<EmptyState variant="warning" label="Warning State" />);
     await expect.element(container).toHaveTextContent('Warning State');
-    await expect.element(container).toHaveTextContent('ERR_CODE: 0x00000404 - ENTITY_NOT_FOUND');
+    await expect.element(container).toHaveTextContent('SIGNAL_LOST');
   });
 
   it('renders with custom icon', async () => {
