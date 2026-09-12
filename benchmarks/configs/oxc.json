@@ -1,6 +1,0 @@
-{
-  "parser": {
-    "syntax": "typescript"
-  },
-  "minifier": false
-}
