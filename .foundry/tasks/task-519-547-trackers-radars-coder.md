@@ -2,12 +2,12 @@
 id: task-519-547-trackers-radars-coder
 type: TASK
 title: Refactor Specialized Tracker and Radar Components
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-03T13:29:59.884Z'
 updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5214076783105278177'
 pr_number: null
 parent: story-125-519-refactor-complex-dashboard
 tags:
