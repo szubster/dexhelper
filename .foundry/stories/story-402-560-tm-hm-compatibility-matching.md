@@ -33,4 +33,7 @@ This STORY implements the core logic layer for checking if Pokémon currently in
 - Return a filtered list of Pokémon capable of learning the move.
 
 ## Acceptance Criteria
-- [ ] Break down into TASK nodes for implementing the matching logic and unit testing it.
+- [x] Break down into TASK nodes for implementing the matching logic and unit testing it.
+- [ ] task-560-568-tm-hm-compatibility-matching-impl
+- [ ] task-560-574-tm-hm-compatibility-matching-tests
+- [ ] task-560-569-tm-hm-compatibility-matching-qa

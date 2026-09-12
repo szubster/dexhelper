@@ -32,4 +32,7 @@ This STORY builds upon the compatibility logic to analyze a Pokémon's current m
 - Flag Pokémon that lack a move of that type, highlighting them as strategic targets for learning the TM/HM.
 
 ## Acceptance Criteria
-- [ ] Break down into TASK nodes for implementing the strategic gap analysis logic and unit testing it.
+- [x] Break down into TASK nodes for implementing the strategic gap analysis logic and unit testing it.
+- [ ] task-561-570-tm-hm-strategic-gap-identification-impl
+- [ ] task-561-575-tm-hm-strategic-gap-identification-tests
+- [ ] task-561-571-tm-hm-strategic-gap-identification-qa

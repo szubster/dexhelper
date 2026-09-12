@@ -35,4 +35,6 @@ This STORY is dedicated exclusively to the integration and end-to-end verificati
 - Verify that the engine correctly identifies compatible Pokémon and highlights those with strategic gaps for specific TM/HMs.
 
 ## Acceptance Criteria
-- [ ] Break down into TASK nodes for integration and E2E testing.
+- [x] Break down into TASK nodes for integration and E2E testing.
+- [ ] task-562-572-tm-hm-compatibility-e2e-impl
+- [ ] task-562-573-tm-hm-compatibility-e2e-qa
