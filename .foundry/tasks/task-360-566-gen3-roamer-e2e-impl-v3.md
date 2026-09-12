@@ -1,13 +1,13 @@
 ---
-id: task-360-489-gen3-roamer-e2e-impl-v2
+id: task-360-566-gen3-roamer-e2e-impl-v3
 type: TASK
-title: Impl Gen 3 Roamer E2E Tests (v2)
-status: CANCELLED
+title: Impl Gen 3 Roamer E2E Tests (v3)
+status: READY
 owner_persona: coder
-created_at: '2026-08-25'
-updated_at: '2026-08-25'
+created_at: '2026-09-09'
+updated_at: '2026-09-09'
 depends_on:
-  - research-360-471-investigate-gen3-roamer-e2e-failure
+  - research-360-568-investigate-gen3-roamer-e2e-failure-v2
 jules_session_id: null
 pr_number: null
 parent: story-397-360-gen3-roamer-integration-e2e
@@ -17,11 +17,11 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: 'Cancelled due to permanent failure of dependency'
+rejection_reason: ''
 notes: ''
 ---
 
-# Impl Gen 3 Roamer E2E Tests (v2)
+# Impl Gen 3 Roamer E2E Tests (v3)
 
 ## Objective
 Write Playwright E2E tests for the Roamer Dossier rendering across different Gen 3 game versions, utilizing the findings from the research investigation.
