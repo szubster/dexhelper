@@ -30,3 +30,6 @@ locks: []
 - [ ] Implement `.foundry/scripts/lint-schema.ts` to iterate over target Foundry directories.
 - [ ] Implement validation for required frontmatter fields.
 - [ ] Implement enum strictness validation for `status`, `owner_persona`, and `type`.
+- [ ] story-555-563-lint-schema-file-iteration
+- [ ] story-555-564-lint-schema-frontmatter-validation
+- [ ] story-555-565-lint-schema-e2e-integration
