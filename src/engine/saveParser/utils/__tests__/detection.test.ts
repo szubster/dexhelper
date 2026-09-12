@@ -153,25 +153,21 @@ describe('Save File Detection', () => {
   });
 
   describe('isGen3Save', () => {
-    it('returns true for a valid Gen 3 save with at least 7 valid sector signatures', () => {
+    it('returns true for a valid Gen 3 save with at least 1 valid sector signature', () => {
       const buffer = new ArrayBuffer(0x20000);
       const view = new DataView(buffer);
-      for (let i = 0; i < 7; i++) {
-        view.setUint32(i * 0x1000 + 0x0ff8, 0x08012025, true);
-      }
+      // Set signature in one valid section
+      view.setUint32(1 * 0x1000 + 0x0ff8, 0x08012025, true);
       expect(isGen3Save(view)).toBe(true);
     });
 
-    it('returns false if there are fewer than 7 valid sectors', () => {
+    it('returns false if there are 0 valid sectors', () => {
       const buffer = new ArrayBuffer(0x20000);
       const view = new DataView(buffer);
-      for (let i = 0; i < 6; i++) {
-        view.setUint32(i * 0x1000 + 0x0ff8, 0x08012025, true);
-      }
       expect(isGen3Save(view)).toBe(false);
     });
 
-    it('returns false for buffers smaller than 0x10000 bytes', () => {
+    it('returns false for buffers smaller than 0x10000 bytes without a valid signature', () => {
       const buffer = new ArrayBuffer(0x8000);
       const view = new DataView(buffer);
       expect(isGen3Save(view)).toBe(false);

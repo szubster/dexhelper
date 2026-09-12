@@ -2,16 +2,18 @@
 id: task-542-551-review-migration-plan-qa
 type: TASK
 title: Review Migration Plan
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
-depends_on: ['task-542-550-draft-migration-plan-coder']
+updated_at: '2026-09-09'
+depends_on:
+  - task-542-550-draft-migration-plan-coder
 jules_session_id: null
 pr_number: null
 parent: story-536-542-migration-orchestration-plan
 rejection_count: 0
 rejection_reason: ''
+locks: []
 ---
 
 # Review Migration Plan

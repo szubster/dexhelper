@@ -21,6 +21,9 @@ export const NodeStatusEnum = z.enum([
   'FAILED',
   'BLOCKED',
   'CANCELLED',
+  'DRAFT',
+  'WIP',
+  'STABLE',
 ]);
 
 export const OwnerPersonaEnum = z.enum([

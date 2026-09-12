@@ -2,7 +2,7 @@
 id: story-536-542-migration-orchestration-plan
 type: STORY
 title: Define Migration Orchestration Plan
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-05'
 updated_at: '2026-09-09'

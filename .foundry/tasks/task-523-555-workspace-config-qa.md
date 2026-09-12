@@ -2,13 +2,13 @@
 id: task-523-555-workspace-config-qa
 type: TASK
 title: QA Workspace Config
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-07'
 updated_at: '2026-09-09'
 depends_on:
   - task-523-554-scaffold-tsconfig-base
-jules_session_id: '14545862687847326063'
+jules_session_id: null
 pr_number: null
 parent: story-524-523-configure-global-packages
 tags:

@@ -2,10 +2,10 @@
 id: task-403-487-playwright-e2e-retry-qa
 type: TASK
 title: QA Verification for Playwright E2E Tests
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-09-11'
 depends_on:
   - task-403-486-playwright-e2e-retry-impl
 jules_session_id: null
@@ -19,8 +19,11 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-403-486-playwright-e2e-retry-impl
 notes: ''
+locks: []
 ---
 
 # QA Verification for Playwright E2E Tests

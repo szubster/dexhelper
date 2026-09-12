@@ -24,4 +24,4 @@ locks: []
 # Implement Feature Flag Removal Core Logic
 
 ## Acceptance Criteria
-- [ ] Write logic to parse code and identify feature flags
+- [x] Write logic to parse code and identify feature flags
