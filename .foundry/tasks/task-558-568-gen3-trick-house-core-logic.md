@@ -1,15 +1,15 @@
 ---
-id: story-540-558-trick-house-save-parsing
-type: STORY
-title: Trick House Save Parsing Logic
-status: READY
-owner_persona: tech_lead
-created_at: '2026-09-05'
-updated_at: '2026-09-11'
+id: task-558-568-gen3-trick-house-core-logic
+type: TASK
+title: Implement Gen 3 Trick House Save Parsing Core Logic
+status: PENDING
+owner_persona: coder
+created_at: '2026-09-12'
+updated_at: '2026-09-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: epic-524-540-trick-house-tracker
+parent: story-540-558-trick-house-save-parsing
 tags:
   - dexhelper
   - feature
@@ -21,7 +21,7 @@ notes: ''
 locks: []
 ---
 
-# Trick House Save Parsing Logic
+# Implement Gen 3 Trick House Save Parsing Core Logic
 
 ## Context
 As part of the Gen 3 Trick House Tracker Dashboard, we need to extract the player's Trick House state from the save file. This involves extracting the current puzzle level, the states of the 8 puzzles, and the prize pickup flag from Save Block 1.
@@ -35,7 +35,6 @@ As part of the Gen 3 Trick House Tracker Dashboard, we need to extract the playe
 - Follow architectural rules (ADR 032, no magic numbers, explicit module-level constants).
 
 ## Acceptance Criteria
-- [x] Tech Lead: Break down into implementation TASK nodes (e.g., constants definition, core logic).
-- [ ] task-558-568-gen3-trick-house-core-logic
-- [ ] task-558-569-gen3-trick-house-tests
-- [ ] task-558-570-gen3-trick-house-qa
+- [ ] Constants defined for `VAR_TRICK_HOUSE_LEVEL`, puzzle states, and prize pickup.
+- [ ] Core logic implemented to parse Trick House state.
+- [ ] Integration with Gen 3 save parser completed.
