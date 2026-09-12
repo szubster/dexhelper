@@ -2,12 +2,12 @@
 id: task-548-564-generator-tree-traversal-types
 type: TASK
 title: Define TypeScript Interfaces for Tree Traversal Generators
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-11'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13986871113906263248'
 pr_number: null
 parent: story-537-548-generator-tree-traversals
 tags:
