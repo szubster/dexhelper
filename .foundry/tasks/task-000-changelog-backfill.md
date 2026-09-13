@@ -2,7 +2,7 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-09-13'
@@ -26,37 +26,67 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `70ee2e9bf946d3a4ac37cf711d3da663a12718dd`
-- **Previous Commit SHA:** `888f3b975ae80fa276832304042b924e60c6a156`
+- **Commit SHA:** `2ca9f177ab37f435f7afd05c33782025974f84e2`
+- **Previous Commit SHA:** `70ee2e9bf946d3a4ac37cf711d3da663a12718dd`
 - **Commit Date:** `2026-03-15`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `minor` (from `0.11.0` -> `0.12.0`)
+- **Suggested SemVer Bump:** `minor` (from `0.12.0` -> `0.13.0`)
 
 ## Commit Message
 ```text
-feat: Add Node.js 24 engine requirement and configure GitHub Actions for CI and GitHub Pages deployment.
+feat: Implement initial Pokedex application with save file parsing, routing, and interactive UI components.
 ```
 
 ## Modified Files
-- `.github/workflows/ci.yml`
-- `.github/workflows/deploy.yml`
-- `.nvmrc`
+- `package-lock.json`
 - `package.json`
+- `src/components/AppLayout.tsx`
+- `src/components/BottomNav.tsx`
+- `src/components/PokedexGrid.tsx`
+- `src/components/PokemonDetails.tsx`
+- `src/components/SearchAndFilters.tsx`
+- `src/components/SettingsModal.tsx`
+- `src/components/StorageGrid.tsx`
+- `src/components/VersionModal.tsx`
+- `src/main.tsx`
+- `src/routeTree.gen.ts`
+- `src/routes/__root.tsx`
+- `src/routes/index.tsx`
+- `src/routes/pokemon.$pokemonId.tsx`
+- `src/routes/storage.tsx`
+- `src/state.tsx`
+- `tsconfig.json`
+- `vite.config.ts`
 
 ## Diff Summary
 ```text
-70ee2e9bf feat: Add Node.js 24 engine requirement and configure GitHub Actions for CI and GitHub Pages deployment.
- .github/workflows/ci.yml     | 2 +-
- .github/workflows/deploy.yml | 2 +-
- .nvmrc                       | 1 +
- package.json                 | 3 +++
- 4 files changed, 6 insertions(+), 2 deletions(-)
+2ca9f177a feat: Implement initial Pokedex application with save file parsing, routing, and interactive UI components.
+ package-lock.json                   | 1620 ++++++++++++++++++++++++++++++++++-
+ package.json                        |    3 +
+ src/components/AppLayout.tsx        |  148 ++++
+ src/components/BottomNav.tsx        |   48 ++
+ src/components/PokedexGrid.tsx      |  163 ++++
+ src/components/PokemonDetails.tsx   |   78 +-
+ src/components/SearchAndFilters.tsx |   59 ++
+ src/components/SettingsModal.tsx    |  163 ++++
+ src/components/StorageGrid.tsx      |   88 ++
+ src/components/VersionModal.tsx     |   66 ++
+ src/main.tsx                        |   30 +-
+ src/routeTree.gen.ts                |   95 ++
+ src/routes/__root.tsx               |   12 +
+ src/routes/index.tsx                |   28 +
+ src/routes/pokemon.$pokemonId.tsx   |   49 ++
+ src/routes/storage.tsx              |   28 +
+ src/state.tsx                       |  131 +++
+ tsconfig.json                       |    1 +
+ vite.config.ts                      |    2 +
+ 19 files changed, 2754 insertions(+), 58 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 70ee2e9bf946d3a4ac37cf711d3da663a12718dd` (or `git diff 888f3b975ae80fa276832304042b924e60c6a156..70ee2e9bf946d3a4ac37cf711d3da663a12718dd`) in bash to analyze the actual code diff.
+As Changelogger, independently inspect the commit changes above by executing `git show 2ca9f177ab37f435f7afd05c33782025974f84e2` (or `git diff 70ee2e9bf946d3a4ac37cf711d3da663a12718dd..2ca9f177ab37f435f7afd05c33782025974f84e2`) in bash to analyze the actual code diff.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.12.0] - 2026-03-15` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.11.0...0.12.0`](https://github.com/${repo}/compare/888f3b9...70ee2e9)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.13.0] - 2026-03-15` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.12.0...0.13.0`](https://github.com/${repo}/compare/70ee2e9...2ca9f17)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
