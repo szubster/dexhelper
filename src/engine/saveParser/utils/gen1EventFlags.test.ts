@@ -12,9 +12,12 @@ import {
   parseGen1TMFlags,
 } from './gen1EventFlags';
 
+const EVENT_FLAGS_LENGTH = 0x118;
+const MOCK_OUT_OF_BOUNDS_LENGTH = 10;
+
 describe('parseGen1NarrativeFlags', () => {
   it('should handle an absolute zero state correctly for narrative flags', () => {
-    const eventFlags = new Uint8Array(0x118);
+    const eventFlags = new Uint8Array(EVENT_FLAGS_LENGTH);
     const claimed = parseGen1NarrativeFlags(eventFlags);
     for (const key of Object.keys(GEN1_BOSS_EVENT_FLAGS)) {
       expect(claimed[key]).toBe(false);
@@ -22,7 +25,7 @@ describe('parseGen1NarrativeFlags', () => {
   });
 
   it('should parse specific claimed narrative flags correctly', () => {
-    const eventFlags = new Uint8Array(0x118);
+    const eventFlags = new Uint8Array(EVENT_FLAGS_LENGTH);
 
     const brockFlag = GEN1_BOSS_EVENT_FLAGS['EVENT_BEAT_BROCK'];
     if (brockFlag !== undefined) {
@@ -84,7 +87,7 @@ describe('getUpcomingGen1Boss', () => {
 
 describe('parseGen1StaticEncounters', () => {
   it('should handle an absolute zero state correctly', () => {
-    const eventFlags = new Uint8Array(0x118); // all zeros
+    const eventFlags = new Uint8Array(EVENT_FLAGS_LENGTH); // all zeros
     const claimed = parseGen1StaticEncounters(eventFlags);
     for (const idStr of Object.keys(STATIC_GIFT_DATA)) {
       const id = parseInt(idStr, 10);
@@ -94,12 +97,12 @@ describe('parseGen1StaticEncounters', () => {
 
   it('should handle boundary state (flags undefined)', () => {
     // Array that is too small
-    const eventFlags = new Uint8Array(10);
+    const eventFlags = new Uint8Array(MOCK_OUT_OF_BOUNDS_LENGTH);
     const claimed = parseGen1StaticEncounters(eventFlags);
 
     // Filter gifts that are out of bounds and check that they return false
     const outOfBoundsGifts = Object.entries(STATIC_GIFT_DATA).filter(
-      ([, gift]) => gift.eventFlag !== undefined && gift.eventFlag >> BITS_PER_BYTE_SHIFT >= 10,
+      ([, gift]) => gift.eventFlag !== undefined && gift.eventFlag >> BITS_PER_BYTE_SHIFT >= MOCK_OUT_OF_BOUNDS_LENGTH,
     );
 
     const outOfBoundsClaimed = outOfBoundsGifts.map(([idStr]) => claimed[parseInt(idStr, 10)]);
@@ -107,7 +110,7 @@ describe('parseGen1StaticEncounters', () => {
   });
 
   it('should parse specific claimed encounters correctly', () => {
-    const eventFlags = new Uint8Array(0x118);
+    const eventFlags = new Uint8Array(EVENT_FLAGS_LENGTH);
     // Let's fake setting the Mewtwo flag (id: 150)
     const mewtwoGift = STATIC_GIFT_DATA[150];
     if (mewtwoGift?.eventFlag) {
@@ -138,7 +141,7 @@ describe('parseGen1StaticEncounters', () => {
 
 describe('parseGen1TMFlags', () => {
   it('should handle an absolute zero state correctly for TM flags', () => {
-    const eventFlags = new Uint8Array(0x118); // all zeros
+    const eventFlags = new Uint8Array(EVENT_FLAGS_LENGTH); // all zeros
     const claimed = parseGen1TMFlags(eventFlags);
     for (const idStr of Object.keys(GEN1_TM_EVENT_FLAGS)) {
       const id = parseInt(idStr, 10);
@@ -148,12 +151,12 @@ describe('parseGen1TMFlags', () => {
 
   it('should handle boundary state (flags undefined) for TM flags', () => {
     // Array that is too small
-    const eventFlags = new Uint8Array(10);
+    const eventFlags = new Uint8Array(MOCK_OUT_OF_BOUNDS_LENGTH);
     const claimed = parseGen1TMFlags(eventFlags);
 
     // Filter gifts that are out of bounds and check that they return false
     const outOfBoundsGifts = Object.entries(GEN1_TM_EVENT_FLAGS).filter(
-      ([, flag]) => flag >> BITS_PER_BYTE_SHIFT >= 10,
+      ([, flag]) => flag >> BITS_PER_BYTE_SHIFT >= MOCK_OUT_OF_BOUNDS_LENGTH,
     );
 
     const outOfBoundsClaimed = outOfBoundsGifts.map(([idStr]) => claimed[parseInt(idStr, 10)]);
@@ -161,7 +164,7 @@ describe('parseGen1TMFlags', () => {
   });
 
   it('should parse specific claimed TM flags correctly', () => {
-    const eventFlags = new Uint8Array(0x118);
+    const eventFlags = new Uint8Array(EVENT_FLAGS_LENGTH);
 
     // Fake setting the TM 206 flag (id: 206, flag: 0x258)
     const tm206Flag = GEN1_TM_EVENT_FLAGS[206];
