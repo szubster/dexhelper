@@ -2,7 +2,7 @@
 id: story-426-518-binjgb-memory-sync
 type: STORY
 title: Implement Real-time Memory Synchronization for binjgb
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
 updated_at: '2026-09-13'

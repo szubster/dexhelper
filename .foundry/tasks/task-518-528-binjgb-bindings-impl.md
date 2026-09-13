@@ -2,7 +2,7 @@
 id: task-518-528-binjgb-bindings-impl
 type: TASK
 title: Implement Javascript bindings for binjgb save extraction
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-09-13'
@@ -16,8 +16,8 @@ tags:
   - gen1
   - gen2
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

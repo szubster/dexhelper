@@ -2,12 +2,12 @@
 id: task-558-564-scheduled-workflows-batch1-impl
 type: TASK
 title: Update Scheduled Workflows for Issue Dispatch (Batch 1)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-08'
 updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '18365450709426026294'
+jules_session_id: null
 pr_number: null
 parent: story-531-558-modify-scheduled-workflows-impl
 tags:
@@ -15,7 +15,7 @@ tags:
   - scheduled-agents
   - github-issues
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
 notes: ''
 locks: []
 ---

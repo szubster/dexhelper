@@ -2,12 +2,12 @@
 id: task-546-564-mirage-island-data-selector
 type: TASK
 title: Mirage Island Data Selector Logic
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-08'
 updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '3035020927966520381'
+jules_session_id: null
 pr_number: null
 parent: story-062-546-implement-mirage-island-tracker
 tags:
@@ -15,7 +15,7 @@ tags:
   - mirage-island
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---

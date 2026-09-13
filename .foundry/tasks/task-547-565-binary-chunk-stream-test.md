@@ -2,10 +2,10 @@
 id: task-547-565-binary-chunk-stream-test
 type: TASK
 title: Write Unit Tests for Binary Chunk Stream Generators
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-08'
+updated_at: '2026-09-13'
 depends_on:
   - task-547-564-binary-chunk-stream-impl
 jules_session_id: null
