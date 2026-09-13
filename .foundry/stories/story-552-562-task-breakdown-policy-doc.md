@@ -1,16 +1,16 @@
 ---
 id: story-552-562-task-breakdown-policy-doc
 type: STORY
-title: "Create Task Breakdown Architectural Policy Document"
-status: READY
+title: Create Task Breakdown Architectural Policy Document
+status: ACTIVE
 owner_persona: tech_lead
-created_at: "2026-09-11"
-updated_at: "2026-09-11"
+created_at: '2026-09-11'
+updated_at: '2026-09-13'
 parent: epic-521-552-task-breakdown-anti-patterns
 depends_on: []
-jules_session_id: null
+jules_session_id: '3786737182437226288'
 tags: []
-rejection_reason: ""
+rejection_reason: ''
 locks: []
 ---
 
