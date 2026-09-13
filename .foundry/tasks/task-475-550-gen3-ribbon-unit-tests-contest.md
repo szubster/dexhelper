@@ -29,5 +29,5 @@ locks: []
 Write unit tests for the `parseGen3Ribbons` function to verify the correct extraction of contest ribbon ranks.
 
 ## Acceptance Criteria
-- [ ] Add unit tests to `src/engine/saveParser/parsers/gen3.test.ts` to verify the extraction of the 5 contest ribbon ranks (Cool, Beauty, Cute, Smart, Tough) from the 'M' substructure bitfield.
-- [ ] Ensure tests cover different rank values (0-4) for each contest category.
+- [x] Add unit tests to `src/engine/saveParser/parsers/gen3.test.ts` to verify the extraction of the 5 contest ribbon ranks (Cool, Beauty, Cute, Smart, Tough) from the 'M' substructure bitfield.
+- [x] Ensure tests cover different rank values (0-4) for each contest category.
