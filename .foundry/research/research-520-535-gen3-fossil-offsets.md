@@ -30,6 +30,6 @@ Determine the exact memory locations (variables/flags) used by Generation 3 game
 - FRLG (Cinnabar Lab): Helix Fossil (Omanyte), Dome Fossil (Kabuto), Old Amber (Aerodactyl).
 
 ## Acceptance Criteria
-- [ ] Identify the exact event flags or variables tracking fossil states in RSE.
-- [ ] Identify the exact event flags or variables tracking fossil states in FRLG.
-- [ ] Document these offsets for the engineering team to implement the tracking logic.
+- [x] Identify the exact event flags or variables tracking fossil states in RSE.
+- [x] Identify the exact event flags or variables tracking fossil states in FRLG.
+- [x] Document these offsets for the engineering team to implement the tracking logic.
