@@ -2,10 +2,10 @@
 id: task-423-471-gen3-lottery-ui-qa
 type: TASK
 title: Gen3 Lottery UI QA Verification
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-22'
-updated_at: '2026-08-23'
+updated_at: '2026-09-11'
 depends_on:
   - task-423-470-gen3-lottery-ui-component-impl
 jules_session_id: null
@@ -16,8 +16,11 @@ tags:
   - gen3
   - ui
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-423-470-gen3-lottery-ui-component-impl
 notes: ''
+locks: []
 ---
 
 # Gen3 Lottery UI QA Verification

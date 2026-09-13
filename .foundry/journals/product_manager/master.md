@@ -105,3 +105,8 @@ Following the Late-Binding for Missing Context & Task Suspension protocol:
 
 
 ---
+
+
+<!-- Merged from 2026-09-08-03-26-13-impossible-loop-git-scanning.md -->
+# Journal Entry: 2026-09-08
+Git history scanning is an ineffective mechanism for detecting autonomous violations. We should prefer alternative approaches like API analysis or orchestrator state monitoring.

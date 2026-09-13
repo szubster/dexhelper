@@ -1,2 +1,0 @@
-# Journal Entry: 2026-09-08
-Git history scanning is an ineffective mechanism for detecting autonomous violations. We should prefer alternative approaches like API analysis or orchestrator state monitoring.

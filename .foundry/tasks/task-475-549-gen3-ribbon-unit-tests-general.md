@@ -2,12 +2,12 @@
 id: task-475-549-gen3-ribbon-unit-tests-general
 type: TASK
 title: Write Gen 3 Ribbon Unit Tests - General Flags
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-09'
+updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: '5013441507874043172'
+jules_session_id: null
 pr_number: null
 parent: story-133-475-gen3-ribbon-unit-tests
 tags:
