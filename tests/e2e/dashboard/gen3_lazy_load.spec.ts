@@ -1,14 +1,18 @@
 import { expect, test } from '@playwright/test';
-import { initializeWithSave } from '../test-utils';
+import { clearStorage, initializeWithSave, waitForSync } from '../test-utils';
 
 test.describe('Gen 3 Lazy Load Integration', () => {
-  test('should correctly lazy load and render Gen 3 dashboard components', async ({ page }) => {
+  test.beforeEach(async ({ page }) => {
+    // Clear storage properly and then load Gen 3 save
+    await clearStorage(page);
     // Initialize with a Gen 3 save (Emerald)
     await initializeWithSave(page, 'tests/fixtures/emerald.sav');
+  });
 
+  test('should correctly lazy load and render Gen 3 dashboard components', async ({ page }) => {
     // Navigate to dashboard
     await page.goto('./dashboard');
-    await page.waitForTimeout(1000);
+    await waitForSync(page);
 
     // Wait for at least one Gen 3 specific dashboard to be visible to confirm lazy loading succeeded
     // We use .or() to handle variations in exact casing and different dashboards that might render
