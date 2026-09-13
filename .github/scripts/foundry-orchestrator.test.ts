@@ -1917,6 +1917,7 @@ vi.doMock('node:url', async (importOriginal) => {
     createValidTestNode(tmpDir, '.foundry/tasks/task-architect.md', { id: "task-architect", type: "TASK", title: "Architect Task", status: "PENDING", owner_persona: "architect", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/prds/prd-valid.md', { id: "prd-valid", type: "PRD", title: "Valid PRD", status: "PENDING", owner_persona: "epic_planner", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/tasks/task-qa.md', { id: "task-qa", type: "TASK", title: "QA Task", status: "PENDING", owner_persona: "qa", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
+    createValidTestNode(tmpDir, '.foundry/tasks/task-coder.md', { id: "task-coder", type: "TASK", title: "Coder Task", status: "PENDING", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
 
     main();
 
@@ -2058,7 +2059,7 @@ expect(fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), 'utf
       jules_session_id: null,
     }, `## Acceptance Criteria
 - [ ] Unchecked
-Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-completed.md)
+Target artifact: task-completed
 `);
 
     createValidTestNode(tmpDir, '.foundry/tasks/task-completed.md', {
@@ -2127,9 +2128,22 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
       parent: ".foundry/epics/epic-preflight-1.md",
       jules_session_id: null,
     });
+    createValidTestNode(tmpDir, '.foundry/stories/story-preflight-1-e2e.md', {
+      id: "story-preflight-1-e2e",
+      type: "STORY",
+      title: "Story E2E",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      tags: ["e2e"],
+      parent: ".foundry/epics/epic-preflight-1.md",
+      jules_session_id: null,
+    });
 
     const filePath = path.join(tmpDir, '.foundry/epics/epic-preflight-1.md');
-    fs.appendFileSync(filePath, '\nTarget artifact: [.foundry/stories/story-preflight-1.md](.foundry/stories/story-preflight-1.md)');
+    fs.appendFileSync(filePath, '\nTarget artifact: story-preflight-1\nTarget artifact: story-preflight-1-e2e');
 
     main();
 
@@ -2156,7 +2170,7 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     fs.writeFileSync(invalidStoryPath, `---\nid: story-preflight-2-invalid\nstatus: PENDING\n---\n\n# Title`, 'utf-8');
 
     const filePath = path.join(tmpDir, '.foundry/epics/epic-preflight-2.md');
-    fs.appendFileSync(filePath, '\nTarget artifact: [.foundry/stories/story-preflight-2-invalid.md](.foundry/stories/story-preflight-2-invalid.md)');
+    fs.appendFileSync(filePath, '\nTarget artifact: story-preflight-2-invalid');
 
     main();
 
@@ -3164,6 +3178,177 @@ Target artifact: [.foundry/tasks/task-completed.md](.foundry/tasks/task-complete
     expect(parsedOutput[0].compiled_prompt).toContain('CORE_POLICIES_CONTENT');
 
     logSpy.mockRestore();
+  });
+
+
+  test('Prompt Compilation: resolves base prompt from generic folder before fallback folder', () => {
+    fs.mkdirSync(path.join(tmpDir, '.github/agents/generic'), { recursive: true });
+    fs.mkdirSync(path.join(tmpDir, '.github/agents'), { recursive: true });
+
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/generic/coder.md'), 'GENERIC_CODER_CONTENT');
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/coder.md'), 'FALLBACK_CODER_CONTENT');
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
+      id: "task-002",
+      type: "TASK",
+      title: "Task without layers",
+      status: "READY",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    process.argv.push('--include-prompt');
+    main();
+    process.argv.splice(process.argv.indexOf('--include-prompt'), 1);
+
+    expect(consoleSpy).toHaveBeenCalled();
+    const lastCall = consoleSpy.mock.calls[consoleSpy.mock.calls.length - 1][0];
+    const parsedOutput = JSON.parse(lastCall);
+
+    expect(parsedOutput).toHaveLength(1);
+    expect(parsedOutput[0].compiled_prompt).toContain('GENERIC_CODER_CONTENT');
+    expect(parsedOutput[0].compiled_prompt).not.toContain('FALLBACK_CODER_CONTENT');
+
+    consoleSpy.mockRestore();
+  });
+
+  test('Prompt Compilation: uses fallback base prompt if generic is missing', () => {
+    fs.mkdirSync(path.join(tmpDir, '.github/agents'), { recursive: true });
+
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/coder.md'), 'FALLBACK_CODER_CONTENT');
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
+      id: "task-002",
+      type: "TASK",
+      title: "Task without layers",
+      status: "READY",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    process.argv.push('--include-prompt');
+    main();
+    process.argv.splice(process.argv.indexOf('--include-prompt'), 1);
+
+    expect(consoleSpy).toHaveBeenCalled();
+    const lastCall = consoleSpy.mock.calls[consoleSpy.mock.calls.length - 1][0];
+    const parsedOutput = JSON.parse(lastCall);
+
+    expect(parsedOutput).toHaveLength(1);
+    expect(parsedOutput[0].compiled_prompt).toContain('FALLBACK_CODER_CONTENT');
+
+    consoleSpy.mockRestore();
+  });
+
+  test('Prompt Compilation: uses default prompt if persona file is entirely missing', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
+      id: "task-002",
+      type: "TASK",
+      title: "Task without layers",
+      status: "READY",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    process.argv.push('--include-prompt');
+    main();
+    process.argv.splice(process.argv.indexOf('--include-prompt'), 1);
+
+    expect(consoleSpy).toHaveBeenCalled();
+    const lastCall = consoleSpy.mock.calls[consoleSpy.mock.calls.length - 1][0];
+    const parsedOutput = JSON.parse(lastCall);
+
+    expect(parsedOutput).toHaveLength(1);
+    expect(parsedOutput[0].compiled_prompt).toContain('As the coder of The Foundry, your task is described in the provided node file.');
+
+    consoleSpy.mockRestore();
+  });
+
+  test('Prompt Compilation: deduplicates tags and layers ignoring case', () => {
+    fs.mkdirSync(path.join(tmpDir, '.github/agents/specific'), { recursive: true });
+
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/specific/typescript.md'), 'TYPESCRIPT_SPECIFIC_CONTENT');
+    fs.writeFileSync(path.join(tmpDir, '.github/agents/specific/react.md'), 'REACT_SPECIFIC_CONTENT');
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
+      id: "task-002",
+      type: "TASK",
+      title: "Task with tags and layers",
+      status: "READY",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      tags: ["TypeScript", "react"],
+      layers: ["react", "TYPESCRIPT"],
+      jules_session_id: null,
+    });
+
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    process.argv.push('--include-prompt');
+    main();
+    process.argv.splice(process.argv.indexOf('--include-prompt'), 1);
+
+    expect(consoleSpy).toHaveBeenCalled();
+    const lastCall = consoleSpy.mock.calls[consoleSpy.mock.calls.length - 1][0];
+    const parsedOutput = JSON.parse(lastCall);
+
+    expect(parsedOutput).toHaveLength(1);
+    const matchesTS = parsedOutput[0].compiled_prompt.match(/TYPESCRIPT_SPECIFIC_CONTENT/g);
+    expect(matchesTS).toHaveLength(1);
+    const matchesReact = parsedOutput[0].compiled_prompt.match(/REACT_SPECIFIC_CONTENT/g);
+    expect(matchesReact).toHaveLength(1);
+
+    consoleSpy.mockRestore();
+  });
+
+  test('Prompt Compilation: appends core_principles.md if core_policies.md is missing', () => {
+    fs.mkdirSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents'), { recursive: true });
+
+    fs.writeFileSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents/core_principles.md'), 'CORE_PRINCIPLES_CONTENT');
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
+      id: "task-002",
+      type: "TASK",
+      title: "Task without layers",
+      status: "READY",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    process.argv.push('--include-prompt');
+    main();
+    process.argv.splice(process.argv.indexOf('--include-prompt'), 1);
+
+    expect(consoleSpy).toHaveBeenCalled();
+    const lastCall = consoleSpy.mock.calls[consoleSpy.mock.calls.length - 1][0];
+    const parsedOutput = JSON.parse(lastCall);
+
+    expect(parsedOutput).toHaveLength(1);
+    expect(parsedOutput[0].compiled_prompt).toContain('CORE_PRINCIPLES_CONTENT');
+
+    consoleSpy.mockRestore();
   });
 
   test('Prompt Compilation: compiles scheduled prompt with generic/fallback prompt and core policies', () => {

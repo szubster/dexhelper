@@ -18,5 +18,5 @@ locks: []
 ---
 
 ## Acceptance Criteria
-- [ ] Integrate scanner and rewriter into orchestrator execution flow
-- [ ] Ensure location-agnostic raw ID format
+- [x] Integrate scanner and rewriter into orchestrator execution flow
+- [x] Ensure location-agnostic raw ID format

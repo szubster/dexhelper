@@ -2,12 +2,12 @@
 id: story-517-526-schema-wip-support
 type: STORY
 title: Update Schema with DRAFT and WIP Status Support
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: '8494287704069524983'
+jules_session_id: null
 pr_number: null
 parent: epic-346-517-wip-documentation
 tags:
@@ -24,4 +24,5 @@ This story involves updating the core Foundry schema in `.foundry/docs/schema.md
 ## Acceptance Criteria
 - [ ] Add `DRAFT` and `WIP` to the list of allowed statuses in `.foundry/docs/schema.md`
 - [ ] Define the lifecycle transitions for these new statuses
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-526-564-schema-wip-update

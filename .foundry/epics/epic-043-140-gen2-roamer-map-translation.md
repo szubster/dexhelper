@@ -2,13 +2,13 @@
 id: epic-043-140-gen2-roamer-map-translation
 type: EPIC
 title: Gen 2 Roamer Map Translation
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-06'
-updated_at: '2026-09-10'
+updated_at: '2026-09-11'
 depends_on:
   - epic-043-139-gen2-roamer-data-extraction
-jules_session_id: null
+jules_session_id: '10675213921090777143'
 pr_number: null
 parent: prd-070-043-roamer-tracking-dashboard
 tags: []

@@ -2,12 +2,12 @@
 id: idea-517-gen2-radio-password-tracker
 type: IDEA
 title: Gen 2 Buena's Password Tracker & Alert System
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-04'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: '2293656932934940830'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -37,4 +37,5 @@ Leverage DexHelper's real-time clock integration and save file parsing to build 
 This transforms a highly missable, time-restricted mechanic into an easily trackable daily goal. It encourages daily engagement, helps players optimize their progression by guaranteeing they don't miss out on rare items, and perfectly complements existing daily event trackers (like IDEA-069) by adding real-time, time-of-day awareness.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a PRD to define the exact Blue Card memory offsets and daily completion event flags needed from the Crystal save structure.
+- [x] Product Manager: Draft a PRD to define the exact Blue Card memory offsets and daily completion event flags needed from the Crystal save structure.
+- [ ] prd-517-564-gen2-radio-password-tracker

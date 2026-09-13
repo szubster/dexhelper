@@ -2,10 +2,10 @@
 id: task-513-551-schema-verifying-tests-impl
 type: TASK
 title: Update schema verification tests for VERIFYING state
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-06'
+updated_at: '2026-09-13'
 depends_on:
   - task-513-550-schema-verifying-negative-checks-impl
 jules_session_id: null

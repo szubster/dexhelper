@@ -1,3 +1,9 @@
+export const POKEMON_MAX_MOVES = 4;
+
+export const PIKACHU_DEX_ID = 25;
+export const RED_BLUE_SCORE_THRESHOLD = 2;
+export const MIN_RED_SCORE_FOR_CONFIDENCE = 4;
+
 /**
  * @module gen1Parser
  *
@@ -58,7 +64,8 @@ const PC_CURRENT_BOX_COUNT_OFFSET = 0x30c0;
 const PC_CURRENT_BOX_DATA_START_OFFSET = 0x30c1;
 const PC_CURRENT_BOX_MONS_HEADER_LENGTH = 21;
 const PC_CURRENT_BOX_MON_DATA_LENGTH = 33;
-const PC_BOX_OT_NAME_LENGTH = 11;
+export const GEN1_STRING_LENGTH = 11;
+const PC_BOX_OT_NAME_LENGTH = GEN1_STRING_LENGTH;
 const PC_MAX_BOX_MONS = 20;
 const PC_BOX_DATA_START_OFFSET_FROM_COUNT = 22;
 
@@ -70,7 +77,7 @@ import {
 
 const PARTY_MONS_HEADER_LENGTH = 7;
 const PARTY_MON_DATA_LENGTH = 44;
-const PARTY_OT_NAME_LENGTH = 11;
+const PARTY_OT_NAME_LENGTH = GEN1_STRING_LENGTH;
 
 const POKEMON_OFFSET_CURRENT_HP = 1;
 const POKEMON_PARTY_OFFSET_LEVEL = 33;
@@ -92,6 +99,9 @@ const NPC_TRADES_COUNT = 16;
 const PIKACHU_FOLLOWING_STATUS_OFFSET = 0x271c;
 const PIKACHU_HAPPINESS_OFFSET = 0x271d;
 const PC_BOX_NUM_MASK = 0x7f;
+export const ITEM_RECORD_LENGTH = 2;
+export const ITEM_LIST_START_OFFSET = 1;
+export const ITEM_QUANTITY_OFFSET = 1;
 const PC_MAX_ITEMS = 50;
 
 const GEN1_EMPTY_SLOT = 0xff;
@@ -385,8 +395,8 @@ function detectGen1GameVersion(
 
   const { redScore, blueScore, yellowPenalty } = calculateVersionScores(owned, seen, trainerName, partyDetails);
 
-  const isPikachuStarter = owned.has(25);
-  const pikachuInParty = partyDetails.find((p) => p.speciesId === 25);
+  const isPikachuStarter = owned.has(PIKACHU_DEX_ID);
+  const pikachuInParty = partyDetails.find((p) => p.speciesId === PIKACHU_DEX_ID);
   const isNativePikachu = pikachuInParty && pikachuInParty.otName === trainerName;
 
   if (yellowPenalty === 0 && (redScore > 0 || blueScore > 0 || isPikachuStarter)) {
@@ -394,10 +404,15 @@ function detectGen1GameVersion(
     if (isNativePikachu && redScore === 0 && blueScore === 0) return 'yellow';
   }
 
-  if (Math.abs(redScore - blueScore) < 2 && redScore < 4 && !isNativePikachu) return 'unknown';
+  if (
+    Math.abs(redScore - blueScore) < RED_BLUE_SCORE_THRESHOLD &&
+    redScore < MIN_RED_SCORE_FOR_CONFIDENCE &&
+    !isNativePikachu
+  )
+    return 'unknown';
 
-  if (redScore > blueScore + 2) return 'red';
-  if (blueScore > redScore + 2) return 'blue';
+  if (redScore > blueScore + RED_BLUE_SCORE_THRESHOLD) return 'red';
+  if (blueScore > redScore + RED_BLUE_SCORE_THRESHOLD) return 'blue';
 
   if (redScore > blueScore) return 'red';
   if (blueScore > redScore) return 'blue';
@@ -454,7 +469,7 @@ function parseGen1HallOfFameRecords(view: DataView, hallOfFameCount: number, tra
         }
 
         const level = view.getUint8(offset + HOF_POKEMON_OFFSET_LEVEL);
-        const nickname = decodeGen12String(view, offset + HOF_POKEMON_OFFSET_NICKNAME, 11);
+        const nickname = decodeGen12String(view, offset + HOF_POKEMON_OFFSET_NICKNAME, GEN1_STRING_LENGTH);
 
         pokemon.push({ speciesId, level, nickname });
       }
@@ -613,7 +628,8 @@ function parseGen1Pokemon(
   // Party has stats, so level is at offset + 33. PC has no stats, level is at offset + 3.
   const level = view.getUint8(isParty ? offset + POKEMON_PARTY_OFFSET_LEVEL : offset + POKEMON_PC_OFFSET_LEVEL);
   const moves: number[] = [];
-  for (let j = 0; j < 4; j++) {
+
+  for (let j = 0; j < POKEMON_MAX_MOVES; j++) {
     const m = view.getUint8(offset + POKEMON_OFFSET_MOVES + j);
     if (m > 0) moves.push(m);
   }
@@ -649,20 +665,19 @@ function parseGen1Pokemon(
  * @param partyCount - The number of Pokémon currently in the party.
  * @param shiftedPartyDataOffset - The calculated start offset for the 44-byte structures.
  * @param shiftedPartyOTOffset - The calculated start offset for the 11-byte OT names array.
- * @returns An array of fully populated PokemonInstance objects.
+ * @returns A generator yielding fully populated PokemonInstance objects.
  */
-function parsePartyList(
+export function* iterateGen1PartyList(
   view: DataView,
   partyCount: number,
   shiftedPartyDataOffset: number,
   shiftedPartyOTOffset: number,
-): PokemonInstance[] {
-  const partyDetails: PokemonInstance[] = [];
+): Generator<PokemonInstance> {
   try {
     for (let i = 0; i < partyCount; i++) {
       const offset = shiftedPartyDataOffset + i * PARTY_MON_DATA_LENGTH;
       const p = parseGen1Pokemon(view, offset, shiftedPartyOTOffset + i * PARTY_OT_NAME_LENGTH, true, 'Party', i + 1);
-      if (p) partyDetails.push(p);
+      if (p) yield p;
     }
   } catch (e) {
     if (e instanceof RangeError) {
@@ -670,7 +685,6 @@ function parsePartyList(
     }
     throw e;
   }
-  return partyDetails;
 }
 
 /**
@@ -686,15 +700,12 @@ function parsePartyList(
  *
  * @param view - The raw save file DataView.
  * @param offsetShift - The `+1` shift applied if the save is Pokémon Yellow.
- * @returns The simple list of species IDs (`pc`), the detailed instances (`pcDetails`), and the active box count.
+ * @returns A generator yielding an object with `pcDetails`, `speciesId`, and `currentBoxCount`.
  */
-function parsePCBoxes(
+export function* iterateGen1PCBoxes(
   view: DataView,
   offsetShift: number,
-): { pc: number[]; pcDetails: PokemonInstance[]; currentBoxCount: number } {
-  const pc: number[] = [];
-  const pcDetails: PokemonInstance[] = [];
-
+): Generator<{ pcDetails: PokemonInstance; speciesId: number; currentBoxCount: number }> {
   let currentBoxNum = 0;
   let currentBoxCount = 0;
 
@@ -707,7 +718,6 @@ function parsePCBoxes(
     for (let i = 0; i < currentBoxCount; i++) {
       const id = view.getUint8(PC_CURRENT_BOX_DATA_START_OFFSET + offsetShift + i);
       const dex = INTERNAL_ID_TO_DEX[id];
-      if (dex !== undefined) pc.push(dex);
 
       const offset = currentBoxDataOffset + i * PC_CURRENT_BOX_MON_DATA_LENGTH;
       const p = parseGen1Pokemon(
@@ -718,7 +728,9 @@ function parsePCBoxes(
         `Box ${currentBoxNum + 1}`,
         i + 1,
       );
-      if (p) pcDetails.push(p);
+      if (p && dex !== undefined) {
+        yield { pcDetails: p, speciesId: dex, currentBoxCount };
+      }
     }
 
     for (const [i, offset] of PC_BOX_OFFSETS.entries()) {
@@ -726,18 +738,17 @@ function parsePCBoxes(
       const count = view.getUint8(offset);
       if (count > PC_MAX_BOX_MONS) continue;
 
-      for (let j = 0; j < count; j++) {
-        const id = view.getUint8(offset + PC_BOX_OFFSET_MON_LIST_START + j);
-        const dex = INTERNAL_ID_TO_DEX[id];
-        if (dex !== undefined) pc.push(dex);
-      }
-
       const boxDataOffset = offset + PC_BOX_DATA_START_OFFSET_FROM_COUNT;
       const boxOTOffset = boxDataOffset + PC_MAX_BOX_MONS * PC_CURRENT_BOX_MON_DATA_LENGTH;
       for (let j = 0; j < count; j++) {
+        const id = view.getUint8(offset + PC_BOX_OFFSET_MON_LIST_START + j);
+        const dex = INTERNAL_ID_TO_DEX[id];
+
         const pOff = boxDataOffset + j * PC_CURRENT_BOX_MON_DATA_LENGTH;
         const p = parseGen1Pokemon(view, pOff, boxOTOffset + j * PC_BOX_OT_NAME_LENGTH, false, `Box ${i + 1}`, j + 1);
-        if (p) pcDetails.push(p);
+        if (p && dex !== undefined) {
+          yield { pcDetails: p, speciesId: dex, currentBoxCount };
+        }
       }
     }
   } catch (e) {
@@ -746,8 +757,6 @@ function parsePCBoxes(
     }
     throw e;
   }
-
-  return { pc, pcDetails, currentBoxCount };
 }
 
 /**
@@ -803,10 +812,23 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): Gen1Save
 
   const shiftedPartyDataOffset = PARTY_DATA_START_OFFSET + offsetShift + PARTY_MONS_HEADER_LENGTH;
   const shiftedPartyOTOffset = shiftedPartyDataOffset + PARTY_MAX_MONS * PARTY_MON_DATA_LENGTH;
-  const partyDetails = parsePartyList(view, partyCount, shiftedPartyDataOffset, shiftedPartyOTOffset);
+  const partyDetails = Array.from(iterateGen1PartyList(view, partyCount, shiftedPartyDataOffset, shiftedPartyOTOffset));
   const party = partyDetails.map((p) => p.speciesId);
 
-  const { pc, pcDetails, currentBoxCount } = parsePCBoxes(view, offsetShift);
+  const pcItemsYielded = Array.from(iterateGen1PCBoxes(view, offsetShift));
+  const pc = pcItemsYielded.map((item) => item.speciesId);
+  const pcDetails = pcItemsYielded.map((item) => item.pcDetails);
+
+  // We can read currentBoxCount directly or use the value yielded
+  let currentBoxCount = 0;
+  try {
+    currentBoxCount = view.getUint8(PC_CURRENT_BOX_COUNT_OFFSET + offsetShift);
+  } catch (e) {
+    if (e instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw e;
+  }
 
   const inventory: { id: number; quantity: number }[] = [];
   const pcItems: { id: number; quantity: number }[] = [];
@@ -822,14 +844,14 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): Gen1Save
 
     const itemCount = view.getUint8(INVENTORY_OFFSET + offsetShift);
     for (let i = 0; i < itemCount; i++) {
-      const itemOffset = INVENTORY_OFFSET + 1 + offsetShift + i * 2;
-      inventory.push({ id: view.getUint8(itemOffset), quantity: view.getUint8(itemOffset + 1) });
+      const itemOffset = INVENTORY_OFFSET + ITEM_LIST_START_OFFSET + offsetShift + i * ITEM_RECORD_LENGTH;
+      inventory.push({ id: view.getUint8(itemOffset), quantity: view.getUint8(itemOffset + ITEM_QUANTITY_OFFSET) });
     }
 
     const pcItemCount = view.getUint8(PC_ITEMS_OFFSET + offsetShift);
     for (let i = 0; i < Math.min(pcItemCount, PC_MAX_ITEMS); i++) {
-      const itemOffset = PC_ITEMS_OFFSET + 1 + offsetShift + i * 2;
-      pcItems.push({ id: view.getUint8(itemOffset), quantity: view.getUint8(itemOffset + 1) });
+      const itemOffset = PC_ITEMS_OFFSET + ITEM_LIST_START_OFFSET + offsetShift + i * ITEM_RECORD_LENGTH;
+      pcItems.push({ id: view.getUint8(itemOffset), quantity: view.getUint8(itemOffset + ITEM_QUANTITY_OFFSET) });
     }
 
     hallOfFameRaw = view.getUint8(HALL_OF_FAME_COUNT_OFFSET + offsetShift);

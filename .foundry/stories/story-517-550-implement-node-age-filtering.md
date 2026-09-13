@@ -21,3 +21,6 @@ Implement the logic to filter nodes based on their age and type for the archival
 - [ ] Parse node age from file frontmatter (created_at/updated_at).
 - [ ] Identify transient nodes (TASK, STORY, EPIC, IDEA) exceeding the 90-day threshold.
 - [ ] Ensure high-value records (ADR, PRD, RESEARCH) are permanently retained.
+- [ ] task-550-567-node-age-filtering-core-logic
+- [ ] task-550-568-node-age-filtering-tests
+- [ ] task-550-569-node-age-filtering-qa

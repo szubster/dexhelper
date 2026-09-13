@@ -21,6 +21,9 @@ export const NodeStatusEnum = z.enum([
   'FAILED',
   'BLOCKED',
   'CANCELLED',
+  'DRAFT',
+  'WIP',
+  'STABLE',
 ]);
 
 export const OwnerPersonaEnum = z.enum([
@@ -42,6 +45,7 @@ export const OwnerPersonaEnum = z.enum([
   'changelogger',
   'lens',
   'librarian',
+  'curator',
 ]);
 
 export const NodeFrontmatterSchema = z.object({

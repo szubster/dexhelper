@@ -2,10 +2,10 @@
 id: task-535-551-curator-e2e-qa
 type: TASK
 title: QA E2E test for curator persona
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-06'
-updated_at: '2026-09-06'
+updated_at: '2026-09-13'
 depends_on:
   - task-535-550-curator-e2e-coder
 jules_session_id: null

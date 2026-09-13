@@ -164,7 +164,7 @@ export function SyncProgress() {
         <div className="flex flex-1 flex-col overflow-hidden bg-zinc-950 md:flex-row">
           {/* Left Pane: Handshake Log Stream */}
           <div className="relative flex flex-1 flex-col border-zinc-800 border-b-[2px] border-dashed p-6 md:border-r-[2px] md:border-b-0">
-            <EdgeLabel className="-top-3 left-6 bg-zinc-950 px-2 text-[10px]">[ TERMINAL_LOG ]</EdgeLabel>
+            <EdgeLabel className="-top-3 left-6 bg-zinc-950 px-2 text-[10px]">TERMINAL_LOG</EdgeLabel>
             <LcdGrid className="opacity-[0.03]" />
             <ScanlineOverlay opacityClass="opacity-10" />
 
@@ -208,7 +208,7 @@ export function SyncProgress() {
 
           {/* Center Pane: Hardware Targeting Array */}
           <div className="relative flex flex-1 items-center justify-center border-zinc-800 border-b-[2px] border-dashed bg-zinc-900/30 p-8 md:border-r-[2px] md:border-b-0">
-            <EdgeLabel className="-top-3 left-6 bg-zinc-950 px-2 text-[10px]">[ DIAGNOSTIC_ARRAY ]</EdgeLabel>
+            <EdgeLabel className="-top-3 left-6 bg-zinc-950 px-2 text-[10px]">DIAGNOSTIC_ARRAY</EdgeLabel>
             <LcdGrid className="opacity-[0.05]" />
 
             <div className="relative flex aspect-square w-full max-w-[280px] items-center justify-center">
@@ -249,7 +249,7 @@ export function SyncProgress() {
 
           {/* Right Pane: Physical Memory Banks */}
           <div className="relative flex flex-1 flex-col p-6">
-            <EdgeLabel className="-top-3 left-6 bg-zinc-950 px-2 text-[10px]">[ MEMORY_BANKS ]</EdgeLabel>
+            <EdgeLabel className="-top-3 left-6 bg-zinc-950 px-2 text-[10px]">MEMORY_BANKS</EdgeLabel>
             <LcdGrid className="opacity-[0.02]" />
 
             <div className="grid flex-1 grid-cols-4 grid-rows-[repeat(25,minmax(0,1fr))] gap-1 md:grid-cols-[repeat(10,minmax(0,1fr))] md:grid-rows-[repeat(10,minmax(0,1fr))]">
