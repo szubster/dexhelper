@@ -46,8 +46,11 @@ export interface PlayerTools {
  * Used to determine if the player can access certain map areas or encounter methods
  * (e.g., using Surf to cross water, or Old Rod to fish).
  *
- * By pre-calculating this once per suggestion loop, we avoid repeatedly scanning the
- * player's inventory for every single wild encounter.
+ * **Architecture Note: Pre-calculation for O(1) Lookups**
+ * By pre-calculating tool availability once per suggestion generation cycle and passing
+ * it down as a `PlayerTools` object to sub-generators, we completely avoid the need to
+ * repeatedly scan the player's full inventory for every individual wild encounter evaluation.
+ * This is a critical performance constraint when evaluating hundreds of missing Pokémon.
  *
  * @param saveData - The parsed save data containing the player's inventory and PC items.
  * @param allInstances - An array of all Pokémon currently owned by the player (Party + PC), used to check for learned HM moves.
@@ -126,9 +129,11 @@ export function extractPlayerTools(saveData: SaveData, allInstances: PokemonInst
 /**
  * Filters out HM/Item dependent encounters (like Headbutt, Surf, Fishing) if the player lacks the required tools.
  *
- * **Architecture Note: In-Place Mutation**
- * This function mutates the `suggestions` array directly instead of returning a new array.
- * This is a deliberate performance optimization to prevent intermediate O(N) array allocations
+ * **Architecture Note: In-Place Array Mutation for Performance**
+ * This function deliberately mutates the `suggestions` and `localPids` arrays/sets directly.
+ * It uses imperative features (like `splice` while iterating backwards and `delete` on Sets)
+ * instead of declarative `.filter()` or `.map()` chains. This strict architectural constraint
+ * prevents intermediate O(N) array allocations, which cause severe garbage collection overhead
  * during the hot path of the suggestion generation loop.
  *
  * If a Pokémon requires a missing tool to be encountered but is still conceptually valid,

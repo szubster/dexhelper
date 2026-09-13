@@ -2,12 +2,12 @@
 id: epic-516-530-update-permanent-failure-dashboard-ui
 type: EPIC
 title: Update Permanent Failure Dashboard UI for Cancelled Nodes
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: '3184466445975576510'
+jules_session_id: null
 pr_number: null
 parent: prd-114-516-update-permanent-failure-dashboard-ui
 tags:
@@ -33,7 +33,9 @@ Update the DAG UI components to include nodes that are `CANCELLED` with a reject
 - [ ] Nodes with `status: CANCELLED` and `rejection_count >= 3` are visible in the Permanent Failure Dashboard.
 - [ ] Nodes with `status: CANCELLED` and `rejection_count >= 3` are highlighted correctly (e.g., using the same red styling as FAILED nodes with high rejection counts) in `DagNode.tsx` and `DagDashboard.tsx`.
 - [ ] The filter panel or data selection logic properly includes these nodes.
-- [ ] An E2E/Integration test STORY is created to verify the Permanent Failure Dashboard correctly displays CANCELLED nodes.
+- [x] An E2E/Integration test STORY is created to verify the Permanent Failure Dashboard correctly displays CANCELLED nodes.
+- [ ] story-530-560-update-dag-ui-components
+- [ ] story-530-561-e2e-verify-cancelled-nodes
 
 ## Implementation Details
 1. Modify the `DagDashboard.tsx` and `DagNode.tsx` components to account for the new `CANCELLED` status when identifying permanently failed nodes.

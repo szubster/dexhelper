@@ -2,13 +2,13 @@
 id: task-475-550-gen3-ribbon-unit-tests-contest
 type: TASK
 title: Write Gen 3 Ribbon Unit Tests - Contest Ranks
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-09'
+updated_at: '2026-09-10'
 depends_on:
   - task-475-549-gen3-ribbon-unit-tests-general
-jules_session_id: null
+jules_session_id: '9918184435588039476'
 pr_number: null
 parent: story-133-475-gen3-ribbon-unit-tests
 tags:

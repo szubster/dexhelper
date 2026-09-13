@@ -1,4 +1,3 @@
-
 # QA Session Journal
 
 Task ID: task-405-486-gen3-mixed-record-parser-qa-v2

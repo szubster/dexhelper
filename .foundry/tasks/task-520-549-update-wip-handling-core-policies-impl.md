@@ -2,12 +2,12 @@
 id: task-520-549-update-wip-handling-core-policies-impl
 type: TASK
 title: Update Core Policies for WIP Awareness
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-06'
+updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4762061762405221973'
 locks: []
 pr_number: null
 parent: story-520-520-update-persona-prompts

@@ -2,12 +2,12 @@
 id: research-470-553-investigate-japanese-crystal-offsets
 type: RESEARCH
 title: Investigate Japanese Crystal Save Offsets
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-07'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: '17747645014488595709'
+jules_session_id: null
 pr_number: null
 parent: story-428-470-identify-public-saves
 tags:
@@ -31,5 +31,8 @@ Task `task-470-487-catalog-integrate-saves` failed due to a timeout/max rejectio
 2. Determine how to implement detection fallbacks or whether the fixture should be replaced.
 
 ## Acceptance Criteria
-- [ ] Offsets for Japanese Crystal are documented.
-- [ ] Recommendation is made on how to handle the Japanese Crystal save parsing or replacement.
+- [x] Offsets for Japanese Crystal are documented.
+- [x] Recommendation is made on how to handle the Japanese Crystal save parsing or replacement.
+
+## Findings
+See [Japanese Crystal Offsets](.foundry/docs/knowledge_base/save_engine/japanese_crystal_offsets.md) for full details.

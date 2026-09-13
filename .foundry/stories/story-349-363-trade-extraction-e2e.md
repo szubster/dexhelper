@@ -5,7 +5,7 @@ title: NPC Trade Extraction Integration & E2E
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-06'
-updated_at: '2026-09-01'
+updated_at: '2026-09-10'
 depends_on:
   - story-349-361-gen2-trade-extraction
   - story-349-362-gen3-trade-extraction
@@ -21,6 +21,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Story: NPC Trade Extraction Integration & E2E
 
