@@ -2,12 +2,12 @@
 id: task-478-528-aggregate-active-locks
 type: TASK
 title: Aggregate active locks in RESOLVE phase
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-03'
 updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1248363979702507963'
 pr_number: null
 parent: story-412-478-implement-resolve-phase-locking
 tags:
