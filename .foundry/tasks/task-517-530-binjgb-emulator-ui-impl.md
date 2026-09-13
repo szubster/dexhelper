@@ -2,13 +2,13 @@
 id: task-517-530-binjgb-emulator-ui-impl
 type: TASK
 title: Implement binjgb Emulator UI Component
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-09-13'
 depends_on:
   - task-517-529-binjgb-react-context-impl
-jules_session_id: null
+jules_session_id: '13989558787253192213'
 pr_number: null
 parent: story-426-517-binjgb-wasm-wrapper
 tags:
