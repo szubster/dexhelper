@@ -11,6 +11,7 @@ depends_on:
 jules_session_id: null
 pr_number: null
 parent: story-125-519-refactor-complex-dashboard
+priority: 100
 tags:
   - e2e
   - integration
