@@ -2,16 +2,14 @@
 id: story-402-560-tm-hm-compatibility-matching
 type: STORY
 title: Compatibility Matching Logic
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2025-02-14'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: '6351000577200301188'
-locks: []
 pr_number: null
 parent: epic-110-402-tm-hm-compatibility-logic-v2
-priority: 50
 tags:
   - feature
   - logic
@@ -19,6 +17,8 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
+priority: 50
 ---
 
 # Compatibility Matching Logic

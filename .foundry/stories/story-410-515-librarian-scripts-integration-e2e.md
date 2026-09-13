@@ -2,10 +2,10 @@
 id: story-410-515-librarian-scripts-integration-e2e
 type: STORY
 title: Librarian Scripts Integration and E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-01'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on:
   - .foundry/stories/story-410-512-librarian-ingestion-synthesis-script.md
   - .foundry/stories/story-410-513-librarian-doc-update-script.md

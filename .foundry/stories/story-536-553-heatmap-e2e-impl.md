@@ -2,10 +2,10 @@
 id: story-536-553-heatmap-e2e-impl
 type: STORY
 title: Implement Heatmap E2E Tests
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-06'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: '15482361749068533008'
 parent: epic-518-536-heatmap-e2e-testing

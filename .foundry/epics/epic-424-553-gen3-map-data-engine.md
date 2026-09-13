@@ -2,10 +2,10 @@
 id: epic-424-553-gen3-map-data-engine
 type: EPIC
 title: Gen 3 Map Data Extraction & Coordinate Mapping
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: '10070597723607423776'
 pr_number: null

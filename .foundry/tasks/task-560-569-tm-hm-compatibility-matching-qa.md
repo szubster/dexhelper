@@ -2,24 +2,24 @@
 id: task-560-569-tm-hm-compatibility-matching-qa
 type: TASK
 title: QA TM/HM Compatibility Matching Logic
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2025-02-14'
-updated_at: '2025-02-14'
+updated_at: '2026-09-13'
 depends_on:
   - task-560-574-tm-hm-compatibility-matching-tests
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-402-560-tm-hm-compatibility-matching
-priority: 50
 tags:
   - qa
   - logic
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # QA TM/HM Compatibility Matching Logic

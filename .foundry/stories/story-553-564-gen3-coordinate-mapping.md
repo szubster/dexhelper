@@ -2,11 +2,12 @@
 id: story-553-564-gen3-coordinate-mapping
 type: STORY
 title: Gen 3 Map Coordinate Mapping System
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
-depends_on: ["story-553-563-gen3-map-data-extraction"]
+updated_at: '2026-09-13'
+depends_on:
+  - story-553-563-gen3-map-data-extraction
 jules_session_id: null
 pr_number: null
 parent: epic-424-553-gen3-map-data-engine

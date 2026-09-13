@@ -2,11 +2,12 @@
 id: story-553-565-gen3-map-data-integration-e2e
 type: STORY
 title: Gen 3 Map Data Integration & E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
-depends_on: ["story-553-564-gen3-coordinate-mapping"]
+updated_at: '2026-09-13'
+depends_on:
+  - story-553-564-gen3-coordinate-mapping
 jules_session_id: null
 pr_number: null
 parent: epic-424-553-gen3-map-data-engine

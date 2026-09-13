@@ -2,22 +2,23 @@
 id: story-552-562-gen2-wild-item-parsing
 type: STORY
 title: Gen 2 Wild Encounter and Held Item Parsing
-status: PENDING
+status: READY
 owner_persona: tech_lead
-created_at: "2026-09-12"
-updated_at: "2026-09-12"
+created_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: epic-521-552-wild-item-data-engine
-priority: 50
 tags:
   - gen2
   - dexhelper
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Gen 2 Wild Encounter and Held Item Parsing
