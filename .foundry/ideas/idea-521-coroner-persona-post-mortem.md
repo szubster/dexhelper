@@ -49,7 +49,8 @@ Currently, when a node is aborted permanently (e.g., reaching Max Rejection Coun
 ---
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this idea into a PRD outlining the exact triggers, scripts, and responsibilities for the `coroner` persona.
+- [x] Product Manager: Convert this idea into a PRD outlining the exact triggers, scripts, and responsibilities for the `coroner` persona.
 - [ ] Architect: Review the proposed system architecture for integrating the `coroner` into the Foundry Orchestrator's state transition events.
 - [ ] Coder: Update `schema.md` to formally introduce the `coroner` role mapped to Gengar.
 - [ ] Coder: Implement the Node/TypeScript scripts in `.github/scripts/` to enable the Coroner's post-mortem extraction phase.
+- [ ] prd-521-565-coroner-persona-post-mortem
