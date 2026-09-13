@@ -1,3 +1,4 @@
+import { generateStatisticsReport } from './utils/statistics.js';
 /**
  * foundry-orchestrator.ts
  * ─────────────────────────────────────────────────────────────────────────────
@@ -1549,6 +1550,13 @@ function main(): void {
   // This is the ONLY line written to stdout. The GitHub Actions matrix step
   // captures this exact output via: matrix=$(node ... | tail -1)
   console.log(JSON.stringify(readyNodes));
+
+  // Generate Foundry System Statistics report
+  try {
+    generateStatisticsReport(repoRoot);
+  } catch (err) {
+    warn(`Failed to generate statistics: ${String(err)}`);
+  }
 
   // ── Update ACTIVE_SESSIONS.md markdown table ──────────────────────────────
   try {
