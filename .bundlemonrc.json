@@ -70,7 +70,7 @@
       "maxSize": "225kb"
     },
     {
-      "path": "assets/press-<hash>.css",
+      "path": "assets/press-*<hash>.css",
       "maxSize": "100kb"
     },
     {

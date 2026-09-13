@@ -21,5 +21,5 @@ Update the logging functions in the Foundry Orchestrator script to include Pokem
 Modify `.github/scripts/foundry-orchestrator.ts` to add Pokemon Gen 1 themed console messages to the existing `info` and `warn` logging functions.
 
 ## Acceptance Criteria
-- [ ] Coder: Update the `info` logging function in `.github/scripts/foundry-orchestrator.ts` to prefix messages with a Pokemon Gen 1 themed phrase or emoji (e.g. `[Pokedex]`, `[Oak]`).
-- [ ] Coder: Update the `warn` logging function in `.github/scripts/foundry-orchestrator.ts` to prefix messages with a Pokemon Gen 1 themed phrase or emoji.
+- [x] Coder: Update the `info` logging function in `.github/scripts/foundry-orchestrator.ts` to prefix messages with a Pokemon Gen 1 themed phrase or emoji (e.g. `[Pokedex]`, `[Oak]`).
+- [x] Coder: Update the `warn` logging function in `.github/scripts/foundry-orchestrator.ts` to prefix messages with a Pokemon Gen 1 themed phrase or emoji.

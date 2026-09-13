@@ -75,7 +75,7 @@ describe('Zod Schema E2E Test Suite', () => {
     expect(stderrSpy).toHaveBeenCalled();
     const calls = stderrSpy.mock.calls.map(call => call[0] as string).join('');
 
-    expect(calls).toContain('[orchestrator] WARN');
+    expect(calls).toMatch(/\[orchestrator\] (\[.*\] )?WARN/);
     expect(calls).toContain('Schema validation failed in:');
     expect(calls).toContain('task-002-invalid.md');
     expect(calls).toContain('Errors:');
@@ -103,7 +103,7 @@ describe('Zod Schema E2E Test Suite', () => {
     expect(errorThrown).toBe(false);
 
     const calls = stderrSpy.mock.calls.map(call => call[0] as string).join('');
-    expect(calls).toContain('[orchestrator] WARN');
+    expect(calls).toMatch(/\[orchestrator\] (\[.*\] )?WARN/);
 
     // matter throws error if there is an error but returns no YAML if format is invalid, we'll check both
     // Actually the parser code uses "Malformed YAML frontmatter in:" when gray-matter throws or "No YAML frontmatter found in:" if missing
