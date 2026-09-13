@@ -2,10 +2,10 @@
 id: prd-085-107-lift-rejection-count-state
 type: PRD
 title: Lift rejection_count state to DagContext
-status: PENDING
+status: COMPLETED
 owner_persona: auditor
 created_at: '2026-07-05'
-updated_at: '2026-07-24'
+updated_at: '2026-09-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,6 +17,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Lift rejection_count state to DagContext
@@ -36,6 +37,6 @@ When reviewing the DAG Dashboard code, it was observed that the permanent failur
 ## Generated Epics
 - [x] epic-107-301-lift-rejection-count-state
 - [x] epic-107-302-update-dashboard-rejection-count
-- [ ] research-107-342-investigate-lift-rejection-count-failure
-- [ ] epic-107-343-lift-rejection-count-state
-- [ ] epic-107-344-update-dashboard-rejection-count
+- [x] research-107-342-investigate-lift-rejection-count-failure
+- [x] epic-107-343-lift-rejection-count-state
+- [x] epic-107-344-update-dashboard-rejection-count

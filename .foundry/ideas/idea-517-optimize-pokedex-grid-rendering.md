@@ -2,12 +2,12 @@
 id: idea-517-optimize-pokedex-grid-rendering
 type: IDEA
 title: Optimize Pokedex and Storage Grids with Virtualization
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2025-07-27'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: '16507947521072273187'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -40,5 +40,5 @@ Specific changes:
 - **Memory Optimization:** Drastically reduces the number of DOM nodes held in memory, particularly important for mobile users or lower-end devices.
 - **Scalability:** Future-proofs the UI for Gen 4+ which require rendering upwards of 500 to 1000+ entries.
 
-## Next Steps
-- [ ] prd-517-549-optimize-pokedex-grid-rendering
+## Acceptance Criteria
+- [ ] prd-517-564-optimize-pokedex-grid-rendering
