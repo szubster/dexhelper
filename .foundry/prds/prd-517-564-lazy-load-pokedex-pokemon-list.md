@@ -50,3 +50,4 @@ The `PokedexGrid` component currently renders the full list of Pokemon (up to 38
 - **Dependency Management:** Utilize `@tanstack/react-virtual` which is already included in `package.json`. Avoid adding new third-party heavy dependencies.
 
 ## 6. Acceptance Criteria
+- [ ] epic-564-565-lazy-load-pokedex-pokemon-list
