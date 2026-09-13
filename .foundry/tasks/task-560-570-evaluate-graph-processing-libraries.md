@@ -26,4 +26,4 @@ locks: []
 Evaluate graph processing libraries (such as Graphology) for performing DAG operations in the Foundry orchestrator.
 
 ## Acceptance Criteria
-- [ ] Create an ADR documenting the evaluation of graph processing libraries for DAG operations.
+- [x] Create an ADR documenting the evaluation of graph processing libraries for DAG operations.
