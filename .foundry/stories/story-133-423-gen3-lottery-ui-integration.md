@@ -34,5 +34,8 @@ Integrate the lottery matching logic into the UI.
 ## Acceptance Criteria
 - [x] Break down into Tasks
 - [ ] task-423-469-gen3-lottery-state-impl
-- [ ] task-423-470-gen3-lottery-ui-component-impl
-- [ ] task-423-471-gen3-lottery-ui-qa
+- [x] task-423-470-gen3-lottery-ui-component-impl
+- [x] task-423-471-gen3-lottery-ui-qa
+- [ ] research-423-568-investigate-gen3-lottery-ui-failure
+- [ ] task-423-569-gen3-lottery-ui-component-impl-v2
+- [ ] task-423-570-gen3-lottery-ui-qa-v2
