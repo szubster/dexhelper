@@ -27,3 +27,5 @@ locks: []
 ## Acceptance Criteria
 - [ ] Add the script to `lefthook.yml` under the `pre-commit` hook.
 - [ ] Verify that committing malformed files correctly aborts the pre-commit hook.
+- [ ] story-554-571-lefthook-integration
+- [ ] story-554-572-lefthook-e2e
