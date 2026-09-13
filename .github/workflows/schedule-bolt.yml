@@ -5,9 +5,18 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  issues: write
 jobs:
   run_bolt:
-    uses: ./.github/workflows/foundry-scheduled-agent.yml
-    with:
-      persona: "bolt"
-    secrets: inherit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Dispatch Issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          COMPILED_PROMPT=$(node --experimental-strip-types .github/scripts/foundry-orchestrator.ts --compile-scheduled "bolt")
+          gh issue create --title "Scheduled Agent: bolt" --body "$COMPILED_PROMPT" --label "jules"
