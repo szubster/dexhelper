@@ -21,6 +21,9 @@ rejection_reason: ''
 This Epic implements the requirements to encourage more modular task breakdowns by the Tech Lead. It includes creating an architectural policy document detailing how to split frontend work from backend work without enforcing strict limits, and implementing an automated validation step during TASK generation that flags monolithic tasks for complex stories.
 
 ## Acceptance Criteria
-- [ ] Implement task breakdown policy document
-- [ ] Implement automated complexity validation for STORY to TASK breakdown
-- [ ] Add integration and e2e verification
+- [x] Implement task breakdown policy document
+- [x] Implement automated complexity validation for STORY to TASK breakdown
+- [x] Add integration and e2e verification
+- [ ] story-552-562-task-breakdown-policy-doc
+- [ ] story-552-563-story-to-task-complexity-validation
+- [ ] story-552-564-task-breakdown-e2e
