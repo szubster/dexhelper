@@ -102,6 +102,17 @@ export function BottomNav() {
 
         <div className="h-full flex-1">
           <NavButton
+            to="/safari-zone"
+            ariaLabel="Safari Zone"
+            label="SAFARI"
+            activeLabel="SAFARI"
+            icon={Swords}
+            isActive={location.pathname === '/safari-zone'}
+          />
+        </div>
+
+        <div className="h-full flex-1">
+          <NavButton
             onClick={() => setIsSettingsOpen(true)}
             ariaLabel="Open settings menu"
             label="MENU"
