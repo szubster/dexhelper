@@ -32,4 +32,8 @@ This epic handles the user interface for the Wild Held Item Hunting Assistant, i
 - Implement success notifications when the item is acquired.
 
 ## Acceptance Criteria
-- [ ] story_owner: Break down this Epic into Stories.
+- [x] story_owner: Break down this Epic into Stories.
+- [ ] story-555-562-wild-item-selection-ui
+- [ ] story-555-563-routes-encounters-drop-rates
+- [ ] story-555-564-hunting-team-notifications
+- [ ] story-555-565-wild-item-hunting-e2e
