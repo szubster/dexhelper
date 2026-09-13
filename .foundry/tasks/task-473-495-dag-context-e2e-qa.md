@@ -25,4 +25,4 @@ locks: []
 QA the E2E tests for DAG visualizer.
 
 ## Acceptance Criteria
-- [ ] Run and verify that the E2E tests written for DagContext succeed and assert correct rendering of UI.
+- [x] Run and verify that the E2E tests written for DagContext succeed and assert correct rendering of UI.
