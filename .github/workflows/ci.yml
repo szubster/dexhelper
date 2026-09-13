@@ -130,6 +130,8 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Validate Foundry Schema
         run: node --experimental-strip-types scripts/validate-foundry-schema.ts
+      - name: Verify Schema Documentation
+        run: node --experimental-strip-types scripts/verify-schema-documentation.ts
       - name: Verify DAG References
         run: node --experimental-strip-types .github/scripts/verify-dag-refs.ts
       - name: Check Links

@@ -2,13 +2,13 @@
 id: epic-110-402-tm-hm-compatibility-logic-v2
 type: EPIC
 title: TM/HM Compatibility Engine V2
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-05'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on:
   - epic-110-401-tm-hm-save-parsing-v2
-jules_session_id: '4266410851152519771'
+jules_session_id: null
 pr_number: null
 parent: prd-105-110-tm-hm-inventory-planner
 tags:
@@ -31,5 +31,8 @@ This Epic focuses on the Compatibility Engine (Logic Layer) to determine which o
 - Further refine by identifying Pokémon that can learn the move but do not currently have a move of that type, highlighting strategic gaps.
 
 ## Acceptance Criteria
-- [ ] Break down into STORY nodes for compatibility matching and strategic gap identification.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Break down into STORY nodes for compatibility matching and strategic gap identification.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-402-560-tm-hm-compatibility-matching
+- [ ] story-402-561-tm-hm-strategic-gap-identification
+- [ ] story-402-562-tm-hm-compatibility-e2e

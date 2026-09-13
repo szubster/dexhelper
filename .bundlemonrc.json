@@ -78,12 +78,16 @@
       "maxSize": "150kb"
     },
     {
+      "path": "assets/press-<hash>.css",
+      "maxSize": "50kb"
+    },
+    {
       "path": "assets/*-<hash>.js",
       "maxSize": "10kb"
     },
     {
       "path": "data/foundry.json",
-      "maxSize": "430kb"
+      "maxSize": "500kb"
     },
     {
       "path": "data/pokedata.msgpack",
@@ -95,7 +99,7 @@
     },
     {
       "path": "workbox-<hash>.js",
-      "maxSize": "50kb"
+      "maxSize": "150kb"
     },
     {
       "path": "**/*.@(js|css|html|png|msgpack|webmanifest|json|hash|txt)",

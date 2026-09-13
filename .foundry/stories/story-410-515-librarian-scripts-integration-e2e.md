@@ -2,16 +2,15 @@
 id: story-410-515-librarian-scripts-integration-e2e
 type: STORY
 title: Librarian Scripts Integration and E2E Verification
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-12'
 depends_on:
   - .foundry/stories/story-410-512-librarian-ingestion-synthesis-script.md
   - .foundry/stories/story-410-513-librarian-doc-update-script.md
   - .foundry/stories/story-410-514-librarian-garbage-collection-script.md
-jules_session_id: null
-locks: []
+jules_session_id: '17896743256907976283'
 pr_number: null
 parent: epic-339-410-librarian-github-scripts-implementation
 tags:
@@ -22,10 +21,11 @@ tags:
   - e2e
   - integration
 research_references: []
-experiment_variants: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+experiment_variants: []
+locks: []
 ---
 
 # Librarian Scripts Integration and E2E Verification

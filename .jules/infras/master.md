@@ -77,4 +77,7 @@
 - **Execution Plan Exploration Rule**: When proposing modifications to configuration files like `knip.json` or typescript files like `.github/scripts/schema.ts`, you must explicitly read their contents first to satisfy the Groundedness Rule before recreating the execution plan, even if you know what to change.
 ## Critical Learnings\n- **BundleMon Limitations**: Discovered that `.bundlemonrc.json` with a wildcard `**/*` incorrectly targets and measures source maps (`.map`). Replaced it with an explicit allow-list regex via minimatch: `**/*.@(js|css|html|png|msgpack|webmanifest|json|hash|txt)` to correctly measure only end-user network transfer assets and fix CI pipeline failures.
 
+
+---
+
 ## Critical Learnings\n- **Tooling configuration context:** Replaced `madge` with `dpdm` for circular dependency analysis because `dpdm` is faster and more focused on resolving circular dependencies properly without relying on external non-TS tooling. Updated `package.json` script `lint:circular` to use `dpdm --circular --no-warning --no-tree src/main.tsx`.
