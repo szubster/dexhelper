@@ -30,7 +30,7 @@ locks: []
 Perform QA verification of the Orchestrator's prompt resolution logic, ensuring it correctly constructs composite prompts according to the established policies and architectures.
 
 ## Acceptance Criteria
-- [ ] Verify that the `owner_persona` base prompt is loaded correctly.
-- [ ] Verify that tags correctly load specific context layers.
-- [ ] Verify that the core system policies are appended as the final section.
-- [ ] Ensure unit tests cover the new logic and all tests pass.
+- [x] Verify that the `owner_persona` base prompt is loaded correctly.
+- [x] Verify that tags correctly load specific context layers.
+- [x] Verify that the core system policies are appended as the final section.
+- [x] Ensure unit tests cover the new logic and all tests pass.
