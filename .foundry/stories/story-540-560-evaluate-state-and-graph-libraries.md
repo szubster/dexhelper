@@ -27,5 +27,7 @@ locks: []
 This story covers researching and evaluating state machine libraries (e.g., XState) and graph processing libraries (e.g., Graphology) for the Foundry orchestrator and DAG resolution engine. It concludes with documenting the findings in a formal ADR.
 
 ## Acceptance Criteria
-- [ ] Create an ADR documenting the evaluation of state machine libraries for Node lifecycle transitions.
-- [ ] Create an ADR documenting the evaluation of graph processing libraries for DAG operations.
+- [ ] task-560-569-evaluate-state-machine-libraries
+- [ ] task-560-570-evaluate-graph-processing-libraries
+- [x] Create an ADR documenting the evaluation of state machine libraries for Node lifecycle transitions.
+- [x] Create an ADR documenting the evaluation of graph processing libraries for DAG operations.
