@@ -2,13 +2,13 @@
 id: task-516-531-prompt-resolution-qa
 type: TASK
 title: QA Verification of Prompt Resolution Logic
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-03'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on:
   - task-516-530-prompt-resolution-tests
-jules_session_id: null
+jules_session_id: '9931822672221030019'
 pr_number: null
 parent: story-418-516-orchestrator-prompt-resolution
 tags:
