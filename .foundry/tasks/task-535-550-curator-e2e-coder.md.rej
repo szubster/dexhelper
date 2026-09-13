@@ -1,0 +1,10 @@
+--- task-535-550-curator-e2e-coder.md
++++ task-535-550-curator-e2e-coder.md
+@@ -16,6 +16,6 @@
+ # Implement E2E test logic for curator persona
+
+ ## Acceptance Criteria
+-- [ ] Update `.github/scripts/schema-e2e.test.ts` to include a test that verifies the orchestrator correctly parses the curator fixture
++- [x] Update `.github/scripts/schema-e2e.test.ts` to include a test that verifies the orchestrator correctly parses the curator fixture
+
+ ### SCHEMA
