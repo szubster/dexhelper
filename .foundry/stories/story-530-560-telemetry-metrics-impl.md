@@ -33,8 +33,11 @@ Implement telemetry tracking for cycle detection failures in the Foundry Orchest
 4. Ensure the orchestrator fails gracefully and continues operation without crashing if the telemetry logging fails.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks to implement telemetry tracking logic.
+- [x] Break down into Tasks to implement telemetry tracking logic.
 - [ ] Ensure \`trackCycleDetectionFailure\` is implemented and exports a function for telemetry logging.
 - [ ] Ensure Phase 3.9 uses the new telemetry function.
 - [ ] Ensure Phase 3.10 uses the new telemetry function.
 - [ ] Provide tests verifying that telemetry correctly appends to the log without failing the orchestrator if filesystem issues occur.
+- [ ] task-560-567-telemetry-utility
+- [ ] task-560-568-orchestrator-integration
+- [ ] task-560-569-qa-telemetry-metrics
