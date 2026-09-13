@@ -91,16 +91,11 @@ export function isGen3Save(view: DataView): boolean {
     const checkBank = (baseOffset: number) => {
       for (let i = 0; i < GEN3_NUM_SECTIONS; i++) {
         const offset = baseOffset + i * GEN3_SECTION_SIZE;
-        // bounds check
         if (offset + GEN3_SIGNATURE_OFFSET + 4 <= view.byteLength) {
           const signature = view.getUint32(offset + GEN3_SIGNATURE_OFFSET, true);
           if (signature === GEN3_SIGNATURE) {
             validSections++;
           }
-        } else {
-          // Original behavior allowed out of bounds to throw RangeError naturally, or we can just skip
-          // To strictly maintain test compliance which expects RangeError handling:
-          view.getUint32(offset + GEN3_SIGNATURE_OFFSET, true); // this will throw RangeError
         }
       }
     };
