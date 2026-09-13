@@ -30,4 +30,4 @@ Verify the updates to the curator agent prompt.
 - Verify the prompt instructs how to spawn dynamic remediation nodes.
 
 ## Acceptance Criteria
-- [ ] Verify prompt updates for historical mapping
+- [x] Verify prompt updates for historical mapping
