@@ -79,6 +79,21 @@ import {
 import { parseGen3Daycare } from '../gen3/daycare/parser';
 import { parseGen3EventItems } from '../gen3/inventory/parser';
 import { parseGen3NarrativeFlags } from '../gen3/narrative/parser';
+import {
+  FLAG_BATTLE_FRONTIER_TRADE_DONE,
+  FLAG_DID_CH_DING_TRADE,
+  FLAG_DID_ESPHERE_TRADE,
+  FLAG_DID_MARC_TRADE,
+  FLAG_DID_MIMIEN_TRADE,
+  FLAG_DID_MS_NIDO_TRADE,
+  FLAG_DID_NINA_TRADE,
+  FLAG_DID_SEELOR_TRADE,
+  FLAG_DID_TANGENY_TRADE,
+  FLAG_DID_ZYNX_TRADE,
+  FLAG_FORTREE_NPC_TRADE_COMPLETED,
+  FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED,
+  FLAG_RUSTBORO_NPC_TRADE_COMPLETED,
+} from '../gen3/npcTrades/constants';
 import { parseGen3Pokeblocks } from '../gen3/pokeblock/parser';
 import { parseGen3Pokedex } from '../gen3/pokedex/parser';
 import { parseGen3TrainerDefeatFlags, parseGen3TrainerRematchFlags } from '../gen3/trainerFlags/parser';
@@ -293,6 +308,10 @@ export const PC_BOX_CAPACITY = 30;
 export const PC_BOX_SECTION_5_TO_12_SIZE = 3968;
 export const PC_BOX_SECTION_13_SIZE = 2000;
 export const GEN3_PC_POKEMON_STRUCT_SIZE = 80;
+export const DECRYPTED_BLOCK_G_OFFSET = 0;
+export const DECRYPTED_BLOCK_A_OFFSET = 12;
+export const DECRYPTED_BLOCK_E_OFFSET = 24;
+export const DECRYPTED_BLOCK_M_OFFSET = 36;
 export const GEN3_POKEMON_SPECIES_OFFSET_IN_G = 0x00;
 export const GEN3_POKEMON_ITEM_OFFSET_IN_G = 0x02;
 export const GEN3_POKEMON_MOVES_OFFSET_IN_A = 0x00;
@@ -322,6 +341,12 @@ export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
  * @param offset - The absolute memory offset where the 100-byte Pokémon struct begins.
  * @returns An object containing the decrypted GAEM buffer, PV, OTID, and key, or null if the slot is empty.
  * @throws Error if the block permutation is invalid or the data is heavily corrupted.
+ *
+ * @example
+ * const extractedData = extractGen3PokemonData(pcBufferView, offset);
+ * if (extractedData) {
+ *   const { pv, otId, decryptionKey, decryptedData } = extractedData;
+ * }
  */
 export function extractGen3PokemonData(view: DataView, offset: number) {
   try {
@@ -462,23 +487,6 @@ export const FRLG_MOVE_TUTOR_BYTE_2_OFFSET = 0x59;
 export const FRLG_MOVE_TUTOR_BYTE_3_OFFSET = 0x5b;
 export const FRLG_MOVE_TUTOR_BYTE_4_OFFSET = 0x5c;
 
-// NPC Trade Flags (RSE)
-const FLAG_RUSTBORO_NPC_TRADE_COMPLETED = 0x99;
-const FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED = 0x9a;
-const FLAG_FORTREE_NPC_TRADE_COMPLETED = 0x9b;
-const FLAG_BATTLE_FRONTIER_TRADE_DONE = 0x9c; // Emerald Only
-
-// NPC Trade Flags (FRLG)
-const FLAG_DID_MIMIEN_TRADE = 0x248;
-const FLAG_DID_ZYNX_TRADE = 0x24a;
-const FLAG_DID_MS_NIDO_TRADE = 0x24b;
-const FLAG_DID_CH_DING_TRADE = 0x24d;
-const FLAG_DID_NINA_TRADE = 0x251;
-const FLAG_DID_MARC_TRADE = 0x257;
-const FLAG_DID_ESPHERE_TRADE = 0x274;
-const FLAG_DID_TANGENY_TRADE = 0x275;
-const FLAG_DID_SEELOR_TRADE = 0x276;
-
 const FLAG_BYTE_SHIFT = 3;
 const FLAG_BIT_MASK = 7;
 
@@ -569,6 +577,9 @@ export const HOENN_DEX_NATIONAL_IDS = new Set<number>(HOENN_DEX_ORDER);
  * @param targetSectionId - The internal ID of the section to locate (e.g., 1 for SaveBlock1, 2 for SaveBlock2).
  * @returns The memory offset of the most recent section.
  * @throws Error if the section cannot be found or if neither bank contains a valid signature.
+ *
+ * @example
+ * const section1Offset = getLatestSectionOffset(view, 1);
  */
 function getLatestSectionOffset(view: DataView, targetSectionId: number): number {
   let saveIndexA = -1;
@@ -806,14 +817,23 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
       const { pv, otId, decryptedData } = extractedData;
 
       // In the decrypted GAEM buffer, G is at offset 0, A is at offset 12
-      const speciesId = decryptedData.getUint16(0 + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
-      const item = decryptedData.getUint16(0 + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
-      const friendship = decryptedData.getUint8(0 + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
+      const speciesId = decryptedData.getUint16(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
+      const item = decryptedData.getUint16(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
+      const friendship = decryptedData.getUint8(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
 
-      const move1 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
-      const move2 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET, true);
-      const move3 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_3_OFFSET, true);
-      const move4 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET, true);
+      const move1 = decryptedData.getUint16(DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
+      const move2 = decryptedData.getUint16(
+        DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET,
+        true,
+      );
+      const move3 = decryptedData.getUint16(
+        DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_3_OFFSET,
+        true,
+      );
+      const move4 = decryptedData.getUint16(
+        DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET,
+        true,
+      );
 
       const moves = [move1, move2, move3, move4].filter((m) => m > 0);
 
@@ -890,14 +910,23 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
         const { pv, otId, decryptedData } = extractedData;
 
         // In the decrypted GAEM buffer, G is at offset 0, A is at offset 12
-        const speciesId = decryptedData.getUint16(0 + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
-        const item = decryptedData.getUint16(0 + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
-        const friendship = decryptedData.getUint8(0 + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
+        const speciesId = decryptedData.getUint16(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
+        const item = decryptedData.getUint16(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
+        const friendship = decryptedData.getUint8(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
 
-        const move1 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
-        const move2 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET, true);
-        const move3 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_3_OFFSET, true);
-        const move4 = decryptedData.getUint16(12 + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET, true);
+        const move1 = decryptedData.getUint16(DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
+        const move2 = decryptedData.getUint16(
+          DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET,
+          true,
+        );
+        const move3 = decryptedData.getUint16(
+          DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_3_OFFSET,
+          true,
+        );
+        const move4 = decryptedData.getUint16(
+          DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET,
+          true,
+        );
 
         const moves = [move1, move2, move3, move4].filter((m) => m > 0);
 
@@ -955,13 +984,13 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
 export function parseGen3EVs(view: DataView, offset: number) {
   try {
     const hp = view.getUint8(offset + EV_HP_OFFSET);
-    const attack = view.getUint8(offset + EV_ATK_OFFSET);
-    const defense = view.getUint8(offset + EV_DEF_OFFSET);
-    const speed = view.getUint8(offset + EV_SPD_OFFSET);
-    const specialAttack = view.getUint8(offset + EV_SPATK_OFFSET);
-    const specialDefense = view.getUint8(offset + EV_SPDEF_OFFSET);
+    const atk = view.getUint8(offset + EV_ATK_OFFSET);
+    const def = view.getUint8(offset + EV_DEF_OFFSET);
+    const spe = view.getUint8(offset + EV_SPD_OFFSET);
+    const spa = view.getUint8(offset + EV_SPATK_OFFSET);
+    const spd = view.getUint8(offset + EV_SPDEF_OFFSET);
 
-    return { hp, attack, defense, speed, specialAttack, specialDefense };
+    return { hp, atk, def, spe, spa, spd };
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');

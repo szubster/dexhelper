@@ -2,13 +2,13 @@
 id: story-417-445-linter-integration-e2e
 type: STORY
 title: Integration and E2E Verification of ADR Compliance Linter
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-23T00:00:00.000Z'
-updated_at: '2026-09-08'
+updated_at: '2026-09-10'
 depends_on:
   - story-417-444-adr-013-state-compliance-linter
-jules_session_id: null
+jules_session_id: '8630405035589999913'
 pr_number: null
 parent: epic-142-417-automated-adr-compliance-linter
 tags:

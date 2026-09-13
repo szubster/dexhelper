@@ -25,6 +25,54 @@ test.describe('DagProvider Data Fetching', () => {
     await expect(page.getByText('task-001-001-001')).toBeVisible();
   });
 
+  test('surfaces rejection_count in the UI', async ({ page }) => {
+    await page.unrouteAll({ behavior: 'ignoreErrors' });
+    await page.addInitScript(() => {
+      const originalFetch = window.fetch;
+      window.fetch = async (input, init) => {
+        let url = '';
+        if (typeof input === 'string') {
+          url = input;
+        } else if (input instanceof URL) {
+          url = input.toString();
+        } else if (input && typeof input === 'object' && 'url' in input) {
+          url = input.url;
+        }
+
+        if (url.includes('foundry.json')) {
+          return new Response(
+            JSON.stringify([
+              {
+                filePath: '.foundry/tasks/task-test-rejection.md',
+                data: {
+                  id: 'task-test-rejection',
+                  type: 'TASK',
+                  status: 'FAILED',
+                  owner_persona: 'coder',
+                  depends_on: [],
+                  rejection_count: 3,
+                },
+              },
+            ]),
+            {
+              status: 200,
+              headers: { 'Content-Type': 'application/json' },
+            },
+          );
+        }
+        return originalFetch(input, init);
+      };
+    });
+
+    await page.goto('dag');
+    await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden();
+
+    const node = page.locator('xpath=//div[@data-testid="dag-node" and .//*[contains(text(), "task-test-rejection")]]');
+    await expect(node).toBeVisible();
+    await expect(node).toHaveClass(/border-red-500/);
+    await expect(node.getByTitle('Permanent Failure')).toBeVisible();
+  });
+
   test('handles failed data fetch gracefully', async ({ page }) => {
     // We must call unroute if it was routed before, but a new test context shouldn't need it.
     // However, to be safe, we route it explicitly.

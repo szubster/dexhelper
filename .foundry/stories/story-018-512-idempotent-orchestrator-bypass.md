@@ -5,7 +5,7 @@ title: Update Idempotent Orchestrator Bypass
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-01'
-updated_at: '2026-09-06'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: null
 parent: epic-008-018-session-dispatch-bypass

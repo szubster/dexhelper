@@ -5,14 +5,14 @@ title: Orchestrator Curator Trigger Logic Implementation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-09-05'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: '13256124719108932152'
+jules_session_id: '12298349990930578832'
 parent: story-531-533-orchestrator-trigger-logic-updates
 tags:
   - orchestrator
   - curator
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
