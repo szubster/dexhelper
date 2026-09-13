@@ -25,4 +25,4 @@ locks: []
 # Implement Feature Flag CLI Tool Workflow
 
 ## Acceptance Criteria
-- [ ] Create CLI commands to run the flag removal script
+- [x] Create CLI commands to run the flag removal script
