@@ -26,4 +26,4 @@ locks: []
 This task involves writing E2E tests for IDEA spawning and Late Binding workflows.
 
 ## Acceptance Criteria
-- [ ] Write Playwright E2E tests verifying IDEA spawning and Late Binding workflows
+- [x] Write Playwright E2E tests verifying IDEA spawning and Late Binding workflows
