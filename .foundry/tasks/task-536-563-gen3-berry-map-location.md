@@ -28,6 +28,6 @@ locks: []
 Implement the mapping from the `BerryTree` array index to its hardcoded map location in the game (e.g., Route 102, Route 103, etc.).
 
 ## Acceptance Criteria
-- [ ] Create a mapping structure (e.g., array or object) that translates the berry tree array index (0-127) to a string or object representing its map location (route name, city name, etc.).
-- [ ] Integrate this mapping into the parsed berry tree data structure, so each parsed berry patch includes its location information.
-- [ ] Fallback or handle cases gracefully if an unexpected index is queried.
+- [x] Create a mapping structure (e.g., array or object) that translates the berry tree array index (0-127) to a string or object representing its map location (route name, city name, etc.).
+- [x] Integrate this mapping into the parsed berry tree data structure, so each parsed berry patch includes its location information.
+- [x] Fallback or handle cases gracefully if an unexpected index is queried.
