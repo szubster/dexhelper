@@ -2,12 +2,12 @@
 id: task-521-550-refactor-gen1-tests
 type: TASK
 title: Refactor Gen 1 Event Flags Tests
-status: FAILED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2164652219881862968'
 pr_number: null
 parent: story-521-521-gen1-utils-refactor
 tags:
@@ -15,8 +15,8 @@ tags:
   - gen1
   - testing
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

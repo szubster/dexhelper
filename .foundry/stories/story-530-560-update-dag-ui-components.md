@@ -2,12 +2,12 @@
 id: story-530-560-update-dag-ui-components
 type: STORY
 title: Update DAG UI components to support CANCELLED status nodes
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
-created_at: 2026-09-09
-updated_at: 2026-09-09
+created_at: 2026-09-09T00:00:00.000Z
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3239683981913908916'
 pr_number: null
 parent: epic-516-530-update-permanent-failure-dashboard-ui
 tags:
@@ -15,8 +15,8 @@ tags:
   - react
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Update DAG UI components to support CANCELLED status nodes

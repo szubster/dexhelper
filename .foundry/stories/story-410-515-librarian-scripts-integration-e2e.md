@@ -35,3 +35,5 @@ The goal of this story is to perform end-to-end integration testing of the libra
 
 ## Acceptance Criteria
 - [ ] Verify all librarian scripts run together seamlessly in a complete pipeline.
+- [ ] task-515-568-librarian-e2e-tests
+- [ ] task-515-569-librarian-e2e-qa

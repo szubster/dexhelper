@@ -1,15 +1,14 @@
 ---
 id: story-520-521-restrict-downstream-dependencies
 type: STORY
-title: "Restrict Downstream Dependencies on DRAFT/WIP Artifacts"
-status: PENDING
+title: Restrict Downstream Dependencies on DRAFT/WIP Artifacts
+status: READY
 owner_persona: tech_lead
-created_at: "2026-09-03"
-updated_at: "2026-09-03"
+created_at: '2026-09-03'
+updated_at: '2026-09-13'
 depends_on:
   - story-520-520-update-persona-prompts
 jules_session_id: null
-locks: []
 pr_number: null
 parent: epic-346-520-wip-orchestrator-awareness
 tags:
@@ -17,10 +16,11 @@ tags:
   - orchestrator
   - wip
 research_references: []
-experiment_variants: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+experiment_variants: []
+locks: []
 ---
 
 # Restrict Downstream Dependencies on DRAFT/WIP Artifacts

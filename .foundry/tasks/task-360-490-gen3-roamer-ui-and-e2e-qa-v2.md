@@ -5,7 +5,7 @@ title: QA Gen 3 Roamer E2E Tests (v2)
 status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-09-12'
 depends_on:
   - task-360-489-gen3-roamer-e2e-impl-v2
 jules_session_id: null
@@ -17,8 +17,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: 'Cancelled due to permanent failure of dependency'
+rejection_reason: '[ACKNOWLEDGED] Cancelled due to permanent failure of dependency'
 notes: ''
+locks: []
 ---
 
 # QA Gen 3 Roamer E2E Tests (v2)

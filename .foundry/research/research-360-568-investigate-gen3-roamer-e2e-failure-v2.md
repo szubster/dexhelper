@@ -2,12 +2,12 @@
 id: research-360-568-investigate-gen3-roamer-e2e-failure-v2
 type: RESEARCH
 title: Investigate Gen 3 Roamer E2E Test Failure v2
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-09'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4956144184605040682'
 pr_number: null
 parent: story-397-360-gen3-roamer-integration-e2e
 tags:

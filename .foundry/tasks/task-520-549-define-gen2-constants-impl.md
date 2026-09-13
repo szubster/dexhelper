@@ -7,9 +7,10 @@ owner_persona: coder
 parent: story-522-520-gen2-constants-extraction
 depends_on: []
 created_at: '2026-09-06'
-updated_at: '2026-09-10'
-jules_session_id: '9386638068588231918'
+updated_at: '2026-09-13'
+jules_session_id: '17992817671727530656'
 rejection_reason: ''
+rejection_count: 1
 ---
 # TASK: Define Gen 2 Constants Module
 

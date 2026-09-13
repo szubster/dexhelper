@@ -25,5 +25,5 @@ locks: []
 # Implement Banner Removal CLI
 
 ## Acceptance Criteria
-- [ ] Implement the CLI script to read and write files using the utility.
-- [ ] Write unit tests for the CLI script.
+- [x] Implement the CLI script to read and write files using the utility.
+- [x] Write unit tests for the CLI script.

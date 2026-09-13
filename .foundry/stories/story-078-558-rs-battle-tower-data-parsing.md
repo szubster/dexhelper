@@ -2,13 +2,13 @@
 id: story-078-558-rs-battle-tower-data-parsing
 type: STORY
 title: Ruby/Sapphire Battle Tower Data Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-08'
-updated_at: '2026-09-11'
+updated_at: '2026-09-13'
 depends_on:
   - research-078-150-rs-battle-tower-data
-jules_session_id: '7184228237724110027'
+jules_session_id: null
 pr_number: null
 parent: epic-046-078-gen3-battle-frontier-data-extraction
 tags:
@@ -33,3 +33,7 @@ Implement the extraction of Battle Tower win streaks and records for Ruby/Sapphi
 - [ ] Implement data extraction for Level 50 and Level 100 max win records in Ruby/Sapphire.
 - [ ] Gracefully integrate this parsing logic alongside the existing Emerald Battle Frontier parser.
 - [ ] Ensure out-of-bounds reads are handled gracefully via `DataView`.
+
+- [ ] task-558-568-rs-battle-tower-data-parsing-impl
+- [ ] task-558-569-rs-battle-tower-data-parsing-qa
+- [ ] task-558-570-rs-battle-tower-integration

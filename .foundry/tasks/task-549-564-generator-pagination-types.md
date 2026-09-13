@@ -2,10 +2,10 @@
 id: task-549-564-generator-pagination-types
 type: TASK
 title: Define Types for Generator Pagination
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -32,6 +32,6 @@ This task involves defining the foundational TypeScript types and interfaces nee
 Per ADR 154, we need to transition our eagerly-evaluated arrays in pagination and data processing to lazily evaluated generators (`function*` and `async function*`). The first step is to establish the strict type contracts for these generator utilities so that implementations are compatible with Node.js native type stripping (i.e. strictly avoiding TypeScript enums or namespaces).
 
 ## Acceptance Criteria
-- [ ] Define standard interfaces for synchronous pagination generators.
-- [ ] Define standard interfaces for asynchronous pagination generators.
-- [ ] Ensure all defined types use standard type aliases, interfaces, or `const` objects for compatibility with native type-stripping.
+- [x] Define standard interfaces for synchronous pagination generators.
+- [x] Define standard interfaces for asynchronous pagination generators.
+- [x] Ensure all defined types use standard type aliases, interfaces, or `const` objects for compatibility with native type-stripping.

@@ -2,13 +2,13 @@
 id: epic-112-313-gen2-room-decoration-viewer-ui
 type: EPIC
 title: Gen 2 Room Decoration Viewer UI
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-09-10'
+updated_at: '2026-09-13'
 depends_on:
   - epic-112-311-gen2-decoration-savings-extraction
-jules_session_id: '2911415608755954123'
+jules_session_id: null
 pr_number: null
 parent: prd-109-112-gen2-room-decoration-tracker
 tags:
@@ -31,4 +31,7 @@ This Epic encompasses the user interface for viewing unlocked room decorations, 
 - Visually highlight decorations exclusively obtainable via Mystery Gift.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-313-562-gen2-room-decoration-state-logic
+- [ ] story-313-563-gen2-room-decoration-ui-components
+- [ ] story-313-564-gen2-room-decoration-integration-e2e

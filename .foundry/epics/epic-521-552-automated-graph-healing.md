@@ -2,12 +2,12 @@
 id: epic-521-552-automated-graph-healing
 type: EPIC
 title: Epic Automated Graph Healing for BLOCKED Nodes
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-07'
-updated_at: '2026-09-11'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6338501728168615767'
 pr_number: null
 parent: prd-156-521-automated-graph-healing
 tags:

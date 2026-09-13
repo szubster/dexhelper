@@ -11,6 +11,7 @@ depends_on:
 jules_session_id: null
 pr_number: null
 parent: epic-071-125-migrate-complex-app-components-v2
+priority: 100
 tags:
   - styling
   - refactor

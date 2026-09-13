@@ -2,10 +2,10 @@
 id: epic-340-418-ui-component-splitting
 type: EPIC
 title: Implement React.lazy code splitting for UI components
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-13'
-updated_at: '2026-08-29'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: null
 parent: prd-136-340-split-bundles-and-data
@@ -15,6 +15,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # EPIC: Implement React.lazy code splitting for UI components
 
@@ -27,6 +28,6 @@ Components exclusively used for specific generations should not be bundled in th
 ## Acceptance Criteria
 - [x] Break down this epic into stories.
 - [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] story-418-477-lazy-load-gen3-components
-- [ ] story-418-478-lazy-load-gen2-components
-- [ ] story-418-479-lazy-load-e2e-verification
+- [x] story-418-477-lazy-load-gen3-components
+- [x] story-418-478-lazy-load-gen2-components
+- [x] story-418-479-lazy-load-e2e-verification
