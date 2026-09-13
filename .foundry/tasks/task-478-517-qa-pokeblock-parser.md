@@ -26,6 +26,6 @@ locks: []
 Perform QA verification of the Gen 3 Pokeblock parser implementation and its test coverage as referenced in .foundry/docs/knowledge_base/gen3_pokeblock_offsets.md.
 
 ## Acceptance Criteria
-- [ ] Verify the parsing logic adheres to schema rules like using proper constants and no magic numbers.
-- [ ] Ensure unit tests adequately cover the extraction of the 40 Pokeblocks.
-- [ ] Confirm no regressions in the save parsing engine.
+- [x] Verify the parsing logic adheres to schema rules like using proper constants and no magic numbers.
+- [x] Ensure unit tests adequately cover the extraction of the 40 Pokeblocks.
+- [x] Confirm no regressions in the save parsing engine.
