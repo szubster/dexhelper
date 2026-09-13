@@ -2,10 +2,10 @@
 id: task-558-568-flexsearch-tooling-tests
 type: TASK
 title: Unit Test Flexsearch Orchestrator Setup
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2025-02-14'
-updated_at: '2025-02-14'
+updated_at: '2026-09-13'
 depends_on:
   - task-558-567-flexsearch-tooling-coder
 jules_session_id: null

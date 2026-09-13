@@ -2,10 +2,10 @@
 id: task-558-569-flexsearch-tooling-qa
 type: TASK
 title: QA Flexsearch Orchestrator Setup
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2025-02-14'
-updated_at: '2025-02-14'
+updated_at: '2026-09-13'
 depends_on:
   - task-558-568-flexsearch-tooling-tests
 jules_session_id: null

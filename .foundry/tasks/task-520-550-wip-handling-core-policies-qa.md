@@ -2,13 +2,13 @@
 id: task-520-550-wip-handling-core-policies-qa
 type: TASK
 title: QA Update Core Policies for WIP Awareness
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-06'
 updated_at: '2026-09-13'
 depends_on:
   - task-520-549-update-wip-handling-core-policies-impl
-jules_session_id: '2226801149205785641'
+jules_session_id: null
 pr_number: null
 parent: story-520-520-update-persona-prompts
 tags: []

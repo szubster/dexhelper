@@ -1,15 +1,17 @@
 ---
 id: task-550-568-node-age-filtering-tests
 type: TASK
-title: "Implement Node Age Filtering Tests"
-status: READY
-owner_persona: "coder"
-created_at: "2026-09-06"
-updated_at: "2026-09-06"
-depends_on: ["task-550-567-node-age-filtering-core-logic"]
-parent: story-517-550-implement-node-age-filtering
+title: Implement Node Age Filtering Tests
+status: PENDING
+owner_persona: coder
+created_at: '2026-09-06'
+updated_at: '2026-09-13'
+depends_on:
+  - task-550-567-node-age-filtering-core-logic
 jules_session_id: null
-rejection_reason: ""
+parent: story-517-550-implement-node-age-filtering
+rejection_reason: ''
+locks: []
 ---
 
 # Implement Node Age Filtering Tests

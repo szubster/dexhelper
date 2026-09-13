@@ -2,10 +2,10 @@
 id: story-140-562-gen2-roamer-map-lookup-table
 type: STORY
 title: Gen 2 Roamer Map Lookup Table
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-10'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: null
 pr_number: null

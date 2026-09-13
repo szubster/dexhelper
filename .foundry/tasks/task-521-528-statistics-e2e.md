@@ -2,7 +2,7 @@
 id: task-521-528-statistics-e2e
 type: TASK
 title: Write E2E test for Real-Time Statistics Generation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-03'
 updated_at: '2026-09-13'
@@ -14,8 +14,8 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

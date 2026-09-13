@@ -1,15 +1,17 @@
 ---
 id: task-550-569-node-age-filtering-qa
 type: TASK
-title: "QA Node Age Filtering"
-status: READY
-owner_persona: "qa"
-created_at: "2026-09-06"
-updated_at: "2026-09-06"
-depends_on: ["task-550-568-node-age-filtering-tests"]
-parent: story-517-550-implement-node-age-filtering
+title: QA Node Age Filtering
+status: PENDING
+owner_persona: qa
+created_at: '2026-09-06'
+updated_at: '2026-09-13'
+depends_on:
+  - task-550-568-node-age-filtering-tests
 jules_session_id: null
-rejection_reason: ""
+parent: story-517-550-implement-node-age-filtering
+rejection_reason: ''
+locks: []
 ---
 
 # QA Node Age Filtering
