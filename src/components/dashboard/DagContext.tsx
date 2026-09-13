@@ -166,5 +166,5 @@ export function DagProvider({ children }: { children: ReactNode }) {
     void loadData();
   }, []);
 
-  return <DagContext.Provider value={value}>{children}</DagContext.Provider>;
+  return <DagContext value={value}>{children}</DagContext>;
 }

@@ -5,14 +5,14 @@ title: Investigate Japanese Gen 2 Save Offsets
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-07'
-updated_at: '2026-09-10'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '18084648947173977165'
+jules_session_id: '1669539842061947309'
 pr_number: null
 parent: story-428-470-identify-public-saves
 tags: []
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

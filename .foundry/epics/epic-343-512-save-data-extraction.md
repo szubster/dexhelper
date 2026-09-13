@@ -5,7 +5,7 @@ title: Gen 2 Bug-Catching Contest Save Data Extraction
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-01'
-updated_at: '2026-09-05'
+updated_at: '2026-09-12'
 depends_on: []
 jules_session_id: null
 pr_number: null

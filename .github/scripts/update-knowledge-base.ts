@@ -22,12 +22,21 @@ export function updateKnowledgeBase(
   if (rules.length === 0) return;
 
   const sectionHeader = '## Librarian Extracted Rules';
-  const newRulesText = rules.map(r => `- ${r.description}`).join('\n');
 
   if (content.includes(sectionHeader)) {
     const parts = content.split(sectionHeader);
-    content = `${parts[0]}${sectionHeader}\n${newRulesText}\n${parts[1]}`;
+
+
+    // We just want to find lines starting with "- " in the section.
+    // However, it's easier to just check if the rule is already in the file.
+    const newRulesToAppend = rules.filter(r => !content.includes(`- ${r.description}`));
+
+    if (newRulesToAppend.length > 0) {
+      const newRulesText = newRulesToAppend.map(r => `- ${r.description}`).join('\n');
+      content = `${parts[0]}${sectionHeader}\n${newRulesText}\n${parts[1]}`;
+    }
   } else {
+    const newRulesText = rules.map(r => `- ${r.description}`).join('\n');
     content += `\n${sectionHeader}\n${newRulesText}\n`;
   }
 
