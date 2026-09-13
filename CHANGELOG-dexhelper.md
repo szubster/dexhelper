@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.13.0] - 2026-03-15
+### Added
+- Implement initial Pokédex application with save file parsing, routing, and interactive UI components.
+
 ## [0.12.0] - 2026-03-15
 ### Changed
 - Bump Node.js engine requirement to >=24.0.0 and update GitHub Actions workflows.
@@ -66,3 +70,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.10.0]: https://github.com/szubster/dexhelper/compare/a8bd4639d4c7702841582f812eefe73421ec2bd5...f392dbd8d5391441b784959b2fc7e5e2f5eade3f
 [0.11.0]: https://github.com/szubster/dexhelper/compare/f392dbd8d5391441b784959b2fc7e5e2f5eade3f...888f3b975ae80fa276832304042b924e60c6a156
 [0.12.0]: https://github.com/szubster/dexhelper/compare/888f3b975ae80fa276832304042b924e60c6a156...70ee2e9bf946d3a4ac37cf711d3da663a12718dd
+[0.13.0]: https://github.com/szubster/dexhelper/compare/70ee2e9bf946d3a4ac37cf711d3da663a12718dd...2ca9f177ab37f435f7afd05c33782025974f84e2
