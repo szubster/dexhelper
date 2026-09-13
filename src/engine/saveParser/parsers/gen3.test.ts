@@ -277,7 +277,7 @@ describe('gen3 parser scaffolding', () => {
     view.setUint32(section2Offset + 4092, 25, true);
 
     // Write mock berry data at Section 1, offset 0x071c + (0 * 8)
-    const baseOffset = section1Offset + 0x071c;
+    const baseOffset = section1Offset + 0x169c;
 
     // Patch 0
     view.setUint8(baseOffset + 0, 15); // berryId
