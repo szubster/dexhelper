@@ -2,13 +2,13 @@
 id: story-524-524-architectural-linting
 type: STORY
 title: Introduce Architectural Linting
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-09'
 depends_on:
   - story-524-523-configure-global-packages
-jules_session_id: null
+jules_session_id: '13526449076032768106'
 pr_number: null
 parent: epic-519-524-workspace-infrastructure
 tags:

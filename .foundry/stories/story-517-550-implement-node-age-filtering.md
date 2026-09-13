@@ -1,15 +1,15 @@
 ---
 id: story-517-550-implement-node-age-filtering
 type: STORY
-title: "Implement Node Age Filtering"
-status: READY
-owner_persona: "tech_lead"
-created_at: "2026-09-06"
-updated_at: "2026-09-06"
+title: Implement Node Age Filtering
+status: ACTIVE
+owner_persona: tech_lead
+created_at: '2026-09-06'
+updated_at: '2026-09-10'
 depends_on: []
 parent: epic-346-517-archival-cleanup-core-engine
-jules_session_id: null
-rejection_reason: ""
+jules_session_id: '31879265616043311'
+rejection_reason: ''
 ---
 
 # Implement Node Age Filtering
