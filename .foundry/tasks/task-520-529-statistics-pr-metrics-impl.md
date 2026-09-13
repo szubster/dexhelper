@@ -34,6 +34,6 @@ Implement the extraction of PR metrics using GitHub CLI.
 4. Handle cases where the `gh` CLI might fail or rate limit gracefully.
 
 ## Acceptance Criteria
-- [ ] PR metrics extraction logic implemented.
-- [ ] Successfully fetches and parses data using `gh pr list --state all --json`.
-- [ ] Includes error handling for CLI execution.
+- [x] PR metrics extraction logic implemented.
+- [x] Successfully fetches and parses data using `gh pr list --state all --json`.
+- [x] Includes error handling for CLI execution.
