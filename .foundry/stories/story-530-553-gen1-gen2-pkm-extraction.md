@@ -23,4 +23,7 @@ rejection_reason: ''
 This story implements the core data extraction logic to read individual Pokémon memory blocks from Gen 1 and Gen 2 save files, format them as standard `.pkm` files, and provide them to the application layer.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-553-567-gen1-pkm-extraction
+- [ ] task-553-568-gen2-pkm-extraction
+- [ ] task-553-569-qa-gen1-gen2-pkm-extraction
