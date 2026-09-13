@@ -26,7 +26,7 @@ Write and update unit tests in `foundry-heartbeat.test.ts` to cover the new late
 Ensure that the tests correctly mock nodes with and without spawned children, and verify that macro nodes and parents transition to `PENDING` instead of `FAILED` when they have unchecked acceptance criteria. Verify that leaf nodes transition to `FAILED` with a proper rejection reason.
 
 ## Acceptance Criteria
-- [ ] Update `foundry-heartbeat.test.ts` to cover scenarios for late-binding nodes.
-- [ ] Ensure tests cover the macro node condition.
-- [ ] Ensure tests cover the spawned children condition.
-- [ ] Ensure tests cover the leaf node failure condition.
+- [x] Update `foundry-heartbeat.test.ts` to cover scenarios for late-binding nodes.
+- [x] Ensure tests cover the macro node condition.
+- [x] Ensure tests cover the spawned children condition.
+- [x] Ensure tests cover the leaf node failure condition.
