@@ -2,12 +2,12 @@
 id: story-552-563-gen3-pokedex-version-exclusive-mapping
 type: STORY
 title: Gen 3 Pokédex Version Exclusive Mapping
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-10'
 updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15038449449083582422'
 pr_number: null
 parent: epic-520-552-gen3-pokedex-gaps-tracker
 tags:
