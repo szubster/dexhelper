@@ -30,6 +30,6 @@ Update the curator agent prompt to include historical mapping logic.
 - Add logic instructing the curator to spawn dynamic remediation nodes (e.g., RESEARCH or TASK) linked to legacy ideas when needed.
 
 ## Acceptance Criteria
-- [ ] Update curator prompt with idea dependency matrix instructions
-- [ ] Add regression identification instructions
-- [ ] Add remediation node spawning logic
+- [x] Update curator prompt with idea dependency matrix instructions
+- [x] Add regression identification instructions
+- [x] Add remediation node spawning logic
