@@ -26,5 +26,5 @@ locks: []
 Verify the changes to `core_policies.md`.
 
 ## Acceptance Criteria
-- [ ] Verify core_policies.md contains clear guidelines on Draft ADR and WIP code handling.
-- [ ] Verify the instructions explicitly target generative personas.
+- [x] Verify core_policies.md contains clear guidelines on Draft ADR and WIP code handling.
+- [x] Verify the instructions explicitly target generative personas.
