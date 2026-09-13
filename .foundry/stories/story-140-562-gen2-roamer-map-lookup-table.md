@@ -33,4 +33,5 @@ Create a lookup table or leverage existing `gen2Graph.ts` mapping structures to 
 ## Acceptance Criteria
 - [ ] A mapping structure exists for translating Gen 2 map group and map ID pairs.
 - [ ] The mappings align with standard human-readable route names.
-- [ ] Tech Lead: Break down into executable Tasks.
+- [x] Tech Lead: Break down into executable Tasks.
+- [ ] task-562-576-gen2-map-lookup-impl
