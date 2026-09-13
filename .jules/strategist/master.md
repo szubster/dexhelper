@@ -170,6 +170,9 @@
 **Why:** The `Empty PR Policy` defined in `core_policies.md` explicitly requires agents to call the `submit` tool and create an Empty PR even when there are zero file changes (such as when checking off checkboxes). However, several persona prompts contained the instruction `do not create a PR` if no improvements could be found, while `agile_coach.md` contained a redundant instruction to state "no actionable work" in the PR. These contradictory instructions lead to confusion and sessions timing out without a submission, violating the Orchestrator's heartbeat policy.
 **Pattern:** Ensure that individual agent prompts do not contradict overarching core policies (such as the Empty PR Policy). When identifying contradictions, remove the conflicting localized instructions so that agents strictly follow the centralized `core_policies.md`.
 
+
+---
+
 ## 2026-09-07 - [Accepted] - Prompt improvement - Update Aggregated Journal Paths for Strategist
 **Type:** Prompt improvement
 **Outcome:** Merged

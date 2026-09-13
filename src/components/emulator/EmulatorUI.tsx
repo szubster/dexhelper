@@ -4,10 +4,12 @@ import { useCallback, useState } from 'react';
 import { romDB } from '../../db/RomDB';
 import { cn } from '../../utils/cn';
 import { TacticalFileInput } from '../TacticalFileInput';
+import { MGBACanvas } from './MGBACanvas';
 
 export function EmulatorUI() {
   const [isDragging, setIsDragging] = useState(false);
   const [loadedRomName, setLoadedRomName] = useState<string | null>(null);
+  const [romData, setRomData] = useState<Uint8Array | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const handleFile = useCallback(async (file: File) => {
@@ -18,6 +20,7 @@ export function EmulatorUI() {
 
       await romDB.putRom(file.name, uint8Array);
       setLoadedRomName(file.name);
+      setRomData(uint8Array);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load ROM');
     }
@@ -99,6 +102,8 @@ export function EmulatorUI() {
           <p className="text-sm">{loadedRomName}</p>
         </div>
       )}
+
+      {romData && <MGBACanvas romData={romData} />}
 
       {error && (
         <div className="border border-red-500/50 border-dashed bg-red-950/20 p-4 text-red-400">

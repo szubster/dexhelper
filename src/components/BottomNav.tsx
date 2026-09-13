@@ -1,5 +1,5 @@
 import { useLocation } from '@tanstack/react-router';
-import { Database, GitGraph, LayoutGrid, Settings2, Sparkles, Swords } from 'lucide-react';
+import { Database, GitGraph, LayoutGrid, Network, Settings2, Sparkles, Swords } from 'lucide-react';
 import { useStore } from '../store';
 import { NavButton } from './NavButton';
 import { TelemetryDecoration } from './TelemetryDecoration';
@@ -14,6 +14,7 @@ export function BottomNav() {
   const isAssistant = location.pathname === '/assistant';
   const isDag = location.pathname === '/dag';
   const isFrontier = location.pathname === '/dashboard';
+  const isAnalyzer = location.pathname === '/box-analyzer';
 
   return (
     <nav className="fixed right-0 bottom-0 left-0 z-50 border-zinc-900 border-t-[8px] border-b-[8px] bg-zinc-950 pb-[env(safe-area-inset-bottom,0px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.9)] lg:hidden">
@@ -53,6 +54,17 @@ export function BottomNav() {
 
         <div className="h-full flex-1">
           <NavButton
+            to="/box-analyzer"
+            ariaLabel="Analyzer"
+            label="ANALYZER"
+            activeLabel="ANLZ"
+            icon={Network}
+            isActive={isAnalyzer}
+          />
+        </div>
+
+        <div className="h-full flex-1">
+          <NavButton
             to="/storage"
             ariaLabel="Storage"
             label="STRG"
@@ -85,6 +97,17 @@ export function BottomNav() {
             activeLabel="DASH"
             icon={Swords}
             isActive={isFrontier}
+          />
+        </div>
+
+        <div className="h-full flex-1">
+          <NavButton
+            to="/safari-zone"
+            ariaLabel="Safari Zone"
+            label="SAFARI"
+            activeLabel="SAFARI"
+            icon={Swords}
+            isActive={location.pathname === '/safari-zone'}
           />
         </div>
 

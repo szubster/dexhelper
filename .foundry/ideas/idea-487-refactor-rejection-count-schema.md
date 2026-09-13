@@ -2,17 +2,18 @@
 id: idea-487-refactor-rejection-count-schema
 type: IDEA
 title: Refactor IDEA Node Schema to Disallow Rejection Count and Reason
-status: ACTIVE
-owner_persona: product_manager
+status: BLOCKED
+owner_persona: tpm
 created_at: '2026-08-31'
-updated_at: '2026-09-04'
+updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: '7688355690923380942'
+jules_session_id: null
 pr_number: null
 parent: null
 tags: []
 research_references: []
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+locks: []
 ---
 
 # Idea: Refactor IDEA Node Schema to Disallow Rejection Count and Reason
