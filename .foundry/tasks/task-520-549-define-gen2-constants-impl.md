@@ -2,14 +2,15 @@
 id: task-520-549-define-gen2-constants-impl
 type: TASK
 title: Define Gen 2 Constants Module
-status: ACTIVE
+status: READY
 owner_persona: coder
 parent: story-522-520-gen2-constants-extraction
 depends_on: []
 created_at: '2026-09-06'
-updated_at: '2026-09-10'
-jules_session_id: '9386638068588231918'
+updated_at: '2026-09-13'
+jules_session_id: null
 rejection_reason: ''
+rejection_count: 1
 ---
 # TASK: Define Gen 2 Constants Module
 

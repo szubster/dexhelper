@@ -2,10 +2,10 @@
 id: story-552-562-gen3-pokedex-gaps-extraction
 type: STORY
 title: Gen 3 Pokédex Gaps Extraction Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-10'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - gen3
   - pokedex
 research_references: []
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # Gen 3 Pokédex Gaps Extraction Logic

@@ -2,10 +2,10 @@
 id: story-552-565-gen3-pokedex-gaps-e2e
 type: STORY
 title: Gen 3 Pokédex Gaps Integration and E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-10'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - e2e
   - integration
 research_references: []
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # Gen 3 Pokédex Gaps Integration and E2E Verification
