@@ -33,7 +33,7 @@ Implement a selector or utility function to extract and format the matching Mira
 - Write unit tests for this logic.
 
 ## Acceptance Criteria
-- [ ] Self-verification: The selector correctly identifies a matching Pokémon in the party.
-- [ ] Self-verification: The selector correctly identifies a matching Pokémon in a PC Box.
-- [ ] Self-verification: The selector handles the case where no match is found.
-- [ ] Self-verification: Unit tests are passing.
+- [x] Self-verification: The selector correctly identifies a matching Pokémon in the party.
+- [x] Self-verification: The selector correctly identifies a matching Pokémon in a PC Box.
+- [x] Self-verification: The selector handles the case where no match is found.
+- [x] Self-verification: Unit tests are passing.
