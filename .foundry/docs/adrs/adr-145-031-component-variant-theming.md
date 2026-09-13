@@ -7,8 +7,8 @@ owner_persona: architect
 created_at: '2026-08-11'
 updated_at: '2026-09-07'
 depends_on:
-  - research-145-001-component-variant-libraries
-  - research-145-002-component-theming-mechanisms
+  - .foundry/research/research-145-001-component-variant-libraries.md
+  - .foundry/research/research-145-002-component-theming-mechanisms.md
 jules_session_id: null
 pr_number: null
 parent: idea-145-component-variants-theming-consolidation
