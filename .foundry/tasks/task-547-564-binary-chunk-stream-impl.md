@@ -2,12 +2,12 @@
 id: task-547-564-binary-chunk-stream-impl
 type: TASK
 title: Implement Binary Chunk Stream Generators
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-11'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8713350059833121249'
 pr_number: null
 parent: story-537-547-generator-binary-chunk-streams
 tags:
