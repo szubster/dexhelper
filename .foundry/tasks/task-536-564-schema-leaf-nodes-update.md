@@ -32,4 +32,4 @@ Based on `research-534-517-audit-acceptance-criteria`, we are adopting Alternati
 - Specifically update sections detailing node structures or system invariants to clarify that pure leaf nodes do not need AC checklists, while parent nodes do.
 
 ## Acceptance Criteria
-- [ ] coder: Update `.foundry/docs/schema.md` with the new rule for leaf nodes.
+- [x] coder: Update `.foundry/docs/schema.md` with the new rule for leaf nodes.
