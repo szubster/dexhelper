@@ -27,4 +27,8 @@ locks: []
 Implement the UI tool to strategically plan Pokerus spread, suggesting party configurations and warning before a cure.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-560-572-pokerus-spread-planner-state
+- [ ] task-560-573-pokerus-spread-planner-ui-component
+- [ ] task-560-574-pokerus-spread-planner-tests
+- [ ] task-560-575-pokerus-spread-planner-qa
