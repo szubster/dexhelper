@@ -18,4 +18,4 @@ locks: []
 ---
 
 ## Acceptance Criteria
-- [ ] Implement legacy markdown link rewriting logic using Node ID schema
+- [x] Implement legacy markdown link rewriting logic using Node ID schema
