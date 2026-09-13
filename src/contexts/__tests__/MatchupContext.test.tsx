@@ -99,7 +99,7 @@ describe('MatchupContext', () => {
     expect(currentPartyDetails).toEqual([{ speciesId: 25 }]);
   });
 
-  test('updates party details from Gen 1 and Gen 2 save data', async () => {
+  test('updates party details from Gen 1, Gen 2 and Gen 3 save data', async () => {
     const mockPartyDetailsGen1: PokemonInstance[] = [{ speciesId: 1 }] as unknown as PokemonInstance[];
 
     let currentPartyDetails: PokemonInstance[] = [];
@@ -152,7 +152,7 @@ describe('MatchupContext', () => {
       expect(currentPartyDetails).toEqual(mockPartyDetailsGen2);
     });
 
-    // Simulate store update with Gen 3 save data (should not update party details)
+    // Simulate store update with Gen 3 save data (should update party details)
     const mockPartyDetailsGen3: PokemonInstance[] = [{ speciesId: 3 }] as unknown as PokemonInstance[];
     useStore.setState({
       saveData: {
@@ -161,9 +161,9 @@ describe('MatchupContext', () => {
       } as unknown as Gen1SaveData,
     });
 
-    // The state should remain the same as the previous valid update
+    // The state should update to Gen 3 party details
     await vi.waitFor(() => {
-      expect(currentPartyDetails).toEqual(mockPartyDetailsGen2);
+      expect(currentPartyDetails).toEqual(mockPartyDetailsGen3);
     });
   });
 });
