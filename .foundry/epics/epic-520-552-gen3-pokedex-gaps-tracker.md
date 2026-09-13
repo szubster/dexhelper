@@ -2,12 +2,12 @@
 id: epic-520-552-gen3-pokedex-gaps-tracker
 type: EPIC
 title: Gen 3 Pokédex Gaps Tracker
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-07'
 updated_at: '2026-09-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4988506607016976570'
 pr_number: null
 parent: prd-516-520-gen3-pokedex-completion-tracker
 tags:

@@ -2,12 +2,12 @@
 id: epic-424-552-gen3-map-core-ui
 type: EPIC
 title: Gen 3 Map Core UI & Layout
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-10'
+updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17504828317333573567'
 pr_number: null
 parent: prd-424-001-gen3-interactive-map-dashboard
 tags:

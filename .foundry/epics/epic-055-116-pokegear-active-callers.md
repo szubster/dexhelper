@@ -2,10 +2,10 @@
 id: epic-055-116-pokegear-active-callers
 type: EPIC
 title: Pokegear Active Callers Dashboard
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-30'
-updated_at: '2026-09-06'
+updated_at: '2026-09-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -37,4 +37,4 @@ Create a dashboard view displaying all registered Pokegear NPCs and their curren
 - [x] story-116-283-parse-registered-numbers
 - [x] story-116-284-active-callers-dashboard-ui
 - [x] story-116-285-integrate-registered-numbers-ui
-- [ ] story-116-526-pokegear-active-callers-e2e
+- [x] story-116-526-pokegear-active-callers-e2e

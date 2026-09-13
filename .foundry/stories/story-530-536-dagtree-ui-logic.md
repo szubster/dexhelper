@@ -5,7 +5,7 @@ title: Implement DagTree UI logic
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
