@@ -2,13 +2,13 @@
 id: task-478-517-qa-pokeblock-parser
 type: TASK
 title: QA Verification for Pokeblock Parser
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-02T00:00:00.000Z'
 updated_at: '2026-09-13'
 depends_on:
   - task-478-516-test-pokeblock-parser
-jules_session_id: null
+jules_session_id: '7203359041994315915'
 parent: story-400-478-gen3-pokeblock-parsing-logic
 tags:
   - gen3
