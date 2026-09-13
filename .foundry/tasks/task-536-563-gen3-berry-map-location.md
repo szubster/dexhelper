@@ -2,14 +2,13 @@
 id: task-536-563-gen3-berry-map-location
 type: TASK
 title: Map Gen 3 Berry Trees to Locations
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-09-04"
-updated_at: "2026-09-04"
+created_at: '2026-09-04'
+updated_at: '2026-09-13'
 depends_on:
   - task-536-562-gen3-berry-parsing-logic
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-513-536-gen3-berry-dataview-parsing
 tags:
@@ -18,8 +17,9 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/gen3_berry_patch_offsets.md
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Map Gen 3 Berry Trees to Locations

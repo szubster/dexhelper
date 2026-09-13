@@ -2,11 +2,12 @@
 id: story-555-565-wild-item-hunting-e2e
 type: STORY
 title: Wild Item Hunting UI E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
-depends_on: ["story-555-564-hunting-team-notifications"]
+updated_at: '2026-09-13'
+depends_on:
+  - story-555-564-hunting-team-notifications
 jules_session_id: null
 pr_number: null
 parent: epic-521-555-wild-item-hunting-ui

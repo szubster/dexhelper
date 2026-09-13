@@ -2,12 +2,12 @@
 id: research-440-564-gen3-trainer-card-ui-rendering
 type: RESEARCH
 title: Investigate UI Rendering for Gen 3 Trainer Card Upgrades
-status: ACTIVE
+status: PENDING
 owner_persona: researcher
 created_at: '2026-09-08'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '8805071299853346377'
+jules_session_id: null
 pr_number: null
 parent: task-359-440-gen3-trainer-card-parsing-e2e-impl
 rejection_count: 0

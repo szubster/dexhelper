@@ -2,12 +2,12 @@
 id: task-536-562-gen3-berry-parsing-logic
 type: TASK
 title: Implement Gen 3 Berry Tracker DataView Parsing Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-09-11'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '2846140570642433215'
+jules_session_id: null
 pr_number: null
 parent: story-513-536-gen3-berry-dataview-parsing
 tags:

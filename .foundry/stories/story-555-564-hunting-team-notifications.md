@@ -2,11 +2,12 @@
 id: story-555-564-hunting-team-notifications
 type: STORY
 title: Highlight Hunting Team and Success Notifications
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
-depends_on: ["story-555-563-routes-encounters-drop-rates"]
+updated_at: '2026-09-13'
+depends_on:
+  - story-555-563-routes-encounters-drop-rates
 jules_session_id: null
 pr_number: null
 parent: epic-521-555-wild-item-hunting-ui

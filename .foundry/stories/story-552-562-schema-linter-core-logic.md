@@ -1,11 +1,11 @@
 ---
 id: story-552-562-schema-linter-core-logic
 type: STORY
-title: 'Implement Markdown Checkbox Parsing Logic'
-status: PENDING
+title: Implement Markdown Checkbox Parsing Logic
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: null
 parent: epic-521-552-schema-linter-core-logic

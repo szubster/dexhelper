@@ -2,10 +2,10 @@
 id: task-473-565-gen3-wallpaper-phrase-generator-impl-retry
 type: TASK
 title: Implement Gen 3 Wallpaper Phrase Generator (Retry)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-08'
+updated_at: '2026-09-13'
 depends_on:
   - research-473-564-investigate-wallpaper-generator-failure
 jules_session_id: null
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Implement Gen 3 Wallpaper Phrase Generator (Retry)

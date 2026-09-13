@@ -2,12 +2,12 @@
 id: epic-521-556-wild-item-e2e-verification
 type: EPIC
 title: Wild Item E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-15'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '12289585652266865090'
+jules_session_id: null
 pr_number: null
 parent: prd-150-521-wild-held-item-hunting-assistant
 tags:
