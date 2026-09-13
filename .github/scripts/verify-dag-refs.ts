@@ -86,6 +86,29 @@ for (const node of nodes) {
   }
 }
 
+let unfulfilledIdeas = 0;
+for (const node of nodes) {
+  if (node.fm.type === 'IDEA' && node.fm.status === 'COMPLETED') {
+    const ideaId = node.fm.id;
+    const matchNum = ideaId.match(/idea-(\d+)/);
+    const num = matchNum ? matchNum[1] : null;
+
+    const hasImpl = nodes.some(n => {
+      if (['PRD', 'EPIC', 'STORY', 'TASK'].includes(n.fm.type)) {
+        if (n.fm.parent === ideaId || n.fm.parent === node.repoPath) return true;
+        if (num && n.fm.id && (n.fm.id.includes(`-${num}-`) || n.fm.id.startsWith(`prd-${num}-`) || n.fm.id.startsWith(`epic-${num}-`))) return true;
+      }
+      return false;
+    });
+
+    if (!hasImpl) {
+      process.stderr.write(`UNFULFILLED COMPLETED IDEA WARNING: ${node.repoPath} (${ideaId}) is marked COMPLETED but has no implementation nodes (PRD/EPIC/STORY/TASK)!\n`);
+      unfulfilledIdeas++;
+    }
+  }
+}
+
 process.stderr.write(`Total broken references: ${broken}\n`);
+process.stderr.write(`Total unfulfilled completed ideas: ${unfulfilledIdeas}\n`);
 if (broken > 0) process.exit(1);
 process.exit(0);
