@@ -28,7 +28,7 @@ locks: []
 Implement the React Context layer to manage the state of the `binjgb` emulator across the application. This layer will consume the core logic wrapper and provide a structured way for React components to interact with the emulator state.
 
 ## Acceptance Criteria
-- [ ] Create a React Context and Provider for the `binjgb` emulator.
-- [ ] Implement hooks (e.g., `useEmulator`) for accessing emulator state and controls.
-- [ ] Manage the lifecycle of the emulator instance (initialization, cleanup) within the context.
-- [ ] Write unit tests for the React Context and hooks.
+- [x] Create a React Context and Provider for the `binjgb` emulator.
+- [x] Implement hooks (e.g., `useEmulator`) for accessing emulator state and controls.
+- [x] Manage the lifecycle of the emulator instance (initialization, cleanup) within the context.
+- [x] Write unit tests for the React Context and hooks.
