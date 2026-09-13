@@ -30,5 +30,10 @@ As part of the RAG context hydration epic, we need to build an in-memory search 
 3. Load markdown files and construct a text index that supports fast retrieval.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Decompose this story into TASK nodes.
-- [ ] Tech Lead: Ensure a final TASK is dedicated to Integration and E2E Verification.
+- [x] Tech Lead: Decompose this story into TASK nodes.
+- [ ] task-558-567-flexsearch-tooling-coder
+- [ ] task-558-568-flexsearch-tooling-tests
+- [ ] task-558-569-flexsearch-tooling-qa
+- [ ] task-558-570-flexsearch-tooling-e2e
+- [ ] task-558-571-flexsearch-tooling-e2e-qa
+- [x] Tech Lead: Ensure a final TASK is dedicated to Integration and E2E Verification.
