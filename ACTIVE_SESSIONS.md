@@ -24,6 +24,7 @@
 | [epic-521-555-schema-linter-frontmatter-logic](.foundry/epics/epic-521-555-schema-linter-frontmatter-logic.md) | EPIC | Schema Linter: Frontmatter & Directory Iteration | story_owner | [2092185074069160019](https://jules.google.com/session/2092185074069160019) |
 | [epic-521-555-wild-item-hunting-ui](.foundry/epics/epic-521-555-wild-item-hunting-ui.md) | EPIC | Wild Item Hunting UI | story_owner | [17621003090438935929](https://jules.google.com/session/17621003090438935929) |
 | [epic-521-556-wild-item-e2e-verification](.foundry/epics/epic-521-556-wild-item-e2e-verification.md) | EPIC | Wild Item E2E Verification | story_owner | [12289585652266865090](https://jules.google.com/session/12289585652266865090) |
+| [epic-563-564-implement-heartbeat-violation-detection](.foundry/epics/epic-563-564-implement-heartbeat-violation-detection.md) | EPIC | Implement Heartbeat Detection for Autonomous Violations | story_owner | [7141950714309752019](https://jules.google.com/session/7141950714309752019) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
