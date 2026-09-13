@@ -31,4 +31,7 @@ This Epic encompasses the user interface for viewing unlocked room decorations, 
 - Visually highlight decorations exclusively obtainable via Mystery Gift.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-313-562-gen2-room-decoration-state-logic
+- [ ] story-313-563-gen2-room-decoration-ui-components
+- [ ] story-313-564-gen2-room-decoration-integration-e2e
