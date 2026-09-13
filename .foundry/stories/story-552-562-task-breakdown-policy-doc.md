@@ -20,6 +20,6 @@ locks: []
 This story focuses on creating the architectural policy document for Tech Leads. The document (`.foundry/docs/knowledge_base/agents/task_breakdown.md`) should detail how to effectively split work (such as separating frontend from backend) without enforcing strict monolithic limits, helping avoid the "Two-Tasks-Max" anti-pattern.
 
 ## Acceptance Criteria
-- [ ] Write `.foundry/docs/knowledge_base/agents/task_breakdown.md`
-- [ ] Detail the policy on splitting frontend and backend work
-- [ ] Address the Two-Tasks-Max anti-pattern
+- [x] Write `.foundry/docs/knowledge_base/agents/task_breakdown.md`
+- [x] Detail the policy on splitting frontend and backend work
+- [x] Address the Two-Tasks-Max anti-pattern
