@@ -24,6 +24,10 @@ rejection_reason: ''
 This epic focuses on analyzing the Gen 3 save file to determine which Pokémon are missing from the Regional and National Pokédex, highlighting which can still be caught or evolved in the current game versus version exclusives.
 
 ## Acceptance Criteria
-- [ ] Break down into Story nodes for extraction, mapping, and UI.
-- [ ] Ensure version exclusive logic is handled.
-- [ ] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Break down into Story nodes for extraction, mapping, and UI.
+- [x] Ensure version exclusive logic is handled.
+- [x] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-552-562-gen3-pokedex-gaps-extraction
+- [ ] story-552-563-gen3-pokedex-version-exclusive-mapping
+- [ ] story-552-564-gen3-pokedex-gaps-ui
+- [ ] story-552-565-gen3-pokedex-gaps-e2e
