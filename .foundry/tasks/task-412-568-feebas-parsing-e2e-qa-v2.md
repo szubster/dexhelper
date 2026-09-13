@@ -2,10 +2,10 @@
 id: task-412-568-feebas-parsing-e2e-qa-v2
 type: TASK
 title: Feebas Parsing E2E Integration QA V2
-status: READY
+status: PENDING
 owner_persona: qa
-created_at: '$(date -I)'
-updated_at: '$(date -I)'
+created_at: $(date -I)
+updated_at: '2026-09-13'
 depends_on:
   - task-412-567-feebas-parsing-e2e-impl-v2
 jules_session_id: null

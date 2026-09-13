@@ -2,7 +2,7 @@
 id: story-540-560-evaluate-state-and-graph-libraries
 type: STORY
 title: 'Story: Evaluate State Machine and Graph Libraries'
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-09'
 updated_at: '2026-09-13'

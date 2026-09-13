@@ -2,12 +2,12 @@
 id: story-530-560-telemetry-metrics-impl
 type: STORY
 title: Orchestrator Telemetry Metrics Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-09-10'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '13155015518927580250'
+jules_session_id: null
 pr_number: null
 parent: epic-346-530-orchestrator-telemetry-metrics
 tags:
