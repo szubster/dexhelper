@@ -29,6 +29,6 @@ locks: []
 This task implements the core logic for binary chunk stream generators according to ADR 154 (`function*` and `async function*`).
 
 ## Acceptance Criteria
-- [ ] Implement `createBinaryChunkStream` yielding chunks from a Uint8Array.
-- [ ] Implement `createAsyncBinaryChunkStream` yielding chunks from a ReadableStream<Uint8Array>.
-- [ ] Ensure the implementation resides in `src/engine/saveParser/utils/binaryChunkStream.ts` and is exported in the `index.ts`.
+- [x] Implement `createBinaryChunkStream` yielding chunks from a Uint8Array.
+- [x] Implement `createAsyncBinaryChunkStream` yielding chunks from a ReadableStream<Uint8Array>.
+- [x] Ensure the implementation resides in `src/engine/saveParser/utils/binaryChunkStream.ts` and is exported in the `index.ts`.
