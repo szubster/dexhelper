@@ -33,5 +33,8 @@ Implement the data extraction logic and coordinate mapping system required to tr
 - Ensure efficient and error-free extraction utilizing the `DataView` API and handling boundary constraints.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down into STORY nodes for data extraction and coordinate mapping.
-- [ ] Story Owner: Create a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Story Owner: Break down into STORY nodes for data extraction and coordinate mapping.
+- [x] Story Owner: Create a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-553-563-gen3-map-data-extraction
+- [ ] story-553-564-gen3-coordinate-mapping
+- [ ] story-553-565-gen3-map-data-integration-e2e
