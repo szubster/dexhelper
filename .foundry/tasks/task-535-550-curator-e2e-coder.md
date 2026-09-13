@@ -18,4 +18,4 @@ locks: []
 # Implement E2E test logic for curator persona
 
 ## Acceptance Criteria
-- [ ] Update `.github/scripts/schema-e2e.test.ts` to include a test that verifies the orchestrator correctly parses the curator fixture
+- [x] Update `.github/scripts/schema-e2e.test.ts` to include a test that verifies the orchestrator correctly parses the curator fixture
