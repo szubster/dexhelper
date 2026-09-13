@@ -2,13 +2,13 @@
 id: epic-335-346-spinda-pattern-rendering-engine
 type: EPIC
 title: Spinda Pattern Rendering Engine
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-26'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on:
   - epic-335-345-spinda-pid-extraction
-jules_session_id: '2377396310908247372'
+jules_session_id: null
 pr_number: null
 parent: prd-119-335-gen3-spinda-pattern-viewer
 tags:
@@ -31,3 +31,6 @@ This Epic focuses on creating a 2D canvas or layered SVG rendering engine capabl
 - [ ] Implement the algorithmic logic to map the 32-bit PID to coordinates for Spinda's 4 spots.
 - [ ] Implement a reusable UI component (Canvas or SVG) that takes the spot coordinates and renders them accurately on a base Spinda sprite.
 - [ ] Verify the pattern generation matches Gen 3 in-game mechanics.
+- [ ] story-346-560-spinda-spot-coordinate-algorithm
+- [ ] story-346-561-spinda-pattern-rendering-component
+- [ ] story-346-562-spinda-pattern-e2e-verification

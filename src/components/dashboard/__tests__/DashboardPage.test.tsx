@@ -16,14 +16,14 @@ describe('DashboardPage', () => {
 
   const Component = Route.options.component;
 
-  it('renders unavailable state for gen 1', async () => {
+  it('renders checklist for gen 1', async () => {
     useStore.setState({
       saveData: { generation: 1 } as SaveData,
     });
 
     await render(<QueryClientProvider client={queryClient}>{Component ? <Component /> : null}</QueryClientProvider>);
 
-    await expect.element(page.getByText('BATTLE FRONTIER UNAVAILABLE')).toBeVisible();
+    await expect.element(page.getByText('STATIC ENCOUNTERS')).toBeVisible();
   });
 
   it('renders Gen 3 dashboard', async () => {

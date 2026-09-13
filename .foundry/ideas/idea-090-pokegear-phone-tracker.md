@@ -2,10 +2,10 @@
 id: idea-090-pokegear-phone-tracker
 type: IDEA
 title: Gen 2 Pokegear Phone Call Predictor & Tracker
-status: PENDING
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-06-27'
-updated_at: '2026-06-30'
+updated_at: '2026-09-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Idea: Gen 2 Pokegear Phone Call Predictor & Tracker

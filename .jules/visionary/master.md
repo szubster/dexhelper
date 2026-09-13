@@ -392,3 +392,25 @@
 
 * **System Pattern Observation**: I originally proposed an idea for a DAG Dry-Run Simulator, but the maintainer pointed out that the orchestrator already supports a `--dry-run` flag which is run in CI. This is a critical lesson: always thoroughly check existing scripts and CI workflows (`.github/workflows/ci.yml`, `.github/scripts/`) before proposing "new" Foundry tools to avoid redundancy.
 * **Idea Generation Strategy**: Pivot back to the main project (DexHelper). There is currently no unified visualization for Gen 3 roamer locations, berry patches, and player location on the Hoenn map. I will propose an Interactive Map UI.
+
+
+<!-- Merged from 2026-09-06-03-36-22.md -->
+# Visionary Journal
+
+* **Active Session/Timestamp:** 2026-09-06-03-36-22
+* **Domain:** Main Project (DexHelper)
+* **Proposed Idea:** Gen 3 Berry Blender Multiplayer Optimizer (IDEA-517)
+* **Rationale & Concept:** Proposes a simulator to optimize Pokeblock creation in multiplayer or NPC blending scenarios where not all berry inputs are fully controlled by the player.
+* **Strategic Balance:** The previous idea was IDEA-516 for DexHelper, however the previous idea before that (488) was for Foundry, and the main product needs features to keep the 50/50 balance.
+
+<!-- Merged from 20260907020432.md -->
+# Visionary Journal - $(date +%Y-%m-%d)
+
+## Session Overview
+- Task: Generate ONE high-quality, actionable `IDEA` node.
+
+## Critical Learnings & Strategic Insights
+- **Domain:** Foundry System
+- **Proposed Idea:** Automated Orphan Node Garbage Collection (IDEA-517)
+- **Rationale & Concept:** Implements an automated structural orphan detection and garbage collection mechanism for nodes that exist in the directory but are structurally detached from active DAG root nodes. These orphaned nodes clutter the visualization, waste dispatch cycles, and cause confusion. The new system will identify unreachable nodes from root nodes and transition them to `CANCELLED` (or move them to an archive directory).
+- **Strategic Balance:** In the previous session, IDEA-516 (Gen 3 Pokédex Completion & Missed Achievement Tracker) was proposed as a direct product feature for DexHelper. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a high-value pipeline/orchestrator improvement.

@@ -2,10 +2,10 @@
 id: task-359-440-gen3-trainer-card-parsing-e2e-impl
 type: TASK
 title: Gen 3 Trainer Card E2E Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-05'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on: []
 jules_session_id: '10598392317734124158'
 pr_number: null
@@ -30,3 +30,4 @@ Write Playwright E2E tests to verify that Gen 3 Trainer Card data (including upg
 - [ ] Create `tests/e2e/trainer-card.spec.ts`.
 - [ ] Add tests that load a Gen 3 save file fixture containing Trainer Card data.
 - [ ] Verify that the Trainer Card UI correctly renders the parsed data (e.g., playtime, Hall of Fame debut time, link battles won/lost, Pokémon trades).
+- [ ] research-440-564-gen3-trainer-card-ui-rendering
