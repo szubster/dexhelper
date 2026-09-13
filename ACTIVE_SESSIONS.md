@@ -28,6 +28,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [idea-521-coroner-persona-post-mortem](.foundry/ideas/idea-521-coroner-persona-post-mortem.md) | IDEA | Coroner Persona for Automated Post-Mortem Analysis | product_manager | [12728957583150709644](https://jules.google.com/session/12728957583150709644) |
 | [idea-521-foundry-persona-execution-time-profiler](.foundry/ideas/idea-521-foundry-persona-execution-time-profiler.md) | IDEA | Foundry Persona Execution Time Profiler | product_manager | [5656689342012814565](https://jules.google.com/session/5656689342012814565) |
 | [prd-517-564-lazy-load-pokedex-pokemon-list](.foundry/prds/prd-517-564-lazy-load-pokedex-pokemon-list.md) | PRD | Lazy Load Pokedex Grid Items and Virtualization | epic_planner | [8637086102005913529](https://jules.google.com/session/8637086102005913529) |
 | [prd-517-564-optimize-pokedex-grid-rendering](.foundry/prds/prd-517-564-optimize-pokedex-grid-rendering.md) | PRD | PRD: Optimize Pokedex and Storage Grids with Virtualization | epic_planner | [10260190093080083716](https://jules.google.com/session/10260190093080083716) |
