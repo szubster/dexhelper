@@ -2,12 +2,12 @@
 id: task-249-261-gen3-ev-interface-impl
 type: TASK
 title: Implement Gen 3 EV Interface Definition
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-07-04'
-updated_at: '2026-09-08'
+updated_at: '2026-09-11'
 depends_on: []
-jules_session_id: '12885631733768180066'
+jules_session_id: null
 pr_number: null
 parent: story-116-249-gen3-ev-interface-definition
 tags:
@@ -33,7 +33,7 @@ To properly represent EV data extracted from Gen 3 save files, the `PokemonInsta
 - If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 ## Acceptance Criteria
-- [ ] The `PokemonInstance` interface in `src/engine/saveParser/parsers/common.ts` has an optional `evs` property.
-- [ ] The `evs` property is an object containing `hp`, `atk`, `def`, `spa`, `spd`, and `spe` properties of type `number`.
-- [ ] The property is optional (`evs?: { ... } | undefined`) to maintain compatibility with other generations.
-- [ ] Coder has self-verified the changes and documented it in their journal, per the Intelligent Verification Protocol for simple tasks.
+- [x] The `PokemonInstance` interface in `src/engine/saveParser/parsers/common.ts` has an optional `evs` property.
+- [x] The `evs` property is an object containing `hp`, `atk`, `def`, `spa`, `spd`, and `spe` properties of type `number`.
+- [x] The property is optional (`evs?: { ... } | undefined`) to maintain compatibility with other generations.
+- [x] Coder has self-verified the changes and documented it in their journal, per the Intelligent Verification Protocol for simple tasks.

@@ -2,7 +2,7 @@
 id: task-442-468-gen2-roamer-e2e-qa
 type: TASK
 title: Gen 2 Roamer Extraction E2E QA
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-22'
 updated_at: '2026-09-10'
@@ -31,4 +31,4 @@ Verify the implementation of Gen 2 roamer extraction logic E2E tests.
 Review and execute the E2E tests written for the Gen 2 roamer extraction logic to ensure they correctly verify active/inactive roamer state and map coordinates for Raikou, Entei, and Suicune. Ensure tests cover all edge cases.
 
 ## Acceptance Criteria
-- [ ] QA verifies the Gen 2 roamer extraction E2E tests are comprehensive and pass successfully.
+- [x] QA verifies the Gen 2 roamer extraction E2E tests are comprehensive and pass successfully.

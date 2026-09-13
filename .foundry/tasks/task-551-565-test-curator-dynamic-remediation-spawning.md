@@ -2,10 +2,10 @@
 id: task-551-565-test-curator-dynamic-remediation-spawning
 type: TASK
 title: Test Curator Dynamic Remediation Spawning
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-09-13'
 depends_on:
   - task-551-562-update-curator-prompt-logic
 jules_session_id: null

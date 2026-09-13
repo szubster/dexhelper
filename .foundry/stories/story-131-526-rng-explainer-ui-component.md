@@ -2,12 +2,12 @@
 id: story-131-526-rng-explainer-ui-component
 type: STORY
 title: RNG Tool Explainer UI Component
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-22'
-updated_at: '2026-09-09'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: '5743369752471932083'
+jules_session_id: null
 pr_number: null
 parent: epic-100-131-rng-explainer-section
 tags:

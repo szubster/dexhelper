@@ -5,7 +5,7 @@ title: Heatmap UI Components Integration
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-10'
+updated_at: '2026-09-11'
 depends_on: []
 jules_session_id: null
 parent: prd-156-518-node-health-heatmap
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Heatmap UI Components Integration
