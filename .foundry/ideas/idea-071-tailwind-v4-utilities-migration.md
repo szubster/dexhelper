@@ -10,6 +10,7 @@ depends_on: []
 jules_session_id: null
 pr_number: null
 parent: null
+priority: 100
 tags:
   - tech-debt
   - styling
