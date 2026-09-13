@@ -4,6 +4,12 @@ type: IDEA
 title: Lazy Load Generation-Specific Data and UI
 status: READY
 owner_persona: product_manager
+created_at: "2026-09-13T01:53:22Z"
+updated_at: "2026-09-13T01:53:22Z"
+depends_on: []
+jules_session_id: "mock_session_id"
+rejection_count: 0
+rejection_reason: ""
 ---
 
 # Idea: Lazy Load Generation-Specific Data and UI
