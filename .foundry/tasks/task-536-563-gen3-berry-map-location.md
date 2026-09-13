@@ -2,13 +2,13 @@
 id: task-536-563-gen3-berry-map-location
 type: TASK
 title: Map Gen 3 Berry Trees to Locations
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-04'
 updated_at: '2026-09-13'
 depends_on:
   - task-536-562-gen3-berry-parsing-logic
-jules_session_id: null
+jules_session_id: '11372916535378594358'
 pr_number: null
 parent: story-513-536-gen3-berry-dataview-parsing
 tags:
