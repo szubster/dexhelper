@@ -26,5 +26,5 @@ locks: []
 Write unit tests to verify the correctness of the Gen 3 Pokeblock parsing logic as referenced in .foundry/docs/knowledge_base/gen3_pokeblock_offsets.md.
 
 ## Acceptance Criteria
-- [ ] Write unit tests asserting that the parsing function correctly extracts the color, spicy, dry, sweet, bitter, sour, and feel properties from an 8-byte binary structure.
-- [ ] Write unit tests asserting that the returned array contains exactly 40 Pokeblocks when reading from a valid SaveBlock1 fixture.
+- [x] Write unit tests asserting that the parsing function correctly extracts the color, spicy, dry, sweet, bitter, sour, and feel properties from an 8-byte binary structure.
+- [x] Write unit tests asserting that the returned array contains exactly 40 Pokeblocks when reading from a valid SaveBlock1 fixture.
