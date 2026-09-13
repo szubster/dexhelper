@@ -1,15 +1,15 @@
 ---
 id: task-550-567-node-age-filtering-core-logic
 type: TASK
-title: "Implement Node Age Filtering Core Logic"
-status: READY
-owner_persona: "coder"
-created_at: "2026-09-06"
-updated_at: "2026-09-06"
+title: Implement Node Age Filtering Core Logic
+status: ACTIVE
+owner_persona: coder
+created_at: '2026-09-06'
+updated_at: '2026-09-13'
 depends_on: []
 parent: story-517-550-implement-node-age-filtering
-jules_session_id: null
-rejection_reason: ""
+jules_session_id: '4307631855193393801'
+rejection_reason: ''
 ---
 
 # Implement Node Age Filtering Core Logic
