@@ -2,20 +2,21 @@
 id: task-490-508-identify-update-other-gen1-personas-impl
 type: TASK
 title: Identify and Update Other Gen 1 Persona Skins
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-06'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '2615063335716765641'
+jules_session_id: null
 pr_number: null
 parent: story-406-490-update-jules-persona-definitions
 tags:
   - personas
   - gamification
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
+locks: []
 ---
 
 # Identify and Update Other Gen 1 Persona Skins
