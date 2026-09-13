@@ -29,5 +29,5 @@ locks: []
 This task involves defining the TypeScript interfaces and types required for generator-based tree traversals, as mandated by ADR 154.
 
 ## Acceptance Criteria
-- [ ] Define the Node types and Generator interfaces in a new or existing appropriate file.
-- [ ] Ensure types are compatible with Node.js native type stripping (avoid TS enums/namespaces).
+- [x] Define the Node types and Generator interfaces in a new or existing appropriate file.
+- [x] Ensure types are compatible with Node.js native type stripping (avoid TS enums/namespaces).
