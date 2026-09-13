@@ -105,11 +105,11 @@ describe('parseGen3EVs', () => {
     const result = parseGen3EVs(view, 0);
     expect(result).toEqual({
       hp: 10,
-      attack: 20,
-      defense: 30,
-      speed: 40,
-      specialAttack: 50,
-      specialDefense: 60,
+      atk: 20,
+      def: 30,
+      spe: 40,
+      spa: 50,
+      spd: 60,
     });
   });
 

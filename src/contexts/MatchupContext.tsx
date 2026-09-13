@@ -29,9 +29,7 @@ export const MatchupProvider = ({ children }: MatchupProviderProps) => {
   }, [saveData]);
 
   return (
-    <MatchupContext.Provider value={{ partyDetails, setPartyDetails, upcomingBoss, setUpcomingBoss }}>
-      {children}
-    </MatchupContext.Provider>
+    <MatchupContext value={{ partyDetails, setPartyDetails, upcomingBoss, setUpcomingBoss }}>{children}</MatchupContext>
   );
 };
 

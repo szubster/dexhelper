@@ -45,9 +45,9 @@ export const TimeOverrideProvider: React.FC<{ children: ReactNode }> = ({ childr
   };
 
   return (
-    <TimeOverrideContext.Provider value={{ state, setOverrideTime, setOverrideDay, resetOverride }}>
+    <TimeOverrideContext value={{ state, setOverrideTime, setOverrideDay, resetOverride }}>
       {children}
-    </TimeOverrideContext.Provider>
+    </TimeOverrideContext>
   );
 };
 

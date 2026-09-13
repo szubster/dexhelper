@@ -28,4 +28,6 @@ Add UI badges indicating Pokerus status (Uninfected, Infected/Contagious, Cured/
 
 ## Acceptance Criteria
 - [ ] Add UI badges for pokerus status
-- [ ] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification.
+- [ ] story-412-560-pokerus-ui-badges
+- [ ] story-412-561-pokerus-ui-e2e

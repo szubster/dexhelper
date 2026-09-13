@@ -2,13 +2,13 @@
 id: task-406-527-gen3-rematch-ui-impl
 type: TASK
 title: Implement Gen 3 NPC Rematch Status UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-07'
+updated_at: '2026-09-11'
 depends_on:
   - task-406-526-gen3-rematch-parser-impl
-jules_session_id: '11562725970323222414'
+jules_session_id: null
 pr_number: null
 parent: story-397-406-gen3-npc-rematch-status
 tags:
@@ -35,6 +35,6 @@ Following the implementation of the parsing logic for Gen 3 NPC rematch statuses
 - Integrate the UI component into the existing Secret Base or Mixed Record viewer hierarchy.
 
 ## Acceptance Criteria
-- [ ] Implement the UI components for displaying rematch status.
-- [ ] Style the components according to ADR 008.
-- [ ] Write unit tests using `vitest-browser-react` for the UI component.
+- [x] Implement the UI components for displaying rematch status.
+- [x] Style the components according to ADR 008.
+- [x] Write unit tests using `vitest-browser-react` for the UI component.
