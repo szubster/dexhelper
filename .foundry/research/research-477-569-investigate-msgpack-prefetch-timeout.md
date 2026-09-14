@@ -2,12 +2,12 @@
 id: research-477-569-investigate-msgpack-prefetch-timeout
 type: RESEARCH
 title: Investigate timeout failure for msgpack prefetching state layer
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-14'
 updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11174367040321376895'
 pr_number: null
 parent: story-420-477-implement-msgpack-prefetching
 tags:
