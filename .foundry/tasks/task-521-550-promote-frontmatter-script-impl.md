@@ -25,4 +25,4 @@ locks: []
 # Promote Frontmatter Script
 
 ## Acceptance Criteria
-- [ ] Create CLI script wrapping the core promotion logic to update specified target files.
+- [x] Create CLI script wrapping the core promotion logic to update specified target files.
