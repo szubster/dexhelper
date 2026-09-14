@@ -24,4 +24,8 @@ Implement the React state logic and hooks to expose the parsed Gen 2 room decora
 - Provide a clear way to identify which unlocked decorations are Mystery Gift exclusives.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-562-578-gen2-room-decoration-types
+- [ ] task-562-579-gen2-room-decoration-hook
+- [ ] task-562-580-gen2-room-decoration-hook-tests
+- [ ] task-562-581-gen2-room-decoration-logic-qa
