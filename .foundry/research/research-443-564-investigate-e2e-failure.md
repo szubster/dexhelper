@@ -2,12 +2,12 @@
 id: research-443-564-investigate-e2e-failure
 type: RESEARCH
 title: Investigate Mirage Island E2E Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2024-05-23'
-updated_at: '2026-09-12'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: '8775676686180910319'
+jules_session_id: null
 pr_number: null
 parent: story-061-443-mirage-island-save-parsing-e2e
 tags:

@@ -2,12 +2,12 @@
 id: task-536-564-schema-leaf-nodes-update
 type: TASK
 title: Update Schema for Leaf Node Acceptance Criteria
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-12'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: '13922667425726498893'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: story-534-536-propose-acceptance-criteria-alternatives
