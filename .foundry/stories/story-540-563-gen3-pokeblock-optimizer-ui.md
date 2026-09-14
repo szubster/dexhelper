@@ -32,3 +32,5 @@ Develop an interactive UI dashboard for users to select a target Pokémon, choos
 
 ## Acceptance Criteria
 - [ ] Develop an interactive UI dashboard for users to select a target Pokémon, choose a contest goal, and view the optimal berry blending sequence.
+- [ ] task-563-578-gen3-pokeblock-optimizer-ui-impl
+- [ ] task-563-579-gen3-pokeblock-optimizer-ui-qa
