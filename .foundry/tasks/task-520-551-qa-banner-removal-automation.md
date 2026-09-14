@@ -25,4 +25,4 @@ locks: []
 # QA Banner Removal Automation
 
 ## Acceptance Criteria
-- [ ] Verify the CLI script successfully removes banners from markdown files.
+- [x] Verify the CLI script successfully removes banners from markdown files.
