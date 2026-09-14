@@ -2,12 +2,12 @@
 id: story-335-563-develop-migration-script
 type: STORY
 title: Develop Migration Script for Task Reminders
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-11'
-updated_at: '2026-09-11'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17518157998206616722'
 pr_number: null
 parent: epic-117-335-migrate-task-reminders
 tags:
