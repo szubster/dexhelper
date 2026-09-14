@@ -2,13 +2,13 @@
 id: task-513-551-schema-verifying-tests-impl
 type: TASK
 title: Update schema verification tests for VERIFYING state
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-13'
+updated_at: '2026-09-14'
 depends_on:
   - task-513-550-schema-verifying-negative-checks-impl
-jules_session_id: null
+jules_session_id: '4292286653552711764'
 pr_number: null
 parent: story-130-513-schema-verifying-state-update-e2e
 tags:
