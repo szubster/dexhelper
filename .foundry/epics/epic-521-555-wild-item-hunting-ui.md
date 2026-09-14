@@ -2,12 +2,12 @@
 id: epic-521-555-wild-item-hunting-ui
 type: EPIC
 title: Wild Item Hunting UI
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-15'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '17621003090438935929'
+jules_session_id: null
 pr_number: null
 parent: prd-150-521-wild-held-item-hunting-assistant
 tags:
@@ -32,4 +32,8 @@ This epic handles the user interface for the Wild Held Item Hunting Assistant, i
 - Implement success notifications when the item is acquired.
 
 ## Acceptance Criteria
-- [ ] story_owner: Break down this Epic into Stories.
+- [x] story_owner: Break down this Epic into Stories.
+- [ ] story-555-562-wild-item-selection-ui
+- [ ] story-555-563-routes-encounters-drop-rates
+- [ ] story-555-564-hunting-team-notifications
+- [ ] story-555-565-wild-item-hunting-e2e

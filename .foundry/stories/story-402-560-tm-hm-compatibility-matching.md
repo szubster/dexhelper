@@ -2,23 +2,23 @@
 id: story-402-560-tm-hm-compatibility-matching
 type: STORY
 title: Compatibility Matching Logic
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2025-02-14'
-updated_at: '2025-02-14'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: null
-locks: []
+jules_session_id: '6351000577200301188'
 pr_number: null
 parent: epic-110-402-tm-hm-compatibility-logic-v2
-priority: 50
 tags:
   - feature
   - logic
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Compatibility Matching Logic
@@ -33,4 +33,7 @@ This STORY implements the core logic layer for checking if Pokémon currently in
 - Return a filtered list of Pokémon capable of learning the move.
 
 ## Acceptance Criteria
-- [ ] Break down into TASK nodes for implementing the matching logic and unit testing it.
+- [x] Break down into TASK nodes for implementing the matching logic and unit testing it.
+- [ ] task-560-568-tm-hm-compatibility-matching-impl
+- [ ] task-560-574-tm-hm-compatibility-matching-tests
+- [ ] task-560-569-tm-hm-compatibility-matching-qa

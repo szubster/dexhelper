@@ -200,6 +200,15 @@ function validateSchema() {
       }
     }
 
+    // 2.85 Validate COMPLETED IDEA nodes in .foundry/ideas/ have no unchecked acceptance criteria
+    const normalizedFile = file.split(path.sep).join('/');
+    if (type === 'IDEA' && status === 'COMPLETED' && normalizedFile.includes('.foundry/ideas/')) {
+      if (/^\s*-\s*\[\s\]/m.test(parsed.content)) {
+        console.error(`Error: COMPLETED IDEA node '${file}' contains unchecked acceptance criteria.`);
+        hasError = true;
+      }
+    }
+
     // 2.9 Validate filename matches ID (except ADRs which have inconsistent naming)
     if (id && type !== 'ADR') {
       const filename = path.basename(file, '.md');

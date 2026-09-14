@@ -5,7 +5,7 @@ title: Refactor pokedata plugin to emit multiple bundles
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-07'
+updated_at: '2026-09-14'
 depends_on: []
 jules_session_id: '5412354883755069025'
 pr_number: null

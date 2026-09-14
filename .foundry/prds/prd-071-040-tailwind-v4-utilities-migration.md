@@ -10,6 +10,7 @@ depends_on: []
 jules_session_id: null
 pr_number: null
 parent: idea-071-tailwind-v4-utilities-migration
+priority: 100
 tags:
   - tech-debt
   - styling

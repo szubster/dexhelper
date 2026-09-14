@@ -2,10 +2,10 @@
 id: prd-096-057-macro-node-boundary-enforcement
 type: PRD
 title: Enforce Macro Node Functional Boundaries
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-06-30'
-updated_at: '2026-07-29'
+updated_at: '2026-09-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,6 +16,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # PRD: Enforce Macro Node Functional Boundaries
@@ -37,9 +38,9 @@ Ensure that an EPIC cannot be marked `COMPLETED` until its functional requiremen
 3. **Orchestrator Rules**: (If applicable) The orchestrator should prevent `VERIFYING`/`COMPLETED` transitions for Epics unless an explicit verification child node exists and completes successfully.
 
 ## Acceptance Criteria
-- [ ] Investigate Orchestrator changes for boundary enforcement.
-- [ ] Define the process changes for Epic Planners.
-- [ ] Update necessary documentation and schemas.
-- [ ] epic-057-127-orchestrator-safeguard-investigation
-- [ ] epic-057-128-epic-planner-process-update
-- [ ] epic-057-129-schema-documentation-updates
+- [x] Investigate Orchestrator changes for boundary enforcement.
+- [x] Define the process changes for Epic Planners.
+- [x] Update necessary documentation and schemas.
+- [x] epic-057-127-orchestrator-safeguard-investigation
+- [x] epic-057-128-epic-planner-process-update
+- [x] epic-057-129-schema-documentation-updates

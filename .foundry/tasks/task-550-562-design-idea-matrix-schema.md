@@ -2,12 +2,12 @@
 id: task-550-562-design-idea-matrix-schema
 type: TASK
 title: Design Idea Matrix Schema
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-10'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '2513316943132529710'
+jules_session_id: null
 parent: story-532-550-idea-dependency-matrix-architecture
 tags:
   - architecture
@@ -26,4 +26,4 @@ Define the schema and format for `.foundry/docs/architecture/idea_dependency_mat
 - Ensure the schema captures IDEA nodes, their dependencies, and domain boundaries.
 
 ## Acceptance Criteria
-- [ ] Schema document is created at `.foundry/docs/architecture/idea_dependency_matrix.md`.
+- [x] Schema document is created at `.foundry/docs/architecture/idea_dependency_matrix.md`.

@@ -1232,7 +1232,7 @@ status: ACTIVE
       expect(content).toContain('rejection_reason: Merged with unfulfilled acceptance criteria');
     });
 
-    it('should transition parent node with unchecked boxes to PENDING', async () => {
+    it('should transition parent node with unchecked boxes (macro node) to PENDING', async () => {
       const nodePath = path.join(mockRepoRoot, '.foundry/stories/story-unchecked-parent.md');
       const nodeContent = `---
 id: story-unchecked-parent
@@ -1255,6 +1255,39 @@ status: ACTIVE
       vi.mocked(orchestrator.parseNodeFile).mockReturnValue(node);
 
       await transitionNodeToCompleted(node, mockRepoRoot, 123);
+
+      const content = vi.mocked(fs.writeFileSync).mock.calls[0][1] as string;
+      expect(content).toContain('status: PENDING');
+      expect(content).toContain("rejection_reason: ''");
+    });
+
+    it('should transition parent node with spawned children to PENDING', async () => {
+      const parentNodePath = path.join(mockRepoRoot, '.foundry/tasks/task-with-spawned-children.md');
+      const parentNodeContent = `---
+id: task-with-spawned-children
+type: TASK
+status: ACTIVE
+---
+
+## Acceptance Criteria
+- [ ] Unchecked box
+`;
+
+      const parentNode = {
+        filePath: parentNodePath,
+        repoPath: '.foundry/tasks/task-with-spawned-children.md',
+        frontmatter: { id: 'task-with-spawned-children', type: 'TASK', status: 'ACTIVE' },
+        rawContent: parentNodeContent, body: parentNodeContent
+      } as any;
+
+      const childNode = {
+        frontmatter: { parent: 'task-with-spawned-children' }
+      } as any;
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue([parentNodePath, '/mock/child.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockImplementation((fp) => fp === parentNodePath ? parentNode : childNode);
+
+      await transitionNodeToCompleted(parentNode, mockRepoRoot, 123);
 
       const content = vi.mocked(fs.writeFileSync).mock.calls[0][1] as string;
       expect(content).toContain('status: PENDING');

@@ -285,3 +285,20 @@ The \`Gen2SaveData\` schema in \`src/engine/saveParser/parsers/common.ts\` is mi
 
 # Researcher Journal Entry
 The root cause of the previous session timeout (>7 days) during the implementation of Gen 2 Shiny Breeding E2E tests was running the full Playwright E2E test suite instead of targeting a specific file. The full suite takes over 400 seconds, which exceeds the bash session timeout. When verifying E2E test changes, agents must explicitly target the affected test files (e.g., `xvfb-run -a pnpm test:e2e tests/e2e/file.spec.ts`) instead of running the entire suite, as documented in the Coder persona journal.
+
+
+<!-- Merged from 2026-09-07-23-45-02.md -->
+# Bike Badge Integration Failure Analysis
+The target integration artifacts (`MapUI.tsx`, `MapUI.test.tsx`, and `RouteRadarController.ts`) currently exist in the codebase and contain the required implementation. The unit tests verify the components successfully.
+
+
+<!-- Merged from 2026-09-08-17-33-00.md -->
+# 2026-09-08-17-33-00
+
+* Discovered root cause of Gen 3 Active Party Matchup integration failure in `MatchupContext.tsx` and `MatchupContext.test.tsx`.
+* `MatchupContext.tsx` intentionally drops Gen 3 data because of `if (saveData?.generation === 1 || saveData?.generation === 2)`.
+* `MatchupContext.test.tsx` enforces this explicit exclusion.
+* Modifying these files to accept Gen 3 should be the next step.
+
+## Mirage Island E2E Investigation
+The E2E tests for Mirage Island extraction actually exist in the codebase now (`tests/e2e/mirage_island_extraction.spec.ts`). The file was added in a later commit (7ef726fe45f123e27f91d0b8dce131c305f15901). Running Playwright tests on this file directly succeeds. The coder's previous failures to create this artifact were likely transient or resolved by other PRs. Since the tests exist and pass, the downstream coder task (task-443-565-mirage-island-e2e-impl-v2) should just submit an empty PR.

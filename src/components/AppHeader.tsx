@@ -100,6 +100,9 @@ export function AppHeader({
               {(saveData.generation === 3 || saveData.generation === 2) && (
                 <NavigationTab to="/dashboard" icon={<Swords size={14} />} label="SYS.DASH" />
               )}
+              {saveData.generation === 3 && (
+                <NavigationTab to="/safari-zone" icon={<Swords size={14} />} label="SYS.SAFARI" />
+              )}
             </div>
           </nav>
         )}

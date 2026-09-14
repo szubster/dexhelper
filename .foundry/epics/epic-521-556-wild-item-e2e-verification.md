@@ -2,12 +2,12 @@
 id: epic-521-556-wild-item-e2e-verification
 type: EPIC
 title: Wild Item E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-15'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '12289585652266865090'
+jules_session_id: null
 pr_number: null
 parent: prd-150-521-wild-held-item-hunting-assistant
 tags:
@@ -31,4 +31,7 @@ This epic ensures complete End-to-End coverage testing for the Wild Held Item Hu
 - Ensure end-to-end flow is fully verified.
 
 ## Acceptance Criteria
-- [ ] story_owner: Break down this Epic into Stories.
+- [x] story_owner: Break down this Epic into Stories.
+- [ ] story-556-562-e2e-tests-item-selection-route-display
+- [ ] story-556-563-e2e-tests-save-file-progress-tracking
+- [ ] story-556-564-e2e-tests-end-to-end-flow

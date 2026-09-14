@@ -2,12 +2,12 @@
 id: epic-521-552-schema-linter-core-logic
 type: EPIC
 title: 'Schema Linter Core Logic: Markdown Checkboxes'
-status: ACTIVE
-owner_persona: story_owner
+status: PENDING
+owner_persona: auditor
 created_at: '2026-08-24'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '2550931953488891671'
+jules_session_id: null
 parent: prd-421-521-automated-schema-linting
 tags:
   - foundry
@@ -28,3 +28,6 @@ locks: []
 ## Acceptance Criteria
 - [ ] Implement markdown checkbox syntax validation in `.foundry/scripts/lint-schema.ts`.
 - [ ] Implement section tracking to enforce checkbox placement under `## Acceptance Criteria`.
+- [ ] story-552-562-schema-linter-core-logic
+- [ ] story-552-563-schema-linter-section-tracking
+- [ ] story-552-564-schema-linter-checkbox-e2e

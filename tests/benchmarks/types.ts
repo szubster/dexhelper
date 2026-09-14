@@ -3,4 +3,5 @@ export interface BenchmarkResult {
   operationsPerSecond: number;
   averageTimeNs: number;
   samples: number;
+  memoryUsageBytes?: number;
 }
