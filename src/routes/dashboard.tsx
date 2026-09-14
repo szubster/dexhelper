@@ -6,6 +6,11 @@ import { EmptyState } from '../components/EmptyState';
 import { useStore } from '../store';
 
 // ⚡ Bolt: Lazy load generation-specific dashboards to reduce initial bundle size
+const PathfinderSelectionPanel = React.lazy(() =>
+  import('../features/pathfinder/components/PathfinderSelectionPanel').then((m) => ({
+    default: m.PathfinderSelectionPanel,
+  })),
+);
 const BattleFrontierDashboard = React.lazy(() =>
   import('../components/dashboard/battle-frontier/BattleFrontierDashboard').then((m) => ({
     default: m.BattleFrontierDashboard,
@@ -111,6 +116,7 @@ function DashboardPage() {
         {saveData.generation === 3 ? (
           <>
             <Gen3RoamerDossier saveData={saveData} />
+            <PathfinderSelectionPanel />
             <BattleFrontierDashboard saveData={saveData} />
             <GlobalRibbonChecklistDashboard />
             <Gen3SecretBaseDashboard saveData={saveData} />
@@ -133,6 +139,7 @@ function DashboardPage() {
             )}
             <Gen2NpcTrades />
             <ShinyCarrierBreedingDashboard />
+            <PathfinderSelectionPanel />
           </>
         ) : (
           <Gen1Checklist />
