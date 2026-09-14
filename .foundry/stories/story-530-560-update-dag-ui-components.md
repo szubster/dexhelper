@@ -28,4 +28,7 @@ Update the DAG UI components to support CANCELLED status nodes with high rejecti
 - [ ] Nodes with `status: CANCELLED` and `rejection_count >= 3` are visible in the Permanent Failure Dashboard.
 - [ ] Nodes with `status: CANCELLED` and `rejection_count >= 3` are highlighted correctly in `DagNode.tsx` and `DagDashboard.tsx` (using the same red styling as FAILED nodes with high rejection counts).
 - [ ] The filter panel or data selection logic properly includes these nodes.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-560-568-implement-dag-cancelled-highlighting
+- [ ] task-560-569-test-dag-cancelled-highlighting
+- [ ] task-560-570-verify-dag-cancelled-highlighting
