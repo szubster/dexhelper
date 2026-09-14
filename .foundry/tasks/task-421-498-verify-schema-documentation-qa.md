@@ -24,4 +24,4 @@ locks: []
 Verify the coder's work.
 
 ## Acceptance Criteria
-- [ ] Verify that .foundry/docs/schema.md has the E2E rule correctly documented as per the Coder's implementation.
+- [x] Verify that .foundry/docs/schema.md has the E2E rule correctly documented as per the Coder's implementation.
