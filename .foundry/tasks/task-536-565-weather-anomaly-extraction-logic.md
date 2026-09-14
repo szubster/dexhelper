@@ -2,10 +2,10 @@
 id: task-536-565-weather-anomaly-extraction-logic
 type: TASK
 title: Gen 3 Weather Anomaly Extraction Logic
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-09-12'
+updated_at: '2026-09-14'
 depends_on:
   - task-536-564-weather-anomaly-types-impl
 jules_session_id: null

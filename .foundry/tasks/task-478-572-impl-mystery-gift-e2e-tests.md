@@ -2,14 +2,13 @@
 id: task-478-572-impl-mystery-gift-e2e-tests
 type: TASK
 title: Implement Mystery Gift E2E Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-13'
-updated_at: '2026-09-13'
+updated_at: '2026-09-14'
 depends_on:
   - task-478-571-setup-mystery-gift-e2e-fixtures
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-345-478-gen3-mystery-gift-e2e-verification
 tags:
@@ -20,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Implement Mystery Gift E2E Tests
