@@ -25,5 +25,5 @@ locks: []
 This task involves implementing the `SaveDataReader` base class in `src/engine/saveParser/SaveDataReader.ts`, which wraps a `DataView` and implements the `ISaveDataReader` interface.
 
 ## Acceptance Criteria
-- [ ] Implement the `SaveDataReader` class that implements `ISaveDataReader`.
-- [ ] Implement core reading methods (`getUint8`, `getUint16`, `getUint32`, etc.) wrapping standard `DataView` operations.
+- [x] Implement the `SaveDataReader` class that implements `ISaveDataReader`.
+- [x] Implement core reading methods (`getUint8`, `getUint16`, `getUint32`, etc.) wrapping standard `DataView` operations.
