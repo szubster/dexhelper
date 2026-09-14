@@ -2,12 +2,12 @@
 id: idea-523-component-variants-theming-consolidation-refactor
 type: IDEA
 title: Component Variants and Theming Consolidation Refactor
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-13'
 updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: '2566861365955237341'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
