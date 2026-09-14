@@ -139,3 +139,17 @@ The user requested to pick ONE module and improve its documentation (JSDoc, inli
 ## Session: Documenting Gen 3 Pokemon Data Decryption
 - Observation: When using `replace_with_git_merge_diff`, it is absolutely critical that the search block exactly matches the text currently in the file. During this session, attempting to match `OTID` in a JSDoc string when the file actually contained `OT ID` caused the patch to fail.
 - Rule: Always copy the target search block verbatim (e.g. by using `sed` or `grep` to extract it first) before generating the git merge diff to avoid applying patch failures.
+
+
+<!-- Merged from 2026-09-10-04-11-40.md -->
+# Scribe Documentation Completion
+
+## Context
+Added JSDoc to `generateSuggestions` in `src/engine/assistant/suggestionEngine.ts`.
+
+## Key Actions
+- Added JSDoc explaining the architectural logic behind the core generator loop.
+- Specified the O(1) Data Structures and the Batch Limiting to explain *why* the loop is written the way it is.
+
+## Learnings
+- **Scribe Documentation Boundaries**: When acting as the Scribe persona to improve code clarity, limit changes strictly to documentation and comments (never modify application logic). Use JSDoc for TypeScript APIs, Markdown for architecture docs, document 'why' instead of 'what', and format the PR title as '📜 Scribe: [what was documented]'.
