@@ -1,25 +1,25 @@
 ---
-id: task-477-495-msgpack-prefetch-qa
+id: task-477-577-msgpack-prefetch-qa-v2
 type: TASK
-title: QA verification for msgpack background prefetching
-status: CANCELLED
+title: QA verification for msgpack background prefetching (v2)
+status: READY
 owner_persona: qa
-created_at: '2026-08-26'
-updated_at: '2026-08-26'
+created_at: '2026-09-14'
+updated_at: '2026-09-14'
 depends_on:
   - task-477-493-msgpack-prefetch-logic-impl
-  - task-477-494-msgpack-prefetch-state-layer-impl
-jules_session_id: '2516259550963043840'
+  - task-477-576-msgpack-prefetch-state-layer-impl-v2
+jules_session_id: null
 pr_number: null
 parent: story-420-477-implement-msgpack-prefetching
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: 'Cancelled as dependency task-477-494 reached max rejection count'
+rejection_reason: ''
 notes: ''
 ---
 
-# QA verification for msgpack background prefetching
+# QA verification for msgpack background prefetching (v2)
 
 ## Context
 Verify that generation-specific msgpack files are prefetched correctly in the background without blocking the main thread.
