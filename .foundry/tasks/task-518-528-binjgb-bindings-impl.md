@@ -30,3 +30,4 @@ Implement the javascript bindings to extract the `saveStateBuffer` directly from
 - [ ] Expose an API function to retrieve the raw `saveStateBuffer` array from the `binjgb` WASM instance.
 - [ ] Ensure the memory extraction handles active gameplay seamlessly.
 - [ ] Write unit tests for the extraction logic.
+- [ ] research-528-569-investigate-binjgb-save-exports
