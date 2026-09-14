@@ -2,7 +2,7 @@
 id: task-477-494-msgpack-prefetch-state-layer-impl
 type: TASK
 title: Implement state management for msgpack prefetching
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-09-14'
@@ -13,8 +13,8 @@ pr_number: null
 parent: story-420-477-implement-msgpack-prefetching
 tags: []
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

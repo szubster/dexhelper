@@ -2,7 +2,7 @@
 id: task-477-577-msgpack-prefetch-qa-v2
 type: TASK
 title: QA verification for msgpack background prefetching (v2)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-14'
 updated_at: '2026-09-14'
@@ -17,6 +17,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # QA verification for msgpack background prefetching (v2)

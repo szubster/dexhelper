@@ -2,7 +2,7 @@
 id: task-477-576-msgpack-prefetch-state-layer-impl-v2
 type: TASK
 title: Implement state management for msgpack prefetching (v2)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-14'
 updated_at: '2026-09-14'
