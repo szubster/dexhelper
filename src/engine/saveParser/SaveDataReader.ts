@@ -1,10 +1,16 @@
 export interface ISaveDataReader {
   getUint8(offset: number): number;
-  getUint16(offset: number, littleEndian?: boolean): number;
-  getUint32(offset: number, littleEndian?: boolean): number;
   getInt8(offset: number): number;
-  getInt16(offset: number, littleEndian?: boolean): number;
-  getInt32(offset: number, littleEndian?: boolean): number;
-  getFloat32(offset: number, littleEndian?: boolean): number;
-  getFloat64(offset: number, littleEndian?: boolean): number;
+  getUint16Le(offset: number): number;
+  getUint16Be(offset: number): number;
+  getInt16Le(offset: number): number;
+  getInt16Be(offset: number): number;
+  getUint32Le(offset: number): number;
+  getUint32Be(offset: number): number;
+  getInt32Le(offset: number): number;
+  getInt32Be(offset: number): number;
+  getFloat32Le(offset: number): number;
+  getFloat32Be(offset: number): number;
+  getFloat64Le(offset: number): number;
+  getFloat64Be(offset: number): number;
 }
