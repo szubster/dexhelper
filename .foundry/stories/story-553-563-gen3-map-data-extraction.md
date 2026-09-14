@@ -2,12 +2,12 @@
 id: story-553-563-gen3-map-data-extraction
 type: STORY
 title: Gen 3 Map Data Extraction (Offsets & Binary Parsing)
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-12'
 updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: '13890786335863092428'
+jules_session_id: null
 pr_number: null
 parent: epic-424-553-gen3-map-data-engine
 tags:
@@ -17,7 +17,7 @@ tags:
   - data
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---

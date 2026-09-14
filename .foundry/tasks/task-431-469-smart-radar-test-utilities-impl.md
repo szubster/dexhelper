@@ -2,12 +2,12 @@
 id: task-431-469-smart-radar-test-utilities-impl
 type: TASK
 title: Smart Radar Test Utilities Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-09-07'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: '4193762203326185418'
+jules_session_id: null
 pr_number: null
 parent: story-048-431-smart-radar-integration-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - data
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
 locks: []
 ---
