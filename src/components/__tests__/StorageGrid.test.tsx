@@ -1,7 +1,7 @@
 import { beforeEach, expect, test, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { useStore } from '../../store';
+import { useParsedSaveData } from '../../contexts/EmulatorContext';
 import { StorageGrid } from '../StorageGrid';
 
 // Mock TanStack Router
@@ -9,9 +9,9 @@ vi.mock('@tanstack/react-router', () => ({
   useNavigate: () => vi.fn<() => void>(),
 }));
 
-// Mock Zustand Store
-vi.mock('../../store', () => ({
-  useStore: vi.fn<() => void>(),
+// Mock Emulator Context
+vi.mock('../../contexts/EmulatorContext', () => ({
+  useParsedSaveData: vi.fn<() => void>(),
 }));
 
 beforeEach(() => {
@@ -19,23 +19,18 @@ beforeEach(() => {
 });
 
 test('renders nothing when saveData is missing', async () => {
-  (useStore as unknown as { mockReturnValue: (val: unknown) => void }).mockReturnValue(null);
+  (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue(null);
   await render(<StorageGrid pokemonList={[]} />);
   // The grid returns null, so container should be empty.
   await expect.element(page.getByText('NO_DATA_FOUND')).not.toBeInTheDocument();
 });
 
 test('renders grid with empty locations', async () => {
-  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-    (selector: unknown) =>
-      (selector as (state: unknown) => unknown)({
-        saveData: {
-          generation: 1,
-          partyDetails: [],
-          pcDetails: [],
-        },
-      }),
-  );
+  (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({
+    generation: 1,
+    partyDetails: [],
+    pcDetails: [],
+  });
 
   await render(<StorageGrid pokemonList={[{ id: 1, name: 'Bulbasaur' }]} />);
 
@@ -47,37 +42,32 @@ test('renders grid with empty locations', async () => {
 });
 
 test('renders grid with pokemon', async () => {
-  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-    (selector: unknown) =>
-      (selector as (state: unknown) => unknown)({
-        saveData: {
-          generation: 1,
-          partyDetails: [
-            {
-              speciesId: 1,
-              storageLocation: 'Party',
-              level: 5,
-              isShiny: false,
-              hash: '',
-              otName: 'RED',
-              pokerus: { strain: 3, daysRemaining: 2 },
-            },
-          ],
-          pcDetails: [
-            { speciesId: 4, storageLocation: 'Box 1', level: 10, isShiny: true, hash: '', otName: 'BLUE' },
-            {
-              speciesId: 7,
-              storageLocation: 'Box 1',
-              level: 5,
-              isShiny: false,
-              hash: '',
-              isShinyCarrier: true,
-              otName: 'GREEN',
-            },
-          ],
-        },
-      }),
-  );
+  (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({
+    generation: 1,
+    partyDetails: [
+      {
+        speciesId: 1,
+        storageLocation: 'Party',
+        level: 5,
+        isShiny: false,
+        hash: '',
+        otName: 'RED',
+        pokerus: { strain: 3, daysRemaining: 2 },
+      },
+    ],
+    pcDetails: [
+      { speciesId: 4, storageLocation: 'Box 1', level: 10, isShiny: true, hash: '', otName: 'BLUE' },
+      {
+        speciesId: 7,
+        storageLocation: 'Box 1',
+        level: 5,
+        isShiny: false,
+        hash: '',
+        isShinyCarrier: true,
+        otName: 'GREEN',
+      },
+    ],
+  });
 
   await render(
     <StorageGrid
@@ -106,26 +96,21 @@ test('renders grid with pokemon', async () => {
 });
 
 test('renders carrier anomaly LED correctly', async () => {
-  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-    (selector: unknown) =>
-      (selector as (state: unknown) => unknown)({
-        saveData: {
-          generation: 1,
-          partyDetails: [],
-          pcDetails: [
-            {
-              speciesId: 4,
-              storageLocation: 'Box 1',
-              level: 10,
-              isShiny: false,
-              hash: '',
-              isShinyCarrier: true,
-              otName: 'BLUE',
-            },
-          ],
-        },
-      }),
-  );
+  (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({
+    generation: 1,
+    partyDetails: [],
+    pcDetails: [
+      {
+        speciesId: 4,
+        storageLocation: 'Box 1',
+        level: 10,
+        isShiny: false,
+        hash: '',
+        isShinyCarrier: true,
+        otName: 'BLUE',
+      },
+    ],
+  });
 
   const { container } = await render(<StorageGrid pokemonList={[{ id: 4, name: 'Charmander' }]} />);
 
@@ -134,25 +119,20 @@ test('renders carrier anomaly LED correctly', async () => {
 });
 
 test('renders shiny anomaly LED correctly', async () => {
-  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-    (selector: unknown) =>
-      (selector as (state: unknown) => unknown)({
-        saveData: {
-          generation: 1,
-          partyDetails: [],
-          pcDetails: [
-            {
-              speciesId: 4,
-              storageLocation: 'Box 1',
-              level: 10,
-              isShiny: true,
-              hash: '',
-              otName: 'BLUE',
-            },
-          ],
-        },
-      }),
-  );
+  (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({
+    generation: 1,
+    partyDetails: [],
+    pcDetails: [
+      {
+        speciesId: 4,
+        storageLocation: 'Box 1',
+        level: 10,
+        isShiny: true,
+        hash: '',
+        otName: 'BLUE',
+      },
+    ],
+  });
 
   const { container } = await render(<StorageGrid pokemonList={[{ id: 4, name: 'Charmander' }]} />);
 
@@ -161,26 +141,21 @@ test('renders shiny anomaly LED correctly', async () => {
 });
 
 test('renders error LED correctly for fainted party pokemon', async () => {
-  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-    (selector: unknown) =>
-      (selector as (state: unknown) => unknown)({
-        saveData: {
-          generation: 1,
-          partyDetails: [
-            {
-              speciesId: 1,
-              storageLocation: 'Party',
-              level: 5,
-              isShiny: false,
-              hash: '',
-              otName: 'RED',
-              currentHp: 0, // Fainted
-            },
-          ],
-          pcDetails: [],
-        },
-      }),
-  );
+  (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({
+    generation: 1,
+    partyDetails: [
+      {
+        speciesId: 1,
+        storageLocation: 'Party',
+        level: 5,
+        isShiny: false,
+        hash: '',
+        otName: 'RED',
+        currentHp: 0, // Fainted
+      },
+    ],
+    pcDetails: [],
+  });
 
   const { container } = await render(<StorageGrid pokemonList={[{ id: 1, name: 'Bulbasaur' }]} />);
 
@@ -193,26 +168,21 @@ test('renders error LED correctly for fainted party pokemon', async () => {
 });
 
 test('renders dead LED correctly for fainted box pokemon (should not render dead led)', async () => {
-  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-    (selector: unknown) =>
-      (selector as (state: unknown) => unknown)({
-        saveData: {
-          generation: 1,
-          partyDetails: [],
-          pcDetails: [
-            {
-              speciesId: 1,
-              storageLocation: 'Box 1',
-              level: 5,
-              isShiny: false,
-              hash: '',
-              otName: 'RED',
-              currentHp: 0, // Fainted in box - shouldn't trigger error LED
-            },
-          ],
-        },
-      }),
-  );
+  (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({
+    generation: 1,
+    partyDetails: [],
+    pcDetails: [
+      {
+        speciesId: 1,
+        storageLocation: 'Box 1',
+        level: 5,
+        isShiny: false,
+        hash: '',
+        otName: 'RED',
+        currentHp: 0, // Fainted in box - shouldn't trigger error LED
+      },
+    ],
+  });
 
   const { container } = await render(<StorageGrid pokemonList={[{ id: 1, name: 'Bulbasaur' }]} />);
 
@@ -221,35 +191,30 @@ test('renders dead LED correctly for fainted box pokemon (should not render dead
 });
 
 test('renders time capsule validation tags correctly', async () => {
-  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-    (selector: unknown) =>
-      (selector as (state: unknown) => unknown)({
-        saveData: {
-          generation: 2,
-          partyDetails: [
-            {
-              speciesId: 1, // Gen 1 (Bulbasaur)
-              storageLocation: 'Party',
-              level: 5,
-              isShiny: false,
-              hash: '',
-              otName: 'RED',
-              moves: [1, 2, 3, 4],
-            },
-            {
-              speciesId: 152, // Gen 2 (Chikorita) - invalid
-              storageLocation: 'Party',
-              level: 5,
-              isShiny: false,
-              hash: '',
-              otName: 'RED',
-              moves: [1, 2, 3, 4],
-            },
-          ],
-          pcDetails: [],
-        },
-      }),
-  );
+  (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({
+    generation: 2,
+    partyDetails: [
+      {
+        speciesId: 1, // Gen 1 (Bulbasaur)
+        storageLocation: 'Party',
+        level: 5,
+        isShiny: false,
+        hash: '',
+        otName: 'RED',
+        moves: [1, 2, 3, 4],
+      },
+      {
+        speciesId: 152, // Gen 2 (Chikorita) - invalid
+        storageLocation: 'Party',
+        level: 5,
+        isShiny: false,
+        hash: '',
+        otName: 'RED',
+        moves: [1, 2, 3, 4],
+      },
+    ],
+    pcDetails: [],
+  });
 
   await render(
     <StorageGrid
@@ -265,26 +230,21 @@ test('renders time capsule validation tags correctly', async () => {
 });
 
 test('renders time capsule validation tags correctly when empty array', async () => {
-  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-    (selector: unknown) =>
-      (selector as (state: unknown) => unknown)({
-        saveData: {
-          generation: 2,
-          partyDetails: [
-            {
-              speciesId: 1,
-              storageLocation: 'Party',
-              level: 5,
-              isShiny: false,
-              hash: '',
-              otName: 'RED',
-              moves: [],
-            },
-          ],
-          pcDetails: [],
-        },
-      }),
-  );
+  (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({
+    generation: 2,
+    partyDetails: [
+      {
+        speciesId: 1,
+        storageLocation: 'Party',
+        level: 5,
+        isShiny: false,
+        hash: '',
+        otName: 'RED',
+        moves: [],
+      },
+    ],
+    pcDetails: [],
+  });
 
   await render(<StorageGrid pokemonList={[{ id: 1, name: 'Bulbasaur' }]} />);
 
@@ -292,26 +252,21 @@ test('renders time capsule validation tags correctly when empty array', async ()
 });
 
 test('renders dead LED correctly for dead party pokemon', async () => {
-  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-    (selector: unknown) =>
-      (selector as (state: unknown) => unknown)({
-        saveData: {
-          generation: 1,
-          partyDetails: [
-            {
-              speciesId: 1,
-              storageLocation: 'Party',
-              level: 5,
-              isShiny: false,
-              hash: '',
-              otName: 'RED',
-              currentHp: 0,
-            },
-          ],
-          pcDetails: [],
-        },
-      }),
-  );
+  (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({
+    generation: 1,
+    partyDetails: [
+      {
+        speciesId: 1,
+        storageLocation: 'Party',
+        level: 5,
+        isShiny: false,
+        hash: '',
+        otName: 'RED',
+        currentHp: 0,
+      },
+    ],
+    pcDetails: [],
+  });
 
   const { container } = await render(<StorageGrid pokemonList={[{ id: 1, name: 'Bulbasaur' }]} />);
 
@@ -320,26 +275,21 @@ test('renders dead LED correctly for dead party pokemon', async () => {
 });
 
 test('renders TimeCapsuleValidation tags when moves are empty array', async () => {
-  (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-    (selector: unknown) =>
-      (selector as (state: unknown) => unknown)({
-        saveData: {
-          generation: 2,
-          partyDetails: [
-            {
-              speciesId: 1, // Gen 1 (Bulbasaur)
-              storageLocation: 'Party',
-              level: 5,
-              isShiny: false,
-              hash: '',
-              otName: 'RED',
-              moves: [],
-            },
-          ],
-          pcDetails: [],
-        },
-      }),
-  );
+  (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({
+    generation: 2,
+    partyDetails: [
+      {
+        speciesId: 1, // Gen 1 (Bulbasaur)
+        storageLocation: 'Party',
+        level: 5,
+        isShiny: false,
+        hash: '',
+        otName: 'RED',
+        moves: [],
+      },
+    ],
+    pcDetails: [],
+  });
 
   await render(<StorageGrid pokemonList={[{ id: 1, name: 'Bulbasaur' }]} />);
 

@@ -27,5 +27,5 @@ priority: 50
 Following the updates to the Pokedex grid, we need to update the `StorageGrid` UI component to consume the live memory context.
 
 ## Acceptance Criteria
-- [ ] Refactor `src/components/StorageGrid.tsx` to use `useParsedSaveData` from `EmulatorContext` instead of `useStore`.
-- [ ] Ensure the component reactively re-renders to reflect real-time game state changes.
+- [x] Refactor `src/components/StorageGrid.tsx` to use `useParsedSaveData` from `EmulatorContext` instead of `useStore`.
+- [x] Ensure the component reactively re-renders to reflect real-time game state changes.
