@@ -40,3 +40,12 @@ When fixing Assistant Logic related to branching vs linear evolutions, ensure th
 - **Recommendation Logic:** In Gen 2/3, if a player needs a version exclusive Pokémon (e.g., Meowth in Gold) and they already possess an evolved form (e.g., Persian), they can breed it. Previously, the `tradeGenerator.ts` would suggest "Must trade for Meowth" because it only checked `hasPhysicalPreEvo`. Now, we explicitly check `hasPhysicalPostEvoToBreed` by traversing the evolution tree forwards (`eto`) to see if the player physically owns an evolved form that can be bred down.
 - **Generator Interactions:** Because generators run sequentially and push to the same array without knowing about each other, `tradeGenerator` was creating an `exclusive-52` suggestion while `breedGenerator` was correctly creating a `breed-52` suggestion. Since the deduplication at the end groups by `id`, both were shown to the user (with conflicting advice). Adding a breeding verification directly in the trade logic resolves this.
 - **Save File Parsing:** By accessing `p?.eto` from `pokemonMetadata` and traversing it dynamically with a stack, we can safely discover all post-evolution branches without recursive function depth limits.
+
+
+<!-- Merged from 2026-09-09-03-00-45.md -->
+# Session Details
+- Date: $(date)
+- Focus: Implemented Gen 3 Daycare breeding suggestion support.
+
+# Learnings
+- **Abstraction and Unification:** When porting a feature previously only supporting Gen 2 (like Daycare breeding logic in `generateBreedingSuggestions`) to Gen 3, it's essential to abstract the data structures (`daycareMons`, `daycareHasEgg`) so that the core evaluation logic can be unified without nesting complex `if (isGen2)` vs `if (isGen3)` logic inside hot loops. We achieved this by flattening the daycare evaluation array beforehand using `const daycareMons = gen2Data?.daycare || gen3Data?.gen3Daycare?.mons || [];`.
