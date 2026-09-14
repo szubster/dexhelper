@@ -34,5 +34,7 @@ This story is part of `epic-117-335-migrate-task-reminders`. The objective is to
 
 ## 3. Acceptance Criteria
 - [ ] Migration script is created and tested locally.
-- [ ] task-563-578-migration-script-impl
-- [ ] task-563-579-migration-script-qa
+- [ ] task-563-578-migration-parse-logic
+- [ ] task-563-579-migration-script-cli
+- [ ] task-563-580-migration-unit-tests
+- [ ] task-563-581-migration-qa

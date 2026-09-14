@@ -4,6 +4,9 @@ type: TASK
 title: Verify DAG CANCELLED node highlighting
 status: PENDING
 owner_persona: qa
+created_at: '2026-09-11'
+updated_at: '2026-09-11'
+jules_session_id: null
 parent: story-530-560-update-dag-ui-components
 depends_on: [task-560-569-test-dag-cancelled-highlighting]
 tags: [ui, react, qa]
