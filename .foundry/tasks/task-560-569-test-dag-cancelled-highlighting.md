@@ -1,6 +1,9 @@
 ---
 id: task-560-569-test-dag-cancelled-highlighting
 type: TASK
+created_at: "2026-09-14"
+updated_at: "2026-09-14"
+jules_session_id: null
 title: Write unit tests for DAG CANCELLED node highlighting
 status: PENDING
 owner_persona: coder
