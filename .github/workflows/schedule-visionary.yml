@@ -5,9 +5,25 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  issues: write
 jobs:
-  run_visionary:
-    uses: ./.github/workflows/foundry-scheduled-agent.yml
-    with:
-      persona: "visionary"
-    secrets: inherit
+  dispatch_agent:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Compile Prompt and Create Issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Compile the prompt context
+          COMPILED_PROMPT=$(node --experimental-strip-types .github/scripts/foundry-orchestrator.ts --compile-scheduled "visionary")
+
+          # Inject the compiled prompt into the GitHub issue body
+          gh issue create --title "Scheduled Agent: visionary" --body "$COMPILED_PROMPT" --label "jules"
