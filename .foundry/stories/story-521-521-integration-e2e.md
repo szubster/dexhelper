@@ -29,4 +29,6 @@ locks: []
 Generate a final STORY dedicated exclusively to Integration and E2E Verification for the prompt cleanup.
 
 ## Acceptance Criteria
-- [ ] Create TASK nodes for integration and E2E verification of prompt cleanup.
+- [x] Create TASK nodes for integration and E2E verification of prompt cleanup.
+- [ ] task-521-578-integration-e2e-coder
+- [ ] task-521-579-integration-e2e-qa
