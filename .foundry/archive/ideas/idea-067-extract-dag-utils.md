@@ -35,7 +35,7 @@ Operations to extract include:
 - [ ] Product Manager: Evaluate this proposal and convert it to a PRD detailing the specific functions to be extracted and the testing strategy.
 
 ## References
-- [prd-067-036-extract-dag-utils.md](./.foundry/prds/prd-067-036-extract-dag-utils.md)
+- [prd-067-036-extract-dag-utils.md](.foundry/archive/prds/prd-067-036-extract-dag-utils.md)
 
 ### Auditor Rejection
 The child PRD (`prd-067-036-extract-dag-utils`) was permanently CANCELLED because one of its child epics (`epic-036-053-shared-dag-utilities`) reached the max rejection count and permanently failed. Therefore, the functional requirements of this IDEA node were not fully implemented.

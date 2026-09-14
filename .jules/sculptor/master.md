@@ -117,3 +117,26 @@ Improve AI readability by extracting Gen 3 NPC trade flags from the main `parser
 ## Critical Learnings
 - **Inline exports clutter core logic:** Similar to TM/HM flags, when domain-specific constants (like trade flags) are scattered inline within the main parsing logic, it becomes harder for AI to distinguish between the actual binary extraction logic and the static dictionaries. Extracting them to dedicated dictionary files improves semantic structure and modularity.
 - **Refactoring Strategy:** Writing custom scripts to migrate constants and their references proved safer than manual string replacement across large files.
+
+
+---
+
+
+## Refactoring Goal
+Improve AI readability by extracting Gen 2 array size and block length magic numbers to constants.
+
+## Actions Taken
+- Extracted constants for Gen 2 Pokemon parsing block sizes (like POKEMON_DATA_BLOCK_SIZE, GEN2_PARTY_SPECIES_LIST_LENGTH, etc.).
+- Replaced occurrences of offset + 7 and i * 48 with descriptive constants.
+
+## Critical Learnings
+- **Inline sizes mask structural boundaries:** Using raw numbers for offset jumps inside of loops (like i * 48) heavily obfuscates the physical boundaries of parsed save-game structs from AI agents.
+- **Header arrays versus Data blocks:** Clearly distinguishing between a "Species List" (a simple array of bytes) and a "Data Block" (a structured array of objects) with separate constants (like GEN2_PARTY_SPECIES_LIST_LENGTH vs GEN2_PARTY_POKEMON_BLOCK_SIZE) allows an AI agent to predict where the next section of memory begins without needing to decipher loop index math.
+
+
+---
+
+## Critical Learnings
+* **Inline magic numbers obfuscate array structures:** When parsing save files, iterating over items or extracting offsets from decrypted permutation blocks (like the 48-byte Gen 3 Pokemon structure) using inline arithmetic (e.g. `0 + GEN3_POKEMON_SPECIES_OFFSET_IN_G` or `12 + ...`) deeply obfuscates the layout of binary structs from AI.
+* **Top-level constants provide semantic mapping:** Extracting these specific pointer jumps into constants (`DECRYPTED_BLOCK_G_OFFSET = 0`, `DECRYPTED_BLOCK_A_OFFSET = 12`) vastly clarifies how the array structures are bounded and makes it explicit which block is being parsed.
+* **Refactoring Strategy:** Using custom `node` scripts for automated search and replace operations works well for targeted refactors but leaves scratchpads behind. It is imperative to remember to `rm` any text files (e.g., `test_script.js`, `plan.md`) generated during the exploration before asking for code review. Also, when working in a repository with `"type": "module"`, ensure temporary node scripts use the `.cjs` extension if they rely on `require()`.

@@ -1001,3 +1001,52 @@ To resolve this, I utilized the Late Binding pattern to suspend the current task
 <!-- Merged from 2026-09-07-11-31-08.md -->
 # 2026-09-07
 Child tasks `task-470-487-catalog-integrate-saves` and `task-470-488-qa-public-saves` permanently failed due to max rejection limit. I spawned a research node `research-470-553-investigate-japanese-crystal-offsets` to investigate the root cause, and created replacement tasks `task-470-554-catalog-integrate-saves-replacement` and `task-470-555-qa-public-saves-replacement` relying on this research, following the Impossible Loop protocol.
+
+
+---
+
+# Anomaly Report for Agile Coach
+During the execution of `story-421-526-bash-static-analysis-linter-impl`, it was observed that the target downstream artifact (bash static analysis linter logic in `scripts/safe_bash.sh`) unexpectedly already existed prior to the session. A task `task-526-562-bash-static-analysis-linter-impl` was drafted to allow the Coder to execute the Empty PR policy, update the acceptance criteria, and formally complete the DAG node.
+
+---
+
+# Late Binding for Gen 3 Wallpaper Phrase Generator
+
+When an implementation task permanently fails because of missing context (such as the Gen 3 PC box wallpaper algorithm), we must not guess. We must dynamically spawn a `RESEARCH` node to gather the facts, and all retry implementation nodes must strictly `depends_on` the research outcome. This avoids wasting cycles and hitting max rejection loops again. I have applied the Impossible Loop rules to `task-473-498-gen3-wallpaper-phrase-generator-impl` by checking it off as completed (along with its QA task), spawning a research task, and creating replacement implementation and QA tasks.
+
+
+---
+
+# 2026-09-09 - Investigate Gen 3 Roamer E2E Test Failure v2
+
+The previous `research-360-471-investigate-gen3-roamer-e2e-failure` task failed permanently due to session timeout.
+I have cancelled the dependent tasks `task-360-489-gen3-roamer-e2e-impl-v2` and `task-360-490-gen3-roamer-ui-and-e2e-qa-v2`.
+I have created a new research task `research-360-568-investigate-gen3-roamer-e2e-failure-v2` to restart the investigation.
+I have also created replacement implementation tasks `task-360-566-gen3-roamer-e2e-impl-v3` and `task-360-567-gen3-roamer-ui-and-e2e-qa-v3` that depend on the new research task.
+I am submitting an empty PR to allow the DAG to gracefully transition these states.
+
+
+---
+
+# Tech Lead Journal: Handling E2E Timeouts and Permanent Failures
+
+When a child node fails permanently due to a timeout (e.g. `[ACKNOWLEDGED] Session timed out`), it is required to explicitly spawn a `RESEARCH` node to investigate the root cause of the timeout before re-attempting the implementation. I have learned to strictly adhere to the "Impossible Loop" handling rule by:
+1. Spawning a `RESEARCH` node assigned to the `researcher` persona.
+2. Creating a new set of replacement `TASK` nodes (`coder` and `qa`) that depend on the `RESEARCH` node.
+3. Marking the failed child task as complete (`- [x]`) in the parent's markdown body.
+4. Appending the newly spawned nodes as unchecked tasks (`- [ ]`) to properly utilize late binding.
+
+This pattern ensures that we don't infinitely loop on timeouts without explicitly uncovering why Playwright or bash is hanging.
+
+
+---
+
+# Breakdown of Gen 1 & Gen 2 PKM Extraction Story
+
+I decomposed story-530-553-gen1-gen2-pkm-extraction into three tasks to satisfy granularity requirements and architectural contracts.
+
+1. **task-553-567-gen1-pkm-extraction**: Focused purely on extracting Gen 1 44-byte memory structures into `.pkm` format, enforcing module-level constants for memory offsets.
+2. **task-553-568-gen2-pkm-extraction**: Focused purely on extracting Gen 2 73-byte memory structures into `.pkm` format.
+3. **task-553-569-qa-gen1-gen2-pkm-extraction**: A dedicated QA node to verify adherence to ADRs and schema rules (e.g. handling `RangeError` with specific messaging, checking module-level constants without magic numbers).
+
+Using these three tasks ensures the logic is properly modularized, and QA explicitly verifies the extraction constraints before moving forward.

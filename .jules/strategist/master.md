@@ -186,3 +186,37 @@
 **Outcome:** Rejected → journaled
 **Why:** The maintainer rejected the retirement of the `agile_coach` persona, noting that its previous retirement created a void that needed to be filled, and that it was a bad decision to retire it. This indicates that despite apparent overlap with `strategist`, `agile_coach` provides necessary value that cannot be fully absorbed.
 **Pattern:** Before retiring a meta-agent due to perceived redundancy, ensure its historical contributions and unique system role (such as analyzing journals and creating proactive process improvements based on friction) are truly redundant and not just superficially similar to another agent's responsibilities.
+
+
+---
+
+## 2026-09-08 - [Accepted] - Prompt improvement - Consolidate journal aggregation ownership
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The instructions for aggregating agent journals were duplicated across `.github/agents/tpm.md` and `.github/agents/archivist.md`. Since the `tpm` schedule correctly runs the aggregation script every hour, we removed the redundant aggregation instruction from the `archivist` to avoid confusion.
+**Pattern:** Ensure specific lifecycle tasks (like file archiving and journal aggregation) are strictly owned by a single agent to avoid conflicting work.
+
+---
+
+## 2026-09-09 - [Accepted] - Prompt Consolidation: Remove Redundant Node Spawning Procedures from Curator
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The rules for dynamically spawning nodes via late binding, appending children to acceptance criteria, and avoiding circular dependencies are already centralized in `core_policies.md` under "Late Binding & Dynamic Node Spawning" and "Node Generation Rules". Explicitly repeating them in `.github/agents/curator.md` is redundant and wastes context window tokens.
+**Pattern:** Consolidate redundant execution patterns from agent prompts into centralized core documents (like `core_policies.md`) to enforce a single source of truth and reduce prompt size.
+
+---
+
+## 2026-09-10 - [Accepted] - Prompt improvement: Update Aggregated Journal Paths for Canvas
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The instructions in `canvas.md` told the agent to read and persist to directories/files like `.jules/canvas.md`. However, since the Archivist persona aggregates session logs into singular markdown files per persona (e.g., `.jules/canvas/master.md`), the Canvas agent was unable to read the files effectively and failed during journal review phases. Updating paths to point to `master.md` within persona directories fixes this. Furthermore, fixed the instruction to create timestamped journal files instead of writing directly to `.jules/canvas.md` to comply with core journaling policies.
+**Pattern:** Ensure file path instructions in prompts reflect the actual repository structure, especially taking into account Archivist aggregations.
+
+
+---
+
+## 2026-09-12 - [Accepted] - Prompt Consolidation: Centralize Node Spawning Procedures for Curator
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The rules for dynamically spawning downstream nodes were explicitly repeated in `.github/agents/curator.md` under the "Node Spawning Procedures" section. Since these rules are already globally centralized in `.foundry/docs/knowledge_base/agents/core_policies.md` under "Late Binding & Dynamic Node Spawning", and `core_policies.md` is appended to every agent prompt by the orchestrator, repeating them in `curator.md` is redundant, wastes context window tokens, and invites drift. Also, missing 'Read your past journals in' instruction was added to Curator's prompt.
+**Pattern:** Consolidate redundant execution patterns from agent prompts into centralized core documents (like `core_policies.md`) to enforce a single source of truth and reduce prompt size. Ensure standard journal reading instructions are present.

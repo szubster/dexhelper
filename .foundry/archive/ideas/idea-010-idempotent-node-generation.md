@@ -29,4 +29,4 @@ Implement an idempotent generation check within the orchestrator or a standalone
 If the target files exist and are fully formed, the orchestrator should immediately mark the parent node's generation sub-task as fulfilled without spawning a Jules matrix job, saving resources and preventing redundant session startups.
 
 ## Generated PRD
-- [.foundry/prds/prd-010-008-idempotent-node-generation.md](.foundry/prds/prd-010-008-idempotent-node-generation.md)
+- [.foundry/prds/prd-010-008-idempotent-node-generation.md](.foundry/archive/prds/prd-010-008-idempotent-node-generation.md)
