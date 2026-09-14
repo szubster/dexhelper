@@ -11,7 +11,7 @@ jules_session_id: null
 locks: []
 pr_number: null
 parent: idea-523-component-variants-theming-consolidation-refactor
-priority: 50
+priority: 60
 tags:
   - refactor
   - styling
