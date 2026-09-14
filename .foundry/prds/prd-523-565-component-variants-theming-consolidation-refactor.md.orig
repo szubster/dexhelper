@@ -57,7 +57,7 @@ The target component library migration scope includes, but is not limited to:
    - Add Playwright visual regression tests to verify component variants render properly and layout styling complies with ADR 008 tactical aesthetics (e.g., sharp edges, dashed borders).
 
 ## Acceptance Criteria
-- [x] Epic Planner: Break down this PRD into Epics to handle CVA setup, core component refactoring, and integration testing.
+- [ ] Epic Planner: Break down this PRD into Epics to handle CVA setup, core component refactoring, and integration testing.
 - [ ] epic-565-566-cva-setup
 - [ ] epic-565-567-core-components-refactor
 - [ ] epic-565-568-theming-e2e-verification
