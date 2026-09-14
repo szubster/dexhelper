@@ -2,10 +2,10 @@
 id: story-555-563-lint-schema-file-iteration
 type: STORY
 title: Schema Linter File Iteration Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
+updated_at: '2026-09-14'
 depends_on: []
 jules_session_id: null
 parent: epic-521-555-schema-linter-frontmatter-logic

@@ -2,10 +2,10 @@
 id: task-470-555-qa-public-saves-replacement
 type: TASK
 title: QA Verification of Sourced Save Files (Replacement)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-09-14'
 depends_on:
   - task-470-554-catalog-integrate-saves-replacement
 jules_session_id: null

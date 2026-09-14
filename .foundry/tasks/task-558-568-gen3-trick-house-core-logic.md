@@ -2,10 +2,10 @@
 id: task-558-568-gen3-trick-house-core-logic
 type: TASK
 title: Implement Gen 3 Trick House Save Parsing Core Logic
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
+updated_at: '2026-09-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

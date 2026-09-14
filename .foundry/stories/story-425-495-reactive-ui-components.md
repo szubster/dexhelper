@@ -2,13 +2,13 @@
 id: story-425-495-reactive-ui-components
 type: STORY
 title: Reactive UI Components
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-30'
-updated_at: '2026-09-12'
+updated_at: '2026-09-14'
 depends_on:
   - story-425-494-reactive-ui-context
-jules_session_id: '15001876014527628610'
+jules_session_id: null
 pr_number: null
 parent: epic-343-425-reactive-ui-updates
 tags:

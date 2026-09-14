@@ -2,10 +2,10 @@
 id: story-335-565-migration-e2e-verification
 type: STORY
 title: Migration E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-11'
-updated_at: '2026-09-11'
+updated_at: '2026-09-14'
 depends_on:
   - story-335-564-execute-migration
 jules_session_id: null

@@ -2,12 +2,12 @@
 id: story-540-558-trick-house-save-parsing
 type: STORY
 title: Trick House Save Parsing Logic
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-12'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: '12040358562369365674'
+jules_session_id: null
 pr_number: null
 parent: epic-524-540-trick-house-tracker
 tags:

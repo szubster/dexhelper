@@ -2,13 +2,13 @@
 id: task-421-498-verify-schema-documentation-qa
 type: TASK
 title: Verify Schema Documentation QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-26'
 updated_at: '2026-09-14'
 depends_on:
   - task-421-497-verify-schema-documentation-ci-coder
-jules_session_id: '18007985170938455547'
+jules_session_id: null
 pr_number: null
 parent: story-129-421-verify-schema-documentation-e2e
 tags: []

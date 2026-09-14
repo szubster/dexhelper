@@ -2,13 +2,13 @@
 id: epic-117-335-migrate-task-reminders
 type: EPIC
 title: Migrate and Clean Existing Task Reminders
-status: ACTIVE
-owner_persona: story_owner
+status: PENDING
+owner_persona: auditor
 created_at: '2026-07-19'
-updated_at: '2026-09-12'
+updated_at: '2026-09-14'
 depends_on:
   - epic-117-334-centralize-prompt-rules
-jules_session_id: '6922698242078216188'
+jules_session_id: null
 pr_number: null
 parent: prd-118-117-centralize-prompt-reminders
 tags:
