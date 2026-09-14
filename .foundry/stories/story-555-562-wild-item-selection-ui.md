@@ -31,4 +31,8 @@ As part of the Wild Item Hunting UI epic, we need a user interface for users to 
 - Ensure styling adheres to the tactical hardware aesthetic guidelines.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks.
+- [x] tech_lead: Break down this Story into Tasks.
+- [ ] task-562-578-wild-item-selection-state
+- [ ] task-562-579-wild-item-selection-ui
+- [ ] task-562-580-wild-item-selection-tests
+- [ ] task-562-581-wild-item-selection-qa
