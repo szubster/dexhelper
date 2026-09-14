@@ -7,6 +7,9 @@ owner_persona: coder
 parent: story-530-560-update-dag-ui-components
 depends_on: []
 tags: [ui, react]
+created_at: '2026-09-14'
+updated_at: '2026-09-14'
+jules_session_id: null
 rejection_count: 0
 rejection_reason: ""
 notes: ""
