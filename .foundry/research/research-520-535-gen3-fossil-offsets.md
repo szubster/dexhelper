@@ -2,12 +2,12 @@
 id: research-520-535-gen3-fossil-offsets
 type: RESEARCH
 title: Gen 3 Fossil Revival Offset Discovery
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-04'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '12987070592582206067'
+jules_session_id: null
 pr_number: null
 parent: prd-422-520-gen3-fossil-revival-tracker
 tags:
@@ -30,6 +30,6 @@ Determine the exact memory locations (variables/flags) used by Generation 3 game
 - FRLG (Cinnabar Lab): Helix Fossil (Omanyte), Dome Fossil (Kabuto), Old Amber (Aerodactyl).
 
 ## Acceptance Criteria
-- [ ] Identify the exact event flags or variables tracking fossil states in RSE.
-- [ ] Identify the exact event flags or variables tracking fossil states in FRLG.
-- [ ] Document these offsets for the engineering team to implement the tracking logic.
+- [x] Identify the exact event flags or variables tracking fossil states in RSE.
+- [x] Identify the exact event flags or variables tracking fossil states in FRLG.
+- [x] Document these offsets for the engineering team to implement the tracking logic.

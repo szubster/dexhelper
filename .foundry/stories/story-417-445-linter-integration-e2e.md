@@ -2,13 +2,13 @@
 id: story-417-445-linter-integration-e2e
 type: STORY
 title: Integration and E2E Verification of ADR Compliance Linter
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-23T00:00:00.000Z'
-updated_at: '2026-09-10'
+updated_at: '2026-09-13'
 depends_on:
   - story-417-444-adr-013-state-compliance-linter
-jules_session_id: '8630405035589999913'
+jules_session_id: null
 pr_number: null
 parent: epic-142-417-automated-adr-compliance-linter
 tags:
@@ -37,4 +37,7 @@ With the implementation of the ADR compliance linter scripts for UI constraints 
 - Integrate the script execution into the global `pnpm lint` flow or a dedicated `pnpm run verify-adr` step in the CI configuration.
 
 ## Acceptance Criteria
-- [ ] Break down this story into actionable engineering tasks.
+- [x] Break down this story into actionable engineering tasks.
+- [ ] task-445-567-impl-adr013-compliance-tests
+- [ ] task-445-568-impl-linter-script-integration
+- [ ] task-445-569-qa-adr-linter-integration

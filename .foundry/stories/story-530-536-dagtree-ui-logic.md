@@ -2,7 +2,7 @@
 id: story-530-536-dagtree-ui-logic
 type: STORY
 title: Implement DagTree UI logic
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-05'
 updated_at: '2026-09-12'

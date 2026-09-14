@@ -2,12 +2,12 @@
 id: task-526-564-rng-explainer-ui-impl
 type: TASK
 title: Implement RNG Tool Explainer UI Component
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2024-05-18'
-updated_at: '2024-05-18'
+updated_at: '2026-09-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2576807598858995565'
 pr_number: null
 parent: story-131-526-rng-explainer-ui-component
 tags:

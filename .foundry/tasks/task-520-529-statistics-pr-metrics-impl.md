@@ -2,13 +2,13 @@
 id: task-520-529-statistics-pr-metrics-impl
 type: TASK
 title: Implement PR Metrics Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-10'
+updated_at: '2026-09-13'
 depends_on:
   - task-520-528-statistics-node-aggregation-impl
-jules_session_id: '961100572335520333'
+jules_session_id: null
 pr_number: null
 parent: story-417-520-statistics-generation
 tags:
@@ -34,6 +34,6 @@ Implement the extraction of PR metrics using GitHub CLI.
 4. Handle cases where the `gh` CLI might fail or rate limit gracefully.
 
 ## Acceptance Criteria
-- [ ] PR metrics extraction logic implemented.
-- [ ] Successfully fetches and parses data using `gh pr list --state all --json`.
-- [ ] Includes error handling for CLI execution.
+- [x] PR metrics extraction logic implemented.
+- [x] Successfully fetches and parses data using `gh pr list --state all --json`.
+- [x] Includes error handling for CLI execution.

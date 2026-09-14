@@ -240,3 +240,11 @@ Removed redundant dead code (like the `ledOuter` and `ledInner` styles from `Tac
 - **Key Learnings**:
   - The `CornerCrosshairs` component encapsulates the `absolute top-0 left-0` (and other corners) positioning logic along with the `border-t-2 border-l-2` style borders.
   - Using a single `CornerCrosshairs` component cleans up four distinct div tags used previously into a single component call, which handles displaying all four corners by default unless restricted by a `corners` array.
+
+
+<!-- Merged from 2026-09-09-04-11-24.md -->
+## TargetLockOverlay Extraction
+- **What**: Extracted a repeated JSX pattern in `StorageGrid.tsx` and `PokedexCard.tsx` consisting of a target lock overlay into a `TargetLockOverlay` reusable component.
+- **Why**: Reduced duplication of verbose tactical utility classes (`pointer-events-none absolute inset-0 z-20 border-[1px] border-cyan-400/0 transition-colors duration-300 group-hover/card:border-cyan-400/30 group-focus-visible/card:border-cyan-400/30` etc.).
+- **Key Learnings**:
+  - Encapsulating visual decorators (like target lock crosshairs on cards) using `absolute inset-0` standardizes the hover effects (e.g. `group-hover/card`) across different card components.

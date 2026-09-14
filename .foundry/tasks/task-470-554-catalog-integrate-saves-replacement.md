@@ -34,6 +34,6 @@ After sourcing public save files for Generations 1, 2, and 3, they need to be pr
 5. Apply the findings from the research task to either properly parse the Japanese Crystal save or replace it.
 
 ## Acceptance Criteria
-- [ ] Save files are correctly formatted and placed in `tests/fixtures/`.
-- [ ] A manifest or README is updated/created to describe the state and purpose of each new fixture.
-- [ ] Japanese Crystal save is either successfully parsed or replaced.
+- [x] Save files are correctly formatted and placed in `tests/fixtures/`.
+- [x] A manifest or README is updated/created to describe the state and purpose of each new fixture.
+- [x] Japanese Crystal save is either successfully parsed or replaced.

@@ -11,6 +11,7 @@ depends_on:
 jules_session_id: null
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
+priority: 100
 tags:
   - styling
   - agents

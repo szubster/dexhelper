@@ -2,14 +2,14 @@
 id: story-133-423-gen3-lottery-ui-integration
 type: STORY
 title: Gen3 Lottery UI Integration
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-14'
-updated_at: '2026-09-11'
+updated_at: '2026-09-13'
 depends_on:
   - story-133-273-gen3-lottery-matching-algorithm
   - story-133-422-gen3-lottery-data-extraction
-jules_session_id: '13405966980576217570'
+jules_session_id: null
 pr_number: null
 parent: epic-105-133-lottery-matching-logic
 tags:
@@ -34,5 +34,8 @@ Integrate the lottery matching logic into the UI.
 ## Acceptance Criteria
 - [x] Break down into Tasks
 - [ ] task-423-469-gen3-lottery-state-impl
-- [ ] task-423-470-gen3-lottery-ui-component-impl
-- [ ] task-423-471-gen3-lottery-ui-qa
+- [x] task-423-470-gen3-lottery-ui-component-impl
+- [x] task-423-471-gen3-lottery-ui-qa
+- [ ] research-423-568-investigate-gen3-lottery-ui-failure
+- [ ] task-423-569-gen3-lottery-ui-component-impl-v2
+- [ ] task-423-570-gen3-lottery-ui-qa-v2

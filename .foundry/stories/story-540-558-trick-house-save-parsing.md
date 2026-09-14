@@ -35,4 +35,7 @@ As part of the Gen 3 Trick House Tracker Dashboard, we need to extract the playe
 - Follow architectural rules (ADR 032, no magic numbers, explicit module-level constants).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into implementation TASK nodes (e.g., constants definition, core logic).
+- [x] Tech Lead: Break down into implementation TASK nodes (e.g., constants definition, core logic).
+- [ ] task-558-568-gen3-trick-house-core-logic
+- [ ] task-558-569-gen3-trick-house-tests
+- [ ] task-558-570-gen3-trick-house-qa

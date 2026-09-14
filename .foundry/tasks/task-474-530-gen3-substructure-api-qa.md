@@ -2,10 +2,10 @@
 id: task-474-530-gen3-substructure-api-qa
 type: TASK
 title: QA Gen 3 Substructure Resolution API
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-09-13'
 depends_on:
   - task-474-529-gen3-substructure-api-tests
 jules_session_id: null
