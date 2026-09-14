@@ -39,4 +39,5 @@ This IDEA node initiates the actual implementation and refactor phase to consoli
 4. **Verification**: Add comprehensive unit and visual regression / Playwright tests ensuring component variants render properly and layout styling complies with ADR 008 tactical aesthetics.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this idea into a PRD to map out the component variant refactor and CVA adoption scope.
+- [x] Product Manager: Convert this idea into a PRD to map out the component variant refactor and CVA adoption scope.
+- [ ] prd-523-565-component-variants-theming-consolidation-refactor
