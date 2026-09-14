@@ -28,7 +28,7 @@ locks: []
 Implement a brief, user-friendly explainer section within the RNG calculator UI that instructs users on how to use their TID/SID combination with external RNG manipulation tools.
 
 ## Acceptance Criteria
-- [ ] Create a new UI component (e.g., `RNGExplainer`) in the appropriate RNG calculator directory.
-- [ ] Ensure the component renders a clear, accessible explanation of TID/SID usage.
-- [ ] Adhere to the "tactical hardware/snooping" aesthetic constraints (ADR 008) including `rounded-none`, `border-dashed`, and monospaced fonts where applicable.
-- [ ] Write unit tests for the new component using `vitest-browser-react` to ensure it renders correctly and is accessible.
+- [x] Create a new UI component (e.g., `RNGExplainer`) in the appropriate RNG calculator directory.
+- [x] Ensure the component renders a clear, accessible explanation of TID/SID usage.
+- [x] Adhere to the "tactical hardware/snooping" aesthetic constraints (ADR 008) including `rounded-none`, `border-dashed`, and monospaced fonts where applicable.
+- [x] Write unit tests for the new component using `vitest-browser-react` to ensure it renders correctly and is accessible.
