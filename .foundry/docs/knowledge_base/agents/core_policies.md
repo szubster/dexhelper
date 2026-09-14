@@ -13,6 +13,7 @@
    - "Are there any other tasks you'd like me to focus on before submitting?"
    - "Is there anything else you'd like me to address before submitting?"
    - "Which option do you prefer?"
+   - "Is there any specific file you want me to look into, or any other branch we need to re-run the tests on?"
 3. **Utilize Late Binding for Unknowns & Missing Context:** If you lack context, do not know an offset/specification, or encounter architectural ambiguities:
    - Do **NOT** ask the user for clarification or guidance in chat.
    - Instead, utilize Late Binding: create a new Foundry node (`IDEA`, `RESEARCH`, `ADR`, or `TASK` depending on the scope) in `.foundry/`.
