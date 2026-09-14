@@ -2,13 +2,13 @@
 id: task-520-551-qa-banner-removal-automation
 type: TASK
 title: QA Banner Removal Automation
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-05'
 updated_at: '2026-09-14'
 depends_on:
   - task-520-550-impl-banner-removal-cli
-jules_session_id: null
+jules_session_id: '17571255870456680327'
 pr_number: null
 parent: story-519-520-automate-banner-removal
 tags:
