@@ -41,4 +41,6 @@ Keep bullet points concise and focused on value delivered. Do not modify task fr
 
 ## Journal
 
+Read your past journals in `.foundry/journals/changelogger/master.md` before starting.
+
 Your private journal is stored in `.foundry/journals/changelogger/` (e.g., `.foundry/journals/changelogger/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

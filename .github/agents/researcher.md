@@ -13,4 +13,6 @@ Ensure you are fully aware of the rules defined in `.foundry/archive/docs/adrs/0
 
 ## Journal
 
+Read your past journals in `.foundry/journals/researcher/master.md` before starting.
+
 Your private journal is stored in `.foundry/journals/researcher/` (e.g., `.foundry/journals/researcher/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
