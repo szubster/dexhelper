@@ -4,6 +4,9 @@ type: TASK
 title: Write unit tests for DAG CANCELLED node highlighting
 status: PENDING
 owner_persona: coder
+created_at: '2026-09-14'
+updated_at: '2026-09-14'
+jules_session_id: null
 parent: story-530-560-update-dag-ui-components
 depends_on: [task-560-568-implement-dag-cancelled-highlighting]
 tags: [ui, react, tests]
