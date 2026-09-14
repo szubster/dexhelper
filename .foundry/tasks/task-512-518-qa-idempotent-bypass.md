@@ -2,13 +2,13 @@
 id: task-512-518-qa-idempotent-bypass
 type: TASK
 title: QA Idempotent Orchestrator Bypass
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-02'
-updated_at: '2026-09-13'
+updated_at: '2026-09-14'
 depends_on:
   - task-512-517-implement-idempotent-bypass
-jules_session_id: null
+jules_session_id: '2594006819838803759'
 pr_number: null
 parent: story-018-512-idempotent-orchestrator-bypass
 tags:
