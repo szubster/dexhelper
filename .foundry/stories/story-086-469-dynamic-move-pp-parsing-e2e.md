@@ -35,4 +35,6 @@ The epic `epic-049-086-dynamic-move-pp-parsing` involves dynamic generation of m
 - [ ] Verify the E2E tests for dynamic move PP parsing pass.
 - [ ] Verify generational discrepancies (e.g., Gen 1 vs Gen 2 PP limits) are correctly handled in the runtime via E2E.
 
-- [ ] task-469-473-dynamic-move-pp-parsing-e2e-impl
+- [x] task-469-473-dynamic-move-pp-parsing-e2e-impl
+- [ ] research-469-576-investigate-move-pp-e2e-timeout
+- [ ] task-469-577-dynamic-move-pp-e2e-impl-retry
