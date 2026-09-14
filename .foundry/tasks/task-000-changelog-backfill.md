@@ -2,7 +2,7 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-09-14'
@@ -26,55 +26,48 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `05e43699d7f75bf0e38ed9c309d19a940c8d21d0`
-- **Previous Commit SHA:** `a7301db6a474560583409f80e10cd68d4d278c13`
-- **Commit Date:** `2026-03-16`
-- **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
-- **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `minor` (from `0.13.0` -> `0.14.0`)
+- **Commit SHA:** `6b45812d10df03f2d206cadf951b9ac8bf5e710e`
+- **Previous Commit SHA:** `90187d50bf7dc2d7bce31ce0d9ecbeaf106af5ac`
+- **Commit Date:** `2026-03-15`
+- **Classification Reason:** Ad-hoc Foundry system code modification
+- **Recommended Domain:** foundry
+- **Suggested SemVer Bump:** `patch` (from `0.1.0` -> `0.1.1`)
 
 ## Commit Message
 ```text
-feat: Implement core Pokedex application with routing, state management, and Generation 1/2 save data parsing.
+build(deps): Bump actions/checkout from 4 to 6
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4 to 6.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/v4...v6)
+
+---
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-version: '6'
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
 ```
 
 ## Modified Files
-- `src/components/AppLayout.tsx`
-- `src/components/BottomNav.tsx`
-- `src/components/PokedexGrid.tsx`
-- `src/components/PokemonDetails.tsx`
-- `src/components/SearchAndFilters.tsx`
-- `src/index.css`
-- `src/main.tsx`
-- `src/routes/__root.tsx`
-- `src/routes/index.tsx`
-- `src/routes/pokemon.$pokemonId.tsx`
-- `src/routes/storage.tsx`
-- `src/state.tsx`
-- `src/utils/saveParser.ts`
+- `.github/workflows/ci.yml`
+- `.github/workflows/deploy.yml`
 
 ## Diff Summary
 ```text
-05e43699d feat: Implement core Pokedex application with routing, state management, and Generation 1/2 save data parsing.
- src/components/AppLayout.tsx        | 191 +++++++----
- src/components/BottomNav.tsx        |  59 ++--
- src/components/PokedexGrid.tsx      | 181 ++++++-----
- src/components/PokemonDetails.tsx   | 623 +++++++++++++++++++++++++-----------
- src/components/SearchAndFilters.tsx |  58 ++--
- src/index.css                       | 111 +++++--
- src/main.tsx                        |   1 +
- src/routes/__root.tsx               |  47 ++-
- src/routes/index.tsx                |  37 ++-
- src/routes/pokemon.$pokemonId.tsx   |  37 ++-
- src/routes/storage.tsx              |  35 +-
- src/state.tsx                       |   2 +-
- src/utils/saveParser.ts             |  13 +-
- 13 files changed, 952 insertions(+), 443 deletions(-)
+6b45812d1 build(deps): Bump actions/checkout from 4 to 6
+ .github/workflows/ci.yml     | 2 +-
+ .github/workflows/deploy.yml | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 05e43699d7f75bf0e38ed9c309d19a940c8d21d0` (or `git diff a7301db6a474560583409f80e10cd68d4d278c13..05e43699d7f75bf0e38ed9c309d19a940c8d21d0`) in bash to analyze the actual code diff.
+As Changelogger, independently inspect the commit changes above by executing `git show 6b45812d10df03f2d206cadf951b9ac8bf5e710e` (or `git diff 90187d50bf7dc2d7bce31ce0d9ecbeaf106af5ac..6b45812d10df03f2d206cadf951b9ac8bf5e710e`) in bash to analyze the actual code diff.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.14.0] - 2026-03-16` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.13.0...0.14.0`](https://github.com/${repo}/compare/a7301db...05e4369)), and update `README.md` if necessary.
-If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.1.1] - 2026-03-15` in `CHANGELOG-foundry.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.1.0...0.1.1`](https://github.com/${repo}/compare/90187d5...6b45812)), and update `README.md` if necessary.
+If Keep a Changelog link references exist at the bottom of `CHANGELOG-foundry.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
