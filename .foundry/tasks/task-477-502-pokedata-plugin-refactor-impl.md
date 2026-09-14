@@ -32,4 +32,4 @@ As proposed in ADR 117, we need to extract generation-specific encounters and lo
   3. Emit `pokedata-gen1.msgpack`, `pokedata-gen2.msgpack`, `pokedata-gen3.msgpack` containing gen-specific encounters and locations.
 
 ## Acceptance Criteria
-- [ ] Implement data splitting logic.
+- [x] Implement data splitting logic.

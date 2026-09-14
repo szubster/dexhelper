@@ -16,7 +16,13 @@ function readJsonl(filePath: string): any[] {
 
 export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
   const { sourceDir } = options;
-  let cachedData: { finalContent: Buffer; hash: string } | null = null;
+  let cachedData: {
+    hash: string;
+    core: Buffer;
+    gen1: Buffer;
+    gen2: Buffer;
+    gen3: Buffer;
+  } | null = null;
 
   function generateData() {
     const pokemon = readJsonl(path.join(sourceDir, 'pokemon.jsonl'));
@@ -29,10 +35,41 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
     const metadataPath = path.join(sourceDir, 'metadata.json');
     const metadata = fs.existsSync(metadataPath) ? JSON.parse(fs.readFileSync(metadataPath, 'utf-8')) : {};
 
+    const gen1Versions = [1, 2, 3];
+    const gen2Versions = [4, 5, 6];
+    const gen3Versions = [7, 8, 9, 10, 11];
+
+    const filterEnc = (encList: any[], genVs: number[]) => {
+      return encList
+        .map((p) => {
+          const filtered = p.enc.filter((e: any) => genVs.includes(e.v));
+          if (filtered.length === 0) return null;
+          return { ...p, enc: filtered };
+        })
+        .filter(Boolean);
+    };
+
+    const filterLoc = (locList: any[], encListFiltered: any[]) => {
+      const activeLocationIds = new Set<number>();
+      for (const p of encListFiltered) {
+        for (const e of p.enc) {
+          if (e.aid !== undefined) activeLocationIds.add(e.aid);
+        }
+      }
+      return locList.filter((loc) => activeLocationIds.has(loc.id));
+    };
+
+    const gen1Enc = filterEnc(encounters, gen1Versions);
+    const gen1Loc = filterLoc(locations, gen1Enc);
+
+    const gen2Enc = filterEnc(encounters, gen2Versions);
+    const gen2Loc = filterLoc(locations, gen2Enc);
+
+    const gen3Enc = filterEnc(encounters, gen3Versions);
+    const gen3Loc = filterLoc(locations, gen3Enc);
+
     const exportData = {
       poke: pokemon,
-      enc: encounters,
-      loc: locations,
       items: items,
       moves: moves,
       berries: berries,
@@ -50,9 +87,18 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
     const hash = crypto.createHash('sha256').update(initialContent).digest('hex');
 
     finalData.hash = hash;
-    const finalContent = packr.pack(finalData);
+    const coreContent = packr.pack(finalData);
+    const gen1Content = packr.pack({ enc: gen1Enc, loc: gen1Loc });
+    const gen2Content = packr.pack({ enc: gen2Enc, loc: gen2Loc });
+    const gen3Content = packr.pack({ enc: gen3Enc, loc: gen3Loc });
 
-    cachedData = { finalContent, hash };
+    cachedData = {
+      hash,
+      core: coreContent,
+      gen1: gen1Content,
+      gen2: gen2Content,
+      gen3: gen3Content,
+    };
     return cachedData;
   }
 
@@ -88,11 +134,35 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
         const url = req.url || '';
         const cleanUrl = url.replace(/\/$/, '');
         
-        if (cleanUrl.endsWith('/data/pokedata.msgpack')) {
+        if (cleanUrl.endsWith('/data/pokedata.msgpack') || cleanUrl.endsWith('/data/pokedata-core.msgpack')) {
           const data = cachedData || generateData();
           res.setHeader('Content-Type', 'application/msgpack');
           res.setHeader('Cache-Control', 'no-cache');
-          res.end(data.finalContent);
+          res.end(data.core);
+          return;
+        }
+
+        if (cleanUrl.endsWith('/data/pokedata-gen1.msgpack')) {
+          const data = cachedData || generateData();
+          res.setHeader('Content-Type', 'application/msgpack');
+          res.setHeader('Cache-Control', 'no-cache');
+          res.end(data.gen1);
+          return;
+        }
+
+        if (cleanUrl.endsWith('/data/pokedata-gen2.msgpack')) {
+          const data = cachedData || generateData();
+          res.setHeader('Content-Type', 'application/msgpack');
+          res.setHeader('Cache-Control', 'no-cache');
+          res.end(data.gen2);
+          return;
+        }
+
+        if (cleanUrl.endsWith('/data/pokedata-gen3.msgpack')) {
+          const data = cachedData || generateData();
+          res.setHeader('Content-Type', 'application/msgpack');
+          res.setHeader('Cache-Control', 'no-cache');
+          res.end(data.gen3);
           return;
         }
         
@@ -139,8 +209,23 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
       
       this.emitFile({
         type: 'asset',
-        fileName: 'data/pokedata.msgpack',
-        source: data.finalContent
+        fileName: 'data/pokedata-core.msgpack',
+        source: data.core
+      });
+      this.emitFile({
+        type: 'asset',
+        fileName: 'data/pokedata-gen1.msgpack',
+        source: data.gen1
+      });
+      this.emitFile({
+        type: 'asset',
+        fileName: 'data/pokedata-gen2.msgpack',
+        source: data.gen2
+      });
+      this.emitFile({
+        type: 'asset',
+        fileName: 'data/pokedata-gen3.msgpack',
+        source: data.gen3
       });
 
       this.emitFile({
