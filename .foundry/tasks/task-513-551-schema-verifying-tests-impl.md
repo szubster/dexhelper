@@ -27,4 +27,4 @@ locks: []
 This task updates the `scripts/verify-schema-documentation.test.ts` to cover the newly added positive and negative checks regarding the VERIFYING state.
 
 ## Acceptance Criteria
-- [ ] Tests successfully pass and cover both positive and negative checks.
+- [x] Tests successfully pass and cover both positive and negative checks.
