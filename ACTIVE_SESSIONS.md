@@ -14,6 +14,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [idea-521-agent-confidence-metrics-dashboard](.foundry/ideas/idea-521-agent-confidence-metrics-dashboard.md) | IDEA | Agent Confidence Metrics Dashboard | product_manager | [5160211212668243883](https://jules.google.com/session/5160211212668243883) |
 | [idea-521-foundry-persona-execution-time-profiler](.foundry/ideas/idea-521-foundry-persona-execution-time-profiler.md) | IDEA | Foundry Persona Execution Time Profiler | product_manager | [5656689342012814565](https://jules.google.com/session/5656689342012814565) |
 | [idea-522-gen3-secret-base-radar](.foundry/ideas/idea-522-gen3-secret-base-radar.md) | IDEA | Gen 3 Secret Base Radar & Analyzer | product_manager | [3997530602284275336](https://jules.google.com/session/3997530602284275336) |
 | [prd-517-564-optimize-pokedex-grid-rendering](.foundry/prds/prd-517-564-optimize-pokedex-grid-rendering.md) | PRD | PRD: Optimize Pokedex and Storage Grids with Virtualization | epic_planner | [10260190093080083716](https://jules.google.com/session/10260190093080083716) |
