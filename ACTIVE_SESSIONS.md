@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [epic-046-079-react-flow-visualizer-refactor](.foundry/epics/epic-046-079-react-flow-visualizer-refactor.md) | EPIC | React Flow Visualizer Refactor | story_owner | [8447809816920353388](https://jules.google.com/session/8447809816920353388) |
 | [epic-117-335-migrate-task-reminders](.foundry/epics/epic-117-335-migrate-task-reminders.md) | EPIC | Migrate and Clean Existing Task Reminders | story_owner | [6922698242078216188](https://jules.google.com/session/6922698242078216188) |
 | [epic-340-412-shoal-cave-ui-dashboard](.foundry/epics/epic-340-412-shoal-cave-ui-dashboard.md) | EPIC | UI Dashboard Implementation (Shoal Cave Tracker) | story_owner | [14835641724444935603](https://jules.google.com/session/14835641724444935603) |
 | [epic-517-550-deterministic-archival-tree-evaluation](.foundry/epics/epic-517-550-deterministic-archival-tree-evaluation.md) | EPIC | Tree Completeness Evaluation and File Moves | story_owner | [1763868370260849864](https://jules.google.com/session/1763868370260849864) |
