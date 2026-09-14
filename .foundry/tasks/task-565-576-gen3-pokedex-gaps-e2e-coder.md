@@ -1,15 +1,15 @@
 ---
-id: story-552-565-gen3-pokedex-gaps-e2e
-type: STORY
+id: task-565-576-gen3-pokedex-gaps-e2e-coder
+type: TASK
 title: Gen 3 Pokédex Gaps Integration and E2E Verification
 status: READY
-owner_persona: tech_lead
-created_at: '2026-09-10'
+owner_persona: coder
+created_at: '2026-09-13'
 updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: epic-520-552-gen3-pokedex-gaps-tracker
+parent: story-552-565-gen3-pokedex-gaps-e2e
 tags:
   - dexhelper
   - gen3
@@ -24,9 +24,7 @@ locks: []
 # Gen 3 Pokédex Gaps Integration and E2E Verification
 
 ## Description
-End-to-end integration and verification of the Gen 3 Pokédex Gaps Tracker.
+Write Playwright E2E tests for the Gen 3 Pokédex Gaps Tracker, verifying the extraction, mapping, and UI integration.
 
 ## Acceptance Criteria
-- [ ] Verify extraction, mapping, and UI integration
-- [ ] Write Playwright E2E tests for the feature
-- [ ] task-565-576-gen3-pokedex-gaps-e2e-coder
+- [ ] Implement E2E tests for the Gen 3 Pokédex Gaps Tracker feature
