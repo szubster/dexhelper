@@ -41,3 +41,4 @@ Implement the core data extraction logic to read the Friendship (Happiness) valu
 - [x] Break down into Tasks
 - [x] story-094-151-gen2-friendship-extraction
 - [x] story-094-152-gen3-friendship-extraction
+- [ ] story-094-569-friendship-data-extraction-e2e
