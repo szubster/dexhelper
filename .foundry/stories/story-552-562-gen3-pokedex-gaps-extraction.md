@@ -27,3 +27,7 @@ Extract the National and Regional Pokédex completion status (seen/owned) from t
 ## Acceptance Criteria
 - [ ] Extract seen/owned flags for Gen 3 Pokédex
 - [ ] Support Hoenn and National Dex logic
+- [x] Break down into Tasks
+- [ ] task-562-578-gen3-pokedex-gaps-extraction-logic
+- [ ] task-562-579-gen3-pokedex-gaps-extraction-tests
+- [ ] task-562-580-gen3-pokedex-gaps-extraction-qa
