@@ -10,6 +10,9 @@ tags: [ui, react, tests]
 rejection_count: 0
 rejection_reason: ""
 notes: ""
+created_at: '2026-09-14'
+updated_at: '2026-09-14'
+jules_session_id: null
 ---
 
 # Write unit tests for DAG CANCELLED node highlighting
