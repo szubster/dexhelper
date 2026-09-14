@@ -28,5 +28,5 @@ Implement a script or process to populate and update the Idea Dependency Matrix 
 - The script should generate or update `.foundry/docs/architecture/idea_dependency_matrix.md` according to the schema.
 
 ## Acceptance Criteria
-- [ ] Script is implemented and correctly parses existing IDEA nodes.
-- [ ] Script updates the matrix file without removing manual annotations (if supported by schema) or generates it deterministically.
+- [x] Script is implemented and correctly parses existing IDEA nodes.
+- [x] Script updates the matrix file without removing manual annotations (if supported by schema) or generates it deterministically.
