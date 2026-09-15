@@ -34,4 +34,6 @@ Add the Class Variance Authority (CVA) library and establish centralized CSS cus
 - Ensure proper configuration for the tactical aesthetic (ADR 008).
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into Stories.
+- [x] Story Owner: Break down this Epic into Stories.
+- [ ] story-566-569-cva-theme-variables-setup
+- [ ] story-566-570-cva-theme-variables-e2e-verification
