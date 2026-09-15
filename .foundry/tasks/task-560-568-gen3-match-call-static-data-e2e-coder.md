@@ -30,5 +30,5 @@ Implement E2E testing to verify that the Gen 3 Match Call static dataset is succ
 This task fulfills the mandatory Orchestrator Safeguard (E2E/Integration Requirement) for the Gen 3 Match Call Static Data Generation epic.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for the Match Call static data generation pipeline.
-- [ ] Ensure tests verify MsgPack export and IndexedDB hydration (`PokeDB.ts`).
+- [x] Implement E2E tests for the Match Call static data generation pipeline.
+- [x] Ensure tests verify MsgPack export and IndexedDB hydration (`PokeDB.ts`).
