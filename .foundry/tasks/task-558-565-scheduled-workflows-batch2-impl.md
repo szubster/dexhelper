@@ -2,12 +2,12 @@
 id: task-558-565-scheduled-workflows-batch2-impl
 type: TASK
 title: Update Scheduled Workflows for Issue Dispatch (Batch 2)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-08'
+updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5909001672850510757'
 pr_number: null
 parent: story-531-558-modify-scheduled-workflows-impl
 tags:
