@@ -35,5 +35,5 @@ Write comprehensive unit tests for the Gen 3 Mystery Gift data parser.
 - Do not implement core parsing logic here.
 
 ## Acceptance Criteria
-- [ ] Tests execute and pass.
-- [ ] Edge cases (like Old Sea Map being Emerald exclusive) are verified.
+- [x] Tests execute and pass.
+- [x] Edge cases (like Old Sea Map being Emerald exclusive) are verified.
