@@ -2,12 +2,12 @@
 id: task-571-579-cva-refactor-complex-inputs
 type: TASK
 title: CVA Refactor Complex Tactical Inputs
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-15T11:19:51Z'
-updated_at: '2026-09-15T11:19:51Z'
+updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5388680150269638517'
 pr_number: null
 parent: story-567-571-cva-refactor-tactical-inputs
 tags:

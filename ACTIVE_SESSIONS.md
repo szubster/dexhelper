@@ -160,3 +160,4 @@
 | [task-562-572-tm-hm-compatibility-e2e-impl](.foundry/tasks/task-562-572-tm-hm-compatibility-e2e-impl.md) | TASK | Implement TM/HM Compatibility E2E Tests | coder | [8203757802449895987](https://jules.google.com/session/8203757802449895987) |
 | [task-564-565-gen3-trainer-card-e2e-tests](.foundry/tasks/task-564-565-gen3-trainer-card-e2e-tests.md) | TASK | Implement E2E Tests for Gen 3 Trainer Card UI Rendering | coder | [832332289304260694](https://jules.google.com/session/832332289304260694) |
 | [task-571-578-cva-refactor-basic-inputs](.foundry/tasks/task-571-578-cva-refactor-basic-inputs.md) | TASK | CVA Refactor Tactical Input and Select | coder | [1648005984688581688](https://jules.google.com/session/1648005984688581688) |
+| [task-571-579-cva-refactor-complex-inputs](.foundry/tasks/task-571-579-cva-refactor-complex-inputs.md) | TASK | CVA Refactor Complex Tactical Inputs | coder | [5388680150269638517](https://jules.google.com/session/5388680150269638517) |
