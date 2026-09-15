@@ -179,7 +179,7 @@
 {"id":179,"name":"Reversal","type":2,"pp":15,"dmg_class":1}
 {"id":180,"name":"Spite","type":8,"pp":10,"dmg_class":3}
 {"id":181,"name":"Powder Snow","type":15,"p":40,"pp":25,"dmg_class":2,"effect":10}
-{"id":182,"name":"Protect","type":1,"pp":10,"dmg_class":3}
+{"id":182,"name":"Protect","type":1,"pp":10,"dmg_class":3,"effect":43}
 {"id":183,"name":"Mach Punch","type":2,"p":40,"pp":30,"dmg_class":1}
 {"id":184,"name":"Scary Face","type":1,"acc":90,"pp":10,"dmg_class":3}
 {"id":185,"name":"Feint Attack","type":17,"p":60,"pp":20,"dmg_class":1}
@@ -194,7 +194,7 @@
 {"id":194,"name":"Destiny Bond","type":8,"pp":5,"dmg_class":3}
 {"id":195,"name":"Perish Song","type":1,"pp":5,"dmg_class":3,"effect":20}
 {"id":196,"name":"Icy Wind","type":15,"p":55,"acc":95,"pp":15,"dmg_class":2,"effect":100}
-{"id":197,"name":"Detect","type":2,"pp":5,"dmg_class":3}
+{"id":197,"name":"Detect","type":2,"pp":5,"dmg_class":3,"effect":43}
 {"id":198,"name":"Bone Rush","type":5,"p":25,"acc":80,"pp":10,"dmg_class":1}
 {"id":199,"name":"Lock-On","type":1,"pp":5,"dmg_class":3}
 {"id":200,"name":"Outrage","type":16,"p":90,"pp":10,"dmg_class":1}
