@@ -2,13 +2,13 @@
 id: task-443-565-mirage-island-e2e-impl-v2
 type: TASK
 title: Implement E2E Test for Mirage Island Save Parsing V2
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2024-05-23'
 updated_at: '2026-09-15'
 depends_on:
   - research-443-564-investigate-e2e-failure
-jules_session_id: '13459861860151178916'
+jules_session_id: null
 pr_number: null
 parent: story-061-443-mirage-island-save-parsing-e2e
 tags:
