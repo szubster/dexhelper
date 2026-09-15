@@ -2,10 +2,10 @@
 id: story-131-527-rng-explainer-e2e-verification
 type: STORY
 title: RNG Tool Explainer E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
-created_at: "2026-08-22"
-updated_at: "2026-08-22"
+created_at: '2026-08-22'
+updated_at: '2026-09-15'
 depends_on:
   - story-131-526-rng-explainer-ui-component
 jules_session_id: null
@@ -18,8 +18,9 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # RNG Tool Explainer E2E Verification

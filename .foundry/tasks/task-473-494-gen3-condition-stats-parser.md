@@ -2,10 +2,10 @@
 id: task-473-494-gen3-condition-stats-parser
 type: TASK
 title: Implement Gen 3 Contest Condition Stats Parser
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-09-14'
+updated_at: '2026-09-15'
 depends_on:
   - task-473-493-gen3-condition-stats-constants
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - save-engine
   - data-extraction
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---
