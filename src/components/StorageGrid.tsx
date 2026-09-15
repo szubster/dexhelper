@@ -6,6 +6,7 @@ import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { getTimeCapsuleValidation } from '../utils/timeCapsule';
 import { CapacitySegmentedBar } from './CapacitySegmentedBar';
+import { HexStreamOverlay } from './HexStreamOverlay';
 import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
 import { PokerusBadge } from './PokerusBadge';
@@ -105,11 +106,12 @@ const StorageCard = React.memo(
           {/* Data Container - Bottom Side */}
           <div className="relative flex flex-1 flex-col justify-between overflow-hidden p-2">
             {/* Data stream overlay on hover */}
-            <div className="pointer-events-none absolute inset-0 z-0 flex flex-col justify-end p-1 opacity-0 transition-opacity duration-300 group-hover/card:opacity-[0.03]">
-              <div className="break-all font-mono text-[6px] text-cyan-400 leading-tight">
-                {'0123456789ABCDEF'.repeat(10)}
-              </div>
-            </div>
+            <HexStreamOverlay
+              staticString="0123456789ABCDEF"
+              repeat={10}
+              className="p-1 opacity-0 transition-opacity duration-300 group-hover/card:opacity-[0.03]"
+              textClassName="text-[6px]"
+            />
 
             <div className="relative z-10 flex flex-col gap-1">
               <div className="flex items-center justify-between">

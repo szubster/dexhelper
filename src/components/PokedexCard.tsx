@@ -4,6 +4,7 @@ import React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { cn } from '../utils/cn';
 import type { PokemonListItem } from '../utils/pokemonQueries';
+import { HexStreamOverlay } from './HexStreamOverlay';
 import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
 import { PokemonSprite } from './pokemon/PokemonSprite';
@@ -167,11 +168,12 @@ export const PokedexCard = React.memo(function PokedexCard({
         {/* Data Container - Bottom Side */}
         <div className="relative flex flex-1 flex-col justify-between overflow-hidden">
           {/* Data stream overlay on right side on hover */}
-          <div className="pointer-events-none absolute inset-0 z-0 flex flex-col justify-end p-2 opacity-0 transition-opacity duration-300 group-hover/card:opacity-5">
-            <div className="break-all font-mono text-[8px] text-cyan-400 leading-tight">
-              {'0123456789ABCDEF'.repeat(20)}
-            </div>
-          </div>
+          <HexStreamOverlay
+            staticString="0123456789ABCDEF"
+            repeat={20}
+            className="p-2 opacity-0 transition-opacity duration-300 group-hover/card:opacity-5"
+            textClassName="text-[8px]"
+          />
 
           <div className="relative z-10 flex flex-col gap-1 p-2">
             <div className="flex items-center justify-between">
