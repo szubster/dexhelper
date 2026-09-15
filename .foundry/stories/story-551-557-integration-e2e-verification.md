@@ -29,3 +29,6 @@ Generate the final Story dedicated to Integration and E2E Verification for Markd
 
 ## Acceptance Criteria
 - [ ] Write E2E verification tests for orchestrator markdown link resolution
+- [ ] task-557-581-orchestrator-link-resolution-fixtures
+- [ ] task-557-582-orchestrator-link-resolution-e2e-impl
+- [ ] task-557-583-orchestrator-link-resolution-e2e-qa
