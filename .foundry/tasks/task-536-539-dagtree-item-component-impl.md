@@ -31,7 +31,7 @@ Implement the individual <li> node item component for the DagTree, integrating i
 3. Apply tactical hardware aesthetics (sharp edges, dashed borders, monospaced font) following ADR 008.
 
 ## Acceptance Criteria
-- [ ] Implement the DagTreeItem component.
-- [ ] Integrate expand/collapse toggle buttons using context.
-- [ ] Apply ADR 008 styling (sharp edges, dashed borders, monospaced font).
-- [ ] Include integration tests for component rendering.
+- [x] Implement the DagTreeItem component.
+- [x] Integrate expand/collapse toggle buttons using context.
+- [x] Apply ADR 008 styling (sharp edges, dashed borders, monospaced font).
+- [x] Include integration tests for component rendering.
