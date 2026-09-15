@@ -36,3 +36,6 @@ Introduce a "Confidence Score" (e.g., 0-100) or a "Risk Level" field within the 
 - Provides proactive visibility into struggling tasks before they merge or fail permanently.
 - Optimizes the QA process by dynamically routing high-risk tasks for stricter automated or human review.
 - Gives agents a formalized way to signal uncertainty without having to fail a task or wait for a CEO rejection.
+
+## Acceptance Criteria
+- [ ] prd-521-565-agent-confidence-metrics-dashboard
