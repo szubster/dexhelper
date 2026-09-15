@@ -41,7 +41,6 @@ export function MapUI({ heatmap, areaNames }: MapUIProps) {
               aria-label={`View ${areaNames?.[areaId] || `AREA #${areaId}`} details`}
               key={areaId}
               className="focus-visible:tactical-focus flex items-center justify-between rounded-none border border-zinc-800 border-dashed bg-zinc-950/50 p-3 transition-colors hover:border-[var(--theme-primary)]/50"
-              title={`View ${areaNames?.[areaId] || `AREA #${areaId}`} details`}
             >
               <span className="font-mono text-xs text-zinc-300">{areaNames?.[areaId] || `AREA #${areaId}`}</span>
               <div className="flex items-center gap-2">
