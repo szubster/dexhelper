@@ -2,13 +2,13 @@
 id: task-330-490-gen1-checklist-ui-tests
 type: TASK
 title: Unit Test Gen 1 Checklist UI
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-09-15'
 depends_on:
   - task-330-489-gen1-checklist-ui-impl
-jules_session_id: null
+jules_session_id: '2267432291272572839'
 pr_number: null
 parent: story-136-330-gen1-checklist-ui-retry
 tags:
