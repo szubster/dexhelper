@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [adr-558-568-evaluate-scheduled-workflow-architecture](.foundry/docs/adrs/adr-558-568-evaluate-scheduled-workflow-architecture.md) | ADR | Evaluate Changing Underlying Scheduled Agent Workflow | architect | [3826766012827372355](https://jules.google.com/session/3826766012827372355) |
 | [epic-046-079-react-flow-visualizer-refactor](.foundry/epics/epic-046-079-react-flow-visualizer-refactor.md) | EPIC | React Flow Visualizer Refactor | story_owner | [8447809816920353388](https://jules.google.com/session/8447809816920353388) |
 | [epic-051-094-friendship-data-extraction](.foundry/epics/epic-051-094-friendship-data-extraction.md) | EPIC | Friendship Data Extraction (Gen 2 & 3) | story_owner | [12994992452663059906](https://jules.google.com/session/12994992452663059906) |
 | [epic-340-412-shoal-cave-ui-dashboard](.foundry/epics/epic-340-412-shoal-cave-ui-dashboard.md) | EPIC | UI Dashboard Implementation (Shoal Cave Tracker) | story_owner | [14835641724444935603](https://jules.google.com/session/14835641724444935603) |
