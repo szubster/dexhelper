@@ -6,6 +6,7 @@ import { ClearFiltersBadge } from './ClearFiltersBadge';
 import { CornerCrosshairs } from './CornerCrosshairs';
 import { EdgeLabel } from './EdgeLabel';
 import { FilterBadge } from './FilterBadge';
+import { HexStreamOverlay } from './HexStreamOverlay';
 import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
 import { LocationSuggestions } from './LocationSuggestions';
@@ -80,9 +81,7 @@ export function SearchAndFilters() {
             <CornerCrosshairs className="h-3 w-3 border-cyan-500/60" thickness={2} />
 
             {/* Background Hex Stream */}
-            <div className="pointer-events-none absolute inset-0 z-0 flex flex-col justify-end p-2 opacity-10">
-              <div className="break-all font-mono text-[10px] text-cyan-400 leading-tight">{hexStream.repeat(5)}</div>
-            </div>
+            <HexStreamOverlay staticString={hexStream} repeat={5} />
 
             <EdgeLabel className="-top-2 left-5 bg-zinc-950 px-2 text-cyan-400 tracking-[0.2em]">
               TARGET_ACQUISITION_ARRAY
