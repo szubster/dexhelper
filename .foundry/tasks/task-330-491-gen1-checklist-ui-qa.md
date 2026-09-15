@@ -2,13 +2,13 @@
 id: task-330-491-gen1-checklist-ui-qa
 type: TASK
 title: QA Gen 1 Checklist UI
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-25'
 updated_at: '2026-09-15'
 depends_on:
   - task-330-490-gen1-checklist-ui-tests
-jules_session_id: null
+jules_session_id: '4368285111632417706'
 pr_number: null
 parent: story-136-330-gen1-checklist-ui-retry
 tags:
