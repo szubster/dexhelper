@@ -36,6 +36,6 @@ QA verification for the documentation and script updates related to Acceptance C
 - Test the new CI checkbox formatter script to ensure it correctly normalizes malformed checkboxes without breaking valid markdown.
 
 ## Acceptance Criteria
-- [ ] qa: Verify schema.md updates.
-- [ ] qa: Verify core_policies.md updates.
-- [ ] qa: Test the CI checkbox formatter script.
+- [x] qa: Verify schema.md updates.
+- [x] qa: Verify core_policies.md updates.
+- [x] qa: Test the CI checkbox formatter script.
