@@ -96,7 +96,7 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
         </div>
 
         <div className="flex flex-col gap-2 border-zinc-800 border-b border-dashed pb-4">
-          <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">MASTER RANK TRACKING</span>
+          <span className="tactical-text text-[10px] text-zinc-500">MASTER RANK TRACKING</span>
           <div className="flex gap-2">
             {(['cool', 'beauty', 'cute', 'smart', 'tough'] as const).map((key) => {
               const isMaster = masterRanks[key];
