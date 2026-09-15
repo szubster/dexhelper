@@ -89,7 +89,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `id` | `string` | ✅ | Globally unique. Convention: `<type>-<parent_NNN>-<NNN>-<slug>` (IDEA nodes omit parent NNN). Used by humans and search; the DAG uses file paths. |
 | `type` | `enum` | ✅ | `IDEA \| PRD \| EPIC \| STORY \| TASK \| RESEARCH \| ADR \| EXPERIMENT` |
 | `title` | `string` | ✅ | Short, human-readable description. |
-| `status` | `enum` | ✅ | Current lifecycle state. See §4. |
+| `status` | `enum` | ✅ | Current lifecycle state. See §4. Can also be `DRAFT` or `WIP`. |
 | `owner_persona` | `enum` | ✅ | Persona responsible for progressing this node. Must be exactly one assigned persona (no arrays or multiple personas). See §5. |
 | `created_at` | `date` | ✅ | ISO-8601 (YYYY-MM-DD). Immutable after creation. |
 | `updated_at` | `date` | ✅ | ISO-8601 (YYYY-MM-DD). Must be updated whenever the file is edited. |
@@ -114,6 +114,8 @@ notes: ""               # Optional. Free-form Markdown remarks.
 
 | Status | Gen 1 Mapping | Description |
 |---|---|---|
+| `DRAFT` | Daycare Egg | An early idea or design that is not yet ready for formal evaluation. |
+| `WIP` | Pokemon Training | Node is currently being actively worked on but not yet ready to transition. |
 | `PENDING` | Pokémon Egg | Node exists but has unresolved `depends_on` entries — not yet eligible for dispatch. |
 | `READY` | Hatched Pokémon | **Orchestrator-written only.** All `depends_on` nodes are `COMPLETED`. Node is queued for the next dispatch cycle. |
 | `ACTIVE` | In Battle / Training | A Jules session (`jules_session_id`) is currently working on this node. This status persists if a PR is open for review. |
@@ -127,7 +129,11 @@ notes: ""               # Optional. Free-form Markdown remarks.
 
 ```mermaid
 stateDiagram-v2
+    [*] --> DRAFT : Node created as draft
     [*] --> PENDING : Node created
+    DRAFT --> WIP : Work begins
+    WIP --> PENDING : Work finalized, dependencies unfulfilled
+    WIP --> READY : Work finalized, dependencies fulfilled
     PENDING --> READY : Orchestrator confirms all depends_on = COMPLETED
     READY --> ACTIVE : Orchestrator dispatches Jules session
     ACTIVE --> VERIFYING : Work submitted by owner / PR merged
