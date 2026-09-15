@@ -35,5 +35,5 @@ Verify that Gen 1, Gen 2, and Gen 3 active party data is successfully and correc
 - Adhere to testing constraints, avoiding `@testing-library` usage, and utilizing standard project fixtures (like `initializeWithSave`).
 
 ## Acceptance Criteria
-- [ ] Code review passes for all integration layers.
-- [ ] E2E tests successfully validate integration for all three generations.
+- [x] Code review passes for all integration layers.
+- [x] E2E tests successfully validate integration for all three generations.
