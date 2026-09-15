@@ -37,7 +37,7 @@ These are more complex input components that maintain internal states or multipl
 - Update unit tests in `src/components/__tests__/` if required.
 
 ## Acceptance Criteria
-- [ ] Refactor `TacticalSegmentedControl` using CVA.
-- [ ] Refactor `TacticalMultiSelectControl` using CVA.
-- [ ] Strict TypeScript typings provided for variants.
-- [ ] Pass `pnpm lint` and `pnpm test`.
+- [x] Refactor `TacticalSegmentedControl` using CVA.
+- [x] Refactor `TacticalMultiSelectControl` using CVA.
+- [x] Strict TypeScript typings provided for variants.
+- [x] Pass `pnpm lint` and `pnpm test`.
