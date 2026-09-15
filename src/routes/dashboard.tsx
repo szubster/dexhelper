@@ -2,8 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { ShieldAlert } from 'lucide-react';
 import React, { Suspense } from 'react';
 import { EmptyState } from '../components/EmptyState';
-
-import { useStore } from '../store';
+import { useParsedSaveData } from '../contexts/EmulatorContext';
 
 // ⚡ Bolt: Lazy load generation-specific dashboards to reduce initial bundle size
 const BattleFrontierDashboard = React.lazy(() =>
@@ -103,7 +102,7 @@ export const Route = createFileRoute('/dashboard')({
 });
 
 function DashboardPage() {
-  const saveData = useStore((s) => s.saveData);
+  const saveData = useParsedSaveData();
 
   if (saveData?.generation !== 3 && saveData?.generation !== 2 && saveData?.generation !== 1) {
     return <EmptyState icon={<ShieldAlert size={24} />} label="BATTLE FRONTIER UNAVAILABLE" />;

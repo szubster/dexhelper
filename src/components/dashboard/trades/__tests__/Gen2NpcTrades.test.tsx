@@ -1,7 +1,14 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import * as emulatorContext from '../../../../contexts/EmulatorContext';
+import type { SaveData } from '../../../../engine/saveParser/parsers/common';
+
+vi.mock('../../../../contexts/EmulatorContext', () => ({
+  useParsedSaveData: vi.fn<() => SaveData | null>(),
+}));
+
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import * as store from '../../../../store';
+import type * as store from '../../../../store';
 import { Gen2NpcTrades } from '../Gen2NpcTrades';
 
 vi.mock('../../../../store', async (importOriginal) => {
@@ -18,16 +25,14 @@ describe('Gen2NpcTrades', () => {
   });
 
   it('renders correctly with gen 2 data', async () => {
-    vi.mocked(store.useStore).mockImplementation((selector) => {
+    vi.mocked(emulatorContext.useParsedSaveData).mockImplementation(() => {
       const state = {
         saveData: {
           generation: 2,
           npcTradeFlags: [true, false, true, false, false, false, false],
         },
       };
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
-      return selector(state);
+      return state.saveData as unknown as SaveData;
     });
 
     await render(<Gen2NpcTrades />);
@@ -42,15 +47,13 @@ describe('Gen2NpcTrades', () => {
   });
 
   it('does not render for gen 3 data', async () => {
-    vi.mocked(store.useStore).mockImplementation((selector) => {
+    vi.mocked(emulatorContext.useParsedSaveData).mockImplementation(() => {
       const state = {
         saveData: {
           generation: 3,
         },
       };
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
-      return selector(state);
+      return state.saveData as unknown as SaveData;
     });
 
     await render(<Gen2NpcTrades />);
