@@ -28,6 +28,6 @@ locks: []
 Write comprehensive unit tests for the Gen 1 Checklist UI component.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for the Gen 1 Checklist UI component.
-- [ ] Ensure tests cover component rendering and state mapping based on parsed Gen 1 event flags.
-- [ ] Achieve adequate test coverage.
+- [x] Write unit tests for the Gen 1 Checklist UI component.
+- [x] Ensure tests cover component rendering and state mapping based on parsed Gen 1 event flags.
+- [x] Achieve adequate test coverage.
