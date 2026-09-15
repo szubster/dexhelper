@@ -2,7 +2,7 @@
 id: task-330-490-gen1-checklist-ui-tests
 type: TASK
 title: Unit Test Gen 1 Checklist UI
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-09-15'
@@ -17,8 +17,8 @@ tags:
   - ui
 research_references:
   - research-136-329-gen1-checklist-ui-failure
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

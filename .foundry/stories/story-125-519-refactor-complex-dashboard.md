@@ -2,12 +2,12 @@
 id: story-125-519-refactor-complex-dashboard
 type: STORY
 title: Refactor Complex Dashboard Components
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03T13:29:59.884Z'
 updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: '6985179112352624532'
+jules_session_id: null
 pr_number: null
 parent: epic-071-125-migrate-complex-app-components-v2
 tags:

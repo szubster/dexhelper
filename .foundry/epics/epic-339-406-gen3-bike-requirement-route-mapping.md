@@ -2,10 +2,10 @@
 id: epic-339-406-gen3-bike-requirement-route-mapping
 type: EPIC
 title: Route Pre-computation & Mapping
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-08'
-updated_at: '2026-08-23'
+updated_at: '2026-09-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,6 +16,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Route Pre-computation & Mapping
@@ -29,7 +30,7 @@ Route Pre-computation: When a player views a route in DexHelper, clearly tag the
 ## Acceptance Criteria
 - [x] story_owner: Break down this Epic into Stories.
 - [x] story_owner: Ensure one final STORY dedicated exclusively to Integration and E2E Verification is generated.
-- [ ] story-406-412-gen3-bike-map-parsing
-- [ ] story-406-413-bike-requirement-heatmap
-- [ ] story-406-414-bike-requirement-ui-badges
-- [ ] story-406-415-bike-requirement-e2e
+- [x] story-406-412-gen3-bike-map-parsing
+- [x] story-406-413-bike-requirement-heatmap
+- [x] story-406-414-bike-requirement-ui-badges
+- [x] story-406-415-bike-requirement-e2e
