@@ -27,6 +27,6 @@ locks: []
 Migrate existing component tests to use Vitest browser mode testing.
 
 ## Acceptance Criteria
-- [ ] Migrate key component tests.
-- [ ] Update testing documentation.
-- [ ] Ensure all tests pass in browser mode.
+- [x] Migrate key component tests.
+- [x] Update testing documentation.
+- [x] Ensure all tests pass in browser mode.
