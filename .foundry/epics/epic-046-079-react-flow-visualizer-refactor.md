@@ -30,4 +30,6 @@ Refactor the existing React Flow DAG visualizer to consume its nodes and edges s
 As part of the architecture defined in PRD `prd-074-046-dag-context-architecture` and ADR 013, the React Flow visualization should no longer directly parse or maintain its own node state. It must be refactored to consume the unified DAG data from the `DagContext` built in epic `epic-046-078-shared-dag-context-foundation`.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-079-578-react-flow-visualizer-refactor
+- [ ] story-079-579-react-flow-visualizer-refactor-e2e
