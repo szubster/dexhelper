@@ -24,5 +24,5 @@ locks: []
 Write Playwright E2E tests to verify the Heatmap Toggle and dynamic visual styling functionality, ensuring node metrics are correctly reflected in the UI.
 
 ## Acceptance Criteria
-- [ ] Coder: Write E2E tests using Playwright for the Heatmap Toggle.
-- [ ] Coder: Write E2E tests verifying dynamic visual styling functionality.
+- [x] Coder: Write E2E tests using Playwright for the Heatmap Toggle.
+- [x] Coder: Write E2E tests verifying dynamic visual styling functionality.
