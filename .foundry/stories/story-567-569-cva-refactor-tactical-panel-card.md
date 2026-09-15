@@ -2,12 +2,12 @@
 id: story-567-569-cva-refactor-tactical-panel-card
 type: STORY
 title: CVA Refactor Tactical Panel and Card
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-15'
 updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9777630159226920463'
 pr_number: null
 parent: epic-565-567-core-components-refactor
 tags:
