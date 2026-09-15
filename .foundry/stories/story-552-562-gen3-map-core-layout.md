@@ -33,4 +33,7 @@ Establish the React Component structure for the Gen 3 Map UI, implementing the f
 - Ensure strict usage of `rounded-none`, `border-dashed`, and monospace fonts.
 
 ## Acceptance Criteria
-- [ ] Break down into TASK nodes.
+- [x] Break down into TASK nodes.
+- [ ] task-562-581-gen3-map-context-layer
+- [ ] task-562-582-gen3-map-dashboard-layout
+- [ ] task-562-583-gen3-map-qa-verification
