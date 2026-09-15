@@ -1,6 +1,15 @@
 import { type Edge, type Node, Position } from '@xyflow/react';
 import dagre from 'dagre';
-import { createContext, type ReactNode, useContext, useEffect, useMemo, useState } from 'react';
+import {
+  createContext,
+  type ReactNode,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  useTransition,
+} from 'react';
 import { MAX_REJECTION_THRESHOLD } from '../../utils/constants';
 import type { ParsedNode } from '../../utils/dag/builder';
 import { buildDagGraph } from '../../utils/dag/builder';
@@ -33,6 +42,7 @@ export interface DagContextState {
   maxRejectionThreshold: number;
   edges: DagEdge[];
   isLoading: boolean;
+  isPending: boolean;
   activeView: ViewMode;
   setActiveView: (view: ViewMode) => void;
   setNodes: (nodes: DagNode[]) => void;
@@ -100,6 +110,19 @@ export function DagProvider({ children }: { children: ReactNode }) {
   const [edges, setEdges] = useState<DagEdge[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [activeView, setActiveView] = useState<ViewMode>('graph');
+  const [isPending, startTransition] = useTransition();
+
+  const handleSetActiveView = useCallback((view: ViewMode) => {
+    startTransition(() => setActiveView(view));
+  }, []);
+
+  const handleSetNodes = useCallback((newNodes: DagNode[]) => {
+    startTransition(() => setNodes(newNodes));
+  }, []);
+
+  const handleSetEdges = useCallback((newEdges: DagEdge[]) => {
+    startTransition(() => setEdges(newEdges));
+  }, []);
 
   const value = useMemo(
     () => ({
@@ -107,13 +130,14 @@ export function DagProvider({ children }: { children: ReactNode }) {
       nodes,
       edges,
       isLoading,
+      isPending,
       activeView,
-      setActiveView,
-      setNodes,
-      setEdges,
+      setActiveView: handleSetActiveView,
+      setNodes: handleSetNodes,
+      setEdges: handleSetEdges,
       setIsLoading,
     }),
-    [nodes, edges, isLoading, activeView],
+    [nodes, edges, isLoading, activeView, isPending, handleSetNodes, handleSetEdges, handleSetActiveView],
   );
 
   useEffect(() => {
