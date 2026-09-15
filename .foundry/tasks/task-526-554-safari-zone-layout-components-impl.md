@@ -25,5 +25,5 @@ locks: []
 Create the layout container and structure for the Safari Zone dashboard following tactical UI styling.
 
 ## Acceptance Criteria
-- [ ] Create layout components for the main visual area and side panel.
-- [ ] Apply tactical UI primitives (e.g. `rounded-none`, `border-dashed`).
+- [x] Create layout components for the main visual area and side panel.
+- [x] Apply tactical UI primitives (e.g. `rounded-none`, `border-dashed`).
