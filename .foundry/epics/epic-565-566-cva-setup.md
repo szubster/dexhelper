@@ -1,17 +1,15 @@
 ---
 id: epic-565-566-cva-setup
 type: EPIC
-title: "CVA Setup and Theme Variables"
-status: PENDING
-owner_persona: "story_owner"
-created_at: "2026-09-14"
-updated_at: "2026-09-14"
+title: CVA Setup and Theme Variables
+status: READY
+owner_persona: story_owner
+created_at: '2026-09-14'
+updated_at: '2026-09-15'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: prd-523-565-component-variants-theming-consolidation-refactor
-priority: 60
 tags:
   - refactor
   - styling
@@ -20,6 +18,9 @@ tags:
 research_references:
   - .foundry/research/research-145-001-component-variant-libraries.md
   - .foundry/research/research-145-002-component-theming-mechanisms.md
+locks: []
+priority: 60
+rejection_reason: ''
 ---
 
 # Epic: CVA Setup and Theme Variables

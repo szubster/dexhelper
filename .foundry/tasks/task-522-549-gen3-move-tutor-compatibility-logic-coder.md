@@ -2,7 +2,7 @@
 id: task-522-549-gen3-move-tutor-compatibility-logic-coder
 type: TASK
 title: Implement Gen 3 Move Tutor Logic Layer
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-09-15'
@@ -15,8 +15,8 @@ tags:
   - data
   - move-tutor
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

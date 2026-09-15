@@ -2,12 +2,12 @@
 id: prd-523-565-component-variants-theming-consolidation-refactor
 type: PRD
 title: PRD Component Variants and Theming Consolidation Refactor
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-13'
-updated_at: '2026-09-14'
+updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: '44966748512047489'
+jules_session_id: null
 pr_number: null
 parent: idea-523-component-variants-theming-consolidation-refactor
 tags:
