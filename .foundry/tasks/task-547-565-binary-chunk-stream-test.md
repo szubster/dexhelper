@@ -30,6 +30,6 @@ locks: []
 This task covers writing unit tests for the binary chunk stream generators to self-verify the implementation and ensure it correctly handles boundaries according to ADR 154.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for `createBinaryChunkStream` to verify it yields correct sized chunks.
-- [ ] Write unit tests for `createAsyncBinaryChunkStream` to verify chunking of streaming data and boundaries.
-- [ ] Self-verify that the implementation behaves as expected.
+- [x] Write unit tests for `createBinaryChunkStream` to verify it yields correct sized chunks.
+- [x] Write unit tests for `createAsyncBinaryChunkStream` to verify chunking of streaming data and boundaries.
+- [x] Self-verify that the implementation behaves as expected.
