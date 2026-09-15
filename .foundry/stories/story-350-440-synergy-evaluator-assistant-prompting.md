@@ -30,6 +30,9 @@ As part of the Cross-Save Synergy Analysis Engine, we need to generate combined 
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into implementation tasks.
-- [ ] task-440-477-synergy-data-generator-impl
-- [ ] task-440-478-synergy-assistant-integration-impl
-- [ ] task-440-479-synergy-evaluator-qa
+- [x] task-440-477-synergy-data-generator-impl
+- [x] task-440-478-synergy-assistant-integration-impl
+- [x] task-440-479-synergy-evaluator-qa
+- [ ] research-440-581-investigate-synergy-integration-failure
+- [ ] task-440-582-synergy-assistant-integration-impl-v2
+- [ ] task-440-583-synergy-evaluator-qa-v2
