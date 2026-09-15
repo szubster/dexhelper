@@ -29,4 +29,7 @@ As per ADR 025 (RTC Strategy Architecture Decision), direct RTC data is unreliab
 ## Acceptance Criteria
 - [ ] Create or update Pokerus UI Badge components reflecting Uninfected, Infected (contagious with days remaining), and Cured (immune) statuses.
 - [ ] Implement duration display logic aligned with ADR 025 (utilize data from save files or fallback logic).
-- [ ] Tech Lead: Break down into TASKs.
+- [x] Tech Lead: Break down into TASKs.
+- [ ] task-560-578-pokerus-ui-badges-impl
+- [ ] task-560-579-pokerus-ui-badges-tests
+- [ ] task-560-580-pokerus-ui-badges-qa
