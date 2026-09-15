@@ -18,6 +18,6 @@ locks: []
 ---
 
 ## Acceptance Criteria
-- [ ] Verify node scanning
-- [ ] Verify legacy path-based markdown links are upgraded
-- [ ] Verify location-agnostic raw ID format
+- [x] Verify node scanning
+- [x] Verify legacy path-based markdown links are upgraded
+- [x] Verify location-agnostic raw ID format
