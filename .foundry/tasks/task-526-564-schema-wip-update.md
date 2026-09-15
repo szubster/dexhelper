@@ -2,12 +2,12 @@
 id: task-526-564-schema-wip-update
 type: TASK
 title: Update schema.md with DRAFT and WIP statuses
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-12'
+updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: '17969382770798430496'
+jules_session_id: null
 pr_number: null
 parent: story-517-526-schema-wip-support
 priority: 50

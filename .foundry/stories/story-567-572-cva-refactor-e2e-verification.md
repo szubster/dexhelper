@@ -2,7 +2,7 @@
 id: story-567-572-cva-refactor-e2e-verification
 type: STORY
 title: E2E Verification for CVA Refactor
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-15'
 updated_at: '2026-09-15'
@@ -22,9 +22,9 @@ tags:
 research_references:
   - .foundry/research/research-145-001-component-variant-libraries.md
   - .foundry/research/research-145-002-component-theming-mechanisms.md
+rejection_reason: ''
 locks: []
 priority: 60
-rejection_reason: ''
 ---
 
 # Story: E2E Verification for CVA Refactor

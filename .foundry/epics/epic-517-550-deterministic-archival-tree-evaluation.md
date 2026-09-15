@@ -2,7 +2,7 @@
 id: epic-517-550-deterministic-archival-tree-evaluation
 type: EPIC
 title: Tree Completeness Evaluation and File Moves
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-02'
 updated_at: '2026-09-15'
@@ -14,8 +14,8 @@ tags:
   - foundry
   - infrastructure
   - orchestrator
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

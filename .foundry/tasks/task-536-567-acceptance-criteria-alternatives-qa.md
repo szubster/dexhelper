@@ -2,10 +2,10 @@
 id: task-536-567-acceptance-criteria-alternatives-qa
 type: TASK
 title: QA Acceptance Criteria Alternatives
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-08'
-updated_at: '2026-09-11'
+updated_at: '2026-09-15'
 depends_on:
   - task-536-564-schema-leaf-nodes-update
   - task-536-565-core-policies-parent-nodes-update
