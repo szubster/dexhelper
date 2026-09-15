@@ -14,12 +14,7 @@ test.describe('Living Dex PC Mapping Integration E2E', () => {
     await page.getByRole('button', { name: 'Close settings' }).click();
     await waitForSync(page);
 
-    // 3. Search for Pikachu (we know it's in the save based on pokemon-details.spec.ts)
-    const searchInput = page.getByTestId('search-input');
-    await searchInput.click({ force: true });
-    await searchInput.fill('Pikachu');
-
-    // 4. Click Pikachu Card
+    // 3. Instead of searching, click the Pikachu cell in the Living Dex Grid directly
     await page.waitForTimeout(1000);
     const pikachuCard = page.locator('[data-testid="pokedex-card"][data-pokemon-id="25"]');
     await expect(pikachuCard).toBeVisible({ timeout: 15000 });

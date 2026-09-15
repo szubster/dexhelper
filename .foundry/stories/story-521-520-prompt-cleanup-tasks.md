@@ -2,10 +2,10 @@
 id: story-521-520-prompt-cleanup-tasks
 type: STORY
 title: Clean up Coder and QA Persona Prompts Tasks
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-09'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -28,5 +28,5 @@ Remove redundant Late Binding and failure handling policies from the \`.github/a
 
 ## Acceptance Criteria
 - [x] Create TASK nodes for coder and qa prompt cleanup.
-- [ ] task-520-549-coder-prompt-cleanup-coder
-- [ ] task-520-550-qa-prompt-cleanup-qa
+- [x] task-520-549-coder-prompt-cleanup-coder
+- [x] task-520-550-qa-prompt-cleanup-qa

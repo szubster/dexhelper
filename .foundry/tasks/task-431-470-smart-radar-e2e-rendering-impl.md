@@ -2,10 +2,10 @@
 id: task-431-470-smart-radar-e2e-rendering-impl
 type: TASK
 title: Smart Radar E2E Map Overlay Rendering Implementation
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-22'
-updated_at: '2026-08-23'
+updated_at: '2026-09-14'
 depends_on:
   - task-431-469-smart-radar-test-utilities-impl
 jules_session_id: null
@@ -18,8 +18,11 @@ tags:
   - map
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-431-469-smart-radar-test-utilities-impl
 notes: ''
+locks: []
 ---
 
 # Task: Smart Radar E2E Map Overlay Rendering Implementation

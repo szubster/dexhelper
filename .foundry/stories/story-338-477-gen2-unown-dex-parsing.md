@@ -2,18 +2,18 @@
 id: story-338-477-gen2-unown-dex-parsing
 type: STORY
 title: Parse Gen 2 Caught Unown Forms
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-07'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: '454271459031084927'
+jules_session_id: null
 parent: epic-118-338-gen2-unown-dex-data-extraction
 tags:
   - feature
   - gen2
   - unown
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 locks: []
 ---

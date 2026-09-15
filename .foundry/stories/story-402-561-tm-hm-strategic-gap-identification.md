@@ -2,16 +2,14 @@
 id: story-402-561-tm-hm-strategic-gap-identification
 type: STORY
 title: Strategic Gap Identification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2025-02-14'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: '15057454909006344623'
-locks: []
 pr_number: null
 parent: epic-110-402-tm-hm-compatibility-logic-v2
-priority: 50
 tags:
   - feature
   - logic
@@ -19,6 +17,8 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
+priority: 50
 ---
 
 # Strategic Gap Identification
@@ -32,4 +32,7 @@ This STORY builds upon the compatibility logic to analyze a Pokémon's current m
 - Flag Pokémon that lack a move of that type, highlighting them as strategic targets for learning the TM/HM.
 
 ## Acceptance Criteria
-- [ ] Break down into TASK nodes for implementing the strategic gap analysis logic and unit testing it.
+- [x] Break down into TASK nodes for implementing the strategic gap analysis logic and unit testing it.
+- [ ] task-561-570-tm-hm-strategic-gap-identification-impl
+- [ ] task-561-575-tm-hm-strategic-gap-identification-tests
+- [ ] task-561-571-tm-hm-strategic-gap-identification-qa

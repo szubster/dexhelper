@@ -2,14 +2,14 @@
 id: task-421-507-gen3-active-party-matchup-integration-impl
 type: TASK
 title: Integrate Gen 3 Active Party into MatchupContext
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-01'
-updated_at: '2026-09-11'
+updated_at: '2026-09-13'
 depends_on:
   - task-421-460-matchup-context-state-layer-impl
   - research-421-506-gen3-active-party-matchup-failure
-jules_session_id: '797071347892473948'
+jules_session_id: null
 pr_number: null
 parent: story-411-421-active-party-extraction
 tags:
@@ -34,5 +34,5 @@ Hook the parsed Gen 3 save data output into the `MatchupContext` so that the Act
 - Write unit tests verifying that uploading or providing a Gen 3 save updates the context appropriately using `vitest-browser-react`.
 
 ## Acceptance Criteria
-- [ ] Gen 3 save data correctly populates the `MatchupContext` party state.
-- [ ] Unit tests pass for the integration using `vitest-browser-react`.
+- [x] Gen 3 save data correctly populates the `MatchupContext` party state.
+- [x] Unit tests pass for the integration using `vitest-browser-react`.

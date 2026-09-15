@@ -2,12 +2,12 @@
 id: task-536-566-ci-checkbox-formatter-script
 type: TASK
 title: Implement CI Checkbox Formatter Script
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-08'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13245337782049732563'
 locks: []
 pr_number: null
 parent: story-534-536-propose-acceptance-criteria-alternatives

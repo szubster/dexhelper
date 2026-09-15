@@ -5,9 +5,9 @@ title: Setup Mystery Gift E2E Fixtures
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-06'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: '9339539231347841389'
+jules_session_id: '4922706526157662620'
 pr_number: null
 parent: story-345-478-gen3-mystery-gift-e2e-verification
 tags:
@@ -15,7 +15,7 @@ tags:
   - mystery-gift
   - e2e
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

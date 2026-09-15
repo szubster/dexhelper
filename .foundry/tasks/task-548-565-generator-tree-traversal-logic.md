@@ -2,10 +2,10 @@
 id: task-548-565-generator-tree-traversal-logic
 type: TASK
 title: Implement Core Logic for Tree Traversal Generators
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-08'
+updated_at: '2026-09-13'
 depends_on:
   - task-548-564-generator-tree-traversal-types
 jules_session_id: null

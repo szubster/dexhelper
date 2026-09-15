@@ -1,14 +1,14 @@
 ---
 id: task-536-563-playwright-style-guide-ismobile
 type: TASK
-title: "Document isMobile Context Handling"
-status: PENDING
+title: Document isMobile Context Handling
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-09-15'
 depends_on:
   - task-536-562-playwright-style-guide-locator-or
-jules_session_id: null
+jules_session_id: '3190176783565951585'
 pr_number: null
 parent: story-531-536-write-playwright-style-guide
 tags:
@@ -16,8 +16,9 @@ tags:
   - documentation
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # TASK: Document isMobile Context Handling

@@ -2,18 +2,18 @@
 id: task-540-546-benchmark-runner-script-coder
 type: TASK
 title: Implement Benchmark Runner Script
-status: FAILED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-05'
 updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14065588125503411328'
 pr_number: null
 parent: story-536-540-benchmarking-ts7-toolchains
 tags: []
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

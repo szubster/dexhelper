@@ -78,4 +78,38 @@ describe('parseGen3Pokeblocks', () => {
 
     expect(() => parseGen3Pokeblocks(view, 0, 'emerald')).toThrowError('The save file is corrupted or incomplete.');
   });
+
+  it('parses exactly 40 pokeblocks', () => {
+    const buffer = new ArrayBuffer(0x1000);
+    const view = new DataView(buffer);
+    const saveBlock1Offset = 0x100;
+    const emeraldOffset = 0x0848;
+    const baseOffset = saveBlock1Offset + emeraldOffset;
+
+    for (let i = 0; i < 40; i++) {
+      const blockOffset = baseOffset + i * 8;
+      view.setUint8(blockOffset + 0, 1);
+      view.setUint8(blockOffset + 1, 10);
+      view.setUint8(blockOffset + 2, 20);
+      view.setUint8(blockOffset + 3, 30);
+      view.setUint8(blockOffset + 4, 40);
+      view.setUint8(blockOffset + 5, 50);
+      view.setUint8(blockOffset + 6, 60);
+    }
+
+    const result = parseGen3Pokeblocks(view, saveBlock1Offset, 'emerald');
+    expect(result).toBeDefined();
+    expect(result?.length).toBe(40);
+    for (let i = 0; i < 40; i++) {
+      expect(result?.[i]).toEqual({
+        color: 1,
+        spicy: 10,
+        dry: 20,
+        sweet: 30,
+        bitter: 40,
+        sour: 50,
+        feel: 60,
+      });
+    }
+  });
 });

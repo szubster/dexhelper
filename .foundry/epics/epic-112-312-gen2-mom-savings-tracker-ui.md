@@ -2,13 +2,13 @@
 id: epic-112-312-gen2-mom-savings-tracker-ui
 type: EPIC
 title: Gen 2 Mom's Savings Tracker UI
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-09-10'
+updated_at: '2026-09-13'
 depends_on:
   - epic-112-311-gen2-decoration-savings-extraction
-jules_session_id: '5844226920188123508'
+jules_session_id: null
 pr_number: null
 parent: prd-109-112-gen2-room-decoration-tracker
 tags:
@@ -31,4 +31,6 @@ This Epic handles the user interface for tracking Mom's savings and the progress
 - Display the progression towards the next decoration threshold unlocked via Mom's savings.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-312-562-gen2-mom-savings-tracker-ui-core
+- [ ] story-312-563-gen2-mom-savings-tracker-ui-e2e

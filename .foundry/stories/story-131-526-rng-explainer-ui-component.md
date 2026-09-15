@@ -2,10 +2,10 @@
 id: story-131-526-rng-explainer-ui-component
 type: STORY
 title: RNG Tool Explainer UI Component
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-22'
-updated_at: '2026-09-12'
+updated_at: '2026-09-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -28,6 +28,6 @@ locks: []
 Design and implement the user-friendly explainer section within the RNG calculator UI that instructs users on how to use their TID/SID combination with external RNG manipulation tools.
 
 ## Acceptance Criteria
-- [ ] Implement a brief text explainer component in the RNG calculator UI.
-- [ ] Ensure the explanation is accessible and easy to understand.
-- [ ] Tech Lead: Break down this Story into actionable Tasks.
+- [x] Implement a brief text explainer component in the RNG calculator UI.
+- [x] Ensure the explanation is accessible and easy to understand.
+- [x] Tech Lead: Break down this Story into actionable Tasks.

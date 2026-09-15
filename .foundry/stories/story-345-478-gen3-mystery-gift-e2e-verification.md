@@ -5,10 +5,10 @@ title: Gen 3 Mystery Gift Extraction E2E Verification
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-06'
+updated_at: '2026-09-13'
 depends_on:
   - story-345-477-gen3-mystery-gift-event-flags
-jules_session_id: null
+jules_session_id: '1688082053345223261'
 pr_number: null
 parent: epic-121-345-gen3-mystery-gift-data-extraction
 tags:
@@ -31,6 +31,10 @@ This story is dedicated exclusively to the Integration and E2E Verification of t
 ## Acceptance Criteria
 - [ ] Write and pass E2E tests verifying Wonder Card and Event Flag extraction from Gen 3 saves.
 - [x] Tech Lead: Break down this Story into manageable Tasks.
-- [ ] task-478-517-setup-mystery-gift-e2e-fixtures
-- [ ] task-478-518-impl-mystery-gift-e2e-tests
-- [ ] task-478-519-qa-mystery-gift-e2e
+- [x] task-478-517-setup-mystery-gift-e2e-fixtures
+- [ ] research-478-574-investigate-mystery-gift-timeout
+- [ ] task-478-571-setup-mystery-gift-e2e-fixtures
+- [x] task-478-518-impl-mystery-gift-e2e-tests
+- [ ] task-478-572-impl-mystery-gift-e2e-tests
+- [x] task-478-519-qa-mystery-gift-e2e
+- [ ] task-478-573-qa-mystery-gift-e2e

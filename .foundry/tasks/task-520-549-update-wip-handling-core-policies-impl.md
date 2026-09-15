@@ -2,12 +2,12 @@
 id: task-520-549-update-wip-handling-core-policies-impl
 type: TASK
 title: Update Core Policies for WIP Awareness
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-10'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '4762061762405221973'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: story-520-520-update-persona-prompts
@@ -25,5 +25,5 @@ notes: ''
 Update `core_policies.md` to include explicit instructions regarding WIP state handling.
 
 ## Acceptance Criteria
-- [ ] Add explicit instructions regarding WIP state handling in core_policies.md.
-- [ ] Ensure the prompt clearly specifies how generative personas should interact with Draft ADRs and WIP code to prevent premature integration or misinterpretations.
+- [x] Add explicit instructions regarding WIP state handling in core_policies.md.
+- [x] Ensure the prompt clearly specifies how generative personas should interact with Draft ADRs and WIP code to prevent premature integration or misinterpretations.

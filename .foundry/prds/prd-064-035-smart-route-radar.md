@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # PRD: Smart Route Radar / Context-Aware Missing Encounter Map
@@ -48,6 +49,6 @@ Visualizing the assistant's data geographically shifts DexHelper from being just
 
 ## Generated Tasks
 - [x] [task-035-142-smart-radar-adr](.foundry/archive/tasks/task-035-142-smart-radar-adr.md)
-- [x] [epic-035-048-smart-radar-data-unification](.foundry/epics/epic-035-048-smart-radar-data-unification.md)
-- [x] [epic-035-049-smart-radar-heatmap-generation](.foundry/epics/epic-035-049-smart-radar-heatmap-generation.md)
-- [x] [epic-035-050-smart-radar-interactive-ui](.foundry/epics/epic-035-050-smart-radar-interactive-ui.md)
+- [x] epic-035-048-smart-radar-data-unification
+- [x] epic-035-049-smart-radar-heatmap-generation
+- [x] epic-035-050-smart-radar-interactive-ui

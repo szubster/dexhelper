@@ -89,7 +89,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `id` | `string` | ✅ | Globally unique. Convention: `<type>-<parent_NNN>-<NNN>-<slug>` (IDEA nodes omit parent NNN). Used by humans and search; the DAG uses file paths. |
 | `type` | `enum` | ✅ | `IDEA \| PRD \| EPIC \| STORY \| TASK \| RESEARCH \| ADR \| EXPERIMENT` |
 | `title` | `string` | ✅ | Short, human-readable description. |
-| `status` | `enum` | ✅ | Current lifecycle state. See §4. |
+| `status` | `enum` | ✅ | Current lifecycle state. See §4. Can also be `DRAFT` or `WIP`. |
 | `owner_persona` | `enum` | ✅ | Persona responsible for progressing this node. Must be exactly one assigned persona (no arrays or multiple personas). See §5. |
 | `created_at` | `date` | ✅ | ISO-8601 (YYYY-MM-DD). Immutable after creation. |
 | `updated_at` | `date` | ✅ | ISO-8601 (YYYY-MM-DD). Must be updated whenever the file is edited. |
@@ -114,6 +114,8 @@ notes: ""               # Optional. Free-form Markdown remarks.
 
 | Status | Gen 1 Mapping | Description |
 |---|---|---|
+| `DRAFT` | Daycare Egg | An early idea or design that is not yet ready for formal evaluation. |
+| `WIP` | Pokemon Training | Node is currently being actively worked on but not yet ready to transition. |
 | `PENDING` | Pokémon Egg | Node exists but has unresolved `depends_on` entries — not yet eligible for dispatch. |
 | `READY` | Hatched Pokémon | **Orchestrator-written only.** All `depends_on` nodes are `COMPLETED`. Node is queued for the next dispatch cycle. |
 | `ACTIVE` | In Battle / Training | A Jules session (`jules_session_id`) is currently working on this node. This status persists if a PR is open for review. |
@@ -127,7 +129,11 @@ notes: ""               # Optional. Free-form Markdown remarks.
 
 ```mermaid
 stateDiagram-v2
+    [*] --> DRAFT : Node created as draft
     [*] --> PENDING : Node created
+    DRAFT --> WIP : Work begins
+    WIP --> PENDING : Work finalized, dependencies unfulfilled
+    WIP --> READY : Work finalized, dependencies fulfilled
     PENDING --> READY : Orchestrator confirms all depends_on = COMPLETED
     READY --> ACTIVE : Orchestrator dispatches Jules session
     ACTIVE --> VERIFYING : Work submitted by owner / PR merged
@@ -212,6 +218,7 @@ These are the hard rules the orchestrator, heartbeat, and resurrection loop rely
     - Do NOT submit an Empty PR to transition a parent node to VERIFYING (by checking off its own acceptance criteria) until ALL of its generated child nodes have transitioned to COMPLETED.
     - If a parent node has incomplete children, you must leave its own acceptance criteria checkboxes unchecked to keep it in PENDING status.
 16. **Orchestrator Safeguard (E2E/Integration Requirement)**: When breaking down Epics, generative personas must ensure every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`), even for documentation-focused Epics. An EPIC cannot be COMPLETED without it.
+17. **Leaf Node Acceptance Criteria**: Pure leaf nodes (e.g., `TASK`, `RESEARCH`) that do not spawn children do not strictly require Acceptance Criteria checklists, as their completion is binary (e.g., via PR merge). Parent nodes (`IDEA`, `PRD`, `EPIC`, `STORY`) still strictly require them.
 
 ---
 
@@ -243,7 +250,7 @@ notes: ""
 
 # <Title>
 
-<!-- Node body: write your description, acceptance criteria, technical spec, etc. below -->
+<!-- Node body: write your description, technical spec, etc. below. (Acceptance criteria checkboxes are required for parent nodes like IDEA/PRD/EPIC/STORY, but optional for pure leaf nodes like TASK/RESEARCH) -->
 ```
 
 ---

@@ -37,4 +37,4 @@ This feature targets a core Gen 2 mechanic that is heavily relied upon for progr
 
 ## Next Steps
 - [x] Product Manager: Convert this idea into a PRD to investigate the exact save file offsets and RNG mechanics governing Pokegear phone calls in Gold/Silver/Crystal.
-- [ ] .foundry/prds/prd-090-055-pokegear-phone-tracker.md
+- [x] .foundry/prds/prd-090-055-pokegear-phone-tracker.md

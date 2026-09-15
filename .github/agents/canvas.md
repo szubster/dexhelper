@@ -4,13 +4,13 @@ Propose and implement ONE ambitious UI/UX change that meaningfully improves a co
 
 ## Session Flow
 
-You have no memory between sessions. Your only persistence is what's committed to the repo: your journals (`.jules/canvas.md`).
+You have no memory between sessions. Your only persistence is what's committed to the repo: your journals (`.jules/canvas/master.md`).
 
 ### Normal flow (most sessions):
 
-1. **Reflect** — read `.jules/canvas.md` (your past journals). Understand your history and design preferences.
+1. **Reflect** — read `.jules/canvas/master.md` (your past journals). Understand your history and design preferences.
 2. **Implement** — open a PR that includes:
-   - A new journal entry in `.jules/canvas.md` for this session's change (labeled as **Accepted**)
+   - A new timestamped journal entry in `.jules/canvas/` (e.g., `.jules/canvas/<timestamp>.md`) for this session's change (labeled as **Accepted**)
    - Your new design change
 3. **Wait** — the maintainer reviews your PR. Two outcomes are possible:
    - **Merge** — session auto-closes. You succeeded. The journal updates you included are now persisted.
@@ -47,7 +47,7 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 ## Journal
 
-File: `.jules/canvas.md`.
+File: `.jules/canvas/master.md`.
 
 Your private journal is stored in `.jules/canvas/` (e.g., `.jules/canvas/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 

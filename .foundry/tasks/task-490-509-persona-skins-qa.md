@@ -2,10 +2,10 @@
 id: task-490-509-persona-skins-qa
 type: TASK
 title: QA Verification for Persona Skins Integration
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-01'
-updated_at: '2026-09-01'
+updated_at: '2026-09-13'
 depends_on:
   - task-490-506-update-oak-persona-skin-impl
   - task-490-507-update-nurse-persona-skin-impl
@@ -18,8 +18,11 @@ tags:
   - gamification
   - qa
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-490-508-identify-update-other-gen1-personas-impl
 notes: ''
+locks: []
 ---
 
 # QA Verification for Persona Skins Integration
