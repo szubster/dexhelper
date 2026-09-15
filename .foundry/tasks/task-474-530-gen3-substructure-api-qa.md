@@ -2,13 +2,13 @@
 id: task-474-530-gen3-substructure-api-qa
 type: TASK
 title: QA Gen 3 Substructure Resolution API
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-09-13'
+updated_at: '2026-09-15'
 depends_on:
   - task-474-529-gen3-substructure-api-tests
-jules_session_id: null
+jules_session_id: '5265351320653160472'
 pr_number: null
 parent: story-131-474-gen3-substructure-mapping
 tags:
