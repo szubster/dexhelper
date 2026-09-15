@@ -41,5 +41,5 @@ For each file:
    `gh issue create --title "Scheduled Agent: <persona>" --body "$COMPILED_PROMPT" --label "jules"`
 
 ## Acceptance Criteria
-- [ ] `schedule-strategist.yml` through `schedule-visionary.yml` are modified to create GitHub issues with the compiled prompt.
-- [ ] Self-verification: run `pnpm lint` and ensure workflow syntax is valid.
+- [x] `schedule-strategist.yml` through `schedule-visionary.yml` are modified to create GitHub issues with the compiled prompt.
+- [x] Self-verification: run `pnpm lint` and ensure workflow syntax is valid.
