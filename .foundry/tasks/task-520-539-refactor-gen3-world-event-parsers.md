@@ -2,12 +2,12 @@
 id: task-520-539-refactor-gen3-world-event-parsers
 type: TASK
 title: Refactor Gen 3 World Event Parsers
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-05'
 updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3741290153986064721'
 pr_number: null
 parent: story-523-520-gen3-parsers-refactor-core
 tags:
