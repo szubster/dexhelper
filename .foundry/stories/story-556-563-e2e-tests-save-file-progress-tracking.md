@@ -31,4 +31,7 @@ This story is part of the Wild Item E2E Verification epic. It focuses on writing
 - Test scenarios where the item is NOT found.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks.
+- [x] tech_lead: Break down this Story into Tasks.
+- [ ] task-563-578-save-file-progress-fixtures-coder
+- [ ] task-563-579-save-file-progress-e2e-coder
+- [ ] task-563-580-save-file-progress-e2e-qa
