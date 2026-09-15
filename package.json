@@ -12,6 +12,7 @@
     "data:gen": "node --experimental-strip-types scripts/generate-pokedata.ts",
     "data:gen-maps": "node --experimental-strip-types scripts/generateMapLocations.ts",
     "dev": "vite --port=3000 --host=0.0.0.0",
+    "feature-flag": "node --experimental-strip-types scripts/feature-flags/cli.ts",
     "format:biome": "biome format .",
     "postinstall": "lefthook install || true",
     "knip": "knip",
