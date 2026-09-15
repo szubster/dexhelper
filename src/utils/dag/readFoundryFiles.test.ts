@@ -4,7 +4,16 @@ import path from 'node:path';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { readFoundryFiles } from './readFoundryFiles';
 
-vi.mock('node:fs/promises');
+vi.mock('node:fs/promises', () => ({
+  default: {
+    stat: vi.fn<(...args: unknown[]) => Promise<fs.Stats>>(),
+    readdir: vi.fn<(...args: unknown[]) => Promise<fs.Dirent[]>>(),
+    readFile: vi.fn<(...args: unknown[]) => Promise<string | Buffer>>(),
+  },
+  stat: vi.fn<(...args: unknown[]) => Promise<fs.Stats>>(),
+  readdir: vi.fn<(...args: unknown[]) => Promise<fs.Dirent[]>>(),
+  readFile: vi.fn<(...args: unknown[]) => Promise<string | Buffer>>(),
+}));
 
 describe('readFoundryFiles', () => {
   beforeEach(() => {
