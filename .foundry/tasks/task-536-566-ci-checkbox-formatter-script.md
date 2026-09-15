@@ -32,5 +32,5 @@ As part of Alternative D from `research-534-517-audit-acceptance-criteria`, we n
 - Add this script to the CI pipeline or as a `pnpm` format script.
 
 ## Acceptance Criteria
-- [ ] coder: Implement the checkbox formatting script.
-- [ ] coder: Integrate the script into the `package.json` format checks or GitHub actions.
+- [x] coder: Implement the checkbox formatting script.
+- [x] coder: Integrate the script into the `package.json` format checks or GitHub actions.
