@@ -14,6 +14,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [idea-157-gen2-headbutt-tree-predictor](.foundry/ideas/idea-157-gen2-headbutt-tree-predictor.md) | IDEA | Gen 2 Headbutt Tree Predictor | product_manager | [5572281811009514663](https://jules.google.com/session/5572281811009514663) |
 | [idea-521-agent-confidence-metrics-dashboard](.foundry/ideas/idea-521-agent-confidence-metrics-dashboard.md) | IDEA | Agent Confidence Metrics Dashboard | product_manager | [5160211212668243883](https://jules.google.com/session/5160211212668243883) |
 | [idea-521-foundry-persona-execution-time-profiler](.foundry/ideas/idea-521-foundry-persona-execution-time-profiler.md) | IDEA | Foundry Persona Execution Time Profiler | product_manager | [5656689342012814565](https://jules.google.com/session/5656689342012814565) |
 | [idea-522-gen3-secret-base-radar](.foundry/ideas/idea-522-gen3-secret-base-radar.md) | IDEA | Gen 3 Secret Base Radar & Analyzer | product_manager | [3997530602284275336](https://jules.google.com/session/3997530602284275336) |
