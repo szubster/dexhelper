@@ -34,4 +34,8 @@ Refactor core tactical components to use CVA for variant definitions.
 - Ensure strict TypeScript typing for all component variants.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into Stories.
+- [x] Story Owner: Break down this Epic into Stories.
+- [ ] story-567-569-cva-refactor-tactical-panel-card
+- [ ] story-567-570-cva-refactor-tactical-button-badge
+- [ ] story-567-571-cva-refactor-tactical-inputs
+- [ ] story-567-572-cva-refactor-e2e-verification
