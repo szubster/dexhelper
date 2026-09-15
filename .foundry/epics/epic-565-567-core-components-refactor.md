@@ -2,12 +2,12 @@
 id: epic-565-567-core-components-refactor
 type: EPIC
 title: Core Components CVA Refactor
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-14'
 updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2930409178042856893'
 pr_number: null
 parent: prd-523-565-component-variants-theming-consolidation-refactor
 tags:
