@@ -32,7 +32,7 @@ You MUST strictly adhere to the guidelines defined in **Section 13 ("Save File P
 This builds upon the types and constants defined in the upstream task. The parsing function must safely extract the data from the `DataView` using the correct section offsets.
 
 ## Acceptance Criteria
-- [ ] Implement a parsing function (e.g., `extractWeatherAnomaly`) that takes the save file `DataView` and the resolved `section1Offset` as arguments.
-- [ ] The function must calculate the correct relative memory offset using the constants defined in the previous task.
-- [ ] The function MUST catch `RangeError` for out-of-bounds reads and throw a new error with the message "The save file is corrupted or incomplete."
-- [ ] The implementation must use the constants (no inline magic numbers) and return the structured data matching the defined TypeScript types.
+- [x] Implement a parsing function (e.g., `extractWeatherAnomaly`) that takes the save file `DataView` and the resolved `section1Offset` as arguments.
+- [x] The function must calculate the correct relative memory offset using the constants defined in the previous task.
+- [x] The function MUST catch `RangeError` for out-of-bounds reads and throw a new error with the message "The save file is corrupted or incomplete."
+- [x] The implementation must use the constants (no inline magic numbers) and return the structured data matching the defined TypeScript types.
