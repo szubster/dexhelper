@@ -202,6 +202,7 @@ export interface Gen3SecretBase {
 }
 
 export interface Gen3BerryPatch {
+  locationName?: string;
   berryId: number;
   stage: number;
   stopGrowth: boolean;

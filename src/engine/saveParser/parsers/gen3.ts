@@ -58,6 +58,7 @@ import {
  * is determined by `PV % 24`.
  */
 
+import { BERRY_TREE_LOCATIONS } from '../../gen3/berryPatches/berryLocations';
 import { type Gen3FameCheckerData, parseGen3FameChecker } from '../../gen3/fameChecker/parser';
 import { extractFeebasSeed } from '../../gen3/feebas';
 import { parseGen3MatchCall } from '../../gen3/matchCall/parser';
@@ -1666,13 +1667,14 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       section3Offset = -1;
     }
 
-    const gen3BerryPatches = parseGen3BerryTrees(view, section1Offset).map((t) => ({
+    const gen3BerryPatches = parseGen3BerryTrees(view, section1Offset).map((t, index) => ({
       ...t,
       stopGrowth: !!t.stopGrowth,
       watered1: !!t.watered1,
       watered2: !!t.watered2,
       watered3: !!t.watered3,
       watered4: !!t.watered4,
+      locationName: BERRY_TREE_LOCATIONS[index] || 'Unknown Location',
     }));
     const gen3SecretBases = parseGen3SecretBases(view, section1Offset, _forcedVersion || 'ruby');
     const gen3StaticEncounters = extractGen3StaticEncounterFlags(view, _forcedVersion || 'ruby', section1Offset);
