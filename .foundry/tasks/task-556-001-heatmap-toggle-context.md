@@ -30,5 +30,5 @@ To support toggling the Health Heatmap overlay on the DAG dashboard, we need to 
 4. Include `showHeatmap` and `setShowHeatmap` in the `value` object passed to the `DagContext.Provider`.
 
 ## Acceptance Criteria
-- [ ] DagContext includes `showHeatmap` and `setShowHeatmap`.
-- [ ] DagProvider initializes and provides these values.
+- [x] DagContext includes `showHeatmap` and `setShowHeatmap`.
+- [x] DagProvider initializes and provides these values.
