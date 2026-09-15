@@ -25,4 +25,6 @@ This story introduces a standard Markdown warning banner that must be placed at 
 ## Acceptance Criteria
 - [ ] Define the Markdown banner component/string to be used for WIP/DRAFT nodes
 - [ ] Update documentation generators/templates to include this banner if the state is WIP or DRAFT
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-527-581-define-markdown-banner
+- [ ] task-527-582-update-generators-wip-banner
