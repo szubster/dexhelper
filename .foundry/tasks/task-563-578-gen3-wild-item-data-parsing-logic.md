@@ -1,15 +1,15 @@
 ---
-id: story-552-563-gen3-wild-item-parsing
-type: STORY
-title: Gen 3 Wild Encounter and Held Item Parsing
-status: ACTIVE
-owner_persona: tech_lead
-created_at: '2026-09-12'
+id: task-563-578-gen3-wild-item-data-parsing-logic
+type: TASK
+title: Implement Gen 3 Wild Encounter and Held Item Parsing Logic
+status: READY
+owner_persona: coder
+created_at: '2026-09-14'
 updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: '17344898851748385252'
+jules_session_id: null
 pr_number: null
-parent: epic-521-552-wild-item-data-engine
+parent: story-552-563-gen3-wild-item-parsing
 tags:
   - gen3
   - dexhelper
@@ -18,10 +18,9 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
-priority: 50
 ---
 
-# Gen 3 Wild Encounter and Held Item Parsing
+# Implement Gen 3 Wild Encounter and Held Item Parsing Logic
 
 ## Context
 As part of the Wild Item Data Engine epic, this story focuses exclusively on Gen 3 games (Ruby, Sapphire, Emerald, FireRed, LeafGreen). We need to parse wild encounter data and determine held item probabilities.
@@ -32,7 +31,6 @@ As part of the Wild Item Data Engine epic, this story focuses exclusively on Gen
 - Utilize relative offsets where applicable.
 
 ## Acceptance Criteria
-- [x] tech_lead: Break down this Story into Tasks for Gen 3 data extraction.
-- [ ] task-563-578-gen3-wild-item-data-parsing-logic
-- [ ] task-563-579-gen3-wild-item-data-parsing-tests
-- [ ] task-563-580-gen3-wild-item-data-parsing-qa
+- [ ] Implement Gen 3 wild encounter locations and rates parsing.
+- [ ] Map held item data and their respective drop rates for Gen 3 Pokémon.
+- [ ] Utilize relative offsets where applicable.
