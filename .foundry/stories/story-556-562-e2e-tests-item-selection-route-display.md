@@ -31,4 +31,6 @@ This story is part of the Wild Item E2E Verification epic. It focuses on writing
 - Utilize the \`isMobile\` context fixture if necessary.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks.
+- [x] tech_lead: Break down this Story into Tasks.
+- [ ] task-562-576-item-selection-route-e2e-impl
+- [ ] task-562-577-item-selection-route-e2e-qa
