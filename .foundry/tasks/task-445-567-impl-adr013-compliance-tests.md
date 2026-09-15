@@ -42,7 +42,7 @@ With the implementation of the ADR compliance linter scripts for UI constraints 
 5. Assert that the script correctly flags the violations and fails for non-compliant files, and passes successfully on compliant mock files.
 
 ## Acceptance Criteria
-- [ ] Test cases are added for ADR-013 compliance in `scripts/verify-adr-compliance.test.ts`.
-- [ ] Tests verify that local `useState` usage correctly flags an ADR 013 violation.
-- [ ] Tests verify that `DagContext.tsx` is explicitly ignored/allowed.
-- [ ] All new tests pass successfully via `npx vitest run scripts/verify-adr-compliance.test.ts`.
+- [x] Test cases are added for ADR-013 compliance in `scripts/verify-adr-compliance.test.ts`.
+- [x] Tests verify that local `useState` usage correctly flags an ADR 013 violation.
+- [x] Tests verify that `DagContext.tsx` is explicitly ignored/allowed.
+- [x] All new tests pass successfully via `npx vitest run scripts/verify-adr-compliance.test.ts`.
