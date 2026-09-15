@@ -35,4 +35,4 @@ We need to ensure that the Mirage Island save parsing works end-to-end when a Ge
 - Follow E2E testing patterns from `.foundry/docs/knowledge_base/testing/e2e_patterns.md`.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E test for Mirage Island extraction based on research learnings.
+- [x] Implement Playwright E2E test for Mirage Island extraction based on research learnings.
