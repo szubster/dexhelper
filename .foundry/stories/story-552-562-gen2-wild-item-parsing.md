@@ -32,4 +32,8 @@ As part of the Wild Item Data Engine epic, this story focuses exclusively on Gen
 - Provide data models and extraction logic for Gen 2.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks for Gen 2 data extraction.
+- [x] tech_lead: Break down this Story into Tasks for Gen 2 data extraction.
+- [ ] task-562-578-gen2-wild-item-models-impl
+- [ ] task-562-579-gen2-wild-item-extraction-logic-impl
+- [ ] task-562-580-gen2-wild-item-extraction-tests
+- [ ] task-562-581-gen2-wild-item-extraction-qa
