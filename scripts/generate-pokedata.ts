@@ -1026,6 +1026,10 @@ writeJsonl(path.join(OUTPUT_DIR, 'moves.jsonl'), moves.map(compact));
 writeJsonl(path.join(OUTPUT_DIR, 'items.jsonl'), items.map(compact));
 writeJsonl(path.join(OUTPUT_DIR, 'berries.jsonl'), berries.map(compact));
 
+if (fs.existsSync(path.join('data', 'gen3_match_call.jsonl'))) {
+  fs.copyFileSync(path.join('data', 'gen3_match_call.jsonl'), path.join(OUTPUT_DIR, 'gen3_match_call.jsonl'));
+}
+
   fs.writeFileSync(path.join(OUTPUT_DIR, 'metadata.json'), JSON.stringify({
     sourceSha: upstreamSha,
     generatedAt: new Date().toISOString(),
