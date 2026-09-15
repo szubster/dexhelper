@@ -36,4 +36,7 @@ Refactor the `TacticalInput`, `TacticalSegmentedControl`, `TacticalSelect`, and 
 - Ensure strict TypeScript typing for all component variants.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-571-578-cva-refactor-basic-inputs
+- [ ] task-571-579-cva-refactor-complex-inputs
+- [ ] task-571-580-qa-tactical-inputs
