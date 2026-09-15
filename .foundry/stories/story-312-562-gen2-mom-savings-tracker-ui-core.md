@@ -32,4 +32,7 @@ Implement the UI logic in `Gen2SavingsDashboard` to display progression toward t
 - Handle the case where all thresholds have been reached.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-562-581-gen2-moms-savings-logic
+- [ ] task-562-582-gen2-moms-savings-ui
+- [ ] task-562-583-gen2-moms-savings-qa
