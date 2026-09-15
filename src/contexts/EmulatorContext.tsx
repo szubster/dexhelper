@@ -3,6 +3,7 @@ import { createContext, useContext } from 'react';
 import { useStore } from 'zustand';
 import { useEmulatorStore } from '../emulator/state/emulatorStore';
 import type { SaveData } from '../engine/saveParser/parsers/common';
+import { useStore as useAppStore } from '../store';
 
 export const EmulatorContext = createContext<typeof useEmulatorStore | null>(null);
 
@@ -26,5 +27,7 @@ export function useEmulatorState<T>(selector: (state: ReturnType<typeof useEmula
 }
 
 export function useParsedSaveData(): SaveData | null {
-  return useEmulatorState((state) => state.saveData);
+  const emulatorData = useEmulatorState((state) => state.saveData);
+  const fileData = useAppStore((state) => state.saveData);
+  return emulatorData ?? fileData;
 }

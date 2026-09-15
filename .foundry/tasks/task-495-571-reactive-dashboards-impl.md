@@ -27,5 +27,5 @@ priority: 50
 To complete the reactive migration, various dashboard components (e.g. Checklists, Savings, Breeding, Trades) need to consume the live memory context.
 
 ## Acceptance Criteria
-- [ ] Refactor dashboard components in `src/components/dashboard/` to use `useParsedSaveData` from `EmulatorContext` instead of `useStore`.
-- [ ] Ensure the components reactively re-render to reflect real-time game state changes.
+- [x] Refactor dashboard components in `src/components/dashboard/` to use `useParsedSaveData` from `EmulatorContext` instead of `useStore`.
+- [x] Ensure the components reactively re-render to reflect real-time game state changes.

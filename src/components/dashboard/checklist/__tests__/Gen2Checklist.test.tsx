@@ -1,7 +1,14 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import * as emulatorContext from '../../../../contexts/EmulatorContext';
+import type { SaveData } from '../../../../engine/saveParser/parsers/common';
+
+vi.mock('../../../../contexts/EmulatorContext', () => ({
+  useParsedSaveData: vi.fn<() => SaveData | null>(),
+}));
+
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import * as store from '../../../../store';
+import type * as store from '../../../../store';
 import { Gen2Checklist } from '../Gen2Checklist';
 
 // Mock the store explicitly since we are dealing with useStore
@@ -20,7 +27,7 @@ describe('Gen2Checklist', () => {
 
   it('renders correctly with gen 2 data', async () => {
     // Mock the store to return valid gen 2 save data
-    vi.mocked(store.useStore).mockImplementation((selector) => {
+    vi.mocked(emulatorContext.useParsedSaveData).mockImplementation(() => {
       const state = {
         saveData: {
           generation: 2,
@@ -38,9 +45,7 @@ describe('Gen2Checklist', () => {
           },
         },
       };
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error - Mocking zustand store state
-      return selector(state);
+      return state.saveData as unknown as SaveData;
     });
 
     await render(<Gen2Checklist />);
@@ -60,15 +65,13 @@ describe('Gen2Checklist', () => {
   });
 
   it('does not render for gen 3 data', async () => {
-    vi.mocked(store.useStore).mockImplementation((selector) => {
+    vi.mocked(emulatorContext.useParsedSaveData).mockImplementation(() => {
       const state = {
         saveData: {
           generation: 3,
         },
       };
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error - Mocking zustand store state
-      return selector(state);
+      return state.saveData as unknown as SaveData;
     });
 
     await render(<Gen2Checklist />);
@@ -77,13 +80,11 @@ describe('Gen2Checklist', () => {
   });
 
   it('does not render if saveData is null', async () => {
-    vi.mocked(store.useStore).mockImplementation((selector) => {
+    vi.mocked(emulatorContext.useParsedSaveData).mockImplementation(() => {
       const state = {
         saveData: null,
       };
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error - Mocking zustand store state
-      return selector(state);
+      return state.saveData as unknown as SaveData;
     });
 
     await render(<Gen2Checklist />);

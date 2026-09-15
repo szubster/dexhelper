@@ -1,4 +1,10 @@
 import { describe, expect, it, vi } from 'vitest';
+import * as emulatorContext from '../../../../contexts/EmulatorContext';
+
+vi.mock('../../../../contexts/EmulatorContext', () => ({
+  useParsedSaveData: vi.fn<() => SaveData | null>(),
+}));
+
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import type { SaveData } from '../../../../engine/saveParser/parsers/common';
@@ -11,8 +17,9 @@ vi.mock('../../../../store', () => ({
 
 describe('GlobalRibbonChecklistDashboard', () => {
   it('renders nothing if not generation 3', async () => {
+    const state = { saveData: { generation: 2 } as SaveData, isLivingDex: false };
+    vi.mocked(emulatorContext.useParsedSaveData).mockReturnValue(state.saveData as unknown as SaveData);
     vi.mocked(useStore).mockImplementation((selector) => {
-      const state = { saveData: { generation: 2 } as SaveData, isLivingDex: false };
       return selector(state as unknown as Parameters<Parameters<typeof useStore>[0]>[0]);
     });
 
@@ -21,15 +28,16 @@ describe('GlobalRibbonChecklistDashboard', () => {
   });
 
   it('renders NO POKEMON WITH RIBBONS FOUND if no pokemon have ribbons', async () => {
+    const state = {
+      saveData: {
+        generation: 3,
+        partyDetails: [],
+        pcDetails: [],
+      } as unknown as SaveData,
+      isLivingDex: false,
+    };
+    vi.mocked(emulatorContext.useParsedSaveData).mockReturnValue(state.saveData as unknown as SaveData);
     vi.mocked(useStore).mockImplementation((selector) => {
-      const state = {
-        saveData: {
-          generation: 3,
-          partyDetails: [],
-          pcDetails: [],
-        } as unknown as SaveData,
-        isLivingDex: false,
-      };
       return selector(state as unknown as Parameters<Parameters<typeof useStore>[0]>[0]);
     });
 
@@ -42,28 +50,29 @@ describe('GlobalRibbonChecklistDashboard', () => {
     Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { configurable: true, value: 500 });
     Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { configurable: true, value: 500 });
 
+    const state = {
+      saveData: {
+        generation: 3,
+        partyDetails: [
+          {
+            speciesId: 25,
+            level: 10,
+            nickname: 'PIKACHU',
+            ribbons: { cool: 1, beauty: 0, cute: 2, smart: 0, tough: 0 },
+          },
+          {
+            speciesId: 4,
+            level: 20,
+            nickname: 'CHARMANDER',
+            ribbons: { cool: 4, beauty: 4, cute: 4, smart: 4, tough: 4 },
+          },
+        ],
+        pcDetails: [],
+      } as unknown as SaveData,
+      isLivingDex: true,
+    };
+    vi.mocked(emulatorContext.useParsedSaveData).mockReturnValue(state.saveData as unknown as SaveData);
     vi.mocked(useStore).mockImplementation((selector) => {
-      const state = {
-        saveData: {
-          generation: 3,
-          partyDetails: [
-            {
-              speciesId: 25,
-              level: 10,
-              nickname: 'PIKACHU',
-              ribbons: { cool: 1, beauty: 0, cute: 2, smart: 0, tough: 0 },
-            },
-            {
-              speciesId: 4,
-              level: 20,
-              nickname: 'CHARMANDER',
-              ribbons: { cool: 4, beauty: 4, cute: 4, smart: 4, tough: 4 },
-            },
-          ],
-          pcDetails: [],
-        } as unknown as SaveData,
-        isLivingDex: true,
-      };
       return selector(state as unknown as Parameters<Parameters<typeof useStore>[0]>[0]);
     });
 

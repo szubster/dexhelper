@@ -1,11 +1,16 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type React from 'react';
 import { expect, test, vi } from 'vitest';
+import * as emulatorContext from '../../../../contexts/EmulatorContext';
+
+vi.mock('../../../../contexts/EmulatorContext', () => ({
+  useParsedSaveData: vi.fn<() => SaveData | null>(),
+}));
+
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import { pokeDB } from '../../../../db/PokeDB';
 import type { PokemonInstance, SaveData } from '../../../../engine/saveParser';
-import { useStore } from '../../../../store';
 import { ShinyCarrierBreedingDashboard } from '../ShinyCarrierBreedingDashboard';
 
 vi.mock('../../../../store', () => ({
@@ -27,14 +32,14 @@ const wrapper = ({ children }: { children: React.ReactNode }) => (
 );
 
 test('returns null if generation is not 2', async () => {
-  vi.mocked(useStore, true).mockReturnValue({ generation: 3 } as unknown as SaveData);
+  vi.mocked(emulatorContext.useParsedSaveData, true).mockReturnValue({ generation: 3 } as unknown as SaveData);
   vi.mocked(pokeDB.getAllPokemon, true).mockResolvedValue([]);
   const { container } = await render(<ShinyCarrierBreedingDashboard />, { wrapper });
   expect(container.innerHTML).toBe('');
 });
 
 test('renders NO SHINY CARRIER BREEDING PAIRS AVAILABLE if no pairs match criteria', async () => {
-  vi.mocked(useStore, true).mockReturnValue({
+  vi.mocked(emulatorContext.useParsedSaveData, true).mockReturnValue({
     generation: 2,
     partyDetails: [],
     pcDetails: [],
@@ -64,7 +69,7 @@ test('renders optimal breeding pairs if matches are found', async () => {
     dvs: { hp: 15, atk: 15, def: 15, spd: 15, spc: 15 },
   };
 
-  vi.mocked(useStore, true).mockReturnValue({
+  vi.mocked(emulatorContext.useParsedSaveData, true).mockReturnValue({
     generation: 2,
     partyDetails: [pA as unknown as PokemonInstance],
     pcDetails: [pB as unknown as PokemonInstance],
