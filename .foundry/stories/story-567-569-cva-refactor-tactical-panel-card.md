@@ -34,4 +34,6 @@ Refactor the `TacticalPanel` and `TacticalCard` components to use `class-varianc
 - Ensure strict TypeScript typing for all component variants.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-569-578-cva-refactor-tactical-panel-card
+- [ ] task-569-579-qa-cva-refactor-tactical-panel-card
