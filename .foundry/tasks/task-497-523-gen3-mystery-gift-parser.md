@@ -37,5 +37,5 @@ Implement the logic to extract Mystery Gift event flags and ship enablement flag
 - Do not write unit tests in this task. They will be handled in a separate task.
 
 ## Acceptance Criteria
-- [ ] Extraction logic is implemented and maps correctly to `Gen3MysteryGift`.
-- [ ] Build completes without errors.
+- [x] Extraction logic is implemented and maps correctly to `Gen3MysteryGift`.
+- [x] Build completes without errors.
