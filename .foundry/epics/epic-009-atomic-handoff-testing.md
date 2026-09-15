@@ -33,6 +33,6 @@ This Epic ensures that the orchestrator refactors and schema updates are heavily
 
 ### Generated Stories
 - `.foundry/archive/stories/story-009-030-single-persona-dag-tests.md`
-- `.foundry/stories/story-009-031-deadlock-prevention-tests.md`
+- `.foundry/archive/stories/story-009-031-deadlock-prevention-tests.md`
 - `.foundry/archive/stories/story-009-032-lifecycle-integration-tests.md`
 - [x] story-009-033-atomic-handoff-testing-e2e

@@ -26,4 +26,4 @@ Implement unit tests to verify that the orchestrator correctly identifies and pr
 - [x] Unit tests verify deadlock prevention mechanisms function correctly.
 
 ### Generated Tasks
-- .foundry/tasks/task-031-048-implement-deadlock-tests.md
+- .foundry/archive/tasks/task-031-048-implement-deadlock-tests.md
