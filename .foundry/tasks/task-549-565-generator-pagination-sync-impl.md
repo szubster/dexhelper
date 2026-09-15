@@ -33,6 +33,6 @@ This task involves implementing synchronous `function*` generator protocols for 
 Following the defined type interfaces and ADR 154, the goal is to implement lazy evaluation mechanisms replacing eager array allocations to reduce peak memory usage and GC overhead on large datasets.
 
 ## Acceptance Criteria
-- [ ] Implement synchronous generator utilities (`function*`) for pagination logic.
-- [ ] Ensure explicit resource management where applicable using the `using` keyword.
-- [ ] Ensure generators comply with the newly defined TS 7.x compatible interfaces.
+- [x] Implement synchronous generator utilities (`function*`) for pagination logic.
+- [x] Ensure explicit resource management where applicable using the `using` keyword.
+- [x] Ensure generators comply with the newly defined TS 7.x compatible interfaces.
