@@ -9,6 +9,7 @@
 | [epic-521-554-hunting-progress-tracker](.foundry/epics/epic-521-554-hunting-progress-tracker.md) | EPIC | Hunting Progress Tracker | story_owner | [13490237157278570089](https://jules.google.com/session/13490237157278570089) |
 | [epic-521-554-schema-linter-lefthook-integration](.foundry/epics/epic-521-554-schema-linter-lefthook-integration.md) | EPIC | Schema Linter Integration: Lefthook Pre-commit | story_owner | [11442563611297877661](https://jules.google.com/session/11442563611297877661) |
 | [epic-563-564-implement-heartbeat-violation-detection](.foundry/epics/epic-563-564-implement-heartbeat-violation-detection.md) | EPIC | Implement Heartbeat Detection for Autonomous Violations | story_owner | [7141950714309752019](https://jules.google.com/session/7141950714309752019) |
+| [epic-565-566-cva-setup](.foundry/epics/epic-565-566-cva-setup.md) | EPIC | CVA Setup and Theme Variables | story_owner | [14077911034019243278](https://jules.google.com/session/14077911034019243278) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
