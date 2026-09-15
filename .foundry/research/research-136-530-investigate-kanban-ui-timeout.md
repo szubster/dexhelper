@@ -2,7 +2,7 @@
 id: research-136-530-investigate-kanban-ui-timeout
 type: RESEARCH
 title: Investigate Kanban UI Timeout
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-09-03'
 updated_at: '2026-09-15'
@@ -16,8 +16,8 @@ tags:
   - dashboard
   - kanban
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

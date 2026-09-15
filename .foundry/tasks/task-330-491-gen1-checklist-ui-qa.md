@@ -2,10 +2,10 @@
 id: task-330-491-gen1-checklist-ui-qa
 type: TASK
 title: QA Gen 1 Checklist UI
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-09-15'
 depends_on:
   - task-330-490-gen1-checklist-ui-tests
 jules_session_id: null
@@ -20,6 +20,7 @@ research_references:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # QA Gen 1 Checklist UI
