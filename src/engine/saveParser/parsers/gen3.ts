@@ -69,6 +69,7 @@ import {
   parseGen3BattlePoints,
   parseGen3TotalBattlePoints,
 } from '../gen3/battleFrontier/parser';
+import { parseRSBattleTowerWinStreaks } from '../gen3/battleTower/parser';
 import { parseGen3BerryTrees } from '../gen3/berry/parser';
 import {
   CONDITION_BEAUTY_OFFSET,
@@ -1723,6 +1724,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     const mirageIslandValue = parseGen3MirageIslandValue(view, section2Offset + mirageIslandOffset);
 
     let gen3BattleFrontierWinStreaks: Gen3BattleFrontierWinStreaks | undefined;
+    let gen3RSBattleTowerWinStreaks: ReturnType<typeof parseRSBattleTowerWinStreaks> | undefined;
     let gen3BattleFrontierSymbols: Gen3BattleFrontierSymbols | undefined;
     let gen3TotalBattlePoints: number | undefined;
     let gen3BattlePoints: number | undefined;
@@ -1783,6 +1785,12 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       }
       try {
         gen3BattlePoints = parseGen3BattlePoints(view, section2Offset);
+      } catch {
+        // Ignored if missing or corrupted, allowing the rest of the save to load
+      }
+    } else if (_forcedVersion === 'ruby' || _forcedVersion === 'sapphire') {
+      try {
+        gen3RSBattleTowerWinStreaks = parseRSBattleTowerWinStreaks(view, section2Offset);
       } catch {
         // Ignored if missing or corrupted, allowing the rest of the save to load
       }
@@ -1969,6 +1977,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     }
     if (gen3BattleFrontierWinStreaks) {
       result.gen3BattleFrontierWinStreaks = gen3BattleFrontierWinStreaks;
+    }
+    if (gen3RSBattleTowerWinStreaks) {
+      result.gen3RSBattleTowerWinStreaks = gen3RSBattleTowerWinStreaks;
     }
     if (gen3BattleFrontierSymbols) {
       result.gen3BattleFrontierSymbols = gen3BattleFrontierSymbols;
