@@ -30,4 +30,4 @@ Write an end-to-end test validating the full execution loop of the statistics ge
 2. The `coder` will be responsible for verification, no QA task is required.
 
 ## Acceptance Criteria
-- [ ] Implement E2E test for the Statistics Generator.
+- [x] Implement E2E test for the Statistics Generator.

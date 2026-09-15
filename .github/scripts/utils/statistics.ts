@@ -81,3 +81,39 @@ export function extractPRMetrics(): PRMetrics | null {
     return null;
   }
 }
+
+export function generateStatisticsReport(repoRoot: string): void {
+  const nodes = aggregateNodeStatistics(repoRoot);
+  const prs = extractPRMetrics() || { totalPRs: 0, openPRs: 0, mergedPRs: 0, closedPRs: 0 };
+
+  const combined = {
+    timestamp: new Date().toISOString(),
+    nodes,
+    prs
+  };
+
+  const jsonPath = path.join(repoRoot, 'foundry-statistics.json');
+  fs.writeFileSync(jsonPath, JSON.stringify(combined, null, 2), 'utf-8');
+
+  let mdContent = `# Foundry System Statistics\n\n`;
+  mdContent += `*Generated at: ${combined.timestamp}*\n\n`;
+
+  mdContent += `## Node Statistics\n\n`;
+  mdContent += `### By Type\n`;
+  for (const [type, count] of Object.entries(nodes.byType)) {
+    mdContent += `- **${type}**: ${count}\n`;
+  }
+  mdContent += `\n### By Status\n`;
+  for (const [status, count] of Object.entries(nodes.byStatus)) {
+    mdContent += `- **${status}**: ${count}\n`;
+  }
+
+  mdContent += `\n## PR Metrics\n\n`;
+  mdContent += `- **Total PRs**: ${prs.totalPRs}\n`;
+  mdContent += `- **Open PRs**: ${prs.openPRs}\n`;
+  mdContent += `- **Merged PRs**: ${prs.mergedPRs}\n`;
+  mdContent += `- **Closed PRs**: ${prs.closedPRs}\n`;
+
+  const mdPath = path.join(repoRoot, 'foundry-statistics.md');
+  fs.writeFileSync(mdPath, mdContent, 'utf-8');
+}
