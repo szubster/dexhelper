@@ -32,5 +32,5 @@ Verify the implementation of the `BikeBadge` integration into the `MapUI`. This 
 - Run frontend visual tests/checks.
 
 ## Acceptance Criteria
-- [ ] Verify ADR 008/024 aesthetic compliance for MapUI integration.
-- [ ] Ensure unit tests pass and adequately cover edge cases for rendering bike badges.
+- [x] Verify ADR 008/024 aesthetic compliance for MapUI integration.
+- [x] Ensure unit tests pass and adequately cover edge cases for rendering bike badges.
