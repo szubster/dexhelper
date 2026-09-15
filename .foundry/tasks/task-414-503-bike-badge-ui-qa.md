@@ -2,13 +2,13 @@
 id: task-414-503-bike-badge-ui-qa
 type: TASK
 title: QA Bike Requirement Badges UI Integration
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-08-31'
-updated_at: '2026-09-13'
+updated_at: '2026-09-15'
 depends_on:
   - task-414-502-map-ui-bike-integration-impl
-jules_session_id: '8724805382122507598'
+jules_session_id: '17888545252701393061'
 pr_number: null
 parent: story-406-414-bike-requirement-ui-badges
 tags:
