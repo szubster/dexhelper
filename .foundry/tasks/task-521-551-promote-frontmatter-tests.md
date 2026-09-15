@@ -25,4 +25,4 @@ locks: []
 # Promote Frontmatter Tests
 
 ## Acceptance Criteria
-- [ ] Write tests for core YAML frontmatter update logic and script behavior on mock files.
+- [x] Write tests for core YAML frontmatter update logic and script behavior on mock files.
