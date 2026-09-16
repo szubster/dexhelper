@@ -4,12 +4,14 @@
   "ignoreDependencies": [
     "wrangler",
     "@cloudflare/pages-plugin-cloudflare-access",
-    "@cloudflare/workers-types",
     "@tsconfig/strictest",
     "@tsconfig/vite-react"
   ],
   "ignore": [
     "src/test-setup.ts",
+    "src/contexts/binjgb/index.ts",
+    "src/hooks/useBinjgb.ts",
+
     ".github/scripts/extract-research.ts",
     "scripts/gen3-fetch-locations.ts",
     "functions/_middleware.ts",

@@ -2,10 +2,10 @@
 id: story-427-531-mgba-memory-sync
 type: STORY
 title: Implement mGBA Real-time Memory Synchronization
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-17'
-updated_at: '2026-09-12'
+updated_at: '2026-09-15'
 depends_on:
   - story-427-530-mgba-wasm-wrapper
 jules_session_id: null
@@ -29,6 +29,9 @@ locks: []
 Implement real-time memory synchronization with the DexHelper Save DB for Gen 3 games running in the mGBA WASM emulator.
 
 ## Acceptance Criteria
-- [ ] Extract SRAM/Save data directly from the emulator's memory space via JavaScript bindings during active gameplay.
-- [ ] Pass the live memory buffer to the DexHelper parsing engine.
-- [ ] Ensure seamless state synchronization without manual file-based exports.
+- [x] Extract SRAM/Save data directly from the emulator's memory space via JavaScript bindings during active gameplay.
+- [x] Pass the live memory buffer to the DexHelper parsing engine.
+- [x] Ensure seamless state synchronization without manual file-based exports.
+- [ ] task-531-568-mgba-memory-sync-core
+- [ ] task-531-569-mgba-memory-sync-react
+- [ ] task-531-570-mgba-memory-sync-qa

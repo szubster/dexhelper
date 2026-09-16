@@ -2,12 +2,12 @@
 id: task-536-538-dagtree-context-state-impl
 type: TASK
 title: Implement DagTree Context and State Layer
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-12'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: '4040507190162011830'
+jules_session_id: null
 pr_number: null
 parent: story-530-536-dagtree-ui-logic
 tags:
@@ -31,7 +31,7 @@ Create the React Context and state management layer to handle the expanded/colla
 4. Expose functions to "Expand All" and "Collapse All" nodes.
 
 ## Acceptance Criteria
-- [ ] Implement the DagTree Context provider.
-- [ ] Implement state management for expanded/collapsed nodes.
-- [ ] Implement functions to toggle, expand all, and collapse all nodes.
-- [ ] Write unit tests for the context and state logic.
+- [x] Implement the DagTree Context provider.
+- [x] Implement state management for expanded/collapsed nodes.
+- [x] Implement functions to toggle, expand all, and collapse all nodes.
+- [x] Write unit tests for the context and state logic.

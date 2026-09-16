@@ -2,10 +2,10 @@
 id: epic-035-048-smart-radar-data-unification
 type: EPIC
 title: Smart Radar Data Unification
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-23'
-updated_at: '2026-08-20'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Epic: Smart Radar Data Unification
 
@@ -33,4 +34,4 @@ Unify the data structures used by the suggestion engine and the map rendering co
 - [x] Complete child stories/tasks for data unification.
 - [x] .foundry/archive/stories/story-048-088-create-route-radar-controller.md
 - [x] .foundry/stories/story-048-089-route-radar-density-aggregation.md
-- [ ] story-048-431-smart-radar-integration-e2e
+- [x] story-048-431-smart-radar-integration-e2e

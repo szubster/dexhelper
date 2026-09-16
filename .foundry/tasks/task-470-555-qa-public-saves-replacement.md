@@ -2,10 +2,10 @@
 id: task-470-555-qa-public-saves-replacement
 type: TASK
 title: QA Verification of Sourced Save Files (Replacement)
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-09-15'
 depends_on:
   - task-470-554-catalog-integrate-saves-replacement
 jules_session_id: null
@@ -30,5 +30,5 @@ We need to ensure that the newly sourced public save files load correctly within
 2. Confirm that the data represented in the game (e.g., party Pokémon, Pokédex completion, event flags) matches the documented descriptions from the integration step.
 
 ## Acceptance Criteria
-- [ ] All new `.sav` files load without parsing errors.
-- [ ] The save states are confirmed to be diverse and match their documented descriptions.
+- [x] All new `.sav` files load without parsing errors.
+- [x] The save states are confirmed to be diverse and match their documented descriptions.

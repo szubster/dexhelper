@@ -2,13 +2,13 @@
 id: epic-340-412-shoal-cave-ui-dashboard
 type: EPIC
 title: UI Dashboard Implementation (Shoal Cave Tracker)
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-11'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on:
   - epic-340-411-shoal-cave-data-extraction
-jules_session_id: null
+jules_session_id: '14835641724444935603'
 pr_number: null
 parent: prd-130-340-shoal-cave-tide-tracker
 tags:

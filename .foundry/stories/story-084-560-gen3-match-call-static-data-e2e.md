@@ -2,10 +2,10 @@
 id: story-084-560-gen3-match-call-static-data-e2e
 type: STORY
 title: 'Story: Gen 3 Match Call Static Data E2E Verification'
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-08'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: '4005148598362637443'
 pr_number: null
@@ -30,3 +30,5 @@ Implement E2E testing to verify that the Gen 3 Match Call static dataset is succ
 
 ## Acceptance Criteria
 - [ ] Implement E2E tests for the Match Call static data generation pipeline.
+- [ ] task-560-568-gen3-match-call-static-data-e2e-coder
+- [ ] task-560-569-gen3-match-call-static-data-e2e-qa

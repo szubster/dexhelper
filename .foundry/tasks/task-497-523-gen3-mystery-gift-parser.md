@@ -2,10 +2,10 @@
 id: task-497-523-gen3-mystery-gift-parser
 type: TASK
 title: Implement Gen 3 Mystery Gift Data Parser
-status: FAILED
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-12'
+updated_at: '2026-09-15'
 depends_on:
   - task-497-521-gen3-mystery-gift-state
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - parser
 research_references:
   - .foundry/docs/knowledge_base/gen3_mystery_gift_event_flags.md
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
@@ -37,5 +37,5 @@ Implement the logic to extract Mystery Gift event flags and ship enablement flag
 - Do not write unit tests in this task. They will be handled in a separate task.
 
 ## Acceptance Criteria
-- [ ] Extraction logic is implemented and maps correctly to `Gen3MysteryGift`.
-- [ ] Build completes without errors.
+- [x] Extraction logic is implemented and maps correctly to `Gen3MysteryGift`.
+- [x] Build completes without errors.

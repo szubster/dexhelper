@@ -2,10 +2,10 @@
 id: prd-517-564-lazy-load-pokedex-pokemon-list
 type: PRD
 title: Lazy Load Pokedex Grid Items and Virtualization
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-08'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: '8637086102005913529'
 pr_number: null
@@ -50,3 +50,4 @@ The `PokedexGrid` component currently renders the full list of Pokemon (up to 38
 - **Dependency Management:** Utilize `@tanstack/react-virtual` which is already included in `package.json`. Avoid adding new third-party heavy dependencies.
 
 ## 6. Acceptance Criteria
+- [ ] epic-564-565-lazy-load-pokedex-pokemon-list

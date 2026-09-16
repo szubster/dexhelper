@@ -2,10 +2,10 @@
 id: idea-096-macro-node-boundary-enforcement
 type: IDEA
 title: Enforce Macro Node Functional Boundaries
-status: PENDING
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
+updated_at: '2026-09-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,6 +16,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: Spawned by Auditor after epic-045-070 rejection
+locks: []
 ---
 
 # Enforce Macro Node Functional Boundaries
@@ -27,4 +28,4 @@ Audits reveal that EPICs are being verified before their functional requirements
 Create a mechanism to ensure that an EPIC cannot be marked COMPLETED until its functional requirements are verifiably integrated into the application, not just scaffolded in isolated components.
 
 ## Acceptance Criteria
-- [ ] .foundry/prds/prd-096-057-macro-node-boundary-enforcement.md
+- [x] .foundry/prds/prd-096-057-macro-node-boundary-enforcement.md

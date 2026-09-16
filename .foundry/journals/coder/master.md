@@ -791,7 +791,18 @@ el.dispatchEvent(new Event('change', { bubbles: true }));
 - DAG ID Strictness Rule Enforcement in UI: The UI `src/utils/dag/builder.ts` was previously coded to expect repo-relative file paths in `depends_on` arrays for linking nodes. With the new DAG ID Strictness rule mandating exact bare Node IDs, `builder.ts` must map both the `filePath` and the bare `id` (`pathToIdMap.set(id, id)`) to correctly resolve UI edges without breaking backwards compatibility. Playwright E2E tests mocking DAG data must correctly supply bare Node IDs in their fixture `depends_on` arrays to accurately verify this behavior.
 
 
-<!-- Merged from 2026-09-08-20-02-27.md -->
-# Artifact Anomaly
 
-The `priority` field documentation was requested in task `task-550-563-schema-priority-docs`, but it already exists in `.foundry/docs/schema.md` with a slightly different wording (`priority: 50` instead of `priority: 0`). I am executing the Empty PR policy to formally complete the DAG node.
+
+<!-- Merged from 2026-09-07-18-00-00.md -->
+# Journal Entry: 2026-09-07 18:00:00
+
+Implemented the `evs` property in the `PokemonInstance` interface in `src/engine/saveParser/parsers/common.ts` to support Gen 3 EVs. Self-verified the changes per the Intelligent Verification Protocol for simple tasks.
+
+<!-- Merged from 2026-09-12-06-21-08.md -->
+# 2026-09-12-06-21-08
+
+## Gen 3 Volcanic Ash UI & save stub fix
+
+Implemented the Gen 3 signature check block parsing logic provided in `research-348-461-investigate-isgen3save-stub` (checking both `SAVE_BLOCK_A` and `SAVE_BLOCK_B` across 14 sections of 4096 bytes) and ensuring tests pass. This unblocks E2E validation.
+The `isGen3Save` function now accurately checks valid sectors in Block A (`0x0000`) and Block B (`0xe000`), expecting at least 1 valid sector signature (`0x08012025` at offset `0x0ff8`).
+`gen3VolcanicAsh` UI display was already present in `AssistantDebugView.tsx`, so it simply needed the blocking validation to be correctly implemented for the Volcanic Ash count to display when parsing a Gen 3 save.

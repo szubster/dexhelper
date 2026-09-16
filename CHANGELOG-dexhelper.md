@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.15.0] - 2026-03-16
+### Added
+- Establish initial application structure with TanStack Router, global Pokémon data loading, and game-specific data utilities.
+
+## [0.14.0] - 2026-03-16
+### Added
+- Implement core Pokédex application with routing, state management, and Generation 1/2 save data parsing.
+
+## [0.13.0] - 2026-03-15
+### Added
+- Implement initial Pokédex application with save file parsing, routing, and interactive UI components.
+
+## [0.12.0] - 2026-03-15
+### Changed
+- Bump Node.js engine requirement to >=24.0.0 and update GitHub Actions workflows.
+
 ## [0.11.0] - 2026-03-15
 ### Added
 - Enhance the Pokédex viewer with `framer-motion` animations for smoother transitions.
@@ -61,3 +77,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [0.10.0]: https://github.com/szubster/dexhelper/compare/a8bd4639d4c7702841582f812eefe73421ec2bd5...f392dbd8d5391441b784959b2fc7e5e2f5eade3f
 [0.11.0]: https://github.com/szubster/dexhelper/compare/f392dbd8d5391441b784959b2fc7e5e2f5eade3f...888f3b975ae80fa276832304042b924e60c6a156
+[0.12.0]: https://github.com/szubster/dexhelper/compare/888f3b975ae80fa276832304042b924e60c6a156...70ee2e9bf946d3a4ac37cf711d3da663a12718dd
+[0.13.0]: https://github.com/szubster/dexhelper/compare/70ee2e9bf946d3a4ac37cf711d3da663a12718dd...2ca9f177ab37f435f7afd05c33782025974f84e2
+[0.14.0]: https://github.com/szubster/dexhelper/compare/2ca9f177ab37f435f7afd05c33782025974f84e2...05e43699d7f75bf0e38ed9c309d19a940c8d21d0
+[0.15.0]: https://github.com/szubster/dexhelper/compare/92e9008d3d5084b9e7bee265191f83e511b281ad...7041838471914b0cd0bc5e39136edd3792e6efcc

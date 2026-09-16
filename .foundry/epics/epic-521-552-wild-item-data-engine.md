@@ -2,10 +2,10 @@
 id: epic-521-552-wild-item-data-engine
 type: EPIC
 title: Wild Item Data Engine
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-15'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: '6335815474471401357'
 pr_number: null
@@ -32,4 +32,8 @@ This epic provides the foundational backend data logic for the Wild Held Item Hu
 - Expose this data for UI consumption, enabling users to see the best routes for hunting a target item.
 
 ## Acceptance Criteria
-- [ ] story_owner: Break down this Epic into Stories.
+- [x] story_owner: Break down this Epic into Stories.
+- [ ] story-552-562-gen2-wild-item-parsing
+- [ ] story-552-563-gen3-wild-item-parsing
+- [ ] story-552-564-wild-item-unified-data-layer
+- [ ] story-552-565-wild-item-e2e-verification

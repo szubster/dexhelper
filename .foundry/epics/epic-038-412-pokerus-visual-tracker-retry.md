@@ -2,13 +2,13 @@
 id: epic-038-412-pokerus-visual-tracker-retry
 type: EPIC
 title: Pokerus Visual Tracker Epic (Retry)
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-10'
-updated_at: '2026-09-10'
+updated_at: '2026-09-13'
 depends_on:
   - epic-038-411-pokerus-state-exfiltration-retry
-jules_session_id: '6391711130027535684'
+jules_session_id: null
 pr_number: null
 parent: prd-069-038-pokerus-tracker
 tags:
@@ -28,4 +28,6 @@ Add UI badges indicating Pokerus status (Uninfected, Infected/Contagious, Cured/
 
 ## Acceptance Criteria
 - [ ] Add UI badges for pokerus status
-- [ ] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification.
+- [ ] story-412-560-pokerus-ui-badges
+- [ ] story-412-561-pokerus-ui-e2e

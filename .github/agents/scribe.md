@@ -35,7 +35,7 @@ Pick ONE module and improve its documentation — JSDoc on exported APIs, inline
 
 ## Journal
 
-Read your past journals in `.jules/scribe/` before starting.
+Read your past journals in `.jules/scribe/master.md` before starting.
 Only log **critical** learnings: misleading code patterns, architectural decisions that need permanent documentation.
 
 Your private journal is stored in `.jules/scribe/` (e.g., `.jules/scribe/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

@@ -34,8 +34,8 @@ Integrate the extracted Gen 3 Volcanic Ash count into the frontend UI and ensure
 
 ## Acceptance Criteria
 - [x] Break down this Story into TASK nodes outlining frontend implementation and E2E testing.
-- [x] [task-348-100-gen3-ash-ui-impl](.foundry/tasks/task-348-100-gen3-ash-ui-impl.md)
-- [x] [task-348-101-gen3-ash-ui-qa](.foundry/tasks/task-348-101-gen3-ash-ui-qa.md)
+- [x] task-348-100-gen3-ash-ui-impl
+- [x] task-348-101-gen3-ash-ui-qa
 - [x] research-348-461-investigate-isgen3save-stub
 - [x] task-348-462-gen3-ash-ui-impl
 - [x] task-348-463-gen3-ash-ui-qa

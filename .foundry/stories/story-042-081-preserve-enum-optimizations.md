@@ -5,11 +5,11 @@ title: Preserve Enum-to-Number Optimizations in Generation Pipeline
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-05-21'
-updated_at: '2026-09-08'
+updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: '10631440297764566511'
+jules_session_id: '12410120286740691704'
 parent: epic-032-042-generation-pipeline-keys
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
