@@ -251,6 +251,11 @@ export interface Gen3BattleFrontierWinStreaks {
   pyramid: { current: number; record: number };
 }
 
+export interface Gen3RSBattleTowerWinStreaks {
+  level50: { current: number; record: number };
+  level100: { current: number; record: number };
+}
+
 export interface Gen3BattleFrontierSymbols {
   tower: { silver: boolean; gold: boolean };
   dome: { silver: boolean; gold: boolean };
@@ -449,6 +454,8 @@ export interface Gen3SaveData extends BaseSaveData {
   mirageIslandValue?: number;
   /** Gen 3 specific: Battle Frontier win streaks */
   gen3BattleFrontierWinStreaks?: Gen3BattleFrontierWinStreaks;
+  /** Gen 3 specific: Ruby/Sapphire Battle Tower win streaks */
+  gen3RSBattleTowerWinStreaks?: Gen3RSBattleTowerWinStreaks;
   /** Gen 3 specific: Battle Frontier symbols */
   gen3BattleFrontierSymbols?: Gen3BattleFrontierSymbols;
   /** Gen 3 specific: Battle Points (BP) balance */

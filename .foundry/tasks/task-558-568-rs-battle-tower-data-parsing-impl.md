@@ -25,9 +25,9 @@ notes: ''
 Implement the extraction of Battle Tower win streaks and records for Ruby/Sapphire save files using `DataView`.
 
 ## Acceptance Criteria
-- [ ] Parse Level 50 max win streak (record) from SaveBlock2 offset `0x0560`.
-- [ ] Parse Level 100 max win streak (record) from SaveBlock2 offset `0x0562`.
-- [ ] Parse Level 50 current win streak from SaveBlock2 offset `0x0574`.
-- [ ] Parse Level 100 current win streak from SaveBlock2 offset `0x0576`.
-- [ ] Integrate this parsing logic into the existing Gen 3 parser.
-- [ ] Write unit tests verifying the extraction logic using mocked `DataView` buffers.
+- [x] Parse Level 50 max win streak (record) from SaveBlock2 offset `0x0560`.
+- [x] Parse Level 100 max win streak (record) from SaveBlock2 offset `0x0562`.
+- [x] Parse Level 50 current win streak from SaveBlock2 offset `0x0574`.
+- [x] Parse Level 100 current win streak from SaveBlock2 offset `0x0576`.
+- [x] Integrate this parsing logic into the existing Gen 3 parser.
+- [x] Write unit tests verifying the extraction logic using mocked `DataView` buffers.
