@@ -2,10 +2,10 @@
 id: story-062-522-gen2-checklist-integration
 type: STORY
 title: Gen 2 Checklist Parsing Engine Integration
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-04'
+updated_at: '2026-09-16'
 depends_on:
   - story-062-521-gen2-checklist-ui-core
 jules_session_id: null

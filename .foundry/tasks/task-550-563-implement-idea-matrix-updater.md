@@ -2,18 +2,18 @@
 id: task-550-563-implement-idea-matrix-updater
 type: TASK
 title: Implement Idea Matrix Updater
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on:
   - task-550-562-design-idea-matrix-schema
-jules_session_id: '13065443366957613424'
+jules_session_id: null
 parent: story-532-550-idea-dependency-matrix-architecture
 tags:
   - architecture
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 locks: []
 ---
