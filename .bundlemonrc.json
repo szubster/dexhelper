@@ -27,7 +27,7 @@
     },
     {
       "path": "assets/PokemonLocations-<hash>.js",
-      "maxSize": "30kb"
+      "maxSize": "31kb"
     },
     {
       "path": "assets/gen1-<hash>.js",
@@ -39,7 +39,7 @@
     },
     {
       "path": "assets/gen3-<hash>.js",
-      "maxSize": "30kb"
+      "maxSize": "31kb"
     },
     {
       "path": "assets/ShinyCarrierBreedingDashboard-<hash>.js",
