@@ -3,6 +3,7 @@
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
 | [adr-558-568-evaluate-scheduled-workflow-architecture](.foundry/docs/adrs/adr-558-568-evaluate-scheduled-workflow-architecture.md) | ADR | Evaluate Changing Underlying Scheduled Agent Workflow | architect | [3826766012827372355](https://jules.google.com/session/3826766012827372355) |
+| [epic-035-049-smart-radar-heatmap-generation](.foundry/epics/epic-035-049-smart-radar-heatmap-generation.md) | EPIC | Smart Radar Heatmap Generation | story_owner | [7190681125080127692](https://jules.google.com/session/7190681125080127692) |
 | [epic-046-079-react-flow-visualizer-refactor](.foundry/epics/epic-046-079-react-flow-visualizer-refactor.md) | EPIC | React Flow Visualizer Refactor | story_owner | [8447809816920353388](https://jules.google.com/session/8447809816920353388) |
 | [epic-051-094-friendship-data-extraction](.foundry/epics/epic-051-094-friendship-data-extraction.md) | EPIC | Friendship Data Extraction (Gen 2 & 3) | story_owner | [12994992452663059906](https://jules.google.com/session/12994992452663059906) |
 | [epic-339-407-gen3-bike-item-gating-integration](.foundry/epics/epic-339-407-gen3-bike-item-gating-integration.md) | EPIC | Item Gating Integration | story_owner | [10337093646133657711](https://jules.google.com/session/10337093646133657711) |
