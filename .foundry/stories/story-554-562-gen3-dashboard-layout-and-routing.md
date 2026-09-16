@@ -26,4 +26,7 @@ This story establishes the base UI layout, routing, and navigation for the Gen 3
 ## Acceptance Criteria
 - [ ] Create the dashboard container component.
 - [ ] Set up routing for the new dashboard.
-- [ ] Break down into implementation Tasks.
+- [x] Break down into implementation Tasks.
+- [ ] task-562-578-gen3-dashboard-routing-impl
+- [ ] task-562-579-gen3-dashboard-ui-impl
+- [ ] task-562-580-gen3-dashboard-layout-qa
