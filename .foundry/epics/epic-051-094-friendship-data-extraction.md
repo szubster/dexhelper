@@ -2,19 +2,19 @@
 id: epic-051-094-friendship-data-extraction
 type: EPIC
 title: Friendship Data Extraction (Gen 2 & 3)
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-16'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '12994992452663059906'
+jules_session_id: null
 pr_number: null
 parent: prd-081-051-friendship-evolution-tracker
 tags:
   - gen2
   - gen3
   - save-parsing
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

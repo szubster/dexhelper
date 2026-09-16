@@ -2,10 +2,10 @@
 id: story-419-478-pokedb-sync-refactor
 type: STORY
 title: Refactor PokeDB sync logic for multiple bundles
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-09-16'
 depends_on:
   - story-419-477-pokedata-plugin-refactor
 jules_session_id: '6706478323854200827'
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Story: Refactor PokeDB sync logic for multiple bundles

@@ -2,10 +2,10 @@
 id: task-562-581-wild-item-selection-qa
 type: TASK
 title: Wild Item Selection QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
+updated_at: '2026-09-16'
 depends_on:
   - task-562-580-wild-item-selection-tests
 jules_session_id: null
