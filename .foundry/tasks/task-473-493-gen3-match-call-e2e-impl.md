@@ -2,10 +2,10 @@
 id: task-473-493-gen3-match-call-e2e-impl
 type: TASK
 title: Implement Gen 3 Match Call E2E Tests
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-26'
-updated_at: '2026-09-15'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - e2e
   - gen3
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

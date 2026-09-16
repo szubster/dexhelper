@@ -5,7 +5,7 @@ title: Parse Gen 3 Daycare Data
 status: READY
 owner_persona: tech_lead
 created_at: '2026-06-28'
-updated_at: '2026-09-15'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: null
 pr_number: null

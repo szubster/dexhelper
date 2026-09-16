@@ -2,10 +2,10 @@
 id: task-478-507-orchestrator-cloning-logic
 type: TASK
 title: Implement DAG Node Cloning Logic
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-30'
-updated_at: '2026-09-15'
+updated_at: '2026-09-16'
 depends_on:
   - task-478-506-orchestrator-cloning-types
 jules_session_id: null
@@ -14,8 +14,8 @@ parent: story-412-478-node-cloning-logic
 tags:
   - orchestrator
   - generation
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---
