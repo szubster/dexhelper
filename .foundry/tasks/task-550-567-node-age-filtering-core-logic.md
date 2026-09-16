@@ -18,6 +18,6 @@ rejection_reason: ''
 Implement the core logic to parse node frontmatter and filter nodes based on their age and type for the archival cleanup engine.
 
 ## Acceptance Criteria
-- [ ] Implement a function to parse node age from file frontmatter (`created_at`/`updated_at`).
-- [ ] Implement logic to identify transient nodes (TASK, STORY, EPIC, IDEA) exceeding the 90-day threshold.
-- [ ] Implement logic to ensure high-value records (ADR, PRD, RESEARCH) are permanently retained.
+- [x] Implement a function to parse node age from file frontmatter (`created_at`/`updated_at`).
+- [x] Implement logic to identify transient nodes (TASK, STORY, EPIC, IDEA) exceeding the 90-day threshold.
+- [x] Implement logic to ensure high-value records (ADR, PRD, RESEARCH) are permanently retained.
