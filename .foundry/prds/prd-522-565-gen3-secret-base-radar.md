@@ -16,6 +16,7 @@ tags:
   - secret-base
   - map
 research_references: []
+priority: 30
 rejection_count: 0
 rejection_reason: ''
 notes: ''
