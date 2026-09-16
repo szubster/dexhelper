@@ -35,6 +35,8 @@ export interface DagContextState {
   isLoading: boolean;
   activeView: ViewMode;
   setActiveView: (view: ViewMode) => void;
+  showHeatmap: boolean;
+  setShowHeatmap: (show: boolean) => void;
   setNodes: (nodes: DagNode[]) => void;
   setEdges: (edges: DagEdge[]) => void;
   setIsLoading: (isLoading: boolean) => void;
@@ -100,6 +102,7 @@ export function DagProvider({ children }: { children: ReactNode }) {
   const [edges, setEdges] = useState<DagEdge[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [activeView, setActiveView] = useState<ViewMode>('graph');
+  const [showHeatmap, setShowHeatmap] = useState<boolean>(false);
 
   const value = useMemo(
     () => ({
@@ -109,11 +112,13 @@ export function DagProvider({ children }: { children: ReactNode }) {
       isLoading,
       activeView,
       setActiveView,
+      showHeatmap,
+      setShowHeatmap,
       setNodes,
       setEdges,
       setIsLoading,
     }),
-    [nodes, edges, isLoading, activeView],
+    [nodes, edges, isLoading, activeView, showHeatmap],
   );
 
   useEffect(() => {
