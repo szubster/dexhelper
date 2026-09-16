@@ -2,13 +2,13 @@
 id: task-522-555-living-dex-grid-qa
 type: TASK
 title: QA Living Dex Grid Implementation
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-06'
 updated_at: '2026-09-16'
 depends_on:
   - task-522-554-living-dex-grid-tests-impl
-jules_session_id: null
+jules_session_id: '17767841713067238459'
 pr_number: null
 parent: story-134-522-living-dex-numerical-grid
 tags:
