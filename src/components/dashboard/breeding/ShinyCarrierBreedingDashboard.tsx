@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import { pokeDB } from '../../../db/PokeDB';
 import type { PokemonMetadata } from '../../../db/schema';
 import { calculateBreedingPairs, type PokemonWithMetadata } from '../../../engine/breeding/pair_algorithm';
+import { calculateShinyOdds } from '../../../engine/breeding/shiny';
 import type { SaveData } from '../../../engine/saveParser';
 import { useStore } from '../../../store';
 import { calculateGen2Gender } from '../../../utils/gender';
@@ -122,6 +123,8 @@ export const ShinyCarrierBreedingDashboard: React.FC = () => {
               const pA = pair.parentA;
               const pB = pair.parentB;
 
+              const shinyOdds = calculateShinyOdds(pA, pB);
+
               return (
                 <div
                   key={`pair-${pA.id}-${pB.id}`}
@@ -151,7 +154,7 @@ export const ShinyCarrierBreedingDashboard: React.FC = () => {
                     </div>
 
                     {/* Parent B */}
-                    <div className="flex items-center justify-between pb-1">
+                    <div className="flex items-center justify-between border-zinc-800 border-b border-dashed pb-2">
                       <div className="flex flex-col">
                         <span className="font-bold text-white">
                           {pB._speciesName}{' '}
@@ -165,6 +168,27 @@ export const ShinyCarrierBreedingDashboard: React.FC = () => {
                         {(pB.isShiny || pB.isShinyCarrier) && (
                           <ShinyBadge isShiny={!!pB.isShiny} isShinyCarrier={!!pB.isShinyCarrier} size="sm" />
                         )}
+                      </div>
+                    </div>
+
+                    {/* Shiny Odds */}
+                    <div className="flex flex-col gap-1 pt-1">
+                      <span className="mb-1 border-zinc-800/50 border-b pb-1 text-[10px] text-zinc-400">
+                        SHINY ODDS:
+                      </span>
+                      <div className="grid grid-cols-3 gap-2">
+                        <div className="flex flex-col items-center border border-zinc-800 border-dashed bg-zinc-900/50 p-1">
+                          <span className="text-[9px] text-blue-400">MALE</span>
+                          <span className="font-bold text-white">{shinyOdds.maleOffspringOdds}</span>
+                        </div>
+                        <div className="flex flex-col items-center border border-zinc-800 border-dashed bg-zinc-900/50 p-1">
+                          <span className="text-[9px] text-pink-400">FEMALE</span>
+                          <span className="font-bold text-white">{shinyOdds.femaleOffspringOdds}</span>
+                        </div>
+                        <div className="flex flex-col items-center border border-zinc-800 border-dashed bg-zinc-900/50 p-1">
+                          <span className="text-[9px] text-zinc-400">GENDERLESS</span>
+                          <span className="font-bold text-white">{shinyOdds.genderlessOffspringOdds}</span>
+                        </div>
                       </div>
                     </div>
                   </div>
