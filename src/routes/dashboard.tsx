@@ -38,6 +38,12 @@ const Gen3RoamerDossier = React.lazy(() =>
   })),
 );
 
+const Gen3PokeblocksDashboard = React.lazy(() =>
+  import('../components/dashboard/inventory/Gen3PokeblocksDashboard').then((m) => ({
+    default: m.Gen3PokeblocksDashboard,
+  })),
+);
+
 const Gen3StaticEncountersDashboard = React.lazy(() =>
   import('../components/dashboard/encounters/Gen3StaticEncountersDashboard').then((m) => ({
     default: m.Gen3StaticEncountersDashboard,
@@ -121,6 +127,7 @@ function DashboardPage() {
             <Gen3SecretBaseDashboard saveData={saveData} />
             <Gen3EventItemsDashboard saveData={saveData} />
             <Gen3StaticEncountersDashboard saveData={saveData} />
+            <Gen3PokeblocksDashboard saveData={saveData} />
             <Gen3TrickHouseDashboard saveData={saveData} />
             <Gen3NpcTrades />
             <Gen3TrainerCardDashboard saveData={saveData} />
