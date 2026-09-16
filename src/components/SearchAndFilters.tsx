@@ -1,11 +1,12 @@
 import { Crosshair, Fingerprint, Radio } from 'lucide-react';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useMemo, useRef } from 'react';
 import { FILTER_TYPES, type FilterType, useStore } from '../store';
 import { cn } from '../utils/cn';
 import { ClearFiltersBadge } from './ClearFiltersBadge';
 import { CornerCrosshairs } from './CornerCrosshairs';
 import { EdgeLabel } from './EdgeLabel';
 import { FilterBadge } from './FilterBadge';
+import { HexStreamDecoration } from './HexStreamDecoration';
 import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
 import { LocationSuggestions } from './LocationSuggestions';
@@ -13,16 +14,6 @@ import { TacticalInput } from './TacticalInput';
 import { TacticalMultiSelectControl } from './TacticalMultiSelectControl';
 import { TacticalPanel } from './TacticalPanel';
 import { TelemetryDecoration } from './TelemetryDecoration';
-
-function generateHexStream(length: number) {
-  let result = '';
-  const characters = '0123456789ABCDEF';
-  const randomValues = globalThis.crypto.getRandomValues(new Uint8Array(length));
-  for (let i = 0; i < length; i++) {
-    result += characters.charAt((randomValues[i] || 0) & 0x0f);
-  }
-  return result;
-}
 
 export function SearchAndFilters() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -32,18 +23,6 @@ export function SearchAndFilters() {
   const filters = useStore((s) => s.filters);
   const toggleFilter = useStore((s) => s.toggleFilter);
   const setFilters = useStore((s) => s.setFilters);
-
-  const [hexStream, setHexStream] = useState(generateHexStream(32));
-
-  useEffect(() => {
-    if (searchTerm) {
-      const interval = setInterval(() => {
-        setHexStream(generateHexStream(32));
-      }, 100);
-      return () => clearInterval(interval);
-    }
-    return undefined;
-  }, [searchTerm]);
 
   // ⚡ Bolt: Memoized filter set creation to avoid redundant object allocation on every keystroke
   const filtersSet = useMemo(() => new Set(filters), [filters]);
@@ -81,7 +60,7 @@ export function SearchAndFilters() {
 
             {/* Background Hex Stream */}
             <div className="pointer-events-none absolute inset-0 z-0 flex flex-col justify-end p-2 opacity-10">
-              <div className="break-all font-mono text-[10px] text-cyan-400 leading-tight">{hexStream.repeat(5)}</div>
+              <HexStreamDecoration active={!!searchTerm} />
             </div>
 
             <EdgeLabel className="-top-2 left-5 bg-zinc-950 px-2 text-cyan-400 tracking-[0.2em]">
@@ -144,7 +123,7 @@ export function SearchAndFilters() {
                 </TacticalInput>
                 {searchTerm && (
                   <div className="mt-1 ml-1 animate-pulse font-mono text-[9px] text-cyan-400">
-                    PROCESSING_QUERY: 0x{hexStream.substring(0, 8)}...
+                    PROCESSING_QUERY: IN_PROGRESS...
                   </div>
                 )}
               </div>
