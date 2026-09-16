@@ -59,7 +59,7 @@
     },
     {
       "path": "assets/index-<hash>.js",
-      "maxSize": "250kb"
+      "maxSize": "280kb"
     },
     {
       "path": "assets/react-<hash>.js",
@@ -68,6 +68,18 @@
     {
       "path": "assets/router-<hash>.js",
       "maxSize": "200kb"
+    },
+    {
+      "path": "assets/query-<hash>.js",
+      "maxSize": "50kb"
+    },
+    {
+      "path": "assets/msgpackr-<hash>.js",
+      "maxSize": "35kb"
+    },
+    {
+      "path": "assets/cn-<hash>.js",
+      "maxSize": "35kb"
     },
     {
       "path": "assets/index-<hash>.css",

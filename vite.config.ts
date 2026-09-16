@@ -118,27 +118,6 @@ export default defineConfig(() => {
             if (id.includes('node_modules/cn/')) {
               return 'cn';
             }
-            if (id.includes('src/components/dashboard/battle-frontier/')) {
-              return 'BattleFrontierDashboard';
-            }
-            if (id.includes('src/components/dashboard/breeding/')) {
-              return 'ShinyCarrierBreedingDashboard';
-            }
-            if (id.includes('src/components/dashboard/ribbons/')) {
-              return 'GlobalRibbonChecklistDashboard';
-            }
-            if (id.includes('src/components/pokemon/details/PokemonLocations.tsx')) {
-              return 'PokemonLocations';
-            }
-            if (id.includes('src/components/pokemon/details/PokemonEvolutions.tsx')) {
-              return 'PokemonEvolutions';
-            }
-            if (id.includes('src/components/pokemon/details/PokemonCatchProbability.tsx')) {
-              return 'PokemonCatchProbability';
-            }
-            if (id.includes('src/components/pokemon/details/PokemonCaughtDetails.tsx')) {
-              return 'PokemonCaughtDetails';
-            }
             return undefined;
           }
         },
