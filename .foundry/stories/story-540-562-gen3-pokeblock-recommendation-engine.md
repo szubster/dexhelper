@@ -2,12 +2,12 @@
 id: story-540-562-gen3-pokeblock-recommendation-engine
 type: STORY
 title: Gen 3 Pokéblock Recommendation Engine
-status: FAILED
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-13'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '867498673985650272'
 pr_number: null
 parent: epic-518-540-gen3-pokeblock-recipe-optimizer
 tags:
@@ -16,8 +16,8 @@ tags:
   - contests
   - recommendation
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

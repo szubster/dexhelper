@@ -2,19 +2,19 @@
 id: research-336-567-investigate-runtime-interfaces-keys-failure
 type: RESEARCH
 title: Investigate Runtime Interfaces Keys Permanent Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-10'
-updated_at: '2026-09-10'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3064036369132152'
 pr_number: null
 parent: story-043-336-update-runtime-interfaces-keys
 tags:
   - architecture
   - feature
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

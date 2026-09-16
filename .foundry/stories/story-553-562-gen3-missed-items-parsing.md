@@ -2,12 +2,12 @@
 id: story-553-562-gen3-missed-items-parsing
 type: STORY
 title: Gen 3 Missed Items & Milestones Parsing Core
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-10'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6319113045788342351'
 pr_number: null
 parent: epic-520-553-gen3-missed-milestones-tracker
 tags:

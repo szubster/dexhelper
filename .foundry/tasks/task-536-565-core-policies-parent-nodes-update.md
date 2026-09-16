@@ -2,12 +2,12 @@
 id: task-536-565-core-policies-parent-nodes-update
 type: TASK
 title: Update Core Policies for Parent Node Acceptance Criteria
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-12'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: '3390635956715120327'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: story-534-536-propose-acceptance-criteria-alternatives

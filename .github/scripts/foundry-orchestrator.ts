@@ -524,6 +524,8 @@ function main(): void {
        const folder = typeMap[prefix];
        if (folder) {
          const archivedPath = `.foundry/archive/${folder}/${ref}.md`;
+         const activePath = `.foundry/${folder}/${ref}.md`;
+         if (fs.existsSync(path.join(repoRoot, activePath))) return activePath;
          if (fs.existsSync(path.join(repoRoot, archivedPath))) {
            return archivedPath;
          }

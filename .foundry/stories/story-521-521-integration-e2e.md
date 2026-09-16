@@ -2,13 +2,13 @@
 id: story-521-521-integration-e2e
 type: STORY
 title: Integration and E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-13'
+updated_at: '2026-09-14'
 depends_on:
   - story-521-520-prompt-cleanup-tasks
-jules_session_id: null
+jules_session_id: '4022350072350541101'
 pr_number: null
 parent: epic-517-521-centralize-prompt-reminders-cleanup
 tags:

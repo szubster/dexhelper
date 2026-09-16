@@ -2,12 +2,12 @@
 id: story-140-562-gen2-roamer-map-lookup-table
 type: STORY
 title: Gen 2 Roamer Map Lookup Table
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-10'
 updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16321175758121095273'
 pr_number: null
 parent: epic-043-140-gen2-roamer-map-translation
 tags:

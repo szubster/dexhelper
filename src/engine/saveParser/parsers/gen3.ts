@@ -80,6 +80,7 @@ import {
 } from '../gen3/conditionStats/constants';
 import { parseGen3Daycare } from '../gen3/daycare/parser';
 import { parseGen3EventItems } from '../gen3/inventory/parser';
+import { parseGen3MysteryGift } from '../gen3/mysteryGift';
 import { parseGen3NarrativeFlags } from '../gen3/narrative/parser';
 import {
   FLAG_BATTLE_FRONTIER_TRADE_DONE,
@@ -1997,6 +1998,13 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
 
     if (allSpindas.length > 0) {
       result.gen3Spindas = allSpindas;
+    }
+
+    try {
+      const gen3MysteryGift = parseGen3MysteryGift(view, section1Offset, _forcedVersion || 'ruby');
+      result.gen3MysteryGift = gen3MysteryGift;
+    } catch {
+      // Ignored
     }
 
     return result;

@@ -2,10 +2,10 @@
 id: prd-101-106-pc-box-organization-assistant
 type: PRD
 title: Gen 1-3 PC Box Organization Assistant
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-07-04'
-updated_at: '2026-08-02'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # PRD: Gen 1-3 PC Box Organization Assistant
@@ -34,6 +35,6 @@ Provide an intelligent, side-by-side guided sorting tool for Generation 1, 2, an
 
 ## Acceptance Criteria
 - [x] Break down this PRD into distinct Epics covering UI, diff engine logic, and sorting algorithms.
-- [ ] epic-106-136-pc-box-sorting-algorithms
-- [ ] epic-106-137-pc-box-diff-engine-move-planner
-- [ ] epic-106-138-pc-box-organization-ui
+- [x] epic-106-136-pc-box-sorting-algorithms
+- [x] epic-106-137-pc-box-diff-engine-move-planner
+- [x] epic-106-138-pc-box-organization-ui

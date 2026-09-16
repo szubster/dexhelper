@@ -5,10 +5,10 @@ title: Implement Gen 3 Contest Condition Stats Parser
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-09-07'
+updated_at: '2026-09-15'
 depends_on:
   - task-473-493-gen3-condition-stats-constants
-jules_session_id: '4834881975859557326'
+jules_session_id: '7086521327923724184'
 pr_number: null
 parent: story-134-473-gen3-condition-stats-extraction-impl
 tags:
@@ -16,7 +16,7 @@ tags:
   - save-engine
   - data-extraction
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

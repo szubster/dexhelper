@@ -63,3 +63,6 @@ This directory contains all save fixtures used for parsing and integration testi
 
 - **emerald-vithuang.sav** (Version: emerald)
   - Original: `./tests/fixtures/saves/gen3/emerald_vithuang.sav`
+
+- **emerald-egg.sav** (Version: emerald)
+  - Original: `./tests/fixtures/saves/gen3/emerald_egg_fixture.sav`

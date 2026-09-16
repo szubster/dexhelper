@@ -28,6 +28,6 @@ priority: 50
 We need to implement the authentication logic to allow our Cloudflare Worker to interact with Google Drive APIs, involving OAuth 2.0 flow or Service Account JWT signing logic.
 
 ## Acceptance Criteria
-- [ ] Implement utility functions to authenticate with Google Drive APIs.
-- [ ] Add logic to exchange OAuth codes or sign JWTs to obtain an access token.
-- [ ] Implement token caching/refreshing mechanism if applicable.
+- [x] Implement utility functions to authenticate with Google Drive APIs.
+- [x] Add logic to exchange OAuth codes or sign JWTs to obtain an access token.
+- [x] Implement token caching/refreshing mechanism if applicable.

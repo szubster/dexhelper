@@ -414,3 +414,58 @@
 - **Proposed Idea:** Automated Orphan Node Garbage Collection (IDEA-517)
 - **Rationale & Concept:** Implements an automated structural orphan detection and garbage collection mechanism for nodes that exist in the directory but are structurally detached from active DAG root nodes. These orphaned nodes clutter the visualization, waste dispatch cycles, and cause confusion. The new system will identify unreachable nodes from root nodes and transition them to `CANCELLED` (or move them to an archive directory).
 - **Strategic Balance:** In the previous session, IDEA-516 (Gen 3 Pokédex Completion & Missed Achievement Tracker) was proposed as a direct product feature for DexHelper. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a high-value pipeline/orchestrator improvement.
+
+
+<!-- Merged from 2026-09-08-02-09-40.md -->
+# Visionary Journal - Session $DATE
+
+## Session Overview
+- Date: $DATE
+- Task: Proposed IDEA node `idea-521-agent-confidence-metrics-dashboard` for real-time risk observability in the Foundry DAG.
+
+## Critical Learnings & Strategic Insights
+- **Domain:** Foundry System
+- **Rationale & Concept:** Introduces a self-reported confidence score for agents during execution. This allows the orchestrator to dynamically enforce stricter QA reviews for low-confidence nodes, moving away from binary SUCCESS/FAILURE states and preventing silent failures.
+- **Strategic Balance:** In the previous session, IDEA-520 (Gen 3 Berry Blending Optimizer Dashboard) was proposed for the main DexHelper product domain. To strictly maintain the required 50/50 balance between product features and system improvements, this session correctly pivots back to a Foundry Orchestrator tooling improvement.
+
+
+<!-- Merged from 2026-09-09-02-12-41.md -->
+# Visionary Journal - Session 2026-09-09-02-12-41
+
+## Session Overview
+- Date: 2026-09-09
+- Task: Proposed IDEA node `idea-521-foundry-persona-execution-time-profiler` for execution time profiling.
+
+## Critical Learnings & Strategic Insights
+- **Domain:** Foundry System
+- **Proposed Idea:** Foundry Persona Execution Time Profiler (IDEA-521)
+- **Rationale & Concept:**
+  Proposes a Foundry system improvement to profile the execution time of different personas (e.g., Coder, QA, Architect). By instrumenting the DAG orchestrator to record the start and end times of each node's active execution phase, we can identify bottlenecks, optimize persona prompts, and better understand where the autonomous software factory spends its compute resources.
+- **Strategic Balance:**
+  In the preceding session, IDEA-520 (Gen 3 Berry Blending Optimizer Dashboard) was proposed for the main DexHelper product domain. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a Foundry Orchestrator tooling improvement.
+
+
+<!-- Merged from 2026-09-10-02-10-57.md -->
+# Visionary Journal - 2026-09-10
+
+## Session Overview
+- Task: Generate ONE high-quality, actionable `IDEA` node.
+
+## Critical Learnings & Strategic Insights
+- **Domain:** Foundry System
+- **Proposed Idea:** Automated Post-Mortem Analysis via the Coroner Persona (IDEA-521)
+- **Rationale & Concept:** When a node reaches its Max Rejection Count and is permanently aborted (`CANCELLED`), the Orchestrator safely drops it to prevent infinite loops (The Impossible Loop). However, the specific reasons for the failure (e.g., missing API endpoints, missing architectural layers) are often lost. Following the Gen 1 gamification theme (Snorlax/Librarian, Meowth/TPM), this introduces Gengar (The Coroner) to awaken upon node cancellation, dissect the rejection journals, generate a Post-Mortem Report, and dynamically spawn `RESEARCH` or `ADR` nodes to fix the root cause, feeding directly back into the `librarian`'s context optimization loop.
+- **Strategic Balance:** In the previous session, IDEA-520 (Gen 3 Berry Blending Optimizer Dashboard) was proposed as a direct product feature for DexHelper. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a high-value pipeline/orchestrator improvement.
+
+
+<!-- Merged from 2026-09-12-02-19-26.md -->
+# Visionary Journal - Session 2026-09-12-02-19-26
+
+## Session Overview
+- Date: 2026-09-12
+- Task: Proposed IDEA node `idea-522-gen3-secret-base-radar` for parsing and displaying Gen 3 Secret Base data.
+
+## Critical Learnings & Strategic Insights
+- **Domain:** Main Project (DexHelper)
+- **Rationale & Concept:** Secret Bases in Gen 3 (Ruby, Sapphire, Emerald) are a key multiplayer feature via record mixing, but the game offers no way to track where imported bases are located or what Pokémon the NPCs hold. By parsing the save file, we can surface this hidden state, providing immense value to players (especially for EV/EXP farming).
+- **Strategic Balance:** In the preceding session, IDEA-521 (Foundry Persona Execution Time Profiler) was proposed for the internal Foundry orchestrator. To strictly maintain the required 50/50 balance between product features and system improvements, this session successfully pivots back to a high-value, mechanics-surfacing product feature for the main DexHelper application.

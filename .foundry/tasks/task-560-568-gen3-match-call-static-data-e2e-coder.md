@@ -1,13 +1,13 @@
 ---
 id: task-560-568-gen3-match-call-static-data-e2e-coder
 type: TASK
-title: 'Implement Gen 3 Match Call Static Data E2E Tests'
-status: PENDING
+title: Implement Gen 3 Match Call Static Data E2E Tests
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-08'
+updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2863620256980618261'
 pr_number: null
 parent: story-084-560-gen3-match-call-static-data-e2e
 tags:

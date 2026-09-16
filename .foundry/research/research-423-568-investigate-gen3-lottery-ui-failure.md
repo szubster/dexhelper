@@ -2,12 +2,12 @@
 id: research-423-568-investigate-gen3-lottery-ui-failure
 type: RESEARCH
 title: Investigate Gen3 Lottery UI Component Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-11'
-updated_at: '2026-09-11'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14443072519397338980'
 pr_number: null
 parent: story-133-423-gen3-lottery-ui-integration
 tags:

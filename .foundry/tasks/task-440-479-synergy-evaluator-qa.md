@@ -2,10 +2,10 @@
 id: task-440-479-synergy-evaluator-qa
 type: TASK
 title: QA Verification for Synergy Evaluator
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-20'
-updated_at: '2026-08-24'
+updated_at: '2026-09-15'
 depends_on:
   - task-440-478-synergy-assistant-integration-impl
 jules_session_id: null
@@ -16,8 +16,11 @@ tags:
   - qa
   - verification
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-440-478-synergy-assistant-integration-impl
 notes: ''
+locks: []
 ---
 
 # QA Verification for Synergy Evaluator

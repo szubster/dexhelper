@@ -2,10 +2,10 @@
 id: epic-057-129-schema-documentation-updates
 type: EPIC
 title: Schema and Documentation Updates
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-08-13'
+updated_at: '2026-09-14'
 depends_on:
   - epic-057-128-epic-planner-process-update
 jules_session_id: null
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # EPIC: Schema and Documentation Updates
@@ -28,7 +29,7 @@ As part of enforcing macro node functional boundaries, we need to update templat
 Update `.foundry/docs/schema.md` or other relevant documentation/templates to explicitly require an Integration/E2E Story for all new Epics.
 
 ## Acceptance Criteria
-- [ ] story-129-420-update-schema-e2e-rule
-- [ ] story-129-421-verify-schema-documentation-e2e
-- [ ] Update `.foundry/docs/schema.md` with the new process requirements.
-- [ ] Update any other necessary documentation and schemas.
+- [x] story-129-420-update-schema-e2e-rule
+- [x] story-129-421-verify-schema-documentation-e2e
+- [x] Update `.foundry/docs/schema.md` with the new process requirements.
+- [x] Update any other necessary documentation and schemas.

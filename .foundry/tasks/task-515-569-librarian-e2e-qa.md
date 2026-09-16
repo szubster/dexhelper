@@ -2,10 +2,10 @@
 id: task-515-569-librarian-e2e-qa
 type: TASK
 title: QA - Librarian E2E Pipeline Verification
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on:
   - task-515-568-librarian-e2e-tests
 jules_session_id: null

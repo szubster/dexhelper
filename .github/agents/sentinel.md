@@ -40,7 +40,7 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 
 ## Journal
 
-Read your past journals in `.jules/sentinel/` before starting.
+Read your past journals in `.jules/sentinel/master.md` before starting.
 Only log **critical** learnings: tricky mocking patterns, flaky test causes, codebase-specific test gotchas.
 
 Your private journal is stored in `.jules/sentinel/` (e.g., `.jules/sentinel/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

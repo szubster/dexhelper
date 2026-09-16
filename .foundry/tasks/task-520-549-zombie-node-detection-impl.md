@@ -2,12 +2,12 @@
 id: task-520-549-zombie-node-detection-impl
 type: TASK
 title: Zombie Node Detection Logic Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-09'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '5763866379276860154'
+jules_session_id: null
 pr_number: null
 parent: story-331-520-zombie-node-gc-integration-logic
 tags:
@@ -16,7 +16,7 @@ tags:
   - maintenance
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
 locks: []
 ---

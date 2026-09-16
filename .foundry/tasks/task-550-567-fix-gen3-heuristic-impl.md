@@ -2,12 +2,12 @@
 id: task-550-567-fix-gen3-heuristic-impl
 type: TASK
 title: Fix isGen3Save heuristic in detection.ts
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-09'
 updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9225318314885797721'
 pr_number: null
 parent: story-536-550-remove-mock-and-fix-heuristic
 tags: []

@@ -38,7 +38,7 @@ You are the designated owner of `src/index.css`.
 
 ## Journal
 
-Read your past journals in `.jules/palette/` before starting.
+Read your past journals in `.jules/palette/master.md` before starting.
 Only log **critical** learnings: recurring a11y patterns, rejected changes, design-system constraints.
 
 Your private journal is stored in `.jules/palette/` (e.g., `.jules/palette/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

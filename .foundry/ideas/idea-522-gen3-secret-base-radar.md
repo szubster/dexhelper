@@ -2,12 +2,12 @@
 id: idea-522-gen3-secret-base-radar
 type: IDEA
 title: Gen 3 Secret Base Radar & Analyzer
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-09-12'
 updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3997530602284275336'
 pr_number: null
 parent: null
 tags:

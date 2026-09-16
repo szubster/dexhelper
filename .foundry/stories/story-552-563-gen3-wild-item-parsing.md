@@ -2,22 +2,23 @@
 id: story-552-563-gen3-wild-item-parsing
 type: STORY
 title: Gen 3 Wild Encounter and Held Item Parsing
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
-created_at: "2026-09-12"
-updated_at: "2026-09-12"
+created_at: '2026-09-12'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17344898851748385252'
 pr_number: null
 parent: epic-521-552-wild-item-data-engine
-priority: 50
 tags:
   - gen3
   - dexhelper
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Gen 3 Wild Encounter and Held Item Parsing

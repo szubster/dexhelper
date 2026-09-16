@@ -2,7 +2,7 @@
 id: epic-518-540-gen3-pokeblock-recipe-optimizer
 type: EPIC
 title: Gen 3 Pokéblock Recipe Optimizer for Contest Conditions
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-06'
 updated_at: '2026-09-13'

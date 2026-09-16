@@ -2,10 +2,10 @@
 id: epic-521-552-wild-item-data-engine
 type: EPIC
 title: Wild Item Data Engine
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-15'
-updated_at: '2026-09-12'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: '6335815474471401357'
 pr_number: null
