@@ -36,5 +36,5 @@ Ensure `src/utils/cn.ts` exports a robust `cn` utility that works correctly with
 3. Ensure no `clsx` or `tailwind-merge` dependencies are added.
 
 ## Acceptance Criteria
-- [ ] Verify `src/utils/cn.ts` continues to export the shadcn-compliant `cn` function.
-- [ ] Ensure `pnpm lint` and `pnpm type-check` pass.
+- [x] Verify `src/utils/cn.ts` continues to export the shadcn-compliant `cn` function.
+- [x] Ensure `pnpm lint` and `pnpm type-check` pass.
