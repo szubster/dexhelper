@@ -32,3 +32,7 @@ Implement backend save parsing logic to accurately read the Gen 3 berry pouch in
 ## Acceptance Criteria
 - [ ] Implement backend save parsing logic to accurately read the Gen 3 berry pouch inventory.
 - [ ] Implement backend save parsing logic to accurately read a Pokémon's current condition stats and Nature.
+- [ ] task-560-583-gen3-berry-pouch-parsing-impl
+- [ ] task-560-584-gen3-pokemon-condition-parsing-impl
+- [ ] task-560-585-gen3-berry-pokemon-parsing-tests
+- [ ] task-560-586-gen3-berry-pokemon-parsing-qa
