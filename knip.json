@@ -2,12 +2,14 @@
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "ignoreExportsUsedInFile": true,
   "ignoreDependencies": [
+    "@commitlint/config-conventional",
     "wrangler",
     "@cloudflare/pages-plugin-cloudflare-access",
     "@tsconfig/strictest",
     "@tsconfig/vite-react"
   ],
   "ignore": [
+    "commitlint.config.js",
     "src/test-setup.ts",
     "src/contexts/binjgb/index.ts",
     "src/hooks/useBinjgb.ts",
