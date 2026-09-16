@@ -2,10 +2,10 @@
 id: task-569-585-qa-theme-setup-verification
 type: TASK
 title: QA - Theme Setup Verification
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-16T18:35:20Z'
-updated_at: '2026-09-16T18:35:20Z'
+updated_at: '2026-09-16'
 depends_on:
   - task-569-583-setup-cva-utility
   - task-569-584-setup-css-theme-variables

@@ -2,11 +2,12 @@
 id: story-079-579-react-flow-visualizer-refactor-e2e
 type: STORY
 title: React Flow Visualizer Refactor E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-14'
-updated_at: '2026-09-14'
-depends_on: ['story-079-578-react-flow-visualizer-refactor']
+updated_at: '2026-09-16'
+depends_on:
+  - story-079-578-react-flow-visualizer-refactor
 jules_session_id: null
 pr_number: null
 parent: epic-046-079-react-flow-visualizer-refactor

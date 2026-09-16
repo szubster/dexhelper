@@ -2,12 +2,12 @@
 id: story-566-569-cva-theme-variables-setup
 type: STORY
 title: Setup CVA and Theme Variables Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-15T05:48:26Z'
 updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '17014100087168892237'
+jules_session_id: null
 pr_number: null
 parent: epic-565-566-cva-setup
 tags:

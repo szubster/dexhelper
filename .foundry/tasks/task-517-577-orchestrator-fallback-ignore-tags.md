@@ -2,12 +2,12 @@
 id: task-517-577-orchestrator-fallback-ignore-tags
 type: TASK
 title: Orchestrator Fallback Ignore Missing Tags
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-13'
 updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '4372484867831063935'
+jules_session_id: null
 pr_number: null
 parent: story-418-517-orchestrator-fallback-mechanisms
 tags:

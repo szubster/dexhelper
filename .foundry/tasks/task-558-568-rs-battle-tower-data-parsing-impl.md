@@ -2,7 +2,7 @@
 id: task-558-568-rs-battle-tower-data-parsing-impl
 type: TASK
 title: Implement Ruby/Sapphire Battle Tower Data Extraction
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-12'
 updated_at: '2026-09-16'
@@ -14,8 +14,8 @@ tags:
   - feature
   - gen3
   - endgame
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

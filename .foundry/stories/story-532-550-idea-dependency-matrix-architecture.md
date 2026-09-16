@@ -2,7 +2,7 @@
 id: story-532-550-idea-dependency-matrix-architecture
 type: STORY
 title: Create Idea Dependency Matrix Architecture
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-05'
 updated_at: '2026-09-16'
