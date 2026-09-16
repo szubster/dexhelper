@@ -27,6 +27,6 @@ In order to extract the saveStateBuffer directly from the binjgb emulator's WebA
 Since the binjgb.js and binjgb.wasm files are not present in the repository, we lack the context to definitively know which exports are available.
 
 ## Acceptance Criteria
-- [ ] Investigate the availability of `binjgb` or equivalent as an npm package, as requested by the code reviewer.
-- [ ] Determine the exact WASM exports used by binjgb to retrieve the SRAM pointer and size.
-- [ ] Document the correct function signatures to be added to BinjgbModule.
+- [x] Investigate the availability of `binjgb` or equivalent as an npm package, as requested by the code reviewer.
+- [x] Determine the exact WASM exports used by binjgb to retrieve the SRAM pointer and size.
+- [x] Document the correct function signatures to be added to BinjgbModule.
