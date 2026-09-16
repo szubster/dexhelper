@@ -77,6 +77,8 @@ export default defineConfig(() => {
     resolve: {
       alias: {
         '@': path.resolve(import.meta.dirname, '.'),
+        'clsx': 'cn',
+        'tailwind-merge': 'cn',
       },
     },
     css: {
@@ -112,6 +114,9 @@ export default defineConfig(() => {
             }
             if (id.includes('node_modules/idb/')) {
               return 'idb';
+            }
+            if (id.includes('node_modules/cn/')) {
+              return 'cn';
             }
             return undefined;
           }
