@@ -11,7 +11,7 @@ jules_session_id: null
 locks: []
 pr_number: null
 parent: idea-521-agent-confidence-metrics-dashboard
-priority: 50
+priority: 60
 tags:
   - foundry
   - orchestrator
