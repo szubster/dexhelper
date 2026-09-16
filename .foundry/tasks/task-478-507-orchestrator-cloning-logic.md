@@ -2,7 +2,7 @@
 id: task-478-507-orchestrator-cloning-logic
 type: TASK
 title: Implement DAG Node Cloning Logic
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-30'
 updated_at: '2026-09-16'
@@ -14,8 +14,8 @@ parent: story-412-478-node-cloning-logic
 tags:
   - orchestrator
   - generation
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

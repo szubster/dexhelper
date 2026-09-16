@@ -2,7 +2,7 @@
 id: task-520-549-save-limit-constants-coder
 type: TASK
 title: Define Save Limit Constants
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-05'
 updated_at: '2026-09-16'
@@ -14,8 +14,9 @@ tags:
   - storage
   - indexeddb
   - history
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_reason: ''
 locks: []
+rejection_count: 1
 ---
 
 # Task: Define Save Limit Constants
