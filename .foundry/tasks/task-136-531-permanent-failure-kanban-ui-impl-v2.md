@@ -2,14 +2,14 @@
 id: task-136-531-permanent-failure-kanban-ui-impl-v2
 type: TASK
 title: Implement Permanent Failure Kanban UI (v2)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-03'
 updated_at: '2026-09-16'
 depends_on:
   - task-136-489-permanent-failure-state-selectors-impl
   - research-136-530-investigate-kanban-ui-timeout
-jules_session_id: null
+jules_session_id: '1679231920203979815'
 pr_number: null
 parent: story-047-136-permanent-failure-dashboard-ui
 tags:
