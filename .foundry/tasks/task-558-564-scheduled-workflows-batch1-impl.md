@@ -15,7 +15,9 @@ tags:
   - scheduled-agents
   - github-issues
 rejection_count: 1
-rejection_reason: 'Replaced by task-568-581-modify-shared-workflow-impl (ADR-558-568 decision)'
+rejection_reason: >-
+  [ACKNOWLEDGED] Replaced by task-568-581-modify-shared-workflow-impl
+  (ADR-558-568 decision)
 notes: ''
 locks: []
 ---

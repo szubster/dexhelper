@@ -2,10 +2,10 @@
 id: story-566-570-cva-theme-variables-e2e-verification
 type: STORY
 title: E2E Verification of CVA and Theme Setup
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-15T05:48:26Z'
-updated_at: '2026-09-15T05:48:26Z'
+updated_at: '2026-09-16'
 depends_on:
   - story-566-569-cva-theme-variables-setup
 jules_session_id: null
@@ -17,9 +17,9 @@ tags:
   - testing
   - styling
 research_references: []
+rejection_reason: ''
 locks: []
 priority: 60
-rejection_reason: ''
 ---
 
 # Story: E2E Verification of CVA and Theme Setup

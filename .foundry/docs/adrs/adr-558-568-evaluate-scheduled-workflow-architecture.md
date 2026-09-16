@@ -2,10 +2,10 @@
 id: adr-558-568-evaluate-scheduled-workflow-architecture
 type: ADR
 title: Evaluate Changing Underlying Scheduled Agent Workflow
-status: ACTIVE
+status: PENDING
 owner_persona: architect
 created_at: '2026-09-08'
-updated_at: '2026-09-15'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: '3826766012827372355'
 pr_number: null
