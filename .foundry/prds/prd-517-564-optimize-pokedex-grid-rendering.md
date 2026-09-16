@@ -43,4 +43,7 @@ While some performance optimizations like decoupling search filtering (`useDefer
 *   **Avoid Main-Thread Blocking:** Ensure initial renders and filtering operations do not cause significant pauses.
 
 ## Acceptance Criteria
-- [ ] Breakdown into EPICs
+- [x] Breakdown into EPICs
+- [ ] epic-564-565-pokedex-grid-virtualization
+- [ ] epic-564-566-storage-grid-virtualization
+- [ ] epic-564-567-e2e-integration
