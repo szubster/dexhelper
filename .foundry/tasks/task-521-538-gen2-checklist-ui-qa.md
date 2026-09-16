@@ -2,13 +2,13 @@
 id: task-521-538-gen2-checklist-ui-qa
 type: TASK
 title: Gen 2 Checklist Core UI Components QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-04'
 updated_at: '2026-09-16'
 depends_on:
   - task-521-537-gen2-checklist-items-impl
-jules_session_id: null
+jules_session_id: '16193282009193474503'
 pr_number: null
 parent: story-062-521-gen2-checklist-ui-core
 tags:
