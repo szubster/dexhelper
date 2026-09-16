@@ -2,13 +2,13 @@
 id: task-473-536-breeding-e2e-dv-shiny-odds
 type: TASK
 title: Implement Gen 2 E2E Tests for DV Overlap and Shiny Odds
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-09-15'
+updated_at: '2026-09-16'
 depends_on:
   - task-473-535-breeding-e2e-gender-egg-groups
-jules_session_id: null
+jules_session_id: '10522934521996357102'
 pr_number: null
 parent: story-309-473-shiny-breeding-logic-e2e
 tags:
