@@ -29,4 +29,4 @@ locks: []
 Verify the refactored Gen 1 utilities to ensure they follow ADR 028 and all inline magic numbers in bitwise operations were properly extracted to module-level constants.
 
 ## Acceptance Criteria
-- [ ] Verify no inline magic numbers remain for bitwise operations in gen1 utilities
+- [x] Verify no inline magic numbers remain for bitwise operations in gen1 utilities
