@@ -32,5 +32,8 @@ As defined in PRD `prd-064-035-smart-route-radar`, we need to generate a visual 
 Implement the logic and UI layer to overlay heatmap data onto the map graph based on the unified data from `epic-035-048-smart-radar-data-unification`.
 
 ## Acceptance Criteria
-- [ ] Write stories to implement the heatmap generation and overlay.
+- [x] Write stories to implement the heatmap generation and overlay.
+- [ ] story-049-573-heatmap-data-processing-layer
+- [ ] story-049-574-heatmap-ui-overlay-component
+- [ ] story-049-575-heatmap-e2e-verification
 - [ ] Complete child stories/tasks for heatmap generation.
