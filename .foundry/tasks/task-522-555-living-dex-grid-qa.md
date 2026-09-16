@@ -28,8 +28,8 @@ locks: []
 The QA verification for the Living Dex Numerical Grid UI implementation, ensuring all acceptance criteria and design system rules are met.
 
 ## Acceptance Criteria
-- [ ] Verify that the grid renders 386 cells for the national dex.
-- [ ] Verify that each cell displays the Pokémon's national dex number.
-- [ ] Verify that the components are ready to accept state overlays (PC box / Party).
-- [ ] Verify strict adherence to the tactical hardware aesthetic (ADR 008) including rounded-none, border-dashed, and font-mono.
-- [ ] Verify that tests are written using vitest-browser-react and pass successfully.
+- [x] Verify that the grid renders 386 cells for the national dex.
+- [x] Verify that each cell displays the Pokémon's national dex number.
+- [x] Verify that the components are ready to accept state overlays (PC box / Party).
+- [x] Verify strict adherence to the tactical hardware aesthetic (ADR 008) including rounded-none, border-dashed, and font-mono.
+- [x] Verify that tests are written using vitest-browser-react and pass successfully.
