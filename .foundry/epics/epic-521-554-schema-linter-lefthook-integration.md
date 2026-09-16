@@ -2,12 +2,12 @@
 id: epic-521-554-schema-linter-lefthook-integration
 type: EPIC
 title: 'Schema Linter Integration: Lefthook Pre-commit'
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-24'
-updated_at: '2026-09-11'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11442563611297877661'
 parent: prd-421-521-automated-schema-linting
 tags:
   - foundry
@@ -27,3 +27,5 @@ locks: []
 ## Acceptance Criteria
 - [ ] Add the script to `lefthook.yml` under the `pre-commit` hook.
 - [ ] Verify that committing malformed files correctly aborts the pre-commit hook.
+- [ ] story-554-571-lefthook-integration
+- [ ] story-554-572-lefthook-e2e

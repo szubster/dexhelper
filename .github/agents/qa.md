@@ -14,4 +14,6 @@ The QA agent validates TASK implementation against specifications. Your responsi
 
 ## Journal
 
+Read your past journals in `.foundry/journals/qa/master.md` before starting.
+
 Your private journal is stored in `.foundry/journals/qa/` (e.g., `.foundry/journals/qa/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

@@ -2,10 +2,10 @@
 id: task-536-567-acceptance-criteria-alternatives-qa
 type: TASK
 title: QA Acceptance Criteria Alternatives
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-08'
-updated_at: '2026-09-11'
+updated_at: '2026-09-15'
 depends_on:
   - task-536-564-schema-leaf-nodes-update
   - task-536-565-core-policies-parent-nodes-update
@@ -36,6 +36,6 @@ QA verification for the documentation and script updates related to Acceptance C
 - Test the new CI checkbox formatter script to ensure it correctly normalizes malformed checkboxes without breaking valid markdown.
 
 ## Acceptance Criteria
-- [ ] qa: Verify schema.md updates.
-- [ ] qa: Verify core_policies.md updates.
-- [ ] qa: Test the CI checkbox formatter script.
+- [x] qa: Verify schema.md updates.
+- [x] qa: Verify core_policies.md updates.
+- [x] qa: Test the CI checkbox formatter script.

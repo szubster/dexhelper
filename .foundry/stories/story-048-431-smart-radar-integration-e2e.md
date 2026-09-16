@@ -2,10 +2,10 @@
 id: story-048-431-smart-radar-integration-e2e
 type: STORY
 title: Smart Radar Data Unification Integration and E2E
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-19'
-updated_at: '2026-09-07'
+updated_at: '2026-09-15'
 depends_on:
   - story-048-088-create-route-radar-controller
   - story-048-089-route-radar-density-aggregation
@@ -35,10 +35,10 @@ As part of Epic `epic-035-048-smart-radar-data-unification`, we've implemented t
 Write comprehensive E2E tests validating that the `RouteRadarController` correctly processes `suggestionEngine` output and renders the appropriate density overlays on the UI map.
 
 ## Acceptance Criteria
-- [ ] Create E2E test files for Smart Radar data unification.
-- [ ] Write tests verifying the heatmap overlay rendering based on data.
-- [ ] Ensure tests successfully hydrate app state using test utilities.
+- [x] Create E2E test files for Smart Radar data unification.
+- [x] Write tests verifying the heatmap overlay rendering based on data.
+- [x] Ensure tests successfully hydrate app state using test utilities.
 - [x] Break down into Tasks
-- [ ] task-431-469-smart-radar-test-utilities-impl
-- [ ] task-431-470-smart-radar-e2e-rendering-impl
-- [ ] task-431-471-smart-radar-e2e-qa
+- [x] task-431-469-smart-radar-test-utilities-impl
+- [x] task-431-470-smart-radar-e2e-rendering-impl
+- [x] task-431-471-smart-radar-e2e-qa

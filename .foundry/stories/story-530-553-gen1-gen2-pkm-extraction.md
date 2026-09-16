@@ -2,12 +2,12 @@
 id: story-530-553-gen1-gen2-pkm-extraction
 type: STORY
 title: Gen 1 & Gen 2 PKM Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-09-10'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '8414153110206898459'
+jules_session_id: null
 parent: epic-516-530-pkm-data-extraction-generation
 tags:
   - data
@@ -23,4 +23,7 @@ rejection_reason: ''
 This story implements the core data extraction logic to read individual Pokémon memory blocks from Gen 1 and Gen 2 save files, format them as standard `.pkm` files, and provide them to the application layer.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-553-567-gen1-pkm-extraction
+- [ ] task-553-568-gen2-pkm-extraction
+- [ ] task-553-569-qa-gen1-gen2-pkm-extraction

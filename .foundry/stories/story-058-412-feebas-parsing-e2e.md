@@ -2,12 +2,12 @@
 id: story-058-412-feebas-parsing-e2e
 type: STORY
 title: Feebas Parsing E2E Integration
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-11'
-updated_at: '2026-09-10'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '9987363111830777128'
+jules_session_id: null
 pr_number: null
 parent: epic-036-058-feebas-backend-parsing
 tags:
@@ -29,4 +29,7 @@ Ensure the full Feebas seed extraction and calculation process functions correct
 - [ ] Create E2E tests for the Feebas backend parsing logic.
 - [ ] Verify that parsed save files reliably generate the correct Feebas tiles across multiple saves and cases.
 - [ ] Ensure that Feebas data cleanly integrates with the main application state and UI components rendering the coordinates.
-- [ ] task-412-440-feebas-parsing-e2e-impl
+- [x] task-412-440-feebas-parsing-e2e-impl
+- [ ] research-412-563-investigate-feebas-e2e-timeout
+- [ ] task-412-567-feebas-parsing-e2e-impl-v2
+- [ ] task-412-568-feebas-parsing-e2e-qa-v2

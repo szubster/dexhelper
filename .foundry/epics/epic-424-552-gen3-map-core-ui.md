@@ -2,12 +2,12 @@
 id: epic-424-552-gen3-map-core-ui
 type: EPIC
 title: Gen 3 Map Core UI & Layout
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-11'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '17504828317333573567'
+jules_session_id: null
 pr_number: null
 parent: prd-424-001-gen3-interactive-map-dashboard
 tags:
@@ -34,5 +34,8 @@ Establish the foundational React architecture, state management, and base UI lay
 - Incorporation of strict tactical UI components (sharp edges, dashed borders, monospace fonts).
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down into STORY nodes for Core UI layout and state management.
-- [ ] Story Owner: Create a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Story Owner: Break down into STORY nodes for Core UI layout and state management.
+  - [ ] story-552-562-gen3-map-core-layout
+  - [ ] story-552-563-gen3-map-state-management
+- [x] Story Owner: Create a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+  - [ ] story-552-564-gen3-map-e2e-verification

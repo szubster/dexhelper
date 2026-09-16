@@ -2,12 +2,12 @@
 id: task-536-566-ci-checkbox-formatter-script
 type: TASK
 title: Implement CI Checkbox Formatter Script
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-13'
+updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: '13245337782049732563'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: story-534-536-propose-acceptance-criteria-alternatives
@@ -32,5 +32,5 @@ As part of Alternative D from `research-534-517-audit-acceptance-criteria`, we n
 - Add this script to the CI pipeline or as a `pnpm` format script.
 
 ## Acceptance Criteria
-- [ ] coder: Implement the checkbox formatting script.
-- [ ] coder: Integrate the script into the `package.json` format checks or GitHub actions.
+- [x] coder: Implement the checkbox formatting script.
+- [x] coder: Integrate the script into the `package.json` format checks or GitHub actions.

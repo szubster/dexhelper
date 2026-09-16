@@ -79,3 +79,8 @@ Learned that the e2e test takes a long time and times out, skipping per memory.
 ## Learnings
 - Tailwind Interactive States: To prevent hover and active styles from triggering on disabled elements, use the `enabled:` modifier (e.g., `enabled:hover:scale-[1.02]`, `enabled:active:scale-95`) rather than standard `hover:` or `active:` prefixes.
 - CSS Peer Selection: To correctly style a child element based on a sibling element's state (e.g. fading out an icon when a `<select>` is disabled), use the `peer` class on the driving element, and `peer-disabled:` modifiers on the child.
+
+
+<!-- Merged from 1788840518.md -->
+## Learnings
+* **Accessibility win for decorative elements:** When implementing decorative UI elements (such as `[` and `]` used for the tactical styling of components like `EdgeLabel`), bake them into the component itself and wrap them in `<span aria-hidden="true">`. This prevents screen readers from redundantly announcing brackets across the application while preserving the visual styling boundaries, and eliminates manual addition at call sites ensuring consistent design.

@@ -87,15 +87,8 @@ The `palette` persona is the master of the Tailwind and styling ecosystem. This 
 ## Scratchpad Cleanup
 **CRITICAL:** Any developer scratchpad scripts created during a session (e.g., temporary bash scripts like `generate_reads.sh` or Node scripts) must be deleted (`rm`) before finalizing the PR. Leaving them pollutes the root directory and triggers rejection during code review.
 
-## Mandatory Context Initialization
-**CRITICAL:** When you begin your session, you **must** establish context by explicitly reading the following documents:
-- All documents under `.foundry/docs/`
-- All documents under `.foundry/docs/knowledge_base/`
-- All documents under `.foundry/archive/docs/adrs/`
-
-Ensure you are fully aware of and adhere to the rules outlined in `.foundry/archive/docs/adrs/001-the-foundry-architecture.md`.
-
-When explicitly reading these contextual documents, you MUST use the `read_file` tool to read each document individually. Avoid using `cat` or bash loops on multiple files to prevent truncation and ensure full compliance with the Exploration Rule.
+## Context Initialization & On-Demand Reading
+When beginning a session, agents should establish context relevant to their assigned task by reading key foundational documents (such as `.foundry/docs/schema.md` or `.foundry/archive/docs/adrs/001-the-foundry-architecture.md`) and any task-specific documentation. Agents are NOT required to exhaustively read every markdown file across all documentation and archive folders before formulating a plan or proceeding with execution. Read documents on demand as required by the task scope.
 
 ## Node Creation Guidelines
 While the system does not strictly block node creation, ANY scheduled or foundry agent can dynamically create new `IDEA`, `TASK`, `RESEARCH`, or `ADR` nodes in the `.foundry/` directory. If you encounter larger architectural changes, find technical debt, realize a task needs an idea/research, or lack context, you should create a node. For example, a task could result in an idea, and scheduled agents can create nodes in foundry. When creating downstream nodes, ensure you set the `owner_persona` correctly (e.g., `researcher` for RESEARCH nodes, `architect` for ADRs).
@@ -173,7 +166,7 @@ Instead, active nodes MUST utilize Late Binding to spawn appropriate child or up
 - **Appending Children**: Append references to newly generated child nodes as **unchecked tasks (`- [ ]`)** directly into the markdown body of the parent node, and check off your specific acceptance criteria checkboxes (e.g., `- [x] Break down into Tasks`) WITHOUT modifying the parent's YAML frontmatter. When appending child nodes as unchecked tasks (`- [ ] <node_id>`), strictly use the exact Node ID without file extensions or directory paths. Furthermore, verify if the parent has an `## Acceptance Criteria` section. If it does not exist, explicitly append the header `## Acceptance Criteria` along with the checkbox to ensure proper formatting. This ensures the parent node does not prematurely transition to VERIFYING before its children are completed.
 - **Circular Dependencies**: Do NOT include the parent node in the new child's `depends_on` array to avoid circular dependency deadlocks.
 - **Premature Verification**: Do NOT submit an Empty PR to transition a parent node to VERIFYING (by checking off its acceptance criteria) until ALL of its generated child nodes have transitioned to COMPLETED. Premature verification violates the dependency graph constraints.
-- **Parent Node Syntax**: Parent generation nodes MUST strictly format references to generated child nodes as unchecked task checkboxes (`- [ ] <file_path>`) directly in their markdown body. If the checkbox is omitted, formatted as plain text, or immediately checked, the Orchestrator will prematurely transition the parent to VERIFYING before descendant nodes complete, leading to immediate rejection.
+- **Parent Node Syntax (Strict Checkbox Formatting)**: Parent generation nodes MUST strictly format references to generated child nodes as unchecked task checkboxes (`- [ ] <file_path>`) directly in their markdown body. You MUST use the exact format `- [ ] ` with exactly one space between the brackets. Do NOT use non-standard formatting (e.g., `-[]`, `* [ ]`, `- [  ]`), as these will fail the Orchestrator's regex parser (`/^\s*-\s*\[\s\]/m`). If the checkbox is omitted, improperly formatted as plain text, or immediately checked, the Orchestrator will prematurely transition the parent to VERIFYING before descendant nodes complete, leading to immediate rejection.
 
 ## Bash Session Timeout Policy
 * Never execute blocking commands (e.g., `tail -f`, long-running loops) in `run_in_bash_session` as they will cause the session to hang indefinitely.

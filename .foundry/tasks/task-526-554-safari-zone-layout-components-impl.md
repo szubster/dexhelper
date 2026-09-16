@@ -2,13 +2,13 @@
 id: task-526-554-safari-zone-layout-components-impl
 type: TASK
 title: Safari Zone Layout Components
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2024-05-24'
 updated_at: '2026-09-13'
 depends_on:
   - task-526-553-safari-zone-route-scaffolding-impl
-jules_session_id: null
+jules_session_id: '12079646800790912081'
 pr_number: null
 parent: story-325-526-safari-zone-layout-and-route
 tags: []

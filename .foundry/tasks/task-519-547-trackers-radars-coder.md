@@ -10,6 +10,7 @@ depends_on: []
 jules_session_id: '5214076783105278177'
 pr_number: null
 parent: story-125-519-refactor-complex-dashboard
+priority: 100
 tags:
   - styling
   - refactor

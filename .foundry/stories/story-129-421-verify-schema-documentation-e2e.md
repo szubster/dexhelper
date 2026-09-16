@@ -2,10 +2,10 @@
 id: story-129-421-verify-schema-documentation-e2e
 type: STORY
 title: Verify Schema Documentation Updates (E2E)
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-13'
-updated_at: '2026-09-09'
+updated_at: '2026-09-14'
 depends_on:
   - story-129-420-update-schema-e2e-rule
 jules_session_id: null
@@ -29,8 +29,8 @@ We need to ensure that the updates made to `.foundry/docs/schema.md` correctly m
 Verify the schema updates and ensure no documentation builds or validations are broken.
 
 ## Acceptance Criteria
-- [ ] Verify `.foundry/docs/schema.md` has the Orchestrator Safeguard E2E requirement documented correctly.
+- [x] Verify `.foundry/docs/schema.md` has the Orchestrator Safeguard E2E requirement documented correctly.
 - [x] Break down into Tasks
-- [ ] task-421-496-verify-schema-documentation-script-coder
-- [ ] task-421-497-verify-schema-documentation-ci-coder
-- [ ] task-421-498-verify-schema-documentation-qa
+- [x] task-421-496-verify-schema-documentation-script-coder
+- [x] task-421-497-verify-schema-documentation-ci-coder
+- [x] task-421-498-verify-schema-documentation-qa

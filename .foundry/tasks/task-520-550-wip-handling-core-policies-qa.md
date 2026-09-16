@@ -2,7 +2,7 @@
 id: task-520-550-wip-handling-core-policies-qa
 type: TASK
 title: QA Update Core Policies for WIP Awareness
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-06'
 updated_at: '2026-09-13'
@@ -26,5 +26,5 @@ locks: []
 Verify the changes to `core_policies.md`.
 
 ## Acceptance Criteria
-- [ ] Verify core_policies.md contains clear guidelines on Draft ADR and WIP code handling.
-- [ ] Verify the instructions explicitly target generative personas.
+- [x] Verify core_policies.md contains clear guidelines on Draft ADR and WIP code handling.
+- [x] Verify the instructions explicitly target generative personas.

@@ -2,12 +2,12 @@
 id: task-530-549-isavedatareader-interface-impl
 type: TASK
 title: Define ISaveDataReader Interface
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-12'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: '365955531424097766'
+jules_session_id: null
 pr_number: null
 parent: story-521-530-savedatareader-core
 tags: []
@@ -24,5 +24,5 @@ locks: []
 This task focuses on defining the `ISaveDataReader` interface in `src/engine/saveParser/SaveDataReader.ts` to outline the core read operations required for save file parsing.
 
 ## Acceptance Criteria
-- [ ] Define the `ISaveDataReader` interface.
-- [ ] Include method signatures for core reading operations (e.g., `getUint8`, `getUint16`, `getUint32`).
+- [x] Define the `ISaveDataReader` interface.
+- [x] Include method signatures for core reading operations (e.g., `getUint8`, `getUint16`, `getUint32`).

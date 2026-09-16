@@ -37,6 +37,7 @@ import {
   FLAG_RECEIVED_TM_TORMENT,
   FLAG_RECEIVED_TM_WATER_PULSE,
 } from '../gen3/tmFlags/constants';
+
 /**
  * @module gen3Parser
  *
@@ -68,6 +69,7 @@ import {
   parseGen3BattlePoints,
   parseGen3TotalBattlePoints,
 } from '../gen3/battleFrontier/parser';
+import { parseGen3BerryTrees } from '../gen3/berry/parser';
 import {
   CONDITION_BEAUTY_OFFSET,
   CONDITION_COOL_OFFSET,
@@ -78,6 +80,7 @@ import {
 } from '../gen3/conditionStats/constants';
 import { parseGen3Daycare } from '../gen3/daycare/parser';
 import { parseGen3EventItems } from '../gen3/inventory/parser';
+import { parseGen3MysteryGift } from '../gen3/mysteryGift';
 import { parseGen3NarrativeFlags } from '../gen3/narrative/parser';
 import {
   FLAG_BATTLE_FRONTIER_TRADE_DONE,
@@ -103,7 +106,6 @@ import type {
   Gen3ActiveSwarm,
   Gen3BattleFrontierSymbols,
   Gen3BattleFrontierWinStreaks,
-  Gen3BerryPatch,
   Gen3MoveTutors,
   Gen3Ribbons,
   Gen3RoamerData,
@@ -119,27 +121,15 @@ const SIGNATURE = 0x08012025;
 const SIGNATURE_OFFSET = 0x0ff8;
 const SECTION_ID_OFFSET = 0x0ff4;
 const SAVE_INDEX_OFFSET = 0x0ffc;
-const BERRY_STAGE_OFFSET = 0x01;
-const BERRY_MINUTES_OFFSET = 0x02;
-const BERRY_YIELD_OFFSET = 0x04;
-const BERRY_WATERED_OFFSET = 0x05;
 
 // Berry patches use bitwise flags to cram status data into single bytes.
 // Byte 1 stores the growth stage (bits 0-6) and whether growth has stopped (bit 7).
-const BERRY_STAGE_MASK = 0x7f;
-const BERRY_STOP_GROWTH_MASK = 0x80;
 // Byte 5 stores the watering history (bits 4-7) and the number of times it has regrown (bits 0-3).
-const BERRY_REGROWTH_MASK = 0x0f;
-const BERRY_WATERED_1_MASK = 0x10;
-const BERRY_WATERED_2_MASK = 0x20;
-const BERRY_WATERED_3_MASK = 0x40;
-const BERRY_WATERED_4_MASK = 0x80;
 const NIBBLE_MASK = 0x0f;
 
 const HIDDEN_ITEM_FLAGS_OFFSET = 0x3e;
 
 const SECTION_SIZE = 4096;
-const GEN3_BERRY_PATCH_OFFSET = 0x071c;
 const GEN3_FLAGS_SECTION2_OFFSET = 0x02f0;
 const MIRAGE_ISLAND_OFFSET_EMERALD = 0x0464;
 const MIRAGE_ISLAND_OFFSET_RS = 0x0408;
@@ -323,19 +313,23 @@ export const UPPER_16_BIT_SHIFT = 16;
 export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
 
 /**
- * Extracts and decrypts a Gen 3 Pokémon's 48-byte data block.
+ * Extracts and decrypts the 48-byte GAEM structure of a Gen 3 Pokémon.
  *
- * ## Encryption Algorithm
- * Gen 3 introduced a rudimentary encryption scheme to deter basic RAM editing.
- * The 100-byte Pokémon structure has a 48-byte encrypted core consisting of 4 blocks:
- * Growth (G), Attacks (A), Effort/Condition (E), and Miscellaneous (M), each 12 bytes.
+ * ## Architecture Overview
+ * A Gen 3 Pokémon's data structure is 100 bytes long, with a 48-byte core data block
+ * that is encrypted using a simple XOR cipher to deter casual tampering.
+ * The 48-byte block is divided into four 12-byte substructures:
+ * - Growth (G): Species, Item held, Experience, PP bonuses, Friendship.
+ * - Attacks (A): Move 1-4, PP 1-4.
+ * - EVs & Condition (E): Stat EVs, Contest conditions.
+ * - Miscellaneous (M): Pokerus, Origins, Ribbons.
  *
- * 1. **Decryption Key:** The 32-bit key is derived by XORing the Pokémon's
- *    Personality Value (PV) and Original Trainer ID (OTID).
- * 2. **Block Permutation:** The physical order of the GAEM blocks on disk is scrambled
- *    into one of 24 possible permutations, determined by `PV % 24`.
- * 3. **Decryption:** The blocks are read in 32-bit chunks, XORed against the key,
- *    and mapped into a standardized GAEM contiguous block in memory.
+ * The physical order of these four substructures varies per Pokémon and is determined
+ * by one of 24 permutations calculated as `Personality Value (PV) % 24`.
+ *
+ * This function locates the encrypted block, determines the permutation, and decrypts
+ * the data by XORing it with a `decryptionKey` derived from `PV ^ OT_ID`.
+ * It returns a normalized DataView where the substructures are always arranged as G-A-E-M.
  *
  * @param view - The DataView of the raw save buffer.
  * @param offset - The absolute memory offset where the 100-byte Pokémon struct begins.
@@ -413,6 +407,18 @@ export const CONTEST_WINNER_SPECIES_OFFSET = 0x08;
  */
 export type Gen3SubstructureId = 'G' | 'A' | 'E' | 'M';
 
+/**
+ * Resolves the relative memory offset of a specific 12-byte substructure (G, A, E, or M)
+ * within the 48-byte encrypted Data block based on the Pokémon's Personality Value (PV).
+ *
+ * The physical location of a substructure is dictated by one of 24 possible permutations
+ * (e.g., GAEM, AGEM, MGAE). The active permutation is calculated via `PV % 24`.
+ *
+ * @param pv - The Pokémon's 32-bit Personality Value.
+ * @param substructureId - The 1-character identifier of the target substructure ('G', 'A', 'E', or 'M').
+ * @returns The relative byte offset (0, 12, 24, or 36) of the requested substructure.
+ * @throws RangeError if the permutation index is invalid or the substructure cannot be found.
+ */
 export function resolveGen3SubstructureOffset(pv: number, substructureId: Gen3SubstructureId): number {
   try {
     const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
@@ -435,6 +441,20 @@ export function resolveGen3SubstructureOffset(pv: number, substructureId: Gen3Su
   }
 }
 
+/**
+ * Isolates a specific 12-byte substructure (Growth, Attacks, EVs, or Misc) from the
+ * fully decrypted 48-byte GAEM buffer.
+ *
+ * Instead of allocating new memory, this function creates a targeted 12-byte `DataView`
+ * slice over the existing decrypted `ArrayBuffer`, allowing downstream parsers (like Ribbon
+ * extraction) to operate on normalized relative offsets (0-11) regardless of the Pokémon's original permutation.
+ *
+ * @param pv - The Pokémon's 32-bit Personality Value.
+ * @param decryptedData - The DataView of the fully decrypted 48-byte GAEM buffer.
+ * @param substructureId - The 1-character identifier of the target substructure ('G', 'A', 'E', or 'M').
+ * @returns A 12-byte DataView scoped strictly to the requested substructure.
+ * @throws Error if the offset calculation exceeds buffer bounds.
+ */
 export function getGen3DecryptedSubstructure(
   pv: number,
   decryptedData: DataView,
@@ -639,68 +659,6 @@ function getLatestSectionOffset(view: DataView, targetSectionId: number): number
  * @param view - The raw save file DataView.
  * @returns True if the structure looks like a valid Gen 3 save.
  */
-
-/**
- * Extracts the status and growth data of all 128 Berry Patches in Hoenn.
- *
- * **Binary Data Structure:**
- * Each berry patch is represented by an 8-byte structure starting at offset `0x071c` within SaveBlock1.
- * - `Byte 0`: Berry ID (which berry is planted).
- * - `Byte 1`: Growth stage (bits 0-6) and a flag indicating if growth has stopped (bit 7).
- * - `Bytes 2-3`: A 16-bit little-endian integer tracking minutes until the next growth stage.
- * - `Byte 4`: Berry yield (how many berries can be picked).
- * - `Byte 5`: A packed bitfield tracking watering history across the 4 growth stages,
- *             plus the number of times the patch has regrown without being picked (lower 4 bits).
- * - `Bytes 6-7`: Unused padding.
- *
- * @param view - The raw save file DataView.
- * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
- * @returns An array of parsed `Gen3BerryPatch` objects representing the state of all 128 patches.
- * @throws RangeError if the read goes out of bounds.
- */
-function extractBerryPatches(view: DataView, saveBlock1Offset: number) {
-  const patches: Gen3BerryPatch[] = [];
-  const baseOffset = saveBlock1Offset + GEN3_BERRY_PATCH_OFFSET;
-
-  for (let i = 0; i < 128; i++) {
-    const offset = baseOffset + i * 8;
-    try {
-      const berryId = view.getUint8(offset);
-      const stageByte = view.getUint8(offset + BERRY_STAGE_OFFSET);
-      const stage = stageByte & BERRY_STAGE_MASK;
-      const stopGrowth = (stageByte & BERRY_STOP_GROWTH_MASK) !== 0;
-
-      const minutesUntilNextStage = view.getUint16(offset + BERRY_MINUTES_OFFSET, true);
-      const berryYield = view.getUint8(offset + BERRY_YIELD_OFFSET);
-
-      const wateredByte = view.getUint8(offset + BERRY_WATERED_OFFSET);
-      const regrowthCount = wateredByte & BERRY_REGROWTH_MASK;
-      const watered1 = (wateredByte & BERRY_WATERED_1_MASK) !== 0;
-      const watered2 = (wateredByte & BERRY_WATERED_2_MASK) !== 0;
-      const watered3 = (wateredByte & BERRY_WATERED_3_MASK) !== 0;
-      const watered4 = (wateredByte & BERRY_WATERED_4_MASK) !== 0;
-
-      patches.push({
-        berryId,
-        stage,
-        stopGrowth,
-        minutesUntilNextStage,
-        berryYield,
-        regrowthCount,
-        watered1,
-        watered2,
-        watered3,
-        watered4,
-      });
-    } catch (e) {
-      if (e instanceof RangeError) {
-        throw new RangeError('Out of bounds reading berry patches');
-      }
-      throw e;
-    }
-  }
-  return patches;
-}
 
 /**
  * Performs a structural check to verify if the binary data is a valid Generation 3 save.
@@ -1708,7 +1666,14 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       section3Offset = -1;
     }
 
-    const gen3BerryPatches = extractBerryPatches(view, section1Offset);
+    const gen3BerryPatches = parseGen3BerryTrees(view, section1Offset).map((t) => ({
+      ...t,
+      stopGrowth: !!t.stopGrowth,
+      watered1: !!t.watered1,
+      watered2: !!t.watered2,
+      watered3: !!t.watered3,
+      watered4: !!t.watered4,
+    }));
     const gen3SecretBases = parseGen3SecretBases(view, section1Offset, _forcedVersion || 'ruby');
     const gen3StaticEncounters = extractGen3StaticEncounterFlags(view, _forcedVersion || 'ruby', section1Offset);
 
@@ -2033,6 +1998,13 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
 
     if (allSpindas.length > 0) {
       result.gen3Spindas = allSpindas;
+    }
+
+    try {
+      const gen3MysteryGift = parseGen3MysteryGift(view, section1Offset, _forcedVersion || 'ruby');
+      result.gen3MysteryGift = gen3MysteryGift;
+    } catch {
+      // Ignored
     }
 
     return result;

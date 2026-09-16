@@ -2,10 +2,10 @@
 id: idea-521-coroner-persona-post-mortem
 type: IDEA
 title: Coroner Persona for Automated Post-Mortem Analysis
-status: READY
-owner_persona: product_manager
+status: BLOCKED
+owner_persona: tpm
 created_at: '2026-09-10'
-updated_at: '2026-09-10'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,9 @@ tags:
   - error-handling
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
 notes: ''
+locks: []
 ---
 
 # Coroner Persona for Automated Post-Mortem Analysis

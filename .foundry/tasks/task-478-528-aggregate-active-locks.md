@@ -5,15 +5,15 @@ title: Aggregate active locks in RESOLVE phase
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-06'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '9761479764983358344'
+jules_session_id: '1248363979702507963'
 pr_number: null
 parent: story-412-478-implement-resolve-phase-locking
 tags:
   - orchestrator
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

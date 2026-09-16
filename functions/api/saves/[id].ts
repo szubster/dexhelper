@@ -1,9 +1,8 @@
-import type { PagesFunction, R2Bucket } from '@cloudflare/workers-types';
+import type { PagesFunction } from '@cloudflare/workers-types';
 import type { PluginData } from '@cloudflare/pages-plugin-cloudflare-access';
+import type { Env } from '../../types/env';
 
-interface Env {
-  SAVES_BUCKET: R2Bucket;
-}
+
 
 export const onRequestGet: PagesFunction<Env, 'id', PluginData> = async ({ env, params, data }) => {
   const email = data.cloudflareAccess?.JWT?.payload?.email;

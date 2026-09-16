@@ -2,13 +2,13 @@
 id: task-414-503-bike-badge-ui-qa
 type: TASK
 title: QA Bike Requirement Badges UI Integration
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-31'
-updated_at: '2026-08-31'
+updated_at: '2026-09-15'
 depends_on:
   - task-414-502-map-ui-bike-integration-impl
-jules_session_id: '8724805382122507598'
+jules_session_id: null
 pr_number: null
 parent: story-406-414-bike-requirement-ui-badges
 tags:
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: Replaces cancelled task-414-424-bike-badge-ui-qa
+locks: []
 ---
 
 # QA Bike Requirement Badges UI Integration
@@ -31,5 +32,5 @@ Verify the implementation of the `BikeBadge` integration into the `MapUI`. This 
 - Run frontend visual tests/checks.
 
 ## Acceptance Criteria
-- [ ] Verify ADR 008/024 aesthetic compliance for MapUI integration.
-- [ ] Ensure unit tests pass and adequately cover edge cases for rendering bike badges.
+- [x] Verify ADR 008/024 aesthetic compliance for MapUI integration.
+- [x] Ensure unit tests pass and adequately cover edge cases for rendering bike badges.

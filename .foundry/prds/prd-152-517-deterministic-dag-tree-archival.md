@@ -5,7 +5,7 @@ title: Deterministic DAG Tree Archival in Orchestrator
 status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-02'
-updated_at: '2026-09-07'
+updated_at: '2026-09-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Deterministic DAG Tree Archival in Orchestrator

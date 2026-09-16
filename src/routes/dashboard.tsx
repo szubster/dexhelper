@@ -50,10 +50,20 @@ const Gen3EventItemsDashboard = React.lazy(() =>
   })),
 );
 
+const Gen3TrainerCardDashboard = React.lazy(() =>
+  import('../components/dashboard/trainer-card/Gen3TrainerCardDashboard').then((m) => ({
+    default: m.Gen3TrainerCardDashboard,
+  })),
+);
+
 const GlobalRibbonChecklistDashboard = React.lazy(() =>
   import('../components/dashboard/ribbons/GlobalRibbonChecklistDashboard').then((m) => ({
     default: m.GlobalRibbonChecklistDashboard,
   })),
+);
+
+const RngCalculatorDashboard = React.lazy(() =>
+  import('../components/dashboard/rng/RngCalculatorDashboard').then((m) => ({ default: m.RngCalculatorDashboard })),
 );
 
 const Gen2DecorationsDashboard = React.lazy(() =>
@@ -105,6 +115,7 @@ function DashboardPage() {
         {saveData.generation === 3 ? (
           <>
             <Gen3RoamerDossier saveData={saveData} />
+            <RngCalculatorDashboard />
             <BattleFrontierDashboard saveData={saveData} />
             <GlobalRibbonChecklistDashboard />
             <Gen3SecretBaseDashboard saveData={saveData} />
@@ -112,6 +123,7 @@ function DashboardPage() {
             <Gen3StaticEncountersDashboard saveData={saveData} />
             <Gen3TrickHouseDashboard saveData={saveData} />
             <Gen3NpcTrades />
+            <Gen3TrainerCardDashboard saveData={saveData} />
           </>
         ) : saveData.generation === 2 ? (
           <>

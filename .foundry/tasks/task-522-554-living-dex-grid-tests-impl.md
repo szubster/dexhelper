@@ -28,9 +28,9 @@ locks: []
 We need to verify the implementation of the LivingDexGrid and LivingDexCell components using vitest-browser-react.
 
 ## Acceptance Criteria
-- [ ] Write browser rendering tests for LivingDexGrid using vitest-browser-react.
-- [ ] Verify that exactly 386 cells are rendered.
-- [ ] Verify that cells display their respective national dex numbers.
-- [ ] Verify that the component integrates properly into a mock view hierarchy and renders successfully without errors.
-- [ ] Explicitly genericize vi.fn() mocks (e.g. vi.fn<(type: string) => void>()) if testing callback props to satisfy vitest(require-mock-type-parameters).
-- [ ] Do NOT use @testing-library/react or @testing-library/*.
+- [x] Write browser rendering tests for LivingDexGrid using vitest-browser-react.
+- [x] Verify that exactly 386 cells are rendered.
+- [x] Verify that cells display their respective national dex numbers.
+- [x] Verify that the component integrates properly into a mock view hierarchy and renders successfully without errors.
+- [x] Explicitly genericize vi.fn() mocks (e.g. vi.fn<(type: string) => void>()) if testing callback props to satisfy vitest(require-mock-type-parameters).
+- [x] Do NOT use @testing-library/react or @testing-library/*.

@@ -2,12 +2,12 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: ACTIVE
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
-updated_at: '2026-09-12'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '6364070879996672044'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: null
@@ -26,37 +26,48 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `70ee2e9bf946d3a4ac37cf711d3da663a12718dd`
-- **Previous Commit SHA:** `888f3b975ae80fa276832304042b924e60c6a156`
-- **Commit Date:** `2026-03-15`
+- **Commit SHA:** `b58f966a3887eb3de24f107f4ce9afacfc2e5cc5`
+- **Previous Commit SHA:** `79c3d6fa58fade692cbce8a263bde7543dcb7d8a`
+- **Commit Date:** `2026-03-16`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `minor` (from `0.11.0` -> `0.12.0`)
+- **Suggested SemVer Bump:** `patch` (from `0.15.0` -> `0.15.1`)
 
 ## Commit Message
 ```text
-feat: Add Node.js 24 engine requirement and configure GitHub Actions for CI and GitHub Pages deployment.
+build(deps): Bump @tanstack/router-devtools from 1.166.8 to 1.166.9
+
+Bumps [@tanstack/router-devtools](https://github.com/TanStack/router/tree/HEAD/packages/router-devtools) from 1.166.8 to 1.166.9.
+- [Release notes](https://github.com/TanStack/router/releases)
+- [Changelog](https://github.com/TanStack/router/blob/main/packages/router-devtools/CHANGELOG.md)
+- [Commits](https://github.com/TanStack/router/commits/@tanstack/router-devtools@1.166.9/packages/router-devtools)
+
+---
+updated-dependencies:
+- dependency-name: "@tanstack/router-devtools"
+  dependency-version: 1.166.9
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
 ```
 
 ## Modified Files
-- `.github/workflows/ci.yml`
-- `.github/workflows/deploy.yml`
-- `.nvmrc`
+- `package-lock.json`
 - `package.json`
 
 ## Diff Summary
 ```text
-70ee2e9bf feat: Add Node.js 24 engine requirement and configure GitHub Actions for CI and GitHub Pages deployment.
- .github/workflows/ci.yml     | 2 +-
- .github/workflows/deploy.yml | 2 +-
- .nvmrc                       | 1 +
- package.json                 | 3 +++
- 4 files changed, 6 insertions(+), 2 deletions(-)
+b58f966a3 build(deps): Bump @tanstack/router-devtools from 1.166.8 to 1.166.9
+ package-lock.json | 32 ++++++++++++++++----------------
+ package.json      |  2 +-
+ 2 files changed, 17 insertions(+), 17 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 70ee2e9bf946d3a4ac37cf711d3da663a12718dd` (or `git diff 888f3b975ae80fa276832304042b924e60c6a156..70ee2e9bf946d3a4ac37cf711d3da663a12718dd`) in bash to analyze the actual code diff.
+As Changelogger, independently inspect the commit changes above by executing `git show b58f966a3887eb3de24f107f4ce9afacfc2e5cc5` (or `git diff 79c3d6fa58fade692cbce8a263bde7543dcb7d8a..b58f966a3887eb3de24f107f4ce9afacfc2e5cc5`) in bash to analyze the actual code diff.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.12.0] - 2026-03-15` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.11.0...0.12.0`](https://github.com/${repo}/compare/888f3b9...70ee2e9)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.15.1] - 2026-03-16` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.15.0...0.15.1`](https://github.com/${repo}/compare/79c3d6f...b58f966)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.

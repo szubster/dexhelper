@@ -2,12 +2,12 @@
 id: epic-520-554-gen3-transition-dashboard
 type: EPIC
 title: Gen 3 Generation Transition Dashboard
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-07'
-updated_at: '2026-09-10'
+updated_at: '2026-09-13'
 depends_on: []
-jules_session_id: '8376527397815419907'
+jules_session_id: null
 pr_number: null
 parent: prd-516-520-gen3-pokedex-completion-tracker
 tags:
@@ -24,5 +24,8 @@ rejection_reason: ''
 This epic integrates the Pokédex Gaps, Missed Milestones, and Trainer Card Status into a unified Generation Transition Checklist dashboard for players preparing to migrate to Gen 4.
 
 ## Acceptance Criteria
-- [ ] Break down into Story nodes for unified dashboard layout and integration.
-- [ ] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Break down into Story nodes for unified dashboard layout and integration.
+- [x] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-554-562-gen3-dashboard-layout-and-routing
+- [ ] story-554-563-gen3-dashboard-data-integration
+- [ ] story-554-564-gen3-dashboard-e2e-verification
