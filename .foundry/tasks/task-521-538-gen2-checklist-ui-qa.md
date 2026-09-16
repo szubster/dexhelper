@@ -33,7 +33,7 @@ Verify the layout and item components for the Gen 2 checklist.
 - Ensure code passes `pnpm lint`.
 
 ## Acceptance Criteria
-- [ ] Verify checklist layout component.
-- [ ] Verify individual item components.
-- [ ] Validate ADR 008 aesthetic constraints.
-- [ ] Confirm all tests pass.
+- [x] Verify checklist layout component.
+- [x] Verify individual item components.
+- [x] Validate ADR 008 aesthetic constraints.
+- [x] Confirm all tests pass.
