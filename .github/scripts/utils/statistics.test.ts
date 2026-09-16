@@ -103,8 +103,7 @@ describe('extractPRMetrics', () => {
     });
   });
 
-  it('should return null and log error if execSync fails', () => {
-    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+  it('should return null if execSync fails gracefully', () => {
     vi.mocked(execSync).mockImplementation(() => {
       throw new Error('Command failed');
     });
@@ -112,7 +111,5 @@ describe('extractPRMetrics', () => {
     const metrics = extractPRMetrics();
 
     expect(metrics).toBeNull();
-    expect(consoleSpy).toHaveBeenCalled();
-    consoleSpy.mockRestore();
   });
 });

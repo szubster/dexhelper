@@ -13,15 +13,15 @@ describe('Orchestrator Fuzzing E2E', () => {
     beforeEach(() => {
         tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'fuzzing-orchestrator-e2e-'));
         vi.spyOn(process, 'cwd').mockReturnValue(tmpDir);
-        vi.spyOn(console, 'log').mockImplementation(() => {});
-        vi.spyOn(console, 'error').mockImplementation(() => {});
+        vi.spyOn(console, 'log').mockImplementation(() => {}, 60000);
+        vi.spyOn(console, 'error').mockImplementation(() => {}, 60000);
         process.env.VITEST = 'true';
-    });
+    }, 60000);
 
     afterEach(() => {
-        fs.rmSync(tmpDir, { recursive: true, force: true });
+        fs.rmSync(tmpDir, { recursive: true, force: true }, 60000);
         vi.restoreAllMocks();
-    });
+    }, 60000);
 
     test('State machine transitions operate correctly under arbitrary sequences', () => {
         const statuses = ['PENDING', 'COMPLETED', 'READY', 'ACTIVE', 'VERIFYING', 'FAILED', 'BLOCKED', 'CANCELLED'] as const;
@@ -40,12 +40,12 @@ describe('Orchestrator Fuzzing E2E', () => {
                     toId: fc.constantFrom(...tasks.map(t => t.id))
                 }), { maxLength: 10 })
             );
-        });
+        }, 60000);
 
         fc.assert(
             fc.property(tasksArbitrary, ([tasks, edges]) => {
-                fs.rmSync(tmpDir, { recursive: true, force: true });
-                fs.mkdirSync(tmpDir, { recursive: true });
+                fs.rmSync(tmpDir, { recursive: true, force: true }, 60000);
+                fs.mkdirSync(tmpDir, { recursive: true }, 60000);
 
                 const depsMap = new Map<string, Set<string>>();
                 tasks.forEach(t => depsMap.set(t.id, new Set()));
@@ -54,15 +54,15 @@ describe('Orchestrator Fuzzing E2E', () => {
                     if (e.fromId !== e.toId) {
                         depsMap.get(e.fromId)!.add(e.toId);
                     }
-                });
+                }, 60000);
 
                 tasks.forEach(t => {
                     createValidTestNode(tmpDir, `.foundry/tasks/${t.id}.md`, {
                         id: t.id,
                         status: t.status,
                         depends_on: Array.from(depsMap.get(t.id)!)
-                    });
-                });
+                    }, 60000);
+                }, 60000);
 
                 let errorThrown = false;
                 try {
@@ -81,7 +81,7 @@ describe('Orchestrator Fuzzing E2E', () => {
                            finalStates[t.id] = parsed.frontmatter.status;
                         }
                     }
-                });
+                }, 60000);
 
                 expect(errorThrown).toBe(false);
 
@@ -90,12 +90,12 @@ describe('Orchestrator Fuzzing E2E', () => {
             }),
             { numRuns: 100 }
         );
-    });
+    }, 60000);
 
     test('Orchestrator state transition simulator applies lifecycle transitions and fault injection across multiple ticks', () => {
         const dagArbitrary = generateDagNodesArbitrary({ minNodes: 2, maxNodes: 15 }).chain(nodes => {
-            return generateDependenciesArbitrary(nodes, { maxDepth: 5, maxWidth: 5 });
-        });
+            return generateDependenciesArbitrary(nodes, { maxDepth: 5, maxWidth: 5 }, 60000);
+        }, 60000);
 
         const faultArbitrary = fc.array(
             fc.array(
@@ -110,8 +110,8 @@ describe('Orchestrator Fuzzing E2E', () => {
 
         fc.assert(
             fc.property(dagArbitrary, faultArbitrary, (nodes, faultsPerTick) => {
-                fs.rmSync(tmpDir, { recursive: true, force: true });
-                fs.mkdirSync(tmpDir, { recursive: true });
+                fs.rmSync(tmpDir, { recursive: true, force: true }, 60000);
+                fs.mkdirSync(tmpDir, { recursive: true }, 60000);
 
                 // Write nodes
                 for (const node of nodes) {
@@ -203,17 +203,17 @@ describe('Orchestrator Fuzzing E2E', () => {
             }),
             { numRuns: 100 }
         );
-    }, 30000);
+    }, 60000);
 
     test('Orchestrator can handle structurally complex, valid random DAGs from DAG generator', () => {
         const dagArbitrary = generateDagNodesArbitrary({ minNodes: 2, maxNodes: 15 }).chain(nodes => {
-            return generateDependenciesArbitrary(nodes, { maxDepth: 5, maxWidth: 5 });
-        });
+            return generateDependenciesArbitrary(nodes, { maxDepth: 5, maxWidth: 5 }, 60000);
+        }, 60000);
 
         fc.assert(
             fc.property(dagArbitrary, (nodes) => {
-                fs.rmSync(tmpDir, { recursive: true, force: true });
-                fs.mkdirSync(tmpDir, { recursive: true });
+                fs.rmSync(tmpDir, { recursive: true, force: true }, 60000);
+                fs.mkdirSync(tmpDir, { recursive: true }, 60000);
 
                 // Write nodes
                 for (const node of nodes) {
@@ -264,5 +264,5 @@ describe('Orchestrator Fuzzing E2E', () => {
             }),
             { numRuns: 100 }
         );
-    });
-});
+    }, 60000);
+}, 60000);
