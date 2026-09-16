@@ -28,4 +28,6 @@ locks: []
 This story implements the E2E verification for the Shoal Cave UI Dashboard, fulfilling the orchestrator requirement that every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks to write E2E tests for the Shoal Cave Dashboard.
+- [x] Break down into Tasks to write E2E tests for the Shoal Cave Dashboard.
+- [ ] task-567-586-shoal-cave-e2e-coder
+- [ ] task-567-587-shoal-cave-e2e-qa
