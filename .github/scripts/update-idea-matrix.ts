@@ -36,7 +36,7 @@ depends_on: []
 jules_session_id: null
 pr_number: null
 parent: null
-priority: 50
+priority: 70
 tags:
   - architecture
   - documentation
