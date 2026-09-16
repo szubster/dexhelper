@@ -33,4 +33,4 @@ A Playwright E2E test has been implemented to verify the end-to-end parsing of t
 - Ensure the E2E extraction of the Mirage Island value works from loading a save file to successfully outputting the parsed Mirage Island value.
 
 ## Acceptance Criteria
-- [ ] Verify the end-to-end parsing of the Mirage Island value from Gen 3 save files.
+- [x] Verify the end-to-end parsing of the Mirage Island value from Gen 3 save files.
