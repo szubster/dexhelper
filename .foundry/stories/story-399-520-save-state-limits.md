@@ -2,10 +2,10 @@
 id: story-399-520-save-state-limits
 type: STORY
 title: Implement maximum save state limits per playthrough
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-09'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,6 +15,7 @@ tags:
   - indexeddb
   - history
 rejection_reason: ''
+locks: []
 ---
 
 # Story: Implement maximum save state limits per playthrough

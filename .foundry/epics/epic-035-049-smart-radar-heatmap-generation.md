@@ -2,10 +2,10 @@
 id: epic-035-049-smart-radar-heatmap-generation
 type: EPIC
 title: Smart Radar Heatmap Generation
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-23'
-updated_at: '2026-05-23'
+updated_at: '2026-09-16'
 depends_on:
   - epic-035-048-smart-radar-data-unification
 jules_session_id: null
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Smart Radar Heatmap Generation

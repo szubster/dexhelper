@@ -2,19 +2,19 @@
 id: task-551-564-test-curator-historical-mapping-ingestion
 type: TASK
 title: Test Curator Historical Mapping Ingestion
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-07'
 updated_at: '2026-09-16'
 depends_on:
   - task-551-562-update-curator-prompt-logic
-jules_session_id: '4505781215830842286'
+jules_session_id: null
 parent: story-532-551-curator-historical-mapping-logic
 tags:
   - architecture
   - quality
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---
