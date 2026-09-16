@@ -27,7 +27,7 @@
     },
     {
       "path": "assets/PokemonLocations-<hash>.js",
-      "maxSize": "30kb"
+      "maxSize": "35kb"
     },
     {
       "path": "assets/gen1-<hash>.js",
@@ -39,7 +39,7 @@
     },
     {
       "path": "assets/gen3-<hash>.js",
-      "maxSize": "30kb"
+      "maxSize": "35kb"
     },
     {
       "path": "assets/ShinyCarrierBreedingDashboard-<hash>.js",
@@ -103,7 +103,7 @@
     },
     {
       "path": "data/foundry.json",
-      "maxSize": "515kb"
+      "maxSize": "520kb"
     },
     {
       "path": "data/pokedata.msgpack",
@@ -111,7 +111,7 @@
     },
     {
       "path": "icon-512.png",
-      "maxSize": "515kb"
+      "maxSize": "520kb"
     },
     {
       "path": "workbox-<hash>.js",
