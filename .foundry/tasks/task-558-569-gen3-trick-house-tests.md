@@ -34,4 +34,4 @@ Ensure the core logic for Trick House save parsing is robust and correctly handl
 - Catch `RangeError` on out-of-bounds reads.
 
 ## Acceptance Criteria
-- [ ] Unit tests written and passing for all Trick House parsing logic.
+- [x] Unit tests written and passing for all Trick House parsing logic.
