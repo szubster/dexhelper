@@ -34,4 +34,7 @@ Refactor the `TacticalButton` and `TacticalBadge` components to use `class-varia
 - Ensure strict TypeScript typing for all component variants.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-570-578-refactor-tactical-badge-cva
+- [ ] task-570-579-refactor-tactical-button-cva
+- [ ] task-570-580-cva-refactor-qa
