@@ -25,4 +25,4 @@ locks: []
 # Implement Feature Flag Tooling Tests
 
 ## Acceptance Criteria
-- [ ] Write tests for the core flag removal logic
+- [x] Write tests for the core flag removal logic
