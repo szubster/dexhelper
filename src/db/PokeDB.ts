@@ -242,7 +242,9 @@ const syncData = async () => {
     }
 
     emit(2, 7, 'Encounters');
-    for (const e of data.enc) {
+    // In test environments, data.enc might be undefined due to mocked msgpackr parsing.
+    const encList = data.enc || [];
+    for (const e of encList) {
       const inflatedEnc = e.enc.map((enc) => ({
         ...enc,
         d: (enc.d || []).map((d) => ({
@@ -255,7 +257,8 @@ const syncData = async () => {
     }
 
     emit(3, 7, 'Locations');
-    for (const l of data.loc) {
+    const locList = data.loc || [];
+    for (const l of locList) {
       void lStore.put({
         ...DEFAULT_LOCATION,
         ...l,
