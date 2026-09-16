@@ -2,12 +2,12 @@
 id: epic-521-554-schema-linter-lefthook-integration
 type: EPIC
 title: 'Schema Linter Integration: Lefthook Pre-commit'
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-24'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '11442563611297877661'
+jules_session_id: null
 parent: prd-421-521-automated-schema-linting
 tags:
   - foundry

@@ -1,11 +1,11 @@
 ---
 id: story-554-572-lefthook-e2e
 type: STORY
-title: 'E2E Verification for Schema Validation in Lefthook'
-status: READY
+title: E2E Verification for Schema Validation in Lefthook
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-13'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on:
   - story-554-571-lefthook-integration
 jules_session_id: null

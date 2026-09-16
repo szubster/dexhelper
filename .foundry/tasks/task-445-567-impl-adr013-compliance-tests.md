@@ -2,12 +2,12 @@
 id: task-445-567-impl-adr013-compliance-tests
 type: TASK
 title: Implement ADR-013 Compliance Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-10'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '7667902882785685710'
+jules_session_id: null
 pr_number: null
 parent: story-417-445-linter-integration-e2e
 tags:

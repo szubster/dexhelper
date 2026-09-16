@@ -2,10 +2,10 @@
 id: task-564-571-gen3-pokedex-gaps-ui-impl
 type: TASK
 title: Implement Gen 3 Pokédex Gaps UI
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-13'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on:
   - story-552-563-gen3-pokedex-version-exclusive-mapping
 jules_session_id: null
