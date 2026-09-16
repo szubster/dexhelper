@@ -46,4 +46,6 @@ This epic focuses on building the React components and UI dashboard to display t
 - [ ] Render current tide and countdown correctly.
 - [ ] Render collected item counts for Shoal Shells and Shoal Salts.
 - [ ] Add visual readiness indicator for Shell Bell crafting.
-- [ ] E2E / Integration Verification STORY must be drafted to integrate extracted data with dashboard and test it end-to-end.
+- [x] E2E / Integration Verification STORY must be drafted to integrate extracted data with dashboard and test it end-to-end.
+- [ ] story-412-566-shoal-cave-ui-components
+- [ ] story-412-567-shoal-cave-e2e-verification
