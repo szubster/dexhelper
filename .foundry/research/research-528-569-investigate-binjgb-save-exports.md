@@ -2,12 +2,12 @@
 id: research-528-569-investigate-binjgb-save-exports
 type: RESEARCH
 title: Investigate binjgb WASM memory exports for save extraction
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-14'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5248477642024396562'
 pr_number: null
 parent: task-518-528-binjgb-bindings-impl
 tags:
