@@ -28,3 +28,5 @@ Create the UI components to display the missing Pokémon, highlighting obtainabl
 ## Acceptance Criteria
 - [ ] Create UI to display Pokédex gaps
 - [ ] Highlight version exclusives differently from obtainable Pokémon
+- [ ] task-564-571-gen3-pokedex-gaps-ui-impl
+- [ ] task-564-572-qa-gen3-pokedex-gaps-ui
