@@ -29,3 +29,4 @@ End-to-end integration and verification of the Gen 3 Pokédex Gaps Tracker.
 ## Acceptance Criteria
 - [ ] Verify extraction, mapping, and UI integration
 - [ ] Write Playwright E2E tests for the feature
+- [ ] task-565-576-gen3-pokedex-gaps-e2e-coder
