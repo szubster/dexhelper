@@ -2,7 +2,7 @@
 id: task-558-567-scheduled-workflows-qa
 type: TASK
 title: QA Verify Scheduled Workflows Issue Dispatch
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-08'
 updated_at: '2026-09-12'
@@ -19,7 +19,7 @@ tags:
   - github-issues
   - qa
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Replaced by task-568-581-modify-shared-workflow-impl (ADR-558-568 decision)'
 notes: ''
 locks: []
 ---
