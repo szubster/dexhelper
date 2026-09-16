@@ -29,4 +29,6 @@ To ensure our parsing backend correctly integrates with the broader application,
 
 ## Acceptance Criteria
 - [ ] Write E2E tests verifying that Pokéblocks are successfully parsed from a provided Gen 3 save file.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-479-576-gen3-pokeblock-e2e-impl
+- [ ] task-479-577-gen3-pokeblock-e2e-qa
