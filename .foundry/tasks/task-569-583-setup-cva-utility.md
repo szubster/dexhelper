@@ -28,23 +28,13 @@ priority: 60
 As detailed in ADR 031, we need to add `class-variance-authority` (CVA) for managing local React component variants (e.g., `size`, `intent`). CVA is already in `package.json`, so we don't need to add it again, but we do need to create the proper `cn` utility.
 
 ## Objective
-Update `src/utils/cn.ts` to be a robust Tailwind class merger that also works well with CVA.
+Ensure `src/utils/cn.ts` exports a robust `cn` utility that works correctly with CVA.
 
 ## Implementation Details
-1. Currently `src/utils/cn.ts` only exports `cn` from the `cn` package.
-2. We need it to be a proper Tailwind utility. Since the repo might already have `cn` or need a specific implementation, please verify if `clsx` and `tailwind-merge` are in `package.json`. If not, add them as dependencies using `pnpm add -w clsx tailwind-merge`.
-3. Update `src/utils/cn.ts` to export a `cn` function that combines `clsx` and `twMerge`.
-
-```typescript
-import { type ClassValue, clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
-```
+1. The project currently uses `cn` from the `cn` package in `src/utils/cn.ts`. Do not change this implementation.
+2. Verify that this utility function can be correctly imported and used by CVA. If any typescript or type setup is required to map CVA variants correctly, add it, but otherwise leave the core `cn` utility exactly as is.
+3. Ensure no `clsx` or `tailwind-merge` dependencies are added.
 
 ## Acceptance Criteria
-- [ ] Add `clsx` and `tailwind-merge` as workspace dependencies if they are missing.
-- [ ] Update `src/utils/cn.ts` to implement the standard tailwind class merging pattern.
+- [ ] Verify `src/utils/cn.ts` continues to export the shadcn-compliant `cn` function.
 - [ ] Ensure `pnpm lint` and `pnpm type-check` pass.
