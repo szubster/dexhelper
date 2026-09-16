@@ -26,3 +26,6 @@ locks: []
 
 ## Acceptance Criteria
 - [ ] Parse lines for checkbox syntax and validate exact spacing.
+- [ ] task-562-576-schema-linter-checkbox-logic-impl
+- [ ] task-562-577-schema-linter-checkbox-logic-qa
+- [ ] task-562-578-schema-linter-checkbox-logic-tests
