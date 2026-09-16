@@ -25,5 +25,5 @@ locks: []
 Develop the reporting mechanism that extracts the performance metrics from the core runner and structures them into a parsable output format for CI and analytical consumption.
 
 ## Acceptance Criteria
-- [ ] Implement reporting logic that outputs data in a structured format (JSON/CSV).
-- [ ] Ensure the reporter can be seamlessly integrated into the CI pipeline.
+- [x] Implement reporting logic that outputs data in a structured format (JSON/CSV).
+- [x] Ensure the reporter can be seamlessly integrated into the CI pipeline.
