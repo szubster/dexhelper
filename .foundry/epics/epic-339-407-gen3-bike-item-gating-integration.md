@@ -29,5 +29,8 @@ Introduce a "Bike Requirement Filter" to DexHelper's Smart Route Radar or intera
 Item Gating: If a route contains hidden items or TMs (tracked via save flags), explicitly note if reaching that item requires a specific bike. For example, "TM13 Ice Beam (Abandoned Ship) - Requires Dive & Storage Key."
 
 ## Acceptance Criteria
-- [ ] story_owner: Break down this Epic into Stories.
-- [ ] story_owner: Ensure one final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [x] story_owner: Break down this Epic into Stories.
+- [x] story_owner: Ensure one final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [ ] story-407-573-item-gating-data-mapping
+- [ ] story-407-574-item-gating-ui-filter
+- [ ] story-407-575-item-gating-e2e-verification
