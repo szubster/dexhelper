@@ -28,6 +28,6 @@ locks: []
 Update the orchestrator's prompt compilation to gracefully ignore missing tag-specific fragments (layers) instead of throwing an error or failing.
 
 ## Acceptance Criteria
-- [ ] Update \`compilePromptForNode\` to log a warning when a requested tag/layer file does not exist, and continue processing without throwing an error.
-- [ ] Ensure that existing valid tags are still appended correctly.
-- [ ] Write or update unit tests to verify that missing tags are gracefully ignored and logged as warnings.
+- [x] Update \`compilePromptForNode\` to log a warning when a requested tag/layer file does not exist, and continue processing without throwing an error.
+- [x] Ensure that existing valid tags are still appended correctly.
+- [x] Write or update unit tests to verify that missing tags are gracefully ignored and logged as warnings.
