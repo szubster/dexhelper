@@ -27,6 +27,8 @@ describe('verify-schema-documentation', () => {
             Some content.
             16. Orchestrator Safeguard (E2E/Integration Requirement): When breaking down Epics.
             More content.
+            VERIFYING and COMPLETED nodes are read-only for implementing personas.
+            Once a PR is merged, the node transitions to \`VERIFYING\`.
         `);
 
         const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
@@ -51,6 +53,56 @@ describe('verify-schema-documentation', () => {
 
         expect(checkSchemaDocumentation()).toBe(false);
         expect(consoleErrorSpy).toHaveBeenCalledWith(expect.stringContaining('Found forbidden documentation pattern'));
+
+        consoleErrorSpy.mockRestore();
+    });
+
+    it('should return false and log error when implementing personas modifier forbidden pattern is present', () => {
+        vi.spyOn(fs, 'readFileSync').mockReturnValue(`
+            Some content.
+            16. Orchestrator Safeguard (E2E/Integration Requirement): When breaking down Epics, generative personas must ensure every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with \`e2e\` or \`integration\`), even for documentation-focused Epics. An EPIC cannot be COMPLETED without it.
+            More content.
+            VERIFYING and COMPLETED nodes are read-only for implementing personas.
+            Once a PR is merged, the node transitions to \`VERIFYING\`.
+            Oh wait, actually implementing personas can modify VERIFYING nodes.
+        `);
+
+        const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+        expect(checkSchemaDocumentation()).toBe(false);
+        expect(consoleErrorSpy).toHaveBeenCalledWith(expect.stringContaining('Found forbidden documentation pattern'));
+
+        consoleErrorSpy.mockRestore();
+    });
+
+    it('should return false when a required VERIFYING pattern is missing', () => {
+        vi.spyOn(fs, 'readFileSync').mockReturnValue(`
+            Some content.
+            16. Orchestrator Safeguard (E2E/Integration Requirement): When breaking down Epics, generative personas must ensure every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with \`e2e\` or \`integration\`), even for documentation-focused Epics. An EPIC cannot be COMPLETED without it.
+            More content.
+            Once a PR is merged, the node transitions to \`VERIFYING\`.
+        `);
+
+        const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+        expect(checkSchemaDocumentation()).toBe(false);
+        expect(consoleErrorSpy).toHaveBeenCalledWith(expect.stringContaining('Missing required documentation pattern in schema.md: "VERIFYING and COMPLETED nodes are read-only for implementing personas."'));
+
+        consoleErrorSpy.mockRestore();
+    });
+
+    it('should return false when another required VERIFYING pattern is missing', () => {
+        vi.spyOn(fs, 'readFileSync').mockReturnValue(`
+            Some content.
+            16. Orchestrator Safeguard (E2E/Integration Requirement): When breaking down Epics, generative personas must ensure every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with \`e2e\` or \`integration\`), even for documentation-focused Epics. An EPIC cannot be COMPLETED without it.
+            More content.
+            VERIFYING and COMPLETED nodes are read-only for implementing personas.
+        `);
+
+        const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+        expect(checkSchemaDocumentation()).toBe(false);
+        expect(consoleErrorSpy).toHaveBeenCalledWith(expect.stringContaining('Missing required documentation pattern in schema.md: "Once a PR is merged, the node transitions to `VERIFYING`."'));
 
         consoleErrorSpy.mockRestore();
     });
