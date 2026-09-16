@@ -322,7 +322,7 @@ ${commitDetails.diffStat || 'N/A'}
 \`\`\`
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing \`git show ${commitDetails.sha}\` (or \`git diff ${previousCommitSha || commitDetails.sha + '~1'}..${commitDetails.sha}\`) in bash to analyze the actual code diff.
+As Changelogger, independently inspect the commit changes above by executing \`git show ${commitDetails.sha}\` (or \`git diff ${previousCommitSha || commitDetails.sha + '~1'}..${commitDetails.sha}\`) in bash to analyze the actual code diff. If the clone is shallow (\`git rev-parse --is-shallow-repository\` returns \`true\`), run \`git fetch --unshallow\` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
 If a changelog entry or \`README.md\` update is warranted, create a PR adding a concise bullet point under \`## [Unreleased]\` or new release header \`## [${nextVersion}] - ${commitDate}\` in \`${changelogFilename}\` with diff link comparing previous release commit SHA to new release commit SHA (e.g. ${diffLinkExample}), and update \`README.md\` if necessary.
 If Keep a Changelog link references exist at the bottom of \`${changelogFilename}\`, update/add link reference comparing the previous commit/release to current commit/release.
