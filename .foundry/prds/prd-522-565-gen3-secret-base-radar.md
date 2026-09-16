@@ -36,4 +36,6 @@ In Generation 3 (Ruby, Sapphire, Emerald), players can create "Secret Bases" in 
 5. **Decoration Viewer**: As a stretch goal, list the decorations within the base.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+- [ ] epic-565-569-gen3-secret-base-parsing
+- [ ] epic-565-570-gen3-secret-base-radar-ui
