@@ -115,6 +115,9 @@ export default defineConfig(() => {
             if (id.includes('node_modules/idb/')) {
               return 'idb';
             }
+            if (id.includes('node_modules/cn/')) {
+              return 'cn';
+            }
             if (id.includes('src/components/dashboard/battle-frontier/')) {
               return 'BattleFrontierDashboard';
             }

@@ -46,6 +46,10 @@
       "maxSize": "100kb"
     },
     {
+      "path": "assets/cn-<hash>.js",
+      "maxSize": "50kb"
+    },
+    {
       "path": "assets/dag-<hash>.js",
       "maxSize": "200kb"
     },
