@@ -22,10 +22,14 @@ locks: []
 # Architect Visionary Persona Implementation
 
 ## Description
-This story covers the implementation tasks required to introduce the `architect_visionary` persona into the Foundry system. This includes creating the agent prompt file, setting up the scheduled GitHub Action workflow, updating the schema configuration, and ensuring proper testing.
+This story covers the implementation tasks required to introduce the \`architect_visionary\` persona into the Foundry system. This includes creating the agent prompt file, setting up the scheduled GitHub Action workflow, updating the schema configuration, and ensuring proper testing.
 
 ## Acceptance Criteria
-- [ ] Decompose this story into actionable TASK nodes for the `coder` and `qa` personas.
-- [ ] Ensure tasks cover the creation of `.github/agents/architect_visionary.md`.
-- [ ] Ensure tasks cover the creation of `.github/workflows/schedule-code-architect.yml`.
-- [ ] Ensure tasks cover the update of `.github/scripts/schema.ts` for the new persona enum.
+- [x] Decompose this story into actionable TASK nodes for the \`coder\` and \`qa\` personas.
+- [ ] Ensure tasks cover the creation of \`.github/agents/architect_visionary.md\`.
+- [ ] Ensure tasks cover the creation of \`.github/workflows/schedule-code-architect.yml\`.
+- [ ] Ensure tasks cover the update of \`.github/scripts/schema.ts\` for the new persona enum.
+- [ ] task-560-578-architect-visionary-schema-update
+- [ ] task-560-579-architect-visionary-agent-prompt
+- [ ] task-560-580-architect-visionary-workflow
+- [ ] task-560-581-architect-visionary-qa
