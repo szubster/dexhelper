@@ -2,20 +2,21 @@
 id: story-517-527-markdown-banner
 type: STORY
 title: Implement Markdown Banner for WIP Documentation
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-15'
 depends_on:
   - story-517-526-schema-wip-support
-jules_session_id: null
+jules_session_id: '6497724184070647230'
 pr_number: null
 parent: epic-346-517-wip-documentation
 tags:
   - documentation
   - banner
   - wip
-rejection_reason: ""
+rejection_reason: ''
+locks: []
 ---
 
 ## Description

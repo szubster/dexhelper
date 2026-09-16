@@ -5,9 +5,9 @@ title: Update Scheduled Workflows for Issue Dispatch (Batch 1)
 status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3762866381632040783'
 pr_number: null
 parent: story-531-558-modify-scheduled-workflows-impl
 tags:

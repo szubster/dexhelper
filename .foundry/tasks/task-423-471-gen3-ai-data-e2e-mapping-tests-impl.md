@@ -2,7 +2,7 @@
 id: task-423-471-gen3-ai-data-e2e-mapping-tests-impl
 type: TASK
 title: Write Playwright E2E Tests for Gen 3 AI Script Mapping
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-22'
 updated_at: '2026-09-15'
@@ -16,8 +16,8 @@ tags:
   - ai
   - save-engine
   - e2e
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

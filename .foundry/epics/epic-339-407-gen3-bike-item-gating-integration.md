@@ -2,13 +2,13 @@
 id: epic-339-407-gen3-bike-item-gating-integration
 type: EPIC
 title: Item Gating Integration
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-08'
-updated_at: '2026-08-08'
+updated_at: '2026-09-16'
 depends_on:
   - epic-339-406-gen3-bike-requirement-route-mapping
-jules_session_id: null
+jules_session_id: '10337093646133657711'
 pr_number: null
 parent: prd-128-339-gen3-acro-bike-route-planner
 tags:
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Item Gating Integration
