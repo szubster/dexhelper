@@ -30,4 +30,4 @@ The `isGen3Save` heuristic in `src/engine/saveParser/utils/detection.ts` current
 - Ensure the function returns false instead of throwing if the buffer is incomplete or not a valid Gen 3 save.
 
 ## Acceptance Criteria
-- [ ] Fix `isGen3Save` in `src/engine/saveParser/utils/detection.ts` to correctly identify Gen 3 saves and handle RangeError gracefully.
+- [x] Fix `isGen3Save` in `src/engine/saveParser/utils/detection.ts` to correctly identify Gen 3 saves and handle RangeError gracefully.
