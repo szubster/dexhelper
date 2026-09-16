@@ -32,4 +32,4 @@ Implement the logic to analyze a compatible Pokémon's current moveset and ident
 - Flag Pokémon lacking a move of that type.
 
 ## Acceptance Criteria
-- [ ] Implement `identifyStrategicGapsForTMHM` (or similar) in the compatibility engine.
+- [x] Implement `identifyStrategicGapsForTMHM` (or similar) in the compatibility engine.
