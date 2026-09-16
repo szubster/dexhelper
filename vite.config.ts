@@ -77,6 +77,8 @@ export default defineConfig(() => {
     resolve: {
       alias: {
         '@': path.resolve(import.meta.dirname, '.'),
+        'clsx': 'cn',
+        'tailwind-merge': 'cn',
       },
     },
     css: {
