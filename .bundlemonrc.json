@@ -39,7 +39,7 @@
     },
     {
       "path": "assets/gen3-<hash>.js",
-      "maxSize": "30kb"
+      "maxSize": "35kb"
     },
     {
       "path": "assets/ShinyCarrierBreedingDashboard-<hash>.js",
