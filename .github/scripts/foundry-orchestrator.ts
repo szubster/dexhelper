@@ -1,4 +1,4 @@
-import { generateStatisticsReport } from './utils/statistics.js';
+import { generateStatisticsReport } from './utils/statistics.ts';
 /**
  * foundry-orchestrator.ts
  * ─────────────────────────────────────────────────────────────────────────────

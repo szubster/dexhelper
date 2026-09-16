@@ -67,6 +67,12 @@ export interface PRMetrics {
 
 export function extractPRMetrics(): PRMetrics | null {
   try {
+    // Check if gh is installed first to avoid throwing unhandled if not in CI
+    try {
+      execSync('gh --version', { encoding: 'utf-8', stdio: 'ignore' });
+    } catch {
+      return null;
+    }
     const output = execSync('gh pr list --state all --json state', { encoding: 'utf-8' });
     const prs = JSON.parse(output);
     const metrics: PRMetrics = {
