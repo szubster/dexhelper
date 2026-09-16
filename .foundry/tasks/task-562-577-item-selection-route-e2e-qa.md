@@ -2,24 +2,24 @@
 id: task-562-577-item-selection-route-e2e-qa
 type: TASK
 title: QA E2E Tests for Item Selection and Route Display
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-14'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on:
   - task-562-576-item-selection-route-e2e-impl
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-556-562-e2e-tests-item-selection-route-display
-priority: 50
 tags:
   - e2e
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Task: QA E2E Tests for Item Selection and Route Display

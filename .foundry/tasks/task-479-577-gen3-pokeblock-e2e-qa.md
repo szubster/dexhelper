@@ -2,10 +2,10 @@
 id: task-479-577-gen3-pokeblock-e2e-qa
 type: TASK
 title: Verify Gen 3 Pokéblock E2E Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-14'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on:
   - task-479-576-gen3-pokeblock-e2e-impl
 jules_session_id: null

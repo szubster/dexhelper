@@ -2,14 +2,14 @@
 id: task-521-551-gen1-magic-number-qa
 type: TASK
 title: QA Verification for Gen 1 Magic Numbers
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-05'
 updated_at: '2026-09-16'
 depends_on:
   - task-521-549-refactor-gen1-impl
   - task-521-550-refactor-gen1-tests
-jules_session_id: '12983999328491702181'
+jules_session_id: null
 pr_number: null
 parent: story-521-521-gen1-utils-refactor
 tags:

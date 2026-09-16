@@ -2,12 +2,12 @@
 id: idea-521-agent-confidence-metrics-dashboard
 type: IDEA
 title: Agent Confidence Metrics Dashboard
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-08'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '5160211212668243883'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

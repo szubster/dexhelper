@@ -2,24 +2,24 @@
 id: prd-521-565-agent-confidence-metrics-dashboard
 type: PRD
 title: PRD for Agent Confidence Metrics Dashboard
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-09-14'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: idea-521-agent-confidence-metrics-dashboard
-priority: 60
 tags:
   - foundry
   - orchestrator
   - metrics
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 60
 ---
 
 # PRD: Agent Confidence Metrics Dashboard

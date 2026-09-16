@@ -2,10 +2,10 @@
 id: task-562-576-gen2-map-lookup-impl
 type: TASK
 title: Implement Gen 2 Map Lookup Function
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-13'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
