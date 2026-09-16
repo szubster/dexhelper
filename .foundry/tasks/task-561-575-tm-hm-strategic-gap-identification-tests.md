@@ -32,4 +32,4 @@ Write unit tests for the logic that analyzes a compatible Pokémon's current mov
 - Cover cases where Pokémon have or lack moves of the same type.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for the gap identification logic.
+- [x] Write unit tests for the gap identification logic.
