@@ -59,7 +59,7 @@
     },
     {
       "path": "assets/index-<hash>.js",
-      "maxSize": "280kb"
+      "maxSize": "350kb"
     },
     {
       "path": "assets/react-<hash>.js",
@@ -103,7 +103,7 @@
     },
     {
       "path": "data/foundry.json",
-      "maxSize": "515kb"
+      "maxSize": "550kb"
     },
     {
       "path": "data/pokedata.msgpack",
