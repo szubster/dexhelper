@@ -11,7 +11,6 @@
     "src/test-setup.ts",
     "src/contexts/binjgb/index.ts",
     "src/hooks/useBinjgb.ts",
-
     ".github/scripts/extract-research.ts",
     "scripts/gen3-fetch-locations.ts",
     "functions/_middleware.ts",
@@ -20,7 +19,8 @@
     "src/engine/saveParser/utils/index.ts",
     ".github/scripts/aggregate-journals.ts",
     "src/engine/saveParser/parsers/gen2.ts",
-    ".github/scripts/schema.ts"
+    ".github/scripts/schema.ts",
+    ".github/scripts/session-api.ts"
   ],
   "rules": {
     "files": "warn",

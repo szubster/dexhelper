@@ -28,7 +28,8 @@ Implement a system to enforce the Autonomous No-Ask Policy by updating the Orche
 - Access to Jules API session state.
 
 ## High-Level Acceptance Criteria
-- [ ] The heartbeat script (`.github/scripts/foundry-heartbeat.ts`) monitors Jules session states.
-- [ ] The heartbeat correctly detects when a session transitions to the `AWAITING_USER_FEEDBACK` state.
-- [ ] The heartbeat flags this state as a violation of the Autonomous No-Ask Policy and triggers an appropriate rejection/failure for the node.
-- [ ] An integration/E2E STORY is created to verify the heartbeat correctly detects and rejects these violations.
+- [x] The heartbeat script (`.github/scripts/foundry-heartbeat.ts`) monitors Jules session states.
+- [x] The heartbeat correctly detects when a session transitions to the `AWAITING_USER_FEEDBACK` state.
+- [x] The heartbeat flags this state as a violation of the Autonomous No-Ask Policy and triggers an appropriate rejection/failure for the node.
+- [x] An integration/E2E STORY is created to verify the heartbeat correctly detects and rejects these violations.
+- [ ] story-564-580-heartbeat-violation-detection-e2e
