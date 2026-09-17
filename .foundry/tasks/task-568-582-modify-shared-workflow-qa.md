@@ -28,5 +28,5 @@ locks: []
 Verify that `.github/workflows/foundry-scheduled-agent.yml` successfully creates GitHub issues for scheduled workflows, and that the original batch tasks were correctly cancelled.
 
 ## Acceptance Criteria
-- [ ] Confirm `.github/workflows/foundry-scheduled-agent.yml` uses `gh issue create` with the compiled prompt.
-- [ ] Run `pnpm lint` and `pnpm test` to ensure workflow stability.
+- [x] Confirm `.github/workflows/foundry-scheduled-agent.yml` uses `gh issue create` with the compiled prompt.
+- [x] Run `pnpm lint` and `pnpm test` to ensure workflow stability.
