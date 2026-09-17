@@ -22,6 +22,8 @@ export const LivingDexCell = React.memo(function LivingDexCell({ id, inParty, in
   return (
     <button
       type="button"
+      aria-label={`View details for Pokémon #${id}`}
+      title={`View details for Pokémon #${id}`}
       onClick={handleClick}
       data-testid="pokedex-card"
       data-pokemon-id={id}
