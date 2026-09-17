@@ -30,4 +30,8 @@ The database synchronization logic must be updated to load the core data by defa
 - Implement logic to fetch and sync generation-specific extensions when required by the detected save file.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-478-586-pokedb-sync-core
+- [ ] task-478-587-pokedb-sync-extensions
+- [ ] task-478-588-pokedb-sync-tests
+- [ ] task-478-589-pokedb-sync-qa
