@@ -2,12 +2,12 @@
 id: story-312-562-gen2-mom-savings-tracker-ui-core
 type: STORY
 title: Gen 2 Mom's Savings Tracker UI Core
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-13'
+updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2534701315309916401'
 pr_number: null
 parent: epic-112-312-gen2-mom-savings-tracker-ui
 tags:

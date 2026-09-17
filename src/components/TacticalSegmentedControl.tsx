@@ -1,9 +1,28 @@
+import { cva, type VariantProps } from 'class-variance-authority';
 import type React from 'react';
 import { useRef } from 'react';
 import { cn } from '../utils/cn';
+
 import { HardwareScrews } from './HardwareScrews';
 
-interface SegmentedControlItem<T extends string | number | readonly string[]> {
+export const tacticalSegmentedItemVariants = cva(
+  'tactical-badge flex-1 border border-zinc-950 px-2 py-2.5 transition-all duration-75',
+  {
+    variants: {
+      active: {
+        true: 'bg-zinc-950 shadow-[inset_0_4px_8px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.02)] text-[var(--theme-primary)] translate-y-[2px] border-t-zinc-950 border-b-zinc-800',
+        false:
+          'bg-zinc-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.4)] text-zinc-400 hover:bg-zinc-700 hover:text-zinc-300 border-t-zinc-700 border-b-zinc-950',
+      },
+    },
+    defaultVariants: {
+      active: false,
+    },
+  },
+);
+
+interface SegmentedControlItem<T extends string | number | readonly string[]>
+  extends Omit<VariantProps<typeof tacticalSegmentedItemVariants>, 'active'> {
   id: T;
   label: React.ReactNode;
   ariaLabel?: string;
@@ -22,7 +41,9 @@ interface TacticalSegmentedControlProps<T extends string | number | readonly str
   legendLabel?: string;
   containerClassName?: string;
   buttonBaseClassName?: string;
+  /** @deprecated Use CVA variants instead of overriding active/inactive classes directly */
   defaultActiveClassName?: string;
+  /** @deprecated Use CVA variants instead of overriding active/inactive classes directly */
   defaultInactiveClassName?: string;
 }
 
@@ -94,8 +115,18 @@ export function TacticalSegmentedControl<T extends string | number | readonly st
           {items.map((item) => {
             const isActive = selectedValue === item.id;
 
-            const activeClass = item.activeClassName ?? defaultActiveClassName;
-            const inactiveClass = item.inactiveClassName ?? defaultInactiveClassName;
+            const defaultActive =
+              'bg-zinc-950 shadow-[inset_0_4px_8px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.02)] text-[var(--theme-primary)] translate-y-[2px] border-t-zinc-950 border-b-zinc-800';
+            const defaultInactive =
+              'bg-zinc-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.4)] text-zinc-400 hover:bg-zinc-700 hover:text-zinc-300 border-t-zinc-700 border-b-zinc-950';
+
+            const activeClass =
+              item.activeClassName ?? (defaultActiveClassName !== defaultActive ? defaultActiveClassName : undefined);
+            const inactiveClass =
+              item.inactiveClassName ??
+              (defaultInactiveClassName !== defaultInactive ? defaultInactiveClassName : undefined);
+
+            const customOverrideClass = isActive ? activeClass : inactiveClass;
 
             return (
               // oxlint-disable jsx-a11y/prefer-tag-over-role
@@ -112,8 +143,8 @@ export function TacticalSegmentedControl<T extends string | number | readonly st
                 disabled={item.disabled}
                 data-testid={item.testId}
                 className={cn(
-                  'tactical-badge flex-1 border border-zinc-950 px-2 py-2.5 transition-all duration-75',
-                  isActive ? activeClass : inactiveClass,
+                  tacticalSegmentedItemVariants({ active: isActive }),
+                  customOverrideClass,
                   buttonBaseClassName,
                   item.className,
                 )}

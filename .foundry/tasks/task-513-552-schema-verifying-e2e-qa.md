@@ -2,10 +2,10 @@
 id: task-513-552-schema-verifying-e2e-qa
 type: TASK
 title: QA VERIFYING state E2E checks
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-06'
-updated_at: '2026-09-06'
+updated_at: '2026-09-16'
 depends_on:
   - task-513-551-schema-verifying-tests-impl
 jules_session_id: null

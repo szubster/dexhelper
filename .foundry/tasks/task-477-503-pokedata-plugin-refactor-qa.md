@@ -2,10 +2,10 @@
 id: task-477-503-pokedata-plugin-refactor-qa
 type: TASK
 title: QA Refactor pokedata plugin to emit multiple bundles
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-30'
-updated_at: '2026-08-30'
+updated_at: '2026-09-16'
 depends_on:
   - task-477-502-pokedata-plugin-refactor-impl
   - task-477-504-pokedata-plugin-middleware-impl
@@ -17,8 +17,11 @@ tags:
   - performance
   - bundles
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-477-502-pokedata-plugin-refactor-impl
 notes: ''
+locks: []
 ---
 
 # Task: QA Refactor pokedata plugin to emit multiple bundles

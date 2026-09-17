@@ -1,7 +1,23 @@
 import { describe, expect, it } from 'vitest';
-import { getGen3UnobtainableReason } from '../gen3Exclusives';
+import { GEN3_VERSION_EXCLUSIVES, getGen3UnobtainableReason } from '../gen3Exclusives';
 
 describe('gen3Exclusives', () => {
+  describe('GEN3_VERSION_EXCLUSIVES content checks', () => {
+    it('should list correct FireRed missing pokemon', () => {
+      // 52 (Meowth) is missing from FireRed (it's in LeafGreen)
+      expect(GEN3_VERSION_EXCLUSIVES['firered']).toContain(52);
+      // 89 (Muk) is NOT missing from FireRed, it is available in both FR and LG
+      expect(GEN3_VERSION_EXCLUSIVES['firered']).not.toContain(89);
+    });
+
+    it('should list correct LeafGreen missing pokemon', () => {
+      // 123 (Scyther) is missing from LeafGreen
+      expect(GEN3_VERSION_EXCLUSIVES['leafgreen']).toContain(123);
+      // 110 (Weezing) is NOT missing from LeafGreen, it is available in both FR and LG
+      expect(GEN3_VERSION_EXCLUSIVES['leafgreen']).not.toContain(110);
+    });
+  });
+
   describe('getGen3UnobtainableReason', () => {
     it('should return null for non-exclusive Pokemon', () => {
       const ownedSet = new Set<number>();

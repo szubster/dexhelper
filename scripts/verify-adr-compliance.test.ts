@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
-import { findViolationsInFile } from './verify-adr-compliance.ts';
+import { findViolationsInFile, checkAdr013ComplianceInFile } from './verify-adr-compliance.ts';
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
@@ -49,5 +49,39 @@ describe('verify-adr-compliance', () => {
         `);
         const violations = findViolationsInFile(filePath);
         expect(violations).toHaveLength(0);
+    });
+
+    describe('ADR-013 Compliance', () => {
+        it('should identify local useState usage as an ADR 013 violation', () => {
+            const filePath = path.join(tempDir, 'dashboard-component.tsx');
+            fs.writeFileSync(filePath, `
+                import React, { useState } from 'react';
+
+                export function Dashboard() {
+                    const [state, setState] = useState(false);
+                    return <div>{state}</div>;
+                }
+            `);
+            const violations = checkAdr013ComplianceInFile(filePath);
+            expect(violations).toHaveLength(2); // One for import, one for hook call
+
+            // Check that it's flagged as an ADR 013 violation
+            expect((violations[0] || {}).class).toContain('ADR 013 Violation');
+            expect((violations[1] || {}).class).toContain('ADR 013 Violation');
+        });
+
+        it('should allow useState usage in DagContext.tsx', () => {
+            const filePath = path.join(tempDir, 'DagContext.tsx');
+            fs.writeFileSync(filePath, `
+                import React, { useState } from 'react';
+
+                export function DagContext() {
+                    const [state, setState] = useState(false);
+                    return <div>{state}</div>;
+                }
+            `);
+            const violations = checkAdr013ComplianceInFile(filePath);
+            expect(violations).toHaveLength(0);
+        });
     });
 });

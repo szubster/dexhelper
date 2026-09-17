@@ -2,10 +2,10 @@
 id: task-571-580-qa-tactical-inputs
 type: TASK
 title: QA Tactical Inputs Refactor
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-15T11:19:51Z'
-updated_at: '2026-09-15T11:19:51Z'
+updated_at: '2026-09-15'
 depends_on:
   - task-571-578-cva-refactor-basic-inputs
   - task-571-579-cva-refactor-complex-inputs
@@ -18,9 +18,9 @@ tags:
 research_references:
   - .foundry/research/research-145-001-component-variant-libraries.md
   - .foundry/research/research-145-002-component-theming-mechanisms.md
+rejection_reason: ''
 locks: []
 priority: 60
-rejection_reason: ''
 ---
 
 # Task: QA Tactical Inputs Refactor

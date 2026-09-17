@@ -2,13 +2,13 @@
 id: epic-520-552-gen3-fossil-memory-research
 type: EPIC
 title: Gen 3 Fossil Memory Research Epic
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-13'
+updated_at: '2026-09-17'
 depends_on:
   - research-520-535-gen3-fossil-offsets
-jules_session_id: null
+jules_session_id: '13870131661610687021'
 pr_number: null
 parent: prd-422-520-gen3-fossil-revival-tracker
 tags:

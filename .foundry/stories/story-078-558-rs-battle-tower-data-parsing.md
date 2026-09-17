@@ -5,7 +5,7 @@ title: Ruby/Sapphire Battle Tower Data Parsing
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-08'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on:
   - research-078-150-rs-battle-tower-data
 jules_session_id: null

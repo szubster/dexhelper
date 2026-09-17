@@ -2,12 +2,12 @@
 id: story-552-563-gen3-wild-item-parsing
 type: STORY
 title: Gen 3 Wild Encounter and Held Item Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '17344898851748385252'
+jules_session_id: null
 pr_number: null
 parent: epic-521-552-wild-item-data-engine
 tags:
@@ -32,4 +32,7 @@ As part of the Wild Item Data Engine epic, this story focuses exclusively on Gen
 - Utilize relative offsets where applicable.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks for Gen 3 data extraction.
+- [x] tech_lead: Break down this Story into Tasks for Gen 3 data extraction.
+- [ ] task-563-578-gen3-wild-item-data-parsing-logic
+- [ ] task-563-579-gen3-wild-item-data-parsing-tests
+- [ ] task-563-580-gen3-wild-item-data-parsing-qa

@@ -2,13 +2,13 @@
 id: story-418-517-orchestrator-fallback-mechanisms
 type: STORY
 title: Orchestrator Fallback Mechanisms
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on:
   - story-418-516-orchestrator-prompt-resolution
-jules_session_id: '2033567757039277797'
+jules_session_id: null
 pr_number: null
 parent: epic-343-418-orchestrator-integration
 tags:
@@ -31,4 +31,6 @@ Ensure the orchestrator gracefully handles scenarios where expected prompt fragm
 ## Acceptance Criteria
 - [ ] Implement fallback to a default generic prompt if the base persona prompt is missing.
 - [ ] Implement graceful ignoring of missing tag-specific fragments, logging a warning instead of throwing an error.
-- [ ] Decompose into actionable TASK nodes.
+- [x] Decompose into actionable TASK nodes.
+- [ ] task-517-576-orchestrator-fallback-generic-prompt
+- [ ] task-517-577-orchestrator-fallback-ignore-tags

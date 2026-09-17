@@ -2,10 +2,10 @@
 id: idea-522-gen3-secret-base-radar
 type: IDEA
 title: Gen 3 Secret Base Radar & Analyzer
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-12'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: '3997530602284275336'
 pr_number: null
@@ -37,3 +37,6 @@ Introduce a "Secret Base Radar" in DexHelper. By parsing the Gen 3 save file, De
 
 ## Strategic Value
 This perfectly aligns with DexHelper's goal of surfacing hidden state. Secret Bases are a core mechanic of Gen 3 multiplayer, but tracking them is completely opaque. This feature transforms DexHelper into an essential tool for players managing multiple record-mixed saves, continuing the focus on premium, offline-first companion features.
+
+## Acceptance Criteria
+- [ ] prd-522-565-gen3-secret-base-radar
