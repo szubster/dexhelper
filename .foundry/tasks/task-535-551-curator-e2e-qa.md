@@ -18,6 +18,6 @@ locks: []
 # QA E2E test for curator persona
 
 ## Acceptance Criteria
-- [ ] Verify the curator schema fixture is valid
-- [ ] Verify the orchestrator test successfully loads and parses the curator fixture
-- [ ] Run the schema e2e tests and confirm they pass
+- [x] Verify the curator schema fixture is valid
+- [x] Verify the orchestrator test successfully loads and parses the curator fixture
+- [x] Run the schema e2e tests and confirm they pass
