@@ -33,4 +33,7 @@ This story is part of `epic-117-335-migrate-task-reminders`. The objective is to
 - If it is, strip out any `### REMINDER FOR CODER` or `### REMINDER FOR QA` sections (including their content until the next header or EOF), ensuring frontmatter and acceptance criteria remain intact.
 
 ## 3. Acceptance Criteria
+- [x] Break down into Tasks
+- [ ] task-563-586-develop-migration-script
+- [ ] task-563-587-qa-migration-script
 - [ ] Migration script is created and tested locally.
