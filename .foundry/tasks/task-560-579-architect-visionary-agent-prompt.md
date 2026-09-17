@@ -26,4 +26,4 @@ locks: []
 Create the .github/agents/architect_visionary.md prompt file.
 
 ## Acceptance Criteria
-- [ ] Create .github/agents/architect_visionary.md
+- [x] Create .github/agents/architect_visionary.md
