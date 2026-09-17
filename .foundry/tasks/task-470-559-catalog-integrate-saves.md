@@ -2,13 +2,13 @@
 id: task-470-559-catalog-integrate-saves
 type: TASK
 title: Catalog and Integrate Public Saves
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-07'
-updated_at: '2026-09-10'
+updated_at: '2026-09-16'
 depends_on:
   - research-470-558-japanese-gen2-offsets
-jules_session_id: null
+jules_session_id: '1237798807002747919'
 pr_number: null
 parent: story-428-470-identify-public-saves
 tags:

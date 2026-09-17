@@ -2,13 +2,13 @@
 id: task-403-535-playwright-e2e-retry-impl-v2
 type: TASK
 title: Retry Playwright E2E Tests for DV/IV Extraction V2
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-09-10'
+updated_at: '2026-09-17'
 depends_on:
   - research-403-534-investigate-playwright-timeout
-jules_session_id: '18064605446118878862'
+jules_session_id: null
 pr_number: null
 parent: story-112-403-integration-e2e
 tags:
@@ -18,7 +18,7 @@ tags:
   - playwright
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
 locks: []
 ---

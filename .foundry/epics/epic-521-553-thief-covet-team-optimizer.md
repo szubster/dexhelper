@@ -2,12 +2,12 @@
 id: epic-521-553-thief-covet-team-optimizer
 type: EPIC
 title: Thief/Covet Team Optimizer
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-15'
-updated_at: '2026-09-12'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: '336015654755226884'
+jules_session_id: null
 pr_number: null
 parent: prd-150-521-wild-held-item-hunting-assistant
 tags:

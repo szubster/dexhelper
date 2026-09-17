@@ -294,6 +294,7 @@ describe('gen3 parser scaffolding', () => {
 
     const patch0 = saveData.gen3BerryPatches?.[0];
     expect(patch0).not.toHaveProperty('mapId');
+    expect(patch0?.locationName).toBe('Route 102');
     expect(patch0?.berryId).toBe(15);
     expect(patch0?.stage).toBe(2);
     expect(patch0?.stopGrowth).toBe(true);

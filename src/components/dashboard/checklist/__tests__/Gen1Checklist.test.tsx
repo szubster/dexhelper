@@ -82,4 +82,26 @@ describe('Gen1Checklist', () => {
 
     await expect.element(page.getByText('STATIC ENCOUNTERS')).not.toBeInTheDocument();
   });
+
+  it('renders correctly when gen1StaticEncounters is undefined', async () => {
+    vi.mocked(store.useStore).mockImplementation((selector) => {
+      const state = {
+        saveData: {
+          generation: 1,
+          gen1StaticEncounters: undefined,
+        },
+      };
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error - Mocking zustand store state
+      return selector(state);
+    });
+
+    await render(<Gen1Checklist />);
+
+    await expect.element(page.getByText('STATIC ENCOUNTERS')).toBeInTheDocument();
+    await expect.element(page.getByText('BULBASAUR')).toBeInTheDocument();
+    await expect.element(page.getByText('BULBASAUR')).not.toHaveClass('line-through');
+    await expect.element(page.getByText('MEWTWO')).toBeInTheDocument();
+    await expect.element(page.getByText('MEWTWO')).not.toHaveClass('line-through');
+  });
 });

@@ -5,7 +5,7 @@ title: Implement useTransition in DagContext
 status: READY
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-11'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,7 +14,7 @@ tags:
   - react
   - typescript
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

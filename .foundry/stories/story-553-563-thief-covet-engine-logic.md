@@ -2,12 +2,12 @@
 id: story-553-563-thief-covet-engine-logic
 type: STORY
 title: Engine Logic for Thief/Covet Move Analysis
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2473195475556957158'
 pr_number: null
 parent: epic-521-553-thief-covet-team-optimizer
 tags:

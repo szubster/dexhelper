@@ -2,10 +2,10 @@
 id: story-537-547-generator-binary-chunk-streams
 type: STORY
 title: Generator Implementation for Binary Chunk Streams
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-11'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -29,6 +29,6 @@ locks: []
 This story covers the implementation of generator protocols for binary chunk streams per ADR 154.
 
 ## Acceptance Criteria
-- [ ] Implement `function*` and `async function*` protocols for binary chunk streams.
-- [ ] task-547-564-binary-chunk-stream-impl
-- [ ] task-547-565-binary-chunk-stream-test
+- [x] Implement `function*` and `async function*` protocols for binary chunk streams.
+- [x] task-547-564-binary-chunk-stream-impl
+- [x] task-547-565-binary-chunk-stream-test

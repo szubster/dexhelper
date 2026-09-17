@@ -2,10 +2,10 @@
 id: task-558-570-gen3-trick-house-qa
 type: TASK
 title: QA Verification for Gen 3 Trick House Save Parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
+updated_at: '2026-09-16'
 depends_on:
   - task-558-569-gen3-trick-house-tests
 jules_session_id: null

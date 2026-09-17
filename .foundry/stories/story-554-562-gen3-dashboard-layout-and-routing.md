@@ -2,12 +2,12 @@
 id: story-554-562-gen3-dashboard-layout-and-routing
 type: STORY
 title: Gen 3 Dashboard Layout and Routing
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '11383604625813201440'
+jules_session_id: null
 pr_number: null
 parent: epic-520-554-gen3-transition-dashboard
 tags:
@@ -16,6 +16,7 @@ tags:
 research_references: []
 locks: []
 rejection_reason: ''
+rejection_count: 1
 ---
 
 # Story: Gen 3 Dashboard Layout and Routing

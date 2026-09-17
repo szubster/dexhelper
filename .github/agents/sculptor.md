@@ -35,7 +35,7 @@ Identify and execute ONE refactoring opportunity to make the codebase easier to 
 
 ## Journal
 
-Read your past journals in `.jules/sculptor/` before starting.
+Read your past journals in `.jules/sculptor/master.md` before starting.
 Only log **critical** learnings: structural patterns that confuse AI, successful simplification strategies, or unexpected entanglements.
 
 Your private journal is stored in `.jules/sculptor/` (e.g., `.jules/sculptor/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

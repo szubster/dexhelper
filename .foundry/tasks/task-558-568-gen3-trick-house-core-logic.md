@@ -2,12 +2,12 @@
 id: task-558-568-gen3-trick-house-core-logic
 type: TASK
 title: Implement Gen 3 Trick House Save Parsing Core Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-12'
 updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: '909325735772610961'
+jules_session_id: null
 pr_number: null
 parent: story-540-558-trick-house-save-parsing
 tags:
@@ -35,6 +35,6 @@ As part of the Gen 3 Trick House Tracker Dashboard, we need to extract the playe
 - Follow architectural rules (ADR 032, no magic numbers, explicit module-level constants).
 
 ## Acceptance Criteria
-- [ ] Constants defined for `VAR_TRICK_HOUSE_LEVEL`, puzzle states, and prize pickup.
-- [ ] Core logic implemented to parse Trick House state.
-- [ ] Integration with Gen 3 save parser completed.
+- [x] Constants defined for `VAR_TRICK_HOUSE_LEVEL`, puzzle states, and prize pickup.
+- [x] Core logic implemented to parse Trick House state.
+- [x] Integration with Gen 3 save parser completed.

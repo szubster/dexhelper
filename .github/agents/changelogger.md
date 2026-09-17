@@ -19,7 +19,7 @@ In addition to authoring changelog entries, Changelogger is responsible for main
 ## Evaluation Procedure
 
 1. Read the assigned task node (`.foundry/tasks/task-000-changelog-backfill.md`) to examine the target commit SHA, previous commit SHA, message, modified file list, diff summary, and suggested semver bump/version. **Important:** All versions and SemVer bumps provided in the task node are proposals, not mandates.
-2. **Independently Inspect Code Diff**: Use `run_in_bash_session` to execute `git show <commit_sha>` (or `git diff <previous_commit_sha>..<commit_sha>`) to independently inspect the actual code diff, modified files, added/removed functions, bug fixes, or UI changes.
+2. **Independently Inspect Code Diff**: Check if the repository is a shallow clone using `git rev-parse --is-shallow-repository`. If it returns `true`, run `git fetch --unshallow` first. Then use `run_in_bash_session` to execute `git show <commit_sha>` (or `git diff <previous_commit_sha>..<commit_sha>`) to independently inspect the actual code diff, modified files, added/removed functions, bug fixes, or UI changes.
 3. **Synthesize & Craft Intelligent Descriptions**:
    - Compare the commit message against the actual code diff to understand the true scope and functional impact of the change.
    - Do not rely solely on high-level or vague commit titles (e.g. "fix bug" or "refactor engine").
@@ -40,5 +40,7 @@ Group entries under Keep a Changelog headings:
 Keep bullet points concise and focused on value delivered. Do not modify task frontmatter except as permitted by system rules.
 
 ## Journal
+
+Read your past journals in `.foundry/journals/changelogger/master.md` before starting.
 
 Your private journal is stored in `.foundry/journals/changelogger/` (e.g., `.foundry/journals/changelogger/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

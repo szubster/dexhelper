@@ -2,19 +2,19 @@
 id: task-477-502-pokedata-plugin-refactor-impl
 type: TASK
 title: Refactor pokedata plugin to emit multiple bundles logic
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-30'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4209453661192641369'
 pr_number: null
 parent: story-419-477-pokedata-plugin-refactor
 tags:
   - performance
   - bundles
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

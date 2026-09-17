@@ -5,9 +5,9 @@ title: Gracefully Ignore Emulator Trailing Bytes in Gen 3 Save Files
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-09-08'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '12441461888885194612'
+jules_session_id: '5172800595991150977'
 pr_number: null
 parent: epic-047-081-gen3-tv-swarm-data-extraction
 tags:
@@ -15,7 +15,7 @@ tags:
   - gen3
   - rtc
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

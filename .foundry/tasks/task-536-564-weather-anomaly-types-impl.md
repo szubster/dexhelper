@@ -2,12 +2,12 @@
 id: task-536-564-weather-anomaly-types-impl
 type: TASK
 title: Gen 3 Weather Anomaly Extraction Types & Constants
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-09-12'
+updated_at: '2026-09-14'
 depends_on: []
-jules_session_id: '12152602763462105095'
+jules_session_id: null
 pr_number: null
 parent: story-517-536-gen3-weather-anomaly-data-parsing
 tags:
@@ -30,6 +30,6 @@ You MUST strictly follow Section 13 ("Save File Parsing & Extraction Guidelines"
 This is part of the larger effort to expand the Gen 3 save parsing engine to extract weather anomalies. This task establishes the foundation (types and constants) that the logic implementation will rely on.
 
 ## Acceptance Criteria
-- [ ] Define the TypeScript types and/or interfaces to represent the extracted weather anomaly data.
-- [ ] Define all necessary memory offsets, lengths, and the variable ID (`0x4037`) as explicit, reusable constants at the module level (e.g., in a `constants.ts` or `types.ts` file within a dedicated `weatherAnomaly` directory).
-- [ ] Ensure the implementation strictly follows the guidelines in Section 13 of `.foundry/docs/schema.md` (no inline magic numbers).
+- [x] Define the TypeScript types and/or interfaces to represent the extracted weather anomaly data.
+- [x] Define all necessary memory offsets, lengths, and the variable ID (`0x4037`) as explicit, reusable constants at the module level (e.g., in a `constants.ts` or `types.ts` file within a dedicated `weatherAnomaly` directory).
+- [x] Ensure the implementation strictly follows the guidelines in Section 13 of `.foundry/docs/schema.md` (no inline magic numbers).

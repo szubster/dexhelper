@@ -5,9 +5,9 @@ title: Implement Javascript bindings for binjgb save extraction
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '7831455940326035696'
+jules_session_id: '18041727401462760380'
 pr_number: null
 parent: story-426-518-binjgb-memory-sync
 tags:
@@ -16,7 +16,7 @@ tags:
   - gen1
   - gen2
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
@@ -30,3 +30,4 @@ Implement the javascript bindings to extract the `saveStateBuffer` directly from
 - [ ] Expose an API function to retrieve the raw `saveStateBuffer` array from the `binjgb` WASM instance.
 - [ ] Ensure the memory extraction handles active gameplay seamlessly.
 - [ ] Write unit tests for the extraction logic.
+- [ ] research-528-569-investigate-binjgb-save-exports

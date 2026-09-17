@@ -25,6 +25,7 @@ export const MIN_RED_SCORE_FOR_CONFIDENCE = 4;
 
 import gen1MapLocations from '../../data/gen1/mapLocations.json';
 import {
+  BIT_FLAG,
   GEN1_TM_HM_TO_MOVE_ID,
   parseGen1NarrativeFlags,
   parseGen1StaticEncounters,
@@ -552,8 +553,8 @@ function detectVersionAndOffsets(
         const oByte = view.getUint8(ownedBase + byteIdx);
         // The "Seen" Pokédex flags start 19 bytes after the "Owned" flags
         const sByte = view.getUint8(ownedBase + POKEDEX_SEEN_OFFSET_FROM_OWNED + byteIdx);
-        if ((oByte & (1 << bitIdx)) !== 0) owned.add(i);
-        if ((sByte & (1 << bitIdx)) !== 0) seen.add(i);
+        if ((oByte & (BIT_FLAG << bitIdx)) !== 0) owned.add(i);
+        if ((sByte & (BIT_FLAG << bitIdx)) !== 0) seen.add(i);
       }
       // Byte 18 (the 19th byte) holds bits for IDs 145-152. ID 152 does not exist, so bit 7 (0x80) must be 0.
       paddingBitIsCorrect = (view.getUint8(ownedBase + POKEDEX_PADDING_BYTE_OFFSET) & POKEDEX_PADDING_BIT_MASK) === 0;
@@ -944,7 +945,7 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): Gen1Save
     // Gen 1 trades: The 2 bytes are at eventFlagsOffset - 16 and - 15. We convert this into a boolean array.
     npcTradeFlags: Array.from({ length: NPC_TRADES_COUNT }, (_, i) => {
       const byte = view.getUint8(eventFlagsOffset + NPC_TRADES_OFFSET + Math.floor(i / BITS_PER_BYTE));
-      return (byte & (1 << (i % BITS_PER_BYTE))) !== 0;
+      return (byte & (BIT_FLAG << (i % BITS_PER_BYTE))) !== 0;
     }),
   };
 }
