@@ -1,14 +1,15 @@
-import { render } from 'vitest-browser-react';
-import { describe, expect, it, vi } from 'vitest';
-import { Gen3MirageIslandTracker } from './Gen3MirageIslandTracker';
-import type { Gen3SaveData } from '../../../engine/saveParser/parsers/common';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import React from 'react';
+import type React from 'react';
+import { describe, expect, it, vi } from 'vitest';
+import { render } from 'vitest-browser-react';
 import { pokeDB } from '../../../db/PokeDB';
+import type { PokemonMetadata } from '../../../db/schema';
+import type { Gen3SaveData } from '../../../engine/saveParser/parsers/common';
+import { Gen3MirageIslandTracker } from './Gen3MirageIslandTracker';
 
 vi.mock('../../../db/PokeDB', () => ({
   pokeDB: {
-    getPokemon: vi.fn(),
+    getPokemon: vi.fn<(id: number) => Promise<PokemonMetadata | null>>(),
   },
 }));
 
@@ -18,11 +19,7 @@ describe('Gen3MirageIslandTracker', () => {
   });
 
   const renderWithProviders = (ui: React.ReactElement) => {
-    return render(
-      <QueryClientProvider client={queryClient}>
-        {ui}
-      </QueryClientProvider>
-    );
+    return render(<QueryClientProvider client={queryClient}>{ui}</QueryClientProvider>);
   };
 
   it('renders correctly when no match is found', async () => {
@@ -37,12 +34,10 @@ describe('Gen3MirageIslandTracker', () => {
   });
 
   it('renders correctly when a match is found in the party', async () => {
-    vi.mocked(pokeDB.getPokemon).mockResolvedValueOnce({ id: 25, n: 'Pikachu' } as any);
+    vi.mocked(pokeDB.getPokemon).mockResolvedValueOnce({ id: 25, n: 'Pikachu' } as unknown as PokemonMetadata);
 
     const saveData = {
-      partyDetails: [
-        { isMirageIslandKey: true, speciesId: 25 },
-      ],
+      partyDetails: [{ isMirageIslandKey: true, speciesId: 25 }],
       pcDetails: [],
     } as unknown as Gen3SaveData;
 
@@ -56,7 +51,7 @@ describe('Gen3MirageIslandTracker', () => {
   });
 
   it('renders correctly when a match is found in the PC', async () => {
-    vi.mocked(pokeDB.getPokemon).mockResolvedValueOnce({ id: 151, n: 'Mew' } as any);
+    vi.mocked(pokeDB.getPokemon).mockResolvedValueOnce({ id: 151, n: 'Mew' } as unknown as PokemonMetadata);
 
     const saveData = {
       partyDetails: [],

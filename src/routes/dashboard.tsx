@@ -56,12 +56,6 @@ const Gen3TrainerCardDashboard = React.lazy(() =>
   })),
 );
 
-const Gen3MirageIslandTracker = React.lazy(() =>
-  import('../components/dashboard/mirage-island/Gen3MirageIslandTracker').then((m) => ({
-    default: m.Gen3MirageIslandTracker,
-  })),
-);
-
 const GlobalRibbonChecklistDashboard = React.lazy(() =>
   import('../components/dashboard/ribbons/GlobalRibbonChecklistDashboard').then((m) => ({
     default: m.GlobalRibbonChecklistDashboard,
@@ -130,7 +124,6 @@ function DashboardPage() {
             <Gen3TrickHouseDashboard saveData={saveData} />
             <Gen3NpcTrades />
             <Gen3TrainerCardDashboard saveData={saveData} />
-            <Gen3MirageIslandTracker saveData={saveData} />
           </>
         ) : saveData.generation === 2 ? (
           <>

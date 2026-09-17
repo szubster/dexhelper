@@ -38,6 +38,6 @@ Implement the visual component for the Mirage Island Tracker and integrate it in
 - Write component rendering unit tests.
 
 ## Acceptance Criteria
-- [x] Self-verification: The component visually renders the correct status based on the selector data.
-- [x] Self-verification: The component is integrated and visible on the Gen 3 dashboard.
-- [x] Self-verification: Component rendering unit tests are passing.
+- [ ] Self-verification: The component visually renders the correct status based on the selector data.
+- [ ] Self-verification: The component is integrated and visible on the Gen 3 dashboard.
+- [ ] Self-verification: Component rendering unit tests are passing.
