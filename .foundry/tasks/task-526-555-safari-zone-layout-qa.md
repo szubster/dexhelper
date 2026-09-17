@@ -25,5 +25,5 @@ locks: []
 Verify the Safari Zone route scaffolding and layout components meet architectural and aesthetic guidelines.
 
 ## Acceptance Criteria
-- [ ] Verify the `/safari-zone` route is accessible.
-- [ ] Verify the layout adheres to tactical UI guidelines.
+- [x] Verify the `/safari-zone` route is accessible.
+- [x] Verify the layout adheres to tactical UI guidelines.
