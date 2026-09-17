@@ -2,7 +2,7 @@
 id: task-498-528-tpm-aggregation-tests
 type: TASK
 title: TPM Aggregation and Archival Unit Tests
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-03'
 updated_at: '2026-09-17'
@@ -14,8 +14,8 @@ parent: story-406-498-tpm-aggregation-and-archival
 tags:
   - script
   - testing
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
