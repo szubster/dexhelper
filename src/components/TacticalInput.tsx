@@ -1,3 +1,4 @@
+import { cva, type VariantProps } from 'class-variance-authority';
 import { X } from 'lucide-react';
 import React from 'react';
 import { cn } from '../utils/cn';
@@ -5,7 +6,20 @@ import { CornerCrosshairs } from './CornerCrosshairs';
 import { EdgeLabel } from './EdgeLabel';
 import { TacticalIconButton } from './TacticalIconButton';
 
-interface TacticalInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value'> {
+export const inputVariants = cva('tactical-input w-full', {
+  variants: {
+    variant: {
+      default: '',
+    },
+  },
+  defaultVariants: {
+    variant: 'default',
+  },
+});
+
+export interface TacticalInputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value'>,
+    VariantProps<typeof inputVariants> {
   label?: string;
   icon?: React.ReactNode;
   onClear?: () => void;
@@ -15,7 +29,7 @@ interface TacticalInputProps extends Omit<React.InputHTMLAttributes<HTMLInputEle
 }
 
 export const TacticalInput = React.forwardRef<HTMLInputElement, TacticalInputProps>(
-  ({ className, containerClassName, label, icon, onClear, value, children, ...props }, ref) => {
+  ({ className, variant = 'default', containerClassName, label, icon, onClear, value, children, ...props }, ref) => {
     return (
       <div className={cn('group relative', containerClassName)}>
         {icon && (
@@ -32,7 +46,7 @@ export const TacticalInput = React.forwardRef<HTMLInputElement, TacticalInputPro
           ref={ref}
           value={value}
           className={cn(
-            'tactical-input w-full',
+            inputVariants({ variant }),
             icon ? 'pl-14' : 'pl-4',
             onClear && value ? 'pr-12' : 'pr-4',
             className,

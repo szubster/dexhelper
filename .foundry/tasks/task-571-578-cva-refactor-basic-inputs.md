@@ -38,7 +38,7 @@ As part of the Core Components Refactor epic, we are adopting `class-variance-au
 - Update any corresponding unit tests in `src/components/__tests__/` if necessary to fix breaking changes (though behavior shouldn't change).
 
 ## Acceptance Criteria
-- [ ] Refactor `TacticalInput` using CVA.
-- [ ] Refactor `TacticalSelect` using CVA.
-- [ ] Strict TypeScript typings provided for variants.
-- [ ] Pass `pnpm lint` and `pnpm test`.
+- [x] Refactor `TacticalInput` using CVA.
+- [x] Refactor `TacticalSelect` using CVA.
+- [x] Strict TypeScript typings provided for variants.
+- [x] Pass `pnpm lint` and `pnpm test`.
