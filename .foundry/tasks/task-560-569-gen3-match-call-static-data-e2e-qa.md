@@ -2,10 +2,10 @@
 id: task-560-569-gen3-match-call-static-data-e2e-qa
 type: TASK
 title: 'QA Verify: Gen 3 Match Call Static Data E2E Tests'
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-08'
-updated_at: '2026-09-08'
+updated_at: '2026-09-17'
 depends_on:
   - task-560-568-gen3-match-call-static-data-e2e-coder
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-568-582-modify-shared-workflow-qa
 type: TASK
 title: QA Verify Shared Workflow Issue Dispatch
-status: PENDING
+status: READY
 owner_persona: qa
-created_at: 2026-09-15T11:47:21Z
-updated_at: 2026-09-15T11:47:21Z
+created_at: '2026-09-15T11:47:21.000Z'
+updated_at: '2026-09-17'
 depends_on:
   - task-568-581-modify-shared-workflow-impl
 jules_session_id: null

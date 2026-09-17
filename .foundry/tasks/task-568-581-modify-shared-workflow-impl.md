@@ -2,12 +2,12 @@
 id: task-568-581-modify-shared-workflow-impl
 type: TASK
 title: Update Shared Scheduled Workflow for Issue Dispatch
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: 2026-09-15T11:46:57.000Z
 updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: '4210221288611012650'
+jules_session_id: null
 pr_number: null
 parent: adr-558-568-evaluate-scheduled-workflow-architecture
 tags:
