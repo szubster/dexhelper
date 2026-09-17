@@ -2,12 +2,12 @@
 id: task-570-579-refactor-tactical-button-cva
 type: TASK
 title: Refactor TacticalButton to CVA
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-15T11:22:21Z'
 updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: '7505414408855775222'
+jules_session_id: null
 pr_number: null
 parent: story-567-570-cva-refactor-tactical-button-badge
 tags:

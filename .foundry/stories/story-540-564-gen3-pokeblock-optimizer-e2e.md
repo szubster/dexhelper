@@ -2,12 +2,12 @@
 id: story-540-564-gen3-pokeblock-optimizer-e2e
 type: STORY
 title: Gen 3 Pokéblock Optimizer Integration and E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: '5016009632282796983'
+jules_session_id: null
 pr_number: null
 parent: epic-518-540-gen3-pokeblock-recipe-optimizer
 tags:

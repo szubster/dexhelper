@@ -2,7 +2,7 @@
 id: epic-518-534-heatmap-telemetry-data
 type: EPIC
 title: Heatmap Telemetry Data Extraction
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
 updated_at: '2026-09-17'

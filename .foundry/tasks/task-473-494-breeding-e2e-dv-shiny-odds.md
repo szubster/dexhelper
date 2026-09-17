@@ -2,7 +2,7 @@
 id: task-473-494-breeding-e2e-dv-shiny-odds
 type: TASK
 title: Implement Gen 2 E2E Tests for DV Overlap and Shiny Odds
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-26'
 updated_at: '2026-09-17'
@@ -19,8 +19,8 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/engine/gen2-breeding.md
   - .foundry/docs/knowledge_base/development/gen2_breeding_dv_overlap.md
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---
