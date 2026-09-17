@@ -10,6 +10,7 @@ depends_on:
   - task-563-590-gen2-room-decoration-ui-tests
 parent: story-313-563-gen2-room-decoration-ui-components
 locks: []
+jules_session_id: null
 rejection_reason: ''
 ---
 

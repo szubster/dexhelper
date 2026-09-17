@@ -9,6 +9,7 @@ updated_at: '2026-09-17T15:30:11Z'
 depends_on: []
 parent: story-313-563-gen2-room-decoration-ui-components
 locks: []
+jules_session_id: null
 rejection_reason: ''
 ---
 
