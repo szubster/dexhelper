@@ -43,4 +43,9 @@ Based on IDEA-521, this PRD defines the requirements for implementing an Agent C
    - Update the UI dashboard to expose the confidence scores visually, color-coding low-confidence nodes (e.g. red for <70, yellow for 70-89, green for 90+).
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+- [ ] epic-565-569-agent-confidence-metrics-schema
+- [ ] epic-565-570-agent-confidence-metrics-orchestrator
+- [ ] epic-565-571-agent-confidence-metrics-dashboard-ui
+- [ ] epic-565-572-agent-confidence-metrics-agent-capability
+- [ ] epic-565-573-agent-confidence-metrics-e2e
