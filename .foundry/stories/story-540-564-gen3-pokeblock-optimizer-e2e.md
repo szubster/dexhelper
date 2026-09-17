@@ -32,4 +32,8 @@ To ensure the Pokéblock Recipe Optimizer works correctly from end-to-end, we ne
 Create Playwright E2E tests that verify the full user flow of the Pokéblock Recipe Optimizer, from save file loading to optimal recipe generation.
 
 ## Acceptance Criteria
+- [x] Break down into Tasks
 - [ ] Implement Playwright E2E tests to verify the full user flow of the Pokéblock Recipe Optimizer.
+- [ ] task-564-581-pokeblock-e2e-fixtures
+- [ ] task-564-582-pokeblock-e2e-implementation
+- [ ] task-564-583-pokeblock-e2e-qa
