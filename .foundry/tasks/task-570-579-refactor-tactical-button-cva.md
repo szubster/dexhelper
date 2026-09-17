@@ -35,6 +35,6 @@ Refactor the `TacticalButton` component to use `class-variance-authority` (CVA) 
 - The `hasCrosshairs` boolean/literal union logic should remain intact and function as expected.
 
 ## Acceptance Criteria
-- [ ] `TacticalButton` correctly uses CVA.
-- [ ] TypeScript types are strict and export `TacticalButtonProps` appropriately extending `VariantProps`.
-- [ ] All linting and tests pass.
+- [x] `TacticalButton` correctly uses CVA.
+- [x] TypeScript types are strict and export `TacticalButtonProps` appropriately extending `VariantProps`.
+- [x] All linting and tests pass.
