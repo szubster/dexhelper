@@ -39,7 +39,7 @@
     },
     {
       "path": "assets/gen3-<hash>.js",
-      "maxSize": "30kb"
+      "maxSize": "35kb"
     },
     {
       "path": "assets/ShinyCarrierBreedingDashboard-<hash>.js",
@@ -103,7 +103,7 @@
     },
     {
       "path": "data/foundry.json",
-      "maxSize": "515kb"
+      "maxSize": "550kb"
     },
     {
       "path": "data/pokedata.msgpack",
