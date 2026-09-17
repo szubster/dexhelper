@@ -27,6 +27,7 @@ export const LivingDexCell = React.memo(function LivingDexCell({ id, inParty, in
       onClick={handleClick}
       data-testid="pokedex-card"
       data-pokemon-id={id}
+      aria-label={`View details for Pokémon ${id}`}
       className={cn(
         'group focus-visible:tactical-focus relative flex aspect-square w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-none border border-dashed text-left transition-all duration-300',
         isSecured
