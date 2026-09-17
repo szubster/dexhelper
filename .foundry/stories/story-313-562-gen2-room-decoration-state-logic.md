@@ -2,12 +2,12 @@
 id: story-313-562-gen2-room-decoration-state-logic
 type: STORY
 title: Gen 2 Room Decoration State Logic
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-14'
+updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: '12503827369404813925'
+jules_session_id: null
 parent: epic-112-313-gen2-room-decoration-viewer-ui
 locks: []
 rejection_reason: ''

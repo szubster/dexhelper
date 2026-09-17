@@ -2,10 +2,10 @@
 id: task-473-566-gen3-wallpaper-phrase-generator-qa-retry
 type: TASK
 title: QA Gen 3 Wallpaper Phrase Generator (Retry)
-status: PENDING
+status: FAILED
 owner_persona: qa
 created_at: '2026-09-08'
-updated_at: '2026-09-08'
+updated_at: '2026-09-17'
 depends_on:
   - task-473-565-gen3-wallpaper-phrase-generator-impl-retry
 jules_session_id: null
@@ -15,8 +15,9 @@ tags:
   - customization
   - algorithm
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
+locks: []
 ---
 
 # QA Gen 3 Wallpaper Phrase Generator (Retry)

@@ -2,10 +2,10 @@
 id: task-423-582-gen3-ai-data-e2e-mapping-tests-impl-v2
 type: TASK
 title: Write Playwright E2E Tests for Gen 3 AI Script Mapping (V2)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-15T15:58:39Z'
-updated_at: '2026-09-15T15:58:39Z'
+updated_at: '2026-09-17'
 depends_on:
   - research-423-581-investigate-ai-mapping-test-failure
 jules_session_id: null
