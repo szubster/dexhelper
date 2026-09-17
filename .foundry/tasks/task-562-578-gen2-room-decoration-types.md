@@ -24,5 +24,5 @@ Define the TypeScript interfaces and types required for the Gen 2 Room Decoratio
 - Define the `MysteryGiftExclusives` array for dolls (IDs 22 to 43).
 
 ## Acceptance Criteria
-- [ ] TypeScript interfaces for Room Decorations are defined.
-- [ ] Types are exported for use in the custom hook.
+- [x] TypeScript interfaces for Room Decorations are defined.
+- [x] Types are exported for use in the custom hook.
