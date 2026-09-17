@@ -47,7 +47,7 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 ## Journal
 
-File: `.jules/canvas/master.md`.
+Read your past journals in `.jules/canvas/master.md` before starting.
 
 Your private journal is stored in `.jules/canvas/` (e.g., `.jules/canvas/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 

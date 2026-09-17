@@ -2,13 +2,13 @@
 id: epic-340-412-shoal-cave-ui-dashboard
 type: EPIC
 title: UI Dashboard Implementation (Shoal Cave Tracker)
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-11'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on:
   - epic-340-411-shoal-cave-data-extraction
-jules_session_id: '14835641724444935603'
+jules_session_id: null
 pr_number: null
 parent: prd-130-340-shoal-cave-tide-tracker
 tags:
@@ -46,4 +46,6 @@ This epic focuses on building the React components and UI dashboard to display t
 - [ ] Render current tide and countdown correctly.
 - [ ] Render collected item counts for Shoal Shells and Shoal Salts.
 - [ ] Add visual readiness indicator for Shell Bell crafting.
-- [ ] E2E / Integration Verification STORY must be drafted to integrate extracted data with dashboard and test it end-to-end.
+- [x] E2E / Integration Verification STORY must be drafted to integrate extracted data with dashboard and test it end-to-end.
+- [ ] story-412-566-shoal-cave-ui-components
+- [ ] story-412-567-shoal-cave-e2e-verification

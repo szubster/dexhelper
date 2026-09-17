@@ -2,12 +2,12 @@
 id: task-571-579-cva-refactor-complex-inputs
 type: TASK
 title: CVA Refactor Complex Tactical Inputs
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-15T11:19:51Z'
 updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: '5388680150269638517'
+jules_session_id: null
 pr_number: null
 parent: story-567-571-cva-refactor-tactical-inputs
 tags:
@@ -37,7 +37,7 @@ These are more complex input components that maintain internal states or multipl
 - Update unit tests in `src/components/__tests__/` if required.
 
 ## Acceptance Criteria
-- [ ] Refactor `TacticalSegmentedControl` using CVA.
-- [ ] Refactor `TacticalMultiSelectControl` using CVA.
-- [ ] Strict TypeScript typings provided for variants.
-- [ ] Pass `pnpm lint` and `pnpm test`.
+- [x] Refactor `TacticalSegmentedControl` using CVA.
+- [x] Refactor `TacticalMultiSelectControl` using CVA.
+- [x] Strict TypeScript typings provided for variants.
+- [x] Pass `pnpm lint` and `pnpm test`.

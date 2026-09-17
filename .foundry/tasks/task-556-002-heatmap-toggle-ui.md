@@ -2,10 +2,10 @@
 id: task-556-002-heatmap-toggle-ui
 type: TASK
 title: Add Heatmap Toggle UI to DagFilterPanel
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-11'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on:
   - task-556-001-heatmap-toggle-context
 jules_session_id: null

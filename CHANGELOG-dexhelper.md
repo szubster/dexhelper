@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.15.1] - 2026-03-17
+### Changed
+- Bump `@tanstack/react-router` dependency from 1.167.3 to 1.167.4.
+
+## [0.15.0] - 2026-03-16
+### Added
+- Establish initial application structure with TanStack Router, global Pokémon data loading, and game-specific data utilities.
+
 ## [0.14.0] - 2026-03-16
 ### Added
 - Implement core Pokédex application with routing, state management, and Generation 1/2 save data parsing.
@@ -76,3 +84,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.12.0]: https://github.com/szubster/dexhelper/compare/888f3b975ae80fa276832304042b924e60c6a156...70ee2e9bf946d3a4ac37cf711d3da663a12718dd
 [0.13.0]: https://github.com/szubster/dexhelper/compare/70ee2e9bf946d3a4ac37cf711d3da663a12718dd...2ca9f177ab37f435f7afd05c33782025974f84e2
 [0.14.0]: https://github.com/szubster/dexhelper/compare/2ca9f177ab37f435f7afd05c33782025974f84e2...05e43699d7f75bf0e38ed9c309d19a940c8d21d0
+[0.15.0]: https://github.com/szubster/dexhelper/compare/92e9008d3d5084b9e7bee265191f83e511b281ad...7041838471914b0cd0bc5e39136edd3792e6efcc
+[0.15.1]: https://github.com/szubster/dexhelper/compare/865e8dc78e9e2cfa07f6701918bee3cdcccea213...3dc1da6168d0b17c3b1c564f6e6984d993c70061

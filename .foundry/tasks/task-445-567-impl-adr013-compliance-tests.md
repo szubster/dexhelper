@@ -2,12 +2,12 @@
 id: task-445-567-impl-adr013-compliance-tests
 type: TASK
 title: Implement ADR-013 Compliance Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-10'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '7667902882785685710'
+jules_session_id: null
 pr_number: null
 parent: story-417-445-linter-integration-e2e
 tags:
@@ -42,7 +42,7 @@ With the implementation of the ADR compliance linter scripts for UI constraints 
 5. Assert that the script correctly flags the violations and fails for non-compliant files, and passes successfully on compliant mock files.
 
 ## Acceptance Criteria
-- [ ] Test cases are added for ADR-013 compliance in `scripts/verify-adr-compliance.test.ts`.
-- [ ] Tests verify that local `useState` usage correctly flags an ADR 013 violation.
-- [ ] Tests verify that `DagContext.tsx` is explicitly ignored/allowed.
-- [ ] All new tests pass successfully via `npx vitest run scripts/verify-adr-compliance.test.ts`.
+- [x] Test cases are added for ADR-013 compliance in `scripts/verify-adr-compliance.test.ts`.
+- [x] Tests verify that local `useState` usage correctly flags an ADR 013 violation.
+- [x] Tests verify that `DagContext.tsx` is explicitly ignored/allowed.
+- [x] All new tests pass successfully via `npx vitest run scripts/verify-adr-compliance.test.ts`.

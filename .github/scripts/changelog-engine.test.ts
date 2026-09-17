@@ -229,6 +229,7 @@ describe('changelog-engine', () => {
       expect(parsed.content).toContain('## Diff Summary');
       expect(parsed.content).toContain('1 file changed, 25 insertions(+)');
       expect(parsed.content).toContain('git show abcdef1234567890');
+      expect(parsed.content).toContain('git fetch --unshallow');
       expect(parsed.content).toContain('diff link comparing previous release commit SHA to new release commit SHA');
       expect(parsed.content).toContain('feat(ui): add new party analyzer widget');
     });

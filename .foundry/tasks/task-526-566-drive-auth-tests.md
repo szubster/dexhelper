@@ -2,10 +2,10 @@
 id: task-526-566-drive-auth-tests
 type: TASK
 title: Write Unit Tests for Google Drive Auth Logic
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-11'
+updated_at: '2026-09-16'
 depends_on:
   - task-526-565-drive-auth-worker-logic
 jules_session_id: null

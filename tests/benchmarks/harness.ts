@@ -26,6 +26,11 @@ export function runBenchmark(name: string, fn: () => void, iterations = 1000000)
 }
 
 export function reportResult(result: BenchmarkResult): void {
+  if (process.env['BENCHMARK_JSON_STDOUT'] === 'true') {
+    console.log(JSON.stringify(result));
+    return;
+  }
+
   console.log(`\nBenchmark: ${result.name}`);
   console.log(
     `Operations per second: ${result.operationsPerSecond.toLocaleString(undefined, { maximumFractionDigits: 2 })}`,

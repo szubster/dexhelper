@@ -74,9 +74,7 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
     4: 'Master',
   };
 
-  const conditionMap: Partial<
-    Record<keyof Exclude<(typeof pokemonList)[0]['ribbons'], undefined>, ContestConditionType>
-  > = {
+  const conditionMap: Record<'cool' | 'beauty' | 'cute' | 'smart' | 'tough', ContestConditionType> = {
     cool: 'Cool',
     beauty: 'Beauty',
     cute: 'Cute',
@@ -96,7 +94,7 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
         </div>
 
         <div className="flex flex-col gap-2 border-zinc-800 border-b border-dashed pb-4">
-          <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">MASTER RANK TRACKING</span>
+          <span className="tactical-text text-[10px] text-zinc-500">MASTER RANK TRACKING</span>
           <div className="flex gap-2">
             {(['cool', 'beauty', 'cute', 'smart', 'tough'] as const).map((key) => {
               const isMaster = masterRanks[key];
@@ -153,13 +151,7 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
                       (['cool', 'beauty', 'cute', 'smart', 'tough'] as const).map((key) => {
                         const rank = pokemon.ribbons?.[key] ?? 0;
                         if (rank === 0 || rankMap[rank] === undefined) return null;
-                        return (
-                          <ContestRibbonBadge
-                            key={key}
-                            type={conditionMap[key] as NonNullable<(typeof conditionMap)[typeof key]>}
-                            rank={rankMap[rank]}
-                          />
-                        );
+                        return <ContestRibbonBadge key={key} type={conditionMap[key]} rank={rankMap[rank]} />;
                       })}
                   </div>
                 </div>

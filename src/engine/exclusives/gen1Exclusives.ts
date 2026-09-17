@@ -32,13 +32,29 @@ export const GEN1_VERSION_EXCLUSIVES: Record<string, number[]> = {
     23,
     24, // Ekans, Arbok
     26, // Raichu
+    27,
+    28, // Sandshrew, Sandslash
+    37,
+    38, // Vulpix, Ninetales
+    43,
+    44,
+    45, // Oddish, Gloom, Vileplume
     52,
     53, // Meowth, Persian
+    56,
+    57, // Mankey, Primeape
+    58,
+    59, // Growlithe, Arcanine
+    69,
+    70,
+    71, // Bellsprout, Weepinbell, Victreebel
     109,
     110, // Koffing, Weezing
+    123, // Scyther
     124, // Jynx
     125, // Electabuzz
     126, // Magmar
+    127, // Pinsir
   ],
 };
 
