@@ -17,7 +17,7 @@ tags:
   - ai-optimization
   - DX
 rejection_count: 0
-rejection_reason: null
+rejection_reason: ''
 notes: ''
 ---
 
@@ -70,5 +70,4 @@ Introduce a hybrid **Component-Based Object Model (COM) with Custom Playwright F
 - **Better Developer & Agent Velocity**: AI agents can generate robust new E2E tests by simply composing existing component fixture methods without needing to inspect raw DOM selectors every time.
 
 ## Acceptance Criteria
-- [ ] prd-525-e2e-page-component-object-models
 - [ ] Product Manager: Draft a PRD defining the component object structure, custom Playwright fixture setup, and migration plan for existing E2E spec files.
