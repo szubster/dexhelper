@@ -31,3 +31,6 @@ The database synchronization logic must be updated to load the core data by defa
 
 ## Acceptance Criteria
 - [ ] Break down into Tasks
+- [ ] task-478-586-pokedb-core-sync-impl
+- [ ] task-478-587-pokedb-extension-sync-impl
+- [ ] task-478-588-pokedb-sync-qa
