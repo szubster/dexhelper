@@ -26,6 +26,6 @@ locks: []
 Refactor `src/components/dashboard/DagContext.tsx` to adopt React 19's `useTransition` when rendering large graph datasets or switching DAG views, keeping the UI responsive.
 
 ## Acceptance Criteria
-- [ ] Adopt `useTransition` for view switching and node filtering in `DagContext.tsx`.
-- [ ] Verify UI does not freeze when rendering complex DAG graphs.
-- [ ] Write or update relevant Vitest tests.
+- [x] Adopt `useTransition` for view switching and node filtering in `DagContext.tsx`.
+- [x] Verify UI does not freeze when rendering complex DAG graphs.
+- [x] Write or update relevant Vitest tests.
