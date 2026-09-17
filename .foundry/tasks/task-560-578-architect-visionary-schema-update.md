@@ -25,4 +25,4 @@ locks: []
 Update the schema to include the architect_visionary persona enum.
 
 ## Acceptance Criteria
-- [ ] Update .github/scripts/schema.ts
+- [x] Update .github/scripts/schema.ts
