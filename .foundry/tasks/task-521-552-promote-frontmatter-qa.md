@@ -2,13 +2,13 @@
 id: task-521-552-promote-frontmatter-qa
 type: TASK
 title: QA Promote Frontmatter
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-06'
 updated_at: '2026-09-17'
 depends_on:
   - task-521-551-promote-frontmatter-tests
-jules_session_id: null
+jules_session_id: '10040334158330369846'
 pr_number: null
 parent: story-519-521-update-frontmatter-promotion
 tags:
