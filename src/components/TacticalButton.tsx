@@ -1,10 +1,42 @@
+import { cva, type VariantProps } from 'class-variance-authority';
 import React from 'react';
 import { cn } from '../utils/cn';
 import { CornerCrosshairs } from './CornerCrosshairs';
 
-interface TacticalButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'primary' | 'danger' | 'danger-outline' | 'secondary' | 'sidebar';
-  size?: 'default' | 'sm' | 'lg' | 'icon';
+export const buttonVariants = cva(
+  'tactical-button group relative inline-flex shrink-0 items-center justify-center gap-3 overflow-hidden font-black',
+  {
+    variants: {
+      variant: {
+        default:
+          'border-white/20 bg-zinc-900/50 text-zinc-500 hover:border-white/40 hover:bg-zinc-800/80 hover:text-white focus-visible:ring-[var(--theme-primary)]',
+        primary:
+          'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] hover:bg-[var(--theme-primary)] hover:text-zinc-950 focus-visible:ring-[var(--theme-primary)]',
+        danger: 'border-red-500 bg-red-950/50 text-red-500 hover:bg-red-900/50 focus-visible:ring-red-500',
+        'danger-outline':
+          'border-red-900/50 bg-red-950/20 text-red-500/80 hover:border-red-500/50 hover:bg-red-950/40 hover:text-red-400 focus-visible:ring-red-500',
+        secondary:
+          'border-zinc-700 bg-zinc-900 text-zinc-400 hover:bg-zinc-800 focus-visible:ring-[var(--theme-primary)]',
+        sidebar:
+          'border-white/10 bg-zinc-900/50 text-zinc-400 hover:border-[var(--theme-primary)] hover:bg-[var(--theme-primary)]/10 hover:text-[var(--theme-primary)] focus-visible:ring-[var(--theme-primary)]',
+      },
+      size: {
+        default: 'px-5 py-3 text-[10px]',
+        sm: 'px-3 py-2 text-[9px]',
+        lg: 'px-6 py-4 text-[11px]',
+        icon: 'p-3',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+      size: 'default',
+    },
+  },
+);
+
+interface TacticalButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
   hasCrosshairs?: boolean | 'corners';
 }
 
@@ -12,35 +44,7 @@ export const TacticalButton = React.forwardRef<HTMLButtonElement, TacticalButton
   ({ className, variant = 'default', size = 'default', hasCrosshairs = false, children, ...props }, ref) => {
     const title = props.title || props['aria-label'];
     return (
-      <button
-        ref={ref}
-        className={cn(
-          'tactical-button group relative inline-flex shrink-0 items-center justify-center gap-3 overflow-hidden font-black',
-          {
-            // Variants
-            'border-white/20 bg-zinc-900/50 text-zinc-500 hover:border-white/40 hover:bg-zinc-800/80 hover:text-white focus-visible:ring-[var(--theme-primary)]':
-              variant === 'default',
-            'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] hover:bg-[var(--theme-primary)] hover:text-zinc-950 focus-visible:ring-[var(--theme-primary)]':
-              variant === 'primary',
-            'border-red-500 bg-red-950/50 text-red-500 hover:bg-red-900/50 focus-visible:ring-red-500':
-              variant === 'danger',
-            'border-red-900/50 bg-red-950/20 text-red-500/80 hover:border-red-500/50 hover:bg-red-950/40 hover:text-red-400 focus-visible:ring-red-500':
-              variant === 'danger-outline',
-            'border-zinc-700 bg-zinc-900 text-zinc-400 hover:bg-zinc-800 focus-visible:ring-[var(--theme-primary)]':
-              variant === 'secondary',
-            'border-white/10 bg-zinc-900/50 text-zinc-400 hover:border-[var(--theme-primary)] hover:bg-[var(--theme-primary)]/10 hover:text-[var(--theme-primary)] focus-visible:ring-[var(--theme-primary)]':
-              variant === 'sidebar',
-
-            // Sizes
-            'px-5 py-3 text-[10px]': size === 'default',
-            'px-3 py-2 text-[9px]': size === 'sm',
-            'px-6 py-4 text-[11px]': size === 'lg',
-            'p-3': size === 'icon',
-          },
-          className,
-        )}
-        {...props}
-      >
+      <button ref={ref} className={cn(buttonVariants({ variant, size, className }))} {...props}>
         {hasCrosshairs === 'corners' ? (
           <CornerCrosshairs
             corners={['top-left', 'bottom-right']}
