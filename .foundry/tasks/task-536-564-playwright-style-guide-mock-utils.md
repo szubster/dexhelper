@@ -30,5 +30,5 @@ Add a section to the Playwright Testing Style Guide covering the usage of new mo
 As part of the new Playwright Testing Style Guide (`.foundry/docs/knowledge_base/testing/playwright_style_guide.md`), we need a section that documents the usage of new mock utilities.
 
 ## Acceptance Criteria
-- [ ] Update `.foundry/docs/knowledge_base/testing/playwright_style_guide.md` with a section on mock utilities.
-- [ ] Provide clear code examples.
+- [x] Update `.foundry/docs/knowledge_base/testing/playwright_style_guide.md` with a section on mock utilities.
+- [x] Provide clear code examples.

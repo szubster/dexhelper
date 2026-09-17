@@ -39,3 +39,25 @@ test('navigation menu behaves correctly', async ({ page, isMobile }) => {
   }
 });
 ```
+
+## Mock Utilities
+To keep E2E tests deterministic and decoupled from complex backend setups (like full DAG resolution), utilize Playwright's network interception to mock API responses and complex systems.
+
+The `mockDagData` utility allows injecting mock DAG definitions for frontend rendering tests.
+
+### Code Example
+```typescript
+import { test, expect } from '@playwright/test';
+import { mockDagData } from '../test-utils';
+
+test('successfully fetches and renders mock DAG data', async ({ page }) => {
+  // Inject mock DAG definitions before the page loads
+  await mockDagData(page, 'tests/fixtures/dag/mock_dag.json');
+
+  await page.goto('/dashboard');
+
+  // Verify that the UI reflects the mocked state
+  const personaBadges = page.getByTestId('persona-badge');
+  await expect(personaBadges).toHaveCount(3);
+});
+```
