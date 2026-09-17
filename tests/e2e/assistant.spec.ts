@@ -32,7 +32,7 @@ test.describe('Assistant Page', () => {
   test('should show local catch suggestions if applicable', async ({ page }) => {
     // This would require a save at a specific location, but we can verify the UI structure even with just nearby.
     await initializeWithSave(page);
-    await page.goto('assistant');
+    await page.goto('./assistant');
 
     await expect(page.getByText(/Wild Encounters/i)).toBeVisible({ timeout: 15000 });
 
