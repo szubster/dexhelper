@@ -465,6 +465,10 @@ export interface Gen3SaveData extends BaseSaveData {
   hoennDexCount?: number;
   /** Gen 3 specific: Number of Pokémon caught in the National Dex. */
   nationalDexCount?: number;
+  /** Gen 3 specific: Missing National Dex IDs. */
+  missingNationalDex?: Set<number>;
+  /** Gen 3 specific: Missing Hoenn Dex IDs. */
+  missingHoennDex?: Set<number>;
   /** Gen 3 specific: Volcanic Ash gather count */
   /** Gen 3 specific: Emerald Move Tutor usage */
   gen3MoveTutors?: Gen3MoveTutors;
