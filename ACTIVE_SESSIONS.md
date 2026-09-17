@@ -133,3 +133,4 @@
 | [task-569-578-cva-refactor-tactical-panel-card](.foundry/tasks/task-569-578-cva-refactor-tactical-panel-card.md) | TASK | CVA Refactor Tactical Panel and Card | coder | [17207904154965623885](https://jules.google.com/session/17207904154965623885) |
 | [task-569-584-setup-css-theme-variables](.foundry/tasks/task-569-584-setup-css-theme-variables.md) | TASK | Setup CSS theme variables in index.css | coder | [15179318630921598367](https://jules.google.com/session/15179318630921598367) |
 | [task-570-578-refactor-tactical-badge-cva](.foundry/tasks/task-570-578-refactor-tactical-badge-cva.md) | TASK | Refactor TacticalBadge to CVA | coder | [14421517598624514173](https://jules.google.com/session/14421517598624514173) |
+| [task-571-578-cva-refactor-basic-inputs](.foundry/tasks/task-571-578-cva-refactor-basic-inputs.md) | TASK | CVA Refactor Tactical Input and Select | coder | [3325964808609402709](https://jules.google.com/session/3325964808609402709) |
