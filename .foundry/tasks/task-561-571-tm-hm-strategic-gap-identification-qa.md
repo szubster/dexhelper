@@ -28,5 +28,5 @@ priority: 50
 Review and verify the logic for identifying strategic coverage gaps for TM/HMs.
 
 ## Acceptance Criteria
-- [ ] Verify the implementation of `identifyStrategicGapsForTMHM`.
-- [ ] Verify unit tests cover edge cases.
+- [x] Verify the implementation of `identifyStrategicGapsForTMHM`.
+- [x] Verify unit tests cover edge cases.
