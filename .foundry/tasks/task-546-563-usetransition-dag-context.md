@@ -2,12 +2,12 @@
 id: task-546-563-usetransition-dag-context
 type: TASK
 title: Implement useTransition in DagContext
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-16'
+updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10767944617681114571'
 pr_number: null
 parent: story-538-546-react-19-concurrent-features
 tags:
