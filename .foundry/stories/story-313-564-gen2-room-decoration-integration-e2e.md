@@ -27,4 +27,7 @@ Integrate the Gen 2 Room Decoration state logic and UI components into the main 
 - Verify that the categorized view renders properly and that Mystery Gift exclusives are correctly highlighted in the UI.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-564-586-gen2-room-decoration-router-integration-impl
+- [ ] task-564-587-gen2-room-decoration-e2e-impl
+- [ ] task-564-588-gen2-room-decoration-integration-qa
