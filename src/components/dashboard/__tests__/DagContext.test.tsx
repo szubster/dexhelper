@@ -5,7 +5,7 @@ import { render } from 'vitest-browser-react';
 import { DagProvider, useDagContext, usePermanentlyFailedNodes } from '../DagContext';
 
 const TestComponent = () => {
-  const { maxRejectionThreshold, setActiveView, nodes } = useDagContext();
+  const { maxRejectionThreshold, setActiveView, nodes, isPending } = useDagContext();
   const permanentlyFailedNodes = usePermanentlyFailedNodes();
   return (
     <div>
@@ -13,6 +13,7 @@ const TestComponent = () => {
       <div data-testid="node-count">{nodes.length}</div>
       {nodes.length > 0 && <div data-testid="node-rejection">{nodes[0]?.data.rejection_count}</div>}
       <div data-testid="failed-count">{permanentlyFailedNodes.length}</div>
+      <div data-testid="is-pending">{isPending ? 'true' : 'false'}</div>
       <button type="button" data-testid="btn" onClick={() => setActiveView('board')}>
         Set View
       </button>
@@ -62,6 +63,7 @@ test('DagProvider provides maxRejectionThreshold and handles data loading correc
   await expect.element(page.getByTestId('threshold')).toHaveTextContent('3');
   await expect.element(page.getByTestId('node-rejection')).toHaveTextContent('3');
   await expect.element(page.getByTestId('failed-count')).toHaveTextContent('1');
+  await expect.element(page.getByTestId('is-pending')).toHaveTextContent('false');
   await page.getByTestId('btn').click();
 });
 
