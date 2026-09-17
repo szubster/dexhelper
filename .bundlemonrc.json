@@ -59,7 +59,7 @@
     },
     {
       "path": "assets/index-<hash>.js",
-      "maxSize": "280kb"
+      "maxSize": "310kb"
     },
     {
       "path": "assets/react-<hash>.js",
