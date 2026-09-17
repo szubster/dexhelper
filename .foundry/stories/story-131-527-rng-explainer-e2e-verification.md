@@ -30,4 +30,6 @@ Implement End-to-End verification and integration tests for the new RNG tool exp
 
 ## Acceptance Criteria
 - [ ] Write E2E tests using Playwright to verify the explainer section is visible and readable.
-- [ ] Tech Lead: Break down this Story into actionable Tasks.
+- [x] Tech Lead: Break down this Story into actionable Tasks.
+- [ ] task-527-578-rng-explainer-e2e-coder
+- [ ] task-527-579-rng-explainer-e2e-qa
