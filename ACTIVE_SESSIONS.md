@@ -3,6 +3,7 @@
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
 | [epic-035-049-smart-radar-heatmap-generation](.foundry/epics/epic-035-049-smart-radar-heatmap-generation.md) | EPIC | Smart Radar Heatmap Generation | story_owner | [7190681125080127692](https://jules.google.com/session/7190681125080127692) |
+| [epic-051-094-friendship-data-extraction](.foundry/epics/epic-051-094-friendship-data-extraction.md) | EPIC | Friendship Data Extraction (Gen 2 & 3) | story_owner | [8327727190841524471](https://jules.google.com/session/8327727190841524471) |
 | [epic-339-407-gen3-bike-item-gating-integration](.foundry/epics/epic-339-407-gen3-bike-item-gating-integration.md) | EPIC | Item Gating Integration | story_owner | [10337093646133657711](https://jules.google.com/session/10337093646133657711) |
 | [epic-517-550-deterministic-archival-tree-evaluation](.foundry/epics/epic-517-550-deterministic-archival-tree-evaluation.md) | EPIC | Tree Completeness Evaluation and File Moves | story_owner | [5919358379686435735](https://jules.google.com/session/5919358379686435735) |
 | [epic-521-553-schema-linter-integration](.foundry/epics/epic-521-553-schema-linter-integration.md) | EPIC | Schema Linter Integration: Package Scripts & Verification | story_owner | [16635256143762574784](https://jules.google.com/session/16635256143762574784) |
