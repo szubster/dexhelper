@@ -29,6 +29,7 @@ describe('Zustand Store', () => {
       manualVersion: null,
       isLivingDex: false,
       globalPokeball: 'poke',
+      selectedWildItemIds: [],
       searchTerm: '',
       isSettingsOpen: false,
       isVersionModalOpen: false,
@@ -55,6 +56,24 @@ describe('Zustand Store', () => {
       expect(useStore.getState().isSettingsOpen).toBe(false);
       useStore.getState().setIsSettingsOpen(true);
       expect(useStore.getState().isSettingsOpen).toBe(true);
+    });
+
+    it('should manage wild hunting items selection', () => {
+      expect(useStore.getState().selectedWildItemIds).toEqual([]);
+
+      useStore.getState().addSelectedWildItemId(15);
+      useStore.getState().addSelectedWildItemId(42);
+      expect(useStore.getState().selectedWildItemIds).toEqual([15, 42]);
+
+      // Prevent duplicates
+      useStore.getState().addSelectedWildItemId(15);
+      expect(useStore.getState().selectedWildItemIds).toEqual([15, 42]);
+
+      useStore.getState().removeSelectedWildItemId(15);
+      expect(useStore.getState().selectedWildItemIds).toEqual([42]);
+
+      useStore.getState().clearSelectedWildItemIds();
+      expect(useStore.getState().selectedWildItemIds).toEqual([]);
     });
 
     it('should toggle version modal', () => {

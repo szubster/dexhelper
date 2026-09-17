@@ -122,6 +122,8 @@ interface AppStore {
   toggleWallpaperUnlocked: (trainerId: number, wallpaperId: number) => void;
 
   // Transient UI state (not persisted)
+  /** Current list of selected target item IDs for wild hunting. */
+  selectedWildItemIds: number[];
   /** Current search query for filtering Pokémon lists. */
   searchTerm: string;
   /** Currently selected map location for viewing details. */
@@ -150,6 +152,12 @@ interface AppStore {
    * @param v - True to open the manual version modal, false to close it.
    */
   setIsVersionModalOpen: (v: boolean) => void;
+  /** Adds a target item ID to the wild hunting selection. */
+  addSelectedWildItemId: (id: number) => void;
+  /** Removes a target item ID from the wild hunting selection. */
+  removeSelectedWildItemId: (id: number) => void;
+  /** Clears all selected target items for wild hunting. */
+  clearSelectedWildItemIds: () => void;
 
   // Derived helpers
   /**
@@ -258,6 +266,7 @@ export const useStore = create<AppStore>()(
       },
 
       // Transient UI
+      selectedWildItemIds: [],
       searchTerm: '',
       selectedLocationId: null,
       isSettingsOpen: false,
@@ -266,6 +275,17 @@ export const useStore = create<AppStore>()(
       setSelectedLocationId: (id) => set({ selectedLocationId: id }),
       setIsSettingsOpen: (v) => set({ isSettingsOpen: v }),
       setIsVersionModalOpen: (v) => set({ isVersionModalOpen: v }),
+      addSelectedWildItemId: (id) =>
+        set((state) => ({
+          selectedWildItemIds: state.selectedWildItemIds.includes(id)
+            ? state.selectedWildItemIds
+            : [...state.selectedWildItemIds, id],
+        })),
+      removeSelectedWildItemId: (id) =>
+        set((state) => ({
+          selectedWildItemIds: state.selectedWildItemIds.filter((itemId) => itemId !== id),
+        })),
+      clearSelectedWildItemIds: () => set({ selectedWildItemIds: [] }),
 
       // Conflict Resolution
       conflictState: null,
