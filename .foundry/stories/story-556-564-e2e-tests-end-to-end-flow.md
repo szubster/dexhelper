@@ -34,4 +34,7 @@ This story is part of the Wild Item E2E Verification epic. It ensures the entire
 - Verifies the success state.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks.
+- [x] tech_lead: Break down this Story into Tasks.
+- [ ] task-564-578-e2e-navigation-and-selection
+- [ ] task-564-579-e2e-save-upload-success
+- [ ] task-564-580-qa-wild-item-e2e
