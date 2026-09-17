@@ -2,10 +2,10 @@
 id: task-560-569-battle-frontier-dashboard-e2e-qa
 type: TASK
 title: QA Verification for Battle Frontier Dashboard E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
+updated_at: '2026-09-17'
 depends_on:
   - task-560-568-battle-frontier-dashboard-e2e-coder
 jules_session_id: null

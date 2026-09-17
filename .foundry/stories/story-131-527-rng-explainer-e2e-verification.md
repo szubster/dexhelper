@@ -2,13 +2,13 @@
 id: story-131-527-rng-explainer-e2e-verification
 type: STORY
 title: RNG Tool Explainer E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-22'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on:
   - story-131-526-rng-explainer-ui-component
-jules_session_id: '2246282370629996709'
+jules_session_id: null
 pr_number: null
 parent: epic-100-131-rng-explainer-section
 tags:

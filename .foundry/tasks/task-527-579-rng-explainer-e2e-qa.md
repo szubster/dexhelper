@@ -2,10 +2,10 @@
 id: task-527-579-rng-explainer-e2e-qa
 type: TASK
 title: QA RNG Explainer E2E Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-15'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on:
   - task-527-578-rng-explainer-e2e-coder
 jules_session_id: null

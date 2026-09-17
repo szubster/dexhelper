@@ -2,12 +2,12 @@
 id: story-565-566-virtualize-pokedex-grid
 type: STORY
 title: Integrate React Virtual into PokedexGrid
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-11'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: '7885784508365371790'
+jules_session_id: null
 pr_number: null
 parent: epic-564-565-lazy-load-pokedex-pokemon-list
 tags:

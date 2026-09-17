@@ -2,10 +2,10 @@
 id: task-478-586-pokedb-core-sync-impl
 type: TASK
 title: Refactor PokeDB sync logic to fetch pokedata-core.msgpack on initial load
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: 2026-09-17T07:47:12Z
-updated_at: 2026-09-17T07:47:12Z
+created_at: '2026-09-17T07:47:12.000Z'
+updated_at: '2026-09-17'
 depends_on: []
 jules_session_id: null
 pr_number: null

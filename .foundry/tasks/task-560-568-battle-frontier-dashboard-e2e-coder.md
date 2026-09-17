@@ -2,12 +2,12 @@
 id: task-560-568-battle-frontier-dashboard-e2e-coder
 type: TASK
 title: Implement Battle Frontier Dashboard E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-12'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: '4003025147650337980'
+jules_session_id: null
 pr_number: null
 parent: story-079-560-battle-frontier-dashboard-e2e
 tags:

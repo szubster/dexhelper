@@ -2,10 +2,10 @@
 id: task-566-579-qa-virtual-pokedex-grid
 type: TASK
 title: QA Virtualization in PokedexGrid
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-15'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on:
   - task-566-578-implement-virtual-pokedex-grid
 jules_session_id: null

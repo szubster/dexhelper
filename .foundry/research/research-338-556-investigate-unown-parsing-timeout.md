@@ -2,7 +2,7 @@
 id: research-338-556-investigate-unown-parsing-timeout
 type: RESEARCH
 title: Investigate Gen 2 Unown Parsing Timeout
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-09-07'
 updated_at: '2026-09-17'
@@ -13,8 +13,8 @@ tags:
   - feature
   - gen2
   - unown
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 locks: []
 ---
 
