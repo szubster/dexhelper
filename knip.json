@@ -1,6 +1,7 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "ignoreExportsUsedInFile": true,
+  "ignore": ["src/engine/data/gen2/wildModels.ts"],
   "ignoreDependencies": [
     "wrangler",
     "@cloudflare/pages-plugin-cloudflare-access",
@@ -9,6 +10,7 @@
   ],
   "ignore": [
     "src/test-setup.ts",
+    "src/engine/data/gen2/wildModels.ts",
     "src/contexts/binjgb/index.ts",
     "src/hooks/useBinjgb.ts",
 
