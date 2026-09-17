@@ -32,4 +32,7 @@ Implement a recommendation engine that determines the optimal combination of ber
 
 ## Acceptance Criteria
 - [ ] Implement the recommendation engine that determines the optimal combination of berries to blend and feed given the current berry inventory and target condition goal.
+- [ ] task-562-586-pokeblock-recommendation-logic
+- [ ] task-562-587-pokeblock-recommendation-tests
 - [ ] Add feasibility checks in the recommendation engine to alert the user if a goal is impossible with their current resources.
+- [ ] task-562-588-pokeblock-recommendation-qa
