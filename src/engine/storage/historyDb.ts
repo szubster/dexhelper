@@ -75,9 +75,9 @@ export const getMostRecentSave = async (
       }
     }
     return null;
-  } catch (error) {
-    console.error('Failed to get most recent save:', error instanceof Error ? error.message : 'Unknown error');
-    throw error;
+  } catch (_error) {
+    console.error('Failed to get most recent save');
+    throw _error;
   }
 };
 
@@ -119,9 +119,9 @@ export const getPreviousSave = async (
       }
     }
     return null;
-  } catch (error) {
-    console.error('Failed to get previous save:', error instanceof Error ? error.message : 'Unknown error');
-    throw error;
+  } catch (_error) {
+    console.error('Failed to get previous save');
+    throw _error;
   }
 };
 
@@ -134,8 +134,8 @@ export const writeSaveState = async (id: string, saveData: Uint8Array, metadata:
     const metadataStore = tx.objectStore('metadata');
 
     await Promise.all([savesStore.put(saveData, id), metadataStore.put(metadata, id), tx.done]);
-  } catch (error) {
-    console.error('Failed to write save state', error instanceof Error ? error.message : 'Unknown error');
-    throw error;
+  } catch (_error) {
+    console.error('Failed to write save state');
+    throw _error;
   }
 };
