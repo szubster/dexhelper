@@ -2,10 +2,10 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
-updated_at: '2026-09-16'
+updated_at: '2026-09-17'
 depends_on: []
 jules_session_id: null
 locks: []
@@ -26,28 +26,27 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `9505459e6ded4c6ae5e0f4dabf274dde3f61be90`
-- **Previous Commit SHA:** `0e02481ca45009dd9391677d896fef8f182ff306`
-- **Commit Date:** `2026-03-16`
+- **Commit SHA:** `865e8dc78e9e2cfa07f6701918bee3cdcccea213`
+- **Previous Commit SHA:** `5ff986920e677010ba8f18d087283326d460cb1e`
+- **Commit Date:** `2026-03-17`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
 - **Suggested SemVer Bump:** `patch` (from `0.15.0` -> `0.15.1`)
 
 ## Commit Message
 ```text
-build(deps): Bump @tanstack/react-router from 1.167.1 to 1.167.3
+build(deps): Bump motion from 12.36.0 to 12.37.0
 
-Bumps [@tanstack/react-router](https://github.com/TanStack/router/tree/HEAD/packages/react-router) from 1.167.1 to 1.167.3.
-- [Release notes](https://github.com/TanStack/router/releases)
-- [Changelog](https://github.com/TanStack/router/blob/main/packages/react-router/CHANGELOG.md)
-- [Commits](https://github.com/TanStack/router/commits/@tanstack/react-router@1.167.3/packages/react-router)
+Bumps [motion](https://github.com/motiondivision/motion) from 12.36.0 to 12.37.0.
+- [Changelog](https://github.com/motiondivision/motion/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/motiondivision/motion/compare/v12.36.0...v12.37.0)
 
 ---
 updated-dependencies:
-- dependency-name: "@tanstack/react-router"
-  dependency-version: 1.167.3
+- dependency-name: motion
+  dependency-version: 12.37.0
   dependency-type: direct:production
-  update-type: version-update:semver-patch
+  update-type: version-update:semver-minor
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
@@ -59,15 +58,15 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ## Diff Summary
 ```text
-9505459e6 build(deps): Bump @tanstack/react-router from 1.167.1 to 1.167.3
- package-lock.json | 96 ++++++++-----------------------------------------------
+865e8dc78 build(deps): Bump motion from 12.36.0 to 12.37.0
+ package-lock.json | 24 ++++++++++++------------
  package.json      |  2 +-
- 2 files changed, 14 insertions(+), 84 deletions(-)
+ 2 files changed, 13 insertions(+), 13 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 9505459e6ded4c6ae5e0f4dabf274dde3f61be90` (or `git diff 0e02481ca45009dd9391677d896fef8f182ff306..9505459e6ded4c6ae5e0f4dabf274dde3f61be90`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show 865e8dc78e9e2cfa07f6701918bee3cdcccea213` (or `git diff 5ff986920e677010ba8f18d087283326d460cb1e..865e8dc78e9e2cfa07f6701918bee3cdcccea213`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.15.1] - 2026-03-16` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.15.0...0.15.1`](https://github.com/${repo}/compare/0e02481...9505459)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.15.1] - 2026-03-17` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.15.0...0.15.1`](https://github.com/${repo}/compare/5ff9869...865e8dc)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
