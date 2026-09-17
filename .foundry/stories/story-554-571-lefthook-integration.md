@@ -24,4 +24,5 @@ locks: []
 Update `lefthook.yml` to include the `validate-foundry-schema` script under the `pre-commit` hook.
 
 ## Acceptance Criteria
-- [ ] Create a TASK node to implement the `lefthook.yml` updates and verify it aborts correctly on malformed files.
+- [x] Create a TASK node to implement the `lefthook.yml` updates and verify it aborts correctly on malformed files.
+- [ ] task-571-589-implement-lefthook-schema-validation
