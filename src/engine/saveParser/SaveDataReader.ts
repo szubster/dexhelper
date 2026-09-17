@@ -30,71 +30,169 @@ export class SaveDataReader implements ISaveDataReader {
 
   getUint8(offset: number): number {
     this.checkBounds(offset, 1);
-    return this.view.getUint8(offset);
+    try {
+      return this.view.getUint8(offset);
+    } catch (e) {
+      if (e instanceof RangeError) {
+        throw new RangeError('The save file is corrupted or incomplete.');
+      }
+      throw e;
+    }
   }
 
   getInt8(offset: number): number {
     this.checkBounds(offset, 1);
-    return this.view.getInt8(offset);
+    try {
+      return this.view.getInt8(offset);
+    } catch (e) {
+      if (e instanceof RangeError) {
+        throw new RangeError('The save file is corrupted or incomplete.');
+      }
+      throw e;
+    }
   }
 
   getUint16Le(offset: number): number {
     this.checkBounds(offset, 2);
-    return this.view.getUint16(offset, true);
+    try {
+      return this.view.getUint16(offset, true);
+    } catch (e) {
+      if (e instanceof RangeError) {
+        throw new RangeError('The save file is corrupted or incomplete.');
+      }
+      throw e;
+    }
   }
 
   getUint16Be(offset: number): number {
     this.checkBounds(offset, 2);
-    return this.view.getUint16(offset, false);
+    try {
+      return this.view.getUint16(offset, false);
+    } catch (e) {
+      if (e instanceof RangeError) {
+        throw new RangeError('The save file is corrupted or incomplete.');
+      }
+      throw e;
+    }
   }
 
   getInt16Le(offset: number): number {
     this.checkBounds(offset, 2);
-    return this.view.getInt16(offset, true);
+    try {
+      return this.view.getInt16(offset, true);
+    } catch (e) {
+      if (e instanceof RangeError) {
+        throw new RangeError('The save file is corrupted or incomplete.');
+      }
+      throw e;
+    }
   }
 
   getInt16Be(offset: number): number {
     this.checkBounds(offset, 2);
-    return this.view.getInt16(offset, false);
+    try {
+      return this.view.getInt16(offset, false);
+    } catch (e) {
+      if (e instanceof RangeError) {
+        throw new RangeError('The save file is corrupted or incomplete.');
+      }
+      throw e;
+    }
   }
 
   getUint32Le(offset: number): number {
     this.checkBounds(offset, 4);
-    return this.view.getUint32(offset, true);
+    try {
+      return this.view.getUint32(offset, true);
+    } catch (e) {
+      if (e instanceof RangeError) {
+        throw new RangeError('The save file is corrupted or incomplete.');
+      }
+      throw e;
+    }
   }
 
   getUint32Be(offset: number): number {
     this.checkBounds(offset, 4);
-    return this.view.getUint32(offset, false);
+    try {
+      return this.view.getUint32(offset, false);
+    } catch (e) {
+      if (e instanceof RangeError) {
+        throw new RangeError('The save file is corrupted or incomplete.');
+      }
+      throw e;
+    }
   }
 
   getInt32Le(offset: number): number {
     this.checkBounds(offset, 4);
-    return this.view.getInt32(offset, true);
+    try {
+      return this.view.getInt32(offset, true);
+    } catch (e) {
+      if (e instanceof RangeError) {
+        throw new RangeError('The save file is corrupted or incomplete.');
+      }
+      throw e;
+    }
   }
 
   getInt32Be(offset: number): number {
     this.checkBounds(offset, 4);
-    return this.view.getInt32(offset, false);
+    try {
+      return this.view.getInt32(offset, false);
+    } catch (e) {
+      if (e instanceof RangeError) {
+        throw new RangeError('The save file is corrupted or incomplete.');
+      }
+      throw e;
+    }
   }
 
   getFloat32Le(offset: number): number {
     this.checkBounds(offset, 4);
-    return this.view.getFloat32(offset, true);
+    try {
+      return this.view.getFloat32(offset, true);
+    } catch (e) {
+      if (e instanceof RangeError) {
+        throw new RangeError('The save file is corrupted or incomplete.');
+      }
+      throw e;
+    }
   }
 
   getFloat32Be(offset: number): number {
     this.checkBounds(offset, 4);
-    return this.view.getFloat32(offset, false);
+    try {
+      return this.view.getFloat32(offset, false);
+    } catch (e) {
+      if (e instanceof RangeError) {
+        throw new RangeError('The save file is corrupted or incomplete.');
+      }
+      throw e;
+    }
   }
 
   getFloat64Le(offset: number): number {
     this.checkBounds(offset, 8);
-    return this.view.getFloat64(offset, true);
+    try {
+      return this.view.getFloat64(offset, true);
+    } catch (e) {
+      if (e instanceof RangeError) {
+        throw new RangeError('The save file is corrupted or incomplete.');
+      }
+      throw e;
+    }
   }
 
   getFloat64Be(offset: number): number {
     this.checkBounds(offset, 8);
-    return this.view.getFloat64(offset, false);
+    try {
+      return this.view.getFloat64(offset, false);
+    } catch (e) {
+      if (e instanceof RangeError) {
+        throw new RangeError('The save file is corrupted or incomplete.');
+      }
+      throw e;
+    }
   }
 }
