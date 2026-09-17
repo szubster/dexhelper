@@ -2,12 +2,12 @@
 id: task-560-568-implement-dag-cancelled-highlighting
 type: TASK
 title: Implement DAG CANCELLED node highlighting
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-14'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6599498203572777765'
 parent: story-530-560-update-dag-ui-components
 tags:
   - ui

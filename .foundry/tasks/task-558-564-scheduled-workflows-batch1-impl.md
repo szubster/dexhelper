@@ -2,12 +2,12 @@
 id: task-558-564-scheduled-workflows-batch1-impl
 type: TASK
 title: Update Scheduled Workflows for Issue Dispatch (Batch 1)
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3762866381632040783'
 pr_number: null
 parent: story-531-558-modify-scheduled-workflows-impl
 tags:
@@ -15,7 +15,9 @@ tags:
   - scheduled-agents
   - github-issues
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Replaced by task-568-581-modify-shared-workflow-impl
+  (ADR-558-568 decision)
 notes: ''
 locks: []
 ---

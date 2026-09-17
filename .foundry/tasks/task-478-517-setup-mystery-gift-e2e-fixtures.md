@@ -2,12 +2,12 @@
 id: task-478-517-setup-mystery-gift-e2e-fixtures
 type: TASK
 title: Setup Mystery Gift E2E Fixtures
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '4922706526157662620'
+jules_session_id: null
 pr_number: null
 parent: story-345-478-gen3-mystery-gift-e2e-verification
 tags:
@@ -29,3 +29,4 @@ Setup the mock save files and test fixtures required for Gen 3 Mystery Gift E2E 
 ## Acceptance Criteria
 - [ ] Create mock saves with known Wonder Card and Event Flag data.
 - [ ] Implement fixture loading for the E2E tests.
+- [ ] research-517-518-locate-authentic-mystery-gift-saves

@@ -2,12 +2,12 @@
 id: story-105-241-daycare-gen3-parsing
 type: STORY
 title: Parse Gen 3 Daycare Data
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-28'
-updated_at: '2026-09-07'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8534975190076067768'
 pr_number: null
 parent: epic-053-105-daycare-save-parsing
 tags:

@@ -2,15 +2,15 @@
 id: task-421-508-active-party-matchup-integration-qa
 type: TASK
 title: Verify Active Party Integration into MatchupContext
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-01'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on:
   - task-421-462-gen1-active-party-matchup-integration-impl
   - task-421-463-gen2-active-party-matchup-integration-impl
   - task-421-507-gen3-active-party-matchup-integration-impl
-jules_session_id: '8781911576258741885'
+jules_session_id: null
 pr_number: null
 parent: story-411-421-active-party-extraction
 tags:
@@ -35,5 +35,5 @@ Verify that Gen 1, Gen 2, and Gen 3 active party data is successfully and correc
 - Adhere to testing constraints, avoiding `@testing-library` usage, and utilizing standard project fixtures (like `initializeWithSave`).
 
 ## Acceptance Criteria
-- [ ] Code review passes for all integration layers.
-- [ ] E2E tests successfully validate integration for all three generations.
+- [x] Code review passes for all integration layers.
+- [x] E2E tests successfully validate integration for all three generations.

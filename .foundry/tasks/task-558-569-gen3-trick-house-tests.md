@@ -2,10 +2,10 @@
 id: task-558-569-gen3-trick-house-tests
 type: TASK
 title: Implement Gen 3 Trick House Save Parsing Unit Tests
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-12'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on:
   - task-558-568-gen3-trick-house-core-logic
 jules_session_id: null
@@ -34,4 +34,4 @@ Ensure the core logic for Trick House save parsing is robust and correctly handl
 - Catch `RangeError` on out-of-bounds reads.
 
 ## Acceptance Criteria
-- [ ] Unit tests written and passing for all Trick House parsing logic.
+- [x] Unit tests written and passing for all Trick House parsing logic.

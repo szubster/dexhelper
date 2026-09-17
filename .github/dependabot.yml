@@ -26,7 +26,7 @@ updates:
         patterns:
           - "tailwindcss"
           - "@tailwindcss/*"
-          - "tailwind-merge"
+          - "cn"
       playwright:
         patterns:
           - "@playwright/*"

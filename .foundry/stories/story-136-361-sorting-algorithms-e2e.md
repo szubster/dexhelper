@@ -2,10 +2,10 @@
 id: story-136-361-sorting-algorithms-e2e
 type: STORY
 title: E2E Verification for PC Box Sorting Algorithms
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-06'
-updated_at: '2026-09-08'
+updated_at: '2026-09-16'
 depends_on:
   - story-136-334-sorting-cross-gen-considerations-retry
 jules_session_id: null
@@ -35,6 +35,6 @@ As per the Orchestrator Safeguard, this story ensures that all sorting strategie
 - [x] Break down this story into a task to QA the E2E tests for PC Box Sorting Algorithms.
 - [x] task-361-407-sorting-algorithms-e2e-impl
 - [x] task-361-408-sorting-algorithms-e2e-qa
-- [ ] research-361-494-sorting-algorithms-e2e-root-cause
-- [ ] task-361-495-sorting-algorithms-e2e-impl-retry
-- [ ] task-361-496-sorting-algorithms-e2e-qa-retry
+- [x] research-361-494-sorting-algorithms-e2e-root-cause
+- [x] task-361-495-sorting-algorithms-e2e-impl-retry
+- [x] task-361-496-sorting-algorithms-e2e-qa-retry

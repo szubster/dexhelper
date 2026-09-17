@@ -181,12 +181,14 @@ describe('gen1Exclusives', () => {
         expect(reason).toContain('not available in Yellow');
       });
 
-      it('should not lock Sandshrew (27) or Pinsir (127) in Yellow', () => {
+      it('should lock Sandshrew (27) or Pinsir (127) in Yellow', () => {
         const ownedSet = new Set<number>();
         const reasonSandshrew = getUnobtainableReason(27, 'yellow', 0, ownedSet);
         const reasonPinsir = getUnobtainableReason(127, 'yellow', 0, ownedSet);
-        expect(reasonSandshrew).toBeNull();
-        expect(reasonPinsir).toBeNull();
+        expect(typeof reasonSandshrew).toBe('string');
+        expect(reasonSandshrew).toContain('not available in Yellow');
+        expect(typeof reasonPinsir).toBe('string');
+        expect(reasonPinsir).toContain('not available in Yellow');
       });
     });
 

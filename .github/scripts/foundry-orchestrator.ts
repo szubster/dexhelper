@@ -366,6 +366,8 @@ function compilePromptForNode(node: ParsedNode, repoRoot: string): string {
     if (fs.existsSync(layerPath)) {
       const layerContent = fs.readFileSync(layerPath, 'utf-8');
       combined += `\n\n### SPECIFIC CONTEXT: ${layer.toUpperCase()}\n${layerContent}`;
+    } else {
+      warn(`Requested tag/layer file does not exist: ${layerPath}`);
     }
   }
 
@@ -524,6 +526,8 @@ function main(): void {
        const folder = typeMap[prefix];
        if (folder) {
          const archivedPath = `.foundry/archive/${folder}/${ref}.md`;
+         const activePath = `.foundry/${folder}/${ref}.md`;
+         if (fs.existsSync(path.join(repoRoot, activePath))) return activePath;
          if (fs.existsSync(path.join(repoRoot, archivedPath))) {
            return archivedPath;
          }

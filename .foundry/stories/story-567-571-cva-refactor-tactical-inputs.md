@@ -2,12 +2,12 @@
 id: story-567-571-cva-refactor-tactical-inputs
 type: STORY
 title: CVA Refactor Tactical Inputs
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-15'
 updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: '8997895497259744330'
+jules_session_id: null
 pr_number: null
 parent: epic-565-567-core-components-refactor
 tags:

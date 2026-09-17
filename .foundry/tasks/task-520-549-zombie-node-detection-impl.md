@@ -5,9 +5,9 @@ title: Zombie Node Detection Logic Implementation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-09'
+updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: '5763866379276860154'
+jules_session_id: '9912971815394473960'
 pr_number: null
 parent: story-331-520-zombie-node-gc-integration-logic
 tags:
@@ -15,7 +15,7 @@ tags:
   - orchestrator
   - maintenance
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

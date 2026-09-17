@@ -2,7 +2,7 @@
 id: task-536-567-acceptance-criteria-alternatives-qa
 type: TASK
 title: QA Acceptance Criteria Alternatives
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-08'
 updated_at: '2026-09-15'
@@ -10,7 +10,7 @@ depends_on:
   - task-536-564-schema-leaf-nodes-update
   - task-536-565-core-policies-parent-nodes-update
   - task-536-566-ci-checkbox-formatter-script
-jules_session_id: '4899393289841305613'
+jules_session_id: null
 pr_number: null
 parent: story-534-536-propose-acceptance-criteria-alternatives
 tags:

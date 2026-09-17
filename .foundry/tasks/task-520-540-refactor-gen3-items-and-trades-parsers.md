@@ -5,16 +5,16 @@ title: Refactor Gen 3 Items and Trades Parsers
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-08'
+updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: '886793900530904462'
+jules_session_id: '15825941692426874854'
 pr_number: null
 parent: story-523-520-gen3-parsers-refactor-core
 tags:
   - refactor
   - gen3
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
