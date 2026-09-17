@@ -57,11 +57,15 @@ const STATIC_GIFT_PIDS_GEN2 = Object.keys(STATIC_GIFT_DATA_GEN2).map((id) => par
 const STATIC_GIFT_PIDS_GEN3 = Object.keys(STATIC_GIFT_DATA_GEN3).map((id) => parseInt(id, 10));
 
 /**
- * Elective: Fetches all necessary background data from local IndexedDB to power the suggestion engine.
+ * Pre-fetches all necessary game data from IndexedDB based on the current save state and specific query targets.
  *
- * @param saveData - The parsed save data containing the player's party and current location.
- * @param queryTargets - Array of Pokémon IDs (PIDs) that are missing and need to be evaluated.
- * @returns A structured `AssistantApiData` object containing pre-fetched encounters, metadata, and maps.
+ * By pre-fetching this data upfront before the main suggestion loop runs, we prevent performance bottlenecks
+ * caused by N+1 database queries during rendering. The data is packaged into an `AssistantApiData` object
+ * and passed to `generateSuggestions`.
+ *
+ * @param saveData - The parsed save data object used to determine the player's current location.
+ * @param queryTargets - An array of Pokémon IDs (species IDs) specifically targeted for encounter lookups.
+ * @returns A promise that resolves to an `AssistantApiData` object containing locations, encounters, and pokemon metadata.
  *
  * @example
  * const apiData = await fetchAssistantApiData(saveData, [1, 4, 7]);
@@ -202,9 +206,11 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
 }
 
 /**
- * The core orchestration function for the Assistant recommendation engine.
+ * Generates actionable recommendations for the player based on their current save state and the selected generation strategy.
  *
- * Now updated to be an asynchronous function to support dynamic database querying of items.
+ * This is the core evaluation loop of the Assistant. It identifies missing Pokémon, extracts all currently
+ * owned instances (including PC boxes), and orchestrates various generators (Catch, Evolve, Breed, Trade/Gift)
+ * to produce prioritized suggestions.
  *
  * ## Algorithmic Design
  * 1. **O(1) Lookups**: It immediately constructs `Set` and `Map` structures for `missingIds`, `ownedSet`,
@@ -214,12 +220,12 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
  * 3. **Batch Limiting**: To prevent UI locking and massive memory spikes, it limits processing to the first
  *    100 missing targets (`queryTargets`).
  *
- * @param saveData - The active player's save data. Can be null if no save is loaded.
- * @param isLivingDex - If true, calculates missing status based on physical inventory rather than Pokédex flags.
- * @param manualVersion - An explicit version override string.
- * @param apiData - The massive payload of pre-fetched encounters, metadata, and maps from IndexedDB.
- * @param strategy - The generation-specific strategy pattern object.
- * @returns An array of prioritized suggestions and debug information for rejected entities.
+ * @param saveData - The parsed save data object containing the player's party, PC, and event flags. If null, returns empty suggestions.
+ * @param isLivingDex - If true, treats the "owned" set as only Pokémon currently in the party or PC (ignores "caught" Pokedex flags), useful for building a Living Dex.
+ * @param manualVersion - An optional version override provided by the user.
+ * @param apiData - The pre-fetched dataset containing encounters, locations, and metadata required for evaluation.
+ * @param strategy - The generation-specific strategy implementation (e.g., Gen1Strategy) that handles mechanical differences like obtainability and map resolution.
+ * @returns A promise that resolves to an object containing the generated suggestions array and debug information about rejected suggestions.
  *
  * @example
  * const strategy = await getStrategy(saveData.generation);
