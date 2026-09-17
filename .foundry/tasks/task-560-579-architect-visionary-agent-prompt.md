@@ -2,13 +2,13 @@
 id: task-560-579-architect-visionary-agent-prompt
 type: TASK
 title: Create Architect Visionary Agent Prompt
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-12T00:00:00Z'
 updated_at: '2026-09-17'
 depends_on:
   - task-560-578-architect-visionary-schema-update
-jules_session_id: null
+jules_session_id: '13120133504269439288'
 pr_number: null
 parent: story-541-560-architect-visionary-persona-implementation
 tags:
