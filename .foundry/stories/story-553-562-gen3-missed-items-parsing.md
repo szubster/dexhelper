@@ -25,6 +25,10 @@ rejection_count: 1
 Implement the core save file parsing logic to extract missed milestones and valuable items (such as the Master Ball, missed TMs, and major unrepeatable achievements) from a Gen 3 save file.
 
 ## Acceptance Criteria
-- [ ] Decompose into granular TASK nodes for implementation.
-- [ ] Define the extraction methods and required state variables.
-- [ ] Create a specific QA task to verify the parsed offsets.
+- [x] Decompose into granular TASK nodes for implementation.
+- [x] Define the extraction methods and required state variables.
+- [x] Create a specific QA task to verify the parsed offsets.
+- [ ] task-562-586-gen3-missed-items-types
+- [ ] task-562-587-gen3-missed-items-parsing-logic
+- [ ] task-562-589-gen3-missed-items-tests
+- [ ] task-562-588-gen3-missed-items-qa
