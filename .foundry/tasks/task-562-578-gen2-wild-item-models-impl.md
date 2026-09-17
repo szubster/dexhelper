@@ -2,12 +2,12 @@
 id: task-562-578-gen2-wild-item-models-impl
 type: TASK
 title: Define Gen 2 Wild Encounter and Held Item Data Models
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '${DATE}'
-updated_at: '${DATE}'
+updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7216377633753838550'
 pr_number: null
 parent: story-552-562-gen2-wild-item-parsing
 tags:
