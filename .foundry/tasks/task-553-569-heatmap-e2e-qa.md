@@ -25,4 +25,4 @@ locks: []
 Verify the Playwright E2E tests for the Heatmap Toggle and dynamic visual styling functionality.
 
 ## Acceptance Criteria
-- [ ] QA: Verify the E2E tests for the Heatmap Toggle correctly exercise the functionality and pass.
+- [x] QA: Verify the E2E tests for the Heatmap Toggle correctly exercise the functionality and pass.
