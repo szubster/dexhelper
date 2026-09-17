@@ -2,10 +2,10 @@
 id: task-569-579-qa-cva-refactor-tactical-panel-card
 type: TASK
 title: QA CVA Refactor Tactical Panel and Card
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '$(date -u +"%Y-%m-%dT%H:%M:%SZ")'
-updated_at: '$(date -u +"%Y-%m-%dT%H:%M:%SZ")'
+updated_at: '2026-09-17'
 depends_on:
   - task-569-578-cva-refactor-tactical-panel-card
 jules_session_id: null
@@ -18,9 +18,9 @@ tags:
 research_references:
   - .foundry/research/research-145-001-component-variant-libraries.md
   - .foundry/research/research-145-002-component-theming-mechanisms.md
+rejection_reason: ''
 locks: []
 priority: 60
-rejection_reason: ''
 ---
 
 # Task: QA CVA Refactor Tactical Panel and Card

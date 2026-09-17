@@ -2,10 +2,10 @@
 id: story-556-563-e2e-tests-save-file-progress-tracking
 type: STORY
 title: E2E Tests for Save File Progress Tracking
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on: []
 jules_session_id: '1327086811442817176'
 pr_number: null
