@@ -1,11 +1,11 @@
 import type React from 'react';
-import { useStore } from '../../../store';
+import { useParsedSaveData } from '../../../contexts/EmulatorContext';
 import { TacticalChecklistItem } from '../../TacticalChecklistItem';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 
 export const Gen3NpcTrades: React.FC = () => {
-  const saveData = useStore((s) => s.saveData);
+  const saveData = useParsedSaveData();
 
   if (saveData?.generation !== 3) {
     return null;

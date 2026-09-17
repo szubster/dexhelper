@@ -1,6 +1,8 @@
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
+import { EmulatorProvider } from '../../../../contexts/EmulatorContext';
+import { useEmulatorStore } from '../../../../emulator/state/emulatorStore';
 import type { SaveData } from '../../../../engine/saveParser/parsers/common';
 import { useStore } from '../../../../store';
 import { GlobalRibbonChecklistDashboard } from '../GlobalRibbonChecklistDashboard';
@@ -10,30 +12,43 @@ vi.mock('../../../../store', () => ({
 }));
 
 describe('GlobalRibbonChecklistDashboard', () => {
+  beforeEach(() => {
+    vi.resetAllMocks();
+  });
+
   it('renders nothing if not generation 3', async () => {
+    useEmulatorStore.setState({ saveData: { generation: 2 } as SaveData });
     vi.mocked(useStore).mockImplementation((selector) => {
-      const state = { saveData: { generation: 2 } as SaveData, isLivingDex: false };
+      const state = { isLivingDex: false };
       return selector(state as unknown as Parameters<Parameters<typeof useStore>[0]>[0]);
     });
 
-    await render(<GlobalRibbonChecklistDashboard />);
+    await render(
+      <EmulatorProvider>
+        <GlobalRibbonChecklistDashboard />
+      </EmulatorProvider>,
+    );
     await expect.element(page.getByText('GLOBAL RIBBON CHECKLIST')).not.toBeInTheDocument();
   });
 
   it('renders NO POKEMON WITH RIBBONS FOUND if no pokemon have ribbons', async () => {
+    useEmulatorStore.setState({
+      saveData: {
+        generation: 3,
+        partyDetails: [],
+        pcDetails: [],
+      } as unknown as SaveData,
+    });
     vi.mocked(useStore).mockImplementation((selector) => {
-      const state = {
-        saveData: {
-          generation: 3,
-          partyDetails: [],
-          pcDetails: [],
-        } as unknown as SaveData,
-        isLivingDex: false,
-      };
+      const state = { isLivingDex: false };
       return selector(state as unknown as Parameters<Parameters<typeof useStore>[0]>[0]);
     });
 
-    await render(<GlobalRibbonChecklistDashboard />);
+    await render(
+      <EmulatorProvider>
+        <GlobalRibbonChecklistDashboard />
+      </EmulatorProvider>,
+    );
     await expect.element(page.getByText('NO POKEMON WITH RIBBONS FOUND')).toBeInTheDocument();
   });
 
@@ -42,32 +57,36 @@ describe('GlobalRibbonChecklistDashboard', () => {
     Object.defineProperty(HTMLElement.prototype, 'offsetHeight', { configurable: true, value: 500 });
     Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { configurable: true, value: 500 });
 
+    useEmulatorStore.setState({
+      saveData: {
+        generation: 3,
+        partyDetails: [
+          {
+            speciesId: 25,
+            level: 10,
+            nickname: 'PIKACHU',
+            ribbons: { cool: 1, beauty: 0, cute: 2, smart: 0, tough: 0 },
+          },
+          {
+            speciesId: 4,
+            level: 20,
+            nickname: 'CHARMANDER',
+            ribbons: { cool: 4, beauty: 4, cute: 4, smart: 4, tough: 4 },
+          },
+        ],
+        pcDetails: [],
+      } as unknown as SaveData,
+    });
     vi.mocked(useStore).mockImplementation((selector) => {
-      const state = {
-        saveData: {
-          generation: 3,
-          partyDetails: [
-            {
-              speciesId: 25,
-              level: 10,
-              nickname: 'PIKACHU',
-              ribbons: { cool: 1, beauty: 0, cute: 2, smart: 0, tough: 0 },
-            },
-            {
-              speciesId: 4,
-              level: 20,
-              nickname: 'CHARMANDER',
-              ribbons: { cool: 4, beauty: 4, cute: 4, smart: 4, tough: 4 },
-            },
-          ],
-          pcDetails: [],
-        } as unknown as SaveData,
-        isLivingDex: true,
-      };
+      const state = { isLivingDex: true };
       return selector(state as unknown as Parameters<Parameters<typeof useStore>[0]>[0]);
     });
 
-    await render(<GlobalRibbonChecklistDashboard />);
+    await render(
+      <EmulatorProvider>
+        <GlobalRibbonChecklistDashboard />
+      </EmulatorProvider>,
+    );
     await expect.element(page.getByText('GLOBAL RIBBON CHECKLIST')).toBeInTheDocument();
     await expect.element(page.getByText('MASTER RANK TRACKING')).toBeInTheDocument();
     await expect.element(page.getByText('PIKACHU (Lv 10)')).toBeInTheDocument();

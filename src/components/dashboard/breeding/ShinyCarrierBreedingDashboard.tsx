@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import type React from 'react';
 import { useMemo } from 'react';
+import { useParsedSaveData } from '../../../contexts/EmulatorContext';
 import { pokeDB } from '../../../db/PokeDB';
 import type { PokemonMetadata } from '../../../db/schema';
 import { calculateBreedingPairs, type PokemonWithMetadata } from '../../../engine/breeding/pair_algorithm';
 import type { SaveData } from '../../../engine/saveParser';
-import { useStore } from '../../../store';
 import { calculateGen2Gender } from '../../../utils/gender';
 import { ShinyBadge } from '../../ShinyBadge';
 import { TacticalPanel } from '../../TacticalPanel';
@@ -18,7 +18,7 @@ function getBoxLocation(index: number): string {
 }
 
 export const ShinyCarrierBreedingDashboard: React.FC = () => {
-  const saveData = useStore((s) => s.saveData);
+  const saveData = useParsedSaveData();
 
   // Fetch metadata for all Pokemon to resolve egg groups and gender rates
   const { data: pokemonMetaList } = useQuery({

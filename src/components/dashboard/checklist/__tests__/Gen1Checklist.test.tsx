@@ -1,17 +1,10 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import * as store from '../../../../store';
+import { EmulatorProvider } from '../../../../contexts/EmulatorContext';
+import { useEmulatorStore } from '../../../../emulator/state/emulatorStore';
+import type { SaveData } from '../../../../engine/saveParser';
 import { Gen1Checklist } from '../Gen1Checklist';
-
-// Mock the store explicitly since we are dealing with useStore
-vi.mock('../../../../store', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('../../../../store')>();
-  return {
-    ...actual,
-    useStore: vi.fn<typeof store.useStore>(),
-  };
-});
 
 describe('Gen1Checklist', () => {
   beforeEach(() => {
@@ -19,24 +12,22 @@ describe('Gen1Checklist', () => {
   });
 
   it('renders correctly with gen 1 data', async () => {
-    // Mock the store to return valid gen 1 save data
-    vi.mocked(store.useStore).mockImplementation((selector) => {
-      const state = {
-        saveData: {
-          generation: 1,
-          gen1StaticEncounters: {
-            1: true, // Bulbasaur
-            4: false, // Charmander
-            150: true, // Mewtwo
-          },
+    useEmulatorStore.setState({
+      saveData: {
+        generation: 1,
+        gen1StaticEncounters: {
+          1: true, // Bulbasaur
+          4: false, // Charmander
+          150: true, // Mewtwo
         },
-      };
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error - Mocking zustand store state
-      return selector(state);
+      } as unknown as SaveData,
     });
 
-    await render(<Gen1Checklist />);
+    await render(
+      <EmulatorProvider>
+        <Gen1Checklist />
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText('STATIC ENCOUNTERS')).toBeInTheDocument();
     await expect.element(page.getByText('BULBASAUR')).toBeInTheDocument();
@@ -52,51 +43,48 @@ describe('Gen1Checklist', () => {
   });
 
   it('does not render for gen 3 data', async () => {
-    vi.mocked(store.useStore).mockImplementation((selector) => {
-      const state = {
-        saveData: {
-          generation: 3,
-        },
-      };
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error - Mocking zustand store state
-      return selector(state);
+    useEmulatorStore.setState({
+      saveData: {
+        generation: 3,
+      } as unknown as SaveData,
     });
 
-    await render(<Gen1Checklist />);
+    await render(
+      <EmulatorProvider>
+        <Gen1Checklist />
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText('STATIC ENCOUNTERS')).not.toBeInTheDocument();
   });
 
   it('does not render if saveData is null', async () => {
-    vi.mocked(store.useStore).mockImplementation((selector) => {
-      const state = {
-        saveData: null,
-      };
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error - Mocking zustand store state
-      return selector(state);
+    useEmulatorStore.setState({
+      saveData: null,
     });
 
-    await render(<Gen1Checklist />);
+    await render(
+      <EmulatorProvider>
+        <Gen1Checklist />
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText('STATIC ENCOUNTERS')).not.toBeInTheDocument();
   });
 
   it('renders correctly when gen1StaticEncounters is undefined', async () => {
-    vi.mocked(store.useStore).mockImplementation((selector) => {
-      const state = {
-        saveData: {
-          generation: 1,
-          gen1StaticEncounters: undefined,
-        },
-      };
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error - Mocking zustand store state
-      return selector(state);
+    useEmulatorStore.setState({
+      saveData: {
+        generation: 1,
+        gen1StaticEncounters: undefined,
+      } as unknown as SaveData,
     });
 
-    await render(<Gen1Checklist />);
+    await render(
+      <EmulatorProvider>
+        <Gen1Checklist />
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText('STATIC ENCOUNTERS')).toBeInTheDocument();
     await expect.element(page.getByText('BULBASAUR')).toBeInTheDocument();

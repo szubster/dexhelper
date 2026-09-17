@@ -1,6 +1,7 @@
 import { useVirtualizer } from '@tanstack/react-virtual';
 import type React from 'react';
 import { useMemo, useRef } from 'react';
+import { useParsedSaveData } from '../../../contexts/EmulatorContext';
 import { RibbonFilterProvider } from '../../../contexts/RibbonFilterContext';
 import { useStore } from '../../../store';
 import { cn } from '../../../utils/cn';
@@ -13,7 +14,7 @@ import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 
 const GlobalRibbonChecklistDashboardContent: React.FC = () => {
-  const saveData = useStore((s) => s.saveData);
+  const saveData = useParsedSaveData();
   const isLivingDex = useStore((s) => s.isLivingDex);
 
   const pokemonList = useMemo(() => {

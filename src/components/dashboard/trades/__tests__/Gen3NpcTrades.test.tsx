@@ -1,16 +1,10 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import * as store from '../../../../store';
+import { EmulatorProvider } from '../../../../contexts/EmulatorContext';
+import { useEmulatorStore } from '../../../../emulator/state/emulatorStore';
+import type { SaveData } from '../../../../engine/saveParser';
 import { Gen3NpcTrades } from '../Gen3NpcTrades';
-
-vi.mock('../../../../store', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('../../../../store')>();
-  return {
-    ...actual,
-    useStore: vi.fn<typeof store.useStore>(),
-  };
-});
 
 describe('Gen3NpcTrades', () => {
   beforeEach(() => {
@@ -18,22 +12,21 @@ describe('Gen3NpcTrades', () => {
   });
 
   it('renders correctly with gen 3 FRLG data', async () => {
-    vi.mocked(store.useStore).mockImplementation((selector) => {
-      const state = {
-        saveData: {
-          generation: 3,
-          gen3NPCTrades: {
-            MIMIEN: true,
-            ZYNX: false,
-          },
+    useEmulatorStore.setState({
+      saveData: {
+        generation: 3,
+        gen3NPCTrades: {
+          MIMIEN: true,
+          ZYNX: false,
         },
-      };
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
-      return selector(state);
+      } as unknown as SaveData,
     });
 
-    await render(<Gen3NpcTrades />);
+    await render(
+      <EmulatorProvider>
+        <Gen3NpcTrades />
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText('IN-GAME TRADES')).toBeInTheDocument();
     await expect.element(page.getByText('MIMIEN')).toBeInTheDocument();
@@ -43,22 +36,21 @@ describe('Gen3NpcTrades', () => {
   });
 
   it('renders correctly with gen 3 RSE data', async () => {
-    vi.mocked(store.useStore).mockImplementation((selector) => {
-      const state = {
-        saveData: {
-          generation: 3,
-          gen3NPCTrades: {
-            RUSTBORO: false,
-            FORTREE: true,
-          },
+    useEmulatorStore.setState({
+      saveData: {
+        generation: 3,
+        gen3NPCTrades: {
+          RUSTBORO: false,
+          FORTREE: true,
         },
-      };
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
-      return selector(state);
+      } as unknown as SaveData,
     });
 
-    await render(<Gen3NpcTrades />);
+    await render(
+      <EmulatorProvider>
+        <Gen3NpcTrades />
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText('IN-GAME TRADES')).toBeInTheDocument();
     await expect.element(page.getByText('RUSTBORO')).toBeInTheDocument();
@@ -68,18 +60,17 @@ describe('Gen3NpcTrades', () => {
   });
 
   it('does not render for gen 2 data', async () => {
-    vi.mocked(store.useStore).mockImplementation((selector) => {
-      const state = {
-        saveData: {
-          generation: 2,
-        },
-      };
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
-      return selector(state);
+    useEmulatorStore.setState({
+      saveData: {
+        generation: 2,
+      } as unknown as SaveData,
     });
 
-    await render(<Gen3NpcTrades />);
+    await render(
+      <EmulatorProvider>
+        <Gen3NpcTrades />
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText('IN-GAME TRADES')).not.toBeInTheDocument();
   });
