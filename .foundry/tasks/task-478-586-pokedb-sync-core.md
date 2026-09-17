@@ -4,8 +4,8 @@ type: TASK
 title: Refactor PokeDB to sync core bundle
 status: READY
 owner_persona: coder
-created_at: '2026-09-17T07:56:29Z'
-updated_at: '2026-09-17T07:56:29Z'
+created_at: '2026-09-17T08:55:53Z'
+updated_at: '2026-09-17T08:55:53Z'
 depends_on: []
 jules_session_id: null
 pr_number: null
