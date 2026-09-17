@@ -54,14 +54,14 @@ export function TacticalCallerCard({ contact, type, details, probability }: Tact
 
   return (
     <div
-      className={`group relative flex flex-col gap-2 rounded-none border-2 border-dashed bg-black/60 p-3 font-mono text-xs transition-colors ${themeColors.border}`}
+      className={`tactical-panel group relative flex flex-col gap-2 border-2 bg-black/60 p-3 text-xs ${themeColors.border}`}
     >
       <LcdGrid className="opacity-10" />
       <HoverScanner colorClass={themeColors.hoverScanner} />
       <CornerCrosshairs className={`h-2 w-2 ${themeColors.crosshairs}`} thickness={2} />
 
       <div
-        className={`absolute top-0 right-0 rounded-none border-b-2 border-l-2 border-dashed px-2 py-1 text-[9px] ${themeColors.probBg} ${themeColors.probBorder} ${themeColors.probText}`}
+        className={`tactical-panel absolute top-0 right-0 border-t-0 border-r-0 border-b-2 border-l-2 px-2 py-1 text-[9px] ${themeColors.probBg} ${themeColors.probBorder} ${themeColors.probText}`}
       >
         PROB: {probability}%
       </div>
@@ -83,7 +83,7 @@ export function TacticalCallerCard({ contact, type, details, probability }: Tact
           <div className="z-10 mt-1 flex flex-col gap-1">
             <div className="flex items-center gap-2">
               <span
-                className={`tactical-text rounded-none border border-dashed px-1.5 py-0.5 text-[9px] ${themeColors.badgeBg} ${themeColors.badgeText}`}
+                className={`tactical-panel tactical-text px-1.5 py-0.5 text-[9px] ${themeColors.badgeBg} ${themeColors.badgeText}`}
               >
                 [ {type} ]
               </span>
