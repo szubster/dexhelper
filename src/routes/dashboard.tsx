@@ -86,6 +86,12 @@ const ActiveCallersDashboard = React.lazy(() =>
   })),
 );
 
+const SmartEggPathfinder = React.lazy(() =>
+  import('../features/pathfinder').then((m) => ({
+    default: m.SmartEggPathfinder,
+  })),
+);
+
 const Gen1Checklist = React.lazy(() =>
   import('../components/dashboard/checklist/Gen1Checklist').then((m) => ({
     default: m.Gen1Checklist,
@@ -138,6 +144,7 @@ function DashboardPage() {
             )}
             <Gen2NpcTrades />
             <ShinyCarrierBreedingDashboard />
+            <SmartEggPathfinder />
           </>
         ) : (
           <Gen1Checklist />

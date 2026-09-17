@@ -27,7 +27,7 @@ locks: []
 Implement the search/dropdown interface for selecting the target Pokémon species and Egg Move.
 
 ## Acceptance Criteria
-- [ ] Implement a dropdown or search interface to select the target Pokémon species.
-- [ ] Implement a selection interface for the desired Egg Move.
-- [ ] Ensure the components adhere strictly to the tactical hardware aesthetic (ADR 008, 024) utilizing rounded-none, border-dashed, and font-mono.
-- [ ] Explicitly integrate these components into the Smart Egg Pathfinder view hierarchy.
+- [x] Implement a dropdown or search interface to select the target Pokémon species.
+- [x] Implement a selection interface for the desired Egg Move.
+- [x] Ensure the components adhere strictly to the tactical hardware aesthetic (ADR 008, 024) utilizing rounded-none, border-dashed, and font-mono.
+- [x] Explicitly integrate these components into the Smart Egg Pathfinder view hierarchy.
