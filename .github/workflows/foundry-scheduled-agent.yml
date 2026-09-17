@@ -66,16 +66,20 @@ jobs:
 
           temp_file=$(mktemp)
 
-          echo "$agent_context" > "$temp_file"
-          echo "" >> "$temp_file"
-          echo "If you determine there is no actionable work to be done during this run, simply state that in your PR and complete your session. An empty PR diff is acceptable and will be closed automatically." >> "$temp_file"
-          echo "" >> "$temp_file"
-          echo "### CRITICAL RULE" >> "$temp_file"
-          echo "1. AUTONOMOUS NO-ASK POLICY: Never ask conversational questions, ask for permission to proceed, or ask whether to open/submit a PR or request code review in chat. Execute all decisions autonomously and call submit immediately when work or demotion steps are ready." >> "$temp_file"
-          echo "" >> "$temp_file"
-          echo "### SCHEMA" >> "$temp_file"
-          echo "https://github.com/${{ github.repository }}/blob/main/.foundry/docs/schema.md" >> "$temp_file"
+          {
+            echo "$agent_context"
+            echo ""
+            echo "If you determine there is no actionable work to be done during this run, simply state that in your PR and complete your session. An empty PR diff is acceptable and will be closed automatically."
+            echo ""
+            echo "### CRITICAL RULE"
+            echo "1. AUTONOMOUS NO-ASK POLICY: Never ask conversational questions, ask for permission to proceed, or ask whether to open/submit a PR or request code review in chat. Execute all decisions autonomously and call submit immediately when work or demotion steps are ready."
+            echo ""
+            echo "### SCHEMA"
+            echo "https://github.com/${{ github.repository }}/blob/main/.foundry/docs/schema.md"
+          } > "$temp_file"
 
           issue_url=$(gh issue create --title "Scheduled Agent: $persona" --body-file "$temp_file")
           echo "Successfully created issue: $issue_url"
           echo "### 🤖 Scheduled Issue: $issue_url" >> "$GITHUB_STEP_SUMMARY"
+
+          rm "$temp_file"
