@@ -26,4 +26,8 @@ locks: []
 Refactor the React Flow DAG visualizer to consume nodes and edges strictly from the new `DagContext`.
 
 ## Acceptance Criteria
-- [ ] Break down into tasks.
+- [x] Break down into tasks.
+- [ ] task-578-589-visualizer-state-refactor
+- [ ] task-578-590-visualizer-ui-refactor
+- [ ] task-578-591-visualizer-unit-tests
+- [ ] task-578-592-visualizer-qa
