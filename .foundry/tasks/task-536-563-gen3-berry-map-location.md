@@ -2,13 +2,13 @@
 id: task-536-563-gen3-berry-map-location
 type: TASK
 title: Map Gen 3 Berry Trees to Locations
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on:
   - task-536-562-gen3-berry-parsing-logic
-jules_session_id: '11372916535378594358'
+jules_session_id: null
 pr_number: null
 parent: story-513-536-gen3-berry-dataview-parsing
 tags:
@@ -28,6 +28,6 @@ locks: []
 Implement the mapping from the `BerryTree` array index to its hardcoded map location in the game (e.g., Route 102, Route 103, etc.).
 
 ## Acceptance Criteria
-- [ ] Create a mapping structure (e.g., array or object) that translates the berry tree array index (0-127) to a string or object representing its map location (route name, city name, etc.).
-- [ ] Integrate this mapping into the parsed berry tree data structure, so each parsed berry patch includes its location information.
-- [ ] Fallback or handle cases gracefully if an unexpected index is queried.
+- [x] Create a mapping structure (e.g., array or object) that translates the berry tree array index (0-127) to a string or object representing its map location (route name, city name, etc.).
+- [x] Integrate this mapping into the parsed berry tree data structure, so each parsed berry patch includes its location information.
+- [x] Fallback or handle cases gracefully if an unexpected index is queried.

@@ -14,6 +14,7 @@ import {
 
 const EVENT_FLAGS_LENGTH = 0x118;
 const MOCK_OUT_OF_BOUNDS_LENGTH = 10;
+const RADIX_BASE_10 = 10;
 
 describe('parseGen1NarrativeFlags', () => {
   it('should handle an absolute zero state correctly for narrative flags', () => {
@@ -90,7 +91,7 @@ describe('parseGen1StaticEncounters', () => {
     const eventFlags = new Uint8Array(EVENT_FLAGS_LENGTH); // all zeros
     const claimed = parseGen1StaticEncounters(eventFlags);
     for (const idStr of Object.keys(STATIC_GIFT_DATA)) {
-      const id = parseInt(idStr, 10);
+      const id = parseInt(idStr, RADIX_BASE_10);
       expect(claimed[id]).toBe(false);
     }
   });
@@ -105,7 +106,7 @@ describe('parseGen1StaticEncounters', () => {
       ([, gift]) => gift.eventFlag !== undefined && gift.eventFlag >> BITS_PER_BYTE_SHIFT >= MOCK_OUT_OF_BOUNDS_LENGTH,
     );
 
-    const outOfBoundsClaimed = outOfBoundsGifts.map(([idStr]) => claimed[parseInt(idStr, 10)]);
+    const outOfBoundsClaimed = outOfBoundsGifts.map(([idStr]) => claimed[parseInt(idStr, RADIX_BASE_10)]);
     expect(outOfBoundsClaimed.every((val) => val === false)).toBe(true);
   });
 
@@ -144,7 +145,7 @@ describe('parseGen1TMFlags', () => {
     const eventFlags = new Uint8Array(EVENT_FLAGS_LENGTH); // all zeros
     const claimed = parseGen1TMFlags(eventFlags);
     for (const idStr of Object.keys(GEN1_TM_EVENT_FLAGS)) {
-      const id = parseInt(idStr, 10);
+      const id = parseInt(idStr, RADIX_BASE_10);
       expect(claimed[id]).toBe(false);
     }
   });
@@ -159,7 +160,7 @@ describe('parseGen1TMFlags', () => {
       ([, flag]) => flag >> BITS_PER_BYTE_SHIFT >= MOCK_OUT_OF_BOUNDS_LENGTH,
     );
 
-    const outOfBoundsClaimed = outOfBoundsGifts.map(([idStr]) => claimed[parseInt(idStr, 10)]);
+    const outOfBoundsClaimed = outOfBoundsGifts.map(([idStr]) => claimed[parseInt(idStr, RADIX_BASE_10)]);
     expect(outOfBoundsClaimed.every((val) => val === false)).toBe(true);
   });
 

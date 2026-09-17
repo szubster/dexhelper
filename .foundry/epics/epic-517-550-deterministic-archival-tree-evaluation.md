@@ -5,18 +5,19 @@ title: Tree Completeness Evaluation and File Moves
 status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-09-08'
+updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: '1763868370260849864'
+jules_session_id: '5919358379686435735'
 pr_number: null
 parent: prd-152-517-deterministic-dag-tree-archival
 tags:
   - foundry
   - infrastructure
   - orchestrator
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Tree Completeness Evaluation and File Moves

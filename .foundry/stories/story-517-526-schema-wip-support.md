@@ -2,10 +2,10 @@
 id: story-517-526-schema-wip-support
 type: STORY
 title: Update Schema with DRAFT and WIP Status Support
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-12'
+updated_at: '2026-09-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -22,7 +22,7 @@ locks: []
 This story involves updating the core Foundry schema in `.foundry/docs/schema.md` to formally support `DRAFT` and `WIP` frontmatter statuses for documentation nodes.
 
 ## Acceptance Criteria
-- [ ] Add `DRAFT` and `WIP` to the list of allowed statuses in `.foundry/docs/schema.md`
-- [ ] Define the lifecycle transitions for these new statuses
+- [x] Add `DRAFT` and `WIP` to the list of allowed statuses in `.foundry/docs/schema.md`
+- [x] Define the lifecycle transitions for these new statuses
 - [x] Break down into Tasks
-- [ ] task-526-564-schema-wip-update
+- [x] task-526-564-schema-wip-update

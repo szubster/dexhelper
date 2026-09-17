@@ -2,10 +2,10 @@
 id: idea-101-pc-box-organization-assistant
 type: IDEA
 title: Gen 1-3 PC Box Organization Assistant
-status: PENDING
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-07-04'
-updated_at: '2026-07-05'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Idea: Gen 1-3 PC Box Organization Assistant
@@ -39,4 +40,4 @@ This feature transforms the limitation of read-only save parsing into an actiona
 - [x] Product Manager: Convert this idea into a PRD to explore sorting algorithms and the UI design for a move planner.
 
 ## Acceptance Criteria
-- [ ] prd-101-106-pc-box-organization-assistant
+- [x] prd-101-106-pc-box-organization-assistant

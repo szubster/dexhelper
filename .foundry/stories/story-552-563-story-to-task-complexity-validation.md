@@ -2,13 +2,13 @@
 id: story-552-563-story-to-task-complexity-validation
 type: STORY
 title: Implement Automated Complexity Validation for STORY to TASK Breakdown
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-11'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on:
   - story-552-562-task-breakdown-policy-doc
-jules_session_id: '16270431381093287173'
+jules_session_id: null
 parent: epic-521-552-task-breakdown-anti-patterns
 tags: []
 rejection_reason: ''
@@ -24,3 +24,6 @@ This story covers the implementation of an automated validation step during the 
 - [ ] Add logic to analyze the number and nature of TASK nodes generated for a STORY
 - [ ] Implement a heuristic to flag potential "Two-Tasks-Max" anti-pattern instances in complex stories
 - [ ] Log warnings or reject PRs that violate modular breakdown constraints
+- [ ] task-563-578-complexity-validation-tests
+- [ ] task-563-579-implement-complexity-validation
+- [ ] task-563-580-qa-complexity-validation

@@ -2,14 +2,18 @@
 id: task-361-496-sorting-algorithms-e2e-qa-retry
 type: TASK
 title: E2E Verification for PC Box Sorting Algorithms - QA (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-09-16'
 depends_on:
   - task-361-495-sorting-algorithms-e2e-impl-retry
 jules_session_id: '3958189168282060270'
 parent: story-136-361-sorting-algorithms-e2e
+locks: []
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-361-495-sorting-algorithms-e2e-impl-retry
 ---
 
 # Task: E2E Verification for PC Box Sorting Algorithms - QA (Retry)

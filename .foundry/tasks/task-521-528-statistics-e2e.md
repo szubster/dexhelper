@@ -5,16 +5,16 @@ title: Write E2E test for Real-Time Statistics Generation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '9551139840514788463'
+jules_session_id: '13743464321920468198'
 pr_number: null
 parent: story-417-521-statistics-e2e
 tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

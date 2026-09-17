@@ -2,10 +2,10 @@
 id: task-526-555-safari-zone-layout-qa
 type: TASK
 title: Safari Zone Layout QA
-status: PENDING
+status: FAILED
 owner_persona: qa
 created_at: '2024-05-24'
-updated_at: '2026-09-09'
+updated_at: '2026-09-17'
 depends_on:
   - task-526-554-safari-zone-layout-components-impl
 jules_session_id: null
@@ -14,7 +14,7 @@ parent: story-325-526-safari-zone-layout-and-route
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---

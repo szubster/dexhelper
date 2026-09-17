@@ -2,12 +2,12 @@
 id: research-360-471-investigate-gen3-roamer-e2e-failure
 type: RESEARCH
 title: Investigate Gen 3 Roamer E2E Test Failure
-status: ACTIVE
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-08-25'
-updated_at: '2026-09-09'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '6214472823306408050'
+jules_session_id: null
 pr_number: null
 parent: story-397-360-gen3-roamer-integration-e2e
 tags:
@@ -16,8 +16,8 @@ tags:
   - e2e
   - research
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

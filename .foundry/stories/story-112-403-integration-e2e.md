@@ -5,7 +5,7 @@ title: Integration and E2E Verification
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-09-11'
+updated_at: '2026-09-17'
 depends_on:
   - story-112-401-gen2-dv-extraction
   - story-112-402-gen3-iv-pv-extraction

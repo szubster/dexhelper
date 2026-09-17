@@ -2,10 +2,10 @@
 id: story-131-474-gen3-substructure-mapping
 type: STORY
 title: Gen 3 Substructure Mapping
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-09-06'
+updated_at: '2026-09-16'
 depends_on:
   - story-131-473-gen3-data-decryption-engine
 jules_session_id: null
@@ -33,10 +33,10 @@ Implement the logic to resolve the substructure order within the decrypted 48-by
 - Expose an API to access these specific blocks easily.
 
 ## Acceptance Criteria
-- [ ] Implement logic to resolve the substructure order.
-- [ ] Expose an API to retrieve specific substructure blocks.
-- [ ] Add unit tests verifying correct mapping for different PV values.
-- [ ] Adhere to schema constraints: Use relative offsets, avoid magic numbers, use module-level constants, and catch RangeError.
-- [ ] task-474-528-gen3-substructure-api-impl
-- [ ] task-474-529-gen3-substructure-api-tests
-- [ ] task-474-530-gen3-substructure-api-qa
+- [x] Implement logic to resolve the substructure order.
+- [x] Expose an API to retrieve specific substructure blocks.
+- [x] Add unit tests verifying correct mapping for different PV values.
+- [x] Adhere to schema constraints: Use relative offsets, avoid magic numbers, use module-level constants, and catch RangeError.
+- [x] task-474-528-gen3-substructure-api-impl
+- [x] task-474-529-gen3-substructure-api-tests
+- [x] task-474-530-gen3-substructure-api-qa

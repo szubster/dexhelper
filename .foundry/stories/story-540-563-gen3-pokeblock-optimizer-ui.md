@@ -2,12 +2,12 @@
 id: story-540-563-gen3-pokeblock-optimizer-ui
 type: STORY
 title: Gen 3 Pokéblock Optimizer UI
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '8207299665081431301'
+jules_session_id: null
 pr_number: null
 parent: epic-518-540-gen3-pokeblock-recipe-optimizer
 tags:
@@ -16,7 +16,7 @@ tags:
   - contests
   - ui
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

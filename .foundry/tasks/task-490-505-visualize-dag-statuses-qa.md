@@ -1,11 +1,11 @@
 ---
 id: task-490-505-visualize-dag-statuses-qa
 type: TASK
-title: "Visualize DAG Statuses QA"
-status: PENDING
+title: Visualize DAG Statuses QA
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-31'
-updated_at: '2026-08-31'
+updated_at: '2026-09-16'
 depends_on:
   - task-490-504-visualize-dag-statuses-impl
 jules_session_id: null
@@ -17,8 +17,11 @@ tags:
   - ui
   - gamification
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-490-504-visualize-dag-statuses-impl
 notes: ''
+locks: []
 ---
 
 # Visualize DAG Statuses QA

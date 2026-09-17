@@ -2,12 +2,12 @@
 id: prd-523-565-component-variants-theming-consolidation-refactor
 type: PRD
 title: PRD Component Variants and Theming Consolidation Refactor
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-13'
-updated_at: '2026-09-14'
+updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: '44966748512047489'
+jules_session_id: null
 pr_number: null
 parent: idea-523-component-variants-theming-consolidation-refactor
 tags:
@@ -57,4 +57,7 @@ The target component library migration scope includes, but is not limited to:
    - Add Playwright visual regression tests to verify component variants render properly and layout styling complies with ADR 008 tactical aesthetics (e.g., sharp edges, dashed borders).
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into Epics to handle CVA setup, core component refactoring, and integration testing.
+- [x] Epic Planner: Break down this PRD into Epics to handle CVA setup, core component refactoring, and integration testing.
+- [ ] epic-565-566-cva-setup
+- [ ] epic-565-567-core-components-refactor
+- [ ] epic-565-568-theming-e2e-verification
