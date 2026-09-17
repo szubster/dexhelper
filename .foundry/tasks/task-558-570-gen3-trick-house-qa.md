@@ -33,4 +33,4 @@ Verify the implementation and unit tests for the Gen 3 Trick House Save Parsing 
 - Review unit tests for thoroughness.
 
 ## Acceptance Criteria
-- [ ] QA verification passed.
+- [x] QA verification passed.
