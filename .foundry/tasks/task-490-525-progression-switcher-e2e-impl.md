@@ -2,13 +2,13 @@
 id: task-490-525-progression-switcher-e2e-impl
 type: TASK
 title: Progression UI Context Switcher E2E Tests
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-16'
+updated_at: '2026-09-17'
 depends_on:
   - task-490-524-progression-sync-e2e-impl
-jules_session_id: '3844169278114053458'
+jules_session_id: null
 pr_number: null
 parent: story-036-490-progression-e2e-verification
 tags:
@@ -18,7 +18,7 @@ tags:
   - integration
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---
