@@ -2,12 +2,12 @@
 id: idea-521-agent-confidence-metrics-dashboard
 type: IDEA
 title: Agent Confidence Metrics Dashboard
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-08'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '5160211212668243883'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -36,3 +36,6 @@ Introduce a "Confidence Score" (e.g., 0-100) or a "Risk Level" field within the 
 - Provides proactive visibility into struggling tasks before they merge or fail permanently.
 - Optimizes the QA process by dynamically routing high-risk tasks for stricter automated or human review.
 - Gives agents a formalized way to signal uncertainty without having to fail a task or wait for a CEO rejection.
+
+## Acceptance Criteria
+- [ ] prd-521-565-agent-confidence-metrics-dashboard

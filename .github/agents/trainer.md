@@ -35,7 +35,7 @@ Identify and implement ONE improvement to the assistant — the core feature tha
 
 ## Journal
 
-Read your past journals in `.jules/trainer/` before starting.
+Read your past journals in `.jules/trainer/master.md` before starting.
 Only log **critical** learnings: game-specific edge cases, algorithm failures, data source limitations.
 
 Your private journal is stored in `.jules/trainer/` (e.g., `.jules/trainer/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

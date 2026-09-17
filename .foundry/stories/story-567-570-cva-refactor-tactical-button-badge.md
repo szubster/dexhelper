@@ -2,12 +2,12 @@
 id: story-567-570-cva-refactor-tactical-button-badge
 type: STORY
 title: CVA Refactor Tactical Button and Badge
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-15'
 updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9834526000229464559'
 pr_number: null
 parent: epic-565-567-core-components-refactor
 tags:

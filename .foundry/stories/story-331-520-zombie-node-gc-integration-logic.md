@@ -5,7 +5,7 @@ title: Zombie Node GC Direct Integration Logic
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-09'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: null
 pr_number: null

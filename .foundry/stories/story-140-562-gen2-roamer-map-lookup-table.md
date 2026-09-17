@@ -2,12 +2,12 @@
 id: story-140-562-gen2-roamer-map-lookup-table
 type: STORY
 title: Gen 2 Roamer Map Lookup Table
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '16321175758121095273'
+jules_session_id: null
 pr_number: null
 parent: epic-043-140-gen2-roamer-map-translation
 tags:
@@ -33,4 +33,5 @@ Create a lookup table or leverage existing `gen2Graph.ts` mapping structures to 
 ## Acceptance Criteria
 - [ ] A mapping structure exists for translating Gen 2 map group and map ID pairs.
 - [ ] The mappings align with standard human-readable route names.
-- [ ] Tech Lead: Break down into executable Tasks.
+- [x] Tech Lead: Break down into executable Tasks.
+- [ ] task-562-576-gen2-map-lookup-impl

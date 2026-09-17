@@ -2,10 +2,10 @@
 id: task-478-510-orchestrator-cloning-qa
 type: TASK
 title: QA - Dynamic Node Cloning and Prompt Adaptation
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-30'
-updated_at: '2026-09-01'
+updated_at: '2026-09-16'
 depends_on:
   - task-478-509-orchestrator-cloning-tests
 jules_session_id: null
@@ -15,8 +15,11 @@ tags:
   - orchestrator
   - qa
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-478-507-orchestrator-cloning-logic
 notes: ''
+locks: []
 ---
 
 # Task: QA - Dynamic Node Cloning and Prompt Adaptation

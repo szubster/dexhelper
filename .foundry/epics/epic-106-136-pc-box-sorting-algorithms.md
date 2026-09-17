@@ -2,10 +2,10 @@
 id: epic-106-136-pc-box-sorting-algorithms
 type: EPIC
 title: PC Box Sorting Algorithms
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-06'
-updated_at: '2026-08-08'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 2
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: PC Box Sorting Algorithms
@@ -44,4 +45,4 @@ Implement reusable sorting strategies (e.g., National Dex order, Type, Level, et
 - [x] story-136-333-sorting-standard-strategies-retry
 - [x] story-136-334-sorting-cross-gen-considerations-retry
 - [x] Break down epic into an E2E verification story.
-- [ ] story-136-361-sorting-algorithms-e2e
+- [x] story-136-361-sorting-algorithms-e2e

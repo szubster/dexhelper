@@ -2,12 +2,12 @@
 id: task-519-546-dashboard-layouts-coder
 type: TASK
 title: Refactor Dashboard Layout Components
-status: FAILED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-03T13:29:59.884Z'
 updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8854969978888488493'
 pr_number: null
 parent: story-125-519-refactor-complex-dashboard
 tags:
@@ -15,8 +15,8 @@ tags:
   - refactor
   - ui
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 100

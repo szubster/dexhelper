@@ -2,12 +2,12 @@
 id: story-556-562-e2e-tests-item-selection-route-display
 type: STORY
 title: E2E Tests for Item Selection and Route Display
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '7292374517878460494'
+jules_session_id: null
 pr_number: null
 parent: epic-521-556-wild-item-e2e-verification
 tags:
@@ -31,4 +31,6 @@ This story is part of the Wild Item E2E Verification epic. It focuses on writing
 - Utilize the \`isMobile\` context fixture if necessary.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks.
+- [x] tech_lead: Break down this Story into Tasks.
+- [ ] task-562-576-item-selection-route-e2e-impl
+- [ ] task-562-577-item-selection-route-e2e-qa

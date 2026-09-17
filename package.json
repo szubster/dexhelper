@@ -2,7 +2,23 @@
   "name": "dexhelper",
   "version": "0.0.0",
   "private": true,
+  "description": "Dexhelper is a React-based web application designed as a Pokédex helper, likely for older generations of Pokémon games (Gen 1 and Gen 2). It includes features for parsing game saves, providing assistance for catching Pokémon, and viewing Pokémon details.",
+  "keywords": [],
+  "homepage": "https://github.com/szubster/dexhelper#readme",
+  "bugs": {
+    "url": "https://github.com/szubster/dexhelper/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szubster/dexhelper.git"
+  },
+  "license": "ISC",
+  "author": "",
   "type": "module",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
   "scripts": {
     "build": "vite build",
     "build:analyze": "ANALYZE=true vite build",
@@ -46,7 +62,8 @@
     "@tanstack/react-router-devtools": "^1.167.2",
     "@tanstack/react-virtual": "3.14.12",
     "@xyflow/react": "^12.11.6",
-    "clsx": "^2.1.1",
+    "class-variance-authority": "^0.7.1",
+    "cn": "^0.3.0",
     "dagre": "^0.8.5",
     "dataloader": "^2.2.3",
     "idb": "^8.0.3",
@@ -54,7 +71,6 @@
     "msgpackr": "^2.1.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "tailwind-merge": "^3.7.0",
     "zustand": "^5.0.15"
   },
   "devDependencies": {

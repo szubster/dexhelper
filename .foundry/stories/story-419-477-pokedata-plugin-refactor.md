@@ -2,12 +2,12 @@
 id: story-419-477-pokedata-plugin-refactor
 type: STORY
 title: Refactor pokedata plugin to emit multiple bundles
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '5412354883755069025'
+jules_session_id: null
 pr_number: null
 parent: epic-340-419-data-splitting
 tags:
@@ -30,7 +30,7 @@ To implement the static Pokedex data splitting, the Vite plugin needs to be upda
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-477-502-pokedata-plugin-refactor-impl
-- [ ] task-477-504-pokedata-plugin-middleware-impl
-- [ ] task-477-505-pokedata-plugin-build-hooks-impl
-- [ ] task-477-503-pokedata-plugin-refactor-qa
+- [x] task-477-502-pokedata-plugin-refactor-impl
+- [x] task-477-504-pokedata-plugin-middleware-impl
+- [x] task-477-505-pokedata-plugin-build-hooks-impl
+- [x] task-477-503-pokedata-plugin-refactor-qa

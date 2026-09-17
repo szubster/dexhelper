@@ -1,8 +1,8 @@
 import { useNavigate } from '@tanstack/react-router';
 import { Skull } from 'lucide-react';
 import React from 'react';
+import { useParsedSaveData } from '../contexts/EmulatorContext';
 import type { PokemonInstance } from '../engine/saveParser/index';
-import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { getTimeCapsuleValidation } from '../utils/timeCapsule';
 import { CapacitySegmentedBar } from './CapacitySegmentedBar';
@@ -153,7 +153,7 @@ const StorageCard = React.memo(
 );
 
 export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
-  const saveData = useStore((s) => s.saveData);
+  const saveData = useParsedSaveData();
   const navigate = useNavigate();
   const handleNavigate = React.useCallback(
     (id: number) => {

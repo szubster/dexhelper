@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import { pokeDB } from '../../../db/PokeDB';
 import type { PokemonMetadata } from '../../../db/schema';
 import { calculateBreedingPairs, type PokemonWithMetadata } from '../../../engine/breeding/pair_algorithm';
+import { calculateShinyOdds } from '../../../engine/breeding/shiny';
 import type { SaveData } from '../../../engine/saveParser';
 import { useStore } from '../../../store';
 import { calculateGen2Gender } from '../../../utils/gender';
@@ -95,7 +96,7 @@ export const ShinyCarrierBreedingDashboard: React.FC = () => {
 
     const pairs = calculateBreedingPairs(allPokemon);
     // Filter to only show optimal pairs (score > 0)
-    return pairs.filter((p) => p.score > 0);
+    return pairs.filter((p) => p.score > 0).map((p) => ({ ...p, shinyOdds: calculateShinyOdds(p.parentA, p.parentB) }));
   }, [saveData, metadataMap]);
 
   if (saveData?.generation !== 2) {
@@ -121,6 +122,7 @@ export const ShinyCarrierBreedingDashboard: React.FC = () => {
             {breedingPairs.map((pair) => {
               const pA = pair.parentA;
               const pB = pair.parentB;
+              const odds = pair.shinyOdds;
 
               return (
                 <div
@@ -165,6 +167,26 @@ export const ShinyCarrierBreedingDashboard: React.FC = () => {
                         {(pB.isShiny || pB.isShinyCarrier) && (
                           <ShinyBadge isShiny={!!pB.isShiny} isShinyCarrier={!!pB.isShinyCarrier} size="sm" />
                         )}
+                      </div>
+                    </div>
+
+                    {/* Shiny Odds */}
+                    <div className="flex flex-col gap-1 border-zinc-800 border-t border-dashed pt-2 text-[10px]">
+                      <div className="flex justify-between">
+                        <span className="text-zinc-400">MALE ODDS:</span>
+                        <span
+                          className={odds.maleOffspringOdds === '1/64' ? 'font-bold text-amber-500' : 'text-zinc-500'}
+                        >
+                          {odds.maleOffspringOdds}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-zinc-400">FEMALE ODDS:</span>
+                        <span
+                          className={odds.femaleOffspringOdds === '1/64' ? 'font-bold text-amber-500' : 'text-zinc-500'}
+                        >
+                          {odds.femaleOffspringOdds}
+                        </span>
                       </div>
                     </div>
                   </div>

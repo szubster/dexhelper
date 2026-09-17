@@ -47,7 +47,7 @@ All Pokémon data is pre-generated at build time and committed to the repo. The 
 
 ## Journal
 
-Read your past journals in `.jules/oak/` before starting.
+Read your past journals in `.jules/oak/master.md` before starting.
 Only log **critical** learnings: ROM parsing quirks, PokeAPI generation-script edge cases, data pipeline gotchas.
 
 Your private journal is stored in `.jules/oak/` (e.g., `.jules/oak/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.

@@ -87,6 +87,7 @@ export const DagFilterPanel = React.memo(function DagFilterPanel({
         type="button"
         aria-label="Toggle permanent failures only"
         title="Toggle permanent failures only"
+        aria-pressed={showPermanentFailures}
         className={`!border-dashed border px-2 py-1 text-xs focus-visible:ring-[var(--theme-primary)] ${
           showPermanentFailures
             ? 'border-red-500 bg-red-950/20 text-red-500 shadow-none'
