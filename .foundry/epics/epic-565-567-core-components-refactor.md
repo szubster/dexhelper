@@ -2,12 +2,12 @@
 id: epic-565-567-core-components-refactor
 type: EPIC
 title: Core Components CVA Refactor
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-14'
 updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: '2930409178042856893'
+jules_session_id: null
 pr_number: null
 parent: prd-523-565-component-variants-theming-consolidation-refactor
 tags:
@@ -34,4 +34,8 @@ Refactor core tactical components to use CVA for variant definitions.
 - Ensure strict TypeScript typing for all component variants.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into Stories.
+- [x] Story Owner: Break down this Epic into Stories.
+- [ ] story-567-569-cva-refactor-tactical-panel-card
+- [ ] story-567-570-cva-refactor-tactical-button-badge
+- [ ] story-567-571-cva-refactor-tactical-inputs
+- [ ] story-567-572-cva-refactor-e2e-verification

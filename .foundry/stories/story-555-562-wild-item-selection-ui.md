@@ -2,12 +2,12 @@
 id: story-555-562-wild-item-selection-ui
 type: STORY
 title: Wild Item Selection UI
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '4194749241385746262'
+jules_session_id: null
 pr_number: null
 parent: epic-521-555-wild-item-hunting-ui
 tags:
@@ -31,4 +31,8 @@ As part of the Wild Item Hunting UI epic, we need a user interface for users to 
 - Ensure styling adheres to the tactical hardware aesthetic guidelines.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks.
+- [x] tech_lead: Break down this Story into Tasks.
+- [ ] task-562-578-wild-item-selection-state
+- [ ] task-562-579-wild-item-selection-ui
+- [ ] task-562-580-wild-item-selection-tests
+- [ ] task-562-581-wild-item-selection-qa

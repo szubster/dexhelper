@@ -2,10 +2,10 @@
 id: story-521-521-gen1-utils-refactor
 type: STORY
 title: Refactor Gen 1 Utility Magic Numbers
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-12'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -27,7 +27,7 @@ In accordance with ADR 028, inline magic numbers must be replaced with module-le
 
 ## Acceptance Criteria
 - [x] Decompose this Story into actionable Task nodes for refactoring Gen 1 utilities.
-- [ ] Ensure all inline magic numbers in `gen1EventFlags.ts` and other Gen 1 utilities are extracted to module-level constants.
-- [ ] task-521-549-refactor-gen1-impl
-- [ ] task-521-550-refactor-gen1-tests
-- [ ] task-521-551-gen1-magic-number-qa
+- [x] Ensure all inline magic numbers in `gen1EventFlags.ts` and other Gen 1 utilities are extracted to module-level constants.
+- [x] task-521-549-refactor-gen1-impl
+- [x] task-521-550-refactor-gen1-tests
+- [x] task-521-551-gen1-magic-number-qa

@@ -2,12 +2,12 @@
 id: story-552-562-gen3-map-core-layout
 type: STORY
 title: Gen 3 Map Core React Architecture & Base Layout
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-10'
+updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10978276206552096553'
 pr_number: null
 parent: epic-424-552-gen3-map-core-ui
 tags:

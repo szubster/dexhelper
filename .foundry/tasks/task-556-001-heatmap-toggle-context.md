@@ -2,11 +2,11 @@
 id: task-556-001-heatmap-toggle-context
 type: TASK
 title: Update DagContext for Heatmap Toggle State
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-11'
-updated_at: '2026-09-13'
-jules_session_id: '15635951764591036265'
+updated_at: '2026-09-16'
+jules_session_id: null
 depends_on: []
 parent: story-535-556-heatmap-toggle-ui
 tags:
@@ -30,5 +30,5 @@ To support toggling the Health Heatmap overlay on the DAG dashboard, we need to 
 4. Include `showHeatmap` and `setShowHeatmap` in the `value` object passed to the `DagContext.Provider`.
 
 ## Acceptance Criteria
-- [ ] DagContext includes `showHeatmap` and `setShowHeatmap`.
-- [ ] DagProvider initializes and provides these values.
+- [x] DagContext includes `showHeatmap` and `setShowHeatmap`.
+- [x] DagProvider initializes and provides these values.

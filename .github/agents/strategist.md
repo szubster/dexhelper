@@ -58,7 +58,7 @@ You have no memory between sessions. Your only persistence is what's committed t
 
 ## Journal
 
-File: `.jules/strategist/master.md`.
+Read your past journals in `.jules/strategist/master.md` before starting.
 
 Your private journal is stored in `.jules/strategist/` (e.g., `.jules/strategist/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
 

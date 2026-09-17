@@ -1,0 +1,36 @@
+---
+id: task-562-576-item-selection-route-e2e-impl
+type: TASK
+title: Write E2E Tests for Item Selection and Route Display
+status: ACTIVE
+owner_persona: coder
+created_at: '2026-09-14'
+updated_at: '2026-09-16'
+depends_on: []
+jules_session_id: '9892232015202761677'
+locks: []
+pr_number: null
+parent: story-556-562-e2e-tests-item-selection-route-display
+priority: 50
+tags:
+  - e2e
+  - integration
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+---
+
+# Task: Write E2E Tests for Item Selection and Route Display
+
+## Context
+This task implements the e2e testing requirements defined in its parent story. It requires writing Playwright tests to ensure the UI correctly handles item selection and displays the appropriate routes and drop rates.
+
+## Requirements
+- Write Playwright tests verifying the item selection dropdown works correctly.
+- Write tests to ensure selecting an item displays the correct recommended routes and encounter rates on the UI.
+- Use the `isMobile` context fixture to account for layout adjustments if necessary.
+- Tests should be written in `tests/e2e/`.
+
+## Acceptance Criteria
+- [ ] coder: Write the e2e tests.

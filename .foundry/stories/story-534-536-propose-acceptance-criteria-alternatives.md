@@ -2,10 +2,10 @@
 id: story-534-536-propose-acceptance-criteria-alternatives
 type: STORY
 title: Propose Acceptance Criteria Alternatives
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-11'
+updated_at: '2026-09-15'
 depends_on:
   - research-534-517-audit-acceptance-criteria
 jules_session_id: null
@@ -34,7 +34,7 @@ Currently, Acceptance Criteria in Foundry are implemented as freeform Markdown t
 
 ## Acceptance Criteria
 - [x] tech_lead: Break down this Story into TASK nodes to implement the new architecture.
-- [ ] task-536-564-schema-leaf-nodes-update
-- [ ] task-536-565-core-policies-parent-nodes-update
-- [ ] task-536-566-ci-checkbox-formatter-script
-- [ ] task-536-567-acceptance-criteria-alternatives-qa
+- [x] task-536-564-schema-leaf-nodes-update
+- [x] task-536-565-core-policies-parent-nodes-update
+- [x] task-536-566-ci-checkbox-formatter-script
+- [x] task-536-567-acceptance-criteria-alternatives-qa

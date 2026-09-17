@@ -2,13 +2,13 @@
 id: task-522-554-living-dex-grid-tests-impl
 type: TASK
 title: Implement Vitest Browser Tests for Living Dex Grid
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on:
   - task-522-553-living-dex-grid-ui-impl
-jules_session_id: '10782786808106234292'
+jules_session_id: null
 pr_number: null
 parent: story-134-522-living-dex-numerical-grid
 tags:
@@ -28,9 +28,9 @@ locks: []
 We need to verify the implementation of the LivingDexGrid and LivingDexCell components using vitest-browser-react.
 
 ## Acceptance Criteria
-- [ ] Write browser rendering tests for LivingDexGrid using vitest-browser-react.
-- [ ] Verify that exactly 386 cells are rendered.
-- [ ] Verify that cells display their respective national dex numbers.
-- [ ] Verify that the component integrates properly into a mock view hierarchy and renders successfully without errors.
-- [ ] Explicitly genericize vi.fn() mocks (e.g. vi.fn<(type: string) => void>()) if testing callback props to satisfy vitest(require-mock-type-parameters).
-- [ ] Do NOT use @testing-library/react or @testing-library/*.
+- [x] Write browser rendering tests for LivingDexGrid using vitest-browser-react.
+- [x] Verify that exactly 386 cells are rendered.
+- [x] Verify that cells display their respective national dex numbers.
+- [x] Verify that the component integrates properly into a mock view hierarchy and renders successfully without errors.
+- [x] Explicitly genericize vi.fn() mocks (e.g. vi.fn<(type: string) => void>()) if testing callback props to satisfy vitest(require-mock-type-parameters).
+- [x] Do NOT use @testing-library/react or @testing-library/*.

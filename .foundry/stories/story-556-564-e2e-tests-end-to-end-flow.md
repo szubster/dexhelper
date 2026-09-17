@@ -2,12 +2,12 @@
 id: story-556-564-e2e-tests-end-to-end-flow
 type: STORY
 title: E2E Tests for Complete End-to-End Flow
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
+updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6131989168416783482'
 pr_number: null
 parent: epic-521-556-wild-item-e2e-verification
 tags:

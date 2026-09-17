@@ -1,19 +1,10 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { parseSaveFile } from './index';
 
 const GEN1_CHECKSUM_DATA_START = 0x2598;
 const GEN2_CHECKSUM_DATA_START = 0x2009;
 const GEN2_CHECKSUM_DATA_END = 0x2d0c;
 const GEN2_CHECKSUM_OFFSET = 0x2d0d;
-
-import * as detectionModule from './utils/detection';
-
-vi.mock('./utils/detection', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('./utils/detection')>();
-  return {
-    ...actual,
-  };
-});
 
 describe('saveParser - Dynamic Offset Shift Detection', () => {
   const HEADER_SIZE = 32768;
@@ -256,12 +247,15 @@ describe('saveParser - Error Handling and Fallbacks', () => {
     buffer[0x288a] = 0x01;
     buffer[0x288b] = 0x00;
 
-    // Mock isGen3Save to return true
-    const isGen3Spy = vi.spyOn(detectionModule, 'isGen3Save').mockReturnValue(true);
+    // To make it structurally valid for Gen 3, it needs to not throw RangeError and have at least 1 signature.
+    // The previous test size is HEADER_SIZE (32768) which is not large enough for Gen3 bounds (needs ~128KB).
+    // So if we make it 128KB, we can test it.
+    const gen3Buffer = new Uint8Array(14 * 4096 * 2);
+    gen3Buffer.set(buffer); // copy over the gen1/gen2 clear bytes
+    const view = new DataView(gen3Buffer.buffer);
+    view.setUint32(0x0ff8, 0x08012025, true);
 
     // Should call parseGen3, which throws 'The save file is corrupted or incomplete.'
-    await expect(() => parseSaveFile(buffer.buffer)).rejects.toThrow('The save file is corrupted or incomplete.');
-
-    isGen3Spy.mockRestore();
+    await expect(() => parseSaveFile(gen3Buffer.buffer)).rejects.toThrow('The save file is corrupted or incomplete.');
   });
 });

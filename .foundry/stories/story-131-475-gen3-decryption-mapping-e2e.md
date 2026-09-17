@@ -2,10 +2,10 @@
 id: story-131-475-gen3-decryption-mapping-e2e
 type: STORY
 title: Gen 3 Decryption and Mapping E2E
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-09-16'
 depends_on:
   - story-131-474-gen3-substructure-mapping
 jules_session_id: null
@@ -20,6 +20,7 @@ research_references:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Gen 3 Decryption and Mapping E2E

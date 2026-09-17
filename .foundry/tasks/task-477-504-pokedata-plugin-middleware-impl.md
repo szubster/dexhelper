@@ -2,10 +2,10 @@
 id: task-477-504-pokedata-plugin-middleware-impl
 type: TASK
 title: Update pokedata plugin middleware for split bundles
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-30'
-updated_at: '2026-08-31'
+updated_at: '2026-09-16'
 depends_on:
   - task-477-502-pokedata-plugin-refactor-impl
 jules_session_id: null
@@ -15,8 +15,11 @@ tags:
   - performance
   - bundles
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-477-502-pokedata-plugin-refactor-impl
 notes: ''
+locks: []
 ---
 
 # Task: Update pokedata plugin middleware for split bundles

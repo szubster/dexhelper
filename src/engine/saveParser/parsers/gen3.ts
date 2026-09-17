@@ -1,4 +1,21 @@
 import {
+  GEN3_ROAMER_OFFSET_EMERALD,
+  GEN3_ROAMER_OFFSET_FRLG,
+  GEN3_ROAMER_OFFSET_RS,
+  ROAMER_ACTIVE_OFFSET,
+  ROAMER_BEAUTY_OFFSET,
+  ROAMER_COOL_OFFSET,
+  ROAMER_CUTE_OFFSET,
+  ROAMER_HP_OFFSET,
+  ROAMER_IVS_OFFSET,
+  ROAMER_LEVEL_OFFSET,
+  ROAMER_PV_OFFSET,
+  ROAMER_SMART_OFFSET,
+  ROAMER_SPECIES_ID_OFFSET,
+  ROAMER_STATUS_OFFSET,
+  ROAMER_TOUGH_OFFSET,
+} from '../gen3/roamer/constants';
+import {
   FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON,
   FLAG_GOT_TM03_FROM_MISTY,
   FLAG_GOT_TM04_FROM_SABRINA,
@@ -58,6 +75,7 @@ import {
  * is determined by `PV % 24`.
  */
 
+import { BERRY_TREE_LOCATIONS } from '../../gen3/berryPatches/berryLocations';
 import { type Gen3FameCheckerData, parseGen3FameChecker } from '../../gen3/fameChecker/parser';
 import { extractFeebasSeed } from '../../gen3/feebas';
 import { parseGen3MatchCall } from '../../gen3/matchCall/parser';
@@ -69,6 +87,7 @@ import {
   parseGen3BattlePoints,
   parseGen3TotalBattlePoints,
 } from '../gen3/battleFrontier/parser';
+import { parseRSBattleTowerWinStreaks } from '../gen3/battleTower/parser';
 import { parseGen3BerryTrees } from '../gen3/berry/parser';
 import {
   CONDITION_BEAUTY_OFFSET,
@@ -80,6 +99,7 @@ import {
 } from '../gen3/conditionStats/constants';
 import { parseGen3Daycare } from '../gen3/daycare/parser';
 import { parseGen3EventItems } from '../gen3/inventory/parser';
+import { parseGen3MysteryGift } from '../gen3/mysteryGift';
 import { parseGen3NarrativeFlags } from '../gen3/narrative/parser';
 import {
   FLAG_BATTLE_FRONTIER_TRADE_DONE,
@@ -144,23 +164,6 @@ const SAVE_BLOCK_A = 0x0000;
 const SAVE_BLOCK_B = 0xe000;
 export const LOWER_16_BIT_MASK = 0xffff;
 const LOWER_8_BIT_MASK = 0xff;
-
-const GEN3_ROAMER_OFFSET_RS = 0x3144;
-const GEN3_ROAMER_OFFSET_EMERALD = 0x31dc;
-const GEN3_ROAMER_OFFSET_FRLG = 0x30d0;
-
-const ROAMER_IVS_OFFSET = 0x00;
-const ROAMER_PV_OFFSET = 0x04;
-const ROAMER_SPECIES_ID_OFFSET = 0x08;
-const ROAMER_HP_OFFSET = 0x0a;
-const ROAMER_LEVEL_OFFSET = 0x0c;
-const ROAMER_STATUS_OFFSET = 0x0d;
-const ROAMER_ACTIVE_OFFSET = 0x13;
-const ROAMER_COOL_OFFSET = 0x0e;
-const ROAMER_BEAUTY_OFFSET = 0x0f;
-const ROAMER_CUTE_OFFSET = 0x10;
-const ROAMER_SMART_OFFSET = 0x11;
-const ROAMER_TOUGH_OFFSET = 0x12;
 
 export const RIBBONS_OFFSET_IN_M = 0x08;
 
@@ -1665,13 +1668,14 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       section3Offset = -1;
     }
 
-    const gen3BerryPatches = parseGen3BerryTrees(view, section1Offset).map((t) => ({
+    const gen3BerryPatches = parseGen3BerryTrees(view, section1Offset).map((t, index) => ({
       ...t,
       stopGrowth: !!t.stopGrowth,
       watered1: !!t.watered1,
       watered2: !!t.watered2,
       watered3: !!t.watered3,
       watered4: !!t.watered4,
+      locationName: BERRY_TREE_LOCATIONS[index] || 'Unknown Location',
     }));
     const gen3SecretBases = parseGen3SecretBases(view, section1Offset, _forcedVersion || 'ruby');
     const gen3StaticEncounters = extractGen3StaticEncounterFlags(view, _forcedVersion || 'ruby', section1Offset);
@@ -1722,6 +1726,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     const mirageIslandValue = parseGen3MirageIslandValue(view, section2Offset + mirageIslandOffset);
 
     let gen3BattleFrontierWinStreaks: Gen3BattleFrontierWinStreaks | undefined;
+    let gen3RSBattleTowerWinStreaks: ReturnType<typeof parseRSBattleTowerWinStreaks> | undefined;
     let gen3BattleFrontierSymbols: Gen3BattleFrontierSymbols | undefined;
     let gen3TotalBattlePoints: number | undefined;
     let gen3BattlePoints: number | undefined;
@@ -1782,6 +1787,12 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       }
       try {
         gen3BattlePoints = parseGen3BattlePoints(view, section2Offset);
+      } catch {
+        // Ignored if missing or corrupted, allowing the rest of the save to load
+      }
+    } else if (_forcedVersion === 'ruby' || _forcedVersion === 'sapphire') {
+      try {
+        gen3RSBattleTowerWinStreaks = parseRSBattleTowerWinStreaks(view, section2Offset);
       } catch {
         // Ignored if missing or corrupted, allowing the rest of the save to load
       }
@@ -1969,6 +1980,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     if (gen3BattleFrontierWinStreaks) {
       result.gen3BattleFrontierWinStreaks = gen3BattleFrontierWinStreaks;
     }
+    if (gen3RSBattleTowerWinStreaks) {
+      result.gen3RSBattleTowerWinStreaks = gen3RSBattleTowerWinStreaks;
+    }
     if (gen3BattleFrontierSymbols) {
       result.gen3BattleFrontierSymbols = gen3BattleFrontierSymbols;
     }
@@ -1997,6 +2011,13 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
 
     if (allSpindas.length > 0) {
       result.gen3Spindas = allSpindas;
+    }
+
+    try {
+      const gen3MysteryGift = parseGen3MysteryGift(view, section1Offset, _forcedVersion || 'ruby');
+      result.gen3MysteryGift = gen3MysteryGift;
+    } catch {
+      // Ignored
     }
 
     return result;
