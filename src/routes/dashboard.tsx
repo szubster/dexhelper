@@ -6,6 +6,10 @@ import { EmptyState } from '../components/EmptyState';
 import { useStore } from '../store';
 
 // ⚡ Bolt: Lazy load generation-specific dashboards to reduce initial bundle size
+const EmulatorProvider = React.lazy(() =>
+  import('../contexts/EmulatorContext').then((m) => ({ default: m.EmulatorProvider })),
+);
+
 const BattleFrontierDashboard = React.lazy(() =>
   import('../components/dashboard/battle-frontier/BattleFrontierDashboard').then((m) => ({
     default: m.BattleFrontierDashboard,
@@ -112,36 +116,38 @@ function DashboardPage() {
   return (
     <div className="mb-20 flex h-full flex-col gap-6 pt-4 pb-[env(safe-area-inset-bottom,16px)] md:mb-0">
       <Suspense fallback={<div className="tactical-skeleton h-32" />}>
-        {saveData.generation === 3 ? (
-          <>
-            <Gen3RoamerDossier saveData={saveData} />
-            <RngCalculatorDashboard />
-            <BattleFrontierDashboard saveData={saveData} />
-            <GlobalRibbonChecklistDashboard />
-            <Gen3SecretBaseDashboard saveData={saveData} />
-            <Gen3EventItemsDashboard saveData={saveData} />
-            <Gen3StaticEncountersDashboard saveData={saveData} />
-            <Gen3TrickHouseDashboard saveData={saveData} />
-            <Gen3NpcTrades />
-            <Gen3TrainerCardDashboard saveData={saveData} />
-          </>
-        ) : saveData.generation === 2 ? (
-          <>
-            <Gen2Checklist />
-            <Gen2SavingsDashboard />
-            <Gen2DecorationsDashboard saveData={saveData} />
-            {saveData.gen2PokegearPhone?.highValueContacts && (
-              <ActiveCallersDashboard
-                contacts={saveData.gen2PokegearPhone.highValueContacts}
-                timerState={{ delayMinsRemaining: 0, timeCyclesSinceLastCall: 0 }}
-              />
-            )}
-            <Gen2NpcTrades />
-            <ShinyCarrierBreedingDashboard />
-          </>
-        ) : (
-          <Gen1Checklist />
-        )}
+        <EmulatorProvider>
+          {saveData.generation === 3 ? (
+            <>
+              <Gen3RoamerDossier saveData={saveData} />
+              <RngCalculatorDashboard />
+              <BattleFrontierDashboard saveData={saveData} />
+              <GlobalRibbonChecklistDashboard />
+              <Gen3SecretBaseDashboard saveData={saveData} />
+              <Gen3EventItemsDashboard saveData={saveData} />
+              <Gen3StaticEncountersDashboard saveData={saveData} />
+              <Gen3TrickHouseDashboard saveData={saveData} />
+              <Gen3NpcTrades />
+              <Gen3TrainerCardDashboard saveData={saveData} />
+            </>
+          ) : saveData.generation === 2 ? (
+            <>
+              <Gen2Checklist />
+              <Gen2SavingsDashboard />
+              <Gen2DecorationsDashboard saveData={saveData} />
+              {saveData.gen2PokegearPhone?.highValueContacts && (
+                <ActiveCallersDashboard
+                  contacts={saveData.gen2PokegearPhone.highValueContacts}
+                  timerState={{ delayMinsRemaining: 0, timeCyclesSinceLastCall: 0 }}
+                />
+              )}
+              <Gen2NpcTrades />
+              <ShinyCarrierBreedingDashboard />
+            </>
+          ) : (
+            <Gen1Checklist />
+          )}
+        </EmulatorProvider>
       </Suspense>
     </div>
   );
