@@ -27,5 +27,5 @@ Modify `.github/workflows/foundry-scheduled-agent.yml` to dispatch GitHub issues
 The job must check out the code, setup Node.js, compile the prompt for the persona via `foundry-orchestrator.ts --compile-scheduled "<persona>"`, and use `gh issue create` to create the issue.
 
 ## Acceptance Criteria
-- [ ] `.github/workflows/foundry-scheduled-agent.yml` is updated to create a GitHub issue.
-- [ ] Jules invocation via API is replaced by the issue creation logic.
+- [x] `.github/workflows/foundry-scheduled-agent.yml` is updated to create a GitHub issue.
+- [x] Jules invocation via API is replaced by the issue creation logic.
