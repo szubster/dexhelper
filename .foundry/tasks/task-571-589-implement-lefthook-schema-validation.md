@@ -24,4 +24,4 @@ locks: []
 Update `lefthook.yml` to include the `validate-foundry-schema` script under the `pre-commit` hook and verify it aborts correctly on malformed files.
 
 ## Acceptance Criteria
-- [ ] Ensure `validate-foundry-schema` is correctly configured in `lefthook.yml` and aborts on malformed files.
+- [x] Ensure `validate-foundry-schema` is correctly configured in `lefthook.yml` and aborts on malformed files.
