@@ -28,8 +28,8 @@ locks: []
 Verify the implementation of the Gen 1 static encounter checklist UI against ADR 008 and ADR 024.
 
 ## Acceptance Criteria
-- [ ] Verify that UI component for the Gen 1 static encounter checklist has been successfully integrated.
-- [ ] Verify strict adherence to ADR 008 tactical hardware aesthetic.
-- [ ] Verify adherence to ADR 024 usage of Tailwind v4 consolidated utilities.
-- [ ] Verify unit tests pass and provide adequate coverage.
-- [ ] Run pnpm lint and pnpm test to ensure project health.
+- [x] Verify that UI component for the Gen 1 static encounter checklist has been successfully integrated.
+- [x] Verify strict adherence to ADR 008 tactical hardware aesthetic.
+- [x] Verify adherence to ADR 024 usage of Tailwind v4 consolidated utilities.
+- [x] Verify unit tests pass and provide adequate coverage.
+- [x] Run pnpm lint and pnpm test to ensure project health.
