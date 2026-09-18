@@ -240,12 +240,12 @@ export const OUTBREAK_LEVEL_OFFSET = 0x14;
 export const OUTBREAK_DAYS_BEFORE_OFFSET = 0x16;
 export const OUTBREAK_LANGUAGE_OFFSET = 0x18;
 
-const POKE_NEWS_OFFSET = 0x2b50;
-const POKE_NEWS_COUNT = 16;
-const POKE_NEWS_SIZE = 4;
-const POKE_NEWS_KIND_OFFSET = 0x00;
-const POKE_NEWS_STATE_OFFSET = 0x01;
-const POKE_NEWS_COUNTDOWN_OFFSET = 0x02;
+export const POKE_NEWS_OFFSET = 0x2b50;
+export const POKE_NEWS_COUNT = 16;
+export const POKE_NEWS_SIZE = 4;
+export const POKE_NEWS_KIND_OFFSET = 0x00;
+export const POKE_NEWS_STATE_OFFSET = 0x01;
+export const POKE_NEWS_COUNTDOWN_OFFSET = 0x02;
 
 const MISC_IV_EGG_ABILITY_OFFSET = 0x04;
 export const MET_LOCATION_OFFSET_IN_M = 1;
@@ -509,42 +509,42 @@ export const FRLG_MOVE_TUTOR_BYTE_2_OFFSET = 0x59;
 export const FRLG_MOVE_TUTOR_BYTE_3_OFFSET = 0x5b;
 export const FRLG_MOVE_TUTOR_BYTE_4_OFFSET = 0x5c;
 
-const FLAG_BYTE_SHIFT = 3;
-const FLAG_BIT_MASK = 7;
+export const FLAG_BYTE_SHIFT = 3;
+export const FLAG_BIT_MASK = 7;
 
-const MOVE_TUTOR_SWAGGER_BIT = 1;
-const MOVE_TUTOR_ROLLOUT_BIT = 2;
-const MOVE_TUTOR_FURY_CUTTER_BIT = 3;
-const MOVE_TUTOR_MIMIC_BIT = 4;
-const MOVE_TUTOR_METRONOME_BIT = 5;
-const MOVE_TUTOR_SLEEP_TALK_BIT = 6;
-const MOVE_TUTOR_SUBSTITUTE_BIT = 7;
+export const MOVE_TUTOR_SWAGGER_BIT = 1;
+export const MOVE_TUTOR_ROLLOUT_BIT = 2;
+export const MOVE_TUTOR_FURY_CUTTER_BIT = 3;
+export const MOVE_TUTOR_MIMIC_BIT = 4;
+export const MOVE_TUTOR_METRONOME_BIT = 5;
+export const MOVE_TUTOR_SLEEP_TALK_BIT = 6;
+export const MOVE_TUTOR_SUBSTITUTE_BIT = 7;
 
-const MOVE_TUTOR_DYNAMIC_PUNCH_BIT = 0;
-const MOVE_TUTOR_DOUBLE_EDGE_BIT = 1;
-const MOVE_TUTOR_EXPLOSION_BIT = 2;
+export const MOVE_TUTOR_DYNAMIC_PUNCH_BIT = 0;
+export const MOVE_TUTOR_DOUBLE_EDGE_BIT = 1;
+export const MOVE_TUTOR_EXPLOSION_BIT = 2;
 
-const FRLG_MOVE_TUTOR_DOUBLE_EDGE_BIT = 0;
-const FRLG_MOVE_TUTOR_THUNDER_WAVE_BIT = 1;
-const FRLG_MOVE_TUTOR_ROCK_SLIDE_BIT = 2;
-const FRLG_MOVE_TUTOR_FRLG_EXPLOSION_BIT = 3;
-const FRLG_MOVE_TUTOR_MEGA_PUNCH_BIT = 4;
-const FRLG_MOVE_TUTOR_MEGA_KICK_BIT = 5;
-const FRLG_MOVE_TUTOR_DREAM_EATER_BIT = 6;
-const FRLG_MOVE_TUTOR_SOFT_BOILED_BIT = 7;
+export const FRLG_MOVE_TUTOR_DOUBLE_EDGE_BIT = 0;
+export const FRLG_MOVE_TUTOR_THUNDER_WAVE_BIT = 1;
+export const FRLG_MOVE_TUTOR_ROCK_SLIDE_BIT = 2;
+export const FRLG_MOVE_TUTOR_FRLG_EXPLOSION_BIT = 3;
+export const FRLG_MOVE_TUTOR_MEGA_PUNCH_BIT = 4;
+export const FRLG_MOVE_TUTOR_MEGA_KICK_BIT = 5;
+export const FRLG_MOVE_TUTOR_DREAM_EATER_BIT = 6;
+export const FRLG_MOVE_TUTOR_SOFT_BOILED_BIT = 7;
 
-const FRLG_MOVE_TUTOR_SUBSTITUTE_BIT = 0;
-const FRLG_MOVE_TUTOR_SWORDS_DANCE_BIT = 1;
-const FRLG_MOVE_TUTOR_SEISMIC_TOSS_BIT = 2;
-const FRLG_MOVE_TUTOR_COUNTER_BIT = 3;
-const FRLG_MOVE_TUTOR_METRONOME_BIT = 4;
-const FRLG_MOVE_TUTOR_MIMIC_BIT = 5;
-const FRLG_MOVE_TUTOR_BODY_SLAM_BIT = 6;
+export const FRLG_MOVE_TUTOR_SUBSTITUTE_BIT = 0;
+export const FRLG_MOVE_TUTOR_SWORDS_DANCE_BIT = 1;
+export const FRLG_MOVE_TUTOR_SEISMIC_TOSS_BIT = 2;
+export const FRLG_MOVE_TUTOR_COUNTER_BIT = 3;
+export const FRLG_MOVE_TUTOR_METRONOME_BIT = 4;
+export const FRLG_MOVE_TUTOR_MIMIC_BIT = 5;
+export const FRLG_MOVE_TUTOR_BODY_SLAM_BIT = 6;
 
-const FRLG_MOVE_TUTOR_FRENZY_PLANT_BIT = 6;
-const FRLG_MOVE_TUTOR_BLAST_BURN_BIT = 7;
+export const FRLG_MOVE_TUTOR_FRENZY_PLANT_BIT = 6;
+export const FRLG_MOVE_TUTOR_BLAST_BURN_BIT = 7;
 
-const FRLG_MOVE_TUTOR_HYDRO_CANNON_BIT = 0;
+export const FRLG_MOVE_TUTOR_HYDRO_CANNON_BIT = 0;
 
 export const GEN3_EMERALD_VARS_OFFSET = 0x139c;
 export const GEN3_RS_VARS_OFFSET = 0x1340;
@@ -1323,7 +1323,7 @@ export function parseGen3TVBlock(view: DataView, offset: number): Gen3TVShow[] {
  * and the second byte acts as an `active` boolean flag.
  *
  * @param view - The raw save file DataView.
- * @param offset - The offset within the buffer to read the value from.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
  * @returns An array of inherited Mix Record events.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
@@ -1681,7 +1681,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     const gen3StaticEncounters = extractGen3StaticEncounterFlags(view, _forcedVersion || 'ruby', section1Offset);
 
     const gen3Pokeblocks = parseGen3Pokeblocks(view, section1Offset, _forcedVersion || 'ruby');
-    const gen3PokeNews = parseGen3PokeNews(view, section1Offset + POKE_NEWS_OFFSET);
+    const gen3PokeNews = parseGen3PokeNews(view, section1Offset);
     const gen3MixRecords = parseGen3MixRecords(view, section1Offset + TV_SHOWS_OFFSET);
     const gen3ActiveSwarm = parseGen3ActiveSwarm(view, section1Offset + TV_SHOWS_OFFSET);
     const gen3VolcanicAsh = parseGen3VolcanicAsh(view, section1Offset, _forcedVersion || 'ruby');
@@ -2136,7 +2136,8 @@ export function parseGen3Ribbons(view: DataView, offset: number): Gen3Ribbons {
  * @returns An array of news events.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3PokeNews(view: DataView, offset: number) {
+export function parseGen3PokeNews(view: DataView, saveBlock1Offset: number) {
+  const offset = saveBlock1Offset + POKE_NEWS_OFFSET;
   try {
     const news = [];
     for (let i = 0; i < POKE_NEWS_COUNT; i++) {

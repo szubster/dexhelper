@@ -26,5 +26,5 @@ locks: []
 Refactor Gen 3 Items and Trades parsers to comply with ADR 028 by replacing inline magic numbers with explicitly defined module-level constants and implementing relative offsets.
 
 ## Acceptance Criteria
-- [ ] Extract magic numbers into module-level constants for parseGen3PokeNews, parseGen3EmeraldMoveTutors, parseGen3SecurityKey, parseGen3ShoalItems, parseGen3TMHMs, parseGen3TMEventFlags, parseGen3RSENPCTrades, parseGen3FRLGNPCTrades, parseGen3FRLGMoveTutors, and parseGen3MetLocation functions
-- [ ] Implement relative offsets using the resolved section offset for these functions
+- [x] Extract magic numbers into module-level constants for parseGen3PokeNews, parseGen3EmeraldMoveTutors, parseGen3SecurityKey, parseGen3ShoalItems, parseGen3TMHMs, parseGen3TMEventFlags, parseGen3RSENPCTrades, parseGen3FRLGNPCTrades, parseGen3FRLGMoveTutors, and parseGen3MetLocation functions
+- [x] Implement relative offsets using the resolved section offset for these functions
