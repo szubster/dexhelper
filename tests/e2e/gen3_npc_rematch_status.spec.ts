@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import type { SaveData } from '../../src/engine/saveParser/parsers/common';
+import type { SaveData } from '../src/engine/saveParser/parsers/common';
 import { clearStorage, initializeWithSave, waitForSync } from './test-utils';
 
 test.describe('Gen 3 NPC Rematch Status E2E', () => {
@@ -11,7 +11,10 @@ test.describe('Gen 3 NPC Rematch Status E2E', () => {
     // 1. Initialize with an emerald save so the basic Gen 3 app components mount.
     await initializeWithSave(page, 'tests/fixtures/emerald.sav');
 
-    // 2. Wait for the initial app load and save parsing to complete.
+    // 2. Explicitly navigate to the dashboard where the Secret Base Rematches component is rendered
+    await page.goto('./dashboard');
+
+    // 3. Wait for the initial app load and save parsing to complete.
     await waitForSync(page);
 
     const isStateInjected = await page.evaluate(() => {
@@ -43,10 +46,8 @@ test.describe('Gen 3 NPC Rematch Status E2E', () => {
     });
 
     expect(isStateInjected).toBe(true);
+    // Give React time to re-render the components
     await page.waitForTimeout(500);
-
-    // Ensure we open Dashboard (in case it wasn't opened). But in mobile Pixel 9, "Ash" failed because there was D'Ash'board match!
-    // So renaming them to 'TrainerAsh' will fix the locator mismatch.
 
     // 4. Verify the dashboard component conditionally renders and displays the expected data
     await expect(page.getByText('SECRET BASE REMATCHES')).toBeVisible({ timeout: 10000 });
