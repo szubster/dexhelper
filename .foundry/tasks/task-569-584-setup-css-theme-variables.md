@@ -39,5 +39,5 @@ Verify and format the multi-theme colors stored as semantic tokens inside `src/i
 6. Add `--color-theme-primary: var(--theme-primary);` and `--color-theme-bg: var(--theme-bg);` to the `@theme` block in `src/index.css`.
 
 ## Acceptance Criteria
-- [ ] Ensure `src/index.css` has `--color-theme-primary: var(--theme-primary);` and `--color-theme-bg: var(--theme-bg);` in its `@theme` block.
-- [ ] Run `pnpm lint` and `pnpm test`.
+- [x] Ensure `src/index.css` has `--color-theme-primary: var(--theme-primary);` and `--color-theme-bg: var(--theme-bg);` in its `@theme` block.
+- [x] Run `pnpm lint` and `pnpm test`.
