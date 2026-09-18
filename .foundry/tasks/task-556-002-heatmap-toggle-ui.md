@@ -35,6 +35,6 @@ We need to add a UI control button to `DagFilterPanel.tsx` that will toggle the 
 9. Pass `showHeatmap` and an `onToggleHeatmap` function (that calls `setShowHeatmap(!showHeatmap)`) down to the `<DagFilterPanel>` component.
 
 ## Acceptance Criteria
-- [ ] DagFilterPanel accepts `showHeatmap` and `onToggleHeatmap` props.
-- [ ] A tactical button `[ HEATMAP_OVERLAY ]` is rendered in DagFilterPanel to toggle the state.
-- [ ] DagDashboard retrieves the heatmap state from context and passes it to the panel.
+- [x] DagFilterPanel accepts `showHeatmap` and `onToggleHeatmap` props.
+- [x] A tactical button `[ HEATMAP_OVERLAY ]` is rendered in DagFilterPanel to toggle the state.
+- [x] DagDashboard retrieves the heatmap state from context and passes it to the panel.
