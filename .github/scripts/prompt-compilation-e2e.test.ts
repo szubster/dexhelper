@@ -50,7 +50,7 @@ describe('Prompt Compilation E2E', () => {
         const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
 
         process.argv.push('--include-prompt');
-        await main();
+        main();
         process.argv.splice(process.argv.indexOf('--include-prompt'), 1);
 
         expect(logSpy).toHaveBeenCalled();
@@ -65,7 +65,7 @@ describe('Prompt Compilation E2E', () => {
                         parsedOutput = parsed;
                         break;
                     }
-                } catch (e) {
+                } catch {
                     // ignore parse errors for normal logs
                 }
             }
