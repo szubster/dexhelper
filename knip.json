@@ -10,8 +10,7 @@
   "ignore": [
     "src/test-setup.ts",
     "src/contexts/binjgb/index.ts",
-    "src/hooks/useBinjgb.ts", "src/hooks/usePokerusSpreadPlanner.ts",
-
+    "src/hooks/useBinjgb.ts",
     ".github/scripts/extract-research.ts",
     "scripts/gen3-fetch-locations.ts",
     "functions/_middleware.ts",
@@ -23,6 +22,7 @@
     ".github/scripts/archival-filtering.ts",
     ".github/scripts/update-idea-matrix.ts",
     "src/engine/saveParser/parsers/gen2.ts",
+    ".github/scripts/generate-statistics.ts",
     "src/engine/exclusives/gen3Exclusives.ts",
     ".github/scripts/schema.ts",
     "src/features/pathfinder/**",
