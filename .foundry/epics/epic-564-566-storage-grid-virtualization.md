@@ -33,4 +33,6 @@ As defined in `prd-517-564-optimize-pokedex-grid-rendering`, the `StorageGrid` c
 5. Adhere to tactical hardware aesthetics (ADR 008).
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-566-580-virtualize-storage-grid-impl
+- [ ] story-566-581-storage-grid-virtualization-e2e
