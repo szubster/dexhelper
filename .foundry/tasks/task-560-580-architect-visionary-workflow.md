@@ -26,4 +26,4 @@ locks: []
 Create the .github/workflows/schedule-code-architect.yml workflow file.
 
 ## Acceptance Criteria
-- [ ] Create .github/workflows/schedule-code-architect.yml
+- [x] Create .github/workflows/schedule-code-architect.yml
