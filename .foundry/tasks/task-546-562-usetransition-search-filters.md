@@ -2,7 +2,7 @@
 id: task-546-562-usetransition-search-filters
 type: TASK
 title: Implement useTransition in SearchAndFilters
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-05'
 updated_at: '2026-09-18'
@@ -14,8 +14,8 @@ tags:
   - react
   - typescript
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
