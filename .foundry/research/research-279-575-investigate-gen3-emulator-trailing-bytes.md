@@ -2,12 +2,12 @@
 id: research-279-575-investigate-gen3-emulator-trailing-bytes
 type: RESEARCH
 title: Investigate Gen 3 Emulator Trailing Bytes Implementation Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-16T11:11:17Z'
-updated_at: '2026-09-16T11:11:17Z'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9698158067292235669'
 pr_number: null
 parent: story-081-279-gen3-ignore-emulator-trailing-bytes
 tags:

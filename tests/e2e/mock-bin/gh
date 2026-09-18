@@ -1,0 +1,4 @@
+#!/bin/bash
+if [[ "$1" == "pr" && "$2" == "list" ]]; then
+    echo '[{"state": "OPEN"}, {"state": "MERGED"}, {"state": "CLOSED"}]'
+fi

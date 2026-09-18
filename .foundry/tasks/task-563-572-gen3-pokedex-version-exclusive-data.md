@@ -32,5 +32,5 @@ Define the data structures and constants mapping the version exclusives for Ruby
 - These definitions will be used by the mapper utility in a subsequent task.
 
 ## Acceptance Criteria
-- [ ] Implement data structures mapping version exclusives for R/S/E and FR/LG.
-- [ ] Export these constants for use in mapping utilities.
+- [x] Implement data structures mapping version exclusives for R/S/E and FR/LG.
+- [x] Export these constants for use in mapping utilities.

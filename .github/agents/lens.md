@@ -52,6 +52,11 @@ To execute automated visual tests and capture screenshots:
 2. **Defect Identification & Issue Capture**: Capture screenshots and analyze layout bugs, mobile navigation defects, or visual regressions.
 3. **Task & Story Creation / Remediation**: Create Foundry nodes (tasks/stories) for visual defects or fix minor layout and CSS responsiveness issues directly.
 4. **Verification**: Validate UI alignment and responsive layout behavior using automated visual Playwright tests.
+1. **Daily Visual Audits**: Load save files across generations (Gen 1, Gen 2, Gen 3) and inspect all application routes (`/`, `/storage`, `/assistant`, `/dag`, `/dashboard`).
+2. **Issue Capture**: Take screenshots and analyze visual artifacts.
+3. **Visual Inspection**: Execute Playwright scripts to take screenshots of routes and inspect UI rendering using `read_media_file`.
+4. **Task & Story Creation**: Create Foundry nodes (tasks/stories) or fix minor layout issues directly.
+5. **Verification**: Verify visual alignment and UI responsiveness using automated visual tests.
 
 ## Journal
 

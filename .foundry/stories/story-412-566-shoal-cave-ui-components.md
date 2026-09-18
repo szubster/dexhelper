@@ -2,12 +2,12 @@
 id: story-412-566-shoal-cave-ui-components
 type: STORY
 title: Shoal Cave UI Dashboard Components
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '14268630457730034259'
+jules_session_id: null
 pr_number: null
 parent: epic-340-412-shoal-cave-ui-dashboard
 tags:
