@@ -2,13 +2,13 @@
 id: task-136-491-permanent-failure-kanban-ui-impl
 type: TASK
 title: Implement Permanent Failure Kanban UI
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-25'
-updated_at: '2026-09-11'
+updated_at: '2026-09-18'
 depends_on:
   - task-136-489-permanent-failure-state-selectors-impl
-jules_session_id: '17599828616280809867'
+jules_session_id: null
 pr_number: null
 parent: story-047-136-permanent-failure-dashboard-ui
 tags:
@@ -17,8 +17,8 @@ tags:
   - dashboard
   - kanban
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

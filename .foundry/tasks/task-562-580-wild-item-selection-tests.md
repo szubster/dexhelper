@@ -2,10 +2,10 @@
 id: task-562-580-wild-item-selection-tests
 type: TASK
 title: Wild Item Selection Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
+updated_at: '2026-09-16'
 depends_on:
   - task-562-579-wild-item-selection-ui
 jules_session_id: null

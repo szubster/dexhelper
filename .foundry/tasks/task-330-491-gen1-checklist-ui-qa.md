@@ -2,13 +2,13 @@
 id: task-330-491-gen1-checklist-ui-qa
 type: TASK
 title: QA Gen 1 Checklist UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-09-15'
+updated_at: '2026-09-18'
 depends_on:
   - task-330-490-gen1-checklist-ui-tests
-jules_session_id: '4368285111632417706'
+jules_session_id: null
 pr_number: null
 parent: story-136-330-gen1-checklist-ui-retry
 tags:
@@ -28,8 +28,8 @@ locks: []
 Verify the implementation of the Gen 1 static encounter checklist UI against ADR 008 and ADR 024.
 
 ## Acceptance Criteria
-- [ ] Verify that UI component for the Gen 1 static encounter checklist has been successfully integrated.
-- [ ] Verify strict adherence to ADR 008 tactical hardware aesthetic.
-- [ ] Verify adherence to ADR 024 usage of Tailwind v4 consolidated utilities.
-- [ ] Verify unit tests pass and provide adequate coverage.
-- [ ] Run pnpm lint and pnpm test to ensure project health.
+- [x] Verify that UI component for the Gen 1 static encounter checklist has been successfully integrated.
+- [x] Verify strict adherence to ADR 008 tactical hardware aesthetic.
+- [x] Verify adherence to ADR 024 usage of Tailwind v4 consolidated utilities.
+- [x] Verify unit tests pass and provide adequate coverage.
+- [x] Run pnpm lint and pnpm test to ensure project health.

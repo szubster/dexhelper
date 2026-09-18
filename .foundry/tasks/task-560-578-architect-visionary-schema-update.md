@@ -2,10 +2,10 @@
 id: task-560-578-architect-visionary-schema-update
 type: TASK
 title: Update Schema for Architect Visionary Persona
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-12T00:00:00Z'
-updated_at: '2026-09-12T00:00:00Z'
+updated_at: '2026-09-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -25,4 +25,4 @@ locks: []
 Update the schema to include the architect_visionary persona enum.
 
 ## Acceptance Criteria
-- [ ] Update .github/scripts/schema.ts
+- [x] Update .github/scripts/schema.ts

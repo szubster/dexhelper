@@ -2,10 +2,10 @@
 id: story-530-535-curator-e2e-integration
 type: STORY
 title: Curator Persona E2E Integration
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-06'
+updated_at: '2026-09-17'
 depends_on:
   - story-530-533-schema-curator-persona
   - story-530-534-curator-agent-base
@@ -28,7 +28,7 @@ locks: []
 Verify the E2E integration of the \`curator\` persona within the Foundry system, ensuring that the persona is successfully loaded and parsed by the orchestrator and any relevant testing suites.
 
 ## Acceptance Criteria
-- [ ] Implement E2E verification for the Curator persona
-- [ ] task-535-549-curator-fixture-coder
-- [ ] task-535-550-curator-e2e-coder
-- [ ] task-535-551-curator-e2e-qa
+- [x] Implement E2E verification for the Curator persona
+- [x] task-535-549-curator-fixture-coder
+- [x] task-535-550-curator-e2e-coder
+- [x] task-535-551-curator-e2e-qa

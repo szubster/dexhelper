@@ -151,3 +151,67 @@ describe('Feature Flag Core Logic', () => {
         expect(result).not.toContain("flags.MY_FEATURE");
     });
 });
+
+describe('Feature Flag else if logic', () => {
+    it('should graduate feature flags in else if', () => {
+        const project = new Project();
+        const sourceFile = project.createSourceFile('test-else-if.ts', `
+            if (cond) {
+              a();
+            } else if (flags.MY_FEATURE) {
+              b1();
+              b2();
+            } else {
+              c();
+            }
+        `);
+
+        graduateFeatureFlag(sourceFile, 'MY_FEATURE');
+
+        const result = sourceFile.getText();
+        expect(result).toContain("b1();");
+        expect(result).toContain("b2();");
+        expect(result).not.toContain("flags.MY_FEATURE");
+        expect(result).not.toContain("c();");
+    });
+
+    it('should graduate negative feature flags in else if', () => {
+        const project = new Project();
+        const sourceFile = project.createSourceFile('test-else-if.ts', `
+            if (cond) {
+              a();
+            } else if (!flags.MY_FEATURE) {
+              b1();
+              b2();
+            } else {
+              c();
+            }
+        `);
+
+        graduateFeatureFlag(sourceFile, 'MY_FEATURE');
+
+        const result = sourceFile.getText();
+        expect(result).toContain("c();");
+        expect(result).not.toContain("flags.MY_FEATURE");
+        expect(result).not.toContain("b1();");
+    });
+
+    it('should graduate negative feature flags in else if with no else', () => {
+        const project = new Project();
+        const sourceFile = project.createSourceFile('test-else-if.ts', `
+            if (cond) {
+              a();
+            } else if (!flags.MY_FEATURE) {
+              b1();
+              b2();
+            }
+        `);
+
+        graduateFeatureFlag(sourceFile, 'MY_FEATURE');
+
+        const result = sourceFile.getText();
+        expect(result).toContain("{}");
+        expect(result).not.toContain("flags.MY_FEATURE");
+        expect(result).not.toContain("b1();");
+    });
+});

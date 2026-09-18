@@ -2,12 +2,12 @@
 id: task-518-528-binjgb-bindings-impl
 type: TASK
 title: Implement Javascript bindings for binjgb save extraction
-status: FAILED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18041727401462760380'
 pr_number: null
 parent: story-426-518-binjgb-memory-sync
 tags:
@@ -16,8 +16,8 @@ tags:
   - gen1
   - gen2
 research_references: []
-rejection_count: 1
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

@@ -2,13 +2,13 @@
 id: epic-339-407-gen3-bike-item-gating-integration
 type: EPIC
 title: Item Gating Integration
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-08'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on:
   - epic-339-406-gen3-bike-requirement-route-mapping
-jules_session_id: '10337093646133657711'
+jules_session_id: null
 pr_number: null
 parent: prd-128-339-gen3-acro-bike-route-planner
 tags:
@@ -29,5 +29,8 @@ Introduce a "Bike Requirement Filter" to DexHelper's Smart Route Radar or intera
 Item Gating: If a route contains hidden items or TMs (tracked via save flags), explicitly note if reaching that item requires a specific bike. For example, "TM13 Ice Beam (Abandoned Ship) - Requires Dive & Storage Key."
 
 ## Acceptance Criteria
-- [ ] story_owner: Break down this Epic into Stories.
-- [ ] story_owner: Ensure one final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [x] story_owner: Break down this Epic into Stories.
+- [x] story_owner: Ensure one final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [ ] story-407-573-item-gating-data-mapping
+- [ ] story-407-574-item-gating-ui-filter
+- [ ] story-407-575-item-gating-e2e-verification

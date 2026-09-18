@@ -2,12 +2,12 @@
 id: story-081-279-gen3-ignore-emulator-trailing-bytes
 type: STORY
 title: Gracefully Ignore Emulator Trailing Bytes in Gen 3 Save Files
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-06'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '5172800595991150977'
+jules_session_id: null
 pr_number: null
 parent: epic-047-081-gen3-tv-swarm-data-extraction
 tags:
@@ -28,5 +28,9 @@ As required by ADR 025 and to replace the cancelled tasks from the previous fall
 
 ## Acceptance Criteria
 - [ ] Ensure that save file parsing engines gracefully ignore trailing emulator bytes without crashing.
-- [ ] task-279-304-gen3-ignore-emulator-trailing-bytes-impl
-- [ ] task-279-305-gen3-ignore-emulator-trailing-bytes-qa
+- [x] task-279-304-gen3-ignore-emulator-trailing-bytes-impl
+- [x] task-279-305-gen3-ignore-emulator-trailing-bytes-qa
+- [ ] research-279-575-investigate-gen3-emulator-trailing-bytes
+- [ ] task-279-581-gen3-ignore-emulator-trailing-bytes-fixtures
+- [ ] task-279-582-gen3-ignore-emulator-trailing-bytes-impl-v2
+- [ ] task-279-583-gen3-ignore-emulator-trailing-bytes-qa-v2

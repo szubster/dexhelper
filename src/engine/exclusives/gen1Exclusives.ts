@@ -32,6 +32,8 @@ export const GEN1_VERSION_EXCLUSIVES: Record<string, number[]> = {
     23,
     24, // Ekans, Arbok
     26, // Raichu
+    37,
+    38, // Vulpix, Ninetales
     52,
     53, // Meowth, Persian
     109,
