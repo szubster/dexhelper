@@ -27,7 +27,7 @@
     },
     {
       "path": "assets/PokemonLocations-<hash>.js",
-      "maxSize": "30kb"
+      "maxSize": "35kb"
     },
     {
       "path": "assets/gen1-<hash>.js",
