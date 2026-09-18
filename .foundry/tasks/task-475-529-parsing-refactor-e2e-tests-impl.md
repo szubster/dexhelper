@@ -2,13 +2,13 @@
 id: task-475-529-parsing-refactor-e2e-tests-impl
 type: TASK
 title: Implement E2E Tests for Parsing Refactor Data Flow
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-17'
+updated_at: '2026-09-18'
 depends_on:
   - task-475-528-parsing-refactor-e2e-mock-data
-jules_session_id: null
+jules_session_id: '5670705047275712694'
 pr_number: null
 parent: story-071-475-refactor-parsing-e2e
 tags:
