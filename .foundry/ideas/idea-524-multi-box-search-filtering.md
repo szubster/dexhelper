@@ -40,4 +40,5 @@ Features should include:
 This directly addresses a massive pain point for hardcore players and collectors (the primary demographic for DexHelper). It elevates DexHelper from a simple "save viewer" into a powerful "save manager/analyzer," maintaining the 50/50 balance of prioritizing high-impact product features.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a PRD detailing the search query syntax, filter toggles, and UX for the multi-box search highlighting.
+- [x] Product Manager: Draft a PRD detailing the search query syntax, filter toggles, and UX for the multi-box search highlighting.
+- [ ] prd-524-566-multi-box-search-filtering
