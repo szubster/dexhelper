@@ -10,18 +10,25 @@
   "ignore": [
     "src/test-setup.ts",
     "src/contexts/binjgb/index.ts",
-    "src/hooks/useBinjgb.ts",
+    "src/hooks/useBinjgb.ts", "src/hooks/usePokerusSpreadPlanner.ts",
 
     ".github/scripts/extract-research.ts",
     "scripts/gen3-fetch-locations.ts",
     "functions/_middleware.ts",
     "functions/api/saves/index.ts",
     "functions/api/saves/[id].ts",
+    "functions/utils/google-drive-auth.ts",
     "src/engine/saveParser/utils/index.ts",
     ".github/scripts/aggregate-journals.ts",
+    ".github/scripts/archival-filtering.ts",
+    ".github/scripts/update-idea-matrix.ts",
     "src/engine/saveParser/parsers/gen2.ts",
     "src/engine/exclusives/gen3Exclusives.ts",
-    ".github/scripts/schema.ts"
+    ".github/scripts/schema.ts",
+    "src/features/pathfinder/**",
+    "src/utils/pagination/index.ts",
+    "benchmarks/**",
+    "tests/benchmarks/**"
   ],
   "rules": {
     "files": "warn",

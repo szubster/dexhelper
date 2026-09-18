@@ -2,12 +2,12 @@
 id: task-560-568-battle-frontier-dashboard-e2e-coder
 type: TASK
 title: Implement Battle Frontier Dashboard E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-12'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: '4003025147650337980'
+jules_session_id: null
 pr_number: null
 parent: story-079-560-battle-frontier-dashboard-e2e
 tags:
@@ -27,9 +27,9 @@ locks: []
 Create Playwright E2E tests to verify the integration of the Battle Frontier Dashboard UI, including facility cards, BP wallet display, and progress visuals.
 
 ## Acceptance Criteria
-- [ ] Create E2E test file for the Battle Frontier Dashboard.
-- [ ] Test that the BP wallet is correctly displayed.
-- [ ] Test that all facility cards (Tower, Dome, Palace, Arena, Factory, Pike, Pyramid) render correctly based on save data.
-- [ ] Test progress visuals for each facility (e.g., current win streak, next encounter threshold).
-- [ ] Utilize `locator.or()` with `.first()` for any conditional element waiting, as mandated by E2E best practices.
-- [ ] Utilize the `isMobile` fixture to ensure tests pass on both desktop and mobile viewports.
+- [x] Create E2E test file for the Battle Frontier Dashboard.
+- [x] Test that the BP wallet is correctly displayed.
+- [x] Test that all facility cards (Tower, Dome, Palace, Arena, Factory, Pike, Pyramid) render correctly based on save data.
+- [x] Test progress visuals for each facility (e.g., current win streak, next encounter threshold).
+- [x] Utilize `locator.or()` with `.first()` for any conditional element waiting, as mandated by E2E best practices.
+- [x] Utilize the `isMobile` fixture to ensure tests pass on both desktop and mobile viewports.

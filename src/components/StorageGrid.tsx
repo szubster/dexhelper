@@ -1,8 +1,8 @@
 import { useNavigate } from '@tanstack/react-router';
 import { Skull } from 'lucide-react';
 import React from 'react';
+import { useParsedSaveData } from '../contexts/EmulatorContext';
 import type { PokemonInstance } from '../engine/saveParser/index';
-import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { getTimeCapsuleValidation } from '../utils/timeCapsule';
 import { CapacitySegmentedBar } from './CapacitySegmentedBar';
@@ -152,8 +152,14 @@ const StorageCard = React.memo(
   },
 );
 
-export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
-  const saveData = useStore((s) => s.saveData);
+// ⚡ Bolt: Wrapped StorageGrid in React.memo and memoized storageLocations array creation to prevent
+// unnecessary re-renders and eliminate array allocations on every render pass.
+export const StorageGrid = React.memo(function StorageGrid({
+  pokemonList,
+}: {
+  pokemonList: { id: number; name: string }[];
+}) {
+  const saveData = useParsedSaveData();
   const navigate = useNavigate();
   const handleNavigate = React.useCallback(
     (id: number) => {
@@ -202,14 +208,19 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
     return map;
   }, [saveData, pokemonMap]);
 
+  const storageLocations = React.useMemo(() => {
+    if (!saveData) return [];
+    const genConfig = getGenerationConfig(saveData.generation);
+    const locations = ['Party', 'Daycare'];
+    for (let i = 1; i <= genConfig.boxCount; i++) {
+      locations.push(`Box ${i}`);
+    }
+    return locations;
+  }, [saveData]);
+
   if (!saveData) return null;
 
   const genConfig = getGenerationConfig(saveData.generation);
-  const storageLocations = [
-    'Party',
-    'Daycare',
-    ...Array.from({ length: genConfig.boxCount }, (_, i) => `Box ${i + 1}`),
-  ];
 
   return (
     <div className="fade-in animate-in space-y-16 duration-500">
@@ -303,4 +314,4 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
       })}
     </div>
   );
-}
+});

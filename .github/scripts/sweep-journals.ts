@@ -57,7 +57,7 @@ export function sweepJournals(repoRoot: string, options: SweepJournalsOptions = 
               const content = fs.readFileSync(fullPath, 'utf-8');
               const parsed = matter(content);
 
-              if (parsed.data && parsed.data.processed === true) {
+              if (parsed.data && parsed.data["processed"] === true) {
                 shouldSweep = true;
               }
             }

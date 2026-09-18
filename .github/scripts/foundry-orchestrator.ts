@@ -366,6 +366,8 @@ function compilePromptForNode(node: ParsedNode, repoRoot: string): string {
     if (fs.existsSync(layerPath)) {
       const layerContent = fs.readFileSync(layerPath, 'utf-8');
       combined += `\n\n### SPECIFIC CONTEXT: ${layer.toUpperCase()}\n${layerContent}`;
+    } else {
+      warn(`Requested tag/layer file does not exist: ${layerPath}`);
     }
   }
 

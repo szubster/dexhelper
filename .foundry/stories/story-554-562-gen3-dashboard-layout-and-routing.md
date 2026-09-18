@@ -5,9 +5,9 @@ title: Gen 3 Dashboard Layout and Routing
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-14'
+updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: '11383604625813201440'
+jules_session_id: '6790209877834342911'
 pr_number: null
 parent: epic-520-554-gen3-transition-dashboard
 tags:
@@ -16,6 +16,7 @@ tags:
 research_references: []
 locks: []
 rejection_reason: ''
+rejection_count: 1
 ---
 
 # Story: Gen 3 Dashboard Layout and Routing

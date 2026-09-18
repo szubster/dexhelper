@@ -47,6 +47,16 @@ export const DagNode = React.memo(function DagNode({ data }: { data: DagNodeData
         bgClass = 'bg-red-900/40 border-red-500 border-2 brightness-125';
       }
       break;
+    case 'CANCELLED':
+      statusColor = 'text-zinc-500';
+      bgClass = 'bg-zinc-900/50 border-white/20';
+      if (data.rejection_count >= maxRejectionThreshold) {
+        statusColor = 'text-red-500';
+        dotColor = 'text-red-500';
+        isPermanentFailure = true;
+        bgClass = 'bg-red-900/40 border-red-500 border-2 brightness-125';
+      }
+      break;
     case 'READY':
       statusColor = 'text-amber-500';
       dotColor = 'text-amber-500';

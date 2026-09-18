@@ -2,12 +2,12 @@
 id: story-553-563-gen3-map-data-extraction
 type: STORY
 title: Gen 3 Map Data Extraction (Offsets & Binary Parsing)
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '7533889021956296995'
+jules_session_id: null
 pr_number: null
 parent: epic-424-553-gen3-map-data-engine
 tags:
@@ -33,4 +33,8 @@ Extract the binary data representing the player location, roamer positions, berr
 - Return extracted data in an application-friendly `PokeData` schema format, adhering to the PokeData Property Naming Schema.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into TASK nodes (e.g., logic implementation, unit tests, QA).
+- [x] Tech Lead: Break down into TASK nodes (e.g., logic implementation, unit tests, QA).
+- [ ] task-563-581-map-data-types
+- [ ] task-563-582-map-data-extraction-logic
+- [ ] task-563-583-map-data-tests
+- [ ] task-563-584-map-data-qa

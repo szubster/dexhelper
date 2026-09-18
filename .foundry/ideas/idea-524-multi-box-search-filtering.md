@@ -2,12 +2,12 @@
 id: idea-524-multi-box-search-filtering
 type: IDEA
 title: Multi-Box Advanced Search and Filtering System
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-09-14'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1602137279398163470'
 pr_number: null
 parent: null
 tags:

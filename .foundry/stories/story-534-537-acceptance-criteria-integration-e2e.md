@@ -2,13 +2,13 @@
 id: story-534-537-acceptance-criteria-integration-e2e
 type: STORY
 title: Acceptance Criteria Integration and E2E
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on:
   - story-534-536-propose-acceptance-criteria-alternatives
-jules_session_id: null
+jules_session_id: '144418105092739486'
 pr_number: null
 parent: epic-520-534-acceptance-criteria-research
 tags:

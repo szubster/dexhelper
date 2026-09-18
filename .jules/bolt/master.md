@@ -64,3 +64,9 @@ Explored the application for performance optimization opportunities. Analysis of
 Given the read-only, statically laid out nature of our DAG visualization (which already uses `dagre` for layouting), this heavy dependency is overkill and introduces unnecessary DOM and memory bloat.
 
 Based on feedback, the 2D canvas of nodes is also hard to parse for users trying to understand specific task hierarchies. I created an `IDEA` node (`idea-418-replace-xyflow-with-custom-dag`) proposing a custom, lightweight directory tree visualization using nested standard React/Tailwind lists to replace `@xyflow/react` and remove the `dagre` dependency entirely. This follows a similar successful optimization previously applied to `BattleFrontierDashboard`.
+
+
+---
+
+## Journal
+- When extracting visual state changes (like high-frequency interval updates) to reduce main-thread rendering overhead, isolate them into leaf components rather than deleting the feature altogether to respect the "preserve existing behaviors" guideline.

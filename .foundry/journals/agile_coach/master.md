@@ -74,3 +74,13 @@ I identified that the "Orchestrator Safeguard (E2E/Integration Requirement)" was
 ## Process Improvements
 - **Issue Detected:** Analyzed QA and Tech Lead journals and found recurring friction (rejections) caused by Coders violating Section 13 (Save File Parsing & Extraction Guidelines) by using magic numbers (like `8`) and improper `RangeError` handling.
 - **Action Taken:** Generated a new IDEA node (`idea-517-automated-magic-number-linter.md`) to propose adding a strict ESLint/Biome rule that blocks magic bitwise numbers during pre-commit, shifting left the prevention of these errors to the CI/CD pipeline rather than relying on manual QA rejection loops.
+
+
+---
+
+# Agile Coach Journal
+
+Date: 2026-09-14
+
+## QA Agent Autonomy Enhancement
+Analyzed session 2897712216952814014 and discovered a QA agent asking the user what file they should look into, which violates the autonomous execution policy. Added a specific prohibition against asking the user what files or branches to look into or test to .foundry/docs/knowledge_base/agents/core_policies.md.
