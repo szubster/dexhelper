@@ -2,13 +2,13 @@
 id: task-548-565-generator-tree-traversal-logic
 type: TASK
 title: Implement Core Logic for Tree Traversal Generators
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on:
   - task-548-564-generator-tree-traversal-types
-jules_session_id: '3757182041221863228'
+jules_session_id: null
 pr_number: null
 parent: story-537-548-generator-tree-traversals
 tags:
@@ -30,6 +30,6 @@ locks: []
 This task implements the core `function*` and `async function*` protocols for tree traversals, avoiding eager array allocation.
 
 ## Acceptance Criteria
-- [ ] Implement `function*` based tree traversal logic.
-- [ ] Implement `async function*` based tree traversal logic.
-- [ ] Adhere to ADR 154 lazy evaluation guidelines.
+- [x] Implement `function*` based tree traversal logic.
+- [x] Implement `async function*` based tree traversal logic.
+- [x] Adhere to ADR 154 lazy evaluation guidelines.

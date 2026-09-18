@@ -2,10 +2,10 @@
 id: story-567-570-cva-refactor-tactical-button-badge
 type: STORY
 title: CVA Refactor Tactical Button and Badge
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-15'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on: []
 jules_session_id: '9834526000229464559'
 pr_number: null
@@ -18,9 +18,9 @@ tags:
 research_references:
   - .foundry/research/research-145-001-component-variant-libraries.md
   - .foundry/research/research-145-002-component-theming-mechanisms.md
+rejection_reason: ''
 locks: []
 priority: 60
-rejection_reason: ''
 ---
 
 # Story: CVA Refactor Tactical Button and Badge
@@ -34,4 +34,7 @@ Refactor the `TacticalButton` and `TacticalBadge` components to use `class-varia
 - Ensure strict TypeScript typing for all component variants.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-570-578-refactor-tactical-badge-cva
+- [ ] task-570-579-refactor-tactical-button-cva
+- [ ] task-570-580-cva-refactor-qa

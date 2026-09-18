@@ -2,10 +2,10 @@
 id: story-061-443-mirage-island-save-parsing-e2e
 type: STORY
 title: E2E Verification of Mirage Island Save Parsing
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-23'
-updated_at: '2026-09-12'
+updated_at: '2026-09-16'
 depends_on:
   - story-061-099-implement-mirage-island-parser
 jules_session_id: null
@@ -36,6 +36,6 @@ As part of Epic `epic-038-061-mirage-island-save-parsing`, and to satisfy the or
 - [x] Create a QA task specifically verifying the end-to-end parsing of the Mirage Island value from Gen 3 save files.
 - [x] task-443-489-mirage-island-e2e-impl
 - [x] task-443-490-mirage-island-e2e-qa
-- [ ] research-443-564-investigate-e2e-failure
-- [ ] task-443-565-mirage-island-e2e-impl-v2
-- [ ] task-443-566-mirage-island-e2e-qa-v2
+- [x] research-443-564-investigate-e2e-failure
+- [x] task-443-565-mirage-island-e2e-impl-v2
+- [x] task-443-566-mirage-island-e2e-qa-v2

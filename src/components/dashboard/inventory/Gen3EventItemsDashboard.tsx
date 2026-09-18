@@ -45,7 +45,7 @@ export const Gen3EventItemsDashboard: React.FC<Gen3EventItemsDashboardProps> = (
           return (
             <div
               key={id}
-              className={`flex items-center justify-between rounded-none border-2 border-dashed p-2 font-mono text-xs ${
+              className={`tactical-panel flex items-center justify-between border-2 p-2 text-xs ${
                 isClaimed
                   ? 'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)]'
                   : 'border-zinc-700 bg-black/40 text-zinc-500'

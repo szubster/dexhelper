@@ -5,16 +5,16 @@ title: Friendship Data Extraction (Gen 2 & 3)
 status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-16'
-updated_at: '2026-09-14'
+updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: '12994992452663059906'
+jules_session_id: '8327727190841524471'
 pr_number: null
 parent: prd-081-051-friendship-evolution-tracker
 tags:
   - gen2
   - gen3
   - save-parsing
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
@@ -41,3 +41,4 @@ Implement the core data extraction logic to read the Friendship (Happiness) valu
 - [x] Break down into Tasks
 - [x] story-094-151-gen2-friendship-extraction
 - [x] story-094-152-gen3-friendship-extraction
+- [ ] story-094-580-friendship-data-extraction-e2e

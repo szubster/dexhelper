@@ -2,13 +2,13 @@
 id: task-526-566-drive-auth-tests
 type: TASK
 title: Write Unit Tests for Google Drive Auth Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on:
   - task-526-565-drive-auth-worker-logic
-jules_session_id: null
+jules_session_id: '11598396310058899147'
 pr_number: null
 parent: story-402-526-cloudflare-worker-setup
 tags:

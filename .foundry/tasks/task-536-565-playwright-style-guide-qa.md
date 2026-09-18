@@ -1,14 +1,14 @@
 ---
 id: task-536-565-playwright-style-guide-qa
 type: TASK
-title: "QA Playwright Testing Style Guide"
-status: PENDING
+title: QA Playwright Testing Style Guide
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-09-17'
 depends_on:
   - task-536-564-playwright-style-guide-mock-utils
-jules_session_id: null
+jules_session_id: '430524493836315568'
 pr_number: null
 parent: story-531-536-write-playwright-style-guide
 tags:
@@ -17,8 +17,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # TASK: QA Playwright Testing Style Guide

@@ -1,5 +1,22 @@
 import { describe, expect, it } from 'vitest';
 import { FEEBAS_SEED_RELATIVE_OFFSET_RS } from '../../gen3/feebas';
+import {
+  GEN3_ROAMER_OFFSET_EMERALD,
+  GEN3_ROAMER_OFFSET_FRLG,
+  GEN3_ROAMER_OFFSET_RS,
+  ROAMER_ACTIVE_OFFSET,
+  ROAMER_BEAUTY_OFFSET,
+  ROAMER_COOL_OFFSET,
+  ROAMER_CUTE_OFFSET,
+  ROAMER_HP_OFFSET,
+  ROAMER_IVS_OFFSET,
+  ROAMER_LEVEL_OFFSET,
+  ROAMER_PV_OFFSET,
+  ROAMER_SMART_OFFSET,
+  ROAMER_SPECIES_ID_OFFSET,
+  ROAMER_STATUS_OFFSET,
+  ROAMER_TOUGH_OFFSET,
+} from '../gen3/roamer/constants';
 import { isGen3Save } from '../utils/detection';
 import {
   EMERALD_MOVE_TUTOR_BYTE_1_OFFSET,
@@ -809,18 +826,18 @@ describe('parseGen3TrainerId', () => {
 
 describe('parseGen3PokeNews', () => {
   it('should extract 16 news items correctly', () => {
-    const buffer = new ArrayBuffer(64);
+    const buffer = new ArrayBuffer(0x2b50 + 64);
     const view = new DataView(buffer);
 
-    // Set up a news item at offset 0 (kind: 1, state: 2, countdown: 4)
-    view.setUint8(0, 1);
-    view.setUint8(1, 2);
-    view.setUint16(2, 4, true);
+    // Set up a news item at offset 0x2b50 (kind: 1, state: 2, countdown: 4)
+    view.setUint8(0x2b50 + 0, 1);
+    view.setUint8(0x2b50 + 1, 2);
+    view.setUint16(0x2b50 + 2, 4, true);
 
     // Set up another news item at index 15 (offset 60)
-    view.setUint8(60, 3);
-    view.setUint8(61, 1);
-    view.setUint16(62, 10, true);
+    view.setUint8(0x2b50 + 60, 3);
+    view.setUint8(0x2b50 + 61, 1);
+    view.setUint16(0x2b50 + 62, 10, true);
 
     const result = parseGen3PokeNews(view, 0);
 
@@ -830,7 +847,7 @@ describe('parseGen3PokeNews', () => {
   });
 
   it('should explicitly catch RangeError on out-of-bounds reads and throw a corrupted file error', () => {
-    const buffer = new ArrayBuffer(60); // Not enough space for 16 items (64 bytes)
+    const buffer = new ArrayBuffer(0x2b50 + 60); // Not enough space for 16 items
     const view = new DataView(buffer);
 
     expect(() => parseGen3PokeNews(view, 0)).toThrowError(
@@ -1739,23 +1756,6 @@ describe('parseGen3MetLocation', () => {
     );
   });
 });
-
-const GEN3_ROAMER_OFFSET_RS = 0x3144;
-const GEN3_ROAMER_OFFSET_EMERALD = 0x31dc;
-const GEN3_ROAMER_OFFSET_FRLG = 0x30d0;
-
-const ROAMER_IVS_OFFSET = 0;
-const ROAMER_PV_OFFSET = 4;
-const ROAMER_SPECIES_ID_OFFSET = 8;
-const ROAMER_HP_OFFSET = 10;
-const ROAMER_LEVEL_OFFSET = 12;
-const ROAMER_STATUS_OFFSET = 13;
-const ROAMER_ACTIVE_OFFSET = 0x13;
-const ROAMER_COOL_OFFSET = 0x0e;
-const ROAMER_BEAUTY_OFFSET = 0x0f;
-const ROAMER_CUTE_OFFSET = 0x10;
-const ROAMER_SMART_OFFSET = 0x11;
-const ROAMER_TOUGH_OFFSET = 0x12;
 
 describe('parseGen3Roamer', () => {
   it('correctly parses Ruby/Sapphire roamer with non-zero saveBlock1Offset', () => {
