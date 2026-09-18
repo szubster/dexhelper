@@ -126,3 +126,4 @@
 | [task-566-581-blocked-diagnosis-types](.foundry/tasks/task-566-581-blocked-diagnosis-types.md) | TASK | Define Types and Helpers for BLOCKED Diagnosis Artifact | coder | [17736792720847864496](https://jules.google.com/session/17736792720847864496) |
 | [task-569-578-cva-refactor-tactical-panel-card](.foundry/tasks/task-569-578-cva-refactor-tactical-panel-card.md) | TASK | CVA Refactor Tactical Panel and Card | coder | [17207904154965623885](https://jules.google.com/session/17207904154965623885) |
 | [task-570-578-refactor-tactical-badge-cva](.foundry/tasks/task-570-578-refactor-tactical-badge-cva.md) | TASK | Refactor TacticalBadge to CVA | coder | [14421517598624514173](https://jules.google.com/session/14421517598624514173) |
+| [task-571-580-qa-tactical-inputs](.foundry/tasks/task-571-580-qa-tactical-inputs.md) | TASK | QA Tactical Inputs Refactor | qa | [7067627302680348135](https://jules.google.com/session/7067627302680348135) |
