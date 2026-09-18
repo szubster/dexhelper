@@ -28,8 +28,8 @@ locks: []
 Implement End-to-End verification and integration tests using Playwright for the new RNG tool explainer section.
 
 ## Acceptance Criteria
-- [ ] Create E2E test file for the RNG Tool Explainer.
-- [ ] Test that the explainer section correctly renders in the UI.
-- [ ] Test the accessibility and readability of the content.
-- [ ] Utilize locator.or() with .first() for any conditional element waiting, as mandated by E2E best practices.
-- [ ] Utilize the isMobile fixture to ensure tests pass on both desktop and mobile viewports.
+- [x] Create E2E test file for the RNG Tool Explainer.
+- [x] Test that the explainer section correctly renders in the UI.
+- [x] Test the accessibility and readability of the content.
+- [x] Utilize locator.or() with .first() for any conditional element waiting, as mandated by E2E best practices.
+- [x] Utilize the isMobile fixture to ensure tests pass on both desktop and mobile viewports.
