@@ -31,5 +31,5 @@ The `coder` was assigned to fix the `isGen3Save` heuristic in `src/engine/savePa
 - Run `pnpm test` and ensure all tests, particularly those testing Gen 3 fallback behavior and parsing, pass with the real implementation.
 
 ## Acceptance Criteria
-- [ ] Code review confirms the heuristic fixes and mock removal.
-- [ ] Test suite passes successfully (`pnpm test`).
+- [x] Code review confirms the heuristic fixes and mock removal.
+- [x] Test suite passes successfully (`pnpm test`).
