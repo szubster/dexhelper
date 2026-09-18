@@ -87,6 +87,37 @@ describe('TPM Distillation', () => {
     expect(epics[0].repoPath).toContain('epic-1.md');
   });
 
+  it('should return empty array if epics dir does not exist', () => {
+    const emptyDir = path.join(__dirname, 'empty-distillation-dir');
+    const epics = getCompletedEpics(emptyDir);
+    expect(epics).toEqual([]);
+  });
+
+  it('should handle malformed markdown gracefully when getting epics', () => {
+    const epicsDir = path.join(tmpDir, '.foundry', 'epics');
+    fs.writeFileSync(path.join(epicsDir, 'epic-malformed.md'), 'bad content');
+    const epics = getCompletedEpics(tmpDir);
+    expect(epics.length).toBe(1); // Should still find the good one
+  });
+
+  it('should handle malformed markdown gracefully when getting child nodes', () => {
+    const storiesDir = path.join(tmpDir, '.foundry', 'stories');
+    fs.writeFileSync(path.join(storiesDir, 'story-malformed.md'), 'bad content');
+    const children = getChildNodesForEpic(tmpDir, 'epic-1');
+    expect(children.length).toBe(3); // Should still find the good ones
+  });
+
+  it('should skip directories that do not exist when getting child nodes', () => {
+    // delete stories and tasks directories
+    const storiesDir = path.join(tmpDir, '.foundry', 'stories');
+    const tasksDir = path.join(tmpDir, '.foundry', 'tasks');
+    fs.rmSync(storiesDir, { recursive: true, force: true });
+    fs.rmSync(tasksDir, { recursive: true, force: true });
+
+    const children = getChildNodesForEpic(tmpDir, 'epic-1');
+    expect(children).toEqual([]);
+  });
+
   it('should find child nodes for epic', () => {
     const children = getChildNodesForEpic(tmpDir, 'epic-1');
     expect(children.length).toBe(3);
@@ -108,6 +139,21 @@ describe('TPM Distillation', () => {
       expect(changelog).toContain('- **task-1:** Task note');
   });
 
+  it('should handle generating changelog with no notes', () => {
+      const children = getChildNodesForEpic(tmpDir, 'epic-1');
+      // Create a task without notes
+      const childWithoutNotes = {
+          ...children[0],
+          frontmatter: {
+              ...children[0].frontmatter,
+              notes: undefined
+          }
+      };
+      const changelog = generateChangelogAndLearnings([childWithoutNotes]);
+      expect(changelog).toContain('## Changelog & Learnings');
+      expect(changelog).not.toContain('**story-1:**');
+  });
+
   it('should append summary to epic', () => {
     const epic = getCompletedEpics(tmpDir)[0];
     appendSummaryToEpic(tmpDir, epic, '### Appended Summary');
@@ -125,6 +171,18 @@ describe('TPM Distillation', () => {
 
     // Check that files are in archive
     expect(fs.existsSync(path.join(tmpDir, '.foundry/archive/stories/story-1.md'))).toBe(true);
+    expect(fs.existsSync(path.join(tmpDir, '.foundry/archive/tasks/task-1.md'))).toBe(true);
+  });
+
+  it('should skip non-existent files when archiving', () => {
+    const children = getChildNodesForEpic(tmpDir, 'epic-1');
+    // delete one of the files
+    fs.rmSync(path.join(tmpDir, '.foundry/stories/story-1.md'));
+
+    // should not throw
+    archiveChildNodes(tmpDir, children);
+
+    expect(fs.existsSync(path.join(tmpDir, '.foundry/archive/stories/story-1.md'))).toBe(false);
     expect(fs.existsSync(path.join(tmpDir, '.foundry/archive/tasks/task-1.md'))).toBe(true);
   });
 });
