@@ -8,6 +8,7 @@
 | [epic-563-564-implement-heartbeat-violation-detection](.foundry/epics/epic-563-564-implement-heartbeat-violation-detection.md) | EPIC | Implement Heartbeat Detection for Autonomous Violations | story_owner | [7141950714309752019](https://jules.google.com/session/7141950714309752019) |
 | [epic-564-565-pokedex-grid-virtualization](.foundry/epics/epic-564-565-pokedex-grid-virtualization.md) | EPIC | Virtualize PokedexGrid | story_owner | [12880322187166317282](https://jules.google.com/session/12880322187166317282) |
 | [epic-564-566-storage-grid-virtualization](.foundry/epics/epic-564-566-storage-grid-virtualization.md) | EPIC | Virtualize StorageGrid | story_owner | [3753659085055247039](https://jules.google.com/session/3753659085055247039) |
+| [epic-565-569-gen3-secret-base-parsing](.foundry/epics/epic-565-569-gen3-secret-base-parsing.md) | EPIC | Gen 3 Secret Base Data Extraction & Parsing | story_owner | [15633795022578144404](https://jules.google.com/session/15633795022578144404) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |

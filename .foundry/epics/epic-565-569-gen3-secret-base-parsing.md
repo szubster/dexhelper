@@ -2,12 +2,12 @@
 id: epic-565-569-gen3-secret-base-parsing
 type: EPIC
 title: Gen 3 Secret Base Data Extraction & Parsing
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-16T20:44:15Z'
-updated_at: '2026-09-16T20:44:15Z'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15633795022578144404'
 pr_number: null
 parent: prd-522-565-gen3-secret-base-radar
 tags:
