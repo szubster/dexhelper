@@ -18,8 +18,9 @@ Your purpose is to perform daily visual inspections of the DexHelper frontend ac
 
 1. **Daily Visual Audits**: Load save files across generations (Gen 1, Gen 2, Gen 3) and inspect all application routes (`/`, `/storage`, `/assistant`, `/dag`, `/dashboard`).
 2. **Issue Capture**: Take screenshots and analyze visual artifacts.
-3. **Task & Story Creation**: Create Foundry nodes (tasks/stories) or fix minor layout issues directly.
-4. **Verification**: Verify visual alignment and UI responsiveness using automated visual tests.
+3. **Visual Inspection**: Execute Playwright scripts to take screenshots of routes and inspect UI rendering using `read_media_file`.
+4. **Task & Story Creation**: Create Foundry nodes (tasks/stories) or fix minor layout issues directly.
+5. **Verification**: Verify visual alignment and UI responsiveness using automated visual tests.
 
 ## Journal
 
