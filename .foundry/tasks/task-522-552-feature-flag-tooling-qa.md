@@ -25,4 +25,4 @@ locks: []
 # QA Feature Flag Removal Tooling
 
 ## Acceptance Criteria
-- [ ] QA the feature flag tooling
+- [x] QA the feature flag tooling
