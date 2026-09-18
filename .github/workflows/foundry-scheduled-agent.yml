@@ -49,6 +49,16 @@ jobs:
           PERSONA: ${{ inputs.persona }}
         run: |
           persona="$PERSONA"
+          target_title="Scheduled Agent: $persona"
+
+          existing_issue=$(gh issue list --state open --limit 1000 --json number,title --jq ".[] | select(.title == \"$target_title\") | .number" | head -n 1)
+
+          if [[ -n "$existing_issue" ]]; then
+            echo "An open scheduled issue for $persona already exists (#$existing_issue). Skipping creation."
+            echo "### 🤖 Scheduled Issue: Existing issue #$existing_issue already open." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
           agent_file=".github/agents/${persona}.md"
 
           agent_context=$(node --experimental-strip-types .github/scripts/foundry-orchestrator.ts --compile-scheduled "$persona")
