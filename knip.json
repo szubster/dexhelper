@@ -10,7 +10,7 @@
   "ignore": [
     "src/test-setup.ts",
     "src/contexts/binjgb/index.ts",
-    "src/hooks/useBinjgb.ts",
+    "src/hooks/useBinjgb.ts", "src/hooks/usePokerusSpreadPlanner.ts",
 
     ".github/scripts/extract-research.ts",
     "scripts/gen3-fetch-locations.ts",
