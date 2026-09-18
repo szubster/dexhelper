@@ -32,4 +32,7 @@ Verify the CVA integration and centralized theme styling works without visual re
 - Ensure that swapping theme variables behaves as expected on the frontend (e.g. testing different document themes).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down this Story into Tasks.
+- [x] Tech Lead: Break down this Story into Tasks.
+- [ ] task-570-590-cva-tactical-aesthetic-e2e-coder
+- [ ] task-570-591-theme-swapping-e2e-coder
+- [ ] task-570-592-cva-theme-e2e-qa
