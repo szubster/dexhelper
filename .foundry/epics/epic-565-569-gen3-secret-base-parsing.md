@@ -33,5 +33,8 @@ In Generation 3 (Ruby, Sapphire, Emerald), players can create "Secret Bases" in 
 2. **NPC Party Analyzer**: Extract the Pokémon party for each base owner, including species, levels, and moves.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [x] Break down into Stories
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [ ] story-569-581-gen3-secret-base-array-extraction
+- [ ] story-569-582-gen3-secret-base-party-extraction
+- [ ] story-569-583-gen3-secret-base-parsing-e2e
