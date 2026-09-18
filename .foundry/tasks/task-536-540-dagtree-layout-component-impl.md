@@ -32,7 +32,7 @@ Implement the root layout structure of the DagTree using a nested <ul> element, 
 4. Wrap the implementation with the DagTree context layer.
 
 ## Acceptance Criteria
-- [ ] Implement the DagTree root component.
-- [ ] Implement global "Expand All" and "Collapse All" toggle controls.
-- [ ] Compose tree items correctly using the context layer.
-- [ ] Ensure integration tests verify the full tree structure and global toggles.
+- [x] Implement the DagTree root component.
+- [x] Implement global "Expand All" and "Collapse All" toggle controls.
+- [x] Compose tree items correctly using the context layer.
+- [x] Ensure integration tests verify the full tree structure and global toggles.
