@@ -25,4 +25,4 @@ rejection_count: 1
 Define constants for max save states.
 
 ## Acceptance Criteria
-- [ ] Add MAX_SAVE_STATES_PER_PLAYTHROUGH constant to storage constants/types.
+- [x] Add MAX_SAVE_STATES_PER_PLAYTHROUGH constant to storage constants/types.
