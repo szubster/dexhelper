@@ -27,4 +27,8 @@ locks: []
 This story implements the React components required for the Shoal Cave tide and item dashboard, adhering to the tactical hardware aesthetics.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks to implement the dashboard UI components (Tide, Item counts, Crafting indicator).
+- [x] Break down into Tasks to implement the dashboard UI components (Tide, Item counts, Crafting indicator).
+- [ ] task-566-581-shoal-tide-display
+- [ ] task-566-582-shoal-item-tracker
+- [ ] task-566-583-shoal-dashboard-layout
+- [ ] task-566-584-shoal-ui-qa
