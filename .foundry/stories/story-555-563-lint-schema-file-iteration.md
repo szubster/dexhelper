@@ -27,3 +27,6 @@ locks: []
 
 ## Acceptance Criteria
 - [ ] Implement directory iteration logic in `.foundry/scripts/lint-schema.ts`.
+- [ ] task-563-581-scaffold-lint-schema
+- [ ] task-563-582-implement-directory-traversal
+- [ ] task-563-583-qa-lint-schema
