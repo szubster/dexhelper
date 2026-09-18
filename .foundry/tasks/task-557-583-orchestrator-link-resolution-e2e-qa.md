@@ -2,10 +2,10 @@
 id: task-557-583-orchestrator-link-resolution-e2e-qa
 type: TASK
 title: Orchestrator Link Resolution E2E Tests QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-15T20:15:21Z'
-updated_at: '2026-09-15T20:15:21Z'
+updated_at: '2026-09-18'
 depends_on:
   - task-557-582-orchestrator-link-resolution-e2e-impl
 jules_session_id: null

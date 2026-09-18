@@ -2,10 +2,10 @@
 id: task-566-584-qa-blocked-diagnosis
 type: TASK
 title: QA Verification for Orchestrator BLOCKED Diagnosis
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-15T23:11:43Z'
-updated_at: '2026-09-15T23:11:43Z'
+updated_at: '2026-09-18'
 depends_on:
   - task-566-583-orchestrator-diagnosis-tests
 jules_session_id: null

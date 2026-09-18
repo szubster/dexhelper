@@ -2,12 +2,12 @@
 id: epic-517-550-deterministic-archival-tree-evaluation
 type: EPIC
 title: Tree Completeness Evaluation and File Moves
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-09-15'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '5919358379686435735'
+jules_session_id: null
 pr_number: null
 parent: prd-152-517-deterministic-dag-tree-archival
 tags:

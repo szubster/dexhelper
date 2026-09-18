@@ -2,12 +2,12 @@
 id: story-552-566-orchestrator-diagnosis-artifact
 type: STORY
 title: Update Orchestrator for BLOCKED Diagnosis Artifact
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-15'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '3039409902262910926'
+jules_session_id: null
 pr_number: null
 parent: epic-521-552-automated-graph-healing
 tags:

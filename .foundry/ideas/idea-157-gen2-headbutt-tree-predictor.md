@@ -2,12 +2,12 @@
 id: idea-157-gen2-headbutt-tree-predictor
 type: IDEA
 title: Gen 2 Headbutt Tree Predictor
-status: ACTIVE
-owner_persona: product_manager
+status: PENDING
+owner_persona: auditor
 created_at: '2026-08-20'
-updated_at: '2026-09-15'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '5572281811009514663'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

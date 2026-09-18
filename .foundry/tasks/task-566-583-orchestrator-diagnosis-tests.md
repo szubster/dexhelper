@@ -2,10 +2,10 @@
 id: task-566-583-orchestrator-diagnosis-tests
 type: TASK
 title: Write Unit Tests for BLOCKED Diagnosis Generation
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-15T23:11:43Z'
-updated_at: '2026-09-15T23:11:43Z'
+updated_at: '2026-09-18'
 depends_on:
   - task-566-582-orchestrator-diagnosis-logic
 jules_session_id: null
