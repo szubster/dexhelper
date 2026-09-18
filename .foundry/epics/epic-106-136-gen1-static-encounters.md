@@ -2,10 +2,10 @@
 id: epic-106-136-gen1-static-encounters
 type: EPIC
 title: Gen 1 Static Encounters
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-07-06'
-updated_at: '2026-09-08'
+updated_at: '2026-09-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,7 +14,7 @@ tags:
   - gen1
   - feature
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -27,8 +27,8 @@ Break down the Gen 1 static encounter checklist into stories.
 ## Acceptance Criteria
 - [x] Create story for Gen 1 event flag parsing
 - [x] Create story for Gen 1 checklist UI
-- [ ] story-136-294-gen1-event-flag-parsing
+- [x] story-136-294-gen1-event-flag-parsing
 - [x] story-136-295-gen1-checklist-ui
 
-- [ ] research-136-329-gen1-checklist-ui-failure
-- [ ] story-136-330-gen1-checklist-ui-retry
+- [x] research-136-329-gen1-checklist-ui-failure
+- [x] story-136-330-gen1-checklist-ui-retry

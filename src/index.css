@@ -14,6 +14,9 @@
 
   --color-pokedex: #e51d20;
   --color-pokedex-dark: #8c1012;
+
+  --color-theme-primary: var(--theme-primary);
+  --color-theme-bg: var(--theme-bg);
 }
 
 :root {

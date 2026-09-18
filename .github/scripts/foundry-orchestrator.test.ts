@@ -2,10 +2,49 @@ import { expect, test, describe, vi, beforeEach, afterEach } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as os from 'node:os';
-import { main } from './foundry-orchestrator';
+import { main, compilePromptForNode } from './foundry-orchestrator';
 import { createValidTestNode } from './foundry-test-utils';
 
 describe('foundry-orchestrator', () => {
+  test('compilePromptForNode: logs a warning for missing tags and ignores them gracefully', () => {
+    const node = {
+      repoPath: '.foundry/tasks/task-001.md',
+      frontmatter: {
+        id: 'task-001',
+        type: 'TASK',
+        owner_persona: 'coder',
+        status: 'READY',
+        tags: ['valid-tag', 'missing-tag']
+      },
+      body: 'Task content'
+    };
+
+    // Create a mock repo environment
+    const specificDir = path.join(tmpDir, '.github', 'agents', 'specific');
+    fs.mkdirSync(specificDir, { recursive: true });
+    fs.writeFileSync(path.join(specificDir, 'valid-tag.md'), 'Valid Tag Content');
+
+    const genericDir = path.join(tmpDir, '.github', 'agents', 'generic');
+    fs.mkdirSync(genericDir, { recursive: true });
+    fs.writeFileSync(path.join(genericDir, 'coder.md'), 'Coder Base Prompt');
+
+    const coreDir = path.join(tmpDir, '.foundry', 'docs', 'knowledge_base', 'agents');
+    fs.mkdirSync(coreDir, { recursive: true });
+    fs.writeFileSync(path.join(coreDir, 'core_policies.md'), 'Core Policies Content');
+
+    const warnSpy = vi.spyOn(process.stderr, 'write');
+
+    const compiled = compilePromptForNode(node as any, tmpDir);
+
+    expect(compiled).toContain('Coder Base Prompt');
+    expect(compiled).toContain('Valid Tag Content');
+    expect(compiled).not.toContain('Missing Tag Content');
+    expect(compiled).toContain('Core Policies Content');
+
+    const missingPath = path.join(tmpDir, '.github', 'agents', 'specific', 'missing-tag.md');
+    expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining(`Requested tag/layer file does not exist: ${missingPath}`));
+  });
+
   let tmpDir: string;
 vi.doMock('node:url', async (importOriginal) => {
   const actual = await importOriginal() as Record<string, any>;

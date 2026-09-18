@@ -2,10 +2,10 @@
 id: task-569-583-setup-cva-utility
 type: TASK
 title: Add CVA and create custom cn utility
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-16T18:34:14Z'
-updated_at: '2026-09-16T18:34:14Z'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,5 +36,5 @@ Ensure `src/utils/cn.ts` exports a robust `cn` utility that works correctly with
 3. Ensure no `clsx` or `tailwind-merge` dependencies are added.
 
 ## Acceptance Criteria
-- [ ] Verify `src/utils/cn.ts` continues to export the shadcn-compliant `cn` function.
-- [ ] Ensure `pnpm lint` and `pnpm type-check` pass.
+- [x] Verify `src/utils/cn.ts` continues to export the shadcn-compliant `cn` function.
+- [x] Ensure `pnpm lint` and `pnpm type-check` pass.

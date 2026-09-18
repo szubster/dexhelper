@@ -1,6 +1,6 @@
 import { type Edge, type Node, Position } from '@xyflow/react';
 import dagre from 'dagre';
-import { createContext, type ReactNode, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, type ReactNode, useContext, useEffect, useMemo, useState, useTransition } from 'react';
 import { MAX_REJECTION_THRESHOLD } from '../../utils/constants';
 import type { ParsedNode } from '../../utils/dag/builder';
 import { buildDagGraph } from '../../utils/dag/builder';
@@ -33,13 +33,14 @@ export interface DagContextState {
   maxRejectionThreshold: number;
   edges: DagEdge[];
   isLoading: boolean;
+  isPending: boolean;
   activeView: ViewMode;
-  setActiveView: (view: ViewMode) => void;
+  setActiveView: (view: React.SetStateAction<ViewMode>) => void;
   showHeatmap: boolean;
-  setShowHeatmap: (show: boolean) => void;
-  setNodes: (nodes: DagNode[]) => void;
-  setEdges: (edges: DagEdge[]) => void;
-  setIsLoading: (isLoading: boolean) => void;
+  setShowHeatmap: (show: React.SetStateAction<boolean>) => void;
+  setNodes: (nodes: React.SetStateAction<DagNode[]>) => void;
+  setEdges: (edges: React.SetStateAction<DagEdge[]>) => void;
+  setIsLoading: (isLoading: React.SetStateAction<boolean>) => void;
 }
 
 const DagContext = createContext<DagContextState | null>(null);
@@ -101,6 +102,7 @@ export function DagProvider({ children }: { children: ReactNode }) {
   const [nodes, setNodes] = useState<DagNode[]>([]);
   const [edges, setEdges] = useState<DagEdge[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isPending, startTransition] = useTransition();
   const [activeView, setActiveView] = useState<ViewMode>('graph');
   const [showHeatmap, setShowHeatmap] = useState<boolean>(false);
 
@@ -110,15 +112,16 @@ export function DagProvider({ children }: { children: ReactNode }) {
       nodes,
       edges,
       isLoading,
+      isPending,
       activeView,
-      setActiveView,
+      setActiveView: (view: React.SetStateAction<ViewMode>) => startTransition(() => setActiveView(view)),
       showHeatmap,
-      setShowHeatmap,
-      setNodes,
-      setEdges,
+      setShowHeatmap: (show: React.SetStateAction<boolean>) => startTransition(() => setShowHeatmap(show)),
+      setNodes: (newNodes: React.SetStateAction<DagNode[]>) => startTransition(() => setNodes(newNodes)),
+      setEdges: (newEdges: React.SetStateAction<DagEdge[]>) => startTransition(() => setEdges(newEdges)),
       setIsLoading,
     }),
-    [nodes, edges, isLoading, activeView, showHeatmap],
+    [nodes, edges, isLoading, isPending, activeView, showHeatmap],
   );
 
   useEffect(() => {

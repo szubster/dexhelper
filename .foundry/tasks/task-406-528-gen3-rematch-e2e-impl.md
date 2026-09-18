@@ -5,10 +5,10 @@ title: Implement Gen 3 NPC Rematch Status E2E Tests
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-11'
+updated_at: '2026-09-18'
 depends_on:
   - task-406-527-gen3-rematch-ui-impl
-jules_session_id: '5837500510654598923'
+jules_session_id: '16334843330520392791'
 pr_number: null
 parent: story-397-406-gen3-npc-rematch-status
 tags:
@@ -18,7 +18,7 @@ tags:
   - rematch
   - e2e
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

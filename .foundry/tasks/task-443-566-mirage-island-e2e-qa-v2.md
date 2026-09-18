@@ -2,10 +2,10 @@
 id: task-443-566-mirage-island-e2e-qa-v2
 type: TASK
 title: QA E2E Test for Mirage Island Save Parsing V2
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2024-05-23'
-updated_at: '2026-09-15'
+updated_at: '2026-09-16'
 depends_on:
   - task-443-565-mirage-island-e2e-impl-v2
 jules_session_id: null
@@ -33,4 +33,4 @@ A Playwright E2E test has been implemented to verify the end-to-end parsing of t
 - Ensure the E2E extraction of the Mirage Island value works from loading a save file to successfully outputting the parsed Mirage Island value.
 
 ## Acceptance Criteria
-- [ ] Verify the end-to-end parsing of the Mirage Island value from Gen 3 save files.
+- [x] Verify the end-to-end parsing of the Mirage Island value from Gen 3 save files.

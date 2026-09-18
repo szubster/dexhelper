@@ -2,12 +2,12 @@
 id: story-412-560-pokerus-ui-badges
 type: STORY
 title: Pokerus UI Badges Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '17374098452946427752'
+jules_session_id: null
 pr_number: null
 parent: epic-038-412-pokerus-visual-tracker-retry
 tags:

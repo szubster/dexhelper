@@ -2,10 +2,10 @@
 id: task-550-568-remove-gen3-mock
 type: TASK
 title: Remove isGen3Spy mock from index.test.ts
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on:
   - task-550-567-fix-gen3-heuristic-impl
 jules_session_id: null
@@ -31,5 +31,5 @@ The `isGen3Save` heuristic in `src/engine/saveParser/utils/detection.ts` is curr
 - Update tests to pass using the real `isGen3Save` implementation. This might require creating more accurate mock DataViews in tests that satisfy the `isGen3Save` heuristic signatures (e.g. magic signatures at `0x0FF8`).
 
 ## Acceptance Criteria
-- [ ] Remove the `isGen3Spy` mock from `src/engine/saveParser/index.test.ts`.
-- [ ] Ensure all tests pass with the real `isGen3Save` implementation.
+- [x] Remove the `isGen3Spy` mock from `src/engine/saveParser/index.test.ts`.
+- [x] Ensure all tests pass with the real `isGen3Save` implementation.

@@ -2,10 +2,10 @@
 id: story-536-553-heatmap-e2e-impl
 type: STORY
 title: Implement Heatmap E2E Tests
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-06'
-updated_at: '2026-09-13'
+updated_at: '2026-09-17'
 depends_on: []
 jules_session_id: '15482361749068533008'
 parent: epic-518-536-heatmap-e2e-testing
@@ -25,5 +25,5 @@ This story entails writing Playwright E2E tests to verify the Heatmap Toggle and
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks to implement E2E tests for the Heatmap.
-- [ ] task-553-568-heatmap-e2e-coder
-- [ ] task-553-569-heatmap-e2e-qa
+- [x] task-553-568-heatmap-e2e-coder
+- [x] task-553-569-heatmap-e2e-qa

@@ -2,13 +2,13 @@
 id: epic-046-079-react-flow-visualizer-refactor
 type: EPIC
 title: React Flow Visualizer Refactor
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-11'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on:
   - epic-046-078-shared-dag-context-foundation
-jules_session_id: '8447809816920353388'
+jules_session_id: null
 pr_number: null
 parent: prd-074-046-dag-context-architecture
 tags:

@@ -23,3 +23,9 @@ When utilizing advanced serializers with object structure deduplication (like `m
 
 - ADR 032 is accepted to use a multi-emulator architecture (`binjgb` for Gen 1/2, `mGBA` for Gen 3).
 - Updated `.foundry/docs/schema.md` to document the global data contract for emulator integration and WASM memory extraction for `.sav` data as required by the Architect persona guidelines.
+
+
+---
+
+## 2026-09-15
+* **Scheduled Workflow Issue Dispatch:** Decided against duplicating issue creation logic across 19 separate cron schedules. Standardized on modifying the shared `foundry-scheduled-agent.yml` workflow instead. This approach reduces extreme duplication and adheres to DRY principles. Spawned new TASK nodes to implement this and cancelled the previous batch tasks.

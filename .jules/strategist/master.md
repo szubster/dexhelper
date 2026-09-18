@@ -216,3 +216,40 @@
 **Outcome:** Merged
 **Why:** The rules for dynamically spawning downstream nodes were explicitly repeated in `.github/agents/curator.md` under the "Node Spawning Procedures" section. Since these rules are already globally centralized in `.foundry/docs/knowledge_base/agents/core_policies.md` under "Late Binding & Dynamic Node Spawning", and `core_policies.md` is appended to every agent prompt by the orchestrator, repeating them in `curator.md` is redundant, wastes context window tokens, and invites drift. Also, missing 'Read your past journals in' instruction was added to Curator's prompt.
 **Pattern:** Consolidate redundant execution patterns from agent prompts into centralized core documents (like `core_policies.md`) to enforce a single source of truth and reduce prompt size. Ensure standard journal reading instructions are present.
+
+
+---
+
+## 2026-09-14 - [Accepted] - Prompt improvement: Standardize and align Journal read paths for all agents
+**Type:** Prompt improvement
+**Outcome:** Merged (Optimistic execution)
+**Why:** The archivist merges agent logs into `master.md` within their respective directories (e.g., `.jules/bolt/master.md`, `.foundry/journals/coder/master.md`). However, most schedules were either telling agents to read their past journals in a wildcard directory (e.g., `.jules/bolt/`) or didn't contain the explicit instruction to read past journals at all (e.g., `coder.md`, `qa.md`, `architect.md`, `agile_coach.md`). This caused agents to either fail to read their aggregated long-term memory or skip reading it entirely, rendering the journaling loop ineffective.
+**Pattern:** Ensure all agent prompts contain the required explicit instruction to "Read your past journals in `<path>/master.md` before starting" directly in the `## Journal` section, reflecting actual repository structure and Archivist aggregations.
+
+
+---
+
+## 2026-09-15 - [Accepted] - Prompt improvement: Ensure all agents read their master.md journals
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The instructions for reading journals in many agents were pointing to `.jules/<persona>/` instead of the aggregated `.jules/<persona>/master.md` or `.foundry/journals/<persona>/master.md`, leading to agents failing to read their past memory effectively. Additionally, many agents were completely missing the instruction to read their past journals before starting. Adding the explicit instruction `Read your past journals in <path>/master.md before starting.` ensures all agents read their memory correctly.
+**Pattern:** Ensure all agent prompts contain the instruction to read their past journals before starting, and point exactly to the aggregated `master.md` file rather than a directory.
+
+
+---
+
+## 2026-09-16 - [Accepted] - Prompt improvement - Update Journaling Instructions
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `Agent Prompt Journaling Rule` memory specifically states: "When modifying or creating persona prompts in `.github/agents/`, ensure the `## Journal` section explicitly contains the instruction 'Read your past journals in <path>/master.md before starting.' pointing to the exact aggregated `master.md` file in their respective `.jules/<persona>/` or `.foundry/journals/<persona>/` directory."
+Both `.github/agents/canvas.md` and `.github/agents/strategist.md` were missing this exact wording, and instead just had `File: <path>/master.md.`. I have updated both prompts to strictly adhere to the mandatory instruction phrasing to ensure agents consistently review their past journals.
+**Pattern:** Ensure standard journal reading instructions match the required wording across all persona prompts to maintain system-wide consistency and compliance with core journaling rules.
+
+
+---
+
+## 2026-09-17-07-30-24 - [Rejected] - Cleanup retired agile_coach schedule and prompt
+**Type:** Prompt improvement
+**Outcome:** Rejected → journaled
+**Why:** Unknown. The maintainer commented "I brought agile coach back. Do not retire it again." so it seems it was revived.
+**Pattern:** Ensure the agent is actually retired before attempting to delete it. Do not retire the agile coach persona.

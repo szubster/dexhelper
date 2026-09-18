@@ -2,13 +2,13 @@
 id: story-552-563-story-to-task-complexity-validation
 type: STORY
 title: Implement Automated Complexity Validation for STORY to TASK Breakdown
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-11'
-updated_at: '2026-09-14'
+updated_at: '2026-09-16'
 depends_on:
   - story-552-562-task-breakdown-policy-doc
-jules_session_id: '16270431381093287173'
+jules_session_id: null
 parent: epic-521-552-task-breakdown-anti-patterns
 tags: []
 rejection_reason: ''

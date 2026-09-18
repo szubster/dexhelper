@@ -14,3 +14,12 @@
 **Outcome:** Pending review.
 **Why:** The previous design felt too constrained and "web-like" with its left-aligned icon and dense diagnostic text side-by-side. The goal was to make empty states feel like immersive, high-stakes system events (e.g., "SIGNAL_LOST") using the hardware aesthetic.
 **Pattern:** Shifted from layout-driven UI to focal-point UI. Used concentric circles and centering for dramatic effect, aligning with the tactical/snooping theme.
+
+
+---
+
+## 2026-09-14 - [Accepted] - 🖼️ Canvas: Bold DataLabel Redesign
+**What:** Upgraded the `DataLabel` component from a small inline text element with a left dashed border into a fully encapsulated tactical hardware label. Replaced dated brackets `[ ]` with a more distinct `>>` indicator and added a full dashed border with four-corner accents (using absolute positioning to create hardware screw/corner feelings). The component now has a responsive hover background and text highlight state that aligns closely with the heavy hardware aesthetics of the `DataPoint` component.
+**Outcome:** Merged (Optimistic execution)
+**Why:** The previous `DataLabel` felt under-designed and slightly generic (just brackets). The redesign anchors it firmly in the "tactical hardware/snooping" aesthetic (ADR 008) and provides a stronger visual hierarchy when placed above dense data blocks (like in PokemonLocations or PokemonEvolutions).
+**Pattern:** For tactical UI labels, avoid pure text brackets. Favor encapsulated boundaries (borders/backgrounds) with explicit corner treatments that mimic physical hardware casing.

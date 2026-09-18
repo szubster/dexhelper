@@ -32,6 +32,7 @@ export const OwnerPersonaEnum = z.enum([
   'epic_planner',
   'story_owner',
   'architect',
+  'architect_visionary',
   'tech_lead',
   'coder',
   'qa',
