@@ -58,7 +58,7 @@ export function remediateZombieNode(repoRoot: string, relativeFilePath: string, 
 
     return true;
   } catch (error) {
-    console.error(`Failed to remediate zombie node at ${fullPath}:`, error instanceof Error ? error.message : String(error));
+    console.error(`Failed to remediate zombie node at ${fullPath}:`, error);
     return false;
   }
 }

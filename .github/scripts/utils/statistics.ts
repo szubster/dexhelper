@@ -77,7 +77,7 @@ export function extractPRMetrics(): PRMetrics | null {
     };
     return metrics;
   } catch (err) {
-    console.error("Failed to fetch PR metrics", err instanceof Error ? err.message : String(err));
+    console.error("Failed to fetch PR metrics", err);
     return null;
   }
 }

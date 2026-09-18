@@ -262,6 +262,6 @@ async function run() {
 }
 
 run().catch((err) => {
-  console.error(err instanceof Error ? err.message : String(err));
+  console.error(err);
   process.exit(1);
 });
