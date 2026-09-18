@@ -27,14 +27,23 @@ export function graduateFeatureFlag(sourceFile: SourceFile, flagName: string, fl
                 if (propAccess && propAccess.getExpression().getText() === flagObjectName && propAccess.getName() === flagName) {
                     const thenStatement = ifStmt.getThenStatement();
 
-                    if (thenStatement.getKind() === SyntaxKind.Block) {
-                        const block = thenStatement.asKind(SyntaxKind.Block);
-                        if (block) {
-                            const statementsText = block.getStatements().map((s: Node) => s.getText()).join('\n');
-                            ifStmt.replaceWithText(statementsText);
-                        }
+                    const parent = ifStmt.getParent();
+                    if (parent && parent.getKind() === SyntaxKind.IfStatement && parent.asKind(SyntaxKind.IfStatement)?.getElseStatement() === ifStmt) {
+                         if (thenStatement.getKind() === SyntaxKind.Block) {
+                             ifStmt.replaceWithText(thenStatement.getText());
+                         } else {
+                             ifStmt.replaceWithText(`{\n${thenStatement.getText()}\n}`);
+                         }
                     } else {
-                        ifStmt.replaceWithText(thenStatement.getText());
+                        if (thenStatement.getKind() === SyntaxKind.Block) {
+                            const block = thenStatement.asKind(SyntaxKind.Block);
+                            if (block) {
+                                const statementsText = block.getStatements().map((s: Node) => s.getText()).join('\n');
+                                ifStmt.replaceWithText(statementsText);
+                            }
+                        } else {
+                            ifStmt.replaceWithText(thenStatement.getText());
+                        }
                     }
                     matched = true;
                 }
@@ -49,19 +58,32 @@ export function graduateFeatureFlag(sourceFile: SourceFile, flagName: string, fl
                          const propAccess = operand.asKind(SyntaxKind.PropertyAccessExpression);
                          if (propAccess && propAccess.getExpression().getText() === flagObjectName && propAccess.getName() === flagName) {
                              const elseStatement = ifStmt.getElseStatement();
+                             const parent = ifStmt.getParent();
                              if (elseStatement) {
-                                 if (elseStatement.getKind() === SyntaxKind.Block) {
-                                     const block = elseStatement.asKind(SyntaxKind.Block);
-                                     if (block) {
-                                         const statementsText = block.getStatements().map((s: Node) => s.getText()).join('\n');
-                                         ifStmt.replaceWithText(statementsText);
+                                 if (parent && parent.getKind() === SyntaxKind.IfStatement && parent.asKind(SyntaxKind.IfStatement)?.getElseStatement() === ifStmt) {
+                                     if (elseStatement.getKind() === SyntaxKind.Block) {
+                                         ifStmt.replaceWithText(elseStatement.getText());
+                                     } else {
+                                         ifStmt.replaceWithText(`{\n${elseStatement.getText()}\n}`);
                                      }
                                  } else {
-                                     ifStmt.replaceWithText(elseStatement.getText());
+                                     if (elseStatement.getKind() === SyntaxKind.Block) {
+                                         const block = elseStatement.asKind(SyntaxKind.Block);
+                                         if (block) {
+                                             const statementsText = block.getStatements().map((s: Node) => s.getText()).join('\n');
+                                             ifStmt.replaceWithText(statementsText);
+                                         }
+                                     } else {
+                                         ifStmt.replaceWithText(elseStatement.getText());
+                                     }
                                  }
                              } else {
-                                 // No else block, just remove the if statement entirely
-                                 ifStmt.remove();
+                                 if (parent && parent.getKind() === SyntaxKind.IfStatement && parent.asKind(SyntaxKind.IfStatement)?.getElseStatement() === ifStmt) {
+                                     ifStmt.replaceWithText("{}");
+                                 } else {
+                                     // No else block, just remove the if statement entirely
+                                     ifStmt.remove();
+                                 }
                              }
                              matched = true;
                          }

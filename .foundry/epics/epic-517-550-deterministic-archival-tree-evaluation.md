@@ -2,12 +2,12 @@
 id: epic-517-550-deterministic-archival-tree-evaluation
 type: EPIC
 title: Tree Completeness Evaluation and File Moves
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-09-15'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '5919358379686435735'
+jules_session_id: null
 pr_number: null
 parent: prd-152-517-deterministic-dag-tree-archival
 tags:
@@ -26,8 +26,11 @@ locks: []
 Update the orchestrator to evaluate node completeness at the tree level and move files to archive when terminal.
 
 ## Acceptance Criteria
+- [ ] story-550-573-tree-level-completeness-logic
+- [ ] story-550-574-archival-file-move-automation
+- [ ] story-550-575-archival-tree-evaluation-e2e
 - [ ] Implement tree-level completeness verification evaluating entire parent/descendant chain
 - [ ] Block archival if any node in the tree is non-terminal
 - [ ] Implement systematic file move to `.foundry/archive/*` preserving subdirectories for terminal trees
 - [ ] Ensure archival operation is deterministic and automated via orchestrator cycle
-- [ ] Generate E2E verification story
+- [x] Generate E2E verification story

@@ -2,10 +2,10 @@
 id: task-569-584-setup-css-theme-variables
 type: TASK
 title: Setup CSS theme variables in index.css
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-16T18:34:46Z'
-updated_at: '2026-09-16T18:34:46Z'
+updated_at: '2026-09-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -39,5 +39,5 @@ Verify and format the multi-theme colors stored as semantic tokens inside `src/i
 6. Add `--color-theme-primary: var(--theme-primary);` and `--color-theme-bg: var(--theme-bg);` to the `@theme` block in `src/index.css`.
 
 ## Acceptance Criteria
-- [ ] Ensure `src/index.css` has `--color-theme-primary: var(--theme-primary);` and `--color-theme-bg: var(--theme-bg);` in its `@theme` block.
-- [ ] Run `pnpm lint` and `pnpm test`.
+- [x] Ensure `src/index.css` has `--color-theme-primary: var(--theme-primary);` and `--color-theme-bg: var(--theme-bg);` in its `@theme` block.
+- [x] Run `pnpm lint` and `pnpm test`.

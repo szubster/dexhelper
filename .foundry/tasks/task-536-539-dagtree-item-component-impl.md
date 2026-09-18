@@ -2,13 +2,13 @@
 id: task-536-539-dagtree-item-component-impl
 type: TASK
 title: Implement DagTree Item Component
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-15'
+updated_at: '2026-09-18'
 depends_on:
   - task-536-538-dagtree-context-state-impl
-jules_session_id: '7934720252725105199'
+jules_session_id: null
 pr_number: null
 parent: story-530-536-dagtree-ui-logic
 tags:
@@ -31,7 +31,7 @@ Implement the individual <li> node item component for the DagTree, integrating i
 3. Apply tactical hardware aesthetics (sharp edges, dashed borders, monospaced font) following ADR 008.
 
 ## Acceptance Criteria
-- [ ] Implement the DagTreeItem component.
-- [ ] Integrate expand/collapse toggle buttons using context.
-- [ ] Apply ADR 008 styling (sharp edges, dashed borders, monospaced font).
-- [ ] Include integration tests for component rendering.
+- [x] Implement the DagTreeItem component.
+- [x] Integrate expand/collapse toggle buttons using context.
+- [x] Apply ADR 008 styling (sharp edges, dashed borders, monospaced font).
+- [x] Include integration tests for component rendering.

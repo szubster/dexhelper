@@ -2,10 +2,10 @@
 id: epic-046-079-gen3-battle-frontier-dashboard-ui
 type: EPIC
 title: Gen 3 Battle Frontier Dashboard UI
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-11'
-updated_at: '2026-09-11'
+updated_at: '2026-09-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -33,6 +33,6 @@ Create the `BattleFrontierDashboard` UI component. It must adhere to the "tactic
 - [x] Apply tactical styling (ADR 008, ADR 024).
 - [x] story-079-116-battle-frontier-dashboard-ui
 - [x] story-079-252-battle-frontier-brain-progress-visuals
-- [ ] story-079-560-battle-frontier-dashboard-e2e
+- [x] story-079-560-battle-frontier-dashboard-e2e
 
 Follow-up: idea-106-rs-battle-tower-dashboard-support

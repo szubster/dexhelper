@@ -5,7 +5,7 @@ title: Refactor PokeDB sync logic for multiple bundles
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-09-17'
 depends_on:
   - story-419-477-pokedata-plugin-refactor
 jules_session_id: '6706478323854200827'
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Story: Refactor PokeDB sync logic for multiple bundles
@@ -30,3 +31,6 @@ The database synchronization logic must be updated to load the core data by defa
 
 ## Acceptance Criteria
 - [ ] Break down into Tasks
+- [ ] task-478-586-pokedb-core-sync-impl
+- [ ] task-478-587-pokedb-extension-sync-impl
+- [ ] task-478-588-pokedb-sync-qa
