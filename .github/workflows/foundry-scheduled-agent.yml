@@ -45,7 +45,7 @@ jobs:
       - name: Dispatch Issue
         id: dispatch-issue
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.MY_ISSUES_PAT }}
           PERSONA: ${{ inputs.persona }}
         run: |
           persona="$PERSONA"
@@ -78,7 +78,7 @@ jobs:
             echo "https://github.com/${{ github.repository }}/blob/main/.foundry/docs/schema.md"
           } > "$temp_file"
 
-          issue_url=$(gh issue create --title "Scheduled Agent: $persona" --body-file "$temp_file")
+          issue_url=$(gh issue create --title "Scheduled Agent: $persona" --body-file "$temp_file" --label "jules")
           echo "Successfully created issue: $issue_url"
           echo "### 🤖 Scheduled Issue: $issue_url" >> "$GITHUB_STEP_SUMMARY"
 
