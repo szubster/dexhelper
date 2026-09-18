@@ -36,5 +36,5 @@ Verify the CVA refactoring of Tactical input components to ensure visual parity,
 - Verify visual rendering and interaction of `TacticalSegmentedControl` and `TacticalMultiSelectControl`.
 
 ## Acceptance Criteria
-- [ ] Verify no visual regressions exist for tactical input components.
-- [ ] Ensure ADR 008 compliance (sharp edges, dashed borders where applicable, monospaced fonts).
+- [x] Verify no visual regressions exist for tactical input components.
+- [x] Ensure ADR 008 compliance (sharp edges, dashed borders where applicable, monospaced fonts).
