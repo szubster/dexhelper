@@ -5,16 +5,16 @@ title: Update Dashboard Components for Reactivity
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-12'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: '581890612409393880'
+jules_session_id: '4404241793233156735'
 pr_number: null
 parent: story-425-495-reactive-ui-components
 tags:
   - ui
   - emulator
   - components
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

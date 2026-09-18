@@ -5,7 +5,7 @@ title: Implement Priority Engine Dispatch Logic
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-06'
-updated_at: '2026-09-09'
+updated_at: '2026-09-17'
 depends_on:
   - story-540-550-priority-field-schema
 jules_session_id: null
