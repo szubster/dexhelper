@@ -2,10 +2,10 @@
 id: task-571-580-qa-tactical-inputs
 type: TASK
 title: QA Tactical Inputs Refactor
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-15T11:19:51Z'
-updated_at: '2026-09-15'
+updated_at: '2026-09-18'
 depends_on:
   - task-571-578-cva-refactor-basic-inputs
   - task-571-579-cva-refactor-complex-inputs

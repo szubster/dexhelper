@@ -2,13 +2,13 @@
 id: story-062-522-gen2-checklist-integration
 type: STORY
 title: Gen 2 Checklist Parsing Engine Integration
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on:
   - story-062-521-gen2-checklist-ui-core
-jules_session_id: '16468136643285213245'
+jules_session_id: null
 pr_number: null
 parent: epic-038-062-gen2-dynamic-checklist-ui
 tags:

@@ -2,18 +2,18 @@
 id: task-564-586-gen2-room-decoration-route-integration
 type: TASK
 title: Gen 2 Room Decoration Route Integration
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '$(date -u +"%Y-%m-%dT%H:%M:%SZ")'
-updated_at: '$(date -u +"%Y-%m-%dT%H:%M:%SZ")'
+updated_at: '2026-09-18'
 depends_on: []
 jules_session_id: null
 parent: story-313-564-gen2-room-decoration-integration-e2e
 tags:
   - e2e
   - integration
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # Task: Gen 2 Room Decoration Route Integration

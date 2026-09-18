@@ -2,10 +2,10 @@
 id: epic-565-570-gen3-secret-base-radar-ui
 type: EPIC
 title: Gen 3 Secret Base Radar Dashboard & UI
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-16T20:44:15Z'
-updated_at: '2026-09-16T20:44:15Z'
+updated_at: '2026-09-18'
 depends_on:
   - epic-565-569-gen3-secret-base-parsing
 jules_session_id: null
@@ -17,11 +17,11 @@ tags:
   - secret-base
   - map
 research_references: []
-priority: 30
 rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+priority: 30
 ---
 
 # EPIC: Gen 3 Secret Base Radar Dashboard & UI

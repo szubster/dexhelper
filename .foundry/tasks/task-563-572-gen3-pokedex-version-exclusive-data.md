@@ -2,12 +2,12 @@
 id: task-563-572-gen3-pokedex-version-exclusive-data
 type: TASK
 title: Gen 3 Pokédex Version Exclusive Data Definitions
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-13'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '5821018234473213232'
+jules_session_id: null
 pr_number: null
 parent: story-552-563-gen3-pokedex-version-exclusive-mapping
 tags:

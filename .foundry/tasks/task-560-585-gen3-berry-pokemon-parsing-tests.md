@@ -2,10 +2,10 @@
 id: task-560-585-gen3-berry-pokemon-parsing-tests
 type: TASK
 title: Write Tests for Gen 3 Berry and Pokémon Parsing Logic
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-16T19:33:51Z'
-updated_at: '2026-09-16T19:33:51Z'
+updated_at: '2026-09-18'
 depends_on:
   - task-560-583-gen3-berry-pouch-parsing-impl
   - task-560-584-gen3-pokemon-condition-parsing-impl

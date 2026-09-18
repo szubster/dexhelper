@@ -2,12 +2,12 @@
 id: task-546-564-gen3-parser-generators
 type: TASK
 title: Refactor Gen 3 Save Parsers to TypeScript Generators
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-11'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '5034205565967088742'
+jules_session_id: null
 pr_number: null
 parent: story-537-546-generator-save-file-parsers
 tags:
@@ -18,7 +18,7 @@ tags:
   - performance
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
 locks: []
 ---

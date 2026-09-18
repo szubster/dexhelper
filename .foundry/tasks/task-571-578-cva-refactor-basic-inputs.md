@@ -2,12 +2,12 @@
 id: task-571-578-cva-refactor-basic-inputs
 type: TASK
 title: CVA Refactor Tactical Input and Select
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-15T11:19:51Z'
-updated_at: '2026-09-17'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '3325964808609402709'
+jules_session_id: null
 pr_number: null
 parent: story-567-571-cva-refactor-tactical-inputs
 tags:
