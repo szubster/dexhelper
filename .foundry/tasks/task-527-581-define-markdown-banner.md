@@ -22,6 +22,6 @@ locks: []
 Define the standard Markdown banner string constant `WIP_DRAFT_BANNER` in `.github/scripts/utils/banner.ts` (or a similar location) to be used when a node's status is WIP or DRAFT. The banner string should match the existing expected format: `> ⚠️ **WORK IN PROGRESS / DRAFT**`.
 
 ## Acceptance Criteria
-- [ ] Add the `WIP_DRAFT_BANNER` constant to `.github/scripts/utils/banner.ts`.
-- [ ] Export the constant so it can be used by other modules.
-- [ ] Ensure unit tests are updated or added to verify the constant exists and is correct.
+- [x] Add the `WIP_DRAFT_BANNER` constant to `.github/scripts/utils/banner.ts`.
+- [x] Export the constant so it can be used by other modules.
+- [x] Ensure unit tests are updated or added to verify the constant exists and is correct.
