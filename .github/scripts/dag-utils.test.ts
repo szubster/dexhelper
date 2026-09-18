@@ -2,7 +2,8 @@ import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as os from 'node:os';
-import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, updateActiveSessionsTable, scanActiveNodes } from './dag-utils';
+import { fileURLToPath } from 'node:url';
+import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, updateActiveSessionsTable, scanActiveNodes, trackCycleDetectionFailure } from './dag-utils';
 
 describe('dag-utils', () => {
   it('todayISO format', () => {
@@ -182,3 +183,83 @@ describe('dag-utils', () => {
     });
   });
 });
+
+  describe('trackCycleDetectionFailure', () => {
+    it('creates telemetry directory and appends cycle nodes log', async () => {
+      // In tests, we will just call it and check if it throws, and check if it appends correctly.
+      // Because trackCycleDetectionFailure uses a hardcoded relative path based on the current file,
+      // it will write to `<repo_root>/.foundry/telemetry/cycle-detection.log` in our repo.
+      // To test it without leaving side-effects, we will backup the file if it exists, run, check, and restore.
+
+      const repoRoot = path.join(path.dirname(fileURLToPath(import.meta.url)), '../..');
+      const telemetryDir = path.join(repoRoot, '.foundry', 'telemetry');
+      const logPath = path.join(telemetryDir, 'cycle-detection.log');
+
+      let originalContent: string | null = null;
+      let fileExisted = false;
+      let dirExisted = false;
+
+      try {
+        dirExisted = fs.existsSync(telemetryDir);
+        fileExisted = fs.existsSync(logPath);
+        if (fileExisted) {
+          originalContent = fs.readFileSync(logPath, 'utf-8');
+        }
+
+        const cycleNodes = ['node-a', 'node-b', 'node-c'];
+
+        // Since it's fire-and-forget, we need a small delay in test to check
+        trackCycleDetectionFailure(cycleNodes);
+
+        // Wait a tiny bit for the promise to resolve
+        await new Promise((resolve) => setTimeout(resolve, 50));
+
+        expect(fs.existsSync(logPath)).toBe(true);
+
+        const newContent = fs.readFileSync(logPath, 'utf-8');
+        const lines = newContent.trim().split('\n');
+        const lastLine = lines[lines.length - 1];
+
+        const parsed = JSON.parse(lastLine);
+        expect(parsed).toHaveProperty('timestamp');
+        expect(parsed).toHaveProperty('cycleNodes');
+        expect(parsed.cycleNodes).toEqual(cycleNodes);
+
+      } finally {
+        // cleanup
+        if (fileExisted && originalContent !== null) {
+          fs.writeFileSync(logPath, originalContent, 'utf-8');
+        } else if (!fileExisted && fs.existsSync(logPath)) {
+          fs.unlinkSync(logPath);
+        }
+
+        if (!dirExisted && fs.existsSync(telemetryDir)) {
+          fs.rmdirSync(telemetryDir);
+        }
+      }
+    });
+
+    it('handles gracefully when logging fails', () => {
+      let errorThrown = false;
+      let consoleErrorCalled = false;
+      const originalConsoleError = console.error;
+
+      try {
+        console.error = () => {
+          consoleErrorCalled = true;
+        };
+        // To force JSON.stringify to throw an error, we can use an object with a circular reference.
+        const evilObj: any = {};
+        evilObj.self = evilObj;
+
+        trackCycleDetectionFailure(evilObj);
+      } catch {
+        errorThrown = true;
+      } finally {
+        console.error = originalConsoleError;
+      }
+
+      expect(consoleErrorCalled).toBe(true);
+      expect(errorThrown).toBe(false); // Should not throw out of the function
+    });
+  });

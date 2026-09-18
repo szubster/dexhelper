@@ -1,6 +1,7 @@
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
@@ -26,6 +27,29 @@ export function buildReverseDependencyGraph(nodes: any[], resolveNodePath: (ref:
     }
   }
   return dependents;
+}
+
+export function trackCycleDetectionFailure(cycleNodes: string[]): void {
+  try {
+    const repoRoot = path.join(path.dirname(fileURLToPath(import.meta.url)), '../..');
+    const telemetryDir = path.join(repoRoot, '.foundry', 'telemetry');
+    const logPath = path.join(telemetryDir, 'cycle-detection.log');
+
+    if (!fs.existsSync(telemetryDir)) {
+      fs.mkdirSync(telemetryDir, { recursive: true });
+    }
+
+    const timestamp = new Date().toISOString();
+    const logEntry = JSON.stringify({ timestamp, cycleNodes }) + '\n';
+
+    // Non-blocking fire-and-forget
+    fs.promises.appendFile(logPath, logEntry, 'utf-8').catch((err) => {
+      console.error('Failed to write cycle telemetry:', err);
+    });
+  } catch (err) {
+    // Fail gracefully on synchronous setup errors
+    console.error('Failed to setup cycle telemetry:', err);
+  }
 }
 
 export function getOrphanedNodes(startNodePath: string, dependents: Map<string, string[]>): Set<string> {
