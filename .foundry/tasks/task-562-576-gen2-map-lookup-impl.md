@@ -36,6 +36,6 @@ The `allLocations` array accessed throughout the application already contains un
 - Add unit tests for `getGen2MapName` in `src/engine/mapGraph/gen2Graph.test.ts`.
 
 ## Acceptance Criteria
-- [ ] `getGen2MapName` is implemented in `src/engine/mapGraph/gen2Graph.ts`.
-- [ ] The function correctly combines `mapGroup` and `mapId` and uses `getLocation` to find the string name.
-- [ ] Unit tests are added to `src/engine/mapGraph/gen2Graph.test.ts` validating successful lookups and fallbacks.
+- [x] `getGen2MapName` is implemented in `src/engine/mapGraph/gen2Graph.ts`.
+- [x] The function correctly combines `mapGroup` and `mapId` and uses `getLocation` to find the string name.
+- [x] Unit tests are added to `src/engine/mapGraph/gen2Graph.test.ts` validating successful lookups and fallbacks.

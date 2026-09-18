@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { UnifiedLocation } from '../../db/schema';
-import { getDistanceToMap, resolveOutdoorMapId } from './gen2Graph';
+import { getDistanceToMap, getGen2MapName, resolveOutdoorMapId } from './gen2Graph';
 
 const mockLocations: UnifiedLocation[] = [
   // Start locations (simulate Johto/Kanto structure)
@@ -66,6 +66,31 @@ describe('getDistanceToMap (Gen 2)', () => {
     ];
     const result = getDistanceToMap(locationsWithoutDist, 0x0306, 0x1111);
     expect(result).toBeNull();
+  });
+});
+
+describe('getGen2MapName', () => {
+  it('correctly formats and retrieves a known map name based on mapGroup and mapId', () => {
+    // 0x0306 => mapGroup 3, mapId 6
+    const result = getGen2MapName(mockLocations, 3, 6);
+    expect(result).toBe('Goldenrod City');
+  });
+
+  it('correctly retrieves an indoor map name', () => {
+    // 0x25 => mapGroup 0, mapId 37 (0x25)
+    const result = getGen2MapName(mockLocations, 0, 0x25);
+    expect(result).toBe('Goldenrod Pokecenter');
+  });
+
+  it('returns "Unknown Location" for an unknown map ID', () => {
+    // Group 99, ID 99 => definitely not in mockLocations
+    const result = getGen2MapName(mockLocations, 99, 99);
+    expect(result).toBe('Unknown Location');
+  });
+
+  it('returns "Unknown Location" if the locations array is empty', () => {
+    const result = getGen2MapName([], 3, 6);
+    expect(result).toBe('Unknown Location');
   });
 });
 
