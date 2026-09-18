@@ -1,13 +1,13 @@
 ---
 id: task-571-589-implement-lefthook-schema-validation
 type: TASK
-title: 'Implement Lefthook Schema Validation'
-status: READY
+title: Implement Lefthook Schema Validation
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-17T14:03:11Z'
-updated_at: '2026-09-17T14:03:11Z'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2097622748534452942'
 parent: story-554-571-lefthook-integration
 tags:
   - foundry
