@@ -1,10 +1,12 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { LivingDexCell } from './LivingDexCell';
 import { TacticalPanel } from './TacticalPanel';
 
-export function LivingDexGrid() {
+// ⚡ Bolt: Wrapped LivingDexGrid in React.memo to prevent unnecessary re-renders of the 386 living dex cell items
+// when parent dashboard or store states update without saveData changing.
+export const LivingDexGrid = React.memo(function LivingDexGrid() {
   const saveData = useStore((s) => s.saveData);
   const genConfig = saveData ? getGenerationConfig(saveData.generation) : null;
   const displayLimit = genConfig ? Math.min(genConfig.maxDex, 386) : 386;
@@ -68,4 +70,4 @@ export function LivingDexGrid() {
       </TacticalPanel>
     </div>
   );
-}
+});

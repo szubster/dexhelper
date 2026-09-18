@@ -2,10 +2,10 @@
 id: epic-565-566-cva-setup
 type: EPIC
 title: CVA Setup and Theme Variables
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-14'
-updated_at: '2026-09-15'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: '14077911034019243278'
 pr_number: null
@@ -18,9 +18,9 @@ tags:
 research_references:
   - .foundry/research/research-145-001-component-variant-libraries.md
   - .foundry/research/research-145-002-component-theming-mechanisms.md
+rejection_reason: ''
 locks: []
 priority: 60
-rejection_reason: ''
 ---
 
 # Epic: CVA Setup and Theme Variables
@@ -34,4 +34,6 @@ Add the Class Variance Authority (CVA) library and establish centralized CSS cus
 - Ensure proper configuration for the tactical aesthetic (ADR 008).
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into Stories.
+- [x] Story Owner: Break down this Epic into Stories.
+- [ ] story-566-569-cva-theme-variables-setup
+- [ ] story-566-570-cva-theme-variables-e2e-verification

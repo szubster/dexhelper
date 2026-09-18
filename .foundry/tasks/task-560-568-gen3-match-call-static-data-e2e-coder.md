@@ -2,12 +2,12 @@
 id: task-560-568-gen3-match-call-static-data-e2e-coder
 type: TASK
 title: Implement Gen 3 Match Call Static Data E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: '2863620256980618261'
+jules_session_id: null
 pr_number: null
 parent: story-084-560-gen3-match-call-static-data-e2e
 tags:
@@ -30,5 +30,5 @@ Implement E2E testing to verify that the Gen 3 Match Call static dataset is succ
 This task fulfills the mandatory Orchestrator Safeguard (E2E/Integration Requirement) for the Gen 3 Match Call Static Data Generation epic.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for the Match Call static data generation pipeline.
-- [ ] Ensure tests verify MsgPack export and IndexedDB hydration (`PokeDB.ts`).
+- [x] Implement E2E tests for the Match Call static data generation pipeline.
+- [x] Ensure tests verify MsgPack export and IndexedDB hydration (`PokeDB.ts`).

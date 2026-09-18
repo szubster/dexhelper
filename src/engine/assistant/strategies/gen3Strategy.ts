@@ -2,6 +2,24 @@ import type { UnifiedLocation } from '../../../db/schema';
 import { getGen3UnobtainableReason } from '../../exclusives/gen3Exclusives';
 import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen3Graph';
 import type { SaveData } from '../../saveParser/index';
+import {
+  SPECIES_ALAKAZAM,
+  SPECIES_DEOXYS,
+  SPECIES_GENGAR,
+  SPECIES_GOLEM,
+  SPECIES_GOREBYSS,
+  SPECIES_HUNTAIL,
+  SPECIES_JIRACHI,
+  SPECIES_KINGDRA,
+  SPECIES_LATIAS,
+  SPECIES_LATIOS,
+  SPECIES_MACHAMP,
+  SPECIES_POLITOED,
+  SPECIES_PORYGON2,
+  SPECIES_SCIZOR,
+  SPECIES_SLOWKING,
+  SPECIES_STEELIX,
+} from '../constants';
 import type { AssistantStrategy, Suggestion } from './types';
 import { getMatchCallSuggestions } from './utils/matchCall';
 import { getRoamerSuggestions } from './utils/roamer';
@@ -26,8 +44,8 @@ export const gen3Strategy: AssistantStrategy = {
     const missingSet = new Set(missingIds);
 
     const roamers = [
-      { id: 380, name: 'Latias' },
-      { id: 381, name: 'Latios' },
+      { id: SPECIES_LATIAS, name: 'Latias' },
+      { id: SPECIES_LATIOS, name: 'Latios' },
     ];
     suggestions.push(...getRoamerSuggestions(saveData, missingSet, roamers));
     suggestions.push(...getMatchCallSuggestions(saveData));
@@ -37,20 +55,20 @@ export const gen3Strategy: AssistantStrategy = {
 
   isInternallyObtainable(baseId: number, _version: string): boolean {
     const unobtainableInternally = new Set([
-      65, // Alakazam
-      68, // Machamp
-      76, // Golem
-      94, // Gengar
-      186, // Politoed
-      199, // Slowking
-      208, // Steelix
-      212, // Scizor
-      230, // Kingdra
-      233, // Porygon2
-      367, // Huntail
-      368, // Gorebyss
-      385, // Jirachi
-      386, // Deoxys
+      SPECIES_ALAKAZAM,
+      SPECIES_MACHAMP,
+      SPECIES_GOLEM,
+      SPECIES_GENGAR,
+      SPECIES_POLITOED,
+      SPECIES_SLOWKING,
+      SPECIES_STEELIX,
+      SPECIES_SCIZOR,
+      SPECIES_KINGDRA,
+      SPECIES_PORYGON2,
+      SPECIES_HUNTAIL,
+      SPECIES_GOREBYSS,
+      SPECIES_JIRACHI,
+      SPECIES_DEOXYS,
     ]);
 
     return !unobtainableInternally.has(baseId);

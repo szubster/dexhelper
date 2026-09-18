@@ -42,17 +42,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Configure Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Invoke Jules Agent
-        id: invoke-jules
+      - name: Dispatch Issue
+        id: dispatch-issue
         env:
-          JULES_API_KEY: ${{ secrets.JULES_API_KEY }}
+          GH_TOKEN: ${{ secrets.MY_ISSUES_PAT }}
           PERSONA: ${{ inputs.persona }}
-          GITHUB_REPO: ${{ github.repository }}
         run: |
           persona="$PERSONA"
           agent_file=".github/agents/${persona}.md"
@@ -68,79 +62,24 @@ jobs:
             fi
           fi
 
-          # Construct the prompt JSON
-          prompt_json=$(jq -n \
-            --arg agent_context "$agent_context" \
-            --arg empty_state "If you determine there is no actionable work to be done during this run, simply state that in your PR and complete your session. An empty PR diff is acceptable and will be closed automatically." \
-            --arg repo "$GITHUB_REPO" \
-            --arg schema_url "https://github.com/$GITHUB_REPO/blob/main/.foundry/docs/schema.md" \
-            --arg title "Scheduled Agent: $persona" \
-            '{
-              "prompt": "\($agent_context)\n\n\($empty_state)\n\n### CRITICAL RULE\n1. AUTONOMOUS NO-ASK POLICY: Never ask conversational questions, ask for permission to proceed, or ask whether to open/submit a PR or request code review in chat. Execute all decisions autonomously and call submit immediately when work or demotion steps are ready.\n\n### SCHEMA\n\($schema_url)",
-              "sourceContext": {
-                "source": "sources/github/\($repo)",
-                "githubRepoContext": {
-                  "startingBranch": "main"
-                }
-              },
-              "automationMode": "AUTO_CREATE_PR",
-              "title": $title
-            }')
+          echo "Dispatching GitHub issue for scheduled run of: $persona"
 
-          # Request session from Jules API with retry loop for quota / API errors
-          # Retries every ~15 minutes (+ random jitter) up to 4 hours total (14,400s)
-          base_delay=900
-          max_duration=14400
-          start_time=$(date +%s)
-          attempt=1
+          temp_file=$(mktemp)
 
-          echo "Dispatching Jules session for: $persona"
+          {
+            echo "$agent_context"
+            echo ""
+            echo "If you determine there is no actionable work to be done during this run, simply state that in your PR and complete your session. An empty PR diff is acceptable and will be closed automatically."
+            echo ""
+            echo "### CRITICAL RULE"
+            echo "1. AUTONOMOUS NO-ASK POLICY: Never ask conversational questions, ask for permission to proceed, or ask whether to open/submit a PR or request code review in chat. Execute all decisions autonomously and call submit immediately when work or demotion steps are ready."
+            echo ""
+            echo "### SCHEMA"
+            echo "https://github.com/${{ github.repository }}/blob/main/.foundry/docs/schema.md"
+          } > "$temp_file"
 
-          while true; do
-            now=$(date +%s)
-            elapsed=$((now - start_time))
+          issue_url=$(gh issue create --title "Scheduled Agent: $persona" --body-file "$temp_file" --label "jules")
+          echo "Successfully created issue: $issue_url"
+          echo "### 🤖 Scheduled Issue: $issue_url" >> "$GITHUB_STEP_SUMMARY"
 
-            if [[ $attempt -gt 1 ]]; then
-              if [[ $elapsed -ge $max_duration ]]; then
-                echo "::error::Reached max duration of 4 hours ($elapsed seconds elapsed) without successfully spawning session."
-                exit 1
-              fi
-
-              # Add random jitter between 0 and 120 seconds to 15 minutes base delay
-              jitter=$(( RANDOM % 120 ))
-              delay=$(( base_delay + jitter ))
-
-              remaining=$(( max_duration - elapsed ))
-              if [[ $delay -gt $remaining ]]; then
-                delay=$remaining
-              fi
-
-              echo "Attempt $attempt: Retrying in $delay seconds ($elapsed seconds elapsed so far)..."
-              sleep "$delay"
-            fi
-
-            response=$(curl -s -X POST "https://jules.googleapis.com/v1alpha/sessions" \
-              -H "Content-Type: application/json" \
-              -H "X-Goog-Api-Key: $JULES_API_KEY" \
-              -d "$prompt_json")
-
-            session_id=$(echo "$response" | jq -r '.id // empty')
-
-            if [[ -n "$session_id" && "$session_id" != "null" ]]; then
-              session_url="https://jules.google.com/session/$session_id"
-              echo "Successfully spawned Jules session: $session_id"
-              echo "Jules Session URL: $session_url"
-              echo "SESSION_ID=$session_id" >> "$GITHUB_ENV"
-              echo "SESSION_URL=$session_url" >> "$GITHUB_ENV"
-              echo "session_id=$session_id" >> "$GITHUB_OUTPUT"
-              echo "session_url=$session_url" >> "$GITHUB_OUTPUT"
-              echo "### 🤖 Jules Session: $session_url" >> "$GITHUB_STEP_SUMMARY"
-              exit 0
-            fi
-
-            error_msg=$(echo "$response" | jq -r '.error.message // .error.status // "Unknown error"')
-            echo "::warning::Attempt $attempt failed: $error_msg"
-            echo "Full API response: $response"
-
-            attempt=$((attempt + 1))
-          done
+          rm "$temp_file"

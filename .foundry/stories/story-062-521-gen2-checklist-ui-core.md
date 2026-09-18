@@ -2,10 +2,10 @@
 id: story-062-521-gen2-checklist-ui-core
 type: STORY
 title: Gen 2 Checklist Core UI Components
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-07'
+updated_at: '2026-09-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Gen 2 Checklist Core UI Components
@@ -25,8 +26,8 @@ notes: ''
 Implement the core UI components for the Gen 2 checklist to display the daily and weekly event checklist.
 
 ## Acceptance Criteria
-- [ ] task-521-536-gen2-checklist-layout-impl
-- [ ] task-521-537-gen2-checklist-items-impl
-- [ ] task-521-538-gen2-checklist-ui-qa
-- [ ] Implement checklist layout and design.
-- [ ] Create individual item components.
+- [x] task-521-536-gen2-checklist-layout-impl
+- [x] task-521-537-gen2-checklist-items-impl
+- [x] task-521-538-gen2-checklist-ui-qa
+- [x] Implement checklist layout and design.
+- [x] Create individual item components.

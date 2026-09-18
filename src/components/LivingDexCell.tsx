@@ -22,11 +22,13 @@ export const LivingDexCell = React.memo(function LivingDexCell({ id, inParty, in
   return (
     <button
       type="button"
+      aria-label={`View details for Pokémon #${id}`}
+      title={`View details for Pokémon #${id}`}
       onClick={handleClick}
       data-testid="pokedex-card"
       data-pokemon-id={id}
       className={cn(
-        'group relative flex aspect-square w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-none border border-dashed text-left transition-all duration-300',
+        'group focus-visible:tactical-focus relative flex aspect-square w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-none border border-dashed text-left transition-all duration-300',
         isSecured
           ? 'border-cyan-500/50 bg-cyan-950/20 hover:border-cyan-400 hover:bg-cyan-900/40'
           : 'border-zinc-800 bg-black/40 hover:border-zinc-700',

@@ -2,12 +2,12 @@
 id: task-550-567-fix-gen3-heuristic-impl
 type: TASK
 title: Fix isGen3Save heuristic in detection.ts
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-13'
+updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '9225318314885797721'
+jules_session_id: null
 pr_number: null
 parent: story-536-550-remove-mock-and-fix-heuristic
 tags: []
@@ -30,4 +30,4 @@ The `isGen3Save` heuristic in `src/engine/saveParser/utils/detection.ts` current
 - Ensure the function returns false instead of throwing if the buffer is incomplete or not a valid Gen 3 save.
 
 ## Acceptance Criteria
-- [ ] Fix `isGen3Save` in `src/engine/saveParser/utils/detection.ts` to correctly identify Gen 3 saves and handle RangeError gracefully.
+- [x] Fix `isGen3Save` in `src/engine/saveParser/utils/detection.ts` to correctly identify Gen 3 saves and handle RangeError gracefully.

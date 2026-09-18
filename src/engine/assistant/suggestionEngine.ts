@@ -41,6 +41,7 @@ import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN1 } from '../data/gen1/assistan
 import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN2 } from '../data/gen2/assistantData';
 import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN3 } from '../data/gen3/assistantData';
 import type { SaveData } from '../saveParser/index';
+import { SPECIES_MEWTWO } from './constants';
 import { generateBreedingSuggestions } from './generators/breedGenerator';
 // Generators
 import { generateCatchSuggestions } from './generators/catchGenerator';
@@ -255,7 +256,7 @@ export async function generateSuggestions(
 
   for (let i = 1; i <= maxDex; i++) {
     if (!ownedSet.has(i)) {
-      if (saveData.generation === 1 && i === 150 && (saveData.hallOfFameCount || 0) === 0) {
+      if (saveData.generation === 1 && i === SPECIES_MEWTWO && (saveData.hallOfFameCount || 0) === 0) {
         rejected.push({
           pokemonId: i,
           reason: 'Hall of Fame count is 0. Mewtwo is locked.',

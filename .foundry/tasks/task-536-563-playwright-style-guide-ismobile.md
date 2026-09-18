@@ -2,13 +2,13 @@
 id: task-536-563-playwright-style-guide-ismobile
 type: TASK
 title: Document isMobile Context Handling
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-07'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on:
   - task-536-562-playwright-style-guide-locator-or
-jules_session_id: '3190176783565951585'
+jules_session_id: null
 pr_number: null
 parent: story-531-536-write-playwright-style-guide
 tags:
@@ -30,5 +30,5 @@ Add a section to the Playwright Testing Style Guide covering the `isMobile` cont
 Repeated violations of testing standards are caught by `qa` nodes regarding `isMobile` context. As part of the new Playwright Testing Style Guide (`.foundry/docs/knowledge_base/testing/playwright_style_guide.md`), we need a section documenting `isMobile`. According to core policies: "When writing or maintaining E2E tests for navigation elements, always consider that layout and labeling may change based on screen size. The `isMobile` fixture in Playwright should be used to conditionally adjust locators."
 
 ## Acceptance Criteria
-- [ ] Update `.foundry/docs/knowledge_base/testing/playwright_style_guide.md` with a section on the `isMobile` fixture.
-- [ ] Provide clear code examples.
+- [x] Update `.foundry/docs/knowledge_base/testing/playwright_style_guide.md` with a section on the `isMobile` fixture.
+- [x] Provide clear code examples.

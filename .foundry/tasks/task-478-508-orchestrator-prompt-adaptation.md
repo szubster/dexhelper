@@ -2,10 +2,10 @@
 id: task-478-508-orchestrator-prompt-adaptation
 type: TASK
 title: Implement Prompt Adaptation for Variants
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-30'
-updated_at: '2026-09-01'
+updated_at: '2026-09-16'
 depends_on:
   - task-478-507-orchestrator-cloning-logic
 jules_session_id: null
@@ -15,8 +15,11 @@ tags:
   - orchestrator
   - prompt
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-478-507-orchestrator-cloning-logic
 notes: ''
+locks: []
 ---
 
 # Task: Implement Prompt Adaptation for Variants

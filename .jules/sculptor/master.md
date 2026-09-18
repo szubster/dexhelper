@@ -138,3 +138,17 @@ Improve AI readability by extracting Gen 2 array size and block length magic num
 * **Inline magic numbers obfuscate array structures:** When parsing save files, iterating over items or extracting offsets from decrypted permutation blocks (like the 48-byte Gen 3 Pokemon structure) using inline arithmetic (e.g. `0 + GEN3_POKEMON_SPECIES_OFFSET_IN_G` or `12 + ...`) deeply obfuscates the layout of binary structs from AI.
 * **Top-level constants provide semantic mapping:** Extracting these specific pointer jumps into constants (`DECRYPTED_BLOCK_G_OFFSET = 0`, `DECRYPTED_BLOCK_A_OFFSET = 12`) vastly clarifies how the array structures are bounded and makes it explicit which block is being parsed.
 * **Refactoring Strategy:** Using custom `node` scripts for automated search and replace operations works well for targeted refactors but leaves scratchpads behind. It is imperative to remember to `rm` any text files (e.g., `test_script.js`, `plan.md`) generated during the exploration before asking for code review. Also, when working in a repository with `"type": "module"`, ensure temporary node scripts use the `.cjs` extension if they rely on `require()`.
+
+
+---
+
+## Refactoring Goal
+Improve AI readability by extracting Gen 3 roamer offsets into a centralized constants file.
+
+## Actions Taken
+- Created `src/engine/saveParser/gen3/roamer/constants.ts` and moved 15 roamer-related constants (`GEN3_ROAMER_OFFSET_RS`, `ROAMER_HP_OFFSET`, etc.) from the main `gen3.ts` and `gen3.test.ts` files into this new file.
+- Updated the import structure in both `gen3.ts` and `gen3.test.ts` to consume the extracted constants.
+
+## Critical Learnings
+- **Inline exports and duplicate test declarations clutter core logic:** Similar to previous TM/HM flags and NPC trades refactors, scattering domain-specific constants (like roamer boundaries) across parsing logic and duplicating them in tests makes it harder for AI agents to determine the single source of truth. Extracting them to dedicated dictionary files improves semantic structure and modularity.
+- **Refactoring Strategy:** Always use `read_file` or `head`/`grep` to inspect the exact structure (like imports) of the target files before attempting to inject or replace code via bash scripts to ensure groundedness and avoid hallucinating file structures.

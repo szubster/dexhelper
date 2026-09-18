@@ -44,8 +44,12 @@ describe('LivingDexGrid', () => {
 
     await expect.element(page.getByText('SYS.LIVING_DEX', { exact: true })).toBeInTheDocument();
     await expect.element(page.getByText('000 / 386', { exact: true })).toBeInTheDocument();
-    await expect.element(page.getByText('001', { exact: true })).toBeInTheDocument();
-    await expect.element(page.getByText('386', { exact: true })).toBeInTheDocument();
+
+    const cells = page.getByTestId('pokedex-card').elements();
+    expect(cells).toHaveLength(386);
+
+    await expect.element(page.getByTestId('pokedex-card').first()).toHaveTextContent('001');
+    await expect.element(page.getByTestId('pokedex-card').last()).toHaveTextContent('386');
   });
 
   test('calculates secured pokemon from party and PC', async () => {

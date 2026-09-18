@@ -2,10 +2,10 @@
 id: story-531-558-modify-scheduled-workflows-impl
 type: STORY
 title: Implement Issue Dispatch for Scheduled Workflows
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-08'
-updated_at: '2026-09-13'
+updated_at: '2026-09-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,8 +36,8 @@ As part of the EPIC to update the scheduled workflows to use GitHub Issues for d
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into TASK nodes.
-- [ ] task-558-564-scheduled-workflows-batch1-impl
-- [ ] task-558-565-scheduled-workflows-batch2-impl
-- [ ] task-558-566-scheduled-workflows-batch3-impl
-- [ ] task-558-567-scheduled-workflows-qa
-- [ ] adr-558-568-evaluate-scheduled-workflow-architecture
+- [x] task-558-564-scheduled-workflows-batch1-impl
+- [x] task-558-565-scheduled-workflows-batch2-impl
+- [x] task-558-566-scheduled-workflows-batch3-impl
+- [x] task-558-567-scheduled-workflows-qa
+- [x] adr-558-568-evaluate-scheduled-workflow-architecture

@@ -42,10 +42,10 @@ export const Gen2Checklist: React.FC = () => {
 
   return (
     <div className="mt-6 flex flex-col gap-6">
-      <TacticalPanel className="relative flex flex-col gap-4 rounded-none border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
+      <TacticalPanel className="relative flex flex-col gap-4 border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
         <TelemetryDecoration label="SYS.GEN2_STATIC_ENCOUNTERS" className="-top-[17px] left-[-1px]" />
         <div className="flex items-center justify-between">
-          <span className="tactical-text z-10 font-black font-mono text-lg text-white">STATIC ENCOUNTERS</span>
+          <span className="tactical-text z-10 font-black text-lg text-white">STATIC ENCOUNTERS</span>
         </div>
 
         <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -55,10 +55,10 @@ export const Gen2Checklist: React.FC = () => {
         </div>
       </TacticalPanel>
 
-      <TacticalPanel className="relative flex flex-col gap-4 rounded-none border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
+      <TacticalPanel className="relative flex flex-col gap-4 border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
         <TelemetryDecoration label="SYS.GEN2_DAILY_EVENTS" className="-top-[17px] left-[-1px]" />
         <div className="flex items-center justify-between">
-          <span className="tactical-text z-10 font-black font-mono text-lg text-white">DAILY / WEEKLY EVENTS</span>
+          <span className="tactical-text z-10 font-black text-lg text-white">DAILY / WEEKLY EVENTS</span>
         </div>
 
         <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
