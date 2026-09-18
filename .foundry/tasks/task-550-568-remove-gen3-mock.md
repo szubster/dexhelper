@@ -2,13 +2,13 @@
 id: task-550-568-remove-gen3-mock
 type: TASK
 title: Remove isGen3Spy mock from index.test.ts
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-09'
 updated_at: '2026-09-18'
 depends_on:
   - task-550-567-fix-gen3-heuristic-impl
-jules_session_id: '13790763623436143233'
+jules_session_id: null
 pr_number: null
 parent: story-536-550-remove-mock-and-fix-heuristic
 tags: []

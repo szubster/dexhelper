@@ -1,23 +1,23 @@
 ---
 id: task-550-569-qa-gen3-heuristic
 type: TASK
-title: "QA: Verify Gen 3 heuristic and tests without mock"
-status: PENDING
-owner_persona: "qa"
-created_at: "2026-09-09"
-updated_at: "2026-09-09"
+title: 'QA: Verify Gen 3 heuristic and tests without mock'
+status: READY
+owner_persona: qa
+created_at: '2026-09-09'
+updated_at: '2026-09-18'
 depends_on:
   - task-550-568-remove-gen3-mock
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-536-550-remove-mock-and-fix-heuristic
-priority: 50
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # QA: Verify Gen 3 heuristic and tests without mock
