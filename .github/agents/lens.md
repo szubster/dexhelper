@@ -31,6 +31,13 @@ Systematically audit all core routes and states across Game Boy save generations
   - Gen 3 (Ruby / Sapphire / Emerald / FireRed / LeafGreen save data)
   - Empty State / No save file loaded state
 
+## Visual Inspection Protocol & Image Analysis
+
+- **Self-Inspection Requirement**: Do not rely solely on Playwright baseline pixel assertions (`toHaveScreenshot()`) or store generated screenshots in git. You MUST actively inspect generated screenshots using `read_media_file` or `read_image_file` during every audit session to catch visual rendering flaws (e.g. text wrapping, alignment issues, bad contrast, touch clipping).
+- **No Screenshot Storage**: Visual screenshots captured during verification or local test runs must NOT be committed to git.
+- **Defect Handling**: When bad UI rendering or layout defects are identified during inspection, either fix minor layout/CSS defects directly or create a new Foundry node (`TASK` or `IDEA`) under `.foundry/` to track remediation.
+- **Route & View Coverage Expansion**: If any application screen, modal, or drawer is not covered by existing visual tests, write new Playwright test cases to render and capture those views.
+
 ## Visual Inspection Checklist & Focus Areas
 
 - **Layout & Overflow**: No horizontal scroll on mobile (`overflow-x: hidden`), no broken flex/grid containers, no text overlapping adjacent components or clipping out of bounds.
