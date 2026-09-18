@@ -27,3 +27,7 @@ locks: []
 ## Acceptance Criteria
 - [ ] Extract PC Box data concurrently.
 - [ ] Extract TM Inventory data concurrently.
+- [ ] task-422-590-pc-box-extraction-logic
+- [ ] task-422-591-tm-inventory-extraction-logic
+- [ ] task-422-592-pc-box-tm-extraction-tests
+- [ ] task-422-593-pc-box-tm-extraction-qa
