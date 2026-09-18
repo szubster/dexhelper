@@ -174,21 +174,23 @@ describe('gen1Exclusives', () => {
     });
 
     describe('Yellow Version Exclusives', () => {
-      it('should lock Electabuzz (125) in Yellow', () => {
+      it('should lock Weedle (13), Ekans (23), Koffing (109), and Electabuzz (125) in Yellow', () => {
         const ownedSet = new Set<number>();
-        const reason = getUnobtainableReason(125, 'yellow', 0, ownedSet);
-        expect(typeof reason).toBe('string');
-        expect(reason).toContain('not available in Yellow');
+        for (const id of [13, 23, 109, 125]) {
+          const reason = getUnobtainableReason(id, 'yellow', 0, ownedSet);
+          expect(typeof reason).toBe('string');
+          expect(reason).toContain('not available in Yellow');
+        }
       });
 
-      it('should lock Sandshrew (27) or Pinsir (127) in Yellow', () => {
+      it('should NOT lock Sandshrew (27), Scyther (123), or Pinsir (127) in Yellow', () => {
         const ownedSet = new Set<number>();
         const reasonSandshrew = getUnobtainableReason(27, 'yellow', 0, ownedSet);
+        const reasonScyther = getUnobtainableReason(123, 'yellow', 0, ownedSet);
         const reasonPinsir = getUnobtainableReason(127, 'yellow', 0, ownedSet);
-        expect(typeof reasonSandshrew).toBe('string');
-        expect(reasonSandshrew).toContain('not available in Yellow');
-        expect(typeof reasonPinsir).toBe('string');
-        expect(reasonPinsir).toContain('not available in Yellow');
+        expect(reasonSandshrew).toBeNull();
+        expect(reasonScyther).toBeNull();
+        expect(reasonPinsir).toBeNull();
       });
     });
 
