@@ -2,24 +2,24 @@
 id: adr-560-571-evaluate-state-machine-libraries
 type: ADR
 title: Evaluate State Machine Libraries for Node Lifecycle Transitions
-status: PENDING
+status: READY
 owner_persona: architect
 created_at: '2026-09-18'
 updated_at: '2026-09-18'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-540-560-evaluate-state-and-graph-libraries
-priority: 50
 tags:
   - foundry
   - architecture
   - state-machine
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: "Evaluation of state machine libraries for handling Node lifecycle transitions."
+rejection_reason: ''
+notes: Evaluation of state machine libraries for handling Node lifecycle transitions.
+locks: []
+priority: 50
 ---
 
 # Evaluate State Machine Libraries for Node Lifecycle Transitions

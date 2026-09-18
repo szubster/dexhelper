@@ -2,7 +2,7 @@
 id: task-560-569-evaluate-state-machine-libraries
 type: TASK
 title: Evaluate State Machine Libraries for Node Lifecycle
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-09'
 updated_at: '2026-09-18'
@@ -14,8 +14,8 @@ tags:
   - foundry
   - architecture
   - state-machine
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

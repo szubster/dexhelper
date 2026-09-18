@@ -2,7 +2,7 @@
 id: task-136-491-permanent-failure-kanban-ui-impl
 type: TASK
 title: Implement Permanent Failure Kanban UI
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-25'
 updated_at: '2026-09-18'
@@ -17,8 +17,8 @@ tags:
   - dashboard
   - kanban
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

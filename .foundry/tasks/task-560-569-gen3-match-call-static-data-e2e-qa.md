@@ -2,13 +2,13 @@
 id: task-560-569-gen3-match-call-static-data-e2e-qa
 type: TASK
 title: 'QA Verify: Gen 3 Match Call Static Data E2E Tests'
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-08'
 updated_at: '2026-09-18'
 depends_on:
   - task-560-568-gen3-match-call-static-data-e2e-coder
-jules_session_id: '5554832121806847116'
+jules_session_id: null
 pr_number: null
 parent: story-084-560-gen3-match-call-static-data-e2e
 tags:

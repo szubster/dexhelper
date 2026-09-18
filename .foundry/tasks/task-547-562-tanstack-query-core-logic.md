@@ -2,12 +2,12 @@
 id: task-547-562-tanstack-query-core-logic
 type: TASK
 title: TanStack Query Core Logic Optimization
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-11'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '3896207935752485152'
+jules_session_id: null
 pr_number: null
 parent: story-538-547-tanstack-query-and-vitest
 tags:
@@ -15,7 +15,7 @@ tags:
   - typescript
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
 locks: []
 ---
