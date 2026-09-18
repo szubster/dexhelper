@@ -30,6 +30,6 @@ locks: []
 This task implements the core `function*` and `async function*` protocols for tree traversals, avoiding eager array allocation.
 
 ## Acceptance Criteria
-- [ ] Implement `function*` based tree traversal logic.
-- [ ] Implement `async function*` based tree traversal logic.
-- [ ] Adhere to ADR 154 lazy evaluation guidelines.
+- [x] Implement `function*` based tree traversal logic.
+- [x] Implement `async function*` based tree traversal logic.
+- [x] Adhere to ADR 154 lazy evaluation guidelines.
