@@ -34,5 +34,5 @@ To ensure the end-to-end functionality of the Gen 3 NPC rematch status feature, 
 - Ensure the tests interact with the DOM correctly to validate user-facing data.
 
 ## Acceptance Criteria
-- [ ] Create Playwright E2E tests for the NPC rematch status feature in `tests/e2e/`.
-- [ ] Ensure all tests pass.
+- [x] Create Playwright E2E tests for the NPC rematch status feature in `tests/e2e/`.
+- [x] Ensure all tests pass.
