@@ -2,13 +2,13 @@
 id: task-536-566-weather-anomaly-extraction-tests
 type: TASK
 title: Gen 3 Weather Anomaly Extraction Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-04'
 updated_at: '2026-09-18'
 depends_on:
   - task-536-565-weather-anomaly-extraction-logic
-jules_session_id: '3222193207902836600'
+jules_session_id: null
 pr_number: null
 parent: story-517-536-gen3-weather-anomaly-data-parsing
 tags:
