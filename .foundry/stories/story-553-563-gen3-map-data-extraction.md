@@ -33,4 +33,8 @@ Extract the binary data representing the player location, roamer positions, berr
 - Return extracted data in an application-friendly `PokeData` schema format, adhering to the PokeData Property Naming Schema.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into TASK nodes (e.g., logic implementation, unit tests, QA).
+- [x] Tech Lead: Break down into TASK nodes (e.g., logic implementation, unit tests, QA).
+- [ ] task-563-581-map-data-types
+- [ ] task-563-582-map-data-extraction-logic
+- [ ] task-563-583-map-data-tests
+- [ ] task-563-584-map-data-qa
