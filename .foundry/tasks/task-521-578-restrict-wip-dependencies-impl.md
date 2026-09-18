@@ -10,6 +10,7 @@ depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-520-521-restrict-downstream-dependencies
+rejection_reason: ""
 tags:
   - foundry
   - orchestrator
