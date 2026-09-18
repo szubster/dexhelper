@@ -22,7 +22,7 @@ jobs:
           for issue in $issues; do
             latest_comment=$(gh issue view "$issue" --repo "$REPO" --json comments --jq '(.comments // []) | last | .body // ""')
 
-            if [[ "$latest_comment" == *"Jules has failed to create a task. You can try again later by removing and re-adding the 'jules' label."* ]]; then
+            if [[ "$latest_comment" == *"Jules has failed to create a task. You can try again later by removing and re-adding the 'jules' label."* || "$latest_comment" == *"I apologize, but I encountered an unexpected error"* ]]; then
               echo "Retrying issue #$issue..."
               gh issue edit "$issue" --repo "$REPO" --remove-label "jules"
               gh issue edit "$issue" --repo "$REPO" --add-label "jules"
