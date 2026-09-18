@@ -79,7 +79,7 @@ export function sweepJournals(repoRoot: string, options: SweepJournalsOptions = 
               }
               sweptFiles.push(fullPath);
             } catch (err) {
-              console.error(`Failed to move ${fullPath} to archive`, err);
+              console.error(`Failed to move ${fullPath} to archive`, err instanceof Error ? err.message : String(err));
             }
           }
         }

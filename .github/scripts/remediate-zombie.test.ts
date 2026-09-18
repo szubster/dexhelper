@@ -102,7 +102,10 @@ describe('remediateZombieNode', () => {
     try {
       const result = remediateZombieNode(tmpDir, nodePath);
       expect(result).toBe(false);
-      expect(console.error).toHaveBeenCalled();
+      expect(console.error).toHaveBeenCalledWith(
+        `Failed to remediate zombie node at ${fullPath}:`,
+        expect.stringContaining('EACCES')
+      );
     } finally {
       // Restore permissions so cleanup works
       fs.chmodSync(fullPath, 0o666);

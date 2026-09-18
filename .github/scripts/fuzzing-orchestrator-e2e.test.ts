@@ -175,7 +175,7 @@ describe('Orchestrator Fuzzing E2E', () => {
                     }
                 } catch (e) {
                     errorThrown = true;
-                    console.error("Error during main:", e);
+                    console.error("Error during main:", e instanceof Error ? e.message : String(e));
                 }
 
                 expect(errorThrown).toBe(false);
@@ -236,7 +236,7 @@ describe('Orchestrator Fuzzing E2E', () => {
                     main();
                 } catch (e) {
                     errorThrown = true;
-                    console.error("Error during main:", e);
+                    console.error("Error during main:", e instanceof Error ? e.message : String(e));
                 }
 
                 expect(errorThrown).toBe(false);
