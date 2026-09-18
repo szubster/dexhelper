@@ -43,5 +43,6 @@ This transforms a notoriously frustrating, opaque grind into a highly targeted, 
 
 ## Next Steps / Acceptance Criteria
 - [x] Product Manager: Draft this IDEA node to initiate the feature request.
-- [ ] Product Manager: Convert this IDEA into a PRD detailing the Headbutt coordinate math and the integration with the existing map UI.
+- [x] Product Manager: Convert this IDEA into a PRD detailing the Headbutt coordinate math and the integration with the existing map UI.
+- [ ] prd-157-581-gen2-headbutt-tree-predictor
 - [x] research-157-505-gen2-headbutt-math
