@@ -31,5 +31,5 @@ Verify the implementation and unit testing of the Gen 3 Mystery Gift data parser
 2. Confirm the tests correctly cover both RSE and FRLG logic.
 
 ## Acceptance Criteria
-- [ ] Parser logic aligns with documentation.
-- [ ] Tests are comprehensive and pass.
+- [x] Parser logic aligns with documentation.
+- [x] Tests are comprehensive and pass.
