@@ -26,4 +26,4 @@ locks: []
 Write end-to-end integration tests to verify the prompt compilation functionality within the Foundry orchestrator. Ensure that tests correctly validate the removal of redundant information and the inclusion of necessary context.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for prompt compilation verifying the cleanup of redundant information.
+- [x] Implement E2E tests for prompt compilation verifying the cleanup of redundant information.
