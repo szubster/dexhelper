@@ -1,7 +1,21 @@
 import type { UnifiedLocation } from '../../db/schema';
-import { resolveOutdoorMapId as commonResolveOutdoorMapId, getDistanceToMapBase } from './common';
+import { resolveOutdoorMapId as commonResolveOutdoorMapId, getDistanceToMapBase, getLocation } from './common';
 
 export const resolveOutdoorMapId = commonResolveOutdoorMapId;
+
+/**
+ * Translates a Gen 2 map group and map ID into a human-readable map name.
+ *
+ * @param allLocations - The unified list of all map locations.
+ * @param mapGroup - The Gen 2 map group.
+ * @param mapId - The Gen 2 map ID.
+ * @returns The name of the map, or 'Unknown Location' if not found.
+ */
+export function getGen2MapName(allLocations: UnifiedLocation[], mapGroup: number, mapId: number): string {
+  const gameId = (mapGroup << 8) | mapId;
+  const loc = getLocation(allLocations, gameId);
+  return loc?.n || 'Unknown Location';
+}
 
 /**
  * Calculates the shortest path distance (in graph edges/hops) for Gen 2 games.
