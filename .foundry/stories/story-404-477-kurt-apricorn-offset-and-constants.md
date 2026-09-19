@@ -2,10 +2,10 @@
 id: story-404-477-kurt-apricorn-offset-and-constants
 type: STORY
 title: Kurt Apricorn Offset and Constants
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-18'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null

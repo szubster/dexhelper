@@ -2,10 +2,10 @@
 id: research-477-564-investigate-apricorn-offsets-failure
 type: RESEARCH
 title: Investigate Failure of Kurt Apricorn Offsets Research
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-09-08'
-updated_at: '2026-09-18'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - gen2
   - items
   - offsets
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

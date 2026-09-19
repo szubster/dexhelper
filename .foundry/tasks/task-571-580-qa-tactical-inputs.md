@@ -2,14 +2,14 @@
 id: task-571-580-qa-tactical-inputs
 type: TASK
 title: QA Tactical Inputs Refactor
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-15T11:19:51Z'
-updated_at: '2026-09-18'
+updated_at: '2026-09-19'
 depends_on:
   - task-571-578-cva-refactor-basic-inputs
   - task-571-579-cva-refactor-complex-inputs
-jules_session_id: '7067627302680348135'
+jules_session_id: null
 pr_number: null
 parent: story-567-571-cva-refactor-tactical-inputs
 tags:
