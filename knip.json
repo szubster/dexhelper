@@ -9,6 +9,7 @@
     "@tsconfig/vite-react"
   ],
   "ignore": [
+    "src/features/decorations/types.ts",
     "src/test-setup.ts",
     "src/engine/data/gen2/wildModels.ts",
     "src/contexts/binjgb/index.ts",
