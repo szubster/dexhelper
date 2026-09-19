@@ -31,7 +31,7 @@ Implement the `ShoalItemTracker` React component to display quantities of collec
 - The UI MUST follow the tactical hardware aesthetic constraints (`rounded-none`, `border-dashed`, monospaced telemetry fonts) outlined in ADR 008.
 
 ## Acceptance Criteria
-- [ ] Create `ShoalItemTracker.tsx` component.
-- [ ] Render collected item counts for Shoal Shells and Shoal Salts.
-- [ ] Add visual readiness indicator for Shell Bell crafting.
-- [ ] Write Vitest browser tests for the component.
+- [x] Create `ShoalItemTracker.tsx` component.
+- [x] Render collected item counts for Shoal Shells and Shoal Salts.
+- [x] Add visual readiness indicator for Shell Bell crafting.
+- [x] Write Vitest browser tests for the component.
