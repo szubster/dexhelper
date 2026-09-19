@@ -31,5 +31,5 @@ As part of the Wild Item Hunting UI, we need to maintain state for the user's se
 - Ensure the state can be accessed by downstream components (e.g., the tracker or map).
 
 ## Acceptance Criteria
-- [ ] Add state structure for selected wild hunting items.
-- [ ] Implement add/remove/clear actions for the selected items.
+- [x] Add state structure for selected wild hunting items.
+- [x] Implement add/remove/clear actions for the selected items.
