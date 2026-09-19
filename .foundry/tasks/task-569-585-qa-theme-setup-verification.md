@@ -2,10 +2,10 @@
 id: task-569-585-qa-theme-setup-verification
 type: TASK
 title: QA - Theme Setup Verification
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-16T18:35:20Z'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on:
   - task-569-583-setup-cva-utility
   - task-569-584-setup-css-theme-variables
@@ -37,6 +37,6 @@ Verify the correctness of the CVA utility setup and the CSS theme mappings.
 3. Verify `src/index.css` has `--color-theme-primary: var(--theme-primary);` and `--color-theme-bg: var(--theme-bg);` inside the `@theme` block.
 
 ## Acceptance Criteria
-- [ ] Verify `src/utils/cn.ts` correctly merges Tailwind classes using the `cn` package.
-- [ ] Verify `package.json` does NOT contain `clsx` and `tailwind-merge`.
-- [ ] Verify `src/index.css` maps `var(--theme-primary)` and `var(--theme-bg)` within the `@theme` directive.
+- [x] Verify `src/utils/cn.ts` correctly merges Tailwind classes using the `cn` package.
+- [x] Verify `package.json` does NOT contain `clsx` and `tailwind-merge`.
+- [x] Verify `src/index.css` maps `var(--theme-primary)` and `var(--theme-bg)` within the `@theme` directive.

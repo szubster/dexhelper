@@ -120,6 +120,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
           title="Clear all filters"
           aria-label="Clear all filters"
           variant="primary"
+          hasCrosshairs={true}
           onClick={() => {
             useStore.getState().setSearchTerm('');
             useStore.getState().setFilters([]);
@@ -127,7 +128,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
           }}
           className="mt-6 px-6 py-2.5"
         >
-          Clear Filters
+          <span aria-hidden="true">[ </span>Clear Filters<span aria-hidden="true"> ]</span>
         </TacticalButton>
       </TacticalPanel>
     );

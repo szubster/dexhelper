@@ -2,13 +2,13 @@
 id: story-411-423-gen3-ai-data-extraction-e2e
 type: STORY
 title: Integration and E2E Verification for Gen 3 AI Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-13'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on:
   - story-411-422-extract-opponent-data
-jules_session_id: '12986692810324022062'
+jules_session_id: null
 pr_number: null
 parent: epic-340-411-gen3-ai-data-extraction
 tags:
@@ -35,5 +35,8 @@ Verify all components of Gen 3 AI Data Extraction are integrated and work end-to
 - [x] Tech Lead: Break down into actionable TASK nodes
 - [ ] task-423-469-gen3-ai-data-e2e-fixtures-impl
 - [ ] task-423-470-gen3-ai-data-e2e-extraction-tests-impl
-- [ ] task-423-471-gen3-ai-data-e2e-mapping-tests-impl
-- [ ] task-423-472-gen3-ai-data-e2e-qa
+- [x] task-423-471-gen3-ai-data-e2e-mapping-tests-impl
+- [x] task-423-472-gen3-ai-data-e2e-qa
+- [ ] research-423-581-investigate-ai-mapping-test-failure
+- [ ] task-423-582-gen3-ai-data-e2e-mapping-tests-impl-v2
+- [ ] task-423-583-gen3-ai-data-e2e-qa-v2

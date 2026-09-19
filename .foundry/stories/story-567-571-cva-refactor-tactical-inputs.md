@@ -2,10 +2,10 @@
 id: story-567-571-cva-refactor-tactical-inputs
 type: STORY
 title: CVA Refactor Tactical Inputs
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-15'
-updated_at: '2026-09-15'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,9 +18,9 @@ tags:
 research_references:
   - .foundry/research/research-145-001-component-variant-libraries.md
   - .foundry/research/research-145-002-component-theming-mechanisms.md
+rejection_reason: ''
 locks: []
 priority: 60
-rejection_reason: ''
 ---
 
 # Story: CVA Refactor Tactical Inputs
@@ -37,6 +37,6 @@ Refactor the `TacticalInput`, `TacticalSegmentedControl`, `TacticalSelect`, and 
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-571-578-cva-refactor-basic-inputs
-- [ ] task-571-579-cva-refactor-complex-inputs
-- [ ] task-571-580-qa-tactical-inputs
+- [x] task-571-578-cva-refactor-basic-inputs
+- [x] task-571-579-cva-refactor-complex-inputs
+- [x] task-571-580-qa-tactical-inputs

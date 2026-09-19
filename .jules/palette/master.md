@@ -84,3 +84,23 @@ Learned that the e2e test takes a long time and times out, skipping per memory.
 <!-- Merged from 1788840518.md -->
 ## Learnings
 * **Accessibility win for decorative elements:** When implementing decorative UI elements (such as `[` and `]` used for the tactical styling of components like `EdgeLabel`), bake them into the component itself and wrap them in `<span aria-hidden="true">`. This prevents screen readers from redundantly announcing brackets across the application while preserving the visual styling boundaries, and eliminates manual addition at call sites ensuring consistent design.
+
+
+---
+
+## Micro-UX Improvement
+- Added an `aria-label` to the `button` in `LivingDexCell.tsx`.
+- Applied `focus-visible:tactical-focus` for improved keyboard navigation visibility.
+
+## Critical Learnings
+- **Focus Styles**: Adding `focus-visible:tactical-focus` enhances accessibility for keyboard users navigating grid-based components without polluting hover states, adhering to the tactical hardware aesthetic.
+
+
+---
+
+# Palette Journal
+
+## Accessibility & Tooltip Pattern for Icon Badges
+- Generic `<div>` or `<span>` containers carrying visual-only icons (like `ShinyBadge`) should use `title` to provide native hover tooltips and screen-reader accessible names.
+- Avoid placing `aria-label` directly on generic `<div>` elements without a role (triggers Biome `useAriaPropsSupportedByRole`) and avoid `role="img"` or `role="status"` on generic elements (triggers Oxlint `prefer-tag-over-role`).
+- Always add `aria-hidden="true"` to inner SVG icons (e.g. `Sparkles`) to prevent screen readers from reading raw SVG structures.

@@ -2,10 +2,10 @@
 id: task-548-566-generator-tree-traversal-tests
 type: TASK
 title: Unit Tests for Tree Traversal Generators
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-08'
+updated_at: '2026-09-18'
 depends_on:
   - task-548-565-generator-tree-traversal-logic
 jules_session_id: null

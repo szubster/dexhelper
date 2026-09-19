@@ -5,7 +5,7 @@ title: E2E Verification of CVA and Theme Setup
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-15T05:48:26Z'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on:
   - story-566-569-cva-theme-variables-setup
 jules_session_id: null
@@ -32,4 +32,7 @@ Verify the CVA integration and centralized theme styling works without visual re
 - Ensure that swapping theme variables behaves as expected on the frontend (e.g. testing different document themes).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down this Story into Tasks.
+- [x] Tech Lead: Break down this Story into Tasks.
+- [ ] task-570-590-cva-tactical-aesthetic-e2e-coder
+- [ ] task-570-591-theme-swapping-e2e-coder
+- [ ] task-570-592-cva-theme-e2e-qa
