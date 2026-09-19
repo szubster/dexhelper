@@ -4,9 +4,9 @@ import {
   calculateGen3Shiny,
   GEN3_PC_POKEMON_STRUCT_SIZE,
   GEN3_POKEMON_OT_ID_OFFSET,
+  iterateGen3PCBoxes,
   PC_BOX_CAPACITY,
   PC_BOX_POKEMON_LIST_OFFSET,
-  parseGen3PCBoxes,
   parseGen3PokemonPVAndIVs,
 } from '../../parsers/gen3';
 import { groupBoxPokemonBySpecies } from '../../utils/boxGrouping';
@@ -20,10 +20,10 @@ import { groupBoxPokemonBySpecies } from '../../utils/boxGrouping';
  * @throws Error - "The save file is corrupted or incomplete." on invalid data.
  */
 export function parseGen3PCBoxesWithStats(pcBufferView: DataView): Record<number, PokemonInstance[]> {
-  const baseResult = parseGen3PCBoxes(pcBufferView);
-  const pcDetails = baseResult.pcDetails;
+  const pcDetails: PokemonInstance[] = [];
 
-  for (const pokemon of pcDetails) {
+  for (const { pcDetail: pokemon } of iterateGen3PCBoxes(pcBufferView)) {
+    pcDetails.push(pokemon);
     if (pokemon.personalityValue !== undefined && pokemon.slot !== undefined && pokemon.storageLocation) {
       // The offset within the PC buffer for this specific pokemon:
       // We parse the exact offset using Box and Slot math

@@ -733,11 +733,7 @@ export function parseGen3PCBuffer(view: DataView): Uint8Array {
  * @param gameVersion - The detected or forced version of the Gen 3 game (used to determine party count offset).
  * @returns An object containing a simple array of species IDs (`party`), detailed data (`partyDetails`), and Spinda pattern data (`gen3Spindas`).
  */
-export function parseGen3Party(view: DataView, section1Offset: number, gameVersion: GameVersion) {
-  const party: number[] = [];
-  const partyDetails: PokemonInstance[] = [];
-  const gen3Spindas: Gen3Spinda[] = [];
-
+export function* iterateGen3Party(view: DataView, section1Offset: number, gameVersion: GameVersion) {
   try {
     const countOffset =
       section1Offset +
@@ -786,13 +782,9 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
 
       const moves = [move1, move2, move3, move4].filter((m) => m > 0);
 
-      party.push(speciesId);
+      const gen3Spinda = speciesId === GEN3_SPINDA_SPECIES_ID ? { pid: pv } : undefined;
 
-      if (speciesId === GEN3_SPINDA_SPECIES_ID) {
-        gen3Spindas.push({ pid: pv });
-      }
-
-      partyDetails.push({
+      const partyDetail: PokemonInstance = {
         speciesId,
         level: view.getUint8(offset + GEN3_PARTY_LEVEL_OFFSET),
         isShiny: false, // We'll implement shiny calculation separately
@@ -814,7 +806,9 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
         evs: parseGen3EVs(decryptedData, 2 * SUBSTRUCTURE_SIZE),
         condition: parseGen3ConditionStats(decryptedData, 2 * SUBSTRUCTURE_SIZE),
         ribbons: parseGen3Ribbons(decryptedData, 3 * SUBSTRUCTURE_SIZE + RIBBONS_OFFSET_IN_M),
-      });
+      };
+
+      yield { speciesId, partyDetail, gen3Spinda };
     }
   } catch (error) {
     if (error instanceof RangeError) {
@@ -822,8 +816,6 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
     }
     throw error;
   }
-
-  return { party, partyDetails, gen3Spindas };
 }
 
 /**
@@ -843,11 +835,7 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
  * @returns An object containing a simple array of species IDs (`pc`), detailed metadata (`pcDetails`), and parsed Spinda spots (`gen3Spindas`).
  * @throws Error - "The save file is corrupted or incomplete." on invalid data.
  */
-export function parseGen3PCBoxes(pcBufferView: DataView) {
-  const pc: number[] = [];
-  const pcDetails: PokemonInstance[] = [];
-  const gen3Spindas: Gen3Spinda[] = [];
-
+export function* iterateGen3PCBoxes(pcBufferView: DataView) {
   try {
     for (let box = 0; box < PC_BOX_COUNT; box++) {
       for (let slot = 0; slot < PC_BOX_CAPACITY; slot++) {
@@ -879,13 +867,11 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
 
         const moves = [move1, move2, move3, move4].filter((m) => m > 0);
 
-        if (speciesId === GEN3_SPINDA_SPECIES_ID) {
-          gen3Spindas.push({ pid: pv });
-        }
+        const gen3Spinda = speciesId === GEN3_SPINDA_SPECIES_ID ? { pid: pv } : undefined;
 
         const isShiny = false; // We can skip full shiny calculation for PC boxes for now unless requested
 
-        const p: PokemonInstance = {
+        const pcDetail: PokemonInstance = {
           hash: `${pv}-${otId}`,
           speciesId,
           level: 1, // PC pokemon don't have level in the 80 bytes, it's generated on withdrawal.
@@ -901,8 +887,7 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
           ribbons: parseGen3Ribbons(decryptedData, 3 * SUBSTRUCTURE_SIZE + RIBBONS_OFFSET_IN_M),
         };
 
-        pc.push(speciesId);
-        pcDetails.push(p);
+        yield { speciesId, pcDetail, gen3Spinda };
       }
     }
   } catch (error) {
@@ -911,8 +896,6 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
     }
     throw error;
   }
-
-  return { pc, pcDetails, gen3Spindas };
 }
 
 /**
@@ -1876,19 +1859,23 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       hasContestMaster,
     };
 
-    let pc: number[] = [];
-    let pcDetails: PokemonInstance[] = [];
+    const pc: number[] = [];
+    const pcDetails: PokemonInstance[] = [];
     let currentBoxCount = 0;
-    let pcSpindas: Gen3Spinda[] = [];
+    const pcSpindas: Gen3Spinda[] = [];
 
     try {
       const pcBuffer = parseGen3PCBuffer(view);
       const pcBufferView = new DataView(pcBuffer.buffer);
       currentBoxCount = pcBufferView.getUint32(PC_BOX_CURRENT_BOX_OFFSET, true) + 1;
-      const boxesResult = parseGen3PCBoxes(pcBufferView);
-      pc = boxesResult.pc;
-      pcDetails = boxesResult.pcDetails;
-      pcSpindas = boxesResult.gen3Spindas || [];
+
+      for (const { speciesId, pcDetail, gen3Spinda } of iterateGen3PCBoxes(pcBufferView)) {
+        pc.push(speciesId);
+        pcDetails.push(pcDetail);
+        if (gen3Spinda) {
+          pcSpindas.push(gen3Spinda);
+        }
+      }
     } catch (error) {
       if (
         error instanceof RangeError ||
@@ -1899,11 +1886,21 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       // Ignored, PC data might be missing or corrupt
     }
 
-    const {
-      party,
-      partyDetails,
-      gen3Spindas: partySpindas,
-    } = parseGen3Party(view, section1Offset, _forcedVersion || 'ruby');
+    const party: number[] = [];
+    const partyDetails: PokemonInstance[] = [];
+    const partySpindas: Gen3Spinda[] = [];
+
+    for (const { speciesId, partyDetail, gen3Spinda } of iterateGen3Party(
+      view,
+      section1Offset,
+      _forcedVersion || 'ruby',
+    )) {
+      party.push(speciesId);
+      partyDetails.push(partyDetail);
+      if (gen3Spinda) {
+        partySpindas.push(gen3Spinda);
+      }
+    }
 
     for (const p of partyDetails) {
       if (p.personalityValue !== undefined) {

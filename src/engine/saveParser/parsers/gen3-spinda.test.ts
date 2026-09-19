@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { GEN3_SPINDA_SPECIES_ID, parseGen3Party, parseGen3PCBoxes } from './gen3';
+import { GEN3_SPINDA_SPECIES_ID, iterateGen3Party, iterateGen3PCBoxes } from './gen3';
 
 describe('Gen3 Spinda Extraction', () => {
   it('extracts Spinda from PC boxes', () => {
@@ -24,11 +24,15 @@ describe('Gen3 Spinda Extraction', () => {
 
     view.setUint32(offset + 32, encryptedG0, true);
 
-    const result = parseGen3PCBoxes(view);
+    const spindas = [];
+    for (const { gen3Spinda } of iterateGen3PCBoxes(view)) {
+      if (gen3Spinda) {
+        spindas.push(gen3Spinda);
+      }
+    }
 
-    expect(result.gen3Spindas).toBeDefined();
-    expect(result.gen3Spindas?.length).toBe(1);
-    expect(result.gen3Spindas?.[0]?.pid).toBe(0);
+    expect(spindas.length).toBe(1);
+    expect(spindas[0]?.pid).toBe(0);
   });
 
   it('extracts Spinda from party', () => {
@@ -50,10 +54,14 @@ describe('Gen3 Spinda Extraction', () => {
     const encryptedG0 = decryptedG0 ^ decryptionKey;
     view.setUint32(offset + 32, encryptedG0, true);
 
-    const result = parseGen3Party(view, 0, 'ruby');
+    const spindas = [];
+    for (const { gen3Spinda } of iterateGen3Party(view, 0, 'ruby')) {
+      if (gen3Spinda) {
+        spindas.push(gen3Spinda);
+      }
+    }
 
-    expect(result.gen3Spindas).toBeDefined();
-    expect(result.gen3Spindas?.length).toBe(1);
-    expect(result.gen3Spindas?.[0]?.pid).toBe(24);
+    expect(spindas.length).toBe(1);
+    expect(spindas[0]?.pid).toBe(24);
   });
 });

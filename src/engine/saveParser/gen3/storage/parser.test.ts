@@ -73,10 +73,14 @@ describe('Gen 3 Storage Stats Parsing', () => {
         },
       ];
 
-      vi.spyOn(gen3Module, 'parseGen3PCBoxes').mockReturnValue({
-        pc: [25, 25, 1],
-        pcDetails: mockPcDetails as unknown as import('../../parsers/common').PokemonInstance[],
-        gen3Spindas: [],
+      vi.spyOn(gen3Module, 'iterateGen3PCBoxes').mockImplementation(function* () {
+        for (const detail of mockPcDetails) {
+          yield {
+            speciesId: detail.speciesId,
+            pcDetail: detail as unknown as import('../../parsers/common').PokemonInstance,
+            gen3Spinda: undefined,
+          };
+        }
       });
 
       // We need to mock parseGen3PokemonPVAndIVs because it reads directly from DataView
@@ -117,11 +121,10 @@ describe('Gen 3 Storage Stats Parsing', () => {
     });
 
     it('handles corrupted save file range error gracefully', () => {
-      vi.spyOn(gen3Module, 'parseGen3PCBoxes').mockReturnValue({
-        pc: [],
-        gen3Spindas: [],
-        pcDetails: [
-          {
+      vi.spyOn(gen3Module, 'iterateGen3PCBoxes').mockImplementation(function* () {
+        yield {
+          speciesId: 25,
+          pcDetail: {
             hash: '123-456',
             speciesId: 25,
             level: 1,
@@ -130,8 +133,9 @@ describe('Gen 3 Storage Stats Parsing', () => {
             personalityValue: 25,
             storageLocation: 'Box 1',
             slot: 0,
-          },
-        ] as unknown as import('../../parsers/common').PokemonInstance[],
+          } as unknown as import('../../parsers/common').PokemonInstance,
+          gen3Spinda: undefined,
+        };
       });
 
       vi.spyOn(gen3Module, 'parseGen3PokemonPVAndIVs').mockImplementation(() => {
