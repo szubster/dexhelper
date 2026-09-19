@@ -2,13 +2,13 @@
 id: story-554-572-lefthook-e2e
 type: STORY
 title: E2E Verification for Schema Validation in Lefthook
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-13'
-updated_at: '2026-09-18'
+updated_at: '2026-09-19'
 depends_on:
   - story-554-571-lefthook-integration
-jules_session_id: null
+jules_session_id: '8879797978698594945'
 parent: epic-521-554-schema-linter-lefthook-integration
 tags:
   - e2e
