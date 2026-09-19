@@ -9,8 +9,13 @@ describe('PokerusBadge', () => {
     await expect.element(page.getByText('[PKRS STRN: 0]')).toBeInTheDocument();
   });
 
-  it('renders correctly with a non-zero strain', async () => {
-    await render(<PokerusBadge strain={3} />);
-    await expect.element(page.getByText('[PKRS STRN: 3]')).toBeInTheDocument();
+  it('renders correctly with infected strain and days remaining', async () => {
+    await render(<PokerusBadge strain={3} daysRemaining={2} />);
+    await expect.element(page.getByText('[PKRS INF: 2D]')).toBeInTheDocument();
+  });
+
+  it('renders correctly with cured strain (0 days remaining)', async () => {
+    await render(<PokerusBadge strain={3} daysRemaining={0} />);
+    await expect.element(page.getByText('[PKRS CURED]')).toBeInTheDocument();
   });
 });
