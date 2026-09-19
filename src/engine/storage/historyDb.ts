@@ -125,6 +125,23 @@ export const getPreviousSave = async (
   }
 };
 
+export const countSavesForPlaythrough = async (playthroughId: string): Promise<number> => {
+  try {
+    const db = await initHistoryDb();
+    const tx = db.transaction('metadata', 'readonly');
+    const metadataStore = tx.objectStore('metadata');
+    const index = metadataStore.index('by-playthrough-timestamp');
+
+    const range = IDBKeyRange.bound([playthroughId, -Infinity], [playthroughId, Infinity]);
+    const count = await index.count(range);
+
+    return count;
+  } catch (error) {
+    console.error('Failed to count saves for playthrough:', error instanceof Error ? error.message : 'Unknown error');
+    throw error;
+  }
+};
+
 export const writeSaveState = async (id: string, saveData: Uint8Array, metadata: SaveMetadata): Promise<void> => {
   try {
     const db = await initHistoryDb();

@@ -25,4 +25,4 @@ locks: []
 Implement utility to check the number of save states per playthrough.
 
 ## Acceptance Criteria
-- [ ] Create utility function to count existing save states for a given playthrough.
+- [x] Create utility function to count existing save states for a given playthrough.
