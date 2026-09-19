@@ -26,6 +26,9 @@ locks: []
 Implement tree-level completeness verification evaluating entire parent/descendant chain. Block archival if any node in the tree is non-terminal.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-573-594-tree-level-completeness-logic
+- [ ] task-573-595-tree-level-completeness-tests
+- [ ] task-573-596-tree-level-completeness-qa
 - [ ] Implement tree-level completeness verification evaluating entire parent/descendant chain
 - [ ] Block archival if any node in the tree is non-terminal
