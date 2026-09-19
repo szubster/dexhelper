@@ -32,4 +32,8 @@ Based on PRD-521, we need to allow agents to self-report their confidence levels
 - (Implicit) Ensure tools/linters validating this schema are aware of the new optional field.
 
 ## Acceptance Criteria
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [x] Generate a STORY dedicated to the implementation of the schema update.
+
+- [ ] story-569-584-confidence-metrics-schema
+- [ ] story-569-585-confidence-metrics-schema-e2e
