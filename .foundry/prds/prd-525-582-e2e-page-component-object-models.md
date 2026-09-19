@@ -10,7 +10,7 @@ depends_on: []
 jules_session_id: null
 pr_number: null
 parent: idea-525-e2e-page-component-object-models
-priority: 50
+priority: 60
 tags:
   - testing
   - e2e
