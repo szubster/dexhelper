@@ -35,7 +35,7 @@ Identify ONE under-tested file or user journey and add focused tests to improve 
 1. **Scan** — check coverage gaps: run `pnpm test -- --coverage` or review existing test files vs source files.
 2. **Select** — pick the single best target: lowest coverage on highest-impact module, or untested critical path.
 3. **Write** — add focused, meaningful tests. Test real behavior, not implementation details.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb`. All tests must pass, including yours.
+4. **Verify** — run `pnpm lint`, `pnpm test`, and targeted E2E tests (`xvfb-run -a pnpm test:e2e <path-to-test>`). All tests must pass, including yours.
 5. **PR** — title: `🧪 Sentinel: [description]` or `🧪 [description]`. Body: `🎯 What`, `📊 Coverage`, and `✨ Result`.
 
 ## Journal
