@@ -32,3 +32,7 @@ Implement the mathematical formulas for Gen 3 Pokéblock blending, condition gai
 
 ## Acceptance Criteria
 - [ ] Implement the mathematical formulas for Gen 3 Pokéblock blending, condition gains, feel calculations, and nature modifiers.
+- [ ] task-561-590-gen3-nature-modifiers-constants
+- [ ] task-561-591-gen3-pokeblock-blending-math
+- [ ] task-561-592-gen3-pokeblock-feeding-math
+- [ ] task-561-593-gen3-pokeblock-math-qa
