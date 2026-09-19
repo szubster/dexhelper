@@ -22,6 +22,7 @@
     ".github/scripts/archival-filtering.ts",
     ".github/scripts/update-idea-matrix.ts",
     "src/engine/saveParser/parsers/gen2.ts",
+    "src/utils/hof/index.ts",
     ".github/scripts/generate-statistics.ts",
     "src/engine/exclusives/gen3Exclusives.ts",
     ".github/scripts/schema.ts",
