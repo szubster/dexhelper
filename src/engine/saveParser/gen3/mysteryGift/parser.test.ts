@@ -112,6 +112,28 @@ describe('parseGen3MysteryGift', () => {
       const result = parseGen3MysteryGift(view, saveBlock1Offset, 'emerald');
       expect(result.isFarawayIslandEnabled).toBe(true);
     });
+
+    it('should not parse Old Sea Map or Faraway Island for Ruby/Sapphire', () => {
+      const buffer = new ArrayBuffer(0x2000);
+      const view = new DataView(buffer);
+      const saveBlock1Offset = 0;
+      const flagsOffset = saveBlock1Offset + constants.MYSTERY_GIFT_FLAGS_OFFSET_RS;
+
+      // Set the bits anyway
+      let byteOffset = flagsOffset + constants.RSE_FLAG_RECEIVED_OLD_SEA_MAP_BYTE;
+      view.setUint8(byteOffset, 1 << constants.RSE_FLAG_RECEIVED_OLD_SEA_MAP_BIT);
+
+      byteOffset = flagsOffset + constants.RSE_FLAG_ENABLE_SHIP_FARAWAY_ISLAND_BYTE;
+      view.setUint8(byteOffset, 1 << constants.RSE_FLAG_ENABLE_SHIP_FARAWAY_ISLAND_BIT);
+
+      const resultRuby = parseGen3MysteryGift(view, saveBlock1Offset, 'ruby');
+      expect(resultRuby.hasOldSeaMap).toBe(false);
+      expect(resultRuby.isFarawayIslandEnabled).toBe(false);
+
+      const resultSapphire = parseGen3MysteryGift(view, saveBlock1Offset, 'sapphire');
+      expect(resultSapphire.hasOldSeaMap).toBe(false);
+      expect(resultSapphire.isFarawayIslandEnabled).toBe(false);
+    });
   });
 
   describe('FireRed/LeafGreen', () => {
