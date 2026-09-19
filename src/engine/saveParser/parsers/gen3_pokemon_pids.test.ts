@@ -7,9 +7,9 @@ import {
   GEN3_POKEMON_OT_ID_OFFSET,
   GEN3_POKEMON_PV_OFFSET,
   GEN3_POKEMON_STRUCT_SIZE,
+  iterateGen3Party,
+  iterateGen3PCBoxes,
   PC_BOX_POKEMON_LIST_OFFSET,
-  parseGen3Party,
-  parseGen3PCBoxes,
 } from './gen3';
 
 test('extracts PIDs from party correctly', () => {
@@ -28,11 +28,14 @@ test('extracts PIDs from party correctly', () => {
   view.setUint32(listOffset + GEN3_POKEMON_STRUCT_SIZE + GEN3_POKEMON_OT_ID_OFFSET, 2, true);
   view.setUint16(listOffset + GEN3_POKEMON_STRUCT_SIZE + GEN3_POKEMON_DATA_OFFSET, 1 ^ 1, true);
 
-  const result = parseGen3Party(view, 0, 'ruby');
+  const partyDetails = [];
+  for (const { partyDetail } of iterateGen3Party(view, 0, 'ruby')) {
+    partyDetails.push(partyDetail);
+  }
 
-  expect(result.partyDetails.length).toBe(2);
-  expect(result.partyDetails[0]?.personalityValue).toBe(0x12345678);
-  expect(result.partyDetails[1]?.personalityValue).toBe(0xabcdef01);
+  expect(partyDetails.length).toBe(2);
+  expect(partyDetails[0]?.personalityValue).toBe(0x12345678);
+  expect(partyDetails[1]?.personalityValue).toBe(0xabcdef01);
 });
 
 test('extracts PIDs from PC boxes correctly', () => {
@@ -47,23 +50,36 @@ test('extracts PIDs from PC boxes correctly', () => {
   view.setUint32(PC_BOX_POKEMON_LIST_OFFSET + GEN3_PC_POKEMON_STRUCT_SIZE + GEN3_POKEMON_OT_ID_OFFSET, 2, true);
   view.setUint16(PC_BOX_POKEMON_LIST_OFFSET + GEN3_PC_POKEMON_STRUCT_SIZE + GEN3_POKEMON_DATA_OFFSET, 1 ^ 1, true);
 
-  const result = parseGen3PCBoxes(view);
+  const pcDetails = [];
+  for (const { pcDetail } of iterateGen3PCBoxes(view)) {
+    pcDetails.push(pcDetail);
+  }
 
-  expect(result.pcDetails.length).toBe(2);
-  expect(result.pcDetails[0]?.personalityValue).toBe(0x11111111);
-  expect(result.pcDetails[1]?.personalityValue).toBe(0x22222222);
+  expect(pcDetails.length).toBe(2);
+  expect(pcDetails[0]?.personalityValue).toBe(0x11111111);
+  expect(pcDetails[1]?.personalityValue).toBe(0x22222222);
 });
 
 test('handles out-of-bounds reads gracefully for party parsing', () => {
   const buffer = new ArrayBuffer(10); // Too small
   const view = new DataView(buffer);
 
-  expect(() => parseGen3Party(view, 0, 'ruby')).toThrow('The save file is corrupted or incomplete.');
+  expect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    for (const _ of iterateGen3Party(view, 0, 'ruby')) {
+      // iterate
+    }
+  }).toThrow('The save file is corrupted or incomplete.');
 });
 
 test('handles out-of-bounds reads gracefully for PC parsing', () => {
   const buffer = new ArrayBuffer(10); // Too small
   const view = new DataView(buffer);
 
-  expect(() => parseGen3PCBoxes(view)).toThrow('The save file is corrupted or incomplete.');
+  expect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    for (const _ of iterateGen3PCBoxes(view)) {
+      // iterate
+    }
+  }).toThrow('The save file is corrupted or incomplete.');
 });
