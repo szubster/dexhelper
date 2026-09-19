@@ -32,4 +32,4 @@ Verify the CVA refactoring of `TacticalButton` and `TacticalBadge` correctly rep
 - Verify typescript types accurately capture variant permutations.
 
 ## Acceptance Criteria
-- [ ] QA verification complete.
+- [x] QA verification complete.
