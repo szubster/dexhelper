@@ -27,4 +27,7 @@ locks: []
 E2E verification for the Friendship Data Extraction logic (Gen 2 & 3).
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-580-594-gen2-friendship-data-extraction-e2e-coder
+- [ ] task-580-595-gen3-friendship-data-extraction-e2e-coder
+- [ ] task-580-596-friendship-data-extraction-e2e-qa
