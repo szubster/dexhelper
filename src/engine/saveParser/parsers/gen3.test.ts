@@ -1949,7 +1949,7 @@ describe('parseGen3 (Pokedex & Hall of Fame)', () => {
     expect(resultFRLG.hallOfFameCount).toBe(7);
   });
 
-  it('extracts hoennDexCount and nationalDexCount correctly', () => {
+  it('extracts hoennDexCount, nationalDexCount, and gaps correctly', () => {
     const buffer = new ArrayBuffer(0x10000);
     const view = new DataView(buffer);
 
@@ -1986,6 +1986,12 @@ describe('parseGen3 (Pokedex & Hall of Fame)', () => {
 
     expect(result.nationalDexCount).toBe(3); // Bulbasaur, Treecko, Deoxys
     expect(result.hoennDexCount).toBe(2); // Treecko, Deoxys
+    expect(result.missingNationalDex?.has(1)).toBe(false);
+    expect(result.missingNationalDex?.has(252)).toBe(false);
+    expect(result.missingNationalDex?.has(4)).toBe(true);
+    expect(result.missingHoennDex?.has(252)).toBe(false);
+    expect(result.missingHoennDex?.has(253)).toBe(true);
+    expect(result.missingHoennDex?.size).toBe(200);
     expect(result.owned.has(1)).toBe(true);
     expect(result.owned.has(252)).toBe(true);
     expect(result.owned.has(386)).toBe(true);

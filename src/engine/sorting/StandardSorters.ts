@@ -1,6 +1,6 @@
 import { getMissingRibbonCount } from '../filtering/RibbonFilters';
+import { HOENN_DEX_ORDER } from '../saveParser/gen3/pokedex/constants';
 import type { GameVersion } from '../saveParser/parsers/common';
-import { HOENN_DEX_ORDER } from '../saveParser/parsers/gen3';
 import type { SortingStrategy } from './SortingStrategy';
 
 export interface DexNumberSorterConfig {
