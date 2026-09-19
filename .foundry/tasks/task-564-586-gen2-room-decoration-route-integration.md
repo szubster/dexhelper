@@ -25,5 +25,5 @@ Integrate the Gen 2 Room Decoration Viewer UI components into the main applicati
 - Ensure the Room Decoration Viewer is accessible from the appropriate Gen 2 navigation menus or dashboards.
 
 ## Acceptance Criteria
-- [ ] Integrate Room Decoration UI into main navigation
-- [ ] Ensure valid routing to the new component
+- [x] Integrate Room Decoration UI into main navigation
+- [x] Ensure valid routing to the new component
