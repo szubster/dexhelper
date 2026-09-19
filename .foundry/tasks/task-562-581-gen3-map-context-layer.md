@@ -33,5 +33,5 @@ Implement the React Context layer for the Gen 3 Map Core UI to manage map state.
 - Provide hooks for components to consume this context.
 
 ## Acceptance Criteria
-- [ ] Context provider and hooks are implemented.
-- [ ] Unit tests verify context state updates.
+- [x] Context provider and hooks are implemented.
+- [x] Unit tests verify context state updates.
