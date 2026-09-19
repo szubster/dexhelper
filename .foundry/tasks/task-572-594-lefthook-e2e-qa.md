@@ -22,15 +22,15 @@ locks: []
 # QA Verification for Lefthook Schema Validation E2E
 
 ## Objective
-Verify the newly created Playwright script `tests/e2e/lefthook_schema_validation.spec.ts` functions as intended without flaky behavior.
+Verify the newly created bash script `tests/integration/lefthook_schema_validation.sh` functions as intended without flaky behavior.
 
 ## Context
 A test script has been created to ensure that Lefthook properly aborts when attempting to commit malformed Foundry node files.
 
 ## Requirements
-1. Verify the E2E script runs successfully with Playwright.
+1. Verify the E2E script runs successfully with bash.
 2. Verify the assertions are correct (e.g., proper error codes returned on invalid input).
 3. Ensure no workspace pollution occurs (temporary test files correctly cleaned up).
 
 ## Acceptance Criteria
-- [ ] The newly created `lefthook_schema_validation.spec.ts` passes the Playwright execution smoothly.
+- [ ] The newly created `lefthook_schema_validation.spec.ts` passes the bash execution smoothly.

@@ -1,7 +1,7 @@
 ---
 id: task-572-593-lefthook-e2e-coder
 type: TASK
-title: Write Playwright E2E Test for Lefthook Schema Validation
+title: Write bash E2E Test for Lefthook Schema Validation
 status: READY
 owner_persona: coder
 created_at: '2026-09-18'
@@ -19,10 +19,10 @@ notes: ''
 locks: []
 ---
 
-# Write Playwright E2E Test for Lefthook Schema Validation
+# Write bash E2E Test for Lefthook Schema Validation
 
 ## Objective
-Create a Playwright script `tests/e2e/lefthook_schema_validation.spec.ts` to verify the pre-commit hook aborts on malformed files.
+Create a bash script `tests/integration/lefthook_schema_validation.sh` to verify the pre-commit hook aborts on malformed files.
 
 ## Context
 The goal is to test the integration of `.foundry` files with Lefthook. Specifically, we want to simulate a commit involving a malformed schema file (e.g., an invalid frontmatter) and assert that the hook (`validate-foundry-schema`) fails the validation, preventing the commit.
@@ -33,4 +33,4 @@ The goal is to test the integration of `.foundry` files with Lefthook. Specifica
 3. It should also verify that running on a properly formed file exits with code `0`.
 
 ## Acceptance Criteria
-- [ ] Playwright E2E script `tests/e2e/lefthook_schema_validation.spec.ts` is created and correctly validates schema failure.
+- [ ] bash E2E script `tests/integration/lefthook_schema_validation.sh` is created and correctly validates schema failure.
