@@ -7,7 +7,7 @@ owner_persona: auditor
 created_at: '2026-08-24'
 updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17988940674320990684'
 parent: idea-421-automated-schema-linting
 tags:
   - foundry

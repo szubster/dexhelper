@@ -8,6 +8,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [prd-421-521-automated-schema-linting](.foundry/prds/prd-421-521-automated-schema-linting.md) | PRD | Automated Markdown Schema Validation via Biome or Custom CLI | auditor | [17988940674320990684](https://jules.google.com/session/17988940674320990684) |
 | [prd-524-566-multi-box-search-filtering](.foundry/prds/prd-524-566-multi-box-search-filtering.md) | PRD | Multi-Box Advanced Search and Filtering System | epic_planner | [7438525433976588747](https://jules.google.com/session/7438525433976588747) |
 | [research-081-575-investigate-retry-failure](.foundry/research/research-081-575-investigate-retry-failure.md) | RESEARCH | Investigate Enum Optimizations Retry Failure | researcher | [6558869673960859439](https://jules.google.com/session/6558869673960859439) |
 | [research-241-586-gen3-daycare-parsing-failure-investigation](.foundry/research/research-241-586-gen3-daycare-parsing-failure-investigation.md) | RESEARCH | Investigate Gen 3 Daycare Parsing Failure Root Cause | researcher | [1917414865949210435](https://jules.google.com/session/1917414865949210435) |
