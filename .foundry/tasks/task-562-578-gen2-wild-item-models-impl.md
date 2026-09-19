@@ -34,4 +34,4 @@ We need to parse Gen 2 wild encounter data and determine drop probabilities for 
 - Use MsgPack serialization conventions (`useRecords: true`) where applicable.
 
 ## Acceptance Criteria
-- [ ] Implement data models for Gen 2 wild encounters and held items.
+- [x] Implement data models for Gen 2 wild encounters and held items.
