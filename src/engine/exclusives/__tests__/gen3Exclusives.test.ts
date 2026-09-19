@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { GEN3_VERSION_EXCLUSIVES, getGen3UnobtainableReason } from '../gen3Exclusives';
+import {
+  GEN3_VERSION_EXCLUSIVES,
+  getGen3UnobtainableReason,
+  getVersionExclusives,
+  mapMissingToAvailability,
+} from '../gen3Exclusives';
 
 describe('gen3Exclusives', () => {
   describe('GEN3_VERSION_EXCLUSIVES content checks', () => {
@@ -72,6 +77,31 @@ describe('gen3Exclusives', () => {
     it('should return null for Machop in LeafGreen (obtainable)', () => {
       const ownedSet = new Set<number>();
       expect(getGen3UnobtainableReason(66, 'leafgreen', 0, ownedSet)).toBeNull();
+    });
+  });
+  describe('getVersionExclusives', () => {
+    it('returns expected exclusives for emerald', () => {
+      const { missing, available } = getVersionExclusives('emerald');
+      expect(missing).toContain(335); // Zangoose is missing
+      expect(available).toEqual([]); // Emerald has no specific exclusive pairs list here
+    });
+
+    it('handles uppercase versions', () => {
+      const { missing } = getVersionExclusives('Ruby');
+      expect(missing).toEqual(GEN3_VERSION_EXCLUSIVES['ruby']);
+    });
+  });
+
+  describe('mapMissingToAvailability', () => {
+    it('categorizes missing IDs correctly', () => {
+      // 382 is Kyogre (missing in Ruby), 1 is Bulbasaur (missing everywhere, so available list won't block it from being 'available' by this logic if passed)
+      // Actually, if we pass missingIds = [382, 1] for ruby:
+      // missing in Ruby includes 382.
+      // So 382 -> versionExclusive
+      // 1 -> available
+      const { available, versionExclusive } = mapMissingToAvailability([382, 1], 'ruby');
+      expect(versionExclusive).toEqual([382]);
+      expect(available).toEqual([1]);
     });
   });
 });

@@ -33,6 +33,23 @@ export const GEN3_AVAILABLE_EXCLUSIVES: Record<Gen3GameVersion, number[]> = {
   ],
 };
 
+export function getVersionExclusives(version: string): { missing: number[]; available: number[] } {
+  const versionKey = version.toLowerCase() as Gen3GameVersion;
+  const missing = GEN3_VERSION_EXCLUSIVES[versionKey] || [];
+  const available = GEN3_AVAILABLE_EXCLUSIVES[versionKey] || [];
+  return { missing, available };
+}
+
+export function mapMissingToAvailability(
+  missingIds: number[],
+  version: string,
+): { available: number[]; versionExclusive: number[] } {
+  const { missing } = getVersionExclusives(version);
+  const versionExclusive = missingIds.filter((id) => missing.includes(id));
+  const available = missingIds.filter((id) => !missing.includes(id));
+  return { available, versionExclusive };
+}
+
 export function getGen3UnobtainableReason(
   pokemonId: number,
   gameVersion: string,
