@@ -2,13 +2,13 @@
 id: epic-035-049-smart-radar-heatmap-generation
 type: EPIC
 title: Smart Radar Heatmap Generation
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-05-23'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on:
   - epic-035-048-smart-radar-data-unification
-jules_session_id: '7190681125080127692'
+jules_session_id: null
 pr_number: null
 parent: prd-064-035-smart-route-radar
 tags:
@@ -32,5 +32,8 @@ As defined in PRD `prd-064-035-smart-route-radar`, we need to generate a visual 
 Implement the logic and UI layer to overlay heatmap data onto the map graph based on the unified data from `epic-035-048-smart-radar-data-unification`.
 
 ## Acceptance Criteria
-- [ ] Write stories to implement the heatmap generation and overlay.
+- [x] Write stories to implement the heatmap generation and overlay.
+- [ ] story-049-573-heatmap-data-processing-layer
+- [ ] story-049-574-heatmap-ui-overlay-component
+- [ ] story-049-575-heatmap-e2e-verification
 - [ ] Complete child stories/tasks for heatmap generation.

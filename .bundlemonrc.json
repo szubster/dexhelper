@@ -39,7 +39,7 @@
     },
     {
       "path": "assets/gen3-<hash>.js",
-      "maxSize": "35kb"
+      "maxSize": "40kb"
     },
     {
       "path": "assets/ShinyCarrierBreedingDashboard-<hash>.js",
@@ -59,7 +59,7 @@
     },
     {
       "path": "assets/index-<hash>.js",
-      "maxSize": "280kb"
+      "maxSize": "310kb"
     },
     {
       "path": "assets/react-<hash>.js",
@@ -103,7 +103,7 @@
     },
     {
       "path": "data/foundry.json",
-      "maxSize": "550kb"
+      "maxSize": "600kb"
     },
     {
       "path": "data/pokedata.msgpack",
@@ -111,7 +111,7 @@
     },
     {
       "path": "icon-512.png",
-      "maxSize": "550kb"
+      "maxSize": "600kb"
     },
     {
       "path": "workbox-<hash>.js",

@@ -9,7 +9,10 @@ import { DagFilterPanel } from './DagFilterPanel';
 import { DagNode, type DagNodeData } from './DagNode';
 
 export function getMiniMapNodeColor(node: FlowNode<DagNodeData>, maxRejectionThreshold: number): string {
-  if (node.data?.status === 'FAILED' && (node.data?.rejection_count ?? 0) >= maxRejectionThreshold) {
+  if (
+    (node.data?.status === 'FAILED' || node.data?.status === 'CANCELLED') &&
+    (node.data?.rejection_count ?? 0) >= maxRejectionThreshold
+  ) {
     return '#dc2626'; // red-600
   }
 
@@ -87,7 +90,9 @@ export function DagDashboard() {
         let shouldInclude = type && status && activeTypes.has(type) && activeStatuses.has(status);
 
         if (shouldInclude && showPermanentFailures) {
-          shouldInclude = n.data.status === 'FAILED' && n.data.rejection_count >= maxRejectionThreshold;
+          shouldInclude =
+            (n.data.status === 'FAILED' || n.data.status === 'CANCELLED') &&
+            n.data.rejection_count >= maxRejectionThreshold;
         }
 
         if (shouldInclude) {

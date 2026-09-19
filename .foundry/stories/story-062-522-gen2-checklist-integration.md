@@ -2,13 +2,13 @@
 id: story-062-522-gen2-checklist-integration
 type: STORY
 title: Gen 2 Checklist Parsing Engine Integration
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on:
   - story-062-521-gen2-checklist-ui-core
-jules_session_id: '16468136643285213245'
+jules_session_id: null
 pr_number: null
 parent: epic-038-062-gen2-dynamic-checklist-ui
 tags:
@@ -27,5 +27,8 @@ locks: []
 Integrate the Gen 2 checklist UI with the parsed event flags to present a personalized agenda to the player.
 
 ## Acceptance Criteria
+- [ ] task-522-588-gen2-checklist-integration-tests
+- [ ] task-522-586-gen2-checklist-integration-impl
+- [ ] task-522-587-gen2-checklist-integration-qa
 - [ ] Consume parsed event flags to drive the UI.
 - [ ] Differentiate state for available, completed, or unavailable events.

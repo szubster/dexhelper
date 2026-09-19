@@ -3,6 +3,26 @@ import { getGenerationConfig } from '../../../utils/generationConfig';
 import { getGen2UnobtainableReason } from '../../exclusives/gen2Exclusives';
 import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen2Graph';
 import type { SaveData } from '../../saveParser/index';
+import {
+  SPECIES_ALAKAZAM,
+  SPECIES_CELEBI,
+  SPECIES_ENTEI,
+  SPECIES_GENGAR,
+  SPECIES_GOLEM,
+  SPECIES_HITMONCHAN,
+  SPECIES_HITMONLEE,
+  SPECIES_HITMONTOP,
+  SPECIES_KINGDRA,
+  SPECIES_MACHAMP,
+  SPECIES_POLITOED,
+  SPECIES_PORYGON2,
+  SPECIES_RAIKOU,
+  SPECIES_SCIZOR,
+  SPECIES_SLOWKING,
+  SPECIES_STEELIX,
+  SPECIES_SUICUNE,
+  SPECIES_TYROGUE,
+} from '../constants';
 import { ITEM_HEADBUTT_GEN2, ITEM_ROCK_SMASH_GEN2, MOVE_HEADBUTT, MOVE_ROCK_SMASH } from '../utils/encounterTools';
 import type { AssistantStrategy, Suggestion } from './types';
 import { getRoamerSuggestions } from './utils/roamer';
@@ -40,9 +60,9 @@ export const gen2Strategy: AssistantStrategy = {
 
     // 1. Roamer tracking
     const roamers = [
-      { id: 243, name: 'Raikou' },
-      { id: 244, name: 'Entei' },
-      { id: 245, name: 'Suicune' },
+      { id: SPECIES_RAIKOU, name: 'Raikou' },
+      { id: SPECIES_ENTEI, name: 'Entei' },
+      { id: SPECIES_SUICUNE, name: 'Suicune' },
     ];
     suggestions.push(...getRoamerSuggestions(saveData, missingSet, roamers, saveData.gameVersion === 'crystal'));
 
@@ -93,14 +113,14 @@ export const gen2Strategy: AssistantStrategy = {
     });
 
     // Tyrogue Stat-based Evolutions warning
-    const tyrogueEvos = [106, 107, 237];
+    const tyrogueEvos = [SPECIES_HITMONLEE, SPECIES_HITMONCHAN, SPECIES_HITMONTOP];
     for (const evoId of tyrogueEvos) {
-      if (missingSet.has(evoId) && !missingSet.has(236)) {
+      if (missingSet.has(evoId) && !missingSet.has(SPECIES_TYROGUE)) {
         suggestions.push({
           id: `tyrogue-evo-${evoId}`,
           category: 'Utility',
           title: 'Tyrogue Evolution',
-          description: `To evolve Tyrogue into ${evoId === 106 ? 'Hitmonlee' : evoId === 107 ? 'Hitmonchan' : 'Hitmontop'}, its Attack must be ${evoId === 106 ? 'higher than' : evoId === 107 ? 'lower than' : 'equal to'} its Defense at level 20!`,
+          description: `To evolve Tyrogue into ${evoId === SPECIES_HITMONLEE ? 'Hitmonlee' : evoId === SPECIES_HITMONCHAN ? 'Hitmonchan' : 'Hitmontop'}, its Attack must be ${evoId === SPECIES_HITMONLEE ? 'higher than' : evoId === SPECIES_HITMONCHAN ? 'lower than' : 'equal to'} its Defense at level 20!`,
           priority: 55,
         });
         break; // Only show one general warning
@@ -143,17 +163,17 @@ export const gen2Strategy: AssistantStrategy = {
   isInternallyObtainable(baseId: number, _version: string): boolean {
     // Gen 2 trade evolutions and mythicals
     const unobtainableInternally = new Set([
-      65, // Alakazam
-      68, // Machamp
-      76, // Golem
-      94, // Gengar
-      186, // Politoed
-      199, // Slowking
-      208, // Steelix
-      212, // Scizor
-      230, // Kingdra
-      233, // Porygon2
-      251, // Celebi
+      SPECIES_ALAKAZAM,
+      SPECIES_MACHAMP,
+      SPECIES_GOLEM,
+      SPECIES_GENGAR,
+      SPECIES_POLITOED,
+      SPECIES_SLOWKING,
+      SPECIES_STEELIX,
+      SPECIES_SCIZOR,
+      SPECIES_KINGDRA,
+      SPECIES_PORYGON2,
+      SPECIES_CELEBI,
     ]);
 
     return !unobtainableInternally.has(baseId);

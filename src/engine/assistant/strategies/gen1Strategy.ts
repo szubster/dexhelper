@@ -3,6 +3,7 @@ import { getGenerationConfig } from '../../../utils/generationConfig';
 import { getUnobtainableReason } from '../../exclusives/gen1Exclusives';
 import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen1Graph';
 import type { SaveData } from '../../saveParser/index';
+import { SPECIES_MEWTWO } from '../constants';
 import type { AssistantStrategy, Suggestion } from './types';
 
 export const gen1Strategy: AssistantStrategy = {
@@ -38,7 +39,7 @@ export const gen1Strategy: AssistantStrategy = {
     }
 
     // Mewtwo lock check
-    if (saveData.hallOfFameCount === 0 && !saveData.owned.has(150)) {
+    if (saveData.hallOfFameCount === 0 && !saveData.owned.has(SPECIES_MEWTWO)) {
       // Mewtwo is locked behind beating E4 — not a suggestion but a rejection condition
       // This is handled by the main engine, not as a special suggestion
     }

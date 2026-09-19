@@ -167,4 +167,66 @@ describe('tradeGenerator', () => {
     const bellsproutSugg = suggestions.find((s) => s.pokemonId === 69);
     expect(bellsproutSugg).toBeUndefined();
   });
+
+  it('should generate priority 75 suggestion to evolve an owned pre-evolution for an NPC trade', () => {
+    const saveData = {
+      generation: 1,
+      badges: 8,
+      eventFlags: new Uint8Array(300),
+      npcTradeFlags: { 6: false }, // Lola Jynx trade available (tradeIndex 6: receive Jynx 124 for Poliwhirl 61)
+    } as unknown as SaveData;
+    const suggestions: import('../strategies/types').Suggestion[] = [];
+
+    generateGiftAndTradeSuggestions(
+      [124],
+      saveData,
+      'red',
+      new Set([60]), // Own Poliwag (#60), pre-evo of Poliwhirl (#61)
+      {
+        pokemonMetadata: {
+          61: { efrm: [60] }, // Poliwhirl pre-evo is Poliwag
+          124: { efrm: [] },
+        },
+      } as unknown as import('../suggestionEngineTypes').AssistantApiData,
+      new Map([[60, [{} as PokemonInstance]]]),
+      suggestions,
+      new Set([124]),
+    );
+
+    const jynxSugg = suggestions.find((s) => s.pokemonId === 124);
+    expect(jynxSugg).toBeDefined();
+    expect(jynxSugg?.priority).toBe(75);
+    expect(jynxSugg?.description).toContain('You have #60! Evolve it to #61');
+  });
+
+  it('should generate priority 70 suggestion to breed an owned post-evolution for an NPC trade', () => {
+    const saveData = {
+      generation: 3,
+      badges: 8,
+      eventFlags: new Uint8Array(300),
+      gen3NPCTrades: { BATTLE_FRONTIER: false }, // Receive Meowth (#52) for Skitty (#300)
+    } as unknown as SaveData;
+    const suggestions: import('../strategies/types').Suggestion[] = [];
+
+    generateGiftAndTradeSuggestions(
+      [52],
+      saveData,
+      'emerald',
+      new Set([301]), // Own Delcatty (#301), post-evo of Skitty (#300)
+      {
+        pokemonMetadata: {
+          300: { eto: [{ id: 301, eto: [] }] }, // Skitty evolves into Delcatty
+          52: { efrm: [] },
+        },
+      } as unknown as import('../suggestionEngineTypes').AssistantApiData,
+      new Map([[301, [{} as PokemonInstance]]]),
+      suggestions,
+      new Set([52]),
+    );
+
+    const meowthSugg = suggestions.find((s) => s.pokemonId === 52);
+    expect(meowthSugg).toBeDefined();
+    expect(meowthSugg?.priority).toBe(70);
+    expect(meowthSugg?.description).toContain('Breed your #301 to get #300');
+  });
 });

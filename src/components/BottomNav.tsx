@@ -56,7 +56,7 @@ export function BottomNav() {
           <NavButton
             to="/box-analyzer"
             ariaLabel="Analyzer"
-            label="ANALYZER"
+            label="ANLZ"
             activeLabel="ANLZ"
             icon={Network}
             isActive={isAnalyzer}
@@ -104,8 +104,8 @@ export function BottomNav() {
           <NavButton
             to="/safari-zone"
             ariaLabel="Safari Zone"
-            label="SAFARI"
-            activeLabel="SAFARI"
+            label="SFRI"
+            activeLabel="SFRI"
             icon={Swords}
             isActive={location.pathname === '/safari-zone'}
           />

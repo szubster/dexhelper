@@ -1,3 +1,4 @@
+import React, { useMemo } from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { CornerCrosshairs } from './CornerCrosshairs';
 import { ScanlineOverlay } from './ScanlineOverlay';
@@ -6,7 +7,27 @@ interface RetroBackgroundProps {
   saveData: SaveData | null;
 }
 
-export function RetroBackground(_props: RetroBackgroundProps) {
+// ⚡ Bolt: Wrapped RetroBackground in React.memo and memoized hex values generation with useMemo
+// to prevent 100 window.crypto.getRandomValues calls and intermediate array allocations on every render.
+export const RetroBackground = React.memo(function RetroBackground(_props: RetroBackgroundProps) {
+  const hexValues = useMemo(() => {
+    const values: string[] = [];
+    if (typeof window !== 'undefined' && window.crypto) {
+      const randomBuf = new Uint32Array(100);
+      window.crypto.getRandomValues(randomBuf);
+      for (let i = 0; i < 100; i++) {
+        const val = randomBuf[i];
+        values.push((val !== undefined ? val : 0).toString(16).padStart(8, '0').toUpperCase());
+      }
+    } else {
+      for (let i = 0; i < 100; i++) {
+        const val = ((i * 2654435761) >>> 0) % 0xffffffff;
+        values.push(val.toString(16).padStart(8, '0').toUpperCase());
+      }
+    }
+    return values;
+  }, []);
+
   return (
     <>
       {/* Tactical Hardware Diagnostics Background */}
@@ -75,11 +96,9 @@ export function RetroBackground(_props: RetroBackgroundProps) {
         {/* Hex Data Stream (Left Aligned for hardware look) */}
         <div className="absolute top-0 bottom-0 left-4 flex w-[100px] flex-col items-start overflow-hidden font-mono text-[8px] leading-tight opacity-[0.03]">
           <div className="animate-[scroll-down_120s_linear_infinite]">
-            {Array.from({ length: 100 }).map((_, i) => (
+            {hexValues.map((hex, i) => (
               // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable representing background items
-              <div key={`hex-l-${i}`}>
-                {window.crypto.getRandomValues(new Uint32Array(1))[0]?.toString(16).padStart(8, '0').toUpperCase()}
-              </div>
+              <div key={`hex-l-${i}`}>{hex}</div>
             ))}
           </div>
         </div>
@@ -107,4 +126,4 @@ export function RetroBackground(_props: RetroBackgroundProps) {
       `}</style>
     </>
   );
-}
+});

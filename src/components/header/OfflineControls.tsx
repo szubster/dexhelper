@@ -19,7 +19,10 @@ export function OfflineControls({ requestSync, handleFileUpload }: OfflineContro
         hasCrosshairs={true}
         className="group slide-in-from-bottom-2 fade-in w-full animate-in gap-4 border-dashed px-10 sm:w-auto"
       >
-        <Upload size={20} />[ UPLOAD.SYS ]
+        <Upload size={20} />
+        <span aria-hidden="true">[ </span>
+        UPLOAD.SYS
+        <span aria-hidden="true"> ]</span>
       </TacticalButton>
       <TacticalFileInput id="init-save-input" aria-label="Initialize Pokedex" onChange={handleFileUpload} />
 
@@ -32,7 +35,10 @@ export function OfflineControls({ requestSync, handleFileUpload }: OfflineContro
           hasCrosshairs={true}
           className="group slide-in-from-bottom-2 fade-in w-full animate-in gap-4 border-dashed px-10 sm:w-auto"
         >
-          <Activity size={20} />[ LIVE_SYNC.SYS ]
+          <Activity size={20} />
+          <span aria-hidden="true">[ </span>
+          LIVE_SYNC.SYS
+          <span aria-hidden="true"> ]</span>
         </TacticalButton>
       )}
     </div>

@@ -2,12 +2,12 @@
 id: task-560-572-pokerus-spread-planner-state
 type: TASK
 title: Pokerus Spread Planner State Hook
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '2755111191675667384'
+jules_session_id: null
 pr_number: null
 parent: story-413-560-pokerus-spread-planner-ui
 tags:
@@ -27,7 +27,7 @@ locks: []
 Implement the React state logic for the Pokerus Spread Planner to manage drag-and-drop party ordering and calculate spread probabilities based on position.
 
 ## Acceptance Criteria
-- [ ] Create a custom React hook `usePokerusSpreadPlanner` in `src/hooks/usePokerusSpreadPlanner.ts`.
-- [ ] Implement state management to represent the 6 slots of a Pokemon party.
-- [ ] Provide functions to reorder Pokemon within the party (e.g., swapping slots).
-- [ ] Implement logic to calculate and expose which uninfected Pokemon are adjacent to an infected/contagious Pokemon, indicating they are at risk/target of spread.
+- [x] Create a custom React hook `usePokerusSpreadPlanner` in `src/hooks/usePokerusSpreadPlanner.ts`.
+- [x] Implement state management to represent the 6 slots of a Pokemon party.
+- [x] Provide functions to reorder Pokemon within the party (e.g., swapping slots).
+- [x] Implement logic to calculate and expose which uninfected Pokemon are adjacent to an infected/contagious Pokemon, indicating they are at risk/target of spread.

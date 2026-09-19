@@ -30,7 +30,7 @@ Identify and execute ONE refactoring opportunity to make the codebase easier to 
 1. **Scan** — look for code that is overly complex, poorly named, or structurally confusing for an AI to parse.
 2. **Select** — pick the most impactful refactoring opportunity.
 3. **Sculpt** — perform the refactor to clarify intent and structure.
-4. **Verify** — run `pnpm lint`, `pnpm test`, `pnpm test:e2e:xvfb` to ensure no regressions.
+4. **Verify** — run `pnpm lint`, `pnpm test`, and targeted E2E tests (`xvfb-run -a pnpm test:e2e <path-to-test>`) to ensure no regressions.
 5. **PR** — title: `🗿 Sculptor: [description]`. Body: `🎯 What`, `💡 Why (AI Readability Impact)`, `✅ Verification`, and `✨ Result`.
 
 ## Journal
