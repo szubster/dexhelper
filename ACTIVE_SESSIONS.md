@@ -21,3 +21,4 @@
 | [task-478-517-setup-mystery-gift-e2e-fixtures](.foundry/tasks/task-478-517-setup-mystery-gift-e2e-fixtures.md) | TASK | Setup Mystery Gift E2E Fixtures | coder | [2111695376562130478](https://jules.google.com/session/2111695376562130478) |
 | [task-560-578-pokerus-ui-badges-impl](.foundry/tasks/task-560-578-pokerus-ui-badges-impl.md) | TASK | Pokerus UI Badges Implementation | coder | [13172193764763044017](https://jules.google.com/session/13172193764763044017) |
 | [task-563-582-map-data-extraction-logic](.foundry/tasks/task-563-582-map-data-extraction-logic.md) | TASK | Gen 3 Map Data Extraction Logic | coder | [5102091378696032292](https://jules.google.com/session/5102091378696032292) |
+| [task-564-581-pokeblock-e2e-fixtures](.foundry/tasks/task-564-581-pokeblock-e2e-fixtures.md) | TASK | Generate Test Fixtures for Pokéblock Optimizer E2E Tests | coder | [12908883169355549416](https://jules.google.com/session/12908883169355549416) |
