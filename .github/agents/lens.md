@@ -43,7 +43,7 @@ Systematically audit all core routes and states across Game Boy save generations
 
 To execute automated visual tests and capture screenshots:
 - **Run E2E Visual Audits**: `xvfb-run -a pnpm test:e2e tests/e2e/visual-audit.spec.ts`
-- **Run Full E2E Suite**: `xvfb-run -a pnpm test:e2e`
+- **Run Targeted E2E Test**: `xvfb-run -a pnpm test:e2e tests/e2e/<test-file>.spec.ts`
 - **Capture Screenshots/Video**: Use Playwright's `toHaveScreenshot()` or screenshot capture tools (`frontend_verification_instructions`) to inspect visual artifacts when UI changes are made.
 
 ## Responsibilities
