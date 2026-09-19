@@ -2,12 +2,12 @@
 id: task-473-493-gen3-match-call-e2e-impl
 type: TASK
 title: Implement Gen 3 Match Call E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-26'
-updated_at: '2026-09-16'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7642331857290557886'
 pr_number: null
 parent: story-083-473-gen3-match-call-e2e-verification
 tags:
