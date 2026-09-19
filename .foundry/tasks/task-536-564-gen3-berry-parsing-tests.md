@@ -28,9 +28,9 @@ locks: []
 Write comprehensive unit tests for the Gen 3 berry patch parsing and mapping logic to ensure it behaves correctly under different scenarios.
 
 ## Acceptance Criteria
-- [ ] Write Vitest tests for the `parseGen3BerryTrees` function.
-- [ ] Ensure tests cover standard parsing behavior with valid berry data.
-- [ ] Write tests covering empty states (e.g., `berryId` is 0).
-- [ ] Write tests to verify the bounds checking correctly throws a `RangeError` with the message "The save file is corrupted or incomplete." on out-of-bounds reads.
-- [ ] Write tests to verify the map location mapping assigns the correct locations to specific berry tree indices.
-- [ ] The Coder must perform self-verification via these tests (No dedicated QA task).
+- [x] Write Vitest tests for the `parseGen3BerryTrees` function.
+- [x] Ensure tests cover standard parsing behavior with valid berry data.
+- [x] Write tests covering empty states (e.g., `berryId` is 0).
+- [x] Write tests to verify the bounds checking correctly throws a `RangeError` with the message "The save file is corrupted or incomplete." on out-of-bounds reads.
+- [x] Write tests to verify the map location mapping assigns the correct locations to specific berry tree indices.
+- [x] The Coder must perform self-verification via these tests (No dedicated QA task).
