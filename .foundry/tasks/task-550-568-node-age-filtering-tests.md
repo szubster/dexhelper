@@ -20,6 +20,6 @@ locks: []
 Implement unit tests for the node age filtering logic and frontmatter parsing.
 
 ## Acceptance Criteria
-- [ ] Write tests for the frontmatter parsing function.
-- [ ] Write tests for identifying transient nodes exceeding the 90-day threshold.
-- [ ] Write tests verifying that high-value records are permanently retained.
+- [x] Write tests for the frontmatter parsing function.
+- [x] Write tests for identifying transient nodes exceeding the 90-day threshold.
+- [x] Write tests verifying that high-value records are permanently retained.
