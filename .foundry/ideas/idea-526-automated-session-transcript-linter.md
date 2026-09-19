@@ -4,14 +4,16 @@ title: Automated Session Transcript Linter for Autonomous Policy Violations
 type: IDEA
 status: READY
 owner_persona: product_manager
-created_at: 2026-09-19T04:15:00.000Z
-updated_at: 2026-09-19T04:15:00.000Z
+created_at: '2026-09-19T04:15:00.000Z'
+updated_at: '2026-09-19T04:15:00.000Z'
 tags:
   - governance
   - autonomous-policy
   - workflow
   - ci
 depends_on: []
+jules_session_id: '15466324859776924451'
+rejection_reason: ''
 ---
 
 # Idea: Automated Session Transcript Linter for Autonomous Policy Violations
