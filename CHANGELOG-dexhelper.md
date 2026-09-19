@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.17.0] - 2026-03-22
+### Added
+- Implement Assistant feature enhancements including Obedience Warning logic, Gen 2 time-based forecasting, and dynamic evolution suggestions.
+
 ## [0.16.0] - 2026-03-22
 ### Added
 - Implement advanced Assistant intelligence with location grouping, yield-based priority, and Move-based "Fly" optimization.
@@ -98,3 +102,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.15.0]: https://github.com/szubster/dexhelper/compare/92e9008d3d5084b9e7bee265191f83e511b281ad...7041838471914b0cd0bc5e39136edd3792e6efcc
 [0.15.1]: https://github.com/szubster/dexhelper/compare/865e8dc78e9e2cfa07f6701918bee3cdcccea213...3dc1da6168d0b17c3b1c564f6e6984d993c70061
 [0.16.0]: https://github.com/szubster/dexhelper/compare/3dc1da6168d0b17c3b1c564f6e6984d993c70061...7f582cabcd483967a6a690fcab3c015c8bd0d17d
+[0.17.0]: https://github.com/szubster/dexhelper/compare/b98cf70310d80eb9dee58c9e9a05ed9411319a84...49c393b23c3c6d5420ebfc73698b3f54d253a614
