@@ -1,6 +1,12 @@
 import 'fake-indexeddb/auto';
 import { describe, expect, it } from 'vitest';
-import { getMostRecentSave, getPreviousSave, initHistoryDb, writeSaveState } from './historyDb';
+import {
+  countSavesForPlaythrough,
+  getMostRecentSave,
+  getPreviousSave,
+  initHistoryDb,
+  writeSaveState,
+} from './historyDb';
 
 describe('SaveHistoryDB', () => {
   it('should initialize the database with correct name and version', async () => {
@@ -76,6 +82,35 @@ describe('SaveHistoryDB', () => {
       expect(result).not.toBeNull();
       expect(result?.saveData).toEqual(new Uint8Array([2]));
       expect(result?.metadata).toEqual({ playthroughId: ptId, timestamp: 300 });
+    });
+  });
+
+  describe('countSavesForPlaythrough', () => {
+    it('should return 0 for a playthrough with no saves', async () => {
+      const count = await countSavesForPlaythrough('empty-pt');
+      expect(count).toBe(0);
+    });
+
+    it('should accurately count the number of saves for a given playthrough', async () => {
+      const ptId1 = 'pt-count-1';
+      const ptId2 = 'pt-count-2';
+
+      await writeSaveState('count-1', new Uint8Array([1]), { playthroughId: ptId1, timestamp: 100 });
+      await writeSaveState('count-2', new Uint8Array([2]), { playthroughId: ptId1, timestamp: 200 });
+      await writeSaveState('count-3', new Uint8Array([3]), { playthroughId: ptId2, timestamp: 300 });
+
+      const count1 = await countSavesForPlaythrough(ptId1);
+      const count2 = await countSavesForPlaythrough(ptId2);
+
+      expect(count1).toBe(2);
+      expect(count2).toBe(1);
+    });
+
+    it('should propagate errors if counting fails', async () => {
+      // @ts-expect-error - testing invalid input
+      await expect(countSavesForPlaythrough(Symbol('bad-id'))).rejects.toThrow(
+        'Data provided to an operation does not meet requirements',
+      );
     });
   });
 
