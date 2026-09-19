@@ -2,7 +2,7 @@
 id: story-325-526-safari-zone-layout-and-route
 type: STORY
 title: Safari Zone Layout and Route Integration
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2024-05-24'
 updated_at: '2026-09-17'

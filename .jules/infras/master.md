@@ -87,3 +87,8 @@
 ## Critical Learnings
 - **Tooling configuration context**: Discovered that `pnpm knip` reported unused exports for files in `src/engine/saveParser/parsers/gen2.ts` and `.github/scripts/schema.ts`, which was causing CI pipeline failures when running the `lint` script.
 - **Action Taken**: Explicitly ignored these two files by adding them to the `ignore` array in `knip.json`. This resolved the unused exports warnings and ensures the CI pipeline passes cleanly without requiring codebase logic changes.
+
+---
+
+## Critical Learnings
+- **Tooling configuration context**: Fixed Biome schema mismatch (2.5.12 -> 2.5.13). Removed unused @cloudflare/workers-types ignore from knip.json.

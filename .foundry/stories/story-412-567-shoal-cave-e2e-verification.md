@@ -2,12 +2,12 @@
 id: story-412-567-shoal-cave-e2e-verification
 type: STORY
 title: E2E Verification for Shoal Cave UI Dashboard
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '10970324855559859384'
+jules_session_id: null
 pr_number: null
 parent: epic-340-412-shoal-cave-ui-dashboard
 tags:
@@ -28,4 +28,6 @@ locks: []
 This story implements the E2E verification for the Shoal Cave UI Dashboard, fulfilling the orchestrator requirement that every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks to write E2E tests for the Shoal Cave Dashboard.
+- [x] Break down into Tasks to write E2E tests for the Shoal Cave Dashboard.
+- [ ] task-567-586-shoal-cave-e2e-coder
+- [ ] task-567-587-shoal-cave-e2e-qa

@@ -16,3 +16,16 @@
 - Flattened directory structure by aggregating `.foundry/journals/*` master logs and `.jules/*` master logs to the top-level directories (`.foundry/journals` and `.jules`) and removing their sub-directories.
 - Purged transient logs correctly, such as `System failure detected`, `Executed Empty PR Policy`, `is now COMPLETED`, and exact matches of the `Artifact Anomaly` log from `tech_lead.md` by strictly checking line by line rather than deleting whole blocks of knowledge.
 - Improved deduplication correctly by splitting files by headers/dividers, normalizing whitespace, and utilizing a `Set` to filter out heavily duplicated entries propagated from the master logs (e.g. vitest browser testing memory and transient failures).
+
+
+---
+
+# 2026-09-18 - Archivist Knowledge Hygiene Session
+
+## Actions Taken
+- Executed `npx tsx .github/scripts/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`.
+- Verified that individual timestamped journal files were appended into `master.md` and safely unlinked.
+- Validated codebase health via `pnpm lint` and `pnpm test`.
+
+## Critical Learnings
+- **Automated Aggregation Execution**: Running `.github/scripts/aggregate-journals.ts` regularly keeps persona journal directories clean by consolidating individual session files into `master.md` logs, preventing file count sprawl while preserving historic learnings.

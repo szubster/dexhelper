@@ -2,12 +2,12 @@
 id: task-562-578-gen2-room-decoration-types
 type: TASK
 title: Gen 2 Room Decoration Types
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-14'
-updated_at: '2026-09-14'
+updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16594263502696587710'
 parent: story-313-562-gen2-room-decoration-state-logic
 locks: []
 rejection_reason: ''

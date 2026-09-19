@@ -66,13 +66,23 @@ export function SettingsControls({
           items={[
             {
               id: 'standard',
-              label: '[ STANDARD ]',
+              ariaLabel: '[ STANDARD ]',
+              label: (
+                <span>
+                  <span aria-hidden="true">[ </span>STANDARD<span aria-hidden="true"> ]</span>
+                </span>
+              ),
               activeClassName: 'bg-zinc-800 text-white',
               inactiveClassName: 'bg-zinc-950 text-zinc-600 hover:bg-zinc-900/50 hover:text-zinc-400',
             },
             {
               id: 'living',
-              label: '[ LIVING DEX ]',
+              ariaLabel: '[ LIVING DEX ]',
+              label: (
+                <span>
+                  <span aria-hidden="true">[ </span>LIVING DEX<span aria-hidden="true"> ]</span>
+                </span>
+              ),
               activeClassName: 'bg-emerald-500 text-zinc-950 shadow-[0_0_15px_rgba(16,185,129,0.4)]',
               inactiveClassName: 'bg-zinc-950 text-zinc-600 hover:bg-zinc-900/50 hover:text-zinc-400',
             },

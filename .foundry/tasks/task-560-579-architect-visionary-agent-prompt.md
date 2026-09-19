@@ -2,7 +2,7 @@
 id: task-560-579-architect-visionary-agent-prompt
 type: TASK
 title: Create Architect Visionary Agent Prompt
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-12T00:00:00Z'
 updated_at: '2026-09-17'
@@ -26,4 +26,4 @@ locks: []
 Create the .github/agents/architect_visionary.md prompt file.
 
 ## Acceptance Criteria
-- [ ] Create .github/agents/architect_visionary.md
+- [x] Create .github/agents/architect_visionary.md

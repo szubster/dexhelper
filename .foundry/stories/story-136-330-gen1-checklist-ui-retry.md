@@ -2,10 +2,10 @@
 id: story-136-330-gen1-checklist-ui-retry
 type: STORY
 title: Gen 1 Checklist UI (Retry)
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-17'
-updated_at: '2026-09-15'
+updated_at: '2026-09-18'
 depends_on:
   - research-136-329-gen1-checklist-ui-failure
 jules_session_id: null
@@ -28,6 +28,6 @@ Create the UI component for the Gen 1 static encounter checklist, mapping the pa
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-330-489-gen1-checklist-ui-impl
-- [ ] task-330-490-gen1-checklist-ui-tests
-- [ ] task-330-491-gen1-checklist-ui-qa
+- [x] task-330-489-gen1-checklist-ui-impl
+- [x] task-330-490-gen1-checklist-ui-tests
+- [x] task-330-491-gen1-checklist-ui-qa

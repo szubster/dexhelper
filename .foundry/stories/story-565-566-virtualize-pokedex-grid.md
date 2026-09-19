@@ -2,12 +2,12 @@
 id: story-565-566-virtualize-pokedex-grid
 type: STORY
 title: Integrate React Virtual into PokedexGrid
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-11'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: '7885784508365371790'
+jules_session_id: null
 pr_number: null
 parent: epic-564-565-lazy-load-pokedex-pokemon-list
 tags:
@@ -31,3 +31,6 @@ To improve rendering performance and Time to Interactive (TTI), we will integrat
 - [ ] Configure a responsive grid layout using CSS grid or window measurements within the virtualizer constraints to ensure multiple cards span across columns correctly.
 - [ ] Ensure that filtering and search continue to function (the virtualizer must dynamically adjust based on the filtered list).
 - [ ] The Pokedex grid scrolls smoothly without jumpiness.
+- [x] Break down into Tasks
+- [ ] task-566-578-implement-virtual-pokedex-grid
+- [ ] task-566-579-qa-virtual-pokedex-grid

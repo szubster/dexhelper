@@ -1,0 +1,1 @@
+export const MAX_SAVE_STATES_PER_PLAYTHROUGH = 50;

@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-09-10'
 updated_at: '2026-09-10'
 depends_on:
-  - .foundry/stories/story-553-562-gen3-missed-items-parsing.md
+  - story-553-562-gen3-missed-items-parsing
 jules_session_id: null
 pr_number: null
 parent: epic-520-553-gen3-missed-milestones-tracker

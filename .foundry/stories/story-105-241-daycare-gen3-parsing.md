@@ -2,12 +2,12 @@
 id: story-105-241-daycare-gen3-parsing
 type: STORY
 title: Parse Gen 3 Daycare Data
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-28'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '8534975190076067768'
+jules_session_id: null
 pr_number: null
 parent: epic-053-105-daycare-save-parsing
 tags:
@@ -28,6 +28,9 @@ Extracting Gen 3 daycare info.
 - [x] Create task to parse Gen 3 Daycare Pokémon.
 - [x] task-241-440-daycare-gen3-parsing-impl
 - [x] task-241-441-daycare-gen3-parsing-qa
-- [ ] research-241-462-gen3-daycare-offsets-investigation
-- [ ] task-241-469-daycare-gen3-parsing-impl
-- [ ] task-241-470-daycare-gen3-parsing-qa
+- [x] research-241-462-gen3-daycare-offsets-investigation
+- [x] task-241-469-daycare-gen3-parsing-impl
+- [x] task-241-470-daycare-gen3-parsing-qa
+- [ ] research-241-586-gen3-daycare-parsing-failure-investigation
+- [ ] task-241-587-daycare-gen3-parsing-impl-retry
+- [ ] task-241-588-daycare-gen3-parsing-qa-retry

@@ -28,7 +28,7 @@ Identify and implement ONE React refactoring opportunity by extracting a reusabl
 1. **Analyze** — Scan the codebase for repeated JSX or standard HTML elements that could be extracted.
 2. **Design** — Define the interface (props) for the new component.
 3. **Refactor** — Create the new component in `src/components/` and replace existing instances.
-4. **Verify** — Run `pnpm lint`, `pnpm test`, and `pnpm test:e2e:xvfb`.
+4. **Verify** — Run `pnpm lint`, `pnpm test`, and targeted E2E tests (`xvfb-run -a pnpm test:e2e <path-to-test>`).
 5. **PR** — Title: `🧱 Mason: [component name] extraction`. Body: `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result`.
 
 ## Journal
