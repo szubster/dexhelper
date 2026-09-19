@@ -152,7 +152,8 @@ export function generateGiftAndTradeSuggestions(
   }
 
   // C. In-Game NPC Trades
-  // Priority boosts if the player already physically possesses the required "offered" Pokemon (65 -> 85).
+  // Priority boosts if the player already physically possesses the required "offered" Pokemon (85).
+  // Priority is 75 if they possess a pre-evolution, or 70 if they possess a post-evolution they can breed down in Gen 2/3.
   for (const trade of staticNpcTradeData) {
     if (trade.gen !== saveData.generation) continue;
     if (trade.versions && !trade.versions.includes(displayVersion)) continue;
@@ -167,15 +168,57 @@ export function generateGiftAndTradeSuggestions(
     }
 
     const hasOffered = instancesBySpecies.has(trade.offeredId);
+    let preEvoId: number | null = null;
+    let postEvoId: number | null = null;
+
+    if (!hasOffered) {
+      const offeredMeta = apiData.pokemonMetadata?.[trade.offeredId];
+      if (offeredMeta?.efrm && offeredMeta.efrm.length > 0) {
+        for (let i = offeredMeta.efrm.length - 1; i >= 0; i--) {
+          const preId = offeredMeta.efrm[i];
+          if (preId !== undefined && instancesBySpecies.has(preId)) {
+            preEvoId = preId;
+            break;
+          }
+        }
+      }
+
+      if (!preEvoId && saveData.generation >= 2 && offeredMeta?.eto && offeredMeta.eto.length > 0) {
+        const stack = [...offeredMeta.eto];
+        while (stack.length > 0) {
+          const evo = stack.pop();
+          if (evo && instancesBySpecies.has(evo.id)) {
+            postEvoId = evo.id;
+            break;
+          }
+          if (evo?.eto && evo.eto.length > 0) {
+            stack.push(...evo.eto);
+          }
+        }
+      }
+    }
+
+    let description = `Catch #${trade.offeredId} and trade it at ${trade.location} for ${trade.nickname ? `${trade.nickname} the ` : ''}#${trade.receivedId}.`;
+    let priority = 65;
+
+    if (hasOffered) {
+      description = `You have #${trade.offeredId}! Trade it at ${trade.location} for ${trade.nickname ? `${trade.nickname} the ` : ''}#${trade.receivedId}.`;
+      priority = 85;
+    } else if (preEvoId) {
+      description = `You have #${preEvoId}! Evolve it to #${trade.offeredId} and trade it at ${trade.location} for ${trade.nickname ? `${trade.nickname} the ` : ''}#${trade.receivedId}.`;
+      priority = 75;
+    } else if (postEvoId) {
+      description = `Breed your #${postEvoId} to get #${trade.offeredId} and trade it at ${trade.location} for ${trade.nickname ? `${trade.nickname} the ` : ''}#${trade.receivedId}.`;
+      priority = 70;
+    }
+
     suggestions.push({
       id: `npc-trade-${trade.receivedId}`,
       category: 'Trade',
       title: `Trade for #${trade.receivedId}`,
-      description: hasOffered
-        ? `You have #${trade.offeredId}! Trade it at ${trade.location} for ${trade.nickname ? `${trade.nickname} the ` : ''}#${trade.receivedId}.`
-        : `Catch #${trade.offeredId} and trade it at ${trade.location} for ${trade.nickname ? `${trade.nickname} the ` : ''}#${trade.receivedId}.`,
+      description,
       pokemonId: trade.receivedId,
-      priority: hasOffered ? 85 : 65,
+      priority,
     });
   }
 
