@@ -2,13 +2,13 @@
 id: task-475-530-parsing-refactor-e2e-qa
 type: TASK
 title: QA for Parsing Refactor E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-03'
 updated_at: '2026-09-19'
 depends_on:
   - task-475-529-parsing-refactor-e2e-tests-impl
-jules_session_id: null
+jules_session_id: '5983526716013098889'
 pr_number: null
 parent: story-071-475-refactor-parsing-e2e
 tags:
