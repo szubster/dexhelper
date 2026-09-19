@@ -5,7 +5,7 @@ title: Evaluate State Machine Libraries for Node Lifecycle
 status: READY
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,7 +14,7 @@ tags:
   - foundry
   - architecture
   - state-machine
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
@@ -26,4 +26,5 @@ locks: []
 Evaluate state machine libraries (such as XState) for handling Node lifecycle transitions in the Foundry orchestrator.
 
 ## Acceptance Criteria
-- [ ] Create an ADR documenting the evaluation of state machine libraries for Node lifecycle transitions.
+- [ ] adr-560-571-evaluate-state-machine-libraries
+- [x] Create an ADR documenting the evaluation of state machine libraries for Node lifecycle transitions.

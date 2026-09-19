@@ -2,10 +2,10 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
-updated_at: '2026-09-16'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 locks: []
@@ -26,48 +26,37 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `9505459e6ded4c6ae5e0f4dabf274dde3f61be90`
-- **Previous Commit SHA:** `0e02481ca45009dd9391677d896fef8f182ff306`
-- **Commit Date:** `2026-03-16`
+- **Commit SHA:** `49c393b23c3c6d5420ebfc73698b3f54d253a614`
+- **Previous Commit SHA:** `b98cf70310d80eb9dee58c9e9a05ed9411319a84`
+- **Commit Date:** `2026-03-22`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `patch` (from `0.15.0` -> `0.15.1`)
+- **Suggested SemVer Bump:** `minor` (from `0.16.0` -> `0.17.0`)
 
 ## Commit Message
 ```text
-build(deps): Bump @tanstack/react-router from 1.167.1 to 1.167.3
-
-Bumps [@tanstack/react-router](https://github.com/TanStack/router/tree/HEAD/packages/react-router) from 1.167.1 to 1.167.3.
-- [Release notes](https://github.com/TanStack/router/releases)
-- [Changelog](https://github.com/TanStack/router/blob/main/packages/react-router/CHANGELOG.md)
-- [Commits](https://github.com/TanStack/router/commits/@tanstack/react-router@1.167.3/packages/react-router)
-
----
-updated-dependencies:
-- dependency-name: "@tanstack/react-router"
-  dependency-version: 1.167.3
-  dependency-type: direct:production
-  update-type: version-update:semver-patch
-...
-
-Signed-off-by: dependabot[bot] <support@github.com>
+feat: Implement Gen 1 and Gen 2 Pokémon save file parsing and integrate with a new assistant feature.
 ```
 
 ## Modified Files
-- `package-lock.json`
-- `package.json`
+- `src/components/AssistantPanel.tsx`
+- `src/hooks/useAssistant.ts`
+- `src/utils/assistantData.ts`
+- `src/utils/saveParser.ts`
 
 ## Diff Summary
 ```text
-9505459e6 build(deps): Bump @tanstack/react-router from 1.167.1 to 1.167.3
- package-lock.json | 96 ++++++++-----------------------------------------------
- package.json      |  2 +-
- 2 files changed, 14 insertions(+), 84 deletions(-)
+49c393b23 feat: Implement Gen 1 and Gen 2 Pokémon save file parsing and integrate with a new assistant feature.
+ src/components/AssistantPanel.tsx |   7 +-
+ src/hooks/useAssistant.ts         | 300 +++++++++++++++++++-------------------
+ src/utils/assistantData.ts        |  59 +++-----
+ src/utils/saveParser.ts           |   7 +-
+ 4 files changed, 185 insertions(+), 188 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 9505459e6ded4c6ae5e0f4dabf274dde3f61be90` (or `git diff 0e02481ca45009dd9391677d896fef8f182ff306..9505459e6ded4c6ae5e0f4dabf274dde3f61be90`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show 49c393b23c3c6d5420ebfc73698b3f54d253a614` (or `git diff b98cf70310d80eb9dee58c9e9a05ed9411319a84..49c393b23c3c6d5420ebfc73698b3f54d253a614`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.15.1] - 2026-03-16` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.15.0...0.15.1`](https://github.com/${repo}/compare/0e02481...9505459)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.17.0] - 2026-03-22` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.16.0...0.17.0`](https://github.com/${repo}/compare/b98cf70...49c393b)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.

@@ -2,13 +2,13 @@
 id: story-134-523-living-dex-state-overlay
 type: STORY
 title: Overlay PC Box and Party State on Living Dex Grid
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on:
   - story-134-522-living-dex-numerical-grid
-jules_session_id: null
+jules_session_id: '16301838328934507949'
 pr_number: null
 parent: epic-103-134-living-dex-grid-ui
 tags:

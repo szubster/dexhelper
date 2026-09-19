@@ -1,8 +1,8 @@
 import { useNavigate } from '@tanstack/react-router';
 import { Skull } from 'lucide-react';
 import React from 'react';
+import { useParsedSaveData } from '../contexts/EmulatorContext';
 import type { PokemonInstance } from '../engine/saveParser/index';
-import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { getTimeCapsuleValidation } from '../utils/timeCapsule';
 import { CapacitySegmentedBar } from './CapacitySegmentedBar';
@@ -15,6 +15,7 @@ import { ShinyBadge } from './ShinyBadge';
 import { TacticalBadge } from './TacticalBadge';
 import { TacticalCard } from './TacticalCard';
 import { TacticalPanel } from './TacticalPanel';
+import { TargetingRings } from './TargetingRings';
 import { TargetLockOverlay } from './TargetLockOverlay';
 
 const StorageCard = React.memo(
@@ -76,8 +77,7 @@ const StorageCard = React.memo(
             </div>
 
             {/* Matrix Targeting Ring (Appears on Hover) */}
-            <div className="absolute inset-2 rounded-full border border-cyan-500/0 opacity-0 transition-all duration-500 group-hover/card:animate-[spin_4s_linear_infinite] group-hover/card:border-cyan-500/30 group-hover/card:opacity-100" />
-            <div className="absolute inset-4 rounded-full border border-cyan-400/0 border-dashed opacity-0 transition-all duration-500 group-hover/card:animate-[spin_3s_linear_infinite_reverse] group-hover/card:border-cyan-400/20 group-hover/card:opacity-100" />
+            <TargetingRings />
 
             <PokemonSprite
               pokemonId={pokemon.id}
@@ -152,8 +152,14 @@ const StorageCard = React.memo(
   },
 );
 
-export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: string }[] }) {
-  const saveData = useStore((s) => s.saveData);
+// ⚡ Bolt: Wrapped StorageGrid in React.memo and memoized storageLocations array creation to prevent
+// unnecessary re-renders and eliminate array allocations on every render pass.
+export const StorageGrid = React.memo(function StorageGrid({
+  pokemonList,
+}: {
+  pokemonList: { id: number; name: string }[];
+}) {
+  const saveData = useParsedSaveData();
   const navigate = useNavigate();
   const handleNavigate = React.useCallback(
     (id: number) => {
@@ -202,14 +208,19 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
     return map;
   }, [saveData, pokemonMap]);
 
+  const storageLocations = React.useMemo(() => {
+    if (!saveData) return [];
+    const genConfig = getGenerationConfig(saveData.generation);
+    const locations = ['Party', 'Daycare'];
+    for (let i = 1; i <= genConfig.boxCount; i++) {
+      locations.push(`Box ${i}`);
+    }
+    return locations;
+  }, [saveData]);
+
   if (!saveData) return null;
 
   const genConfig = getGenerationConfig(saveData.generation);
-  const storageLocations = [
-    'Party',
-    'Daycare',
-    ...Array.from({ length: genConfig.boxCount }, (_, i) => `Box ${i + 1}`),
-  ];
 
   return (
     <div className="fade-in animate-in space-y-16 duration-500">
@@ -303,4 +314,4 @@ export function StorageGrid({ pokemonList }: { pokemonList: { id: number; name: 
       })}
     </div>
   );
-}
+});

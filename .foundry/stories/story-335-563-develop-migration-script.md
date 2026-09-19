@@ -2,12 +2,12 @@
 id: story-335-563-develop-migration-script
 type: STORY
 title: Develop Migration Script for Task Reminders
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-11'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '16782213362197998176'
+jules_session_id: null
 pr_number: null
 parent: epic-117-335-migrate-task-reminders
 tags:
@@ -33,4 +33,7 @@ This story is part of `epic-117-335-migrate-task-reminders`. The objective is to
 - If it is, strip out any `### REMINDER FOR CODER` or `### REMINDER FOR QA` sections (including their content until the next header or EOF), ensuring frontmatter and acceptance criteria remain intact.
 
 ## 3. Acceptance Criteria
+- [x] Break down into Tasks
+- [ ] task-563-586-develop-migration-script
+- [ ] task-563-587-qa-migration-script
 - [ ] Migration script is created and tested locally.

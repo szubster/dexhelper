@@ -83,11 +83,9 @@ export const ProgressionTimeline: React.FC = () => {
   }
 
   return (
-    <TacticalPanel className="flex flex-col gap-4 rounded-none border-zinc-700 border-dashed p-4">
+    <TacticalPanel className="flex flex-col gap-4 border-zinc-700 p-4">
       <div className="mb-2 border-zinc-700 border-b border-dashed pb-2">
-        <h3 className="font-black font-mono text-lg text-white uppercase">
-          PROGRESSION TIMELINE: {activePlaythrough.name}
-        </h3>
+        <h3 className="tactical-text font-black text-lg text-white">PROGRESSION TIMELINE: {activePlaythrough.name}</h3>
         <p className="font-mono text-xs text-zinc-500">SYS.VERSION: {activePlaythrough.gameVersion.toUpperCase()}</p>
       </div>
 

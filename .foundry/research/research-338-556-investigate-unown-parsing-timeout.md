@@ -5,15 +5,15 @@ title: Investigate Gen 2 Unown Parsing Timeout
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-07'
-updated_at: '2026-09-10'
+updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: '18363922117018776411'
+jules_session_id: '850822741720419090'
 parent: epic-118-338-gen2-unown-dex-data-extraction
 tags:
   - feature
   - gen2
   - unown
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 locks: []
 ---

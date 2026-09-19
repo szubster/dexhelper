@@ -2,12 +2,12 @@
 id: story-312-562-gen2-mom-savings-tracker-ui-core
 type: STORY
 title: Gen 2 Mom's Savings Tracker UI Core
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: '2534701315309916401'
+jules_session_id: null
 pr_number: null
 parent: epic-112-312-gen2-mom-savings-tracker-ui
 tags:
@@ -32,4 +32,7 @@ Implement the UI logic in `Gen2SavingsDashboard` to display progression toward t
 - Handle the case where all thresholds have been reached.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-562-581-gen2-moms-savings-logic
+- [ ] task-562-582-gen2-moms-savings-ui
+- [ ] task-562-583-gen2-moms-savings-qa

@@ -2,10 +2,10 @@
 id: story-079-560-battle-frontier-dashboard-e2e
 type: STORY
 title: Battle Frontier Dashboard E2E Tests
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-08'
-updated_at: '2026-09-13'
+updated_at: '2026-09-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -28,5 +28,5 @@ Create and execute Playwright E2E tests to verify the integration of the Battle 
 
 ## Acceptance Criteria
 - [x] Translate into technical Tasks
-- [ ] task-560-568-battle-frontier-dashboard-e2e-coder
-- [ ] task-560-569-battle-frontier-dashboard-e2e-qa
+- [x] task-560-568-battle-frontier-dashboard-e2e-coder
+- [x] task-560-569-battle-frontier-dashboard-e2e-qa

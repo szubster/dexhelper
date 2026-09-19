@@ -5,10 +5,10 @@ title: Implement E2E Tests for Parsing Refactor Data Flow
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-10'
+updated_at: '2026-09-18'
 depends_on:
   - task-475-528-parsing-refactor-e2e-mock-data
-jules_session_id: '4469324544130727371'
+jules_session_id: '5670705047275712694'
 pr_number: null
 parent: story-071-475-refactor-parsing-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - dashboard
   - e2e
   - integration
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

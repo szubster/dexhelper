@@ -45,4 +45,14 @@ describe('promote-frontmatter.ts CLI script', () => {
       expect(err.status).toBe(1);
       expect(err.stderr.toString()).toContain('File not found');
   });
+
+  it('handles files with missing status frontmatter field', () => {
+    fs.writeFileSync(tempFilePath, `---\nid: my-node\ntype: PRD\n---\n# Content`, 'utf-8');
+    execSync(`node --experimental-strip-types promote-frontmatter.ts ${tempFilePath} STABLE`, { cwd: __dirname });
+    const content = fs.readFileSync(tempFilePath, 'utf-8');
+    // As implemented, replaceFrontmatterStatus just returns the original if not found.
+    // So the content should remain unchanged, script succeeds.
+    expect(content).not.toContain('status: STABLE');
+    expect(content).toContain('type: PRD');
+  });
 });
