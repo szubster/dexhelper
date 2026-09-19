@@ -14,7 +14,7 @@ test.describe('Living Dex Ghost Tracking E2E Validation', () => {
     if (await assistantLink.isVisible()) {
       await assistantLink.click();
     } else {
-      await page.goto('assistant');
+      await page.goto('./assistant');
     }
 
     await expect(page.getByText(/Wild Encounters/i)).toBeVisible({ timeout: 15000 });
@@ -35,7 +35,7 @@ test.describe('Living Dex Ghost Tracking E2E Validation', () => {
     if (await assistantLink.isVisible()) {
       await assistantLink.click();
     } else {
-      await page.goto('assistant');
+      await page.goto('./assistant');
     }
     await expect(page.getByText(/Wild Encounters/i)).toBeVisible({ timeout: 15000 });
 

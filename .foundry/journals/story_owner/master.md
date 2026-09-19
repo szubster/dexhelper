@@ -608,3 +608,22 @@ When breaking down Epics, the Orchestrator Safeguard explicitly mandates that an
 
 -   **Lesson Learned:** When defining `depends_on` relationships between newly spawned sibling STORY nodes in the Foundry DAG, strictly use exact Node IDs (e.g., `story-530-536-dagtree-ui-logic`). Do not use repo-relative markdown file paths (e.g., `.foundry/stories/...`), as this violates schema strictness and causes the orchestrator to fail dependency resolution for these specific node linkages, leaving them stranded.
 -   **Lesson Learned:** Journal entries must strictly capture structural lessons, architectural constraints, or recurring failures that provide long-term value, as per the Journaling Policies. Simple logbook entries detailing task execution steps ('I created these three files') are explicitly prohibited and should not be written to memory.
+
+
+---
+
+# Late Binding Memory
+
+When a parent node requires breakdown into stories, the `story_owner` should append child nodes as unchecked task checkboxes in the `## Acceptance Criteria` of the parent, mark any specific drafting acceptance criteria as checked `[x]`, and submit an empty PR.
+This process properly triggers the orchestrator late binding waiting state mechanism.
+
+
+---
+
+# 2026-09-17
+
+## Observations
+`epic-051-094-friendship-data-extraction` was rejected with a `rejection_count` of 2.
+
+## Learnings
+The epic lacked a final STORY dedicated exclusively to Integration and E2E Verification, which is a requirement enforced by the Orchestrator Safeguard. I have dynamically spawned `story-094-580-friendship-data-extraction-e2e` to satisfy this requirement and appended it as an unchecked acceptance criteria.

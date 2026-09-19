@@ -1,0 +1,15 @@
+export const GEN3_ROAMER_OFFSET_RS = 0x3144;
+export const GEN3_ROAMER_OFFSET_EMERALD = 0x31dc;
+export const GEN3_ROAMER_OFFSET_FRLG = 0x30d0;
+export const ROAMER_IVS_OFFSET = 0x00;
+export const ROAMER_PV_OFFSET = 0x04;
+export const ROAMER_SPECIES_ID_OFFSET = 0x08;
+export const ROAMER_HP_OFFSET = 0x0a;
+export const ROAMER_LEVEL_OFFSET = 0x0c;
+export const ROAMER_STATUS_OFFSET = 0x0d;
+export const ROAMER_ACTIVE_OFFSET = 0x13;
+export const ROAMER_COOL_OFFSET = 0x0e;
+export const ROAMER_BEAUTY_OFFSET = 0x0f;
+export const ROAMER_CUTE_OFFSET = 0x10;
+export const ROAMER_SMART_OFFSET = 0x11;
+export const ROAMER_TOUGH_OFFSET = 0x12;

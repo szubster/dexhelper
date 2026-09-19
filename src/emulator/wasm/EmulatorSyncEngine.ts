@@ -1,5 +1,5 @@
+import { parseSaveFile } from '../../engine/saveParser';
 import type { GameVersion, SaveData } from '../../engine/saveParser/parsers/common';
-import { parseGen3 } from '../../engine/saveParser/parsers/gen3';
 import { LiveMemoryMapper } from './LiveMemoryMapper';
 import { WasmMemoryHook } from './WasmMemoryHook';
 
@@ -15,14 +15,14 @@ export class EmulatorSyncEngine {
   }
 
   /**
-   * Syncs the live memory state and extracts the current SaveData using Gen3 parsers.
+   * Syncs the live memory state and extracts the current SaveData using the save parser pipeline.
    * @param bufferSize The total size of the memory buffer to map.
    * @param forcedVersion An optional Gen 3 game version override.
-   * @returns The structured SaveData.
+   * @returns A promise resolving to the structured SaveData.
    */
-  public syncSaveData(bufferSize: number, forcedVersion?: GameVersion): SaveData {
-    // We map the entire buffer into a DataView, as expected by parseGen3
+  // ⚡ Bolt: Use parseSaveFile to leverage dynamic imports and eliminate static bundle dependencies on parseGen3.
+  public async syncSaveData(bufferSize: number, forcedVersion?: GameVersion): Promise<SaveData> {
     const dataView = this.mapper.mapBlock(0, bufferSize);
-    return parseGen3(dataView, forcedVersion);
+    return parseSaveFile(dataView.buffer, forcedVersion);
   }
 }

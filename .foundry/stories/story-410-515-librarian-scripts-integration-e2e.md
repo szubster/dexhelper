@@ -7,9 +7,9 @@ owner_persona: tech_lead
 created_at: '2026-09-01'
 updated_at: '2026-09-13'
 depends_on:
-  - .foundry/stories/story-410-512-librarian-ingestion-synthesis-script.md
-  - .foundry/stories/story-410-513-librarian-doc-update-script.md
-  - .foundry/stories/story-410-514-librarian-garbage-collection-script.md
+  - story-410-512-librarian-ingestion-synthesis-script
+  - story-410-513-librarian-doc-update-script
+  - story-410-514-librarian-garbage-collection-script
 jules_session_id: '17896743256907976283'
 pr_number: null
 parent: epic-339-410-librarian-github-scripts-implementation

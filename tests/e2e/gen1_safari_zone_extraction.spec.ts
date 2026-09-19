@@ -10,7 +10,7 @@ test.describe('Gen 1 Safari Zone Data Extraction E2E', () => {
     await initializeWithSave(page, 'tests/fixtures/yellow.sav');
 
     // 2. Go to the Assistant page and wait for Wild Encounters section
-    await page.goto('assistant');
+    await page.goto('./assistant');
     await expect(page.getByText(/Wild Encounters/i)).toBeVisible({ timeout: 15000 });
 
     // Safari Zone should be recommended for missing encounters

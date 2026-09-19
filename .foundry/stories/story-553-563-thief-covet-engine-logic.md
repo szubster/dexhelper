@@ -32,4 +32,7 @@ As part of the Thief/Covet Team Optimizer epic, we need the core engine logic to
 - Return a structured list of these optimal hunting Pokemon.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks.
+- [x] tech_lead: Break down this Story into Tasks.
+- [ ] task-563-586-thief-covet-engine-logic-core
+- [ ] task-563-587-thief-covet-engine-logic-tests
+- [ ] task-563-588-qa-thief-covet-engine-logic

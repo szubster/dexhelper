@@ -2,12 +2,12 @@
 id: idea-521-foundry-persona-execution-time-profiler
 type: IDEA
 title: Foundry Persona Execution Time Profiler
-status: ACTIVE
-owner_persona: product_manager
+status: BLOCKED
+owner_persona: tpm
 created_at: '2026-09-09'
-updated_at: '2026-09-12'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '5656689342012814565'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -17,8 +17,9 @@ tags:
   - profiling
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
 notes: ''
+locks: []
 ---
 
 # Idea: Foundry Persona Execution Time Profiler

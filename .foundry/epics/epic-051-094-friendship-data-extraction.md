@@ -2,10 +2,10 @@
 id: epic-051-094-friendship-data-extraction
 type: EPIC
 title: Friendship Data Extraction (Gen 2 & 3)
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-16'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -41,3 +41,4 @@ Implement the core data extraction logic to read the Friendship (Happiness) valu
 - [x] Break down into Tasks
 - [x] story-094-151-gen2-friendship-extraction
 - [x] story-094-152-gen3-friendship-extraction
+- [ ] story-094-580-friendship-data-extraction-e2e

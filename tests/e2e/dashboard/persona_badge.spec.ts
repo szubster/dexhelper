@@ -9,7 +9,7 @@ test.describe('PersonaBadge Integration', () => {
     // Ensure mock_dag.json data has at least one node with a persona, which it does ('coder', 'product_manager', 'epic_planner')
     await mockDagData(page);
 
-    await page.goto('dag');
+    await page.goto('./dag');
 
     // Wait for the DAG loading state to resolve
     await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden();

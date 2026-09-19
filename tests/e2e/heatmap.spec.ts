@@ -55,7 +55,7 @@ test.describe('Assistant Heatmap UI', () => {
     // Navigate and set mock state directly to ensure we have a bike requirement visible
     // which avoids the tautological issue by guaranteeing the state exists.
     await initializeWithSave(page, 'tests/fixtures/emerald.sav');
-    await page.goto('assistant');
+    await page.goto('./assistant');
 
     // Inject mock state to force a bike badge to appear
     await page.evaluate(() => {
@@ -83,7 +83,7 @@ test.describe('Assistant Heatmap UI', () => {
   });
 
   test('should hide route radar when no heatmap data exists', async ({ page }) => {
-    await page.goto('assistant');
+    await page.goto('./assistant');
     // Clear out the store so it has no save data, causing the heatmap to be empty.
     await page.evaluate(() => {
       (window as WindowWithStore).useStore.setState({ saves: [], suggestions: [] });
