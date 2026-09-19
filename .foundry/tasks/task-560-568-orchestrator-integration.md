@@ -2,10 +2,10 @@
 id: task-560-568-orchestrator-integration
 type: TASK
 title: Integrate Telemetry Utility into Orchestrator
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-10'
-updated_at: '2026-09-13'
+updated_at: '2026-09-19'
 depends_on:
   - task-560-567-telemetry-utility
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: story-540-559-trick-house-ui
 type: STORY
 title: Trick House Dashboard UI
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-19'
 depends_on:
   - story-540-558-trick-house-save-parsing
 jules_session_id: null
@@ -19,6 +19,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Trick House Dashboard UI

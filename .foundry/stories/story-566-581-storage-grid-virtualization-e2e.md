@@ -2,10 +2,10 @@
 id: story-566-581-storage-grid-virtualization-e2e
 type: STORY
 title: E2E Verification of StorageGrid Virtualization
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-18T09:12:32Z'
-updated_at: '2026-09-18T09:12:32Z'
+updated_at: '2026-09-19'
 depends_on:
   - story-566-580-virtualize-storage-grid-impl
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # E2E Verification of StorageGrid Virtualization

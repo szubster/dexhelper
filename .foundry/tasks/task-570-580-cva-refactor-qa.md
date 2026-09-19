@@ -2,14 +2,14 @@
 id: task-570-580-cva-refactor-qa
 type: TASK
 title: QA - CVA Refactor Tactical Button and Badge
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-15T11:22:21Z'
 updated_at: '2026-09-19'
 depends_on:
   - task-570-578-refactor-tactical-badge-cva
   - task-570-579-refactor-tactical-button-cva
-jules_session_id: '1303275444957409517'
+jules_session_id: null
 pr_number: null
 parent: story-567-570-cva-refactor-tactical-button-badge
 tags:

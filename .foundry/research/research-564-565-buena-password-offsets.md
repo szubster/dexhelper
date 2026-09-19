@@ -1,15 +1,16 @@
 ---
-created_at: '2026-09-08'
-updated_at: '2026-09-12'
-depends_on: []
-jules_session_id: '9007573090891695889'
-rejection_reason: ''
 id: research-564-565-buena-password-offsets
 type: RESEARCH
 title: Buena's Password Save Data Offsets
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
+created_at: '2026-09-08'
+updated_at: '2026-09-19'
+depends_on: []
+jules_session_id: null
 parent: prd-517-564-gen2-radio-password-tracker
+rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+locks: []
 ---
 
 # Research: Buena's Password Offsets

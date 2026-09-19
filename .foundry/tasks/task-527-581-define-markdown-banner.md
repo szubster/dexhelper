@@ -2,12 +2,12 @@
 id: task-527-581-define-markdown-banner
 type: TASK
 title: Define Markdown Banner Constant
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-15T18:23:20Z'
-updated_at: '2026-09-18'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '7377851595786977102'
+jules_session_id: null
 pr_number: null
 parent: story-517-527-markdown-banner
 tags:

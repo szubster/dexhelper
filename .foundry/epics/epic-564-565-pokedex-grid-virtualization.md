@@ -2,12 +2,12 @@
 id: epic-564-565-pokedex-grid-virtualization
 type: EPIC
 title: Virtualize PokedexGrid
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-12'
-updated_at: '2026-09-18'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '12880322187166317282'
+jules_session_id: null
 pr_number: null
 parent: prd-517-564-optimize-pokedex-grid-rendering
 tags:

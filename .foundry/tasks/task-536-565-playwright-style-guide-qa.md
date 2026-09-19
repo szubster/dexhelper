@@ -2,7 +2,7 @@
 id: task-536-565-playwright-style-guide-qa
 type: TASK
 title: QA Playwright Testing Style Guide
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-07'
 updated_at: '2026-09-19'
@@ -16,8 +16,8 @@ tags:
   - documentation
   - qa
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

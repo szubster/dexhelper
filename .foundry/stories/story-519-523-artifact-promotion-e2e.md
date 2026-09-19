@@ -2,10 +2,10 @@
 id: story-519-523-artifact-promotion-e2e
 type: STORY
 title: Artifact Promotion Workflow E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-19'
 depends_on:
   - story-519-520-automate-banner-removal
   - story-519-521-update-frontmatter-promotion

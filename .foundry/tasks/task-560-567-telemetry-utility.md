@@ -2,12 +2,12 @@
 id: task-560-567-telemetry-utility
 type: TASK
 title: Implement Telemetry Utility
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-10'
-updated_at: '2026-09-18'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '15840361712126514894'
+jules_session_id: null
 pr_number: null
 parent: story-530-560-telemetry-metrics-impl
 tags:

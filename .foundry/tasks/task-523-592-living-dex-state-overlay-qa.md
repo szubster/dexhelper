@@ -2,10 +2,10 @@
 id: task-523-592-living-dex-state-overlay-qa
 type: TASK
 title: QA Living Dex State Overlay
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-18T08:33:10Z'
-updated_at: '2026-09-18T08:33:10Z'
+updated_at: '2026-09-19'
 depends_on:
   - task-523-591-living-dex-ui-overlay-impl
 jules_session_id: null

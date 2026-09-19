@@ -2,10 +2,10 @@
 id: story-567-570-cva-refactor-tactical-button-badge
 type: STORY
 title: CVA Refactor Tactical Button and Badge
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-15'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: '9834526000229464559'
 pr_number: null
@@ -35,6 +35,6 @@ Refactor the `TacticalButton` and `TacticalBadge` components to use `class-varia
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-570-578-refactor-tactical-badge-cva
-- [ ] task-570-579-refactor-tactical-button-cva
-- [ ] task-570-580-cva-refactor-qa
+- [x] task-570-578-refactor-tactical-badge-cva
+- [x] task-570-579-refactor-tactical-button-cva
+- [x] task-570-580-cva-refactor-qa
