@@ -2,14 +2,15 @@
 id: story-536-550-remove-mock-and-fix-heuristic
 type: STORY
 title: Remove isGen3Save mock and fix heuristic
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-13'
+updated_at: '2026-09-18'
 depends_on: []
 jules_session_id: null
 parent: epic-520-536-remove-gen3save-mock
 rejection_reason: ''
+locks: []
 ---
 
 # Remove isGen3Save mock and fix heuristic
@@ -24,6 +25,6 @@ The `isGen3Save` heuristic in `src/engine/saveParser/utils/detection.ts` current
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-550-567-fix-gen3-heuristic-impl
-- [ ] task-550-568-remove-gen3-mock
-- [ ] task-550-569-qa-gen3-heuristic
+- [x] task-550-567-fix-gen3-heuristic-impl
+- [x] task-550-568-remove-gen3-mock
+- [x] task-550-569-qa-gen3-heuristic

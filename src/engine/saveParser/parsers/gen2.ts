@@ -560,25 +560,22 @@ function parsePokedex(view: DataView, offsets: { owned: number; seen: number }) 
  * @param isCrystal - True if the save file is Pokémon Crystal.
  * @returns An object containing the simple species ID list and the array of fully constructed `PokemonInstance`s.
  */
-function parseParty(view: DataView, offsets: { partyCount: number; partySpecies: number }, isCrystal: boolean) {
+export function* iterateGen2Party(
+  view: DataView,
+  offsets: { partyCount: number; partySpecies: number },
+  isCrystal: boolean,
+) {
   const partyCount = view.getUint8(offsets.partyCount);
-  const party: number[] = [];
-  for (let i = 0; i < partyCount; i++) {
-    const id = view.getUint8(offsets.partySpecies + i);
-    if (id > 0 && id <= 251) party.push(id);
-  }
-
-  const partyDetails: PokemonInstance[] = [];
   const partyDataOffset = offsets.partySpecies + GEN2_PARTY_SPECIES_LIST_LENGTH; // After species list
+
   for (let i = 0; i < partyCount; i++) {
+    const speciesId = view.getUint8(offsets.partySpecies + i);
     const offset = partyDataOffset + i * GEN2_PARTY_POKEMON_BLOCK_SIZE;
-    const p = parseGen2PokemonInstance(view, offset, isCrystal, 'Party', i + 1);
-    if (p) {
-      partyDetails.push(p);
+    const partyDetails = parseGen2PokemonInstance(view, offset, isCrystal, 'Party', i + 1);
+    if (partyDetails) {
+      yield { partyDetails, speciesId };
     }
   }
-
-  return { party, partyDetails };
 }
 
 /**
@@ -597,26 +594,21 @@ function parseParty(view: DataView, offsets: { partyCount: number; partySpecies:
  * @param isCrystal - True if the save is Crystal.
  * @returns The simple list of species IDs (`pc`) and the detailed instances (`pcDetails`).
  */
-function parsePCBoxes(
+export function* iterateGen2PCBoxes(
   view: DataView,
   offsets: { currentBoxNum: number; currentBoxCount: number; currentBoxSpecies: number },
   isCrystal: boolean,
 ) {
   const currentBoxNum = view.getUint8(offsets.currentBoxNum) & 0x0f;
   const currentBoxCount = view.getUint8(offsets.currentBoxCount);
-  const pc: number[] = [];
-  for (let i = 0; i < currentBoxCount; i++) {
-    const id = view.getUint8(offsets.currentBoxSpecies + i);
-    if (id > 0 && (id <= 251 || id === GEN2_EGG_SPECIES_ID)) pc.push(id);
-  }
-
-  const pcDetails: PokemonInstance[] = [];
   const currentBoxDataOffset = offsets.currentBoxSpecies + GEN2_BOX_SPECIES_LIST_LENGTH; // After species list
+
   for (let i = 0; i < currentBoxCount; i++) {
+    const speciesId = view.getUint8(offsets.currentBoxSpecies + i);
     const offset = currentBoxDataOffset + i * POKEMON_DATA_BLOCK_SIZE;
-    const p = parseGen2PokemonInstance(view, offset, isCrystal, `Box ${currentBoxNum + 1}`, i + 1);
-    if (p) {
-      pcDetails.push(p);
+    const pcDetails = parseGen2PokemonInstance(view, offset, isCrystal, `Box ${currentBoxNum + 1}`, i + 1);
+    if (pcDetails) {
+      yield { pcDetails, speciesId };
     }
   }
 
@@ -642,21 +634,14 @@ function parsePCBoxes(
     const count = view.getUint8(offset);
     if (count > 20) continue;
     for (let j = 0; j < count; j++) {
-      const id = view.getUint8(offset + BOX_SPECIES_LIST_OFFSET + j);
-      if (id > 0 && (id <= 251 || id === GEN2_EGG_SPECIES_ID)) pc.push(id);
-    }
-
-    const boxDataOffset = offset + BOX_DATA_BLOCK_OFFSET;
-    for (let j = 0; j < count; j++) {
-      const pOff = boxDataOffset + j * POKEMON_DATA_BLOCK_SIZE;
-      const p = parseGen2PokemonInstance(view, pOff, isCrystal, `Box ${i + 1}`, j + 1);
-      if (p) {
-        pcDetails.push(p);
+      const speciesId = view.getUint8(offset + BOX_SPECIES_LIST_OFFSET + j);
+      const pOff = offset + BOX_DATA_BLOCK_OFFSET + j * POKEMON_DATA_BLOCK_SIZE;
+      const pcDetails = parseGen2PokemonInstance(view, pOff, isCrystal, `Box ${i + 1}`, j + 1);
+      if (pcDetails) {
+        yield { pcDetails, speciesId };
       }
     }
   }
-
-  return { pc, pcDetails };
 }
 
 /**
@@ -672,12 +657,9 @@ function parsePCBoxes(
  * @param isCrystal - True if the save is Crystal.
  * @returns The Daycare Pokémon instances and a boolean indicating if an egg is ready.
  */
-function parseDaycare(view: DataView, isCrystal: boolean) {
+export function* iterateGen2Daycare(view: DataView, isCrystal: boolean) {
   const daycare1Offset = isCrystal ? DAYCARE_SLOT_1_OFFSET_CRYSTAL : DAYCARE_SLOT_1_OFFSET_GS;
   const daycare2Offset = isCrystal ? DAYCARE_SLOT_2_OFFSET_CRYSTAL : DAYCARE_SLOT_2_OFFSET_GS;
-  const daycareEggOffset = isCrystal ? DAYCARE_EGG_FLAG_OFFSET_CRYSTAL : DAYCARE_EGG_FLAG_OFFSET_GS;
-
-  const daycare: PokemonInstance[] = [];
 
   const offsets = [daycare1Offset, daycare2Offset];
   for (let i = 0; i < offsets.length; i++) {
@@ -687,14 +669,10 @@ function parseDaycare(view: DataView, isCrystal: boolean) {
     if (speciesId !== 0 && speciesId !== GEN2_EMPTY_SLOT) {
       const p = parseGen2PokemonInstance(view, offset, isCrystal, 'Daycare', i + 1);
       if (p) {
-        daycare.push(p);
+        yield p;
       }
     }
   }
-
-  const daycareHasEgg = (view.getUint8(daycareEggOffset) & DAYCARE_EGG_FLAG_MASK) !== 0;
-
-  return { daycare, daycareHasEgg };
 }
 
 /**
@@ -928,14 +906,31 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
       };
 
   const { owned, seen } = parsePokedex(view, offsets);
-  const { party, partyDetails } = parseParty(view, offsets, isCrystal);
-  const { pc, pcDetails } = parsePCBoxes(view, offsets, isCrystal);
+
+  const party: number[] = [];
+  const partyDetails: PokemonInstance[] = [];
+  for (const { partyDetails: details, speciesId } of iterateGen2Party(view, offsets, isCrystal)) {
+    if (speciesId > 0 && speciesId <= 251) party.push(speciesId);
+    partyDetails.push(details);
+  }
+
+  const pc: number[] = [];
+  const pcDetails: PokemonInstance[] = [];
+  for (const { pcDetails: details, speciesId } of iterateGen2PCBoxes(view, offsets, isCrystal)) {
+    if (speciesId > 0 && (speciesId <= 251 || speciesId === GEN2_EGG_SPECIES_ID)) pc.push(speciesId);
+    pcDetails.push(details);
+  }
 
   const johtoBadgesOffset = isCrystal ? JOHTO_BADGES_OFFSET_CRYSTAL : JOHTO_BADGES_OFFSET_GS;
   const kantoBadgesOffset = isCrystal ? KANTO_BADGES_OFFSET_CRYSTAL : KANTO_BADGES_OFFSET_GS;
 
-  const { daycare, daycareHasEgg } = parseDaycare(view, isCrystal);
-  for (const p of daycare) pcDetails.push(p);
+  const daycare: PokemonInstance[] = [];
+  for (const p of iterateGen2Daycare(view, isCrystal)) {
+    daycare.push(p);
+    pcDetails.push(p);
+  }
+  const daycareEggOffset = isCrystal ? DAYCARE_EGG_FLAG_OFFSET_CRYSTAL : DAYCARE_EGG_FLAG_OFFSET_GS;
+  const daycareHasEgg = (view.getUint8(daycareEggOffset) & DAYCARE_EGG_FLAG_MASK) !== 0;
 
   let badges = 0;
   const jBadges = view.getUint8(johtoBadgesOffset);

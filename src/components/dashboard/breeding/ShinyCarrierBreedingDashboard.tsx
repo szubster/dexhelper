@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import { pokeDB } from '../../../db/PokeDB';
 import type { PokemonMetadata } from '../../../db/schema';
 import { calculateBreedingPairs, type PokemonWithMetadata } from '../../../engine/breeding/pair_algorithm';
+import { calculateShinyOdds } from '../../../engine/breeding/shiny';
 import type { SaveData } from '../../../engine/saveParser';
 import { useStore } from '../../../store';
 import { calculateGen2Gender } from '../../../utils/gender';
@@ -95,7 +96,7 @@ export const ShinyCarrierBreedingDashboard: React.FC = () => {
 
     const pairs = calculateBreedingPairs(allPokemon);
     // Filter to only show optimal pairs (score > 0)
-    return pairs.filter((p) => p.score > 0);
+    return pairs.filter((p) => p.score > 0).map((p) => ({ ...p, shinyOdds: calculateShinyOdds(p.parentA, p.parentB) }));
   }, [saveData, metadataMap]);
 
   if (saveData?.generation !== 2) {
@@ -113,7 +114,7 @@ export const ShinyCarrierBreedingDashboard: React.FC = () => {
         </div>
 
         {breedingPairs.length === 0 ? (
-          <div className="rounded-none border-2 border-zinc-800 border-dashed bg-black/40 p-8 text-center">
+          <div className="tactical-panel border-2 border-zinc-800 bg-black/40 p-8 text-center">
             <span className="tactical-text text-zinc-500">NO SHINY CARRIER BREEDING PAIRS AVAILABLE</span>
           </div>
         ) : (
@@ -121,13 +122,14 @@ export const ShinyCarrierBreedingDashboard: React.FC = () => {
             {breedingPairs.map((pair) => {
               const pA = pair.parentA;
               const pB = pair.parentB;
+              const odds = pair.shinyOdds;
 
               return (
                 <div
                   key={`pair-${pA.id}-${pB.id}`}
-                  className="relative flex flex-col gap-2 rounded-none border-2 border-zinc-700 border-dashed bg-black/60 p-3 font-mono text-xs transition-colors hover:border-zinc-500"
+                  className="tactical-panel relative flex flex-col gap-2 border-2 border-zinc-700 bg-black/60 p-3 font-mono text-xs hover:border-zinc-500"
                 >
-                  <div className="absolute top-0 right-0 rounded-none border-zinc-700 border-b-2 border-l-2 border-dashed bg-zinc-900/80 px-2 py-1 text-[10px] text-zinc-400">
+                  <div className="tactical-panel absolute top-0 right-0 border-zinc-700 border-t-0 border-r-0 border-b-2 border-l-2 bg-zinc-900/80 px-2 py-1 text-[10px] text-zinc-400">
                     SCORE: {pair.score}
                   </div>
 
@@ -165,6 +167,26 @@ export const ShinyCarrierBreedingDashboard: React.FC = () => {
                         {(pB.isShiny || pB.isShinyCarrier) && (
                           <ShinyBadge isShiny={!!pB.isShiny} isShinyCarrier={!!pB.isShinyCarrier} size="sm" />
                         )}
+                      </div>
+                    </div>
+
+                    {/* Shiny Odds */}
+                    <div className="flex flex-col gap-1 border-zinc-800 border-t border-dashed pt-2 text-[10px]">
+                      <div className="flex justify-between">
+                        <span className="text-zinc-400">MALE ODDS:</span>
+                        <span
+                          className={odds.maleOffspringOdds === '1/64' ? 'font-bold text-amber-500' : 'text-zinc-500'}
+                        >
+                          {odds.maleOffspringOdds}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-zinc-400">FEMALE ODDS:</span>
+                        <span
+                          className={odds.femaleOffspringOdds === '1/64' ? 'font-bold text-amber-500' : 'text-zinc-500'}
+                        >
+                          {odds.femaleOffspringOdds}
+                        </span>
                       </div>
                     </div>
                   </div>

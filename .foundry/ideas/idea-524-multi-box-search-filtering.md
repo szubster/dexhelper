@@ -2,12 +2,12 @@
 id: idea-524-multi-box-search-filtering
 type: IDEA
 title: Multi-Box Advanced Search and Filtering System
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-14'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '1602137279398163470'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -40,4 +40,5 @@ Features should include:
 This directly addresses a massive pain point for hardcore players and collectors (the primary demographic for DexHelper). It elevates DexHelper from a simple "save viewer" into a powerful "save manager/analyzer," maintaining the 50/50 balance of prioritizing high-impact product features.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Draft a PRD detailing the search query syntax, filter toggles, and UX for the multi-box search highlighting.
+- [x] Product Manager: Draft a PRD detailing the search query syntax, filter toggles, and UX for the multi-box search highlighting.
+- [ ] prd-524-566-multi-box-search-filtering

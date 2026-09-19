@@ -2,12 +2,12 @@
 id: story-313-564-gen2-room-decoration-integration-e2e
 type: STORY
 title: Gen 2 Room Decoration Integration & E2E
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '13333074015092528295'
+jules_session_id: null
 parent: epic-112-313-gen2-room-decoration-viewer-ui
 tags:
   - e2e
@@ -27,4 +27,7 @@ Integrate the Gen 2 Room Decoration state logic and UI components into the main 
 - Verify that the categorized view renders properly and that Mystery Gift exclusives are correctly highlighted in the UI.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-564-586-gen2-room-decoration-route-integration
+- [ ] task-564-587-gen2-room-decoration-e2e-tests
+- [ ] task-564-588-gen2-room-decoration-integration-qa

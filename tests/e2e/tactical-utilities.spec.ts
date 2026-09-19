@@ -7,7 +7,7 @@ test.describe('Tactical Utilities E2E', () => {
   });
 
   test('verifies all tactical primitives are applied correctly', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('.');
     await waitForSync(page);
 
     await page.evaluate(() => {

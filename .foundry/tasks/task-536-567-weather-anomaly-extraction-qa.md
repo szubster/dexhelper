@@ -2,10 +2,10 @@
 id: task-536-567-weather-anomaly-extraction-qa
 type: TASK
 title: Gen 3 Weather Anomaly Extraction QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-04'
-updated_at: '2026-09-12'
+updated_at: '2026-09-18'
 depends_on:
   - task-536-566-weather-anomaly-extraction-tests
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: epic-518-530-curator-persona-implementation
 type: EPIC
 title: Implement Curator Persona
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-05'
+updated_at: '2026-09-17'
 depends_on: []
 jules_session_id: null
 parent: prd-151-518-holistic-code-curator-persona
@@ -34,6 +34,6 @@ Implement the base foundation for the \`curator\` persona, mapped to Persian (#0
 ## Acceptance Criteria
 - [x] Create STORY for updating schema.md with the curator persona
 - [x] Create STORY for creating the curator agent base prompt and journal directory
-- [ ] story-530-533-schema-curator-persona
-- [ ] story-530-534-curator-agent-base
-- [ ] story-530-535-curator-e2e-integration
+- [x] story-530-533-schema-curator-persona
+- [x] story-530-534-curator-agent-base
+- [x] story-530-535-curator-e2e-integration

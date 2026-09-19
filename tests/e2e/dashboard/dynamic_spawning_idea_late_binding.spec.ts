@@ -11,7 +11,7 @@ test.describe('Dynamic IDEA Spawning and Late Binding Lifecycle E2E Testing', ()
     await mockDagData(page, 'tests/fixtures/dag/dynamic_spawning_idea_late_binding.json');
 
     // Navigate to the DAG visualization dashboard
-    await page.goto('dag');
+    await page.goto('./dag');
 
     // Wait for the DAG loading state to resolve
     await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden();

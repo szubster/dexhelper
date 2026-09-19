@@ -2,10 +2,10 @@
 id: story-566-569-cva-theme-variables-setup
 type: STORY
 title: Setup CVA and Theme Variables Implementation
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-15T05:48:26Z'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,9 +18,9 @@ tags:
 research_references:
   - .foundry/research/research-145-001-component-variant-libraries.md
   - .foundry/research/research-145-002-component-theming-mechanisms.md
+rejection_reason: ''
 locks: []
 priority: 60
-rejection_reason: ''
 ---
 
 # Story: Setup CVA and Theme Variables Implementation
@@ -35,6 +35,6 @@ Implement Path A from ADR 031 by adding the `class-variance-authority` (CVA) lib
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down this Story into Tasks.
-- [ ] task-569-583-setup-cva-utility
-- [ ] task-569-584-setup-css-theme-variables
-- [ ] task-569-585-qa-theme-setup-verification
+- [x] task-569-583-setup-cva-utility
+- [x] task-569-584-setup-css-theme-variables
+- [x] task-569-585-qa-theme-setup-verification
