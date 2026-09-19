@@ -15,7 +15,7 @@ export function ClearStorageButton({ onClear }: { onClear: () => void }) {
           variant="secondary"
           className="flex-1"
         >
-          [ ABORT ]
+          <span aria-hidden="true">[ </span>ABORT<span aria-hidden="true"> ]</span>
         </TacticalButton>
         <TacticalButton
           type="button"
@@ -25,7 +25,8 @@ export function ClearStorageButton({ onClear }: { onClear: () => void }) {
           className="flex-1"
           hasCrosshairs={true}
         >
-          <Trash2 size={14} className="transition-transform group-hover:rotate-12" />[ CONFIRM.PURGE ]
+          <Trash2 size={14} className="transition-transform group-hover:rotate-12" />
+          <span aria-hidden="true">[ </span>CONFIRM.PURGE<span aria-hidden="true"> ]</span>
         </TacticalButton>
       </div>
     );
@@ -41,7 +42,7 @@ export function ClearStorageButton({ onClear }: { onClear: () => void }) {
       hasCrosshairs={true}
     >
       <Trash2 size={16} className="transition-transform group-hover:rotate-12" />
-      SYS.PURGE {/* ERASE SAVE DATA */}
+      <span aria-hidden="true">[ </span>SYS.PURGE<span aria-hidden="true"> ]</span>
     </TacticalButton>
   );
 }
