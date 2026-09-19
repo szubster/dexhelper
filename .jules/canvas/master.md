@@ -23,3 +23,12 @@
 **Outcome:** Merged (Optimistic execution)
 **Why:** The previous `DataLabel` felt under-designed and slightly generic (just brackets). The redesign anchors it firmly in the "tactical hardware/snooping" aesthetic (ADR 008) and provides a stronger visual hierarchy when placed above dense data blocks (like in PokemonLocations or PokemonEvolutions).
 **Pattern:** For tactical UI labels, avoid pure text brackets. Favor encapsulated boundaries (borders/backgrounds) with explicit corner treatments that mimic physical hardware casing.
+
+
+---
+
+## $(date -u +"%Y-%m-%d") - [Accepted] - 🖼️ Canvas: Bold DiagnosticCard Redesign
+**What:** Redesigned the \`DiagnosticCard\` from a simple wrapper to a highly structured, dense telemetry module resembling a terminal interface. Added animated hover effects, including a laser scan, blinking block cursor, and command prompt indicator (\`>\`).
+**Outcome:** Merged (Optimistic execution)
+**Why:** The previous design lacked the dense, technical feel of a hardware diagnostic interface. The redesign emphasizes the "tactical hardware" aesthetic by introducing structural boundaries (command prompt tab) and stronger interactive feedback.
+**Pattern:** Future diagnostic/telemetry components should lean into terminal-like typography (monospaced, dense) and utilize interactive cursors/prompts to enhance the technical aesthetic.

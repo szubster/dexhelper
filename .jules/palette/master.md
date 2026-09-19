@@ -94,3 +94,13 @@ Learned that the e2e test takes a long time and times out, skipping per memory.
 
 ## Critical Learnings
 - **Focus Styles**: Adding `focus-visible:tactical-focus` enhances accessibility for keyboard users navigating grid-based components without polluting hover states, adhering to the tactical hardware aesthetic.
+
+
+---
+
+# Palette Journal
+
+## Accessibility & Tooltip Pattern for Icon Badges
+- Generic `<div>` or `<span>` containers carrying visual-only icons (like `ShinyBadge`) should use `title` to provide native hover tooltips and screen-reader accessible names.
+- Avoid placing `aria-label` directly on generic `<div>` elements without a role (triggers Biome `useAriaPropsSupportedByRole`) and avoid `role="img"` or `role="status"` on generic elements (triggers Oxlint `prefer-tag-over-role`).
+- Always add `aria-hidden="true"` to inner SVG icons (e.g. `Sparkles`) to prevent screen readers from reading raw SVG structures.
