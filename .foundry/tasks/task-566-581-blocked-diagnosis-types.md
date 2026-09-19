@@ -28,5 +28,5 @@ locks: []
 Create the necessary TypeScript interfaces and helper functions in `.github/scripts/` to represent and format the 'BLOCKED Diagnosis' artifact. This includes data structures for capturing circular dependencies and unresolvable paths.
 
 ## Acceptance Criteria
-- [ ] Define `BlockedDiagnosis` interface.
-- [ ] Implement formatting helpers.
+- [x] Define `BlockedDiagnosis` interface.
+- [x] Implement formatting helpers.
