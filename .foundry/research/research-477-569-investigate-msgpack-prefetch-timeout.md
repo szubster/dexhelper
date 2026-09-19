@@ -29,5 +29,10 @@ Task `task-477-494-msgpack-prefetch-state-layer-impl` has reached its maximum re
 - Determine the correct Zustand global state architecture or an alternative to manage loading states for generation-specific msgpack files.
 - Ensure the state layer can be successfully implemented without timing out.
 
+## Findings
+- The timeout in `task-477-494-msgpack-prefetch-state-layer-impl` was caused by attempting to track a background browser process (prefetching) within the global state layer (Zustand). This led to race conditions or re-render loops in E2E tests, which then timed out.
+- Industry best practice and the approach already implemented in `pokedata-plugin.ts` is to rely entirely on the browser's HTTP cache via `<link rel="prefetch">` tags. The browser handles the download and caching asynchronously.
+- Creating a reactive state layer to track these prefetches is an anti-pattern that provides no user value while introducing performance overhead and test flakiness. The alternative approach is to rely purely on the browser's native caching behavior. No state layer integration is needed.
+
 ## Acceptance Criteria
-- [ ] Document findings in this node's markdown body.
+- [x] Document findings in this node's markdown body.
