@@ -2,10 +2,10 @@
 id: task-563-588-qa-thief-covet-engine-logic
 type: TASK
 title: QA Verification for Thief/Covet Move Analysis Engine Logic
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-17T00:10:05Z'
-updated_at: '2026-09-17T00:10:05Z'
+updated_at: '2026-09-19'
 depends_on:
   - task-563-587-thief-covet-engine-logic-tests
 jules_session_id: null

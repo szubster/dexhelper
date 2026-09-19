@@ -2,10 +2,10 @@
 id: story-540-558-trick-house-save-parsing
 type: STORY
 title: Trick House Save Parsing Logic
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-14'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,6 +36,6 @@ As part of the Gen 3 Trick House Tracker Dashboard, we need to extract the playe
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into implementation TASK nodes (e.g., constants definition, core logic).
-- [ ] task-558-568-gen3-trick-house-core-logic
-- [ ] task-558-569-gen3-trick-house-tests
-- [ ] task-558-570-gen3-trick-house-qa
+- [x] task-558-568-gen3-trick-house-core-logic
+- [x] task-558-569-gen3-trick-house-tests
+- [x] task-558-570-gen3-trick-house-qa

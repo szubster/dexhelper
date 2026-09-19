@@ -2,10 +2,10 @@
 id: task-537-539-acceptance-criteria-e2e-qa
 type: TASK
 title: QA E2E Tests for Acceptance Criteria Rules
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-17T22:02:02Z'
-updated_at: '2026-09-17T22:02:02Z'
+updated_at: '2026-09-19'
 depends_on:
   - task-537-538-acceptance-criteria-adr007-coder
   - task-537-540-acceptance-criteria-empty-pr-coder

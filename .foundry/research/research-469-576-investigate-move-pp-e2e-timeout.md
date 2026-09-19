@@ -2,12 +2,12 @@
 id: research-469-576-investigate-move-pp-e2e-timeout
 type: RESEARCH
 title: Investigate Move PP E2E Test Timeout
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-14'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '12700119063402812957'
+jules_session_id: null
 pr_number: null
 parent: story-086-469-dynamic-move-pp-parsing-e2e
 tags:

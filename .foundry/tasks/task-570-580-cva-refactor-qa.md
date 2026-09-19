@@ -2,10 +2,10 @@
 id: task-570-580-cva-refactor-qa
 type: TASK
 title: QA - CVA Refactor Tactical Button and Badge
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-15T11:22:21Z'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on:
   - task-570-578-refactor-tactical-badge-cva
   - task-570-579-refactor-tactical-button-cva

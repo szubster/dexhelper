@@ -2,12 +2,12 @@
 id: story-313-563-gen2-room-decoration-ui-components
 type: STORY
 title: Gen 2 Room Decoration UI Components
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '4344372513227213709'
+jules_session_id: null
 parent: epic-112-313-gen2-room-decoration-viewer-ui
 locks: []
 rejection_reason: ''

@@ -2,14 +2,14 @@
 id: task-536-564-gen3-berry-parsing-tests
 type: TASK
 title: Write Tests for Gen 3 Berry DataView Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on:
   - task-536-562-gen3-berry-parsing-logic
   - task-536-563-gen3-berry-map-location
-jules_session_id: '15369912091714927332'
+jules_session_id: null
 pr_number: null
 parent: story-513-536-gen3-berry-dataview-parsing
 tags:

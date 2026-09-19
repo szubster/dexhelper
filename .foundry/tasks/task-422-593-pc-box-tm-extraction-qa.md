@@ -2,10 +2,10 @@
 id: task-422-593-pc-box-tm-extraction-qa
 type: TASK
 title: QA verification for PC Box and TM Inventory extraction logic
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-17T23:55:17Z'
-updated_at: '2026-09-17T23:55:17Z'
+updated_at: '2026-09-19'
 depends_on:
   - task-422-592-pc-box-tm-extraction-tests
 jules_session_id: null

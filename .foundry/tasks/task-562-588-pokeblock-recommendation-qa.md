@@ -2,10 +2,10 @@
 id: task-562-588-pokeblock-recommendation-qa
 type: TASK
 title: QA Pokéblock Recommendation Logic
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-17T02:16:09Z'
-updated_at: '2026-09-17T02:16:09Z'
+updated_at: '2026-09-19'
 depends_on:
   - task-562-587-pokeblock-recommendation-tests
 jules_session_id: null

@@ -2,15 +2,14 @@
 id: epic-565-569-agent-confidence-metrics-schema
 type: EPIC
 title: Implement Node Schema Updates for Confidence Metrics
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-17T01:15:33Z'
-updated_at: '2026-09-17T01:15:33Z'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: prd-521-565-agent-confidence-metrics-dashboard
-priority: 60
 tags:
   - schema
   - foundry
@@ -19,6 +18,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+priority: 60
 ---
 
 # Implement Node Schema Updates for Confidence Metrics

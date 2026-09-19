@@ -2,10 +2,10 @@
 id: task-578-591-visualizer-unit-tests
 type: TASK
 title: React Flow Visualizer Unit Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-17T14:13:10Z'
-updated_at: '2026-09-17T14:13:10Z'
+updated_at: '2026-09-19'
 depends_on:
   - task-578-590-visualizer-ui-refactor
 jules_session_id: null

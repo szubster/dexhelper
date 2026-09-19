@@ -2,10 +2,10 @@
 id: task-469-577-dynamic-move-pp-e2e-impl-retry
 type: TASK
 title: Implement E2E Verification for Dynamic Move PP Parsing (Retry)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-14'
-updated_at: '2026-09-14'
+updated_at: '2026-09-19'
 depends_on:
   - research-469-576-investigate-move-pp-e2e-timeout
 jules_session_id: null

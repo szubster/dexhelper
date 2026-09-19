@@ -2,13 +2,13 @@
 id: story-421-527-bash-static-analysis-linter-integration
 type: STORY
 title: Integrate Static Analysis Linter with Bash Wrapper
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-04T05:51:36Z'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on:
   - story-421-526-bash-static-analysis-linter-impl
-jules_session_id: '2520631539075810725'
+jules_session_id: null
 pr_number: null
 parent: epic-057-421-bash-static-analysis-linter-retry
 tags:

@@ -2,10 +2,10 @@
 id: task-562-587-pokeblock-recommendation-tests
 type: TASK
 title: Pokéblock Recommendation Logic Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-17T02:15:35Z'
-updated_at: '2026-09-17T02:15:35Z'
+updated_at: '2026-09-19'
 depends_on:
   - task-562-586-pokeblock-recommendation-logic
 jules_session_id: null

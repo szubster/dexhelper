@@ -2,10 +2,10 @@
 id: task-563-587-thief-covet-engine-logic-tests
 type: TASK
 title: Unit Testing for Thief/Covet Move Analysis Engine Logic
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-17T00:09:16Z'
-updated_at: '2026-09-17T00:09:16Z'
+updated_at: '2026-09-19'
 depends_on:
   - task-563-586-thief-covet-engine-logic-core
 jules_session_id: null
