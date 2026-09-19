@@ -66,6 +66,7 @@ export function SettingsControls({
           items={[
             {
               id: 'standard',
+              ariaLabel: '[ STANDARD ]',
               label: (
                 <span>
                   <span aria-hidden="true">[ </span>STANDARD<span aria-hidden="true"> ]</span>
@@ -76,6 +77,7 @@ export function SettingsControls({
             },
             {
               id: 'living',
+              ariaLabel: '[ LIVING DEX ]',
               label: (
                 <span>
                   <span aria-hidden="true">[ </span>LIVING DEX<span aria-hidden="true"> ]</span>
