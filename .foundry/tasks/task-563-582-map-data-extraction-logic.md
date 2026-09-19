@@ -2,13 +2,13 @@
 id: task-563-582-map-data-extraction-logic
 type: TASK
 title: Gen 3 Map Data Extraction Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-16T11:02:53Z'
 updated_at: '2026-09-19'
 depends_on:
   - task-563-581-map-data-types
-jules_session_id: null
+jules_session_id: '5102091378696032292'
 parent: story-553-563-gen3-map-data-extraction
 rejection_count: 0
 rejection_reason: ''
