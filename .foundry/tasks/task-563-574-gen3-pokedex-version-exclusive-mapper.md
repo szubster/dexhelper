@@ -32,5 +32,5 @@ Implement the core logic to map missing Gen 3 Pokédex entries against version e
 - Expose a mapper function that takes an array of missing species IDs and the game version, and returns an object detailing which ones are exclusive to other versions vs available in the current one.
 
 ## Acceptance Criteria
-- [ ] Implement `getVersionExclusives(version)` returning arrays of species IDs for the given Gen 3 version.
-- [ ] Implement `mapMissingToAvailability(missingIds, version)` to split missing IDs into `available` and `versionExclusive` categories.
+- [x] Implement `getVersionExclusives(version)` returning arrays of species IDs for the given Gen 3 version.
+- [x] Implement `mapMissingToAvailability(missingIds, version)` to split missing IDs into `available` and `versionExclusive` categories.
