@@ -2,10 +2,10 @@
 id: story-071-475-refactor-parsing-e2e
 type: STORY
 title: E2E Verification for Parsing Refactor
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on:
   - story-071-474-pass-rejection-count-context
 jules_session_id: null
@@ -29,6 +29,6 @@ Verify that the complete data flow works correctly through E2E tests, ensuring t
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-475-528-parsing-refactor-e2e-mock-data
-- [ ] task-475-529-parsing-refactor-e2e-tests-impl
-- [ ] task-475-530-parsing-refactor-e2e-qa
+- [x] task-475-528-parsing-refactor-e2e-mock-data
+- [x] task-475-529-parsing-refactor-e2e-tests-impl
+- [x] task-475-530-parsing-refactor-e2e-qa

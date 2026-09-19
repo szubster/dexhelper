@@ -2,12 +2,12 @@
 id: story-346-560-spinda-spot-coordinate-algorithm
 type: STORY
 title: Spinda Spot Coordinate Algorithm
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-09'
 updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '6198402196229381176'
+jules_session_id: null
 pr_number: null
 parent: epic-335-346-spinda-pattern-rendering-engine
 tags:

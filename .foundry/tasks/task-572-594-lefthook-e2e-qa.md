@@ -2,10 +2,10 @@
 id: task-572-594-lefthook-e2e-qa
 type: TASK
 title: QA Verification for Lefthook Schema Validation E2E
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-18'
-updated_at: '2026-09-18'
+updated_at: '2026-09-19'
 depends_on:
   - task-572-593-lefthook-e2e-coder
 jules_session_id: null

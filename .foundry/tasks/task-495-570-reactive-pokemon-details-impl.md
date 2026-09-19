@@ -2,12 +2,12 @@
 id: task-495-570-reactive-pokemon-details-impl
 type: TASK
 title: Update Pokemon Details Components for Reactivity
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-12'
-updated_at: '2026-09-14'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '7514114245261817143'
+jules_session_id: null
 pr_number: null
 parent: story-425-495-reactive-ui-components
 tags:
@@ -15,7 +15,7 @@ tags:
   - emulator
   - components
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 priority: 50

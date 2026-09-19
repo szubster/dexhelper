@@ -2,13 +2,13 @@
 id: task-445-568-impl-linter-script-integration
 type: TASK
 title: Integrate ADR Compliance Linter Script
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-10'
-updated_at: '2026-09-16'
+updated_at: '2026-09-19'
 depends_on:
   - task-445-567-impl-adr013-compliance-tests
-jules_session_id: '16940914276599520685'
+jules_session_id: null
 pr_number: null
 parent: story-417-445-linter-integration-e2e
 tags:
@@ -19,7 +19,7 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 locks: []
 ---

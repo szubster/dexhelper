@@ -2,18 +2,20 @@
 id: task-553-567-gen1-pkm-extraction
 type: TASK
 title: Gen 1 PKM Extraction Logic
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-07'
-updated_at: '2026-09-13'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '1291671741020924969'
+jules_session_id: null
 parent: story-530-553-gen1-gen2-pkm-extraction
 tags:
   - data
   - gen1
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 locks: []
-rejection_reason: ''
 ---
 
 # Task: Gen 1 PKM Extraction Logic

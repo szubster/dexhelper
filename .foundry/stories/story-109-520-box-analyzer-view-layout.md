@@ -2,7 +2,7 @@
 id: story-109-520-box-analyzer-view-layout
 type: STORY
 title: Box Analyzer View and Layout
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-28'
 updated_at: '2026-09-19'

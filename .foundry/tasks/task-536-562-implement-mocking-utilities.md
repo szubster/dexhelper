@@ -2,12 +2,12 @@
 id: task-536-562-implement-mocking-utilities
 type: TASK
 title: Implement Central Mocking Utility Functions
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-09-13'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '17105584331359689325'
+jules_session_id: null
 pr_number: null
 parent: story-530-536-mocking-utility-functions
 tags:
@@ -15,7 +15,9 @@ tags:
   - playwright
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

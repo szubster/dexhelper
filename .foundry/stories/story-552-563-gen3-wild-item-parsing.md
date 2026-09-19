@@ -2,10 +2,10 @@
 id: story-552-563-gen3-wild-item-parsing
 type: STORY
 title: Gen 3 Wild Encounter and Held Item Parsing
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-16'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null

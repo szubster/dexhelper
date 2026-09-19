@@ -2,10 +2,10 @@
 id: story-534-558-rag-tooling-and-indexing
 type: STORY
 title: Integrate Flexsearch for Orchestrator In-Memory Document Indexing
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-09-13'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 parent: epic-520-534-dynamic-rag-context-hydration

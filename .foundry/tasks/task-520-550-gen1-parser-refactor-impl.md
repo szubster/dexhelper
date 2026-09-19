@@ -2,15 +2,17 @@
 id: task-520-550-gen1-parser-refactor-impl
 type: TASK
 title: Refactor Gen 1 Core Parser Logic
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-13'
+updated_at: '2026-09-19'
 depends_on:
   - task-520-549-gen1-parser-constants-impl
-jules_session_id: '12316613573608252583'
+jules_session_id: null
 parent: story-521-520-gen1-parser-refactor-core
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 locks: []
 ---
 

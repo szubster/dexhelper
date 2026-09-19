@@ -2,10 +2,10 @@
 id: epic-566-575-multi-box-stat-filters
 type: EPIC
 title: Multi-Box Stat Filters
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-18'
-updated_at: '2026-09-18'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Multi-Box Stat Filters

@@ -2,12 +2,12 @@
 id: task-524-567-setup-dependency-cruiser
 type: TASK
 title: Setup Dependency Cruiser
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-13'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '4212003978475158228'
+jules_session_id: null
 pr_number: null
 parent: story-524-524-architectural-linting
 tags:
@@ -15,7 +15,9 @@ tags:
   - monorepo
   - linting
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

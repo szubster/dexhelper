@@ -2,10 +2,10 @@
 id: epic-339-406-jules-agent-skins
 type: EPIC
 title: Jules Agent Skins Integration
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2024-05-18'
-updated_at: '2026-08-29'
+updated_at: '2026-09-19'
 depends_on:
   - epic-339-405-schema-role-mapping
 jules_session_id: null
@@ -18,6 +18,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Jules Agent Skins Integration

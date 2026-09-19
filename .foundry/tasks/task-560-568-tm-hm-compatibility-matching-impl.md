@@ -2,23 +2,25 @@
 id: task-560-568-tm-hm-compatibility-matching-impl
 type: TASK
 title: Implement TM/HM Compatibility Matching Core Logic
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2025-02-14'
-updated_at: '2026-09-13'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '5334777278729000447'
-locks: []
+jules_session_id: null
 pr_number: null
 parent: story-402-560-tm-hm-compatibility-matching
-priority: 50
 tags:
   - feature
   - logic
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
+locks: []
+priority: 50
 ---
 
 # Implement TM/HM Compatibility Matching Core Logic

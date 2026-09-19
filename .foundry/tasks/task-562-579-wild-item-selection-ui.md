@@ -2,13 +2,13 @@
 id: task-562-579-wild-item-selection-ui
 type: TASK
 title: Wild Item Selection UI Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-12'
 updated_at: '2026-09-19'
 depends_on:
   - task-562-578-wild-item-selection-state
-jules_session_id: '18215849973672162804'
+jules_session_id: null
 pr_number: null
 parent: story-555-562-wild-item-selection-ui
 tags:
@@ -17,7 +17,9 @@ tags:
   - react
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

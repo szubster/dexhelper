@@ -2,13 +2,13 @@
 id: task-562-579-gen2-wild-item-extraction-logic-impl
 type: TASK
 title: Implement Gen 2 Wild Encounter and Held Item Extraction Logic
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '${DATE}'
 updated_at: '2026-09-19'
 depends_on:
   - task-562-578-gen2-wild-item-models-impl
-jules_session_id: '12302990435372996256'
+jules_session_id: null
 pr_number: null
 parent: story-552-562-gen2-wild-item-parsing
 tags:
@@ -17,7 +17,9 @@ tags:
   - typescript
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 priority: 50

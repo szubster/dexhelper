@@ -2,18 +2,20 @@
 id: task-554-567-gen3-pk3-extraction-impl
 type: TASK
 title: Implement Gen 3 PK3 Extraction Logic
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-07'
-updated_at: '2026-09-14'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '16741185320357503057'
+jules_session_id: null
 parent: story-530-554-gen3-pk3-extraction
 tags:
   - data
   - gen3
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 locks: []
-rejection_reason: ''
 ---
 
 # Task: Implement Gen 3 PK3 Extraction Logic

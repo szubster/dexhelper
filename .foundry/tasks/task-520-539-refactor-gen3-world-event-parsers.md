@@ -2,12 +2,12 @@
 id: task-520-539-refactor-gen3-world-event-parsers
 type: TASK
 title: Refactor Gen 3 World Event Parsers
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-15'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '3741290153986064721'
+jules_session_id: null
 pr_number: null
 parent: story-523-520-gen3-parsers-refactor-core
 tags:
@@ -15,7 +15,9 @@ tags:
   - gen3
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

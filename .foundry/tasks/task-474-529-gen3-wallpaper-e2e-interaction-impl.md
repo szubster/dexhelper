@@ -2,19 +2,21 @@
 id: task-474-529-gen3-wallpaper-e2e-interaction-impl
 type: TASK
 title: Gen 3 Wallpaper State E2E Interaction Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2024-05-18'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on:
   - task-474-528-gen3-wallpaper-e2e-suite-setup
-jules_session_id: '9568081276647474950'
+jules_session_id: null
 parent: story-116-474-gen3-wallpaper-app-state-tracking-e2e
 tags:
   - e2e
   - gen3
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 locks: []
 ---
 

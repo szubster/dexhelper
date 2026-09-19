@@ -2,12 +2,12 @@
 id: epic-521-554-hunting-progress-tracker
 type: EPIC
 title: Hunting Progress Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-15'
-updated_at: '2026-09-12'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '13490237157278570089'
+jules_session_id: null
 pr_number: null
 parent: prd-150-521-wild-held-item-hunting-assistant
 tags:

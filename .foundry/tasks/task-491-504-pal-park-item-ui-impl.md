@@ -2,13 +2,13 @@
 id: task-491-504-pal-park-item-ui-impl
 type: TASK
 title: Pal Park Item Identification UI Component
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-31'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on:
   - task-491-503-pal-park-item-logic-impl
-jules_session_id: '4125945277446639897'
+jules_session_id: null
 pr_number: null
 parent: story-420-491-pal-park-item-identification
 tags:
@@ -19,7 +19,9 @@ tags:
   - ui
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

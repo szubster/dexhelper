@@ -2,14 +2,14 @@
 id: story-094-580-friendship-data-extraction-e2e
 type: STORY
 title: Friendship Data Extraction E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-17T18:42:09Z'
 updated_at: '2026-09-19'
 depends_on:
   - story-094-151-gen2-friendship-extraction
   - story-094-152-gen3-friendship-extraction
-jules_session_id: '16843000536636093166'
+jules_session_id: null
 pr_number: null
 parent: epic-051-094-friendship-data-extraction
 tags:

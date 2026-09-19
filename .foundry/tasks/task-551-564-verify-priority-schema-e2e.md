@@ -2,7 +2,7 @@
 id: task-551-564-verify-priority-schema-e2e
 type: TASK
 title: Implement and Verify Priority Field Sorting
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-09'
 updated_at: '2026-09-19'
@@ -13,8 +13,8 @@ parent: story-530-551-integration-e2e-verification
 tags:
   - e2e
   - integration
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

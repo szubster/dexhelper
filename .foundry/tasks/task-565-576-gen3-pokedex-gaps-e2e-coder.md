@@ -2,12 +2,12 @@
 id: task-565-576-gen3-pokedex-gaps-e2e-coder
 type: TASK
 title: Gen 3 Pokédex Gaps Integration and E2E Verification
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-13'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '18430821019814530116'
+jules_session_id: null
 pr_number: null
 parent: story-552-565-gen3-pokedex-gaps-e2e
 tags:
@@ -17,7 +17,9 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 locks: []
 ---
 

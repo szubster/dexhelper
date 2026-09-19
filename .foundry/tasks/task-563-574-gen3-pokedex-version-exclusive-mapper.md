@@ -2,13 +2,13 @@
 id: task-563-574-gen3-pokedex-version-exclusive-mapper
 type: TASK
 title: Gen 3 Pokédex Version Exclusive Mapper Utility
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-13'
 updated_at: '2026-09-19'
 depends_on:
   - task-563-572-gen3-pokedex-version-exclusive-data
-jules_session_id: '10636712890672221404'
+jules_session_id: null
 pr_number: null
 parent: story-552-563-gen3-pokedex-version-exclusive-mapping
 tags:

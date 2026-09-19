@@ -2,18 +2,18 @@
 id: prd-421-521-automated-schema-linting
 type: PRD
 title: Automated Markdown Schema Validation via Biome or Custom CLI
-status: FAILED
+status: PENDING
 owner_persona: auditor
 created_at: '2026-08-24'
 updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '17988940674320990684'
+jules_session_id: null
 parent: idea-421-automated-schema-linting
 tags:
   - foundry
   - linting
-rejection_count: 1
-rejection_reason: 'Child epics are not COMPLETED (epic-521-553-schema-linter-integration is FAILED, epic-521-552-schema-linter-core-logic is PENDING).'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

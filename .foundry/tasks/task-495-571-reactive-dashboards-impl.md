@@ -2,12 +2,12 @@
 id: task-495-571-reactive-dashboards-impl
 type: TASK
 title: Update Dashboard Components for Reactivity
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-12'
 updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '2610598506514131051'
+jules_session_id: null
 pr_number: null
 parent: story-425-495-reactive-ui-components
 tags:
@@ -15,7 +15,7 @@ tags:
   - emulator
   - components
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 priority: 50

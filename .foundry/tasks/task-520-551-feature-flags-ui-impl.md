@@ -2,13 +2,13 @@
 id: task-520-551-feature-flags-ui-impl
 type: TASK
 title: Feature Flags Hidden UI Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-13'
+updated_at: '2026-09-19'
 depends_on:
   - task-520-550-feature-flags-logic-impl
-jules_session_id: '6192489046880983903'
+jules_session_id: null
 pr_number: null
 parent: story-518-520-enforce-feature-flags
 tags:
@@ -16,7 +16,9 @@ tags:
   - wip
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

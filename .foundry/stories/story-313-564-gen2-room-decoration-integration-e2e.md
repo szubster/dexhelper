@@ -2,18 +2,18 @@
 id: story-313-564-gen2-room-decoration-integration-e2e
 type: STORY
 title: Gen 2 Room Decoration Integration & E2E
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-18'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 parent: epic-112-313-gen2-room-decoration-viewer-ui
 tags:
   - e2e
   - integration
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # Story: Gen 2 Room Decoration Integration & E2E

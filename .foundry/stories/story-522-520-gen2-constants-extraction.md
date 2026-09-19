@@ -2,10 +2,10 @@
 id: story-522-520-gen2-constants-extraction
 type: STORY
 title: Extract Gen 2 Parser Constants
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-09'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - save-parsing
   - offset-mapping
   - gen2
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # STORY: Extract Gen 2 Parser Constants

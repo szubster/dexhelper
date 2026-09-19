@@ -2,12 +2,12 @@
 id: task-558-568-rs-battle-tower-data-parsing-impl
 type: TASK
 title: Implement Ruby/Sapphire Battle Tower Data Extraction
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-12'
-updated_at: '2026-09-16'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '12162190983537734482'
+jules_session_id: null
 pr_number: null
 parent: story-078-558-rs-battle-tower-data-parsing
 tags:
@@ -15,7 +15,9 @@ tags:
   - gen3
   - endgame
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

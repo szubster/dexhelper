@@ -2,12 +2,12 @@
 id: task-558-567-flexsearch-tooling-coder
 type: TASK
 title: Implement Flexsearch Orchestrator Setup
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2025-02-14'
-updated_at: '2026-09-13'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '2229623195833637318'
+jules_session_id: null
 parent: story-534-558-rag-tooling-and-indexing
 tags:
   - foundry
@@ -15,7 +15,9 @@ tags:
   - optimization
   - flexsearch
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 locks: []
 ---
 
