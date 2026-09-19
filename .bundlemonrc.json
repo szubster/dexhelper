@@ -111,7 +111,7 @@
     },
     {
       "path": "icon-512.png",
-      "maxSize": "600kb"
+      "maxSize": "520kb"
     },
     {
       "path": "workbox-<hash>.js",
