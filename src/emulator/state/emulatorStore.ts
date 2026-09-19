@@ -11,7 +11,7 @@ interface EmulatorState {
   error: string | null;
 
   setMemory: (memory: WebAssembly.Memory, bufferSize: number, forcedVersion?: GameVersion) => void;
-  syncSaveData: () => void;
+  syncSaveData: () => Promise<void>;
   setError: (error: string | null) => void;
 }
 
@@ -40,7 +40,7 @@ export const useEmulatorStore = create<EmulatorState>((set, get) => ({
     });
   },
 
-  syncSaveData: () => {
+  syncSaveData: async () => {
     const { engine, bufferSize, forcedVersion } = get();
     if (!engine) {
       set({ error: 'EmulatorSyncEngine is not initialized.' });
@@ -48,7 +48,7 @@ export const useEmulatorStore = create<EmulatorState>((set, get) => ({
     }
 
     try {
-      const saveData = engine.syncSaveData(bufferSize, forcedVersion);
+      const saveData = await engine.syncSaveData(bufferSize, forcedVersion);
       set({ saveData, error: null });
     } catch (err) {
       set({ error: err instanceof Error ? err.message : 'Failed to sync save data.' });

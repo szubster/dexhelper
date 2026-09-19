@@ -28,14 +28,14 @@ describe('EmulatorSyncEngine', () => {
     }
   };
 
-  it('syncSaveData parses Gen3 data successfully', () => {
+  it('syncSaveData parses Gen3 data successfully', async () => {
     const wasmMemory = new WebAssembly.Memory({ initial: 2 }); // 128KB
     const view = new DataView(wasmMemory.buffer);
     initMockSectionsLocal(view);
     initMockSaveBlock1(view);
 
     const engine = new EmulatorSyncEngine(wasmMemory);
-    const saveData = engine.syncSaveData(wasmMemory.buffer.byteLength, 'emerald') as unknown as Record<string, unknown>;
+    const saveData = (await engine.syncSaveData(wasmMemory.buffer.byteLength, 'emerald')) as unknown as Record<string, unknown>;
 
     const flags = saveData['gen3TrainerDefeatFlags'] as boolean[];
     expect(flags).toBeDefined();
