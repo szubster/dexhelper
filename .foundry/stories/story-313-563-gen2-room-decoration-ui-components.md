@@ -25,4 +25,7 @@ Implement the presentation components for the Gen 2 Room Decoration Viewer. This
 - Ensure the UI adheres to the Tactical Hardware styling constraints (ADR-008).
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-563-589-gen2-room-decoration-ui-impl
+- [ ] task-563-590-gen2-room-decoration-ui-tests
+- [ ] task-563-591-gen2-room-decoration-ui-qa
