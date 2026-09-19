@@ -30,5 +30,9 @@ The previous task to implement graceful ignorance of emulator trailing bytes for
 2. Determine the necessary technical approach for the new implementation.
 
 ## Acceptance Criteria
-- [ ] Investigate failure root cause.
-- [ ] Determine technical approach.
+- [x] Investigate failure root cause.
+- [x] Determine technical approach.
+
+## Findings
+
+There is no strict 128KB file size equality check in the Gen 3 save parser. The parser only enforces a minimum file size (`buffer.byteLength < 32768`) and safely reads from specific offsets, naturally ignoring any trailing bytes (such as the 44/48 RTC bytes appended by VBA-M). Therefore, no implementation is needed.
