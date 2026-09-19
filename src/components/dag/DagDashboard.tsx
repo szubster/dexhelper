@@ -37,7 +37,7 @@ const nodeTypes = {
 };
 
 export function DagDashboard() {
-  const { nodes, edges, isLoading, maxRejectionThreshold } = useDagContext();
+  const { nodes, edges, isLoading, maxRejectionThreshold, showHeatmap, setShowHeatmap } = useDagContext();
 
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
@@ -177,9 +177,11 @@ export function DagDashboard() {
         activeTypes={activeTypes}
         activeStatuses={activeStatuses}
         showPermanentFailures={showPermanentFailures}
+        showHeatmap={showHeatmap}
         onTypeToggle={handleTypeToggle}
         onStatusToggle={handleStatusToggle}
         onTogglePermanentFailures={() => setShowPermanentFailures((prev) => !prev)}
+        onToggleHeatmap={() => setShowHeatmap((prev) => !prev)}
       />
       <ReactFlow
         nodes={displayNodes}
