@@ -28,6 +28,6 @@ locks: []
 Verify the implementation of the Architect Visionary persona.
 
 ## Acceptance Criteria
-- [ ] Verify the schema update.
-- [ ] Verify the agent prompt file.
-- [ ] Verify the schedule workflow file.
+- [x] Verify the schema update.
+- [x] Verify the agent prompt file.
+- [x] Verify the schedule workflow file.
