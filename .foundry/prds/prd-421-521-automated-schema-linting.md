@@ -2,7 +2,7 @@
 id: prd-421-521-automated-schema-linting
 type: PRD
 title: Automated Markdown Schema Validation via Biome or Custom CLI
-status: ACTIVE
+status: FAILED
 owner_persona: auditor
 created_at: '2026-08-24'
 updated_at: '2026-09-19'
@@ -12,8 +12,8 @@ parent: idea-421-automated-schema-linting
 tags:
   - foundry
   - linting
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Child epics are not COMPLETED (epic-521-553-schema-linter-integration is FAILED, epic-521-552-schema-linter-core-logic is PENDING).'
 notes: ''
 locks: []
 ---
@@ -61,3 +61,6 @@ The Foundry relies heavily on strict markdown file structures, primarily the YAM
 - [ ] epic-521-553-schema-linter-integration
 - [ ] epic-521-554-schema-linter-lefthook-integration
 - [ ] epic-521-555-schema-linter-frontmatter-logic
+
+### Auditor Rejection
+Child epics are not COMPLETED (epic-521-553-schema-linter-integration is FAILED, epic-521-552-schema-linter-core-logic is PENDING).
