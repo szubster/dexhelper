@@ -28,6 +28,6 @@ locks: []
 Verify the newly implemented E2E tests for the data parsing refactor work as expected and ensure correct architectural adherence.
 
 ## Acceptance Criteria
-- [ ] Verify E2E mock data correctly represents `.foundry` nodes
-- [ ] Run the Playwright E2E tests and ensure they pass locally and in CI
-- [ ] Verify that `rejection_count` is fully tested from parsing to `DagContext`
+- [x] Verify E2E mock data correctly represents `.foundry` nodes
+- [x] Run the Playwright E2E tests and ensure they pass locally and in CI
+- [x] Verify that `rejection_count` is fully tested from parsing to `DagContext`
