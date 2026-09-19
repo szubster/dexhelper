@@ -30,6 +30,6 @@ As part of the Bundle and Data Splitting Strategy (ADR 029), we are splitting th
 This task involves modifying the data generation script (`scripts/generate-pokedata.ts`) and the Vite plugin (`vite-plugins/pokedata-plugin.ts`) to output `pokedata-gen1.msgpack`, `pokedata-gen2.msgpack`, and `pokedata-gen3.msgpack` files alongside the existing `pokedata-core.msgpack`. These extension bundles will contain the encounters and locations specifically for that generation.
 
 ## Acceptance Criteria
-- [ ] Update `scripts/generate-pokedata.ts` to output `pokedata-gen1.msgpack`, `pokedata-gen2.msgpack`, and `pokedata-gen3.msgpack` containing gen-specific data.
-- [ ] Update `vite-plugins/pokedata-plugin.ts` to build and serve these generation-specific bundles.
-- [ ] Ensure the generation scripts successfully build and that the bundles are outputted correctly to `data/`.
+- [x] Update `scripts/generate-pokedata.ts` to output `pokedata-gen1.msgpack`, `pokedata-gen2.msgpack`, and `pokedata-gen3.msgpack` containing gen-specific data.
+- [x] Update `vite-plugins/pokedata-plugin.ts` to build and serve these generation-specific bundles.
+- [x] Ensure the generation scripts successfully build and that the bundles are outputted correctly to `data/`.

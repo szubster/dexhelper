@@ -1017,11 +1017,33 @@ console.log('\nWriting split JSONL files...');
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
 writeJsonl(path.join(OUTPUT_DIR, 'pokemon.jsonl'), pokemon.map(compact));
-writeJsonl(path.join(OUTPUT_DIR, 'encounters.jsonl'), Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
+const encountersGen1 = Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
   pid,
-  enc: encs.map(compact)
-})));
-writeJsonl(path.join(OUTPUT_DIR, 'locations.jsonl'), Array.from(locationMap.values()).map(compact).sort((a, b) => a.id - b.id));
+  enc: encs.filter(e => e.v <= 3).map(compact)
+})).filter(e => e.enc.length > 0);
+
+const encountersGen2 = Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
+  pid,
+  enc: encs.filter(e => e.v >= 4 && e.v <= 6).map(compact)
+})).filter(e => e.enc.length > 0);
+
+const encountersGen3 = Array.from(pokemonEncounterMap.entries()).map(([pid, encs]) => ({
+  pid,
+  enc: encs.filter(e => e.v >= 7 && e.v <= 11).map(compact)
+})).filter(e => e.enc.length > 0);
+
+writeJsonl(path.join(OUTPUT_DIR, 'encounters-gen1.jsonl'), encountersGen1);
+writeJsonl(path.join(OUTPUT_DIR, 'encounters-gen2.jsonl'), encountersGen2);
+writeJsonl(path.join(OUTPUT_DIR, 'encounters-gen3.jsonl'), encountersGen3);
+
+const locs = Array.from(locationMap.values());
+const locsGen1 = locs.filter(l => l.id < 256).map(compact).sort((a, b) => a.id - b.id);
+const locsGen3 = locs.filter(l => (l.id >> 16) === 3).map(compact).sort((a, b) => a.id - b.id);
+const locsGen2 = locs.filter(l => l.id >= 256 && (l.id >> 16) !== 3).map(compact).sort((a, b) => a.id - b.id);
+
+writeJsonl(path.join(OUTPUT_DIR, 'locations-gen1.jsonl'), locsGen1);
+writeJsonl(path.join(OUTPUT_DIR, 'locations-gen2.jsonl'), locsGen2);
+writeJsonl(path.join(OUTPUT_DIR, 'locations-gen3.jsonl'), locsGen3);
 writeJsonl(path.join(OUTPUT_DIR, 'moves.jsonl'), moves.map(compact));
 writeJsonl(path.join(OUTPUT_DIR, 'items.jsonl'), items.map(compact));
 writeJsonl(path.join(OUTPUT_DIR, 'berries.jsonl'), berries.map(compact));
