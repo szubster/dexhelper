@@ -2,7 +2,7 @@
 id: task-563-594-gen3-pokeblock-optimizer-ui-components
 type: TASK
 title: Gen 3 Pokéblock Optimizer UI Components
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-19'
 updated_at: '2026-09-19'

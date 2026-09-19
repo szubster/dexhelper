@@ -2,10 +2,10 @@
 id: story-140-562-gen2-roamer-map-lookup-table
 type: STORY
 title: Gen 2 Roamer Map Lookup Table
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-16'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,7 +31,7 @@ Create a lookup table or leverage existing `gen2Graph.ts` mapping structures to 
 - Ensure the definitions accurately reflect Johto and Kanto maps traversed by roamers.
 
 ## Acceptance Criteria
-- [ ] A mapping structure exists for translating Gen 2 map group and map ID pairs.
-- [ ] The mappings align with standard human-readable route names.
+- [x] A mapping structure exists for translating Gen 2 map group and map ID pairs.
+- [x] The mappings align with standard human-readable route names.
 - [x] Tech Lead: Break down into executable Tasks.
-- [ ] task-562-576-gen2-map-lookup-impl
+- [x] task-562-576-gen2-map-lookup-impl

@@ -2,12 +2,12 @@
 id: task-527-578-rng-explainer-e2e-coder
 type: TASK
 title: Implement RNG Explainer E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-15'
-updated_at: '2026-09-18'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '15879221969267662742'
+jules_session_id: null
 pr_number: null
 parent: story-131-527-rng-explainer-e2e-verification
 tags:

@@ -2,12 +2,12 @@
 id: idea-525-e2e-page-component-object-models
 type: IDEA
 title: E2E Page & Component Object Models and AI-Optimized Testing Patterns
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-17'
-updated_at: '2026-09-18'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '16559257268938027742'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

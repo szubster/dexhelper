@@ -2,10 +2,10 @@
 id: task-564-587-gen2-room-decoration-e2e-tests
 type: TASK
 title: Gen 2 Room Decoration E2E Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '$(date -u +"%Y-%m-%dT%H:%M:%SZ")'
-updated_at: '$(date -u +"%Y-%m-%dT%H:%M:%SZ")'
+updated_at: '2026-09-19'
 depends_on:
   - task-564-586-gen2-room-decoration-route-integration
 jules_session_id: null
@@ -13,8 +13,8 @@ parent: story-313-564-gen2-room-decoration-integration-e2e
 tags:
   - e2e
   - integration
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # Task: Gen 2 Room Decoration E2E Tests

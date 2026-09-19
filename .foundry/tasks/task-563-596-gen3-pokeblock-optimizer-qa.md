@@ -2,7 +2,7 @@
 id: task-563-596-gen3-pokeblock-optimizer-qa
 type: TASK
 title: QA Gen 3 Pokéblock Optimizer UI
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-19'
 updated_at: '2026-09-19'

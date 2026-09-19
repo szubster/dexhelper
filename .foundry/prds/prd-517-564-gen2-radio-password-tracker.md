@@ -2,7 +2,7 @@
 id: prd-517-564-gen2-radio-password-tracker
 type: PRD
 title: Gen 2 Buena's Password Tracker
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-08'
 updated_at: '2026-09-19'

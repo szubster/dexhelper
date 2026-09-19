@@ -2,10 +2,10 @@
 id: story-520-521-restrict-downstream-dependencies
 type: STORY
 title: Restrict Downstream Dependencies on DRAFT/WIP Artifacts
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-16'
+updated_at: '2026-09-19'
 depends_on:
   - story-520-520-update-persona-prompts
 jules_session_id: null

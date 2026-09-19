@@ -2,19 +2,19 @@
 id: story-550-573-tree-level-completeness-logic
 type: STORY
 title: Tree Level Completeness Verification
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-15T23:23:46Z'
 updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '1073852300422812545'
+jules_session_id: null
 pr_number: null
 parent: epic-517-550-deterministic-archival-tree-evaluation
 tags:
   - foundry
   - infrastructure
   - orchestrator
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

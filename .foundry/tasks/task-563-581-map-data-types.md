@@ -2,12 +2,12 @@
 id: task-563-581-map-data-types
 type: TASK
 title: Gen 3 Map Data Types
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-16T11:02:33Z'
 updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '963560357387675288'
+jules_session_id: null
 parent: story-553-563-gen3-map-data-extraction
 rejection_count: 0
 rejection_reason: ''

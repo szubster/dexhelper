@@ -2,10 +2,10 @@
 id: story-569-581-gen3-secret-base-array-extraction
 type: STORY
 title: Gen 3 Secret Base Array Extraction
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-16'
-updated_at: '2026-09-16'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,11 +16,11 @@ tags:
   - secret-base
   - map
 research_references: []
-priority: 30
 rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+priority: 30
 ---
 
 # STORY: Gen 3 Secret Base Array Extraction

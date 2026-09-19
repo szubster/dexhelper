@@ -2,7 +2,7 @@
 id: research-360-568-investigate-gen3-roamer-e2e-failure-v2
 type: RESEARCH
 title: Investigate Gen 3 Roamer E2E Test Failure v2
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-09-09'
 updated_at: '2026-09-19'
@@ -16,8 +16,8 @@ tags:
   - e2e
   - research
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

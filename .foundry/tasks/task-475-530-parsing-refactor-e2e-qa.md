@@ -2,14 +2,13 @@
 id: task-475-530-parsing-refactor-e2e-qa
 type: TASK
 title: QA for Parsing Refactor E2E Verification
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-19'
 depends_on:
   - task-475-529-parsing-refactor-e2e-tests-impl
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-071-475-refactor-parsing-e2e
 tags:
@@ -20,6 +19,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # QA for Parsing Refactor E2E Verification

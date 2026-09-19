@@ -2,7 +2,7 @@
 id: epic-045-071-documentation-macro-node-completion
 type: EPIC
 title: Documentation Updates for Macro Node Completion
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-10'
 updated_at: '2026-09-19'
@@ -16,8 +16,8 @@ tags:
   - architecture
   - documentation
 research_references: []
-rejection_count: 0
-rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

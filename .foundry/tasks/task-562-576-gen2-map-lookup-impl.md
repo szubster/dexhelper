@@ -2,12 +2,12 @@
 id: task-562-576-gen2-map-lookup-impl
 type: TASK
 title: Implement Gen 2 Map Lookup Function
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-13'
-updated_at: '2026-09-18'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '406397307775663993'
+jules_session_id: null
 pr_number: null
 parent: story-140-562-gen2-roamer-map-lookup-table
 tags:

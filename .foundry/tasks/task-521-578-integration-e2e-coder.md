@@ -2,12 +2,12 @@
 id: task-521-578-integration-e2e-coder
 type: TASK
 title: Write E2E Verification for Prompt Compilation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-14'
-updated_at: '2026-09-18'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '3091223290923666444'
+jules_session_id: null
 pr_number: null
 parent: story-521-521-integration-e2e
 tags:

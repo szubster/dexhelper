@@ -2,12 +2,12 @@
 id: task-527-590-bash-linter-integration-impl
 type: TASK
 title: Integrate Bash Linter into Execution Pathway (Implementation)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-17T18:33:39Z'
 updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '17862774354217611571'
+jules_session_id: null
 pr_number: null
 parent: story-421-527-bash-static-analysis-linter-integration
 tags:
