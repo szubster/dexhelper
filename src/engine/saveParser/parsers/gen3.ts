@@ -803,6 +803,8 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
         gen3Spindas.push({ pid: pv });
       }
 
+      const ivs = parseGen3PokemonPVAndIVs(view, offset);
+
       partyDetails.push({
         speciesId,
         level: view.getUint8(offset + GEN3_PARTY_LEVEL_OFFSET),
@@ -821,6 +823,14 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
           spd: view.getUint16(offset + GEN3_PARTY_SPEED_OFFSET, true),
           spatk: view.getUint16(offset + GEN3_PARTY_SPATK_OFFSET, true),
           spdef: view.getUint16(offset + GEN3_PARTY_SPDEF_OFFSET, true),
+        },
+        ivs: {
+          hp: ivs.hp,
+          atk: ivs.attack,
+          def: ivs.defense,
+          spd: ivs.speed,
+          spatk: ivs.specialAttack,
+          spdef: ivs.specialDefense,
         },
         evs: parseGen3EVs(decryptedData, 2 * SUBSTRUCTURE_SIZE),
         condition: parseGen3ConditionStats(decryptedData, 2 * SUBSTRUCTURE_SIZE),

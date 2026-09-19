@@ -185,6 +185,46 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
                 )}
               </div>
 
+              {/* Individual Values / Determinant Values */}
+              {(p.dvs || p.ivs) && (
+                <div className="relative z-10 flex flex-col gap-2 border-white/10 border-t border-dashed bg-black/40 p-4">
+                  <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">
+                    {p.dvs ? 'DETERMINANT VALUES (DV)' : 'INDIVIDUAL VALUES (IV)'}
+                  </span>
+                  <div className="grid grid-cols-6 gap-[1px]">
+                    {['hp', 'atk', 'def', 'spd', p.dvs ? 'spc' : 'spatk', ...(p.dvs ? [] : ['spdef'])].map(
+                      (statKey) => {
+                        const val = p.dvs
+                          ? p.dvs[statKey as keyof typeof p.dvs]
+                          : p.ivs?.[statKey as keyof typeof p.ivs];
+                        const maxVal = p.dvs ? 15 : 31;
+                        const ratio = val / maxVal;
+
+                        let colorClass = 'text-zinc-400';
+                        let barClass = 'bg-zinc-600';
+                        if (ratio === 1) {
+                          colorClass = 'text-amber-400';
+                          barClass = 'bg-amber-500';
+                        } else if (ratio >= 0.8) {
+                          colorClass = 'text-emerald-400';
+                          barClass = 'bg-emerald-500';
+                        }
+
+                        return (
+                          <div key={statKey} className="flex flex-col items-center gap-1 bg-white/5 p-2">
+                            <span className="font-mono text-[8px] text-zinc-500 uppercase">{statKey}</span>
+                            <span className={`font-mono text-[10px] ${colorClass}`}>{val}</span>
+                            <div className="mt-1 h-0.5 w-full bg-zinc-900">
+                              <div className={`h-full ${barClass}`} style={{ width: `${ratio * 100}%` }} />
+                            </div>
+                          </div>
+                        );
+                      },
+                    )}
+                  </div>
+                </div>
+              )}
+
               {generation === 2 && (
                 <div className="relative z-10 border-white/10 border-t border-dashed bg-black/80 p-3">
                   <TimeCapsuleBadge speciesId={p.speciesId} moves={p.moves} />
