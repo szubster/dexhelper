@@ -475,7 +475,7 @@ describe('Foundry Heartbeat', () => {
     expect(fs.writeFileSync).not.toHaveBeenCalled();
   });
 
-  it('should transition a node to FAILED if its Jules session is in AWAITING_USER_FEEDBACK without a PR and older than 7 days', async () => {
+  it('should transition a node to FAILED if its Jules session is in AWAITING_USER_FEEDBACK without a PR and older than 7 days (Testing No-Ask Policy)', async () => {
     const pastDate = new Date(Date.now() - 170 * 60 * 60 * 1000).toISOString();
     const mockNode = {
       filePath: '/mock/repo/.foundry/tasks/task-awaiting.md',
@@ -510,7 +510,7 @@ describe('Foundry Heartbeat', () => {
     const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
     expect(writeCall[0]).toBe(mockNode.filePath);
     expect(writeCall[1]).toContain('status: FAILED');
-    expect(writeCall[1]).toContain('rejection_reason: Session timed out (>7 days without PR)');
+    expect(writeCall[1]).toContain("rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'");
   });
 
   it('should transition a node to FAILED if its Jules session is in a non-active state (e.g. FAILED, EXPIRED, CANCELLED) without a PR', async () => {
@@ -633,7 +633,7 @@ ok: false,
     globalFetch.mockResolvedValue({
       ok: true,
       status: 200,
-      json: async () => ({ state: 'AWAITING_USER_FEEDBACK', updateTime: recentDate })
+      json: async () => ({ state: 'IN_PROGRESS', updateTime: recentDate })
     } as unknown as Response);
 
     await main();

@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { BERRY_TREE_LOCATIONS } from '../../../gen3/berryPatches/berryLocations';
 import { BERRY_TREES_COUNT, BERRY_TREES_OFFSET, parseGen3BerryTrees } from './parser';
 
 describe('parseGen3BerryTrees', () => {
@@ -50,5 +51,10 @@ describe('parseGen3BerryTrees', () => {
     const view = new DataView(buffer);
 
     expect(() => parseGen3BerryTrees(view, 0)).toThrow('The save file is corrupted or incomplete.');
+  });
+
+  it('correctly maps specific berry tree indices to locations', () => {
+    expect(BERRY_TREE_LOCATIONS[0]).toBe('Route 102');
+    expect(BERRY_TREE_LOCATIONS[88]).toBe('Route 123');
   });
 });

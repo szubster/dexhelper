@@ -2,10 +2,10 @@
 id: epic-520-552-gen3-fossil-memory-research
 type: EPIC
 title: Gen 3 Fossil Memory Research Epic
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-13'
+updated_at: '2026-09-19'
 depends_on:
   - research-520-535-gen3-fossil-offsets
 jules_session_id: null
@@ -30,4 +30,7 @@ This Epic tracks the translation of the discovered fossil memory offsets into ou
 - Ensure all module-level constants are prepared for the extraction logic.
 
 ## Acceptance Criteria
-- [ ] Break down this Epic into Stories, including a final Integration/E2E Verification Story.
+- [x] Break down this Epic into Stories, including a final Integration/E2E Verification Story.
+- [ ] story-552-580-gen3-fossil-schema-docs
+- [ ] story-552-581-gen3-fossil-constants
+- [ ] story-552-582-gen3-fossil-schema-e2e

@@ -1,3 +1,5 @@
+export const WIP_DRAFT_BANNER = '> ⚠️ **WORK IN PROGRESS / DRAFT**';
+
 export function removeWipBanner(content: string): string {
   // Matches "> ⚠️ **WORK IN PROGRESS / DRAFT**" with optional whitespace/newlines
   const regex = /^\s*>\s*⚠️\s*\*\*WORK IN PROGRESS \/ DRAFT\*\*\s*[\r\n]*/m;

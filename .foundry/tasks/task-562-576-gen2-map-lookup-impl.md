@@ -2,10 +2,10 @@
 id: task-562-576-gen2-map-lookup-impl
 type: TASK
 title: Implement Gen 2 Map Lookup Function
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-13'
-updated_at: '2026-09-16'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,6 +36,6 @@ The `allLocations` array accessed throughout the application already contains un
 - Add unit tests for `getGen2MapName` in `src/engine/mapGraph/gen2Graph.test.ts`.
 
 ## Acceptance Criteria
-- [ ] `getGen2MapName` is implemented in `src/engine/mapGraph/gen2Graph.ts`.
-- [ ] The function correctly combines `mapGroup` and `mapId` and uses `getLocation` to find the string name.
-- [ ] Unit tests are added to `src/engine/mapGraph/gen2Graph.test.ts` validating successful lookups and fallbacks.
+- [x] `getGen2MapName` is implemented in `src/engine/mapGraph/gen2Graph.ts`.
+- [x] The function correctly combines `mapGroup` and `mapId` and uses `getLocation` to find the string name.
+- [x] Unit tests are added to `src/engine/mapGraph/gen2Graph.test.ts` validating successful lookups and fallbacks.

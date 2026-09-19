@@ -2,10 +2,10 @@
 id: story-084-560-gen3-match-call-static-data-e2e
 type: STORY
 title: 'Story: Gen 3 Match Call Static Data E2E Verification'
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-08'
-updated_at: '2026-09-13'
+updated_at: '2026-09-18'
 depends_on: []
 jules_session_id: '4005148598362637443'
 pr_number: null
@@ -29,6 +29,6 @@ This story fulfills the mandatory Orchestrator Safeguard (E2E/Integration Requir
 Implement E2E testing to verify that the Gen 3 Match Call static dataset is successfully generated, exported via MsgPack, and properly hydrated into the IndexedDB persistence layer (`PokeDB.ts`).
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for the Match Call static data generation pipeline.
-- [ ] task-560-568-gen3-match-call-static-data-e2e-coder
-- [ ] task-560-569-gen3-match-call-static-data-e2e-qa
+- [x] Implement E2E tests for the Match Call static data generation pipeline.
+- [x] task-560-568-gen3-match-call-static-data-e2e-coder
+- [x] task-560-569-gen3-match-call-static-data-e2e-qa

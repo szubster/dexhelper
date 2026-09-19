@@ -2,10 +2,10 @@
 id: story-411-422-pc-box-and-tm-extraction
 type: STORY
 title: Extract PC Box and TM Inventory data concurrently.
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-11T00:00:00.000Z'
-updated_at: '2026-09-16'
+updated_at: '2026-09-19'
 depends_on:
   - story-411-421-active-party-extraction
 jules_session_id: null
@@ -27,3 +27,7 @@ locks: []
 ## Acceptance Criteria
 - [ ] Extract PC Box data concurrently.
 - [ ] Extract TM Inventory data concurrently.
+- [ ] task-422-590-pc-box-extraction-logic
+- [ ] task-422-591-tm-inventory-extraction-logic
+- [ ] task-422-592-pc-box-tm-extraction-tests
+- [ ] task-422-593-pc-box-tm-extraction-qa

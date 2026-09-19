@@ -32,7 +32,7 @@ export const Gen2DecorationsDashboard: React.FC<Gen2DecorationsDashboardProps> =
               .map((decoId) => (
                 <span
                   key={`active-deco-${decoId}`}
-                  className="rounded-none border border-zinc-700 border-dashed bg-zinc-900 px-2 py-1 font-mono text-xs text-zinc-300"
+                  className="tactical-panel border-zinc-700 bg-zinc-900 px-2 py-1 text-xs text-zinc-300"
                 >
                   {gen2Decorations[decoId] || `DECO ${decoId}`}
                 </span>
@@ -49,7 +49,7 @@ export const Gen2DecorationsDashboard: React.FC<Gen2DecorationsDashboardProps> =
               return (
                 <span
                   key={`unlocked-deco-${decoId}`}
-                  className="rounded-none border border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 px-2 py-1 font-mono text-[var(--theme-primary)] text-xs"
+                  className="tactical-panel border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 px-2 py-1 text-[var(--theme-primary)] text-xs"
                 >
                   {gen2Decorations[decoId] || `DECO ${decoId}`}
                 </span>

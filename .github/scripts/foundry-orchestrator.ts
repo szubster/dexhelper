@@ -787,6 +787,13 @@ function main(): void {
         break;
       }
 
+      if (dep && (dep.frontmatter.status === 'DRAFT' || dep.frontmatter.status === 'WIP')) {
+        warn(`Dependency '${depRef}' is marked as ${dep.frontmatter.status} for ${node.frontmatter.status} node: ${node.repoPath}`);
+        hasUnresolvableDeps = true;
+        shouldSuspend = true;
+        break;
+      }
+
       // If it is an ancestor, we only care that it is status ACTIVE or COMPLETED.
       if (!isDescendant(node.repoPath, depPath!)) {
         if (isHierarchicallyIncomplete(depPath!, [node.repoPath])) {
@@ -1094,6 +1101,13 @@ function main(): void {
           continue;
         }
         warn(`Unresolvable dependency '${depRef}' referenced by: ${node.repoPath}`);
+        hasUnresolvableDeps = true;
+        blocked = true;
+        break;
+      }
+
+      if (dep && (dep.frontmatter.status === 'DRAFT' || dep.frontmatter.status === 'WIP')) {
+        warn(`Dependency '${depRef}' is marked as ${dep.frontmatter.status} for ${node.frontmatter.status} node: ${node.repoPath}`);
         hasUnresolvableDeps = true;
         blocked = true;
         break;

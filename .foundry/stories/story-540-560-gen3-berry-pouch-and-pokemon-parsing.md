@@ -2,12 +2,12 @@
 id: story-540-560-gen3-berry-pouch-and-pokemon-parsing
 type: STORY
 title: Gen 3 Berry Pouch and Pokémon Parsing Logic
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '5556985421366109079'
+jules_session_id: null
 pr_number: null
 parent: epic-518-540-gen3-pokeblock-recipe-optimizer
 tags:
@@ -32,3 +32,7 @@ Implement backend save parsing logic to accurately read the Gen 3 berry pouch in
 ## Acceptance Criteria
 - [ ] Implement backend save parsing logic to accurately read the Gen 3 berry pouch inventory.
 - [ ] Implement backend save parsing logic to accurately read a Pokémon's current condition stats and Nature.
+- [ ] task-560-583-gen3-berry-pouch-parsing-impl
+- [ ] task-560-584-gen3-pokemon-condition-parsing-impl
+- [ ] task-560-585-gen3-berry-pokemon-parsing-tests
+- [ ] task-560-586-gen3-berry-pokemon-parsing-qa

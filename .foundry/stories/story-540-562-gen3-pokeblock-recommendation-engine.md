@@ -2,12 +2,12 @@
 id: story-540-562-gen3-pokeblock-recommendation-engine
 type: STORY
 title: Gen 3 Pokéblock Recommendation Engine
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '7222688472459573327'
+jules_session_id: null
 pr_number: null
 parent: epic-518-540-gen3-pokeblock-recipe-optimizer
 tags:
@@ -32,4 +32,7 @@ Implement a recommendation engine that determines the optimal combination of ber
 
 ## Acceptance Criteria
 - [ ] Implement the recommendation engine that determines the optimal combination of berries to blend and feed given the current berry inventory and target condition goal.
+- [ ] task-562-586-pokeblock-recommendation-logic
+- [ ] task-562-587-pokeblock-recommendation-tests
 - [ ] Add feasibility checks in the recommendation engine to alert the user if a goal is impossible with their current resources.
+- [ ] task-562-588-pokeblock-recommendation-qa

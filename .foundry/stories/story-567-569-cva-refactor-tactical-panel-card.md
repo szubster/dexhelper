@@ -2,10 +2,10 @@
 id: story-567-569-cva-refactor-tactical-panel-card
 type: STORY
 title: CVA Refactor Tactical Panel and Card
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-15'
-updated_at: '2026-09-15'
+updated_at: '2026-09-17'
 depends_on: []
 jules_session_id: '9777630159226920463'
 pr_number: null
@@ -18,9 +18,9 @@ tags:
 research_references:
   - .foundry/research/research-145-001-component-variant-libraries.md
   - .foundry/research/research-145-002-component-theming-mechanisms.md
+rejection_reason: ''
 locks: []
 priority: 60
-rejection_reason: ''
 ---
 
 # Story: CVA Refactor Tactical Panel and Card

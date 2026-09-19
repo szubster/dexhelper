@@ -2,10 +2,10 @@
 id: task-498-529-tpm-aggregation-qa
 type: TASK
 title: TPM Aggregation and Archival QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-19'
 depends_on:
   - task-498-528-tpm-aggregation-tests
 jules_session_id: null
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # TPM Aggregation and Archival QA

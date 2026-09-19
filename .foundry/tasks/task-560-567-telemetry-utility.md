@@ -2,10 +2,10 @@
 id: task-560-567-telemetry-utility
 type: TASK
 title: Implement Telemetry Utility
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-10'
-updated_at: '2026-09-10'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -32,7 +32,7 @@ Implement a tracking utility `trackCycleDetectionFailure` for cycle detection fa
 3. Ensure it fails gracefully without throwing errors if the filesystem operations fail.
 
 ## Acceptance Criteria
-- [ ] Implement `trackCycleDetectionFailure` in `.github/scripts/dag-utils.ts`.
-- [ ] Ensure the utility exports correctly.
-- [ ] Ensure the utility logs correctly and fails gracefully.
-- [ ] Add tests for the utility to ensure it behaves as expected.
+- [x] Implement `trackCycleDetectionFailure` in `.github/scripts/dag-utils.ts`.
+- [x] Ensure the utility exports correctly.
+- [x] Ensure the utility logs correctly and fails gracefully.
+- [x] Add tests for the utility to ensure it behaves as expected.

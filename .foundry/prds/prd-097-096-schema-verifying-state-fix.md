@@ -2,10 +2,10 @@
 id: prd-097-096-schema-verifying-state-fix
 type: PRD
 title: Fix contradiction in schema.md regarding VERIFYING state
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-06-30'
-updated_at: '2026-07-03'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,6 +17,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Fix contradiction in schema.md regarding VERIFYING state
@@ -31,5 +32,5 @@ This issue updates the invariant to reflect the `VERIFYING` state accurately.
 - Invariant 7 must be updated.
 
 ## Acceptance Criteria
-- [ ] Invariant 7 is updated to clarify that `VERIFYING` and `COMPLETED` nodes are read-only for implementing personas.
-- [ ] epic-097-130-schema-verifying-state-update
+- [x] Invariant 7 is updated to clarify that `VERIFYING` and `COMPLETED` nodes are read-only for implementing personas.
+- [x] epic-097-130-schema-verifying-state-update

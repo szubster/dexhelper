@@ -1,6 +1,40 @@
+/**
+ * @module generateMapLocations
+ *
+ * Downloads and parses original Game Boy assembly (.asm) files from decompiled Game Boy ROM repositories
+ * (`pret/pokered` and `pret/pokecrystal`) to construct Map ID and Landmark dictionaries.
+ *
+ * **Why this is necessary:**
+ * The save files use internal ROM Map IDs (e.g. `0x00` is Pallet Town in Gen 1, or Group/Map pairs in Gen 2)
+ * to track player location, caught locations, and wild encounters. Standard API sources like PokeAPI only provide
+ * modern generic string names, not lower-level Game Boy ROM IDs. By parsing decompilation `.asm` source files,
+ * we extract exact map constants and internal grouping structures to translate binary save data into UI-friendly names.
+ *
+ * **Data Sources:**
+ * - [`pret/pokered`](https://github.com/pret/pokered) (`constants/map_constants.asm`, `data/maps/town_map_entries.asm`)
+ * - [`pret/pokecrystal`](https://github.com/pret/pokecrystal) (`constants/map_constants.asm`, `constants/landmark_constants.asm`, `data/maps/maps.asm`)
+ *
+ * **Outputs:**
+ * - `src/engine/data/gen1/mapLocations.json` - Map ID to Name dictionary for Gen 1 (Kanto).
+ * - `src/engine/data/gen2/mapLocations.json` - Map Group + Map ID to Landmark dictionary for Gen 2 (Johto/Kanto).
+ * - `src/engine/data/gen2/landmarks.json` - Landmark ID dictionary for Gen 2.
+ *
+ * **Regeneration:**
+ * To run this script locally and regenerate the map JSON files, execute:
+ * `pnpm run data:gen-maps`
+ */
+
 import fs from 'node:fs';
 import https from 'node:https';
 
+/**
+ * Helper function to download raw text content from a remote URL over HTTPS.
+ *
+ * @param url - The direct HTTPS URL of the file to download (e.g. raw GitHub content).
+ * @returns A promise resolving to the utf-8 text response body.
+ * @example
+ * const asmContent = await download('https://raw.githubusercontent.com/pret/pokered/master/constants/map_constants.asm');
+ */
 function download(url: string): Promise<string> {
   return new Promise((resolve, reject) => {
     https.get(url, (res) => {
@@ -11,6 +45,14 @@ function download(url: string): Promise<string> {
   });
 }
 
+/**
+ * Transforms snake_case ROM constant strings or raw identifiers into title-cased, human-readable UI names.
+ *
+ * @param str - The snake_case identifier string to capitalize (e.g., 'RUINS_OF_ALPH').
+ * @returns The formatted title-case string (e.g., 'Ruins Of Alph').
+ * @example
+ * const formattedName = capitalize('LAKE_OF_RAGE'); // returns 'Lake Of Rage'
+ */
 function capitalize(str: string): string {
   return str.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
 }
@@ -50,34 +92,39 @@ async function run() {
   const gen1MapToLocation: Record<number, Gen1MapInfo> = {};
   const indoorGroupToName: Record<string, string> = {};
 
-  // Parse indoor groups
+  // 1. Parse Gen 1 indoor map groups from pret/pokered data/maps/town_map_entries.asm
+  // This maps internal indoor map group constants (e.g. INDOOR_VIRIDIAN) to human-readable names.
   const indoorMatches = [...gen1TownMapEntries.matchAll(/indoor_map\s+(\w+),\s*\d+,\s*\d+,\s*(\w+)/g)];
   for (const match of indoorMatches) {
     const group = match[1];
     let name = match[2];
     if (!group || !name) continue;
 
+    // Strip the trailing 'Name' string symbol suffix if present (e.g., ViridianCityName -> ViridianCity)
     if (name.endsWith('Name')) name = name.slice(0, -4);
 
+    // Normalize specific compound names that require custom spacing or punctuation
     if (name === 'SeaCottage') name = 'Sea Cottage';
     else if (name === 'SSAnne') name = 'S.S. Anne';
     else if (name === 'MountMoon') name = 'Mt. Moon';
     else if (name === 'PokemonLeague') name = 'Indigo Plateau';
     else if (name === 'RocketHQ') name = 'Rocket Hideout';
     else {
+      // Convert PascalCase names to spaced words (e.g., PalletTown -> Pallet Town)
       name = name.replace(/([a-z])([A-Z])/g, '$1 $2');
     }
     indoorGroupToName[group] = name;
   }
 
-  // Parse outdoor maps manually for gen 1 based on actual file ordering
-
+  // 2. Parse Gen 1 map_const declarations from constants/map_constants.asm
+  // The ROM assigns sequential map IDs based on the order of `map_const` macro calls.
   let activeGroup: string | null = null;
   let mapsSinceLastGroup: number[] = [];
   let currentMapConstId = 0;
 
   const gen1Lines = gen1MapConstants.split('\n');
   for (const line of gen1Lines) {
+    // Reset sequential ID counter when encountering a new constant block
     if (line.includes('const_def')) {
        currentMapConstId = 0;
     }
@@ -89,20 +136,22 @@ async function run() {
       
       gen1MapToLocation[currentMapConstId] = { name: mapName, id: currentMapConstId, group: null };
 
-      // Before FIRST_INDOOR_MAP (roughly map ID 37), maps are just outdoor
+      // Map IDs 0-37 correspond to primary outdoor maps (Cities, Towns, Routes)
       if (currentMapConstId <= 37) {
         if (mapName !== 'UNUSED_MAP_0B') {
-           // Capitalize nicely: e.g. ROUTE_1 -> Route 1
+           // Format snake_case constant names nicely (e.g. ROUTE_1 -> Route 1)
            mapName = mapName.replace(/_/g, ' ');
            mapName = mapName.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
            gen1MapToLocation[currentMapConstId]!.group = mapName;
         }
       } else {
+        // Collect indoor map IDs to associate with their parent group when `end_indoor_group` is encountered
         mapsSinceLastGroup.push(currentMapConstId);
       }
       currentMapConstId++;
     }
 
+    // `end_indoor_group` defines the group header that owns all preceding indoor map IDs
     const endGroupMatch = line.match(/^\s*end_indoor_group\s+(\w+)/);
     if (endGroupMatch) {
       activeGroup = endGroupMatch[1] ?? null;
@@ -166,6 +215,8 @@ async function run() {
   // === GEN 2 ===
   console.log('Generating Gen 2 mapping...');
 
+  // 1. Parse Gen 2 landmark constants from constants/landmark_constants.asm
+  // Gen 2 uses landmark constants (e.g. LANDMARK_NEW_BARK_TOWN) to map caught locations in Pokemon data.
   const gen2LandmarkConstToName: Record<string, { id: number, name: string }> = {};
   let currentLandmarkId2 = 0;
   for (const line of gen2LandmarksLines.split('\n')) {
@@ -183,7 +234,7 @@ async function run() {
        if (name === 'Event') name = 'Event/Gift';
        if (name === 'Gift') name = 'Special Event/Traded';
 
-       // specific fixes
+       // Apply specific punctuation and casing fixes for Gen 2 landmarks
        if (name === 'Mt Mortar') name = 'Mt. Mortar';
        if (name === 'Mt Moon') name = 'Mt. Moon';
        if (name === 'Ruins Of Alph') name = 'Ruins of Alph';
@@ -199,16 +250,20 @@ async function run() {
        gen2LandmarkConstToName[constName] = { id: currentLandmarkId2, name: name };
        currentLandmarkId2++;
     } else if (line.match(/^\s*const_def\s+\$7f/)) {
+       // $7F is special offset 127 in Gen 2 landmark constants (used for Special/Traded origins)
        currentLandmarkId2 = 127;
     }
   }
 
+  // 2. Parse Gen 2 Map Groups and Map IDs from constants/map_constants.asm and data/maps/maps.asm
+  // Gen 2 uses 2-byte location keys: [MapGroup, MapID]. Each map is assigned to a Landmark ID in `maps.asm`.
   const finalGen2Mapping: Record<number, Record<number, string>> = {};
 
   let currentGroup2 = 0;
   let mapIdInGroup = 1;
 
   for (const line of gen2MapConstantsLines.split('\n')) {
+      // `newgroup` increments the 1-based Map Group index in pokecrystal
       const groupMatch = line.match(/^\s*newgroup\s+(\w+)/);
       if (groupMatch) {
          currentGroup2++;
@@ -221,6 +276,7 @@ async function run() {
          const mapName = mapConstMatch[1];
          if (!mapName) continue;
 
+         // Cross-reference map name with data/maps/maps.asm to extract associated LANDMARK_* constant
          const mapNameRegexStr = mapName.replace(/_/g, '');
          const mapRegex = new RegExp(`^\\s*map\\s+${mapNameRegexStr}\\s*,[^,]*,[^,]*,\\s*(LANDMARK_\\w+)`, 'im');
          const mapAsmMatch = gen2Maps.match(mapRegex);

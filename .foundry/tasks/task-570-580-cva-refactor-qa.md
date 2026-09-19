@@ -2,10 +2,10 @@
 id: task-570-580-cva-refactor-qa
 type: TASK
 title: QA - CVA Refactor Tactical Button and Badge
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-15T11:22:21Z'
-updated_at: '2026-09-15T11:22:21Z'
+updated_at: '2026-09-19'
 depends_on:
   - task-570-578-refactor-tactical-badge-cva
   - task-570-579-refactor-tactical-button-cva
@@ -16,9 +16,9 @@ tags:
   - qa
   - testing
 research_references: []
+rejection_reason: ''
 locks: []
 priority: 60
-rejection_reason: ''
 ---
 
 # Task: QA - CVA Refactor Tactical Button and Badge
@@ -32,4 +32,4 @@ Verify the CVA refactoring of `TacticalButton` and `TacticalBadge` correctly rep
 - Verify typescript types accurately capture variant permutations.
 
 ## Acceptance Criteria
-- [ ] QA verification complete.
+- [x] QA verification complete.

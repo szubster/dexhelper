@@ -2,10 +2,10 @@
 id: task-570-578-refactor-tactical-badge-cva
 type: TASK
 title: Refactor TacticalBadge to CVA
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-15T11:22:21Z'
-updated_at: '2026-09-15T11:22:21Z'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -34,6 +34,6 @@ Refactor the `TacticalBadge` component to use `class-variance-authority` (CVA) f
 - Maintain the exact styling output for all current variants (primary, amber, red, zinc, blue, emerald, rose, pink).
 
 ## Acceptance Criteria
-- [ ] `TacticalBadge` correctly uses CVA.
-- [ ] TypeScript types are strict and export `TacticalBadgeProps` appropriately extending `VariantProps`.
-- [ ] All linting and tests pass.
+- [x] `TacticalBadge` correctly uses CVA.
+- [x] TypeScript types are strict and export `TacticalBadgeProps` appropriately extending `VariantProps`.
+- [x] All linting and tests pass.

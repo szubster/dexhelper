@@ -2,10 +2,10 @@
 id: task-562-578-gen3-pokedex-gaps-extraction-logic
 type: TASK
 title: Gen 3 Pokédex Gaps Extraction Logic
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-14'
-updated_at: '2026-09-14'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,5 +31,5 @@ Implement the core logic to extract National and Regional Pokédex completion ga
 - Follow save parsing guidelines in Section 13 of `.foundry/docs/schema.md` (e.g., RangeError checking) if touching parsing code.
 
 ## Acceptance Criteria
-- [ ] Create missing Pokedex gap logic.
-- [ ] Provide sets of missing Pokédex entries for both Hoenn Regional and National Dex.
+- [x] Create missing Pokedex gap logic.
+- [x] Provide sets of missing Pokédex entries for both Hoenn Regional and National Dex.

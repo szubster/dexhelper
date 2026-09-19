@@ -2,10 +2,10 @@
 id: story-325-528-safari-zone-bounty-board
 type: STORY
 title: Safari Zone Bounty Board Panel
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2024-05-24'
-updated_at: '2024-05-24'
+updated_at: '2026-09-19'
 depends_on:
   - story-325-526-safari-zone-layout-and-route
 jules_session_id: null

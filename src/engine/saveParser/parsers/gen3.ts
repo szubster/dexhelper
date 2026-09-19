@@ -117,6 +117,7 @@ import {
   FLAG_RUSTBORO_NPC_TRADE_COMPLETED,
 } from '../gen3/npcTrades/constants';
 import { parseGen3Pokeblocks } from '../gen3/pokeblock/parser';
+import { extractPokedexGaps } from '../gen3/pokedex/gaps';
 import { parseGen3Pokedex } from '../gen3/pokedex/parser';
 import { parseGen3TrainerDefeatFlags, parseGen3TrainerRematchFlags } from '../gen3/trainerFlags/parser';
 import { parseTrickHouse } from '../gen3/trickHouse/parser';
@@ -240,12 +241,12 @@ export const OUTBREAK_LEVEL_OFFSET = 0x14;
 export const OUTBREAK_DAYS_BEFORE_OFFSET = 0x16;
 export const OUTBREAK_LANGUAGE_OFFSET = 0x18;
 
-const POKE_NEWS_OFFSET = 0x2b50;
-const POKE_NEWS_COUNT = 16;
-const POKE_NEWS_SIZE = 4;
-const POKE_NEWS_KIND_OFFSET = 0x00;
-const POKE_NEWS_STATE_OFFSET = 0x01;
-const POKE_NEWS_COUNTDOWN_OFFSET = 0x02;
+export const POKE_NEWS_OFFSET = 0x2b50;
+export const POKE_NEWS_COUNT = 16;
+export const POKE_NEWS_SIZE = 4;
+export const POKE_NEWS_KIND_OFFSET = 0x00;
+export const POKE_NEWS_STATE_OFFSET = 0x01;
+export const POKE_NEWS_COUNTDOWN_OFFSET = 0x02;
 
 const MISC_IV_EGG_ABILITY_OFFSET = 0x04;
 export const MET_LOCATION_OFFSET_IN_M = 1;
@@ -509,42 +510,42 @@ export const FRLG_MOVE_TUTOR_BYTE_2_OFFSET = 0x59;
 export const FRLG_MOVE_TUTOR_BYTE_3_OFFSET = 0x5b;
 export const FRLG_MOVE_TUTOR_BYTE_4_OFFSET = 0x5c;
 
-const FLAG_BYTE_SHIFT = 3;
-const FLAG_BIT_MASK = 7;
+export const FLAG_BYTE_SHIFT = 3;
+export const FLAG_BIT_MASK = 7;
 
-const MOVE_TUTOR_SWAGGER_BIT = 1;
-const MOVE_TUTOR_ROLLOUT_BIT = 2;
-const MOVE_TUTOR_FURY_CUTTER_BIT = 3;
-const MOVE_TUTOR_MIMIC_BIT = 4;
-const MOVE_TUTOR_METRONOME_BIT = 5;
-const MOVE_TUTOR_SLEEP_TALK_BIT = 6;
-const MOVE_TUTOR_SUBSTITUTE_BIT = 7;
+export const MOVE_TUTOR_SWAGGER_BIT = 1;
+export const MOVE_TUTOR_ROLLOUT_BIT = 2;
+export const MOVE_TUTOR_FURY_CUTTER_BIT = 3;
+export const MOVE_TUTOR_MIMIC_BIT = 4;
+export const MOVE_TUTOR_METRONOME_BIT = 5;
+export const MOVE_TUTOR_SLEEP_TALK_BIT = 6;
+export const MOVE_TUTOR_SUBSTITUTE_BIT = 7;
 
-const MOVE_TUTOR_DYNAMIC_PUNCH_BIT = 0;
-const MOVE_TUTOR_DOUBLE_EDGE_BIT = 1;
-const MOVE_TUTOR_EXPLOSION_BIT = 2;
+export const MOVE_TUTOR_DYNAMIC_PUNCH_BIT = 0;
+export const MOVE_TUTOR_DOUBLE_EDGE_BIT = 1;
+export const MOVE_TUTOR_EXPLOSION_BIT = 2;
 
-const FRLG_MOVE_TUTOR_DOUBLE_EDGE_BIT = 0;
-const FRLG_MOVE_TUTOR_THUNDER_WAVE_BIT = 1;
-const FRLG_MOVE_TUTOR_ROCK_SLIDE_BIT = 2;
-const FRLG_MOVE_TUTOR_FRLG_EXPLOSION_BIT = 3;
-const FRLG_MOVE_TUTOR_MEGA_PUNCH_BIT = 4;
-const FRLG_MOVE_TUTOR_MEGA_KICK_BIT = 5;
-const FRLG_MOVE_TUTOR_DREAM_EATER_BIT = 6;
-const FRLG_MOVE_TUTOR_SOFT_BOILED_BIT = 7;
+export const FRLG_MOVE_TUTOR_DOUBLE_EDGE_BIT = 0;
+export const FRLG_MOVE_TUTOR_THUNDER_WAVE_BIT = 1;
+export const FRLG_MOVE_TUTOR_ROCK_SLIDE_BIT = 2;
+export const FRLG_MOVE_TUTOR_FRLG_EXPLOSION_BIT = 3;
+export const FRLG_MOVE_TUTOR_MEGA_PUNCH_BIT = 4;
+export const FRLG_MOVE_TUTOR_MEGA_KICK_BIT = 5;
+export const FRLG_MOVE_TUTOR_DREAM_EATER_BIT = 6;
+export const FRLG_MOVE_TUTOR_SOFT_BOILED_BIT = 7;
 
-const FRLG_MOVE_TUTOR_SUBSTITUTE_BIT = 0;
-const FRLG_MOVE_TUTOR_SWORDS_DANCE_BIT = 1;
-const FRLG_MOVE_TUTOR_SEISMIC_TOSS_BIT = 2;
-const FRLG_MOVE_TUTOR_COUNTER_BIT = 3;
-const FRLG_MOVE_TUTOR_METRONOME_BIT = 4;
-const FRLG_MOVE_TUTOR_MIMIC_BIT = 5;
-const FRLG_MOVE_TUTOR_BODY_SLAM_BIT = 6;
+export const FRLG_MOVE_TUTOR_SUBSTITUTE_BIT = 0;
+export const FRLG_MOVE_TUTOR_SWORDS_DANCE_BIT = 1;
+export const FRLG_MOVE_TUTOR_SEISMIC_TOSS_BIT = 2;
+export const FRLG_MOVE_TUTOR_COUNTER_BIT = 3;
+export const FRLG_MOVE_TUTOR_METRONOME_BIT = 4;
+export const FRLG_MOVE_TUTOR_MIMIC_BIT = 5;
+export const FRLG_MOVE_TUTOR_BODY_SLAM_BIT = 6;
 
-const FRLG_MOVE_TUTOR_FRENZY_PLANT_BIT = 6;
-const FRLG_MOVE_TUTOR_BLAST_BURN_BIT = 7;
+export const FRLG_MOVE_TUTOR_FRENZY_PLANT_BIT = 6;
+export const FRLG_MOVE_TUTOR_BLAST_BURN_BIT = 7;
 
-const FRLG_MOVE_TUTOR_HYDRO_CANNON_BIT = 0;
+export const FRLG_MOVE_TUTOR_HYDRO_CANNON_BIT = 0;
 
 export const GEN3_EMERALD_VARS_OFFSET = 0x139c;
 export const GEN3_RS_VARS_OFFSET = 0x1340;
@@ -561,19 +562,7 @@ export const BYTES_PER_GAME_STAT = 4;
  * Used to calculate the `hoennDexCount` stat since the save file only tracks
  * Pokédex completion globally via National Dex flags.
  */
-export const HOENN_DEX_ORDER = [
-  252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274,
-  275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 63, 64, 65, 290, 291, 292, 293, 294, 295,
-  296, 297, 118, 119, 129, 130, 298, 183, 184, 74, 75, 76, 299, 300, 301, 41, 42, 169, 72, 73, 302, 303, 304, 305, 306,
-  66, 67, 68, 307, 308, 309, 310, 311, 312, 81, 82, 100, 101, 313, 314, 43, 44, 45, 182, 84, 85, 315, 316, 317, 318,
-  319, 320, 321, 322, 323, 218, 219, 324, 88, 89, 109, 110, 325, 326, 27, 28, 327, 227, 328, 329, 330, 331, 332, 333,
-  334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 174, 39, 40, 349, 350, 351, 120, 121, 352,
-  353, 354, 355, 356, 357, 358, 359, 37, 38, 172, 25, 26, 54, 55, 360, 202, 177, 178, 203, 231, 232, 127, 214, 111, 112,
-  361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 222, 170, 171, 371, 116, 117, 230, 372, 373, 374, 375, 376, 377,
-  378, 379, 380, 381, 382, 383, 384, 385, 386,
-];
-
-export const HOENN_DEX_NATIONAL_IDS = new Set<number>(HOENN_DEX_ORDER);
+import { HOENN_DEX_NATIONAL_IDS } from '../gen3/pokedex/constants';
 
 /**
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
@@ -744,11 +733,7 @@ export function parseGen3PCBuffer(view: DataView): Uint8Array {
  * @param gameVersion - The detected or forced version of the Gen 3 game (used to determine party count offset).
  * @returns An object containing a simple array of species IDs (`party`), detailed data (`partyDetails`), and Spinda pattern data (`gen3Spindas`).
  */
-export function parseGen3Party(view: DataView, section1Offset: number, gameVersion: GameVersion) {
-  const party: number[] = [];
-  const partyDetails: PokemonInstance[] = [];
-  const gen3Spindas: Gen3Spinda[] = [];
-
+export function* iterateGen3Party(view: DataView, section1Offset: number, gameVersion: GameVersion) {
   try {
     const countOffset =
       section1Offset +
@@ -797,13 +782,9 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
 
       const moves = [move1, move2, move3, move4].filter((m) => m > 0);
 
-      party.push(speciesId);
+      const gen3Spinda = speciesId === GEN3_SPINDA_SPECIES_ID ? { pid: pv } : undefined;
 
-      if (speciesId === GEN3_SPINDA_SPECIES_ID) {
-        gen3Spindas.push({ pid: pv });
-      }
-
-      partyDetails.push({
+      const partyDetail: PokemonInstance = {
         speciesId,
         level: view.getUint8(offset + GEN3_PARTY_LEVEL_OFFSET),
         isShiny: false, // We'll implement shiny calculation separately
@@ -825,7 +806,9 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
         evs: parseGen3EVs(decryptedData, 2 * SUBSTRUCTURE_SIZE),
         condition: parseGen3ConditionStats(decryptedData, 2 * SUBSTRUCTURE_SIZE),
         ribbons: parseGen3Ribbons(decryptedData, 3 * SUBSTRUCTURE_SIZE + RIBBONS_OFFSET_IN_M),
-      });
+      };
+
+      yield { speciesId, partyDetail, gen3Spinda };
     }
   } catch (error) {
     if (error instanceof RangeError) {
@@ -833,8 +816,6 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
     }
     throw error;
   }
-
-  return { party, partyDetails, gen3Spindas };
 }
 
 /**
@@ -854,11 +835,7 @@ export function parseGen3Party(view: DataView, section1Offset: number, gameVersi
  * @returns An object containing a simple array of species IDs (`pc`), detailed metadata (`pcDetails`), and parsed Spinda spots (`gen3Spindas`).
  * @throws Error - "The save file is corrupted or incomplete." on invalid data.
  */
-export function parseGen3PCBoxes(pcBufferView: DataView) {
-  const pc: number[] = [];
-  const pcDetails: PokemonInstance[] = [];
-  const gen3Spindas: Gen3Spinda[] = [];
-
+export function* iterateGen3PCBoxes(pcBufferView: DataView) {
   try {
     for (let box = 0; box < PC_BOX_COUNT; box++) {
       for (let slot = 0; slot < PC_BOX_CAPACITY; slot++) {
@@ -890,13 +867,11 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
 
         const moves = [move1, move2, move3, move4].filter((m) => m > 0);
 
-        if (speciesId === GEN3_SPINDA_SPECIES_ID) {
-          gen3Spindas.push({ pid: pv });
-        }
+        const gen3Spinda = speciesId === GEN3_SPINDA_SPECIES_ID ? { pid: pv } : undefined;
 
         const isShiny = false; // We can skip full shiny calculation for PC boxes for now unless requested
 
-        const p: PokemonInstance = {
+        const pcDetail: PokemonInstance = {
           hash: `${pv}-${otId}`,
           speciesId,
           level: 1, // PC pokemon don't have level in the 80 bytes, it's generated on withdrawal.
@@ -912,8 +887,7 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
           ribbons: parseGen3Ribbons(decryptedData, 3 * SUBSTRUCTURE_SIZE + RIBBONS_OFFSET_IN_M),
         };
 
-        pc.push(speciesId);
-        pcDetails.push(p);
+        yield { speciesId, pcDetail, gen3Spinda };
       }
     }
   } catch (error) {
@@ -922,8 +896,6 @@ export function parseGen3PCBoxes(pcBufferView: DataView) {
     }
     throw error;
   }
-
-  return { pc, pcDetails, gen3Spindas };
 }
 
 /**
@@ -1323,7 +1295,7 @@ export function parseGen3TVBlock(view: DataView, offset: number): Gen3TVShow[] {
  * and the second byte acts as an `active` boolean flag.
  *
  * @param view - The raw save file DataView.
- * @param offset - The offset within the buffer to read the value from.
+ * @param saveBlock1Offset - The resolved memory offset to the active SaveBlock1.
  * @returns An array of inherited Mix Record events.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
@@ -1681,7 +1653,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     const gen3StaticEncounters = extractGen3StaticEncounterFlags(view, _forcedVersion || 'ruby', section1Offset);
 
     const gen3Pokeblocks = parseGen3Pokeblocks(view, section1Offset, _forcedVersion || 'ruby');
-    const gen3PokeNews = parseGen3PokeNews(view, section1Offset + POKE_NEWS_OFFSET);
+    const gen3PokeNews = parseGen3PokeNews(view, section1Offset);
     const gen3MixRecords = parseGen3MixRecords(view, section1Offset + TV_SHOWS_OFFSET);
     const gen3ActiveSwarm = parseGen3ActiveSwarm(view, section1Offset + TV_SHOWS_OFFSET);
     const gen3VolcanicAsh = parseGen3VolcanicAsh(view, section1Offset, _forcedVersion || 'ruby');
@@ -1851,6 +1823,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     }
 
     const { seen, owned } = parseGen3Pokedex(view, section0Offset);
+    const { missingNational: missingNationalDex, missingHoenn: missingHoennDex } = extractPokedexGaps(seen, owned);
 
     let hoennDexCount = 0;
     for (const id of owned) {
@@ -1886,19 +1859,23 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       hasContestMaster,
     };
 
-    let pc: number[] = [];
-    let pcDetails: PokemonInstance[] = [];
+    const pc: number[] = [];
+    const pcDetails: PokemonInstance[] = [];
     let currentBoxCount = 0;
-    let pcSpindas: Gen3Spinda[] = [];
+    const pcSpindas: Gen3Spinda[] = [];
 
     try {
       const pcBuffer = parseGen3PCBuffer(view);
       const pcBufferView = new DataView(pcBuffer.buffer);
       currentBoxCount = pcBufferView.getUint32(PC_BOX_CURRENT_BOX_OFFSET, true) + 1;
-      const boxesResult = parseGen3PCBoxes(pcBufferView);
-      pc = boxesResult.pc;
-      pcDetails = boxesResult.pcDetails;
-      pcSpindas = boxesResult.gen3Spindas || [];
+
+      for (const { speciesId, pcDetail, gen3Spinda } of iterateGen3PCBoxes(pcBufferView)) {
+        pc.push(speciesId);
+        pcDetails.push(pcDetail);
+        if (gen3Spinda) {
+          pcSpindas.push(gen3Spinda);
+        }
+      }
     } catch (error) {
       if (
         error instanceof RangeError ||
@@ -1909,11 +1886,21 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       // Ignored, PC data might be missing or corrupt
     }
 
-    const {
-      party,
-      partyDetails,
-      gen3Spindas: partySpindas,
-    } = parseGen3Party(view, section1Offset, _forcedVersion || 'ruby');
+    const party: number[] = [];
+    const partyDetails: PokemonInstance[] = [];
+    const partySpindas: Gen3Spinda[] = [];
+
+    for (const { speciesId, partyDetail, gen3Spinda } of iterateGen3Party(
+      view,
+      section1Offset,
+      _forcedVersion || 'ruby',
+    )) {
+      party.push(speciesId);
+      partyDetails.push(partyDetail);
+      if (gen3Spinda) {
+        partySpindas.push(gen3Spinda);
+      }
+    }
 
     for (const p of partyDetails) {
       if (p.personalityValue !== undefined) {
@@ -1949,6 +1936,8 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       hallOfFameCount,
       hoennDexCount,
       nationalDexCount,
+      missingNationalDex,
+      missingHoennDex,
 
       ...(gen3StaticEncounters ? { gen3StaticEncounters } : {}),
       gen3BerryPatches,
@@ -2136,7 +2125,8 @@ export function parseGen3Ribbons(view: DataView, offset: number): Gen3Ribbons {
  * @returns An array of news events.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3PokeNews(view: DataView, offset: number) {
+export function parseGen3PokeNews(view: DataView, saveBlock1Offset: number) {
+  const offset = saveBlock1Offset + POKE_NEWS_OFFSET;
   try {
     const news = [];
     for (let i = 0; i < POKE_NEWS_COUNT; i++) {

@@ -33,4 +33,8 @@ This epic focuses on tracking the user's progress during a hunt by dynamically a
 - Expose an event/state to trigger UI notifications upon success.
 
 ## Acceptance Criteria
-- [ ] story_owner: Break down this Epic into Stories.
+- [x] story_owner: Break down this Epic into Stories.
+- [ ] story-554-563-inventory-item-tracker
+- [ ] story-554-564-pokemon-held-item-tracker
+- [ ] story-554-565-progress-tracker-state
+- [ ] story-554-566-progress-tracker-e2e

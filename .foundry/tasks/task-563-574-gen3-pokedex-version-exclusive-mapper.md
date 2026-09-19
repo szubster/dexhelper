@@ -2,13 +2,13 @@
 id: task-563-574-gen3-pokedex-version-exclusive-mapper
 type: TASK
 title: Gen 3 Pokédex Version Exclusive Mapper Utility
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-13'
-updated_at: '2026-09-16'
+updated_at: '2026-09-19'
 depends_on:
   - task-563-572-gen3-pokedex-version-exclusive-data
-jules_session_id: null
+jules_session_id: '10636712890672221404'
 pr_number: null
 parent: story-552-563-gen3-pokedex-version-exclusive-mapping
 tags:
@@ -32,5 +32,5 @@ Implement the core logic to map missing Gen 3 Pokédex entries against version e
 - Expose a mapper function that takes an array of missing species IDs and the game version, and returns an object detailing which ones are exclusive to other versions vs available in the current one.
 
 ## Acceptance Criteria
-- [ ] Implement `getVersionExclusives(version)` returning arrays of species IDs for the given Gen 3 version.
-- [ ] Implement `mapMissingToAvailability(missingIds, version)` to split missing IDs into `available` and `versionExclusive` categories.
+- [x] Implement `getVersionExclusives(version)` returning arrays of species IDs for the given Gen 3 version.
+- [x] Implement `mapMissingToAvailability(missingIds, version)` to split missing IDs into `available` and `versionExclusive` categories.

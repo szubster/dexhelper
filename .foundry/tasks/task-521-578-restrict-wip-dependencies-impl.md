@@ -2,10 +2,10 @@
 id: task-521-578-restrict-wip-dependencies-impl
 type: TASK
 title: Implement orchestrator constraints for DRAFT and WIP dependencies
-status: READY
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-13'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,6 +14,8 @@ tags:
   - foundry
   - orchestrator
   - wip
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+locks: []
 ---
 
 # Implement orchestrator constraints for DRAFT and WIP dependencies

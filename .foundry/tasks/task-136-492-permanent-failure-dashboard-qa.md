@@ -2,10 +2,10 @@
 id: task-136-492-permanent-failure-dashboard-qa
 type: TASK
 title: Permanent Failure Dashboard UI QA
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-09-18'
 depends_on:
   - task-136-490-permanent-failure-flow-ui-impl
   - task-136-491-permanent-failure-kanban-ui-impl
@@ -19,8 +19,11 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-136-491-permanent-failure-kanban-ui-impl
 notes: ''
+locks: []
 ---
 # Permanent Failure Dashboard UI QA
 

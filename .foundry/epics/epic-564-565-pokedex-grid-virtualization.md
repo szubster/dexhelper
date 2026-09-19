@@ -2,10 +2,10 @@
 id: epic-564-565-pokedex-grid-virtualization
 type: EPIC
 title: Virtualize PokedexGrid
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -33,4 +33,6 @@ As defined in `prd-517-564-optimize-pokedex-grid-rendering`, rendering hundreds 
 5. Adhere to tactical hardware aesthetics (ADR 008).
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-565-580-virtualize-pokedex-grid-implementation
+- [ ] story-565-581-pokedex-grid-e2e-verification

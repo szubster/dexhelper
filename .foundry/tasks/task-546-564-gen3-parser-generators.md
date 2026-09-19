@@ -5,9 +5,9 @@ title: Refactor Gen 3 Save Parsers to TypeScript Generators
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-11'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '5034205565967088742'
+jules_session_id: '13912651976654517090'
 pr_number: null
 parent: story-537-546-generator-save-file-parsers
 tags:
@@ -17,7 +17,7 @@ tags:
   - architecture
   - performance
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -35,7 +35,7 @@ Per ADR 154, we need to aggressively adopt TypeScript generator functions (`func
 - Ensure the new generators compile and test correctly under Node.js native type stripping (no TS enums/namespaces).
 
 ## Acceptance Criteria
-- [ ] Implement `function*` protocols for Gen 3 party and PC box parsing functions.
-- [ ] Rename the parsed array functions to `iterate...`
-- [ ] Update the main `parseGen3` functions to accumulate the yielded items into arrays to maintain the `SaveData` contract.
-- [ ] Update the dependent files, such as `src/engine/saveParser/gen3/storage/parser.ts` and test files, to consume the new generator functions.
+- [x] Implement `function*` protocols for Gen 3 party and PC box parsing functions.
+- [x] Rename the parsed array functions to `iterate...`
+- [x] Update the main `parseGen3` functions to accumulate the yielded items into arrays to maintain the `SaveData` contract.
+- [x] Update the dependent files, such as `src/engine/saveParser/gen3/storage/parser.ts` and test files, to consume the new generator functions.

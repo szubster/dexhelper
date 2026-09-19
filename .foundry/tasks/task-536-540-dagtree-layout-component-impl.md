@@ -2,10 +2,10 @@
 id: task-536-540-dagtree-layout-component-impl
 type: TASK
 title: Implement DagTree Layout Component
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-19'
 depends_on:
   - task-536-539-dagtree-item-component-impl
 jules_session_id: null
@@ -32,7 +32,7 @@ Implement the root layout structure of the DagTree using a nested <ul> element, 
 4. Wrap the implementation with the DagTree context layer.
 
 ## Acceptance Criteria
-- [ ] Implement the DagTree root component.
-- [ ] Implement global "Expand All" and "Collapse All" toggle controls.
-- [ ] Compose tree items correctly using the context layer.
-- [ ] Ensure integration tests verify the full tree structure and global toggles.
+- [x] Implement the DagTree root component.
+- [x] Implement global "Expand All" and "Collapse All" toggle controls.
+- [x] Compose tree items correctly using the context layer.
+- [x] Ensure integration tests verify the full tree structure and global toggles.

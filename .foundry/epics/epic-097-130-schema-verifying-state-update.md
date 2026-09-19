@@ -2,10 +2,10 @@
 id: epic-097-130-schema-verifying-state-update
 type: EPIC
 title: Update schema.md regarding VERIFYING state
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-09-01'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,6 +17,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Update schema.md regarding VERIFYING state
@@ -26,5 +27,5 @@ This epic implements the required changes from `prd-097-096-schema-verifying-sta
 
 ## Acceptance Criteria
 - [x] Story created to update `schema.md` System Invariant 7.
-- [ ] story-130-512-schema-verifying-state-update
-- [ ] story-130-513-schema-verifying-state-update-e2e
+- [x] story-130-512-schema-verifying-state-update
+- [x] story-130-513-schema-verifying-state-update-e2e

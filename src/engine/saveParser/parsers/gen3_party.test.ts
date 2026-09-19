@@ -13,7 +13,7 @@ import {
   GEN3_POKEMON_DATA_OFFSET,
   GEN3_POKEMON_OT_ID_OFFSET,
   GEN3_POKEMON_PV_OFFSET,
-  parseGen3Party,
+  iterateGen3Party,
 } from './gen3';
 
 test('extracts stats and HP from active team', () => {
@@ -49,11 +49,13 @@ test('extracts stats and HP from active team', () => {
   view.setUint16(listOffset + GEN3_PARTY_SPATK_OFFSET, 60, true); // spatk
   view.setUint16(listOffset + GEN3_PARTY_SPDEF_OFFSET, 70, true); // spdef
 
-  const result = parseGen3Party(view, 0, 'ruby');
+  const partyDetails = [];
+  for (const { partyDetail } of iterateGen3Party(view, 0, 'ruby')) {
+    partyDetails.push(partyDetail);
+  }
 
-  expect(result.party.length).toBe(1);
-  expect(result.partyDetails.length).toBe(1);
-  const detail = result.partyDetails[0];
+  expect(partyDetails.length).toBe(1);
+  const detail = partyDetails[0];
   expect(detail?.level).toBe(100);
   expect(detail?.currentHp).toBe(12);
   expect(detail?.stats?.hp).toBe(20);

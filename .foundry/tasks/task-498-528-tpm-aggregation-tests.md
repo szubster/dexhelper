@@ -2,19 +2,19 @@
 id: task-498-528-tpm-aggregation-tests
 type: TASK
 title: TPM Aggregation and Archival Unit Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-10'
+updated_at: '2026-09-19'
 depends_on:
   - task-498-527-tpm-archival-fs
-jules_session_id: '10981868660750005179'
+jules_session_id: null
 pr_number: null
 parent: story-406-498-tpm-aggregation-and-archival
 tags:
   - script
   - testing
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -30,4 +30,4 @@ Write unit tests covering the text aggregation and file system operations implem
 - Ensure coverage for text formatting, appending to the EPIC, and file movement logic.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for the aggregation and file operations.
+- [x] Write unit tests for the aggregation and file operations.

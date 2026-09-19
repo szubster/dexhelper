@@ -28,7 +28,6 @@ const ACTIVE_SESSION_STATES = [
   'QUEUED',
   'PLANNING',
   'AWAITING_PLAN_APPROVAL',
-  'AWAITING_USER_FEEDBACK',
   'IN_PROGRESS',
   'PAUSED'
 ];
@@ -536,7 +535,10 @@ export async function main() {
 
     // B. Non-active / Terminal State check (Zombie detection)
     if (!isHuman) {
-      if (sessionStatus && !ACTIVE_SESSION_STATES.includes(sessionStatus)) {
+      if (sessionStatus === 'AWAITING_USER_FEEDBACK') {
+        info(`Session ${sessionId} entered AWAITING_USER_FEEDBACK. This violates the Autonomous No-Ask Policy. Transitioning to FAILED.`);
+        await transitionNodeToFailed(node, repoRoot, 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK');
+      } else if (sessionStatus && !ACTIVE_SESSION_STATES.includes(sessionStatus)) {
         info(`Session ${sessionId} (Status: ${sessionStatus}) terminated without PR. Transitioning to FAILED.`);
         await transitionNodeToFailed(node, repoRoot, `Session terminated with state: ${sessionStatus}`);
       } else if (sessionStatus === 'NOT_FOUND') {

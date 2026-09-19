@@ -7,11 +7,11 @@ import {
   GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G,
   GEN3_POKEMON_OT_ID_OFFSET,
   GEN3_POKEMON_PV_OFFSET,
+  iterateGen3Party,
+  iterateGen3PCBoxes,
   NUM_SUBSTRUCTURE_PERMUTATIONS,
   PC_BOX_CAPACITY,
   PC_BOX_POKEMON_LIST_OFFSET,
-  parseGen3Party,
-  parseGen3PCBoxes,
   SUBSTRUCTURE_ORDER,
   SUBSTRUCTURE_SIZE,
 } from './gen3';
@@ -42,10 +42,14 @@ test('extracts friendship from active team', () => {
       view.setUint32(encryptedOffset + j * 4, encryptedValue, true);
     }
   }
-  const result = parseGen3Party(view, 0, 'ruby');
-  expect(result.party.length).toBe(1);
-  expect(result.partyDetails.length).toBe(1);
-  const detail = result.partyDetails[0];
+
+  const partyDetails = [];
+  for (const { partyDetail } of iterateGen3Party(view, 0, 'ruby')) {
+    partyDetails.push(partyDetail);
+  }
+
+  expect(partyDetails.length).toBe(1);
+  const detail = partyDetails[0];
   expect(detail?.friendship).toBe(123);
 });
 
@@ -77,9 +81,13 @@ test('extracts friendship from PC box', () => {
       pcBufferView.setUint32(encryptedOffset + j * 4, encryptedValue, true);
     }
   }
-  const result = parseGen3PCBoxes(pcBufferView);
-  expect(result.pc.length).toBe(1);
-  expect(result.pcDetails.length).toBe(1);
-  const detail = result.pcDetails[0];
+
+  const pcDetails = [];
+  for (const { pcDetail } of iterateGen3PCBoxes(pcBufferView)) {
+    pcDetails.push(pcDetail);
+  }
+
+  expect(pcDetails.length).toBe(1);
+  const detail = pcDetails[0];
   expect(detail?.friendship).toBe(200);
 });

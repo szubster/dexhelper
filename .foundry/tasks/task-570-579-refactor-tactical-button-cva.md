@@ -2,10 +2,10 @@
 id: task-570-579-refactor-tactical-button-cva
 type: TASK
 title: Refactor TacticalButton to CVA
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-15T11:22:21Z'
-updated_at: '2026-09-15T11:22:21Z'
+updated_at: '2026-09-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -35,6 +35,6 @@ Refactor the `TacticalButton` component to use `class-variance-authority` (CVA) 
 - The `hasCrosshairs` boolean/literal union logic should remain intact and function as expected.
 
 ## Acceptance Criteria
-- [ ] `TacticalButton` correctly uses CVA.
-- [ ] TypeScript types are strict and export `TacticalButtonProps` appropriately extending `VariantProps`.
-- [ ] All linting and tests pass.
+- [x] `TacticalButton` correctly uses CVA.
+- [x] TypeScript types are strict and export `TacticalButtonProps` appropriately extending `VariantProps`.
+- [x] All linting and tests pass.

@@ -2,10 +2,10 @@
 id: task-536-541-dagtree-ui-logic-qa
 type: TASK
 title: QA DagTree UI Logic
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-19'
 depends_on:
   - task-536-540-dagtree-layout-component-impl
 jules_session_id: null

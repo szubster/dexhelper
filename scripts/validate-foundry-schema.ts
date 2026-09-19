@@ -209,6 +209,17 @@ function validateSchema() {
       }
     }
 
+    // 2.88 Validate Markdown Checkbox Formatting (ADR 007)
+    const lines = parsed.content.split('\n');
+    lines.forEach((line, index) => {
+      if (/^\s*[-*+]\s*\[[\sXx]*\]/.test(line)) {
+        if (!/^\s*- \[( |x)\] /.test(line)) {
+          console.error(`Error: Invalid checkbox syntax in file ${file} at line ${index + 1}: ${line.trim()}`);
+          hasError = true;
+        }
+      }
+    });
+
     // 2.9 Validate filename matches ID (except ADRs which have inconsistent naming)
     if (id && type !== 'ADR') {
       const filename = path.basename(file, '.md');

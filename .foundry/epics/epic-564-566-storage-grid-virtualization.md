@@ -2,10 +2,10 @@
 id: epic-564-566-storage-grid-virtualization
 type: EPIC
 title: Virtualize StorageGrid
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -33,4 +33,6 @@ As defined in `prd-517-564-optimize-pokedex-grid-rendering`, the `StorageGrid` c
 5. Adhere to tactical hardware aesthetics (ADR 008).
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-566-580-virtualize-storage-grid-impl
+- [ ] story-566-581-storage-grid-virtualization-e2e

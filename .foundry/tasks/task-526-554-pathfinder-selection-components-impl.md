@@ -2,20 +2,20 @@
 id: task-526-554-pathfinder-selection-components-impl
 type: TASK
 title: Pathfinder Selection UI
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on:
   - task-526-553-pathfinder-selection-state-impl
-jules_session_id: '16251474965967250688'
+jules_session_id: null
 pr_number: null
 parent: story-115-526-pathfinder-selection-ui
 tags:
   - ui
   - feature
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

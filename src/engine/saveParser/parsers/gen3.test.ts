@@ -826,18 +826,18 @@ describe('parseGen3TrainerId', () => {
 
 describe('parseGen3PokeNews', () => {
   it('should extract 16 news items correctly', () => {
-    const buffer = new ArrayBuffer(64);
+    const buffer = new ArrayBuffer(0x2b50 + 64);
     const view = new DataView(buffer);
 
-    // Set up a news item at offset 0 (kind: 1, state: 2, countdown: 4)
-    view.setUint8(0, 1);
-    view.setUint8(1, 2);
-    view.setUint16(2, 4, true);
+    // Set up a news item at offset 0x2b50 (kind: 1, state: 2, countdown: 4)
+    view.setUint8(0x2b50 + 0, 1);
+    view.setUint8(0x2b50 + 1, 2);
+    view.setUint16(0x2b50 + 2, 4, true);
 
     // Set up another news item at index 15 (offset 60)
-    view.setUint8(60, 3);
-    view.setUint8(61, 1);
-    view.setUint16(62, 10, true);
+    view.setUint8(0x2b50 + 60, 3);
+    view.setUint8(0x2b50 + 61, 1);
+    view.setUint16(0x2b50 + 62, 10, true);
 
     const result = parseGen3PokeNews(view, 0);
 
@@ -847,7 +847,7 @@ describe('parseGen3PokeNews', () => {
   });
 
   it('should explicitly catch RangeError on out-of-bounds reads and throw a corrupted file error', () => {
-    const buffer = new ArrayBuffer(60); // Not enough space for 16 items (64 bytes)
+    const buffer = new ArrayBuffer(0x2b50 + 60); // Not enough space for 16 items
     const view = new DataView(buffer);
 
     expect(() => parseGen3PokeNews(view, 0)).toThrowError(
@@ -1949,7 +1949,7 @@ describe('parseGen3 (Pokedex & Hall of Fame)', () => {
     expect(resultFRLG.hallOfFameCount).toBe(7);
   });
 
-  it('extracts hoennDexCount and nationalDexCount correctly', () => {
+  it('extracts hoennDexCount, nationalDexCount, and gaps correctly', () => {
     const buffer = new ArrayBuffer(0x10000);
     const view = new DataView(buffer);
 
@@ -1986,6 +1986,12 @@ describe('parseGen3 (Pokedex & Hall of Fame)', () => {
 
     expect(result.nationalDexCount).toBe(3); // Bulbasaur, Treecko, Deoxys
     expect(result.hoennDexCount).toBe(2); // Treecko, Deoxys
+    expect(result.missingNationalDex?.has(1)).toBe(false);
+    expect(result.missingNationalDex?.has(252)).toBe(false);
+    expect(result.missingNationalDex?.has(4)).toBe(true);
+    expect(result.missingHoennDex?.has(252)).toBe(false);
+    expect(result.missingHoennDex?.has(253)).toBe(true);
+    expect(result.missingHoennDex?.size).toBe(200);
     expect(result.owned.has(1)).toBe(true);
     expect(result.owned.has(252)).toBe(true);
     expect(result.owned.has(386)).toBe(true);

@@ -14,6 +14,42 @@ export const GEN3_VERSION_EXCLUSIVES: Record<string, number[]> = {
   leafgreen: [23, 24, 43, 44, 45, 54, 55, 58, 59, 90, 91, 123, 125, 182, 194, 195, 198, 211, 212, 225, 227, 239],
 };
 
+// Represents Pokémon that are AVAILABLE as exclusives in the key's version.
+// These are the inverse of the UNOBTAINABLE lists for paired versions.
+export type Gen3GameVersion = 'ruby' | 'sapphire' | 'emerald' | 'firered' | 'leafgreen';
+
+export const GEN3_AVAILABLE_EXCLUSIVES: Record<Gen3GameVersion, number[]> = {
+  // Ruby exclusives (missing in Sapphire)
+  ruby: [273, 274, 275, 303, 335, 338, 381, 383],
+  // Sapphire exclusives (missing in Ruby)
+  sapphire: [270, 271, 272, 302, 336, 337, 380, 382],
+  // Emerald exclusives - usually not considered to have exclusive pairs in the same way, but let's leave empty for now
+  emerald: [],
+  // FireRed exclusives (missing in LeafGreen)
+  firered: [23, 24, 43, 44, 45, 54, 55, 58, 59, 90, 91, 123, 125, 182, 194, 195, 198, 211, 212, 225, 227, 239],
+  // LeafGreen exclusives (missing in FireRed)
+  leafgreen: [
+    27, 28, 37, 38, 52, 53, 69, 70, 71, 79, 80, 120, 121, 126, 127, 183, 184, 199, 200, 215, 223, 224, 226, 240, 298,
+  ],
+};
+
+export function getVersionExclusives(version: string): { missing: number[]; available: number[] } {
+  const versionKey = version.toLowerCase() as Gen3GameVersion;
+  const missing = GEN3_VERSION_EXCLUSIVES[versionKey] || [];
+  const available = GEN3_AVAILABLE_EXCLUSIVES[versionKey] || [];
+  return { missing, available };
+}
+
+export function mapMissingToAvailability(
+  missingIds: number[],
+  version: string,
+): { available: number[]; versionExclusive: number[] } {
+  const { missing } = getVersionExclusives(version);
+  const versionExclusive = missingIds.filter((id) => missing.includes(id));
+  const available = missingIds.filter((id) => !missing.includes(id));
+  return { available, versionExclusive };
+}
+
 export function getGen3UnobtainableReason(
   pokemonId: number,
   gameVersion: string,

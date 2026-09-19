@@ -1,5 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import { removeWipBanner } from './banner';
+import { WIP_DRAFT_BANNER, removeWipBanner } from './banner';
+
+describe('WIP_DRAFT_BANNER', () => {
+  it('should be the correct string', () => {
+    expect(WIP_DRAFT_BANNER).toBe('> ⚠️ **WORK IN PROGRESS / DRAFT**');
+  });
+});
 
 describe('removeWipBanner', () => {
   it('should remove the WIP banner from the content', () => {

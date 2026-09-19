@@ -1,11 +1,11 @@
 ---
 id: task-536-565-playwright-style-guide-qa
 type: TASK
-title: "QA Playwright Testing Style Guide"
+title: QA Playwright Testing Style Guide
 status: PENDING
 owner_persona: qa
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-09-19'
 depends_on:
   - task-536-564-playwright-style-guide-mock-utils
 jules_session_id: null
@@ -16,9 +16,10 @@ tags:
   - documentation
   - qa
 research_references: []
-rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_count: 1
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # TASK: QA Playwright Testing Style Guide
@@ -32,3 +33,6 @@ Ensure that `.foundry/docs/knowledge_base/testing/playwright_style_guide.md` cor
 ## Acceptance Criteria
 - [ ] Verify the style guide document exists and contains all required sections.
 - [ ] Verify the examples are correct and align with core policies.
+
+### QA Notes
+Validation failed for task-536-564-playwright-style-guide-mock-utils. The mock utilities code example incorrectly uses an absolute path for Playwright navigation (`/dashboard`) instead of a relative path, which violates Vite base URL constraints. The mock utils task has been rejected and sent back to the coder for correction.

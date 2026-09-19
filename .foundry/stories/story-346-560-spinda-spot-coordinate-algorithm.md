@@ -2,12 +2,12 @@
 id: story-346-560-spinda-spot-coordinate-algorithm
 type: STORY
 title: Spinda Spot Coordinate Algorithm
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-09'
-updated_at: '2026-09-14'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6198402196229381176'
 pr_number: null
 parent: epic-335-346-spinda-pattern-rendering-engine
 tags:
@@ -30,3 +30,7 @@ This story focuses on implementing the pure algorithm that takes a 32-bit Spinda
 - [ ] Implement a function to parse the 32-bit PID into 4 distinct bytes.
 - [ ] Implement the coordinate mapping logic to translate each byte into specific X and Y offsets for the four spots (top-left, top-right, bottom-left, bottom-right).
 - [ ] Add unit tests verifying the coordinate mapping matches known Gen 3 Spinda patterns.
+- [ ] task-560-594-spinda-coordinate-types
+- [ ] task-560-595-spinda-pid-parsing-logic
+- [ ] task-560-596-spinda-coordinate-mapping-logic
+- [ ] task-560-597-spinda-coordinate-algorithm-qa

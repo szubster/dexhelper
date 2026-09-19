@@ -2,10 +2,10 @@
 id: story-313-563-gen2-room-decoration-ui-components
 type: STORY
 title: Gen 2 Room Decoration UI Components
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-13'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 parent: epic-112-313-gen2-room-decoration-viewer-ui
@@ -25,4 +25,7 @@ Implement the presentation components for the Gen 2 Room Decoration Viewer. This
 - Ensure the UI adheres to the Tactical Hardware styling constraints (ADR-008).
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-563-589-gen2-room-decoration-ui-impl
+- [ ] task-563-590-gen2-room-decoration-ui-tests
+- [ ] task-563-591-gen2-room-decoration-ui-qa

@@ -78,7 +78,15 @@ export function parseGen3MysteryGift(
       RSE_FLAG_RECEIVED_MYSTIC_TICKET_BYTE,
       RSE_FLAG_RECEIVED_MYSTIC_TICKET_BIT,
     );
-    hasOldSeaMap = checkFlag(view, flagsOffset, RSE_FLAG_RECEIVED_OLD_SEA_MAP_BYTE, RSE_FLAG_RECEIVED_OLD_SEA_MAP_BIT);
+
+    if (gameVersion === 'emerald') {
+      hasOldSeaMap = checkFlag(
+        view,
+        flagsOffset,
+        RSE_FLAG_RECEIVED_OLD_SEA_MAP_BYTE,
+        RSE_FLAG_RECEIVED_OLD_SEA_MAP_BIT,
+      );
+    }
 
     // Eon ticket isn't listed with a "received" flag in the doc, but we know southern island is enabled.
     // Wait, let's just leave hasEonTicket as false if no received flag is documented, or we could derive it if we wanted. But the interface requires it. We'll set it to false for now unless we know the received flag.
@@ -103,12 +111,15 @@ export function parseGen3MysteryGift(
       RSE_FLAG_ENABLE_SHIP_NAVEL_ROCK_BYTE,
       RSE_FLAG_ENABLE_SHIP_NAVEL_ROCK_BIT,
     );
-    isFarawayIslandEnabled = checkFlag(
-      view,
-      flagsOffset,
-      RSE_FLAG_ENABLE_SHIP_FARAWAY_ISLAND_BYTE,
-      RSE_FLAG_ENABLE_SHIP_FARAWAY_ISLAND_BIT,
-    );
+
+    if (gameVersion === 'emerald') {
+      isFarawayIslandEnabled = checkFlag(
+        view,
+        flagsOffset,
+        RSE_FLAG_ENABLE_SHIP_FARAWAY_ISLAND_BYTE,
+        RSE_FLAG_ENABLE_SHIP_FARAWAY_ISLAND_BIT,
+      );
+    }
   } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
     hasAuroraTicket = checkFlag(
       view,
