@@ -30,4 +30,7 @@ This Epic tracks the translation of the discovered fossil memory offsets into ou
 - Ensure all module-level constants are prepared for the extraction logic.
 
 ## Acceptance Criteria
-- [ ] Break down this Epic into Stories, including a final Integration/E2E Verification Story.
+- [x] Break down this Epic into Stories, including a final Integration/E2E Verification Story.
+- [ ] story-552-580-gen3-fossil-schema-docs
+- [ ] story-552-581-gen3-fossil-constants
+- [ ] story-552-582-gen3-fossil-schema-e2e
