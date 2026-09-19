@@ -28,6 +28,6 @@ locks: []
 Implement Playwright E2E tests that verify the entire data flow from the parsed mock `.foundry` markdown nodes down to the `DagContext` and ensure the `rejection_count` is accurately supplied to the Permanent Failure Dashboard.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests verifying correct extraction of `rejection_count` from fixtures
-- [ ] Implement E2E tests verifying `rejection_count` is correctly passed to the `DagContext`
-- [ ] Ensure tests run successfully in headless mode
+- [x] Implement E2E tests verifying correct extraction of `rejection_count` from fixtures
+- [x] Implement E2E tests verifying `rejection_count` is correctly passed to the `DagContext`
+- [x] Ensure tests run successfully in headless mode
