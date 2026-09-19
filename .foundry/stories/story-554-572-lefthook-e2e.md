@@ -25,4 +25,6 @@ locks: []
 Verify that the `validate-foundry-schema` script correctly runs during `pre-commit` via `lefthook.yml` and correctly aborts commits on malformed files.
 
 ## Acceptance Criteria
+- [ ] task-572-593-lefthook-e2e-coder
+- [ ] task-572-594-lefthook-e2e-qa
 - [ ] Implement integration verification to test the `pre-commit` hook with malformed `.foundry` files.
