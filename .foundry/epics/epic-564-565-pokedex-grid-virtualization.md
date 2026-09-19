@@ -33,4 +33,6 @@ As defined in `prd-517-564-optimize-pokedex-grid-rendering`, rendering hundreds 
 5. Adhere to tactical hardware aesthetics (ADR 008).
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-565-580-virtualize-pokedex-grid-implementation
+- [ ] story-565-581-pokedex-grid-e2e-verification
