@@ -10,6 +10,7 @@ import { PokemonSprite } from './pokemon/PokemonSprite';
 import { PokemonStatusBadge } from './pokemon/PokemonStatusBadge';
 import { ScanlineOverlay } from './ScanlineOverlay';
 import { TacticalCard } from './TacticalCard';
+import { TargetingRings } from './TargetingRings';
 import { TargetLockOverlay } from './TargetLockOverlay';
 
 interface PokedexCardProps {
@@ -142,8 +143,7 @@ export const PokedexCard = React.memo(function PokedexCard({
           <HoverScanner />
 
           {/* Matrix Targeting Ring (Appears on Hover) */}
-          <div className="absolute inset-2 rounded-full border border-cyan-500/0 opacity-0 transition-all duration-500 group-hover/card:animate-[spin_4s_linear_infinite] group-hover/card:border-cyan-500/30 group-hover/card:opacity-100" />
-          <div className="absolute inset-4 rounded-full border border-cyan-400/0 border-dashed opacity-0 transition-all duration-500 group-hover/card:animate-[spin_3s_linear_infinite_reverse] group-hover/card:border-cyan-400/20 group-hover/card:opacity-100" />
+          <TargetingRings />
 
           <PokemonSprite
             pokemonId={pokemon.id}

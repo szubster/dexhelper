@@ -64,3 +64,19 @@ Explored the application for performance optimization opportunities. Analysis of
 Given the read-only, statically laid out nature of our DAG visualization (which already uses `dagre` for layouting), this heavy dependency is overkill and introduces unnecessary DOM and memory bloat.
 
 Based on feedback, the 2D canvas of nodes is also hard to parse for users trying to understand specific task hierarchies. I created an `IDEA` node (`idea-418-replace-xyflow-with-custom-dag`) proposing a custom, lightweight directory tree visualization using nested standard React/Tailwind lists to replace `@xyflow/react` and remove the `dagre` dependency entirely. This follows a similar successful optimization previously applied to `BattleFrontierDashboard`.
+
+
+---
+
+## Journal
+- When extracting visual state changes (like high-frequency interval updates) to reduce main-thread rendering overhead, isolate them into leaf components rather than deleting the feature altogether to respect the "preserve existing behaviors" guideline.
+
+
+---
+
+# Performance Optimization Journal
+
+- Optimized `RetroBackground.tsx` by wrapping the component in `React.memo` and memoizing hex stream generation into `useMemo`. This eliminates 100 `window.crypto.getRandomValues` Web Crypto API calls and intermediate array allocations on every component render.
+- Replaced `Math.random()` in non-crypto fallback with a bitwise pseudo-random calculation to comply with oxlint `react(purity)` rules.
+- Optimized `StorageGrid.tsx` by wrapping `StorageGrid` in `React.memo` and memoizing `storageLocations` array construction via `React.useMemo`.
+- Optimized `LivingDexGrid.tsx` by wrapping `LivingDexGrid` in `React.memo` to prevent cascading subtree re-renders of the 386 living dex cell cards.

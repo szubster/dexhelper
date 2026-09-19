@@ -2,10 +2,10 @@
 id: task-560-573-pokerus-spread-planner-ui-component
 type: TASK
 title: Pokerus Spread Planner UI Component
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-09'
+updated_at: '2026-09-18'
 depends_on:
   - task-560-572-pokerus-spread-planner-state
 jules_session_id: null

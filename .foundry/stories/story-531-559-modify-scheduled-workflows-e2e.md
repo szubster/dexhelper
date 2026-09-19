@@ -1,11 +1,11 @@
 ---
 id: story-531-559-modify-scheduled-workflows-e2e
 type: STORY
-title: "Integration and E2E Verification of Scheduled Workflow Issue Dispatch"
-status: PENDING
+title: Integration and E2E Verification of Scheduled Workflow Issue Dispatch
+status: READY
 owner_persona: tech_lead
-created_at: "$(date +%Y-%m-%d)"
-updated_at: "$(date +%Y-%m-%d)"
+created_at: $(date +%Y-%m-%d)
+updated_at: '2026-09-18'
 depends_on:
   - story-531-558-modify-scheduled-workflows-impl
 jules_session_id: null
@@ -19,8 +19,9 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Integration and E2E Verification of Scheduled Workflow Issue Dispatch

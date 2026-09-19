@@ -2,12 +2,12 @@
 id: prd-522-565-gen3-secret-base-radar
 type: PRD
 title: PRD for Gen 3 Secret Base Radar & Analyzer
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-13'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: '10639137465168804836'
+jules_session_id: null
 pr_number: null
 parent: idea-522-gen3-secret-base-radar
 tags:
@@ -36,4 +36,6 @@ In Generation 3 (Ruby, Sapphire, Emerald), players can create "Secret Bases" in 
 5. **Decoration Viewer**: As a stretch goal, list the decorations within the base.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+- [ ] epic-565-569-gen3-secret-base-parsing
+- [ ] epic-565-570-gen3-secret-base-radar-ui

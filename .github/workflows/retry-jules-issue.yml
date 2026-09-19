@@ -1,0 +1,30 @@
+name: Retry Failed Jules Issues
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  retry-issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+    steps:
+      - name: Retry Failed Jules Issues
+        env:
+          GH_TOKEN: ${{ secrets.MY_ISSUES_PAT }}
+          REPO: ${{ github.repository }}
+        run: |
+          issues=$(gh issue list --repo "$REPO" --state open --label "jules" --json number,comments --limit 1000 --jq '.[].number')
+
+          for issue in $issues; do
+            latest_comment=$(gh issue view "$issue" --repo "$REPO" --json comments --jq '(.comments // []) | last | .body // ""')
+
+            if [[ "$latest_comment" == *"Jules has failed to create a task. You can try again later by removing and re-adding the 'jules' label."* || "$latest_comment" == *"I apologize, but I encountered an unexpected error"* ]]; then
+              echo "Retrying issue #$issue..."
+              gh issue edit "$issue" --repo "$REPO" --remove-label "jules"
+              gh issue edit "$issue" --repo "$REPO" --add-label "jules"
+            fi
+          done

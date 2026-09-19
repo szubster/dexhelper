@@ -2,10 +2,10 @@
 id: task-560-580-architect-visionary-workflow
 type: TASK
 title: Create Schedule Workflow for Architect Visionary
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-12T00:00:00Z'
-updated_at: '2026-09-16'
+updated_at: '2026-09-18'
 depends_on:
   - task-560-579-architect-visionary-agent-prompt
 jules_session_id: null
@@ -26,4 +26,4 @@ locks: []
 Create the .github/workflows/schedule-code-architect.yml workflow file.
 
 ## Acceptance Criteria
-- [ ] Create .github/workflows/schedule-code-architect.yml
+- [x] Create .github/workflows/schedule-code-architect.yml
