@@ -39,4 +39,4 @@ Introduce a dedicated "Mirage Island Radar & Match Calculator" in DexHelper. By 
 Mirage Island has a 1-in-65,536 daily chance per Pokémon, making manual checking frustrating and opaque. Players often have matching Pokémon sitting unused in their PC boxes without ever knowing it. Surfacing this hidden state transforms an almost impossible random event into an actionable gameplay opportunity, demonstrating DexHelper's value as an advanced companion app.
 
 ## Acceptance Criteria
-- [ ] prd-526-001-gen3-mirage-island-calculator
+- [ ] Product Manager: Convert this idea into a PRD outlining the requirements for the Mirage Island Radar & Match Calculator.
