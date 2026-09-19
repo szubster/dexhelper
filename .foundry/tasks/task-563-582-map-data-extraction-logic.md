@@ -27,5 +27,5 @@ Implement the logic to extract the Gen 3 map data from save sections.
 - Return data in the `PokeData` schema format defined in the previous task.
 
 ## Acceptance Criteria
-- [ ] Implement data extraction functions for the map data fields.
-- [ ] Use relative offsets for A/B bank flash memory architecture support.
+- [x] Implement data extraction functions for the map data fields.
+- [x] Use relative offsets for A/B bank flash memory architecture support.
