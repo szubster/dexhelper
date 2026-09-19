@@ -35,7 +35,10 @@ describe('EmulatorSyncEngine', () => {
     initMockSaveBlock1(view);
 
     const engine = new EmulatorSyncEngine(wasmMemory);
-    const saveData = (await engine.syncSaveData(wasmMemory.buffer.byteLength, 'emerald')) as unknown as Record<string, unknown>;
+    const saveData = (await engine.syncSaveData(wasmMemory.buffer.byteLength, 'emerald')) as unknown as Record<
+      string,
+      unknown
+    >;
 
     const flags = saveData['gen3TrainerDefeatFlags'] as boolean[];
     expect(flags).toBeDefined();
