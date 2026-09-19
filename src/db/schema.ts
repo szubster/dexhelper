@@ -1,4 +1,5 @@
 import type { DBSchema } from 'idb';
+import type { UpcomingTrainer } from '../engine/gen3/playerLocation/trainerMapping';
 
 /**
  * Pokedex Data Schema - Numeric Constants & Interfaces
@@ -301,6 +302,58 @@ export interface MatchCallMetadata {
   tiers: MatchCallTier[];
 }
 
+export interface RoamerData {
+  isActive: boolean;
+  speciesId: number;
+  level: number;
+  hp: number;
+  statusCondition: number;
+  personalityValue: number;
+  ivs: {
+    hp: number;
+    atk: number;
+    def: number;
+    spd: number;
+    spAtk: number;
+    spDef: number;
+  };
+}
+
+export interface BerryPatchData {
+  locationName?: string;
+  berryId: number;
+  stage: number;
+  stopGrowth: boolean;
+  minutesUntilNextStage: number;
+  berryYield: number;
+  regrowthCount: number;
+  watered1: boolean;
+  watered2: boolean;
+  watered3: boolean;
+  watered4: boolean;
+}
+
+export interface ActiveSwarmData {
+  speciesId: number;
+  mapId: number;
+  mapGroup: number;
+  daysRemaining: number;
+  moves?: [number, number, number, number];
+  probability?: number;
+  level?: number;
+  language?: number;
+}
+
+export interface PlayerLocationData {
+  mapGroup: number;
+  mapNum: number;
+  mapId: number;
+  x: number;
+  y: number;
+  warpId: number;
+  nearestTrainer: UpcomingTrainer | null;
+}
+
 export interface PokeDataExport {
   poke: PokemonMetadata[];
   enc: LocationAreaEncounters[];
@@ -309,6 +362,11 @@ export interface PokeDataExport {
   moves: MoveMetadata[];
   berries: BerryMetadata[];
   matchCalls?: MatchCallMetadata[];
+  playerLocation?: PlayerLocationData;
+  roamers?: RoamerData[];
+  berryPatches?: BerryPatchData[];
+  activeSwarms?: ActiveSwarmData[];
+  feebasTiles?: [number, number][];
   hash: string;
   sourceSha?: string;
 }
