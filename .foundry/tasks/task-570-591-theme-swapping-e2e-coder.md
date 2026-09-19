@@ -29,6 +29,6 @@ As part of our theming architecture, CSS custom variables are swapped at the doc
 Write Playwright E2E tests to ensure that swapping theme variables behaves as expected on the frontend (e.g., testing different document themes).
 
 ## Acceptance Criteria
-- [ ] Write E2E tests to simulate swapping themes and verify the document's CSS variables update correctly.
-- [ ] Ensure that background colors and text colors update to match the newly swapped theme.
-- [ ] Tests must pass successfully.
+- [x] Write E2E tests to simulate swapping themes and verify the document's CSS variables update correctly.
+- [x] Ensure that background colors and text colors update to match the newly swapped theme.
+- [x] Tests must pass successfully.
