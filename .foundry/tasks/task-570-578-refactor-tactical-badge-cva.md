@@ -34,6 +34,6 @@ Refactor the `TacticalBadge` component to use `class-variance-authority` (CVA) f
 - Maintain the exact styling output for all current variants (primary, amber, red, zinc, blue, emerald, rose, pink).
 
 ## Acceptance Criteria
-- [ ] `TacticalBadge` correctly uses CVA.
-- [ ] TypeScript types are strict and export `TacticalBadgeProps` appropriately extending `VariantProps`.
-- [ ] All linting and tests pass.
+- [x] `TacticalBadge` correctly uses CVA.
+- [x] TypeScript types are strict and export `TacticalBadgeProps` appropriately extending `VariantProps`.
+- [x] All linting and tests pass.
