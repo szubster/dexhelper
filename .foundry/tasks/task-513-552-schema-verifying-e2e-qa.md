@@ -27,4 +27,4 @@ locks: []
 This task verifies that the updated `verify-schema-documentation.ts` script correctly checks for the VERIFYING state patterns.
 
 ## Acceptance Criteria
-- [ ] The schema verification script correctly identifies both required and forbidden patterns.
+- [x] The schema verification script correctly identifies both required and forbidden patterns.
