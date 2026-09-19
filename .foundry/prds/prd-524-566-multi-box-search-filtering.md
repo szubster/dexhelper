@@ -57,4 +57,8 @@ Hardcore Pokémon players, collectors, and breeders who use DexHelper to manage 
 - **Spatial Preservation:** The spatial organization of the boxes must NOT break. Empty slots and non-matching Pokémon still occupy their normal grid positions.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into EPICs detailing the implementation steps for the multi-box search and filtering system.
+- [x] Epic Planner: Break down this PRD into EPICs detailing the implementation steps for the multi-box search and filtering system.
+- [ ] epic-566-574-multi-box-search-engine
+- [ ] epic-566-575-multi-box-stat-filters
+- [ ] epic-566-576-multi-box-search-ui
+- [ ] epic-566-577-multi-box-integration
