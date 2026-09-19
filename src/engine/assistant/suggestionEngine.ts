@@ -37,9 +37,18 @@ import { pokeDB } from '../../db/PokeDB';
 import { type LocationAreaEncounters, POKE_VERSION_MAP, type PokemonMetadata } from '../../db/schema';
 import { getGenerationConfig } from '../../utils/generationConfig';
 import { buildInventoryBySpecies, extractAllInstances } from '../breeding/inventoryTools';
-import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN1 } from '../data/gen1/assistantData';
-import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN2 } from '../data/gen2/assistantData';
-import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN3 } from '../data/gen3/assistantData';
+import {
+  STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN1,
+  STATIC_NPC_TRADE_DATA as STATIC_NPC_TRADE_DATA_GEN1,
+} from '../data/gen1/assistantData';
+import {
+  STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN2,
+  STATIC_NPC_TRADE_DATA as STATIC_NPC_TRADE_DATA_GEN2,
+} from '../data/gen2/assistantData';
+import {
+  STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN3,
+  STATIC_NPC_TRADE_DATA as STATIC_NPC_TRADE_DATA_GEN3,
+} from '../data/gen3/assistantData';
 import type { SaveData } from '../saveParser/index';
 import { SPECIES_MEWTWO } from './constants';
 import { generateBreedingSuggestions } from './generators/breedGenerator';
@@ -56,6 +65,10 @@ import { extractPlayerTools, filterSuggestionsByMissingTools } from './utils/enc
 const STATIC_GIFT_PIDS_GEN1 = Object.keys(STATIC_GIFT_DATA_GEN1).map((id) => parseInt(id, 10));
 const STATIC_GIFT_PIDS_GEN2 = Object.keys(STATIC_GIFT_DATA_GEN2).map((id) => parseInt(id, 10));
 const STATIC_GIFT_PIDS_GEN3 = Object.keys(STATIC_GIFT_DATA_GEN3).map((id) => parseInt(id, 10));
+
+const STATIC_NPC_TRADE_PIDS_GEN1 = STATIC_NPC_TRADE_DATA_GEN1.flatMap((t) => [t.receivedId, t.offeredId]);
+const STATIC_NPC_TRADE_PIDS_GEN2 = STATIC_NPC_TRADE_DATA_GEN2.flatMap((t) => [t.receivedId, t.offeredId]);
+const STATIC_NPC_TRADE_PIDS_GEN3 = STATIC_NPC_TRADE_DATA_GEN3.flatMap((t) => [t.receivedId, t.offeredId]);
 
 /**
  * Elective: Fetches all necessary background data from local IndexedDB to power the suggestion engine.
@@ -121,7 +134,7 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
     if (enc) missingEncounters[pid] = enc;
   }
 
-  // 1. Get all relevant Pokemon details (Target, Party, Gifts)
+  // 1. Get all relevant Pokemon details (Target, Party, Gifts, Trades)
   const partyPids = saveData.party || [];
   const giftPids =
     saveData.generation === 3
@@ -129,7 +142,13 @@ export async function fetchAssistantApiData(saveData: SaveData, queryTargets: nu
       : saveData.generation === 2
         ? STATIC_GIFT_PIDS_GEN2
         : STATIC_GIFT_PIDS_GEN1;
-  const allNeededPids = [...new Set([...queryTargets, ...partyPids, ...giftPids])];
+  const tradePids =
+    saveData.generation === 3
+      ? STATIC_NPC_TRADE_PIDS_GEN3
+      : saveData.generation === 2
+        ? STATIC_NPC_TRADE_PIDS_GEN2
+        : STATIC_NPC_TRADE_PIDS_GEN1;
+  const allNeededPids = [...new Set([...queryTargets, ...partyPids, ...giftPids, ...tradePids])];
 
   const allPokemon = await dexDataLoader.pokemon.loadMany(allNeededPids);
   const pokemonMetadata: Record<number, PokemonMetadata | null> = {};
