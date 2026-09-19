@@ -20,6 +20,12 @@ describe('replaceFrontmatterStatus', () => {
     expect(replaceFrontmatterStatus(input, 'STABLE')).toBe(expected);
   });
 
+  it('should not replace status if it is only found outside of frontmatter', () => {
+    const input = `---\nid: my-node\ntype: PRD\n---\n# Content\nstatus: DRAFT`;
+    const expected = `---\nid: my-node\ntype: PRD\n---\n# Content\nstatus: DRAFT`;
+    expect(replaceFrontmatterStatus(input, 'STABLE')).toBe(expected);
+  });
+
   it('should return original content if status is not found', () => {
     const input = `---\nid: my-node\ntype: PRD\n---\n# Content`;
     const expected = `---\nid: my-node\ntype: PRD\n---\n# Content`;

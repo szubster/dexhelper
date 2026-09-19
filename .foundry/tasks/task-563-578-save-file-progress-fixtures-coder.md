@@ -2,12 +2,12 @@
 id: task-563-578-save-file-progress-fixtures-coder
 type: TASK
 title: Scaffold Save File Progress E2E Fixtures
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-15T06:50:36Z'
-updated_at: '2026-09-15T06:50:36Z'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5542886627196860721'
 pr_number: null
 parent: story-556-563-e2e-tests-save-file-progress-tracking
 tags:

@@ -2,12 +2,12 @@
 id: story-079-578-react-flow-visualizer-refactor
 type: STORY
 title: React Flow Visualizer Refactor
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-14'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '1113649145941730692'
+jules_session_id: null
 pr_number: null
 parent: epic-046-079-react-flow-visualizer-refactor
 tags:
@@ -26,4 +26,8 @@ locks: []
 Refactor the React Flow DAG visualizer to consume nodes and edges strictly from the new `DagContext`.
 
 ## Acceptance Criteria
-- [ ] Break down into tasks.
+- [x] Break down into tasks.
+- [ ] task-578-589-visualizer-state-refactor
+- [ ] task-578-590-visualizer-ui-refactor
+- [ ] task-578-591-visualizer-unit-tests
+- [ ] task-578-592-visualizer-qa

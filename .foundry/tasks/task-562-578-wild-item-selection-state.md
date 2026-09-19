@@ -2,12 +2,12 @@
 id: task-562-578-wild-item-selection-state
 type: TASK
 title: Wild Item Selection State Management
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-12'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '10097024572444479031'
+jules_session_id: null
 pr_number: null
 parent: story-555-562-wild-item-selection-ui
 tags:
@@ -31,5 +31,5 @@ As part of the Wild Item Hunting UI, we need to maintain state for the user's se
 - Ensure the state can be accessed by downstream components (e.g., the tracker or map).
 
 ## Acceptance Criteria
-- [ ] Add state structure for selected wild hunting items.
-- [ ] Implement add/remove/clear actions for the selected items.
+- [x] Add state structure for selected wild hunting items.
+- [x] Implement add/remove/clear actions for the selected items.

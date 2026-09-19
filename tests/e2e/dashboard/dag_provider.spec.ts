@@ -5,7 +5,7 @@ test.describe('DagProvider Data Fetching', () => {
   test('successfully fetches and renders mock DAG data', async ({ page }) => {
     await page.unrouteAll({ behavior: 'ignoreErrors' });
     await mockDagData(page);
-    await page.goto('dag'); // Try relative to baseURL (will be /dexhelper/dag instead of /dag which resolves to /dag at root)
+    await page.goto('./dag'); // Try relative to baseURL (will be /dexhelper/dag instead of /dag which resolves to /dag at root)
 
     // Wait for the DAG loading state to resolve
     await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden();
@@ -64,7 +64,7 @@ test.describe('DagProvider Data Fetching', () => {
       };
     });
 
-    await page.goto('dag');
+    await page.goto('./dag');
     await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden();
 
     const node = page.locator('xpath=//div[@data-testid="dag-node" and .//*[contains(text(), "task-test-rejection")]]');
@@ -113,7 +113,7 @@ test.describe('DagProvider Data Fetching', () => {
       });
     });
 
-    await page.goto('dag');
+    await page.goto('./dag');
 
     // Wait for loading to finish
     await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden();

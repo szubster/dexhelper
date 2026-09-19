@@ -2,13 +2,13 @@
 id: task-406-528-gen3-rematch-e2e-impl
 type: TASK
 title: Implement Gen 3 NPC Rematch Status E2E Tests
-status: FAILED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-03'
 updated_at: '2026-09-18'
 depends_on:
   - task-406-527-gen3-rematch-ui-impl
-jules_session_id: null
+jules_session_id: '16334843330520392791'
 pr_number: null
 parent: story-397-406-gen3-npc-rematch-status
 tags:
@@ -18,8 +18,8 @@ tags:
   - rematch
   - e2e
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

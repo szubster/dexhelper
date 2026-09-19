@@ -5,9 +5,9 @@ title: Gen 3 Missed Items & Milestones Parsing Core
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '2947002610996656192'
+jules_session_id: '8451003545716513958'
 pr_number: null
 parent: epic-520-553-gen3-missed-milestones-tracker
 tags:
@@ -16,7 +16,7 @@ tags:
 research_references: []
 locks: []
 rejection_reason: ''
-rejection_count: 1
+rejection_count: 2
 ---
 
 # Story: Gen 3 Missed Items & Milestones Parsing Core

@@ -70,3 +70,13 @@ Based on feedback, the 2D canvas of nodes is also hard to parse for users trying
 
 ## Journal
 - When extracting visual state changes (like high-frequency interval updates) to reduce main-thread rendering overhead, isolate them into leaf components rather than deleting the feature altogether to respect the "preserve existing behaviors" guideline.
+
+
+---
+
+# Performance Optimization Journal
+
+- Optimized `RetroBackground.tsx` by wrapping the component in `React.memo` and memoizing hex stream generation into `useMemo`. This eliminates 100 `window.crypto.getRandomValues` Web Crypto API calls and intermediate array allocations on every component render.
+- Replaced `Math.random()` in non-crypto fallback with a bitwise pseudo-random calculation to comply with oxlint `react(purity)` rules.
+- Optimized `StorageGrid.tsx` by wrapping `StorageGrid` in `React.memo` and memoizing `storageLocations` array construction via `React.useMemo`.
+- Optimized `LivingDexGrid.tsx` by wrapping `LivingDexGrid` in `React.memo` to prevent cascading subtree re-renders of the 386 living dex cell cards.

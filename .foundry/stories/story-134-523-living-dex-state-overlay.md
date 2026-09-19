@@ -28,5 +28,8 @@ locks: []
 Building on the base numerical grid, we need to overlay the current PC box and Party state onto the grid, showing exactly which Pokémon are owned and where they reside.
 
 ## Acceptance Criteria
+- [ ] task-523-590-living-dex-state-connection-impl
+- [ ] task-523-591-living-dex-ui-overlay-impl
+- [ ] task-523-592-living-dex-state-overlay-qa
 - [ ] Connect the grid component to the application's PC box and Party state.
 - [ ] Visually indicate within the grid which Pokémon are present in the PC box or Party.

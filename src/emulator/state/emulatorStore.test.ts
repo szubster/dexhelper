@@ -4,8 +4,9 @@ import { useEmulatorStore } from './emulatorStore';
 vi.mock('../wasm/EmulatorSyncEngine', () => {
   return {
     EmulatorSyncEngine: class {
-      // biome-ignore lint/suspicious/noExplicitAny: mock class
-      syncSaveData = vi.fn<any>().mockReturnValue({ generation: 3, gameVersion: 'emerald' });
+      syncSaveData = vi
+        .fn<(bufferSize: number, forcedVersion?: string) => Promise<{ generation: number; gameVersion: string }>>()
+        .mockResolvedValue({ generation: 3, gameVersion: 'emerald' });
     },
   };
 });
@@ -41,20 +42,20 @@ describe('emulatorStore', () => {
     expect(state.engine).not.toBeNull();
   });
 
-  it('should sync save data successfully', () => {
+  it('should sync save data successfully', async () => {
     const mockMemory = new WebAssembly.Memory({ initial: 1 });
     const bufferSize = 1024;
 
     useEmulatorStore.getState().setMemory(mockMemory, bufferSize);
-    useEmulatorStore.getState().syncSaveData();
+    await useEmulatorStore.getState().syncSaveData();
 
     const state = useEmulatorStore.getState();
     expect(state.saveData).toEqual({ generation: 3, gameVersion: 'emerald' });
     expect(state.error).toBeNull();
   });
 
-  it('should set error if engine is not initialized when syncing', () => {
-    useEmulatorStore.getState().syncSaveData();
+  it('should set error if engine is not initialized when syncing', async () => {
+    await useEmulatorStore.getState().syncSaveData();
 
     const state = useEmulatorStore.getState();
     expect(state.error).toBe('EmulatorSyncEngine is not initialized.');

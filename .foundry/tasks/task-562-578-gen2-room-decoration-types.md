@@ -2,12 +2,12 @@
 id: task-562-578-gen2-room-decoration-types
 type: TASK
 title: Gen 2 Room Decoration Types
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-14'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '16594263502696587710'
+jules_session_id: null
 parent: story-313-562-gen2-room-decoration-state-logic
 locks: []
 rejection_reason: ''
@@ -24,5 +24,5 @@ Define the TypeScript interfaces and types required for the Gen 2 Room Decoratio
 - Define the `MysteryGiftExclusives` array for dolls (IDs 22 to 43).
 
 ## Acceptance Criteria
-- [ ] TypeScript interfaces for Room Decorations are defined.
-- [ ] Types are exported for use in the custom hook.
+- [x] TypeScript interfaces for Room Decorations are defined.
+- [x] Types are exported for use in the custom hook.

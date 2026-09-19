@@ -9,7 +9,7 @@ test.describe('Atomic Handoff Lifecycle E2E Testing', () => {
     await mockDagData(page, 'tests/fixtures/dag/atomic_handoff_lifecycle.json');
 
     // Navigate to the DAG visualization dashboard
-    await page.goto('dag');
+    await page.goto('./dag');
 
     // Wait for the DAG loading state to resolve
     await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden();

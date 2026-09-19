@@ -2,12 +2,12 @@
 id: task-562-578-gen2-wild-item-models-impl
 type: TASK
 title: Define Gen 2 Wild Encounter and Held Item Data Models
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '${DATE}'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '7216377633753838550'
+jules_session_id: null
 pr_number: null
 parent: story-552-562-gen2-wild-item-parsing
 tags:
@@ -34,4 +34,4 @@ We need to parse Gen 2 wild encounter data and determine drop probabilities for 
 - Use MsgPack serialization conventions (`useRecords: true`) where applicable.
 
 ## Acceptance Criteria
-- [ ] Implement data models for Gen 2 wild encounters and held items.
+- [x] Implement data models for Gen 2 wild encounters and held items.

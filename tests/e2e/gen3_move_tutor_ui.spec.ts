@@ -9,7 +9,7 @@ test.describe('Gen 3 Move Tutor UI Dashboard', () => {
     await initializeWithSave(page, 'tests/fixtures/emerald.sav');
 
     // Go to the dashboard
-    await page.goto('/dashboard');
+    await page.goto('./dashboard');
 
     // Ensure the page rendered something
     await expect(page.locator('body')).toBeVisible();
@@ -20,7 +20,7 @@ test.describe('Gen 3 Move Tutor UI Dashboard', () => {
 
     await expect(page.getByText(/TRNR/i).first()).toBeVisible({ timeout: 20000 });
 
-    await page.goto('/dashboard');
+    await page.goto('./dashboard');
     await page.waitForTimeout(500);
 
     const dashboard = page.getByTestId('gen3-move-tutor-dashboard');

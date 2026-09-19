@@ -2,13 +2,13 @@
 id: story-534-537-acceptance-criteria-integration-e2e
 type: STORY
 title: Acceptance Criteria Integration and E2E
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on:
   - story-534-536-propose-acceptance-criteria-alternatives
-jules_session_id: '144418105092739486'
+jules_session_id: null
 pr_number: null
 parent: epic-520-534-acceptance-criteria-research
 tags:
@@ -33,4 +33,7 @@ After proposing alternative implementations for Acceptance Criteria, we must ver
 - Verify that testing properly identifies empty PR scenarios and prevents premature node verifications according to the new architecture.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into E2E TASK nodes.
+- [x] tech_lead: Break down this Story into E2E TASK nodes.
+- [ ] task-537-538-acceptance-criteria-adr007-coder
+- [ ] task-537-540-acceptance-criteria-empty-pr-coder
+- [ ] task-537-539-acceptance-criteria-e2e-qa

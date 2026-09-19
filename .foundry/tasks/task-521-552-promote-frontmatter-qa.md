@@ -2,13 +2,13 @@
 id: task-521-552-promote-frontmatter-qa
 type: TASK
 title: QA Promote Frontmatter
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-06'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on:
   - task-521-551-promote-frontmatter-tests
-jules_session_id: '10040334158330369846'
+jules_session_id: null
 pr_number: null
 parent: story-519-521-update-frontmatter-promotion
 tags:
@@ -25,4 +25,4 @@ locks: []
 # QA Promote Frontmatter
 
 ## Acceptance Criteria
-- [ ] Verify core logic handles different YAML formats gracefully and script correctly updates target files without corrupting them.
+- [x] Verify core logic handles different YAML formats gracefully and script correctly updates target files without corrupting them.

@@ -79,7 +79,7 @@ When proceeding with **Option B**, Bolt must write a formal Foundry IDEA node fi
 1. **Profile** — Scan the codebase for concrete performance or size bottlenecks.
 2. **Select & Decide** — Choose the best opportunity. Use the Decision Matrix to choose Option A (direct implementation) or Option B (IDEA node).
 3. **Optimize** — Implement cleanly, preserving existing behavior and handling edge cases.
-4. **Verify** — Run `pnpm lint`, `pnpm test`, and `pnpm test:e2e:xvfb` to confirm no regressions are introduced.
+4. **Verify** — Run `pnpm lint`, `pnpm test`, and targeted E2E tests (`xvfb-run -a pnpm test:e2e <path-to-test>`) to confirm no regressions are introduced.
 5. **PR** — Open a PR.
    - Title: `⚡ Bolt: [improvement]`
    - Body: Provide sections for `💡 What`, `🎯 Why`, `📊 Measured Improvement`, and How to Verify.

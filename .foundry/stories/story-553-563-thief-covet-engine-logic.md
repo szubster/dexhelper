@@ -2,12 +2,12 @@
 id: story-553-563-thief-covet-engine-logic
 type: STORY
 title: Engine Logic for Thief/Covet Move Analysis
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-16'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '2473195475556957158'
+jules_session_id: null
 pr_number: null
 parent: epic-521-553-thief-covet-team-optimizer
 tags:
@@ -32,4 +32,7 @@ As part of the Thief/Covet Team Optimizer epic, we need the core engine logic to
 - Return a structured list of these optimal hunting Pokemon.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks.
+- [x] tech_lead: Break down this Story into Tasks.
+- [ ] task-563-586-thief-covet-engine-logic-core
+- [ ] task-563-587-thief-covet-engine-logic-tests
+- [ ] task-563-588-qa-thief-covet-engine-logic

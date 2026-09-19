@@ -2,12 +2,12 @@
 id: task-564-578-e2e-navigation-and-selection
 type: TASK
 title: Write E2E Test for Wild Item Navigation and Selection
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-15T06:49:02Z'
-updated_at: '2026-09-15T06:49:02Z'
+updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1486075875547078323'
 pr_number: null
 parent: story-556-564-e2e-tests-end-to-end-flow
 tags:

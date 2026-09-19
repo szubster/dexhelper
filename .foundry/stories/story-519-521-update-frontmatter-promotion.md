@@ -2,10 +2,10 @@
 id: story-519-521-update-frontmatter-promotion
 type: STORY
 title: Update DRAFT Frontmatter to STABLE
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-09'
+updated_at: '2026-09-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -26,9 +26,9 @@ locks: []
 Create the procedural mechanism to automatically transition YAML frontmatter statuses from `DRAFT` (or WIP states) to `STABLE` upon artifact promotion.
 
 ## Acceptance Criteria
-- [ ] Implement a script or process to update YAML frontmatter status fields.
+- [x] Implement a script or process to update YAML frontmatter status fields.
 - [x] Break down into Tasks.
-- [ ] task-521-549-promote-frontmatter-core-logic-impl
-- [ ] task-521-550-promote-frontmatter-script-impl
-- [ ] task-521-551-promote-frontmatter-tests
-- [ ] task-521-552-promote-frontmatter-qa
+- [x] task-521-549-promote-frontmatter-core-logic-impl
+- [x] task-521-550-promote-frontmatter-script-impl
+- [x] task-521-551-promote-frontmatter-tests
+- [x] task-521-552-promote-frontmatter-qa

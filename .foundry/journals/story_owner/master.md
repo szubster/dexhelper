@@ -616,3 +616,14 @@ When breaking down Epics, the Orchestrator Safeguard explicitly mandates that an
 
 When a parent node requires breakdown into stories, the `story_owner` should append child nodes as unchecked task checkboxes in the `## Acceptance Criteria` of the parent, mark any specific drafting acceptance criteria as checked `[x]`, and submit an empty PR.
 This process properly triggers the orchestrator late binding waiting state mechanism.
+
+
+---
+
+# 2026-09-17
+
+## Observations
+`epic-051-094-friendship-data-extraction` was rejected with a `rejection_count` of 2.
+
+## Learnings
+The epic lacked a final STORY dedicated exclusively to Integration and E2E Verification, which is a requirement enforced by the Orchestrator Safeguard. I have dynamically spawned `story-094-580-friendship-data-extraction-e2e` to satisfy this requirement and appended it as an unchecked acceptance criteria.

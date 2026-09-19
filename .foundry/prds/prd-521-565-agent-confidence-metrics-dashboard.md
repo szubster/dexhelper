@@ -2,12 +2,12 @@
 id: prd-521-565-agent-confidence-metrics-dashboard
 type: PRD
 title: PRD for Agent Confidence Metrics Dashboard
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-14'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '7904515410274032448'
+jules_session_id: null
 pr_number: null
 parent: idea-521-agent-confidence-metrics-dashboard
 tags:
@@ -43,4 +43,9 @@ Based on IDEA-521, this PRD defines the requirements for implementing an Agent C
    - Update the UI dashboard to expose the confidence scores visually, color-coding low-confidence nodes (e.g. red for <70, yellow for 70-89, green for 90+).
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+- [ ] epic-565-569-agent-confidence-metrics-schema
+- [ ] epic-565-570-agent-confidence-metrics-orchestrator
+- [ ] epic-565-571-agent-confidence-metrics-dashboard-ui
+- [ ] epic-565-572-agent-confidence-metrics-agent-capability
+- [ ] epic-565-573-agent-confidence-metrics-e2e

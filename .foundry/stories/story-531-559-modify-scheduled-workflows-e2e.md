@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: $(date +%Y-%m-%d)
 updated_at: '2026-09-18'
 depends_on:
-  - .foundry/stories/story-531-558-modify-scheduled-workflows-impl.md
+  - story-531-558-modify-scheduled-workflows-impl
 jules_session_id: null
 pr_number: null
 parent: epic-516-531-modify-scheduled-workflows
