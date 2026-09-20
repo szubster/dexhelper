@@ -34,3 +34,4 @@ Ensure that the Gen 3 data decryption and substructure mapping logic is thorough
 ## Acceptance Criteria
 - [ ] Write E2E tests verifying Gen 3 save decryption and mapping logic.
 - [ ] All tests must pass successfully.
+- [ ] task-475-598-gen3-decryption-mapping-e2e-impl
