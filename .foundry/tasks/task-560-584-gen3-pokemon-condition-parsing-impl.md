@@ -30,7 +30,7 @@ To build the Pokéblock Recipe Optimizer, we first need to extract the current s
 Implement backend save parsing logic to accurately read a Pokémon's current condition stats and Nature.
 
 ## Acceptance Criteria
-- [ ] Implement backend save parsing logic to accurately read a Pokémon's current condition stats.
-- [ ] Implement backend save parsing logic to accurately read a Pokémon's Nature.
-- [ ] Adhere to the PokeData Property Naming Schema (full, readable property names).
-- [ ] Pass and utilize the resolved section offset (e.g., `section1Offset`) to support A/B bank flash memory architecture.
+- [x] Implement backend save parsing logic to accurately read a Pokémon's current condition stats.
+- [x] Implement backend save parsing logic to accurately read a Pokémon's Nature.
+- [x] Adhere to the PokeData Property Naming Schema (full, readable property names).
+- [x] Pass and utilize the resolved section offset (e.g., `section1Offset`) to support A/B bank flash memory architecture.
