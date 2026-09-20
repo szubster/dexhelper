@@ -97,8 +97,14 @@ test.describe('Tactical Utilities E2E', () => {
     });
 
     const badgeIds = [
-      '#badge-primary', '#badge-amber', '#badge-red', '#badge-zinc',
-      '#badge-blue', '#badge-emerald', '#badge-rose', '#badge-pink'
+      '#badge-primary',
+      '#badge-amber',
+      '#badge-red',
+      '#badge-zinc',
+      '#badge-blue',
+      '#badge-emerald',
+      '#badge-rose',
+      '#badge-pink',
     ];
 
     for (const id of badgeIds) {
@@ -110,8 +116,12 @@ test.describe('Tactical Utilities E2E', () => {
     }
 
     const buttonIds = [
-      '#btn-default', '#btn-primary', '#btn-danger',
-      '#btn-danger-outline', '#btn-secondary', '#btn-sidebar'
+      '#btn-default',
+      '#btn-primary',
+      '#btn-danger',
+      '#btn-danger-outline',
+      '#btn-secondary',
+      '#btn-sidebar',
     ];
 
     for (const id of buttonIds) {
