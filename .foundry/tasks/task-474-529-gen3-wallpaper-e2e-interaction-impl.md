@@ -30,6 +30,6 @@ Implement the interactions and assertions in the Playwright E2E test to verify G
 *   Ensure Playwright locator strict mode (`locator.or()`, `.first()`) and relative path (`./`) navigation best practices are followed.
 
 ## Acceptance Criteria
-- [ ] Implement UI interactions to toggle wallpaper state.
-- [ ] Reload page and assert state persistence.
-- [ ] Tests run successfully in headless mode.
+- [x] Implement UI interactions to toggle wallpaper state.
+- [x] Reload page and assert state persistence.
+- [x] Tests run successfully in headless mode.
