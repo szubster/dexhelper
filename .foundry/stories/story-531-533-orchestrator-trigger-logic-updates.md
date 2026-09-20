@@ -29,5 +29,8 @@ Implement logic in `.github/scripts/foundry-orchestrator.ts` to trigger the `cur
 - Implement tests ensuring the trigger logic accurately fires under the specified conditions.
 
 ## Acceptance Criteria
-- [ ] task-533-536-orchestrator-curator-trigger-logic-impl
-- [ ] task-533-537-orchestrator-curator-trigger-logic-qa
+- [x] task-533-536-orchestrator-curator-trigger-logic-impl
+- [x] task-533-537-orchestrator-curator-trigger-logic-qa
+- [ ] research-533-601-investigate-curator-trigger-logic-failure
+- [ ] task-533-602-orchestrator-curator-trigger-logic-retry-impl
+- [ ] task-533-603-orchestrator-curator-trigger-logic-retry-qa
