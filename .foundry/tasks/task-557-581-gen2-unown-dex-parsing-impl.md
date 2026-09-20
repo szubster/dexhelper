@@ -2,12 +2,12 @@
 id: task-557-581-gen2-unown-dex-parsing-impl
 type: TASK
 title: Implement Gen 2 Unown Dex Parsing
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-19T20:04:53Z'
-updated_at: '2026-09-19T20:04:53Z'
+updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13544502924622838168'
 parent: story-338-557-gen2-unown-dex-parsing-retry
 tags:
   - feature
