@@ -30,4 +30,7 @@ Implement End-to-End verification tests for the full WIP artifact promotion work
 
 ## Acceptance Criteria
 - [ ] Implement tests verifying banner removal, frontmatter updates, and feature flag resolution work synchronously.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-523-598-artifact-promotion-e2e-fixtures
+- [ ] task-523-599-artifact-promotion-e2e-logic
+- [ ] task-523-600-artifact-promotion-e2e-qa
