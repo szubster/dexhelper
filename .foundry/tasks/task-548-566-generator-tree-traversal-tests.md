@@ -30,5 +30,5 @@ locks: []
 This task writes unit tests for the newly implemented generator-based tree traversals.
 
 ## Acceptance Criteria
-- [ ] Write Vitest unit tests verifying `function*` and `async function*` outputs.
-- [ ] Verify memory efficiency or correct iteration order in tests.
+- [x] Write Vitest unit tests verifying `function*` and `async function*` outputs.
+- [x] Verify memory efficiency or correct iteration order in tests.
