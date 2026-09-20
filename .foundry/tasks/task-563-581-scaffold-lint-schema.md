@@ -25,5 +25,5 @@ locks: []
 - Ensure the script is executable and can be run via `ts-node` or equivalent.
 
 ## Acceptance Criteria
-- [ ] `.foundry/scripts/lint-schema.ts` is created with a basic entry point.
-- [ ] The script is executable and imports necessary `fs` and `path` modules.
+- [x] `.foundry/scripts/lint-schema.ts` is created with a basic entry point.
+- [x] The script is executable and imports necessary `fs` and `path` modules.
