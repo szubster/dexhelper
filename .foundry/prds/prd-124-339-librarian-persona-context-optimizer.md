@@ -2,10 +2,10 @@
 id: prd-124-339-librarian-persona-context-optimizer
 type: PRD
 title: Librarian Persona for Context Token Optimization
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-08-06'
-updated_at: '2026-08-08'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ tags:
 rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Librarian Persona for Context Token Optimization
@@ -49,8 +50,8 @@ Currently, as the repository grows, agent journals and archived nodes become hea
 
 ## Acceptance Criteria
 - [x] Break down into Epics (e.g. schema updates, github scripts implementation).
-- [ ] epic-339-409-librarian-schema-updates
-- [ ] epic-339-410-librarian-github-scripts-implementation
+- [x] epic-339-409-librarian-schema-updates
+- [x] epic-339-410-librarian-github-scripts-implementation
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

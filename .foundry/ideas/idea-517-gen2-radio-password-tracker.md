@@ -2,10 +2,10 @@
 id: idea-517-gen2-radio-password-tracker
 type: IDEA
 title: Gen 2 Buena's Password Tracker & Alert System
-status: PENDING
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-09-04'
-updated_at: '2026-09-11'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - gen2
   - daily-events
 research_references: []
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # Idea: Gen 2 Buena's Password Tracker & Alert System
@@ -38,4 +38,4 @@ This transforms a highly missable, time-restricted mechanic into an easily track
 
 ## Acceptance Criteria
 - [x] Product Manager: Draft a PRD to define the exact Blue Card memory offsets and daily completion event flags needed from the Crystal save structure.
-- [ ] prd-517-564-gen2-radio-password-tracker
+- [x] prd-517-564-gen2-radio-password-tracker

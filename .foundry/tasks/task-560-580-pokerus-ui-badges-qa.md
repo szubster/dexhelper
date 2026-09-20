@@ -2,10 +2,10 @@
 id: task-560-580-pokerus-ui-badges-qa
 type: TASK
 title: QA - Pokerus UI Badges
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-10'
-updated_at: '2026-09-16'
+updated_at: '2026-09-20'
 depends_on:
   - task-560-578-pokerus-ui-badges-impl
   - task-560-579-pokerus-ui-badges-tests

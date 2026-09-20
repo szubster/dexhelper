@@ -2,10 +2,10 @@
 id: task-569-579-qa-cva-refactor-tactical-panel-card
 type: TASK
 title: QA CVA Refactor Tactical Panel and Card
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '$(date -u +"%Y-%m-%dT%H:%M:%SZ")'
-updated_at: '2026-09-17'
+updated_at: '2026-09-20'
 depends_on:
   - task-569-578-cva-refactor-tactical-panel-card
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-560-574-pokerus-spread-planner-tests
 type: TASK
 title: Pokerus Spread Planner Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-09'
+updated_at: '2026-09-20'
 depends_on:
   - task-560-573-pokerus-spread-planner-ui-component
 jules_session_id: null

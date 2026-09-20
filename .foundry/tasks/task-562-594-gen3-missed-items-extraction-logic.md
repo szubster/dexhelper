@@ -2,7 +2,7 @@
 id: task-562-594-gen3-missed-items-extraction-logic
 type: TASK
 title: Gen 3 Missed Items & Milestones Extraction Logic
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-19'
 updated_at: '2026-09-20'
@@ -14,10 +14,9 @@ tags:
   - dexhelper
   - gen3
 research_references: []
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_reason: ''
 locks: []
+rejection_count: 1
 ---
 
 # Task: Gen 3 Missed Items & Milestones Extraction Logic

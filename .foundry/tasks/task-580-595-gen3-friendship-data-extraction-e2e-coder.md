@@ -2,7 +2,7 @@
 id: task-580-595-gen3-friendship-data-extraction-e2e-coder
 type: TASK
 title: Gen 3 Friendship Data Extraction E2E Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-19T11:29:17Z'
 updated_at: '2026-09-20'
@@ -15,11 +15,10 @@ tags:
   - integration
   - gen3
 research_references: []
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_reason: ''
 locks: []
 priority: 50
+rejection_count: 1
 ---
 
 # Gen 3 Friendship Data Extraction E2E Implementation

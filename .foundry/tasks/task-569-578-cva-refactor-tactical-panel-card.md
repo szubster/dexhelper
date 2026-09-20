@@ -2,12 +2,12 @@
 id: task-569-578-cva-refactor-tactical-panel-card
 type: TASK
 title: CVA Refactor Tactical Panel and Card
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '$(date -u +"%Y-%m-%dT%H:%M:%SZ")'
 updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: '10588505382578138742'
+jules_session_id: null
 pr_number: null
 parent: story-567-569-cva-refactor-tactical-panel-card
 tags:

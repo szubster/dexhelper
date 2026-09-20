@@ -2,13 +2,13 @@
 id: task-560-579-pokerus-ui-badges-tests
 type: TASK
 title: Pokerus UI Badges Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-10'
 updated_at: '2026-09-20'
 depends_on:
   - task-560-578-pokerus-ui-badges-impl
-jules_session_id: '9964576793379665601'
+jules_session_id: null
 pr_number: null
 parent: story-412-560-pokerus-ui-badges
 tags:

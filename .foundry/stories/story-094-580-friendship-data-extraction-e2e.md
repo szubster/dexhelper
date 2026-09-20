@@ -2,7 +2,7 @@
 id: story-094-580-friendship-data-extraction-e2e
 type: STORY
 title: Friendship Data Extraction E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-17T18:42:09Z'
 updated_at: '2026-09-20'
