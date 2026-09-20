@@ -48,4 +48,7 @@ Migrate existing raw DOM interaction-based E2E tests to a Component-Based Object
 - **Architect**: Ensure the custom fixture design is compliant with Playwright best practices and ADRs.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into Epics.
+- [x] Epic Planner: Break this PRD down into Epics.
+- [ ] epic-566-578-e2e-fixtures-setup
+- [ ] epic-566-579-e2e-core-component-models
+- [ ] epic-566-580-e2e-test-migration
