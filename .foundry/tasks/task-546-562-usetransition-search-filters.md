@@ -26,6 +26,6 @@ locks: []
 Refactor `src/components/SearchAndFilters.tsx` to utilize React 19's `useTransition` for state updates that cause layout shifts or take long to process (like search filtering). This will improve perceived performance.
 
 ## Acceptance Criteria
-- [ ] Implement `useTransition` for search state updates in `SearchAndFilters.tsx`.
-- [ ] Ensure non-blocking UI behavior during heavy filtering.
-- [ ] Write or update relevant unit tests.
+- [x] Implement `useTransition` for search state updates in `SearchAndFilters.tsx`.
+- [x] Ensure non-blocking UI behavior during heavy filtering.
+- [x] Write or update relevant unit tests.
