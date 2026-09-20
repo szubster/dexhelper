@@ -31,5 +31,5 @@ With the player's berry inventory and Pokémon state parsed, and the math formul
 Implement the core logic for the Pokéblock recommendation engine. It must determine the optimal combination of berries to blend and feed given the current berry inventory and a target condition goal. It must also include feasibility checks to determine if a goal is impossible.
 
 ## Acceptance Criteria
-- [ ] Implement the core algorithm that calculates the optimal berry combinations for a target condition goal based on current inventory.
-- [ ] Implement feasibility checks that return whether the goal is mathematically possible given the constraints.
+- [x] Implement the core algorithm that calculates the optimal berry combinations for a target condition goal based on current inventory.
+- [x] Implement feasibility checks that return whether the goal is mathematically possible given the constraints.
