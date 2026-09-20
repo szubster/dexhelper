@@ -31,4 +31,4 @@ Write comprehensive unit tests for the Gen 3 Pokédex gaps extraction logic.
 - Ensure tests cover both seen and owned flags.
 
 ## Acceptance Criteria
-- [ ] Ensure unit tests cover missing entry identification.
+- [x] Ensure unit tests cover missing entry identification.
