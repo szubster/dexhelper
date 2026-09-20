@@ -2,13 +2,13 @@
 id: task-562-579-gen3-pokedex-gaps-extraction-tests
 type: TASK
 title: Gen 3 Pokédex Gaps Extraction Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-14'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on:
   - task-562-578-gen3-pokedex-gaps-extraction-logic
-jules_session_id: null
+jules_session_id: '5509381101729005'
 pr_number: null
 parent: story-552-562-gen3-pokedex-gaps-extraction
 tags:
