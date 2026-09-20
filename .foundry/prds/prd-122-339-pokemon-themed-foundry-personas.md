@@ -9,7 +9,7 @@ updated_at: '2026-08-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: idea-122-pokemon-themed-foundry-personas
+parent: .foundry/ideas/idea-122-pokemon-themed-foundry-personas.md
 tags:
   - foundry
   - ux
