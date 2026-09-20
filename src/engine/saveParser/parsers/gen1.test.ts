@@ -1,6 +1,6 @@
 import { describe, expect, it, test } from 'vitest';
 import { isGen1Save } from '../utils/detection';
-import { parseGen1 } from './gen1';
+import { extractGen1Pkm, GEN1_PKM_DATA_LENGTH, parseGen1 } from './gen1';
 
 describe('gen1 parsers', () => {
   describe('TM/HM parsing', () => {
@@ -44,6 +44,32 @@ describe('gen1 parsers', () => {
       }
       expect(isGen1Save(view)).toBe(expected);
     });
+  });
+});
+
+describe('extractGen1Pkm', () => {
+  it('should extract exactly 44 bytes of data for a given offset', () => {
+    const buffer = new ArrayBuffer(100);
+    const view = new DataView(buffer);
+    for (let i = 0; i < 100; i++) {
+      view.setUint8(i, i);
+    }
+
+    const offset = 10;
+    const extracted = extractGen1Pkm(view, offset);
+
+    expect(extracted).toBeInstanceOf(Uint8Array);
+    expect(extracted.length).toBe(GEN1_PKM_DATA_LENGTH);
+    for (let i = 0; i < GEN1_PKM_DATA_LENGTH; i++) {
+      expect(extracted[i]).toBe(offset + i);
+    }
+  });
+
+  it('should throw an error for out of bounds reads', () => {
+    const buffer = new ArrayBuffer(50);
+    const view = new DataView(buffer);
+
+    expect(() => extractGen1Pkm(view, 40)).toThrow('The save file is corrupted or incomplete.');
   });
 });
 
