@@ -157,8 +157,8 @@ describe('PokemonDetails', () => {
 
     await expect.element(page.getByRole('heading', { name: 'Squirtle' })).toBeVisible();
 
-    // Test for the cyan colored border dashed element for shiny carrier badge
-    const badge = container.querySelector('.border-cyan-500\\/50.border-dashed');
+    // Test for the cyan colored tactical badge element for shiny carrier badge
+    const badge = container.querySelector('.border-cyan-500\\/50.tactical-badge');
     expect(badge).toBeInTheDocument();
   });
 });

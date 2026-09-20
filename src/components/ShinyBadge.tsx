@@ -17,7 +17,7 @@ export function ShinyBadge({ isShiny, isShinyCarrier, size = 'sm' }: ShinyBadgeP
     return (
       <div
         title={label}
-        className={`absolute -top-3 -right-3 z-20 animate-[pulse_3s_ease-in-out_infinite] rounded-none border border-amber-500/50 bg-amber-500/20 ${padding} text-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.5)] backdrop-blur-sm`}
+        className={`tactical-badge absolute -top-3 -right-3 z-20 animate-[pulse_3s_ease-in-out_infinite] border-amber-500/50 bg-amber-500/20 ${padding} text-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.5)] backdrop-blur-sm`}
       >
         <Sparkles size={iconSize} className="drop-shadow-sm" aria-hidden="true" />
       </div>
@@ -27,7 +27,7 @@ export function ShinyBadge({ isShiny, isShinyCarrier, size = 'sm' }: ShinyBadgeP
   return (
     <div
       title={label}
-      className={`absolute -top-3 -right-3 z-20 animate-[pulse_3s_ease-in-out_infinite] rounded-none border border-cyan-500/50 border-dashed bg-cyan-500/20 ${padding} text-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.5)] backdrop-blur-sm`}
+      className={`tactical-badge absolute -top-3 -right-3 z-20 animate-[pulse_3s_ease-in-out_infinite] border-cyan-500/50 bg-cyan-500/20 ${padding} text-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.5)] backdrop-blur-sm`}
     >
       <Sparkles size={iconSize} className="drop-shadow-sm" aria-hidden="true" />
     </div>

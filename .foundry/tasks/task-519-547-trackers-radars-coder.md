@@ -33,4 +33,4 @@ Refactor specialized tracker UIs (e.g., `PokerusBadge.tsx`) in `src/components/`
 - Maintain the tactical hardware aesthetic.
 
 ## Acceptance Criteria
-- [ ] Specialized tracker and radar components are updated to use semantic `@utility` classes.
+- [x] Specialized tracker and radar components are updated to use semantic `@utility` classes.

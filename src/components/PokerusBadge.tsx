@@ -1,4 +1,4 @@
-import { cn } from '../utils/cn';
+import { TacticalBadge } from './TacticalBadge';
 
 interface PokerusBadgeProps {
   strain: number;
@@ -7,14 +7,8 @@ interface PokerusBadgeProps {
 
 export function PokerusBadge({ strain, className }: PokerusBadgeProps) {
   return (
-    <div
-      className={cn(
-        'tactical-badge',
-        strain === 0 ? 'border-zinc-800 bg-zinc-950 text-zinc-500' : 'border-pink-500/50 bg-pink-500/10 text-pink-400',
-        className,
-      )}
-    >
+    <TacticalBadge variant={strain === 0 ? 'zinc' : 'pink'} className={className}>
       [PKRS STRN: {strain}]
-    </div>
+    </TacticalBadge>
   );
 }
