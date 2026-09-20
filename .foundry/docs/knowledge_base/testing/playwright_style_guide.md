@@ -54,7 +54,7 @@ test('successfully fetches and renders mock DAG data', async ({ page }) => {
   // Inject mock DAG definitions before the page loads
   await mockDagData(page, 'tests/fixtures/dag/mock_dag.json');
 
-  await page.goto('/dashboard');
+  await page.goto('./dashboard');
 
   // Verify that the UI reflects the mocked state
   const personaBadges = page.getByTestId('persona-badge');

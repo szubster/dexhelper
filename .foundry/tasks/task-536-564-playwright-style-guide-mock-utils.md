@@ -32,6 +32,3 @@ As part of the new Playwright Testing Style Guide (`.foundry/docs/knowledge_base
 ## Acceptance Criteria
 - [x] Update `.foundry/docs/knowledge_base/testing/playwright_style_guide.md` with a section on mock utilities.
 - [x] Provide clear code examples.
-
-### QA Rejection
-The code example for Mock Utilities uses an absolute path (`await page.goto('/dashboard');`). According to core policies and past memory, Playwright tests must always use relative paths (`await page.goto('./dashboard');`) for navigation to avoid test failures caused by Vite base URL configurations (e.g., `/dexhelper/`). Please update the documentation to reflect this constraint.
