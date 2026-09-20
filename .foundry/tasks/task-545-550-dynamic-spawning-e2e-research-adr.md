@@ -26,4 +26,4 @@ locks: []
 This task involves writing E2E tests for the dynamic spawning of RESEARCH and ADR nodes.
 
 ## Acceptance Criteria
-- [ ] Write Playwright E2E tests verifying the dynamic spawning of RESEARCH and ADR nodes
+- [x] Write Playwright E2E tests verifying the dynamic spawning of RESEARCH and ADR nodes
