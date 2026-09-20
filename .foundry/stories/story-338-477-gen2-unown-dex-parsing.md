@@ -24,6 +24,6 @@ locks: []
 As part of the Gen 2 Unown Dex Progress Tracker epic, we need to extract the caught Unown forms from the save file. The Unown Dex save block data contains the forms of the Unown the player has caught.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
-- [ ] Implement parsing logic to extract the caught Unown forms from Gen 2 save data.
-- [ ] Ensure unit tests are added to verify correct parsing of Unown Dex data.
+- [x] Break down into Tasks
+- [x] Implement parsing logic to extract the caught Unown forms from Gen 2 save data.
+- [x] Ensure unit tests are added to verify correct parsing of Unown Dex data.
