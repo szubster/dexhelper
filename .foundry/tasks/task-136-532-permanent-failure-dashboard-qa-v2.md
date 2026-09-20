@@ -2,14 +2,14 @@
 id: task-136-532-permanent-failure-dashboard-qa-v2
 type: TASK
 title: Permanent Failure Dashboard UI QA (v2)
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-03'
 updated_at: '2026-09-20'
 depends_on:
   - task-136-490-permanent-failure-flow-ui-impl
   - task-136-531-permanent-failure-kanban-ui-impl-v2
-jules_session_id: null
+jules_session_id: '14154576369808277163'
 pr_number: null
 parent: story-047-136-permanent-failure-dashboard-ui
 tags:
