@@ -34,3 +34,4 @@ As part of the Wild Item Data Engine epic, this story focuses exclusively on Gen
 - [ ] Implement Gen 3 wild encounter locations and rates parsing.
 - [ ] Map held item data and their respective drop rates for Gen 3 Pokémon.
 - [ ] Utilize relative offsets where applicable.
+- [ ] research-563-602-gen3-wild-encounter-offsets
