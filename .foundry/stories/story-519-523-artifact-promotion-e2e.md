@@ -2,15 +2,15 @@
 id: story-519-523-artifact-promotion-e2e
 type: STORY
 title: Artifact Promotion Workflow E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on:
   - story-519-520-automate-banner-removal
   - story-519-521-update-frontmatter-promotion
   - story-519-522-graduate-code-feature-flags
-jules_session_id: null
+jules_session_id: '9043120488031456206'
 pr_number: null
 parent: epic-346-519-wip-artifact-promotion
 tags:
