@@ -28,5 +28,5 @@ locks: []
 This task implements the unit tests for the Pokerus UI Badges developed in `task-560-578-pokerus-ui-badges-impl`.
 
 ## Acceptance Criteria
-- [ ] Write unit tests in `src/components/PokerusBadge.test.tsx` to cover the Uninfected, Infected, and Cured states.
-- [ ] Ensure tests accurately mock and assert on the `strain` and `daysRemaining` props.
+- [x] Write unit tests in `src/components/PokerusBadge.test.tsx` to cover the Uninfected, Infected, and Cured states.
+- [x] Ensure tests accurately mock and assert on the `strain` and `daysRemaining` props.
