@@ -35,6 +35,6 @@ Verify the refactoring of the `TacticalPanel` and `TacticalCard` components to u
 - Verify all unit and E2E tests pass.
 
 ## Acceptance Criteria
-- [ ] Verified `TacticalPanel` and `TacticalCard` use CVA.
-- [ ] Verified components render properly in UI.
-- [ ] Verified tests pass.
+- [x] Verified `TacticalPanel` and `TacticalCard` use CVA.
+- [x] Verified components render properly in UI.
+- [x] Verified tests pass.
