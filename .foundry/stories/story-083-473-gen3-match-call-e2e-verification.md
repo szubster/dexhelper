@@ -35,5 +35,8 @@ This story covers the end-to-end integration and verification of the Gen 3 Match
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-473-493-gen3-match-call-e2e-impl
-- [ ] task-473-494-gen3-match-call-e2e-qa
+- [x] task-473-493-gen3-match-call-e2e-impl
+- [x] task-473-494-gen3-match-call-e2e-qa
+- [ ] research-473-598-gen3-match-call-e2e-failure
+- [ ] task-473-599-gen3-match-call-e2e-impl
+- [ ] task-473-600-gen3-match-call-e2e-qa
