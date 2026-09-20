@@ -32,7 +32,8 @@
     "src/utils/pagination/index.ts",
     "benchmarks/**",
     "tests/benchmarks/**",
-    "src/engine/storage/constants.ts"
+    "src/engine/storage/constants.ts",
+    "src/engine/saveParser/gen3/spinda/**"
   ],
   "rules": {
     "files": "warn",
