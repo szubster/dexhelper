@@ -2,12 +2,12 @@
 id: task-561-591-gen3-pokeblock-blending-math
 type: TASK
 title: Implement Gen 3 Pokéblock Blending Math Formulas
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-18'
-updated_at: '2026-09-18'
+updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1080859911827562037'
 pr_number: null
 parent: story-540-561-gen3-pokeblock-math-formulas
 priority: 50
@@ -18,8 +18,8 @@ tags:
   - math
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 locks: []
 ---
 
