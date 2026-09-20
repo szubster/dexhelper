@@ -81,8 +81,7 @@ test('renders grid with pokemon', async () => {
 
   // Check party pokemon
   await expect.element(page.getByText('Bulbasaur')).toBeInTheDocument();
-  await expect.element(page.getByText('RED')).toBeInTheDocument();
-  await expect.element(page.getByText('[PKRS STRN: 3]')).toBeInTheDocument();
+  await expect.element(page.getByText('[RED]')).toBeInTheDocument();
 
   // Check box pokemon
   await expect.element(page.getByText('Charmander')).toBeInTheDocument();

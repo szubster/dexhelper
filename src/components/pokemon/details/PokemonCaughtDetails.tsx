@@ -176,10 +176,7 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
                   <div className="flex flex-col gap-1 bg-zinc-950/80 p-3">
                     <span className="font-mono text-[8px] text-zinc-500 uppercase tracking-widest">POKERUS_STRAIN</span>
                     <div className="flex items-center gap-2">
-                      <PokerusBadge strain={p.pokerus.strain} />
-                      {p.pokerus.daysRemaining !== undefined && (
-                        <span className="font-mono text-[9px] text-zinc-500">[{p.pokerus.daysRemaining}D]</span>
-                      )}
+                      <PokerusBadge strain={p.pokerus.strain} daysRemaining={p.pokerus.daysRemaining} />
                     </div>
                   </div>
                 )}
