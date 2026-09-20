@@ -37,7 +37,7 @@ Refactor the `TacticalPanel` and `TacticalCard` components to use `class-varianc
 - Ensure tests still pass (update if necessary).
 
 ## Acceptance Criteria
-- [ ] `class-variance-authority` is installed.
-- [ ] `TacticalPanel` is refactored to use CVA.
-- [ ] `TacticalCard` is refactored to use CVA.
-- [ ] All unit and e2e tests pass.
+- [x] `class-variance-authority` is installed.
+- [x] `TacticalPanel` is refactored to use CVA.
+- [x] `TacticalCard` is refactored to use CVA.
+- [x] All unit and e2e tests pass.
