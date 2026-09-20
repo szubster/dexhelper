@@ -6,6 +6,7 @@
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [story-083-473-gen3-match-call-e2e-verification](.foundry/stories/story-083-473-gen3-match-call-e2e-verification.md) | STORY | Gen 3 Match Call E2E Verification | tech_lead | [2302202354704023474](https://jules.google.com/session/2302202354704023474) |
+| [story-125-519-refactor-complex-dashboard](.foundry/stories/story-125-519-refactor-complex-dashboard.md) | STORY | Refactor Complex Dashboard Components | tech_lead | [1553289484452961198](https://jules.google.com/session/1553289484452961198) |
 | [story-131-475-gen3-decryption-mapping-e2e](.foundry/stories/story-131-475-gen3-decryption-mapping-e2e.md) | STORY | Gen 3 Decryption and Mapping E2E | tech_lead | [3628547113889724780](https://jules.google.com/session/3628547113889724780) |
 | [story-513-537-gen3-berry-serialization-and-api](.foundry/stories/story-513-537-gen3-berry-serialization-and-api.md) | STORY | Gen 3 Berry Serialization and Runtime API Integration | tech_lead | [1494002281132071363](https://jules.google.com/session/1494002281132071363) |
 | [task-417-522-fuzzer-simulation-tests-impl](.foundry/tasks/task-417-522-fuzzer-simulation-tests-impl.md) | TASK | Fuzzer Simulation E2E Tests Implementation | coder | [14433496583694396602](https://jules.google.com/session/14433496583694396602) |
