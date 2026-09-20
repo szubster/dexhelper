@@ -80,4 +80,79 @@ describe('Tree Traversal Generators', () => {
       expect(result).toEqual([1, 2, 3, 4, 5, 6, 7]);
     });
   });
+
+  describe('Lazy Evaluation & Early Exit', () => {
+    it('should not evaluate children until necessary (lazy evaluation)', () => {
+      let accesses = 0;
+      const lazyTree: TreeNode<number> = {
+        value: 1,
+        get children() {
+          accesses++;
+          return [
+            {
+              value: 2,
+              get children() {
+                accesses++;
+                return [];
+              },
+            },
+          ];
+        },
+      };
+
+      const generator = traverseTree(lazyTree, 'pre-order');
+
+      expect(accesses).toBe(0);
+
+      const first = generator.next();
+      expect(first.value?.value).toBe(1);
+      expect(accesses).toBe(0);
+
+      const second = generator.next();
+      expect(second.value?.value).toBe(2);
+      expect(accesses).toBe(2);
+
+      generator.return(undefined);
+    });
+
+    it('should support early exit without full traversal', async () => {
+      let accesses = 0;
+      const lazyTree: TreeNode<number> = {
+        value: 1,
+        get children() {
+          accesses++;
+          return [
+            {
+              value: 2,
+              get children() {
+                accesses++;
+                return [{ value: 4 }];
+              },
+            },
+            {
+              value: 3,
+              get children() {
+                accesses++;
+                return [{ value: 5 }];
+              },
+            },
+          ];
+        },
+      };
+
+      const generator = traverseTreeAsync(lazyTree, 'pre-order');
+
+      const first = await generator.next();
+      expect(first.value?.value).toBe(1);
+
+      const second = await generator.next();
+      expect(second.value?.value).toBe(2);
+
+      expect(accesses).toBe(2);
+
+      await generator.return(undefined);
+
+      expect(accesses).toBe(2);
+    });
+  });
 });
