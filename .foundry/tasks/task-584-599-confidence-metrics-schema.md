@@ -32,5 +32,5 @@ Based on story-569-584-confidence-metrics-schema, we need to allow agents to sel
 - Update `.github/scripts/schema.ts` to include `confidence_score: z.number().int().min(0).max(100).optional()` in `NodeFrontmatterSchema`.
 
 ## Acceptance Criteria
-- [ ] Updated schema.md with `confidence_score`.
-- [ ] Updated schema.ts with `confidence_score`.
+- [x] Updated schema.md with `confidence_score`.
+- [x] Updated schema.ts with `confidence_score`.
