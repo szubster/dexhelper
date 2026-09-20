@@ -2,12 +2,12 @@
 id: task-524-567-setup-dependency-cruiser
 type: TASK
 title: Setup Dependency Cruiser
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-09'
 updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17300863548073205994'
 pr_number: null
 parent: story-524-524-architectural-linting
 tags:
