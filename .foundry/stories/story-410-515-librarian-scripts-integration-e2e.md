@@ -5,7 +5,7 @@ title: Librarian Scripts Integration and E2E Verification
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-01'
-updated_at: '2026-09-13'
+updated_at: '2026-09-20'
 depends_on:
   - story-410-512-librarian-ingestion-synthesis-script
   - story-410-513-librarian-doc-update-script

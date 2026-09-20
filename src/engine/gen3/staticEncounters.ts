@@ -1,3 +1,18 @@
+/**
+ * @module staticEncounters
+ *
+ * Gen 3 Static Encounter & Event Flag Extractor
+ *
+ * **Architecture Note:**
+ * In Generation 3 Pokémon save files (Emerald, FireRed/LeafGreen, Ruby/Sapphire),
+ * SaveBlock1 contains an array of event flags beginning at relative offset `0x1270` (`EVENT_FLAGS_START`).
+ * Each flag is represented by a single bit within a specific byte offset of this array.
+ * A set bit (`1`) indicates that a static encounter (e.g. Legendary Pokémon like Rayquaza or Mewtwo,
+ * overworld obstacles like Snorlax or Sudowoodo, or trap encounters like Voltorb/Electrode)
+ * has been battled, defeated, or caught.
+ */
+
+/** The starting offset of the event flags block relative to SaveBlock1 (Section 1). */
 export const EVENT_FLAGS_START = 0x1270;
 
 // Emerald Offsets & Bits
@@ -78,6 +93,7 @@ export const RS_ELECTRODE_1_BIT = 1;
 export const RS_ELECTRODE_2_BYTE = 0x7a;
 export const RS_ELECTRODE_2_BIT = 2;
 
+/** Parsed static encounter flag states for Pokémon Emerald. */
 export interface Gen3EmeraldStaticEncounters {
   deoxys: boolean;
   regirock: boolean;
@@ -98,6 +114,7 @@ export interface Gen3EmeraldStaticEncounters {
   lugia: boolean;
 }
 
+/** Parsed static encounter flag states for Pokémon FireRed and LeafGreen. */
 export interface Gen3FRLGStaticEncounters {
   mewtwo: boolean;
   moltres: boolean;
@@ -110,6 +127,7 @@ export interface Gen3FRLGStaticEncounters {
   snorlaxRoute16: boolean;
 }
 
+/** Parsed static encounter flag states for Pokémon Ruby and Sapphire. */
 export interface Gen3RSStaticEncounters {
   groudonKyogre: boolean;
   rayquaza: boolean;
@@ -123,12 +141,43 @@ export interface Gen3RSStaticEncounters {
   electrode2: boolean;
 }
 
+/** Union type representing static encounter flags across all Gen 3 game variants. */
 export type Gen3StaticEncounters = Gen3EmeraldStaticEncounters | Gen3FRLGStaticEncounters | Gen3RSStaticEncounters;
 
+/**
+ * Evaluates whether a specific bit is set within a byte in the DataView.
+ *
+ * @param dataView - The DataView wrapping the raw binary save file buffer.
+ * @param offset - Absolute byte offset in the DataView.
+ * @param bitPosition - Bit index (0-7) to test.
+ * @returns True if the bit is 1 (flag set), false if 0.
+ */
 function getBit(dataView: DataView, offset: number, bitPosition: number): boolean {
+  // Bitwise AND against single bit mask (1 shifted left by bitPosition)
   return (dataView.getUint8(offset) & (1 << bitPosition)) !== 0;
 }
 
+/**
+ * Extracts static encounter event flags from a Gen 3 save file buffer.
+ *
+ * **Architecture Note:**
+ * Different Gen 3 titles locate event flags at different byte offsets within SaveBlock1.
+ * This function locates `EVENT_FLAGS_START` relative to `section1Offset` and checks individual
+ * bit positions for legendary encounters, stationary Pokémon (e.g., Snorlax, Sudowoodo),
+ * and traps (Voltorb/Electrode in Power Plant / New Mauville).
+ *
+ * @param saveData - The DataView wrapping the raw binary save file buffer.
+ * @param gameVersion - The detected or active GameVersion string.
+ * @param section1Offset - The resolved memory offset to the active SaveBlock1 section.
+ * @returns Object mapping encounter flags to boolean completion states, or `undefined` for non-Gen 3 versions.
+ * @throws Error with "The save file is corrupted or incomplete." if `saveData` bounds are exceeded.
+ *
+ * @example
+ * const flags = extractGen3StaticEncounterFlags(dataView, 'emerald', 0x0000);
+ * if (flags && 'rayquaza' in flags) {
+ *   console.log('Rayquaza defeated/caught:', flags.rayquaza);
+ * }
+ */
 export function extractGen3StaticEncounterFlags(
   saveData: DataView,
   gameVersion:
@@ -147,6 +196,7 @@ export function extractGen3StaticEncounterFlags(
   section1Offset: number,
 ): Gen3StaticEncounters | undefined {
   try {
+    // SaveBlock1 event flags array starts at section1Offset + EVENT_FLAGS_START
     const baseOffset = section1Offset + EVENT_FLAGS_START;
 
     if (gameVersion === 'emerald') {

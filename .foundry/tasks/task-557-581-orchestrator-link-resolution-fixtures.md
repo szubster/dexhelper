@@ -5,12 +5,12 @@ title: Orchestrator Link Resolution E2E Fixtures
 status: READY
 owner_persona: coder
 created_at: '2026-09-15T20:14:33Z'
-updated_at: '2026-09-15T20:14:33Z'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-551-557-integration-e2e-verification
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

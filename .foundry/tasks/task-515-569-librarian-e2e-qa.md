@@ -2,13 +2,13 @@
 id: task-515-569-librarian-e2e-qa
 type: TASK
 title: QA - Librarian E2E Pipeline Verification
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-12'
-updated_at: '2026-09-17'
+updated_at: '2026-09-20'
 depends_on:
   - task-515-568-librarian-e2e-tests
-jules_session_id: null
+jules_session_id: '3027005905314030847'
 pr_number: null
 parent: story-410-515-librarian-scripts-integration-e2e
 tags:
@@ -19,7 +19,7 @@ tags:
   - librarian
   - qa
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 experiment_variants: []
@@ -32,6 +32,6 @@ locks: []
 This QA task verifies the librarian scripts E2E test pipeline.
 
 ## Acceptance Criteria
-- [ ] Review the implemented E2E tests in the PR.
-- [ ] Run the specific test file locally (e.g., `xvfb-run -a pnpm test:e2e <target_file>`) to ensure it passes.
-- [ ] Verify that the test covers all four stages (ingestion, synthesis, doc update, gc).
+- [x] Review the implemented E2E tests in the PR.
+- [x] Run the specific test file locally (e.g., `xvfb-run -a pnpm test:e2e <target_file>`) to ensure it passes.
+- [x] Verify that the test covers all four stages (ingestion, synthesis, doc update, gc).

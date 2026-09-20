@@ -32,6 +32,6 @@ Update the Kanban Board view to display and highlight permanently failed nodes.
 As per ADR 013, the Kanban Board shares the same state context. We need to leverage the permanently failed node list in the board view. This task is a replacement for `task-136-491-permanent-failure-kanban-ui-impl` and depends on the findings from `research-136-530-investigate-kanban-ui-timeout`.
 
 ## Acceptance Criteria
-- [ ] Integrate the failed node data into the Kanban Board view.
-- [ ] Highlight permanently failed nodes visually within their respective columns.
-- [ ] Write component tests to verify the board correctly renders failed nodes.
+- [x] Integrate the failed node data into the Kanban Board view.
+- [x] Highlight permanently failed nodes visually within their respective columns.
+- [x] Write component tests to verify the board correctly renders failed nodes.

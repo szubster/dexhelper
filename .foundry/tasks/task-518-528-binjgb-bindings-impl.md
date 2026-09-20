@@ -2,10 +2,10 @@
 id: task-518-528-binjgb-bindings-impl
 type: TASK
 title: Implement Javascript bindings for binjgb save extraction
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,10 +16,8 @@ tags:
   - gen1
   - gen2
 research_references: []
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

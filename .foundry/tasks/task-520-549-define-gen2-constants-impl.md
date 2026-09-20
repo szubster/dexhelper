@@ -2,17 +2,15 @@
 id: task-520-549-define-gen2-constants-impl
 type: TASK
 title: Define Gen 2 Constants Module
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 parent: story-522-520-gen2-constants-extraction
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 locks: []
 ---
 # TASK: Define Gen 2 Constants Module

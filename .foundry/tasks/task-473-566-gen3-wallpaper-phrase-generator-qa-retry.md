@@ -2,13 +2,13 @@
 id: task-473-566-gen3-wallpaper-phrase-generator-qa-retry
 type: TASK
 title: QA Gen 3 Wallpaper Phrase Generator (Retry)
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-08'
-updated_at: '2026-09-17'
+updated_at: '2026-09-19'
 depends_on:
   - task-473-565-gen3-wallpaper-phrase-generator-impl-retry
-jules_session_id: null
+jules_session_id: '8977620639232557311'
 parent: story-335-473-gen3-wallpaper-phrase-generator
 tags:
   - gen3

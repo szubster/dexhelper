@@ -2,10 +2,10 @@
 id: task-562-580-gen3-pokedex-gaps-extraction-qa
 type: TASK
 title: QA Gen 3 Pokédex Gaps Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-14'
-updated_at: '2026-09-17'
+updated_at: '2026-09-20'
 depends_on:
   - task-562-579-gen3-pokedex-gaps-extraction-tests
 jules_session_id: null

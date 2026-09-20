@@ -5,7 +5,7 @@ title: NPC Trade Extraction Integration & E2E
 status: READY
 owner_persona: tech_lead
 created_at: '2026-08-06'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on:
   - story-349-361-gen2-trade-extraction
   - story-349-362-gen3-trade-extraction

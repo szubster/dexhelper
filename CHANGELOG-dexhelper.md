@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.18.0] - 2026-03-23
+### Added
+- Implement expanded save parsing to better handle Gen 1 and Yellow versions.
+- Enhance Assistant intelligence with item requirements (e.g. fishing rods and stones) and display layout improvements.
+- Improve PWA caching and testing/CI setup.
+
 ## [0.17.0] - 2026-03-22
 ### Added
 - Implement Assistant feature enhancements including Obedience Warning logic, Gen 2 time-based forecasting, and dynamic evolution suggestions.
@@ -103,3 +109,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.15.1]: https://github.com/szubster/dexhelper/compare/865e8dc78e9e2cfa07f6701918bee3cdcccea213...3dc1da6168d0b17c3b1c564f6e6984d993c70061
 [0.16.0]: https://github.com/szubster/dexhelper/compare/3dc1da6168d0b17c3b1c564f6e6984d993c70061...7f582cabcd483967a6a690fcab3c015c8bd0d17d
 [0.17.0]: https://github.com/szubster/dexhelper/compare/b98cf70310d80eb9dee58c9e9a05ed9411319a84...49c393b23c3c6d5420ebfc73698b3f54d253a614
+[0.18.0]: https://github.com/szubster/dexhelper/compare/49c393b23c3c6d5420ebfc73698b3f54d253a614...6ea8ef12be096d313b15f4868e61dbdefd4a26c4

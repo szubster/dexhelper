@@ -2,13 +2,13 @@
 id: story-116-474-gen3-wallpaper-app-state-tracking-e2e
 type: STORY
 title: E2E Verification Gen 3 Wallpaper App State Tracking
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-20'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on:
   - story-116-473-gen3-wallpaper-app-state-tracking-impl
-jules_session_id: null
+jules_session_id: '4142660976349760516'
 parent: epic-116-336-gen3-wallpaper-app-state-tracking
 tags:
   - gen3

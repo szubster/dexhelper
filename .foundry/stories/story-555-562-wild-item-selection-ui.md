@@ -2,10 +2,10 @@
 id: story-555-562-wild-item-selection-ui
 type: STORY
 title: Wild Item Selection UI
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 pr_number: null

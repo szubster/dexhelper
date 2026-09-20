@@ -2,10 +2,10 @@
 id: task-526-556-pathfinder-selection-qa
 type: TASK
 title: QA Pathfinder Selection UI
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-06'
-updated_at: '2026-09-06'
+updated_at: '2026-09-20'
 depends_on:
   - task-526-555-pathfinder-selection-tests-impl
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - verify
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-526-554-pathfinder-selection-components-impl
 notes: ''
 locks: []
 ---

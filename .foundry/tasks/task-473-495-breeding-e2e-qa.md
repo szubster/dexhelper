@@ -2,10 +2,10 @@
 id: task-473-495-breeding-e2e-qa
 type: TASK
 title: QA Verify Gen 2 Shiny Breeding E2E Tests
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-09-20'
 depends_on:
   - task-473-494-breeding-e2e-dv-shiny-odds
 jules_session_id: null
@@ -20,8 +20,11 @@ research_references:
   - .foundry/docs/knowledge_base/engine/gen2-breeding.md
   - .foundry/docs/knowledge_base/development/gen2_breeding_dv_overlap.md
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-473-494-breeding-e2e-dv-shiny-odds
 notes: ''
+locks: []
 ---
 
 # QA Verify Gen 2 Shiny Breeding E2E Tests

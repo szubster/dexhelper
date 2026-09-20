@@ -2,14 +2,13 @@
 id: task-490-526-progression-e2e-qa
 type: TASK
 title: QA Progression Tracking E2E Tests
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-20'
 depends_on:
   - task-490-525-progression-switcher-e2e-impl
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-036-490-progression-e2e-verification
 tags:
@@ -19,8 +18,11 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-490-525-progression-switcher-e2e-impl
 notes: ''
+locks: []
 ---
 
 # QA Progression Tracking E2E Tests

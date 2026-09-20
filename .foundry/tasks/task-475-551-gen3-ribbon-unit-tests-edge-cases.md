@@ -2,13 +2,13 @@
 id: task-475-551-gen3-ribbon-unit-tests-edge-cases
 type: TASK
 title: Write Gen 3 Ribbon Unit Tests - Edge Cases
-status: FAILED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on:
   - task-475-550-gen3-ribbon-unit-tests-contest
-jules_session_id: null
+jules_session_id: '12980406592094913606'
 pr_number: null
 parent: story-133-475-gen3-ribbon-unit-tests
 tags:
@@ -17,10 +17,8 @@ tags:
   - data-extraction
   - tests
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

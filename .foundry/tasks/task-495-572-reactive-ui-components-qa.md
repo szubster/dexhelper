@@ -2,27 +2,29 @@
 id: task-495-572-reactive-ui-components-qa
 type: TASK
 title: QA Verification for Reactive UI Components
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
+updated_at: '2026-09-20'
 depends_on:
   - task-495-568-reactive-pokedex-grid-impl
   - task-495-569-reactive-storage-grid-impl
   - task-495-570-reactive-pokemon-details-impl
   - task-495-571-reactive-dashboards-impl
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-425-495-reactive-ui-components
-priority: 50
 tags:
   - ui
   - emulator
   - components
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-495-571-reactive-dashboards-impl
 notes: ''
+locks: []
+priority: 50
 ---
 
 # QA Verification for Reactive UI Components

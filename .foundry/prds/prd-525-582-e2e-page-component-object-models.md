@@ -2,12 +2,12 @@
 id: prd-525-582-e2e-page-component-object-models
 type: PRD
 title: E2E Page & Component Object Models and AI-Optimized Testing Patterns
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-09-18'
-updated_at: '2026-09-18'
+updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3098892815340355249'
 pr_number: null
 parent: idea-525-e2e-page-component-object-models
 priority: 60
@@ -48,4 +48,7 @@ Migrate existing raw DOM interaction-based E2E tests to a Component-Based Object
 - **Architect**: Ensure the custom fixture design is compliant with Playwright best practices and ADRs.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break this PRD down into Epics.
+- [x] Epic Planner: Break this PRD down into Epics.
+- [ ] epic-566-578-e2e-fixtures-setup
+- [ ] epic-566-579-e2e-core-component-models
+- [ ] epic-566-580-e2e-test-migration

@@ -2,10 +2,10 @@
 id: story-425-495-reactive-ui-components
 type: STORY
 title: Reactive UI Components
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-30'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on:
   - story-425-494-reactive-ui-context
 jules_session_id: null

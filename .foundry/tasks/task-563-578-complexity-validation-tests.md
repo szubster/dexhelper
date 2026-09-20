@@ -2,18 +2,17 @@
 id: task-563-578-complexity-validation-tests
 type: TASK
 title: Write unit tests for complexity validation in Foundry Orchestrator
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-14'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 parent: story-552-563-story-to-task-complexity-validation
 tags: []
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_reason: ''
 locks: []
+rejection_count: 1
 ---
 
 # TASK: Write unit tests for complexity validation in Foundry Orchestrator

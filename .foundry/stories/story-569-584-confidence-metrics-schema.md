@@ -2,12 +2,12 @@
 id: story-569-584-confidence-metrics-schema
 type: STORY
 title: Confidence Metrics Schema Implementation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-20'
 updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3960509007889645283'
 pr_number: null
 parent: epic-565-569-agent-confidence-metrics-schema
 tags:

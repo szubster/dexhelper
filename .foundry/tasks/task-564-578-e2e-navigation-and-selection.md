@@ -2,10 +2,10 @@
 id: task-564-578-e2e-navigation-and-selection
 type: TASK
 title: Write E2E Test for Wild Item Navigation and Selection
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-15T06:49:02Z'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,10 +14,8 @@ tags:
   - e2e
   - playwright
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

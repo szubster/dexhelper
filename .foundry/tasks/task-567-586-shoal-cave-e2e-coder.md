@@ -5,7 +5,7 @@ title: Write Playwright E2E Tests for Shoal Cave Dashboard
 status: READY
 owner_persona: coder
 created_at: '2026-09-16T22:50:17Z'
-updated_at: '2026-09-16T22:50:17Z'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,7 +17,7 @@ tags:
   - shoal-cave
   - playwright
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

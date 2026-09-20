@@ -2,10 +2,10 @@
 id: story-522-520-gen2-constants-extraction
 type: STORY
 title: Extract Gen 2 Parser Constants
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 pr_number: null

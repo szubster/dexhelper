@@ -2,10 +2,10 @@
 id: task-363-507-trade-extraction-e2e-retry-impl-2
 type: TASK
 title: NPC Trade Extraction Integration & E2E Implementation (Retry 2)
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-31'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on:
   - research-363-506-investigate-trade-extraction-e2e-failure-2
 jules_session_id: null
@@ -17,10 +17,8 @@ tags:
   - save-parsing
   - e2e
 research_references: []
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

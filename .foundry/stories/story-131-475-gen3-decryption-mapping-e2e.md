@@ -2,13 +2,13 @@
 id: story-131-475-gen3-decryption-mapping-e2e
 type: STORY
 title: Gen 3 Decryption and Mapping E2E
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-09-16'
+updated_at: '2026-09-20'
 depends_on:
   - story-131-474-gen3-substructure-mapping
-jules_session_id: null
+jules_session_id: '3628547113889724780'
 pr_number: null
 parent: epic-097-131-gen3-data-decryption-mapping
 tags:

@@ -5,7 +5,7 @@ title: E2E Verification for Shoal Cave UI Dashboard
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-18'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 pr_number: null

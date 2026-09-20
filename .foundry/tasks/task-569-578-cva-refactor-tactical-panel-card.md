@@ -2,12 +2,12 @@
 id: task-569-578-cva-refactor-tactical-panel-card
 type: TASK
 title: CVA Refactor Tactical Panel and Card
-status: FAILED
+status: ACTIVE
 owner_persona: coder
 created_at: '$(date -u +"%Y-%m-%dT%H:%M:%SZ")'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10588505382578138742'
 pr_number: null
 parent: story-567-569-cva-refactor-tactical-panel-card
 tags:
@@ -18,11 +18,10 @@ tags:
 research_references:
   - .foundry/research/research-145-001-component-variant-libraries.md
   - .foundry/research/research-145-002-component-theming-mechanisms.md
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_reason: ''
 locks: []
 priority: 60
+rejection_count: 1
 ---
 
 # Task: CVA Refactor Tactical Panel and Card
