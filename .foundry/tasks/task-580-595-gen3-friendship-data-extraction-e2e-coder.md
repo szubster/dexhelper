@@ -2,12 +2,12 @@
 id: task-580-595-gen3-friendship-data-extraction-e2e-coder
 type: TASK
 title: Gen 3 Friendship Data Extraction E2E Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-19T11:29:17Z'
-updated_at: '2026-09-19T11:29:17Z'
+updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12903217564027336415'
 pr_number: null
 parent: story-094-580-friendship-data-extraction-e2e
 tags:
