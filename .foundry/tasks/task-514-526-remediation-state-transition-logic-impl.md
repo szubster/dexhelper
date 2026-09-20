@@ -2,7 +2,7 @@
 id: task-514-526-remediation-state-transition-logic-impl
 type: TASK
 title: Implement Remediation State Transition Logic
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-03'
 updated_at: '2026-09-20'
@@ -15,10 +15,8 @@ tags:
   - orchestrator
   - maintenance
 research_references: []
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

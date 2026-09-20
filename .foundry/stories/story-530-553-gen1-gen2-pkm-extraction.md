@@ -2,7 +2,7 @@
 id: story-530-553-gen1-gen2-pkm-extraction
 type: STORY
 title: Gen 1 & Gen 2 PKM Extraction
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-07'
 updated_at: '2026-09-20'
