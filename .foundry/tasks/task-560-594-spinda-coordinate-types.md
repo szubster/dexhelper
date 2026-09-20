@@ -2,12 +2,12 @@
 id: task-560-594-spinda-coordinate-types
 type: TASK
 title: Spinda Coordinate Types and Constants
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5352629985294366965'
 pr_number: null
 parent: story-346-560-spinda-spot-coordinate-algorithm
 tags: []
