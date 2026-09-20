@@ -2,12 +2,12 @@
 id: task-562-576-schema-linter-checkbox-logic-impl
 type: TASK
 title: Implement Markdown Checkbox Parsing Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-12'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13200150065708043220'
 parent: story-552-562-schema-linter-core-logic
 tags:
   - foundry
