@@ -42,7 +42,9 @@ export function DagDashboard() {
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
 
-  const [activeTypes, setActiveTypes] = useState<Set<string>>(new Set(['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK']));
+  const [activeTypes, setActiveTypes] = useState<Set<string>>(
+    new Set(['RESEARCH', 'IDEA', 'ADR', 'PRD', 'EPIC', 'STORY', 'TASK']),
+  );
   const [activeStatuses, setActiveStatuses] = useState<Set<string>>(
     new Set(['PENDING', 'READY', 'ACTIVE', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED']),
   );

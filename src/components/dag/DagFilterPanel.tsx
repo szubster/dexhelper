@@ -12,7 +12,7 @@ export interface DagFilterPanelProps {
   onToggleHeatmap: () => void;
 }
 
-const ALL_TYPES = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK'];
+const ALL_TYPES = ['RESEARCH', 'IDEA', 'ADR', 'PRD', 'EPIC', 'STORY', 'TASK'];
 const ALL_STATUSES = ['PENDING', 'READY', 'ACTIVE', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED'];
 
 // ⚡ Bolt: Wrapped in React.memo to prevent unnecessary re-renders of the filter panel during DAG pan/zoom
