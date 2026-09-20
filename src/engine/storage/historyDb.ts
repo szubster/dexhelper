@@ -1,4 +1,5 @@
 import { type DBSchema, type IDBPDatabase, openDB } from 'idb';
+import { MAX_SAVE_STATES_PER_PLAYTHROUGH } from './constants';
 
 export interface SaveMetadata {
   playthroughId: string;
@@ -144,6 +145,13 @@ export const countSavesForPlaythrough = async (playthroughId: string): Promise<n
 
 export const writeSaveState = async (id: string, saveData: Uint8Array, metadata: SaveMetadata): Promise<void> => {
   try {
+    if (metadata.playthroughId) {
+      const currentCount = await countSavesForPlaythrough(metadata.playthroughId);
+      if (currentCount >= MAX_SAVE_STATES_PER_PLAYTHROUGH) {
+        throw new Error('Maximum number of save states reached for this playthrough');
+      }
+    }
+
     const db = await initHistoryDb();
     const tx = db.transaction(['saves', 'metadata'], 'readwrite');
 

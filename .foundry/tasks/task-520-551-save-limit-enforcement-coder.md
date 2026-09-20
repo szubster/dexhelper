@@ -25,4 +25,4 @@ locks: []
 Enforce the maximum save limit before allowing new save states to be written.
 
 ## Acceptance Criteria
-- [ ] Update writeSaveState (or similar flow) to check the current count against the limit.
+- [x] Update writeSaveState (or similar flow) to check the current count against the limit.
