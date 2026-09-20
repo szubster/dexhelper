@@ -2,13 +2,13 @@
 id: task-498-529-tpm-aggregation-qa
 type: TASK
 title: TPM Aggregation and Archival QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-03'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on:
   - task-498-528-tpm-aggregation-tests
-jules_session_id: null
+jules_session_id: '8710736005272209679'
 pr_number: null
 parent: story-406-498-tpm-aggregation-and-archival
 tags:
