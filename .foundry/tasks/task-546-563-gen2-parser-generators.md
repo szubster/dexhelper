@@ -36,6 +36,6 @@ Per ADR 154, we need to aggressively adopt TypeScript generator functions (`func
 - Ensure the new generators compile and test correctly under Node.js native type stripping (no TS enums/namespaces).
 
 ## Acceptance Criteria
-- [ ] Implement `function*` protocols for Gen 2 party and PC box parsing functions.
-- [ ] Rename the parsed array functions to `iterate...`
-- [ ] Update the main `parseGen2` functions to accumulate the yielded items into arrays to maintain the `SaveData` contract.
+- [x] Implement `function*` protocols for Gen 2 party and PC box parsing functions.
+- [x] Rename the parsed array functions to `iterate...`
+- [x] Update the main `parseGen2` functions to accumulate the yielded items into arrays to maintain the `SaveData` contract.
