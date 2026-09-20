@@ -35,5 +35,5 @@ When berries are blended in Gen 3, the resulting Pokéblock's flavors and feel a
 - Write unit tests covering various blending scenarios.
 
 ## Acceptance Criteria
-- [ ] Implement Pokéblock blending math functions.
-- [ ] Write unit tests for blending calculations.
+- [x] Implement Pokéblock blending math functions.
+- [x] Write unit tests for blending calculations.
