@@ -33,3 +33,5 @@ Based on PRD-521, we need to allow agents to self-report their confidence levels
 
 ## Acceptance Criteria
 - [ ] Decompose into tasks.
+- [ ] task-584-599-confidence-metrics-schema
+- [ ] task-584-600-confidence-metrics-schema-qa
