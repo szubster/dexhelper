@@ -2,12 +2,12 @@
 id: epic-566-578-e2e-fixtures-setup
 type: EPIC
 title: E2E Custom Playwright Fixtures Setup
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-20'
 updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7687305632585448858'
 pr_number: null
 parent: prd-525-582-e2e-page-component-object-models
 priority: 60
