@@ -25,3 +25,4 @@
 | [task-560-578-pokerus-ui-badges-impl](.foundry/tasks/task-560-578-pokerus-ui-badges-impl.md) | TASK | Pokerus UI Badges Implementation | coder | [13172193764763044017](https://jules.google.com/session/13172193764763044017) |
 | [task-562-581-gen2-moms-savings-logic](.foundry/tasks/task-562-581-gen2-moms-savings-logic.md) | TASK | Implement Gen 2 Mom's Savings Threshold Logic & Tests | coder | [11762460996498962145](https://jules.google.com/session/11762460996498962145) |
 | [task-563-582-map-data-extraction-logic](.foundry/tasks/task-563-582-map-data-extraction-logic.md) | TASK | Gen 3 Map Data Extraction Logic | coder | [5102091378696032292](https://jules.google.com/session/5102091378696032292) |
+| [task-569-578-cva-refactor-tactical-panel-card](.foundry/tasks/task-569-578-cva-refactor-tactical-panel-card.md) | TASK | CVA Refactor Tactical Panel and Card | coder | [10588505382578138742](https://jules.google.com/session/10588505382578138742) |
