@@ -27,5 +27,5 @@ locks: []
 Validate the Vitest browser mode migration.
 
 ## Acceptance Criteria
-- [ ] Verify test suite runs successfully in CI.
-- [ ] Check coverage reports.
+- [x] Verify test suite runs successfully in CI.
+- [x] Check coverage reports.
