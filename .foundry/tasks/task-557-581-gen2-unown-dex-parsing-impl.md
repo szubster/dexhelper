@@ -28,6 +28,6 @@ Research confirms the following WRAM offsets for `wUnownDex`:
 - Crystal: `0x2AA9` (32 bytes after `POKEDEX_SEEN_OFFSET_CRYSTAL`)
 
 ## Acceptance Criteria
-- [ ] Add an `unownDex` property to the `Gen2SaveData` interface in `src/engine/saveParser/parsers/common.ts` (e.g., `unownDex?: number[]`).
-- [ ] Implement parsing logic in `src/engine/saveParser/parsers/gen2.ts` to extract the 26-byte array for the caught Unown forms, using the correct offsets for GS and Crystal.
-- [ ] Adhere to the Save File Parsing constraints (Schema Document Section 13), defining module-level constants for offsets and bounds.
+- [x] Add an `unownDex` property to the `Gen2SaveData` interface in `src/engine/saveParser/parsers/common.ts` (e.g., `unownDex?: number[]`).
+- [x] Implement parsing logic in `src/engine/saveParser/parsers/gen2.ts` to extract the 26-byte array for the caught Unown forms, using the correct offsets for GS and Crystal.
+- [x] Adhere to the Save File Parsing constraints (Schema Document Section 13), defining module-level constants for offsets and bounds.

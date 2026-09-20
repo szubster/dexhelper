@@ -381,6 +381,8 @@ export interface Gen2SaveData extends BaseSaveData {
   johtoBadges?: number;
   /** Gen 2 specific: The number of Kanto gym badges obtained. */
   kantoBadges?: number;
+  /** Gen 2 specific: Unown Dex showing caught forms. */
+  unownDex?: number[];
   /** Gen 2 specific: Static encounter event flags. */
   gen2StaticEncounters?: {
     sudowoodo: boolean;
