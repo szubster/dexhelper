@@ -2,12 +2,12 @@
 id: task-560-584-gen3-pokemon-condition-parsing-impl
 type: TASK
 title: Implement Gen 3 Pokémon Condition Parsing
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-16T19:33:31Z'
-updated_at: '2026-09-16T19:33:31Z'
+updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4468527789683383132'
 pr_number: null
 parent: story-540-560-gen3-berry-pouch-and-pokemon-parsing
 tags:
