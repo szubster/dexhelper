@@ -199,3 +199,34 @@ test('DagNode applies permanent failure styles when rejection_count >= 3', async
   await expect.element(node).toHaveClass('border-2');
   await expect.element(page.getByTitle('Permanent Failure')).toBeInTheDocument();
 });
+
+test('DagNode applies permanent failure styles to CANCELLED nodes when rejection_count >= 3', async () => {
+  const data = {
+    id: 'test-task-002',
+    label: 'test-task-002',
+    type: 'TASK',
+    owner_persona: 'coder',
+    status: 'CANCELLED',
+    rejection_count: 3,
+  };
+
+  const nodes = [
+    {
+      id: 'test-task-002',
+      type: 'custom',
+      data,
+      position: { x: 0, y: 0 },
+    },
+  ];
+
+  await render(
+    <div style={{ width: '500px', height: '500px' }}>
+      <ReactFlow nodes={nodes} nodeTypes={nodeTypes} />
+    </div>,
+  );
+
+  const node = page.getByTestId('dag-node');
+  await expect.element(node).toHaveClass('border-red-500');
+  await expect.element(node).toHaveClass('border-2');
+  await expect.element(page.getByTitle('Permanent Failure')).toBeInTheDocument();
+});
