@@ -41,5 +41,5 @@ Create a utility function to determine the progression toward room decoration th
 - Write comprehensive unit tests for this utility function using Vitest.
 
 ## Acceptance Criteria
-- [ ] Utility function and constants are defined and exported.
-- [ ] Unit tests are written and pass.
+- [x] Utility function and constants are defined and exported.
+- [x] Unit tests are written and pass.
