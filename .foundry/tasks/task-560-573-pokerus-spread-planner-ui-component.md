@@ -28,9 +28,9 @@ locks: []
 Implement the visual presentation component for the Pokerus Spread Planner using the `usePokerusSpreadPlanner` hook.
 
 ## Acceptance Criteria
-- [ ] Create a `PokerusSpreadPlanner` component displaying a list of party Pokemon.
-- [ ] Utilize the `usePokerusSpreadPlanner` hook to manage the party order and spread calculations.
-- [ ] Render the `PokerusBadge` for each Pokemon to visualize current strain and contagious state.
-- [ ] Provide visual indicators for optimal placement of infected Pokemon (adjacent slots).
-- [ ] Display a countdown or warning indicating when the game clock approaches midnight.
-- [ ] Ensure styling complies with the tactical aesthetic (ADR 008, e.g. sharp corners, dashed borders, monospace fonts).
+- [x] Create a `PokerusSpreadPlanner` component displaying a list of party Pokemon.
+- [x] Utilize the `usePokerusSpreadPlanner` hook to manage the party order and spread calculations.
+- [x] Render the `PokerusBadge` for each Pokemon to visualize current strain and contagious state.
+- [x] Provide visual indicators for optimal placement of infected Pokemon (adjacent slots).
+- [x] Display a countdown or warning indicating when the game clock approaches midnight.
+- [x] Ensure styling complies with the tactical aesthetic (ADR 008, e.g. sharp corners, dashed borders, monospace fonts).

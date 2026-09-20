@@ -29,6 +29,10 @@ const PokemonCaughtDetails = React.lazy(() =>
   import('./pokemon/details/PokemonCaughtDetails').then((m) => ({ default: m.PokemonCaughtDetails })),
 );
 
+const PokerusSpreadPlanner = React.lazy(() =>
+  import('./PokerusSpreadPlanner').then((m) => ({ default: m.PokerusSpreadPlanner })),
+);
+
 import { ScanlineOverlay } from './ScanlineOverlay';
 import { ShinyBadge } from './ShinyBadge';
 import { TacticalIconButton } from './TacticalIconButton';
@@ -382,6 +386,13 @@ export function PokemonDetails({
             <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
               <PokemonCaughtDetails yourPokemon={yourPokemon} />
             </React.Suspense>
+
+            {saveData?.partyDetails?.some((p) => p.pokerus) && (
+              <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
+                <PokerusSpreadPlanner initialParty={saveData.partyDetails} />
+              </React.Suspense>
+            )}
+
             {pokemonId === 201 && saveData?.generation === 2 && <UnownDexPanel yourPokemon={yourPokemon} />}
 
             <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
