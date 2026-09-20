@@ -27,4 +27,6 @@ locks: []
 This story focuses on parsing the Gen 2 save state to extract the basic data of the currently caught Bug-Catching Contest Pokémon, including its Species ID, Level, Current HP, and Max HP.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-521-602-gen2-bug-catching-contest-core-data-impl
+- [ ] task-521-603-gen2-bug-catching-contest-core-data-qa
