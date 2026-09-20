@@ -2,7 +2,7 @@
 id: task-479-576-gen3-pokeblock-e2e-impl
 type: TASK
 title: Implement Gen 3 Pokéblock E2E Tests
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-14'
 updated_at: '2026-09-20'
@@ -17,8 +17,8 @@ tags:
   - playwright
 research_references:
   - .foundry/docs/knowledge_base/gen3_pokeblock_offsets.md
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

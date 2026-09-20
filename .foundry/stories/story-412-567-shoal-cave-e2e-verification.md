@@ -2,7 +2,7 @@
 id: story-412-567-shoal-cave-e2e-verification
 type: STORY
 title: E2E Verification for Shoal Cave UI Dashboard
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
 updated_at: '2026-09-20'

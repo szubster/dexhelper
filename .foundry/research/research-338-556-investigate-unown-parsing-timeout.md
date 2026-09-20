@@ -2,12 +2,12 @@
 id: research-338-556-investigate-unown-parsing-timeout
 type: RESEARCH
 title: Investigate Gen 2 Unown Parsing Timeout
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-07'
-updated_at: '2026-09-17'
+updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: '850822741720419090'
+jules_session_id: null
 parent: epic-118-338-gen2-unown-dex-data-extraction
 tags:
   - feature

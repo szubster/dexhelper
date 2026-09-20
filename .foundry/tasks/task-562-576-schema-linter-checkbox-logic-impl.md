@@ -2,7 +2,7 @@
 id: task-562-576-schema-linter-checkbox-logic-impl
 type: TASK
 title: Implement Markdown Checkbox Parsing Logic
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-12'
 updated_at: '2026-09-20'
@@ -12,10 +12,8 @@ parent: story-552-562-schema-linter-core-logic
 tags:
   - foundry
   - linting
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---
