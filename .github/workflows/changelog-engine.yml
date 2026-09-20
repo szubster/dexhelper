@@ -2,7 +2,7 @@ name: Changelog Engine
 
 on:
   schedule:
-    - cron: '0 * * * *' # Hourly sync
+    - cron: '27 * * * *' # Hourly sync
   workflow_dispatch:
   push:
     branches:
