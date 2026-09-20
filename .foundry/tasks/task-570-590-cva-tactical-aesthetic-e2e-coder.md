@@ -30,6 +30,6 @@ As part of the CVA and theme setup verification, we need to ensure that the tact
 Update or write Playwright E2E tests to validate that components like TacticalButton and TacticalBadge maintain their tactical aesthetic (sharp edges, dashed borders, monospaced fonts) under different CVA variants.
 
 ## Acceptance Criteria
-- [ ] Write/update E2E tests for TacticalButton and TacticalBadge variants in `tests/e2e/tactical-utilities.spec.ts` or a new file.
-- [ ] Tests must ensure that the tactical aesthetic described in ADR 008 is correctly applied for each variant.
-- [ ] Tests must pass successfully.
+- [x] Write/update E2E tests for TacticalButton and TacticalBadge variants in `tests/e2e/tactical-utilities.spec.ts` or a new file.
+- [x] Tests must ensure that the tactical aesthetic described in ADR 008 is correctly applied for each variant.
+- [x] Tests must pass successfully.
