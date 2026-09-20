@@ -2,7 +2,7 @@
 id: story-313-564-gen2-room-decoration-integration-e2e
 type: STORY
 title: Gen 2 Room Decoration Integration & E2E
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-10'
 updated_at: '2026-09-20'

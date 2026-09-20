@@ -2,7 +2,7 @@
 id: research-477-564-investigate-apricorn-offsets-failure
 type: RESEARCH
 title: Investigate Failure of Kurt Apricorn Offsets Research
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-09-08'
 updated_at: '2026-09-20'
@@ -14,10 +14,8 @@ tags:
   - gen2
   - items
   - offsets
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

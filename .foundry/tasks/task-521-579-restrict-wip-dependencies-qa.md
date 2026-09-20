@@ -2,10 +2,10 @@
 id: task-521-579-restrict-wip-dependencies-qa
 type: TASK
 title: Verify orchestrator constraints for DRAFT and WIP dependencies
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-03'
-updated_at: '2026-09-16'
+updated_at: '2026-09-20'
 depends_on:
   - task-521-578-restrict-wip-dependencies-impl
 jules_session_id: null
@@ -15,8 +15,8 @@ tags:
   - foundry
   - orchestrator
   - wip
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # Verify orchestrator constraints for DRAFT and WIP dependencies

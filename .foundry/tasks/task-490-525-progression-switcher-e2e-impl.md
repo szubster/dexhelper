@@ -2,7 +2,7 @@
 id: task-490-525-progression-switcher-e2e-impl
 type: TASK
 title: Progression UI Context Switcher E2E Tests
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-03'
 updated_at: '2026-09-20'
@@ -17,10 +17,8 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

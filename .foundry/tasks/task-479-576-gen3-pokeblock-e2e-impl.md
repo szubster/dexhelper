@@ -2,12 +2,12 @@
 id: task-479-576-gen3-pokeblock-e2e-impl
 type: TASK
 title: Implement Gen 3 Pokéblock E2E Tests
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-14'
 updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: '16556462380603896584'
+jules_session_id: null
 pr_number: null
 parent: story-400-479-gen3-pokeblock-parsing-e2e
 tags:
@@ -18,7 +18,7 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/gen3_pokeblock_offsets.md
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---

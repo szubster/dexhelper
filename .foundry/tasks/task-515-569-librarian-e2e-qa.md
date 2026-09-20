@@ -2,7 +2,7 @@
 id: task-515-569-librarian-e2e-qa
 type: TASK
 title: QA - Librarian E2E Pipeline Verification
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-09-12'
 updated_at: '2026-09-20'
@@ -19,8 +19,8 @@ tags:
   - librarian
   - qa
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 experiment_variants: []
 locks: []

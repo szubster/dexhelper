@@ -2,12 +2,12 @@
 id: task-521-578-restrict-wip-dependencies-impl
 type: TASK
 title: Implement orchestrator constraints for DRAFT and WIP dependencies
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-03'
 updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: '5205959810941989623'
+jules_session_id: null
 pr_number: null
 parent: story-520-521-restrict-downstream-dependencies
 tags:

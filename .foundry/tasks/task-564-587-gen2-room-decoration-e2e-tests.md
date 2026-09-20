@@ -2,20 +2,22 @@
 id: task-564-587-gen2-room-decoration-e2e-tests
 type: TASK
 title: Gen 2 Room Decoration E2E Tests
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '$(date -u +"%Y-%m-%dT%H:%M:%SZ")'
 updated_at: '2026-09-20'
 depends_on:
   - task-564-586-gen2-room-decoration-route-integration
-jules_session_id: '1206849143214071398'
+jules_session_id: null
 parent: story-313-564-gen2-room-decoration-integration-e2e
 tags:
   - e2e
   - integration
-rejection_reason: ''
-locks: []
 rejection_count: 1
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
+locks: []
 ---
 
 # Task: Gen 2 Room Decoration E2E Tests
