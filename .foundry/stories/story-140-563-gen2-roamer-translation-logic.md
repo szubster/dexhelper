@@ -34,4 +34,6 @@ Implement the logic to consume raw `mapGroup` and `mapId` values and output tran
 ## Acceptance Criteria
 - [ ] Translation function successfully maps valid `mapGroup` and `mapId` to route names.
 - [ ] Fallback string "Unknown Location" is returned for invalid or unmapped coordinates.
-- [ ] Tech Lead: Break down into executable Tasks.
+- [x] Tech Lead: Break down into executable Tasks.
+- [ ] task-563-602-gen2-roamer-translation-implementation
+- [ ] task-563-603-gen2-roamer-translation-tests
