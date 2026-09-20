@@ -36,4 +36,6 @@ Establish the foundational custom Playwright fixtures required to auto-inject Co
 ## Acceptance Criteria
 - [ ] Base Playwright test extension is implemented.
 - [ ] Shared setup preconditions are available via fixtures.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-578-586-create-playwright-fixtures-definition
+- [ ] story-578-587-e2e-fixtures-integration-verification
