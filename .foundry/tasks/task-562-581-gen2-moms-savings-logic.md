@@ -2,12 +2,12 @@
 id: task-562-581-gen2-moms-savings-logic
 type: TASK
 title: Implement Gen 2 Mom's Savings Threshold Logic & Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-15T11:52:50Z'
-updated_at: '2026-09-15T11:52:50Z'
+updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11762460996498962145'
 pr_number: null
 parent: story-312-562-gen2-mom-savings-tracker-ui-core
 tags:
