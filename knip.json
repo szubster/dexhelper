@@ -24,6 +24,7 @@
     ".github/scripts/update-idea-matrix.ts",
     "src/engine/saveParser/parsers/gen2.ts",
     ".github/scripts/schema.ts",
+    ".github/scripts/session-api.ts",
     ".github/scripts/blocked-diagnosis.ts",
     "src/utils/hof/index.ts",
     ".github/scripts/generate-statistics.ts",

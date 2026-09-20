@@ -24,5 +24,5 @@ locks: []
 The original story for parsing Gen 2 caught Unown forms (`story-338-477-gen2-unown-dex-parsing`) failed permanently due to a session timeout. We need to investigate why this implementation timed out or stalled and determine if there are any specific blockers, missing offsets, or missing documentation.
 
 ## Acceptance Criteria
-- [ ] Investigate the failure of `story-338-477-gen2-unown-dex-parsing`.
-- [ ] Document findings and define the corrected path forward for the implementation.
+- [x] Investigate the failure of `story-338-477-gen2-unown-dex-parsing`.
+- [x] Document findings and define the corrected path forward for the implementation.
