@@ -2,10 +2,10 @@
 id: task-560-579-pokerus-ui-badges-tests
 type: TASK
 title: Pokerus UI Badges Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-10'
-updated_at: '2026-09-16'
+updated_at: '2026-09-20'
 depends_on:
   - task-560-578-pokerus-ui-badges-impl
 jules_session_id: null

@@ -2,13 +2,13 @@
 id: task-536-564-playwright-style-guide-mock-utils
 type: TASK
 title: Document Mock Utilities
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-07'
 updated_at: '2026-09-20'
 depends_on:
   - task-536-563-playwright-style-guide-ismobile
-jules_session_id: '10633974650662281280'
+jules_session_id: null
 pr_number: null
 parent: story-531-536-write-playwright-style-guide
 tags:

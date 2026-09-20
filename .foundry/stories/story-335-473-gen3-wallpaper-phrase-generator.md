@@ -2,10 +2,10 @@
 id: story-335-473-gen3-wallpaper-phrase-generator
 type: STORY
 title: Gen 3 Wallpaper Phrase Generator Logic
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-09-11'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 parent: epic-116-335-gen3-wallpaper-phrase-generation-engine
@@ -36,7 +36,7 @@ In Generation 3 games, players can unlock 16 unique PC box wallpapers by giving 
 ## Acceptance Criteria
 - [x] Tech Lead: Draft TASK blueprints for the implementation and testing of the phrase generator.
 - [x] task-473-498-gen3-wallpaper-phrase-generator-impl
-- [ ] research-473-564-investigate-wallpaper-generator-failure
-- [ ] task-473-565-gen3-wallpaper-phrase-generator-impl-retry
+- [x] research-473-564-investigate-wallpaper-generator-failure
+- [x] task-473-565-gen3-wallpaper-phrase-generator-impl-retry
 - [x] task-473-499-gen3-wallpaper-phrase-generator-qa
-- [ ] task-473-566-gen3-wallpaper-phrase-generator-qa-retry
+- [x] task-473-566-gen3-wallpaper-phrase-generator-qa-retry

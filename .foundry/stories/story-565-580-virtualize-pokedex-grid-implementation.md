@@ -2,12 +2,12 @@
 id: story-565-580-virtualize-pokedex-grid-implementation
 type: STORY
 title: Virtualize PokedexGrid Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-18'
 updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: '1203575017942442389'
+jules_session_id: null
 pr_number: null
 parent: epic-564-565-pokedex-grid-virtualization
 tags:

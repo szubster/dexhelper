@@ -2,7 +2,7 @@
 id: task-584-600-confidence-metrics-schema-qa
 type: TASK
 title: QA Verification for confidence_score Schema
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-20'
 updated_at: '2026-09-20'

@@ -2,12 +2,12 @@
 id: task-560-578-pokerus-ui-badges-impl
 type: TASK
 title: Pokerus UI Badges Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-10'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: '13172193764763044017'
+jules_session_id: null
 pr_number: null
 parent: story-412-560-pokerus-ui-badges
 tags:

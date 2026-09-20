@@ -2,26 +2,28 @@
 id: task-519-548-dashboard-refactoring-qa
 type: TASK
 title: QA Verification for Dashboard Refactoring
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-03T13:29:59.884Z'
-updated_at: '2026-09-05'
+updated_at: '2026-09-20'
 depends_on:
   - task-519-546-dashboard-layouts-coder
   - task-519-547-trackers-radars-coder
 jules_session_id: null
 pr_number: null
 parent: story-125-519-refactor-complex-dashboard
-priority: 100
 tags:
   - styling
   - qa
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-519-547-trackers-radars-coder
 notes: ''
 locks: []
+priority: 100
 ---
 
 # Task: QA Verification for Dashboard Refactoring

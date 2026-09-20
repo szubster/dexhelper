@@ -2,12 +2,12 @@
 id: research-412-563-investigate-feebas-e2e-timeout
 type: RESEARCH
 title: Investigate Feebas E2E Timeout
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: $(date -I)
-updated_at: '2026-09-14'
+updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: '9754402577589903801'
+jules_session_id: null
 pr_number: null
 parent: story-058-412-feebas-parsing-e2e
 tags:

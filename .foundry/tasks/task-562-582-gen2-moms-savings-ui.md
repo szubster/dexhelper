@@ -2,10 +2,10 @@
 id: task-562-582-gen2-moms-savings-ui
 type: TASK
 title: Update Gen 2 Mom's Savings Dashboard UI
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-15T11:52:50Z'
-updated_at: '2026-09-15T11:52:50Z'
+updated_at: '2026-09-20'
 depends_on:
   - task-562-581-gen2-moms-savings-logic
 jules_session_id: null

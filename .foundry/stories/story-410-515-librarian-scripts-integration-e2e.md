@@ -2,7 +2,7 @@
 id: story-410-515-librarian-scripts-integration-e2e
 type: STORY
 title: Librarian Scripts Integration and E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-01'
 updated_at: '2026-09-20'
@@ -34,6 +34,6 @@ locks: []
 The goal of this story is to perform end-to-end integration testing of the librarian scripts (ingestion, synthesis, documentation update, and garbage collection) to ensure they form a cohesive pipeline.
 
 ## Acceptance Criteria
-- [ ] Verify all librarian scripts run together seamlessly in a complete pipeline.
-- [ ] task-515-568-librarian-e2e-tests
-- [ ] task-515-569-librarian-e2e-qa
+- [x] Verify all librarian scripts run together seamlessly in a complete pipeline.
+- [x] task-515-568-librarian-e2e-tests
+- [x] task-515-569-librarian-e2e-qa

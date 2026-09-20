@@ -2,10 +2,10 @@
 id: task-136-532-permanent-failure-dashboard-qa-v2
 type: TASK
 title: Permanent Failure Dashboard UI QA (v2)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-20'
 depends_on:
   - task-136-490-permanent-failure-flow-ui-impl
   - task-136-531-permanent-failure-kanban-ui-impl-v2

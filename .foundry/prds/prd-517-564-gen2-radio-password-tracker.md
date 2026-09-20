@@ -2,10 +2,10 @@
 id: prd-517-564-gen2-radio-password-tracker
 type: PRD
 title: Gen 2 Buena's Password Tracker
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-09-08'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 parent: idea-517-gen2-radio-password-tracker
@@ -24,4 +24,4 @@ Define the requirements for tracking Buena's Password daily event in Gen 2, incl
 3. **Alerts**: Determine when to show alerts (6 PM to Midnight real-world time).
 
 ## Acceptance Criteria
-- [ ] research-564-565-buena-password-offsets
+- [x] research-564-565-buena-password-offsets

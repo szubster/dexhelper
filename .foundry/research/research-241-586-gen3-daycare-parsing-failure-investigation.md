@@ -2,12 +2,12 @@
 id: research-241-586-gen3-daycare-parsing-failure-investigation
 type: RESEARCH
 title: Investigate Gen 3 Daycare Parsing Failure Root Cause
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-16T22:40:14Z'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: '1917414865949210435'
+jules_session_id: null
 pr_number: null
 parent: story-105-241-daycare-gen3-parsing
 tags:

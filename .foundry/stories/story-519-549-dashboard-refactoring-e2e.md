@@ -2,24 +2,26 @@
 id: story-519-549-dashboard-refactoring-e2e
 type: STORY
 title: Integration and E2E Verification for Dashboard Refactoring
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-09-03T13:29:59.884Z'
-updated_at: '2026-09-05'
+updated_at: '2026-09-20'
 depends_on:
   - task-519-548-dashboard-refactoring-qa
 jules_session_id: null
 pr_number: null
 parent: story-125-519-refactor-complex-dashboard
-priority: 100
 tags:
   - e2e
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-519-547-trackers-radars-coder
 notes: ''
 locks: []
+priority: 100
 ---
 
 # Story: Integration and E2E Verification for Dashboard Refactoring

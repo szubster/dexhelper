@@ -2,7 +2,7 @@
 id: task-519-547-trackers-radars-coder
 type: TASK
 title: Refactor Specialized Tracker and Radar Components
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-03T13:29:59.884Z'
 updated_at: '2026-09-20'
@@ -15,8 +15,8 @@ tags:
   - refactor
   - ui
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 priority: 100

@@ -2,12 +2,12 @@
 id: prd-525-582-e2e-page-component-object-models
 type: PRD
 title: E2E Page & Component Object Models and AI-Optimized Testing Patterns
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-18'
 updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: '3098892815340355249'
+jules_session_id: null
 pr_number: null
 parent: idea-525-e2e-page-component-object-models
 priority: 60
