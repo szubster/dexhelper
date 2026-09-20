@@ -25,5 +25,5 @@ The goal is to update the schema validation script (`scripts/validate-foundry-sc
 Other formats like `* [ ]`, `-[]`, or `- [  ]` should trigger a validation error. This ensures strict compliance with ADR 007 regarding acceptance criteria formatting.
 
 ## Acceptance Criteria
-- [ ] Parse each line of the markdown files inside `validateSchema` to check for any checkbox syntax (`[-*+] \[[ xX]?\]`).
-- [ ] If a checkbox syntax is found, enforce that it strictly matches exactly `^\s*- \[( |x)\] `. If it does not, throw a validation error detailing the file and line.
+- [x] Parse each line of the markdown files inside `validateSchema` to check for any checkbox syntax (`[-*+] \[[ xX]?\]`).
+- [x] If a checkbox syntax is found, enforce that it strictly matches exactly `^\s*- \[( |x)\] `. If it does not, throw a validation error detailing the file and line.
