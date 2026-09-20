@@ -1,8 +1,10 @@
 import { X } from 'lucide-react';
+import { useState } from 'react';
 import { saveDB } from '../db/SaveDB';
 import { useStore } from '../store';
 import { getGenerationConfig, POKEBALL_LABELS } from '../utils/generationConfig';
 import { ClearStorageButton } from './settings/ClearStorageButton';
+import { FeatureFlagsUI } from './settings/FeatureFlagsUI';
 import { SettingsControls } from './settings/SettingsControls';
 import { SettingsLegend } from './settings/SettingsLegend';
 import { TacticalButton } from './TacticalButton';
@@ -10,6 +12,8 @@ import { TacticalModal } from './TacticalModal';
 import { TelemetryDecoration } from './TelemetryDecoration';
 
 export function SettingsModal() {
+  const [devClickCount, setDevClickCount] = useState(0);
+
   const isSettingsOpen = useStore((s) => s.isSettingsOpen);
   const setIsSettingsOpen = useStore((s) => s.setIsSettingsOpen);
   const saveData = useStore((s) => s.saveData);
@@ -44,7 +48,13 @@ export function SettingsModal() {
 
       <div className="flex items-center justify-between border-zinc-800 border-b border-dashed p-8 pt-10">
         <div>
-          <h2 className="font-black font-mono text-2xl uppercase tracking-tighter">SYS.CONFIG</h2>
+          <button
+            type="button"
+            className="cursor-pointer select-none border-none bg-transparent p-0 text-left"
+            onClick={() => setDevClickCount((c) => c + 1)}
+          >
+            <h2 className="font-black font-mono text-2xl uppercase tracking-tighter">SYS.CONFIG</h2>
+          </button>
           <p className="tactical-text mt-1 font-bold text-[10px] text-zinc-500">Configure your experience</p>
         </div>
         <TacticalButton
@@ -79,6 +89,7 @@ export function SettingsModal() {
             setIsSettingsOpen(false);
           }}
         />
+        {devClickCount >= 5 && <FeatureFlagsUI />}
       </div>
     </TacticalModal>
   );
