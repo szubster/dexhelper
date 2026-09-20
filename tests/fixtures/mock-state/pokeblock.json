@@ -1,0 +1,9 @@
+{
+  "gen3Pokeblocks": [
+    { "color": 1, "spicy": 10, "dry": 0, "sweet": 0, "bitter": 0, "sour": 0, "feel": 20 },
+    { "color": 2, "spicy": 0, "dry": 10, "sweet": 0, "bitter": 0, "sour": 0, "feel": 20 }
+  ],
+  "inventory": [{ "itemId": 133, "quantity": 5 }, { "itemId": 134, "quantity": 5 }],
+  "gameVersion": "emerald",
+  "isGen3": true
+}

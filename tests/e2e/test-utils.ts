@@ -75,6 +75,47 @@ export async function waitForSync(page: Page) {
   await page.waitForTimeout(1000);
 }
 
+export async function injectMockState(page: Page, mockStateOrPath: string | object) {
+  let mockState: object;
+  if (typeof mockStateOrPath === 'string') {
+    mockState = JSON.parse(fs.readFileSync(mockStateOrPath, 'utf8'));
+  } else {
+    mockState = mockStateOrPath;
+  }
+
+  await page.evaluate(async (state) => {
+    // Inject mock state into SaveDB indexedDB.
+    const pokedbReq = indexedDB.open('SaveDB', 2);
+    const pokedb = await new Promise<IDBDatabase>((resolve, reject) => {
+      pokedbReq.onupgradeneeded = (event) => {
+        const db = (event.target as IDBOpenDBRequest).result;
+        if (!db.objectStoreNames.contains('saves')) {
+          db.createObjectStore('saves');
+        }
+      };
+      pokedbReq.onsuccess = () => resolve(pokedbReq.result);
+      pokedbReq.onerror = () => reject(pokedbReq.error);
+    });
+
+    const tx = pokedb.transaction(['saves'], 'readwrite');
+    const store = tx.objectStore('saves');
+
+    // Retrieve the existing save, and merge our mock state into it
+    const existingSave = await new Promise<Record<string, unknown>>((resolve, reject) => {
+      const getReq = store.get('current_save');
+      getReq.onsuccess = () => resolve(getReq.result || { gameVersion: 'emerald', isGen3: true });
+      getReq.onerror = () => reject(getReq.error);
+    });
+
+    const updatedSave = { ...existingSave, ...state };
+    await new Promise<void>((resolve, reject) => {
+      const putReq = store.put(updatedSave, 'current_save');
+      putReq.onsuccess = () => resolve();
+      putReq.onerror = () => reject(putReq.error);
+    });
+  }, mockState);
+}
+
 export async function clearStorage(page: Page) {
   await page.goto('.');
   await page.evaluate(async () => {

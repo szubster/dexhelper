@@ -31,5 +31,5 @@ We need mock save file data to reliably test the Pokéblock Recipe Optimizer usi
 Create the necessary save file fixtures (`.sav`) and/or mock state utilities in `tests/fixtures/` specifically tailored for Gen 3 Pokéblock generation (e.g., ensuring a known set of berries are available in the bag).
 
 ## Acceptance Criteria
-- [ ] Create at least one save file fixture or mock state that includes the necessary inventory (berries) and conditions for Pokéblock generation in Gen 3.
-- [ ] Document the contents of the fixture for the E2E implementation task.
+- [x] Create at least one save file fixture or mock state that includes the necessary inventory (berries) and conditions for Pokéblock generation in Gen 3.
+- [x] Document the contents of the fixture for the E2E implementation task.

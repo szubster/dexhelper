@@ -66,3 +66,6 @@ This directory contains all save fixtures used for parsing and integration testi
 
 - **emerald-egg.sav** (Version: emerald)
   - Original: `./tests/fixtures/saves/gen3/emerald_egg_fixture.sav`
+
+- **mock-state/pokeblock.json** (Mock Data)
+  - Purpose: Provides a mock JSON state containing `gen3Pokeblocks` and required inventory (berries) conditions for Playwright E2E testing of the Pokéblock Optimizer feature.
