@@ -5,7 +5,7 @@ title: Gen 2 Shiny Breeding Logic E2E Integration
 status: READY
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on:
   - story-309-001-gender-calculation-engine
   - story-309-002-dv-overlap-constraint

@@ -2,10 +2,10 @@
 id: story-540-562-gen3-pokeblock-recommendation-engine
 type: STORY
 title: Gen 3 Pokéblock Recommendation Engine
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,14 +2,13 @@
 id: task-473-495-gen3-condition-stats-qa
 type: TASK
 title: QA Gen 3 Contest Condition Stats Extraction
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-25'
-updated_at: '2026-08-25'
+updated_at: '2026-09-20'
 depends_on:
   - task-473-494-gen3-condition-stats-parser
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-134-473-gen3-condition-stats-extraction-impl
 tags:
@@ -18,8 +17,11 @@ tags:
   - data-extraction
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-473-494-gen3-condition-stats-parser
 notes: ''
+locks: []
 ---
 
 # QA Gen 3 Contest Condition Stats Extraction

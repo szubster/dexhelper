@@ -2,10 +2,10 @@
 id: task-512-518-qa-idempotent-bypass
 type: TASK
 title: QA Idempotent Orchestrator Bypass
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-09-02'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on:
   - task-512-517-implement-idempotent-bypass
 jules_session_id: null
@@ -15,10 +15,8 @@ tags:
   - orchestrator
   - typescript
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

@@ -2,10 +2,10 @@
 id: task-470-559-catalog-integrate-saves
 type: TASK
 title: Catalog and Integrate Public Saves
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-07'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on:
   - research-470-558-japanese-gen2-offsets
 jules_session_id: null
@@ -15,10 +15,8 @@ tags:
   - testing
   - fixtures
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

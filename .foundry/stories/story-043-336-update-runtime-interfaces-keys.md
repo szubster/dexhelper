@@ -2,10 +2,10 @@
 id: story-043-336-update-runtime-interfaces-keys
 type: STORY
 title: Update Runtime Interfaces to Verbose Keys
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-21'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 pr_number: null

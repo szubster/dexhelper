@@ -2,18 +2,17 @@
 id: task-490-550-orchestrator-badge-injection-impl
 type: TASK
 title: Orchestrator Badge Injection Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on:
   - task-490-549-orchestrator-console-theme-impl
 jules_session_id: null
 parent: story-408-490-orchestrator-themed-output-impl
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_reason: ''
 locks: []
+rejection_count: 1
 ---
 
 # Orchestrator Badge Injection Implementation

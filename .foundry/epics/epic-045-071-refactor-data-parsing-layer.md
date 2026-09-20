@@ -2,10 +2,10 @@
 id: epic-045-071-refactor-data-parsing-layer
 type: EPIC
 title: Refactor Data Parsing Layer for rejection_count
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-08-25'
+updated_at: '2026-09-20'
 depends_on:
   - epic-045-070-implement-dag-context
 jules_session_id: null
@@ -18,6 +18,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Refactor Data Parsing Layer for rejection_count
@@ -31,6 +32,6 @@ As per ADR 017, the Permanent Failure Dashboard requires access to the \`rejecti
 
 ## Acceptance Criteria
 - [x] Break down into Stories
-- [ ] story-071-473-extract-rejection-count
-- [ ] story-071-474-pass-rejection-count-context
-- [ ] story-071-475-refactor-parsing-e2e
+- [x] story-071-473-extract-rejection-count
+- [x] story-071-474-pass-rejection-count-context
+- [x] story-071-475-refactor-parsing-e2e

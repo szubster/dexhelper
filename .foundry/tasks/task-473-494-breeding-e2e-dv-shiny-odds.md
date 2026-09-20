@@ -2,10 +2,10 @@
 id: task-473-494-breeding-e2e-dv-shiny-odds
 type: TASK
 title: Implement Gen 2 E2E Tests for DV Overlap and Shiny Odds
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-26'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on:
   - task-473-493-breeding-e2e-gender-egg-groups
 jules_session_id: null
@@ -19,10 +19,8 @@ tags:
 research_references:
   - .foundry/docs/knowledge_base/engine/gen2-breeding.md
   - .foundry/docs/knowledge_base/development/gen2_breeding_dv_overlap.md
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

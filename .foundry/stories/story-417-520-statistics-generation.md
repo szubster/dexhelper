@@ -2,10 +2,10 @@
 id: story-417-520-statistics-generation
 type: STORY
 title: Real-Time Statistics Generation Implementation
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 pr_number: null

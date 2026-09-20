@@ -2,10 +2,10 @@
 id: task-518-529-binjgb-memory-sync-impl
 type: TASK
 title: Implement real-time synchronization with DexHelper Save DB
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-20'
 depends_on:
   - task-518-528-binjgb-bindings-impl
 jules_session_id: null
@@ -18,8 +18,11 @@ tags:
   - gen2
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-518-528-binjgb-bindings-impl
 notes: ''
+locks: []
 ---
 
 # Implement real-time synchronization with DexHelper Save DB

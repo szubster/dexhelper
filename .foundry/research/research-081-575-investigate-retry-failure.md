@@ -2,17 +2,15 @@
 id: research-081-575-investigate-retry-failure
 type: RESEARCH
 title: Investigate Enum Optimizations Retry Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-09-15T23:53:19Z'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 parent: story-042-081-preserve-enum-optimizations
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 notes: >-
   Investigating the failure of
   task-081-144-preserve-enum-optimizations-retry-impl.

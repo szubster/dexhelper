@@ -2,13 +2,13 @@
 id: task-515-569-librarian-e2e-qa
 type: TASK
 title: QA - Librarian E2E Pipeline Verification
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-09-12'
 updated_at: '2026-09-20'
 depends_on:
   - task-515-568-librarian-e2e-tests
-jules_session_id: '14187137394100328851'
+jules_session_id: null
 pr_number: null
 parent: story-410-515-librarian-scripts-integration-e2e
 tags:
@@ -20,7 +20,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 experiment_variants: []
 locks: []

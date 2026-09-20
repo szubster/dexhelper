@@ -2,20 +2,18 @@
 id: task-533-536-orchestrator-curator-trigger-logic-impl
 type: TASK
 title: Orchestrator Curator Trigger Logic Implementation
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-09-19'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 parent: story-531-533-orchestrator-trigger-logic-updates
 tags:
   - orchestrator
   - curator
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
