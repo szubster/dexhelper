@@ -394,16 +394,6 @@ test('getMiniMapNodeColor returns correct color based on status', () => {
       3,
     ),
   ).toBe('#dc2626');
-  expect(
-    getMiniMapNodeColor(
-      {
-        id: '1',
-        position: { x: 0, y: 0 },
-        data: { rejection_count: 3, status: 'CANCELLED', type: 'TASK', owner_persona: 'human' },
-      },
-      3,
-    ),
-  ).toBe('#dc2626');
 });
 
 test('DagDashboard toggles permanent failures', async () => {
@@ -436,19 +426,6 @@ test('DagDashboard toggles permanent failures', async () => {
           depends_on: [],
         },
       },
-      {
-        filePath: 'node-3.md',
-        data: {
-          id: 'node-3',
-          type: 'TASK',
-          status: 'CANCELLED',
-          owner_persona: 'human',
-          label: 'node',
-          title: 'Node 3',
-          rejection_count: 3, // Permanent failure
-          depends_on: [],
-        },
-      },
     ],
   } as unknown as Response);
 
@@ -472,16 +449,14 @@ test('DagDashboard toggles permanent failures', async () => {
   // Initially both should be visible (TASK, FAILED, ACTIVE are all active by default)
   await expect.element(page.getByText('node-1')).toBeInTheDocument();
   await expect.element(page.getByText('node-2')).toBeInTheDocument();
-  await expect.element(page.getByText('node-3')).toBeInTheDocument();
 
   // Try toggling permanent failures
   const pfToggle = page.getByText('[ PERMANENT_FAILURES_ONLY ]', { exact: true });
   await pfToggle.click();
 
-  // Now only node-1 and node-3 (permanent failures) should be visible
+  // Now only node-1 (permanent failure) should be visible
   await expect.element(page.getByText('node-1')).toBeInTheDocument();
   await expect.element(page.getByText('node-2')).not.toBeInTheDocument();
-  await expect.element(page.getByText('node-3')).toBeInTheDocument();
 });
 
 test('DagDashboard renders MiniMap node colors', async () => {

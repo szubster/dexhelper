@@ -26,6 +26,6 @@ locks: []
 Write unit tests to verify the DAG UI components correctly handle CANCELLED status nodes with high rejection counts.
 
 ## Acceptance Criteria
-- [ ] Tests for `DagNode.tsx` verify CANCELLED nodes with `rejection_count >= maxRejectionThreshold` get the permanent failure styling.
-- [ ] Tests for `DagDashboard.tsx` verify `getMiniMapNodeColor` returns `#dc2626` for CANCELLED nodes with `rejection_count >= maxRejectionThreshold`.
-- [ ] Tests for `DagDashboard.tsx` verify CANCELLED nodes with `rejection_count >= maxRejectionThreshold` are included when `showPermanentFailures` is true.
+- [x] Tests for `DagNode.tsx` verify CANCELLED nodes with `rejection_count >= maxRejectionThreshold` get the permanent failure styling.
+- [x] Tests for `DagDashboard.tsx` verify `getMiniMapNodeColor` returns `#dc2626` for CANCELLED nodes with `rejection_count >= maxRejectionThreshold`.
+- [x] Tests for `DagDashboard.tsx` verify CANCELLED nodes with `rejection_count >= maxRejectionThreshold` are included when `showPermanentFailures` is true.
