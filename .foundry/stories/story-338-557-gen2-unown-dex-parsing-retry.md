@@ -25,6 +25,8 @@ locks: []
 As part of the Gen 2 Unown Dex Progress Tracker epic, we need to extract the caught Unown forms from the save file. This is a retry of the permanently failed `story-338-477-gen2-unown-dex-parsing`. We must apply the findings from the research investigation before attempting implementation again.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
 - [ ] Implement parsing logic to extract the caught Unown forms from Gen 2 save data.
 - [ ] Ensure unit tests are added to verify correct parsing of Unown Dex data.
+- [ ] task-557-581-gen2-unown-dex-parsing-impl
+- [ ] task-557-582-gen2-unown-dex-parsing-qa
