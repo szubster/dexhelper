@@ -1,7 +1,6 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "ignoreExportsUsedInFile": true,
-  "ignore": ["src/engine/data/gen2/wildModels.ts"],
   "ignoreDependencies": [
     "wrangler",
     "@cloudflare/pages-plugin-cloudflare-access",
@@ -22,19 +21,17 @@
     "functions/utils/google-drive-auth.ts",
     "src/engine/saveParser/utils/index.ts",
     ".github/scripts/aggregate-journals.ts",
-    ".github/scripts/archival-filtering.ts",
     ".github/scripts/update-idea-matrix.ts",
     "src/engine/saveParser/parsers/gen2.ts",
     ".github/scripts/schema.ts",
     ".github/scripts/blocked-diagnosis.ts",
     "src/utils/hof/index.ts",
     ".github/scripts/generate-statistics.ts",
-    "src/engine/exclusives/gen3Exclusives.ts",
-    ".github/scripts/schema.ts",
     "src/features/pathfinder/**",
     "src/utils/pagination/index.ts",
     "benchmarks/**",
-    "tests/benchmarks/**"
+    "tests/benchmarks/**",
+    "src/engine/storage/constants.ts"
   ],
   "rules": {
     "files": "warn",
