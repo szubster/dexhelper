@@ -26,6 +26,6 @@ This task acts as an E2E verification step to guarantee that the newly added `pr
 The implementation of the `priority` field logic itself is assumed to have been handled by its prerequisite story.
 
 ## Acceptance Criteria
-- [ ] Write E2E integration tests in `.github/scripts/schema-e2e.test.ts` or `.github/scripts/foundry-orchestrator.test.ts` as appropriate.
-- [ ] Verify that orchestrator flows behave correctly with nodes lacking a `priority` field (testing backward compatibility and defaults).
-- [ ] Verify that orchestrator flows accurately parse and handle nodes containing valid and invalid `priority` values.
+- [x] Write E2E integration tests in `.github/scripts/schema-e2e.test.ts` or `.github/scripts/foundry-orchestrator.test.ts` as appropriate.
+- [x] Verify that orchestrator flows behave correctly with nodes lacking a `priority` field (testing backward compatibility and defaults).
+- [x] Verify that orchestrator flows accurately parse and handle nodes containing valid and invalid `priority` values.
