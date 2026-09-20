@@ -22,4 +22,16 @@ describe('generateWallpaperPhrases', () => {
     expect(phrases['Pikachu7']).toBe('fJVBBQDhBBBBBQR');
     expect(phrases['Pikachu8']).toBe('sJBBBqFVBBBBBST');
   });
+
+  it('generates correct phrases for TID 0', () => {
+    const phrases = generateWallpaperPhrases(0);
+    expect(Object.keys(phrases)).toHaveLength(16);
+    expect(phrases['Pika']).toBe('RCnBBkFhDBLCBGF');
+  });
+
+  it('generates correct phrases for TID 65535', () => {
+    const phrases = generateWallpaperPhrases(65535);
+    expect(Object.keys(phrases)).toHaveLength(16);
+    expect(phrases['Pika']).toBe('ZqBBBkFhDBLCBHn');
+  });
 });
