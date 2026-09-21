@@ -31,5 +31,5 @@ We need to ensure that the newly updated Acceptance Criteria architecture correc
 - Use `vitest` to run the tests and verify behavior.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests validating Acceptance Criteria checkboxes failure modes.
-- [ ] Ensure tests pass successfully.
+- [x] Implement E2E tests validating Acceptance Criteria checkboxes failure modes.
+- [x] Ensure tests pass successfully.
