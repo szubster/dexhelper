@@ -2,12 +2,12 @@
 id: story-049-573-heatmap-data-processing-layer
 type: STORY
 title: Heatmap Data Processing Layer
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-16T06:24:08Z'
-updated_at: '2026-09-16T06:24:08Z'
+updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11248707112794413972'
 pr_number: null
 parent: epic-035-049-smart-radar-heatmap-generation
 tags:
