@@ -132,4 +132,73 @@ describe('Zod Schema E2E Test Suite', () => {
     fs.rmSync(tmpDir, { recursive: true, force: true });
   });
 
+  it('asserts that priority fields are parsed and validated correctly', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'fuzzing-orchestrator-e2e-'));
+    vi.spyOn(process, 'cwd').mockReturnValue(tmpDir);
+    fs.mkdirSync(path.join(tmpDir, '.foundry/tasks'), { recursive: true });
+
+    // 1. Missing priority (defaults or undefined)
+    const noPriorityPath = path.join(tmpDir, '.foundry/tasks/task-no-priority.md');
+    fs.writeFileSync(noPriorityPath, "---\nid: task-no-priority\ntype: TASK\ntitle: No Priority Task\nstatus: READY\nowner_persona: coder\ncreated_at: '2026-08-01'\nupdated_at: '2026-08-01'\ndepends_on: []\njules_session_id: '123'\n---\n# Content");
+
+    // 2. Valid priority
+    const validPriorityPath = path.join(tmpDir, '.foundry/tasks/task-valid-priority.md');
+    fs.writeFileSync(validPriorityPath, "---\nid: task-valid-priority\ntype: TASK\ntitle: Valid Priority Task\nstatus: READY\nowner_persona: coder\ncreated_at: '2026-08-01'\nupdated_at: '2026-08-01'\ndepends_on: []\njules_session_id: '123'\npriority: 10\n---\n# Content");
+
+    // 3. Invalid priority (string instead of int)
+    const invalidPriorityPath = path.join(tmpDir, '.foundry/tasks/task-invalid-priority.md');
+    fs.writeFileSync(invalidPriorityPath, "---\nid: task-invalid-priority\ntype: TASK\ntitle: Invalid Priority Task\nstatus: READY\nowner_persona: coder\ncreated_at: '2026-08-01'\nupdated_at: '2026-08-01'\ndepends_on: []\njules_session_id: '123'\npriority: \"high\"\n---\n# Content");
+
+
+    const stderrSpy = vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
+
+    const noPriorityNode = parseNodeFile(noPriorityPath, tmpDir);
+    expect(noPriorityNode).not.toBeNull();
+    expect(noPriorityNode?.frontmatter.priority).toBeUndefined();
+
+    const validPriorityNode = parseNodeFile(validPriorityPath, tmpDir);
+    expect(validPriorityNode).not.toBeNull();
+    expect(validPriorityNode?.frontmatter.priority).toBe(10);
+
+    const invalidPriorityNode = parseNodeFile(invalidPriorityPath, tmpDir);
+    expect(invalidPriorityNode).toBeNull();
+
+    expect(stderrSpy).toHaveBeenCalled();
+    const calls = stderrSpy.mock.calls.map(call => call[0] as string).join('');
+    expect(calls).toContain('task-invalid-priority.md');
+    expect(calls).toContain('`priority`: Invalid input: expected number, received string');
+
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('asserts orchestrator output sorts by priority', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'fuzzing-orchestrator-e2e-'));
+    vi.spyOn(process, 'cwd').mockReturnValue(tmpDir);
+    fs.mkdirSync(path.join(tmpDir, '.foundry/tasks'), { recursive: true });
+
+    // Task 1: Priority 10 (Lowest)
+    fs.writeFileSync(path.join(tmpDir, '.foundry/tasks/task-p10.md'), "---\nid: task-p10\ntype: TASK\ntitle: P10 Task\nstatus: READY\nowner_persona: coder\ncreated_at: '2026-08-01'\nupdated_at: '2026-08-01'\ndepends_on: []\njules_session_id: null\npriority: 10\n---");
+
+    // Task 2: No Priority (Defaults to 50)
+    fs.writeFileSync(path.join(tmpDir, '.foundry/tasks/task-p50-default.md'), "---\nid: task-p50-default\ntype: TASK\ntitle: P50 Task\nstatus: READY\nowner_persona: coder\ncreated_at: '2026-08-01'\nupdated_at: '2026-08-01'\ndepends_on: []\njules_session_id: null\n---");
+
+    // Task 3: Priority 90 (Highest)
+    fs.writeFileSync(path.join(tmpDir, '.foundry/tasks/task-p90.md'), "---\nid: task-p90\ntype: TASK\ntitle: P90 Task\nstatus: READY\nowner_persona: coder\ncreated_at: '2026-08-01'\nupdated_at: '2026-08-01'\ndepends_on: []\njules_session_id: null\npriority: 90\n---");
+
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    main();
+
+    expect(consoleSpy).toHaveBeenCalled();
+    const lastCall = consoleSpy.mock.calls[consoleSpy.mock.calls.length - 1][0];
+    const readyNodes = JSON.parse(lastCall);
+
+    expect(readyNodes).toHaveLength(3);
+    expect(readyNodes[0].id).toBe('task-p90');
+    expect(readyNodes[1].id).toBe('task-p50-default');
+    expect(readyNodes[2].id).toBe('task-p10');
+
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
 });
