@@ -12,6 +12,30 @@ import {
 import { groupBoxPokemonBySpecies } from '../../utils/boxGrouping';
 
 /**
+ * Extracts and groups Gen 3 PC Box Pokémon by species.
+ *
+ * @param pcBufferView - A DataView of the reconstructed PC Buffer (from sections 5-13).
+ * @returns A record grouping `speciesId` to an array of `PokemonInstance`s.
+ * @throws Error - "The save file is corrupted or incomplete." on invalid data.
+ */
+export function extractGen3PCBoxes(pcBufferView: DataView): Record<number, PokemonInstance[]> {
+  const pcDetails: PokemonInstance[] = [];
+
+  try {
+    for (const { pcDetail: pokemon } of iterateGen3PCBoxes(pcBufferView)) {
+      pcDetails.push(pokemon);
+    }
+  } catch (e) {
+    if (e instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw e;
+  }
+
+  return groupBoxPokemonBySpecies(pcDetails);
+}
+
+/**
  * Parses Gen 3 PC Box data, enriching it with calculated stats (IVs, Nature, Shiny, Hidden Power).
  * It then groups the processed Pokémon by species using `groupBoxPokemonBySpecies`.
  *

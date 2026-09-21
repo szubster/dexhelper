@@ -32,7 +32,10 @@
     "src/utils/pagination/index.ts",
     "benchmarks/**",
     "tests/benchmarks/**",
-    "src/engine/storage/constants.ts"
+    "src/engine/storage/constants.ts",
+    "src/engine/saveParser/gen1/storage/parser.ts",
+    "src/engine/saveParser/gen2/storage/parser.ts",
+    "src/engine/saveParser/gen3/storage/parser.ts"
   ],
   "rules": {
     "files": "warn",
