@@ -1,15 +1,15 @@
 ---
-id: story-554-566-progress-tracker-e2e
-type: STORY
-title: Hunting Progress Tracker E2E Verification
-status: ACTIVE
-owner_persona: tech_lead
+id: task-566-602-progress-tracker-e2e-implementation
+type: TASK
+title: Implement Hunting Progress Tracker E2E Tests
+status: READY
+owner_persona: coder
 created_at: '2026-08-15'
-updated_at: '2026-09-21'
+updated_at: '2026-09-19'
 depends_on: []
-jules_session_id: '17769162021870155501'
+jules_session_id: null
 pr_number: null
-parent: epic-521-554-hunting-progress-tracker
+parent: story-554-566-progress-tracker-e2e
 tags:
   - dexhelper
   - e2e
@@ -21,7 +21,7 @@ notes: ''
 locks: []
 ---
 
-# Story: Hunting Progress Tracker E2E Verification
+# Task: Implement Hunting Progress Tracker E2E Tests
 
 ## Context
 To ensure the reliability of the Hunting Progress Tracker, we need comprehensive integration and E2E testing.
@@ -31,5 +31,5 @@ To ensure the reliability of the Hunting Progress Tracker, we need comprehensive
 - Follow the E2E-First strategy.
 
 ## Acceptance Criteria
-- [x] Break down this Story into Tasks.
-- [ ] task-566-602-progress-tracker-e2e-implementation
+- [ ] Implement Playwright E2E tests for the Hunting Progress Tracker flow.
+- [ ] Verify tests pass locally via xvfb-run -a pnpm test:e2e <target_file>.
