@@ -29,5 +29,5 @@ The database synchronization logic needs to be updated to support multi-bundle d
 - Ensure proper hash checking and store initialization for core database tables.
 
 ## Acceptance Criteria
-- [ ] Refactor `syncData` in `src/db/PokeDB.ts` to fetch `pokedata-core.msgpack` and populate core stores.
-- [ ] Add unit tests verifying `pokedata-core.msgpack` sync behavior.
+- [x] Refactor `syncData` in `src/db/PokeDB.ts` to fetch `pokedata-core.msgpack` and populate core stores.
+- [x] Add unit tests verifying `pokedata-core.msgpack` sync behavior.
