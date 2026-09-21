@@ -2,10 +2,10 @@
 id: task-524-568-setup-oxlint-rules
 type: TASK
 title: Setup Oxlint Rules
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-09'
+updated_at: '2026-09-21'
 depends_on:
   - task-524-567-setup-dependency-cruiser
 jules_session_id: null

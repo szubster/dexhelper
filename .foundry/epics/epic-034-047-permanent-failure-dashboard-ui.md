@@ -2,7 +2,7 @@
 id: epic-034-047-permanent-failure-dashboard-ui
 type: EPIC
 title: Implement Permanent Failure Dashboard UI
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-05-22'
 updated_at: '2026-09-21'
@@ -15,10 +15,8 @@ tags:
   - ui
   - dashboard
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Merged with unfulfilled acceptance criteria: Missing
-  E2E/integration story
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
