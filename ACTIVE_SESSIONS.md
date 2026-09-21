@@ -6,6 +6,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [research-533-601-investigate-curator-trigger-logic-failure](.foundry/research/research-533-601-investigate-curator-trigger-logic-failure.md) | RESEARCH | Investigate Orchestrator Curator Trigger Logic Failure | researcher | [14300614639840409746](https://jules.google.com/session/14300614639840409746) |
 | [research-578-587-gen3-wild-item-fixtures](.foundry/research/research-578-587-gen3-wild-item-fixtures.md) | RESEARCH | Locate Authentic Gen 3 Saves for Wild Item Testing | researcher | [8313690795685962476](https://jules.google.com/session/8313690795685962476) |
 | [story-049-573-heatmap-data-processing-layer](.foundry/stories/story-049-573-heatmap-data-processing-layer.md) | STORY | Heatmap Data Processing Layer | tech_lead | [11248707112794413972](https://jules.google.com/session/11248707112794413972) |
 | [story-115-526-pathfinder-selection-ui](.foundry/stories/story-115-526-pathfinder-selection-ui.md) | STORY | Pathfinder Target Selection UI | tech_lead | [9748011016235540407](https://jules.google.com/session/9748011016235540407) |
