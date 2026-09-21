@@ -46,6 +46,10 @@ As part of the Tailwind v4 migration, we need to apply the new \`@utility\` clas
 - [ ] No visual regressions in tactical hardware aesthetic.
 - [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification
 - [ ] task-519-546-dashboard-layouts-coder
-- [ ] task-519-547-trackers-radars-coder
-- [ ] task-519-548-dashboard-refactoring-qa
-- [ ] story-519-549-dashboard-refactoring-e2e
+- [x] task-519-547-trackers-radars-coder
+- [x] task-519-548-dashboard-refactoring-qa
+- [x] story-519-549-dashboard-refactoring-e2e
+- [ ] research-519-601-investigate-tracker-refactoring-failure
+- [ ] task-519-602-trackers-radars-coder-v2
+- [ ] task-519-603-dashboard-refactoring-qa-v2
+- [ ] story-519-604-dashboard-refactoring-e2e-v2
