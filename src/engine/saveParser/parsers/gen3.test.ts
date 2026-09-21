@@ -713,6 +713,72 @@ describe('parseGen3Ribbons', () => {
     // Attempting to read a 32-bit integer (4 bytes) starting at offset 2 will exceed the 4-byte buffer
     expect(() => parseGen3Ribbons(view, 2)).toThrowError('The save file is corrupted or incomplete.');
   });
+
+  it('should throw "The save file is corrupted or incomplete." when offset is negative', () => {
+    const buffer = new ArrayBuffer(4);
+    const view = new DataView(buffer);
+    view.setUint32(0, 0x12345678, true);
+
+    expect(() => parseGen3Ribbons(view, -1)).toThrowError('The save file is corrupted or incomplete.');
+  });
+
+  it('should correctly parse when all bits are set to 0', () => {
+    const buffer = new ArrayBuffer(4);
+    const view = new DataView(buffer);
+    view.setUint32(0, 0x00000000, true);
+
+    const result = parseGen3Ribbons(view, 0);
+
+    expect(result).toEqual({
+      cool: 0,
+      beauty: 0,
+      cute: 0,
+      smart: 0,
+      tough: 0,
+      champion: false,
+      winning: false,
+      victory: false,
+      artist: false,
+      effort: false,
+      battleChampion: false,
+      regionalChampion: false,
+      nationalChampion: false,
+      country: false,
+      national: false,
+      earth: false,
+      world: false,
+      obedience: false,
+    });
+  });
+
+  it('should correctly parse when all bits are set to 1', () => {
+    const buffer = new ArrayBuffer(4);
+    const view = new DataView(buffer);
+    view.setUint32(0, 0xffffffff, true);
+
+    const result = parseGen3Ribbons(view, 0);
+
+    expect(result).toEqual({
+      cool: 7,
+      beauty: 7,
+      cute: 7,
+      smart: 7,
+      tough: 7,
+      champion: true,
+      winning: true,
+      victory: true,
+      artist: true,
+      effort: true,
+      battleChampion: true,
+      regionalChampion: true,
+      nationalChampion: true,
+      country: true,
+      national: true,
+      earth: true,
+      world: true,
+      obedience: true,
+    });
+  });
 });
 
 describe('parseGen3MixRecords', () => {

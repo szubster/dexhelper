@@ -29,6 +29,6 @@ locks: []
 Write unit tests for the `parseGen3Ribbons` function to verify edge cases and potential failure modes.
 
 ## Acceptance Criteria
-- [ ] Add unit tests to `src/engine/saveParser/parsers/gen3.test.ts` to verify the behavior of `parseGen3Ribbons` when provided with invalid offsets or out-of-bounds `DataView` access.
-- [ ] Add unit tests to verify the behavior when all bits are set to 0.
-- [ ] Add unit tests to verify the behavior when all bits are set to 1.
+- [x] Add unit tests to `src/engine/saveParser/parsers/gen3.test.ts` to verify the behavior of `parseGen3Ribbons` when provided with invalid offsets or out-of-bounds `DataView` access.
+- [x] Add unit tests to verify the behavior when all bits are set to 0.
+- [x] Add unit tests to verify the behavior when all bits are set to 1.
