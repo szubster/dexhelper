@@ -25,6 +25,9 @@ This story entails benchmarking various TypeScript 7.x toolchains (e.g., ts-node
 
 ## Acceptance Criteria
 - [x] Decompose into implementation tasks for toolchain benchmarking.
-- [ ] task-540-546-benchmark-runner-script-coder
-- [ ] task-540-547-toolchain-configurations-coder
-- [ ] task-540-548-benchmark-ts7-toolchains-qa
+- [x] task-540-546-benchmark-runner-script-coder
+- [x] task-540-547-toolchain-configurations-coder
+- [x] task-540-548-benchmark-ts7-toolchains-qa
+- [ ] research-540-608-benchmark-failure-investigation
+- [ ] task-540-609-benchmark-runner-script-coder-v2
+- [ ] task-540-610-benchmark-ts7-toolchains-qa-v2
