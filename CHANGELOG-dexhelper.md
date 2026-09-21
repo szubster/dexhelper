@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.20.0] - 2026-03-23
+### Added
+- Implement central game configuration registry (`generationConfig.ts`) unifying game-specific features such as themes, sprites, Pokeball types, and mechanics (e.g. Hidden Power, unified Special stat, breeding).
+
+### Changed
+- Centralize game generation mapping and refactor components and hooks to dynamically utilize the new config registry, removing scattered manual game version checking.
+- Refactor Assistant and data components for a centralized source of truth for items and map slugs.
+
 ## [0.19.0] - 2026-03-23
 ### Changed
 - Improve Pokémon details navigation by preserving the origin route (e.g., Pokedex, Storage, or Assistant) via search parameters.
@@ -118,3 +126,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.17.0]: https://github.com/szubster/dexhelper/compare/b98cf70310d80eb9dee58c9e9a05ed9411319a84...49c393b23c3c6d5420ebfc73698b3f54d253a614
 [0.18.0]: https://github.com/szubster/dexhelper/compare/49c393b23c3c6d5420ebfc73698b3f54d253a614...6ea8ef12be096d313b15f4868e61dbdefd4a26c4
 [0.19.0]: https://github.com/szubster/dexhelper/compare/6ea8ef12be096d313b15f4868e61dbdefd4a26c4...a4e9aec1039af7baa330e437bbff39fe36a1c745
+[0.20.0]: https://github.com/szubster/dexhelper/compare/a4e9aec1039af7baa330e437bbff39fe36a1c745...c3633f50a3917c02df8179265ecee582c2bcb3e5
