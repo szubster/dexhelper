@@ -34,6 +34,6 @@ Implement the base `Gen3MapDashboard` component for the Gen 3 Map UI.
 - Strictly adhere to the tactical hardware aesthetic (`rounded-none`, `border-dashed`, monospace fonts).
 
 ## Acceptance Criteria
-- [ ] Component is fully implemented and responsive.
-- [ ] Visual aesthetic matches ADR 008.
-- [ ] Component rendering is covered by unit tests.
+- [x] Component is fully implemented and responsive.
+- [x] Visual aesthetic matches ADR 008.
+- [x] Component rendering is covered by unit tests.
