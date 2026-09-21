@@ -2,15 +2,15 @@
 id: task-546-565-qa-generator-save-parsers
 type: TASK
 title: QA Gen 1-3 Save Parser Generators
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-05'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on:
   - task-546-562-gen1-parser-generators
   - task-546-563-gen2-parser-generators
   - task-546-564-gen3-parser-generators
-jules_session_id: null
+jules_session_id: '9380049277751161592'
 pr_number: null
 parent: story-537-546-generator-save-file-parsers
 tags:
