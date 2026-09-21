@@ -32,4 +32,4 @@ As part of the Thief/Covet Team Optimizer epic, we need the core engine logic to
 - Return a structured list or array of `PokeData` objects representing these optimal hunting Pokemon.
 
 ## Acceptance Criteria
-- [ ] coder: Implement traversal and filtering logic for Thief/Covet moves.
+- [x] coder: Implement traversal and filtering logic for Thief/Covet moves.
