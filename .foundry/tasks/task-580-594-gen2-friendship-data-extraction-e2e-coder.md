@@ -26,6 +26,6 @@ priority: 50
 Write end-to-end tests to verify the extraction of the Friendship (Happiness) value for Gen 2 Pokémon in both the active Party and PC Boxes.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for Gen 2 Party parsing to extract Friendship.
-- [ ] Implement Playwright E2E tests for Gen 2 PC parsing to extract Friendship.
-- [ ] Ensure `xvfb-run -a pnpm test:e2e` passes for the new test file.
+- [x] Implement Playwright E2E tests for Gen 2 Party parsing to extract Friendship.
+- [x] Implement Playwright E2E tests for Gen 2 PC parsing to extract Friendship.
+- [x] Ensure `xvfb-run -a pnpm test:e2e` passes for the new test file.
