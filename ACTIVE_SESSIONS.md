@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [epic-566-577-multi-box-integration](.foundry/epics/epic-566-577-multi-box-integration.md) | EPIC | Multi-Box Search Integration and E2E Verification | story_owner | [17305823778315081627](https://jules.google.com/session/17305823778315081627) |
 | [epic-566-578-e2e-fixtures-setup](.foundry/epics/epic-566-578-e2e-fixtures-setup.md) | EPIC | E2E Custom Playwright Fixtures Setup | story_owner | [7687305632585448858](https://jules.google.com/session/7687305632585448858) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
