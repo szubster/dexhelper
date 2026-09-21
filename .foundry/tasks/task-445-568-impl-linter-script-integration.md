@@ -2,13 +2,13 @@
 id: task-445-568-impl-linter-script-integration
 type: TASK
 title: Integrate ADR Compliance Linter Script
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-10'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on:
   - task-445-567-impl-adr013-compliance-tests
-jules_session_id: null
+jules_session_id: '14737951546909520681'
 pr_number: null
 parent: story-417-445-linter-integration-e2e
 tags:
