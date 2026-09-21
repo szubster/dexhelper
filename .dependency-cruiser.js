@@ -69,7 +69,7 @@ export default {
       path: 'node_modules',
     },
     includeOnly: '^(src|packages)',
-    tsPreCompilationDeps: true,
+    tsPreCompilationDeps: false,
     tsConfig: {
       fileName: 'tsconfig.json',
     },

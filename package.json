@@ -98,7 +98,7 @@
     "@vitest/ui": "^4.1.11",
     "browserslist": "^4.28.9",
     "bundlemon": "^3.1.0",
-    "dependency-cruiser": "^18.3.1",
+    "dependency-cruiser": "^18.4.0",
     "dpdm": "^4.3.0",
     "fake-indexeddb": "^6.2.5",
     "fast-check": "^4.9.0",
