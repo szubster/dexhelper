@@ -25,6 +25,6 @@ locks: []
 Verify the complete benchmarking suite (harness, runner, and reporter) to ensure accurate performance metrics are captured and correctly reported in the specified format.
 
 ## Acceptance Criteria
-- [ ] Execute the full benchmarking suite and verify it runs without errors.
-- [ ] Validate the accuracy of the captured performance metrics.
-- [ ] Confirm the generated report format matches requirements.
+- [x] Execute the full benchmarking suite and verify it runs without errors.
+- [x] Validate the accuracy of the captured performance metrics.
+- [x] Confirm the generated report format matches requirements.
