@@ -2,19 +2,19 @@
 id: task-553-568-gen2-pkm-extraction
 type: TASK
 title: Gen 2 PKM Extraction Logic
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-09-07'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: '13080235743587604791'
+jules_session_id: null
 parent: story-530-553-gen1-gen2-pkm-extraction
 tags:
   - data
   - gen2
-locks: []
+rejection_count: 2
 rejection_reason: ''
-rejection_count: 1
+locks: []
 ---
 
 # Task: Gen 2 PKM Extraction Logic

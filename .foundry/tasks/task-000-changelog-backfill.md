@@ -2,12 +2,12 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: ACTIVE
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: '11536218875371804136'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: null
@@ -26,45 +26,48 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `a4e9aec1039af7baa330e437bbff39fe36a1c745`
-- **Previous Commit SHA:** `6ea8ef12be096d313b15f4868e61dbdefd4a26c4`
+- **Commit SHA:** `6fd0aded0ec6ef4278ce989fa73ddbea6a90972d`
+- **Previous Commit SHA:** `c3633f50a3917c02df8179265ecee582c2bcb3e5`
 - **Commit Date:** `2026-03-23`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `minor` (from `0.18.0` -> `0.19.0`)
+- **Suggested SemVer Bump:** `patch` (from `0.20.0` -> `0.20.1`)
 
 ## Commit Message
 ```text
-feat: introduce AI Assistant feature, core routing, and related UI components for Pokedex and Pokémon details.
+build(deps): Bump @tanstack/react-query from 5.90.21 to 5.95.0
+
+Bumps [@tanstack/react-query](https://github.com/TanStack/query/tree/HEAD/packages/react-query) from 5.90.21 to 5.95.0.
+- [Release notes](https://github.com/TanStack/query/releases)
+- [Changelog](https://github.com/TanStack/query/blob/main/packages/react-query/CHANGELOG.md)
+- [Commits](https://github.com/TanStack/query/commits/@tanstack/react-query@5.95.0/packages/react-query)
+
+---
+updated-dependencies:
+- dependency-name: "@tanstack/react-query"
+  dependency-version: 5.95.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
 ```
 
 ## Modified Files
-- `src/components/AssistantPanel.tsx`
-- `src/components/PokedexGrid.tsx`
-- `src/components/PokemonDetails.tsx`
-- `src/components/StorageGrid.tsx`
-- `src/hooks/useAssistant.test.ts`
-- `src/hooks/useAssistant.ts`
-- `src/routes/__root.tsx`
-- `src/routes/pokemon.$pokemonId.tsx`
+- `package-lock.json`
+- `package.json`
 
 ## Diff Summary
 ```text
-a4e9aec10 feat: introduce AI Assistant feature, core routing, and related UI components for Pokedex and Pokémon details.
- src/components/AssistantPanel.tsx |  4 +++-
- src/components/PokedexGrid.tsx    |  2 +-
- src/components/PokemonDetails.tsx |  4 ++--
- src/components/StorageGrid.tsx    |  6 +++---
- src/hooks/useAssistant.test.ts    | 32 ++++++++++++++++++++++++++++++++
- src/hooks/useAssistant.ts         |  7 +------
- src/routes/__root.tsx             |  2 +-
- src/routes/pokemon.$pokemonId.tsx | 19 +++++++++++--------
- 8 files changed, 54 insertions(+), 22 deletions(-)
+6fd0aded0 build(deps): Bump @tanstack/react-query from 5.90.21 to 5.95.0
+ package-lock.json | 16 ++++++++--------
+ package.json      |  2 +-
+ 2 files changed, 9 insertions(+), 9 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show a4e9aec1039af7baa330e437bbff39fe36a1c745` (or `git diff 6ea8ef12be096d313b15f4868e61dbdefd4a26c4..a4e9aec1039af7baa330e437bbff39fe36a1c745`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show 6fd0aded0ec6ef4278ce989fa73ddbea6a90972d` (or `git diff c3633f50a3917c02df8179265ecee582c2bcb3e5..6fd0aded0ec6ef4278ce989fa73ddbea6a90972d`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.19.0] - 2026-03-23` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.18.0...0.19.0`](https://github.com/${repo}/compare/6ea8ef1...a4e9aec)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.20.1] - 2026-03-23` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.20.0...0.20.1`](https://github.com/${repo}/compare/c3633f5...6fd0ade)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.

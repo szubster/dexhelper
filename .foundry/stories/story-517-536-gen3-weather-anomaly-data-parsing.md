@@ -2,10 +2,10 @@
 id: story-517-536-gen3-weather-anomaly-data-parsing
 type: STORY
 title: Gen 3 Weather Anomaly Data Parsing Implementation
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-12'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Story: Gen 3 Weather Anomaly Data Parsing Implementation
@@ -26,7 +27,7 @@ Expand the Gen 3 save parsing engine to extract the active weather anomaly varia
 
 ## Acceptance Criteria
 - [x] Break down this Story into Tasks.
-- [ ] task-536-564-weather-anomaly-types-impl
-- [ ] task-536-565-weather-anomaly-extraction-logic
-- [ ] task-536-566-weather-anomaly-extraction-tests
-- [ ] task-536-567-weather-anomaly-extraction-qa
+- [x] task-536-564-weather-anomaly-types-impl
+- [x] task-536-565-weather-anomaly-extraction-logic
+- [x] task-536-566-weather-anomaly-extraction-tests
+- [x] task-536-567-weather-anomaly-extraction-qa

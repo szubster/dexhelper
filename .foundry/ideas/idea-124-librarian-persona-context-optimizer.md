@@ -2,10 +2,10 @@
 id: idea-124-librarian-persona-context-optimizer
 type: IDEA
 title: Librarian Persona for Context Token Optimization
-status: PENDING
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-07-27'
-updated_at: '2026-08-07'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Librarian Persona for Context Token Optimization
@@ -49,7 +50,7 @@ Currently, as the repository grows, agent journals and archived nodes become hea
 
 ## Acceptance Criteria
 - [x] Product Manager: Convert this idea into a PRD outlining the exact triggers, scripts, and responsibilities for the `librarian` persona.
-- [ ] Architect: Review the proposed system architecture for integrating the `librarian` into the Foundry Orchestrator's cron schedules.
-- [ ] Coder: Update `schema.md` to formally introduce the `librarian` role mapped to Snorlax.
-- [ ] Coder: Implement the Node/TypeScript scripts in `.github/scripts/` to enable the Librarian's scheduled journal ingestion phase.
-- [ ] prd-124-339-librarian-persona-context-optimizer
+- [x] Architect: Review the proposed system architecture for integrating the `librarian` into the Foundry Orchestrator's cron schedules.
+- [x] Coder: Update `schema.md` to formally introduce the `librarian` role mapped to Snorlax.
+- [x] Coder: Implement the Node/TypeScript scripts in `.github/scripts/` to enable the Librarian's scheduled journal ingestion phase.
+- [x] prd-124-339-librarian-persona-context-optimizer

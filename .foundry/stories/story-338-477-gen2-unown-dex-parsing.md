@@ -2,10 +2,10 @@
 id: story-338-477-gen2-unown-dex-parsing
 type: STORY
 title: Parse Gen 2 Caught Unown Forms
-status: READY
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on: []
 jules_session_id: null
 parent: epic-118-338-gen2-unown-dex-data-extraction
@@ -24,6 +24,6 @@ locks: []
 As part of the Gen 2 Unown Dex Progress Tracker epic, we need to extract the caught Unown forms from the save file. The Unown Dex save block data contains the forms of the Unown the player has caught.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
-- [ ] Implement parsing logic to extract the caught Unown forms from Gen 2 save data.
-- [ ] Ensure unit tests are added to verify correct parsing of Unown Dex data.
+- [x] Break down into Tasks
+- [x] Implement parsing logic to extract the caught Unown forms from Gen 2 save data.
+- [x] Ensure unit tests are added to verify correct parsing of Unown Dex data.

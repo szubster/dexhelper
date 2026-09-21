@@ -2,7 +2,7 @@
 id: story-567-569-cva-refactor-tactical-panel-card
 type: STORY
 title: CVA Refactor Tactical Panel and Card
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-15'
 updated_at: '2026-09-20'
@@ -35,5 +35,5 @@ Refactor the `TacticalPanel` and `TacticalCard` components to use `class-varianc
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-569-578-cva-refactor-tactical-panel-card
-- [ ] task-569-579-qa-cva-refactor-tactical-panel-card
+- [x] task-569-578-cva-refactor-tactical-panel-card
+- [x] task-569-579-qa-cva-refactor-tactical-panel-card

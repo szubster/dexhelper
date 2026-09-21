@@ -2,7 +2,7 @@
 id: task-495-551-hof-export-download-ui
 type: TASK
 title: Hall of Fame Export Download UI and Hookup
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-05'
 updated_at: '2026-09-20'
@@ -18,10 +18,8 @@ tags:
   - ui
 research_references:
   - .foundry/archive/docs/adrs/adr-044-022-hof-certificate-generation.md
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

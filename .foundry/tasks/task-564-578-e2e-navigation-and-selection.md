@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-09-15T06:49:02Z'
 updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3844581448939248909'
 pr_number: null
 parent: story-556-564-e2e-tests-end-to-end-flow
 tags:

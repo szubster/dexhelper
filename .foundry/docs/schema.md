@@ -73,6 +73,7 @@ locks: []               # Optional. Array of strings for resource identifiers th
 pr_number: null         # Optional. PR number for human-in-the-loop tasks, or null.
 parent: null            # Required if node is derived from another node (e.g. PRD from IDEA, EPIC from PRD). The ID (preferred) or repo-relative path to the logical parent node. Blocks the parent from completion if this node is incomplete.
 priority: 50            # Optional. Priority of the node for orchestrator processing. Defaults to 50.
+confidence_score: null  # Optional. Integer (0-100) allowing agents to self-report their confidence levels.
 tags: []                # Optional. Free-form string labels for filtering and context injection.
 research_references: [] # Optional. Array of repo-relative paths to research nodes.
 experiment_variants: [] # Optional. Tracks variant configurations for A/B experiments.
@@ -99,6 +100,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `pr_number` | `integer \| null` | optional | PR number for human-in-the-loop tasks, or `null`. |
 | `parent` | `string \| null` | optional | The ID (preferred) or repo-relative path to logical parent (e.g., a story's parent epic). Used for context hydration when spawning Jules — concatenates reading graphs upward. Does **not** affect DAG blocking. |
 | `priority` | `integer` | optional | Priority of the node for orchestrator processing. Defaults to 50. |
+| `confidence_score` | `integer` | optional | Integer (0-100) allowing agents to self-report their confidence levels. |
 | `tags` | `string[]` | optional | Labels for filtering and selective context injection (e.g. `["gen2", "save-engine"]`). |
 | `research_references` | `string[]` | optional | Array of repo-relative paths to research nodes. |
 | `experiment_variants` | `string[]` | optional | Tracks variant configurations for A/B experiments. |
@@ -241,6 +243,7 @@ locks: []
 pr_number: null
 parent: null
 priority: 50
+confidence_score: null
 tags: []
 research_references: []
 rejection_count: 0

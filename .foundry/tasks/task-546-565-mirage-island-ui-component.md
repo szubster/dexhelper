@@ -2,10 +2,10 @@
 id: task-546-565-mirage-island-ui-component
 type: TASK
 title: Mirage Island UI Component and Integration
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-08'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on:
   - task-546-564-mirage-island-data-selector
 jules_session_id: null
@@ -17,10 +17,8 @@ tags:
   - ui
   - react
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

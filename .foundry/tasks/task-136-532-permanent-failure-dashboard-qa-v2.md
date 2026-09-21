@@ -2,10 +2,10 @@
 id: task-136-532-permanent-failure-dashboard-qa-v2
 type: TASK
 title: Permanent Failure Dashboard UI QA (v2)
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-03'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on:
   - task-136-490-permanent-failure-flow-ui-impl
   - task-136-531-permanent-failure-kanban-ui-impl-v2
@@ -32,6 +32,6 @@ Verify the implementation of the Permanent Failure Dashboard UI across both Flow
 Ensure that the new features function correctly and meet all architectural constraints (ADR 008, ADR 013, ADR 017). This task is a replacement for `task-136-492-permanent-failure-dashboard-qa`.
 
 ## Acceptance Criteria
-- [ ] Verify permanently failed nodes are accurately identified from the shared React Context.
-- [ ] Verify React Flow view correctly highlights failed nodes according to ADR 008 styling rules.
-- [ ] Verify Kanban Board correctly displays and highlights failed nodes.
+- [x] Verify permanently failed nodes are accurately identified from the shared React Context.
+- [x] Verify React Flow view correctly highlights failed nodes according to ADR 008 styling rules.
+- [x] Verify Kanban Board correctly displays and highlights failed nodes.
