@@ -2,12 +2,12 @@
 id: task-564-581-pokeblock-e2e-fixtures
 type: TASK
 title: Generate Test Fixtures for Pokéblock Optimizer E2E Tests
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-15T12:01:43Z'
 updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: '15426132006630207424'
+jules_session_id: null
 pr_number: null
 parent: story-540-564-gen3-pokeblock-optimizer-e2e
 tags:
@@ -17,7 +17,9 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

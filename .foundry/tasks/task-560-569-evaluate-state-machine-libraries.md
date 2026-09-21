@@ -2,12 +2,12 @@
 id: task-560-569-evaluate-state-machine-libraries
 type: TASK
 title: Evaluate State Machine Libraries for Node Lifecycle
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-09'
 updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: '61921791719402191'
+jules_session_id: null
 pr_number: null
 parent: story-540-560-evaluate-state-and-graph-libraries
 tags:

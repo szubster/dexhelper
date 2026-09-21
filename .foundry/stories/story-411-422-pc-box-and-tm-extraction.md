@@ -2,7 +2,7 @@
 id: story-411-422-pc-box-and-tm-extraction
 type: STORY
 title: Extract PC Box and TM Inventory data concurrently.
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-11T00:00:00.000Z'
 updated_at: '2026-09-21'

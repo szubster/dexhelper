@@ -2,10 +2,10 @@
 id: task-563-603-gen2-roamer-translation-tests
 type: TASK
 title: Gen 2 Roamer Translation Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-20'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on:
   - task-563-602-gen2-roamer-translation-implementation
 jules_session_id: null

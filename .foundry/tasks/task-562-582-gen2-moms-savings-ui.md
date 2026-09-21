@@ -2,13 +2,13 @@
 id: task-562-582-gen2-moms-savings-ui
 type: TASK
 title: Update Gen 2 Mom's Savings Dashboard UI
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-15T11:52:50Z'
 updated_at: '2026-09-21'
 depends_on:
   - task-562-581-gen2-moms-savings-logic
-jules_session_id: '13225620992613664328'
+jules_session_id: null
 pr_number: null
 parent: story-312-562-gen2-mom-savings-tracker-ui-core
 tags:
@@ -17,7 +17,7 @@ tags:
   - react
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---

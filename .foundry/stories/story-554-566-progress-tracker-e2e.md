@@ -2,12 +2,12 @@
 id: story-554-566-progress-tracker-e2e
 type: STORY
 title: Hunting Progress Tracker E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-15'
 updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: '17769162021870155501'
+jules_session_id: null
 pr_number: null
 parent: epic-521-554-hunting-progress-tracker
 tags:

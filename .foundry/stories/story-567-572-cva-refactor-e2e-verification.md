@@ -2,7 +2,7 @@
 id: story-567-572-cva-refactor-e2e-verification
 type: STORY
 title: E2E Verification for CVA Refactor
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-15'
 updated_at: '2026-09-21'
@@ -10,7 +10,7 @@ depends_on:
   - story-567-569-cva-refactor-tactical-panel-card
   - story-567-570-cva-refactor-tactical-button-badge
   - story-567-571-cva-refactor-tactical-inputs
-jules_session_id: '12333384246134692765'
+jules_session_id: null
 pr_number: null
 parent: epic-565-567-core-components-refactor
 tags:

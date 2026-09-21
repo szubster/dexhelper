@@ -2,10 +2,10 @@
 id: task-565-606-hunting-progress-notifications
 type: TASK
 title: Hunting Progress Notifications
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-08-15'
-updated_at: '2026-09-19'
+updated_at: '2026-09-21'
 depends_on:
   - task-565-605-hunting-progress-detection-logic
 jules_session_id: null

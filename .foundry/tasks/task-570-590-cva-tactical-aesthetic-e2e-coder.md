@@ -2,7 +2,7 @@
 id: task-570-590-cva-tactical-aesthetic-e2e-coder
 type: TASK
 title: Write E2E tests for CVA tactical aesthetic variants
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-18T17:03:41Z'
 updated_at: '2026-09-21'
@@ -15,8 +15,8 @@ tags:
   - testing
   - styling
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 2
+rejection_reason: ''
 locks: []
 priority: 60
 ---

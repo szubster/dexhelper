@@ -2,10 +2,10 @@
 id: task-521-603-gen2-bug-catching-contest-core-data-qa
 type: TASK
 title: Gen 2 Bug-Catching Contest Core Data QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-19'
-updated_at: '2026-09-19'
+updated_at: '2026-09-21'
 depends_on:
   - task-521-602-gen2-bug-catching-contest-core-data-impl
 jules_session_id: null
