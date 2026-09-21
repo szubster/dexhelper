@@ -26,6 +26,6 @@ locks: []
 Update `src/components/dashboard/checklist/Gen2Checklist.tsx` to integrate the parsed narrative event flags (`gen2NarrativeFlags`), presenting a personalized agenda to the player.
 
 ## Acceptance Criteria
-- [ ] Add a new TacticalPanel to display "NARRATIVE EVENTS".
-- [ ] Consume `gen2NarrativeFlags` and `getUpcomingGen2Boss` from `src/engine/saveParser/utils/gen2EventFlags.ts` to drive the UI.
-- [ ] Differentiate state for completed events (acquired/checked), the single immediately available upcoming event, and unavailable future events.
+- [x] Add a new TacticalPanel to display "NARRATIVE EVENTS".
+- [x] Consume `gen2NarrativeFlags` and `getUpcomingGen2Boss` from `src/engine/saveParser/utils/gen2EventFlags.ts` to drive the UI.
+- [x] Differentiate state for completed events (acquired/checked), the single immediately available upcoming event, and unavailable future events.
