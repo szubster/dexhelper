@@ -2,10 +2,10 @@
 id: epic-034-047-permanent-failure-dashboard-ui
 type: EPIC
 title: Implement Permanent Failure Dashboard UI
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-05-22'
-updated_at: '2026-06-15'
+updated_at: '2026-09-21'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,9 @@ tags:
   - dashboard
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
+locks: []
 ---
 # Implement Permanent Failure Dashboard UI
 
@@ -34,4 +35,4 @@ As per ADR 017 and PRD `prd-063-034-permanent-failure-dashboard`, we need a "Per
 - [x] Story Owner: Ensure the new UI correctly consumes the `rejection_count` property from the shared React Context.
 
 ### Generated Stories
-- [ ] story-047-136-permanent-failure-dashboard-ui
+- [x] story-047-136-permanent-failure-dashboard-ui

@@ -2,12 +2,12 @@
 id: task-562-576-item-selection-route-e2e-impl
 type: TASK
 title: Write E2E Tests for Item Selection and Route Display
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-14'
 updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: '11556353229770721020'
+jules_session_id: null
 pr_number: null
 parent: story-556-562-e2e-tests-item-selection-route-display
 tags:
@@ -15,7 +15,9 @@ tags:
   - integration
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 priority: 50

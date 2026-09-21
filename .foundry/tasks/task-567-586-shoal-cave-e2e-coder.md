@@ -2,12 +2,12 @@
 id: task-567-586-shoal-cave-e2e-coder
 type: TASK
 title: Write Playwright E2E Tests for Shoal Cave Dashboard
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-16T22:50:17Z'
 updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: '8103325990780056804'
+jules_session_id: null
 pr_number: null
 parent: story-412-567-shoal-cave-e2e-verification
 tags:
@@ -18,7 +18,9 @@ tags:
   - playwright
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---
