@@ -25,6 +25,6 @@ locks: []
 Verify that the Heatmap toggle button correctly updates the context state and the UI reflects the active/inactive state appropriately.
 
 ## Acceptance Criteria
-- [ ] Verify that clicking the `[ HEATMAP_OVERLAY ]` button in the UI toggles its active state visually.
-- [ ] Verify that the `showHeatmap` state in `DagContext` is updated accordingly.
-- [ ] Verify there are no console errors when toggling the state.
+- [x] Verify that clicking the `[ HEATMAP_OVERLAY ]` button in the UI toggles its active state visually.
+- [x] Verify that the `showHeatmap` state in `DagContext` is updated accordingly.
+- [x] Verify there are no console errors when toggling the state.
