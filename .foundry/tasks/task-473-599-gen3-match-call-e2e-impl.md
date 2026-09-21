@@ -1,0 +1,34 @@
+---
+id: task-473-599-gen3-match-call-e2e-impl
+type: TASK
+title: Implement Gen 3 Match Call E2E Tests
+status: PENDING
+owner_persona: coder
+created_at: '2026-09-20'
+updated_at: '2026-09-21'
+depends_on:
+  - research-473-598-gen3-match-call-e2e-failure
+jules_session_id: null
+pr_number: null
+parent: story-083-473-gen3-match-call-e2e-verification
+tags:
+  - testing
+  - e2e
+  - gen3
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+locks: []
+---
+
+# Implement Gen 3 Match Call E2E Tests
+
+## Overview
+Implement E2E tests validating the Gen 3 Match Call extraction against standard Gen 3 saves using Playwright.
+
+## Acceptance Criteria
+- [ ] Read the research findings from research-473-598.
+- [ ] Implement E2E tests for Gen 3 Match Call extraction in Playwright.
+- [ ] Verify that the extracted match call data matches expected values from real Gen 3 saves.
+- [ ] Ensure the tests assert against the exposed application API or rendered UI correctly.

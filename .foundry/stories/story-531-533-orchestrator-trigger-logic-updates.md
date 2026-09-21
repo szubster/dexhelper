@@ -2,10 +2,10 @@
 id: story-531-533-orchestrator-trigger-logic-updates
 type: STORY
 title: Orchestrator Curator Trigger Logic Updates
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on: []
 jules_session_id: '5627962263870695365'
 parent: epic-518-531-orchestrator-curator-loop
@@ -29,5 +29,8 @@ Implement logic in `.github/scripts/foundry-orchestrator.ts` to trigger the `cur
 - Implement tests ensuring the trigger logic accurately fires under the specified conditions.
 
 ## Acceptance Criteria
-- [ ] task-533-536-orchestrator-curator-trigger-logic-impl
-- [ ] task-533-537-orchestrator-curator-trigger-logic-qa
+- [x] task-533-536-orchestrator-curator-trigger-logic-impl
+- [x] task-533-537-orchestrator-curator-trigger-logic-qa
+- [ ] research-533-601-investigate-curator-trigger-logic-failure
+- [ ] task-533-602-orchestrator-curator-trigger-logic-retry-impl
+- [ ] task-533-603-orchestrator-curator-trigger-logic-retry-qa

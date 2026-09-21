@@ -31,8 +31,5 @@ Verify the new Playwright Testing Style Guide document.
 Ensure that `.foundry/docs/knowledge_base/testing/playwright_style_guide.md` correctly covers `locator.or()` strict mode, `isMobile` context handling, and usage of the new mock utilities as per the original story requirements.
 
 ## Acceptance Criteria
-- [ ] Verify the style guide document exists and contains all required sections.
-- [ ] Verify the examples are correct and align with core policies.
-
-### QA Notes
-Validation failed for task-536-564-playwright-style-guide-mock-utils. The mock utilities code example incorrectly uses an absolute path for Playwright navigation (`/dashboard`) instead of a relative path, which violates Vite base URL constraints. The mock utils task has been rejected and sent back to the coder for correction.
+- [x] Verify the style guide document exists and contains all required sections.
+- [x] Verify the examples are correct and align with core policies.

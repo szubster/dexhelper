@@ -26,4 +26,4 @@ locks: []
 Implement a custom hook `usePokedexGridVirtualizer` in `src/components/hooks/usePokedexGridVirtualizer.ts` (or similar) to handle the dynamic column calculation and virtualization configuration using `@tanstack/react-virtual`. It should compute `columns` and `virtualizer` based on container width.
 
 ## Acceptance Criteria
-- [ ] Implement the `usePokedexGridVirtualizer` hook.
+- [x] Implement the `usePokedexGridVirtualizer` hook.

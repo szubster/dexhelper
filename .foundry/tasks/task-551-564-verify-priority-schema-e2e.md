@@ -2,12 +2,12 @@
 id: task-551-564-verify-priority-schema-e2e
 type: TASK
 title: Implement and Verify Priority Field Sorting
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: '12331900831043278468'
+jules_session_id: null
 pr_number: null
 parent: story-530-551-integration-e2e-verification
 tags:
@@ -26,6 +26,6 @@ This task acts as an E2E verification step to guarantee that the newly added `pr
 The implementation of the `priority` field logic itself is assumed to have been handled by its prerequisite story.
 
 ## Acceptance Criteria
-- [ ] Write E2E integration tests in `.github/scripts/schema-e2e.test.ts` or `.github/scripts/foundry-orchestrator.test.ts` as appropriate.
-- [ ] Verify that orchestrator flows behave correctly with nodes lacking a `priority` field (testing backward compatibility and defaults).
-- [ ] Verify that orchestrator flows accurately parse and handle nodes containing valid and invalid `priority` values.
+- [x] Write E2E integration tests in `.github/scripts/schema-e2e.test.ts` or `.github/scripts/foundry-orchestrator.test.ts` as appropriate.
+- [x] Verify that orchestrator flows behave correctly with nodes lacking a `priority` field (testing backward compatibility and defaults).
+- [x] Verify that orchestrator flows accurately parse and handle nodes containing valid and invalid `priority` values.

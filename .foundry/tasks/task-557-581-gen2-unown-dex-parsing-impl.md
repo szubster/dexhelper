@@ -2,12 +2,12 @@
 id: task-557-581-gen2-unown-dex-parsing-impl
 type: TASK
 title: Implement Gen 2 Unown Dex Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-19T20:04:53Z'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: '13544502924622838168'
+jules_session_id: null
 parent: story-338-557-gen2-unown-dex-parsing-retry
 tags:
   - feature
@@ -28,6 +28,6 @@ Research confirms the following WRAM offsets for `wUnownDex`:
 - Crystal: `0x2AA9` (32 bytes after `POKEDEX_SEEN_OFFSET_CRYSTAL`)
 
 ## Acceptance Criteria
-- [ ] Add an `unownDex` property to the `Gen2SaveData` interface in `src/engine/saveParser/parsers/common.ts` (e.g., `unownDex?: number[]`).
-- [ ] Implement parsing logic in `src/engine/saveParser/parsers/gen2.ts` to extract the 26-byte array for the caught Unown forms, using the correct offsets for GS and Crystal.
-- [ ] Adhere to the Save File Parsing constraints (Schema Document Section 13), defining module-level constants for offsets and bounds.
+- [x] Add an `unownDex` property to the `Gen2SaveData` interface in `src/engine/saveParser/parsers/common.ts` (e.g., `unownDex?: number[]`).
+- [x] Implement parsing logic in `src/engine/saveParser/parsers/gen2.ts` to extract the 26-byte array for the caught Unown forms, using the correct offsets for GS and Crystal.
+- [x] Adhere to the Save File Parsing constraints (Schema Document Section 13), defining module-level constants for offsets and bounds.

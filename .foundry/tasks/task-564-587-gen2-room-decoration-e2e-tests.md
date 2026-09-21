@@ -2,10 +2,10 @@
 id: task-564-587-gen2-room-decoration-e2e-tests
 type: TASK
 title: Gen 2 Room Decoration E2E Tests
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '$(date -u +"%Y-%m-%dT%H:%M:%SZ")'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on:
   - task-564-586-gen2-room-decoration-route-integration
 jules_session_id: null
@@ -13,8 +13,8 @@ parent: story-313-564-gen2-room-decoration-integration-e2e
 tags:
   - e2e
   - integration
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 locks: []
 ---
 

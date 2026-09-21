@@ -33,4 +33,5 @@ After implementing the core phrase generation logic, we must ensure it functions
 *   Add any necessary integration tests (e.g., in `tests/e2e/`) to confirm the module is robust.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Draft TASK blueprints for the E2E verification of the phrase generator.
+- [x] Tech Lead: Draft TASK blueprints for the E2E verification of the phrase generator.
+- [ ] task-474-602-gen3-wallpaper-phrase-generator-e2e-impl

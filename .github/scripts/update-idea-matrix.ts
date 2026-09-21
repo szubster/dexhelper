@@ -89,19 +89,19 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
       const parsed = matter(content);
       const data = parsed.data;
 
-      if (data.type !== 'IDEA') continue;
+      if (data['type'] !== 'IDEA') continue;
 
-      const id = data.id || path.basename(file, '.md');
-      const title = data.title || 'Untitled Idea';
-      const status = data.status || 'UNKNOWN';
-      const tags = (data.tags || []).join(', ');
+      const id = data['id'] || path.basename(file, '.md');
+      const title = data['title'] || 'Untitled Idea';
+      const status = data['status'] || 'UNKNOWN';
+      const tags = (data['tags'] || []).join(', ');
 
       let deps = '';
-      if (Array.isArray(data.depends_on) && data.depends_on.length > 0) {
-          deps = data.depends_on.map((d: string) => `\`${d}\``).join(', ');
+      if (Array.isArray(data['depends_on']) && data['depends_on'].length > 0) {
+          deps = data['depends_on'].map((d: string) => `\`${d}\``).join(', ');
       }
-      if (data.parent) {
-          deps = deps ? `${deps}, Parent: \`${data.parent}\`` : `Parent: \`${data.parent}\``;
+      if (data['parent']) {
+          deps = deps ? `${deps}, Parent: \`${data['parent']}\`` : `Parent: \`${data['parent']}\``;
       }
 
       parsedIdeas.push({
@@ -149,8 +149,9 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
         if (cols.length > 0 && cols[cols.length - 1] === '') cols.pop();
 
         if (cols.length >= 5) {
-            const idMatch = cols[0].match(/`([^`]+)`/);
-            if (idMatch) {
+            const firstCol = cols[0];
+            const idMatch = firstCol ? firstCol.match(/`([^`]+)`/) : null;
+            if (idMatch && idMatch[1]) {
                 existingEntries[idMatch[1]] = {
                     id: idMatch[1],
                     title: cols[1],
@@ -192,8 +193,13 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
   }
 
   let endIndex = startIndex;
-  while (endIndex < lines.length && lines[endIndex].trim().startsWith('|')) {
-      endIndex++;
+  while (endIndex < lines.length) {
+      const line = lines[endIndex];
+      if (line && line.trim().startsWith('|')) {
+          endIndex++;
+      } else {
+          break;
+      }
   }
 
   const beforeTable = lines.slice(0, startIndex).join('\n');
@@ -209,7 +215,7 @@ if (typeof require !== 'undefined' && require.main === module) {
 } else if (typeof process !== 'undefined' && process.argv && process.argv[1] && typeof URL !== 'undefined') {
   try {
     const { fileURLToPath } = require('url');
-    const isMain = process.argv[1] === fileURLToPath(import.meta.url);
+    const isMain = process.argv[1] && process.argv[1] === fileURLToPath(import.meta.url);
     if (isMain) {
       const repoRoot = process.cwd();
       updateIdeaDependencyMatrix(repoRoot);
