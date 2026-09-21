@@ -2,12 +2,12 @@
 id: research-473-598-gen3-match-call-e2e-failure
 type: RESEARCH
 title: Research Gen 3 Match Call E2E Failure Root Cause
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-20'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6550756785218353553'
 pr_number: null
 parent: story-083-473-gen3-match-call-e2e-verification
 tags:
