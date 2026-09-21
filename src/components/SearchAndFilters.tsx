@@ -1,5 +1,5 @@
 import { Crosshair, Fingerprint, Radio } from 'lucide-react';
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef, useState, useTransition } from 'react';
 import { FILTER_TYPES, type FilterType, useStore } from '../store';
 import { cn } from '../utils/cn';
 import { ClearFiltersBadge } from './ClearFiltersBadge';
@@ -24,20 +24,51 @@ export function SearchAndFilters() {
   const toggleFilter = useStore((s) => s.toggleFilter);
   const setFilters = useStore((s) => s.setFilters);
 
+  const [isPending, startTransition] = useTransition();
+  const [localSearchTerm, setLocalSearchTerm] = useState(searchTerm);
+
+  // Sync local state if global state changes externally
+  if (searchTerm !== localSearchTerm && !isPending) {
+    setLocalSearchTerm(searchTerm);
+  }
+
   // ⚡ Bolt: Memoized filter set creation to avoid redundant object allocation on every keystroke
   const filtersSet = useMemo(() => new Set(filters), [filters]);
 
   if (!saveData) return null;
 
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setLocalSearchTerm(val);
+    startTransition(() => {
+      setSearchTerm(val);
+    });
+  };
+
   const handleClearSearch = () => {
-    setSearchTerm('');
+    setLocalSearchTerm('');
+    startTransition(() => {
+      setSearchTerm('');
+    });
     inputRef.current?.focus();
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Escape' && searchTerm) {
+    if (e.key === 'Escape' && localSearchTerm) {
       handleClearSearch();
     }
+  };
+
+  const handleToggleFilter = (f: FilterType) => {
+    startTransition(() => {
+      toggleFilter(f);
+    });
+  };
+
+  const handleClearFilters = () => {
+    startTransition(() => {
+      setFilters([]);
+    });
   };
 
   return (
@@ -60,7 +91,7 @@ export function SearchAndFilters() {
 
             {/* Background Hex Stream */}
             <div className="pointer-events-none absolute inset-0 z-0 flex flex-col justify-end p-2 opacity-10">
-              <HexStreamDecoration active={!!searchTerm} />
+              <HexStreamDecoration active={!!localSearchTerm} />
             </div>
 
             <EdgeLabel className="-top-2 left-5 bg-zinc-950 px-2 text-cyan-400 tracking-[0.2em]">
@@ -77,13 +108,13 @@ export function SearchAndFilters() {
                 <div
                   className={cn(
                     'absolute inset-0 border-[1px] border-cyan-500/40 border-dashed opacity-50',
-                    searchTerm ? 'animate-[spin_4s_linear_infinite]' : 'animate-[spin_10s_linear_infinite]',
+                    localSearchTerm ? 'animate-[spin_4s_linear_infinite]' : 'animate-[spin_10s_linear_infinite]',
                   )}
                 />
                 <div
                   className={cn(
                     'absolute inset-2 rounded-none border-[1px] border-cyan-400/20 opacity-40',
-                    searchTerm
+                    localSearchTerm
                       ? 'animate-[spin_3s_linear_infinite_reverse]'
                       : 'animate-[spin_8s_linear_infinite_reverse]',
                   )}
@@ -93,7 +124,7 @@ export function SearchAndFilters() {
 
                 {/* Data readout next to crosshair */}
                 <div className="absolute right-0 -bottom-4 left-0 text-center font-mono text-[8px] text-cyan-600 transition-colors group-hover:text-cyan-400">
-                  SCAN_FREQ: {searchTerm ? '94.2' : '14.0'}Hz
+                  SCAN_FREQ: {localSearchTerm ? '94.2' : '14.0'}Hz
                 </div>
               </div>
 
@@ -112,8 +143,8 @@ export function SearchAndFilters() {
                   data-testid="search-input"
                   placeholder="[ ENTER COORDINATES, ID OR ENTITY ]"
                   aria-label="Search Pokedex by name, ID, or location"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  value={localSearchTerm}
+                  onChange={handleSearchChange}
                   onKeyDown={handleKeyDown}
                   onClear={handleClearSearch}
                   containerClassName="w-full"
@@ -121,7 +152,7 @@ export function SearchAndFilters() {
                 >
                   <LocationSuggestions />
                 </TacticalInput>
-                {searchTerm && (
+                {(localSearchTerm || isPending) && (
                   <div className="mt-1 ml-1 animate-pulse font-mono text-[9px] text-cyan-400">
                     PROCESSING_QUERY: IN_PROGRESS...
                   </div>
@@ -146,11 +177,11 @@ export function SearchAndFilters() {
               containerClassName="h-full justify-center pt-4"
               buttonBaseClassName="relative group min-w-[80px] xl:min-w-[90px] h-14 flex flex-col items-center justify-center !border border-solid transition-all overflow-hidden"
               selectedValues={filtersSet}
-              onValueToggle={(f) => toggleFilter(f)}
+              onValueToggle={handleToggleFilter}
               defaultActiveClassName="!border-cyan-500 bg-cyan-950 text-cyan-300 shadow-[inset_0_4px_10px_rgba(6,182,212,0.15)]"
               defaultInactiveClassName="!border-zinc-800 bg-zinc-900 text-zinc-500 hover:!border-zinc-600 hover:bg-zinc-800 hover:text-zinc-300 shadow-[inset_0_-2px_5px_rgba(0,0,0,0.5)]"
               renderPrefixItem={() => (
-                <ClearFiltersBadge isActive={filtersSet.size === 0} onClick={() => setFilters([])} />
+                <ClearFiltersBadge isActive={filtersSet.size === 0} onClick={handleClearFilters} />
               )}
               items={FILTER_TYPES.map((f) => ({
                 id: f,
