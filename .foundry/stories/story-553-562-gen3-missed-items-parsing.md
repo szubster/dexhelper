@@ -2,10 +2,10 @@
 id: story-553-562-gen3-missed-items-parsing
 type: STORY
 title: Gen 3 Missed Items & Milestones Parsing Core
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on: []
 jules_session_id: null
 pr_number: null

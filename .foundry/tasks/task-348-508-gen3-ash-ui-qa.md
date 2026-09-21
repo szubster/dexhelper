@@ -2,13 +2,13 @@
 id: task-348-508-gen3-ash-ui-qa
 type: TASK
 title: 'Task: QA E2E Testing for Gen 3 Volcanic Ash UI'
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-09-01'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on:
   - task-348-507-gen3-ash-ui-impl
-jules_session_id: '6755089715703805007'
+jules_session_id: null
 pr_number: null
 parent: story-268-348-gen3-ash-integration
 tags:
@@ -18,7 +18,9 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---
