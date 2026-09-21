@@ -7,6 +7,8 @@ owner_persona: coder
 created_at: '2026-09-19'
 updated_at: '2026-09-21'
 depends_on: []
+rejection_reason: ""
+rejection_count: 2
 notes: ""
 jules_session_id: null
 pr_number: null
@@ -15,8 +17,6 @@ tags:
   - dexhelper
   - gen3
 research_references: []
-rejection_count: 2
-rejection_reason: ''
 locks: []
 ---
 
