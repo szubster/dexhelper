@@ -35,3 +35,5 @@ This story is dedicated to End-to-End (E2E) verification of the Gen 3 Fame Check
 
 ## Acceptance Criteria
 - [ ] Verify the Fame Checker data is correctly extracted and normalized via an E2E test.
+- [ ] task-474-604-gen3-fame-checker-e2e-impl
+- [ ] task-474-605-gen3-fame-checker-e2e-qa
