@@ -2,10 +2,10 @@
 id: story-047-136-permanent-failure-dashboard-ui
 type: STORY
 title: Implement Permanent Failure Dashboard UI
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-15'
-updated_at: '2026-09-18'
+updated_at: '2026-09-21'
 depends_on: []
 jules_session_id: '13631392337897817392'
 pr_number: null
@@ -27,14 +27,14 @@ Implement a "Permanent Failures" view in the DAG Dashboard that consumes the `re
 
 ## Context
 As per ADR 017 and the parent Epic `epic-034-047-permanent-failure-dashboard-ui`, we need to provide immediate visibility into system deadlocks without requiring manual inspection of repository files.
-The Permanent Failure Dashboard will consume the same shared raw parsed DAG data as the React Flow DAG visualizer and Kanban Board, adhering to the single source of truth principle (ADR 013). This story relies on the shared context integration from `story-046-120-integrate-dag-context-with-views`.
+The Permanent Failure Dashboard will consume the same shared raw parsed DAG data as the React Flow DAG visualizer and Kanban Board, adhering to the single source of truth principle (ADR 013). This story relies on the shared context integration from `story-070-431-integrate-dag-context-with-views`.
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-136-489-permanent-failure-state-selectors-impl
-- [ ] task-136-490-permanent-failure-flow-ui-impl
+- [x] task-136-489-permanent-failure-state-selectors-impl
+- [x] task-136-490-permanent-failure-flow-ui-impl
 - [x] task-136-491-permanent-failure-kanban-ui-impl
 - [x] task-136-492-permanent-failure-dashboard-qa
-- [ ] research-136-530-investigate-kanban-ui-timeout
-- [ ] task-136-531-permanent-failure-kanban-ui-impl-v2
-- [ ] task-136-532-permanent-failure-dashboard-qa-v2
+- [x] research-136-530-investigate-kanban-ui-timeout
+- [x] task-136-531-permanent-failure-kanban-ui-impl-v2
+- [x] task-136-532-permanent-failure-dashboard-qa-v2

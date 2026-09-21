@@ -2,10 +2,10 @@
 id: task-546-566-mirage-island-tracker-qa
 type: TASK
 title: QA Verification for Mirage Island Tracker
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-08'
-updated_at: '2026-09-08'
+updated_at: '2026-09-21'
 depends_on:
   - task-546-565-mirage-island-ui-component
 jules_session_id: null
@@ -18,8 +18,11 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-546-565-mirage-island-ui-component
+notes: ''
+locks: []
 ---
 
 # QA Verification for Mirage Island Tracker

@@ -2,10 +2,10 @@
 id: task-514-528-remediation-state-transition-logic-qa
 type: TASK
 title: QA Remediation State Transition Logic
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-03'
-updated_at: '2026-09-05'
+updated_at: '2026-09-20'
 depends_on:
   - task-514-527-remediation-state-transition-logic-tests
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - maintenance
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-514-526-remediation-state-transition-logic-impl
 notes: ''
 locks: []
 ---

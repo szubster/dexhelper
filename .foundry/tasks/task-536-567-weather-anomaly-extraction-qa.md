@@ -2,10 +2,10 @@
 id: task-536-567-weather-anomaly-extraction-qa
 type: TASK
 title: Gen 3 Weather Anomaly Extraction QA
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-04'
-updated_at: '2026-09-18'
+updated_at: '2026-09-20'
 depends_on:
   - task-536-566-weather-anomaly-extraction-tests
 jules_session_id: null
@@ -30,8 +30,8 @@ Perform QA and verification for the Gen 3 weather anomaly extraction implementat
 This task ensures that the implementation adheres to the project's strict architectural guidelines for save file parsing.
 
 ## Acceptance Criteria
-- [ ] Verify that all types and constants are explicitly defined and no inline magic numbers are used (Section 13 of `.foundry/docs/schema.md`).
-- [ ] Verify that the extraction logic correctly calculates the relative memory offset using the resolved section offset (`section1Offset`).
-- [ ] Verify that the extraction logic explicitly catches `RangeError` and throws the required error message.
-- [ ] Verify that the Vitest test suite comprehensively covers valid extraction, offset variations, and out-of-bounds error handling.
-- [ ] Ensure all unit tests pass without errors.
+- [x] Verify that all types and constants are explicitly defined and no inline magic numbers are used (Section 13 of `.foundry/docs/schema.md`).
+- [x] Verify that the extraction logic correctly calculates the relative memory offset using the resolved section offset (`section1Offset`).
+- [x] Verify that the extraction logic explicitly catches `RangeError` and throws the required error message.
+- [x] Verify that the Vitest test suite comprehensively covers valid extraction, offset variations, and out-of-bounds error handling.
+- [x] Ensure all unit tests pass without errors.

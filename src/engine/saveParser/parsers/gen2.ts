@@ -167,6 +167,10 @@ const POKEDEX_OWNED_OFFSET_CRYSTAL = 0x2a69;
 const POKEDEX_SEEN_OFFSET_GS = 0x2a6c;
 const POKEDEX_SEEN_OFFSET_CRYSTAL = 0x2a89;
 
+const UNOWN_DEX_OFFSET_GS = 0x2a8c;
+const UNOWN_DEX_OFFSET_CRYSTAL = 0x2aa9;
+const UNOWN_DEX_LENGTH = 26;
+
 const MOMS_MONEY_OFFSET_RELATIVE = -0x06;
 const MOM_SAVING_MONEY_OFFSET_RELATIVE = -0x03;
 const ACTIVE_DECO_OFFSET_RELATIVE_CRYSTAL = 0x3b8;
@@ -1108,10 +1112,24 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
     throw error;
   }
 
+  const unownDexOffset = isCrystal ? UNOWN_DEX_OFFSET_CRYSTAL : UNOWN_DEX_OFFSET_GS;
+  const unownDex: number[] = [];
+  try {
+    for (let i = 0; i < UNOWN_DEX_LENGTH; i++) {
+      unownDex.push(view.getUint8(unownDexOffset + i));
+    }
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+
   return {
     generation: 2,
     owned,
     seen,
+    unownDex,
     party,
     pc,
     partyDetails,

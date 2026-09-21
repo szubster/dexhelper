@@ -2,13 +2,13 @@
 id: task-556-003-heatmap-qa
 type: TASK
 title: QA Verification for Heatmap Toggle
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-11'
-updated_at: '2026-09-19'
+updated_at: '2026-09-21'
 depends_on:
   - task-556-002-heatmap-toggle-ui
-jules_session_id: null
+jules_session_id: '11716845652134036738'
 parent: story-535-556-heatmap-toggle-ui
 tags:
   - qa

@@ -5,7 +5,7 @@ title: Write E2E Tests for Item Selection and Route Display
 status: READY
 owner_persona: coder
 created_at: '2026-09-14'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,7 +14,7 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

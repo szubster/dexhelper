@@ -5,7 +5,7 @@ title: 'Task: QA E2E Testing for Gen 3 Volcanic Ash UI'
 status: READY
 owner_persona: qa
 created_at: '2026-09-01'
-updated_at: '2026-09-12'
+updated_at: '2026-09-21'
 depends_on:
   - task-348-507-gen3-ash-ui-impl
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - qa
   - e2e
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

@@ -2,12 +2,12 @@
 id: task-562-586-pokeblock-recommendation-logic
 type: TASK
 title: Pokéblock Recommendation Logic Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-17T02:15:04Z'
 updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16985652651626528564'
 pr_number: null
 parent: story-540-562-gen3-pokeblock-recommendation-engine
 tags:

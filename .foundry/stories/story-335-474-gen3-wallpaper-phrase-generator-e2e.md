@@ -2,13 +2,13 @@
 id: story-335-474-gen3-wallpaper-phrase-generator-e2e
 type: STORY
 title: Gen 3 Wallpaper Phrase Generator E2E
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-25'
 updated_at: '2026-09-20'
 depends_on:
   - story-335-473-gen3-wallpaper-phrase-generator
-jules_session_id: '3064708840409245364'
+jules_session_id: '5948969198215754057'
 parent: epic-116-335-gen3-wallpaper-phrase-generation-engine
 tags:
   - gen3

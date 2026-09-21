@@ -5,7 +5,7 @@ title: Permanent Failure Dashboard View
 status: PENDING
 owner_persona: epic_planner
 created_at: '2026-05-22'
-updated_at: '2026-05-31'
+updated_at: '2026-09-21'
 depends_on: []
 jules_session_id: '18124105386347002229'
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 2
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # PRD: Permanent Failure Dashboard View

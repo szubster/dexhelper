@@ -35,7 +35,9 @@ test('extracts PIDs from party correctly', () => {
 
   expect(partyDetails.length).toBe(2);
   expect(partyDetails[0]?.personalityValue).toBe(0x12345678);
+  expect(partyDetails[0]?.nature).toBe(0x12345678 % 25);
   expect(partyDetails[1]?.personalityValue).toBe(0xabcdef01);
+  expect(partyDetails[1]?.nature).toBe(0xabcdef01 % 25);
 });
 
 test('extracts PIDs from PC boxes correctly', () => {
@@ -57,7 +59,9 @@ test('extracts PIDs from PC boxes correctly', () => {
 
   expect(pcDetails.length).toBe(2);
   expect(pcDetails[0]?.personalityValue).toBe(0x11111111);
+  expect(pcDetails[0]?.nature).toBe(0x11111111 % 25);
   expect(pcDetails[1]?.personalityValue).toBe(0x22222222);
+  expect(pcDetails[1]?.nature).toBe(0x22222222 % 25);
 });
 
 test('handles out-of-bounds reads gracefully for party parsing', () => {

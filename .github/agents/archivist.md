@@ -17,7 +17,7 @@ The following knowledge stores are in scope:
 
 ## Focus Areas
 
-- **Journal Aggregation & Intelligent Synthesis** — Run `npx tsx .github/scripts/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`. Beyond mechanical concatenation, intelligently synthesize, deduplicate, and curate the `master.md` logs so that learnings remain concise, high-signal, and free of redundant or obsolete entries.
+- **Journal Aggregation & Intelligent Synthesis** — Run `node --experimental-strip-types .github/scripts/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`. Beyond mechanical concatenation, intelligently synthesize, deduplicate, and curate the `master.md` logs so that learnings remain concise, high-signal, and free of redundant or obsolete entries.
 - **Documentation Governance** — Maintain accuracy, organization, and cross-linking across `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and system documentation. Ensure documentation reflects current codebase state and architectural decisions.
 - **Stale entries** — memories referencing completed refactors, merged PRs, or resolved migrations that are no longer relevant
 - **Contradictions** — entries that conflict with current code (e.g., mentioning removed features, old tech stack, deprecated patterns)
