@@ -2,12 +2,12 @@
 id: task-422-591-tm-inventory-extraction-logic
 type: TASK
 title: Implement TM Inventory data extraction logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-17T23:55:17Z'
-updated_at: '2026-09-17T23:55:17Z'
+updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8939022907293618958'
 pr_number: null
 parent: story-411-422-pc-box-and-tm-extraction
 tags:
