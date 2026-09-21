@@ -33,4 +33,8 @@ Implement the Playwright base test extension and shared fixtures setup.
 - Add standard shared setup logic like `initializeWithSave` directly into fixtures.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-586-604-define-base-test-extension
+- [ ] task-586-605-implement-save-state-fixtures
+- [ ] task-586-606-migrate-integration-tests
+- [ ] task-586-607-qa-fixtures-implementation
