@@ -37,4 +37,5 @@ Verify the CVA refactor does not cause regressions and everything works in E2E.
 - Verify styling regressions do not exist via Playwright E2E tests.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-572-602-cva-refactor-e2e-tests
