@@ -8,6 +8,7 @@ created_at: '2026-09-20'
 updated_at: '2026-09-20'
 depends_on: []
 parent: story-335-474-gen3-wallpaper-phrase-generator-e2e
+jules_session_id: null
 tags:
   - gen3
   - customization
