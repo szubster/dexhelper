@@ -28,4 +28,4 @@ locks: []
 Write Playwright E2E tests for the Gen 3 Pokédex Gaps Tracker, verifying the extraction, mapping, and UI integration.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for the Gen 3 Pokédex Gaps Tracker feature
+- [x] Implement E2E tests for the Gen 3 Pokédex Gaps Tracker feature
