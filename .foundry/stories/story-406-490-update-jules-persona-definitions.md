@@ -32,7 +32,10 @@ Update the developer-facing persona templates under `.jules/` to utilize their r
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks to update the relevant `.jules/` markdown files.
-- [ ] task-490-506-update-oak-persona-skin-impl
-- [ ] task-490-507-update-nurse-persona-skin-impl
-- [ ] task-490-508-identify-update-other-gen1-personas-impl
-- [ ] task-490-509-persona-skins-qa
+- [x] task-490-506-update-oak-persona-skin-impl
+- [x] task-490-507-update-nurse-persona-skin-impl
+- [x] task-490-508-identify-update-other-gen1-personas-impl
+- [x] task-490-509-persona-skins-qa
+- [ ] research-490-604-investigate-other-gen1-personas-failure
+- [ ] task-490-605-identify-update-other-gen1-personas-v2
+- [ ] task-490-606-persona-skins-qa-v2
