@@ -31,7 +31,8 @@
     "src/utils/pagination/index.ts",
     "benchmarks/**",
     "tests/benchmarks/**",
-    "src/engine/storage/constants.ts"
+    "src/engine/storage/constants.ts",
+    ".foundry/scripts/lint-schema.ts"
   ],
   "rules": {
     "files": "warn",
