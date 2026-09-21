@@ -31,4 +31,8 @@ When a target item is acquired, the system needs to expose an event or state cha
 - Trigger a success notification when a newly acquired target item is detected in the Bag, Party, or PC Box.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into Tasks.
+- [x] Break down this Story into Tasks.
+- [ ] task-565-604-hunting-progress-state-definitions
+- [ ] task-565-605-hunting-progress-detection-logic
+- [ ] task-565-606-hunting-progress-notifications
+- [ ] task-565-607-hunting-progress-qa
