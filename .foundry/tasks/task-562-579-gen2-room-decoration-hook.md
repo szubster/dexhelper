@@ -26,6 +26,6 @@ Implement the React state logic and `useGen2RoomDecorations` hook to expose the 
 - Ensure the hook returns active and unlocked decorations.
 
 ## Acceptance Criteria
-- [ ] `useGen2RoomDecorations` hook is implemented.
-- [ ] Decorations are categorized correctly.
-- [ ] Mystery Gift exclusive decorations are identified.
+- [x] `useGen2RoomDecorations` hook is implemented.
+- [x] Decorations are categorized correctly.
+- [x] Mystery Gift exclusive decorations are identified.
