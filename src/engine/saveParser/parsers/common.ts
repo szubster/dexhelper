@@ -486,6 +486,8 @@ export interface Gen3SaveData extends BaseSaveData {
   gen3TMEventFlags?: Record<string, boolean>;
   /** Gen 3 specific: Story progression narrative flags */
   gen3NarrativeFlags?: Record<string, boolean>;
+  /** Gen 3 specific: Missed valuable items and milestones */
+  gen3MissedItemsAndMilestones?: import('../gen3/missedItems/parser').Gen3MissedItemsAndMilestones;
   /** Gen 3 specific: Upcoming major narrative boss based on progression */
   gen3UpcomingBoss?: string;
   /** Gen 3 specific: Static encounters completion flags */

@@ -33,7 +33,7 @@ You MUST strictly adhere to the guidelines defined in Section 13 ("Save File Par
 - **RangeError Handling:** When using the `DataView` API, you MUST catch `RangeError` for out-of-bounds reads and throw a new error with the message "The save file is corrupted or incomplete." to prevent application crashes.
 
 ## Acceptance Criteria
-- [ ] Implement the extraction function for Gen 3 missed items and milestones.
-- [ ] Define all memory offsets and bit locations as module-level constants.
-- [ ] Implement robust `RangeError` catching that throws the required error message.
-- [ ] Ensure that relative offsets are calculated using section offsets.
+- [x] Implement the extraction function for Gen 3 missed items and milestones.
+- [x] Define all memory offsets and bit locations as module-level constants.
+- [x] Implement robust `RangeError` catching that throws the required error message.
+- [x] Ensure that relative offsets are calculated using section offsets.
