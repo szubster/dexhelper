@@ -2,14 +2,14 @@
 id: task-477-577-msgpack-prefetch-qa-v2
 type: TASK
 title: QA verification for msgpack background prefetching (v2)
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-14'
 updated_at: '2026-09-21'
 depends_on:
   - task-477-493-msgpack-prefetch-logic-impl
   - task-477-576-msgpack-prefetch-state-layer-impl-v2
-jules_session_id: null
+jules_session_id: '10598657286826890125'
 pr_number: null
 parent: story-420-477-implement-msgpack-prefetching
 tags: []
