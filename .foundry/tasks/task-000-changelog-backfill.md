@@ -2,7 +2,7 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-09-21'
@@ -26,53 +26,48 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `c3633f50a3917c02df8179265ecee582c2bcb3e5`
-- **Previous Commit SHA:** `a4e9aec1039af7baa330e437bbff39fe36a1c745`
+- **Commit SHA:** `6fd0aded0ec6ef4278ce989fa73ddbea6a90972d`
+- **Previous Commit SHA:** `c3633f50a3917c02df8179265ecee582c2bcb3e5`
 - **Commit Date:** `2026-03-23`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `minor` (from `0.19.0` -> `0.20.0`)
+- **Suggested SemVer Bump:** `patch` (from `0.20.0` -> `0.20.1`)
 
 ## Commit Message
 ```text
-feat: Implement core application with save data parsing, Pokedex display, and game version management.
+build(deps): Bump @tanstack/react-query from 5.90.21 to 5.95.0
+
+Bumps [@tanstack/react-query](https://github.com/TanStack/query/tree/HEAD/packages/react-query) from 5.90.21 to 5.95.0.
+- [Release notes](https://github.com/TanStack/query/releases)
+- [Changelog](https://github.com/TanStack/query/blob/main/packages/react-query/CHANGELOG.md)
+- [Commits](https://github.com/TanStack/query/commits/@tanstack/react-query@5.95.0/packages/react-query)
+
+---
+updated-dependencies:
+- dependency-name: "@tanstack/react-query"
+  dependency-version: 5.95.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
 ```
 
 ## Modified Files
-- `src/components/AppLayout.tsx`
-- `src/components/AssistantPanel.tsx`
-- `src/components/PokedexGrid.tsx`
-- `src/components/PokemonDetails.tsx`
-- `src/components/SettingsModal.tsx`
-- `src/components/StorageGrid.tsx`
-- `src/components/VersionModal.tsx`
-- `src/hooks/useAssistant.ts`
-- `src/routes/index.tsx`
-- `src/utils/assistantData.ts`
-- `src/utils/generationConfig.ts`
-- `src/utils/saveParser.ts`
+- `package-lock.json`
+- `package.json`
 
 ## Diff Summary
 ```text
-c3633f50a feat: Implement core application with save data parsing, Pokedex display, and game version management.
- src/components/AppLayout.tsx      |  22 ++----
- src/components/AssistantPanel.tsx |   9 +--
- src/components/PokedexGrid.tsx    |  10 +--
- src/components/PokemonDetails.tsx |  31 ++++-----
- src/components/SettingsModal.tsx  |  42 +++---------
- src/components/StorageGrid.tsx    |  11 +--
- src/components/VersionModal.tsx   |  21 ++----
- src/hooks/useAssistant.ts         |  11 +--
- src/routes/index.tsx              |   3 +-
- src/utils/assistantData.ts        | 140 ++++++++++++++++++++------------------
- src/utils/generationConfig.ts     | 138 +++++++++++++++++++++++++++++++++++++
- src/utils/saveParser.ts           |   2 +-
- 12 files changed, 273 insertions(+), 167 deletions(-)
+6fd0aded0 build(deps): Bump @tanstack/react-query from 5.90.21 to 5.95.0
+ package-lock.json | 16 ++++++++--------
+ package.json      |  2 +-
+ 2 files changed, 9 insertions(+), 9 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show c3633f50a3917c02df8179265ecee582c2bcb3e5` (or `git diff a4e9aec1039af7baa330e437bbff39fe36a1c745..c3633f50a3917c02df8179265ecee582c2bcb3e5`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show 6fd0aded0ec6ef4278ce989fa73ddbea6a90972d` (or `git diff c3633f50a3917c02df8179265ecee582c2bcb3e5..6fd0aded0ec6ef4278ce989fa73ddbea6a90972d`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.20.0] - 2026-03-23` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.19.0...0.20.0`](https://github.com/${repo}/compare/a4e9aec...c3633f5)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.20.1] - 2026-03-23` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.20.0...0.20.1`](https://github.com/${repo}/compare/c3633f5...6fd0ade)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
