@@ -35,4 +35,7 @@ As part of the Gen 3 Secret Base Epic, we need to safely extract the `SecretBase
 - Define explicit module-level constants for all lengths and offsets; no magic numbers.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-581-608-secret-base-constants
+- [ ] task-581-609-secret-base-extraction-logic
+- [ ] task-581-610-secret-base-qa
