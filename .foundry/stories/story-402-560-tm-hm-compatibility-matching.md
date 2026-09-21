@@ -2,7 +2,7 @@
 id: story-402-560-tm-hm-compatibility-matching
 type: STORY
 title: Compatibility Matching Logic
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2025-02-14'
 updated_at: '2026-09-21'
