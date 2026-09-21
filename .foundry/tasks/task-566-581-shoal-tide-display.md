@@ -31,7 +31,7 @@ Implement the `TideDisplay` React component for the Shoal Cave Dashboard. It sho
 - The UI MUST follow the tactical hardware aesthetic constraints (`rounded-none`, `border-dashed`, monospaced telemetry fonts) outlined in ADR 008.
 
 ## Acceptance Criteria
-- [ ] Create `TideDisplay.tsx` component.
-- [ ] Display the current tide (High/Low).
-- [ ] Display a countdown to the next tide change.
-- [ ] Write Vitest browser tests for the component.
+- [x] Create `TideDisplay.tsx` component.
+- [x] Display the current tide (High/Low).
+- [x] Display a countdown to the next tide change.
+- [x] Write Vitest browser tests for the component.
