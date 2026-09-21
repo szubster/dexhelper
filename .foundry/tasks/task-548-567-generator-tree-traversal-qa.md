@@ -30,6 +30,6 @@ locks: []
 QA verification for the generator-based tree traversals, ensuring compliance with ADR 154 and technical contracts.
 
 ## Acceptance Criteria
-- [ ] Verify the implementation of tree traversal generators.
-- [ ] Ensure strict adherence to ADR 154 guidelines.
-- [ ] Verify unit test coverage and correctness.
+- [x] Verify the implementation of tree traversal generators.
+- [x] Ensure strict adherence to ADR 154 guidelines.
+- [x] Verify unit test coverage and correctness.
