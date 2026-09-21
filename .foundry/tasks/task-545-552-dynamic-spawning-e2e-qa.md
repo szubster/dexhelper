@@ -27,4 +27,4 @@ locks: []
 This task handles the QA verification for the dynamic spawning integration tests.
 
 ## Acceptance Criteria
-- [ ] QA verification of all dynamic node spawning integration tests
+- [x] QA verification of all dynamic node spawning integration tests
