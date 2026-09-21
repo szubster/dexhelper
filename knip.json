@@ -2,6 +2,10 @@
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "ignoreExportsUsedInFile": true,
   "ignoreDependencies": [
+    "@swc/cli",
+    "@swc/core",
+    "oxc-transform",
+    "ts-node",
     "wrangler",
     "@cloudflare/pages-plugin-cloudflare-access",
     "@tsconfig/strictest",

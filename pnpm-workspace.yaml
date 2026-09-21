@@ -18,6 +18,7 @@ allowBuilds:
   workerd: true
   '@google/genai': true
   protobufjs: true
+  '@swc/core': true
 
 auditConfig:
   ignoreGhsas:
