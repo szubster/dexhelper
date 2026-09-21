@@ -17,8 +17,6 @@ tags:
   - dexhelper
   - gen3
 research_references: []
-rejection_count: 2
-rejection_reason: ''
 locks: []
 ---
 
