@@ -7,6 +7,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [research-477-564-investigate-apricorn-offsets-failure](.foundry/research/research-477-564-investigate-apricorn-offsets-failure.md) | RESEARCH | Investigate Failure of Kurt Apricorn Offsets Research | researcher | [2228139916880550284](https://jules.google.com/session/2228139916880550284) |
 | [story-049-573-heatmap-data-processing-layer](.foundry/stories/story-049-573-heatmap-data-processing-layer.md) | STORY | Heatmap Data Processing Layer | tech_lead | [11248707112794413972](https://jules.google.com/session/11248707112794413972) |
 | [story-115-526-pathfinder-selection-ui](.foundry/stories/story-115-526-pathfinder-selection-ui.md) | STORY | Pathfinder Target Selection UI | tech_lead | [9748011016235540407](https://jules.google.com/session/9748011016235540407) |
 | [story-140-563-gen2-roamer-translation-logic](.foundry/stories/story-140-563-gen2-roamer-translation-logic.md) | STORY | Gen 2 Roamer Translation Logic | tech_lead | [7166946522499769130](https://jules.google.com/session/7166946522499769130) |
