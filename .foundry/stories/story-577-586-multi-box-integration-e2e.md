@@ -32,4 +32,7 @@ Implement integration logic bridging the search engine and UI components and exe
 - Ensure spatial organization remains unbroken.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-586-611-implement-multi-box-integration-logic
+- [ ] task-586-613-update-multi-box-ui
+- [ ] task-586-612-e2e-verification-multi-box
