@@ -11,8 +11,14 @@ describe('Gen 3 assistantData', () => {
     expect(seedotTrade?.nickname).toBe('DOTS');
   });
 
-  it('should have empty STATIC_GIFT_DATA for now', () => {
+  it('should have valid STATIC_GIFT_DATA for Gen 3 gifts and static encounters', () => {
     expect(STATIC_GIFT_DATA).toBeDefined();
-    expect(Object.keys(STATIC_GIFT_DATA).length).toBe(0);
+    expect(Object.keys(STATIC_GIFT_DATA).length).toBeGreaterThan(0);
+
+    // Spot check Castform, Beldum, Rayquaza, Snorlax
+    expect(STATIC_GIFT_DATA[351]?.name).toBe('Castform');
+    expect(STATIC_GIFT_DATA[375]?.name).toBe('Beldum');
+    expect(STATIC_GIFT_DATA[384]?.gen3Key).toBe('rayquaza');
+    expect(STATIC_GIFT_DATA[143]?.gen3Key).toBe('snorlaxRoute12');
   });
 });

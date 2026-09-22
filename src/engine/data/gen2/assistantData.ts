@@ -1,9 +1,6 @@
-import type { NpcTradeEntry } from '../gen1/assistantData';
+import type { NpcTradeEntry, StaticGiftEntry } from '../gen1/assistantData';
 
-export const STATIC_GIFT_DATA: Record<
-  number,
-  { name: string; location: string; reason: string; gen?: number; eventFlag?: number; requiredBadges?: number }
-> = {
+export const STATIC_GIFT_DATA: Record<number, StaticGiftEntry> = {
   175: { name: 'Togepi', location: 'Violet City', reason: 'Gift from Aide', gen: 2, eventFlag: 0x2d },
   133: { name: 'Eevee', location: 'Goldenrod City', reason: 'Gift from Bill', gen: 2, eventFlag: 0x4f },
   213: { name: 'Shuckle', location: 'Cianwood City', reason: 'Gift from Kirk', gen: 2, eventFlag: 0x45 },

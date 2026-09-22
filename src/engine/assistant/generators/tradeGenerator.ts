@@ -229,12 +229,19 @@ export function generateGiftAndTradeSuggestions(
     if (!entry) continue;
     const { giftId, gift } = entry;
     if (gift.gen && gift.gen !== saveData.generation) continue;
+    if (gift.versions && !gift.versions.includes(displayVersion)) continue;
     if (!missingIds.has(giftId)) continue;
 
     const requiredBadges = gift.requiredBadges || 0;
     if (saveData.badges < requiredBadges) continue;
 
-    const hasClaimed = checkFlag(saveData.eventFlags, gift.eventFlag);
+    let hasClaimed = false;
+    if (saveData.generation === 3 && gift.gen3Key && saveData.gen3StaticEncounters) {
+      hasClaimed = (saveData.gen3StaticEncounters as unknown as Record<string, boolean>)[gift.gen3Key] ?? false;
+    } else if (gift.eventFlag !== undefined) {
+      hasClaimed = checkFlag(saveData.eventFlags, gift.eventFlag);
+    }
+
     if (hasClaimed) continue;
 
     suggestions.push({

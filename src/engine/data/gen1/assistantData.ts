@@ -2,10 +2,18 @@
 
 // This file maps internal game IDs to standard names or PokeAPI slugs
 
-export const STATIC_GIFT_DATA: Record<
-  number,
-  { name: string; location: string; reason: string; gen?: number; eventFlag?: number; requiredBadges?: number }
-> = {
+export interface StaticGiftEntry {
+  name: string;
+  location: string;
+  reason: string;
+  gen?: number;
+  eventFlag?: number;
+  gen3Key?: string;
+  requiredBadges?: number;
+  versions?: string[];
+}
+
+export const STATIC_GIFT_DATA: Record<number, StaticGiftEntry> = {
   // Gen 1
   1: {
     name: 'Bulbasaur',
