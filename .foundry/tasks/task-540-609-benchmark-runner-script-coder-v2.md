@@ -24,6 +24,8 @@ locks: []
 ## Description
 Based on the findings from research-540-608-benchmark-failure-investigation, implement a benchmark runner script that measures the compilation and execution time of TypeScript files using ts-node, swc, esbuild, oxc, and Node.js native strip-typing. Include metrics for dependency installation overhead.
 
+**CRITICAL CONSTRAINT**: The runner must strictly use ephemeral packages installed in a `/tmp` directory. Included toolchain dependencies MUST NOT pollute the main workspace `package.json`.
+
 ## Acceptance Criteria
 - [ ] Implement the script to execute benchmark runs per the research recommendations.
 - [ ] Record start and end times for each toolchain.

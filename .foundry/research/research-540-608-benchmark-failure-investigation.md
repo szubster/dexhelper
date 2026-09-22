@@ -21,7 +21,7 @@ locks: []
 # Investigate Benchmark Runner Script Failure
 
 ## Description
-Investigate why task-540-546-benchmark-runner-script-coder repeatedly failed to implement the benchmark runner script for TS 7.x toolchains and reached its max rejection count. Determine the correct approach to measuring compilation/execution time and dependency overhead for ts-node, swc, esbuild, oxc, and Node.js native strip-typing.
+Investigate why task-540-546-benchmark-runner-script-coder repeatedly failed to implement the benchmark runner script for TS 7.x toolchains and reached its max rejection count. Determine the correct approach to measuring compilation/execution time and dependency overhead for ts-node, swc, esbuild, oxc, and Node.js native strip-typing. Crucially, address the reviewer feedback that included dependencies cannot pollute the main `package.json`; they must be implemented as ephemeral packages in a `/tmp` directory.
 
 ## Acceptance Criteria
 - [ ] Investigate the root cause of the task 540-546 failure.
