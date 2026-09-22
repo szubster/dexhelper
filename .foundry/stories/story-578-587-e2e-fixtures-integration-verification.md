@@ -2,16 +2,15 @@
 id: story-578-587-e2e-fixtures-integration-verification
 type: STORY
 title: E2E Fixtures Integration and Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-20'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on:
   - story-578-586-create-playwright-fixtures-definition
 jules_session_id: null
 pr_number: null
 parent: epic-566-578-e2e-fixtures-setup
-priority: 60
 tags:
   - testing
   - e2e
@@ -21,6 +20,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+priority: 60
 ---
 
 # Story: E2E Fixtures Integration and Verification

@@ -2,10 +2,10 @@
 id: epic-518-531-priority-orchestrator-dispatch
 type: EPIC
 title: Implement Priority-Based Dispatch in Orchestrator
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-09-22'
 depends_on:
   - epic-518-530-priority-schema-updates
 jules_session_id: null

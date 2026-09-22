@@ -2,10 +2,10 @@
 id: task-406-529-gen3-rematch-qa
 type: TASK
 title: QA Gen 3 NPC Rematch Status Implementation
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-03'
-updated_at: '2026-09-05'
+updated_at: '2026-09-22'
 depends_on:
   - task-406-528-gen3-rematch-e2e-impl
 jules_session_id: null
@@ -19,7 +19,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-406-528-gen3-rematch-e2e-impl
 notes: ''
 locks: []
 ---

@@ -2,12 +2,12 @@
 id: story-512-521-gen2-bug-catching-contest-core-data
 type: STORY
 title: Gen 2 Bug-Catching Contest Core Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: '11193737299750822986'
+jules_session_id: null
 pr_number: null
 parent: epic-343-512-save-data-extraction
 tags:
@@ -27,4 +27,6 @@ locks: []
 This story focuses on parsing the Gen 2 save state to extract the basic data of the currently caught Bug-Catching Contest Pokémon, including its Species ID, Level, Current HP, and Max HP.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-521-602-gen2-bug-catching-contest-core-data-impl
+- [ ] task-521-603-gen2-bug-catching-contest-core-data-qa

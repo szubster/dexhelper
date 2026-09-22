@@ -2,12 +2,12 @@
 id: story-566-580-virtualize-storage-grid-impl
 type: STORY
 title: Implement Virtualization for StorageGrid
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-18T09:12:07Z'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: '10751849738151741160'
+jules_session_id: null
 pr_number: null
 parent: epic-564-566-storage-grid-virtualization
 tags:
@@ -32,4 +32,6 @@ As defined in `epic-564-566-storage-grid-virtualization`, the `StorageGrid` comp
 4. Prevent main-thread blocking during initial renders and filtering.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-580-602-virtualize-storage-grid-ui
+- [ ] task-580-603-virtualize-storage-grid-qa

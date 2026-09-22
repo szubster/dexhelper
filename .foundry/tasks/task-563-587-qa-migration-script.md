@@ -2,10 +2,10 @@
 id: task-563-587-qa-migration-script
 type: TASK
 title: QA Migration Script for Task Reminders
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-16T23:51:03Z'
-updated_at: '2026-09-16T23:51:03Z'
+updated_at: '2026-09-21'
 depends_on:
   - task-563-586-develop-migration-script
 jules_session_id: null

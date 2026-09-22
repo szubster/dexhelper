@@ -2,12 +2,12 @@
 id: task-563-586-thief-covet-engine-logic-core
 type: TASK
 title: Core Implementation for Thief/Covet Move Analysis Engine Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-17T00:08:29Z'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: '14847446025630620248'
+jules_session_id: null
 pr_number: null
 parent: story-553-563-thief-covet-engine-logic
 tags:

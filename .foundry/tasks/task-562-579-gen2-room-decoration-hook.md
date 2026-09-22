@@ -2,13 +2,13 @@
 id: task-562-579-gen2-room-decoration-hook
 type: TASK
 title: Gen 2 Room Decoration Hook Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-14'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on:
   - task-562-578-gen2-room-decoration-types
-jules_session_id: '5985508606521806998'
+jules_session_id: null
 parent: story-313-562-gen2-room-decoration-state-logic
 rejection_reason: ''
 locks: []
