@@ -1,5 +1,6 @@
 import 'fake-indexeddb/auto';
 import { describe, expect, it } from 'vitest';
+import { MAX_SAVE_STATES_PER_PLAYTHROUGH } from './constants';
 import {
   countSavesForPlaythrough,
   getMostRecentSave,
@@ -54,6 +55,23 @@ describe('SaveHistoryDB', () => {
       const invalidMetadata = { playthroughId: 'pt-error', timestamp: 100, badField: () => {} };
 
       await expect(writeSaveState(id, saveData, invalidMetadata)).rejects.toThrow('could not be cloned');
+    });
+
+    it('should throw an error if maximum number of saves per playthrough is reached', async () => {
+      const ptId = 'limit-test';
+
+      // Insert maximum allowed saves
+      for (let i = 0; i < MAX_SAVE_STATES_PER_PLAYTHROUGH; i++) {
+        await writeSaveState(`limit-save-${i}`, new Uint8Array([1]), {
+          playthroughId: ptId,
+          timestamp: i,
+        });
+      }
+
+      // The next save should fail
+      await expect(
+        writeSaveState('limit-save-final', new Uint8Array([1]), { playthroughId: ptId, timestamp: 1000 }),
+      ).rejects.toThrow('Maximum number of save states reached for this playthrough');
     });
   });
 
