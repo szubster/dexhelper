@@ -25,4 +25,4 @@ locks: []
 Verify the implementation of strict markdown checkbox linting in `scripts/validate-foundry-schema.ts`. It should reject any markdown files using invalid checkbox formatting like `* [ ]` or `- [  ]`.
 
 ## Acceptance Criteria
-- [ ] Verify that `scripts/validate-foundry-schema.ts` correctly validates valid checkboxes and rejects invalid ones.
+- [x] Verify that `scripts/validate-foundry-schema.ts` correctly validates valid checkboxes and rejects invalid ones.
