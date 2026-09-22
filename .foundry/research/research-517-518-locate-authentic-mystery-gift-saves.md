@@ -2,12 +2,12 @@
 id: research-517-518-locate-authentic-mystery-gift-saves
 type: RESEARCH
 title: Locate Authentic Mystery Gift Saves
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-16'
-updated_at: '2026-09-20'
+updated_at: '2026-09-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13666532953667791428'
 pr_number: null
 parent: task-478-517-setup-mystery-gift-e2e-fixtures
 tags:

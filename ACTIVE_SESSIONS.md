@@ -9,6 +9,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [research-517-518-locate-authentic-mystery-gift-saves](.foundry/research/research-517-518-locate-authentic-mystery-gift-saves.md) | RESEARCH | Locate Authentic Mystery Gift Saves | researcher | [13666532953667791428](https://jules.google.com/session/13666532953667791428) |
 | [research-578-587-gen3-wild-item-fixtures](.foundry/research/research-578-587-gen3-wild-item-fixtures.md) | RESEARCH | Locate Authentic Gen 3 Saves for Wild Item Testing | researcher | [8313690795685962476](https://jules.google.com/session/8313690795685962476) |
 | [story-062-546-implement-mirage-island-tracker](.foundry/stories/story-062-546-implement-mirage-island-tracker.md) | STORY | Implement Mirage Island Tracker Component | tech_lead | [14872949797798249150](https://jules.google.com/session/14872949797798249150) |
 | [story-116-474-gen3-wallpaper-app-state-tracking-e2e](.foundry/stories/story-116-474-gen3-wallpaper-app-state-tracking-e2e.md) | STORY | E2E Verification Gen 3 Wallpaper App State Tracking | tech_lead | [16606119054740590315](https://jules.google.com/session/16606119054740590315) |
