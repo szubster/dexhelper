@@ -5,7 +5,7 @@ title: Gen 3 Match Call E2E Verification
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on:
   - story-083-127-gen3-match-call-schema-integration
 jules_session_id: '2302202354704023474'

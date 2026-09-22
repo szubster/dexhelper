@@ -2,10 +2,10 @@
 id: task-546-565-qa-generator-save-parsers
 type: TASK
 title: QA Gen 1-3 Save Parser Generators
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-05'
-updated_at: '2026-09-20'
+updated_at: '2026-09-22'
 depends_on:
   - task-546-562-gen1-parser-generators
   - task-546-563-gen2-parser-generators
@@ -33,6 +33,6 @@ locks: []
 QA verification for the refactoring of Gen 1, Gen 2, and Gen 3 save parsers to use TypeScript generator functions per ADR 154.
 
 ## Acceptance Criteria
-- [ ] Verify that Gen 1, Gen 2, and Gen 3 parsers use generator functions for parsing PC boxes and parties.
-- [ ] Verify all parser tests pass cleanly and there are no regressions in data loading.
-- [ ] Verify type stripping compilation succeeds with the new syntax.
+- [x] Verify that Gen 1, Gen 2, and Gen 3 parsers use generator functions for parsing PC boxes and parties.
+- [x] Verify all parser tests pass cleanly and there are no regressions in data loading.
+- [x] Verify type stripping compilation succeeds with the new syntax.

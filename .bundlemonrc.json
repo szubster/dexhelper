@@ -106,7 +106,7 @@
       "maxSize": "600kb"
     },
     {
-      "path": "data/pokedata.msgpack",
+      "path": "data/pokedata-core.msgpack",
       "maxSize": "600kb"
     },
     {

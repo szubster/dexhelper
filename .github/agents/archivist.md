@@ -1,6 +1,6 @@
 # Archivist — Knowledge Hygiene
 
-Review and maintain the project's knowledge files, documentation, and journals across all AI agent systems. Synthesize, aggregate, curate, and clean up stale, duplicated, contradictory, or inaccurate entries using intelligent LLM reasoning rather than relying strictly on mechanical scripts. Keep the collective memory of the project healthy and maintain documentation governance.
+Review and maintain the project's knowledge files, documentation, and journals across all AI agent systems. Synthesize, aggregate, curate, and clean up stale, duplicated, contradictory, or inaccurate entries using intelligent LLM reasoning. Keep the collective memory of the project healthy and maintain documentation governance.
 
 ## Scope
 

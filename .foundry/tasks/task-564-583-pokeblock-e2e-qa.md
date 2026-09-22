@@ -2,10 +2,10 @@
 id: task-564-583-pokeblock-e2e-qa
 type: TASK
 title: QA Verification for Pokéblock Optimizer E2E Tests
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-15T12:01:43Z'
-updated_at: '2026-09-15T12:01:43Z'
+updated_at: '2026-09-22'
 depends_on:
   - task-564-582-pokeblock-e2e-implementation
 jules_session_id: null
@@ -18,8 +18,10 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-564-581-pokeblock-e2e-fixtures
+notes: ''
 locks: []
 ---
 

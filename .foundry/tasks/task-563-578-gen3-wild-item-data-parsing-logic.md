@@ -2,12 +2,12 @@
 id: task-563-578-gen3-wild-item-data-parsing-logic
 type: TASK
 title: Implement Gen 3 Wild Encounter and Held Item Parsing Logic
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-14'
-updated_at: '2026-09-20'
+updated_at: '2026-09-22'
 depends_on: []
-jules_session_id: '15221749130093369696'
+jules_session_id: null
 pr_number: null
 parent: story-552-563-gen3-wild-item-parsing
 tags:
@@ -34,3 +34,4 @@ As part of the Wild Item Data Engine epic, this story focuses exclusively on Gen
 - [ ] Implement Gen 3 wild encounter locations and rates parsing.
 - [ ] Map held item data and their respective drop rates for Gen 3 Pokémon.
 - [ ] Utilize relative offsets where applicable.
+- [ ] research-563-602-gen3-wild-encounter-offsets

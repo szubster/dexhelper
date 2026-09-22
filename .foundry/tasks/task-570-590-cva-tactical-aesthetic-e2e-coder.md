@@ -5,7 +5,7 @@ title: Write E2E tests for CVA tactical aesthetic variants
 status: FAILED
 owner_persona: coder
 created_at: '2026-09-18T17:03:41Z'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,10 @@ tags:
   - testing
   - styling
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 2
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 locks: []
 priority: 60
 ---

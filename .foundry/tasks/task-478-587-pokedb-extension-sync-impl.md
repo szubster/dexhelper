@@ -2,10 +2,10 @@
 id: task-478-587-pokedb-extension-sync-impl
 type: TASK
 title: Implement logic to fetch and sync generation-specific extensions in PokeDB
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: 2026-09-17T07:47:47Z
-updated_at: 2026-09-17T07:47:47Z
+created_at: '2026-09-17T07:47:47.000Z'
+updated_at: '2026-09-22'
 depends_on:
   - task-478-586-pokedb-core-sync-impl
 jules_session_id: null

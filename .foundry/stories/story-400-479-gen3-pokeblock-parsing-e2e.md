@@ -2,13 +2,13 @@
 id: story-400-479-gen3-pokeblock-parsing-e2e
 type: STORY
 title: Gen 3 Pokéblock Parsing E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on:
   - story-400-478-gen3-pokeblock-parsing-logic
-jules_session_id: null
+jules_session_id: '14843497669516613258'
 pr_number: null
 parent: epic-114-400-gen3-pokeblock-case-parsing-retry
 tags:
