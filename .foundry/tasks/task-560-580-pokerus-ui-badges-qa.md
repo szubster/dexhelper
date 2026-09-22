@@ -29,6 +29,6 @@ locks: []
 Verify the implementation and tests for the Pokerus UI Badges logic based on `task-560-578-pokerus-ui-badges-impl` and `task-560-579-pokerus-ui-badges-tests`.
 
 ## Acceptance Criteria
-- [ ] Verify `PokerusBadge.tsx` correctly displays the Uninfected, Infected, and Cured statuses.
-- [ ] Verify `PokerusBadge.tsx` styling complies with ADR 008 (tactical hardware aesthetic).
-- [ ] Verify unit tests cover all states and pass successfully.
+- [x] Verify `PokerusBadge.tsx` correctly displays the Uninfected, Infected, and Cured statuses.
+- [x] Verify `PokerusBadge.tsx` styling complies with ADR 008 (tactical hardware aesthetic).
+- [x] Verify unit tests cover all states and pass successfully.
