@@ -29,6 +29,6 @@ locks: []
 Verify the Playwright End-to-End tests implemented for the RNG tool explainer section correctly test layout, accessibility, and content rendering.
 
 ## Acceptance Criteria
-- [ ] Review the implemented E2E tests for correct usage of Playwright best practices (e.g., locator.or() and isMobile fixture).
-- [ ] Ensure the tests cover the explainer's visibility, readability, and accessibility.
-- [ ] Verify that running the specific E2E test file passes successfully without false positives.
+- [x] Review the implemented E2E tests for correct usage of Playwright best practices (e.g., locator.or() and isMobile fixture).
+- [x] Ensure the tests cover the explainer's visibility, readability, and accessibility.
+- [x] Verify that running the specific E2E test file passes successfully without false positives.
