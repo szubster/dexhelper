@@ -30,3 +30,6 @@ locks: []
 - [ ] Add `"lint:foundry"` to `package.json`.
 - [ ] Integrate `"lint:foundry"` into the main `"lint"` script in `package.json`.
 - [ ] Verify validation passes correctly on valid files and fails on malformed files.
+
+- [ ] story-553-605-package-scripts
+- [ ] story-553-606-package-scripts-e2e
