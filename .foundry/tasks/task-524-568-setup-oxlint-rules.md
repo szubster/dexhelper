@@ -2,13 +2,13 @@
 id: task-524-568-setup-oxlint-rules
 type: TASK
 title: Setup Oxlint Rules
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-09'
 updated_at: '2026-09-22'
 depends_on:
   - task-524-567-setup-dependency-cruiser
-jules_session_id: null
+jules_session_id: '18155883409046064031'
 pr_number: null
 parent: story-524-524-architectural-linting
 tags:
