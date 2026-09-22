@@ -2,10 +2,10 @@
 id: story-552-566-orchestrator-diagnosis-artifact
 type: STORY
 title: Update Orchestrator for BLOCKED Diagnosis Artifact
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-18'
+updated_at: '2026-09-22'
 depends_on: []
 jules_session_id: null
 pr_number: null

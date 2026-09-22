@@ -2,10 +2,10 @@
 id: task-573-605-heatmap-logic
 type: TASK
 title: Implement Heatmap Aggregation Logic
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-21T06:50:00Z'
-updated_at: '2026-09-21T06:50:00Z'
+updated_at: '2026-09-22'
 depends_on:
   - task-573-604-heatmap-types
 jules_session_id: null
