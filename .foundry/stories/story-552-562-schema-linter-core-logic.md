@@ -2,10 +2,10 @@
 id: story-552-562-schema-linter-core-logic
 type: STORY
 title: Implement Markdown Checkbox Parsing Logic
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-20'
+updated_at: '2026-09-22'
 depends_on: []
 jules_session_id: null
 parent: epic-521-552-schema-linter-core-logic
@@ -25,7 +25,7 @@ locks: []
 - Enforce that checkboxes MUST be exactly `- [ ] ` or `- [x] `.
 
 ## Acceptance Criteria
-- [ ] Parse lines for checkbox syntax and validate exact spacing.
-- [ ] task-562-576-schema-linter-checkbox-logic-impl
-- [ ] task-562-577-schema-linter-checkbox-logic-qa
-- [ ] task-562-578-schema-linter-checkbox-logic-tests
+- [x] Parse lines for checkbox syntax and validate exact spacing.
+- [x] task-562-576-schema-linter-checkbox-logic-impl
+- [x] task-562-577-schema-linter-checkbox-logic-qa
+- [x] task-562-578-schema-linter-checkbox-logic-tests

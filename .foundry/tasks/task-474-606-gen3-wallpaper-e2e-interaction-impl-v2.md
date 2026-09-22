@@ -2,10 +2,10 @@
 id: task-474-606-gen3-wallpaper-e2e-interaction-impl-v2
 type: TASK
 title: Gen 3 Wallpaper State E2E Interaction Implementation v2
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-21'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on:
   - research-474-605-investigate-wallpaper-e2e-failure
 jules_session_id: null

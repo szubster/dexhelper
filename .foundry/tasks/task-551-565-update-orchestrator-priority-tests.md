@@ -2,19 +2,21 @@
 id: task-551-565-update-orchestrator-priority-tests
 type: TASK
 title: Write Unit Tests for Orchestrator Priority Sorting
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-09'
 updated_at: '2026-09-22'
 depends_on:
   - task-551-564-update-orchestrator-priority-logic
-jules_session_id: '11173242181647133497'
+jules_session_id: null
 pr_number: null
 parent: story-540-551-priority-engine-dispatch
 tags: []
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 priority: 50

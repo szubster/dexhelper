@@ -2,10 +2,10 @@
 id: story-412-561-pokerus-ui-e2e
 type: STORY
 title: Pokerus UI Badges E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-13'
+updated_at: '2026-09-22'
 depends_on:
   - story-412-560-pokerus-ui-badges
 jules_session_id: null

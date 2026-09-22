@@ -2,13 +2,13 @@
 id: task-572-593-lefthook-e2e-coder
 type: TASK
 title: Write bash E2E Test for Lefthook Schema Validation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-18'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on:
   - story-554-571-lefthook-integration
-jules_session_id: '14716593112422251229'
+jules_session_id: null
 parent: story-554-572-lefthook-e2e
 tags:
   - e2e

@@ -2,10 +2,10 @@
 id: task-474-607-gen3-wallpaper-e2e-qa-v2
 type: TASK
 title: Gen 3 Wallpaper State E2E QA Verification v2
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-21'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on:
   - task-474-606-gen3-wallpaper-e2e-interaction-impl-v2
 jules_session_id: null
