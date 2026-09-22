@@ -2,13 +2,13 @@
 id: task-562-579-wild-item-selection-ui
 type: TASK
 title: Wild Item Selection UI Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-12'
 updated_at: '2026-09-22'
 depends_on:
   - task-562-578-wild-item-selection-state
-jules_session_id: null
+jules_session_id: '16731247521072978925'
 pr_number: null
 parent: story-555-562-wild-item-selection-ui
 tags:
