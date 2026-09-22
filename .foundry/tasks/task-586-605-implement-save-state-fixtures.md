@@ -1,7 +1,6 @@
 ---
 id: task-586-605-implement-save-state-fixtures
 type: TASK
-jules_session_id: null
 title: Implement Save State Fixtures
 status: READY
 owner_persona: coder

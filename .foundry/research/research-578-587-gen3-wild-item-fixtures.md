@@ -2,24 +2,23 @@
 id: research-578-587-gen3-wild-item-fixtures
 type: RESEARCH
 title: Locate Authentic Gen 3 Saves for Wild Item Testing
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-09-20'
-updated_at: '2026-09-22'
+updated_at: '2026-09-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: task-563-578-save-file-progress-fixtures-coder
+priority: 50
 tags:
   - fixtures
   - e2e
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
-notes: ''
-locks: []
-priority: 50
+rejection_reason: ""
+notes: ""
 ---
 
 # Locate Authentic Gen 3 Saves for Wild Item Testing
@@ -32,6 +31,6 @@ According to memory and `ADR 032`/Save File parsing rules: "Do not create or man
 I must spawn this RESEARCH node to assign the `researcher` persona the task of locating or generating authentic Gen 3 save files using PKHeX or an emulator.
 
 ## Acceptance Criteria
-- [ ] Locate or generate an authentic Gen 3 `.sav` file (e.g., Emerald) with a target item (like an Oran Berry).
-- [ ] Locate or generate an authentic Gen 3 `.sav` file missing the target item.
-- [ ] Update `tests/fixtures/README.md` and add the files to `tests/fixtures/wild-item/` or provide them so the coder can use them.
+- [x] Locate or generate an authentic Gen 3 `.sav` file (e.g., Emerald) with a target item (like an Oran Berry).
+- [x] Locate or generate an authentic Gen 3 `.sav` file missing the target item.
+- [x] Update `tests/fixtures/README.md` and add the files to `tests/fixtures/wild-item/` or provide them so the coder can use them.
