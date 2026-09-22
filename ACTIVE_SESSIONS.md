@@ -3,6 +3,7 @@
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
 | [epic-034-047-permanent-failure-dashboard-ui](.foundry/epics/epic-034-047-permanent-failure-dashboard-ui.md) | EPIC | Implement Permanent Failure Dashboard UI | story_owner | [4635172415376481551](https://jules.google.com/session/4635172415376481551) |
+| [epic-038-063-mirage-island-data-hydration](.foundry/epics/epic-038-063-mirage-island-data-hydration.md) | EPIC | Hydrate Mirage Island State | story_owner | [14166536221962137901](https://jules.google.com/session/14166536221962137901) |
 | [epic-045-071-documentation-macro-node-completion](.foundry/epics/epic-045-071-documentation-macro-node-completion.md) | EPIC | Documentation Updates for Macro Node Completion | story_owner | [14333062303446387348](https://jules.google.com/session/14333062303446387348) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
