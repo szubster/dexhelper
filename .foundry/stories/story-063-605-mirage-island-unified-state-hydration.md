@@ -1,16 +1,15 @@
 ---
-id: epic-038-063-mirage-island-data-hydration
-type: EPIC
-title: Hydrate Mirage Island State
+id: story-063-605-mirage-island-unified-state-hydration
+type: STORY
+title: Hydrate Mirage Island State into PokeDB
 status: READY
-owner_persona: story_owner
+owner_persona: tech_lead
 created_at: '2026-06-08'
 updated_at: '2026-09-17'
-depends_on:
-  - epic-038-061-mirage-island-save-parsing
+depends_on: []
 jules_session_id: null
 pr_number: null
-parent: prd-068-038-mirage-island-data-extraction
+parent: epic-038-063-mirage-island-data-hydration
 tags:
   - feature
   - gen3
@@ -21,7 +20,7 @@ rejection_reason: ''
 notes: ''
 locks: []
 ---
-# Hydrate Mirage Island State
+# Hydrate Mirage Island State into PokeDB
 
 ## Context
 Once the daily Mirage Island value and the Pokémon personality values are parsed from the save file (handled by earlier Epics), they must be incorporated into the unified application state (`PokeDB` or equivalent) for consumption by UI components.
@@ -32,6 +31,4 @@ Once the daily Mirage Island value and the Pokémon personality values are parse
 3. **System Integrity**: Ensure no existing functionality is broken by adding these fields to the shared payload.
 
 ## Acceptance Criteria
-- [x] Story Owner: Generate child stories to implement the data hydration and ensure it correctly surfaces the required fields in the application state.
-- [ ] story-063-605-mirage-island-unified-state-hydration
-- [ ] story-063-606-mirage-island-state-hydration-e2e
+- [ ] Tech Lead: Break down into tasks.
