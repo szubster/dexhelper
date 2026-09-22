@@ -2,13 +2,13 @@
 id: task-551-564-test-curator-historical-mapping-ingestion
 type: TASK
 title: Test Curator Historical Mapping Ingestion
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-07'
-updated_at: '2026-09-16'
+updated_at: '2026-09-22'
 depends_on:
   - task-551-562-update-curator-prompt-logic
-jules_session_id: null
+jules_session_id: '4732456896370428353'
 parent: story-532-551-curator-historical-mapping-logic
 tags:
   - architecture
