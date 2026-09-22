@@ -8,7 +8,6 @@ owner_persona: qa
 created_at: '2026-09-21'
 updated_at: '2026-09-21'
 depends_on: ['task-586-606-migrate-integration-tests']
-jules_session_id: null
 pr_number: null
 parent: story-578-586-create-playwright-fixtures-definition
 priority: 60
