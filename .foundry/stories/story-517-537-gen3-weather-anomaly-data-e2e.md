@@ -2,13 +2,13 @@
 id: story-517-537-gen3-weather-anomaly-data-e2e
 type: STORY
 title: Gen 3 Weather Anomaly Data Integration and E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on:
   - story-517-536-gen3-weather-anomaly-data-parsing
-jules_session_id: null
+jules_session_id: '11538320904333735282'
 pr_number: null
 parent: epic-343-517-gen3-weather-anomaly-data
 tags:
