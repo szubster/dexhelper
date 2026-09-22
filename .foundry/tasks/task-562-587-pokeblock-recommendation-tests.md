@@ -32,5 +32,5 @@ With the player's berry inventory and Pokémon state parsed, and the math formul
 Implement unit tests for the Pokéblock recommendation engine logic. Ensure it correctly determines combinations and correctly identifies impossible goals based on berry constraints and math.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for the recommendation engine's combinations calculation logic.
-- [ ] Write unit tests for the recommendation engine's feasibility checks.
+- [x] Write unit tests for the recommendation engine's combinations calculation logic.
+- [x] Write unit tests for the recommendation engine's feasibility checks.
