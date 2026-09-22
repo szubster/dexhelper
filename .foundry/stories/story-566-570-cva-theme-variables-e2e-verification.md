@@ -2,7 +2,7 @@
 id: story-566-570-cva-theme-variables-e2e-verification
 type: STORY
 title: E2E Verification of CVA and Theme Setup
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-15T05:48:26Z'
 updated_at: '2026-09-22'

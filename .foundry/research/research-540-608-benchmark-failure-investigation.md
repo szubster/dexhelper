@@ -2,10 +2,10 @@
 id: research-540-608-benchmark-failure-investigation
 type: RESEARCH
 title: Investigate Benchmark Runner Script Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-09-21'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on: []
 jules_session_id: null
 pr_number: null

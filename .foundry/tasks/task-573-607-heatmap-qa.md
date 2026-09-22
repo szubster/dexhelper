@@ -2,10 +2,10 @@
 id: task-573-607-heatmap-qa
 type: TASK
 title: QA Heatmap Logic
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-21T06:50:00Z'
-updated_at: '2026-09-21T06:50:00Z'
+updated_at: '2026-09-22'
 depends_on:
   - task-573-606-heatmap-tests
 jules_session_id: null

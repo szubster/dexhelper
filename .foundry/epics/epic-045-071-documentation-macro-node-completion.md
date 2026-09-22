@@ -2,10 +2,10 @@
 id: epic-045-071-documentation-macro-node-completion
 type: EPIC
 title: Documentation Updates for Macro Node Completion
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on:
   - epic-045-070-orchestrator-strict-completion
 jules_session_id: '14333062303446387348'
