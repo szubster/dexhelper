@@ -28,3 +28,4 @@
 | [task-564-579-e2e-save-upload-success](.foundry/tasks/task-564-579-e2e-save-upload-success.md) | TASK | Write E2E Test for Wild Item Save Upload and Success State | coder | [11296657653396369934](https://jules.google.com/session/11296657653396369934) |
 | [task-565-576-gen3-pokedex-gaps-e2e-coder](.foundry/tasks/task-565-576-gen3-pokedex-gaps-e2e-coder.md) | TASK | Gen 3 Pokédex Gaps Integration and E2E Verification | coder | [15854418673526767201](https://jules.google.com/session/15854418673526767201) |
 | [task-572-593-lefthook-e2e-coder](.foundry/tasks/task-572-593-lefthook-e2e-coder.md) | TASK | Write bash E2E Test for Lefthook Schema Validation | coder | [14716593112422251229](https://jules.google.com/session/14716593112422251229) |
+| [task-573-604-heatmap-types](.foundry/tasks/task-573-604-heatmap-types.md) | TASK | Define Heatmap Types | coder | [13610585699367098982](https://jules.google.com/session/13610585699367098982) |
