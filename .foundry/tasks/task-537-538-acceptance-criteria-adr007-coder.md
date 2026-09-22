@@ -2,12 +2,12 @@
 id: task-537-538-acceptance-criteria-adr007-coder
 type: TASK
 title: Implement E2E Tests for ADR 007 Rule (Unchecked Boxes)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-17T22:13:54Z'
-updated_at: '2026-09-17T22:13:54Z'
+updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12847063748583880573'
 pr_number: null
 parent: story-534-537-acceptance-criteria-integration-e2e
 tags:

@@ -2,10 +2,10 @@
 id: task-564-579-e2e-save-upload-success
 type: TASK
 title: Write E2E Test for Wild Item Save Upload and Success State
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-15T06:49:02Z'
-updated_at: '2026-09-17'
+updated_at: '2026-09-22'
 depends_on:
   - task-564-578-e2e-navigation-and-selection
 jules_session_id: null

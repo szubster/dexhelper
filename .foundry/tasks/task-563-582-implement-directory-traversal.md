@@ -2,10 +2,10 @@
 id: task-563-582-implement-directory-traversal
 type: TASK
 title: Implement Directory Traversal Logic
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-16T06:16:00Z'
-updated_at: '2026-09-18'
+updated_at: '2026-09-21'
 depends_on:
   - task-563-581-scaffold-lint-schema
 jules_session_id: null

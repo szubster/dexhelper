@@ -2,12 +2,12 @@
 id: story-578-586-create-playwright-fixtures-definition
 type: STORY
 title: Create Playwright Fixtures Definition
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-20'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11216502389378641297'
 pr_number: null
 parent: epic-566-578-e2e-fixtures-setup
 priority: 60

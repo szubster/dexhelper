@@ -1138,7 +1138,7 @@ function main(): void {
 
       const parentPath = resolveNodePath(node.frontmatter.parent);
       const resolvedDeps = node.frontmatter.depends_on.map(d => resolveNodePath(d));
-      const targetArtifacts = matches.map(m => resolveNodePath(m)).filter((m): m is string =>
+      const targetArtifacts = matches.map(m => resolveNodePath(m, true)).filter((m): m is string =>
         !!m &&
         m !== node.repoPath &&
         m !== parentPath &&

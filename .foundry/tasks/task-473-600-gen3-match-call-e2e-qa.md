@@ -2,10 +2,10 @@
 id: task-473-600-gen3-match-call-e2e-qa
 type: TASK
 title: QA - Gen 3 Match Call E2E Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-20'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on:
   - task-473-599-gen3-match-call-e2e-impl
 jules_session_id: null

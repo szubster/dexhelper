@@ -80,7 +80,7 @@ describe('PokeDB', () => {
       statusText: 'Internal Server Error',
     } as unknown as Response);
 
-    await expect(pokeDB.sync()).rejects.toThrow('Failed to fetch pokedata.msgpack: 500 Internal Server Error');
+    await expect(pokeDB.sync()).rejects.toThrow('Failed to fetch pokedata-core.msgpack: 500 Internal Server Error');
 
     // Verify it was reset by calling again with a successful fetch
     vi.mocked(fetch).mockResolvedValueOnce({
@@ -110,7 +110,7 @@ describe('PokeDB', () => {
       statusText: 'Not Found',
     } as unknown as Response);
 
-    await expect(pokeDB.sync()).rejects.toThrow('Failed to fetch pokedata.msgpack: 404 Not Found');
+    await expect(pokeDB.sync()).rejects.toThrow('Failed to fetch pokedata-core.msgpack: 404 Not Found');
 
     expect(fetch).toHaveBeenCalledTimes(1);
 
