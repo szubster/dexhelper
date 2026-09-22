@@ -34,6 +34,10 @@ This STORY implements the core logic layer for checking if Pokémon currently in
 
 ## Acceptance Criteria
 - [x] Break down into TASK nodes for implementing the matching logic and unit testing it.
-- [ ] task-560-568-tm-hm-compatibility-matching-impl
-- [ ] task-560-574-tm-hm-compatibility-matching-tests
-- [ ] task-560-569-tm-hm-compatibility-matching-qa
+- [x] task-560-568-tm-hm-compatibility-matching-impl
+- [x] task-560-574-tm-hm-compatibility-matching-tests
+- [x] task-560-569-tm-hm-compatibility-matching-qa
+- [ ] research-560-608-investigate-tm-hm-compatibility-matching-failure
+- [ ] task-560-609-tm-hm-compatibility-matching-impl-retry
+- [ ] task-560-610-tm-hm-compatibility-matching-tests-retry
+- [ ] task-560-611-tm-hm-compatibility-matching-qa-retry
