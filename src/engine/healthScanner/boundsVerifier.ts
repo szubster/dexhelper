@@ -20,12 +20,19 @@ import type { Anomaly, HealthScanResult, Location } from './models';
  *
  * Therefore, this function strictly enforces generation boundaries and DV limits, flagging
  * violations as 'Critical' anomalies so the application can degrade gracefully.
+ *
+ * @example
+ * const result = verifyBounds(parsedSaveData);
+ * if (!result.isValid) {
+ *   console.warn('Save data contains invalid species IDs or DVs:', result.anomalies);
+ * }
  */
 export function verifyBounds(saveData: SaveData): HealthScanResult {
   const anomalies: Anomaly[] = [];
 
   const checkPokemon = (pokemon: PokemonInstance, location: Location) => {
-    // 1. Verify Pokemon IDs
+    // 1. Verify Pokemon species IDs against Generation Pokedex boundaries
+    // Gen 1 contains 151 species (Bulbasaur to Mew). Gen 2 contains 251 species (Bulbasaur to Celebi).
     if (saveData.generation === 1) {
       if (pokemon.speciesId < 0 || pokemon.speciesId > 151) {
         anomalies.push({
@@ -46,11 +53,13 @@ export function verifyBounds(saveData: SaveData): HealthScanResult {
       }
     }
 
-    // 2. Verify DVs
+    // 2. Verify Determinant Values (DVs)
+    // In Gen 1 & 2, DVs range from 0 to 15 (4 bits each). DVs exceeding 15 indicate save corruption or byte misalignment.
     if (pokemon.dvs) {
       const { hp, atk, def, spd, spc } = pokemon.dvs;
 
-      // ⚡ Bolt: Use direct property access instead of Object.entries to eliminate object allocation and O(N) loop overhead
+      // ⚡ Bolt: Direct property access avoids allocating intermediate key/value arrays via Object.entries(),
+      // preventing GC spikes during large PC box array scans.
       if (hp < 0 || hp > 15) {
         anomalies.push({
           code: 'InvalidStat',
