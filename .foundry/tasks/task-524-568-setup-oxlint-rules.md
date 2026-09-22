@@ -28,6 +28,6 @@ locks: []
 - Specifically restrict forbidden imports (e.g., using `no-restricted-imports` with `overrides` in `.oxlintrc.json`).
 
 ## Acceptance Criteria
-- [ ] Configure `.oxlintrc.json` to include path-based import restrictions.
-- [ ] Ensure frontend code cannot be imported into backend paths and vice versa.
-- [ ] Add rules to enforce any other known architectural constraints using Oxlint's override mechanism for specific directories.
+- [x] Configure `.oxlintrc.json` to include path-based import restrictions.
+- [x] Ensure frontend code cannot be imported into backend paths and vice versa.
+- [x] Add rules to enforce any other known architectural constraints using Oxlint's override mechanism for specific directories.
