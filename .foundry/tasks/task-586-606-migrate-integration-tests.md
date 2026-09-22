@@ -1,7 +1,6 @@
 ---
 id: task-586-606-migrate-integration-tests
 type: TASK
-jules_session_id: null
 title: Migrate Integration Tests
 status: READY
 owner_persona: coder

@@ -1,7 +1,6 @@
 ---
 id: task-586-604-define-base-test-extension
 type: TASK
-jules_session_id: null
 title: Define Base Test Extension
 status: READY
 owner_persona: coder

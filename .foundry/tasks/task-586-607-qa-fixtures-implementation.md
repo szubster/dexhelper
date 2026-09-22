@@ -1,7 +1,6 @@
 ---
 id: task-586-607-qa-fixtures-implementation
 type: TASK
-jules_session_id: null
 title: QA Fixtures Implementation
 status: READY
 owner_persona: qa
