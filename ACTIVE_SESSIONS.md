@@ -6,6 +6,7 @@
 | [epic-038-063-mirage-island-data-hydration](.foundry/epics/epic-038-063-mirage-island-data-hydration.md) | EPIC | Hydrate Mirage Island State | story_owner | [14166536221962137901](https://jules.google.com/session/14166536221962137901) |
 | [epic-045-071-documentation-macro-node-completion](.foundry/epics/epic-045-071-documentation-macro-node-completion.md) | EPIC | Documentation Updates for Macro Node Completion | story_owner | [14333062303446387348](https://jules.google.com/session/14333062303446387348) |
 | [epic-521-553-schema-linter-integration](.foundry/epics/epic-521-553-schema-linter-integration.md) | EPIC | Schema Linter Integration: Package Scripts & Verification | story_owner | [8172374304499070283](https://jules.google.com/session/8172374304499070283) |
+| [epic-566-574-multi-box-search-engine](.foundry/epics/epic-566-574-multi-box-search-engine.md) | EPIC | Multi-Box Search Engine | story_owner | [13584761206720097685](https://jules.google.com/session/13584761206720097685) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
