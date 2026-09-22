@@ -31,4 +31,7 @@ Implement the core search and filtering engine to allow users to search for spec
 - Implement attribute filtering (Nature, Ability, Gender, Held Item).
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into implementation stories for the search engine and attribute filters.
+- [x] Story Owner: Break down this Epic into implementation stories for the search engine and attribute filters.
+- [ ] story-574-608-multi-box-text-search-engine
+- [ ] story-574-609-multi-box-attribute-filters
+- [ ] story-574-610-multi-box-search-e2e-verification
