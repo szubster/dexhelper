@@ -121,7 +121,3 @@ export function recommendPokeblocks(params: RecommendationEngineParams): Recomme
     finalSheen: simulatedSheen,
   };
 }
-
-export function isGoalPossible(params: RecommendationEngineParams): boolean {
-  return recommendPokeblocks(params).isPossible;
-}
