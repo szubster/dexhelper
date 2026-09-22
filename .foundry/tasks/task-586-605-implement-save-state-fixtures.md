@@ -13,6 +13,8 @@ tags: ['testing', 'e2e', 'playwright', 'DX']
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+jules_session_id: null
+pr_number: null
 locks: []
 ---
 

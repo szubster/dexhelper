@@ -14,6 +14,8 @@ tags:
   - infrastructure
   - orchestrator
 rejection_count: 0
+rejection_reason: ''
+pr_number: null
 locks: []
 ---
 
