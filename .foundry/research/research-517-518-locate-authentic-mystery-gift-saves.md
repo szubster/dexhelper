@@ -2,10 +2,10 @@
 id: research-517-518-locate-authentic-mystery-gift-saves
 type: RESEARCH
 title: Locate Authentic Mystery Gift Saves
-status: READY
+status: FAILED
 owner_persona: researcher
 created_at: '2026-09-16'
-updated_at: '2026-09-20'
+updated_at: '2026-09-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,9 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

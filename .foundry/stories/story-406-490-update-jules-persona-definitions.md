@@ -2,12 +2,12 @@
 id: story-406-490-update-jules-persona-definitions
 type: STORY
 title: Update Jules Persona Definitions to Narrative Skins
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on: []
-jules_session_id: '1804044452675718366'
+jules_session_id: null
 pr_number: null
 parent: epic-339-406-jules-agent-skins
 tags:
@@ -32,7 +32,10 @@ Update the developer-facing persona templates under `.jules/` to utilize their r
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks to update the relevant `.jules/` markdown files.
-- [ ] task-490-506-update-oak-persona-skin-impl
-- [ ] task-490-507-update-nurse-persona-skin-impl
-- [ ] task-490-508-identify-update-other-gen1-personas-impl
-- [ ] task-490-509-persona-skins-qa
+- [x] task-490-506-update-oak-persona-skin-impl
+- [x] task-490-507-update-nurse-persona-skin-impl
+- [x] task-490-508-identify-update-other-gen1-personas-impl
+- [x] task-490-509-persona-skins-qa
+- [ ] research-490-604-investigate-other-gen1-personas-failure
+- [ ] task-490-605-identify-update-other-gen1-personas-v2
+- [ ] task-490-606-persona-skins-qa-v2

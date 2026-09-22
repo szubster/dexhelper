@@ -2,10 +2,10 @@
 id: epic-056-349-in-game-trade-data-extraction-v2
 type: EPIC
 title: In-Game Trade Data Extraction v2
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-04'
-updated_at: '2026-08-08'
+updated_at: '2026-09-22'
 depends_on:
   - research-056-394-investigate-in-game-trade-failure
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Epic: In-Game Trade Data Extraction v2
 
@@ -31,12 +32,12 @@ Implement and standardize the extraction of in-game NPC trade completion flags f
 - Ensure the extracted flags are available in the `SaveData` object.
 
 ## Acceptance Criteria
-- [ ] Gen 2 NPC trade flags are accurately extracted and mapped.
-- [ ] Gen 3 NPC trade flags are identified and extracted for all core versions.
-- [ ] The `npcTradeFlags` field in `SaveData` is consistently populated across both generations.
-- [ ] All parsing logic strictly adheres to the `DataView` API and handles `RangeError` for corrupted saves.
+- [x] Gen 2 NPC trade flags are accurately extracted and mapped.
+- [x] Gen 3 NPC trade flags are identified and extracted for all core versions.
+- [x] The `npcTradeFlags` field in `SaveData` is consistently populated across both generations.
+- [x] All parsing logic strictly adheres to the `DataView` API and handles `RangeError` for corrupted saves.
 - [x] Story Owner: Break down this Epic into executable Stories.
 - [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] story-349-361-gen2-trade-extraction
-- [ ] story-349-362-gen3-trade-extraction
-- [ ] story-349-363-trade-extraction-e2e
+- [x] story-349-361-gen2-trade-extraction
+- [x] story-349-362-gen3-trade-extraction
+- [x] story-349-363-trade-extraction-e2e

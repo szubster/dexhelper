@@ -2,15 +2,15 @@
 id: task-562-594-gen3-missed-items-extraction-logic
 type: TASK
 title: Gen 3 Missed Items & Milestones Extraction Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on: []
 rejection_reason: ''
 rejection_count: 2
 notes: ''
-jules_session_id: '13450580536717373283'
+jules_session_id: null
 pr_number: null
 parent: story-553-562-gen3-missed-items-parsing
 tags:
@@ -33,7 +33,7 @@ You MUST strictly adhere to the guidelines defined in Section 13 ("Save File Par
 - **RangeError Handling:** When using the `DataView` API, you MUST catch `RangeError` for out-of-bounds reads and throw a new error with the message "The save file is corrupted or incomplete." to prevent application crashes.
 
 ## Acceptance Criteria
-- [ ] Implement the extraction function for Gen 3 missed items and milestones.
-- [ ] Define all memory offsets and bit locations as module-level constants.
-- [ ] Implement robust `RangeError` catching that throws the required error message.
-- [ ] Ensure that relative offsets are calculated using section offsets.
+- [x] Implement the extraction function for Gen 3 missed items and milestones.
+- [x] Define all memory offsets and bit locations as module-level constants.
+- [x] Implement robust `RangeError` catching that throws the required error message.
+- [x] Ensure that relative offsets are calculated using section offsets.

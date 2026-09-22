@@ -2,10 +2,10 @@
 id: task-527-592-bash-linter-integration-qa
 type: TASK
 title: Integrate Bash Linter into Execution Pathway (QA)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-17T18:34:05Z'
-updated_at: '2026-09-17T18:34:05Z'
+updated_at: '2026-09-22'
 depends_on:
   - task-527-591-bash-linter-integration-tests
 jules_session_id: null

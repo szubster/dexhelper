@@ -2,20 +2,20 @@
 id: task-524-568-setup-oxlint-rules
 type: TASK
 title: Setup Oxlint Rules
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-09-09'
 updated_at: '2026-09-22'
 depends_on:
   - task-524-567-setup-dependency-cruiser
-jules_session_id: '3922273595039018004'
+jules_session_id: null
 pr_number: null
 parent: story-524-524-architectural-linting
 tags:
   - architecture
   - monorepo
   - linting
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

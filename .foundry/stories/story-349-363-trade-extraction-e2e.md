@@ -2,10 +2,10 @@
 id: story-349-363-trade-extraction-e2e
 type: STORY
 title: NPC Trade Extraction Integration & E2E
-status: READY
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-06'
-updated_at: '2026-09-20'
+updated_at: '2026-09-22'
 depends_on:
   - story-349-361-gen2-trade-extraction
   - story-349-362-gen3-trade-extraction
@@ -29,13 +29,13 @@ locks: []
 Verify the end-to-end integration of NPC trade flag extraction for Generation 2 and Generation 3 save files.
 
 ## Acceptance Criteria
-- [ ] Ensure end-to-end extraction works for both generations.
+- [x] Ensure end-to-end extraction works for both generations.
 - [x] Tech Lead: Break down this Story into executable Tasks.
 - [x] task-363-415-trade-extraction-e2e-impl
 - [x] task-363-416-trade-extraction-e2e-qa
-- [ ] research-363-440-investigate-trade-extraction-e2e-failure
+- [x] research-363-440-investigate-trade-extraction-e2e-failure
 - [x] task-363-441-trade-extraction-e2e-retry-impl
 - [x] task-363-442-trade-extraction-e2e-retry-qa
-- [ ] research-363-506-investigate-trade-extraction-e2e-failure-2
-- [ ] task-363-507-trade-extraction-e2e-retry-impl-2
-- [ ] task-363-508-trade-extraction-e2e-retry-qa-2
+- [x] research-363-506-investigate-trade-extraction-e2e-failure-2
+- [x] task-363-507-trade-extraction-e2e-retry-impl-2
+- [x] task-363-508-trade-extraction-e2e-retry-qa-2

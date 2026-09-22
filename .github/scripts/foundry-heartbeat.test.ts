@@ -1203,7 +1203,7 @@ Body`;
     expect(writeCall[1]).toContain('status: FAILED');
   });
 
-    it('should transition leaf task with unchecked boxes to FAILED and set rejection_reason', async () => {
+    it('ADR 007 Rule (Unchecked Boxes): should transition leaf task with unchecked boxes to FAILED and set rejection_reason', async () => {
       const nodePath = path.join(mockRepoRoot, '.foundry/tasks/task-unchecked-leaf.md');
       const nodeContent = `---
 id: task-unchecked-leaf

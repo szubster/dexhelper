@@ -92,3 +92,10 @@
 
 ## Critical Learnings
 - **Tooling configuration context**: Fixed Biome schema mismatch (2.5.12 -> 2.5.13). Removed unused @cloudflare/workers-types ignore from knip.json.
+
+
+---
+
+## Critical Learnings
+- **Knip JSON Schema Defects**: Duplicate JSON keys in `knip.json` cause standard JSON parsers to overwrite preceding configuration keys. When consolidating `knip.json`, merge all ignore paths into a single array and ensure no stale entries exist to maintain clean lint output without configuration hints.
+- **Biome Version Alignment**: When updating `@biomejs/biome` in `package.json`, ensure that `$schema` in `biome.jsonc` and the `setup-biome` action version in `.github/workflows/biome.yml` are synchronized to prevent CI schema validation mismatches.
