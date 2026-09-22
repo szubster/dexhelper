@@ -2,12 +2,12 @@
 id: story-554-564-pokemon-held-item-tracker
 type: STORY
 title: Pokemon Held Item Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-15'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on: []
-jules_session_id: '9705029030905314563'
+jules_session_id: null
 pr_number: null
 parent: epic-521-554-hunting-progress-tracker
 tags:
@@ -31,4 +31,7 @@ To help players track progress during a hunt, we need to scan Party Pokemon and 
 - Identify newly acquired target held items compared to the previous save state.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into Tasks.
+- [x] Break down this Story into Tasks.
+- [ ] task-564-602-pokemon-held-item-tracker-extraction
+- [ ] task-564-603-pokemon-held-item-tracker-diff
+- [ ] task-564-604-pokemon-held-item-tracker-qa

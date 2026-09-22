@@ -2,13 +2,13 @@
 id: task-536-565-playwright-style-guide-qa
 type: TASK
 title: QA Playwright Testing Style Guide
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-07'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on:
   - task-536-564-playwright-style-guide-mock-utils
-jules_session_id: '13880147920476550675'
+jules_session_id: null
 pr_number: null
 parent: story-531-536-write-playwright-style-guide
 tags:
@@ -31,8 +31,5 @@ Verify the new Playwright Testing Style Guide document.
 Ensure that `.foundry/docs/knowledge_base/testing/playwright_style_guide.md` correctly covers `locator.or()` strict mode, `isMobile` context handling, and usage of the new mock utilities as per the original story requirements.
 
 ## Acceptance Criteria
-- [ ] Verify the style guide document exists and contains all required sections.
-- [ ] Verify the examples are correct and align with core policies.
-
-### QA Notes
-Validation failed for task-536-564-playwright-style-guide-mock-utils. The mock utilities code example incorrectly uses an absolute path for Playwright navigation (`/dashboard`) instead of a relative path, which violates Vite base URL constraints. The mock utils task has been rejected and sent back to the coder for correction.
+- [x] Verify the style guide document exists and contains all required sections.
+- [x] Verify the examples are correct and align with core policies.

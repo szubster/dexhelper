@@ -5,7 +5,7 @@ title: Integrate ADR Compliance Linter Script
 status: READY
 owner_persona: coder
 created_at: '2026-09-10'
-updated_at: '2026-09-20'
+updated_at: '2026-09-22'
 depends_on:
   - task-445-567-impl-adr013-compliance-tests
 jules_session_id: null
@@ -18,7 +18,7 @@ tags:
   - adr
   - integration
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
