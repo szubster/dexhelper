@@ -2,23 +2,21 @@
 id: task-562-594-gen3-missed-items-extraction-logic
 type: TASK
 title: Gen 3 Missed Items & Milestones Extraction Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-19'
 updated_at: '2026-09-21'
 depends_on: []
-rejection_reason: ""
-rejection_count: 0
-notes: ""
-jules_session_id: null
+rejection_reason: ''
+rejection_count: 2
+notes: ''
+jules_session_id: '13450580536717373283'
 pr_number: null
 parent: story-553-562-gen3-missed-items-parsing
 tags:
   - dexhelper
   - gen3
 research_references: []
-rejection_count: 2
-rejection_reason: ''
 locks: []
 ---
 

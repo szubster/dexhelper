@@ -8,7 +8,6 @@
     "@tsconfig/vite-react"
   ],
   "ignore": [
-    "src/features/decorations/types.ts",
     "src/test-setup.ts",
     "src/engine/data/gen2/wildModels.ts",
     "src/contexts/binjgb/index.ts",
@@ -32,7 +31,11 @@
     "src/utils/pagination/index.ts",
     "benchmarks/**",
     "tests/benchmarks/**",
-    "src/engine/storage/constants.ts"
+    "src/engine/storage/constants.ts",
+    "scripts/migrate-task-reminders.ts",
+    ".foundry/scripts/lint-schema.ts",
+    "src/engine/gen3/contests/index.ts",
+    "src/engine/gen3/contests/engine.ts"
   ],
   "rules": {
     "files": "warn",

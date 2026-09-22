@@ -2,12 +2,12 @@
 id: task-478-586-pokedb-core-sync-impl
 type: TASK
 title: Refactor PokeDB sync logic to fetch pokedata-core.msgpack on initial load
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-17T07:47:12.000Z'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on: []
-jules_session_id: '11043983568990098862'
+jules_session_id: null
 pr_number: null
 parent: story-419-478-pokedb-sync-refactor
 tags:
@@ -29,5 +29,5 @@ The database synchronization logic needs to be updated to support multi-bundle d
 - Ensure proper hash checking and store initialization for core database tables.
 
 ## Acceptance Criteria
-- [ ] Refactor `syncData` in `src/db/PokeDB.ts` to fetch `pokedata-core.msgpack` and populate core stores.
-- [ ] Add unit tests verifying `pokedata-core.msgpack` sync behavior.
+- [x] Refactor `syncData` in `src/db/PokeDB.ts` to fetch `pokedata-core.msgpack` and populate core stores.
+- [x] Add unit tests verifying `pokedata-core.msgpack` sync behavior.

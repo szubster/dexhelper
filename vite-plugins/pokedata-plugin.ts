@@ -83,12 +83,12 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
         }
       });
 
-      // Middleware to serve the virtual pokedata.msgpack
+      // Middleware to serve the virtual pokedata-core.msgpack
       server.middlewares.use((req, res, next) => {
         const url = req.url || '';
         const cleanUrl = url.replace(/\/$/, '');
         
-        if (cleanUrl.endsWith('/data/pokedata.msgpack')) {
+        if (cleanUrl.endsWith('/data/pokedata-core.msgpack')) {
           const data = cachedData || generateData();
           res.setHeader('Content-Type', 'application/msgpack');
           res.setHeader('Cache-Control', 'no-cache');
@@ -139,7 +139,7 @@ export function pokedataPlugin(options: PokeDataPluginOptions): Plugin {
       
       this.emitFile({
         type: 'asset',
-        fileName: 'data/pokedata.msgpack',
+        fileName: 'data/pokedata-core.msgpack',
         source: data.finalContent
       });
 

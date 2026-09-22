@@ -2,10 +2,10 @@
 id: task-557-582-gen2-unown-dex-parsing-qa
 type: TASK
 title: QA Gen 2 Unown Dex Parsing
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-19T20:05:20Z'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on:
   - task-557-581-gen2-unown-dex-parsing-impl
 jules_session_id: null
