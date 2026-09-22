@@ -2,10 +2,10 @@
 id: task-540-548-benchmark-ts7-toolchains-qa
 type: TASK
 title: QA Benchmark TS 7.x Toolchains
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-09-21'
 depends_on:
   - task-540-546-benchmark-runner-script-coder
   - task-540-547-toolchain-configurations-coder
@@ -15,7 +15,9 @@ parent: story-536-540-benchmarking-ts7-toolchains
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-540-546-benchmark-runner-script-coder
 notes: ''
 locks: []
 ---

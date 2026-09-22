@@ -124,7 +124,7 @@ export const getDB = () => {
 };
 
 /**
- * Downloads the pre-built `pokedata.msgpack` bundle from the server and hydrates
+ * Downloads the pre-built `pokedata-core.msgpack` bundle from the server and hydrates
  * the local IndexedDB stores.
  *
  * **Architecture Note:**
@@ -153,9 +153,9 @@ const syncData = async () => {
 
     // 2. Fetch current data
     const baseUrl = typeof window !== 'undefined' ? import.meta.env.BASE_URL : 'http://localhost:3000/dexhelper/';
-    const response = await fetch(`${baseUrl}data/pokedata.msgpack`);
+    const response = await fetch(`${baseUrl}data/pokedata-core.msgpack`);
     if (!response.ok) {
-      throw new Error(`Failed to fetch pokedata.msgpack: ${response.status} ${response.statusText}`);
+      throw new Error(`Failed to fetch pokedata-core.msgpack: ${response.status} ${response.statusText}`);
     }
     const buffer = await response.arrayBuffer();
 
@@ -241,26 +241,30 @@ const syncData = async () => {
       });
     }
 
-    emit(2, 7, 'Encounters');
-    for (const e of data.enc) {
-      const inflatedEnc = e.enc.map((enc) => ({
-        ...enc,
-        d: (enc.d || []).map((d) => ({
-          ...DEFAULT_ENCOUNTER_DETAIL,
-          ...d,
-          max: d.max ?? d.min,
-        })),
-      }));
-      void eStore.put({ pid: e.pid, enc: inflatedEnc });
+    if (data.enc) {
+      emit(2, 7, 'Encounters');
+      for (const e of data.enc) {
+        const inflatedEnc = e.enc.map((enc) => ({
+          ...enc,
+          d: (enc.d || []).map((d) => ({
+            ...DEFAULT_ENCOUNTER_DETAIL,
+            ...d,
+            max: d.max ?? d.min,
+          })),
+        }));
+        void eStore.put({ pid: e.pid, enc: inflatedEnc });
+      }
     }
 
-    emit(3, 7, 'Locations');
-    for (const l of data.loc) {
-      void lStore.put({
-        ...DEFAULT_LOCATION,
-        ...l,
-        prnt: l.prnt, // stay undefined if omitted
-      });
+    if (data.loc) {
+      emit(3, 7, 'Locations');
+      for (const l of data.loc) {
+        void lStore.put({
+          ...DEFAULT_LOCATION,
+          ...l,
+          prnt: l.prnt, // stay undefined if omitted
+        });
+      }
     }
 
     emit(4, 7, 'Items');

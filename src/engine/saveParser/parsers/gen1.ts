@@ -79,6 +79,7 @@ import {
 
 const PARTY_MONS_HEADER_LENGTH = 7;
 const PARTY_MON_DATA_LENGTH = 44;
+export const GEN1_PKM_DATA_LENGTH = 44;
 const PARTY_OT_NAME_LENGTH = GEN1_STRING_LENGTH;
 
 const POKEMON_OFFSET_CURRENT_HP = 1;
@@ -624,6 +625,28 @@ export function* iterateGen1PCBoxes(
  * @param forcedVersion - An optional version override (e.g., 'yellow', 'red') to bypass heuristic detection. Useful for modified ROM saves.
  * @returns The fully constructed SaveData object mapping binary offsets to structured JSON for the frontend.
  */
+/**
+ * Extracts a Generation 1 Pokémon's raw 44-byte data (.pkm format) from the given DataView.
+ *
+ * @param view - The raw save file DataView.
+ * @param offset - The memory offset for the start of the Pokémon's data block.
+ * @returns A Uint8Array containing the 44-byte Pokémon data.
+ */
+export function extractGen1Pkm(view: DataView, offset: number): Uint8Array {
+  const pkmData = new Uint8Array(GEN1_PKM_DATA_LENGTH);
+  try {
+    for (let i = 0; i < GEN1_PKM_DATA_LENGTH; i++) {
+      pkmData[i] = view.getUint8(offset + i);
+    }
+  } catch (e) {
+    if (e instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw e;
+  }
+  return pkmData;
+}
+
 export function parseGen1(view: DataView, forcedVersion?: GameVersion): Gen1SaveData {
   let trainerName = '';
   let partyCount = 0;

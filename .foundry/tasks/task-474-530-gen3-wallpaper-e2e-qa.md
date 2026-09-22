@@ -2,10 +2,10 @@
 id: task-474-530-gen3-wallpaper-e2e-qa
 type: TASK
 title: Gen 3 Wallpaper State E2E QA Verification
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2024-05-18'
-updated_at: '2024-05-18'
+updated_at: '2026-09-21'
 depends_on:
   - task-474-529-gen3-wallpaper-e2e-interaction-impl
 jules_session_id: null
@@ -15,7 +15,9 @@ tags:
   - gen3
   - qa
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-474-529-gen3-wallpaper-e2e-interaction-impl
 locks: []
 ---
 

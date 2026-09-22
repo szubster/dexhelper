@@ -469,3 +469,16 @@
 - **Domain:** Main Project (DexHelper)
 - **Rationale & Concept:** Secret Bases in Gen 3 (Ruby, Sapphire, Emerald) are a key multiplayer feature via record mixing, but the game offers no way to track where imported bases are located or what Pokémon the NPCs hold. By parsing the save file, we can surface this hidden state, providing immense value to players (especially for EV/EXP farming).
 - **Strategic Balance:** In the preceding session, IDEA-521 (Foundry Persona Execution Time Profiler) was proposed for the internal Foundry orchestrator. To strictly maintain the required 50/50 balance between product features and system improvements, this session successfully pivots back to a high-value, mechanics-surfacing product feature for the main DexHelper application.
+
+<!-- Merged from 2026-09-20 -->
+# Visionary Journal - Session 2026-09-20
+
+## Session Overview
+- Date: 2026-09-20
+- Task: Proposed IDEA node `idea-527-foundry-dag-deadlock-detector` for automated detection of circular dependency loops and deadlocks in the Foundry DAG graph.
+
+## Critical Learnings & Strategic Insights
+- **Domain:** Foundry System (Orchestrator)
+- **Proposed Idea:** Automated Foundry DAG Circular Dependency & Deadlock Detector (IDEA-527)
+- **Rationale & Concept:** Proposes adding Tarjan/Kahn cycle detection algorithms to the Foundry Orchestrator pre-dispatch validation suite. When nodes form a circular `depends_on` loop, they become permanently stuck in `BLOCKED` without clear diagnostic tracing. The cycle detector will identify and output the explicit cycle path (e.g. `task-100 -> story-050 -> task-100`), preventing wasted dispatch cycles and enabling auto-flagging/auto-healing.
+- **Strategic Balance:** In the preceding session, IDEA-526 (Versioned Save State Schema Migration Pipeline) was proposed for the main DexHelper product domain. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a high-value Foundry Orchestrator infrastructure capability.

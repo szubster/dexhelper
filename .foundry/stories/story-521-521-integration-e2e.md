@@ -2,10 +2,10 @@
 id: story-521-521-integration-e2e
 type: STORY
 title: Integration and E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-16'
+updated_at: '2026-09-22'
 depends_on:
   - story-521-520-prompt-cleanup-tasks
 jules_session_id: null
@@ -30,5 +30,5 @@ Generate a final STORY dedicated exclusively to Integration and E2E Verification
 
 ## Acceptance Criteria
 - [x] Create TASK nodes for integration and E2E verification of prompt cleanup.
-- [ ] task-521-578-integration-e2e-coder
-- [ ] task-521-579-integration-e2e-qa
+- [x] task-521-578-integration-e2e-coder
+- [x] task-521-579-integration-e2e-qa

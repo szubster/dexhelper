@@ -11,6 +11,7 @@ import { HoverScanner } from '../../HoverScanner';
 import { LcdGrid } from '../../LcdGrid';
 import { PokerusBadge } from '../../PokerusBadge';
 import { SectionHeader } from '../../SectionHeader';
+import { SubDataPoint } from '../../SubDataPoint';
 import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
 
@@ -138,28 +139,21 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
               </div>
 
               <div className="relative z-10 grid grid-cols-2 gap-[1px] bg-white/10">
-                {p.otName && (
-                  <div className="flex flex-col gap-1 bg-zinc-950/80 p-3">
-                    <span className="font-mono text-[8px] text-zinc-500 uppercase tracking-widest">OT_ID</span>
-                    <span className="truncate font-mono text-[11px] text-zinc-300">{p.otName}</span>
-                  </div>
-                )}
+                {p.otName && <SubDataPoint label="OT_ID" value={p.otName} />}
 
                 {p.item !== undefined && p.item > 0 ? (
-                  <div className="flex flex-col gap-1 bg-zinc-950/80 p-3">
-                    <span className="font-mono text-[8px] text-zinc-500 uppercase tracking-widest">HELD_ITEM</span>
-                    <span className="truncate font-mono text-[11px] text-zinc-300">{gen2Items[p.item]}</span>
-                  </div>
+                  <SubDataPoint label="HELD_ITEM" value={gen2Items[p.item]} />
                 ) : (
-                  <div className="flex flex-col gap-1 bg-zinc-950/80 p-3">
-                    <span className="font-mono text-[8px] text-zinc-600 uppercase tracking-widest">HELD_ITEM</span>
-                    <span className="font-mono text-[11px] text-zinc-600">NONE</span>
-                  </div>
+                  <SubDataPoint
+                    label="HELD_ITEM"
+                    labelClassName="text-zinc-600"
+                    value="NONE"
+                    valueClassName="text-zinc-600"
+                  />
                 )}
 
                 {p.friendship !== undefined && (
-                  <div className="flex flex-col gap-1 bg-zinc-950/80 p-3">
-                    <span className="font-mono text-[8px] text-zinc-500 uppercase tracking-widest">SYNC_RATE</span>
+                  <SubDataPoint label="SYNC_RATE">
                     <div className="flex items-center gap-2">
                       <span className="font-mono text-[11px] text-rose-400">{p.friendship} PT</span>
                       <div className="h-1 flex-1 bg-zinc-800">
@@ -169,16 +163,15 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
                         />
                       </div>
                     </div>
-                  </div>
+                  </SubDataPoint>
                 )}
 
                 {p.pokerus !== undefined && (
-                  <div className="flex flex-col gap-1 bg-zinc-950/80 p-3">
-                    <span className="font-mono text-[8px] text-zinc-500 uppercase tracking-widest">POKERUS_STRAIN</span>
+                  <SubDataPoint label="POKERUS_STRAIN">
                     <div className="flex items-center gap-2">
                       <PokerusBadge strain={p.pokerus.strain} daysRemaining={p.pokerus.daysRemaining} />
                     </div>
-                  </div>
+                  </SubDataPoint>
                 )}
               </div>
 

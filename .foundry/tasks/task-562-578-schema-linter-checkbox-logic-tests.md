@@ -2,13 +2,13 @@
 id: task-562-578-schema-linter-checkbox-logic-tests
 type: TASK
 title: Write Tests for Markdown Checkbox Parsing Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-12'
-updated_at: '2026-09-20'
+updated_at: '2026-09-22'
 depends_on:
   - task-562-576-schema-linter-checkbox-logic-impl
-jules_session_id: null
+jules_session_id: '3551937715547541387'
 parent: story-552-562-schema-linter-core-logic
 tags:
   - foundry
