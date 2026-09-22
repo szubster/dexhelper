@@ -28,6 +28,6 @@ locks: []
 Verify the adoption of React 19 `useTransition` across the frontend application, specifically within `SearchAndFilters.tsx` and `DagContext.tsx`.
 
 ## Acceptance Criteria
-- [ ] Verify non-blocking UI behavior during complex filter operations.
-- [ ] Verify transitions behave correctly and gracefully handle rapid user input.
-- [ ] Ensure all relevant tests pass and coverage is maintained.
+- [x] Verify non-blocking UI behavior during complex filter operations.
+- [x] Verify transitions behave correctly and gracefully handle rapid user input.
+- [x] Ensure all relevant tests pass and coverage is maintained.
