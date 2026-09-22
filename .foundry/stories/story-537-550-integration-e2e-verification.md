@@ -31,3 +31,7 @@ This story is dedicated exclusively to Integration and E2E Verification for the 
 
 ## Acceptance Criteria
 - [ ] Write E2E tests to verify the generator architecture changes.
+- [ ] task-550-611-generator-parsers-e2e-coder
+- [ ] task-550-612-generator-streams-e2e-coder
+- [ ] task-550-613-generator-traversals-pagination-e2e-coder
+- [ ] task-550-614-generator-architecture-e2e-qa
