@@ -2,12 +2,12 @@
 id: story-569-581-gen3-secret-base-array-extraction
 type: STORY
 title: Gen 3 Secret Base Array Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-16'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on: []
-jules_session_id: '8596003031519932566'
+jules_session_id: null
 pr_number: null
 parent: epic-565-569-gen3-secret-base-parsing
 tags:
@@ -35,4 +35,7 @@ As part of the Gen 3 Secret Base Epic, we need to safely extract the `SecretBase
 - Define explicit module-level constants for all lengths and offsets; no magic numbers.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-581-608-secret-base-constants
+- [ ] task-581-609-secret-base-extraction-logic
+- [ ] task-581-610-secret-base-qa

@@ -2,13 +2,13 @@
 id: task-572-593-lefthook-e2e-coder
 type: TASK
 title: Write bash E2E Test for Lefthook Schema Validation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-18'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on:
   - story-554-571-lefthook-integration
-jules_session_id: '14716593112422251229'
+jules_session_id: null
 parent: story-554-572-lefthook-e2e
 tags:
   - e2e
@@ -33,4 +33,4 @@ The goal is to test the integration of `.foundry` files with Lefthook. Specifica
 3. It should also verify that running on a properly formed file exits with code `0`.
 
 ## Acceptance Criteria
-- [ ] bash E2E script `tests/integration/lefthook_schema_validation.sh` is created and correctly validates schema failure.
+- [x] bash E2E script `tests/integration/lefthook_schema_validation.sh` is created and correctly validates schema failure.

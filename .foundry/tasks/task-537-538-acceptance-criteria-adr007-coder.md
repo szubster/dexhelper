@@ -2,12 +2,12 @@
 id: task-537-538-acceptance-criteria-adr007-coder
 type: TASK
 title: Implement E2E Tests for ADR 007 Rule (Unchecked Boxes)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-17T22:13:54Z'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on: []
-jules_session_id: '12847063748583880573'
+jules_session_id: null
 pr_number: null
 parent: story-534-537-acceptance-criteria-integration-e2e
 tags:
@@ -31,5 +31,5 @@ We need to ensure that the newly updated Acceptance Criteria architecture correc
 - Use `vitest` to run the tests and verify behavior.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests validating Acceptance Criteria checkboxes failure modes.
-- [ ] Ensure tests pass successfully.
+- [x] Implement E2E tests validating Acceptance Criteria checkboxes failure modes.
+- [x] Ensure tests pass successfully.

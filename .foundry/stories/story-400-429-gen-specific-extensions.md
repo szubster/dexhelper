@@ -2,10 +2,10 @@
 id: story-400-429-gen-specific-extensions
 type: STORY
 title: Generate Gen-Specific Extensions
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-17'
-updated_at: '2026-09-19'
+updated_at: '2026-09-22'
 depends_on:
   - story-400-428-extract-core-data
 jules_session_id: '3875065394732553608'

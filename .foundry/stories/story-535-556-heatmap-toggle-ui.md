@@ -2,10 +2,10 @@
 id: story-535-556-heatmap-toggle-ui
 type: STORY
 title: Heatmap Toggle UI Control
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-09-13'
+updated_at: '2026-09-22'
 depends_on: []
 jules_session_id: null
 parent: epic-518-535-heatmap-ui-components
@@ -27,6 +27,6 @@ Add a UI control (e.g., a toggle switch or button) to the `/dag` dashboard to en
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break this Story down into Task nodes.
-- [ ] task-556-001-heatmap-toggle-context
-- [ ] task-556-002-heatmap-toggle-ui
-- [ ] task-556-003-heatmap-qa
+- [x] task-556-001-heatmap-toggle-context
+- [x] task-556-002-heatmap-toggle-ui
+- [x] task-556-003-heatmap-qa

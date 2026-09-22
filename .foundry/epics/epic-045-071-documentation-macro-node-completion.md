@@ -2,13 +2,13 @@
 id: epic-045-071-documentation-macro-node-completion
 type: EPIC
 title: Documentation Updates for Macro Node Completion
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on:
   - epic-045-070-orchestrator-strict-completion
-jules_session_id: '14333062303446387348'
+jules_session_id: null
 pr_number: null
 parent: prd-072-045-strict-macro-node-completion
 tags:
@@ -39,12 +39,10 @@ Update the core system documentation to detail the new macro node completion rul
 - [x] Update `schema.md` with hierarchical completion rules.
 - [x] Update `001-the-foundry-architecture.md` (ADR 001) to detail the behavior.
 - [x] Verify that there are no conflicting statements across other core documentation.
-
-### Stories
-- [x] .foundry/archive/stories/story-071-108-update-schema-macro-node-completion.md
-- [x] .foundry/archive/stories/story-071-109-update-adr001-macro-node-completion.md
-- [x] .foundry/archive/stories/story-071-110-verify-core-documentation.md
-- [x] story-071-359-documentation-macro-node-completion-e2e
+- [x] story-071-108-update-schema-macro-node-completion
+- [x] story-071-109-update-adr001-macro-node-completion
+- [x] story-071-110-verify-core-documentation
+- [ ] story-071-359-documentation-macro-node-completion-e2e
 
 ### Detached Follow-up Work
 - idea-097-schema-verifying-state-fix

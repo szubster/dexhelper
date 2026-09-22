@@ -2,12 +2,12 @@
 id: story-577-586-multi-box-integration-e2e
 type: STORY
 title: Integration and E2E Verification for Multi-Box Search
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-18'
-updated_at: '2026-09-19'
+updated_at: '2026-09-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3653539871545041038'
 pr_number: null
 parent: epic-566-577-multi-box-integration
 tags:

@@ -2,10 +2,10 @@
 id: story-552-562-gen3-pokedex-gaps-extraction
 type: STORY
 title: Gen 3 Pokédex Gaps Extraction Logic
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-17'
+updated_at: '2026-09-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -25,9 +25,9 @@ locks: []
 Extract the National and Regional Pokédex completion status (seen/owned) from the save file.
 
 ## Acceptance Criteria
-- [ ] Extract seen/owned flags for Gen 3 Pokédex
-- [ ] Support Hoenn and National Dex logic
+- [x] Extract seen/owned flags for Gen 3 Pokédex
+- [x] Support Hoenn and National Dex logic
 - [x] Break down into Tasks
-- [ ] task-562-578-gen3-pokedex-gaps-extraction-logic
-- [ ] task-562-579-gen3-pokedex-gaps-extraction-tests
-- [ ] task-562-580-gen3-pokedex-gaps-extraction-qa
+- [x] task-562-578-gen3-pokedex-gaps-extraction-logic
+- [x] task-562-579-gen3-pokedex-gaps-extraction-tests
+- [x] task-562-580-gen3-pokedex-gaps-extraction-qa

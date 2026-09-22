@@ -2,10 +2,10 @@
 id: task-520-550-zombie-node-remediation-impl
 type: TASK
 title: Zombie Node Remediation Logic Implementation
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-09'
+updated_at: '2026-09-22'
 depends_on:
   - task-520-549-zombie-node-detection-impl
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - maintenance
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-520-549-zombie-node-detection-impl
 notes: ''
 locks: []
 ---

@@ -2,10 +2,10 @@
 id: task-531-569-mgba-memory-sync-react
 type: TASK
 title: Implement mGBA React Component State Integration
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-13'
-updated_at: '2026-09-15'
+updated_at: '2026-09-22'
 depends_on:
   - task-531-568-mgba-memory-sync-core
 jules_session_id: null
@@ -19,7 +19,9 @@ tags:
   - react
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-531-568-mgba-memory-sync-core
 notes: ''
 locks: []
 ---

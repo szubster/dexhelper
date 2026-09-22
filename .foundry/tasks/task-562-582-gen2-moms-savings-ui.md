@@ -16,7 +16,7 @@ tags:
   - ui
   - react
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

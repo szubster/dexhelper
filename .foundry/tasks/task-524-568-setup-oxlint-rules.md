@@ -8,14 +8,14 @@ created_at: '2026-09-09'
 updated_at: '2026-09-22'
 depends_on:
   - task-524-567-setup-dependency-cruiser
-jules_session_id: '3922273595039018004'
+jules_session_id: '18155883409046064031'
 pr_number: null
 parent: story-524-524-architectural-linting
 tags:
   - architecture
   - monorepo
   - linting
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

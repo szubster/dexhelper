@@ -5,7 +5,7 @@ title: Gen 3 Map Data Extraction & Coordinate Mapping
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-14'
+updated_at: '2026-09-22'
 depends_on: []
 jules_session_id: '10070597723607423776'
 pr_number: null

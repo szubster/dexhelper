@@ -2,12 +2,12 @@
 id: task-531-568-mgba-memory-sync-core
 type: TASK
 title: Implement mGBA Core Memory Sync Logic
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-13'
 updated_at: '2026-09-22'
 depends_on: []
-jules_session_id: '2109266725610008166'
+jules_session_id: null
 pr_number: null
 parent: story-427-531-mgba-memory-sync
 tags:
@@ -17,8 +17,8 @@ tags:
   - mgba
   - memory
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
