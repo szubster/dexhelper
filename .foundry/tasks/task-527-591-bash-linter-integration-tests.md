@@ -31,4 +31,4 @@ After implementing the static analysis linter integration into the main Bash exe
 Write unit tests for the bash linter integration to ensure it successfully intercepts blocking commands.
 
 ## Acceptance Criteria
-- [ ] Add unit tests verifying that the bash execution wrapper correctly triggers the static analysis linter.
+- [x] Add unit tests verifying that the bash execution wrapper correctly triggers the static analysis linter.
