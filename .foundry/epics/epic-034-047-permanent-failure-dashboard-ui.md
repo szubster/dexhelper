@@ -36,3 +36,4 @@ As per ADR 017 and PRD `prd-063-034-permanent-failure-dashboard`, we need a "Per
 
 ### Generated Stories
 - [x] story-047-136-permanent-failure-dashboard-ui
+- [ ] story-047-605-permanent-failure-dashboard-e2e
