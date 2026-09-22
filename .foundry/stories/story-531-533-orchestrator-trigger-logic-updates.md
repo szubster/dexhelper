@@ -2,10 +2,10 @@
 id: story-531-533-orchestrator-trigger-logic-updates
 type: STORY
 title: Orchestrator Curator Trigger Logic Updates
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on: []
 jules_session_id: '5627962263870695365'
 parent: epic-518-531-orchestrator-curator-loop

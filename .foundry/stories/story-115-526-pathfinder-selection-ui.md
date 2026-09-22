@@ -2,12 +2,12 @@
 id: story-115-526-pathfinder-selection-ui
 type: STORY
 title: Pathfinder Target Selection UI
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-30'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on: []
-jules_session_id: '9748011016235540407'
+jules_session_id: null
 pr_number: null
 parent: epic-055-115-egg-move-pathfinder-ui
 tags:

@@ -2,22 +2,23 @@
 id: idea-527-macro-node-subtree-completeness-validator
 type: IDEA
 title: Macro Node Subtree Completeness Validator Tool
-status: PENDING
+status: READY
 owner_persona: product_manager
-created_at: "2026-09-21"
-updated_at: "2026-09-21"
+created_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: null
-priority: 50
 tags:
   - foundry
   - orchestrator
   - validation
 research_references: []
-notes: ""
+notes: ''
+locks: []
+priority: 50
+rejection_reason: ''
 ---
 
 # Macro Node Subtree Completeness Validator Tool

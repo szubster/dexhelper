@@ -2,12 +2,12 @@
 id: story-428-470-identify-public-saves
 type: STORY
 title: Identify and Download Public Saves
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-24'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on: []
-jules_session_id: '7582045793651940870'
+jules_session_id: null
 pr_number: null
 parent: epic-345-428-source-additional-save-files
 tags:
@@ -36,6 +36,6 @@ As part of Epic 428 to source additional save files, the first step is to locate
 - [x] task-470-486-source-gen3-saves
 - [x] task-470-487-catalog-integrate-saves
 - [x] task-470-488-qa-public-saves
-- [ ] research-470-558-japanese-gen2-offsets
-- [ ] task-470-559-catalog-integrate-saves
-- [ ] task-470-560-qa-public-saves
+- [x] research-470-558-japanese-gen2-offsets
+- [x] task-470-559-catalog-integrate-saves
+- [x] task-470-560-qa-public-saves

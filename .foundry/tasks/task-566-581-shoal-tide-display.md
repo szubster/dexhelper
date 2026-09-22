@@ -2,12 +2,12 @@
 id: task-566-581-shoal-tide-display
 type: TASK
 title: Implement Shoal Cave Tide Display Component
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-16T11:21:37Z'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on: []
-jules_session_id: '4753479007180480124'
+jules_session_id: null
 pr_number: null
 parent: story-412-566-shoal-cave-ui-components
 tags:

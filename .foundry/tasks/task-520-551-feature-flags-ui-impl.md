@@ -2,10 +2,10 @@
 id: task-520-551-feature-flags-ui-impl
 type: TASK
 title: Feature Flags Hidden UI Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on:
   - task-520-550-feature-flags-logic-impl
 jules_session_id: null
@@ -15,8 +15,8 @@ tags:
   - dexhelper
   - wip
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

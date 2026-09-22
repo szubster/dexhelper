@@ -2,19 +2,21 @@
 id: research-533-601-investigate-curator-trigger-logic-failure
 type: RESEARCH
 title: Investigate Orchestrator Curator Trigger Logic Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-09-20'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on: []
-jules_session_id: '14300614639840409746'
+jules_session_id: null
 parent: story-531-533-orchestrator-trigger-logic-updates
 tags:
   - orchestrator
   - curator
   - research
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---
