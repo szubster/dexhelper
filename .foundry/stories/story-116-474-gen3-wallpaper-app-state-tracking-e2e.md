@@ -34,5 +34,8 @@ Verify the Gen 3 Wallpaper App State Tracking functionality via E2E tests, speci
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into tasks.
 - [ ] task-474-528-gen3-wallpaper-e2e-suite-setup
-- [ ] task-474-529-gen3-wallpaper-e2e-interaction-impl
-- [ ] task-474-530-gen3-wallpaper-e2e-qa
+- [x] task-474-529-gen3-wallpaper-e2e-interaction-impl
+- [x] task-474-530-gen3-wallpaper-e2e-qa
+- [ ] research-474-605-investigate-wallpaper-e2e-failure
+- [ ] task-474-606-gen3-wallpaper-e2e-interaction-impl-v2
+- [ ] task-474-607-gen3-wallpaper-e2e-qa-v2
