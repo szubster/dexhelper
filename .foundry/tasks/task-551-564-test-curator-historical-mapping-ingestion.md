@@ -29,4 +29,4 @@ Write tests to verify the historical mapping ingestion logic.
 - Verify that the matrix is successfully parsed/ingested.
 
 ## Acceptance Criteria
-- [ ] Write historical mapping ingestion tests
+- [x] Write historical mapping ingestion tests
