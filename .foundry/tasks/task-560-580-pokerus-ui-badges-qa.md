@@ -2,14 +2,14 @@
 id: task-560-580-pokerus-ui-badges-qa
 type: TASK
 title: QA - Pokerus UI Badges
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-10'
 updated_at: '2026-09-22'
 depends_on:
   - task-560-578-pokerus-ui-badges-impl
   - task-560-579-pokerus-ui-badges-tests
-jules_session_id: '14375652303899454228'
+jules_session_id: null
 pr_number: null
 parent: story-412-560-pokerus-ui-badges
 tags:

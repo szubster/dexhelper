@@ -2,7 +2,7 @@
 id: task-562-582-gen2-moms-savings-ui
 type: TASK
 title: Update Gen 2 Mom's Savings Dashboard UI
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-15T11:52:50Z'
 updated_at: '2026-09-22'
@@ -16,10 +16,8 @@ tags:
   - ui
   - react
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

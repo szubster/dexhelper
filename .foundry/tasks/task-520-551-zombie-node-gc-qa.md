@@ -2,10 +2,10 @@
 id: task-520-551-zombie-node-gc-qa
 type: TASK
 title: Zombie Node GC QA Verification
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-06'
-updated_at: '2026-09-09'
+updated_at: '2026-09-22'
 depends_on:
   - task-520-549-zombie-node-detection-impl
   - task-520-550-zombie-node-remediation-impl
@@ -18,7 +18,9 @@ tags:
   - maintenance
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-520-549-zombie-node-detection-impl
 notes: ''
 locks: []
 ---

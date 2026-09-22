@@ -2,7 +2,7 @@
 id: task-563-582-map-data-extraction-logic
 type: TASK
 title: Gen 3 Map Data Extraction Logic
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-16T11:02:53Z'
 updated_at: '2026-09-22'
@@ -10,10 +10,8 @@ depends_on:
   - task-563-581-map-data-types
 jules_session_id: null
 parent: story-553-563-gen3-map-data-extraction
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 locks: []
 ---
 
