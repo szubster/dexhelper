@@ -4,6 +4,7 @@ type: TASK
 title: Implement Save State Fixtures
 status: READY
 owner_persona: coder
+jules_session_id: null
 created_at: '2026-09-21'
 updated_at: '2026-09-21'
 depends_on: ['task-586-604-define-base-test-extension']
