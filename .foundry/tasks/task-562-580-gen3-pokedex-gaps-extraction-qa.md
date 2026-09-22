@@ -27,6 +27,6 @@ locks: []
 Verify the implementation of the Gen 3 Pokédex gaps extraction logic and its test coverage.
 
 ## Acceptance Criteria
-- [ ] Verify the missing Pokedex gap logic exists and functions correctly.
-- [ ] Verify unit tests are passing and have good coverage.
-- [ ] Verify adherence to architectural constraints (e.g. Section 13 of `.foundry/docs/schema.md`).
+- [x] Verify the missing Pokedex gap logic exists and functions correctly.
+- [x] Verify unit tests are passing and have good coverage.
+- [x] Verify adherence to architectural constraints (e.g. Section 13 of `.foundry/docs/schema.md`).
