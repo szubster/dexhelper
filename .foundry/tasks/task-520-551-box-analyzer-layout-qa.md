@@ -24,6 +24,6 @@ locks: []
 # Box Analyzer Layout QA Verification
 
 ## Acceptance Criteria
-- [ ] Route and view are verified in the application.
-- [ ] Aesthetic adheres to tactical hardware guidelines.
-- [ ] Test coverage is adequate and passing.
+- [x] Route and view are verified in the application.
+- [x] Aesthetic adheres to tactical hardware guidelines.
+- [x] Test coverage is adequate and passing.
