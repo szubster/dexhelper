@@ -2,12 +2,12 @@
 id: task-563-586-develop-migration-script
 type: TASK
 title: Develop Migration Script for Task Reminders
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-16T23:51:03Z'
-updated_at: '2026-09-20'
+updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: '1847834312182836243'
+jules_session_id: null
 pr_number: null
 parent: story-335-563-develop-migration-script
 tags:
@@ -37,9 +37,9 @@ This task involves creating a script to migrate existing task nodes by removing 
 6.  **Script Execution:** Ensure the script can be executed locally to test its functionality. Do not commit temporary or developer scratchpad scripts. If you write a temporary script for the implementation, ensure the final reusable script is properly integrated or documented in `.foundry/docs/knowledge_base/` if meant to be a utility, or executed and then deleted if it is a one-off task (though the requirement states "Develop Migration Script", so creating a persistent `.cjs` or `.ts` script file is expected). Wait, actually, since it's a migration script, it's typically a utility script or one-off script. A script file like `scripts/migrate-task-reminders.cjs` is appropriate.
 
 ## 3. Acceptance Criteria
-- [ ] A migration script (e.g., `scripts/migrate-task-reminders.cjs`) has been created.
-- [ ] The script finds and processes all `.md` files in `.foundry/tasks/`.
-- [ ] The script correctly filters tasks based on the `ACTIVE`, `PENDING`, or `READY` statuses in the YAML frontmatter.
-- [ ] The script successfully removes `### REMINDER FOR CODER` and `### REMINDER FOR QA` sections and their contents.
-- [ ] The script preserves the YAML frontmatter and all other markdown content unharmed.
-- [ ] The script has been executed to migrate current tasks (if applicable during testing), and code has been tested to work.
+- [x] A migration script (e.g., `scripts/migrate-task-reminders.cjs`) has been created.
+- [x] The script finds and processes all `.md` files in `.foundry/tasks/`.
+- [x] The script correctly filters tasks based on the `ACTIVE`, `PENDING`, or `READY` statuses in the YAML frontmatter.
+- [x] The script successfully removes `### REMINDER FOR CODER` and `### REMINDER FOR QA` sections and their contents.
+- [x] The script preserves the YAML frontmatter and all other markdown content unharmed.
+- [x] The script has been executed to migrate current tasks (if applicable during testing), and code has been tested to work.

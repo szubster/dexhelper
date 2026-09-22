@@ -806,6 +806,7 @@ export function* iterateGen3Party(view: DataView, section1Offset: number, gameVe
         evs: parseGen3EVs(decryptedData, 2 * SUBSTRUCTURE_SIZE),
         condition: parseGen3ConditionStats(decryptedData, 2 * SUBSTRUCTURE_SIZE),
         ribbons: parseGen3Ribbons(decryptedData, 3 * SUBSTRUCTURE_SIZE + RIBBONS_OFFSET_IN_M),
+        nature: pv % 25,
       };
 
       yield { speciesId, partyDetail, gen3Spinda };
@@ -885,6 +886,7 @@ export function* iterateGen3PCBoxes(pcBufferView: DataView) {
           evs: parseGen3EVs(decryptedData, 2 * SUBSTRUCTURE_SIZE),
           condition: parseGen3ConditionStats(decryptedData, 2 * SUBSTRUCTURE_SIZE),
           ribbons: parseGen3Ribbons(decryptedData, 3 * SUBSTRUCTURE_SIZE + RIBBONS_OFFSET_IN_M),
+          nature: pv % 25,
         };
 
         yield { speciesId, pcDetail, gen3Spinda };

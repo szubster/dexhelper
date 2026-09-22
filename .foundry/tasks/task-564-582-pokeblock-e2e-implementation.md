@@ -2,10 +2,10 @@
 id: task-564-582-pokeblock-e2e-implementation
 type: TASK
 title: Implement Playwright E2E Tests for Pokéblock Optimizer
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-15T12:01:43Z'
-updated_at: '2026-09-15T12:01:43Z'
+updated_at: '2026-09-22'
 depends_on:
   - task-564-581-pokeblock-e2e-fixtures
 jules_session_id: null
@@ -18,8 +18,10 @@ tags:
   - playwright
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-564-581-pokeblock-e2e-fixtures
+notes: ''
 locks: []
 ---
 

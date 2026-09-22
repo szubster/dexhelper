@@ -2,7 +2,7 @@
 id: task-540-546-benchmark-runner-script-coder
 type: TASK
 title: Implement Benchmark Runner Script
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-05'
 updated_at: '2026-09-21'
@@ -12,8 +12,8 @@ pr_number: null
 parent: story-536-540-benchmarking-ts7-toolchains
 tags: []
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

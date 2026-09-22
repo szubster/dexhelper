@@ -5,7 +5,7 @@ title: Investigate Orchestrator Curator Trigger Logic Failure
 status: READY
 owner_persona: researcher
 created_at: '2026-09-20'
-updated_at: '2026-09-20'
+updated_at: '2026-09-22'
 depends_on: []
 jules_session_id: null
 parent: story-531-533-orchestrator-trigger-logic-updates
@@ -13,7 +13,7 @@ tags:
   - orchestrator
   - curator
   - research
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

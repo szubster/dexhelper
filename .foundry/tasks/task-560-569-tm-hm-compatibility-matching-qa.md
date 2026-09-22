@@ -2,10 +2,10 @@
 id: task-560-569-tm-hm-compatibility-matching-qa
 type: TASK
 title: QA TM/HM Compatibility Matching Logic
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2025-02-14'
-updated_at: '2026-09-13'
+updated_at: '2026-09-21'
 depends_on:
   - task-560-574-tm-hm-compatibility-matching-tests
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - logic
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-560-568-tm-hm-compatibility-matching-impl
 notes: ''
 locks: []
 priority: 50
