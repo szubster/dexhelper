@@ -30,5 +30,9 @@ As part of generating a visual heatmap overlay for missing encounters, we need t
 Calculate the heatmap densities and prepare the data structure for the UI overlay.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks for implementing the data processing logic.
+- [x] Break down into Tasks for implementing the data processing logic.
 - [ ] Complete child tasks for data processing.
+- [ ] task-573-604-heatmap-types
+- [ ] task-573-605-heatmap-logic
+- [ ] task-573-606-heatmap-tests
+- [ ] task-573-607-heatmap-qa
