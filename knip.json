@@ -31,7 +31,6 @@
     "src/utils/pagination/index.ts",
     "benchmarks/**",
     "tests/benchmarks/**",
-    "src/engine/storage/constants.ts",
     "scripts/migrate-task-reminders.ts",
     ".foundry/scripts/lint-schema.ts"
   ],
