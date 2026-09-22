@@ -32,3 +32,12 @@
 **Outcome:** Merged (Optimistic execution)
 **Why:** The previous design lacked the dense, technical feel of a hardware diagnostic interface. The redesign emphasizes the "tactical hardware" aesthetic by introducing structural boundaries (command prompt tab) and stronger interactive feedback.
 **Pattern:** Future diagnostic/telemetry components should lean into terminal-like typography (monospaced, dense) and utilize interactive cursors/prompts to enhance the technical aesthetic.
+
+
+---
+
+## 2026-09-19 - [Accepted] - 🖼️ Canvas: Bold CapacitySegmentedBar Redesign
+**What:** Transformed the `CapacitySegmentedBar` component from a basic inline segment row into a fully cased tactical telemetry meter. The redesigned bar features an outer hardware housing with dashed borders, telemetry tag (`[SYS.CAP]`), capacity percentage readout, dynamic alert state LED indicators (emerald/amber/red), and segmented grid blocks with glowing status shadows.
+**Outcome:** Merged (Optimistic execution)
+**Why:** System and storage capacity meters lacked visual structure and hardware texture. The redesign aligns with ADR 008 (tactical hardware / snooping aesthetic), encapsulating telemetry data inside a distinct hardware housing with high-visibility alert states.
+**Pattern:** Data progress and capacity metrics should be cased inside enclosed hardware housings with percentage readouts and dynamic alert LEDs.
