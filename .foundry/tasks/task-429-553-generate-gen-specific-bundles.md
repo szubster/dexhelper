@@ -2,7 +2,7 @@
 id: task-429-553-generate-gen-specific-bundles
 type: TASK
 title: Generate Gen-Specific Bundles
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-06'
 updated_at: '2026-09-22'
@@ -15,8 +15,8 @@ tags:
   - performance
   - architecture
   - bundles
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

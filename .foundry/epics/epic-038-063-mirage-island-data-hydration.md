@@ -2,13 +2,13 @@
 id: epic-038-063-mirage-island-data-hydration
 type: EPIC
 title: Hydrate Mirage Island State
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-08'
 updated_at: '2026-09-22'
 depends_on:
   - epic-038-061-mirage-island-save-parsing
-jules_session_id: '14166536221962137901'
+jules_session_id: null
 pr_number: null
 parent: prd-068-038-mirage-island-data-extraction
 tags:

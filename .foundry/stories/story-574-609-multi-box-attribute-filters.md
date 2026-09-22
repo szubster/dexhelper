@@ -2,7 +2,7 @@
 id: story-574-609-multi-box-attribute-filters
 type: STORY
 title: Multi-Box Attribute Filters
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-22'
 updated_at: '2026-09-22'

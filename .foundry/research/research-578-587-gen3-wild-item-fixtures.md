@@ -2,7 +2,7 @@
 id: research-578-587-gen3-wild-item-fixtures
 type: RESEARCH
 title: Locate Authentic Gen 3 Saves for Wild Item Testing
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-09-20'
 updated_at: '2026-09-22'
@@ -15,8 +15,8 @@ tags:
   - e2e
   - gen3
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

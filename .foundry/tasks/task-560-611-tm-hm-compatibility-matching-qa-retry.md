@@ -2,10 +2,10 @@
 id: task-560-611-tm-hm-compatibility-matching-qa-retry
 type: TASK
 title: QA TM/HM Compatibility Matching Logic (Retry)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-21'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on:
   - task-560-610-tm-hm-compatibility-matching-tests-retry
 jules_session_id: null

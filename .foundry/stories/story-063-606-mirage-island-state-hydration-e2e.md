@@ -2,10 +2,10 @@
 id: story-063-606-mirage-island-state-hydration-e2e
 type: STORY
 title: Mirage Island State Hydration E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-08'
-updated_at: '2026-09-17'
+updated_at: '2026-09-22'
 depends_on:
   - story-063-605-mirage-island-unified-state-hydration
 jules_session_id: null

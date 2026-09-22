@@ -2,12 +2,12 @@
 id: epic-521-553-schema-linter-integration
 type: EPIC
 title: 'Schema Linter Integration: Package Scripts & Verification'
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-24'
 updated_at: '2026-09-22'
 depends_on: []
-jules_session_id: '8172374304499070283'
+jules_session_id: null
 parent: prd-421-521-automated-schema-linting
 tags:
   - foundry

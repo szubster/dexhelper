@@ -2,10 +2,10 @@
 id: task-560-610-tm-hm-compatibility-matching-tests-retry
 type: TASK
 title: Write Unit Tests for TM/HM Compatibility Matching (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-21'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on:
   - task-560-609-tm-hm-compatibility-matching-impl-retry
 jules_session_id: null
