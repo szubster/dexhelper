@@ -19,3 +19,4 @@
 | [task-562-579-wild-item-selection-ui](.foundry/tasks/task-562-579-wild-item-selection-ui.md) | TASK | Wild Item Selection UI Implementation | coder | [16731247521072978925](https://jules.google.com/session/16731247521072978925) |
 | [task-564-579-e2e-save-upload-success](.foundry/tasks/task-564-579-e2e-save-upload-success.md) | TASK | Write E2E Test for Wild Item Save Upload and Success State | coder | [11296657653396369934](https://jules.google.com/session/11296657653396369934) |
 | [task-573-604-heatmap-types](.foundry/tasks/task-573-604-heatmap-types.md) | TASK | Define Heatmap Types | coder | [13610585699367098982](https://jules.google.com/session/13610585699367098982) |
+| [task-586-604-define-base-test-extension](.foundry/tasks/task-586-604-define-base-test-extension.md) | TASK | Define Base Test Extension | coder | [11583508672250716615](https://jules.google.com/session/11583508672250716615) |
