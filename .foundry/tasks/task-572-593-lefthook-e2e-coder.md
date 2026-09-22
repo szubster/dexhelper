@@ -33,4 +33,4 @@ The goal is to test the integration of `.foundry` files with Lefthook. Specifica
 3. It should also verify that running on a properly formed file exits with code `0`.
 
 ## Acceptance Criteria
-- [ ] bash E2E script `tests/integration/lefthook_schema_validation.sh` is created and correctly validates schema failure.
+- [x] bash E2E script `tests/integration/lefthook_schema_validation.sh` is created and correctly validates schema failure.
