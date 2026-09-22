@@ -14,6 +14,7 @@ import { TacticalInput } from './TacticalInput';
 import { TacticalMultiSelectControl } from './TacticalMultiSelectControl';
 import { TacticalPanel } from './TacticalPanel';
 import { TelemetryDecoration } from './TelemetryDecoration';
+import { WildItemSelector } from './wild-item/WildItemSelector';
 
 export function SearchAndFilters() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -207,6 +208,7 @@ export function SearchAndFilters() {
               ))}
             </div>
           </div>
+          <WildItemSelector />
         </div>
       </TacticalPanel>
     </div>

@@ -37,6 +37,6 @@ As part of the Wild Item Hunting UI epic, we need a user interface for users to 
 - Re-use existing UI primitives from `src/components/` where possible (e.g., TacticalButton, TacticalPanel).
 
 ## Acceptance Criteria
-- [ ] Implement `WildItemSelector` component.
-- [ ] Connect component to state store for selected items.
-- [ ] Style the component according to tactical hardware guidelines.
+- [x] Implement `WildItemSelector` component.
+- [x] Connect component to state store for selected items.
+- [x] Style the component according to tactical hardware guidelines.
