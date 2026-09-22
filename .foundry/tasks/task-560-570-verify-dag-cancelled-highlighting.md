@@ -2,13 +2,13 @@
 id: task-560-570-verify-dag-cancelled-highlighting
 type: TASK
 title: Verify DAG CANCELLED node highlighting
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-14'
-updated_at: '2026-09-20'
+updated_at: '2026-09-22'
 depends_on:
   - task-560-569-test-dag-cancelled-highlighting
-jules_session_id: null
+jules_session_id: '14504963396357653800'
 parent: story-530-560-update-dag-ui-components
 tags:
   - ui
