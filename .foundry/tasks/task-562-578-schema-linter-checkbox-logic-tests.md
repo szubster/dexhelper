@@ -25,4 +25,4 @@ locks: []
 Write unit tests for the markdown checkbox linting logic added to `scripts/validate-foundry-schema.ts`. Verify that valid checkbox syntaxes pass and invalid ones trigger the correct errors.
 
 ## Acceptance Criteria
-- [ ] Add testing logic to cover all edge cases around markdown checkbox formatting in `scripts/validate-foundry-schema.ts`.
+- [x] Add testing logic to cover all edge cases around markdown checkbox formatting in `scripts/validate-foundry-schema.ts`.
