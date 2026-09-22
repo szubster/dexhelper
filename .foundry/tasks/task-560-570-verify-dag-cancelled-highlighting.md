@@ -26,5 +26,5 @@ locks: []
 Verify the changes made in the implementation and test tasks by ensuring CANCELLED nodes with `rejection_count >= maxRejectionThreshold` are visible in the Permanent Failure Dashboard and are highlighted correctly.
 
 ## Acceptance Criteria
-- [ ] Verify `pnpm lint` and `pnpm test` pass.
-- [ ] Verify the implementation correctly highlights CANCELLED nodes with high rejection counts as permanent failures.
+- [x] Verify `pnpm lint` and `pnpm test` pass.
+- [x] Verify the implementation correctly highlights CANCELLED nodes with high rejection counts as permanent failures.

@@ -7,10 +7,11 @@ export interface DagTreeItemProps {
   nodeId: string;
   label: string;
   status: string;
+  isPermanentFailure?: boolean;
   children?: React.ReactNode;
 }
 
-export function DagTreeItem({ nodeId, label, status, children }: DagTreeItemProps) {
+export function DagTreeItem({ nodeId, label, status, isPermanentFailure, children }: DagTreeItemProps) {
   const { expandedNodes, toggleNode } = useDagTreeContext();
   const isExpanded = expandedNodes.has(nodeId);
   const hasChildren = React.Children.count(children) > 0;
@@ -32,6 +33,9 @@ export function DagTreeItem({ nodeId, label, status, children }: DagTreeItemProp
       statusColor = 'text-amber-500';
       break;
     default:
+      if (status === 'CANCELLED' && isPermanentFailure) {
+        statusColor = 'text-red-500';
+      }
       break;
   }
 
@@ -40,7 +44,9 @@ export function DagTreeItem({ nodeId, label, status, children }: DagTreeItemProp
       <div
         className={cn(
           'mb-1 flex items-center gap-2 rounded-none border border-dashed p-2 font-mono text-sm transition-colors',
-          'border-zinc-700 bg-zinc-900 hover:bg-zinc-800/50',
+          isPermanentFailure
+            ? 'border-2 border-red-500 bg-red-900/40 brightness-125'
+            : 'border-zinc-700 bg-zinc-900 hover:bg-zinc-800/50',
         )}
       >
         <button

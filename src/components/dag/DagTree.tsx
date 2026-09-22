@@ -4,7 +4,7 @@ import { useDagTreeContext } from './DagTreeContext';
 import { DagTreeItem } from './DagTreeItem';
 
 export function DagTree() {
-  const { nodes, edges } = useDagContext();
+  const { nodes, edges, maxRejectionThreshold } = useDagContext();
   const { expandAll, collapseAll } = useDagTreeContext();
 
   const nodeMap = useMemo(() => new Map(nodes.map((n) => [n.id, n])), [nodes]);
@@ -32,9 +32,18 @@ export function DagTree() {
     if (!node) return null;
 
     const children = childrenMap.get(nodeId) || [];
+    const isPermanentFailure =
+      (node.data.status === 'FAILED' || node.data.status === 'CANCELLED') &&
+      node.data.rejection_count >= maxRejectionThreshold;
 
     return (
-      <DagTreeItem key={node.id} nodeId={node.id} label={node.data.title || node.id} status={node.data.status}>
+      <DagTreeItem
+        key={node.id}
+        nodeId={node.id}
+        label={node.data.title || node.id}
+        status={node.data.status}
+        isPermanentFailure={isPermanentFailure}
+      >
         {children.map(renderNode)}
       </DagTreeItem>
     );
