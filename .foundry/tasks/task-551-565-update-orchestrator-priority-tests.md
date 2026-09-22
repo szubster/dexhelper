@@ -2,13 +2,13 @@
 id: task-551-565-update-orchestrator-priority-tests
 type: TASK
 title: Write Unit Tests for Orchestrator Priority Sorting
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-20'
+updated_at: '2026-09-22'
 depends_on:
   - task-551-564-update-orchestrator-priority-logic
-jules_session_id: null
+jules_session_id: '11173242181647133497'
 pr_number: null
 parent: story-540-551-priority-engine-dispatch
 tags: []
