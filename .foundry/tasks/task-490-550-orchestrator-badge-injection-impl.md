@@ -2,13 +2,13 @@
 id: task-490-550-orchestrator-badge-injection-impl
 type: TASK
 title: Orchestrator Badge Injection Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-20'
+updated_at: '2026-09-23'
 depends_on:
   - task-490-549-orchestrator-console-theme-impl
-jules_session_id: null
+jules_session_id: '12868397687303153243'
 parent: story-408-490-orchestrator-themed-output-impl
 rejection_count: 2
 rejection_reason: ''
