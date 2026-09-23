@@ -98,7 +98,7 @@ import {
   CONDITION_TOUGH_OFFSET,
 } from '../gen3/conditionStats/constants';
 import { parseGen3Daycare } from '../gen3/daycare/parser';
-import { parseGen3EventItems } from '../gen3/inventory/parser';
+import { parseGen3BerryPouch, parseGen3EventItems } from '../gen3/inventory/parser';
 import { parseGen3MissedItemsAndMilestones } from '../gen3/missedItems/parser';
 import { parseGen3MysteryGift } from '../gen3/mysteryGift';
 import { parseGen3NarrativeFlags } from '../gen3/narrative/parser';
@@ -1804,6 +1804,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     const securityKey = parseGen3SecurityKey(view, section0Offset, _forcedVersion || 'ruby');
     const gen3ShoalItems = parseGen3ShoalItems(view, section1Offset, _forcedVersion || 'ruby', securityKey);
     const gen3TMHMs = parseGen3TMHMs(view, section1Offset, _forcedVersion || 'ruby', securityKey);
+    const gen3Berries = parseGen3BerryPouch(view, section1Offset, _forcedVersion || 'ruby', securityKey);
 
     const gen3TMEventFlags = parseGen3TMEventFlags(view, section1Offset, _forcedVersion || 'ruby');
     const gen3MatchCall = parseGen3MatchCall(view, section1Offset, section2Offset, _forcedVersion || 'ruby');
@@ -1945,6 +1946,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
 
       ...(gen3StaticEncounters ? { gen3StaticEncounters } : {}),
       gen3BerryPatches,
+      gen3Berries,
       gen3SecretBases,
       hiddenItemFlags,
       mirageIslandValue,
