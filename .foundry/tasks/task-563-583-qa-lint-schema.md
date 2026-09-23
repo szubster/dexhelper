@@ -2,10 +2,10 @@
 id: task-563-583-qa-lint-schema
 type: TASK
 title: QA Verify Directory Iteration
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-16T06:16:00Z'
-updated_at: '2026-09-18'
+updated_at: '2026-09-23'
 depends_on:
   - task-563-582-implement-directory-traversal
 jules_session_id: null
