@@ -2,10 +2,10 @@
 id: story-530-560-update-dag-ui-components
 type: STORY
 title: Update DAG UI components to support CANCELLED status nodes
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-09T00:00:00.000Z'
-updated_at: '2026-09-14'
+updated_at: '2026-09-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -26,10 +26,10 @@ locks: []
 Update the DAG UI components to support CANCELLED status nodes with high rejection counts so they correctly appear in the Permanent Failure Dashboard.
 
 ## Acceptance Criteria
-- [ ] Nodes with `status: CANCELLED` and `rejection_count >= 3` are visible in the Permanent Failure Dashboard.
-- [ ] Nodes with `status: CANCELLED` and `rejection_count >= 3` are highlighted correctly in `DagNode.tsx` and `DagDashboard.tsx` (using the same red styling as FAILED nodes with high rejection counts).
-- [ ] The filter panel or data selection logic properly includes these nodes.
+- [x] Nodes with `status: CANCELLED` and `rejection_count >= 3` are visible in the Permanent Failure Dashboard.
+- [x] Nodes with `status: CANCELLED` and `rejection_count >= 3` are highlighted correctly in `DagNode.tsx` and `DagDashboard.tsx` (using the same red styling as FAILED nodes with high rejection counts).
+- [x] The filter panel or data selection logic properly includes these nodes.
 - [x] Break down into Tasks.
-- [ ] task-560-568-implement-dag-cancelled-highlighting
-- [ ] task-560-569-test-dag-cancelled-highlighting
-- [ ] task-560-570-verify-dag-cancelled-highlighting
+- [x] task-560-568-implement-dag-cancelled-highlighting
+- [x] task-560-569-test-dag-cancelled-highlighting
+- [x] task-560-570-verify-dag-cancelled-highlighting

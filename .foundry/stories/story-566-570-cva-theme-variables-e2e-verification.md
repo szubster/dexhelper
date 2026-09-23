@@ -5,10 +5,10 @@ title: E2E Verification of CVA and Theme Setup
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-15T05:48:26Z'
-updated_at: '2026-09-22'
+updated_at: '2026-09-23'
 depends_on:
   - story-566-569-cva-theme-variables-setup
-jules_session_id: '11626902006172205919'
+jules_session_id: '9957569110529617362'
 pr_number: null
 parent: epic-565-566-cva-setup
 tags:

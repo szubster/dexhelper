@@ -38,7 +38,8 @@ export const DagKanbanBoard: React.FC = () => {
             <div className="flex flex-col gap-2 overflow-y-auto">
               {columnNodes.map((nodeData) => {
                 const isPermanentlyFailed =
-                  nodeData.status === 'FAILED' && nodeData.rejection_count >= maxRejectionThreshold;
+                  (nodeData.status === 'FAILED' || nodeData.status === 'CANCELLED') &&
+                  nodeData.rejection_count >= maxRejectionThreshold;
                 return (
                   <div
                     key={String(nodeData['id'])}

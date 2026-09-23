@@ -2,18 +2,25 @@
 id: task-586-606-migrate-integration-tests
 type: TASK
 title: Migrate Integration Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-21'
-updated_at: '2026-09-21'
-depends_on: ['task-586-605-implement-save-state-fixtures']
+updated_at: '2026-09-22'
+depends_on:
+  - task-586-605-implement-save-state-fixtures
+jules_session_id: null
+pr_number: null
 parent: story-578-586-create-playwright-fixtures-definition
-priority: 60
-tags: ['testing', 'e2e', 'playwright', 'DX']
+tags:
+  - testing
+  - e2e
+  - playwright
+  - DX
 rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+priority: 60
 ---
 
 # Task: Migrate Integration Tests

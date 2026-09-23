@@ -2,10 +2,10 @@
 id: idea-118-centralize-prompt-reminders-complete
 type: IDEA
 title: Re-evaluate Need for Coder/QA Reminders
-status: PENDING
+status: COMPLETED
 owner_persona: product_manager
 created_at: '2026-07-24'
-updated_at: '2026-09-02'
+updated_at: '2026-09-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,6 +17,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Re-evaluate Need for Coder/QA Reminders
@@ -35,4 +36,4 @@ Evaluate whether the failure-handling and Empty PR Checkbox policy rules can be 
 
 ## Acceptance Criteria
 - [x] Determine if failure handling rules can be removed from Coder/QA prompts.
-- [ ] prd-118-517-centralize-prompt-reminders-cleanup
+- [x] prd-118-517-centralize-prompt-reminders-cleanup

@@ -99,6 +99,7 @@ import {
 } from '../gen3/conditionStats/constants';
 import { parseGen3Daycare } from '../gen3/daycare/parser';
 import { parseGen3EventItems } from '../gen3/inventory/parser';
+import { parseGen3MissedItemsAndMilestones } from '../gen3/missedItems/parser';
 import { parseGen3MysteryGift } from '../gen3/mysteryGift';
 import { parseGen3NarrativeFlags } from '../gen3/narrative/parser';
 import {
@@ -1668,6 +1669,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     }
 
     const narrative = parseGen3NarrativeFlags(view, section1Offset, _forcedVersion || 'ruby');
+    const missedItems = parseGen3MissedItemsAndMilestones(view, section1Offset, _forcedVersion || 'ruby');
 
     const roamingLegendaries = [];
     try {
@@ -1959,6 +1961,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       gen3TrickHouse: parseTrickHouse(view, section1Offset),
       ...(gen3MatchCall ? { gen3MatchCall } : {}),
       gen3NarrativeFlags: narrative.flags,
+      gen3MissedItemsAndMilestones: missedItems,
       gen3UpcomingBoss: narrative.upcomingBoss,
       gen3TrainerCard,
     };

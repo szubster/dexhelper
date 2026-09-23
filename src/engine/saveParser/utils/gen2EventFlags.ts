@@ -77,41 +77,41 @@ export function parseGen2NarrativeFlags(eventFlags: Uint8Array): Record<string, 
  * const nextBoss = getUpcomingGen2Boss(narrativeFlags);
  * if (nextBoss === 'EVENT_BEAT_WHITNEY') { console.log('Prepare for Miltank!'); }
  */
-export function getUpcomingGen2Boss(defeatedBosses: Record<string, boolean>): string | null {
-  const narrativeOrder = [
-    'EVENT_RIVAL_CHERRYGROVE_CITY',
-    'EVENT_BEAT_FALKNER',
-    'EVENT_RIVAL_AZALEA_TOWN',
-    'EVENT_BEAT_BUGSY',
-    'EVENT_BEAT_WHITNEY',
-    'EVENT_RIVAL_BURNED_TOWER',
-    'EVENT_BEAT_MORTY',
-    'EVENT_BEAT_CHUCK',
-    'EVENT_BEAT_JASMINE',
-    'EVENT_CLEARED_ROCKET_HIDEOUT',
-    'EVENT_BEAT_PRYCE',
-    'EVENT_RIVAL_GOLDENROD_UNDERGROUND',
-    'EVENT_CLEARED_RADIO_TOWER',
-    'EVENT_BEAT_CLAIR',
-    'EVENT_RIVAL_VICTORY_ROAD',
-    'EVENT_BEAT_ELITE_4_WILL',
-    'EVENT_BEAT_ELITE_4_KOGA',
-    'EVENT_BEAT_ELITE_4_BRUNO',
-    'EVENT_BEAT_ELITE_4_KAREN',
-    'EVENT_BEAT_CHAMPION_LANCE',
-    'EVENT_BEAT_LTSURGE',
-    'EVENT_BEAT_SABRINA',
-    'EVENT_BEAT_ERIKA',
-    'EVENT_BEAT_JANINE',
-    'EVENT_BEAT_MISTY',
-    'EVENT_BEAT_BROCK',
-    'EVENT_BEAT_BLAINE',
-    'EVENT_BEAT_BLUE',
-    'EVENT_BEAT_RIVAL_IN_MT_MOON',
-    'EVENT_RED_IN_MT_SILVER',
-  ];
+export const GEN2_NARRATIVE_ORDER = [
+  'EVENT_RIVAL_CHERRYGROVE_CITY',
+  'EVENT_BEAT_FALKNER',
+  'EVENT_RIVAL_AZALEA_TOWN',
+  'EVENT_BEAT_BUGSY',
+  'EVENT_BEAT_WHITNEY',
+  'EVENT_RIVAL_BURNED_TOWER',
+  'EVENT_BEAT_MORTY',
+  'EVENT_BEAT_CHUCK',
+  'EVENT_BEAT_JASMINE',
+  'EVENT_CLEARED_ROCKET_HIDEOUT',
+  'EVENT_BEAT_PRYCE',
+  'EVENT_RIVAL_GOLDENROD_UNDERGROUND',
+  'EVENT_CLEARED_RADIO_TOWER',
+  'EVENT_BEAT_CLAIR',
+  'EVENT_RIVAL_VICTORY_ROAD',
+  'EVENT_BEAT_ELITE_4_WILL',
+  'EVENT_BEAT_ELITE_4_KOGA',
+  'EVENT_BEAT_ELITE_4_BRUNO',
+  'EVENT_BEAT_ELITE_4_KAREN',
+  'EVENT_BEAT_CHAMPION_LANCE',
+  'EVENT_BEAT_LTSURGE',
+  'EVENT_BEAT_SABRINA',
+  'EVENT_BEAT_ERIKA',
+  'EVENT_BEAT_JANINE',
+  'EVENT_BEAT_MISTY',
+  'EVENT_BEAT_BROCK',
+  'EVENT_BEAT_BLAINE',
+  'EVENT_BEAT_BLUE',
+  'EVENT_BEAT_RIVAL_IN_MT_MOON',
+  'EVENT_RED_IN_MT_SILVER',
+];
 
-  for (const boss of narrativeOrder) {
+export function getUpcomingGen2Boss(defeatedBosses: Record<string, boolean>): string | null {
+  for (const boss of GEN2_NARRATIVE_ORDER) {
     if (!defeatedBosses[boss]) {
       return boss;
     }

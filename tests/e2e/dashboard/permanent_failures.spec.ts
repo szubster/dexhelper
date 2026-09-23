@@ -22,6 +22,18 @@ test.describe('Permanent Failures Dashboard Filter', () => {
           },
         },
         {
+          filePath: '.foundry/tasks/task-perm-cancel.md',
+          data: {
+            id: 'task-perm-cancel',
+            type: 'TASK',
+            title: 'Permanent Cancelled Task',
+            status: 'CANCELLED',
+            rejection_count: threshold,
+            depends_on: [],
+            owner_persona: 'coder',
+          },
+        },
+        {
           filePath: '.foundry/tasks/task-temp-fail.md',
           data: {
             id: 'task-temp-fail',
@@ -90,6 +102,18 @@ test.describe('Permanent Failures Dashboard Filter', () => {
               },
             },
             {
+              filePath: '.foundry/tasks/task-perm-cancel.md',
+              data: {
+                id: 'task-perm-cancel',
+                type: 'TASK',
+                title: 'Permanent Cancelled Task',
+                status: 'CANCELLED',
+                rejection_count: 3,
+                depends_on: [],
+                owner_persona: 'coder',
+              },
+            },
+            {
               filePath: '.foundry/tasks/task-temp-fail.md',
               data: {
                 id: 'task-temp-fail',
@@ -130,6 +154,9 @@ test.describe('Permanent Failures Dashboard Filter', () => {
     const permFailText = page.getByText('task-perm-fail');
     await expect(permFailText.first()).toBeVisible({ timeout: 15000 });
 
+    const permCancelText = page.getByText('task-perm-cancel');
+    await expect(permCancelText.first()).toBeVisible();
+
     const tempFailText = page.getByText('task-temp-fail');
     await expect(tempFailText.first()).toBeVisible();
 
@@ -145,6 +172,7 @@ test.describe('Permanent Failures Dashboard Filter', () => {
 
     // Assert only the permanent failure remains visible
     await expect(permFailText.first()).toBeVisible();
+    await expect(permCancelText.first()).toBeVisible();
     await expect(tempFailText.first()).not.toBeVisible();
     await expect(successText.first()).not.toBeVisible();
 
@@ -154,5 +182,11 @@ test.describe('Permanent Failures Dashboard Filter', () => {
     );
     await expect(permFailNode).toHaveClass(/border-red-500/);
     await expect(permFailNode).toHaveClass(/brightness-125/);
+
+    const permCancelNode = page.locator(
+      'xpath=//div[@data-testid="dag-node" and .//*[contains(text(), "task-perm-cancel")]]',
+    );
+    await expect(permCancelNode).toHaveClass(/border-red-500/);
+    await expect(permCancelNode).toHaveClass(/brightness-125/);
   });
 });

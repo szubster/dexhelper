@@ -56,7 +56,12 @@ export function useDagContext() {
 export function usePermanentlyFailedNodes() {
   const { nodes, maxRejectionThreshold } = useDagContext();
   return useMemo(
-    () => nodes.filter((node) => node.data.status === 'FAILED' && node.data.rejection_count >= maxRejectionThreshold),
+    () =>
+      nodes.filter(
+        (node) =>
+          (node.data.status === 'FAILED' || node.data.status === 'CANCELLED') &&
+          node.data.rejection_count >= maxRejectionThreshold,
+      ),
     [nodes, maxRejectionThreshold],
   );
 }

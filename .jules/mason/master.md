@@ -248,3 +248,25 @@ Removed redundant dead code (like the `ledOuter` and `ledInner` styles from `Tac
 - **Why**: Reduced duplication of verbose tactical utility classes (`pointer-events-none absolute inset-0 z-20 border-[1px] border-cyan-400/0 transition-colors duration-300 group-hover/card:border-cyan-400/30 group-focus-visible/card:border-cyan-400/30` etc.).
 - **Key Learnings**:
   - Encapsulating visual decorators (like target lock crosshairs on cards) using `absolute inset-0` standardizes the hover effects (e.g. `group-hover/card`) across different card components.
+
+
+---
+
+## TargetingRings Component Extraction
+
+- **What**: Extracted the repeated dual concentric rotating targeting rings pattern into a reusable `<TargetingRings>` component.
+- **Why**: Reduced duplicated JSX across `PokedexCard.tsx` and `StorageGrid.tsx`.
+- **Key Learnings**:
+  - Encapsulating visual hover decorations into a dedicated component with `pointer-events-none absolute inset-0` standardizes the card hover experience without interfering with card click listeners.
+  - Exposing `outerClassName` and `innerClassName` props alongside standard `className` (`cn`) ensures flexibility if specific cards need distinct ring styling or colors.
+
+
+---
+
+## SubDataPoint Extraction
+
+- **What**: Extracted repeated compact tactical key-value cell pattern (`flex flex-col gap-1 bg-zinc-950/80 p-3`) into a reusable `<SubDataPoint>` component in `src/components/SubDataPoint.tsx`.
+- **Why**: Reduced duplicated JSX across `PokemonCaughtDetails.tsx` where sub-metrics (`OT_ID`, `HELD_ITEM`, `SYNC_RATE`, `POKERUS_STRAIN`) were styled identically.
+- **Key Learnings**:
+  - `SubDataPoint` complements `DataPoint` by focusing on secondary grid/table sub-metrics with compact 8px labels and 11px values.
+  - Supporting both `value` (for plain strings/numbers) and `children` (for custom JSX like status badges or progress bars) makes small data presentation components extremely flexible.

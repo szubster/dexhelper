@@ -253,3 +253,39 @@ Both `.github/agents/canvas.md` and `.github/agents/strategist.md` were missing 
 **Outcome:** Rejected → journaled
 **Why:** Unknown. The maintainer commented "I brought agile coach back. Do not retire it again." so it seems it was revived.
 **Pattern:** Ensure the agent is actually retired before attempting to delete it. Do not retire the agile coach persona.
+
+
+---
+
+## 2026-09-19 - [Accepted] - Prompt improvement - Standardize targeted E2E verification across scheduled agents
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** Multiple scheduled agent prompts (`bolt.md`, `infras.md`, `lens.md`, `mason.md`, `nurse.md`, `oak.md`, `palette.md`, `sculptor.md`, `sentinel.md`, `shield.md`, `sweeper.md`, `trainer.md`) explicitly instructed running untargeted full E2E test suites via `pnpm test:e2e:xvfb`. Running full E2E test suites during a single scheduled run causes session timeouts (exceeding the 400-second sandbox execution limit) and directly contradicts the "Target Specific Files" Playwright best practice defined in `core_policies.md`. Standardizing scheduled agent prompts to specify targeted E2E test execution (`xvfb-run -a pnpm test:e2e <path-to-test>`) prevents timeouts while maintaining rigorous verification.
+**Pattern:** Standardize local verification directives across all scheduled persona prompts to align with centralized core policies (such as targeted E2E testing) to prevent session timeouts and prompt contradictions.
+
+
+---
+
+## 2026-09-19 - [Accepted] - Prompt improvement - Clean up redundant directives in Agile Coach schedule
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The agile_coach.md prompt contained redundant instructions under Core Directives (item 7 regarding prompt compilation) that are already globally defined in core_policies.md under Prompt Compilation Architecture & Fragment Layering. Removing these duplicated instructions reduces prompt bloat and context window usage.
+**Pattern:** Regularly scrub agent schedules to remove directives that are already enforced globally in .foundry/docs/knowledge_base/agents/core_policies.md.
+
+
+---
+
+## 2026-09-21 - [Accepted] - Prompt improvement - Update Archivist script execution to native Node flag
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `.github/agents/archivist.md` prompt instructed running `aggregate-journals.ts` via `npx tsx`, which violates the project's native script execution standard (`node --experimental-strip-types`) and can introduce execution failures or latency in CI environments. Standardizing the execution command to `node --experimental-strip-types .github/scripts/aggregate-journals.ts` aligns the Archivist schedule with project standards and prevents script execution overhead.
+**Pattern:** Align script execution instructions across scheduled agent prompts with project-wide native execution standards to ensure consistency and prevent environment-related failures.
+
+
+---
+
+## 2026-09-22 - [Accepted] - Prompt improvement - Remove obsolete mechanic persona reference from Archivist prompt
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `mechanic` persona was retired on 2026-08-30 because its responsibilities were completely redundant with `tpm`, `visionary`, and `strategist`. However, `.github/agents/archivist.md` still contained an obsolete phrasing contrasting LLM synthesis against "mechanical scripts" in its overview section. Cleaning up this stale phrasing ensures agent prompts remain lean, precise, and free of references to retired system concepts.
+**Pattern:** Scrub agent persona prompts for lingering references to retired personas or outdated architectural concepts to maintain clean, accurate prompt definitions across the agent roster.

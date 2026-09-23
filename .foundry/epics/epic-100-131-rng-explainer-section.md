@@ -2,10 +2,10 @@
 id: epic-100-131-rng-explainer-section
 type: EPIC
 title: RNG Tool Explainer Integration
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-02'
-updated_at: '2026-09-07'
+updated_at: '2026-09-22'
 depends_on:
   - epic-100-130-rng-tid-sid-display
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # RNG Tool Explainer Integration
 
@@ -26,8 +27,8 @@ notes: ''
 Provide a brief, user-friendly explainer section within the RNG calculator UI that instructs users on how to input and utilize their TID/SID combination with external RNG manipulation tools.
 
 ## Acceptance Criteria
-- [ ] Provide a brief text explainer in the UI on how to use TID/SID values with external RNG tools.
-- [ ] Ensure the explanation is accessible and easy to understand for users new to RNG manipulation.
+- [x] Provide a brief text explainer in the UI on how to use TID/SID values with external RNG tools.
+- [x] Ensure the explanation is accessible and easy to understand for users new to RNG manipulation.
 - [x] Story Owner: Convert this Epic into actionable Stories.
-- [ ] story-131-526-rng-explainer-ui-component
-- [ ] story-131-527-rng-explainer-e2e-verification
+- [x] story-131-526-rng-explainer-ui-component
+- [x] story-131-527-rng-explainer-e2e-verification

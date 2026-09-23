@@ -2,12 +2,12 @@
 id: story-134-473-gen3-condition-stats-extraction-impl
 type: STORY
 title: Implement Gen 3 Contest Condition Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-25'
 updated_at: '2026-09-22'
 depends_on: []
-jules_session_id: '1757919013611998177'
+jules_session_id: null
 pr_number: null
 parent: epic-101-134-gen3-condition-stats-extraction
 tags:
@@ -32,5 +32,8 @@ Implement parsing logic for Contest stats (Coolness, Beauty, Cuteness, Smartness
 ## Acceptance Criteria
 - [x] Break down story into tasks for implementing Condition data extraction logic.
 - [ ] task-473-493-gen3-condition-stats-constants
-- [ ] task-473-494-gen3-condition-stats-parser
-- [ ] task-473-495-gen3-condition-stats-qa
+- [x] task-473-494-gen3-condition-stats-parser
+- [x] task-473-495-gen3-condition-stats-qa
+- [ ] research-473-611-investigate-condition-stats-parser-failure
+- [ ] task-473-612-gen3-condition-stats-parser-retry
+- [ ] task-473-613-gen3-condition-stats-qa-retry

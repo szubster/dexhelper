@@ -2,13 +2,13 @@
 id: task-572-594-lefthook-e2e-qa
 type: TASK
 title: QA Verification for Lefthook Schema Validation E2E
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-18'
-updated_at: '2026-09-19'
+updated_at: '2026-09-23'
 depends_on:
   - task-572-593-lefthook-e2e-coder
-jules_session_id: null
+jules_session_id: '291201107916221675'
 parent: story-554-572-lefthook-e2e
 tags:
   - e2e
@@ -33,4 +33,4 @@ A test script has been created to ensure that Lefthook properly aborts when atte
 3. Ensure no workspace pollution occurs (temporary test files correctly cleaned up).
 
 ## Acceptance Criteria
-- [ ] The newly created `lefthook_schema_validation.spec.ts` passes the bash execution smoothly.
+- [x] The newly created `lefthook_schema_validation.spec.ts` passes the bash execution smoothly.

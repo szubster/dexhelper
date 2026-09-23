@@ -2,10 +2,10 @@
 id: task-573-606-heatmap-tests
 type: TASK
 title: Write Heatmap Logic Unit Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-21T06:50:00Z'
-updated_at: '2026-09-21T06:50:00Z'
+updated_at: '2026-09-22'
 depends_on:
   - task-573-605-heatmap-logic
 jules_session_id: null
