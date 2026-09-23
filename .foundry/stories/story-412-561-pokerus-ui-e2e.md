@@ -30,4 +30,7 @@ This story is dedicated exclusively to Integration and E2E Verification of the P
 ## Acceptance Criteria
 - [ ] Implement E2E tests for the Pokerus UI Badges.
 - [ ] Verify that the different statuses (Uninfected, Infected, Cured) are displayed correctly.
-- [ ] Tech Lead: Break down into TASKs.
+- [x] Tech Lead: Break down into TASKs.
+- [ ] task-561-614-pokerus-e2e-infected
+- [ ] task-561-615-pokerus-e2e-uninfected-cured
+- [ ] task-561-616-pokerus-e2e-qa
