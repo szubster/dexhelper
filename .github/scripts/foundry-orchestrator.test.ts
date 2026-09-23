@@ -3534,6 +3534,14 @@ Target artifact: task-completed
       owner_persona: "tech_lead",
     });
 
+    createValidTestNode(tmpDir, '.foundry/stories/story-draft.md', {
+      id: "story-draft",
+      type: "STORY",
+      title: "DRAFT Story",
+      status: "DRAFT",
+      owner_persona: "tech_lead",
+    });
+
     createValidTestNode(tmpDir, '.foundry/tasks/task-blocked.md', {
       id: "task-blocked",
       type: "TASK",
@@ -3543,9 +3551,74 @@ Target artifact: task-completed
       depends_on: ["story-wip"],
     });
 
+    createValidTestNode(tmpDir, '.foundry/tasks/task-blocked-draft.md', {
+      id: "task-blocked-draft",
+      type: "TASK",
+      title: "Blocked Task",
+      status: "PENDING",
+      owner_persona: "coder",
+      depends_on: ["story-draft"],
+    });
+
     main();
 
     const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-blocked.md'), 'utf-8');
     expect(result).toContain('status: PENDING');
+
+    const resultDraft = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-blocked-draft.md'), 'utf-8');
+    expect(resultDraft).toContain('status: PENDING');
+  });
+
+  test('DRAFT or WIP dependencies exit with code 1 in strict mode', () => {
+    createValidTestNode(tmpDir, '.foundry/stories/story-wip.md', {
+      id: "story-wip",
+      type: "STORY",
+      title: "WIP Story",
+      status: "WIP",
+      owner_persona: "tech_lead",
+    });
+
+    createValidTestNode(tmpDir, '.foundry/stories/story-draft.md', {
+      id: "story-draft",
+      type: "STORY",
+      title: "DRAFT Story",
+      status: "DRAFT",
+      owner_persona: "tech_lead",
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-blocked.md', {
+      id: "task-blocked",
+      type: "TASK",
+      title: "Blocked Task",
+      status: "PENDING",
+      owner_persona: "coder",
+      depends_on: ["story-wip"],
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-blocked-draft.md', {
+      id: "task-blocked-draft",
+      type: "TASK",
+      title: "Blocked Task",
+      status: "PENDING",
+      owner_persona: "coder",
+      depends_on: ["story-draft"],
+    });
+
+    const stderrSpy = vi.spyOn(process.stderr, 'write');
+    process.argv.push('--strict');
+    try {
+      main();
+    } finally {
+      process.argv.splice(process.argv.indexOf('--strict'), 1);
+    }
+
+    const output = stderrSpy.mock.calls.map(call => call[0] as string).join('');
+    expect(output).toContain('::warning::[orchestrator]');
+    expect(output).toContain('Exiting with code 1: DAG resolution warnings or unresolvable dependencies detected (--strict mode).');
+    expect(process.exitCode).toBe(1);
+
+    // cleanup
+    process.exitCode = 0;
+    stderrSpy.mockRestore();
   });
 });

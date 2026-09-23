@@ -25,5 +25,5 @@ locks: []
 Verify that `.github/scripts/foundry-orchestrator.test.ts` correctly tests the new orchestrator constraints which prevent nodes from depending on `DRAFT` or `WIP` artifacts.
 
 ## Acceptance Criteria
-- [ ] Add unit tests in `.github/scripts/foundry-orchestrator.test.ts` asserting that relying on `DRAFT` or `WIP` nodes triggers a warning and exits with code 1 in strict mode.
-- [ ] Run `cd .github/scripts && pnpm test` to ensure all tests pass.
+- [x] Add unit tests in `.github/scripts/foundry-orchestrator.test.ts` asserting that relying on `DRAFT` or `WIP` nodes triggers a warning and exits with code 1 in strict mode.
+- [x] Run `cd .github/scripts && pnpm test` to ensure all tests pass.
