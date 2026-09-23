@@ -34,7 +34,8 @@
     "scripts/migrate-task-reminders.ts",
     ".foundry/scripts/lint-schema.ts",
     "src/engine/gen3/contests/index.ts",
-    "src/engine/gen3/contests/engine.ts"
+    "src/engine/gen3/contests/engine.ts",
+    "src/engine/radar/index.ts"
   ],
   "rules": {
     "files": "warn",

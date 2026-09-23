@@ -1,16 +1,5 @@
 import type { Suggestion } from '../assistant/strategies/types';
-
-/**
- * Output structure for the Smart Route Radar.
- * Maps an areaId (formerly areaId) to a heatmap data object.
- */
-export interface RouteRadarHeatmap {
-  [areaId: number]: {
-    density: number;
-    requiresMachBike: boolean;
-    requiresAcroBike: boolean;
-  };
-}
+import type { RouteRadarHeatmap } from './types';
 
 /**
  * RouteRadarController bridges the dynamic suggestionEngine output

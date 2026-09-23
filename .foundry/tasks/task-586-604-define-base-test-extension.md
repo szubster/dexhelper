@@ -1,11 +1,10 @@
 ---
 id: task-586-604-define-base-test-extension
 type: TASK
-jules_session_id: '11583508672250716615'
 title: Define Base Test Extension
 status: ACTIVE
 owner_persona: coder
-jules_session_id: null
+jules_session_id: '11583508672250716615'
 created_at: '2026-09-21'
 updated_at: '2026-09-22'
 depends_on: []

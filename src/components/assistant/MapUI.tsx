@@ -1,6 +1,6 @@
 import { MapPin } from 'lucide-react';
 import { useMemo } from 'react';
-import type { RouteRadarHeatmap } from '../../engine/radar/RouteRadarController';
+import type { RouteRadarHeatmap } from '../../engine/radar/types';
 import { BikeBadge } from '../BikeBadge';
 import { EdgeLabel } from '../EdgeLabel';
 
