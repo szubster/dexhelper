@@ -33,4 +33,4 @@ A test script has been created to ensure that Lefthook properly aborts when atte
 3. Ensure no workspace pollution occurs (temporary test files correctly cleaned up).
 
 ## Acceptance Criteria
-- [ ] The newly created `lefthook_schema_validation.spec.ts` passes the bash execution smoothly.
+- [x] The newly created `lefthook_schema_validation.spec.ts` passes the bash execution smoothly.
