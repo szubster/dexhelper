@@ -3,7 +3,7 @@ id: idea-529-late-binding-missing-dependency-guard
 type: IDEA
 title: Late Binding Missing Dependency Guard
 status: ACTIVE
-owner_persona: epic_planner
+owner_persona: product_manager
 created_at: '2026-09-23'
 updated_at: '2026-09-23'
 depends_on: []
