@@ -76,6 +76,31 @@ describe('Zustand Store', () => {
       expect(useStore.getState().selectedWildItemIds).toEqual([]);
     });
 
+    it('should manage hunting progress tracker state', () => {
+      // Baseline Quantities
+      expect(useStore.getState().huntBaselineQuantities).toEqual({});
+
+      useStore.getState().setHuntBaselineQuantities({ 1: 5, 2: 10 });
+      expect(useStore.getState().huntBaselineQuantities).toEqual({ 1: 5, 2: 10 });
+
+      useStore.getState().clearHuntBaselineQuantities();
+      expect(useStore.getState().huntBaselineQuantities).toEqual({});
+
+      // Newly Acquired Items
+      expect(useStore.getState().newlyAcquiredWildItemIds).toEqual([]);
+
+      useStore.getState().addNewlyAcquiredWildItemId(10);
+      useStore.getState().addNewlyAcquiredWildItemId(20);
+      expect(useStore.getState().newlyAcquiredWildItemIds).toEqual([10, 20]);
+
+      // Prevent duplicates
+      useStore.getState().addNewlyAcquiredWildItemId(10);
+      expect(useStore.getState().newlyAcquiredWildItemIds).toEqual([10, 20]);
+
+      useStore.getState().clearNewlyAcquiredWildItemIds();
+      expect(useStore.getState().newlyAcquiredWildItemIds).toEqual([]);
+    });
+
     it('should toggle version modal', () => {
       expect(useStore.getState().isVersionModalOpen).toBe(false);
       useStore.getState().setIsVersionModalOpen(true);
