@@ -36,4 +36,7 @@ Implement the tabular matrix component to display the grouped Pokémon species a
 - [ ] Ensure all required stat columns are rendered.
 - [ ] Bind data from the parsed save data grouping logic.
 - [ ] Adhere to ADR 024 aesthetic rules.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-521-617-box-analyzer-matrix-types
+- [ ] task-521-618-box-analyzer-matrix-component
+- [ ] task-521-619-box-analyzer-matrix-qa
