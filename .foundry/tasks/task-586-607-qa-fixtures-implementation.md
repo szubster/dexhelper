@@ -4,6 +4,7 @@ type: TASK
 title: QA Fixtures Implementation
 status: PENDING
 owner_persona: qa
+jules_session_id: null
 created_at: '2026-09-21'
 updated_at: '2026-09-22'
 depends_on:
