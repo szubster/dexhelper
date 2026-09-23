@@ -5,6 +5,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [research-533-601-investigate-curator-trigger-logic-failure](.foundry/research/research-533-601-investigate-curator-trigger-logic-failure.md) | RESEARCH | Investigate Orchestrator Curator Trigger Logic Failure | researcher | [7863234815296103848](https://jules.google.com/session/7863234815296103848) |
 | [research-540-608-benchmark-failure-investigation](.foundry/research/research-540-608-benchmark-failure-investigation.md) | RESEARCH | Investigate Benchmark Runner Script Failure | researcher | [4262019730918387167](https://jules.google.com/session/4262019730918387167) |
 | [story-062-546-implement-mirage-island-tracker](.foundry/stories/story-062-546-implement-mirage-island-tracker.md) | STORY | Implement Mirage Island Tracker Component | tech_lead | [14872949797798249150](https://jules.google.com/session/14872949797798249150) |
 | [story-404-477-kurt-apricorn-offset-and-constants](.foundry/stories/story-404-477-kurt-apricorn-offset-and-constants.md) | STORY | Kurt Apricorn Offset and Constants | tech_lead | [3556681537249600519](https://jules.google.com/session/3556681537249600519) |
