@@ -32,5 +32,5 @@ With the player's berry inventory and Pokémon state parsed, and the math formul
 Verify the core logic and tests for the Pokéblock recommendation engine. Ensure that the logic is mathematically sound, covers edge cases, and correctly identifies impossible goals based on berry constraints.
 
 ## Acceptance Criteria
-- [ ] Verify the recommendation engine correctly calculates optimal berry combinations.
-- [ ] Verify the feasibility checks accurately report impossible goals.
+- [x] Verify the recommendation engine correctly calculates optimal berry combinations.
+- [x] Verify the feasibility checks accurately report impossible goals.
