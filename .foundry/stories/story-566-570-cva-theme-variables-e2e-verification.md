@@ -33,6 +33,9 @@ Verify the CVA integration and centralized theme styling works without visual re
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down this Story into Tasks.
-- [ ] task-570-590-cva-tactical-aesthetic-e2e-coder
-- [ ] task-570-591-theme-swapping-e2e-coder
-- [ ] task-570-592-cva-theme-e2e-qa
+- [x] task-570-590-cva-tactical-aesthetic-e2e-coder
+- [x] task-570-591-theme-swapping-e2e-coder
+- [x] task-570-592-cva-theme-e2e-qa
+- [ ] research-570-617-investigate-cva-tactical-aesthetic-e2e-failure
+- [ ] task-570-618-cva-tactical-aesthetic-e2e-coder-retry
+- [ ] task-570-619-cva-theme-e2e-qa-retry
