@@ -2,7 +2,7 @@
 id: story-552-562-gen2-wild-item-parsing
 type: STORY
 title: Gen 2 Wild Encounter and Held Item Parsing
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
 updated_at: '2026-09-23'

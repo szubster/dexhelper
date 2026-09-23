@@ -30,3 +30,4 @@
 | [task-562-580-gen2-room-decoration-hook-tests](.foundry/tasks/task-562-580-gen2-room-decoration-hook-tests.md) | TASK | Gen 2 Room Decoration Hook Tests | coder | [3178686377238314440](https://jules.google.com/session/3178686377238314440) |
 | [task-563-582-implement-directory-traversal](.foundry/tasks/task-563-582-implement-directory-traversal.md) | TASK | Implement Directory Traversal Logic | coder | [3954316707547166535](https://jules.google.com/session/3954316707547166535) |
 | [task-566-578-implement-virtual-pokedex-grid](.foundry/tasks/task-566-578-implement-virtual-pokedex-grid.md) | TASK | Implement Virtualization in PokedexGrid | coder | [6441365969658619331](https://jules.google.com/session/6441365969658619331) |
+| [task-586-604-define-base-test-extension](.foundry/tasks/task-586-604-define-base-test-extension.md) | TASK | Define Base Test Extension | coder | [11583508672250716615](https://jules.google.com/session/11583508672250716615) |
