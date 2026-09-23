@@ -32,5 +32,5 @@ We need to ensure that the newly updated Acceptance Criteria architecture correc
 - Use `vitest` to run the tests and verify behavior.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests validating Empty PR demotions and premature verification prevention.
-- [ ] Ensure tests pass successfully.
+- [x] Implement E2E tests validating Empty PR demotions and premature verification prevention.
+- [x] Ensure tests pass successfully.
