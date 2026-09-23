@@ -31,5 +31,5 @@ As part of generating a visual heatmap overlay for missing encounters, we need t
 Define the RouteRadarHeatmap and its associated types based on the schema requirements.
 
 ## Acceptance Criteria
-- [ ] Define the RouteRadarHeatmap type mapping areaId to density and requirements.
-- [ ] Export the defined types for use in the controller.
+- [x] Define the RouteRadarHeatmap type mapping areaId to density and requirements.
+- [x] Export the defined types for use in the controller.
