@@ -33,5 +33,8 @@ This story covers the implementation of a dedicated tracker view or notification
 ## Acceptance Criteria
 - [x] Break down into Tasks
 - [ ] task-546-564-mirage-island-data-selector
-- [ ] task-546-565-mirage-island-ui-component
-- [ ] task-546-566-mirage-island-tracker-qa
+- [x] task-546-565-mirage-island-ui-component
+- [x] task-546-566-mirage-island-tracker-qa
+- [ ] research-546-611-mirage-island-ui-failure-investigation
+- [ ] task-546-612-mirage-island-ui-component-retry
+- [ ] task-546-613-mirage-island-tracker-qa-retry

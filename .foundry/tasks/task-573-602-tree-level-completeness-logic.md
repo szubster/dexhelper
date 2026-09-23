@@ -8,6 +8,7 @@ created_at: '2026-09-20T19:00:00Z'
 updated_at: '2026-09-20T19:00:00Z'
 depends_on: []
 jules_session_id: null
+pr_number: null
 parent: story-550-573-tree-level-completeness-logic
 tags:
   - foundry
