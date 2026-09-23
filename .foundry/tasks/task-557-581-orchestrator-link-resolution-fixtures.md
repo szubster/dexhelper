@@ -22,5 +22,5 @@ locks: []
 Create the necessary test fixtures and scaffolding to support E2E tests for orchestrator markdown link resolution.
 
 ## Acceptance Criteria
-- [ ] Define mock markdown nodes (tasks, stories, etc.) with inter-node links to be resolved.
-- [ ] Set up testing directory structures specifically for these E2E tests.
+- [x] Define mock markdown nodes (tasks, stories, etc.) with inter-node links to be resolved.
+- [x] Set up testing directory structures specifically for these E2E tests.
