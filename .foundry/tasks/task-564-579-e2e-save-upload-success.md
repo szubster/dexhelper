@@ -5,7 +5,7 @@ title: Write E2E Test for Wild Item Save Upload and Success State
 status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-15T06:49:02Z'
-updated_at: '2026-09-22'
+updated_at: '2026-09-23'
 depends_on:
   - task-564-578-e2e-navigation-and-selection
 jules_session_id: '11296657653396369934'
@@ -16,7 +16,9 @@ tags:
   - playwright
 research_references: []
 rejection_count: 0
-rejection_reason: 'Dependency task-564-578-e2e-navigation-and-selection was CANCELLED.'
+rejection_reason: >-
+  [ACKNOWLEDGED] Dependency task-564-578-e2e-navigation-and-selection was
+  CANCELLED.
 notes: ''
 locks: []
 ---

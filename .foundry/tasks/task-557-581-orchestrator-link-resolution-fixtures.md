@@ -2,12 +2,12 @@
 id: task-557-581-orchestrator-link-resolution-fixtures
 type: TASK
 title: Orchestrator Link Resolution E2E Fixtures
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-15T20:14:33Z'
-updated_at: '2026-09-22'
+updated_at: '2026-09-23'
 depends_on: []
-jules_session_id: '14565167928779386406'
+jules_session_id: null
 pr_number: null
 parent: story-551-557-integration-e2e-verification
 rejection_count: 1

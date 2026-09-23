@@ -2,12 +2,12 @@
 id: task-573-604-heatmap-types
 type: TASK
 title: Define Heatmap Types
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-21T06:50:00Z'
-updated_at: '2026-09-22'
+updated_at: '2026-09-23'
 depends_on: []
-jules_session_id: '13610585699367098982'
+jules_session_id: null
 pr_number: null
 parent: story-049-573-heatmap-data-processing-layer
 tags:

@@ -2,10 +2,10 @@
 id: task-477-612-define-apricorn-constants-v2
 type: TASK
 title: Define Kurt Apricorn Constants and Types (v2)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-22'
-updated_at: '2026-09-22'
+updated_at: '2026-09-23'
 depends_on:
   - research-477-611-investigate-apricorn-failure-v2
 jules_session_id: null
