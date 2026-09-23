@@ -2,13 +2,13 @@
 id: story-116-474-gen3-wallpaper-app-state-tracking-e2e
 type: STORY
 title: E2E Verification Gen 3 Wallpaper App State Tracking
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-20'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on:
   - story-116-473-gen3-wallpaper-app-state-tracking-impl
-jules_session_id: '16606119054740590315'
+jules_session_id: null
 parent: epic-116-336-gen3-wallpaper-app-state-tracking
 tags:
   - gen3
@@ -34,5 +34,8 @@ Verify the Gen 3 Wallpaper App State Tracking functionality via E2E tests, speci
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into tasks.
 - [ ] task-474-528-gen3-wallpaper-e2e-suite-setup
-- [ ] task-474-529-gen3-wallpaper-e2e-interaction-impl
-- [ ] task-474-530-gen3-wallpaper-e2e-qa
+- [x] task-474-529-gen3-wallpaper-e2e-interaction-impl
+- [x] task-474-530-gen3-wallpaper-e2e-qa
+- [ ] research-474-605-investigate-wallpaper-e2e-failure
+- [ ] task-474-606-gen3-wallpaper-e2e-interaction-impl-v2
+- [ ] task-474-607-gen3-wallpaper-e2e-qa-v2

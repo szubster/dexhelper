@@ -2,12 +2,12 @@
 id: task-523-590-living-dex-state-connection-impl
 type: TASK
 title: Connect Living Dex Grid to Application PC/Party State
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-18T08:31:28Z'
-updated_at: '2026-09-18T08:31:28Z'
+updated_at: '2026-09-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3239396089005824430'
 pr_number: null
 parent: story-134-523-living-dex-state-overlay
 tags:

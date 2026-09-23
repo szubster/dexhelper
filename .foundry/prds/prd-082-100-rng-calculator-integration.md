@@ -2,10 +2,10 @@
 id: prd-082-100-rng-calculator-integration
 type: PRD
 title: RNG Calculator Integration
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-07-01'
-updated_at: '2026-08-01'
+updated_at: '2026-09-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,6 +17,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # RNG Calculator Integration
 
@@ -30,5 +31,5 @@ Provide utilities and UI that displays TID and SID and formats this combo for RN
 
 ## Acceptance Criteria
 - [x] Epic Planner: Convert this PRD into Epics.
-- [ ] epic-100-130-rng-tid-sid-display
-- [ ] epic-100-131-rng-explainer-section
+- [x] epic-100-130-rng-tid-sid-display
+- [x] epic-100-131-rng-explainer-section

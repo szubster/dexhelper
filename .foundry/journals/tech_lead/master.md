@@ -1042,3 +1042,19 @@ I decomposed story-530-553-gen1-gen2-pkm-extraction into three tasks to satisfy 
 3. **task-553-569-qa-gen1-gen2-pkm-extraction**: A dedicated QA node to verify adherence to ADRs and schema rules (e.g. handling `RangeError` with specific messaging, checking module-level constants without magic numbers).
 
 Using these three tasks ensures the logic is properly modularized, and QA explicitly verifies the extraction constraints before moving forward.
+
+
+---
+
+# Tech Lead Journal: 2026-09-18
+
+## Breakdown of story-134-523-living-dex-state-overlay
+
+Successfully decomposed the story into three discrete tasks:
+
+1. **`task-523-590-living-dex-state-connection-impl` (Coder)**: Implements data logic to subscribe to the application's global PC box and Party state, transforming it for UI consumption.
+2. **`task-523-591-living-dex-ui-overlay-impl` (Coder)**: Consumes the mapped state and visually overlays indicators within the grid cells for owned Pokemon. Depends on the state connection task.
+3. **`task-523-592-living-dex-state-overlay-qa` (QA)**: Validates both the state mapping and the visual representation, ensuring compliance with ADR 008. Depends on the UI overlay task.
+
+### Learnings / Architectural Notes
+- By breaking this down into separate data logic and UI rendering tasks, we avoid the "Two-Tasks-Max Anti-pattern" and ensure that the state mapping can be independently verified from the visual implementation. The QA task correctly chains off the final UI implementation.

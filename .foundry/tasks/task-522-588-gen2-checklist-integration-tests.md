@@ -2,10 +2,10 @@
 id: task-522-588-gen2-checklist-integration-tests
 type: TASK
 title: Tests for Gen 2 Checklist Parsing Engine Integration
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-16'
-updated_at: '2026-09-18'
+updated_at: '2026-09-22'
 depends_on:
   - task-522-586-gen2-checklist-integration-impl
 jules_session_id: null

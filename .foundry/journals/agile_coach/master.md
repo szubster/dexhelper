@@ -84,3 +84,29 @@ Date: 2026-09-14
 
 ## QA Agent Autonomy Enhancement
 Analyzed session 2897712216952814014 and discovered a QA agent asking the user what file they should look into, which violates the autonomous execution policy. Added a specific prohibition against asking the user what files or branches to look into or test to .foundry/docs/knowledge_base/agents/core_policies.md.
+
+
+---
+
+# Agile Coach Journal Entry - 2026-09-20
+
+## Process Improvement: Enforcing Relative Navigation Paths in Playwright Tests
+- **Type**: Core Policy Update / Process Improvement
+- **Outcome**: Implemented in `.foundry/docs/knowledge_base/agents/core_policies.md`
+- **Why**: Analyzed QA persona journals (`.foundry/journals/qa/playwright-paths-violation.md`) and identified a recurring failure where coders used absolute navigation paths (e.g., `/dashboard`) in Playwright test suites or code examples. Absolute paths fail when Vite application base URLs are configured or non-root context paths are evaluated.
+- **Pattern**: Codified a system-wide policy in `core_policies.md` under `## Playwright E2E Best Practices` mandating relative paths (e.g., `./dashboard`) for Playwright navigation across all agent roles to prevent future QA rejections and test failures.
+
+
+---
+
+# Agile Coach Journal Entry - 2026-09-21
+
+## Proactive System Analysis & Process Optimization
+
+### 1. Verification of Base Persona Prompt Integrity
+- **Analysis**: Conducted an exhaustive scan of persona prompt definitions in `.github/agents/*.md` and verified alignment with global policies in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+- **Finding**: Base persona prompts are operating in a lean, DRY state following previous prompt consolidation cycles. Universal rules (such as autonomous execution directives, empty PR handling, and journaling constraints) are dynamically compiled from `core_policies.md` at runtime by the Foundry Orchestrator, preventing prompt rot and context token bloat.
+
+### 2. Macro Node Completion Friction Analysis & Follow-up Idea Generation
+- **Analysis**: Reviewed Auditor rejection logs (`.foundry/journals/auditor/rejection-prd-421-521.md`), which highlighted past friction where macro nodes (PRDs/Epics) were transitioned prematurely to verification before all child task sub-trees reached completion.
+- **Action Taken**: Generated a new `IDEA` node (`idea-527-macro-node-subtree-completeness-validator.md`) proposing an automated sub-tree validator utility within the Orchestrator pipeline. This tool will recursively assert that all descendant child nodes have reached `COMPLETED` before a parent macro node can transition to `VERIFYING` or `READY`, eliminating manual oversight errors and premature verification loops.

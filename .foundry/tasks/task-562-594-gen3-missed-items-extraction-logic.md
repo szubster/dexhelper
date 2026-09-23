@@ -2,15 +2,15 @@
 id: task-562-594-gen3-missed-items-extraction-logic
 type: TASK
 title: Gen 3 Missed Items & Milestones Extraction Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-21'
+updated_at: '2026-09-22'
 depends_on: []
 rejection_reason: ''
 rejection_count: 2
 notes: ''
-jules_session_id: '13450580536717373283'
+jules_session_id: null
 pr_number: null
 parent: story-553-562-gen3-missed-items-parsing
 tags:

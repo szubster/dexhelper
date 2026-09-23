@@ -31,6 +31,9 @@ As part of epic-338-404-kurt-apricorn-data-engine, we need to determine and defi
 ## Acceptance Criteria
 - [x] tech_lead: Break this STORY down into actionable TASK nodes.
 - [x] research-404-495-kurt-apricorn-offsets
-- [ ] research-477-564-investigate-apricorn-offsets-failure
-- [ ] task-477-565-define-apricorn-constants
-- [ ] task-477-566-test-apricorn-constants
+- [x] research-477-564-investigate-apricorn-offsets-failure
+- [x] task-477-565-define-apricorn-constants
+- [x] task-477-566-test-apricorn-constants
+- [ ] research-477-611-investigate-apricorn-failure-v2
+- [ ] task-477-612-define-apricorn-constants-v2
+- [ ] task-477-613-test-apricorn-constants-v2
