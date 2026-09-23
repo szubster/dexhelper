@@ -26,6 +26,6 @@ locks: []
 - Ensure files in `docs/` and `journals/` are explicitly ignored.
 
 ## Acceptance Criteria
-- [ ] Directory iteration logic is implemented.
-- [ ] Only the specified directories are traversed.
-- [ ] `docs/` and `journals/` are ignored.
+- [x] Directory iteration logic is implemented.
+- [x] Only the specified directories are traversed.
+- [x] `docs/` and `journals/` are ignored.
