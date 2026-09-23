@@ -26,3 +26,5 @@ Verify that the orchestrator heartbeat correctly detects and flags Jules session
 ## Acceptance Criteria
 - [ ] The heartbeat correctly identifies \`AWAITING_USER_FEEDBACK\` as a violation.
 - [ ] Nodes with sessions in this state are transitioned to \`FAILED\`.
+- [ ] task-564-611-verify-heartbeat-violation-detection-coder
+- [ ] task-564-612-verify-heartbeat-violation-detection-qa
