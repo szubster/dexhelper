@@ -2,7 +2,7 @@
 id: task-566-602-progress-tracker-e2e-implementation
 type: TASK
 title: Implement Hunting Progress Tracker E2E Tests
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-08-15'
 updated_at: '2026-09-23'
@@ -15,10 +15,8 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

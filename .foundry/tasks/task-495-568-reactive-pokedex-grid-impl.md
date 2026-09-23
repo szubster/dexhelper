@@ -2,12 +2,12 @@
 id: task-495-568-reactive-pokedex-grid-impl
 type: TASK
 title: Update PokedexGrid Component for Reactivity
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-12'
 updated_at: '2026-09-23'
 depends_on: []
-jules_session_id: '15127622525538368818'
+jules_session_id: null
 pr_number: null
 parent: story-425-495-reactive-ui-components
 tags:
@@ -15,7 +15,9 @@ tags:
   - emulator
   - components
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 priority: 50

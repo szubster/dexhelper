@@ -2,7 +2,7 @@
 id: task-561-616-pokerus-e2e-qa
 type: TASK
 title: Pokerus UI Badges E2E - QA Verification
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-23'
 updated_at: '2026-09-23'
