@@ -2,10 +2,10 @@
 id: epic-056-350-in-game-trade-dashboard-ui-v2
 type: EPIC
 title: In-Game Trade Dashboard UI v2
-status: PENDING
+status: READY
 owner_persona: story_owner
-created_at: "2026-08-04"
-updated_at: "2026-08-04"
+created_at: '2026-08-04'
+updated_at: '2026-09-22'
 depends_on:
   - epic-056-349-in-game-trade-data-extraction-v2
 jules_session_id: null
@@ -17,8 +17,9 @@ tags:
   - ux
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 # Epic: In-Game Trade Dashboard UI v2
 

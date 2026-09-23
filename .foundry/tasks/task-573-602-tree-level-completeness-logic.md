@@ -15,8 +15,7 @@ tags:
   - infrastructure
   - orchestrator
 rejection_count: 0
-rejection_reason: ''
-notes: ''
+rejection_reason: ""
 locks: []
 ---
 

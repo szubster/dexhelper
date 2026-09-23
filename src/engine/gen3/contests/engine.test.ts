@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { InventoryBerry } from './engine';
-import { recommendPokeblocks } from './engine';
+import { isGoalPossible, recommendPokeblocks } from './engine';
 
 describe('recommendPokeblocks', () => {
   it('returns isPossible=false and empty blends when inventory is empty', () => {
@@ -126,5 +126,73 @@ describe('recommendPokeblocks', () => {
     // 10 spicy * 0.9 = 9. Needs 2 blends to reach 10.
     expect(resultDislikes.blends.length).toBe(2);
     expect(resultDislikes.finalCondition).toBe(18); // 9 + 9
+  });
+});
+
+describe('isGoalPossible', () => {
+  it('returns false when inventory is empty', () => {
+    expect.hasAssertions();
+    expect(
+      isGoalPossible({
+        inventory: [],
+        currentCondition: 0,
+        currentSheen: 0,
+        targetCondition: 100,
+        targetCategory: 'cool',
+        nature: 'hardy',
+      }),
+    ).toBe(false);
+  });
+
+  it('returns true when goal is reachable with given berries', () => {
+    expect.hasAssertions();
+    const cheri: InventoryBerry = {
+      id: 'cheri',
+      count: 10,
+      spicy: 10,
+      dry: 0,
+      sweet: 0,
+      bitter: 0,
+      sour: 0,
+      feel: 20,
+    };
+
+    expect(
+      isGoalPossible({
+        inventory: [cheri],
+        currentCondition: 0,
+        currentSheen: 0,
+        targetCondition: 30, // Needs 3 cheri
+        targetCategory: 'cool',
+        nature: 'hardy',
+        numPlayers: 1,
+      }),
+    ).toBe(true);
+  });
+
+  it('returns false when sheen maxes out before goal is reached', () => {
+    expect.hasAssertions();
+    const cheri: InventoryBerry = {
+      id: 'cheri',
+      count: 10,
+      spicy: 10,
+      dry: 0,
+      sweet: 0,
+      bitter: 0,
+      sour: 0,
+      feel: 200,
+    };
+
+    expect(
+      isGoalPossible({
+        inventory: [cheri],
+        currentCondition: 0,
+        currentSheen: 100,
+        targetCondition: 50,
+        targetCategory: 'cool',
+        nature: 'hardy',
+        numPlayers: 1,
+      }),
+    ).toBe(false);
   });
 });

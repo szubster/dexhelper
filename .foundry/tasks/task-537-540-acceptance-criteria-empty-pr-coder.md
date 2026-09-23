@@ -2,12 +2,12 @@
 id: task-537-540-acceptance-criteria-empty-pr-coder
 type: TASK
 title: Implement E2E Tests for Empty PR Node Lifecycle Rules
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-17T22:13:54Z'
-updated_at: '2026-09-17T22:13:54Z'
+updated_at: '2026-09-23'
 depends_on: []
-jules_session_id: null
+jules_session_id: '132841237524711082'
 pr_number: null
 parent: story-534-537-acceptance-criteria-integration-e2e
 tags:

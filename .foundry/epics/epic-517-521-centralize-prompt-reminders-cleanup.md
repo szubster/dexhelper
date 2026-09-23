@@ -2,10 +2,10 @@
 id: epic-517-521-centralize-prompt-reminders-cleanup
 type: EPIC
 title: Clean up Coder and QA Persona Prompts
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-09-03'
-updated_at: '2026-09-05'
+updated_at: '2026-09-22'
 depends_on: []
 jules_session_id: '15245148245370045516'
 pr_number: null
@@ -28,6 +28,6 @@ This epic focuses on removing redundant information about Late Binding and failu
 
 ## Acceptance Criteria
 - [x] Generate STORY nodes to remove redundant Late Binding and failure handling policies from Coder and QA prompts.
-- [ ] story-521-520-prompt-cleanup-tasks
+- [x] story-521-520-prompt-cleanup-tasks
 - [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] story-521-521-integration-e2e
+- [x] story-521-521-integration-e2e

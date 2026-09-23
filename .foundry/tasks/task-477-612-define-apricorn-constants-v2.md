@@ -1,0 +1,31 @@
+---
+id: task-477-612-define-apricorn-constants-v2
+type: TASK
+title: Define Kurt Apricorn Constants and Types (v2)
+status: READY
+owner_persona: coder
+created_at: '2026-09-22'
+updated_at: '2026-09-22'
+depends_on:
+  - research-477-611-investigate-apricorn-failure-v2
+jules_session_id: null
+pr_number: null
+parent: story-404-477-kurt-apricorn-offset-and-constants
+tags:
+  - gen2
+  - items
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+locks: []
+---
+
+# Define Kurt Apricorn Constants and Types (v2)
+
+## Description
+Based on the findings from `research-477-611-investigate-apricorn-failure-v2`, define the module-level constants for Kurt's Apricorn crafting state. Ensure no magic numbers are used inline, satisfying Section 13 guidelines. Create the necessary TypeScript type definitions.
+
+## Acceptance Criteria
+- [ ] Define module-level constants for memory offsets, lengths, array bounds, and magic numbers (e.g., Poké Ball IDs mapped to Apricorns).
+- [ ] Define the TypeScript types for the extracted Apricorn state.
+- [ ] Ensure the implementation adheres strictly to Section 13 save file parsing guidelines.

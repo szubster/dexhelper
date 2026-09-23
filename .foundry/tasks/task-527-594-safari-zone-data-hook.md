@@ -2,13 +2,13 @@
 id: task-527-594-safari-zone-data-hook
 type: TASK
 title: Safari Zone Data Selection Hook
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-19'
+updated_at: '2026-09-22'
 depends_on:
   - story-325-526-safari-zone-layout-and-route
-jules_session_id: null
+jules_session_id: '13175039117958831557'
 pr_number: null
 parent: story-325-527-safari-zone-area-highlighting
 tags:

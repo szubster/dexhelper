@@ -2,10 +2,10 @@
 id: task-570-592-cva-theme-e2e-qa
 type: TASK
 title: QA - CVA and Theme E2E Tests
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-18T17:03:41Z'
-updated_at: '2026-09-18T17:03:41Z'
+updated_at: '2026-09-22'
 depends_on:
   - task-570-590-cva-tactical-aesthetic-e2e-coder
   - task-570-591-theme-swapping-e2e-coder
@@ -17,7 +17,9 @@ tags:
   - testing
   - e2e
 research_references: []
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-570-590-cva-tactical-aesthetic-e2e-coder
 locks: []
 priority: 60
 ---

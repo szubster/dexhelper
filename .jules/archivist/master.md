@@ -29,3 +29,11 @@
 
 ## Critical Learnings
 - **Automated Aggregation Execution**: Running `.github/scripts/aggregate-journals.ts` regularly keeps persona journal directories clean by consolidating individual session files into `master.md` logs, preventing file count sprawl while preserving historic learnings.
+
+
+---
+
+# Archivist Knowledge Hygiene Journal
+
+## Critical Learnings
+- **Automated Aggregation Execution**: Running `npx tsx .github/scripts/aggregate-journals.ts` successfully aggregates session-unique timestamped markdown journal files from `.foundry/journals/` and `.jules/` into their respective `master.md` logs, keeping knowledge bases clean and structured.

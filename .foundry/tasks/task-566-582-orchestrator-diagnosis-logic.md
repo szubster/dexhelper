@@ -2,13 +2,13 @@
 id: task-566-582-orchestrator-diagnosis-logic
 type: TASK
 title: Implement Orchestrator Logic for BLOCKED Diagnosis
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-09-15T23:11:43Z'
 updated_at: '2026-09-22'
 depends_on:
   - task-566-581-blocked-diagnosis-types
-jules_session_id: '14558882210640913704'
+jules_session_id: null
 pr_number: null
 parent: story-552-566-orchestrator-diagnosis-artifact
 tags:
@@ -17,7 +17,7 @@ tags:
   - dag
   - core
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
