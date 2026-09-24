@@ -32,4 +32,7 @@ As part of the Multi-Box Search Engine epic, we need to implement the core searc
 - Update the UI to reflect the search results efficiently.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into implementation tasks for the text search engine.
+- [x] Tech Lead: Break down into implementation tasks for the text search engine.
+- [ ] task-608-617-multi-box-text-search-engine-impl
+- [ ] task-608-618-multi-box-text-search-engine-qa
+- [ ] task-608-619-multi-box-text-search-engine-e2e
