@@ -47,3 +47,4 @@ Introduce an automated Circular Dependency & Deadlock Detector into the Foundry 
 - [ ] Add explicit error logging and cyclic path tracing when a dependency loop is detected.
 - [ ] Integrate cycle detection into `scripts/validate-foundry-schema.ts` or orchestrator pre-dispatch checks.
 - [ ] Write unit tests verifying detection of direct (2-node) and indirect (N-node) circular dependency loops.
+- [ ] prd-527-583-foundry-dag-deadlock-detector
