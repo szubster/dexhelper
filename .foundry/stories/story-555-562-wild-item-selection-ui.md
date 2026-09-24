@@ -32,7 +32,11 @@ As part of the Wild Item Hunting UI epic, we need a user interface for users to 
 
 ## Acceptance Criteria
 - [x] tech_lead: Break down this Story into Tasks.
-- [ ] task-562-578-wild-item-selection-state
-- [ ] task-562-579-wild-item-selection-ui
-- [ ] task-562-580-wild-item-selection-tests
-- [ ] task-562-581-wild-item-selection-qa
+- [x] task-562-578-wild-item-selection-state
+- [x] task-562-579-wild-item-selection-ui
+- [x] task-562-580-wild-item-selection-tests
+- [x] task-562-581-wild-item-selection-qa
+- [ ] research-562-620-investigate-wild-item-ui-failure
+- [ ] task-562-621-wild-item-selection-ui-retry
+- [ ] task-562-622-wild-item-selection-tests-retry
+- [ ] task-562-623-wild-item-selection-qa-retry
