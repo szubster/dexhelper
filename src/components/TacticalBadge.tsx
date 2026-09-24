@@ -22,12 +22,44 @@ export const badgeVariants = cva('tactical-badge inline-flex flex-row px-2 py-1 
 
 export interface TacticalBadgeProps extends React.HTMLAttributes<HTMLSpanElement>, VariantProps<typeof badgeVariants> {
   children: React.ReactNode;
+  /**
+   * If true, displays a small LED status indicator dot.
+   */
+  dot?: boolean;
+  /**
+   * If true, adds a gentle pulsing animation to the badge/dot.
+   */
+  pulse?: boolean;
 }
 
 export const TacticalBadge = React.forwardRef<HTMLSpanElement, TacticalBadgeProps>(
-  ({ variant, className, children, ...props }, ref) => {
+  ({ variant, className, children, dot, pulse, ...props }, ref) => {
     return (
-      <span ref={ref} className={cn(badgeVariants({ variant, className }))} {...props}>
+      <span
+        ref={ref}
+        className={cn(
+          badgeVariants({ variant, className }),
+          'relative inline-flex items-center gap-1.5 overflow-hidden transition-all duration-200 hover:border-opacity-100 hover:shadow-[0_0_8px_rgba(255,255,255,0.05)]',
+          pulse && 'animate-pulse',
+        )}
+        {...props}
+      >
+        {/* Hardware Corner Accent Ticks */}
+        <span className="pointer-events-none absolute top-0 left-0 h-1 w-1 border-current border-t border-l opacity-40" />
+        <span className="pointer-events-none absolute top-0 right-0 h-1 w-1 border-current border-t border-r opacity-40" />
+        <span className="pointer-events-none absolute bottom-0 left-0 h-1 w-1 border-current border-b border-l opacity-40" />
+        <span className="pointer-events-none absolute right-0 bottom-0 h-1 w-1 border-current border-r border-b opacity-40" />
+
+        {/* Dynamic LED Dot Indicator */}
+        {dot && (
+          <span className="relative flex h-1.5 w-1.5 items-center justify-center">
+            {pulse && (
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-current opacity-75" />
+            )}
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-current" />
+          </span>
+        )}
+
         {children}
       </span>
     );

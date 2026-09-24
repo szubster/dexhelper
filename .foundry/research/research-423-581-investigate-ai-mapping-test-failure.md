@@ -5,7 +5,7 @@ title: Investigate Gen 3 AI Script Mapping E2E Test Failure
 status: READY
 owner_persona: researcher
 created_at: '2026-09-15T15:58:39Z'
-updated_at: '2026-09-20'
+updated_at: '2026-09-24'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - ai
   - e2e
   - research
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

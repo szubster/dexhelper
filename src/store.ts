@@ -159,6 +159,32 @@ interface AppStore {
   /** Clears all selected target items for wild hunting. */
   clearSelectedWildItemIds: () => void;
 
+  // Hunting Progress Tracker State
+  /**
+   * Tracks the initial quantity of items (keyed by item ID) across the Bag, Party, and PC Boxes
+   * at the start of a hunting session. Used as a baseline to detect when a target item is newly acquired.
+   */
+  huntBaselineQuantities: Record<number, number>;
+  /**
+   * Tracks the item IDs of targets that have been newly acquired during the current hunting session.
+   * This drives UI success notifications and updates.
+   */
+  newlyAcquiredWildItemIds: number[];
+  /**
+   * Sets the baseline quantities for the specified items.
+   * @param quantities - A dictionary mapping item IDs to their initial total quantities.
+   */
+  setHuntBaselineQuantities: (quantities: Record<number, number>) => void;
+  /** Clears the hunt baseline quantities, effectively resetting the tracking state. */
+  clearHuntBaselineQuantities: () => void;
+  /**
+   * Marks a specific item ID as newly acquired.
+   * @param id - The ID of the acquired item.
+   */
+  addNewlyAcquiredWildItemId: (id: number) => void;
+  /** Clears the list of newly acquired wild item IDs, resetting the notification state. */
+  clearNewlyAcquiredWildItemIds: () => void;
+
   // Derived helpers
   /**
    * Returns the current active filters as a Set for O(1) lookups.
@@ -286,6 +312,18 @@ export const useStore = create<AppStore>()(
           selectedWildItemIds: state.selectedWildItemIds.filter((itemId) => itemId !== id),
         })),
       clearSelectedWildItemIds: () => set({ selectedWildItemIds: [] }),
+
+      huntBaselineQuantities: {},
+      newlyAcquiredWildItemIds: [],
+      setHuntBaselineQuantities: (quantities) => set({ huntBaselineQuantities: quantities }),
+      clearHuntBaselineQuantities: () => set({ huntBaselineQuantities: {} }),
+      addNewlyAcquiredWildItemId: (id) =>
+        set((state) => ({
+          newlyAcquiredWildItemIds: state.newlyAcquiredWildItemIds.includes(id)
+            ? state.newlyAcquiredWildItemIds
+            : [...state.newlyAcquiredWildItemIds, id],
+        })),
+      clearNewlyAcquiredWildItemIds: () => set({ newlyAcquiredWildItemIds: [] }),
 
       // Conflict Resolution
       conflictState: null,

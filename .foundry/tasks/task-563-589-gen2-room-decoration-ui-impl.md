@@ -2,14 +2,14 @@
 id: task-563-589-gen2-room-decoration-ui-impl
 type: TASK
 title: Gen 2 Room Decoration UI Components Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-17T15:30:11Z'
-updated_at: '2026-09-17T15:30:11Z'
+updated_at: '2026-09-24'
 depends_on: []
 parent: story-313-563-gen2-room-decoration-ui-components
 locks: []
-jules_session_id: null
+jules_session_id: '13207790580182681625'
 rejection_reason: ''
 ---
 

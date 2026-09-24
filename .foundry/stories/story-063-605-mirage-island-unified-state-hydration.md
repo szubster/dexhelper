@@ -5,7 +5,7 @@ title: Hydrate Mirage Island State into PokeDB
 status: READY
 owner_persona: tech_lead
 created_at: '2026-06-08'
-updated_at: '2026-09-17'
+updated_at: '2026-09-24'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - gen3
   - mirage-island
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
