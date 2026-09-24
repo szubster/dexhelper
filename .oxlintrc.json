@@ -46,6 +46,78 @@
   },
   "overrides": [
     {
+      "files": ["src/**/*", "tests/**/*"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": ["@testing-library/*", "@testing-library/react"],
+                "message": "Do not use @testing-library. Use vitest-browser-react for component tests or @playwright/test for E2E tests."
+              },
+              {
+                "group": ["./experimental/*", "../experimental/*", "**/experimental/*", "src/experimental/*"],
+                "message": "Do not import from experimental."
+              },
+              {
+                "group": ["functions/*", "../functions/*", "../../functions/*", "packages/*", "../packages/*", "../../packages/*"],
+                "message": "Frontend code (src/) cannot import from backend (functions/) or cross-package boundary directly."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["functions/**/*"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": ["@testing-library/*", "@testing-library/react"],
+                "message": "Do not use @testing-library. Use vitest-browser-react for component tests or @playwright/test for E2E tests."
+              },
+              {
+                "group": ["./experimental/*", "../experimental/*", "**/experimental/*", "src/experimental/*"],
+                "message": "Do not import from experimental."
+              },
+              {
+                "group": ["src/*", "../src/*", "../../src/*", "packages/*", "../packages/*", "../../packages/*"],
+                "message": "Backend code (functions/) cannot import from frontend (src/) or cross-package boundary directly."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["packages/**/*"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": ["@testing-library/*", "@testing-library/react"],
+                "message": "Do not use @testing-library. Use vitest-browser-react for component tests or @playwright/test for E2E tests."
+              },
+              {
+                "group": ["./experimental/*", "../experimental/*", "**/experimental/*", "src/experimental/*"],
+                "message": "Do not import from experimental."
+              },
+              {
+                "group": ["src/*", "../src/*", "../../src/*", "functions/*", "../functions/*", "../../functions/*"],
+                "message": "Packages cannot import from frontend (src/) or backend (functions/)."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
       "files": ["src/experimental/**/*"],
       "rules": {
         "no-restricted-imports": "off"
