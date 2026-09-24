@@ -27,7 +27,7 @@ locks: []
 Integrate \`@tanstack/react-virtual\` into the \`PokedexGrid\` component to improve rendering performance and Time to Interactive (TTI). By virtualizing the grid, only the \`PokedexCard\` items visible within the viewport (with a small overscan) will be rendered to the DOM.
 
 ## Acceptance Criteria
-- [ ] Implement \`useVirtualizer\` from \`@tanstack/react-virtual\` in \`src/components/PokedexGrid.tsx\`.
-- [ ] Configure a responsive grid layout using window measurements within the virtualizer constraints to ensure multiple cards span across columns correctly.
-- [ ] Ensure that filtering and search continue to function correctly (the virtualizer must dynamically adjust based on the filtered list).
-- [ ] Ensure smooth scrolling of the Pokedex grid without jumpiness.
+- [x] Implement \`useVirtualizer\` from \`@tanstack/react-virtual\` in \`src/components/PokedexGrid.tsx\`.
+- [x] Configure a responsive grid layout using window measurements within the virtualizer constraints to ensure multiple cards span across columns correctly.
+- [x] Ensure that filtering and search continue to function correctly (the virtualizer must dynamically adjust based on the filtered list).
+- [x] Ensure smooth scrolling of the Pokedex grid without jumpiness.
