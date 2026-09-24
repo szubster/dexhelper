@@ -2,13 +2,13 @@
 id: task-524-568-setup-oxlint-rules
 type: TASK
 title: Setup Oxlint Rules
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-22'
+updated_at: '2026-09-24'
 depends_on:
   - task-524-567-setup-dependency-cruiser
-jules_session_id: '18155883409046064031'
+jules_session_id: null
 pr_number: null
 parent: story-524-524-architectural-linting
 tags:
@@ -28,6 +28,6 @@ locks: []
 - Specifically restrict forbidden imports (e.g., using `no-restricted-imports` with `overrides` in `.oxlintrc.json`).
 
 ## Acceptance Criteria
-- [ ] Configure `.oxlintrc.json` to include path-based import restrictions.
-- [ ] Ensure frontend code cannot be imported into backend paths and vice versa.
-- [ ] Add rules to enforce any other known architectural constraints using Oxlint's override mechanism for specific directories.
+- [x] Configure `.oxlintrc.json` to include path-based import restrictions.
+- [x] Ensure frontend code cannot be imported into backend paths and vice versa.
+- [x] Add rules to enforce any other known architectural constraints using Oxlint's override mechanism for specific directories.

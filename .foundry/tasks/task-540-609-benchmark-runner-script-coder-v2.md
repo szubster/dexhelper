@@ -2,10 +2,10 @@
 id: task-540-609-benchmark-runner-script-coder-v2
 type: TASK
 title: Implement Benchmark Runner Script V2
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-21'
-updated_at: '2026-09-21'
+updated_at: '2026-09-24'
 depends_on:
   - research-540-608-benchmark-failure-investigation
 jules_session_id: null

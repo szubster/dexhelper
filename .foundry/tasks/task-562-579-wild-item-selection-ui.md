@@ -2,10 +2,10 @@
 id: task-562-579-wild-item-selection-ui
 type: TASK
 title: Wild Item Selection UI Implementation
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-12'
-updated_at: '2026-09-22'
+updated_at: '2026-09-24'
 depends_on:
   - task-562-578-wild-item-selection-state
 jules_session_id: '16731247521072978925'
@@ -16,8 +16,8 @@ tags:
   - ui
   - react
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

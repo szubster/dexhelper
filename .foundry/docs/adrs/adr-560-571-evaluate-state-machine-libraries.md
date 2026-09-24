@@ -2,10 +2,10 @@
 id: adr-560-571-evaluate-state-machine-libraries
 type: ADR
 title: Evaluate State Machine Libraries for Node Lifecycle Transitions
-status: READY
+status: COMPLETED
 owner_persona: architect
 created_at: '2026-09-18'
-updated_at: '2026-09-18'
+updated_at: '2026-09-24'
 depends_on: []
 jules_session_id: null
 pr_number: null

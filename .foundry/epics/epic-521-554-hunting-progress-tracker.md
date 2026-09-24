@@ -5,7 +5,7 @@ title: Hunting Progress Tracker
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-15'
-updated_at: '2026-09-19'
+updated_at: '2026-09-24'
 depends_on: []
 jules_session_id: null
 pr_number: null

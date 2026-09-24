@@ -2,10 +2,10 @@
 id: task-562-581-gen2-room-decoration-logic-qa
 type: TASK
 title: Gen 2 Room Decoration Logic QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-14'
-updated_at: '2026-09-17'
+updated_at: '2026-09-24'
 depends_on:
   - task-562-580-gen2-room-decoration-hook-tests
 jules_session_id: null

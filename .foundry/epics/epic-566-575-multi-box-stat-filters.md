@@ -2,10 +2,10 @@
 id: epic-566-575-multi-box-stat-filters
 type: EPIC
 title: Multi-Box Stat Filters
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-18'
-updated_at: '2026-09-19'
+updated_at: '2026-09-24'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,4 +31,7 @@ Implement stretch goal stat filters to allow users to search for Pokémon with s
 - Implement stat filters to find Pokémon with specific EVs (Effort Values).
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into implementation stories for the stat filters.
+- [x] Story Owner: Break down this Epic into implementation stories for the stat filters.
+- [ ] story-575-617-multi-box-iv-filters
+- [ ] story-575-618-multi-box-ev-filters
+- [ ] story-575-619-multi-box-stat-filters-e2e

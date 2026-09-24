@@ -476,6 +476,8 @@ export interface Gen3SaveData extends BaseSaveData {
   gen3MoveTutors?: Gen3MoveTutors;
   /** Gen 3 specific: Volcanic Ash gather count */
   gen3VolcanicAsh?: number;
+  /** Gen 3 specific: Berry pouch inventory. */
+  gen3Berries?: { itemId: number; quantity: number }[];
   /** Gen 3 specific: Key event items boolean flags. */
   gen3EventItems?: Record<number, boolean>;
   /** Gen 3 specific: Shoal Items (Salt and Shells) */

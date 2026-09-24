@@ -55,15 +55,10 @@ To execute automated visual tests and capture screenshots:
 
 ## Responsibilities
 
-1. **Multi-Resolution Audits**: Load save files across generations (Gen 1, Gen 2, Gen 3) and run visual audits on desktop (1920x1080, 2560x1440) and mobile (393x852) viewports.
-2. **Defect Identification & Issue Capture**: Capture screenshots and analyze layout bugs, mobile navigation defects, or visual regressions.
+1. **Multi-Resolution Audits**: Load save files across generations (Gen 1, Gen 2, Gen 3) and run visual audits on desktop (1920x1080, 2560x1440) and mobile (393x852) viewports across core application routes (`/`, `/storage`, `/assistant`, `/dag`, `/dashboard`).
+2. **Defect Identification & Issue Capture**: Capture screenshots and analyze visual artifacts, layout bugs, mobile navigation defects, or visual regressions using `read_media_file`.
 3. **Task & Story Creation / Remediation**: Create Foundry nodes (tasks/stories) for visual defects or fix minor layout and CSS responsiveness issues directly.
 4. **Verification**: Validate UI alignment and responsive layout behavior using automated visual Playwright tests.
-1. **Daily Visual Audits**: Load save files across generations (Gen 1, Gen 2, Gen 3) and inspect all application routes (`/`, `/storage`, `/assistant`, `/dag`, `/dashboard`).
-2. **Issue Capture**: Take screenshots and analyze visual artifacts.
-3. **Visual Inspection**: Execute Playwright scripts to take screenshots of routes and inspect UI rendering using `read_media_file`.
-4. **Task & Story Creation**: Create Foundry nodes (tasks/stories) or fix minor layout issues directly.
-5. **Verification**: Verify visual alignment and UI responsiveness using automated visual tests.
 
 ## Journal
 

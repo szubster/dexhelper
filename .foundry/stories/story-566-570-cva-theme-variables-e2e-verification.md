@@ -2,13 +2,13 @@
 id: story-566-570-cva-theme-variables-e2e-verification
 type: STORY
 title: E2E Verification of CVA and Theme Setup
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-15T05:48:26Z'
-updated_at: '2026-09-23'
+updated_at: '2026-09-24'
 depends_on:
   - story-566-569-cva-theme-variables-setup
-jules_session_id: '9957569110529617362'
+jules_session_id: null
 pr_number: null
 parent: epic-565-566-cva-setup
 tags:
@@ -33,6 +33,9 @@ Verify the CVA integration and centralized theme styling works without visual re
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down this Story into Tasks.
-- [ ] task-570-590-cva-tactical-aesthetic-e2e-coder
-- [ ] task-570-591-theme-swapping-e2e-coder
-- [ ] task-570-592-cva-theme-e2e-qa
+- [x] task-570-590-cva-tactical-aesthetic-e2e-coder
+- [x] task-570-591-theme-swapping-e2e-coder
+- [x] task-570-592-cva-theme-e2e-qa
+- [ ] research-570-617-investigate-cva-tactical-aesthetic-e2e-failure
+- [ ] task-570-618-cva-tactical-aesthetic-e2e-coder-retry
+- [ ] task-570-619-cva-theme-e2e-qa-retry

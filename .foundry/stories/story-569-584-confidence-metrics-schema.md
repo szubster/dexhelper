@@ -2,10 +2,10 @@
 id: story-569-584-confidence-metrics-schema
 type: STORY
 title: Confidence Metrics Schema Implementation
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-20'
-updated_at: '2026-09-20'
+updated_at: '2026-09-24'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -32,6 +32,6 @@ Based on PRD-521, we need to allow agents to self-report their confidence levels
 - (Implicit) Ensure tools/linters validating this schema are aware of the new optional field.
 
 ## Acceptance Criteria
-- [ ] Decompose into tasks.
-- [ ] task-584-599-confidence-metrics-schema
-- [ ] task-584-600-confidence-metrics-schema-qa
+- [x] Decompose into tasks.
+- [x] task-584-599-confidence-metrics-schema
+- [x] task-584-600-confidence-metrics-schema-qa

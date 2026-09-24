@@ -2,10 +2,10 @@
 id: task-562-576-item-selection-route-e2e-impl
 type: TASK
 title: Write E2E Tests for Item Selection and Route Display
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-14'
-updated_at: '2026-09-23'
+updated_at: '2026-09-24'
 depends_on: []
 jules_session_id: '5796717212544498062'
 pr_number: null
@@ -15,7 +15,10 @@ tags:
   - integration
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Permanent failure: The UI components for Wild Item Selection do
+  not exist yet. This task lacks a dependency on the UI implementation task
+  (task-562-579) and must be aborted to prevent infinite resurrection loops.
 notes: ''
 locks: []
 priority: 50

@@ -2,12 +2,12 @@
 id: task-560-583-gen3-berry-pouch-parsing-impl
 type: TASK
 title: Implement Gen 3 Berry Pouch Parsing
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-16T19:32:29Z'
-updated_at: '2026-09-23'
+updated_at: '2026-09-24'
 depends_on: []
-jules_session_id: '358631191991424086'
+jules_session_id: null
 pr_number: null
 parent: story-540-560-gen3-berry-pouch-and-pokemon-parsing
 tags:
@@ -16,7 +16,7 @@ tags:
   - contests
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 locks: []
 ---

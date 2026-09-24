@@ -2,10 +2,10 @@
 id: story-524-524-architectural-linting
 type: STORY
 title: Introduce Architectural Linting
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-22'
+updated_at: '2026-09-24'
 depends_on:
   - story-524-523-configure-global-packages
 jules_session_id: null
@@ -29,6 +29,6 @@ locks: []
 
 ## Acceptance Criteria
 - [x] Break this story down into tasks for setting up dependency-cruiser and Oxlint rules.
-- [ ] task-524-567-setup-dependency-cruiser
-- [ ] task-524-568-setup-oxlint-rules
-- [ ] task-524-569-qa-architectural-linting
+- [x] task-524-567-setup-dependency-cruiser
+- [x] task-524-568-setup-oxlint-rules
+- [x] task-524-569-qa-architectural-linting
