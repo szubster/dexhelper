@@ -10,6 +10,7 @@ import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
 import { PokerusBadge } from './PokerusBadge';
 import { PokemonSprite } from './pokemon/PokemonSprite';
+import { RackHandle } from './RackHandle';
 import { ScanlineOverlay } from './ScanlineOverlay';
 import { ShinyBadge } from './ShinyBadge';
 import { TacticalBadge } from './TacticalBadge';
@@ -233,11 +234,7 @@ export const StorageGrid = React.memo(function StorageGrid({
             <div className="relative overflow-hidden rounded-none border border-zinc-800 border-dashed bg-zinc-950 p-1">
               <div className="relative flex items-stretch gap-4 bg-zinc-900/50 p-3">
                 {/* Rack Handle */}
-                <div className="flex w-4 shrink-0 flex-col justify-between border-zinc-700/50 border-r border-dashed pr-2">
-                  <div className="h-2 w-2 rounded-full border border-zinc-600 bg-zinc-800 shadow-inner" />
-                  <div className="my-2 w-1.5 flex-1 rounded-none bg-gradient-to-b from-zinc-700 via-zinc-600 to-zinc-700 shadow-[inset_1px_0_2px_rgba(255,255,255,0.2)]" />
-                  <div className="h-2 w-2 rounded-full border border-zinc-600 bg-zinc-800 shadow-inner" />
-                </div>
+                <RackHandle />
 
                 {/* Main Content Area */}
                 <div className="flex flex-1 flex-col justify-between gap-2 py-1 sm:flex-row sm:items-center">
