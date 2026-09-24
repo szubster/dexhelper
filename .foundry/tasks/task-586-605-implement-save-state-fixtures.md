@@ -33,4 +33,4 @@ Implement standard save state fixtures.
 - Move `initializeWithSave` logic into the fixture.
 
 ## Acceptance Criteria
-- [ ] `loadSave` fixture is defined and available on the `test` instance.
+- [x] `loadSave` fixture is defined and available on the `test` instance.
