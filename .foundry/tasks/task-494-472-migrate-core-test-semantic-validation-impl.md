@@ -2,12 +2,12 @@
 id: task-494-472-migrate-core-test-semantic-validation-impl
 type: TASK
 title: Implement Core Agent Test Migration to Semantic Validation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-20'
+updated_at: '2026-09-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15493374883749204897'
 pr_number: null
 parent: story-418-494-agent-test-migration-core
 tags:
