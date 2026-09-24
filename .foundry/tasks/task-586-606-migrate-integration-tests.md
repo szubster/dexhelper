@@ -26,12 +26,12 @@ priority: 60
 # Task: Migrate Integration Tests
 
 ## Objective
-Migrate `tests/e2e/fixtures_integration.spec.ts` to use custom fixtures.
+Migrate \`tests/e2e/fixtures_integration.spec.ts\` to use custom fixtures.
 
 ## Scope
-- Import `test` and `expect` from `tests/e2e/fixtures/index.ts` in `tests/e2e/fixtures_integration.spec.ts`.
-- Refactor test cases to use the `loadSave` fixture.
+- Import \`test\` and \`expect\` from \`tests/e2e/fixtures/index.ts\` in \`tests/e2e/fixtures_integration.spec.ts\`.
+- Refactor test cases to use the \`loadSave\` fixture.
 
 ## Acceptance Criteria
-- [ ] Tests use the custom fixtures.
-- [ ] `pnpm test:e2e tests/e2e/fixtures_integration.spec.ts` passes.
+- [x] Tests use the custom fixtures.
+- [x] \`pnpm test:e2e tests/e2e/fixtures_integration.spec.ts\` passes.
