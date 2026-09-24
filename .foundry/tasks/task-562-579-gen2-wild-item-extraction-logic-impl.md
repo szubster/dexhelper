@@ -5,7 +5,7 @@ title: Implement Gen 2 Wild Encounter and Held Item Extraction Logic
 status: READY
 owner_persona: coder
 created_at: '${DATE}'
-updated_at: '2026-09-20'
+updated_at: '2026-09-23'
 depends_on:
   - task-562-578-gen2-wild-item-models-impl
 jules_session_id: null
@@ -16,7 +16,7 @@ tags:
   - dexhelper
   - typescript
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

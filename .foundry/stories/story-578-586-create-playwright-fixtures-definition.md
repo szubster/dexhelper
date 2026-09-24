@@ -5,7 +5,7 @@ title: Create Playwright Fixtures Definition
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-20'
-updated_at: '2026-09-22'
+updated_at: '2026-09-23'
 depends_on: []
 jules_session_id: null
 pr_number: null

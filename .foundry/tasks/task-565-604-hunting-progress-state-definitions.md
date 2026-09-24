@@ -2,12 +2,12 @@
 id: task-565-604-hunting-progress-state-definitions
 type: TASK
 title: Hunting Progress State Definitions
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-15'
-updated_at: '2026-09-19'
+updated_at: '2026-09-23'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2563400628179753821'
 pr_number: null
 parent: story-554-565-progress-tracker-state
 tags:

@@ -2,10 +2,10 @@
 id: task-336-569-update-runtime-interfaces-keys-qa-v2
 type: TASK
 title: Update Runtime Interfaces to Verbose Keys QA (v2)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-10'
-updated_at: '2026-09-13'
+updated_at: '2026-09-23'
 depends_on:
   - task-336-568-update-runtime-interfaces-keys-impl-v2
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - architecture
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-336-567-investigate-runtime-interfaces-keys-failure
 notes: ''
 locks: []
 ---

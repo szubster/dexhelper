@@ -50,6 +50,18 @@ describe('extractGameVariable', () => {
       extractGameVariable(view, 0, 0x4048, true);
     }).toThrowError('The save file is corrupted or incomplete.');
   });
+
+  it('should re-throw non-RangeError exceptions', () => {
+    const buffer = new ArrayBuffer(1000);
+    const view = new DataView(buffer);
+    view.getUint16 = () => {
+      throw new TypeError('Custom non-RangeError');
+    };
+
+    expect(() => {
+      extractGameVariable(view, 0, 0x4048, true);
+    }).toThrowError('Custom non-RangeError');
+  });
 });
 
 describe('extractEventFlag', () => {
@@ -76,36 +88,62 @@ describe('extractEventFlag', () => {
       extractEventFlag(view, 0, 0x100);
     }).toThrowError('The save file is corrupted or incomplete.');
   });
+
+  it('should re-throw non-RangeError exceptions', () => {
+    const buffer = new ArrayBuffer(1000);
+    const view = new DataView(buffer);
+    view.getUint8 = () => {
+      throw new TypeError('Custom non-RangeError');
+    };
+
+    expect(() => {
+      extractEventFlag(view, 0, 0x100);
+    }).toThrowError('Custom non-RangeError');
+  });
 });
 
 describe('extractLatestSectionOffset', () => {
-  it('should return highest save index bank offset', () => {
+  it('should return Bank B offset when saveIndexA <= saveIndexB', () => {
     const buffer = new ArrayBuffer(0x100000);
     const view = new DataView(buffer);
 
-    // Setup Bank A section 2 with lower save index
+    // Setup Bank A section 2 with save index 10
     const offsetA = BANK_A_START + 5 * SECTION_SIZE;
     view.setUint32(offsetA + SIGNATURE_OFFSET, SIGNATURE_VALUE, true);
     view.setUint16(offsetA + SECTION_ID_OFFSET, 2, true);
     view.setUint32(offsetA + SAVE_INDEX_OFFSET, 10, true);
-    // Set a random section in Bank A to initialize the bank's save index
-    view.setUint32(BANK_A_START + SIGNATURE_OFFSET, SIGNATURE_VALUE, true);
-    view.setUint32(BANK_A_START + SAVE_INDEX_OFFSET, 10, true);
 
-    // Setup Bank B section 2 with higher save index
+    // Setup Bank B section 2 with save index 10
     const offsetB = BANK_B_START + 8 * SECTION_SIZE;
     view.setUint32(offsetB + SIGNATURE_OFFSET, SIGNATURE_VALUE, true);
     view.setUint16(offsetB + SECTION_ID_OFFSET, 2, true);
-    view.setUint32(offsetB + SAVE_INDEX_OFFSET, 11, true);
-    // Set a random section in Bank B to initialize the bank's save index
-    view.setUint32(BANK_B_START + SIGNATURE_OFFSET, SIGNATURE_VALUE, true);
-    view.setUint32(BANK_B_START + SAVE_INDEX_OFFSET, 11, true);
+    view.setUint32(offsetB + SAVE_INDEX_OFFSET, 10, true);
 
     const resultOffset = extractLatestSectionOffset(view, 2);
     expect(resultOffset).toBe(offsetB);
   });
 
-  it('should fallback to Bank A if Bank B is missing', () => {
+  it('should return Bank A offset when saveIndexA > saveIndexB', () => {
+    const buffer = new ArrayBuffer(0x100000);
+    const view = new DataView(buffer);
+
+    // Setup Bank A section 2 with higher save index
+    const offsetA = BANK_A_START + 5 * SECTION_SIZE;
+    view.setUint32(offsetA + SIGNATURE_OFFSET, SIGNATURE_VALUE, true);
+    view.setUint16(offsetA + SECTION_ID_OFFSET, 2, true);
+    view.setUint32(offsetA + SAVE_INDEX_OFFSET, 12, true);
+
+    // Setup Bank B section 2 with lower save index
+    const offsetB = BANK_B_START + 8 * SECTION_SIZE;
+    view.setUint32(offsetB + SIGNATURE_OFFSET, SIGNATURE_VALUE, true);
+    view.setUint16(offsetB + SECTION_ID_OFFSET, 2, true);
+    view.setUint32(offsetB + SAVE_INDEX_OFFSET, 10, true);
+
+    const resultOffset = extractLatestSectionOffset(view, 2);
+    expect(resultOffset).toBe(offsetA);
+  });
+
+  it('should fallback to Bank A if Bank B is missing section', () => {
     const buffer = new ArrayBuffer(0x100000);
     const view = new DataView(buffer);
 
@@ -113,11 +151,22 @@ describe('extractLatestSectionOffset', () => {
     view.setUint32(offsetA + SIGNATURE_OFFSET, SIGNATURE_VALUE, true);
     view.setUint16(offsetA + SECTION_ID_OFFSET, 2, true);
     view.setUint32(offsetA + SAVE_INDEX_OFFSET, 10, true);
-    view.setUint32(BANK_A_START + SIGNATURE_OFFSET, SIGNATURE_VALUE, true);
-    view.setUint32(BANK_A_START + SAVE_INDEX_OFFSET, 10, true);
 
     const resultOffset = extractLatestSectionOffset(view, 2);
     expect(resultOffset).toBe(offsetA);
+  });
+
+  it('should fallback to Bank B if Bank A is missing section', () => {
+    const buffer = new ArrayBuffer(0x100000);
+    const view = new DataView(buffer);
+
+    const offsetB = BANK_B_START + 8 * SECTION_SIZE;
+    view.setUint32(offsetB + SIGNATURE_OFFSET, SIGNATURE_VALUE, true);
+    view.setUint16(offsetB + SECTION_ID_OFFSET, 2, true);
+    view.setUint32(offsetB + SAVE_INDEX_OFFSET, 10, true);
+
+    const resultOffset = extractLatestSectionOffset(view, 2);
+    expect(resultOffset).toBe(offsetB);
   });
 
   it('should throw if neither bank has the section', () => {
@@ -127,5 +176,17 @@ describe('extractLatestSectionOffset', () => {
     expect(() => {
       extractLatestSectionOffset(view, 1);
     }).toThrowError('The save file is corrupted or incomplete: missing section 1.');
+  });
+
+  it('should re-throw non-RangeError during section scanning', () => {
+    const buffer = new ArrayBuffer(0x100000);
+    const view = new DataView(buffer);
+    view.getUint32 = () => {
+      throw new TypeError('Custom non-RangeError during scan');
+    };
+
+    expect(() => {
+      extractLatestSectionOffset(view, 2);
+    }).toThrowError('Custom non-RangeError during scan');
   });
 });

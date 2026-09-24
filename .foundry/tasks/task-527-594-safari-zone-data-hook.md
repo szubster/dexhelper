@@ -2,13 +2,13 @@
 id: task-527-594-safari-zone-data-hook
 type: TASK
 title: Safari Zone Data Selection Hook
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-22'
+updated_at: '2026-09-24'
 depends_on:
   - story-325-526-safari-zone-layout-and-route
-jules_session_id: '13175039117958831557'
+jules_session_id: null
 pr_number: null
 parent: story-325-527-safari-zone-area-highlighting
 tags:
@@ -35,6 +35,6 @@ Implement the custom hook to handle game version selection, Safari Zone encounte
 - Use Vitest to unit test the hook in `src/components/safari-zone/__tests__/useSafariZoneSelection.test.ts`.
 
 ## Acceptance Criteria
-- [ ] Hook exposes game version and target selection state.
-- [ ] Hook filters available areas correctly based on selection.
-- [ ] Unit tests pass.
+- [x] Hook exposes game version and target selection state.
+- [x] Hook filters available areas correctly based on selection.
+- [x] Unit tests pass.

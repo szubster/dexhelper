@@ -2,16 +2,18 @@
 id: task-563-584-map-data-qa
 type: TASK
 title: QA - Gen 3 Map Data Extraction
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-16T11:03:51Z'
-updated_at: '2026-09-16T11:03:51Z'
+updated_at: '2026-09-23'
 depends_on:
   - task-563-583-map-data-tests
 jules_session_id: null
 parent: story-553-563-gen3-map-data-extraction
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-563-582-map-data-extraction-logic
 locks: []
 ---
 
