@@ -30,5 +30,5 @@ The Pokéblock Optimizer requires a state layer to track the user's selected Pok
 Create a React Context provider (using explicit `<Context.Provider value={{...}}>` syntax) to manage the state for the Pokéblock Optimizer, following ADR 013 and ADR 017. Expose hooks for the UI components to consume this state and trigger the backend recommendation engine.
 
 ## Acceptance Criteria
-- [ ] Implement a React Context provider for the Pokéblock Optimizer state.
-- [ ] Integrate the backend recommendation engine and save parsing logic into the state actions.
+- [x] Implement a React Context provider for the Pokéblock Optimizer state.
+- [x] Integrate the backend recommendation engine and save parsing logic into the state actions.
