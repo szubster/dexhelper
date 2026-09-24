@@ -31,5 +31,5 @@ The store needs base state variables to track hunting progress.
 - Add unit tests for the initial state.
 
 ## Acceptance Criteria
-- [ ] Define state types and initial state in src/store.ts.
-- [ ] Write unit tests for state initialization.
+- [x] Define state types and initial state in src/store.ts.
+- [x] Write unit tests for state initialization.
