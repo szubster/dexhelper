@@ -2,14 +2,14 @@
 id: story-406-499-tpm-distillation-e2e
 type: STORY
 title: E2E Verification of TPM Distillation Logic
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-31'
-updated_at: '2026-09-23'
+updated_at: '2026-09-24'
 depends_on:
   - story-406-497-tpm-epic-detection-logic
   - story-406-498-tpm-aggregation-and-archival
-jules_session_id: '6208862339663324226'
+jules_session_id: null
 pr_number: null
 parent: epic-339-406-tpm-distillation-logic
 tags:
@@ -35,3 +35,6 @@ Verify the end-to-end flow of the TPM Distillation and Archival Logic.
 ## Acceptance Criteria
 - [ ] Implement E2E tests for the TPM distillation logic flow.
 - [ ] Ensure tests successfully verify file appending and archival moves.
+- [ ] task-499-614-tpm-distillation-e2e-fixtures
+- [ ] task-499-615-tpm-distillation-e2e-implementation
+- [ ] task-499-616-tpm-distillation-e2e-qa

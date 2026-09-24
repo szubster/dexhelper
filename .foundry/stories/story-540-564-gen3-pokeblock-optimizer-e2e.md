@@ -34,6 +34,10 @@ Create Playwright E2E tests that verify the full user flow of the Pokéblock Rec
 ## Acceptance Criteria
 - [x] Break down into Tasks
 - [ ] Implement Playwright E2E tests to verify the full user flow of the Pokéblock Recipe Optimizer.
-- [ ] task-564-581-pokeblock-e2e-fixtures
-- [ ] task-564-582-pokeblock-e2e-implementation
-- [ ] task-564-583-pokeblock-e2e-qa
+- [x] task-564-581-pokeblock-e2e-fixtures
+- [x] task-564-582-pokeblock-e2e-implementation
+- [x] task-564-583-pokeblock-e2e-qa
+- [ ] research-564-617-pokeblock-e2e-fixtures-failure
+- [ ] task-564-618-pokeblock-e2e-fixtures-retry
+- [ ] task-564-619-pokeblock-e2e-implementation-retry
+- [ ] task-564-620-pokeblock-e2e-qa-retry

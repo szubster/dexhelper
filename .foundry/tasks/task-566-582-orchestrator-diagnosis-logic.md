@@ -2,10 +2,10 @@
 id: task-566-582-orchestrator-diagnosis-logic
 type: TASK
 title: Implement Orchestrator Logic for BLOCKED Diagnosis
-status: READY
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-15T23:11:43Z'
-updated_at: '2026-09-22'
+updated_at: '2026-09-24'
 depends_on:
   - task-566-581-blocked-diagnosis-types
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - core
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

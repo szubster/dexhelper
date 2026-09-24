@@ -2,10 +2,10 @@
 id: task-584-600-confidence-metrics-schema-qa
 type: TASK
 title: QA Verification for confidence_score Schema
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-20'
-updated_at: '2026-09-21'
+updated_at: '2026-09-24'
 depends_on:
   - task-584-599-confidence-metrics-schema
 jules_session_id: null
@@ -33,4 +33,4 @@ Based on story-569-584-confidence-metrics-schema, we need to allow agents to sel
 - Verify that `pnpm test` passes for the orchestrator scripts.
 
 ## Acceptance Criteria
-- [ ] QA verified schema.md and schema.ts updates.
+- [x] QA verified schema.md and schema.ts updates.

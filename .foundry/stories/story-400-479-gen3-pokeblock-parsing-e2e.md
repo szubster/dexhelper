@@ -5,7 +5,7 @@ title: Gen 3 Pokéblock Parsing E2E Verification
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-09-22'
+updated_at: '2026-09-24'
 depends_on:
   - story-400-478-gen3-pokeblock-parsing-logic
 jules_session_id: null

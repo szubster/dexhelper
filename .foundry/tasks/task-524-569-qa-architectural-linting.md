@@ -2,7 +2,7 @@
 id: task-524-569-qa-architectural-linting
 type: TASK
 title: QA Architectural Linting
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-09'
 updated_at: '2026-09-24'
@@ -29,5 +29,5 @@ locks: []
 - Ensure that forbidden imports trigger the expected linting errors.
 
 ## Acceptance Criteria
-- [ ] Verify that running the linting scripts (`pnpm lint:deps`, `pnpm lint`) successfully enforces architectural boundaries.
-- [ ] Create a temporary, forbidden import in the codebase and verify that it is flagged as an error by both `dependency-cruiser` and Oxlint (then remove it).
+- [x] Verify that running the linting scripts (`pnpm lint:deps`, `pnpm lint`) successfully enforces architectural boundaries.
+- [x] Create a temporary, forbidden import in the codebase and verify that it is flagged as an error by both `dependency-cruiser` and Oxlint (then remove it).

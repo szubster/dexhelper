@@ -2,12 +2,12 @@
 id: task-565-604-hunting-progress-state-definitions
 type: TASK
 title: Hunting Progress State Definitions
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-15'
-updated_at: '2026-09-23'
+updated_at: '2026-09-24'
 depends_on: []
-jules_session_id: '2563400628179753821'
+jules_session_id: null
 pr_number: null
 parent: story-554-565-progress-tracker-state
 tags:
@@ -31,5 +31,5 @@ The store needs base state variables to track hunting progress.
 - Add unit tests for the initial state.
 
 ## Acceptance Criteria
-- [ ] Define state types and initial state in src/store.ts.
-- [ ] Write unit tests for state initialization.
+- [x] Define state types and initial state in src/store.ts.
+- [x] Write unit tests for state initialization.

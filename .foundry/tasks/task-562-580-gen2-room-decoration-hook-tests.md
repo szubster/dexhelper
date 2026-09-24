@@ -2,13 +2,13 @@
 id: task-562-580-gen2-room-decoration-hook-tests
 type: TASK
 title: Gen 2 Room Decoration Hook Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-14'
-updated_at: '2026-09-23'
+updated_at: '2026-09-24'
 depends_on:
   - task-562-579-gen2-room-decoration-hook
-jules_session_id: '3178686377238314440'
+jules_session_id: null
 parent: story-313-562-gen2-room-decoration-state-logic
 rejection_reason: ''
 locks: []
@@ -25,5 +25,5 @@ Write comprehensive unit tests for the `useGen2RoomDecorations` hook.
 - Test edge cases where decorations are active but not unlocked or neither.
 
 ## Acceptance Criteria
-- [ ] Unit tests for `useGen2RoomDecorations` are written.
-- [ ] Unit tests pass and cover expected functionality.
+- [x] Unit tests for `useGen2RoomDecorations` are written.
+- [x] Unit tests pass and cover expected functionality.

@@ -1,4 +1,5 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
+import { useWindowVirtualizer } from '@tanstack/react-virtual';
 import { SearchX } from 'lucide-react';
 import React, { useMemo } from 'react';
 import { pokeDB } from '../db/PokeDB';
@@ -105,6 +106,39 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
     return set;
   }, [saveData]);
 
+  const parentRef = React.useRef<HTMLDivElement>(null);
+
+  const [columns, setColumns] = React.useState(1);
+
+  React.useEffect(() => {
+    const updateColumns = () => {
+      const width = window.innerWidth;
+      if (width >= 1280) setColumns(4);
+      else if (width >= 1024) setColumns(3);
+      else if (width >= 640) setColumns(2);
+      else setColumns(1);
+    };
+    updateColumns();
+    window.addEventListener('resize', updateColumns);
+    return () => window.removeEventListener('resize', updateColumns);
+  }, []);
+
+  const rowCount = Math.ceil(finalPokemon.length / columns);
+
+  const [scrollMargin, setScrollMargin] = React.useState(0);
+  React.useEffect(() => {
+    if (parentRef.current) {
+      setScrollMargin(parentRef.current.offsetTop);
+    }
+  }, []);
+
+  const virtualizer = useWindowVirtualizer({
+    count: rowCount,
+    estimateSize: () => 350 + 16, // estimate height + gap
+    overscan: 2,
+    scrollMargin,
+  });
+
   if (finalPokemon.length === 0) {
     return (
       <TacticalPanel className="fade-in mx-1 mt-4 flex animate-in flex-col items-center justify-center p-12 text-center duration-500">
@@ -152,19 +186,41 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 px-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {finalPokemon.map((pokemon, idx) => (
-          <PokedexCard
-            key={pokemon.id}
-            pokemon={pokemon}
-            idx={idx}
-            saveData={saveData}
-            isLivingDex={isLivingDex}
-            partySet={partySet}
-            pcSet={pcSet}
-            shinySpeciesIds={shinySpeciesIds}
-          />
-        ))}
+      <div ref={parentRef} className="relative w-full" style={{ height: `${virtualizer.getTotalSize()}px` }}>
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            transform: `translateY(${virtualizer.getVirtualItems()[0]?.start ?? 0}px)`,
+          }}
+        >
+          <div className="grid grid-cols-1 gap-4 px-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {virtualizer.getVirtualItems().map((virtualRow) => (
+              <React.Fragment key={virtualRow.index}>
+                {Array.from({ length: columns }).map((_, colIndex) => {
+                  const idx = virtualRow.index * columns + colIndex;
+                  const pokemon = finalPokemon[idx];
+                  if (!pokemon) return <div key={`empty-${idx}`} />;
+                  return (
+                    <div key={pokemon.id} ref={virtualizer.measureElement} data-index={virtualRow.index}>
+                      <PokedexCard
+                        pokemon={pokemon}
+                        idx={idx}
+                        saveData={saveData}
+                        isLivingDex={isLivingDex}
+                        partySet={partySet}
+                        pcSet={pcSet}
+                        shinySpeciesIds={shinySpeciesIds}
+                      />
+                    </div>
+                  );
+                })}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
