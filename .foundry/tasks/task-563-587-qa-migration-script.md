@@ -41,3 +41,5 @@ Verify the migration script implemented in `task-563-586-develop-migration-scrip
 - [ ] Verified that the script correctly targets and removes ONLY the specified reminder sections and their contents.
 - [ ] Verified that the script preserves the YAML frontmatter and all other Markdown content, including checkboxes, unharmed.
 - [ ] The migration script works correctly without introducing file corruption or unexpected data loss.
+
+**QA Note:** The target task failed validation because the status filtering logic incorrectly matches any status string within the markdown body instead of strictly parsing the YAML frontmatter block. The target task has been rejected and sent back to the coder for fixes.
