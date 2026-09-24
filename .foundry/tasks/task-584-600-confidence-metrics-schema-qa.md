@@ -33,4 +33,4 @@ Based on story-569-584-confidence-metrics-schema, we need to allow agents to sel
 - Verify that `pnpm test` passes for the orchestrator scripts.
 
 ## Acceptance Criteria
-- [ ] QA verified schema.md and schema.ts updates.
+- [x] QA verified schema.md and schema.ts updates.
