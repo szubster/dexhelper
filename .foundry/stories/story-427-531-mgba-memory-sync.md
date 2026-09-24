@@ -29,9 +29,13 @@ locks: []
 Implement real-time memory synchronization with the DexHelper Save DB for Gen 3 games running in the mGBA WASM emulator.
 
 ## Acceptance Criteria
+- [ ] research-531-620-investigate-mgba-memory-sync-failure
+- [ ] task-531-621-mgba-memory-sync-core-retry
+- [ ] task-531-622-mgba-memory-sync-react-retry
+- [ ] task-531-623-mgba-memory-sync-qa-retry
 - [x] Extract SRAM/Save data directly from the emulator's memory space via JavaScript bindings during active gameplay.
 - [x] Pass the live memory buffer to the DexHelper parsing engine.
 - [x] Ensure seamless state synchronization without manual file-based exports.
-- [ ] task-531-568-mgba-memory-sync-core
-- [ ] task-531-569-mgba-memory-sync-react
-- [ ] task-531-570-mgba-memory-sync-qa
+- [x] task-531-568-mgba-memory-sync-core
+- [x] task-531-569-mgba-memory-sync-react
+- [x] task-531-570-mgba-memory-sync-qa
