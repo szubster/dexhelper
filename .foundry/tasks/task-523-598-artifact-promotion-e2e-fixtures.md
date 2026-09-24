@@ -25,5 +25,5 @@ locks: []
 Create the required fixtures and mocks to support E2E verification of the artifact promotion workflow.
 
 ## Acceptance Criteria
-- [ ] Create fixtures or mocks representing the initial WIP state.
-- [ ] Ensure the fixtures can be properly loaded into the Playwright environment.
+- [x] Create fixtures or mocks representing the initial WIP state.
+- [x] Ensure the fixtures can be properly loaded into the Playwright environment.
