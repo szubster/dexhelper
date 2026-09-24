@@ -34,6 +34,6 @@ To calculate how a Pokémon's stats change when fed a Pokéblock, we need consta
 - Write unit tests to verify the mappings.
 
 ## Acceptance Criteria
-- [ ] Implement Nature flavor mapping constants.
-- [ ] Implement condition constants.
-- [ ] Write unit tests for the constants.
+- [x] Implement Nature flavor mapping constants.
+- [x] Implement condition constants.
+- [x] Write unit tests for the constants.
