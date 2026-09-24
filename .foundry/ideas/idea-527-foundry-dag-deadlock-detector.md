@@ -2,10 +2,10 @@
 id: idea-527-foundry-dag-deadlock-detector
 type: IDEA
 title: Automated Foundry DAG Circular Dependency & Deadlock Detector
-status: READY
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-20'
-updated_at: '2026-09-20'
+updated_at: '2026-09-24'
 depends_on: []
 jules_session_id: null
 pr_number: null

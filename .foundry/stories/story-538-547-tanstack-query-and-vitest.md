@@ -2,7 +2,7 @@
 id: story-538-547-tanstack-query-and-vitest
 type: STORY
 title: TanStack Query and Vitest Browser Mode Refactoring
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-05'
 updated_at: '2026-09-24'

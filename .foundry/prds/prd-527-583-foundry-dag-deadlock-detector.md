@@ -2,10 +2,10 @@
 id: prd-527-583-foundry-dag-deadlock-detector
 type: PRD
 title: PRD - Automated Foundry DAG Circular Dependency & Deadlock Detector
-status: PENDING
+status: READY
 owner_persona: epic_planner
 created_at: '2026-09-20'
-updated_at: '2026-09-20'
+updated_at: '2026-09-24'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -42,7 +42,7 @@ Currently, such cycles result in `BLOCKED` nodes that indefinitely halt pipeline
 2. **Pre-Dispatch Validation**:
    - The orchestrator must run the cycle detection routine before attempting to dispatch any node into a new session.
 3. **Diagnostic Logging**:
-   - Upon cycle detection, the system must emit an explicit, actionable error message detailing the specific node path of the cycle (e.g., `Deadlock Cycle Detected: task-100 -> story-050 -> task-100`).
+   - Upon cycle detection, the system must emit an explicit, actionable error message detailing the specific node path of the cycle (e.g., `Deadlock Cycle Detected: node-a -> node-b -> node-a`).
 4. **Auto-Demotion Workflow**:
    - Nodes detected within a cycle must be explicitly skipped for dispatch or transitioned to `FAILED` or `BLOCKED` status safely.
    - Alternatively, it must trigger alerts for the `mechanic` persona to execute automated graph healing.
