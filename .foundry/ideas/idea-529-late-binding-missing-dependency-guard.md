@@ -2,22 +2,22 @@
 id: idea-529-late-binding-missing-dependency-guard
 type: IDEA
 title: Late Binding Missing Dependency Guard
-status: ACTIVE
-owner_persona: product_manager
+status: BLOCKED
+owner_persona: tpm
 created_at: '2026-09-23'
-updated_at: '2026-09-23'
+updated_at: '2026-09-24'
 depends_on: []
+jules_session_id: null
+pr_number: null
 tags:
   - workflow
   - late-binding
   - process
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
 notes: ''
-critical_weight: 0
-jules_session_id: null
-pr_number: null
+locks: []
 ---
 
 # Late Binding Missing Dependency Guard

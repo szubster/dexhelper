@@ -2,13 +2,13 @@
 id: task-584-600-confidence-metrics-schema-qa
 type: TASK
 title: QA Verification for confidence_score Schema
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-20'
 updated_at: '2026-09-24'
 depends_on:
   - task-584-599-confidence-metrics-schema
-jules_session_id: '6174657362080761668'
+jules_session_id: null
 pr_number: null
 parent: story-569-584-confidence-metrics-schema
 tags:

@@ -2,10 +2,10 @@
 id: story-520-521-restrict-downstream-dependencies
 type: STORY
 title: Restrict Downstream Dependencies on DRAFT/WIP Artifacts
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-19'
+updated_at: '2026-09-24'
 depends_on:
   - story-520-520-update-persona-prompts
 jules_session_id: null
@@ -32,5 +32,5 @@ Implement rules and constraints in the Foundry orchestrator and prompt layers to
 - [x] Implement constraints preventing agents from depending on DRAFT and WIP artifacts.
 - [x] Add tests or orchestrator safeguards to enforce this restriction.
 - [x] Decompose into actionable TASK nodes.
-- [ ] task-521-578-restrict-wip-dependencies-impl
-- [ ] task-521-579-restrict-wip-dependencies-qa
+- [x] task-521-578-restrict-wip-dependencies-impl
+- [x] task-521-579-restrict-wip-dependencies-qa

@@ -2,12 +2,12 @@
 id: epic-566-575-multi-box-stat-filters
 type: EPIC
 title: Multi-Box Stat Filters
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-18'
 updated_at: '2026-09-24'
 depends_on: []
-jules_session_id: '6820174169133310577'
+jules_session_id: null
 pr_number: null
 parent: prd-524-566-multi-box-search-filtering
 tags:

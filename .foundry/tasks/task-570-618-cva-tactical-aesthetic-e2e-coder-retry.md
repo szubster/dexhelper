@@ -2,10 +2,10 @@
 id: task-570-618-cva-tactical-aesthetic-e2e-coder-retry
 type: TASK
 title: Write E2E tests for CVA tactical aesthetic variants (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-22T00:00:00Z'
-updated_at: '2026-09-22'
+updated_at: '2026-09-24'
 depends_on:
   - research-570-617-investigate-cva-tactical-aesthetic-e2e-failure
 jules_session_id: null

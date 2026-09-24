@@ -2,10 +2,10 @@
 id: task-570-619-cva-theme-e2e-qa-retry
 type: TASK
 title: QA - CVA and Theme E2E Tests (Retry)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-22T00:00:00Z'
-updated_at: '2026-09-22'
+updated_at: '2026-09-24'
 depends_on:
   - task-570-618-cva-tactical-aesthetic-e2e-coder-retry
 jules_session_id: null

@@ -2,13 +2,13 @@
 id: task-524-569-qa-architectural-linting
 type: TASK
 title: QA Architectural Linting
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-09'
 updated_at: '2026-09-24'
 depends_on:
   - task-524-568-setup-oxlint-rules
-jules_session_id: '7552302123235332475'
+jules_session_id: null
 pr_number: null
 parent: story-524-524-architectural-linting
 tags:

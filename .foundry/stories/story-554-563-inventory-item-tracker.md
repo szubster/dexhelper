@@ -2,7 +2,7 @@
 id: story-554-563-inventory-item-tracker
 type: STORY
 title: Wild Item Inventory Tracker
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-15'
 updated_at: '2026-09-24'
@@ -15,10 +15,8 @@ tags:
   - gen2
   - gen3
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

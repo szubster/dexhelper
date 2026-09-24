@@ -2,13 +2,13 @@
 id: story-531-559-modify-scheduled-workflows-e2e
 type: STORY
 title: Integration and E2E Verification of Scheduled Workflow Issue Dispatch
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: $(date +%Y-%m-%d)
 updated_at: '2026-09-24'
 depends_on:
   - story-531-558-modify-scheduled-workflows-impl
-jules_session_id: '18250098246266339620'
+jules_session_id: null
 pr_number: null
 parent: epic-516-531-modify-scheduled-workflows
 tags:

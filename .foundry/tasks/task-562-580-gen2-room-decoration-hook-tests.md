@@ -2,13 +2,13 @@
 id: task-562-580-gen2-room-decoration-hook-tests
 type: TASK
 title: Gen 2 Room Decoration Hook Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-14'
-updated_at: '2026-09-23'
+updated_at: '2026-09-24'
 depends_on:
   - task-562-579-gen2-room-decoration-hook
-jules_session_id: '3178686377238314440'
+jules_session_id: null
 parent: story-313-562-gen2-room-decoration-state-logic
 rejection_reason: ''
 locks: []

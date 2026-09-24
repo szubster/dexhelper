@@ -2,7 +2,7 @@
 id: story-400-479-gen3-pokeblock-parsing-e2e
 type: STORY
 title: Gen 3 Pokéblock Parsing E2E Verification
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-14'
 updated_at: '2026-09-24'

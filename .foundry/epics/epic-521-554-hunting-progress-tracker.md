@@ -2,7 +2,7 @@
 id: epic-521-554-hunting-progress-tracker
 type: EPIC
 title: Hunting Progress Tracker
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-15'
 updated_at: '2026-09-24'
