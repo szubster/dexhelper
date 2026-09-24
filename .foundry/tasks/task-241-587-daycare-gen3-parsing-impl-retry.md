@@ -2,13 +2,13 @@
 id: task-241-587-daycare-gen3-parsing-impl-retry
 type: TASK
 title: Implement Gen 3 Daycare Data Parsing (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-16T22:40:14Z'
-updated_at: '2026-09-20'
+updated_at: '2026-09-24'
 depends_on:
   - research-241-586-gen3-daycare-parsing-failure-investigation
-jules_session_id: null
+jules_session_id: '10040901125774067482'
 pr_number: null
 parent: story-105-241-daycare-gen3-parsing
 tags:
