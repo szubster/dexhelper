@@ -20,4 +20,16 @@ describe('TacticalBadge', () => {
     await expect.element(badge).toBeInTheDocument();
     await expect.element(badge).toHaveClass('text-amber-500/60');
   });
+
+  it('renders status dot and pulse animation when props are passed', async () => {
+    await render(
+      <TacticalBadge variant="emerald" dot pulse>
+        Live Telemetry
+      </TacticalBadge>,
+    );
+    const badgeText = page.getByText('Live Telemetry');
+    await expect.element(badgeText).toBeInTheDocument();
+    const container = page.getByText('Live Telemetry').element().closest('.tactical-badge');
+    expect(container?.className).toContain('animate-pulse');
+  });
 });

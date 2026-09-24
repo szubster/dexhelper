@@ -2,10 +2,10 @@
 id: task-527-595-safari-zone-selection-ui
 type: TASK
 title: Safari Zone Target Selection UI
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-19'
+updated_at: '2026-09-24'
 depends_on:
   - task-527-594-safari-zone-data-hook
 jules_session_id: null

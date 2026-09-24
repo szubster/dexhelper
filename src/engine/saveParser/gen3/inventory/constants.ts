@@ -9,5 +9,13 @@ export const KEY_ITEM_POCKET_OFFSET_FRLG = 0x03b8;
 export const KEY_ITEM_POCKET_SIZE_RS = 80;
 export const KEY_ITEM_POCKET_SIZE_EMERALD = 120;
 export const KEY_ITEM_POCKET_SIZE_FRLG = 120;
+
+export const BERRY_POCKET_OFFSET_RS = 0x0740;
+export const BERRY_POCKET_OFFSET_EMERALD = 0x0790;
+export const BERRY_POCKET_OFFSET_FRLG = 0x054c;
+export const BERRY_POCKET_SIZE_RS = 184;
+export const BERRY_POCKET_SIZE_EMERALD = 184;
+export const BERRY_POCKET_SIZE_FRLG = 172;
+
 export const ITEM_INDEX_OFFSET = 0x00;
 export const ITEM_ENTRY_SIZE = 4;

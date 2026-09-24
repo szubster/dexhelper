@@ -32,4 +32,7 @@ Verify that the generation-specific msgpack files are prefetched correctly witho
 - Write E2E and integration tests to confirm that prefetching triggers and generation-specific files load properly.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-478-617-msgpack-prefetch-integration-tests
+- [ ] task-478-618-msgpack-prefetch-e2e-tests
+- [ ] task-478-619-msgpack-prefetch-qa
