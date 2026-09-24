@@ -2,12 +2,12 @@
 id: research-440-581-investigate-synergy-integration-failure
 type: RESEARCH
 title: Investigate Synergy Assistant Integration Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-15T17:42:01Z'
-updated_at: '2026-09-20'
+updated_at: '2026-09-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2117953081382067579'
 pr_number: null
 parent: story-350-440-synergy-evaluator-assistant-prompting
 tags:
