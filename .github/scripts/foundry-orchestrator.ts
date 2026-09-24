@@ -383,6 +383,14 @@ function compilePromptForNode(node: ParsedNode, repoRoot: string): string {
     combined += `\n\n### CORE SYSTEM POLICIES\n${corePrinciplesContent}`;
   }
 
+  if (ownerPersona === 'curator') {
+    const matrixPath = path.join(repoRoot, '.foundry', 'docs', 'architecture', 'idea_dependency_matrix.md');
+    if (fs.existsSync(matrixPath)) {
+      const matrixContent = fs.readFileSync(matrixPath, 'utf-8');
+      combined += `\n\n### IDEA DEPENDENCY MATRIX\n${matrixContent}`;
+    }
+  }
+
   return combined;
 }
 
@@ -411,6 +419,14 @@ function compileScheduledPrompt(persona: string, repoRoot: string): string {
   } else if (fs.existsSync(corePrinciplesPath)) {
     const corePrinciplesContent = fs.readFileSync(corePrinciplesPath, 'utf-8');
     combined += `\n\n### CORE SYSTEM POLICIES\n${corePrinciplesContent}`;
+  }
+
+  if (persona === 'curator') {
+    const matrixPath = path.join(repoRoot, '.foundry', 'docs', 'architecture', 'idea_dependency_matrix.md');
+    if (fs.existsSync(matrixPath)) {
+      const matrixContent = fs.readFileSync(matrixPath, 'utf-8');
+      combined += `\n\n### IDEA DEPENDENCY MATRIX\n${matrixContent}`;
+    }
   }
 
   return combined;
