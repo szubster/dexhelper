@@ -25,5 +25,5 @@ Write comprehensive unit tests for the `useGen2RoomDecorations` hook.
 - Test edge cases where decorations are active but not unlocked or neither.
 
 ## Acceptance Criteria
-- [ ] Unit tests for `useGen2RoomDecorations` are written.
-- [ ] Unit tests pass and cover expected functionality.
+- [x] Unit tests for `useGen2RoomDecorations` are written.
+- [x] Unit tests pass and cover expected functionality.
