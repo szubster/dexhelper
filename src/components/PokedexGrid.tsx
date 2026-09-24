@@ -135,7 +135,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
   const virtualizer = useWindowVirtualizer({
     count: rowCount,
     estimateSize: () => 350 + 16, // estimate height + gap
-    overscan: 2,
+    overscan: 1000,
     scrollMargin,
   });
 
