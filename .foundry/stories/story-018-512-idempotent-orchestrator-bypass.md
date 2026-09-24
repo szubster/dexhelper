@@ -29,6 +29,8 @@ Update Phase 4.5 in `.github/scripts/foundry-orchestrator.ts` to intelligently a
 
 ## Acceptance Criteria
 - [ ] task-512-517-implement-idempotent-bypass
-- [ ] task-512-518-qa-idempotent-bypass
+- [x] task-512-518-qa-idempotent-bypass
 - [ ] Phase 4.5 automatically checks off non-node checkboxes.
 - [ ] Nodes with only non-node checkboxes are auto-fulfilled and bypass dispatch.
+- [ ] research-512-617-investigate-idempotent-bypass-qa-failure
+- [ ] task-512-618-qa-idempotent-bypass-retry
