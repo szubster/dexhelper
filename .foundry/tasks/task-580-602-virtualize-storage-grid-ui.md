@@ -32,7 +32,7 @@ The `StorageGrid` component currently renders up to 420 Pokémon slots (14 boxes
 4. **Main-Thread Performance**: Prevent main-thread blocking during initial renders and filtering by ensuring that only visible rows/items (plus a small overscan) are rendered in the DOM.
 
 ## Acceptance Criteria
-- [ ] Implement `useVirtualizer` or `useWindowVirtualizer` in `StorageGrid.tsx`.
-- [ ] Calculate rows dynamically based on the container width to support responsive grid columns.
-- [ ] Apply correct absolute positioning to virtualized items.
-- [ ] Run `pnpm lint && pnpm test` and ensure all tests pass.
+- [x] Implement `useVirtualizer` or `useWindowVirtualizer` in `StorageGrid.tsx`.
+- [x] Calculate rows dynamically based on the container width to support responsive grid columns.
+- [x] Apply correct absolute positioning to virtualized items.
+- [x] Run `pnpm lint && pnpm test` and ensure all tests pass.
