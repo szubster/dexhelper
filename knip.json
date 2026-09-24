@@ -35,7 +35,7 @@
     ".foundry/scripts/lint-schema.ts",
     "src/engine/gen3/contests/index.ts",
     "src/engine/gen3/contests/engine.ts",
-    "tests/e2e/fixtures/index.ts"
+    "src/engine/radar/index.ts"
   ],
   "rules": {
     "files": "warn",

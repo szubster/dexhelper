@@ -2,16 +2,16 @@
 id: task-490-550-orchestrator-badge-injection-impl
 type: TASK
 title: Orchestrator Badge Injection Implementation
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-20'
+updated_at: '2026-09-23'
 depends_on:
   - task-490-549-orchestrator-console-theme-impl
 jules_session_id: null
 parent: story-408-490-orchestrator-themed-output-impl
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 locks: []
 ---
 

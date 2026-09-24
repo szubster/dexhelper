@@ -2,10 +2,10 @@
 id: story-412-561-pokerus-ui-e2e
 type: STORY
 title: Pokerus UI Badges E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-22'
+updated_at: '2026-09-23'
 depends_on:
   - story-412-560-pokerus-ui-badges
 jules_session_id: null
@@ -30,4 +30,7 @@ This story is dedicated exclusively to Integration and E2E Verification of the P
 ## Acceptance Criteria
 - [ ] Implement E2E tests for the Pokerus UI Badges.
 - [ ] Verify that the different statuses (Uninfected, Infected, Cured) are displayed correctly.
-- [ ] Tech Lead: Break down into TASKs.
+- [x] Tech Lead: Break down into TASKs.
+- [ ] task-561-614-pokerus-e2e-infected
+- [ ] task-561-615-pokerus-e2e-uninfected-cured
+- [ ] task-561-616-pokerus-e2e-qa

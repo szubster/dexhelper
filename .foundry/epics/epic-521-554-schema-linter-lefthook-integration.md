@@ -2,10 +2,10 @@
 id: epic-521-554-schema-linter-lefthook-integration
 type: EPIC
 title: 'Schema Linter Integration: Lefthook Pre-commit'
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-24'
-updated_at: '2026-09-16'
+updated_at: '2026-09-23'
 depends_on: []
 jules_session_id: null
 parent: prd-421-521-automated-schema-linting
@@ -25,7 +25,7 @@ locks: []
 - Ensure it runs automatically on `git commit` to fail fast locally.
 
 ## Acceptance Criteria
-- [ ] Add the script to `lefthook.yml` under the `pre-commit` hook.
-- [ ] Verify that committing malformed files correctly aborts the pre-commit hook.
-- [ ] story-554-571-lefthook-integration
-- [ ] story-554-572-lefthook-e2e
+- [x] Add the script to `lefthook.yml` under the `pre-commit` hook.
+- [x] Verify that committing malformed files correctly aborts the pre-commit hook.
+- [x] story-554-571-lefthook-integration
+- [x] story-554-572-lefthook-e2e

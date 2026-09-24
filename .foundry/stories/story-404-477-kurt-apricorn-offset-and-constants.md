@@ -2,12 +2,12 @@
 id: story-404-477-kurt-apricorn-offset-and-constants
 type: STORY
 title: Kurt Apricorn Offset and Constants
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-22'
+updated_at: '2026-09-23'
 depends_on: []
-jules_session_id: '3556681537249600519'
+jules_session_id: null
 pr_number: null
 parent: epic-338-404-kurt-apricorn-data-engine
 tags:
@@ -31,6 +31,9 @@ As part of epic-338-404-kurt-apricorn-data-engine, we need to determine and defi
 ## Acceptance Criteria
 - [x] tech_lead: Break this STORY down into actionable TASK nodes.
 - [x] research-404-495-kurt-apricorn-offsets
-- [ ] research-477-564-investigate-apricorn-offsets-failure
-- [ ] task-477-565-define-apricorn-constants
-- [ ] task-477-566-test-apricorn-constants
+- [x] research-477-564-investigate-apricorn-offsets-failure
+- [x] task-477-565-define-apricorn-constants
+- [x] task-477-566-test-apricorn-constants
+- [ ] research-477-611-investigate-apricorn-failure-v2
+- [ ] task-477-612-define-apricorn-constants-v2
+- [ ] task-477-613-test-apricorn-constants-v2

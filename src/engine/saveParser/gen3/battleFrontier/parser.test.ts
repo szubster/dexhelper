@@ -80,6 +80,15 @@ describe('Gen 3 Battle Frontier Parser', () => {
       const view = new DataView(buffer);
       expect(() => parseGen3BattleFrontierSymbols(view, 0)).toThrow('The save file is corrupted or incomplete.');
     });
+
+    it('should re-throw non-RangeError exceptions', () => {
+      const buffer = new ArrayBuffer(0x2000);
+      const view = new DataView(buffer);
+      view.getUint8 = () => {
+        throw new TypeError('Custom non-RangeError');
+      };
+      expect(() => parseGen3BattleFrontierSymbols(view, 0)).toThrow('Custom non-RangeError');
+    });
   });
 
   describe('parseGen3BattlePoints', () => {
@@ -97,6 +106,15 @@ describe('Gen 3 Battle Frontier Parser', () => {
       const view = new DataView(buffer);
       expect(() => parseGen3BattlePoints(view, 0)).toThrow('The save file is corrupted or incomplete.');
     });
+
+    it('should re-throw non-RangeError exceptions', () => {
+      const buffer = new ArrayBuffer(0x2000);
+      const view = new DataView(buffer);
+      view.getUint16 = () => {
+        throw new TypeError('Custom non-RangeError');
+      };
+      expect(() => parseGen3BattlePoints(view, 0)).toThrow('Custom non-RangeError');
+    });
   });
 
   describe('parseGen3TotalBattlePoints', () => {
@@ -113,6 +131,15 @@ describe('Gen 3 Battle Frontier Parser', () => {
       const buffer = new ArrayBuffer(0);
       const view = new DataView(buffer);
       expect(() => parseGen3TotalBattlePoints(view, 0)).toThrow('The save file is corrupted or incomplete.');
+    });
+
+    it('should re-throw non-RangeError exceptions', () => {
+      const buffer = new ArrayBuffer(0x2000);
+      const view = new DataView(buffer);
+      view.getUint16 = () => {
+        throw new TypeError('Custom non-RangeError');
+      };
+      expect(() => parseGen3TotalBattlePoints(view, 0)).toThrow('Custom non-RangeError');
     });
   });
 
@@ -157,6 +184,15 @@ describe('Gen 3 Battle Frontier Parser', () => {
       const buffer = new ArrayBuffer(0);
       const view = new DataView(buffer);
       expect(() => parseGen3BattleFrontierWinStreaks(view, 0)).toThrow('The save file is corrupted or incomplete.');
+    });
+
+    it('should re-throw non-RangeError exceptions', () => {
+      const buffer = new ArrayBuffer(0x2000);
+      const view = new DataView(buffer);
+      view.getUint16 = () => {
+        throw new TypeError('Custom non-RangeError');
+      };
+      expect(() => parseGen3BattleFrontierWinStreaks(view, 0)).toThrow('Custom non-RangeError');
     });
   });
 });

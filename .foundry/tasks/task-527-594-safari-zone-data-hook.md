@@ -35,6 +35,6 @@ Implement the custom hook to handle game version selection, Safari Zone encounte
 - Use Vitest to unit test the hook in `src/components/safari-zone/__tests__/useSafariZoneSelection.test.ts`.
 
 ## Acceptance Criteria
-- [ ] Hook exposes game version and target selection state.
-- [ ] Hook filters available areas correctly based on selection.
-- [ ] Unit tests pass.
+- [x] Hook exposes game version and target selection state.
+- [x] Hook filters available areas correctly based on selection.
+- [x] Unit tests pass.
