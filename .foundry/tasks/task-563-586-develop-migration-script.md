@@ -2,7 +2,7 @@
 id: task-563-586-develop-migration-script
 type: TASK
 title: Develop Migration Script for Task Reminders
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-16T23:51:03Z'
 updated_at: '2026-09-21'
@@ -15,8 +15,8 @@ tags:
   - script
   - migration
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'The migration script improperly uses regex to match status across the entire file body instead of strictly parsing the YAML frontmatter. This results in unintended matches if the markdown body contains text like "status: READY".'
 notes: ''
 locks: []
 ---
@@ -43,3 +43,6 @@ This task involves creating a script to migrate existing task nodes by removing 
 - [x] The script successfully removes `### REMINDER FOR CODER` and `### REMINDER FOR QA` sections and their contents.
 - [x] The script preserves the YAML frontmatter and all other markdown content unharmed.
 - [x] The script has been executed to migrate current tasks (if applicable during testing), and code has been tested to work.
+
+### QA Rejection
+The implementation fails to strictly parse the YAML frontmatter to determine the task state. The status extraction uses `content.match(/^status:\s*(ACTIVE|PENDING|READY)\s*$/m);`, which matches the status anywhere in the entire file. This causes issues where completed nodes might be incorrectly processed if they have status information embedded in the body. You MUST strictly parse only the YAML frontmatter block for this information.
