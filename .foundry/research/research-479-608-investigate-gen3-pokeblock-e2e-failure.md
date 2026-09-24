@@ -2,12 +2,12 @@
 id: research-479-608-investigate-gen3-pokeblock-e2e-failure
 type: RESEARCH
 title: Investigate Gen 3 Pokéblock E2E Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-21'
-updated_at: '2026-09-21'
+updated_at: '2026-09-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14456743049684990560'
 pr_number: null
 parent: story-400-479-gen3-pokeblock-parsing-e2e
 tags:
