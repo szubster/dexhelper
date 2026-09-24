@@ -31,4 +31,7 @@ Implement stretch goal stat filters to allow users to search for Pokémon with s
 - Implement stat filters to find Pokémon with specific EVs (Effort Values).
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into implementation stories for the stat filters.
+- [x] Story Owner: Break down this Epic into implementation stories for the stat filters.
+- [ ] story-575-617-multi-box-iv-filters
+- [ ] story-575-618-multi-box-ev-filters
+- [ ] story-575-619-multi-box-stat-filters-e2e
