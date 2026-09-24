@@ -33,4 +33,7 @@ Implement the UI components for the Multi-Box Search and Filtering system, ensur
 - Ensure spatial organization of the boxes does not break (empty slots and non-matching Pokémon still occupy their normal grid positions).
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into implementation stories for the search UI components.
+- [x] Story Owner: Break down this Epic into implementation stories for the search UI components.
+- [ ] story-576-617-multi-box-search-ui-components
+- [ ] story-576-618-multi-box-search-visual-highlighting
+- [ ] story-576-619-multi-box-search-ui-e2e
