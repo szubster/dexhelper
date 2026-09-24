@@ -26,5 +26,5 @@ locks: []
 As part of the Living Dex Grid, we need to map the application's global PC box and Party state into a format that the UI grid can easily consume.
 
 ## Acceptance Criteria
-- [ ] Implement data logic (e.g. via a hook or context wrapper) to subscribe to the application's global PC box and Party state.
-- [ ] Transform the state into a map/structure that efficiently dictates which Pokemon IDs are owned and present in the PC box or Party.
+- [x] Implement data logic (e.g. via a hook or context wrapper) to subscribe to the application's global PC box and Party state.
+- [x] Transform the state into a map/structure that efficiently dictates which Pokemon IDs are owned and present in the PC box or Party.
