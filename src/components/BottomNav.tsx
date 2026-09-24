@@ -15,6 +15,7 @@ export function BottomNav() {
   const isDag = location.pathname === '/dag';
   const isFrontier = location.pathname === '/dashboard';
   const isAnalyzer = location.pathname === '/box-analyzer';
+  const isGen3Dashboard = location.pathname === '/gen3-dashboard';
 
   return (
     <nav className="fixed right-0 bottom-0 left-0 z-50 border-zinc-900 border-t-[8px] border-b-[8px] bg-zinc-950 pb-[env(safe-area-inset-bottom,0px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.9)] lg:hidden">
@@ -108,6 +109,17 @@ export function BottomNav() {
             activeLabel="SFRI"
             icon={Swords}
             isActive={location.pathname === '/safari-zone'}
+          />
+        </div>
+
+        <div className="h-full flex-1">
+          <NavButton
+            to="/gen3-dashboard"
+            ariaLabel="Gen 3 Dashboard"
+            label="G3DB"
+            activeLabel="G3DB"
+            icon={LayoutGrid}
+            isActive={isGen3Dashboard}
           />
         </div>
 
