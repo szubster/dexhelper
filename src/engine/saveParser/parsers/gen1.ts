@@ -485,7 +485,7 @@ function parseGen1Pokemon(
   const dvs = parseDVs(view.getUint16(offset + POKEMON_OFFSET_DVS, false));
   const isShiny = checkShiny(dvs);
   const isShinyCarrier = checkShinyGene(dvs);
-  const otName = decodeGen12String(view, otOffset);
+  const otName = decodeGen12String(view, otOffset, GEN1_STRING_LENGTH);
 
   return {
     speciesId,
@@ -655,7 +655,7 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): Gen1Save
   const partyOTOffset = partyDataOffset + PARTY_MAX_MONS * PARTY_MON_DATA_LENGTH;
 
   try {
-    trainerName = decodeGen12String(view, TRAINER_NAME_OFFSET);
+    trainerName = decodeGen12String(view, TRAINER_NAME_OFFSET, GEN1_STRING_LENGTH);
     partyCount = view.getUint8(PARTY_COUNT_OFFSET);
 
     for (let i = 0; i < partyCount; i++) {
@@ -663,7 +663,7 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): Gen1Save
       const internalId = view.getUint8(offset);
       const speciesId = INTERNAL_ID_TO_DEX[internalId];
       if (speciesId) {
-        const otName = decodeGen12String(view, partyOTOffset + i * PARTY_OT_NAME_LENGTH);
+        const otName = decodeGen12String(view, partyOTOffset + i * PARTY_OT_NAME_LENGTH, GEN1_STRING_LENGTH);
         quickParty.push({ speciesId, otName });
       }
     }
@@ -815,7 +815,7 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): Gen1Save
     // Gen 1 trades: The 2 bytes are at eventFlagsOffset - 16 and - 15. We convert this into a boolean array.
     npcTradeFlags: Array.from({ length: NPC_TRADES_COUNT }, (_, i) => {
       const byte = view.getUint8(eventFlagsOffset + NPC_TRADES_OFFSET + Math.floor(i / BITS_PER_BYTE));
-      return (byte & (BIT_FLAG << (i % BITS_PER_BYTE))) !== 0;
+      return (byte & (BIT_MASK << (i % BITS_PER_BYTE))) !== 0;
     }),
   };
 }

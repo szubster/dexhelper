@@ -21,7 +21,7 @@ rejection_count: 1
 Use the newly defined constants in gen1.ts parsing logic.
 
 ## Acceptance Criteria
-- [ ] Replace inline `11`, `4`, `25` with `GEN1_STRING_LENGTH`, `POKEMON_MAX_MOVES`, `PIKACHU_DEX_ID`.
-- [ ] Replace inline `2` and `4` in math thresholds with `RED_BLUE_SCORE_THRESHOLD` and `MIN_RED_SCORE_FOR_CONFIDENCE`.
-- [ ] Refactor item offset calculations to use `ITEM_RECORD_LENGTH`, `ITEM_LIST_START_OFFSET`, and `ITEM_QUANTITY_OFFSET`.
-- [ ] Replace `1 <<` with `BIT_MASK <<` in `npcTradeFlags` bitwise operations.
+- [x] Replace inline `11`, `4`, `25` with `GEN1_STRING_LENGTH`, `POKEMON_MAX_MOVES`, `PIKACHU_DEX_ID`.
+- [x] Replace inline `2` and `4` in math thresholds with `RED_BLUE_SCORE_THRESHOLD` and `MIN_RED_SCORE_FOR_CONFIDENCE`.
+- [x] Refactor item offset calculations to use `ITEM_RECORD_LENGTH`, `ITEM_LIST_START_OFFSET`, and `ITEM_QUANTITY_OFFSET`.
+- [x] Replace `1 <<` with `BIT_MASK <<` in `npcTradeFlags` bitwise operations.
