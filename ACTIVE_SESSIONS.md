@@ -11,3 +11,4 @@
 | [task-000-changelog-backfill](.foundry/tasks/task-000-changelog-backfill.md) | TASK | Changelog Backfill Commit Evaluation | changelogger | [4760851508725259482](https://jules.google.com/session/4760851508725259482) |
 | [task-417-522-fuzzer-simulation-tests-impl](.foundry/tasks/task-417-522-fuzzer-simulation-tests-impl.md) | TASK | Fuzzer Simulation E2E Tests Implementation | coder | [14433496583694396602](https://jules.google.com/session/14433496583694396602) |
 | [task-561-590-gen3-nature-modifiers-constants](.foundry/tasks/task-561-590-gen3-nature-modifiers-constants.md) | TASK | Define Gen 3 Nature Modifiers and Condition Constants | coder | [1439288917963602243](https://jules.google.com/session/1439288917963602243) |
+| [task-586-606-migrate-integration-tests](.foundry/tasks/task-586-606-migrate-integration-tests.md) | TASK | Migrate Integration Tests | coder | [6594700601123620080](https://jules.google.com/session/6594700601123620080) |
