@@ -101,7 +101,10 @@ export function AppHeader({
                 <NavigationTab to="/dashboard" icon={<Swords size={14} />} label="SYS.DASH" />
               )}
               {saveData.generation === 3 && (
-                <NavigationTab to="/safari-zone" icon={<Swords size={14} />} label="SYS.SAFARI" />
+                <>
+                  <NavigationTab to="/safari-zone" icon={<Swords size={14} />} label="SYS.SAFARI" />
+                  <NavigationTab to="/gen3-dashboard" icon={<LayoutGrid size={14} />} label="SYS.G3DB" />
+                </>
               )}
             </div>
           </nav>
