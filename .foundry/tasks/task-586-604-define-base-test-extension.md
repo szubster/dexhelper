@@ -33,6 +33,6 @@ Create the base Playwright test extension structure.
 - Export the extended `test` and `expect`.
 
 ## Acceptance Criteria
-- [ ] File `tests/e2e/fixtures/index.ts` exists.
-- [ ] `test` instance is exported.
-- [ ] `expect` is exported.
+- [x] File `tests/e2e/fixtures/index.ts` exists.
+- [x] `test` instance is exported.
+- [x] `expect` is exported.
