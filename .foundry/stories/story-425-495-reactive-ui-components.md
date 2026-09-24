@@ -28,8 +28,12 @@ With the React context and state management layer in place (`story-425-494-react
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down this STORY into TASK nodes, ensuring discrete tasks for updating specific UI panels/components and QA verification.
-- [ ] task-495-568-reactive-pokedex-grid-impl
+- [x] task-495-568-reactive-pokedex-grid-impl
 - [ ] task-495-569-reactive-storage-grid-impl
 - [ ] task-495-570-reactive-pokemon-details-impl
-- [ ] task-495-571-reactive-dashboards-impl
-- [ ] task-495-572-reactive-ui-components-qa
+- [x] task-495-571-reactive-dashboards-impl
+- [x] task-495-572-reactive-ui-components-qa
+- [ ] research-495-617-investigate-reactive-ui-failures
+- [ ] task-495-618-reactive-pokedex-grid-impl-retry
+- [ ] task-495-619-reactive-dashboards-impl-retry
+- [ ] task-495-620-reactive-ui-components-qa-retry
