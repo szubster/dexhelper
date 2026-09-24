@@ -2,10 +2,10 @@
 id: task-494-473-migrate-core-test-semantic-validation-qa
 type: TASK
 title: 'QA: Core Agent Test Migration to Semantic Validation'
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-02'
-updated_at: '2026-09-05'
+updated_at: '2026-09-24'
 depends_on:
   - task-494-472-migrate-core-test-semantic-validation-impl
 jules_session_id: null
@@ -15,9 +15,11 @@ tags:
   - testing
   - qa
 research_references: []
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-494-472-migrate-core-test-semantic-validation-impl
 notes: ''
 locks: []
-rejection_reason: ''
 ---
 
 # Task: QA: Core Agent Test Migration to Semantic Validation

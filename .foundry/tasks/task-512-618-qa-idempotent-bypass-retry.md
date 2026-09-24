@@ -2,7 +2,7 @@
 id: task-512-618-qa-idempotent-bypass-retry
 type: TASK
 title: QA Idempotent Orchestrator Bypass Retry
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-24'
 updated_at: '2026-09-24'

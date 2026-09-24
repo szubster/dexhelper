@@ -2,7 +2,7 @@
 id: task-495-618-reactive-pokedex-grid-impl-retry
 type: TASK
 title: Update PokedexGrid Component for Reactivity (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-24'
 updated_at: '2026-09-24'

@@ -5,7 +5,7 @@ title: QA Idempotent Orchestrator Bypass
 status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-02'
-updated_at: '2026-09-22'
+updated_at: '2026-09-24'
 depends_on:
   - task-512-517-implement-idempotent-bypass
 jules_session_id: null
@@ -16,7 +16,7 @@ tags:
   - typescript
 research_references: []
 rejection_count: 3
-rejection_reason: Max rejection count reached
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

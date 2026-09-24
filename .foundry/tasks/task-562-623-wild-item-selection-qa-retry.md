@@ -2,7 +2,7 @@
 id: task-562-623-wild-item-selection-qa-retry
 type: TASK
 title: Wild Item Selection QA Retry
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-24'
 updated_at: '2026-09-24'

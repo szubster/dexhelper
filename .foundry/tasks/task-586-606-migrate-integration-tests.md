@@ -2,13 +2,13 @@
 id: task-586-606-migrate-integration-tests
 type: TASK
 title: Migrate Integration Tests
-status: PENDING
+status: READY
 owner_persona: coder
-jules_session_id: null
 created_at: '2026-09-21'
-updated_at: '2026-09-22'
+updated_at: '2026-09-24'
 depends_on:
   - task-586-605-implement-save-state-fixtures
+jules_session_id: null
 pr_number: null
 parent: story-578-586-create-playwright-fixtures-definition
 tags:

@@ -2,7 +2,7 @@
 id: story-540-560-gen3-berry-pouch-and-pokemon-parsing
 type: STORY
 title: Gen 3 Berry Pouch and Pokémon Parsing Logic
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
 updated_at: '2026-09-24'

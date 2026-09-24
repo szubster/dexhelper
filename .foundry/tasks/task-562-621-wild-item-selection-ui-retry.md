@@ -2,7 +2,7 @@
 id: task-562-621-wild-item-selection-ui-retry
 type: TASK
 title: Wild Item Selection UI Implementation Retry
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-24'
 updated_at: '2026-09-24'
