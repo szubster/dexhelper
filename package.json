@@ -105,7 +105,7 @@
     "knip": "^6.37.0",
     "lefthook": "^2.1.14",
     "lightningcss": "^1.33.0",
-    "oxlint": "^1.83.0",
+    "oxlint": "^1.85.0",
     "oxlint-tsgolint": "^7.0.2002",
     "playwright": "^1.63.0",
     "rollup-plugin-visualizer": "^7.1.1",
