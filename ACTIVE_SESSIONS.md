@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [adr-560-571-evaluate-state-machine-libraries](.foundry/docs/adrs/adr-560-571-evaluate-state-machine-libraries.md) | ADR | Evaluate State Machine Libraries for Node Lifecycle Transitions | architect | [14062249262127481278](https://jules.google.com/session/14062249262127481278) |
 | [epic-566-575-multi-box-stat-filters](.foundry/epics/epic-566-575-multi-box-stat-filters.md) | EPIC | Multi-Box Stat Filters | story_owner | [6820174169133310577](https://jules.google.com/session/6820174169133310577) |
 | [epic-566-576-multi-box-search-ui](.foundry/epics/epic-566-576-multi-box-search-ui.md) | EPIC | Multi-Box Search UI | story_owner | [1738735071442386008](https://jules.google.com/session/1738735071442386008) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
