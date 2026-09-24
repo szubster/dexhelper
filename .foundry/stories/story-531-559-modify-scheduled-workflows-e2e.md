@@ -36,4 +36,7 @@ Following the implementation of issue-based dispatching for scheduled agent work
 - Document any end-to-end delays or rate-limiting behaviors discovered during simulation testing.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into TASK nodes (QA to handle the E2E verification workflow).
+- [x] Tech Lead: Break down into TASK nodes (QA to handle the E2E verification workflow).
+- [ ] task-559-617-scheduled-workflow-e2e-fixtures
+- [ ] task-559-618-scheduled-workflow-e2e-impl
+- [ ] task-559-619-scheduled-workflow-e2e-qa
