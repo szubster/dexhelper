@@ -2,12 +2,12 @@
 id: story-063-605-mirage-island-unified-state-hydration
 type: STORY
 title: Hydrate Mirage Island State into PokeDB
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-08'
-updated_at: '2026-09-17'
+updated_at: '2026-09-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12801664257579303305'
 pr_number: null
 parent: epic-038-063-mirage-island-data-hydration
 tags:
