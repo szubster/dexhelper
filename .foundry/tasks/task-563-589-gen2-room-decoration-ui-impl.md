@@ -2,15 +2,16 @@
 id: task-563-589-gen2-room-decoration-ui-impl
 type: TASK
 title: Gen 2 Room Decoration UI Components Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-17T15:30:11Z'
-updated_at: '2026-09-24'
+updated_at: '2026-09-25'
 depends_on: []
 jules_session_id: null
 parent: story-313-563-gen2-room-decoration-ui-components
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_reason: ''
 locks: []
+rejection_count: 1
 ---
 
 # Task: Gen 2 Room Decoration UI Components Implementation
