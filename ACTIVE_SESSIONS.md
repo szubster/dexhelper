@@ -6,6 +6,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [idea-527-macro-node-subtree-completeness-validator](.foundry/ideas/idea-527-macro-node-subtree-completeness-validator.md) | IDEA | Macro Node Subtree Completeness Validator Tool | product_manager | [4519186061233069807](https://jules.google.com/session/4519186061233069807) |
 | [story-331-520-zombie-node-gc-integration-logic](.foundry/stories/story-331-520-zombie-node-gc-integration-logic.md) | STORY | Zombie Node GC Direct Integration Logic | tech_lead | [12154463883942333054](https://jules.google.com/session/12154463883942333054) |
 | [story-427-531-mgba-memory-sync](.foundry/stories/story-427-531-mgba-memory-sync.md) | STORY | Implement mGBA Real-time Memory Synchronization | story_owner | [4681759669833112365](https://jules.google.com/session/4681759669833112365) |
 | [story-531-537-testing-style-guide-e2e](.foundry/stories/story-531-537-testing-style-guide-e2e.md) | STORY | Testing Style Guide E2E Verification | tech_lead | [16151047826336071859](https://jules.google.com/session/16151047826336071859) |
