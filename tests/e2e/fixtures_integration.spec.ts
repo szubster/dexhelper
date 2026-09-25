@@ -1,16 +1,16 @@
-import { expect, test } from '@playwright/test';
-import { clearStorage, initializeWithSave } from './test-utils';
+import { expect, test } from './fixtures/index';
+import { clearStorage } from './test-utils';
 
 test.describe('Fixture Integration', () => {
-  test('should load Gen 1 fixture (red.sav)', async ({ page }) => {
+  test('should load Gen 1 fixture (red.sav)', async ({ page, loadSave }) => {
     await clearStorage(page);
-    await initializeWithSave(page, 'tests/fixtures/red.sav');
+    await loadSave('tests/fixtures/red.sav');
     await expect(page.locator('header').getByText(/RED/i).first()).toBeVisible();
   });
 
-  test('should load Gen 2 fixture (crystal.sav)', async ({ page }) => {
+  test('should load Gen 2 fixture (crystal.sav)', async ({ page, loadSave }) => {
     await clearStorage(page);
-    await initializeWithSave(page, 'tests/fixtures/crystal.sav');
+    await loadSave('tests/fixtures/crystal.sav');
     await expect(
       page
         .locator('header')
@@ -19,9 +19,9 @@ test.describe('Fixture Integration', () => {
     ).toBeVisible();
   });
 
-  test('should load Gen 3 fixture (emerald.sav)', async ({ page }) => {
+  test('should load Gen 3 fixture (emerald.sav)', async ({ page, loadSave }) => {
     await clearStorage(page);
-    await initializeWithSave(page, 'tests/fixtures/emerald.sav');
+    await loadSave('tests/fixtures/emerald.sav');
     await expect(
       page
         .locator('header')
