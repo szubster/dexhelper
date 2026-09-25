@@ -30,6 +30,10 @@ Implement the core integration logic for zombie node garbage collection directly
 - [ ] Write integration logic directly into the orchestrator.
 - [ ] Ensure proper handling of node transitions.
 - [x] Break down into Tasks.
-- [ ] task-520-549-zombie-node-detection-impl
-- [ ] task-520-550-zombie-node-remediation-impl
-- [ ] task-520-551-zombie-node-gc-qa
+- [x] task-520-549-zombie-node-detection-impl
+- [x] task-520-550-zombie-node-remediation-impl
+- [x] task-520-551-zombie-node-gc-qa
+- [ ] research-520-623-zombie-node-detection-impl-failure
+- [ ] task-520-624-zombie-node-detection-impl-retry
+- [ ] task-520-625-zombie-node-remediation-impl-retry
+- [ ] task-520-626-zombie-node-gc-qa-retry
