@@ -2,13 +2,13 @@
 id: task-562-595-gen3-missed-items-extraction-tests
 type: TASK
 title: Gen 3 Missed Items Extraction Unit Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-22'
+updated_at: '2026-09-25'
 depends_on:
   - task-562-594-gen3-missed-items-extraction-logic
-jules_session_id: null
+jules_session_id: '3162583077327276692'
 pr_number: null
 parent: story-553-562-gen3-missed-items-parsing
 tags:
