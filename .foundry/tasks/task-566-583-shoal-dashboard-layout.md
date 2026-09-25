@@ -2,14 +2,14 @@
 id: task-566-583-shoal-dashboard-layout
 type: TASK
 title: Implement Shoal Cave Dashboard Layout
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-16T11:22:20Z'
-updated_at: '2026-09-22'
+updated_at: '2026-09-25'
 depends_on:
   - task-566-581-shoal-tide-display
   - task-566-582-shoal-item-tracker
-jules_session_id: null
+jules_session_id: '16375511568486794402'
 pr_number: null
 parent: story-412-566-shoal-cave-ui-components
 tags:
