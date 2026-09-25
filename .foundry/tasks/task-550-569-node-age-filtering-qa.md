@@ -2,13 +2,13 @@
 id: task-550-569-node-age-filtering-qa
 type: TASK
 title: QA Node Age Filtering
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-06'
 updated_at: '2026-09-25'
 depends_on:
   - task-550-568-node-age-filtering-tests
-jules_session_id: '14941854937643964865'
+jules_session_id: null
 parent: story-517-550-implement-node-age-filtering
 rejection_reason: ''
 locks: []
