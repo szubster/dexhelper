@@ -24,4 +24,4 @@ locks: []
 Examine the heartbeat test suite at `.github/scripts/foundry-heartbeat.test.ts` to confirm there is a test asserting that if a session goes into `AWAITING_USER_FEEDBACK`, the heartbeat script transitions the task to `FAILED`. If the test exists and works, simply verify its correctness.
 
 ## Acceptance Criteria
-- [ ] The tests pass successfully and verify the No-Ask policy correctly.
+- [x] The tests pass successfully and verify the No-Ask policy correctly.
