@@ -2,10 +2,10 @@
 id: story-523-520-gen3-parsers-refactor-core
 type: STORY
 title: Refactor Gen 3 Core Parsers for ADR 028
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-20'
+updated_at: '2026-09-25'
 depends_on: []
 jules_session_id: null
 pr_number: null

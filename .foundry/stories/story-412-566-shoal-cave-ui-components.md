@@ -2,7 +2,7 @@
 id: story-412-566-shoal-cave-ui-components
 type: STORY
 title: Shoal Cave UI Dashboard Components
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
 updated_at: '2026-09-25'

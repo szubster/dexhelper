@@ -2,10 +2,10 @@
 id: story-517-551-implement-deletion-chunking
 type: STORY
 title: Implement Deletion Chunking
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-06'
-updated_at: '2026-09-09'
+updated_at: '2026-09-25'
 depends_on:
   - story-517-550-implement-node-age-filtering
 jules_session_id: null

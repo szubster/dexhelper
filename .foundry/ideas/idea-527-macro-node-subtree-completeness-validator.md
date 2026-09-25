@@ -2,12 +2,12 @@
 id: idea-527-macro-node-subtree-completeness-validator
 type: IDEA
 title: Macro Node Subtree Completeness Validator Tool
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-21'
 updated_at: '2026-09-25'
 depends_on: []
-jules_session_id: '4519186061233069807'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

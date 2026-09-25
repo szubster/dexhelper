@@ -2,7 +2,7 @@
 id: epic-565-569-agent-confidence-metrics-schema
 type: EPIC
 title: Implement Node Schema Updates for Confidence Metrics
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-17T01:15:33Z'
 updated_at: '2026-09-25'

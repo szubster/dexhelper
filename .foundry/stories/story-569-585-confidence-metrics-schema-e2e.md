@@ -2,7 +2,7 @@
 id: story-569-585-confidence-metrics-schema-e2e
 type: STORY
 title: Integration and E2E Verification for Confidence Metrics Schema
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-20'
 updated_at: '2026-09-25'
@@ -17,10 +17,8 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 60

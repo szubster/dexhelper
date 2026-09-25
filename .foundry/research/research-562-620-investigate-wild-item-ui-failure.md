@@ -2,12 +2,12 @@
 id: research-562-620-investigate-wild-item-ui-failure
 type: RESEARCH
 title: Investigate Wild Item UI Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-24'
 updated_at: '2026-09-25'
 depends_on: []
-jules_session_id: '4780969086080673689'
+jules_session_id: null
 pr_number: null
 parent: story-555-562-wild-item-selection-ui
 tags:
