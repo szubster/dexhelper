@@ -32,4 +32,6 @@ Implement a final STORY dedicated exclusively to Integration and E2E Verificatio
 Ensure that the newly written Playwright Testing Style Guide is correctly integrated and verified.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-537-624-testing-style-guide-e2e-coder
+- [ ] task-537-625-testing-style-guide-e2e-qa
