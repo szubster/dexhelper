@@ -2,10 +2,10 @@
 id: task-520-541-refactor-gen3-parsers-qa
 type: TASK
 title: QA Refactored Gen 3 Parsers
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-05'
-updated_at: '2026-09-07'
+updated_at: '2026-09-25'
 depends_on:
   - task-520-538-refactor-gen3-pokemon-data-parsers
   - task-520-539-refactor-gen3-world-event-parsers
@@ -18,7 +18,9 @@ tags:
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-520-539-refactor-gen3-world-event-parsers
 notes: ''
 locks: []
 ---

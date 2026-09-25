@@ -2,10 +2,10 @@
 id: story-578-587-e2e-fixtures-integration-verification
 type: STORY
 title: E2E Fixtures Integration and Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-20'
-updated_at: '2026-09-21'
+updated_at: '2026-09-25'
 depends_on:
   - story-578-586-create-playwright-fixtures-definition
 jules_session_id: null

@@ -2,14 +2,13 @@
 id: task-417-523-fuzzer-simulation-qa
 type: TASK
 title: QA Fuzzer Simulation E2E
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-09-25'
 depends_on:
   - task-417-522-fuzzer-simulation-tests-impl
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-415-417-fuzzer-simulation-e2e
 tags:
@@ -18,8 +17,11 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-417-522-fuzzer-simulation-tests-impl
 notes: ''
+locks: []
 ---
 
 # QA Fuzzer Simulation E2E

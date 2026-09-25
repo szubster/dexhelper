@@ -2,7 +2,7 @@
 id: task-417-522-fuzzer-simulation-tests-impl
 type: TASK
 title: Fuzzer Simulation E2E Tests Implementation
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-09-25'
@@ -16,8 +16,8 @@ tags:
   - testing
   - e2e
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session timed out (>7 days without PR)'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
