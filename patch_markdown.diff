@@ -1,0 +1,11 @@
+--- .foundry/tasks/task-572-602-cva-refactor-e2e-tests.md
++++ .foundry/tasks/task-572-602-cva-refactor-e2e-tests.md
+@@ -17,5 +17,5 @@
+
+ ## Acceptance Criteria
+-- [ ] Inject DOM nodes with exact CVA variant class combinations using page.evaluate().
+-- [ ] Verify computed CSS styles match the expected tactical aesthetic.
+-- [ ] Ensure all CVA components (TacticalPanelCard, TacticalButtonBadge, TacticalInputs) are covered.
++- [x] Inject DOM nodes with exact CVA variant class combinations using page.evaluate().
++- [x] Verify computed CSS styles match the expected tactical aesthetic.
++- [x] Ensure all CVA components (TacticalPanelCard, TacticalButtonBadge, TacticalInputs) are covered.

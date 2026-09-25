@@ -1,0 +1,88 @@
+--- tests/e2e/tactical-utilities.spec.ts
++++ tests/e2e/tactical-utilities.spec.ts
+@@ -92,7 +92,33 @@
+         <button class="tactical-button group relative inline-flex shrink-0 items-center justify-center gap-3 overflow-hidden font-black border-zinc-700 bg-zinc-900 text-zinc-400 hover:bg-zinc-800 focus-visible:ring-[var(--theme-primary)] px-5 py-3 text-[10px]" id="btn-secondary">Secondary Button</button>
+         <button class="tactical-button group relative inline-flex shrink-0 items-center justify-center gap-3 overflow-hidden font-black border-white/10 bg-zinc-900/50 text-zinc-400 hover:border-[var(--theme-primary)] hover:bg-[var(--theme-primary)]/10 hover:text-[var(--theme-primary)] focus-visible:ring-[var(--theme-primary)] px-5 py-3 text-[10px]" id="btn-sidebar">Sidebar Button</button>
+       `;
+-
+-      container.innerHTML = badgeVariantsHtml + buttonVariantsHtml;
++
++      const panelVariantsHtml = `
++        <div class="tactical-panel group relative border-emerald-500/30 bg-emerald-500/5 hover:border-emerald-500/50 hover:bg-emerald-500/10" id="panel-emerald">Emerald Panel</div>
++        <div class="tactical-panel group relative border-amber-500/30 bg-amber-500/5 hover:border-amber-500/50 hover:bg-amber-500/10" id="panel-amber">Amber Panel</div>
++        <div class="tactical-panel group relative border-cyan-500/30 bg-cyan-500/5 hover:border-cyan-500/50 hover:bg-cyan-500/10" id="panel-cyan">Cyan Panel</div>
++        <div class="tactical-panel group relative border-red-500/30 bg-red-500/5 hover:border-red-500/50 hover:bg-red-500/10" id="panel-red">Red Panel</div>
++        <div class="tactical-panel group relative border-purple-500/30 bg-purple-500/5 hover:border-purple-500/50 hover:bg-purple-500/10" id="panel-purple">Purple Panel</div>
++        <div class="tactical-panel group relative border-blue-500/30 bg-blue-500/5 hover:border-blue-500/50 hover:bg-blue-500/10" id="panel-blue">Blue Panel</div>
++        <div class="tactical-panel group relative border-pink-500/30 bg-pink-500/5 hover:border-pink-500/50 hover:bg-pink-500/10" id="panel-pink">Pink Panel</div>
++        <div class="tactical-panel group relative border-white/30 bg-white/5 hover:border-white/50 hover:bg-white/10" id="panel-white">White Panel</div>
++        <div class="tactical-panel group relative border-zinc-500/30 bg-zinc-500/5 hover:border-zinc-500/50 hover:bg-zinc-500/10" id="panel-default">Default Panel</div>
++      `;
++
++      const cardVariantsHtml = `
++        <button class="group focus-visible:tactical-focus relative w-full cursor-pointer text-left disabled:cursor-not-allowed disabled:opacity-50 border-emerald-500/50 bg-emerald-950/20 hover:border-emerald-400 hover:bg-emerald-900/30 tactical-card" id="card-emerald">Emerald Card</button>
++        <button class="group focus-visible:tactical-focus relative w-full cursor-pointer text-left disabled:cursor-not-allowed disabled:opacity-50 border-amber-500/50 bg-amber-950/20 hover:border-amber-400 hover:bg-amber-900/30 tactical-card" id="card-amber">Amber Card</button>
++        <button class="group focus-visible:tactical-focus relative w-full cursor-pointer text-left disabled:cursor-not-allowed disabled:opacity-50 border-white/20 bg-zinc-900/50 hover:border-white/40 hover:bg-zinc-800/80 tactical-card" id="card-default">Default Card</button>
++        <button class="group focus-visible:tactical-focus relative w-full cursor-pointer text-left disabled:cursor-not-allowed disabled:opacity-50 bg-cyan-900/10 border-cyan-500/50 border-dashed hover:bg-cyan-900/20 tactical-card items-center p-5 duration-200 enabled:active:scale-95 enabled:hover:-translate-y-1 enabled:hover:scale-100" id="card-storage-cyan">Storage Cyan Card</button>
++        <button class="group focus-visible:tactical-focus relative w-full cursor-pointer text-left disabled:cursor-not-allowed disabled:opacity-50 bg-amber-900/10 border-amber-500/30 hover:bg-amber-900/20 tactical-card items-center p-5 duration-200 enabled:active:scale-95 enabled:hover:-translate-y-1 enabled:hover:scale-100" id="card-storage-amber">Storage Amber Card</button>
++        <button class="group focus-visible:tactical-focus relative w-full cursor-pointer text-left disabled:cursor-not-allowed disabled:opacity-50 bg-red-900/10 border-red-900/30 hover:bg-red-900/20 tactical-card items-center p-5 duration-200 enabled:active:scale-95 enabled:hover:-translate-y-1 enabled:hover:scale-100" id="card-storage-red">Storage Red Card</button>
++        <button class="group focus-visible:tactical-focus relative w-full cursor-pointer text-left disabled:cursor-not-allowed disabled:opacity-50 bg-emerald-900/10 border-emerald-900/30 hover:bg-emerald-900/20 tactical-card items-center p-5 duration-200 enabled:active:scale-95 enabled:hover:-translate-y-1 enabled:hover:scale-100" id="card-storage-emerald">Storage Emerald Card</button>
++        <button class="group focus-visible:tactical-focus relative w-full cursor-pointer text-left disabled:cursor-not-allowed disabled:opacity-50 bg-zinc-900 border-zinc-800 hover:border-zinc-700 shadow-sm tactical-card items-center p-5 duration-200 enabled:active:scale-95 enabled:hover:-translate-y-1 enabled:hover:scale-100" id="card-storage-default">Storage Default Card</button>
++      `;
++
++      const inputVariantsHtml = `
++        <input class="tactical-input w-full" id="input-default" value="Default Input" />
++      `;
++
++      container.innerHTML = badgeVariantsHtml + buttonVariantsHtml + panelVariantsHtml + cardVariantsHtml + inputVariantsHtml;
+       document.body.appendChild(container);
+     });
+@@ -131,5 +157,48 @@
+       await expect(btn).toHaveCSS('border-style', 'dashed');
+       await expect(btn).toHaveCSS('border-radius', '0px');
+     }
++
++    const panelIds = [
++      '#panel-emerald',
++      '#panel-amber',
++      '#panel-cyan',
++      '#panel-red',
++      '#panel-purple',
++      '#panel-blue',
++      '#panel-pink',
++      '#panel-white',
++      '#panel-default',
++    ];
++
++    for (const id of panelIds) {
++      const panel = page.locator(id);
++      await expect(panel).toBeVisible();
++      await expect(panel).toHaveCSS('border-style', 'dashed');
++      await expect(panel).toHaveCSS('border-radius', '0px');
++    }
++
++    const cardIds = [
++      '#card-emerald',
++      '#card-amber',
++      '#card-default',
++      '#card-storage-cyan',
++      '#card-storage-amber',
++      '#card-storage-red',
++      '#card-storage-emerald',
++      '#card-storage-default',
++    ];
++
++    for (const id of cardIds) {
++      const card = page.locator(id);
++      await expect(card).toBeVisible();
++      await expect(card).toHaveCSS('border-style', 'dashed');
++      await expect(card).toHaveCSS('border-radius', '0px');
++    }
++
++    const input = page.locator('#input-default');
++    await expect(input).toBeVisible();
++    await expect(input).toHaveCSS('border-style', 'dashed');
++    await expect(input).toHaveCSS('border-radius', '0px');
++    await expect(input).toHaveCSS('font-family', /ui-monospace|monospace/i);
+   });
+ });
