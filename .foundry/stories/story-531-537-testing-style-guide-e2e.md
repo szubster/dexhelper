@@ -2,13 +2,13 @@
 id: story-531-537-testing-style-guide-e2e
 type: STORY
 title: Testing Style Guide E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-22'
+updated_at: '2026-09-25'
 depends_on:
   - story-531-536-write-playwright-style-guide
-jules_session_id: null
+jules_session_id: '16151047826336071859'
 pr_number: null
 parent: epic-347-531-testing-style-guide
 tags:
