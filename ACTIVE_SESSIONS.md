@@ -6,6 +6,7 @@
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [idea-527-macro-node-subtree-completeness-validator](.foundry/ideas/idea-527-macro-node-subtree-completeness-validator.md) | IDEA | Macro Node Subtree Completeness Validator Tool | product_manager | [4519186061233069807](https://jules.google.com/session/4519186061233069807) |
+| [research-562-620-investigate-wild-item-ui-failure](.foundry/research/research-562-620-investigate-wild-item-ui-failure.md) | RESEARCH | Investigate Wild Item UI Failure | researcher | [4780969086080673689](https://jules.google.com/session/4780969086080673689) |
 | [story-531-537-testing-style-guide-e2e](.foundry/stories/story-531-537-testing-style-guide-e2e.md) | STORY | Testing Style Guide E2E Verification | tech_lead | [16151047826336071859](https://jules.google.com/session/16151047826336071859) |
 | [task-000-changelog-backfill](.foundry/tasks/task-000-changelog-backfill.md) | TASK | Changelog Backfill Commit Evaluation | changelogger | [4760851508725259482](https://jules.google.com/session/4760851508725259482) |
 | [task-417-522-fuzzer-simulation-tests-impl](.foundry/tasks/task-417-522-fuzzer-simulation-tests-impl.md) | TASK | Fuzzer Simulation E2E Tests Implementation | coder | [14433496583694396602](https://jules.google.com/session/14433496583694396602) |
