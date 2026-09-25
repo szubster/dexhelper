@@ -2,12 +2,12 @@
 id: task-564-602-pokemon-held-item-tracker-extraction
 type: TASK
 title: Pokemon Held Item Tracker Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-22'
+updated_at: '2026-09-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3832943666399001335'
 pr_number: null
 parent: story-554-564-pokemon-held-item-tracker
 tags:
