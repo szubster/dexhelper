@@ -90,18 +90,43 @@ describe('gen3Exclusives', () => {
       const { missing } = getVersionExclusives('Ruby');
       expect(missing).toEqual(GEN3_VERSION_EXCLUSIVES['ruby']);
     });
+
+    it('returns expected exclusives for unknown version', () => {
+      const { missing, available } = getVersionExclusives('unknown_version');
+      expect(missing).toEqual([]);
+      expect(available).toEqual([]);
+    });
+
+    it('returns expected available exclusives for firered', () => {
+      const { available } = getVersionExclusives('firered');
+      expect(available).toContain(23); // Ekans is a firered exclusive
+      expect(available).not.toContain(27); // Sandshrew is a leafgreen exclusive
+    });
   });
 
   describe('mapMissingToAvailability', () => {
-    it('categorizes missing IDs correctly', () => {
-      // 382 is Kyogre (missing in Ruby), 1 is Bulbasaur (missing everywhere, so available list won't block it from being 'available' by this logic if passed)
-      // Actually, if we pass missingIds = [382, 1] for ruby:
-      // missing in Ruby includes 382.
-      // So 382 -> versionExclusive
-      // 1 -> available
+    it('categorizes missing IDs correctly for ruby', () => {
       const { available, versionExclusive } = mapMissingToAvailability([382, 1], 'ruby');
       expect(versionExclusive).toEqual([382]);
       expect(available).toEqual([1]);
+    });
+
+    it('categorizes missing IDs correctly for emerald (no available exclusives)', () => {
+      const { available, versionExclusive } = mapMissingToAvailability([335, 1], 'emerald');
+      expect(versionExclusive).toEqual([335]);
+      expect(available).toEqual([1]);
+    });
+
+    it('categorizes missing IDs correctly for leafgreen', () => {
+      const { available, versionExclusive } = mapMissingToAvailability([123, 1], 'leafgreen');
+      expect(versionExclusive).toEqual([123]);
+      expect(available).toEqual([1]);
+    });
+
+    it('categorizes empty missing IDs list', () => {
+      const { available, versionExclusive } = mapMissingToAvailability([], 'ruby');
+      expect(versionExclusive).toEqual([]);
+      expect(available).toEqual([]);
     });
   });
 });

@@ -31,6 +31,6 @@ Write comprehensive unit tests to cover the Gen 3 version exclusive mapping logi
 - Ensure 100% logic coverage for `mapMissingToAvailability` and `getVersionExclusives`.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for `getVersionExclusives`.
-- [ ] Write unit tests for `mapMissingToAvailability`.
-- [ ] Ensure all tests pass.
+- [x] Write unit tests for `getVersionExclusives`.
+- [x] Write unit tests for `mapMissingToAvailability`.
+- [x] Ensure all tests pass.
