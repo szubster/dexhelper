@@ -33,5 +33,5 @@ Verify the implementation of Playwright custom fixtures.
 - Verify `tests/e2e/fixtures_integration.spec.ts` execution.
 
 ## Acceptance Criteria
-- [ ] Fixtures correctly initialize save data.
-- [ ] Integration tests pass.
+- [x] Fixtures correctly initialize save data.
+- [x] Integration tests pass.
