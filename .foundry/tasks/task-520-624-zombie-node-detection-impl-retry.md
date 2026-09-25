@@ -2,10 +2,10 @@
 id: task-520-624-zombie-node-detection-impl-retry
 type: TASK
 title: Zombie Node Detection Logic Implementation (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-24'
-updated_at: '2026-09-24'
+updated_at: '2026-09-25'
 depends_on:
   - research-520-623-zombie-node-detection-impl-failure
 jules_session_id: null

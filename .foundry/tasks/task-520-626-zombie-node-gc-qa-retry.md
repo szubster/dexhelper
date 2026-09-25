@@ -2,10 +2,10 @@
 id: task-520-626-zombie-node-gc-qa-retry
 type: TASK
 title: Zombie Node GC QA Verification (Retry)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-24'
-updated_at: '2026-09-24'
+updated_at: '2026-09-25'
 depends_on:
   - task-520-624-zombie-node-detection-impl-retry
   - task-520-625-zombie-node-remediation-impl-retry

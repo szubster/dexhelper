@@ -2,12 +2,12 @@
 id: epic-106-136-gen1-static-encounters
 type: EPIC
 title: Gen 1 Static Encounters
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-06'
-updated_at: '2026-09-24'
+updated_at: '2026-09-25'
 depends_on: []
-jules_session_id: '1953387427267503189'
+jules_session_id: null
 pr_number: null
 parent: prd-100-106-static-encounter-tracker
 tags:

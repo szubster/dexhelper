@@ -2,10 +2,10 @@
 id: story-567-572-cva-refactor-e2e-verification
 type: STORY
 title: E2E Verification for CVA Refactor
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-15'
-updated_at: '2026-09-21'
+updated_at: '2026-09-25'
 depends_on:
   - story-567-569-cva-refactor-tactical-panel-card
   - story-567-570-cva-refactor-tactical-button-badge
@@ -38,4 +38,4 @@ Verify the CVA refactor does not cause regressions and everything works in E2E.
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-572-602-cva-refactor-e2e-tests
+- [x] task-572-602-cva-refactor-e2e-tests

@@ -2,10 +2,10 @@
 id: task-562-596-gen3-missed-items-extraction-qa
 type: TASK
 title: Gen 3 Missed Items Extraction QA
-status: PENDING
+status: FAILED
 owner_persona: qa
 created_at: '2026-09-19'
-updated_at: '2026-09-19'
+updated_at: '2026-09-25'
 depends_on:
   - task-562-595-gen3-missed-items-extraction-tests
 jules_session_id: null
@@ -16,6 +16,7 @@ tags:
   - gen3
 research_references: []
 locks: []
+rejection_reason: Merged with unfulfilled acceptance criteria
 ---
 
 # Task: Gen 3 Missed Items Extraction QA

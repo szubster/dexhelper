@@ -2,12 +2,12 @@
 id: task-564-611-verify-heartbeat-violation-detection-coder
 type: TASK
 title: Verify Heartbeat Violation Detection Coder
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-08'
 updated_at: '2026-09-25'
 depends_on: []
-jules_session_id: '15983074546623656127'
+jules_session_id: null
 pr_number: null
 parent: story-563-564-verify-heartbeat-violation-detection
 tags:

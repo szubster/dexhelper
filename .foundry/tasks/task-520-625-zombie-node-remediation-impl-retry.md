@@ -2,10 +2,10 @@
 id: task-520-625-zombie-node-remediation-impl-retry
 type: TASK
 title: Zombie Node Remediation Logic Implementation (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-24'
-updated_at: '2026-09-24'
+updated_at: '2026-09-25'
 depends_on:
   - task-520-624-zombie-node-detection-impl-retry
 jules_session_id: null

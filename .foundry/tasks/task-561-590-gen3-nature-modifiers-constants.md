@@ -2,12 +2,12 @@
 id: task-561-590-gen3-nature-modifiers-constants
 type: TASK
 title: Define Gen 3 Nature Modifiers and Condition Constants
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-18'
-updated_at: '2026-09-24'
+updated_at: '2026-09-25'
 depends_on: []
-jules_session_id: '1439288917963602243'
+jules_session_id: null
 pr_number: null
 parent: story-540-561-gen3-pokeblock-math-formulas
 priority: 50

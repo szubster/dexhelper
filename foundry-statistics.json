@@ -1,0 +1,28 @@
+{
+  "nodes": {
+    "byType": {
+      "ADR": 41,
+      "EPIC": 493,
+      "IDEA": 218,
+      "PRD": 198,
+      "RESEARCH": 210,
+      "STORY": 956,
+      "TASK": 2076
+    },
+    "byStatus": {
+      "COMPLETED": 2624,
+      "ACTIVE": 10,
+      "CANCELLED": 418,
+      "PENDING": 954,
+      "READY": 172,
+      "BLOCKED": 14
+    }
+  },
+  "prs": {
+    "totalPRs": 30,
+    "openPRs": 8,
+    "mergedPRs": 20,
+    "closedPRs": 2
+  },
+  "timestamp": "2026-09-25T08:13:11.228Z"
+}

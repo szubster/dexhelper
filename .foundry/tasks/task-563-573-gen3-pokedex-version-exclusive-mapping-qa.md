@@ -2,10 +2,10 @@
 id: task-563-573-gen3-pokedex-version-exclusive-mapping-qa
 type: TASK
 title: Gen 3 Pokédex Version Exclusive Mapping QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-13'
-updated_at: '2026-09-16'
+updated_at: '2026-09-25'
 depends_on:
   - task-563-575-gen3-pokedex-version-exclusive-tests
 jules_session_id: null
