@@ -67,7 +67,7 @@ export interface PRMetrics {
 
 export function extractPRMetrics(): PRMetrics | null {
   try {
-    const output = execSync('gh pr list --state all --json state', { encoding: 'utf-8' });
+    const output = execSync('gh pr list --state all --json state', { encoding: 'utf-8', stdio: ['pipe', 'pipe', 'ignore'] });
     const prs = JSON.parse(output);
     const metrics: PRMetrics = {
       totalPRs: prs.length,

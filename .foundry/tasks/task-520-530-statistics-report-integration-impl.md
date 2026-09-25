@@ -35,6 +35,6 @@ Generate the statistics report files and integrate the script into the orchestra
 4. Integrate the execution of this statistics generation into `.github/scripts/foundry-orchestrator.ts` or the `foundry-heartbeat.yml` workflow so it runs automatically.
 
 ## Acceptance Criteria
-- [ ] `foundry-statistics.json` is generated correctly in the root.
-- [ ] `foundry-statistics.md` is generated correctly in the root.
-- [ ] Statistics generation is integrated into the orchestrator or heartbeat workflow.
+- [x] `foundry-statistics.json` is generated correctly in the root.
+- [x] `foundry-statistics.md` is generated correctly in the root.
+- [x] Statistics generation is integrated into the orchestrator or heartbeat workflow.

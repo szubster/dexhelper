@@ -1,6 +1,6 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { aggregateNodeStatistics, extractPRMetrics } from './utils/statistics.js';
+import { aggregateNodeStatistics, extractPRMetrics } from './utils/statistics.ts';
 
 export function generateStatistics(repoRoot: string) {
   const nodeStats = aggregateNodeStatistics(repoRoot);
