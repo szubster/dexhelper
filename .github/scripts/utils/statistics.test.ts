@@ -94,7 +94,7 @@ describe('extractPRMetrics', () => {
 
     const metrics = extractPRMetrics();
 
-    expect(execSync).toHaveBeenCalledWith('gh pr list --state all --json state', { encoding: 'utf-8' });
+    expect(execSync).toHaveBeenCalledWith('gh pr list --state all --json state', { encoding: 'utf-8', stdio: ['pipe', 'pipe', 'ignore'] });
     expect(metrics).toEqual({
       totalPRs: 5,
       openPRs: 2,
