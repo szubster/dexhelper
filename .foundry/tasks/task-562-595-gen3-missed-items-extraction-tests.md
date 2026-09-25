@@ -25,6 +25,6 @@ locks: []
 Write comprehensive unit tests using `vitest` for the Gen 3 missed items and milestones extraction logic implemented in `task-562-594-gen3-missed-items-extraction-logic`.
 
 ## Acceptance Criteria
-- [ ] Write `vitest` unit tests covering the successful extraction of missed items.
-- [ ] Write tests verifying that `RangeError` is caught and the specific error message ("The save file is corrupted or incomplete.") is thrown.
-- [ ] Ensure full test coverage for the extraction module.
+- [x] Write `vitest` unit tests covering the successful extraction of missed items.
+- [x] Write tests verifying that `RangeError` is caught and the specific error message ("The save file is corrupted or incomplete.") is thrown.
+- [x] Ensure full test coverage for the extraction module.
