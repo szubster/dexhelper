@@ -20,6 +20,6 @@ locks: []
 Perform QA verification for the node age filtering logic.
 
 ## Acceptance Criteria
-- [ ] Verify that frontmatter parsing correctly extracts `created_at` and `updated_at`.
-- [ ] Verify that transient nodes older than 90 days are identified for cleanup.
-- [ ] Verify that high-value records (ADR, PRD, RESEARCH) are never flagged for cleanup, regardless of age.
+- [x] Verify that frontmatter parsing correctly extracts `created_at` and `updated_at`.
+- [x] Verify that transient nodes older than 90 days are identified for cleanup.
+- [x] Verify that high-value records (ADR, PRD, RESEARCH) are never flagged for cleanup, regardless of age.
