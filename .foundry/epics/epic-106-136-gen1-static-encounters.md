@@ -32,3 +32,5 @@ Break down the Gen 1 static encounter checklist into stories.
 
 - [x] research-136-329-gen1-checklist-ui-failure
 - [x] story-136-330-gen1-checklist-ui-retry
+- [x] Create story for Gen 1 static encounters E2E verification
+- [ ] story-136-620-gen1-static-encounters-e2e
