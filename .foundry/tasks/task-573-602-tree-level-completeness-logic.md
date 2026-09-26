@@ -34,9 +34,9 @@ Currently, `sweep-active-nodes.ts` evaluates nodes individually for archival (if
 5. Move nodes to the `archive` directory ONLY if their connected component is completely terminal.
 
 ## Acceptance Criteria
-- [ ] Parse all nodes and build a parent-child undirected graph in `sweep-active-nodes.ts`.
-- [ ] Implement connected component traversal to evaluate tree-level completeness.
-- [ ] Block archival of any nodes in a component if at least one node is non-terminal (`ACTIVE`, `READY`, etc.).
-- [ ] Update `sweep-active-nodes.test.ts` with tests for:
+- [x] Parse all nodes and build a parent-child undirected graph in `sweep-active-nodes.ts`.
+- [x] Implement connected component traversal to evaluate tree-level completeness.
+- [x] Block archival of any nodes in a component if at least one node is non-terminal (`ACTIVE`, `READY`, etc.).
+- [x] Update `sweep-active-nodes.test.ts` with tests for:
   - A parent is COMPLETED but a child is ACTIVE (both should be blocked).
   - Both parent and child are COMPLETED (both should be archived).
