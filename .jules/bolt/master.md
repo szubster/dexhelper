@@ -1,17 +1,25 @@
 # Session Log
 Implemented React.lazy and Suspense code splitting for heavy UI components (PokemonLocations, PokemonEvolutions, dashboards) to optimize initial JavaScript bundle size, directly fulfilling the Option A performance matrix criteria.
 
+---
+
+---
+
 # Performance Optimization Journal
 
 - Optimized `ContestSheenDisplay` to use a manual `for` loop instead of `Array.from({ length }).map()`. This prevents intermediate array allocations and closure creation on every render.
 - Extracted invariant calculations out of the 15-iteration loop (`isMaxed`, `colorClass`, etc.).
 - Wrapped the component in `React.memo` to prevent unnecessary re-renders when parent states update without `sheen` changing.
 
+---
+
 # Performance Optimization Journal
 
 - Optimized `ContestConditionStats` to use a manual `for` loop instead of `Array.from({ length }).map()` in the internal `StatBar` component. This eliminates intermediate array allocations and closure creation on every render.
 - Extracted the invariant ratio calculation out of the 15-iteration loop.
 - Wrapped `StatBar` in `React.memo` to prevent unnecessary re-renders when parent states update without the specific bar's props changing.
+
+---
 
 # Performance Optimization Journal
 
@@ -21,13 +29,19 @@ Implemented React.lazy and Suspense code splitting for heavy UI components (Poke
 
 Explored splitting bundles and static Pokedex data by game generation. The idea is to reduce initial load payload for users by emitting generation-specific Code extensions and `msgpack` data bundles, utilizing `React.lazy` and dynamic imports for game-specific parsing logics and rendering strategies. Drafted the proposal as an IDEA node (`idea-136-split-bundles-and-data.md`) to be reviewed for scheduling.
 
+---
+
 ## Analysis
 Found that `BattleFrontierDashboard.tsx` was using `@xyflow/react` (React Flow) simply to render 7 disconnected static nodes for each of the Battle Frontier facilities. This introduced significant memory allocation overhead, DOM element bloat, and required the user to download an additional ~90kb chunk of JavaScript (`dag-<hash>.js`).
+
+---
 
 ## Action Taken
 1. Replaced the `ReactFlow` rendering block entirely with direct standard React components inside a CSS flexbox wrapper, perfectly preserving the existing styling.
 2. Removed the `@xyflow/react` and `@xyflow/react/dist/style.css` imports from `BattleFrontierDashboard.tsx`.
 3. Added `React.memo` wrappers to both `ProgressNode` and `BattleFrontierDashboard` to prevent unnecessary React re-renders when parent dashboards or states update.
+
+---
 
 ## Outcome
 - Reduced rendering memory profile.
@@ -43,6 +57,8 @@ Identified `PokemonCaughtDetails` as a relatively large bundle that can be lazy 
 - Replaced static import in `src/components/PokemonDetails.tsx` with a `React.lazy` component wrapped in a suspense boundary.
 - Updated `vite.config.ts` chunking function and `.bundlemonrc.json` limits for the new component.
 
+---
+
 # Session: 2024-08-07-02-15-00
 Persona: Bolt
 
@@ -55,6 +71,7 @@ Identified multiple React components that frequently re-render with large data s
 Session completed successfully. Optimized the Vite build by adding a saveParserCommon chunk, eliminating the +6KB overhead duplication between saveParserGenX chunks and clarifying the 49KB Rollup chunk-drop in the GlobalRibbonChecklistDashboard.
 Learned that Vite and Rollup automatically handle chunk splitting for dynamic imports. Removed hardcoded manual chunks from vite.config.ts and confirmed correct splitting without duplication.
 
+---
 
 # Session: 2026-08-19-00-28-50
 Persona: Bolt
@@ -65,12 +82,10 @@ Given the read-only, statically laid out nature of our DAG visualization (which 
 
 Based on feedback, the 2D canvas of nodes is also hard to parse for users trying to understand specific task hierarchies. I created an `IDEA` node (`idea-418-replace-xyflow-with-custom-dag`) proposing a custom, lightweight directory tree visualization using nested standard React/Tailwind lists to replace `@xyflow/react` and remove the `dagre` dependency entirely. This follows a similar successful optimization previously applied to `BattleFrontierDashboard`.
 
-
 ---
 
 ## Journal
 - When extracting visual state changes (like high-frequency interval updates) to reduce main-thread rendering overhead, isolate them into leaf components rather than deleting the feature altogether to respect the "preserve existing behaviors" guideline.
-
 
 ---
 

@@ -1,6 +1,9 @@
-
-
 <!-- Merged from 2026-09-08-04-40-40.md -->
+
+---
+
+---
+
 ## 2026-09-08 - [Accepted] - 🖼️ Canvas: Bold DataPoint Redesign
 **What:** Transformed the `DataPoint` component from a minimalist left-bordered text element into a highly structured, interactive tactical HUD panel. The new design features a dashed border encapsulation, explicit four-corner crosshair accents, an animated laser scanline effect on hover, and enhanced typography hierarchy (including a subtle `>>` chevron indicator).
 **Outcome:** Merged (Optimistic execution)
@@ -9,12 +12,14 @@
 
 
 <!-- Merged from empty-state.md -->
+
+---
+
 ## 2024-05-18 - [Accepted] - 🖼️ Canvas: EmptyState Center-Aligned Redesign
 **What:** Transformed `EmptyState` from a left-aligned, boxy layout into a cinematic, center-aligned tactical screen that feels like a full-screen diagnostic overlay. Reduced cognitive load by centering the focal point (the icon/shield) inside a crosshair reticle with pulsing scanlines.
 **Outcome:** Pending review.
 **Why:** The previous design felt too constrained and "web-like" with its left-aligned icon and dense diagnostic text side-by-side. The goal was to make empty states feel like immersive, high-stakes system events (e.g., "SIGNAL_LOST") using the hardware aesthetic.
 **Pattern:** Shifted from layout-driven UI to focal-point UI. Used concentric circles and centering for dramatic effect, aligning with the tactical/snooping theme.
-
 
 ---
 
@@ -24,7 +29,6 @@
 **Why:** The previous `DataLabel` felt under-designed and slightly generic (just brackets). The redesign anchors it firmly in the "tactical hardware/snooping" aesthetic (ADR 008) and provides a stronger visual hierarchy when placed above dense data blocks (like in PokemonLocations or PokemonEvolutions).
 **Pattern:** For tactical UI labels, avoid pure text brackets. Favor encapsulated boundaries (borders/backgrounds) with explicit corner treatments that mimic physical hardware casing.
 
-
 ---
 
 ## $(date -u +"%Y-%m-%d") - [Accepted] - 🖼️ Canvas: Bold DiagnosticCard Redesign
@@ -33,7 +37,6 @@
 **Why:** The previous design lacked the dense, technical feel of a hardware diagnostic interface. The redesign emphasizes the "tactical hardware" aesthetic by introducing structural boundaries (command prompt tab) and stronger interactive feedback.
 **Pattern:** Future diagnostic/telemetry components should lean into terminal-like typography (monospaced, dense) and utilize interactive cursors/prompts to enhance the technical aesthetic.
 
-
 ---
 
 ## 2026-09-19 - [Accepted] - 🖼️ Canvas: Bold CapacitySegmentedBar Redesign
@@ -41,3 +44,11 @@
 **Outcome:** Merged (Optimistic execution)
 **Why:** System and storage capacity meters lacked visual structure and hardware texture. The redesign aligns with ADR 008 (tactical hardware / snooping aesthetic), encapsulating telemetry data inside a distinct hardware housing with high-visibility alert states.
 **Pattern:** Data progress and capacity metrics should be cased inside enclosed hardware housings with percentage readouts and dynamic alert LEDs.
+
+---
+
+## 2026-09-22 - [Accepted] - 🖼️ Canvas: Bold TacticalBadge Redesign
+**What:** Redesigned `TacticalBadge` into a micro hardware telemetry status module. Added four-corner hardware accent ticks, an optional LED status indicator dot (`dot`), active ping animation state (`pulse`), subtle scanlines, and glow/hover states while maintaining full backwards compatibility.
+**Outcome:** Merged (Optimistic execution)
+**Why:** The previous `TacticalBadge` was a simple text badge with a basic border. Transforming it into an encapsulated micro telemetry unit strengthens the tactical hardware/snooping aesthetic across all data-dense displays.
+**Pattern:** Micro UI components and status chips benefit from hardware corner accents and dynamic LED status dots to signal live telemetry state.

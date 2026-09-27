@@ -5,14 +5,24 @@
 - **Key Learnings**:
   - React.forwardRef is essential when wrapping inputs to allow refs to pass through normally.
   - The tactical input design has an absolute label, so placing `group` on the parent container ensures `group-focus-within` triggers styles appropriately when the inner input is focused.
+
+---
+
+---
+
 ## 2026-05-22 - Agent Initialized
 - Mason agent established to focus on component extraction and deduplication.
+
+---
 
 ## 2024-11-XX - CornerCrosshairs Extraction
 - Identified a repeated JSX pattern for rendering tactical "corner crosshairs" using 4 absolute positioned `div` elements.
 - Pattern was duplicated across `TacticalCard`, `AssistantSuggestionCard`, `SearchAndFilters`, `SettingsControls`, `ClearStorageButton`, `SettingsModal`, and `PokemonDetails`.
 - Created a `CornerCrosshairs` component to encapsulate the markup and CSS logic, accepting a `className` and `thickness` prop.
 - Reduced DOM bloat in source files and ensured consistency across the application.
+
+---
+
 ## TacticalButton Extraction
 - Identified recurring standard button patterns with identical styling across SearchAndFilters and ClearStorageButton.
 - Successfully extracted this into `src/components/TacticalButton.tsx` to manage standard, primary, and danger variants along with internal crosshairs logic.
@@ -21,6 +31,9 @@
 - Pattern: Many components used the same `glass-card` CSS class with varied tailwind colored background/border opacity patterns (e.g. `border-emerald-500/10 bg-emerald-500/5`).
 - Challenge: Determining the base variants. Handled by passing a string prop mapping to the common tailwind combinations.
 - Win: Centralized styling logic, eliminated redundant classes across multiple `PokemonDetails` subcomponents.
+
+---
+
 ## TelemetryDecoration Extraction
 - Identified a recurring JSX pattern for the "SYS.[SOMETHING]" or "LINK_ACTIVE" telemetry labels found at the edges of modals or nav bars.
 - These labels use absolute positioning, standard dashed borders, custom padding, tracking, and an animated pulsing dot.
@@ -28,23 +41,41 @@
 - **Key Learnings**:
   - The `cn` utility is very effective for overriding base tailwind classes in reusable components. For instance, `BottomNav` flips the border rounding (`rounded-t` instead of `rounded-b`) and `VersionModal` alters the standard text colors using `className` and `dotClassName` props, showing the value of granular styling overrides in standard components.
 
+---
+
 ## TacticalModal Extraction
 
 - **Pattern:** Found `fixed inset-0` with standard dialog layout (`div > backdrop`, `div > content`) repeated in multiple modal components (`SettingsModal`, `VersionModal`, `PokemonDetails`).
 - **Solution:** Extracted a reusable `TacticalModal` component that standardizes `role="dialog"`, `aria-modal="true"`, background blurs (`backdrop-blur-*`), animations (`fade-in`, `zoom-in`, `slide-in-from-bottom`), and positioning.
 - **Why it matters:** Centralizing modal structures reduces boilerplate and ensures accessibility props and closing behaviors are applied consistently across the application, adhering to the project's styling and UI constraints.
-- **What**: Extracted the repeated inline radial-gradient LCD grid background into a reusable `<LcdGrid>` component.\n- **Why**: Reduced duplicated JSX and styling logic across `TacticalPanel`, `PokedexCard`, `SyncProgress`, and `PokemonDetails`.\n- **Key Learnings**: \n  - When extracting styling wrappers, use `React.forwardRef` and allow extending standard HTML attributes (`React.HTMLAttributes<HTMLDivElement>`) so callers can still pass custom `className`, `style`, or `opacity` without breaking the base styling.\n  - The `cn` utility seamlessly handles overriding utility classes on the new component.
-- **What**: Extracted repeated badge styling into a reusable `TacticalBadge` component.\n- **Why**: Consolidated redundant utility classes like `rounded-none border border-dashed px-2 py-1 font-black text-[8px] uppercase tracking-widest` into a single, clean component mapping variants to specific theme colors.\n- **Key Learnings**: \n  - When standardizing components across different contexts (tables, layouts, headers), accepting a `className` prop and merging it with `cn()` is vital for one-off overrides like padding tweaks or margins while preserving the core tactical design language.\n  - `React.forwardRef` combined with `React.HTMLAttributes<HTMLSpanElement>` ensures the badge can easily receive refs or aria tags.
+- **What**: Extracted the repeated inline radial-gradient LCD grid background into a reusable `<LcdGrid>` component.
+- **Why**: Reduced duplicated JSX and styling logic across `TacticalPanel`, `PokedexCard`, `SyncProgress`, and `PokemonDetails`.
+- **Key Learnings**:
+  - When extracting styling wrappers, use `React.forwardRef` and allow extending standard HTML attributes (`React.HTMLAttributes<HTMLDivElement>`) so callers can still pass custom `className`, `style`, or `opacity` without breaking the base styling.
+  - The `cn` utility seamlessly handles overriding utility classes on the new component.
+- **What**: Extracted repeated badge styling into a reusable `TacticalBadge` component.
+- **Why**: Consolidated redundant utility classes like `rounded-none border border-dashed px-2 py-1 font-black text-[8px] uppercase tracking-widest` into a single, clean component mapping variants to specific theme colors.
+- **Key Learnings**:
+  - When standardizing components across different contexts (tables, layouts, headers), accepting a `className` prop and merging it with `cn()` is vital for one-off overrides like padding tweaks or margins while preserving the core tactical design language.
+  - `React.forwardRef` combined with `React.HTMLAttributes<HTMLSpanElement>` ensures the badge can easily receive refs or aria tags.
+
+---
+
 ## SettingsRow Extraction
 - Identified a repeated JSX pattern in `SettingsControls.tsx` for rendering rows with a `CornerCrosshairs`, an icon block, a label, and children.
 - Extracted `SettingsRow` into `src/components/SettingsRow.tsx` to encapsulate this logic.
 - **Key Learnings**:
   - Encapsulating the repeating icon styles via `iconColorClass` and generic children allowed a massive reduction of duplicated tailwind string constants in form controls.
+
+---
+
 ## TacticalButton Usage Extraction
 
 - I observed that native `<button>` and `<a>` elements across the app (`AppHeader.tsx`, `SettingsModal.tsx`, `BottomNav.tsx`) were using long repetitive styling that essentially mapped to the existing `TacticalButton` variants.
 - While the task mentions extracting *new* components, reusing existing components that already encapsulate the desired design system logic is a best practice. It reduces repetition and creates modularity.
 - Extracted and replaced several HTML buttons with `TacticalButton` with the `sidebar` and `secondary` variants.
+
+---
 
 ## ScanlineOverlay Extraction
 - **What**: Extracted repeated `<div className="scanline-overlay pointer-events-none absolute inset-0 opacity-10" />` patterns into a reusable `<ScanlineOverlay>` component.
@@ -52,11 +83,15 @@
 - **Key Learnings**:
   - The `opacityClass` prop allows customization (like `opacity-20` instead of the default `opacity-10`) without overwriting the core positioning.
 
+---
+
 ## HoverScanner Extraction
 - **What**: Extracted complex `<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[var(--theme-primary)]/20 to-transparent opacity-0 transition-opacity group-hover:animate-[scan_2s_linear_infinite] group-hover:opacity-100" />` patterns into a reusable `<HoverScanner>` component.
 - **Why**: Drastically improved readability of `PokedexCard`, `PokemonDetails`, and `VersionModal`.
 - **Key Learnings**:
   - Allowing `colorClass` to be passed as a prop allowed the modal to utilize the primary theme with 10% opacity instead of 20%, maintaining flexibility while standardizing the CSS animation.
+
+---
 
 ## DataPoint Extraction
 - **What**: Extracted repeated `flex flex-col` blocks that pair an uppercase label and a bold value into a reusable `<DataPoint>` component.
@@ -64,11 +99,16 @@
 - **Key Learnings**:
   - Separating `labelClassName` and `valueClassName` allows for necessary typographic variations (like alignment or colors) while still leveraging the base structural pattern.
   - Always manually verify existing files using tools like `grep` before attempting substitutions, as files may have drifted from expected state.
+
+---
+
 ## NavButton Extraction
 - **What**: Extracted repeated navigation button structures inside `BottomNav` into a reusable `NavButton` component.
 - **Why**: Reduced boilerplate and code duplication within the navigation bar. Simplified the implementation of different menu items by defining common styles and behaviors in one place.
 - **Key Learnings**:
   - Encapsulating logic like `isActive` to handle both routing and generic click events (e.g., toggling the settings modal) provides a robust structure for complex navigational elements.
+
+---
 
 ## DiagnosticCard Extraction
 - **What**: Extracted repeated telemetry/diagnostic card layout into `<DiagnosticCard>` component.
@@ -76,11 +116,15 @@
 - **Key Learnings**:
   - The `valueClassName` prop is crucial when extracting text components, allowing customization like `truncate` or `uppercase` while maintaining identical base text styles.
 
+---
+
 ## InlineLink Extraction
 - **What**: Extracted repeated inline link button elements (standard `<button className="rounded-none underline..."></button>` with variant-specific colors) into an `InlineLink` reusable component.
 - **Why**: Reduced duplicated JSX in `PokemonEvolutions.tsx`. Standardized interaction styles, underline offsets, and hover variants for typical navigation links without needing to pass down the large class string every time.
 - **Key Learnings**:
   - Make sure to extend standard attributes (e.g. `React.ButtonHTMLAttributes<HTMLButtonElement>`) and forward refs (`React.forwardRef`) so accessibility properties like `aria-label` or raw `onClick` handlers pass down appropriately without breaking.
+
+---
 
 ## SectionHeader Extraction
 - **What**: Extracted the repeating `<h3>` element pattern (including flex layout, font-black, size, uppercase, and large tracking) into a reusable `SectionHeader` component.
@@ -88,9 +132,13 @@
 - **Key Learnings**:
   - `React.HTMLAttributes<HTMLHeadingElement>` includes a built-in `title` prop typed as `string | undefined`, which conflicts if you want `title` to accept a `React.ReactNode` for rendering JSX elements inline. To fix this type clash when using TypeScript, use `Omit<React.HTMLAttributes<HTMLHeadingElement>, 'title'>` when extending the interface.
 
+---
+
 ## Fix CI: Test has no assertions
 - **What**: CI failed because three tests in `src/components/assistant/__tests__/AssistantSuggestionCard.test.tsx` had no assertions. I added `await expect.element(page.getByText(...)).toBeVisible()` to satisfy the `oxlint` `vitest(expect-expect)` rule.
 - **Why**: The rule enforces that every test has at least one assertion.
+
+---
 
 ## TacticalBadge Refactoring
 - Identified repeated inline JSX patterns for standard badge styles (`rounded-none border border-... border-dashed bg-... px-... py-... font-black text-... uppercase tracking-widest`) scattered across multiple components (`PokemonLocations.tsx`, `PokemonCatchProbability.tsx`, `PokemonEvolutions.tsx`, `PokemonCaughtDetails.tsx`).
@@ -99,12 +147,16 @@
   - Reusing existing components like `TacticalBadge` is crucial for code modularity and adherence to the project's aesthetic constraints (e.g., sharp edges, dashed borders).
   - Always verify that the extracted component matches the exact styling variants (e.g., `emerald`, `red`, `zinc`, `primary`) needed by the specific contexts.
 
+---
+
 ## InlineDataPoint Extraction
 - **What**: Extracted a repeated JSX pattern in `AppHeader.tsx` consisting of a side-by-side uppercase tracking label and a bold value into an `InlineDataPoint` reusable component.
 - **Why**: Reduced duplication of the verbose tactical utility classes `font-black font-mono text-[8px] text-zinc-500 uppercase tracking-widest` and allowed for standard horizontal metrics presentation.
 - **Key Learnings**:
   - Distinguishing between vertical representations (like the existing `DataPoint` component) and horizontal ones (`InlineDataPoint`) is necessary since the layout structures (`flex-col` vs `items-center`) dictate the context of the data.
   - Using `valueClassName` and `labelClassName` gives flexibility for minor styling tweaks like making values bold or specific colors (like `text-zinc-300`) without breaking the core pattern.
+
+---
 
 ## TacticalIconButton Extraction
 - **What**: Extracted repeated icon-only button patterns (often containing a single Lucide `X` icon, absolute positioning, hover effects, and strict accessibility tags) into a reusable `<TacticalIconButton>` component.
@@ -114,6 +166,8 @@
   - Set a default `type="button"` on the inner element to prevent accidental form submissions when the component is eventually utilized inside a `fieldset` or `form`.
   - Ensure the internal `className` explicitly allows for overriding absolute positioning and padding since icon-only buttons often serve as absolute-positioned decorators (like close buttons or input clear buttons).
 
+---
+
 ## AppHeader Refactoring - VerticalDivider and NavigationTab
 - **What**: Extracted repeated vertical dashed divider elements (`<div className="w-[1px] border-zinc-800 border-r border-dashed bg-zinc-800" />`) into a reusable `<VerticalDivider>` component.
 - **What**: Extracted repeated navigation link setups inside the main header (incorporating active/inactive tailwind states, corner crosshairs, and monospaced text) into `<NavigationTab>`.
@@ -122,11 +176,16 @@
   - Utilizing `Omit<LinkProps, 'activeProps' | 'inactiveProps' | 'className'>` ensures the parent `<NavigationTab>` strictly governs the styling and routing state styles, preventing accidental overrides from callers while still allowing them to pass standard Tanstack `to` attributes.
   - Exposing `className` on tiny, structural components like `<VerticalDivider>` using `cn()` is incredibly powerful, because we can trivially apply specific height classes (`className="h-8"`) contextually without rebuilding the component.
   - To automatically fix formatting errors identified by the Biome linter, execute `pnpm biome check --write .`.
+
+---
+
 ## PanelWatermark Extraction
 - **What**: Extracted a repeated watermark-style background icon pattern (`<div className="absolute top-0 right-0 p-4 opacity-5 transition-transform...">`) found across various tactical panels into a reusable `<PanelWatermark>` component.
 - **Why**: Reduced duplicated JSX across `PokemonEvolutions.tsx` and `PokemonCatchProbability.tsx` and enforced consistent positioning, opacity, and transition durations for background embellishments.
 - **Key Learnings**:
   - The extraction allows callers to pass specific hover transforms (like `group-hover:scale-110` or `group-hover:rotate-12`) via the `className` prop while the internal component handles the shared absolute positioning and opacity.
+
+---
 
 ## CapacitySegmentedBar Extraction
 - **What**: Extracted the repeated capacity segmented progress bar in `StorageGrid.tsx` into a reusable `CapacitySegmentedBar` component.
@@ -134,21 +193,32 @@
 - **Key Learnings**:
   - The extraction allows `CapacitySegmentedBar` to be easily dropped into other panels that require a tactical capacity readout (e.g. PC storage, memory limits, team size).
   - Passing `current` and `max` directly rather than the full `PokemonInstance[]` array decouples the component from domain-specific data models.
+
+---
+
 ## EmptyState Extraction
 - **What**: Extracted a repeated JSX pattern for empty states into a reusable `EmptyState` component.
 - **Why**: Reduced duplication of the verbose tactical utility classes `relative col-span-full flex flex-col items-center justify-center rounded-none border border-zinc-800/50 border-dashed bg-zinc-950/20 p-6 text-center` and standardizes the empty state presentation.
 - **Key Learnings**:
   - Separating `className` and `labelClassName` gives flexibility for minor styling tweaks like making values bold or specific text sizes without breaking the core pattern.
+
+---
+
 ## ScanlineOverlay Refactoring
 - **What**: Replaced instances of `<div className="scanline-overlay pointer-events-none absolute inset-0 opacity-10" />` with `<ScanlineOverlay opacityClass="opacity-10" />`.
 - **Why**: Standardizes the usage of the scanline overlay and ensures it's consistent across the application.
 - **Key Learnings**:
   - The `ScanlineOverlay` component already includes `pointer-events-none` and `absolute inset-0` classes, so we can replace raw `div` elements with it directly.
+
+---
+
 ## EdgeLabel Extraction
 - **What**: Extracted a repeated JSX pattern for absolute-positioned edge labels into a reusable `EdgeLabel` component.
 - **Why**: Reduced duplication of the verbose tactical utility classes `tactical-text absolute bg-zinc-950 px-1 text-[9px] text-zinc-500` across multiple components (`TacticalInput`, `SearchAndFilters`, `AssistantPanel`, `SyncProgress`).
 - **Key Learnings**:
   - The extraction allows callers to pass specific positioning (like `-top-2.5 left-4`) or specific color overrides (like `text-[var(--theme-primary)]`) via the `className` prop while the internal component handles the shared tactical typography and background.
+
+---
 
 ## TacticalNode Extraction
 - **What**: Extracted repeated complex tactical UI wrapper elements (LCD grid background, hover scanner effect, absolute-positioned active LED side-pipe, and pulsing LED light) into a reusable `TacticalNode` component.
@@ -158,6 +228,9 @@
   - Using a `variant` prop (`primary`, `red`, `purple`, `blue`, `pink`) was necessary because the CSS classes used across these borders and shadow effects rely heavily on arbitrary values (e.g., `shadow-[0_0_8px_rgba(239,68,68,0.5)]`). Attempting to control complex multi-color opacity hover states with pure standard Tailwind classes across such an intricate DOM structure is brittle; centralizing the exact strings in a switch statement ensures rendering stability.
   - When visually verifying UI components via Playwright that are deeply nested or require specific complex state, temporarily create a dedicated test route/page (e.g., `src/routes/test.tsx`) to render the component directly, capture the screenshot, and carefully remove the temporary files (`git reset HEAD ... && rm ...`) before committing.
 When reusing standard React components, use getByRole for finding interactive elements in tests
+
+---
+
 ## DataLabel Extraction
 - **What**: Extracted the repeating `<span>` pattern (`className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest"`) into a generic `<DataLabel>` component.
 - **Why**: Consolidated standard styling for basic data labels, which was widely duplicated across multiple components like `PokemonEvolutions`, `PokemonLocations`, `PokemonCaughtDetails`, and `ContestRibbonBadge`.
@@ -165,20 +238,27 @@ When reusing standard React components, use getByRole for finding interactive el
   - Always implement `React.forwardRef` and extend standard interfaces like `React.HTMLAttributes<HTMLSpanElement>` to ensure that utility components drop into layouts effortlessly without breaking standard HTML behaviors.
   - Utilize a custom node script utilizing `regex` for reliable and safe batch replacement of specific and lengthy multi-line inline JSX structures across the codebase before using tools like `biome` to clean up the formatting.
 
+---
+
 ## TacticalBlockHeader Extraction
 - **What**: Extracted a repeated JSX pattern in `PokemonEvolutions.tsx` and `PokemonLocations.tsx` consisting of a side-by-side tracking label and bold title with an optional trailing icon box.
 - **Why**: Reduced duplication of verbose tactical utility classes and standardized the header presentation across variants (primary, red, purple, blue, pink, amber).
 - **Key Learnings**:
   - We can use `React.cloneElement` on the `trailingIcon` to inject specific color and hover classes without needing the caller to specify them.
 
+---
+
 ## Refactoring Actions
 - Extracted duplicated `<input type="file" className="sr-only" tabIndex={-1} accept=".sav" />` pattern from `OfflineControls.tsx` and `SystemControls.tsx` into a reusable `TacticalFileInput` component.
 - Leveraged `React.forwardRef` and `React.InputHTMLAttributes` to provide full standard input capabilities (like `onChange`, `id`, `aria-label`) while keeping defaults clean and DRY.
+
+---
 
 ## Learnings
 - Repeated HTML elements that only differ by `id`, `aria-label`, and event handlers are prime targets for extraction, especially when they share functional constraints like being hidden (`sr-only`) and having specific tab indexing and accept attributes.
 - Replacing standard HTML elements with typed `Tactical*` components maintains codebase consistency with the overarching ADR 008 styling/tactical theme, even for invisible elements like file inputs.
 
+---
 
 # Tactical Checklist Item Extraction
 
@@ -211,9 +291,6 @@ Created `TacticalChecklistItem` to extract this pattern and applied it to the 5 
 **Learnings**:
 Extracting standard dashboard indicator item/checklist item combinations is an effective way to simplify dashboard components. Adding options like `showCrosshairs`, `subtitle` and `interactive` handles the slight variations required across different checklist types (e.g., Hidden Items with sub-labels, vs simple flag checks).
 
-
-
-
 ---
 
 # TacticalLed Component Extraction
@@ -227,12 +304,16 @@ Created a centralized `TacticalLed` component to abstract this visual structure.
 
 Removed redundant dead code (like the `ledOuter` and `ledInner` styles from `TacticalNode`'s local styles object) after abstracting them into the new component.
 
+---
+
 ## HardwareScrews Extraction
 - **What**: Extracted a repeated JSX pattern of four absolute-positioned `.h-1.w-1.rounded-full` elements that visually act as "hardware structural screws" on tactical components.
 - **Why**: Reduced duplication across `TacticalSegmentedControl` and `TacticalMultiSelectControl`.
 - **Key Learnings**:
   - The extraction allows a single component `<HardwareScrews />` to render all four decorative elements.
   - Since Vite uses the modern JSX transform (`react/jsx-runtime`), we can export the `HardwareScrews` component as a React Fragment `<>...</>` without needing an explicit `import React` in the extracted component.
+
+---
 
 ## CornerCrosshairs Refactoring
 - **What**: Replaced instances of `<div className="absolute top-0 left-0 h-4 w-4 border-white border-t-2 border-l-2" />` (and similar structures for all four corners) with the reusable `<CornerCrosshairs className="h-4 w-4 border-white" thickness={2} />`.
@@ -243,12 +324,14 @@ Removed redundant dead code (like the `ledOuter` and `ledInner` styles from `Tac
 
 
 <!-- Merged from 2026-09-09-04-11-24.md -->
+
+---
+
 ## TargetLockOverlay Extraction
 - **What**: Extracted a repeated JSX pattern in `StorageGrid.tsx` and `PokedexCard.tsx` consisting of a target lock overlay into a `TargetLockOverlay` reusable component.
 - **Why**: Reduced duplication of verbose tactical utility classes (`pointer-events-none absolute inset-0 z-20 border-[1px] border-cyan-400/0 transition-colors duration-300 group-hover/card:border-cyan-400/30 group-focus-visible/card:border-cyan-400/30` etc.).
 - **Key Learnings**:
   - Encapsulating visual decorators (like target lock crosshairs on cards) using `absolute inset-0` standardizes the hover effects (e.g. `group-hover/card`) across different card components.
-
 
 ---
 
@@ -260,7 +343,6 @@ Removed redundant dead code (like the `ledOuter` and `ledInner` styles from `Tac
   - Encapsulating visual hover decorations into a dedicated component with `pointer-events-none absolute inset-0` standardizes the card hover experience without interfering with card click listeners.
   - Exposing `outerClassName` and `innerClassName` props alongside standard `className` (`cn`) ensures flexibility if specific cards need distinct ring styling or colors.
 
-
 ---
 
 ## SubDataPoint Extraction
@@ -270,3 +352,21 @@ Removed redundant dead code (like the `ledOuter` and `ledInner` styles from `Tac
 - **Key Learnings**:
   - `SubDataPoint` complements `DataPoint` by focusing on secondary grid/table sub-metrics with compact 8px labels and 11px values.
   - Supporting both `value` (for plain strings/numbers) and `children` (for custom JSX like status badges or progress bars) makes small data presentation components extremely flexible.
+
+---
+
+## RackHandle Component Extraction
+
+- **What**: Extracted the repeated server rack handle decoration (`<div className="flex w-4 shrink-0 flex-col justify-between border-zinc-700/50 border-r border-dashed pr-2">...</div>`) into a dedicated, reusable `RackHandle` component (`src/components/RackHandle.tsx`).
+- **Why**: Standardized and decoupled structural server rack visual embellishments from `StorageGrid.tsx`, allowing other tactical dashboard blades or server rack representations across the application to share identical styling and structure without repeating JSX markup.
+- **Key Learnings**:
+  - Encapsulating small structural decorators as reusable components with `React.forwardRef` and `cn` for className overrides ensures that custom positioning or spacing can be passed seamlessly without breaking the core visual layout.
+
+---
+
+## TacticalHeaderDivider Extraction
+
+- **What**: Extracted repeated header section divider pattern (`flex items-center justify-between border-zinc-800 border-b border-dashed pb-2`) into a reusable `TacticalHeaderDivider` component.
+- **Why**: Reduced duplicated header styling across `ShoalItemTracker` and `TideDisplay` while providing standard dashed-border section header styling.
+- **Key Learnings**:
+  - In `vitest-browser-react`, `render()` returns a Promise that must be awaited (`const { container } = await render(...)`) to avoid type errors when attempting to call queries directly on the returned object.

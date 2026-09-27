@@ -2,13 +2,19 @@
 - **Verification**: The epic successfully investigated and implemented programmatic safeguards in `foundry-orchestrator.ts` and `foundry-heartbeat.ts` to require at least one child STORY with `e2e` or `integration` tags before an EPIC can be marked `COMPLETED`. The logic accurately checks for these tags. Both child stories (`story-127-269-epic-e2e-safeguard` and `story-127-347-orchestrator-safeguard-e2e`) are fully completed and verified.
 - **Learnigns**: The programmatic enforcement of E2E tasks is vital to maintain quality for macro nodes. Orchestrator-level checks prevent manual errors from skipping important integration verifications.
 
+---
+
+---
 
 ## Session from 17353405569114618226.md
 Logged failure of epic-120-338-implement-conflictless-journals due to max rejection count. Spawned research-335-400-investigate-conflictless-journals-failure to investigate root cause, and epic-335-401-implement-conflictless-journals-retry as a replacement.
 
+---
 
 ## Verification of prd-086-108-fix-orchestrator-phase-3-6
 The generated child nodes for fixing Phase 3.6 for CANCELLED nodes have correctly completed. We successfully discovered that Phase 3.6 impossible loop condition incorrectly limited parent node awakening only to `FAILED` nodes, leaving out `CANCELLED` nodes caused by reaching the max rejection count. Extending the status check to allow both solved the system deadlock.
+
+---
 
 ## Learning: Orchestrator State Transitions
 Complex orchestration rules (e.g. Impossible Loop, Zombie Nodes, and Max Rejection Limits) suffer from edge cases where overlapping constraints deadlock the DAG. We need fuzzing to simulate DAG permutations instead of finding these edge cases only when they block production pipelines.
@@ -19,14 +25,20 @@ Complex orchestration rules (e.g. Impossible Loop, Zombie Nodes, and Max Rejecti
 
 Verified `epic-057-348-bash-static-analysis-linter-retry`. All tasks (`task-356-396-bash-static-analysis-linter-impl`, `task-356-397-bash-static-analysis-linter-qa`, `task-357-402-bash-linter-e2e-impl`) are COMPLETED. The bash linter is functional.
 
+---
+
 # 2026-08-06
 - Verified `epic-030-039-cloudflare-r2-save-sync`.
 - The implementation successfully utilized Cloudflare R2 with push/pull logic and graceful degradation as originally intended.
 - **Learnings/Tech Debt:** The offline conflict resolution strategy implemented in `story-039-265` uses a timestamp-based "last-write-wins" approach. This is adequate for basic files but dangerous for game save states where hours of offline progression could be silently overwritten.
 - **Action Taken:** Spawned `.foundry/archive/ideas/idea-039-401-r2-conflict-resolution-ui` to explore building a user-facing prompt to let the user manually choose which save to keep when a conflict is detected, preventing silent data loss.
 
+---
+
 ## Learnings
 The epic for the bash timeout wrapper has been successfully completed. The implementation relying on instructional policies combined with the bash script wrapper and proper E2E tests have been verified to function correctly. This confirms that relying on the `timeout` command and communicating exit code 124 effectively manages long-running blocking commands.
+
+---
 
 ## Next Steps
 Node is verified and will be submitted via an empty PR.
@@ -41,19 +53,29 @@ Rejected the verification. Unchecked the acceptance criteria for the PRD and add
 
 Auditor session completed for epic-055-113-egg-move-pathfinding-engine. All descendant nodes (TASKS, STORIES, RESEARCH) are completed and acceptance criteria are checked off. Empty PR submission validated.
 
+---
+
 ## Observations
 During the verification of `epic-057-128-epic-planner-process-update`, I found that the current approach for enforcing process updates relies heavily on exact string matching within the prompt tests (e.g., in `.github/scripts/epic-planner-instructions.test.ts`).
 
+---
+
 ## Learnings
 Exact string matching for prompts is brittle and can lead to false negatives if the prompt is rephrased or structurally modified while retaining the original semantic intent. The test `.github/scripts/epic-planner-instructions.test.ts` asserts: `expect(content).toContain('You MUST enforce a process where every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification.')`.
+
+---
 
 ## Next Steps
 To improve the resilience of our automated tests that verify agent behavior and prompts, we should consider implementing semantic validation for prompts, rather than strict string matching. I am spawning an IDEA node (`idea-145-semantic-prompt-validation`) to explore building or adopting a system that can semantically validate these prompts, potentially utilizing lightweight AST parsing or LLM-based verification for structural rule compliance.
 
 Logged empty PR submission for epic-106-137-gen2-static-encounters as all descendant tasks are COMPLETED and the node is ready to transition to VERIFYING.
 
+---
+
 ## Verification
 Epic `epic-117-334-define-zod-schema` is correctly verified. All of its children stories have transitioned to COMPLETED. The schema logic has been well implemented in `.github/scripts/schema.ts` and successfully verified against orchestrator unit tests.
+
+---
 
 ## Lessons
 Empty PR submissions for parent nodes (e.g., Epics) where children are completed just need standard checklist compliance, but running orchestrator unit tests (`cd .github/scripts && npx vitest run`) locally serves as a great confidence check.
@@ -64,17 +86,20 @@ Empty PR submissions for parent nodes (e.g., Epics) where children are completed
 - The orchestrator's Phase 3.6 cascade cancellation logic now automatically handles PENDING nodes that depend on permanently failed nodes.
 - This deprecation reduces manual friction and prevents merge conflicts.
 
-
 ---
 
 # Auditor Rejection: prd-421-521-automated-schema-linting
 
 Date: 2026-09-19
 
+---
+
 ## Reason
 The target PRD (`prd-421-521-automated-schema-linting`) was transitioned to `READY` and assigned to `auditor`, but its descendant epics are not all completed. Specifically:
 - `epic-521-552-schema-linter-core-logic` is `PENDING`
 - `epic-521-553-schema-linter-integration` is `FAILED`
+
+---
 
 ## Learnings
 Macro nodes (like IDEA, PRD, EPIC) must not be verified until all descendant nodes in the generated sub-tree have fully transitioned to the `COMPLETED` state. A macro node MUST NOT be verified until its functional requirements are actually implemented and merged by its child tasks.

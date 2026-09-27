@@ -2,10 +2,16 @@
 - Date: $(date)
 - Focus: Implemented Gen 3 Match Call support for Emerald.
 
+---
+
+---
+
 # Learnings
 - **Save Block Offsets:** Gen 3 Match Call system involves two separate logical chunks. The main array tracking the `rematchState` (which team tier they have reached) lives in `SaveBlock1` (Section 1). However, the boolean flags that dictate whether a trainer is "registered" or unlocked entirely live deep inside the `flags` array inside `SaveBlock2` (Section 2).
 - **Safety First:** Ensuring robust bit-shifting and `RangeError` safety blocks within Gen 3 parsing ensures the app continues running for corrupted or non-Emerald files.
 - **Diff Checker Oddity:** The automated review tool might flag a newly created test or parser file as invalid if they import from a pre-existing sibling file (e.g. `offsets.ts`) that is *not* included in the diff. To fix this, making a trivial whitespace modification to the pre-existing file forces it into the diff, allowing the automated code review tool to see it.
+
+---
 
 # Session Learnings
 
@@ -14,6 +20,8 @@
 
 - Date: $(date)
 - Focus: Implemented Gen 3 Match Call support for Emerald.
+
+---
 
 # Learnings
 - **Save Block Offsets:** Gen 3 Match Call system involves two separate logical chunks. The main array tracking the `rematchState` (which team tier they have reached) lives in `SaveBlock1` (Section 1). However, the boolean flags that dictate whether a trainer is "registered" or unlocked entirely live deep inside the `flags` array inside `SaveBlock2` (Section 2).
@@ -27,14 +35,21 @@ When fixing Assistant Logic related to branching vs linear evolutions, ensure th
 - Date: $(date)
 - Focus: Improved Assistant logic for Gen 1 mutually exclusive starters.
 
+---
+
 # Learnings
 - **Mutually Exclusive Logic & Yellow Exception:** When improving inference for mutually exclusive one-time choices (like the Gen 1 Starter choice), we must explicitly exclude Pokémon Yellow from this check. In Yellow, the player receives Pikachu as their starter, but can subsequently obtain all three original Kanto starters (Bulbasaur, Charmander, and Squirtle) through in-game NPC gifts. Applying strict exclusivity logic globally would incorrectly lock these valid acquisition paths for Yellow players.
 
 
 <!-- Merged from 2026-09-07-04-08-57.md -->
+
+---
+
 # Session Details
 - Date: $(date)
 - Focus: Prevent duplicate/redundant version exclusive trade suggestions when the Pokémon is already obtainable via breeding.
+
+---
 
 # Learnings
 - **Recommendation Logic:** In Gen 2/3, if a player needs a version exclusive Pokémon (e.g., Meowth in Gold) and they already possess an evolved form (e.g., Persian), they can breed it. Previously, the `tradeGenerator.ts` would suggest "Must trade for Meowth" because it only checked `hasPhysicalPreEvo`. Now, we explicitly check `hasPhysicalPostEvoToBreed` by traversing the evolution tree forwards (`eto`) to see if the player physically owns an evolved form that can be bred down.
@@ -43,9 +58,14 @@ When fixing Assistant Logic related to branching vs linear evolutions, ensure th
 
 
 <!-- Merged from 2026-09-09-03-00-45.md -->
+
+---
+
 # Session Details
 - Date: $(date)
 - Focus: Implemented Gen 3 Daycare breeding suggestion support.
+
+---
 
 # Learnings
 - **Abstraction and Unification:** When porting a feature previously only supporting Gen 2 (like Daycare breeding logic in `generateBreedingSuggestions`) to Gen 3, it's essential to abstract the data structures (`daycareMons`, `daycareHasEgg`) so that the core evaluation logic can be unified without nesting complex `if (isGen2)` vs `if (isGen3)` logic inside hot loops. We achieved this by flattening the daycare evaluation array beforehand using `const daycareMons = gen2Data?.daycare || gen3Data?.gen3Daycare?.mons || [];`.

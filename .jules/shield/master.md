@@ -1,9 +1,15 @@
 ## Action Taken
 Replaced an insecure `Math.random()` call in `src/components/RetroBackground.tsx` with `window.crypto.getRandomValues()`.
 
+---
+
+---
+
 ## Learnings & Patterns
 **Pattern:** Even if pseudo-random generation is only used for UI/visual effects (like scrolling hex data streams), SAST tools will routinely flag `Math.random()` as a high-severity CWE-338 (Use of Cryptographically Weak PRNG) violation.
 **Policy Update:** Always default to `window.crypto.getRandomValues` in the browser or `node:crypto` in Node environments, regardless of the security context of the generated value, to maintain zero-warning compliance.
+
+---
 
 # Shield Security Journal - brace-expansion Vulnerability
 
@@ -20,8 +26,7 @@ Added a pnpm override in `pnpm-workspace.yaml` for `brace-expansion@<2.1.3` to r
 
 **Empty PR Policy Execution:** Submitted empty PR as no actionable vulnerabilities found in dependencies or code base.
 
-## Action Taken
-Replaced an insecure `Math.random()` call in `src/components/RetroBackground.tsx` with `window.crypto.getRandomValues()`.
+---
 
 ## Learnings & Patterns
 **Pattern:** Even if pseudo-random generation is only used for UI/visual effects (like scrolling hex data streams), SAST tools will routinely flag `Math.random()` as a high-severity CWE-338 (Use of Cryptographically Weak PRNG) violation.
@@ -44,18 +49,20 @@ I also learned that `window.crypto.getRandomValues()` should be used when purely
 I fixed the CodeQL warning by using a bitwise AND mask instead of the modulo operator.
 I also fixed the typescript error by using `(randomValues[i] || 0)` instead of `randomValues[i]!`.
 
-
-
-
-
 ---
 
 ## Aggregated from 2026-08-23-00-35-40.md
 
+---
+
 # Shield Journal Entry: Resolving CWE-209 Raw Error Logging
+
+---
 
 ## Context
 During a routine security scan, we observed that `console.error` was logging raw error objects, which could potentially expose sensitive stack traces, paths, or application internals to an attacker who gains access to the client logs (CWE-209 - Generation of Error Message Containing Sensitive Information).
+
+---
 
 ## Discovery
 The vulnerability was identified in multiple files:
@@ -63,11 +70,15 @@ The vulnerability was identified in multiple files:
 - `src/engine/storage/historyDb.ts`: `console.error('Failed to get most recent save:', error);`
 - `src/engine/storage/historyDb.ts`: `console.error('Failed to get previous save:', error);`
 
+---
+
 ## Solution
 Instead of logging the entire raw error object, we updated the code to extract only the error message if the caught error is an instance of `Error`, falling back to a generic message otherwise.
 
 The patched code reads:
 `console.error('...', error instanceof Error ? error.message : 'Unknown error');`
+
+---
 
 ## Key Learnings
 1. **Always sanitize errors in logs:** Prevent the leakage of raw error objects since they may leak internal file paths, module structures, or environment variables.

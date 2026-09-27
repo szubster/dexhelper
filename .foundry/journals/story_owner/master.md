@@ -1,32 +1,50 @@
 # Session 10929901102298299333
 Epic epic-043-152-gen3-roamer-data-extraction is permanently cancelled due to ADR 108-027, as Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file.
 
+---
+
+---
+
 # Session 12085455394380553495
 
 * **Task**: Extend Phase 3.6 for CANCELLED nodes (Retry)
 * **Target Node**: `epic-108-340-extend-phase-3-6-cancelled-nodes-retry`
 
+---
+
 ## Actions
 - Analyzed the issue regarding orchestrator Phase 3.6 for CANCELLED nodes.
 - Confirmed that the fix was actually already implemented and tested in the codebase under the previous attempt, but the previous tasks (like `task-299-322-extend-phase-3-6-impl` and `task-299-323-extend-phase-3-6-qa`) were completed, while the epic itself was cancelled due to max rejections in other descendant nodes.
 
+---
+
 ## Summary
 Completed the Epic: PC Box Diff Engine & Move Planner (`epic-106-137-pc-box-diff-engine-move-planner`).
+
+---
 
 ## Execution details
 - Reviewed the completion status of the descendant stories (`story-137-294-diff-engine-logic`, `story-137-295-move-planner-algorithm`, `story-137-296-move-planner-unit-tests`).
 - Updated the Epic's Acceptance Criteria checkboxes to reflect the completed state of these descendant stories.
 - Confirmed that the epic's objectives have been met through the completion of the child stories.
 
+---
+
 # Session 13779139715883828322
 Epic epic-043-152-gen3-roamer-data-extraction is permanently cancelled because Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file, making static extraction impossible as per ADR 108-027.
+
+---
 
 ### Critical Learning: Gen 3 Roamer Location Constraints
 I encountered a cancelled epic today: `epic-043-152-gen3-roamer-data-extraction.md`. The stated objective was to extract Gen 3 roamer data and standardize the structure for roaming legendaries. However, the epic has been permanently CANCELLED as Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file. This makes static extraction impossible as per `research-043-263-roamer-tracking-remediation` and ADR 108-027.
 
+---
+
 # Session 15926776242114287155
 
 Epic epic-043-152-gen3-roamer-data-extraction is permanently cancelled because Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file, making static extraction impossible as per research-043-263-roamer-tracking-remediation and ADR 108-027.
+
+---
 
 # Story Owner Journal Entry
 
@@ -34,24 +52,36 @@ Epic epic-043-152-gen3-roamer-data-extraction is permanently cancelled because G
 **Date:** 2026-08-01
 **Topic:** Node Generation for Epic Planner Process Update
 
+---
+
 ## Learnings & Constraints
 
 1.  **Orchestrator Safeguard E2E Requirement:** When breaking down epics, the new orchestrator safeguard strictly enforces that an EPIC cannot be marked `COMPLETED` unless it contains at least one child STORY that explicitly represents integration or E2E testing (tagged with `e2e` or `integration`). When dynamically generating stories, I must always ensure that the final functional breakdown includes this verification layer to prevent the epic from permanently stalling in `PENDING` or `ACTIVE` states. This is crucial for maintaining macro-node functional boundaries.
 2.  **Node ID Strictness:** When appending newly generated child nodes as unchecked tasks to a parent node's markdown body, I must strictly use the exact Node ID without file extensions or directory paths (e.g., `- [ ] story-128-349-epic-planner-process-impl`). This ensures the DAG orchestration resolves correctly without malformed path issues.
 
+---
+
 ### Lessons Learned
 - **Precomputation Priority**: When evaluating complex algorithms on static data (like the Egg Move pathfinding mechanics across species), it is critical to spawn research nodes explicitly evaluating the feasibility of precomputation (e.g., `research-113-248-egg-move-precomputation`). Precomputing the entire static state space during the ETL phase shifts expensive runtime traversals away from the client to O(1) lookups, which must be standard practice for static mechanics.
 
+---
+
 ## Handling Cancelled Epics
 Epic `epic-043-152-gen3-roamer-data-extraction` is permanently cancelled. Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file, making static extraction impossible (as per `research-043-263-roamer-tracking-remediation` and ADR 108-027).
+
+---
 
 # Journal
 
 When extracting Gen 3 Spinda PIDs, we need to handle parsing from PC Box data as well as Party data correctly according to their specific structures.
 
+---
+
 # Session 2026-08-02-13-20-55
 
 Observed that `epic-095-119-in-game-trade-data-extraction.md` has all of its acceptance criteria checked and all downstream task nodes are completed.
+
+---
 
 # Journal - Story Owner
 Session: 2610669616610393911
@@ -59,12 +89,18 @@ Session: 2610669616610393911
 - Created new STORY node `.foundry/stories/story-338-336-implement-orchestrator-cycle-detection.md` to implement circular dependency detection for the DAG Orchestrator.
 - Did not modify the parent epic's YAML frontmatter. Left acceptance criteria checkbox for this story UNCHECKED in the Epic body because the child node is still PENDING.
 
+---
+
 ## Cancellation of epic-043-152-gen3-roamer-data-extraction
 The Epic `epic-043-152-gen3-roamer-data-extraction` is permanently CANCELLED and aborted. As detailed in ADR 108-027 and `research-043-263-roamer-tracking-remediation`, Gen 3 roamer map coordinates are stored in dynamically allocated EWRAM during gameplay and are not serialized to the save file, making static extraction mathematically impossible.
+
+---
 
 # 3235657042468598680
 
 Generated new child STORY nodes (story-058-341-feebas-fast-calculation and story-058-342-feebas-backend-integration-retry) to address the unfulfilled acceptance criteria of epic-036-058-feebas-backend-parsing.
+
+---
 
 ## Epic Cancellation
 `epic-043-152-gen3-roamer-data-extraction` has been permanently cancelled.
@@ -72,29 +108,43 @@ Generated new child STORY nodes (story-058-341-feebas-fast-calculation and story
 **Reasoning:**
 As per `ADR 108-027`, extracting Gen 3 roamer map coordinates is mathematically impossible because the roamer's location (`sRoamerLocation`) and its map history (`sLocationHistory`) are kept exclusively in dynamically allocated `EWRAM_DATA` during gameplay. When the game saves, these values are never serialized into the save file. This makes static extraction impossible, rendering the Epic unachievable.
 
+---
+
 # Session 445421974531024931
 
 The target artifact `epic-055-119-gen3-move-tutor-save-parsing` is already completely implemented via `story-119-267-gen3-move-tutor-emerald-parsing` and `story-119-318-gen3-move-tutor-frlg-parsing`.
 The completion of child stories and their child tasks were pre-existing.
 
+---
+
 ## Session: 4888067131241406297
 Cancellation of Epic 043-152 due to ADR 108-027 making static map extraction impossible
+
+---
 
 # Session: 5789674109407981456
 
 Created new story node `story-324-346-gen3-pv-iv-extraction` for Epic `epic-112-324-npc-size-record-data-extraction` to handle Gen 3 PV and IV data extraction. Updated the epic's acceptance criteria to reflect the newly generated story and marked the Gen 2 DV extraction story as completed.
 
+---
+
 ## Findings
 - Checked downstream stories: `story-306-319-gen1-trainer-data-extraction` and `story-306-320-gen2-trainer-data-extraction`. Both are `COMPLETED` and already checked off in the EPIC's markdown body.
 - All acceptance criteria of the assigned epic are completed and checked upon initialization. No new requirements need to be invented.
+
+---
 
 # Session 6579414286306081301
 
 The `epic-055-119-gen3-move-tutor-save-parsing` was incorrectly advancing and potentially failing because a completed child node `story-119-268-gen3-move-tutor-frlg-parsing` was entirely missing from its acceptance criteria checkboxes. I have appended `- [x] story-119-268-gen3-move-tutor-frlg-parsing` to the markdown body of the parent to ensure the strict parent-child verification checks in the DAG Orchestrator are satisfied.
 
+---
+
 # Session 692935771812904034
 
 Cancelled Epic epic-043-152-gen3-roamer-data-extraction because Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file, making static extraction impossible as per research-043-263-roamer-tracking-remediation and ADR 108-027.
+
+---
 
 ## Epic Cancellation
 
@@ -102,12 +152,18 @@ Epic `epic-043-152-gen3-roamer-data-extraction` is permanently cancelled. As sta
 
 > This Epic is permanently CANCELLED as Gen 3 roamer map coordinates are stored in EWRAM and are not serialized to the save file, making static extraction impossible as per research-043-263-roamer-tracking-remediation and ADR 108-027.
 
+---
+
 # Session 8117127116122783330
 - Identified that the E2E safeguard required a new story with the `integration` tag.
 - Created `story-268-348-gen3-ash-integration.md` to handle UI integration and E2E testing.
 - Updated `epic-054-268-gen3-ash-save-parsing.md` to format the child nodes as valid markdown links to prevent parsing failures by the Orchestrator, as learned from system invariant rules.
 
+---
+
 ## 2026-07-25
+
+---
 
 # Journal Entry
 
@@ -133,6 +189,8 @@ Added an e2e story for `epic-334-338-circular-dependency-detection` to satisfy t
 - Checked off completed descendant nodes (`research-137-330`, `story-137-333`, `story-137-334`) in the Epic `epic-106-137-gen2-static-encounters` markdown body.
 - Spawned a new E2E story `story-137-356-gen2-static-encounters-e2e` and appended it as an unchecked task in the Epic to comply with the Orchestrator Safeguard (which requires an Epic to have at least one child STORY with an 'e2e' or 'integration' tag to successfully complete).
 
+---
+
 ## Context
 The Epic had previous tasks/stories that permanently failed due to an issue parsing event flags (resolved via `research-137-330`). The replacement retried stories (`story-137-333`, `story-137-334`) were already completed. However, since the Epic is transitioning, I had to ensure it meets the Orchestrator Safeguard requirement of having an E2E test.
 
@@ -143,8 +201,12 @@ The Epic had previous tasks/stories that permanently failed due to an issue pars
 **Session ID:** 2026-08-02-10-34-28
 **Epic:** epic-095-119-in-game-trade-data-extraction
 
+---
+
 ## Context & Execution
 The orchestrator activated the `story_owner` for `epic-095-119-in-game-trade-data-extraction`. The epic's downstream stories (story-119-258-gen2-npc-trade-parsing, story-119-259-gen3-npc-trade-parsing, story-119-260-npc-trade-data-mapping, story-119-261-npc-trade-state-integration) have already been generated, implemented, and most are archived.
+
+---
 
 ## Action Taken
 Following the Empty PR Policy, since the target artifacts are already implemented and the downstream nodes have completed their lifecycle, I updated the Markdown body to check off all remaining Acceptance Criteria checkboxes (including the generated stories) without modifying the YAML frontmatter. This allows the orchestrator to safely transition the node to `VERIFYING` and eventually `COMPLETED`.
@@ -167,12 +229,18 @@ No further stories needed. Checkboxes are checked. Submitting an empty PR to tra
 ## Initialization Context
 Session started to review `epic-106-137-pc-box-diff-engine-move-planner`.
 
+---
+
 ## Findings
 All acceptance criteria for `epic-106-137-pc-box-diff-engine-move-planner` are already completed and checked off.
 The downstream stories (`story-137-294-diff-engine-logic`, `story-137-295-move-planner-algorithm`, `story-137-296-move-planner-unit-tests`) are marked as COMPLETED.
 
+---
+
 ## Lesson / Pattern
 When an assigned epic has all its acceptance criteria and downstream stories already checked/completed upon initialization, do not invent new requirements (e.g., E2E safeguard stories). Adhere to the core policy: proceed directly with the Empty PR policy to transition the node.
+
+---
 
 ## Next Steps
 Proceed with submitting an Empty PR for this epic.
@@ -201,6 +269,8 @@ Encountered Epic `epic-106-136-pc-box-sorting-algorithms` in READY/ACTIVE state,
 ## Epic Status
 Working on `epic-100-130-rng-tid-sid-display`.
 
+---
+
 ## Learnings & Observations
 - **Orchestrator Safeguard E2E**: Discovered that EPIC nodes cannot transition to COMPLETED unless they possess at least one child STORY node tagged with `e2e` or `integration`.
 - **Action Taken**: Dynamically created an E2E story node (`story-130-349-rng-tid-sid-e2e`) explicitly tagged with `e2e` and added it to the Epic's Acceptance Criteria to satisfy the safeguard.
@@ -211,9 +281,13 @@ Working on `epic-100-130-rng-tid-sid-display`.
 ## Context
 Working on `epic-106-137-pc-box-diff-engine-move-planner`.
 
+---
+
 ## Findings
 - All descendant stories (`story-137-294-diff-engine-logic`, `story-137-295-move-planner-algorithm`, `story-137-296-move-planner-unit-tests`) were already in `COMPLETED` status.
 - The epic's Acceptance Criteria checkboxes for these child stories were already checked in the markdown body.
+
+---
 
 ## Actions Taken
 - Since the acceptance criteria are completed and the markdown checkboxes are ticked, I am submitting an Empty PR.
@@ -235,6 +309,8 @@ When all downstream descendant nodes (stories) of an EPIC are completed, the ove
 ## Activities
 - Broke down `epic-107-343-lift-rejection-count-state` into implementation and e2e stories.
 - Created `story-343-352-lift-rejection-constant-impl` and `story-343-353-lift-rejection-constant-e2e`.
+
+---
 
 ## Learnings
 - Consistently applied the E2E safeguard policy by including an `e2e` tagged story when decomposing Epics.
@@ -303,9 +379,11 @@ All descendant stories (`story-097-261-extract-pokemon-met-locations`, `story-09
 ## Session 9741268982599799300.md
 
 ---
+
 persona: story_owner
 session_id: '9741268982599799300'
 date: '2026-08-02'
+
 ---
 
 # Session Log
@@ -349,12 +427,17 @@ Observed that the children stories `story-324-322-gen2-dv-extraction` and `story
 - Marked all acceptance criteria in the epic as completed.
 - Generated empty PR to allow the DAG to progress, as no further story generation is needed.
 
+---
+
 ## Learnings
 - When child tasks fail (like the integration), research nodes and retries correctly re-evaluate the DAG. Wait until retries complete to mark the epic as resolved.
 
+---
 
 ## Session from 15244387903513368251.md
 Logged the creation of 3 stories breaking down epic-044-397-gen3-roamer-core-extraction-v5: dataview parsing, unit tests, and integration/e2e. Ensured proper late-binding and decomposition.
+
+---
 
 ## Session from 996248077779189391.md
 When spawning retry nodes for implementation, generative personas MUST include explicit Acceptance Criteria for the Coder to verify the implemented schema strictly matches the documentation (such as Section 14 of .foundry/docs/schema.md), rather than relying solely on file presence.
@@ -390,6 +473,8 @@ The Orchestrator Safeguard policy states that every EPIC node must have at least
 **Pattern:**
 Late-binding pattern was correctly utilized. An existing parent EPIC had a new child STORY dynamically drafted. We updated the parent's markdown body with the unchecked `[ ]` child node ID without altering its YAML frontmatter.
 
+---
+
 ## Learnings
 When breaking down Gen 3 save data parsing epics, it is crucial to separate the extraction of boolean event flags from inventory/bag parsing. Although both serve to detect events, they interact with entirely different memory blocks (flag arrays vs. structured item structs) and require different DataView parsing strategies. Grouping them into a single monolithic story leads to bloated implementation tasks. Furthermore, strictly enforce sibling dependencies (e.g., making the E2E story depend on the individual extraction stories) rather than leaving them parallel, to prevent DAG race conditions and ensure the E2E verification is only unblocked once both extraction logic stories are fully completed.
 
@@ -397,8 +482,12 @@ Epic Planner process changes have been implemented to enforce the inclusion of a
 
 Based on the failure of `epic-120-338-implement-conflictless-journals` (investigated in `research-335-400`), it is a critical project-specific constraint that every EPIC must spawn at least one child STORY node explicitly dedicated to Integration and E2E Verification. This STORY must be tagged with `e2e` or `integration`. Failing to generate this verification story will cause the orchestrator to repeatedly reject the epic when it attempts to transition to COMPLETED.
 
+---
+
 ## Issue
 I was woken up because the Epic `epic-057-347-bash-timeout-wrapper-retry` had missing checkboxes in its markdown body for its child nodes, even though the underlying stories (`story-347-354-bash-timeout-wrapper-impl` and `story-347-355-bash-timeout-wrapper-e2e`) were already marked as `COMPLETED`. This prevented the node from properly transitioning to the `VERIFYING` state.
+
+---
 
 ## Learnings & Takeaways
 This reinforces the critical rule from ADR 007 regarding the Parent-Linked DAG execution model:
@@ -413,8 +502,12 @@ In session 11236954308959706417 I created the STORIES to break down Epic 340-411
 
 When encountering a parent macro node that has pending child nodes located in active directories (like `.foundry/stories/`), even if their internal YAML status is `COMPLETED`, they are treated as pending by the Orchestrator. Therefore, their checkboxes must NOT be checked in the parent node's markdown body.
 
+---
+
 ## Context
 Breaking down epic `epic-117-335-integrate-zod-orchestrator` into story nodes as a story_owner.
+
+---
 
 ## Actions taken
 - Broke down the EPIC into three stories (335-412, 335-413, 335-414).
@@ -434,11 +527,17 @@ Notes for Future:
 
 **Date:** $(date +%Y-%m-%d)
 
+---
+
 ## Context
 When dynamically creating downstream child nodes (e.g., STORY nodes from an EPIC), I need to register them with the parent node by appending them as markdown checkboxes.
 
+---
+
 ## Challenge
 In the past, I used multi-line cat commands wrapped in a bash script to rewrite the entire parent file. This technique incorrectly re-evaluated bash variables (\$(date +%Y-%m-%d)) in the YAML frontmatter, corrupting the parent's updated_at field and failing schema validation (a strict policy violation since frontmatter cannot be modified).
+
+---
 
 ## Solution and Process Change
 Moving forward, when generating child nodes and updating the parent's markdown body via bash scripts, I MUST NOT overwrite the entire parent file using a cat block.
@@ -454,19 +553,27 @@ Decomposed epic-340-411-schema-resource-locking into story-411-418-schema-resour
 - **E2E Safeguard**: Epics require a final E2E verification Story, even for documentation-focused Epics, to comply with Orchestrator Safeguard.
 - **Empty PR Policy (Demotion)**: Since we generated pending children for the Epic, we must explicitly *not* check off the Epic's acceptance criteria. The Orchestrator requires these to be unchecked to demote the Epic back to PENDING. Submitting with unchecked boxes triggers the demotion correctly.
 
+---
+
 ## Strategy Adjustment
 In future planning for schema updates, ensure we always explicitly generate E2E validation stories.
 
 - Created story nodes for extracting Gen 3 AI data: active team, location, opponent data, and e2e verification. Appended unchecked tasks to the parent epic-340-411-gen3-ai-data-extraction.
+
+---
 
 # Anomaly Detection: Pre-existing Save Files
 The target artifacts (save files such as `red.sav`, `blue-evolve.sav`, `silver.sav`, `crystal-evolve.sav`, and `emerald.sav`) for Epic `epic-343-417-test-fixtures-sourcing` were found to already exist in `tests/fixtures/` prior to the session.
 
 When writing STORY nodes dynamically, always list the existing files in the directory and sort them to find the correct next sequence number (e.g., `ls -1 .foundry/stories/ | sort -n -t '-' -k 3`). Do not rely on pre-populated sequence numbers in the parent EPIC's Acceptance Criteria, as they might be hallucinated or cause collisions with existing nodes. Additionally, always ensure that every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification to satisfy the Orchestrator Safeguard.
 
+---
+
 ## Learnings
 - **ADR 025 Enforcement:** When breaking down epics, it is critical to cross-reference architectural decisions (ADRs). In this session, an epic required extracting the internal RTC from a Gen 3 save file. However, ADR 025 explicitly mandates an "RTC-Independent Fallback Strategy" utilizing system time and UI overrides. The RTC extraction requirement was therefore bypassed and documented via a RESEARCH node to maintain architectural compliance.
 - **Late Binding Pattern:** Utilized the late-binding pattern to dynamically generate a RESEARCH node to investigate the RTC conflict and subsequently generated the correct implementation stories for parsing the Shoal items and the mandated E2E verification story.
+
+---
 
 ## 2026-08-16: E2E Requirement for Epics
 Learned that Epics must always have a final STORY dedicated exclusively to Integration and E2E Verification to avoid rejection from the orchestrator.
@@ -484,33 +591,40 @@ The target Epic was updated with the generated child nodes and we submitted an E
 
 Enforced the Orchestrator Safeguard (E2E/Integration Requirement) for EPIC nodes by adding an E2E STORY to `epic-071-123-define-tailwind-v4-utilities-v2.md`, as it was missing a dedicated E2E verification story to satisfy hierarchical completion.
 
+---
 
 # Session 7125355397537957084
 
 - Decomposed epic `epic-071-124-migrate-core-tactical-components-v2` into multiple granular tasks to migrate different sets of components sequentially.
 - This adheres to the rules for granular task breakdown to avoid monolithic nodes, ensuring components like `TacticalPanel`, `TacticalButton`, and `TacticalSegmentedControl` are migrated carefully in separate steps, followed by an integration/e2e testing step.
 
-
+---
 
 # Session 8601309936583911484
+
+---
 
 ## Story Owner Reflection
 When breaking down Gen 3 epic `epic-097-130-gen3-data-structure-extraction` for the party data structure extraction, we must decouple the core parsing (handling the decryption and 100-byte block extraction) from the downstream feature (like Pokerus extraction).
 
 By actively applying the Orchestrator Safeguard (E2E/Integration Requirement), I ensured the parsing logic story `story-130-440-extract-gen3-party-data-structure` is followed by an explicitly dependent E2E verification story `story-130-441-gen3-data-extraction-e2e`. This ensures the foundation is robust across all 5 Gen 3 games before we attempt specific attribute exfiltration.
 
-
+---
 
 # Session 5608732619010995946
 
 * Correction regarding Late-Binding Orchestrator Demotion Compliance: When generating child tasks, the parent node's overarching/general functional Acceptance Criteria should remain unchecked IF it encompasses the whole feature. BUT if there are specific checklist items assigned to your persona (e.g., `- [x] Story Owner: Break this Epic down into Stories.`), YOU MUST check those off, because appending the child nodes as unchecked tasks (`- [ ] child-node`) is what prevents the parent from prematurely progressing to the VERIFYING state, not leaving your own specific checkboxes unchecked.
 
-
+---
 
 # Session 9840091124892751109
 
+---
+
 ## Objective
 Late-binding a missing Integration and E2E verification STORY node for EPIC `epic-035-048-smart-radar-data-unification`.
+
+---
 
 ## Discoveries & Actions
 - Investigated `epic-035-048-smart-radar-data-unification.md` and realized that it lacked an explicit `integration`/`e2e` tagged STORY node as mandated by the Orchestrator Safeguard.
@@ -521,7 +635,11 @@ Late-binding a missing Integration and E2E verification STORY node for EPIC `epi
 
 ## Aggregated from 13806017638855668589.md
 
+---
+
 # Session 13806017638855668589
+
+---
 
 ## Story Breakdown: Automated ADR Compliance Linter (epic-142-417)
 
@@ -532,12 +650,15 @@ Decomposed the epic into three separate sequentially-linked stories:
 
 Used `142` as parent ID from the epic, and used `443`, `444`, `445` for sequence numbers based on existing files in `.foundry/stories/`. Kept the existing epic checkboxes unchecked while appending the child tasks to prevent premature verification.
 
-
 ---
 
 ## Aggregated from 5420085334335838251.md
 
+---
+
 # Session 5420085334335838251
+
+---
 
 ## Resurrection of epic-044-070-hof-data-parsing
 - The auditor rejected this epic because it lacked new stories to parse the actual Hall of Fame data blocks.
@@ -545,12 +666,15 @@ Used `142` as parent ID from the epic, and used `443`, `444`, `445` for sequence
 - As per the Orchestrator Safeguard, I explicitly added the required E2E story (`story-070-443-hof-data-parsing-e2e.md`) since every epic MUST generate a final STORY dedicated to Integration and E2E verification.
 - Removed the `### Auditor Rejection` block to gracefully clear the failure state and allow the orchestrator to proceed. Unchecked the main task checkbox so the orchestrator correctly demotes the epic back to PENDING.
 
-
 ---
 
 ## Aggregated from 17551346587247009328.md
 
+---
+
 # Session 17551346587247009328
+
+---
 
 ## Prompt Fragment Layering Breakdown
 I broke down `epic-343-417-prompt-fragment-layering` into three stories.
@@ -559,23 +683,29 @@ Second, a story dedicated to the core composition engine, blocked by the schema 
 Third, a story dedicated exclusively to E2E verification of the composition system (`story-417-445-prompt-fragment-layering-e2e`), meeting the Orchestrator Safeguard E2E requirement for Epics.
 I left the overarching parent criteria unchecked as per hierarchical completion rules and appended the new stories as unchecked tasks.
 
-
 ---
 
 ## Aggregated from 14975556046693340691.md
 
+---
+
 # Late-Binding Validation Requirement for Epics
+
+---
 
 ## Context
 During session `14975556046693340691`, `epic-112-311-gen2-decoration-savings-extraction` was transitioned to my ownership. Upon review, the epic was lacking a STORY dedicated to E2E verification.
 
+---
+
 ## Lesson
 An Epic cannot be marked `COMPLETED` by the orchestrator unless an explicit STORY dedicated to Integration and E2E Verification (tagged with `e2e` or `integration`) is generated. The orchestrator safeguard rule must be respected, and generating these requirements late-binding as part of resolving orphaned or seemingly completed epics ensures the safeguard passes correctly and the epic can successfully handoff down the pipeline.
-
 
 ---
 
 ## Aggregated from 2026-08-23-07-36-49.md
+
+---
 
 # Story Owner Journal: 2026-08-23-07-36-49
 
@@ -588,19 +718,21 @@ An Epic cannot be marked `COMPLETED` by the orchestrator unless an explicit STOR
 
 
 <!-- Merged from 2026-08-23-08-53-26.md -->
+
+---
+
 # Story Owner Journal
+
+---
 
 ## DAG ID Strictness
 - **Learning**: When generating child stories and setting their dependencies via the `depends_on` YAML array, do not include the file path or `.md` extension (e.g., `- .foundry/stories/story-420-443-cli-scaffold.md`). The orchestrator strictly expects the bare Node ID (e.g., `- story-420-443-cli-scaffold`) to parse the dependency graph correctly. Using paths will cause the orchestrator to fail its validation steps.
-
-
 
 ---
 
 # 2026-08-29 - Orchestrator Safeguard E2E Verification Requirement
 
 When breaking down Epics, the Orchestrator Safeguard explicitly mandates that an EPIC cannot be marked COMPLETED unless a final STORY dedicated exclusively to Integration and E2E Verification is generated. In this session for epic-031-036-progression-tracking, I noticed that all of the actual implementation stories were completed, but the epic was still missing the E2E verification story. I created `story-036-490-progression-e2e-verification` to satisfy this requirement and ensure the orchestrator can eventually complete the epic once the verification is done.
-
 
 ---
 
@@ -609,7 +741,6 @@ When breaking down Epics, the Orchestrator Safeguard explicitly mandates that an
 -   **Lesson Learned:** When defining `depends_on` relationships between newly spawned sibling STORY nodes in the Foundry DAG, strictly use exact Node IDs (e.g., `story-530-536-dagtree-ui-logic`). Do not use repo-relative markdown file paths (e.g., `.foundry/stories/...`), as this violates schema strictness and causes the orchestrator to fail dependency resolution for these specific node linkages, leaving them stranded.
 -   **Lesson Learned:** Journal entries must strictly capture structural lessons, architectural constraints, or recurring failures that provide long-term value, as per the Journaling Policies. Simple logbook entries detailing task execution steps ('I created these three files') are explicitly prohibited and should not be written to memory.
 
-
 ---
 
 # Late Binding Memory
@@ -617,13 +748,16 @@ When breaking down Epics, the Orchestrator Safeguard explicitly mandates that an
 When a parent node requires breakdown into stories, the `story_owner` should append child nodes as unchecked task checkboxes in the `## Acceptance Criteria` of the parent, mark any specific drafting acceptance criteria as checked `[x]`, and submit an empty PR.
 This process properly triggers the orchestrator late binding waiting state mechanism.
 
-
 ---
 
 # 2026-09-17
 
+---
+
 ## Observations
 `epic-051-094-friendship-data-extraction` was rejected with a `rejection_count` of 2.
+
+---
 
 ## Learnings
 The epic lacked a final STORY dedicated exclusively to Integration and E2E Verification, which is a requirement enforced by the Orchestrator Safeguard. I have dynamically spawned `story-094-580-friendship-data-extraction-e2e` to satisfy this requirement and appended it as an unchecked acceptance criteria.
