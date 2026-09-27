@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 export function usePokedexGridVirtualizer({
   count,
   estimateSize = () => 366,
-  overscan = 25,
+  overscan = 1000,
 }: {
   count: number;
   estimateSize?: (index: number) => number;
