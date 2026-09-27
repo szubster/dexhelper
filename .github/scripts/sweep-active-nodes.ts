@@ -42,33 +42,90 @@ export function sweepActiveNodes(repoRoot: string, options: SweepOptions = { arc
 
   const activeNodes: string[] = [];
 
+  const nodes: { fp: string; id: string; parent: string | null | undefined; status: string }[] = [];
+  const nodeMap = new Map<string, typeof nodes[0]>();
+
   for (const fp of results) {
     try {
       const content = fs.readFileSync(fp, 'utf-8');
       const parsed = matter(content);
       const parseResult = NodeFrontmatterSchema.safeParse(parsed.data);
 
-      if (!parseResult.success) {
-        continue;
+      if (parseResult.success) {
+        const node = {
+          fp,
+          id: parseResult.data.id,
+          parent: parseResult.data.parent,
+          status: parseResult.data.status
+        };
+        nodes.push(node);
+        nodeMap.set(node.fp, node);
+      }
+    } catch {
+      // Ignore parse errors
+    }
+  }
+
+  const graph: Record<string, string[]> = {};
+  for (const node of nodes) {
+    graph[node.fp] = [];
+  }
+
+  for (const node of nodes) {
+    if (node.parent) {
+      // Find parent node by id
+      const parentNode = nodes.find(n => n.id === node.parent);
+      if (parentNode) {
+        if (!graph[node.fp].includes(parentNode.fp)) graph[node.fp].push(parentNode.fp);
+        if (!graph[parentNode.fp].includes(node.fp)) graph[parentNode.fp].push(node.fp);
+      }
+    }
+  }
+
+  const visited = new Set<string>();
+  const components: (typeof nodes)[] = [];
+
+  for (const node of nodes) {
+    if (!visited.has(node.fp)) {
+      const component = [];
+      const queue = [node.fp];
+      visited.add(node.fp);
+
+      while (queue.length > 0) {
+        const currFp = queue.shift()!;
+        const currNode = nodeMap.get(currFp);
+        if (currNode) {
+          component.push(currNode);
+        }
+
+        for (const neighborFp of graph[currFp] || []) {
+          if (!visited.has(neighborFp)) {
+            visited.add(neighborFp);
+            queue.push(neighborFp);
+          }
+        }
+      }
+      components.push(component);
+    }
+  }
+
+  for (const component of components) {
+    const isTerminal = component.every(n => n.status === 'COMPLETED' || n.status === 'CANCELLED');
+
+    for (const node of component) {
+      if (node.status === 'ACTIVE') {
+        const relativePath = path.relative(repoRoot, node.fp);
+        activeNodes.push(relativePath);
       }
 
-      const status = parseResult.data.status;
-
-      if (status === 'ACTIVE') {
-        const relativePath = path.relative(repoRoot, fp);
-        activeNodes.push(relativePath);
-      } else if ((status === 'COMPLETED' || status === 'CANCELLED') && options.archive !== false) {
-        // Move file to archive preserving structure
-        // e.g. .foundry/tasks/task.md -> .foundry/archive/tasks/task.md
-        const relativeToFoundry = path.relative(foundryDir, fp);
+      if ((node.status === 'COMPLETED' || node.status === 'CANCELLED') && options.archive !== false && isTerminal) {
+        const relativeToFoundry = path.relative(foundryDir, node.fp);
         const archivePath = path.join(foundryDir, 'archive', relativeToFoundry);
         const archiveDir = path.dirname(archivePath);
 
         fs.mkdirSync(archiveDir, { recursive: true });
-        fs.renameSync(fp, archivePath);
+        fs.renameSync(node.fp, archivePath);
       }
-    } catch {
-      // Ignore parse errors
     }
   }
 
