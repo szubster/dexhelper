@@ -25,7 +25,7 @@ locks: []
 Verify the implementation of the Gen 2 Unown Dex parsing logic, ensuring that the 26-byte array of caught Unown forms is correctly extracted and appended to the save data object.
 
 ## Acceptance Criteria
-- [ ] Verify that the `Gen2SaveData` interface in `src/engine/saveParser/parsers/common.ts` includes the `unownDex` property.
-- [ ] Verify that `parseGen2` correctly parses the `unownDex` block and applies it to the output.
-- [ ] Verify that module-level constants were used for the Unown Dex memory offsets.
-- [ ] Verify adequate unit test coverage for the Unown Dex parsing logic.
+- [x] Verify that the `Gen2SaveData` interface in `src/engine/saveParser/parsers/common.ts` includes the `unownDex` property.
+- [x] Verify that `parseGen2` correctly parses the `unownDex` block and applies it to the output.
+- [x] Verify that module-level constants were used for the Unown Dex memory offsets.
+- [x] Verify adequate unit test coverage for the Unown Dex parsing logic.
