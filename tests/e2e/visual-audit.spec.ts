@@ -17,7 +17,7 @@ test.describe('Lens Exploratory Visual & Layout Audit Suite', () => {
   ];
 
   for (const r of routes) {
-    test(`Exploratory Audit — Route ${r.name}`, async ({ page, isMobile }) => {
+    test(`Exploratory Audit — Route ${r.name}`, async ({ page }) => {
       const consoleErrors: string[] = [];
       page.on('console', (msg) => {
         if (msg.type() === 'error') {
