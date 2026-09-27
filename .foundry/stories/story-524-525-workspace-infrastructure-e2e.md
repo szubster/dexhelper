@@ -28,4 +28,7 @@ locks: []
 - Run workspace installation, linting, and basic validations.
 
 ## Acceptance Criteria
-- [ ] Break this story down into tasks for verifying the new workspace setup.
+- [x] Break this story down into tasks for verifying the new workspace setup.
+- [ ] task-525-627-workspace-e2e-scaffolding-coder
+- [ ] task-525-628-workspace-e2e-tests-coder
+- [ ] task-525-629-workspace-e2e-qa
