@@ -49,7 +49,7 @@ test.describe('Lens Exploratory Visual & Layout Audit Suite', () => {
           if (el.children.length === 0 && (el.textContent === '[' || el.textContent === ']')) {
             // Check if parent has multiple lines causing bracket separation
             const parent = el.parentElement;
-            if (parent && parent.innerText && parent.innerText.split('\n').length > 2) {
+            if (parent?.innerText && parent.innerText.split('\n').length > 2) {
               issues.push(`Isolated bracket in: ${parent.innerText.replace(/\n/g, ' ')}`);
             }
           }
@@ -59,9 +59,7 @@ test.describe('Lens Exploratory Visual & Layout Audit Suite', () => {
       expect(brokenBrackets, `Broken bracket wrapping detected: ${brokenBrackets.join('; ')}`).toEqual([]);
 
       // Verify no fatal console errors during navigation
-      const fatalErrors = consoleErrors.filter(
-        (e) => !e.includes('favicon') && !e.includes('push to cloud failed'),
-      );
+      const fatalErrors = consoleErrors.filter((e) => !e.includes('favicon') && !e.includes('push to cloud failed'));
       expect(fatalErrors, `Console errors encountered on ${r.name}: ${fatalErrors.join('; ')}`).toEqual([]);
     });
   }
