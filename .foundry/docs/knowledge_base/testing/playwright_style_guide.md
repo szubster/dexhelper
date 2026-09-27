@@ -61,3 +61,13 @@ test('successfully fetches and renders mock DAG data', async ({ page }) => {
   await expect(personaBadges).toHaveCount(3);
 });
 ```
+
+## No Stored Screenshots & Exploratory Visual Testing
+- **Prohibition on Stored Screenshots**: Never commit `.png` screenshot snapshots (e.g. from `toHaveScreenshot()`) into git. Storing binary snapshots bloats the repo and creates a false-pass trap where existing visual defects are frozen as "expected" baselines.
+- **Exploratory Visual Auditing**: Instead of static pixel comparison, write dynamic exploratory tests that interact with the application (switch saves, toggle filters, resize viewports) and assert on DOM/layout heuristics:
+  - Viewport horizontal overflow (`scrollWidth <= clientWidth + 2`).
+  - Tactical bracket wrap integrity (no isolated `[` or `]` wrapping onto separate lines).
+  - Fixed bar / overlay clearance (e.g., adequate scroll padding for `BottomNav`).
+  - Unrendered placeholder detection.
+  - Zero fatal console or runtime errors during interactive flows.
+
