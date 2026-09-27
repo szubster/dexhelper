@@ -151,6 +151,9 @@ Instead, active nodes MUST utilize Late Binding to spawn appropriate child or up
 ## YAML Frontmatter Rules
 **CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
 
+### Foundry Markdown Parsing
+When writing utility scripts or tools that process `.foundry` markdown files, metadata (such as `status` or `depends_on`) must be extracted by strictly isolating and parsing the YAML frontmatter block (e.g., by splitting on `---` boundaries or using a YAML frontmatter parser like `gray-matter`). Do NOT use global regex matching directly across the entire raw file body, as this risks matching keywords inside markdown descriptions or acceptance criteria.
+
 ## Node Generation Rules
 - **Artifact Anomaly Detection**: When a target Foundry artifact (such as a downstream PRD or generated node file) unexpectedly exists prior to the session, create a small journal entry detailing the anomaly for later review.
 - **DAG ID Strictness**: When setting the `depends_on` or `parent` fields in node frontmatter, you MUST strictly use exact Node IDs without file extensions (e.g., `prd-066-036-time-capsule-validator`), not repo-relative file paths.
