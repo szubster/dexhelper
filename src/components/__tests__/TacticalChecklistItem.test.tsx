@@ -15,16 +15,25 @@ describe('TacticalChecklistItem', () => {
     await expect.element(page.getByText('Optional Subtitle')).toBeInTheDocument();
   });
 
-  it('shows check icon and strikethrough when acquired', async () => {
+  it('shows check icon, [OK] status tag, and strikethrough when acquired', async () => {
     await render(<TacticalChecklistItem label="Acquired Item" acquired={true} />);
     const label = page.getByText('Acquired Item');
     await expect.element(label).toBeInTheDocument();
     await expect.element(label).toHaveClass('line-through');
+    await expect.element(page.getByText('[OK]')).toBeInTheDocument();
 
-    // Check icon SVG should be present but usually we just test classes or text
-    // We can test if the wrapper has the acquired classes
-    const wrapper = page.getByText('Acquired Item').element().parentElement?.parentElement;
+    const wrapper = page.getByText('Acquired Item').element().closest('.group');
     expect(wrapper?.className).toContain('border-emerald-900/50');
+  });
+
+  it('renders pending status tag [PENDING] by default when not acquired', async () => {
+    await render(<TacticalChecklistItem label="Pending Item" acquired={false} />);
+    await expect.element(page.getByText('[PENDING]')).toBeInTheDocument();
+  });
+
+  it('renders custom codeTag when provided', async () => {
+    await render(<TacticalChecklistItem label="Item with Custom Tag" codeTag="[OBJ.01]" />);
+    await expect.element(page.getByText('[OBJ.01]')).toBeInTheDocument();
   });
 
   it('does not strikethrough when acquired but strikethroughWhenAcquired is false', async () => {
@@ -45,7 +54,7 @@ describe('TacticalChecklistItem', () => {
 
   it('adds interactive classes when interactive is true', async () => {
     await render(<TacticalChecklistItem label="Interactive Item" interactive={true} />);
-    const wrapper = page.getByText('Interactive Item').element().parentElement?.parentElement;
+    const wrapper = page.getByText('Interactive Item').element().closest('.group');
     expect(wrapper?.className).toContain('hover:border-zinc-700');
   });
 });
