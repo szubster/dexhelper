@@ -25,6 +25,40 @@ describe('inventoryTools', () => {
     expect(instances[2]?.speciesId).toBe(4);
   });
 
+  it('extractAllInstances should combine Gen 2 daycare members', () => {
+    const mockDaycare: PokemonInstance[] = [
+      { speciesId: 25, level: 20, isShiny: false, moves: [], storageLocation: 'Daycare', hash: 'd' },
+    ];
+    const saveData: Partial<SaveData> = {
+      generation: 2,
+      partyDetails: mockParty,
+      pcDetails: mockPC,
+      daycare: mockDaycare,
+    };
+
+    const instances = extractAllInstances(saveData as SaveData);
+    expect(instances.length).toBe(4);
+    expect(instances[3]?.speciesId).toBe(25);
+    expect(instances[3]?.storageLocation).toBe('Daycare');
+  });
+
+  it('extractAllInstances should combine Gen 3 daycare members', () => {
+    const mockGen3Daycare: PokemonInstance[] = [
+      { speciesId: 183, level: 25, isShiny: false, moves: [], storageLocation: 'daycare', hash: 'e' },
+    ];
+    const saveData: Partial<SaveData> = {
+      generation: 3,
+      partyDetails: mockParty,
+      pcDetails: mockPC,
+      gen3Daycare: { mons: mockGen3Daycare },
+    };
+
+    const instances = extractAllInstances(saveData as SaveData);
+    expect(instances.length).toBe(4);
+    expect(instances[3]?.speciesId).toBe(183);
+    expect(instances[3]?.storageLocation).toBe('daycare');
+  });
+
   it('buildInventoryBySpecies should group instances by species ID', () => {
     const instances = [...mockParty, ...mockPC];
     const inventory = buildInventoryBySpecies(instances);
