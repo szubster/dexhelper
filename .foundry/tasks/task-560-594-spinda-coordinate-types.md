@@ -25,5 +25,5 @@ priority: 50
 This task involves defining the necessary TypeScript types and interfaces for representing Spinda spot coordinates (X, Y) and defining any module-level constants or constraints required for parsing the spot positions.
 
 ## Acceptance Criteria
-- [ ] Define types for Spinda spot coordinates.
-- [ ] Define constants for module-level constraints.
+- [x] Define types for Spinda spot coordinates.
+- [x] Define constants for module-level constraints.
