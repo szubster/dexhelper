@@ -22,5 +22,5 @@ locks: []
 The UI component (`Gen3TrainerCardDashboard`) for rendering Gen 3 Trainer Card upgrade data has been created and integrated into the main dashboard. We now need to write end-to-end (E2E) tests to verify that this data is correctly extracted from save files and successfully rendered in the browser environment, completing the integration pipeline.
 
 ## Acceptance Criteria
-- [ ] Write E2E tests in Playwright verifying the Trainer Card upgrade data (e.g., Hall of Fame Debut, National Pokédex Complete) renders correctly when a relevant Gen 3 save file is loaded.
-- [ ] Ensure all E2E tests pass reliably in both standard and mobile contexts if applicable.
+- [x] Write E2E tests in Playwright verifying the Trainer Card upgrade data (e.g., Hall of Fame Debut, National Pokédex Complete) renders correctly when a relevant Gen 3 save file is loaded.
+- [x] Ensure all E2E tests pass reliably in both standard and mobile contexts if applicable.
