@@ -13,3 +13,4 @@
 | [task-000-changelog-backfill](.foundry/tasks/task-000-changelog-backfill.md) | TASK | Changelog Backfill Commit Evaluation | changelogger | [13973838132785804968](https://jules.google.com/session/13973838132785804968) |
 | [task-429-553-generate-gen-specific-bundles](.foundry/tasks/task-429-553-generate-gen-specific-bundles.md) | TASK | Generate Gen-Specific Bundles | coder | [3977505734637876988](https://jules.google.com/session/3977505734637876988) |
 | [task-495-570-reactive-pokemon-details-impl](.foundry/tasks/task-495-570-reactive-pokemon-details-impl.md) | TASK | Update Pokemon Details Components for Reactivity | coder | [15394452758162886784](https://jules.google.com/session/15394452758162886784) |
+| [task-560-594-spinda-coordinate-types](.foundry/tasks/task-560-594-spinda-coordinate-types.md) | TASK | Spinda Coordinate Types and Constants | coder | [14273274835398591022](https://jules.google.com/session/14273274835398591022) |
