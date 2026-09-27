@@ -4,6 +4,7 @@ import { expect, type Page } from '@playwright/test';
 export async function initializeWithSave(
   page: Page,
   savePathOrData: string | Uint8Array = 'tests/fixtures/yellow.sav',
+  forceReload: boolean = false,
 ) {
   await page.goto('.');
 
@@ -12,7 +13,7 @@ export async function initializeWithSave(
   // Add a slight delay to allow the complex DOM (targeting array) to render correctly in CI
   await page.waitForTimeout(500);
 
-  const isInitialized = await page.getByText(/TRNR/i).first().isVisible({ timeout: 2000 });
+  const isInitialized = forceReload ? false : await page.getByText(/TRNR/i).first().isVisible({ timeout: 2000 });
 
   if (!isInitialized) {
     let fileBuffer: Buffer;

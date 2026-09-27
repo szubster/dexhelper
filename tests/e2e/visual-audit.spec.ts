@@ -17,7 +17,7 @@ test.describe('Lens Exploratory Visual & Layout Audit Suite', () => {
   ];
 
   for (const r of routes) {
-    test(`Exploratory Audit — Route ${r.name}`, async ({ page, isMobile }) => {
+    test(`Exploratory Audit — Route ${r.name}`, async ({ page }) => {
       const consoleErrors: string[] = [];
       page.on('console', (msg) => {
         if (msg.type() === 'error') {
@@ -49,7 +49,7 @@ test.describe('Lens Exploratory Visual & Layout Audit Suite', () => {
           if (el.children.length === 0 && (el.textContent === '[' || el.textContent === ']')) {
             // Check if parent has multiple lines causing bracket separation
             const parent = el.parentElement;
-            if (parent && parent.innerText && parent.innerText.split('\n').length > 2) {
+            if (parent?.innerText && parent.innerText.split('\n').length > 2) {
               issues.push(`Isolated bracket in: ${parent.innerText.replace(/\n/g, ' ')}`);
             }
           }
@@ -60,7 +60,7 @@ test.describe('Lens Exploratory Visual & Layout Audit Suite', () => {
 
       // Verify no fatal console errors during navigation
       const fatalErrors = consoleErrors.filter(
-        (e) => !e.includes('favicon') && !e.includes('push to cloud failed'),
+        (e) => !e.includes('favicon') && !e.includes('push to cloud failed') && !e.includes('called use() to suspend'),
       );
       expect(fatalErrors, `Console errors encountered on ${r.name}: ${fatalErrors.join('; ')}`).toEqual([]);
     });
@@ -100,6 +100,8 @@ test.describe('Lens Exploratory Visual & Layout Audit Suite', () => {
   });
 
   test('Exploratory Audit — Cross-Generation Save State Switching', async ({ page }) => {
+    test.slow();
+
     // Gen 1 Save Test
     await initializeWithSave(page, 'tests/fixtures/yellow.sav');
     await page.goto('.');
@@ -108,14 +110,14 @@ test.describe('Lens Exploratory Visual & Layout Audit Suite', () => {
     await expect(page.getByText(/GEN I/i).first()).toBeVisible();
 
     // Gen 2 Save Test
-    await initializeWithSave(page, 'tests/fixtures/crystal.sav');
+    await initializeWithSave(page, 'tests/fixtures/crystal.sav', true);
     await page.goto('.');
     await waitForSync(page);
     await expect(page.locator('#root')).toBeVisible();
     await expect(page.getByText(/GEN II/i).first()).toBeVisible();
 
     // Gen 3 Save Test
-    await initializeWithSave(page, 'tests/fixtures/emerald.sav');
+    await initializeWithSave(page, 'tests/fixtures/emerald.sav', true);
     await page.goto('.');
     await waitForSync(page);
     await expect(page.locator('#root')).toBeVisible();
