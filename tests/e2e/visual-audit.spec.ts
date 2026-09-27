@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { initializeWithSave, mockDagData, waitForSync } from './test-utils';
+import { clearStorage, initializeWithSave, mockDagData, waitForSync } from './test-utils';
 
 test.describe('Lens Exploratory Visual & Layout Audit Suite', () => {
   test.beforeEach(async ({ page }) => {
@@ -14,6 +14,8 @@ test.describe('Lens Exploratory Visual & Layout Audit Suite', () => {
     { name: 'DAG Route', path: 'dag' },
     { name: 'Safari Zone Route', path: 'safari-zone' },
     { name: 'Box Analyzer Route', path: 'box-analyzer' },
+    { name: 'Emulator Route', path: 'emulator' },
+    { name: 'Gen 3 Dashboard Route', path: 'gen3-dashboard' },
   ];
 
   for (const r of routes) {
@@ -97,26 +99,26 @@ test.describe('Lens Exploratory Visual & Layout Audit Suite', () => {
     expect(scrollWidth).toBeLessThanOrEqual(clientWidth + 2);
   });
 
-  test('Exploratory Audit — Cross-Generation Save State Switching', async ({ page }) => {
-    // Gen 1 Save Test
-    await initializeWithSave(page, 'tests/fixtures/yellow.sav');
-    await page.goto('.');
-    await waitForSync(page);
-    await expect(page.locator('#root')).toBeVisible();
-    await expect(page.getByText(/GEN I/i).first()).toBeVisible();
+  test.describe('Exploratory Audit — Cross-Generation Save State Switching', () => {
+    test('Gen 1 Save State (Yellow)', async ({ page }) => {
+      await clearStorage(page);
+      await initializeWithSave(page, 'tests/fixtures/yellow.sav');
+      await expect(page.locator('#root')).toBeVisible();
+      await expect(page.getByText(/GEN I/i).first()).toBeVisible();
+    });
 
-    // Gen 2 Save Test
-    await initializeWithSave(page, 'tests/fixtures/crystal.sav');
-    await page.goto('.');
-    await waitForSync(page);
-    await expect(page.locator('#root')).toBeVisible();
-    await expect(page.getByText(/GEN II/i).first()).toBeVisible();
+    test('Gen 2 Save State (Crystal)', async ({ page }) => {
+      await clearStorage(page);
+      await initializeWithSave(page, 'tests/fixtures/crystal.sav');
+      await expect(page.locator('#root')).toBeVisible();
+      await expect(page.getByText(/GEN II/i).first()).toBeVisible();
+    });
 
-    // Gen 3 Save Test
-    await initializeWithSave(page, 'tests/fixtures/emerald.sav');
-    await page.goto('.');
-    await waitForSync(page);
-    await expect(page.locator('#root')).toBeVisible();
-    await expect(page.getByText(/GEN III/i).first()).toBeVisible();
+    test('Gen 3 Save State (Emerald)', async ({ page }) => {
+      await clearStorage(page);
+      await initializeWithSave(page, 'tests/fixtures/emerald.sav');
+      await expect(page.locator('#root')).toBeVisible();
+      await expect(page.getByText(/GEN III/i).first()).toBeVisible();
+    });
   });
 });

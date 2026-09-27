@@ -1,6 +1,7 @@
-import { createFileRoute, lazyRouteComponent } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
+import React, { Suspense } from 'react';
 
-const LazyDagWrapper = lazyRouteComponent(() => import('../components/dag'), 'DagWrapper');
+const LazyDagWrapper = React.lazy(() => import('../components/dag').then((m) => ({ default: m.DagWrapper })));
 
 export const Route = createFileRoute('/dag')({
   component: DagRoute,
@@ -9,7 +10,9 @@ export const Route = createFileRoute('/dag')({
 function DagRoute() {
   return (
     <div className="h-[calc(100vh-140px)] w-full">
-      <LazyDagWrapper />
+      <Suspense fallback={<div className="tactical-skeleton h-full w-full" />}>
+        <LazyDagWrapper />
+      </Suspense>
     </div>
   );
 }
