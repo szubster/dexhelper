@@ -33,4 +33,6 @@ Provide E2E and integration verification for the new Playwright fixtures setup.
 - Write sample tests or integrate the new fixtures into existing basic tests to verify they function properly.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-587-627-migrate-basic-tests-to-fixtures
+- [ ] task-587-628-qa-basic-tests-migration
