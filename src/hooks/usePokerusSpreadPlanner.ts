@@ -43,10 +43,9 @@ export function usePokerusSpreadPlanner(initialParty: (PokemonInstance | null)[]
     }
     setParty((prevParty) => {
       const newParty = [...prevParty];
-      const temp = newParty[indexA];
-      // TypeScript requires explicit handling because newParty elements are typed as (PokemonInstance | null)
-      newParty[indexA] = newParty[indexB] as PokemonInstance | null;
-      newParty[indexB] = temp as PokemonInstance | null;
+      const temp = newParty[indexA] ?? null;
+      newParty[indexA] = newParty[indexB] ?? null;
+      newParty[indexB] = temp;
       return newParty;
     });
   };
