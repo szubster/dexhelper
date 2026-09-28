@@ -110,6 +110,9 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
     count: finalPokemon.length,
   });
 
+  // ⚡ Bolt: Pre-allocate column indices to avoid intermediate array allocations inside high-frequency virtualized row render pass
+  const columnIndices = useMemo(() => Array.from({ length: columns }, (_, i) => i), [columns]);
+
   if (finalPokemon.length === 0) {
     return (
       <TacticalPanel className="fade-in mx-1 mt-4 flex animate-in flex-col items-center justify-center p-12 text-center duration-500">
@@ -170,7 +173,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
           <div className="grid grid-cols-1 gap-4 px-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {virtualizer.getVirtualItems().map((virtualRow) => (
               <React.Fragment key={virtualRow.index}>
-                {Array.from({ length: columns }).map((_, colIndex) => {
+                {columnIndices.map((colIndex) => {
                   const idx = virtualRow.index * columns + colIndex;
                   const pokemon = finalPokemon[idx];
                   if (!pokemon) return <div key={`empty-${idx}`} />;
