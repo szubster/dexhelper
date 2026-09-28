@@ -30,8 +30,8 @@ locks: []
 Implement the UI elements (e.g., a 'Download Certificate' button) and connect them to the underlying image rendering and font loading logic. Ensure loading states and error handling are presented to the user appropriately.
 
 ## Acceptance Criteria
-- [ ] Create or update the UI to include an export/download button.
-- [ ] Connect the button to the image renderer function.
-- [ ] Implement loading states and error boundaries.
-- [ ] Ensure UI complies with the tactical aesthetic (ADR 008) (e.g., `rounded-none`, dashed borders if applicable).
-- [ ] Write unit tests for the UI interaction and states.
+- [x] Create or update the UI to include an export/download button.
+- [x] Connect the button to the image renderer function.
+- [x] Implement loading states and error boundaries.
+- [x] Ensure UI complies with the tactical aesthetic (ADR 008) (e.g., `rounded-none`, dashed borders if applicable).
+- [x] Write unit tests for the UI interaction and states.
