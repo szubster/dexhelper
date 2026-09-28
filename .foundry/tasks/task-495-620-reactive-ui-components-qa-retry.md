@@ -2,10 +2,10 @@
 id: task-495-620-reactive-ui-components-qa-retry
 type: TASK
 title: QA Verification for Reactive UI Components (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-24'
-updated_at: '2026-09-24'
+updated_at: '2026-09-28'
 depends_on:
   - task-495-618-reactive-pokedex-grid-impl-retry
   - task-495-619-reactive-dashboards-impl-retry
@@ -18,7 +18,9 @@ tags:
   - emulator
   - components
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-495-570-reactive-pokemon-details-impl
 notes: ''
 locks: []
 ---

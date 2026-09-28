@@ -2,18 +2,20 @@
 id: task-533-617-orchestrator-curator-trigger-logic-retry
 type: TASK
 title: Orchestrator Curator Trigger Logic Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-22'
 updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: '10307539068477512535'
+jules_session_id: null
 parent: research-533-601-investigate-curator-trigger-logic-failure
 tags:
   - orchestrator
   - curator
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

@@ -2,12 +2,12 @@
 id: research-560-608-investigate-tm-hm-compatibility-matching-failure
 type: RESEARCH
 title: Investigate TM/HM Compatibility Matching Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-09-21'
 updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: '11480450871657813738'
+jules_session_id: null
 pr_number: null
 parent: story-402-560-tm-hm-compatibility-matching
 tags:
@@ -16,7 +16,9 @@ tags:
   - investigation
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 priority: 50

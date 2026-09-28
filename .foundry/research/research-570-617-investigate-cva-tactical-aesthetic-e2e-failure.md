@@ -2,7 +2,7 @@
 id: research-570-617-investigate-cva-tactical-aesthetic-e2e-failure
 type: RESEARCH
 title: Investigate CVA tactical aesthetic E2E test failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-09-22T00:00:00Z'
 updated_at: '2026-09-28'
@@ -16,11 +16,10 @@ tags:
   - styling
   - failure-investigation
 research_references: []
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_reason: ''
 locks: []
 priority: 60
+rejection_count: 1
 ---
 
 # Research: Investigate CVA tactical aesthetic E2E test failure

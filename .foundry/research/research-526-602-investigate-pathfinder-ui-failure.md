@@ -2,19 +2,21 @@
 id: research-526-602-investigate-pathfinder-ui-failure
 type: RESEARCH
 title: Investigate Pathfinder Selection UI Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-09-21'
 updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: '15143999343896579704'
+jules_session_id: null
 pr_number: null
 parent: story-115-526-pathfinder-selection-ui
 tags:
   - investigation
   - ui
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---
