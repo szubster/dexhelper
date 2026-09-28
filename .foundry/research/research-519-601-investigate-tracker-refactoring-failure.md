@@ -2,12 +2,12 @@
 id: research-519-601-investigate-tracker-refactoring-failure
 type: RESEARCH
 title: Investigate Tracker and Radar Component Refactoring Failures
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-20T16:54:27.803Z'
 updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '697928964379076575'
 parent: story-125-519-refactor-complex-dashboard
 rejection_reason: ''
 locks: []
