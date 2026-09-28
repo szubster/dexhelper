@@ -5,6 +5,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [research-440-581-investigate-synergy-integration-failure](.foundry/research/research-440-581-investigate-synergy-integration-failure.md) | RESEARCH | Investigate Synergy Assistant Integration Failure | researcher | [8618931221612298196](https://jules.google.com/session/8618931221612298196) |
 | [research-520-623-zombie-node-detection-impl-failure](.foundry/research/research-520-623-zombie-node-detection-impl-failure.md) | RESEARCH | Investigate Zombie Node Detection Logic Implementation Failure | researcher | [199779871093251824](https://jules.google.com/session/199779871093251824) |
 | [story-425-495-reactive-ui-components](.foundry/stories/story-425-495-reactive-ui-components.md) | STORY | Reactive UI Components | tech_lead | [5656434409376078535](https://jules.google.com/session/5656434409376078535) |
 | [story-428-471-verify-and-integrate-saves](.foundry/stories/story-428-471-verify-and-integrate-saves.md) | STORY | Verify and Integrate Saves | tech_lead | [11961300968959135556](https://jules.google.com/session/11961300968959135556) |
