@@ -31,6 +31,6 @@ Write Playwright E2E tests for the Roamer Dossier rendering across different Gen
 Based on the solutions identified in the research node, implement reliable E2E tests for the Gen 3 Roamer Dossier. Ensure the tests correctly assert UI rendering with mocked save data across Ruby/Sapphire, Emerald, and FireRed/LeafGreen.
 
 ## Acceptance Criteria
-- [ ] Create Playwright E2E tests for the Gen 3 Roamer Dossier based on research findings.
-- [ ] Verify that stats (Species, Level, HP, IVs, PV, etc.) render properly based on the mocked save data.
-- [ ] Ensure tests cover the different game versions (R/S, Emerald, FR/LG).
+- [x] Create Playwright E2E tests for the Gen 3 Roamer Dossier based on research findings.
+- [x] Verify that stats (Species, Level, HP, IVs, PV, etc.) render properly based on the mocked save data.
+- [x] Ensure tests cover the different game versions (R/S, Emerald, FR/LG).
