@@ -2,12 +2,12 @@
 id: task-525-627-workspace-e2e-scaffolding-coder
 type: TASK
 title: Workspace Infrastructure E2E Scaffolding Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11997766969529907673'
 pr_number: null
 parent: story-524-525-workspace-infrastructure-e2e
 tags:
