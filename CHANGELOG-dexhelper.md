@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.21.1] - 2026-03-23
+### Changed
+- Bump `@tanstack/react-router` dependency from 1.167.4 to 1.168.2.
+
 ## [0.21.0] - 2026-03-23
 ### Added
 - Enhance the Pokémon Assistant with debug diagnostics, logging detailed rejection reasons for unobtainable Pokémon (e.g., version exclusivity, missing HoF, or claimed gifts).
@@ -134,3 +138,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.19.0]: https://github.com/szubster/dexhelper/compare/6ea8ef12be096d313b15f4868e61dbdefd4a26c4...a4e9aec1039af7baa330e437bbff39fe36a1c745
 [0.20.0]: https://github.com/szubster/dexhelper/compare/a4e9aec1039af7baa330e437bbff39fe36a1c745...c3633f50a3917c02df8179265ecee582c2bcb3e5
 [0.21.0]: https://github.com/szubster/dexhelper/compare/26c46de9206aeb462f3ecd8638e4472b44b58791...b72dce75b94081093c23f96b36a64f284845d643
+[0.21.1]: https://github.com/szubster/dexhelper/compare/067c75ac8a1f5636b8a76767bafd1eacde61240c...80809f4058a645e1648f9cd6ba4dee094ae0655e
