@@ -25,7 +25,7 @@ locks: []
 Perform Quality Assurance verification on the `ISaveDataReader` and `SaveDataReader` implementation, ensuring bounds checking strictly throws the correct error message.
 
 ## Acceptance Criteria
-- [ ] Verify `ISaveDataReader` interface is correctly defined.
-- [ ] Verify `SaveDataReader` correctly wraps `DataView` and implements core read methods.
-- [ ] Verify bounds checking correctly catches `RangeError` and throws "The save file is corrupted or incomplete."
-- [ ] Verify all unit tests pass and provide adequate coverage.
+- [x] Verify `ISaveDataReader` interface is correctly defined.
+- [x] Verify `SaveDataReader` correctly wraps `DataView` and implements core read methods.
+- [x] Verify bounds checking correctly catches `RangeError` and throws "The save file is corrupted or incomplete."
+- [x] Verify all unit tests pass and provide adequate coverage.
