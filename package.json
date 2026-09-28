@@ -21,6 +21,7 @@
   "scripts": {
     "build": "vite build",
     "build:analyze": "ANALYZE=true vite build",
+    "build:cn": "CN=true vite build",
     "check:biome": "biome check --error-on-warnings .",
     "check:fix": "biome check --write --unsafe .",
     "clean": "rm -rf dist",

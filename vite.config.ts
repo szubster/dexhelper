@@ -17,7 +17,7 @@ export default defineConfig(() => {
   const target = 'esnext';
 
   return {
-    base: process.env['CF_PAGES'] === 'true' ? '/' : '/dexhelper/',
+    base: process.env['CN'] === 'true' || process.env['CF_PAGES'] === 'true' ? '/' : '/dexhelper/',
     plugins: [
       pokedataPlugin({ sourceDir }),
       foundryPlugin(),
