@@ -2,12 +2,12 @@
 id: task-558-568-rs-battle-tower-data-parsing-impl
 type: TASK
 title: Implement Ruby/Sapphire Battle Tower Data Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-12'
 updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: '1309222002468428264'
+jules_session_id: null
 pr_number: null
 parent: story-078-558-rs-battle-tower-data-parsing
 tags:

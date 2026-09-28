@@ -2,10 +2,10 @@
 id: task-471-628-update-fixture-manifests
 type: TASK
 title: Update Fixture Manifests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-22'
-updated_at: '2026-09-22'
+updated_at: '2026-09-28'
 depends_on:
   - task-471-627-verify-and-move-saves
 jules_session_id: null

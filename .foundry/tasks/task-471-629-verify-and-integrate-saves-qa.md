@@ -2,10 +2,10 @@
 id: task-471-629-verify-and-integrate-saves-qa
 type: TASK
 title: QA - Verify and Integrate Saves
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-22'
-updated_at: '2026-09-22'
+updated_at: '2026-09-28'
 depends_on:
   - task-471-628-update-fixture-manifests
 jules_session_id: null

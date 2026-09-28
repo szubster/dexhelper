@@ -7,23 +7,23 @@
       "PRD": 199,
       "RESEARCH": 211,
       "STORY": 956,
-      "TASK": 2089
+      "TASK": 2092
     },
     "byStatus": {
-      "COMPLETED": 2649,
-      "ACTIVE": 14,
-      "CANCELLED": 427,
-      "PENDING": 945,
-      "READY": 152,
+      "COMPLETED": 2654,
+      "ACTIVE": 21,
+      "CANCELLED": 436,
+      "PENDING": 921,
+      "READY": 162,
       "BLOCKED": 14,
-      "FAILED": 9
+      "FAILED": 5
     }
   },
   "prs": {
     "totalPRs": 30,
-    "openPRs": 12,
-    "mergedPRs": 17,
-    "closedPRs": 1
+    "openPRs": 19,
+    "mergedPRs": 11,
+    "closedPRs": 0
   },
-  "timestamp": "2026-09-28T19:35:27.538Z"
+  "timestamp": "2026-09-28T22:18:39.262Z"
 }

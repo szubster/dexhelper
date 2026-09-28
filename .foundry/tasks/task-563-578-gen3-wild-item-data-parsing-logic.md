@@ -2,7 +2,7 @@
 id: task-563-578-gen3-wild-item-data-parsing-logic
 type: TASK
 title: Implement Gen 3 Wild Encounter and Held Item Parsing Logic
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-14'
 updated_at: '2026-09-28'

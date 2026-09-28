@@ -2,10 +2,10 @@
 id: task-440-582-synergy-assistant-integration-impl-v2
 type: TASK
 title: Synergy Assistant Integration Implementation v2
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-15T17:42:01Z'
-updated_at: '2026-09-18'
+updated_at: '2026-09-28'
 depends_on:
   - research-440-581-investigate-synergy-integration-failure
 jules_session_id: null
@@ -15,7 +15,9 @@ tags:
   - backend
   - assistant
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-440-581-investigate-synergy-integration-failure
 notes: ''
 locks: []
 ---

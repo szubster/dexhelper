@@ -2,12 +2,12 @@
 id: research-495-617-investigate-reactive-ui-failures
 type: RESEARCH
 title: Investigate Reactive UI Implementation Failures
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-09-24'
 updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: '11955013476816856283'
+jules_session_id: null
 pr_number: null
 parent: story-425-495-reactive-ui-components
 tags:
@@ -15,7 +15,9 @@ tags:
   - emulator
   - components
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

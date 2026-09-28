@@ -2,7 +2,7 @@
 id: research-563-602-gen3-wild-encounter-offsets
 type: RESEARCH
 title: Investigate Gen 3 Wild Encounter Offsets
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-09-20'
 updated_at: '2026-09-28'
@@ -14,10 +14,8 @@ tags:
   - gen3
   - dexhelper
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50
