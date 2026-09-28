@@ -20,6 +20,9 @@ const STATUS_OPTIONS = [
 
 type StatusType = (typeof STATUS_OPTIONS)[number]['id'];
 
+// ⚡ Bolt: Hoisted static HP segments array to avoid array allocations on every component render
+const HP_SEGMENTS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 export function PokemonCatchProbability({ catchRate, effectivePokeball }: PokemonCatchProbabilityProps) {
   const [hpPercent, setHpPercent] = useState<number>(100);
   const [status, setStatus] = useState<StatusType>('none');
@@ -82,7 +85,7 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
           </div>
 
           <div className="relative flex w-full items-center gap-1 border border-white/5 border-dashed bg-black/60 p-1">
-            {Array.from({ length: 10 }).map((_, i) => {
+            {HP_SEGMENTS.map((i) => {
               const segmentValue = (i + 1) * 10;
               const isActive = hpPercent >= segmentValue;
               let segmentColor = 'bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]';
@@ -94,7 +97,6 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
 
               return (
                 <button
-                  // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable
                   key={`hp-segment-${i}`}
                   type="button"
                   aria-label={`Set HP to ${segmentValue}%`}
