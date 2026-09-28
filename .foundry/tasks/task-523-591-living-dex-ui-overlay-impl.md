@@ -2,13 +2,13 @@
 id: task-523-591-living-dex-ui-overlay-impl
 type: TASK
 title: Implement PC Box and Party State UI Overlay on Living Dex Grid
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-18T08:32:20Z'
 updated_at: '2026-09-28'
 depends_on:
   - task-523-590-living-dex-state-connection-impl
-jules_session_id: '13270611455701060394'
+jules_session_id: null
 pr_number: null
 parent: story-134-523-living-dex-state-overlay
 tags:

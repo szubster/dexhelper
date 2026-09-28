@@ -1,23 +1,23 @@
 ---
 id: task-560-595-spinda-pid-parsing-logic
 type: TASK
-title: "Spinda PID Parsing Logic"
-status: PENDING
+title: Spinda PID Parsing Logic
+status: READY
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-19'
+updated_at: '2026-09-28'
 depends_on:
   - task-560-594-spinda-coordinate-types
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-346-560-spinda-spot-coordinate-algorithm
-priority: 50
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Spinda PID Parsing Logic

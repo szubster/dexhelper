@@ -2,7 +2,7 @@
 id: research-423-568-investigate-gen3-lottery-ui-failure
 type: RESEARCH
 title: Investigate Gen3 Lottery UI Component Failure
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-09-11'
 updated_at: '2026-09-28'
@@ -14,10 +14,8 @@ tags:
   - feature
   - gen3
   - ui
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

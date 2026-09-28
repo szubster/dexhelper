@@ -2,10 +2,10 @@
 id: task-423-569-gen3-lottery-ui-component-impl-v2
 type: TASK
 title: Gen3 Lottery UI Component Implementation v2
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-11'
-updated_at: '2026-09-11'
+updated_at: '2026-09-28'
 depends_on:
   - research-423-568-investigate-gen3-lottery-ui-failure
   - task-423-469-gen3-lottery-state-impl
@@ -17,7 +17,9 @@ tags:
   - gen3
   - ui
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-423-568-investigate-gen3-lottery-ui-failure
 notes: ''
 locks: []
 ---

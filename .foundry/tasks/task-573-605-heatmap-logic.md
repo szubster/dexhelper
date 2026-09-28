@@ -2,13 +2,13 @@
 id: task-573-605-heatmap-logic
 type: TASK
 title: Implement Heatmap Aggregation Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-21T06:50:00Z'
 updated_at: '2026-09-28'
 depends_on:
   - task-573-604-heatmap-types
-jules_session_id: '9425173223763618511'
+jules_session_id: null
 pr_number: null
 parent: story-049-573-heatmap-data-processing-layer
 tags:
