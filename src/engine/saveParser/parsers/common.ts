@@ -140,6 +140,11 @@ export interface Gen3MysteryGift {
   isFarawayIslandEnabled: boolean;
 }
 
+export interface SpindaSpotCoordinate {
+  x: number;
+  y: number;
+}
+
 export interface Gen3Spinda {
   pid: number;
 }

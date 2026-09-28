@@ -313,6 +313,15 @@ export const GEN3_POKEMON_MOVE_2_OFFSET = 0x02;
 export const GEN3_POKEMON_MOVE_3_OFFSET = 0x04;
 export const GEN3_POKEMON_MOVE_4_OFFSET = 0x06;
 export const GEN3_SPINDA_SPECIES_ID = 327;
+
+// Spinda Spot Origin Coordinates (Gen 3)
+export const SPINDA_SPOT_ORIGINS = {
+  TOP_LEFT: { x: 8, y: 6 },
+  TOP_RIGHT: { x: 32, y: 7 },
+  BOTTOM_LEFT: { x: 14, y: 24 },
+  BOTTOM_RIGHT: { x: 26, y: 25 },
+};
+
 export const UPPER_16_BIT_SHIFT = 16;
 export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
 
