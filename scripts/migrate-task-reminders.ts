@@ -17,8 +17,14 @@ async function migrateTaskReminders() {
     const filePath = path.join(TASKS_DIR, file);
     const content = fs.readFileSync(filePath, 'utf-8');
 
-    // Parse status using a simple regex since we just need the status from the YAML frontmatter
-    const statusMatch = content.match(/^status:\s*(ACTIVE|PENDING|READY)\s*$/m);
+    // Parse status from frontmatter
+    const frontmatterMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+    if (!frontmatterMatch?.[1]) {
+      continue;
+    }
+
+    const frontmatter = frontmatterMatch[1];
+    const statusMatch = frontmatter.match(/^status:\s*(ACTIVE|PENDING|READY)\s*$/m);
 
     if (!statusMatch) {
       continue; // Skip tasks not in target states or without matching status
@@ -40,4 +46,6 @@ async function migrateTaskReminders() {
   console.log(`Migration complete. Modified ${modifiedCount} files.`);
 }
 
-migrateTaskReminders().catch(console.error);
+migrateTaskReminders().catch((error: unknown) => {
+  console.error(String(error));
+});
