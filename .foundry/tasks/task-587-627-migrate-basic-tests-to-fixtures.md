@@ -33,5 +33,5 @@ Migrate basic existing E2E tests to use the newly created Playwright custom fixt
 - Ensure all refactored tests still pass correctly.
 
 ## Acceptance Criteria
-- [ ] Basic tests are migrated to use the `loadSave` fixture.
-- [ ] Tests execute successfully using `pnpm test:e2e <file>`.
+- [x] Basic tests are migrated to use the `loadSave` fixture.
+- [x] Tests execute successfully using `pnpm test:e2e <file>`.

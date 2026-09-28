@@ -1,9 +1,9 @@
-import { expect, test } from '@playwright/test';
-import { initializeWithSave, waitForSync } from './test-utils';
+import { expect, test } from './fixtures';
+import { waitForSync } from './test-utils';
 
 test.describe('Settings', () => {
-  test('should open settings and toggle living dex mode and persist across reload', async ({ page }) => {
-    await initializeWithSave(page);
+  test('should open settings and toggle living dex mode and persist across reload', async ({ page, loadSave }) => {
+    await loadSave();
 
     await page.getByRole('button', { name: 'System Settings' }).click();
 
