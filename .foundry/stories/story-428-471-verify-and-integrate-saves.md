@@ -32,4 +32,7 @@ After downloading public save files, they must be validated to ensure they are v
 3. Update any index/manifest files or tests that load all fixtures.
 
 ## Acceptance Criteria
-- [ ] Break down this story into tasks.
+- [x] Break down this story into tasks.
+- [ ] task-471-627-verify-and-move-saves
+- [ ] task-471-628-update-fixture-manifests
+- [ ] task-471-629-verify-and-integrate-saves-qa
