@@ -5,6 +5,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [research-495-627-investigate-reactive-ui-failures-v2](.foundry/research/research-495-627-investigate-reactive-ui-failures-v2.md) | RESEARCH | Investigate Reactive UI Failures V2 | researcher | [14479879435641279533](https://jules.google.com/session/14479879435641279533) |
 | [research-570-617-investigate-cva-tactical-aesthetic-e2e-failure](.foundry/research/research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md) | RESEARCH | Investigate CVA tactical aesthetic E2E test failure | researcher | [5017732319048916135](https://jules.google.com/session/5017732319048916135) |
 | [story-125-519-refactor-complex-dashboard](.foundry/stories/story-125-519-refactor-complex-dashboard.md) | STORY | Refactor Complex Dashboard Components | tech_lead | [16647264208352904367](https://jules.google.com/session/16647264208352904367) |
 | [story-400-429-gen-specific-extensions](.foundry/stories/story-400-429-gen-specific-extensions.md) | STORY | Generate Gen-Specific Extensions | tech_lead | [3562828451645581771](https://jules.google.com/session/3562828451645581771) |
