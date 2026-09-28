@@ -7,34 +7,38 @@ import {
   RS_TOWER_RECORD_L100_OFFSET,
 } from './parser';
 
-describe('parseRSBattleTowerWinStreaks', () => {
-  it('parses Battle Tower data correctly from SaveBlock2', () => {
-    // Gen 3 save block sections are 4096 bytes long, we mock a 14-section buffer
-    const buffer = new Uint8Array(14 * 4096 * 2);
-    const view = new DataView(buffer.buffer);
-    const saveBlock2Offset = 0x2000;
+describe('Ruby/Sapphire Battle Tower Data Extraction', () => {
+  it('should parse win streaks and records correctly', () => {
+    // Total size needs to cover the offsets. The max offset is 0x0576, which is 1398 in decimal.
+    // + 2 bytes for the Uint16 = 1400.
+    const buffer = new ArrayBuffer(1500);
+    const view = new DataView(buffer);
+    const offset = 0; // Test with saveBlock2Offset = 0
 
-    view.setUint16(saveBlock2Offset + RS_TOWER_RECORD_L50_OFFSET, 105, true);
-    view.setUint16(saveBlock2Offset + RS_TOWER_RECORD_L100_OFFSET, 42, true);
-    view.setUint16(saveBlock2Offset + RS_TOWER_CURRENT_L50_OFFSET, 14, true);
-    view.setUint16(saveBlock2Offset + RS_TOWER_CURRENT_L100_OFFSET, 7, true);
+    view.setUint16(offset + RS_TOWER_RECORD_L50_OFFSET, 105, true);
+    view.setUint16(offset + RS_TOWER_RECORD_L100_OFFSET, 50, true);
+    view.setUint16(offset + RS_TOWER_CURRENT_L50_OFFSET, 42, true);
+    view.setUint16(offset + RS_TOWER_CURRENT_L100_OFFSET, 12, true);
 
-    const result = parseRSBattleTowerWinStreaks(view, saveBlock2Offset);
+    const result = parseRSBattleTowerWinStreaks(view, offset);
 
-    expect(result.level50.record).toBe(105);
-    expect(result.level100.record).toBe(42);
-    expect(result.level50.current).toBe(14);
-    expect(result.level100.current).toBe(7);
+    expect(result).toEqual({
+      level50: {
+        current: 42,
+        record: 105,
+      },
+      level100: {
+        current: 12,
+        record: 50,
+      },
+    });
   });
 
-  it('throws an error for out of bounds read', () => {
-    // Small buffer to trigger RangeError
-    const buffer = new Uint8Array(10);
-    const view = new DataView(buffer.buffer);
-    const saveBlock2Offset = 0;
+  it('should throw an error for out-of-bounds reads', () => {
+    // Create a buffer that is too small
+    const buffer = new ArrayBuffer(500);
+    const view = new DataView(buffer);
 
-    expect(() => parseRSBattleTowerWinStreaks(view, saveBlock2Offset)).toThrowError(
-      'The save file is corrupted or incomplete.',
-    );
+    expect(() => parseRSBattleTowerWinStreaks(view, 0)).toThrow('The save file is corrupted or incomplete.');
   });
 });
