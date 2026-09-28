@@ -2,10 +2,10 @@
 id: task-422-590-pc-box-extraction-logic
 type: TASK
 title: Implement PC Box data extraction logic
-status: READY
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-17T23:55:17Z'
-updated_at: '2026-09-22'
+updated_at: '2026-09-28'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - gen3
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---

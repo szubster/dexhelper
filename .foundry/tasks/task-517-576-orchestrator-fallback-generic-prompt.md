@@ -2,12 +2,12 @@
 id: task-517-576-orchestrator-fallback-generic-prompt
 type: TASK
 title: Orchestrator Fallback to Generic Prompt
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-09-13'
-updated_at: '2026-09-25'
+updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: '11090163777060536850'
+jules_session_id: null
 pr_number: null
 parent: story-418-517-orchestrator-fallback-mechanisms
 tags:
@@ -15,7 +15,7 @@ tags:
   - orchestrator
   - fallback
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 experiment_variants: []

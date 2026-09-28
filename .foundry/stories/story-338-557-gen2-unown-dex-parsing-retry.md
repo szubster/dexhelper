@@ -2,10 +2,10 @@
 id: story-338-557-gen2-unown-dex-parsing-retry
 type: STORY
 title: Parse Gen 2 Caught Unown Forms Retry
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-09-27'
 depends_on:
   - research-338-556-investigate-unown-parsing-timeout
 jules_session_id: null
@@ -26,7 +26,7 @@ As part of the Gen 2 Unown Dex Progress Tracker epic, we need to extract the cau
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] Implement parsing logic to extract the caught Unown forms from Gen 2 save data.
-- [ ] Ensure unit tests are added to verify correct parsing of Unown Dex data.
-- [ ] task-557-581-gen2-unown-dex-parsing-impl
-- [ ] task-557-582-gen2-unown-dex-parsing-qa
+- [x] Implement parsing logic to extract the caught Unown forms from Gen 2 save data.
+- [x] Ensure unit tests are added to verify correct parsing of Unown Dex data.
+- [x] task-557-581-gen2-unown-dex-parsing-impl
+- [x] task-557-582-gen2-unown-dex-parsing-qa

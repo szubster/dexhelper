@@ -2,13 +2,13 @@
 id: story-524-525-workspace-infrastructure-e2e
 type: STORY
 title: Workspace Infrastructure E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-24'
+updated_at: '2026-09-27'
 depends_on:
   - story-524-524-architectural-linting
-jules_session_id: null
+jules_session_id: '14756438219841272412'
 pr_number: null
 parent: epic-519-524-workspace-infrastructure
 tags:

@@ -1,6 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import 'fake-indexeddb/auto';
-import { deleteDB } from 'idb';
 
 describe('SaveDB normal operation', () => {
   let saveDB: typeof import('../SaveDB').saveDB;
@@ -9,7 +8,6 @@ describe('SaveDB normal operation', () => {
     vi.resetModules();
     const mod = await import('../SaveDB');
     saveDB = mod.saveDB;
-    await deleteDB('SaveDB');
   });
 
   afterEach(() => {
@@ -26,6 +24,56 @@ describe('SaveDB normal operation', () => {
     await saveDB.deleteSave('save1');
     const retrievedAfterDelete = await saveDB.getSave('save1');
     expect(retrievedAfterDelete).toBeUndefined();
+  });
+
+  it('should store and retrieve a file handle', async () => {
+    const mockHandle = { name: 'test.sav', kind: 'file' } as unknown as FileSystemFileHandle;
+    await saveDB.putHandle('handle1', mockHandle);
+
+    const retrievedHandle = await saveDB.getHandle('handle1');
+    expect(retrievedHandle).toEqual(mockHandle);
+  });
+
+  it('should execute upgrade callbacks for version 0 to 2 correctly', async () => {
+    // Test openDB upgrade callback directly by invoking openDB with custom mock
+    const createObjectStoreMock = vi.fn<(name: string) => void>();
+    const mockDb = {
+      createObjectStore: createObjectStoreMock,
+      get: vi.fn<() => Promise<undefined>>().mockResolvedValue(undefined),
+    };
+
+    let upgradeCallback: ((db: typeof mockDb, oldVersion: number) => void) | undefined;
+
+    vi.doMock('idb', () => ({
+      openDB: vi.fn<
+        (
+          name: string,
+          version: number,
+          options: { upgrade: (db: typeof mockDb, oldVersion: number) => void },
+        ) => Promise<typeof mockDb>
+      >((_name, _version, options) => {
+        upgradeCallback = options.upgrade;
+        return Promise.resolve(mockDb);
+      }),
+    }));
+
+    vi.resetModules();
+    const freshMod = await import('../SaveDB');
+    await freshMod.saveDB.getSave('test');
+
+    expect(upgradeCallback).toBeDefined();
+    // Simulate upgrading from version 0
+    upgradeCallback?.(mockDb, 0);
+    expect(createObjectStoreMock).toHaveBeenCalledWith('saves');
+    expect(createObjectStoreMock).toHaveBeenCalledWith('handles');
+
+    // Reset calls and simulate upgrading from version 1 (where saves store already exists)
+    createObjectStoreMock.mockClear();
+    upgradeCallback?.(mockDb, 1);
+    expect(createObjectStoreMock).not.toHaveBeenCalledWith('saves');
+    expect(createObjectStoreMock).toHaveBeenCalledWith('handles');
+
+    vi.doUnmock('idb');
   });
 });
 
@@ -60,5 +108,15 @@ describe('SaveDB fallback operation', () => {
 
     expect(console.error).toHaveBeenCalledWith('System: sync failed');
     expect(console.error).toHaveBeenCalledTimes(4);
+  });
+
+  it('should log error when getHandle or putHandle fails due to indexedDB error', async () => {
+    const mockHandle = { name: 'test.sav' } as unknown as FileSystemFileHandle;
+    await saveDB.putHandle('h1', mockHandle);
+    const retrieved = await saveDB.getHandle('h1');
+
+    expect(retrieved).toBeUndefined();
+    expect(console.error).toHaveBeenCalledWith('System: sync failed');
+    expect(console.error).toHaveBeenCalledTimes(2);
   });
 });

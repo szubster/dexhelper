@@ -49,6 +49,11 @@ In React 19, lazy-loaded route components (such as `DagWrapper` on `/dag`) throw
 * **Resolution**: Replace `lazyRouteComponent` with `React.lazy()` and wrap lazy components in `<Suspense fallback={...}>`.
 
 ---
+# Exploratory Layout Audit Findings — 2025-09-28
+
+## Mobile Viewport Bottom Nav Margin Requirements
+* **Fixed Bottom Bar Occlusion Risk**: On mobile viewports (Pixel 9: 393x852), fixed bottom navigation arrays (`BottomNav`) span y-coords 752-852px (~100px fixed height). Scrollable route containers must consistently maintain bottom padding (`pb-24` / `pb-28`) to prevent interactive card footers from being hidden beneath the fixed control array.
+* **Horizontal Overflow**: Verified that `scrollWidth <= clientWidth + 2` holds across all 9 application routes during exploratory interaction tests and save state toggles.
 
 ## Cross-Generation Save State Switching in Playwright
 When running E2E visual tests that iterate through multiple save files (`yellow.sav`, `crystal.sav`, `emerald.sav`) within a test suite, `initializeWithSave` checks if `TRNR` text is already visible on the page. If a save state is already active, `initializeWithSave` skips overwriting IndexedDB.

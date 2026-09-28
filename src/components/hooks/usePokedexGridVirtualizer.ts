@@ -1,12 +1,14 @@
-import { useVirtualizer } from '@tanstack/react-virtual';
+import { useWindowVirtualizer } from '@tanstack/react-virtual';
 import { useEffect, useRef, useState } from 'react';
 
 export function usePokedexGridVirtualizer({
   count,
-  estimateSize = () => 140,
+  estimateSize = () => 366,
+  overscan = 1000,
 }: {
   count: number;
   estimateSize?: (index: number) => number;
+  overscan?: number;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [columns, setColumns] = useState(1);
@@ -31,11 +33,10 @@ export function usePokedexGridVirtualizer({
   }, []);
 
   // oxlint-disable-next-line react/incompatible-library
-  const virtualizer = useVirtualizer({
+  const virtualizer = useWindowVirtualizer({
     count: Math.ceil(count / columns),
-    getScrollElement: () => document.documentElement,
     estimateSize,
-    overscan: 2,
+    overscan,
   });
 
   return { containerRef, columns, virtualizer };

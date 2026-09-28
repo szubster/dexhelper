@@ -2,13 +2,13 @@
 id: task-557-582-gen2-unown-dex-parsing-qa
 type: TASK
 title: QA Gen 2 Unown Dex Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-19T20:05:20Z'
-updated_at: '2026-09-25'
+updated_at: '2026-09-27'
 depends_on:
   - task-557-581-gen2-unown-dex-parsing-impl
-jules_session_id: '15654756882712595326'
+jules_session_id: null
 parent: story-338-557-gen2-unown-dex-parsing-retry
 tags:
   - feature

@@ -2,10 +2,10 @@
 id: task-429-553-generate-gen-specific-bundles
 type: TASK
 title: Generate Gen-Specific Bundles
-status: READY
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-22'
+updated_at: '2026-09-28'
 depends_on:
   - research-429-531-investigate-gen-specific-bundle-timeout
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - architecture
   - bundles
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---
