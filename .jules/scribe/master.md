@@ -2,22 +2,34 @@
 
 When creating JSDoc for complex binary parsing logic, ensure you document the 'why' and the specific bitwise math. Bitwise operations like `(flag >> FLAG_BYTE_SHIFT)` and `(flag & FLAG_BIT_MASK)` are non-obvious to standard UI developers and warrant explicit inline comments. Also, when extracting boolean states from a dense event flags block (e.g. Move Tutors), document the multi-byte block structure used to fetch the data.
 
+---
+
+---
+
 # Scribe Memory
 
 - When adding JSDoc comments to complex parsing domains (like `src/engine/saveParser/parsers/gen3.ts`), it is crucial to explain the architectural 'why' behind the logic, such as the A/B bank flash memory architecture in Generation 3, which alternates between 56KB banks to prevent data corruption.
 - While adding inline comments is helpful, providing a more comprehensive update by also including JSDoc annotations on exported APIs makes the documentation effort much more complete and valuable.
+
+---
 
 # Scribe Session Log
 
 - Observation: When analyzing memory operations in Gen 2, it is critical to note that version detection (Gold/Silver vs Crystal) dictates all base offsets. Instead of static offset maps, the codebase heavily utilizes ternary operations predicated on the `isCrystal` boolean. Inventory parsing also features dynamic length-prefixed lists rather than fixed structs.
 - Rule: Ensure architectural documentation does not hallucinate hex offsets or complex structures (e.g., roaming legendaries) if they are not definitively proven in the `run_in_bash_session` output. Strict adherence to grounded facts is required.
 
+---
+
 ## Session: journal
 Journal entry: Failed the first code review due to missing 'meaningful documentation gap'. The reviewer correctly observed that adding a type to a JSDoc block in a TypeScript codebase is redundant. For the next iteration, I should document a highly complex logic block that is currently lacking inline comments, such as the detectVersionAndOffsets heuristic in gen1.ts, or the memory offset logic in gen3.ts to actually provide value to future developers reading the code.
+
+---
 
 # Scribe Memory
 
 - When adding JSDoc comments to complex parsing domains (like `src/engine/saveParser/parsers/gen3.ts`), focus on explaining the architectural 'why' (e.g., A/B bank flash memory architecture, Swarms altering encounter tables) rather than just restating what the function arguments are.
+
+---
 
 # Scribe Memory
 
@@ -32,13 +44,21 @@ Journal entry: Failed the first code review due to missing 'meaningful documenta
 - Observation: When analyzing memory operations in Gen 2, it is critical to note that version detection (Gold/Silver vs Crystal) dictates all base offsets. Instead of static offset maps, the codebase heavily utilizes ternary operations predicated on the `isCrystal` boolean. Inventory parsing also features dynamic length-prefixed lists rather than fixed structs.
 - Rule: Ensure architectural documentation does not hallucinate hex offsets or complex structures (e.g., roaming legendaries) if they are not definitively proven in the `run_in_bash_session` output. Strict adherence to grounded facts is required.
 
+---
+
 ## Focus
 Added documentation to `src/engine/assistant/utils/encounterTools.ts`.
+
+---
 
 ## Learnings
 * **Bash Truncation:** When reading files to include the complete content in a `write_file` step (to comply with the Specificity Rule), bash output via `cat` can truncate if the file is too large. Instead of relying on a single `cat`, either pipe the output to a temp file and read it, or use `sed -n` sequentially (e.g., `sed -n '1,100p'`, `sed -n '101,200p'`) to bypass the truncation and safely retrieve the complete file contents without hallucinating.
 
-**What:** Added JSDoc and inline comments to Gen 3 save parser, specifically explaining A/B flash memory and decryption logic.\n**Why:** The code lacked high-level architectural documentation regarding the A/B banks and the 48-byte encrypted substructure permutations.\n**Outcome:** Provided clear architectural overview in `parseGen3`, `getLatestSectionOffset`, and `parseGen3PokemonPVAndIVs`.
+**What:** Added JSDoc and inline comments to Gen 3 save parser, specifically explaining A/B flash memory and decryption logic.
+**Why:** The code lacked high-level architectural documentation regarding the A/B banks and the 48-byte encrypted substructure permutations.
+**Outcome:** Provided clear architectural overview in `parseGen3`, `getLatestSectionOffset`, and `parseGen3PokemonPVAndIVs`.
+
+---
 
 ## 2025-02-14 - Accepted - Scribe: Gen 3 Save Parser Documentation
 **What:** Added inline comments and JSDoc blocks to `src/engine/saveParser/parsers/gen3.ts`.
@@ -50,16 +70,24 @@ Logging execution details for Scribe.
 
 Added JSDoc for parseGen1, parseGen2, and parseGen3 in src/engine/saveParser/parsers/. The changes successfully provided context on memory offsets, flash banks, and heuristics.
 
+---
+
 ## Target Module
 `src/engine/assistant/suggestionEngine.ts`
 
+---
+
 ## Motivation
 The engine module's exported APIs `fetchAssistantApiData` and `generateSuggestions` lacked comprehensive JSDoc comments. This area is critical to the suggestion algorithm's performance constraint (e.g. evaluating hundreds of missing Pokémon) and should be well-documented.
+
+---
 
 ## Actions Completed
 - Added `@param`, `@returns`, and `@example` tags to `fetchAssistantApiData` and `generateSuggestions`.
 - Addressed code review feedback by directly ensuring all Scribe parameters were included.
 - Passed `pnpm lint`, `pnpm test`, and selectively verified Playwright tests.
+
+---
 
 ## Lessons Learned
 - When documenting high-complexity domain logic, focusing on synchronous database lookups and generation-specific strategies gives critical context to *why* the functions are built the way they are.
@@ -69,10 +97,13 @@ Add documentation to a complex engine module (`encounterTools.ts`) focusing on t
 - **In-Place Array Mutation for Performance**: The core suggestion engine generation loop avoids using declarative array methods like `.filter()`, `.map()`, or `.some()` and instead heavily relies on manual `for` loops. Furthermore, arrays like `suggestions` and `localPids` are mutated *in-place* (using `splice` while iterating backwards, or `delete` on Sets). This is a critical and deliberate architectural constraint to prevent intermediate O(N) array allocations, which cause severe garbage collection overhead during the hot path. Functions like `filterSuggestionsByMissingTools` and `extractPlayerTools` perfectly demonstrate this requirement and have been documented accordingly.
 - **Pre-calculation for O(1) Lookups**: Tool availability (`extractPlayerTools`) is calculated once per suggestion generation cycle and passed down as a `PlayerTools` object to sub-generators, avoiding the need to repeatedly scan the player's full inventory for every individual wild encounter evaluation.
 
+---
+
 # Session Learnings
 
 - **Gen 3 Save Detection Stub**: `isGen3Save` in `src/engine/saveParser/utils/detection.ts` is explicitly stubbed to return `false` because Gen 3 save files use a complex A/B flash bank system with multiple checksums per sector. This requires scanning for signatures across sections, which is handled in a structural fallback path in `index.ts` rather than a contiguous block heuristic. I documented this with JSDoc.
 
+---
 
 # Scribe Journal
 
@@ -80,10 +111,12 @@ Add documentation to a complex engine module (`encounterTools.ts`) focusing on t
 - **Why this module:** The Generation 3 save parser handles complex A/B flash memory architecture and encrypted substructures. However, key orchestration functions like `parseGen3`, `parseGen3PCBuffer`, `parseGen3Party`, and `parseGen3PCBoxes` lacked clear JSDoc explanations for their parameters (like `section1Offset` or `pcBufferView`) and architectural context.
 - **Summary of Additions:** Added JSDoc comments explaining the A/B bank flash memory check and sector concatenation to `parseGen3`, `parseGen3PCBuffer`, `parseGen3Party`, and `parseGen3PCBoxes`. Emphasized why certain parameters exist, rather than just restating the logic.
 
-
+---
 
 ## Scribe Journal - Heatmap Density Logic
 Documented the architectural reason why `RouteRadarController` uses a `Set` to collect unique `areaId`s per suggestion. Without it, Pokémon with multiple sub-encounters on the same map would distort the heatmap density.
+
+---
 
 # Scribe Journal
 
@@ -91,24 +124,33 @@ Documented the architectural reason why `RouteRadarController` uses a `Set` to c
 - **Why this module:** The routing engine uses a fallback mechanism when evaluating player distance to wild encounters. Saffron City and Goldenrod City are hardcoded as universal fallbacks. The JSDoc lacked architectural explanation as to *why* these cities are used (i.e., they are centrally located hubs connecting multiple routes, necessary to prevent UI crashes if a player saves in an unmapped indoor location).
 - **Summary of Additions:** Added JSDoc blocks to `getDistanceToMap` explaining the structural topology rationale for the fallback cities, and included `@example` blocks as explicitly requested by the constraint checklist.
 
+---
+
 ## Session Learnings
 - **Pre-commit constraint compliance:** Ensure *all* specific tags requested in the instructions (e.g., `@example`) are included during the first pass. Skipping them leads to code review nitpicks.
-
 
 ---
 
 ## Aggregated from 2026-08-23-02-07-43.md
 
+---
+
 # Scribe Session Journal
+
+---
 
 ## Task Goal
 The user requested to pick ONE module and improve its documentation (JSDoc, inline comments, or architecture docs). Focus areas included engine modules with complex domain logic, exported hooks/utilities, the Zustand store, data pipeline scripts, or README improvements.
+
+---
 
 ## Action Taken
 1. **Scanned & Selected**: Identified `src/engine/saveParser/parsers/gen3.ts` as a high-complexity module dealing with binary offsets, A/B flash banks, and encryption. Specifically, the `extractGen3PokemonData` function was missing JSDoc explaining the Gen 3 data encryption algorithm (PV XOR OTID, GAEM blocks, and 24 permutations).
 2. **Documented**: Used `replace_with_git_merge_diff` to add comprehensive JSDoc to `extractGen3PokemonData` explaining the decryption process, which is non-obvious and relies on modulus math and hardcoded bitwise operations.
 3. **Verified**: Ran `pnpm lint` and `pnpm test` successfully (after installing `playwright chromium` binaries).
 4. **Committed**: Checked the diff and passed code review.
+
+---
 
 ## Critical Learnings
 - **Gen 3 Encryption Algorithm**: The 100-byte structure has a 48-byte encrypted core consisting of G (Growth), A (Attacks), E (Effort/Condition), and M (Miscellaneous) blocks. The key is `PV ^ OTID`, and the order is scrambled based on `PV % 24`.
@@ -117,24 +159,39 @@ The user requested to pick ONE module and improve its documentation (JSDoc, inli
 
 
 <!-- Merged from 2026-08-26-02-26-03.md -->
+
+---
+
 # Scribe Session: 2026-08-26-02-26-03
+
+---
 
 ## Focus
 `src/engine/saveParser/index.ts`
 
+---
+
 ## Critical Learnings
+
+---
 
 ### Biome Formatting Auto-Fix
 * **Observation:** After applying modifications via `replace_with_git_merge_diff`, `pnpm lint` failed due to formatting errors caught by Biome.
 * **Resolution:** Running `pnpm biome check --write .` successfully and automatically resolved the formatting errors without requiring manual line-by-line fixes. This should be a standard follow-up action if `pnpm lint` fails for formatting reasons.
 
+---
+
 ### Structural Fallback Logic
 * **Observation:** The `parseSaveFile` function employs a two-pass detection system. Checksums for Gen 1 and Gen 2 are verified first. However, emulators and cheats often modify save files without recalculating the checksum byte at the end of the block.
 * **Resolution:** The engine uses a "Structural Fallback" mechanism if checksums fail. It relies on internal memory offsets (like party counts and string terminators via `isGen1Save`, `isGen2Save`) rather than mathematical checksums to identify and parse these "dirty" saves.
 
+---
+
 ### Gen 3 Checksum Architecture
 * **Observation:** Gen 3 save files are not verified via a single contiguous block checksum in `parseSaveFile` like Gen 1 or 2.
 * **Resolution:** Gen 3 uses a complex A/B flash bank system with multiple checksums per sector. Therefore, its initial detection heavily relies on the structural fallback path (scanning for signatures across sections) rather than the primary checksum block.Scribe constraints: Avoid adding redundant JSDoc comments that simply restate logic. Focus purely on architectural 'why' (e.g., explaining why Feebas seeds use LCG or why map spot IDs require translation to 2D coordinates for UI heatmaps) to satisfy strict Scribe documentation policies.
+
+---
 
 ## Session: Documenting Gen 3 Pokemon Data Decryption
 - Observation: When using `replace_with_git_merge_diff`, it is absolutely critical that the search block exactly matches the text currently in the file. During this session, attempting to match `OTID` in a JSDoc string when the file actually contained `OT ID` caused the patch to fail.
@@ -142,34 +199,50 @@ The user requested to pick ONE module and improve its documentation (JSDoc, inli
 
 
 <!-- Merged from 2026-09-10-04-11-40.md -->
+
+---
+
 # Scribe Documentation Completion
+
+---
 
 ## Context
 Added JSDoc to `generateSuggestions` in `src/engine/assistant/suggestionEngine.ts`.
+
+---
 
 ## Key Actions
 - Added JSDoc explaining the architectural logic behind the core generator loop.
 - Specified the O(1) Data Structures and the Batch Limiting to explain *why* the loop is written the way it is.
 
+---
+
 ## Learnings
 - **Scribe Documentation Boundaries**: When acting as the Scribe persona to improve code clarity, limit changes strictly to documentation and comments (never modify application logic). Use JSDoc for TypeScript APIs, Markdown for architecture docs, document 'why' instead of 'what', and format the PR title as '📜 Scribe: [what was documented]'.
-
 
 ---
 
 # Scribe Journal - Gen 3 Static Encounters Documentation
 
+---
+
 ## Target Module
 `src/engine/gen3/staticEncounters.ts`
 
+---
+
 ## Motivation
 The module `src/engine/gen3/staticEncounters.ts` extracts static encounter event flags from Gen 3 SaveBlock1 memory buffers. However, its exported types and primary API `extractGen3StaticEncounterFlags` lacked JSDoc comments, `@param`, `@returns`, and `@example` tags explaining the binary offset mapping and bitwise mask structure (`0x1270` relative offset).
+
+---
 
 ## Actions Completed
 - Added top-level `@module` JSDoc detailing SaveBlock1 relative offset architecture.
 - Added JSDoc comments to exported interfaces (`Gen3EmeraldStaticEncounters`, `Gen3FRLGStaticEncounters`, `Gen3RSStaticEncounters`, `Gen3StaticEncounters`).
 - Added `@param`, `@returns`, `@throws`, and `@example` tags to `extractGen3StaticEncounterFlags`.
 - Documented internal helper `getBit` and added inline comments explaining the bitwise AND logic for event flag checking.
+
+---
 
 ## Key Learnings
 - **Gen 3 Event Flags Location**: In SaveBlock1, event flags begin at relative byte offset `0x1270` (`EVENT_FLAGS_START`). Each event flag is a single bit within a specific byte offset relative to `EVENT_FLAGS_START`.

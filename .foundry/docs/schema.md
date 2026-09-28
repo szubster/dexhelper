@@ -175,7 +175,6 @@ No persona should ever manually set `status: READY`. The orchestrator calculates
 | `human` | A human contributor. Bypasses Jules dispatch and heartbeat timeouts. | Pikachu |
 | `tpm` | Runs hourly. Archives `COMPLETED` nodes, resolves minor graph deadlocks, manages journals. | Chansey |
 | `agile_coach` | Master of the Process. Evolves persona prompts, monitors learning logs, and optimizes system-wide workflows. | Eevee |
-| `mechanic` | Ensures the Foundry is working as intended. Analyzes history and nodes to resolve deadlocks and loops. | Magnemite |
 | `researcher` | Responsible for exploratory tasks. Late-bound research nodes can be dynamically created by active nodes. Multiple researchers can be assigned to different sibling research nodes. | Omanyte |
 | `auditor` | Verifies artifacts against original intent, extracts learnings, and dynamically spawns follow-up nodes before archiving. | Pidgeot |
 | `librarian` | Mapped to Snorlax (#143). Responsible for context token optimization by digesting historical data and pruning stale entries. | Snorlax |

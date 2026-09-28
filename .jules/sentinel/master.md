@@ -4,6 +4,10 @@
 - **Iterative Refinements:** When creating mock files from bash using regex on TS files, be sure to use a Node script (`.cjs` extension) so ESM restrictions on `require` are bypassed.
 - **Coverage Impact:** Adding complete logic branches to `catchGenerator.ts` (a heavily nested and complex graph traversal engine module) substantially helps safeguard core engine refactors in the future.
 
+---
+
+---
+
 # Sentinel Session: generateSuggestions Coverage
 
 **Target File:** `src/engine/assistant/suggestionEngine.ts`
@@ -18,15 +22,20 @@
 **Result:**
 - Reached 100% logic coverage on the core orchestrator loops without altering application code.
 
+---
+
 # Sentinel Learnings: tradeGenerator.ts
 
 - **Strict Type Overrides:** When mocking complex interfaces like `AssistantApiData`, specifically object maps like `pokemonMetadata`, ensure `efrm` is typed and handled properly as an array of numbers. Missing these caused failures when the engine recursively traversed pre-evolutions.
 - **Side-effects / Artifacts:** Do not commit temporary coverage outputs (`coverage-output.txt`) or `test-tradeGen.ts` runner scripts. Ensure these are cleaned up before final review.
 - **Coverage Details:** Added tests specifically checking the `hasPhysicalPreEvo` bypass logic, and explicitly setting test scenarios where the player does *not* own the requested Pokémon to test branch coverage for exclusive exclusions correctly.
 
+---
 
 ## Focus
 Added unit tests for the Gen 3 Battle Frontier save parser (`src/engine/saveParser/gen3/battleFrontier/parser.ts`) to improve coverage in `engine/saveParser`.
+
+---
 
 ## Learnings
 *   **Vitest Configuration Constraints**: The project uses Vitest with `@vitest/browser-playwright`. When creating targeted tests for specific files (especially parsers handling `ArrayBuffer` and `DataView`), using the standard `node` environment is highly efficient. The command `pnpm test` successfully executes the `.test.ts` file without needing to spin up a full browser if it runs in the node environment block.
@@ -35,6 +44,7 @@ Added unit tests for the Gen 3 Battle Frontier save parser (`src/engine/savePars
 
 - **vitest(require-to-throw-message)**: When writing Vitest unit tests that assert an error is thrown, the Biome/Vitest linter enforces the `vitest(require-to-throw-message)` rule. You must always provide an explicit error message string to `toThrow()` (e.g., `expect(() => fn()).toThrow('Expected error')`) instead of just `toThrow()`. Leaving it empty will cause `pnpm lint` to fail and block commits.
 
+---
 
 # Sentinel Session: 2026-08-19-01-22-49
 
@@ -48,12 +58,18 @@ Added unit tests for the Gen 3 Battle Frontier save parser (`src/engine/savePars
 
 **Result:** Improved `src/hooks/useAssistant.ts` test coverage from 0% to 96%.
 
+---
+
 # 2024-05-15 Sentinel Session
+
+---
 
 ## Execution
 - Analyzed codebase for test coverage gaps prioritizing `src/engine`.
 - Discovered `src/engine/saveParser/gen3/narrative/parser.ts` had low branch (~52%) and statement (~65%) coverage.
 - Wrote tests in `src/engine/saveParser/gen3/narrative/parser.test.ts` filling the gaps specifically around badge accumulation leading to "upcoming bosses" for all variants of Gen 3 (FRLG, RSE) and the unknown variants.
+
+---
 
 ## Learnings
 - **Vitest Mocking Typing:** When mocking functions with Vitest, always provide explicit type parameters to `vi.fn()` (e.g., `vi.fn<() => void>()`) to satisfy the strict Biome type-checker and avoid `any` usage.
@@ -61,3 +77,35 @@ Added unit tests for the Gen 3 Battle Frontier save parser (`src/engine/savePars
 
 
 Learned that running coverage reports can clutter the working directory, and ensuring I remove them before staging is key.
+
+---
+
+# 2026-08-19 Sentinel Session: Gen 3 Save Parser Test Coverage
+
+**Target:** `src/engine/saveParser/gen3/battleFrontier/parser.ts` and `src/engine/saveParser/gen3/stateVariables/parser.ts`
+
+**Coverage Gap:**
+- `src/engine/saveParser/gen3/battleFrontier/parser.ts` contained `try...catch` blocks catching `RangeError` to throw "The save file is corrupted or incomplete.", but lacked tests for re-throwing non-`RangeError` exceptions.
+- `src/engine/saveParser/gen3/stateVariables/parser.ts` contained `extractLatestSectionOffset` logic comparing `saveIndexA` vs `saveIndexB` and fallback handling for missing sections in Bank A or Bank B, which had unvisited branch conditions.
+
+**Actions & Learnings:**
+- Added test cases in `src/engine/saveParser/gen3/battleFrontier/parser.test.ts` mocking `DataView` methods to throw custom `TypeError` instances, confirming non-`RangeError` exceptions are properly re-thrown across all exported functions.
+- Added test cases in `src/engine/saveParser/gen3/stateVariables/parser.test.ts` covering equal save indices (`saveIndexA <= saveIndexB`), missing Bank A section fallbacks, and non-`RangeError` exception re-throwing during section scanning.
+- Achieved 100% statement, branch, and function coverage for `src/engine/saveParser/gen3/battleFrontier/parser.ts`.
+
+**Result:**
+- Reached 100% line & statement coverage on `src/engine/saveParser/gen3/battleFrontier/parser.ts` and closed branch gaps in `src/engine/saveParser/gen3/stateVariables/parser.ts` without modifying application source code.
+
+---
+
+# Sentinel Session: mapGraph common.ts unit test coverage
+
+**Target File:** `src/engine/mapGraph/common.ts`
+
+**Observations & Actions:**
+- `src/engine/mapGraph/common.ts` contains core location resolution (`getLocation`), outdoor map resolution (`resolveOutdoorMapId`), and precomputed distance calculation helpers (`getDistanceToMapBase`) used across Gen 1, Gen 2, and Gen 3 map graphs.
+- Added comprehensive unit tests in `src/engine/mapGraph/common.test.ts` covering:
+  - Cache hits and invalidations in `getLocation`.
+  - Single-level, multi-level, circular, and unmapped indoor map resolution in `resolveOutdoorMapId`.
+  - Same map ID, precomputed distance, fallback map ID, missing target AID, and unreachable target cases in `getDistanceToMapBase`.
+- All 14 new tests passed cleanly without modifying any application source code.

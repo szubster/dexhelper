@@ -1,6 +1,10 @@
 ## Anomaly Detected
 When starting the session for `idea-117-split-bundles-and-data`, I noticed that its Acceptance Criteria contained a pre-checked entry for a PRD (`- [x] prd-117-116-split-bundles-and-data`) that did not exist in the `.foundry/prds/` directory. I created the correct PRD node (`prd-117-337-split-bundles-and-data`) and appended it as an unchecked task to the idea node, adhering to the node generation rules. This anomaly should be reviewed by the Agile Coach.
 
+---
+
+---
+
 # Product Manager Journal
 *   **Session ID:** 4787396288865281111
 *   **Context:** Transforming IDEA `idea-121-gen3-mystery-gift-viewer` into a PRD.
@@ -18,14 +22,20 @@ Generated PRD for "Split bundles and data by game generation" from idea-136-spli
 
 Generated PRD for Active Party Matchup Analyzer (`prd-134-340-active-party-matchup-analyzer`) from `idea-134-active-party-matchup-analyzer`. Enforced standard generation rules and updated the parent node.
 
+---
+
 # Product Manager Journal - Built-in Emulator Ideas Initialization
 *   **Session ID:** 11433354673368983253
 *   **Date:** 2026-08-08
+
+---
 
 ## Why This Matters
 Embedding an open-source Game Boy / Game Boy Advance emulator (like mGBA or binjgb) compiled to WebAssembly represents a paradigm shift for DexHelper.
 Traditionally, our application had a read-only, retroactive connection to local save files. By embedding the execution environment itself, we gain live telemetry via direct memory (RAM) queries.
 This allows us to transition from a retrospective checker to a real-time copilot.
+
+---
 
 ## Core Architectural Insights & Constraints
 1. **Legality & Zero ROM Bundling:** We must enforce a strict sandbox boundary where NO commercial Nintendo assets or ROM files are hosted or loaded by default. The emulator acts strictly as a raw virtual machine, and the client-side user is responsible for drag-and-drop their legally obtained backups.
@@ -34,18 +44,26 @@ This allows us to transition from a retrospective checker to a real-time copilot
 
 Drafted PRD for Cloudflare R2 conflict resolution UI (.foundry/archive/prds/prd-401-340-r2-conflict-resolution-ui) based on .foundry/archive/ideas/idea-039-401-r2-conflict-resolution-ui. Appended the generated downstream PRD as an unchecked task in the IDEA node's acceptance criteria.
 
+---
+
 ## Reflection on Mutex Implementation
 To safely execute multiple agent threads and prevent merge conflicts across the repo (e.g. index files), the DAG orchestrator will require a resource locking mechanism. By preventing parallel writes to the same paths based on schema metadata, this change solidifies our transition towards safe concurrency.
 
 Date: 2026-08-07
 
+---
+
 ## Objective
 Transform IDEA idea-130-shoal-cave-tide-tracker into a PRD.
+
+---
 
 ## Actions
 - Explored existing PRDs to find the next global sequence number (340).
 - Drafted PRD for Shoal Cave Tide & Item Tracker to extract RTC and inventory items (Shoal Shells, Shoal Salt).
 - Enforced the decomposition rule by identifying separate logical chunks for save parsing and UI presentation, and included an Orchestrator E2E Safeguard requirement.
+
+---
 
 ## Anomaly: Target Artifact Already Exists
 During the execution of `idea-086-fix-orchestrator-phase-3-6`, it was observed that the target downstream PRD artifact (`prd-086-108-fix-orchestrator-phase-3-6`) already existed prior to the session.
@@ -55,14 +73,22 @@ This anomaly is being logged for later review as per the Product Manager persona
 Date: 2026-08-12
 Session ID: 1280394659067550547
 
+---
+
 ## Observation
 While processing `idea-086-fix-orchestrator-phase-3-6`, I discovered that the target downstream PRD artifact (`prd-086-108-fix-orchestrator-phase-3-6`) already exists in the `.foundry/archive/prds/` directory and is marked as COMPLETED.
+
+---
 
 ## Action Taken
 Following the system directives for this scenario, I am checking off the Acceptance Criteria checkboxes in the markdown body of `idea-086-fix-orchestrator-phase-3-6` and submitting an Empty PR to allow the node to gracefully transition to COMPLETED.
 
+---
+
 ## Automated Location Tracking PRD
 I've drafted the PRD for Automated Location Tracking and Checklist Sync. The goal is to fully automate the user's checklist interactions by pulling X/Y coords, current Map IDs, and event flags straight from emulator RAM.
+
+---
 
 ## Architectural Pattern: Late-Binding
 I noted in the PRD that an ADR should be created by the Architect specifically addressing the background memory polling pattern (e.g. Web Workers) to prevent the main thread from blocking. I've left the exact event flag array mapping architecture open for the Epic Planner and Architect to negotiate in downstream nodes.
@@ -71,8 +97,12 @@ I noted in the PRD that an ADR should be created by the Architect specifically a
 
 Anomaly: The target downstream PRD `prd-115-115-remove-obsolete-orphaned-node-manual-cancellation` already existed prior to this session.
 
+---
+
 ## Date
 2026-08-14
+
+---
 
 ## Findings
 - Discovered that the implementation target for IDEA 147 (`tests/fixtures` and `saveFixtures.test.ts`) was actually already complete in source (an anomaly/pre-existing artifact).
@@ -81,18 +111,25 @@ Anomaly: The target downstream PRD `prd-115-115-remove-obsolete-orphaned-node-ma
 
 Successfully extracted Gen 2 Bug-Catching Contest score formula and implemented the PRD. Delegated epic breakdown to Epic Planner via unchecked task checkbox to satisfy macro node completion rules.
 
+---
+
 ## Node
 Draft PRD for `idea-147-gen3-weather-anomaly-tracker`
+
+---
 
 ## Learnings & Observations
 - **ES Modules in Scratchpads**: The project uses `"type": "module"`. When creating temporary Node.js scratchpad scripts, `require()` will fail. Always use `import` or the `.cjs` extension.
 - **E2E Test Timeouts**: The full Playwright E2E test suite takes >400s and will time out the bash session. Always explicitly target specific E2E tests (e.g., `tests/e2e/home.spec.ts`) after ensuring `playwright install` has been run.
 - **Bash Curl Failures vs External Sources**: When pulling exact offset/variable definitions from external sources like `pret/pokeemerald`, standard `curl | grep` can sometimes fail or truncate. Downloading the file locally and then running `grep` with context flags (`-A`, `-B`) is more reliable.
 
+---
 
 # Product Manager Journal Entry
 
 Date: 2026-08-31
+
+---
 
 ## Utilizing Late Binding for Undefined Mathematical Constants
 While attempting to draft a PRD for the "Gen 2 Headbutt Tree Predictor" (idea-157-gen2-headbutt-tree-predictor), I discovered that the specific mathematical algorithm involving the Trainer ID and tree coordinates was missing from the knowledge base and online sources.
@@ -103,10 +140,11 @@ Following the Late-Binding for Missing Context & Task Suspension protocol:
 
 **Lesson Learned**: Do not try to guess or implement generic fallbacks when specific game mechanics or offsets are unknown. Actively suspend the task and utilize the late-binding pattern to delegate research. This ensures accuracy and adherence to proper architecture before proceeding to the PRD phase. Also, remember that IDEA nodes must not have `rejection_count` or `rejection_reason` in their frontmatter.
 
+---
+
+<!-- Merged from 2026-09-08-03-26-13-impossible-loop-git-scanning.md -->
 
 ---
 
-
-<!-- Merged from 2026-09-08-03-26-13-impossible-loop-git-scanning.md -->
 # Journal Entry: 2026-09-08
 Git history scanning is an ineffective mechanism for detecting autonomous violations. We should prefer alternative approaches like API analysis or orchestrator state monitoring.

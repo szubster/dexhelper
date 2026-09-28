@@ -2,14 +2,22 @@
 - Node: story-304-319-gen3-hof-pokedex-extraction
 - Status: Verifying completed children.
 
+---
+
+---
+
 ## Learnings & Actions
 - The Hall of Fame and Pokédex extraction logic was successfully implemented in retry tasks after an initial magic numbers failure.
 - All child tasks (`research-319-360-gen3-hof-magic-numbers`, `task-319-361-gen3-hof-pokedex-extraction-retry-impl`, `task-319-362-gen3-hof-pokedex-extraction-retry-qa`) have reached `COMPLETED` status.
 - Checked off all acceptance criteria and child nodes in the story's markdown body to allow the Orchestrator to transition it to VERIFYING.
 
+---
+
 ## Notes
 - Resurrected task `story-327-331-research-gen3-pokeblock-offsets` and observed that the child task `task-331-334-research-gen3-pokeblock-offsets` was completed but its checkbox was not correctly appended/handled.
 - Wrote the technical contract explicitly within the task body rather than assuming downstream constraints (like relative offset processing with `section1Offset` and module-level constants) were implicit.
+
+---
 
 ## Notes
 - Discovered that Graveyard Box UI logic is largely implemented in `src/components/settings/SettingsControls.tsx` and connected in `src/components/SettingsModal.tsx`.
@@ -17,12 +25,18 @@
 - Drafted `task-334-347-graveyard-box-ui-qa` for QA verification.
 - Followed ADR 013 and ADR 017 implicitly as no new global state architecture is needed.
 
+---
+
 ## 2026-07-25: Re-issued Gen 3 Roamer Tests Task
 - **Action**: Acknowledged failure of `task-333-333-gen3-roamer-extraction-tests-impl` and replaced it with `task-333-346-gen3-roamer-extraction-tests-impl`.
 - **Architecture**: Enforced explicitly defining constants at the module level to prevent inline magic numbers, using relative offsets based on section resolving to support A/B flash redundancy, and catching `RangeError` from DataView bounds throwing a specific corruption message. Delegated self-verification to the coder since it is a test implementation.
 
+---
+
 ## Session 11673980446684887813
 Applied Intelligent Verification Protocol when drafting blueprints for Cloudflare R2 Offline Conflict Resolution. Given the complexity and risk associated with synchronization logic across offline/online boundaries, I created a dedicated QA task to verify the Coder's implementation, rather than relying on self-verification.
+
+---
 
 # Tech Lead Journal
 
@@ -30,15 +44,21 @@ Session ID: 12144804470286496581
 
 Encountered story `story-039-263-r2-pull-sync-logic` where the acceptance criteria were already checked off, and child tasks (`task-263-285-r2-pull-sync-logic-impl` and `task-263-286-r2-pull-sync-logic-qa`) were already drafted and checked off.
 
+---
+
 ## Session 1218200131457653461
 
 - Created task-259-348-egg-move-breeding-rules-impl to implement the breeding mechanics in the pathfinding algorithm in scripts/generate-pokedata.ts
 - Created task-259-349-egg-move-breeding-rules-qa to QA the changes. A QA task was created because this feature involves core pathfinding mechanics which is complex.
 
+---
+
 # Session Log
 
 **Session ID**: 12860966699449224743
 **Target Node**: story-039-266-r2-graceful-degradation
+
+---
 
 ## Actions Taken
 - Read Context from `.foundry/docs/`, `.foundry/archive/docs/adrs/`, and `src/hooks/useFileSyncController.ts`.
@@ -47,8 +67,12 @@ Encountered story `story-039-263-r2-pull-sync-logic` where the acceptance criter
 - Drafted task `task-266-378-r2-graceful-degradation-qa` as this involves networking operations, mandating a separate QA verification per the Intelligent Verification Protocol.
 - Updated parent story `story-039-266-r2-graceful-degradation` to include these child tasks as unchecked checkboxes, checking off the 'Break down into Tasks' criteria.
 
+---
+
 ## Architectural Notes
 - N/A, straight forward error handling for an existing mechanism.
+
+---
 
 # Session 13227253405777268427
 
@@ -58,33 +82,49 @@ Encountered story `story-039-263-r2-pull-sync-logic` where the acceptance criter
 - Decided self-verification is sufficient since the task itself is writing tests.
 - Marked story acceptance criteria as completed.
 
+---
+
 ## Assigned Node
 story-127-347-orchestrator-safeguard-e2e
+
+---
 
 ## Decisions
 - The assigned STORY node already has child tasks drafted from a previous iteration.
 - Tasks `task-347-360-e2e-safeguard-orchestrator-impl.md` and `task-347-361-e2e-safeguard-orchestrator-qa.md` exist and are referenced in the STORY's acceptance criteria.
+
+---
 
 ## Pattern: Intelligent Verification Protocol for UI Components
 - **Context**: Breaking down a story to integrate the `PokerusBadge` into the Party view (`src/components/StorageGrid.tsx`).
 - **Action**: Delegated the self-verification responsibility to the coder for this simple UI rendering task.
 - **Why**: The integration relies heavily on existing types (`PokemonInstance`) and simply involves conditional rendering within an already established layout (`StorageCard`). There's low risk to application state or core logic, avoiding the overhead of a dedicated QA task.
 
+---
+
 # Tech Lead Journal
 Session: 14162838589507285272
 
 Drafted technical blueprints (`task-269-346-e2e-safeguard-impl` and `task-269-347-e2e-safeguard-qa`) to fulfill the requirements of `story-127-269-epic-e2e-safeguard`. Appended these new tasks as unchecked checkboxes in the parent story node. I noticed there are older task iterations in the list (`task-269-334` etc.), so I simply appended the new ones to the end of the Acceptance Criteria list without checking off any logic myself.
 
+---
+
 ## Session: 14178614933995209425
 When drafting technical blueprints for save file parsing, it is critical to explicitly enforce the rules from Section 13 ("Save File Parsing & Extraction Guidelines") of `.foundry/docs/schema.md`. In particular, requiring the definition of module-level constants and explicitly banning inline magic numbers ensures maintainability. Additionally, requiring explicit `RangeError` handling with standard error messages prevents application crashes from corrupted saves. These explicit instructions must be included in the technical contract of tasks to prevent QA rejections.
+
+---
 
 # Tech Lead Journal
 
 Session ID: 14505263181288779168
 
+---
+
 # Tech Lead Journal - Session 14670499431203077321
 
 The target artifacts for the story `story-334-336-zod-schema-definition` (`task-336-342-zod-schema-definition-impl` and `task-336-343-zod-schema-definition-qa`) were already completely implemented and in a `COMPLETED` state.
+
+---
 
 # Session 1509983911165701547
 Broke down story-130-341-define-indexeddb-schema-retry into technical blueprints:
@@ -93,8 +133,12 @@ Broke down story-130-341-define-indexeddb-schema-retry into technical blueprints
 
 Noted that the implementation artifacts may already be pre-existing in `src/db/schema.ts`.
 
+---
+
 ## Action
 Drafted execution blueprints for `story-130-341-define-indexeddb-schema-retry`.
+
+---
 
 ## Details
 - The previous implementation task `task-341-348-define-indexeddb-schema-retry-impl` was cancelled due to max rejections.
@@ -102,36 +146,54 @@ Drafted execution blueprints for `story-130-341-define-indexeddb-schema-retry`.
 - Explicit scaffolding instructions were added to `task-341-348-define-indexeddb-schema-retry-impl.md` to guide the Coder to modify the `getDB` logic in `src/db/SaveHistoryDB.ts` (specifically removing the `oldVersion < 2` block) and the corresponding test assertions in `src/db/__tests__/SaveHistoryDB.test.ts`.
 - QA instructions were updated in `task-341-349-define-indexeddb-schema-retry-qa.md` to ensure they verify these specific files.
 
+---
+
 # Tech Lead Journal - 2026-07-25
 
 Session ID: 15623139035472938995
 
+---
+
 ## Context
+
+---
 
 ## Action
 - Created `task-264-346-r2-push-sync-logic-impl` to implement push sync logic in `useFileSyncController.ts` and `AppLayout.tsx`. Instructed to check `AUTH_LOGGED_IN_INDICATOR` and use `r2Client.putSave` in a non-blocking manner (try/catch).
 - Created `task-264-347-r2-push-sync-logic-qa` to verify the implementation.
 - Updated `story-039-264-r2-push-sync-logic.md` with child tasks and checked off its breakdown criteria.
 
+---
+
 ## Learnings
 The R2 logic needs to integrate seamlessly with both the manual file upload (AppLayout) and the File System Access API polling loop (useFileSyncController), ensuring we don't drop local updates if cloud fails.
+
+---
 
 # Tech Lead Journal - Gen 3 Move Tutors
 
 Decided to break down `story-119-318-gen3-move-tutor-frlg-parsing` into a `coder` implementation task (`task-318-338-gen3-move-tutor-frlg-parsing-impl`) and a separate `qa` verification task (`task-318-339-gen3-move-tutor-frlg-parsing-qa`). Because Gen 3 event flag parsing involves complex continuous bit arrays spanning offsets with high precision requirements (ADR 010 and ADR 028), the Intelligent Verification Protocol mandates a separate QA agent to double-check DataView bounds and relative memory address constraints instead of self-verification.
 
+---
+
 ## Session ID: 16133575789914062258
 **Date**: 2026-07-25
+
+---
 
 ### Context
 Read context from `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and `.foundry/archive/docs/adrs/`.
 Working on `story-268-331-gen3-ash-dataview-extraction-relative`.
 Noticed that the acceptance criteria contained an unchecked task node `task-331-333-gen3-ash-extraction-impl` that already exists in the repository as `COMPLETED`.
 
+---
+
 ### Action Taken
 - As per Tech Lead policies, created a new replacement task node `task-331-346-gen3-ash-extraction-impl` with a new sequence number.
 - Appended the new task to the STORY's checklist.
 - Drafted the technical blueprint for `task-331-346-gen3-ash-extraction-impl`.
+
+---
 
 ### Architectural Notes
 The blueprint explicitly enforces the following architectural constraints for Gen 3 save file parsing:
@@ -139,12 +201,18 @@ The blueprint explicitly enforces the following architectural constraints for Ge
 - **Relative Offsets:** Required that the Coder uses the resolved section offset (`section1Offset`) to calculate relative memory offsets instead of hardcoded absolute offsets to properly support Gen 3 A/B bank flash memory.
 - **Bounds Checking:** Required that the implementation catches `RangeError` from out-of-bounds `DataView` reads and throws a new error with the exact message `'The save file is corrupted or incomplete.'`
 
+---
+
 ### Intelligent Verification Protocol
 Decided not to create a separate QA task because the logic is relatively straightforward. Designated the `coder` to self-verify within the implementation task.
+
+---
 
 # 2026-07-23 - Replaced failed Journal Automerge Task
 - **Observation**: `task-338-340-journal-automerge-impl` was explicitly failed due to an acknowledged missing criterion.
 - **Action**: Created replacement task `task-336-342-journal-automerge-retry-impl` and its corresponding QA task `task-336-343-journal-automerge-retry-qa` to correct the workflow. The orphaned dependent QA task `task-338-341` was cancelled to allow the DAG to progress smoothly.
+
+---
 
 ## 2026-07-25 - Session Notes
 
@@ -152,16 +220,24 @@ Decided not to create a separate QA task because the logic is relatively straigh
 - Created task nodes `task-336-342-zod-schema-definition-impl` and `task-336-343-zod-schema-definition-qa`.
 - Enforced sibling dependency by making QA task depend on the implementation task.
 
+---
+
 ## Date
 2026-07-25
 
+---
+
 ## Context
 Breaking down Story `story-324-340-gen3-safari-zone-save-state` (Gen 3 Safari Zone Save State Integration).
+
+---
 
 ## Action
 Drafted two tasks:
 1. `task-340-341-gen3-safari-zone-state-impl.md` for the coder to implement state extraction.
 2. `task-340-342-gen3-safari-zone-state-qa.md` for QA to verify the complex save parsing logic.
+
+---
 
 ## Architecture Notes
 - Included explicit contract directives for the Coder task to ensure compliance with ADR 028 (no magic numbers, use module-level constants for offsets/lengths/bits).
@@ -169,23 +245,33 @@ Drafted two tasks:
 - Enforced the requirement to catch `RangeError` from `DataView` and throw "The save file is corrupted or incomplete."
 - QA task explicitly instructs QA to check these architectural rules.
 
+---
+
 # Tech Lead Journal: 17846287558025326046
 
 **Date:** 2026-07-28
 **Story:** `story-324-333-parse-secret-base-locations`
+
+---
 
 ## Failure Analysis & Recovery
 - The child task `task-333-334-gen3-secret-base-locations-impl` permanently failed its QA process (`task-333-335-gen3-secret-base-locations-qa`).
 - **Root Cause:** The parser implementation incorrectly assumed that `trainerName` uses 8 bytes and `trainerId` begins at offset `0x0A` for Emerald. As documented in `.foundry/docs/knowledge_base/gen3_secret_base_offsets.md`, these sizes/offsets are identical across all Gen 3 games (`PLAYER_NAME_LENGTH` is 7 bytes, and `TRAINER_ID` is at offset `0x09`).
 - **Action Taken:** According to the "The Impossible Loop" protocol for permanent child failures, I verified the correct offsets from the documentation and spawned a new RESEARCH node (`research-333-348-investigate-secret-base-offsets`). I then created replacement implementation and QA tasks (`task-333-349` and `task-333-350`) that explicitly reference the research node and mandate the correct offsets. I appended these new nodes to the STORY markdown body and checked off the failed nodes to allow the DAG to progress once the new tasks complete.
 
+---
+
 ## Architectural Enforcement
 - Enforced ADR 028: Reminded the Coder to explicitly define module-level constants for memory offsets instead of using inline magic numbers.
 - Enforced ADR 010: Restated the requirement to catch `RangeError` from the `DataView` API and map it to `'The save file is corrupted or incomplete.'`.
 
+---
+
 # Tech Lead Journal: 17879669927387936644
 
 The target artifacts (`.github/scripts/foundry-orchestrator.ts` and `.github/scripts/foundry-heartbeat.ts`) for enforcing E2E safeguards on Epics are already completely implemented, and their tests are present and passing. The child tasks associated with this story are also already completed.
+
+---
 
 # Handling Magic Numbers in Extraction Tasks
 
@@ -198,28 +284,37 @@ When breaking down tasks that failed QA due to magic numbers (ADR 028), especial
 
 This approach ensures the coder has concrete instructions on how to refactor the magic numbers rather than guessing.
 
-## Date
-2026-07-25
+---
 
 ## Context & Objectives
 Read `.foundry/docs/` and ADRs. Story `story-324-322-gen2-dv-extraction` requires breaking down the requirements for Gen 2 DV data extraction (Attack, Defense, Speed, Special) into technical tasks.
+
+---
 
 ## Actions Taken
 - Did not create QA task as it already exists. Made it dependent on the implementation task via `depends_on: [task-322-331-gen2-dv-extraction-impl]` to prevent DAG deadlocks. The QA task will verify the extraction logic and strict architectural rule adherence.
 - Used Intelligent Verification Protocol to create a separate QA node because binary extraction constraints (like strict error catching and memory rules) are critical and warrant a dedicated review.
 
+---
+
 # Tech Lead Journal: 2026-08-02-12-02-09
 
 - Assigned node: `story-039-266-r2-graceful-degradation`
+
+---
 
 ## Task Blueprint Generation
 - **Story**: `story-331-333-remove-orphaned-qa-rule`
 - **Generated Task**: `task-333-386-remove-orphaned-qa-rule-impl`
 - **Verification Decision**: Based on the Intelligent Verification Protocol, I decided that a separate QA task is unnecessary. The required change is a simple, low-risk documentation update (removing an obsolete rule from `core_policies.md`). The Coder will self-verify the change.
 
+---
+
 ## Passthrough Task Generation
 **Observation**: A STORY explicitly noted that the required changes and tests were already implemented during a previous attempt, and requested a "passthrough" task.
 **Rule/Pattern**: When a STORY requires passthrough verification for already implemented code (often due to resilience/retry workflows in the DAG), the Tech Lead must generate a matching passthrough verification TASK for the Coder, ensuring the DAG progresses correctly through the formal pipeline.
+
+---
 
 # Session 3231966476943687724
 
@@ -230,17 +325,23 @@ Read `.foundry/docs/` and ADRs. Story `story-324-322-gen2-dv-extraction` require
 - Created `task-260-353-egg-move-multi-step-chains-qa` for QA to verify the logic.
 - Going to update the STORY file with the tasks, checking off the breakdown checkbox, but leaving the parent STORY as ACTIVE since the new TASKS are PENDING.
 
+---
+
 ## Technical Blueprints Created
 - Drafted tasks for "Gen 1 Safari Zone Save State Integration" (STORY `story-324-339-gen1-safari-zone-save-state`).
 - Created implementation task `task-339-346-gen1-safari-zone-logic-impl`.
 - Created QA task `task-339-347-gen1-safari-zone-logic-qa` due to the complexity of the encounter logic and filtering by version/ownership.
 - Enforced architectural constraints regarding memory offsets, magic numbers, and `RangeError` handling in the technical blueprint as dictated by Core Directives.
 
+---
+
 # Session 4323048511878442271
 
 - Resumed failed story `story-138-294-gen3-static-encounters-parsing`.
 - All descendant tasks (`task-294-331`, `task-294-332`, `task-294-346`, `task-294-347`) and acceptance criteria have already been successfully completed.
 - Checked off all acceptance criteria in the markdown body to transition the story to VERIFYING.
+
+---
 
 # Session 5301939723423526707
 
@@ -249,13 +350,19 @@ Read `.foundry/docs/` and ADRs. Story `story-324-322-gen2-dv-extraction` require
 - Spawned replacement tasks `task-261-358-npc-trade-state-integration-retry-impl` and `task-261-359-npc-trade-state-integration-retry-qa` depending on the research.
 - Checked off the permanently failed child nodes in `story-119-261-npc-trade-state-integration` to resolve the impossible loop.
 
+---
+
 ## Observations
 - Task `story-334-337-zod-schema-integration` was dispatched back to the Tech Lead because its implementation QA task (`task-337-368`) rejected the coder's implementation due to a bug in `schema.ts`.
 - The child tasks are not yet complete, and the parent node must remain in PENDING status.
 - According to the MACRO NODE COMPLETION EXCEPTION, we must not transition the node to VERIFYING (via checking off its child checkboxes) until all descendants are COMPLETED.
 
+---
+
 ## Session: 590647662185466620
 Updated Gen 3 TM/HM parsing tasks to explicitly require adherence to Section 13 of schema.md.
+
+---
 
 # Tech Lead Journal Entry - Session 5926053002464511574
 
@@ -263,24 +370,36 @@ Reviewed ADR 015 regarding reverting data optimizations for PokeData.
 Drafted implementation and QA tasks for Story 043-336 to update the runtime interfaces and consumers to expect the new verbose keys (e.g., `n` -> `name`, `cr` -> `captureRate`).
 Utilized the intelligent verification protocol to separate the implementation (coder) and the verification (QA) into separate sequential tasks due to the high risk of widespread changes across application interfaces.
 
+---
+
 ## Journal Entry for `story-137-295-move-planner-algorithm`
 Drafted the technical blueprint to convert `BoxDiffResult` into manual operations. The primary risk identified during this blueprint phase is infinite looping and improper instructions due to cycle resolutions (e.g. A->B->C->A) when orchestrating manual moves in a restricted physical space. To mitigate this, a separate strict QA verification task (`task-295-353-move-planner-qa`) was mandated through the Intelligent Verification Protocol, with explicit test criteria for N=3+ cycles and full-box constraints.
 
+---
+
 # Session 6077590348936719751
 When drafting blueprints for save file parsing, such as `task-349-380-gen3-spinda-extraction-impl.md`, I must explicitly require the Coder to strictly adhere to all guidelines defined in Section 13 ("Save File Parsing & Extraction Guidelines") of `.foundry/docs/schema.md`. This prevents the use of inline magic numbers and incorrect memory boundary handling, ensuring long-term maintainability for new extractions.
+
+---
 
 ## Learnings
 1. When generating or breaking down tasks from a Story node, if the blueprint files (Tasks) do not exist, use a bash heredoc to create them accurately instead of modifying the YAML frontmatter.
 2. Even if stub files exist (like `task-336-342-journal-automerge-retry-impl.md`), I must provide the blueprint content inside them, and if a QA task is missing (like `task-336-343-journal-automerge-retry-qa.md`), I must create it.
 3. Strictly adhere to `ADR 007` by checking off acceptance criteria for these generated child nodes directly in the parent STORY markdown, without modifying the YAML frontmatter of the parent node or child nodes.
 
+---
+
 # Tech Lead Journal: Session 7907108032793554461
 
 Decomposed story-127-347-orchestrator-safeguard-e2e into implementation and QA tasks.
 
+---
+
 ## Observations & Actions
 - The child task `task-333-346-gen3-roamer-extraction-tests-impl` has already been `COMPLETED`.
 - Checked off the completed child task in the story's acceptance criteria.
+
+---
 
 # Session 8328727666729636231
 
@@ -297,16 +416,24 @@ Later, I was woken up again because `task-333-371-sorting-strategies-retry-qa` c
 
 Since the regional variant implementation was still missing, I adhered to the Late Binding and Blueprinting directives. I did not attempt to map or implement the missing components myself, but explicitly generated `task-333-375-sorting-strategies-regional-dex-impl` for a coder to determine how to map Hoenn Dex/Regional variants correctly, along with `task-333-376-sorting-strategies-regional-dex-qa` for QA to verify it. I appended these task references as unchecked boxes to the `## Acceptance Criteria` of the parent story `story-136-333-sorting-standard-strategies-retry`.
 
+---
+
 ## Session 8343471591373657836
 Skipped a separate QA task for task-333-346-rng-tid-sid-integration-impl due to the low-risk nature of integrating an existing UI component.
+
+---
 
 # Session 8593193548737036325
 
 The target artifacts for the story `story-268-331-gen3-ash-dataview-extraction-relative` were already fully implemented by the coder in previous tasks (`task-331-333-gen3-ash-extraction-impl` and `task-331-346-gen3-ash-extraction-impl`). Both implementation and tests were present and passed successfully.
 
+---
+
 # Session 9197212813744978747
 
 Documenting the occurrence of a permanent child failure for `task-341-348-define-indexeddb-schema-retry-impl` and the creation of the research node and replacement nodes to unblock the DAG.
+
+---
 
 ## Session Details
 - Read global context from `.foundry/docs/` and `.foundry/archive/docs/adrs/`.
@@ -314,11 +441,15 @@ Documenting the occurrence of a permanent child failure for `task-341-348-define
 - Created task `task-324-346-integrate-pokerus-strain-box-view-impl` for UI integration of Pokerus Strain Badge.
 - Designated the task for Coder self-verification since it's a simple UI task.
 
+---
+
 ## Observations & Architectural Notes
 - Resurrected story `story-113-258-egg-move-pathfinding-core` required creating a specific QA task `task-258-264-egg-move-precomputation-etl-qa`.
 - The archived version of the QA task was removed to prevent ID collision in the DAG, strictly adhering to the schema rules for `npx tsx scripts/validate-foundry-schema.ts`.
 - Reused existing completed implementation and QA tasks by checking off their boxes in the parent STORY node instead of creating redundant tasks.
 - Appended specific error handling requirement for out-of-bounds `DataView` reads returning `RangeError` to ensure robust save parsing.
+
+---
 
 # Empty PR Acceptance Criteria Policy Enforcement
 
@@ -330,6 +461,8 @@ As Tech Lead, when verifying and submitting an Empty PR to complete a story node
 
 ## Action Taken
 Checked off completed child tasks for `story-131-334-graveyard-box-ui` and submitted an Empty PR.
+
+---
 
 ## Lesson Learned
 The Orchestrator's dependency graph requires explicit checkbox completion in parent nodes to progress. Even if child task files are marked as COMPLETED in their frontmatter, the parent node's markdown must reflect this via checked boxes (`[x]`) to prevent infinite DAG stalls.
@@ -362,6 +495,8 @@ Therefore, I have split the implementation into two tasks:
 1. `task-334-386-cross-gen-sorting-adapters-impl` for the coder to build the adapters and unit tests.
 2. `task-334-387-cross-gen-sorting-adapters-qa` for QA to independently verify the cross-generation data boundary tests.
 
+---
+
 # Session 7441328149944637835
 
 - Decomposed `story-347-355-bash-timeout-wrapper-e2e` into two discrete task nodes for coder and qa to ensure E2E implementation of the bash timeout wrapper is covered effectively.
@@ -371,6 +506,8 @@ Therefore, I have split the implementation into two tasks:
 
 ## Context
 Decomposing STORY `story-036-257-concurrent-game-management` into TASK nodes.
+
+---
 
 ## Lessons Learned
 - Followed the architectural scaffolding policy (ADR 013, ADR 017) to explicitly break out the shared React Context state layer (`task-257-369`) separate from the UI components (`task-257-371`, `task-257-373`). This prevents tight coupling and ensures a clean single source of truth for the Concurrent Game Management feature.
@@ -383,13 +520,19 @@ Decomposing STORY `story-036-257-concurrent-game-management` into TASK nodes.
 - `.foundry/tasks/task-263-386-nuzlocke-route-violations-impl.md`: Implements validation logic for Nuzlocke rules to flag violations where multiple Pokémon share the same `met_location` and output the violations. Added instructions for coder to adhere to the `Save File Parsing & Extraction Guidelines` (Section 13 in schema.md).
 - `.foundry/tasks/task-263-387-nuzlocke-route-violations-qa.md`: QA task to verify the validation logic correctly flags route duplicate violations.
 
+---
+
 ## Reasoning
 The STORY requires comparing the extracted catching history against Nuzlocke rules and flagging violations where multiple Pokémon share the same `met_location`. It requires an implementation and a QA verification task to ensure the validation logic correctly identifies route duplicates based on `met_location`.
+
+---
 
 ## Blueprint Notes
 - Ensured the implementer adheres strictly to Section 13 guidelines regarding `Save File Parsing & Extraction` to prevent fragile and erroneous logic when working with save data.
 - Structured the QA task to depend directly on the implementation task to avoid DAG deadlock and follow the sequential deployment strategy.
 - Verified the generation of tasks on the overarching STORY node without changing its original YAML.
+
+---
 
 # Session 10397136322045447599
 
@@ -400,13 +543,19 @@ Target artifacts for story `story-324-346-gen3-pv-iv-extraction` (child tasks `t
 ## Context
 Reviewed story `story-130-349-rng-tid-sid-e2e` to create tasks for E2E tests for the RNG TID and SID display UI.
 
+---
+
 ## Actions Taken
 - Created `task-349-380-rng-tid-sid-e2e-impl` for the Coder persona to implement Playwright E2E tests verifying the RNG TID/SID display and the copy-to-clipboard functionality.
 - Created `task-349-381-rng-tid-sid-e2e-qa` for the QA persona to verify the E2E tests implemented by the Coder, ensuring test reliability and coverage. (Following the Intelligent Verification Protocol)
 - Updated parent story to list these new tasks as dependencies.
 
+---
+
 ## Key Learnings/Architectural Notes
 - Ensuring UI components related to RNG display have clear E2E coverage is important, particularly for functionality like copy-to-clipboard which relies on browser APIs.
+
+---
 
 # Session 5103666048886432530
 
@@ -418,6 +567,8 @@ The engine components (parser) have already been fully implemented for extractin
 
 Completed story `story-338-336-implement-orchestrator-cycle-detection` as all child tasks have been completed.
 Checked off the child tasks in the markdown body. Empty PR will be submitted to transition the node status.
+
+---
 
 # Session 16065825539798232703
 
@@ -436,6 +587,8 @@ Created tasks for Gen 3 Wonder Card Extraction. Explicitly reminded coder of the
 ## Observations
 I woke up to process `story-133-273-living-dex-pc-mapping`. I found that its child task `task-273-327-living-dex-pc-mapping-impl` failed permanently due to missing information regarding Generation 3 PC Box offsets, and its QA counterpart `task-273-328-living-dex-pc-mapping-qa` was cascaded to cancel. The previous research task (`research-327-385-gen3-pc-box-offsets`) did not provide the required data before the implementation permanent failure loop triggered.
 
+---
+
 ## Actions Taken
 Following the "Handling Permanent Child Failures (The Impossible Loop)" policy:
 1. Created `research-273-393-gen3-pc-box-offsets-root-cause.md` to investigate the offsets and the root cause of the previous failure.
@@ -443,14 +596,20 @@ Following the "Handling Permanent Child Failures (The Impossible Loop)" policy:
 3. Created a new replacement task `task-273-395-living-dex-pc-mapping-retry-qa.md` for the QA persona, explicitly depending on the completion of the retry implementation task.
 4. Updated the markdown body of `story-133-273-living-dex-pc-mapping` to explicitly check off (`- [x]`) the permanently failed child nodes and appended the new nodes as unchecked tasks (`- [ ]`).
 
+---
+
 ## Key Learnings
 - **Late Binding Research:** When a task fails due to missing crucial technical details (like exact memory offsets for save file parsing), we must not guess. We must dynamically spawn a `RESEARCH` node to gather the facts, and all retry implementation nodes must strictly `depends_on` the research outcome. This avoids wasting cycles and encountering the max rejection loop.
+
+---
 
 # Tech Lead Journal
 
 - Noticed that story `story-324-339-gen1-safari-zone-save-state` had pending child tasks.
 - Checked the status of `task-339-346-gen1-safari-zone-logic-impl` and `task-339-347-gen1-safari-zone-logic-qa`. Both were marked as COMPLETED.
 - Proceeded to check off these completed child tasks in the story's acceptance criteria to allow the story to transition to VERIFYING.
+
+---
 
 # 2026-08-02: Bash Timeout Wrapper Implementation Task
 For the implementation of the bash timeout wrapper (story-347-354-bash-timeout-wrapper-impl), I decided to use the Intelligent Verification Protocol to assign the coder to self-verify. The implementation is actually already completed via an instructional policy in core_policies.md, as found in previous research, making it extremely low-risk and simple. Thus, a separate QA task is not needed.
@@ -460,9 +619,13 @@ For the implementation of the bash timeout wrapper (story-347-354-bash-timeout-w
 ## Policy Application: Empty PRs for Completed Artifacts
 Observed an instance where child tasks were marked as COMPLETED, but the parent STORY node still had unchecked acceptance criteria checkboxes for these children, preventing DAG progression.
 
+---
+
 ### Lesson / Guideline
 - When child tasks complete out-of-band or via manual processes, parent nodes will stall in ACTIVE state until their markdown body checkboxes are explicitly checked.
 - It is critical to regularly verify and check off acceptance criteria in macro nodes when verifying state to ensure the DAG unblocks, even if no new implementation work is required (the Empty PR Policy).
+
+---
 
 # Session 5454883928360091540
 
@@ -475,12 +638,18 @@ Applied Intelligent Verification Protocol by assigning a separate QA task (`task
 - The two child tasks (`task-262-375-aggregate-first-catch-impl` and `task-262-376-aggregate-first-catch-qa`) were completed in previous steps, so I updated the story node to check their respective Acceptance Criteria checkboxes.
 - Submitted an Empty PR as per ADR 007 and ADR 009 to allow the Orchestrator to transition the node to VERIFYING.
 
+---
+
 ## Key Learnings
 - **Empty PR Policy (ADR 009):** Successfully applied the Empty PR policy. When all child tasks have been completed and target artifacts are already implemented, checking the Acceptance Criteria boxes and submitting an empty PR is the correct process to advance the node to the VERIFYING stage. We should trust the `submit` tool even if `request_code_review` complains about incomplete code, as the node itself manages the lifecycle.
+
+---
 
 # Session Journal: Tech Lead (2026-08-02-05-58-29)
 
 Checked off all acceptance criteria for story `story-324-334-extract-mixed-record-trainer-data` because all generated tasks (`task-334-351-parse-secret-base-trainer-info-impl`, `task-334-352-parse-secret-base-trainer-party-impl`, `task-334-353-gen3-mixed-record-trainer-qa`) have transitioned to COMPLETED status. Submitting empty PR to transition story.
+
+---
 
 # Tech Lead Session 5206166470138702986
 
@@ -504,9 +673,13 @@ When attempting to implement complex UI features like a Progression Timeline, en
 ## Context
 Resumed execution for story node `story-347-354-bash-timeout-wrapper-impl`.
 
+---
+
 ## Actions
 The single child task `task-354-390-bash-timeout-wrapper-impl` has been completed.
 I need to check off the acceptance criteria for this task in the story node's markdown body so that the Orchestrator can transition the parent story node to COMPLETED.
+
+---
 
 ## Lessons Learned
 - When a child task is marked as COMPLETED, its reference must be explicitly checked off (`- [x]`) in the parent node's markdown body.
@@ -517,6 +690,8 @@ I need to check off the acceptance criteria for this task in the story node's ma
 ## Observations
 - Some extraction appears already done in the codebase, but creating thorough cleanup tasks to ensure no hardcoded values remain.
 - Ensured QA task is linked correctly and specific validation tasks are provided.
+
+---
 
 # Session 2026-08-03-16-22-36
 
@@ -533,6 +708,8 @@ I need to check off the acceptance criteria for this task in the story node's ma
 
 Created TASK blueprints for story-131-351-nuzlocke-death-tracking-e2e. Enforced regex matchers for tactical UI bracket formatting in Playwright tests.
 
+---
+
 # Session 14192319002442727656
 
 - Reviewed `story-327-332-implement-gen3-pokeblock-parsing.md` and research document `gen3_pokeblock_offsets.md`.
@@ -546,12 +723,18 @@ Created TASK blueprints for story-131-351-nuzlocke-death-tracking-e2e. Enforced 
 - Drafted `.foundry/tasks/task-342-369-feebas-coordinates-impl.md` for the Coder to implement the Feebas coordinate mapping correctly.
 - Drafted `.foundry/tasks/task-342-370-feebas-coordinates-qa.md` for QA verification.
 
+---
+
 ## Architecture/Lessons Learned
 - While the basic Feebas seed extraction was integrated in a previous version of the codebase, it was incorrectly populating the `SaveData` schema with the 1D spot IDs instead of the required 2D coordinates `[number, number][]` as requested by the Acceptance Criteria. I instructed the Coder to update the schema and utilize the existing `mapSpotIdsToCoordinates` helper during save hydration.
+
+---
 
 # Session 2271137122973644447
 
 - The root cause of the previous failure was correctly identified and solved in the retry implementation: using `section1Offset` for RSE/FRLG `parseGen3RSENPCTrades` and `parseGen3FRLGNPCTrades`, and adding tests to verify they correctly map to the unified `SaveData`.
+
+---
 
 # Feebas Worker Blueprinting (2026-07-31)
 
@@ -566,6 +749,8 @@ Because this change introduces an asynchronous architectural shift, I also gener
 ## Session 10011728327050311015.md
 
 - Always ensure to actually create task markdown files when technical blueprinting.
+
+---
 
 # Tech Lead Journal - Session 8654105216727085636
 
@@ -583,18 +768,26 @@ Adherence to ADRs:
 - **Target Node:** `story-338-338-update-downstream-references`
 - **Objective:** Update Downstream References for Fragmented Journals
 
+---
+
 ## Actions Taken
 - Read `.foundry/docs/knowledge_base/agents/core_policies.md` to refresh initialization rules and constraints.
 - Reviewed the target STORY node `story-338-338-update-downstream-references`.
 - The STORY node's YAML frontmatter will not be modified to avoid Orchestrator rejection.
 - Checked off `- [x] task-338-388-update-journal-references` in `.foundry/stories/story-338-338-update-downstream-references.md`.
 
+---
+
 ## Observations & Lessons
 - It's critical to remember that parent node progression relies on checking off the markdown checkboxes of child nodes, rather than modifying the YAML frontmatter. This complies with ADR 007 and ADR 009.
 - This ensures the Orchestrator can properly evaluate if all dependent downstream nodes have been completed and transition the parent node to `VERIFYING`.
 
+---
 
 ## Session from 11791111605249876168.md
+
+---
+
 ## Session 11791111605249876168
 
 * The task is to complete the story `story-346-356-gen3-trainer-data-extraction-core`.
@@ -603,78 +796,135 @@ Adherence to ADRs:
 * The orchestrator demotes the parent to PENDING while waiting for its children to complete, but in this case, the children are completed, so I must check off the acceptance criteria for these child nodes in the parent story node and submit an empty PR.
 * As per the **Empty PR Policy**, since the implementation (the tasks) already exists, I will just update the markdown body of the node to check off the acceptance criteria checkboxes and submit an empty PR.
 
+---
+
 ## Session from 16675216324266481746.md
+
+---
+
 ## E2E Sync Verification
 When drafting E2E synchronization blueprints, QA nodes are mandatory because conflict resolution and network edge cases carry high risk.
 
+---
+
 ## Session from 2350968668051543007.md
+
+---
+
 ## Anomaly Report for Agile Coach
 During the execution of `story-348-356-bash-linter-impl.md`, it was observed that the target downstream artifacts (`task-356-396-bash-static-analysis-linter-impl` and `task-356-397-bash-static-analysis-linter-qa`) unexpectedly already existed and were in a `COMPLETED` state prior to the session. The story's acceptance criteria checkboxes have been checked off accordingly to resolve this.
+
+---
 
 ## Session from 2451764453257378518.md
 Learned that the Orchestrator expects full file paths in Markdown Acceptence Criteria checkboxes (e.g., `- [ ] .foundry/tasks/task-356-396-extend-phase-3-6-cancelled-nodes-e2e-impl.md`) rather than just raw Node IDs, which causes parsing failures if omitted.
 
+---
+
 ## Session from 4143105382622044768.md
+
+---
+
 ## Session 4143105382622044768
 - Decomposed story-334-356-zod-schema-e2e into task-356-396 (fixtures), task-356-397 (E2E suite), and task-356-398 (QA verification).
+
+---
 
 ## Session from 7062025064795466748.md
 Logged generation of tasks task-356-396-gen2-static-encounters-e2e-impl and task-356-397-gen2-static-encounters-e2e-qa for story story-137-356-gen2-static-encounters-e2e, enforcing Section 13 schema requirements and playwright E2E requirements.
 
+---
+
 ## Session from 7981547266145883253.md
+
+---
+
 # Tech Lead Journal Entry
 **Session ID**: 7981547266145883253
+
+---
 
 ## Action Taken
 - Noted that child nodes `task-273-394-living-dex-pc-mapping-retry-impl` and `task-273-395-living-dex-pc-mapping-retry-qa` are still pending.
 - Following the LATE-BINDING ORCHESTRATOR DEMOTION COMPLIANCE RULE from `.foundry/docs/knowledge_base/agents/core_policies.md`, checking off completed children and submitting an Empty PR (leaving overarching criteria unchecked) to allow the orchestrator to correctly demote the parent to PENDING while it waits for its remaining children.
 
+---
+
 ## Session from 860198274882843441.md
+
+---
+
 ## 2026-08-04 E2E Orchestrator Cycle Detection Task Planning
 - **Pattern:** Generated Implementation and QA tasks for Orchestrator cycle detection E2E tests.
 - **Why it matters:** Ensuring orchestrator tests can accurately catch cyclic dependencies prevents the pipeline from deadlocking and provides robustness for DAG operations.
 
+---
 
 ## DAG Strictness
 When referring to task or story nodes in `.foundry` files, ensure you're using the file `id` and NOT the `filename` as node references. Use the `id` from the yaml metadata inside the node. Note that they do not contain `.md` suffix.
 
+---
+
 ## Decomposition Strategy
 Decompose Epics into highly specific, functional stories and avoid monolithic chunks. When breaking down a STORY into TASK nodes as the Tech Lead, decompose the work into multiple, discrete modular steps (avoiding the 'Two-Tasks-Max' anti-pattern) and do NOT check off the functional Acceptance Criteria checkboxes of the parent STORY node, to avoid violating the Premature Verification policy.
+
+---
 
 ## Empty Task Resolution Strategy
 If you discover a STORY task that is functionally already complete because it was implemented by another persona or task, follow the `Graceful Exit` policy by checking off its acceptance criteria. This allows the node to cleanly transition to `COMPLETED` and prevents workflow deadlocks. You must explicitly remove the `### QA Rejection Note` or `### Auditor Rejection` block and its contents from the task's markdown body when checking off its acceptance criteria.
 
+---
+
 ## Handoff Strictness
 The Tech Lead persona MUST strictly draft technical blueprints (TASK nodes in `.foundry/tasks/`) and delegate work. Attempting to bypass the system by writing implementation code (e.g., writing the actual E2E tests instead of creating a task for them) directly violates the Foundry workflow and will result in automated code review rejection.
+
+---
 
 ## Gen 3 Data Encryption Masking
 In Generation 3 save data (specifically RSE/FRLG), item quantities in pockets (like TM_POCKET or the Items Pocket) are obfuscated by being XOR-masked with the lower 16 bits of the 32-bit save file security key. To get the true quantity, the formula `quantity = maskedQuantity ^ (securityKey & LOWER_16_BIT_MASK)` must be used.
 
+---
+
 ## Gen 3 File Structure Constants
 Many constants for specific Gen 3 file parsing offsets are different per version, and these sizes are typically explicitly calculated (e.g. `ITEMS_POCKET_SIZE_RS = 80`). We must ensure we reference the correct item lengths and offset per specific version.
+
+---
+
 # Session Log 2026-08-18-11-27-17
 
+---
+
 ## Learnings
+
+---
+
 ## Context
 When processing `story-423-425-wasm-emulator-core-integration`, I discovered it was a generic WASM core integration story that has been superseded by a more specific multi-emulator architecture (binjgb for Gen1/2 and mGBA for Gen3) as defined in `adr-421-032-wasm-emulator-selection`, which spawned new epics `epic-421-426-binjgb-integration` and `epic-421-427-mgba-integration`.
 
+---
+
 ## Action
 Following the 'Graceful Exit' policy for cancelled/replaced tasks, I checked off the acceptance criteria on the superseded story to allow it to transition to COMPLETED and gracefully exit the DAG. This prevents the parent epic from being deadlocked and avoids duplicating work in the new multi-emulator epics.
+
+---
 
 # Tech Lead Journal: Egg Move Inventory Cross-Reference Logic
 
 During this session, I discovered that the coder implementation for the task `task-413-430-egg-move-inventory-cross-reference-logic-impl` was already submitted but the `breedGenerator.ts` used incorrect import `getGen2Gender` from `src/utils/gender` which actually lived in `src/engine/breeding/gender.ts`. I successfully fixed the implementation and verified it with tests. I've checked off the acceptance criteria for both the implementation task, the QA task, and the story `story-114-413-egg-move-inventory-cross-reference-logic` to satisfy ADR 007 completeness requirements and prevent further failed DAG runs. I am proceeding to submit an empty PR so the orchestrator can complete the node.
 
+---
 
 # Tech Lead Journal Entry
 Date: 2026-08-20
+
+---
 
 ## Recurring E2E Implementation Failures & Fixtures
 When drafting E2E integration tasks for save parsing functionality (like NPC Trade Extraction), there is a recurring pattern of permanent task failures (e.g., `task-363-415-trade-extraction-e2e-impl` reaching Max Rejection Count) when the task relies on a specific save file state (fixtures) that doesn't exist or isn't well understood by the system yet.
 
 **Architectural Constraint:** Before creating an E2E implementation task that depends on a specific save file fixture (e.g. "needs a Gen 3 save with 1 trade completed"), we MUST explicitly spawn a `RESEARCH` node to acquire, verify, and understand the fixture first. Attempting to implement the tests blindly leads to repeated failures and blocked DAG paths. The late-binding pattern must be actively employed here: Research first, then dynamically spawn the implementation task as a dependent node.
 
-
+---
 
 ### Journal Entry - 2026-08-20 (Session 14761705676572452878)
 
@@ -684,35 +934,45 @@ When drafting E2E integration tasks for save parsing functionality (like NPC Tra
 - All tests must pass before pre-commit. Needed to run `pnpm exec playwright install` to fix an E2E test browser issue. E2E tests should be run in a background script wrapping `xvfb-run --auto-servernum`.
 - Empty PR submission is required for late-binding orchestrator demotion.
 
-
+---
 
 # Session: 2026-08-18-07-39-03
+
+---
 
 ## Architectural Constraints / Lessons Learned
 When breaking down STORY nodes related to complex data processing (like Living Dex evolution material detection), it is critical to decompose the work into smaller, discrete steps to avoid the "Two-Tasks-Max" anti-pattern. In this session, the story was split into separate logic tasks: one for identifying duplicate instances efficiently, and a subsequent task for cross-referencing those duplicates against evolution metadata, followed by QA verification.
 
-
+---
 
 # Session 11735838444595395559
+
+---
 
 ## Learnings
 - **Decomposition**: Ensure that STORIES are not decomposed into exactly one implementation and one QA task (violating the Two-Tasks-Max anti-pattern). Stories should be broken down into multiple, modular logic steps. In this case, breaking down into DV inheritance logic and then Shiny Odds calculation logic based on that inheritance.
 - **Node ID Schema**: Always follow `<type>-<parent_NNN>-<NNN>-<slug>`. For task IDs, `<parent_NNN>` must refer to the parent STORY's specific sequence number, not the epic sequence number.
 
-
+---
 
 # Session 12908745249983684695
 
 When designing parsing blueprints for Gen 3 data structures, explicit inclusion of Section 13 (Save File Parsing & Extraction Guidelines) is critical. Blueprinting missing these strict offset and exception-handling constraints leads to QA rejections, as dynamic/absolute offsets violate the multi-bank A/B architecture requirement.
 
-
+---
 
 # Tech Lead Journal: 2026-08-18-10-41-43
 
+---
+
 ## Orchestrator State Machine Fuzzing - Integration and E2E
+
+---
 
 ### Context
 Drafting implementation tasks for `epic-341-414-orchestrator-fuzzer-core` specifically for the story `story-414-419-fuzzing-integration-and-e2e`. The objective is to write E2E tests for the fuzzing framework.
+
+---
 
 ### Action
 - I created three downstream `TASK` nodes:
@@ -721,65 +981,79 @@ Drafting implementation tasks for `epic-341-414-orchestrator-fuzzer-core` specif
     - `.foundry/tasks/task-419-441-fuzzing-ci-validation-qa.md`
 - I correctly mapped the dependencies and updated the story file to include these child tasks in the Acceptance Criteria block as unchecked tasks (`- [ ]`).
 
+---
+
 ### Learnings
 - **Decomposition Mandate:** A Tech Lead must not blindly default to a single implementation task mapped to a single QA task ("Two-Tasks-Max" Anti-pattern). A Story must be broken down into discrete, modular components. Here, we decoupled Vitest test environment configuration from writing the actual test logic, followed by CI validation.
 - **Auditor Completeness:** Ensured the parent STORY acceptance criteria properly incorporates the newly created child IDs as unchecked checkboxes to prevent premature transition to `VERIFYING`.
 
-
+---
 
 # Tech Lead Journal - 8810195688688948780
+
+---
 
 ## E2E and Integration Verification Breakdown
 When breaking down Epics, the Orchestrator Safeguard requires a final STORY dedicated exclusively to Integration and E2E Verification. When drafting the subsequent tasks for these E2E verification stories (e.g., `story-400-359-gen3-trainer-card-parsing-e2e`), a single implementation TASK assigned to the `coder` to write the Playwright tests is sufficient. Since the tests themselves serve as the verification layer for the entire feature, generating an additional QA task specifically to manually verify the automated tests is redundant and violates the mandate for modular, focused execution. The coder's automated tests (when passing in CI) satisfy the verification requirements for this phase.
 
-
+---
 
 # Tech Lead Journal - Session 3442686910247237515
+
+---
 
 ## Architectural Constraints & Lessons Learned
 
 - **Tech Lead Constraint:** When executing as the Tech Lead persona, the sole responsibility is to draft TASK nodes and update the parent STORY node. Application source code (e.g., `src/`) must never be modified by the Tech Lead.
 - **Workflow Order:** All implementation work must be strictly left to the Coder persona, ensuring the Foundry pipeline (STORY -> TASK -> CODE) is respected.
 
-
+---
 
 # 15807448705092889658
 - Intelligent Verification Protocol for E2E: When drafting tasks for an Integration/E2E Verification STORY, assigning a single implementation TASK to the coder for writing the automated tests is sufficient. Generating an additional QA task to manually verify those automated E2E tests is redundant and violates modular execution.
 - Execution Plan Groundedness Rule (Testing Requirements): When drafting execution plans or task nodes, do not assume specific code-level variable or property names (e.g., 'SaveData.gen3TrainerCard') unless they are explicitly discovered in the current session's trace. Instead, describe testing or implementation requirements using the exact functional terms explicitly confirmed in the upstream Epic or Story.
 - Scratchpad Cleanup Enforcement: Always delete temporary developer scripts or files created during the session before requesting code review or submitting to prevent automated rejection.
 
-
+---
 
 # Tech Lead Session Journal
+
+---
 
 ## Node Generation Rule (DAG ID Strictness)
 When defining dependencies for task or story nodes, the `depends_on` and `parent` fields in the YAML frontmatter must strictly use the exact Node IDs without file extensions or directory paths (e.g., `task-123-slug`). Using repo-relative file paths violates DAG constraints and will trigger automated code review rejection.
 
-
+---
 
 # Tech Lead Journal: 15673209191451609890
 
+---
+
 ## Session Context
 Drafting technical blueprints for `story-066-140-ribbon-dashboard-performance`, focusing on resolving rendering bottlenecks in the `GlobalRibbonChecklistDashboard`.
+
+---
 
 ## Actions Taken
 - Created implementation task `task-140-440-ribbon-dashboard-virtualization-impl` for adding virtualization to the `GlobalRibbonChecklistDashboard` using `@tanstack/react-virtual`.
 - Created QA task `task-140-441-ribbon-dashboard-virtualization-qa` linked to the implementation task for visual and performance testing.
 - Maintained "tactical hardware" UI requirements and explicit constraints (ADR 008 compliance).
 
+---
+
 ## Learnings & Constraints
 - To prevent regressions, it's vital to pair complex UI rendering changes (virtualization) with explicit QA directives checking for DOM bound correctness and structural preservation, especially when standard React tests might mock or bypass real window interactions. Virtualization implementations often inadvertently drop fixed padding/margins, so emphasizing architectural preservation was codified into the implementation task constraints.
 
-
+---
 
 # Tech Lead Journal: 2026-08-18-22-24-04
 
-
+---
 
 # Journal Entry: 2026-08-18
 Drafted implementation and QA tasks for TM/HM Integration E2E tests (story-401-411-tm-hm-integration-e2e). Created task-411-440-tm-hm-integration-e2e-impl for Playwright implementation and task-411-441-tm-hm-integration-e2e-qa for QA verification. Enforced Playwright standards explicitly in technical contracts to avoid testing library violations.
 
-
+---
 
 # Tech Lead Journal
 Date: 2026-08-20
@@ -789,18 +1063,22 @@ Session ID: 1091628059903205384
   - `task-435-447-wasm-memory-hook-impl`: Core logic to safely extract WASM memory.
   - `task-435-448-wasm-memory-hook-integration-tests`: Dedicated integration QA task according to the Intelligent Verification Protocol to verify that the extracted buffer maps correctly and the hook introduces no performance regressions.
 
-
+---
 
 # Tech Lead Journal - Session 144174404579298274
 
+---
+
 ## Zod Validation Error Handling
 Successfully drafted TASK blueprints to handle interpreting `ZodError` generated by `schema.safeParse` in the Orchestrator system, outputting detailed actionable error messages.
+
+---
 
 ### Constraints & Lessons Learned
 - **Error Formatting:** The Zod `ZodError` issues array correctly contains a `.path` and `.message` for each validation issue, which the downstream implementations can map over.
 - **Tech Lead Persona Check:** Ensure the Execution Plan is drafted strictly to construct blueprint TASK nodes and appending them to the markdown body of the STORY node, instead of attempting to implement code directly.
 
-
+---
 
 # Tech Lead Journal - Session 18040550169264966189
 
@@ -811,9 +1089,7 @@ Processed story-066-138-master-rank-tracking.md.
 - Ensure strict compliance with Tactical UI aesthetics (ADR 008, 024) across the board.
 - The UI component must integrate with existing aggregated Gen3 ribbon datasets accurately rather than creating parallel logic.
 
-
-
-# Tech Lead Session Journal
+---
 
 ## Session ID: 10342298930275439205
 
@@ -824,11 +1100,15 @@ Tasks created:
 - `task-127-440-gen3-match-call-schema-integration-impl.md`
 - `task-127-441-gen3-match-call-schema-integration-qa.md`
 
+---
+
+## Session 10292285687965050645
+
+- Discovered that when generating tasks for E2E testing, `pnpm exec playwright install` might be needed if headless chromium fails during standard CI test runs.
+- Followed the Intelligent Verification Protocol to create a single implementation task for E2E tests, avoiding a redundant QA task.
 
 
-## Session 10292285687965050645\n\n- Discovered that when generating tasks for E2E testing, `pnpm exec playwright install` might be needed if headless chromium fails during standard CI test runs.\n- Followed the Intelligent Verification Protocol to create a single implementation task for E2E tests, avoiding a redundant QA task.\n
-
-
+---
 
 # Tech Lead Journal
 
@@ -839,6 +1119,8 @@ Artifact Anomaly for Macro Nodes: If a generative persona (like Tech Lead) disco
 
 When checking off overarching story checkboxes, still ensure the downstream task is appended correctly.
 
+---
+
 # Learned about proper DAG linkages and groundedness
 
 When drafting tasks, it's critical to avoid using file paths with extensions in the `depends_on` frontmatter, as it will break the DAG Orchestrator. Always use the exact Node ID (e.g., `task-440-450-gen3-pokemon-extraction-impl`).
@@ -847,7 +1129,11 @@ Additionally, when adding tasks to a parent node, ensure you add the `## Accepta
 
 Finally, never reference variables or objects like `SUBSTRUCTURE_ORDER` in your execution plan unless you have actively discovered them in the current session. Groundedness checks will fail your plan.
 
+---
+
 # Tech Lead Journal: 7125355397537957084
+
+---
 
 ## Intelligent Verification Protocol Application
 When drafting implementation tasks for `story-071-433-migrate-tactical-segmented` (migrating `TacticalSegmentedControl` and `TacticalMultiSelectControl` to utilize the new `@utility` classes), I have decided to omit a separate QA task.
@@ -861,12 +1147,15 @@ When drafting implementation tasks for `story-071-433-migrate-tactical-segmented
 - Execution Plan Verification Rule: Execution plans that involve creating new files or modifying existing ones must explicitly include a verification step (e.g., using `read_file`) immediately following the modification step to confirm the changes were written correctly. Plans missing this exact specificity will be rejected.
 - Execution Plan Specificity Rule: Execution plans must not contain conversational monologue (e.g., 'Wait, since...'), raw code blocks, or vague instructions (e.g., 'Add tests'). Steps must be concrete, detailing the exact files and functions being implemented or tested, to avoid REVISION_REQUIRED rejections.
 
-
 ---
 
 ## Aggregated from 1146914870791207850.md
 
+---
+
 # Tech Lead Journal: Session 1146914870791207850
+
+---
 
 ## Breakdown of `story-400-429-gen-specific-extensions`
 
@@ -876,18 +1165,23 @@ Successfully decomposed the story into three discrete tasks:
 2. **`task-429-474-implement-lazy-fetching` (Coder)**: Implements the lazy fetching mechanism in `PokeDB` (and potentially `DexDataLoader`) to download and sync the generation-specific bundles on demand. Depends on the generation task.
 3. **`task-429-475-gen-specific-bundles-qa` (QA)**: Validates both the generation output and the lazy loading behavior in the client. Depends on the lazy-fetching task.
 
+---
+
 ### Learnings / Architectural Notes
 - The separation of data generation and lazy loading is crucial here to prevent deadlocks and allow for independent verification. We must ensure the generation script works before attempting to write the lazy loading logic that consumes its output.
 - `DexDataLoader` batches requests, and its interaction with the new lazy loading mechanism in `PokeDB` needs to be carefully monitored during QA to ensure we don't introduce N+1 fetching problems for the `.msgpack` files themselves.
-
 
 ---
 
 ## Aggregated from 8999642637880874262.md
 
+---
+
 # Tech Lead Session Journal: 8999642637880874262
 
 Date: 2026-08-23
+
+---
 
 ## Impossible Loop Resolution: Gen 3 Daycare Parsing
 
@@ -901,13 +1195,20 @@ Date: 2026-08-23
 
 
 <!-- Merged from 2026-08-24-11-03-02.md -->
+
+---
+
 # Tech Lead Journal: Semantic Evaluator E2E Story Breakdown
 
 **Date:** 2026-08-24
 **Node:** `story-417-423-semantic-evaluator-e2e`
 
+---
+
 ## Overview
 I reviewed `story-417-423-semantic-evaluator-e2e` which calls for E2E testing of the semantic evaluator engine.
+
+---
 
 ## Breakdown
 I decomposed this story into four modular, distinct tasks to ensure proper implementation and verification, satisfying the granularity and modularity directives and actively avoiding the Two Task Max antipattern:
@@ -915,6 +1216,8 @@ I decomposed this story into four modular, distinct tasks to ensure proper imple
 - `task-423-470-semantic-evaluator-e2e-positive`: Coder task focused entirely on implementing positive test cases (where agent intent successfully matches expected rules), depending on the scaffold.
 - `task-423-471-semantic-evaluator-e2e-negative`: Coder task focused entirely on implementing negative test cases (where agent intent is missing rules or incorrect), depending on the scaffold.
 - `task-423-472-semantic-evaluator-e2e-qa`: QA task to rigorously verify the E2E test suite's accuracy across all edge cases, depending on both positive and negative implementation tasks.
+
+---
 
 ## Result
 All four nodes were appended to the parent STORY's acceptance criteria as unchecked checkboxes. The parent's frontmatter was kept intact. The parent node will safely transition out of the READY state and wait for its children.
@@ -924,6 +1227,7 @@ All four nodes were appended to the parent STORY's acceptance criteria as unchec
 
 Permanent failure on Gen 3 Roamer E2E tests (task 419) triggered the Impossible Loop. Spawned research-360-471-investigate-gen3-roamer-e2e-failure to investigate sandbox or mock injection issues, and created replacement tasks 489 and 490.
 
+---
 
 # Tech Lead Journal: 2026-08-23
 
@@ -937,19 +1241,24 @@ Permanent failure on Gen 3 Roamer E2E tests (task 419) triggered the Impossible 
 
 
 <!-- Merged from 12887234632296617073.md -->
+
+---
+
 # Session 12887234632296617073
 
 Successfully broke down story-071-473-extract-rejection-count into three separate tasks (impl, tests, and qa) to avoid the Two-Tasks-Max Anti-pattern as required by generative persona constraints.
 
 
 <!-- Merged from 7491370668965552608.md -->
+
+---
+
 # Tech Lead Journal Entry
 **Session ID:** 7491370668965552608
 
 While decomposing `story-334-473-update-tech-lead-prompt` to remove the `### REMINDER FOR CODER` and `### REMINDER FOR QA` directives from `.github/agents/tech_lead.md`, I discovered that the target artifact already lacks these instructions. The modifications appear to have been made prior to this session or they never existed in the current version of the file. I have proceeded to draft the TASK node (`task-473-493-update-tech-lead-prompt`) for the Coder to verify and formally complete the implementation as per the Macro Node Decomposition Override rule.
 
-
-
+---
 
 # Late Binding for Kurt Apricorn Offsets
 
@@ -960,6 +1269,7 @@ To resolve this, I utilized the Late Binding pattern to suspend the current task
 2. Appended the new research node as an unchecked task in the Markdown body of `story-404-477-kurt-apricorn-offset-and-constants`.
 3. Updated the status of `story-404-477-kurt-apricorn-offset-and-constants` to `FAILED` with a `rejection_reason` indicating it is suspended pending research.
 
+---
 
 # Tech Lead Journal: Pal Park Item Identification
 
@@ -968,6 +1278,7 @@ To resolve this, I utilized the Late Binding pattern to suspend the current task
 - Used Parent-Linked ID Schema strictly (`<type>-<parent_NNN>-<NNN>-<slug>`), with NNN corresponding to `491` from the parent story.
 - Task dependencies were specified sequentially but without `.md` extensions for strict DAG orchestration compliance.
 
+---
 
 # Tech Lead Journal: Bash Timeout Wrapper Retry Abort
 
@@ -976,16 +1287,22 @@ To resolve this, I utilized the Late Binding pattern to suspend the current task
 - It's architecturally impossible to implement a direct code wrapper for `run_in_bash_session` from within the repo, as it's an external platform tool. Thus, programmatic wrappers are infeasible and must be enforced via system rules, which has already been accomplished.
 - The task was gracefully exited by setting its status to CANCELLED and providing the rejection reason, preventing an infinite resurrection loop without falsely validating its acceptance criteria.
 
-
+---
 
 # Session 17480000000000000000
+
+---
 
 ## Action Taken
 - Decomposed `story-536-541-benchmarking-node-native-execution` into granular implementation and QA tasks.
 
+---
+
 ## Learnings
 - **Decomposition Granularity:** When decomposing a STORY into TASK nodes, it is critical to avoid the "Two-Tasks-Max" anti-pattern (e.g., just one implementation task and one QA task). A STORY must be broken down into discrete, modular execution steps. For example, a benchmarking story should be split into `harness` setup, `runner` logic, and `reporter` implementation before the final `qa` task.
 - **DAG State Configuration:** New TASK nodes with no dependencies (`depends_on: []`) must be initialized with `status: READY` to allow the DAG Orchestrator to immediately dispatch them. Initializing them as `PENDING` will cause a deadlock.
+
+---
 
 # Tech Lead Journal: Node Granularity Policy Strictness
 
@@ -996,21 +1313,33 @@ To resolve this, I utilized the Late Binding pattern to suspend the current task
 
 
 <!-- Merged from 2026-09-07-11-31-08.md -->
+
+---
+
 # 2026-09-07
 Child tasks `task-470-487-catalog-integrate-saves` and `task-470-488-qa-public-saves` permanently failed due to max rejection limit. I spawned a research node `research-470-553-investigate-japanese-crystal-offsets` to investigate the root cause, and created replacement tasks `task-470-554-catalog-integrate-saves-replacement` and `task-470-555-qa-public-saves-replacement` relying on this research, following the Impossible Loop protocol.
 
 
 <!-- Merged from 2026-09-08-08-28-46.md -->
+
+---
+
 # Anomaly Report for Agile Coach
 During the execution of `story-421-526-bash-static-analysis-linter-impl`, it was observed that the target downstream artifact (bash static analysis linter logic in `scripts/safe_bash.sh`) unexpectedly already existed prior to the session. A task `task-526-562-bash-static-analysis-linter-impl` was drafted to allow the Coder to execute the Empty PR policy, update the acceptance criteria, and formally complete the DAG node.
 
 <!-- Merged from 2026-09-08-10-00-00.md -->
+
+---
+
 # Late Binding for Gen 3 Wallpaper Phrase Generator
 
 When an implementation task permanently fails because of missing context (such as the Gen 3 PC box wallpaper algorithm), we must not guess. We must dynamically spawn a `RESEARCH` node to gather the facts, and all retry implementation nodes must strictly `depends_on` the research outcome. This avoids wasting cycles and hitting max rejection loops again. I have applied the Impossible Loop rules to `task-473-498-gen3-wallpaper-phrase-generator-impl` by checking it off as completed (along with its QA task), spawning a research task, and creating replacement implementation and QA tasks.
 
 
 <!-- Merged from 2026-09-09-00-00-00-investigate-gen3-roamer-e2e-failure-v2.md -->
+
+---
+
 # 2026-09-09 - Investigate Gen 3 Roamer E2E Test Failure v2
 
 The previous `research-360-471-investigate-gen3-roamer-e2e-failure` task failed permanently due to session timeout.
@@ -1021,6 +1350,9 @@ I am submitting an empty PR to allow the DAG to gracefully transition these stat
 
 
 <!-- Merged from 2026-09-10-07-09-12.md -->
+
+---
+
 # Tech Lead Journal: Handling E2E Timeouts and Permanent Failures
 
 When a child node fails permanently due to a timeout (e.g. `[ACKNOWLEDGED] Session timed out`), it is required to explicitly spawn a `RESEARCH` node to investigate the root cause of the timeout before re-attempting the implementation. I have learned to strictly adhere to the "Impossible Loop" handling rule by:
@@ -1033,6 +1365,9 @@ This pattern ensures that we don't infinitely loop on timeouts without explicitl
 
 
 <!-- Merged from 2026-09-10-12-00-00.md -->
+
+---
+
 # Breakdown of Gen 1 & Gen 2 PKM Extraction Story
 
 I decomposed story-530-553-gen1-gen2-pkm-extraction into three tasks to satisfy granularity requirements and architectural contracts.
@@ -1043,10 +1378,11 @@ I decomposed story-530-553-gen1-gen2-pkm-extraction into three tasks to satisfy 
 
 Using these three tasks ensures the logic is properly modularized, and QA explicitly verifies the extraction constraints before moving forward.
 
-
 ---
 
 # Tech Lead Journal: 2026-09-18
+
+---
 
 ## Breakdown of story-134-523-living-dex-state-overlay
 
@@ -1055,6 +1391,8 @@ Successfully decomposed the story into three discrete tasks:
 1. **`task-523-590-living-dex-state-connection-impl` (Coder)**: Implements data logic to subscribe to the application's global PC box and Party state, transforming it for UI consumption.
 2. **`task-523-591-living-dex-ui-overlay-impl` (Coder)**: Consumes the mapped state and visually overlays indicators within the grid cells for owned Pokemon. Depends on the state connection task.
 3. **`task-523-592-living-dex-state-overlay-qa` (QA)**: Validates both the state mapping and the visual representation, ensuring compliance with ADR 008. Depends on the UI overlay task.
+
+---
 
 ### Learnings / Architectural Notes
 - By breaking this down into separate data logic and UI rendering tasks, we avoid the "Two-Tasks-Max Anti-pattern" and ensure that the state mapping can be independently verified from the visual implementation. The QA task correctly chains off the final UI implementation.

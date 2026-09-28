@@ -3,30 +3,50 @@
 * **Task**: Investigate Gen 2 Pokegear Phone Memory Offsets
 * **Target Node**: `research-283-336-gen2-phone-memory-offsets`
 
+---
+
+---
+
 ## Findings
 I investigated the Pokegear memory offsets for Gen 2 (Gold, Silver, and Crystal). I discovered that:
 * In Gold/Silver, `wPhoneListIndex` is located at `0xCF2A`, `wSpecialPhoneCallID` is at `0xD97B`, and `wPhoneList` is at `0xD9C6`.
 * Unlike Crystal, Gold/Silver does not possess tracked distinct arrays for `wSwarmFlags`, `wDailyPhoneItemFlags`, or `wDailyPhoneTimeOfDayFlags`.
 * In Crystal, `wPhoneListIndex` is at `0xD03F`, `wSwarmFlags` is at `0xDC20`, `wSpecialPhoneCallID` is at `0xDC31`, `wDailyPhoneItemFlags` is at `0xDC50`, `wDailyPhoneTimeOfDayFlags` is at `0xDC54`, and `wPhoneList` is at `0xDC7C`.
 
+---
+
 ## Critical Policy Reminder
 When researching external codebases by building dependencies (like rgbds) or cloning git repositories (like pokecrystal and pokegold), **all temporary files and artifacts must be deleted and removed from git cache** before finishing the session. Failure to do so will severely pollute the root repository space, and the PR will be rejected.
 
+---
+
 ## Session: 2026-07-29-investigate-sorting-failure
+
 ---
+
 trigger: `story-136-295-sorting-standard-strategies`
+
 ---
+
 Founding issue: The task failed because it asks to sort by type, and `PokemonMetadata` doesn't have type info.
+
+---
 
 # Research Session: 2026-07-31-00-00-00
 Target Node: `research-050-329-investigate-zombie-gc-failure`
+
+---
 
 ## Findings
 I investigated the failure of `epic-050-090-zombie-node-remediation-and-gc`. The auditor's journal revealed a programmatic orchestrator safeguard that requires macro nodes (like EPICs) to have at least one child STORY tagged with `e2e` or `integration` before they can be marked `COMPLETED`.
 Because the previous epic's stories did not have these tags, verification failed repeatedly, leading to the epic hitting its maximum rejection count and being cancelled.
 
+---
+
 ## Actions
 I have documented these findings in the research node and outlined the path forward for the replacement epics (`epic-050-330` and `epic-050-331`), ensuring they incorporate these required tags in their child stories.
+
+---
 
 ## Findings
 I investigated the exact memory offsets and bit layouts for `wSwarmFlags`, `wDailyPhoneItemFlags`, and `wDailyPhoneTimeOfDayFlags` across Gen 2 Gold/Silver and Crystal versions.
@@ -42,15 +62,23 @@ For Crystal, the explicit offsets (within WRAM Bank 1) are:
 
 I have updated `.foundry/docs/knowledge_base/engine/save_parsing/gen2_phone_mechanics.md` with this context.
 
+---
+
 # Research Journal: Gen 3 PC Box Offsets Root Cause
 Session: 6535908287339075091
+
+---
 
 ## Goal
 Investigate the root cause of the previous failure related to Gen 3 PC Box extraction (`task-273-327-living-dex-pc-mapping-impl`) and the missing offsets, and research the exact memory structure of PC Boxes in Gen 3 saves.
 
+---
+
 ## Root Cause Analysis
 The task `task-273-327-living-dex-pc-mapping-impl` permanently failed because it was missing information regarding Gen 3 save parsing, specifically PC Box offsets.
 The previous research task (`research-327-385-gen3-pc-box-offsets`) was cancelled due to a cascading cancellation from its parent task (`task-273-327-living-dex-pc-mapping-impl`), which hit max rejections (3) because the implementation could not proceed without the missing offsets. This led to an 'impossible loop' where the implementation couldn't complete without the research, but the research was tied as a dependency that got cancelled when the parent failed. The late-bound node (`research-273-393-gen3-pc-box-offsets-root-cause`) was correctly spawned to break this loop by gathering the necessary context.
+
+---
 
 ## Findings
 I have successfully retrieved the missing Gen 3 PC Box memory structure from Bulbapedia:
@@ -64,11 +92,17 @@ Furthermore, the data structure for Pokémon stored in the PC is only **80 bytes
 
 These findings have been documented in `.foundry/docs/knowledge_base/engine/save_parsing/gen3_pc_box_offsets.md`.
 
+---
+
 ## Save File Parsing - Magic Numbers
 When reviewing the Hall of Fame parsing implementation, it was rejected for using inline magic numbers (e.g. `4` for bytes per stat, and `8` for bits per byte). The "No Magic Numbers" architectural rule requires explicitly defining module-level constants (like `BYTES_PER_GAME_STAT` and `BITS_PER_BYTE`). I have documented these specific constants in `.foundry/docs/knowledge_base/engine/save_parsing/gen3_hall_of_fame.md` to prevent future implementers from repeating this violation during offset and bitwise calculations.
 
+---
+
 ## Goal
 Investigate why `task-333-363-pokemon-types-data-impl` was rejected due to a sorting issue in `generate-pokedata.ts`.
+
+---
 
 ## Findings
 The QA persona rejected the task because the implementation "fails to sort by slot before mapping, violating the specific acceptance criterion: 'sorts by slot (if applicable)'."
@@ -98,11 +132,17 @@ The `generate-pokedata.ts` script in the rejected implementation was likely simp
 To satisfy the acceptance criteria and ensure types are ordered correctly (primary type first), it must sort the array by the `slot` property before mapping:
 `pData.types?.sort((a: any, b: any) => a.slot - b.slot).map((t: any) => POKEMON_TYPE_MAP[t.type.name] || 0) || []`
 
+---
 
 ## Session from 2026-08-04.md
 Session 2026-08-04: Investigated Gen 3 trainer flag offsets and saved to .foundry/docs/knowledge_base/gen3_trainer_flags_offsets.md
 
+---
+
 ## Session from 3239184284682901692.md
+
+---
+
 # Session 3239184284682901692
 
 - Completed research-099-396-investigate-indexeddb-schema-failure.
@@ -113,6 +153,8 @@ Session 2026-08-04: Investigated Gen 3 trainer flag offsets and saved to .foundr
 I investigated the permanent failure of `epic-120-338-implement-conflictless-journals`. The epic reached the max rejection count because it failed to comply with the Orchestrator Safeguard. Specifically, every EPIC must have at least one child STORY node dedicated to Integration and E2E Verification (tagged with `e2e` or `integration`) before it can transition to COMPLETED. Since `epic-120-338-implement-conflictless-journals` only had regular implementation stories without an E2E story, the orchestrator repeatedly rejected its completion attempt.
 
 The replacement epic (`epic-335-401-implement-conflictless-journals-retry`) must ensure an E2E story is created to satisfy this constraint.
+
+---
 
 ## Learnings
 When an Epic repeatedly fails during empty PR submissions despite all child stories being marked as COMPLETED, it is highly likely a violation of the Orchestrator Safeguard (E2E/Integration Requirement). The Epic Planner or Story Owner must ensure every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`). Failure to do so results in max rejection counts.
@@ -128,6 +170,8 @@ Identified that the DAG Orchestrator enforces a strict E2E safeguard. Any EPIC w
 When executing as the Researcher persona, log your session details to your private journal at `.foundry/journals/researcher/<session_id>.md` (or `YYYY-MM-DD-HH-MM-SS.md`), and explicitly read `.foundry/docs/knowledge_base/agents/core_policies.md` at session start.
 The root cause of the permanent failure (Max rejection count reached) for the Gen 3 Secret Base Parsing epic was the missing Orchestrator Safeguard (E2E/Integration Requirement). The Epic did not generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`). Consequently, the Orchestrator repeatedly rejected the Epic until it reached the maximum rejection count. Always ensure generative personas explicitly spawn an E2E/Integration STORY when breaking down an Epic.
 
+---
+
 ## Learnings
 * **Testing against live repository data**: E2E tests targeting features that rely on repository metadata (like the Foundry DAG Dashboard reading `foundry.json`) should NOT rely on live repository state. In clean environments or CI, nodes with specific states (e.g., permanent failures) may not exist, causing non-deterministic timeouts.
 * **Resolution**: Such tests must use Playwright's `page.route` to mock the `**/data/foundry.json` response, providing a deterministic dataset containing the exact edge cases the UI expects.
@@ -140,12 +184,16 @@ The root cause of the permanent failure (Max rejection count reached) for the Ge
 - E2E tests for the whole suite timed out, so targeted the specific Gen 3 dashboard tests successfully.
 - Code review gave a false negative on the Empty PR policy, as the file was already created.
 
+---
+
 ## Learnings
 * Investigated background fetching and preloading for msgpack files as requested in `research-340-405-background-fetching`.
 * Recommended `<link rel="preload">` for core data (`pokedata-core.msgpack`) and `<link rel="prefetch">` for gen-specific extensions (`pokedata-gen{N}.msgpack`) to align with the bundle splitting strategy in `adr-117-029-bundle-splitting-strategy.md`.
 * Suggested Service Worker Cache API for robust offline support and caching of the `.msgpack` files, using a Cache-First strategy.
 * The Background Fetch API is likely overkill for our payload sizes, so standard caching combined with prefetch is preferred.
 * Addendum: The preloading and prefetching logic should ideally be implemented as a Vite plugin to automate the injection of resource hints into the generated HTML during the build process.
+
+---
 
 ## Findings
 I investigated how the "Contest Master Rank" star is awarded on the Gen 3 Trainer Card. The initial assumption might be to scan PC boxes or the party for Pokémon with the Contest Master ribbon.
@@ -156,6 +204,8 @@ The function `CountPlayerMuseumPaintings` checks the `contestWinners` array loca
 
 For each of these 5 slots, if the `species` field (a `u16` at offset `0x08` within the 32-byte `ContestWinner` struct) is non-zero, it means a painting for that category (Cool, Beauty, Cute, Smart, Tough) is on display in the Lilycove Museum.
 
+---
+
 ## Architectural Constraints / Guidelines
 - When implementing Trainer Card validation for the Contest Star, **do not** scan PC boxes for ribbons.
 - You must parse the `contestWinners` array at the end of `SaveBlock1` (Emerald offset `0x2e90`), specifically checking the `species` ID of indices 8 through 12.
@@ -165,8 +215,12 @@ The permanent failure (Max rejection count reached) of `epic-038-061-pokerus-sta
 
 Research task: `research-157-369-gen3-party-box-offsets`
 
+---
+
 ## Objective
 Research the exact memory offsets and structure for Party Pokémon and PC Box Pokémon in Generation 3 save files to enable accurate data extraction of PIDs.
+
+---
 
 ## Findings
 - Party Pokémon data is stored in Section 1 (Team / Items).
@@ -182,12 +236,18 @@ Research the exact memory offsets and structure for Party Pokémon and PC Box Po
 - To avoid absolute offsets failing between Gold/Silver and Crystal, the `wMomsMoney` and `wDecoBed` properties can be fetched relative to the `johtoBadgesOffset`.
 - Mom's Money: 3-byte little-endian integer.
 
+---
+
 ## Action
 Researched WASM emulator options (mGBA, binjgb, SkyEmu, IodineGBA) for DexHelper's web-based integration using GitHub APIs to pull README details for projects.
+
+---
 
 ## Findings
 `binjgb` is highly performant and lightweight, running natively in the browser via WebAssembly with simple Javascript bindings for save state extraction, but only supports Game Boy and Game Boy Color. `mGBA` and `SkyEmu` both support GB, GBC, and GBA (Gen 1-3) and can be compiled to WASM, offering unified engines for our entire feature set. `IodineGBA` is pure JS and less desirable.
 Based on CEO feedback, we evaluated a multi-emulator approach: using `binjgb` for its lightweight optimizations for Gen 1/2, and `mGBA` or `SkyEmu` specifically for Gen 3.
+
+---
 
 ## Next Steps
 Updated the knowledge base document `.foundry/docs/knowledge_base/architecture/wasm_emulators.md` with the expanded multi-emulator recommendation.
@@ -198,13 +258,14 @@ Because the C source code doesn't explicitly state the exact byte size of these 
 
 **Key Learning:** When writing temporary Node.js scripts in the workspace (which uses `"type": "module"` in `package.json`), use the `.cjs` extension if the script uses CommonJS syntax (like `require()`) to avoid ES module ReferenceErrors. This ensures temporary investigative tools run smoothly.
 
+---
 
 # Session 15275065586819407345
 
 - Learned that LLMs may wrap output in markdown code blocks, even when `responseMimeType` is set to `application/json` (e.g., ````json`). It is necessary to strip these tags explicitly using regex or similar before running `JSON.parse`. Trimming whitespace before performing this check handles edge cases.
 - It is important to clean up all temporary scripts, outputs, and patch backup files from the workspace prior to code review or submission to adhere to the strict `Scratchpad Cleanup Enforcement` policy.
 
-
+---
 
 # Session 5492350295619108211
 
@@ -216,11 +277,13 @@ The tests failed because `isGen3Save` in `src/engine/saveParser/utils/detection.
 **Learnings:**
 - If Playwright E2E tests fail to run or complain about missing browser binaries, run `pnpm exec playwright install` to automatically download the required dependencies before executing the test suite.
 
-
+---
 
 # Session 18001398838651776536
 - Discovered that using `ctx.waitUntil()` is a critical architectural constraint when integrating Google Drive Webhooks with Cloudflare Workers due to strict CPU limits.
 - Established that webhooks are vastly superior to polling for the "live tracker" use case because Cloudflare's 1-minute Cron limit and Drive API quotas make polling impractical.
+
+---
 
 # Research Journal Entry: Gen 3 Trainer Data Structures
 
@@ -237,12 +300,15 @@ Investigated the `Trainer` and `TrainerMon` (party) struct sizes and layouts in 
 
 These structures are fixed in ROM and mapped by the trainer IDs, so parsing upcoming opponent teams requires reading the `Trainer` struct based on an ID, evaluating the `partyFlags`, and iterating the pointer over the appropriate `TrainerMon` variant.
 
-
 ---
 
 ## Aggregated from 3176136743482522530.md
 
+---
+
 # Researcher Journal Entry - Session 3176136743482522530
+
+---
 
 ## Researching Gen 2 Roamer Save Fixtures
 
@@ -252,22 +318,22 @@ During the research for `research-466-467-gen2-roamer-fixtures`, I found that lo
 
 The most reliable approach is to use a save editing tool like PKHeX to flip the necessary event flags (e.g., releasing the legendary beasts), and then run the modified save in a highly accurate emulator like BGB or mGBA. By simply interacting with the game normally (e.g., walking through grass or traversing routes), the game engine naturally populates the roamer data structures (map coordinates, levels, and statuses) in the SRAM via its internal RNG. Saving natively from the emulator captures this true state, providing a robust fixture for E2E testing without the risks of manual hex manipulation.
 
-
-
-
 ---
 
 # Session 6361047784736225452
+
+---
 
 ## Findings
 I investigated the permanent failure of `task-408-416-gen3-trainer-flags-e2e-impl`.
 The test was supposed to verify the UI components of the "Missed Trainer Radar". However, these UI components did not exist because the parent UI epic (`epic-109-308-missed-trainer-radar-ui`) was cancelled after a Gen 1/2 extraction dependency failed.
 
+---
+
 ## Action Taken
 Since the test cannot pass without the UI, I dynamically spawned a new late-binding Epic (`epic-109-498-missed-trainer-ui-gen3`) dedicated specifically to implementing the Gen 3 UI. I added this new Epic to the `depends_on` array of the E2E retry task (`task-408-494-gen3-trainer-flags-e2e-retry-impl`). This guarantees the test won't execute again until the UI is actually built.
 
 I also documented that `isGen3Save` is intentionally mocked to return `false`, which means E2E testing Gen 3 must continue to use `initializeWithSave` to bypass detection during loads.
-
 
 ---
 
@@ -283,16 +349,24 @@ The \`Gen2SaveData\` schema in \`src/engine/saveParser/parsers/common.ts\` is mi
 - Always ensure that newly created extraction functions are actually hooked into the main parser (like \`parseGen2\`) and that their extracted data types are added to the common schemas (like \`Gen2SaveData\`) before writing E2E tests for the UI. UI components can't display data that isn't provided to them by the state store.
 - Added findings and completed the research node `research-411-511-investigate-tm-hm-e2e-failure` showing that the e2e test timeout was due to running the full test suite instead of a specific file.
 
+---
+
 # Researcher Journal Entry
 The root cause of the previous session timeout (>7 days) during the implementation of Gen 2 Shiny Breeding E2E tests was running the full Playwright E2E test suite instead of targeting a specific file. The full suite takes over 400 seconds, which exceeds the bash session timeout. When verifying E2E test changes, agents must explicitly target the affected test files (e.g., `xvfb-run -a pnpm test:e2e tests/e2e/file.spec.ts`) instead of running the entire suite, as documented in the Coder persona journal.
 
 
 <!-- Merged from 2026-09-07-23-45-02.md -->
+
+---
+
 # Bike Badge Integration Failure Analysis
 The target integration artifacts (`MapUI.tsx`, `MapUI.test.tsx`, and `RouteRadarController.ts`) currently exist in the codebase and contain the required implementation. The unit tests verify the components successfully.
 
 
 <!-- Merged from 2026-09-08-17-33-00.md -->
+
+---
+
 # 2026-09-08-17-33-00
 
 * Discovered root cause of Gen 3 Active Party Matchup integration failure in `MatchupContext.tsx` and `MatchupContext.test.tsx`.
@@ -300,36 +374,43 @@ The target integration artifacts (`MapUI.tsx`, `MapUI.test.tsx`, and `RouteRadar
 * `MatchupContext.test.tsx` enforces this explicit exclusion.
 * Modifying these files to accept Gen 3 should be the next step.
 
+---
+
 ## Mirage Island E2E Investigation
 The E2E tests for Mirage Island extraction actually exist in the codebase now (`tests/e2e/mirage_island_extraction.spec.ts`). The file was added in a later commit (7ef726fe45f123e27f91d0b8dce131c305f15901). Running Playwright tests on this file directly succeeds. The coder's previous failures to create this artifact were likely transient or resolved by other PRs. Since the tests exist and pass, the downstream coder task (task-443-565-mirage-island-e2e-impl-v2) should just submit an empty PR.
-
 
 ---
 
 # Kanban UI Timeout Investigation
 
+---
+
 ## Context
 The implementation task `task-136-491-permanent-failure-kanban-ui-impl` failed due to a session timeout after running for >7 days without opening a PR. The session ID was 17599828616280809867.
+
+---
 
 ## Root Cause
 An investigation of the session's activity log using `session-api.ts` revealed that the agent ended its session with a conversational prompt, asking the user: "Before I dive deeper into debugging the test environment or finalizing the PR, could you provide some advice or preferences on what you'd like me to focus on next? Should I proceed with fixing the test mock setup, or would you prefer me to make any structural changes to the Kanban UI?".
 
 Because the agent explicitly requested user input and waited for a response, the session transitioned into a waiting state (`AWAITING_USER_FEEDBACK`). Since the Foundry orchestrator operates completely autonomously without user interaction, this pause caused the session to hang indefinitely, ultimately triggering the >7 day timeout.
 
+---
+
 ## Architectural Adjustments & Policies
 This failure was not caused by environmental or architectural constraints in the codebase, but rather a direct violation of the **Autonomous Communication & No-Ask Policy**.
 
 No codebase architectural adjustments are needed. However, this reinforces the critical requirement that agents MUST NOT ask questions or seek permission in chat. All decisions must be executed autonomously and PRs must be submitted immediately upon completion or encountering a demotion/wait state.
 
-
 ---
 
 # Session 2026-09-15
 
+---
+
 ## Learnings
 - **Bash Session Timeout (Exit Code 124):** Running the full Playwright E2E test suite (e.g. `xvfb-run -a pnpm test:e2e`) takes over 400 seconds, which will trigger the 400-second bash session timeout causing the orchestrator to fail the node.
 - **Empty PR Verification:** During execution, when verifying an empty PR, agents must append a specific test file (e.g., `xvfb-run -a pnpm test:e2e tests/e2e/home.spec.ts`) in the bash session instead of running the whole suite to avoid the timeout, fulfilling the verification requirement without altering the mandated plan phrasing.
-
 
 ---
 
@@ -340,13 +421,16 @@ There is no strict 128KB (`131072` bytes) file size equality check in the Gen 3 
 The parser only enforces a minimum file size (`buffer.byteLength < 32768`) and safely reads from specific offsets, naturally ignoring any trailing bytes (such as the 44/48 RTC bytes appended by VBA-M).
 Therefore, no implementation is needed. Future tasks or stories based on this premise should be cancelled.
 
-
 ---
 
 # Gen 2 Unown Dex Parsing Timeout Investigation
 
+---
+
 ## Context
 The implementation task `story-338-477-gen2-unown-dex-parsing` failed due to a session timeout (>7 days). I investigated the failure to determine if it was caused by missing offsets, missing documentation, or environmental blockers.
+
+---
 
 ## Root Cause
 An investigation of the session's activity and similar timeouts revealed that the failure was **not** caused by technical limitations, environmental blockers, or missing specifications.
@@ -355,6 +439,14 @@ The Unown parsing implementation in `src/engine/saveParser/parsers/gen2.ts` is a
 
 The session timeout was instead caused by a direct violation of the **Autonomous Communication & No-Ask Policy**, specifically the agent asking the user a conversational prompt (e.g., "Should I proceed with fixing the test mock setup or would you prefer..."). This causes the autonomous Foundry orchestrator session to hang indefinitely in the `AWAITING_USER_FEEDBACK` state, eventually triggering the system timeout.
 
+---
+
 ## Actionable Takeaways
 - No codebase architectural adjustments or missing offsets are needed.
 - Agents MUST adhere strictly to the Autonomous Communication & No-Ask Policy, avoiding any conversational prompts or asking for user input/preferences at the end of their turn.
+
+---
+
+# Benchmark Runner Dependencies
+
+When implementing benchmark scripts that require installing external toolchains (like ts-node, esbuild, swc, oxc), do NOT install them into the main repository's package.json. Modifying the root configuration causes pollution and fails code review. Instead, these dependencies MUST be installed in an ephemeral /tmp directory during runtime, and their installation time should be measured as part of the benchmark's dependency overhead metrics.

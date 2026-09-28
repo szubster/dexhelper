@@ -2,13 +2,18 @@
 
 **Pattern:** The `/assistant` route is currently missing or broken, displaying a generic error page during visual audits. A dedicated task (`task-000-001-fix-assistant-route-lens-audit.md`) has been created to track and resolve this issue. Future UI implementations should ensure that all base URL routing configurations (e.g., `/dexhelper/`) correctly map to their respective views.
 
+---
 
 ---
 
 # Visual Routing & Base Path Consistency Across Viewports
 
+---
+
 ## Route Base Path Alignment
 In Vite applications hosted on sub-paths (such as `/dexhelper/`), route navigation and visual audit scripts must strictly account for the base path prefix when inspecting routes like `/assistant`, `/storage`, `/dashboard`, `/dag`, `/safari-zone`, and `/box-analyzer`. Direct navigation to absolute paths without the base URL prefix results in 440/404 fallbacks or unrendered components during visual inspection.
+
+---
 
 ## Responsive Layout & Tactical Hardware Aesthetic Safeguards
 * **Monospaced Telemetry & Dashed Borders**: Component containers and status overlays across viewports (Desktop FullHD 1080p, 1440p, Mobile Pixel 9) require fixed min-widths on monospaced headers to prevent layout reflow when live data or save state toggles transition between Gen 1, Gen 2, and Gen 3 save states.
@@ -18,8 +23,12 @@ In Vite applications hosted on sub-paths (such as `/dexhelper/`), route navigati
 
 # Exploratory Visual Inspection & No-Stored-Screenshots Policy
 
+---
+
 ## Elimination of Stored Screenshots
 Static baseline pixel comparisons (`toHaveScreenshot()`) with stored PNGs in git created a false-positive trap: pre-existing layout and visual defects were frozen into baseline images, causing subsequent automated runs to pass with zero actionable feedback. All binary PNG snapshots in `tests/e2e/visual-audit.spec.ts-snapshots/` have been eliminated from git.
+
+---
 
 ## Exploratory "Play with the App" Heuristics
 Rather than passive screenshot diffs or rigid technical checklists, the Lens agent approaches the app through the eyes of an inquisitive human player. Technical rules (like bracket wrapping or overflow checks) are mere examples—a user perceives that something is wrong through broader categories of discomfort:
@@ -31,9 +40,22 @@ Rather than passive screenshot diffs or rigid technical checklists, the Lens age
 
 ---
 
+# Lens Journal — React 19 Suspense & Cross-Gen Save State Switching
+
+---
+
+## React 19 Lazy Loading Suspense Boundaries
+In React 19, lazy-loaded route components (such as `DagWrapper` on `/dag`) throw an unhandled `use()` hook suspension warning (`This library called use() to suspend in a previous render but did not call use() when it finished`) if they suspend without an explicit `<Suspense>` boundary wrapping the component inside the route definition.
+* **Resolution**: Replace `lazyRouteComponent` with `React.lazy()` and wrap lazy components in `<Suspense fallback={...}>`.
+
+---
 # Exploratory Layout Audit Findings — 2025-09-28
 
 ## Mobile Viewport Bottom Nav Margin Requirements
 * **Fixed Bottom Bar Occlusion Risk**: On mobile viewports (Pixel 9: 393x852), fixed bottom navigation arrays (`BottomNav`) span y-coords 752-852px (~100px fixed height). Scrollable route containers must consistently maintain bottom padding (`pb-24` / `pb-28`) to prevent interactive card footers from being hidden beneath the fixed control array.
 * **Horizontal Overflow**: Verified that `scrollWidth <= clientWidth + 2` holds across all 9 application routes during exploratory interaction tests and save state toggles.
 
+## Cross-Generation Save State Switching in Playwright
+When running E2E visual tests that iterate through multiple save files (`yellow.sav`, `crystal.sav`, `emerald.sav`) within a test suite, `initializeWithSave` checks if `TRNR` text is already visible on the page. If a save state is already active, `initializeWithSave` skips overwriting IndexedDB.
+* **Resolution**: Always invoke `clearStorage(page)` before calling `initializeWithSave` when switching save states.
+* **Test Timeout Prevention**: Split multi-save assertion sequences into discrete `test()` blocks so that each save state initialization gets a fresh timeout budget.
