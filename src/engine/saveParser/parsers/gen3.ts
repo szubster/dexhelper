@@ -324,6 +324,17 @@ export const SPINDA_SPOT_ORIGINS = {
   BOTTOM_RIGHT: { x: 26, y: 25 },
 };
 
+/**
+ * Parses a 32-bit Spinda Personality ID (PID) into 4 distinct bytes.
+ * Each byte determines the offset coordinate for one of Spinda's spots.
+ *
+ * @param pid - The 32-bit Personality Value.
+ * @returns A tuple of 4 bytes (0-255).
+ */
+export function parseSpindaPID(pid: number): [number, number, number, number] {
+  return [pid & 0xff, (pid >>> 8) & 0xff, (pid >>> 16) & 0xff, (pid >>> 24) & 0xff];
+}
+
 export const UPPER_16_BIT_SHIFT = 16;
 export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
 

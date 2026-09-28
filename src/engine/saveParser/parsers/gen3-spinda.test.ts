@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { GEN3_SPINDA_SPECIES_ID, iterateGen3Party, iterateGen3PCBoxes } from './gen3';
+import { GEN3_SPINDA_SPECIES_ID, iterateGen3Party, iterateGen3PCBoxes, parseSpindaPID } from './gen3';
 
 describe('Gen3 Spinda Extraction', () => {
   it('extracts Spinda from PC boxes', () => {
@@ -63,5 +63,10 @@ describe('Gen3 Spinda Extraction', () => {
 
     expect(spindas.length).toBe(1);
     expect(spindas[0]?.pid).toBe(24);
+  });
+  it('parses a 32-bit PID into 4 distinct bytes', () => {
+    const pid = 0x8899aabb;
+    const bytes = parseSpindaPID(pid);
+    expect(bytes).toEqual([0xbb, 0xaa, 0x99, 0x88]);
   });
 });
