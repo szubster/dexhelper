@@ -33,7 +33,11 @@ This story covers the generation of generation-specific extension bundles (`poke
 - [x] Task to update data generation scripts to output `pokedata-gen1.msgpack`, `pokedata-gen2.msgpack`, etc.
 - [x] Task to implement lazy fetching of generation-specific data upon save file detection
 - [x] task-429-473-generate-gen-specific-bundles
-- [ ] task-429-474-implement-lazy-fetching
-- [ ] task-429-475-gen-specific-bundles-qa
-- [ ] research-429-531-investigate-gen-specific-bundle-timeout
-- [ ] task-429-553-generate-gen-specific-bundles
+- [x] task-429-474-implement-lazy-fetching
+- [x] task-429-475-gen-specific-bundles-qa
+- [x] research-429-531-investigate-gen-specific-bundle-timeout
+- [x] task-429-553-generate-gen-specific-bundles
+- [ ] task-429-601-split-data-generation
+- [ ] task-429-602-vite-plugin-bundle-split
+- [ ] task-429-603-implement-lazy-fetching
+- [ ] task-429-604-gen-specific-bundles-qa

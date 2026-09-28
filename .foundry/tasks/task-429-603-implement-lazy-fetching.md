@@ -1,13 +1,13 @@
 ---
-id: task-429-474-implement-lazy-fetching
+id: task-429-603-implement-lazy-fetching
 type: TASK
 title: Implement Lazy Fetching of Gen-Specific Bundles
-status: CANCELLED
+status: PENDING
 owner_persona: coder
-created_at: '2026-08-23'
-updated_at: '2026-08-23'
+created_at: '2026-09-28'
+updated_at: '2026-09-28'
 depends_on:
-  - task-429-553-generate-gen-specific-bundles
+  - task-429-602-vite-plugin-bundle-split
 jules_session_id: null
 pr_number: null
 parent: story-400-429-gen-specific-extensions
@@ -16,8 +16,9 @@ tags:
   - architecture
   - bundles
 rejection_count: 0
-rejection_reason: "Replaced by task-429-603 due to dependency change"
+rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Task: Implement Lazy Fetching of Gen-Specific Bundles
