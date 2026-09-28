@@ -29,6 +29,6 @@ Define the TypeScript interfaces and types for the Box Analyzer Comparison Matri
 This task establishes the structural data contract that will be used by the comparison matrix to display grouped Pokémon species stats.
 
 ## Acceptance Criteria
-- [ ] Define types/interfaces required for the Comparison Matrix rows/columns.
-- [ ] Ensure types support Level, Gender, DVs/IVs, Calculated IV Total/Average, Nature, Hidden Power, and Shininess.
-- [ ] Write unit tests verifying type safety/mocking if applicable.
+- [x] Define types/interfaces required for the Comparison Matrix rows/columns.
+- [x] Ensure types support Level, Gender, DVs/IVs, Calculated IV Total/Average, Nature, Hidden Power, and Shininess.
+- [x] Write unit tests verifying type safety/mocking if applicable.
