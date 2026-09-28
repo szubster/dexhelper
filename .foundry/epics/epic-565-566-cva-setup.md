@@ -2,12 +2,12 @@
 id: epic-565-566-cva-setup
 type: EPIC
 title: CVA Setup and Theme Variables
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-14'
 updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: '14077911034019243278'
+jules_session_id: '14190726953648217706'
 pr_number: null
 parent: prd-523-565-component-variants-theming-consolidation-refactor
 tags:
