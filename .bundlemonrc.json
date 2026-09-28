@@ -98,6 +98,10 @@
       "maxSize": "50kb"
     },
     {
+      "path": "assets/HallOfFameDashboard-<hash>.js",
+      "maxSize": "30kb"
+    },
+    {
       "path": "assets/*-<hash>.js",
       "maxSize": "10kb"
     },
