@@ -2,13 +2,13 @@
 id: task-526-567-drive-auth-qa
 type: TASK
 title: QA Verification for Google Drive Auth in Cloudflare Worker
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-09'
 updated_at: '2026-09-28'
 depends_on:
   - task-526-566-drive-auth-tests
-jules_session_id: null
+jules_session_id: '1313336732527825840'
 pr_number: null
 parent: story-402-526-cloudflare-worker-setup
 tags:
