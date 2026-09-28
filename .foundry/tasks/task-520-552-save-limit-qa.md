@@ -2,13 +2,13 @@
 id: task-520-552-save-limit-qa
 type: TASK
 title: QA Verification for Save State Limits
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-05'
-updated_at: '2026-09-21'
+updated_at: '2026-09-28'
 depends_on:
   - task-520-551-save-limit-enforcement-coder
-jules_session_id: null
+jules_session_id: '4445406917977513876'
 pr_number: null
 parent: story-399-520-save-state-limits
 tags:
