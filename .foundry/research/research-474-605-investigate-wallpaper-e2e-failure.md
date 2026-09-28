@@ -28,5 +28,12 @@ Investigate the root cause of the repeated failures during the implementation of
 * Propose a solution for the v2 implementation tasks.
 
 ## Acceptance Criteria
-- [ ] Document findings and root cause of the failure.
-- [ ] Propose an unblocked path forward for the replacement tasks.
+- [x] Document findings and root cause of the failure.
+- [x] Propose an unblocked path forward for the replacement tasks.
+
+## Findings
+The implementation in `tests/e2e/wallpaper-state.spec.ts` failed because the coder utilized `page.evaluate()` to directly inject and manipulate `localStorage` state, explicitly noting in comments that "The UI for the wallpaper dashboard doesn't exist yet". This direct injection violates the `Playwright E2E UI Component Integration Testing` policy and E2E best practices, which strictly prohibit tautological testing via direct state/DOM manipulation. E2E tests must target actual rendered React components using Playwright's built-in locators.
+
+## Proposed Path Forward
+1. **Unblock UI Dependency**: The Gen 3 Wallpaper dashboard UI components (including the toggles for unlocking wallpapers) must be fully implemented and integrated into the application's view hierarchy before the E2E interactions can be written. If a separate STORY or TASK for this UI implementation does not exist or has not been completed, it must be prioritized.
+2. **Replacement Tasks**: The replacement task for the E2E implementation (`task-474-606-gen3-wallpaper-e2e-interaction-impl-v2`) must explicitly instruct the coder to use standard Playwright locators (e.g., `page.getByRole()`, `page.getByText()`) to toggle the wallpaper via the rendered UI, strictly forbidding the use of `page.evaluate()` for state manipulation.
