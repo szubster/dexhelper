@@ -34,4 +34,4 @@ Tools and linters validating `.foundry/docs/schema.md` schema need to be updated
 - Update tools and linters to recognize the new optional `confidence_score` property.
 
 ## Acceptance Criteria
-- [ ] Tools and linters are updated to recognize the new optional `confidence_score` property.
+- [x] Tools and linters are updated to recognize the new optional `confidence_score` property.

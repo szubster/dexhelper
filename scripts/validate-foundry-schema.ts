@@ -220,6 +220,15 @@ function validateSchema() {
       }
     });
 
+    // 2.95 Validate confidence_score
+    if ('confidence_score' in data && data['confidence_score'] !== null) {
+      const score = data['confidence_score'];
+      if (typeof score !== 'number' || !Number.isInteger(score) || score < 0 || score > 100) {
+        console.error(`Error: Invalid confidence_score '${score}' in file ${file}. Must be an integer between 0 and 100.`);
+        hasError = true;
+      }
+    }
+
     // 2.9 Validate filename matches ID (except ADRs which have inconsistent naming)
     if (id && type !== 'ADR') {
       const filename = path.basename(file, '.md');
