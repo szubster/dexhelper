@@ -33,4 +33,4 @@ Following the core implementation of the engine logic that scans the player's sa
 - Ensure edge cases are handled appropriately and test cases cover various scenarios.
 
 ## Acceptance Criteria
-- [ ] coder: Write comprehensive unit tests covering the new engine utilities.
+- [x] coder: Write comprehensive unit tests covering the new engine utilities.
