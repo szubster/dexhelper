@@ -16,8 +16,8 @@ test.describe('Save Management', () => {
     const fileInput = page.locator('input[type="file"]');
     await fileInput.setInputFiles(path.join('tests', 'fixtures', 'yellow.sav'));
 
-    // 3. Verify Hydration: Pokedex grid should appear (Wait for Pikachu)
-    await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
+    // 3. Verify Hydration: Pokedex grid should appear
+    await expect(page.getByTestId('pokedex-card').first()).toBeVisible();
 
     // 4. Verify Trainer Info in Header
     await expect(page.locator('header').getByText(/TRNR/i).first()).toBeVisible();
@@ -33,7 +33,7 @@ test.describe('Save Management', () => {
     await waitForSync(page);
 
     // 6. Verify it's still hydrated (persisted in localStorage)
-    await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
+    await expect(page.getByTestId('pokedex-card').first()).toBeVisible();
     await expect(page.locator('header').getByText(/TRNR/i).first()).toBeVisible();
   });
 

@@ -10,11 +10,23 @@ test.describe('Gen 3 Pokedex Gaps Tracker', () => {
     const cards = page.getByTestId('pokedex-card');
     await expect(cards.first()).toBeVisible({ timeout: 15000 });
 
+    // Verify secured (emerald) items exist by toggling secured filter
+    const securedFilter = page.getByTestId('filter-secured');
+    await expect(securedFilter).toBeVisible();
+    await securedFilter.click();
+    await expect(page.locator('.border-emerald-500\\/50').first()).toBeVisible({ timeout: 10000 });
     const emeraldCount = await page.locator('.border-emerald-500\\/50').count();
-    const amberCount = await page.locator('.border-amber-500\\/50').count();
-
     expect(emeraldCount).toBeGreaterThan(0);
+    await securedFilter.click(); // toggle off
+
+    // Verify dex-only (amber) items exist by toggling dex-only filter
+    const dexOnlyFilter = page.getByTestId('filter-dex-only');
+    await expect(dexOnlyFilter).toBeVisible();
+    await dexOnlyFilter.click();
+    await expect(page.locator('.border-amber-500\\/50').first()).toBeVisible({ timeout: 10000 });
+    const amberCount = await page.locator('.border-amber-500\\/50').count();
     expect(amberCount).toBeGreaterThan(0);
+    await dexOnlyFilter.click(); // toggle off
 
     // The "missing" filter allows users to see what is missing. Let's just click it using the testId.
     const missingFilter = page.getByTestId('filter-missing');

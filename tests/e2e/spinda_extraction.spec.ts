@@ -12,6 +12,11 @@ test.describe('Spinda PID Extraction E2E Verification', () => {
     await initializeWithSave(page, new Uint8Array(saveData));
     await waitForSync(page);
 
+    // Search for Spinda to bring it into the virtualized viewport
+    const searchInput = page.getByTestId('search-input');
+    await searchInput.click({ force: true });
+    await searchInput.fill('Spinda');
+
     // Verify a Spinda is found (ID 327 in Gen 3 National Dex)
     const spindaCard = page.locator('[data-testid="pokedex-card"][data-pokemon-id="327"]').first();
     await spindaCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
@@ -36,6 +41,11 @@ test.describe('Spinda PID Extraction E2E Verification', () => {
     const saveData = fs.readFileSync(savePath);
     await initializeWithSave(page, new Uint8Array(saveData));
     await waitForSync(page);
+
+    // Search for Spinda to bring it into the virtualized viewport
+    const searchInput = page.getByTestId('search-input');
+    await searchInput.click({ force: true });
+    await searchInput.fill('Spinda');
 
     // Verify a Spinda is found (ID 327 in Gen 3 National Dex)
     const spindaCard = page.locator('[data-testid="pokedex-card"][data-pokemon-id="327"]').first();
