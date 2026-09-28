@@ -17,3 +17,4 @@
 | [task-563-602-gen2-roamer-translation-implementation](.foundry/tasks/task-563-602-gen2-roamer-translation-implementation.md) | TASK | Gen 2 Roamer Translation Implementation | coder | [13272508258495497696](https://jules.google.com/session/13272508258495497696) |
 | [task-564-565-gen3-trainer-card-e2e-tests](.foundry/tasks/task-564-565-gen3-trainer-card-e2e-tests.md) | TASK | Implement E2E Tests for Gen 3 Trainer Card UI Rendering | coder | [15592676266199099798](https://jules.google.com/session/15592676266199099798) |
 | [task-573-605-heatmap-logic](.foundry/tasks/task-573-605-heatmap-logic.md) | TASK | Implement Heatmap Aggregation Logic | coder | [9425173223763618511](https://jules.google.com/session/9425173223763618511) |
+| [task-585-601-schema-e2e-linters](.foundry/tasks/task-585-601-schema-e2e-linters.md) | TASK | Update Linters for Confidence Metrics Schema | coder | [7199530757603551638](https://jules.google.com/session/7199530757603551638) |
