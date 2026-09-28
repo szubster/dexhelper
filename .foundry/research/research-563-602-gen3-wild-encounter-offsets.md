@@ -2,12 +2,12 @@
 id: research-563-602-gen3-wild-encounter-offsets
 type: RESEARCH
 title: Investigate Gen 3 Wild Encounter Offsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-20'
 updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12476667069243648559'
 pr_number: null
 parent: task-563-578-gen3-wild-item-data-parsing-logic
 tags:
