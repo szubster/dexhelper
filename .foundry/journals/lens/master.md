@@ -29,4 +29,11 @@ Rather than passive screenshot diffs or rigid technical checklists, the Lens age
 4. **Data Inconsistency**: Desynchronized counters, `NaN`/`undefined` labels, or missing sprite assets.
 5. **Mobile Hostility**: Claustrophobic navigation, microscopic tap targets, or horizontal page drift.
 
+---
+
+# Exploratory Layout Audit Findings — 2025-09-28
+
+## Mobile Viewport Bottom Nav Margin Requirements
+* **Fixed Bottom Bar Occlusion Risk**: On mobile viewports (Pixel 9: 393x852), fixed bottom navigation arrays (`BottomNav`) span y-coords 752-852px (~100px fixed height). Scrollable route containers must consistently maintain bottom padding (`pb-24` / `pb-28`) to prevent interactive card footers from being hidden beneath the fixed control array.
+* **Horizontal Overflow**: Verified that `scrollWidth <= clientWidth + 2` holds across all 9 application routes during exploratory interaction tests and save state toggles.
 
