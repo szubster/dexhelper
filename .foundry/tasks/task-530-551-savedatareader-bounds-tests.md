@@ -25,7 +25,7 @@ locks: []
 This task adds strict bounds checking to the `SaveDataReader` core reading methods and implements comprehensive unit tests to verify the behavior.
 
 ## Acceptance Criteria
-- [ ] Ensure all read methods in `SaveDataReader` have strict bounds checking.
-- [ ] Catch `RangeError` on out-of-bounds access and throw a new error with the exact message: "The save file is corrupted or incomplete."
-- [ ] Write unit tests for successful read operations.
-- [ ] Write unit tests verifying that out-of-bounds accesses correctly throw the required error message.
+- [x] Ensure all read methods in `SaveDataReader` have strict bounds checking.
+- [x] Catch `RangeError` on out-of-bounds access and throw a new error with the exact message: "The save file is corrupted or incomplete."
+- [x] Write unit tests for successful read operations.
+- [x] Write unit tests verifying that out-of-bounds accesses correctly throw the required error message.
