@@ -34,13 +34,26 @@ async function aggregateJournals(baseDir: string, archiveBaseDir: string) {
     // Sort files to ensure predictable order
     mdFiles.sort();
 
+    let masterContent = '';
+    try {
+      masterContent = await fs.readFile(masterFilePath, 'utf-8');
+    } catch {
+      masterContent = '';
+    }
+
     for (const file of mdFiles) {
       const filePath = path.join(personaDir, file);
       const content = await fs.readFile(filePath, 'utf-8');
 
-      // Append content with a separator
-      const separator = `\n\n---\n\n`;
-      await fs.appendFile(masterFilePath, `${separator}${content}`);
+      const normContent = content.trim().replace(/\s+/g, ' ');
+      const normMaster = masterContent.trim().replace(/\s+/g, ' ');
+
+      if (normContent && !normMaster.includes(normContent)) {
+        const separator = masterContent.trim() ? `\n\n---\n\n` : '';
+        const toAppend = `${separator}${content.trim()}`;
+        await fs.appendFile(masterFilePath, toAppend);
+        masterContent += `\n${content.trim()}`;
+      }
 
       // Delete the processed file
       await fs.unlink(filePath);

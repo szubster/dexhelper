@@ -78,4 +78,31 @@ describe('sweepActiveNodes', () => {
     expect(fs.existsSync(path.join(testEnvPath, '.foundry/tasks/nested/completed-task.md'))).toBe(false);
     expect(fs.existsSync(path.join(testEnvPath, '.foundry/archive/tasks/nested/completed-task.md'))).toBe(true);
   });
+
+  it('should block archiving of a tree if any node is active', () => {
+    createValidTestNode(testEnvPath, '.foundry/ideas/completed-parent.md', { status: 'COMPLETED', type: 'IDEA', id: 'parent-1' });
+    createValidTestNode(testEnvPath, '.foundry/ideas/active-child.md', { status: 'ACTIVE', type: 'IDEA', id: 'child-1', parent: 'parent-1' });
+
+    const result = sweepActiveNodes(testEnvPath);
+    expect(result).toHaveLength(1);
+    expect(result[0]).toBe(path.join('.foundry', 'ideas', 'active-child.md'));
+
+    // Check that files were NOT moved
+    expect(fs.existsSync(path.join(testEnvPath, '.foundry/ideas/completed-parent.md'))).toBe(true);
+    expect(fs.existsSync(path.join(testEnvPath, '.foundry/ideas/active-child.md'))).toBe(true);
+  });
+
+  it('should archive a tree if all nodes are terminal', () => {
+    createValidTestNode(testEnvPath, '.foundry/ideas/completed-parent-2.md', { status: 'COMPLETED', type: 'IDEA', id: 'parent-2' });
+    createValidTestNode(testEnvPath, '.foundry/ideas/completed-child-2.md', { status: 'COMPLETED', type: 'IDEA', id: 'child-2', parent: 'parent-2' });
+
+    const result = sweepActiveNodes(testEnvPath);
+    expect(result).toHaveLength(0);
+
+    // Check that files were moved
+    expect(fs.existsSync(path.join(testEnvPath, '.foundry/ideas/completed-parent-2.md'))).toBe(false);
+    expect(fs.existsSync(path.join(testEnvPath, '.foundry/ideas/completed-child-2.md'))).toBe(false);
+    expect(fs.existsSync(path.join(testEnvPath, '.foundry/archive/ideas/completed-parent-2.md'))).toBe(true);
+    expect(fs.existsSync(path.join(testEnvPath, '.foundry/archive/ideas/completed-child-2.md'))).toBe(true);
+  });
 });

@@ -4,8 +4,14 @@ Handled node: `prd-070-043-roamer-tracking-dashboard`
 
 Cancelled the remaining Gen 3 roamer tracking epics (`epic-043-152`, `epic-043-153`, `epic-043-154`, `epic-043-155`) as `research-043-263-roamer-tracking-remediation` and ADR `108-027` concluded that static map coordinate extraction for Gen 3 roamers is impossible (the data is kept in EWRAM). Updated the PRD node by checking off the Gen 3 epics to resolve the impossible loop. The Gen 2 tracking tasks can proceed as they are feasible.
 
+---
+
+---
+
 ## Impossible Loop Handled
 The child epic `epic-108-303-extend-phase-3-6-cancelled-nodes` of PRD `prd-086-108-fix-orchestrator-phase-3-6` was cancelled due to max rejections. I have checked off the cancelled epic in the PRD, created a `RESEARCH` node to investigate the failure, and created a replacement `EPIC` node that depends on the research node.
+
+---
 
 # 1822128316479176715 - Epic Planner Journal
 - I am reviewing the PRD `prd-082-099-gen3-trainer-data-extraction.md`.
@@ -22,8 +28,12 @@ If I need to fix the failure, I should create a new EPIC for the E2E testing.
 
 Let's write a new epic `epic-099-339-gen3-trainer-data-extraction-e2e.md`.
 
+---
+
 ## Outcome
 Successfully broke down PRD `prd-121-336-gen3-mystery-gift-viewer` into two sequential Epics: `epic-121-345-gen3-mystery-gift-data-extraction` and `epic-121-346-gen3-mystery-gift-dashboard-ui`.
+
+---
 
 ## Learning & Pattern
 - Maintained strict adherence to not modifying the YAML frontmatter of the parent node.
@@ -31,8 +41,12 @@ Successfully broke down PRD `prd-121-336-gen3-mystery-gift-viewer` into two sequ
 - Enforced the exact Node ID checklist format (`- [ ] <node_id>`) in the parent's markdown.
 - As per memory constraint, strictly used the node ID instead of the file path for `depends_on`.
 
+---
+
 # Epic Planner Session Log
 **Session ID:** 5089727026280127086
+
+---
 
 ## Task: Breakdown PRD for Gen 3 Spinda Pattern Viewer
 Successfully broke down PRD `prd-119-335-gen3-spinda-pattern-viewer.md` into 3 sequential epics:
@@ -41,6 +55,8 @@ Successfully broke down PRD `prd-119-335-gen3-spinda-pattern-viewer.md` into 3 s
 - `epic-335-347-spinda-viewer-dashboard-ui.md` (depends on rendering)
 
 Appended the new nodes as unchecked items to the PRD to prevent premature verification. Applied Sibling Dependency Recommendations (ADR-005) to correctly order the DAG nodes.
+
+---
 
 # Session Log
 Foundry child nodes (epic-095-119 and epic-095-120) for PRD 095-056 permanently failed due to reaching max rejection count. Spawned a RESEARCH node to investigate the root cause, and created replacement EPICs. Ensured to check off the cancelled child nodes in the parent PRD markdown body to avoid the Impossible Loop constraint and adhere to ADR 007.
@@ -51,6 +67,8 @@ Foundry child nodes (epic-095-119 and epic-095-120) for PRD 095-056 permanently 
 Woken up by the Orchestrator for `prd-073-045-gen3-secret-base-viewer` due to an Auditor Rejection.
 The child nodes (`epic-045-324-gen3-secret-base-parsing-v2`, `epic-045-325-gen3-secret-base-radar-integration-v2`, `epic-045-326-gen3-secret-base-dashboard-v2`) failed permanently (Max rejection count reached).
 
+---
+
 ## Actions Taken
 - Created a `RESEARCH` node (`research-045-396-investigate-secret-base-v2-failure`) to investigate the root cause of the v2 epic failures.
 - Created replacement `EPIC` nodes (`epic-045-397-gen3-secret-base-parsing-v3`, `epic-045-398-gen3-secret-base-radar-integration-v3`, `epic-045-399-gen3-secret-base-dashboard-v3`) that depend on the `RESEARCH` node.
@@ -58,6 +76,8 @@ The child nodes (`epic-045-324-gen3-secret-base-parsing-v2`, `epic-045-325-gen3-
 - Checked off the failed child nodes in the PRD's markdown body to comply with the "Handling Permanent Child Failures (The Impossible Loop)" policy and satisfy ADR 007.
 - Removed the `### Auditor Rejection` block.
 - Enforced a final STORY dedicated exclusively to Integration and E2E Verification in the acceptance criteria of each new EPIC.
+
+---
 
 ## Learned
 When children fail permanently, we must spawn research to figure out why, create new nodes that depend on that research, and check off the permanently failed ones so the parent node isn't blocked forever, per the impossible loop policy. Also, every EPIC must explicitly generate a final STORY dedicated exclusively to Integration and E2E Verification.
@@ -67,11 +87,17 @@ When children fail permanently, we must spawn research to figure out why, create
 ## Session ID
 6110336391984079559 (or 2026-08-04-00-27-08)
 
+---
+
 ## Target Node
 prd-066-099-save-state-history-storage
 
+---
+
 ## Action Taken
 Handled the "Impossible Loop" where a child node (`epic-099-130-indexeddb-schema-design`) reached Max Rejection Count and failed permanently. This also caused its downstream dependencies (`epic-099-131`, `epic-099-132`) to be cancelled.
+
+---
 
 ## Key Learnings
 1. **The Impossible Loop Policy**: When a child node permanently fails, we must explicitly spawn a `RESEARCH` node to investigate the root cause *before* spawning new retry epics.
@@ -79,27 +105,51 @@ Handled the "Impossible Loop" where a child node (`epic-099-130-indexeddb-schema
 3. **Markdown Checkboxes**: The permanently failed/cancelled child nodes *must* be checked off (`- [x]`) in the parent PRD's markdown body. Leaving them unchecked will cause ADR 007 to permanently block the parent PRD from transitioning to COMPLETED.
 4. **E2E Verification Enforcement**: All newly spawned EPICs must now explicitly include a final STORY dedicated exclusively to Integration and E2E Verification, per updated Core Directives.
 
+---
 
 ## Session from 16381290464964185201.md
+
+---
+
 # Session 16381290464964185201
 Read core policies. Regenerated cancelled epic-045-070 and epic-045-071 because their parent PRD had them marked as pending. Preserved existing checked-off child node references to prevent graph node orphaning. Enforced E2E verification by appending story-070-358-orchestrator-strict-completion-e2e and story-071-359-documentation-macro-node-completion-e2e. Mapped dependencies by making epic-045-071 depend on epic-045-070.
 
+---
+
 ## Session from 17660689076152011293.md
+
+---
+
 # Session 17660689076152011293
 Applied the Impossible Loop policy to a PRD containing a permanently failed child node (Max rejection count). Checked off the old CANCELLED children in the PRD markdown, spawned a RESEARCH node to investigate the root cause, and created V2 replacement EPIC nodes that depend on the RESEARCH node. Ensured all generated EPICs require an E2E Integration STORY in their Acceptance Criteria.
 
+---
+
 ## Session from 2513819693854721323.md
+
+---
+
 # Session 2513819693854721323
 
 - Created epic-114-327-gen3-pokeblock-case-parsing.md for backend parsing.
 - Created epic-114-328-gen3-pokeblock-dashboard-ui.md for frontend UI.
 - Updated prd-113-114-gen3-pokeblock-stats-viewer.md to mark acceptance criteria as complete.
 
+---
+
 ## Session from 2717109338024783069.md
+
+---
+
 # 2026-08-05 - PRD Breakdown
 Decomposed prd-110-112-npc-size-record-assistant into three epics (Data Extraction, Calculation Engine, Dashboard UI). Ensured downstream UI tasks adhere to ADR 008 aesthetic requirements. Note: the original EPIC IDs 324, 325, and 326 were already used and marked as CANCELLED in a previous run, so new IDs 400, 401, and 402 were allocated.
 
+---
+
 ## Session from 7219397311223081152.md
+
+---
+
 ## Process
 1. I will spawn a `RESEARCH` node to investigate the feasibility of Google Drive Webhooks within Cloudflare Workers (as per Acceptance Criteria 1).
 2. I will spawn a `TASK` node for the `architect` persona to write an ADR on the exact architectural path (Server-Side vs Android Companion App).
@@ -182,7 +232,8 @@ Read `.foundry/docs/knowledge_base/agents/core_policies.md`.
 
 When breaking down Epics, I enforced a process where every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`), as required by the Orchestrator safeguard.
 
-When generating markdown node files (e.g., using `echo`), avoid prepending the YAML frontmatter with a newline (`\n---`), as empty lines before the frontmatter boundary will break the system's parser. Start the string directly with `---`.
+When generating markdown node files (e.g., using `echo`), avoid prepending the YAML frontmatter with a newline (`
+---`), as empty lines before the frontmatter boundary will break the system's parser. Start the string directly with `---`.
 
 **Context:** The PRD provided explicit Epic IDs `400` and `401` in the acceptance criteria. However, checking the directory revealed that `epic-112-401-...`, `epic-114-401-...` and others were already taking up sequence numbers 400 and 401.
 
@@ -194,6 +245,9 @@ Reviewed PRD prd-102-111-gen3-trainer-card-stars.
 The PRD requires breaking down into Epics. The acceptance criteria in the PRD markdown body mentions:
 - [ ] epic-111-304-gen3-trainer-card-data-extraction
 - [ ] epic-111-305-gen3-trainer-card-dashboard-ui
+
+---
+
 #
 
 *   **Action:** Created `research-044-396-gen3-roamer-tracker-failure` to investigate the root cause, satisfying the rule for handling permanently failed child nodes.
@@ -224,8 +278,12 @@ Broke down `prd-406-341-orchestrator-state-machine-fuzzing` into three Epics:
 - Late-binding compliance: When a parent PRD is marked to have unchecked sub-tasks (newly added Epics), leave those unchecked so the system properly blocks the PRD completion until the child nodes finish, enforcing the hierarchical DAG completion.
 - Dependency Mapping: Always explicitly map dependencies between sibling generated Epics. When a UI dashboard consumes data from a data extraction layer, the UI Epic must have the Data Extraction Epic ID in its `depends_on` array in the YAML frontmatter to prevent parallel scheduling issues.
 
+---
+
 ## Context
 When decomposing PRD `prd-134-340-active-party-matchup-analyzer`, the initial Acceptance Criteria in the file had a single placeholder Epic ID: `- [ ] epic-340-405-active-party-matchup-analyzer`.
+
+---
 
 ## Action and Reasoning
 According to the **Mandate Decomposition, Granularity, and Late Binding** policy in `.foundry/docs/knowledge_base/agents/core_policies.md`, I must "actively decompose broad concepts into multiple, smaller, highly-focused downstream nodes rather than single monolithic nodes or 1-to-1 mappings."
@@ -237,8 +295,12 @@ Therefore, I replaced the single placeholder epic with three focused Epics:
 
 I also ensured each new Epic includes the mandatory process of generating a final STORY dedicated exclusively to Integration and E2E Verification.
 
+---
+
 ## Future Learnings
 When encountering PRDs with single placeholder Epic IDs in their Acceptance Criteria, always evaluate if the PRD scope warrants decomposition into multiple Epics to comply with the Mandatory Decomposition policy, and replace the placeholder accordingly instead of strictly mapping 1-to-1.
+
+---
 
 ## Context
 When creating new nodes, it's crucial to map out dependencies strictly using the Node ID, *not* the filepath. Adding `.md` or the directory prefix will break the DAG Orchestrator.
@@ -253,8 +315,12 @@ To resolve this and resurrect the feature, I:
 
 All new Epics strictly enforce the Orchestrator safeguard requirement to generate an E2E STORY for verification.
 
+---
+
 ## Context
 Broke down PRD `prd-137-343-decouple-persona-prompts` into actionable Epics for decoupling monolithic persona prompts into modular fragments.
+
+---
 
 ## Lessons & Adherence
 1.  **Dependency Mapping:** Effectively chained the Epics. The Orchestrator integration (`epic-343-418`) explicitly depends on the foundational schema/system implementation (`epic-343-417`). The migration (`epic-343-419`) correctly depends on the Orchestrator integration being completed first. This ensures a safe, backward-compatible rollout.
@@ -274,15 +340,21 @@ Successfully broke down PRD `prd-146-001-foundry-system-statistics` into two dis
 3. Updated the parent PRD to correctly list the generated children as unchecked markdown boxes without mutating its YAML frontmatter, preserving the orchestrator verification lifecycle.
 4. Correctly installed playwright browser dependencies when vitest failed due to missing headless browser instances.
 
+---
+
 ## Node Breakdown
 - Parent: `prd-142-342-automated-adr-compliance-linter`
 - Children:
   - `epic-142-417-automated-adr-compliance-linter`: Focuses on writing the `verify-adr-compliance.ts` static analysis script.
   - `epic-142-418-automated-adr-compliance-ci-integration`: Focuses on integrating the new script into the CI pipeline (Lefthook, package.json).
 
+---
+
 ## Learnings & Constraints
 - Splitting the linter script creation and its CI integration into separate epics prevents monolithic PRs and allows parallel development.
 - The linter must enforce ADR 008 (tactical hardware UI aesthetics) and ADR 013 (React context for state management) to significantly reduce QA LLM context usage.
+
+---
 
 # Journal Entry - Save Editor CLI Epic Breakdown
 When creating Epics for CLI-based tooling, we must enforce a process where the Epic generates a final STORY dedicated exclusively to Integration and E2E Verification to ensure all CLI inputs and save file outputs are fully validated before marking the feature as complete. This ensures we follow the orchestrator safeguard rule for E2E verification as defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
@@ -300,8 +372,12 @@ Created breakdown for PRD `prd-145-343-semantic-prompt-validation` mapping out t
 
 When decomposing a PRD into Epics, it is critical to explicitly enforce the "E2E Integration Verification" constraint in the Acceptance Criteria of *each generated Epic*. This ensures the `story_owner` who processes these Epics down the line will not forget to create the required integration verification stories.
 
+---
+
 ## Learnings
 - **Orchestrator Safeguard (E2E Requirement)**: When replacing permanently failed epics or creating new ones, it is critical to explicitly document the requirement for a final STORY dedicated exclusively to Integration and E2E Verification. If this is not done, the epic will fail to transition to COMPLETED when the orchestrator's safeguard checks the child stories.
+
+---
 
 ## Context
 Investigated the permanent failure of `epic-037-055-gen3-berry-tracker-data-extraction`, which had caused its dependent downstream Epics to be cancelled (The Impossible Loop).
@@ -314,17 +390,22 @@ To resolve this and resurrect the feature, I:
 
 All new Epics strictly enforce the Orchestrator safeguard requirement to generate an E2E STORY for verification.
 
+---
+
 ## Ecosystem Modernization Decomposition
 When transforming PRDs into Epics, I ensure that each distinct requirement translates into a well-defined EPIC to allow parallelization and granular tracking. I also mandate a final STORY for Integration and E2E Verification in each epic to satisfy orchestrator completion criteria.
+
+---
 
 ### Learnings
 - **Decomposition**: Always decompose PRDs into multiple Epics rather than mapping 1-to-1 to avoid monolithic execution bottlenecks.
 - **Verification Rule**: Ensuring the 'Integration and E2E Verification' rule (ADR compliance) is explicitly included in the epic's Acceptance Criteria.
 
+---
+
 # Gen 3 Save File Parsing Constraints
 
 When writing EPICS for parsing Gen 3 save files, it is crucial to pass and utilize the resolved section offset (e.g., `section1Offset`) for save block extraction to support the A/B bank flash memory architecture.
-
 
 ---
 

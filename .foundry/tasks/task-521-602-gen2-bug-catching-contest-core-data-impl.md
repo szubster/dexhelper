@@ -2,12 +2,12 @@
 id: task-521-602-gen2-bug-catching-contest-core-data-impl
 type: TASK
 title: Gen 2 Bug-Catching Contest Core Data Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-19'
+updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6745241715289008382'
 pr_number: null
 parent: story-512-521-gen2-bug-catching-contest-core-data
 tags:

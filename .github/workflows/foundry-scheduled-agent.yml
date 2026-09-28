@@ -79,7 +79,12 @@ jobs:
           {
             echo "$agent_context"
             echo ""
-            echo "If you determine there is no actionable work to be done during this run, simply state that in your PR and complete your session. An empty PR diff is acceptable and will be closed automatically."
+            if [[ "$persona" == "lens" ]]; then
+              echo "### CRITICAL DIRECTIVE FOR LENS"
+              echo "Your mission as Lens is to actively explore the live app, spot things that look odd, wrong, awkward, or broken, and FIX them (or file a Foundry task node). Submitting an empty PR or a PR containing only a journal stating everything is fine without any real fixes or defect nodes is strictly forbidden."
+            else
+              echo "If you determine there is no actionable work to be done during this run, simply state that in your PR and complete your session. An empty PR diff is acceptable and will be closed automatically."
+            fi
             echo ""
             echo "### CRITICAL RULE"
             echo "1. AUTONOMOUS NO-ASK POLICY: Never ask conversational questions, ask for permission to proceed, or ask whether to open/submit a PR or request code review in chat. Execute all decisions autonomously and call submit immediately when work or demotion steps are ready."

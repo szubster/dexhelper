@@ -2,10 +2,10 @@
 id: task-423-583-gen3-ai-data-e2e-qa-v2
 type: TASK
 title: QA for Gen 3 AI Data Extraction E2E Tests (V2)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-15T15:58:39Z'
-updated_at: '2026-09-17'
+updated_at: '2026-09-28'
 depends_on:
   - task-423-582-gen3-ai-data-e2e-mapping-tests-impl-v2
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - e2e
   - qa
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-423-581-investigate-ai-mapping-test-failure
 notes: ''
 locks: []
 ---

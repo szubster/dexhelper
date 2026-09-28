@@ -3,6 +3,10 @@
 Task ID: task-405-486-gen3-mixed-record-parser-qa-v2
 Target Task: task-405-485-gen3-mixed-record-parser-impl-v2
 
+---
+
+---
+
 ## QA Results: FAILED
 The implementation of the Gen 3 Mixed Record Parser correctly extracted the data and handled RangeErrors. However, it violated the strict Section 13 guidelines ("Save File Parsing & Extraction Guidelines" in schema.md).
 
@@ -13,16 +17,22 @@ The values `0` and `0xffffffff` must be defined as module-level constants (e.g.,
 
 I updated `task-405-485-gen3-mixed-record-parser-impl-v2.md` to FAILED, updated its `rejection_count` and `rejection_reason`. Left QA task acceptance criteria unchecked and documented the failure in the markdown body.
 
+---
+
 # QA Journal
 - Verified Gen 3 FRLG Move Tutor parsing implementation in `src/engine/saveParser/parsers/gen3.ts`
 - Verified tests in `src/engine/saveParser/parsers/gen3.test.ts`
 - Verified adherence to ADR 010 (DataView parsing) and ADR 028 (avoiding magic numbers)
 - Verified use of relative memory offsets (`section1Offset`)
 
+---
+
 # QA Journal
 Session: 10381463315677890878
 Task: task-346-353-gen3-pv-iv-extraction-qa
 Target Task: task-346-352-gen3-pv-iv-extraction-impl
+
+---
 
 ## QA Results: FAILED
 
@@ -36,11 +46,15 @@ The number `24` must be defined as a module-level constant (e.g. `const NUM_SUBS
 
 I have set `task-346-352-gen3-pv-iv-extraction-impl.md` to FAILED and updated its `rejection_count` and `rejection_reason`. I am keeping my own task's acceptance criteria unchecked to keep it active.
 
+---
+
 ## Actions Taken
 - Explored codebase (`src/components/dashboard/DagContext.tsx`, `src/utils/dag/builder.ts`).
 - Confirmed `rejection_count` is correctly parsed from nodes, exposed by `DagContext` and properly loaded/used.
 - Re-ran the tests to confirm success.
 - Modified `.foundry/tasks/task-085-257-qa-extract-rejection-count-retry.md` to mark the acceptance criteria as completed (via `[x]`).
+
+---
 
 # QA Session Journal
 
@@ -49,25 +63,38 @@ Task ID: task-333-383-sorting-strategies-core-qa
 
 Validated the implementation of the Standard PC Box Sorting Strategies (`DexNumberSorter`, `LevelSorter`, `TypeSorter`, `AlphaSorter`).
 
+---
+
 ## Task
 Gen 1 Trainer Data Extraction QA
+
+---
 
 ## Results
 The implementation successfully extracts trainer defeat flags from the Gen 1 save file. It utilizes explicit bitwise logic (as per ADR 026) and strictly uses reusable constants instead of magic numbers (as per ADR 028). The unit tests cover the absolute zero state and boundary values as required.
 
 To ensure strict compliance with ADR 028, inline magic numbers within the unit test `gen1.test.ts` were replaced with explicitly defined constants.
 
+---
+
 ## Session Notes
 - Validated task-341-348-define-indexeddb-schema-retry-impl.
 - **Result:** FAILED.
 - **Reasoning:** The implementation in `src/db/schema.ts` sets `SAVE_HISTORY_DB_CONFIG.VERSION` to 2 instead of 1, and incorrectly adds a `TRAINERS` store and a `trainerId` index. This violates Section 14 of `.foundry/docs/schema.md`.
+
+---
+
 # QA Session 11281423417366724467
 
 Verified the implementation of the diff engine hash fix. The coder correctly added the `hash` property to the `PokemonInstance` interface and updated `calculateBoxDiff` to rely exclusively on this field for tracking additions, removals, and relocations. I added a new test case to ensure duplicates are properly disambiguated by their hashes. All unit tests pass and test coverage is comprehensive. The task acceptance criteria have been checked off.
 
+---
+
 # Session 11644115072242309867
 
 Verified the implementation of session-unique journal files. All agents prompt files correctly instruct agents to use session-unique journal paths, and the orchestrator is updated to support the directory-based structure. Task is approved.
+
+---
 
 ## QA Validation for Gen 3 Static Encounter Flags
 
@@ -79,28 +106,42 @@ Verified the implementation of `extractGen3StaticEncounterFlags` in `src/engine/
 
 All acceptance criteria are met, allowing the QA node to transition.
 
+---
+
 ## Session 12783330098851291332
 - Verified Graveyard Box Logic is already implemented in src/engine/nuzlocke/tracker.ts and src/store.ts.
 - Verified tests exist in src/engine/nuzlocke/tracker.test.ts.
 
+---
+
 ### Target Task
 `task-333-334-gen3-secret-base-locations-impl`
 
+---
+
 ### Result
 REJECTED
+
+---
 
 ### Reason
 The Coder failed to adhere to the correct memory offsets for Gen 3 games. The implementation assumed that Emerald uses 8 bytes for `trainerName` and `0x0A` for the `trainerId` offset. However, as documented in `.foundry/docs/knowledge_base/gen3_secret_base_offsets.md`, `TRAINER_NAME_LENGTH` is exactly 7 bytes and `TRAINER_ID_OFFSET` is `0x09` consistently across all Gen 3 games (Ruby/Sapphire and Emerald).
 
 Because of this, I have updated the Coder's task to `FAILED` with a `rejection_count` of 2 and added a clear `rejection_reason`. This will trigger the resurrection loop. I have updated my own task (`task-333-335-gen3-secret-base-locations-qa`) with notes about this failure.
 
+---
+
 ## Observations
 Verified task-255-339-db-schema-saves-qa (SaveHistoryDB schema update to version 2, adding trainers store and trainerId index).
 
 The database schema modifications met the requirements laid out in the target task, providing a serializable structure necessary for Cloudflare synchronization while establishing the one-to-many relationship via the new index.
 
+---
+
 ## Target Task
 task-257-370-concurrent-game-context-qa
+
+---
 
 ## Validation Results
 - Verified `ConcurrentGameContext.tsx` manages state properly.
@@ -108,16 +149,24 @@ task-257-370-concurrent-game-context-qa
 - Confirmed tests pass correctly and the layer is loosely coupled.
 - Confirmed React Context usage aligns with shared architectural patterns mentioned in ADRs.
 
+---
+
 ## Conclusion
 Implementation approved.
 
+---
+
 # QA Validation Journal: Gen 2 Pokegear Registered Numbers Parsing
 Session ID: 14711255524066460026
+
+---
 
 ## Task Information
 - **ID:** task-283-343-parse-registered-numbers-qa
 - **Title:** QA Gen 2 Pokegear Registered Numbers Parsing
 - **Target Task:** task-283-342-parse-registered-numbers-impl
+
+---
 
 ## Validation Results
 - The parsing logic correctly extracts `wPhoneList` from the Gen 2 save data. The implementation maps `GS_WPHONE_LIST_INDEX` and `GS_WPHONE_LIST` for Gold/Silver saves and `CRYSTAL_WPHONE_LIST_INDEX` and `CRYSTAL_WPHONE_LIST` for Crystal saves, adhering to the offsets documented in `.foundry/docs/knowledge_base/gen2_phone_offsets.md`.
@@ -125,16 +174,22 @@ Session ID: 14711255524066460026
 - Comprehensive unit tests exist in `src/engine/saveParser/parsers/gen2/phone/parser.test.ts` for Gold/Silver, Crystal, and out-of-bounds save cases, with high test coverage.
 - Module-level constants are used rather than hardcoding memory offsets inline. No magic numbers were found. ADR 028 is satisfied.
 
+---
+
 ## Session: 15226691088975763313
 - Verified the E2E safeguard implementation in `.github/scripts/foundry-orchestrator.ts` and `.github/scripts/foundry-heartbeat.ts`.
 - Verified the unit tests in `.github/scripts/foundry-orchestrator.test.ts` and `.github/scripts/foundry-heartbeat.test.ts`.
 - All tests passed successfully.
 - Marked all acceptance criteria in `.foundry/tasks/task-269-347-e2e-safeguard-qa.md` as fulfilled to satisfy the strict completeness contract.
 
+---
+
 # QA Journal - 17561346958621494002
 
 - Verified the conflict resolution algorithm in `useFileSyncController.ts` which uses `lastModified` correctly prioritizes the most recent local progression (pull-wins for newer cloud saves, and pushes local if local is newer).
 - Reviewed and ran the unit tests `src/hooks/useFileSyncController.test.tsx` (using playwright install for headless chromium) which cover critical edge cases including `pull-wins`, local-wins, and R2 network failures. All tests passed. Task approved.
+
+---
 
 # QA Journal: 17737793789330041472
 
@@ -143,12 +198,18 @@ Session ID: 14711255524066460026
 - Checked that tests execute correctly across the codebase and project standards are met (no regressions introduced).
 - End-to-end frontend tests ran with `Playwright`, successfully testing UI components like `LocationSuggestions` and `AssistantPanel`.
 
+---
+
 ## Session: 18273392644668491596
 Zod schema verified. Matches schema.md constraints and is exported.
+
+---
 
 # QA Journal Entry - E2E Safeguard on Epics
 Date: 2026-07-25
 Task: task-269-335-e2e-safeguard-qa
+
+---
 
 ## Validation Notes
 - Verified E2E enforcement logic in `foundry-orchestrator.ts`.
@@ -157,9 +218,13 @@ Task: task-269-335-e2e-safeguard-qa
 - Verified unit tests in `foundry-heartbeat.test.ts`.
 - Verified all unit tests pass successfully.
 
+---
+
 ## Task Context
 - **Target Task**: task-264-347-r2-push-sync-logic-qa
 - **Feature**: Cloudflare R2 Push Sync Logic QA
+
+---
 
 ### Implementation Details:
 - Examined `src/hooks/useFileSyncController.ts` and `src/components/AppLayout.tsx`.
@@ -168,12 +233,16 @@ Task: task-269-335-e2e-safeguard-qa
 - The `try/catch` blocks surrounding the API calls ensure graceful degradation, logging `'System: push to cloud failed'` to console rather than crashing the application.
 - The pre-existing file upload flow (e.g. into `saveDB`) functions correctly even if R2 is unreachable.
 
+---
+
 # QA Journal
 Tested boxDiff.test.ts and movePlanner.test.ts. All tests passed. The objective is to Verify the comprehensive unit tests for the diff engine and move planner algorithms to ensure they cover complex edge cases appropriately.
 
 The tests indeed cover invalid format storage locations in `boxDiff.ts`, disjoint cycles, open chains, and mixed operations.
 
 I'll check the acceptance criteria of task-296-361-move-planner-tests-qa.
+
+---
 
 # QA Session Journal (Automerge Implementation Verification)
 
@@ -183,6 +252,8 @@ Verified the journal automerge implementation.
 - Tested and confirmed it correctly works for `.foundry/journals/` updates.
 
 I checked off the acceptance criteria for `task-338-341-journal-automerge-qa.md` as all functionality passes.
+
+---
 
 # Session 2442253360963392777
 
@@ -196,15 +267,23 @@ However, the specific bit offsets required for these flags are missing from the 
 
 Therefore, the target task was permanently cancelled, and my QA task's acceptance criteria were checked to allow the node to gracefully exit the DAG.
 
+---
+
 # QA Session: 2564293867211876841
 Date: 2026-07-30
+
+---
 
 ## Validated Tasks
 - `task-286-314-filter-swarm-item-calls-impl`: FAILED
 
+---
+
 ## Notes
 - The implementation for Gen 2 phone call filtering is completely missing. Searching the codebase for `wSwarmFlags` or `wDailyPhoneItemFlags` within the source files yields no results.
 - Rejected `task-286-314-filter-swarm-item-calls-impl`, incremented its `rejection_count`, updated its status to `FAILED`, and added a `rejection_reason`.
+
+---
 
 ## 2026-07-25 - Gen 3 TM HM Parsing QA
 
@@ -213,6 +292,8 @@ Date: 2026-07-30
 - Used module-level constants as specified by ADR 028 for relative dynamic memory extraction.
 - Used the correct resolved section block logic required for Gen 3 A/B bank flash memory.
 - Caught an incorrect parameter name (saveBlock1Offset vs saveBlock2Offset) in the docstring for parseGen3TMEventFlags, which I fixed.
+
+---
 
 # QA Journal Entry - Session 4493110731399186264
 
@@ -226,10 +307,14 @@ I verified the Graveyard Box UI setting and its integration with the backend sta
 
 **Outcome:**
 
+---
+
 # QA Session 4699122810863772733
 
 **Target Task**: `task-341-348-define-indexeddb-schema-retry-impl`
 **Outcome**: REJECTED
+
+---
 
 ## Details
 The implementation of the `SaveHistoryDB` schema in `src/db/schema.ts` violated the requirements outlined in `.foundry/docs/schema.md` (Section 14). Specifically:
@@ -237,9 +322,13 @@ The implementation of the `SaveHistoryDB` schema in `src/db/schema.ts` violated 
 2. A `TRAINERS` store was added to `SAVE_HISTORY_DB_CONFIG.STORES` and `SaveHistoryDBSchema`, which is not part of the schema definition.
 3. The `INDEXES` store incorrectly included a `trainerId` index.
 
+---
+
 # QA Session 4775895747370370773
 
 Target task `task-333-363-pokemon-types-data-impl` reached its max rejection count and is now in `CANCELLED` status.
+
+---
 
 ## Validation of Gen 1 Safari Zone Missing Encounters Logic
 
@@ -250,6 +339,8 @@ Target task `task-333-363-pokemon-types-data-impl` reached its max rejection cou
 - Unit tests (`pnpm test`) were executed and continue to pass smoothly after remediation.
 - Marked acceptance criteria in the QA task as completed safely via markdown body modification (adhering to the rule to avoid modifying YAML frontmatter).
 
+---
+
 # QA Session 5216732828107445733
 
 - Validated task-318-341-gen3-move-tutor-frlg-parsing-impl
@@ -259,12 +350,18 @@ Target task `task-333-363-pokemon-types-data-impl` reached its max rejection cou
 - Confirmed RangeError bounds checking handles corrupted files appropriately.
 - Approved task.
 
+---
+
 # QA Journal
 - Rejected `task-334-352-parse-secret-base-trainer-party-impl` for violating Section 13 (No Magic Numbers) by hardcoding `0` for empty secret bases and in the bitwise check instead of using explicit module-level constants.
+
+---
 
 # Session 6607903321732293864
 
 Successfully validated `task-336-388-implement-orchestrator-cycle-detection` implementation. Checked off all acceptance criteria for QA `task-336-389-orchestrator-cycle-detection-qa`. Cycle detection was successfully implemented in `foundry-orchestrator.ts` and tests cover the functionality in `foundry-orchestrator.test.ts`.
+
+---
 
 ## 2026-07-27 - Session 682146954706425586
 **Rejection of task-261-331-npc-trade-state-integration-impl**
@@ -275,6 +372,8 @@ The implementation was rejected because it failed to address the core requiremen
 
 This is a recurring issue where the implementer ignores previous feedback regarding offset corrections and test coverage integration. The task has been bumped to a FAILED status and returned to the Resurrection Loop.
 
+---
+
 # QA Agent Journal - 7878801567692380266
 
 Validated the `SaveHistoryDB` schema configuration and operations.
@@ -284,11 +383,15 @@ Validated the `SaveHistoryDB` schema configuration and operations.
 
 The implementation matches the constraints defined in `.foundry/docs/schema.md` Section 14.
 
+---
+
 ## 2026-07-25 - Rejected task-261-331-npc-trade-state-integration-impl
 - **Type:** Validation Failure
 - **Outcome:** Rejected
 - **Why:** The coder failed to add tests for SaveData integration in gen3.test.ts for Gen 3 NPC trade flags. Furthermore, the coder incorrectly used section2Offset instead of section1Offset for parsing NPC trade flags in Emerald and FRLG within parseGen3, violating the explicit Acceptance Criteria.
 - **Pattern:** Coders frequently write unit tests for the specific parsing function but neglect to test the end-to-end integration into the SaveData object within the main parsing entry point (parseGen3).
+
+---
 
 # QA Journal for session 8910873009238236330
 
@@ -297,8 +400,12 @@ The implementation matches the constraints defined in `.foundry/docs/schema.md` 
 - Confirmed Gen 2 parsing accurately evaluates GS and Crystal offset paths, appending `npcTradeFlags` correctly. RangeError correctly thrown for corrupted data and offsets are constants.
 - Confirmed Gen 3 paths parsing RS, FRLG, and Emerald event flags for NPC Trades. They use `saveBlock1Offset` for event flags block (baseOffset). Relative offsets applied, and tests confirm behavior correctly integrates results to `SaveData` `npcTradeFlags` list via `Object.values(gen3NPCTrades)`. RangeError exception message `The save file is corrupted or incomplete.` is verified to be handled successfully.
 
+---
+
 ## Tasks Validated
 - task-137-339-gen2-event-flag-parsing-retry-qa
+
+---
 
 ## Validation Notes
   - Sudowoodo (42) -> `EVENT_FLAG_SUDOWOODO_BYTE = Math.floor(42 / 8)` and `EVENT_FLAG_SUDOWOODO_BIT = 42 % 8`
@@ -310,6 +417,8 @@ The implementation matches the constraints defined in `.foundry/docs/schema.md` 
 - The data integration with the state management layer uses these constants to extract and pass down the `gen2StaticEncounters` correctly to `SaveData`.
 - Pre-existing tests in `src/engine/saveParser/parsers/gen2_encounter_flags.test.ts` pass, confirming the correctness of offset definitions.
 
+---
+
 # Session 9725628562564447045
 
 Task: task-332-368-gen3-pokeblock-extraction-qa
@@ -320,11 +429,15 @@ Verified the Gen 3 Pokeblock extraction implementation in `src/engine/saveParser
 - The implementation strictly adheres to Section 13 guidelines (module-level constants, no magic numbers, relative offset `saveBlock1Offset` is used, and `RangeError` is caught with the exact required string).
 - Unit tests exist and pass correctly.
 
+---
+
 # QA Validation: Gen 3 Hall of Fame & Pokédex Data Extraction
 
 **Date:** 2026-07-28
 **Task:** `task-319-324-gen3-hof-pokedex-extraction-qa`
 **Target Implementation:** `task-319-323-gen3-hof-pokedex-extraction-impl`
+
+---
 
 ## Validation Results
 
@@ -339,25 +452,37 @@ Specifically, the coder used inline magic numbers for offset calculations and bi
 
 ADR 028 mandates that all memory offsets, lengths, bit locations, and shifts must be explicitly defined as reusable constants at the module level.
 
+---
+
 # QA Journal - E2E Safeguard Verification
 Date: 2026-07-26
 Task: task-269-347-e2e-safeguard-qa
+
+---
 
 ## Summary
 Verified the E2E safeguard implementation in `foundry-orchestrator.ts` and `foundry-heartbeat.ts`. Confirmed logic prevents EPIC nodes from completing if they lack a child STORY tagged with 'e2e' or 'integration'.
 Also ran vitest unit tests in `.github/scripts` and all 175 tests passed, including the new assertions for Epic E2E safeguards.
 
+---
+
 # QA Journal
 Session ID: 2897712216952814014
+
+---
 
 ## Rejection
 - Rejected implementation of Gen 1 TM/HM save parsing (`task-319-322-gen1-tm-hm-parsing-impl`)
 - **Reason:** Violation of ADR 028. Inline magic numbers (e.g., 0x27e6, 0x25c9) were used for memory offsets in `src/engine/saveParser/parsers/gen1.ts`. The implementation must extract these offsets into module-level constants.
 
+---
+
 # QA Journal Entry - task-336-343-zod-schema-definition-qa
 
 Date: 2026-07-26
 Task ID: task-336-343-zod-schema-definition-qa
+
+---
 
 ## Validation Notes
 - Verified `schema.ts` implementation for the Zod NodeFrontmatterSchema.
@@ -367,6 +492,8 @@ Task ID: task-336-343-zod-schema-definition-qa
 - Test suite (`schema.test.ts`) validated successfully in the pipeline.
 
 No architectural violations detected (ADR 001 compliance is confirmed). Implementation approved.
+
+---
 
 ## Session 9297002747926214163.md
 
@@ -378,16 +505,21 @@ Approved implementation of the regional dex sorting strategy. All tests and lint
 
 1. **Verify schemas & generator**: `POKEMON_TYPE` and `POKEMON_TYPE_MAP` are properly defined in `src/db/schema.ts`. `types` was added to `PokemonMetadata`.
 2. **Verify generate-pokedata.ts sorting**: The code reads `pData.types` and maps them using `POKEMON_TYPE_MAP`, but it **fails to sort by slot** before mapping, violating the specific acceptance criterion: "sorts by slot (if applicable)".
+
 ---
 
 ## Task
 task-342-370-feebas-coordinates-qa
+
+---
 
 ## Findings
 - Verified `gen3FeebasTiles` in `SaveData` is correctly typed as `[number, number][]`.
 - Verified `mapSpotIdsToCoordinates` is properly integrated in `src/engine/saveParser/parsers/gen3.ts`.
 - Verified the code adhered to "Save File Parsing & Extraction Guidelines" (Section 13). Constants used, catching `RangeError`, using `DataView` API.
 - Verified tests pass (`gen3.test.ts` and `feebas.test.ts`) and ensure it's coordinates.
+
+---
 
 ## Action
 Checked off acceptance criteria and preparing empty PR.
@@ -412,16 +544,24 @@ Implementation approved.
 ## Validation Results
 Task task-257-373-progression-timeline-ui-impl was FAILED.
 
+---
+
 ## Architectural Lessons
 Found duplicate components for ProgressionTimeline. One at `src/components/dashboard/progression/ProgressionTimeline.tsx` and another at `src/components/timeline/ProgressionTimeline.tsx`. The developer also left placeholders and didn't implement the true SaveHistory integration yet. Future QA validations should explicitly check for duplicate components and verify data integrations.
+
+---
 
 # QA Session Journal
 
 Session ID: 4628964964798248082
 Date: 2026-08-03
 
+---
+
 ## Context
 The implementation was completed in `task-355-393-bash-timeout-e2e-impl`.
+
+---
 
 ## Actions Taken
 1. Reviewed the PR for `task-355-393-bash-timeout-e2e-impl`. Found that it added tests to `tests/e2e/bash_timeout.spec.ts`.
@@ -430,6 +570,8 @@ The implementation was completed in `task-355-393-bash-timeout-e2e-impl`.
 5. Checked off the acceptance criteria in the markdown body of `task-355-394-bash-timeout-e2e-qa`.
 6. Verified no regressions were introduced.
 
+---
+
 ## Learnings & Patterns
 - When running Playwright E2E tests for the first time in a new environment, make sure to install browsers via `pnpm exec playwright install` if they are missing. This is a common requirement in CI or fresh development environments.
 
@@ -437,6 +579,8 @@ The implementation was completed in `task-355-393-bash-timeout-e2e-impl`.
 
 ### Context
 QA review for Zod schema integration within `.github/scripts`.
+
+---
 
 ### Validation
 - Ran `cd .github/scripts && pnpm install && npx vitest run`. Test suite passed.
@@ -449,14 +593,20 @@ QA review for Zod schema integration within `.github/scripts`.
 
 Successfully completed the QA task for Nuzlocke Route Violations. Ensure strict adherence to the negative constraints regarding YAML frontmatter updates when acting as QA.
 
+---
+
 # QA Session 12335444189339326262
 
 Rejected task `task-295-338-gen3-static-encounters-ui-impl` because the implementation failed to integrate the new component into the main dashboard (`src/routes/dashboard.tsx`).
+
+---
 
 # QA Session: task-262-376-aggregate-first-catch-qa
 
 **Date:** 2026-08-02
 **Target Task:** `task-262-375-aggregate-first-catch-impl`
+
+---
 
 ## Review Notes
 - Validated implementation of `aggregateFirstCatchByRoute` in `src/engine/nuzlocke/tracker.ts`.
@@ -465,10 +615,14 @@ Rejected task `task-295-338-gen3-static-encounters-ui-impl` because the implemen
 - Execution matches the specifications and does not violate any core architecture or save file parsing constraints.
 - Implementation passes standard verification checks (`pnpm lint`, `pnpm test`, `xvfb-run pnpm test:e2e`).
 
+---
+
 # QA Session 15284529042228902330
 
 - **Task**: `task-334-387-cross-gen-sorting-adapters-qa`
 - **Target Task**: `task-334-386-cross-gen-sorting-adapters-impl`
+
+---
 
 ## Review Summary
 - Verified `DexNumberSorter` implementation in `src/engine/sorting/StandardSorters.ts`. It correctly checks the generation and game version to apply Hoenn Dex sorting for Gen 3 RSE games. It uses the `HOENN_DEX_ORDER` array correctly. For other Gen 1/Gen 2 regional settings where data might not be fully fleshed out yet, it correctly falls back to National Dex.
@@ -477,34 +631,55 @@ Rejected task `task-295-338-gen3-static-encounters-ui-impl` because the implemen
 - Tested and verified the unit tests in `src/engine/sorting/StandardSorters.test.ts`. Tests include coverage for national/regional variants, fallback logic, type filtering, and graceful degradation for missing properties.
 - Ran `pnpm lint`, `pnpm test`, and `xvfb-run pnpm test:e2e`. All checks passed.
 
+---
+
 ## Action Taken
 - Approved the implementation.
 - Marked all acceptance criteria in `task-334-387-cross-gen-sorting-adapters-qa.md` as checked.
 - No modifications made to YAML frontmatter, adhering to strict empty PR policy for transitioning task nodes.
 
+---
+
 # QA Session: 14863696901989894627
 
 Target task `task-286-314-filter-swarm-item-calls-impl` has been cancelled due to max rejections. Following ADR 007 and ADR 009, I am checking off the acceptance criteria checkboxes in QA task `task-286-315-filter-swarm-item-calls-qa` and submitting an Empty PR to allow the node to gracefully exit the DAG.
 
+---
 
 ## Session from 13731916331356838535.md
 Verified task-356-397-gen3-trainer-data-extraction-core-impl. No changes needed since `secretId` was already present in `SaveData` and being correctly extracted and returned by `parseGen3`. Emptied PR.
 
+---
+
 ## Session from 2026-08-05-14-00-00.md
+
+---
+
 ## QA Session: Living Dex PC Mapping Retry Rejection
 - **Issue**: Coder implementations consistently use inline magic numbers in `DataView` parsing functions for Gen 3 save files, specifically for bitmasking (e.g., `0xffff`), bit shifting (e.g., `16`), and nested offset additions (e.g., `+ 2`, `+ 4`).
 - **Action**: Rejected the implementation of `task-273-394-living-dex-pc-mapping-retry-impl`.
 - **Guideline Reinforcement**: All memory offsets, lengths, bit locations, shifts, and masks MUST be explicitly defined as reusable constants at the module level to comply with Section 13 of `.foundry/docs/schema.md`. Inline magic numbers in parsing functions are strictly forbidden.
 
+---
+
 ## Session from 3422444418495626110.md
+
+---
+
 # QA Session Journal
 
 Verified the bash static analysis linter correctly blocks `tail -f` from executing, ensuring agent processes do not hang indefinitely and preventing useless timeout waiting. It correctly handles legitimate commands such as `tail -n 50`. The e2e tests were successful and confirm the linter logic fails fast when necessary. This aligns with our core policy against executing blocking bash commands in `run_in_bash_session`.
-## Session from 1776390025790580442\nVerified task-362-407-gen3-trade-extraction-impl. Extracted `npcTradeFlags` successfully, implemented without magic numbers and using dataView, throwing exact RangeError, and using relative offsets for Gen 3. The implementation adheres to Section 13.
+
+---
+
+## Session from 1776390025790580442
+Verified task-362-407-gen3-trade-extraction-impl. Extracted `npcTradeFlags` successfully, implemented without magic numbers and using dataView, throwing exact RangeError, and using relative offsets for Gen 3. The implementation adheres to Section 13.
 
 
 - Ensured `### SCHEMA` link at the bottom of markdown was preserved to avoid rejection during plan review by explicitly reading the bottom 500 characters using `tail -c 500`.
 - Verified file write modifications and test stability to satisfy completeness rules before submittal.
+
+---
 
 ## Learnings
 - **Recurring Issue:** Coders frequently violate Section 13 (No Magic Numbers) of `.foundry/docs/schema.md` when parsing Gen 3 Secret Base data.
@@ -512,6 +687,8 @@ Verified the bash static analysis linter correctly blocks `tail -f` from executi
 - **Action Required:** Ensure coders are explicitly reminded of Section 13 constraints, particularly regarding implicit/magic numbers like `0` in conditional statements.
 
 Session 16585296348294548606: Verified task-401-410-gen2-dv-extraction-qa. Submitted empty PR satisfying ADR 007 checkboxes. If Vitest or a similar test command fails with a 'JavaScript heap out of memory' error, increase the Node.js memory allocation by prepending NODE_OPTIONS="--max-old-space-size=4096" to your test command.
+
+---
 
 ## Learnings & Observations
 - The `test_list.sh` scratchpad file must be removed before PR creation.
@@ -524,12 +701,16 @@ The `Gen3StaticEncountersDashboard` is correctly displayed on the main Gen 3 das
 The UI correctly displays the static encounter checklist based on save file flags as verified by the Vitest unit tests in `src/components/dashboard/encounters/__tests__/Gen3StaticEncountersDashboard.test.tsx`.
 Checked off the acceptance criteria in the task markdown file.
 
+---
+
 ## Context
 QA Verification for Item Data Runtime Integration (Task `task-280-306-item-runtime-qa`).
 
 **Session ID**: 2026-08-12-19-05-51
 **Target Task**: `task-340-341-gen3-safari-zone-state-impl`
 **Status**: Rejected (FAILED)
+
+---
 
 ## Architectural Violations
 The implementation for `task-340-341-gen3-safari-zone-state-impl` was rejected due to several violations of the architectural guidelines and contracts established for the codebase.
@@ -543,15 +724,21 @@ The implementation for `task-340-341-gen3-safari-zone-state-impl` was rejected d
    - `parseGen3PCBuffer`: Did not wrap the `DataView` read inside a `try...catch` block to handle `RangeError`.
    - Out-of-bounds `DataView` reads that throw `RangeError` must be explicitly caught and re-thrown with the exact message: "The save file is corrupted or incomplete." (as defined in the contract). `parseGen3PCBoxes` does this, but `parseGen3PCBuffer` fails to do so. Also in `parseGen3` where PC boxes are parsed it wraps it in an empty catch `catch {}` which swallows all errors.
 
+---
+
 ## Action Taken
 - Transitioned `task-340-341-gen3-safari-zone-state-impl` to `FAILED` status.
 - Added `rejection_reason` explaining the violations.
 - Incremented `rejection_count`.
 - Left Acceptance Criteria checkboxes as they were (per Transient Rejection policy).
 
+---
+
 ## Guidelines Followed
 - **Triggering Transient Rejections**: Failed the target task without checking off checkboxes in its markdown body.
 - **Strict Architecture Check**: Magic number and `RangeError` handling rules were strictly enforced based on task requirements and schema.
+
+---
 
 ## Validated task-273-394-living-dex-pc-mapping-retry-impl
 - Checked save file parsing code. Magic numbers like `0xffff` and `16` for shift limits were removed and proper constants `LOWER_16_BIT_MASK` and `UPPER_16_BIT_SHIFT` used.
@@ -561,6 +748,8 @@ The implementation for `task-340-341-gen3-safari-zone-state-impl` was rejected d
 - Verified Mirage Island save parser logic correctly extracts 16-bit random value
 - Verified RangeError on out-of-bounds reads is correctly caught and mapped to standard corrupted file error
 - Handled via `parseGen3MirageIslandValue` which strictly uses DataView and implements explicit exception boundaries mapping `RangeError` to `Error('The save file is corrupted or incomplete.')`
+
+---
 
 # QA Journal
 - **Task ID:** task-412-423-qa-egg-move-inventory
@@ -583,6 +772,8 @@ QA validation performed on the implementation of the Gen 3 Trainer Card upgrade 
 
 Everything was properly implemented and unit tested. The task node was successfully validated and marked as complete (empty PR policy triggered).
 
+---
+
 ## 12809178804391646443
 * Verified Gen 3 move tutor implementation.
 * Detected architectural violation: the coder used a magic number `8` instead of the required `BITS_PER_BYTE` module-level constant from `src/engine/saveParser/gen3/moveTutor/constants.ts` when implementing `readFlag` in `extractor.ts`. This violates Section 13 of the save parsing schema.
@@ -591,14 +782,20 @@ Everything was properly implemented and unit tested. The task node was successfu
 Date: 2026-08-17
 Task: task-288-305-gen3-mix-record-inherited-events-qa
 
+---
+
 ## Context
 QA validation of the Gen 3 Mix Record inherited events extraction feature.
+
+---
 
 ## Verification
 - Confirmed `parseGen3TVBlock` and `parseGen3MixRecords` implementations are correct in `src/engine/saveParser/parsers/gen3.ts`.
 - Verified logic uses explicit constants and avoids magic numbers.
 - Confirmed test coverage handles Mix Record events correctly, including active/inactive checks.
 - All testing suites (`pnpm test`, `xvfb-run pnpm test:e2e`) pass cleanly.
+
+---
 
 ## Action
 - Marked Acceptance Criteria as complete in `.foundry/tasks/task-288-305-gen3-mix-record-inherited-events-qa.md` by checking markdown boxes.
@@ -638,8 +835,12 @@ No further implementations made since the task gracefully aborts.
 Date: 2026-08-18
 Task: task-348-101-gen3-ash-ui-qa
 
+---
+
 ## Context
 QA validation of the Gen 3 Volcanic Ash UI integration.
+
+---
 
 ## Verification
 - Target implementation task `task-348-100-gen3-ash-ui-impl` failed validation.
@@ -648,31 +849,51 @@ QA validation of the Gen 3 Volcanic Ash UI integration.
 - This causes `parseSaveFile` to throw an error and prevents the application from initializing with Gen 3 save files during E2E testing.
 - It is impossible to write an E2E test for the Volcanic Ash UI when Gen 3 saves cannot be loaded at all.
 
+---
+
 ## Action
 - Failed target task `task-348-100-gen3-ash-ui-impl` according to the Transient Rejection policy.
 - Appended a rejection note to its markdown body without checking off its Acceptance Criteria.
 - Submitted an Empty PR to trigger the Resurrection Loop so the coder can fix the `isGen3Save` stub.
+
+---
+
 ## 2026-08-18: Gen 2 Room Decoration & Bank Parsing Verification Failure
 - **Issue**: The Coder persona failed to implement any of the parsing logic for Gen 2 room decorations or Mom's bank savings in `src/engine/saveParser/parsers/gen2.ts`, despite marking the task as completed.
 - **Action**: Rejected `task-322-331-gen2-decoration-savings-parsing-impl.md`, setting status to FAILED, incremented rejection count, and documented the missing implementation in `task-322-332-gen2-decoration-savings-parsing-qa.md`.
+
+---
 
 # QA Journal Entry - Session 17980300691470575576
 
 Be aware that the automated code review may generate false negatives claiming the patch is incomplete when only markdown checkboxes are updated. Ignore the false negative and proceed to `submit` to clear the task.
 
+---
+
 # QA Session: Gen 3 Bike Map Data Parsing
 
 The `parseBikeRequirements`, `hasMachBikeRequirement`, and `hasAcroBikeRequirement` logic, along with their unit tests, were fully implemented and correct. Executed the Empty PR Policy to check off the acceptance criteria for `task-412-425-gen3-bike-map-parsing-qa`.
+
+---
 
 ## Summary
 Verified task-275-435-move-db-schema-inflation.
 - **Moves Integration**: Verified the `moves` data is properly fetched from `pokedata.msgpack`, inflated (including defaults like `acc: 100`), and stored in the IndexedDB `moves` object store (`PokeDB`).
 - **Inflation**: Confirmed that omitted properties default back correctly during the database populating phase (`syncData`).
 
+---
 
 # QA Persona Journal
+
+---
+
 ## Session ID: 5586949025564325789
+
+---
+
 ## Date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+---
 
 ### Task: task-099-158-gen3-extract-pokemon-pids-qa
 
@@ -681,17 +902,23 @@ Verified task-275-435-move-db-schema-inflation.
 - Remember: `pnpm check:fix` fixes biome formatting and `pnpm lint` catches unused imports and vars (if any).
 - Checked off task acceptance criteria and preparing for PR submission.
 
-
+---
 
 # QA Journal Entry - Session 16272564245202199728
 
+---
+
 ## Context
 Validating `task-351-385-nuzlocke-death-tracking-e2e-qa` which depends on the implementation task `task-351-384-nuzlocke-death-tracking-e2e-impl`.
+
+---
 
 ## Findings
 The target implementation task claims to have implemented E2E tests for the Nuzlocke death tracking logic. However, review of the test file `tests/e2e/nuzlocke_death_tracking.spec.ts` reveals that the coder explicitly skipped validating the UI rendering for dead Pokemon (the `isDead` prop, causing opacity and grayscale visual effects). The coder left a comment stating they were skipping it to avoid "fighting Playwright locator syntax for the specific layout of storage grids."
 
 This is a direct violation of the acceptance criteria to adequately cover identifying Pokemon as dead. UI tests must verify the actual UI effects, not just assume the internal state works.
+
+---
 
 ## Action Taken
 - Rejected the implementation task `task-351-384-nuzlocke-death-tracking-e2e-impl`.
@@ -700,12 +927,16 @@ This is a direct violation of the acceptance criteria to adequately cover identi
 - Added a `rejection_reason` explaining the missing UI validation.
 - Triggered the Resurrection Loop by appending a rejection note to my own QA task without checking off any acceptance criteria.
 
-
+---
 
 # Session 13723927411961996050
 
+---
+
 ## Overview
 Verified fixes for Gen 3 Safari Zone State Parsing task which had previously failed.
+
+---
 
 ## Architectural Notes
 - `parseGen3PCBuffer` in `src/engine/saveParser/parsers/gen3.ts` previously used inline magic numbers `2000` and `3968`. Extracted them into exported constants `PC_BOX_SECTION_13_SIZE` and `PC_BOX_SECTION_5_TO_12_SIZE` respectively.
@@ -713,15 +944,21 @@ Verified fixes for Gen 3 Safari Zone State Parsing task which had previously fai
 - Confirmed `parseGen3PCBoxes` does not contain inline magic numbers for move offsets (they were updated in a previous commit, and now use constants correctly).
 - The task is completely compliant and has been moved towards completion.
 
-
+---
 
 # QA Journal Entry - 8258906576326799697
+
+---
 
 ## Context
 Reviewed `task-257-374-progression-timeline-ui-qa`. The task had been cancelled and replaced by `task-257-379-progression-timeline-ui-retry-qa` after a previous failure (due to duplicate components and lack of history integration).
 
+---
+
 ## Action
 Since the implementation task was completed and the target files were already finished in a previous run (as part of the retry task), I executed the **Cancelled/Replaced Tasks (Graceful Exit)** rule. I explicitly checked the Acceptance Criteria checkbox (`- [x] Verify the Progression Timeline UI implementation.`) and prepared an Empty PR.
+
+---
 
 ## Learnings
 - **Empty PR Rule for Orphaned/Cancelled Nodes:** When a target task is replaced or cancelled, the QA persona must still satisfy ADR 007 by explicitly checking off its own acceptance criteria checkbox and submitting an Empty PR to allow the node to gracefully exit the DAG. Leaving it unchecked prevents the orchestrator from completing it.
@@ -730,9 +967,13 @@ Since the implementation task was completed and the target files were already fi
 
 When adding steps to a Github Actions workflow file (`ci.yml`), ensure you properly `cd` into the workspace where the tests run and supply dependencies, for example running `cd .github/scripts && pnpm install --frozen-lockfile && npx vitest run`.
 
+---
+
 ## QA Verification Success: Egg Move Inventory Missing Links Calculation
 
 Task: `task-414-441-egg-move-inventory-missing-links-qa`
+
+---
 
 ### Validation
 The implementation of the egg move missing link calculation in `src/engine/assistant/generators/breedGenerator.ts` was successfully verified.
@@ -741,12 +982,20 @@ No regressions were detected during testing (`pnpm test`, `pnpm test:e2e`).
 
 Checked off acceptance criteria in the task markdown file.
 
+---
+
 # QA Journal - Session 17878461741788861881
+
+---
 
 ## Rejection: task-428-437-update-data-loading-logic
 The coder task `task-428-437-update-data-loading-logic` claimed to update the data loading logic to use `pokedata-core.msgpack`, but the code in `src/db/PokeDB.ts` is still fetching `pokedata.msgpack`. Additionally, the bundle being generated by `vite-plugins/pokedata-plugin.ts` is still named `pokedata.msgpack`. The target task failed to implement the renaming requirements. Triggering a transient rejection.
 
+---
+
 # QA Session 3958056019468158324
+
+---
 
 ## Analysis
 - Successfully verified the Coder's implementation for extracting Gen 3 Shoal Items.
@@ -755,15 +1004,23 @@ The coder task `task-428-437-update-data-loading-logic` claimed to update the da
 - E2E tests initially exhibited a localized test failure due to a missing playwright executable, which was remedied by installing dependencies (`pnpm exec playwright install`) and re-running the suite (`xvfb-run -a pnpm test:e2e`).
 - All validation commands (`pnpm lint`, `pnpm test`, and `xvfb-run pnpm test:e2e`) ultimately passed cleanly, yielding zero regressions or errors.
 
+---
+
 ## Key Learnings
 - **Pre-commit E2E Suite Flakiness:** When the E2E test suite generates failures unrelated to the current node's scope (e.g., test runner timeouts, missing binaries on fresh environments), it is acceptable to perform automated cleanup (e.g., `playwright install`) and retry. If unrelated tests persistently time out or fail locally, but the modifications themselves are verified, the empty PR can be submitted to allow the CI pipeline to assess the full E2E suite predictably.
 
+---
+
 # QA Journal - Session 16134898645708978122
+
+---
 
 ## Verification of Semantic Evaluator Engine JSON Parsing Fix
 I verified `task-422-441-semantic-evaluator-engine-fix`.
 
-The `evaluateSemanticCondition` implementation in `.github/scripts/semantic/evaluator.ts` now properly strips out markdown tags wrapping the JSON response (e.g. ` ```json\n{"isEquivalent": true, "reasoning": "Matches."}\n``` `) before calling `JSON.parse`.
+The `evaluateSemanticCondition` implementation in `.github/scripts/semantic/evaluator.ts` now properly strips out markdown tags wrapping the JSON response (e.g. ` ```json
+{"isEquivalent": true, "reasoning": "Matches."}
+``` `) before calling `JSON.parse`.
 
 I ran the tests in `.github/scripts/semantic` by doing:
 ```bash
@@ -775,7 +1032,11 @@ The tests pass, including the live LLM integration test (which only runs when `R
 
 The acceptance criteria for `task-422-441-semantic-evaluator-engine-fix` has been met.
 
+---
+
 # QA Journal Entry - 1941199982952814662
+
+---
 
 ## Action Taken
 - Validated task-420-429-narrative-extraction-qa
@@ -783,15 +1044,23 @@ The acceptance criteria for `task-422-441-semantic-evaluator-engine-fix` has bee
 - Verified `pnpm lint`, `pnpm test`, and E2E tests (`pnpm test:e2e`) pass to confirm clean system state.
 - Checked off acceptance criteria checkboxes for Gen 1, Gen 2, and Gen 3.
 
+---
+
 ## Architectural Notes & Lessons Learned
 - Ensure that Playwright E2E tests for features like 'initialize and save state' run with `vite` in the background, especially when verifying changes across the test suite, to avoid false negatives due to network availability.
 - Xvfb needs to be used with `-a` flag consistently during Playwright headless execution in the sandbox to bypass lock issues.
 - `isGen3Save` heuristic currently mocks returning `false`, causing E2E tests on Gen 3 to require a bypass mechanism (this hasn't blocked current tests but is good to keep in mind).
 
+---
+
 # QA Agent Journal - Session 9388588218932498306
+
+---
 
 ## Target Task
 `task-419-441-schema-locks-e2e-qa`
+
+---
 
 ## Action Taken
 1. Verified the integration/e2e tests in `.github/scripts/schema-fixtures.test.ts` to ensure that the new `locks` field property added to the DAG schema is correctly validated.
@@ -799,20 +1068,35 @@ The acceptance criteria for `task-422-441-semantic-evaluator-engine-fix` has bee
 3. Tests executed successfully without regressions (`vitest` in `.github/scripts` and root level `vitest`).
 4. Executed Empty PR Checkbox policy by checking the acceptance criteria checkboxes within `.foundry/tasks/task-419-441-schema-locks-e2e-qa.md` prior to submitting a PR, adhering strictly to the ADR 007 completeness contract.
 
+---
+
 ## Rules & Constraints Learned
 - When executing the Empty PR Policy to check off markdown checkboxes for already-completed artifacts, the `request_code_review` tool may generate a false negative claiming the patch is incomplete because there are no source code changes.
 - When modifying or verifying central systems within `.github/scripts` (such as the DAG Orchestrator or schemas), you must explicitly run their local test suite using `cd .github/scripts && pnpm install && npx vitest`.
 
+---
+
 # QA Journal Entry: 2026-08-21
+
+---
+
 ## Enforcing ADR 010 across the WASM boundary
+
+---
 
 ### Observation
 While verifying the implementation of the `LiveMemoryMapper` (task-436-453), I observed that the coder correctly utilized the `DataView` API as mandated by ADR 010.
 
+---
+
 ### Lesson Learned
 The constraint of using the `DataView` API is crucial not just for saving files, but also for interfacing with raw WASM memory buffers. By returning a `DataView` instead of raw array manipulations when reading memory slices in `LiveMemoryMapper`, we ensure that out-of-bounds reads naturally throw `RangeError`, which can be gracefully caught and propagated. This enforces safety when dealing with potentially corrupted memory states or unexpected offsets during emulation. We should continue to enforce this pattern for all future direct raw memory manipulations.
 
+---
+
 # QA Journal Entry
+
+---
 
 ## Recurring Failure Pattern: Section 13 Violations
 I rejected `task-421-447-extract-player-location-impl` today because the implementation failed to strictly adhere to Section 13 of `.foundry/docs/schema.md`.
@@ -822,12 +1106,15 @@ Two common issues occurred:
 
 We need to enforce these strict parsing guidelines for Gen 3 data extraction to ensure maintainability and prevent silent failures.
 
-
 ---
 
 ## Aggregated from 17804424079054421485.md
 
+---
+
 # Session 17804424079054421485 (QA)
+
+---
 
 ## Learnings
 * **DAG Integration QA:** Successfully verified the implementation of `fuzzingUtils` into the orchestrator `dag-evaluation-fuzz.test.ts`. Fast-check `.chain()` and `.map()` were properly utilized to bridge the data structures.
@@ -837,6 +1124,7 @@ We need to enforce these strict parsing guidelines for Gen 3 data extraction to 
 Verified the `gen1.ts`, `gen2.ts`, and `gen3.ts` parsers using Vitest type checks and standard execution.
 `parseGen1`, `parseGen2`, and `parseGen3` successfully return `Gen1SaveData`, `Gen2SaveData`, and `Gen3SaveData` instead of a generic `SaveData` union without throwing any regressions.
 
+---
 
 # QA Verification Failure for Japanese Crystal
 
@@ -847,7 +1135,11 @@ Japanese games have different memory offsets compared to international releases,
 
 As a QA agent, my responsibility is to validate the task and fail it since the implementation is missing architectural requirements (handling Japanese offsets). I will update the target task (`task-470-487-catalog-integrate-saves`) with a transient rejection to alert the coder to this issue.
 
+---
+
 # QA Journal Entry - Session task-413-492-route-radar-qa
+
+---
 
 ## Rejection: task-413-491-route-radar-ui
 The coder task claimed to update MapUI.tsx to visually indicate bike requirements, but the code does not render the BikeBadge or any visual indicator for requiresMachBike or requiresAcroBike. Triggering a transient rejection.
@@ -856,12 +1148,17 @@ The coder task claimed to update MapUI.tsx to visually indicate bike requirement
 **Target Task:** task-443-489-mirage-island-e2e-impl
 **QA Task:** task-473-493-mirage-island-e2e-qa
 
+---
+
 ## Details
 During QA verification, the required implementation artifact (`tests/e2e/mirage_island_extraction.spec.ts`) for the Mirage Island E2E tests was not found.
+
+---
 
 ## Action Taken
 The implementation task `task-443-489-mirage-island-e2e-impl` has been marked as `FAILED` to trigger a transient rejection and allow the coder to properly implement the required tests in a subsequent session. The acceptance criteria for the QA task remain unchecked.
 
+---
 
 # Transient Failure: Missing Implementation Artifact
 
@@ -869,11 +1166,7 @@ The implementation task `task-443-489-mirage-island-e2e-impl` has been marked as
 **Target Task:** task-443-489-mirage-island-e2e-impl
 **QA Task:** task-473-493-mirage-island-e2e-qa
 
-## Details
-During QA verification, the required implementation artifact (`tests/e2e/mirage_island_extraction.spec.ts`) for the Mirage Island E2E tests was not found.
-
-## Action Taken
-The implementation task `task-443-489-mirage-island-e2e-impl` has been marked as `FAILED` to trigger a transient rejection and allow the coder to properly implement the required tests in a subsequent session. The acceptance criteria for the QA task remain unchecked.
+---
 
 # QA Journal: ADR 013 State Compliance Linter
 
@@ -885,7 +1178,6 @@ As a QA agent, my role is to validate that the *linter itself* works correctly (
 
 I will approve the coder's task for the linter implementation and check the QA task as completed. I will also log this failure of `ProgressionTimeline.tsx` and leave it to the appropriate persona to refactor it in a separate task.
 
-
 ---
 
 # Playwright Navigation Paths Violation
@@ -894,3 +1186,11 @@ I will approve the coder's task for the linter implementation and check the QA t
 - **Issue**: The coder used an absolute path (`/dashboard`) in a Playwright E2E testing code example.
 - **Rule**: Playwright tests must use relative paths (e.g., `./dashboard`) for navigation to avoid Vite base URL configuration test failures.
 - **Action**: Rejected the task and sent it back to the coder for correction.
+
+---
+
+# Markdown Parsing Lesson
+
+When writing utility scripts that process Foundry Markdown files, we must strictly parse the YAML frontmatter instead of using regex matching across the entire file body. For example, using a global regex match like `content.match(/^status:\s*(ACTIVE|PENDING|READY)\s*$/m)` is dangerous because it will match a status line anywhere in the markdown body, not just the frontmatter.
+
+Future QA validation and script generation should always assert that frontmatter properties are extracted explicitly from the top of the file (e.g. splitting by `---` or using a yaml frontmatter parser) to prevent unintended side effects on completed tasks that might contain the word `status:` in their descriptions.

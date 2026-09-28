@@ -1,6 +1,8 @@
+## Aggregated from 2026-08-23-10-15-00.md
+
 ---
 
-## Aggregated from 2026-08-23-10-15-00.md
+---
 
 # QA Journal Entry - August 23, 2026
 

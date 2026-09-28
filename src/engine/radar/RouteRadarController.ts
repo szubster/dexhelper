@@ -53,6 +53,7 @@ export class RouteRadarController {
           if (!heatmap[areaId]) {
             heatmap[areaId] = { density: 0, requiresMachBike: false, requiresAcroBike: false };
           }
+          // Increase density count by 1 for this missing encounter
           heatmap[areaId].density += 1;
 
           const reqs = areaBikeReqs.get(areaId);

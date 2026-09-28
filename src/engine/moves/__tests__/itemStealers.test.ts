@@ -37,7 +37,7 @@ describe('itemStealers', () => {
   ]);
 
   describe('findItemStealers', () => {
-    it('should identify Pokemon with Thief', () => {
+    it('should correctly identify Pokemon with Thief', () => {
       const p = mockPokemon[0];
       if (!p) throw new Error('Mock Pokemon not found');
       const stealers = findItemStealers([p]);

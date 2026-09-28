@@ -321,16 +321,16 @@ export interface RoamerData {
 
 export interface BerryPatchData {
   locationName?: string;
-  berryId: number;
-  stage: number;
-  stopGrowth: boolean;
+  itemId: number;
+  growthStage: number;
+  growthStopped: boolean;
   minutesUntilNextStage: number;
   berryYield: number;
   regrowthCount: number;
-  watered1: boolean;
-  watered2: boolean;
-  watered3: boolean;
-  watered4: boolean;
+  isWateredStage1: boolean;
+  isWateredStage2: boolean;
+  isWateredStage3: boolean;
+  isWateredStage4: boolean;
 }
 
 export interface ActiveSwarmData {

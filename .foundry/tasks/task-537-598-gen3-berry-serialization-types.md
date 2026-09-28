@@ -2,10 +2,10 @@
 id: task-537-598-gen3-berry-serialization-types
 type: TASK
 title: Define Types and Schema for Gen 3 Berry Serialization
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-20'
-updated_at: '2026-09-20'
+updated_at: '2026-09-28'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -21,6 +21,6 @@ locks: []
 Define TypeScript interfaces for the Gen 3 berry tree data structure. Ensure property names use full, readable names without abbreviations, as mandated by the PokeData Property Naming Schema.
 
 ## Acceptance Criteria
-- [ ] Define TypeScript interfaces for Gen 3 berry tree data structure.
-- [ ] Ensure property names use full names without abbreviations.
-- [ ] Export types for use in pipeline and runtime API.
+- [x] Define TypeScript interfaces for Gen 3 berry tree data structure.
+- [x] Ensure property names use full names without abbreviations.
+- [x] Export types for use in pipeline and runtime API.

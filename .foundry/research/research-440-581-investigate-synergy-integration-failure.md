@@ -2,10 +2,10 @@
 id: research-440-581-investigate-synergy-integration-failure
 type: RESEARCH
 title: Investigate Synergy Assistant Integration Failure
-status: READY
+status: FAILED
 owner_persona: researcher
 created_at: '2026-09-15T17:42:01Z'
-updated_at: '2026-09-25'
+updated_at: '2026-09-28'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,9 @@ tags:
   - assistant
   - research
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

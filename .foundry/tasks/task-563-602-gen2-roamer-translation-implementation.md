@@ -2,10 +2,10 @@
 id: task-563-602-gen2-roamer-translation-implementation
 type: TASK
 title: Gen 2 Roamer Translation Implementation
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-20'
-updated_at: '2026-09-20'
+updated_at: '2026-09-28'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,5 +31,5 @@ Implement the logic to consume raw mapGroup and mapId values and output translat
 - Ensure proper fallback logic returning 'Unknown Location' if the coordinate pair is not found or is invalid.
 
 ## Acceptance Criteria
-- [ ] Translation function successfully maps valid mapGroup and mapId to route names.
-- [ ] Fallback string 'Unknown Location' is returned for invalid or unmapped coordinates.
+- [x] Translation function successfully maps valid mapGroup and mapId to route names.
+- [x] Fallback string 'Unknown Location' is returned for invalid or unmapped coordinates.

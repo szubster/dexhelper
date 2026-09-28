@@ -2,10 +2,10 @@
 id: task-526-567-drive-auth-qa
 type: TASK
 title: QA Verification for Google Drive Auth in Cloudflare Worker
-status: PENDING
+status: FAILED
 owner_persona: qa
 created_at: '2026-09-09'
-updated_at: '2026-09-11'
+updated_at: '2026-09-28'
 depends_on:
   - task-526-566-drive-auth-tests
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - auth
   - qa
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 locks: []
 priority: 50

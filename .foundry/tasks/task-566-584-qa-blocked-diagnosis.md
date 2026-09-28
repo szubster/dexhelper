@@ -2,10 +2,10 @@
 id: task-566-584-qa-blocked-diagnosis
 type: TASK
 title: QA Verification for Orchestrator BLOCKED Diagnosis
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-15T23:11:43Z'
-updated_at: '2026-09-18'
+updated_at: '2026-09-28'
 depends_on:
   - task-566-583-orchestrator-diagnosis-tests
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-566-582-orchestrator-diagnosis-logic
 notes: ''
 locks: []
 ---

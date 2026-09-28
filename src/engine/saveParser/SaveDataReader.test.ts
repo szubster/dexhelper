@@ -62,7 +62,7 @@ describe('SaveDataReader', () => {
     expect(reader.getFloat64Be(16)).toBeCloseTo(Math.E, 8);
   });
 
-  it('should throw RangeError for out-of-bounds reading and negative offsets', () => {
+  it('should throw an Error with a specific message for out-of-bounds reading and negative offsets', () => {
     const buffer = new ArrayBuffer(8);
     const view = new DataView(buffer);
     const reader = new SaveDataReader(view);

@@ -1,11 +1,11 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
-import { useWindowVirtualizer } from '@tanstack/react-virtual';
 import { SearchX } from 'lucide-react';
 import React, { useMemo } from 'react';
 import { pokeDB } from '../db/PokeDB';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import type { PokemonListItem } from '../utils/pokemonQueries';
+import { usePokedexGridVirtualizer } from './hooks/usePokedexGridVirtualizer';
 import { PokedexCard } from './PokedexCard';
 import { TacticalButton } from './TacticalButton';
 import { TacticalPanel } from './TacticalPanel';
@@ -139,6 +139,9 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
     scrollMargin,
   });
 
+  // ⚡ Bolt: Pre-allocate column indices to avoid intermediate array allocations inside high-frequency virtualized row render pass
+  const columnIndices = useMemo(() => Array.from({ length: columns }, (_, i) => i), [columns]);
+
   if (finalPokemon.length === 0) {
     return (
       <TacticalPanel className="fade-in mx-1 mt-4 flex animate-in flex-col items-center justify-center p-12 text-center duration-500">
@@ -186,7 +189,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
         </div>
       </div>
 
-      <div ref={parentRef} className="relative w-full" style={{ height: `${virtualizer.getTotalSize()}px` }}>
+      <div ref={containerRef} className="relative w-full" style={{ height: `${virtualizer.getTotalSize()}px` }}>
         <div
           style={{
             position: 'absolute',
@@ -199,7 +202,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
           <div className="grid grid-cols-1 gap-4 px-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {virtualizer.getVirtualItems().map((virtualRow) => (
               <React.Fragment key={virtualRow.index}>
-                {Array.from({ length: columns }).map((_, colIndex) => {
+                {columnIndices.map((colIndex) => {
                   const idx = virtualRow.index * columns + colIndex;
                   const pokemon = finalPokemon[idx];
                   if (!pokemon) return <div key={`empty-${idx}`} />;

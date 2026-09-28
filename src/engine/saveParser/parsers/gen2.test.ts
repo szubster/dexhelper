@@ -815,3 +815,32 @@ describe('gen2 parsers', () => {
     });
   });
 });
+
+describe('Unown Dex parsing', () => {
+  it('should correctly parse the Unown Dex for GS', () => {
+    const buffer = new ArrayBuffer(32768);
+    const view = new DataView(buffer);
+    const UNOWN_DEX_OFFSET_GS = 0x2a8c;
+
+    view.setUint8(UNOWN_DEX_OFFSET_GS, 1);
+    view.setUint8(UNOWN_DEX_OFFSET_GS + 1, 2);
+
+    const data = parseGen2(view, false);
+    expect(data.unownDex).toBeDefined();
+    expect(data.unownDex?.[0]).toBe(1);
+    expect(data.unownDex?.[1]).toBe(2);
+    expect(data.unownDex?.[2]).toBe(0);
+  });
+
+  it('should correctly parse the Unown Dex for Crystal', () => {
+    const buffer = new ArrayBuffer(32768);
+    const view = new DataView(buffer);
+    const UNOWN_DEX_OFFSET_CRYSTAL = 0x2aa9;
+
+    view.setUint8(UNOWN_DEX_OFFSET_CRYSTAL, 3);
+
+    const data = parseGen2(view, true);
+    expect(data.unownDex).toBeDefined();
+    expect(data.unownDex?.[0]).toBe(3);
+  });
+});

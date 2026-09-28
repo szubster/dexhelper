@@ -312,16 +312,16 @@ describe('gen3 parser scaffolding', () => {
     const patch0 = saveData.gen3BerryPatches?.[0];
     expect(patch0).not.toHaveProperty('mapId');
     expect(patch0?.locationName).toBe('Route 102');
-    expect(patch0?.berryId).toBe(15);
-    expect(patch0?.stage).toBe(2);
-    expect(patch0?.stopGrowth).toBe(true);
+    expect(patch0?.itemId).toBe(15);
+    expect(patch0?.growthStage).toBe(2);
+    expect(patch0?.growthStopped).toBe(true);
     expect(patch0?.minutesUntilNextStage).toBe(120);
     expect(patch0?.berryYield).toBe(3);
     expect(patch0?.regrowthCount).toBe(1);
-    expect(patch0?.watered1).toBe(true);
-    expect(patch0?.watered2).toBe(false);
-    expect(patch0?.watered3).toBe(true);
-    expect(patch0?.watered4).toBe(false);
+    expect(patch0?.isWateredStage1).toBe(true);
+    expect(patch0?.isWateredStage2).toBe(false);
+    expect(patch0?.isWateredStage3).toBe(true);
+    expect(patch0?.isWateredStage4).toBe(false);
 
     expect(saveData.gen3PokeNews).toBeDefined();
     expect(saveData.gen3PokeNews?.length).toBe(16);

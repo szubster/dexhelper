@@ -5,7 +5,7 @@ title: Investigate Gen 3 Condition Stats Parser Failure
 status: READY
 owner_persona: researcher
 created_at: '2026-09-22'
-updated_at: '2026-09-22'
+updated_at: '2026-09-28'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - save-engine
   - data-extraction
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

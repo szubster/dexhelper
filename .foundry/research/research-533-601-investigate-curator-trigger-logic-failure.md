@@ -5,7 +5,7 @@ title: Investigate Orchestrator Curator Trigger Logic Failure
 status: PENDING
 owner_persona: researcher
 created_at: '2026-09-20'
-updated_at: '2026-09-24'
+updated_at: '2026-09-28'
 depends_on: []
 jules_session_id: null
 parent: story-531-533-orchestrator-trigger-logic-updates

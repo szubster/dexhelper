@@ -191,6 +191,35 @@ describe('evolutionGenerator', () => {
       expect(readySuggestions[0]?.priority).toBe(90);
     });
 
+    it('appends (in Daycare) label when pre-evolution is stored in Daycare', async () => {
+      const suggestions: Suggestion[] = [];
+      const apiData: AssistantApiData = {
+        pokemonMetadata: {
+          2: {
+            id: 2,
+            efrm: [1],
+            det: [{ tr: EVO_TRIGGER.LEVEL_UP, ml: 16 }],
+          },
+        },
+      } as unknown as AssistantApiData;
+
+      const daycareBulba = { speciesId: 1, level: 18, storageLocation: 'daycare' } as PokemonInstance;
+      const instancesBySpecies = new Map<number, PokemonInstance[]>([[1, [daycareBulba]]]);
+
+      await generateEvolutionSuggestions(
+        [2],
+        mockSaveData,
+        apiData,
+        instancesBySpecies,
+        suggestions,
+        'ruby',
+        new Set([2]),
+      );
+
+      expect(suggestions).toHaveLength(1);
+      expect(suggestions[0]?.description).toContain('pre-evolution (in Daycare)');
+    });
+
     it('handles Tyrogue RPS stat requirements (Attack > Defense)', async () => {
       const suggestions: Suggestion[] = [];
       const apiData: AssistantApiData = {

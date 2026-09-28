@@ -2,13 +2,13 @@
 id: story-569-585-confidence-metrics-schema-e2e
 type: STORY
 title: Integration and E2E Verification for Confidence Metrics Schema
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-20'
-updated_at: '2026-09-25'
+updated_at: '2026-09-28'
 depends_on:
   - story-569-584-confidence-metrics-schema
-jules_session_id: null
+jules_session_id: '16833862932060085113'
 pr_number: null
 parent: epic-565-569-agent-confidence-metrics-schema
 tags:
@@ -34,4 +34,6 @@ This is an exclusive STORY dedicated to Integration and E2E Verification for the
 - Implement tests to validate the `confidence_score` is an integer constraint (0-100).
 
 ## Acceptance Criteria
-- [ ] Decompose into tasks.
+- [x] Decompose into tasks.
+- [ ] task-585-601-schema-e2e-linters
+- [ ] task-585-602-schema-e2e-tests

@@ -2,10 +2,10 @@
 id: task-526-566-drive-auth-tests
 type: TASK
 title: Write Unit Tests for Google Drive Auth Logic
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-19'
+updated_at: '2026-09-28'
 depends_on:
   - task-526-565-drive-auth-worker-logic
 jules_session_id: null
@@ -29,5 +29,5 @@ priority: 50
 To ensure our Google Drive API authentication logic is robust, we need to add unit and integration tests.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for the token generation/exchange functions.
-- [ ] Mock the Google Drive API responses to ensure the worker logic handles success and failure cases appropriately.
+- [x] Write unit tests for the token generation/exchange functions.
+- [x] Mock the Google Drive API responses to ensure the worker logic handles success and failure cases appropriately.

@@ -5,7 +5,7 @@ title: Wild Item Selection UI Implementation Retry
 status: READY
 owner_persona: coder
 created_at: '2026-09-24'
-updated_at: '2026-09-25'
+updated_at: '2026-09-28'
 depends_on:
   - research-562-620-investigate-wild-item-ui-failure
   - task-562-578-wild-item-selection-state
@@ -17,7 +17,7 @@ tags:
   - ui
   - react
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

@@ -135,6 +135,9 @@ export async function generateEvolutionSuggestions(
       const isIntermediate = immediateEvoTargetId !== targetId;
       const pathTitlePrefix = isIntermediate ? `Path to #${targetId}` : 'Evolution';
       const evolveTargetText = isIntermediate ? ` into #${immediateEvoTargetId} to progress towards #${targetId}` : '';
+      const preEvoLabel = bestInstance.storageLocation?.toLowerCase().includes('daycare')
+        ? 'pre-evolution (in Daycare)'
+        : 'pre-evolution';
 
       if (tr === EVO_TRIGGER.LEVEL_UP) {
         if (min_l) {
@@ -174,8 +177,8 @@ export async function generateEvolutionSuggestions(
             category: 'Evolve',
             title: isIntermediate ? pathTitlePrefix : `Level Up Evolution: #${targetId}`,
             description: isActuallyReady
-              ? `Your Lv. ${bestInstance.level} pre-evolution is ready to evolve${evolveTargetText} ${specificReq}!`
-              : `Your Lv. ${bestInstance.level} pre-evolution evolves at Lv. ${min_l}${evolveTargetText} ${specificReq}.`,
+              ? `Your Lv. ${bestInstance.level} ${preEvoLabel} is ready to evolve${evolveTargetText} ${specificReq}!`
+              : `Your Lv. ${bestInstance.level} ${preEvoLabel} evolves at Lv. ${min_l}${evolveTargetText} ${specificReq}.`,
             pokemonId: targetId,
             priority: isActuallyReady ? 90 : 75,
           });
@@ -194,8 +197,8 @@ export async function generateEvolutionSuggestions(
                 ? `Ready to Evolve: #${targetId}!`
                 : `Happiness Evolution: #${targetId}`,
             description: isFriendlyEnough
-              ? `Your pre-evolution is friendly enough${friendshipStatus}! Level it up${todMsg} to evolve${evolveTargetText}.`
-              : `Level up your pre-evolution with high happiness${friendshipStatus} to evolve${todMsg}${evolveTargetText}!`,
+              ? `Your ${preEvoLabel} is friendly enough${friendshipStatus}! Level it up${todMsg} to evolve${evolveTargetText}.`
+              : `Level up your ${preEvoLabel} with high happiness${friendshipStatus} to evolve${todMsg}${evolveTargetText}!`,
             pokemonId: targetId,
             priority: isFriendlyEnough ? 90 : 80,
           });
@@ -205,7 +208,7 @@ export async function generateEvolutionSuggestions(
             id: `evo-lvl-any-${targetId}`,
             category: 'Evolve',
             title: isIntermediate ? pathTitlePrefix : `Level Up Evolution: #${targetId}`,
-            description: `Level up your pre-evolution${todMsg} to evolve${evolveTargetText}!`,
+            description: `Level up your ${preEvoLabel}${todMsg} to evolve${evolveTargetText}!`,
             pokemonId: targetId,
             priority: 70,
           });
