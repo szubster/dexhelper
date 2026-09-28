@@ -2,7 +2,7 @@
 id: research-533-601-investigate-curator-trigger-logic-failure
 type: RESEARCH
 title: Investigate Orchestrator Curator Trigger Logic Failure
-status: READY
+status: PENDING
 owner_persona: researcher
 created_at: '2026-09-20'
 updated_at: '2026-09-28'

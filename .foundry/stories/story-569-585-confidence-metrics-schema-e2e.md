@@ -2,7 +2,7 @@
 id: story-569-585-confidence-metrics-schema-e2e
 type: STORY
 title: Integration and E2E Verification for Confidence Metrics Schema
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-20'
 updated_at: '2026-09-28'

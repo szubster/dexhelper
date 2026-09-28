@@ -2,7 +2,7 @@
 id: story-566-570-cva-theme-variables-e2e-verification
 type: STORY
 title: E2E Verification of CVA and Theme Setup
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-15T05:48:26Z'
 updated_at: '2026-09-28'
@@ -17,7 +17,8 @@ tags:
   - testing
   - styling
 research_references: []
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 1
+rejection_reason: ''
 locks: []
 priority: 60
 ---

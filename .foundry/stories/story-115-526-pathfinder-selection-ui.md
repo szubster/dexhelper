@@ -2,7 +2,7 @@
 id: story-115-526-pathfinder-selection-ui
 type: STORY
 title: Pathfinder Target Selection UI
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-30'
 updated_at: '2026-09-28'

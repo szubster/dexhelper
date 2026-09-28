@@ -2,12 +2,12 @@
 id: research-423-568-investigate-gen3-lottery-ui-failure
 type: RESEARCH
 title: Investigate Gen3 Lottery UI Component Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-09-11'
 updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: '5262417294145060836'
+jules_session_id: null
 pr_number: null
 parent: story-133-423-gen3-lottery-ui-integration
 tags:
@@ -15,7 +15,9 @@ tags:
   - gen3
   - ui
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---
