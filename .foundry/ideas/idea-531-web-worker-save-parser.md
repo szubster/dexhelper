@@ -2,10 +2,10 @@
 id: idea-531-web-worker-save-parser
 type: IDEA
 title: Offload Binary Save File Parsing to Web Worker
-status: PENDING
+status: READY
 owner_persona: product_manager
 created_at: '2026-04-20'
-updated_at: '2026-04-20'
+updated_at: '2026-09-28'
 depends_on: []
 jules_session_id: null
 pr_number: null

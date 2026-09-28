@@ -2,10 +2,10 @@
 id: task-525-629-workspace-e2e-qa
 type: TASK
 title: Workspace Infrastructure E2E QA Verification
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-28'
 depends_on:
   - task-525-628-workspace-e2e-tests-coder
 jules_session_id: null
