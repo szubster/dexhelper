@@ -32,6 +32,6 @@ We need to implement the data processing logic that calculates the density of mi
 Implement the calculateHeatmap method inside RouteRadarController. It must aggregate missing encounter suggestions by their areaId and calculate a density score.
 
 ## Acceptance Criteria
-- [ ] Implement the calculateHeatmap method in RouteRadarController.
-- [ ] Ensure the density score correctly maps areaIds to their corresponding missing species counts.
-- [ ] Ensure it accurately processes edge cases (e.g., areas with 0 missing encounters should not be present in the output or have a score of 0).
+- [x] Implement the calculateHeatmap method in RouteRadarController.
+- [x] Ensure the density score correctly maps areaIds to their corresponding missing species counts.
+- [x] Ensure it accurately processes edge cases (e.g., areas with 0 missing encounters should not be present in the output or have a score of 0).
