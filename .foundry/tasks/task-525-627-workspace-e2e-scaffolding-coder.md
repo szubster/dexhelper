@@ -32,4 +32,4 @@ locks: []
 This task focuses strictly on setting up the boilerplate for the E2E tests for the new workspace setup to adhere to the modular decomposition rule.
 
 ## Acceptance Criteria
-- [ ] Create E2E test file scaffolding for workspace validation.
+- [x] Create E2E test file scaffolding for workspace validation.
