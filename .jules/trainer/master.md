@@ -49,3 +49,11 @@ When fixing Assistant Logic related to branching vs linear evolutions, ensure th
 
 # Learnings
 - **Abstraction and Unification:** When porting a feature previously only supporting Gen 2 (like Daycare breeding logic in `generateBreedingSuggestions`) to Gen 3, it's essential to abstract the data structures (`daycareMons`, `daycareHasEgg`) so that the core evaluation logic can be unified without nesting complex `if (isGen2)` vs `if (isGen3)` logic inside hot loops. We achieved this by flattening the daycare evaluation array beforehand using `const daycareMons = gen2Data?.daycare || gen3Data?.gen3Daycare?.mons || [];`.
+
+# Session Details
+- Date: $(date)
+- Focus: Integrated Daycare Pokémon into Assistant instance extraction and evolution recommendations.
+
+# Learnings
+- **Daycare Instance Extraction:** In Gen 2 (`saveData.daycare`) and Gen 3 (`saveData.gen3Daycare?.mons`), Daycare Pokémon are stored separately from `partyDetails` and `pcDetails`. By updating `extractAllInstances` in `src/engine/breeding/inventoryTools.ts` to include Daycare Pokémon, all assistant recommendation generators (evolutions, trades, breeding, OT tracking, and HM/utility tools) automatically account for Pokémon stored in the Daycare.
+- **Clear UI Indicators:** When generating evolution suggestions for pre-evolutions stored in the Daycare, appending `(in Daycare)` to the pre-evolution label in suggestion descriptions provides explicit clarity to the user on where their candidate Pokémon is located.
