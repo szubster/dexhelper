@@ -284,6 +284,7 @@ export const StorageGrid = React.memo(function StorageGrid({
     scrollMargin: containerNode?.offsetTop ?? 0,
     estimateSize: (index) => {
       const item = flatList[index];
+      if (!item) return 80;
       if (item.type === 'header') return 80;
       if (item.type === 'empty') return 80;
       // Cards have roughly aspect-square + bottom container height,
@@ -309,6 +310,7 @@ export const StorageGrid = React.memo(function StorageGrid({
       >
         {virtualizer.getVirtualItems().map((virtualItem) => {
           const rowData = flatList[virtualItem.index];
+          if (!rowData) return null;
 
           return (
             <div
@@ -325,7 +327,7 @@ export const StorageGrid = React.memo(function StorageGrid({
                 paddingBottom: rowData.type === 'header' ? '0px' : '20px',
               }}
             >
-              {rowData.type === 'header' && (
+              {rowData.type === 'header' && 'count' in rowData && (
                 <div className="relative mt-16 mb-8 overflow-hidden rounded-none border border-zinc-800 border-dashed bg-zinc-950 p-1 first:mt-0">
                   <div className="relative flex items-stretch gap-4 bg-zinc-900/50 p-3">
                     <RackHandle />
@@ -380,7 +382,7 @@ export const StorageGrid = React.memo(function StorageGrid({
                 </div>
               )}
 
-              {rowData.type === 'row' && (
+              {rowData.type === 'row' && 'items' in rowData && 'startIndex' in rowData && (
                 <div className="grid h-full grid-cols-2 gap-3 pb-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
                   {rowData.items.map(({ p, pokemon }, idx) => (
                     <StorageCard
