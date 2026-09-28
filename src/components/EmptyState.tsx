@@ -99,7 +99,9 @@ export function EmptyState({ label, icon, className, labelClassName, variant = '
                 isWarning ? 'text-zinc-500 group-hover:text-zinc-400' : 'text-zinc-600 group-hover:text-zinc-500',
               )}
             >
-              [ {isWarning ? 'SIGNAL_LOST' : 'DATA_STREAM_EMPTY'} ]
+              <span aria-hidden="true">[ </span>
+              {isWarning ? 'SIGNAL_LOST' : 'DATA_STREAM_EMPTY'}
+              <span aria-hidden="true"> ]</span>
             </span>
           </div>
 
