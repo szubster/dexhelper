@@ -29,5 +29,5 @@ priority: 50
 To ensure our Google Drive API authentication logic is robust, we need to add unit and integration tests.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for the token generation/exchange functions.
-- [ ] Mock the Google Drive API responses to ensure the worker logic handles success and failure cases appropriately.
+- [x] Write unit tests for the token generation/exchange functions.
+- [x] Mock the Google Drive API responses to ensure the worker logic handles success and failure cases appropriately.
