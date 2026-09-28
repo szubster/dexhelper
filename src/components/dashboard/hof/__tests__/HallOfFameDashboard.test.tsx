@@ -43,15 +43,14 @@ describe('HallOfFameDashboard', () => {
   });
 
   it('handles export click and sets state', async () => {
-    const originalCreateObjectURL = URL.createObjectURL;
-    const originalRevokeObjectURL = URL.revokeObjectURL;
+    const originalCreateObjectURL = URL.createObjectURL.bind(URL);
+    const originalRevokeObjectURL = URL.revokeObjectURL.bind(URL);
 
-    // Instead of mocking the document node and causing appendChild errors,
-    // we can spy on window.URL functions and trust that the browser creates and clicks the 'a' tag.
-    // The only thing we need to verify is that URL.createObjectURL was called and we await for the export button state to revert.
+    const mockCreateObjectURL = vi.fn<typeof URL.createObjectURL>(() => 'blob:http://localhost/mock');
+    const mockRevokeObjectURL = vi.fn<typeof URL.revokeObjectURL>();
 
-    URL.createObjectURL = vi.fn<typeof URL.createObjectURL>(() => 'blob:http://localhost/mock');
-    URL.revokeObjectURL = vi.fn<typeof URL.revokeObjectURL>();
+    URL.createObjectURL = mockCreateObjectURL;
+    URL.revokeObjectURL = mockRevokeObjectURL;
 
     try {
       const mockBlob = new Blob(['mock'], { type: 'image/png' });
@@ -85,17 +84,17 @@ describe('HallOfFameDashboard', () => {
       // Check if it was called
       expect(renderCertificate).toHaveBeenCalled();
 
-      expect(URL.createObjectURL).toHaveBeenCalledWith(mockBlob);
+      expect(mockCreateObjectURL).toHaveBeenCalledWith(mockBlob);
       // Let any async tasks finish
-      await new Promise(resolve => setTimeout(resolve, 0));
-      expect(URL.revokeObjectURL).toHaveBeenCalledWith('blob:http://localhost/mock');
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      expect(mockRevokeObjectURL).toHaveBeenCalledWith('blob:http://localhost/mock');
     } finally {
       URL.createObjectURL = originalCreateObjectURL;
       URL.revokeObjectURL = originalRevokeObjectURL;
       vi.restoreAllMocks();
       const div = document.getElementById('hof-certificate-hidden-container');
       if (div) {
-          document.body.removeChild(div);
+        document.body.removeChild(div);
       }
     }
   });
