@@ -1779,7 +1779,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       }
     } else if (_forcedVersion === 'ruby' || _forcedVersion === 'sapphire') {
       try {
-        gen3RSBattleTowerWinStreaks = parseRSBattleTowerWinStreaks(view, section2Offset);
+        gen3RSBattleTowerWinStreaks = parseRSBattleTowerWinStreaks(view, section0Offset);
       } catch {
         // Ignored if missing or corrupted, allowing the rest of the save to load
       }
